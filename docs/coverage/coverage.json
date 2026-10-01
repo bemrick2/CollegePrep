@@ -2,19 +2,37 @@
   "generated_at": "2026-10-01",
   "status": "in_progress",
   "coverage_definition": {
-    "state_aid": "A state counts only when current official state aid programs are normalized and source-verified.",
-    "institution": "An institution counts only when identity plus at least one current policy domain is persisted and source-verified.",
+    "state_aid": "A state counts as complete only when the current official state-aid catalog relevant to the product is normalized and source-verified.",
+    "institution": "An institution counts as verified when identity plus at least one current policy domain is persisted and source-verified.",
     "complete_institution": "Costs, admissions, merit, credit/transfer and appeal policy domains are all current or explicitly not applicable."
   },
   "totals": {
     "states_and_dc_target": 51,
-    "states_verified": 0,
-    "institutions_target": null,
-    "institutions_verified": 0,
-    "complete_institutions": 0
+    "states_complete": 0,
+    "states_partial": 1,
+    "institutions_verified": 1,
+    "complete_institutions": 0,
+    "verified_state_aid_records": 5,
+    "verified_institution_policy_records": 5,
+    "verified_credit_equivalencies": 10
   },
+  "current_batches": [
+    {
+      "scope": "Tennessee state aid",
+      "status": "partial",
+      "records_persisted": 5,
+      "notes": "HOPE, Aspire, GAMS, Tennessee Promise, and Wilder-Naifeh are persisted. Remaining Tennessee programs still need normalization before state coverage is marked complete."
+    },
+    {
+      "scope": "University of Tennessee, Knoxville",
+      "status": "partial",
+      "records_persisted": 6,
+      "notes": "Institution identity, AP/CLEP policy seed, selected AP equivalencies, one current institutional award, and appeal/negotiation-gate policy are persisted. Costs, admissions metrics, transfer rules, full scholarship catalog, and full prior-learning tables remain."
+    }
+  ],
   "notes": [
-    "This file starts counts at zero intentionally. Prior conversational research is not counted until it is persisted and source-verified in this repository.",
-    "Counts will be updated only from durable repository data."
+    "Counts include only records persisted in this repository.",
+    "Prior conversational research is not counted until it is written to the repository and source-verified.",
+    "Negative policy findings are treated conservatively; absence of a published offer-negotiation path is not upgraded to a verified negative without sufficient official-source review."
   ]
 }
