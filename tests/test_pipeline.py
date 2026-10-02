@@ -10,7 +10,7 @@ sys.path.insert(0, str(ROOT))
 from pipeline import exams, registry, review, text as T, topics  # noqa: E402
 from pipeline import promote as P  # noqa: E402
 from pipeline.crawl import Fetcher, Run, crawl  # noqa: E402
-from pipeline.extractors import cds, costs, credit, merit  # noqa: E402
+from pipeline.extractors import appeals, cds, costs, credit, merit  # noqa: E402
 
 FIX = ROOT / 'tests/fixtures/pipeline'
 INST = {'institution_key': 'ipeds-999999', 'control': 'public', 'folder': 'example'}
@@ -167,6 +167,21 @@ C1   First-time, first-year students
         self.assertEqual(len(c['record']['award_tiers']), 4)
         self.assertEqual(c['record']['award_tiers'][3], {'gpa': '3.5-4.0', 'test': 'ACT 24-27 / SAT 1160-1290', 'amount_text': '$6,000'})
         self.assertEqual((c['record']['award_min'], c['record']['award_max']), (2000, 6000))
+
+
+    def test_appeals_are_queued_and_never_qualify(self):
+        html = """<title>Scholarship FAQ</title><h2>Financial Aid Appeals</h2><p>If your family has experienced special
+circumstances such as job loss, you may submit a special circumstances appeal to the Office of Financial Aid.
+UT cannot match scholarship or aid offers from other institutions. Students who are not meeting Satisfactory
+Academic Progress may file a SAP appeal each term.</p>"""
+        got = {c['record']['appeal_kind']: c for c in appeals.extract(INST, ENTRY, T.parse_html(html), '2026-27')}
+        self.assertEqual(set(got), {'need_based_special_circumstances', 'competing_offer_review', 'sap_appeal'})
+        self.assertFalse(got['competing_offer_review']['record']['offered'])  # negative statement recorded as such
+        self.assertTrue(got['need_based_special_circumstances']['record']['offered'])
+        for c in got.values():
+            self.assertFalse(c['record']['qualifies_for_paid_addon'])
+            self.assertIn('semantic_review_required', c['issues'])
+            self.assertTrue(c['evidence'][0]['snippet'])
 
 
 class _Quiet(SimpleHTTPRequestHandler):
