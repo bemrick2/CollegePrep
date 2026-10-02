@@ -15,8 +15,8 @@
   "admissions_tests": {
    "candidate_exception": 1,
    "fetch_failed": 7,
-   "not_found": 4,
-   "source_found": 45,
+   "not_found": 3,
+   "source_found": 46,
    "verified_current": 2
   },
   "aid_appeals": {
@@ -28,17 +28,18 @@
    "verified_current": 1
   },
   "ap_credit": {
-   "candidate_exception": 1,
+   "candidate_exception": 2,
    "fetch_failed": 7,
    "not_found": 35,
    "partially_verified_current": 3,
-   "source_found": 12,
+   "source_found": 11,
    "verified_current": 1
   },
   "clep_credit": {
    "candidate_exception": 2,
+   "candidate_ready": 1,
    "fetch_failed": 7,
-   "not_found": 41,
+   "not_found": 40,
    "partially_verified_current": 2,
    "source_found": 6,
    "verified_current": 1
@@ -51,25 +52,26 @@
    "verified_current": 2
   },
   "cost_of_attendance": {
-   "candidate_exception": 1,
-   "candidate_ready": 1,
+   "candidate_exception": 3,
    "fetch_failed": 7,
    "not_found": 2,
    "partially_verified_current": 1,
-   "source_found": 42,
-   "verified_current": 5
+   "source_found": 40,
+   "verified_current": 6
   },
   "degree_requirements": {
    "fetch_failed": 7,
-   "not_found": 7,
+   "not_found": 6,
    "partially_verified_current": 1,
-   "source_found": 43,
+   "source_found": 44,
    "verified_current": 1
   },
   "dual_enrollment": {
+   "candidate_exception": 5,
+   "candidate_ready": 20,
    "fetch_failed": 7,
-   "not_found": 15,
-   "source_found": 36,
+   "not_found": 13,
+   "source_found": 13,
    "verified_current": 1
   },
   "ib_credit": {
@@ -82,10 +84,10 @@
   },
   "merit_scholarships": {
    "candidate_exception": 1,
-   "candidate_ready": 5,
+   "candidate_ready": 4,
    "fetch_failed": 7,
    "not_found": 8,
-   "partially_verified_current": 2,
+   "partially_verified_current": 3,
    "source_found": 33,
    "verified_current": 3
   },
@@ -100,30 +102,28 @@
    "source_found": 17
   },
   "transfer_credit": {
-   "candidate_exception": 1,
-   "candidate_ready": 7,
+   "candidate_ready": 1,
    "fetch_failed": 7,
    "not_found": 5,
-   "partially_verified_current": 1,
-   "source_found": 38
+   "partially_verified_current": 7,
+   "source_found": 39
   },
   "tuition_fees": {
-   "candidate_exception": 4,
-   "candidate_ready": 2,
+   "candidate_exception": 6,
    "fetch_failed": 7,
    "not_found": 1,
-   "source_found": 36,
-   "verified_current": 9
+   "source_found": 35,
+   "verified_current": 10
   }
  },
  "totals": {
-  "candidate_exception": 43,
-  "candidate_ready": 15,
+  "candidate_exception": 52,
+  "candidate_ready": 26,
   "fetch_failed": 98,
-  "not_found": 285,
-  "partially_verified_current": 12,
-  "source_found": 346,
-  "verified_current": 27
+  "not_found": 280,
+  "partially_verified_current": 19,
+  "source_found": 322,
+  "verified_current": 29
  },
  "statewide_sources": {
   "categories": {
@@ -138,12 +138,12 @@
    "ib_credit": 0,
    "merit_scholarships": 2,
    "residency": 2,
-   "statewide_articulation": 59,
-   "transfer_credit": 59,
+   "statewide_articulation": 68,
+   "transfer_credit": 68,
    "tuition_fees": 2
   },
   "fetch_failures": 1,
-  "pages_fetched": 70
+  "pages_fetched": 80
  },
  "blocked_institutions": [
   "ipeds-219824",
@@ -154,6 +154,18 @@
   "ipeds-222053",
   "ipeds-486901"
  ],
- "run": "pipeline-run/tn-2026-10-02 : pipeline/runs/TN/2026-10-02-r3",
- "note": "Statuses from the run-3 review, which already counts run-2 promotions; run-3 promotions (pipeline/decisions/TN-2026-10-02-r3.json) show up as verified/partially verified on the next run."
+ "quality": {
+  "ambiguous_years": 24,
+  "blocked_requests": 274,
+  "candidates": 342,
+  "conflicts": 110,
+  "documents": 2967,
+  "extraction_failures": 0,
+  "fetch_errors": 90,
+  "fetches": 3331,
+  "ready": 156,
+  "semantic_review": 120,
+  "stale_sources": 68
+ },
+ "run": "pipeline/runs/TN/2026-10-02-r4"
 }
