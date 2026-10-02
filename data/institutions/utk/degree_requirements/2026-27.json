@@ -8,31 +8,30 @@
       "requirement_kind": "program_plan",
       "minimum_credits": 121,
       "rule_details": {
-        "total_credit_hours_text": "121-123",
-        "total_credit_hours_min": 121,
-        "total_credit_hours_max": 123,
-        "grade_requirements": "At least a C in every computer engineering, computer science, electrical engineering and mathematics course used for the degree.",
-        "progression": "Progression to upper-division departmental programs is competitive and space-limited; factors include overall GPA, grades in required lower-division courses, and orderly progress without abuse of withdrawal/repeat privileges.",
-        "utrack": "Full-time degree-seeking students must meet uTrack milestones in terms 1-5 (e.g., term 1: MATH 130/131 or higher; terms 3-4: engineering physics sequence; term 5: one listed intro course).",
-        "semester_plan": [
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "group_type": "sequence",
+        "category": "recommended_sequence",
+        "source_section": "Academic Map / semester plan",
+        "terms": [
           {
-            "term": 1,
+            "term_index": 1,
+            "label": "Term 1",
             "credit_hours": "14-15",
-            "courses": [
+            "items": [
               "ENGL 101",
               "COSC 103",
               "COSC 104",
               "EF 142 or EF 151 or EF 157",
-              "MATH 132 or MATH 141 or MATH 147"
-            ],
-            "electives": [
+              "MATH 132 or MATH 141 or MATH 147",
               "Volunteer Core elective (AH, GCUS, GCI or SS) per term listing"
             ]
           },
           {
-            "term": 2,
+            "term_index": 2,
+            "label": "Term 2",
             "credit_hours": "15",
-            "courses": [
+            "items": [
               "COSC 203",
               "COSC 204",
               "COSC 230",
@@ -41,9 +40,10 @@
             ]
           },
           {
-            "term": 3,
+            "term_index": 3,
+            "label": "Term 3",
             "credit_hours": "16-17",
-            "courses": [
+            "items": [
               "ENGL 102",
               "MATH 251 or MATH 257",
               "Science option (BIOL 101/104/150, PHYS 231, CHEM 128, or CHEM 102+103 / CHEM 122+123)",
@@ -52,67 +52,68 @@
             ]
           },
           {
-            "term": 4,
+            "term_index": 4,
+            "label": "Term 4",
             "credit_hours": "16",
-            "courses": [
+            "items": [
               "COSC 312",
               "COSC 360 or COSC 367",
-              "ECE 313 or ECE 317 or STAT 251 or MATH 323"
-            ],
-            "electives": [
+              "ECE 313 or ECE 317 or STAT 251 or MATH 323",
               "GCUS elective (3)",
               "Social Sciences elective (3)"
             ]
           },
           {
-            "term": 5,
+            "term_index": 5,
+            "label": "Term 5",
             "credit_hours": "15",
-            "courses": [
+            "items": [
               "COSC 340",
               "COSC 366",
-              "COSC 325 or COSC 361 or COSC 362"
-            ],
-            "electives": [
+              "COSC 325 or COSC 361 or COSC 362",
               "CS upper-division elective (3)",
               "Arts and Humanities elective (3)"
             ]
           },
           {
-            "term": 6,
+            "term_index": 6,
+            "label": "Term 6",
             "credit_hours": "15",
-            "courses": [
+            "items": [
               "COSC 365",
-              "ENGL 355 or ENGL 360"
-            ],
-            "electives": [
+              "ENGL 355 or ENGL 360",
               "CS upper-division electives (6)",
               "GCI elective (3)"
             ]
           },
           {
-            "term": 7,
+            "term_index": 7,
+            "label": "Term 7",
             "credit_hours": "15",
-            "courses": [
-              "COSC 401"
-            ],
-            "electives": [
+            "items": [
+              "COSC 401",
               "CS upper-division electives (6)",
               "Expanded Perspectives elective (3)",
               "Engaged Inquiries elective (3)"
             ]
           },
           {
-            "term": 8,
+            "term_index": 8,
+            "label": "Term 8",
             "credit_hours": "15",
-            "courses": [
-              "COSC 402"
-            ],
-            "electives": [
+            "items": [
+              "COSC 402",
               "CS upper-division electives (9)",
               "Expanded Perspectives elective (3)"
             ]
           }
         ],
+        "total_credit_hours_text": "121-123",
+        "total_credit_hours_min": 121,
+        "total_credit_hours_max": 123,
+        "grade_requirements": "At least a C in every computer engineering, computer science, electrical engineering and mathematics course used for the degree.",
+        "progression": "Progression to upper-division departmental programs is competitive and space-limited; factors include overall GPA, grades in required lower-division courses, and orderly progress without abuse of withdrawal/repeat privileges.",
+        "utrack": "Full-time degree-seeking students must meet uTrack milestones in terms 1-5 (e.g., term 1: MATH 130/131 or higher; terms 3-4: engineering physics sequence; term 5: one listed intro course).",
         "upper_division_electives_rule": "Any 3XX/4XX COSC or ECE course not otherwise used, MATH 231, 241, 371, 471, 472; up to three COSC/ECE 5XX courses; COSC 322 does not count.",
         "engaged_inquiries_rule": "Minimum of 9 credit hours in at least two subject areas.",
         "prior_credit_notes": "AP Computer Science A score of 3+ earns COSC 101; a departmental proficiency exam for COSC 101 is available on request.",

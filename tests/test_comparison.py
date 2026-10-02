@@ -13,7 +13,7 @@ class ComparisonTests(unittest.TestCase):
                 'verification_status':'verified','source_url':'https://example.edu','last_verified_at':'2026-10-02'}
             cost={**identity,'domain':'costs','academic_year':'2025-26','residency':'in_state','tuition':1000}
             unknown_cost={**cost,'academic_year':'2026-27','verification_status':'unverified'}
-            orphan_requirement={**identity,'domain':'degree_requirements','academic_year':'2026-27','program_key':'biology','requirement_key':'major','requirement_kind':'major'}
+            orphan_requirement={**identity,'domain':'degree_requirements','academic_year':'2026-27','program_key':'biology','requirement_key':'major','requirement_kind':'major','rule_details':{'schema':'requirement_group/v1','catalog_year':'2026-2027','group_type':'credit_total','category':'major_core'}}
             (root/'data/fixtures.json').write_text(json.dumps([identity,cost,unknown_cost,orphan_requirement]))
             db=connect(':memory:')
             try:

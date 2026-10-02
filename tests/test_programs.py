@@ -18,7 +18,13 @@ class ProgramTests(unittest.TestCase):
     def test_invalid_credit_rules_rejected_but_unknowns_allowed(self):
         r=fixture_rows()[-1]['payload']
         self.assertEqual(validate_record(ROOT/'data',r,0,'degree_requirements'),[])
-        for change in [{'minimum_credits':-1},{'rule_details':'guess'},{'program_key':None},{'requirement_kind':'imaginary'}]:
+        for change in [{'minimum_credits':-1},{'rule_details':'guess'},{'program_key':None},{'requirement_kind':'imaginary'},
+                       {'rule_details':{'courses':['BIO 101']}},
+                       {'rule_details':{**r['rule_details'],'catalog_year':None}},
+                       {'rule_details':{**r['rule_details'],'catalog_year':'2024-2025'}},
+                       {'rule_details':{**r['rule_details'],'group_type':'choose_courses'}},
+                       {'rule_details':{**r['rule_details'],'category':'vibes'}},
+                       {'rule_details':{**r['rule_details'],'courses':[{'title':'no code'}]}}]:
             self.assertTrue(validate_record(ROOT/'data',{**r,**change},0,'degree_requirements'))
         self.assertTrue(validate_record(ROOT/'data',{**r,'academic_year_basis':'aid_year_in_force_at_review_source_unlabeled'},0,'degree_requirements'))
 

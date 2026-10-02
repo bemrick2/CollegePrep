@@ -40,6 +40,61 @@ def iter_records(obj):
         else:
             yield obj
 
+GROUP_TYPES={'all_required','choose_courses','choose_credits','elective_pool','credit_total','gpa_rule','grade_rule','residency_rule','sequence'}
+GROUP_CATEGORIES={'general_education','major_core','major_elective','concentration','supporting_coursework','free_elective',
+    'university_requirement','program_total','recommended_sequence','minor','other'}
+
+def course_item_errors(item, where):
+    if isinstance(item,dict) and 'any_of' in item:
+        if not isinstance(item['any_of'],list) or len(item['any_of'])<2:
+            return [f'{where}: any_of needs at least two options']
+        return [e for option in item['any_of'] for e in course_item_errors(option, where)]
+    if not isinstance(item,dict) or not isinstance(item.get('code'),str) or not item['code'].strip():
+        return [f'{where}: course items need a code (or any_of)']
+    credits=item.get('credits')
+    if credits is not None and (isinstance(credits,bool) or not isinstance(credits,(int,float,str))):
+        return [f'{where}: credits must be a number or printed range']
+    return []
+
+def requirement_group_errors(record):
+    """Enforce docs/PROGRAM_DATA.md requirement_group/v1 on rule_details."""
+    rd=record['rule_details']; errors=[]
+    if rd.get('schema')!='requirement_group/v1':
+        return ['rule_details.schema must be requirement_group/v1']
+    year=str(record.get('academic_year',''))
+    printed=str(rd.get('catalog_year') or '')
+    m=re.match(r'^(\d{4})-(\d{2}|\d{4})$',year); n=re.match(r'^(\d{4})\s*[-–]\s*(\d{2}|\d{4})$',printed)
+    if not n: errors.append('rule_details.catalog_year must be an explicit year range')
+    elif m and (n.group(1)!=m.group(1) or n.group(2)[-2:]!=m.group(2)[-2:]): errors.append('rule_details.catalog_year does not match academic_year')
+    gt,cat=rd.get('group_type'),rd.get('category')
+    if gt not in GROUP_TYPES: errors.append('invalid rule_details.group_type')
+    if cat not in GROUP_CATEGORIES: errors.append('invalid rule_details.category')
+    if (gt=='sequence')!=(record.get('requirement_kind')=='program_plan'):
+        errors.append('group_type sequence and requirement_kind program_plan go together')
+    if gt=='choose_courses' and not (isinstance(rd.get('choose_count'),int) and rd['choose_count']>0):
+        errors.append('choose_courses needs a positive integer choose_count')
+    if gt=='choose_credits' and not (isinstance(rd.get('choose_credits'),(int,float)) and not isinstance(rd.get('choose_credits'),bool) and rd['choose_credits']>0):
+        errors.append('choose_credits needs a positive choose_credits')
+    if cat=='concentration' and not rd.get('concentration'): errors.append('concentration groups need a concentration name')
+    if gt=='sequence':
+        terms=rd.get('terms')
+        if not isinstance(terms,list) or not terms: errors.append('sequence groups need terms')
+        else:
+            for t in terms:
+                if not isinstance(t,dict) or not isinstance(t.get('term_index'),int) or not isinstance(t.get('items'),list):
+                    errors.append('each term needs term_index and items'); break
+    if 'courses' in rd:
+        if not isinstance(rd['courses'],list): errors.append('rule_details.courses must be a list')
+        else:
+            for item in rd['courses']: errors.extend(course_item_errors(item,'rule_details.courses'))
+    if 'course_rules' in rd and not (isinstance(rd['course_rules'],list) and all(isinstance(x,str) for x in rd['course_rules'])):
+        errors.append('rule_details.course_rules must be a list of strings')
+    if gt in {'all_required','choose_courses'} and not rd.get('courses'):
+        errors.append(f'{gt} groups need courses')
+    if gt=='elective_pool' and not (rd.get('course_rules') or rd.get('courses')):
+        errors.append('elective_pool groups need course_rules or courses')
+    return errors
+
 def validate_record(path: Path, record: dict, index: int, domain=None):
     errors = []
     status = record.get("verification_status")
@@ -74,8 +129,10 @@ def validate_record(path: Path, record: dict, index: int, domain=None):
         if domain=='degree_requirements':
             if record.get('requirement_kind') not in CONTROLLED_VALUES['degree_requirements']['requirement_kind']:
                 errors.append('invalid requirement_kind')
-            if 'rule_details' in record and not isinstance(record['rule_details'],dict):
+            if not isinstance(record.get('rule_details'),dict):
                 errors.append('rule_details must be an object')
+            else:
+                errors.extend(requirement_group_errors(record))
         for field in ['total_credits','minimum_credits','minimum_gpa','max_transfer_credits','max_transfer_percent','residency_requirement_credits']:
             value=record.get(field)
             if value is not None and (isinstance(value,bool) or not isinstance(value,(int,float)) or value<0 or (field=='max_transfer_percent' and value>100)):
