@@ -314,6 +314,25 @@ def coverage(registry, run: Run, cands, existing, today_year):
             'totals': dict(totals), 'statewide_sources': state, 'blocked_institutions': blocked, 'rows': rows}
 
 
+def quality(run, cands):
+    """Counts the dashboard reports next to coverage."""
+    entries = run.entries()
+    issue = lambda prefix: sum(1 for c in cands if any(i.startswith(prefix) for i in c['issues']))
+    return {
+        'fetches': len(entries),
+        'documents': sum(1 for e in entries if e.get('page_file')),
+        'blocked_requests': sum(1 for e in entries if str(e.get('error', '')).startswith(('blocked_', 'disallowed_by_robots'))),
+        'fetch_errors': sum(1 for e in entries if e.get('error') and not str(e['error']).startswith(('blocked_', 'disallowed_by_robots'))),
+        'candidates': len(cands),
+        'ready': sum(1 for c in cands if not [i for i in c['issues'] if not i.startswith('stale_year_label')]),
+        'conflicts': issue('conflicting_') + issue('conflicts_with_verified'),
+        'stale_sources': issue('stale_year_label'),
+        'ambiguous_years': issue('ambiguous_year_labels'),
+        'extraction_failures': issue('extractor_error'),
+        'semantic_review': issue('semantic_review_required'),
+    }
+
+
 # ------------------------------------------------------------------ queue
 def write_queue(run: Run, registry, cands, verify, cov):
     exc = [c for c in cands if c['issues']]
@@ -367,6 +386,7 @@ def review(registry, run: Run, today=None):
     cands = diff(extract_run(registry, run, today_year), existing)
     verify = verify_existing(registry, run, existing)
     cov = coverage(registry, run, cands, existing, today_year)
+    cov['quality'] = quality(run, cands)
     for name, obj in [('candidates.json', cands), ('verify.json', verify), ('coverage.json', cov)]:
         (run.dir / name).write_text(json.dumps(obj, indent=1, sort_keys=True, ensure_ascii=False, default=str) + '\n', encoding='utf-8')
     write_queue(run, registry, cands, verify, cov)
