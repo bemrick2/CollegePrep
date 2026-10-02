@@ -14,7 +14,7 @@ def build():
             elif r.get('institution_key'): policy_ids.add(r['institution_key'])
             if domain=='state_aid': states.add(r['state'])
             equivalents+=len(r.get('equivalencies',[]))
-    return {'generated_at':date.today().isoformat(),'status':'in_progress',
+    report = {'generated_at':date.today().isoformat(),'status':'in_progress',
       'persistence_scope':'GitHub reference files; not a claim of live database deployment',
       'totals':{**dict(sorted(counts.items())),'states_and_dc_target':51,'states_complete':0,'states_partial':len(states),
         'institutions_verified':len(identities & policy_ids),'verified_institution_identities':len(identities),
@@ -23,6 +23,9 @@ def build():
       'notes':['Verified historical observations are not current-year coverage.',
         'Completion requires a reviewed full domain inventory; none is persisted yet.',
         'Nested equivalencies inherit parent provenance; null credit amounts remain unknown.']}
+    snapshot=ROOT/'docs/coverage/live-supabase.json'
+    if snapshot.exists(): report['live_database_snapshot']=json.loads(snapshot.read_text(encoding='utf-8'))
+    return report
 if __name__=='__main__':
     p=argparse.ArgumentParser(); p.add_argument('--check',action='store_true'); args=p.parse_args(); target=ROOT/'docs/coverage/coverage.json'; result=build()
     if args.check:

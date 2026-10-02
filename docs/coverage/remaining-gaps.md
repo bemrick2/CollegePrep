@@ -2,9 +2,9 @@
 
 Repository reference coverage is distinct from production database coverage. The normalized 2023–24 federal batch covers 50 states and DC. Current-year COA/admissions must be verified independently; no old-year figure is silently reused. Monetary gaps and missing policies remain unknown.
 
-## Immediate blocker
+## Database setup blocker resolved
 
-No CollegePrep Supabase project is designated. The connected account lists CRE Class, apparent-staging and bellcue-prod, which belong to other products. Designate a CollegePrep project (or explicitly request a new one) before production schema changes or live import. Existing projects were not modified.
+The user designated CollegePrep (`butlklkzafvklwasbynr`) in organization `atkukjwwdvhnrxwdhqmb`. Reference schema and all 17,817 source records are loaded, with dated reconciliation in `live-supabase.json`. Other projects were not modified. The full product backend is not complete.
 
 ## Verification completed
 
@@ -22,9 +22,9 @@ No CollegePrep Supabase project is designated. The connected account lists CRE C
 
 ## Backend gaps
 
-- Field-level normalized Supabase importer, live source/row reconciliation, Supabase advisors and production deployment.
+- Add mappings for newly researched transfer, degree and program records. Existing eight-domain import and live reconciliation are implemented. Hosted product/application deployment remains.
 - Student accounts/owned planning data, degree-path/credit optimization, rule-based aid/merit matching, payments and gated purchase flow.
 - Production AI-help provider integration, student privacy controls, rate limits and instructional evaluation. The feature remains in scope.
 - Scheduled official-source refresh, changed-source review and full domain completion inventories. Annual historical data remain preserved.
 
-The backend is not substantially complete. Deployment is blocked; remaining source verification is extensive and is reported rather than guessed.
+The reference database is ready for additional reviewed data. Remaining product implementation and source verification are extensive and are reported rather than guessed. Reconcile connector-generated migration versions with repository filenames before a future CLI database push.

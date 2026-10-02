@@ -1,0 +1,41 @@
+{
+  "project_ref": "butlklkzafvklwasbynr",
+  "project_name": "CollegePrep",
+  "organization_id": "atkukjwwdvhnrxwdhqmb",
+  "environment": "development_reference",
+  "checked_at": "2026-10-02T11:34:33.591978Z",
+  "status": "reference_data_loaded_and_reconciled",
+  "counts": {
+    "institutions": 5920,
+    "costs": 9960,
+    "admissions_metrics": 1924,
+    "state_aid": 5,
+    "awards": 1,
+    "credit_policies": 2,
+    "credit_equivalencies": 10,
+    "appeals": 4,
+    "federal_aid": 1,
+    "source_records": 17817,
+    "source_revisions": 0,
+    "states_and_dc": 51,
+    "paid_addon_eligible_school_years": 0
+  },
+  "checks": {
+    "repository_counts_match": true,
+    "repeat_400_record_batch_added_duplicates_or_revisions": false,
+    "tuition_fee_source_mismatches": 0,
+    "checked_admissions_field_mismatches": 0,
+    "inferred_current_operating_status_records": 0,
+    "anonymous_private_ledger_access": false,
+    "anonymous_institution_insert_access": false,
+    "authenticated_appeal_gate_update_access": false,
+    "security_advisor_notices": 0,
+    "unknown_full_tuition_and_full_ride_flags_preserved": true
+  },
+  "notes": [
+    "National costs/admissions are historical 2023-24 observations, not current prices.",
+    "Source payloads and annual keys are preserved in the private ingestion ledger.",
+    "This is a dated live snapshot, not an automatically refreshed database monitor.",
+    "Database setup/import is complete for persisted reference domains; the full product backend and current-year policy coverage remain incomplete."
+  ]
+}

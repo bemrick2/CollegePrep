@@ -9,6 +9,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from backend.catalog import ROOT,records
 from backend.store import natural_key
 from scripts.validate_data import validate_record
+SUPPORTED_DOMAINS={'institutions','costs','admissions_metrics','state_aid','awards','appeals','credit_policies','federal_aid'}
 
 def literal(v):
     if v is None: return 'null'
@@ -59,7 +60,7 @@ end $guard$;
     sql+=insert('costs','institution_costs',{**text('academic_year','residency','currency','student_population'),**numbers('tuition','mandatory_fees','books_supplies','on_campus_food_housing','on_campus_other_expenses','total_cost_of_attendance')},['institution_id','academic_year','residency'],{'institution_id':'i.id'},instjoin)
     sql+=insert('admissions_metrics','admissions_metrics',{**text('academic_year','applicant_population'),**ints('entering_fall_year','applications','admits','enrolled','sat_reading_25','sat_reading_75','sat_math_25','sat_math_75'),**numbers('act_25','act_75')},['institution_id','entering_fall_year','applicant_population'],{'institution_id':'i.id'},instjoin)
     sql+=insert('state_aid','state_aid_programs',{**text('academic_year','program_name','program_type','eligibility_summary','residency_requirement','gpa_requirement','test_requirement','income_requirement','award_amount_text','renewal_requirements','application_method','notes'),**numbers('award_min','award_max'),'renewable':'boolean','priority_deadline':'date','final_deadline':'date'},['state_code','program_name','academic_year'],{'state_code':field('state'),'official_url':field('source_url')})
-    sql+=insert('awards','institutional_awards',{**text('academic_year','award_name','award_type','eligibility_summary','gpa_requirement','test_requirement','residency_requirement','major_requirement','award_amount_text','renewal_requirements','notes'),**numbers('award_min','award_max'),'automatic_consideration':'boolean','separate_application':'boolean','renewable':'boolean','deadline':'date'},['institution_id','award_name','academic_year'],{'institution_id':'i.id'},instjoin)
+    sql+=insert('awards','institutional_awards',{**text('academic_year','award_name','award_type','eligibility_summary','gpa_requirement','test_requirement','residency_requirement','major_requirement','award_amount_text','renewal_requirements','notes'),**numbers('award_min','award_max'),'automatic_consideration':'boolean','separate_application':'boolean','renewable':'boolean','full_tuition':'boolean','full_ride':'boolean','deadline':'date'},['institution_id','award_name','academic_year'],{'institution_id':'i.id'},instjoin)
     sql+=insert('appeals','appeal_policies',{**text('academic_year','appeal_kind','process_summary','required_documents','deadline_text','contact_method','notes','qualifying_path_evidence'),'offered':'boolean'},['institution_id','academic_year','appeal_kind'],{'institution_id':'i.id','policy_url':"coalesce(r.payload->>'policy_url',r.payload->>'source_url')",'qualifies_for_paid_addon':"coalesce((r.payload->>'qualifies_for_paid_addon')::boolean,false)"},instjoin)
     sql+=insert('credit_policies','credit_policies',{**text('academic_year','policy_kind','policy_url','notes'),**numbers('general_limit_credits','residency_credit_requirement')},['institution_id','policy_kind','academic_year'],{'institution_id':'i.id'},instjoin)
     sql+=insert('federal_aid','federal_aid_programs',text('academic_year'),['program_key','academic_year'],{'program_key':"'pell_grant'",'policy_details':'r.payload'})
@@ -74,10 +75,12 @@ def batches(size=400):
     collected=[]
     ordered=sorted(records(),key=lambda x: x[1]!='institutions')
     for path,domain,r in ordered:
+        if domain not in SUPPORTED_DOMAINS: raise ValueError('Domain needs an explicit normalized mapping: '+domain)
+        if domain=='federal_aid' and 'pell_grant' not in r: raise ValueError('Federal program needs an explicit mapping')
         errors=validate_record(path,r,0)
         if domain!='institutions' and not r.get('academic_year'): errors.append('missing academic_year')
         if errors: raise ValueError('; '.join(errors))
-        collected.append({'domain':domain,'natural_key':natural_key(domain,r),'source_file':str(path.relative_to(ROOT)),'payload':r})
+        collected.append({'domain':domain,'natural_key':natural_key(domain,r),'source_file':path.relative_to(ROOT).as_posix(),'payload':r})
         if len(collected)==size:
             yield bulk_batch(collected); collected=[]
     if collected: yield bulk_batch(collected)

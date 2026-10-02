@@ -46,7 +46,7 @@ The paid negotiation/reconsideration feature is available only if the school has
 
 A generic federal professional-judgment/special-circumstances process by itself does **not** automatically qualify the school for the paid negotiation add-on.
 
-The migration requires `qualifies_for_paid_addon`, `qualifying_path_evidence`, matching academic year and verification within 365 days. The replacement gate is `institution_negotiation_addon_eligibility_by_year`. A missing row means ineligible. The legacy unscoped view fails closed. Disposable PostgreSQL gate and permission tests pass in CI; production deployment and Supabase advisor checks remain blocked on a designated CollegePrep database.
+The migration requires `qualifies_for_paid_addon`, `qualifying_path_evidence`, matching academic year and verification within 365 days. The replacement gate is `institution_negotiation_addon_eligibility_by_year`. A missing row means ineligible. The legacy unscoped view fails closed. Disposable PostgreSQL tests pass in CI; the designated CollegePrep database now has the reference schema/data, verified-only read access and no security advisor notices. No paid path is enabled.
 
 ## Practice-question AI help
 

@@ -1,5 +1,8 @@
 -- Disposable fixtures only; never counted as school coverage.
 begin;
+do $$ begin
+ if has_schema_privilege('anon','ingestion','USAGE') then raise exception 'Private ingestion schema exposed'; end if;
+end $$;
 insert into public.sources(id,canonical_url,authority) values
 ('00000000-0000-0000-0000-000000000001','https://example.edu/appeal','institution');
 insert into public.institutions(id,ipeds_name,display_name,state_code,verification_status) values
@@ -8,6 +11,11 @@ insert into public.institutions(id,ipeds_name,display_name,state_code,verificati
 insert into public.appeal_policies(institution_id,academic_year,appeal_kind,offered,source_id,policy_url,verification_status,last_verified_at)
 values ('00000000-0000-0000-0000-000000000002','2026-27','financial_aid_appeal',true,
 '00000000-0000-0000-0000-000000000001','https://example.edu/appeal','verified',current_date);
+insert into public.institutional_awards(institution_id,award_name,award_type,academic_year,source_id)
+values ('00000000-0000-0000-0000-000000000002','Fixture award','merit','2026-27','00000000-0000-0000-0000-000000000001');
+do $$ begin
+ if exists(select 1 from public.institutional_awards where full_tuition is not null or full_ride is not null) then raise exception 'Missing award flags became guessed negatives'; end if;
+end $$;
 do $$ begin
  if (select can_offer_negotiation_addon from public.institution_negotiation_addon_eligibility_by_year where academic_year='2026-27') then
   raise exception 'Generic appeal wrongly enables paid feature'; end if;

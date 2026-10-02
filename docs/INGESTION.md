@@ -19,6 +19,6 @@ CollegePrep uses a two-stage data workflow:
 
 `scripts/import_ipeds.py` normalizes pinned official 2023–24 survey archives, rejects imputed measurements as verified values, partitions by state/year and records source hashes. `backend.store` loads all reference domains into a transactional development database, preserves revisions and academic years, and refuses verified-to-weaker replacements. `scripts/update_coverage.py` derives repository counts, with CI preventing drift. See `docs/IPEDS.md` and `docs/BACKEND.md` for reproduction.
 
-## Planned production importer
+## Normalized Supabase importer
 
-The importer will map natural keys such as `institution_key`, state code, program name, policy kind, and academic year into database UUIDs. Import will be idempotent and will log creates, updates, skips, and conflicts.
+`scripts/import_supabase.py` maps the eight persisted reference domains by institution key, program/policy keys and academic year into generated database UUIDs. A private ledger preserves complete source records and previous payloads. Transactions reject missing dependencies and older/weaker replacements of verified records. A repeated 400-record live batch produced no duplicates or revisions. New transfer/degree/program domains need explicit mappings before their source data can be imported.
