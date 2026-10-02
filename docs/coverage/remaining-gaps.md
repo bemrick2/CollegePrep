@@ -1,6 +1,6 @@
-# Remaining work and deployment blocker — October 2, 2026
+# Remaining work and deployment blocker â€” October 2, 2026
 
-Repository reference coverage is distinct from production database coverage. The normalized 2023–24 federal batch covers 50 states and DC. Current-year COA/admissions must be verified independently; no old-year figure is silently reused. Monetary gaps and missing policies remain unknown.
+Repository reference coverage is distinct from production database coverage. The normalized 2023â€“24 federal batch covers 50 states and DC. Current-year COA/admissions must be verified independently; no old-year figure is silently reused. Monetary gaps and missing policies remain unknown.
 
 ## Database setup blocker resolved
 
@@ -9,8 +9,8 @@ The user designated CollegePrep (`butlklkzafvklwasbynr`) in organization `atkukj
 ## Verification completed
 
 - Repository integration: 17,865 records validate; generated coverage matches persisted records; all pinned source hashes and ZIP integrity checks pass.
-- Twenty-five Python tests pass, including real HTTP requests, explicit-year comparisons, import idempotence, revision retention, rollback, reviewed corrections and appeal denial.
-- [Comparison CI](https://github.com/bemrick2/CollegePrep/actions/runs/37012524261): migrations replay in disposable PostgreSQL 17, and comparison, gate, RLS and grant assertions pass. Integration adds full repository import/reconciliation twice and retained-equivalency tests.
+- Twenty-nine Python tests pass, including real HTTP requests, explicit-year comparisons, import idempotence, revision retention, rollback, reviewed corrections and appeal denial.
+- [Comparison CI](https://github.com/bemrick2/CollegePrep/actions/runs/37038950682): migrations replay in disposable PostgreSQL 17, and comparison, gate, RLS and grant assertions pass. Full repository import/reconciliation twice and retained-equivalency tests also pass. The live automated import and its second-pass idempotence check passed in run 37038950785.
 
 ## Data gaps
 

@@ -28,7 +28,7 @@ The private `ingestion` schema is not exposed through the public API. Public ref
 
 ## School comparisons
 
-The Supabase RPC `compare_institutions` takes `p_institution_keys` (1â€“20 distinct keys) and `p_academic_year` (required, exact match). Call it with a publishable client key, for example `supabase.rpc('compare_institutions', {p_institution_keys: ['utk'], p_academic_year: '2026-27'})`. It uses the caller's permissions and verified official records. No admin key is required.
+The Supabase RPC `compare_institutions` takes `p_institution_keys` (1Ã¢â‚¬â€œ20 distinct keys) and `p_academic_year` (required, exact match). Call it with a publishable client key, for example `supabase.rpc('compare_institutions', {p_institution_keys: ['utk'], p_academic_year: '2026-27'})`. It uses the caller's permissions and verified official records. No admin key is required.
 
 Each requested school has `found`, a sourced identity, eight domain arrays, `missing_domains`, and `can_offer_paid_addon`. Unknown schools have `found: false`; empty domains mean no verified record for that year, not that a benefit or requirement does not exist. Institution identity has a separate historical `identity_academic_year`; it does not establish current operation. Credit equivalencies inherit the parent policy's year and provenance. Degree requirements include their stable parent program key. A nonempty domain is partial coverage, not a complete school catalog. State and federal aid require separate eligibility evaluation and are not implied by the school's location.
 

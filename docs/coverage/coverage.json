@@ -90,7 +90,7 @@
     "project_name": "CollegePrep",
     "organization_id": "atkukjwwdvhnrxwdhqmb",
     "environment": "development_reference",
-    "checked_at": "2026-10-02T14:37:09.195531Z",
+    "checked_at": "2026-10-02T17:15:40.597625+00:00",
     "status": "reference_data_loaded_and_reconciled",
     "counts": {
       "institutions": 5920,
@@ -106,9 +106,10 @@
       "degree_requirements": 1,
       "transfer_policies": 2,
       "source_records": 17865,
-      "source_revisions": 13,
+      "source_revisions": 50,
       "states_and_dc": 51,
-      "paid_addon_eligible_school_years": 0
+      "paid_addon_eligible_school_years": 0,
+      "superseded_credit_equivalencies": 0
     },
     "checks": {
       "repository_counts_match": true,
@@ -120,16 +121,26 @@
       "authenticated_appeal_gate_update_access": false,
       "security_advisor_notices": 0,
       "unknown_full_tuition_and_full_ride_flags_preserved": true,
-      "ledger_payload_digests_match_repository": true,
       "repeat_import_changed_rows_or_revisions": false,
-      "anonymous_degree_requirement_insert_access": false
+      "anonymous_degree_requirement_insert_access": false,
+      "reviewed_verification_corrections_preserved": 4,
+      "current_2026_27_verified_tennessee_aid_records": 0,
+      "retired_equivalencies_hidden_from_public_reads": true,
+      "null_equivalency_keys_repeat_without_duplicates": true,
+      "explicitly_reported_sat_composites_mapped": true,
+      "published_cost_components_and_context_mapped": true,
+      "full_repository_import_and_reconciliation_passed": true
     },
     "notes": [
-      "National costs/admissions are historical 2023-24 observations, not current prices.",
-      "Source payloads and annual keys are preserved in the private ingestion ledger; 13 revisions archive the pre-research Tennessee/UTK payloads.",
-      "2026-10-02 Tennessee/UTK import: 48 new and 13 revised records loaded through the repository importer SQL; per-domain md5 digests of every ledger payload match a local PostgreSQL import of the repository, and a repeat import changed no rows, revisions or import timestamps.",
-      "This is a dated live snapshot, not an automatically refreshed database monitor.",
-      "Database setup/import is complete for persisted reference domains; the full product backend and current-year policy coverage remain incomplete."
+      "National 2023-24 costs/admissions are historical observations, not current prices.",
+      "All 17,865 repository records were imported and reconciled; the automated second pass changed no ledger revisions or import timestamps.",
+      "Four inherited verified Tennessee aid flags were corrected to partially_verified with explicit reasons; previous payloads are preserved.",
+      "All accepted same-year revisions retain previous payloads in the private ingestion ledger.",
+      "Retired equivalencies remain stored with is_current=false; rollback-only tests verify visibility and nullable-key idempotence. No live equivalency is currently superseded.",
+      "The comparison RPC respects verified-only caller permissions and exact academic years; zero school-years qualify for the paid appeal add-on.",
+      "Migration filenames and hashes now match the live migration history; deployment checks enforce this.",
+      "This is a dated database reconciliation snapshot; it does not mean official source dates have been newly re-verified.",
+      "Current nationwide policy coverage and the full student product backend remain incomplete; no institution or state is marked complete."
     ],
     "applied_migrations": [
       "20261002105521 initial_collegeprep_schema",
@@ -141,6 +152,14 @@
       "20261002134049 degree_transfer_import_domains",
       "20261002165225 reviewed_policy_domains"
     ],
-    "migration_history": "Repository migration filenames equal live schema_migrations versions; supabase/migration_history.json records normalized digests verified against live on 2026-10-02."
+    "migration_history": "Repository migration filenames equal live schema_migrations versions; supabase/migration_history.json records normalized digests verified against live on 2026-10-02.",
+    "repository_commit": "fe36a5669744ffc46d88b13f34f304f6cccdea3e",
+    "verification_status_counts": {
+      "verified": 17841,
+      "partially_verified": 24
+    },
+    "last_imported_at": "2026-10-02T17:10:57.324108+00:00",
+    "validation_workflow_url": "https://github.com/bemrick2/CollegePrep/actions/runs/37038950682",
+    "live_import_workflow_url": "https://github.com/bemrick2/CollegePrep/actions/runs/37038950785"
   }
 }
