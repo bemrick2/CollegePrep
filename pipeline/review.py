@@ -18,7 +18,12 @@ from .crawl import Run
 from .extractors import cds, costs, credit
 
 EXTRACTORS = [credit.extract, costs.extract, cds.extract]
-SCALAR_SKIP = {'entering_fall_year', 'unitid'}
+SCALAR_SKIP = {'entering_fall_year', 'unitid', 'term_index', 'choose_count'}
+# Policy wording that must also appear verbatim before a record can be upgraded: paraphrased text
+# (for example from a summarising fetch tool) is exactly what the earlier status downgrade was for.
+TEXT_POLICY_FIELDS = {'eligibility_summary', 'gpa_requirement', 'test_requirement', 'renewal_requirements', 'award_amount_text',
+                      'summary', 'process_summary', 'rule_text', 'min_grade', 'required_documents', 'deadline_text',
+                      'residency_requirement'}
 STATUS_ORDER = ['verified_current', 'partially_verified_current', 'candidate_ready', 'candidate_exception',
                 'source_found', 'not_found', 'fetch_failed']
 CATEGORY_KINDS = {'ap_credit': 'AP', 'clep_credit': 'CLEP', 'ib_credit': 'IB', 'dual_enrollment': 'dual_enrollment'}
@@ -95,12 +100,22 @@ def diff(cands, existing):
     return cands
 
 
+EQUIVALENT = {'cost_period': [{'academic_year', 'fall_and_spring_semesters'}]}
+
+
+def equivalent(field, a, b):
+    """Same meaning in two vocabularies, or a less specific candidate value ('undergraduate' vs
+    'full_time_undergraduate') — not a change worth an exception."""
+    if any({a, b} <= group for group in EQUIVALENT.get(field, [])): return True
+    return field == 'student_population' and isinstance(a, str) and isinstance(b, str) and (a.endswith(b) or b.endswith(a))
+
+
 def compare(domain, old, new):
     changes = []
     for k, v in new.items():
         if k in {'source_url', 'policy_url', 'last_verified_at', 'notes', 'verification_status', 'academic_year_basis',
                  'equivalencies', 'components', 'living_arrangements'}: continue
-        if v is not None and old.get(k) is not None and old.get(k) != v:
+        if v is not None and old.get(k) is not None and old.get(k) != v and not equivalent(k, old.get(k), v):
             changes.append({'field': k, 'existing': old.get(k), 'candidate': v})
     if domain == 'credit_policies':
         def keyed(eqs):
@@ -129,8 +144,17 @@ def _values(r, prefix=''):
             for i, item in enumerate(v):
                 if isinstance(item, dict):
                     sub = {kk: vv for kk, vv in item.items() if kk in {'minimum_score', 'institution_course_equivalent', 'credits_awarded',
-                                                                       'total_cost_of_attendance', 'housing', 'food', 'amount'}}
+                                                                       'total_cost_of_attendance', 'housing', 'food', 'amount', 'code',
+                                                                       'credit_hours', 'any_of', 'items', 'courses'}}
                     yield from _values(sub, f'{name}[{i}].')
+                elif isinstance(item, str) and re.fullmatch(r'[A-Z]{2,5}\s?\d{3,4}[A-Z]?', item.strip()):
+                    yield f'{name}[{i}]', item
+
+
+def _texts(r, prefix=''):
+    for k, v in r.items():
+        if k in TEXT_POLICY_FIELDS: yield prefix + k, v
+        elif isinstance(v, dict): yield from _texts(v, prefix + k + '.')
 
 
 def found_in(text_norm, value):
@@ -160,12 +184,16 @@ def verify_existing(registry, run: Run, existing):
             norm = T.normalize_for_search(page.text + '\n' + '\n'.join(' | '.join(row) for t in page.tables for row in t['rows']))
             vals = list(_values(r))
             missing = [f for f, v in vals if not found_in(norm, v)]
+            texts = [(k, v) for k, v in _texts(r) if isinstance(v, str) and v.strip()]
+            paraphrased = [k for k, v in texts if not found_in(norm, v)]
             label, basis = T.dominant_year(page.text[:60000], page.title)
             entry.update({'checked': len(vals), 'missing': missing[:40], 'missing_count': len(missing),
                           'source_sha256': hits[-1].get('sha256'), 'fetched_at': hits[-1].get('fetched_at'),
                           'source_year_label': label, 'year_basis': basis})
+            entry['texts_checked'] = len(texts); entry['texts_not_verbatim'] = paraphrased[:20]
             if not vals: entry['result'] = 'nothing_to_check'
             elif missing: entry['result'] = 'values_not_found_verbatim'
+            elif paraphrased: entry['result'] = 'policy_text_not_verbatim'
             elif label == r.get('academic_year'): entry['result'] = 'all_values_found_year_labeled'
             else: entry['result'] = 'all_values_found_year_not_labeled'
             results.append(entry)

@@ -98,7 +98,9 @@ class Fetcher:
         meta = {'status': status, 'final_url': final, 'content_type': headers.get('Content-Type', ''),
                 'last_modified': headers.get('Last-Modified'), 'bytes': len(body)}
         if status != 200:
-            meta['error'] = body.decode('utf-8', 'replace')[:300] if status is None else f'http_{status}'
+            # 202/403/429 from CDNs are bot challenges or blocks. They are recorded, never evaded.
+            meta['error'] = (body.decode('utf-8', 'replace')[:300] if status is None else
+                             'blocked_bot_challenge' if status == 202 else 'blocked_forbidden' if status == 403 else f'http_{status}')
             return meta, None
         if len(body) > MAX_BYTES:
             meta['error'] = 'too_large'; return meta, None
@@ -199,10 +201,17 @@ def crawl_institution(inst, run: Run, fetcher: Fetcher, budget=45, max_depth=3, 
         neg, depth, url, via = heapq.heappop(frontier)
         if url in done: continue
         done.add(url); fetched += 1
-        meta, body = fetcher.fetch(url)
+        try:
+            meta, body = fetcher.fetch(url)
+        except Exception as exc:  # A fetch bug must not stop the institution or the run.
+            meta, body = {'status': None, 'error': f'fetch_exception:{type(exc).__name__}: {exc}'[:300]}, None
         entry = {'institution_key': key, 'url': url, 'depth': depth, 'via': via, 'fetched_at': now(), **meta}
         if body is not None:
-            kind, page = parse_document(meta.get('final_url') or url, meta.get('content_type'), body)
+            try:
+                kind, page = parse_document(meta.get('final_url') or url, meta.get('content_type'), body)
+            except Exception as exc:
+                kind, page = 'error', None
+                entry['error'] = f'parse_exception:{type(exc).__name__}: {exc}'[:300]
             entry['kind'] = kind
             if page is None:
                 entry['error'] = 'unparsed_' + kind
@@ -230,6 +239,17 @@ def crawl(registry, run_dir, only=None, budget=45, workers=8, delay=1.0, fetcher
                   'allowed_domains': sorted({registrable_domain(urlsplit(s['url']).netloc) for s in registry.get('state_sources', [])}),
                   'existing_sources': []}
     if state_inst['seeds'] and not only: targets.append(state_inst)
+    failures = []
+
+    def one(inst):
+        try:
+            return crawl_institution(inst, run, fetcher, budget=budget, log=log)
+        except Exception as exc:  # Isolate institutions: record the failure and keep going.
+            failures.append(inst['institution_key'])
+            run.record({'institution_key': inst['institution_key'], 'url': '', 'fetched_at': now(),
+                        'error': f'institution_exception:{type(exc).__name__}: {exc}'[:300]})
+            log(f"{inst['institution_key']}: crawl stopped by {type(exc).__name__}: {exc}")
     with ThreadPoolExecutor(max_workers=workers) as pool:
-        list(pool.map(lambda i: crawl_institution(i, run, fetcher, budget=budget, log=log), targets))
+        list(pool.map(one, targets))
+    if failures: log(f'{len(failures)} institutions stopped early (resume to continue): {failures}')
     return run

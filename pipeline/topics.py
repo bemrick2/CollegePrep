@@ -5,6 +5,7 @@ crawled is also measured. Keywords match lowercase link text, URL paths, titles 
 """
 from __future__ import annotations
 import re
+from datetime import date
 
 # category: (data domain it fills, url/anchor keywords, page-text keywords)
 CATEGORIES = {
@@ -71,14 +72,39 @@ def page_topics(title: str, headings, text: str):
     return sorted(out)
 
 
-def link_score(url: str, anchor: str = '') -> int:
-    """Crawl priority: more matched categories and PDFs/documents of known value rank higher."""
+YEAR_IN_LINK = re.compile(r'(?<!\d)(20\d{2})(?:\s*[-–_]\s*(?:20)?(\d{2}))?(?!\d)')
+
+
+def link_years(text: str):
+    """First years of academic-year-like labels in a link ('2025-2026', 'cds_2024-25', '2023')."""
+    out = []
+    for m in YEAR_IN_LINK.finditer(text):
+        first = int(m.group(1))
+        if m.group(2) is None or int(m.group(2)) == (first + 1) % 100: out.append(first)
+    # Two-digit pairs only in the file name ('catalog06-07.pdf', 'fact-book-12_13.pdf').
+    name = text.split('?')[0].rstrip('/').rsplit('/', 1)[-1]
+    for m in re.finditer(r'(?<!\d)(\d{2})[-_](\d{2})(?!\d)', name):
+        a, b = int(m.group(1)), int(m.group(2))
+        if b == (a + 1) % 100: out.append(2000 + a)
+    return out
+
+
+def link_score(url: str, anchor: str = '', today=None) -> int:
+    """Crawl priority: more matched categories, documents of known value, and current years rank higher.
+    Links whose only year labels are more than two academic years old are skipped: the pipeline is
+    after current policy, and archives of old catalogs and surveys would consume the page budget."""
     if EXCLUDE.search(url): return -1
     topics = link_topics(url, anchor)
     if not topics: return 0
     score = 10 * len(topics)
     low = (url + ' ' + anchor).lower()
+    today = today or date.today()
+    current = today.year if today.month >= 7 else today.year - 1
+    years = [y for y in link_years(low) if 2000 <= y <= current + 1]
+    if years:
+        newest = max(years)
+        if newest < current - 2: return -1
+        score += 15 if newest >= current - 1 else 2
     if 'common data set' in low or 'common-data-set' in low or re.search(r'\bcds[_-]?20\d\d', low): score += 40
-    if re.search(r'20\d\d\s*[-–]\s*(20)?\d\d', low): score += 5
     if low.endswith('.pdf'): score += 3
     return score

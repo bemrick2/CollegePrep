@@ -5,7 +5,8 @@ until a reviewed decision promotes it (pipeline/promote.py). Every extracted val
 snippet from the fetched document; values without one are not emitted.
 """
 from __future__ import annotations
-import hashlib, json
+import hashlib, json, re
+from urllib.parse import urlsplit
 
 from .. import text as T
 
@@ -50,3 +51,14 @@ def resolve_year(page, entry, today_year):
     if label < today_year:
         issues.append(f'stale_year_label:{label}')
     return label, basis, issues
+
+
+PROFESSIONAL = re.compile(r'(^|[./-])(law|pharmacy|medicine|medical|med|dental|dentistry|graduate|grad|osteopathic|veterinary|'
+                          r'cvm|dvm|optometry|pa-program|msn|dnp|seminary)([./-]|$)', re.I)
+
+
+def professional_source(entry, page) -> bool:
+    """Graduate and professional-school pages (host or path) are outside undergraduate planning."""
+    u = urlsplit(entry.get('final_url') or entry.get('url', ''))
+    hit = PROFESSIONAL.search(u.netloc.split('.')[0]) or PROFESSIONAL.search(u.path)
+    return bool(hit) and not re.search(r'undergraduate', page.title or '', re.I)

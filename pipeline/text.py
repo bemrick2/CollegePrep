@@ -117,7 +117,10 @@ def pdf_text(raw: bytes) -> str | None:
     if not exe: return None
     with tempfile.NamedTemporaryFile(suffix='.pdf') as f:
         f.write(raw); f.flush()
-        r = subprocess.run([exe, '-layout', '-enc', 'UTF-8', f.name, '-'], capture_output=True, timeout=120)
+        try:
+            r = subprocess.run([exe, '-layout', '-enc', 'UTF-8', f.name, '-'], capture_output=True, timeout=120)
+        except subprocess.TimeoutExpired:
+            return None
     if r.returncode: return None
     text = r.stdout.decode('utf-8', 'replace')
     fields = pdf_form_fields(raw)

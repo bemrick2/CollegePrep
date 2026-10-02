@@ -73,7 +73,7 @@ def table_equivalencies(kind, rows):
 
 
 def extract(inst, entry, page, today_year):
-    if not page.tables: return []
+    if not page.tables or common.professional_source(entry, page): return []
     by_kind = {}
     for t in page.tables:
         kind = exams.detect_kind(t.get('caption'), t.get('heading')) or exams.detect_kind(page.title, entry['url'])

@@ -11,10 +11,11 @@ from . import common
 
 EXTRACTOR = 'common_data_set/v1'
 CDS_YEAR = re.compile(r'common\s+data\s+set\s+(20\d{2})\s*[-–/]\s*(20)?(\d{2})', re.I)
+_FTFY = r'total\s+first-time,?\s+first-year\s+(\((freshman|degree-seeking)\)\s+)?(students\s+)?'
 TOTALS = {
-    'applications': re.compile(r'total\s+first-time,?\s+first-year\s+(\(degree-seeking\)\s+)?(students\s+)?who\s+applied', re.I),
-    'admits': re.compile(r'total\s+first-time,?\s+first-year\s+(\(degree-seeking\)\s+)?(students\s+)?who\s+were\s+admitted', re.I),
-    'enrolled': re.compile(r'total\s+(full-time\s+)?first-time,?\s+first-year\s+(\(degree-seeking\)\s+)?(students\s+)?(who\s+)?enrolled', re.I),
+    'applications': re.compile(r'(?:^|\s)(' + _FTFY + r'who\s+applied|total\s+applied)\b', re.I),
+    'admits': re.compile(r'(?:^|\s)(' + _FTFY + r'who\s+were\s+admitted|total\s+admitted)\b', re.I),
+    'enrolled': re.compile(r'(?:^|\s)(' + _FTFY + r'(who\s+)?enrolled|total\s+enrolled)\b', re.I),
 }
 SCORES = {  # field prefix: (label pattern, low, high)
     'sat_composite': (r'^\s*sat\s+composite\b', 400, 1600),
@@ -22,7 +23,7 @@ SCORES = {  # field prefix: (label pattern, low, high)
     'sat_math': (r'^\s*sat\s+math\b', 200, 800),
     'act': (r'^\s*act\s+composite\b', 1, 36),
 }
-GENDER = re.compile(r'\b(men|women|male|female|gender)\b', re.I)
+GENDER = re.compile(r'\b(men|women|males?|females?|gender|sex)\b', re.I)
 
 
 def _numbers_after(line, pattern):
@@ -30,6 +31,36 @@ def _numbers_after(line, pattern):
     if not m: return []
     tail = line[m.end():]
     return [int(x.replace(',', '')) for x in re.findall(r'(?<![\d.])(\d{1,3}(?:,\d{3})+|\d+)(?![\d.%])', tail)]
+
+
+def joined_lines(text):
+    """Layout lines with wrapped labels re-joined: a label line with no numbers is merged into the
+    next line when that line continues the label ('who enrolled', 'Writing')."""
+    raw = [l.rstrip() for l in text.splitlines() if l.strip()]
+    out, i = [], 0
+    label = re.compile(r'(total\s+first-time|sat\s+evidence)', re.I)
+    while i < len(raw):
+        line = raw[i]
+        nxt = raw[i + 1] if i + 1 < len(raw) else ''
+        if label.search(line) and not re.search(r'\d{2}', line.split('first-year')[-1]):
+            if re.match(r'\s*(who\s|writing\b|and\s+writing\b)', nxt, re.I):
+                out.append(line + ' ' + nxt.strip()); i += 2; continue
+            # Column headers printed on the label line, numbers on the next line.
+            if re.fullmatch(r'[\s\d,]+', nxt) and len(re.findall(r'\d[\d,]*', nxt)) >= 1:
+                m = re.match(r'^.*?(who\s+applied|who\s+were\s+admitted|enrolled|writing)\b', line, re.I)
+                out.append((m.group(0) if m else line) + '   ' + nxt.strip())
+                i += 2; continue
+        out.append(line); i += 1
+    return out
+
+
+def total_from(nums):
+    """(value, parts, reconciles). One printed number, or a residency breakdown whose last column is
+    the printed Total (CDS template). A total that differs from its printed parts is still the
+    printed value, but the candidate goes to the exception queue."""
+    if len(nums) == 1: return nums[0], None, True
+    if len(nums) >= 3: return nums[-1], nums[:-1], nums[-1] == sum(nums[:-1])
+    return None, None, False
 
 
 def extract(inst, entry, page, today_year):
@@ -41,19 +72,23 @@ def extract(inst, entry, page, today_year):
     if second != first + 1: return []
     year = f'{first}-{str(second)[-2:]}'
     record, evidence, issues = {'entering_fall_year': first, 'applicant_population': 'first_time_first_year_degree_seeking'}, [], []
-    for line in page.lines:
-        if GENDER.search(line): continue
+    lines = joined_lines(page.text)
+    for line in lines:
+        if GENDER.search(line) or re.search(r'part-time|full-time', line, re.I): continue
         for field, rx in TOTALS.items():
             if field in record: continue
-            mm = rx.search(line)
-            if mm:
+            if rx.search(line):
                 nums = _numbers_after(line, rx.pattern)
-                if len(nums) == 1:
-                    record[field] = nums[0]; evidence.append({'field': field, 'value': nums[0], 'snippet': line.strip()[:240]})
-                elif len(nums) > 1:
-                    issues.append(f'{field}_multiple_numbers')
+                value, parts, ok = total_from(nums)
+                if value is not None:
+                    record[field] = value
+                    evidence.append({'field': field, 'value': value, 'snippet': line.strip()[:240],
+                                     **({'breakdown_reconciles': ok} if parts else {})})
+                    if not ok: issues.append(f'{field}_breakdown_does_not_reconcile')
+                elif nums:
+                    issues.append(f'{field}_unreadable_columns')
     for prefix, (pattern, lo, hi) in SCORES.items():
-        for line in page.lines:
+        for line in lines:
             if not re.search(pattern, line, re.I): continue
             nums = [n for n in _numbers_after(line, pattern)]
             if len(nums) not in (2, 3): continue
