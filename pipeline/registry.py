@@ -91,6 +91,7 @@ def build(state: str):
     for p in (ROOT / 'data/institutions').glob('*/institution.json'):
         r = json.loads(p.read_text()); aliases[str(r.get('unitid'))] = r['institution_key']
     rows = [r for r in hd_rows() if r['STABBR'] == state and in_scope(r, presence)]
+    overrides = seed_overrides(state)
     slugs = {}
     institutions = []
     for r in sorted(rows, key=lambda r: r['INSTNM']):
@@ -99,6 +100,11 @@ def build(state: str):
         for field, label in SEED_FIELDS.items():
             u = normalize_url(r.get(field))
             if u: seeds[label] = u
+        override = overrides.get(r['UNITID'])
+        ipeds_seeds = None
+        if override:  # a reported URL that no longer resolves, replaced only with a sourced correction
+            ipeds_seeds = dict(seeds)
+            seeds = {k: normalize_url(v) for k, v in override['seeds'].items()}
         site = seeds.get('website')
         domain = registrable_domain(urlsplit(site).netloc) if site else None
         folder = folders.get(key) or (domain.split('.')[0] if domain else 'ipeds-' + r['UNITID'])
@@ -111,6 +117,8 @@ def build(state: str):
             'allowed_domains': sorted({registrable_domain(urlsplit(u).netloc) for l, u in seeds.items() if l != 'net_price'}
                                       | {registrable_domain(urlsplit(u).netloc) for u in cited.get(key, [])}),
             'seeds': seeds, 'existing_sources': cited.get(key, [])})
+        if override:
+            institutions[-1]['seed_override'] = {'ipeds_seeds': ipeds_seeds, 'reason': override['reason'], 'evidence': override['evidence']}
     scope_shared_domains(institutions)
     for inst in institutions:  # Two campuses sharing a domain get distinct folders.
         if len(slugs[inst['folder']]) > 1 and inst['folder'] not in folders.values():
@@ -149,6 +157,7 @@ def scope_shared_domains(institutions):
 def in_host_scope(inst, host: str) -> bool:
     """Whether a URL host is inside an institution's crawl scope (see scope_shared_domains)."""
     host = host.lower().split(':')[0]; host = host[4:] if host.startswith('www.') else host
+    if any(host == h or host.endswith('.' + h) for h in inst.get('excluded_hosts') or []): return False
     rd = registrable_domain(host)
     if rd in (inst.get('shared_domains') or []):
         shared = set(inst.get('shared_hosts') or [])  # the system host itself, never its sibling subdomains
@@ -159,6 +168,17 @@ def in_host_scope(inst, host: str) -> bool:
 def is_shared_host(inst, host: str) -> bool:
     host = host.lower().split(':')[0]; host = host[4:] if host.startswith('www.') else host
     return host in set(inst.get('shared_hosts') or [])
+
+
+def seed_overrides(state: str):
+    """UNITID -> {seeds, reason, evidence}: corrections for IPEDS-reported URLs that no longer resolve.
+    Each needs a reason and an evidence URL; the crawl then validates the replacement like any seed."""
+    p = REGISTRY_DIR / 'states' / f'{state}.json'
+    out = json.loads(p.read_text()).get('seed_overrides', {}) if p.exists() else {}
+    for unitid, o in out.items():
+        if not (o.get('seeds', {}).get('website') and o.get('reason') and str(o.get('evidence', '')).startswith('https://')):
+            raise ValueError(f'seed override {unitid} needs seeds.website, reason and an https evidence URL')
+    return out
 
 
 def state_sources(state: str):

@@ -401,7 +401,7 @@ minimum grade point average (GPA) of 3.0 are eligible for dual enrollment. Out-o
 particular Transfer Pathway will earn an A.A. or A.S. degree at the community college. If a community college student transfers to another
 Tennessee community college, he or she is guaranteed that all courses transfer. Admission to UT, Knoxville is competitive and the Pathways
 do not guarantee admission there. These Transfer Pathways have been effective beginning Fall 2011 and are reviewed annually.</p>"""
-        state = {'institution_key': 'state-TN', 'state': 'TN'}
+        state = {'institution_key': 'state-TN', 'state': 'TN', 'control': 'state'}
         [c] = statepolicy.extract(state, {**ENTRY, 'url': 'https://www.tntransferpathway.org/transfer-admission-guarantee'}, T.parse_html(html), '2026-27')
         r = c['record']
         self.assertEqual((r['state'], r['policy_kind'], r['policy_key']), ('TN', 'transfer_guarantee', 'transfer-admission-guarantee'))
@@ -433,6 +433,29 @@ do not guarantee admission there. These Transfer Pathways have been effective be
         self.assertIn('dual_enrollment', __import__('backend.catalog', fromlist=['x']).CONTROLLED_VALUES['state_policies']['policy_kind'])
         rep = dc.replace(b'Dual Credit Policy for Kentucky</title>', b'Dual Credit and Student Success Report</title>')
         self.assertEqual(statepolicy.extract(sinst, {**ENTRY, 'url': 'https://cpe.ky.gov/data/reports/dualcreditreport.pdf'}, T.parse_html(rep, 'https://x'), '2026-27'), [])
+
+    def test_state_policy_extractor_ignores_institution_pages(self):
+        """Regression (KY): registry institutions gained `state`; university transfer agreements became statewide policies."""
+        html = (b'<html><head><title>Transfer Pathway Guide</title></head><body><p>All courses transfer and will be accepted toward the degree.</p>'
+                b'<p>Students must complete the associate degree with a 2.0 GPA.</p></body></html>')
+        inst = {**INST, 'state': 'KY'}
+        self.assertEqual(statepolicy.extract(inst, ENTRY, T.parse_html(html, 'https://x'), '2026-27'), [])
+        self.assertEqual(len(statepolicy.extract({'institution_key': 'state-KY', 'state': 'KY', 'control': 'state'}, ENTRY, T.parse_html(html, 'https://x'), '2026-27')), 1)
+
+    def test_state_policy_keys_from_generic_titles(self):
+        sinst = {'institution_key': 'state-KY', 'state': 'KY', 'control': 'state'}
+        html = (b'<html><head><title>KHEAA</title></head><body><h1>Dual Credit Scholarship</h1>'
+                b'<p>Students must be Kentucky residents enrolled in an eligible high school to receive dual credit awards.</p></body></html>')
+        (c,) = statepolicy.extract(sinst, {**ENTRY, 'url': 'https://www.kheaa.com/web/scholarships-grants.faces'}, T.parse_html(html, 'https://x'), '2026-27')
+        self.assertEqual(c['record']['policy_key'], 'scholarships-grants')
+        self.assertRegex(c['record']['policy_key'], r'^[a-z0-9][a-z0-9-]*$')
+
+    def test_state_crawl_skips_member_college_hosts(self):
+        """Regression (KY): the state crawl followed kctcs.edu into ashland.kctcs.edu (an institution's own site)."""
+        st = {'institution_key': 'state-KY', 'allowed_domains': ['kctcs.edu'], 'excluded_hosts': ['ashland.kctcs.edu']}
+        self.assertTrue(registry.in_host_scope(st, 'kctcs.edu'))
+        self.assertFalse(registry.in_host_scope(st, 'ashland.kctcs.edu'))
+        self.assertFalse(registry.in_host_scope(st, 'catalog.ashland.kctcs.edu'))
 
     def test_state_policy_promotion_path(self):
         tmp = Path(tempfile.mkdtemp())
@@ -532,6 +555,14 @@ class CrawlTests(unittest.TestCase):
         self.assertEqual(topics.link_score('https://catalog.wku.edu/undergraduate/ogden/biology/biology-bs/', 'Biology, Bachelor of Science'), 30)
         self.assertEqual(topics.link_score('https://catalog.wku.edu/graduate/health-human-services/nursing/dnp/', 'Nursing Practice, DNP'), -1)
 
+    def test_links_with_spaces_and_unicode_are_requoted(self):
+        """Regression (NV: NSHE handbook chapters; OR: Klamath articulation PDFs) -> InvalidURL before fetching."""
+        from pipeline.crawl import requote
+        self.assertEqual(requote('https://nshe.nevada.edu/Handbook/T4-CH15 Residency.pdf'), 'https://nshe.nevada.edu/Handbook/T4-CH15%20Residency.pdf')
+        self.assertEqual(requote('https://x.edu/a%20b/?q=1&r=a b'), 'https://x.edu/a%20b/?q=1&r=a%20b')  # no double encoding
+        self.assertEqual(requote('https://x.edu/admisi\u00f3n/'), 'https://x.edu/admisi%C3%B3n/')
+        self.assertEqual(requote('https://x.edu/p/#frag'), 'https://x.edu/p/')
+
     def test_budget_and_resume_continue_where_stopped(self):
         crawl(self.reg(), self.tmp / 'run', budget=2, workers=1, delay=0, fetcher=Fetcher(delay=0, timeout=5), log=lambda *_: None)
         self.assertEqual(len(Run(self.tmp / 'run').entries()), 2)
@@ -597,6 +628,14 @@ class RegistryTests(unittest.TestCase):
     def test_every_committed_registry_is_current(self):
         for path in sorted((ROOT / 'pipeline/registry').glob('*.json')):
             self.assertEqual(registry.build(path.stem), registry.load(path.stem), f'run: python -m pipeline registry --state {path.stem}')
+
+    def test_seed_overrides_need_reason_and_evidence(self):
+        built = registry.load('NV')
+        nsu = next(i for i in built['institutions'] if i['unitid'] == 441900)
+        self.assertEqual(nsu['allowed_domains'], ['nevadastate.edu'])
+        self.assertTrue(nsu['seed_override']['ipeds_seeds']['website'].startswith('https://nsc.edu'))  # original kept
+        with mock.patch.object(registry.json, 'loads', return_value={'seed_overrides': {'1': {'seeds': {'website': 'https://a.edu'}}}}):
+            with self.assertRaises(ValueError): registry.seed_overrides('NV')
 
     def test_registrable_domain_is_not_state_specific(self):
         self.assertEqual(registry.registrable_domain('www.state.tn.us'), 'state.tn.us')

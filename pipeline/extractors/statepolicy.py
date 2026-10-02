@@ -9,6 +9,7 @@ Every candidate is `semantic_review_required`: grouping sentences by keywords is
 """
 from __future__ import annotations
 import re
+from urllib.parse import urlsplit
 
 from . import common
 
@@ -36,8 +37,9 @@ def slug(s):
 
 
 def extract(inst, entry, page, today_year):
-    state = inst.get('state') or (inst['institution_key'][6:] if inst['institution_key'].startswith('state-') else None)
-    if not state: return []  # institution pages keep their own domains; this extractor reads statewide sources
+    # Statewide sources only. Registry institutions also carry `state`, so the guard is the pseudo-institution key.
+    if inst.get('control') != 'state' or not inst['institution_key'].startswith('state-'): return []
+    state = inst.get('state') or inst['institution_key'][6:]
     head = page.title + ' ' + entry.get('url', '')
     if re.search(r'report|fact\s*book|minutes|agenda|newsletter|presentation|dashboard', head, re.I): return []  # about policy, not policy
     # Regulations are often titled by number ("Title 013 Chapter 2 Regulation 045"); their subject is the
@@ -55,7 +57,12 @@ def extract(inst, entry, page, today_year):
     if not grouped.get('guarantees') and not grouped.get('requirements'): return []
     year, basis, issues = common.resolve_year(page, entry, today_year)
     title = re.split(r'\s+[|–-]\s+', page.title)[0].strip() or kind.replace('_', ' ')
-    rec = {'state': state, 'policy_kind': kind, 'policy_key': slug(f'{title}'), 'title': title,
+    key = slug(title)
+    if len(key) < 6 or re.fullmatch(r'[\d-]+', key) or key in {slug(x) for x in urlsplit(entry.get('url', '')).netloc.split('.')}:
+        # Generic titles ("KHEAA", "2026-2027", none) do not name a policy; the document's own name does.
+        doc = re.sub(r'\.(pdf|html?|aspx?|faces|php)$', '', urlsplit(entry.get('url', '')).path.rstrip('/').rsplit('/', 1)[-1], flags=re.I)
+        key = slug(doc) or kind.replace('_', '-')
+    rec = {'state': state, 'policy_kind': kind, 'policy_key': key, 'title': title,
            'summary': (grouped.get('guarantees') or grouped.get('requirements'))[0][:600],
            'statements': {r: v[:12] for r, v in grouped.items()}, 'policy_url': common.source_of(entry)['url'],
            'notes': f'Extracted by {EXTRACTOR}; statements are copied verbatim and grouped by keyword, pending review.'}

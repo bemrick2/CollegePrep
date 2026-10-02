@@ -51,20 +51,28 @@
    "name": "Nevada State University",
    "city": "Henderson",
    "state": "NV",
-   "folder": "nsc",
+   "folder": "nevadastate",
    "control": "public",
    "level": "four_year",
-   "domain": "nsc.edu",
+   "domain": "nevadastate.edu",
    "allowed_domains": [
-    "nsc.edu"
+    "nevadastate.edu"
    ],
    "seeds": {
-    "website": "https://nsc.edu/",
-    "admissions": "https://nsc.edu/admissions/",
-    "financial_aid": "https://nsc.edu/admissions/costs-and-financial-aid/",
-    "net_price": "https://nsc.edu/net-price-calculator/"
+    "website": "https://nevadastate.edu/",
+    "admissions": "https://nevadastate.edu/admissions/first-time-student/"
    },
-   "existing_sources": []
+   "existing_sources": [],
+   "seed_override": {
+    "ipeds_seeds": {
+     "website": "https://nsc.edu/",
+     "admissions": "https://nsc.edu/admissions/",
+     "financial_aid": "https://nsc.edu/admissions/costs-and-financial-aid/",
+     "net_price": "https://nsc.edu/net-price-calculator/"
+    },
+    "reason": "IPEDS HD2023 reports nsc.edu (Nevada State College); every nsc.edu seed returned 404 in run NV 2026-10-02 after the rename to Nevada State University.",
+    "evidence": "https://nevadastate.edu/admissions/first-time-student/"
+   }
   },
   {
    "institution_key": "ipeds-182500",
