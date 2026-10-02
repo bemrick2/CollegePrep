@@ -40,9 +40,14 @@ Applied migration files are left exactly as they were applied, and their content
 
 ## Adding a migration
 
-1. Create `supabase/migrations/<UTC timestamp>_<name>.sql`, newer than every existing file.
-2. Apply it to live:
-   - **Preferred:** `supabase db push`. The CLI records the file's own version.
-   - **Connector or SQL editor:** read the version it recorded, then rename the local file to that version before merging.
-3. Once it is live, record it in `supabase/migration_history.json`: the version, the name, and the normalized MD5 (the file text with `\r` removed and trailing newlines and spaces stripped). From then on CI treats the file as frozen.
-4. Merge. The live import workflow re-checks the history before importing data.
+1. Create `supabase/migrations/<UTC timestamp>_<name>.sql`, newer than every existing file. Do not put `begin`/`commit` in it: the deploy wraps each file in one transaction.
+2. Merge it to `main` after CI passes. `.github/workflows/deploy-migrations.yml` then runs `scripts/apply_migrations.py`, which:
+   - re-runs the offline and live history checks and refuses on any drift
+   - applies each pending file in one transaction together with its `supabase_migrations.schema_migrations` row (its own version, the whole file stored as one statement, as the connector did)
+   - re-checks that live history now matches the repository
+   A failed file is rolled back completely, including its history row, and nothing after it runs. The live import runs again after a successful deploy.
+3. Record the now-live migration in `supabase/migration_history.json` (version, name and normalized MD5: the file text with `\r` removed and trailing newlines and spaces stripped). From then on CI treats the file as frozen.
+
+Applying through the Supabase connector or SQL editor is still possible, but then the local file must be renamed to the version the connector recorded before merging. `supabase db push` is not used: it stores statements split, so its content hash would not match this repository's check.
+
+To run the deploy by hand: `DATABASE_URL=... python scripts/apply_migrations.py --dry-run`, then without `--dry-run`.
