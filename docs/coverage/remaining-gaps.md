@@ -22,7 +22,7 @@ The user designated CollegePrep (`butlklkzafvklwasbynr`) in organization `atkukj
 
 ## Backend gaps
 
-- Add mappings for newly researched transfer, degree and program records. Existing eight-domain import and live reconciliation are implemented. Hosted product/application deployment remains.
+- Eleven-domain imports, annual program/requirement dependency checks, live reconciliation, and an explicit-year school-comparison RPC are implemented. Transfer and degree research still needs actual sourced records; empty domains remain gaps. Hosted product/application deployment remains.
 - Student accounts/owned planning data, degree-path/credit optimization, rule-based aid/merit matching, payments and gated purchase flow.
 - Production AI-help provider integration, student privacy controls, rate limits and instructional evaluation. The feature remains in scope.
 - Scheduled official-source refresh, changed-source review and full domain completion inventories. Annual historical data remain preserved.

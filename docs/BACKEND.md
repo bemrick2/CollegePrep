@@ -20,7 +20,15 @@ The CLI-generated migrations provide verified-only public reads, deny client wri
 
 `python scripts/import_supabase.py --output work/import-bulk --batch-size 400` emits admin-only transactional SQL batches. Apply files in order through the authorized Supabase connector or a secure server-side database connection. Do not put admin credentials in GitHub or browser code. Institution dependencies load first. Each batch preserves the complete payload, archives changed same-year records, and rejects older/weaker evidence over verified records. Unsupported domains fail explicitly until a normalized mapping is implemented. The federal mapping currently supports the persisted Pell record only.
 
-The private `ingestion` schema is not exposed through the public API. Public reference reads require verified status; client writes are denied. The development HTTP adapter remains separate from hosted Supabase REST access. Authentication, student planning data, financial calculations, billing and AI-help integration are still product work.
+The private `ingestion` schema is not exposed through the public API. Public reference reads require verified status; client writes are denied. Program, transfer and degree imports are implemented; see [the data contract](PROGRAM_DATA.md). Authentication, student planning data, financial calculations, billing and AI-help integration are still product work.
+
+## School comparisons
+
+The Supabase RPC `compare_institutions` takes `p_institution_keys` (1–20 distinct keys) and `p_academic_year` (required, exact match). Call it with a publishable client key, for example `supabase.rpc('compare_institutions', {p_institution_keys: ['utk'], p_academic_year: '2026-27'})`. It uses the caller's permissions and verified official records. No admin key is required.
+
+Each requested school has `found`, a sourced identity, eight domain arrays, `missing_domains`, and `can_offer_paid_addon`. Unknown schools have `found: false`; empty domains mean no verified record for that year, not that a benefit or requirement does not exist. Institution identity has a separate historical `identity_academic_year`; it does not establish current operation. Credit equivalencies inherit the parent policy's year and provenance. Degree requirements include their stable parent program key. A nonempty domain is partial coverage, not a complete school catalog. State and federal aid require separate eligibility evaluation and are not implied by the school's location.
+
+The local adapter offers `GET /v1/compare?institution_key=utk&institution_key=other&academic_year=2026-27` with the same request limits and verified-record filtering. Synthetic PostgreSQL tests check public and authenticated reads, annual isolation, missing schools/data, provenance, nested equivalencies, and the paid appeal gate.
 
 Supabase connector migrations are recorded with deployment-time versions. Their names match repository migrations, but versions differ from repository filenames. Reconcile migration history before using CLI `db push`; do not blindly replay already-applied migrations. This does not affect the loaded tables or CI replay into a fresh database.
 

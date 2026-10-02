@@ -5,12 +5,14 @@ from http.server import BaseHTTPRequestHandler,ThreadingHTTPServer
 from urllib.parse import parse_qs,urlparse
 from pathlib import Path
 from backend.catalog import ROOT
-from backend.store import school
+from backend.store import school,compare
 
 def query(db,path,params):
     def one(k,default=''): return params.get(k,[default])[0]
     if path=='/health': return 200,{'status':'ok','records':db.execute('select count(*) from reference_records').fetchone()[0]}
     if path=='/v1/coverage': return 200,json.loads((ROOT/'docs/coverage/coverage.json').read_text())
+    if path=='/v1/compare':
+        return 200,compare(db,params.get('institution_key',[]),one('academic_year'))
     if path=='/v1/institutions':
         limit=int(one('limit','25')); offset=int(one('offset','0'))
         if not 1<=limit<=100 or offset<0: raise ValueError('limit must be 1–100; offset must be nonnegative')

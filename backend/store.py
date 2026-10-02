@@ -67,6 +67,23 @@ def school(db,key,year):
         'can_offer_paid_addon':any(eligible_appeal(r,year) for r in domains.get('appeals',[])),
         'missing_domains':[d for d in ['costs','admissions_metrics','awards','credit_policies','transfer_policies','degree_requirements','appeals'] if d not in domains]}
 
+COMPARISON_DOMAINS=['costs','admissions_metrics','awards','credit_policies','transfer_policies','academic_programs','degree_requirements','appeals']
+
+def compare(db,keys,year):
+    if not isinstance(year,str) or not year.strip() or len(year)>40:
+        raise ValueError('academic_year is required (maximum 40 characters)')
+    if not 1<=len(keys)<=20 or any(not isinstance(k,str) or not k.strip() or len(k)>200 for k in keys) or len(set(keys))!=len(keys):
+        raise ValueError('Provide 1 to 20 distinct nonempty institution keys')
+    results=[]
+    for key in keys:
+        profile=school(db,key,year)
+        identity=profile['institution'] if profile and profile['institution'].get('verification_status')=='verified' else None
+        domains={d:[r for r in profile['domains'].get(d,[]) if r.get('verification_status')=='verified'] if identity else [] for d in COMPARISON_DOMAINS}
+        results.append({'institution_key':key,'found':identity is not None,'institution':identity,
+            'academic_year':year,'domains':domains,'missing_domains':[d for d,rs in domains.items() if not rs],
+            'can_offer_paid_addon':any(eligible_appeal(r,year) for r in domains['appeals'])})
+    return {'academic_year':year,'institutions':results}
+
 if __name__=='__main__':
     p=argparse.ArgumentParser(); p.add_argument('--database',type=Path,required=True); p.add_argument('--accept-revisions',action='store_true'); a=p.parse_args()
     a.database.parent.mkdir(parents=True,exist_ok=True)
