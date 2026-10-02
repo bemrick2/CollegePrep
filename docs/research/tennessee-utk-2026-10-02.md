@@ -52,3 +52,18 @@ The add-on is still **ineligible**. The official Scholarship FAQ says: "UT canno
 10. **Manning Scholars amount** and the **Next Chapter retention rules** were not published or captured.
 11. **Lower-confidence reading.** Several Tennessee pages and the Fall 2026 release summary were read through a summarizing fetcher (see `method` in the manifest). They should be re-read verbatim before those records are upgraded.
 12. **Importer mapping (resolved).** The degree and transfer domains now have importer mappings and a schema migration, and controlled values were aligned with database constraints. Credit kinds are now `dual_enrollment`, `cambridge_international`, `statewide_dual_credit` and `industry_certification`. Transfer rules moved to `transfer_policies`. The migration must be applied to the live project before this data is imported.
+
+## Recheck of unresolved items (2026-10-02, afternoon)
+
+All pages below were re-read verbatim in a browser (full page text, not a summarizing tool).
+
+- **TSAA 2026-27 SAI threshold: still unresolved.** The College for TN program page reads "a valid Student Aid Index (SAI) of 5000 or less". It has no year label; its WordPress last-modified timestamp is 2026-06-10. The THEC Class of 2027 Senior NEXT Guide (2027-28 FAFSA cohort, uploaded 2026-07) states 3500. These may be different aid years, but no official source labels the 2026-27 value. The TSAC board-meeting archive shows no 2026 materials. Neither value is used for eligibility.
+- **Twelve partially verified TN state-aid records.** Every amount, GPA, hour count and date in each record matches the live page text. CMS last-modified dates (2026-06-02 to 2026-08-28) are now in each record's notes. Status stays `partially_verified` because the pages print no aid-year label. The Future Teacher page lists targeted-setting years 2023-2024 through 2026-2027, but it does not label the award amount by year.
+- **UTK transfer residence: conflict preserved.**
+  - The admissions transfer page still says "last 30 credit hours at UT and their last 60 credit hours at a four-year college or university".
+  - The 2026-27 catalog still says 15 of the final 30 hours must be in residence.
+- **Out-of-State Volunteer deadline: conflict preserved.**
+  - The page header says December 15; the body says January 15 (twice).
+  - The admissions first-year page lists Early Action Nov 1 and Regular Decision Jan 5. It gives no scholarship deadline.
+- **Next Chapter Scholarship and Scholar of the Year: upgraded to verified.** The page labels its amounts as 2026-27. Retention (3.0 cumulative GPA, full-time enrollment each semester, SAP) is now captured verbatim.
+- **Manning Scholars: stays partially verified.** UTK publishes no award amount.
