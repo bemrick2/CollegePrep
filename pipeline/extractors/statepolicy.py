@@ -17,7 +17,8 @@ SENTENCE = re.compile(r'(?<=[.!?])\s+(?=[A-Z])')
 KINDS = [  # most specific first: a dual-admissions page lives under an "articulation-and-transfer" URL
     ('transfer_guarantee', r'transfer\s+(admission\s+)?guarantee|guaranteed\s+(admission|transfer)'),
     ('dual_admission', r'dual[\s_-]+admission'),
-    ('statewide_articulation', r'transfer\s+pathway|articulation|common\s+course|reverse\s+transfer'),
+    ('statewide_articulation', r'transfer\s+pathway|articulation|common\s+course|reverse\s+transfer|transfer\s+maps?\b|'
+                               r'statewide\s+transfer|transfer\s+agreements?|general\s+education\s+(transfer|certification)|transfer\s+policy'),
     ('tuition_residency', r'residen(cy|t)\s+(classification|status|for\s+tuition)|classification\s+of\s+students|in-state\s+tuition|out-of-state\s+tuition|domicile'),
 ]
 ROLES = [

@@ -19,6 +19,7 @@ from .extractors import appeals, catalog, cds, costs, credit, dual, merit, state
 
 EXTRACTORS = [credit.extract, costs.extract, cds.extract, merit.extract, appeals.extract, transfer.extract, dual.extract,
               catalog.extract, statepolicy.extract]
+STATE_EXTRACTORS = [statepolicy.extract]
 SCALAR_SKIP = {'entering_fall_year', 'unitid', 'term_index', 'choose_count'}
 # Policy wording that must also appear verbatim before a record can be upgraded: paraphrased text
 # (for example from a summarising fetch tool) is exactly what the earlier status downgrade was for.
@@ -67,7 +68,8 @@ def extract_run(registry, run: Run, today_year):
         inst = insts.get(e.get('institution_key'))
         if not inst or not e.get('page_file'): continue
         page, _ = run.load_page(e['page_file'])
-        for fn in EXTRACTORS:
+        # Statewide sources feed state-level domains only; institution extractors would key records to 'state-XX'.
+        for fn in (STATE_EXTRACTORS if inst.get('control') == 'state' else EXTRACTORS):
             try:
                 out += fn(inst, e, page, today_year)
             except Exception as exc:  # An extractor bug must not hide other results; it is queued instead.
