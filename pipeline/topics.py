@@ -62,12 +62,22 @@ def link_topics(url: str, anchor: str = ''):
     return sorted(c for c, (_, kws, _) in CATEGORIES.items() if any(k in hay for k in kws))
 
 
+_WORD = {}
+
+
+def _rx(k):
+    if k not in _WORD:
+        _WORD[k] = re.compile(r'(?<![a-z])' + re.escape(k) + r'(?![a-z])')
+    return _WORD[k]
+
+
 def page_topics(title: str, headings, text: str):
+    """Categories a fetched document covers. Keywords match whole words ('act' is not in 'contact')."""
     head = (title + ' ' + ' '.join(headings or [])).lower()
     body = (text or '')[:20000].lower()
     out = set()
     for c, (_, kws, body_kws) in CATEGORIES.items():
-        if any(k in head for k in kws + body_kws) or sum(body.count(k) for k in body_kws) >= 3:
+        if any(_rx(k).search(head) for k in kws + body_kws) or sum(len(_rx(k).findall(body)) for k in body_kws) >= 3:
             out.add(c)
     return sorted(out)
 

@@ -25,10 +25,17 @@ from .review import existing_records
 RANK = {'verified': 3, 'partially_verified': 2, 'unverified': 1, 'stale': 0, 'not_applicable': 0}
 
 
+INFORMATIONAL = ('stale_year_label',)  # a correctly labelled prior year is history, not a defect
+
+
+def blocking(issues):
+    return [i for i in issues if not i.startswith(INFORMATIONAL)]
+
+
 def status_for(c, accepted_issues: bool):
-    if c['year_basis'] in {'labeled_in_title', 'labeled_in_source'} and not c['issues']:
+    if c['year_basis'] in {'labeled_in_title', 'labeled_in_heading', 'labeled_in_source'} and not blocking(c['issues']):
         return 'verified'
-    return 'partially_verified' if (not c['issues'] or accepted_issues) else None
+    return 'partially_verified' if (not blocking(c['issues']) or accepted_issues) else None
 
 
 def _file_for(folder, domain, year):
@@ -98,5 +105,7 @@ def promote(registry, decisions_path: Path, log=print):
     out.parent.mkdir(parents=True, exist_ok=True)
     prior = json.loads(out.read_text()) if out.exists() else {}
     out.write_text(json.dumps({**prior, **evidence}, indent=1, sort_keys=True, ensure_ascii=False) + '\n', encoding='utf-8')
-    log(f'promoted {written} records; evidence in {out.relative_to(ROOT)}')
+    from .registry import write as write_registry
+    write_registry(registry['state'])  # promoted records cite new sources, which every later run re-checks
+    log(f'promoted {written} records; evidence in {out.relative_to(ROOT)}; registry refreshed')
     return written

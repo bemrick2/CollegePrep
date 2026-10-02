@@ -33,7 +33,7 @@ class _Parser(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.base = base_url; self.out = []; self.skip = 0; self.title = ''; self.in_title = False
         self.links = []; self.link = None; self.headings = []; self.heading = None
-        self.tables = []; self.stack = []; self.last_heading = ''
+        self.tables = []; self.stack = []; self.last_heading = ''; self.year_heading = ''
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
@@ -44,7 +44,8 @@ class _Parser(HTMLParser):
         if tag in CELL: self.out.append(' | ')
         if tag == 'a' and a.get('href'): self.link = [a['href'], []]
         if tag in {'h1', 'h2', 'h3', 'h4'}: self.heading = []
-        if tag == 'table': self.stack.append({'caption': '', 'heading': self.last_heading, 'rows': [], 'row': None, 'cell': None})
+        if tag == 'table': self.stack.append({'caption': '', 'heading': self.last_heading, 'year_heading': self.year_heading,
+                                              'rows': [], 'row': None, 'cell': None})
         elif self.stack:
             t = self.stack[-1]
             if tag == 'tr': t['row'] = []
@@ -63,7 +64,9 @@ class _Parser(HTMLParser):
                 self.links.append((urldefrag(urljoin(self.base, href.strip()))[0], squash(''.join(text))))
         if tag in {'h1', 'h2', 'h3', 'h4'} and self.heading is not None:
             h = squash(''.join(self.heading)); self.heading = None
-            if h: self.headings.append(h); self.last_heading = h
+            if h:
+                self.headings.append(h); self.last_heading = h
+                if YEAR_RE.search(h) or FALL_SPRING_RE.search(h): self.year_heading = h
         if not self.stack: return
         t = self.stack[-1]
         if tag in CELL and t['cell'] is not None:
@@ -76,7 +79,8 @@ class _Parser(HTMLParser):
         elif tag == 'table':
             done = self.stack.pop()
             if done['rows']:
-                self.tables.append({'caption': done['caption'], 'heading': done['heading'], 'rows': done['rows']})
+                self.tables.append({'caption': done['caption'], 'heading': done['heading'],
+                                    'year_heading': done['year_heading'], 'rows': done['rows']})
 
     def handle_data(self, data):
         if self.skip: return
@@ -159,6 +163,9 @@ def parse_pdf(raw: bytes) -> Page | None:
 YEAR_RE = re.compile(r'(?<![\d$])(20\d{2})\s*(?:-|–|—|/|to|through)\s*(20)?(\d{2})(?!\d)')
 
 
+FALL_SPRING_RE = re.compile(r'fall\s+(20\d{2})\s*(?:-|–|—|/|to|through|and|&)\s*spring\s+(20\d{2})', re.I)
+
+
 def academic_year(first: int) -> str:
     return f'{first}-{str(first + 1)[-2:]}'
 
@@ -169,6 +176,10 @@ def year_labels(text: str):
     found = {}
     for m in YEAR_RE.finditer(text or ''):
         first = int(m.group(1)); second = int((m.group(2) or str(first)[:2]) + m.group(3))
+        if second == first + 1:
+            label = academic_year(first); found[label] = found.get(label, 0) + 1
+    for m in FALL_SPRING_RE.finditer(text or ''):
+        first, second = int(m.group(1)), int(m.group(2))
         if second == first + 1:
             label = academic_year(first); found[label] = found.get(label, 0) + 1
     return found

@@ -32,10 +32,11 @@ ROW_LABELS = [  # first match wins
     ('transportation', r'transportation|travel'),
     ('personal', r'personal|miscellaneous|misc\b'),
     ('loan_fees', r'loan\s*fees?'),
+    ('mandatory_fee', r'^\W*(mandatory|required|general|student|university|activity|maintenance|program\s+services?)\s+(student\s+)?fees?\b|^\W*fees\W*$'),
     ('fee', r'\bfees?\b'),
 ]
 _ROW = [(k, re.compile(p, re.I)) for k, p in ROW_LABELS]
-SKIP_ROW = re.compile(r'per\s+(credit|hour|week|month|night|course|lab)|/\s*(credit|hour|week)|summer|parking|deposit', re.I)
+SKIP_ROW = re.compile(r'per\s+(credit|hour|week|month|night|course|lab|semester\s+hour)|(semester|credit)\s+hour|/\s*(credit|hour|week)|summer|parking|deposit|audit|transcript|graduation', re.I)
 SKIP_TABLE = re.compile(r'graduate|doctor|pharm|physician|law school|medicine|medical|dental|dnp|msn|\bmba\b|nurse practitioner|'
                         r'online|per credit|part[- ]time|summer|international student', re.I)
 UNDERGRAD = re.compile(r'undergraduate', re.I)
@@ -111,7 +112,7 @@ def parse_table(rows):
 
 
 def _context(t, page, titles):
-    return ' '.join([t.get('heading') or '', t.get('caption') or ''] + titles)
+    return ' '.join([t.get('year_heading') or '', t.get('heading') or '', t.get('caption') or ''] + titles)
 
 
 def _candidates_from_table(t, inst, entry, page, today_year, page_year, page_basis, page_issues):
@@ -149,9 +150,15 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
     # Two total rows (per semester / for fall and spring): use the annual one.
     totals = [k for k in keyed if k[0] == 'total']
     if len(totals) > 1:
+        coa = [k for k in totals if re.search(r'\bcoa\b|cost\s+of\s+attendance', k[1], re.I)]
+        if len(coa) == 1:  # direct/indirect subtotals plus a labelled COA total: the COA total is the total
+            keyed = [k for k in keyed if k[0] != 'total' or k is coa[0]] + [(None, k[1], k[2], k[3]) for k in totals if k is not coa[0]]
+            totals = [coa[0]]
         annual = [k for k in totals if re.search(r'fall\s*(&|and)\s*spring|year|annual', k[1], re.I)]
         per_sem = [k for k in totals if re.search(r'semester|term', k[1], re.I) and k not in annual]
-        if annual and per_sem:
+        if len(totals) == 1:
+            pass
+        elif annual and per_sem:
             # Components are printed per semester; the annual total is printed separately. Keep both
             # verbatim, reconcile against the semester total, and leave per-semester rows out of the
             # annual canonical fields.
@@ -206,6 +213,11 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
         elif total is not None:
             checks['components_reconcile'] = abs(sum(parts) - total) < 1
             if not checks['components_reconcile']: g_issues.append('components_do_not_reconcile')
+        # A printed total is a cost of attendance only when indirect costs are part of the table (or the
+        # row says so); tuition + fees + room + board alone is the direct (billed) cost.
+        total_label = next((lbl for lbl in printed if row_key(lbl) == 'total'), '')
+        indirect = any(k in comp for k in ('books_supplies', 'transportation', 'personal'))
+        is_coa = indirect or bool(re.search(r'\bcoa\b|cost\s+of\s+attendance', total_label, re.I))
         tuition = one('tuition') or one('tuition_and_fees')
         limit = 60000 if 'cost_period_semester' in g_issues else 120000
         if any(v > (limit * 1.6 if lbl and row_key(lbl) == 'total' else limit) for lbl, v in printed.items()) or (tuition is not None and tuition < 300):
@@ -219,12 +231,15 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
             g_issues.append('ambiguous_year_labels')
         record = {'residency': res or 'not_applicable', 'currency': 'USD',
                   'cost_period': 'semester' if 'cost_period_semester' in g_issues else 'academic_year',
-                  'tuition': one('tuition'), 'mandatory_fees': one('fee') if one('tuition') is not None else None,
+                  'tuition': one('tuition'), 'mandatory_fees': one('mandatory_fee') if one('tuition') is not None and 'fee' not in comp else None,
                   'books_supplies': one('books_supplies'),
                   'on_campus_food_housing': one('food_housing') if primary[0] == 'on_campus' else None,
-                  'total_cost_of_attendance': total,
+                  'total_cost_of_attendance': total if is_coa else None,
                   'components': printed,
                   'notes': f'Extracted by {EXTRACTOR} from the table "{(context or primary[1])[:120]}"; printed rows copied, totals never recomputed.'}
+        if total is not None and not is_coa:
+            record['total_direct_cost'] = total
+            record['notes'] += ' The printed total covers direct (billed) costs only, so it is not a cost of attendance.'
         if one('tuition_and_fees') is not None:
             record['tuition_and_mandatory_fees'] = one('tuition_and_fees')
         if UNDERGRAD.search(context + ' ' + page.title): record['student_population'] = 'undergraduate'
@@ -264,10 +279,10 @@ def extract(inst, entry, page, today_year):
     page_issues = [i for i in page_issues if not i.startswith('stale_year_label')]  # judged per table below
     if page_basis == 'ambiguous_year_labels': page_year = None; page_basis = 'source_unlabeled'; page_issues = []
     tables = page.tables
-    if entry.get('kind') == 'pdf':
+    if entry.get('kind') in {'pdf', 'xlsx'}:
         head = page.title + ' ' + page.text[:3000] + ' ' + entry.get('url', '')
         if not COST_DOC.search(head) or NOT_COST_DOC.search(head): return []
-        tables = _pdf_tables(page)
+        if entry.get('kind') == 'pdf': tables = _pdf_tables(page)
     out = []
     for t in tables:
         out += _candidates_from_table(t, inst, entry, page, today_year, page_year, page_basis, page_issues)

@@ -261,4 +261,4 @@ These estimates describe practice performance only. They are not predicted score
 - No recommender diversification or difficulty adaptation (v1 heuristic only), no item calibration, and no score prediction.
 - No deletion or export path for a student's data. Deleting a minor's practice data needs a confirmed, audited path and is a product decision.
 - No join request initiated by the student, and no recovery for a household with no remaining manager after account deletion.
-- **Not yet applied to the live Supabase project.** For the same reason, this migration is not in `supabase/migration_history.json`. Follow `docs/MIGRATIONS.md` when it is applied.
+- Live since 2026-10-02 (`20261002183112_household_practice_progress`, recorded in `supabase/migration_history.json`). Supabase's security advisor lists the client-callable `SECURITY DEFINER` RPCs as warnings; that is the intended design. The six access helpers (`has_household_permission`, `is_household_*`, `can_*_student`) do not need to be RPC endpoints and are tracked for a move to a non-exposed schema.

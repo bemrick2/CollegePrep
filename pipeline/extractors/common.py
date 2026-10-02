@@ -43,6 +43,10 @@ def resolve_year(page, entry, today_year):
     """(academic_year, basis, issues). Unlabeled pages are recorded as the year in force at review."""
     label, basis = T.dominant_year(page.text[:60000], page.title)
     issues = []
+    if basis in {'ambiguous_year_labels', 'source_unlabeled'}:
+        heads = T.year_labels(' | '.join(page.headings or []))
+        if len(heads) == 1:  # one year in the section headings beats archive links in the body
+            label, basis = next(iter(heads)), 'labeled_in_heading'
     if basis == 'ambiguous_year_labels':
         issues.append('ambiguous_year_labels')
         return today_year, basis, issues
