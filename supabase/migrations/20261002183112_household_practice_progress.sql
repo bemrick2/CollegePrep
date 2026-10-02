@@ -12,7 +12,8 @@ create table public.profiles (
 create table public.households (
   id uuid primary key default gen_random_uuid(),
   name text not null check (length(btrim(name)) between 1 and 120),
-  created_by uuid not null references auth.users(id),
+  -- Nullable so deleting the creator's account never blocks or deletes the household.
+  created_by uuid references auth.users(id) on delete set null,
   created_at timestamptz not null default now()
 );
 

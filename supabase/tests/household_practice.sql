@@ -271,4 +271,9 @@ do $$ begin
 end $$;
 reset role;
 select hp_test.check((select target_questions from public.weekly_practice_goals where student_id = current_setting('t.st1')::uuid) = 3, 'student changed goal');
+-- Deleting the creating guardian's account keeps the household and the students' data.
+delete from auth.users where id = '20000000-0000-0000-0000-0000000000a1';
+select hp_test.check((select count(*) from public.households h join public.students s on s.household_id = h.id
+  where h.created_by is null) = 2, 'household survives creator account deletion');
+select hp_test.check(not exists (select 1 from public.household_members where user_id = '20000000-0000-0000-0000-0000000000a1'), 'deleted account membership removed');
 rollback;

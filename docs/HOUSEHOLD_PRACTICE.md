@@ -88,6 +88,8 @@ All RPCs are `security definer` with `search_path = ''`. They are executable by 
 - **Answers stay hidden until submission:** `correct_answer`, `explanation` and `distractor_rationales` are revealed only in the submit response.
 - **Invitation codes:** each code is a 64-character hex string built from two `gen_random_uuid()` values, giving 244 random bits. It is hashed with core `sha256()`, so pgcrypto schema placement does not matter.
 - **Week boundaries use UTC.** Per-household time zones are not modelled yet.
+- **Account deletion never blocks.** Deleting a user removes their memberships; a household survives with `created_by` set to null, so students' data is not lost when the creating guardian leaves.
+- **Grading is exact match after trimming whitespace.** That suits multiple-choice letters. Student-produced responses that accept equivalent forms (`1/2` and `.5`) need an answer-equivalence rule before such questions are published.
 
 ## Not done yet
 
@@ -96,4 +98,6 @@ All RPCs are `security definer` with `search_path = ''`. They are executable by 
 - No notifications or email reports.
 - No question content or strategy catalogue.
 - No per-subject goal progress in the RPC; only the overall goal is reported.
+- No RPCs to remove a member, leave a household or delete a student's data. Guardians can only archive a student. Deletion of a minor's practice data needs a confirmed, audited path and is a product decision.
+- A household whose only guardian deletes their account has no guardian left; recovery is not modelled.
 - **Not yet applied to the live Supabase project.** For the same reason, this migration is not in `supabase/migration_history.json`. Follow `docs/MIGRATIONS.md` when it is applied.
