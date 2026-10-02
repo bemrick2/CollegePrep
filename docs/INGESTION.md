@@ -1,5 +1,12 @@
 # Data ingestion
 
+Reviewed verification corrections require `--accept-corrections` and a persisted
+`verification_correction_reason`. The prior payload is archived; older evidence
+is still refused. Credit equivalencies retain superseded rows with
+`is_current=false`, while public reads expose the reviewed current snapshot.
+Explicitly published SAT composites are mapped separately from section
+percentiles; missing composites are never obtained by summing sections.
+
 CollegePrep uses a two-stage data workflow:
 
 1. **Versioned seed/reference JSON in GitHub** for auditability, review, and history.

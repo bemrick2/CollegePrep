@@ -34,4 +34,13 @@ class StoreTests(unittest.TestCase):
         self.price['last_verified_at']='invalid'; self.write([self.identity,self.price])
         with self.assertRaises(ValueError): load(self.db,self.root)
         self.assertEqual(self.db.execute('select count(*) from reference_records').fetchone()[0],0)
+    def test_reviewed_correction_requires_opt_in_and_reason(self):
+        load(self.db,self.root)
+        self.price['verification_status']='partially_verified'
+        self.price['verification_correction_reason']='Official source does not establish this academic year'
+        self.write([self.identity,self.price])
+        with self.assertRaises(ValueError): load(self.db,self.root,accept_revisions=True)
+        load(self.db,self.root,accept_revisions=True,accept_corrections=True)
+        self.assertEqual(self.db.execute('select count(*) from record_revisions').fetchone()[0],1)
+        self.assertEqual(school(self.db,'test','2025-26')['domains']['costs'][0]['verification_status'],'partially_verified')
 if __name__=='__main__': unittest.main()

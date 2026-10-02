@@ -45,6 +45,8 @@ def validate_record(path: Path, record: dict, index: int, domain=None):
     status = record.get("verification_status")
     if status not in VALID_STATUSES:
         errors.append(f"invalid verification_status={status!r}")
+    if status=='verified' and 'source_unlabeled' in record.get('academic_year_basis',''):
+        errors.append('unlabeled academic-year evidence cannot be marked verified')
 
     if status == "verified":
         for field in REQUIRED_VERIFIED_FIELDS:

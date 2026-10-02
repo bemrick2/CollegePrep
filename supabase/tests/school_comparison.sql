@@ -18,6 +18,8 @@ insert into public.credit_policies(id,institution_id,policy_kind,academic_year,p
  ('10000000-0000-0000-0000-000000000005','10000000-0000-0000-0000-000000000002','AP','2026-27','https://example.edu/comparison-test','10000000-0000-0000-0000-000000000001','verified',current_date);
 insert into public.credit_equivalencies(credit_policy_id,exam_or_course_code,minimum_score,credits_awarded) values
  ('10000000-0000-0000-0000-000000000005','BIO','4',4);
+insert into public.credit_equivalencies(credit_policy_id,exam_or_course_code,is_current) values
+ ('10000000-0000-0000-0000-000000000005','RETIRED',false);
 
 set local role anon;
 do $test$
@@ -31,6 +33,7 @@ begin
  if school->'domains'->'degree_requirements'->0->>'program_key'<>'biology' then raise exception 'Program dependency missing'; end if;
  if school->'domains'->'degree_requirements'->0->>'source_url'<>'https://example.edu/comparison-test' then raise exception 'Source provenance lost'; end if;
  if school->'domains'->'credit_policies'->0->'equivalencies'->0->>'exam_or_course_code'<>'BIO' then raise exception 'Equivalencies lost'; end if;
+ if jsonb_array_length(school->'domains'->'credit_policies'->0->'equivalencies')<>1 then raise exception 'Retired equivalency exposed'; end if;
  if (r->'institutions'->1->>'found')::boolean or (r->'institutions'->2->>'found')::boolean then raise exception 'Unknown or unverified identity leaked'; end if;
  old=public.compare_institutions(array['comparison-test'],'2023-24')->'institutions'->0;
  if (old->>'can_offer_paid_addon')::boolean or old->'domains'->'costs'->0->>'tuition'<>'1000' then raise exception 'Annual isolation failed'; end if;
