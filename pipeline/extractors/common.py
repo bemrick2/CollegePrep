@@ -71,3 +71,11 @@ def professional_source(entry, page) -> bool:
     u = urlsplit(entry.get('final_url') or entry.get('url', ''))
     hit = PROFESSIONAL.search(u.netloc.split('.')[0]) or PROFESSIONAL.search(u.path)
     return bool(hit) and not re.search(r'undergraduate', page.title or '', re.I)
+
+
+INTERNATIONAL = re.compile(r'international[\s_-]*(students?|applicants?|admissions?)|/international(/|$)', re.I)
+
+
+def international_source(entry, page):
+    """Budgets and awards for international students (PCC, Chemeketa, Centre) are not the domestic figures."""
+    return bool(INTERNATIONAL.search((entry.get('url') or '') + ' ' + (page.title or '')))

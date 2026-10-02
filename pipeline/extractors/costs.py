@@ -99,12 +99,17 @@ def column_meaning(header, home=None, private=False):
     years = T.year_labels(header or '')
     return {
         'residency': residency(h, home, private),
-        'arrangement': ('with_parents_or_family' if re.search(r'with\s*(a\s+)?(parent|family)|at home|commut', h) else
-                        'off_campus_not_with_family' if re.search(r'off[- ]campus', h) else
-                        'on_campus' if re.search(r'on[- ]campus|residence hall|resident(\s+student|\s+budget)?$|resident student|residential', h) else
+        'arrangement': ('off_campus_not_with_family' if re.search(r'not\s+(living\s+)?(with|w/)\s*(a\s+)?parents?|away\s+from\s+(home|parents)', h) else
+                        'with_parents_or_family' if re.search(r'(with|w/)\s*(a\s+)?(parents?|family|relatives)|at home|commut', h) else
+                        'off_campus_not_with_family' if re.search(r'off[- ]campus|own\s+(house|home|apartment)', h) else
+                        'on_campus' if re.search(r'on[- ]campus|residence hall|student\s+housing|resident(\s+student|\s+budget)?$|resident student|residential', h) else
                         'other' if re.search(r'military|on base', h) else None),
-        'period': ('year' if re.search(r'per\s+year|annual|academic\s+year|fall\s*(&|and)\s*spring|two\s+semesters|yearly|\byear\b', h) else
-                   'semester' if re.search(r'per\s+semester|single\s+semester|\bsemester\b|per\s+term', h) else None),
+        # Quarter calendars (OR) print "1 Term | 2 Terms | 3 Terms | 4 Terms" or "3 Months | 9 Months": the
+        # academic year is three terms / nine months; other counts are partial years or include summer.
+        'period': ('year' if re.search(r'per\s+year|annual|academic\s+year|fall\s*(&|and)\s*spring|two\s+semesters|yearly|\byear\b|'
+                                       r'^\W*(3|three)\s+(quarters|terms)\W*$|^\W*(9|nine)\s+months?\W*$', h) else
+                   'semester' if re.search(r'per\s+semester|single\s+semester|\bsemester\b|per\s+term|^\W*(1|one)\s+(term|quarter)\W*$', h) else
+                   'partial_year' if re.search(r'^\W*(2|4|two|four)\s+(terms|quarters)\W*$|^\W*\d{1,2}\s+months?\W*$', h) else None),
         'year': next(iter(years)) if len(years) == 1 else None,
     }
 
@@ -179,7 +184,7 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
         cols.append(m)
     issues = list(page_issues)
     if any(c['period'] == 'year' for c in cols):
-        keep = [j for j, c in enumerate(cols) if c['period'] != 'semester']
+        keep = [j for j, c in enumerate(cols) if c['period'] not in ('semester', 'partial_year')]
     else:
         keep = list(range(ncols))
     semester_only = all(cols[j]['period'] == 'semester' for j in keep)
@@ -187,6 +192,10 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
     totals = [k for k in keyed if k[0] == 'total']
     if len(totals) > 1:
         coa = [k for k in totals if re.search(r'\bcoa\b|cost\s+of\s+attendance', k[1], re.I)]
+        if len(coa) != 1:  # "Billable / Non-Billable / Direct / Indirect" subtotals beside one plain total (OR: OSU)
+            sub = re.compile(r'billable|direct|indirect|sub-?total|per\s+(term|semester)', re.I)
+            plain = [k for k in totals if not sub.search(k[1])]
+            if len(plain) == 1 and len(totals) > 1 and all(sub.search(k[1]) for k in totals if k is not plain[0]): coa = plain
         if len(coa) == 1:  # direct/indirect subtotals plus a labelled COA total: the COA total is the total
             keyed = [k for k in keyed if k[0] != 'total' or k is coa[0]] + [(None, k[1], k[2], k[3]) for k in totals if k is not coa[0]]
             totals = [coa[0]]
@@ -238,7 +247,8 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
         comp, printed = primary[2], primary[3]
         one = lambda k: comp[k][0] if len(comp.get(k, [])) == 1 else None
         total = one('total')
-        parts = [v for lbl, v in printed.items() if row_key(lbl) != 'total']
+        # Any printed total or subtotal ("Estimated Billable Cost Total") is not a component.
+        parts = [v for lbl, v in printed.items() if row_key(lbl) != 'total' and not re.search(r'\btotals?\b|sub-?total', lbl, re.I)]
         checks = {'columns': len(arrangements), 'rows': len(printed)}
         if semester_total is not None:
             j0 = js[arrangements.index(primary)] if len(js) == len(arrangements) else js[0]
@@ -313,7 +323,7 @@ def _pdf_tables(page):
 
 
 def extract(inst, entry, page, today_year):
-    if common.professional_source(entry, page): return []
+    if common.professional_source(entry, page) or common.international_source(entry, page): return []
     page_year, page_basis, page_issues = common.resolve_year(page, entry, today_year)
     page_issues = [i for i in page_issues if not i.startswith('stale_year_label')]  # judged per table below
     if page_basis == 'ambiguous_year_labels': page_year = None; page_basis = 'source_unlabeled'; page_issues = []

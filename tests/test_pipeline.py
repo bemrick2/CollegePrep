@@ -410,6 +410,40 @@ minimum grade point average (GPA) of 3.0 are eligible for dual enrollment. Out-o
                     '<tr><th>Code</th><th>Title</th><th>Hours</th></tr><tr><td>WR 121</td><td>Composition</td><td>4</td></tr></table></body></html>' % title)
             self.assertEqual(catalog.extract(INST, ENTRY, T.parse_html(html.encode(), 'https://x'), '2026-27'), [])
 
+    def test_quarter_term_columns_and_arrangement_vocabulary(self):
+        """Regression (OR: OSU '3 Terms | 1 Term', community colleges '1-4 Terms', Blue Mountain 'w/parent')."""
+        cm = costs.column_meaning
+        self.assertEqual([cm(h)['period'] for h in ('3 Terms', '1 Term', '2 terms', '4 Terms', '9 Months', '3 Months')],
+                         ['year', 'semester', 'partial_year', 'partial_year', 'year', 'partial_year'])
+        self.assertEqual(cm('Dependent (living w/parent)')['arrangement'], 'with_parents_or_family')
+        self.assertEqual(cm('Not living w/parents (dependent and independent)')['arrangement'], 'off_campus_not_with_family')
+        self.assertEqual(cm('Living in Student Housing')['arrangement'], 'on_campus')
+        self.assertEqual(cm('Living in Own House/Apartment')['arrangement'], 'off_campus_not_with_family')
+        self.assertIsNone(cm('Dependent Student')['arrangement'])  # dependency status is not a living arrangement
+        html = ('<html><head><title>Cost of Attendance</title></head><body><h2>2026-2027 Estimated Resident Undergraduate</h2><table>'
+                '<tr><th></th><th>3 Terms</th><th>1 Term</th></tr><tr><td>Tuition and Fees</td><td>$13,000</td><td>$4,333</td></tr>'
+                '<tr><td>Living Expenses (Food and Housing)</td><td>$15,000</td><td>$5,000</td></tr>'
+                '<tr><td>Books, Course Materials, Supplies, and Equipment</td><td>$1,200</td><td>$400</td></tr>'
+                '<tr><td>Estimated TOTAL</td><td>$29,200</td><td>$9,733</td></tr></table></body></html>')
+        (c,) = costs.extract({**INST, 'state': 'OR'}, ENTRY, T.parse_html(html.encode(), 'https://x'), '2026-27')
+        self.assertEqual((c['record']['residency'], c['record']['total_cost_of_attendance']), ('in_state', 29200))
+        self.assertNotIn('arrangement_unlabeled', c['issues'])
+
+    def test_international_pages_and_billable_subtotals(self):
+        """Regression (OR: PCC/Chemeketa international budgets conflicting with domestic COA; OSU billable subtotals)."""
+        from pipeline.extractors import common
+        P = type('P', (), {'title': ''})()
+        self.assertTrue(common.international_source({'url': 'https://www.pcc.edu/international-students/tuition/'}, P))
+        self.assertTrue(common.international_source({'url': 'https://www.centre.edu/admission-aid/international-applicants'}, P))
+        self.assertFalse(common.international_source({'url': 'https://x.edu/programs/international-business-ba/'}, P))
+        html = ('<html><head><title>Cost of Attendance</title></head><body><h2>2026-2027 Estimated Resident Undergraduate</h2><table>'
+                '<tr><th></th><th>3 Terms</th></tr><tr><td>Tuition and Fees</td><td>$13,000</td></tr><tr><td>Estimated Billable Cost Total</td><td>$13,000</td></tr>'
+                '<tr><td>Living Expenses (Food and Housing)</td><td>$15,000</td></tr><tr><td>Books, Course Materials, Supplies, and Equipment</td><td>$1,200</td></tr>'
+                '<tr><td>Estimated Non-Billable Cost Total</td><td>$16,200</td></tr><tr><td>Estimated TOTAL</td><td>$29,200</td></tr></table></body></html>')
+        (c,) = costs.extract({**INST, 'state': 'OR'}, ENTRY, T.parse_html(html.encode(), 'https://x'), '2026-27')
+        self.assertEqual(c['record']['total_cost_of_attendance'], 29200)
+        self.assertNotIn('components_do_not_reconcile', c['issues'])
+
     def test_two_documents_with_the_same_record_key_are_both_compared(self):
         a = credit.extract(INST, ENTRY, page('ap.html'), '2026-27')[0]
         other = {**ENTRY, 'url': 'https://example.edu/y', 'sha256': 'ef' * 32}

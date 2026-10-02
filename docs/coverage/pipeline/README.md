@@ -8,11 +8,11 @@ Institutions in scope: **46** · crawled: **44** · blocked by site: **2** · ru
 
 | category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
 |---|---|---|---|---|---|---|
-| tuition_fees | 19 (41%) | 0 | 36 (78%) | 44 (96%) | 0 | 2 |
-| cost_of_attendance | 18 (39%) | 0 | 28 (61%) | 44 (96%) | 0 | 2 |
+| tuition_fees | 21 (46%) | 0 | 35 (76%) | 44 (96%) | 0 | 2 |
+| cost_of_attendance | 19 (41%) | 0 | 28 (61%) | 44 (96%) | 0 | 2 |
 | admissions_tests | 2 (4%) | 0 | 2 (4%) | 44 (96%) | 0 | 2 |
 | common_data_set | 2 (4%) | 0 | 2 (4%) | 3 (7%) | 41 | 2 |
-| merit_scholarships | 3 (7%) | 0 | 5 (11%) | 44 (96%) | 0 | 2 |
+| merit_scholarships | 3 (7%) | 0 | 4 (9%) | 44 (96%) | 0 | 2 |
 | ap_credit | 0 (0%) | 2 | 2 (4%) | 16 (35%) | 28 | 2 |
 | clep_credit | 0 (0%) | 3 | 3 (7%) | 10 (22%) | 34 | 2 |
 | ib_credit | 0 (0%) | 1 | 1 (2%) | 4 (9%) | 40 | 2 |
@@ -27,13 +27,13 @@ Institutions in scope: **46** · crawled: **44** · blocked by site: **2** · ru
 |---|---|
 | ambiguous years | 4 |
 | blocked requests | 37 |
-| candidates | 636 |
-| conflicts | 52 |
+| candidates | 628 |
+| conflicts | 48 |
 | documents | 1967 |
 | extraction failures | 0 |
 | fetch errors | 53 |
 | fetches | 2057 |
-| ready | 278 |
+| ready | 279 |
 | semantic review | 100 |
 | stale sources | 79 |
 
@@ -82,8 +82,8 @@ Institutions in scope: **41** · crawled: **38** · blocked by site: **3** · ru
 
 | category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
 |---|---|---|---|---|---|---|
-| tuition_fees | 4 (10%) | 0 | 19 (46%) | 37 (90%) | 1 | 3 |
-| cost_of_attendance | 2 (5%) | 0 | 12 (29%) | 36 (88%) | 2 | 3 |
+| tuition_fees | 4 (10%) | 0 | 18 (44%) | 37 (90%) | 1 | 3 |
+| cost_of_attendance | 2 (5%) | 0 | 10 (24%) | 36 (88%) | 2 | 3 |
 | admissions_tests | 0 (0%) | 0 | 1 (2%) | 33 (80%) | 5 | 3 |
 | common_data_set | 0 (0%) | 0 | 1 (2%) | 2 (5%) | 36 | 3 |
 | merit_scholarships | 0 (0%) | 0 | 2 (5%) | 36 (88%) | 2 | 3 |
@@ -101,13 +101,13 @@ Institutions in scope: **41** · crawled: **38** · blocked by site: **3** · ru
 |---|---|
 | ambiguous years | 8 |
 | blocked requests | 51 |
-| candidates | 229 |
-| conflicts | 93 |
+| candidates | 225 |
+| conflicts | 88 |
 | documents | 1593 |
 | extraction failures | 0 |
 | fetch errors | 19 |
 | fetches | 1663 |
-| ready | 68 |
+| ready | 73 |
 | semantic review | 119 |
 | stale sources | 77 |
 

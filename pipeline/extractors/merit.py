@@ -119,7 +119,7 @@ def _grid_award(t, header, body, context):
 
 
 def extract(inst, entry, page, today_year):
-    if not page.tables or common.professional_source(entry, page): return []
+    if not page.tables or common.professional_source(entry, page) or common.international_source(entry, page): return []
     if not SCHOLARSHIP_CONTEXT.search(page.title + ' ' + ' '.join(page.headings[:6]) + ' ' + entry.get('url', '')):
         return []
     if NOT_MERIT_PAGE.search(page.title + ' ' + entry.get('url', '')): return []
