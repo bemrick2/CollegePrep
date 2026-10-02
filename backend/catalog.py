@@ -8,7 +8,7 @@ QUALIFYING = {'merit_reconsideration','competing_offer_review','financial_aid_ap
 # Every persisted domain must have a normalized Supabase mapping, and controlled values
 # must match the database check constraints (see the latest supabase/migrations file).
 IMPORT_DOMAINS = frozenset({'institutions','costs','admissions_metrics','state_aid','awards','appeals',
-    'credit_policies','federal_aid','academic_programs','transfer_policies','degree_requirements'})
+    'credit_policies','federal_aid','academic_programs','transfer_policies','degree_requirements','state_policies'})
 CONTROLLED_VALUES = {
     'costs': {'residency': frozenset({'in_state','out_of_state','district','international','not_applicable'})},
     'credit_policies': {'policy_kind': frozenset({'AP','CLEP','IB','dual_enrollment','A_level','DSST','other',
@@ -18,6 +18,8 @@ CONTROLLED_VALUES = {
         'scholarship_retention_appeal','budget_increase','dependency_override','sap_appeal'})},
     'degree_requirements': {'requirement_kind': frozenset({'total_credits','general_education','major','minor',
         'residency','gpa','other','program_plan'})},
+    'state_policies': {'policy_kind': frozenset({'tuition_residency','statewide_articulation','transfer_pathway',
+        'transfer_guarantee','dual_admission','other'})},
 }
 # Fields the normalized tables require (not null) beyond provenance.
 REQUIRED_IMPORT_FIELDS = {
@@ -30,6 +32,7 @@ REQUIRED_IMPORT_FIELDS = {
     'transfer_policies': ('institution_key','academic_year','source_url'),  # policy_url falls back to source_url
     'academic_programs': ('institution_key','academic_year','program_key','program_name','source_url'),
     'degree_requirements': ('institution_key','academic_year','program_key','requirement_key','requirement_kind','source_url'),
+    'state_policies': ('state','academic_year','policy_kind','policy_key','title','source_url'),
 }
 
 def import_contract_errors(domain,r):
@@ -61,7 +64,8 @@ def records(root=ROOT):
             parent={k:v for k,v in payload.items() if k in {'institution_key','academic_year','state','domain'}} if isinstance(payload,dict) else {}
             for child in children:
                 r={**parent,**child}
-                domain=r.pop('domain',None) or ('institutions' if path.name=='institution.json' else 'state_aid' if 'state_aid' in path.parts else path.parent.name)
+                domain=r.pop('domain',None) or ('institutions' if path.name=='institution.json' else 'state_aid' if 'state_aid' in path.parts
+                    else 'state_policies' if 'state_policies' in path.parts else path.parent.name)
                 yield path,domain,r
 
 def eligible_appeal(r,academic_year,today=None):
