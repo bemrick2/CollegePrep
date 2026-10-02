@@ -57,6 +57,11 @@ class ExamAndTopicTests(unittest.TestCase):
         self.assertGreater(topics.link_score('https://u.edu/ir/common-data-set-2025-2026.pdf', 'CDS'), 40)
         self.assertEqual(topics.link_score('https://u.edu/news/scholarship-winner'), -1)
         self.assertEqual(topics.link_score('https://u.edu/about'), 0)
+        today = date(2026, 10, 2)
+        self.assertEqual(topics.link_score('https://u.edu/ir/CDS-2017-2018.pdf', 'Common Data Set', today), -1)
+        self.assertEqual(topics.link_score('https://u.edu/catalog06-07.pdf', 'Catalog', today), -1)
+        self.assertGreater(topics.link_score('https://u.edu/2026-27-cost-of-attendance.pdf', 'Cost', today),
+                           topics.link_score('https://u.edu/cost-of-attendance', 'Cost', today))
 
 
 class ExtractorTests(unittest.TestCase):
@@ -81,7 +86,7 @@ class ExtractorTests(unittest.TestCase):
         self.assertTrue(cands['in_state']['checks']['components_reconcile'])
         self.assertEqual(cands['out_of_state']['record']['tuition'], 27400)
         self.assertEqual(cands['out_of_state']['academic_year'], '2026-27')
-        self.assertEqual(ins['student_population'], 'undergraduate')
+        self.assertNotIn('student_population', ins)  # only set when the table or page title says undergraduate
 
     def test_missing_total_stays_null_and_unreconciled_is_flagged(self):
         html = (FIX / 'coa.html').read_text().replace('<tr><td>Total</td><td>$28,540</td><td>$46,140</td></tr>', '')
@@ -121,6 +126,28 @@ class ExtractorTests(unittest.TestCase):
         self.assertNotIn('act_25', c['record'])
 
 
+    def test_common_data_set_residency_table_template(self):
+        text = """Common Data Set 2025-2026
+C1   First-time, first-year students
+     Total first-time, first-year males who applied                                21,707
+     Total first-time, first-year (degree-seeking) who applied                     In-State      Out-of-State International Unknown   Total
+
+                                                                                       11,980           41,408          452       0     53,841
+     Total first-time, first-year (degree-seeking) who were admitted                    8,725           14,526          213       0     23,464
+     Total first-time, first-year (degree-seeking)
+     who enrolled                                                                       4,326            2,764           53       0       7,143
+     SAT Evidence-Based Reading and
+
+     Writing                                      640            670           700
+"""
+        [c] = cds.extract(INST, {**ENTRY, 'kind': 'pdf'}, T.Page(text, 'CDS'), '2026-27')
+        r = c['record']
+        self.assertEqual((r['applications'], r['admits'], r['enrolled']), (53841, 23464, 7143))
+        self.assertEqual((r['sat_reading_25'], r['sat_reading_50'], r['sat_reading_75']), (640, 670, 700))
+        self.assertIn('applications_breakdown_does_not_reconcile', c['issues'])  # 11,980+41,408+452+0 = 53,840
+        self.assertNotIn('admits_breakdown_does_not_reconcile', c['issues'])
+
+
 class _Quiet(SimpleHTTPRequestHandler):
     def log_message(self, *a): pass
 
@@ -156,6 +183,16 @@ class CrawlTests(unittest.TestCase):
         before = len(entries)
         crawl(self.reg(), self.tmp / 'run', budget=10, workers=1, delay=0, fetcher=Fetcher(delay=0, timeout=5), log=lambda *_: None)
         self.assertEqual(len(Run(self.tmp / 'run').entries()), before)  # finished run is a no-op on resume
+
+    def test_a_failing_fetch_does_not_stop_the_run(self):
+        class Boom(Fetcher):
+            def fetch(self, url):
+                if url.endswith('ap-credit.html'): raise RuntimeError('boom')
+                return super().fetch(url)
+        run = crawl(self.reg(), self.tmp / 'run', budget=10, workers=1, delay=0, fetcher=Boom(delay=0, timeout=5), log=lambda *_: None)
+        urls = {e['url']: e for e in run.entries()}
+        self.assertTrue(urls[self.base + '/finaid/ap-credit.html']['error'].startswith('fetch_exception:RuntimeError'))
+        self.assertIn(self.base + '/finaid/cost-of-attendance.html', urls)
 
     def test_budget_and_resume_continue_where_stopped(self):
         crawl(self.reg(), self.tmp / 'run', budget=2, workers=1, delay=0, fetcher=Fetcher(delay=0, timeout=5), log=lambda *_: None)
