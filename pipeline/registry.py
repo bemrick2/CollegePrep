@@ -104,7 +104,7 @@ def build(state: str):
         folder = folders.get(key) or (domain.split('.')[0] if domain else 'ipeds-' + r['UNITID'])
         slugs.setdefault(folder, []).append(key)
         institutions.append({
-            'institution_key': key, 'unitid': int(r['UNITID']), 'name': r['INSTNM'], 'city': r['CITY'],
+            'institution_key': key, 'unitid': int(r['UNITID']), 'name': r['INSTNM'], 'city': r['CITY'], 'state': state,
             'folder': folder, 'control': {'1': 'public', '2': 'private_nonprofit'}[r['CONTROL']],
             'level': {'1': 'four_year', '2': 'two_year'}[r['ICLEVEL']], 'domain': domain,
             # Net-price calculators are often hosted by vendors, so they never widen the crawl.

@@ -17,9 +17,10 @@ SENTENCE = re.compile(r'(?<=[.!?])\s+(?=[A-Z])')
 KINDS = [  # most specific first: a dual-admissions page lives under an "articulation-and-transfer" URL
     ('transfer_guarantee', r'transfer\s+(admission\s+)?guarantee|guaranteed\s+(admission|transfer)'),
     ('dual_admission', r'dual[\s_-]+admission'),
+    ('dual_enrollment', r'dual[\s_-]*(enrollment|credit)\s+policy|dual[\s_-]*(enrollment|credit)\b(?!.*(report|success|dashboard))'),
     ('statewide_articulation', r'transfer\s+pathway|articulation|common\s+course|reverse\s+transfer|transfer\s+maps?\b|'
                                r'statewide\s+transfer|transfer\s+agreements?|general\s+education\s+(transfer|certification)|transfer\s+policy'),
-    ('tuition_residency', r'residen(cy|t)\s+(classification|status|for\s+tuition)|classification\s+of\s+students|in-state\s+tuition|out-of-state\s+tuition|domicile'),
+    ('tuition_residency', r'residen(cy|t)\s+(classification|status|for\s+tuition|determination)|classification\s+of\s+students|in-state\s+tuition|out-of-state\s+tuition|domicile|determination\s+of\s+residency'),
 ]
 ROLES = [
     ('exceptions', r'(does|do|will)\s+not\s+guarantee|not\s+guaranteed|competitive|may\s+(require|have\s+additional)|except|however|not\s+every'),
@@ -38,8 +39,12 @@ def extract(inst, entry, page, today_year):
     state = inst.get('state') or (inst['institution_key'][6:] if inst['institution_key'].startswith('state-') else None)
     if not state: return []  # institution pages keep their own domains; this extractor reads statewide sources
     head = page.title + ' ' + entry.get('url', '')
-    if re.search(r'report|fact\s*book|minutes|agenda|newsletter|presentation', head, re.I): return []  # about policy, not policy
-    kind = next((k for k, rx in KINDS if re.search(rx, head, re.I)), None)
+    if re.search(r'report|fact\s*book|minutes|agenda|newsletter|presentation|dashboard', head, re.I): return []  # about policy, not policy
+    # Regulations are often titled by number ("Title 013 Chapter 2 Regulation 045"); their subject is the
+    # first heading or the opening text ("Determination of residency status for ... tuition assessment").
+    opening = ' '.join((page.headings or [])[:3]) + ' ' + ' '.join(l for l in page.lines[:40] if len(l) > 30)[:800]
+    kind = next((k for k, rx in KINDS if re.search(rx, head, re.I)), None) or \
+        next((k for k, rx in KINDS if re.search(rx, opening, re.I)), None)
     if not kind: return []
     text = ' '.join(l for l in page.lines if len(l) > 40 and not NAV.search(l))
     sentences = [s.strip() for s in SENTENCE.split(text) if 30 <= len(s.strip()) <= 600 and not s.strip().endswith('?')]

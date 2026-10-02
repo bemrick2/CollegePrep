@@ -45,7 +45,8 @@ CATEGORIES = {
                   ['residency', 'in-state', 'domicile']),
     'degree_requirements': ('degree_requirements', ['catalog', 'catoid', 'courseleaf', 'programs of study',
                                                     'degree requirements', 'four-year plan', 'academic map'],
-                            ['degree requirements', 'credit hours', 'general education']),
+                            # 'credit hours' and 'general education' alone matched SAP policies and aid FAQs (KY)
+                            ['degree requirements', 'major requirements', 'program requirements', 'general education requirements']),
     'aid_appeals': ('appeals', ['appeal', 'special circumstance', 'special-circumstance', 'professional judgment',
                                 'reconsideration', 'satisfactory academic progress', 'sap'],
                     ['appeal', 'special circumstance', 'professional judgment']),
@@ -104,9 +105,15 @@ GRAD_PROGRAM = re.compile(r'\b(m\.?s\.?|m\.?a\.?|mba|m\.?ed|ph\.?d|ed\.?d|dnp|gr
 UG_PROGRAM = re.compile(r'\b(b\.?s\.?|b\.?a\.?|b\.?b\.?a|bsn|b\.?f\.?a|b\.?m|bachelor|a\.?s\.?|a\.?a\.?|a\.?a\.?s|associate)\b', re.I)
 
 
+# Courseleaf catalogs: catalog.<school>.edu/undergraduate/<college>/<department>/<program>/
+COURSELEAF_PROGRAM = re.compile(r'^https?://catalogs?\.[^/]+/undergraduate/(?!general|academic-policies|admission|tuition|financial)(?:[^/.]+/){2,4}$', re.I)
+COURSELEAF_GRADUATE = re.compile(r'^https?://catalogs?\.[^/]+/(graduate|professional|law|medicine)(/|$)', re.I)
+
+
 def is_program_page(url: str) -> bool:
-    """An individual program page in a catalog platform (Acalog preview_program.php?poid=...)."""
-    return bool(PROGRAM_PAGE.search(url or ''))
+    """An individual program page in a catalog platform (Acalog preview_program.php?poid=..., Courseleaf
+    /undergraduate/<college>/<department>/<program>/)."""
+    return bool(PROGRAM_PAGE.search(url or '') or COURSELEAF_PROGRAM.search(url or ''))
 
 
 CONTACT_ANCHOR = re.compile(r'^\s*(contact|email|call|directions|map)\b', re.I)
@@ -117,6 +124,7 @@ def link_score(url: str, anchor: str = '', today=None) -> int:
     Links whose only year labels are more than two academic years old are skipped: the pipeline is
     after current policy, and archives of old catalogs and surveys would consume the page budget."""
     if EXCLUDE.search(url) or CONTACT_ANCHOR.search(anchor or ''): return -1
+    if COURSELEAF_GRADUATE.search(url) and not UG_PROGRAM.search(anchor or ''): return -1  # KY: WKU budget went to graduate pages
     if is_program_page(url):  # anchors are program names, so topic keywords never match them
         if GRAD_PROGRAM.search(anchor) and not UG_PROGRAM.search(anchor): return -1
         return 30 if UG_PROGRAM.search(anchor) else 12

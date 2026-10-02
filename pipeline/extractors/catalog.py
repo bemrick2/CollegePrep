@@ -21,7 +21,7 @@ HEAD_CREDITS = re.compile(r'(\d{1,3})(?:\s*[-–]\s*\d{1,3})?\s*(?:semester\s+)?
 WORDS = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6}
 CHOOSE_N = re.compile(r'\b(?:choose|select|complete|take)\s+(?:any\s+)?(one|two|three|four|five|six|\d)\s+(?:courses?\s+)?(?:of|from)\b', re.I)
 CHOOSE_HOURS = re.compile(r'\b(?:choose|select|complete|take)\s+(\d{1,2})\s+(?:credit\s+)?(?:hours|credits)\b', re.I)
-DEGREE = [('bachelor', r'\bB\.?\s?(S|A|BA|FA|M|SN|SW|AS|ArCH|ED|Mus)\b\.?|bachelor'), ('associate', r'\bA\.?\s?(S|A|AS|AT|ST|F\.?A)\b\.?|associate')]
+DEGREE = [('bachelor', r'\bB\.?\s?(S|A|BA|FA|M|SN|SW|AS|ArCH|ED|Mus)\b\.?|(?i:bachelor)'), ('associate', r'\bA\.?\s?(S|A|AS|AT|ST|F\.?A)\b\.?|(?i:associate)')]
 GRADUATE = re.compile(r'\b(M\.?S|M\.?A|MBA|M\.?Ed|Ph\.?D|Ed\.?D|DNP|graduate|certificate|minor)\b', re.I)
 CATEGORY = [
     ('general_education', r'general\s+education|gen\.?\s*ed|core\s+curriculum|university\s+core|tbr\s+core'),
@@ -40,8 +40,52 @@ def slug(s):
     return re.sub(r'[^a-z0-9]+', '-', (s or '').lower()).strip('-')[:80] or 'group'
 
 
+def courseleaf_tables(page):
+    """Courseleaf 'Course List' tables (Code / Title / Hours)."""
+    out = []
+    for t in page.tables:
+        head = [c.strip().lower() for c in (t['rows'][0] if t.get('rows') else [])]
+        if (t.get('caption') or '').strip().lower() == 'course list' or head[:2] == ['code', 'title']:
+            out.append(t)
+    return out
+
+
 def is_program_page(entry, page):
-    return 'preview_program' in (entry.get('url') or '') or bool(re.search(r'^Program:', page.title or ''))
+    return ('preview_program' in (entry.get('url') or '') or bool(re.search(r'^Program:', page.title or ''))
+            or bool(courseleaf_tables(page)))
+
+
+CL_CODE = re.compile(r'^([A-Z]{2,5})\s?(\d{3,4}[A-Z]?)$')
+
+
+def courseleaf_groups(page):
+    """Same shape as groups_from(): one group per Course List table, split at area-header rows."""
+    out = []
+    for t in courseleaf_tables(page):
+        rows = t['rows'][1:] if [c.strip().lower() for c in t['rows'][0]][:2] == ['code', 'title'] else t['rows']
+        base = t.get('heading') or t.get('lead') or 'Program Requirements'
+        cur = {'heading': base, 'courses': [], 'rules': [], 'total': None}; out.append(cur)
+        for r in rows:
+            cells = [c.strip() for c in r]
+            if not any(cells): continue
+            first = cells[0]
+            m = CL_CODE.match(first)
+            if m:
+                item = {'code': f'{m.group(1)} {m.group(2)}', 'title': cells[1] if len(cells) > 1 else ''}
+                if len(cells) > 2 and re.fullmatch(r'[\d.]+(\s*-\s*[\d.]+)?', cells[2]): item['credits'] = _credits(cells[2])
+                cur['courses'].append(item); continue
+            tm = re.match(r'^total\s+(?:credit\s+)?(?:hours|credits)$', first, re.I)
+            if tm and len(cells) > 1 and re.fullmatch(r'\d{1,3}', cells[-1]):
+                cur['total'] = int(cells[-1]); cur['rules'].append(' '.join(cells)); continue
+            text = ' '.join(c for c in cells if c)
+            if len(cells) == 1 or (not re.search(r'\d', ' '.join(cells[1:])) and not re.search(r'select|choose|complete|take|\bor\b', first, re.I)):
+                if cur['courses'] or cur['rules']:  # an area header starts the next group of the same table
+                    cur = {'heading': f'{base} — {first}'[:200], 'courses': [], 'rules': [], 'total': None}; out.append(cur)
+                else:
+                    cur['heading'] = f'{base} — {first}'[:200]
+                continue
+            cur['rules'].append(text[:300])  # "Select 1 ... from the list below: 3", "or PE 333" stay verbatim
+    return [g for g in out if g['courses'] or g['rules']]
 
 
 def catalog_year(page):
@@ -56,7 +100,8 @@ def catalog_year(page):
 
 
 def program_name(page):
-    t = re.sub(r'^Program:\s*', '', page.title or '').split(' - ')[0].strip()
+    t = re.sub(r'^Program:\s*', '', page.title or '').split(' < ')[0].split(' - ')[0].strip()
+    t = re.sub(r'\s*\(\d{3,6}\)$', '', t)  # Courseleaf program codes: "Biology, Bachelor of Science (1752)"
     return t or (page.headings[0] if page.headings else '')
 
 
@@ -106,14 +151,18 @@ def extract(inst, entry, page, today_year):
     pkey = slug(name)
     src = common.source_of(entry)['url']
     total, groups, skipped, seen = None, [], 0, {}
-    for g in groups_from(page):
+    courseleaf = bool(courseleaf_tables(page))
+    if courseleaf:
+        # Each Course List ends with its own subtotal; the degree total is printed as prose ("Total Hours 120").
+        total = next((int(m.group(1)) for l in page.lines if not l.lstrip().startswith('|') for m in [TOTAL.match(l)] if m), None)
+    for g in (courseleaf_groups(page) if courseleaf else groups_from(page)):
         h = g['heading']
-        if g['total'] and re.search(r'total', h + ' ' + ' '.join(g['rules']), re.I) and total is None:
+        if not courseleaf and g['total'] and re.search(r'total', h + ' ' + ' '.join(g['rules']), re.I) and total is None:
             total = g['total']
         text = ' '.join([h] + g['rules'])
         cat = next((c for c, rx in CATEGORY if re.search(rx, h, re.I)), 'other')
         rd = {'schema': 'requirement_group/v1', 'catalog_year': printed_year, 'category': cat, 'source_section': h[:200]}
-        mins = HEAD_CREDITS.search(h)
+        mins = HEAD_CREDITS.search(h.split(' — ')[-1])  # a parent heading's "(52 hours)" is not each sub-area's minimum
         n_course = CHOOSE_N.search(text); n_hours = CHOOSE_HOURS.search(text)
         if cat == 'concentration': rd['concentration'] = h[:120]
         if g['courses'] and n_course:
@@ -135,6 +184,8 @@ def extract(inst, entry, page, today_year):
         if seen[key] > 1: key = f'{key}-{seen[key]}'
         rec = {'program_key': pkey, 'requirement_key': key,
                'requirement_kind': KIND.get(cat, 'other'), 'rule_details': rd}
+        if any(re.match(r'^\W*or\b', r, re.I) for r in g['rules']):
+            rec['_issues'] = ['course_alternatives_in_rule_text']  # "or CHEM 116": the group is not simply all-required
         if mins and cat != 'program_total': rec['minimum_credits'] = int(mins.group(1))
         groups.append(rec)
     if not groups: return []
@@ -155,9 +206,10 @@ def extract(inst, entry, page, today_year):
     out = [common.make('academic_programs', inst['institution_key'], year, basis, prog, ev, entry, EXTRACTOR,
                        {'program_key': pkey}, checks, issues)]
     for g in groups:
+        g_issues = list(issues) + g.pop('_issues', [])
         gev = [{'field': 'courses', 'value': c['code'], 'snippet': f"{c['code']} - {c.get('title', '')}"[:200]}
                for c in g['rule_details'].get('courses', [])[:40]] or [{'field': 'section', 'value': g['requirement_key'],
                                                                         'snippet': g['rule_details'].get('source_section', '')}]
         out.append(common.make('degree_requirements', inst['institution_key'], year, basis, g, gev, entry, EXTRACTOR,
-                               {'program_key': pkey, 'requirement_key': g['requirement_key']}, {}, list(issues)))
+                               {'program_key': pkey, 'requirement_key': g['requirement_key']}, {}, g_issues))
     return out

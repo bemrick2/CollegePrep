@@ -356,7 +356,8 @@ def write_queue(run: Run, registry, cands, verify, cov):
         for c in sorted(items, key=lambda c: (names.get(c['institution_key'], ''), c.get('domain') or '', c['candidate_id'])):
             d = c.get('diff', {})
             L.append(f"### `{c['candidate_id']}` {names.get(c['institution_key'], c['institution_key'])} — {c.get('domain')} "
-                     f"{c.get('academic_year', '')} [{d.get('status', '?')}] ({c.get('year_basis', '')})")
+                     f"{c.get('academic_year', '')}" + ''.join(f" · {k}={c['record'][k]}" for k in ('residency', 'policy_kind', 'program_key', 'requirement_key') if (c.get('record') or {}).get(k))
+                     + f" [{d.get('status', '?')}] ({c.get('year_basis', '')})")
             L.append(f"- source: {c['source']['url']}" + (f" (sha256 {c['source'].get('sha256', '')[:12]})" if c['source'].get('sha256') else ''))
             if c['issues']: L.append('- issues: ' + ', '.join(c['issues']))
             if c.get('checks'): L.append('- checks: ' + json.dumps(c['checks'], sort_keys=True))
