@@ -39,4 +39,8 @@ docs/                    Product/data architecture and coverage notes
 
 ## Current status
 
-Repository initialized October 1, 2026. National coverage is being built and verified incrementally. Coverage reports in `docs/coverage/` should be treated as the authoritative progress record.
+Repository initialized October 1, 2026. Nationwide 2023–24 IPEDS reference data cover all 50 states and DC, with 5,920 distinct institution identities, 1,924 admissions records and 9,960 tuition/fee records. These are historical observations, not current prices. Original source archives/dictionaries, hashes, normalized records and automated validation are persisted.
+
+A transactional development reference backend and explicit-year read API are runnable; see [backend instructions](docs/BACKEND.md). The production Supabase schema includes a conservative documented-path appeal gate and verified-only read policies tested in disposable PostgreSQL CI. Production deployment and normalized live import are blocked on designating a CollegePrep project. Current institutional and state-policy coverage remains small; no institution or state is marked complete. Practice-question AI help remains in the product plan.
+
+Coverage reports in `docs/coverage/` are the authoritative persisted-data counts.
