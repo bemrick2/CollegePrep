@@ -10,7 +10,7 @@ sys.path.insert(0, str(ROOT))
 from pipeline import exams, registry, review, text as T, topics  # noqa: E402
 from pipeline import promote as P  # noqa: E402
 from pipeline.crawl import Fetcher, Run, crawl  # noqa: E402
-from pipeline.extractors import appeals, cds, costs, credit, dual, merit, transfer  # noqa: E402
+from pipeline.extractors import appeals, catalog, cds, costs, credit, dual, merit, transfer  # noqa: E402
 
 FIX = ROOT / 'tests/fixtures/pipeline'
 INST = {'institution_key': 'ipeds-999999', 'control': 'public', 'folder': 'example'}
@@ -79,6 +79,37 @@ class ExtractorTests(unittest.TestCase):
         self.assertEqual(len(r['equivalencies']), 7)
         self.assertEqual(c['issues'], [])
         self.assertTrue(all(e['snippet'] for e in c['evidence']))
+
+    def test_one_table_per_exam_layout(self):
+        # Real layout: the exam name sits in a button/label above each small score-tier table.
+        html = '<title>Advanced Placement (AP)</title>' + ''.join(
+            f'<button>{name}</button><table><tr><th>AP Score</th><th>Credit Hours</th><th>Course Equivalent*</th></tr>{rows}</table>'
+            for name, rows in [('Art History', '<tr><td>3, 4, 5</td><td>3</td><td>ARTH 2010</td></tr>'),
+                               ('Biology', '<tr><td>3</td><td>4</td><td>BIOL 1010</td></tr><tr><td>4, 5</td><td>8</td><td>BIOL 1110 &amp; 1120</td></tr>'),
+                               ('Calculus AB', '<tr><td>3</td><td>3</td><td>MATH 1830</td></tr>')])
+        [c] = credit.extract(INST, ENTRY, T.parse_html(html), '2026-27')
+        got = [(e['exam_or_course_code'], e['minimum_score'], e['credits_awarded'], e['institution_course_equivalent']) for e in c['record']['equivalencies']]
+        self.assertEqual(got, [('AP-ART-HISTORY', '3, 4, 5', 3, 'ARTH 2010'), ('AP-BIOLOGY', '3', 4, 'BIOL 1010'),
+                               ('AP-BIOLOGY', '4, 5', 8, 'BIOL 1110 & 1120'), ('AP-CALCULUS-AB', '3', 3, 'MATH 1830')])
+
+    def test_pdf_credit_chart_lines(self):
+        text = """Advanced Placement (AP) Credit Chart 2026-2027
+AP Exam                         Score     Course Equivalent            Hours
+Biology                         4         BIOL 1110, BIOL 1120         8
+Calculus BC                     3         MATH 1910                    4
+English Language & Composition  3         ENGL 1010                    3
+Scores of 1 or 2 receive no credit."""
+        [c] = credit.extract(INST, {**ENTRY, 'kind': 'pdf'}, T.Page(text, 'Advanced Placement (AP) Credit Chart 2026-2027'), '2026-27')
+        got = [(e['exam_or_course_code'], e['minimum_score'], e['institution_course_equivalent'], e['credits_awarded']) for e in c['record']['equivalencies']]
+        self.assertEqual(got, [('AP-BIOLOGY', '4', 'BIOL 1110, BIOL 1120', 8), ('AP-CALCULUS-BC', '3', 'MATH 1910', 4),
+                               ('AP-ENGLISH-LANGUAGE-COMPOSITION', '3', 'ENGL 1010', 3)])
+        self.assertEqual((c['academic_year'], c['year_basis']), ('2026-27', 'labeled_in_title'))
+
+    def test_stale_shared_heading_never_names_tables(self):
+        p = T.Page('', 'Advanced Placement (AP)', [
+            {'heading': 'Art History', 'caption': '', 'rows': [['AP Score', 'Credit Hours', 'Course Equivalent'], ['3', '3', 'ARTH 2010']]},
+            {'heading': 'Art History', 'caption': '', 'rows': [['AP Score', 'Credit Hours', 'Course Equivalent'], ['3', '4', 'BIOL 1010']]}])
+        self.assertEqual(credit.extract(INST, ENTRY, p, '2026-27'), [])
 
     def test_cost_table_copies_totals_and_checks_reconciliation(self):
         cands = {c['record']['residency']: c for c in costs.extract(INST, ENTRY, page('coa.html'), '2026-27')}
@@ -273,6 +304,37 @@ minimum grade point average (GPA) of 3.0 are eligible for dual enrollment. Out-o
         self.assertTrue(all(any(i.startswith('conflicting_sources') for i in c['issues']) for c in out))
 
 
+    def test_catalog_program_groups_validate(self):
+        sys.path.insert(0, str(ROOT / 'scripts'))
+        from validate_data import validate_record
+        e = {**ENTRY, 'url': 'https://catalog.example.edu/preview_program.php?catoid=50&poid=1234'}
+        out = catalog.extract(INST, e, page('acalog_program.html'), '2026-27')
+        prog = [c for c in out if c['domain'] == 'academic_programs'][0]['record']
+        self.assertEqual((prog['program_name'], prog['credential_level'], prog['total_credits'], prog['catalog_year']),
+                         ('Computer Science, B.S.', 'bachelor', 120, '2026-2027'))
+        groups = {c['record']['requirement_key']: c['record'] for c in out if c['domain'] == 'degree_requirements'}
+        ge = groups['general-education-requirements-41-credits']['rule_details']
+        self.assertEqual((ge['group_type'], ge['category'], [x['code'] for x in ge['courses']]), ('all_required', 'general_education', ['ENGL 1010', 'ENGL 1020']))
+        core = groups['major-core-36-credits']
+        self.assertEqual([(x['code'], x.get('credits')) for x in core['rule_details']['courses']], [('CSCI 1250', 4), ('CSCI 1260', 4)])
+        self.assertEqual(core['minimum_credits'], 36)
+        math = groups['mathematics-requirement']['rule_details']
+        self.assertEqual((math['group_type'], math['choose_count']), ('choose_courses', 1))
+        el = groups['major-electives']['rule_details']
+        self.assertEqual((el['group_type'], el['choose_credits']), ('choose_credits', 9))
+        self.assertEqual(groups['program-total']['minimum_credits'], 120)
+        for c in out:  # every emitted record satisfies the repository's own data contract
+            self.assertEqual(validate_record(ROOT / 'data', {**c['record'], 'verification_status': 'partially_verified'}, 0, domain=c['domain']), [])
+
+    def test_catalog_skips_unlabeled_and_graduate_pages(self):
+        e = {**ENTRY, 'url': 'https://catalog.example.edu/preview_program.php?catoid=50&poid=1'}
+        html = (FIX / 'acalog_program.html').read_text()
+        self.assertEqual(catalog.extract(INST, e, T.parse_html(html.replace('2026-2027 Undergraduate Catalog', 'Catalog')), '2026-27'), [])
+        self.assertEqual(catalog.extract(INST, e, T.parse_html(html.replace('Computer Science, B.S.', 'Computer Science, M.S.')), '2026-27'), [])
+        old = catalog.extract(INST, e, T.parse_html(html.replace('2026-2027 Undergraduate Catalog', '2023-2024 Undergraduate Catalog [ARCHIVED CATALOG]')), '2026-27')
+        self.assertTrue(all('stale_year_label:2023-24' in c['issues'] for c in old))
+
+
 class _Quiet(SimpleHTTPRequestHandler):
     def log_message(self, *a): pass
 
@@ -318,6 +380,39 @@ class CrawlTests(unittest.TestCase):
         urls = {e['url']: e for e in run.entries()}
         self.assertTrue(urls[self.base + '/finaid/ap-credit.html']['error'].startswith('fetch_exception:RuntimeError'))
         self.assertIn(self.base + '/finaid/cost-of-attendance.html', urls)
+
+    def test_crawl_delay_backoff_and_single_retry(self):
+        class Challenging(_Quiet):
+            hits = {}
+            def do_GET(self):
+                if self.path == '/robots.txt':
+                    body = b'User-agent: *\nCrawl-delay: 2\nDisallow: /private/\n'
+                    self.send_response(200); self.send_header('Content-Type', 'text/plain'); self.end_headers(); self.wfile.write(body); return
+                if self.path.startswith('/finaid/ap-credit'):
+                    Challenging.hits[self.path] = Challenging.hits.get(self.path, 0) + 1
+                    self.send_response(202); self.end_headers(); return
+                return super().do_GET()
+        handler = functools.partial(Challenging, directory=str(FIX / 'site'))
+        server = ThreadingHTTPServer(('127.0.0.1', 0), handler)
+        threading.Thread(target=server.serve_forever, daemon=True).start()
+        base = f'http://127.0.0.1:{server.server_port}'
+        try:
+            reg = self.reg(); reg['institutions'][0]['seeds'] = {'website': base + '/'}
+            f = Fetcher(delay=0, timeout=5)
+            with mock.patch('pipeline.crawl.time.sleep'):  # keep the test fast; delays are asserted, not waited
+                run = crawl(reg, self.tmp / 'r', budget=10, workers=1, delay=0, fetcher=f, log=lambda *_: None)
+            host = f'127.0.0.1:{server.server_port}'
+            self.assertGreaterEqual(f.gate.delay_for(host), 5.0)  # crawl-delay 2, then backoff after the 202
+            self.assertEqual(Challenging.hits['/finaid/ap-credit.html'], 2)  # first try + exactly one retry
+            tries = [e for e in run.entries() if e['url'].endswith('/finaid/ap-credit.html')]
+            self.assertEqual([e.get('will_retry', False) for e in tries], [True, False])
+        finally:
+            server.shutdown(); server.server_close()
+
+    def test_program_links(self):
+        self.assertEqual(topics.link_score('https://catalog.x.edu/preview_program.php?catoid=5&poid=9', 'Accounting, MBA'), -1)
+        self.assertEqual(topics.link_score('https://catalog.x.edu/preview_program.php?catoid=5&poid=9', 'Accounting, B.S.'), 30)
+        self.assertTrue(topics.is_program_page('https://catalog.x.edu/preview_program.php?catoid=5&poid=9'))
 
     def test_budget_and_resume_continue_where_stopped(self):
         crawl(self.reg(), self.tmp / 'run', budget=2, workers=1, delay=0, fetcher=Fetcher(delay=0, timeout=5), log=lambda *_: None)

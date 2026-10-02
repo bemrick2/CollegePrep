@@ -44,8 +44,12 @@ class _Parser(HTMLParser):
         if tag in CELL: self.out.append(' | ')
         if tag == 'a' and a.get('href'): self.link = [a['href'], []]
         if tag in {'h1', 'h2', 'h3', 'h4'}: self.heading = []
-        if tag == 'table': self.stack.append({'caption': '', 'heading': self.last_heading, 'year_heading': self.year_heading,
-                                              'rows': [], 'row': None, 'cell': None})
+        if tag == 'table':
+            # The text block right before a table often names it (accordion buttons, bold labels).
+            prior = [l.strip() for l in ''.join(self.out[-60:]).split('\n') if l.strip()]
+            lead = prior[-1][:200] if prior else ''
+            self.stack.append({'caption': '', 'heading': self.last_heading, 'year_heading': self.year_heading,
+                               'lead': lead, 'rows': [], 'row': None, 'cell': None})
         elif self.stack:
             t = self.stack[-1]
             if tag == 'tr': t['row'] = []
@@ -80,7 +84,7 @@ class _Parser(HTMLParser):
             done = self.stack.pop()
             if done['rows']:
                 self.tables.append({'caption': done['caption'], 'heading': done['heading'],
-                                    'year_heading': done['year_heading'], 'rows': done['rows']})
+                                    'year_heading': done['year_heading'], 'lead': done['lead'], 'rows': done['rows']})
 
     def handle_data(self, data):
         if self.skip: return

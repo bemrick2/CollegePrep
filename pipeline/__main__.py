@@ -22,6 +22,7 @@ def main(argv=None):
     p.add_argument('--run', type=Path, help='run directory (default pipeline/runs/<STATE>/<today>)')
     p.add_argument('--only', nargs='*', help='institution keys or folders to limit the crawl to')
     p.add_argument('--budget', type=int, default=45, help='pages per institution')
+    p.add_argument('--program-budget', type=int, default=40, help='catalog program pages per institution')
     p.add_argument('--workers', type=int, default=8)
     p.add_argument('--delay', type=float, default=1.0, help='seconds between requests to one host')
     p.add_argument('--decisions', type=Path)
@@ -33,7 +34,8 @@ def main(argv=None):
     run_dir = a.run or Path('pipeline/runs') / state / date.today().isoformat()
     if a.command in {'crawl', 'run'}:
         from pipeline.crawl import crawl
-        crawl(registry, run_dir, only=set(a.only or []), budget=a.budget, workers=a.workers, delay=a.delay)
+        crawl(registry, run_dir, only=set(a.only or []), budget=a.budget, workers=a.workers, delay=a.delay,
+              program_budget=a.program_budget)
     if a.command in {'review', 'run'}:
         from pipeline.crawl import Run
         from pipeline.review import review

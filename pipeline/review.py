@@ -15,9 +15,10 @@ from backend.catalog import ROOT, records
 from backend.store import natural_key
 from . import text as T, topics
 from .crawl import Run
-from .extractors import appeals, cds, costs, credit, dual, merit, transfer
+from .extractors import appeals, catalog, cds, costs, credit, dual, merit, transfer
 
-EXTRACTORS = [credit.extract, costs.extract, cds.extract, merit.extract, appeals.extract, transfer.extract, dual.extract]
+EXTRACTORS = [credit.extract, costs.extract, cds.extract, merit.extract, appeals.extract, transfer.extract, dual.extract,
+              catalog.extract]
 SCALAR_SKIP = {'entering_fall_year', 'unitid', 'term_index', 'choose_count'}
 # Policy wording that must also appear verbatim before a record can be upgraded: paraphrased text
 # (for example from a summarising fetch tool) is exactly what the earlier status downgrade was for.
