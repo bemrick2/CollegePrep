@@ -10,6 +10,7 @@ run() { psql "$DATABASE_URL" -X -q -v ON_ERROR_STOP=1 "$@"; }
 scalar() { psql "$DATABASE_URL" -X -q -A -t -v ON_ERROR_STOP=1 -c "$1"; }
 
 python scripts/validate_data.py
+python scripts/check_migration_history.py --live
 run -f supabase/checks/live_preflight.sql
 echo "Preflight passed"
 python scripts/import_supabase.py --output "$work/batches" --reconcile-sql "$work/reconcile.sql" --existing-database

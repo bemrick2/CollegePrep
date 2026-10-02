@@ -1,0 +1,50 @@
+import sys, unittest
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
+import check_migration_history as c
+
+LIVE_2026_10_02 = [  # supabase_migrations.schema_migrations, verified 2026-10-02
+    ('20261002105521', 'initial_collegeprep_schema', '16dfa863d7d95ae0246d948e2209523c'),
+    ('20261002105559', 'protect_reference_data_and_appeal_gate', 'e462d1a39de9d803eb6e621e5641f505'),
+    ('20261002110216', 'normalized_reference_import', 'cc75824f6923487494371ec6632821b2'),
+    ('20261002113323', 'preserve_unknown_award_flags', '13d607dfd42810e2545f9c346e4714a2'),
+    ('20261002131440', 'program_catalog_imports', '2a1f69ba3d36a25dd3f5d8ca85e5af6b'),
+    ('20261002132345', 'school_comparison_api', 'ef8209eeb29cc0d8183d90f1b6568d0a'),
+    ('20261002134049', 'degree_transfer_import_domains', 'ba57c2f07bbbfd3892c92b6a391e13a2'),
+    ('20261002165225', 'reviewed_policy_domains', 'f941b44f4cca76ca37f0d79c5555f745'),
+]
+
+
+class MigrationHistoryTests(unittest.TestCase):
+    def setUp(self):
+        self.local, errors = c.local_migrations()
+        self.assertEqual(errors, [])
+
+    def test_repository_matches_recorded_live_history(self):
+        self.assertEqual(c.offline_errors(self.local), [])
+        self.assertEqual(c.live_errors(self.local, LIVE_2026_10_02), ([], []))
+
+    def test_name_recorded_under_other_version_is_caught(self):
+        drifted = dict(self.local)
+        entry = drifted.pop('20261002134049')
+        drifted['20261002150000'] = {**entry, 'file': '20261002150000_degree_transfer_import_domains.sql'}
+        errors, _ = c.live_errors(drifted, LIVE_2026_10_02)
+        self.assertTrue(any('rename the file to the live version' in e for e in errors))
+
+    def test_edited_applied_migration_is_caught(self):
+        edited = {k: dict(v) for k, v in self.local.items()}
+        edited['20261002110216']['md5'] = '0' * 32
+        self.assertTrue(c.offline_errors(edited))
+        self.assertTrue(c.live_errors(edited, LIVE_2026_10_02)[0])
+
+    def test_new_migration_is_pending_but_backdated_one_fails(self):
+        newer = dict(self.local)
+        newer['20261003000000'] = {'name': 'future_change', 'file': '20261003000000_future_change.sql', 'md5': 'x'}
+        self.assertEqual(c.live_errors(newer, LIVE_2026_10_02), ([], ['20261003000000_future_change.sql']))
+        older = dict(self.local)
+        older['20261002000000'] = {'name': 'backdated', 'file': '20261002000000_backdated.sql', 'md5': 'x'}
+        self.assertTrue(c.live_errors(older, LIVE_2026_10_02)[0])
+
+
+if __name__ == '__main__':
+    unittest.main()

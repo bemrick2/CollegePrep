@@ -129,7 +129,6 @@
       "National costs/admissions are historical 2023-24 observations, not current prices.",
       "Source payloads and annual keys are preserved in the private ingestion ledger; 13 revisions archive the pre-research Tennessee/UTK payloads.",
       "2026-10-02 Tennessee/UTK import: 48 new and 13 revised records loaded through the repository importer SQL; per-domain md5 digests of every ledger payload match a local PostgreSQL import of the repository, and a repeat import changed no rows, revisions or import timestamps.",
-      "Connector migration versions differ from repository filenames; reconcile before any CLI db push.",
       "This is a dated live snapshot, not an automatically refreshed database monitor.",
       "Database setup/import is complete for persisted reference domains; the full product backend and current-year policy coverage remain incomplete."
     ],
@@ -140,7 +139,9 @@
       "20261002113323 preserve_unknown_award_flags",
       "20261002131440 program_catalog_imports",
       "20261002132345 school_comparison_api",
-      "20261002134049 degree_transfer_import_domains (repository file 20261002150000)"
-    ]
+      "20261002134049 degree_transfer_import_domains",
+      "20261002165225 reviewed_policy_domains"
+    ],
+    "migration_history": "Repository migration filenames equal live schema_migrations versions; supabase/migration_history.json records normalized digests verified against live on 2026-10-02."
   }
 }

@@ -104,13 +104,14 @@ class LiveImportWorkflowTests(unittest.TestCase):
         script = (ROOT / 'scripts/live_import.sh').read_text()
         self.assertIn('set -euo pipefail', script)
         self.assertIn('live_preflight.sql', script)
+        self.assertLess(script.index('check_migration_history.py --live'), script.index('live_preflight.sql'))
         self.assertIn('--existing-database', script)
         self.assertEqual(script.count('for f in "$work"/batches/*.sql'), 2)  # two passes
         self.assertNotIn('echo "$DATABASE_URL', script)
 
     def test_preflight_checks_every_migration_the_importer_needs(self):
         sql = (ROOT / 'supabase/checks/live_preflight.sql').read_text()
-        for marker in ('20261002130818', '20261002150000', '20261002131409', 'program_plan', 'policy_details'):
+        for marker in ('20261002131440', '20261002134049', '20261002132345', 'program_plan', 'policy_details'):
             self.assertIn(marker, sql)
 
     def test_workflow_skips_cleanly_without_secret_and_never_runs_concurrently(self):

@@ -16,6 +16,8 @@ jobs:
           python-version: '3.12'
       - name: Validate versioned JSON data
         run: python scripts/validate_data.py
+      - name: Check migration history is frozen and consistent
+        run: python scripts/check_migration_history.py
       - name: Verify actual coverage counts
         run: python scripts/update_coverage.py --check
       - name: Test backend product rules
