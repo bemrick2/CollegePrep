@@ -15,9 +15,9 @@ The user designated CollegePrep (`butlklkzafvklwasbynr`) in organization `atkukj
 
 ## Data gaps
 
-- All 51 current state/DC aid inventories need completion; Tennessee has five partial-catalog program records.
+- All 51 current state/DC aid inventories need completion. Tennessee now has 23 program records: 16 for 2026-27, 1 for the 2027 entering class and 5 for 2027-28 (5 verified, 17 partially verified). See [the Tennessee/UTK research notes](../research/tennessee-utk-2026-10-02.md). Unlabeled source years and the conflicting TSAA SAI threshold are still unresolved.
 - Current institutional costs/COA and admissions, full merit catalogs, AP/CLEP/IB/dual-enrollment equivalencies and their conditions, transfer/residency rules, degree/catalog requirements and qualifying appeal evidence remain largely unpopulated.
-- UT Knoxville retains two credit-policy records, ten selected AP equivalencies, one award and four appeal records. This does not establish complete policy coverage. No qualifying paid add-on path has explicit reviewed evidence in the reference adapter.
+- UT Knoxville now has 2026-27 COA by residency, Fall 2025 CDS and Fall 2026 admitted-profile admissions, 15 award records, 9 credit-policy records with 187 equivalencies (including the preserved 2025-26 transfer rules), one Computer Science BS catalog record and 8 appeal records. Coverage is still partial: Fall 2026 enrolled metrics, with-family COA total, maximum transferable hours, the transfer residence conflict and Fall 2027 merit amounts are unresolved. UT states it cannot match other institutions' offers; no qualifying paid add-on path exists.
 - Full COA is not derived from incomplete federal components. SAT section percentiles are not summed into a composite percentile. Missing/imputed numeric values are null.
 
 ## Backend gaps
