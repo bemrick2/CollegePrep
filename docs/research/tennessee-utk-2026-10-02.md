@@ -1,6 +1,6 @@
 # Tennessee state aid and UT Knoxville research — October 2, 2026
 
-Official-source review of Tennessee state aid programs and University of Tennessee, Knoxville (UNITID 221759) policy data. The evidence manifest, which lists every URL, how it was read and whether it prints an academic year, is at [`sources/official/2026-10-02/evidence.json`](../../sources/official/2026-10-02/evidence.json). No live database, backend code, migration or shared validator was changed.
+Official-source review of Tennessee state aid programs and University of Tennessee, Knoxville (UNITID 221759) policy data. The evidence manifest, which lists every URL, how it was read and whether it prints an academic year, is at [`sources/official/2026-10-02/evidence.json`](../../sources/official/2026-10-02/evidence.json). The research commits changed only data, evidence and docs. A follow-up commit added the importer mapping, migration and validation contract for the new domains; the live database was not modified.
 
 ## How values were handled
 
@@ -30,7 +30,7 @@ Not inventoried: Graduate Nursing Loan Forgiveness and the Reduction in Force Tu
 | Merit/institutional awards 2026-27 | 15 | Chancellor's (Tennessee, Neyland, Bonham, Roddy, Manning), In-/Out-of-State Volunteer, Orange & White, Provost, Distinguished Tennessean, Next Chapter (2), UT Promise, Tennessee Pledge, Flagship. Each includes its retention rule where one is published. |
 | Prior-learning credit | AP, CLEP, IB, Cambridge, Statewide Dual Credit, industry certification | 187 equivalencies, with admit-term conditions kept. |
 | Dual enrollment | 1 | Taken at UT: counts in the UT GPA and is not transfer credit. Taken elsewhere: transfer credit, not in the UT GPA. |
-| Transfer/residence | 2026-27 (partially_verified). 2025-26 (verified, history). | Minimum grade D-. 15 of the final 30 hours and 25% of hours at UT (2026-27). 2025-26 rule was 60 hours at a senior college plus the last 30 in residence. |
+| Transfer/residence (`transfer_policies`) | 2026-27 (partially_verified). 2025-26 (verified, history). | Minimum grade D-. 15 of the final 30 hours and 25% of hours at UT (2026-27). 2025-26 rule was 60 hours at a senior college plus the last 30 in residence. |
 | Degree requirements | Computer Science Major, BS in Computer Science (2026-27 catalog) | 121-123 hours, C or better in CS/ECE/EE/math, uTrack milestones, eight-term plan. |
 | Appeals 2026-27 | 8 | Financial-aid hub, special circumstances, scholarship retention, budget increase, dependency, SAP, merit reconsideration (not offered), competing-offer review (not offered). |
 
@@ -51,4 +51,4 @@ The add-on is still **ineligible**. The official Scholarship FAQ says: "UT canno
 9. **Merit amounts for Fall 2027 entrants.** UT pages give 2026-27 amounts but Fall 2027 application windows. 2027-28 amounts are unpublished.
 10. **Manning Scholars amount** and the **Next Chapter retention rules** were not published or captured.
 11. **Lower-confidence reading.** Several Tennessee pages and the Fall 2026 release summary were read through a summarizing fetcher (see `method` in the manifest). They should be re-read verbatim before those records are upgraded.
-12. **Importer mapping.** `scripts/import_supabase.py` stops with "Domain needs an explicit normalized mapping: degree_requirements". The new degree record, and the unmapped nested fields (term deadlines, living arrangements, award tiers, residency rules), are not live-importable until backend mappings are added. That backend work was out of scope.
+12. **Importer mapping (resolved).** The degree and transfer domains now have importer mappings and a schema migration, and controlled values were aligned with database constraints. Credit kinds are now `dual_enrollment`, `cambridge_international`, `statewide_dual_credit` and `industry_certification`. Transfer rules moved to `transfer_policies`. The migration must be applied to the live project before this data is imported.
