@@ -4,7 +4,7 @@
   python -m pipeline crawl --state TN --run DIR     # fetch official pages (needs open internet; resumable)
   python -m pipeline review --state TN --run DIR    # extract, re-verify, diff, exception queue, coverage
   python -m pipeline run --state TN --run DIR       # crawl + review
-  python -m pipeline promote --state TN --decisions pipeline/decisions/TN.json
+  python -m pipeline promote --state TN --decisions pipeline/decisions/TN-<run>.json
 """
 from __future__ import annotations
 import argparse, sys
@@ -42,7 +42,7 @@ def main(argv=None):
               f"reverified={sum(1 for v in verify if v.get('result') == 'all_values_found_year_labeled')} totals={cov['totals']}")
     if a.command == 'promote':
         from pipeline.promote import promote
-        promote(registry, a.decisions or Path('pipeline/decisions') / f'{state}.json')
+        promote(registry, a.decisions or sys.exit('--decisions pipeline/decisions/<STATE>-<run>.json is required'))
     return 0
 
 

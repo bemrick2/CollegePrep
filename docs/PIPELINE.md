@@ -11,7 +11,7 @@ Tennessee is the proving ground. Code: `pipeline/`. Tests: `tests/test_pipeline.
 | Registry | `python -m pipeline registry --state TN` | anywhere | `pipeline/registry/TN.json` (committed) |
 | Crawl | `python -m pipeline crawl --state TN --run DIR` | GitHub Actions (needs open internet) | `DIR/manifest.jsonl`, `DIR/pages/*.json.gz` |
 | Review | `python -m pipeline review --state TN --run DIR` | anywhere | `candidates.json`, `verify.json`, `review.md`, `coverage.json` |
-| Promote | `python -m pipeline promote --state TN --decisions pipeline/decisions/TN.json` | anywhere | records in `data/`, evidence in `sources/pipeline/` |
+| Promote | `python -m pipeline promote --state TN --decisions pipeline/decisions/TN-<run>.json` | anywhere | records in `data/`, evidence in `sources/pipeline/` |
 
 `run` = crawl + review. The workflow `.github/workflows/research-pipeline.yml` runs crawl and
 review and commits the run directory to a `pipeline-run/**` branch. It never imports data.
@@ -69,7 +69,7 @@ course string must appear verbatim in the raw text. `all_values_found_year_label
 proposal (for example, records that were downgraded only because a summarising tool read them).
 
 ### Promotion
-Decisions file `pipeline/decisions/<STATE>.json` lists `approve`, `reject` and `upgrade` entries
+Decisions file `pipeline/decisions/<STATE>-<run>.json` (one per reviewed run) lists `approve`, `reject` and `upgrade` entries
 with reasons. Status rule: year-labeled source with no open issues → `verified`; unlabeled, or
 issues explicitly accepted (`accept_issues`) → `partially_verified`. A verified record is never
 replaced by weaker or older evidence (same rule as the database importer). Evidence is archived in
