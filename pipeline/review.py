@@ -15,9 +15,9 @@ from backend.catalog import ROOT, records
 from backend.store import natural_key
 from . import text as T, topics
 from .crawl import Run
-from .extractors import appeals, cds, costs, credit, merit, transfer
+from .extractors import appeals, cds, costs, credit, dual, merit, transfer
 
-EXTRACTORS = [credit.extract, costs.extract, cds.extract, merit.extract, appeals.extract, transfer.extract]
+EXTRACTORS = [credit.extract, costs.extract, cds.extract, merit.extract, appeals.extract, transfer.extract, dual.extract]
 SCALAR_SKIP = {'entering_fall_year', 'unitid', 'term_index', 'choose_count'}
 # Policy wording that must also appear verbatim before a record can be upgraded: paraphrased text
 # (for example from a summarising fetch tool) is exactly what the earlier status downgrade was for.
@@ -73,6 +73,54 @@ def extract_run(registry, run: Run, today_year):
     return dedupe(out)
 
 
+# Facts a school spreads over several pages (eligibility on one, prices on another). Candidates from
+# these extractors for the same school, year and policy are merged field by field.
+MERGEABLE = {'dual_enrollment/v1': 'dual_enrollment', 'transfer_sentences/v1': None}
+LIST_FIELDS = {'eligibility_tiers', 'per_credit_hour_charges'}
+SCALAR_SKIP_MERGE = {'policy_url', 'notes', 'source_url', 'verification_status', 'last_verified_at', 'academic_year_basis',
+                     'institution_key', 'academic_year', 'policy_kind', 'equivalencies'}
+
+
+def merge_pages(group):
+    """One candidate from several pages. Agreeing values merge; a field with different values on
+    different pages is dropped and queued (`conflicting_sources:<field>`); lists are unioned."""
+    sub = MERGEABLE[group[0]['extractor']]
+    fields_of = lambda c: (c['record'].get(sub) or {}) if sub else {k: v for k, v in c['record'].items() if k not in SCALAR_SKIP_MERGE}
+    primary = max(group, key=lambda c: (len(fields_of(c)), len(c['evidence']), c['candidate_id']))
+    merged = json.loads(json.dumps(primary))
+    merged.pop('superseded_by', None)
+    out, issues = {}, [i for c in group for i in c['issues'] if not i.startswith('conflicting_values')]
+    names = sorted({k for c in group for k in fields_of(c)})
+    for name in names:
+        vals = [fields_of(c)[name] for c in group if name in fields_of(c)]
+        if name in LIST_FIELDS:
+            union = []
+            for v in vals:
+                for item in v:
+                    if item not in union: union.append(item)
+            out[name] = union
+            continue
+        distinct = {json.dumps(v, sort_keys=True) for v in vals}
+        if len(distinct) == 1: out[name] = vals[0]
+        else: issues.append(f'conflicting_sources:{name}')
+    issues += [i for c in group for i in c['issues'] if i.startswith('conflicting_values')]
+    if out.get('eligibility_tiers'):  # page-level minimums only stand if every merged tier agrees
+        for f in ('min_hs_gpa', 'alt_min_act', 'alt_min_sat'):
+            seen = {json.dumps(t.get(f)) for t in out['eligibility_tiers']}
+            if len(seen) == 1 and 'null' not in seen: out[f] = out['eligibility_tiers'][0][f]
+            else: out.pop(f, None); issues = [i for i in issues if i != f'conflicting_sources:{f}']
+    if sub: merged['record'][sub] = out
+    else:
+        for k in names: merged['record'].pop(k, None)
+        merged['record'].update(out)
+    urls = sorted({c['source']['url'] for c in group} - {primary['source']['url']})
+    if urls: merged['record']['additional_source_urls'] = urls
+    merged['evidence'] = [dict(e, source_url=c['source']['url']) for c in group for e in c['evidence']]
+    merged['issues'] = sorted(set(issues))
+    merged['checks'] = dict(merged.get('checks', {}), merged_pages=len(group))
+    return merged
+
+
 def dedupe(cands):
     """Same candidate id from several fetches of one document -> keep one; different documents yielding
     the same natural key with different values -> both flagged as conflicting."""
@@ -83,6 +131,14 @@ def dedupe(cands):
     for c in by_id.values():
         if c.get('domain'):
             by_key[natural_key(c['domain'], c['record'])].append(c)
+    merged_out = []
+    for key, group in by_key.items():
+        if len(group) > 1 and len({g['extractor'] for g in group}) == 1 and group[0]['extractor'] in MERGEABLE:
+            merged = merge_pages(group)
+            merged['candidate_id'] = 'm' + merged['candidate_id'][1:]  # distinct from every page-level id
+            for g in group: g['superseded_by'] = merged['candidate_id']
+            by_key[key] = [merged]
+            merged_out.append(merged)
     for key, group in by_key.items():
         if len(group) < 2: continue
         payloads = {json.dumps(_comparable(g['record']), sort_keys=True) for g in group}
@@ -96,7 +152,7 @@ def dedupe(cands):
         for g in group:
             if g is not keep[key] and not any(i.startswith('conflicting_sources') for i in g['issues']):
                 g['superseded_by'] = keep[key]['candidate_id']
-    return [c for c in by_id.values() if not c.get('superseded_by')]
+    return [c for c in list(by_id.values()) + merged_out if not c.get('superseded_by')]
 
 
 def _comparable(r):

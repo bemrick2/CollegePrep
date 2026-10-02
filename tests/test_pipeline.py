@@ -10,7 +10,7 @@ sys.path.insert(0, str(ROOT))
 from pipeline import exams, registry, review, text as T, topics  # noqa: E402
 from pipeline import promote as P  # noqa: E402
 from pipeline.crawl import Fetcher, Run, crawl  # noqa: E402
-from pipeline.extractors import appeals, cds, costs, credit, merit, transfer  # noqa: E402
+from pipeline.extractors import appeals, cds, costs, credit, dual, merit, transfer  # noqa: E402
 
 FIX = ROOT / 'tests/fixtures/pipeline'
 INST = {'institution_key': 'ipeds-999999', 'control': 'public', 'folder': 'example'}
@@ -215,6 +215,62 @@ last 30 hours in residence at the university.</p>"""
         [c] = transfer.extract(INST, ENTRY, T.parse_html(conflict), '2026-27')
         self.assertNotIn('min_grade', c['record'])
         self.assertIn('conflicting_values:min_grade', c['issues'])
+
+
+    def _de(self, body, url='https://www.example.edu/admissions/dual-enrollment/', title='Dual Enrollment'):
+        return dual.extract(INST, {**ENTRY, 'url': url}, T.parse_html('<title>%s</title>%s' % (title, body)), '2026-27')
+
+    def test_dual_enrollment_eligibility_and_charges(self):
+        # Layout from a real Tennessee page: eligibility list, then an FAQ with per-credit prices.
+        [c] = self._de("""<h3>Eligibility & Requirements</h3><ul><li>High School Junior or Seniors</li>
+<li>Minimum GPA of 3.0 (on 4.0 scale) OR minimum GPA of 2.0 with 19+ ACT composite score</li>
+<li>Allowed to take a maximum of 14 credit hours per semester</li></ul>
+<p>$174/credit hour | $10/credit hour - Technology Fee. Tennessee residents are eligible for the TN Dual Enrollment Grant.</p>""")
+        de = c['record']['dual_enrollment']
+        self.assertEqual(c['record']['policy_kind'], 'dual_enrollment')
+        self.assertEqual(de['max_credit_hours_per_term'], 14)
+        self.assertTrue(de['state_grant_accepted'])
+        self.assertEqual([(x['amount'], x['kind']) for x in de['per_credit_hour_charges']], [(174, 'other'), (10, 'fee')])
+        self.assertNotIn('tuition_per_credit_hour', de)  # '$174/credit hour' never says tuition
+        self.assertEqual(de['eligibility_tiers'][0]['min_hs_gpa'], 3.0)
+        self.assertEqual(de['eligibility_tiers'][0]['grades'], ['11', '12'])  # from the heading line just above
+
+    def test_dual_enrollment_grade_tiers_and_mixed_grant(self):
+        [c] = self._de("""<p>All high school sophomores with a minimum grade point average (GPA) of 3.5 are eligible for dual
+enrollment. The TN grant does not apply; no discounts are offered.</p><p>All high school juniors and seniors with a
+minimum grade point average (GPA) of 3.0 are eligible for dual enrollment. Out-of-state scholarships and the TN grant apply.</p>""")
+        de = c['record']['dual_enrollment']
+        self.assertEqual([(t['grades'], t['min_hs_gpa']) for t in de['eligibility_tiers']], [(['10'], 3.5), (['11', '12'], 3.0)])
+        self.assertNotIn('min_hs_gpa', de)  # tiers disagree, so no single minimum
+        self.assertNotIn('state_grant_accepted', de)
+        self.assertIn('state_grant_mixed_statements', c['issues'])
+
+    def test_dual_enrollment_needs_a_dual_enrollment_page(self):
+        self.assertEqual(self._de('<p>Minimum GPA of 3.0 for dual enrollment.</p>', url='https://www.example.edu/admissions/', title='Admissions'), [])
+
+    def test_pages_merge_field_by_field(self):
+        a = self._de('<p>Juniors and seniors need a minimum GPA of 3.0.</p>', url='https://e.edu/dual-enrollment/a')[0]
+        b = self._de('<p>Dual enrollment students may take a maximum of 12 credit hours per semester.</p>', url='https://e.edu/dual-enrollment/b')[0]
+        b['source']['sha256'] = 'cd' * 32; b['candidate_id'] = 'other'
+        [m] = review.dedupe([a, b])
+        self.assertEqual((m['record']['dual_enrollment']['min_hs_gpa'], m['record']['dual_enrollment']['max_credit_hours_per_term']), (3.0, 12))
+        self.assertEqual(m['record']['additional_source_urls'], ['https://e.edu/dual-enrollment/b'])
+        self.assertEqual(m['issues'], [])
+        c = self._de('<p>Dual enrollment students may take a maximum of 15 credit hours per semester.</p>', url='https://e.edu/dual-enrollment/c')[0]
+        c['candidate_id'] = 'third'
+        [m] = review.dedupe([a, b, c])
+        self.assertNotIn('max_credit_hours_per_term', m['record']['dual_enrollment'])  # 12 vs 15: dropped and queued
+        self.assertIn('conflicting_sources:max_credit_hours_per_term', m['issues'])
+
+    def test_two_documents_with_the_same_record_key_are_both_compared(self):
+        a = credit.extract(INST, ENTRY, page('ap.html'), '2026-27')[0]
+        other = {**ENTRY, 'url': 'https://example.edu/y', 'sha256': 'ef' * 32}
+        html = (FIX / 'ap.html').read_text().replace('ART 2140 &amp; ART 2150', 'ART 1000')
+        b = credit.extract(INST, other, T.parse_html(html), '2026-27')[0]
+        self.assertNotEqual(a['candidate_id'], b['candidate_id'])
+        out = review.dedupe([a, b])
+        self.assertEqual(len(out), 2)
+        self.assertTrue(all(any(i.startswith('conflicting_sources') for i in c['issues']) for c in out))
 
 
 class _Quiet(SimpleHTTPRequestHandler):
