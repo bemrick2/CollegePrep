@@ -1,4 +1,4 @@
-import json
+import json, csv
 from datetime import date, timedelta
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
@@ -6,6 +6,15 @@ QUALIFYING = {'merit_reconsideration','competing_offer_review','financial_aid_ap
 
 def records(root=ROOT):
     for path in sorted((root/'data').rglob('*')):
+        if path.suffix == '.csv':
+            with path.open(encoding='utf-8',newline='') as f:
+                for r in csv.DictReader(f):
+                    for k,v in list(r.items()):
+                        if v == '': r[k]=None
+                        elif k in {'unitid','applications','admits','enrolled','entering_fall_year','sat_reading_25','sat_reading_75','sat_math_25','sat_math_75','act_25','act_75','tuition','mandatory_fees','books_supplies','on_campus_food_housing','on_campus_other_expenses'}: r[k]=int(v)
+                        elif v in {'True','False'}: r[k]=(v=='True')
+                    yield path,r.pop('domain'),r
+            continue
         if path.suffix not in {'.json','.jsonl'}: continue
         payloads = [json.loads(x) for x in path.read_text(encoding='utf-8').splitlines() if x] if path.suffix=='.jsonl' else [json.loads(path.read_text(encoding='utf-8'))]
         for payload in payloads:

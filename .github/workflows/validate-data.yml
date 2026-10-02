@@ -20,3 +20,5 @@ jobs:
         run: python scripts/update_coverage.py --check
       - name: Test backend product rules
         run: python -m unittest discover -s tests -v
+      - name: Verify pinned official source archives
+        run: python scripts/verify_sources.py
