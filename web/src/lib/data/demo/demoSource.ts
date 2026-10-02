@@ -1,0 +1,580 @@
+import type { DataSource } from '../source'
+import { DataError } from '../source'
+import type {
+  AttemptRecord,
+  BenchmarkSummary,
+  Confidence,
+  CostProjection,
+  ExamFamily,
+  HelpMode,
+  HouseholdContext,
+  InstitutionComparison,
+  InstitutionSearchHit,
+  PracticeSession,
+  PublicQuestion,
+  Student,
+  StudentPlan,
+  SubmitInput,
+  SubmitResult,
+  TestScore,
+  Viewer,
+  WeeklyProgress,
+} from '../types'
+import type { FixtureQuestion } from './fixtures'
+import { emptyStore, loadStore, saveStore, uid, type DemoAttempt, type DemoStore } from './store'
+import { gradeAnswer } from '../../engine/grading'
+import { recommend, skillEstimates, streakFrom, weeklyProgress } from '../../engine/analytics'
+import { browserTimeZone, localDate } from '../../engine/dates'
+
+export const DEMO_PARENT = 'demo-parent'
+export const DEMO_STUDENT = 'demo-student'
+
+// Fixtures and the comparison snapshot load on first use, so live-mode users never download them.
+type Fx = typeof import('./fixtures') & {
+  byId: Map<string, FixtureQuestion>
+  snapshot: { academic_year: string; institutions: InstitutionComparison[] }
+}
+let fxPromise: Promise<Fx> | null = null
+export function loadFixtures(): Promise<Fx> {
+  fxPromise ??= Promise.all([import('./fixtures'), import('./comparison-snapshot.json')]).then(([f, snap]) => ({
+    ...f,
+    byId: new Map(f.QUESTIONS.map((q) => [q.id, q])),
+    snapshot: snap.default as unknown as Fx['snapshot'],
+  }))
+  return fxPromise
+}
+const skillIdOf = (q: FixtureQuestion) => `sk-${q.primary_skill_key}`
+
+export function toPublic(q: FixtureQuestion): PublicQuestion {
+  return {
+    id: q.id,
+    exam_family: q.exam_family,
+    section: q.section,
+    difficulty: q.difficulty,
+    difficulty_label: q.difficulty <= 2 ? 'easy' : q.difficulty >= 4 ? 'hard' : 'medium',
+    stem: q.stem,
+    passage: q.passage ?? null,
+    choices: q.choices,
+    answer_format: q.answer_format,
+    expected_time_seconds: q.expected_time_seconds,
+    primary_skill_key: q.primary_skill_key,
+    hint_count: q.hints.length,
+  }
+}
+
+const delay = <T,>(v: T): Promise<T> => new Promise((r) => setTimeout(() => r(v), 0))
+
+export class DemoSource implements DataSource {
+  readonly mode = 'demo' as const
+  private s: DemoStore
+
+  constructor(store?: DemoStore) {
+    this.s = store ?? loadStore()
+  }
+
+  private commit() {
+    saveStore(this.s)
+  }
+
+  /** Demo only: switch between the parent and student personas. */
+  switchPersona(userId: string, displayName: string) {
+    if (!this.s.users.some((u) => u.id === userId)) this.s.users.push({ id: userId, displayName })
+    this.s.viewerId = userId
+    this.commit()
+  }
+
+  replaceStore(store: DemoStore) {
+    this.s = store
+    this.commit()
+  }
+
+  reset() {
+    this.s = emptyStore()
+    this.commit()
+  }
+
+  private viewerId(): string {
+    if (!this.s.viewerId) throw new DataError('Not signed in', 'forbidden')
+    return this.s.viewerId
+  }
+
+  private student(id: string): Student {
+    const st = this.s.students.find((x) => x.id === id)
+    if (!st) throw new DataError('Student not found', 'not_found')
+    return st
+  }
+
+  private tz(studentId: string): string {
+    const st = this.student(studentId)
+    const h = this.s.households.find((x) => x.id === st.household_id)
+    return st.time_zone ?? h?.time_zone ?? 'UTC'
+  }
+
+  private canView(studentId: string): boolean {
+    const me = this.viewerId()
+    const st = this.student(studentId)
+    if (st.linked_user_id === me) return true
+    return this.s.members.some((m) => m.household_id === st.household_id && m.user_id === me && m.can_view_progress)
+  }
+
+  private requireView(studentId: string) {
+    if (!this.canView(studentId)) throw new DataError('Not allowed to view this student', 'forbidden')
+  }
+
+  private requireLinked(studentId: string) {
+    if (this.student(studentId).linked_user_id !== this.viewerId())
+      throw new DataError("Only the student's own login can practise", 'forbidden')
+  }
+
+  private attemptsOf(studentId: string) {
+    return this.s.attempts.filter((a) => a.student_id === studentId)
+  }
+
+  async getViewer(): Promise<Viewer | null> {
+    const id = this.s.viewerId
+    if (!id) return delay(null)
+    const u = this.s.users.find((x) => x.id === id)
+    return delay({ userId: id, displayName: u?.displayName ?? null, mode: 'demo' })
+  }
+
+  async signOut() {
+    this.s.viewerId = null
+    this.commit()
+  }
+
+  async getHouseholdContext(): Promise<HouseholdContext> {
+    const me = this.viewerId()
+    const memberships = this.s.members.filter((m) => m.user_id === me)
+    const hids = new Set(memberships.map((m) => m.household_id))
+    const myStudent = this.s.students.find((x) => x.linked_user_id === me) ?? null
+    const students = this.s.students.filter(
+      (x) => !x.archived_at && ((x.household_id && hids.has(x.household_id)) || x.linked_user_id === me),
+    )
+    return delay({
+      households: this.s.households.filter((h) => hids.has(h.id)),
+      memberships,
+      students,
+      myStudent,
+    })
+  }
+
+  async createHousehold(name: string, timeZone: string) {
+    const me = this.viewerId()
+    const id = uid('h-')
+    this.s.households.push({ id, name: name.trim(), time_zone: timeZone })
+    this.s.members.push({
+      household_id: id,
+      user_id: me,
+      role: 'guardian',
+      can_manage_students: true,
+      can_set_goals: true,
+      can_view_progress: true,
+      can_manage_members: true,
+      can_manage_billing: true,
+    })
+    this.commit()
+    return id
+  }
+
+  async addStudent(householdId: string, displayName: string, graduationYear: number | null, gradeLevel: number | null) {
+    const me = this.viewerId()
+    if (!this.s.members.some((m) => m.household_id === householdId && m.user_id === me && m.can_manage_students))
+      throw new DataError('Not allowed to add students to this household', 'forbidden')
+    const id = uid('st-')
+    this.s.students.push({
+      id,
+      household_id: householdId,
+      display_name: displayName.trim(),
+      graduation_year: graduationYear,
+      grade_level: gradeLevel,
+      account_mode: 'guardian_managed',
+      is_independent: false,
+      linked_user_id: null,
+      time_zone: null,
+      archived_at: null,
+    })
+    this.commit()
+    return id
+  }
+
+  async createSelfStudentProfile(input: {
+    displayName: string
+    graduationYear: number | null
+    gradeLevel: number | null
+    independent: boolean
+    timeZone: string | null
+  }) {
+    const me = this.viewerId()
+    if (this.s.students.some((x) => x.linked_user_id === me)) throw new DataError('You already have a student profile', 'invalid')
+    const id = uid('st-')
+    this.s.students.push({
+      id,
+      household_id: null,
+      display_name: input.displayName.trim(),
+      graduation_year: input.graduationYear,
+      grade_level: input.gradeLevel,
+      account_mode: 'student_login',
+      is_independent: input.independent,
+      linked_user_id: me,
+      time_zone: input.timeZone,
+      archived_at: null,
+    })
+    this.commit()
+    return id
+  }
+
+  async createInvitation(householdId: string, role: 'guardian' | 'student', studentId?: string) {
+    const code = Array.from({ length: 8 }, () => 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'[Math.floor(Math.random() * 31)]).join('')
+    this.s.invitations.push({
+      code,
+      household_id: householdId,
+      role,
+      student_id: studentId ?? null,
+      expires_at: new Date(Date.now() + 72 * 3600_000).toISOString(),
+      accepted_by: null,
+    })
+    this.commit()
+    return code
+  }
+
+  async acceptInvitation(code: string) {
+    const me = this.viewerId()
+    const inv = this.s.invitations.find((i) => i.code === code.trim().toUpperCase())
+    if (!inv || inv.accepted_by || inv.expires_at < new Date().toISOString())
+      throw new DataError('That code is invalid or has expired', 'invalid')
+    inv.accepted_by = me
+    if (inv.role === 'guardian') {
+      this.s.members.push({
+        household_id: inv.household_id,
+        user_id: me,
+        role: 'guardian',
+        can_manage_students: true,
+        can_set_goals: true,
+        can_view_progress: true,
+        can_manage_members: false,
+        can_manage_billing: false,
+      })
+    } else {
+      const own = this.s.students.find((x) => x.linked_user_id === me)
+      if (inv.student_id) {
+        if (own && own.id !== inv.student_id) throw new DataError('You already have a student profile', 'invalid')
+        const st = this.student(inv.student_id)
+        st.linked_user_id = me
+        st.account_mode = 'student_login'
+      } else if (own) {
+        own.household_id = inv.household_id
+      } else {
+        throw new DataError('Create your student profile first', 'invalid')
+      }
+      this.s.members.push({
+        household_id: inv.household_id,
+        user_id: me,
+        role: 'student',
+        can_manage_students: false,
+        can_set_goals: false,
+        can_view_progress: false,
+        can_manage_members: false,
+        can_manage_billing: false,
+      })
+    }
+    this.commit()
+    return inv.household_id
+  }
+
+  async setWeeklyGoal(studentId: string, weekStart: string, targetQuestions: number | null, targetMinutes: number | null) {
+    const existing = this.s.goals.find((g) => g.student_id === studentId && g.week_start === weekStart)
+    if (existing) {
+      existing.target_questions = targetQuestions
+      existing.target_minutes = targetMinutes
+    } else {
+      this.s.goals.push({ id: uid('g-'), student_id: studentId, week_start: weekStart, target_questions: targetQuestions, target_minutes: targetMinutes, goal_mode: 'fixed' })
+    }
+    this.commit()
+  }
+
+  async weeklyProgress(studentId: string, weekStart: string): Promise<WeeklyProgress> {
+    const F = await loadFixtures()
+    this.requireView(studentId)
+    const tz = this.tz(studentId)
+    const g = this.s.goals.find((x) => x.student_id === studentId && x.week_start === weekStart)
+    const attempts = this.attemptsOf(studentId)
+    return delay(
+      weeklyProgress({
+        studentId,
+        weekStart,
+        timeZone: tz,
+        goal: g ? { target_questions: g.target_questions, target_minutes: g.target_minutes, goal_mode: g.goal_mode } : null,
+        attempts,
+        events: this.s.events.filter((e) => e.student_id === studentId),
+        estimates: skillEstimates(attempts, F.SKILLS),
+        today: localDate(new Date(), tz),
+      }),
+    )
+  }
+
+  async streak(studentId: string) {
+    this.requireView(studentId)
+    const tz = this.tz(studentId)
+    return delay(streakFrom(this.attemptsOf(studentId), tz, localDate(new Date(), tz)))
+  }
+
+  async skillEstimates(studentId: string) {
+    const F = await loadFixtures()
+    this.requireView(studentId)
+    return delay(skillEstimates(this.attemptsOf(studentId), F.SKILLS))
+  }
+
+  async testScores(studentId: string): Promise<TestScore[]> {
+    this.requireView(studentId)
+    return delay(this.s.scores.filter((x) => x.student_id === studentId))
+  }
+
+  async attemptHistory(studentId: string, sinceIso: string): Promise<AttemptRecord[]> {
+    this.requireView(studentId)
+    return delay(
+      this.attemptsOf(studentId)
+        .filter((a) => a.submitted_at && a.submitted_at >= sinceIso)
+        .map((a) => ({
+          id: a.id,
+          question_id: a.question_id,
+          section: a.section,
+          skill_key: a.skill_key,
+          submitted_at: a.submitted_at!,
+          elapsed_ms: a.elapsed_ms ?? 0,
+          expected_time_seconds: a.expected_time_seconds,
+          is_correct: a.is_correct,
+          skipped: a.skipped,
+          confidence: (a.confidence as Confidence | null) ?? null,
+          hint_count: a.hint_count,
+        })),
+    )
+  }
+
+  async catalog(examFamily: ExamFamily) {
+    const F = await loadFixtures()
+    return delay({ skills: F.SKILLS.filter((s) => s.exam_family === examFamily), strategies: F.STRATEGIES, traps: F.TRAPS })
+  }
+
+  async publishedQuestions(examFamily: ExamFamily) {
+    const F = await loadFixtures()
+    return delay(F.QUESTIONS.filter((q) => q.exam_family === examFamily).map(toPublic))
+  }
+
+  async startSession(studentId: string, targetMinutes: number, examFamily: ExamFamily): Promise<PracticeSession> {
+    const F = await loadFixtures()
+    this.requireLinked(studentId)
+    if (targetMinutes < 5 || targetMinutes > 15) throw new DataError('Sessions are 5 to 15 minutes', 'invalid')
+    const attempts = this.attemptsOf(studentId)
+    const pool = F.QUESTIONS.filter((q) => q.exam_family === examFamily)
+    const plan = recommend(
+      pool.map((q) => ({ id: q.id, skill_id: skillIdOf(q), expected_time_seconds: q.expected_time_seconds })),
+      skillEstimates(attempts, F.SKILLS),
+      attempts,
+      targetMinutes,
+    )
+    const id = uid('ps-')
+    this.s.sessions.push({ id, student_id: studentId, target_minutes: targetMinutes, started_at: new Date().toISOString(), ended_at: null, question_ids: plan.map((p) => p.question_id) })
+    this.commit()
+    return {
+      id,
+      target_minutes: targetMinutes,
+      items: plan.map((p, i) => ({ position: i + 1, question: toPublic(F.byId.get(p.question_id)!), reason: p.reason })),
+    }
+  }
+
+  async endSession(sessionId: string) {
+    const ps = this.s.sessions.find((x) => x.id === sessionId)
+    if (ps && !ps.ended_at) ps.ended_at = new Date().toISOString()
+    this.commit()
+  }
+
+  async startAttempt(studentId: string, questionId: string, sessionId: string | null) {
+    const F = await loadFixtures()
+    this.requireLinked(studentId)
+    const q = F.byId.get(questionId)
+    if (!q) throw new DataError('Question is not available', 'invalid')
+    const id = uid('pa-')
+    const now = new Date().toISOString()
+    const a: DemoAttempt = {
+      id,
+      student_id: studentId,
+      session_id: sessionId,
+      question_id: questionId,
+      skill_id: skillIdOf(q),
+      skill_key: q.primary_skill_key,
+      section: q.section,
+      presented_at: now,
+      submitted_at: null,
+      elapsed_ms: null,
+      active_ms: null,
+      expected_time_seconds: q.expected_time_seconds,
+      is_correct: null,
+      skipped: false,
+      confidence: null,
+      hint_count: 0,
+      ai_help_used: false,
+      strategy_key: null,
+      selected_answer: null,
+      attempt_number: this.attemptsOf(studentId).filter((x) => x.question_id === questionId).length + 1,
+      last_answer: null,
+    }
+    this.s.attempts.push(a)
+    this.s.events.push({ attempt_id: id, student_id: studentId, kind: 'presented', occurred_at: now })
+    this.commit()
+    return id
+  }
+
+  private openAttempt(attemptId: string): DemoAttempt {
+    const a = this.s.attempts.find((x) => x.id === attemptId)
+    if (!a) throw new DataError('Attempt not found', 'not_found')
+    this.requireLinked(a.student_id)
+    if (a.submitted_at) throw new DataError('Attempt was already submitted', 'invalid')
+    return a
+  }
+
+  async recordEvent(attemptId: string, kind: 'answered' | 'skipped' | 'returned', answer?: string) {
+    const a = this.openAttempt(attemptId)
+    let k: 'answered' | 'changed_answer' | 'skipped' | 'returned' = kind
+    if (kind === 'answered') {
+      const v = (answer ?? '').trim()
+      if (!v) throw new DataError('An answer is required', 'invalid')
+      if (a.last_answer === v) return 'unchanged'
+      if (a.last_answer !== null) k = 'changed_answer'
+      a.last_answer = v
+    }
+    this.s.events.push({ attempt_id: attemptId, student_id: a.student_id, kind: k, occurred_at: new Date().toISOString() })
+    this.commit()
+    return k
+  }
+
+  async requestHint(attemptId: string) {
+    const F = await loadFixtures()
+    const a = this.openAttempt(attemptId)
+    const q = F.byId.get(a.question_id)!
+    if (a.hint_count >= q.hints.length) throw new DataError('No more hints for this question', 'invalid')
+    const hint = q.hints[a.hint_count]!
+    a.hint_count++
+    this.s.events.push({ attempt_id: attemptId, student_id: a.student_id, kind: 'hint', occurred_at: new Date().toISOString() })
+    this.commit()
+    return { hint_number: a.hint_count, hint, remaining: q.hints.length - a.hint_count }
+  }
+
+  async submitAttempt(attemptId: string, input: SubmitInput): Promise<SubmitResult> {
+    const F = await loadFixtures()
+    const a = this.openAttempt(attemptId)
+    const q = F.byId.get(a.question_id)!
+    const skipped = input.skipped ?? false
+    const answer = input.answer?.trim() || null
+    if (skipped && answer) throw new DataError('A skipped attempt has no answer', 'invalid')
+    if (!skipped && !answer) throw new DataError('An answer is required', 'invalid')
+    const now = new Date()
+    const elapsed = now.getTime() - new Date(a.presented_at).getTime()
+    if (!skipped && a.last_answer !== null && a.last_answer !== answer)
+      this.s.events.push({ attempt_id: attemptId, student_id: a.student_id, kind: 'changed_answer', occurred_at: now.toISOString() })
+    a.submitted_at = now.toISOString()
+    a.elapsed_ms = elapsed
+    a.active_ms = input.activeMs !== undefined ? Math.min(input.activeMs, elapsed) : null
+    a.selected_answer = answer
+    a.is_correct = skipped ? null : gradeAnswer(q.answer_format, q.accepted_answers, answer!)
+    a.skipped = skipped
+    a.confidence = input.confidence ?? null
+    a.strategy_key = input.strategyKey ?? null
+    this.s.events.push({ attempt_id: attemptId, student_id: a.student_id, kind: skipped ? 'skipped' : 'submitted', occurred_at: now.toISOString() })
+    this.commit()
+    return {
+      is_correct: a.is_correct,
+      skipped,
+      elapsed_ms: elapsed,
+      accepted_answers: q.accepted_answers,
+      teaching_explanation: q.teaching_explanation,
+      strategy_explanation: q.strategy_explanation,
+      distractors: [...q.distractors].sort((x, y) => x.choice.localeCompare(y.choice)),
+      strategies: [...q.strategies].sort((x, y) => Number(y.is_fastest) - Number(x.is_fastest)),
+    }
+  }
+
+  async requestAiHelp(attemptId: string, mode: HelpMode) {
+    const a = this.s.attempts.find((x) => x.id === attemptId)
+    if (!a) throw new DataError('Attempt not found', 'not_found')
+    if (mode === 'answer_reveal' && !a.submitted_at) throw new DataError('The answer can only be revealed after submission', 'invalid')
+    // Matches the backend default: AI help is recorded but disabled until a provider exists.
+    return delay({ request_id: uid('ai-'), status: 'disabled' as const })
+  }
+
+  async rememberThis(questionId: string) {
+    const F = await loadFixtures()
+    return delay(F.byId.get(questionId)?.remember ?? null)
+  }
+
+  async getPlan(studentId: string) {
+    return delay(this.s.plans[studentId] ?? null)
+  }
+
+  async savePlan(studentId: string, plan: StudentPlan) {
+    this.s.plans[studentId] = plan
+    this.commit()
+  }
+
+  async listBenchmarks(studentId: string) {
+    return delay(this.s.benchmarks[studentId] ?? [])
+  }
+
+  async saveBenchmark(studentId: string, summary: BenchmarkSummary) {
+    ;(this.s.benchmarks[studentId] ??= []).push(summary)
+    this.commit()
+  }
+
+  async searchInstitutions(query: string): Promise<InstitutionSearchHit[]> {
+    const F = await loadFixtures()
+    const q = query.trim().toLowerCase()
+    const list = (F.snapshot.institutions as unknown as InstitutionComparison[])
+      .filter((x) => x.institution)
+      .map((x) => ({
+        institution_key: x.institution_key,
+        display_name: x.institution!.display_name,
+        city: x.institution!.city,
+        state_code: x.institution!.state_code,
+        control: x.institution!.control,
+      }))
+    return delay(q ? list.filter((x) => x.display_name.toLowerCase().includes(q)) : list)
+  }
+
+  async compareInstitutions(keys: string[], academicYear: string): Promise<InstitutionComparison[]> {
+    const F = await loadFixtures()
+    const all = F.snapshot.institutions as unknown as InstitutionComparison[]
+    return delay(
+      keys.map(
+        (k) =>
+          (academicYear === F.snapshot.academic_year ? all.find((x) => x.institution_key === k) : undefined) ?? {
+            institution_key: k,
+            found: false,
+            institution: null,
+            academic_year: academicYear,
+            domains: {} as InstitutionComparison['domains'],
+            missing_domains: [],
+            can_offer_paid_addon: false,
+          },
+      ),
+    )
+  }
+
+  async costProjection(): Promise<CostProjection> {
+    // Illustrative only. There is no backend projection model yet (contract request CR-4).
+    return delay({
+      status: 'available',
+      illustrative: true,
+      baseline_total: 87400,
+      optimized_total: 58200,
+      savings: 29200,
+      levers: [
+        { key: 'ap_credit', label: 'AP credit (2 exams at accepted scores)', estimated_savings: 7800, source_url: null },
+        { key: 'dual_enrollment', label: 'Dual enrollment in senior year', estimated_savings: 9400, source_url: null },
+        { key: 'merit', label: 'Merit scholarship at ACT 27+', estimated_savings: 12000, source_url: null },
+      ],
+    })
+  }
+}
+
+export function demoTimeZone() {
+  return browserTimeZone()
+}
