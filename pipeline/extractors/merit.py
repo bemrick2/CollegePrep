@@ -124,7 +124,7 @@ def extract(inst, entry, page, today_year):
         context = ' '.join([t.get('heading') or '', t.get('caption') or ''])
         if NOT_MERIT.search(context): continue
         header, body = rows[0], rows[1:]
-        if NOT_MERIT.search(' '.join(header)): continue
+        if NOT_MERIT.search(' '.join(header)) or NOT_NAME.search(context): continue
         if not HEADER_WORDS.search(' '.join(header)): continue  # e.g. worked aid examples, schedules
         shaped = _tier_award(t, header, body, context) or _grid_award(t, header, body, context)
         merit_context = re.search(r'merit|academic|gpa|act|sat|test score', context + ' ' + ' '.join(header) + ' ' + page.title, re.I)

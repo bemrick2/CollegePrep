@@ -33,7 +33,7 @@ class _Parser(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.base = base_url; self.out = []; self.skip = 0; self.title = ''; self.in_title = False
         self.links = []; self.link = None; self.headings = []; self.heading = None
-        self.tables = []; self.stack = []; self.last_heading = ''
+        self.tables = []; self.stack = []; self.last_heading = ''; self.year_heading = ''
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
@@ -44,7 +44,8 @@ class _Parser(HTMLParser):
         if tag in CELL: self.out.append(' | ')
         if tag == 'a' and a.get('href'): self.link = [a['href'], []]
         if tag in {'h1', 'h2', 'h3', 'h4'}: self.heading = []
-        if tag == 'table': self.stack.append({'caption': '', 'heading': self.last_heading, 'rows': [], 'row': None, 'cell': None})
+        if tag == 'table': self.stack.append({'caption': '', 'heading': self.last_heading, 'year_heading': self.year_heading,
+                                              'rows': [], 'row': None, 'cell': None})
         elif self.stack:
             t = self.stack[-1]
             if tag == 'tr': t['row'] = []
@@ -63,7 +64,9 @@ class _Parser(HTMLParser):
                 self.links.append((urldefrag(urljoin(self.base, href.strip()))[0], squash(''.join(text))))
         if tag in {'h1', 'h2', 'h3', 'h4'} and self.heading is not None:
             h = squash(''.join(self.heading)); self.heading = None
-            if h: self.headings.append(h); self.last_heading = h
+            if h:
+                self.headings.append(h); self.last_heading = h
+                if YEAR_RE.search(h) or FALL_SPRING_RE.search(h): self.year_heading = h
         if not self.stack: return
         t = self.stack[-1]
         if tag in CELL and t['cell'] is not None:
@@ -76,7 +79,8 @@ class _Parser(HTMLParser):
         elif tag == 'table':
             done = self.stack.pop()
             if done['rows']:
-                self.tables.append({'caption': done['caption'], 'heading': done['heading'], 'rows': done['rows']})
+                self.tables.append({'caption': done['caption'], 'heading': done['heading'],
+                                    'year_heading': done['year_heading'], 'rows': done['rows']})
 
     def handle_data(self, data):
         if self.skip: return

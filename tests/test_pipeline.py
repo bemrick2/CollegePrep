@@ -40,6 +40,8 @@ class TextTests(unittest.TestCase):
         self.assertNotIn('var x', p.text)
         self.assertEqual(p.tables[0]['rows'], [['a', 'b']])
         self.assertEqual(p.tables[0]['heading'], 'H')
+        q = T.parse_html(b'<h2>2026-2027 Cost of Attendance</h2><h3>Undergraduate (In-State)</h3><table><tr><td>a</td></tr></table>')
+        self.assertEqual((q.tables[0]['heading'], q.tables[0]['year_heading']), ('Undergraduate (In-State)', '2026-2027 Cost of Attendance'))
         self.assertEqual(p.links, [('https://e.edu/y', 'Y')])
 
 
@@ -106,6 +108,23 @@ class ExtractorTests(unittest.TestCase):
         [p] = costs.extract({**INST, 'control': 'private_nonprofit'}, ENTRY, T.parse_html(html), '2026-27')
         self.assertEqual(p['record']['residency'], 'not_applicable')
         self.assertNotIn('residency_unknown', p['issues'])
+
+    def test_direct_cost_total_is_not_cost_of_attendance(self):
+        direct = ('<title>Tuition 2026-2027</title><table><tr><th>2026-2027 Costs</th><th>Per Year</th></tr>'
+                  '<tr><td>Tuition</td><td>$42,500</td></tr><tr><td>Clinical Fees</td><td>$200</td></tr>'
+                  '<tr><td>Room</td><td>$6,300</td></tr><tr><td>Total</td><td>$49,000</td></tr></table>')
+        [c] = costs.extract({**INST, 'control': 'private_nonprofit'}, ENTRY, T.parse_html(direct), '2026-27')
+        self.assertIsNone(c['record']['total_cost_of_attendance'])
+        self.assertEqual(c['record']['total_direct_cost'], 49000)
+        self.assertIsNone(c['record']['mandatory_fees'])  # 'Clinical Fees' is not a mandatory fee
+        union = ('<title>Cost of Attendance 2026-2027</title><table><tr><th>Item</th><th>Amount</th></tr>'
+                 '<tr><td>Tuition</td><td>$41,170</td></tr><tr><td>Mandatory Fees</td><td>$1,520</td></tr>'
+                 '<tr><td>Total Direct Costs</td><td>$42,690</td></tr><tr><td>Transportation</td><td>$3,316</td></tr>'
+                 '<tr><td>Total Indirect Costs</td><td>$3,316</td></tr><tr><td>Total COA</td><td>$46,006</td></tr></table>')
+        [c] = costs.extract({**INST, 'control': 'private_nonprofit'}, ENTRY, T.parse_html(union), '2026-27')
+        self.assertEqual(c['record']['total_cost_of_attendance'], 46006)
+        self.assertEqual(c['record']['mandatory_fees'], 1520)
+        self.assertNotIn('multiple_total_rows', c['issues'])
 
     def test_common_data_set_totals_only(self):
         text = (FIX / 'cds.txt').read_text()
