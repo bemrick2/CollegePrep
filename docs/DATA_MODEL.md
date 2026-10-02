@@ -16,6 +16,7 @@ The following tables are versioned by academic year or entering class year rathe
 - institutional_awards
 - credit_policies / credit_equivalencies
 - transfer_policies
+- academic_programs / degree_requirements
 - appeal_policies
 
 This lets the recommendation engine distinguish a current rule from a prior-year rule and makes annual refreshes auditable.
