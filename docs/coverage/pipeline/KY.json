@@ -1,0 +1,145 @@
+{
+ "state": "KY",
+ "academic_year": "2026-27",
+ "institutions": 46,
+ "status_order": [
+  "verified_current",
+  "partially_verified_current",
+  "candidate_ready",
+  "candidate_exception",
+  "source_found",
+  "not_found",
+  "fetch_failed"
+ ],
+ "by_category": {
+  "admissions_tests": {
+   "candidate_ready": 2,
+   "fetch_failed": 2,
+   "source_found": 42
+  },
+  "aid_appeals": {
+   "candidate_exception": 32,
+   "fetch_failed": 2,
+   "not_found": 5,
+   "source_found": 7
+  },
+  "ap_credit": {
+   "candidate_ready": 2,
+   "fetch_failed": 2,
+   "not_found": 28,
+   "source_found": 14
+  },
+  "clep_credit": {
+   "candidate_ready": 3,
+   "fetch_failed": 2,
+   "not_found": 34,
+   "source_found": 7
+  },
+  "common_data_set": {
+   "candidate_ready": 2,
+   "fetch_failed": 2,
+   "not_found": 41,
+   "source_found": 1
+  },
+  "cost_of_attendance": {
+   "candidate_exception": 10,
+   "candidate_ready": 18,
+   "fetch_failed": 2,
+   "source_found": 16
+  },
+  "degree_requirements": {
+   "candidate_exception": 1,
+   "candidate_ready": 1,
+   "fetch_failed": 2,
+   "not_found": 21,
+   "source_found": 21
+  },
+  "dual_enrollment": {
+   "candidate_exception": 6,
+   "candidate_ready": 15,
+   "fetch_failed": 2,
+   "not_found": 8,
+   "source_found": 15
+  },
+  "ib_credit": {
+   "candidate_ready": 1,
+   "fetch_failed": 2,
+   "not_found": 40,
+   "source_found": 3
+  },
+  "merit_scholarships": {
+   "candidate_exception": 1,
+   "candidate_ready": 4,
+   "fetch_failed": 2,
+   "source_found": 39
+  },
+  "residency": {
+   "fetch_failed": 2,
+   "not_found": 23,
+   "source_found": 21
+  },
+  "statewide_articulation": {
+   "fetch_failed": 2,
+   "not_found": 40,
+   "source_found": 4
+  },
+  "transfer_credit": {
+   "candidate_exception": 1,
+   "candidate_ready": 2,
+   "fetch_failed": 2,
+   "not_found": 2,
+   "source_found": 39
+  },
+  "tuition_fees": {
+   "candidate_exception": 16,
+   "candidate_ready": 20,
+   "fetch_failed": 2,
+   "source_found": 8
+  }
+ },
+ "totals": {
+  "candidate_exception": 67,
+  "candidate_ready": 70,
+  "fetch_failed": 28,
+  "not_found": 242,
+  "source_found": 237
+ },
+ "statewide_sources": {
+  "categories": {
+   "admissions_tests": 14,
+   "aid_appeals": 3,
+   "ap_credit": 3,
+   "clep_credit": 3,
+   "common_data_set": 0,
+   "cost_of_attendance": 7,
+   "degree_requirements": 4,
+   "dual_enrollment": 19,
+   "ib_credit": 3,
+   "merit_scholarships": 23,
+   "residency": 37,
+   "statewide_articulation": 3,
+   "transfer_credit": 12,
+   "tuition_fees": 32
+  },
+  "fetch_failures": 2,
+  "pages_fetched": 135
+ },
+ "blocked_institutions": [
+  "ipeds-157377",
+  "ipeds-157386"
+ ],
+ "quality": {
+  "ambiguous_years": 4,
+  "blocked_requests": 37,
+  "candidates": 635,
+  "conflicts": 50,
+  "documents": 1967,
+  "extraction_failures": 0,
+  "fetch_errors": 53,
+  "fetches": 2057,
+  "ready": 278,
+  "semantic_review": 100,
+  "stale_sources": 78
+ },
+ "run": "pipeline/runs/KY/2026-10-02-r2"
+}

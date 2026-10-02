@@ -29,9 +29,12 @@ PER_HOUR = re.compile(r'\$\s?(\d{1,4})(?:\.(\d{2}))?\s*(?:/|per)\s*(?:credit\s*)
 # State programs that pay for dual enrollment: TN Dual Enrollment Grant (DEG), KY Dual Credit Scholarship, ...
 GRANT = re.compile(r'dual\s+(?:enrollment|credit)\s+(?:grant|scholarship)|\bDEG\b|state\s+(?:dual\s+(?:enrollment|credit)\s+)?grant|TN\s+(?:DE\s+)?grant', re.I)
 TOPIC = re.compile(r'dual[\s_-]*(?:enroll|credit)|concurrent[\s_-]+enrollment|early[\s_-]+college|accelerated[\s_-]+learning', re.I)
-GRANT_NO = re.compile(r'(does\s+not|doesn.t|do\s+not|not)\s+(apply|eligible|accept|available|qualify)|no\s+discounts', re.I)
+GRANT_NO = re.compile(r'(does\s+not|doesn.t|do\s+not|may\s+not|cannot|can.t|not)\s+(be\s+)?(apply|eligible|accept|available|qualify|use|used)|no\s+discounts', re.I)
 GRANT_YES = re.compile(r'\b(apply|applies|eligible|accept|accepted|covers|use|may\s+be\s+used|can\s+be\s+used)\b', re.I)
 CONTINUE = re.compile(r'maintain\s+(?:a\s+)?(?:cumulative\s+)?(?:college\s+)?(?:gpa\s+of\s+)?(\d\.\d)\s*(?:cumulative\s+)?(?:college\s+)?(?:gpa)?', re.I)
+# A requirement for one kind of course (KCTCS: "Technical Education Dual Credit Courses ... 2.0 GPA") is
+# not the page's general minimum.
+SCOPED = re.compile(r'career[- ]and[- ]technical|\btechnical\b|\bCTE\b|\bvocational\b', re.I)
 OFF_TOPIC = re.compile(r'hepatitis|title\s+ix|misconduct|privacy\s+act|immuniz|vaccin', re.I)
 
 
@@ -48,6 +51,7 @@ def extract(inst, entry, page, today_year):
     head = page.title + ' ' + entry.get('url', '')  # the page itself must be about dual enrollment
     if not TOPIC.search(head): return []
     lines = [l for l in page.lines if 15 <= len(l) <= 400 and not OFF_TOPIC.search(l)]
+    glossary = bool(re.search(r'glossary|definitions|terms\s+to\s+know', head, re.I))  # KY, Owensboro: "GPA of 2.0 (a C average)" defines a term
     tiers, evidence, values = [], [], {}
 
     def note(field, value, line):
@@ -65,13 +69,18 @@ def extract(inst, entry, page, today_year):
         gpa_m = GPA.search(line)
         if gpa_m and re.search(r'college|maintain|continu|probation|remain', line, re.I) and not re.search(r'high\s+school', line, re.I):
             gpa_m = None  # a college GPA to keep eligibility, handled below
+        if gpa_m and glossary: gpa_m = None
         if gpa_m:
             gpa = float(_num(gpa_m))
+            rng = re.search(r'(\d\.\d{1,2})\s*(?:to|-|–)\s*' + re.escape(_num(gpa_m)) + r'(?!\d)', line)
+            if rng and float(rng.group(1)) < gpa:
+                gpa = float(rng.group(1))  # "an unweighted 2.5 to 2.79 GPA": the band starts at 2.5
             if 1.5 <= gpa <= 4.0:
                 act = next((int(_num(m)) for m in ACT.finditer(line) if 12 <= int(_num(m)) <= 36), None)
                 sat = next((int(_num(m)) for m in SAT.finditer(line) if 400 <= int(_num(m)) <= 1600), None)
                 hours = next((int(m.group(1)) for m in MAX_HOURS.finditer(line) if 1 <= int(m.group(1)) <= 21), None)
                 tier = {'grades': g or context_grades, 'min_hs_gpa': gpa, 'line': line[:300]}
+                if SCOPED.search(line): tier['course_scope'] = SCOPED.search(line).group(0).lower()
                 if act: tier['alt_min_act'] = act
                 if sat: tier['alt_min_sat'] = sat
                 if hours: tier['max_credit_hours_per_term'] = hours
@@ -101,9 +110,10 @@ def extract(inst, entry, page, today_year):
     de = {}
     if tiers:
         de['eligibility_tiers'] = tiers
+        general = [t for t in tiers if 'course_scope' not in t]
         for field in ('min_hs_gpa', 'alt_min_act', 'alt_min_sat'):
-            seen = {t.get(field) for t in tiers if t.get(field) is not None}
-            if len(seen) == 1 and all(t.get(field) is not None for t in tiers): de[field] = seen.pop()
+            seen = {t.get(field) for t in general if t.get(field) is not None}
+            if general and len(seen) == 1 and all(t.get(field) is not None for t in general): de[field] = seen.pop()
     if charges:
         de['per_credit_hour_charges'] = charges
         tuition = {c['amount'] for c in charges if c['kind'] == 'tuition'}

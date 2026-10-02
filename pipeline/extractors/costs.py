@@ -71,9 +71,14 @@ STATE_NAMES = {'AL': 'alabama', 'AK': 'alaska', 'AZ': 'arizona', 'AR': 'arkansas
 NAMED_STATE = re.compile(r'\b(non-?\s?)?(' + '|'.join(sorted((n.replace(' ', r'\s+') for n in STATE_NAMES.values()), key=len, reverse=True)) + r')\b', re.I)
 
 
-def residency(h, home=None):
+HOUSING_RESIDENT = re.compile(r'\bresiden(t\s+(budget|halls?|life|living)|tial)\b|\bcommuter', re.I)
+
+
+def residency(h, home=None, private=False):
     """in_state / out_of_state / None. A state name counts only when it is the institution's own state:
-    'Ohio and Indiana residents' on a Kentucky page is a reciprocity rate, not in-state tuition."""
+    'Ohio and Indiana residents' on a Kentucky page is a reciprocity rate, not in-state tuition.
+    'Resident' next to student/budget/hall or opposite 'commuter' is housing (KY: Union, Campbellsville,
+    Lindsey Wilson), and a bare 'resident' never means in-state at a private college."""
     if re.search(r'out[- ]of[- ]state|non-?\s?resident', h, re.I): return 'out_of_state'
     named = [(m.group(1), re.sub(r'\s+', ' ', m.group(2).lower())) for m in NAMED_STATE.finditer(h)
              if not (m.group(2).lower() == 'virginia' and re.search(r'west\s+$', h[:m.start()], re.I))]
@@ -81,18 +86,19 @@ def residency(h, home=None):
         if home and all(n == STATE_NAMES.get(home) for _, n in named):
             return 'out_of_state' if any(neg for neg, _ in named) else 'in_state'
         return 'named_other_state'
-    if re.search(r'in[- ]state|\bresident', h, re.I): return 'in_state'
+    if re.search(r'in[- ]state', h, re.I): return 'in_state'
+    if re.search(r'\bresidents?\b', h, re.I) and not private and not HOUSING_RESIDENT.search(h): return 'in_state'
     return None
 
 
-def column_meaning(header, home=None):
+def column_meaning(header, home=None, private=False):
     h = (header or '').lower()
     years = T.year_labels(header or '')
     return {
-        'residency': residency(h, home),
+        'residency': residency(h, home, private),
         'arrangement': ('with_parents_or_family' if re.search(r'with\s*(a\s+)?(parent|family)|at home|commut', h) else
                         'off_campus_not_with_family' if re.search(r'off[- ]campus', h) else
-                        'on_campus' if re.search(r'on[- ]campus|residence hall|resident student|residential', h) else
+                        'on_campus' if re.search(r'on[- ]campus|residence hall|resident(\s+student|\s+budget)?$|resident student|residential', h) else
                         'other' if re.search(r'military|on base', h) else None),
         'period': ('year' if re.search(r'per\s+year|annual|academic\s+year|fall\s*(&|and)\s*spring|two\s+semesters|yearly|\byear\b', h) else
                    'semester' if re.search(r'per\s+semester|single\s+semester|\bsemester\b|per\s+term', h) else None),
@@ -159,11 +165,11 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
         return []
     ncols = max(len(v) for _, _, v, _ in keyed)
     semester_total = None
-    home = inst.get('state')
-    ctx = column_meaning(context, home)
+    home, private = inst.get('state'), inst.get('control') == 'private_nonprofit'
+    ctx = column_meaning(context, home, private)
     cols = []
     for j in range(ncols):
-        m = column_meaning(headers[j] if j < len(headers) else '', home)
+        m = column_meaning(headers[j] if j < len(headers) else '', home, private)
         for k in ('residency', 'period', 'year'):
             m[k] = m[k] or ctx[k]
         m['header'] = headers[j] if j < len(headers) else ''
@@ -199,7 +205,7 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
             issues.append('multiple_total_rows')
     if semester_only: issues.append('cost_period_semester')
     private = inst.get('control') == 'private_nonprofit'
-    page_res = column_meaning(page.title + ' ' + ' '.join(page.headings[:3]), home)['residency']
+    page_res = column_meaning(page.title + ' ' + ' '.join(page.headings[:3]), home, private)['residency']
     groups = {}
     for j in keep:
         c = cols[j]
