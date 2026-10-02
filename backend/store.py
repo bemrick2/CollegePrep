@@ -26,7 +26,7 @@ def natural_key(domain,r):
         # Names and optional record labels may change without changing identity.
         discriminator={k:r.get(k) for k in (['program_key','requirement_key'] if domain=='degree_requirements' else ['program_key'] if domain=='academic_programs' else [])}
         return json.dumps([domain,r.get('institution_key'),None,r.get('academic_year'),discriminator],sort_keys=True)
-    discriminator={k:r.get(k) for k in ['record_key','program_name','award_name','policy_kind','appeal_kind','residency','program_key','requirement_key','applicant_population'] if r.get(k) is not None}
+    discriminator={k:r.get(k) for k in ['record_key','program_name','award_name','policy_kind','appeal_kind','residency','program_key','requirement_key','applicant_population','policy_key'] if r.get(k) is not None}
     return json.dumps([domain,r.get('institution_key'),r.get('state'),r.get('academic_year'),discriminator],sort_keys=True)
 
 def connect(path):

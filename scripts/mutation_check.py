@@ -16,6 +16,8 @@ MUTS = [
     ('pipeline/extractors/cds.py', "if len(nums) >= 3: return nums[-1], nums[:-1], nums[-1] == sum(nums[:-1])",
      "if len(nums) >= 3: return nums[-1], nums[:-1], True"),
     ('pipeline/extractors/appeals.py', "'qualifies_for_paid_addon': False", "'qualifies_for_paid_addon': True"),
+    ('pipeline/extractors/statepolicy.py', "issues + ['semantic_review_required']", "issues"),
+    ('pipeline/extractors/statepolicy.py', "if not state: return []", "state = state or 'TN'"),
     ('pipeline/extractors/dual.py', "if GRANT_NO.search(line): note('state_grant_accepted', False, line)", "if False: pass"),
     ('pipeline/extractors/dual.py', "if len(seen) == 1 and all(t.get(field) is not None for t in tiers): de[field] = seen.pop()",
      "if seen: de[field] = max(seen)"),

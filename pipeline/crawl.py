@@ -197,6 +197,7 @@ class Run:
 def crawl_institution(inst, run: Run, fetcher: Fetcher, budget=45, max_depth=3, log=print, program_budget=40):
     key = inst['institution_key']
     allowed = set(inst.get('allowed_domains') or [inst.get('domain')]) - {None}
+    follow_all = set(inst.get('follow_all_domains') or [])
     done = {e['url'] for e in run.entries() if e.get('institution_key') == key}
     frontier, queued = [], set()
 
@@ -248,6 +249,8 @@ def crawl_institution(inst, run: Run, fetcher: Fetcher, budget=45, max_depth=3, 
                 links = []
                 for href, anchor in page.links:
                     s = topics.link_score(href, anchor)
+                    if s == 0 and registrable_domain(urlsplit(href).netloc) in follow_all and not topics.EXCLUDE.search(href):
+                        s = 1  # dedicated policy sites (e.g. a state transfer-pathway site): every page is relevant
                     if s > 0 and registrable_domain(urlsplit(href).netloc) in allowed:
                         links.append((href, s))
                 entry['title'] = page.title[:200]
@@ -265,6 +268,7 @@ def crawl(registry, run_dir, only=None, budget=45, workers=8, delay=1.0, fetcher
     fetcher = fetcher or Fetcher(delay=delay)
     targets = [i for i in registry['institutions'] if not only or i['institution_key'] in only or i['folder'] in only]
     state_inst = {'institution_key': f"state-{registry['state']}", 'seeds': {s['label']: s['url'] for s in registry.get('state_sources', [])},
+                  'follow_all_domains': sorted({registrable_domain(urlsplit(s['url']).netloc) for s in registry.get('state_sources', []) if s.get('follow_all')}),
                   'allowed_domains': sorted({registrable_domain(urlsplit(s['url']).netloc) for s in registry.get('state_sources', [])}),
                   'existing_sources': []}
     if state_inst['seeds'] and not only: targets.append(state_inst)
@@ -272,7 +276,8 @@ def crawl(registry, run_dir, only=None, budget=45, workers=8, delay=1.0, fetcher
 
     def one(inst):
         try:
-            return crawl_institution(inst, run, fetcher, budget=budget, log=log, program_budget=program_budget)
+            b = budget * 3 if inst['institution_key'].startswith('state-') else budget  # statewide sources cover every school
+            return crawl_institution(inst, run, fetcher, budget=b, log=log, program_budget=program_budget)
         except Exception as exc:  # Isolate institutions: record the failure and keep going.
             failures.append(inst['institution_key'])
             run.record({'institution_key': inst['institution_key'], 'url': '', 'fetched_at': now(),

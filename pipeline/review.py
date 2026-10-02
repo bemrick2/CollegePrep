@@ -15,10 +15,10 @@ from backend.catalog import ROOT, records
 from backend.store import natural_key
 from . import text as T, topics
 from .crawl import Run
-from .extractors import appeals, catalog, cds, costs, credit, dual, merit, transfer
+from .extractors import appeals, catalog, cds, costs, credit, dual, merit, statepolicy, transfer
 
 EXTRACTORS = [credit.extract, costs.extract, cds.extract, merit.extract, appeals.extract, transfer.extract, dual.extract,
-              catalog.extract]
+              catalog.extract, statepolicy.extract]
 SCALAR_SKIP = {'entering_fall_year', 'unitid', 'term_index', 'choose_count'}
 # Policy wording that must also appear verbatim before a record can be upgraded: paraphrased text
 # (for example from a summarising fetch tool) is exactly what the earlier status downgrade was for.
@@ -49,16 +49,19 @@ CATEGORY_TEST = {
 }
 
 
-def existing_records(keys):
+def existing_records(keys, state=None):
     out = defaultdict(list)
     for path, domain, r in records():
         if r.get('institution_key') in keys:
             out[r['institution_key']].append((path, domain, r))
+        elif state and domain == 'state_policies' and r.get('state') == state:
+            out[f'state-{state}'].append((path, domain, r))
     return out
 
 
 def extract_run(registry, run: Run, today_year):
     insts = {i['institution_key']: i for i in registry['institutions']}
+    insts[f"state-{registry['state']}"] = {'institution_key': f"state-{registry['state']}", 'state': registry['state'], 'control': 'state'}
     out = []
     for e in run.entries():
         inst = insts.get(e.get('institution_key'))
@@ -382,7 +385,7 @@ def write_queue(run: Run, registry, cands, verify, cov):
 def review(registry, run: Run, today=None):
     today_year = T.current_academic_year(today or date.today())
     keys = {i['institution_key'] for i in registry['institutions']}
-    existing = existing_records(keys)
+    existing = existing_records(keys, registry['state'])
     cands = diff(extract_run(registry, run, today_year), existing)
     verify = verify_existing(registry, run, existing)
     cov = coverage(registry, run, cands, existing, today_year)

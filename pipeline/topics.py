@@ -109,11 +109,14 @@ def is_program_page(url: str) -> bool:
     return bool(PROGRAM_PAGE.search(url or ''))
 
 
+CONTACT_ANCHOR = re.compile(r'^\s*(contact|email|call|directions|map)\b', re.I)
+
+
 def link_score(url: str, anchor: str = '', today=None) -> int:
     """Crawl priority: more matched categories, documents of known value, and current years rank higher.
     Links whose only year labels are more than two academic years old are skipped: the pipeline is
     after current policy, and archives of old catalogs and surveys would consume the page budget."""
-    if EXCLUDE.search(url): return -1
+    if EXCLUDE.search(url) or CONTACT_ANCHOR.search(anchor or ''): return -1
     if is_program_page(url):  # anchors are program names, so topic keywords never match them
         if GRAD_PROGRAM.search(anchor) and not UG_PROGRAM.search(anchor): return -1
         return 30 if UG_PROGRAM.search(anchor) else 12

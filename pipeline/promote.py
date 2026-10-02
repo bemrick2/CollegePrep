@@ -38,24 +38,30 @@ def status_for(c, accepted_issues: bool):
     return 'partially_verified' if (not blocking(c['issues']) or accepted_issues) else None
 
 
-def _file_for(folder, domain, year):
+def _file_for(folder, domain, year, state=None):
+    if domain == 'state_policies':
+        return ROOT / 'data/state_policies' / state / f'{year}.json'
     return ROOT / 'data/institutions' / folder / domain / f'{year}.json'
 
 
+WRAPPER = ('institution_key', 'state', 'academic_year')
+
+
 def _upsert(path: Path, inst_key, year, record, domain):
-    payload = json.loads(path.read_text()) if path.exists() else {'institution_key': inst_key, 'academic_year': year, 'records': []}
+    owner = {'state': record['state']} if domain == 'state_policies' else {'institution_key': inst_key}
+    payload = json.loads(path.read_text()) if path.exists() else {**owner, 'academic_year': year, 'records': []}
     key = natural_key(domain, record)
     recs = payload['records']
     for i, old in enumerate(recs):
-        merged_old = {'institution_key': payload['institution_key'], 'academic_year': payload['academic_year'], **old}
+        merged_old = {**{k: payload[k] for k in WRAPPER if k in payload}, **old}
         if natural_key(domain, merged_old) == key:
             if old.get('verification_status') == 'verified' and (
                     RANK.get(record['verification_status'], 0) < 3 or str(old.get('last_verified_at', '')) > record['last_verified_at']):
                 raise ValueError(f'{path}: refusing to replace verified {key} with weaker or older evidence')
-            recs[i] = {k: v for k, v in record.items() if k not in {'institution_key', 'academic_year'}}
+            recs[i] = {k: v for k, v in record.items() if k not in WRAPPER}
             break
     else:
-        recs.append({k: v for k, v in record.items() if k not in {'institution_key', 'academic_year'}})
+        recs.append({k: v for k, v in record.items() if k not in WRAPPER})
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
 
@@ -79,7 +85,8 @@ def promote(registry, decisions_path: Path, log=print):
         rec['verification_status'] = status
         rec['notes'] = (rec.get('notes', '') + f" Reviewed {date.today().isoformat()}: {d.get('reason', '').strip()} "
                         f"Evidence: sources/pipeline/{registry['state']}/{Path(decisions['run']).name}/evidence.json#{c['candidate_id']}.").strip()
-        _upsert(_file_for(folders[c['institution_key']], c['domain'], c['academic_year']), c['institution_key'], c['academic_year'], rec, c['domain'])
+        _upsert(_file_for(folders.get(c['institution_key']), c['domain'], c['academic_year'], rec.get('state')),
+                c['institution_key'], c['academic_year'], rec, c['domain'])
         evidence[c['candidate_id']] = {'source': c['source'], 'extractor': c['extractor'], 'year_basis': c['year_basis'],
                                        'issues': c['issues'], 'evidence': c['evidence'], 'decision': d}
         written += 1

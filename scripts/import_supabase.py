@@ -45,7 +45,7 @@ insert into ingestion.reference_records(natural_key,domain,academic_year,source_
 insert into public.sources(canonical_url,authority)
  select distinct payload->>'source_url',case
  when payload->>'source_url' like 'https://nces.ed.gov/%' or payload->>'source_url' like 'https://fsapartners.ed.gov/%' then 'federal'::public.source_authority
- when domain='state_aid' then 'state'::public.source_authority else 'institution'::public.source_authority end
+ when domain in ('state_aid','state_policies') then 'state'::public.source_authority else 'institution'::public.source_authority end
  from import_rows on conflict(canonical_url) do nothing;
 '''
     def field(k,t='text'): return f"(r.payload->>{literal(k)})::{t}"
@@ -69,6 +69,7 @@ end $guard$;
     sql+=insert('awards','institutional_awards',{**text('academic_year','award_name','award_type','eligibility_summary','gpa_requirement','test_requirement','residency_requirement','major_requirement','award_amount_text','renewal_requirements','notes'),**numbers('award_min','award_max'),'automatic_consideration':'boolean','separate_application':'boolean','renewable':'boolean','full_tuition':'boolean','full_ride':'boolean','deadline':'date'},['institution_id','award_name','academic_year'],{'institution_id':'i.id'},instjoin)
     sql+=insert('appeals','appeal_policies',{**text('academic_year','appeal_kind','process_summary','required_documents','deadline_text','contact_method','notes','qualifying_path_evidence'),'offered':'boolean'},['institution_id','academic_year','appeal_kind'],{'institution_id':'i.id','policy_url':"coalesce(r.payload->>'policy_url',r.payload->>'source_url')",'qualifies_for_paid_addon':"coalesce((r.payload->>'qualifies_for_paid_addon')::boolean,false)"},instjoin)
     sql+=insert('credit_policies','credit_policies',{**text('academic_year','policy_kind','policy_url','notes'),**numbers('general_limit_credits','residency_credit_requirement')},['institution_id','policy_kind','academic_year'],{'institution_id':'i.id'},instjoin)
+    sql+=insert('state_policies','state_policies',text('academic_year','policy_kind','policy_key','title','summary','notes'),['state_code','policy_kind','policy_key','academic_year'],{'state_code':"r.payload->>'state'",'official_url':"coalesce(r.payload->>'policy_url',r.payload->>'source_url')",'policy_details':'r.payload'})
     sql+=insert('federal_aid','federal_aid_programs',text('academic_year'),['program_key','academic_year'],{'program_key':"'pell_grant'",'policy_details':'r.payload'})
     sql+=insert('transfer_policies','transfer_policies',{**text('academic_year','min_grade','articulation_url','summary','notes'),**numbers('max_transfer_credits','max_transfer_percent','residency_requirement_credits')},['institution_id','academic_year'],{'institution_id':'i.id','policy_url':"coalesce(r.payload->>'policy_url',r.payload->>'source_url')",'policy_details':'r.payload'},instjoin)
     sql+=insert('academic_programs','academic_programs',{**text('academic_year','program_key','program_name','cip_code','credential_level','delivery_mode','catalog_year','program_url'),**numbers('total_credits'),'active':'boolean'},['institution_id','program_key','academic_year'],{'institution_id':'i.id'},instjoin)
@@ -110,7 +111,8 @@ TABLES={'institutions':'public.institutions where institution_key is not null','
     'admissions_metrics':'public.admissions_metrics','state_aid':'public.state_aid_programs','awards':'public.institutional_awards',
     'appeals':'public.appeal_policies','credit_policies':'public.credit_policies','federal_aid':'public.federal_aid_programs',
     'academic_programs':'public.academic_programs where program_key is not null',
-    'transfer_policies':'public.transfer_policies','degree_requirements':'public.degree_requirements'}
+    'transfer_policies':'public.transfer_policies','degree_requirements':'public.degree_requirements',
+    'state_policies':'public.state_policies'}
 
 def reconcile_sql(fresh=True):
     """SQL assertions that every repository record landed in the ledger and its normalized table."""

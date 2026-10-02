@@ -10,7 +10,7 @@ sys.path.insert(0, str(ROOT))
 from pipeline import exams, registry, review, text as T, topics  # noqa: E402
 from pipeline import promote as P  # noqa: E402
 from pipeline.crawl import Fetcher, Run, crawl  # noqa: E402
-from pipeline.extractors import appeals, catalog, cds, costs, credit, dual, merit, transfer  # noqa: E402
+from pipeline.extractors import appeals, catalog, cds, costs, credit, dual, merit, statepolicy, transfer  # noqa: E402
 
 FIX = ROOT / 'tests/fixtures/pipeline'
 INST = {'institution_key': 'ipeds-999999', 'control': 'public', 'folder': 'example'}
@@ -333,6 +333,40 @@ minimum grade point average (GPA) of 3.0 are eligible for dual enrollment. Out-o
         self.assertEqual(catalog.extract(INST, e, T.parse_html(html.replace('Computer Science, B.S.', 'Computer Science, M.S.')), '2026-27'), [])
         old = catalog.extract(INST, e, T.parse_html(html.replace('2026-2027 Undergraduate Catalog', '2023-2024 Undergraduate Catalog [ARCHIVED CATALOG]')), '2026-27')
         self.assertTrue(all('stale_year_label:2023-24' in c['issues'] for c in old))
+
+
+    def test_state_transfer_guarantee_statements(self):
+        html = """<title>Transfer Admission Guarantee | TN Transfer Pathway</title><p>A student who completes all the courses listed on a
+particular Transfer Pathway will earn an A.A. or A.S. degree at the community college. If a community college student transfers to another
+Tennessee community college, he or she is guaranteed that all courses transfer. Admission to UT, Knoxville is competitive and the Pathways
+do not guarantee admission there. These Transfer Pathways have been effective beginning Fall 2011 and are reviewed annually.</p>"""
+        state = {'institution_key': 'state-TN', 'state': 'TN'}
+        [c] = statepolicy.extract(state, {**ENTRY, 'url': 'https://www.tntransferpathway.org/transfer-admission-guarantee'}, T.parse_html(html), '2026-27')
+        r = c['record']
+        self.assertEqual((r['state'], r['policy_kind'], r['policy_key']), ('TN', 'transfer_guarantee', 'transfer-admission-guarantee'))
+        self.assertNotIn('institution_key', r)
+        self.assertTrue(any('guaranteed that all courses transfer' in x for x in r['statements']['guarantees']))
+        self.assertTrue(any('competitive' in x for x in r['statements']['exceptions']))
+        self.assertTrue(any('Fall 2011' in x for x in r['statements']['effective']))
+        self.assertIn('semantic_review_required', c['issues'])
+        sys.path.insert(0, str(ROOT / 'scripts'))
+        from validate_data import validate_record
+        from backend.catalog import import_contract_errors
+        rec = {**r, 'verification_status': 'partially_verified'}
+        self.assertEqual(validate_record(ROOT / 'data', rec, 0, domain='state_policies'), [])
+        self.assertEqual(import_contract_errors('state_policies', rec), [])
+        self.assertEqual(statepolicy.extract({'institution_key': 'ipeds-1', 'control': 'public'}, ENTRY, T.parse_html(html), '2026-27'), [])
+
+    def test_state_policy_promotion_path(self):
+        tmp = Path(tempfile.mkdtemp())
+        with mock.patch.object(P, 'ROOT', tmp):
+            path = P._file_for(None, 'state_policies', '2026-27', 'TN')
+            P._upsert(path, None, '2026-27', {'state': 'TN', 'academic_year': '2026-27', 'policy_kind': 'transfer_guarantee',
+                      'policy_key': 'x', 'title': 'X', 'verification_status': 'partially_verified', 'last_verified_at': '2026-10-02',
+                      'source_url': 'https://e.gov'}, 'state_policies')
+        d = json.loads((tmp / 'data/state_policies/TN/2026-27.json').read_text())
+        self.assertEqual((d['state'], d['academic_year'], len(d['records'])), ('TN', '2026-27', 1))
+        self.assertNotIn('state', d['records'][0])
 
 
 class _Quiet(SimpleHTTPRequestHandler):
