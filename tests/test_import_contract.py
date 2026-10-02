@@ -87,8 +87,10 @@ class ImportContractTests(unittest.TestCase):
         r = next(r for _, d, r in records() if d == 'degree_requirements')
         sql = importer.bulk_batch([{'domain': 'degree_requirements', 'natural_key': 'k', 'source_file': 'f', 'payload': r}])
         self.assertIn('rule_details', sql)
-        self.assertEqual(len(r['rule_details']['semester_plan']), 8)
-        self.assertIn('semester_plan', sql)  # plan travels intact into the batch
+        r = next(r for _, d, r in records() if d == 'degree_requirements' and r['institution_key'] == 'utk' and r['requirement_kind'] == 'program_plan')
+        sql = importer.bulk_batch([{'domain': 'degree_requirements', 'natural_key': 'k', 'source_file': 'f', 'payload': r}])
+        self.assertEqual(len(r['rule_details']['terms']), 8)
+        self.assertIn('requirement_group/v1', sql)  # structured plan travels intact into the batch
 
 
 if __name__ == '__main__':

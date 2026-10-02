@@ -16,8 +16,8 @@ def fixture_rows():
         ('credit_policies',{'academic_year':'2026-27','policy_kind':'AP','policy_url':common['source_url'],'equivalencies':[{'exam_or_course_code':'TEST-OLD','minimum_score':None,'institution_course_equivalent':None,'credits_awarded':3}]}),
         ('admissions_metrics',{'academic_year':'2026-27','entering_fall_year':2026,'applicant_population':'first_time_first_year','sat_composite_25':1230,'sat_composite_75':1380,'sat_reading_25':620,'sat_math_25':630,'average_high_school_gpa':4.25,'notes':'Reported composite, not a sum; GPA uses institutional weights.'}),
         ('costs',{'academic_year':'2026-27','residency':'in_state','currency':'USD','components':{'on_campus_housing':9500,'food':5000,'transportation':3500,'miscellaneous_personal':3000},'notes':'Additional program fees may apply.'}),
-        ('degree_requirements',{'academic_year':'2025-26','program_key':'biology-bs','requirement_key':'major','requirement_kind':'major','minimum_credits':40}),
-        ('degree_requirements',{'academic_year':'2026-27','program_key':'biology-bs','requirement_key':'major','requirement_kind':'major','rule_details':{'description':"Advisor's approval required",'courses':['BIO 101']}})]
+        ('degree_requirements',{'academic_year':'2025-26','program_key':'biology-bs','requirement_key':'major','requirement_kind':'major','minimum_credits':40,'rule_details':{'schema':'requirement_group/v1','catalog_year':'2025-2026','group_type':'credit_total','category':'major_core'}}),
+        ('degree_requirements',{'academic_year':'2026-27','program_key':'biology-bs','requirement_key':'major','requirement_kind':'major','rule_details':{'schema':'requirement_group/v1','catalog_year':'2026-2027','group_type':'all_required','category':'major_core','description':"Advisor's approval required",'courses':[{'code':'BIO 101'}]}})]
     rows=[]
     for domain,fields in specifications:
         payload={**common,**fields}
@@ -42,7 +42,7 @@ end $test$;
 '''
     for case in ['missing_parent','weaker_evidence']:
         changed=copy.deepcopy(rows[-1])
-        if case=='missing_parent': changed['payload']['academic_year']='2099-00'
+        if case=='missing_parent': changed['payload']['academic_year']='2099-00'; changed['payload']['rule_details']['catalog_year']='2099-2100'
         else: changed['payload']['verification_status']='partially_verified'
         changed['natural_key']=natural_key(changed['domain'],changed['payload'])
         expected='Missing program dependency for requested academic year' if case=='missing_parent' else 'Refusing weaker or older evidence'
