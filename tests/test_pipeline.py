@@ -10,7 +10,7 @@ sys.path.insert(0, str(ROOT))
 from pipeline import exams, registry, review, text as T, topics  # noqa: E402
 from pipeline import promote as P  # noqa: E402
 from pipeline.crawl import Fetcher, Run, crawl  # noqa: E402
-from pipeline.extractors import appeals, cds, costs, credit, merit  # noqa: E402
+from pipeline.extractors import appeals, cds, costs, credit, merit, transfer  # noqa: E402
 
 FIX = ROOT / 'tests/fixtures/pipeline'
 INST = {'institution_key': 'ipeds-999999', 'control': 'public', 'folder': 'example'}
@@ -201,6 +201,20 @@ Academic Progress may file a SAP appeal each term.</p>"""
             self.assertFalse(c['record']['qualifies_for_paid_addon'])
             self.assertIn('semantic_review_required', c['issues'])
             self.assertTrue(c['evidence'][0]['snippet'])
+
+
+    def test_transfer_rules_from_sentences(self):
+        html = """<title>Transfer Credit Policy</title><p>Courses completed with a grade of C or better transfer to the
+university. A maximum of 64 semester hours may be transferred from community colleges. Students must complete the
+last 30 hours in residence at the university.</p>"""
+        [c] = transfer.extract(INST, ENTRY, T.parse_html(html), '2026-27')
+        r = c['record']
+        self.assertEqual((r['min_grade'], r['max_transfer_credits'], r['residency_requirement_credits']), ('C', 64, 30))
+        self.assertEqual(c['issues'], [])
+        conflict = html + '<p>Transfer courses with a grade of D or better are accepted for elective credit.</p>'
+        [c] = transfer.extract(INST, ENTRY, T.parse_html(conflict), '2026-27')
+        self.assertNotIn('min_grade', c['record'])
+        self.assertIn('conflicting_values:min_grade', c['issues'])
 
 
 class _Quiet(SimpleHTTPRequestHandler):
