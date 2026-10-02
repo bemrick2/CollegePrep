@@ -15,9 +15,9 @@ from backend.catalog import ROOT, records
 from backend.store import natural_key
 from . import text as T, topics
 from .crawl import Run
-from .extractors import appeals, cds, costs, credit, merit
+from .extractors import appeals, cds, costs, credit, merit, transfer
 
-EXTRACTORS = [credit.extract, costs.extract, cds.extract, merit.extract, appeals.extract]
+EXTRACTORS = [credit.extract, costs.extract, cds.extract, merit.extract, appeals.extract, transfer.extract]
 SCALAR_SKIP = {'entering_fall_year', 'unitid', 'term_index', 'choose_count'}
 # Policy wording that must also appear verbatim before a record can be upgraded: paraphrased text
 # (for example from a summarising fetch tool) is exactly what the earlier status downgrade was for.
@@ -27,6 +27,25 @@ TEXT_POLICY_FIELDS = {'eligibility_summary', 'gpa_requirement', 'test_requiremen
 STATUS_ORDER = ['verified_current', 'partially_verified_current', 'candidate_ready', 'candidate_exception',
                 'source_found', 'not_found', 'fetch_failed']
 CATEGORY_KINDS = {'ap_credit': 'AP', 'clep_credit': 'CLEP', 'ib_credit': 'IB', 'dual_enrollment': 'dual_enrollment'}
+# How far behind the current academic year the newest possible record is (CDS publishes after the
+# year it describes), so coverage counts the newest available year as current.
+YEAR_LAG = {'admissions_tests': 1, 'common_data_set': 1}
+
+
+def shift_year(label, years):
+    first = int(label[:4]) - years
+    return f'{first}-{str(first + 1)[-2:]}'
+
+
+# Categories that share a data domain need a record-level test, or one record would count for several.
+CATEGORY_TEST = {
+    'tuition_fees': lambda r: any(r.get(k) is not None for k in ('tuition', 'tuition_and_mandatory_fees', 'mandatory_fees')),
+    'cost_of_attendance': lambda r: r.get('total_cost_of_attendance') is not None,
+    'transfer_credit': lambda r: any(r.get(k) is not None for k in ('min_grade', 'max_transfer_credits', 'max_transfer_percent')),
+    'residency': lambda r: r.get('category') == 'tuition_residency',
+    'statewide_articulation': lambda r: r.get('category') == 'statewide_articulation',
+    'common_data_set': lambda r: 'common data set' in str(r.get('notes', '')).lower() or 'cds' in str(r.get('source_url', '')).lower(),
+}
 
 
 def existing_records(keys):
@@ -213,13 +232,14 @@ def coverage(registry, run: Run, cands, existing, today_year):
         k = inst['institution_key']
         row = {'institution_key': k, 'name': inst['name'], 'pages_fetched': fetched[k], 'fetch_failures': failed[k], 'categories': {}}
         for cat, domain in topics.CATEGORY_DOMAINS.items():
-            have = [r for _, d, r in existing.get(k, []) if d == domain and r.get('academic_year') == today_year
-                    and (cat not in CATEGORY_KINDS or r.get('policy_kind') == CATEGORY_KINDS[cat])]
-            mine = [c for c in cands if c.get('institution_key') == k and c.get('domain') == domain
-                    and (cat not in CATEGORY_KINDS or c['record'].get('policy_kind') == CATEGORY_KINDS[cat])]
+            fits = lambda r: ((cat not in CATEGORY_KINDS or r.get('policy_kind') == CATEGORY_KINDS[cat])
+                              and CATEGORY_TEST.get(cat, lambda _: True)(r))
+            newest = shift_year(today_year, YEAR_LAG.get(cat, 0))
+            have = [r for _, d, r in existing.get(k, []) if d == domain and str(r.get('academic_year', '')) >= newest and fits(r)]
+            mine = [c for c in cands if c.get('institution_key') == k and c.get('domain') == domain and fits(c['record'])]
             if any(r.get('verification_status') == 'verified' for r in have): status = 'verified_current'
             elif have: status = 'partially_verified_current'
-            elif any(not c['issues'] and c['academic_year'] == today_year for c in mine): status = 'candidate_ready'
+            elif any(not c['issues'] and str(c['academic_year']) >= newest for c in mine): status = 'candidate_ready'
             elif mine: status = 'candidate_exception'
             elif pages[k].get(cat): status = 'source_found'
             elif fetched[k] == 0 or failed[k] == fetched[k]: status = 'fetch_failed'

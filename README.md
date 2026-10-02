@@ -45,4 +45,6 @@ A transactional development reference backend and explicit-year read API are run
 
 A household, student-account, subscription and ACT/SAT practice schema is live (migration `20261002183112`, deployed by `.github/workflows/deploy-migrations.yml`); see [household practice](docs/HOUSEHOLD_PRACTICE.md).
 
+Current-year research runs through the official-source pipeline (`pipeline/`, see [docs/PIPELINE.md](docs/PIPELINE.md)). Tennessee is the proving ground: 59 in-scope schools are crawled in GitHub Actions, candidates are extracted with verbatim evidence, exceptions are queued, and reviewed records are promoted by PR. The first promotion added 38 reviewed records (cost of attendance or direct costs for 12 schools, Common Data Set admissions, merit thresholds, AP/CLEP/IB tables) and 3 verbatim re-verifications. Pipeline coverage by school and category: `docs/coverage/pipeline/TN.json`. Status and backlog: GitHub issue #26.
+
 Coverage reports in `docs/coverage/` are the authoritative persisted-data counts.
