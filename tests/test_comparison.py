@@ -13,7 +13,8 @@ class ComparisonTests(unittest.TestCase):
                 'verification_status':'verified','source_url':'https://example.edu','last_verified_at':'2026-10-02'}
             cost={**identity,'domain':'costs','academic_year':'2025-26','residency':'in_state','tuition':1000}
             unknown_cost={**cost,'academic_year':'2026-27','verification_status':'unverified'}
-            (root/'data/fixtures.json').write_text(json.dumps([identity,cost,unknown_cost]))
+            orphan_requirement={**identity,'domain':'degree_requirements','academic_year':'2026-27','program_key':'biology','requirement_key':'major','requirement_kind':'major'}
+            (root/'data/fixtures.json').write_text(json.dumps([identity,cost,unknown_cost,orphan_requirement]))
             db=connect(':memory:')
             try:
                 load(db,root)
@@ -22,6 +23,8 @@ class ComparisonTests(unittest.TestCase):
                 known,missing=result['institutions']
                 self.assertTrue(known['found']); self.assertFalse(missing['found'])
                 self.assertEqual(known['domains']['costs'],[])
+                self.assertEqual(known['domains']['degree_requirements'],[])
+                self.assertIn('degree_requirements',known['missing_domains'])
                 self.assertIn('costs',known['missing_domains'])
                 self.assertFalse(known['can_offer_paid_addon'])
                 old=query(db,'/v1/compare',{'institution_key':['test'],'academic_year':['2025-26']})[1]

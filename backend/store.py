@@ -82,6 +82,8 @@ def compare(db,keys,year):
         profile=school(db,key,year)
         identity=profile['institution'] if profile and profile['institution'].get('verification_status')=='verified' else None
         domains={d:[r for r in profile['domains'].get(d,[]) if r.get('verification_status')=='verified'] if identity else [] for d in COMPARISON_DOMAINS}
+        verified_programs={r['program_key'] for r in domains['academic_programs']}
+        domains['degree_requirements']=[r for r in domains['degree_requirements'] if r['program_key'] in verified_programs]
         results.append({'institution_key':key,'found':identity is not None,'institution':identity,
             'academic_year':year,'domains':domains,'missing_domains':[d for d,rs in domains.items() if not rs],
             'can_offer_paid_addon':any(eligible_appeal(r,year) for r in domains['appeals'])})
