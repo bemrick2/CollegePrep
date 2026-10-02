@@ -51,3 +51,12 @@ Applied migration files are left exactly as they were applied, and their content
 Applying through the Supabase connector or SQL editor is still possible, but then the local file must be renamed to the version the connector recorded before merging. `supabase db push` is not used: it stores statements split, so its content hash would not match this repository's check.
 
 To run the deploy by hand: `DATABASE_URL=... python scripts/apply_migrations.py --dry-run`, then without `--dry-run`.
+
+## Two recording formats
+`20261002223000_state_policies_dual_enrollment` was applied live by Supabase's own migration tooling
+(most likely the Supabase GitHub integration on merge to `main`) a few minutes before the deploy
+workflow, which was waiting on the shared `live-supabase` lock. That tooling stores one array element
+per statement; `scripts/apply_migrations.py` stores the whole file as one element. The live check
+therefore accepts either the whole-file md5 or the canonical md5 (comments, semicolons and whitespace
+ignored), and the schema change itself is identical. If both deployers stay enabled, whichever runs
+first records the migration and the other finds nothing pending.

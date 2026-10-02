@@ -12,7 +12,7 @@ condition that makes `supabase db push` try to re-apply an already-applied migra
 Unapplied local migrations are reported as pending, not as errors.
 """
 from __future__ import annotations
-import argparse, hashlib, json, os, re, subprocess, sys
+import argparse, base64, hashlib, json, os, re, subprocess, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -25,6 +25,18 @@ def normalized_md5(text: str) -> str:
     return hashlib.md5(text.replace('\r', '').rstrip('\n ').encode('utf-8')).hexdigest()
 
 
+def canonical(text: str) -> str:
+    """Content compared independently of how it was recorded: Supabase's own migration tooling stores one
+    array element per statement (semicolons dropped, comments kept on the first), this repository's
+    applier stores the whole file as one element. Comments, semicolons and whitespace are not compared."""
+    text = re.sub(r'--[^\n]*', '', text.replace('\r', ''))
+    return re.sub(r'\s+', ' ', text.replace(';', ' ')).strip()
+
+
+def canonical_md5(text: str) -> str:
+    return hashlib.md5(canonical(text).encode('utf-8')).hexdigest()
+
+
 def local_migrations():
     found, errors = {}, []
     for path in sorted(MIGRATIONS.glob('*')):
@@ -35,7 +47,8 @@ def local_migrations():
         version, name = m.groups()
         if version in found:
             errors.append(f'{path.name}: duplicate version {version}')
-        found[version] = {'name': name, 'file': path.name, 'md5': normalized_md5(path.read_text(encoding='utf-8'))}
+        text = path.read_text(encoding='utf-8')
+        found[version] = {'name': name, 'file': path.name, 'md5': normalized_md5(text), 'canonical_md5': canonical_md5(text)}
     return found, errors
 
 
@@ -58,17 +71,24 @@ def live_rows():
     url = os.environ.get('DATABASE_URL')
     if not url:
         sys.exit('DATABASE_URL is required for --live')
-    sql = ("select version||'|'||name||'|'||md5(rtrim(replace(array_to_string(statements,E'\\n'),E'\\r',''),E'\\n ')) "
+    sql = ("select version||'|'||name||'|'||md5(rtrim(replace(array_to_string(statements,E'\\n'),E'\\r',''),E'\\n '))||'|'||"
+           "translate(encode(convert_to(array_to_string(statements,E'\\n'),'UTF8'),'base64'),E'\\n','') "
            "from supabase_migrations.schema_migrations order by version")
     out = subprocess.run(['psql', url, '-X', '-A', '-t', '-v', 'ON_ERROR_STOP=1', '-c', sql],
                          check=True, capture_output=True, text=True).stdout
-    return [line.split('|') for line in out.splitlines() if line.strip()]
+    rows = []
+    for line in out.splitlines():
+        if not line.strip(): continue
+        version, name, md5, b64 = line.split('|')
+        rows.append([version, name, md5, canonical_md5(base64.b64decode(b64).decode('utf-8'))])
+    return rows
 
 
 def live_errors(local, rows):
     errors, by_name = [], {v['name']: k for k, v in local.items()}
     live_versions = set()
-    for version, name, md5 in rows:
+    for version, name, md5, *rest in rows:
+        live_canonical = rest[0] if rest else None
         live_versions.add(version)
         here = local.get(version)
         if here is None:
@@ -78,7 +98,7 @@ def live_errors(local, rows):
                 errors.append(f'live migration {version}_{name} has no local file')
         elif here['name'] != name:
             errors.append(f'version {version}: live name {name} differs from local {here["file"]}')
-        elif here['md5'] != md5:
+        elif here['md5'] != md5 and here['canonical_md5'] != live_canonical:
             errors.append(f'version {version}: local {here["file"]} content differs from what was applied live')
     pending = [v['file'] for k, v in sorted(local.items()) if k not in live_versions]
     if pending and max(live_versions or {''}) > min(k for k, v in local.items() if v['file'] in pending):
