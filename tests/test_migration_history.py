@@ -12,6 +12,7 @@ LIVE_2026_10_02 = [  # supabase_migrations.schema_migrations, verified 2026-10-0
     ('20261002132345', 'school_comparison_api', 'ef8209eeb29cc0d8183d90f1b6568d0a'),
     ('20261002134049', 'degree_transfer_import_domains', 'ba57c2f07bbbfd3892c92b6a391e13a2'),
     ('20261002165225', 'reviewed_policy_domains', 'f941b44f4cca76ca37f0d79c5555f745'),
+    ('20261002183112', 'household_practice_progress', 'e111a09c6ff53c7a33f574a0b86aca00'),  # deployed by workflow
 ]
 
 
