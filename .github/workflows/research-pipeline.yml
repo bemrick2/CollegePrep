@@ -1,0 +1,85 @@
+name: Research pipeline
+
+# Fetches official sources for a state's registry, extracts candidates, re-verifies existing
+# records and writes the review queue and coverage report. Never imports data: promotion happens in
+# a reviewed PR (python -m pipeline promote). Needs no secrets.
+#
+# Triggers:
+#  - push to a pipeline-run/** branch: reads pipeline/run-request.json on that branch and commits
+#    the run back to the same branch (resumes if the run directory already exists)
+#  - workflow_dispatch / weekly schedule: creates pipeline-run/<state>-<date>-<run id>
+on:
+  push:
+    branches: ['pipeline-run/**']
+  workflow_dispatch:
+    inputs:
+      state: {description: 'Two-letter state', required: true, default: 'TN'}
+      only: {description: 'Space-separated institution keys or folders (optional)', required: false, default: ''}
+      budget: {description: 'Pages per institution', required: false, default: '45'}
+  schedule:
+    - cron: '17 9 * * 1'
+
+concurrency:
+  group: research-pipeline-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install PDF text tools
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+          pip install -q 'pypdf>=4,<6'
+      - name: Resolve run parameters
+        id: p
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            req=pipeline/run-request.json
+            state=$(python -c "import json;print(json.load(open('$req'))['state'].upper())")
+            only=$(python -c "import json;print(' '.join(json.load(open('$req')).get('only',[])))")
+            budget=$(python -c "import json;print(json.load(open('$req')).get('budget',45))")
+            day=$(python -c "import json;print(json.load(open('$req')).get('run_date',''))")
+            branch="${GITHUB_REF#refs/heads/}"
+          else
+            state="${{ github.event.inputs.state || 'TN' }}"; state="${state^^}"
+            only="${{ github.event.inputs.only }}"; budget="${{ github.event.inputs.budget || '45' }}"; day=""
+            branch="pipeline-run/${state,,}-$(date -u +%F)-${{ github.run_id }}"
+          fi
+          day="${day:-$(date -u +%F)}"
+          echo "state=$state" >> "$GITHUB_OUTPUT"; echo "only=$only" >> "$GITHUB_OUTPUT"
+          echo "budget=$budget" >> "$GITHUB_OUTPUT"; echo "branch=$branch" >> "$GITHUB_OUTPUT"
+          echo "dir=pipeline/runs/$state/$day" >> "$GITHUB_OUTPUT"
+      - name: Crawl official sources (resumable)
+        timeout-minutes: 120
+        run: |
+          python -m pipeline crawl --state "${{ steps.p.outputs.state }}" --run "${{ steps.p.outputs.dir }}" \
+            --budget "${{ steps.p.outputs.budget }}" ${{ steps.p.outputs.only && format('--only {0}', steps.p.outputs.only) || '' }}
+      - name: Extract, re-verify, diff, queue and coverage
+        if: always()
+        run: python -m pipeline review --state "${{ steps.p.outputs.state }}" --run "${{ steps.p.outputs.dir }}"
+      - name: Commit the run
+        if: always()
+        shell: bash
+        run: |
+          git config user.name "collegeprep-pipeline[bot]"
+          git config user.email "noreply@github.com"
+          git checkout -B "${{ steps.p.outputs.branch }}"
+          git add "${{ steps.p.outputs.dir }}"
+          git commit -q -m "Pipeline run ${{ steps.p.outputs.state }} ${{ steps.p.outputs.dir }} (workflow run ${{ github.run_id }})" || exit 0
+          git push -q origin "HEAD:${{ steps.p.outputs.branch }}"
+          echo "::notice::Run committed to ${{ steps.p.outputs.branch }}"
+      - name: Summary
+        if: always()
+        run: |
+          f="${{ steps.p.outputs.dir }}/review.md"
+          [ -f "$f" ] && head -c 60000 "$f" >> "$GITHUB_STEP_SUMMARY" || true
