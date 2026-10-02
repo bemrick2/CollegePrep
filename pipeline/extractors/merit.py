@@ -18,6 +18,13 @@ SCHOLARSHIP_CONTEXT = re.compile(r'scholarship|merit|award', re.I)
 NOT_MERIT = re.compile(r'need[- ]based|federal|pell|loan|work[- ]study|graduate|transfer|athletic|tuition|fees?\b|cost', re.I)
 NOT_NAME = re.compile(r'^[\d<>=.\s/+%$,-]*$|tuition|\bfees?\b|per credit|per course|deposit|housing|meal|eligib|'
                       r'\bstudents?\s+(is|who|still|are)\b|fall below|balance', re.I)
+# Names that are not merit awards (KY: federal aid and loans in an aid table, staff directories, credit-hour bands
+# from an academic-standards table).
+NOT_AWARD_NAME = re.compile(r'\bpell\b|supplemental\s+educational\s+opportunity|\bseog\b|work[- ]study|\bloans?\b|\bplus\b|'
+                            r'college\s+access\s+program|counselor|director|coordinator|specialist|\bassistant\b|officer|advisor|'
+                            r'^(fewer|more|less)\s+than\b|^over\s+\d|\bcredit\s+hours?\b', re.I)
+NOT_MERIT_PAGE = re.compile(r'academic[- ]standards|probation|satisfactory[- ]academic[- ]progress|financial[- ]aid[- ]staff|'
+                            r'\bstaff\b|directory|meet[- ]the[- ]team|our[- ]team', re.I)
 HEADER_WORDS = re.compile(r'scholarship|award|merit|name|level|tier|amount|value|gpa|act\b|sat\b|criteria|requirement', re.I)
 THRESHOLD_CELL = re.compile(r'^\s*[<>≤≥]?\s*\d{1,4}(\.\d{1,2})?\s*(\+|-\s*\d{1,4}(\.\d{1,2})?|or\s+(higher|above))?\s*$', re.I)
 
@@ -52,7 +59,7 @@ def _list_awards(t, header, body, title, award_type):
     for row in body:
         cells = list(row) + [''] * (len(header) - len(row))
         nm = cells[name].strip()
-        if not nm or len(nm) > 120 or T.money_values(nm) or NOT_NAME.search(nm): continue
+        if not nm or len(nm) > 120 or T.money_values(nm) or NOT_NAME.search(nm) or NOT_AWARD_NAME.search(nm): continue
         if nm.endswith(':') or len(nm.split()) > 12: continue  # worked examples and sentences, not award names
         get = lambda i: cells[i].strip() if i is not None and i < len(cells) else ''
         amt, g, a, s = get(amount), get(gpa), get(act), get(sat)
@@ -114,6 +121,7 @@ def extract(inst, entry, page, today_year):
     if not page.tables or common.professional_source(entry, page): return []
     if not SCHOLARSHIP_CONTEXT.search(page.title + ' ' + ' '.join(page.headings[:6]) + ' ' + entry.get('url', '')):
         return []
+    if NOT_MERIT_PAGE.search(page.title + ' ' + entry.get('url', '')): return []
     if re.search(r'transfer', entry.get('url', '') + ' ' + page.title, re.I):
         return []  # first-year merit only; transfer awards are a separate category
     year, basis, issues = common.resolve_year(page, entry, today_year)

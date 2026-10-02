@@ -36,7 +36,9 @@ def _columns(rows, kind=None):
     header = rows[0]
     exam = _find(header, 'exam', 'test', 'subject', 'ap course', 'clep', 'ib ')
     score = _find(header, 'score', 'minimum', 'level')
-    course = _find(header, 'equivalen', 'course', 'credit granted', 'credit awarded', 'awarded')
+    # The course column is never the exam column ("IB Course | Score | Credit Awarded", KY: Big Sandy).
+    course = next((i for words in (('equivalen',), ('course',), ('credit granted', 'credit awarded', 'awarded'))
+                   for i, h in enumerate(header) if i != exam and any(w in h.lower() for w in words)), None)
     hours = _find(header, 'hours', 'hrs', 'credits', 'sch')
     has_header = score is not None or (exam is not None and course is not None)
     if has_header: exam = _exam_column(kind, rows, exam)
@@ -49,11 +51,16 @@ def _columns(rows, kind=None):
         hours = None
     if course == exam: course = None
     if hours in (exam, score, course): hours = None
+    if has_header and hours is None:  # "Credit Statement: 3 credit hours" (KY, Big Sandy): find the column by its cells
+        body = rows[1:]
+        width = max(len(r) for r in rows)
+        hours = next((i for i in range(width) if i not in (exam, score, course)
+                      and sum(_credits(r[i]) is not None for r in body if i < len(r)) >= max(2, len(body) / 2)), None)
     return has_header, exam if exam is not None else 0, score, course, hours
 
 
 def _credits(cell):
-    m = re.fullmatch(r'\s*(\d{1,2}(?:\.\d)?)\s*(hours?|hrs?\.?|credits?|sch)?\s*', cell or '', re.I)
+    m = re.fullmatch(r'\s*(\d{1,2}(?:\.\d)?)\s*(?:(?:semester\s+)?credit\s+)?(hours?|hrs?\.?|credits?|sch)?\s*', cell or '', re.I)
     return float(m.group(1)) if m and '.' in m.group(1) else int(m.group(1)) if m else None
 
 

@@ -340,6 +340,14 @@ minimum grade point average (GPA) of 3.0 are eligible for dual enrollment. Out-o
         self.assertEqual(groups['program-requirements-52-hours-electives']['record']['rule_details']['choose_credits'], 12)
         self.assertEqual(groups['program-total']['record']['minimum_credits'], 120)
         self.assertNotIn('course_alternatives_in_rule_text', groups['colonnade-general-education-requirements']['issues'])
+        # Regression (KY, WKU English BA): pairing rows were area headers. "Choose one pairing" has no schema shape,
+        # so the group is skipped and the program goes to the exception queue rather than misstated.
+        self.assertNotIn('literature-survey', groups)
+        prog_c = next(c for c in out if c['domain'] == 'academic_programs')
+        ranged = T.parse_html((FIX / 'courseleaf_program.html').read_bytes().replace(b'Total Hours 120</td>', b'Total Hours 112-124</td>'), 'https://x')
+        rp = next(c for c in catalog.extract(INST, ENTRY, ranged, '2026-27') if c['domain'] == 'academic_programs')
+        self.assertNotIn('total_credits', rp['record'])  # Regression (WKU Theatre BA): a range is not a total
+        self.assertIn('requirement_groups_skipped', prog_c['issues'])
 
     def test_dual_credit_vocabulary_and_faq_questions(self):
         """Regression (KY): 'Dual Credit' pages were skipped (TN says 'dual enrollment'); a FAQ question's price was taken as a charge."""
@@ -353,6 +361,42 @@ minimum grade point average (GPA) of 3.0 are eligible for dual enrollment. Out-o
         self.assertEqual([x['amount'] for x in de['per_credit_hour_charges']], [99])
         self.assertEqual(de['tuition_per_credit_hour'], 99)
         self.assertIs(de['state_grant_accepted'], True)
+
+    def test_resident_as_housing_is_not_in_state(self):
+        """Regression (KY: Union, Campbellsville, Lindsey Wilson): 'Residential Student', 'Resident Budget' meant in-state."""
+        self.assertIsNone(costs.residency('traditional residential student 2026-2027', 'KY', private=True))
+        self.assertIsNone(costs.residency('resident budget', 'KY'))
+        self.assertIsNone(costs.residency('resident', 'KY', private=True))
+        self.assertIsNone(costs.residency('resident | commuter', 'KY'))
+        self.assertEqual(costs.residency('resident students', 'KY'), 'in_state')  # public tuition tables (Ashland)
+        self.assertEqual(costs.residency('nonresident', 'KY', private=True), 'out_of_state')
+
+    def test_dual_gpa_ranges_and_course_scoped_tiers(self):
+        """Regression (KY: Thomas More '2.5 to 2.79 GPA' -> 2.79; KCTCS technical-course 2.0 GPA shown as the general minimum)."""
+        html = (b'<html><head><title>Dual Credit</title></head><body><p>Students admitted with an unweighted 2.5 to 2.79 GPA may only take one course.</p>'
+                b'<p>3.3 Addendum for Enrollment into Technical Education Dual Credit Courses: students without the minimum unweighted high school 2.0 GPA required for technical course work</p></body></html>')
+        (c,) = dual.extract(INST, {**ENTRY, 'url': 'https://x.edu/dual-credit/'}, T.parse_html(html, 'https://x'), '2026-27')
+        de = c['record']['dual_enrollment']
+        self.assertEqual([(t['min_hs_gpa'], t.get('course_scope')) for t in de['eligibility_tiers']], [(2.5, None), (2.0, 'technical')])
+        self.assertEqual(de['min_hs_gpa'], 2.5)  # the technical-course tier is not the page's general minimum
+
+    def test_ib_course_header_is_not_the_equivalent_column(self):
+        """Regression (KY, Big Sandy): 'IB Course | Score | Credit Awarded | Credit Statement' lost every course and credit."""
+        got = {c['record']['policy_kind']: c for c in credit.extract(INST, ENTRY, page('cpl_stacked_ky.html'), '2026-27')}
+        ib = got['IB']['record']['equivalencies'][0]
+        self.assertEqual((ib['institution_course_equivalent'], ib['credits_awarded']), ('BIO 152', 3))
+        self.assertEqual(got['AP']['record']['equivalencies'][0]['credits_awarded'], 6)  # "6 credit hours"
+
+    def test_dual_grant_negations_and_glossaries(self):
+        """Regression (KY: EKU 'may not use the KHEAA ... Scholarship' read as accepted; Owensboro glossary GPA as a tier)."""
+        html = (b'<html><head><title>Dual Credit</title></head><body><p>KHEAA Dual Credit Scholarships may be used towards covering tuition.</p>'
+                b'<p>Homeschool students may not use the KHEAA Work Ready Dual Credit Scholarship to pay for their courses.</p>'
+                b'<p>The student must have an unweighted GPA of 2.5 or higher.</p></body></html>')
+        (c,) = dual.extract(INST, {**ENTRY, 'url': 'https://x.edu/dual-credit/'}, T.parse_html(html, 'https://x'), '2026-27')
+        self.assertNotIn('state_grant_accepted', c['record']['dual_enrollment'])
+        self.assertIn('state_grant_mixed_statements', c['issues'])
+        g = b'<html><head><title>Glossary | Dual Credit</title></head><body><p>Grade point average: GPA of 2.0 (a C average) on a 4.0 scale.</p></body></html>'
+        self.assertEqual(dual.extract(INST, {**ENTRY, 'url': 'https://x.edu/dual-credit/glossary.aspx'}, T.parse_html(g, 'https://x'), '2026-27'), [])
 
     def test_two_documents_with_the_same_record_key_are_both_compared(self):
         a = credit.extract(INST, ENTRY, page('ap.html'), '2026-27')[0]

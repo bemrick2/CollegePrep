@@ -78,6 +78,8 @@ def courseleaf_groups(page):
             if tm and len(cells) > 1 and re.fullmatch(r'\d{1,3}', cells[-1]):
                 cur['total'] = int(cells[-1]); cur['rules'].append(' '.join(cells)); continue
             text = ' '.join(c for c in cells if c)
+            if re.match(r'^[A-Z]{2,5}\s?\d{3,4}[A-Z]?\b', first):  # "ENG 382 & ENG 391": a course pairing, kept verbatim
+                cur['rules'].append(text[:300]); cur['pairings'] = True; continue
             if len(cells) == 1 or (not re.search(r'\d', ' '.join(cells[1:])) and not re.search(r'select|choose|complete|take|\bor\b', first, re.I)):
                 if cur['courses'] or cur['rules']:  # an area header starts the next group of the same table
                     cur = {'heading': f'{base} — {first}'[:200], 'courses': [], 'rules': [], 'total': None}; out.append(cur)
@@ -101,7 +103,7 @@ def catalog_year(page):
 
 def program_name(page):
     t = re.sub(r'^Program:\s*', '', page.title or '').split(' < ')[0].split(' - ')[0].strip()
-    t = re.sub(r'\s*\(\d{3,6}\)$', '', t)  # Courseleaf program codes: "Biology, Bachelor of Science (1752)"
+    t = re.sub(r'\s*\((?:[0-9]{2,6}[A-Z]?)(?:,\s*[0-9]{2,6}[A-Z]?)*\)$', '', t)  # Courseleaf codes: "(1752)", "(514P, 514)"
     return t or (page.headings[0] if page.headings else '')
 
 
@@ -154,7 +156,11 @@ def extract(inst, entry, page, today_year):
     courseleaf = bool(courseleaf_tables(page))
     if courseleaf:
         # Each Course List ends with its own subtotal; the degree total is printed as prose ("Total Hours 120").
-        total = next((int(m.group(1)) for l in page.lines if not l.lstrip().startswith('|') for m in [TOTAL.match(l)] if m), None)
+        # The degree total is prose or a one-cell plan row ("| Total Hours 120", WKU Finish in Four); two-cell rows
+        # ("| Total Hours | 42") are course-list subtotals. Every candidate must agree.
+        found = {int(m.group(1)) for l in page.lines if l.count('|') <= 1 for m in [TOTAL.match(l.lstrip('| '))]
+                 if m and not re.match(r'\s*[-–]\s*\d', l.lstrip('| ')[m.end():])}  # "112-124" is a range (WKU Theatre)
+        total = found.pop() if len(found) == 1 else None
     for g in (courseleaf_groups(page) if courseleaf else groups_from(page)):
         h = g['heading']
         if not courseleaf and g['total'] and re.search(r'total', h + ' ' + ' '.join(g['rules']), re.I) and total is None:
@@ -177,14 +183,14 @@ def extract(inst, entry, page, today_year):
         elif re.search(r'elective', h, re.I) and g['rules']:
             rd.update(group_type='elective_pool', course_rules=g['rules'][:10])
         else:
-            if not g['total']: skipped += 1
+            if not g['total'] or g.get('pairings'): skipped += 1  # a pairing list has no schema shape: reported, not dropped
             continue
         if g['rules'] and 'course_rules' not in rd: rd['rule_text'] = ' '.join(g['rules'])[:800]
         key = slug(h); seen[key] = seen.get(key, 0) + 1
         if seen[key] > 1: key = f'{key}-{seen[key]}'
         rec = {'program_key': pkey, 'requirement_key': key,
                'requirement_kind': KIND.get(cat, 'other'), 'rule_details': rd}
-        if any(re.match(r'^\W*or\b', r, re.I) for r in g['rules']):
+        if g.get('pairings') or any(re.match(r'^\W*or\b', r, re.I) for r in g['rules']):
             rec['_issues'] = ['course_alternatives_in_rule_text']  # "or CHEM 116": the group is not simply all-required
         if mins and cat != 'program_total': rec['minimum_credits'] = int(mins.group(1))
         groups.append(rec)

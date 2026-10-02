@@ -120,6 +120,12 @@ def build(state: str):
         if override:
             institutions[-1]['seed_override'] = {'ipeds_seeds': ipeds_seeds, 'reason': override['reason'], 'evidence': override['evidence']}
     scope_shared_domains(institutions)
+    for inst in institutions:  # A system college on its own subdomain is named after it (ashland.kctcs.edu -> ashland).
+        own = [h for h in inst.get('allowed_hosts') or [] if h not in set(inst.get('shared_hosts') or [])]
+        if own and inst['folder'] not in folders.values() and inst['institution_key'] not in folders:
+            label = own[0].split('.')[0]
+            if label not in slugs or slugs[label] == [inst['institution_key']]:
+                slugs[inst['folder']].remove(inst['institution_key']); inst['folder'] = label; slugs.setdefault(label, []).append(inst['institution_key'])
     for inst in institutions:  # Two campuses sharing a domain get distinct folders.
         if len(slugs[inst['folder']]) > 1 and inst['folder'] not in folders.values():
             inst['folder'] = f"{inst['folder']}-{inst['unitid']}"
