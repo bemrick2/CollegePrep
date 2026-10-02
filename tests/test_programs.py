@@ -20,5 +20,6 @@ class ProgramTests(unittest.TestCase):
         self.assertEqual(validate_record(ROOT/'data',r,0,'degree_requirements'),[])
         for change in [{'minimum_credits':-1},{'rule_details':'guess'},{'program_key':None},{'requirement_kind':'imaginary'}]:
             self.assertTrue(validate_record(ROOT/'data',{**r,**change},0,'degree_requirements'))
+        self.assertTrue(validate_record(ROOT/'data',{**r,'academic_year_basis':'aid_year_in_force_at_review_source_unlabeled'},0,'degree_requirements'))
 
 if __name__=='__main__': unittest.main()

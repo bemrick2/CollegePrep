@@ -1,11 +1,11 @@
-# Tennessee state aid and UT Knoxville research — October 2, 2026
+# Tennessee state aid and UT Knoxville research â€” October 2, 2026
 
 Official-source review of Tennessee state aid programs and University of Tennessee, Knoxville (UNITID 221759) policy data. The evidence manifest, which lists every URL, how it was read and whether it prints an academic year, is at [`sources/official/2026-10-02/evidence.json`](../../sources/official/2026-10-02/evidence.json). The research commits changed only data, evidence and docs. A follow-up commit added the importer mapping, migration and validation contract for the new domains; the live database was not modified.
 
 ## How values were handled
 
 - Only THEC/College for TN, tn.gov, UT Knoxville (One Stop, Admissions, IRSA Common Data Set, Undergraduate Catalog) sources were used.
-- When a page prints no academic year, the record says so with `academic_year_basis: aid_year_in_force_at_review_source_unlabeled`. New records of this kind are `partially_verified`. The five Tennessee records that were already `verified` stay verified, because the importer refuses verified-to-weaker replacements. Their year label carries the same caveat.
+- When a page prints no academic year, the record says so with `academic_year_basis: aid_year_in_force_at_review_source_unlabeled`. New records of this kind are `partially_verified`. Integration review corrected four inherited verified flags to `partially_verified`, with a persisted correction reason. The Promise entering-class record remains verified. Corrections require explicit admin import opt-in and preserve the previous payload in the revision ledger.
 - Recurring deadlines without a printed calendar year are stored as month-day values (`term_deadlines[].deadline_month_day`), not dated.
 - Totals are copied as published and never recomputed from components. Missing totals stay null. This applies to off-campus COA and with-family COA.
 - Earlier-year records are kept: the 2023-24 IPEDS rows for UT are untouched, and the 2025-26 catalog transfer rules are a separate record.
@@ -14,7 +14,7 @@ Official-source review of Tennessee state aid programs and University of Tenness
 
 | Year | Records | Status |
 |---|---|---|
-| 2026-27 | HOPE, Aspire, GAMS, Wilder-Naifeh (re-verified, now with renewal rules and term deadlines) | verified |
+| 2026-27 | HOPE, Aspire, GAMS, Wilder-Naifeh (re-verified, now with renewal rules and term deadlines) | partially_verified |
 | 2026-27 | Nontraditional HOPE, HOPE Foster Child Tuition Grant, Dual Enrollment Grant, TSAA, Tennessee Reconnect, TCAT Reconnect, Helping Heroes, Ned McWherter Scholars, Dependent Children, STEP UP, Middle College, Future Teacher | partially_verified |
 | 2027 entering class | Tennessee Promise (Class of 2027: application Nov 2, 2026; FAFSA Apr 1, 2027) | verified |
 | 2027-28 | HOPE, Aspire, GAMS, TSAA, Wilder-Naifeh from THEC's Class of 2027 senior guide | partially_verified |
@@ -40,7 +40,7 @@ The add-on is still **ineligible**. The official Scholarship FAQ says: "UT canno
 
 ## Unresolved items
 
-1. **TSAA SAI threshold.** The undated program page says SAI ≤ 5000. THEC's Class of 2027 guide says SAI ≤ 3500. The 2026-27 threshold is not independently labeled.
+1. **TSAA SAI threshold.** The undated program page says SAI â‰¤ 5000. THEC's Class of 2027 guide says SAI â‰¤ 3500. The 2026-27 threshold is not independently labeled.
 2. **Unlabeled Tennessee program pages.** No College for TN program page prints its aid year except Promise and Future Teacher. A THEC-labeled 2026-27 award schedule would allow these to be upgraded.
 3. **Out-of-State Volunteer deadline.** The official page header says December 15, but the body says January 15.
 4. **Off-campus COA arithmetic.** The published off-campus totals ($39,494 / $58,938) do not equal the on-campus total with the $12,600 housing estimate substituted ($40,022 / $60,476). The published figures are stored and components are not re-summed.

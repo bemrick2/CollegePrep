@@ -32,7 +32,7 @@ def natural_key(domain,r):
 def connect(path):
     db=sqlite3.connect(path); db.row_factory=sqlite3.Row; db.executescript(DDL); return db
 
-def load(db,root=ROOT,accept_revisions=False):
+def load(db,root=ROOT,accept_revisions=False,accept_corrections=False):
     counts={'inserted':0,'unchanged':0,'revised':0}; now=datetime.now(timezone.utc).isoformat()
     with db:
         for _,domain,r in records(root):
@@ -46,7 +46,10 @@ def load(db,root=ROOT,accept_revisions=False):
             if old and old['digest']==digest: counts['unchanged']+=1; continue
             if old:
                 prev=json.loads(old['payload'])
-                if prev.get('verification_status')=='verified' and r.get('verification_status')!='verified':
+                correction=accept_corrections and isinstance(r.get('verification_correction_reason'),str) and r['verification_correction_reason'].strip()
+                if prev.get('last_verified_at') and r.get('last_verified_at') and prev['last_verified_at'][:10]>r['last_verified_at'][:10]:
+                    raise ValueError('Refusing older evidence: '+key)
+                if prev.get('verification_status')=='verified' and r.get('verification_status')!='verified' and not correction:
                     raise ValueError('Refusing weaker evidence over verified record: '+key)
                 if not accept_revisions: raise ValueError('Changed existing record needs --accept-revisions: '+key)
                 db.execute('insert into record_revisions(natural_key,previous_payload,replaced_at,incoming_digest) values (?,?,?,?)',(key,old['payload'],now,digest))
@@ -85,6 +88,6 @@ def compare(db,keys,year):
     return {'academic_year':year,'institutions':results}
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser(); p.add_argument('--database',type=Path,required=True); p.add_argument('--accept-revisions',action='store_true'); a=p.parse_args()
+    p=argparse.ArgumentParser(); p.add_argument('--database',type=Path,required=True); p.add_argument('--accept-revisions',action='store_true'); p.add_argument('--accept-corrections',action='store_true'); a=p.parse_args()
     a.database.parent.mkdir(parents=True,exist_ok=True)
-    with closing(connect(a.database)) as db: print(json.dumps(load(db,accept_revisions=a.accept_revisions)))
+    with closing(connect(a.database)) as db: print(json.dumps(load(db,accept_revisions=a.accept_revisions,accept_corrections=a.accept_corrections)))

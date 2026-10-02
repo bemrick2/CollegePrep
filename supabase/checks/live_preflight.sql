@@ -14,4 +14,7 @@ begin
  if not exists(select 1 from pg_proc where proname='compare_institutions') then
   raise exception 'Preflight: migration 20261002132345_school_comparison_api is not applied';
  end if;
+ if not exists(select 1 from information_schema.columns where table_schema='public' and table_name='credit_equivalencies' and column_name='is_current') then
+  raise exception 'Preflight: reviewed_policy_domains migration is not applied';
+ end if;
 end $preflight$;
