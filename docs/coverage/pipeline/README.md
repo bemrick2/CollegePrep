@@ -8,19 +8,19 @@ Institutions in scope: **46** · crawled: **44** · blocked by site: **2** · ru
 
 | category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
 |---|---|---|---|---|---|---|
-| tuition_fees | 0 (0%) | 0 | 36 (78%) | 44 (96%) | 0 | 2 |
-| cost_of_attendance | 0 (0%) | 0 | 28 (61%) | 44 (96%) | 0 | 2 |
-| admissions_tests | 0 (0%) | 0 | 2 (4%) | 44 (96%) | 0 | 2 |
-| common_data_set | 0 (0%) | 0 | 2 (4%) | 3 (7%) | 41 | 2 |
-| merit_scholarships | 0 (0%) | 0 | 5 (11%) | 44 (96%) | 0 | 2 |
-| ap_credit | 0 (0%) | 0 | 2 (4%) | 16 (35%) | 28 | 2 |
-| clep_credit | 0 (0%) | 0 | 3 (7%) | 10 (22%) | 34 | 2 |
-| ib_credit | 0 (0%) | 0 | 1 (2%) | 4 (9%) | 40 | 2 |
-| dual_enrollment | 0 (0%) | 0 | 21 (46%) | 36 (78%) | 8 | 2 |
+| tuition_fees | 19 (41%) | 0 | 36 (78%) | 44 (96%) | 0 | 2 |
+| cost_of_attendance | 18 (39%) | 0 | 28 (61%) | 44 (96%) | 0 | 2 |
+| admissions_tests | 2 (4%) | 0 | 2 (4%) | 44 (96%) | 0 | 2 |
+| common_data_set | 2 (4%) | 0 | 2 (4%) | 3 (7%) | 41 | 2 |
+| merit_scholarships | 3 (7%) | 0 | 5 (11%) | 44 (96%) | 0 | 2 |
+| ap_credit | 0 (0%) | 2 | 2 (4%) | 16 (35%) | 28 | 2 |
+| clep_credit | 0 (0%) | 3 | 3 (7%) | 10 (22%) | 34 | 2 |
+| ib_credit | 0 (0%) | 1 | 1 (2%) | 4 (9%) | 40 | 2 |
+| dual_enrollment | 3 (7%) | 11 | 21 (46%) | 36 (78%) | 8 | 2 |
 | transfer_credit | 0 (0%) | 0 | 3 (7%) | 42 (91%) | 2 | 2 |
 | statewide_articulation | 0 (0%) | 0 | 0 (0%) | 4 (9%) | 40 | 2 |
 | residency | 0 (0%) | 0 | 0 (0%) | 21 (46%) | 23 | 2 |
-| degree_requirements | 0 (0%) | 0 | 2 (4%) | 23 (50%) | 21 | 2 |
+| degree_requirements | 1 (2%) | 0 | 2 (4%) | 23 (50%) | 21 | 2 |
 | aid_appeals | 0 (0%) | 0 | 32 (70%) | 39 (85%) | 5 | 2 |
 
 | quality | count |
