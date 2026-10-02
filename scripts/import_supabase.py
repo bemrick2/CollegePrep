@@ -6,10 +6,10 @@ Unmapped fields remain in the private lossless ledger, never discarded.
 import argparse,json,sys
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from backend.catalog import ROOT,records
+from backend.catalog import ROOT,records,IMPORT_DOMAINS,import_contract_errors
 from backend.store import natural_key
 from scripts.validate_data import validate_record
-SUPPORTED_DOMAINS={'institutions','costs','admissions_metrics','state_aid','awards','appeals','credit_policies','federal_aid','academic_programs','transfer_policies','degree_requirements'}
+SUPPORTED_DOMAINS=IMPORT_DOMAINS
 
 def literal(v):
     if v is None: return 'null'
@@ -21,7 +21,7 @@ def bulk_batch(rows):
     for row in rows:
         if row['domain'] not in SUPPORTED_DOMAINS:
             raise ValueError('Domain needs an explicit normalized mapping: '+row['domain'])
-        problems=validate_record(ROOT/'data',row['payload'],0,domain=row['domain'])
+        problems=validate_record(ROOT/'data',row['payload'],0,domain=row['domain'])+import_contract_errors(row['domain'],row['payload'])
         if problems: raise ValueError('; '.join(problems))
     data=literal(json.dumps(rows,ensure_ascii=False))+'::jsonb'
     sql=f'''begin;
@@ -69,7 +69,7 @@ end $guard$;
     sql+=insert('appeals','appeal_policies',{**text('academic_year','appeal_kind','process_summary','required_documents','deadline_text','contact_method','notes','qualifying_path_evidence'),'offered':'boolean'},['institution_id','academic_year','appeal_kind'],{'institution_id':'i.id','policy_url':"coalesce(r.payload->>'policy_url',r.payload->>'source_url')",'qualifies_for_paid_addon':"coalesce((r.payload->>'qualifies_for_paid_addon')::boolean,false)"},instjoin)
     sql+=insert('credit_policies','credit_policies',{**text('academic_year','policy_kind','policy_url','notes'),**numbers('general_limit_credits','residency_credit_requirement')},['institution_id','policy_kind','academic_year'],{'institution_id':'i.id'},instjoin)
     sql+=insert('federal_aid','federal_aid_programs',text('academic_year'),['program_key','academic_year'],{'program_key':"'pell_grant'",'policy_details':'r.payload'})
-    sql+=insert('transfer_policies','transfer_policies',{**text('academic_year','min_grade','articulation_url','notes'),**numbers('max_transfer_credits','max_transfer_percent','residency_requirement_credits')},['institution_id','academic_year'],{'institution_id':'i.id','policy_url':"coalesce(r.payload->>'policy_url',r.payload->>'source_url')"},instjoin)
+    sql+=insert('transfer_policies','transfer_policies',{**text('academic_year','min_grade','articulation_url','summary','notes'),**numbers('max_transfer_credits','max_transfer_percent','residency_requirement_credits')},['institution_id','academic_year'],{'institution_id':'i.id','policy_url':"coalesce(r.payload->>'policy_url',r.payload->>'source_url')",'policy_details':'r.payload'},instjoin)
     sql+=insert('academic_programs','academic_programs',{**text('academic_year','program_key','program_name','cip_code','credential_level','delivery_mode','catalog_year','program_url'),**numbers('total_credits'),'active':'boolean'},['institution_id','program_key','academic_year'],{'institution_id':'i.id'},instjoin)
     sql+='''do $guard$ begin
  if exists(select 1 from import_rows r where r.domain='degree_requirements' and not exists(
@@ -92,6 +92,8 @@ def batches(size=400):
     ordered=sorted(records(),key=lambda x: {'institutions':0,'academic_programs':1,'degree_requirements':3}.get(x[1],2))
     for path,domain,r in ordered:
         if domain not in SUPPORTED_DOMAINS: raise ValueError('Domain needs an explicit normalized mapping: '+domain)
+        contract=import_contract_errors(domain,r)
+        if contract: raise ValueError(path.relative_to(ROOT).as_posix()+': '+'; '.join(contract))
         if domain=='federal_aid' and 'pell_grant' not in r: raise ValueError('Federal program needs an explicit mapping')
         errors=validate_record(path,r,0,domain=domain)
         if domain!='institutions' and not r.get('academic_year'): errors.append('missing academic_year')
@@ -101,9 +103,33 @@ def batches(size=400):
             yield bulk_batch(collected); collected=[]
     if collected: yield bulk_batch(collected)
 
+TABLES={'institutions':'public.institutions where institution_key is not null','costs':'public.institution_costs',
+    'admissions_metrics':'public.admissions_metrics','state_aid':'public.state_aid_programs','awards':'public.institutional_awards',
+    'appeals':'public.appeal_policies','credit_policies':'public.credit_policies','federal_aid':'public.federal_aid_programs',
+    'academic_programs':'public.academic_programs where program_key is not null',
+    'transfer_policies':'public.transfer_policies','degree_requirements':'public.degree_requirements'}
+
+def reconcile_sql(fresh=True):
+    """SQL assertions that every repository record landed in the ledger and its normalized table."""
+    counts={}; equivalencies=0
+    for _,domain,r in records():
+        counts[domain]=counts.get(domain,0)+1
+        if domain=='credit_policies': equivalencies+=len(r.get('equivalencies') or [])
+    missing=set(counts)-set(TABLES)
+    if missing: raise ValueError('No reconciliation table for domains: '+', '.join(sorted(missing)))
+    checks=[]
+    for domain,n in sorted(counts.items()):
+        checks.append(f"if (select count(*) from ingestion.reference_records where domain={literal(domain)})<>{n} then raise exception 'ledger count mismatch for {domain}'; end if;")
+        checks.append(f"if (select count(*) from {TABLES[domain]})<>{n} then raise exception 'normalized count mismatch for {domain}'; end if;")
+    checks.append(f"if (select count(*) from public.credit_equivalencies)<>{equivalencies} then raise exception 'credit equivalency count mismatch'; end if;")
+    if fresh: checks.append("if (select count(*) from ingestion.reference_revisions)<>0 then raise exception 'repeat import created revisions'; end if;")
+    return 'do $reconcile$ begin\n '+'\n '.join(checks)+'\nend $reconcile$;\n'
+
 if __name__=='__main__':
-    p=argparse.ArgumentParser(); p.add_argument('--output',type=Path,required=True); p.add_argument('--batch-size',type=int,default=400); a=p.parse_args()
-    if not 1<=a.batch_size<=400: p.error('batch-size must be 1â€“400')
+    p=argparse.ArgumentParser(); p.add_argument('--output',type=Path,required=True); p.add_argument('--batch-size',type=int,default=400)
+    p.add_argument('--reconcile-sql',type=Path,help='also write count assertions for a fresh database after import'); a=p.parse_args()
+    if not 1<=a.batch_size<=400: p.error('batch-size must be 1-400')
     a.output.mkdir(parents=True,exist_ok=True); count=0
     for count,sql in enumerate(batches(a.batch_size),1): (a.output/f'{count:04}.sql').write_text(sql,encoding='utf-8')
+    if a.reconcile_sql: a.reconcile_sql.write_text(reconcile_sql(),encoding='utf-8')
     print(json.dumps({'batches':count,'output':str(a.output)}))

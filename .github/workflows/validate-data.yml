@@ -52,6 +52,13 @@ jobs:
         with:
           python-version: '3.12'
       - name: Test normalized program imports and annual history
+        shell: bash  # implies -o pipefail so a generator failure cannot pass as empty input
         run: python scripts/test_program_import.py | psql -v ON_ERROR_STOP=1
       - name: Test public school comparison RPC
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/school_comparison.sql
+      - name: Import every repository record twice into the disposable database
+        run: |
+          python scripts/import_supabase.py --output /tmp/import --reconcile-sql /tmp/reconcile.psql
+          for pass in 1 2; do for f in /tmp/import/*.sql; do psql -q -v ON_ERROR_STOP=1 -f "$f"; done; done
+      - name: Reconcile ledger and normalized table counts
+        run: psql -v ON_ERROR_STOP=1 -f /tmp/reconcile.psql

@@ -14,7 +14,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from backend.catalog import records
+from backend.catalog import records, import_contract_errors, CONTROLLED_VALUES
 DATA = ROOT / "data"
 
 VALID_STATUSES = {
@@ -70,7 +70,7 @@ def validate_record(path: Path, record: dict, index: int, domain=None):
             if not isinstance(record.get(field),str) or not record[field].strip():
                 errors.append('missing '+field)
         if domain=='degree_requirements':
-            if record.get('requirement_kind') not in {'total_credits','general_education','major','minor','residency','gpa','other'}:
+            if record.get('requirement_kind') not in CONTROLLED_VALUES['degree_requirements']['requirement_kind']:
                 errors.append('invalid requirement_kind')
             if 'rule_details' in record and not isinstance(record['rule_details'],dict):
                 errors.append('rule_details must be an object')
@@ -98,6 +98,8 @@ def main() -> int:
             key=natural_key(domain,record)
             if key in seen: errors.append(f'{path}: duplicate natural key {key}')
             seen.add(key)
+            # Data that passes validation must also be loadable by the Supabase importer.
+            errors.extend(f'{path}: {e}' for e in import_contract_errors(domain, record))
             if record.get('qualifies_for_paid_addon') and (not record.get('qualifying_path_evidence') or record.get('offered') is not True or record.get('appeal_kind') not in {'merit_reconsideration','competing_offer_review','financial_aid_appeal'}):
                 errors.append(f'{path}: missing qualifying appeal evidence')
     except (ValueError, TypeError, KeyError) as exc:
