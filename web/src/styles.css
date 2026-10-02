@@ -2,7 +2,16 @@
 @import '@fontsource-variable/inter';
 @import '@fontsource-variable/fraunces';
 
-@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+@custom-variant dark {
+  &:where([data-theme='dark'], [data-theme='dark'] *) {
+    @slot;
+  }
+  @media (prefers-color-scheme: dark) {
+    &:where(:root:not([data-theme='light']) *) {
+      @slot;
+    }
+  }
+}
 
 /* Prep & Price tokens. Warm paper, deep pine, a gold accent for momentum.
    Student surfaces lean on --go (action); parent surfaces on --brand (calm). */
@@ -20,6 +29,8 @@
   --brand-2: #155e53;
   --brand-ink: #f3efe6;
   --brand-soft: #e3efe9;
+  --hero: #0b3d36;
+  --hero-ink: #f3efe6;
   --go: #178a66;
   --go-strong: #10704f;
   --go-soft: #dcf2e8;
@@ -53,6 +64,8 @@
     --brand-2: #5fbba5;
     --brand-ink: #0c1416;
     --brand-soft: #173430;
+    --hero: #10342f;
+    --hero-ink: #eef1ee;
     --go: #3ccf9b;
     --go-strong: #2db786;
     --go-soft: #143a2e;
@@ -86,6 +99,8 @@
   --brand-2: #5fbba5;
   --brand-ink: #0c1416;
   --brand-soft: #173430;
+  --hero: #10342f;
+  --hero-ink: #eef1ee;
   --go: #3ccf9b;
   --go-strong: #2db786;
   --go-soft: #143a2e;
@@ -120,6 +135,8 @@
   --color-brand-2: var(--brand-2);
   --color-brand-ink: var(--brand-ink);
   --color-brand-soft: var(--brand-soft);
+  --color-hero: var(--hero);
+  --color-hero-ink: var(--hero-ink);
   --color-go: var(--go);
   --color-go-strong: var(--go-strong);
   --color-go-soft: var(--go-soft);

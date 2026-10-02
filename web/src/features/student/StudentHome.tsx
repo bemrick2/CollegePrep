@@ -236,7 +236,7 @@ function HeroCard({ eyebrow, title, body, cta, to, icon, variant = 'go', streakN
     <section
       className={cx(
         'anim-rise relative overflow-hidden rounded-3xl p-6',
-        variant === 'go' ? 'bg-brand text-brand-ink' : 'border border-line bg-surface text-ink',
+        variant === 'go' ? 'bg-hero text-hero-ink' : 'border border-line bg-surface text-ink',
       )}
       aria-labelledby="hero-title"
     >
