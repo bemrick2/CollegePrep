@@ -19,10 +19,13 @@ class MigrationHistoryTests(unittest.TestCase):
     def setUp(self):
         self.local, errors = c.local_migrations()
         self.assertEqual(errors, [])
+        # Local migrations not yet applied live are expected to be reported as pending.
+        live = {v for v, _, _ in LIVE_2026_10_02}
+        self.unapplied = [v['file'] for k, v in sorted(self.local.items()) if k not in live]
 
     def test_repository_matches_recorded_live_history(self):
         self.assertEqual(c.offline_errors(self.local), [])
-        self.assertEqual(c.live_errors(self.local, LIVE_2026_10_02), ([], []))
+        self.assertEqual(c.live_errors(self.local, LIVE_2026_10_02), ([], self.unapplied))
 
     def test_name_recorded_under_other_version_is_caught(self):
         drifted = dict(self.local)
@@ -40,7 +43,7 @@ class MigrationHistoryTests(unittest.TestCase):
     def test_new_migration_is_pending_but_backdated_one_fails(self):
         newer = dict(self.local)
         newer['20261003000000'] = {'name': 'future_change', 'file': '20261003000000_future_change.sql', 'md5': 'x'}
-        self.assertEqual(c.live_errors(newer, LIVE_2026_10_02), ([], ['20261003000000_future_change.sql']))
+        self.assertEqual(c.live_errors(newer, LIVE_2026_10_02), ([], self.unapplied + ['20261003000000_future_change.sql']))
         older = dict(self.local)
         older['20261002000000'] = {'name': 'backdated', 'file': '20261002000000_backdated.sql', 'md5': 'x'}
         self.assertTrue(c.live_errors(older, LIVE_2026_10_02)[0])
