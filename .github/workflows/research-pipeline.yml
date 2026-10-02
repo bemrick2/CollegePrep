@@ -74,7 +74,7 @@ jobs:
           git config user.name "collegeprep-pipeline[bot]"
           git config user.email "noreply@github.com"
           git checkout -B "${{ steps.p.outputs.branch }}"
-          git add "${{ steps.p.outputs.dir }}"
+          git add -f "${{ steps.p.outputs.dir }}"
           git commit -q -m "Pipeline run ${{ steps.p.outputs.state }} ${{ steps.p.outputs.dir }} (workflow run ${{ github.run_id }})" || exit 0
           git push -q origin "HEAD:${{ steps.p.outputs.branch }}"
           echo "::notice::Run committed to ${{ steps.p.outputs.branch }}"

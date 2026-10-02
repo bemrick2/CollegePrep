@@ -159,6 +159,9 @@ def parse_pdf(raw: bytes) -> Page | None:
 YEAR_RE = re.compile(r'(?<![\d$])(20\d{2})\s*(?:-|–|—|/|to|through)\s*(20)?(\d{2})(?!\d)')
 
 
+FALL_SPRING_RE = re.compile(r'fall\s+(20\d{2})\s*(?:-|–|—|/|to|through|and|&)\s*spring\s+(20\d{2})', re.I)
+
+
 def academic_year(first: int) -> str:
     return f'{first}-{str(first + 1)[-2:]}'
 
@@ -169,6 +172,10 @@ def year_labels(text: str):
     found = {}
     for m in YEAR_RE.finditer(text or ''):
         first = int(m.group(1)); second = int((m.group(2) or str(first)[:2]) + m.group(3))
+        if second == first + 1:
+            label = academic_year(first); found[label] = found.get(label, 0) + 1
+    for m in FALL_SPRING_RE.finditer(text or ''):
+        first, second = int(m.group(1)), int(m.group(2))
         if second == first + 1:
             label = academic_year(first); found[label] = found.get(label, 0) + 1
     return found

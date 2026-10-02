@@ -10,7 +10,7 @@ sys.path.insert(0, str(ROOT))
 from pipeline import exams, registry, review, text as T, topics  # noqa: E402
 from pipeline import promote as P  # noqa: E402
 from pipeline.crawl import Fetcher, Run, crawl  # noqa: E402
-from pipeline.extractors import cds, costs, credit  # noqa: E402
+from pipeline.extractors import cds, costs, credit, merit  # noqa: E402
 
 FIX = ROOT / 'tests/fixtures/pipeline'
 INST = {'institution_key': 'ipeds-999999', 'control': 'public', 'folder': 'example'}
@@ -146,6 +146,27 @@ C1   First-time, first-year students
         self.assertEqual((r['sat_reading_25'], r['sat_reading_50'], r['sat_reading_75']), (640, 670, 700))
         self.assertIn('applications_breakdown_does_not_reconcile', c['issues'])  # 11,980+41,408+452+0 = 53,840
         self.assertNotIn('admits_breakdown_does_not_reconcile', c['issues'])
+
+
+    def test_merit_list_and_grid(self):
+        html = """<title>Freshman Merit Scholarships 2026-2027</title><h2>Academic Scholarships</h2><table>
+<tr><th>Scholarship</th><th>Minimum GPA</th><th>ACT</th><th>SAT</th><th>Annual Amount</th></tr>
+<tr><td>Presidential</td><td>3.75</td><td>30</td><td>1390</td><td>$12,000</td></tr>
+<tr><td>Dean's</td><td>3.5+</td><td>27-29</td><td>1280</td><td>$8,000 - $10,000</td></tr>
+<tr><td>Need-blind Grant</td><td>3.0 or ACT 21</td><td></td><td></td><td>Up to $4,000</td></tr></table>"""
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(html), '2026-27')}
+        self.assertEqual(got['Presidential']['thresholds'], {'gpa_min': 3.75, 'act_min': 30, 'sat_min': 1390})
+        self.assertEqual(got["Dean's"]['thresholds'], {'gpa_min': 3.5, 'sat_min': 1280})  # '27-29' is a range: text only
+        self.assertEqual((got["Dean's"]['award_min'], got["Dean's"]['award_max']), (8000, 10000))
+        self.assertNotIn('thresholds', got['Need-blind Grant'])  # mixed wording is never parsed
+        self.assertEqual(got['Need-blind Grant']['gpa_requirement'], '3.0 or ACT 21')
+        grid = """<title>Merit Scholarship Grid</title><h2>Merit Scholarship Grid 2026-27</h2><table>
+<tr><th>GPA</th><th>ACT 21-23 / SAT 1060-1150</th><th>ACT 24-27 / SAT 1160-1290</th></tr>
+<tr><td>3.0-3.49</td><td>$2,000</td><td>$4,000</td></tr><tr><td>3.5-4.0</td><td>$4,000</td><td>$6,000</td></tr></table>"""
+        [c] = merit.extract(INST, ENTRY, T.parse_html(grid), '2026-27')
+        self.assertEqual(len(c['record']['award_tiers']), 4)
+        self.assertEqual(c['record']['award_tiers'][3], {'gpa': '3.5-4.0', 'test': 'ACT 24-27 / SAT 1160-1290', 'amount_text': '$6,000'})
+        self.assertEqual((c['record']['award_min'], c['record']['award_max']), (2000, 6000))
 
 
 class _Quiet(SimpleHTTPRequestHandler):

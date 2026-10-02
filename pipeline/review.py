@@ -15,9 +15,9 @@ from backend.catalog import ROOT, records
 from backend.store import natural_key
 from . import text as T, topics
 from .crawl import Run
-from .extractors import cds, costs, credit
+from .extractors import cds, costs, credit, merit
 
-EXTRACTORS = [credit.extract, costs.extract, cds.extract]
+EXTRACTORS = [credit.extract, costs.extract, cds.extract, merit.extract]
 SCALAR_SKIP = {'entering_fall_year', 'unitid', 'term_index', 'choose_count'}
 # Policy wording that must also appear verbatim before a record can be upgraded: paraphrased text
 # (for example from a summarising fetch tool) is exactly what the earlier status downgrade was for.
@@ -206,7 +206,8 @@ def coverage(registry, run: Run, cands, existing, today_year):
     for e in run.entries():
         k = e.get('institution_key'); fetched[k] += 1
         if not e.get('page_file'): failed[k] += 1; continue
-        for t in e.get('topics', []): pages[k][t].append(e['url'])
+        page, _ = run.load_page(e['page_file'])  # recomputed so topic fixes apply to archived runs
+        for t in topics.page_topics(page.title, page.headings, page.text): pages[k][t].append(e['url'])
     rows = []
     for inst in registry['institutions']:
         k = inst['institution_key']
@@ -227,9 +228,13 @@ def coverage(registry, run: Run, cands, existing, today_year):
         rows.append(row)
     by_cat = {cat: Counter(r['categories'][cat] for r in rows) for cat in topics.CATEGORY_DOMAINS}
     totals = Counter(s for r in rows for s in r['categories'].values())
+    state_key = f"state-{registry['state']}"
+    state = {'pages_fetched': fetched[state_key], 'fetch_failures': failed[state_key],
+             'categories': {cat: len(set(pages[state_key].get(cat, []))) for cat in topics.CATEGORY_DOMAINS}}
+    blocked = sorted(r['institution_key'] for r in rows if r['pages_fetched'] and r['fetch_failures'] == r['pages_fetched'])
     return {'state': registry['state'], 'academic_year': today_year, 'institutions': len(rows),
             'status_order': STATUS_ORDER, 'by_category': {c: dict(v) for c, v in by_cat.items()},
-            'totals': dict(totals), 'rows': rows}
+            'totals': dict(totals), 'statewide_sources': state, 'blocked_institutions': blocked, 'rows': rows}
 
 
 # ------------------------------------------------------------------ queue
@@ -265,6 +270,12 @@ def write_queue(run: Run, registry, cands, verify, cov):
     for v in verify:
         L.append(f"- {v['result']}: {v['path']} {v['natural_key']}" + (f" missing={v['missing'][:8]}" if v.get('missing') else '')
                  + (f" year={v.get('source_year_label')}" if v.get('source_year_label') else ''))
+    st = cov.get('statewide_sources', {})
+    L.extend(['', '## Statewide sources', '', f"Pages fetched: {st.get('pages_fetched', 0)}; pages by category: "
+              + ', '.join(f'{k} {v}' for k, v in sorted(st.get('categories', {}).items()) if v)])
+    if cov.get('blocked_institutions'):
+        L.extend(['', '## Blocked by the site (every request refused; needs the browser fallback)', ''])
+        L.extend(f"- {names.get(k, k)} (`{k}`)" for k in cov['blocked_institutions'])
     L.extend(['', '## Leads: official pages found with no extracted record', ''])
     for r in cov['rows']:
         found = [c for c, s in r['categories'].items() if s == 'source_found']
