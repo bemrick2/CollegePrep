@@ -31,7 +31,7 @@ Not inventoried: Graduate Nursing Loan Forgiveness and the Reduction in Force Tu
 | Prior-learning credit | AP, CLEP, IB, Cambridge, Statewide Dual Credit, industry certification | 187 equivalencies, with admit-term conditions kept. |
 | Dual enrollment | 1 | Taken at UT: counts in the UT GPA and is not transfer credit. Taken elsewhere: transfer credit, not in the UT GPA. |
 | Transfer/residence (`transfer_policies`) | 2026-27 (partially_verified). 2025-26 (verified, history). | Minimum grade D-. 15 of the final 30 hours and 25% of hours at UT (2026-27). 2025-26 rule was 60 hours at a senior college plus the last 30 in residence. |
-| Degree requirements | Computer Science Major, BS in Computer Science (2026-27 catalog) | 121-123 hours, C or better in CS/ECE/EE/math, uTrack milestones, eight-term plan. |
+| Program + degree requirements (`academic_programs`, `degree_requirements`) | Computer Science Major, BS in Computer Science (2026-27 catalog) | 121-123 hours, C or better in CS/ECE/EE/math, uTrack milestones, eight-term plan. |
 | Appeals 2026-27 | 8 | Financial-aid hub, special circumstances, scholarship retention, budget increase, dependency, SAP, merit reconsideration (not offered), competing-offer review (not offered). |
 
 ### Paid negotiation add-on

@@ -21,7 +21,7 @@ CollegePrep uses a two-stage data workflow:
 
 ## Normalized Supabase importer
 
-`scripts/import_supabase.py` maps the ten persisted reference domains (institutions, costs, admissions_metrics, state_aid, awards, appeals, credit_policies, federal_aid, transfer_policies, degree_requirements) by institution key, program/policy keys and academic year into generated database UUIDs. A private ledger preserves complete source records and previous payloads. Transactions reject missing dependencies and older/weaker replacements of verified records. A repeated 400-record live batch produced no duplicates or revisions.
+`scripts/import_supabase.py` maps the eleven persisted reference domains (institutions, costs, admissions_metrics, state_aid, awards, appeals, credit_policies, federal_aid, academic_programs, transfer_policies, degree_requirements) by institution key, program/policy keys and academic year into generated database UUIDs. A private ledger preserves complete source records and previous payloads. Transactions reject missing dependencies and older/weaker replacements of verified records. A repeated 400-record live batch produced no duplicates or revisions.
 
 ## Import contract
 
@@ -34,4 +34,4 @@ CollegePrep uses a two-stage data workflow:
 
 CI and local checks apply every migration to disposable PostgreSQL and import all repository data twice. They then run `--reconcile-sql` assertions: ledger and normalized counts per domain, the equivalency total, and zero revisions on repeat.
 
-Degree requirements are stored as one `academic_programs` row (keyed by `program_key` and academic year) plus `degree_requirements` rows. A whole-program catalog plan uses `requirement_kind = program_plan`, with the reviewed payload kept in `rule_details`. Transfer rules load into `transfer_policies` (`min_grade`, `max_transfer_credits`, `residency_requirement_credits`, with the payload in `policy_details`).
+Program, degree-requirement and transfer records follow [the program data contract](PROGRAM_DATA.md). An `academic_programs` record (keyed by `program_key` and academic year) must exist before its `degree_requirements`. A whole catalog plan uses `requirement_kind = program_plan`, with the plan in `rule_details`. Transfer records load into `transfer_policies` with the full reviewed payload in `policy_details`.
