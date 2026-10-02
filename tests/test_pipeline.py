@@ -398,6 +398,18 @@ minimum grade point average (GPA) of 3.0 are eligible for dual enrollment. Out-o
         g = b'<html><head><title>Glossary | Dual Credit</title></head><body><p>Grade point average: GPA of 2.0 (a C average) on a 4.0 scale.</p></body></html>'
         self.assertEqual(dual.extract(INST, {**ENTRY, 'url': 'https://x.edu/dual-credit/glossary.aspx'}, T.parse_html(g, 'https://x'), '2026-27'), [])
 
+    def test_or_regressions_address_cost_rows_and_non_programs(self):
+        """Regression (OR): Lewis & Clark title address -> in_state; Clackamas COA rows as awards; UO/SOCC non-programs."""
+        self.assertIsNone(costs.residency('oregon', 'OR', private=True))
+        self.assertEqual(costs.residency('oregon residents', 'OR'), 'in_state')
+        self.assertTrue(merit.NOT_AWARD_NAME.search('Books/Supplies'))
+        self.assertTrue(merit.NOT_AWARD_NAME.search('Personal expenses (entertainment, clothes, etc.)'))
+        self.assertFalse(merit.NOT_AWARD_NAME.search('Presidential Scholarship'))
+        for title in ("Bachelor's Degree Requirements | University of Oregon Academic Catalog", 'Oregon Transfer Module (OTM) < SOCC'):
+            html = ('<html><head><title>%s</title></head><body><p>2026-2027 Catalog</p><h2>Courses</h2><table><caption>Course List</caption>'
+                    '<tr><th>Code</th><th>Title</th><th>Hours</th></tr><tr><td>WR 121</td><td>Composition</td><td>4</td></tr></table></body></html>' % title)
+            self.assertEqual(catalog.extract(INST, ENTRY, T.parse_html(html.encode(), 'https://x'), '2026-27'), [])
+
     def test_two_documents_with_the_same_record_key_are_both_compared(self):
         a = credit.extract(INST, ENTRY, page('ap.html'), '2026-27')[0]
         other = {**ENTRY, 'url': 'https://example.edu/y', 'sha256': 'ef' * 32}
@@ -500,6 +512,17 @@ do not guarantee admission there. These Transfer Pathways have been effective be
         self.assertTrue(registry.in_host_scope(st, 'kctcs.edu'))
         self.assertFalse(registry.in_host_scope(st, 'ashland.kctcs.edu'))
         self.assertFalse(registry.in_host_scope(st, 'catalog.ashland.kctcs.edu'))
+
+    def test_state_handbook_chapters_keep_distinct_keys(self):
+        """Regression (NV): every NSHE handbook chapter is titled 'Title 4 - Codification ...'; all became key 'title-4'."""
+        sinst = {'institution_key': 'state-NV', 'state': 'NV', 'control': 'state'}
+        html = (b'<html><head><title>Title 4 - Codification of Board Policy Statements</title></head><body><p>Chapter 15</p>'
+                b'<p>REGULATIONS FOR DETERMINING RESIDENCY AND TUITION CHARGES</p>'
+                b'<p>A student must provide documentation to support residency classification at the request of an institution.</p></body></html>')
+        url = 'https://nshe.nevada.edu/Handbook/title4//T4-CH15%20Regulations%20for%20Determining%20Residency.pdf'
+        (c,) = statepolicy.extract(sinst, {**ENTRY, 'url': url}, T.parse_html(html, 'https://x'), '2026-27')
+        self.assertEqual(c['record']['policy_kind'], 'tuition_residency')
+        self.assertEqual(c['record']['policy_key'], 't4-ch15-regulations-for-determining-residency')
 
     def test_state_policy_promotion_path(self):
         tmp = Path(tempfile.mkdtemp())

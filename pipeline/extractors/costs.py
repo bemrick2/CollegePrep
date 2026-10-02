@@ -83,6 +83,9 @@ def residency(h, home=None, private=False):
     named = [(m.group(1), re.sub(r'\s+', ' ', m.group(2).lower())) for m in NAMED_STATE.finditer(h)
              if not (m.group(2).lower() == 'virginia' and re.search(r'west\s+$', h[:m.start()], re.I))]
     if named:
+        if private and not any(neg for neg, _ in named):
+            named = []  # a private college's address or a state-grant note, not a tuition residency (KY/OR)
+    if named:
         if home and all(n == STATE_NAMES.get(home) for _, n in named):
             return 'out_of_state' if any(neg for neg, _ in named) else 'in_state'
         return 'named_other_state'
@@ -205,7 +208,8 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
             issues.append('multiple_total_rows')
     if semester_only: issues.append('cost_period_semester')
     private = inst.get('control') == 'private_nonprofit'
-    page_res = column_meaning(page.title + ' ' + ' '.join(page.headings[:3]), home, private)['residency']
+    # Page titles often end with an address ("Lewis & Clark, Portland, Oregon"): state names there are not residency.
+    page_res = column_meaning(NAMED_STATE.sub(' ', page.title + ' ' + ' '.join(page.headings[:3])), home, private)['residency']
     groups = {}
     for j in keep:
         c = cols[j]

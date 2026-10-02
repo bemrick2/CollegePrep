@@ -26,16 +26,16 @@
   },
   "ap_credit": {
    "candidate_exception": 1,
-   "candidate_ready": 4,
    "fetch_failed": 3,
    "not_found": 19,
+   "partially_verified_current": 4,
    "source_found": 14
   },
   "clep_credit": {
    "candidate_exception": 3,
-   "candidate_ready": 2,
    "fetch_failed": 3,
    "not_found": 25,
+   "partially_verified_current": 2,
    "source_found": 8
   },
   "common_data_set": {
@@ -46,17 +46,16 @@
   },
   "cost_of_attendance": {
    "candidate_exception": 10,
-   "candidate_ready": 2,
    "fetch_failed": 3,
    "not_found": 2,
-   "source_found": 24
+   "source_found": 24,
+   "verified_current": 2
   },
   "degree_requirements": {
-   "candidate_exception": 1,
-   "candidate_ready": 2,
    "fetch_failed": 3,
    "not_found": 17,
-   "source_found": 18
+   "source_found": 20,
+   "verified_current": 1
   },
   "dual_enrollment": {
    "candidate_exception": 2,
@@ -67,17 +66,17 @@
   },
   "ib_credit": {
    "candidate_exception": 2,
-   "candidate_ready": 3,
    "fetch_failed": 3,
    "not_found": 29,
+   "partially_verified_current": 3,
    "source_found": 4
   },
   "merit_scholarships": {
    "candidate_exception": 1,
-   "candidate_ready": 2,
+   "candidate_ready": 1,
    "fetch_failed": 3,
    "not_found": 2,
-   "source_found": 33
+   "source_found": 34
   },
   "residency": {
    "fetch_failed": 3,
@@ -98,18 +97,20 @@
   },
   "tuition_fees": {
    "candidate_exception": 15,
-   "candidate_ready": 4,
    "fetch_failed": 3,
    "not_found": 1,
-   "source_found": 18
+   "source_found": 18,
+   "verified_current": 4
   }
  },
  "totals": {
-  "candidate_exception": 61,
-  "candidate_ready": 25,
+  "candidate_exception": 60,
+  "candidate_ready": 7,
   "fetch_failed": 42,
   "not_found": 209,
-  "source_found": 237
+  "partially_verified_current": 9,
+  "source_found": 240,
+  "verified_current": 7
  },
  "statewide_sources": {
   "categories": {
@@ -139,15 +140,15 @@
  "quality": {
   "ambiguous_years": 8,
   "blocked_requests": 51,
-  "candidates": 246,
+  "candidates": 229,
   "conflicts": 93,
-  "documents": 1572,
+  "documents": 1593,
   "extraction_failures": 0,
-  "fetch_errors": 40,
+  "fetch_errors": 19,
   "fetches": 1663,
-  "ready": 83,
+  "ready": 68,
   "semantic_review": 119,
-  "stale_sources": 76
+  "stale_sources": 77
  },
- "run": "pipeline/runs/OR/2026-10-02"
+ "run": "pipeline/runs/OR/2026-10-02-r2"
 }

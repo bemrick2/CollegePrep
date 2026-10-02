@@ -143,7 +143,9 @@ def _credits(v):
 def extract(inst, entry, page, today_year):
     if not is_program_page(entry, page) or common.professional_source(entry, page): return []
     name = program_name(page)
-    if not name or (GRADUATE.search(name) and not credential(name)): return []
+    # Bachelor's and associate programs only: university-wide "Bachelor's Degree Requirements" pages and the
+    # Oregon Transfer Module are not programs (OR: UO, SOCC).
+    if not name or not credential(name) or re.search(r'\brequirements?\b|transfer\s+module', name, re.I): return []
     year, printed_year = catalog_year(page)
     issues = []
     if year is None:
