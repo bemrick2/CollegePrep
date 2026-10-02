@@ -39,7 +39,9 @@ def make(domain, inst_key, academic_year, year_basis, record, evidence, entry, e
             'domain': domain, 'institution_key': inst_key, 'academic_year': academic_year,
             'year_basis': year_basis, 'record': rec, 'evidence': evidence, 'source': src,
             'extractor': extractor, 'pipeline_version': PIPELINE_VERSION,
-            'checks': checks or {}, 'issues': list(issues or [])}
+            'checks': checks or {}, 'issues': list(issues or []) + (
+                # A system site shared by several colleges' seeds may describe the system or another campus.
+                ['shared_site_attribution_review'] if entry.get('shared_host') and inst_key else [])}
 
 
 def resolve_year(page, entry, today_year):

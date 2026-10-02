@@ -18,7 +18,7 @@ from urllib.robotparser import RobotFileParser
 from xml.etree import ElementTree
 
 from . import text as T, topics
-from .registry import registrable_domain
+from .registry import registrable_domain, in_host_scope, is_shared_host
 
 USER_AGENT = 'CollegePrepResearchBot/1.0 (+https://github.com/bemrick2/collegeprep; official-source research)'
 MAX_BYTES = 15 * 1024 * 1024
@@ -205,7 +205,7 @@ def crawl_institution(inst, run: Run, fetcher: Fetcher, budget=45, max_depth=3, 
         url = url.split('#')[0]
         host = urlsplit(url).netloc
         if (not url.startswith('https://') and not url.startswith('http://')) or url in queued or depth > max_depth: return
-        if registrable_domain(host) not in allowed or score < 0: return
+        if not in_host_scope(inst, host) or score < 0: return
         queued.add(url); heapq.heappush(frontier, (-score, depth, url, via))
 
     for label, url in inst.get('seeds', {}).items():
@@ -232,6 +232,7 @@ def crawl_institution(inst, run: Run, fetcher: Fetcher, budget=45, max_depth=3, 
         except Exception as exc:  # A fetch bug must not stop the institution or the run.
             meta, body = {'status': None, 'error': f'fetch_exception:{type(exc).__name__}: {exc}'[:300]}, None
         entry = {'institution_key': key, 'url': url, 'depth': depth, 'via': via, 'fetched_at': now(), **meta}
+        if is_shared_host(inst, urlsplit(url).netloc): entry['shared_host'] = True
         if meta.get('error') in ('blocked_bot_challenge', 'http_429') and url not in retried:
             retried.add(url); done.discard(url)  # once more, after the host's backoff delay
             heapq.heappush(frontier, (neg + 5, depth, url, via))
@@ -251,7 +252,7 @@ def crawl_institution(inst, run: Run, fetcher: Fetcher, budget=45, max_depth=3, 
                     s = topics.link_score(href, anchor)
                     if s == 0 and registrable_domain(urlsplit(href).netloc) in follow_all and not topics.EXCLUDE.search(href):
                         s = 1  # dedicated policy sites (e.g. a state transfer-pathway site): every page is relevant
-                    if s > 0 and registrable_domain(urlsplit(href).netloc) in allowed:
+                    if s > 0 and in_host_scope(inst, urlsplit(href).netloc):
                         links.append((href, s))
                 entry['title'] = page.title[:200]
                 entry['topics'] = topics.page_topics(page.title, page.headings, page.text)
