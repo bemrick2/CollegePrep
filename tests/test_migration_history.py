@@ -14,6 +14,7 @@ LIVE_2026_10_02 = [  # supabase_migrations.schema_migrations, verified 2026-10-0
     ('20261002165225', 'reviewed_policy_domains', 'f941b44f4cca76ca37f0d79c5555f745'),
     ('20261002183112', 'household_practice_progress', 'e111a09c6ff53c7a33f574a0b86aca00'),  # deployed by workflow
     ('20261002202613', 'practice_foreign_key_indexes', '38ca7c416ba894a72276f9e700231d42'),  # deployed by workflow
+    ('20261002213423', 'state_policies', 'ebd208310420777cd0c8f270c261dbd7'),  # deployed by workflow
 ]
 
 
