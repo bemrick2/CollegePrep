@@ -510,6 +510,51 @@ class RegistryTests(unittest.TestCase):
         self.assertNotIn('ipeds-492263', keys)  # UT System Office is not an institution students attend
         self.assertTrue(all(i['seeds'].get('website', '').startswith('https://') for i in built['institutions']))
 
+    def test_every_committed_registry_is_current(self):
+        for path in sorted((ROOT / 'pipeline/registry').glob('*.json')):
+            self.assertEqual(registry.build(path.stem), registry.load(path.stem), f'run: python -m pipeline registry --state {path.stem}')
+
+    def test_registrable_domain_is_not_state_specific(self):
+        self.assertEqual(registry.registrable_domain('www.state.tn.us'), 'state.tn.us')
+        self.assertEqual(registry.registrable_domain('www.state.ky.us'), 'state.ky.us')
+        self.assertEqual(registry.registrable_domain('henderson.kctcs.edu'), 'kctcs.edu')
+
+    def test_system_colleges_on_a_shared_domain_stay_on_their_own_hosts(self):
+        """Regression (KY): 16 KCTCS colleges are subdomains of kctcs.edu; domain scoping let one college crawl another."""
+        def inst(key, host):
+            return {'institution_key': key, 'allowed_domains': ['kctcs.edu'], 'seeds': {'website': f'https://{host}/'}, 'existing_sources': []}
+        a, b, c = inst('a', 'henderson.kctcs.edu'), inst('b', 'jefferson.kctcs.edu'), inst('c', 'kctcs.edu')
+        c['seeds']['admissions'] = 'https://kctcs.edu/admissions'
+        a['seeds']['admissions'] = 'https://www.kctcs.edu/apply'
+        registry.scope_shared_domains([a, b, c])
+        self.assertTrue(registry.in_host_scope(a, 'henderson.kctcs.edu'))
+        self.assertTrue(registry.in_host_scope(a, 'catalog.henderson.kctcs.edu'))
+        self.assertFalse(registry.in_host_scope(a, 'jefferson.kctcs.edu'))
+        self.assertTrue(registry.in_host_scope(a, 'kctcs.edu'))  # its own seed is there ...
+        self.assertTrue(registry.is_shared_host(a, 'www.kctcs.edu'))  # ... but that host belongs to the system
+        self.assertFalse(registry.is_shared_host(a, 'henderson.kctcs.edu'))
+        c2 = {'institution_key': 'x', 'allowed_domains': ['solo.edu'], 'seeds': {}, 'existing_sources': []}
+        registry.scope_shared_domains([c2])
+        self.assertTrue(registry.in_host_scope(c2, 'catalog.solo.edu'))
+
+    def test_shared_host_pages_need_attribution_review(self):
+        from pipeline.extractors import common
+        c = common.make('credit_policies', 'ipeds-1', '2026-27', 'labeled_in_title', {}, [], {**ENTRY, 'shared_host': True}, 'x', {})
+        self.assertIn('shared_site_attribution_review', c['issues'])
+        self.assertNotIn('shared_site_attribution_review', P.INFORMATIONAL)
+        self.assertEqual(common.make('credit_policies', 'ipeds-1', '2026-27', 'labeled_in_title', {}, [], ENTRY, 'x', {})['issues'], [])
+
+    def test_state_pages_only_feed_state_level_extractors(self):
+        """Regression: institution extractors ran on statewide pages and keyed records to 'state-TN'."""
+        self.assertEqual(review.STATE_EXTRACTORS, [statepolicy.extract])
+        calls = []
+        with mock.patch.object(review, 'EXTRACTORS', [lambda *a: calls.append('inst') or []]), \
+             mock.patch.object(review, 'STATE_EXTRACTORS', [lambda *a: calls.append('state') or []]):
+            run = mock.Mock(); run.entries.return_value = [{'institution_key': 'state-TN', 'page_file': 'p', 'url': 'u'}]
+            run.load_page.return_value = (None, [])
+            review.extract_run({'state': 'TN', 'institutions': []}, run, '2026-27')
+        self.assertEqual(calls, ['state'])
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -40,7 +40,8 @@ def normalize_url(u: str) -> str | None:
 def registrable_domain(host: str) -> str:
     """'www.catalog.utc.edu' -> 'utc.edu'. Good enough for .edu/.org/.com/.gov hosts in IPEDS."""
     labels = host.lower().split(':')[0].strip('.').split('.')
-    if len(labels) >= 3 and labels[-2] in {'tn', 'k12', 'co', 'ac'} and len(labels[-1]) == 2:
+    # 'state.tn.us', 'district.k12.or.us', 'x.co.uk': the registrable part is three labels.
+    if len(labels) >= 3 and len(labels[-1]) == 2 and (labels[-2] in {'k12', 'co', 'ac'} or (labels[-1] == 'us' and len(labels[-2]) == 2)):
         return '.'.join(labels[-3:])
     return '.'.join(labels[-2:])
 
@@ -110,6 +111,7 @@ def build(state: str):
             'allowed_domains': sorted({registrable_domain(urlsplit(u).netloc) for l, u in seeds.items() if l != 'net_price'}
                                       | {registrable_domain(urlsplit(u).netloc) for u in cited.get(key, [])}),
             'seeds': seeds, 'existing_sources': cited.get(key, [])})
+    scope_shared_domains(institutions)
     for inst in institutions:  # Two campuses sharing a domain get distinct folders.
         if len(slugs[inst['folder']]) > 1 and inst['folder'] not in folders.values():
             inst['folder'] = f"{inst['folder']}-{inst['unitid']}"
@@ -117,6 +119,46 @@ def build(state: str):
             'scope_rule': 'active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, '
                           'with a 2023-24 IPEDS first-time undergraduate admissions or price record',
             'institutions': institutions, 'state_sources': state_sources(state)}
+
+
+def host_of(url: str) -> str:
+    h = urlsplit(url).netloc.lower().split(':')[0]
+    return h[4:] if h.startswith('www.') else h
+
+
+def scope_shared_domains(institutions):
+    """Colleges of one system often live on subdomains of a shared domain (henderson.kctcs.edu,
+    jefferson.kctcs.edu). Scoping those by registrable domain would let one college's crawl wander
+    into another's site, so each is limited to its own seed hosts on the shared domain. A host used
+    by several institutions' seeds (the system site itself) is marked shared: pages there describe
+    the system or another campus, and records from them need attribution review."""
+    by_domain, host_users = {}, {}
+    for inst in institutions:
+        for d in inst['allowed_domains']: by_domain.setdefault(d, set()).add(inst['institution_key'])
+        for label, u in inst['seeds'].items():
+            if label != 'net_price': host_users.setdefault(host_of(u), set()).add(inst['institution_key'])
+    for inst in institutions:
+        shared = sorted(d for d in inst['allowed_domains'] if len(by_domain[d]) > 1)
+        if not shared: continue
+        hosts = {host_of(u) for l, u in inst['seeds'].items() if l != 'net_price'} | {host_of(u) for u in inst['existing_sources']}
+        inst['shared_domains'] = shared
+        inst['allowed_hosts'] = sorted(h for h in hosts if registrable_domain(h) in shared)
+        inst['shared_hosts'] = sorted(h for h in inst['allowed_hosts'] if len(host_users.get(h, ())) > 1)
+
+
+def in_host_scope(inst, host: str) -> bool:
+    """Whether a URL host is inside an institution's crawl scope (see scope_shared_domains)."""
+    host = host.lower().split(':')[0]; host = host[4:] if host.startswith('www.') else host
+    rd = registrable_domain(host)
+    if rd in (inst.get('shared_domains') or []):
+        shared = set(inst.get('shared_hosts') or [])  # the system host itself, never its sibling subdomains
+        return any(host == h or (h not in shared and h != rd and host.endswith('.' + h)) for h in inst.get('allowed_hosts') or [])
+    return rd in set(inst.get('allowed_domains') or [inst.get('domain')]) - {None}
+
+
+def is_shared_host(inst, host: str) -> bool:
+    host = host.lower().split(':')[0]; host = host[4:] if host.startswith('www.') else host
+    return host in set(inst.get('shared_hosts') or [])
 
 
 def state_sources(state: str):
