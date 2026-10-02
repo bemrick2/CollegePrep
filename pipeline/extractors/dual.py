@@ -26,7 +26,9 @@ ACT = re.compile(r'(\d{2})\s*\+?\s*(?:or\s+(?:higher|above)\s+)?(?:on\s+the\s+)?
 SAT = re.compile(r'(\d{3,4})\s*\+?\s*(?:\(?[a-z\s-]*\)?\s*)?(?:on\s+the\s+)?sat\b|\bsat\s+(?:composite\s+|total\s+)?(?:score\s+)?(?:of\s+)?(\d{3,4})\b', re.I)
 MAX_HOURS = re.compile(r'(?:maximum\s+of|up\s+to|no\s+more\s+than|max(?:imum)?\.?)\s+(\d{1,2})\s+(?:credit\s+)?(?:hours|credits)', re.I)
 PER_HOUR = re.compile(r'\$\s?(\d{1,4})(?:\.(\d{2}))?\s*(?:/|per)\s*(?:credit\s*)?(?:hour|hr|credit)', re.I)
-GRANT = re.compile(r'dual\s+enrollment\s+grant|\bDEG\b|state\s+(?:dual\s+enrollment\s+)?grant|TN\s+(?:DE\s+)?grant', re.I)
+# State programs that pay for dual enrollment: TN Dual Enrollment Grant (DEG), KY Dual Credit Scholarship, ...
+GRANT = re.compile(r'dual\s+(?:enrollment|credit)\s+(?:grant|scholarship)|\bDEG\b|state\s+(?:dual\s+(?:enrollment|credit)\s+)?grant|TN\s+(?:DE\s+)?grant', re.I)
+TOPIC = re.compile(r'dual[\s_-]*(?:enroll|credit)|concurrent[\s_-]+enrollment|early[\s_-]+college|accelerated[\s_-]+learning', re.I)
 GRANT_NO = re.compile(r'(does\s+not|doesn.t|do\s+not|not)\s+(apply|eligible|accept|available|qualify)|no\s+discounts', re.I)
 GRANT_YES = re.compile(r'\b(apply|applies|eligible|accept|accepted|covers|use|may\s+be\s+used|can\s+be\s+used)\b', re.I)
 CONTINUE = re.compile(r'maintain\s+(?:a\s+)?(?:cumulative\s+)?(?:college\s+)?(?:gpa\s+of\s+)?(\d\.\d)\s*(?:cumulative\s+)?(?:college\s+)?(?:gpa)?', re.I)
@@ -44,7 +46,7 @@ def _grades(line):
 def extract(inst, entry, page, today_year):
     if common.professional_source(entry, page): return []
     head = page.title + ' ' + entry.get('url', '')  # the page itself must be about dual enrollment
-    if not re.search(r'dual[\s_-]*enroll', head, re.I): return []
+    if not TOPIC.search(head): return []
     lines = [l for l in page.lines if 15 <= len(l) <= 400 and not OFF_TOPIC.search(l)]
     tiers, evidence, values = [], [], {}
 
@@ -79,7 +81,8 @@ def extract(inst, entry, page, today_year):
             v = int(m.group(1))
             if 1 <= v <= 21 and re.search(r'semester|term|fall|spring', line, re.I) and not re.search(r'summer', line[:m.start()], re.I):
                 note('max_credit_hours_per_term', v, line)
-        for m in PER_HOUR.finditer(line):
+        question = '?' in line or re.search(r'^\W*(is|are|do|does|can|will|how|what|why|when)\b|,\s*(are|is|do|does|can|will)\s+(we|you|i|students?)\b', line, re.I)
+        for m in ([] if question else PER_HOUR.finditer(line)):  # FAQ questions quote prices they ask about
             v = int(m.group(1)) + (int(m.group(2)) / 100 if m.group(2) and m.group(2) != '00' else 0)
             near = line[max(0, m.start() - 40):m.end() + 30]
             kind = 'fee' if re.search(r'\bfee', near, re.I) else 'tuition' if re.search(r'tuition', near, re.I) else 'other'

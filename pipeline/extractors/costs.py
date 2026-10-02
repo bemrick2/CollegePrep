@@ -1,6 +1,6 @@
 """Tuition / fees / cost-of-attendance tables -> costs candidates (v2).
 
-Built from real Tennessee pages. A table is read as:
+Built from real Tennessee pages, checked against Kentucky, Oregon and Nevada. A table is read as:
   title rows (one cell: "2026-2027 Cost of Attendance", "Tennessee Residents") -> table context
   header row (column meanings: per semester / per year, academic year, residency, living arrangement)
   body rows  (printed label + money per column)
@@ -58,12 +58,38 @@ def money(cell):
     return v if isinstance(v, (int, float)) and v >= 0 else None
 
 
-def column_meaning(header):
+STATE_NAMES = {'AL': 'alabama', 'AK': 'alaska', 'AZ': 'arizona', 'AR': 'arkansas', 'CA': 'california', 'CO': 'colorado',
+               'CT': 'connecticut', 'DE': 'delaware', 'FL': 'florida', 'GA': 'georgia', 'HI': 'hawaii', 'ID': 'idaho',
+               'IL': 'illinois', 'IN': 'indiana', 'IA': 'iowa', 'KS': 'kansas', 'KY': 'kentucky', 'LA': 'louisiana',
+               'ME': 'maine', 'MD': 'maryland', 'MA': 'massachusetts', 'MI': 'michigan', 'MN': 'minnesota',
+               'MS': 'mississippi', 'MO': 'missouri', 'MT': 'montana', 'NE': 'nebraska', 'NV': 'nevada',
+               'NH': 'new hampshire', 'NJ': 'new jersey', 'NM': 'new mexico', 'NY': 'new york', 'NC': 'north carolina',
+               'ND': 'north dakota', 'OH': 'ohio', 'OK': 'oklahoma', 'OR': 'oregon', 'PA': 'pennsylvania',
+               'RI': 'rhode island', 'SC': 'south carolina', 'SD': 'south dakota', 'TN': 'tennessee', 'TX': 'texas',
+               'UT': 'utah', 'VT': 'vermont', 'VA': 'virginia', 'WA': 'washington', 'WV': 'west virginia',
+               'WI': 'wisconsin', 'WY': 'wyoming'}
+NAMED_STATE = re.compile(r'\b(non-?\s?)?(' + '|'.join(sorted((n.replace(' ', r'\s+') for n in STATE_NAMES.values()), key=len, reverse=True)) + r')\b', re.I)
+
+
+def residency(h, home=None):
+    """in_state / out_of_state / None. A state name counts only when it is the institution's own state:
+    'Ohio and Indiana residents' on a Kentucky page is a reciprocity rate, not in-state tuition."""
+    if re.search(r'out[- ]of[- ]state|non-?\s?resident', h, re.I): return 'out_of_state'
+    named = [(m.group(1), re.sub(r'\s+', ' ', m.group(2).lower())) for m in NAMED_STATE.finditer(h)
+             if not (m.group(2).lower() == 'virginia' and re.search(r'west\s+$', h[:m.start()], re.I))]
+    if named:
+        if home and all(n == STATE_NAMES.get(home) for _, n in named):
+            return 'out_of_state' if any(neg for neg, _ in named) else 'in_state'
+        return 'named_other_state'
+    if re.search(r'in[- ]state|\bresident', h, re.I): return 'in_state'
+    return None
+
+
+def column_meaning(header, home=None):
     h = (header or '').lower()
     years = T.year_labels(header or '')
     return {
-        'residency': ('out_of_state' if re.search(r'out[- ]of[- ]state|non-?\s?resident|non-tennessee', h) else
-                      'in_state' if re.search(r'in[- ]state|\bresident|tennessee', h) else None),
+        'residency': residency(h, home),
         'arrangement': ('with_parents_or_family' if re.search(r'with\s*(a\s+)?(parent|family)|at home|commut', h) else
                         'off_campus_not_with_family' if re.search(r'off[- ]campus', h) else
                         'on_campus' if re.search(r'on[- ]campus|residence hall|resident student|residential', h) else
@@ -133,10 +159,11 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
         return []
     ncols = max(len(v) for _, _, v, _ in keyed)
     semester_total = None
-    ctx = column_meaning(context)
+    home = inst.get('state')
+    ctx = column_meaning(context, home)
     cols = []
     for j in range(ncols):
-        m = column_meaning(headers[j] if j < len(headers) else '')
+        m = column_meaning(headers[j] if j < len(headers) else '', home)
         for k in ('residency', 'period', 'year'):
             m[k] = m[k] or ctx[k]
         m['header'] = headers[j] if j < len(headers) else ''
@@ -172,7 +199,7 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
             issues.append('multiple_total_rows')
     if semester_only: issues.append('cost_period_semester')
     private = inst.get('control') == 'private_nonprofit'
-    page_res = column_meaning(page.title + ' ' + ' '.join(page.headings[:3]))['residency']
+    page_res = column_meaning(page.title + ' ' + ' '.join(page.headings[:3]), home)['residency']
     groups = {}
     for j in keep:
         c = cols[j]
@@ -182,6 +209,8 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
     out = []
     for (res, year), js in groups.items():
         g_issues = list(issues)
+        if res == 'named_other_state':  # e.g. a reciprocity rate for a neighbouring state's residents
+            res = None; g_issues.append('residency_names_another_state')
         if res is None:
             g_issues.append('residency_unknown')
         arrangements, evidence = [], []

@@ -27,6 +27,11 @@ every run re-checks them.
 
 ### Crawl
 - Follows links only on the school's own registrable domains; skips logins, news, events, social and media.
+  When several schools in a state share a domain (KCTCS: `henderson.kctcs.edu`, `jefferson.kctcs.edu`, …)
+  each is limited to its own seed hosts; a host used by several schools' seeds (the system site) is
+  matched exactly and its pages carry `shared_site_attribution_review`.
+- Catalog program pages (Acalog `preview_program.php`, Courseleaf `catalog.*/undergraduate/<college>/<dept>/<program>/`)
+  have their own page budget; Courseleaf `/graduate/` paths are skipped.
 - Spends a page budget (default 45) on links ranked by research topic (`pipeline/topics.py`).
 - Honours robots.txt (unreachable robots → host skipped), one request per host per second,
   identifying user agent, 15 MB cap, retries on 5xx/429/timeouts. Blocked pages are recorded, not evaded.
@@ -46,10 +51,13 @@ All emit `verification_status: unverified` candidates with a verbatim snippet fo
 | `merit_table/v1` | merit scholarships → `awards` | Award lists, GPA tier tables and GPA × test grids; numeric `thresholds` only from clean single-number cells; transfer and need-based tables skipped. |
 | `appeal_sentences/v1` | appeals → `appeals` | Sentences describing appeal routes and negative statements ("cannot match offers"); never sets paid add-on eligibility; every candidate needs review. |
 | `transfer_sentences/v1` | transfer/residence → `transfer_policies` | Minimum transfer grade, transfer-hour cap, residence hours; different values on one page are an exception. |
+| `dual_enrollment/v1` | dual enrollment / dual credit → `credit_policies` (`policy_kind: dual_enrollment`) | Eligibility tiers (grades, HS GPA, ACT/SAT alternatives, hour caps), per-credit-hour charges as printed, state grant/scholarship use only from explicit statements; FAQ questions ignored. Pages of one school merge field by field; disagreements are exceptions. |
+| `catalog_program/v1` | degree requirements → `academic_programs` + `degree_requirements` | Acalog and Courseleaf program pages, bachelor/associate only, printed catalog year required. Groups in `requirement_group/v1`; Courseleaf table subtotals are never the degree total; "or" alternatives → `course_alternatives_in_rule_text`. |
+| `state_policy/v1` | statewide articulation, transfer guarantee, dual admission, dual enrollment, tuition residency → `state_policies` | Statewide sources only. Statements copied verbatim and grouped by keyword; every candidate is `semantic_review_required`. Reports, dashboards and minutes are skipped. |
 
-Categories without an extractor yet (dual enrollment, tuition residency rules, statewide
-articulation, degree requirements) are measured as `source_found` leads. See the
-GitHub issues labelled `area:pipeline`.
+Statewide pages feed only state-level extractors; institution extractors never see them.
+Residency in cost tables: a state name means in-state only when it is the school's own state
+(`residency_names_another_state` otherwise, e.g. reciprocity rates).
 
 ### Academic year
 A year label in the title wins; otherwise one label must dominate the page. Unlabeled pages are
@@ -61,7 +69,9 @@ labels → `ambiguous_year_labels` exception. Older labels are kept as that year
 A candidate with any issue is an exception, never promoted silently: `conflicting_sources`
 (two documents disagree on the same record), `conflicts_with_verified_record`, `ambiguous_year_labels`,
 `stale_year_label:*`, `residency_unknown`, `column_alignment_uncertain`, `components_do_not_reconcile`,
-`cost_period_semester`, `c1_totals_incomplete`, `*_implausible`, `rows_without_score`, `extractor_error:*`.
+`cost_period_semester`, `c1_totals_incomplete`, `*_implausible`, `rows_without_score`, `extractor_error:*`,
+`shared_site_attribution_review`, `residency_names_another_state`, `course_alternatives_in_rule_text`,
+`semantic_review_required`, `conflicting_values:*`.
 
 ### Re-verification
 `verify.json` re-checks every non-verified curated record whose source was fetched: each number and
@@ -75,6 +85,17 @@ issues explicitly accepted (`accept_issues`) → `partially_verified`. A verifie
 replaced by weaker or older evidence (same rule as the database importer). Evidence is archived in
 `sources/pipeline/<STATE>/<run>/evidence.json`. Promotion goes through a normal PR; merging runs the
 live import.
+
+## Adding a state
+1. `pipeline/registry/states/<ST>.json`: statewide official seeds (coordinating board, aid agency,
+   system office, residency regulation, transfer site). Seeds that 404 are reported by the crawl.
+2. `python -m pipeline --state <ST> registry` (scope rule unchanged; the registry test checks every
+   committed registry is current).
+3. Push `pipeline/run-request.json` (`{"state": "<ST>"}`) to a `pipeline-run/<st>-<date>` branch;
+   the workflow crawls and commits the run. Fix failures in shared extractors, never per state.
+
+Batch 1 beyond Tennessee: Kentucky (46 schools, centralized community-college system on one domain),
+Oregon (41, no community-college system), Nevada (7, one governing system).
 
 ## Coverage
 `coverage.json` gives each institution × category one status, in order of strength:

@@ -8,6 +8,7 @@
    "unitid": 182005,
    "name": "College of Southern Nevada",
    "city": "Las Vegas",
+   "state": "NV",
    "folder": "csn",
    "control": "public",
    "level": "four_year",
@@ -28,6 +29,7 @@
    "unitid": 182306,
    "name": "Great Basin College",
    "city": "Elko",
+   "state": "NV",
    "folder": "gbcnv",
    "control": "public",
    "level": "four_year",
@@ -48,26 +50,36 @@
    "unitid": 441900,
    "name": "Nevada State University",
    "city": "Henderson",
-   "folder": "nsc",
+   "state": "NV",
+   "folder": "nevadastate",
    "control": "public",
    "level": "four_year",
-   "domain": "nsc.edu",
+   "domain": "nevadastate.edu",
    "allowed_domains": [
-    "nsc.edu"
+    "nevadastate.edu"
    ],
    "seeds": {
-    "website": "https://nsc.edu/",
-    "admissions": "https://nsc.edu/admissions/",
-    "financial_aid": "https://nsc.edu/admissions/costs-and-financial-aid/",
-    "net_price": "https://nsc.edu/net-price-calculator/"
+    "website": "https://nevadastate.edu/",
+    "admissions": "https://nevadastate.edu/admissions/first-time-student/"
    },
-   "existing_sources": []
+   "existing_sources": [],
+   "seed_override": {
+    "ipeds_seeds": {
+     "website": "https://nsc.edu/",
+     "admissions": "https://nsc.edu/admissions/",
+     "financial_aid": "https://nsc.edu/admissions/costs-and-financial-aid/",
+     "net_price": "https://nsc.edu/net-price-calculator/"
+    },
+    "reason": "IPEDS HD2023 reports nsc.edu (Nevada State College); every nsc.edu seed returned 404 in run NV 2026-10-02 after the rename to Nevada State University.",
+    "evidence": "https://nevadastate.edu/admissions/first-time-student/"
+   }
   },
   {
    "institution_key": "ipeds-182500",
    "unitid": 182500,
    "name": "Truckee Meadows Community College",
    "city": "Reno",
+   "state": "NV",
    "folder": "tmcc",
    "control": "public",
    "level": "four_year",
@@ -88,6 +100,7 @@
    "unitid": 182281,
    "name": "University of Nevada-Las Vegas",
    "city": "Las Vegas",
+   "state": "NV",
    "folder": "unlv",
    "control": "public",
    "level": "four_year",
@@ -108,6 +121,7 @@
    "unitid": 182290,
    "name": "University of Nevada-Reno",
    "city": "Reno",
+   "state": "NV",
    "folder": "unr",
    "control": "public",
    "level": "four_year",
@@ -128,6 +142,7 @@
    "unitid": 182564,
    "name": "Western Nevada College",
    "city": "Carson City",
+   "state": "NV",
    "folder": "wnc",
    "control": "public",
    "level": "four_year",

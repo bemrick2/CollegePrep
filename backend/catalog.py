@@ -18,7 +18,7 @@ CONTROLLED_VALUES = {
         'scholarship_retention_appeal','budget_increase','dependency_override','sap_appeal'})},
     'degree_requirements': {'requirement_kind': frozenset({'total_credits','general_education','major','minor',
         'residency','gpa','other','program_plan'})},
-    'state_policies': {'policy_kind': frozenset({'tuition_residency','statewide_articulation','transfer_pathway',
+    'state_policies': {'policy_kind': frozenset({'tuition_residency','statewide_articulation','transfer_pathway','dual_enrollment',
         'transfer_guarantee','dual_admission','other'})},
 }
 # Fields the normalized tables require (not null) beyond provenance.
