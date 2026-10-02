@@ -35,3 +35,20 @@ CollegePrep uses a two-stage data workflow:
 CI and local checks apply every migration to disposable PostgreSQL and import all repository data twice. They then run `--reconcile-sql` assertions: ledger and normalized counts per domain, the equivalency total, and zero revisions on repeat.
 
 Program, degree-requirement and transfer records follow [the program data contract](PROGRAM_DATA.md). An `academic_programs` record (keyed by `program_key` and academic year) must exist before its `degree_requirements`. A whole catalog plan uses `requirement_kind = program_plan`, with the plan in `rule_details`. Transfer records load into `transfer_policies` with the full reviewed payload in `policy_details`.
+
+## Automated live import
+
+`.github/workflows/live-import.yml` runs `scripts/live_import.sh` after data or importer changes reach `main`, and can also be started by hand (workflow_dispatch). The script:
+
+1. validates the repository
+2. runs `supabase/checks/live_preflight.sql`, which stops if a required migration is missing
+3. applies every import batch
+4. reconciles ledger and normalized counts against the repository
+5. runs a second pass and fails if the revision count or the last import time changes
+
+Imports never run on pull requests, so PR code never sees the database secret. Imports run one at a time.
+
+The job needs the repository secret `SUPABASE_DB_URL`: an admin Postgres connection string from the Supabase project's connection settings. Use the Session pooler string, because GitHub-hosted runners may not reach the direct database host. Without the secret, the job posts a notice and skips. Migrations are not applied by this job; apply them first, and the preflight check enforces the order. The workflow uses the `supabase-live` environment, so required reviewers can be added in GitHub settings if desired.
+
+To run it locally against any migrated database: `DATABASE_URL=... scripts/live_import.sh`.
+

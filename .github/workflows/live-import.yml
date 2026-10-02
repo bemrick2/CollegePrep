@@ -1,0 +1,51 @@
+name: Live Supabase reference import
+
+# Loads repository reference data into the live CollegePrep database after it reaches main.
+# Requires the SUPABASE_DB_URL secret (Session pooler connection string for an admin role).
+# Without the secret the job reports a notice and exits successfully.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/**'
+      - 'scripts/import_supabase.py'
+      - 'scripts/live_import.sh'
+      - 'backend/catalog.py'
+  workflow_dispatch:
+
+concurrency:
+  group: live-supabase-import
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    environment: supabase-live
+    env:
+      DATABASE_URL: ${{ secrets.SUPABASE_DB_URL }}
+    steps:
+      - name: Check for database secret
+        id: secret
+        run: |
+          if [ -z "$DATABASE_URL" ]; then
+            echo "::notice::SUPABASE_DB_URL is not configured; live import skipped."
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/checkout@v4
+        if: steps.secret.outputs.configured == 'true'
+      - uses: actions/setup-python@v5
+        if: steps.secret.outputs.configured == 'true'
+        with:
+          python-version: '3.12'
+      - name: Install PostgreSQL client
+        if: steps.secret.outputs.configured == 'true'
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq postgresql-client
+      - name: Import, reconcile and verify idempotence
+        if: steps.secret.outputs.configured == 'true'
+        shell: bash
+        run: scripts/live_import.sh
