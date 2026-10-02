@@ -127,9 +127,10 @@ def reconcile_sql(fresh=True):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(); p.add_argument('--output',type=Path,required=True); p.add_argument('--batch-size',type=int,default=400)
-    p.add_argument('--reconcile-sql',type=Path,help='also write count assertions for a fresh database after import'); a=p.parse_args()
+    p.add_argument('--reconcile-sql',type=Path,help='also write count assertions to run after import')
+    p.add_argument('--existing-database',action='store_true',help='reconciliation for a database that already has revision history (skips the zero-revision assertion)'); a=p.parse_args()
     if not 1<=a.batch_size<=400: p.error('batch-size must be 1-400')
     a.output.mkdir(parents=True,exist_ok=True); count=0
     for count,sql in enumerate(batches(a.batch_size),1): (a.output/f'{count:04}.sql').write_text(sql,encoding='utf-8')
-    if a.reconcile_sql: a.reconcile_sql.write_text(reconcile_sql(),encoding='utf-8')
+    if a.reconcile_sql: a.reconcile_sql.write_text(reconcile_sql(fresh=not a.existing_database),encoding='utf-8')
     print(json.dumps({'batches':count,'output':str(a.output)}))

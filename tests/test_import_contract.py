@@ -93,3 +93,30 @@ class ImportContractTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class LiveImportWorkflowTests(unittest.TestCase):
+    def test_existing_database_reconciliation_allows_revision_history(self):
+        self.assertIn('reference_revisions', importer.reconcile_sql(fresh=True))
+        self.assertNotIn('reference_revisions', importer.reconcile_sql(fresh=False))
+
+    def test_live_import_script_runs_preflight_reconciles_and_checks_idempotence(self):
+        script = (ROOT / 'scripts/live_import.sh').read_text()
+        self.assertIn('set -euo pipefail', script)
+        self.assertIn('live_preflight.sql', script)
+        self.assertIn('--existing-database', script)
+        self.assertEqual(script.count('for f in "$work"/batches/*.sql'), 2)  # two passes
+        self.assertNotIn('echo "$DATABASE_URL', script)
+
+    def test_preflight_checks_every_migration_the_importer_needs(self):
+        sql = (ROOT / 'supabase/checks/live_preflight.sql').read_text()
+        for marker in ('20261002130818', '20261002150000', '20261002131409', 'program_plan', 'policy_details'):
+            self.assertIn(marker, sql)
+
+    def test_workflow_skips_cleanly_without_secret_and_never_runs_concurrently(self):
+        wf = (ROOT / '.github/workflows/live-import.yml').read_text()
+        self.assertIn('secrets.SUPABASE_DB_URL', wf)
+        self.assertIn("steps.secret.outputs.configured == 'true'", wf)
+        self.assertIn('cancel-in-progress: false', wf)
+        self.assertIn('branches: [main]', wf)
+        self.assertNotIn('pull_request', wf)  # PR code never receives the database secret
