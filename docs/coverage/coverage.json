@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01",
+  "generated_at": "2026-10-02",
   "status": "in_progress",
   "coverage_definition": {
     "state_aid": "A state counts as complete only when the current official state-aid catalog relevant to the product is normalized and source-verified.",
@@ -14,7 +14,8 @@
     "complete_institutions": 0,
     "verified_state_aid_records": 5,
     "verified_institution_policy_records": 5,
-    "verified_credit_equivalencies": 10
+    "verified_credit_equivalencies": 10,
+    "verified_federal_aid_records": 1
   },
   "current_batches": [
     {
@@ -28,11 +29,18 @@
       "status": "partial",
       "records_persisted": 6,
       "notes": "Institution identity, AP/CLEP policy seed, selected AP equivalencies, one current institutional award, and appeal/negotiation-gate policy are persisted. Costs, admissions metrics, transfer rules, full scholarship catalog, and full prior-learning tables remain."
+    },
+    {
+      "scope": "Federal student aid 2026-27",
+      "status": "partial",
+      "records_persisted": 1,
+      "notes": "Federal Pell Grant maximum/minimum, SAI cutoff, year-round percentage, and lifetime eligibility limits verified from Federal Student Aid. Other federal aid programs remain to be normalized."
     }
   ],
   "notes": [
     "Counts include only records persisted in this repository.",
     "Prior conversational research is not counted until it is written to the repository and source-verified.",
-    "Negative policy findings are treated conservatively; absence of a published offer-negotiation path is not upgraded to a verified negative without sufficient official-source review."
+    "Negative policy findings are treated conservatively; absence of a published offer-negotiation path is not upgraded to a verified negative without sufficient official-source review.",
+    "Federal aid is tracked separately from the 51 state/DC coverage target."
   ]
 }
