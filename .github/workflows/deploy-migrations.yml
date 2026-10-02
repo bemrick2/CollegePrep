@@ -1,21 +1,14 @@
-name: Live Supabase reference import
+name: Deploy Supabase migrations
 
-# Loads repository reference data into the live CollegePrep database after it reaches main.
-# Requires the SUPABASE_DB_URL secret (Session pooler connection string for an admin role).
-# Without the secret the job reports a notice and exits successfully.
+# Applies repository migrations that are not yet live, after they reach main.
+# Uses the same SUPABASE_DB_URL secret and environment as the live import.
+# Each migration runs in one transaction with its schema_migrations row (scripts/apply_migrations.py).
 on:
   push:
     branches: [main]
     paths:
-      - 'data/**'
-      - 'scripts/import_supabase.py'
-      - 'scripts/live_import.sh'
-      - 'backend/catalog.py'
+      - 'supabase/migrations/**'
   workflow_dispatch:
-  # Re-run after a migration deploy, so data that needs a new migration imports once it is live.
-  workflow_run:
-    workflows: [Deploy Supabase migrations]
-    types: [completed]
 
 concurrency:
   group: live-supabase
@@ -25,8 +18,7 @@ permissions:
   contents: read
 
 jobs:
-  import:
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+  deploy:
     runs-on: ubuntu-latest
     environment: supabase-live
     env:
@@ -36,7 +28,7 @@ jobs:
         id: secret
         run: |
           if [ -z "$DATABASE_URL" ]; then
-            echo "::notice::SUPABASE_DB_URL is not configured; live import skipped."
+            echo "::notice::SUPABASE_DB_URL is not configured; migration deploy skipped."
             echo "configured=false" >> "$GITHUB_OUTPUT"
           else
             echo "configured=true" >> "$GITHUB_OUTPUT"
@@ -50,7 +42,6 @@ jobs:
       - name: Install PostgreSQL client
         if: steps.secret.outputs.configured == 'true'
         run: sudo apt-get update -qq && sudo apt-get install -y -qq postgresql-client
-      - name: Import, reconcile and verify idempotence
+      - name: Apply pending migrations and verify live history
         if: steps.secret.outputs.configured == 'true'
-        shell: bash
-        run: scripts/live_import.sh
+        run: python scripts/apply_migrations.py
