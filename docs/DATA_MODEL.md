@@ -46,6 +46,8 @@ The paid negotiation/reconsideration feature is available only if the school has
 
 A generic federal professional-judgment/special-circumstances process by itself does **not** automatically qualify the school for the paid negotiation add-on.
 
+The prepared migration requires `qualifies_for_paid_addon`, `qualifying_path_evidence`, matching academic year and verification within 365 days. The replacement gate is `institution_negotiation_addon_eligibility_by_year`. A missing row means ineligible. The legacy unscoped view fails closed. Deployment and database policy tests remain blocked on a designated CollegePrep database.
+
 ## Practice-question AI help
 
 Practice content is separated into blueprints by exam family, subject, domain, skill, and difficulty. The UI can place an AI-help action beside a question, but help should teach the concept and reasoning rather than simply disclose the answer by default.
