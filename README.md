@@ -43,6 +43,6 @@ Repository initialized October 1, 2026. Nationwide 2023â€“24 IPEDS referenc
 
 A transactional development reference backend and explicit-year read API are runnable; see [backend instructions](docs/BACKEND.md). The designated CollegePrep Supabase project now contains all 17,865 source records, normalized reference tables and a private revision ledger. Counts and source fields were reconciled, repeated import was checked, and security advisors report no notices. Public clients can read verified reference data but cannot edit it. Current institutional and state-policy coverage remains small; no institution or state is marked complete. Practice-question AI help remains in the product plan.
 
-A household, student and practice-progress schema has been tested in CI but is not yet applied live; see [household practice](docs/HOUSEHOLD_PRACTICE.md).
+A household, student-account, subscription and ACT/SAT practice schema has been tested in CI but is not yet applied live; see [household practice](docs/HOUSEHOLD_PRACTICE.md).
 
 Coverage reports in `docs/coverage/` are the authoritative persisted-data counts.

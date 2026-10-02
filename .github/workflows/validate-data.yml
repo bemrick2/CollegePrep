@@ -60,8 +60,10 @@ jobs:
         run: python scripts/test_program_import.py | psql -v ON_ERROR_STOP=1
       - name: Test public school comparison RPC
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/school_comparison.sql
-      - name: Test household access, practice grading and weekly progress
-        run: psql -v ON_ERROR_STOP=1 -f supabase/tests/household_practice.sql
+      - name: Test household accounts, permissions and subscriptions
+        run: psql -v ON_ERROR_STOP=1 -f supabase/tests/household_access.sql
+      - name: Test practice grading, recommendations, estimates and progress
+        run: psql -v ON_ERROR_STOP=1 -f supabase/tests/practice_engine.sql
       - name: Import every repository record twice into the disposable database
         run: |
           python scripts/import_supabase.py --output /tmp/import --reconcile-sql /tmp/reconcile.psql
