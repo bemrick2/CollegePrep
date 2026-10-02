@@ -1,6 +1,6 @@
 """Apply reviewed decisions: write approved candidates and re-verification upgrades into data/.
 
-Decisions live in `pipeline/decisions/<STATE>.json` and are reviewed in the PR like data:
+Decisions live in `pipeline/decisions/<STATE>-<run>.json` (one file per reviewed run) and are reviewed in the PR like data:
 
   {"run": "pipeline/runs/TN/2026-10-02",
    "approve": [{"candidate_id": "...", "reason": "values match the cited rows"}],
