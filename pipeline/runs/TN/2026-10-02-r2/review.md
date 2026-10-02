@@ -1,0 +1,990 @@
+# Review queue — TN (2026-27)
+
+Pages fetched: 2579; failures: 259. Candidates: 48 (16 without issues, 32 exceptions). Re-verification upgrades proposed: 3.
+
+## Coverage by category
+
+| category | verified_current | partially_verified_current | candidate_ready | candidate_exception | source_found | not_found | fetch_failed |
+|---|---|---|---|---|---|---|---|
+| tuition_fees | 1 | 1 | 9 | 8 | 32 | 1 | 7 |
+| cost_of_attendance | 1 | 1 | 9 | 8 | 32 | 1 | 7 |
+| admissions_tests | 1 | 0 | 0 | 2 | 49 | 0 | 7 |
+| common_data_set | 1 | 0 | 0 | 2 | 7 | 42 | 7 |
+| merit_scholarships | 1 | 0 | 0 | 0 | 48 | 3 | 7 |
+| ap_credit | 1 | 1 | 2 | 1 | 14 | 33 | 7 |
+| clep_credit | 1 | 1 | 1 | 2 | 7 | 40 | 7 |
+| ib_credit | 1 | 0 | 1 | 1 | 3 | 46 | 7 |
+| dual_enrollment | 1 | 0 | 0 | 0 | 35 | 16 | 7 |
+| transfer_credit | 0 | 2 | 0 | 0 | 45 | 5 | 7 |
+| statewide_articulation | 0 | 2 | 0 | 0 | 19 | 31 | 7 |
+| residency | 0 | 2 | 0 | 0 | 21 | 29 | 7 |
+| degree_requirements | 1 | 1 | 0 | 0 | 45 | 5 | 7 |
+| aid_appeals | 1 | 1 | 0 | 0 | 36 | 14 | 7 |
+
+## Ready for review (16)
+
+### `9e9ce8f697666d9c` Belmont University — costs 2026-27 [new] (labeled_in_source)
+- source: https://www.belmont.edu/admissions/first-year/tuition-aid.html (sha256 09ad51e3649b)
+- checks: {"columns": 1, "components_reconcile": true, "rows": 3}
+  - column:Tuition and Fees: 45200 ⟵ “Tuition and Fees | $45,200”
+  - column:Residence Hall and Meal Plan*: 16130 ⟵ “Residence Hall and Meal Plan* | $16,130”
+  - column:Total Estimated Cost for 2026-2027**: 61330 ⟵ “Total Estimated Cost for 2026-2027** | $61,330”
+### `640f9313f8f7fe36` Bryan College-Dayton — costs 2026-27 [new] (labeled_in_source)
+- source: https://www.bryan.edu/admissions/tuition-fees/ (sha256 f6ee59d6079c)
+- checks: {"columns": 1, "components_reconcile": true, "rows": 4}
+  - column:Tuition (12-17 hours): 21700 ⟵ “Tuition (12-17 hours) | $10,850 | $21,700”
+  - column:Board: 3900 ⟵ “Board | $1,950 | $3,900”
+  - column:Room (traditional dorms): 5650 ⟵ “Room (traditional dorms) | $2,825 | $5,650”
+  - column:Total traditional (tuition, room & board): 31250 ⟵ “Total traditional (tuition, room & board) | $15,625 | $31,250”
+### `67139c261f1a764e` Carson-Newman University — costs 2026-27 [new] (labeled_in_source)
+- source: https://www.cn.edu/admissions-and-aid/financial-aid/ (sha256 44c136e71d64)
+- checks: {"columns": 1, "components_reconcile": true, "rows": 5}
+  - column:Tuition: 42500 ⟵ “Tuition | $21,250 | $42,500”
+  - column:Residential Student Fee: 200 ⟵ “Residential Student Fee |  | 200”
+  - column:Meal Plan*: 6300 ⟵ “Meal Plan* | 3,150 | 6,300”
+  - column:Room**: 6300 ⟵ “Room** | 3,150 | 6,300”
+  - column:Total: 55300 ⟵ “Total | $27,550 | $55,300”
+### `0ac5b84733bf0150` Jackson State Community College — costs 2026-27 [new] (labeled_in_source)
+- source: https://jscc.edu/costs-and-aid/tuition/coa/ (sha256 ce189edff644)
+- checks: {"columns": 3, "components_per_semester": true, "components_reconcile": true, "rows": 6}
+  - with_parents_or_family:TUITION & FEES*: 2535 ⟵ “TUITION & FEES* | $2,535 | $2,535 | $2,535”
+  - with_parents_or_family:BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT: 756 ⟵ “BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT | $756 | $756 | $756”
+  - with_parents_or_family:LIVING EXPENSES** (FOOD & HOUSING): 3841 ⟵ “LIVING EXPENSES** (FOOD & HOUSING) | $3,841 | $7,838 | $2,508”
+  - with_parents_or_family:MISC/PERSONAL**: 808 ⟵ “MISC/PERSONAL** | $808 | $808 | $808”
+  - with_parents_or_family:TRANSPORTATION: 2719 ⟵ “TRANSPORTATION | $2,719 | $2,719 | $2,719”
+  - with_parents_or_family:TOTAL: (FOR FALL AND SPRING): 21318 ⟵ “TOTAL: (FOR FALL AND SPRING) | $21,318 | $29,312 | $18,652”
+  - off_campus_not_with_family:TUITION & FEES*: 2535 ⟵ “TUITION & FEES* | $2,535 | $2,535 | $2,535”
+  - off_campus_not_with_family:BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT: 756 ⟵ “BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT | $756 | $756 | $756”
+  - off_campus_not_with_family:LIVING EXPENSES** (FOOD & HOUSING): 7838 ⟵ “LIVING EXPENSES** (FOOD & HOUSING) | $3,841 | $7,838 | $2,508”
+  - off_campus_not_with_family:MISC/PERSONAL**: 808 ⟵ “MISC/PERSONAL** | $808 | $808 | $808”
+  - off_campus_not_with_family:TRANSPORTATION: 2719 ⟵ “TRANSPORTATION | $2,719 | $2,719 | $2,719”
+  - off_campus_not_with_family:TOTAL: (FOR FALL AND SPRING): 29312 ⟵ “TOTAL: (FOR FALL AND SPRING) | $21,318 | $29,312 | $18,652”
+  - other:TUITION & FEES*: 2535 ⟵ “TUITION & FEES* | $2,535 | $2,535 | $2,535”
+  - other:BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT: 756 ⟵ “BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT | $756 | $756 | $756”
+  - other:LIVING EXPENSES** (FOOD & HOUSING): 2508 ⟵ “LIVING EXPENSES** (FOOD & HOUSING) | $3,841 | $7,838 | $2,508”
+  - other:MISC/PERSONAL**: 808 ⟵ “MISC/PERSONAL** | $808 | $808 | $808”
+  - other:TRANSPORTATION: 2719 ⟵ “TRANSPORTATION | $2,719 | $2,719 | $2,719”
+  - other:TOTAL: (FOR FALL AND SPRING): 18652 ⟵ “TOTAL: (FOR FALL AND SPRING) | $21,318 | $29,312 | $18,652”
+### `0fd9a93f60222c60` Jackson State Community College — credit_policies 2026-27 [new] (source_unlabeled)
+- source: https://jscc.edu/admissions/prior-learning/equivalency-exams/ (sha256 e188ca9a6ea3)
+- checks: {"distinct_exams": 33, "equivalencies": 36, "rows_without_score": 0}
+  - equivalencies[CLEP-AMERICAN-GOVERNMENT|50]:  ⟵ “American Government | 50 | 3 | POLS 1030 American Government”
+  - equivalencies[CLEP-AMERICAN-LITERATURE|50]:  ⟵ “American Literature | 50 | 6 | ENGL 2110 Early American Literature & ENGL 2120 Modern American Literature”
+  - equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|50]:  ⟵ “Analyzing & Interpreting Literature | 50 | 6 | Credit for Literature Requirement or specific ENGL course”
+  - equivalencies[CLEP-BIOLOGY|50]:  ⟵ “Biology | 50 | 8 | BIOL 1110 & 1120 General Biology I & II”
+  - equivalencies[CLEP-CALCULUS|50]:  ⟵ “Calculus | 50 | 4 | MATH 1910 Calculus”
+  - equivalencies[CLEP-CHEMISTRY|50]:  ⟵ “Chemistry | 50 | 8 | CHEM 1110 & 1120 General Chemistry I & II”
+  - equivalencies[CLEP-COLLEGE-ALGEBRA|50]:  ⟵ “College Algebra | 50 | 3 | MATH 1130 College Algebra or MATH 1630 Finite Mathematics”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION|50]:  ⟵ “College Composition (also Freshmen) | 50 | 6 | ENGL 1010 & 1020 Composition I & II”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION-MODULAR|50]:  ⟵ “College Composition Modular | 50 | 3/6 | ENGL 1010 & 1020 Composition I & II”
+  - equivalencies[CLEP-COLLEGE-MATHEMATICS|50]:  ⟵ “College Mathematics | 50 | 3 | MATH 1010 Math for General Studies”
+  - equivalencies[CLEP-ENGLISH-LITERATURE|50]:  ⟵ “English Literature | 50 | 6 | ENGL 2210 Early British Literature and ENGL 2220 Modern British Literature”
+  - equivalencies[CLEP-FINANCIAL-ACCOUNTING|50]:  ⟵ “Financial Accounting | 50 | 3 | ACCT 1010 Principles of Accounting I”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|50]:  ⟵ “French Language, level 1 | 50 | 6 | FREN 1010 & 1020 Beginning French I & II”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|59]:  ⟵ “French Language, level II | 59 | 12 | FREN 1010 & 1020 Beginning French I & II FREN 2010 & 2020 Intermediate French I & II”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|50]:  ⟵ “German Language, level 1*** | 50 | 6 | GERM 1010 & 1020 Beginning German I & II”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|60]:  ⟵ “German Language, level II*** | 60 | 12 | GERM 1010 & 1020 Beginning German I & II GERM 2010 & 2020 Intermediate German I & II”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-I|50]:  ⟵ “History of the United States I | 50 | 3 | HIST 2010 Early American History”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-II|50]:  ⟵ “History of the United States II | 50 | 3 | HIST 2020 Modern American History”
+  - equivalencies[CLEP-HUMAN-GROWTH-DEVELOPMENT|50]:  ⟵ “Human Growth and Development | 50 | 3 | PSYC 2130 Lifespan Psychology”
+  - equivalencies[CLEP-HUMANITIES|50]:  ⟵ “Humanities | 50 | 6 | HUM 1010 Early Humanities and HUM 1020 Modern Humanities”
+  - equivalencies[CLEP-INFORMATION-SYSTEMS|50]:  ⟵ “Information Systems & Computer Applications | 50 | 3 | INFS 1010 Computer Applications”
+  - equivalencies[CLEP-INTRODUCTION-TO-EDUCATIONAL-PSYCHOLOGY|50]:  ⟵ “Introduction to Educational Psychology | 50 | 3 | EDUC 2210 Educational Psychology”
+  - equivalencies[CLEP-INTRODUCTORY-BUSINESS-LAW|50]:  ⟵ “Introductory Business Law | 50 | 3 | BUSN 2370 Legal Environment of Business”
+  - equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|50]:  ⟵ “Introductory Psychology | 50 | 3 | PSYC 1030 General Psychology”
+  - equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|50]:  ⟵ “Introductory Sociology | 50 | 3 | SOCI 1010 Introduction to Sociology”
+  - … 11 more rows
+### `bcf8154da1a1d5cb` Jackson State Community College — credit_policies 2026-27 [new] (source_unlabeled)
+- source: https://jscc.edu/admissions/prior-learning/equivalency-exams/ (sha256 e188ca9a6ea3)
+- checks: {"distinct_exams": 38, "equivalencies": 56, "rows_without_score": 0}
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|3,4,5]:  ⟵ “African American Studies | 3,4,5 | 3 SCH | HIST 2060 African American History”
+  - equivalencies[AP-ART-HISTORY|3,4,5]:  ⟵ “Art History | 3,4,5 | 3 SCH | ARTH 2010 Art History I”
+  - equivalencies[AP-BIOLOGY|3]:  ⟵ “Biology | 3 | 4 SCH | BIOL 1110 General Biology I”
+  - equivalencies[AP-BIOLOGY|4,5]:  ⟵ “Biology | 4,5 | 8 SCH | BIOL 1110 & 1120 General Biology I & II”
+  - equivalencies[AP-CALCULUS-AB|3]:  ⟵ “Calculus AB | 3 | 3 SCH | MATH 1830 Applied Calculus”
+  - equivalencies[AP-CALCULUS-AB|4,5]:  ⟵ “Calculus AB | 4,5 | 3 SCH | MATH 1830 Applied Calculus or MATH 1910 Calculus I”
+  - equivalencies[AP-CALCULUS-BC|3]:  ⟵ “Calculus BC | 3 | 4 SCH | MATH 1910 Calculus I or MATH 1920 Calculus II”
+  - equivalencies[AP-CHEMISTRY|3]:  ⟵ “Chemistry | 3 | 4 SCH | CHEM 1110 General Chemistry I”
+  - equivalencies[AP-CHEMISTRY|4]:  ⟵ “Chemistry | 4 | 8 SCH | CHEM 1110 General Chemistry I & CHEM 1120 General Chemistry II”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|3]:  ⟵ “Chinese Language & Culture*** | 3 | 6 SCH | 1010 & 1020 Beginning Language I & 2”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|4]:  ⟵ “Chinese Language & Culture*** | 4 | 9 SCH | 1010, 1020, & 2010 Intermediate Language I”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|5]:  ⟵ “Chinese Language & Culture*** | 5 | 12 SCH | 1010, 1020, 2010, & 2020 Intermediate Language II”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|4,5]:  ⟵ “Computer Science A | 4,5 | 4 SCH | CISP 1010 Computer Science I”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|3,4,5]:  ⟵ “Computer Science Principles | 3,4,5 | 3 SCH | CITC 1301 Introduction to Programming and Logic Design”
+  - equivalencies[AP-MACROECONOMICS|3,4,5]:  ⟵ “Macroeconomics | 3,4,5 | 3 SCH | ECON 2010 Macroeconomics”
+  - equivalencies[AP-MICROECONOMICS|3,4,5]:  ⟵ “Microeconomics | 3,4,5 | 3 SCH | ECON 2020 Microeconomics”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3]:  ⟵ “English Language | 3 | 3 SCH | ENGL 1010 Composition I”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|4,5]:  ⟵ “English Language | 4,5 | 6 SCH | ENGL 1010 Composition I & ENGL 1020 Composition II”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3,4,5]:  ⟵ “English Literature | 3,4,5 | 6 SCH | ENGL 2210 & 2220 Survey of British Literature I & II”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|3,4,5]:  ⟵ “Environmental Science | 3,4,5 | 4 SCH | BIOL 1510 Environmental Science I”
+  - equivalencies[AP-EUROPEAN-HISTORY|3,4,5]:  ⟵ “European History*** | 3,4,5 | 6 SCH | HIST 1010 & 1020 Survey of Western Civilization I, II”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]:  ⟵ “French Language & Culture | 3 | 6 SCH | FREN 1010 & 1020 Beginning French I & II”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|4]:  ⟵ “French Language & Culture | 4 | 9 SCH | FREN 1010, 1020, & 2010 Intermediate French I”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|5]:  ⟵ “French Language & Culture | 5 | 12 SCH | FREN 1010, 1020, 2010 & 2020 Intermediate French II”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3]:  ⟵ “German Language & Culture*** | 3 | 6 SCH | 1010 & 1020 Beginning Language I & 2”
+  - … 31 more rows
+### `18829a059bcf3e26` John A Gupton College — costs 2026-27 [new] (source_unlabeled)
+- source: https://guptoncollege.edu/academics/admissions/tuition-fees/ (sha256 fd424a79b6df)
+- checks: {"columns": 1, "rows": 8}
+  - column:Tuition per semester hour (includes fees): 390.0 ⟵ “Tuition per semester hour (includes fees) | $390.00”
+  - column:Audit tuition per semester hour: 200.0 ⟵ “Audit tuition per semester hour | $200.00”
+  - column:TN student apprenticeship application fee: 50.0 ⟵ “TN student apprenticeship application fee | $50.00”
+  - column:National Board Exam- Arts (Graduation Fee): 285.0 ⟵ “National Board Exam- Arts (Graduation Fee) | $285.00”
+  - column:National Board Exam-Science (Graduation Fee): 285.0 ⟵ “National Board Exam-Science (Graduation Fee) | $285.00”
+  - column:Transfer Challenge Exam: 100.0 ⟵ “Transfer Challenge Exam | $100.00”
+  - column:Technology and Exam Fee per semester: 175.0 ⟵ “Technology and Exam Fee per semester | $175.00”
+  - column:Transcript Fee: 12.5 ⟵ “Transcript Fee | $12.50”
+### `9dfd7dc38c082643` Lee University — admissions_metrics 2025-26 [new] (labeled_in_source)
+- source: https://www.leeuniversity.edu/wp-content/uploads/2025-2026-CDS-1-1.pdf (sha256 2789690c4071)
+- checks: {"fields": ["act_25", "act_50", "act_75", "admits", "applications", "enrolled", "entering_fall_year", "sat_composite_25", "sat_composite_50", "sat_composite_75", "sat_math_25", "sat_math_50", "sat_math_75", "sat_reading_25", "sat_reading_50", "sat_reading_75"]}
+  - applications: 2481 ⟵ “Total applied                                                                          2,481”
+  - admits: 1771 ⟵ “Total admitted                                                                         1,771”
+  - enrolled: 570 ⟵ “Total enrolled                                                                          570”
+  - sat_composite_25..75: [1030, 1120, 1230] ⟵ “SAT Composite                                                        1030                               1120                               1230”
+  - sat_reading_25..75: [530, 570, 640] ⟵ “SAT Evidence-Based Reading and Writing                               530                                570                                640”
+  - sat_math_25..75: [490, 540, 600] ⟵ “SAT Math                                                             490                                540                                600”
+  - act_25..75: [20, 23, 27] ⟵ “ACT Composite                                                         20                                 23                                 27”
+### `885d40aa7d56b962` Lipscomb University — costs 2026-27 [new] (labeled_in_source)
+- source: https://lipscomb.edu/admission/tuition-and-financial-aid/cost-attendance (sha256 4fe1468ec981)
+- checks: {"columns": 3, "components_reconcile": true, "rows": 8}
+  - on_campus:Tuition & Fees: 44486 ⟵ “Tuition & Fees | $44,486 | $44,486 | $44,486”
+  - on_campus:Housing: 11044 ⟵ “Housing | $11,044** | $13,240 | $4,500”
+  - on_campus:Food: 6988 ⟵ “Food | $6,988** | $3,034 | $2,020”
+  - on_campus:Books & Supplies: 1800 ⟵ “Books & Supplies | $1,800 | $1,800 | $1,800”
+  - on_campus:Personal Expenses: 2530 ⟵ “Personal Expenses | $2,530 | $2,530 | $2,530”
+  - on_campus:Transportation: 2314 ⟵ “Transportation | $2,314 | $2,314 | $2,314”
+  - on_campus:Loan Fees: 48 ⟵ “Loan Fees | $48 | $48 | $48”
+  - on_campus:Total: 69210 ⟵ “Total | $69,210 | $67,452 | $57,698”
+  - off_campus_not_with_family:Tuition & Fees: 44486 ⟵ “Tuition & Fees | $44,486 | $44,486 | $44,486”
+  - off_campus_not_with_family:Housing: 13240 ⟵ “Housing | $11,044** | $13,240 | $4,500”
+  - off_campus_not_with_family:Food: 3034 ⟵ “Food | $6,988** | $3,034 | $2,020”
+  - off_campus_not_with_family:Books & Supplies: 1800 ⟵ “Books & Supplies | $1,800 | $1,800 | $1,800”
+  - off_campus_not_with_family:Personal Expenses: 2530 ⟵ “Personal Expenses | $2,530 | $2,530 | $2,530”
+  - off_campus_not_with_family:Transportation: 2314 ⟵ “Transportation | $2,314 | $2,314 | $2,314”
+  - off_campus_not_with_family:Loan Fees: 48 ⟵ “Loan Fees | $48 | $48 | $48”
+  - off_campus_not_with_family:Total: 67452 ⟵ “Total | $69,210 | $67,452 | $57,698”
+  - with_parents_or_family:Tuition & Fees: 44486 ⟵ “Tuition & Fees | $44,486 | $44,486 | $44,486”
+  - with_parents_or_family:Housing: 4500 ⟵ “Housing | $11,044** | $13,240 | $4,500”
+  - with_parents_or_family:Food: 2020 ⟵ “Food | $6,988** | $3,034 | $2,020”
+  - with_parents_or_family:Books & Supplies: 1800 ⟵ “Books & Supplies | $1,800 | $1,800 | $1,800”
+  - with_parents_or_family:Personal Expenses: 2530 ⟵ “Personal Expenses | $2,530 | $2,530 | $2,530”
+  - with_parents_or_family:Transportation: 2314 ⟵ “Transportation | $2,314 | $2,314 | $2,314”
+  - with_parents_or_family:Loan Fees: 48 ⟵ “Loan Fees | $48 | $48 | $48”
+  - with_parents_or_family:Total: 57698 ⟵ “Total | $69,210 | $67,452 | $57,698”
+### `e91522fb6c3f2cdd` Lipscomb University — credit_policies 2026-27 [new] (source_unlabeled)
+- source: https://lipscomb.edu/admission/transfer-admission/transferring-credit (sha256 a7ffd3af7b5c)
+- checks: {"distinct_exams": 31, "equivalencies": 31, "rows_without_score": 0}
+  - equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|No credit]:  ⟵ “American Gov./Pol. | No credit | PO 1023 | Same as 4 | 3 | Great Ideas in Politics”
+  - equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|No credit]:  ⟵ “Comparative Gov./Pol. | No credit | PO 1013 | Same as 4 | 3 | Great Ideas in Politics”
+  - equivalencies[AP-UNITED-STATES-HISTORY|No credit]:  ⟵ “American History | No credit | HI 2213 | Same as 4 | 3 | Great Ideas in History”
+  - equivalencies[AP-EUROPEAN-HISTORY|No credit]:  ⟵ “European History | No credit | HI 1113 | Same as 4 | 3 | Great Ideas in History”
+  - equivalencies[AP-WORLD-HISTORY-MODERN|No credit]:  ⟵ “World History | No credit | HI 1013 | Same as 4 | 3 | Great Ideas in History”
+  - equivalencies[AP-MACROECONOMICS|EC 2403]:  ⟵ “Macroeconomics | EC 2403 | Same as 3 | Same as 3 & 4 | 3 | Social Inquiry”
+  - equivalencies[AP-MICROECONOMICS|EC 2413]:  ⟵ “Microeconomics | EC 2413 | Same as 3 | Same as 3 & 4 | 3 | Social Inquiry”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|EN 1113]:  ⟵ “English Lang. and Comp.* | EN 1113 | Same as 3 | Same as 3 & 4 | 3 | Elective”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|EN 1113]:  ⟵ “English Lit. and Comp.* | EN 1113 | Same as 3 | Same as 3 & 4 | 3 | Elective”
+  - equivalencies[AP-ART-HISTORY|AR 4813]:  ⟵ “Art History | AR 4813 | Same as 3 | Same as 3 & 4 | 3 | Artistic Inquiry”
+  - equivalencies[AP-2-D-ART-DESIGN|AR 1033]:  ⟵ “Studio Art- 2-D Design* | AR 1033 | Same as 3 | Same as 3 & 4 | 3 | Artistic Inquiry”
+  - equivalencies[AP-3-D-ART-DESIGN|AR 1033]:  ⟵ “Studio Art- 3-D Design* | AR 1033 | Same as 3 | Same as 3 & 4 | 3 | Artistic Inquiry”
+  - equivalencies[AP-DRAWING|AR 1033]:  ⟵ “Studio Art-Drawing* | AR 1033 | Same as 3 | Same as 3 & 4 | 3 | Artistic Inquiry”
+  - equivalencies[AP-MUSIC-THEORY|No credit]:  ⟵ “Music Theory | No credit | MU 1111, MU 1133 | MU 1111, MU 1121MU 1133, MU 1143 | 8 | Artistic Inquiry”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|FR 1114]:  ⟵ “French Language | FR 1114 | FR 1114, FR 1124, & FR 2114 | FR 1114, FR 1124, FR 2114, & FR 2124 | 16 | B.A. Foreign Language Hours”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|GE 1114]:  ⟵ “German Language | GE 1114 | GE 1114, GE 1124 & GE 2114 | GE 1114, GE 1124, GE 2114, & GE 2124 | 16 | B.A. Foreign Language Hours”
+  - equivalencies[AP-SPANISH-LANGUAGE-CULTURE|SN 1114]:  ⟵ “Spanish Language | SN 1114 | SN 1114, SN 1124 & SN 2114 | SN 1114, SN 1124, SN 2114, & SN 2124 | 16 | B.A. Foreign Language Hours”
+  - equivalencies[AP-STATISTICS|MA2183]:  ⟵ “Statistics | MA2183 | Same as 3 | Same as 3 & 4 | 3 | Quantitative reason, B.S. hours”
+  - equivalencies[AP-CALCULUS-AB|No Credit]:  ⟵ “Calculus AB* | No Credit | MA 1314 | Same as 4 | 4 | Quantitative reason, B.S. hours”
+  - equivalencies[AP-CALCULUS-BC|MA 1314]:  ⟵ “Calculus BC* | MA 1314 | MA 1314 & MA 2314 | Same as 4 | 8 | Quantitative reason, B.S. hours”
+  - equivalencies[AP-PRECALCULUS|No Credit]:  ⟵ “Precalculus | No Credit | MA 1123 or MA 1135 | Same as 4 | 5 | Quantitative reason, B.S. hours”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|CS 1213]:  ⟵ “Computer Science A | CS 1213 | Same as 3 | Same as 3 & 4 | 6 | B.S. Hours”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|CCT 1133]:  ⟵ “Computer Science Principles | CCT 1133 | Same as 3 | Same as 3 & 4 | 3 | B.S. Hours”
+  - equivalencies[AP-BIOLOGY|BY 1003]:  ⟵ “Biology* | BY 1003 | BY 1003 | BY1144 | 3 | Score of 3 or 4: Hours towards science requirement; Score of 5: Science requirement fully met; All scores: B.S. hours”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|BY 1003]:  ⟵ “Environmental Science* | BY 1003 | BY 1003, or BY 1013, or ESS 1013 | Same as 4 | 3 | Hours toward science requirement; B.S. hours”
+  - … 6 more rows
+### `f64e07acd6b95d74` Maryville College — costs 2026-27 [new] (labeled_in_source)
+- source: https://www.maryvillecollege.edu/admissions/tuition-and-fees/ (sha256 dbcaac43b1f5)
+- checks: {"columns": 1, "components_reconcile": true, "rows": 7}
+  - column:Tuition (Full-Time): 41300 ⟵ “Tuition (Full-Time) | $20,650 | $41,300”
+  - column:Activity Fee: 512 ⟵ “Activity Fee | $256 | $512”
+  - column:Orientation Fee (one time): 325 ⟵ “Orientation Fee (one time) | $325 | $325”
+  - column:Service Fee: 472 ⟵ “Service Fee | $236 | $472”
+  - column:Room (Basic rate – See all rates): 6880 ⟵ “Room (Basic rate – See all rates) | $3,440 | $6,880”
+  - column:Meals (Scots Unlimited – See all plans): 7392 ⟵ “Meals (Scots Unlimited – See all plans) | $3,696 | $7,392”
+  - column:TOTAL: 56881 ⟵ “TOTAL | $28,603 | $56,881”
+### `b88a9f4e21e147e4` Rhodes College — costs 2026-27 [new] (labeled_in_source)
+- source: https://www.rhodes.edu/admission-aid/cost-affordability/tuition-fees (sha256 25c78d377b25)
+- checks: {"columns": 1, "components_reconcile": true, "rows": 4}
+  - column:Tuition: 60240 ⟵ “Tuition | $60,240”
+  - column:Mandatory Fees: 820 ⟵ “Mandatory Fees | $820”
+  - column:Housing & Food (Unlimited, All-Access Meal Plan)*: 15196 ⟵ “Housing & Food (Unlimited, All-Access Meal Plan)* | $15,196”
+  - column:Total: 76256 ⟵ “Total | $76,256”
+### `240766763de26377` Tennessee Wesleyan University — costs 2026-27 [new] (labeled_in_source)
+- source: https://www.tnwesleyan.edu/tuition-aid/costs/tuition-and-fees/ (sha256 9fc7d7abec77)
+- checks: {"columns": 1, "rows": 3}
+  - column:Tuition: 31880 ⟵ “Tuition | $30,650 | $31,880 | $15,940”
+  - column:Clinical Fees: 2250 ⟵ “Clinical Fees | $2,150 | $2,250 | $1,125”
+  - column:RN-BSN: 400 ⟵ “RN-BSN | $385 | $400 | ”
+### `2270d7083ae06bce` The University of Tennessee-Chattanooga — credit_policies 2026-27 [changed] (source_unlabeled)
+- source: https://www.utc.edu/academic-affairs/registrar/prior-learning-assessment/ap-exam (sha256 41ff37248398)
+- checks: {"distinct_exams": 39, "equivalencies": 57, "rows_without_score": 0}
+- change equivalency_count: `58` → `57`
+  - equivalencies[AP-ART-HISTORY|4]:  ⟵ “Art History | 4 | ART 2140 & ART 2150 | 6 | Historical Understanding; 23GE Humanities & Fine Arts”
+  - equivalencies[AP-ART-HISTORY|3]:  ⟵ “Art History | 3 | ART 2140 | 3 | Historical Understanding or Visual & Performing Arts; 23GE Humanities & Fine Arts”
+  - equivalencies[AP-BIOLOGY|3]:  ⟵ “Biology | 3 | BIOL 1110 & BIOL 1120 | 8 | Lab Science; 23GE Natural Science Lecture/Lab”
+  - equivalencies[AP-CALCULUS-AB|3]:  ⟵ “Calculus AB | 3 | MATH 1950 | 4 | Mathematics; 23GE Quantitative Reasoning”
+  - equivalencies[AP-CALCULUS-BC|3]:  ⟵ “Calculus BC | 3 | MATH 1950 & MATH 1960 | 8 | Mathematics; 23GE Quantitative Reasoning (1 course)”
+  - equivalencies[AP-CHEMISTRY|5]:  ⟵ “Chemistry** | 5 | CHEM 1110/1110L & CHEM 1120/1120L | 8 | Lab Science; 23GE Natural Science Lecture/Lab (1 course)”
+  - equivalencies[AP-CHEMISTRY|4]:  ⟵ “Chemistry** | 4 | CHEM 1110/1110L | 4 | Lab Science; 23GE Natural Science Lecture/Lab”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|5]:  ⟵ “Chinese Language & Culture | 5 | FLNG 1010, FLNG 1020, FLNG 2110 & FLNG 2120 | 12 | ”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|4]:  ⟵ “Chinese Language & Culture | 4 | FLNG 1010, FLNG 1020 & FLNG 2110 | 9 | ”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|3]:  ⟵ “Chinese Language & Culture | 3 | FLNG 1010 & FLNG 1020 | 6 | ”
+  - equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|3]:  ⟵ “Comparative Government & Politics | 3 | PSPS Elective | 3 | Behavioral & Social Sciences”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|4]:  ⟵ “Computer Science A | 4 | CPSC 1100 | 4 | ”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|4]:  ⟵ “Computer Science Principles | 4 | CPSC 1XXX | 3 | ”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|4]:  ⟵ “English Language & Composition | 4 | ENGL 1010 & ENGL 1020 | 6 | Rhetoric & Writing I/ Rhetoric & Writing II; 23GE Writing & Communication”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3]:  ⟵ “English Language & Composition | 3 | ENGL 1010 | 3 | Rhetoric & Writing I; 23GE Writing & Communication”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3]:  ⟵ “English Literature & Composition | 3 | ENGL 1330 | 3 | Literature; 23GE Humanities & Fine Arts”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|3]:  ⟵ “Environmental Science | 3 | ESC 1500 & ESC 1510 | 8 | Lab Science; 23GE Natural Science Lecture/Lab”
+  - equivalencies[AP-EUROPEAN-HISTORY|4]:  ⟵ “European History | 4 | HIST 2220 | 3 | Historical Understanding; 23GE Humanities & Fine Arts or 23GE Individual & Global Citizenship”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|5]:  ⟵ “French Language & Culture | 5 | FREN 1010, FREN 1020, FREN 2110 & FREN 2120 | 14 | 23GE Humanities & Fine Arts or 23GE Individual & Global Citizenship”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|4]:  ⟵ “French Language & Culture | 4 | FREN 1010, FREN 1020 & FREN 2110 | 11 | 23GE Humanities & Fine Arts or 23GE Individual & Global Citizenship”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]:  ⟵ “French Language & Culture | 3 | FREN 1010 & FREN 1020 | 8 | 23GE Humanities & Fine Arts or 23GE Individual & Global Citizenship”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|5]:  ⟵ “German Language & Culture | 5 | GER 1010, GER 1020, GER 2110 & GER 2120 | 14 | ”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|4]:  ⟵ “German Language & Culture | 4 | GER 1010, GER 1020 & GER 2110 | 11 | ”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3]:  ⟵ “German Language & Culture | 3 | GER 1010 & GER 1020 | 8 | ”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|3]:  ⟵ “Human Geography | 3 | GEOG 1040 | 3 | Behavioral & Social Sciences; 23GE Behavioral & Social Science”
+  - … 32 more rows
+### `a7a4dc495e126606` The University of Tennessee-Chattanooga — credit_policies 2026-27 [changed] (source_unlabeled)
+- source: https://www.utc.edu/academic-affairs/registrar/prior-learning-assessment/clep (sha256 d7c55ce0cd83)
+- checks: {"distinct_exams": 33, "equivalencies": 36, "rows_without_score": 0}
+- change equivalency clepbiology score 50: `BIOL 1110/1110L & BIOL 1120/1120L` → `BIOL 1110/1110L & BIOL1120/1120L`
+- change equivalency clepchemistry score 50: `CHEM 1110/1110L & CHEM 1120/1120L` → `CHEM1110/1110L & CHEM1120/1120L`
+- change equivalency clepenglishliterature score 50: `ENGL 2230` → `ENGL2230`
+  - equivalencies[CLEP-AMERICAN-GOVERNMENT|50]:  ⟵ “American Government | 50 | PSPS 1010 | 3 | Behavioral & Social Sciences; 23GE Behavioral & Social Science or 23GE Individual & Global Citizenship”
+  - equivalencies[CLEP-AMERICAN-LITERATURE|50]:  ⟵ “American Literature | 50 | ENGL 2130 | 3 | ”
+  - equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|50]:  ⟵ “Analyzing & Interpreting Literature | 50 | ENGL 1330 | 3 | Literature; 23GE Humanities & Fine Arts”
+  - equivalencies[CLEP-BIOLOGY|50]:  ⟵ “Biology | 50 | BIOL 1110/1110L & BIOL1120/1120L | 8 | Lab Science; 23GE Natural Science Lecture/Lab”
+  - equivalencies[CLEP-CALCULUS|50]:  ⟵ “Calculus | 50 | MATH 1950 | 4 | Mathematics; 23GE Quantitative Reasoning”
+  - equivalencies[CLEP-CHEMISTRY|50]:  ⟵ “Chemistry | 50 | CHEM1110/1110L & CHEM1120/1120L | 8 | Lab Science; 23GE Natural Science Lecture/Lab”
+  - equivalencies[CLEP-COLLEGE-ALGEBRA|50]:  ⟵ “College Algebra | 50 | MATH 1130 | 3 | Mathematics; 23GE Quantitative Reasoning”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION|50]:  ⟵ “College Composition | 50 | ENGL 1010 & ENGL 1020 | 6 | Rhetoric & Writing I/ Rhetoric & Writing II; 23GE Writing & Communication”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION-MODULAR|50]:  ⟵ “College Composition Modular | 50 | ENGL 1020 | 3 | Rhetoric & Writing I/ Rhetoric & Writing II; 23GE Writing & Communication (1 course)”
+  - equivalencies[CLEP-COLLEGE-MATHEMATICS|50]:  ⟵ “College Mathematics | 50 | MATH 1010 | 3 | Mathematics; 23GE Quantitative Reasoning”
+  - equivalencies[CLEP-ENGLISH-LITERATURE|50]:  ⟵ “English Literature | 50 | ENGL2230 | 3 | ”
+  - equivalencies[CLEP-FINANCIAL-ACCOUNTING|50]:  ⟵ “Financial Accounting | 50 | ACC 1XXX | 3 | ”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|50]:  ⟵ “French Language Level 1 | 50 | FREN 1010 & FREN 1020 | 8 | 23GE Humanities & Fine Arts and 23GE Individual & Global Citizenship”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|59]:  ⟵ “French Language Level 2 | 59 | FREN 2110 & FREN 2120 | 6 | 23GE Humanities & Fine Arts and 23GE Individual & Global Citizenship”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|50]:  ⟵ “German Language Level 1 | 50 | GER 1010 & GER 1020 | 8 | 23GE Humanities & Fine Arts and 23GE Individual & Global Citizenship”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|60]:  ⟵ “German Language Level 2 | 60 | GER 2110 & GER 2120 | 6 | ”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-I|50]:  ⟵ “History of the United States I | 50 | HIST 2010 | 3 | Historical Understanding; 23GE Humanities & Fine Arts or 23GE Individual & Global Citizenship”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-II|50]:  ⟵ “History of the United States II | 50 | HIST 2020 | 3 | Historical Understanding; 23GE Humanities & Fine Arts or 23GE Individual & Global Citizenship”
+  - equivalencies[CLEP-HUMAN-GROWTH-DEVELOPMENT|50]:  ⟵ “Human Growth & Development | 50 | PSY 2220 | 3 | ”
+  - equivalencies[CLEP-HUMANITIES|50]:  ⟵ “Humanities | 50 | ENGL 1150 | 3 | Literature or Thoughts, Values, and Beliefs; 23GE Humanities & Fine Arts”
+  - equivalencies[CLEP-INFORMATION-SYSTEMS|50]:  ⟵ “Information Systems & Computer Applications | 50 | MGT 1XXX | 3 | ”
+  - equivalencies[CLEP-INTRODUCTION-TO-EDUCATIONAL-PSYCHOLOGY|50]:  ⟵ “Introduction to Educational Psychology | 50 | EDUC 2XXX | 3 | ”
+  - equivalencies[CLEP-INTRODUCTORY-BUSINESS-LAW|50]:  ⟵ “Introductory Business Law | 50 | BUS 1XXX | 3 | ”
+  - equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|50]:  ⟵ “Introductory Psychology | 50 | PSY 1010 | 3 | Behavioral & Social Sciences; 23GE Behavioral & Social Science”
+  - equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|50]:  ⟵ “Introductory Sociology | 50 | SOC 1510 | 3 | Behavioral & Social Sciences; 23GE Behavioral & Social Science”
+  - … 11 more rows
+### `ea6639e0ddc93928` The University of Tennessee-Chattanooga — credit_policies 2026-27 [new] (source_unlabeled)
+- source: https://www.utc.edu/academic-affairs/registrar/prior-learning-assessment/ib-exam (sha256 9271758d72b9)
+- checks: {"distinct_exams": 23, "equivalencies": 25, "rows_without_score": 0}
+  - equivalencies[IB-BIOLOGY|SL & HL]:  ⟵ “Biology | SL & HL | HL | 5,6, OR 7 | BIOL 1110 & BIOL 1120 | 8 | Lab Science; 23GE Natural Science Lecture/Lab”
+  - equivalencies[IB-BUSINESS-MANAGEMENT|SL & HL]:  ⟵ “Business Management | SL & HL | HL | 5,6, OR 7 | MGT 1XXX (Lower Division) | 3 | ”
+  - equivalencies[IB-CHEMISTRY|SL & HL]:  ⟵ “Chemistry | SL & HL | HL | 5,6, OR 7 | CHEM 1110/1110L & CHEM 1120/1120L | 8 | Lab Science; 23GE Natural Science Lecture/Lab (1 course)”
+  - equivalencies[IB-LATIN|SL & HL]:  ⟵ “Classical Languages-Latin | SL & HL | HL | 5,6, OR 7 | LAT 1010 & LAT 1020 | 6 | 23GE Humanities & Fine Arts”
+  - equivalencies[IB-COMPUTER-SCIENCE|SL & HL]:  ⟵ “Computer Science | SL & HL | HL | 5,6, OR 7 | CPSC 1XXX | 3 | ”
+  - equivalencies[IB-ECONOMICS|SL & HL]:  ⟵ “Economics | SL & HL | HL | 5,6, OR 7 | ECON 1010 & ECON 1020 | 6 | Behavioral & Social Sciences; 23GE Behavioral & Social Science”
+  - equivalencies[IB-ENVIRONMENTAL-SYSTEMS-SOCIETIES|SL Only]:  ⟵ “Environmental Systems & Societies | SL Only | SL | 5,6, OR 7 | ESC 1100 | 3 | Non-Lab Science; 23GE Natural Science Non-Lab”
+  - equivalencies[IB-FILM|SL & HL]:  ⟵ “Film | SL & HL | HL | 5,6, OR 7 | THSP 2800 | 3 | Visual & Performing Arts; 23GE Humanities & Fine Arts”
+  - equivalencies[IB-GEOGRAPHY|SL & HL]:  ⟵ “Geography | SL & HL | HL | 5,6, OR 7 | GEOG 1040 | 3 | Behavioral & Social Sciences; 23GE Behavioral & Social Science”
+  - equivalencies[IB-GLOBAL-POLITICS|SL & HL]:  ⟵ “Global Politics | SL & HL | HL | 5,6, OR 7 | PSPS 1020 | 3 | Behavioral & Social Sciences; 23GE Behavioral & Social Science or 23GE Individual & Global Citizenship”
+  - equivalencies[IB-HISTORY|SL & HL]:  ⟵ “History of Africa and the Middle East* | SL & HL | HL | 5,6, OR 7 | HIST 1XXX (Lower Division) | 3 | Historical Understanding; 23GE Humanities & Fine Arts”
+  - equivalencies[IB-FRENCH|SL & HL]:  ⟵ “Language B-French | SL & HL | HL | 5,6, OR 7 | FREN 1010 & FREN 1020 | 8 | 23GE Humanities & Fine Arts; 23GE Individual & Global Citizenship”
+  - equivalencies[IB-GERMAN|SL & HL]:  ⟵ “Language B-German | SL & HL | HL | 5,6, OR 7 | GER 1010 & GER 1020 | 8 | ”
+  - equivalencies[IB-SPANISH|SL & HL]:  ⟵ “Language B-Spanish | SL & HL | HL | 5,6, OR 7 | SPAN 1010 & SPAN 1020 | 8 | 23GE Humanities & Fine Arts; 23GE Individual & Global Citizenship”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|SL & HL]:  ⟵ “Mathematics - Analysis & Approaches | SL & HL | HL | 5,6, OR 7 | MATH 1950 | 4 | Mathematics; 23GE Quantitative Reasoning”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|SL & HL]:  ⟵ “Mathematics - Analysis & Approaches | SL & HL | HL | 4 | MATH 1830 | 3 | Mathematics; 23GE Quantitative Reasoning”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|SL & HL]:  ⟵ “Mathematics - Analysis & Approaches | SL & HL | SL | 5,6, OR 7 | MATH 1010, MATH 1730 | 3, 4 | Mathematics; 23GE Quantitative Reasoning (2 courses)”
+  - equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION|SL & HL]:  ⟵ “Mathematics - Applications & Interpretation | SL & HL | HL | 5,6, OR 7 | MATH 1010, MATH 1730 | 3 | Mathematics; 23GE Quantitative Reasoning”
+  - equivalencies[IB-MUSIC|SL & HL]:  ⟵ “Music | SL & HL | HL | 5,6, OR 7 | MUS 1XXX (Lower Division) | 3 | ”
+  - equivalencies[IB-PHILOSOPHY|SL & HL]:  ⟵ “Philosophy | SL & HL | HL | 5,6, OR 7 | PHIL 1010 | 3 | Thoughts, Values & Beliefs; 23GE Humanities & Fine Arts”
+  - equivalencies[IB-PHYSICS|SL & HL]:  ⟵ “Physics | SL & HL | HL | 5,6, OR 7 | PHYS 1030/1030L & PHYS 1040/1040L | 8 | Lab Science; 23GE Natural Science Lecture/Lab”
+  - equivalencies[IB-PSYCHOLOGY|SL & HL]:  ⟵ “Psychology | SL & HL | HL | 5,6, OR 7 | PSY 1010 | 3 | Behavioral & Social Sciences; 23GE Behavioral & Social Science”
+  - equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY|SL & HL]:  ⟵ “Social & Cultural Anthropology | SL & HL | HL | 5,6, OR 7 | ANTH 1200 | 3 | Non-Western Culture; 23GE Behavioral & Social Science or 23GE Individual & Global Citizenship”
+  - equivalencies[IB-THEATRE|SL & HL]:  ⟵ “Theatre | SL & HL | HL | 5,6, OR 7 | THSP 1110 | 3 | Visual & Performing Arts; 23GE Humanities & Fine Arts”
+  - equivalencies[IB-VISUAL-ARTS|SL & HL]:  ⟵ “3"Visual Arts" | SL & HL | HL | 5,6, OR 7 | ART 1XXX (Lower Division) | 3 | ”
+
+## Exceptions (32)
+
+### `29736b6759a949b0` Belmont University — costs 2025-26 [new] (labeled_in_source)
+- source: https://www.belmont.edu/admissions/military/tuition-aid.html (sha256 c176e9bcff4f)
+- issues: stale_year_label:2025-26
+- checks: {"columns": 1, "components_reconcile": true, "rows": 3}
+  - column:Tuition and Fees: 43750 ⟵ “Tuition and Fees | $43,750”
+  - column:Residence Hall and Meal Plan*: 15530 ⟵ “Residence Hall and Meal Plan* | $15,530”
+  - column:Total Estimated Cost for 2025-2026**: 59280 ⟵ “Total Estimated Cost for 2025-2026** | $59,280”
+### `1b69e78af564fa8c` Jackson State Community College — costs 2025-26 [new] (labeled_in_source)
+- source: https://jscc.edu/costs-and-aid/tuition/coa/ (sha256 ce189edff644)
+- issues: stale_year_label:2025-26
+- checks: {"columns": 3, "components_per_semester": true, "components_reconcile": true, "rows": 6}
+  - with_parents_or_family:TUITION & FEES*: 4127 ⟵ “TUITION & FEES* | $4,127 | $4,127 | $4,127”
+  - with_parents_or_family:BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT: 732 ⟵ “BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT | $732 | $732 | $732”
+  - with_parents_or_family:LIVING EXPENSES** (FOOD & HOUSING): 3550 ⟵ “LIVING EXPENSES** (FOOD & HOUSING) | $3,550 | $7,474 | $2,242”
+  - with_parents_or_family:MISC/PERSONAL**: 808 ⟵ “MISC/PERSONAL** | $808 | $808 | $808”
+  - with_parents_or_family:TRANSPORTATION: 2625 ⟵ “TRANSPORTATION | $2,625 | $2,625 | $2,625”
+  - with_parents_or_family:TOTAL: (FOR FALL AND SPRING): 23684 ⟵ “TOTAL: (FOR FALL AND SPRING) | $23,684 | $31,532 | $21,068”
+  - off_campus_not_with_family:TUITION & FEES*: 4127 ⟵ “TUITION & FEES* | $4,127 | $4,127 | $4,127”
+  - off_campus_not_with_family:BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT: 732 ⟵ “BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT | $732 | $732 | $732”
+  - off_campus_not_with_family:LIVING EXPENSES** (FOOD & HOUSING): 7474 ⟵ “LIVING EXPENSES** (FOOD & HOUSING) | $3,550 | $7,474 | $2,242”
+  - off_campus_not_with_family:MISC/PERSONAL**: 808 ⟵ “MISC/PERSONAL** | $808 | $808 | $808”
+  - off_campus_not_with_family:TRANSPORTATION: 2625 ⟵ “TRANSPORTATION | $2,625 | $2,625 | $2,625”
+  - off_campus_not_with_family:TOTAL: (FOR FALL AND SPRING): 31532 ⟵ “TOTAL: (FOR FALL AND SPRING) | $23,684 | $31,532 | $21,068”
+  - other:TUITION & FEES*: 4127 ⟵ “TUITION & FEES* | $4,127 | $4,127 | $4,127”
+  - other:BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT: 732 ⟵ “BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT | $732 | $732 | $732”
+  - other:LIVING EXPENSES** (FOOD & HOUSING): 2242 ⟵ “LIVING EXPENSES** (FOOD & HOUSING) | $3,550 | $7,474 | $2,242”
+  - other:MISC/PERSONAL**: 808 ⟵ “MISC/PERSONAL** | $808 | $808 | $808”
+  - other:TRANSPORTATION: 2625 ⟵ “TRANSPORTATION | $2,625 | $2,625 | $2,625”
+  - other:TOTAL: (FOR FALL AND SPRING): 21068 ⟵ “TOTAL: (FOR FALL AND SPRING) | $23,684 | $31,532 | $21,068”
+### `5d54c691bf20f7c4` Jackson State Community College — costs 2026-27 [new] (labeled_in_source)
+- source: https://jscc.edu/costs-and-aid/tuition/coa/ (sha256 ce189edff644)
+- issues: components_do_not_reconcile
+- checks: {"columns": 3, "components_per_semester": true, "components_reconcile": false, "rows": 6}
+  - with_parents_or_family:TUITION & FEES*: 4275 ⟵ “TUITION & FEES* | $4,275 | $4,275 | $4,275”
+  - with_parents_or_family:BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT: 756 ⟵ “BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT | $756 | $756 | $756”
+  - with_parents_or_family:LIVING EXPENSES** (FOOD & HOUSING): 3841 ⟵ “LIVING EXPENSES** (FOOD & HOUSING) | $3,841 | $7,838 | $2,508”
+  - with_parents_or_family:MISC/PERSONAL**: 808 ⟵ “MISC/PERSONAL** | $808 | $808 | $808”
+  - with_parents_or_family:TRANSPORTATION: 2719 ⟵ “TRANSPORTATION | $2,719 | $2,719 | $2,719”
+  - with_parents_or_family:TOTAL: (FOR FALL AND SPRING): 24796 ⟵ “TOTAL: (FOR FALL AND SPRING) | $24,796 | $32,791 | $22,131”
+  - off_campus_not_with_family:TUITION & FEES*: 4275 ⟵ “TUITION & FEES* | $4,275 | $4,275 | $4,275”
+  - off_campus_not_with_family:BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT: 756 ⟵ “BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT | $756 | $756 | $756”
+  - off_campus_not_with_family:LIVING EXPENSES** (FOOD & HOUSING): 7838 ⟵ “LIVING EXPENSES** (FOOD & HOUSING) | $3,841 | $7,838 | $2,508”
+  - off_campus_not_with_family:MISC/PERSONAL**: 808 ⟵ “MISC/PERSONAL** | $808 | $808 | $808”
+  - off_campus_not_with_family:TRANSPORTATION: 2719 ⟵ “TRANSPORTATION | $2,719 | $2,719 | $2,719”
+  - off_campus_not_with_family:TOTAL: (FOR FALL AND SPRING): 32791 ⟵ “TOTAL: (FOR FALL AND SPRING) | $24,796 | $32,791 | $22,131”
+  - other:TUITION & FEES*: 4275 ⟵ “TUITION & FEES* | $4,275 | $4,275 | $4,275”
+  - other:BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT: 756 ⟵ “BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT | $756 | $756 | $756”
+  - other:LIVING EXPENSES** (FOOD & HOUSING): 2508 ⟵ “LIVING EXPENSES** (FOOD & HOUSING) | $3,841 | $7,838 | $2,508”
+  - other:MISC/PERSONAL**: 808 ⟵ “MISC/PERSONAL** | $808 | $808 | $808”
+  - other:TRANSPORTATION: 2719 ⟵ “TRANSPORTATION | $2,719 | $2,719 | $2,719”
+  - other:TOTAL: (FOR FALL AND SPRING): 22131 ⟵ “TOTAL: (FOR FALL AND SPRING) | $24,796 | $32,791 | $22,131”
+### `aa3ea81c29360aed` Jackson State Community College — costs 2025-26 [new] (labeled_in_source)
+- source: https://jscc.edu/costs-and-aid/tuition/coa/ (sha256 ce189edff644)
+- issues: stale_year_label:2025-26
+- checks: {"columns": 3, "components_per_semester": true, "components_reconcile": true, "rows": 6}
+  - with_parents_or_family:TUITION & FEES*: 2447 ⟵ “TUITION & FEES* | $2,447 | $2,447 | $2,447”
+  - with_parents_or_family:BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT: 732 ⟵ “BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT | $732 | $732 | $732”
+  - with_parents_or_family:LIVING EXPENSES** (FOOD & HOUSING): 3550 ⟵ “LIVING EXPENSES** (FOOD & HOUSING) | $3,550 | $7,474 | $2,242”
+  - with_parents_or_family:MISC/PERSONAL**: 808 ⟵ “MISC/PERSONAL** | $808 | $808 | $808”
+  - with_parents_or_family:TRANSPORTATION: 2625 ⟵ “TRANSPORTATION | $2,625 | $2,625 | $2,625”
+  - with_parents_or_family:TOTAL: (FOR FALL AND SPRING): 20324 ⟵ “TOTAL: (FOR FALL AND SPRING) | $20,324 | $28,172 | $17,708”
+  - off_campus_not_with_family:TUITION & FEES*: 2447 ⟵ “TUITION & FEES* | $2,447 | $2,447 | $2,447”
+  - off_campus_not_with_family:BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT: 732 ⟵ “BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT | $732 | $732 | $732”
+  - off_campus_not_with_family:LIVING EXPENSES** (FOOD & HOUSING): 7474 ⟵ “LIVING EXPENSES** (FOOD & HOUSING) | $3,550 | $7,474 | $2,242”
+  - off_campus_not_with_family:MISC/PERSONAL**: 808 ⟵ “MISC/PERSONAL** | $808 | $808 | $808”
+  - off_campus_not_with_family:TRANSPORTATION: 2625 ⟵ “TRANSPORTATION | $2,625 | $2,625 | $2,625”
+  - off_campus_not_with_family:TOTAL: (FOR FALL AND SPRING): 28172 ⟵ “TOTAL: (FOR FALL AND SPRING) | $20,324 | $28,172 | $17,708”
+  - other:TUITION & FEES*: 2447 ⟵ “TUITION & FEES* | $2,447 | $2,447 | $2,447”
+  - other:BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT: 732 ⟵ “BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT | $732 | $732 | $732”
+  - other:LIVING EXPENSES** (FOOD & HOUSING): 2242 ⟵ “LIVING EXPENSES** (FOOD & HOUSING) | $3,550 | $7,474 | $2,242”
+  - other:MISC/PERSONAL**: 808 ⟵ “MISC/PERSONAL** | $808 | $808 | $808”
+  - other:TRANSPORTATION: 2625 ⟵ “TRANSPORTATION | $2,625 | $2,625 | $2,625”
+  - other:TOTAL: (FOR FALL AND SPRING): 17708 ⟵ “TOTAL: (FOR FALL AND SPRING) | $20,324 | $28,172 | $17,708”
+### `c7a99776d893d923` Jackson State Community College — costs 2024-25 [new] (labeled_in_source)
+- source: https://jscc.edu/costs-and-aid/tuition/coa/ (sha256 ce189edff644)
+- issues: components_do_not_reconcile, stale_year_label:2024-25
+- checks: {"columns": 3, "components_per_semester": true, "components_reconcile": false, "rows": 6}
+  - with_parents_or_family:TUITION & FEES*: 2370 ⟵ “TUITION & FEES* | $2,370 | $2,370 | $2,370”
+  - with_parents_or_family:BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT: 732 ⟵ “BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT | $732 | $732 | $732”
+  - with_parents_or_family:LIVING EXPENSES** (FOOD & HOUSING): 3452 ⟵ “LIVING EXPENSES** (FOOD & HOUSING) | $3,452 | $7,268 | $2,180”
+  - with_parents_or_family:MISC/PERSONAL**: 808 ⟵ “MISC/PERSONAL** | $808 | $808 | $808”
+  - with_parents_or_family:TRANSPORTATION: 2513 ⟵ “TRANSPORTATION | $2,513 | $2,513 | $2,513”
+  - with_parents_or_family:TOTAL (FOR FALL AND SPRING): 19748 ⟵ “TOTAL (FOR FALL AND SPRING) | $19,748 | $27,380 | $17,205”
+  - off_campus_not_with_family:TUITION & FEES*: 2370 ⟵ “TUITION & FEES* | $2,370 | $2,370 | $2,370”
+  - off_campus_not_with_family:BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT: 732 ⟵ “BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT | $732 | $732 | $732”
+  - off_campus_not_with_family:LIVING EXPENSES** (FOOD & HOUSING): 7268 ⟵ “LIVING EXPENSES** (FOOD & HOUSING) | $3,452 | $7,268 | $2,180”
+  - off_campus_not_with_family:MISC/PERSONAL**: 808 ⟵ “MISC/PERSONAL** | $808 | $808 | $808”
+  - off_campus_not_with_family:TRANSPORTATION: 2513 ⟵ “TRANSPORTATION | $2,513 | $2,513 | $2,513”
+  - off_campus_not_with_family:TOTAL (FOR FALL AND SPRING): 27380 ⟵ “TOTAL (FOR FALL AND SPRING) | $19,748 | $27,380 | $17,205”
+  - other:TUITION & FEES*: 2370 ⟵ “TUITION & FEES* | $2,370 | $2,370 | $2,370”
+  - other:BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT: 732 ⟵ “BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT | $732 | $732 | $732”
+  - other:LIVING EXPENSES** (FOOD & HOUSING): 2180 ⟵ “LIVING EXPENSES** (FOOD & HOUSING) | $3,452 | $7,268 | $2,180”
+  - other:MISC/PERSONAL**: 808 ⟵ “MISC/PERSONAL** | $808 | $808 | $808”
+  - other:TRANSPORTATION: 2513 ⟵ “TRANSPORTATION | $2,513 | $2,513 | $2,513”
+  - other:TOTAL (FOR FALL AND SPRING): 17205 ⟵ “TOTAL (FOR FALL AND SPRING) | $19,748 | $27,380 | $17,205”
+### `ec5390b5f13ce6f5` Jackson State Community College — costs 2024-25 [new] (labeled_in_source)
+- source: https://jscc.edu/costs-and-aid/tuition/coa/ (sha256 ce189edff644)
+- issues: components_do_not_reconcile, stale_year_label:2024-25
+- checks: {"columns": 3, "components_per_semester": true, "components_reconcile": false, "rows": 6}
+  - with_parents_or_family:TUITION & FEES*: 8862 ⟵ “TUITION & FEES* | $8,862 | $8,862 | $8,862”
+  - with_parents_or_family:BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT: 732 ⟵ “BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT | $732 | $732 | $732”
+  - with_parents_or_family:LIVING EXPENSES** (FOOD & HOUSING): 3452 ⟵ “LIVING EXPENSES** (FOOD & HOUSING) | $3,452 | $7,268 | $2,180”
+  - with_parents_or_family:MISC/PERSONAL**: 808 ⟵ “MISC/PERSONAL** | $808 | $808 | $808”
+  - with_parents_or_family:TRANSPORTATION: 2513 ⟵ “TRANSPORTATION | $2,513 | $2,513 | $2,513”
+  - with_parents_or_family:TOTAL (FOR FALL AND SPRING): 32732 ⟵ “TOTAL (FOR FALL AND SPRING) | $32,732 | $40,364 | $30,189”
+  - off_campus_not_with_family:TUITION & FEES*: 8862 ⟵ “TUITION & FEES* | $8,862 | $8,862 | $8,862”
+  - off_campus_not_with_family:BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT: 732 ⟵ “BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT | $732 | $732 | $732”
+  - off_campus_not_with_family:LIVING EXPENSES** (FOOD & HOUSING): 7268 ⟵ “LIVING EXPENSES** (FOOD & HOUSING) | $3,452 | $7,268 | $2,180”
+  - off_campus_not_with_family:MISC/PERSONAL**: 808 ⟵ “MISC/PERSONAL** | $808 | $808 | $808”
+  - off_campus_not_with_family:TRANSPORTATION: 2513 ⟵ “TRANSPORTATION | $2,513 | $2,513 | $2,513”
+  - off_campus_not_with_family:TOTAL (FOR FALL AND SPRING): 40364 ⟵ “TOTAL (FOR FALL AND SPRING) | $32,732 | $40,364 | $30,189”
+  - other:TUITION & FEES*: 8862 ⟵ “TUITION & FEES* | $8,862 | $8,862 | $8,862”
+  - other:BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT: 732 ⟵ “BOOKS, COURSE MATERIALS, SUPPLIES, & EQUIPMENT | $732 | $732 | $732”
+  - other:LIVING EXPENSES** (FOOD & HOUSING): 2180 ⟵ “LIVING EXPENSES** (FOOD & HOUSING) | $3,452 | $7,268 | $2,180”
+  - other:MISC/PERSONAL**: 808 ⟵ “MISC/PERSONAL** | $808 | $808 | $808”
+  - other:TRANSPORTATION: 2513 ⟵ “TRANSPORTATION | $2,513 | $2,513 | $2,513”
+  - other:TOTAL (FOR FALL AND SPRING): 30189 ⟵ “TOTAL (FOR FALL AND SPRING) | $32,732 | $40,364 | $30,189”
+### `bd01a5b44bc7ab34` Johnson University — costs 2026-27 [new] (labeled_in_source)
+- source: https://johnsonu.edu/admissions/tuition/ (sha256 d49ca7990468)
+- issues: arrangement_unlabeled
+- checks: {"columns": 2, "rows": 8}
+  - column:Tuition/Fees: 22612 ⟵ “Tuition/Fees | $22,612 | $8,496”
+  - column:Housing/Food: 9501 ⟵ “Housing/Food | $9,501 | $4,750”
+  - column:Transportation: 3220 ⟵ “Transportation | $3,220 | $1,610”
+  - column:Books/Supplies: 1200 ⟵ “Books/Supplies | $1,200 | $600”
+  - column:Personal: 1600 ⟵ “Personal | $1,600 | $800”
+  - column:Loan Fees: 68 ⟵ “Loan Fees | $68 | $68”
+  - column:Annual COA: 38200 ⟵ “Annual COA | $38,200 | $16,324”
+  - column:Semester COA: 19100 ⟵ “Semester COA | $19,100 | $8,162”
+  - column:Tuition/Fees: 8496 ⟵ “Tuition/Fees | $22,612 | $8,496”
+  - column:Housing/Food: 4750 ⟵ “Housing/Food | $9,501 | $4,750”
+  - column:Transportation: 1610 ⟵ “Transportation | $3,220 | $1,610”
+  - column:Books/Supplies: 600 ⟵ “Books/Supplies | $1,200 | $600”
+  - column:Personal: 800 ⟵ “Personal | $1,600 | $800”
+  - column:Loan Fees: 68 ⟵ “Loan Fees | $68 | $68”
+  - column:Annual COA: 16324 ⟵ “Annual COA | $38,200 | $16,324”
+  - column:Semester COA: 8162 ⟵ “Semester COA | $19,100 | $8,162”
+### `2241ef28b2caf584` Lane College — costs 2025-26 [new] (labeled_in_source)
+- source: https://www.lanecollege.edu/financial-aid-tuition/college-costs (sha256 ec5554585949)
+- issues: stale_year_label:2025-26
+- checks: {"columns": 1, "components_reconcile": true, "rows": 9}
+  - column:Tuition (12-16 hours): 10198.0 ⟵ “Tuition (12-16 hours) | $5,099.00 | $5,099.00 | $10,198.00”
+  - column:Text Book Fee: 770.0 ⟵ “Text Book Fee | $385.00 | $385.00 | $770.00”
+  - column:Matriculation Fee: 1000.0 ⟵ “Matriculation Fee | $500.00 | $ 500.00 | $ 1,000.00”
+  - column:Technology Fee: 700.0 ⟵ “Technology Fee | $350.00 | $350.00 | $700.00”
+  - column:Student Activity Fee: 250.0 ⟵ “Student Activity Fee | $125.00 | $125.00 | $250.00”
+  - column:Housing (9-Month): 5240.0 ⟵ “Housing (9-Month) | $2,620.00 | $2,620.00 | $5,240.00”
+  - column:Meal Plan (9-Month): 3140.0 ⟵ “Meal Plan (9-Month) | $1,570.00 | $1,570.00 | $3,140.00”
+  - column:Health Service Fee: 150.0 ⟵ “Health Service Fee | $75.00 | $75.00 | $150.00”
+  - column:Total: 21448.0 ⟵ “Total | $10,724.00 | $10,724.00 | $21,448.00”
+### `ea116ce9577c80c3` Lee University — admissions_metrics 2024-25 [new] (labeled_in_source)
+- source: https://www.leeuniversity.edu/wp-content/uploads/2024-2025-CDS.pdf (sha256 0e1d4e31cec3)
+- issues: stale_year_label:2024-25
+- checks: {"fields": ["act_25", "act_50", "act_75", "admits", "applications", "enrolled", "entering_fall_year", "sat_composite_25", "sat_composite_50", "sat_composite_75", "sat_math_25", "sat_math_50", "sat_math_75", "sat_reading_25", "sat_reading_50", "sat_reading_75"]}
+  - applications: 2388 ⟵ “Total applied                                                                          2,388”
+  - admits: 1684 ⟵ “Total admitted                                                                         1,684”
+  - enrolled: 589 ⟵ “Total enrolled                                                                          589”
+  - sat_composite_25..75: [1020, 1140, 1210] ⟵ “SAT Composite                                                        1020                               1140                               1210”
+  - sat_reading_25..75: [540, 580, 630] ⟵ “SAT Evidence-Based Reading and Writing                               540                                580                                630”
+  - sat_math_25..75: [500, 550, 600] ⟵ “SAT Math                                                             500                                550                                600”
+  - act_25..75: [20, 23, 27] ⟵ “ACT Composite                                                         20                                 23                                 27”
+### `ea03002ca7af64a4` Lipscomb University — costs 2025-26 [new] (labeled_in_source)
+- source: https://lipscomb.edu/admission/tuition-and-financial-aid/cost-attendance (sha256 4fe1468ec981)
+- issues: stale_year_label:2025-26
+- checks: {"columns": 3, "components_reconcile": true, "rows": 8}
+  - on_campus:Tuition & Fees: 42596 ⟵ “Tuition & Fees | $42,596 | $42,596 | $42,596”
+  - on_campus:Housing: 11044 ⟵ “Housing | $11,044** | $13,240 | $4,500”
+  - on_campus:Food: 6700 ⟵ “Food | $6,700** | $3,004 | $2,000”
+  - on_campus:Books & Supplies: 1750 ⟵ “Books & Supplies | $1,750 | $1,750 | $1,750”
+  - on_campus:Personal Expenses: 2460 ⟵ “Personal Expenses | $2,460 | $2,460 | $2,460”
+  - on_campus:Transportation: 2250 ⟵ “Transportation | $2,250 | $2,250 | $2,250”
+  - on_campus:Loan Fee (If Accepting): 48 ⟵ “Loan Fee (If Accepting) | 48 | 48 | 48”
+  - on_campus:Total: 66848 ⟵ “Total | $66,848 | $65,348 | $55,604”
+  - off_campus_not_with_family:Tuition & Fees: 42596 ⟵ “Tuition & Fees | $42,596 | $42,596 | $42,596”
+  - off_campus_not_with_family:Housing: 13240 ⟵ “Housing | $11,044** | $13,240 | $4,500”
+  - off_campus_not_with_family:Food: 3004 ⟵ “Food | $6,700** | $3,004 | $2,000”
+  - off_campus_not_with_family:Books & Supplies: 1750 ⟵ “Books & Supplies | $1,750 | $1,750 | $1,750”
+  - off_campus_not_with_family:Personal Expenses: 2460 ⟵ “Personal Expenses | $2,460 | $2,460 | $2,460”
+  - off_campus_not_with_family:Transportation: 2250 ⟵ “Transportation | $2,250 | $2,250 | $2,250”
+  - off_campus_not_with_family:Loan Fee (If Accepting): 48 ⟵ “Loan Fee (If Accepting) | 48 | 48 | 48”
+  - off_campus_not_with_family:Total: 65348 ⟵ “Total | $66,848 | $65,348 | $55,604”
+  - with_parents_or_family:Tuition & Fees: 42596 ⟵ “Tuition & Fees | $42,596 | $42,596 | $42,596”
+  - with_parents_or_family:Housing: 4500 ⟵ “Housing | $11,044** | $13,240 | $4,500”
+  - with_parents_or_family:Food: 2000 ⟵ “Food | $6,700** | $3,004 | $2,000”
+  - with_parents_or_family:Books & Supplies: 1750 ⟵ “Books & Supplies | $1,750 | $1,750 | $1,750”
+  - with_parents_or_family:Personal Expenses: 2460 ⟵ “Personal Expenses | $2,460 | $2,460 | $2,460”
+  - with_parents_or_family:Transportation: 2250 ⟵ “Transportation | $2,250 | $2,250 | $2,250”
+  - with_parents_or_family:Loan Fee (If Accepting): 48 ⟵ “Loan Fee (If Accepting) | 48 | 48 | 48”
+  - with_parents_or_family:Total: 55604 ⟵ “Total | $66,848 | $65,348 | $55,604”
+### `c6c8e67d45a1394a` Lipscomb University — credit_policies 2026-27 [new] (source_unlabeled)
+- source: https://lipscomb.edu/admission/transfer-admission/transferring-credit (sha256 a7ffd3af7b5c)
+- issues: rows_without_score
+- checks: {"distinct_exams": 24, "equivalencies": 38, "rows_without_score": 4}
+  - equivalencies[CLEP-AMERICAN-LITERATURE|50]:  ⟵ “American Literature | Survey of American Literature | 50 | Literary Inquiry”
+  - equivalencies[CLEP-ENGLISH-LITERATURE|50]:  ⟵ “English Literature | Survey of English Literature | 50 | Literary Inquiry”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION|55]:  ⟵ “College Composition | EN 1113 Freshman Comp. & Reading I or 3 hours elective credit | 55 | Elective”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION|None]:  ⟵ “College Composition | Foreign Languages | ”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|48]:  ⟵ “College French (Level I) | FR 1114 | 48 | B.A. Foreign Language Hours”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|52]:  ⟵ “College French (Level I) | FR 1114 and 1124 | 52 | B.A. Foreign Language Hours”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|56]:  ⟵ “College French (Level II) | FR 1114, 1124 and 2114 | 56 | B.A. Foreign Language Hours”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|62]:  ⟵ “College French (Level II) | FR 1114, 1124, 2114, and 2124 | 62 | B.A. Foreign Language Hours”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|48]:  ⟵ “College German (Level I) | GE 1114 | 48 | B.A. Foreign Language Hours”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|52]:  ⟵ “College German (Level I) | GE 1114 and 1124 | 52 | B.A. Foreign Language Hours”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|56]:  ⟵ “College German (Level II) | GE 1114, 1123, and 2114 | 56 | B.A. Foreign Language Hours”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|63]:  ⟵ “College German (Level II) | GE 1114, 1124, 2114 and 2124 | 63 | B.A. Foreign Language Hours”
+  - equivalencies[CLEP-SPANISH-LANGUAGE|48]:  ⟵ “College Spanish (Level I) | SN 1114 | 48 | B.A. Foreign Language Hours”
+  - equivalencies[CLEP-SPANISH-LANGUAGE|54]:  ⟵ “College Spanish (Level I) | SN 1114 and 1124 | 54 | B.A. Foreign Language Hours”
+  - equivalencies[CLEP-SPANISH-LANGUAGE|60]:  ⟵ “College Spanish (Level II) | SN 1114, 1124, and 2114 | 60 | B.A. Foreign Language Hours”
+  - equivalencies[CLEP-SPANISH-LANGUAGE|66]:  ⟵ “College Spanish (Level II) | SN 1114, 1124, 2114, and 2124 | 66 | B.A. Foreign Language Hours”
+  - equivalencies[CLEP-SPANISH-LANGUAGE|None]:  ⟵ “College Spanish (Level II) | History and Social Sciences | ”
+  - equivalencies[CLEP-AMERICAN-GOVERNMENT|50]:  ⟵ “American Government | PO 1023 Introduction to American Government | 50 | Great Ideas in Politics”
+  - equivalencies[CLEP-HUMAN-GROWTH-DEVELOPMENT|50]:  ⟵ “Human Growth and Develop. | PS 2423 Life Span Development | 50 | Social Inquiry”
+  - equivalencies[CLEP-INTRODUCTION-TO-EDUCATIONAL-PSYCHOLOGY|50]:  ⟵ “Intro to Educational Psychology | PS 3243 Human Development and Learning | 50 | Social Inquiry”
+  - equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|50]:  ⟵ “Principles of Macroeconomics | EC 2403 Principles of Macroeconomics | 50 | Social Inquiry”
+  - equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|50]:  ⟵ “Principles of Microeconomics | EC 2413 Principles of Microeconomics | 50 | Social Inquiry”
+  - equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|50]:  ⟵ “Introductory Psychology | PS 1113 Introduction to Psychology | 50 | Solical Inquiry”
+  - equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|50]:  ⟵ “Introductory Sociology | SO 1123 Introduction to Sociology | 50 | Social Inquiry”
+  - equivalencies[CLEP-WESTERN-CIVILIZATION-I|50]:  ⟵ “Western Civilization I: Ancient Near East to 1648 | HI 1113 Foundations of Western Civilization to 1600 | 50 | Great Ideas in History”
+  - … 13 more rows
+### `0ac9e710a7a1df19` Middle Tennessee State University — credit_policies 2010-11 [new] (labeled_in_source)
+- source: https://www.mtsu.edu/how-to-apply/credit-by-examination/ (sha256 f97927c0eec9)
+- issues: stale_year_label:2010-11
+- checks: {"distinct_exams": 32, "equivalencies": 32, "rows_without_score": 0}
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|3 or above]:  ⟵ “African American Studies | 3 or above | HIST 2040, HIST 2050 | 6”
+  - equivalencies[AP-ART-HISTORY|3 or above]:  ⟵ “Art History | 3 or above | ART 1030 | 3”
+  - equivalencies[AP-BIOLOGY|3 or above]:  ⟵ “Biology | 3 or above | BIOL1030/ BIOL 1031 (Science major may receive credit for BIOL 1110/BIOL 1111, BIOL 1120/BIOL 1121 upon recommendation of chair, Department of Biology.) | 4”
+  - equivalencies[AP-BUSINESS-WITH-PERSONAL-FINANCE|3 or above]:  ⟵ “Business with Personal Finance | 3 or above | FCSE 1400 | 3”
+  - equivalencies[AP-CALCULUS-AB|3 or above]:  ⟵ “Calculus AB | 3 or above | MATH 1910 | 4”
+  - equivalencies[AP-CALCULUS-BC|3 or above]:  ⟵ “Calculus BC | 3 or above | Math 1920 | 4”
+  - equivalencies[AP-CHEMISTRY|3 or 45]:  ⟵ “Chemistry | 3 or 45 | CHEM 1110/ CHEM 1111 OR CHEM 1010/ CHEM 1011CHEM 1110/ CHEM 1111, CHEM 1120/ CHEM 1121 | 4 8”
+  - equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|3 or above]:  ⟵ “Comparative Government and Politics | 3 or above | PS 1010 | 3”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|3 or above]:  ⟵ “Computer Science A | 3 or above | CSCI 1170 | 4”
+  - equivalencies[AP-CYBERSECURITY|3 or above]:  ⟵ “Cybersecurity | 3 or above | CYBM 1300 | 3”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3 or above]:  ⟵ “English Language and Composition | 3 or above | ENGL 1010 | 3”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3 or above]:  ⟵ “English Literature and Composition | 3 or above | ENGL1010 | 3”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|3 or above]:  ⟵ “Environmental Science | 3 or above | ENVS 2810/ENVS 2811 | 4”
+  - equivalencies[AP-EUROPEAN-HISTORY|3 or above]:  ⟵ “European History | 3 or above | HIST 1020 | 3”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|3 or above]:  ⟵ “Human Geography | 3 or above | GS 2010 | 3”
+  - equivalencies[AP-MACROECONOMICS|3 or above]:  ⟵ “Macroeconomics | 3 or above | ECON 2410 | 3”
+  - equivalencies[AP-MICROECONOMICS|3 or above]:  ⟵ “Microeconomics | 3 or above | ECON 2420 | 3”
+  - equivalencies[AP-MUSIC-THEORY|3 or above]:  ⟵ “Music Theory | 3 or above | MUTH 1000 | 3”
+  - equivalencies[AP-PHYSICS-1|4 or above]:  ⟵ “Physics 1 | 4 or above | PHYS 2010/2011* | 4”
+  - equivalencies[AP-PHYSICS-2|4 or above]:  ⟵ “Physics 2 | 4 or above | PHYS 2020/2021* | 4”
+  - equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|4 or above]:  ⟵ “Physics C: Electricity & Magnetism | 4 or above | PHYS 2120/2121* | 4”
+  - equivalencies[AP-PHYSICS-C-MECHANICS|4 or above]:  ⟵ “Physics C: Mechanics | 4 or above | PHYS 2110/2111* | 4”
+  - equivalencies[AP-PRECALCULUS|3 or above]:  ⟵ “Precalculus | 3 or above | MATH 1730 | 4”
+  - equivalencies[AP-PSYCHOLOGY|3 or above]:  ⟵ “Psychology | 3 or above | PSY 1410 | 3”
+  - equivalencies[AP-SEMINAR|3 or above]:  ⟵ “Seminar | 3 or above | CLA 2000 | 3”
+  - … 7 more rows
+### `0c7143377e8fa304` Middle Tennessee State University — credit_policies 2010-11 [new] (labeled_in_source)
+- source: https://www.mtsu.edu/how-to-apply/credit-by-examination/ (sha256 f97927c0eec9)
+- issues: stale_year_label:2010-11
+- checks: {"distinct_exams": 19, "equivalencies": 19, "rows_without_score": 0}
+  - equivalencies[CLEP-AMERICAN-GOVERNMENT|50 or greater]:  ⟵ “American Government | 50 or greater | PS 1005 | 3”
+  - equivalencies[CLEP-BIOLOGY|50 or greater]:  ⟵ “Biology | 50 or greater | BIOL 1030/1031 | 4”
+  - equivalencies[CLEP-INTRODUCTORY-BUSINESS-LAW|50 or greater]:  ⟵ “Business Law, Introductory | 50 or greater | BLAW 3430 | 3”
+  - equivalencies[CLEP-CALCULUS|50 or greater]:  ⟵ “Calculus | 50 or greater | MATH 1910 | 4”
+  - equivalencies[CLEP-CHEMISTRY|50 or greater]:  ⟵ “Chemistry | 50 or greater | CHEM 1110/CHEM 1111, CHEM 1120/CHEM 1121 | 8”
+  - equivalencies[CLEP-COLLEGE-ALGEBRA|50 or greater]:  ⟵ “College Algebra | 50 or greater | MATH 1710 | 3”
+  - equivalencies[CLEP-COLLEGE-MATHEMATICS|50 or greater]:  ⟵ “College Mathematics | 50 or greater | MATH 1010 | 3”
+  - equivalencies[CLEP-FINANCIAL-ACCOUNTING|50 or greater]:  ⟵ “Financial Accounting | 50 or greater | ACTG 2110 | 3”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-I|50 or greater]:  ⟵ “History of the United States I: Early Colonization to 1877 | 50 or greater | HIST 2010 | 3”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-II|50 or greater]:  ⟵ “History of the United States II: 1865 to Present | 50 or greater | HIST 2020 | 3”
+  - equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|50 or greater]:  ⟵ “Macroeconomics, Principles of | 50 or greater | ECON 2410 | 3”
+  - equivalencies[CLEP-PRINCIPLES-OF-MANAGEMENT|50 or greater]:  ⟵ “Management, Principles of | 50 or greater | MGMT 3610 | 3”
+  - equivalencies[CLEP-PRINCIPLES-OF-MARKETING|50 or greater]:  ⟵ “Marketing, Principles of | 50 or greater | MKT 3820 | 3”
+  - equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|50 or greater]:  ⟵ “Microeconomics, Principles of | 50 or greater | ECON 2420 | 3”
+  - equivalencies[CLEP-PRECALCULUS|50 or greater]:  ⟵ “Precalculus | 50 or greater | MATH 1730 | 4”
+  - equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|50 or greater]:  ⟵ “Psychology, Introductory | 50 or greater | PSY 1410 | 3”
+  - equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|50 or greater]:  ⟵ “Sociology, Introductory | 50 or greater | SOC 1010 | 3”
+  - equivalencies[CLEP-WESTERN-CIVILIZATION-I|50 or greater]:  ⟵ “Western Civilization I: Ancient Near East to 1648 | 50 or greater | HIST 1010 | 3”
+  - equivalencies[CLEP-WESTERN-CIVILIZATION-II|50 or greater]:  ⟵ “Western Civilization II: 1648 to Present | 50 or greater | HIST 1020 | 3”
+### `62175305b270743f` Middle Tennessee State University — credit_policies 2010-11 [new] (labeled_in_source)
+- source: https://www.mtsu.edu/how-to-apply/credit-by-examination/ (sha256 f97927c0eec9)
+- issues: stale_year_label:2010-11
+- checks: {"distinct_exams": 15, "equivalencies": 20, "rows_without_score": 0}
+  - equivalencies[IB-BIOLOGY|5 or higher]:  ⟵ “Biology (higher level) | 5 or higher | BIOL 1110/ BIOL 1111 and BIOL 1120/BIOL 1121 | 8”
+  - equivalencies[IB-BUSINESS-MANAGEMENT|5 or higher (SL)4 or higher (HL)]:  ⟵ “Business and Management (standard or higher level) | 5 or higher (SL)4 or higher (HL) | BCED 1400 | 3”
+  - equivalencies[IB-CHEMISTRY|5 or higher]:  ⟵ “Chemistry (higher level) | 5 or higher | CHEM 1110/1111 and 1120/1121 | 8”
+  - equivalencies[IB-CHEMISTRY|5 or higher]:  ⟵ “Chemistry (standard level) | 5 or higher | CHEM 1110/1111 | 4”
+  - equivalencies[IB-COMPUTER-SCIENCE|6 or higher (SL)5 or higher (HL)]:  ⟵ “Computer Science (standard or higher level) | 6 or higher (SL)5 or higher (HL) | CSCI 1170 | 4”
+  - equivalencies[IB-ECONOMICS|5 or higher (SL)5 or higher (HL)]:  ⟵ “Economics (standard or higher level) | 5 or higher (SL)5 or higher (HL) | ECON 2410ECON 2410 and 2420 | 36”
+  - equivalencies[IB-ENVIRONMENTAL-SYSTEMS-SOCIETIES|4 or higher]:  ⟵ “Environmental Systems or Societies (standard or higher level) | 4 or higher | ENVS 2810/ENVS 2811 | 4”
+  - equivalencies[IB-GEOGRAPHY|5 or higher (SL)4 or higher (HL)]:  ⟵ “Geography (standard or higher level) | 5 or higher (SL)4 or higher (HL) | GEOG 2000 | 3”
+  - equivalencies[IB-HISTORY|5 or higher]:  ⟵ “History (higher level) | 5 or higher | HIST 1120 and depending on higher level option (Paper #3)Europe: HIST 1020; Americas: either HIST 2010 or 2020 to be determined at orientation/advising; Africa and the Middle East or Asia and Ocean – 3 hours lower-division history credit | 6”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|4 or higher]:  ⟵ “Mathematics: Analysis & Approaches (standard level) | 4 or higher | MATH 1730 | 4”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|4 or higher]:  ⟵ “Mathematics: Analysis & Approaches (higher level) | 4 or higher | MATH 1910 | 4”
+  - equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION|4 or higher]:  ⟵ “Mathematics: Applications & Interpretation (standard or higher level) | 4 or higher | MATH 1530 (student may request MATH 1730 instead) | 3 (4)”
+  - equivalencies[IB-PHILOSOPHY|5 or higher]:  ⟵ “Philosophy (standard level) | 5 or higher | 3 hours lower-division philosophy credit | 3”
+  - equivalencies[IB-PHILOSOPHY|5 or higher]:  ⟵ “Philosophy (higher level) | 5 or higher | PHIL 1030 | 3”
+  - equivalencies[IB-PHYSICS|5 or higher]:  ⟵ “Physics (standard or higher level) | 5 or higher | PHYS 2010/PHYS 2011 | 4”
+  - equivalencies[IB-PHYSICS|6 or higher]:  ⟵ “Physics (standard or higher level) | 6 or higher | PHYS 2010/PHYS 2011 and PHYS 2020/PHYS 2021 | 8”
+  - equivalencies[IB-PSYCHOLOGY|4 or higher]:  ⟵ “Psychology (higher level) | 4 or higher | 3 hours lower-division psychology credit | 3”
+  - equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY|4 or higher]:  ⟵ “Social and Cultural Anthropology (standard level) | 4 or higher | ANTH 2010 | 3”
+  - equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY|4 or higher]:  ⟵ “Social and Cultural Anthropology (higher level) | 4 or higher | ANTH 2010 plus 3 hours ANTH lower division elective | 6”
+  - equivalencies[IB-THEATRE|5 or higher]:  ⟵ “Theatre (standard or higher level) | 5 or higher | THEA 1030 | 3”
+### `924d94d2d9d9959a` Northeast State Community College — costs 2026-27 [new] (source_unlabeled)
+- source: https://www.northeaststate.edu/financial-aid-tuition/cost-of-attendance.html (sha256 883da26037d6)
+- issues: ambiguous_year_labels
+- checks: {"columns": 2, "components_reconcile": true, "rows": 6}
+  - with_parents_or_family:Tuition and Fees*: 5280 ⟵ “Tuition and Fees* | $5,280 | $5,280”
+  - with_parents_or_family:Living Expenses (Housing & Food): 7532 ⟵ “Living Expenses (Housing & Food) | $7,532 | $15,371”
+  - with_parents_or_family:Books and Supplies: 1560 ⟵ “Books and Supplies | $1,560 | $1,560”
+  - with_parents_or_family:Transportation: 3252 ⟵ “Transportation | $3,252 | $3,252”
+  - with_parents_or_family:Personal Expenses: 2680 ⟵ “Personal Expenses | $2,680 | $2,680”
+  - with_parents_or_family:Total: 20304 ⟵ “Total | $20,304 | $28,143”
+  - off_campus_not_with_family:Tuition and Fees*: 5280 ⟵ “Tuition and Fees* | $5,280 | $5,280”
+  - off_campus_not_with_family:Living Expenses (Housing & Food): 15371 ⟵ “Living Expenses (Housing & Food) | $7,532 | $15,371”
+  - off_campus_not_with_family:Books and Supplies: 1560 ⟵ “Books and Supplies | $1,560 | $1,560”
+  - off_campus_not_with_family:Transportation: 3252 ⟵ “Transportation | $3,252 | $3,252”
+  - off_campus_not_with_family:Personal Expenses: 2680 ⟵ “Personal Expenses | $2,680 | $2,680”
+  - off_campus_not_with_family:Total: 28143 ⟵ “Total | $20,304 | $28,143”
+### `a5ec20d946a5de63` Northeast State Community College — costs 2026-27 [new] (source_unlabeled)
+- source: https://www.northeaststate.edu/financial-aid-tuition/tuition-fees.html (sha256 12afb78b241c)
+- issues: arrangement_unlabeled, implausible_amount, multiple_total_rows, residency_unknown
+- checks: {"columns": 2, "rows": 6}
+  - column:Tuition Fee: 70.0 ⟵ “Tuition Fee | 70.00 | 70.00”
+  - column:Technology Fee: 0.0 ⟵ “Technology Fee | 0.00 | 0.00”
+  - column:Student Activity Fee: 0.0 ⟵ “Student Activity Fee | 0.00 | 0.00”
+  - column:Total Service Fee: 70.0 ⟵ “Total Service Fee | 70.00 | 70.00”
+  - column:Program Services Fee: 20.0 ⟵ “Program Services Fee | 20.00 | 20.00”
+  - column:Total Fees: 90.0 ⟵ “Total Fees | 90.00 | 90.00”
+  - column:Tuition Fee: 70.0 ⟵ “Tuition Fee | 70.00 | 70.00”
+  - column:Technology Fee: 0.0 ⟵ “Technology Fee | 0.00 | 0.00”
+  - column:Student Activity Fee: 0.0 ⟵ “Student Activity Fee | 0.00 | 0.00”
+  - column:Total Service Fee: 70.0 ⟵ “Total Service Fee | 70.00 | 70.00”
+  - column:Program Services Fee: 20.0 ⟵ “Program Services Fee | 20.00 | 20.00”
+  - column:Total Fees: 90.0 ⟵ “Total Fees | 90.00 | 90.00”
+### `f0c148903eeb3d49` Northeast State Community College — costs 2026-27 [new] (source_unlabeled)
+- source: https://www.northeaststate.edu/financial-aid-tuition/cost-of-attendance.html (sha256 883da26037d6)
+- issues: ambiguous_year_labels
+- checks: {"columns": 2, "components_reconcile": true, "rows": 6}
+  - with_parents_or_family:Tuition and Fees*: 8848 ⟵ “Tuition and Fees* | $8,848 | $8,848”
+  - with_parents_or_family:Living Expenses (Housing & Food): 7532 ⟵ “Living Expenses (Housing & Food) | $7,532 | $15,371”
+  - with_parents_or_family:Books and Supplies: 1560 ⟵ “Books and Supplies | $1,560 | $1,560”
+  - with_parents_or_family:Transportation: 3252 ⟵ “Transportation | $3,252 | $3,252”
+  - with_parents_or_family:Personal Expenses: 2680 ⟵ “Personal Expenses | $2,680 | $2,680”
+  - with_parents_or_family:Total: 23872 ⟵ “Total | $23,872 | $31,711”
+  - off_campus_not_with_family:Tuition and Fees*: 8848 ⟵ “Tuition and Fees* | $8,848 | $8,848”
+  - off_campus_not_with_family:Living Expenses (Housing & Food): 15371 ⟵ “Living Expenses (Housing & Food) | $7,532 | $15,371”
+  - off_campus_not_with_family:Books and Supplies: 1560 ⟵ “Books and Supplies | $1,560 | $1,560”
+  - off_campus_not_with_family:Transportation: 3252 ⟵ “Transportation | $3,252 | $3,252”
+  - off_campus_not_with_family:Personal Expenses: 2680 ⟵ “Personal Expenses | $2,680 | $2,680”
+  - off_campus_not_with_family:Total: 31711 ⟵ “Total | $23,872 | $31,711”
+### `a0460562d9a4d741` Rhodes College — admissions_metrics 2024-25 [new] (labeled_in_source)
+- source: https://www.rhodes.edu/sites/default/files/2026-02/CDS_2024-2025%20_Rhodes_College_.pdf (sha256 1e6d625b330b)
+- issues: stale_year_label:2024-25
+- checks: {"fields": ["act_25", "act_50", "act_75", "admits", "applications", "enrolled", "entering_fall_year", "sat_composite_25", "sat_composite_50", "sat_composite_75", "sat_math_25", "sat_math_50", "sat_math_75"]}
+  - applications: 6365 ⟵ “Total first-time, first-year (degree-seeking) who applied          1103       2872            2390           0     6365”
+  - admits: 3205 ⟵ “Total first-time, first-year (degree-seeking) who were admitted     708         2160          337            0     3205”
+  - enrolled: 388 ⟵ “Total first-time, first-year (degree-seeking) enrolled              126         216            46            0      388”
+  - sat_composite_25..75: [1352, 1420, 1478] ⟵ “SAT Composite                     1352                      1420                       1478”
+  - sat_math_25..75: [670, 720, 740] ⟵ “SAT Math                           670                       720                       740”
+  - act_25..75: [28, 31, 32] ⟵ “ACT Composite                      28                        31                         32”
+### `4e225c24313886e7` Rhodes College — costs 2026-27 [new] (source_unlabeled)
+- source: https://www.rhodes.edu/sites/default/files/2026-05/CDS_2025-26_(New_Update).xlsx (sha256 bbae3a91040e)
+- issues: arrangement_unlabeled, components_do_not_reconcile
+- checks: {"columns": 8, "components_reconcile": false, "rows": 102}
+  - column:Zipcode: 38112 ⟵ “Zipcode | 38112 | A.012 | Phone: | 901-843-3350 | General Information | Respondent Information | All | All | All | All | All | All | Numbers”
+  - column:Zip: 38112 ⟵ “Zip | 38112 | A.119 | Zip | 38112 | General Information | Admissions Office | All | All | All | All | All | All | Numbers”
+  - column:Main Phone Number (Area Code): 901 ⟵ “Main Phone Number (Area Code) | 901 | A.121 | Admissions Phone Number (Area Code): | 901 | General Information | Admissions Office | All | All | All | All | All | All | Numbers”
+  - column:Zip: 38112 ⟵ “Zip | 38112 | A.402 | Differs by program (describe): | Degrees Offered | Text”
+  - column:Admissions Phone Number (Area Code):: 901 ⟵ “Admissions Phone Number (Area Code): | 901 | A.501 | Certificate | x | General Information | Degrees Offered | All | All | All | All | All | All | x”
+  - column:Degree-seeking, first-time first-year students: 223 ⟵ “Degree-seeking, first-time first-year students | 223 | 271 | 0 | B.112 | Total undergraduate Part-Time Students: males | 4 | Enrollment And Persistence | Institutional Enrollment | All | Undergraduates | Total | All | PT | Males | Number”
+  - column:Other first-year, degree-seeking: 7 ⟵ “Other first-year, degree-seeking | 7 | 8 | 0 | B.113 | Total undergraduate students: males | 742 | Enrollment And Persistence | Institutional Enrollment | All | Undergraduates | Total understand | All | All | Males | Number”
+  - column:All other degree-seeking: 501 ⟵ “All other degree-seeking | 501 | 677 | 0 | B.114 | Degree-seeking, first-time: males | 8 | Enrollment And Persistence | Institutional Enrollment | Degree-seeking | Graduates | First-time | All | FT | Males | Number”
+  - column:All other undergraduates enrolled in credit courses: 7 ⟵ “All other undergraduates enrolled in credit courses | 7 | 9 | 0 | B.116 | All other graduates enrolled in credit courses: males | 0 | Enrollment And Persistence | Institutional Enrollment | Enrolled in Credit Courses | Graduates | All other”
+  - column:Degree-seeking, first-time first-year students: 0 ⟵ “Degree-seeking, first-time first-year students | 0 | 0 | 0 | B.120 | All other graduates enrolled in credit courses: males | 2 | Enrollment And Persistence | Institutional Enrollment | Enrolled in Credit Courses | Graduates | All other | Al”
+  - column:Other first-year, degree-seeking: 0 ⟵ “Other first-year, degree-seeking | 0 | 0 | 0 | B.121 | Total graduate Part-Time Students: males | 2 | Enrollment And Persistence | Institutional Enrollment | All | Graduates | Total | All | PT | Males | Number”
+  - column:All other degree-seeking: 1 ⟵ “All other degree-seeking | 1 | 27 | 0 | B.122 | Total Graduate Students: males | Enrollment And Persistence | Institutional Enrollment | All | Graduates | Total | All | All | Males | Number”
+  - column:All other undergraduates enrolled in credit courses: 3 ⟵ “All other undergraduates enrolled in credit courses | 3 | 5 | 0 | B.124 | Total All Part-Tim Students: Males | 6 | Enrollment And Persistence | Institutional Enrollment | All | All Students | Total | All | PT | Males | Number”
+  - column:Degree-seeking, first-time: 8 ⟵ “Degree-seeking, first-time | 8 | 2 | 0 | B.131 | Total undergraduate Full-Time Students: females | 965 | Enrollment And Persistence | Institutional Enrollment | All | Undergraduates | Total | All | FT | Females | Number”
+  - column:All other degree-seeking: 1 ⟵ “All other degree-seeking | 1 | 0 | 0 | B.132 | Degree-seeking, first-time first-year students: females | 0 | Enrollment And Persistence | Institutional Enrollment | Degree-seeking | Undergraduates | First-time, first-year | All | PT | Femal”
+  - column:All other graduates enrolled in credit courses: 0 ⟵ “All other graduates enrolled in credit courses | 0 | 0 | 0 | B.133 | Other first-year, degree-seeking: females | 0 | Enrollment And Persistence | Institutional Enrollment | Degree-seeking | Undergraduates | Other first-year | All | PT | Fem”
+  - column:Degree-seeking, first-time: 0 ⟵ “Degree-seeking, first-time | 0 | 0 | 0 | B.137 | Total undergraduate Part-Time Students: females | 32 | Enrollment And Persistence | Institutional Enrollment | All | Undergraduates | Total | All | PT | Females | Number”
+  - column:All other degree-seeking: 0 ⟵ “All other degree-seeking | 0 | 1 | 0 | B.138 | Total undergraduate students: females | 997 | Enrollment And Persistence | Institutional Enrollment | All | Undergraduates | Total understand | All | All | Females | Number”
+  - column:All other graduates enrolled in credit courses: 2 ⟵ “All other graduates enrolled in credit courses | 2 | 4 | 0 | B.139 | Degree-seeking, first-time: females | 2 | Enrollment And Persistence | Institutional Enrollment | Degree-seeking | Graduates | First-time | All | FT | Females | Number”
+  - column:Nonresidents: 78 ⟵ “Nonresidents | 78 | 160 | 172 | B.171 | Total graduate Part-Time Students: Uknown | 0 | Enrollment And Persistence | Institutional Enrollment | All | Graduates | Total | All | PT | Uknown | Number”
+  - column:Hispanic/Latino: 39 ⟵ “Hispanic/Latino | 39 | 142 | 144 | B.172 | Total Graduate Students: Uknown | Enrollment And Persistence | Institutional Enrollment | All | Graduates | Total | All | All | Uknown | Number”
+  - column:Black or African American, non-Hispanic: 59 ⟵ “Black or African American, non-Hispanic | 59 | 188 | 188 | B.173 | Total Full-Time Students: Uknown | 0 | Enrollment And Persistence | Institutional Enrollment | All | All Students | Total | All | FT | Uknown | Number”
+  - column:White, non-Hispanic: 224 ⟵ “White, non-Hispanic | 224 | 885 | 890 | B.174 | Total Part-Tim Students: Uknown | 0 | Enrollment And Persistence | Institutional Enrollment | All | All Students | Total | All | PT | Uknown | Number”
+  - column:American Indian or Alaska Native, non-Hispanic: 2 ⟵ “American Indian or Alaska Native, non-Hispanic | 2 | 3 | 3 | B.175 | Total All Students: Uknown | 0 | Enrollment And Persistence | Institutional Enrollment | All | All Students | Total | All | All | Uknown | Number”
+  - column:Asian, non-Hispanic: 44 ⟵ “Asian, non-Hispanic | 44 | 155 | 156 | B.176 | Total all undergraduates | 1739 | Enrollment And Persistence | Institutional Enrollment | All | Undergraduates | Total | All | All | All | Number”
+  - … 633 more rows
+### `105982dcd82e9d21` Southern Adventist University — costs 2026-27 [new] (source_unlabeled)
+- source: https://www.southern.edu/undergrad/finances/tuition.html (sha256 cc56cec75708)
+- issues: ambiguous_year_labels, arrangement_unlabeled
+- checks: {"columns": 2, "components_reconcile": true, "rows": 5}
+  - on_campus:Undergraduate Tuition (12-16 hours): 28900 ⟵ “Undergraduate Tuition (12-16 hours) | $28,900 | $28,900”
+  - on_campus:General Fee: 1500 ⟵ “General Fee | $1,500 | $1,500”
+  - on_campus:Residence Hall Rent: 6000 ⟵ “Residence Hall Rent | $6,000 | --”
+  - on_campus:Estimated Food Allowance*: 3900 ⟵ “Estimated Food Allowance* | $3,900 | --”
+  - on_campus:Total: 40300 ⟵ “Total | $40,300 | $30,400”
+  - column:Undergraduate Tuition (12-16 hours): 28900 ⟵ “Undergraduate Tuition (12-16 hours) | $28,900 | $28,900”
+  - column:General Fee: 1500 ⟵ “General Fee | $1,500 | $1,500”
+  - column:Total: 30400 ⟵ “Total | $40,300 | $30,400”
+### `8d9ebb5202e36f48` Tennessee Technological University — costs 2026-27 [new] (source_unlabeled)
+- source: https://www.tntech.edu/financialaid/cost.php (sha256 88176cba5638)
+- issues: ambiguous_year_labels
+- checks: {"columns": 2, "components_reconcile": true, "rows": 7}
+  - on_campus:Tuition/Fees: 17551 ⟵ “Tuition/Fees | $17,551 | $17,551”
+  - on_campus:Housing: 7365 ⟵ “Housing | $7,365 | $8,403”
+  - on_campus:Food: 7026 ⟵ “Food | $7,026 | $7,026”
+  - on_campus:Transportation: 2800 ⟵ “Transportation | $2,800 | $2,800”
+  - on_campus:Books/Supplies: 1280 ⟵ “Books/Supplies | $1,280 | $1,280”
+  - on_campus:Personal Expenses: 2500 ⟵ “Personal Expenses | $2,500 | $2,500”
+  - on_campus:TOTAL: 38522 ⟵ “TOTAL | $38,522 | $39,560”
+  - with_parents_or_family:Tuition/Fees: 17551 ⟵ “Tuition/Fees | $17,551 | $17,551”
+  - with_parents_or_family:Housing: 8403 ⟵ “Housing | $7,365 | $8,403”
+  - with_parents_or_family:Food: 7026 ⟵ “Food | $7,026 | $7,026”
+  - with_parents_or_family:Transportation: 2800 ⟵ “Transportation | $2,800 | $2,800”
+  - with_parents_or_family:Books/Supplies: 1280 ⟵ “Books/Supplies | $1,280 | $1,280”
+  - with_parents_or_family:Personal Expenses: 2500 ⟵ “Personal Expenses | $2,500 | $2,500”
+  - with_parents_or_family:TOTAL: 39560 ⟵ “TOTAL | $38,522 | $39,560”
+### `c0cd5d5119cf47bc` Tennessee Technological University — costs 2026-27 [new] (source_unlabeled)
+- source: https://www.tntech.edu/financialaid/cost.php (sha256 88176cba5638)
+- issues: ambiguous_year_labels
+- checks: {"columns": 2, "components_reconcile": true, "rows": 7}
+  - on_campus:Tuition/Fees: 12685 ⟵ “Tuition/Fees | $12,685 | $12,685”
+  - on_campus:Housing: 7365 ⟵ “Housing | $7,365 | $8,403”
+  - on_campus:Food: 7026 ⟵ “Food | $7,026 | $7,026”
+  - on_campus:Transportation: 2800 ⟵ “Transportation | $2,800 | $2,800”
+  - on_campus:Books/Supplies: 1280 ⟵ “Books/Supplies | $1,280 | $1,280”
+  - on_campus:Personal Expenses: 2500 ⟵ “Personal Expenses | $2,500 | $2,500”
+  - on_campus:TOTAL: 33656 ⟵ “TOTAL | $33,656 | $34,694”
+  - with_parents_or_family:Tuition/Fees: 12685 ⟵ “Tuition/Fees | $12,685 | $12,685”
+  - with_parents_or_family:Housing: 8403 ⟵ “Housing | $7,365 | $8,403”
+  - with_parents_or_family:Food: 7026 ⟵ “Food | $7,026 | $7,026”
+  - with_parents_or_family:Transportation: 2800 ⟵ “Transportation | $2,800 | $2,800”
+  - with_parents_or_family:Books/Supplies: 1280 ⟵ “Books/Supplies | $1,280 | $1,280”
+  - with_parents_or_family:Personal Expenses: 2500 ⟵ “Personal Expenses | $2,500 | $2,500”
+  - with_parents_or_family:TOTAL: 34694 ⟵ “TOTAL | $33,656 | $34,694”
+### `49ac3472770277ab` Tennessee Wesleyan University — costs 2025-26 [new] (labeled_in_source)
+- source: https://www.tnwesleyan.edu/tuition-aid/costs/tuition-and-fees/ (sha256 9fc7d7abec77)
+- issues: stale_year_label:2025-26
+- checks: {"columns": 1, "rows": 3}
+  - column:Tuition: 30650 ⟵ “Tuition | $30,650 | $31,880 | $15,940”
+  - column:Clinical Fees: 2150 ⟵ “Clinical Fees | $2,150 | $2,250 | $1,125”
+  - column:RN-BSN: 385 ⟵ “RN-BSN | $385 | $400 | ”
+### `2edeb93a98249bd6` The University of Tennessee Southern — costs 2026-27 [new] (labeled_in_source)
+- source: https://utsouthern.edu/wp-content/uploads/2026/09/2026-2027-Standard-cost-of-attendance-002.docx.pdf (sha256 690886045400)
+- issues: multiple_total_rows, residency_unknown
+- checks: {"columns": 1, "rows": 14}
+  - column:Tuition: 10228.0 ⟵ “Tuition | $10,228.00”
+  - column:Required Fees: 1374.0 ⟵ “Required Fees | $1,374.00”
+  - column:Housing: 5877.0 ⟵ “Housing | $5,877.00”
+  - column:Meals: 4867.0 ⟵ “Meals | $4,867.00”
+  - column:Direct Costs Subtotal: 22346.0 ⟵ “Direct Costs Subtotal | $22,346.00”
+  - column:Books & Supplies: 1500.0 ⟵ “Books & Supplies | $1,500.00”
+  - column:Loan Fees: 95.0 ⟵ “Loan Fees | $95.00”
+  - column:Personal Expenses: 2000.0 ⟵ “Personal Expenses | $2,000.00”
+  - column:Transportation: 2500.0 ⟵ “Transportation | $2,500.00”
+  - column:Indirect Costs Subtotal: 6095.0 ⟵ “Indirect Costs Subtotal | $6,095.00”
+  - column:Grand Total: 28441.0 ⟵ “Grand Total | $28,441.00”
+  - column:Tuition: 10228.0 ⟵ “Tuition | $10,228.00”
+  - column:Required Fees: 1374.0 ⟵ “Required Fees | $1,374.00”
+  - column:Direct Costs Subtotal: 11602.0 ⟵ “Direct Costs Subtotal | $11,602.00”
+  - column:Estimated Housing: 9360.0 ⟵ “Estimated Housing | $9,360.00”
+  - column:Food/Meals: 4867.0 ⟵ “Food/Meals | $4,867.00”
+  - column:Books & Supplies: 1500.0 ⟵ “Books & Supplies | $1,500.00”
+  - column:Loan Fees: 95.0 ⟵ “Loan Fees | $95.00”
+  - column:Personal Expenses: 2000.0 ⟵ “Personal Expenses | $2,000.00”
+  - column:Transportation: 2500.0 ⟵ “Transportation | $2,500.00”
+  - column:Indirect Costs Subtot: 20322.0 ⟵ “Indirect Costs Subtot | $20,322.00”
+  - column:Grand Total: 31924.0 ⟵ “Grand Total | $31,924.00”
+  - column:Tuition: 10228.0 ⟵ “Tuition | $10,228.00”
+  - column:Required Fees: 1374.0 ⟵ “Required Fees | $1,374.00”
+  - column:Direct Costs Subtotal: 11602.0 ⟵ “Direct Costs Subtotal | $11,602.00”
+  - … 19 more rows
+### `a2286e3ee4390402` The University of Tennessee-Chattanooga — costs 2026-27 [same] (labeled_in_source)
+- source: https://www.utc.edu/sites/default/files/2026-09/2026-27-estimated-cost-of-attendance.pdf (sha256 4dc086460fb0)
+- issues: arrangement_unlabeled
+- checks: {"columns": 4, "rows": 9}
+  - column:Enrollment Fees: 11084 ⟵ “Enrollment Fees | 11084 | 11084 | 11084 | 11789”
+  - column:Books: 1400 ⟵ “Books | 1400 | 1400 | 1400 | 1200”
+  - column:Housing: 2600 ⟵ “Housing | 2600 | 8800 | 9204 | 9450”
+  - column:Food: 4552 ⟵ “Food | 4552 | 4552 | 4552 | 4552”
+  - column:Transportation: 2300 ⟵ “Transportation | 2300 | 2300 | 2300 | 3200”
+  - column:Personal Expenses: 1800 ⟵ “Personal Expenses | 1800 | 1800 | 1800 | 2600”
+  - column:IN-STATE TOTAL: 23736 ⟵ “IN-STATE TOTAL | 23736 | 29936 | 30340 | 32791”
+  - column:Out-of-State Tuition: 8306 ⟵ “Out-of-State Tuition | 8306 | 8306 | 8306 | 8306”
+  - column:Out-of-State Total: 32042 ⟵ “Out-of-State Total | 32042 | 38242 | 38646 | 41097”
+  - column:Enrollment Fees: 11084 ⟵ “Enrollment Fees | 11084 | 11084 | 11084 | 11789”
+  - column:Books: 1400 ⟵ “Books | 1400 | 1400 | 1400 | 1200”
+  - column:Housing: 2600 ⟵ “Housing | 2600 | 8800 | 9204 | 9450”
+  - column:Food: 4552 ⟵ “Food | 4552 | 4552 | 4552 | 4552”
+  - column:Transportation: 2300 ⟵ “Transportation | 2300 | 2300 | 2300 | 3200”
+  - column:Personal Expenses: 1800 ⟵ “Personal Expenses | 1800 | 1800 | 1800 | 2600”
+  - column:IN-STATE TOTAL: 23736 ⟵ “IN-STATE TOTAL | 23736 | 29936 | 30340 | 32791”
+  - column:Out-of-State Tuition: 642 ⟵ “Out-of-State Tuition | 642 | 642 | 642 | 872”
+  - column:Out-of-State Total: 24378 ⟵ “Out-of-State Total | 24378 | 30578 | 30982 | 33663”
+  - off_campus_not_with_family:Enrollment Fees: 11084 ⟵ “Enrollment Fees | 11084 | 11084 | 11084 | 11789”
+  - off_campus_not_with_family:Books: 1400 ⟵ “Books | 1400 | 1400 | 1400 | 1200”
+  - off_campus_not_with_family:Housing: 8800 ⟵ “Housing | 2600 | 8800 | 9204 | 9450”
+  - off_campus_not_with_family:Food: 4552 ⟵ “Food | 4552 | 4552 | 4552 | 4552”
+  - off_campus_not_with_family:Transportation: 2300 ⟵ “Transportation | 2300 | 2300 | 2300 | 3200”
+  - off_campus_not_with_family:Personal Expenses: 1800 ⟵ “Personal Expenses | 1800 | 1800 | 1800 | 2600”
+  - off_campus_not_with_family:IN-STATE TOTAL: 29936 ⟵ “IN-STATE TOTAL | 23736 | 29936 | 30340 | 32791”
+  - … 47 more rows
+### `143b9cc54c51ce3f` The University of Tennessee-Knoxville — admissions_metrics 2025-26 [same] (labeled_in_source)
+- source: https://irsa.utk.edu/wp-content/uploads/sites/5/2026/06/CDS_2025-26_C_.pdf (sha256 432ea71922ec)
+- issues: applications_breakdown_does_not_reconcile
+- checks: {"fields": ["act_25", "act_50", "act_75", "admits", "applications", "enrolled", "entering_fall_year", "sat_composite_25", "sat_composite_50", "sat_composite_75", "sat_math_25", "sat_math_50", "sat_math_75", "sat_reading_25", "sat_reading_50", "sat_reading_75"]}
+  - applications: 53841 ⟵ “Total first-time, first-year (degree-seeking) who applied   11,980           41,408          452       0     53,841”
+  - admits: 23464 ⟵ “Total first-time, first-year (degree-seeking) who were admitted                    8,725           14,526          213       0     23,464”
+  - enrolled: 7143 ⟵ “Total first-time, first-year (degree-seeking) who enrolled                         4,326            2,764           53       0       7,143”
+  - sat_composite_25..75: [1280, 1330, 1380] ⟵ “SAT Composite                                1280            1330          1380”
+  - sat_reading_25..75: [640, 670, 700] ⟵ “SAT Evidence-Based Reading and   640            670           700”
+  - sat_math_25..75: [630, 660, 700] ⟵ “SAT Math                                      630            660           700”
+  - act_25..75: [26, 29, 31] ⟵ “ACT Composite                                 26              29            31”
+### `1669455e8679fac0` The University of Tennessee-Knoxville — costs 2025-26 [new] (labeled_in_source)
+- source: https://admissions.utk.edu/undergraduate-tuition-aid/ (sha256 a1801be28b0e)
+- issues: stale_year_label:2025-26
+- checks: {"columns": 1, "components_reconcile": true, "rows": 4}
+  - column:Tuition & Fees: 33336 ⟵ “Tuition & Fees | $33,336”
+  - column:Housing & Food: 14738 ⟵ “Housing & Food | $14,738”
+  - column:Books, Course Materials, Supplies and Equipment: 1598 ⟵ “Books, Course Materials, Supplies and Equipment | $1,598”
+  - column:Total: 49672 ⟵ “Total | $49,672”
+### `3313ea939c910599` The University of Tennessee-Knoxville — costs 2026-27 [same] (labeled_in_source)
+- source: https://onestop.utk.edu/billing-payments/cost-of-attending-ut-undergraduate-student/ (sha256 f81e0fa4d378)
+- issues: components_do_not_reconcile
+- checks: {"columns": 1, "components_reconcile": false, "rows": 8}
+  - column:Tuition: 31672 ⟵ “Tuition | $11,560 | $31,672”
+  - column:FeesThis is an estimate of what a student will spend on tuition and fees for the Fall and Spring semesters.: 2806 ⟵ “FeesThis is an estimate of what a student will spend on tuition and fees for the Fall and Spring semesters. | $2,464 | $2,806”
+  - column:On-Campus Housing*This is an estimate of what a student will spend on housing and meals for the Fall and Spring semesters if they live in university housing.: 9572 ⟵ “On-Campus Housing*This is an estimate of what a student will spend on housing and meals for the Fall and Spring semesters if they live in university housing. | $9,572 | $9,572”
+  - column:Food: 5166 ⟵ “Food | $5,166 | $5,166”
+  - column:TransportationThis item is for budgeting purposes only and will not be billed to you.: 3500 ⟵ “TransportationThis item is for budgeting purposes only and will not be billed to you. | $3,500 | $3,500”
+  - column:Miscellaneous Personal Expenses (Based on personal spending habits)This item is for budgeting purposes only and will not be billed to you.: 3042 ⟵ “Miscellaneous Personal Expenses (Based on personal spending habits)This item is for budgeting purposes only and will not be billed to you. | $3,042 | $3,042”
+  - column:Loan FeesThis is an estimate of what the average student spends in federal loan origination fee.: 92 ⟵ “Loan FeesThis is an estimate of what the average student spends in federal loan origination fee. | $92 | $92”
+  - column:Total, with on-campus housing(Direct costs plus estimated indirect costs): 57448 ⟵ “Total, with on-campus housing(Direct costs plus estimated indirect costs) | $36,994 | $57,448”
+### `67d0ececd1764a10` The University of Tennessee-Knoxville — costs 2026-27 [same] (labeled_in_source)
+- source: https://onestop.utk.edu/billing-payments/cost-of-attending-ut-undergraduate-student/ (sha256 f81e0fa4d378)
+- issues: components_do_not_reconcile
+- checks: {"columns": 1, "components_reconcile": false, "rows": 8}
+  - column:Tuition: 11560 ⟵ “Tuition | $11,560 | $31,672”
+  - column:FeesThis is an estimate of what a student will spend on tuition and fees for the Fall and Spring semesters.: 2464 ⟵ “FeesThis is an estimate of what a student will spend on tuition and fees for the Fall and Spring semesters. | $2,464 | $2,806”
+  - column:On-Campus Housing*This is an estimate of what a student will spend on housing and meals for the Fall and Spring semesters if they live in university housing.: 9572 ⟵ “On-Campus Housing*This is an estimate of what a student will spend on housing and meals for the Fall and Spring semesters if they live in university housing. | $9,572 | $9,572”
+  - column:Food: 5166 ⟵ “Food | $5,166 | $5,166”
+  - column:TransportationThis item is for budgeting purposes only and will not be billed to you.: 3500 ⟵ “TransportationThis item is for budgeting purposes only and will not be billed to you. | $3,500 | $3,500”
+  - column:Miscellaneous Personal Expenses (Based on personal spending habits)This item is for budgeting purposes only and will not be billed to you.: 3042 ⟵ “Miscellaneous Personal Expenses (Based on personal spending habits)This item is for budgeting purposes only and will not be billed to you. | $3,042 | $3,042”
+  - column:Loan FeesThis is an estimate of what the average student spends in federal loan origination fee.: 92 ⟵ “Loan FeesThis is an estimate of what the average student spends in federal loan origination fee. | $92 | $92”
+  - column:Total, with on-campus housing(Direct costs plus estimated indirect costs): 36994 ⟵ “Total, with on-campus housing(Direct costs plus estimated indirect costs) | $36,994 | $57,448”
+### `fefa1a724355ffd3` The University of Tennessee-Knoxville — costs 2025-26 [new] (labeled_in_source)
+- source: https://admissions.utk.edu/undergraduate-tuition-aid/ (sha256 a1801be28b0e)
+- issues: stale_year_label:2025-26
+- checks: {"columns": 1, "components_reconcile": true, "rows": 4}
+  - column:Tuition & Fees: 13876 ⟵ “Tuition & Fees | $13,876”
+  - column:Housing & Food: 14738 ⟵ “Housing & Food | $14,738”
+  - column:Books, Course Materials, Supplies and Equipment: 1598 ⟵ “Books, Course Materials, Supplies and Equipment | $1,598”
+  - column:Total: 30212 ⟵ “Total | $30,212”
+### `68440b83cdef6c5f` Union University — costs 2026-27 [new] (labeled_in_source)
+- source: https://www.uu.edu/admissions/financial-aid/cost-of-attendance/ (sha256 ede6d045722c)
+- issues: multiple_total_rows
+- checks: {"columns": 1, "rows": 11}
+  - column:Tuition: 41170 ⟵ “Tuition | $41,170 | 12-16 hours per semester as a block rate”
+  - column:Mandatory Fees: 1520 ⟵ “Mandatory Fees | $1,520 | This does not include a one-time $185 Orientation fee for first-time Union students.”
+  - column:Housing: 10800 ⟵ “Housing | $10,800 | This is the cost for The Quads Apartments; your costs could differ depending on your housing option.”
+  - column:Food/Meals: 6636 ⟵ “Food/Meals | $6,636 | This is the 285 meal-plan; your costs could differ depending on your meal-plan selection.”
+  - column:Total Direct Costs: 60126 ⟵ “Total Direct Costs | $60,126 | This is prior to any applied financial aid — but GREAT news, financial aid is available!”
+  - column:Books, Course Materials, Supplies, and Equipment: 750 ⟵ “Books, Course Materials, Supplies, and Equipment | $750 | This is an estimate using the Buster Book Bundle; your costs could differ depending on how you purchase your books”
+  - column:Transportation: 3316 ⟵ “Transportation | $3,316 | This is an estimate for transportation fees you may incur over the year for items such as traveling to class or trips home; your costs could vary greatly depending on your situation.”
+  - column:Loan Fees: 130 ⟵ “Loan Fees | $130 | This is an estimate for the average cost of Federal student loan fees such as origination fees; your costs could vary based on your decisions to borrow, contact SFP for more information.”
+  - column:Personal Expenses: 11154 ⟵ “Personal Expenses | $11,154 | This is an estimate of costs for day-to-day expenses you may have over the next academic year. Your costs could vary greatly based on your situation and financial decisions.”
+  - column:Total Indirect Costs: 15350 ⟵ “Total Indirect Costs | $15,350 | ”
+  - column:Total COA: 75476 ⟵ “Total COA | $75,476 | Total allowable Cost of Attendance for on-campus, traditional undergraduate students (prior to application of any financial aid eligibility)”
+### `1c5d13913b963237` Vanderbilt University — costs 2026-27 [new] (labeled_in_source)
+- source: https://admissions.vanderbilt.edu/affordability/ (sha256 a80f3d79c819)
+- issues: multiple_total_rows
+- checks: {"columns": 1, "rows": 8}
+  - column:Tuition: 69822 ⟵ “Tuition | $69,822”
+  - column:Housing: 15170 ⟵ “Housing | $15,170”
+  - column:Food: 8520 ⟵ “Food | $8,520”
+  - column:Student Support Fee: 3384 ⟵ “Student Support Fee | $3,384”
+  - column:Total Direct Cost of Attendance – Mandatory: 96896 ⟵ “Total Direct Cost of Attendance – Mandatory | $96,896”
+  - column:Books, Course Materials, Supplies, & Equipment Allowance: 1100 ⟵ “Books, Course Materials, Supplies, & Equipment Allowance | $1,100”
+  - column:Personal Expenses Allowance: 1998 ⟵ “Personal Expenses Allowance | $1,998”
+  - column:Total Indirect Costs – Discretionary/Elective: 3098 ⟵ “Total Indirect Costs – Discretionary/Elective | $3,098”
+
+## Re-verification of existing records (38)
+
+- all_values_found_year_labeled: data/institutions/utc/academic_programs/2026-27.json ["academic_programs", "ipeds-221740", null, "2026-27", {"program_key": "computer-science-data-science-ai-bs"}] year=2026-27
+- all_values_found_year_labeled: data/institutions/utc/academic_programs/2026-27.json ["academic_programs", "ipeds-221740", null, "2026-27", {"program_key": "nursing-bsn"}] year=2026-27
+- all_values_found_year_labeled: data/institutions/utc/academic_programs/2026-27.json ["academic_programs", "ipeds-221740", null, "2026-27", {"program_key": "psychology-bs"}] year=2026-27
+- nothing_to_check: data/institutions/utc/appeals/2026-27.json ["appeals", "ipeds-221740", null, "2026-27", {"appeal_kind": "sap_appeal"}]
+- nothing_to_check: data/institutions/utc/appeals/2026-27.json ["appeals", "ipeds-221740", null, "2026-27", {"appeal_kind": "scholarship_retention_appeal"}]
+- nothing_to_check: data/institutions/utc/appeals/2026-27.json ["appeals", "ipeds-221740", null, "2026-27", {"appeal_kind": "merit_reconsideration"}]
+- nothing_to_check: data/institutions/utc/appeals/2026-27.json ["appeals", "ipeds-221740", null, "2026-27", {"appeal_kind": "competing_offer_review"}]
+- nothing_to_check: data/institutions/utc/appeals/2026-27.json ["appeals", "ipeds-221740", null, "2026-27", {"appeal_kind": "need_based_special_circumstances"}]
+- policy_text_not_verbatim: data/institutions/utc/awards/2027-28.json ["awards", "ipeds-221740", null, "2027-28", {"award_name": "Chancellor's Scholarship"}] year=2025-26
+- policy_text_not_verbatim: data/institutions/utc/awards/2027-28.json ["awards", "ipeds-221740", null, "2027-28", {"award_name": "Provost's Scholarship"}] year=2025-26
+- policy_text_not_verbatim: data/institutions/utc/awards/2027-28.json ["awards", "ipeds-221740", null, "2027-28", {"award_name": "Mocs Scholarship"}] year=2025-26
+- policy_text_not_verbatim: data/institutions/utc/awards/2027-28.json ["awards", "ipeds-221740", null, "2027-28", {"award_name": "Academic Service Scholars Program"}]
+- values_not_found_verbatim: data/institutions/utc/costs/2026-27.json ["costs", "ipeds-221740", null, "2026-27", {"residency": "in_state"}] missing=['on_campus_food_housing', 'on_campus_other_expenses'] year=2026-27
+- values_not_found_verbatim: data/institutions/utc/costs/2026-27.json ["costs", "ipeds-221740", null, "2026-27", {"residency": "out_of_state"}] missing=['on_campus_food_housing', 'on_campus_other_expenses'] year=2026-27
+- policy_text_not_verbatim: data/institutions/utc/credit_policies/2026-27.json ["credit_policies", "ipeds-221740", null, "2026-27", {"policy_kind": "AP"}]
+- policy_text_not_verbatim: data/institutions/utc/credit_policies/2026-27.json ["credit_policies", "ipeds-221740", null, "2026-27", {"policy_kind": "CLEP"}]
+- policy_text_not_verbatim: data/institutions/utc/degree_requirements/2026-27.json ["degree_requirements", "ipeds-221740", null, "2026-27", {"program_key": "computer-science-data-science-ai-bs", "requirement_key": "program-total"}] year=2026-27
+- policy_text_not_verbatim: data/institutions/utc/degree_requirements/2026-27.json ["degree_requirements", "ipeds-221740", null, "2026-27", {"program_key": "computer-science-data-science-ai-bs", "requirement_key": "upper-division-hours"}] year=2026-27
+- policy_text_not_verbatim: data/institutions/utc/degree_requirements/2026-27.json ["degree_requirements", "ipeds-221740", null, "2026-27", {"program_key": "computer-science-data-science-ai-bs", "requirement_key": "residency-hours"}] year=2026-27
+- policy_text_not_verbatim: data/institutions/utc/degree_requirements/2026-27.json ["degree_requirements", "ipeds-221740", null, "2026-27", {"program_key": "computer-science-data-science-ai-bs", "requirement_key": "gen-ed-hours"}] year=2026-27
+- policy_text_not_verbatim: data/institutions/utc/degree_requirements/2026-27.json ["degree_requirements", "ipeds-221740", null, "2026-27", {"program_key": "computer-science-data-science-ai-bs", "requirement_key": "major-hours"}] year=2026-27
+- nothing_to_check: data/institutions/utc/degree_requirements/2026-27.json ["degree_requirements", "ipeds-221740", null, "2026-27", {"program_key": "computer-science-data-science-ai-bs", "requirement_key": "four-year-plan"}] year=2026-27
+- policy_text_not_verbatim: data/institutions/utc/degree_requirements/2026-27.json ["degree_requirements", "ipeds-221740", null, "2026-27", {"program_key": "nursing-bsn", "requirement_key": "program-total"}] year=2026-27
+- policy_text_not_verbatim: data/institutions/utc/degree_requirements/2026-27.json ["degree_requirements", "ipeds-221740", null, "2026-27", {"program_key": "nursing-bsn", "requirement_key": "upper-division-hours"}] year=2026-27
+- policy_text_not_verbatim: data/institutions/utc/degree_requirements/2026-27.json ["degree_requirements", "ipeds-221740", null, "2026-27", {"program_key": "nursing-bsn", "requirement_key": "residency-hours"}] year=2026-27
+- policy_text_not_verbatim: data/institutions/utc/degree_requirements/2026-27.json ["degree_requirements", "ipeds-221740", null, "2026-27", {"program_key": "nursing-bsn", "requirement_key": "gen-ed-hours"}] year=2026-27
+- policy_text_not_verbatim: data/institutions/utc/degree_requirements/2026-27.json ["degree_requirements", "ipeds-221740", null, "2026-27", {"program_key": "nursing-bsn", "requirement_key": "major-hours"}] year=2026-27
+- nothing_to_check: data/institutions/utc/degree_requirements/2026-27.json ["degree_requirements", "ipeds-221740", null, "2026-27", {"program_key": "nursing-bsn", "requirement_key": "four-year-plan"}] year=2026-27
+- policy_text_not_verbatim: data/institutions/utc/degree_requirements/2026-27.json ["degree_requirements", "ipeds-221740", null, "2026-27", {"program_key": "psychology-bs", "requirement_key": "program-total"}] year=2026-27
+- policy_text_not_verbatim: data/institutions/utc/degree_requirements/2026-27.json ["degree_requirements", "ipeds-221740", null, "2026-27", {"program_key": "psychology-bs", "requirement_key": "upper-division-hours"}] year=2026-27
+- policy_text_not_verbatim: data/institutions/utc/degree_requirements/2026-27.json ["degree_requirements", "ipeds-221740", null, "2026-27", {"program_key": "psychology-bs", "requirement_key": "residency-hours"}] year=2026-27
+- policy_text_not_verbatim: data/institutions/utc/degree_requirements/2026-27.json ["degree_requirements", "ipeds-221740", null, "2026-27", {"program_key": "psychology-bs", "requirement_key": "gen-ed-hours"}] year=2026-27
+- policy_text_not_verbatim: data/institutions/utc/degree_requirements/2026-27.json ["degree_requirements", "ipeds-221740", null, "2026-27", {"program_key": "psychology-bs", "requirement_key": "major-hours"}] year=2026-27
+- nothing_to_check: data/institutions/utc/degree_requirements/2026-27.json ["degree_requirements", "ipeds-221740", null, "2026-27", {"program_key": "psychology-bs", "requirement_key": "four-year-plan"}] year=2026-27
+- values_not_found_verbatim: data/institutions/utc/transfer_policies/2026-27.json ["transfer_policies", "ipeds-221740", null, "2026-27", {}] missing=['residency_requirement_credits']
+- nothing_to_check: data/institutions/utk/awards/2026-27.json ["awards", "utk", null, "2026-27", {"award_name": "Manning Scholars"}] year=2026-27
+- policy_text_not_verbatim: data/institutions/utk/awards/2026-27.json ["awards", "utk", null, "2026-27", {"award_name": "Out-of-State Volunteer Scholarship"}] year=2026-27
+- source_not_fetched: data/institutions/utk/transfer_policies/2026-27.json ["transfer_policies", "utk", null, "2026-27", {}]
+
+## Leads: official pages found with no extracted record
+
+- American Baptist College: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, transfer_credit, degree_requirements, aid_appeals
+- Austin Peay State University: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, residency, degree_requirements, aid_appeals
+- Baptist Health Sciences University: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, transfer_credit, statewide_articulation, residency, degree_requirements, aid_appeals
+- Belmont University: admissions_tests, merit_scholarships, ap_credit, ib_credit, dual_enrollment, transfer_credit, residency, degree_requirements
+- Bethel University: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, dual_enrollment, transfer_credit, degree_requirements, aid_appeals
+- Bryan College-Dayton: admissions_tests, merit_scholarships, ap_credit, clep_credit, dual_enrollment, transfer_credit, degree_requirements, aid_appeals
+- Carson-Newman University: admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, statewide_articulation, degree_requirements, aid_appeals
+- Christian Brothers University: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements, aid_appeals
+- Columbia State Community College: tuition_fees, cost_of_attendance, admissions_tests, common_data_set, merit_scholarships, ap_credit, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements, aid_appeals
+- Dyersburg State Community College: tuition_fees, cost_of_attendance, admissions_tests, common_data_set, merit_scholarships, dual_enrollment, transfer_credit, residency, degree_requirements
+- East Tennessee State University: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, clep_credit, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements, aid_appeals
+- Fisk University: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, transfer_credit, degree_requirements
+- Freed-Hardeman University: tuition_fees, cost_of_attendance, admissions_tests, common_data_set, merit_scholarships, dual_enrollment, transfer_credit, degree_requirements, aid_appeals
+- Herzing University-Nashville: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, clep_credit, dual_enrollment, transfer_credit, degree_requirements
+- Jackson State Community College: admissions_tests, common_data_set, merit_scholarships, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements, aid_appeals
+- John A Gupton College: admissions_tests, degree_requirements, aid_appeals
+- Johnson University: admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements, aid_appeals
+- King University: tuition_fees, cost_of_attendance, admissions_tests, dual_enrollment, residency, degree_requirements
+- Lane College: admissions_tests, common_data_set, merit_scholarships, transfer_credit, degree_requirements, aid_appeals
+- Le Moyne-Owen College: tuition_fees, cost_of_attendance, admissions_tests, dual_enrollment, transfer_credit
+- Lee University: tuition_fees, cost_of_attendance, merit_scholarships, transfer_credit, statewide_articulation, degree_requirements, aid_appeals
+- Lincoln Memorial University: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, clep_credit, transfer_credit, degree_requirements, aid_appeals
+- Lipscomb University: admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, statewide_articulation, degree_requirements, aid_appeals
+- Maryville College: admissions_tests, merit_scholarships, transfer_credit, statewide_articulation, aid_appeals
+- Mid-South Christian College: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, transfer_credit
+- Middle Tennessee State University: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, residency, degree_requirements, aid_appeals
+- Motlow State Community College: tuition_fees, cost_of_attendance, admissions_tests, common_data_set, merit_scholarships, ap_credit, clep_credit, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements, aid_appeals
+- Nashville State Community College: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, clep_credit, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements, aid_appeals
+- Northeast State Community College: admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements, aid_appeals
+- Remington College-Memphis Campus: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, transfer_credit, degree_requirements
+- Remington College-Nashville Campus: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, transfer_credit, degree_requirements
+- Rhodes College: merit_scholarships, ap_credit, ib_credit, dual_enrollment, transfer_credit, degree_requirements, aid_appeals
+- Roane State Community College: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, transfer_credit, statewide_articulation, residency, degree_requirements, aid_appeals
+- Southern Adventist University: admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, degree_requirements, aid_appeals
+- Southwest Tennessee Community College: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, statewide_articulation, degree_requirements, aid_appeals
+- Tennessee State University: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, ib_credit, transfer_credit, statewide_articulation, residency, degree_requirements, aid_appeals
+- Tennessee Technological University: admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, residency, degree_requirements, aid_appeals
+- Tennessee Wesleyan University: admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, residency, degree_requirements
+- The University of Tennessee Southern: admissions_tests, merit_scholarships, dual_enrollment, degree_requirements, aid_appeals
+- The University of Tennessee-Chattanooga: admissions_tests, merit_scholarships, dual_enrollment
+- The University of the South: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, degree_requirements, aid_appeals
+- Trevecca Nazarene University: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements, aid_appeals
+- Tusculum University: tuition_fees, cost_of_attendance, admissions_tests, common_data_set, merit_scholarships, dual_enrollment, transfer_credit, degree_requirements
+- Union University: admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, degree_requirements, aid_appeals
+- University of Memphis: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements, aid_appeals
+- Vanderbilt University: admissions_tests, merit_scholarships, transfer_credit, degree_requirements, aid_appeals
+- Visible Music College: cost_of_attendance, admissions_tests, merit_scholarships
+- Walters State Community College: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, clep_credit, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements, aid_appeals
+- Welch College: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, degree_requirements
+- William R Moore College of Technology: tuition_fees, admissions_tests, merit_scholarships
+- Williamson Christian College: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, degree_requirements, aid_appeals
