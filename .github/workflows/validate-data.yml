@@ -24,6 +24,8 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Verify pinned official source archives
         run: python scripts/verify_sources.py
+      - name: Mutation-check pipeline safety rules
+        run: python scripts/mutation_check.py
   database:
     runs-on: ubuntu-latest
     services:

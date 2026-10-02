@@ -99,11 +99,24 @@ def link_years(text: str):
     return out
 
 
+PROGRAM_PAGE = re.compile(r'preview_program\.php|[?&]poid=\d+', re.I)
+GRAD_PROGRAM = re.compile(r'\b(m\.?s\.?|m\.?a\.?|mba|m\.?ed|ph\.?d|ed\.?d|dnp|graduate|certificate|minor)\b', re.I)
+UG_PROGRAM = re.compile(r'\b(b\.?s\.?|b\.?a\.?|b\.?b\.?a|bsn|b\.?f\.?a|b\.?m|bachelor|a\.?s\.?|a\.?a\.?|a\.?a\.?s|associate)\b', re.I)
+
+
+def is_program_page(url: str) -> bool:
+    """An individual program page in a catalog platform (Acalog preview_program.php?poid=...)."""
+    return bool(PROGRAM_PAGE.search(url or ''))
+
+
 def link_score(url: str, anchor: str = '', today=None) -> int:
     """Crawl priority: more matched categories, documents of known value, and current years rank higher.
     Links whose only year labels are more than two academic years old are skipped: the pipeline is
     after current policy, and archives of old catalogs and surveys would consume the page budget."""
     if EXCLUDE.search(url): return -1
+    if is_program_page(url):  # anchors are program names, so topic keywords never match them
+        if GRAD_PROGRAM.search(anchor) and not UG_PROGRAM.search(anchor): return -1
+        return 30 if UG_PROGRAM.search(anchor) else 12
     topics = link_topics(url, anchor)
     if not topics: return 0
     score = 10 * len(topics)

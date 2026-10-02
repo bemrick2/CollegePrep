@@ -32,7 +32,10 @@ def make(domain, inst_key, academic_year, year_basis, record, evidence, entry, e
            'last_verified_at': (entry.get('fetched_at') or '')[:10]}
     if year_basis == 'source_unlabeled':
         rec['academic_year_basis'] = 'aid_year_in_force_at_review_source_unlabeled'
-    return {'candidate_id': candidate_id(domain, inst_key, academic_year, discriminator, extractor),
+    # The source document is part of the identity: two pages yielding the same record key must both
+    # reach conflict detection instead of the first one silently winning.
+    doc = src.get('sha256') or src.get('url')
+    return {'candidate_id': candidate_id(domain, inst_key, academic_year, [discriminator, doc], extractor),
             'domain': domain, 'institution_key': inst_key, 'academic_year': academic_year,
             'year_basis': year_basis, 'record': rec, 'evidence': evidence, 'source': src,
             'extractor': extractor, 'pipeline_version': PIPELINE_VERSION,

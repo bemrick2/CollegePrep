@@ -45,9 +45,34 @@ def _credits(cell):
     return float(m.group(1)) if m and '.' in m.group(1) else int(m.group(1)) if m else None
 
 
-def table_equivalencies(kind, rows):
+def table_exam(kind, t):
+    """An exam named by the table itself (its lead text, caption or heading) for one-table-per-exam layouts."""
+    for label in (t.get('lead'), t.get('caption'), t.get('heading')):
+        if label and len(label) <= 80:
+            hit = exams.match(kind, label)
+            if hit: return hit + (label,)
+    return None
+
+
+def table_equivalencies(kind, rows, table_hit=None):
     if len(rows) < 2: return []
     has_header, ex, sc, co, hr = _columns(rows)
+    header = [c.lower() for c in rows[0]]
+    exam_column = has_header and any(w in ' '.join(header) for w in ('exam', 'test', 'subject', 'ap course'))
+    if table_hit and not exam_column:
+        # Rows are score tiers for the one exam the table is named after.
+        body = rows[1:] if has_header else rows
+        out = []
+        for row in body:
+            cells = list(row)
+            get = lambda i: cells[i].strip() if i is not None and i < len(cells) else ''
+            sc_i = sc if sc is not None else 0
+            score, course = get(sc_i), get(co)
+            if not score or not re.search(r'\d', score): continue
+            eq = {'exam_or_course_code': table_hit[0], 'exam_or_course_name': table_hit[1], 'minimum_score': score,
+                  'institution_course_equivalent': course or None, 'credits_awarded': _credits(get(hr)), 'notes': None}
+            out.append((eq, f'{table_hit[2]} || ' + ' | '.join(cells)))
+        return out
     body = rows[1:] if has_header else rows
     width = len(rows[0])
     out, prev = [], None
@@ -72,13 +97,50 @@ def table_equivalencies(kind, rows):
     return out
 
 
+PDF_SCORE = re.compile(r'^\s*((?:[1-7]|[2-8]\d)(?:\s*(?:\+|or\s+(?:higher|above|better)|-\s*[1-7]|,?\s*(?:or|and|&|,)\s*[1-7]))*)\b(.*)$', re.I)
+
+
+def pdf_equivalencies(kind, page):
+    """Layout-text credit charts: '<exam name>   <score>   <course(s)>   <hours>' on one line."""
+    out = []
+    for line in page.lines:
+        cells = [c.strip() for c in re.split(r'\s{2,}', line) if c.strip()]
+        if len(cells) < 3 or len(cells[0]) > 80: continue
+        hit = exams.match(kind, cells[0])
+        if not hit: continue
+        rest = cells[1:]
+        score_i = next((i for i, c in enumerate(rest) if SCORE_CELL.match(c)), None)
+        if score_i is None: continue
+        others = [c for i, c in enumerate(rest) if i != score_i]
+        course = next((c for c in others if COURSE_RE.search(c) or re.search(r'elective|credit', c, re.I)), None)
+        hours = next((_credits(c) for c in others if _credits(c) is not None), None)
+        if course is None and hours is None: continue
+        eq = {'exam_or_course_code': hit[0], 'exam_or_course_name': hit[1], 'minimum_score': rest[score_i],
+              'institution_course_equivalent': course, 'credits_awarded': hours, 'notes': None}
+        out.append((eq, line.strip()[:300]))
+    return out
+
+
 def extract(inst, entry, page, today_year):
-    if not page.tables or common.professional_source(entry, page): return []
-    by_kind = {}
-    for t in page.tables:
+    if common.professional_source(entry, page): return []
+    if entry.get('kind') == 'pdf':
+        kind = exams.detect_kind(page.title, ' '.join(page.lines[:15]), entry.get('url', ''))
+        if not kind: return []
+        page_tables, pdf_rows = [], {kind: pdf_equivalencies(kind, page)}
+    else:
+        if not page.tables: return []
+        page_tables, pdf_rows = page.tables, {}
+    by_kind = {k: list(v) for k, v in pdf_rows.items() if v}
+    heading_uses = {}
+    for t in page_tables:
+        heading_uses[t.get('heading')] = heading_uses.get(t.get('heading'), 0) + 1
+    for t in page_tables:
         kind = exams.detect_kind(t.get('caption'), t.get('heading')) or exams.detect_kind(page.title, entry['url'])
         if not kind: continue
-        for eq, row_text in table_equivalencies(kind, t['rows']):
+        named = dict(t)
+        if not t.get('lead') and heading_uses[t.get('heading')] > 1:
+            named['heading'] = None  # several tables under one heading: the heading cannot name each table
+        for eq, row_text in table_equivalencies(kind, t['rows'], table_exam(kind, named)):
             by_kind.setdefault(kind, []).append((eq, row_text))
     out = []
     for kind, items in by_kind.items():
