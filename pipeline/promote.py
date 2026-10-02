@@ -105,5 +105,7 @@ def promote(registry, decisions_path: Path, log=print):
     out.parent.mkdir(parents=True, exist_ok=True)
     prior = json.loads(out.read_text()) if out.exists() else {}
     out.write_text(json.dumps({**prior, **evidence}, indent=1, sort_keys=True, ensure_ascii=False) + '\n', encoding='utf-8')
-    log(f'promoted {written} records; evidence in {out.relative_to(ROOT)}')
+    from .registry import write as write_registry
+    write_registry(registry['state'])  # promoted records cite new sources, which every later run re-checks
+    log(f'promoted {written} records; evidence in {out.relative_to(ROOT)}; registry refreshed')
     return written
