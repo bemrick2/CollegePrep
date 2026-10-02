@@ -22,6 +22,10 @@ create table if not exists import_runs (
 );
 '''
 def natural_key(domain,r):
+    if domain in {'academic_programs','degree_requirements','transfer_policies'}:
+        # Names and optional record labels may change without changing identity.
+        discriminator={k:r.get(k) for k in (['program_key','requirement_key'] if domain=='degree_requirements' else ['program_key'] if domain=='academic_programs' else [])}
+        return json.dumps([domain,r.get('institution_key'),None,r.get('academic_year'),discriminator],sort_keys=True)
     discriminator={k:r.get(k) for k in ['record_key','program_name','award_name','policy_kind','appeal_kind','residency','program_key','requirement_key','applicant_population'] if r.get(k) is not None}
     return json.dumps([domain,r.get('institution_key'),r.get('state'),r.get('academic_year'),discriminator],sort_keys=True)
 
@@ -33,7 +37,7 @@ def load(db,root=ROOT,accept_revisions=False):
     with db:
         for _,domain,r in records(root):
             from scripts.validate_data import validate_record
-            problems=validate_record(root/'data',r,0)
+            problems=validate_record(root/'data',r,0,domain=domain)
             if domain!='institutions' and not r.get('academic_year'): problems.append('missing academic_year')
             if problems: raise ValueError('; '.join(problems))
             key=natural_key(domain,r); payload=json.dumps(r,sort_keys=True,ensure_ascii=False)

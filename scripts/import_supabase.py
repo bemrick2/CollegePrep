@@ -9,7 +9,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from backend.catalog import ROOT,records
 from backend.store import natural_key
 from scripts.validate_data import validate_record
-SUPPORTED_DOMAINS={'institutions','costs','admissions_metrics','state_aid','awards','appeals','credit_policies','federal_aid'}
+SUPPORTED_DOMAINS={'institutions','costs','admissions_metrics','state_aid','awards','appeals','credit_policies','federal_aid','academic_programs','transfer_policies','degree_requirements'}
 
 def literal(v):
     if v is None: return 'null'
@@ -18,6 +18,11 @@ def literal(v):
     return "'"+str(v).replace("'","''")+"'"
 
 def bulk_batch(rows):
+    for row in rows:
+        if row['domain'] not in SUPPORTED_DOMAINS:
+            raise ValueError('Domain needs an explicit normalized mapping: '+row['domain'])
+        problems=validate_record(ROOT/'data',row['payload'],0,domain=row['domain'])
+        if problems: raise ValueError('; '.join(problems))
     data=literal(json.dumps(rows,ensure_ascii=False))+'::jsonb'
     sql=f'''begin;
 create temporary table import_rows(domain text,natural_key text,source_file text,payload jsonb) on commit drop;
@@ -64,6 +69,17 @@ end $guard$;
     sql+=insert('appeals','appeal_policies',{**text('academic_year','appeal_kind','process_summary','required_documents','deadline_text','contact_method','notes','qualifying_path_evidence'),'offered':'boolean'},['institution_id','academic_year','appeal_kind'],{'institution_id':'i.id','policy_url':"coalesce(r.payload->>'policy_url',r.payload->>'source_url')",'qualifies_for_paid_addon':"coalesce((r.payload->>'qualifies_for_paid_addon')::boolean,false)"},instjoin)
     sql+=insert('credit_policies','credit_policies',{**text('academic_year','policy_kind','policy_url','notes'),**numbers('general_limit_credits','residency_credit_requirement')},['institution_id','policy_kind','academic_year'],{'institution_id':'i.id'},instjoin)
     sql+=insert('federal_aid','federal_aid_programs',text('academic_year'),['program_key','academic_year'],{'program_key':"'pell_grant'",'policy_details':'r.payload'})
+    sql+=insert('transfer_policies','transfer_policies',{**text('academic_year','min_grade','articulation_url','notes'),**numbers('max_transfer_credits','max_transfer_percent','residency_requirement_credits')},['institution_id','academic_year'],{'institution_id':'i.id','policy_url':"coalesce(r.payload->>'policy_url',r.payload->>'source_url')"},instjoin)
+    sql+=insert('academic_programs','academic_programs',{**text('academic_year','program_key','program_name','cip_code','credential_level','delivery_mode','catalog_year','program_url'),**numbers('total_credits'),'active':'boolean'},['institution_id','program_key','academic_year'],{'institution_id':'i.id'},instjoin)
+    sql+='''do $guard$ begin
+ if exists(select 1 from import_rows r where r.domain='degree_requirements' and not exists(
+ select 1 from public.academic_programs p join public.institutions i on i.id=p.institution_id
+ where i.institution_key=r.payload->>'institution_key' and p.program_key=r.payload->>'program_key'
+ and p.academic_year=r.payload->>'academic_year')) then raise exception 'Missing program dependency for requested academic year'; end if;
+end $guard$;
+'''
+    programjoin=instjoin+" join public.academic_programs p on p.institution_id=i.id and p.program_key=r.payload->>'program_key' and p.academic_year=r.payload->>'academic_year'"
+    sql+=insert('degree_requirements','degree_requirements',{**text('academic_year','requirement_key','requirement_kind'),**numbers('minimum_credits','minimum_gpa')},['program_id','academic_year','requirement_key'],{'program_id':'p.id','rule_details':"coalesce(r.payload->'rule_details','{}'::jsonb)"},programjoin)
     eqfields=['exam_or_course_code','exam_or_course_name','minimum_score','institution_course_equivalent','credits_awarded','applies_to_gen_ed','applies_to_major','notes']
     values=["(eq->>'"+k+"')"+('::numeric' if k=='credits_awarded' else '::boolean' if k.startswith('applies_to') else '') for k in eqfields]
     conflict=['credit_policy_id','exam_or_course_code','minimum_score','institution_course_equivalent']
@@ -73,11 +89,11 @@ end $guard$;
 
 def batches(size=400):
     collected=[]
-    ordered=sorted(records(),key=lambda x: x[1]!='institutions')
+    ordered=sorted(records(),key=lambda x: {'institutions':0,'academic_programs':1,'degree_requirements':3}.get(x[1],2))
     for path,domain,r in ordered:
         if domain not in SUPPORTED_DOMAINS: raise ValueError('Domain needs an explicit normalized mapping: '+domain)
         if domain=='federal_aid' and 'pell_grant' not in r: raise ValueError('Federal program needs an explicit mapping')
-        errors=validate_record(path,r,0)
+        errors=validate_record(path,r,0,domain=domain)
         if domain!='institutions' and not r.get('academic_year'): errors.append('missing academic_year')
         if errors: raise ValueError('; '.join(errors))
         collected.append({'domain':domain,'natural_key':natural_key(domain,r),'source_file':path.relative_to(ROOT).as_posix(),'payload':r})

@@ -48,3 +48,8 @@ jobs:
         run: for migration in supabase/migrations/*.sql; do psql -v ON_ERROR_STOP=1 -f "$migration"; done
       - name: Test database gate and reference permissions
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/reference_access.sql
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test normalized program imports and annual history
+        run: python scripts/test_program_import.py | psql -v ON_ERROR_STOP=1
