@@ -1,0 +1,90 @@
+"""Emit transactional SQL batches from validated repository data; contains no secrets.
+
+Run generated SQL through an authorized admin connection or Supabase connector.
+Unmapped fields remain in the private lossless ledger, never discarded.
+"""
+import argparse,json,sys
+from pathlib import Path
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
+from backend.catalog import ROOT,records
+from backend.store import natural_key
+from scripts.validate_data import validate_record
+
+def literal(v):
+    if v is None: return 'null'
+    if isinstance(v,bool): return 'true' if v else 'false'
+    if isinstance(v,(int,float)): return str(v)
+    return "'"+str(v).replace("'","''")+"'"
+
+def bulk_batch(rows):
+    data=literal(json.dumps(rows,ensure_ascii=False))+'::jsonb'
+    sql=f'''begin;
+create temporary table import_rows(domain text,natural_key text,source_file text,payload jsonb) on commit drop;
+insert into import_rows select * from jsonb_to_recordset({data}) as x(domain text,natural_key text,source_file text,payload jsonb);
+do $guard$ begin
+ perform pg_advisory_xact_lock(hashtextextended(natural_key,0)) from import_rows order by natural_key;
+ if exists(select 1 from import_rows r join ingestion.reference_records old using(natural_key)
+ where old.payload->>'verification_status'='verified' and (
+ r.payload->>'verification_status'<>'verified' or
+ (old.payload->>'last_verified_at')::timestamptz>(r.payload->>'last_verified_at')::timestamptz))
+ then raise exception 'Refusing weaker or older evidence'; end if;
+end $guard$;
+insert into ingestion.reference_revisions(natural_key,previous_payload)
+ select old.natural_key,old.payload from import_rows r join ingestion.reference_records old using(natural_key) where old.payload<>r.payload;
+insert into ingestion.reference_records(natural_key,domain,academic_year,source_file,payload)
+ select natural_key,domain,payload->>'academic_year',source_file,payload from import_rows
+ on conflict(natural_key) do update set payload=excluded.payload,source_file=excluded.source_file,imported_at=now()
+ where reference_records.payload<>excluded.payload;
+insert into public.sources(canonical_url,authority)
+ select distinct payload->>'source_url',case
+ when payload->>'source_url' like 'https://nces.ed.gov/%' or payload->>'source_url' like 'https://fsapartners.ed.gov/%' then 'federal'::public.source_authority
+ when domain='state_aid' then 'state'::public.source_authority else 'institution'::public.source_authority end
+ from import_rows on conflict(canonical_url) do nothing;
+'''
+    def field(k,t='text'): return f"(r.payload->>{literal(k)})::{t}"
+    def insert(domain,table,fields,conflict,extra=None,joins=''):
+        vals={k:field(k,t) for k,t in fields.items()}; vals.update(extra or {})
+        vals.update(source_id='s.id',verification_status=field('verification_status','public.verification_status'),last_verified_at=field('last_verified_at','timestamptz'))
+        updates=','.join(f'{k}=excluded.{k}' for k in vals if k not in conflict)
+        return f"insert into public.{table}({','.join(vals)}) select {','.join(vals.values())} from import_rows r join public.sources s on s.canonical_url=r.payload->>'source_url' {joins} where r.domain={literal(domain)} on conflict({','.join(conflict)}) do update set {updates};\n"
+    text=lambda *ks:{k:'text' for k in ks}
+    numbers=lambda *ks:{k:'numeric' for k in ks}
+    ints=lambda *ks:{k:'integer' for k in ks}
+    instjoin="join public.institutions i on i.institution_key=r.payload->>'institution_key'"
+    sql+=insert('institutions','institutions',{**text('institution_key','display_name','state_code','city','website_url','admissions_url','financial_aid_url','control'),**ints('unitid')},['institution_key'],{'ipeds_name':"coalesce(r.payload->>'ipeds_name',r.payload->>'display_name')",'active':'null::boolean','identity_academic_year':field('academic_year'),'active_as_of_academic_year':field('active_as_of_academic_year','boolean')})
+    sql+='''do $guard$ begin
+ if exists(select 1 from import_rows r where r.domain<>'institutions' and r.payload->>'institution_key' is not null and not exists(select 1 from public.institutions i where i.institution_key=r.payload->>'institution_key')) then raise exception 'Missing institution dependency'; end if;
+end $guard$;
+'''
+    sql+=insert('costs','institution_costs',{**text('academic_year','residency','currency','student_population'),**numbers('tuition','mandatory_fees','books_supplies','on_campus_food_housing','on_campus_other_expenses','total_cost_of_attendance')},['institution_id','academic_year','residency'],{'institution_id':'i.id'},instjoin)
+    sql+=insert('admissions_metrics','admissions_metrics',{**text('academic_year','applicant_population'),**ints('entering_fall_year','applications','admits','enrolled','sat_reading_25','sat_reading_75','sat_math_25','sat_math_75'),**numbers('act_25','act_75')},['institution_id','entering_fall_year','applicant_population'],{'institution_id':'i.id'},instjoin)
+    sql+=insert('state_aid','state_aid_programs',{**text('academic_year','program_name','program_type','eligibility_summary','residency_requirement','gpa_requirement','test_requirement','income_requirement','award_amount_text','renewal_requirements','application_method','notes'),**numbers('award_min','award_max'),'renewable':'boolean','priority_deadline':'date','final_deadline':'date'},['state_code','program_name','academic_year'],{'state_code':field('state'),'official_url':field('source_url')})
+    sql+=insert('awards','institutional_awards',{**text('academic_year','award_name','award_type','eligibility_summary','gpa_requirement','test_requirement','residency_requirement','major_requirement','award_amount_text','renewal_requirements','notes'),**numbers('award_min','award_max'),'automatic_consideration':'boolean','separate_application':'boolean','renewable':'boolean','deadline':'date'},['institution_id','award_name','academic_year'],{'institution_id':'i.id'},instjoin)
+    sql+=insert('appeals','appeal_policies',{**text('academic_year','appeal_kind','process_summary','required_documents','deadline_text','contact_method','notes','qualifying_path_evidence'),'offered':'boolean'},['institution_id','academic_year','appeal_kind'],{'institution_id':'i.id','policy_url':"coalesce(r.payload->>'policy_url',r.payload->>'source_url')",'qualifies_for_paid_addon':"coalesce((r.payload->>'qualifies_for_paid_addon')::boolean,false)"},instjoin)
+    sql+=insert('credit_policies','credit_policies',{**text('academic_year','policy_kind','policy_url','notes'),**numbers('general_limit_credits','residency_credit_requirement')},['institution_id','policy_kind','academic_year'],{'institution_id':'i.id'},instjoin)
+    sql+=insert('federal_aid','federal_aid_programs',text('academic_year'),['program_key','academic_year'],{'program_key':"'pell_grant'",'policy_details':'r.payload'})
+    eqfields=['exam_or_course_code','exam_or_course_name','minimum_score','institution_course_equivalent','credits_awarded','applies_to_gen_ed','applies_to_major','notes']
+    values=["(eq->>'"+k+"')"+('::numeric' if k=='credits_awarded' else '::boolean' if k.startswith('applies_to') else '') for k in eqfields]
+    conflict=['credit_policy_id','exam_or_course_code','minimum_score','institution_course_equivalent']
+    updates=','.join(k+'=excluded.'+k for k in eqfields if k not in conflict)
+    sql+=f"insert into public.credit_equivalencies(credit_policy_id,{','.join(eqfields)}) select p.id,{','.join(values)} from import_rows r {instjoin} join public.credit_policies p on p.institution_id=i.id and p.academic_year=r.payload->>'academic_year' and p.policy_kind=r.payload->>'policy_kind' cross join lateral jsonb_array_elements(r.payload->'equivalencies') eq where r.domain='credit_policies' on conflict({','.join(conflict)}) do update set {updates};\ncommit;"
+    return sql
+
+def batches(size=400):
+    collected=[]
+    ordered=sorted(records(),key=lambda x: x[1]!='institutions')
+    for path,domain,r in ordered:
+        errors=validate_record(path,r,0)
+        if domain!='institutions' and not r.get('academic_year'): errors.append('missing academic_year')
+        if errors: raise ValueError('; '.join(errors))
+        collected.append({'domain':domain,'natural_key':natural_key(domain,r),'source_file':str(path.relative_to(ROOT)),'payload':r})
+        if len(collected)==size:
+            yield bulk_batch(collected); collected=[]
+    if collected: yield bulk_batch(collected)
+
+if __name__=='__main__':
+    p=argparse.ArgumentParser(); p.add_argument('--output',type=Path,required=True); p.add_argument('--batch-size',type=int,default=400); a=p.parse_args()
+    if not 1<=a.batch_size<=400: p.error('batch-size must be 1â€“400')
+    a.output.mkdir(parents=True,exist_ok=True); count=0
+    for count,sql in enumerate(batches(a.batch_size),1): (a.output/f'{count:04}.sql').write_text(sql,encoding='utf-8')
+    print(json.dumps({'batches':count,'output':str(a.output)}))
