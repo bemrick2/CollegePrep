@@ -296,6 +296,81 @@ last 30 hours in residence at the university.</p>"""
         [c] = credit.extract(INST, ENTRY, page_, '2026-27')
         self.assertIn('course_column_numeric', c['issues'])
 
+    def test_cost_tables_per_arrangement_and_enrollment(self):
+        """AL r1: Enterprise State prints one table per living arrangement (named in the row-label header) and a
+        less-than-half-time table; Alabama State prints two 'Subtotal' rows."""
+        def tbl(first, rows):
+            return {'heading': 'In State', 'caption': '', 'lead': '', 'rows': [[first, '4 Month', '9 Month', '12 Month']] + rows}
+        rows = lambda housing: [['Tuition & Fees', '$2940.00', '$5880.00', '$8820.00'], ['Housing & Food', housing[0], housing[1], housing[2]],
+                                ['Books, Supplies, & Equipment', '$1500.00', '$3000.00', '$4500.00'], ['Total', '$9000.00', '$24269.00', '$30000.00']]
+        p = T.Page('Cost of Attendance 2026-2027', 'Cost of Attendance 2026-2027',
+                   [tbl('With Parent', rows(('$3847.00', '$7694.00', '$10259.00'))), tbl('Off Campus', rows(('$7695.00', '$15389.00', '$20518.00'))),
+                    tbl('Less Than Half-Time Enrollment', rows(('$1.00', '$2.00', '$3.00')))], [], [])
+        [c] = costs.extract({**INST, 'state': 'AL'}, ENTRY, p, '2026-27')
+        part = T.Page('Cost of Attendance 2026-2027', 'Cost of Attendance 2026-2027', [p.tables[2]], [], [])
+        self.assertEqual(costs.extract({**INST, 'state': 'AL'}, ENTRY, part, '2026-27'), [])  # less-than-half-time budget
+        r = c['record']
+        self.assertEqual((r['residency'], r['living_arrangement'], r['components']['Housing & Food']), ('in_state', 'off_campus_not_with_family', 15389))
+        dup = T.Page('Cost of Attendance 2026-2027', 'Cost of Attendance 2026-2027', [{'heading': 'Cost of Attendance', 'caption': '', 'lead': '', 'rows': [
+            ['', 'In-State', 'Out-of-State'], ['Tuition/Fees', '$11,068', '$19,936'], ['Room/Board', '$6,050', '$6,050'], ['Subtotal', '$17,118', '$25,986'],
+            ['Books', '$1,320', '$1,320'], ['Transportation', '$3,000', '$3,000'], ['Subtotal', '$4,320', '$4,320'], ['Estimated Total', '$21,438', '$30,306']]}], [], [])
+        got = {c['record']['residency']: c['record']['components'] for c in costs.extract({**INST, 'state': 'AL'}, ENTRY, dup, '2026-27')}
+        self.assertEqual((got['in_state']['Subtotal'], got['in_state']['Subtotal (2)']), (17118, 4320))
+
+    def test_merit_columns_al_r1(self):
+        """AL r1: annual vs four-year columns (AUM), a single 'Test Score' column (UAB), a requirements column
+        (Huntingdon) and an entering-class heading (UA '2027 In-State Freshman ...')."""
+        aum = """<title>Scholarships</title><h2>Freshman Scholarships at a Glance</h2><table>
+<tr><th>Name</th><th>Min. Superscore</th><th>Min. High School GPA</th><th>Total over 4 years</th><th>Total for academic year</th></tr>
+<tr><td>Outstanding Scholars Award</td><td>ACT 30 / SAT 1400</td><td>3.0</td><td>$40,000</td><td>$10,000</td></tr>
+<tr><td>Principal Scholarship</td><td>ACT 29 / SAT 1350</td><td>3.0</td><td>$36,000</td><td>$9,000</td></tr></table>"""
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(aum), '2026-27')}
+        r = got['Outstanding Scholars Award']
+        self.assertEqual((r['award_max'], r['test_requirement'], r['gpa_requirement']), (10000, 'ACT 30 / SAT 1400', '3.0'))
+        hunt = """<title>2026-2027 Undergraduate Scholarships</title><h2>Merit Scholarships</h2><table>
+<tr><th>Scholarship</th><th>Award Amount</th><th>Minimum Requirements</th></tr>
+<tr><td>Presidential Scholars</td><td>$20,000</td><td>3.0 GPA and 23 ACT or 3.75 GPA with no test scores.</td></tr>
+<tr><td>James W. Wilson Jr. Scholarship</td><td>$16,500</td><td>3.75 GPA and 25 ACT</td></tr></table>"""
+        got = {c['record']['award_name']: c for c in merit.extract(INST, ENTRY, T.parse_html(hunt), '2026-27')}
+        self.assertEqual(got['Presidential Scholars']['record']['eligibility_summary'], '3.0 GPA and 23 ACT or 3.75 GPA with no test scores.')
+        ua = """<title>In-State Freshman Scholarships</title><h2>2027 In-State Freshman Automatic Merit Scholarships</h2><table>
+<tr><th>Scholarship</th><th>ACT</th><th>SAT</th><th>GPA</th><th>Yearly Value</th></tr>
+<tr><td>UA Recognition</td><td>25</td><td>1200-1220</td><td>3.00-3.49</td><td>$4,000</td></tr>
+<tr><td>Crimson Achievement</td><td>26</td><td>1230-1250</td><td>3.00-3.49</td><td>$5,000</td></tr></table>"""
+        c = merit.extract(INST, ENTRY, T.parse_html(ua), '2026-27')[0]
+        self.assertEqual(c['record']['residency_requirement'], 'In-state')
+        self.assertEqual((c['academic_year'], c['year_basis']), ('2027-28', 'labeled_entering_class'))
+        self.assertEqual(P.status_for(c, accepted_issues=False), 'partially_verified')  # never verified from a class label
+        intl = {**ENTRY, 'url': 'https://www.uah.edu/admissions/undergraduate/financial-aid/scholarships/international'}
+        self.assertEqual(merit.extract(INST, intl, T.parse_html(aum), '2026-27'), [])
+
+    def test_al_r1_renewal_headerless_semesters_and_transfer_scope(self):
+        miles = """<title>Scholarships</title><h2>Freshman Scholarships</h2><table>
+<tr><th>Scholarship Name</th><th>Required GPA</th><th>Required ACT</th><th>Award Details</th><th>Renewal Requirements</th></tr>
+<tr><td>Presidential Scholarship</td><td>3.7</td><td>24</td><td>Covers Tuition, Room/Board and Books</td><td>15 hours per semester, 3.3 cumulative GPA</td></tr>
+<tr><td>Dean's Scholarship</td><td>3.2</td><td>20</td><td>Covers Tuition</td><td>3.0 cumulative GPA</td></tr></table>"""
+        r = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(miles), '2026-27')}['Presidential Scholarship']
+        self.assertEqual((r['award_amount_text'], r['renewal_requirements']), ('Covers Tuition, Room/Board and Books', '15 hours per semester, 3.3 cumulative GPA'))
+        self.assertNotIn('eligibility_summary', r)  # the renewal column is not an entry requirement
+        uwa = """<title>Scholarships</title><h2>Academic Scholarships</h2><table>
+<tr><td>Tiger Achievement Award</td><td>21-22 ACT / 1060-1120 SAT or 3.00-3.24 GPA</td><td>$2,000.00 per year</td></tr>
+<tr><td>Counselor's Award</td><td>23-24 ACT / 1130-1190 SAT or 3.25-3.74 GPA</td><td>$3,000.00 per year</td></tr>
+<tr><td>Dean's Award</td><td>27-28 ACT / 1260-1320 SAT</td><td>$5,000.00 per year</td></tr></table>"""
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(uwa), '2026-27')}
+        self.assertEqual(got['Tiger Achievement Award']['eligibility_summary'], '21-22 ACT / 1060-1120 SAT or 3.00-3.24 GPA')
+        self.assertNotIn('gpa_requirement', got['Tiger Achievement Award'])
+        self.assertEqual(got["Counselor's Award"]['award_max'], 3000)
+        stillman = T.parse_html('<title>Policy on Awarding Course Credit</title><h2>Contacts</h2>' + uwa.split('</h2>', 1)[1])
+        self.assertEqual(merit.extract(INST, {**ENTRY, 'url': 'https://catalog.x.edu/policy-on-awarding-course-credit'}, stillman, '2026-27'), [])
+        self.assertEqual(costs.column_meaning('2 Semesters')['period'], 'year')
+        self.assertEqual(costs.column_meaning('3 Semesters')['period'], 'partial_year')
+        html = ('<title>Transfer Credit</title><p>UAB will award up to 24 hours of transferable military credit for veterans. A student with '
+                'an associate degree may be eligible for admission to AUM with up to a maximum of 64 semester hours transferring. '
+                'The student will retain this status until the student has attempted at least 12 credit hours at the College.</p>')
+        self.assertEqual(transfer.extract(INST, ENTRY, T.parse_html(html), '2026-27'), [])
+        sch = '<title>Transfer Scholarships</title><p>Minimum requirements: 3.0 GPA and at least 12 credit hours earned at the college in residence.</p>'
+        self.assertEqual(transfer.extract(INST, {**ENTRY, 'url': 'https://www.x.edu/scholarships'}, T.parse_html(sch), '2026-27'), [])
+
     def test_two_column_program_map(self):
         """UTC 'Clear Path for Advising' layout: wrapped cells, hours on their own line, a left-column
         hours token running into the right column, and the hour summary block."""

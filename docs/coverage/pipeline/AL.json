@@ -1,0 +1,159 @@
+{
+ "state": "AL",
+ "academic_year": "2026-27",
+ "institutions": 53,
+ "status_order": [
+  "verified_current",
+  "partially_verified_current",
+  "candidate_ready",
+  "candidate_exception",
+  "source_found",
+  "not_found",
+  "fetch_failed"
+ ],
+ "by_category": {
+  "admissions_tests": {
+   "fetch_failed": 5,
+   "not_found": 2,
+   "source_found": 46
+  },
+  "aid_appeals": {
+   "candidate_exception": 32,
+   "fetch_failed": 5,
+   "not_found": 8,
+   "source_found": 8
+  },
+  "ap_credit": {
+   "candidate_exception": 3,
+   "fetch_failed": 5,
+   "not_found": 28,
+   "partially_verified_current": 6,
+   "source_found": 11
+  },
+  "clep_credit": {
+   "candidate_exception": 4,
+   "fetch_failed": 5,
+   "not_found": 32,
+   "partially_verified_current": 6,
+   "source_found": 6
+  },
+  "common_data_set": {
+   "fetch_failed": 5,
+   "not_found": 40,
+   "source_found": 8
+  },
+  "cost_of_attendance": {
+   "candidate_exception": 10,
+   "fetch_failed": 5,
+   "not_found": 2,
+   "partially_verified_current": 1,
+   "source_found": 33,
+   "verified_current": 2
+  },
+  "degree_requirements": {
+   "fetch_failed": 5,
+   "not_found": 8,
+   "source_found": 40
+  },
+  "dual_enrollment": {
+   "candidate_exception": 3,
+   "candidate_ready": 2,
+   "fetch_failed": 5,
+   "not_found": 11,
+   "partially_verified_current": 18,
+   "source_found": 12,
+   "verified_current": 2
+  },
+  "ib_credit": {
+   "candidate_exception": 1,
+   "fetch_failed": 5,
+   "not_found": 39,
+   "partially_verified_current": 3,
+   "source_found": 5
+  },
+  "merit_scholarships": {
+   "candidate_exception": 4,
+   "fetch_failed": 5,
+   "not_found": 2,
+   "partially_verified_current": 6,
+   "source_found": 34,
+   "verified_current": 2
+  },
+  "residency": {
+   "fetch_failed": 5,
+   "not_found": 12,
+   "source_found": 36
+  },
+  "statewide_articulation": {
+   "fetch_failed": 5,
+   "not_found": 37,
+   "source_found": 11
+  },
+  "transfer_credit": {
+   "candidate_exception": 1,
+   "fetch_failed": 5,
+   "not_found": 3,
+   "partially_verified_current": 8,
+   "source_found": 35,
+   "verified_current": 1
+  },
+  "tuition_fees": {
+   "candidate_exception": 18,
+   "fetch_failed": 5,
+   "not_found": 1,
+   "partially_verified_current": 1,
+   "source_found": 26,
+   "verified_current": 2
+  }
+ },
+ "totals": {
+  "candidate_exception": 76,
+  "candidate_ready": 2,
+  "fetch_failed": 70,
+  "not_found": 225,
+  "partially_verified_current": 49,
+  "source_found": 311,
+  "verified_current": 9
+ },
+ "statewide_sources": {
+  "categories": {
+   "admissions_tests": 9,
+   "aid_appeals": 0,
+   "ap_credit": 0,
+   "clep_credit": 143,
+   "common_data_set": 0,
+   "cost_of_attendance": 12,
+   "degree_requirements": 21,
+   "dual_enrollment": 155,
+   "ib_credit": 0,
+   "merit_scholarships": 9,
+   "residency": 6,
+   "statewide_articulation": 9,
+   "transfer_credit": 75,
+   "tuition_fees": 21
+  },
+  "fetch_failures": 33,
+  "pages_fetched": 219
+ },
+ "blocked_institutions": [
+  "ipeds-101453",
+  "ipeds-101693",
+  "ipeds-101736",
+  "ipeds-101879",
+  "ipeds-102076"
+ ],
+ "quality": {
+  "ambiguous_years": 6,
+  "blocked_requests": 66,
+  "candidates": 522,
+  "conflicts": 161,
+  "documents": 3273,
+  "extraction_failures": 0,
+  "fetch_errors": 275,
+  "fetches": 3614,
+  "ready": 184,
+  "semantic_review": 247,
+  "stale_sources": 229
+ },
+ "run": "pipeline/runs/AL/2026-10-03"
+}

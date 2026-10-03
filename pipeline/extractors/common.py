@@ -73,7 +73,7 @@ def professional_source(entry, page) -> bool:
     return bool(hit) and not re.search(r'undergraduate', page.title or '', re.I)
 
 
-INTERNATIONAL = re.compile(r'international[\s_-]*(students?|applicants?|admissions?)|/international(/|$)', re.I)
+INTERNATIONAL = re.compile(r'international[\s_-]*(students?|applicants?|admissions?)|/international(?=/|\s|$|\?)', re.I)
 
 
 def international_source(entry, page):

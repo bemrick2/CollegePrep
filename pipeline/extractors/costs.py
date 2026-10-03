@@ -106,10 +106,10 @@ def column_meaning(header, home=None, private=False):
                         'other' if re.search(r'military|on base', h) else None),
         # Quarter calendars (OR) print "1 Term | 2 Terms | 3 Terms | 4 Terms" or "3 Months | 9 Months": the
         # academic year is three terms / nine months; other counts are partial years or include summer.
-        'period': ('year' if re.search(r'per\s+year|annual|academic\s+year|fall\s*(&|and)\s*spring|two\s+semesters|yearly|\byear\b|'
+        'period': ('year' if re.search(r'per\s+year|annual|academic\s+year|fall\s*(&|and)\s*spring|(two|2)\s+semesters|yearly|\byear\b|'
                                        r'^\W*(3|three)\s+(quarters|terms)\W*$|^\W*(9|nine)\s+months?\W*$', h) else
                    'semester' if re.search(r'per\s+semester|single\s+semester|\bsemester\b|per\s+term|^\W*(1|one)\s+(term|quarter)\W*$', h) else
-                   'partial_year' if re.search(r'^\W*(2|4|two|four)\s+(terms|quarters)\W*$|^\W*\d{1,2}\s+months?\W*$', h) else None),
+                   'partial_year' if re.search(r'^\W*(2|4|two|four)\s+(terms|quarters)\W*$|^\W*\d{1,2}\s+months?\W*$|^\W*(3|three)\s+semesters\W*$', h) else None),
         'year': next(iter(years)) if len(years) == 1 else None,
     }
 
@@ -138,11 +138,19 @@ def parse_tables(rows):
             if len(filled) <= 1 and not has_money:
                 titles.extend(filled); continue
             if not has_money:
-                header = cells; continue
+                header = cells
+                # The row-label column's header can name the whole table's living arrangement or enrollment
+                # ("With Parent | 4 Month | 9 Month | 12 Month", AL: Enterprise State).
+                if cells and cells[0] and (column_meaning(cells[0])['arrangement'] or PART_TIME.search(cells[0])):
+                    titles.append(cells[0])
+                continue
         if has_money and cells and cells[0]:
             body.append((cells[0], [money(c) for c in cells[1:]], ' | '.join(cells)))
     close()
     return segments
+
+
+PART_TIME = re.compile(r'less\s+than\s+half|half[- ]time|part[- ]time|three[- ]quarter[- ]time', re.I)
 
 
 def parse_table(rows):
@@ -166,6 +174,8 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
     context = _context(t, page, titles)
     if SKIP_TABLE.search(context + ' ' + ' '.join(headers)) and not UNDERGRAD.search(context):
         return []
+    if PART_TIME.search(' '.join(titles)):
+        return []  # budgets for less-than-full-time enrollment are not the standard cost
     # Every printed money row is kept (and counts toward reconciliation); unrecognised rows get key None.
     keyed = [(row_key(label), label, vals, raw) for label, vals, raw in body if not SKIP_ROW.search(label)]
     kinds = {k for k, *_ in keyed}
@@ -180,6 +190,7 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
         m = column_meaning(headers[j] if j < len(headers) else '', home, private)
         for k in ('residency', 'period', 'year'):
             m[k] = m[k] or ctx[k]
+        m['arrangement'] = m['arrangement'] or ctx['arrangement']
         m['header'] = headers[j] if j < len(headers) else ''
         cols.append(m)
     issues = list(page_issues)
@@ -238,6 +249,8 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
             for key, label, vals, raw in keyed:
                 v = vals[j] if j < len(vals) else None
                 if v is None: continue
+                n, base = 2, label
+                while label in printed: label = f'{base} ({n})'; n += 1  # two "Subtotal" rows (AL: Alabama State)
                 printed[label] = v
                 if key: comp.setdefault(key, []).append(v)
                 evidence.append({'field': f"{cols[j]['arrangement'] or 'column'}:{label}", 'value': v, 'snippet': raw[:240]})
@@ -292,6 +305,8 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
         if one('tuition_and_fees') is not None:
             record['tuition_and_mandatory_fees'] = one('tuition_and_fees')
         if UNDERGRAD.search(context + ' ' + page.title): record['student_population'] = 'undergraduate'
+        if len(arrangements) == 1 and primary[0]:
+            record['living_arrangement'] = primary[0]  # the whole table is one arrangement (e.g. living with parents)
         if len(arrangements) > 1:
             record['living_arrangements'] = [{'arrangement': a or 'unlabeled', 'column_header': h,
                                               'total_cost_of_attendance': c['total'][0] if len(c.get('total', [])) == 1 else None,
@@ -336,7 +351,9 @@ def extract(inst, entry, page, today_year):
     for t in tables:
         out += _candidates_from_table(t, inst, entry, page, today_year, page_year, page_basis, page_issues)
     best = {}
-    for c in out:  # one candidate per residency and year per page: the one with most evidence
+    rank = {'on_campus': 3, 'off_campus_not_with_family': 2, None: 1, 'other': 1, 'with_parents_or_family': 0}
+    for c in out:  # one candidate per residency and year per page: the on-campus table first, then most evidence
         k = (c['record']['residency'], c['academic_year'])
-        if k not in best or len(c['evidence']) > len(best[k]['evidence']): best[k] = c
-    return list(best.values())
+        score = (rank.get(c['record'].get('living_arrangement'), 1), len(c['evidence']))
+        if k not in best or score > best[k][0]: best[k] = (score, c)
+    return [c for _, c in best.values()]
