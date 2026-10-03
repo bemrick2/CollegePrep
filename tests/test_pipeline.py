@@ -464,6 +464,10 @@ last 30 hours in residence at the university.</p>"""
         self.assertEqual(tiers('<p>10th grade students must submit an overall GPA of 2.0 or higher after the completion of the 9th grade.</p>'), [(2.0, ['10'])])
         self.assertEqual(tiers('<p>11th and 12th graders with a 2.00 high school GPA can enroll in academic core classes.</p>'), [(2.0, ['11', '12'])])
         self.assertEqual(dual._grades('Students must have a minimum class rank of junior.'), ['11', '12'])
+        # VA r1 (ODU) / NC r1 (CPCC): "Art History" and "History of Art" are not IB History.
+        self.assertIsNone(exams.match('IB', 'Art History'))
+        self.assertIsNone(exams.match('IB', 'History of Art'))
+        self.assertEqual(exams.match('IB', 'History (HL)'), ('IB-HISTORY-HL', 'IB History (HL)'))
         # Gordon State CLEP: section-heading rows are skipped; merged score tiers go to review.
         rows = [['CLEP Exam', 'Minimum Score', 'Course Equivalent', 'Credit'], ['Humanities', 'Foreign Languages', '', ''],
                 ['American Literature', '50', 'ENGL 2131, 2132', '6'], ['French Language', '50 62', 'FREN 1101, 1102 FREN 1101, 1102, 2001, 2002', '6 12'],
@@ -491,7 +495,7 @@ last 30 hours in residence at the university.</p>"""
         # Agnes Scott / Georgia Southern / WGTC: other organizations' award lists; Thomas University: "+Scholarships" heading.
         table = ('<h2>National Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th><th>Eligibility</th></tr><tr><td>Coca-Cola Scholars</td><td>$20,000</td><td>Seniors</td></tr>'
                  '<tr><td>Ron Brown Scholar Program</td><td>$10,000</td><td>Seniors</td></tr></table>')
-        for url in ('https://www.example.edu/aid/outside-scholarships.html', 'https://www.example.edu/military-scholarships', 'https://www.example.edu/foundation/foundation-scholarship/', 'https://www.example.edu/aid/scholarships/donor-scholarships/index.html', 'https://www.example.edu/academics/student-academic-achievements/'):
+        for url in ('https://www.example.edu/aid/outside-scholarships.html', 'https://www.example.edu/military-scholarships', 'https://www.example.edu/foundation/foundation-scholarship/', 'https://www.example.edu/aid/scholarships/donor-scholarships/index.html', 'https://www.example.edu/academics/student-academic-achievements/', 'https://home.example.edu/student-affairs/testing/intl_credits/'):
             self.assertEqual(merit.extract(INST, {**ENTRY, 'url': url}, T.parse_html('<title>Scholarships</title>' + table), '2026-27'), [])
         self.assertEqual(len(merit.extract(INST, ENTRY, T.parse_html('<title>Scholarships</title>' + table), '2026-27')), 2)  # the same table elsewhere is kept
         [c] = merit.extract(INST, ENTRY, T.parse_html('<title>On Campus Students</title><h3>+Scholarships</h3><table><tr><th>Unweighted GPA</th><th>Scholarship</th></tr>'
@@ -663,6 +667,10 @@ minimum grade point average (GPA) of 3.0 are eligible for dual enrollment. Out-o
         g = {c['record']['requirement_key']: c['record'] for c in catalog.extract(INST, ENTRY, pool, '2026-27') if c['domain'] == 'degree_requirements'}
         self.assertEqual(g['program-requirements-52-hours-electives']['rule_details']['group_type'], 'elective_pool')
         self.assertEqual(g['program-requirements-52-hours-required-core']['rule_details']['group_type'], 'all_required')
+        # VSU: a "| University Catalog" title suffix is not part of the program name.
+        piped = T.parse_html((FIX / 'courseleaf_program.html').read_bytes().replace(b'(0123) &lt; Example University', b'(0123) | Example University Catalog'), 'https://x')
+        self.assertEqual(next(c for c in catalog.extract(INST, ENTRY, piped, '2026-27') if c['domain'] == 'academic_programs')['record']['program_name'],
+                         'Biology, Bachelor of Science')
         # NC State: footnote markers ("Cells 1" with a "1" footnote line) are not part of course titles.
         noted = T.parse_html((FIX / 'courseleaf_program.html').read_bytes().replace(b'Biological Concepts: Cells</td>', b'Biological Concepts: Cells 1</td>')
                              .replace(b'</body>', b'<p>1</p><p>A grade of C- or higher is required.</p></body>'), 'https://x')
@@ -877,6 +885,20 @@ do not guarantee admission there. These Transfer Pathways have been effective be
         (c,) = statepolicy.extract(sinst, {**ENTRY, 'url': url}, T.parse_html(html, 'https://x'), '2026-27')
         self.assertEqual(c['record']['policy_kind'], 'tuition_residency')
         self.assertEqual(c['record']['policy_key'], 't4-ch15-regulations-for-determining-residency')
+
+    def test_requirement_rows_need_their_program(self):
+        """VA r1 (VSU): requirement rows approved while their program went to review made the import fail."""
+        tmp = Path(tempfile.mkdtemp())
+        run = tmp / 'run'; run.mkdir()
+        mk = lambda cid, domain, rec: {'candidate_id': cid, 'domain': domain, 'institution_key': 'ipeds-1', 'academic_year': '2026-27',
+                                       'year_basis': 'labeled_in_source', 'issues': [], 'record': rec, 'source': {}, 'extractor': 'x', 'evidence': []}
+        row = mk('r1', 'degree_requirements', {'program_key': 'agri-ed-bs', 'requirement_key': 'core', 'requirement_kind': 'major'})
+        (run / 'candidates.json').write_text(json.dumps([row]))
+        (run / 'verify.json').write_text('[]')
+        (tmp / 'dec.json').write_text(json.dumps({'run': 'run', 'approve': [{'candidate_id': 'r1', 'reason': 'x'}]}))
+        with mock.patch.object(P, 'ROOT', tmp):
+            with self.assertRaises(ValueError):
+                P.promote({'state': 'ZZ', 'institutions': [{'institution_key': 'ipeds-1', 'folder': 'x'}]}, tmp / 'dec.json', log=lambda *_: None)
 
     def test_state_policy_promotion_path(self):
         tmp = Path(tempfile.mkdtemp())

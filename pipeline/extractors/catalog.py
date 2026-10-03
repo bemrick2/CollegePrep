@@ -107,7 +107,7 @@ def catalog_year(page):
 
 
 def program_name(page):
-    t = re.sub(r'^Program:\s*', '', page.title or '').split(' < ')[0].split(' - ')[0].strip()
+    t = re.sub(r'^Program:\s*', '', page.title or '').split(' < ')[0].split(' - ')[0].split(' | ')[0].strip()  # "| Virginia State University Catalog"
     t = re.sub(r'\s*\((?:[0-9]{2,6}[A-Z]?)(?:,\s*[0-9]{2,6}[A-Z]?)*\)$', '', t)  # Courseleaf codes: "(1752)", "(514P, 514)"
     return t or (page.headings[0] if page.headings else '')
 
