@@ -117,4 +117,10 @@ describe('app flows', () => {
     await user.click(screen.getByRole('button', { name: /Strategy/ }))
     expect(screen.getByText(/test-taking habits/)).toBeInTheDocument()
   })
+
+  it('benchmark card shows what is due and links to the right kind', async () => {
+    renderAt('/student', new DemoSource(sampleFamily('student')))
+    expect(await screen.findByRole('heading', { name: /Benchmarks/ })).toBeInTheDocument()
+    expect(screen.getByText(/Mini benchmark|Full benchmark/)).toBeInTheDocument()
+  })
 })

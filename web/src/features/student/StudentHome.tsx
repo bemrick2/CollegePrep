@@ -1,10 +1,11 @@
 import { Link, Navigate } from 'react-router-dom'
 import { useApp } from '../../lib/app'
 import { ButtonLink, Card, CardHeader, Notice, PageLoading, Pill, ProgressBar, Ring, cx } from '../../components/ui'
-import { ArrowRight, Bolt, Compass, Flame, Target, Trophy } from '../../components/icons'
+import { Bolt, Compass, Flame, Target, Trophy } from '../../components/icons'
 import { PracticeIndicators } from '../../components/PracticeIndicators'
+import { BenchmarkStatus } from '../../components/BenchmarkStatus'
 import { addDays, localDate } from '../../lib/engine/dates'
-import { nextBenchmarkDue, SECTION_LABEL } from '../../lib/engine/benchmark'
+import { benchmarkAttemptIds, SECTION_LABEL } from '../../lib/engine/benchmark'
 import { achievements, levelOf, totalXp } from '../../lib/engine/gamify'
 import { latestEstimate, recentTrend, useStudentOverview, type StudentOverview } from './useStudentOverview'
 import { useCatalog } from '../practice/useCatalog'
@@ -26,8 +27,9 @@ function HomeBody({ name, o }: { name: string; o: StudentOverview }) {
   const catalog = useCatalog(exam)
   const xp = totalXp(o.history)
   const lvl = levelOf(xp)
-  const practicedToday = o.history.some((a) => !a.skipped && localDate(a.submitted_at, o.tz) === o.today)
-  const due = nextBenchmarkDue(o.benchmarks)
+  // Benchmark answers count toward streak and XP but never mark today's daily practice done.
+  const benchIds = benchmarkAttemptIds(o.benchmarks)
+  const practicedToday = o.history.some((a) => !a.skipped && !benchIds.has(a.id) && localDate(a.submitted_at, o.tz) === o.today)
   const minutes = o.plan?.daily_minutes ?? 10
   const weakK = o.estimates.filter((e) => e.knowledge_weak)
   const weakP = o.estimates.filter((e) => e.pacing_weak)
@@ -197,30 +199,7 @@ function HomeBody({ name, o }: { name: string; o: StudentOverview }) {
           </div>
         </Card>
 
-        <Card>
-          <CardHeader title="Benchmarks" />
-          <div className="p-5 pt-3 text-sm">
-            {o.benchmarks.length === 0 ? (
-              <p className="text-ink-3">No benchmark yet.</p>
-            ) : (
-              <>
-                <p className="text-ink-2">
-                  {due.inDays === 0 ? (
-                    <>A {due.kind} benchmark is due — it shows how far you've come.</>
-                  ) : (
-                    <>Next mini benchmark in about {due.inDays} days.</>
-                  )}
-                </p>
-                {due.inDays === 0 && (
-                  <Link to="/student/benchmark" className="mt-2 inline-flex items-center gap-1 font-semibold text-go hover:underline">
-                    Take it now <ArrowRight size={16} />
-                  </Link>
-                )}
-                <p className="mt-2 text-xs text-ink-3">Last: {new Date(o.benchmarks.at(-1)!.completed_at).toLocaleDateString()}</p>
-              </>
-            )}
-          </div>
-        </Card>
+        <BenchmarkStatus history={o.benchmarks} />
       </div>
       {!o.plan && (
         <Notice tone="gold" title="Set your test and target">

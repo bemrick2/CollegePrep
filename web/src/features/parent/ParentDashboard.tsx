@@ -10,6 +10,7 @@ import { EXAM_NAME } from '../onboarding/options'
 import { useCatalog } from '../practice/useCatalog'
 import { CostOutlook } from './CostOutlook'
 import { PracticeIndicators } from '../../components/PracticeIndicators'
+import { BenchmarkStatus } from '../../components/BenchmarkStatus'
 
 
 export function ParentDashboard() {
@@ -123,7 +124,6 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
         />
       </div>
 
-      <PracticeIndicators history={o.history} />
 
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-[1.25fr_1fr]">
         <Card>
@@ -171,6 +171,11 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
             </div>
           )}
         </Card>
+      </div>
+
+      <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+        <PracticeIndicators history={o.history} />
+        <BenchmarkStatus history={o.benchmarks} forGuardian />
       </div>
 
       <CostOutlook showAlternative={!!o.plan?.goals.includes('lower_cost')} />

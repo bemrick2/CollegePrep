@@ -169,12 +169,81 @@ export function pacingVerdict(ratio: number | null): PacingVerdict {
   return 'on_pace'
 }
 
-/** Days until the next suggested benchmark: mini every ~5 weeks, full every ~10. */
+
+// ---------------------------------------------------------------------------
+// Cadence and improvement
+// ---------------------------------------------------------------------------
+
+/** Mini benchmark every ~5 weeks (4–6), full every ~10 weeks (8–12) or before a real test. */
+export const MINI_EVERY_DAYS = 35
+export const FULL_EVERY_DAYS = 70
+
+export interface BenchmarkSchedule {
+  kind: BenchmarkKind
+  inDays: number
+  /** Local calendar date the next benchmark becomes due (ISO yyyy-mm-dd). */
+  dueDate: string
+  overdueDays: number
+}
+
+export function benchmarkSchedule(history: BenchmarkSummary[], today: Date = new Date()): BenchmarkSchedule {
+  const iso = (d: Date) => d.toISOString().slice(0, 10)
+  if (history.length === 0) return { kind: 'initial', inDays: 0, dueDate: iso(today), overdueDays: 0 }
+  const byDate = [...history].sort((a, b) => b.completed_at.localeCompare(a.completed_at))
+  const last = byDate[0]!
+  const lastBroad = byDate.find((b) => b.kind !== 'mini') ?? last
+  const days = (s: string) => Math.floor((today.getTime() - new Date(s).getTime()) / 86_400_000)
+  const sinceBroad = days(lastBroad.completed_at)
+  const sinceLast = days(last.completed_at)
+  const kind: BenchmarkKind = sinceBroad >= FULL_EVERY_DAYS ? 'full' : 'mini'
+  const remaining = kind === 'full' ? FULL_EVERY_DAYS - sinceBroad : MINI_EVERY_DAYS - sinceLast
+  const due = new Date(today.getTime() + Math.max(0, remaining) * 86_400_000)
+  return { kind, inDays: Math.max(0, remaining), dueDate: iso(due), overdueDays: Math.max(0, -remaining) }
+}
+
+/** Back-compat wrapper used by older screens. */
 export function nextBenchmarkDue(history: BenchmarkSummary[], today: Date = new Date()): { kind: BenchmarkKind; inDays: number } {
-  if (history.length === 0) return { kind: 'initial', inDays: 0 }
-  const last = [...history].sort((a, b) => b.completed_at.localeCompare(a.completed_at))[0]!
-  const lastFull = history.filter((b) => b.kind !== 'mini').sort((a, b) => b.completed_at.localeCompare(a.completed_at))[0]
-  const days = (iso: string) => Math.floor((today.getTime() - new Date(iso).getTime()) / 86_400_000)
-  if (lastFull && days(lastFull.completed_at) >= 70) return { kind: 'full', inDays: 0 }
-  return { kind: 'mini', inDays: Math.max(0, 35 - days(last.completed_at)) }
+  const s = benchmarkSchedule(history, today)
+  return { kind: s.kind, inDays: s.inDays }
+}
+
+export interface BenchmarkChange {
+  from: BenchmarkSummary
+  to: BenchmarkSummary
+  /** Accuracy change in percentage points; null when either side has no answers. */
+  accuracyPts: number | null
+  /** Change in median time vs expected (negative = faster). */
+  pacingDelta: number | null
+  sections: { section: string; accuracyPts: number | null; ceilingDelta: number | null }[]
+}
+
+/** Latest benchmark vs the one before. Adaptive benchmarks change difficulty, so the hardest level answered
+ *  correctly (ceiling) is reported next to accuracy; neither is an official score change. */
+export function benchmarkImprovement(history: BenchmarkSummary[]): BenchmarkChange | null {
+  const byDate = [...history].sort((a, b) => a.completed_at.localeCompare(b.completed_at))
+  if (byDate.length < 2) return null
+  const to = byDate[byDate.length - 1]!
+  const from = byDate[byDate.length - 2]!
+  const pts = (a: number | null, b: number | null) => (a === null || b === null ? null : Math.round((b - a) * 100))
+  const sections = to.metrics.sections.map((s) => {
+    const p = from.metrics.sections.find((x) => x.section === s.section)
+    return {
+      section: s.section,
+      accuracyPts: pts(p?.accuracy ?? null, s.accuracy),
+      ceilingDelta: p?.ceiling_difficulty != null && s.ceiling_difficulty != null ? s.ceiling_difficulty - p.ceiling_difficulty : null,
+    }
+  })
+  return {
+    from,
+    to,
+    accuracyPts: pts(from.metrics.accuracy, to.metrics.accuracy),
+    pacingDelta:
+      from.metrics.pacing_ratio === null || to.metrics.pacing_ratio === null ? null : Math.round((to.metrics.pacing_ratio - from.metrics.pacing_ratio) * 100) / 100,
+    sections,
+  }
+}
+
+/** Attempt ids that belong to benchmarks, so benchmark work never counts as (or replaces) daily practice. */
+export function benchmarkAttemptIds(history: BenchmarkSummary[]): Set<string> {
+  return new Set(history.flatMap((b) => b.attempt_ids))
 }
