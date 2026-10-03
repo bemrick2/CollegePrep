@@ -1,17 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate, useSearchParams } from 'react-router-dom'
 import { useApp, useAsync } from '../../lib/app'
 import type { BenchmarkSummary, Confidence, ExamFamily, PublicQuestion } from '../../lib/data/types'
-import {
-  SECTION_LABEL,
-  computeMetrics,
-  nextDifficulty,
-  pickNext,
-  planBenchmark,
-  type BenchmarkKind,
-  type BenchmarkPlan,
-  type BenchmarkRecord,
-} from '../../lib/engine/benchmark'
+import { SECTION_LABEL, computeMetrics, nextDifficulty, pickNext, planBenchmark, type BenchmarkKind, type BenchmarkPlan, type BenchmarkRecord, benchmarkSchedule } from '../../lib/engine/benchmark'
 import { ActiveClock } from '../practice/useAttempt'
 import { QuestionView, ConfidenceBar } from '../practice/QuestionView'
 import { Button, ButtonLink, ChoiceCard, EmptyState, Notice, PageLoading, ProgressBar } from '../../components/ui'
@@ -63,7 +54,11 @@ export function Benchmark() {
     startedAt: '',
   })
 
-  const defaultKind: BenchmarkKind = (history.data?.length ?? 0) === 0 ? 'initial' : 'mini'
+  // The home screen links straight to the kind that is due (?kind=mini|full); otherwise use the schedule.
+  const [params] = useSearchParams()
+  const asked = params.get('kind')
+  const defaultKind: BenchmarkKind =
+    (history.data?.length ?? 0) === 0 ? 'initial' : asked === 'mini' || asked === 'full' ? asked : benchmarkSchedule(history.data ?? []).kind === 'full' ? 'full' : 'mini'
   const chosenKind = kind ?? defaultKind
   const bplan: BenchmarkPlan | null = useMemo(() => (pool.data ? planBenchmark(exam, chosenKind, pool.data) : null), [pool.data, exam, chosenKind])
   const section = bplan?.sections[sectionIdx]

@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { gradeAnswer, parseNumericAnswer } from './grading'
 import { recommend, skillEstimates, streakFrom, weeklyProgress, type EngineAttempt } from './analytics'
 import { addDays, median, weekStartOf } from './dates'
-import { computeMetrics, nextBenchmarkDue, nextDifficulty, pacingVerdict, pickNext, planBenchmark, type BenchmarkRecord } from './benchmark'
+import { benchmarkAttemptIds, benchmarkImprovement, benchmarkSchedule, computeMetrics, nextBenchmarkDue, nextDifficulty, pacingVerdict, pickNext, planBenchmark, type BenchmarkRecord } from './benchmark'
 import { achievements, levelOf, totalXp, xpFor } from './gamify'
 import type { AttemptRecord, BenchmarkSummary, PublicQuestion } from '../data/types'
 
@@ -239,6 +239,28 @@ describe('benchmark', () => {
     expect(nextBenchmarkDue([], now)).toEqual({ kind: 'initial', inDays: 0 })
     expect(nextBenchmarkDue([b('initial', 10)], now)).toEqual({ kind: 'mini', inDays: 25 })
     expect(nextBenchmarkDue([b('initial', 80)], now).kind).toBe('full')
+  })
+  it('gives a due date, counts overdue days, and a mini after a recent full resets the mini clock only', () => {
+    const now = new Date('2026-10-02T12:00:00Z')
+    const b = (kind: BenchmarkSummary['kind'], daysAgo: number) =>
+      ({ kind, completed_at: new Date(now.getTime() - daysAgo * 86_400_000).toISOString(), attempt_ids: [] as string[] }) as unknown as BenchmarkSummary
+    expect(benchmarkSchedule([b('initial', 10)], now)).toMatchObject({ kind: 'mini', inDays: 25, dueDate: '2026-10-27', overdueDays: 0 })
+    expect(benchmarkSchedule([b('initial', 40)], now)).toMatchObject({ kind: 'mini', inDays: 0, overdueDays: 5 })
+    expect(benchmarkSchedule([b('initial', 72), b('mini', 3)], now)).toMatchObject({ kind: 'full', inDays: 0, overdueDays: 2 })
+    expect(benchmarkSchedule([b('full', 20), b('mini', 3)], now)).toMatchObject({ kind: 'mini', inDays: 32 })
+  })
+  it('reports improvement since the previous benchmark, by section, without treating it as a score', () => {
+    const m = (acc: number, pace: number, ceil: number) =>
+      ({ accuracy: acc, pacing_ratio: pace, sections: [{ section: 'math', accuracy: acc, ceiling_difficulty: ceil }] }) as unknown as BenchmarkSummary['metrics']
+    const one = { kind: 'initial', completed_at: '2026-08-01T00:00:00Z', attempt_ids: ['a1', 'a2'], metrics: m(0.4, 1.4, 2) } as unknown as BenchmarkSummary
+    const two = { kind: 'mini', completed_at: '2026-09-10T00:00:00Z', attempt_ids: ['a3'], metrics: m(0.55, 1.1, 3) } as unknown as BenchmarkSummary
+    expect(benchmarkImprovement([one])).toBeNull()
+    const c = benchmarkImprovement([two, one])!
+    expect([c.from, c.to]).toEqual([one, two])
+    expect(c.accuracyPts).toBe(15)
+    expect(c.pacingDelta).toBe(-0.3)
+    expect(c.sections).toEqual([{ section: 'math', accuracyPts: 15, ceilingDelta: 1 }])
+    expect([...benchmarkAttemptIds([one, two])].sort()).toEqual(['a1', 'a2', 'a3'])
   })
 })
 
