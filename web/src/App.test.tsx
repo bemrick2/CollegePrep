@@ -81,6 +81,25 @@ describe('app flows', () => {
     localStorage.removeItem('pp-compare')
   })
 
+  it('college paths match exam scores to the school\'s published table without estimating savings', async () => {
+    const user = userEvent.setup()
+    localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-221908']))
+    renderAt('/colleges/paths', new DemoSource(sampleFamily('parent')))
+    expect(await screen.findByRole('heading', { name: 'College paths' })).toBeInTheDocument()
+    expect(await screen.findByRole('heading', { name: 'University of Tennessee, Knoxville' })).toBeInTheDocument()
+    // The 2-year school is not a route card, and no transfer is implied.
+    expect(screen.queryByRole('heading', { name: 'Northeast State Community College' })).not.toBeInTheDocument()
+    expect(screen.getByText(/appears here only once a verified transfer agreement/)).toBeInTheDocument()
+    await user.selectOptions(screen.getByLabelText('Add an exam'), screen.getByRole('option', { name: 'AP Calculus AB' }))
+    expect(await screen.findByText('Needs 3+')).toBeInTheDocument()
+    await user.selectOptions(screen.getByLabelText('AP Calculus AB score'), '2')
+    expect(screen.getByText('Needs 3+ (yours: 2)')).toBeInTheDocument()
+    await user.selectOptions(screen.getByLabelText('AP Calculus AB score'), '5')
+    expect(screen.getByText('Your 5 earns credit')).toBeInTheDocument()
+    expect(screen.queryByText(/saved?\s+\$/i)).not.toBeInTheDocument()
+    localStorage.clear()
+  })
+
   it('choosing a role on the landing page goes straight to that onboarding (no second "who is using" step)', async () => {
     const user = userEvent.setup()
     renderAt('/', new DemoSource(emptyStore()))

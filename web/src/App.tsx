@@ -18,6 +18,7 @@ const StudentProgressPage = lazy(() => import('./features/progress/Progress').th
 const ParentDashboard = lazy(() => import('./features/parent/ParentDashboard').then((m) => ({ default: m.ParentDashboard })))
 const Household = lazy(() => import('./features/parent/Household').then((m) => ({ default: m.Household })))
 const Colleges = lazy(() => import('./features/colleges/Colleges').then((m) => ({ default: m.Colleges })))
+const CollegePaths = lazy(() => import('./features/colleges/CollegePaths').then((m) => ({ default: m.CollegePaths })))
 
 function RequireViewer({ children }: { children: ReactNode }) {
   const { viewer, loading } = useApp()
@@ -71,6 +72,7 @@ export function App() {
       </Route>
       <Route element={<RequireViewer><RoleShell /></RequireViewer>}>
         <Route path="/colleges" element={<Colleges />} />
+        <Route path="/colleges/paths" element={<CollegePaths />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
