@@ -1,4 +1,4 @@
--- Front-end contracts from issue #37: CR-1 planning preferences, CR-2 benchmarks, CR-5 question content,
+-- Front-end contracts from issue #37: CR-4 cost projection, CR-1 planning preferences, CR-2 benchmarks, CR-5 question content,
 -- CR-7 verified-record school list, CR-8 answer-free help fields, CR-9 institution level and saved schools.
 -- Everything is rolled back. Run with psql -v ON_ERROR_STOP=1.
 \set QUIET on
@@ -184,6 +184,68 @@ begin
   perform hp_test.eq((select count(*) from public.practice_attempts where benchmark_id = b), 4::bigint, 'attempts grouped');
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a2');
   perform hp_test.eq((select count(*) from public.practice_benchmarks), 0::bigint, 'guardian without view_progress reads nothing');
+  perform hp_test.as_owner();
+end $$;
+
+-- CR-4 cost_projection: verified, exact-year data only; only capped prior credits are counted.
+insert into public.transfer_policies(institution_id, academic_year, policy_url, max_transfer_credits, source_id, verification_status, last_verified_at) values
+ ('50000000-0000-0000-0000-000000000002', '2026-27', 'https://example.edu/transfer', 60, '50000000-0000-0000-0000-000000000001', 'verified', current_date);
+insert into public.credit_policies(institution_id, policy_kind, academic_year, policy_url, general_limit_credits, source_id, verification_status, last_verified_at) values
+ ('50000000-0000-0000-0000-000000000002', 'dual_enrollment', '2026-27', 'https://example.edu/dual', 24, '50000000-0000-0000-0000-000000000001', 'verified', current_date),
+ ('50000000-0000-0000-0000-000000000002', 'AP', '2026-27', 'https://example.edu/ap', 6, '50000000-0000-0000-0000-000000000001', 'verified', current_date);
+insert into public.institutional_awards(institution_id, award_name, academic_year, award_type, award_max, source_id, verification_status, last_verified_at) values
+ ('50000000-0000-0000-0000-000000000002', 'Verified Merit', '2026-27', 'merit', 4000, '50000000-0000-0000-0000-000000000001', 'verified', current_date),
+ ('50000000-0000-0000-0000-000000000002', 'Draft Merit', '2026-27', 'merit', 9000, '50000000-0000-0000-0000-000000000001', 'unverified', null),
+ ('50000000-0000-0000-0000-000000000002', 'Old Merit', '2025-26', 'merit', 9000, '50000000-0000-0000-0000-000000000001', 'verified', current_date);
+insert into public.institution_costs(institution_id, academic_year, residency, tuition, source_id, verification_status) values
+ ('50000000-0000-0000-0000-000000000002', '2026-27', 'out_of_state', 30000, '50000000-0000-0000-0000-000000000001', 'unverified');
+do $$
+declare r jsonb; i jsonb; st uuid := current_setting('t.st')::uuid;
+begin
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+  r := public.cost_projection(st, array['contract-four', 'contract-two', 'no-such-school'], '2026-27',
+         '{"residency": "in_state", "prior_credits": 30}');
+  perform hp_test.check((r->>'guaranteed')::boolean = false and (r->>'prices_held_constant')::boolean, 'projection is labelled');
+  i := r->'institutions'->0;
+  perform hp_test.check(i->>'status' = 'ok' and (i->>'years')::int = 4 and i->>'years_source' = 'level_default', 'four-year default');
+  perform hp_test.eq((i->>'baseline_total')::numeric, 36000::numeric, 'baseline = annual x years');
+  perform hp_test.eq((i->'levers'->0->>'accepted_upper_bound')::numeric, 24::numeric, 'lowest verified cap wins (AP limit ignored)');
+  perform hp_test.check((i->'levers'->0->>'terms_saved')::int = 1 and (i->'levers'->0->>'counted')::boolean
+    and (i->'levers'->0->>'requires_confirmation')::boolean, 'one term saved, needs confirmation');
+  perform hp_test.eq((i->>'optimized_total')::numeric, 31500::numeric, 'optimized subtracts one term');
+  perform hp_test.eq((i->>'savings_total')::numeric, 4500::numeric, 'savings');
+  perform hp_test.eq(jsonb_array_length(i->'not_counted'->'awards'), 1, 'only verified exact-year awards are listed');
+  perform hp_test.check(i->'not_counted'->'awards'->0->>'award_name' = 'Verified Merit', 'listed award');
+  perform hp_test.check(r->'institutions'->1->>'status' = 'missing_cost', 'no fallback to another year');
+  perform hp_test.check(r->'institutions'->2->>'status' = 'unknown_institution', 'unknown school is explicit');
+
+  r := public.cost_projection(st, array['contract-four'], '2026-27', '{"residency": "out_of_state"}');
+  perform hp_test.check(r->'institutions'->0->>'status' = 'missing_cost', 'unverified cost is not used');
+  r := public.cost_projection(st, array['contract-two'], '2023-24', '{"residency": "in_state", "prior_credits": 30}');
+  i := r->'institutions'->0;
+  perform hp_test.check(i->'levers'->0->>'reason' = 'no_verified_cap' and (i->>'savings_total')::numeric = 0
+    and (i->>'baseline_total')::numeric = 6000, 'no verified cap: nothing counted');
+  r := public.cost_projection(st, array['contract-four'], '2026-27',
+         '{"residency": "in_state", "prior_credits": 90, "years": 1, "credits_per_term": 6}');
+  perform hp_test.eq((r->'institutions'->0->'levers'->0->>'terms_saved')::numeric, 1::numeric, 'at least one term is left');
+  r := public.cost_projection(st, array['contract-four'], '2026-27', '{"residency": "in_state"}');
+  perform hp_test.check(r->'institutions'->0->'levers'->0->>'reason' = 'no_prior_credits'
+    and (r->'institutions'->0->>'optimized_total')::numeric = 36000, 'no lever without stated credits');
+
+  perform hp_test.expect_error(format($q$select public.cost_projection(%L, array['contract-four'], '2026-27', '{}')$q$, st), '22023', '%residency%');
+  perform hp_test.expect_error(format($q$select public.cost_projection(%L, array['contract-four'], '2026-27', '{"residency":"in_state","merit":1}')$q$, st), '22023');
+  perform hp_test.expect_error(format($q$select public.cost_projection(%L, array['contract-four'], '2026-27', '{"residency":"in_state","years":7}')$q$, st), '22023');
+  perform hp_test.expect_error(format($q$select public.cost_projection(%L, array['contract-four'], '2026-27', '{"residency":"in_state","years":"x"}')$q$, st), '22023');
+  perform hp_test.expect_error(format($q$select public.cost_projection(%L, array['contract-four'], '2026', '{"residency":"in_state"}')$q$, st), '22023');
+
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  perform hp_test.check(public.cost_projection(st, array['contract-four'], '2026-27', '{"residency":"in_state"}') is not null, 'student can project');
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a2');
+  perform hp_test.expect_error(format($q$select public.cost_projection(%L, array['contract-four'], '2026-27', '{"residency":"in_state"}')$q$, st), '42501');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000099');
+  perform hp_test.expect_error(format($q$select public.cost_projection(%L, array['contract-four'], '2026-27', '{"residency":"in_state"}')$q$, st), '42501');
+  perform hp_test.as_anon();
+  perform hp_test.expect_error(format($q$select public.cost_projection(%L, array['contract-four'], '2026-27', '{"residency":"in_state"}')$q$, st), '42501');
   perform hp_test.as_owner();
 end $$;
 
