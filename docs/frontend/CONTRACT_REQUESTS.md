@@ -15,6 +15,7 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-7 | Institutions with verified records | ✅ live | Comparison suggestions from `institutions_with_verified_records`, four-year schools with costs first |
 | CR-8 | Answer-free help content | ✅ live | `concept_summary` and `sections` selected in the catalog |
 | CR-9 | Institution level, saved schools | ✅ live | `level` from `compare_institutions`; saved schools via `save_/remove_household_school` (browser only for a student with no household) |
+| CR-10 | Canonical exam keys, student exam plan | ⏳ open | College paths match exams by normalized name; the exam list is kept in this browser |
 
 Live content note: the bank has no exam versions, skills or questions yet, so live practice and benchmarks show their empty states until content is loaded.
 
@@ -121,6 +122,16 @@ RPC institutions_with_verified_records(p_academic_year text, p_state text null)
 **Why.**
 1. The parent cost outlook multiplies a published annual cost by years to degree. Without the level it can't tell a 2-year college from a 4-year one, so live mode shows cost per year only and never compares across levels.
 2. The schools a family is comparing drive the parent dashboard, the cost outlook and (later) college-path suggestions. Today they live in one browser, so a parent's list doesn't follow them to another device or reach the student.
+
+## CR-10. Canonical exam keys and the student's exam plan
+
+**Need.**
+1. A canonical exam key on `credit_equivalencies` (for example `exam_key = 'ap:calculus-ab'`), the same across institutions. Today codes vary by school (`AP-CALCAB` / `AP-CALCULUS-AB`, `AP-USH` / `AP-UNITED-STATES-HISTORY`), and names vary too ("AP American History" / "AP United States History").
+2. A per-student exam plan: `student_id`, `exam_key`, `score` (null = planned), `taken_on` (optional). Read: household members with `view_progress`; write: guardians and the linked student. Maximum about 20 rows.
+
+**Why.**
+1. The College paths screen matches a student's AP/CLEP exams against each saved school's verified table. Until there is a shared key, it matches on a normalized name. An exam a school lists under an unexpected name shows as "Not in the published table", which is safe but can miss credit.
+2. The exam list currently lives in one browser, so a parent's entries don't reach the student or another device.
 
 ## Product decisions flagged (not contract requests)
 

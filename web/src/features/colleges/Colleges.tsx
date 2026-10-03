@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useApp, useAsync } from '../../lib/app'
 import type { CostRecord, InstitutionComparison, InstitutionSearchHit } from '../../lib/data/types'
 import { Card, EmptyState, Notice, PageLoading, Pill, Segmented, cx, inputClass } from '../../components/ui'
@@ -6,6 +7,7 @@ import { Info, School, X } from '../../components/icons'
 import { formatShortDate } from '../../lib/engine/dates'
 import { MAX_SAVED_SCHOOLS } from '../../lib/savedSchools'
 import { useSavedSchools } from './useSavedSchools'
+import { CollegesTabs } from './CollegePaths'
 
 const usd = (n: number | null | undefined) => (n == null ? null : n.toLocaleString(undefined, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }))
 const YEARS = ['2026-27', '2025-26']
@@ -73,7 +75,10 @@ export function Colleges() {
           <h1 className="display text-[30px] font-semibold leading-tight text-ink md:text-[36px]">Compare schools</h1>
           <p className="mt-1 max-w-2xl text-sm text-ink-2">Only verified records from official sources, for one academic year at a time. Blank means we haven't verified it yet — not that it doesn't exist.</p>
         </div>
-        <Segmented label="Academic year" value={year} onChange={setYear} options={YEARS.map((y) => ({ value: y, label: y }))} />
+        <div className="flex flex-wrap items-center gap-3">
+          <CollegesTabs />
+          <Segmented label="Academic year" value={year} onChange={setYear} options={YEARS.map((y) => ({ value: y, label: y }))} />
+        </div>
       </div>
 
       <Card className="p-4">
@@ -133,7 +138,10 @@ export function Colleges() {
           <div className="flex flex-wrap items-center gap-3 text-sm">
             <span className="font-semibold text-ink">Years to degree</span>
             <Segmented label="Years to degree" value={years} onChange={setYearsInSchool} options={[3, 3.5, 4, 5].map((y) => ({ value: y, label: String(y) }))} />
-            <span className="text-xs text-ink-3">AP, CLEP and dual-enrollment credit can shorten time to degree.</span>
+            <span className="text-xs text-ink-3">
+              Exam and dual-enrollment credit can shorten a degree when it covers required courses.{' '}
+              <Link to="/colleges/paths" className="font-semibold text-brand hover:underline">See paths</Link>
+            </span>
           </div>
           <div className={cx('grid gap-4', keys.length > 1 && 'md:grid-cols-2', keys.length === 3 && 'xl:grid-cols-3', keys.length >= 4 && 'xl:grid-cols-4', 'items-start')}>
             {cmp.data!.map((c) => (
