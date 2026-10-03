@@ -150,9 +150,6 @@ export function sampleFamily(viewer: 'parent' | 'student', now = new Date()): De
 
   s.attempts = attempts
   s.events = events
-  s.scores.push(
-    { id: 'sc-1', student_id: sid, exam_family: 'act', test_date: benchDay, composite: 22, section_scores: { english: 25, math: 20, reading: 22, science: 21 }, score_source: 'practice_estimate' },
-    { id: 'sc-2', student_id: sid, exam_family: 'act', test_date: addDays(today, -3), composite: 24, section_scores: { english: 27, math: 21, reading: 24, science: 23 }, score_source: 'practice_estimate' },
-  )
+  // No practice_estimate rows: the backend does not produce scaled-score estimates (CR-3), so neither does the demo.
   return s
 }

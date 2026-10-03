@@ -52,6 +52,7 @@ export function Benchmark() {
     skipped: [] as Open[],
     returning: false,
     startedAt: '',
+    benchmarkId: null as string | null,
   })
 
   // The home screen links straight to the kind that is due (?kind=mini|full); otherwise use the schedule.
@@ -66,7 +67,7 @@ export function Benchmark() {
   const present = useCallback(
     async (q: PublicQuestion) => {
       if (!student) return
-      const attemptId = await source.startAttempt(student.id, q.id, null)
+      const attemptId = await source.startAttempt(student.id, q.id, null, run.current.benchmarkId)
       const clock = new ActiveClock()
       clock.start()
       run.current.used.add(q.id)
@@ -118,7 +119,12 @@ export function Benchmark() {
       attempt_ids: records.map((x) => x.attempt_id),
       metrics: computeMetrics(records),
     }
-    void source.saveBenchmark(student.id, s).then(() => setSummary(s))
+    const id = run.current.benchmarkId
+    const done = id ? source.completeBenchmark(student.id, id, s) : Promise.resolve(s)
+    done.then(
+      (saved) => setSummary({ ...saved, metrics: s.metrics }), // show this run's full detail now; history reads the stored copy
+      (e: Error) => setError(e.message),
+    )
   }, [phase, summary, student, records, chosenKind, exam, source])
 
   if (!student) return <Navigate to="/student" replace />
@@ -247,9 +253,18 @@ export function Benchmark() {
           <Button
             size="lg"
             block
-            onClick={() => {
+            disabled={busy}
+            onClick={async () => {
               run.current.startedAt = new Date().toISOString()
-              void startSection(0)
+              setBusy(true)
+              try {
+                run.current.benchmarkId = await source.startBenchmark(student.id, chosenKind, exam)
+                void startSection(0)
+              } catch (e) {
+                setError((e as Error).message)
+              } finally {
+                setBusy(false)
+              }
             }}
           >
             Start {SECTION_LABEL[bplan.sections[0]!.section]}

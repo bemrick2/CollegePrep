@@ -25,6 +25,7 @@ import { emptyStore, loadStore, saveStore, uid, type DemoAttempt, type DemoStore
 import { gradeAnswer } from '../../engine/grading'
 import { recommend, skillEstimates, streakFrom, weeklyProgress } from '../../engine/analytics'
 import { browserTimeZone, localDate } from '../../engine/dates'
+import { MAX_SAVED_SCHOOLS, readSavedSchools, writeSavedSchools } from '../../savedSchools'
 
 export const DEMO_PARENT = 'demo-parent'
 export const DEMO_STUDENT = 'demo-student'
@@ -388,7 +389,7 @@ export class DemoSource implements DataSource {
     this.commit()
   }
 
-  async startAttempt(studentId: string, questionId: string, sessionId: string | null) {
+  async startAttempt(studentId: string, questionId: string, sessionId: string | null, _benchmarkId?: string | null) {
     const F = await loadFixtures()
     this.requireLinked(studentId)
     const q = F.byId.get(questionId)
@@ -519,9 +520,50 @@ export class DemoSource implements DataSource {
     return delay(this.s.benchmarks[studentId] ?? [])
   }
 
-  async saveBenchmark(studentId: string, summary: BenchmarkSummary) {
+  async startBenchmark(studentId: string, _kind: BenchmarkSummary['kind'], _exam: ExamFamily) {
+    this.requireLinked(studentId)
+    return delay(uid('bm-'))
+  }
+
+  async completeBenchmark(studentId: string, benchmarkId: string, client: BenchmarkSummary) {
+    const summary = { ...client, id: benchmarkId }
     ;(this.s.benchmarks[studentId] ??= []).push(summary)
     this.commit()
+    return delay(summary)
+  }
+
+  // Saved schools live in this browser for the demo (one household per browser).
+  async savedSchools(_householdId: string) {
+    return delay(readSavedSchools())
+  }
+
+  async saveSchool(_householdId: string, key: string) {
+    const list = readSavedSchools()
+    if (list.includes(key)) return
+    if (list.length >= MAX_SAVED_SCHOOLS) throw new DataError(`Up to ${MAX_SAVED_SCHOOLS} schools`, 'invalid')
+    writeSavedSchools([...list, key])
+  }
+
+  async removeSchool(_householdId: string, key: string) {
+    writeSavedSchools(readSavedSchools().filter((k) => k !== key))
+  }
+
+  async verifiedSchools(academicYear: string): Promise<InstitutionSearchHit[]> {
+    const F = await loadFixtures()
+    if (academicYear !== F.snapshot.academic_year) return delay([])
+    const list = (F.snapshot.institutions as unknown as InstitutionComparison[])
+      .filter((x) => x.institution)
+      .map((x) => ({
+        institution_key: x.institution_key,
+        display_name: x.institution!.display_name,
+        city: x.institution!.city,
+        state_code: x.institution!.state_code,
+        control: x.institution!.control,
+        level: x.institution!.level ?? null,
+        domains: Object.entries(x.domains).filter(([, v]) => (v as unknown[]).length > 0).map(([k]) => k),
+      }))
+      .filter((x) => x.domains.length > 0)
+    return delay(list)
   }
 
   async searchInstitutions(query: string): Promise<InstitutionSearchHit[]> {

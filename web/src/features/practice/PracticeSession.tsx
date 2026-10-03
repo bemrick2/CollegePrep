@@ -91,7 +91,7 @@ export function PracticeSession() {
     const r = await attempt.submit({ confidence })
     if (!r || !question) return
     setOutcomes((o) => [...o, { correct: r.result.is_correct, elapsed_ms: r.result.elapsed_ms, expected: question.expected_time_seconds }])
-    setRemember(await source.rememberThis(question.id))
+    setRemember(r.result.remember_text ?? (await source.rememberThis(question.id)))
   }
 
   const next = () => {

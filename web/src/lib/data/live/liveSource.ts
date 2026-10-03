@@ -3,6 +3,7 @@ import type { DataSource } from '../source'
 import { DataError } from '../source'
 import type {
   AttemptRecord,
+  BenchmarkMetrics,
   BenchmarkSummary,
   Choice,
   CostProjection,
@@ -41,27 +42,8 @@ async function rpc<T>(sb: SupabaseClient, fn: string, args: Record<string, unkno
   return data as T
 }
 
-// Planning prefs and benchmark summaries have no backend table yet (CR-1, CR-2).
-// They are kept per browser, keyed by student, until the contract lands.
-const localKey = (kind: string, studentId: string) => `pp-live-${kind}-${studentId}`
-function readLocal<T>(key: string): T | null {
-  try {
-    const raw = localStorage.getItem(key)
-    return raw ? (JSON.parse(raw) as T) : null
-  } catch {
-    return null
-  }
-}
-function writeLocal(key: string, value: unknown) {
-  try {
-    localStorage.setItem(key, JSON.stringify(value))
-  } catch {
-    // ignore
-  }
-}
-
 const QUESTION_COLUMNS =
-  'id, section, difficulty, difficulty_label, stem, choices, answer_format, expected_time_seconds, exam_versions!inner(exam_family), practice_question_skills(is_primary, skills(skill_key))'
+  'id, section, difficulty, difficulty_label, stem, choices, answer_format, expected_time_seconds, hint_count, practice_passages(title, body), exam_versions!inner(exam_family), practice_question_skills(is_primary, skills(skill_key))'
 
 interface QuestionRow {
   id: string
@@ -72,6 +54,8 @@ interface QuestionRow {
   choices: unknown
   answer_format: PublicQuestion['answer_format']
   expected_time_seconds: number | null
+  hint_count: number | null
+  practice_passages: { title: string | null; body: string } | null
   exam_versions: { exam_family: ExamFamily }
   practice_question_skills: { is_primary: boolean; skills: { skill_key: string } | null }[]
 }
@@ -93,13 +77,61 @@ function toPublic(r: QuestionRow): PublicQuestion {
     difficulty: r.difficulty,
     difficulty_label: r.difficulty_label,
     stem: r.stem,
-    passage: null,
+    passage: r.practice_passages ? (r.practice_passages.title ? `${r.practice_passages.title}\n\n${r.practice_passages.body}` : r.practice_passages.body) : null,
     choices: normalizeChoices(r.choices),
     answer_format: r.answer_format,
     expected_time_seconds: r.expected_time_seconds,
     primary_skill_key: r.practice_question_skills.find((s) => s.is_primary)?.skills?.skill_key ?? null,
-    // Hint count is hidden server-side; the UI asks and handles "no more hints".
-    hint_count: 1,
+    hint_count: r.hint_count ?? 0,
+  }
+}
+
+
+/** practice_benchmarks.metrics (definition v1, computed by complete_benchmark). */
+interface ServerMetrics {
+  attempts?: number
+  submitted?: number
+  skips?: number
+  returns?: number
+  answer_changes?: number
+  accuracy?: number | null
+  pacing_ratio?: number | null
+  by_section?: Record<string, { submitted: number; correct: number; accuracy: number | null; pacing_ratio: number | null }>
+  calibration?: { by_confidence?: Record<string, { submitted: number; accuracy: number | null }>; confident_wrong_share?: number | null }
+  traps?: Record<string, number>
+}
+
+/** Maps the server's metrics to the UI shape. Fields the server doesn't compute (the staircase ceiling,
+ *  strategy use) come from this run's client record when available, otherwise stay empty. */
+function fromServerMetrics(m: ServerMetrics | null, client?: BenchmarkMetrics): BenchmarkMetrics {
+  const by = m?.by_section ?? {}
+  const submitted = m?.submitted ?? 0
+  return {
+    answered: submitted,
+    correct: Math.round((m?.accuracy ?? 0) * submitted),
+    skipped: m?.skips ?? 0,
+    skip_events: client?.skip_events ?? m?.skips ?? 0,
+    returns: m?.returns ?? 0,
+    answer_changes: m?.answer_changes ?? 0,
+    accuracy: m?.accuracy ?? null,
+    median_elapsed_ms: client?.median_elapsed_ms ?? null,
+    pacing_ratio: m?.pacing_ratio ?? null,
+    calibration: Object.entries(m?.calibration?.by_confidence ?? {}).map(([c, v]) => ({
+      confidence: Number(c) as 1 | 2 | 3,
+      answered: v.submitted,
+      correct: Math.round((v.accuracy ?? 0) * v.submitted),
+    })),
+    strategy_use: client?.strategy_use ?? [],
+    traps_fallen: Object.entries(m?.traps ?? {}).map(([trap, count]) => ({ trap, count })),
+    sections: Object.entries(by).map(([section, v]) => ({
+      section,
+      answered: v.submitted,
+      correct: v.correct,
+      skipped: client?.sections.find((x) => x.section === section)?.skipped ?? 0,
+      accuracy: v.accuracy,
+      pacing_ratio: v.pacing_ratio,
+      ceiling_difficulty: client?.sections.find((x) => x.section === section)?.ceiling_difficulty ?? null,
+    })),
   }
 }
 
@@ -249,8 +281,8 @@ export class LiveSource implements DataSource {
 
   async catalog(examFamily: ExamFamily) {
     const [sk, st, tr] = await Promise.all([
-      this.sb.from('skills').select('id, exam_family, section, domain, skill_key, name').eq('exam_family', examFamily),
-      this.sb.from('question_strategies').select('strategy_key, name, description'),
+      this.sb.from('skills').select('id, exam_family, section, domain, skill_key, name, concept_summary').eq('exam_family', examFamily),
+      this.sb.from('question_strategies').select('strategy_key, name, description, sections'),
       this.sb.from('trap_types').select('trap_key, name, description'),
     ])
     for (const r of [sk, st, tr]) if (r.error) fail(r.error)
@@ -302,8 +334,8 @@ export class LiveSource implements DataSource {
     await rpc<void>(this.sb, 'end_practice_session', { p_session: sessionId })
   }
 
-  startAttempt(studentId: string, questionId: string, sessionId: string | null) {
-    return rpc<string>(this.sb, 'start_practice_attempt', { p_student: studentId, p_question: questionId, p_session: sessionId })
+  startAttempt(studentId: string, questionId: string, sessionId: string | null, benchmarkId: string | null = null) {
+    return rpc<string>(this.sb, 'start_practice_attempt', { p_student: studentId, p_question: questionId, p_session: sessionId, p_benchmark: benchmarkId })
   }
 
   recordEvent(attemptId: string, kind: 'answered' | 'skipped' | 'returned', answer?: string) {
@@ -335,28 +367,80 @@ export class LiveSource implements DataSource {
   }
 
   async rememberThis() {
+    // Live: remember_text arrives with submit_practice_attempt (CR-5).
     return null
   }
 
-  async getPlan(studentId: string) {
-    return readLocal<StudentPlan>(localKey('plan', studentId))
+  async getPlan(studentId: string): Promise<StudentPlan | null> {
+    const { data, error } = await this.sb
+      .from('student_planning_preferences')
+      .select('exam_family, target_score, goals, daily_minutes')
+      .eq('student_id', studentId)
+      .maybeSingle()
+    if (error) fail(error)
+    if (!data) return null
+    return { exam_family: (data.exam_family ?? 'act') as ExamFamily, target_score: data.target_score, goals: data.goals ?? [], daily_minutes: data.daily_minutes ?? 10 }
   }
 
   async savePlan(studentId: string, plan: StudentPlan) {
-    writeLocal(localKey('plan', studentId), plan)
+    const row = { exam_family: plan.exam_family, target_score: plan.target_score, goals: plan.goals, daily_minutes: plan.daily_minutes }
+    const existing = await this.sb.from('student_planning_preferences').select('student_id').eq('student_id', studentId).maybeSingle()
+    if (existing.error) fail(existing.error)
+    const r = existing.data
+      ? await this.sb.from('student_planning_preferences').update(row).eq('student_id', studentId)
+      : await this.sb.from('student_planning_preferences').insert({ student_id: studentId, ...row })
+    if (r.error) fail(r.error)
   }
 
-  async listBenchmarks(studentId: string) {
-    return readLocal<BenchmarkSummary[]>(localKey('benchmarks', studentId)) ?? []
+  async listBenchmarks(studentId: string): Promise<BenchmarkSummary[]> {
+    const { data, error } = await this.sb
+      .from('practice_benchmarks')
+      .select('id, kind, started_at, completed_at, metrics, exam_versions(exam_family), practice_attempts(id)')
+      .eq('student_id', studentId)
+      .not('completed_at', 'is', null)
+      .order('completed_at')
+    if (error) fail(error)
+    return (data ?? []).map((b) => ({
+      id: b.id,
+      kind: b.kind as BenchmarkSummary['kind'],
+      exam_family: ((b.exam_versions as unknown as { exam_family: ExamFamily } | null)?.exam_family ?? 'act') as ExamFamily,
+      started_at: b.started_at,
+      completed_at: b.completed_at!,
+      attempt_ids: ((b.practice_attempts as unknown as { id: string }[] | null) ?? []).map((a) => a.id),
+      metrics: fromServerMetrics(b.metrics as ServerMetrics | null),
+    }))
   }
 
-  async saveBenchmark(studentId: string, summary: BenchmarkSummary) {
-    const list = await this.listBenchmarks(studentId)
-    writeLocal(localKey('benchmarks', studentId), [...list, summary])
+  async startBenchmark(studentId: string, kind: BenchmarkSummary['kind'], examFamily: ExamFamily) {
+    const version = await this.currentExamVersion(examFamily)
+    return rpc<string>(this.sb, 'start_benchmark', { p_student: studentId, p_kind: kind, p_exam_version: version })
+  }
+
+  async completeBenchmark(_studentId: string, benchmarkId: string, client: BenchmarkSummary): Promise<BenchmarkSummary> {
+    const m = await rpc<ServerMetrics>(this.sb, 'complete_benchmark', { p_benchmark: benchmarkId })
+    return { ...client, id: benchmarkId, metrics: fromServerMetrics(m, client.metrics) }
+  }
+
+  async savedSchools(householdId: string) {
+    const { data, error } = await this.sb.from('household_saved_schools').select('institution_key').eq('household_id', householdId).order('added_at')
+    if (error) fail(error)
+    return (data ?? []).map((r) => r.institution_key as string)
+  }
+
+  async saveSchool(householdId: string, institutionKey: string) {
+    await rpc<void>(this.sb, 'save_household_school', { p_household: householdId, p_institution_key: institutionKey })
+  }
+
+  async removeSchool(householdId: string, institutionKey: string) {
+    await rpc<void>(this.sb, 'remove_household_school', { p_household: householdId, p_institution_key: institutionKey })
+  }
+
+  async verifiedSchools(academicYear: string, state?: string): Promise<InstitutionSearchHit[]> {
+    return rpc<InstitutionSearchHit[]>(this.sb, 'institutions_with_verified_records', { p_academic_year: academicYear, p_state: state ?? null })
   }
 
   async searchInstitutions(query: string, state?: string): Promise<InstitutionSearchHit[]> {
-    let q = this.sb.from('institutions').select('institution_key, display_name, city, state_code, control').order('display_name').limit(20)
+    let q = this.sb.from('institutions').select('institution_key, display_name, city, state_code, control, level').order('display_name').limit(20)
     if (query.trim()) q = q.ilike('display_name', `%${query.trim().replace(/[%_]/g, '')}%`)
     if (state) q = q.eq('state_code', state)
     const { data, error } = await q

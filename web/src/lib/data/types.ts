@@ -122,6 +122,8 @@ export interface SubmitResult {
   strategy_explanation: string | null
   distractors: DistractorRationale[]
   strategies: StrategyReveal[]
+  /** "Remember this" (CR-5, at most 16 words), revealed only after submit. */
+  remember_text?: string | null
 }
 
 export interface SubmitInput {
@@ -294,7 +296,7 @@ export interface InstitutionIdentity {
   identity_academic_year: string | null
   source_url: string | null
   /** IPEDS institution level (CR-9). Absent from the live RPC today; costs are then shown per year only. */
-  level?: 'two_year' | 'four_year' | null
+  level?: 'two_year' | 'four_year' | 'less_than_two_year' | null
 }
 
 export interface CostRecord {
@@ -340,6 +342,9 @@ export interface InstitutionSearchHit {
   city: string | null
   state_code: string | null
   control: string | null
+  level?: 'four_year' | 'two_year' | 'less_than_two_year' | null
+  /** Domains with a verified record for the requested year (institutions_with_verified_records). */
+  domains?: string[]
 }
 
 /** Household cost projection. No backend endpoint exists yet (contract request CR-4). */
