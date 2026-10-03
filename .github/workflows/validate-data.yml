@@ -66,6 +66,8 @@ jobs:
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/household_access.sql
       - name: Test practice grading, recommendations, estimates and progress
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/practice_engine.sql
+      - name: Front-end contract tests (issue #37)
+        run: psql -v ON_ERROR_STOP=1 -f supabase/tests/frontend_contracts.sql
       - name: Import every repository record twice into the disposable database
         run: |
           python scripts/import_supabase.py --output /tmp/import --reconcile-sql /tmp/reconcile.psql

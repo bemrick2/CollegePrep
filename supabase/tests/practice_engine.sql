@@ -64,8 +64,8 @@ do $$ begin
   -- Numeric questions must store parseable accepted answers.
   perform hp_test.expect_error($q$insert into public.practice_questions(exam_version_id, question_type_id, section, stem, answer_format, accepted_answers)
     values ('40000000-0000-0000-0000-000000000001', '41000000-0000-0000-0000-000000000002', 'math', 'Bad', 'numeric', '["one half"]')$q$, '23514');
-  perform hp_test.expect_error($q$insert into public.practice_questions(exam_version_id, question_type_id, section, stem, answer_format, accepted_answers)
-    values ('40000000-0000-0000-0000-000000000002', '41000000-0000-0000-0000-000000000001', 'math', 'Wrong version type', 'choice', '["A"]')$q$, '23503');
+  perform hp_test.expect_error($q$insert into public.practice_questions(exam_version_id, question_type_id, section, stem, choices, answer_format, accepted_answers)
+    values ('40000000-0000-0000-0000-000000000002', '41000000-0000-0000-0000-000000000001', 'math', 'Wrong version type', '["A","B"]', 'choice', '["A"]')$q$, '23503');
 end $$;
 
 -- Practice flow as s1.
@@ -238,15 +238,19 @@ begin
     end if;
   end loop;
   perform hp_test.eq(n, 3, 'three estimated skills');
-  -- Recommender: weak knowledge first (least recently seen first), then weak pacing, new skill, review; drafts excluded.
+  -- Recommender v2: questions are dealt round-robin across skills (weak knowledge, then weak pacing, new skill and
+  -- review within each round); within a skill the least recently seen question first. Drafts excluded.
   perform hp_test.check((select array_agg(question_id order by item_position) from public.recommend_practice_set(current_setting('t.st_e')::uuid, 10))
-    = array[hp_test.q(6), hp_test.q(2), hp_test.q(1), hp_test.q(7), hp_test.q(3), hp_test.q(8), hp_test.q(4)], 'recommendation order');
+    = array[hp_test.q(6), hp_test.q(7), hp_test.q(8), hp_test.q(4), hp_test.q(2), hp_test.q(3), hp_test.q(1)], 'recommendation order');
   perform hp_test.check((select array_agg(reason order by item_position) from public.recommend_practice_set(current_setting('t.st_e')::uuid, 10))
-    = array['weak_knowledge','weak_knowledge','weak_knowledge','weak_pacing','weak_pacing','new_skill','review'], 'recommendation reasons');
+    = array['weak_knowledge','weak_pacing','new_skill','review','weak_knowledge','weak_pacing','weak_knowledge'], 'recommendation reasons');
   perform hp_test.check((select sum(expected_time_seconds) from public.recommend_practice_set(current_setting('t.st_e')::uuid, 10)) <= 600, 'within budget');
-  -- 5 minutes: 120 + 90 + 60 = 270s; any further 60s item would exceed 300s.
+  -- 5 minutes: 120 + 60 + 60 + 60 = 300s.
   perform hp_test.check((select array_agg(question_id order by item_position) from public.recommend_practice_set(current_setting('t.st_e')::uuid, 5))
-    = array[hp_test.q(6), hp_test.q(2), hp_test.q(1)], '5-minute set');
+    = array[hp_test.q(6), hp_test.q(7), hp_test.q(8), hp_test.q(4)], '5-minute set');
+  -- A student with no history gets every skill and both sections, not one section ordered by id (CR-6).
+  perform hp_test.check((select array_agg(question_id order by item_position) from public.recommend_practice_set(current_setting('t.st_new')::uuid, 5))
+    = array[hp_test.q(1), hp_test.q(4), hp_test.q(8), hp_test.q(3), hp_test.q(7)], 'new-student set spans skills and sections');
   perform hp_test.expect_error(format('select * from public.recommend_practice_set(%L, 20)', current_setting('t.st_e')), '22023');
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a2');
   perform hp_test.expect_error(format('select * from public.recommend_practice_set(%L, 10)', current_setting('t.st_e')), '42501');

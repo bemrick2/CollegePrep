@@ -148,7 +148,7 @@ Column grants enforce this, so `select *` on `practice_questions` is denied. Hin
 - Server-computed, trustworthy: `presented_at`, `submitted_at`, `elapsed_ms`, `is_correct`.
 - Client-reported: `active_ms` and `first_interaction_ms`. A negative value is rejected, and so is a value greater than the server elapsed time. Nothing is clamped silently.
 
-## Sessions and the recommender (v1 heuristic)
+## Sessions and the recommender (v2)
 
 `start_practice_session(student, target_minutes=10, goal?, exam_version?)` takes 5–15 minutes. It stores the planned list in `practice_session_items` (with an ordered position and a reason) from `recommend_practice_set(student, target_minutes, exam_version?)`.
 
@@ -161,10 +161,52 @@ The recommender is SQL and deterministic for the same data:
    3. `new_skill` (the student has no data on that skill)
    4. `review`
    5. `untagged` (no primary skill)
-3. **Order within a bucket:** never-seen questions first, then least recently presented, then by question id as the tie-break.
-4. **Time budget:** walk the list, adding each question whose expected time still fits within `target_minutes × 60`. Questions that don't fit are skipped and the walk continues.
+3. **Spread (v2, CR-6):** questions are dealt round-robin across skills. A skill's second question comes only after every other skill's first, and an untagged question counts as its own section's skill. Within each round, the buckets above decide the order, then section, then difficulty gap. A student with no history therefore sees every skill and section in the bank, not one section ordered by id.
+4. **Order within a skill:** never-seen questions first, then least recently presented, then the question closest to the skill's target difficulty, then question id.
+   - **Target difficulty (1–5)** comes from the skill's recent accuracy: below 60% → 2; 60–85% → 3; above 85% → 4; no history → 3.
+   - Unrated questions count as 3.
+5. **Time budget:** walk the list, adding each question whose expected time still fits within `target_minutes × 60`. Questions that don't fit are skipped and the walk continues.
 
-It does not spread a set across skills, and it does not adapt difficulty. Those are left for v2.
+Reasons are unchanged (`weak_knowledge`, `weak_pacing`, `new_skill`, `review`, `untagged`).
+
+## Benchmarks (CR-2)
+
+- Benchmarks run 20–40 minutes, so they group attempts directly instead of using a 5–15 minute session.
+- **`start_benchmark(student, kind, exam_version?)`:** `kind` is `initial`, `mini` or `full`. Only the student's own login can start one.
+- **`start_practice_attempt(..., p_benchmark)`:** attaches an attempt to an open benchmark. An attempt belongs to a session or a benchmark, never both.
+- **`complete_benchmark(benchmark)`:** stores and returns `metrics` (`definition: v1`):
+  - attempts, submitted, skips, unsubmitted, returns, answer changes
+  - accuracy and median pacing ratio, overall and `by_section`
+  - calibration: accuracy by confidence, and the share of confidence-3 answers that were wrong
+  - traps: wrong answers that chose a distractor tagged with each trap type
+- **Reads:** `practice_benchmarks` is readable by the student and guardians with `view_progress`.
+- Benchmark attempts are ordinary attempts, so they count toward streaks and weekly goals.
+
+## Planning preferences, saved schools and content fields (issue #37)
+
+- **CR-1 `student_planning_preferences`:** `exam_family` (`act`/`sat`), `target_score`, `goals[]` and `daily_minutes` (5–15).
+  - `target_score` is ACT 1–36, or SAT 400–1600 in 10-point steps, and needs an `exam_family`.
+  - Access is the same as weekly goals: guardians with `set_goals` write; the student writes only when independent or outside a household.
+- **CR-9 `institutions.level`:** from IPEDS HD `ICLEVEL` (`four_year`, `two_year`, `less_than_two_year`; null when not reported). `compare_institutions` returns it.
+- **CR-9 `household_saved_schools`:** up to 8 per household.
+  - Writes go only through `save_household_school` and `remove_household_school`, by any household member.
+  - Reads: guardians with `view_progress` and the household's students.
+- **CR-7 `institutions_with_verified_records(academic_year, state?)`:** schools with at least one verified record for exactly that year, and the domains that have one.
+- **CR-5 content fields:**
+  - `practice_passages` plus `practice_questions.passage_id`: a passage is readable only while a published question uses it.
+  - `remember_text` (at most 16 words): hidden until `submit_practice_attempt` returns it.
+  - `hint_count`: a generated count clients can read.
+  - `choices`: either plain strings or `[{key, text}]` objects with unique keys. A choice question's accepted answers must be keys.
+- **CR-8 answer-free help:** `skills.concept_summary` and `question_strategies.sections`, readable like the rest of those tables.
+
+## Practice score estimates (CR-3): not produced yet
+
+No `practice_estimate` rows are written. A scaled ACT or SAT estimate needs both of the following, and neither exists yet:
+
+- **Calibrated items:** a question bank whose items are calibrated (`difficulty_calibrated`) against real test-takers.
+- **A validated link** from those items to the official score scale.
+
+ACT and SAT raw-to-scale conversions differ by form, and they apply only to full-length official forms. A mapping must not be invented or borrowed for practice sets. Until a defensible model exists, the UI's "pending" state is the correct output.
 
 ## Skill estimates: knowledge separate from pacing
 
@@ -258,7 +300,7 @@ These estimates describe practice performance only. They are not predicted score
 - No payment provider, webhook handler or plan catalogue.
 - No AI provider, worker, rate limits or instructional-quality evaluation.
 - No notification sending, email reports or scheduler.
-- No recommender diversification or difficulty adaptation (v1 heuristic only), no item calibration, and no score prediction.
+- No item calibration and no score prediction (see CR-3 above).
 - No deletion or export path for a student's data. Deleting a minor's practice data needs a confirmed, audited path and is a product decision.
 - No join request initiated by the student, and no recovery for a household with no remaining manager after account deletion.
 - Live since 2026-10-02 (`20261002183112_household_practice_progress`, recorded in `supabase/migration_history.json`). Supabase's security advisor lists the client-callable `SECURITY DEFINER` RPCs as warnings; that is the intended design. The six access helpers (`has_household_permission`, `is_household_*`, `can_*_student`) do not need to be RPC endpoints and are tracked for a move to a non-exposed schema.

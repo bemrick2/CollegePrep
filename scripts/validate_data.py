@@ -119,6 +119,9 @@ def validate_record(path: Path, record: dict, index: int, domain=None):
         except (ValueError, TypeError):
             errors.append("last_verified_at is not ISO-8601")
 
+    # IPEDS HD ICLEVEL (CR-9); read from CSV as text, empty when not reported.
+    if domain=='institutions' and record.get('level') not in (None,'','four_year','two_year','less_than_two_year'):
+        errors.append('invalid level')
     if domain in {'academic_programs','degree_requirements','transfer_policies'}:
         required=['institution_key','academic_year','source_url','last_verified_at']
         if domain=='academic_programs': required+=['program_key','program_name']

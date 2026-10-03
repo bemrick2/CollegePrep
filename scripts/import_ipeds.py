@@ -41,6 +41,8 @@ def import_data(directory,verified_at):
         identities.append({**provenance('institutions',uid,'HD2023'),'display_name':r['INSTNM'],
             'state_code':r['STABBR'],'city':r['CITY'],'website_url':r['WEBADDR'].strip(),
             'control':{'1':'public','2':'private_nonprofit','3':'private_for_profit'}.get(r['CONTROL']),
+            # HD ICLEVEL: highest level of offering (CR-9: a 2-year college is never projected over four years).
+            'level':{'1':'four_year','2':'two_year','3':'less_than_two_year'}.get(r['ICLEVEL'].strip()),
             'active_as_of_academic_year':True})
     admissions=[]
     for r in adm:

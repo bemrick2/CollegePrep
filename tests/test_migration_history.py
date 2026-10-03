@@ -48,8 +48,8 @@ class MigrationHistoryTests(unittest.TestCase):
 
     def test_new_migration_is_pending_but_backdated_one_fails(self):
         newer = dict(self.local)
-        newer['20261003000000'] = {'name': 'future_change', 'file': '20261003000000_future_change.sql', 'md5': 'x'}
-        self.assertEqual(c.live_errors(newer, LIVE_2026_10_02), ([], self.unapplied + ['20261003000000_future_change.sql']))
+        newer['20991231000000'] = {'name': 'future_change', 'file': '20991231000000_future_change.sql', 'md5': 'x'}
+        self.assertEqual(c.live_errors(newer, LIVE_2026_10_02), ([], self.unapplied + ['20991231000000_future_change.sql']))
         older = dict(self.local)
         older['20261002000000'] = {'name': 'backdated', 'file': '20261002000000_backdated.sql', 'md5': 'x'}
         self.assertTrue(c.live_errors(older, LIVE_2026_10_02)[0])
