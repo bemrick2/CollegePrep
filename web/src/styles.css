@@ -1,0 +1,222 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/fraunces';
+
+@custom-variant dark {
+  &:where([data-theme='dark'], [data-theme='dark'] *) {
+    @slot;
+  }
+  @media (prefers-color-scheme: dark) {
+    &:where(:root:not([data-theme='light']) *) {
+      @slot;
+    }
+  }
+}
+
+/* Prep & Price tokens. Warm paper, deep pine, a gold accent for momentum.
+   Student surfaces lean on --go (action); parent surfaces on --brand (calm). */
+:root {
+  --bg: #f7f5f0;
+  --surface: #ffffff;
+  --surface-2: #f1eee7;
+  --surface-3: #e9e4da;
+  --ink: #0e1a1f;
+  --ink-2: #44525a;
+  --ink-3: #6b7780;
+  --line: #e3ded3;
+  --line-strong: #cfc8ba;
+  --brand: #0b3d36;
+  --brand-2: #155e53;
+  --brand-ink: #f3efe6;
+  --brand-soft: #e3efe9;
+  --hero: #0b3d36;
+  --hero-ink: #f3efe6;
+  --go: #178a66;
+  --go-strong: #10704f;
+  --go-soft: #dcf2e8;
+  --gold: #e9a91f;
+  --gold-soft: #fbefd0;
+  --gold-ink: #6b4a00;
+  --bad: #c8374f;
+  --bad-soft: #fbe3e7;
+  --warn: #b45f06;
+  --warn-soft: #fcebd7;
+  --info: #2f5fd0;
+  --info-soft: #e2eafb;
+  --focus: #2f5fd0;
+  --shadow: 0 1px 2px rgb(14 26 31 / 0.05), 0 4px 16px rgb(14 26 31 / 0.06);
+  --shadow-lift: 0 2px 4px rgb(14 26 31 / 0.06), 0 12px 32px rgb(14 26 31 / 0.1);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #0c1416;
+    --surface: #131d20;
+    --surface-2: #19252a;
+    --surface-3: #223035;
+    --ink: #eef1ee;
+    --ink-2: #b6c0c0;
+    --ink-3: #8a9696;
+    --line: #26343a;
+    --line-strong: #34454c;
+    --brand: #7fd1bd;
+    --brand-2: #5fbba5;
+    --brand-ink: #0c1416;
+    --brand-soft: #173430;
+    --hero: #10342f;
+    --hero-ink: #eef1ee;
+    --go: #3ccf9b;
+    --go-strong: #2db786;
+    --go-soft: #143a2e;
+    --gold: #f6c453;
+    --gold-soft: #3a2f12;
+    --gold-ink: #f6d58a;
+    --bad: #f07a8d;
+    --bad-soft: #3d1a21;
+    --warn: #f0a050;
+    --warn-soft: #3a2712;
+    --info: #86a8f5;
+    --info-soft: #18254a;
+    --focus: #86a8f5;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.25);
+    --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.35), 0 12px 32px rgb(0 0 0 / 0.35);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --bg: #0c1416;
+  --surface: #131d20;
+  --surface-2: #19252a;
+  --surface-3: #223035;
+  --ink: #eef1ee;
+  --ink-2: #b6c0c0;
+  --ink-3: #8a9696;
+  --line: #26343a;
+  --line-strong: #34454c;
+  --brand: #7fd1bd;
+  --brand-2: #5fbba5;
+  --brand-ink: #0c1416;
+  --brand-soft: #173430;
+  --hero: #10342f;
+  --hero-ink: #eef1ee;
+  --go: #3ccf9b;
+  --go-strong: #2db786;
+  --go-soft: #143a2e;
+  --gold: #f6c453;
+  --gold-soft: #3a2f12;
+  --gold-ink: #f6d58a;
+  --bad: #f07a8d;
+  --bad-soft: #3d1a21;
+  --warn: #f0a050;
+  --warn-soft: #3a2712;
+  --info: #86a8f5;
+  --info-soft: #18254a;
+  --focus: #86a8f5;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.25);
+  --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.35), 0 12px 32px rgb(0 0 0 / 0.35);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Fraunces Variable', ui-serif, Georgia, serif;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-brand: var(--brand);
+  --color-brand-2: var(--brand-2);
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-soft: var(--brand-soft);
+  --color-hero: var(--hero);
+  --color-hero-ink: var(--hero-ink);
+  --color-go: var(--go);
+  --color-go-strong: var(--go-strong);
+  --color-go-soft: var(--go-soft);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-gold-ink: var(--gold-ink);
+  --color-bad: var(--bad);
+  --color-bad-soft: var(--bad-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --shadow-card: var(--shadow);
+  --shadow-lift: var(--shadow-lift);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-feature-settings: 'cv11', 'ss01';
+  -webkit-font-smoothing: antialiased;
+  min-height: 100dvh;
+}
+
+/* Programmatic focus targets (headings moved to on each question) do not need a ring. */
+[tabindex="-1"]:focus-visible {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  letter-spacing: -0.01em;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.96); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes rise {
+  0% { transform: translateY(8px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+.anim-pop { animation: pop 180ms ease-out both; }
+.anim-rise { animation: rise 240ms ease-out both; }
+.anim-shake { animation: shake 240ms ease-in-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+  }
+}
+
+.sr-only-focusable:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
