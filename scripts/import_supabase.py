@@ -58,7 +58,7 @@ insert into public.sources(canonical_url,authority)
     numbers=lambda *ks:{k:'numeric' for k in ks}
     ints=lambda *ks:{k:'integer' for k in ks}
     instjoin="join public.institutions i on i.institution_key=r.payload->>'institution_key'"
-    sql+=insert('institutions','institutions',{**text('institution_key','display_name','state_code','city','website_url','admissions_url','financial_aid_url','control'),**ints('unitid')},['institution_key'],{'ipeds_name':"coalesce(r.payload->>'ipeds_name',r.payload->>'display_name')",'active':'null::boolean','identity_academic_year':field('academic_year'),'active_as_of_academic_year':field('active_as_of_academic_year','boolean')})
+    sql+=insert('institutions','institutions',{**text('institution_key','display_name','state_code','city','website_url','admissions_url','financial_aid_url','control'),**ints('unitid')},['institution_key'],{'ipeds_name':"coalesce(r.payload->>'ipeds_name',r.payload->>'display_name')",'active':'null::boolean','identity_academic_year':field('academic_year'),'active_as_of_academic_year':field('active_as_of_academic_year','boolean'),'level':"nullif(r.payload->>'level','')"})
     sql+='''do $guard$ begin
  if exists(select 1 from import_rows r where r.domain<>'institutions' and r.payload->>'institution_key' is not null and not exists(select 1 from public.institutions i where i.institution_key=r.payload->>'institution_key')) then raise exception 'Missing institution dependency'; end if;
 end $guard$;
