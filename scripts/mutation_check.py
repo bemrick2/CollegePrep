@@ -69,7 +69,7 @@ MUTS = [
     ('pipeline/extractors/dual.py', "kind = ('state_grant' if GRANT_PAYS.search(line)", "kind = ('state_grant' if False"),
     ('pipeline/extractors/dual.py', "if gpa_m and NOT_ELIGIBILITY.search(line): gpa_m = None", "pass"),
     ('pipeline/extractors/transfer.py', "if not SCOPED_GRADE.search(s):", "if True:"),
-    ('pipeline/extractors/merit.py', "(x if not PLACEHOLDER.match(x) else '' for x in", "(x for x in"),
+    ('pipeline/extractors/merit.py', "(x if not (PLACEHOLDER.match(x) or PHONE.search(x)) else '' for x in", "(x for x in"),
     ('pipeline/extractors/merit.py', "lo = None  # \"Up to $5,000\" is a maximum", "pass  # \"Up to $5,000\" is a maximum"),
     ('pipeline/text.py', "continue  # \"PHYS 2010/2011\"", "pass  # \"PHYS 2010/2011\""),
     ('pipeline/crawl.py', "return self.challenges.get(host, 0) >= self.CHALLENGE_STOP", "return False"),
@@ -79,6 +79,13 @@ MUTS = [
     ('pipeline/extractors/costs.py', "return []  # budgets for less-than-full-time enrollment", "pass  # budgets for less-than-full-time enrollment"),
     ('pipeline/extractors/merit.py', "criteria = next((i for i, h in enumerate(header) if i != renewal and", "criteria = next((i for i, h in enumerate(header) if"),
     ('pipeline/extractors/transfer.py', "return []  # hour counts there are award or reverse-transfer conditions", "pass  # hour counts there are award or reverse-transfer conditions"),
+    ('pipeline/extractors/merit.py', "(x if not (PLACEHOLDER.match(x) or PHONE.search(x)) else ''", "(x if not PLACEHOLDER.match(x) else ''"),
+    ('pipeline/extractors/merit.py', ' or bool(ENROLLMENT.match(nm))', ''),
+    ('pipeline/extractors/merit.py', 'elif tier_row and ENROLLMENT.match(nm):', 'elif False:'),
+    ('pipeline/extractors/merit.py', "if i == gpa_col and re.search(r'\\d\\.\\d', header[i]) and re.search(r'\\b(act|sat)\\b', v, re.I):", 'if False:'),
+    ('pipeline/extractors/merit.py', "f'{name} {v}' if v and SCORE.search(v) and not re.search(r'\\b(act|sat)\\b', v, re.I) else v", "f'{name} {v}' if v else v"),
+    ('pipeline/extractors/merit.py', '|\\bno\\s+test|test[\\s-]*optional|without\\s+(a\\s+)?test', ''),
+    ('pipeline/extractors/costs.py', "(None if re.search(r'on\\s*(/|and|&|or)\\s*off[- ]campus|on[- ]\\s*(and|&|or)\\s*off[- ]campus', h) else", '(None if False else'),
 ]
 failed = False
 for f, old, new in MUTS:

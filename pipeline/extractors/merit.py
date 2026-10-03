@@ -38,6 +38,9 @@ THRESHOLD_CELL = re.compile(r'^\s*[<>≤≥]?\s*\d{1,4}(\.\d{1,2})?\s*(\+|[-–]
 
 
 PLACEHOLDER = re.compile(r'^\W*(n/?a|none|see\s+(?:requirements|criteria|details|below|website)|varies|tbd|-+|—)\W*$', re.I)
+PHONE = re.compile(r'\(?\d{3}\)?[\s.-]\d{3}[.-]\d{4}')  # Tougaloo: a contact number in the ACT column is not a score
+ENROLLMENT = re.compile(r'^(full|half|part|three[-\s]quarter|3/4)[-\s]time$', re.I)  # Ole Miss Sumners: amount by enrollment intensity
+SCORE = re.compile(r'\b\d{1,4}\b')
 MERGED_GPA = re.compile(r'^(.*?[A-Za-z)])\s*(\d\.\d{1,2}\s*\+?\s*(?:GPA|grade\s+point\s+average)\.?)\s*$', re.I)
 MERGED_TEXT = re.compile(r'^(.{3,80}?\b(?:Scholarship|Award|Grant|Fellowship))(?=[A-Z][a-z])')
 
@@ -118,21 +121,28 @@ def _list_awards(t, header, body, title, award_type):
         if not threshold_label and (NOT_NAME.search(nm) or NOT_AWARD_NAME.search(nm)): continue
         if nm.endswith(':') or len(nm.split()) > 12: continue  # worked examples and sentences, not award names
         get = lambda i: cells[i].strip() if i is not None and i < len(cells) else ''
-        amt, g, a, s, tst, crit, ren = (x if not PLACEHOLDER.match(x) else '' for x in (get(amount), get(gpa), get(act), get(sat), get(test), get(criteria), get(renewal)))
+        amt, g, a, s, tst, crit, ren = (x if not (PLACEHOLDER.match(x) or PHONE.search(x)) else '' for x in (get(amount), get(gpa), get(act), get(sat), get(test), get(criteria), get(renewal)))
         nm, merged_gpa = _split_name(nm)
         if merged_gpa and not g: g = merged_gpa
         if not (amt or g or a or s or tst or crit): continue
         lo, hi = _amounts(amt)
         if lo is not None and re.search(r'\bup\s+to\b', amt, re.I):
             lo = None  # "Up to $5,000" is a maximum; the minimum is not printed
-        tier_row = bool(threshold_label) or bool(re.search(r'\d.*\b(gpa|act|sat)\b', nm, re.I))
+        tier_row = bool(threshold_label) or bool(re.search(r'\d.*\b(gpa|act|sat)\b', nm, re.I)) or bool(ENROLLMENT.match(nm))
         rec = {'award_name': f"{title}: {nm}" if tier_row else nm, 'award_type': award_type}
         if threshold_label:  # UTK Out-of-State Volunteer: "4.0+ | 34-36/1490-1600 | $18,000" and "4.0+ | 30-33/... | $9,000"
             parts = [(i, get(i)) for i in threshold_cols if get(i)]
             rec['award_name'] = f"{title}: " + ', '.join(f'{clean(header[i])} {v}' for i, v in parts)
             for i, v in parts:
+                if i == gpa_col and re.search(r'\d\.\d', header[i]) and re.search(r'\b(act|sat)\b', v, re.I):
+                    # USM: the header is a GPA band and the rows are test ranges ("3.0 - 3.24 GPA" over "23 - 25 ACT Score")
+                    rec['gpa_requirement'] = clean(header[i])
+                    rec['test_requirement'] = '; '.join(x for x in [rec.get('test_requirement'), v] if x)
+                    continue
                 key = 'gpa_requirement' if i == gpa_col else 'test_requirement'
                 rec[key] = '; '.join(x for x in [rec.get(key), f'{clean(header[i])}: {v}'] if x)
+        elif tier_row and ENROLLMENT.match(nm):
+            pass  # the row is an enrollment level, not a threshold
         elif tier_row:  # the row label is itself the threshold ('3.6+ GPA, 26-27 ACT')
             rec['test_requirement' if re.search(r'\b(act|sat)\b', nm, re.I) else 'gpa_requirement'] = nm
         if amt: rec['award_amount_text'] = amt
@@ -140,7 +150,9 @@ def _list_awards(t, header, body, title, award_type):
             if lo is not None: rec['award_min'] = lo
             rec['award_max'] = hi
         if g: rec['gpa_requirement'] = g
-        tests = ' / '.join(x for x in [f'ACT {a}' if a else '', f'SAT {s}' if s else ''] if x) or tst
+        # Prefix only bare scores: "ACT: 27+ / SAT: 1220+" already names the test, "Valedictorian" is not a score (Tougaloo).
+        label = lambda name, v: f'{name} {v}' if v and SCORE.search(v) and not re.search(r'\b(act|sat)\b', v, re.I) else v
+        tests = ' / '.join(x for x in [label('ACT', a), label('SAT', s) if s != a else ''] if x) or tst
         if tests: rec['test_requirement'] = tests
         if crit:  # a bare points range is meaningless without its column name (Southern: "Points | 4,800 - 5,700")
             rec['eligibility_summary'] = (f"{header[criteria].strip()}: {crit}" if re.search(r'\bpoints?\b', header[criteria], re.I) else crit)[:600]
@@ -171,7 +183,8 @@ def _tier_award(t, header, body, context):
 
 def _grid_award(t, header, body, context):
     """GPA x test-score matrix: header cells are score ranges, first column GPA ranges, cells amounts."""
-    score_cols = [i for i, h in enumerate(header) if i > 0 and re.search(r'\d{2}', h)]
+    # Ole Miss: "No Test Score" is a tier column like the score ranges.
+    score_cols = [i for i, h in enumerate(header) if i > 0 and re.search(r'\d{2}|\bno\s+test|test[\s-]*optional|without\s+(a\s+)?test', h, re.I)]
     if len(score_cols) < 2: return []
     gpa_rows = [r for r in body if r and re.search(r'\d\.\d', r[0])]
     if len(gpa_rows) < 2: return []
