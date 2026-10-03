@@ -91,7 +91,7 @@ def _list_awards(t, header, body, title, award_type):
                  and not re.search(r'criteria|requirement|eligib|amount|annual|per\s+year|years?\b|value|total|\$', h, re.I)), None)
     # Annual columns win over four-year totals ("Total over 4 years | Total for academic year", AL: AUM).
     multi_year = re.compile(r'4\s*years?|four\s+years?|total\s+over|over\s+\d|cumulative', re.I)
-    amount = next((i for words in (('annual', 'per year', 'yearly', 'academic year', 'per academic'), ('amount', 'value', '$', 'award detail'), ('award',))
+    amount = next((i for words in (('annual', 'per year', 'yearly', 'academic year', 'per academic'), ('amount', 'value', '$', 'award detail', 'offer'), ('award',))
                    for i, h in enumerate(header) if i != name and any(w in h.lower() for w in words) and not multi_year.search(h)), None)
     gpa = _col(header, 'gpa', 'grade point')
     act = _col(header, 'act')
@@ -126,6 +126,8 @@ def _list_awards(t, header, body, title, award_type):
         if merged_gpa and not g: g = merged_gpa
         if not (amt or g or a or s or tst or crit): continue
         lo, hi = _amounts(amt)
+        if re.search(r'tuition[^$]*(\+|\bplus\b|\band\b)\s*\$', amt, re.I):
+            lo, hi = None, None  # LSUS: "Tuition & Fees + $1,200 Campus Housing Credit" is not a $1,200 award
         if lo is not None and re.search(r'\bup\s+to\b', amt, re.I):
             lo = None  # "Up to $5,000" is a maximum; the minimum is not printed
         tier_row = bool(threshold_label) or bool(re.search(r'\d.*\b(gpa|act|sat)\b', nm, re.I)) or bool(ENROLLMENT.match(nm))
@@ -146,6 +148,8 @@ def _list_awards(t, header, body, title, award_type):
         elif tier_row:  # the row label is itself the threshold ('3.6+ GPA, 26-27 ACT')
             rec['test_requirement' if re.search(r'\b(act|sat)\b', nm, re.I) else 'gpa_requirement'] = nm
         if amt: rec['award_amount_text'] = amt
+        if re.search(r'\bfor\s+(the\s+)?freshman\s+year|\bone[\s–-]*time\b|\bnon[\s-]*renewable\b', amt, re.I):
+            rec['renewable'] = False  # UL Lafayette: "$1,000 for freshman year"
         if hi is not None:
             if lo is not None: rec['award_min'] = lo
             rec['award_max'] = hi

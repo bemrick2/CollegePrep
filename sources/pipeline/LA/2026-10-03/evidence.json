@@ -1,0 +1,2066 @@
+{
+ "04f02d853a58a9fc": {
+  "decision": {
+   "candidate_id": "04f02d853a58a9fc",
+   "reason": "Policy lines and table rows checked against the official page as printed."
+  },
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "Minimum 3.2 GPA on a 4.0 unweighted scale",
+    "value": 3.2
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:08:54+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 30 Apr 2026 15:24:47 GMT",
+   "page_file": "10da2f143e04e8514336.json.gz",
+   "requested_url": "https://www.dillard.edu/admissions-aid/admission-requirements/dual-enrollment/",
+   "sha256": "10da2f143e04e851433615d9204e0c0cadd8f2c9792b077dd477b98d481f6d6c",
+   "title": "Dual Enrollment, Admissions | Dillard University, HBCU Louisiana",
+   "url": "https://www.dillard.edu/admissions-aid/admission-requirements/dual-enrollment/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "056f13f1da97e9f7": {
+  "decision": {
+   "candidate_id": "056f13f1da97e9f7",
+   "reason": "Row checked against the published table (name, criteria and amount as printed; prose terms kept in eligibility). Year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "Red River | 26-29 | 3.0 | $3,600",
+    "value": "$3,600"
+   },
+   {
+    "field": "gpa_requirement",
+    "snippet": "Red River | 26-29 | 3.0 | $3,600",
+    "value": "3.0"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "Red River | 26-29 | 3.0 | $3,600",
+    "value": "ACT 26-29"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:17:46+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "99f37c14697c7ff90b98.json.gz",
+   "requested_url": "https://www.lsus.edu/costs-and-aid/scholarships",
+   "sha256": "99f37c14697c7ff90b989d5d438960d2d1dc6fa69434c70768b4abc35e607535",
+   "title": "Scholarships",
+   "url": "https://www.lsus.edu/scholarships"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "0912545ca14cb006": {
+  "decision": {
+   "candidate_id": "0912545ca14cb006",
+   "reason": "Cost column checked against the published table (residency from the column header; components and total as printed)."
+  },
+  "evidence": [
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $44,350",
+    "value": 44350
+   },
+   {
+    "field": "column:Room",
+    "snippet": "Room | $8,150",
+    "value": 8150
+   },
+   {
+    "field": "column:Meal (Food) Plan",
+    "snippet": "Meal (Food) Plan | $7,350",
+    "value": 7350
+   },
+   {
+    "field": "column:Books/Supplies",
+    "snippet": "Books/Supplies | $1,300",
+    "value": 1300
+   },
+   {
+    "field": "column:Transportation",
+    "snippet": "Transportation | $3,300",
+    "value": 3300
+   },
+   {
+    "field": "column:Personal",
+    "snippet": "Personal | $2,800",
+    "value": 2800
+   },
+   {
+    "field": "column:TOTAL",
+    "snippet": "TOTAL | $67,250",
+    "value": 67250
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:08:46+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "b6888cf0156befa9c864.json.gz",
+   "requested_url": "https://www.centenary.edu/admission/tuition-aid/costs/",
+   "sha256": "b6888cf0156befa9c86494f59a0c9e9aa42e466e11e973a1528a9932fa6158e4",
+   "title": "Tuition & Costs | Centenary College of Louisiana",
+   "url": "https://www.centenary.edu/admission/tuition-aid/costs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "0e7cc7fe8ac2b186": {
+  "decision": {
+   "candidate_id": "0e7cc7fe8ac2b186",
+   "reason": "Policy lines and table rows checked against the official page as printed."
+  },
+  "evidence": [
+   {
+    "field": "equivalencies[AP-ART-HISTORY|4 or 5]",
+    "snippet": "Art History | ARHS 1010 (3 c.h.) | 4 or 5"
+   },
+   {
+    "field": "equivalencies[AP-DRAWING|4 or 5]",
+    "snippet": "Art Studio: Drawing | ARST 1101 (3 c.h.) Students may consult with Art Department to be considered for ARST 2101 credit. | 4 or 5"
+   },
+   {
+    "field": "equivalencies[AP-2-D-ART-DESIGN|4 or 5]",
+    "snippet": "Art Studio: 2D Design | ARST 1101 (3 c.h.) Students may consult with Art Department to be considered for ARST 2101 credit. | 4 or 5"
+   },
+   {
+    "field": "equivalencies[AP-3-D-ART-DESIGN|4 or 5]",
+    "snippet": "Art Studio: 3D Design | ARST 1490 (4 c.h.) | 4 or 5"
+   },
+   {
+    "field": "equivalencies[AP-BIOLOGY|5]",
+    "snippet": "Biology | EBIO 1010/EBIO 1015 (4 c.h.) and choose CELL 1010 (3 c.h.) or CELL 1500/CELL 1505 (4 c.h.) | 5"
+   },
+   {
+    "field": "equivalencies[AP-BIOLOGY|4]",
+    "snippet": "Biology | CELL 1500 (3 c.h.) | 4"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|5]",
+    "snippet": "Chemistry | CHEM 1070/CHEM 1075 and CHEM 1080/CHEM 1085 (8 c.h.) | 5"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|4]",
+    "snippet": "Chemistry | CHEM 1070/CHEM 1075 (4 c.h.) | 4"
+   },
+   {
+    "field": "equivalencies[AP-CHINESE-LANGUAGE-CULTURE|4 or 5]",
+    "snippet": "Chinese Language and Culture | ASTC 2030 (4 c.h.) | 4 or 5"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-A|4 or 5]",
+    "snippet": "Computer Science A | CPST 2200 (3 c.h.) | 4 or 5"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|4 or 5]",
+    "snippet": "Computer Science Principles | CMPS 1950 (3 c.h.) | 4 or 5"
+   },
+   {
+    "field": "equivalencies[AP-MICROECONOMICS|4 or 5]",
+    "snippet": "Economics Microeconomics | ECON 1010 (3 c.h.) | 4 or 5"
+   },
+   {
+    "field": "equivalencies[AP-MACROECONOMICS|4 or 5]",
+    "snippet": "Economics Macroeconomics | ECON 1020 (3 c.h.) | 4 or 5"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|4 or 5]",
+    "snippet": "English Language or Literature | ENGL 1010 (4 c.h.) | 4 or 5"
+   },
+   {
+    "field": "equivalencies[AP-ENVIRONMENTAL-SCIENCE|4 or 5]",
+    "snippet": "Environmental Science | EENS 1300/EENS 1305 (4 c.h.) | 4 or 5"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|5]",
+    "snippet": "French Language or Literature | FREN 3150 (3 c.h.) | 5"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|4]",
+    "snippet": "French Language or Literature | FREN 2030 (4 c.h.) | 4"
+   },
+   {
+    "field": "equivalencies[AP-GERMAN-LANGUAGE-CULTURE|4 or 5]",
+    "snippet": "German Language | GERM 2030 (4 c.h.) | 4 or 5"
+   },
+   {
+    "field": "equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|4 or 5]",
+    "snippet": "Italian - Language and Culture | ITAL 2030 (4 c.h.) | 4 or 5"
+   },
+   {
+    "field": "equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|4 or 5]",
+    "snippet": "Japanese - Language and Culture | ASTJ 2030 (4 c.h.) | 4 or 5"
+   },
+   {
+    "field": "equivalencies[AP-LATIN|4 or 5]",
+    "snippet": "Latin - Literature or Virgil | LATN 2030 (4 c.h.) If both exams are passed with scores of 4 and above LATN 2030 and LATN 3070 (7 c.h.) | 4 or 5"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-AB|4 or 5]",
+    "snippet": "Mathematics - Calculus AB | MATH 1210 (4 c.h.) | 4 or 5"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-BC|4 or 5]",
+    "snippet": "Mathematics - Calculus BC | MATH 1210 and 1220 (8 c.h.) | 4 or 5"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-BC|3 with an AB sub-score of 4 or higher]",
+    "snippet": "Mathematics - Calculus BC | MATH 1210 (4 c.h.) Credit will not be awarded for a 3 if AB sub-score is below a 4. | 3 with an AB sub-score of 4 or higher"
+   },
+   {
+    "field": "equivalencies[AP-STATISTICS|4 or 5]",
+    "snippet": "Mathematics - Statistics | MATH 1010 (3 c.h.) | 4 or 5"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-1|4 or 5]",
+    "snippet": "Physics 1 - Algebra Based | PHYS 1210 (4 c.h.) Credit will not be awarded for PHYS 1210 and PHYS 1310. | 4 or 5"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-2|4 or 5]",
+    "snippet": "Physics 2 - Algebra Based | PHYS 1220 (4 c.h.) Credits will not be awarded for PHYS 1220 and PHYS 1320. | 4 or 5"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-MECHANICS|4 or 5]",
+    "snippet": "Physics C - Mechanics | PHYS 1310 (4 c.h.) Credit will not be awarded for PHYS 1210 and PHYS 1310. | 4 or 5"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|4 or 5]",
+    "snippet": "Physics C - Electricity and Magnetism | PHYS 1320 (4 c.h.) Credit will not be awarded for PHYS 1220 and PHYS 1320. | 4 or 5"
+   },
+   {
+    "field": "equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|4 or 5]",
+    "snippet": "Political Science - U.S. Government | POLA 2100 (3 c.h.) | 4 or 5"
+   },
+   {
+    "field": "equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|4 or 5]",
+    "snippet": "Political Science - Comparative Government | POLC 2300 (3 c.h.) | 4 or 5"
+   },
+   {
+    "field": "equivalencies[AP-PSYCHOLOGY|4 or 5]",
+    "snippet": "Psychology | PSYC 1000 (3 c.h.) | 4 or 5"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|4 or 5]",
+    "snippet": "Spanish - Language or Literature | SPAN 2030 (4 c.h.) | 4 or 5"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:21:07+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 22 Sep 2026 21:16:53 GMT",
+   "page_file": "a2dd45bbb7f1f150c0fb.json.gz",
+   "requested_url": "https://catalog.tulane.edu/newcomb-tulane/ap-ib-a-level-equivalencies/",
+   "sha256": "a2dd45bbb7f1f150c0fb5b205d1559b34f5f0d0ebd41318d45effd683507c8d7",
+   "title": "Credit By Exam | Tulane University University Catalog",
+   "url": "https://catalog.tulane.edu/newcomb-tulane/ap-ib-a-level-equivalencies/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "2130eea4ed655230": {
+  "decision": {
+   "candidate_id": "2130eea4ed655230",
+   "reason": "Row checked against the published table (name, criteria and amount as printed; prose terms kept in eligibility). Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "Distinguished Freshmen (Leadership) | Leadership in high schoolRecruiter Recommendation | $1,000 for freshman year",
+    "value": "$1,000 for freshman year"
+   },
+   {
+    "field": "eligibility_summary",
+    "snippet": "Distinguished Freshmen (Leadership) | Leadership in high schoolRecruiter Recommendation | $1,000 for freshman year",
+    "value": "Leadership in high schoolRecruiter Recommendation"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:22:51+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 02 Oct 2026 13:52:42 GMT",
+   "page_file": "f865eada1b49a1600fce.json.gz",
+   "requested_url": "https://louisiana.edu/scholarship/prospective-students/freshman-scholarships",
+   "sha256": "f865eada1b49a1600fce95a13891291a1470a58c8e4ff095d13b298428ceaec2",
+   "title": "Freshman Scholarships | University of Louisiana at Lafayette",
+   "url": "https://louisiana.edu/scholarship/prospective-students/freshman-scholarships"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "260140ebab51a73f": {
+  "decision": {
+   "candidate_id": "260140ebab51a73f",
+   "reason": "Row checked against the published table (name, criteria and amount as printed; prose terms kept in eligibility). Year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "award_tiers",
+    "snippet": "Grade Point Average (GPA) | ACT 20-22SAT 1030-1130 | ACT 23-25SAT 1140-1220 | ACT 26+SAT 1230+ || 2.5 - 2.9 | $1,000 | $1,250 | $1,500 || 3.0+ | $1,250 | $1,500 | $3,000",
+    "value": [
+     {
+      "amount_text": "$1,000",
+      "gpa": "2.5 - 2.9",
+      "test": "ACT 20-22SAT 1030-1130"
+     },
+     {
+      "amount_text": "$1,250",
+      "gpa": "2.5 - 2.9",
+      "test": "ACT 23-25SAT 1140-1220"
+     },
+     {
+      "amount_text": "$1,500",
+      "gpa": "2.5 - 2.9",
+      "test": "ACT 26+SAT 1230+"
+     },
+     {
+      "amount_text": "$1,250",
+      "gpa": "3.0+",
+      "test": "ACT 20-22SAT 1030-1130"
+     },
+     {
+      "amount_text": "$1,500",
+      "gpa": "3.0+",
+      "test": "ACT 23-25SAT 1140-1220"
+     },
+     {
+      "amount_text": "$3,000",
+      "gpa": "3.0+",
+      "test": "ACT 26+SAT 1230+"
+     }
+    ]
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "Grade Point Average (GPA) | ACT 20-22SAT 1030-1130 | ACT 23-25SAT 1140-1220 | ACT 26+SAT 1230+ || 2.5 - 2.9 | $1,000 | $1,250 | $1,500 || 3.0+ | $1,250 | $1,500 | $3,000",
+    "value": "Tiers by Grade Point Average (GPA) and ACT 20-22SAT 1030-1130, ACT 23-25SAT 1140-1220…"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:10:38+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 29 Sep 2026 15:47:09 GMT",
+   "page_file": "d6ed6021ec4b8ced4777.json.gz",
+   "requested_url": "https://www.lsua.edu/admissions/scholarships",
+   "sha256": "d6ed6021ec4b8ced47775c29e8e2e805a8dbe88a65e2edd95090295778159ca0",
+   "title": "Scholarship Opportunities | Louisiana State University of Alexandria (LSUA)",
+   "url": "https://www.lsua.edu/admissions/scholarships/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "2c396be385c1cc1f": {
+  "decision": {
+   "candidate_id": "2c396be385c1cc1f",
+   "reason": "Policy lines and table rows checked against the official page as printed."
+  },
+  "evidence": [
+   {
+    "field": "max_credit_hours_per_term",
+    "snippet": "Dual-enrolled students can take up to 7 credit hours per term (approx. two courses)",
+    "value": 7
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:09:43+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "d36b87e6584015a18bbc.json.gz",
+   "requested_url": "https://www.franu.edu/admissions/requirements/undergraduate/dual-enrollment.html",
+   "sha256": "d36b87e6584015a18bbce0f130c657c5a9db5aee53e327b35e2899b234bcb447",
+   "title": "Dual Enrollment",
+   "url": "https://www.franu.edu/admissions/requirements/undergraduate/dual-enrollment.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "2f07b4d4ea0bc105": {
+  "decision": {
+   "candidate_id": "2f07b4d4ea0bc105",
+   "reason": "Policy lines and table rows checked against the official page as printed."
+  },
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "Minimum cumulative high school GPA of 3.0 on a 4.0 scale",
+    "value": 3.0
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:15:45+00:00",
+   "kind": "html",
+   "last_modified": "Sat, 03 Oct 2026 04:26:17 GMT",
+   "page_file": "2f77c530a44ac938d78e.json.gz",
+   "requested_url": "https://www.mcneese.edu/admissions/dual-enrollment/",
+   "sha256": "2f77c530a44ac938d78eb93263fd41049d4fd9b2cf3bdf539c77100b3488134e",
+   "title": "Dual Enrollment - McNeese State University",
+   "url": "https://www.mcneese.edu/about-us/leadership-team/administrative-and-student-affairs/division-of-administrative-and-student-affairs/student-central/admissions/dual-enrollment/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "4beb9530ff3a1b19": {
+  "decision": {
+   "candidate_id": "4beb9530ff3a1b19",
+   "reason": "Row checked against the published table (name, criteria and amount as printed; prose terms kept in eligibility). Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "award_tiers",
+    "snippet": " | ACT 21–23 | 24–26 | 27–29 | 30+ || GPA 3.0 | – | $2,000 | $2,500 | $3,000 || 3.5 | $2,000 | $2,000 | $2,500 | $3,000 || 3.6 | $2,500 | $2,500 | $2,750 | $3,000 || 3.7 | $2,500 | $2,500 | $2,750 | $3,250 || 3.8 | $3,000 | $3,000 | $3,250 | $3,500 || 3.9 | $3,500 | $3,500 | $3,750 | $4,000",
+    "value": [
+     {
+      "amount_text": "$2,000",
+      "gpa": "GPA 3.0",
+      "test": "24–26"
+     },
+     {
+      "amount_text": "$2,500",
+      "gpa": "GPA 3.0",
+      "test": "27–29"
+     },
+     {
+      "amount_text": "$3,000",
+      "gpa": "GPA 3.0",
+      "test": "30+"
+     },
+     {
+      "amount_text": "$2,000",
+      "gpa": "3.5",
+      "test": "ACT 21–23"
+     },
+     {
+      "amount_text": "$2,000",
+      "gpa": "3.5",
+      "test": "24–26"
+     },
+     {
+      "amount_text": "$2,500",
+      "gpa": "3.5",
+      "test": "27–29"
+     },
+     {
+      "amount_text": "$3,000",
+      "gpa": "3.5",
+      "test": "30+"
+     },
+     {
+      "amount_text": "$2,500",
+      "gpa": "3.6",
+      "test": "ACT 21–23"
+     },
+     {
+      "amount_text": "$2,500",
+      "gpa": "3.6",
+      "test": "24–26"
+     },
+     {
+      "amount_text": "$2,750",
+      "gpa": "3.6",
+      "test": "27–29"
+     },
+     {
+      "amount_text": "$3,000",
+      "gpa": "3.6",
+      "test": "30+"
+     },
+     {
+      "amount_text": "$2,500",
+      "gpa": "3.7",
+      "test": "ACT 21–23"
+     },
+     {
+      "amount_text": "$2,500",
+      "gpa": "3.7",
+      "test": "24–26"
+     },
+     {
+      "amount_text": "$2,750",
+      "gpa": "3.7",
+      "test": "27–29"
+     },
+     {
+      "amount_text": "$3,250",
+      "gpa": "3.7",
+      "test": "30+"
+     },
+     {
+      "amount_text": "$3,000",
+      "gpa": "3.8",
+      "test": "ACT 21–23"
+     },
+     {
+      "amount_text": "$3,000",
+      "gpa": "3.8",
+      "test": "24–26"
+     },
+     {
+      "amount_text": "$3,250",
+      "gpa": "3.8",
+      "test": "27–29"
+     },
+     {
+      "amount_text": "$3,500",
+      "gpa": "3.8",
+      "test": "30+"
+     },
+     {
+      "amount_text": "$3,500",
+      "gpa": "3.9",
+      "test": "ACT 21–23"
+     },
+     {
+      "amount_text": "$3,500",
+      "gpa": "3.9",
+      "test": "24–26"
+     },
+     {
+      "amount_text": "$3,750",
+      "gpa": "3.9",
+      "test": "27–29"
+     },
+     {
+      "amount_text": "$4,000",
+      "gpa": "3.9",
+      "test": "30+"
+     }
+    ]
+   },
+   {
+    "field": "test_requirement",
+    "snippet": " | ACT 21–23 | 24–26 | 27–29 | 30+ || GPA 3.0 | – | $2,000 | $2,500 | $3,000 || 3.5 | $2,000 | $2,000 | $2,500 | $3,000 || 3.6 | $2,500 | $2,500 | $2,750 | $3,000 || 3.7 | $2,500 | $2,500 | $2,750 | $3,250 || 3.8 | $3,000 | $3,000 | $3,250 | $3,500 || 3.9 | $3,500 | $3,500 | $3,750 | $4,000",
+    "value": "Tiers by GPA and ACT 21–23, 24–26…"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:20:11+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "5bfe481bde9f0e809c70.json.gz",
+   "requested_url": "https://www.nicholls.edu/financial-aid/scholarships/first-time-freshman/",
+   "sha256": "5bfe481bde9f0e809c703d0b3dfd685f8c1fbc2458e72d2cafbb5398fb0646a8",
+   "title": "First-Time Freshman - Financial Aid",
+   "url": "https://www.nicholls.edu/financial-aid/scholarships/first-time-freshman/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "691e83782c56d25a": {
+  "decision": {
+   "candidate_id": "691e83782c56d25a",
+   "reason": "Cost column checked against the published table (residency from the column header; components and total as printed)."
+  },
+  "evidence": [
+   {
+    "field": "on_campus:Tuition and Fees",
+    "snippet": "Tuition and Fees | $8,372.00 | $20,848.00",
+    "value": 8372.0
+   },
+   {
+    "field": "on_campus:Room and Board",
+    "snippet": "Room and Board | $9,430.00 | $9,430.00",
+    "value": 9430.0
+   },
+   {
+    "field": "on_campus:Books and Supplies",
+    "snippet": "Books and Supplies | $1,300.00 | $1,300.00",
+    "value": 1300.0
+   },
+   {
+    "field": "on_campus:Miscellaneous",
+    "snippet": "Miscellaneous | $2,190.00 | $2,190.00",
+    "value": 2190.0
+   },
+   {
+    "field": "on_campus:Transportation",
+    "snippet": "Transportation | $2,100.00 | $2,100.00",
+    "value": 2100.0
+   },
+   {
+    "field": "on_campus:TOTAL",
+    "snippet": "TOTAL | $23,392.00 | $35,868.00",
+    "value": 23392.0
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:26:33+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "394dcc797b75cad2613d.json.gz",
+   "requested_url": "https://www.southeastern.edu/admin/fin_aid/cost/undergrad/",
+   "sha256": "394dcc797b75cad2613d800dd1926fce6f1095d12b39bff542f9cbc6a45363a6",
+   "title": "Undergraduate Costs - Southeastern Louisiana University",
+   "url": "https://www.southeastern.edu/admin/fin_aid/cost/undergrad/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "77ae31bb893600a2": {
+  "decision": {
+   "candidate_id": "77ae31bb893600a2",
+   "reason": "Row checked against the published table (name, criteria and amount as printed; prose terms kept in eligibility). Year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "Purple & Gold | 20-21 | 2.5 | $2,000",
+    "value": "$2,000"
+   },
+   {
+    "field": "gpa_requirement",
+    "snippet": "Purple & Gold | 20-21 | 2.5 | $2,000",
+    "value": "2.5"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "Purple & Gold | 20-21 | 2.5 | $2,000",
+    "value": "ACT 20-21"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:17:46+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "99f37c14697c7ff90b98.json.gz",
+   "requested_url": "https://www.lsus.edu/costs-and-aid/scholarships",
+   "sha256": "99f37c14697c7ff90b989d5d438960d2d1dc6fa69434c70768b4abc35e607535",
+   "title": "Scholarships",
+   "url": "https://www.lsus.edu/scholarships"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "7ea9091f6cfb3a76": {
+  "decision": {
+   "candidate_id": "7ea9091f6cfb3a76",
+   "reason": "Policy lines and table rows checked against the official page as printed."
+  },
+  "evidence": [
+   {
+    "field": "equivalencies[CLEP-BIOLOGY|50 on Biology]",
+    "snippet": "Biology | 50 on Biology | 4 | BIOL 101"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-COMPOSITION|50 on College Composition]",
+    "snippet": "English | 50 on College Composition | 4 | ENGL 101"
+   },
+   {
+    "field": "equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|50 on Analyzing and Interpreting Literature]",
+    "snippet": " | 50 on Analyzing and Interpreting Literature | 4 | ENGL 102"
+   },
+   {
+    "field": "equivalencies[CLEP-FINANCIAL-ACCOUNTING|50 on Financial Accounting]",
+    "snippet": "Frost School of Business | 50 on Financial Accounting | 3 | ACCT 203"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-BUSINESS-LAW|50 on Introduction to Business Law]",
+    "snippet": " | 50 on Introduction to Business Law | 3 | BUSN 223"
+   },
+   {
+    "field": "equivalencies[CLEP-INFORMATION-SYSTEMS|50 on Information Systems]",
+    "snippet": " | 50 on Information Systems | 3 | BUSN 295"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MANAGEMENT|50 on Principles of Management]",
+    "snippet": " | 50 on Principles of Management | 3 | BUSN 295"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MARKETING|50 on Principles of Marketing]",
+    "snippet": " | 50 on Principles of Marketing | 3 | BUSN 295"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|50 on Principles of Microeconomics]",
+    "snippet": " | 50 on Principles of Microeconomics | 3 | ECON 211"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|50 on Principles of Macroeconomics]",
+    "snippet": " | 50 on Principles of Macroeconomics | 3 | ECON 212"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-ALGEBRA|50 on College Algebra]",
+    "snippet": "Mathematics | 50 on College Algebra | 4 | MATH 104"
+   },
+   {
+    "field": "equivalencies[CLEP-PRECALCULUS|50 on Precalculus]",
+    "snippet": " | 50 on Precalculus | 4 | MATH 107"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:09:25+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "982ea858589dbf6191b8.json.gz",
+   "requested_url": "https://www.centenary.edu/admission/how-to-apply/advanced-placement-other-considerations/",
+   "sha256": "982ea858589dbf6191b829c7659af03431af621b5a6104035ed759f082a3d626",
+   "title": "College Credits in High School | Centenary College of Louisiana",
+   "url": "https://www.centenary.edu/admission/how-to-apply/advanced-placement-other-considerations/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "8ff477852c791c58": {
+  "decision": {
+   "candidate_id": "8ff477852c791c58",
+   "reason": "Policy lines and table rows checked against the official page as printed."
+  },
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "minimum high school GPA of 2.5. Public high schoolers must be college ready. Students",
+    "value": 2.5
+   },
+   {
+    "field": "max_credit_hours_per_term",
+    "snippet": "course, up to a maximum of 11 credit hours per semester. Each 1-credit-hour lab course",
+    "value": 11
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:23:12+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "4dfbd60a7cb6285999ff.json.gz",
+   "requested_url": "https://uhcno.edu/academics/ways-to-learn/dual-enrollment.php",
+   "sha256": "4dfbd60a7cb6285999ffa14d08d529a8b58aca762253f61e22406388bd67e5c4",
+   "title": "University of Holy Cross | Dual Enrollment",
+   "url": "https://uhcno.edu/academics/ways-to-learn/dual-enrollment.php"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "91b055c977e33511": {
+  "decision": {
+   "candidate_id": "91b055c977e33511",
+   "reason": "Row checked against the published table (name, criteria and amount as printed; prose terms kept in eligibility). Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "eligibility_summary",
+    "snippet": "Centenary Grants | Available to admitted students with financial need. To be eligible, students must complete the FAFSA.",
+    "value": "Available to admitted students with financial need. To be eligible, students must complete the FAFSA."
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:08:47+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "68e2f692c4e5fba0cbfc.json.gz",
+   "requested_url": "https://www.centenary.edu/admission/tuition-aid/freshman-tuition-and-aid/",
+   "sha256": "68e2f692c4e5fba0cbfcc7658794931ea73841466b4864f5e87195e9b28c87b0",
+   "title": "Scholarships & Financial Aid | Centenary College of Louisiana",
+   "url": "https://www.centenary.edu/admission/tuition-aid/freshman-tuition-and-aid/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "9cf4971996bf5b4d": {
+  "decision": {
+   "candidate_id": "9cf4971996bf5b4d",
+   "reason": "Row checked against the published table (name, criteria and amount as printed; prose terms kept in eligibility). Year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "Louisiana | 30-36 | 3.5 | Tuition & Fees + $1,200 Campus Housing Credit",
+    "value": "Tuition & Fees + $1,200 Campus Housing Credit"
+   },
+   {
+    "field": "gpa_requirement",
+    "snippet": "Louisiana | 30-36 | 3.5 | Tuition & Fees + $1,200 Campus Housing Credit",
+    "value": "3.5"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "Louisiana | 30-36 | 3.5 | Tuition & Fees + $1,200 Campus Housing Credit",
+    "value": "ACT 30-36"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:17:46+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "99f37c14697c7ff90b98.json.gz",
+   "requested_url": "https://www.lsus.edu/costs-and-aid/scholarships",
+   "sha256": "99f37c14697c7ff90b989d5d438960d2d1dc6fa69434c70768b4abc35e607535",
+   "title": "Scholarships",
+   "url": "https://www.lsus.edu/scholarships"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "a1c6df4f41fd44a7": {
+  "decision": {
+   "candidate_id": "a1c6df4f41fd44a7",
+   "reason": "Row checked against the published table (name, criteria and amount as printed; prose terms kept in eligibility). Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "Dr. Ray P. Authement Valedictorian Scholarship | High School Valedictorian | $2,000 for freshman yearContact the Scholarship Office for details",
+    "value": "$2,000 for freshman yearContact the Scholarship Office for details"
+   },
+   {
+    "field": "eligibility_summary",
+    "snippet": "Dr. Ray P. Authement Valedictorian Scholarship | High School Valedictorian | $2,000 for freshman yearContact the Scholarship Office for details",
+    "value": "High School Valedictorian"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:22:51+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 02 Oct 2026 13:52:42 GMT",
+   "page_file": "f865eada1b49a1600fce.json.gz",
+   "requested_url": "https://louisiana.edu/scholarship/prospective-students/freshman-scholarships",
+   "sha256": "f865eada1b49a1600fce95a13891291a1470a58c8e4ff095d13b298428ceaec2",
+   "title": "Freshman Scholarships | University of Louisiana at Lafayette",
+   "url": "https://louisiana.edu/scholarship/prospective-students/freshman-scholarships"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "a31e306ad7973765": {
+  "decision": {
+   "candidate_id": "a31e306ad7973765",
+   "reason": "Row checked against the published table (name, criteria and amount as printed; prose terms kept in eligibility). Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "eligibility_summary",
+    "snippet": "Phi Theta Kappa Scholarship | Phi Theta Kappa is the world's largest and most prestigious honor society for two-year college students. Centenary offers a $5,000 scholarship to transfer students who are members of PTK.",
+    "value": "Phi Theta Kappa is the world's largest and most prestigious honor society for two-year college students. Centenary offers a $5,000 scholarship to transfer students who are members of PTK."
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:08:47+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "68e2f692c4e5fba0cbfc.json.gz",
+   "requested_url": "https://www.centenary.edu/admission/tuition-aid/freshman-tuition-and-aid/",
+   "sha256": "68e2f692c4e5fba0cbfcc7658794931ea73841466b4864f5e87195e9b28c87b0",
+   "title": "Scholarships & Financial Aid | Centenary College of Louisiana",
+   "url": "https://www.centenary.edu/admission/tuition-aid/freshman-tuition-and-aid/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "ab5d7fe611ddf46d": {
+  "decision": {
+   "candidate_id": "ab5d7fe611ddf46d",
+   "reason": "Row checked against the published table (name, criteria and amount as printed; prose terms kept in eligibility). Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "eligibility_summary",
+    "snippet": "FAFSA Incentive Grant | Students who submit their FAFSA to Centenary will receive this $1,000/year award.",
+    "value": "Students who submit their FAFSA to Centenary will receive this $1,000/year award."
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:09:05+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "b86f92d3bf70fc9f9390.json.gz",
+   "requested_url": "https://www.centenary.edu/admission/tuition-aid/types-of-aid/academic-scholarships/",
+   "sha256": "b86f92d3bf70fc9f9390f015eb1ae5dbd479ca629e9302c1ce35c885b15a5840",
+   "title": "Scholarships & Financial Aid | Centenary College of Louisiana",
+   "url": "https://www.centenary.edu/admission/tuition-aid/freshman-tuition-and-aid/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "ac05196e1279a292": {
+  "decision": {
+   "candidate_id": "ac05196e1279a292",
+   "reason": "Common Data Set 2025-26 section C figures checked against the published PDF."
+  },
+  "evidence": [
+   {
+    "breakdown_reconciles": true,
+    "field": "applications",
+    "snippet": "Total first-time, first-year (degree-seeking) who applied           2525        8014          671              0        11210",
+    "value": 11210
+   },
+   {
+    "breakdown_reconciles": true,
+    "field": "admits",
+    "snippet": "Total first-time, first-year (degree-seeking) who were admitted     1718        5767           76              0        7561",
+    "value": 7561
+   },
+   {
+    "breakdown_reconciles": true,
+    "field": "enrolled",
+    "snippet": "Total first-time, first-year (degree-seeking) enrolled               227        605            11              1         844",
+    "value": 844
+   },
+   {
+    "field": "sat_composite_25..75",
+    "snippet": "SAT Composite                      950                       1040                       1150",
+    "value": [
+     950,
+     1040,
+     1150
+    ]
+   },
+   {
+    "field": "sat_math_25..75",
+    "snippet": "SAT Math                           460                       510                        560",
+    "value": [
+     460,
+     510,
+     560
+    ]
+   },
+   {
+    "field": "act_25..75",
+    "snippet": "ACT Composite                       18                        21                         24",
+    "value": [
+     18,
+     21,
+     24
+    ]
+   }
+  ],
+  "extractor": "common_data_set/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:26:56+00:00",
+   "kind": "pdf",
+   "last_modified": "Sat, 03 Oct 2026 06:24:12 GMT",
+   "page_file": "4aaec7a0108545cb91a6.json.gz",
+   "requested_url": "https://www.xula.edu/opira/cds_2025-2026_pdf_xavier-university-of-louisiana_final-irdswebsite.pdf",
+   "sha256": "4aaec7a0108545cb91a67c3de92358d2d102e5f5f098b2cf023007c95e607230",
+   "title": "Common Data Set 2025-2026",
+   "url": "https://www.xula.edu/opira/cds_2025-2026_pdf_xavier-university-of-louisiana_final-irdswebsite.pdf"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "bc5b53151573f0c6": {
+  "decision": {
+   "candidate_id": "bc5b53151573f0c6",
+   "reason": "Transfer-grade sentence checked against the official page; no transfer guarantee implied."
+  },
+  "evidence": [
+   {
+    "field": "min_grade",
+    "snippet": "Courses Taken While in College Only courses completed at a regionally accredited college or university, with a grade of C or better, will be considered for transfer credit.",
+    "value": "C"
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:21:06+00:00",
+   "kind": "html",
+   "last_modified": "Sat, 03 Oct 2026 13:21:06 GMT",
+   "page_file": "10bdd11bcb8a37cf5368.json.gz",
+   "requested_url": "https://admission.tulane.edu/transfer/credit",
+   "sha256": "10bdd11bcb8a37cf53686931f65e733b46f14bed0cd624a17b05460742340486",
+   "title": "Transferring Credit",
+   "url": "https://admission.tulane.edu/transfer/credit"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "bc5fa1345a5fc3de": {
+  "decision": {
+   "candidate_id": "bc5fa1345a5fc3de",
+   "reason": "Row checked against the published table (name, criteria and amount as printed; prose terms kept in eligibility). Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "President's Scholarship** | Starts at $30,000/year | 3.8 GPA* | 1360 | 30",
+    "value": "Starts at $30,000/year"
+   },
+   {
+    "field": "gpa_requirement",
+    "snippet": "President's Scholarship** | Starts at $30,000/year | 3.8 GPA* | 1360 | 30",
+    "value": "3.8 GPA*"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "President's Scholarship** | Starts at $30,000/year | 3.8 GPA* | 1360 | 30",
+    "value": "ACT 30 / SAT 1360"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:09:05+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "b86f92d3bf70fc9f9390.json.gz",
+   "requested_url": "https://www.centenary.edu/admission/tuition-aid/types-of-aid/academic-scholarships/",
+   "sha256": "b86f92d3bf70fc9f9390f015eb1ae5dbd479ca629e9302c1ce35c885b15a5840",
+   "title": "Scholarships & Financial Aid | Centenary College of Louisiana",
+   "url": "https://www.centenary.edu/admission/tuition-aid/freshman-tuition-and-aid/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "c58df3c2b10a0bea": {
+  "decision": {
+   "candidate_id": "c58df3c2b10a0bea",
+   "reason": "Policy lines and table rows checked against the official page as printed."
+  },
+  "evidence": [
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "Tuition is $75.00 per credit hour plus the cost of textbooks and fees.",
+    "value": 75
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:17:55+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "e10b27e379ecc09f313f.json.gz",
+   "requested_url": "https://www.nsula.edu/electronic-learning-global-engagement/dual-enrollment/",
+   "sha256": "e10b27e379ecc09f313f27929e44d4669e90def495095a9cdb8c38d87004c0cc",
+   "title": "Dual Enrollment - Northwestern State University of Louisiana",
+   "url": "https://www.nsula.edu/electronic-learning-global-engagement/dual-enrollment/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "c6f40b8a32fb5621": {
+  "decision": {
+   "candidate_id": "c6f40b8a32fb5621",
+   "reason": "Policy lines and table rows checked against the official page as printed."
+  },
+  "evidence": [
+   {
+    "field": "equivalencies[CLEP-FINANCIAL-ACCOUNTING|50]",
+    "snippet": "Financial Accounting                                              50         ACCT 2113                   3"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-BUSINESS-LAW|50]",
+    "snippet": "Introductory Business Law                                         50         BUSN 2103                   3"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MANAGEMENT|50]",
+    "snippet": "Principles of Management                                          50         MANG 2103                   3"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MARKETING|50]",
+    "snippet": "Principles of Marketing                                           50         BUSN 2003                   3"
+   },
+   {
+    "field": "equivalencies[CLEP-AMERICAN-LITERATURE|50]",
+    "snippet": "American Literature                                               50         ENGL 2173                   3"
+   },
+   {
+    "field": "equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|50]",
+    "snippet": "Analyzing and Interpreting Literature                             50         ENGL 2323                   3"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-COMPOSITION|50]",
+    "snippet": "College Composition                                               50         ENGL 1013                   3"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-COMPOSITION-MODULAR|50]",
+    "snippet": "College Composition Modular                                       50         ENGL 1013                   3"
+   },
+   {
+    "field": "equivalencies[CLEP-ENGLISH-LITERATURE|50]",
+    "snippet": "English Literature                                                50         ENGL 2123                   3"
+   },
+   {
+    "field": "equivalencies[CLEP-AMERICAN-GOVERNMENT|50]",
+    "snippet": "American Government                                               50         POLI 2013                   3"
+   },
+   {
+    "field": "equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-I|50]",
+    "snippet": "History of the United States I: Early Colonization to 1877        50         HIST 2013                   3"
+   },
+   {
+    "field": "equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-II|50]",
+    "snippet": "History of the United States II: 1865 to the Present              50         HIST 2023                   3"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|50]",
+    "snippet": "Introductory Sociology                                            50         SOCL 2013                   3"
+   },
+   {
+    "field": "equivalencies[CLEP-HUMAN-GROWTH-DEVELOPMENT|50]",
+    "snippet": "Human Growth & Development                                        50         PSYC 2113                   3"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTION-TO-EDUCATIONAL-PSYCHOLOGY|50]",
+    "snippet": "Introduction to Educational Psychology                            50         PSYC 2613                   3"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|50]",
+    "snippet": "Introductory Psychology                                           50         PSYC 2013                   3"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|50]",
+    "snippet": "Principles of Macroeconomics                                      50         ECON 2213                   3"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|50]",
+    "snippet": "Principles of Microeconomics                                      50         ECON 2223                   3"
+   },
+   {
+    "field": "equivalencies[CLEP-CALCULUS|56]",
+    "snippet": "Calculus                                                          56         MATH 2115                   5"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-ALGEBRA|50]",
+    "snippet": "College Algebra                                                   50         MATH 1113/1213              3"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-MATHEMATICS|50]",
+    "snippet": "College Mathematics                                               50         MATH 1103                   3"
+   },
+   {
+    "field": "equivalencies[CLEP-PRECALCULUS|60]",
+    "snippet": "Pre-Calculus                                                      60         MATH 1235                   5"
+   },
+   {
+    "field": "equivalencies[CLEP-BIOLOGY|50]",
+    "snippet": "Biology                                                           50         BIOL 1013 BIOL 1023         6"
+   },
+   {
+    "field": "equivalencies[CLEP-FRENCH-LANGUAGE|50]",
+    "snippet": "French Language: Level 1        50   FREN 1013/1023             6"
+   },
+   {
+    "field": "equivalencies[CLEP-FRENCH-LANGUAGE|65]",
+    "snippet": "French Language: Level 2        65   FREN 1013/1023/2013/2023   12"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-LANGUAGE|50]",
+    "snippet": "Spanish Language: Level 1       50   SPAN 1013/1023             6"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-LANGUAGE|65]",
+    "snippet": "Spanish Language: Level 2       65   SPAN 1013/1023/2013/2023   12"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-WITH-WRITING|50]",
+    "snippet": "Spanish with Writing: Level 1   50   SPAN 1013/1023             6"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-WITH-WRITING|65]",
+    "snippet": "Spanish with Writing: Level 2   65   SPAN 1013/1023/2013/2023   12"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:08:46+00:00",
+   "kind": "pdf",
+   "last_modified": "Mon, 07 Apr 2025 20:39:52 GMT",
+   "page_file": "164d4c74ee31f5899bdc.json.gz",
+   "requested_url": "https://mybrcc.edu/academics/prior-learning-assessment-and-adult-education/CLEPExams.pdf",
+   "sha256": "164d4c74ee31f5899bdc96c48242ea0db9fd3e30ffa9fca8ffefca4732ac6859",
+   "title": "CLEP Subject Examinations - Baton Rouge Community College",
+   "url": "https://mybrcc.edu/academics/prior-learning-assessment-and-adult-education/CLEPExams.pdf"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "c78332c78bfe68d7": {
+  "decision": {
+   "candidate_id": "c78332c78bfe68d7",
+   "reason": "Policy lines and table rows checked against the official page as printed."
+  },
+  "evidence": [
+   {
+    "field": "equivalencies[CLEP-AMERICAN-LITERATURE|50]",
+    "snippet": "American Literature | 50 | 3 | Humanities Elective"
+   },
+   {
+    "field": "equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|50]",
+    "snippet": "Analyzing/Interpreting Literature | 50 | 3 | LCGE2310"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-COMPOSITION|50]",
+    "snippet": "College Composition | 50 | 3 | LCGE1310"
+   },
+   {
+    "field": "equivalencies[CLEP-HUMANITIES|50]",
+    "snippet": "Humanities | 50 | 3 | Humanities Elective"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-LANGUAGE|50]",
+    "snippet": "Spanish Language Level 1 | 50 | 3 | Humanities Elective"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|50]",
+    "snippet": "Introductory Psychology | 50 | 3 | LCPC1390"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|50]",
+    "snippet": "Introductory Sociology | 50 | 3 | Social Sciences Elective"
+   },
+   {
+    "field": "equivalencies[CLEP-WESTERN-CIVILIZATION-I|50]",
+    "snippet": "Western Civilization I | 50 | 3 | Social Sciences Elective"
+   },
+   {
+    "field": "equivalencies[CLEP-WESTERN-CIVILIZATION-II|50]",
+    "snippet": "Western Civilization II | 50 | 3 | Social Sciences Elective"
+   },
+   {
+    "field": "equivalencies[CLEP-CALCULUS|50]",
+    "snippet": "Calculus | 50 | 3 | Mathematics Elective"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-ALGEBRA|50]",
+    "snippet": "College Algebra | 50 | 3 | LCGE1370"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-MATHEMATICS|50]",
+    "snippet": "College Mathematics | 50 | 3 | LCGE1372"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:16:29+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "7cd56308ebc64e27a5b7.json.gz",
+   "requested_url": "https://catalog.nobts.edu/generalinfo/academicpolicies",
+   "sha256": "7cd56308ebc64e27a5b797e4488bf8af63ca0d9adf7d4c7d4e590a37bde27a46",
+   "title": "Academic Policies | New Orleans Baptist Theological Seminary Catalog",
+   "url": "https://catalog.nobts.edu/generalinfo/academicpolicies"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "cc871d4d45ff1b65": {
+  "decision": {
+   "candidate_id": "cc871d4d45ff1b65",
+   "reason": "Policy lines and table rows checked against the official page as printed."
+  },
+  "evidence": [
+   {
+    "field": "equivalencies[IB-BIOLOGY|SL 6]",
+    "snippet": "Biology, Standard Level | 6 | BIOL 1030/L BIOL 1040/L | 6"
+   },
+   {
+    "field": "equivalencies[IB-BIOLOGY|HL 5]",
+    "snippet": "Biology, Higher Level | 5 | BIOL 1230/L | 4"
+   },
+   {
+    "field": "equivalencies[IB-BIOLOGY|HL 6]",
+    "snippet": "Biology, Higher Level | 6 | BIOL 1230/L BIOL 1240/L | 8"
+   },
+   {
+    "field": "equivalencies[IB-CHEMISTRY|SL 6]",
+    "snippet": "Gen. Chemistry, Sub Level | 6 | CHEM 1010/L | 4"
+   },
+   {
+    "field": "equivalencies[IB-CHEMISTRY|HL 5]",
+    "snippet": "Chemistry, Higher Level | 5 | CHEM 1010/L | 4"
+   },
+   {
+    "field": "equivalencies[IB-CHEMISTRY|HL 6]",
+    "snippet": "Chemistry, Higher Level | 6 | CHEM 1010/L CHEM 1020/L | 8"
+   },
+   {
+    "field": "equivalencies[IB-ECONOMICS|HL 5]",
+    "snippet": "Economics, Higher Level | 5 | ECON 1030 | 3"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH|SL 5]",
+    "snippet": "French, Standard Level | 5 | FREN 1010 | 3"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH|SL 6]",
+    "snippet": "French, Standard Level | 6 | FREN 1010 FREN 1020 | 6"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH|HL 4]",
+    "snippet": "French, Higher Level | 4 | FREN 1010 | 3"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH|HL 5]",
+    "snippet": "French, Higher Level | 5 | FREN 1010 FREN 1020 | 6"
+   },
+   {
+    "field": "equivalencies[IB-GERMAN|SL 5]",
+    "snippet": "German, Standard Level | 5 | GERM 1010 | 3"
+   },
+   {
+    "field": "equivalencies[IB-GERMAN|SL 6]",
+    "snippet": "German, Standard Level | 6 | GERM 1010 GERM 1020 | 6"
+   },
+   {
+    "field": "equivalencies[IB-GERMAN|HL 4]",
+    "snippet": "German, Higher Level | 4 | GERM 1010 | 3"
+   },
+   {
+    "field": "equivalencies[IB-GERMAN|HL 5]",
+    "snippet": "German, Higher Level | 5 | GERM 1010 GERM 1020 | 4"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY|HL 5]",
+    "snippet": "History of Americas, Higher Level | 5 | HIST 2010 HIST 2020 | 6"
+   },
+   {
+    "field": "equivalencies[IB-PHYSICS|HL 6]",
+    "snippet": "Physics, Higher Level | 6 | PHYS 2010 | 3"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH|Spanish, Standard Level]",
+    "snippet": "Spanish, Standard Level | 5 | SPAN 1010 | 3"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH|Spanish, Standard Level]",
+    "snippet": "Spanish, Standard Level | 6 | SPAN 1010 SPAN 1020 | 6"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH|Spanish, Higher Level]",
+    "snippet": "Spanish, Higher Level | 4 | SPAN 1010 | 3"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH|Spanish, Higher Level]",
+    "snippet": "Spanish, Higher Level | 5 | SPAN 1010 SPAN 1020 | 6"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:27:03+00:00",
+   "kind": "html",
+   "last_modified": "Sat, 03 Oct 2026 06:16:25 GMT",
+   "page_file": "13627f445fbc20820db1.json.gz",
+   "requested_url": "https://www.xula.edu/admissions/ib-credit.html",
+   "sha256": "13627f445fbc20820db15eea9462419796d7c80b4d961334683abfe1127cc2ea",
+   "title": "IB Credit | Xavier University of Louisiana",
+   "url": "https://www.xula.edu/admissions/ib-credit.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "cd7d43ef1c0ca162": {
+  "decision": {
+   "candidate_id": "cd7d43ef1c0ca162",
+   "reason": "Row checked against the published table (name, criteria and amount as printed; prose terms kept in eligibility). Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "eligibility_summary",
+    "snippet": "Campus Visit Scholarship | Students who visit will receive this $1,000/year award. Schedule your official visit at centenary.edu/visit.",
+    "value": "Students who visit will receive this $1,000/year award. Schedule your official visit at centenary.edu/visit."
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:08:47+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "68e2f692c4e5fba0cbfc.json.gz",
+   "requested_url": "https://www.centenary.edu/admission/tuition-aid/freshman-tuition-and-aid/",
+   "sha256": "68e2f692c4e5fba0cbfcc7658794931ea73841466b4864f5e87195e9b28c87b0",
+   "title": "Scholarships & Financial Aid | Centenary College of Louisiana",
+   "url": "https://www.centenary.edu/admission/tuition-aid/freshman-tuition-and-aid/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "cdd4841822109ed0": {
+  "decision": {
+   "candidate_id": "cdd4841822109ed0",
+   "reason": "Policy lines and table rows checked against the official page as printed."
+  },
+  "evidence": [
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "Beginning Spring 2026: $50 per credit hour",
+    "value": 50
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:11:43+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 14 Sep 2026 14:17:13 GMT",
+   "page_file": "d4dc3211ad307b57eae7.json.gz",
+   "requested_url": "https://www.lsua.edu/apply/dual-enrollment",
+   "sha256": "d4dc3211ad307b57eae71949f1278e87ebbbec0dc7ff3855163122bb90e1c64d",
+   "title": "Dual Enrollment | Louisiana State University of Alexandria (LSUA)",
+   "url": "https://www.lsua.edu/apply/dual-enrollment/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "cf6ab8d17b41dc98": {
+  "decision": {
+   "candidate_id": "cf6ab8d17b41dc98",
+   "reason": "Row checked against the published table (name, criteria and amount as printed; prose terms kept in eligibility). Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "Trustee's Scholarship | Starts at $20,000/year | 3.0 GPA* | 1100 | 22",
+    "value": "Starts at $20,000/year"
+   },
+   {
+    "field": "gpa_requirement",
+    "snippet": "Trustee's Scholarship | Starts at $20,000/year | 3.0 GPA* | 1100 | 22",
+    "value": "3.0 GPA*"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "Trustee's Scholarship | Starts at $20,000/year | 3.0 GPA* | 1100 | 22",
+    "value": "ACT 22 / SAT 1100"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:08:52+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "32c18652498ebc55dd20.json.gz",
+   "requested_url": "https://www.centenary.edu/admission/tuition-aid/scholarships-financial-aid/freshman-tuition-and-aid/",
+   "sha256": "32c18652498ebc55dd20becec06891bdc27e0d6e0337f2a3e515829a04555a67",
+   "title": "Scholarships & Financial Aid | Centenary College of Louisiana",
+   "url": "https://www.centenary.edu/admission/tuition-aid/freshman-tuition-and-aid/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "d5b1e8527c4c41dd": {
+  "decision": {
+   "candidate_id": "d5b1e8527c4c41dd",
+   "reason": "Policy lines and table rows checked against the official page as printed."
+  },
+  "evidence": [
+   {
+    "field": "equivalencies[AP-ART-HISTORY|4 or 5]",
+    "snippet": "Art History | 4 or 5 | 4 | ART 295 (elective only)"
+   },
+   {
+    "field": "equivalencies[AP-BIOLOGY|4]",
+    "snippet": "Biology | 4 | 4 | BIOL 101"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|4 or 5]",
+    "snippet": "Chemistry | 4 or 5 | 8 | CHEM 121, 122, 123, 124"
+   },
+   {
+    "field": "equivalencies[AP-MICROECONOMICS|4]",
+    "snippet": "Economics Micro | 4 | 4 | ECON 211"
+   },
+   {
+    "field": "equivalencies[AP-MACROECONOMICS|4]",
+    "snippet": "Economics Macro | 4 | 4 | ECON 212"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|4 or 5]",
+    "snippet": "English Lit & Comp | 4 or 5 | 4 | ENGL 102"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|4 or 5]",
+    "snippet": "English Lang & Comp | 4 or 5 | 4 | ENGL 101 (elective only)"
+   },
+   {
+    "field": "equivalencies[AP-EUROPEAN-HISTORY|4 or 5]",
+    "snippet": "European History | 4 or 5 | 4 | HIST 103"
+   },
+   {
+    "field": "equivalencies[AP-UNITED-STATES-HISTORY|4 or 5]",
+    "snippet": "U.S. History | 4 or 5 | 8 | HIST 205, 206"
+   },
+   {
+    "field": "equivalencies[AP-PSYCHOLOGY|4 or 5]",
+    "snippet": "Psychology | 4 or 5 | 4 | PSY 101"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:09:25+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "982ea858589dbf6191b8.json.gz",
+   "requested_url": "https://www.centenary.edu/admission/how-to-apply/advanced-placement-other-considerations/",
+   "sha256": "982ea858589dbf6191b829c7659af03431af621b5a6104035ed759f082a3d626",
+   "title": "College Credits in High School | Centenary College of Louisiana",
+   "url": "https://www.centenary.edu/admission/how-to-apply/advanced-placement-other-considerations/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "dc23b01811528934": {
+  "decision": {
+   "candidate_id": "dc23b01811528934",
+   "reason": "Cost column checked against the published table (residency from the column header; components and total as printed)."
+  },
+  "evidence": [
+   {
+    "field": "on_campus:Tuition and Fees",
+    "snippet": "Tuition and Fees | $8,372.00 | $20,848.00",
+    "value": 20848.0
+   },
+   {
+    "field": "on_campus:Room and Board",
+    "snippet": "Room and Board | $9,430.00 | $9,430.00",
+    "value": 9430.0
+   },
+   {
+    "field": "on_campus:Books and Supplies",
+    "snippet": "Books and Supplies | $1,300.00 | $1,300.00",
+    "value": 1300.0
+   },
+   {
+    "field": "on_campus:Miscellaneous",
+    "snippet": "Miscellaneous | $2,190.00 | $2,190.00",
+    "value": 2190.0
+   },
+   {
+    "field": "on_campus:Transportation",
+    "snippet": "Transportation | $2,100.00 | $2,100.00",
+    "value": 2100.0
+   },
+   {
+    "field": "on_campus:TOTAL",
+    "snippet": "TOTAL | $23,392.00 | $35,868.00",
+    "value": 35868.0
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:26:33+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "394dcc797b75cad2613d.json.gz",
+   "requested_url": "https://www.southeastern.edu/admin/fin_aid/cost/undergrad/",
+   "sha256": "394dcc797b75cad2613d800dd1926fce6f1095d12b39bff542f9cbc6a45363a6",
+   "title": "Undergraduate Costs - Southeastern Louisiana University",
+   "url": "https://www.southeastern.edu/admin/fin_aid/cost/undergrad/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "e499f7712504f34a": {
+  "decision": {
+   "candidate_id": "e499f7712504f34a",
+   "reason": "Row checked against the published table (name, criteria and amount as printed; prose terms kept in eligibility). Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "eligibility_summary",
+    "snippet": "Legacy Award | Available to direct descendants of Centenary alumni (grandparent, parent, or sibling). Siblings who attend Centenary at the same time can both receive this $2,000/year award.",
+    "value": "Available to direct descendants of Centenary alumni (grandparent, parent, or sibling). Siblings who attend Centenary at the same time can both receive this $2,000/year award."
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:08:47+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "68e2f692c4e5fba0cbfc.json.gz",
+   "requested_url": "https://www.centenary.edu/admission/tuition-aid/freshman-tuition-and-aid/",
+   "sha256": "68e2f692c4e5fba0cbfcc7658794931ea73841466b4864f5e87195e9b28c87b0",
+   "title": "Scholarships & Financial Aid | Centenary College of Louisiana",
+   "url": "https://www.centenary.edu/admission/tuition-aid/freshman-tuition-and-aid/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "e916fc6b508675b5": {
+  "decision": {
+   "candidate_id": "e916fc6b508675b5",
+   "reason": "Policy lines and table rows checked against the official page as printed."
+  },
+  "evidence": [
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "Take courses at a reduced cost (only $50 per credit hour!).",
+    "value": 50
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:18:22+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "2eae9bfaa4cb3dd2ea81.json.gz",
+   "requested_url": "https://www.lsus.edu/early-college",
+   "sha256": "2eae9bfaa4cb3dd2ea81d7bcda8769f51d724a3d9ef5bd1a8fe39689de1ce4e3",
+   "title": "Early College",
+   "url": "https://www.lsus.edu/early-college"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "e9b5f3a52d93f4fd": {
+  "decision": {
+   "candidate_id": "e9b5f3a52d93f4fd",
+   "reason": "Row checked against the published table (name, criteria and amount as printed; prose terms kept in eligibility). Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "eligibility_summary",
+    "snippet": "TEG | The Equalization Grant (TEG) is awarded to freshmen who are not residents of Louisiana and meet the minimum eligibility requirement of a 3.0 Centenary GPA (recalculated based on core courses only, on a four point scale). The TEG is awarded to transfers whose core high school GPA was 3.0 or hig",
+    "value": "The Equalization Grant (TEG) is awarded to freshmen who are not residents of Louisiana and meet the minimum eligibility requirement of a 3.0 Centenary GPA (recalculated based on core courses only, on a four point scale). The TEG is awarded to transfers whose core high school GPA was 3.0 or higher, are not residents of Louisiana, and are transferring in less than 32 credit hours. This award is $5,000/year."
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:08:47+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "68e2f692c4e5fba0cbfc.json.gz",
+   "requested_url": "https://www.centenary.edu/admission/tuition-aid/freshman-tuition-and-aid/",
+   "sha256": "68e2f692c4e5fba0cbfcc7658794931ea73841466b4864f5e87195e9b28c87b0",
+   "title": "Scholarships & Financial Aid | Centenary College of Louisiana",
+   "url": "https://www.centenary.edu/admission/tuition-aid/freshman-tuition-and-aid/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "eaf04dce6e4bd81f": {
+  "decision": {
+   "candidate_id": "eaf04dce6e4bd81f",
+   "reason": "Policy lines and table rows checked against the official page as printed."
+  },
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "1. Students must maintain a cumulative high school GPA of at least 2.5 to enroll in an academic course.",
+    "value": 2.5
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:18:51+00:00",
+   "kind": "pdf",
+   "last_modified": "Fri, 31 May 2019 20:52:34 GMT",
+   "page_file": "2bc4697bd9002e495bfb.json.gz",
+   "requested_url": "https://www.nunez.edu/admissions/files/documents/Dual_Enrollment/Student_Eligibility_Framework.pdf",
+   "sha256": "2bc4697bd9002e495bfbf1d294985a8b3b02d103d4ab8b69f974a436082fae27",
+   "title": "Dual Enrollment Program",
+   "url": "https://campussuite-storage.s3.amazonaws.com/prod/1558536/e366533c-f169-11e7-9166-122f978d8488/1936719/023c77e0-83e6-11e9-89c4-12a4c25a29ae/file/Student_Eligibility_Framework.pdf"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "ef6a80d7ce52fab9": {
+  "decision": {
+   "candidate_id": "ef6a80d7ce52fab9",
+   "reason": "Policy lines and table rows checked against the official page as printed."
+  },
+  "evidence": [
+   {
+    "field": "equivalencies[AP-AFRICAN-AMERICAN-STUDIES|4, 5]",
+    "snippet": "AP African American Studies | 4, 5 | HIST Q276 African American History to 1865"
+   },
+   {
+    "field": "equivalencies[AP-ART-HISTORY|4, 5]",
+    "snippet": "AP Art History (APARH) | 4, 5 | DSGN O160 Art History: Premodern"
+   },
+   {
+    "field": "equivalencies[AP-BIOLOGY|3]",
+    "snippet": "AP Biology (APBIO) | 3 | BIOL A106 Cells & Heredity"
+   },
+   {
+    "field": "equivalencies[AP-BIOLOGY|4]",
+    "snippet": "AP Biology (APBIO) | 4 | BIOL A106 Cells & Heredity BIOL A107 Cells & Heredity Lab"
+   },
+   {
+    "field": "equivalencies[AP-BIOLOGY|5]",
+    "snippet": "AP Biology (APBIO) | 5 | BIOL A106 & BIOL A107 BIOL A208 Ecology & Evolution"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-AB|3]",
+    "snippet": "AP Calculus AB (APCAB) | 3 | MATH A118 Pre-Calculus"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-AB|4, 5]",
+    "snippet": "AP Calculus AB (APCAB) | 4, 5 | MATH A118 & MATH A257 Calculus 1"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-BC|3]",
+    "snippet": "AP Calculus BC (APCBC) | 3 | MATH A118 Pre-Calculus"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-BC|4, 5]",
+    "snippet": "AP Calculus BC (APCBC) | 4, 5 | MATH A118 Pre-Calculus MATH A257 Calculus 1 MATH A258 Calculus 2"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|3]",
+    "snippet": "AP Chemistry (APCHE) | 3 | SCIE-T129 Investigating Nature"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|4]",
+    "snippet": "AP Chemistry (APCHE) | 4 | CHEM A105 Gen Chemistry 1 CHEM A107 Gen Chemistry 1 Lab"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|5]",
+    "snippet": "AP Chemistry (APCHE) | 5 | CHEM A105 & CHEM A107 CHEM A106 Gen Chemistry 2 CHEM A108 Gen Chemistry 2 Lab"
+   },
+   {
+    "field": "equivalencies[AP-CHINESE-LANGUAGE-CULTURE|3]",
+    "snippet": "AP Chinese Language & Culture (APCHI) | 3 | CHIN A100 First-Year Chinese 1 CHIN A101 First-Year Chinese 2"
+   },
+   {
+    "field": "equivalencies[AP-CHINESE-LANGUAGE-CULTURE|4]",
+    "snippet": "AP Chinese Language & Culture (APCHI) | 4 | CHIN A100 & CHIN A101 CHIN A200 Second Year Chinese 1"
+   },
+   {
+    "field": "equivalencies[AP-CHINESE-LANGUAGE-CULTURE|5]",
+    "snippet": "AP Chinese Language & Culture (APCHI) | 5 | CHIN A100, CHIN A101, CHIN A200 CHIN A201 Second Year Chinese 2"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-A|4, 5]",
+    "snippet": "AP Computer Science A (APCSA) | 4, 5 | COSC A211 Intro to Programming I"
+   },
+   {
+    "field": "equivalencies[AP-MICROECONOMICS|4, 5]",
+    "snippet": "AP Economics Micro (APEMI) | 4, 5 | ECON B200 Principles of Microeconomics"
+   },
+   {
+    "field": "equivalencies[AP-MACROECONOMICS|4, 5]",
+    "snippet": "AP Economics Macro (APEMA) | 4, 5 | ECON B201 Prin. of Macroeconomics"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3]",
+    "snippet": "AP English Lang/Comp (APELA) | 3 | ENGL A100 Expository Writing"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|4, 5]",
+    "snippet": "AP English Lang/Comp (APELA) | 4, 5 | ENGL A100 Expository Writing ENGL T122 Critical Reading/Writing"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|4, 5]",
+    "snippet": "AP English Lit/Comp (APELI) | 4, 5 | ENGL N200 Writing About Literature"
+   },
+   {
+    "field": "equivalencies[AP-ENVIRONMENTAL-SCIENCE|3, 4, 5]",
+    "snippet": "AP Environmental Science (APES) | 3, 4, 5 | BIOL Y230 Human Ecology"
+   },
+   {
+    "field": "equivalencies[AP-EUROPEAN-HISTORY|3]",
+    "snippet": "AP European History | 3 | HIST T122 Global History 1"
+   },
+   {
+    "field": "equivalencies[AP-EUROPEAN-HISTORY|4]",
+    "snippet": "AP European History | 4 | HIST T122 Global History 1 HIST T124 Global History 2"
+   },
+   {
+    "field": "equivalencies[AP-EUROPEAN-HISTORY|5]",
+    "snippet": "AP European History | 5 | HIST T122 & HIST T124 HIST A322 Modern European History 1914-1945"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]",
+    "snippet": "AP French Language Level III (APFLC) | 3 | FREN A100 First Year French 1 FREN A101 First Year French 2"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|4]",
+    "snippet": "AP French Language Level III (APFLC) | 4 | FREN A100 & FREN A101 FREN A200 Second Year French 1"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|5]",
+    "snippet": "AP French Language Level III (APFLC) | 5 | FREN A100, FREN A101, FREN A200, FREN A201 Second Year French II"
+   },
+   {
+    "field": "equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3]",
+    "snippet": "AP German Language (APGLA) | 3 | GERM A100 First Year German 1 GERM A101 First Year German 2"
+   },
+   {
+    "field": "equivalencies[AP-GERMAN-LANGUAGE-CULTURE|4]",
+    "snippet": "AP German Language (APGLA) | 4 | GERM A100, GERM A101, GERM A200 Second Year German 1"
+   },
+   {
+    "field": "equivalencies[AP-GERMAN-LANGUAGE-CULTURE|5]",
+    "snippet": "AP German Language (APGLA) | 5 | GERM A100, GERM A101, GERM A200, GERM A201 Second Year German II"
+   },
+   {
+    "field": "equivalencies[AP-HUMAN-GEOGRAPHY|4, 5]",
+    "snippet": "AP Human Geography (APGEO) | 4, 5 | GEOG-A100 General Geography I"
+   },
+   {
+    "field": "equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|4, 5]",
+    "snippet": "AP Italian Language & Culture (APITA) | 4, 5 | ITAL A200 Second Year Italian 1 ITAL A201 Second Year Italian 2"
+   },
+   {
+    "field": "equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|4, 5]",
+    "snippet": "AP Japanese Language & Culture (APJAP) | 4, 5 | JPNS A200 Second Year Japanese 1 JPNS A201 Second Year Japanese 2"
+   },
+   {
+    "field": "equivalencies[AP-LATIN|3]",
+    "snippet": "AP Latin (APLV) | 3 | LATN A100 Beginning Latin 1 LATN A101 Beginning Latin 2"
+   },
+   {
+    "field": "equivalencies[AP-LATIN|4]",
+    "snippet": "AP Latin (APLV) | 4 | LATN A100, LATN A101, LATN A250 Intermediate Latin"
+   },
+   {
+    "field": "equivalencies[AP-LATIN|5]",
+    "snippet": "AP Latin (APLV) | 5 | LATN A100, LATN A101, LATN A250, LATN A305 Prose/Rep Rome"
+   },
+   {
+    "field": "equivalencies[AP-MUSIC-THEORY|4, 5]",
+    "snippet": "AP Music Theory (APMUT) | 4, 5 | MUTH M102 Theory 1"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-1|4, 5]",
+    "snippet": "AP Physics 1 Algebra-Based (APP01) | 4, 5 | PHYS A115 Physics for Life Sciences 1 PHYS A112 Physics Lab 1"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-2|4, 5]",
+    "snippet": "AP Physics 2 Algebra-Based (APP02) | 4, 5 | PHYS A116 Physics for Life Sciences 2 PHYS A113 Physics Lab 2"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|3]",
+    "snippet": "AP Physics C - E&M (APPEM) | 3 | PHYS A116 Physics for Life Sciences 2 PHYS A113 Physics 2 Lab"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|4, 5]",
+    "snippet": "AP Physics C - E&M (APPEM) | 4, 5 | PHYS A102 Intro Electromagnetism & Relativity PHYS A104 Intro EM & Relativity Lab"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-MECHANICS|3]",
+    "snippet": "AP Physics C - Mech (APPME) | 3 | PHYS A115 Physics for Life Sciences 1 PHYS A112 Physics 1 Lab"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-MECHANICS|4, 5]",
+    "snippet": "AP Physics C - Mech (APPME) | 4, 5 | PHYS A101 Introduction to Mechanics PHYS A103 Mechanics Lab"
+   },
+   {
+    "field": "equivalencies[AP-PRECALCULUS|4, 5]",
+    "snippet": "AP Precalculus | 4, 5 | MATH A118 Pre-Calculus Mathematics"
+   },
+   {
+    "field": "equivalencies[AP-PSYCHOLOGY|3, 4, 5]",
+    "snippet": "AP Psychology (APPSY) | 3, 4, 5 | PSYC A100 Intro to Psychology"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|3]",
+    "snippet": "AP Spanish Language (APSLA) | 3 | SPAN A100 First Year Spanish 1 SPAN A101 First Year Spanish 2"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|4]",
+    "snippet": "AP Spanish Language (APSLA) | 4 | SPAN A100, SPAN A101, SPAN A200 Second Year Spanish 1"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|5]",
+    "snippet": "AP Spanish Language (APSLA) | 5 | SPAN A100, SPAN A101, SPAN A200, SPAN A201 Second Year Spanish II"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LITERATURE-CULTURE|4, 5]",
+    "snippet": "AP Spanish Literature (APSLI) | 4, 5 | SPAN A305 Intro to Hispanic Literature"
+   },
+   {
+    "field": "equivalencies[AP-STATISTICS|3, 4, 5]",
+    "snippet": "AP Statistics (APSTA) | 3, 4, 5 | MATH A241 Intro to Probability & Statistics"
+   },
+   {
+    "field": "equivalencies[AP-2-D-ART-DESIGN|4, 5]",
+    "snippet": "AP Studio Art - 2D | 4, 5 | DSGN M204 Drawing I"
+   },
+   {
+    "field": "equivalencies[AP-DRAWING|4, 5]",
+    "snippet": "AP Studio Art - Drawing (APARD) | 4, 5 | DSGN M204 Drawing I"
+   },
+   {
+    "field": "equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|3, 4, 5]",
+    "snippet": "AP US Government & Politics (APGPU) | 3, 4, 5 | POLS A100 Intro to American Govt"
+   },
+   {
+    "field": "equivalencies[AP-UNITED-STATES-HISTORY|3]",
+    "snippet": "AP US History (APUSH) | 3 | HIST T200 US History to 1865"
+   },
+   {
+    "field": "equivalencies[AP-UNITED-STATES-HISTORY|4, 5]",
+    "snippet": "AP US History (APUSH) | 4, 5 | HIST T200 US History to 1865 HIST T201 US History from 1865"
+   },
+   {
+    "field": "equivalencies[AP-WORLD-HISTORY-MODERN|3]",
+    "snippet": "AP World History | 3 | HIST T122 Global History 1"
+   },
+   {
+    "field": "equivalencies[AP-WORLD-HISTORY-MODERN|4, 5]",
+    "snippet": "AP World History | 4, 5 | HIST T122 Global History 1 HIST T124 Global History 2"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:15:21+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "ab81cb6bcf3e75e6e21c.json.gz",
+   "requested_url": "https://bulletin.loyno.edu/regulations/academic-credit-and-placement",
+   "sha256": "ab81cb6bcf3e75e6e21ca74a2a25ef21d07b5a890532fc23bd0706d6a859dfe9",
+   "title": "Academic Credit and Placement | 2026-2027 University Bulletin",
+   "url": "https://bulletin.loyno.edu/regulations/academic-credit-and-placement"
+  },
+  "year_basis": "labeled_in_title"
+ },
+ "f7c797da7f042192": {
+  "decision": {
+   "candidate_id": "f7c797da7f042192",
+   "reason": "Row checked against the published table (name, criteria and amount as printed; prose terms kept in eligibility). Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "Dean's Scholarship | Starts at $25,000/year | 3.4 GPA* | 1230 | 26",
+    "value": "Starts at $25,000/year"
+   },
+   {
+    "field": "gpa_requirement",
+    "snippet": "Dean's Scholarship | Starts at $25,000/year | 3.4 GPA* | 1230 | 26",
+    "value": "3.4 GPA*"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "Dean's Scholarship | Starts at $25,000/year | 3.4 GPA* | 1230 | 26",
+    "value": "ACT 26 / SAT 1230"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:08:47+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "68e2f692c4e5fba0cbfc.json.gz",
+   "requested_url": "https://www.centenary.edu/admission/tuition-aid/freshman-tuition-and-aid/",
+   "sha256": "68e2f692c4e5fba0cbfcc7658794931ea73841466b4864f5e87195e9b28c87b0",
+   "title": "Scholarships & Financial Aid | Centenary College of Louisiana",
+   "url": "https://www.centenary.edu/admission/tuition-aid/freshman-tuition-and-aid/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "fc4f8e3fb904dd6f": {
+  "decision": {
+   "candidate_id": "fc4f8e3fb904dd6f",
+   "reason": "Row checked against the published table (name, criteria and amount as printed; prose terms kept in eligibility). Year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "Shreveport | 22-25 | 3.0 | $3,000",
+    "value": "$3,000"
+   },
+   {
+    "field": "gpa_requirement",
+    "snippet": "Shreveport | 22-25 | 3.0 | $3,000",
+    "value": "3.0"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "Shreveport | 22-25 | 3.0 | $3,000",
+    "value": "ACT 22-25"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:17:46+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "99f37c14697c7ff90b98.json.gz",
+   "requested_url": "https://www.lsus.edu/costs-and-aid/scholarships",
+   "sha256": "99f37c14697c7ff90b989d5d438960d2d1dc6fa69434c70768b4abc35e607535",
+   "title": "Scholarships",
+   "url": "https://www.lsus.edu/scholarships"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "m9399e7b46558d8f": {
+  "decision": {
+   "candidate_id": "m9399e7b46558d8f",
+   "reason": "Policy lines and table rows checked against the official page as printed."
+  },
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "Dual Enrollment Requirements (at minimum a 2.5 Grade Point Average and ACT Composite",
+    "source_url": "https://www.dcc.edu/admissions/dual-enrollment/default.aspx",
+    "value": 2.5
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "Articulation Matrix)   must have at minimum a 2.0 Grade Point Average and meet the",
+    "source_url": "https://www.dcc.edu/admissions/dual-enrollment/default.aspx",
+    "value": 2.0
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "Emergency Interim Policy for Dual Enrollment (at minimum students need a 2.5 GPA and",
+    "source_url": "https://www.dcc.edu/admissions/dual-enrollment/default.aspx",
+    "value": 2.5
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "must have a 2.0 GPA on a 4.0 Scale or utilize the Counselor/Teacher Recommendation",
+    "source_url": "https://www.dcc.edu/admissions/dual-enrollment/default.aspx",
+    "value": 2.0
+   },
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "site who have been credentialed by the College will be billed at $50 per credit hour",
+    "source_url": "https://www.dcc.edu/admissions/dual-enrollment/default.aspx",
+    "value": 50
+   },
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "in addition to a $25 per credit hour fee for the Delgado Course Complete program and",
+    "source_url": "https://www.dcc.edu/admissions/dual-enrollment/default.aspx",
+    "value": 25
+   },
+   {
+    "field": "max_credit_hours_per_term",
+    "snippet": "During the Fall Semester students can enroll in a maximum of 18 credit hours.",
+    "source_url": "https://www.dcc.edu/admissions/dual-enrollment/default.aspx",
+    "value": 18
+   },
+   {
+    "field": "max_credit_hours_per_term",
+    "snippet": "During the Spring Semester students can enroll in a maximum of 18 credit hours.",
+    "source_url": "https://www.dcc.edu/admissions/dual-enrollment/default.aspx",
+    "value": 18
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "2.0 cumulative high school GPA 2.0",
+    "source_url": "https://www.dcc.edu/documents/admissions/application-process-eligibility-requirements.pdf",
+    "value": 2.0
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T13:08:43+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "bab9025ca67c9445bdcc.json.gz",
+   "requested_url": "https://www.dcc.edu/admissions/dual-enrollment/default.aspx",
+   "sha256": "bab9025ca67c9445bdcc5f91ee4c19454fd11659a29387c5e949343a77f2b4d6",
+   "title": "Benefits of Dual Enrollment for High School Students",
+   "url": "https://www.dcc.edu/admissions/dual-enrollment/default.aspx"
+  },
+  "year_basis": "labeled_in_heading"
+ }
+}

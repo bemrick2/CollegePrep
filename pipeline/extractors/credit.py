@@ -120,6 +120,11 @@ def table_equivalencies(kind, rows, table_hit=None):
         score, course = get(sc), get(co)
         if not score and not course: continue
         if score and not re.search(r'\d', score) and not course: continue  # a section heading row ("Foreign Languages", Gordon State)
+        # LA r1 (Xavier): "Biology, Standard Level | 6" and "Biology, Higher Level | 6" are different rules; keep the level.
+        level = ('HL' if re.search(r'\bhigher\b|\bHL\b', cells[ex] if ex < len(cells) else '', re.I) else
+                 'SL' if re.search(r'\bstandard\b|\bSL\b|\bsub(?:sidiary)?\b', cells[ex] if ex < len(cells) else '', re.I) else None)
+        if kind == 'IB' and level and score and not re.search(r'\b(HL|SL)\b|higher|standard', score, re.I):
+            score = f'{level} {score}'
         eq = {'exam_or_course_code': code, 'exam_or_course_name': name,
               'minimum_score': score or None, 'institution_course_equivalent': course or None,
               'credits_awarded': _credits(get(hr)), 'notes': None}
@@ -206,6 +211,14 @@ def extract(inst, entry, page, today_year):
         if bad_score and bad_score >= len(eqs) * 0.3: issues = issues + ['score_column_not_scores']
         # Two score tiers merged into one cell ("4 5 to 7", Broward IB).
         if any(re.fullmatch(r'\s*\d\s+\d\s+to\s+\d\s*', e['minimum_score'] or '') for e in eqs): issues = issues + ['merged_score_cells']
+        # LA r1 (Louisiana Tech): "3 or 4 5" is two tiers in one cell; "4, 5" and "4 or 5" are one tier.
+        if any(re.fullmatch(r'\s*\d{1,2}(?:\s*(?:or|,|-|–|to|and)\s*\d{1,2})+\s+\d{1,2}(?:\s+\d{1,2})*\s*', e['minimum_score'] or '') for e in eqs):
+            issues = issues + ['merged_score_cells']
+        # LA r1: "CLEP" rows scored 3 are AP rows; scores must fit the exam's scale (AP 1-5, IB 1-7, CLEP 20-80).
+        scale = {'AP': (1, 5), 'IB': (1, 7), 'CLEP': (20, 80)}.get(kind)
+        firsts = [int(m.group()) for e in eqs for m in [re.search(r'\d+', e['minimum_score'] or '')] if m]
+        if scale and firsts and sum(1 for v in firsts if not scale[0] <= v <= scale[1]) >= len(firsts) * 0.3:
+            issues = issues + ['score_scale_mismatch']
         if eqs and all(not e['institution_course_equivalent'] for e in eqs): issues = issues + ['course_column_missing']
         numeric = sum(1 for e in eqs if re.fullmatch(r'\s*\d{1,2}(\.\d)?\s*', e['institution_course_equivalent'] or ''))
         if numeric and numeric >= len(eqs) / 2:

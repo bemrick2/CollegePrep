@@ -18,7 +18,10 @@ MAX_HOURS = re.compile(r'(?:maximum\s+of|no\s+more\s+than|up\s+to|a\s+maximum\s+
 # A grade rule for pass/fail courses or for one module/pathway (Rhodes, TN Tech r5) is not the general minimum.
 SCOPED_GRADE = re.compile(r'pass\s*/\s*fail|pass-fail|\bP/F\b|satisfactory/unsatisfactory|\bmodule\b|transfer\s+pathway|\bTTP\b|core\s+block|\bmajor\b|'
                           # GA r1: rules for named courses (Atlanta Metro composition, UNG/KSU "ENGL 1101") and advice ("encouraged")
-                          r'composition|\b(?:ENGL|MATH|English|Math)\s+\d{4}|encouraged|recommended', re.I)
+                          r'composition|\b(?:ENGL|MATH|English|Math)\s+\d{4}|encouraged|recommended|'
+                          # LA r1: placement in developmental courses (Delgado), one college's math/science rule (LSU),
+                          # the conditions of an outgoing block-transfer guarantee (River Parishes)
+                          r'developmental|(?:for|exempt\s+the)\s+placement|placement\s+(?:assessment|test|exam)|math(?:ematics)?\s+and\s+science|block\s+transfer', re.I)
 RESIDENCE = re.compile(r'(?:(?:last|final)\s+(\d{2})\s+(?:semester\s+)?(?:credit\s+)?hours'
                        r'|(?:at\s+least|minimum\s+of|a\s+minimum\s+of)\s+(\d{2})\s+(?:semester\s+)?(?:credit\s+)?hours'
                        r'(?=.{0,80}(?:in\s+residence|at\s+the\s+university|at\s+the\s+college|through\s+the\s+university|earned\s+at)))', re.I)
@@ -40,7 +43,10 @@ def extract(inst, entry, page, today_year):
         if re.search(r'transfer', s, re.I):
             if not SCOPED_GRADE.search(s):
                 for m in GRADE.finditer(s): found['min_grade'].append((m.group(1).upper(), s))
-            for m in MAX_HOURS.finditer(s): found['max_transfer_credits'].append((int(m.group(1)), s))
+            # LA r1: a cap on lower-level credit counted as upper-level (LSUA) or on credit from unaccredited schools
+            # (NOBTS) is not the overall transfer maximum.
+            for m in ([] if re.search(r'upper[- ](?:level|division)|not\s+accredited|unaccredited', s, re.I) else MAX_HOURS.finditer(s)):
+                found['max_transfer_credits'].append((int(m.group(1)), s))
         for m in ([] if re.search(r'attempted|probation|suspension|retain\s+this\s+status', s, re.I) else RESIDENCE.finditer(s)):
             v = int(m.group(1) or m.group(2))
             part = re.search(r'(\d{2}|twenty|thirty|forty|forty-five|fifteen|twenty-four)\s+(?:\(\d{2}\)\s+)?of\s+the\s+(?:last|final)\s+' + str(v) + r'\b', s, re.I)
