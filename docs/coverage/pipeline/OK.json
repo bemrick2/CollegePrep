@@ -1,0 +1,145 @@
+{
+ "state": "OK",
+ "academic_year": "2026-27",
+ "institutions": 40,
+ "status_order": [
+  "verified_current",
+  "partially_verified_current",
+  "candidate_ready",
+  "candidate_exception",
+  "source_found",
+  "not_found",
+  "fetch_failed"
+ ],
+ "by_category": {
+  "admissions_tests": {
+   "fetch_failed": 6,
+   "source_found": 34
+  },
+  "aid_appeals": {
+   "candidate_exception": 16,
+   "fetch_failed": 6,
+   "not_found": 11,
+   "source_found": 7
+  },
+  "ap_credit": {
+   "candidate_exception": 4,
+   "candidate_ready": 3,
+   "fetch_failed": 6,
+   "not_found": 20,
+   "source_found": 7
+  },
+  "clep_credit": {
+   "candidate_exception": 6,
+   "candidate_ready": 3,
+   "fetch_failed": 6,
+   "not_found": 17,
+   "source_found": 8
+  },
+  "common_data_set": {
+   "fetch_failed": 6,
+   "not_found": 25,
+   "source_found": 9
+  },
+  "cost_of_attendance": {
+   "candidate_exception": 5,
+   "fetch_failed": 6,
+   "not_found": 1,
+   "source_found": 28
+  },
+  "degree_requirements": {
+   "fetch_failed": 6,
+   "not_found": 6,
+   "source_found": 28
+  },
+  "dual_enrollment": {
+   "candidate_exception": 1,
+   "candidate_ready": 9,
+   "fetch_failed": 6,
+   "not_found": 20,
+   "source_found": 4
+  },
+  "ib_credit": {
+   "candidate_exception": 2,
+   "fetch_failed": 6,
+   "not_found": 30,
+   "source_found": 2
+  },
+  "merit_scholarships": {
+   "candidate_exception": 1,
+   "candidate_ready": 5,
+   "fetch_failed": 6,
+   "source_found": 28
+  },
+  "residency": {
+   "fetch_failed": 6,
+   "not_found": 16,
+   "source_found": 18
+  },
+  "statewide_articulation": {
+   "fetch_failed": 6,
+   "not_found": 19,
+   "source_found": 15
+  },
+  "transfer_credit": {
+   "candidate_ready": 3,
+   "fetch_failed": 6,
+   "not_found": 2,
+   "source_found": 29
+  },
+  "tuition_fees": {
+   "candidate_exception": 9,
+   "fetch_failed": 6,
+   "source_found": 25
+  }
+ },
+ "totals": {
+  "candidate_exception": 44,
+  "candidate_ready": 23,
+  "fetch_failed": 84,
+  "not_found": 167,
+  "source_found": 242
+ },
+ "statewide_sources": {
+  "categories": {
+   "admissions_tests": 2,
+   "aid_appeals": 0,
+   "ap_credit": 0,
+   "clep_credit": 0,
+   "common_data_set": 0,
+   "cost_of_attendance": 1,
+   "degree_requirements": 3,
+   "dual_enrollment": 1,
+   "ib_credit": 0,
+   "merit_scholarships": 23,
+   "residency": 22,
+   "statewide_articulation": 0,
+   "transfer_credit": 11,
+   "tuition_fees": 25
+  },
+  "fetch_failures": 0,
+  "pages_fetched": 28
+ },
+ "blocked_institutions": [
+  "ipeds-206817",
+  "ipeds-206941",
+  "ipeds-207388",
+  "ipeds-207397",
+  "ipeds-207564",
+  "ipeds-443058"
+ ],
+ "quality": {
+  "ambiguous_years": 8,
+  "blocked_requests": 149,
+  "candidates": 135,
+  "conflicts": 15,
+  "documents": 2184,
+  "extraction_failures": 0,
+  "fetch_errors": 146,
+  "fetches": 2479,
+  "ready": 60,
+  "semantic_review": 36,
+  "stale_sources": 16
+ },
+ "run": "pipeline/runs/OK/2026-10-03"
+}

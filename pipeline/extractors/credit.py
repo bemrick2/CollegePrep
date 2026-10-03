@@ -217,9 +217,12 @@ def extract(inst, entry, page, today_year):
         # LA r1: "CLEP" rows scored 3 are AP rows; scores must fit the exam's scale (AP 1-5, IB 1-7, CLEP 20-80).
         scale = {'AP': (1, 5), 'IB': (1, 7), 'CLEP': (20, 80)}.get(kind)
         firsts = [int(m.group()) for e in eqs for m in [re.search(r'\d+', e['minimum_score'] or '')] if m]
-        if scale and firsts and sum(1 for v in firsts if not scale[0] <= v <= scale[1]) >= len(firsts) * 0.3:
+        if scale and firsts and any(not scale[0] <= v <= scale[1] for v in firsts):  # OK r1 (OKBU): one CLEP row scored 3 is already wrong
             issues = issues + ['score_scale_mismatch']
         if eqs and all(not e['institution_course_equivalent'] for e in eqs): issues = issues + ['course_column_missing']
+        # OK r1 (Cameron IB): "ENGL" with the number in another column is not a course.
+        bare = sum(1 for e in eqs if re.fullmatch(r'\s*[A-Z]{2,5}\s*', e['institution_course_equivalent'] or ''))
+        if bare and bare >= len(eqs) * 0.5: issues = issues + ['course_number_missing']
         numeric = sum(1 for e in eqs if re.fullmatch(r'\s*\d{1,2}(\.\d)?\s*', e['institution_course_equivalent'] or ''))
         if numeric and numeric >= len(eqs) / 2:
             issues = issues + ['course_column_numeric']  # the hours column was read as the course column

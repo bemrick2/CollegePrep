@@ -24,7 +24,8 @@ NOT_AWARD_NAME = re.compile(r'\bpell\b|supplemental\s+educational\s+opportunity|
                             r'college\s+access\s+program|counselor(?!(?:\x27|\u2019)?s?\s+(?:award|scholarship))|director|coordinator|specialist|\bassistant\b|officer|advisor|'
                             r'^(fewer|more|less)\s+than\b|^over\s+\d|\bcredit\s+hours?\b|'
                             r'^\W*(books?|supplies|transportation|personal\s+expenses?|loan\s+fees?|room|board|food)\b|'
-                            r'^(reading|english|math(ematics)?|science|writing|composite)$', re.I)  # AR: UA-PTC placement score rows  # OR: COA rows
+                            r'^(reading|english|math(ematics)?|science|writing|composite)$|'
+                            r'^(gpa|act|sat|clt|psat|scores?|tiers?|level|amount)$', re.I)  # OK (Oklahoma Christian): a header row repeated in the body  # AR: UA-PTC placement score rows  # OR: COA rows
 NOT_MERIT_PAGE = re.compile(r'retention|renewal|keep(?:ing)?[- ]your[- ]scholarship|academic[- ]standards|probation|satisfactory[- ]academic[- ]progress|financial[- ]aid[- ]staff|'
                             r'\bstaff\b|directory|meet[- ]the[- ]team|our[- ]team|'
                             # GA r1: lists of other organizations' awards (Agnes Scott outside scholarships, Georgia Southern
@@ -42,6 +43,9 @@ PLACEHOLDER = re.compile(r'^\W*(n/?a|none|see\s+(?:requirements|criteria|details
 PHONE = re.compile(r'\(?\d{3}\)?[\s.-]\d{3}[.-]\d{4}')  # Tougaloo: a contact number in the ACT column is not a score
 ENROLLMENT = re.compile(r'^(full|half|part|three[-\s]quarter|3/4)[-\s]time$', re.I)  # Ole Miss Sumners: amount by enrollment intensity
 SCORE = re.compile(r'\b\d{1,4}\b')
+_N = r'(?:\d|two|three|four|five|six|eight)'
+MULTI_YEAR = re.compile(r'\b(?:for|over|value)\s+' + _N + r'\s+(?:fall/spring\s+)?(?:years|semesters|terms)\b', re.I)  # outside parentheses
+MULTI_X = re.compile(r'\bx\s*' + _N + r'\s+(?:years|semesters|terms)\b|\b' + _N + r'\s+(?:years|semesters|terms)\s+x\b', re.I)
 MERGED_GPA = re.compile(r'^(.*?[A-Za-z)])\s*(\d\.\d{1,2}\s*\+?\s*(?:GPA|grade\s+point\s+average)\.?)\s*$', re.I)
 MERGED_TEXT = re.compile(r'^(.{3,80}?\b(?:Scholarship|Award|Grant|Fellowship))(?=[A-Z][a-z])')
 
@@ -129,7 +133,9 @@ def _list_awards(t, header, body, title, award_type):
         if not (amt or g or a or s or tst or crit): continue
         lo, hi = _amounts(amt)
         if re.search(r'tuition[^$]*(\+|\bplus\b|\band\b)\s*\$', amt, re.I) or \
-           re.search(r'\b(?:for|over)\s+(?:four|4|eight|8)\s+(?:years|semesters)\b', re.sub(r'\([^)]*\)', '', amt), re.I):  # AR (UAPB): "$66,000 for four years ($8,250 per semester)"
+           MULTI_YEAR.search(re.sub(r'\([^)]*\)', '', amt)) or MULTI_X.search(amt) or re.search(r'\bfull\s+tuition\b', amt, re.I):
+            # AR (UAPB) "$66,000 for four years"; OK (OU) "$16,000 ($4,000 x 4 years)", (USAO) "total estimated value 8 fall/spring
+            # terms", (SWOSU) "$5000 cash per year, full tuition": the printed figure is not the annual award
             lo, hi = None, None  # LSUS: "Tuition & Fees + $1,200 Campus Housing Credit" is not a $1,200 award
         if lo is not None and re.search(r'\bup\s+to\b', amt, re.I):
             lo = None  # "Up to $5,000" is a maximum; the minimum is not printed
