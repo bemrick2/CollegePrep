@@ -203,7 +203,7 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
       </div>
 
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-        <PracticeIndicators history={o.history} />
+        <PracticeIndicators history={o.history} who={name} />
         <BenchmarkStatus history={o.benchmarks} forGuardian />
       </div>
 

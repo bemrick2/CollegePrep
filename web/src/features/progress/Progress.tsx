@@ -9,6 +9,10 @@ import { useStudentOverview, type StudentOverview } from '../student/useStudentO
 import { useCatalog } from '../practice/useCatalog'
 import { BenchmarkResults, PACE_COPY } from '../benchmark/BenchmarkResults'
 import type { SkillEstimate } from '../../lib/data/types'
+import { PracticeIndicators } from '../../components/PracticeIndicators'
+import { BenchmarkStatus } from '../../components/BenchmarkStatus'
+import { achievements } from '../../lib/engine/gamify'
+import { Trophy } from '../../components/icons'
 
 export function StudentProgressPage() {
   const { ctx } = useApp()
@@ -19,18 +23,18 @@ export function StudentProgressPage() {
 export function ParentProgressPage() {
   const { activeStudent } = useApp()
   if (!activeStudent) return <Navigate to="/parent" replace />
-  return <Progress studentId={activeStudent.id} heading={`${activeStudent.display_name}'s progress`} />
+  return <Progress studentId={activeStudent.id} heading={`${activeStudent.display_name}'s progress`} who={activeStudent.display_name} />
 }
 
-export function Progress({ studentId, heading }: { studentId: string; heading: string }) {
+export function Progress({ studentId, heading, who }: { studentId: string; heading: string; who?: string }) {
   const o = useStudentOverview(studentId)
   if (o.loading && !o.data) return <PageLoading />
   if (o.error) return <Notice tone="bad">{o.error.message}</Notice>
   if (!o.data) return null
-  return <Body o={o.data} heading={heading} />
+  return <Body o={o.data} heading={heading} who={who} />
 }
 
-function Body({ o, heading }: { o: StudentOverview; heading: string }) {
+function Body({ o, heading, who }: { o: StudentOverview; heading: string; who?: string }) {
   const exam = o.plan?.exam_family ?? 'act'
   const catalog = useCatalog(exam)
   const answered = o.history.filter((a) => !a.skipped)
@@ -65,6 +69,8 @@ function Body({ o, heading }: { o: StudentOverview; heading: string }) {
     <div className="grid grid-cols-1 gap-4">
       <h1 className="display text-[28px] font-semibold text-ink">{heading}</h1>
 
+      <PracticeIndicators history={o.history} who={who} showTrend />
+
       <Card>
         <CardHeader title="Last 8 weeks" subtitle="Bars: questions answered. Dots: accuracy." />
         <WeeklyChart data={weekly} />
@@ -80,16 +86,26 @@ function Body({ o, heading }: { o: StudentOverview; heading: string }) {
       <Card>
         <CardHeader title="Skill mastery" subtitle="From the last 30 answers per skill. Flags need at least 5 answers." />
         <div className="grid gap-5 p-5">
-          {sections.map((sec) => (
-            <div key={sec}>
-              <h3 className="mb-2 text-xs font-bold uppercase tracking-wide text-ink-3">{SECTION_LABEL[sec] ?? sec}</h3>
+          {sections.map((sec) => {
+            const list = [...bySection.get(sec)!].sort((a, b) => Number(!!b.knowledge_weak) - Number(!!a.knowledge_weak) || Number(!!b.pacing_weak) - Number(!!a.pacing_weak))
+            const toBuild = list.filter((e) => e.knowledge_weak || e.pacing_weak).length
+            const solid = list.filter((e) => e.knowledge_weak === false && !e.pacing_weak).length
+            return (
+            <details key={sec} open={toBuild > 0} className="group">
+              <summary className="mb-2 flex cursor-pointer list-none items-center justify-between gap-2">
+                <h3 className="text-xs font-bold uppercase tracking-wide text-ink-3">{SECTION_LABEL[sec] ?? sec}</h3>
+                <span className="text-xs text-ink-3">
+                  {toBuild > 0 && <span className="font-semibold text-warn">{toBuild} to build · </span>}
+                  {solid} solid · <span className="text-brand group-open:hidden">show</span><span className="hidden text-brand group-open:inline">hide</span>
+                </span>
+              </summary>
               <ul className="grid grid-cols-1 gap-2">
-                {bySection.get(sec)!.map((e) => {
+                {list.map((e) => {
                   const pv = PACE_COPY[pacingVerdict(e.pacing_ratio)]
                   const status = e.knowledge_weak === null ? { label: 'Need more data', tone: 'neutral' as const } : e.knowledge_weak ? { label: 'Build knowledge', tone: 'warn' as const } : e.pacing_weak ? { label: 'Build speed', tone: 'info' as const } : { label: 'Solid', tone: 'go' as const }
                   return (
                     <li key={e.skill_id} className="grid grid-cols-[1fr_auto] items-center gap-x-3 gap-y-1.5 rounded-xl bg-surface-2 px-3 py-2.5 sm:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)_auto_auto]">
-                      <span className="truncate text-sm font-semibold text-ink">{catalog.skillName(e.skill_key)}</span>
+                      <span className="line-clamp-2 text-sm font-semibold leading-snug text-ink">{catalog.skillName(e.skill_key)}</span>
                       <Pill tone={status.tone} className="sm:order-4">
                         {status.label}
                       </Pill>
@@ -104,8 +120,9 @@ function Body({ o, heading }: { o: StudentOverview; heading: string }) {
                   )
                 })}
               </ul>
-            </div>
-          ))}
+            </details>
+            )
+          })}
           {sections.length === 0 && <p className="text-sm text-ink-3">No skill data yet.</p>}
         </div>
       </Card>
@@ -119,6 +136,10 @@ function Body({ o, heading }: { o: StudentOverview; heading: string }) {
           <MiniStat label="Avg confidence" value={o.week.avg_confidence === null ? '—' : `${o.week.avg_confidence.toFixed(1)} / 3`} flat />
         </div>
       </Card>
+
+      <BenchmarkStatus history={o.benchmarks} forGuardian={!!who} />
+
+      <Milestones o={o} />
 
       <Card>
         <CardHeader title="Benchmark history" />
@@ -164,6 +185,45 @@ function Body({ o, heading }: { o: StudentOverview; heading: string }) {
         </Card>
       )}
     </div>
+  )
+}
+
+function Milestones({ o }: { o: StudentOverview }) {
+  const list = achievements({ attempts: o.history, benchmarks: o.benchmarks, longestStreak: o.streak.longest_streak, goalsMet: o.goalsMet })
+  const earned = list.filter((a) => a.earned)
+  const next = list.filter((a) => !a.earned).sort((a, b) => b.progress / b.goal - a.progress / a.goal).slice(0, 2)
+  return (
+    <Card>
+      <CardHeader title={<span className="flex items-center gap-2"><Trophy size={18} /> Milestones</span>} subtitle={`${earned.length} of ${list.length} earned`} />
+      <div className="grid gap-4 p-5 pt-3">
+        {earned.length > 0 && (
+          <ul className="flex flex-wrap gap-1.5">
+            {earned.map((a) => (
+              <li key={a.key} title={a.description}>
+                <Pill tone="gold">{a.title}</Pill>
+              </li>
+            ))}
+          </ul>
+        )}
+        {next.length > 0 && (
+          <ul className="grid gap-3">
+            {next.map((a) => (
+              <li key={a.key}>
+                <div className="mb-1 flex justify-between gap-2 text-sm">
+                  <span className="text-ink-2">
+                    <span className="font-semibold text-ink">{a.title}</span> · {a.description}
+                  </span>
+                  <span className="tabular text-ink-3">
+                    {a.progress}/{a.goal}
+                  </span>
+                </div>
+                <ProgressBar value={a.progress} max={a.goal} tone="gold" label={`${a.title} progress`} className="h-1.5" />
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </Card>
   )
 }
 
