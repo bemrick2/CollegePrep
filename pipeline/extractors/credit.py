@@ -121,7 +121,9 @@ def table_equivalencies(kind, rows, table_hit=None):
         if not score and not course: continue
         if score and not re.search(r'\d', score) and not course: continue  # a section heading row ("Foreign Languages", Gordon State)
         # LA r1 (Xavier): "Biology, Standard Level | 6" and "Biology, Higher Level | 6" are different rules; keep the level.
-        level = ('HL' if re.search(r'\bhigher\b|\bHL\b', cells[ex] if ex < len(cells) else '', re.I) else
+        label_cell = cells[ex] if ex < len(cells) else ''
+        both = re.search(r'\bSL\s*/\s*HL\b|\bHL\s*/\s*SL\b|standard\s+(?:and|or|/)\s+higher', label_cell, re.I)  # MO (Cottey): "Biology (SL/HL)"
+        level = (None if both else 'HL' if re.search(r'\bhigher\b|\bHL\b', label_cell, re.I) else
                  'SL' if re.search(r'\bstandard\b|\bSL\b|\bsub(?:sidiary)?\b', cells[ex] if ex < len(cells) else '', re.I) else None)
         if kind == 'IB' and level and score and not re.search(r'\b(HL|SL)\b|higher|standard', score, re.I):
             score = f'{level} {score}'

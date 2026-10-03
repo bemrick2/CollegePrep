@@ -97,10 +97,18 @@ MUTS = [
     ('pipeline/extractors/transfer.py', "r'this\\s+course|prerequisite|'", "r'^$|'"),
     ('pipeline/extractors/merit.py', "MULTI_YEAR.search(re.sub(r'\\([^)]*\\)', '', amt)) or ", ''),
     ('pipeline/extractors/merit.py', ' or MULTI_X.search(amt)', ''),
-    ('pipeline/extractors/merit.py', " or re.search(r'\\bfull\\s+tuition\\b', amt, re.I):", ':'),
+    ('pipeline/extractors/merit.py', "r'\\bfull\\s+tuition\\b|", "r'"),
     ('pipeline/extractors/merit.py', "|'\n                            r'^(gpa|act|sat|clt|psat|scores?|tiers?|level|amount)$'", "'"),
-    ('pipeline/extractors/transfer.py', "r'average\\s+grade|general\\s+education', re.I)", "r'^$', re.I)"),
+    ('pipeline/extractors/transfer.py', "r'average\\s+grade|general\\s+education|'", "r'^$|'"),
     ('pipeline/extractors/credit.py', "issues = issues + ['course_number_missing']", 'pass'),
+    ('pipeline/extractors/merit.py', '|\\bper\\s+credit\\b', ''),
+    ('pipeline/extractors/merit.py', "|trimesters|quarters|terms)\\b', re.I)  # outside parentheses", "|terms)\\b', re.I)  # outside parentheses"),
+    ('pipeline/extractors/merit.py', "        vals += [float(a.replace(',', '')), float(b.replace(',', ''))]", '        pass'),
+    ('pipeline/extractors/merit.py', "r'\\bpell\\b|\\brotc\\b|", "r'\\bpell\\b|"),
+    ('pipeline/extractors/merit.py', " + (['duplicate_table_versions'] if twins else [])", ''),
+    ('pipeline/text.py', "        if ACCREDIT_BEFORE.search((text or '')[max(0, m.start() - 60):m.start()]):\n            continue", '        if False:\n            continue'),
+    ('pipeline/extractors/transfer.py', "r'a-levels?|dual\\s+credit\\s+courses|work\\s+experience|work\\s+credit', re.I)", "r'^$', re.I)"),
+    ('pipeline/extractors/credit.py', "level = (None if both else 'HL'", "level = ('HL'"),
 ]
 failed = False
 for f, old, new in MUTS:

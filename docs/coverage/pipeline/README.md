@@ -187,6 +187,43 @@ Institutions in scope: **45** · crawled: **33** · blocked by site: **12** · r
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-158431`, `ipeds-159009`, `ipeds-159939`, `ipeds-160579`, `ipeds-160621`, `ipeds-160630`, `ipeds-160649`, `ipeds-160667`, `ipeds-434061`, `ipeds-440271`, `ipeds-483212`, `ipeds-490498`
 
+## MO — 2026-27
+
+Institutions in scope: **70** · crawled: **65** · blocked by site: **5** · run: `pipeline/runs/MO/2026-10-03`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 0 (0%) | 0 | 25 (36%) | 58 (83%) | 7 | 5 |
+| cost_of_attendance | 0 (0%) | 0 | 13 (19%) | 60 (86%) | 5 | 5 |
+| admissions_tests | 0 (0%) | 0 | 2 (3%) | 56 (80%) | 9 | 5 |
+| common_data_set | 0 (0%) | 0 | 2 (3%) | 6 (9%) | 59 | 5 |
+| merit_scholarships | 0 (0%) | 0 | 19 (27%) | 56 (80%) | 9 | 5 |
+| ap_credit | 0 (0%) | 0 | 16 (23%) | 27 (39%) | 38 | 5 |
+| clep_credit | 0 (0%) | 0 | 16 (23%) | 26 (37%) | 39 | 5 |
+| ib_credit | 0 (0%) | 0 | 13 (19%) | 20 (29%) | 45 | 5 |
+| dual_enrollment | 0 (0%) | 0 | 28 (40%) | 43 (61%) | 22 | 5 |
+| transfer_credit | 0 (0%) | 0 | 12 (17%) | 55 (79%) | 10 | 5 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 15 (21%) | 50 | 5 |
+| residency | 0 (0%) | 0 | 0 (0%) | 22 (31%) | 43 | 5 |
+| degree_requirements | 0 (0%) | 0 | 1 (1%) | 44 (63%) | 21 | 5 |
+| aid_appeals | 0 (0%) | 0 | 33 (47%) | 42 (60%) | 23 | 5 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 18 |
+| blocked requests | 120 |
+| candidates | 424 |
+| conflicts | 84 |
+| documents | 3585 |
+| extraction failures | 0 |
+| fetch errors | 355 |
+| fetches | 4060 |
+| ready | 161 |
+| semantic review | 113 |
+| stale sources | 53 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-177542`, `ipeds-177676`, `ipeds-178402`, `ipeds-178448`, `ipeds-179715`
+
 ## MS — 2026-27
 
 Institutions in scope: **32** · crawled: **30** · blocked by site: **2** · run: `pipeline/runs/MS/2026-10-03`

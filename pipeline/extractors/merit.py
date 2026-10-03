@@ -20,7 +20,7 @@ NOT_NAME = re.compile(r'^[\d<>=.\s/+%$,-]*$|tuition|\bfees?\b|per credit|per cou
                       r'\bstudents?\s+(is|who|still|are)\b|fall below|balance', re.I)
 # Names that are not merit awards (KY: federal aid and loans in an aid table, staff directories, credit-hour bands
 # from an academic-standards table).
-NOT_AWARD_NAME = re.compile(r'\bpell\b|supplemental\s+educational\s+opportunity|\bseog\b|work[- ]study|\bloans?\b|\bplus\b|'
+NOT_AWARD_NAME = re.compile(r'\bpell\b|\brotc\b|supplemental\s+educational\s+opportunity|\bseog\b|work[- ]study|\bloans?\b|\bplus\b|'
                             r'college\s+access\s+program|counselor(?!(?:\x27|\u2019)?s?\s+(?:award|scholarship))|director|coordinator|specialist|\bassistant\b|officer|advisor|'
                             r'^(fewer|more|less)\s+than\b|^over\s+\d|\bcredit\s+hours?\b|'
                             r'^\W*(books?|supplies|transportation|personal\s+expenses?|loan\s+fees?|room|board|food)\b|'
@@ -43,9 +43,9 @@ PLACEHOLDER = re.compile(r'^\W*(n/?a|none|see\s+(?:requirements|criteria|details
 PHONE = re.compile(r'\(?\d{3}\)?[\s.-]\d{3}[.-]\d{4}')  # Tougaloo: a contact number in the ACT column is not a score
 ENROLLMENT = re.compile(r'^(full|half|part|three[-\s]quarter|3/4)[-\s]time$', re.I)  # Ole Miss Sumners: amount by enrollment intensity
 SCORE = re.compile(r'\b\d{1,4}\b')
-_N = r'(?:\d|two|three|four|five|six|eight)'
-MULTI_YEAR = re.compile(r'\b(?:for|over|value)\s+' + _N + r'\s+(?:fall/spring\s+)?(?:years|semesters|terms)\b', re.I)  # outside parentheses
-MULTI_X = re.compile(r'\bx\s*' + _N + r'\s+(?:years|semesters|terms)\b|\b' + _N + r'\s+(?:years|semesters|terms)\s+x\b', re.I)
+_N = r'(?:\d{1,2}|two|three|four|five|six|eight|ten)'
+MULTI_YEAR = re.compile(r'\b(?:for|over|value)\s+' + _N + r'\s+(?:fall/spring\s+)?(?:years|semesters|trimesters|quarters|terms)\b', re.I)  # outside parentheses
+MULTI_X = re.compile(r'\bx\s*' + _N + r'\s+(?:years|semesters|trimesters|quarters|terms)\b|\b' + _N + r'\s+(?:years|semesters|trimesters|quarters|terms)\s+x\b', re.I)
 MERGED_GPA = re.compile(r'^(.*?[A-Za-z)])\s*(\d\.\d{1,2}\s*\+?\s*(?:GPA|grade\s+point\s+average)\.?)\s*$', re.I)
 MERGED_TEXT = re.compile(r'^(.{3,80}?\b(?:Scholarship|Award|Grant|Fellowship))(?=[A-Z][a-z])')
 
@@ -87,6 +87,9 @@ def _amounts(cell):
     # "$11,000 ($44,000 over 4 years)" (Chowan): the multi-year figure is not the annual range
     cell = re.sub(r'\([^)]*(?:over|total|years?|4-year|four)[^)]*\)', '', cell or '', flags=re.I)
     vals = T.money_values(cell or '')
+    # MO (Columbia College): "$1,000-2,000" prints the dollar sign once for the whole range
+    for a, b in re.findall(r'\$\s*([\d,]{3,})\s*[-–]\s*([\d,]{3,})(?![\d,])', cell or ''):
+        vals += [float(a.replace(',', '')), float(b.replace(',', ''))]
     return (min(vals), max(vals)) if vals else (None, None)
 
 
@@ -133,7 +136,7 @@ def _list_awards(t, header, body, title, award_type):
         if not (amt or g or a or s or tst or crit): continue
         lo, hi = _amounts(amt)
         if re.search(r'tuition[^$]*(\+|\bplus\b|\band\b)\s*\$', amt, re.I) or \
-           MULTI_YEAR.search(re.sub(r'\([^)]*\)', '', amt)) or MULTI_X.search(amt) or re.search(r'\bfull\s+tuition\b', amt, re.I):
+           MULTI_YEAR.search(re.sub(r'\([^)]*\)', '', amt)) or MULTI_X.search(amt) or re.search(r'\bfull\s+tuition\b|\bper\s+credit\b', amt, re.I):  # MO (Logan): "$400 per credit hour" is not an annual award
             # AR (UAPB) "$66,000 for four years"; OK (OU) "$16,000 ($4,000 x 4 years)", (USAO) "total estimated value 8 fall/spring
             # terms", (SWOSU) "$5000 cash per year, full tuition": the printed figure is not the annual award
             lo, hi = None, None  # LSUS: "Tuition & Fees + $1,200 Campus Housing Credit" is not a $1,200 award
@@ -253,6 +256,9 @@ def extract(inst, entry, page, today_year):
         label = context.strip() if re.search(r'scholarship|award|grant|fellowship', named, re.I) else (_page_award_name(page) or context.strip() or page.title)
         label = label.strip().lstrip('+-–•*› ').strip()  # "+Scholarships" (Thomas University): an accordion icon, not the name
         found = shaped or _list_awards(t, header, body, label[:80], award_type)
+        # MO (Southwest Baptist): the same heading over a different table is another year's version; which is which is unclear
+        twins = [o for o in page.tables if o is not t and (o.get('heading') or '') == (t.get('heading') or '') and o.get('heading')
+                 and o.get('rows') and o['rows'][0] == t['rows'][0] and o['rows'] != t['rows']]
         if not found or (not shaped and len(found) < 2): continue  # one stray row is not a scholarship table
         t_year = T.year_labels(context)
         rec_year, rec_basis, rec_issues = (year, basis, issues)
@@ -267,7 +273,7 @@ def extract(inst, entry, page, today_year):
             rec_issues = [i for i in issues if i != 'ambiguous_year_labels' and not i.startswith('stale_year_label')]
             if rec_year < today_year: rec_issues.append(f'stale_year_label:{rec_year}')
         for rec, raw in found:
-            row_issues = rec.pop('_issues', [])
+            row_issues = rec.pop('_issues', []) + (['duplicate_table_versions'] if twins else [])
             ev = [{'field': k, 'value': v, 'snippet': raw[:300]} for k, v in rec.items()
                   if k in {'award_amount_text', 'gpa_requirement', 'test_requirement', 'award_tiers', 'eligibility_summary', 'renewal_requirements'}]
             if not ev: continue
