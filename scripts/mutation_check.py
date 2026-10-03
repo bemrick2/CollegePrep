@@ -7,6 +7,17 @@ A surviving mutant means a safety rule has no test. Run: python scripts/mutation
 import shutil, subprocess, sys
 
 MUTS = [
+    ('pipeline/review.py', "key=lambda c: (c['source']['url'].startswith('https://'), len(fields_of(c))", "key=lambda c: (False, len(fields_of(c))"),
+    ('pipeline/crawl.py', "if https_site and url.startswith('http://'):", "if False:"),
+    ('pipeline/extractors/merit.py', "if any(len(c) > 60 for c in header): continue", "pass"),
+    ('pipeline/extractors/merit.py', "if re.search(r'\\bcollege\\s+gpa\\b', ' '.join(header), re.I): continue", "pass"),
+    ('pipeline/extractors/merit.py', "and not re.search(r'criteria|requirement|eligib|amount|annual|per\\s+year|years?\\b|value|total|\\$', h, re.I)), None)", "), None)"),
+    ('pipeline/extractors/dual.py', "if re.search(r'scholarship(?!s)', page.title, re.I) and not re.search(r'eligib|program', page.title, re.I): return []", "pass"),
+    ('pipeline/extractors/dual.py', "return [g for g, rx in GRADES if g in listed or re.search(rx, line, re.I)]", "return [g for g, rx in GRADES if re.search(rx, line, re.I)]"),
+    ('pipeline/extractors/dual.py', "    if m:\n        first = NEXT", "    if False:\n        first = NEXT"),
+    ('pipeline/extractors/dual.py', "issues.append('multicolumn_layout_review')", "pass"),
+    ('pipeline/extractors/common.py', "label, basis = next(iter(named)), 'labeled_in_url'", "pass"),
+    ('pipeline/text.py', "if kv and not TRACKING.match(kv.split('=', 1)[0])", "if kv"),
     ('pipeline/crawl.py', "and score >= DOC_EXTRA_SCORE and is_document_url(url)", "and score >= 0"),
     ('pipeline/crawl.py', "if depth > max_depth and not (depth == max_depth + 1", "if depth > max_depth and not (False"),
     ('pipeline/topics.py', "or COURSE_PAGE.search(url): return -1", ": return -1"),

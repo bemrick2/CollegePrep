@@ -402,6 +402,75 @@ last 30 hours in residence at the university.</p>"""
     def _de(self, body, url='https://www.example.edu/admissions/dual-enrollment/', title='Dual Enrollment'):
         return dual.extract(INST, {**ENTRY, 'url': url}, T.parse_html('<title>%s</title>%s' % (title, body)), '2026-27')
 
+    def test_tn_r6_review_regressions(self):
+        """Defects found reviewing Tennessee run 2026-10-03."""
+        # UTC: "completed your sophomore year" means rising juniors and seniors, not sophomores.
+        [c] = self._de('<p>Have you completed your sophomore year of high school?</p><p>Is your high school grade point average 3.0 or higher?</p>')
+        self.assertEqual(c['record']['dual_enrollment']['eligibility_tiers'][0]['grades'], ['11', '12'])
+        # APSU: a named dual enrollment scholarship's GPA rules are the award's.
+        self.assertEqual(self._de('<p>Students must maintain a cumulative college GPA of 2.75 to be eligible.</p>',
+                                  title='Bibb Family Dual Enrollment Scholarship'), [])
+        # Trenholm State (AL): a plural "Dual Enrollment Scholarships" eligibility page is the program; ordinal lists name every grade.
+        [c] = self._de('<p>The student must be in the 10th, 11th, or 12th grade and have a 2.5 GPA or higher.</p>',
+                       title='Student Eligibility for Dual Enrollment Scholarships')
+        self.assertEqual(c['record']['dual_enrollment']['eligibility_tiers'][0]['grades'], ['10', '11', '12'])
+        # Motlow: side-by-side columns interleave words; the tiers go to review.
+        [c] = dual.extract(INST, ENTRY, T.Page('to take Dual       you must have an overall GPA of 3.0 or higher and a 3.0',
+                                               'Dual Enrollment', [], [], []), '2026-27')
+        self.assertIn('multicolumn_layout_review', c['issues'])
+        # Carson-Newman: a document's file name can carry its only year label.
+        entry = {**ENTRY, 'url': 'https://www.example.edu/wp-content/uploads/2025/11/2025-26-Dual-Enrollment-Agreement-Form.pdf', 'kind': 'pdf'}
+        [c] = dual.extract(INST, entry, T.Page('Students may take up to a maximum of 14 hours of Dual Enrollment courses in each semester.',
+                                               'Dual Enrollment Agreement Form', [], [], []), '2026-27')
+        self.assertEqual((c['academic_year'], c['year_basis']), ('2025-26', 'labeled_in_url'))
+        self.assertIn('stale_year_label:2025-26', c['issues'])
+        # Lipscomb: analytics parameters are not part of the source URL.
+        from pipeline.crawl import requote
+        self.assertEqual(requote('https://lipscomb.edu/a/transferring-credit?_gl=1*13kx7ol*_up*MQ..&utm_source=x'),
+                         'https://lipscomb.edu/a/transferring-credit')
+        self.assertEqual(requote('https://x.edu/p.php?catoid=3&navoid=9'), 'https://x.edu/p.php?catoid=3&navoid=9')
+        self.assertEqual(T.canonical_url('https://x.edu/p?_gl=1&id=2'), 'https://x.edu/p?id=2')
+
+    def test_tn_r6_merit_tables(self):
+        """TN 2026-10-03 merit tables: key/value facts, sentence rows, transfer tiers, criteria and points columns."""
+        def awards(html, title='Scholarships'):
+            return {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(f'<title>{title}</title>{html}'), '2026-27')}
+        # UTK: "Requirement | Details" rows are facts about one award, not awards.
+        self.assertEqual(awards('<h2>Next Chapter Scholar of the Year Scholarship</h2><table><tr><th>Requirement</th><th>Details</th></tr>'
+                                '<tr><td>FAFSA Required</td><td>No</td></tr><tr><td>Residency</td><td>In-state only</td></tr>'
+                                '<tr><td>Award Basis</td><td>Program-based</td></tr></table>'), {})
+        # APSU: a first row of sentences is not a header.
+        self.assertEqual(awards('<h2>Academic Scholarship Opportunities</h2><table><tr><td>Freshmen</td><td>Qualifying freshmen have a large number of opportunities; contact our office for details.</td></tr>'
+                                '<tr><td>Transfer Students</td><td>Students transferring to APSU may be offered awards, particularly with an ACT.</td></tr>'
+                                '<tr><td>Study Abroad</td><td>Potential scholarships available to students who are taking a study abroad course.</td></tr></table>'), {})
+        # CBU: college-GPA tiers are transfer awards.
+        self.assertEqual(awards('<h2>Scholarships</h2><table><tr><th>Scholarship</th><th>Award</th><th>College GPA</th></tr>'
+                                '<tr><td>Presidential Scholarship</td><td>$18,000</td><td>3.6+</td></tr><tr><td>Lasallian Scholarship</td><td>$16,000</td><td>3.4+</td></tr>'
+                                '<tr><td>University Scholarship</td><td>$12,000</td><td>N/A</td></tr></table>'), {})
+        # UTK Orange & White: the criteria column is the threshold; the award is named by the page.
+        got = awards('<h2>Award Amounts</h2><table><tr><th>Scholarship Criteria</th><th>Annual Award</th><th>Four-Year Award Amount</th></tr>'
+                     '<tr><td>3.6-3.79 GPA*,28-36 ACT**,1300-1600 SAT**</td><td>$1,500</td><td>$6,000</td></tr><tr><td>OR</td><td></td><td></td></tr>'
+                     '<tr><td>3.6+ GPA*,26-27 ACT**,1230-1290 SAT**</td><td>$1,500</td><td>$6,000</td></tr></table>',
+                     title='Orange White Scholarship - One Stop Student Services')
+        self.assertEqual(sorted(got), ['Orange White Scholarship: 3.6+ GPA*,26-27 ACT**,1230-1290 SAT**',
+                                       'Orange White Scholarship: 3.6-3.79 GPA*,28-36 ACT**,1300-1600 SAT**'])
+        # UTK In-State Volunteer: the score column labels the rows; the page names the award.
+        got = awards('<h2>Award Amounts</h2><table><tr><th>ACT / SAT</th><th>Annual Award</th><th>Four-Year Award</th></tr>'
+                     '<tr><td>34-36 / 1490-1600</td><td>$9,000</td><td>$36,000</td></tr><tr><td>30-33 / 1360-1480</td><td>$5,000</td><td>$20,000</td></tr></table>',
+                     title='In-State Volunteer Scholarship - One Stop Student Services')
+        r = got['In-State Volunteer Scholarship: ACT / SAT 30-33 / 1360-1480']
+        self.assertEqual((r['award_max'], r['test_requirement']), (5000, 'ACT / SAT: 30-33 / 1360-1480'))
+        got = awards('<h2>Award Amounts</h2><table><tr><th>*UT Core Weighted GPA</th><th>**ACT/SAT Score</th><th>Annual Award</th></tr>'
+                     '<tr><td>4.0+</td><td>34-36/1490-1600</td><td>$18,000</td></tr><tr><td>4.0+</td><td>30-33/1360-1480</td><td>$9,000</td></tr></table>',
+                     title='Out-of-State Volunteer Scholarship - One Stop Student Services')
+        r = got['Out-of-State Volunteer Scholarship: UT Core Weighted GPA 4.0+, ACT/SAT Score 30-33/1360-1480']
+        self.assertEqual((r['award_max'], r['gpa_requirement'], r['test_requirement']),
+                         (9000, 'UT Core Weighted GPA: 4.0+', 'ACT/SAT Score: 30-33/1360-1480'))
+        # Southern Adventist: a points column is the eligibility rule and keeps its name.
+        got = awards('<h2>Renewable Scholarships for Freshmen</h2><table><tr><th>Points</th><th>Scholarship</th><th>4 Year Total</th><th>Awarded Per Year</th></tr>'
+                     '<tr><td>4,800 - 5,700</td><td>Honors</td><td>$8,000</td><td>$2,000</td></tr><tr><td>5,701 - 6,600</td><td>Dean</td><td>$16,000</td><td>$4,000</td></tr></table>')
+        self.assertEqual((got['Dean']['award_max'], got['Dean']['eligibility_summary']), (4000, 'Points: 5,701 - 6,600'))
+
     def test_dual_enrollment_eligibility_and_charges(self):
         # Layout from a real Tennessee page: eligibility list, then an FAQ with per-credit prices.
         [c] = self._de("""<h3>Eligibility & Requirements</h3><ul><li>High School Junior or Seniors</li>
@@ -443,6 +512,16 @@ minimum grade point average (GPA) of 3.0 are eligible for dual enrollment. Out-o
         [m] = review.dedupe([a, b, c])
         self.assertNotIn('max_credit_hours_per_term', m['record']['dual_enrollment'])  # 12 vs 15: dropped and queued
         self.assertIn('conflicting_sources:max_credit_hours_per_term', m['issues'])
+
+    def test_https_page_is_the_merge_primary(self):
+        """TN r6, Tennessee Wesleyan: an http twin with more fields must not become the cited source."""
+        a = self._de('<p>Juniors and seniors need a minimum GPA of 3.0. Students may take a maximum of 12 credit hours per semester.</p>',
+                     url='http://e.edu/dual-enrollment/')[0]
+        b = self._de('<p>Juniors and seniors need a minimum GPA of 3.0.</p>', url='https://e.edu/dual-enrollment/')[0]
+        b['source']['sha256'] = 'cd' * 32; b['candidate_id'] = 'other'
+        [m] = review.dedupe([a, b])
+        self.assertEqual(m['record']['source_url'], 'https://e.edu/dual-enrollment/')
+        self.assertEqual(m['record']['dual_enrollment']['max_credit_hours_per_term'], 12)
 
     def test_residency_from_table_captions_and_reciprocity(self):
         """Regression (KY, Ashland CTC): stacked In-State / Out-of-State COA tables; a neighbouring-state reciprocity table."""
@@ -845,6 +924,10 @@ class CrawlTests(unittest.TestCase):
         self.assertEqual(urls.get(b + '/files/2026-27_AP_IB_Equivalencies.pdf'), 4)
         self.assertNotIn(b + '/d/ap-credit.html', urls)   # ordinary pages keep the depth limit
         self.assertNotIn(b + '/files/ap-note.pdf', urls)  # and so do weak documents
+        site[b + '/'] += '<a href="http://www.example.edu/a/ap-credit.html">AP credit (again)</a>'
+        run2 = Run(self.tmp / 'deep2')
+        crawl_institution(inst, run2, Fake(), budget=20, max_depth=3, log=lambda *_: None)
+        self.assertFalse(any(e['url'].startswith('http://') for e in run2.entries()))  # http twins of an https site are one page
         self.assertEqual(topics.link_score('https://catalog.rhodes.edu/hum/240', 'HUM 240 Credit'), -1)
         self.assertEqual(topics.link_score('https://catalog.example.edu/preview_course_nopop.php?catoid=3&coid=9', 'ENGL 1010'), -1)
 

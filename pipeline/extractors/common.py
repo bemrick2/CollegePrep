@@ -19,7 +19,7 @@ def candidate_id(domain, institution_key, academic_year, discriminator, extracto
 
 
 def source_of(entry):
-    return {'url': entry.get('final_url') or entry['url'], 'requested_url': entry['url'], 'sha256': entry.get('sha256'),
+    return {'url': T.canonical_url(entry.get('final_url') or entry['url']), 'requested_url': entry['url'], 'sha256': entry.get('sha256'),
             'fetched_at': entry.get('fetched_at'), 'last_modified': entry.get('last_modified'),
             'title': entry.get('title', ''), 'page_file': entry.get('page_file'), 'kind': entry.get('kind')}
 
@@ -52,6 +52,13 @@ def resolve_year(page, entry, today_year):
         heads = T.year_labels(' | '.join(page.headings or []))
         if len(heads) == 1:  # one year in the section headings beats archive links in the body
             label, basis = next(iter(heads)), 'labeled_in_heading'
+    if basis == 'source_unlabeled':
+        # A document whose file name carries the only year ("2025-26-Dual-Enrollment-Agreement-Form.pdf",
+        # Carson-Newman) is that year's document even when its text never prints the year.
+        name = urlsplit(entry.get('final_url') or entry.get('url', '')).path.rsplit('/', 1)[-1]
+        named = T.year_labels(name.replace('_', '-'))
+        if len(named) == 1 and re.search(r'\.(pdf|xlsx)$', name, re.I):
+            label, basis = next(iter(named)), 'labeled_in_url'
     if basis == 'ambiguous_year_labels':
         issues.append('ambiguous_year_labels')
         return today_year, basis, issues

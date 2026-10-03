@@ -152,38 +152,38 @@ Browser/manual exception queue (sites refuse automated requests): `ipeds-208725`
 
 ## TN — 2026-27
 
-Institutions in scope: **59** · crawled: **52** · blocked by site: **7** · run: `pipeline/runs/TN/2026-10-02-r4`
+Institutions in scope: **59** · crawled: **52** · blocked by site: **7** · run: `pipeline/runs/TN/2026-10-03`
 
 | category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
 |---|---|---|---|---|---|---|
-| tuition_fees | 10 (17%) | 0 | 16 (27%) | 51 (86%) | 1 | 7 |
-| cost_of_attendance | 6 (10%) | 1 | 10 (17%) | 50 (85%) | 2 | 7 |
-| admissions_tests | 2 (3%) | 0 | 3 (5%) | 49 (83%) | 3 | 7 |
+| tuition_fees | 10 (17%) | 1 | 16 (27%) | 51 (86%) | 1 | 7 |
+| cost_of_attendance | 6 (10%) | 1 | 8 (14%) | 50 (85%) | 2 | 7 |
+| admissions_tests | 2 (3%) | 0 | 3 (5%) | 48 (81%) | 4 | 7 |
 | common_data_set | 2 (3%) | 0 | 3 (5%) | 10 (17%) | 42 | 7 |
-| merit_scholarships | 3 (5%) | 3 | 11 (19%) | 44 (75%) | 8 | 7 |
-| ap_credit | 1 (2%) | 3 | 6 (10%) | 17 (29%) | 35 | 7 |
-| clep_credit | 1 (2%) | 2 | 6 (10%) | 12 (20%) | 40 | 7 |
+| merit_scholarships | 3 (5%) | 6 | 10 (17%) | 44 (75%) | 8 | 7 |
+| ap_credit | 1 (2%) | 4 | 7 (12%) | 20 (34%) | 32 | 7 |
+| clep_credit | 1 (2%) | 5 | 6 (10%) | 12 (20%) | 40 | 7 |
 | ib_credit | 1 (2%) | 1 | 3 (5%) | 6 (10%) | 46 | 7 |
-| dual_enrollment | 1 (2%) | 0 | 26 (44%) | 39 (66%) | 13 | 7 |
-| transfer_credit | 0 (0%) | 7 | 8 (14%) | 47 (80%) | 5 | 7 |
+| dual_enrollment | 1 (2%) | 13 | 25 (42%) | 40 (68%) | 12 | 7 |
+| transfer_credit | 0 (0%) | 7 | 7 (12%) | 47 (80%) | 5 | 7 |
 | statewide_articulation | 0 (0%) | 0 | 0 (0%) | 17 (29%) | 35 | 7 |
-| residency | 0 (0%) | 0 | 0 (0%) | 23 (39%) | 29 | 7 |
-| degree_requirements | 1 (2%) | 1 | 2 (3%) | 46 (78%) | 6 | 7 |
+| residency | 0 (0%) | 0 | 0 (0%) | 24 (41%) | 28 | 7 |
+| degree_requirements | 2 (3%) | 0 | 2 (3%) | 40 (68%) | 12 | 7 |
 | aid_appeals | 1 (2%) | 1 | 32 (54%) | 37 (63%) | 15 | 7 |
 
 | quality | count |
 |---|---|
-| ambiguous years | 24 |
-| blocked requests | 274 |
-| candidates | 342 |
-| conflicts | 110 |
-| documents | 2967 |
+| ambiguous years | 12 |
+| blocked requests | 388 |
+| candidates | 416 |
+| conflicts | 134 |
+| documents | 3338 |
 | extraction failures | 0 |
-| fetch errors | 90 |
-| fetches | 3331 |
-| ready | 156 |
-| semantic review | 120 |
-| stale sources | 68 |
+| fetch errors | 97 |
+| fetches | 3823 |
+| ready | 138 |
+| semantic review | 206 |
+| stale sources | 55 |
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-219824`, `ipeds-219879`, `ipeds-219949`, `ipeds-221643`, `ipeds-221768`, `ipeds-222053`, `ipeds-486901`
 

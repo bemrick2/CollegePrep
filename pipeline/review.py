@@ -92,7 +92,8 @@ def merge_pages(group):
     different pages is dropped and queued (`conflicting_sources:<field>`); lists are unioned."""
     sub = MERGEABLE[group[0]['extractor']]
     fields_of = lambda c: (c['record'].get(sub) or {}) if sub else {k: v for k, v in c['record'].items() if k not in SCALAR_SKIP_MERGE}
-    primary = max(group, key=lambda c: (len(fields_of(c)), len(c['evidence']), c['candidate_id']))
+    # An https page outranks its http twin (TN r6, Tennessee Wesleyan): records must cite https sources.
+    primary = max(group, key=lambda c: (c['source']['url'].startswith('https://'), len(fields_of(c)), len(c['evidence']), c['candidate_id']))
     merged = json.loads(json.dumps(primary))
     merged.pop('superseded_by', None)
     out, issues = {}, [i for c in group for i in c['issues'] if not i.startswith('conflicting_values')]

@@ -213,7 +213,7 @@ def requote(url: str) -> str:
     already-encoded sequences are kept."""
     p = urlsplit(url.strip())
     return urlunsplit((p.scheme, p.netloc, quote(p.path, safe="/%:@!$&'()*+,;=~-._"),
-                       quote(p.query, safe="=&%:@!$'()*+,;/?~-._"), ''))
+                       quote(T.strip_tracking(p.query), safe="=&%:@!$'()*+,;/?~-._"), ''))
 
 
 DOC_EXTRA_SCORE = 25
@@ -230,8 +230,12 @@ def crawl_institution(inst, run: Run, fetcher: Fetcher, budget=45, max_depth=3, 
     done = {e['url'] for e in run.entries() if e.get('institution_key') == key}
     frontier, queued = [], set()
 
+    https_site = str((inst.get('seeds') or {}).get('website', '')).startswith('https://')
+
     def push(url, score, depth, via):
         url = requote(url.split('#')[0])
+        if https_site and url.startswith('http://'):
+            url = 'https://' + url[len('http://'):]  # one page, not two (TN r6: Tennessee Wesleyan linked both)
         host = urlsplit(url).netloc
         if (not url.startswith('https://') and not url.startswith('http://')) or url in queued: return
         # A strong document link (a current-year policy PDF, score >= DOC_EXTRA_SCORE) may go one level deeper:

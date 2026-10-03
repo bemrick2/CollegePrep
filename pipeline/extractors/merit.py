@@ -74,7 +74,9 @@ def _amounts(cell):
 
 
 def _list_awards(t, header, body, title, award_type):
-    name = _col(header, 'scholarship', 'award', 'name', 'program')
+    # "Scholarship Criteria" (UTK Orange & White) names the threshold column, not the award.
+    name = next((i for i, h in enumerate(header) if any(w in h.lower() for w in ('scholarship', 'award', 'name', 'program'))
+                 and not re.search(r'criteria|requirement|eligib|amount|annual|per\s+year|years?\b|value|total|\$', h, re.I)), None)
     # Annual columns win over four-year totals ("Total over 4 years | Total for academic year", AL: AUM).
     multi_year = re.compile(r'4\s*years?|four\s+years?|total\s+over|over\s+\d|cumulative', re.I)
     amount = next((i for words in (('annual', 'per year', 'yearly', 'academic year', 'per academic'), ('amount', 'value', '$', 'award detail'), ('award',))
@@ -85,17 +87,26 @@ def _list_awards(t, header, body, title, award_type):
     if act is not None and sat is not None and act == sat: sat = None
     test = None if (act is not None or sat is not None) else _col(header, 'test', 'superscore', 'score')
     renewal = _col(header, 'renew', 'retain', 'retention', 'maintain', 'to keep')
-    criteria = next((i for i, h in enumerate(header) if i != renewal and re.search(r'requirement|criteria|eligib|qualif', h, re.I)), None)
+    criteria = next((i for i, h in enumerate(header) if i != renewal and re.search(r'requirement|criteria|eligib|qualif|\bpoints?\b', h, re.I)), None)
     if criteria in (name, amount, gpa, act, sat, test): criteria = None
     if gpa is not None and gpa in (act, sat):  # one column holds "21-22 ACT / 1060-1120 SAT or 3.00-3.24 GPA"
         test, gpa, act, sat = gpa, None, None, None
     if name is None: name = 0
+    if criteria == name: criteria = None  # the threshold column is the row label (tier rows below)
+    # UTK In-State Volunteer: "ACT / SAT | Annual Award" - the score column labels the rows, the page names the award.
+    threshold_cols = sorted({i for i in (gpa, act, sat, test) if i is not None}) if name in (gpa, act, sat, test) else []
+    threshold_label = bool(threshold_cols)
+    gpa_col = gpa
+    if threshold_label: gpa, act, sat, test = None, None, None, None  # every threshold column labels the row instead
+    clean = lambda h: h.strip().strip('*').strip()
     if amount is None and gpa is None and act is None and sat is None and test is None and criteria is None: return []
     out = []
     for row in body:
         cells = list(row) + [''] * (len(header) - len(row))
         nm = cells[name].strip()
-        if not nm or len(nm) > 120 or T.money_values(nm) or NOT_NAME.search(nm) or NOT_AWARD_NAME.search(nm): continue
+        if not nm or len(nm) > 120 or T.money_values(nm): continue
+        if threshold_label and not re.search(r'\d', nm): continue  # "OR" between tier rows
+        if not threshold_label and (NOT_NAME.search(nm) or NOT_AWARD_NAME.search(nm)): continue
         if nm.endswith(':') or len(nm.split()) > 12: continue  # worked examples and sentences, not award names
         get = lambda i: cells[i].strip() if i is not None and i < len(cells) else ''
         amt, g, a, s, tst, crit, ren = (x if not PLACEHOLDER.match(x) else '' for x in (get(amount), get(gpa), get(act), get(sat), get(test), get(criteria), get(renewal)))
@@ -105,9 +116,15 @@ def _list_awards(t, header, body, title, award_type):
         lo, hi = _amounts(amt)
         if lo is not None and re.search(r'\bup\s+to\b', amt, re.I):
             lo = None  # "Up to $5,000" is a maximum; the minimum is not printed
-        tier_row = bool(re.search(r'\d.*\b(gpa|act|sat)\b', nm, re.I))
+        tier_row = bool(threshold_label) or bool(re.search(r'\d.*\b(gpa|act|sat)\b', nm, re.I))
         rec = {'award_name': f"{title}: {nm}" if tier_row else nm, 'award_type': award_type}
-        if tier_row:  # the row label is itself the threshold ('3.6+ GPA, 26-27 ACT')
+        if threshold_label:  # UTK Out-of-State Volunteer: "4.0+ | 34-36/1490-1600 | $18,000" and "4.0+ | 30-33/... | $9,000"
+            parts = [(i, get(i)) for i in threshold_cols if get(i)]
+            rec['award_name'] = f"{title}: " + ', '.join(f'{clean(header[i])} {v}' for i, v in parts)
+            for i, v in parts:
+                key = 'gpa_requirement' if i == gpa_col else 'test_requirement'
+                rec[key] = '; '.join(x for x in [rec.get(key), f'{clean(header[i])}: {v}'] if x)
+        elif tier_row:  # the row label is itself the threshold ('3.6+ GPA, 26-27 ACT')
             rec['test_requirement' if re.search(r'\b(act|sat)\b', nm, re.I) else 'gpa_requirement'] = nm
         if amt: rec['award_amount_text'] = amt
         if hi is not None:
@@ -116,7 +133,8 @@ def _list_awards(t, header, body, title, award_type):
         if g: rec['gpa_requirement'] = g
         tests = ' / '.join(x for x in [f'ACT {a}' if a else '', f'SAT {s}' if s else ''] if x) or tst
         if tests: rec['test_requirement'] = tests
-        if crit: rec['eligibility_summary'] = crit[:600]
+        if crit:  # a bare points range is meaningless without its column name (Southern: "Points | 4,800 - 5,700")
+            rec['eligibility_summary'] = (f"{header[criteria].strip()}: {crit}" if re.search(r'\bpoints?\b', header[criteria], re.I) else crit)[:600]
         if ren: rec['renewal_requirements'] = ren[:600]
         thresholds = {k: v for k, v in {'gpa_min': _num(g, 0, 5, True), 'act_min': _num(a, 1, 36), 'sat_min': _num(s, 400, 1600)}.items() if v is not None}
         if thresholds: rec['thresholds'] = thresholds
@@ -183,11 +201,16 @@ def extract(inst, entry, page, today_year):
             if crit_i is not None: header[crit_i] = 'Requirements'
             body = rows
         if NOT_MERIT.search(' '.join(header)) or NOT_NAME.search(context): continue
+        if any(len(c) > 60 for c in header): continue  # a sentence is not a header row (APSU: "Freshmen | Qualifying freshmen have ...")
+        if len(header) == 2 and re.fullmatch(r'\s*(requirements?|criteria|items?|attributes?|details?)\s*', header[0], re.I):
+            continue  # key/value facts about one award (UTK: "Requirement | Details", "FAFSA Required | No")
+        if re.search(r'\bcollege\s+gpa\b', ' '.join(header), re.I): continue  # college-GPA tiers are transfer awards (CBU)
         if not HEADER_WORDS.search(' '.join(header)): continue  # e.g. worked aid examples, schedules
         shaped = _tier_award(t, header, body, context) or _grid_award(t, header, body, context)
         merit_context = re.search(r'merit|academic|gpa|act|sat|test score', context + ' ' + ' '.join(header) + ' ' + page.title, re.I)
         award_type = 'institutional_merit' if merit_context else 'institutional_other'
-        label = context.strip() if re.search(r'scholarship|award|grant|fellowship', context, re.I) else (_page_award_name(page) or context.strip() or page.title)
+        named = re.sub(r'\bawards?\s+amounts?\b', '', context, flags=re.I)  # "Award Amounts" is a heading, not a name (UTK)
+        label = context.strip() if re.search(r'scholarship|award|grant|fellowship', named, re.I) else (_page_award_name(page) or context.strip() or page.title)
         found = shaped or _list_awards(t, header, body, label.strip()[:80], award_type)
         if not found or (not shaped and len(found) < 2): continue  # one stray row is not a scholarship table
         t_year = T.year_labels(context)
