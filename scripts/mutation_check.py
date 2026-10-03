@@ -98,7 +98,7 @@ MUTS = [
     ('pipeline/extractors/merit.py', "MULTI_YEAR.search(re.sub(r'\\([^)]*\\)', '', amt)) or ", ''),
     ('pipeline/extractors/merit.py', ' or MULTI_X.search(amt)', ''),
     ('pipeline/extractors/merit.py', "r'\\bfull\\s+tuition\\b|", "r'"),
-    ('pipeline/extractors/merit.py', "|'\n                            r'^(gpa|act|sat|clt|psat|scores?|tiers?|level|amount)$'", "'"),
+    ('pipeline/extractors/merit.py', '^(gpa|act|sat|clt|psat|scores?|tiers?|level|amount)$|', ''),
     ('pipeline/extractors/transfer.py', "r'average\\s+grade|general\\s+education|'", "r'^$|'"),
     ('pipeline/extractors/credit.py', "issues = issues + ['course_number_missing']", 'pass'),
     ('pipeline/extractors/merit.py', '|\\bper\\s+credit\\b', ''),
@@ -109,6 +109,13 @@ MUTS = [
     ('pipeline/text.py', "        if ACCREDIT_BEFORE.search((text or '')[max(0, m.start() - 60):m.start()]):\n            continue", '        if False:\n            continue'),
     ('pipeline/extractors/transfer.py', "r'a-levels?|dual\\s+credit\\s+courses|work\\s+experience|work\\s+credit', re.I)", "r'^$', re.I)"),
     ('pipeline/extractors/credit.py', "level = (None if both else 'HL'", "level = ('HL'"),
+    ('pipeline/extractors/merit.py', "r'sample[- ]aid[- ]packages?|aid[- ]package[- ]examples?|", "r'"),
+    ('pipeline/extractors/merit.py', "|^(annual\\s+)?totals?$', re.I)", "', re.I)"),
+    ('pipeline/extractors/merit.py', "    cell = re.sub(r'\\([^)]*\\bper\\s+(?:semester|term|trimester|quarter)\\b[^)]*\\)', '', cell, flags=re.I)", '    pass'),
+    ('pipeline/extractors/merit.py', '|\\btotal\\s+value\\b', ''),
+    ('pipeline/extractors/costs.py', "        'period': ('semester' if re.search(r'per\\s+semester|per\\s+term\\b', h) else\n                   'year'", "        'period': ('year'"),
+    ('pipeline/extractors/costs.py', '        return out  # KS (Pitt State)', '        pass  # KS (Pitt State)'),
+    ('pipeline/extractors/costs.py', "res = c['residency'] or heading_res or page_res", "res = c['residency'] or page_res"),
 ]
 failed = False
 for f, old, new in MUTS:

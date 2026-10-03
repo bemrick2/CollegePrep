@@ -113,6 +113,43 @@ Institutions in scope: **85** · crawled: **76** · blocked by site: **9** · ru
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-139366`, `ipeds-139630`, `ipeds-139940`, `ipeds-140243`, `ipeds-140872`, `ipeds-140951`, `ipeds-244437`, `ipeds-368911`, `ipeds-490230`
 
+## KS — 2026-27
+
+Institutions in scope: **53** · crawled: **43** · blocked by site: **10** · run: `pipeline/runs/KS/2026-10-03`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 0 (0%) | 0 | 23 (43%) | 43 (81%) | 0 | 10 |
+| cost_of_attendance | 0 (0%) | 0 | 11 (21%) | 42 (79%) | 1 | 10 |
+| admissions_tests | 0 (0%) | 0 | 0 (0%) | 42 (79%) | 1 | 10 |
+| common_data_set | 0 (0%) | 0 | 0 (0%) | 2 (4%) | 41 | 10 |
+| merit_scholarships | 0 (0%) | 0 | 7 (13%) | 42 (79%) | 1 | 10 |
+| ap_credit | 0 (0%) | 0 | 5 (9%) | 14 (26%) | 29 | 10 |
+| clep_credit | 0 (0%) | 0 | 4 (8%) | 15 (28%) | 28 | 10 |
+| ib_credit | 0 (0%) | 0 | 2 (4%) | 7 (13%) | 36 | 10 |
+| dual_enrollment | 0 (0%) | 0 | 9 (17%) | 22 (42%) | 21 | 10 |
+| transfer_credit | 0 (0%) | 0 | 9 (17%) | 42 (79%) | 1 | 10 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 21 (40%) | 22 | 10 |
+| residency | 0 (0%) | 0 | 0 (0%) | 23 (43%) | 20 | 10 |
+| degree_requirements | 0 (0%) | 0 | 0 (0%) | 38 (72%) | 5 | 10 |
+| aid_appeals | 0 (0%) | 0 | 23 (43%) | 31 (58%) | 12 | 10 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 16 |
+| blocked requests | 142 |
+| candidates | 233 |
+| conflicts | 64 |
+| documents | 2865 |
+| extraction failures | 0 |
+| fetch errors | 303 |
+| fetches | 3310 |
+| ready | 74 |
+| semantic review | 80 |
+| stale sources | 36 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-154907`, `ipeds-155007`, `ipeds-155098`, `ipeds-155210`, `ipeds-155292`, `ipeds-155593`, `ipeds-155627`, `ipeds-155830`, `ipeds-155858`, `ipeds-177038`
+
 ## KY — 2026-27
 
 Institutions in scope: **46** · crawled: **44** · blocked by site: **2** · run: `pipeline/runs/KY/2026-10-02-r2`

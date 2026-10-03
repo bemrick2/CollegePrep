@@ -25,8 +25,8 @@ NOT_AWARD_NAME = re.compile(r'\bpell\b|\brotc\b|supplemental\s+educational\s+opp
                             r'^(fewer|more|less)\s+than\b|^over\s+\d|\bcredit\s+hours?\b|'
                             r'^\W*(books?|supplies|transportation|personal\s+expenses?|loan\s+fees?|room|board|food)\b|'
                             r'^(reading|english|math(ematics)?|science|writing|composite)$|'
-                            r'^(gpa|act|sat|clt|psat|scores?|tiers?|level|amount)$', re.I)  # OK (Oklahoma Christian): a header row repeated in the body  # AR: UA-PTC placement score rows  # OR: COA rows
-NOT_MERIT_PAGE = re.compile(r'retention|renewal|keep(?:ing)?[- ]your[- ]scholarship|academic[- ]standards|probation|satisfactory[- ]academic[- ]progress|financial[- ]aid[- ]staff|'
+                            r'^(gpa|act|sat|clt|psat|scores?|tiers?|level|amount)$|^(annual\s+)?totals?$', re.I)  # OK (Oklahoma Christian): a header row repeated in the body  # AR: UA-PTC placement score rows  # OR: COA rows
+NOT_MERIT_PAGE = re.compile(r'sample[- ]aid[- ]packages?|aid[- ]package[- ]examples?|retention|renewal|keep(?:ing)?[- ]your[- ]scholarship|academic[- ]standards|probation|satisfactory[- ]academic[- ]progress|financial[- ]aid[- ]staff|'
                             r'\bstaff\b|directory|meet[- ]the[- ]team|our[- ]team|'
                             # GA r1: lists of other organizations' awards (Agnes Scott outside scholarships, Georgia Southern
                             # military scholarships, West Georgia Tech foundation awards) and international-office waivers (UWG ISAP).
@@ -86,6 +86,7 @@ def _num(cell, lo, hi, decimals=False):
 def _amounts(cell):
     # "$11,000 ($44,000 over 4 years)" (Chowan): the multi-year figure is not the annual range
     cell = re.sub(r'\([^)]*(?:over|total|years?|4-year|four)[^)]*\)', '', cell or '', flags=re.I)
+    cell = re.sub(r'\([^)]*\bper\s+(?:semester|term|trimester|quarter)\b[^)]*\)', '', cell, flags=re.I)  # KS (Dodge City): "$2,000 per year ($1,000 per semester)"
     vals = T.money_values(cell or '')
     # MO (Columbia College): "$1,000-2,000" prints the dollar sign once for the whole range
     for a, b in re.findall(r'\$\s*([\d,]{3,})\s*[-–]\s*([\d,]{3,})(?![\d,])', cell or ''):
@@ -136,7 +137,7 @@ def _list_awards(t, header, body, title, award_type):
         if not (amt or g or a or s or tst or crit): continue
         lo, hi = _amounts(amt)
         if re.search(r'tuition[^$]*(\+|\bplus\b|\band\b)\s*\$', amt, re.I) or \
-           MULTI_YEAR.search(re.sub(r'\([^)]*\)', '', amt)) or MULTI_X.search(amt) or re.search(r'\bfull\s+tuition\b|\bper\s+credit\b', amt, re.I):  # MO (Logan): "$400 per credit hour" is not an annual award
+           MULTI_YEAR.search(re.sub(r'\([^)]*\)', '', amt)) or MULTI_X.search(amt) or re.search(r'\bfull\s+tuition\b|\bper\s+credit\b|\btotal\s+value\b', amt, re.I):  # KS (K-State Salina): "Total Value: $100,000"  # MO (Logan): "$400 per credit hour" is not an annual award
             # AR (UAPB) "$66,000 for four years"; OK (OU) "$16,000 ($4,000 x 4 years)", (USAO) "total estimated value 8 fall/spring
             # terms", (SWOSU) "$5000 cash per year, full tuition": the printed figure is not the annual award
             lo, hi = None, None  # LSUS: "Tuition & Fees + $1,200 Campus Housing Credit" is not a $1,200 award
