@@ -1,0 +1,157 @@
+{
+ "state": "LA",
+ "academic_year": "2026-27",
+ "institutions": 45,
+ "status_order": [
+  "verified_current",
+  "partially_verified_current",
+  "candidate_ready",
+  "candidate_exception",
+  "source_found",
+  "not_found",
+  "fetch_failed"
+ ],
+ "by_category": {
+  "admissions_tests": {
+   "candidate_ready": 1,
+   "fetch_failed": 12,
+   "not_found": 3,
+   "source_found": 29
+  },
+  "aid_appeals": {
+   "candidate_exception": 19,
+   "fetch_failed": 12,
+   "not_found": 10,
+   "source_found": 4
+  },
+  "ap_credit": {
+   "candidate_exception": 2,
+   "candidate_ready": 3,
+   "fetch_failed": 12,
+   "not_found": 21,
+   "source_found": 7
+  },
+  "clep_credit": {
+   "candidate_exception": 3,
+   "candidate_ready": 3,
+   "fetch_failed": 12,
+   "not_found": 21,
+   "source_found": 6
+  },
+  "common_data_set": {
+   "candidate_ready": 1,
+   "fetch_failed": 12,
+   "not_found": 26,
+   "source_found": 6
+  },
+  "cost_of_attendance": {
+   "candidate_exception": 6,
+   "candidate_ready": 2,
+   "fetch_failed": 12,
+   "not_found": 3,
+   "source_found": 22
+  },
+  "degree_requirements": {
+   "fetch_failed": 12,
+   "not_found": 11,
+   "source_found": 22
+  },
+  "dual_enrollment": {
+   "candidate_exception": 3,
+   "candidate_ready": 9,
+   "fetch_failed": 12,
+   "not_found": 6,
+   "source_found": 15
+  },
+  "ib_credit": {
+   "candidate_exception": 3,
+   "candidate_ready": 1,
+   "fetch_failed": 12,
+   "not_found": 26,
+   "source_found": 3
+  },
+  "merit_scholarships": {
+   "candidate_ready": 5,
+   "fetch_failed": 12,
+   "not_found": 2,
+   "source_found": 26
+  },
+  "residency": {
+   "fetch_failed": 12,
+   "not_found": 22,
+   "source_found": 11
+  },
+  "statewide_articulation": {
+   "fetch_failed": 12,
+   "not_found": 27,
+   "source_found": 6
+  },
+  "transfer_credit": {
+   "candidate_ready": 1,
+   "fetch_failed": 12,
+   "not_found": 2,
+   "source_found": 30
+  },
+  "tuition_fees": {
+   "candidate_exception": 11,
+   "candidate_ready": 2,
+   "fetch_failed": 12,
+   "source_found": 20
+  }
+ },
+ "totals": {
+  "candidate_exception": 47,
+  "candidate_ready": 28,
+  "fetch_failed": 168,
+  "not_found": 180,
+  "source_found": 207
+ },
+ "statewide_sources": {
+  "categories": {
+   "admissions_tests": 29,
+   "aid_appeals": 0,
+   "ap_credit": 0,
+   "clep_credit": 0,
+   "common_data_set": 0,
+   "cost_of_attendance": 1,
+   "degree_requirements": 0,
+   "dual_enrollment": 0,
+   "ib_credit": 0,
+   "merit_scholarships": 27,
+   "residency": 5,
+   "statewide_articulation": 0,
+   "transfer_credit": 5,
+   "tuition_fees": 13
+  },
+  "fetch_failures": 0,
+  "pages_fetched": 55
+ },
+ "blocked_institutions": [
+  "ipeds-158431",
+  "ipeds-159009",
+  "ipeds-159939",
+  "ipeds-160579",
+  "ipeds-160621",
+  "ipeds-160630",
+  "ipeds-160649",
+  "ipeds-160667",
+  "ipeds-434061",
+  "ipeds-440271",
+  "ipeds-483212",
+  "ipeds-490498"
+ ],
+ "quality": {
+  "ambiguous_years": 9,
+  "blocked_requests": 90,
+  "candidates": 147,
+  "conflicts": 46,
+  "documents": 1925,
+  "extraction_failures": 0,
+  "fetch_errors": 315,
+  "fetches": 2330,
+  "ready": 49,
+  "semantic_review": 56,
+  "stale_sources": 21
+ },
+ "run": "pipeline/runs/LA/2026-10-03"
+}

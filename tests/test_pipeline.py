@@ -335,6 +335,53 @@ last 30 hours in residence at the university.</p>"""
         got = {c['record']['residency']: c['record']['components'] for c in costs.extract({**INST, 'state': 'AL'}, ENTRY, dup, '2026-27')}
         self.assertEqual((got['in_state']['Subtotal'], got['in_state']['Subtotal (2)']), (17118, 4320))
 
+    def test_la_r1_rules(self):
+        """LA r1: UL Lafayette 'Offer' column and one-time awards; LSUS tuition-plus amounts; scoped transfer rules
+        (Delgado, LSU, River Parishes, LSUA, NOBTS); Louisiana Tech merged tiers; AP scores under a CLEP heading;
+        Xavier IB levels; Xavier summer fee schedule."""
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Freshman Scholarships</title><h2>Supplemental Scholarships</h2><table><tr><th>Scholarship</th><th>Eligibility Requirements</th><th>Offer</th></tr>'
+            '<tr><td>Valedictorian Scholarship</td><td>High School Valedictorian</td><td>$2,000 for freshman yearContact the office</td></tr>'
+            '<tr><td>Louisiana Scholarship</td><td>3.5 GPA</td><td>Tuition &amp; Fees + $1,200 Campus Housing Credit</td></tr>'
+            '<tr><td>Purple Scholarship</td><td>2.5 GPA</td><td>$2,000</td></tr></table>'), '2026-27')}
+        v = got['Valedictorian Scholarship']
+        self.assertEqual((v['award_max'], v['renewable']), (2000, False))
+        self.assertNotIn('award_max', got['Louisiana Scholarship'])
+        self.assertEqual((got['Purple Scholarship']['award_max'], got['Purple Scholarship'].get('renewable')), (2000, None))
+        base = '<title>Transfer Credit</title><p>Courses completed with a grade of C or better transfer to the university.</p>'
+        for scoped in ('Transfer equivalencies in developmental courses are used for placement if a grade of "C" or better is earned.',
+                       'Transfer applicants to the College of Science need a grade of C or better in all math and science courses.',
+                       'To qualify for block transfer guarantees, you must earn a grade of "D" or better in each course.'):
+            [c] = transfer.extract(INST, ENTRY, T.parse_html(base.replace('C or better', 'D or better') + f'<p>{scoped}</p>'), '2026-27')
+            self.assertEqual(c['record'].get('min_grade'), 'D', scoped)
+        # Ringling's heading "Transfer Credits and Placement" and UNCP's "not guaranteed the same benefits" keep the general rule.
+        for general in ('Transfer Credits and Placement Ringling College will consider for transfer any credit where a grade of C or better was earned.',
+                        'Students are not guaranteed the same benefits; however, they shall receive transfer credit for courses completed with a grade of "C" or better.'):
+            [c] = transfer.extract(INST, ENTRY, T.parse_html(f'<title>Transfer Credit</title><p>{general}</p>'), '2026-27')
+            self.assertEqual(c['record'].get('min_grade'), 'C', general)
+        for capped in ('A maximum of 15 hours of lower-level transfer credit evaluated as upper-level credit may be used toward the degree.',
+                       'Up to 18 semester hours from institutions not accredited by CHEA may be transferred.'):
+            [c] = transfer.extract(INST, ENTRY, T.parse_html(base + f'<p>{capped}</p>'), '2026-27')
+            self.assertNotIn('max_transfer_credits', c['record'], capped)
+        rows = [['AP Exam', 'Score', 'Course', 'Hours'], ['Biology', '3 or 4 5', 'Bio Science 101 Bio Science 101, 102', '3 6'],
+                ['Chemistry', '4, 5', 'CHEM 1070', '3'], ['Calculus AB', '4 or 5', 'MATH 240', '3']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'Advanced Placement', [{'rows': rows, 'heading': 'Advanced Placement', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        self.assertIn('merged_score_cells', c['issues'])
+        ok = [rows[0], rows[2], rows[3], ['Psychology', '3', 'PSYC 101', '3']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'Advanced Placement', [{'rows': ok, 'heading': 'Advanced Placement', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        self.assertEqual(c['issues'], [])
+        clep = [['CLEP Exam', 'Score', 'Course', 'Hours'], ['Biology', '3', 'BIOL 1100', '4'], ['Chemistry', '3', 'CHEM 1100', '4'], ['College Algebra', '3', 'MATH 1100', '3']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'CLEP', [{'rows': clep, 'heading': 'CLEP Credit', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        self.assertIn('score_scale_mismatch', c['issues'])
+        ib = [['IB Exam', 'Score', 'Course', 'Hours'], ['Biology, Standard Level', '6', 'BIOL 1030', '6'], ['Biology, Higher Level', '6', 'BIOL 1230', '8'],
+              ['Chemistry, Higher Level', '5', 'CHEM 1010', '4']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'IB', [{'rows': ib, 'heading': 'International Baccalaureate', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        self.assertEqual(sorted(e['minimum_score'] for e in c['record']['equivalencies']), ['HL 5', 'HL 6', 'SL 6'])
+        fees = T.Page('', 'Tuition and Fees', [{'heading': 'Tuition', 'caption': '', 'lead': '', 'rows': [
+            ['', 'In-State', 'Out-of-State'], ['Tuition', '$4,000', '$9,000'], ['Fees', '$500', '$500'], ['Total', '$4,500', '$9,500']]}], [], [])
+        self.assertTrue(costs.extract({**INST, 'state': 'LA'}, ENTRY, fees, '2026-27'))
+        self.assertEqual(costs.extract({**INST, 'state': 'LA'}, {**ENTRY, 'url': 'https://x.edu/forms-2026-2027/summer-2026-tuition-fees.pdf'}, fees, '2026-27'), [])
+
     def test_ms_r1_merit_and_costs(self):
         """MS r1: Tougaloo phone numbers and non-score criteria in the ACT column; USM GPA-band headers over ACT rows;
         Ole Miss 'No Test Score' grid column; Sumners amounts by enrollment level; Alcorn 'On/Off Campus' budgets."""

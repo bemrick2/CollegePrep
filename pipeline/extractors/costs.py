@@ -352,6 +352,9 @@ def _pdf_tables(page):
 
 def extract(inst, entry, page, today_year):
     if common.professional_source(entry, page) or common.international_source(entry, page): return []
+    # LA r1 (Xavier "summer-2026-tuition-fees.pdf"), MS r1 (USM "cost-attendance-summer"): a summer schedule is not the academic year.
+    if re.search(r'summer', entry.get('url', '') + ' ' + page.title, re.I) and not re.search(r'fall|academic\s+year|annual', page.title, re.I):
+        return []
     page_year, page_basis, page_issues = common.resolve_year(page, entry, today_year)
     page_issues = [i for i in page_issues if not i.startswith('stale_year_label')]  # judged per table below
     if page_basis == 'ambiguous_year_labels': page_year = None; page_basis = 'source_unlabeled'; page_issues = []

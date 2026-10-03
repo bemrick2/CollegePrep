@@ -86,6 +86,15 @@ MUTS = [
     ('pipeline/extractors/merit.py', "f'{name} {v}' if v and SCORE.search(v) and not re.search(r'\\b(act|sat)\\b', v, re.I) else v", "f'{name} {v}' if v else v"),
     ('pipeline/extractors/merit.py', '|\\bno\\s+test|test[\\s-]*optional|without\\s+(a\\s+)?test', ''),
     ('pipeline/extractors/costs.py', "(None if re.search(r'on\\s*(/|and|&|or)\\s*off[- ]campus|on[- ]\\s*(and|&|or)\\s*off[- ]campus', h) else", '(None if False else'),
+    ('pipeline/extractors/merit.py', "('amount', 'value', '$', 'award detail', 'offer')", "('amount', 'value', '$', 'award detail')"),
+    ('pipeline/extractors/merit.py', 'lo, hi = None, None  # LSUS', 'pass  # LSUS'),
+    ('pipeline/extractors/merit.py', "rec['renewable'] = False  # UL Lafayette", 'pass  # UL Lafayette'),
+    ('pipeline/extractors/transfer.py', "r'developmental|(?:for|exempt\\s+the)\\s+placement|placement\\s+(?:assessment|test|exam)|math(?:ematics)?\\s+and\\s+science|block\\s+transfer', re.I)", "r'^$', re.I)"),
+    ('pipeline/extractors/transfer.py', "[] if re.search(r'upper[- ](?:level|division)|not\\s+accredited|unaccredited', s, re.I) else MAX_HOURS.finditer(s)", 'MAX_HOURS.finditer(s)'),
+    ('pipeline/extractors/credit.py', "            issues = issues + ['merged_score_cells']\n", '            pass\n'),
+    ('pipeline/extractors/credit.py', "issues = issues + ['score_scale_mismatch']", 'pass'),
+    ('pipeline/extractors/credit.py', "            score = f'{level} {score}'", '            pass'),
+    ('pipeline/extractors/costs.py', '        return []\n    page_year, page_basis, page_issues', '        pass\n    page_year, page_basis, page_issues'),
 ]
 failed = False
 for f, old, new in MUTS:
