@@ -248,6 +248,54 @@ last 30 hours in residence at the university.</p>"""
         self.assertIn('conflicting_values:min_grade', c['issues'])
 
 
+    def test_tn_r5_review_regressions(self):
+        """Defects found reviewing Tennessee run 2026-10-02-r5."""
+        # MTSU / Walters State: course numbers are not academic-year labels.
+        self.assertEqual(T.year_labels('Physics 1 | 4 or above | PHYS 2010/2011* | 4; BIOL 2010-2011'), {})
+        self.assertEqual(T.year_labels('Catalog 2026-2027; FY 2026-27'), {'2026-27': 2})
+        # APSU Bibb scholarship: a two-decimal college GPA is kept whole.
+        [c] = self._de('<p>Students must maintain a cumulative college GPA of 2.75 to be eligible for the award in future semesters.</p>')
+        self.assertEqual(c['record']['dual_enrollment']['college_gpa_to_continue'], 2.75)
+        # Welch / Nashville State / Columbia State: course-GPA, waiver and placement lines are not HS eligibility.
+        got = self._de('<p>A 2.0 GPA for all postsecondary courses attempted under the Dual Enrollment Grant is required.</p>'
+                       '<p>Students with a GPA of 3.60 or higher will be able to have prerequisites waived.</p>'
+                       '<p>If a student has not taken the ACT or does not have a 3.6 cumulative GPA, they can schedule a placement exam.</p>'
+                       '<p>Juniors and seniors need a minimum GPA of 3.0.</p>')
+        self.assertEqual([t['min_hs_gpa'] for t in got[0]['record']['dual_enrollment']['eligibility_tiers']], [3.0])
+        # Grant payments per credit hour are not prices.
+        [c] = self._de('<p>For courses 6-10, the Dual Enrollment Grant provides $100 per credit hour. Tuition is $197 per credit hour.</p>')
+        self.assertEqual([(x['amount'], x['kind']) for x in c['record']['dual_enrollment']['per_credit_hour_charges']], [(100, 'state_grant'), (197, 'tuition')])
+        # Rhodes / TN Tech: pass/fail-only and module-scoped grade rules are not the general minimum grade.
+        html = ('<title>College Credit Transfer Policies</title><p>Transfer courses taken on a Pass/Fail basis must be passed with a grade '
+                'of C or better. Courses to be transferred under the University Track Module must have been completed with the grade of "C" or better.</p>')
+        self.assertEqual(transfer.extract(INST, ENTRY, T.parse_html(html), '2026-27'), [])
+        # Maryville / ETSU / APSU / Nashville State: merged cells, placeholders, retention tables and "up to" amounts.
+        html = """<title>Scholarships &amp; Awards for First-Year Students</title><h2>Academic Scholarship Information</h2><table>
+<tr><th>Scholarship</th><th>Amount</th><th>GPA</th></tr>
+<tr><td>Covenant Stone Scholarship3.5+ GPA.</td><td>Up to $22,000 per year on-campus. Up to $16,000 per year off-campus.</td><td></td></tr>
+<tr><td>Theatre ScholarshipOpen to all actors and/or theatre technicians.</td><td>$500 to $5,000 per year</td><td></td></tr>
+<tr><td>Creative Arts Scholarship</td><td>Provides In-State Tuition Rate</td><td>See Requirements</td></tr></table>"""
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(html), '2026-27')}
+        self.assertEqual(got['Covenant Stone Scholarship']['gpa_requirement'], '3.5+ GPA.')
+        self.assertEqual(got['Covenant Stone Scholarship']['award_max'], 22000)
+        self.assertNotIn('award_min', got['Covenant Stone Scholarship'])  # "up to" prints only a maximum
+        self.assertEqual((got['Theatre Scholarship']['award_min'], got['Theatre Scholarship']['award_max']), (500, 5000))
+        self.assertNotIn('gpa_requirement', got['Creative Arts Scholarship'])  # "See Requirements" is not a requirement
+        retention = html.replace('First-Year Students', 'Academic Scholarship Retention Information')
+        self.assertEqual(merit.extract(INST, ENTRY, T.parse_html(retention), '2026-27'), [])
+        # Tier rows take the scholarship name from the page title, not the "Award Amounts" table heading.
+        tiers = """<title>Orange White Scholarship - One Stop Student Services</title><h3>Award Amounts</h3><table>
+<tr><th>Criteria</th><th>Annual Award</th><th>Four-year</th></tr>
+<tr><td>3.6+ GPA*,26-27 ACT**</td><td>$1,500</td><td>$6,000</td></tr><tr><td>3.6-3.79 GPA*,28-36 ACT**</td><td>$1,500</td><td>$6,000</td></tr></table>"""
+        names = sorted(c['record']['award_name'] for c in merit.extract(INST, ENTRY, T.parse_html(tiers), '2026-27'))
+        self.assertTrue(all(n.startswith('Orange White Scholarship: ') for n in names), names)
+        # JSCC / MTSU IB: hours read as the course column, and merged hour cells, are exceptions.
+        rows = [['CLEP Exam', 'Score', 'Course', 'Credit'], ['American Government', '50', '3', 'POLS 1030'],
+                ['Biology', '50', '8', 'BIOL 1110'], ['Calculus', '50', '4', 'MATH 1910']]
+        page_ = T.Page('', 'CLEP Credit', [{'rows': rows, 'heading': 'CLEP', 'caption': '', 'lead': ''}], [], [])
+        [c] = credit.extract(INST, ENTRY, page_, '2026-27')
+        self.assertIn('course_column_numeric', c['issues'])
+
     def _de(self, body, url='https://www.example.edu/admissions/dual-enrollment/', title='Dual Enrollment'):
         return dual.extract(INST, {**ENTRY, 'url': url}, T.parse_html('<title>%s</title>%s' % (title, body)), '2026-27')
 
@@ -648,6 +696,23 @@ class CrawlTests(unittest.TestCase):
         self.assertEqual(topics.link_score('https://catalog.x.edu/preview_program.php?catoid=5&poid=9', 'Accounting, MBA'), -1)
         self.assertEqual(topics.link_score('https://catalog.x.edu/preview_program.php?catoid=5&poid=9', 'Accounting, B.S.'), 30)
         self.assertTrue(topics.is_program_page('https://catalog.x.edu/preview_program.php?catoid=5&poid=9'))
+
+    def test_clean_catalog_program_links_and_index(self):
+        self.assertTrue(topics.is_program_page('https://undergrad.catalog.tntech.edu/programs/computer-science-bs'))
+        self.assertFalse(topics.is_program_page('https://grad.catalog.tntech.edu/programs/mba'))
+        self.assertFalse(topics.is_program_page('https://undergrad.catalog.tntech.edu/programs'))
+        self.assertEqual(topics.link_score('https://undergrad.catalog.tntech.edu/programs?page=2', 'Next'), 25)
+        self.assertEqual(topics.link_score('https://catalog.rhodes.edu/programs-study', 'Programs of Study'), 25)
+
+    def test_repeated_challenges_stop_a_host(self):
+        from pipeline.crawl import HostGate
+        g = HostGate(0.0)
+        for _ in range(HostGate.CHALLENGE_STOP - 1): g.backoff('catalog.example.edu')
+        self.assertFalse(g.stopped('catalog.example.edu'))
+        g.answered('catalog.example.edu')  # an answered request resets the streak
+        for _ in range(HostGate.CHALLENGE_STOP): g.backoff('catalog.example.edu')
+        self.assertTrue(g.stopped('catalog.example.edu'))
+        self.assertFalse(g.stopped('www.example.edu'))
 
     def test_courseleaf_program_links(self):
         self.assertTrue(topics.is_program_page('https://catalog.wku.edu/undergraduate/ogden/biology/biology-bs/'))

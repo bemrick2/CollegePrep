@@ -167,6 +167,9 @@ def parse_pdf(raw: bytes) -> Page | None:
 YEAR_RE = re.compile(r'(?<![\d$])(20\d{2})\s*(?:-|–|—|/|to|through)\s*(20)?(\d{2})(?!\d)')
 
 
+COURSE_BEFORE = re.compile(r'\b(?!FY\b|AY\b)[A-Z]{2,5}\s?$')
+
+
 FALL_SPRING_RE = re.compile(r'fall\s+(20\d{2})\s*(?:-|–|—|/|to|through|and|&)\s*spring\s+(20\d{2})', re.I)
 
 
@@ -179,6 +182,8 @@ def year_labels(text: str):
     Returns {label: count}; only consecutive years count as academic-year labels."""
     found = {}
     for m in YEAR_RE.finditer(text or ''):
+        if COURSE_BEFORE.search((text or '')[max(0, m.start() - 8):m.start()]):
+            continue  # "PHYS 2010/2011" and "HIST 2010-2020" are course numbers, not academic years
         first = int(m.group(1)); second = int((m.group(2) or str(first)[:2]) + m.group(3))
         if second == first + 1:
             label = academic_year(first); found[label] = found.get(label, 0) + 1

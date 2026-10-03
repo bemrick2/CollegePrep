@@ -5,7 +5,8 @@ Structured fields (each from a cited line; nothing inferred):
   min_hs_gpa / alt_min_act / alt_min_sat / max_credit_hours_per_term
                      filled only when every tier on the page agrees (otherwise left out and the
                      tiers carry the detail)
-  per_credit_hour_charges  [{amount, kind: tuition|fee|other, line}] every per-credit-hour amount as printed
+  per_credit_hour_charges  [{amount, kind: tuition|fee|state_grant|other, line}] every per-credit-hour amount as printed
+                     (state_grant: an amount the state grant pays, not a price)
                      (often a post-grant price); tuition_per_credit_hour only when the line says tuition
   state_grant_accepted  True only from an explicit positive statement about the state dual-enrollment
                      grant; False only from an explicit negative one; omitted otherwise
@@ -31,10 +32,16 @@ GRANT = re.compile(r'dual\s+(?:enrollment|credit)\s+(?:grant|scholarship)|\bDEG\
 TOPIC = re.compile(r'dual[\s_-]*(?:enroll|credit)|concurrent[\s_-]+enrollment|early[\s_-]+college|accelerated[\s_-]+learning', re.I)
 GRANT_NO = re.compile(r'(does\s+not|doesn.t|do\s+not|may\s+not|cannot|can.t|not)\s+(be\s+)?(apply|eligible|accept|available|qualify|use|used)|no\s+discounts', re.I)
 GRANT_YES = re.compile(r'\b(apply|applies|eligible|accept|accepted|covers|use|may\s+be\s+used|can\s+be\s+used)\b', re.I)
-CONTINUE = re.compile(r'maintain\s+(?:a\s+)?(?:cumulative\s+)?(?:college\s+)?(?:gpa\s+of\s+)?(\d\.\d)\s*(?:cumulative\s+)?(?:college\s+)?(?:gpa)?', re.I)
+CONTINUE = re.compile(r'maintain\s+(?:a\s+)?(?:cumulative\s+)?(?:college\s+)?(?:gpa\s+of\s+)?(\d\.\d{1,2})\s*(?:cumulative\s+)?(?:college\s+)?(?:gpa)?', re.I)
 # A requirement for one kind of course (KCTCS: "Technical Education Dual Credit Courses ... 2.0 GPA") is
 # not the page's general minimum.
 SCOPED = re.compile(r'career[- ]and[- ]technical|\btechnical\b|\bCTE\b|\bvocational\b', re.I)
+# GPA lines that are not the high-school admission minimum: college/dual-enrollment course GPAs, prerequisite
+# waivers, placement-test alternatives, single-course prerequisites and special-population programs (TN r5:
+# Welch, Nashville State, Columbia State, Freed-Hardeman).
+NOT_ELIGIBILITY = re.compile(r'postsecondary\s+courses|courses?\s+attempted|hours\s+of\s+\w+\s+dual\s+enrollment|dual\s+enrollment\s+(?:courses|hours)|'
+                             r'waiv|placement|\bIEP\b|gifted|algebra|in\s+the\s+(?:two|three)\s+high\s+school', re.I)
+GRANT_PAYS = re.compile(r'(?:grant|DEG)\b.{0,80}\b(?:provides?|pays?|covers?|awarded|will\s+receive|receive)\b|\b(?:awarded|receive)\b.{0,40}(?:grant|DEG)\b', re.I)
 OFF_TOPIC = re.compile(r'hepatitis|title\s+ix|misconduct|privacy\s+act|immuniz|vaccin', re.I)
 
 
@@ -70,6 +77,7 @@ def extract(inst, entry, page, today_year):
         if gpa_m and re.search(r'college|maintain|continu|probation|remain', line, re.I) and not re.search(r'high\s+school', line, re.I):
             gpa_m = None  # a college GPA to keep eligibility, handled below
         if gpa_m and glossary: gpa_m = None
+        if gpa_m and NOT_ELIGIBILITY.search(line): gpa_m = None
         if gpa_m:
             gpa = float(_num(gpa_m))
             rng = re.search(r'(\d\.\d{1,2})\s*(?:to|-|–)\s*' + re.escape(_num(gpa_m)) + r'(?!\d)', line)
@@ -94,7 +102,8 @@ def extract(inst, entry, page, today_year):
         for m in ([] if question else PER_HOUR.finditer(line)):  # FAQ questions quote prices they ask about
             v = int(m.group(1)) + (int(m.group(2)) / 100 if m.group(2) and m.group(2) != '00' else 0)
             near = line[max(0, m.start() - 40):m.end() + 30]
-            kind = 'fee' if re.search(r'\bfee', near, re.I) else 'tuition' if re.search(r'tuition', near, re.I) else 'other'
+            kind = ('state_grant' if GRANT_PAYS.search(line) and re.search(r'grant|DEG', near, re.I) else
+                    'fee' if re.search(r'\bfee', near, re.I) else 'tuition' if re.search(r'tuition', near, re.I) else 'other')
             item = {'amount': v, 'kind': kind, 'line': line[:300]}
             if item not in charges: charges.append(item)
             evidence.append({'field': 'per_credit_hour_charge', 'value': v, 'snippet': line[:300]})
