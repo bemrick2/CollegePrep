@@ -9,6 +9,7 @@ about automatic consideration, renewal or stacking is inferred.
 """
 from __future__ import annotations
 import re
+from urllib.parse import urlsplit
 
 from .. import text as T
 from . import common
@@ -26,6 +27,10 @@ NOT_AWARD_NAME = re.compile(r'\bpell\b|supplemental\s+educational\s+opportunity|
                             r'^\W*(books?|supplies|transportation|personal\s+expenses?|loan\s+fees?|room|board|food)\b', re.I)  # OR: COA rows
 NOT_MERIT_PAGE = re.compile(r'retention|renewal|keep(?:ing)?[- ]your[- ]scholarship|academic[- ]standards|probation|satisfactory[- ]academic[- ]progress|financial[- ]aid[- ]staff|'
                             r'\bstaff\b|directory|meet[- ]the[- ]team|our[- ]team', re.I)
+# "military" alone would also match a school's name (AL: Marion Military Institute); military award lists say more.
+NOT_INSTITUTIONAL_PAGE = re.compile(r'(?:outside|external|private|third[- ]party|other)[- ]scholarships?|scholarship[- ](?:search|resources|opportunities[- ]from)|'
+                                    r'military[- ](?:scholarships?|and[- ]veterans?|tuition|benefits|affiliated)|veterans?[- ](?:scholarships?|benefits|services)', re.I)
+NO_AWARD = re.compile(r'not\s+eligible|no\s+(?:automatic\s+)?(?:award|scholarship|merit)|ineligible', re.I)
 HEADER_WORDS = re.compile(r'scholarship|award|merit|name|level|tier|amount|value|gpa|act\b|sat\b|criteria|requirement', re.I)
 THRESHOLD_CELL = re.compile(r'^\s*[<>≤≥]?\s*\d{1,4}(\.\d{1,2})?\s*(\+|-\s*\d{1,4}(\.\d{1,2})?|or\s+(higher|above))?\s*$', re.I)
 
@@ -108,6 +113,7 @@ def _list_awards(t, header, body, title, award_type):
         if threshold_label and not re.search(r'\d', nm): continue  # "OR" between tier rows
         if not threshold_label and (NOT_NAME.search(nm) or NOT_AWARD_NAME.search(nm)): continue
         if nm.endswith(':') or len(nm.split()) > 12: continue  # worked examples and sentences, not award names
+        if amount is not None and NO_AWARD.search(cells[amount]): continue  # "Below 3.50 | Not eligible for automatic merit aid" (GA r1)
         get = lambda i: cells[i].strip() if i is not None and i < len(cells) else ''
         amt, g, a, s, tst, crit, ren = (x if not PLACEHOLDER.match(x) else '' for x in (get(amount), get(gpa), get(act), get(sat), get(test), get(criteria), get(renewal)))
         nm, merged_gpa = _split_name(nm)
@@ -183,6 +189,8 @@ def extract(inst, entry, page, today_year):
     if not SCHOLARSHIP_CONTEXT.search(page.title + ' ' + ' '.join(page.headings[:6]) + ' ' + entry.get('url', '')):
         return []
     if NOT_MERIT_PAGE.search(page.title + ' ' + entry.get('url', '')): return []
+    if NOT_INSTITUTIONAL_PAGE.search(page.title + ' ' + urlsplit(entry.get('url', '')).path):
+        return []  # third-party award lists (GA r1: Agnes Scott outside scholarships, Georgia Southern military scholarships)
     if re.search(r'transfer', entry.get('url', '') + ' ' + page.title, re.I):
         return []  # first-year merit only; transfer awards are a separate category
     year, basis, issues = common.resolve_year(page, entry, today_year)
@@ -191,6 +199,10 @@ def extract(inst, entry, page, today_year):
         rows = [r for r in t['rows'] if any(c.strip() for c in r)]
         if len(rows) < 3: continue
         context = ' '.join([t.get('heading') or '', t.get('caption') or ''])
+        # The short line above a table can carry its year (GA r1, Georgia Southern: "Fall 2027 Award Tiers"). It is used
+        # for the year only: leads are also link text (TN: ETSU "Learn More About ...") and footnotes (AL: Auburn).
+        lead = t.get('lead') or ''
+        year_context = context + ' ' + (lead if len(lead) <= 80 else '')
         if NOT_MERIT.search(context): continue
         header, body = rows[0], rows[1:]
         if any(T.money_values(c) for c in header[1:]):  # no header row (AL: UWA): infer columns from the cells
@@ -213,9 +225,9 @@ def extract(inst, entry, page, today_year):
         label = context.strip() if re.search(r'scholarship|award|grant|fellowship', named, re.I) else (_page_award_name(page) or context.strip() or page.title)
         found = shaped or _list_awards(t, header, body, label.strip()[:80], award_type)
         if not found or (not shaped and len(found) < 2): continue  # one stray row is not a scholarship table
-        t_year = T.year_labels(context)
+        t_year = T.year_labels(year_context)
         rec_year, rec_basis, rec_issues = (year, basis, issues)
-        cls = ENTERING_CLASS.search(context) if not t_year and basis == 'source_unlabeled' else None
+        cls = ENTERING_CLASS.search(year_context) if not t_year and basis == 'source_unlabeled' else None
         if cls:
             first = int(cls.group(1) or cls.group(2))
             rec_year, rec_basis = T.academic_year(first), 'labeled_entering_class'  # the class entering that fall

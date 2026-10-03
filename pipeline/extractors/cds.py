@@ -101,6 +101,8 @@ def extract(inst, entry, page, today_year):
             break
     if len(evidence) == 0: return []
     if not all(f in record for f in TOTALS): issues.append('c1_totals_incomplete')
+    if any(record.get(f) == 0 for f in TOTALS):
+        issues.append('c1_zero_total')  # GA r1: Covenant prints 0 applied/admitted beside 324 enrolled
     if record.get('admits') and record.get('applications') and record['admits'] > record['applications']:
         issues.append('admits_exceed_applications')
     if year < today_year and first < int(today_year[:4]) - 1:

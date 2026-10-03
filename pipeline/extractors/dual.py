@@ -41,6 +41,10 @@ SCOPED = re.compile(r'career[- ]and[- ]technical|\btechnical\b|\bCTE\b|\bvocatio
 # Welch, Nashville State, Columbia State, Freed-Hardeman).
 NOT_ELIGIBILITY = re.compile(r'postsecondary\s+courses|courses?\s+attempted|hours\s+of\s+\w+\s+dual\s+enrollment|dual\s+enrollment\s+(?:courses|hours)|'
                              r'waiv|placement|\bIEP\b|gifted|algebra|in\s+the\s+(?:two|three)\s+high\s+school', re.I)
+# GA r1: "GMC earns a 4.0 GPA" (testimonial), "makes an A. He/she will have a 4.0 GPA" (worked example), "recommended to
+# have at least a 3.00 GPA" (advice), "institutional GPA of 2.0" / Satisfactory Academic Progress (college standing).
+NOT_A_RULE = re.compile(r'\bearns\b|(?<!have\s)(?<!has\s)\bearned\b|will\s+have\s+a|makes\s+an?\s+[A-F]\b|recommended|institutional\s+(?:grade\s+point\s+average|gpa)|'
+                        r'satisfactory\s+academic\s+progress|good\s+academic\s+standing|\bSAP\b', re.I)
 GRANT_PAYS = re.compile(r'(?:grant|DEG)\b.{0,80}\b(?:provides?|pays?|covers?|awarded|will\s+receive|receive)\b|\b(?:awarded|receive)\b.{0,40}(?:grant|DEG)\b', re.I)
 OFF_TOPIC = re.compile(r'hepatitis|title\s+ix|misconduct|privacy\s+act|immuniz|vaccin', re.I)
 
@@ -92,6 +96,7 @@ def extract(inst, entry, page, today_year):
             gpa_m = None  # a college GPA to keep eligibility, handled below
         if gpa_m and glossary: gpa_m = None
         if gpa_m and NOT_ELIGIBILITY.search(line): gpa_m = None
+        if gpa_m and NOT_A_RULE.search(line): gpa_m = None  # testimonials, worked examples, advice (GA r1)
         if gpa_m:
             gpa = float(_num(gpa_m))
             rng = re.search(r'(\d\.\d{1,2})\s*(?:to|-|–)\s*' + re.escape(_num(gpa_m)) + r'(?!\d)', line)

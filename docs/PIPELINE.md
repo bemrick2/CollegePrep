@@ -30,8 +30,12 @@ every run re-checks them.
   When several schools in a state share a domain (KCTCS: `henderson.kctcs.edu`, `jefferson.kctcs.edu`, …)
   each is limited to its own seed hosts; a host used by several schools' seeds (the system site) is
   matched exactly and its pages carry `shared_site_attribution_review`.
-- Catalog program pages (Acalog `preview_program.php`, Courseleaf `catalog.*/undergraduate/<college>/<dept>/<program>/`)
-  have their own page budget; Courseleaf `/graduate/` paths are skipped.
+- Catalog program pages (Acalog `preview_program.php`, Courseleaf `catalog.*/undergraduate/<college>/<dept>/<program>/`,
+  Clean Catalog `/programs/<hyphenated-slug>`) have their own page budget; Courseleaf `/graduate/` paths are skipped.
+  On any catalog host, a link whose text names an undergraduate degree ("Accounting, BBA", "Bachelor's Degree
+  Programs") ranks as a program link whatever its URL shape (GA: Dalton State, Georgia Tech). Coursedog catalogs
+  (GA: ABAC, Coastal Georgia, Point) build their program lists with JavaScript; their PDF catalog and program maps
+  are the reachable official sources.
 - Spends a page budget (default 45) on links ranked by research topic (`pipeline/topics.py`).
   Depth limit 3, except a strong document link (PDF/XLSX scoring ≥ 25, e.g. a current-year AP/IB
   equivalency PDF) may be fetched one level deeper. Single-course catalog pages (`catalog.*/<subj>/<num>`,
@@ -78,7 +82,15 @@ A candidate with any issue is an exception, never promoted silently: `conflictin
 `stale_year_label:*`, `residency_unknown`, `column_alignment_uncertain`, `components_do_not_reconcile`,
 `cost_period_semester`, `c1_totals_incomplete`, `*_implausible`, `rows_without_score`, `extractor_error:*`,
 `shared_site_attribution_review`, `residency_names_another_state`, `course_alternatives_in_rule_text`,
-`semantic_review_required`, `conflicting_values:*`.
+`semantic_review_required`, `conflicting_values:*`, `source_not_https`, `score_cell_not_a_score`, `stacked_cells_review`,
+`special_population_rate` (military or veteran rates), `program_specific_budget` (one diploma or certificate),
+`program_length_amount` (whole-program tuition), `c1_zero_total`.
+
+Hosts that refuse after the challenge threshold are a separate queue (`challenged_hosts` in `coverage.json`,
+`review.md` and the dashboard): one per institution and host, with the number refused and not attempted, the
+categories the refused URLs covered, and the official pages for those categories that the institution's own
+sites did answer (a URL that names the category, such as `/academic-catalog`). Those pages are the alternate
+sources for a reviewer. Nothing in the queue is retried or evaded.
 
 ### Re-verification
 `verify.json` re-checks every non-verified curated record whose source was fetched: each number and

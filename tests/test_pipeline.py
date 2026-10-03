@@ -1,5 +1,5 @@
 """Research pipeline: parsing, extraction, crawl politeness/resume, review and promotion rules."""
-import functools, json, shutil, sys, tempfile, threading, unittest
+import functools, json, re, shutil, sys, tempfile, threading, unittest
 from datetime import date
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -10,7 +10,7 @@ sys.path.insert(0, str(ROOT))
 from pipeline import exams, registry, review, text as T, topics  # noqa: E402
 from pipeline import promote as P  # noqa: E402
 from pipeline.crawl import Fetcher, Run, crawl  # noqa: E402
-from pipeline.extractors import appeals, catalog, cds, costs, credit, dual, merit, statepolicy, transfer  # noqa: E402
+from pipeline.extractors import appeals, catalog, cds, common, costs, credit, dual, merit, statepolicy, transfer  # noqa: E402
 
 FIX = ROOT / 'tests/fixtures/pipeline'
 INST = {'institution_key': 'ipeds-999999', 'control': 'public', 'folder': 'example'}
@@ -800,6 +800,122 @@ do not guarantee admission there. These Transfer Pathways have been effective be
         self.assertNotIn('state', d['records'][0])
 
 
+class GeorgiaR1RegressionTests(unittest.TestCase):
+    """Real failures found reviewing the first Georgia run (pipeline/runs/GA/2026-10-03); cells and sentences are
+    copied from the archived pages, trimmed."""
+    GA = {**INST, 'state': 'GA'}
+
+    def test_credit_section_rows_stacked_levels_and_header_cells(self):
+        rows = [['Subject Examination', 'Minimum Score for Awarding Credit', 'Semester Hours Credit', 'Gordon Course Credit'],
+                ['Composition and Literature Tests'], ['Humanities', '50', '6 credits', 'HUMN 1501, 1502'], ['Foreign Languages'],
+                ['Spanish Language, Level 1 Spanish Language, Level 2', '50 66', '6 credits 12 credits', 'SPAN 1101, 1102 SPAN 1101, 1102, 2001, 2002'],
+                ['History and Social Sciences'], ['American Government', '50', '3 credits', 'POLS 1101']]
+        eqs = [eq for eq, _ in credit.table_equivalencies('CLEP', rows)]
+        self.assertEqual([e['minimum_score'] for e in eqs], ['50', '50 66', '50'])  # headings never become scores
+        html = '<title>CLEP</title><table>' + ''.join('<tr>' + ''.join(f'<td>{c}</td>' for c in r) + '</tr>' for r in rows) + '</table>'
+        [c] = credit.extract(self.GA, ENTRY, T.parse_html(html.encode()), '2026-27')
+        self.assertIn('stacked_cells_review', c['issues'])
+        atlm = [['AP SUBJECT', 'AP SCORE', 'AMSC EXEMPTION', 'CREDIT'], ['Biology', '3', 'BIOL 1107K', '4'], ['Chemistry', '3', 'CHEM 1151K', '4']]
+        self.assertEqual([eq['institution_course_equivalent'] for eq, _ in credit.table_equivalencies('AP', atlm)], ['BIOL 1107K', 'CHEM 1151K'])
+        mercer = [['CLEP Exam', 'Score', 'Course'], ['Humanities', 'Score', 'HUM 1'], ['Biology', '50', 'BIO 1'], ['Chemistry', '50', 'CHM 1']]
+        html = '<title>CLEP</title><table>' + ''.join('<tr>' + ''.join(f'<td>{c}</td>' for c in r) + '</tr>' for r in mercer) + '</table>'
+        [c] = credit.extract(self.GA, ENTRY, T.parse_html(html.encode()), '2026-27')
+        self.assertIn('score_cell_not_a_score', c['issues'])
+
+    def test_cost_headers_and_non_standard_budgets(self):
+        ggc = """<title>Student Consumer Info</title><h2>2026-2027 Academic Year</h2><table>
+<tr><th>Type of Cost</th><th>On Campus In-state Resident</th><th>With Relative In-state Resident</th><th>Off Campus In-state Resident</th></tr>
+<tr><td>Tuition and mandatory fees</td><td>$5,394</td><td>$5,394</td><td>$5,394</td></tr>
+<tr><td>Housing and meals</td><td>$15,810</td><td>$10,500</td><td>$15,130</td></tr>
+<tr><td>Total for 2026-2027 academic year</td><td>$21,204</td><td>$15,894</td><td>$20,524</td></tr></table>"""
+        [c] = costs.extract(self.GA, ENTRY, T.parse_html(ggc.encode()), '2026-27')
+        self.assertEqual([a['arrangement'] for a in c['record']['living_arrangements']],
+                         ['on_campus', 'with_parents_or_family', 'off_campus_not_with_family'])
+        self.assertEqual(costs.column_meaning('Living Off- Campus')['arrangement'], 'off_campus_not_with_family')  # ABAC
+        self.assertIsNone(costs.column_meaning('In-State Resident')['arrangement'])  # residency, not a housing budget (AL: Auburn factbook)
+        marion = '''<title>Tuition and Fees | Marion Military Institute</title><h2>2026-2027 Tuition and Fees</h2><table>
+<tr><th></th><th>In-State</th></tr><tr><td>Tuition</td><td>$4,500</td></tr><tr><td>Fees</td><td>$1,200</td></tr><tr><td>Total</td><td>$5,700</td></tr></table>'''
+        got = costs.extract(self.GA, {**ENTRY, 'url': 'https://marionmilitary.edu/admissions/tuition-and-fees/'}, T.parse_html(marion.encode()), '2026-27')
+        self.assertTrue(got and not any('special_population_rate' in c['issues'] for c in got))  # the school's name is not a population
+        brenau = """<title>Military and Veteran Student Admissions</title><h2>Military Tuition &amp; Cost of Attendance</h2><table>
+<tr><th></th><th>On-Campus</th></tr><tr><td>Tuition</td><td>$6,000</td></tr><tr><td>Housing</td><td>$13,430</td></tr>
+<tr><td>Total</td><td>$19,430</td></tr></table>"""
+        [c] = costs.extract({**self.GA, 'control': 'private_nonprofit'}, ENTRY, T.parse_html(brenau.encode()), '2026-27')
+        self.assertIn('special_population_rate', c['issues'])
+        life = """<title>Cost of Attendance</title><h2>Direct Costs</h2><table><tr><td>Tuition Per Credit Hour</td><td>$310</td></tr>
+<tr><td>Quarterly Student Fees*</td><td>$497</td></tr><tr><td>Tuition Per Year**</td><td>$13,950 (average of 15 credits hours)</td></tr>
+<tr><td>Tuition Per Standard Program Length***</td><td>$55,800</td></tr>
+<tr><td>Average Cost of Attendance per Academic year</td><td>$28,401</td></tr></table>"""
+        [c] = costs.extract({**self.GA, 'control': 'private_nonprofit'}, ENTRY, T.parse_html(life.encode()), '2026-27')
+        self.assertNotEqual(c['record']['tuition'], 55800)  # the program-length total is never annual tuition
+        self.assertIn('program_length_amount', c['issues'])
+        helms = """<title>Tuition &amp; Aid</title><h2>Tuition &amp; Aid</h2><p>Multi-Skilled Medical Assistant Diploma</p><table>
+<tr><td>Tuition</td><td>$14,317</td></tr><tr><td>Books &amp; Supplies</td><td>$986</td></tr><tr><td>Total Cost</td><td>$15,303</td></tr></table>"""
+        [c] = costs.extract({**self.GA, 'control': 'private_nonprofit'}, ENTRY, T.parse_html(helms.encode()), '2026-27')
+        self.assertIn('program_specific_budget', c['issues'])
+
+    def test_merit_third_party_lists_international_waivers_and_no_award_rows(self):
+        table = """<table><tr><th>Scholarship</th><th>Amount</th></tr><tr><td>Coca-Cola Scholars Program Scholarship</td><td>$20,000</td></tr>
+<tr><td>Horatio Alger National Scholarship</td><td>$25,000</td></tr><tr><td>Ron Brown Scholar Program</td><td>$10,000</td></tr></table>"""
+        for title, url in (('Outside Scholarships', 'https://www.agnesscott.edu/admission/scholarships/outside-scholarships.html'),
+                           ('Military Scholarships', 'https://www.georgiasouthern.edu/admissions-aid/military-and-veterans/military-scholarships'),
+                           ('International Scholarships and Funding Opportunities', 'https://www.westga.edu/isap/waivers.php')):
+            html = f'<title>{title}</title><h2>{title}</h2>{table}'.encode()
+            self.assertEqual(merit.extract(self.GA, {**ENTRY, 'url': url}, T.parse_html(html), '2026-27'), [], title)
+        self.assertEqual(len(merit.extract(self.GA, ENTRY, T.parse_html(b'<title>Scholarships</title><h2>Scholarships</h2>' + table.encode()), '2026-27')), 3)
+        self.assertTrue(common.international_source({'url': 'https://www.x.edu/aid/waivers.php'}, T.Page('', 'International Scholarships and Funding Opportunities')))
+        nscc = '''<title>NSCC Scholarships</title><h2>Scholarships</h2><table><tr><th>Scholarship</th><th>Requirements</th><th>Amount</th></tr>
+<tr><td>Funding Our Future</td><td>Ages 18-23 not eligible for TN Promise or TN Reconnect, complete FAFSA</td><td>Up to $6,000 per academic year</td></tr>
+<tr><td>Foundation Award</td><td>Complete FAFSA</td><td>$1,000</td></tr></table>'''
+        self.assertIn('Funding Our Future', [c['record']['award_name'] for c in merit.extract(self.GA, ENTRY, T.parse_html(nscc.encode()), '2026-27')])
+        gsu = """<title>Scholarships</title><h2>Merit-Based Aid</h2><p>Fall 2027 Award Tiers</p><table><tr><th>Calculated Admissions GPA</th><th>Annual Award Amount (One – Time)</th></tr>
+<tr><td>4.00 +</td><td>$1000</td></tr><tr><td>3.80 – 3.99</td><td>$750</td></tr><tr><td>3.50 – 3.79</td><td>$500</td></tr>
+<tr><td>Below 3.50</td><td>Not eligible for automatic merit aid</td></tr></table>"""
+        got = merit.extract(self.GA, ENTRY, T.parse_html(gsu.encode()), '2026-27')
+        self.assertTrue(got)
+        self.assertFalse([c for c in got if 'Not eligible' in json.dumps(c['record'])])
+        self.assertEqual({c['academic_year'] for c in got}, {'2027-28'})  # the entering class named above the table
+
+    def test_transfer_residence_of_the_last_and_course_scoped_grades(self):
+        html = """<title>Transfer FAQs</title><p>As a prospective transfer student, it is important to note that to earn a UGA
+baccalaureate degree, at least 45 of the last 60 semester credit hours must be completed in residence at UGA.
+Note: Transfer applicants are encouraged to have completed ENGL 1101 and MATH 1101 courses with grades of "C" or better.
+A grade of C or higher must have been earned in Composition courses in order to receive transfer credit for ENGL 1101.</p>"""
+        [c] = transfer.extract(self.GA, ENTRY, T.parse_html(html.encode()), '2026-27')
+        self.assertEqual(c['record']['residency_requirement_credits'], 45)
+        self.assertNotIn('min_grade', c['record'])
+        for scoped in ('A grade of C or higher must have been earned in Composition courses to receive transfer credit.',
+                       'Transfer applicants are encouraged to have earned grades of C or better in their transfer coursework.'):
+            got = transfer.extract(self.GA, ENTRY, T.parse_html(f'<title>Transfer Credit</title><p>{scoped} Students must complete the last 30 hours in residence at the university.</p>'.encode()), '2026-27')
+            self.assertNotIn('min_grade', got[0]['record'], scoped)
+
+    def test_dual_enrollment_testimonials_advice_and_college_standing(self):
+        from pipeline.extractors.dual import NOT_A_RULE
+        for line in ('When it comes to dual enrollment, GMC earns a 4.0 GPA.',
+                     'one course and makes an A. He/she will have a 4.0 GPA, but a 50% pass rate',
+                     'Dual Enrollment students are recommended to have at least a 3.00 GPA with a 21 ACT',
+                     'A student is considered to be in Good Academic Standing if they have an institutional grade point average (GPA) of 2.0 or higher.'):
+            self.assertTrue(NOT_A_RULE.search(line), line)
+        for line in ('Students must have earned a 3.0 GPA', 'Earn a minimum 3.0 GPA (academic courses only)'):
+            self.assertFalse(NOT_A_RULE.search(line), line)
+        html = '<title>Dual Enrollment</title><h1>Dual Enrollment</h1><p>When it comes to dual enrollment, GMC earns a 4.0 GPA.</p><p>Students may take up to 15 credit hours per semester.</p>'
+        got = dual.extract(self.GA, ENTRY, T.parse_html(html.encode()), '2026-27')
+        self.assertFalse(got and got[0]['record']['dual_enrollment'].get('min_hs_gpa'))
+
+    def test_http_only_sources_are_exceptions(self):
+        html = '<title>Transfer Credit</title><p>Transfer credit is given for grades of C- or better.</p>'
+        [c] = transfer.extract(self.GA, {**ENTRY, 'url': 'http://southernregional.edu/transfer'}, T.parse_html(html.encode()), '2026-27')
+        self.assertIn('source_not_https', c['issues'])
+        [c] = transfer.extract(self.GA, ENTRY, T.parse_html(html.encode()), '2026-27')
+        self.assertNotIn('source_not_https', c['issues'])
+
+    def test_common_data_set_zero_totals(self):
+        text = (FIX / 'cds.txt').read_text()
+        zero = text.replace('first-year who applied                             53,841', 'first-year who applied                                  0')
+        [c] = cds.extract(self.GA, {**ENTRY, 'kind': 'pdf'}, T.Page(zero, 'CDS'), '2026-27')
+        self.assertIn('c1_zero_total', c['issues'])
+
+
 class _Quiet(SimpleHTTPRequestHandler):
     def log_message(self, *a): pass
 
@@ -937,6 +1053,32 @@ class CrawlTests(unittest.TestCase):
         self.assertFalse(topics.is_program_page('https://catalogs.eku.edu/undergraduate/general-academic-information/academic-standards/'))
         self.assertEqual(topics.link_score('https://catalog.wku.edu/undergraduate/ogden/biology/biology-bs/', 'Biology, Bachelor of Science'), 30)
         self.assertEqual(topics.link_score('https://catalog.wku.edu/graduate/health-human-services/nursing/dnp/', 'Nursing Practice, DNP'), -1)
+
+    def test_catalog_program_links_named_by_degree(self):
+        """Regression (GA r1): Courseleaf variants with unrecognised URL shapes (Dalton State /schoolofbusiness/<program>/,
+        index 'Bachelor's Degree Programs') were scored as ordinary pages and never reached; Dalton's one-word
+        /programs/<policy>/ pages were mistaken for Clean Catalog programs and used the program budget."""
+        self.assertEqual(topics.link_score('http://catalog.daltonstate.edu/schoolofbusiness/accounting/', 'Accounting, BBA'), 28)
+        self.assertEqual(topics.link_score('http://catalog.daltonstate.edu/bachelorsdegree/', "Bachelor's Degree Programs"), 28)
+        self.assertEqual(topics.link_score('https://catalog.gatech.edu/programs/computer-science-ms/', 'Computer Science, MS'), -1)
+        self.assertEqual(topics.link_score('https://www.x.edu/business/accounting-bs', 'Accounting, B.S.'), 0)  # not a catalog host
+        self.assertNotEqual(topics.link_score('http://catalog.daltonstate.edu/schoolofbusiness/accounting-ms/', 'Accounting BS/MS Accelerated, MS'), 28)
+        self.assertFalse(topics.is_program_page('http://catalog.daltonstate.edu/programs/creditbyexam/'))
+        self.assertTrue(topics.is_program_page('https://catalog.gatech.edu/programs/computer-science-bs/'))
+
+    def test_challenged_hosts_go_to_the_exception_queue(self):
+        """Regression (GA r1): 17 Acalog catalogs stopped after repeated bot challenges were visible only as manifest
+        errors because their institutions' other sites answered."""
+        run = Run(self.tmp / 'challenged')
+        for i in range(6):
+            run.record({'institution_key': 'ipeds-1', 'url': f'https://catalog.x.edu/preview_program.php?catoid=1&poid={i}',
+                        'status': None if i > 3 else 202, 'error': 'host_challenge_stop' if i > 3 else 'blocked_bot_challenge'})
+        run.record({'institution_key': 'ipeds-1', 'url': 'https://catalog.y.edu/x', 'status': 202, 'error': 'blocked_bot_challenge'})
+        pages = {'ipeds-1': {'degree_requirements': ['https://www.x.edu/academic-catalog', 'https://www.x.edu/finaid/sap']}}
+        [h] = review.challenged_hosts(run, pages, blocked=set())  # one challenge on catalog.y.edu is not a stop
+        self.assertEqual((h['host'], h['refused'], h['not_attempted'], h['categories']), ('catalog.x.edu', 6, 2, ['degree_requirements']))
+        self.assertEqual(h['alternate_sources'], ['https://www.x.edu/academic-catalog'])  # URL must name the category
+        self.assertEqual(review.challenged_hosts(run, pages, blocked={'ipeds-1'}), [])  # whole-site blocks are listed elsewhere
 
     def test_links_with_spaces_and_unicode_are_requoted(self):
         """Regression (NV: NSHE handbook chapters; OR: Klamath articulation PDFs) -> InvalidURL before fetching."""

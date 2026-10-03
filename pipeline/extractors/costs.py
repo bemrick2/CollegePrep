@@ -15,6 +15,7 @@ Rules:
 """
 from __future__ import annotations
 import re
+from urllib.parse import urlsplit
 
 from .. import text as T
 from . import common
@@ -100,9 +101,11 @@ def column_meaning(header, home=None, private=False):
     return {
         'residency': residency(h, home, private),
         'arrangement': ('off_campus_not_with_family' if re.search(r'not\s+(living\s+)?(with|w/)\s*(a\s+)?parents?|away\s+from\s+(home|parents)', h) else
-                        'with_parents_or_family' if re.search(r'(with|w/)\s*(a\s+)?(parents?|family|relatives)|at home|commut', h) else
-                        'off_campus_not_with_family' if re.search(r'off[- ]campus|own\s+(house|home|apartment)', h) else
-                        'on_campus' if re.search(r'on[- ]campus|residence hall|student\s+housing|resident(\s+student|\s+budget)?$|resident student|residential', h) else
+                        'with_parents_or_family' if re.search(r'(with|w/)\s*(a\s+)?(parents?|family|relatives?)|at home|commut', h) else
+                        'off_campus_not_with_family' if re.search(r'off[- ]\s*campus|own\s+(house|home|apartment)', h) else
+                        'on_campus' if (re.search(r'on[- ]\s*campus|residence hall|student\s+housing|resident student|residential', h)
+                                        # "Resident" alone is a housing budget, but "In-state Resident" is residency (GA r1: GGC)
+                                        or (re.search(r'resident(\s+student|\s+budget)?$', h) and not re.search(r'(in|out)[- ]of[- ]state|in[- ]state|non[- ]?resident', h))) else
                         'other' if re.search(r'military|on base', h) else None),
         # Quarter calendars (OR) print "1 Term | 2 Terms | 3 Terms | 4 Terms" or "3 Months | 9 Months": the
         # academic year is three terms / nine months; other counts are partial years or include summer.
@@ -159,6 +162,12 @@ def parse_table(rows):
     return segs[0] if segs else None
 
 
+# Rates for one population or one credential are not the institution's standard budget (exceptions, never dropped).
+SPECIAL_RATE = re.compile(r'military|veteran|active[- ]duty|tuition\s+assistance', re.I)
+CREDENTIAL_TABLE = re.compile(r'\b(?:diploma|certificate|A\.?A\.?S\.?\s+in|associate\s+of\s+applied\s+science)\b', re.I)
+PROGRAM_LENGTH = re.compile(r'program\s+length|per\s+program\b|total\s+program|entire\s+program', re.I)
+
+
 def _context(t, page, titles):
     return ' '.join([t.get('year_heading') or '', t.get('heading') or '', t.get('caption') or ''] + titles)
 
@@ -194,6 +203,15 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
         m['header'] = headers[j] if j < len(headers) else ''
         cols.append(m)
     issues = list(page_issues)
+    lead = t.get('lead') or ''  # the line above the table names its population or credential (GA r1: Helms "▸AAS in Culinary Arts")
+    lead = lead if len(lead) <= 80 else ''  # longer leads are footnotes of the table above
+    # Path and table labels only: a school's own name can say "Military" (AL: Marion Military Institute).
+    if SPECIAL_RATE.search(' '.join([context, lead, urlsplit(entry.get('url', '')).path])):
+        issues.append('special_population_rate')  # GA r1: Brenau's military rate table
+    if CREDENTIAL_TABLE.search(context + ' ' + lead): issues.append('program_specific_budget')  # GA r1: Helms per-diploma totals
+    if any(PROGRAM_LENGTH.search(label) for _, label, _, _ in keyed):
+        issues.append('program_length_amount')  # GA r1: Life "Tuition Per Standard Program Length" read as tuition
+        keyed = [(None if PROGRAM_LENGTH.search(label) else k, label, vals, raw) for k, label, vals, raw in keyed]
     if any(c['period'] == 'year' for c in cols):
         keep = [j for j, c in enumerate(cols) if c['period'] not in ('semester', 'partial_year')]
     else:

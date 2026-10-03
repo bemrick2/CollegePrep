@@ -117,9 +117,14 @@ COURSELEAF_GRADUATE = re.compile(r'^https?://catalogs?\.[^/]+/(graduate|professi
 
 # Clean Catalog sites (TN: Tennessee Tech, Carson-Newman, Lincoln Memorial): <host with "catalog">/programs/<slug>,
 # with the program list at /programs (paged with ?page=N).
-CLEANCATALOG_PROGRAM = re.compile(r'^https?://(?!grad)[^/]*catalog[^/]*/programs/[a-z0-9][a-z0-9-]+/?$', re.I)
+# The slug must be hyphenated (computer-science-bs): Courseleaf sites also use /programs/<word>/ for policy
+# pages (GA r1: Dalton State /programs/creditbyexam/, /programs/transferrules/), which are not programs.
+CLEANCATALOG_PROGRAM = re.compile(r'^https?://(?!grad)[^/]*catalog[^/]*/programs/[a-z0-9]+(?:-[a-z0-9]+)+/?$', re.I)
 CATALOG_PROGRAM_INDEX = re.compile(r'^https?://(?!grad)[^/]*catalog[^/]*/(?:programs|programs-study|programs-of-study|'
                                    r'ugrequirements/majors|content\.php\?catoid=\d+&navoid=\d+)/?(?:\?(?:page=\d+)?[^/]*)?$', re.I)
+
+
+CATALOG_HOST = re.compile(r'^https?://[^/]*(?:catalog|bulletin)[^/]*/', re.I)
 
 
 def is_program_page(url: str) -> bool:
@@ -145,6 +150,11 @@ def link_score(url: str, anchor: str = '', today=None) -> int:
         return 30 if UG_PROGRAM.search(anchor) else 12
     if CATALOG_PROGRAM_INDEX.search(url) and re.search(r'program|major|degree|stud', url + ' ' + (anchor or ''), re.I):
         return 25  # the list of programs is how the crawl reaches program pages
+    if CATALOG_HOST.search(url) and UG_PROGRAM.search(anchor or '') and not GRAD_PROGRAM.search(anchor or ''):
+        # Catalogs whose program URLs follow no known pattern (GA r1: Dalton State /schoolofbusiness/<dept>/<program>/,
+        # Georgia Tech /programs/<slug>/) still name the degree in the link, as do degree-level index pages
+        # ("Bachelor's Degree Programs").
+        return 28
     topics = link_topics(url, anchor)
     if not topics: return 0
     score = 10 * len(topics)
