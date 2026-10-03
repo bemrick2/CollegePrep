@@ -40,7 +40,13 @@ SCOPED = re.compile(r'career[- ]and[- ]technical|\btechnical\b|\bCTE\b|\bvocatio
 # waivers, placement-test alternatives, single-course prerequisites and special-population programs (TN r5:
 # Welch, Nashville State, Columbia State, Freed-Hardeman).
 NOT_ELIGIBILITY = re.compile(r'postsecondary\s+courses|courses?\s+attempted|hours\s+of\s+\w+\s+dual\s+enrollment|dual\s+enrollment\s+(?:courses|hours)|'
-                             r'waiv|placement|\bIEP\b|gifted|algebra|in\s+the\s+(?:two|three)\s+high\s+school', re.I)
+                             r'waiv|placement|\bIEP\b|gifted|algebra|in\s+the\s+(?:two|three)\s+high\s+school|'
+                             # GA r1: SAP and good-standing rules (Dalton State, Georgia Southern), "does not have a 2.00"
+                             # (Columbus Tech), testimonials ("earned ... with a 4.0 GPA", "GMC earns a 4.0 GPA") and examples.
+                             r'satisfactory\s+academic\s+progress|\bSAP\b|completion\s+rate|good\s+academic\s+standing|institutional\s+(?:grade|gpa)|'
+                             r'(?:does|do)\s+not\s+have\s+an?\s+\d|\bearn(?:s|ed)\b|will\s+have\s+a|makes\s+an?\s+[A-F]\b|regular\s+admission', re.I)
+# Section scores ("580 Evidence-based Reading/Writing and 560 Math on the SAT", Georgia College) are not composite minimums.
+SECTION_SCORES = re.compile(r'\bmath\b|evidence[- ]based|\bEBRW\b|\breading\b|\benglish\s*(?:&|and)', re.I)
 GRANT_PAYS = re.compile(r'(?:grant|DEG)\b.{0,80}\b(?:provides?|pays?|covers?|awarded|will\s+receive|receive)\b|\b(?:awarded|receive)\b.{0,40}(?:grant|DEG)\b', re.I)
 OFF_TOPIC = re.compile(r'hepatitis|title\s+ix|misconduct|privacy\s+act|immuniz|vaccin', re.I)
 
@@ -49,18 +55,25 @@ def _num(m):
     return next((g for g in m.groups() if g), None)
 
 
-COMPLETED = re.compile(r'\b(?:complet(?:ed|ion of)|finish(?:ed)?)\s+(?:your\s+|the\s+|their\s+|his or her\s+)?'
-                       r'(freshm[ae]n|sophomore|junior|9th\s+grade|10th\s+grade|11th\s+grade)\b', re.I)
+COMPLETED = re.compile(r'\b(?:complet(?:ed|ion\s+of)|finish(?:ed)?)\s+(?:your\s+|the\s+|their\s+|his or her\s+)?'
+                       r'(freshm[ae]n|sophomore|junior|9th\s+grade|10th\s+grade|11th\s+grade)\b'
+                       r'|\b(?:after|upon)\s+(?:the\s+)?(9th\s+grade|10th\s+grade|11th\s+grade)\s+completion\b', re.I)
 NEXT = {'freshman': '10', 'freshmen': '10', 'sophomore': '11', 'junior': '12', '9th grade': '10', '10th grade': '11', '11th grade': '12'}
 
 
 def _grades(line):
+    floor = re.search(r'\b(?:minimum|at\s+least)\s+(?:class\s+(?:rank|standing)\s+of\s+)?(?:a\s+)?(sophomore|junior)\b', line, re.I)
+    if floor:  # "minimum class rank of junior" (Brenau) means juniors and seniors
+        first = {'sophomore': 10, 'junior': 11}[floor.group(1).lower()]
+        return [g for g in ('10', '11', '12') if int(g) >= first]
     m = COMPLETED.search(line)  # "Have you completed your sophomore year?" (UTC) means rising juniors and up
-    if m:
-        first = NEXT[re.sub(r'\s+', ' ', m.group(1).lower())]
-        return [g for g in ('10', '11', '12') if int(g) >= int(first)]
-    listed = set(re.findall(r'\b(9|10|11|12)th\b(?=[^.;]{0,40}?\bgrades?\b)', line, re.I))  # "10th, 11th, or 12th grade"
-    return [g for g, rx in GRADES if g in listed or re.search(rx, line, re.I)]
+    rest = COMPLETED.sub(' ', line) if m else line
+    # "10th, 11th, or 12th grade", "11th and 12th graders"
+    listed = set(re.findall(r'\b(9|10|11|12)th\b(?=[^.;]{0,40}?\bgrad(?:e|er)s?\b)', rest, re.I))
+    named = [g for g, rx in GRADES if g in listed or re.search(rx, rest, re.I)]
+    if named or not m: return named  # grades the line names outrank the one it says is finished (Athens Tech)
+    first = NEXT[re.sub(r'\s+', ' ', (m.group(1) or m.group(2)).lower())]
+    return [g for g in ('10', '11', '12') if int(g) >= int(first)]
 
 
 def extract(inst, entry, page, today_year):
@@ -98,8 +111,9 @@ def extract(inst, entry, page, today_year):
             if rng and float(rng.group(1)) < gpa:
                 gpa = float(rng.group(1))  # "an unweighted 2.5 to 2.79 GPA": the band starts at 2.5
             if 1.5 <= gpa <= 4.0:
-                act = next((int(_num(m)) for m in ACT.finditer(line) if 12 <= int(_num(m)) <= 36), None)
-                sat = next((int(_num(m)) for m in SAT.finditer(line) if 400 <= int(_num(m)) <= 1600), None)
+                sections = SECTION_SCORES.search(line)
+                act = None if sections else next((int(_num(m)) for m in ACT.finditer(line) if 12 <= int(_num(m)) <= 36), None)
+                sat = None if sections else next((int(_num(m)) for m in SAT.finditer(line) if 400 <= int(_num(m)) <= 1600), None)
                 hours = next((int(m.group(1)) for m in MAX_HOURS.finditer(line) if 1 <= int(m.group(1)) <= 21), None)
                 tier = {'grades': g or context_grades, 'min_hs_gpa': gpa, 'line': line[:300]}
                 if SCOPED.search(line): tier['course_scope'] = SCOPED.search(line).group(0).lower()
@@ -133,7 +147,7 @@ def extract(inst, entry, page, today_year):
     de = {}
     if tiers:
         de['eligibility_tiers'] = tiers
-        if any(re.search(r'\S\s{5,}\S', t['line']) for t in tiers):
+        if any(re.search(r'\S\s{5,}\S', re.sub(r'^[\W\d.\s]+', '', t['line'])) for t in tiers):  # leading bullets/numbers aside (CV)
             issues.append('multicolumn_layout_review')  # Motlow: side-by-side columns interleave words into one line
         general = [t for t in tiers if 'course_scope' not in t]
         for field in ('min_hs_gpa', 'alt_min_act', 'alt_min_sat'):

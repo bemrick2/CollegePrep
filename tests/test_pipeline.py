@@ -166,6 +166,9 @@ Scores of 1 or 2 receive no credit."""
         self.assertEqual((r['sat_composite_25'], r['sat_composite_50'], r['sat_composite_75']), (1280, 1330, 1380))
         self.assertEqual((r['sat_math_25'], r['sat_math_75'], r['act_25'], r['act_75']), (630, 700, 26, 31))
         self.assertEqual(c['issues'], [])
+        zeros = text.replace('21,707', '0').replace('32,134', '0').replace('53,841', '0')  # Covenant (GA r1): 0 applied, students enrolled
+        [z] = cds.extract(INST, {**ENTRY, 'kind': 'pdf'}, T.Page(zeros, 'CDS'), '2026-27')
+        self.assertIn('zero_counts_with_enrollment', z['issues'])
         no_total = '\n'.join(l for l in text.splitlines() if 'who applied' not in l or 'men' in l)
         [c] = cds.extract(INST, {**ENTRY, 'kind': 'pdf'}, T.Page(no_total, 'CDS'), '2026-27')
         self.assertNotIn('applications', c['record'])  # never summed from the by-sex rows
@@ -294,7 +297,9 @@ last 30 hours in residence at the university.</p>"""
                 ['Biology', '50', '8', 'BIOL 1110'], ['Calculus', '50', '4', 'MATH 1910']]
         page_ = T.Page('', 'CLEP Credit', [{'rows': rows, 'heading': 'CLEP', 'caption': '', 'lead': ''}], [], [])
         [c] = credit.extract(INST, ENTRY, page_, '2026-27')
-        self.assertIn('course_column_numeric', c['issues'])
+        # GA r1: a numeric "Course" column is recognised as hours and the course codes are found by their cells.
+        self.assertEqual([(e['institution_course_equivalent'], e['credits_awarded']) for e in c['record']['equivalencies']][:2],
+                         [('POLS 1030', 3), ('BIOL 1110', 8)])
 
     def test_cost_tables_per_arrangement_and_enrollment(self):
         """AL r1: Enterprise State prints one table per living arrangement (named in the row-label header) and a
@@ -430,6 +435,61 @@ last 30 hours in residence at the university.</p>"""
                          'https://lipscomb.edu/a/transferring-credit')
         self.assertEqual(requote('https://x.edu/p.php?catoid=3&navoid=9'), 'https://x.edu/p.php?catoid=3&navoid=9')
         self.assertEqual(T.canonical_url('https://x.edu/p?_gl=1&id=2'), 'https://x.edu/p?id=2')
+
+    def test_ga_r1_review_regressions(self):
+        """Defects found reviewing Georgia run 2026-10-03."""
+        tiers = lambda html: [(t['min_hs_gpa'], t['grades']) for c in self._de(html) for t in c['record']['dual_enrollment'].get('eligibility_tiers', [])]
+        # Dalton State / Georgia Southern / Columbus Tech / Savannah Tech / GMC: not high-school admission minimums.
+        self.assertEqual(tiers('<p>SAP is defined as a minimum cumulative course completion rate of 67% and a minimum GPA of 2.0.</p>'
+                               '<p>A student is in Good Academic Standing with an institutional grade point average (GPA) of 2.0 or higher.</p>'
+                               '<p>If a student does not have a 2.00 high school GPA, they will need a qualifying test score.</p>'
+                               '<p>Rhett Dozier earned an Associate of Science degree with a 4.0 GPA.</p>'
+                               '<p>Juniors or Seniors with a 2.0 or higher GPA</p>'), [(2.0, ['11', '12'])])
+        # Southern Regional / Athens Tech / West Georgia Tech: completed grades vs grades named.
+        self.assertEqual(tiers('<p>HOPE GPA: 2.6 or higher (after 10th grade completion)</p>'), [(2.6, ['11', '12'])])
+        self.assertEqual(tiers('<p>10th grade students must submit an overall GPA of 2.0 or higher after the completion of the 9th grade.</p>'), [(2.0, ['10'])])
+        self.assertEqual(tiers('<p>11th and 12th graders with a 2.00 high school GPA can enroll in academic core classes.</p>'), [(2.0, ['11', '12'])])
+        self.assertEqual(dual._grades('Students must have a minimum class rank of junior.'), ['11', '12'])
+        # Gordon State CLEP: section-heading rows are skipped; merged score tiers go to review.
+        rows = [['CLEP Exam', 'Minimum Score', 'Course Equivalent', 'Credit'], ['Humanities', 'Foreign Languages', '', ''],
+                ['American Literature', '50', 'ENGL 2131, 2132', '6'], ['French Language', '50 62', 'FREN 1101, 1102 FREN 1101, 1102, 2001, 2002', '6 12'],
+                ['Biology', '50', 'BIOL 1107', '4']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'CLEP', [{'rows': rows, 'heading': 'College Level Examination Program (CLEP)', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        self.assertNotIn('CLEP-HUMANITIES', [e['exam_or_course_code'] for e in c['record']['equivalencies']])
+        self.assertIn('merged_score_cells', c['issues'])
+        # Georgia College: SAT/ACT section scores are not composite minimums.
+        [c] = self._de('<p>Have a minimum 580 Evidence-based Reading/Writing and 560 Math on the SAT OR 23 English &amp; 22 Math on the ACT, AND a High School academic GPA of 3.0 or higher.</p>')
+        self.assertNotIn('alt_min_sat', c['record']['dual_enrollment'])
+        self.assertNotIn('alt_min_act', c['record']['dual_enrollment'])
+        # UGA / Coastal Georgia: "45 of the last 60" is 45 hours in residence; Atlanta Metro / KSU: course-specific or advisory grades.
+        html = ('<title>Transfer FAQs</title><p>To earn a UGA baccalaureate degree, at least 45 of the last 60 semester credit hours must be completed in residence at UGA.</p>'
+                '<p>A grade of C or higher must have been earned in Composition courses in order to receive transfer credit for ENGL 1101.</p>'
+                '<p>Transfer applicants are encouraged to have completed MATH 1101 with grades of "C" or better.</p>')
+        [c] = transfer.extract(INST, ENTRY, T.parse_html(html), '2026-27')
+        self.assertEqual(c['record'].get('residency_requirement_credits'), 45)
+        self.assertNotIn('min_grade', c['record'])
+        # Agnes Scott / Georgia Southern / WGTC: other organizations' award lists; Thomas University: "+Scholarships" heading.
+        table = ('<h2>National Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th><th>Eligibility</th></tr><tr><td>Coca-Cola Scholars</td><td>$20,000</td><td>Seniors</td></tr>'
+                 '<tr><td>Ron Brown Scholar Program</td><td>$10,000</td><td>Seniors</td></tr></table>')
+        for url in ('https://www.example.edu/aid/outside-scholarships.html', 'https://www.example.edu/military-scholarships', 'https://www.example.edu/foundation/foundation-scholarship/'):
+            self.assertEqual(merit.extract(INST, {**ENTRY, 'url': url}, T.parse_html('<title>Scholarships</title>' + table), '2026-27'), [])
+        self.assertEqual(len(merit.extract(INST, ENTRY, T.parse_html('<title>Scholarships</title>' + table), '2026-27')), 2)  # the same table elsewhere is kept
+        [c] = merit.extract(INST, ENTRY, T.parse_html('<title>On Campus Students</title><h3>+Scholarships</h3><table><tr><th>Unweighted GPA</th><th>Scholarship</th></tr>'
+                                                     '<tr><td>3.9+</td><td>$7,000</td></tr><tr><td>3.7 – 3.89</td><td>$5,000</td></tr><tr><td>3.5 - 3.69</td><td>$3,000</td></tr></table>'), '2026-27')
+        self.assertEqual((c['record']['award_name'], c['record']['award_min'], c['record']['award_max']), ('Scholarships', 3000, 7000))
+        [c] = merit.extract(INST, ENTRY, T.parse_html('<title>Scholarships</title><h3>Merit-Based Aid</h3><table><tr><th>Calculated Admissions GPA</th><th>Annual Award Amount (One – Time)</th></tr>'
+                                                     '<tr><td>4.00 +</td><td>$1000</td></tr><tr><td>3.80 – 3.99</td><td>$750</td></tr><tr><td>3.50 – 3.79</td><td>$500</td></tr>'
+                                                     '<tr><td>Below 3.50</td><td>Not eligible for automatic merit aid</td></tr></table>'), '2026-27')
+        self.assertEqual((c['record']['renewable'], c['record']['award_max']), (False, 1000))
+        # GSW: the exam header says "Course" too; Georgia Tech: courses under a "Credit" header.
+        rows = [['Advanced Placement Course', 'Minimum Score for Awarding Credit', 'GSW Course Credit', 'Semester Credit Hours'],
+                ['Art History', '3', 'ARTC 1100', '3'], ['Biology', '3', 'BIOL 1103, 1103L', '4'], ['Chemistry', '3', 'CHEM 1211K', '4']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'Advanced Credit Courses', [{'rows': rows, 'heading': 'Advanced Placement', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        self.assertEqual([(e['institution_course_equivalent'], e['credits_awarded']) for e in c['record']['equivalencies']][:2], [('ARTC 1100', 3), ('BIOL 1103, 1103L', 4)])
+        rows = [['Subject', 'Exam Scores', 'Credit'], ['Biology HL', '4-5', 'BIOS 1107 and BIOS 1107L'],
+                ['Chemistry HL', '5-7', 'CHEM 1310'], ['Economics HL', '5-7', 'ECON 2100']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'International Baccalaureate Exams', [{'rows': rows, 'heading': 'International Baccalaureate Exams', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        self.assertEqual(c['record']['equivalencies'][1]['institution_course_equivalent'], 'CHEM 1310')
 
     def test_tn_r6_merit_tables(self):
         """TN 2026-10-03 merit tables: key/value facts, sentence rows, transfer tiers, criteria and points columns."""

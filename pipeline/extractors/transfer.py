@@ -16,7 +16,9 @@ GRADE = re.compile(r'grades?\s+of\s+["“]?([A-D][+-]?)["”]?\s*(?:\(\d\.\d+\)\
 MAX_HOURS = re.compile(r'(?:maximum\s+of|no\s+more\s+than|up\s+to|a\s+maximum\s+of)\s+(\d{2,3})\s+(?:semester\s+)?(?:credit\s+)?hours'
                        r'(?=.{0,120}(?:transfer|community|two-year|junior\s+college|2-year))', re.I)
 # A grade rule for pass/fail courses or for one module/pathway (Rhodes, TN Tech r5) is not the general minimum.
-SCOPED_GRADE = re.compile(r'pass\s*/\s*fail|pass-fail|\bP/F\b|satisfactory/unsatisfactory|\bmodule\b|transfer\s+pathway|\bTTP\b|core\s+block|\bmajor\b', re.I)
+SCOPED_GRADE = re.compile(r'pass\s*/\s*fail|pass-fail|\bP/F\b|satisfactory/unsatisfactory|\bmodule\b|transfer\s+pathway|\bTTP\b|core\s+block|\bmajor\b|'
+                          # GA r1: rules for named courses (Atlanta Metro composition, UNG/KSU "ENGL 1101") and advice ("encouraged")
+                          r'composition|\b(?:ENGL|MATH|English|Math)\s+\d{4}|encouraged|recommended', re.I)
 RESIDENCE = re.compile(r'(?:(?:last|final)\s+(\d{2})\s+(?:semester\s+)?(?:credit\s+)?hours'
                        r'|(?:at\s+least|minimum\s+of|a\s+minimum\s+of)\s+(\d{2})\s+(?:semester\s+)?(?:credit\s+)?hours'
                        r'(?=.{0,80}(?:in\s+residence|at\s+the\s+university|at\s+the\s+college|through\s+the\s+university|earned\s+at)))', re.I)
@@ -41,6 +43,8 @@ def extract(inst, entry, page, today_year):
             for m in MAX_HOURS.finditer(s): found['max_transfer_credits'].append((int(m.group(1)), s))
         for m in ([] if re.search(r'attempted|probation|suspension|retain\s+this\s+status', s, re.I) else RESIDENCE.finditer(s)):
             v = int(m.group(1) or m.group(2))
+            part = re.search(r'(\d{2})\s+of\s+the\s+(?:last|final)\s+' + str(v) + r'\b', s, re.I)
+            if part: v = int(part.group(1))  # "45 of the last 60 hours" (UGA), "20 of the last 30" (Coastal Georgia)
             if 12 <= v <= 60: found['residency_requirement_credits'].append((v, s))
     if not any(found.values()): return []
     year, basis, issues = common.resolve_year(page, entry, today_year)

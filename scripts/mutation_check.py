@@ -7,6 +7,15 @@ A surviving mutant means a safety rule has no test. Run: python scripts/mutation
 import shutil, subprocess, sys
 
 MUTS = [
+    ('pipeline/extractors/credit.py', "            course = None  # \"Credit Granted | 12\"", "            pass  # \"Credit Granted | 12\""),
+    ('pipeline/extractors/cds.py', "issues.append('zero_counts_with_enrollment')", "pass"),
+    ('pipeline/extractors/credit.py', "if score and not re.search(r'\\d', score) and not course: continue", "pass"),
+    ('pipeline/extractors/dual.py', "    if floor:  # ", "    if False:  # "),
+    ('pipeline/extractors/transfer.py', "if part: v = int(part.group(1))", "pass"),
+    ('pipeline/extractors/merit.py', "r'outside[- ]scholarships?|external[- ]scholarships?|third[- ]party|military|veteran|foundation|/isap/', re.I)", "r'^$', re.I)"),
+    ('pipeline/extractors/dual.py', "sat = None if sections else next(", "sat = None if False else next("),
+    ('pipeline/extractors/dual.py', "if named or not m: return named", "if not m: return named"),
+    ('pipeline/extractors/credit.py', "        course = pick_course()\n        body = rows[1:]", "        body = rows[1:]"),
     ('pipeline/review.py', "key=lambda c: (c['source']['url'].startswith('https://'), len(fields_of(c))", "key=lambda c: (False, len(fields_of(c))"),
     ('pipeline/crawl.py', "if https_site and url.startswith('http://'):", "if False:"),
     ('pipeline/extractors/merit.py', "if any(len(c) > 60 for c in header): continue", "pass"),
@@ -53,7 +62,6 @@ MUTS = [
     ('pipeline/extractors/merit.py', "(x if not PLACEHOLDER.match(x) else '' for x in", "(x for x in"),
     ('pipeline/extractors/merit.py', "lo = None  # \"Up to $5,000\" is a maximum", "pass  # \"Up to $5,000\" is a maximum"),
     ('pipeline/text.py', "continue  # \"PHYS 2010/2011\"", "pass  # \"PHYS 2010/2011\""),
-    ('pipeline/extractors/credit.py', "issues = issues + ['course_column_numeric']", "pass"),
     ('pipeline/crawl.py', "return self.challenges.get(host, 0) >= self.CHALLENGE_STOP", "return False"),
     ('pipeline/extractors/programmap.py', "if len(labels) != 1: return []", "labels = labels or {'2026-27': 1}"),
     ('pipeline/extractors/programmap.py', "cont = last and (last[1] is None or wrapped or", "cont = last and (last[1] is None or"),

@@ -25,9 +25,12 @@ NOT_AWARD_NAME = re.compile(r'\bpell\b|supplemental\s+educational\s+opportunity|
                             r'^(fewer|more|less)\s+than\b|^over\s+\d|\bcredit\s+hours?\b|'
                             r'^\W*(books?|supplies|transportation|personal\s+expenses?|loan\s+fees?|room|board|food)\b', re.I)  # OR: COA rows
 NOT_MERIT_PAGE = re.compile(r'retention|renewal|keep(?:ing)?[- ]your[- ]scholarship|academic[- ]standards|probation|satisfactory[- ]academic[- ]progress|financial[- ]aid[- ]staff|'
-                            r'\bstaff\b|directory|meet[- ]the[- ]team|our[- ]team', re.I)
+                            r'\bstaff\b|directory|meet[- ]the[- ]team|our[- ]team|'
+                            # GA r1: lists of other organizations' awards (Agnes Scott outside scholarships, Georgia Southern
+                            # military scholarships, West Georgia Tech foundation awards) and international-office waivers (UWG ISAP).
+                            r'outside[- ]scholarships?|external[- ]scholarships?|third[- ]party|military|veteran|foundation|/isap/', re.I)
 HEADER_WORDS = re.compile(r'scholarship|award|merit|name|level|tier|amount|value|gpa|act\b|sat\b|criteria|requirement', re.I)
-THRESHOLD_CELL = re.compile(r'^\s*[<>≤≥]?\s*\d{1,4}(\.\d{1,2})?\s*(\+|-\s*\d{1,4}(\.\d{1,2})?|or\s+(higher|above))?\s*$', re.I)
+THRESHOLD_CELL = re.compile(r'^\s*[<>≤≥]?\s*\d{1,4}(\.\d{1,2})?\s*(\+|[-–]\s*\d{1,4}(\.\d{1,2})?|or\s+(higher|above))?\s*$', re.I)
 
 
 PLACEHOLDER = re.compile(r'^\W*(n/?a|none|see\s+(?:requirements|criteria|details|below|website)|varies|tbd|-+|—)\W*$', re.I)
@@ -149,9 +152,12 @@ def _tier_award(t, header, body, context):
     if len(rows) < 3 or len(rows) < len(body) - 1: return []
     tiers = [{header[0].strip().lower() or 'threshold': r[0], 'amount_text': r[1]} for r in rows]
     amounts = [v for r in rows for v in T.money_values(r[1])]
-    title = (t.get('heading') or t.get('caption') or 'Merit scholarship tiers').strip()
+    title = (t.get('heading') or t.get('caption') or 'Merit scholarship tiers').strip().lstrip('+-–•*› ').strip()
     rec = {'award_name': title[:120], 'award_type': 'institutional_merit', 'award_tiers': tiers,
            'award_min': min(amounts), 'award_max': max(amounts)}
+    if re.search(r'one[\s–-]*time', header[1], re.I):  # Georgia Southern: "Annual Award Amount (One – Time)"
+        rec['renewable'] = False
+        rec['award_amount_text'] = header[1].strip()[:120]
     rec['gpa_requirement' if re.search('gpa', header[0], re.I) else 'test_requirement'] = \
         f"Tiered by {header[0].strip()}: " + '; '.join(f"{r[0]} → {r[1]}" for r in rows)
     return [(rec, ' || '.join(' | '.join(r) for r in [header] + rows))]
@@ -171,7 +177,7 @@ def _grid_award(t, header, body, context):
         evidence_rows.append(' | '.join(r))
     if len(tiers) < 3: return []
     amounts = [v for tier in tiers for v in T.money_values(tier['amount_text'])]
-    title = (t.get('heading') or t.get('caption') or 'Merit scholarship grid').strip()
+    title = (t.get('heading') or t.get('caption') or 'Merit scholarship grid').strip().lstrip('+-–•*› ').strip()
     rec = {'award_name': title[:120], 'award_type': 'institutional_merit', 'award_tiers': tiers,
            'test_requirement': f"Tiers by {header[0] or 'GPA'} and {', '.join(header[i] for i in score_cols[:2])}…",
            'award_min': min(amounts), 'award_max': max(amounts)}
@@ -211,7 +217,8 @@ def extract(inst, entry, page, today_year):
         award_type = 'institutional_merit' if merit_context else 'institutional_other'
         named = re.sub(r'\bawards?\s+amounts?\b', '', context, flags=re.I)  # "Award Amounts" is a heading, not a name (UTK)
         label = context.strip() if re.search(r'scholarship|award|grant|fellowship', named, re.I) else (_page_award_name(page) or context.strip() or page.title)
-        found = shaped or _list_awards(t, header, body, label.strip()[:80], award_type)
+        label = label.strip().lstrip('+-–•*› ').strip()  # "+Scholarships" (Thomas University): an accordion icon, not the name
+        found = shaped or _list_awards(t, header, body, label[:80], award_type)
         if not found or (not shaped and len(found) < 2): continue  # one stray row is not a scholarship table
         t_year = T.year_labels(context)
         rec_year, rec_basis, rec_issues = (year, basis, issues)

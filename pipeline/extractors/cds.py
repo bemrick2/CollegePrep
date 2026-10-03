@@ -103,6 +103,8 @@ def extract(inst, entry, page, today_year):
     if not all(f in record for f in TOTALS): issues.append('c1_totals_incomplete')
     if record.get('admits') and record.get('applications') and record['admits'] > record['applications']:
         issues.append('admits_exceed_applications')
+    if any(record.get(f) == 0 for f in ('applications', 'admits')) and record.get('enrolled'):
+        issues.append('zero_counts_with_enrollment')  # Covenant CDS (GA r1): 0 applied, 0 admitted, 324 enrolled
     if year < today_year and first < int(today_year[:4]) - 1:
         issues.append(f'stale_year_label:{year}')
     record['notes'] = f'Common Data Set {year} sections C1/C9, extracted by {EXTRACTOR}; totals copied as printed.'

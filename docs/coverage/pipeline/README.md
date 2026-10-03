@@ -39,6 +39,43 @@ Institutions in scope: **53** · crawled: **48** · blocked by site: **5** · ru
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-101453`, `ipeds-101693`, `ipeds-101736`, `ipeds-101879`, `ipeds-102076`
 
+## GA — 2026-27
+
+Institutions in scope: **85** · crawled: **76** · blocked by site: **9** · run: `pipeline/runs/GA/2026-10-03`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 6 (7%) | 0 | 33 (39%) | 75 (88%) | 1 | 9 |
+| cost_of_attendance | 4 (5%) | 0 | 13 (15%) | 73 (86%) | 3 | 9 |
+| admissions_tests | 2 (2%) | 0 | 3 (4%) | 71 (84%) | 5 | 9 |
+| common_data_set | 2 (2%) | 0 | 3 (4%) | 14 (16%) | 62 | 9 |
+| merit_scholarships | 0 (0%) | 2 | 3 (4%) | 69 (81%) | 7 | 9 |
+| ap_credit | 0 (0%) | 6 | 10 (12%) | 36 (42%) | 40 | 9 |
+| clep_credit | 0 (0%) | 6 | 9 (11%) | 22 (26%) | 54 | 9 |
+| ib_credit | 0 (0%) | 4 | 7 (8%) | 16 (19%) | 60 | 9 |
+| dual_enrollment | 3 (4%) | 32 | 40 (47%) | 66 (78%) | 10 | 9 |
+| transfer_credit | 0 (0%) | 6 | 12 (14%) | 71 (84%) | 5 | 9 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 29 (34%) | 47 | 9 |
+| residency | 0 (0%) | 0 | 0 (0%) | 49 (58%) | 27 | 9 |
+| degree_requirements | 0 (0%) | 0 | 0 (0%) | 61 (72%) | 15 | 9 |
+| aid_appeals | 0 (0%) | 0 | 54 (64%) | 61 (72%) | 15 | 9 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 28 |
+| blocked requests | 181 |
+| candidates | 336 |
+| conflicts | 74 |
+| documents | 4472 |
+| extraction failures | 0 |
+| fetch errors | 663 |
+| fetches | 5316 |
+| ready | 104 |
+| semantic review | 151 |
+| stale sources | 65 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-139366`, `ipeds-139630`, `ipeds-139940`, `ipeds-140243`, `ipeds-140872`, `ipeds-140951`, `ipeds-244437`, `ipeds-368911`, `ipeds-490230`
+
 ## KY — 2026-27
 
 Institutions in scope: **46** · crawled: **44** · blocked by site: **2** · run: `pipeline/runs/KY/2026-10-02-r2`
@@ -164,7 +201,7 @@ Institutions in scope: **59** · crawled: **52** · blocked by site: **7** · ru
 | ap_credit | 1 (2%) | 4 | 7 (12%) | 20 (34%) | 32 | 7 |
 | clep_credit | 1 (2%) | 5 | 6 (10%) | 12 (20%) | 40 | 7 |
 | ib_credit | 1 (2%) | 1 | 3 (5%) | 6 (10%) | 46 | 7 |
-| dual_enrollment | 1 (2%) | 13 | 25 (42%) | 40 (68%) | 12 | 7 |
+| dual_enrollment | 2 (3%) | 13 | 25 (42%) | 40 (68%) | 12 | 7 |
 | transfer_credit | 0 (0%) | 7 | 7 (12%) | 47 (80%) | 5 | 7 |
 | statewide_articulation | 0 (0%) | 0 | 0 (0%) | 17 (29%) | 35 | 7 |
 | residency | 0 (0%) | 0 | 0 (0%) | 24 (41%) | 28 | 7 |
