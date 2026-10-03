@@ -19,5 +19,5 @@ export function writeSavedSchools(keys: string[]) {
   }
 }
 
-/** Sample family: three schools with verified 2026-27 cost of attendance in the demo snapshot. */
-export const SAMPLE_SCHOOLS = ['utk', 'ipeds-221847', 'ipeds-221908']
+/** Sample family: three four-year schools with verified 2026-27 cost of attendance in the demo snapshot. */
+export const SAMPLE_SCHOOLS = ['utk', 'ipeds-221847', 'ipeds-219976']

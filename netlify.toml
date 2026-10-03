@@ -1,0 +1,16 @@
+# Prep & Price web app (web/). Preview site only: no Supabase variables are set, so it runs in demo mode.
+# Never add service-role keys here or in the Netlify UI; the app only ever uses the publishable key.
+[build]
+  base = "web"
+  command = "npm ci && npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"

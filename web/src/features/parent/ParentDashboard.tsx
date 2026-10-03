@@ -9,6 +9,7 @@ import { daysBetween, formatShortDate, isoWeekday } from '../../lib/engine/dates
 import { EXAM_NAME } from '../onboarding/options'
 import { useCatalog } from '../practice/useCatalog'
 import { CostOutlook } from './CostOutlook'
+import { PracticeIndicators } from '../../components/PracticeIndicators'
 
 
 export function ParentDashboard() {
@@ -122,6 +123,8 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
         />
       </div>
 
+      <PracticeIndicators history={o.history} />
+
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-[1.25fr_1fr]">
         <Card>
           <CardHeader title="Next best actions" subtitle="Ordered by impact. Only based on recorded data." />
@@ -170,7 +173,7 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
         </Card>
       </div>
 
-      <CostOutlook />
+      <CostOutlook showAlternative={!!o.plan?.goals.includes('lower_cost')} />
 
       <p className="text-xs text-ink-3">
         Last practice: {lastDay ? formatShortDate(lastDay) : 'never'} · Time zone {o.tz}

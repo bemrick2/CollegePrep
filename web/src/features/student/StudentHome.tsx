@@ -1,8 +1,8 @@
 import { Link, Navigate } from 'react-router-dom'
 import { useApp } from '../../lib/app'
 import { ButtonLink, Card, CardHeader, Notice, PageLoading, Pill, ProgressBar, Ring, cx } from '../../components/ui'
-import { ArrowRight, Bolt, Clock, Compass, Flame, Target, Trophy } from '../../components/icons'
-import { MIN_FOR_SCORE, SCORE_WINDOW_DAYS, threeScores, type ThreeScores } from '../../lib/engine/scores'
+import { ArrowRight, Bolt, Compass, Flame, Target, Trophy } from '../../components/icons'
+import { PracticeIndicators } from '../../components/PracticeIndicators'
 import { addDays, localDate } from '../../lib/engine/dates'
 import { nextBenchmarkDue, SECTION_LABEL } from '../../lib/engine/benchmark'
 import { achievements, levelOf, totalXp } from '../../lib/engine/gamify'
@@ -127,7 +127,7 @@ function HomeBody({ name, o }: { name: string; o: StudentOverview }) {
         </Card>
       </div>
 
-      <ThreeScoresCard history={o.history} />
+      <PracticeIndicators history={o.history} />
 
       <Card>
         <CardHeader
@@ -231,48 +231,6 @@ function HomeBody({ name, o }: { name: string; o: StudentOverview }) {
         </Notice>
       )}
     </div>
-  )
-}
-
-const SCORE_HELP: Record<keyof ThreeScores, { label: string; help: string; icon: React.ReactNode }> = {
-  knowledge: { label: 'Knowledge', help: 'Questions you get right', icon: <Target size={16} /> },
-  pacing: { label: 'Pacing', help: 'Answers on test pace, not rushed', icon: <Clock size={16} /> },
-  strategy: { label: 'Strategy', help: 'Sure answers that are right, and right answers without hints', icon: <Compass size={16} /> },
-}
-
-/** Three separate scores so a student can see whether to study, speed up, or change how they test. */
-function ThreeScoresCard({ history }: { history: StudentOverview['history'] }) {
-  const s = threeScores(history)
-  const keys = Object.keys(SCORE_HELP) as (keyof ThreeScores)[]
-  return (
-    <Card>
-      <CardHeader title="Your three scores" subtitle={`Last ${SCORE_WINDOW_DAYS} days of practice`} />
-      <ul className="grid grid-cols-3 gap-2 p-5 pt-3">
-        {keys.map((k) => {
-          const v = s[k].value
-          const meta = SCORE_HELP[k]
-          return (
-            <li key={k} className="rounded-2xl bg-surface-2 p-3">
-              <div className="flex items-center gap-1 text-[13px] font-semibold text-ink-2">
-                <span className="hidden sm:inline">{meta.icon}</span> {meta.label}
-              </div>
-              {v === null ? (
-                <div className="mt-1 text-sm text-ink-3">
-                  <span className="display text-2xl font-semibold text-ink-3">—</span>
-                  <span className="block text-[11px] leading-tight">{Math.max(0, MIN_FOR_SCORE - s[k].n)} more answers</span>
-                </div>
-              ) : (
-                <>
-                  <div className={cx('display mt-1 text-3xl font-semibold tabular', v >= 75 ? 'text-go' : v >= 50 ? 'text-ink' : 'text-warn')}>{v}</div>
-                  <ProgressBar value={v} max={100} tone={v >= 75 ? 'go' : 'gold'} label={`${meta.label} ${v} of 100`} className="mt-1.5 h-1.5" />
-                </>
-              )}
-              <p className="mt-1.5 hidden text-[11px] leading-tight text-ink-3 sm:block">{meta.help}</p>
-            </li>
-          )
-        })}
-      </ul>
-    </Card>
   )
 }
 
