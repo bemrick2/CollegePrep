@@ -335,6 +335,38 @@ last 30 hours in residence at the university.</p>"""
         got = {c['record']['residency']: c['record']['components'] for c in costs.extract({**INST, 'state': 'AL'}, ENTRY, dup, '2026-27')}
         self.assertEqual((got['in_state']['Subtotal'], got['in_state']['Subtotal (2)']), (17118, 4320))
 
+    def test_ok_r1_rules(self):
+        """OK r1: multi-year package values (OU, USAO, SWOSU); repeated header rows (Oklahoma Christian); admission GPA
+        standards and gen-ed rules in transfer text (Cameron, NSU, USAO); a CLEP row scored 3 (OKBU); bare department
+        codes as courses (Cameron IB)."""
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Freshman Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th><th>Criteria</th></tr>'
+            '<tr><td>GPA</td><td>ACT</td><td>SAT</td></tr>'
+            '<tr><td>Award of Excellence</td><td>$16,000 ($4,000 x 4 years)</td><td>31 ACT and 3.5 GPA</td></tr>'
+            '<tr><td>Welcome Scholarship</td><td>$44,760 total estimated value 8 fall/spring terms, $5,595 estimate/term</td><td>Non-resident</td></tr>'
+            '<tr><td>Green Scholarship</td><td>$10,000 total estimated value 4 years x ($1,500 tuition + $1,000 housing)</td><td>3.5 GPA</td></tr>'
+            '<tr><td>Nominee Scholarship</td><td>$3200 cash per year, full tuition, and residence hall scholarship</td><td>30 ACT</td></tr>'
+            '<tr><td>Tier Scholarship</td><td>$6350 ($3175 tuition waiver per semester) for up to 8 semesters.</td><td>3.5 GPA</td></tr>'
+            '<tr><td>Dougherty Scholarship</td><td>$4,000/year</td><td>28 ACT</td></tr></table>'), '2026-27')}
+        self.assertNotIn('GPA', got)
+        for name in ('Award of Excellence', 'Welcome Scholarship', 'Green Scholarship', 'Nominee Scholarship'):
+            self.assertNotIn('award_max', got[name], name)
+        self.assertEqual(got['Tier Scholarship']['award_max'], 6350)  # "for up to 8 semesters" is a duration, not a total
+        self.assertEqual(got['Dougherty Scholarship']['award_max'], 4000)
+        base = '<title>Transfer Credit</title><p>Courses completed with a grade of D or better transfer to the university.</p>'
+        for scoped in ('Transfer students must be in good standing and have an average grade of C or better at the sending institution.',
+                       'General education credit earned with a grade of C or better by the transferring student will apply toward the degree.'):
+            [c] = transfer.extract(INST, ENTRY, T.parse_html(base + f'<p>{scoped}</p>'), '2026-27')
+            self.assertEqual(c['record'].get('min_grade'), 'D', scoped)
+        clep = [['CLEP Exam', 'Score', 'Course', 'Hours'], ['History of the United States I', '3', 'HIST 1013', '3'],
+                ['American Government', '50', 'POLS 1113', '3'], ['College Algebra', '50', 'MATH 1513', '3'], ['Biology', '50', 'BIOL 1114', '4']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'CLEP', [{'rows': clep, 'heading': 'CLEP Credit', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        self.assertIn('score_scale_mismatch', c['issues'])
+        ib = [['IB Exam', 'Score', 'Course', 'Hours'], ['Film (HL)', '4 or higher', 'ENGL', '3'], ['Spanish (HL)', '5 or higher', 'SPAN', '3'],
+              ['Biology (HL)', '5 or higher', 'BIOL', '4']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'IB', [{'rows': ib, 'heading': 'International Baccalaureate', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        self.assertIn('course_number_missing', c['issues'])
+
     def test_ar_r1_rules(self):
         """AR r1: ATU and/or column; UA-PTC placement score rows; UCA merged-cell rows; UAPB four-year totals;
         UACCB/UACCM course-specific grade rules."""
