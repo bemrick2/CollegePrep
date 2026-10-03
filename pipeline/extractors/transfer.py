@@ -27,16 +27,19 @@ def extract(inst, entry, page, today_year):
     head = (page.title + ' ' + ' '.join(page.headings[:8]) + ' ' + entry.get('url', '')).lower()
     if 'transfer' not in head and 'residen' not in head and 'graduation requirement' not in head:
         return []
+    if re.search(r'scholarship|financial[- ]aid|reverse[- ]transfer', page.title + ' ' + entry.get('url', ''), re.I):
+        return []  # hour counts there are award or reverse-transfer conditions (AL: Enterprise, Reid State, Jefferson State)
     text = re.sub(r'\s+', ' ', page.text)
     sentences = [s.strip() for s in SENTENCE.split(text) if 25 <= len(s.strip()) <= 500]
     found = {'min_grade': [], 'max_transfer_credits': [], 'residency_requirement_credits': []}
     for s in sentences:
         if re.search(r'graduate\s+(student|program|degree)|doctoral|master', s, re.I): continue
+        if re.search(r'military|joint\s+services|\bACE\b|probation|admitted\s+to\s+[A-Z]{2,}|admission\s+to\s+[A-Z]{2,}', s): continue  # caps for one source or one partner
         if re.search(r'transfer', s, re.I):
             if not SCOPED_GRADE.search(s):
                 for m in GRADE.finditer(s): found['min_grade'].append((m.group(1).upper(), s))
             for m in MAX_HOURS.finditer(s): found['max_transfer_credits'].append((int(m.group(1)), s))
-        for m in RESIDENCE.finditer(s):
+        for m in ([] if re.search(r'attempted|probation|suspension|retain\s+this\s+status', s, re.I) else RESIDENCE.finditer(s)):
             v = int(m.group(1) or m.group(2))
             if 12 <= v <= 60: found['residency_requirement_credits'].append((v, s))
     if not any(found.values()): return []

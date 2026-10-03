@@ -43,6 +43,10 @@ MUTS = [
     ('pipeline/crawl.py', "return self.challenges.get(host, 0) >= self.CHALLENGE_STOP", "return False"),
     ('pipeline/extractors/programmap.py', "if len(labels) != 1: return []", "labels = labels or {'2026-27': 1}"),
     ('pipeline/extractors/programmap.py', "cont = last and (last[1] is None or wrapped or", "cont = last and (last[1] is None or"),
+    ('pipeline/extractors/merit.py', "rec_year, rec_basis = T.academic_year(first), 'labeled_entering_class'", "rec_year, rec_basis = T.academic_year(first), 'labeled_in_source'"),
+    ('pipeline/extractors/costs.py', "return []  # budgets for less-than-full-time enrollment", "pass  # budgets for less-than-full-time enrollment"),
+    ('pipeline/extractors/merit.py', "criteria = next((i for i, h in enumerate(header) if i != renewal and", "criteria = next((i for i, h in enumerate(header) if"),
+    ('pipeline/extractors/transfer.py', "return []  # hour counts there are award or reverse-transfer conditions", "pass  # hour counts there are award or reverse-transfer conditions"),
 ]
 failed = False
 for f, old, new in MUTS:

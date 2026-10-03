@@ -14,14 +14,14 @@ from .. import text as T
 from . import common
 
 EXTRACTOR = 'merit_table/v1'
-SCHOLARSHIP_CONTEXT = re.compile(r'scholarship|merit|award', re.I)
+SCHOLARSHIP_CONTEXT = re.compile(r'scholarship|merit|\bawards?\b', re.I)  # not "awarding course credit" (AL: Stillman)
 NOT_MERIT = re.compile(r'need[- ]based|federal|pell|loan|work[- ]study|graduate|transfer|athletic|tuition|fees?\b|cost', re.I)
 NOT_NAME = re.compile(r'^[\d<>=.\s/+%$,-]*$|tuition|\bfees?\b|per credit|per course|deposit|housing|meal|eligib|'
                       r'\bstudents?\s+(is|who|still|are)\b|fall below|balance', re.I)
 # Names that are not merit awards (KY: federal aid and loans in an aid table, staff directories, credit-hour bands
 # from an academic-standards table).
 NOT_AWARD_NAME = re.compile(r'\bpell\b|supplemental\s+educational\s+opportunity|\bseog\b|work[- ]study|\bloans?\b|\bplus\b|'
-                            r'college\s+access\s+program|counselor|director|coordinator|specialist|\bassistant\b|officer|advisor|'
+                            r'college\s+access\s+program|counselor(?!(?:\x27|\u2019)?s?\s+(?:award|scholarship))|director|coordinator|specialist|\bassistant\b|officer|advisor|'
                             r'^(fewer|more|less)\s+than\b|^over\s+\d|\bcredit\s+hours?\b|'
                             r'^\W*(books?|supplies|transportation|personal\s+expenses?|loan\s+fees?|room|board|food)\b', re.I)  # OR: COA rows
 NOT_MERIT_PAGE = re.compile(r'retention|renewal|keep(?:ing)?[- ]your[- ]scholarship|academic[- ]standards|probation|satisfactory[- ]academic[- ]progress|financial[- ]aid[- ]staff|'
@@ -33,6 +33,11 @@ THRESHOLD_CELL = re.compile(r'^\s*[<>≤≥]?\s*\d{1,4}(\.\d{1,2})?\s*(\+|-\s*\d
 PLACEHOLDER = re.compile(r'^\W*(n/?a|none|see\s+(?:requirements|criteria|details|below|website)|varies|tbd|-+|—)\W*$', re.I)
 MERGED_GPA = re.compile(r'^(.*?[A-Za-z)])\s*(\d\.\d{1,2}\s*\+?\s*(?:GPA|grade\s+point\s+average)\.?)\s*$', re.I)
 MERGED_TEXT = re.compile(r'^(.{3,80}?\b(?:Scholarship|Award|Grant|Fellowship))(?=[A-Z][a-z])')
+
+
+PAGE_RESIDENCY = re.compile(r'\bout[- ]of[- ]state\b|\bnon[- ]?residents?\b|\bin[- ]state\b', re.I)
+ENTERING_CLASS = re.compile(r'\bfall\s+(20\d{2})\b|\b(20\d{2})\s+(?:in[- ]state\s+|out[- ]of[- ]state\s+|incoming\s+|entering\s+|first[- ]year\s+)*'
+                            r'(?:freshm[ae]n|first[- ]year|incoming|entering)\b', re.I)
 
 
 def _split_name(nm):
@@ -70,12 +75,22 @@ def _amounts(cell):
 
 def _list_awards(t, header, body, title, award_type):
     name = _col(header, 'scholarship', 'award', 'name', 'program')
-    amount = _col(header, 'amount', 'value', 'award amount', 'annual', 'per year', '$')
+    # Annual columns win over four-year totals ("Total over 4 years | Total for academic year", AL: AUM).
+    multi_year = re.compile(r'4\s*years?|four\s+years?|total\s+over|over\s+\d|cumulative', re.I)
+    amount = next((i for words in (('annual', 'per year', 'yearly', 'academic year', 'per academic'), ('amount', 'value', '$', 'award detail'), ('award',))
+                   for i, h in enumerate(header) if i != name and any(w in h.lower() for w in words) and not multi_year.search(h)), None)
     gpa = _col(header, 'gpa', 'grade point')
     act = _col(header, 'act')
     sat = _col(header, 'sat')
+    if act is not None and sat is not None and act == sat: sat = None
+    test = None if (act is not None or sat is not None) else _col(header, 'test', 'superscore', 'score')
+    renewal = _col(header, 'renew', 'retain', 'retention', 'maintain', 'to keep')
+    criteria = next((i for i, h in enumerate(header) if i != renewal and re.search(r'requirement|criteria|eligib|qualif', h, re.I)), None)
+    if criteria in (name, amount, gpa, act, sat, test): criteria = None
+    if gpa is not None and gpa in (act, sat):  # one column holds "21-22 ACT / 1060-1120 SAT or 3.00-3.24 GPA"
+        test, gpa, act, sat = gpa, None, None, None
     if name is None: name = 0
-    if amount is None and gpa is None and act is None and sat is None: return []
+    if amount is None and gpa is None and act is None and sat is None and test is None and criteria is None: return []
     out = []
     for row in body:
         cells = list(row) + [''] * (len(header) - len(row))
@@ -83,10 +98,10 @@ def _list_awards(t, header, body, title, award_type):
         if not nm or len(nm) > 120 or T.money_values(nm) or NOT_NAME.search(nm) or NOT_AWARD_NAME.search(nm): continue
         if nm.endswith(':') or len(nm.split()) > 12: continue  # worked examples and sentences, not award names
         get = lambda i: cells[i].strip() if i is not None and i < len(cells) else ''
-        amt, g, a, s = (x if not PLACEHOLDER.match(x) else '' for x in (get(amount), get(gpa), get(act), get(sat)))
+        amt, g, a, s, tst, crit, ren = (x if not PLACEHOLDER.match(x) else '' for x in (get(amount), get(gpa), get(act), get(sat), get(test), get(criteria), get(renewal)))
         nm, merged_gpa = _split_name(nm)
         if merged_gpa and not g: g = merged_gpa
-        if not (amt or g or a or s): continue
+        if not (amt or g or a or s or tst or crit): continue
         lo, hi = _amounts(amt)
         if lo is not None and re.search(r'\bup\s+to\b', amt, re.I):
             lo = None  # "Up to $5,000" is a maximum; the minimum is not printed
@@ -99,8 +114,10 @@ def _list_awards(t, header, body, title, award_type):
             if lo is not None: rec['award_min'] = lo
             rec['award_max'] = hi
         if g: rec['gpa_requirement'] = g
-        tests = ' / '.join(x for x in [f'ACT {a}' if a else '', f'SAT {s}' if s else ''] if x)
+        tests = ' / '.join(x for x in [f'ACT {a}' if a else '', f'SAT {s}' if s else ''] if x) or tst
         if tests: rec['test_requirement'] = tests
+        if crit: rec['eligibility_summary'] = crit[:600]
+        if ren: rec['renewal_requirements'] = ren[:600]
         thresholds = {k: v for k, v in {'gpa_min': _num(g, 0, 5, True), 'act_min': _num(a, 1, 36), 'sat_min': _num(s, 400, 1600)}.items() if v is not None}
         if thresholds: rec['thresholds'] = thresholds
         out.append((rec, ' | '.join(cells)))
@@ -158,6 +175,13 @@ def extract(inst, entry, page, today_year):
         context = ' '.join([t.get('heading') or '', t.get('caption') or ''])
         if NOT_MERIT.search(context): continue
         header, body = rows[0], rows[1:]
+        if any(T.money_values(c) for c in header[1:]):  # no header row (AL: UWA): infer columns from the cells
+            amount_i = next(i for i, c in enumerate(header) if i and T.money_values(c))
+            crit_i = next((i for i, c in enumerate(header) if i and i != amount_i and re.search(r'\b(gpa|act|sat)\b', c, re.I)), None)
+            header = ['Scholarship'] + [''] * (len(header) - 1)
+            header[amount_i] = 'Amount'
+            if crit_i is not None: header[crit_i] = 'Requirements'
+            body = rows
         if NOT_MERIT.search(' '.join(header)) or NOT_NAME.search(context): continue
         if not HEADER_WORDS.search(' '.join(header)): continue  # e.g. worked aid examples, schedules
         shaped = _tier_award(t, header, body, context) or _grid_award(t, header, body, context)
@@ -168,14 +192,23 @@ def extract(inst, entry, page, today_year):
         if not found or (not shaped and len(found) < 2): continue  # one stray row is not a scholarship table
         t_year = T.year_labels(context)
         rec_year, rec_basis, rec_issues = (year, basis, issues)
+        cls = ENTERING_CLASS.search(context) if not t_year and basis == 'source_unlabeled' else None
+        if cls:
+            first = int(cls.group(1) or cls.group(2))
+            rec_year, rec_basis = T.academic_year(first), 'labeled_entering_class'  # the class entering that fall
+            rec_issues = [i for i in issues if not i.startswith('stale_year_label')]
+            if rec_year < today_year: rec_issues.append(f'stale_year_label:{rec_year}')
         if len(t_year) == 1:
             rec_year, rec_basis = next(iter(t_year)), 'labeled_in_source'
             rec_issues = [i for i in issues if i != 'ambiguous_year_labels' and not i.startswith('stale_year_label')]
             if rec_year < today_year: rec_issues.append(f'stale_year_label:{rec_year}')
         for rec, raw in found:
             ev = [{'field': k, 'value': v, 'snippet': raw[:300]} for k, v in rec.items()
-                  if k in {'award_amount_text', 'gpa_requirement', 'test_requirement', 'award_tiers'}]
+                  if k in {'award_amount_text', 'gpa_requirement', 'test_requirement', 'award_tiers', 'eligibility_summary', 'renewal_requirements'}]
             if not ev: continue
+            res = PAGE_RESIDENCY.search(page.title + ' ' + context)
+            if res and 'residency_requirement' not in rec:  # "In-State Freshman Scholarships" (AL: UAB has same-named awards per residency)
+                rec['residency_requirement'] = 'Out-of-state' if re.search(r'out|non', res.group(0), re.I) else 'In-state'
             rec['notes'] = f'Extracted by {EXTRACTOR} from the table "{(context or page.title)[:100]}"; cells copied as printed.'
             out.append(common.make('awards', inst['institution_key'], rec_year, rec_basis, rec, ev, entry, EXTRACTOR,
                                    {'award_name': rec['award_name']}, {'thresholds': rec.get('thresholds')}, rec_issues))
