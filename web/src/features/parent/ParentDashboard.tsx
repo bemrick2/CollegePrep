@@ -4,11 +4,13 @@ import type { SkillEstimate, Student } from '../../lib/data/types'
 import { ButtonLink, Card, CardHeader, EmptyState, Notice, PageLoading, Pill, ProgressBar, cx } from '../../components/ui'
 import { ArrowRight, Compass, Flame, Info, Target, Users } from '../../components/icons'
 import { latestEstimate, recentTrend, useStudentOverview, type StudentOverview } from '../student/useStudentOverview'
-import { SECTION_LABEL, SECTION_ORDER, nextBenchmarkDue, pacingVerdict } from '../../lib/engine/benchmark'
+import { SECTION_LABEL, SECTION_ORDER, benchmarkSchedule, pacingVerdict } from '../../lib/engine/benchmark'
 import { daysBetween, formatShortDate, isoWeekday } from '../../lib/engine/dates'
 import { EXAM_NAME } from '../onboarding/options'
 import { useCatalog } from '../practice/useCatalog'
-import { CostOutlook } from './CostOutlook'
+import { CostOutlook, outlookFor } from './CostOutlook'
+import { useSavedComparison } from '../colleges/useSavedComparison'
+import { parentActions, type ParentAction } from '../../lib/engine/actions'
 import { PracticeIndicators } from '../../components/PracticeIndicators'
 import { BenchmarkStatus } from '../../components/BenchmarkStatus'
 
@@ -36,13 +38,7 @@ function StudentPanel({ student }: { student: Student }) {
   return <Panel student={student} o={o.data} />
 }
 
-interface Action {
-  key: string
-  title: string
-  detail: string
-  to?: string
-  tone: 'go' | 'warn' | 'info' | 'brand'
-}
+type Action = ParentAction
 
 function sectionRollup(estimates: SkillEstimate[]) {
   const m = new Map<string, { n: number; c: number; paces: number[]; flagged: boolean }>()
@@ -66,7 +62,6 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
   const rollup = sectionRollup(o.estimates)
   const lastDay = o.streak.last_practice_day
   const idleDays = lastDay ? daysBetween(lastDay, o.today) : null
-  const due = nextBenchmarkDue(o.benchmarks)
   const linked = !!student.linked_user_id
   const name = student.display_name
 
@@ -75,20 +70,45 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
   const expectedByNow = goal ? Math.round((goal * dayOfWeek) / 7) : null
   const behind = goal !== null && expectedByNow !== null && o.week.questions_submitted < expectedByNow * 0.8
 
-  const actions: Action[] = []
-  if (!linked) actions.push({ key: 'invite', title: `Invite ${name} to log in`, detail: 'Practice happens on their own login. Create a code on the Household page.', to: '/parent/household', tone: 'brand' })
-  if (o.benchmarks.length === 0) actions.push({ key: 'bench', title: `${name} should take the initial benchmark`, detail: 'About 25 minutes. It sets the baseline every recommendation depends on.', tone: 'go' })
-  else if (due.inDays === 0) actions.push({ key: 'bench', title: `${due.kind === 'full' ? 'Full' : 'Mini'} benchmark is due`, detail: 'It has been several weeks — a fresh benchmark shows real change.', tone: 'go' })
-  for (const [sec, r] of rollup) {
-    const pace = r.paces.length ? r.paces.reduce((a, b) => a + b, 0) / r.paces.length : null
-    if (r.n >= 8 && r.c / r.n >= 0.6 && pacingVerdict(pace) === 'slow')
-      actions.push({ key: `pace-${sec}`, title: `${SECTION_LABEL[sec] ?? sec}: accurate but slow`, detail: `Averaging ${pace!.toFixed(1)}× test pace. Daily sessions now include timed ${SECTION_LABEL[sec]?.toLowerCase()} work.`, tone: 'warn' })
-  }
-  if (behind) actions.push({ key: 'behind', title: 'Behind on this week\'s goal', detail: `${o.week.questions_submitted} of ${goal} questions; about ${expectedByNow} would be on track by today.`, tone: 'warn' })
-  if (linked && idleDays !== null && idleDays >= 3) actions.push({ key: 'idle', title: `No practice in ${idleDays} days`, detail: 'A quick check-in usually restarts the habit.', tone: 'warn' })
-  if (o.plan?.goals.includes('college_credit'))
-    actions.push({ key: 'credit', title: 'Check AP, CLEP and dual-enrollment credit', detail: 'See which target schools publish verified credit policies.', to: '/colleges', tone: 'info' })
-  actions.push({ key: 'compare', title: 'Compare target schools', detail: 'Verified costs, scholarships and credit policies, side by side.', to: '/colleges', tone: 'info' })
+  const saved = useSavedComparison()
+  const weakSkill = (kind: 'knowledge' | 'pacing') =>
+    [...o.estimates]
+      .filter((e) => (kind === 'knowledge' ? e.knowledge_weak : e.pacing_weak))
+      .sort((a, b) => (kind === 'knowledge' ? (a.accuracy ?? 1) - (b.accuracy ?? 1) : (b.pacing_ratio ?? 0) - (a.pacing_ratio ?? 0)))[0]
+  const focus = (['knowledge', 'pacing'] as const).flatMap((kind) => {
+    const e = weakSkill(kind)
+    if (!e) return []
+    const skill = catalog.skillName(e.skill_key) ?? e.skill_key
+    return [{
+      section: e.section,
+      label: SECTION_LABEL[e.section] ?? e.section,
+      kind,
+      detail: kind === 'knowledge' ? `${skill}: ${Math.round((e.accuracy ?? 0) * 100)}% right over ${e.attempts} questions. Daily sessions already lead with it.` : `${skill}: about ${(e.pacing_ratio ?? 0).toFixed(1)}× test pace. Sessions now include timed work.`,
+    }]
+  })
+  const official = [...o.scores].filter((x) => x.exam_family === exam && x.composite !== null && x.score_source !== 'practice_estimate').sort((a, b) => b.test_date.localeCompare(a.test_date))[0]
+  const actions = parentActions({
+    name,
+    exam,
+    linked,
+    benchmarks: o.benchmarks.length,
+    schedule: benchmarkSchedule(o.benchmarks),
+    focus,
+    behind: behind && goal !== null && expectedByNow !== null ? { done: o.week.questions_submitted, goal, expected: expectedByNow } : null,
+    idleDays,
+    goals: o.plan?.goals ?? [],
+    targetScore: o.plan?.target_score ?? null,
+    officialScore: official ? { composite: official.composite!, selfReported: official.score_source === 'self_reported' } : null,
+    schools: (saved.data ?? []).filter((c) => c.found).map((c) => ({
+      name: c.institution?.display_name ?? c.institution_key,
+      levers: outlookFor(c).levers,
+      awards: ((c.domains.awards ?? []) as { award_name?: string; thresholds?: { act_min?: number; sat_min?: number } | null }[]).map((a) => ({
+        name: a.award_name ?? 'Scholarship',
+        act_min: a.thresholds?.act_min ?? null,
+        sat_min: a.thresholds?.sat_min ?? null,
+      })),
+    })),
+  })
 
   return (
     <div className="grid grid-cols-1 gap-5">
@@ -127,7 +147,7 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
 
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-[1.25fr_1fr]">
         <Card>
-          <CardHeader title="Next best actions" subtitle="Ordered by impact. Only based on recorded data." />
+          <CardHeader title="What to do next" subtitle="Based on recorded practice and verified college records." />
           <ol className="grid gap-2 p-5 pt-3">
             {actions.slice(0, 6).map((a, i) => (
               <li key={a.key}>
