@@ -37,11 +37,24 @@ def _columns(rows, kind=None):
     exam = _find(header, 'exam', 'test', 'subject', 'ap course', 'clep', 'ib ')
     score = _find(header, 'score', 'minimum', 'level')
     # The course column is never the exam column ("IB Course | Score | Credit Awarded", KY: Big Sandy).
-    course = next((i for words in (('equivalen',), ('course',), ('credit granted', 'credit awarded', 'awarded'))
-                   for i, h in enumerate(header) if i != exam and any(w in h.lower() for w in words)), None)
+    pick_course = lambda: next((i for words in (('equivalen', 'exemption'), ('course',), ('credit granted', 'credit awarded', 'awarded'))
+                                for i, h in enumerate(header) if i != exam and any(w in h.lower() for w in words)), None)
+    course = pick_course()
     hours = _find(header, 'hours', 'hrs', 'credits', 'sch')
     has_header = score is not None or (exam is not None and course is not None)
-    if has_header: exam = _exam_column(kind, rows, exam)
+    if has_header:
+        exam = _exam_column(kind, rows, exam)
+        # "Advanced Placement Course | ... | GSW Course Credit" (GA): the exam header also says "course",
+        # so the course column is chosen again once the exam column is known.
+        course = pick_course()
+        body = rows[1:]
+        if course is not None and body and sum(_credits(r[course]) is not None for r in body if course < len(r)) >= len(body) / 2:
+            course = None  # "Credit Granted | 12" holds hours, not courses (Walters State CLEP)
+        if course is None or course == hours:  # GA Tech IB: "Subject | Exam Scores | Credit" with courses under Credit
+            body = rows[1:]
+            width = max(len(r) for r in rows)
+            course = next((i for i in range(width) if i not in (exam, score)
+                           and sum(bool(COURSE_RE.search(r[i])) for r in body if i < len(r)) >= max(2, len(body) / 3)), course)
     if not has_header:
         body = rows
         width = max(len(r) for r in body)
@@ -106,6 +119,7 @@ def table_equivalencies(kind, rows, table_hit=None):
         get = lambda i: cells[i].strip() if i is not None and i < len(cells) else ''
         score, course = get(sc), get(co)
         if not score and not course: continue
+        if score and not re.search(r'\d', score) and not course: continue  # a section heading row ("Foreign Languages", Gordon State)
         eq = {'exam_or_course_code': code, 'exam_or_course_name': name,
               'minimum_score': score or None, 'institution_course_equivalent': course or None,
               'credits_awarded': _credits(get(hr)), 'notes': None}
@@ -181,6 +195,8 @@ def extract(inst, entry, page, today_year):
         checks = {'equivalencies': len(eqs), 'distinct_exams': len({e['exam_or_course_code'] for e in eqs}),
                   'rows_without_score': sum(1 for e in eqs if not e['minimum_score'])}
         if checks['rows_without_score']: issues = issues + ['rows_without_score']
+        # "50 62" with "FREN 1101, 1102 FREN 1101, 1102, 2001, 2002": two score tiers merged into one row (Gordon State)
+        if any(re.fullmatch(r'\s*\d{1,3}\s+\d{1,3}\s*', e['minimum_score'] or '') for e in eqs): issues = issues + ['merged_score_cells']
         if any((e['credits_awarded'] or 0) > 16 for e in eqs):
             issues = issues + ['credits_implausible']  # merged cells ("3" and "6" read as 36)
         numeric = sum(1 for e in eqs if re.fullmatch(r'\s*\d{1,2}(\.\d)?\s*', e['institution_course_equivalent'] or ''))

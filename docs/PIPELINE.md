@@ -78,7 +78,9 @@ A candidate with any issue is an exception, never promoted silently: `conflictin
 `stale_year_label:*`, `residency_unknown`, `column_alignment_uncertain`, `components_do_not_reconcile`,
 `cost_period_semester`, `c1_totals_incomplete`, `*_implausible`, `rows_without_score`, `extractor_error:*`,
 `shared_site_attribution_review`, `residency_names_another_state`, `course_alternatives_in_rule_text`,
-`semantic_review_required`, `conflicting_values:*`.
+`semantic_review_required`, `conflicting_values:*`, `multicolumn_layout_review` (side-by-side columns
+interleaved into one tier line), `merged_score_cells` (two score tiers in one table row),
+`zero_counts_with_enrollment` (CDS applied/admitted read as 0 while students enrolled).
 
 ### Re-verification
 `verify.json` re-checks every non-verified curated record whose source was fetched: each number and
