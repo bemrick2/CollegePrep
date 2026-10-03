@@ -23,7 +23,8 @@ NOT_NAME = re.compile(r'^[\d<>=.\s/+%$,-]*$|tuition|\bfees?\b|per credit|per cou
 NOT_AWARD_NAME = re.compile(r'\bpell\b|supplemental\s+educational\s+opportunity|\bseog\b|work[- ]study|\bloans?\b|\bplus\b|'
                             r'college\s+access\s+program|counselor(?!(?:\x27|\u2019)?s?\s+(?:award|scholarship))|director|coordinator|specialist|\bassistant\b|officer|advisor|'
                             r'^(fewer|more|less)\s+than\b|^over\s+\d|\bcredit\s+hours?\b|'
-                            r'^\W*(books?|supplies|transportation|personal\s+expenses?|loan\s+fees?|room|board|food)\b', re.I)  # OR: COA rows
+                            r'^\W*(books?|supplies|transportation|personal\s+expenses?|loan\s+fees?|room|board|food)\b|'
+                            r'^(reading|english|math(ematics)?|science|writing|composite)$', re.I)  # AR: UA-PTC placement score rows  # OR: COA rows
 NOT_MERIT_PAGE = re.compile(r'retention|renewal|keep(?:ing)?[- ]your[- ]scholarship|academic[- ]standards|probation|satisfactory[- ]academic[- ]progress|financial[- ]aid[- ]staff|'
                             r'\bstaff\b|directory|meet[- ]the[- ]team|our[- ]team|'
                             # GA r1: lists of other organizations' awards (Agnes Scott outside scholarships, Georgia Southern
@@ -114,6 +115,7 @@ def _list_awards(t, header, body, title, award_type):
     if amount is None and gpa is None and act is None and sat is None and test is None and criteria is None: return []
     out = []
     for row in body:
+        if name > 0 and len(row) < len(header): continue  # AR (UCA): merged cells shifted this row; its columns no longer line up
         cells = list(row) + [''] * (len(header) - len(row))
         nm = cells[name].strip()
         if not nm or len(nm) > 120 or T.money_values(nm): continue
@@ -126,7 +128,8 @@ def _list_awards(t, header, body, title, award_type):
         if merged_gpa and not g: g = merged_gpa
         if not (amt or g or a or s or tst or crit): continue
         lo, hi = _amounts(amt)
-        if re.search(r'tuition[^$]*(\+|\bplus\b|\band\b)\s*\$', amt, re.I):
+        if re.search(r'tuition[^$]*(\+|\bplus\b|\band\b)\s*\$', amt, re.I) or \
+           re.search(r'\b(?:for|over)\s+(?:four|4|eight|8)\s+(?:years|semesters)\b', re.sub(r'\([^)]*\)', '', amt), re.I):  # AR (UAPB): "$66,000 for four years ($8,250 per semester)"
             lo, hi = None, None  # LSUS: "Tuition & Fees + $1,200 Campus Housing Credit" is not a $1,200 award
         if lo is not None and re.search(r'\bup\s+to\b', amt, re.I):
             lo = None  # "Up to $5,000" is a maximum; the minimum is not printed
@@ -163,6 +166,8 @@ def _list_awards(t, header, body, title, award_type):
         if ren: rec['renewal_requirements'] = ren[:600]
         thresholds = {k: v for k, v in {'gpa_min': _num(g, 0, 5, True), 'act_min': _num(a, 1, 36), 'sat_min': _num(s, 400, 1600)}.items() if v is not None}
         if thresholds: rec['thresholds'] = thresholds
+        if any(re.fullmatch(r'\s*(or|and|&)\s*', c, re.I) for c in cells):
+            rec['_issues'] = ['threshold_logic_column']  # AR (ATU): an "or"/"&" column says whether GPA and test are both required
         out.append((rec, ' | '.join(cells)))
     return out
 
@@ -256,6 +261,7 @@ def extract(inst, entry, page, today_year):
             rec_issues = [i for i in issues if i != 'ambiguous_year_labels' and not i.startswith('stale_year_label')]
             if rec_year < today_year: rec_issues.append(f'stale_year_label:{rec_year}')
         for rec, raw in found:
+            row_issues = rec.pop('_issues', [])
             ev = [{'field': k, 'value': v, 'snippet': raw[:300]} for k, v in rec.items()
                   if k in {'award_amount_text', 'gpa_requirement', 'test_requirement', 'award_tiers', 'eligibility_summary', 'renewal_requirements'}]
             if not ev: continue
@@ -264,5 +270,5 @@ def extract(inst, entry, page, today_year):
                 rec['residency_requirement'] = 'Out-of-state' if re.search(r'out|non', res.group(0), re.I) else 'In-state'
             rec['notes'] = f'Extracted by {EXTRACTOR} from the table "{(context or page.title)[:100]}"; cells copied as printed.'
             out.append(common.make('awards', inst['institution_key'], rec_year, rec_basis, rec, ev, entry, EXTRACTOR,
-                                   {'award_name': rec['award_name']}, {'thresholds': rec.get('thresholds')}, rec_issues))
+                                   {'award_name': rec['award_name']}, {'thresholds': rec.get('thresholds')}, rec_issues + row_issues))
     return out

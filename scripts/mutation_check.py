@@ -89,12 +89,17 @@ MUTS = [
     ('pipeline/extractors/merit.py', "('amount', 'value', '$', 'award detail', 'offer')", "('amount', 'value', '$', 'award detail')"),
     ('pipeline/extractors/merit.py', 'lo, hi = None, None  # LSUS', 'pass  # LSUS'),
     ('pipeline/extractors/merit.py', "rec['renewable'] = False  # UL Lafayette", 'pass  # UL Lafayette'),
-    ('pipeline/extractors/transfer.py', "r'developmental|(?:for|exempt\\s+the)\\s+placement|placement\\s+(?:assessment|test|exam)|math(?:ematics)?\\s+and\\s+science|block\\s+transfer', re.I)", "r'^$', re.I)"),
+    ('pipeline/extractors/transfer.py', "r'developmental|(?:for|exempt\\s+the)\\s+placement|placement\\s+(?:assessment|test|exam)|math(?:ematics)?\\s+and\\s+science|block\\s+transfer|'", "r'^$|'"),
     ('pipeline/extractors/transfer.py', "[] if re.search(r'upper[- ](?:level|division)|not\\s+accredited|unaccredited', s, re.I) else MAX_HOURS.finditer(s)", 'MAX_HOURS.finditer(s)'),
     ('pipeline/extractors/credit.py', "            issues = issues + ['merged_score_cells']\n", '            pass\n'),
     ('pipeline/extractors/credit.py', "issues = issues + ['score_scale_mismatch']", 'pass'),
     ('pipeline/extractors/credit.py', "            score = f'{level} {score}'", '            pass'),
     ('pipeline/extractors/costs.py', '        return []\n    page_year, page_basis, page_issues', '        pass\n    page_year, page_basis, page_issues'),
+    ('pipeline/extractors/merit.py', "|'\n                            r'^(reading|english|math(ematics)?|science|writing|composite)$'", "'"),
+    ('pipeline/extractors/merit.py', 'if name > 0 and len(row) < len(header): continue', 'pass'),
+    ('pipeline/extractors/merit.py', "re.search(r'\\b(?:for|over)\\s+(?:four|4|eight|8)\\s+(?:years|semesters)\\b', re.sub(r'\\([^)]*\\)', '', amt), re.I)", 'False'),
+    ('pipeline/extractors/merit.py', "rec['_issues'] = ['threshold_logic_column']", 'pass'),
+    ('pipeline/extractors/transfer.py', "r'this\\s+course|prerequisite', re.I)", "r'^$', re.I)"),
 ]
 failed = False
 for f, old, new in MUTS:

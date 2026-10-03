@@ -335,6 +335,43 @@ last 30 hours in residence at the university.</p>"""
         got = {c['record']['residency']: c['record']['components'] for c in costs.extract({**INST, 'state': 'AL'}, ENTRY, dup, '2026-27')}
         self.assertEqual((got['in_state']['Subtotal'], got['in_state']['Subtotal (2)']), (17118, 4320))
 
+    def test_ar_r1_rules(self):
+        """AR r1: ATU and/or column; UA-PTC placement score rows; UCA merged-cell rows; UAPB four-year totals;
+        UACCB/UACCM course-specific grade rules."""
+        cands = merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Freshman Academic Scholarships</title><h2>Academic Scholarships</h2><table><tr><th>Level</th><th>ACT</th><th>SAT</th><th></th><th>GPA</th><th>Amount</th></tr>'
+            '<tr><td>Level-2</td><td>19-20</td><td>990-1050</td><td>or</td><td>3.25-3.49</td><td>$2,000</td></tr>'
+            '<tr><td>Level-4</td><td>24-27</td><td>1160-1290</td><td>&amp;</td><td>3.75+</td><td>$8,000</td></tr>'
+            '<tr><td>Level-1</td><td>N/A</td><td>N/A</td><td></td><td>2.75-3.24</td><td>$1,000</td></tr></table>'), '2026-27')
+        got = {c['record']['award_name']: c['issues'] for c in cands}
+        self.assertIn('threshold_logic_column', got['Level-2'])
+        self.assertIn('threshold_logic_column', got['Level-4'])
+        self.assertNotIn('threshold_logic_column', got['Level-1'])
+        sections = merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Concurrent Scholarship</title><h2>Scholarship Score Requirements</h2><table><tr><th>Subject</th><th>ACT</th><th>SAT</th></tr>'
+            '<tr><td>Reading</td><td>19+</td><td>470+</td></tr><tr><td>English</td><td>19+</td><td>470+</td></tr><tr><td>Math</td><td>19+</td><td>460+</td></tr></table>'), '2026-27')
+        self.assertEqual(sections, [])
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Freshman Scholarships</h2><table><tr><th></th><th>Scholarship</th><th>Requirements</th><th>Annual Total Award</th></tr>'
+            '<tr><td>Institutional</td><td>Achievement</td><td>Minimum 4.00 GPA</td><td>$6,500</td></tr>'
+            '<tr><td>Honors</td><td>Presidential</td><td>Minimum 3.90 GPA</td><td>$8,000</td></tr>'
+            '<tr><td>University</td><td>Minimum 3.75 GPA</td><td>$4,500</td></tr></table>'), '2026-27')}
+        self.assertEqual(sorted(got), ['Achievement', 'Presidential'])
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Academic Scholarships</h2><table><tr><th>Scholarship</th><th>Criteria</th><th>Amount</th></tr>'
+            '<tr><td>Chancellor Scholarship</td><td>Minimum 3.75 GPA</td><td>$66,000 for four years ($8,250 per semester)</td></tr>'
+            '<tr><td>Golden Lion Scholarship</td><td>Minimum 2.75 GPA</td><td>$4,000</td></tr></table>'), '2026-27')}
+        self.assertNotIn('award_max', got['Chancellor Scholarship'])
+        self.assertEqual(got['Golden Lion Scholarship']['award_max'], 4000)
+        base = '<title>Transfer Credit</title><p>Courses completed with a grade of D or better transfer to the university.</p>'
+        for scoped in ('This course is required and must be completed with a grade of C or higher through another institution and transferred.',
+                       'Grades of D are not acceptable in some majors and cannot be used as prerequisites for courses that require a grade of C or higher in transfer.'):
+            [c] = transfer.extract(INST, ENTRY, T.parse_html(base + f'<p>{scoped}</p>'), '2026-27')
+            self.assertEqual(c['record'].get('min_grade'), 'D', scoped)
+        [c] = transfer.extract(INST, ENTRY, T.parse_html('<title>Transfer</title><p>A minimum grade of C or better will be accepted for transfer credit '
+                                                        "(D's are accepted in some majors and for some lower division courses).</p>"), '2026-27')
+        self.assertEqual(c['record'].get('min_grade'), 'C')  # Clayton State: the general rule stands
+
     def test_la_r1_rules(self):
         """LA r1: UL Lafayette 'Offer' column and one-time awards; LSUS tuition-plus amounts; scoped transfer rules
         (Delgado, LSU, River Parishes, LSUA, NOBTS); Louisiana Tech merged tiers; AP scores under a CLEP heading;
