@@ -335,6 +335,40 @@ last 30 hours in residence at the university.</p>"""
         got = {c['record']['residency']: c['record']['components'] for c in costs.extract({**INST, 'state': 'AL'}, ENTRY, dup, '2026-27')}
         self.assertEqual((got['in_state']['Subtotal'], got['in_state']['Subtotal (2)']), (17118, 4320))
 
+    def test_ms_r1_merit_and_costs(self):
+        """MS r1: Tougaloo phone numbers and non-score criteria in the ACT column; USM GPA-band headers over ACT rows;
+        Ole Miss 'No Test Score' grid column; Sumners amounts by enrollment level; Alcorn 'On/Off Campus' budgets."""
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Academic Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th><th>GPA</th><th>ACT/SAT</th></tr>'
+            '<tr><td>Presidential Academic Scholarship</td><td>$9,000</td><td>3.5+</td><td>ACT: 27+ / SAT: 1220+</td></tr>'
+            '<tr><td>Eagle Academic Scholarship</td><td>$5,000</td><td>3.25+</td><td>Valedictorian or Salutatorian</td></tr>'
+            '<tr><td>Servant Leader Scholarship</td><td>$4,000</td><td>3.0+</td><td>21</td></tr>'
+            '<tr><td>Awarded at discretion of Athletic Department</td><td></td><td></td><td>601-977-7700</td></tr></table>'), '2026-27')}
+        self.assertEqual(got['Presidential Academic Scholarship']['test_requirement'], 'ACT: 27+ / SAT: 1220+')
+        self.assertEqual(got['Eagle Academic Scholarship']['test_requirement'], 'Valedictorian or Salutatorian')
+        self.assertEqual(got['Servant Leader Scholarship']['test_requirement'], 'ACT 21')
+        self.assertNotIn('Awarded at discretion of Athletic Department', got)
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Freshmen</title><h2>Academic Excellence Scholarships</h2><table><tr><th>3.0 - 3.24 GPA</th><th>Annual Merit Scholarship</th></tr>'
+            '<tr><td>23 - 25 ACT Score</td><td>$1,500 annually</td></tr><tr><td>26 - 29 ACT Score</td><td>$2,500 annually</td></tr></table>'), '2026-27')}
+        r = got['Academic Excellence Scholarships: 3.0 - 3.24 GPA 23 - 25 ACT Score']
+        self.assertEqual((r['gpa_requirement'], r['test_requirement']), ('3.0 - 3.24 GPA', '23 - 25 ACT Score'))
+        [c] = merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Academic Merit Scholarships</h2><table><tr><th>High School GPA</th><th>No Test Score</th><th>24-25 ACT</th><th>26-27 ACT</th></tr>'
+            '<tr><td>3.0-3.49</td><td>$3,000</td><td>$4,000</td><td>$5,000</td></tr><tr><td>3.5-3.74</td><td>$5,000</td><td>$7,000</td><td>$8,000</td></tr></table>'), '2026-27')
+        self.assertEqual((c['record']['award_min'], len(c['record']['award_tiers'])), (3000, 6))
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Sumners Scholarship</title><h2>Sumners Scholarship</h2><table><tr><th>Enrollment</th><th>Amount</th></tr>'
+            '<tr><td>Full Time</td><td>$5,000 per semester</td></tr><tr><td>Half-Time</td><td>$2,500 per semester</td></tr></table>'), '2026-27')}
+        self.assertEqual(sorted(got), ['Sumners Scholarship: Full Time', 'Sumners Scholarship: Half-Time'])
+        self.assertNotIn('gpa_requirement', got['Sumners Scholarship: Full Time'])
+        p = T.Page('Cost of Attendance', 'Cost of Attendance (COA) Budget', [{'heading': 'Cost of Attendance (COA) Budget', 'caption': '', 'lead': '', 'rows': [
+            ['2026-2027 Undergraduate Cost of Attendance'], ['', 'Undergraduate in State On/Off Campus Fall/Spring', 'Undergraduate out of State On/Off Campus Fall/Spring'],
+            ['Tuition', '$8,105.00', '$9,105.00'], ['Fees', '$730.00', '$730.00'], ['Housing', '$7,581.00', '$7,581.00'], ['Food', '$4,693.00', '$4,693.00'],
+            ['Total Cost of Attendance', '$21,109.00', '$22,109.00']]}], [], [])
+        got = {c['record']['residency']: c['record'] for c in costs.extract({**INST, 'state': 'MS'}, ENTRY, p, '2026-27')}
+        self.assertEqual((got['in_state']['tuition'], got['in_state'].get('living_arrangement')), (8105, None))
+
     def test_merit_columns_al_r1(self):
         """AL r1: annual vs four-year columns (AUM), a single 'Test Score' column (UAB), a requirements column
         (Huntingdon) and an entering-class heading (UA '2027 In-State Freshman ...')."""

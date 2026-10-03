@@ -1,0 +1,2283 @@
+{
+ "11001ee386d9b606": {
+  "decision": {
+   "candidate_id": "11001ee386d9b606",
+   "reason": "Policy/eligibility lines and table rows checked against the official page as printed. Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "•  Obtain at least a 2.5 grade point average on 4.0 scale on all high school courses, as",
+    "value": 2.5
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:34+00:00",
+   "kind": "pdf",
+   "last_modified": "Wed, 27 Aug 2025 19:33:27 GMT",
+   "page_file": "9a760e050c96aa64228f.json.gz",
+   "requested_url": "https://www.mvsu.edu/sites/default/files/dual.pdf",
+   "sha256": "9a760e050c96aa64228fecadfac262f48dad320a8879e23348ea7f19181b36b2",
+   "title": "DUAL ADMISSIONS/DUAL CREDIT",
+   "url": "https://www.mvsu.edu/sites/default/files/dual.pdf"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "135d388460ecd81e": {
+  "decision": {
+   "candidate_id": "135d388460ecd81e",
+   "reason": "GPA band and ACT range checked against the published table; amount as printed; year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "27 - 28 ACT Score | $6,000 annually",
+    "value": "3.25 - 3.59 GPA"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "27 - 28 ACT Score | $6,000 annually",
+    "value": "27 - 28 ACT Score"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "27 - 28 ACT Score | $6,000 annually",
+    "value": "$6,000 annually"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:51+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "6d202fa71cbc92639a88.json.gz",
+   "requested_url": "https://www.usm.edu/undergraduate-admissions/freshmen.php",
+   "sha256": "6d202fa71cbc92639a8882e4338257b4d0f4fb36a07aae46008aac1c0fdbcf4d",
+   "title": "Undergraduate Admissions - Freshmen | Undergraduate Admissions | The University of Southern Mississippi",
+   "url": "https://www.usm.edu/undergraduate-admissions/freshmen.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "139acf8ee9340369": {
+  "decision": {
+   "candidate_id": "139acf8ee9340369",
+   "reason": "Cost column checked against the published 2026-27 table (residency from the column header; components and total as printed)."
+  },
+  "evidence": [
+   {
+    "field": "column:Tuition and Fees",
+    "snippet": "Tuition and Fees | $4,980 | $7,780",
+    "value": 4980
+   },
+   {
+    "field": "column:Books and Supplies",
+    "snippet": "Books and Supplies | $2,250 | $2,250",
+    "value": 2250
+   },
+   {
+    "field": "column:Housing",
+    "snippet": "Housing | $4,600 | $6,660",
+    "value": 4600
+   },
+   {
+    "field": "column:Travel",
+    "snippet": "Travel | $2,000 | $2,650",
+    "value": 2000
+   },
+   {
+    "field": "column:Misc and Personal",
+    "snippet": "Misc and Personal | $1,615 | $2,115",
+    "value": 1615
+   },
+   {
+    "field": "column:Total",
+    "snippet": "Total | $15,445 | $21,455",
+    "value": 15445
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:28:09+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "2663fa8c36a0c878105d.json.gz",
+   "requested_url": "https://www.northwestms.edu/financial-aid",
+   "sha256": "2663fa8c36a0c878105d029649fe4769ffa2e42e823a644f4160a27b3b1f476c",
+   "title": "Financial Aid - Northwest Mississippi Community College",
+   "url": "https://www.northwestms.edu/financial-aid"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "165fca950696b91d": {
+  "decision": {
+   "candidate_id": "165fca950696b91d",
+   "reason": "GPA band and ACT range checked against the published table; amount as printed; year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "20 ACT Score | $1,500 annually",
+    "value": "3.25 - 3.59 GPA"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "20 ACT Score | $1,500 annually",
+    "value": "20 ACT Score"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "20 ACT Score | $1,500 annually",
+    "value": "$1,500 annually"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:51+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "6d202fa71cbc92639a88.json.gz",
+   "requested_url": "https://www.usm.edu/undergraduate-admissions/freshmen.php",
+   "sha256": "6d202fa71cbc92639a8882e4338257b4d0f4fb36a07aae46008aac1c0fdbcf4d",
+   "title": "Undergraduate Admissions - Freshmen | Undergraduate Admissions | The University of Southern Mississippi",
+   "url": "https://www.usm.edu/undergraduate-admissions/freshmen.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "22a0ed7e41b9b001": {
+  "decision": {
+   "candidate_id": "22a0ed7e41b9b001",
+   "reason": "GPA band and ACT range checked against the published table; amount as printed; year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "23 - 25 ACT Score | $1,500 annually",
+    "value": "3.0 - 3.24 GPA"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "23 - 25 ACT Score | $1,500 annually",
+    "value": "23 - 25 ACT Score"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "23 - 25 ACT Score | $1,500 annually",
+    "value": "$1,500 annually"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:51+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "6d202fa71cbc92639a88.json.gz",
+   "requested_url": "https://www.usm.edu/undergraduate-admissions/freshmen.php",
+   "sha256": "6d202fa71cbc92639a8882e4338257b4d0f4fb36a07aae46008aac1c0fdbcf4d",
+   "title": "Undergraduate Admissions - Freshmen | Undergraduate Admissions | The University of Southern Mississippi",
+   "url": "https://www.usm.edu/undergraduate-admissions/freshmen.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "27abfe0655399f14": {
+  "decision": {
+   "candidate_id": "27abfe0655399f14",
+   "reason": "GPA band and ACT range checked against the published table; amount as printed; year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "25 - 26 ACT Score | $5,250 annually",
+    "value": "3.6 GPA or higher"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "25 - 26 ACT Score | $5,250 annually",
+    "value": "25 - 26 ACT Score"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "25 - 26 ACT Score | $5,250 annually",
+    "value": "$5,250 annually"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:51+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "6d202fa71cbc92639a88.json.gz",
+   "requested_url": "https://www.usm.edu/undergraduate-admissions/freshmen.php",
+   "sha256": "6d202fa71cbc92639a8882e4338257b4d0f4fb36a07aae46008aac1c0fdbcf4d",
+   "title": "Undergraduate Admissions - Freshmen | Undergraduate Admissions | The University of Southern Mississippi",
+   "url": "https://www.usm.edu/undergraduate-admissions/freshmen.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "286755e717146ef0": {
+  "decision": {
+   "candidate_id": "286755e717146ef0",
+   "reason": "Policy/eligibility lines and table rows checked against the official page as printed. Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "Have a minimum overall high school GPA of 3.0 on a 4.0 scale as documented by an official high school transcript on all high school courses and",
+    "value": 3.0
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:18:41+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "82f786a7ea2a2bd92e26.json.gz",
+   "requested_url": "https://www.iccms.edu/dualcredit",
+   "sha256": "82f786a7ea2a2bd92e2630a57a7a97d6ea225a911947d5bae25dcb92456c9e53",
+   "title": "Dual Credit",
+   "url": "https://www.iccms.edu/dualcredit"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "2b174b0ca6533665": {
+  "decision": {
+   "candidate_id": "2b174b0ca6533665",
+   "reason": "Cost column checked against the published 2026-27 table (residency from the column header; components and total as printed)."
+  },
+  "evidence": [
+   {
+    "field": "on_campus:Tuition/Fees",
+    "snippet": "Tuition/Fees | $10,794 | $12,794",
+    "value": 10794
+   },
+   {
+    "field": "on_campus:Transportation",
+    "snippet": "Transportation | $1,028 | $1,028",
+    "value": 1028
+   },
+   {
+    "field": "on_campus:Housing/Food",
+    "snippet": "Housing/Food | $12,320 | $12,320",
+    "value": 12320
+   },
+   {
+    "field": "on_campus:Personal Expenses",
+    "snippet": "Personal Expenses | $2,154 | $2,154",
+    "value": 2154
+   },
+   {
+    "field": "on_campus:Course Fees",
+    "snippet": "Course Fees | $596 | $596",
+    "value": 596
+   },
+   {
+    "field": "on_campus:Books/Supplies",
+    "snippet": "Books/Supplies | $764 | $764",
+    "value": 764
+   },
+   {
+    "field": "on_campus:TOTAL",
+    "snippet": "TOTAL | $27,656 | $29,656",
+    "value": 27656
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:48+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "baf93fa8e5d6883a04d8.json.gz",
+   "requested_url": "https://www.usm.edu/financial-aid/cost-of-attendance-future-year.php",
+   "sha256": "baf93fa8e5d6883a04d8b182113dea66c7907ae746f0e32773643b87f3de4f27",
+   "title": "Cost of Attendance Future Year | Financial Aid | The University of Southern Mississippi",
+   "url": "https://www.usm.edu/financial-aid/cost-of-attendance-future-year.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "2ee6748bcb479b0b": {
+  "decision": {
+   "candidate_id": "2ee6748bcb479b0b",
+   "reason": "GPA band and ACT range checked against the published table; amount as printed; year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "32 - 36 ACT Score | $4,500 annually",
+    "value": "3.0 - 3.24 GPA"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "32 - 36 ACT Score | $4,500 annually",
+    "value": "32 - 36 ACT Score"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "32 - 36 ACT Score | $4,500 annually",
+    "value": "$4,500 annually"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:51+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "6d202fa71cbc92639a88.json.gz",
+   "requested_url": "https://www.usm.edu/undergraduate-admissions/freshmen.php",
+   "sha256": "6d202fa71cbc92639a8882e4338257b4d0f4fb36a07aae46008aac1c0fdbcf4d",
+   "title": "Undergraduate Admissions - Freshmen | Undergraduate Admissions | The University of Southern Mississippi",
+   "url": "https://www.usm.edu/undergraduate-admissions/freshmen.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "2eeda2cc237d98d2": {
+  "decision": {
+   "candidate_id": "2eeda2cc237d98d2",
+   "reason": "Achievement tier rows checked against the published table. Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "test_requirement",
+    "snippet": "Academic Excellence 22-23 ACT | $3,300 (up to $825 per semester)",
+    "value": "Academic Excellence 22-23 ACT"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "Academic Excellence 22-23 ACT | $3,300 (up to $825 per semester)",
+    "value": "$3,300 (up to $825 per semester)"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:18:39+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "277556c720830d5171fa.json.gz",
+   "requested_url": "https://www.iccms.edu/Scholarships",
+   "sha256": "277556c720830d5171fa45c7a721131bc8e8d163f43adb103068f38371d19854",
+   "title": "Scholarship Programs",
+   "url": "https://www.iccms.edu/Scholarships"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "2f6424311b5344fe": {
+  "decision": {
+   "candidate_id": "2f6424311b5344fe",
+   "reason": "GPA band and ACT range checked against the published table; amount as printed; year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "22 ACT Score | $3,000 annually",
+    "value": "3.6 GPA or higher"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "22 ACT Score | $3,000 annually",
+    "value": "22 ACT Score"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "22 ACT Score | $3,000 annually",
+    "value": "$3,000 annually"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:51+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "6d202fa71cbc92639a88.json.gz",
+   "requested_url": "https://www.usm.edu/undergraduate-admissions/freshmen.php",
+   "sha256": "6d202fa71cbc92639a8882e4338257b4d0f4fb36a07aae46008aac1c0fdbcf4d",
+   "title": "Undergraduate Admissions - Freshmen | Undergraduate Admissions | The University of Southern Mississippi",
+   "url": "https://www.usm.edu/undergraduate-admissions/freshmen.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "2fa29495f117231c": {
+  "decision": {
+   "candidate_id": "2fa29495f117231c",
+   "reason": "Policy/eligibility lines and table rows checked against the official page as printed. Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "You must have your counselor (or guardian/custodian if homeschooled) send a high school transcript that documents that you are in junior or senior standing with a GPA of 3.0 or higher on a 4.0 scale.",
+    "value": 3.0
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "Prospective students must submit a high school transcript that documents a junior or senior standing with a grade point average of 3.0 or higher on a 4.0 scale.",
+    "value": 3.0
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "Those interested in enrolling in career/technical courses as dual enrollment students must have a 2.0 GPA and sophomore standing.",
+    "value": 2.0
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:27:29+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 18 Aug 2026 02:06:23 GMT",
+   "page_file": "f953014c65cfdf3dea8a.json.gz",
+   "requested_url": "https://www.nemcc.edu/admissions/apply/dual-enrollment/index.html",
+   "sha256": "f953014c65cfdf3dea8a7814debd778f034bcb3649f95d5dee6d8b7e35139ac4",
+   "title": "Dual Enrollment Program | Northeast Mississippi Community College",
+   "url": "https://www.nemcc.edu/admissions/apply/dual-enrollment/index.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "310b9da8e3fe6f8c": {
+  "decision": {
+   "candidate_id": "310b9da8e3fe6f8c",
+   "reason": "GPA band and ACT range checked against the published table; amount as printed; year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "21 ACT Score | $2,500 annually",
+    "value": "3.6 GPA or higher"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "21 ACT Score | $2,500 annually",
+    "value": "21 ACT Score"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "21 ACT Score | $2,500 annually",
+    "value": "$2,500 annually"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:51+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "6d202fa71cbc92639a88.json.gz",
+   "requested_url": "https://www.usm.edu/undergraduate-admissions/freshmen.php",
+   "sha256": "6d202fa71cbc92639a8882e4338257b4d0f4fb36a07aae46008aac1c0fdbcf4d",
+   "title": "Undergraduate Admissions - Freshmen | Undergraduate Admissions | The University of Southern Mississippi",
+   "url": "https://www.usm.edu/undergraduate-admissions/freshmen.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "35d8b5340664b15d": {
+  "decision": {
+   "candidate_id": "35d8b5340664b15d",
+   "reason": "Achievement tier rows checked against the published table. Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "test_requirement",
+    "snippet": "Dean's 24-27 ACT or National Merit Semifinalist | $6,600 (up to $1,650 per semester)",
+    "value": "Dean's 24-27 ACT or National Merit Semifinalist"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "Dean's 24-27 ACT or National Merit Semifinalist | $6,600 (up to $1,650 per semester)",
+    "value": "$6,600 (up to $1,650 per semester)"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:18:39+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "277556c720830d5171fa.json.gz",
+   "requested_url": "https://www.iccms.edu/Scholarships",
+   "sha256": "277556c720830d5171fa45c7a721131bc8e8d163f43adb103068f38371d19854",
+   "title": "Scholarship Programs",
+   "url": "https://www.iccms.edu/Scholarships"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "36c3add1f56b91cc": {
+  "decision": {
+   "candidate_id": "36c3add1f56b91cc",
+   "reason": "GPA band and ACT range checked against the published table; amount as printed; year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "30 ACT Score | $9,000 annually",
+    "value": "3.25 - 3.59 GPA"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "30 ACT Score | $9,000 annually",
+    "value": "30 ACT Score"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "30 ACT Score | $9,000 annually",
+    "value": "$9,000 annually"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:51+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "6d202fa71cbc92639a88.json.gz",
+   "requested_url": "https://www.usm.edu/undergraduate-admissions/freshmen.php",
+   "sha256": "6d202fa71cbc92639a8882e4338257b4d0f4fb36a07aae46008aac1c0fdbcf4d",
+   "title": "Undergraduate Admissions - Freshmen | Undergraduate Admissions | The University of Southern Mississippi",
+   "url": "https://www.usm.edu/undergraduate-admissions/freshmen.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "38ee23f262f113ba": {
+  "decision": {
+   "candidate_id": "38ee23f262f113ba",
+   "reason": "HSE tier rows checked against the published table; GED criterion and one-semester amount as printed. Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "test_requirement",
+    "snippet": "College Ready. Minimum score of 165 or higher on each section | College & Career Ready** 64-100 | A (3.5 – 4.0) | $1,080 during one semester",
+    "value": "GED Score: College Ready. Minimum score of 165 or higher on each section"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "College Ready. Minimum score of 165 or higher on each section | College & Career Ready** 64-100 | A (3.5 – 4.0) | $1,080 during one semester",
+    "value": "$1,080 during one semester"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:26:04+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "ddf08c50aa1b88375142.json.gz",
+   "requested_url": "https://mgccc.edu/paying-for-college/scholarships/high-school-equivalency-hse-scholarships/",
+   "sha256": "ddf08c50aa1b883751427b65a189f81ac4f36b7ac48ab86abe2d14401d50c0d7",
+   "title": "High School Equivalency (HSE) Scholarships - Mississippi Gulf Coast Community College",
+   "url": "https://mgccc.edu/paying-for-college/scholarships/high-school-equivalency-hse-scholarships/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "3c17110f2f4f94d3": {
+  "decision": {
+   "candidate_id": "3c17110f2f4f94d3",
+   "reason": "Policy/eligibility lines and table rows checked against the official page as printed. Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "A high school GPA of 3.0 or higher is required to take academic courses (face-to-face or online).",
+    "value": 3.0
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "A high school GPA of 2.0 or higher, plus sophomore status or higher, is required to take career/technical classes.",
+    "value": 2.0
+   },
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "Students taking dual credit courses through a partnership between Hinds and their high school receive a discounted rate of tuition called the Dual Credit Participation fee, which is $50 per credit hour. Textbook fees still apply at a rate of $30/credit hour.",
+    "value": 50
+   },
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "Students taking dual credit courses through a partnership between Hinds and their high school receive a discounted rate of tuition called the Dual Credit Participation fee, which is $50 per credit hour. Textbook fees still apply at a rate of $30/credit hour.",
+    "value": 30
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:17:53+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "14d1f23f2c517e65dfaf.json.gz",
+   "requested_url": "https://www.hindscc.edu/admissions/dual-enrollment",
+   "sha256": "14d1f23f2c517e65dfafe9b6073f5757cc13bd6646e003b0c1950e8e7f9c1aba",
+   "title": "Dual Enrollment | Hinds Community College",
+   "url": "https://www.hindscc.edu/admissions/dual-enrollment"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "3fac8cd34be8903c": {
+  "decision": {
+   "candidate_id": "3fac8cd34be8903c",
+   "reason": "Policy/eligibility lines and table rows checked against the official page as printed. Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "equivalencies[AP-BIOLOGY|3]",
+    "snippet": "Biology | 3 | 4 | BIO 1134"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3]",
+    "snippet": "English Language/Comp | 3 | 3 | ENG 1113"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-AB|3]",
+    "snippet": "Calculus AB | 3 | 3 | MAT 1513 or MAT 1613"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-BC|3]",
+    "snippet": "Calculus BC | 3 | 6 | MAT 1523 or MAT 1623"
+   },
+   {
+    "field": "equivalencies[AP-UNITED-STATES-HISTORY|3]",
+    "snippet": "U.S. History | 3 | 3 | HIS 2213"
+   },
+   {
+    "field": "equivalencies[AP-UNITED-STATES-HISTORY|4/5]",
+    "snippet": "U.S. History | 4/5 | 6 | HIS 2213/HIS 2223"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:27:33+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 18 Aug 2026 02:03:36 GMT",
+   "page_file": "61d5c572c0f8f0f16612.json.gz",
+   "requested_url": "https://catalog.nemcc.edu/admissions/credit-by-exam.html",
+   "sha256": "61d5c572c0f8f0f166122b3337728c90ca02a30ac2678cb3326d1cf2b82bd175",
+   "title": "Advanced Placement and Challenge Exams | Northeast Mississippi Community College",
+   "url": "https://catalog.nemcc.edu/admissions/credit-by-exam.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "4a2420043bea3ede": {
+  "decision": {
+   "candidate_id": "4a2420043bea3ede",
+   "reason": "GPA band and ACT range checked against the published table; amount as printed; year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "20 ACT Score | $1,500 annually",
+    "value": "3.6 GPA or higher"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "20 ACT Score | $1,500 annually",
+    "value": "20 ACT Score"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "20 ACT Score | $1,500 annually",
+    "value": "$1,500 annually"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:51+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "6d202fa71cbc92639a88.json.gz",
+   "requested_url": "https://www.usm.edu/undergraduate-admissions/freshmen.php",
+   "sha256": "6d202fa71cbc92639a8882e4338257b4d0f4fb36a07aae46008aac1c0fdbcf4d",
+   "title": "Undergraduate Admissions - Freshmen | Undergraduate Admissions | The University of Southern Mississippi",
+   "url": "https://www.usm.edu/undergraduate-admissions/freshmen.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "50ce27fd0fe5bd55": {
+  "decision": {
+   "candidate_id": "50ce27fd0fe5bd55",
+   "reason": "Cost column checked against the published 2026-27 table (residency from the column header; components and total as printed)."
+  },
+  "evidence": [
+   {
+    "field": "column:Books",
+    "snippet": "Books | $1,200.00 | $1,200.00",
+    "value": 1200.0
+   },
+   {
+    "field": "column:Fees",
+    "snippet": "Fees | $730.00 | $730.00",
+    "value": 730.0
+   },
+   {
+    "field": "column:Food",
+    "snippet": "Food | $4,693.00 | $4,693.00",
+    "value": 4693.0
+   },
+   {
+    "field": "column:Housing",
+    "snippet": "Housing | $7581.00 | $7581.00",
+    "value": 7581.0
+   },
+   {
+    "field": "column:Personal Expenses",
+    "snippet": "Personal Expenses | $1,606.00 | $1,606.00",
+    "value": 1606.0
+   },
+   {
+    "field": "column:Transportation",
+    "snippet": "Transportation | $1,710.00 | $1,710.00",
+    "value": 1710.0
+   },
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $8,105.00 | $9,105.00",
+    "value": 9105.0
+   },
+   {
+    "field": "column:Total Cost of Attendance",
+    "snippet": "Total Cost of Attendance | $25,625.00 | $26,625.00",
+    "value": 26625.0
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:17:33+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "17c00cff15e2209d5ec5.json.gz",
+   "requested_url": "https://www.alcorn.edu/financial-aid/cost-of-attendance-coa-budget/",
+   "sha256": "17c00cff15e2209d5ec5364c573fd1d1e575d5d032f054d42c8ef3ba9078be41",
+   "title": "Cost of Attendance (COA) Budget – Financial Aid",
+   "url": "https://www.alcorn.edu/financial-aid/cost-of-attendance-coa-budget/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "59ad6f598c41a160": {
+  "decision": {
+   "candidate_id": "59ad6f598c41a160",
+   "reason": "Policy/eligibility lines and table rows checked against the official page as printed. Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "equivalencies[IB-CHEMISTRY|N/A]",
+    "snippet": "Chemistry | N/A | None Accepted"
+   },
+   {
+    "field": "equivalencies[IB-BIOLOGY|6]",
+    "snippet": "Biology | 6 | Subsidiary/Standard Level: BIO: 101 (3 hrs) 103 (3 hrs) 104 (1 hr)"
+   },
+   {
+    "field": "equivalencies[IB-ECONOMICS|6]",
+    "snippet": "Economics | 6 | Subsidiary/Standard and Higher Levels: ECO 231-ECO 232 (6 hrs) Note: Subsidiary/Standard Level contains both micro and macro economics"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH|5]",
+    "snippet": "Foreign Languages (French, German, Latin, Spanish) | 5 | Subsidiary/Standard Level: 101-102 (6 hrs); Higher Level: 201-202 (6 hrs)"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY|5]",
+    "snippet": "History | 5 | Higher Level: HIS 102 (3 hrs) [Americas]"
+   },
+   {
+    "field": "equivalencies[IB-PHYSICS|5]",
+    "snippet": "Physics | 5 | Subsidiary/standard Level: PHY 104 (3 hrs); Higher Level: PHY 151 - PHY 152 (8 hrs)"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:24:55+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "71165ecd53d3fae7d4a2.json.gz",
+   "requested_url": "https://www.mc.edu/academics/academic-resources/international-baccalaureate-credit",
+   "sha256": "71165ecd53d3fae7d4a2f1036d4ad5e257450e0ec383d17c83c8afb1af0e3259",
+   "title": "International Baccalaureate (IB) Credit | Mississippi Christian University",
+   "url": "https://www.mc.edu/academics/academic-resources/international-baccalaureate-credit"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "5de4cca16d7f3434": {
+  "decision": {
+   "candidate_id": "5de4cca16d7f3434",
+   "reason": "Policy/eligibility lines and table rows checked against the official page as printed. Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "state_grant_accepted",
+    "snippet": "The 2023 Mississippi Legislature approved Senate Bill 2487 cited as the Mississippi Dual Enrollment/Dual Credit Scholarship Program Act of 2023. The scholarship program awards eligible public or charter school high school juniors or seniors six hours of dual enrollment/credit funding.",
+    "value": true
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:17:05+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 30 Sep 2026 16:46:12 GMT",
+   "page_file": "edd9ebfe5853b7a20db3.json.gz",
+   "requested_url": "https://www.colin.edu/program/dual-enrollment/",
+   "sha256": "edd9ebfe5853b7a20db307f7f0d67c05e6d8b00fa08a5ec737ed564a792d62f1",
+   "title": "Dual Enrollment - Copiah-Lincoln Community College",
+   "url": "https://www.colin.edu/program/dual-enrollment/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "6359dc4dadaa52ce": {
+  "decision": {
+   "candidate_id": "6359dc4dadaa52ce",
+   "reason": "Cost column checked against the published 2026-27 table (residency from the column header; components and total as printed)."
+  },
+  "evidence": [
+   {
+    "field": "on_campus:Tuition/Fees",
+    "snippet": "Tuition/Fees | $10,794 | $12,794",
+    "value": 12794
+   },
+   {
+    "field": "on_campus:Transportation",
+    "snippet": "Transportation | $1,028 | $1,028",
+    "value": 1028
+   },
+   {
+    "field": "on_campus:Housing/Food",
+    "snippet": "Housing/Food | $12,320 | $12,320",
+    "value": 12320
+   },
+   {
+    "field": "on_campus:Personal Expenses",
+    "snippet": "Personal Expenses | $2,154 | $2,154",
+    "value": 2154
+   },
+   {
+    "field": "on_campus:Course Fees",
+    "snippet": "Course Fees | $596 | $596",
+    "value": 596
+   },
+   {
+    "field": "on_campus:Books/Supplies",
+    "snippet": "Books/Supplies | $764 | $764",
+    "value": 764
+   },
+   {
+    "field": "on_campus:TOTAL",
+    "snippet": "TOTAL | $27,656 | $29,656",
+    "value": 29656
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:48+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "baf93fa8e5d6883a04d8.json.gz",
+   "requested_url": "https://www.usm.edu/financial-aid/cost-of-attendance-future-year.php",
+   "sha256": "baf93fa8e5d6883a04d8b182113dea66c7907ae746f0e32773643b87f3de4f27",
+   "title": "Cost of Attendance Future Year | Financial Aid | The University of Southern Mississippi",
+   "url": "https://www.usm.edu/financial-aid/cost-of-attendance-future-year.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "6434021c89f92765": {
+  "decision": {
+   "candidate_id": "6434021c89f92765",
+   "reason": "GPA band and ACT range checked against the published table; amount as printed; year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "26 - 29 ACT Score | $2,500 annually",
+    "value": "3.0 - 3.24 GPA"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "26 - 29 ACT Score | $2,500 annually",
+    "value": "26 - 29 ACT Score"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "26 - 29 ACT Score | $2,500 annually",
+    "value": "$2,500 annually"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:51+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "6d202fa71cbc92639a88.json.gz",
+   "requested_url": "https://www.usm.edu/undergraduate-admissions/freshmen.php",
+   "sha256": "6d202fa71cbc92639a8882e4338257b4d0f4fb36a07aae46008aac1c0fdbcf4d",
+   "title": "Undergraduate Admissions - Freshmen | Undergraduate Admissions | The University of Southern Mississippi",
+   "url": "https://www.usm.edu/undergraduate-admissions/freshmen.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "66df4cfb88d9a2a9": {
+  "decision": {
+   "candidate_id": "66df4cfb88d9a2a9",
+   "reason": "GPA band and ACT range checked against the published table; amount as printed; year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "31 ACT Score | $10,000 annually",
+    "value": "3.6 GPA or higher"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "31 ACT Score | $10,000 annually",
+    "value": "31 ACT Score"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "31 ACT Score | $10,000 annually",
+    "value": "$10,000 annually"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:51+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "6d202fa71cbc92639a88.json.gz",
+   "requested_url": "https://www.usm.edu/undergraduate-admissions/freshmen.php",
+   "sha256": "6d202fa71cbc92639a8882e4338257b4d0f4fb36a07aae46008aac1c0fdbcf4d",
+   "title": "Undergraduate Admissions - Freshmen | Undergraduate Admissions | The University of Southern Mississippi",
+   "url": "https://www.usm.edu/undergraduate-admissions/freshmen.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "72aa566cd1fd8a32": {
+  "decision": {
+   "candidate_id": "72aa566cd1fd8a32",
+   "reason": "GPA band and ACT range checked against the published table; amount as printed; year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "23 - 24 ACT Score | $4,500 annually",
+    "value": "3.6 GPA or higher"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "23 - 24 ACT Score | $4,500 annually",
+    "value": "23 - 24 ACT Score"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "23 - 24 ACT Score | $4,500 annually",
+    "value": "$4,500 annually"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:51+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "6d202fa71cbc92639a88.json.gz",
+   "requested_url": "https://www.usm.edu/undergraduate-admissions/freshmen.php",
+   "sha256": "6d202fa71cbc92639a8882e4338257b4d0f4fb36a07aae46008aac1c0fdbcf4d",
+   "title": "Undergraduate Admissions - Freshmen | Undergraduate Admissions | The University of Southern Mississippi",
+   "url": "https://www.usm.edu/undergraduate-admissions/freshmen.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "76e2c09b8e36703a": {
+  "decision": {
+   "candidate_id": "76e2c09b8e36703a",
+   "reason": "GPA band and ACT range checked against the published table; amount as printed; year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "32 - 36 ACT Score | Full value of tuition",
+    "value": "3.25 - 3.59 GPA"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "32 - 36 ACT Score | Full value of tuition",
+    "value": "32 - 36 ACT Score"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "32 - 36 ACT Score | Full value of tuition",
+    "value": "Full value of tuition"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:51+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "6d202fa71cbc92639a88.json.gz",
+   "requested_url": "https://www.usm.edu/undergraduate-admissions/freshmen.php",
+   "sha256": "6d202fa71cbc92639a8882e4338257b4d0f4fb36a07aae46008aac1c0fdbcf4d",
+   "title": "Undergraduate Admissions - Freshmen | Undergraduate Admissions | The University of Southern Mississippi",
+   "url": "https://www.usm.edu/undergraduate-admissions/freshmen.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "81889b9731b85e42": {
+  "decision": {
+   "candidate_id": "81889b9731b85e42",
+   "reason": "GPA band and ACT range checked against the published table; amount as printed; year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "29 ACT Score | $7,000 annually",
+    "value": "3.6 GPA or higher"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "29 ACT Score | $7,000 annually",
+    "value": "29 ACT Score"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "29 ACT Score | $7,000 annually",
+    "value": "$7,000 annually"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:51+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "6d202fa71cbc92639a88.json.gz",
+   "requested_url": "https://www.usm.edu/undergraduate-admissions/freshmen.php",
+   "sha256": "6d202fa71cbc92639a8882e4338257b4d0f4fb36a07aae46008aac1c0fdbcf4d",
+   "title": "Undergraduate Admissions - Freshmen | Undergraduate Admissions | The University of Southern Mississippi",
+   "url": "https://www.usm.edu/undergraduate-admissions/freshmen.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "8b547614d3322125": {
+  "decision": {
+   "candidate_id": "8b547614d3322125",
+   "reason": "Academic scholarship row checked against the published table (GPA, ACT/SAT, renewal as printed). Award value column not captured; page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "Presidential Academic Scholarship | Full Tuition + Room & Board | 3.5+ | ACT: 27+ / SAT: 1220+ | 3.5 GPA, 15+ hrs, Good Conduct, Renewal Contract",
+    "value": "3.5+"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "Presidential Academic Scholarship | Full Tuition + Room & Board | 3.5+ | ACT: 27+ / SAT: 1220+ | 3.5 GPA, 15+ hrs, Good Conduct, Renewal Contract",
+    "value": "ACT: 27+ / SAT: 1220+"
+   },
+   {
+    "field": "renewal_requirements",
+    "snippet": "Presidential Academic Scholarship | Full Tuition + Room & Board | 3.5+ | ACT: 27+ / SAT: 1220+ | 3.5 GPA, 15+ hrs, Good Conduct, Renewal Contract",
+    "value": "3.5 GPA, 15+ hrs, Good Conduct, Renewal Contract"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:29:25+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 01 Oct 2026 10:31:23 GMT",
+   "page_file": "628e79332b5485816cd7.json.gz",
+   "requested_url": "https://www.tougaloo.edu/admissions/scholarships",
+   "sha256": "628e79332b5485816cd7bedce2b47d40164252e546ed78fc67991947f24732ea",
+   "title": "Scholarships | Tougaloo College",
+   "url": "https://www.tougaloo.edu/admissions/scholarships"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "8b83046b095ef468": {
+  "decision": {
+   "candidate_id": "8b83046b095ef468",
+   "reason": "HSE tier rows checked against the published table; GED criterion and one-semester amount as printed. Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "test_requirement",
+    "snippet": "Minimum score of 145 - 164 on each section | 45 - 63 | B (2.5 – 3.499) or C (1.5 – 2.499) | $540 during one semester",
+    "value": "GED Score: Minimum score of 145 - 164 on each section"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "Minimum score of 145 - 164 on each section | 45 - 63 | B (2.5 – 3.499) or C (1.5 – 2.499) | $540 during one semester",
+    "value": "$540 during one semester"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:26:04+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "ddf08c50aa1b88375142.json.gz",
+   "requested_url": "https://mgccc.edu/paying-for-college/scholarships/high-school-equivalency-hse-scholarships/",
+   "sha256": "ddf08c50aa1b883751427b65a189f81ac4f36b7ac48ab86abe2d14401d50c0d7",
+   "title": "High School Equivalency (HSE) Scholarships - Mississippi Gulf Coast Community College",
+   "url": "https://mgccc.edu/paying-for-college/scholarships/high-school-equivalency-hse-scholarships/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "8d6456fb13307972": {
+  "decision": {
+   "candidate_id": "8d6456fb13307972",
+   "reason": "Cost column checked against the published 2026-27 table (residency from the column header; components and total as printed)."
+  },
+  "evidence": [
+   {
+    "field": "column:Tuition and Fees",
+    "snippet": "Tuition and Fees | $4,980 | $7,780",
+    "value": 7780
+   },
+   {
+    "field": "column:Books and Supplies",
+    "snippet": "Books and Supplies | $2,250 | $2,250",
+    "value": 2250
+   },
+   {
+    "field": "column:Housing",
+    "snippet": "Housing | $4,600 | $6,660",
+    "value": 6660
+   },
+   {
+    "field": "column:Travel",
+    "snippet": "Travel | $2,000 | $2,650",
+    "value": 2650
+   },
+   {
+    "field": "column:Misc and Personal",
+    "snippet": "Misc and Personal | $1,615 | $2,115",
+    "value": 2115
+   },
+   {
+    "field": "column:Total",
+    "snippet": "Total | $15,445 | $21,455",
+    "value": 21455
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:28:09+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "2663fa8c36a0c878105d.json.gz",
+   "requested_url": "https://www.northwestms.edu/financial-aid",
+   "sha256": "2663fa8c36a0c878105d029649fe4769ffa2e42e823a644f4160a27b3b1f476c",
+   "title": "Financial Aid - Northwest Mississippi Community College",
+   "url": "https://www.northwestms.edu/financial-aid"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "8e4f7b0189f5f808": {
+  "decision": {
+   "candidate_id": "8e4f7b0189f5f808",
+   "reason": "GPA band and ACT range checked against the published table; amount as printed; year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "30 - 31 ACT Score | $3,000 annually",
+    "value": "3.0 - 3.24 GPA"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "30 - 31 ACT Score | $3,000 annually",
+    "value": "30 - 31 ACT Score"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "30 - 31 ACT Score | $3,000 annually",
+    "value": "$3,000 annually"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:51+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "6d202fa71cbc92639a88.json.gz",
+   "requested_url": "https://www.usm.edu/undergraduate-admissions/freshmen.php",
+   "sha256": "6d202fa71cbc92639a8882e4338257b4d0f4fb36a07aae46008aac1c0fdbcf4d",
+   "title": "Undergraduate Admissions - Freshmen | Undergraduate Admissions | The University of Southern Mississippi",
+   "url": "https://www.usm.edu/undergraduate-admissions/freshmen.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "90f80127eca4ab3d": {
+  "decision": {
+   "candidate_id": "90f80127eca4ab3d",
+   "reason": "ACT tier rows checked against the published table (name, ACT range, amount as printed). Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "ACT Faculty Scholarship | 20—23 | $4,000 ($1,000 per semester)",
+    "value": "$4,000 ($1,000 per semester)"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "ACT Faculty Scholarship | 20—23 | $4,000 ($1,000 per semester)",
+    "value": "ACT 20—23"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:17:19+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "877e7cf598ccd6a5a9d0.json.gz",
+   "requested_url": "https://www.hindscc.edu/admissions/costs-aid/scholarships/act-scholarships/",
+   "sha256": "877e7cf598ccd6a5a9d03beb1976fbcb03e6c1ad9ab3dfb5ce5cc6020460af77",
+   "title": "ACT Scholarships | Hinds Community College",
+   "url": "https://www.hindscc.edu/admissions/costs-aid/scholarships/act-scholarships"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "9289d7ff5881e98b": {
+  "decision": {
+   "candidate_id": "9289d7ff5881e98b",
+   "reason": "GPA band and ACT range checked against the published table; amount as printed; year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "31 ACT Score | $10,000 annually",
+    "value": "3.25 - 3.59 GPA"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "31 ACT Score | $10,000 annually",
+    "value": "31 ACT Score"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "31 ACT Score | $10,000 annually",
+    "value": "$10,000 annually"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:51+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "6d202fa71cbc92639a88.json.gz",
+   "requested_url": "https://www.usm.edu/undergraduate-admissions/freshmen.php",
+   "sha256": "6d202fa71cbc92639a8882e4338257b4d0f4fb36a07aae46008aac1c0fdbcf4d",
+   "title": "Undergraduate Admissions - Freshmen | Undergraduate Admissions | The University of Southern Mississippi",
+   "url": "https://www.usm.edu/undergraduate-admissions/freshmen.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "92de47214dde3ed9": {
+  "decision": {
+   "candidate_id": "92de47214dde3ed9",
+   "reason": "Policy/eligibility lines and table rows checked against the official page as printed. Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "Have a minimum overall high school GPA of 3.00 on a 4.0 scale",
+    "value": 3.0
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "Have a minimum high school GPA of 3.00 GPA on a 4.00 scale",
+    "value": 3.0
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:27:00+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "feb541d905ede53b3b44.json.gz",
+   "requested_url": "https://www.muw.edu/admissions/dualenrollment/requirements/",
+   "sha256": "feb541d905ede53b3b44475a889eadd199215eef4971ba54cfc3a2f8799e1147",
+   "title": "Eligibility Criteria and Placement Procedures for Dual Enrollment & Dual Credit – Admissions",
+   "url": "https://www.muw.edu/admissions/dualenrollment/requirements/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "96e6d81e89518d90": {
+  "decision": {
+   "candidate_id": "96e6d81e89518d90",
+   "reason": "Residency/transfer-hour sentence checked against the official page. Page has no year label; no transfer guarantee implied."
+  },
+  "evidence": [
+   {
+    "field": "residency_requirement_credits",
+    "snippet": "The last 33 semester hours must be taken at MC.",
+    "value": 33
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:23:03+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "37dbe49b73b73f86363d.json.gz",
+   "requested_url": "https://www.mc.edu/admissions/undergraduate/transfers/faq",
+   "sha256": "37dbe49b73b73f86363d99b9cdf7a03767f08bfde3a4ebe0924f847a4922c596",
+   "title": "Frequently Asked Questions | Mississippi Christian University",
+   "url": "https://www.mc.edu/admissions/undergraduate/transfers/faq"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "98c4258eea83a78b": {
+  "decision": {
+   "candidate_id": "98c4258eea83a78b",
+   "reason": "GPA band and ACT range checked against the published table; amount as printed; year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "29 ACT Score | $7,000 annually",
+    "value": "3.25 - 3.59 GPA"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "29 ACT Score | $7,000 annually",
+    "value": "29 ACT Score"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "29 ACT Score | $7,000 annually",
+    "value": "$7,000 annually"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:51+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "6d202fa71cbc92639a88.json.gz",
+   "requested_url": "https://www.usm.edu/undergraduate-admissions/freshmen.php",
+   "sha256": "6d202fa71cbc92639a8882e4338257b4d0f4fb36a07aae46008aac1c0fdbcf4d",
+   "title": "Undergraduate Admissions - Freshmen | Undergraduate Admissions | The University of Southern Mississippi",
+   "url": "https://www.usm.edu/undergraduate-admissions/freshmen.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "9d8baf746944c061": {
+  "decision": {
+   "candidate_id": "9d8baf746944c061",
+   "reason": "GPA band and ACT range checked against the published table; amount as printed; year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "27 - 28 ACT Score | $6,000 annually",
+    "value": "3.6 GPA or higher"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "27 - 28 ACT Score | $6,000 annually",
+    "value": "27 - 28 ACT Score"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "27 - 28 ACT Score | $6,000 annually",
+    "value": "$6,000 annually"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:51+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "6d202fa71cbc92639a88.json.gz",
+   "requested_url": "https://www.usm.edu/undergraduate-admissions/freshmen.php",
+   "sha256": "6d202fa71cbc92639a8882e4338257b4d0f4fb36a07aae46008aac1c0fdbcf4d",
+   "title": "Undergraduate Admissions - Freshmen | Undergraduate Admissions | The University of Southern Mississippi",
+   "url": "https://www.usm.edu/undergraduate-admissions/freshmen.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "a1cac64d95dffb78": {
+  "decision": {
+   "candidate_id": "a1cac64d95dffb78",
+   "reason": "GPA band and ACT range checked against the published table; amount as printed; year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "21 ACT Score | $2,500 annually",
+    "value": "3.25 - 3.59 GPA"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "21 ACT Score | $2,500 annually",
+    "value": "21 ACT Score"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "21 ACT Score | $2,500 annually",
+    "value": "$2,500 annually"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:51+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "6d202fa71cbc92639a88.json.gz",
+   "requested_url": "https://www.usm.edu/undergraduate-admissions/freshmen.php",
+   "sha256": "6d202fa71cbc92639a8882e4338257b4d0f4fb36a07aae46008aac1c0fdbcf4d",
+   "title": "Undergraduate Admissions - Freshmen | Undergraduate Admissions | The University of Southern Mississippi",
+   "url": "https://www.usm.edu/undergraduate-admissions/freshmen.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "a5eb7d610c969f94": {
+  "decision": {
+   "candidate_id": "a5eb7d610c969f94",
+   "reason": "GPA band and ACT range checked against the published table; amount as printed; year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "23 - 24 ACT Score | $4,500 annually",
+    "value": "3.25 - 3.59 GPA"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "23 - 24 ACT Score | $4,500 annually",
+    "value": "23 - 24 ACT Score"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "23 - 24 ACT Score | $4,500 annually",
+    "value": "$4,500 annually"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:51+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "6d202fa71cbc92639a88.json.gz",
+   "requested_url": "https://www.usm.edu/undergraduate-admissions/freshmen.php",
+   "sha256": "6d202fa71cbc92639a8882e4338257b4d0f4fb36a07aae46008aac1c0fdbcf4d",
+   "title": "Undergraduate Admissions - Freshmen | Undergraduate Admissions | The University of Southern Mississippi",
+   "url": "https://www.usm.edu/undergraduate-admissions/freshmen.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "a608edc037a5de1e": {
+  "decision": {
+   "candidate_id": "a608edc037a5de1e",
+   "reason": "Academic scholarship row checked against the published table (GPA, ACT/SAT, renewal as printed). Award value column not captured; page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "Eagle Academic Scholarship | Full Tuition | 3.25+ | Valedictorian or Salutatorian | 3.25 GPA, 15+ hrs, Good Conduct, Renewal Contract",
+    "value": "3.25+"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "Eagle Academic Scholarship | Full Tuition | 3.25+ | Valedictorian or Salutatorian | 3.25 GPA, 15+ hrs, Good Conduct, Renewal Contract",
+    "value": "Valedictorian or Salutatorian"
+   },
+   {
+    "field": "renewal_requirements",
+    "snippet": "Eagle Academic Scholarship | Full Tuition | 3.25+ | Valedictorian or Salutatorian | 3.25 GPA, 15+ hrs, Good Conduct, Renewal Contract",
+    "value": "3.25 GPA, 15+ hrs, Good Conduct, Renewal Contract"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:29:25+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 01 Oct 2026 10:31:23 GMT",
+   "page_file": "628e79332b5485816cd7.json.gz",
+   "requested_url": "https://www.tougaloo.edu/admissions/scholarships",
+   "sha256": "628e79332b5485816cd7bedce2b47d40164252e546ed78fc67991947f24732ea",
+   "title": "Scholarships | Tougaloo College",
+   "url": "https://www.tougaloo.edu/admissions/scholarships"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "a6b493c731facaea": {
+  "decision": {
+   "candidate_id": "a6b493c731facaea",
+   "reason": "GPA band and ACT range checked against the published table; amount as printed; year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "22 ACT Score | $3,000 annually",
+    "value": "3.25 - 3.59 GPA"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "22 ACT Score | $3,000 annually",
+    "value": "22 ACT Score"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "22 ACT Score | $3,000 annually",
+    "value": "$3,000 annually"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:51+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "6d202fa71cbc92639a88.json.gz",
+   "requested_url": "https://www.usm.edu/undergraduate-admissions/freshmen.php",
+   "sha256": "6d202fa71cbc92639a8882e4338257b4d0f4fb36a07aae46008aac1c0fdbcf4d",
+   "title": "Undergraduate Admissions - Freshmen | Undergraduate Admissions | The University of Southern Mississippi",
+   "url": "https://www.usm.edu/undergraduate-admissions/freshmen.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "c24a3377b57a7250": {
+  "decision": {
+   "candidate_id": "c24a3377b57a7250",
+   "reason": "ACT tier rows checked against the published table (name, ACT range, amount as printed). Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "ACT Dean’s Scholarship | 24—27 | $6,000 ($1,500 per semester)",
+    "value": "$6,000 ($1,500 per semester)"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "ACT Dean’s Scholarship | 24—27 | $6,000 ($1,500 per semester)",
+    "value": "ACT 24—27"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:17:19+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "877e7cf598ccd6a5a9d0.json.gz",
+   "requested_url": "https://www.hindscc.edu/admissions/costs-aid/scholarships/act-scholarships/",
+   "sha256": "877e7cf598ccd6a5a9d03beb1976fbcb03e6c1ad9ab3dfb5ce5cc6020460af77",
+   "title": "ACT Scholarships | Hinds Community College",
+   "url": "https://www.hindscc.edu/admissions/costs-aid/scholarships/act-scholarships"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "c5587671ec8793be": {
+  "decision": {
+   "candidate_id": "c5587671ec8793be",
+   "reason": "Non-resident merit grid checked cell by cell, including the No Test Score column; page labels the entering class year."
+  },
+  "evidence": [
+   {
+    "field": "award_tiers",
+    "snippet": "High School GPA | No Test Score | 24-25 ACT1160-1220 SAT | 26-27 ACT1230-1290 SAT | 28-29 ACT1300-1350 SAT | 30-31 ACT1360-1410 SAT | 32+ ACT1420+ SAT || 3.0-3.49 | $3,000 | $4,000 | $5,000 | $8,000 | $10,000 | $15,000 || 3.5-3.74 | $5,000 | $7,000 | $8,000 | $10,000 | $15,000 | $20,790 || 3.75-4.0 ",
+    "value": [
+     {
+      "amount_text": "$3,000",
+      "gpa": "3.0-3.49",
+      "test": "No Test Score"
+     },
+     {
+      "amount_text": "$4,000",
+      "gpa": "3.0-3.49",
+      "test": "24-25 ACT1160-1220 SAT"
+     },
+     {
+      "amount_text": "$5,000",
+      "gpa": "3.0-3.49",
+      "test": "26-27 ACT1230-1290 SAT"
+     },
+     {
+      "amount_text": "$8,000",
+      "gpa": "3.0-3.49",
+      "test": "28-29 ACT1300-1350 SAT"
+     },
+     {
+      "amount_text": "$10,000",
+      "gpa": "3.0-3.49",
+      "test": "30-31 ACT1360-1410 SAT"
+     },
+     {
+      "amount_text": "$15,000",
+      "gpa": "3.0-3.49",
+      "test": "32+ ACT1420+ SAT"
+     },
+     {
+      "amount_text": "$5,000",
+      "gpa": "3.5-3.74",
+      "test": "No Test Score"
+     },
+     {
+      "amount_text": "$7,000",
+      "gpa": "3.5-3.74",
+      "test": "24-25 ACT1160-1220 SAT"
+     },
+     {
+      "amount_text": "$8,000",
+      "gpa": "3.5-3.74",
+      "test": "26-27 ACT1230-1290 SAT"
+     },
+     {
+      "amount_text": "$10,000",
+      "gpa": "3.5-3.74",
+      "test": "28-29 ACT1300-1350 SAT"
+     },
+     {
+      "amount_text": "$15,000",
+      "gpa": "3.5-3.74",
+      "test": "30-31 ACT1360-1410 SAT"
+     },
+     {
+      "amount_text": "$20,790",
+      "gpa": "3.5-3.74",
+      "test": "32+ ACT1420+ SAT"
+     },
+     {
+      "amount_text": "$8,000",
+      "gpa": "3.75-4.0",
+      "test": "No Test Score"
+     },
+     {
+      "amount_text": "$9,000",
+      "gpa": "3.75-4.0",
+      "test": "24-25 ACT1160-1220 SAT"
+     },
+     {
+      "amount_text": "$10,000",
+      "gpa": "3.75-4.0",
+      "test": "26-27 ACT1230-1290 SAT"
+     },
+     {
+      "amount_text": "$12,000",
+      "gpa": "3.75-4.0",
+      "test": "28-29 ACT1300-1350 SAT"
+     },
+     {
+      "amount_text": "$18,000",
+      "gpa": "3.75-4.0",
+      "test": "30-31 ACT1360-1410 SAT"
+     },
+     {
+      "amount_text": "$20,790",
+      "gpa": "3.75-4.0",
+      "test": "32+ ACT1420+ SAT"
+     }
+    ]
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "High School GPA | No Test Score | 24-25 ACT1160-1220 SAT | 26-27 ACT1230-1290 SAT | 28-29 ACT1300-1350 SAT | 30-31 ACT1360-1410 SAT | 32+ ACT1420+ SAT || 3.0-3.49 | $3,000 | $4,000 | $5,000 | $8,000 | $10,000 | $15,000 || 3.5-3.74 | $5,000 | $7,000 | $8,000 | $10,000 | $15,000 | $20,790 || 3.75-4.0 ",
+    "value": "Tiers by High School GPA and No Test Score, 24-25 ACT1160-1220 SAT…"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:29:53+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "b71efbf81c50fb8440b8.json.gz",
+   "requested_url": "https://olemiss.edu/departments/enrollment-management/financial-aid/types-of-aid/scholarships/non-resident/entering-freshman/awards-automatic-consideration/nr-freshman-merit/index.php",
+   "sha256": "b71efbf81c50fb8440b80c1b40f9eb5ec5610e60407a2cb5016af59ec35db9d6",
+   "title": "Non-Resident Freshman Merit & Achievement Based Scholarships | Ole Miss",
+   "url": "https://olemiss.edu/finaid/types-of-aid/scholarships/non-resident/entering-freshman/awards-automatic-consideration/nr-freshman-merit/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "c6a84b268a68d1be": {
+  "decision": {
+   "candidate_id": "c6a84b268a68d1be",
+   "reason": "Academic scholarship row checked against the published table (GPA, ACT/SAT, renewal as printed). Award value column not captured; page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "Servant Leader Academic Scholarship | Half Tuition | 3.0+ | ACT: 21+ / SAT: 1050+ | 3.0 GPA, 15+ hrs, Good Conduct, Renewal Contract",
+    "value": "3.0+"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "Servant Leader Academic Scholarship | Half Tuition | 3.0+ | ACT: 21+ / SAT: 1050+ | 3.0 GPA, 15+ hrs, Good Conduct, Renewal Contract",
+    "value": "ACT: 21+ / SAT: 1050+"
+   },
+   {
+    "field": "renewal_requirements",
+    "snippet": "Servant Leader Academic Scholarship | Half Tuition | 3.0+ | ACT: 21+ / SAT: 1050+ | 3.0 GPA, 15+ hrs, Good Conduct, Renewal Contract",
+    "value": "3.0 GPA, 15+ hrs, Good Conduct, Renewal Contract"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:29:25+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 01 Oct 2026 10:31:23 GMT",
+   "page_file": "628e79332b5485816cd7.json.gz",
+   "requested_url": "https://www.tougaloo.edu/admissions/scholarships",
+   "sha256": "628e79332b5485816cd7bedce2b47d40164252e546ed78fc67991947f24732ea",
+   "title": "Scholarships | Tougaloo College",
+   "url": "https://www.tougaloo.edu/admissions/scholarships"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "d04a4ff890377ee6": {
+  "decision": {
+   "candidate_id": "d04a4ff890377ee6",
+   "reason": "Achievement tier rows checked against the published table. Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "test_requirement",
+    "snippet": "Merit Award 18-21 ACT | $2,000 (up to $500 per semester)",
+    "value": "Merit Award 18-21 ACT"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "Merit Award 18-21 ACT | $2,000 (up to $500 per semester)",
+    "value": "$2,000 (up to $500 per semester)"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:18:39+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "277556c720830d5171fa.json.gz",
+   "requested_url": "https://www.iccms.edu/Scholarships",
+   "sha256": "277556c720830d5171fa45c7a721131bc8e8d163f43adb103068f38371d19854",
+   "title": "Scholarship Programs",
+   "url": "https://www.iccms.edu/Scholarships"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "d7012f70b6dbd938": {
+  "decision": {
+   "candidate_id": "d7012f70b6dbd938",
+   "reason": "Cost column checked against the published 2026-27 table (residency from the column header; components and total as printed)."
+  },
+  "evidence": [
+   {
+    "field": "column:Books",
+    "snippet": "Books | $1,200.00 | $1,200.00",
+    "value": 1200.0
+   },
+   {
+    "field": "column:Fees",
+    "snippet": "Fees | $730.00 | $730.00",
+    "value": 730.0
+   },
+   {
+    "field": "column:Food",
+    "snippet": "Food | $4,693.00 | $4,693.00",
+    "value": 4693.0
+   },
+   {
+    "field": "column:Housing",
+    "snippet": "Housing | $7581.00 | $7581.00",
+    "value": 7581.0
+   },
+   {
+    "field": "column:Personal Expenses",
+    "snippet": "Personal Expenses | $1,606.00 | $1,606.00",
+    "value": 1606.0
+   },
+   {
+    "field": "column:Transportation",
+    "snippet": "Transportation | $1,710.00 | $1,710.00",
+    "value": 1710.0
+   },
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $8,105.00 | $9,105.00",
+    "value": 8105.0
+   },
+   {
+    "field": "column:Total Cost of Attendance",
+    "snippet": "Total Cost of Attendance | $25,625.00 | $26,625.00",
+    "value": 25625.0
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:17:33+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "17c00cff15e2209d5ec5.json.gz",
+   "requested_url": "https://www.alcorn.edu/financial-aid/cost-of-attendance-coa-budget/",
+   "sha256": "17c00cff15e2209d5ec5364c573fd1d1e575d5d032f054d42c8ef3ba9078be41",
+   "title": "Cost of Attendance (COA) Budget – Financial Aid",
+   "url": "https://www.alcorn.edu/financial-aid/cost-of-attendance-coa-budget/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "e0a772ee53903e0f": {
+  "decision": {
+   "candidate_id": "e0a772ee53903e0f",
+   "reason": "GPA band and ACT range checked against the published table; amount as printed; year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "25 - 26 ACT Score | $5,250 annually",
+    "value": "3.25 - 3.59 GPA"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "25 - 26 ACT Score | $5,250 annually",
+    "value": "25 - 26 ACT Score"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "25 - 26 ACT Score | $5,250 annually",
+    "value": "$5,250 annually"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:51+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "6d202fa71cbc92639a88.json.gz",
+   "requested_url": "https://www.usm.edu/undergraduate-admissions/freshmen.php",
+   "sha256": "6d202fa71cbc92639a8882e4338257b4d0f4fb36a07aae46008aac1c0fdbcf4d",
+   "title": "Undergraduate Admissions - Freshmen | Undergraduate Admissions | The University of Southern Mississippi",
+   "url": "https://www.usm.edu/undergraduate-admissions/freshmen.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "e11b0a85e3e74dba": {
+  "decision": {
+   "candidate_id": "e11b0a85e3e74dba",
+   "reason": "Residency/transfer-hour sentence checked against the official page. Page has no year label; no transfer guarantee implied."
+  },
+  "evidence": [
+   {
+    "field": "residency_requirement_credits",
+    "snippet": "If you are transferring from a four-year university or college, the last 30 hours of your degree must be taken at WCU.",
+    "value": 30
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:31:25+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "b16671c8c303420cde3a.json.gz",
+   "requested_url": "https://www.wmcarey.edu/admissions/transfer/faq.html",
+   "sha256": "b16671c8c303420cde3ab9ef09422c612bc6674d44fc3b7d5ba81e8962c31569",
+   "title": "Transfer Student FAQs | William Carey University",
+   "url": "https://www.wmcarey.edu/admissions/transfer/faq"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "e50c42423792d26c": {
+  "decision": {
+   "candidate_id": "e50c42423792d26c",
+   "reason": "GPA band and ACT range checked against the published table; amount as printed; year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "32 - 36 ACT Score | Full value of tuition + freshman year housing",
+    "value": "3.6 GPA or higher"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "32 - 36 ACT Score | Full value of tuition + freshman year housing",
+    "value": "32 - 36 ACT Score"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "32 - 36 ACT Score | Full value of tuition + freshman year housing",
+    "value": "Full value of tuition + freshman year housing"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:51+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "6d202fa71cbc92639a88.json.gz",
+   "requested_url": "https://www.usm.edu/undergraduate-admissions/freshmen.php",
+   "sha256": "6d202fa71cbc92639a8882e4338257b4d0f4fb36a07aae46008aac1c0fdbcf4d",
+   "title": "Undergraduate Admissions - Freshmen | Undergraduate Admissions | The University of Southern Mississippi",
+   "url": "https://www.usm.edu/undergraduate-admissions/freshmen.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "eae7b85f3d913d2b": {
+  "decision": {
+   "candidate_id": "eae7b85f3d913d2b",
+   "reason": "Policy/eligibility lines and table rows checked against the official page as printed. Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "High School GPA of 2.5+",
+    "value": 2.5
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:31:24+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "f602acd447458580f052.json.gz",
+   "requested_url": "https://wbs.edu/college/dual-enrollment/",
+   "sha256": "f602acd447458580f0521f6055c87a66b76f196c5db488fb9bf7cf7d2f76575e",
+   "title": "Dual Enrollment for Homeschoolers - The College at Wesley Biblical Seminary",
+   "url": "https://wbs.edu/college/dual-enrollment/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "eba9c8a4bece080a": {
+  "decision": {
+   "candidate_id": "eba9c8a4bece080a",
+   "reason": "ACT tier rows checked against the published table (name, ACT range, amount as printed). Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "ACT Presidential Scholarship | 28 and above | $12,000 ($3,000 per semester)",
+    "value": "$12,000 ($3,000 per semester)"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "ACT Presidential Scholarship | 28 and above | $12,000 ($3,000 per semester)",
+    "value": "ACT 28 and above"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:17:19+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "877e7cf598ccd6a5a9d0.json.gz",
+   "requested_url": "https://www.hindscc.edu/admissions/costs-aid/scholarships/act-scholarships/",
+   "sha256": "877e7cf598ccd6a5a9d03beb1976fbcb03e6c1ad9ab3dfb5ce5cc6020460af77",
+   "title": "ACT Scholarships | Hinds Community College",
+   "url": "https://www.hindscc.edu/admissions/costs-aid/scholarships/act-scholarships"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "f5da4ff603218fd7": {
+  "decision": {
+   "candidate_id": "f5da4ff603218fd7",
+   "reason": "GPA band and ACT range checked against the published table; amount as printed; year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "gpa_requirement",
+    "snippet": "30 ACT Score | $9,000 annually",
+    "value": "3.6 GPA or higher"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "30 ACT Score | $9,000 annually",
+    "value": "30 ACT Score"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "30 ACT Score | $9,000 annually",
+    "value": "$9,000 annually"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:51+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "6d202fa71cbc92639a88.json.gz",
+   "requested_url": "https://www.usm.edu/undergraduate-admissions/freshmen.php",
+   "sha256": "6d202fa71cbc92639a8882e4338257b4d0f4fb36a07aae46008aac1c0fdbcf4d",
+   "title": "Undergraduate Admissions - Freshmen | Undergraduate Admissions | The University of Southern Mississippi",
+   "url": "https://www.usm.edu/undergraduate-admissions/freshmen.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "m0861bf6c7398810": {
+  "decision": {
+   "candidate_id": "m0861bf6c7398810",
+   "reason": "Policy/eligibility lines and table rows checked against the official page as printed. Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "Academic Courses: minimum overall 3.0 GPA on a 4.0 scale on all high school courses and with successful",
+    "source_url": "https://www.msdelta.edu/programs/dual-enrollment/counselor-guidelines.php",
+    "value": 3.0
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "overall 3.0 GPA on all high school courses and a minimum composite ACT score of 30",
+    "source_url": "https://www.msdelta.edu/programs/dual-enrollment/counselor-guidelines.php",
+    "value": 3.0
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "Minimum high school GPA of 2.0 on a 4.0 scale; may be classified as a sophomore; and",
+    "source_url": "https://www.msdelta.edu/programs/dual-enrollment/counselor-guidelines.php",
+    "value": 2.0
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "o   Have a minimum overall high school GPA of 3.0 on a 4.0 scale; and",
+    "source_url": "https://www.msdelta.edu/programs/dual-enrollment/counselor-guidelines.php",
+    "value": 3.0
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "Minimum grade point average of 3.0 on a 4.0 scale",
+    "source_url": "https://www.msdelta.edu/programs/dual-enrollment/services.php",
+    "value": 3.0
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "with a 3.0 GPA on all high school courses AND a minimum ACT score of 30 or the equivalent",
+    "source_url": "https://www.msdelta.edu/programs/dual-enrollment/services.php",
+    "value": 3.0
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "Have a minimum high school GPA of 2.0 on a 4.0 scale",
+    "source_url": "https://www.msdelta.edu/programs/dual-enrollment/services.php",
+    "value": 2.0
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:25:04+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "d1b0227e9f6ccb0ab9fc.json.gz",
+   "requested_url": "https://www.msdelta.edu/programs/dual-enrollment/counselor-guidelines.php",
+   "sha256": "d1b0227e9f6ccb0ab9fcd4369a1c79a74bbefd83a852dc5e9ee81d3751d54bcb",
+   "title": "MDCC - Counselor Guidelines",
+   "url": "https://www.msdelta.edu/programs/dual-enrollment/counselor-guidelines.php"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "m1b8842ce7e369ec": {
+  "decision": {
+   "candidate_id": "m1b8842ce7e369ec",
+   "reason": "Policy/eligibility lines and table rows checked against the official page as printed. Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "The student must have a minimum 3.0 cumulative GPA on a 4.0 scale for high school work completed. (Prerequisites and co-requisites as stipulated in the Holmes bulletin will be followed.)",
+    "source_url": "https://holmescc.edu/admissions/dual-enrollment-of-high-school-students/",
+    "value": 3.0
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "Have a minimum overall high school GPA of 2.0 on a 4.0 scale.",
+    "source_url": "https://holmescc.edu/admissions/dual-enrollment-of-high-school-students/",
+    "value": 2.0
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "Must have a minimum overall 3.0 GPA on a 4.0 scale.",
+    "source_url": "https://holmescc.edu/dual-enrollment-dual-credit/dual-enrollment-dual-credit-faq/",
+    "value": 3.0
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "Must have a minimum overall 2.0 GPA on a 4.0 scale.",
+    "source_url": "https://holmescc.edu/dual-enrollment-dual-credit/dual-enrollment-dual-credit-faq/",
+    "value": 2.0
+   },
+   {
+    "field": "state_grant_accepted",
+    "snippet": "State Grants (including MTAG and MESG) not available.",
+    "source_url": "https://holmescc.edu/dual-enrollment-dual-credit/dual-enrollment-dual-credit-faq/",
+    "value": false
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "The student must have a minimum 3.0 cumulative GPA on a 4.0 scale for high school work completed. (Prerequisites and co-requisites as stipulated in the Holmes bulletin will be followed.)",
+    "source_url": "https://holmescc.edu/dual-enrollment-dual-credit/dual-enrollment-dual-credit-guidelines-college-policy-procedures/",
+    "value": 3.0
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "The student must have a minimum overall high school GPA of 2.0 on a 4.0 scale.",
+    "source_url": "https://holmescc.edu/dual-enrollment-dual-credit/dual-enrollment-dual-credit-guidelines-college-policy-procedures/",
+    "value": 2.0
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:18:10+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "4818d4fcf1536cf20aab.json.gz",
+   "requested_url": "https://holmescc.edu/dual-enrollment-dual-credit/dual-enrollment-dual-credit-faq/",
+   "sha256": "4818d4fcf1536cf20aab4ccc318d4dacdea2d096b4c257c2e2dd2b66c33c1ee0",
+   "title": "Dual Enrollment/Dual Credit FAQ - Holmes Community College",
+   "url": "https://holmescc.edu/dual-enrollment-dual-credit/dual-enrollment-dual-credit-faq/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "m2f186891f55693b": {
+  "decision": {
+   "candidate_id": "m2f186891f55693b",
+   "reason": "Residency/transfer-hour sentence checked against the official page. Page has no year label; no transfer guarantee implied."
+  },
+  "evidence": [
+   {
+    "field": "max_transfer_credits",
+    "snippet": "A maximum of 45 semester hours of transfer credit may be applied toward a degree program.",
+    "source_url": "https://www.nemcc.edu/admissions/apply/transfer-students/index.html",
+    "value": 45
+   },
+   {
+    "field": "max_transfer_credits",
+    "snippet": "A maximum of 45 semester hours of transfer credit may be applied toward a degree program.",
+    "source_url": "https://catalog.nemcc.edu/admissions/index.html",
+    "value": 45
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:27:54+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 18 Aug 2026 02:03:43 GMT",
+   "page_file": "c011b0e6bd32c4becb68.json.gz",
+   "requested_url": "https://catalog.nemcc.edu/admissions/index.html",
+   "sha256": "c011b0e6bd32c4becb68368dadaebf63384f9c55795547b1703485ce801b424a",
+   "title": "Admission Policies and Procedures | Northeast Mississippi Community College",
+   "url": "https://catalog.nemcc.edu/admissions/index.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "m719044170735a59": {
+  "decision": {
+   "candidate_id": "m719044170735a59",
+   "reason": "Policy/eligibility lines and table rows checked against the official page as printed. Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "Payment for Dual Enrollment courses is required when submitting course roster and student paperwork by the required deadline. Submit one check/purchase order for $40 per credit hour per student, payable to PRCC.",
+    "source_url": "https://prcc.edu/academics/dual-enrollment/",
+    "value": 40
+   },
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "A:    All Academic Dual Enrollment classes are $65 per credit hour.  This covers the tuition, fees, and ebook.",
+    "source_url": "https://prcc.edu/academics/dual-enrollment/",
+    "value": 65
+   },
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "Payment for Dual Enrollment courses is required when submitting course roster and student paperwork by the required deadline. Submit one check/purchase order for $40 per credit hour per student, payable to PRCC.",
+    "source_url": "https://prcc.edu/dual-enrollment/",
+    "value": 40
+   },
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "A:    All Academic Dual Enrollment classes are $65 per credit hour.  This covers the tuition, fees, and ebook.",
+    "source_url": "https://prcc.edu/dual-enrollment/",
+    "value": 65
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "Have a minimum overall high school GPA of 3.0 on a 4.0 scale;",
+    "source_url": "https://prcc.edu/academics/dual-enrollment/middle_college/",
+    "value": 3.0
+   },
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "For the first semester, the tuition is $65 per credit hour. Students typically take 15-16 hours the first semester, which would be $975-$1040. Textbooks/eBooks are included.",
+    "source_url": "https://prcc.edu/academics/dual-enrollment/middle_college/",
+    "value": 65
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:30:35+00:00",
+   "kind": "html",
+   "last_modified": "Sat, 03 Oct 2026 12:30:35 GMT",
+   "page_file": "7505e2ed9439d7d3a1f3.json.gz",
+   "requested_url": "https://prcc.edu/academics/dual-enrollment/middle_college/",
+   "sha256": "7505e2ed9439d7d3a1f305c6e157204e336ae785b59519f25237562db6582390",
+   "title": "Middle College | Pearl River Community College",
+   "url": "https://prcc.edu/academics/dual-enrollment/middle_college/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "m8a5ea8e86f7d079": {
+  "decision": {
+   "candidate_id": "m8a5ea8e86f7d079",
+   "reason": "Policy/eligibility lines and table rows checked against the official page as printed. Page has no year label."
+  },
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "Dual enrolled students must have completed a minimum of fourteen (14) core high school units and a minimum overall high school GPA of 3.0 or have an ACT composite score of thirty (30) or above and a minimum overall high school GPA of 3.0 or above.",
+    "source_url": "https://www.northwestms.edu/admissions/dual-enrollment-admissions",
+    "value": 3.0
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "Dual enrolled students must have completed a minimum of fourteen (14) core high school units or have an ACT composite score of thirty (30) or above and a GPA of 3.0 or above.",
+    "source_url": "https://www.northwestms.edu/programs/early-college/dual-enrollment",
+    "value": 3.0
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T12:28:15+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "b42a8e5ca2c0a4b32b3f.json.gz",
+   "requested_url": "https://www.northwestms.edu/admissions/dual-enrollment-admissions",
+   "sha256": "b42a8e5ca2c0a4b32b3f2420046b9fd6e71bda0993db7db9a20682ca6d76b04e",
+   "title": "Dual Enrollment Admissions - Northwest Mississippi Community College",
+   "url": "https://www.northwestms.edu/admissions/dual-enrollment-admissions"
+  },
+  "year_basis": "source_unlabeled"
+ }
+}
