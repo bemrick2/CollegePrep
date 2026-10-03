@@ -199,6 +199,14 @@ def extract(inst, entry, page, today_year):
         if any(re.fullmatch(r'\s*\d{1,3}\s+\d{1,3}\s*', e['minimum_score'] or '') for e in eqs): issues = issues + ['merged_score_cells']
         if any((e['credits_awarded'] or 0) > 16 for e in eqs):
             issues = issues + ['credits_implausible']  # merged cells ("3" and "6" read as 36)
+        # FL r1 (FSU, UWF, New College, USF, Ringling IB): the score column held course codes, subjects, levels
+        # ("HL") or a header word ("MINIMUM SCORE 4"); scores are numbers, ranges or "HL 5"-style levels with a number.
+        bad_score = sum(1 for e in eqs if e['minimum_score'] and (not re.search(r'\d', e['minimum_score'])
+                        or re.search(r'[A-Z]{2,4}\s?\d{3,4}|score(?!\s+of\s+\d)|credit|same as', e['minimum_score'], re.I)))
+        if bad_score and bad_score >= len(eqs) * 0.3: issues = issues + ['score_column_not_scores']
+        # Two score tiers merged into one cell ("4 5 to 7", Broward IB).
+        if any(re.fullmatch(r'\s*\d\s+\d\s+to\s+\d\s*', e['minimum_score'] or '') for e in eqs): issues = issues + ['merged_score_cells']
+        if eqs and all(not e['institution_course_equivalent'] for e in eqs): issues = issues + ['course_column_missing']
         numeric = sum(1 for e in eqs if re.fullmatch(r'\s*\d{1,2}(\.\d)?\s*', e['institution_course_equivalent'] or ''))
         if numeric and numeric >= len(eqs) / 2:
             issues = issues + ['course_column_numeric']  # the hours column was read as the course column

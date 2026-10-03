@@ -464,6 +464,9 @@ last 30 hours in residence at the university.</p>"""
         self.assertEqual(tiers('<p>10th grade students must submit an overall GPA of 2.0 or higher after the completion of the 9th grade.</p>'), [(2.0, ['10'])])
         self.assertEqual(tiers('<p>11th and 12th graders with a 2.00 high school GPA can enroll in academic core classes.</p>'), [(2.0, ['11', '12'])])
         self.assertEqual(dual._grades('Students must have a minimum class rank of junior.'), ['11', '12'])
+        # FL r1: "Career Dual Enrollment" tiers are scoped, so the academic 3.0 stays the general minimum.
+        [c] = self._de('<p>A 3.0 high school GPA for Academic Dual Enrollment.</p><p>Career Dual Enrollment can be taken with a 2.5 or higher unweighted GPA.</p>')
+        self.assertEqual(c['record']['dual_enrollment'].get('min_hs_gpa'), 3.0)
         # VA r1 (ODU) / NC r1 (CPCC): "Art History" and "History of Art" are not IB History.
         self.assertIsNone(exams.match('IB', 'Art History'))
         self.assertIsNone(exams.match('IB', 'History of Art'))
@@ -485,6 +488,16 @@ last 30 hours in residence at the university.</p>"""
                 '<p>Transfer applicants are encouraged to have completed MATH 1101 with grades of "C" or better.</p>')
         [c] = transfer.extract(INST, ENTRY, T.parse_html(html), '2026-27')
         self.assertEqual(c['record'].get('residency_requirement_credits'), 45)
+        [c] = transfer.extract(INST, ENTRY, T.parse_html('<title>Transfer Admissions</title><p>Thirty (30) of the last 60 hours must be earned at FGCU to receive a baccalaureate degree.</p>'), '2026-27')
+        self.assertEqual(c['record'].get('residency_requirement_credits'), 30)
+        # FSU-style AP chart: the "score" column holds course codes; a table with no course column is incomplete.
+        rows = [['AP Exam', 'Score 3', 'Score 4'], ['Art History', 'ARH 2000 (3)', 'ARH 2000 & ARH 2050'], ['Biology', 'BSC 2010 (3)', 'BSC 2010 & 2011'],
+                ['Chemistry', 'CHM 1045 (3)', 'CHM 1045 & 1046']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'AP', [{'rows': rows, 'heading': 'Advanced Placement', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        self.assertIn('score_column_not_scores', c['issues'])
+        rows = [['IB Exam', 'Minimum Score', 'Credits'], ['Biology', '4', '8'], ['Chemistry', '5', '4'], ['Economics', '5', '3']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'IB', [{'rows': rows, 'heading': 'International Baccalaureate', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        self.assertIn('course_column_missing', c['issues'])
         self.assertNotIn('min_grade', c['record'])
         # NC r1: Chowan's "($44,000 over 4 years)" is not the annual maximum; Greensboro's achievements list and divinity aid are skipped.
         got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
@@ -495,7 +508,8 @@ last 30 hours in residence at the university.</p>"""
         # Agnes Scott / Georgia Southern / WGTC: other organizations' award lists; Thomas University: "+Scholarships" heading.
         table = ('<h2>National Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th><th>Eligibility</th></tr><tr><td>Coca-Cola Scholars</td><td>$20,000</td><td>Seniors</td></tr>'
                  '<tr><td>Ron Brown Scholar Program</td><td>$10,000</td><td>Seniors</td></tr></table>')
-        for url in ('https://www.example.edu/aid/outside-scholarships.html', 'https://www.example.edu/military-scholarships', 'https://www.example.edu/foundation/foundation-scholarship/', 'https://www.example.edu/aid/scholarships/donor-scholarships/index.html', 'https://www.example.edu/academics/student-academic-achievements/', 'https://home.example.edu/student-affairs/testing/intl_credits/'):
+        for url in ('https://www.example.edu/aid/outside-scholarships.html', 'https://www.example.edu/military-scholarships', 'https://www.example.edu/foundation/foundation-scholarship/', 'https://www.example.edu/aid/scholarships/donor-scholarships/index.html', 'https://www.example.edu/academics/student-academic-achievements/', 'https://home.example.edu/student-affairs/testing/intl_credits/',
+                    'https://www.example.edu/college/retirees/emeriti', 'https://www.example.edu/aid/scholarships/bright-futures.html', 'https://www.example.edu/aid/grants/teach'):
             self.assertEqual(merit.extract(INST, {**ENTRY, 'url': url}, T.parse_html('<title>Scholarships</title>' + table), '2026-27'), [])
         self.assertEqual(len(merit.extract(INST, ENTRY, T.parse_html('<title>Scholarships</title>' + table), '2026-27')), 2)  # the same table elsewhere is kept
         [c] = merit.extract(INST, ENTRY, T.parse_html('<title>On Campus Students</title><h3>+Scholarships</h3><table><tr><th>Unweighted GPA</th><th>Scholarship</th></tr>'

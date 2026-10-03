@@ -35,7 +35,7 @@ GRANT_YES = re.compile(r'\b(apply|applies|eligible|accept|accepted|covers|use|ma
 CONTINUE = re.compile(r'maintain\s+(?:a\s+)?(?:cumulative\s+)?(?:college\s+)?(?:gpa\s+of\s+)?(\d\.\d{1,2})\s*(?:cumulative\s+)?(?:college\s+)?(?:gpa)?', re.I)
 # A requirement for one kind of course (KCTCS: "Technical Education Dual Credit Courses ... 2.0 GPA") is
 # not the page's general minimum.
-SCOPED = re.compile(r'career[- ]and[- ]technical|\btechnical\b|\bCTE\b|\bvocational\b', re.I)
+SCOPED = re.compile(r'career[- ]and[- ]technical|\btechnical\b|\bCTE\b|\bvocational\b|\bcareer\s+dual\b|\bcareer\s+(?:certificate|programs?|courses?)\b', re.I)  # FL: "Career Dual Enrollment"
 # GPA lines that are not the high-school admission minimum: college/dual-enrollment course GPAs, prerequisite
 # waivers, placement-test alternatives, single-course prerequisites and special-population programs (TN r5:
 # Welch, Nashville State, Columbia State, Freed-Hardeman).

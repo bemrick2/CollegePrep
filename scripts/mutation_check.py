@@ -7,6 +7,8 @@ A surviving mutant means a safety rule has no test. Run: python scripts/mutation
 import shutil, subprocess, sys
 
 MUTS = [
+    ('pipeline/extractors/credit.py', "if bad_score and bad_score >= len(eqs) * 0.3: issues = issues + ['score_column_not_scores']", "pass"),
+    ('pipeline/extractors/credit.py', "if eqs and all(not e['institution_course_equivalent'] for e in eqs): issues = issues + ['course_column_missing']", "pass"),
     ('pipeline/promote.py', "raise ValueError(f\"{c['candidate_id']}: requirement row for program", "pass  # (f\"{c['candidate_id']}: requirement row for program"),
     ('pipeline/exams.py', "r'(?<!art\\s)(?<!art)\\bhistory\\b(?!\\s+of\\s+art)'", "r'\\bhistory\\b'"),
     ('pipeline/extractors/catalog.py', ".split(' - ')[0].split(' | ')[0].strip()", ".split(' - ')[0].strip()"),
@@ -19,7 +21,7 @@ MUTS = [
     ('pipeline/extractors/cds.py', "issues.append('zero_counts_with_enrollment')", "pass"),
     ('pipeline/extractors/credit.py', "if score and not re.search(r'\\d', score) and not course: continue", "pass"),
     ('pipeline/extractors/dual.py', "    if floor:  # ", "    if False:  # "),
-    ('pipeline/extractors/transfer.py', "if part: v = int(part.group(1))", "pass"),
+    ('pipeline/extractors/transfer.py', "if part: v = words.get(part.group(1).lower()) or int(part.group(1))", "pass"),
     ('pipeline/extractors/merit.py', "r'outside[- ]scholarships?|external[- ]scholarships?|third[- ]party|military|veteran|foundation|/isap/|donor[- ]scholarships?|'", "r'^$|'"),
     ('pipeline/extractors/dual.py', "sat = None if sections else next(", "sat = None if False else next("),
     ('pipeline/extractors/dual.py', "if named or not m: return named", "if not m: return named"),

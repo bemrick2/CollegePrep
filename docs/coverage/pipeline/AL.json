@@ -26,9 +26,9 @@
   "ap_credit": {
    "candidate_exception": 3,
    "fetch_failed": 5,
-   "not_found": 28,
+   "not_found": 27,
    "partially_verified_current": 6,
-   "source_found": 11
+   "source_found": 12
   },
   "clep_credit": {
    "candidate_exception": 4,
@@ -56,8 +56,8 @@
    "source_found": 40
   },
   "dual_enrollment": {
-   "candidate_exception": 3,
-   "candidate_ready": 2,
+   "candidate_exception": 2,
+   "candidate_ready": 3,
    "fetch_failed": 5,
    "not_found": 11,
    "partially_verified_current": 18,
@@ -73,10 +73,11 @@
   },
   "merit_scholarships": {
    "candidate_exception": 4,
+   "candidate_ready": 1,
    "fetch_failed": 5,
    "not_found": 2,
    "partially_verified_current": 6,
-   "source_found": 34,
+   "source_found": 33,
    "verified_current": 2
   },
   "residency": {
@@ -107,10 +108,10 @@
   }
  },
  "totals": {
-  "candidate_exception": 76,
-  "candidate_ready": 2,
+  "candidate_exception": 75,
+  "candidate_ready": 4,
   "fetch_failed": 70,
-  "not_found": 225,
+  "not_found": 224,
   "partially_verified_current": 49,
   "source_found": 311,
   "verified_current": 9
@@ -143,17 +144,17 @@
   "ipeds-102076"
  ],
  "quality": {
-  "ambiguous_years": 6,
+  "ambiguous_years": 5,
   "blocked_requests": 66,
   "candidates": 522,
-  "conflicts": 161,
+  "conflicts": 158,
   "documents": 3273,
   "extraction_failures": 0,
   "fetch_errors": 275,
   "fetches": 3614,
-  "ready": 184,
+  "ready": 183,
   "semantic_review": 247,
-  "stale_sources": 229
+  "stale_sources": 230
  },
  "run": "pipeline/runs/AL/2026-10-03"
 }
