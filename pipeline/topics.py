@@ -44,7 +44,10 @@ CATEGORIES = {
                                         'tuition classification'],
                   ['residency', 'in-state', 'domicile']),
     'degree_requirements': ('degree_requirements', ['catalog', 'catoid', 'courseleaf', 'programs of study',
-                                                    'degree requirements', 'four-year plan', 'academic map'],
+                                                    'degree requirements', 'four-year plan', 'four-year-plan', '4-year-plan',
+                                                    'academic map', 'academic-map', 'degree map', 'degree-map', 'program map',
+                                                    'program-map', 'clear path', 'clear-path', 'plan of study', 'plan-of-study',
+                                                    'curriculum map', 'curricular-map', 'finish in four', 'finish-in-four'],
                             # 'credit hours' and 'general education' alone matched SAP policies and aid FAQs (KY)
                             ['degree requirements', 'major requirements', 'program requirements', 'general education requirements']),
     'aid_appeals': ('appeals', ['appeal', 'special circumstance', 'special-circumstance', 'professional judgment',

@@ -41,6 +41,8 @@ MUTS = [
     ('pipeline/text.py', "continue  # \"PHYS 2010/2011\"", "pass  # \"PHYS 2010/2011\""),
     ('pipeline/extractors/credit.py', "issues = issues + ['course_column_numeric']", "pass"),
     ('pipeline/crawl.py', "return self.challenges.get(host, 0) >= self.CHALLENGE_STOP", "return False"),
+    ('pipeline/extractors/programmap.py', "if len(labels) != 1: return []", "labels = labels or {'2026-27': 1}"),
+    ('pipeline/extractors/programmap.py', "cont = last and (last[1] is None or wrapped or", "cont = last and (last[1] is None or"),
 ]
 failed = False
 for f, old, new in MUTS:

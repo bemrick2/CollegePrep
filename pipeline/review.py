@@ -15,10 +15,10 @@ from backend.catalog import ROOT, records
 from backend.store import natural_key
 from . import text as T, topics
 from .crawl import Run
-from .extractors import appeals, catalog, cds, costs, credit, dual, merit, statepolicy, transfer
+from .extractors import appeals, catalog, cds, costs, credit, dual, merit, programmap, statepolicy, transfer
 
 EXTRACTORS = [credit.extract, costs.extract, cds.extract, merit.extract, appeals.extract, transfer.extract, dual.extract,
-              catalog.extract, statepolicy.extract]
+              catalog.extract, programmap.extract, statepolicy.extract]
 STATE_EXTRACTORS = [statepolicy.extract]
 SCALAR_SKIP = {'entering_fall_year', 'unitid', 'term_index', 'choose_count'}
 # Policy wording that must also appear verbatim before a record can be upgraded: paraphrased text
@@ -164,6 +164,31 @@ def dedupe(cands):
 def _comparable(r):
     return {k: v for k, v in r.items() if k not in {'source_url', 'policy_url', 'last_verified_at', 'notes',
                                                     'verification_status', 'academic_year_basis'}}
+
+
+def adopt_program_keys(cands, existing):
+    """A program already curated from the same document keeps its curated program_key: candidates read
+    from that program_url adopt it, so promotion updates the curated rows instead of adding a duplicate
+    program under an extractor-made key."""
+    by_url = {}
+    for inst, rows in existing.items():
+        for _, d, r in rows:
+            if d == 'academic_programs':
+                for u in {r.get('program_url'), r.get('source_url')} - {None}:
+                    by_url[(inst, r.get('academic_year'), u)] = r['program_key']
+    renames = {}
+    for c in cands:
+        if c.get('domain') == 'academic_programs':
+            k = by_url.get((c['institution_key'], c['academic_year'], c['record'].get('program_url')))
+            if k and k != c['record']['program_key']:
+                renames[(c['institution_key'], c['academic_year'], c['source'].get('sha256'), c['record']['program_key'])] = k
+    for c in cands:
+        if c.get('domain') in ('academic_programs', 'degree_requirements'):
+            k = renames.get((c['institution_key'], c['academic_year'], c['source'].get('sha256'), c['record'].get('program_key')))
+            if k:
+                c['record']['program_key'] = k
+                c['checks'] = {**c.get('checks', {}), 'adopted_program_key': k}
+    return cands
 
 
 def diff(cands, existing):
@@ -389,7 +414,7 @@ def review(registry, run: Run, today=None):
     today_year = T.current_academic_year(today or date.today())
     keys = {i['institution_key'] for i in registry['institutions']}
     existing = existing_records(keys, registry['state'])
-    cands = diff(extract_run(registry, run, today_year), existing)
+    cands = diff(adopt_program_keys(extract_run(registry, run, today_year), existing), existing)
     verify = verify_existing(registry, run, existing)
     cov = coverage(registry, run, cands, existing, today_year)
     cov['quality'] = quality(run, cands)

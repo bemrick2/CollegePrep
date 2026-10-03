@@ -296,6 +296,34 @@ last 30 hours in residence at the university.</p>"""
         [c] = credit.extract(INST, ENTRY, page_, '2026-27')
         self.assertIn('course_column_numeric', c['issues'])
 
+    def test_two_column_program_map(self):
+        """UTC 'Clear Path for Advising' layout: wrapped cells, hours on their own line, a left-column
+        hours token running into the right column, and the hour summary block."""
+        from pipeline.extractors import programmap
+        text = (FIX / 'program_map_clear_path.txt').read_text()
+        page_ = T.Page(text, text.splitlines()[0][:200], [], [], [])
+        entry = {**ENTRY, 'kind': 'pdf', 'url': 'https://www.utc.edu/x/cecs-cs-data-science-ai-bs-2026-v1-accessible.pdf'}
+        out = programmap.extract(INST, entry, page_, '2026-27')
+        prog = next(c['record'] for c in out if c['domain'] == 'academic_programs')
+        self.assertEqual((prog['program_name'], prog['catalog_year'], prog['total_credits']),
+                         ('Computer Science: Data Science and Artificial Intelligence, B.S.', '2026-2027', 122))
+        rows = {c['record']['requirement_key']: c['record'] for c in out if c['domain'] == 'degree_requirements'}
+        terms = rows['four-year-plan']['rule_details']['terms']
+        self.assertEqual([t['credit_hours'] for t in terms], ['14-15', '17-18', '16-18', '14', '15', '16', '15-16', '15'])
+        codes = lambda t: [i['code'] if isinstance(i, dict) else i for i in t['items']]
+        self.assertEqual(codes(terms[1])[:3], ['CPSC 1110', 'ENGL 1020', 'MATH 1960'])  # ENGL 1020 is a spring course
+        self.assertEqual(terms[3]['items'][0], {'code': 'CPEN 3700', 'title': 'Digital Logic and Introduction to Computer Hardware', 'credits': 4})
+        self.assertIn('MATH 2030: Discrete Math for Computer Science or MATH 3000: Introduction to Logic and Proof (3)', terms[3]['items'])
+        self.assertEqual({k: r.get('minimum_credits') for k, r in rows.items() if k != 'four-year-plan'},
+                         {'program-total': 122, 'upper-division-hours': 39, 'residency-hours': 30, 'four-year-institution-hours': 45,
+                          'gen-ed-hours': 21, 'major-hours': 101})
+        sys.path.insert(0, str(ROOT / 'scripts'))
+        from validate_data import validate_record
+        for c in out:
+            self.assertEqual(validate_record(ROOT / 'data', c['record'], 0, domain=c['domain']), [], c['record'].get('requirement_key'))
+        unlabeled = text.replace('2026-2027', '')
+        self.assertEqual(programmap.extract(INST, entry, T.Page(unlabeled, '', [], [], []), '2026-27'), [])  # no printed year, no record
+
     def _de(self, body, url='https://www.example.edu/admissions/dual-enrollment/', title='Dual Enrollment'):
         return dual.extract(INST, {**ENTRY, 'url': url}, T.parse_html('<title>%s</title>%s' % (title, body)), '2026-27')
 
@@ -703,6 +731,8 @@ class CrawlTests(unittest.TestCase):
         self.assertFalse(topics.is_program_page('https://undergrad.catalog.tntech.edu/programs'))
         self.assertEqual(topics.link_score('https://undergrad.catalog.tntech.edu/programs?page=2', 'Next'), 25)
         self.assertEqual(topics.link_score('https://catalog.rhodes.edu/programs-study', 'Programs of Study'), 25)
+        self.assertIn('degree_requirements', topics.link_topics('https://www.tntech.edu/engineering/pdf/degree-map/2026-27/BS_CS_Degree_Map_2026-27.pdf'))
+        self.assertIn('degree_requirements', topics.link_topics('https://www.utc.edu/x.pdf', 'Clear Path for Advising'))
 
     def test_repeated_challenges_stop_a_host(self):
         from pipeline.crawl import HostGate
