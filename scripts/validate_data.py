@@ -9,7 +9,7 @@ from __future__ import annotations
 import json
 import sys
 import re
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -115,7 +115,7 @@ def validate_record(path: Path, record: dict, index: int, domain=None):
         try:
             value = str(record['last_verified_at'])
             if not re.match(r'^\d{4}-\d{2}-\d{2}(?:T|$)', value): raise ValueError()
-            if date.fromisoformat(value[:10]) > date.today(): raise ValueError()
+            if date.fromisoformat(value[:10]) > datetime.now(timezone.utc).date(): raise ValueError()  # UTC, as fetch dates are
         except (ValueError, TypeError):
             errors.append("last_verified_at is not ISO-8601")
 
