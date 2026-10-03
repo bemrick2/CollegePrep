@@ -24,11 +24,13 @@ CATEGORIES = {
                            ['scholarship', 'renewable', 'minimum gpa', 'act score', 'sat score']),
     'ap_credit': ('credit_policies', ['advanced placement', 'ap-credit', 'ap credit', 'ap-exam', 'ap exam',
                                       'prior-learning', 'prior learning', 'credit-by-exam', 'credit by exam',
-                                      'testing-credit', 'exam credit'],
+                                      'testing-credit', 'exam credit', 'ap-ib', 'ap/ib', 'ap and ib', 'ap & ib',
+                                      'ap scores', 'ap-scores', 'ap equivalenc', 'ap-equivalenc', 'advanced-placement'],
                   ['advanced placement', 'ap exam', 'ap score']),
     'clep_credit': ('credit_policies', ['clep', 'credit-by-exam', 'credit by exam', 'prior-learning'],
                     ['clep']),
-    'ib_credit': ('credit_policies', ['international baccalaureate', 'ib-credit', 'ib credit', 'prior-learning'],
+    'ib_credit': ('credit_policies', ['international baccalaureate', 'ib-credit', 'ib credit', 'prior-learning',
+                                      'ap-ib', 'ap/ib', 'ap and ib', 'ap & ib', 'ib scores', 'ib equivalenc', 'ib-equivalenc'],
                   ['international baccalaureate']),
     'dual_enrollment': ('credit_policies', ['dual enrollment', 'dual-enrollment', 'dual credit', 'dual-credit',
                                             'early college', 'high school students'],
@@ -127,13 +129,16 @@ def is_program_page(url: str) -> bool:
 
 
 CONTACT_ANCHOR = re.compile(r'^\s*(contact|email|call|directions|map)\b', re.I)
+# Single-course description pages (catalog.rhodes.edu/hum/240, Acalog preview_course): never policy pages,
+# and a course index links hundreds of them (TN r5: Rhodes spent 16 of its 90 pages on them).
+COURSE_PAGE = re.compile(r'^https?://[^/]*catalog[^/]*/[a-z]{2,5}/\d{3,4}[a-z]?/?$|preview_course(?:_nopop)?\.php', re.I)
 
 
 def link_score(url: str, anchor: str = '', today=None) -> int:
     """Crawl priority: more matched categories, documents of known value, and current years rank higher.
     Links whose only year labels are more than two academic years old are skipped: the pipeline is
     after current policy, and archives of old catalogs and surveys would consume the page budget."""
-    if EXCLUDE.search(url) or CONTACT_ANCHOR.search(anchor or ''): return -1
+    if EXCLUDE.search(url) or CONTACT_ANCHOR.search(anchor or '') or COURSE_PAGE.search(url): return -1
     if COURSELEAF_GRADUATE.search(url) and not UG_PROGRAM.search(anchor or ''): return -1  # KY: WKU budget went to graduate pages
     if is_program_page(url):  # anchors are program names, so topic keywords never match them
         if GRAD_PROGRAM.search(anchor) and not UG_PROGRAM.search(anchor): return -1

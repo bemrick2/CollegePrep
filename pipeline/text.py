@@ -177,6 +177,21 @@ def academic_year(first: int) -> str:
     return f'{first}-{str(first + 1)[-2:]}'
 
 
+TRACKING = re.compile(r'^(?:_gl|utm_[a-z]+|fbclid|gclid|msclkid|mc_[a-z]+|_ga|hsa_[a-z]+)$', re.I)
+
+
+def strip_tracking(query: str) -> str:
+    """Drop analytics parameters (Lipscomb links carry '?_gl=1*13kx7ol*...'): they make one page look like several."""
+    if not query: return query
+    return '&'.join(kv for kv in query.split('&') if kv and not TRACKING.match(kv.split('=', 1)[0]))
+
+
+def canonical_url(url: str) -> str:
+    from urllib.parse import urlsplit, urlunsplit
+    p = urlsplit(url)
+    return urlunsplit((p.scheme, p.netloc, p.path, strip_tracking(p.query), p.fragment))
+
+
 def year_labels(text: str):
     """Academic-year labels printed in text, e.g. '2026-2027', '2026–27', 'FY27' is ignored.
     Returns {label: count}; only consecutive years count as academic-year labels."""

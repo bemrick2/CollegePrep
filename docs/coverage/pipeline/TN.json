@@ -15,8 +15,8 @@
   "admissions_tests": {
    "candidate_exception": 1,
    "fetch_failed": 7,
-   "not_found": 3,
-   "source_found": 46,
+   "not_found": 4,
+   "source_found": 45,
    "verified_current": 2
   },
   "aid_appeals": {
@@ -30,17 +30,15 @@
   "ap_credit": {
    "candidate_exception": 2,
    "fetch_failed": 7,
-   "not_found": 35,
-   "partially_verified_current": 3,
-   "source_found": 11,
+   "not_found": 32,
+   "partially_verified_current": 4,
+   "source_found": 13,
    "verified_current": 1
   },
   "clep_credit": {
-   "candidate_exception": 2,
-   "candidate_ready": 1,
    "fetch_failed": 7,
    "not_found": 40,
-   "partially_verified_current": 2,
+   "partially_verified_current": 5,
    "source_found": 6,
    "verified_current": 1
   },
@@ -52,26 +50,26 @@
    "verified_current": 2
   },
   "cost_of_attendance": {
-   "candidate_exception": 3,
+   "candidate_exception": 1,
    "fetch_failed": 7,
    "not_found": 2,
    "partially_verified_current": 1,
-   "source_found": 40,
+   "source_found": 42,
    "verified_current": 6
   },
   "degree_requirements": {
    "fetch_failed": 7,
-   "not_found": 6,
-   "partially_verified_current": 1,
-   "source_found": 44,
-   "verified_current": 1
+   "not_found": 12,
+   "source_found": 38,
+   "verified_current": 2
   },
   "dual_enrollment": {
-   "candidate_exception": 5,
-   "candidate_ready": 20,
+   "candidate_exception": 8,
+   "candidate_ready": 3,
    "fetch_failed": 7,
-   "not_found": 13,
-   "source_found": 13,
+   "not_found": 12,
+   "partially_verified_current": 13,
+   "source_found": 15,
    "verified_current": 1
   },
   "ib_credit": {
@@ -83,18 +81,17 @@
    "verified_current": 1
   },
   "merit_scholarships": {
-   "candidate_exception": 1,
-   "candidate_ready": 4,
+   "candidate_ready": 1,
    "fetch_failed": 7,
    "not_found": 8,
-   "partially_verified_current": 3,
-   "source_found": 33,
+   "partially_verified_current": 6,
+   "source_found": 34,
    "verified_current": 3
   },
   "residency": {
    "fetch_failed": 7,
-   "not_found": 29,
-   "source_found": 23
+   "not_found": 28,
+   "source_found": 24
   },
   "statewide_articulation": {
    "fetch_failed": 7,
@@ -102,48 +99,48 @@
    "source_found": 17
   },
   "transfer_credit": {
-   "candidate_ready": 1,
    "fetch_failed": 7,
    "not_found": 5,
    "partially_verified_current": 7,
-   "source_found": 39
+   "source_found": 40
   },
   "tuition_fees": {
-   "candidate_exception": 6,
+   "candidate_exception": 5,
    "fetch_failed": 7,
    "not_found": 1,
+   "partially_verified_current": 1,
    "source_found": 35,
    "verified_current": 10
   }
  },
  "totals": {
-  "candidate_exception": 52,
-  "candidate_ready": 26,
+  "candidate_exception": 49,
+  "candidate_ready": 4,
   "fetch_failed": 98,
-  "not_found": 280,
-  "partially_verified_current": 19,
-  "source_found": 322,
-  "verified_current": 29
+  "not_found": 282,
+  "partially_verified_current": 39,
+  "source_found": 324,
+  "verified_current": 30
  },
  "statewide_sources": {
   "categories": {
-   "admissions_tests": 2,
+   "admissions_tests": 7,
    "aid_appeals": 0,
    "ap_credit": 0,
    "clep_credit": 0,
-   "common_data_set": 1,
-   "cost_of_attendance": 1,
-   "degree_requirements": 2,
-   "dual_enrollment": 0,
+   "common_data_set": 2,
+   "cost_of_attendance": 3,
+   "degree_requirements": 1,
+   "dual_enrollment": 5,
    "ib_credit": 0,
-   "merit_scholarships": 2,
-   "residency": 2,
-   "statewide_articulation": 68,
-   "transfer_credit": 68,
-   "tuition_fees": 2
+   "merit_scholarships": 23,
+   "residency": 4,
+   "statewide_articulation": 143,
+   "transfer_credit": 150,
+   "tuition_fees": 7
   },
   "fetch_failures": 1,
-  "pages_fetched": 80
+  "pages_fetched": 270
  },
  "blocked_institutions": [
   "ipeds-219824",
@@ -155,17 +152,17 @@
   "ipeds-486901"
  ],
  "quality": {
-  "ambiguous_years": 24,
-  "blocked_requests": 274,
-  "candidates": 342,
-  "conflicts": 110,
-  "documents": 2967,
+  "ambiguous_years": 12,
+  "blocked_requests": 388,
+  "candidates": 416,
+  "conflicts": 134,
+  "documents": 3338,
   "extraction_failures": 0,
-  "fetch_errors": 90,
-  "fetches": 3331,
-  "ready": 156,
-  "semantic_review": 120,
-  "stale_sources": 68
+  "fetch_errors": 97,
+  "fetches": 3823,
+  "ready": 138,
+  "semantic_review": 206,
+  "stale_sources": 55
  },
- "run": "pipeline/runs/TN/2026-10-02-r4"
+ "run": "pipeline/runs/TN/2026-10-03"
 }

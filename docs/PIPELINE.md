@@ -33,6 +33,10 @@ every run re-checks them.
 - Catalog program pages (Acalog `preview_program.php`, Courseleaf `catalog.*/undergraduate/<college>/<dept>/<program>/`)
   have their own page budget; Courseleaf `/graduate/` paths are skipped.
 - Spends a page budget (default 45) on links ranked by research topic (`pipeline/topics.py`).
+  Depth limit 3, except a strong document link (PDF/XLSX scoring ≥ 25, e.g. a current-year AP/IB
+  equivalency PDF) may be fetched one level deeper. Single-course catalog pages (`catalog.*/<subj>/<num>`,
+  Acalog `preview_course`) are never followed. Analytics query parameters (`_gl`, `utm_*`, `fbclid`, …)
+  are dropped, and on an https site an `http://` link is the same page as its `https://` twin.
 - Honours robots.txt (unreachable robots → host skipped), one request per host per second,
   identifying user agent, 15 MB cap, retries on 5xx/429/timeouts. Blocked pages are recorded, not evaded.
 - HTML → text, tables, headings, links; PDF → `pdftotext -layout` plus fillable-form values (pypdf);
@@ -61,7 +65,9 @@ Residency in cost tables: a state name means in-state only when it is the school
 (`residency_names_another_state` otherwise, e.g. reciprocity rates).
 
 ### Academic year
-A year label in the title wins; otherwise one label must dominate the page. Unlabeled pages are
+A year label in the title wins; otherwise one label must dominate the page. A PDF/XLSX whose text prints
+no year but whose file name carries exactly one (`2025-26-Dual-Enrollment-Agreement-Form.pdf`) takes that
+year with basis `labeled_in_url` (promoted as `partially_verified`, flagged stale if older). Unlabeled pages are
 recorded as the year in force at review with `academic_year_basis:
 aid_year_in_force_at_review_source_unlabeled` (never `verified`, enforced by validation). Mixed
 labels → `ambiguous_year_labels` exception. Older labels are kept as that year (history) and flagged.

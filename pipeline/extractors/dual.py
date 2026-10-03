@@ -49,14 +49,28 @@ def _num(m):
     return next((g for g in m.groups() if g), None)
 
 
+COMPLETED = re.compile(r'\b(?:complet(?:ed|ion of)|finish(?:ed)?)\s+(?:your\s+|the\s+|their\s+|his or her\s+)?'
+                       r'(freshm[ae]n|sophomore|junior|9th\s+grade|10th\s+grade|11th\s+grade)\b', re.I)
+NEXT = {'freshman': '10', 'freshmen': '10', 'sophomore': '11', 'junior': '12', '9th grade': '10', '10th grade': '11', '11th grade': '12'}
+
+
 def _grades(line):
-    return [g for g, rx in GRADES if re.search(rx, line, re.I)]
+    m = COMPLETED.search(line)  # "Have you completed your sophomore year?" (UTC) means rising juniors and up
+    if m:
+        first = NEXT[re.sub(r'\s+', ' ', m.group(1).lower())]
+        return [g for g in ('10', '11', '12') if int(g) >= int(first)]
+    listed = set(re.findall(r'\b(9|10|11|12)th\b(?=[^.;]{0,40}?\bgrades?\b)', line, re.I))  # "10th, 11th, or 12th grade"
+    return [g for g, rx in GRADES if g in listed or re.search(rx, line, re.I)]
 
 
 def extract(inst, entry, page, today_year):
     if common.professional_source(entry, page): return []
     head = page.title + ' ' + entry.get('url', '')  # the page itself must be about dual enrollment
     if not TOPIC.search(head): return []
+    # A named institutional award ("Bibb Family Dual Enrollment Scholarship", APSU): its GPA and renewal rules
+    # are the award's, not the dual enrollment program's.
+    # Plural program pages stay ("Student Eligibility for Dual Enrollment Scholarships", AL: Trenholm State).
+    if re.search(r'scholarship(?!s)', page.title, re.I) and not re.search(r'eligib|program', page.title, re.I): return []
     lines = [l for l in page.lines if 15 <= len(l) <= 400 and not OFF_TOPIC.search(l)]
     glossary = bool(re.search(r'glossary|definitions|terms\s+to\s+know', head, re.I))  # KY, Owensboro: "GPA of 2.0 (a C average)" defines a term
     tiers, evidence, values = [], [], {}
@@ -119,6 +133,8 @@ def extract(inst, entry, page, today_year):
     de = {}
     if tiers:
         de['eligibility_tiers'] = tiers
+        if any(re.search(r'\S\s{5,}\S', t['line']) for t in tiers):
+            issues.append('multicolumn_layout_review')  # Motlow: side-by-side columns interleave words into one line
         general = [t for t in tiers if 'course_scope' not in t]
         for field in ('min_hs_gpa', 'alt_min_act', 'alt_min_sat'):
             seen = {t.get(field) for t in general if t.get(field) is not None}
