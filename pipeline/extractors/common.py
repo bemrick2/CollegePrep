@@ -70,7 +70,7 @@ def resolve_year(page, entry, today_year):
 
 
 PROFESSIONAL = re.compile(r'(^|[./-])(law|pharmacy|medicine|medical|med|dental|dentistry|graduate|grad|osteopathic|veterinary|'
-                          r'cvm|dvm|optometry|pa-program|msn|dnp|seminary)([./-]|$)', re.I)
+                          r'cvm|dvm|optometry|pa-program|msn|dnp|seminary|divinity)([./-]|$)', re.I)
 
 
 def professional_source(entry, page) -> bool:

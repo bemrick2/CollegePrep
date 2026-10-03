@@ -10,7 +10,7 @@ sys.path.insert(0, str(ROOT))
 from pipeline import exams, registry, review, text as T, topics  # noqa: E402
 from pipeline import promote as P  # noqa: E402
 from pipeline.crawl import Fetcher, Run, crawl  # noqa: E402
-from pipeline.extractors import appeals, catalog, cds, costs, credit, dual, merit, statepolicy, transfer  # noqa: E402
+from pipeline.extractors import appeals, catalog, cds, common, costs, credit, dual, merit, statepolicy, transfer  # noqa: E402
 
 FIX = ROOT / 'tests/fixtures/pipeline'
 INST = {'institution_key': 'ipeds-999999', 'control': 'public', 'folder': 'example'}
@@ -482,10 +482,16 @@ last 30 hours in residence at the university.</p>"""
         [c] = transfer.extract(INST, ENTRY, T.parse_html(html), '2026-27')
         self.assertEqual(c['record'].get('residency_requirement_credits'), 45)
         self.assertNotIn('min_grade', c['record'])
+        # NC r1: Chowan's "($44,000 over 4 years)" is not the annual maximum; Greensboro's achievements list and divinity aid are skipped.
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Academic Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th></tr>'
+            '<tr><td>Presidential Scholarship</td><td>$11,000 ($44,000 over 4 years)</td></tr><tr><td>Alumni Scholarship</td><td>$9,000 ($36,000 over 4 years)</td></tr></table>'), '2026-27')}
+        self.assertEqual((got['Presidential Scholarship'].get('award_min'), got['Presidential Scholarship']['award_max']), (11000, 11000))
+        self.assertTrue(common.professional_source({'url': 'https://divinity.wfu.edu/admissions/financial-aid/'}, T.Page('', 'Aid', [], [], [])))
         # Agnes Scott / Georgia Southern / WGTC: other organizations' award lists; Thomas University: "+Scholarships" heading.
         table = ('<h2>National Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th><th>Eligibility</th></tr><tr><td>Coca-Cola Scholars</td><td>$20,000</td><td>Seniors</td></tr>'
                  '<tr><td>Ron Brown Scholar Program</td><td>$10,000</td><td>Seniors</td></tr></table>')
-        for url in ('https://www.example.edu/aid/outside-scholarships.html', 'https://www.example.edu/military-scholarships', 'https://www.example.edu/foundation/foundation-scholarship/', 'https://www.example.edu/aid/scholarships/donor-scholarships/index.html'):
+        for url in ('https://www.example.edu/aid/outside-scholarships.html', 'https://www.example.edu/military-scholarships', 'https://www.example.edu/foundation/foundation-scholarship/', 'https://www.example.edu/aid/scholarships/donor-scholarships/index.html', 'https://www.example.edu/academics/student-academic-achievements/'):
             self.assertEqual(merit.extract(INST, {**ENTRY, 'url': url}, T.parse_html('<title>Scholarships</title>' + table), '2026-27'), [])
         self.assertEqual(len(merit.extract(INST, ENTRY, T.parse_html('<title>Scholarships</title>' + table), '2026-27')), 2)  # the same table elsewhere is kept
         [c] = merit.extract(INST, ENTRY, T.parse_html('<title>On Campus Students</title><h3>+Scholarships</h3><table><tr><th>Unweighted GPA</th><th>Scholarship</th></tr>'
@@ -652,6 +658,16 @@ minimum grade point average (GPA) of 3.0 are eligible for dual enrollment. Out-o
         rp = next(c for c in catalog.extract(INST, ENTRY, ranged, '2026-27') if c['domain'] == 'academic_programs')
         self.assertNotIn('total_credits', rp['record'])  # Regression (WKU Theatre BA): a range is not a total
         self.assertIn('requirement_groups_skipped', prog_c['issues'])
+        # NC r1 (NC State): a course list under an "Electives" heading with no "select N" line is a pool to choose from.
+        pool = T.parse_html((FIX / 'courseleaf_program.html').read_bytes().replace(b'<tr><td>Select 12 hours from the following:</td><td>12</td></tr>', b''), 'https://x')
+        g = {c['record']['requirement_key']: c['record'] for c in catalog.extract(INST, ENTRY, pool, '2026-27') if c['domain'] == 'degree_requirements'}
+        self.assertEqual(g['program-requirements-52-hours-electives']['rule_details']['group_type'], 'elective_pool')
+        self.assertEqual(g['program-requirements-52-hours-required-core']['rule_details']['group_type'], 'all_required')
+        # NC State: footnote markers ("Cells 1" with a "1" footnote line) are not part of course titles.
+        noted = T.parse_html((FIX / 'courseleaf_program.html').read_bytes().replace(b'Biological Concepts: Cells</td>', b'Biological Concepts: Cells 1</td>')
+                             .replace(b'</body>', b'<p>1</p><p>A grade of C- or higher is required.</p></body>'), 'https://x')
+        g = {c['record']['requirement_key']: c['record'] for c in catalog.extract(INST, ENTRY, noted, '2026-27') if c['domain'] == 'degree_requirements'}
+        self.assertEqual(g['program-requirements-52-hours-required-core']['rule_details']['courses'][0]['title'], 'Biological Concepts: Cells')
 
     def test_dual_credit_vocabulary_and_faq_questions(self):
         """Regression (KY): 'Dual Credit' pages were skipped (TN says 'dual enrollment'); a FAQ question's price was taken as a charge."""

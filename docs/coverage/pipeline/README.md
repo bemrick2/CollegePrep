@@ -113,6 +113,43 @@ Institutions in scope: **46** · crawled: **44** · blocked by site: **2** · ru
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-157377`, `ipeds-157386`
 
+## NC — 2026-27
+
+Institutions in scope: **121** · crawled: **97** · blocked by site: **24** · run: `pipeline/runs/NC/2026-10-03`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 0 (0%) | 0 | 37 (31%) | 96 (79%) | 1 | 24 |
+| cost_of_attendance | 0 (0%) | 0 | 25 (21%) | 90 (74%) | 7 | 24 |
+| admissions_tests | 0 (0%) | 0 | 1 (1%) | 90 (74%) | 7 | 24 |
+| common_data_set | 0 (0%) | 0 | 1 (1%) | 12 (10%) | 85 | 24 |
+| merit_scholarships | 0 (0%) | 0 | 3 (2%) | 95 (79%) | 2 | 24 |
+| ap_credit | 0 (0%) | 0 | 19 (16%) | 38 (31%) | 59 | 24 |
+| clep_credit | 0 (0%) | 0 | 16 (13%) | 30 (25%) | 67 | 24 |
+| ib_credit | 0 (0%) | 0 | 10 (8%) | 22 (18%) | 75 | 24 |
+| dual_enrollment | 0 (0%) | 0 | 12 (10%) | 61 (50%) | 36 | 24 |
+| transfer_credit | 0 (0%) | 0 | 47 (39%) | 91 (75%) | 6 | 24 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 61 (50%) | 36 | 24 |
+| residency | 0 (0%) | 0 | 0 (0%) | 81 (67%) | 16 | 24 |
+| degree_requirements | 0 (0%) | 0 | 1 (1%) | 76 (63%) | 21 | 24 |
+| aid_appeals | 0 (0%) | 0 | 60 (50%) | 79 (65%) | 18 | 24 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 20 |
+| blocked requests | 240 |
+| candidates | 933 |
+| conflicts | 135 |
+| documents | 6045 |
+| extraction failures | 0 |
+| fetch errors | 562 |
+| fetches | 6847 |
+| ready | 373 |
+| semantic review | 190 |
+| stale sources | 81 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-197887`, `ipeds-197966`, `ipeds-197993`, `ipeds-198039`, `ipeds-198084`, `ipeds-198118`, `ipeds-198376`, `ipeds-198464`, `ipeds-198534`, `ipeds-198862`, `ipeds-198914`, `ipeds-198987`, `ipeds-199023`, `ipeds-199069`, `ipeds-199111`, `ipeds-199272`, `ipeds-199333`, `ipeds-199494`, `ipeds-199698`, `ipeds-199731`, `ipeds-199768`, `ipeds-199795`, `ipeds-433174`, `ipeds-461032`
+
 ## NV — 2026-27
 
 Institutions in scope: **7** · crawled: **6** · blocked by site: **1** · run: `pipeline/runs/NV/2026-10-02-r2`
@@ -193,16 +230,16 @@ Institutions in scope: **55** · crawled: **49** · blocked by site: **6** · ru
 
 | category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
 |---|---|---|---|---|---|---|
-| tuition_fees | 0 (0%) | 0 | 31 (56%) | 47 (85%) | 2 | 6 |
-| cost_of_attendance | 0 (0%) | 0 | 13 (24%) | 47 (85%) | 2 | 6 |
+| tuition_fees | 8 (15%) | 0 | 31 (56%) | 47 (85%) | 2 | 6 |
+| cost_of_attendance | 2 (4%) | 0 | 13 (24%) | 47 (85%) | 2 | 6 |
 | admissions_tests | 0 (0%) | 0 | 0 (0%) | 46 (84%) | 3 | 6 |
 | common_data_set | 0 (0%) | 0 | 0 (0%) | 7 (13%) | 42 | 6 |
-| merit_scholarships | 0 (0%) | 0 | 6 (11%) | 46 (84%) | 3 | 6 |
-| ap_credit | 0 (0%) | 0 | 13 (24%) | 26 (47%) | 23 | 6 |
-| clep_credit | 0 (0%) | 0 | 9 (16%) | 20 (36%) | 29 | 6 |
-| ib_credit | 0 (0%) | 0 | 12 (22%) | 20 (36%) | 29 | 6 |
-| dual_enrollment | 0 (0%) | 0 | 19 (35%) | 34 (62%) | 15 | 6 |
-| transfer_credit | 0 (0%) | 0 | 19 (35%) | 45 (82%) | 4 | 6 |
+| merit_scholarships | 2 (4%) | 1 | 6 (11%) | 46 (84%) | 3 | 6 |
+| ap_credit | 0 (0%) | 3 | 13 (24%) | 26 (47%) | 23 | 6 |
+| clep_credit | 1 (2%) | 5 | 9 (16%) | 20 (36%) | 29 | 6 |
+| ib_credit | 0 (0%) | 2 | 12 (22%) | 20 (36%) | 29 | 6 |
+| dual_enrollment | 2 (4%) | 9 | 19 (35%) | 34 (62%) | 15 | 6 |
+| transfer_credit | 0 (0%) | 10 | 19 (35%) | 45 (82%) | 4 | 6 |
 | statewide_articulation | 0 (0%) | 0 | 0 (0%) | 18 (33%) | 31 | 6 |
 | residency | 0 (0%) | 0 | 0 (0%) | 33 (60%) | 16 | 6 |
 | degree_requirements | 0 (0%) | 0 | 1 (2%) | 31 (56%) | 18 | 6 |

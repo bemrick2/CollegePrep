@@ -1,0 +1,171 @@
+{
+ "state": "NC",
+ "academic_year": "2026-27",
+ "institutions": 121,
+ "status_order": [
+  "verified_current",
+  "partially_verified_current",
+  "candidate_ready",
+  "candidate_exception",
+  "source_found",
+  "not_found",
+  "fetch_failed"
+ ],
+ "by_category": {
+  "admissions_tests": {
+   "candidate_exception": 1,
+   "fetch_failed": 24,
+   "not_found": 7,
+   "source_found": 89
+  },
+  "aid_appeals": {
+   "candidate_exception": 60,
+   "fetch_failed": 24,
+   "not_found": 18,
+   "source_found": 19
+  },
+  "ap_credit": {
+   "candidate_exception": 2,
+   "candidate_ready": 17,
+   "fetch_failed": 24,
+   "not_found": 59,
+   "source_found": 19
+  },
+  "clep_credit": {
+   "candidate_exception": 6,
+   "candidate_ready": 10,
+   "fetch_failed": 24,
+   "not_found": 67,
+   "source_found": 14
+  },
+  "common_data_set": {
+   "candidate_exception": 1,
+   "fetch_failed": 24,
+   "not_found": 85,
+   "source_found": 11
+  },
+  "cost_of_attendance": {
+   "candidate_exception": 18,
+   "candidate_ready": 7,
+   "fetch_failed": 24,
+   "not_found": 7,
+   "source_found": 65
+  },
+  "degree_requirements": {
+   "candidate_ready": 1,
+   "fetch_failed": 24,
+   "not_found": 21,
+   "source_found": 75
+  },
+  "dual_enrollment": {
+   "candidate_ready": 12,
+   "fetch_failed": 24,
+   "not_found": 36,
+   "source_found": 49
+  },
+  "ib_credit": {
+   "candidate_ready": 10,
+   "fetch_failed": 24,
+   "not_found": 75,
+   "source_found": 12
+  },
+  "merit_scholarships": {
+   "candidate_exception": 1,
+   "candidate_ready": 2,
+   "fetch_failed": 24,
+   "not_found": 2,
+   "source_found": 92
+  },
+  "residency": {
+   "fetch_failed": 24,
+   "not_found": 16,
+   "source_found": 81
+  },
+  "statewide_articulation": {
+   "fetch_failed": 24,
+   "not_found": 36,
+   "source_found": 61
+  },
+  "transfer_credit": {
+   "candidate_exception": 5,
+   "candidate_ready": 42,
+   "fetch_failed": 24,
+   "not_found": 6,
+   "source_found": 44
+  },
+  "tuition_fees": {
+   "candidate_exception": 25,
+   "candidate_ready": 12,
+   "fetch_failed": 24,
+   "not_found": 1,
+   "source_found": 59
+  }
+ },
+ "totals": {
+  "candidate_exception": 119,
+  "candidate_ready": 113,
+  "fetch_failed": 336,
+  "not_found": 436,
+  "source_found": 690
+ },
+ "statewide_sources": {
+  "categories": {
+   "admissions_tests": 15,
+   "aid_appeals": 6,
+   "ap_credit": 5,
+   "clep_credit": 2,
+   "common_data_set": 0,
+   "cost_of_attendance": 34,
+   "degree_requirements": 6,
+   "dual_enrollment": 0,
+   "ib_credit": 0,
+   "merit_scholarships": 0,
+   "residency": 4,
+   "statewide_articulation": 9,
+   "transfer_credit": 33,
+   "tuition_fees": 6
+  },
+  "fetch_failures": 6,
+  "pages_fetched": 210
+ },
+ "blocked_institutions": [
+  "ipeds-197887",
+  "ipeds-197966",
+  "ipeds-197993",
+  "ipeds-198039",
+  "ipeds-198084",
+  "ipeds-198118",
+  "ipeds-198376",
+  "ipeds-198464",
+  "ipeds-198534",
+  "ipeds-198862",
+  "ipeds-198914",
+  "ipeds-198987",
+  "ipeds-199023",
+  "ipeds-199069",
+  "ipeds-199111",
+  "ipeds-199272",
+  "ipeds-199333",
+  "ipeds-199494",
+  "ipeds-199698",
+  "ipeds-199731",
+  "ipeds-199768",
+  "ipeds-199795",
+  "ipeds-433174",
+  "ipeds-461032"
+ ],
+ "quality": {
+  "ambiguous_years": 20,
+  "blocked_requests": 240,
+  "candidates": 933,
+  "conflicts": 135,
+  "documents": 6045,
+  "extraction_failures": 0,
+  "fetch_errors": 562,
+  "fetches": 6847,
+  "ready": 373,
+  "semantic_review": 190,
+  "stale_sources": 81
+ },
+ "run": "pipeline/runs/NC/2026-10-03"
+}
