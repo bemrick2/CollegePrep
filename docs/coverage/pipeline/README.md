@@ -39,6 +39,45 @@ Institutions in scope: **53** · crawled: **48** · blocked by site: **5** · ru
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-101453`, `ipeds-101693`, `ipeds-101736`, `ipeds-101879`, `ipeds-102076`
 
+## GA — 2026-27
+
+Institutions in scope: **85** · crawled: **76** · blocked by site: **9** · run: `pipeline/runs/GA/2026-10-03`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 6 (7%) | 0 | 32 (38%) | 75 (88%) | 1 | 9 |
+| cost_of_attendance | 4 (5%) | 0 | 13 (15%) | 73 (86%) | 3 | 9 |
+| admissions_tests | 2 (2%) | 0 | 3 (4%) | 71 (84%) | 5 | 9 |
+| common_data_set | 2 (2%) | 0 | 3 (4%) | 14 (16%) | 62 | 9 |
+| merit_scholarships | 0 (0%) | 1 | 4 (5%) | 69 (81%) | 7 | 9 |
+| ap_credit | 0 (0%) | 6 | 10 (12%) | 36 (42%) | 40 | 9 |
+| clep_credit | 0 (0%) | 5 | 9 (11%) | 22 (26%) | 54 | 9 |
+| ib_credit | 1 (1%) | 4 | 7 (8%) | 16 (19%) | 60 | 9 |
+| dual_enrollment | 3 (4%) | 27 | 41 (48%) | 66 (78%) | 10 | 9 |
+| transfer_credit | 0 (0%) | 8 | 12 (14%) | 71 (84%) | 5 | 9 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 29 (34%) | 47 | 9 |
+| residency | 0 (0%) | 0 | 0 (0%) | 49 (58%) | 27 | 9 |
+| degree_requirements | 0 (0%) | 0 | 0 (0%) | 61 (72%) | 15 | 9 |
+| aid_appeals | 0 (0%) | 0 | 54 (64%) | 61 (72%) | 15 | 9 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 28 |
+| blocked requests | 181 |
+| candidates | 369 |
+| conflicts | 74 |
+| documents | 4472 |
+| extraction failures | 0 |
+| fetch errors | 663 |
+| fetches | 5316 |
+| ready | 133 |
+| semantic review | 151 |
+| stale sources | 65 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-139366`, `ipeds-139630`, `ipeds-139940`, `ipeds-140243`, `ipeds-140872`, `ipeds-140951`, `ipeds-244437`, `ipeds-368911`, `ipeds-490230`
+
+Hosts that refused after the challenge threshold (20; alternates found for 6): `catalog.berry.edu`, `catalog.brenau.edu`, `catalog.bpc.edu`, `catalog.covenant.edu`, `catalog.gcsu.edu`, `catalog.georgiasouthern.edu`, `catalog.gwinnetttech.edu`, `catalog.life.edu`, `catalog.herzing.edu`, `catalogs.mercer.edu`, `catalog.morehouse.edu`, `catalog.savannahstate.edu`, `catalog.shorter.edu`, `catalog.wiregrass.edu`, `catalog.wesleyancollege.edu`, `catalog.yhc.edu`, `catalog.ggc.edu`, `catalog.augusta.edu`, `catalog.ung.edu`, `catalog.kennesaw.edu`
+
 ## KY — 2026-27
 
 Institutions in scope: **46** · crawled: **44** · blocked by site: **2** · run: `pipeline/runs/KY/2026-10-02-r2`
