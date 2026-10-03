@@ -6,7 +6,7 @@ import { ArrowRight, Compass } from './icons'
 import { Card, CardHeader, Pill, cx } from './ui'
 
 const KIND_LABEL = { initial: 'Starting benchmark', mini: 'Mini benchmark', full: 'Full benchmark' } as const
-const KIND_LENGTH = { initial: 'about 30 minutes', mini: 'about 15 minutes', full: 'about an hour · best before a real test' } as const
+const KIND_LENGTH = { initial: 'About 30 minutes', mini: 'About 15 minutes', full: 'About an hour · best before a real test' } as const
 
 function Delta({ pts, unit = ' pts', invert = false }: { pts: number | null; unit?: string; invert?: boolean }) {
   if (pts === null) return <span className="text-ink-3">—</span>

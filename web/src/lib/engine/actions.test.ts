@@ -31,7 +31,8 @@ describe('parentActions', () => {
 
   it('shows verified credit and dual-enrollment actions only from school records', () => {
     const a = parentActions({ ...base, goals: ['college_credit'] }, 10)
-    expect(a.find((x) => x.key === 'credit')!.title).toBe("Review UTK's verified AP credit, CLEP credit")
+    expect(a.find((x) => x.key === 'credit')!.title).toBe("Review UTK's verified AP and CLEP credit")
+    expect(a.find((x) => x.key === 'dual')!.title).toBe('Check its verified dual-enrollment policy')
     expect(a.some((x) => x.key === 'dual')).toBe(true)
     const none = parentActions({ ...base, goals: ['college_credit'], schools: [{ name: 'X', levers: [], awards: [] }] }, 10)
     expect(none.some((x) => x.key === 'credit' || x.key === 'dual')).toBe(false)

@@ -1,28 +1,29 @@
 import { useState } from 'react'
 import type { AttemptRecord } from '../lib/data/types'
-import { MIN_FOR_SCORE, SCORE_WINDOW_DAYS, threeScores, type ThreeScores } from '../lib/engine/scores'
+import { MIN_FOR_SCORE, SCORE_WINDOW_DAYS, priorScores, threeScores, type ThreeScores } from '../lib/engine/scores'
 import { Clock, Compass, Info, Target } from './icons'
 import { Card, CardHeader, ProgressBar, cx } from './ui'
 
 const SCORE_HELP: Record<keyof ThreeScores, { label: string; help: string; icon: React.ReactNode }> = {
-  knowledge: { label: 'Knowledge', help: 'How often you answer correctly on the skills you have practised.', icon: <Target size={16} /> },
-  pacing: { label: 'Pacing', help: 'How often you answer within test timing without rushing (faster than about a third of the expected time counts as rushing).', icon: <Clock size={16} /> },
+  knowledge: { label: 'Knowledge', help: 'How often answers are correct on the skills you have practised.', icon: <Target size={16} /> },
+  pacing: { label: 'Pacing', help: 'How often answers come within test timing without rushing (faster than about a third of the expected time counts as rushing).', icon: <Clock size={16} /> },
   strategy: {
     label: 'Strategy',
-    help: 'How well your test-taking habits work: answers you mark "Certain" are right, and right answers come without hints. Trap avoidance is added once wrong-answer choices are tracked.',
+    help: 'How well test-taking habits work: answers you mark "Certain" are right, and right answers come without hints. Trap avoidance is added once wrong-answer choices are tracked.',
     icon: <Compass size={16} />,
   },
 }
 
 /** Three practice indicators (0-100) so a student can see whether to study, speed up, or change how they test.
  *  They are not ACT/SAT scores and are labelled that way everywhere they appear. */
-export function PracticeIndicators({ history, title = 'Practice indicators' }: { history: AttemptRecord[]; title?: string }) {
+export function PracticeIndicators({ history, title = 'Practice indicators', who, showTrend = false }: { history: AttemptRecord[]; title?: string; who?: string; showTrend?: boolean }) {
   const s = threeScores(history)
+  const prev = priorScores(history)
   const [open, setOpen] = useState<keyof ThreeScores | null>(null)
   const keys = Object.keys(SCORE_HELP) as (keyof ThreeScores)[]
   return (
     <Card>
-      <CardHeader title={title} subtitle={`Not ACT/SAT scores · 0–100 from your last ${SCORE_WINDOW_DAYS} days of practice`} />
+      <CardHeader title={title} subtitle={`Not ACT/SAT scores · 0–100 from ${who ? `${who}'s` : 'your'} last ${SCORE_WINDOW_DAYS} days of practice`} />
       <ul className="grid grid-cols-3 gap-2 px-5 pt-3">
         {keys.map((k) => {
           const v = s[k].value
@@ -49,6 +50,20 @@ export function PracticeIndicators({ history, title = 'Practice indicators' }: {
                   <>
                     <div className={cx('display mt-1 text-3xl font-semibold tabular', v >= 75 ? 'text-go' : v >= 50 ? 'text-ink' : 'text-warn')}>{v}</div>
                     <ProgressBar value={v} max={100} tone={v >= 75 ? 'go' : 'gold'} label={`${meta.label} practice indicator ${v} of 100`} className="mt-1.5 h-1.5" />
+                    {showTrend && (
+                      <div className="mt-1 text-[11px] leading-tight text-ink-3">
+                        {prev[k].value === null ? (
+                          'No earlier data'
+                        ) : (
+                          <>
+                            <span className={cx('font-semibold tabular', v - prev[k].value! > 0 ? 'text-go' : v - prev[k].value! < 0 ? 'text-warn' : 'text-ink-2')}>
+                              {v - prev[k].value! > 0 ? '▲' : v - prev[k].value! < 0 ? '▼' : '='} {Math.abs(v - prev[k].value!)}
+                            </span>{' '}
+                            vs prior 4 wks
+                          </>
+                        )}
+                      </div>
+                    )}
                   </>
                 )}
               </button>

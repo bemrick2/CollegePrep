@@ -33,12 +33,7 @@ npm run build
 
 The pure rules live in `src/lib/engine` and are unit-tested against the SQL definitions. When the backend changes a threshold, update `analytics.ts` and the tests.
 
-Data that the backend doesn't model yet is kept in the browser:
-
-- planning preferences
-- benchmark summaries
-
-Both sources return "unavailable" for cost projections; the parent cost outlook shows only published costs × years to degree (when the institution level is known) and the savings opportunities each school's verified records list. Each gap has a contract request in [`docs/frontend/CONTRACT_REQUESTS.md`](../docs/frontend/CONTRACT_REQUESTS.md).
+Every contract request except CR-3 (score estimates, intentionally never produced) and CR-4 (cost projection, open) is live and consumed by `LiveSource`; see [`docs/frontend/CONTRACT_REQUESTS.md`](../docs/frontend/CONTRACT_REQUESTS.md). `src/lib/data/live/liveSource.test.ts` pins the RPC names, arguments and columns.
 
 ## Screens
 

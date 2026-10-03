@@ -78,12 +78,16 @@ export function parentActions(i: ActionInput, max = 5): ParentAction[] {
 
   const credit = i.schools.find((s) => s.levers.some((l) => /AP|CLEP|IB/.test(l)))
   if (credit && (i.goals.includes('college_credit') || i.goals.includes('lower_cost') || out.length < 4))
-    out.push({ key: 'credit', rank: 7, tone: 'info', title: `Review ${credit.name}'s verified ${credit.levers.filter((l) => /AP|CLEP|IB/.test(l)).join(', ')}`, detail: 'Exam scores that earn credit can shorten time to degree.', to: '/colleges' })
+    out.push({ key: 'credit', rank: 7, tone: 'info', title: `Review ${credit.name}'s verified ${listOf(credit.levers.filter((l) => /AP|CLEP|IB/.test(l)).map((l) => l.replace(' credit', '')))} credit`, detail: 'Add AP or CLEP exams to see the score each one needs and which course it counts as.', to: '/colleges/paths' })
   const dual = i.schools.find((s) => s.levers.some((l) => /dual/i.test(l)))
   if (dual && (i.goals.includes('college_credit') || i.goals.includes('lower_cost') || out.length < 4))
-    out.push({ key: 'dual', rank: 8, tone: 'info', title: `Check ${dual.name}'s verified dual-enrollment policy`, detail: 'See which high-school college courses it accepts before enrolling.', to: '/colleges' })
+    out.push({ key: 'dual', rank: 8, tone: 'info', title: dual === credit ? 'Check its verified dual-enrollment policy' : `Check ${dual.name}'s verified dual-enrollment policy`, detail: 'Read its rules before enrolling in a high-school college course.', to: '/colleges/paths' })
   out.push({ key: 'compare', rank: 9, tone: 'info', title: 'Compare your colleges side by side', detail: 'Verified costs, scholarships and credit policies.', to: '/colleges' })
   return finish(out, max)
+}
+
+function listOf(xs: string[]) {
+  return xs.length <= 1 ? (xs[0] ?? '') : `${xs.slice(0, -1).join(', ')} and ${xs[xs.length - 1]}`
 }
 
 function finish(out: ParentAction[], max: number) {

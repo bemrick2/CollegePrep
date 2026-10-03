@@ -2,19 +2,22 @@
 
 These are requests from the front-end (`web/`) to the backend session. Each one names the data the UI needs, the types it expects, and why. The UI already works without them: it either keeps the data in the browser, labels it as demo data, or shows an explicit "not available yet" state. Nothing here creates a competing schema. The backend owns the design; the shapes below describe what the UI reads.
 
-Status as of 2026-10-02. In the live database: 0 exam versions, 0 skills, 0 questions and 0 households. The 2026-27 verified records cover 12 Tennessee institutions.
+Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed 2026-10-02: In the live database: 0 exam versions, 0 skills, 0 questions and 0 households. The 2026-27 verified records cover 12 Tennessee institutions.
 
-| ID | Need | Priority | UI today |
+| ID | Need | Backend status (PR #54) | UI today |
 |---|---|---|---|
-| CR-1 | Student planning preferences | High | Browser `localStorage`, per device |
-| CR-2 | Benchmark sessions | High | Attempts are recorded; the summary is kept in the browser |
-| CR-3 | Practice score estimates | High | Reads `student_test_scores` (`practice_estimate`); shows "pending" when there are none |
-| CR-4 | Household cost projection | Medium | Both sources: "unavailable". The parent view shows published costs and verified savings opportunities instead |
-| CR-5 | Question content fields: passage, remember-this, hint count | High (before content load) | Fixtures only |
-| CR-6 | Recommender diversification (v2) | Medium | v1 order, mirrored exactly |
-| CR-7 | Institutions with verified records for a year | Low | Free-text search over `institutions` |
-| CR-8 | Answer-free help content: skill primers, strategy sections | High (before content load) | Demo fixtures only; live falls back to "tutor not on yet" |
-| CR-9 | Institution level and saved schools | High | Demo snapshot carries IPEDS level; live shows per-year cost only. Saved schools in the browser |
+| CR-1 | Student planning preferences | ✅ live | `LiveSource` reads/writes `student_planning_preferences` |
+| CR-2 | Benchmark sessions | ✅ live | `start_benchmark` → attempts with `p_benchmark` → `complete_benchmark`; history from `practice_benchmarks` (server metrics; the staircase ceiling is shown only for the run just finished) |
+| CR-3 | Practice score estimates | ⛔ not produced, by design | No estimate anywhere, demo included; "No score estimate yet" with the reason |
+| CR-4 | Household cost projection | ⏳ open | "Unavailable"; the parent view shows published costs and verified savings opportunities instead |
+| CR-5 | Passages, remember-this, hint count | ✅ live | Passages and `hint_count` selected with questions; `remember_text` read from the submit result |
+| CR-6 | Recommender v2 | ✅ live | No client change needed |
+| CR-7 | Institutions with verified records | ✅ live | Comparison suggestions from `institutions_with_verified_records`, four-year schools with costs first |
+| CR-8 | Answer-free help content | ✅ live | `concept_summary` and `sections` selected in the catalog |
+| CR-9 | Institution level, saved schools | ✅ live | `level` from `compare_institutions`; saved schools via `save_/remove_household_school` (browser only for a student with no household) |
+| CR-10 | Canonical exam keys, student exam plan | ⏳ open | College paths match exams by normalized name; the exam list is kept in this browser |
+
+Live content note: the bank has no exam versions, skills or questions yet, so live practice and benchmarks show their empty states until content is loaded.
 
 ## CR-1. Student planning preferences
 
@@ -119,6 +122,16 @@ RPC institutions_with_verified_records(p_academic_year text, p_state text null)
 **Why.**
 1. The parent cost outlook multiplies a published annual cost by years to degree. Without the level it can't tell a 2-year college from a 4-year one, so live mode shows cost per year only and never compares across levels.
 2. The schools a family is comparing drive the parent dashboard, the cost outlook and (later) college-path suggestions. Today they live in one browser, so a parent's list doesn't follow them to another device or reach the student.
+
+## CR-10. Canonical exam keys and the student's exam plan
+
+**Need.**
+1. A canonical exam key on `credit_equivalencies` (for example `exam_key = 'ap:calculus-ab'`), the same across institutions. Today codes vary by school (`AP-CALCAB` / `AP-CALCULUS-AB`, `AP-USH` / `AP-UNITED-STATES-HISTORY`), and names vary too ("AP American History" / "AP United States History").
+2. A per-student exam plan: `student_id`, `exam_key`, `score` (null = planned), `taken_on` (optional). Read: household members with `view_progress`; write: guardians and the linked student. Maximum about 20 rows.
+
+**Why.**
+1. The College paths screen matches a student's AP/CLEP exams against each saved school's verified table. Until there is a shared key, it matches on a normalized name. An exam a school lists under an unexpected name shows as "Not in the published table", which is safe but can miss credit.
+2. The exam list currently lives in one browser, so a parent's entries don't reach the student or another device.
 
 ## Product decisions flagged (not contract requests)
 
