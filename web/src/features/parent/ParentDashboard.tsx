@@ -143,7 +143,7 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
             icon={<Target size={18} />}
           />
         )}
-        <Kpi label="Weekly goal" value={goal ? `${o.week.questions_submitted}/${goal}` : String(o.week.questions_submitted)} sub={goal ? `${Math.round((100 * o.week.questions_submitted) / goal)}% complete` : 'No goal set'} icon={<Compass size={18} />} bar={goal ? o.week.questions_submitted / goal : undefined} />
+        <Kpi label="Weekly goal" value={goal ? `${o.week.questions_submitted}/${goal}` : String(o.week.questions_submitted)} sub={goal ? `questions · ${Math.round((100 * o.week.questions_submitted) / goal)}% done` : 'questions · no goal set'} icon={<Compass size={18} />} bar={goal ? o.week.questions_submitted / goal : undefined} />
         <Kpi label="Streak" value={`${o.streak.current_streak} days`} sub={`Longest ${o.streak.longest_streak}`} icon={<Flame size={18} />} />
         <Kpi
           label="Accuracy, 7 days"
