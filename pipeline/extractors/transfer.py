@@ -15,6 +15,8 @@ SENTENCE = re.compile(r'(?<=[.!?])\s+(?=[A-Z])')
 GRADE = re.compile(r'grades?\s+of\s+["“]?([A-D][+-]?)["”]?\s*(?:\(\d\.\d+\)\s*)?(?:or\s+(?:better|higher|above))', re.I)
 MAX_HOURS = re.compile(r'(?:maximum\s+of|no\s+more\s+than|up\s+to|a\s+maximum\s+of)\s+(\d{2,3})\s+(?:semester\s+)?(?:credit\s+)?hours'
                        r'(?=.{0,120}(?:transfer|community|two-year|junior\s+college|2-year))', re.I)
+# A grade rule for pass/fail courses or for one module/pathway (Rhodes, TN Tech r5) is not the general minimum.
+SCOPED_GRADE = re.compile(r'pass\s*/\s*fail|pass-fail|\bP/F\b|satisfactory/unsatisfactory|\bmodule\b|transfer\s+pathway|\bTTP\b|core\s+block|\bmajor\b', re.I)
 RESIDENCE = re.compile(r'(?:(?:last|final)\s+(\d{2})\s+(?:semester\s+)?(?:credit\s+)?hours'
                        r'|(?:at\s+least|minimum\s+of|a\s+minimum\s+of)\s+(\d{2})\s+(?:semester\s+)?(?:credit\s+)?hours'
                        r'(?=.{0,80}(?:in\s+residence|at\s+the\s+university|at\s+the\s+college|through\s+the\s+university|earned\s+at)))', re.I)
@@ -31,7 +33,8 @@ def extract(inst, entry, page, today_year):
     for s in sentences:
         if re.search(r'graduate\s+(student|program|degree)|doctoral|master', s, re.I): continue
         if re.search(r'transfer', s, re.I):
-            for m in GRADE.finditer(s): found['min_grade'].append((m.group(1).upper(), s))
+            if not SCOPED_GRADE.search(s):
+                for m in GRADE.finditer(s): found['min_grade'].append((m.group(1).upper(), s))
             for m in MAX_HOURS.finditer(s): found['max_transfer_credits'].append((int(m.group(1)), s))
         for m in RESIDENCE.finditer(s):
             v = int(m.group(1) or m.group(2))

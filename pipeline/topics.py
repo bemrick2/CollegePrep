@@ -110,10 +110,17 @@ COURSELEAF_PROGRAM = re.compile(r'^https?://catalogs?\.[^/]+/undergraduate/(?!ge
 COURSELEAF_GRADUATE = re.compile(r'^https?://catalogs?\.[^/]+/(graduate|professional|law|medicine)(/|$)', re.I)
 
 
+# Clean Catalog sites (TN: Tennessee Tech, Carson-Newman, Lincoln Memorial): <host with "catalog">/programs/<slug>,
+# with the program list at /programs (paged with ?page=N).
+CLEANCATALOG_PROGRAM = re.compile(r'^https?://(?!grad)[^/]*catalog[^/]*/programs/[a-z0-9][a-z0-9-]+/?$', re.I)
+CATALOG_PROGRAM_INDEX = re.compile(r'^https?://(?!grad)[^/]*catalog[^/]*/(?:programs|programs-study|programs-of-study|'
+                                   r'ugrequirements/majors|content\.php\?catoid=\d+&navoid=\d+)/?(?:\?(?:page=\d+)?[^/]*)?$', re.I)
+
+
 def is_program_page(url: str) -> bool:
     """An individual program page in a catalog platform (Acalog preview_program.php?poid=..., Courseleaf
-    /undergraduate/<college>/<department>/<program>/)."""
-    return bool(PROGRAM_PAGE.search(url or '') or COURSELEAF_PROGRAM.search(url or ''))
+    /undergraduate/<college>/<department>/<program>/, Clean Catalog /programs/<slug>)."""
+    return bool(PROGRAM_PAGE.search(url or '') or COURSELEAF_PROGRAM.search(url or '') or CLEANCATALOG_PROGRAM.search(url or ''))
 
 
 CONTACT_ANCHOR = re.compile(r'^\s*(contact|email|call|directions|map)\b', re.I)
@@ -128,6 +135,8 @@ def link_score(url: str, anchor: str = '', today=None) -> int:
     if is_program_page(url):  # anchors are program names, so topic keywords never match them
         if GRAD_PROGRAM.search(anchor) and not UG_PROGRAM.search(anchor): return -1
         return 30 if UG_PROGRAM.search(anchor) else 12
+    if CATALOG_PROGRAM_INDEX.search(url) and re.search(r'program|major|degree|stud', url + ' ' + (anchor or ''), re.I):
+        return 25  # the list of programs is how the crawl reaches program pages
     topics = link_topics(url, anchor)
     if not topics: return 0
     score = 10 * len(topics)

@@ -24,10 +24,30 @@ NOT_AWARD_NAME = re.compile(r'\bpell\b|supplemental\s+educational\s+opportunity|
                             r'college\s+access\s+program|counselor|director|coordinator|specialist|\bassistant\b|officer|advisor|'
                             r'^(fewer|more|less)\s+than\b|^over\s+\d|\bcredit\s+hours?\b|'
                             r'^\W*(books?|supplies|transportation|personal\s+expenses?|loan\s+fees?|room|board|food)\b', re.I)  # OR: COA rows
-NOT_MERIT_PAGE = re.compile(r'academic[- ]standards|probation|satisfactory[- ]academic[- ]progress|financial[- ]aid[- ]staff|'
+NOT_MERIT_PAGE = re.compile(r'retention|renewal|keep(?:ing)?[- ]your[- ]scholarship|academic[- ]standards|probation|satisfactory[- ]academic[- ]progress|financial[- ]aid[- ]staff|'
                             r'\bstaff\b|directory|meet[- ]the[- ]team|our[- ]team', re.I)
 HEADER_WORDS = re.compile(r'scholarship|award|merit|name|level|tier|amount|value|gpa|act\b|sat\b|criteria|requirement', re.I)
 THRESHOLD_CELL = re.compile(r'^\s*[<>≤≥]?\s*\d{1,4}(\.\d{1,2})?\s*(\+|-\s*\d{1,4}(\.\d{1,2})?|or\s+(higher|above))?\s*$', re.I)
+
+
+PLACEHOLDER = re.compile(r'^\W*(n/?a|none|see\s+(?:requirements|criteria|details|below|website)|varies|tbd|-+|—)\W*$', re.I)
+MERGED_GPA = re.compile(r'^(.*?[A-Za-z)])\s*(\d\.\d{1,2}\s*\+?\s*(?:GPA|grade\s+point\s+average)\.?)\s*$', re.I)
+MERGED_TEXT = re.compile(r'^(.{3,80}?\b(?:Scholarship|Award|Grant|Fellowship))(?=[A-Z][a-z])')
+
+
+def _split_name(nm):
+    """'Covenant Stone Scholarship3.5+ GPA.' -> ('Covenant Stone Scholarship', '3.5+ GPA.'); 'Theatre ScholarshipOpen to all
+    actors' -> ('Theatre Scholarship', None). Cells merged by the page markup (Maryville, TN r5)."""
+    m = MERGED_GPA.match(nm)
+    if m and not re.search(r'\b(act|sat)\b', m.group(1), re.I): return m.group(1).strip(), m.group(2).strip()
+    m = MERGED_TEXT.match(nm)
+    return (m.group(1).strip(), None) if m else (nm, None)
+
+
+def _page_award_name(page):
+    """'Orange White Scholarship - One Stop Student Services' -> 'Orange White Scholarship'."""
+    first = re.split(r'\s+[-|–—]\s+', page.title or '')[0].strip()
+    return first if re.search(r'scholarship|award|grant|fellowship', first, re.I) and len(first) <= 80 else None
 
 
 def _col(header, *words):
@@ -63,16 +83,21 @@ def _list_awards(t, header, body, title, award_type):
         if not nm or len(nm) > 120 or T.money_values(nm) or NOT_NAME.search(nm) or NOT_AWARD_NAME.search(nm): continue
         if nm.endswith(':') or len(nm.split()) > 12: continue  # worked examples and sentences, not award names
         get = lambda i: cells[i].strip() if i is not None and i < len(cells) else ''
-        amt, g, a, s = get(amount), get(gpa), get(act), get(sat)
+        amt, g, a, s = (x if not PLACEHOLDER.match(x) else '' for x in (get(amount), get(gpa), get(act), get(sat)))
+        nm, merged_gpa = _split_name(nm)
+        if merged_gpa and not g: g = merged_gpa
         if not (amt or g or a or s): continue
         lo, hi = _amounts(amt)
+        if lo is not None and re.search(r'\bup\s+to\b', amt, re.I):
+            lo = None  # "Up to $5,000" is a maximum; the minimum is not printed
         tier_row = bool(re.search(r'\d.*\b(gpa|act|sat)\b', nm, re.I))
         rec = {'award_name': f"{title}: {nm}" if tier_row else nm, 'award_type': award_type}
         if tier_row:  # the row label is itself the threshold ('3.6+ GPA, 26-27 ACT')
             rec['test_requirement' if re.search(r'\b(act|sat)\b', nm, re.I) else 'gpa_requirement'] = nm
         if amt: rec['award_amount_text'] = amt
-        if lo is not None:
-            rec['award_min'], rec['award_max'] = lo, hi
+        if hi is not None:
+            if lo is not None: rec['award_min'] = lo
+            rec['award_max'] = hi
         if g: rec['gpa_requirement'] = g
         tests = ' / '.join(x for x in [f'ACT {a}' if a else '', f'SAT {s}' if s else ''] if x)
         if tests: rec['test_requirement'] = tests
@@ -138,7 +163,8 @@ def extract(inst, entry, page, today_year):
         shaped = _tier_award(t, header, body, context) or _grid_award(t, header, body, context)
         merit_context = re.search(r'merit|academic|gpa|act|sat|test score', context + ' ' + ' '.join(header) + ' ' + page.title, re.I)
         award_type = 'institutional_merit' if merit_context else 'institutional_other'
-        found = shaped or _list_awards(t, header, body, (context or page.title).strip()[:80], award_type)
+        label = context.strip() if re.search(r'scholarship|award|grant|fellowship', context, re.I) else (_page_award_name(page) or context.strip() or page.title)
+        found = shaped or _list_awards(t, header, body, label.strip()[:80], award_type)
         if not found or (not shaped and len(found) < 2): continue  # one stray row is not a scholarship table
         t_year = T.year_labels(context)
         rec_year, rec_basis, rec_issues = (year, basis, issues)

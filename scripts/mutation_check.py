@@ -31,8 +31,16 @@ MUTS = [
     ('pipeline/extractors/dual.py', "head = page.title + ' ' + entry.get('url', '')", "head = page.title + ' ' + entry.get('url', '') + ' dual enrollment'"),
     ('pipeline/review.py', "else: issues.append(f'conflicting_sources:{name}')", "else: out[name] = vals[0]"),
     ('pipeline/extractors/common.py', "doc = src.get('sha256') or src.get('url')", "doc = None"),
-    ('pipeline/extractors/dual.py', "kind = 'fee' if re.search(r'\\bfee', near, re.I) else 'tuition' if re.search(r'tuition', near, re.I) else 'other'",
-     "kind = 'tuition'"),
+    ('pipeline/extractors/dual.py', "'fee' if re.search(r'\\bfee', near, re.I) else 'tuition' if re.search(r'tuition', near, re.I) else 'other')",
+     "'tuition')"),
+    ('pipeline/extractors/dual.py', "kind = ('state_grant' if GRANT_PAYS.search(line)", "kind = ('state_grant' if False"),
+    ('pipeline/extractors/dual.py', "if gpa_m and NOT_ELIGIBILITY.search(line): gpa_m = None", "pass"),
+    ('pipeline/extractors/transfer.py', "if not SCOPED_GRADE.search(s):", "if True:"),
+    ('pipeline/extractors/merit.py', "(x if not PLACEHOLDER.match(x) else '' for x in", "(x for x in"),
+    ('pipeline/extractors/merit.py', "lo = None  # \"Up to $5,000\" is a maximum", "pass  # \"Up to $5,000\" is a maximum"),
+    ('pipeline/text.py', "continue  # \"PHYS 2010/2011\"", "pass  # \"PHYS 2010/2011\""),
+    ('pipeline/extractors/credit.py', "issues = issues + ['course_column_numeric']", "pass"),
+    ('pipeline/crawl.py', "return self.challenges.get(host, 0) >= self.CHALLENGE_STOP", "return False"),
 ]
 failed = False
 for f, old, new in MUTS:

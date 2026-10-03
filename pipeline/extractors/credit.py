@@ -181,6 +181,11 @@ def extract(inst, entry, page, today_year):
         checks = {'equivalencies': len(eqs), 'distinct_exams': len({e['exam_or_course_code'] for e in eqs}),
                   'rows_without_score': sum(1 for e in eqs if not e['minimum_score'])}
         if checks['rows_without_score']: issues = issues + ['rows_without_score']
+        if any((e['credits_awarded'] or 0) > 16 for e in eqs):
+            issues = issues + ['credits_implausible']  # merged cells ("3" and "6" read as 36)
+        numeric = sum(1 for e in eqs if re.fullmatch(r'\s*\d{1,2}(\.\d)?\s*', e['institution_course_equivalent'] or ''))
+        if numeric and numeric >= len(eqs) / 2:
+            issues = issues + ['course_column_numeric']  # the hours column was read as the course column
         out.append(common.make('credit_policies', inst['institution_key'], year, basis, record, evidence, entry,
                                EXTRACTOR, {'policy_kind': kind}, checks, issues))
     return out

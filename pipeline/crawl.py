@@ -34,17 +34,27 @@ class HostGate:
     MAX_DELAY = 60.0
 
     def __init__(self, delay: float):
-        self.delay = delay; self.lock = threading.Lock(); self.hosts = {}; self.host_delay = {}
+        self.delay = delay; self.lock = threading.Lock(); self.hosts = {}; self.host_delay = {}; self.challenges = {}
 
     def set_delay(self, host, seconds):
         """A host asked for a longer delay (robots.txt Crawl-delay); never shorten it."""
         with self.lock:
             self.host_delay[host] = min(self.MAX_DELAY, max(self.host_delay.get(host, self.delay), float(seconds)))
 
+    CHALLENGE_STOP = 4  # consecutive challenges after which a host is left alone for the rest of the run
+
     def backoff(self, host):
         """A host answered with a rate challenge (202/429): slow down for the rest of the run."""
         with self.lock:
             self.host_delay[host] = min(self.MAX_DELAY, max(2 * self.host_delay.get(host, self.delay), 5.0))
+            self.challenges[host] = self.challenges.get(host, 0) + 1
+
+    def answered(self, host):
+        with self.lock: self.challenges[host] = 0
+
+    def stopped(self, host):
+        """Repeated challenges mean the host refuses this crawler; further requests would only add load."""
+        return self.challenges.get(host, 0) >= self.CHALLENGE_STOP
 
     def delay_for(self, host):
         return self.host_delay.get(host, self.delay)
@@ -110,6 +120,8 @@ class Fetcher:
         return rp.can_fetch(USER_AGENT, url)
 
     def fetch(self, url):
+        if self.gate.stopped(urlsplit(url).netloc.lower()):
+            return {'status': None, 'error': 'host_challenge_stop'}, None  # recorded so coverage shows the gap
         if not self.allowed(url):
             return {'status': None, 'error': 'disallowed_by_robots'}, None
         status, final, headers, body = self._raw(url)
@@ -117,6 +129,8 @@ class Fetcher:
                 'last_modified': headers.get('Last-Modified'), 'bytes': len(body)}
         if status in (202, 429):
             self.gate.backoff(urlsplit(url).netloc.lower())  # slow down; the caller may retry once later
+        elif status is not None:
+            self.gate.answered(urlsplit(url).netloc.lower())
         if status != 200:
             # 202/403/429 from CDNs are bot challenges or blocks. They are recorded, never evaded.
             meta['error'] = (body.decode('utf-8', 'replace')[:300] if status is None else
