@@ -74,8 +74,18 @@ def promote(registry, decisions_path: Path, log=print):
     folders = {i['institution_key']: i['folder'] for i in registry['institutions']}
     evidence = {}
     written = 0
+    # A requirement row is promoted only with its program (approved now, or already on file): the importer
+    # refuses orphans (VA r1: VSU Agriculture Education's program went to review, three of its rows did not).
+    approved = [cands.get(d['candidate_id']) for d in decisions.get('approve', [])]
+    have_program = {(c['institution_key'], c['academic_year'], c['record'].get('program_key')) for c in approved
+                    if c and c['domain'] == 'academic_programs'}
+    for f in (ROOT / 'data/institutions').glob('*/academic_programs/*.json'):
+        j = json.loads(f.read_text())
+        have_program |= {(j.get('institution_key'), j.get('academic_year'), r.get('program_key')) for r in j.get('records', [])}
     for d in decisions.get('approve', []):
         c = cands.get(d['candidate_id']) or (_ for _ in ()).throw(KeyError(f"unknown candidate {d['candidate_id']}"))
+        if c['domain'] == 'degree_requirements' and (c['institution_key'], c['academic_year'], c['record'].get('program_key')) not in have_program:
+            raise ValueError(f"{c['candidate_id']}: requirement row for program {c['record'].get('program_key')!r}, which is neither approved nor on file")
         if c.get('diff', {}).get('status') == 'same':
             log(f"skip {c['candidate_id']}: identical to existing record"); continue
         status = status_for(c, accepted_issues=bool(d.get('accept_issues')))

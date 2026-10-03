@@ -101,7 +101,7 @@ IB = [
     ('English A: Language & Literature', r'english\s*a\b.*lang'), ('English A: Literature', r'english\s*a\b.*lit'),
     ('Environmental Systems & Societies', r'environmental\s*systems'), ('Film', r'\bfilm\b'),
     ('French', r'\bfrench\b'), ('Geography', r'geography'), ('German', r'\bgerman\b'),
-    ('Global Politics', r'global\s*politics'), ('History', r'\bhistory\b'), ('Latin', r'\blatin\b'),
+    ('Global Politics', r'global\s*politics'), ('History', r'(?<!art\s)(?<!art)\bhistory\b(?!\s+of\s+art)'), ('Latin', r'\blatin\b'),
     ('Mathematics: Analysis & Approaches', r'analysis\s*(and|&)\s*approaches'),
     ('Mathematics: Applications & Interpretation', r'applications\s*(and|&)\s*interpretation'),
     ('Music', r'\bmusic\b'), ('Philosophy', r'philosophy'), ('Physics', r'\bphysics\b'),

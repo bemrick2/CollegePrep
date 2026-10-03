@@ -7,6 +7,9 @@ A surviving mutant means a safety rule has no test. Run: python scripts/mutation
 import shutil, subprocess, sys
 
 MUTS = [
+    ('pipeline/promote.py', "raise ValueError(f\"{c['candidate_id']}: requirement row for program", "pass  # (f\"{c['candidate_id']}: requirement row for program"),
+    ('pipeline/exams.py', "r'(?<!art\\s)(?<!art)\\bhistory\\b(?!\\s+of\\s+art)'", "r'\\bhistory\\b'"),
+    ('pipeline/extractors/catalog.py', ".split(' - ')[0].split(' | ')[0].strip()", ".split(' - ')[0].strip()"),
     ('pipeline/extractors/merit.py', "cell = re.sub(r'\\([^)]*(?:over|total|years?|4-year|four)[^)]*\\)', '', cell or '', flags=re.I)", "pass"),
     ('pipeline/extractors/catalog.py', "lambda m: '' if m.group(1) in notes else m.group(0)", "lambda m: m.group(0)"),
     ('pipeline/extractors/catalog.py', "rd.update(group_type='elective_pool', courses=g['courses'])", "rd.update(group_type='all_required', courses=g['courses'])"),

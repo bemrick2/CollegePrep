@@ -29,7 +29,7 @@ NOT_MERIT_PAGE = re.compile(r'retention|renewal|keep(?:ing)?[- ]your[- ]scholars
                             # GA r1: lists of other organizations' awards (Agnes Scott outside scholarships, Georgia Southern
                             # military scholarships, West Georgia Tech foundation awards) and international-office waivers (UWG ISAP).
                             r'outside[- ]scholarships?|external[- ]scholarships?|third[- ]party|military|veteran|foundation|/isap/|donor[- ]scholarships?|'
-                            r'achievements|recipients|honor[- ]roll|dean.?s[- ]list', re.I)
+                            r'achievements|recipients|honor[- ]roll|dean.?s[- ]list|/testing/|_credits/|credit[- ]by[- ]exam', re.I)  # Hampton IB credit table
 HEADER_WORDS = re.compile(r'scholarship|award|merit|name|level|tier|amount|value|gpa|act\b|sat\b|criteria|requirement', re.I)
 THRESHOLD_CELL = re.compile(r'^\s*[<>≤≥]?\s*\d{1,4}(\.\d{1,2})?\s*(\+|[-–]\s*\d{1,4}(\.\d{1,2})?|or\s+(higher|above))?\s*$', re.I)
 

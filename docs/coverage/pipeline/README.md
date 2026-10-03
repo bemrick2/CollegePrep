@@ -119,19 +119,19 @@ Institutions in scope: **121** · crawled: **97** · blocked by site: **24** · 
 
 | category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
 |---|---|---|---|---|---|---|
-| tuition_fees | 0 (0%) | 0 | 37 (31%) | 96 (79%) | 1 | 24 |
-| cost_of_attendance | 0 (0%) | 0 | 25 (21%) | 90 (74%) | 7 | 24 |
+| tuition_fees | 9 (7%) | 2 | 37 (31%) | 96 (79%) | 1 | 24 |
+| cost_of_attendance | 6 (5%) | 1 | 25 (21%) | 90 (74%) | 7 | 24 |
 | admissions_tests | 0 (0%) | 0 | 1 (1%) | 90 (74%) | 7 | 24 |
 | common_data_set | 0 (0%) | 0 | 1 (1%) | 12 (10%) | 85 | 24 |
-| merit_scholarships | 0 (0%) | 0 | 3 (2%) | 95 (79%) | 2 | 24 |
-| ap_credit | 0 (0%) | 0 | 19 (16%) | 38 (31%) | 59 | 24 |
-| clep_credit | 0 (0%) | 0 | 16 (13%) | 30 (25%) | 67 | 24 |
-| ib_credit | 0 (0%) | 0 | 10 (8%) | 22 (18%) | 75 | 24 |
-| dual_enrollment | 0 (0%) | 0 | 12 (10%) | 61 (50%) | 36 | 24 |
-| transfer_credit | 0 (0%) | 0 | 47 (39%) | 91 (75%) | 6 | 24 |
+| merit_scholarships | 0 (0%) | 2 | 3 (2%) | 95 (79%) | 2 | 24 |
+| ap_credit | 0 (0%) | 13 | 19 (16%) | 38 (31%) | 59 | 24 |
+| clep_credit | 0 (0%) | 7 | 16 (13%) | 30 (25%) | 67 | 24 |
+| ib_credit | 0 (0%) | 4 | 10 (8%) | 22 (18%) | 75 | 24 |
+| dual_enrollment | 1 (1%) | 8 | 12 (10%) | 61 (50%) | 36 | 24 |
+| transfer_credit | 0 (0%) | 19 | 47 (39%) | 91 (75%) | 6 | 24 |
 | statewide_articulation | 0 (0%) | 0 | 0 (0%) | 61 (50%) | 36 | 24 |
 | residency | 0 (0%) | 0 | 0 (0%) | 81 (67%) | 16 | 24 |
-| degree_requirements | 0 (0%) | 0 | 1 (1%) | 76 (63%) | 21 | 24 |
+| degree_requirements | 1 (1%) | 0 | 1 (1%) | 76 (63%) | 21 | 24 |
 | aid_appeals | 0 (0%) | 0 | 60 (50%) | 79 (65%) | 18 | 24 |
 
 | quality | count |
@@ -297,4 +297,41 @@ Institutions in scope: **59** · crawled: **52** · blocked by site: **7** · ru
 | stale sources | 55 |
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-219824`, `ipeds-219879`, `ipeds-219949`, `ipeds-221643`, `ipeds-221768`, `ipeds-222053`, `ipeds-486901`
+
+## VA — 2026-27
+
+Institutions in scope: **71** · crawled: **62** · blocked by site: **9** · run: `pipeline/runs/VA/2026-10-03`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 0 (0%) | 0 | 35 (49%) | 60 (85%) | 2 | 9 |
+| cost_of_attendance | 0 (0%) | 0 | 18 (25%) | 59 (83%) | 3 | 9 |
+| admissions_tests | 0 (0%) | 0 | 1 (1%) | 58 (82%) | 4 | 9 |
+| common_data_set | 0 (0%) | 0 | 1 (1%) | 10 (14%) | 52 | 9 |
+| merit_scholarships | 0 (0%) | 0 | 8 (11%) | 59 (83%) | 3 | 9 |
+| ap_credit | 0 (0%) | 0 | 8 (11%) | 26 (37%) | 36 | 9 |
+| clep_credit | 0 (0%) | 0 | 9 (13%) | 19 (27%) | 43 | 9 |
+| ib_credit | 0 (0%) | 0 | 7 (10%) | 18 (25%) | 44 | 9 |
+| dual_enrollment | 0 (0%) | 0 | 10 (14%) | 41 (58%) | 21 | 9 |
+| transfer_credit | 0 (0%) | 0 | 17 (24%) | 56 (79%) | 6 | 9 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 24 (34%) | 38 | 9 |
+| residency | 0 (0%) | 0 | 0 (0%) | 39 (55%) | 23 | 9 |
+| degree_requirements | 0 (0%) | 0 | 3 (4%) | 47 (66%) | 15 | 9 |
+| aid_appeals | 0 (0%) | 0 | 44 (62%) | 48 (68%) | 14 | 9 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 39 |
+| blocked requests | 179 |
+| candidates | 1091 |
+| conflicts | 144 |
+| documents | 3788 |
+| extraction failures | 0 |
+| fetch errors | 480 |
+| fetches | 4447 |
+| ready | 295 |
+| semantic review | 144 |
+| stale sources | 78 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-232618`, `ipeds-232788`, `ipeds-233037`, `ipeds-233116`, `ipeds-233301`, `ipeds-233426`, `ipeds-233772`, `ipeds-234207`, `ipeds-458113`
 
