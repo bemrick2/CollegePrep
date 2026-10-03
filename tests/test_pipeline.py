@@ -335,6 +335,39 @@ last 30 hours in residence at the university.</p>"""
         got = {c['record']['residency']: c['record']['components'] for c in costs.extract({**INST, 'state': 'AL'}, ENTRY, dup, '2026-27')}
         self.assertEqual((got['in_state']['Subtotal'], got['in_state']['Subtotal (2)']), (17118, 4320))
 
+    def test_mo_r1_rules(self):
+        """MO r1: Logan per-trimester totals and per-credit amounts; Columbia College "$1,000-2,000"; ROTC; Southwest
+        Baptist's two versions of one table; STLCC accreditation years; Truman A-Level, Westminster dual-credit-only
+        rules; Cottey "SL/HL" rows."""
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th><th>Criteria</th></tr>'
+            '<tr><td>President Scholarship</td><td>Up to $18,000 — $1,800 per trimester for 10 trimesters</td><td>3.75 GPA</td></tr>'
+            '<tr><td>Tower Scholarship</td><td>$400 per credit hour</td><td>Transfer student</td></tr>'
+            '<tr><td>Talent Award</td><td>$1,000-2,000</td><td>Audition</td></tr>'
+            '<tr><td>Army ROTC Scholarship</td><td>Full tuition</td><td>Visit goarmy.com</td></tr>'
+            '<tr><td>Sibling Award</td><td>$500</td><td>Sibling enrolled</td></tr></table>'), '2026-27')}
+        self.assertNotIn('award_max', got['President Scholarship'])
+        self.assertNotIn('award_max', got['Tower Scholarship'])
+        self.assertEqual((got['Talent Award']['award_min'], got['Talent Award']['award_max']), (1000, 2000))
+        self.assertNotIn('Army ROTC Scholarship', got)
+        table = lambda amt: ('<h2>Freshman Academic Scholarships</h2><table><tr><th>Award</th><th>Annual Total</th></tr>'
+                             f'<tr><td>Presidential Scholar</td><td>${amt},500</td></tr><tr><td>Dean Scholar</td><td>$9,000</td></tr></table>')
+        cands = merit.extract(INST, ENTRY, T.parse_html('<title>Scholarships</title>' + table(16) + table(18)), '2026-27')
+        self.assertTrue(cands and all('duplicate_table_versions' in c['issues'] for c in cands))
+        once = merit.extract(INST, ENTRY, T.parse_html('<title>Scholarships</title>' + table(16)), '2026-27')
+        self.assertTrue(once and all('duplicate_table_versions' not in c['issues'] for c in once))
+        self.assertEqual(T.year_labels("STLCC's program is accredited through the 2028–2029 school year."), {})
+        self.assertEqual(T.year_labels('Dual credit for the 2026-2027 school year.'), {'2026-27': 1})
+        base = '<title>Transfer Credit</title><p>Courses completed with a grade of D or better transfer to the university.</p>'
+        for scoped in ('Students must achieve a grade of C or higher to receive transfer credit for qualified A-Levels.',
+                       'Dual credit courses will be considered for transfer as long as the student has received a grade of "C" or better.'):
+            [c] = transfer.extract(INST, ENTRY, T.parse_html(base + f'<p>{scoped}</p>'), '2026-27')
+            self.assertEqual(c['record'].get('min_grade'), 'D', scoped)
+        ib = [['IB Exam', 'Score', 'Course', 'Hours'], ['Biology (SL/HL)', '4', 'BIO 101', '4'], ['Chemistry (HL)', '5', 'CHE 160', '4'],
+              ['Geography, Standard Level', '4', 'ENV 125', '3']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'IB', [{'rows': ib, 'heading': 'International Baccalaureate', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        self.assertEqual(sorted(e['minimum_score'] for e in c['record']['equivalencies']), ['4', 'HL 5', 'SL 4'])
+
     def test_ok_r1_rules(self):
         """OK r1: multi-year package values (OU, USAO, SWOSU); repeated header rows (Oklahoma Christian); admission GPA
         standards and gen-ed rules in transfer text (Cameron, NSU, USAO); a CLEP row scored 3 (OKBU); bare department

@@ -192,6 +192,9 @@ def canonical_url(url: str) -> str:
     return urlunsplit((p.scheme, p.netloc, p.path, strip_tracking(p.query), ''))  # no fragments (Erskine '#story')
 
 
+ACCREDIT_BEFORE = re.compile(r'accredit|reaffirm|valid\s+through|expires?\b', re.I)
+
+
 def year_labels(text: str):
     """Academic-year labels printed in text, e.g. '2026-2027', '2026–27', 'FY27' is ignored.
     Returns {label: count}; only consecutive years count as academic-year labels."""
@@ -199,6 +202,8 @@ def year_labels(text: str):
     for m in YEAR_RE.finditer(text or ''):
         if COURSE_BEFORE.search((text or '')[max(0, m.start() - 8):m.start()]):
             continue  # "PHYS 2010/2011" and "HIST 2010-2020" are course numbers, not academic years
+        if ACCREDIT_BEFORE.search((text or '')[max(0, m.start() - 60):m.start()]):
+            continue  # MO (STLCC): "accredited through the 2028–2029 school year" is an accreditation term, not the catalog year
         first = int(m.group(1)); second = int((m.group(2) or str(first)[:2]) + m.group(3))
         if second == first + 1:
             label = academic_year(first); found[label] = found.get(label, 0) + 1

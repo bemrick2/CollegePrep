@@ -1,0 +1,154 @@
+{
+ "state": "MO",
+ "academic_year": "2026-27",
+ "institutions": 70,
+ "status_order": [
+  "verified_current",
+  "partially_verified_current",
+  "candidate_ready",
+  "candidate_exception",
+  "source_found",
+  "not_found",
+  "fetch_failed"
+ ],
+ "by_category": {
+  "admissions_tests": {
+   "candidate_exception": 2,
+   "fetch_failed": 5,
+   "not_found": 9,
+   "source_found": 54
+  },
+  "aid_appeals": {
+   "candidate_exception": 33,
+   "fetch_failed": 5,
+   "not_found": 23,
+   "source_found": 9
+  },
+  "ap_credit": {
+   "candidate_exception": 10,
+   "candidate_ready": 6,
+   "fetch_failed": 5,
+   "not_found": 38,
+   "source_found": 11
+  },
+  "clep_credit": {
+   "candidate_exception": 10,
+   "candidate_ready": 6,
+   "fetch_failed": 5,
+   "not_found": 39,
+   "source_found": 10
+  },
+  "common_data_set": {
+   "candidate_exception": 2,
+   "fetch_failed": 5,
+   "not_found": 59,
+   "source_found": 4
+  },
+  "cost_of_attendance": {
+   "candidate_exception": 6,
+   "candidate_ready": 7,
+   "fetch_failed": 5,
+   "not_found": 5,
+   "source_found": 47
+  },
+  "degree_requirements": {
+   "candidate_ready": 1,
+   "fetch_failed": 5,
+   "not_found": 21,
+   "source_found": 43
+  },
+  "dual_enrollment": {
+   "candidate_exception": 10,
+   "candidate_ready": 18,
+   "fetch_failed": 5,
+   "not_found": 22,
+   "source_found": 15
+  },
+  "ib_credit": {
+   "candidate_exception": 8,
+   "candidate_ready": 5,
+   "fetch_failed": 5,
+   "not_found": 45,
+   "source_found": 7
+  },
+  "merit_scholarships": {
+   "candidate_exception": 10,
+   "candidate_ready": 9,
+   "fetch_failed": 5,
+   "not_found": 9,
+   "source_found": 37
+  },
+  "residency": {
+   "fetch_failed": 5,
+   "not_found": 43,
+   "source_found": 22
+  },
+  "statewide_articulation": {
+   "fetch_failed": 5,
+   "not_found": 50,
+   "source_found": 15
+  },
+  "transfer_credit": {
+   "candidate_exception": 4,
+   "candidate_ready": 8,
+   "fetch_failed": 5,
+   "not_found": 10,
+   "source_found": 43
+  },
+  "tuition_fees": {
+   "candidate_exception": 14,
+   "candidate_ready": 11,
+   "fetch_failed": 5,
+   "not_found": 7,
+   "source_found": 33
+  }
+ },
+ "totals": {
+  "candidate_exception": 109,
+  "candidate_ready": 71,
+  "fetch_failed": 70,
+  "not_found": 380,
+  "source_found": 350
+ },
+ "statewide_sources": {
+  "categories": {
+   "admissions_tests": 9,
+   "aid_appeals": 0,
+   "ap_credit": 4,
+   "clep_credit": 0,
+   "common_data_set": 0,
+   "cost_of_attendance": 4,
+   "degree_requirements": 3,
+   "dual_enrollment": 6,
+   "ib_credit": 0,
+   "merit_scholarships": 18,
+   "residency": 0,
+   "statewide_articulation": 4,
+   "transfer_credit": 16,
+   "tuition_fees": 8
+  },
+  "fetch_failures": 0,
+  "pages_fetched": 58
+ },
+ "blocked_institutions": [
+  "ipeds-177542",
+  "ipeds-177676",
+  "ipeds-178402",
+  "ipeds-178448",
+  "ipeds-179715"
+ ],
+ "quality": {
+  "ambiguous_years": 18,
+  "blocked_requests": 120,
+  "candidates": 424,
+  "conflicts": 84,
+  "documents": 3585,
+  "extraction_failures": 0,
+  "fetch_errors": 355,
+  "fetches": 4060,
+  "ready": 161,
+  "semantic_review": 113,
+  "stale_sources": 53
+ },
+ "run": "pipeline/runs/MO/2026-10-03"
+}
