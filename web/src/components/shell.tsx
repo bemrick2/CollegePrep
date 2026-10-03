@@ -22,7 +22,7 @@ export function DemoBar() {
   const isStudent = !!ctx?.myStudent
   const canSwitch = (ctx?.students.some((s) => s.linked_user_id && s.linked_user_id !== viewer.userId) ?? false) || (isStudent && (ctx?.households.length ?? 0) > 0)
   return (
-    <div className="bg-hero text-hero-ink">
+    <aside aria-label="Demo mode" className="bg-hero text-hero-ink">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-3 gap-y-1 px-4 py-1.5 text-xs">
         <span className="font-semibold">Demo mode</span>
         <span className="hidden opacity-80 sm:inline">Practice questions and history are sample data stored in this browser.</span>
@@ -50,7 +50,7 @@ export function DemoBar() {
           </button>
         </span>
       </div>
-    </div>
+    </aside>
   )
 }
 
@@ -191,7 +191,7 @@ export function FocusShell({ children }: { children?: ReactNode }) {
   return (
     <div className="min-h-dvh">
       <DemoBar />
-      {children ?? <Outlet />}
+      <main id="main">{children ?? <Outlet />}</main>
     </div>
   )
 }

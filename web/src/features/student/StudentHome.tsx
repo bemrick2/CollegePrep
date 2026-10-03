@@ -51,10 +51,10 @@ function HomeBody({ name, o }: { name: string; o: StudentOverview }) {
           <h1 className="display text-[28px] font-semibold leading-tight text-ink">{name}</h1>
         </div>
         <div className="flex items-center gap-2">
-          <span className={cx('flex items-center gap-1 rounded-full px-3 py-1.5 text-sm font-bold tabular', o.streak.current_streak > 0 ? 'bg-gold-soft text-gold-ink' : 'bg-surface-2 text-ink-3')} aria-label={`${o.streak.current_streak} day streak`}>
-            <Flame size={18} /> {o.streak.current_streak}
+          <span className={cx('flex items-center gap-1 rounded-full px-3 py-1.5 text-sm font-bold tabular', o.streak.current_streak > 0 ? 'bg-gold-soft text-gold-ink' : 'bg-surface-2 text-ink-3')} title={`${o.streak.current_streak} day streak`}>
+            <Flame size={18} /> {o.streak.current_streak}<span className="sr-only"> day streak</span>
           </span>
-          <span className="rounded-full bg-brand-soft px-3 py-1.5 text-sm font-bold text-brand" aria-label={`Level ${lvl.level}`}>
+          <span className="rounded-full bg-brand-soft px-3 py-1.5 text-sm font-bold text-brand">
             Lv {lvl.level}
           </span>
         </div>
@@ -257,6 +257,7 @@ function WeekDots({ o }: { o: StudentOverview }) {
             <span className={cx('text-[11px] font-semibold', isToday ? 'text-ink' : 'text-ink-3')}>{'MTWTFSS'[i]}</span>
             <span
               className={cx('grid h-6 w-6 place-items-center rounded-full text-[11px]', done ? 'bg-gold text-white' : isToday ? 'border-2 border-gold' : 'bg-surface-3')}
+              role="img"
               aria-label={`${d}: ${done ? 'practised' : 'not practised'}`}
             >
               {done ? <Flame size={12} /> : null}
