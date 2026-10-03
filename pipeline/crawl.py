@@ -13,12 +13,12 @@ import gzip, hashlib, heapq, io, json, re, socket, threading, time, urllib.error
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import quote, urlsplit, urlunsplit
 from urllib.robotparser import RobotFileParser
 from xml.etree import ElementTree
 
 from . import text as T, topics
-from .registry import registrable_domain
+from .registry import registrable_domain, in_host_scope, is_shared_host
 
 USER_AGENT = 'CollegePrepResearchBot/1.0 (+https://github.com/bemrick2/collegeprep; official-source research)'
 MAX_BYTES = 15 * 1024 * 1024
@@ -194,6 +194,14 @@ class Run:
         return T.Page(d['text'], d['title'], d['tables'], [tuple(x) for x in d.get('links', [])], d['headings']), d
 
 
+def requote(url: str) -> str:
+    """Percent-encode characters servers print raw in links (NSHE handbook: '.../T4-CH15 Regulations for ...pdf');
+    already-encoded sequences are kept."""
+    p = urlsplit(url.strip())
+    return urlunsplit((p.scheme, p.netloc, quote(p.path, safe="/%:@!$&'()*+,;=~-._"),
+                       quote(p.query, safe="=&%:@!$'()*+,;/?~-._"), ''))
+
+
 def crawl_institution(inst, run: Run, fetcher: Fetcher, budget=45, max_depth=3, log=print, program_budget=40):
     key = inst['institution_key']
     allowed = set(inst.get('allowed_domains') or [inst.get('domain')]) - {None}
@@ -202,10 +210,10 @@ def crawl_institution(inst, run: Run, fetcher: Fetcher, budget=45, max_depth=3, 
     frontier, queued = [], set()
 
     def push(url, score, depth, via):
-        url = url.split('#')[0]
+        url = requote(url.split('#')[0])
         host = urlsplit(url).netloc
         if (not url.startswith('https://') and not url.startswith('http://')) or url in queued or depth > max_depth: return
-        if registrable_domain(host) not in allowed or score < 0: return
+        if not in_host_scope(inst, host) or score < 0: return
         queued.add(url); heapq.heappush(frontier, (-score, depth, url, via))
 
     for label, url in inst.get('seeds', {}).items():
@@ -232,6 +240,7 @@ def crawl_institution(inst, run: Run, fetcher: Fetcher, budget=45, max_depth=3, 
         except Exception as exc:  # A fetch bug must not stop the institution or the run.
             meta, body = {'status': None, 'error': f'fetch_exception:{type(exc).__name__}: {exc}'[:300]}, None
         entry = {'institution_key': key, 'url': url, 'depth': depth, 'via': via, 'fetched_at': now(), **meta}
+        if is_shared_host(inst, urlsplit(url).netloc): entry['shared_host'] = True
         if meta.get('error') in ('blocked_bot_challenge', 'http_429') and url not in retried:
             retried.add(url); done.discard(url)  # once more, after the host's backoff delay
             heapq.heappush(frontier, (neg + 5, depth, url, via))
@@ -251,7 +260,7 @@ def crawl_institution(inst, run: Run, fetcher: Fetcher, budget=45, max_depth=3, 
                     s = topics.link_score(href, anchor)
                     if s == 0 and registrable_domain(urlsplit(href).netloc) in follow_all and not topics.EXCLUDE.search(href):
                         s = 1  # dedicated policy sites (e.g. a state transfer-pathway site): every page is relevant
-                    if s > 0 and registrable_domain(urlsplit(href).netloc) in allowed:
+                    if s > 0 and in_host_scope(inst, urlsplit(href).netloc):
                         links.append((href, s))
                 entry['title'] = page.title[:200]
                 entry['topics'] = topics.page_topics(page.title, page.headings, page.text)
@@ -270,7 +279,10 @@ def crawl(registry, run_dir, only=None, budget=45, workers=8, delay=1.0, fetcher
     state_inst = {'institution_key': f"state-{registry['state']}", 'seeds': {s['label']: s['url'] for s in registry.get('state_sources', [])},
                   'follow_all_domains': sorted({registrable_domain(urlsplit(s['url']).netloc) for s in registry.get('state_sources', []) if s.get('follow_all')}),
                   'allowed_domains': sorted({registrable_domain(urlsplit(s['url']).netloc) for s in registry.get('state_sources', [])}),
-                  'existing_sources': []}
+                  'existing_sources': [],
+                  # A system office's site (kctcs.edu) links to every college's own site; those are institution pages.
+                  'excluded_hosts': sorted({h for i in registry['institutions'] for h in i.get('allowed_hosts') or []
+                                            if h not in set(i.get('shared_hosts') or [])})}
     if state_inst['seeds'] and not only: targets.append(state_inst)
     failures = []
 

@@ -39,7 +39,9 @@ def make(domain, inst_key, academic_year, year_basis, record, evidence, entry, e
             'domain': domain, 'institution_key': inst_key, 'academic_year': academic_year,
             'year_basis': year_basis, 'record': rec, 'evidence': evidence, 'source': src,
             'extractor': extractor, 'pipeline_version': PIPELINE_VERSION,
-            'checks': checks or {}, 'issues': list(issues or [])}
+            'checks': checks or {}, 'issues': list(issues or []) + (
+                # A system site shared by several colleges' seeds may describe the system or another campus.
+                ['shared_site_attribution_review'] if entry.get('shared_host') and inst_key else [])}
 
 
 def resolve_year(page, entry, today_year):
@@ -69,3 +71,11 @@ def professional_source(entry, page) -> bool:
     u = urlsplit(entry.get('final_url') or entry.get('url', ''))
     hit = PROFESSIONAL.search(u.netloc.split('.')[0]) or PROFESSIONAL.search(u.path)
     return bool(hit) and not re.search(r'undergraduate', page.title or '', re.I)
+
+
+INTERNATIONAL = re.compile(r'international[\s_-]*(students?|applicants?|admissions?)|/international(/|$)', re.I)
+
+
+def international_source(entry, page):
+    """Budgets and awards for international students (PCC, Chemeketa, Centre) are not the domestic figures."""
+    return bool(INTERNATIONAL.search((entry.get('url') or '') + ' ' + (page.title or '')))

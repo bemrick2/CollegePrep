@@ -21,13 +21,27 @@ def _find(header, *words):
     return None
 
 
-def _columns(rows):
+def _exam_column(kind, rows, guess):
+    """The column whose cells name exams. A header guess can point at a code column ('Test Code' next to
+    'AP Exam', KY: EKU), so the column with the most catalog matches wins when it beats the guess."""
+    body = rows[1:]
+    if not kind or not body: return guess
+    width = max(len(r) for r in rows)
+    hits = [sum(1 for r in body if i < len(r) and exams.match(kind, r[i])) for i in range(width)]
+    best = max(range(width), key=lambda i: hits[i])
+    return best if hits[best] > (hits[guess] if guess is not None and guess < width else 0) else guess
+
+
+def _columns(rows, kind=None):
     header = rows[0]
     exam = _find(header, 'exam', 'test', 'subject', 'ap course', 'clep', 'ib ')
     score = _find(header, 'score', 'minimum', 'level')
-    course = _find(header, 'equivalen', 'course', 'credit granted', 'credit awarded', 'awarded')
+    # The course column is never the exam column ("IB Course | Score | Credit Awarded", KY: Big Sandy).
+    course = next((i for words in (('equivalen',), ('course',), ('credit granted', 'credit awarded', 'awarded'))
+                   for i, h in enumerate(header) if i != exam and any(w in h.lower() for w in words)), None)
     hours = _find(header, 'hours', 'hrs', 'credits', 'sch')
     has_header = score is not None or (exam is not None and course is not None)
+    if has_header: exam = _exam_column(kind, rows, exam)
     if not has_header:
         body = rows
         width = max(len(r) for r in body)
@@ -37,11 +51,16 @@ def _columns(rows):
         hours = None
     if course == exam: course = None
     if hours in (exam, score, course): hours = None
+    if has_header and hours is None:  # "Credit Statement: 3 credit hours" (KY, Big Sandy): find the column by its cells
+        body = rows[1:]
+        width = max(len(r) for r in rows)
+        hours = next((i for i in range(width) if i not in (exam, score, course)
+                      and sum(_credits(r[i]) is not None for r in body if i < len(r)) >= max(2, len(body) / 2)), None)
     return has_header, exam if exam is not None else 0, score, course, hours
 
 
 def _credits(cell):
-    m = re.fullmatch(r'\s*(\d{1,2}(?:\.\d)?)\s*(hours?|hrs?\.?|credits?|sch)?\s*', cell or '', re.I)
+    m = re.fullmatch(r'\s*(\d{1,2}(?:\.\d)?)\s*(?:(?:semester\s+)?credit\s+)?(hours?|hrs?\.?|credits?|sch)?\s*', cell or '', re.I)
     return float(m.group(1)) if m and '.' in m.group(1) else int(m.group(1)) if m else None
 
 
@@ -56,7 +75,7 @@ def table_exam(kind, t):
 
 def table_equivalencies(kind, rows, table_hit=None):
     if len(rows) < 2: return []
-    has_header, ex, sc, co, hr = _columns(rows)
+    has_header, ex, sc, co, hr = _columns(rows, kind)
     header = [c.lower() for c in rows[0]]
     exam_column = has_header and any(w in ' '.join(header) for w in ('exam', 'test', 'subject', 'ap course'))
     if table_hit and not exam_column:
@@ -135,7 +154,11 @@ def extract(inst, entry, page, today_year):
     for t in page_tables:
         heading_uses[t.get('heading')] = heading_uses.get(t.get('heading'), 0) + 1
     for t in page_tables:
-        kind = exams.detect_kind(t.get('caption'), t.get('heading')) or exams.detect_kind(page.title, entry['url'])
+        # Nearest label first: the header row, the text just above the table, its caption, then the section
+        # heading (KY, Big Sandy: an IB table sits under a "CLEP" heading) and finally the page.
+        header_row = ' '.join(t['rows'][0]) if t.get('rows') else ''
+        kind = next((k for k in (exams.detect_kind(x) for x in (header_row, t.get('lead'), t.get('caption'), t.get('heading'))) if k), None) \
+            or exams.detect_kind(page.title, entry['url'])
         if not kind: continue
         named = dict(t)
         if not t.get('lead') and heading_uses[t.get('heading')] > 1:

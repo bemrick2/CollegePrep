@@ -1,0 +1,129 @@
+{
+ "state": "NV",
+ "academic_year": "2026-27",
+ "institutions": 7,
+ "status_order": [
+  "verified_current",
+  "partially_verified_current",
+  "candidate_ready",
+  "candidate_exception",
+  "source_found",
+  "not_found",
+  "fetch_failed"
+ ],
+ "by_category": {
+  "admissions_tests": {
+   "fetch_failed": 1,
+   "source_found": 6
+  },
+  "aid_appeals": {
+   "candidate_exception": 3,
+   "fetch_failed": 1,
+   "not_found": 2,
+   "source_found": 1
+  },
+  "ap_credit": {
+   "fetch_failed": 1,
+   "not_found": 2,
+   "source_found": 4
+  },
+  "clep_credit": {
+   "fetch_failed": 1,
+   "not_found": 3,
+   "source_found": 3
+  },
+  "common_data_set": {
+   "fetch_failed": 1,
+   "not_found": 5,
+   "source_found": 1
+  },
+  "cost_of_attendance": {
+   "fetch_failed": 1,
+   "source_found": 6
+  },
+  "degree_requirements": {
+   "fetch_failed": 1,
+   "not_found": 2,
+   "source_found": 4
+  },
+  "dual_enrollment": {
+   "fetch_failed": 1,
+   "not_found": 1,
+   "partially_verified_current": 1,
+   "source_found": 4
+  },
+  "ib_credit": {
+   "fetch_failed": 1,
+   "not_found": 3,
+   "source_found": 3
+  },
+  "merit_scholarships": {
+   "candidate_ready": 1,
+   "fetch_failed": 1,
+   "source_found": 5
+  },
+  "residency": {
+   "fetch_failed": 1,
+   "source_found": 6
+  },
+  "statewide_articulation": {
+   "fetch_failed": 1,
+   "not_found": 3,
+   "source_found": 3
+  },
+  "transfer_credit": {
+   "fetch_failed": 1,
+   "source_found": 6
+  },
+  "tuition_fees": {
+   "candidate_exception": 1,
+   "fetch_failed": 1,
+   "source_found": 5
+  }
+ },
+ "totals": {
+  "candidate_exception": 4,
+  "candidate_ready": 1,
+  "fetch_failed": 14,
+  "not_found": 21,
+  "partially_verified_current": 1,
+  "source_found": 57
+ },
+ "statewide_sources": {
+  "categories": {
+   "admissions_tests": 5,
+   "aid_appeals": 0,
+   "ap_credit": 0,
+   "clep_credit": 0,
+   "common_data_set": 0,
+   "cost_of_attendance": 1,
+   "degree_requirements": 1,
+   "dual_enrollment": 3,
+   "ib_credit": 0,
+   "merit_scholarships": 3,
+   "residency": 2,
+   "statewide_articulation": 0,
+   "transfer_credit": 0,
+   "tuition_fees": 4
+  },
+  "fetch_failures": 0,
+  "pages_fetched": 15
+ },
+ "blocked_institutions": [
+  "ipeds-182500"
+ ],
+ "quality": {
+  "ambiguous_years": 2,
+  "blocked_requests": 38,
+  "candidates": 22,
+  "conflicts": 2,
+  "documents": 250,
+  "extraction_failures": 0,
+  "fetch_errors": 0,
+  "fetches": 288,
+  "ready": 4,
+  "semantic_review": 14,
+  "stale_sources": 4
+ },
+ "run": "pipeline/runs/NV/2026-10-02-r2"
+}

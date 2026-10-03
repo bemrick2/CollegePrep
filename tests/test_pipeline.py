@@ -293,6 +293,157 @@ minimum grade point average (GPA) of 3.0 are eligible for dual enrollment. Out-o
         self.assertNotIn('max_credit_hours_per_term', m['record']['dual_enrollment'])  # 12 vs 15: dropped and queued
         self.assertIn('conflicting_sources:max_credit_hours_per_term', m['issues'])
 
+    def test_residency_from_table_captions_and_reciprocity(self):
+        """Regression (KY, Ashland CTC): stacked In-State / Out-of-State COA tables; a neighbouring-state reciprocity table."""
+        inst = {**INST, 'state': 'KY'}
+        got = {c['record']['residency']: c for c in costs.extract(inst, ENTRY, page('coa_captions_ky.html'), '2026-27')}
+        self.assertEqual(got['in_state']['record']['tuition'], 4752)
+        self.assertEqual(got['out_of_state']['record']['tuition'], 6480)
+        self.assertNotIn('residency_unknown', got['in_state']['issues'])
+        recip = [c for c in got.values() if c['record'].get('tuition') == 5000]
+        self.assertEqual(len(recip), 1)
+        self.assertIn('residency_names_another_state', recip[0]['issues'])
+
+    def test_state_names_mean_in_state_only_for_the_home_state(self):
+        self.assertEqual(costs.residency('Kentucky Residents', 'KY'), 'in_state')
+        self.assertEqual(costs.residency('Non-Tennessee Residents', 'TN'), 'out_of_state')
+        self.assertEqual(costs.residency('Ohio and Indiana residents', 'KY'), 'named_other_state')
+        self.assertEqual(costs.residency('West Virginia residents', 'VA'), 'named_other_state')
+        self.assertEqual(costs.residency('Tennessee residents', None), 'named_other_state')  # unknown home state is never assumed
+
+    def test_table_kind_comes_from_the_nearest_label(self):
+        """Regression (KY, Big Sandy CTC): an IB table under a CLEP section heading was read as CLEP."""
+        got = {c['record']['policy_kind']: c for c in credit.extract(INST, ENTRY, page('cpl_stacked_ky.html'), '2026-27')}
+        self.assertEqual(sorted(got), ['AP', 'CLEP', 'IB'])
+        self.assertEqual(len(got['IB']['record']['equivalencies']), 3)
+        self.assertEqual(got['AP']['record']['equivalencies'][0]['institution_course_equivalent'], 'ART 105 or ART 106')
+
+    def test_exam_column_is_not_the_code_column(self):
+        """Regression (KY, EKU): 'Test Code' precedes 'AP Exam'; the code column was taken as the exam column."""
+        (c,) = credit.extract(INST, ENTRY, page('ap_test_code_ky.html'), '2026-27')
+        eqs = c['record']['equivalencies']
+        self.assertEqual(len(eqs), 4)
+        self.assertEqual([e['minimum_score'] for e in eqs if e['exam_or_course_code'] == 'AP-BIOLOGY'], ['3', '5'])
+        self.assertEqual(eqs[0]['notes'], 'APAH')  # the printed code is kept, not dropped
+        self.assertEqual(eqs[0]['credits_awarded'], 3)
+
+    def test_courseleaf_program_groups(self):
+        """Courseleaf (KY: WKU, EKU, Bellarmine): Course List tables; subtotals are not the degree total."""
+        out = catalog.extract(INST, {**ENTRY, 'url': 'https://catalog.example.edu/undergraduate/science/biology/biology-bs/'},
+                              page('courseleaf_program.html'), '2026-27')
+        prog = next(c for c in out if c['domain'] == 'academic_programs')['record']
+        self.assertEqual((prog['program_name'], prog['total_credits'], prog['credential_level']), ('Biology, Bachelor of Science', 120, 'bachelor'))
+        groups = {c['record']['requirement_key']: c for c in out if c['domain'] == 'degree_requirements'}
+        core = groups['program-requirements-52-hours-required-core']
+        self.assertNotIn('minimum_credits', core['record'])  # the parent "(52 hours)" is not this sub-area's minimum
+        self.assertIn('course_alternatives_in_rule_text', core['issues'])
+        self.assertEqual(groups['program-requirements-52-hours-electives']['record']['rule_details']['choose_credits'], 12)
+        self.assertEqual(groups['program-total']['record']['minimum_credits'], 120)
+        self.assertNotIn('course_alternatives_in_rule_text', groups['colonnade-general-education-requirements']['issues'])
+        # Regression (KY, WKU English BA): pairing rows were area headers. "Choose one pairing" has no schema shape,
+        # so the group is skipped and the program goes to the exception queue rather than misstated.
+        self.assertNotIn('literature-survey', groups)
+        prog_c = next(c for c in out if c['domain'] == 'academic_programs')
+        ranged = T.parse_html((FIX / 'courseleaf_program.html').read_bytes().replace(b'Total Hours 120</td>', b'Total Hours 112-124</td>'), 'https://x')
+        rp = next(c for c in catalog.extract(INST, ENTRY, ranged, '2026-27') if c['domain'] == 'academic_programs')
+        self.assertNotIn('total_credits', rp['record'])  # Regression (WKU Theatre BA): a range is not a total
+        self.assertIn('requirement_groups_skipped', prog_c['issues'])
+
+    def test_dual_credit_vocabulary_and_faq_questions(self):
+        """Regression (KY): 'Dual Credit' pages were skipped (TN says 'dual enrollment'); a FAQ question's price was taken as a charge."""
+        html = (b'<html><head><title>Dual Credit | Example CTC</title></head><body><h1>Dual Credit</h1>'
+                b'<p>Students must have a 2.0 high school GPA to enroll in dual credit courses.</p>'
+                b'<p>For the 2026-2027 academic year, dual credit tuition is capped at $99 per credit hour.</p>'
+                b'<p>For students taking online classes, are we waiving the $20 per credit hour online course fee</p>'
+                b'<p>The Kentucky Dual Credit Scholarship can be used for up to two courses.</p></body></html>')
+        (c,) = dual.extract(INST, {**ENTRY, 'url': 'https://example.edu/dual-credit/'}, T.parse_html(html, 'https://example.edu/dual-credit/'), '2026-27')
+        de = c['record']['dual_enrollment']
+        self.assertEqual([x['amount'] for x in de['per_credit_hour_charges']], [99])
+        self.assertEqual(de['tuition_per_credit_hour'], 99)
+        self.assertIs(de['state_grant_accepted'], True)
+
+    def test_resident_as_housing_is_not_in_state(self):
+        """Regression (KY: Union, Campbellsville, Lindsey Wilson): 'Residential Student', 'Resident Budget' meant in-state."""
+        self.assertIsNone(costs.residency('traditional residential student 2026-2027', 'KY', private=True))
+        self.assertIsNone(costs.residency('resident budget', 'KY'))
+        self.assertIsNone(costs.residency('resident', 'KY', private=True))
+        self.assertIsNone(costs.residency('resident | commuter', 'KY'))
+        self.assertEqual(costs.residency('resident students', 'KY'), 'in_state')  # public tuition tables (Ashland)
+        self.assertEqual(costs.residency('nonresident', 'KY', private=True), 'out_of_state')
+
+    def test_dual_gpa_ranges_and_course_scoped_tiers(self):
+        """Regression (KY: Thomas More '2.5 to 2.79 GPA' -> 2.79; KCTCS technical-course 2.0 GPA shown as the general minimum)."""
+        html = (b'<html><head><title>Dual Credit</title></head><body><p>Students admitted with an unweighted 2.5 to 2.79 GPA may only take one course.</p>'
+                b'<p>3.3 Addendum for Enrollment into Technical Education Dual Credit Courses: students without the minimum unweighted high school 2.0 GPA required for technical course work</p></body></html>')
+        (c,) = dual.extract(INST, {**ENTRY, 'url': 'https://x.edu/dual-credit/'}, T.parse_html(html, 'https://x'), '2026-27')
+        de = c['record']['dual_enrollment']
+        self.assertEqual([(t['min_hs_gpa'], t.get('course_scope')) for t in de['eligibility_tiers']], [(2.5, None), (2.0, 'technical')])
+        self.assertEqual(de['min_hs_gpa'], 2.5)  # the technical-course tier is not the page's general minimum
+
+    def test_ib_course_header_is_not_the_equivalent_column(self):
+        """Regression (KY, Big Sandy): 'IB Course | Score | Credit Awarded | Credit Statement' lost every course and credit."""
+        got = {c['record']['policy_kind']: c for c in credit.extract(INST, ENTRY, page('cpl_stacked_ky.html'), '2026-27')}
+        ib = got['IB']['record']['equivalencies'][0]
+        self.assertEqual((ib['institution_course_equivalent'], ib['credits_awarded']), ('BIO 152', 3))
+        self.assertEqual(got['AP']['record']['equivalencies'][0]['credits_awarded'], 6)  # "6 credit hours"
+
+    def test_dual_grant_negations_and_glossaries(self):
+        """Regression (KY: EKU 'may not use the KHEAA ... Scholarship' read as accepted; Owensboro glossary GPA as a tier)."""
+        html = (b'<html><head><title>Dual Credit</title></head><body><p>KHEAA Dual Credit Scholarships may be used towards covering tuition.</p>'
+                b'<p>Homeschool students may not use the KHEAA Work Ready Dual Credit Scholarship to pay for their courses.</p>'
+                b'<p>The student must have an unweighted GPA of 2.5 or higher.</p></body></html>')
+        (c,) = dual.extract(INST, {**ENTRY, 'url': 'https://x.edu/dual-credit/'}, T.parse_html(html, 'https://x'), '2026-27')
+        self.assertNotIn('state_grant_accepted', c['record']['dual_enrollment'])
+        self.assertIn('state_grant_mixed_statements', c['issues'])
+        g = b'<html><head><title>Glossary | Dual Credit</title></head><body><p>Grade point average: GPA of 2.0 (a C average) on a 4.0 scale.</p></body></html>'
+        self.assertEqual(dual.extract(INST, {**ENTRY, 'url': 'https://x.edu/dual-credit/glossary.aspx'}, T.parse_html(g, 'https://x'), '2026-27'), [])
+
+    def test_or_regressions_address_cost_rows_and_non_programs(self):
+        """Regression (OR): Lewis & Clark title address -> in_state; Clackamas COA rows as awards; UO/SOCC non-programs."""
+        self.assertIsNone(costs.residency('oregon', 'OR', private=True))
+        self.assertEqual(costs.residency('oregon residents', 'OR'), 'in_state')
+        self.assertTrue(merit.NOT_AWARD_NAME.search('Books/Supplies'))
+        self.assertTrue(merit.NOT_AWARD_NAME.search('Personal expenses (entertainment, clothes, etc.)'))
+        self.assertFalse(merit.NOT_AWARD_NAME.search('Presidential Scholarship'))
+        for title in ("Bachelor's Degree Requirements | University of Oregon Academic Catalog", 'Oregon Transfer Module (OTM) < SOCC'):
+            html = ('<html><head><title>%s</title></head><body><p>2026-2027 Catalog</p><h2>Courses</h2><table><caption>Course List</caption>'
+                    '<tr><th>Code</th><th>Title</th><th>Hours</th></tr><tr><td>WR 121</td><td>Composition</td><td>4</td></tr></table></body></html>' % title)
+            self.assertEqual(catalog.extract(INST, ENTRY, T.parse_html(html.encode(), 'https://x'), '2026-27'), [])
+
+    def test_quarter_term_columns_and_arrangement_vocabulary(self):
+        """Regression (OR: OSU '3 Terms | 1 Term', community colleges '1-4 Terms', Blue Mountain 'w/parent')."""
+        cm = costs.column_meaning
+        self.assertEqual([cm(h)['period'] for h in ('3 Terms', '1 Term', '2 terms', '4 Terms', '9 Months', '3 Months')],
+                         ['year', 'semester', 'partial_year', 'partial_year', 'year', 'partial_year'])
+        self.assertEqual(cm('Dependent (living w/parent)')['arrangement'], 'with_parents_or_family')
+        self.assertEqual(cm('Not living w/parents (dependent and independent)')['arrangement'], 'off_campus_not_with_family')
+        self.assertEqual(cm('Living in Student Housing')['arrangement'], 'on_campus')
+        self.assertEqual(cm('Living in Own House/Apartment')['arrangement'], 'off_campus_not_with_family')
+        self.assertIsNone(cm('Dependent Student')['arrangement'])  # dependency status is not a living arrangement
+        html = ('<html><head><title>Cost of Attendance</title></head><body><h2>2026-2027 Estimated Resident Undergraduate</h2><table>'
+                '<tr><th></th><th>3 Terms</th><th>1 Term</th></tr><tr><td>Tuition and Fees</td><td>$13,000</td><td>$4,333</td></tr>'
+                '<tr><td>Living Expenses (Food and Housing)</td><td>$15,000</td><td>$5,000</td></tr>'
+                '<tr><td>Books, Course Materials, Supplies, and Equipment</td><td>$1,200</td><td>$400</td></tr>'
+                '<tr><td>Estimated TOTAL</td><td>$29,200</td><td>$9,733</td></tr></table></body></html>')
+        (c,) = costs.extract({**INST, 'state': 'OR'}, ENTRY, T.parse_html(html.encode(), 'https://x'), '2026-27')
+        self.assertEqual((c['record']['residency'], c['record']['total_cost_of_attendance']), ('in_state', 29200))
+        self.assertNotIn('arrangement_unlabeled', c['issues'])
+
+    def test_international_pages_and_billable_subtotals(self):
+        """Regression (OR: PCC/Chemeketa international budgets conflicting with domestic COA; OSU billable subtotals)."""
+        from pipeline.extractors import common
+        P = type('P', (), {'title': ''})()
+        self.assertTrue(common.international_source({'url': 'https://www.pcc.edu/international-students/tuition/'}, P))
+        self.assertTrue(common.international_source({'url': 'https://www.centre.edu/admission-aid/international-applicants'}, P))
+        self.assertFalse(common.international_source({'url': 'https://x.edu/programs/international-business-ba/'}, P))
+        html = ('<html><head><title>Cost of Attendance</title></head><body><h2>2026-2027 Estimated Resident Undergraduate</h2><table>'
+                '<tr><th></th><th>3 Terms</th></tr><tr><td>Tuition and Fees</td><td>$13,000</td></tr><tr><td>Estimated Billable Cost Total</td><td>$13,000</td></tr>'
+                '<tr><td>Living Expenses (Food and Housing)</td><td>$15,000</td></tr><tr><td>Books, Course Materials, Supplies, and Equipment</td><td>$1,200</td></tr>'
+                '<tr><td>Estimated Non-Billable Cost Total</td><td>$16,200</td></tr><tr><td>Estimated TOTAL</td><td>$29,200</td></tr></table></body></html>')
+        (c,) = costs.extract({**INST, 'state': 'OR'}, ENTRY, T.parse_html(html.encode(), 'https://x'), '2026-27')
+        self.assertEqual(c['record']['total_cost_of_attendance'], 29200)
+        self.assertNotIn('components_do_not_reconcile', c['issues'])
+
     def test_two_documents_with_the_same_record_key_are_both_compared(self):
         a = credit.extract(INST, ENTRY, page('ap.html'), '2026-27')[0]
         other = {**ENTRY, 'url': 'https://example.edu/y', 'sha256': 'ef' * 32}
@@ -340,7 +491,7 @@ minimum grade point average (GPA) of 3.0 are eligible for dual enrollment. Out-o
 particular Transfer Pathway will earn an A.A. or A.S. degree at the community college. If a community college student transfers to another
 Tennessee community college, he or she is guaranteed that all courses transfer. Admission to UT, Knoxville is competitive and the Pathways
 do not guarantee admission there. These Transfer Pathways have been effective beginning Fall 2011 and are reviewed annually.</p>"""
-        state = {'institution_key': 'state-TN', 'state': 'TN'}
+        state = {'institution_key': 'state-TN', 'state': 'TN', 'control': 'state'}
         [c] = statepolicy.extract(state, {**ENTRY, 'url': 'https://www.tntransferpathway.org/transfer-admission-guarantee'}, T.parse_html(html), '2026-27')
         r = c['record']
         self.assertEqual((r['state'], r['policy_kind'], r['policy_key']), ('TN', 'transfer_guarantee', 'transfer-admission-guarantee'))
@@ -356,6 +507,56 @@ do not guarantee admission there. These Transfer Pathways have been effective be
         self.assertEqual(validate_record(ROOT / 'data', rec, 0, domain='state_policies'), [])
         self.assertEqual(import_contract_errors('state_policies', rec), [])
         self.assertEqual(statepolicy.extract({'institution_key': 'ipeds-1', 'control': 'public'}, ENTRY, T.parse_html(html), '2026-27'), [])
+
+    def test_state_regulation_titled_by_number_and_dual_credit_policy(self):
+        """Regression (KY): 13 KAR 2:045 is titled by number; the CPE Dual Credit Policy had no state policy kind."""
+        sinst = {'institution_key': 'state-KY', 'state': 'KY', 'control': 'state'}
+        reg = (b'<html><head><title>Title 013 Chapter 2 Regulation 045</title></head><body><h1>13 KAR 2:045. Determination of residency status for admission and tuition assessment purposes.</h1>'
+               b'<p>A person who enters the state primarily for the purpose of education shall be presumed to be nonresident.</p>'
+               b'<p>A student must establish domicile in Kentucky for twelve months before the start of the term.</p></body></html>')
+        (c,) = statepolicy.extract(sinst, {**ENTRY, 'url': 'https://apps.legislature.ky.gov/law/kar/titles/013/002/045/'}, T.parse_html(reg, 'https://x'), '2026-27')
+        self.assertEqual(c['record']['policy_kind'], 'tuition_residency')
+        dc = (b'<html><head><title>Dual Credit Policy for Kentucky</title></head><body><h1>Dual Credit Policy for Kentucky</h1>'
+              b'<p>Students must meet the course prerequisites and placement requirements of the postsecondary institution.</p></body></html>')
+        (d,) = statepolicy.extract(sinst, {**ENTRY, 'url': 'https://cpe.ky.gov/policies/academicaffairs/dualcreditpolicy.pdf'}, T.parse_html(dc, 'https://x'), '2026-27')
+        self.assertEqual(d['record']['policy_kind'], 'dual_enrollment')
+        self.assertIn('dual_enrollment', __import__('backend.catalog', fromlist=['x']).CONTROLLED_VALUES['state_policies']['policy_kind'])
+        rep = dc.replace(b'Dual Credit Policy for Kentucky</title>', b'Dual Credit and Student Success Report</title>')
+        self.assertEqual(statepolicy.extract(sinst, {**ENTRY, 'url': 'https://cpe.ky.gov/data/reports/dualcreditreport.pdf'}, T.parse_html(rep, 'https://x'), '2026-27'), [])
+
+    def test_state_policy_extractor_ignores_institution_pages(self):
+        """Regression (KY): registry institutions gained `state`; university transfer agreements became statewide policies."""
+        html = (b'<html><head><title>Transfer Pathway Guide</title></head><body><p>All courses transfer and will be accepted toward the degree.</p>'
+                b'<p>Students must complete the associate degree with a 2.0 GPA.</p></body></html>')
+        inst = {**INST, 'state': 'KY'}
+        self.assertEqual(statepolicy.extract(inst, ENTRY, T.parse_html(html, 'https://x'), '2026-27'), [])
+        self.assertEqual(len(statepolicy.extract({'institution_key': 'state-KY', 'state': 'KY', 'control': 'state'}, ENTRY, T.parse_html(html, 'https://x'), '2026-27')), 1)
+
+    def test_state_policy_keys_from_generic_titles(self):
+        sinst = {'institution_key': 'state-KY', 'state': 'KY', 'control': 'state'}
+        html = (b'<html><head><title>KHEAA</title></head><body><h1>Dual Credit Scholarship</h1>'
+                b'<p>Students must be Kentucky residents enrolled in an eligible high school to receive dual credit awards.</p></body></html>')
+        (c,) = statepolicy.extract(sinst, {**ENTRY, 'url': 'https://www.kheaa.com/web/scholarships-grants.faces'}, T.parse_html(html, 'https://x'), '2026-27')
+        self.assertEqual(c['record']['policy_key'], 'scholarships-grants')
+        self.assertRegex(c['record']['policy_key'], r'^[a-z0-9][a-z0-9-]*$')
+
+    def test_state_crawl_skips_member_college_hosts(self):
+        """Regression (KY): the state crawl followed kctcs.edu into ashland.kctcs.edu (an institution's own site)."""
+        st = {'institution_key': 'state-KY', 'allowed_domains': ['kctcs.edu'], 'excluded_hosts': ['ashland.kctcs.edu']}
+        self.assertTrue(registry.in_host_scope(st, 'kctcs.edu'))
+        self.assertFalse(registry.in_host_scope(st, 'ashland.kctcs.edu'))
+        self.assertFalse(registry.in_host_scope(st, 'catalog.ashland.kctcs.edu'))
+
+    def test_state_handbook_chapters_keep_distinct_keys(self):
+        """Regression (NV): every NSHE handbook chapter is titled 'Title 4 - Codification ...'; all became key 'title-4'."""
+        sinst = {'institution_key': 'state-NV', 'state': 'NV', 'control': 'state'}
+        html = (b'<html><head><title>Title 4 - Codification of Board Policy Statements</title></head><body><p>Chapter 15</p>'
+                b'<p>REGULATIONS FOR DETERMINING RESIDENCY AND TUITION CHARGES</p>'
+                b'<p>A student must provide documentation to support residency classification at the request of an institution.</p></body></html>')
+        url = 'https://nshe.nevada.edu/Handbook/title4//T4-CH15%20Regulations%20for%20Determining%20Residency.pdf'
+        (c,) = statepolicy.extract(sinst, {**ENTRY, 'url': url}, T.parse_html(html, 'https://x'), '2026-27')
+        self.assertEqual(c['record']['policy_kind'], 'tuition_residency')
+        self.assertEqual(c['record']['policy_key'], 't4-ch15-regulations-for-determining-residency')
 
     def test_state_policy_promotion_path(self):
         tmp = Path(tempfile.mkdtemp())
@@ -448,6 +649,21 @@ class CrawlTests(unittest.TestCase):
         self.assertEqual(topics.link_score('https://catalog.x.edu/preview_program.php?catoid=5&poid=9', 'Accounting, B.S.'), 30)
         self.assertTrue(topics.is_program_page('https://catalog.x.edu/preview_program.php?catoid=5&poid=9'))
 
+    def test_courseleaf_program_links(self):
+        self.assertTrue(topics.is_program_page('https://catalog.wku.edu/undergraduate/ogden/biology/biology-bs/'))
+        self.assertFalse(topics.is_program_page('https://catalog.wku.edu/undergraduate/ogden/biology/biology-bs/biology-bs.pdf'))
+        self.assertFalse(topics.is_program_page('https://catalogs.eku.edu/undergraduate/general-academic-information/academic-standards/'))
+        self.assertEqual(topics.link_score('https://catalog.wku.edu/undergraduate/ogden/biology/biology-bs/', 'Biology, Bachelor of Science'), 30)
+        self.assertEqual(topics.link_score('https://catalog.wku.edu/graduate/health-human-services/nursing/dnp/', 'Nursing Practice, DNP'), -1)
+
+    def test_links_with_spaces_and_unicode_are_requoted(self):
+        """Regression (NV: NSHE handbook chapters; OR: Klamath articulation PDFs) -> InvalidURL before fetching."""
+        from pipeline.crawl import requote
+        self.assertEqual(requote('https://nshe.nevada.edu/Handbook/T4-CH15 Residency.pdf'), 'https://nshe.nevada.edu/Handbook/T4-CH15%20Residency.pdf')
+        self.assertEqual(requote('https://x.edu/a%20b/?q=1&r=a b'), 'https://x.edu/a%20b/?q=1&r=a%20b')  # no double encoding
+        self.assertEqual(requote('https://x.edu/admisi\u00f3n/'), 'https://x.edu/admisi%C3%B3n/')
+        self.assertEqual(requote('https://x.edu/p/#frag'), 'https://x.edu/p/')
+
     def test_budget_and_resume_continue_where_stopped(self):
         crawl(self.reg(), self.tmp / 'run', budget=2, workers=1, delay=0, fetcher=Fetcher(delay=0, timeout=5), log=lambda *_: None)
         self.assertEqual(len(Run(self.tmp / 'run').entries()), 2)
@@ -509,6 +725,59 @@ class RegistryTests(unittest.TestCase):
         self.assertIn('utk', keys); self.assertIn('ipeds-221740', keys)
         self.assertNotIn('ipeds-492263', keys)  # UT System Office is not an institution students attend
         self.assertTrue(all(i['seeds'].get('website', '').startswith('https://') for i in built['institutions']))
+
+    def test_every_committed_registry_is_current(self):
+        for path in sorted((ROOT / 'pipeline/registry').glob('*.json')):
+            self.assertEqual(registry.build(path.stem), registry.load(path.stem), f'run: python -m pipeline registry --state {path.stem}')
+
+    def test_seed_overrides_need_reason_and_evidence(self):
+        built = registry.load('NV')
+        nsu = next(i for i in built['institutions'] if i['unitid'] == 441900)
+        self.assertEqual(nsu['allowed_domains'], ['nevadastate.edu'])
+        self.assertTrue(nsu['seed_override']['ipeds_seeds']['website'].startswith('https://nsc.edu'))  # original kept
+        with mock.patch.object(registry.json, 'loads', return_value={'seed_overrides': {'1': {'seeds': {'website': 'https://a.edu'}}}}):
+            with self.assertRaises(ValueError): registry.seed_overrides('NV')
+
+    def test_registrable_domain_is_not_state_specific(self):
+        self.assertEqual(registry.registrable_domain('www.state.tn.us'), 'state.tn.us')
+        self.assertEqual(registry.registrable_domain('www.state.ky.us'), 'state.ky.us')
+        self.assertEqual(registry.registrable_domain('henderson.kctcs.edu'), 'kctcs.edu')
+
+    def test_system_colleges_on_a_shared_domain_stay_on_their_own_hosts(self):
+        """Regression (KY): 16 KCTCS colleges are subdomains of kctcs.edu; domain scoping let one college crawl another."""
+        def inst(key, host):
+            return {'institution_key': key, 'allowed_domains': ['kctcs.edu'], 'seeds': {'website': f'https://{host}/'}, 'existing_sources': []}
+        a, b, c = inst('a', 'henderson.kctcs.edu'), inst('b', 'jefferson.kctcs.edu'), inst('c', 'kctcs.edu')
+        c['seeds']['admissions'] = 'https://kctcs.edu/admissions'
+        a['seeds']['admissions'] = 'https://www.kctcs.edu/apply'
+        registry.scope_shared_domains([a, b, c])
+        self.assertTrue(registry.in_host_scope(a, 'henderson.kctcs.edu'))
+        self.assertTrue(registry.in_host_scope(a, 'catalog.henderson.kctcs.edu'))
+        self.assertFalse(registry.in_host_scope(a, 'jefferson.kctcs.edu'))
+        self.assertTrue(registry.in_host_scope(a, 'kctcs.edu'))  # its own seed is there ...
+        self.assertTrue(registry.is_shared_host(a, 'www.kctcs.edu'))  # ... but that host belongs to the system
+        self.assertFalse(registry.is_shared_host(a, 'henderson.kctcs.edu'))
+        c2 = {'institution_key': 'x', 'allowed_domains': ['solo.edu'], 'seeds': {}, 'existing_sources': []}
+        registry.scope_shared_domains([c2])
+        self.assertTrue(registry.in_host_scope(c2, 'catalog.solo.edu'))
+
+    def test_shared_host_pages_need_attribution_review(self):
+        from pipeline.extractors import common
+        c = common.make('credit_policies', 'ipeds-1', '2026-27', 'labeled_in_title', {}, [], {**ENTRY, 'shared_host': True}, 'x', {})
+        self.assertIn('shared_site_attribution_review', c['issues'])
+        self.assertNotIn('shared_site_attribution_review', P.INFORMATIONAL)
+        self.assertEqual(common.make('credit_policies', 'ipeds-1', '2026-27', 'labeled_in_title', {}, [], ENTRY, 'x', {})['issues'], [])
+
+    def test_state_pages_only_feed_state_level_extractors(self):
+        """Regression: institution extractors ran on statewide pages and keyed records to 'state-TN'."""
+        self.assertEqual(review.STATE_EXTRACTORS, [statepolicy.extract])
+        calls = []
+        with mock.patch.object(review, 'EXTRACTORS', [lambda *a: calls.append('inst') or []]), \
+             mock.patch.object(review, 'STATE_EXTRACTORS', [lambda *a: calls.append('state') or []]):
+            run = mock.Mock(); run.entries.return_value = [{'institution_key': 'state-TN', 'page_file': 'p', 'url': 'u'}]
+            run.load_page.return_value = (None, [])
+            review.extract_run({'state': 'TN', 'institutions': []}, run, '2026-27')
+        self.assertEqual(calls, ['state'])
 
 
 if __name__ == '__main__':

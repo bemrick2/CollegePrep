@@ -40,7 +40,8 @@ def normalize_url(u: str) -> str | None:
 def registrable_domain(host: str) -> str:
     """'www.catalog.utc.edu' -> 'utc.edu'. Good enough for .edu/.org/.com/.gov hosts in IPEDS."""
     labels = host.lower().split(':')[0].strip('.').split('.')
-    if len(labels) >= 3 and labels[-2] in {'tn', 'k12', 'co', 'ac'} and len(labels[-1]) == 2:
+    # 'state.tn.us', 'district.k12.or.us', 'x.co.uk': the registrable part is three labels.
+    if len(labels) >= 3 and len(labels[-1]) == 2 and (labels[-2] in {'k12', 'co', 'ac'} or (labels[-1] == 'us' and len(labels[-2]) == 2)):
         return '.'.join(labels[-3:])
     return '.'.join(labels[-2:])
 
@@ -90,6 +91,7 @@ def build(state: str):
     for p in (ROOT / 'data/institutions').glob('*/institution.json'):
         r = json.loads(p.read_text()); aliases[str(r.get('unitid'))] = r['institution_key']
     rows = [r for r in hd_rows() if r['STABBR'] == state and in_scope(r, presence)]
+    overrides = seed_overrides(state)
     slugs = {}
     institutions = []
     for r in sorted(rows, key=lambda r: r['INSTNM']):
@@ -98,18 +100,32 @@ def build(state: str):
         for field, label in SEED_FIELDS.items():
             u = normalize_url(r.get(field))
             if u: seeds[label] = u
+        override = overrides.get(r['UNITID'])
+        ipeds_seeds = None
+        if override:  # a reported URL that no longer resolves, replaced only with a sourced correction
+            ipeds_seeds = dict(seeds)
+            seeds = {k: normalize_url(v) for k, v in override['seeds'].items()}
         site = seeds.get('website')
         domain = registrable_domain(urlsplit(site).netloc) if site else None
         folder = folders.get(key) or (domain.split('.')[0] if domain else 'ipeds-' + r['UNITID'])
         slugs.setdefault(folder, []).append(key)
         institutions.append({
-            'institution_key': key, 'unitid': int(r['UNITID']), 'name': r['INSTNM'], 'city': r['CITY'],
+            'institution_key': key, 'unitid': int(r['UNITID']), 'name': r['INSTNM'], 'city': r['CITY'], 'state': state,
             'folder': folder, 'control': {'1': 'public', '2': 'private_nonprofit'}[r['CONTROL']],
             'level': {'1': 'four_year', '2': 'two_year'}[r['ICLEVEL']], 'domain': domain,
             # Net-price calculators are often hosted by vendors, so they never widen the crawl.
             'allowed_domains': sorted({registrable_domain(urlsplit(u).netloc) for l, u in seeds.items() if l != 'net_price'}
                                       | {registrable_domain(urlsplit(u).netloc) for u in cited.get(key, [])}),
             'seeds': seeds, 'existing_sources': cited.get(key, [])})
+        if override:
+            institutions[-1]['seed_override'] = {'ipeds_seeds': ipeds_seeds, 'reason': override['reason'], 'evidence': override['evidence']}
+    scope_shared_domains(institutions)
+    for inst in institutions:  # A system college on its own subdomain is named after it (ashland.kctcs.edu -> ashland).
+        own = [h for h in inst.get('allowed_hosts') or [] if h not in set(inst.get('shared_hosts') or [])]
+        if own and inst['folder'] not in folders.values() and inst['institution_key'] not in folders:
+            label = own[0].split('.')[0]
+            if label not in slugs or slugs[label] == [inst['institution_key']]:
+                slugs[inst['folder']].remove(inst['institution_key']); inst['folder'] = label; slugs.setdefault(label, []).append(inst['institution_key'])
     for inst in institutions:  # Two campuses sharing a domain get distinct folders.
         if len(slugs[inst['folder']]) > 1 and inst['folder'] not in folders.values():
             inst['folder'] = f"{inst['folder']}-{inst['unitid']}"
@@ -117,6 +133,58 @@ def build(state: str):
             'scope_rule': 'active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, '
                           'with a 2023-24 IPEDS first-time undergraduate admissions or price record',
             'institutions': institutions, 'state_sources': state_sources(state)}
+
+
+def host_of(url: str) -> str:
+    h = urlsplit(url).netloc.lower().split(':')[0]
+    return h[4:] if h.startswith('www.') else h
+
+
+def scope_shared_domains(institutions):
+    """Colleges of one system often live on subdomains of a shared domain (henderson.kctcs.edu,
+    jefferson.kctcs.edu). Scoping those by registrable domain would let one college's crawl wander
+    into another's site, so each is limited to its own seed hosts on the shared domain. A host used
+    by several institutions' seeds (the system site itself) is marked shared: pages there describe
+    the system or another campus, and records from them need attribution review."""
+    by_domain, host_users = {}, {}
+    for inst in institutions:
+        for d in inst['allowed_domains']: by_domain.setdefault(d, set()).add(inst['institution_key'])
+        for label, u in inst['seeds'].items():
+            if label != 'net_price': host_users.setdefault(host_of(u), set()).add(inst['institution_key'])
+    for inst in institutions:
+        shared = sorted(d for d in inst['allowed_domains'] if len(by_domain[d]) > 1)
+        if not shared: continue
+        hosts = {host_of(u) for l, u in inst['seeds'].items() if l != 'net_price'} | {host_of(u) for u in inst['existing_sources']}
+        inst['shared_domains'] = shared
+        inst['allowed_hosts'] = sorted(h for h in hosts if registrable_domain(h) in shared)
+        inst['shared_hosts'] = sorted(h for h in inst['allowed_hosts'] if len(host_users.get(h, ())) > 1)
+
+
+def in_host_scope(inst, host: str) -> bool:
+    """Whether a URL host is inside an institution's crawl scope (see scope_shared_domains)."""
+    host = host.lower().split(':')[0]; host = host[4:] if host.startswith('www.') else host
+    if any(host == h or host.endswith('.' + h) for h in inst.get('excluded_hosts') or []): return False
+    rd = registrable_domain(host)
+    if rd in (inst.get('shared_domains') or []):
+        shared = set(inst.get('shared_hosts') or [])  # the system host itself, never its sibling subdomains
+        return any(host == h or (h not in shared and h != rd and host.endswith('.' + h)) for h in inst.get('allowed_hosts') or [])
+    return rd in set(inst.get('allowed_domains') or [inst.get('domain')]) - {None}
+
+
+def is_shared_host(inst, host: str) -> bool:
+    host = host.lower().split(':')[0]; host = host[4:] if host.startswith('www.') else host
+    return host in set(inst.get('shared_hosts') or [])
+
+
+def seed_overrides(state: str):
+    """UNITID -> {seeds, reason, evidence}: corrections for IPEDS-reported URLs that no longer resolve.
+    Each needs a reason and an evidence URL; the crawl then validates the replacement like any seed."""
+    p = REGISTRY_DIR / 'states' / f'{state}.json'
+    out = json.loads(p.read_text()).get('seed_overrides', {}) if p.exists() else {}
+    for unitid, o in out.items():
+        if not (o.get('seeds', {}).get('website') and o.get('reason') and str(o.get('evidence', '')).startswith('https://')):
+            raise ValueError(f'seed override {unitid} needs seeds.website, reason and an https evidence URL')
+    return out
 
 
 def state_sources(state: str):

@@ -1,0 +1,43 @@
+{
+ "state": "NV",
+ "note": "Statewide official seeds. Hosts only; the crawler discovers pages on these domains by topic. A seed that 404s is reported, never replaced by a guess. URLs taken from search results on 2026-10-02 and validated by the first crawl.",
+ "sources": [
+  {
+   "label": "nshe",
+   "url": "https://nshe.nevada.edu/",
+   "publisher": "Nevada System of Higher Education",
+   "categories": [
+    "statewide_articulation",
+    "dual_enrollment",
+    "tuition_fees"
+   ]
+  },
+  {
+   "label": "nshe_handbook",
+   "url": "https://nshe.nevada.edu/leadership-policy/board-of-regents/handbook/",
+   "publisher": "NSHE Board of Regents Handbook",
+   "categories": [
+    "residency",
+    "statewide_articulation"
+   ]
+  },
+  {
+   "label": "millennium_scholarship",
+   "url": "https://www.nevadatreasurer.gov/",
+   "publisher": "Nevada State Treasurer (Governor Guinn Millennium Scholarship)",
+   "categories": [
+    "merit_scholarships"
+   ]
+  }
+ ],
+ "seed_overrides": {
+  "441900": {
+   "seeds": {
+    "website": "https://nevadastate.edu/",
+    "admissions": "https://nevadastate.edu/admissions/first-time-student/"
+   },
+   "reason": "IPEDS HD2023 reports nsc.edu (Nevada State College); every nsc.edu seed returned 404 in run NV 2026-10-02 after the rename to Nevada State University.",
+   "evidence": "https://nevadastate.edu/admissions/first-time-student/"
+  }
+ }
+}
