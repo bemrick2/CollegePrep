@@ -43,8 +43,9 @@ def extract(inst, entry, page, today_year):
             for m in MAX_HOURS.finditer(s): found['max_transfer_credits'].append((int(m.group(1)), s))
         for m in ([] if re.search(r'attempted|probation|suspension|retain\s+this\s+status', s, re.I) else RESIDENCE.finditer(s)):
             v = int(m.group(1) or m.group(2))
-            part = re.search(r'(\d{2})\s+of\s+the\s+(?:last|final)\s+' + str(v) + r'\b', s, re.I)
-            if part: v = int(part.group(1))  # "45 of the last 60 hours" (UGA), "20 of the last 30" (Coastal Georgia)
+            part = re.search(r'(\d{2}|twenty|thirty|forty|forty-five|fifteen|twenty-four)\s+(?:\(\d{2}\)\s+)?of\s+the\s+(?:last|final)\s+' + str(v) + r'\b', s, re.I)
+            words = {'fifteen': 15, 'twenty': 20, 'twenty-four': 24, 'thirty': 30, 'forty': 40, 'forty-five': 45}
+            if part: v = words.get(part.group(1).lower()) or int(part.group(1))  # "Thirty (30) of the last 60" (FGCU)  # "45 of the last 60 hours" (UGA), "20 of the last 30" (Coastal Georgia)
             if 12 <= v <= 60: found['residency_requirement_credits'].append((v, s))
     if not any(found.values()): return []
     year, basis, issues = common.resolve_year(page, entry, today_year)

@@ -12,8 +12,8 @@ Institutions in scope: **53** · crawled: **48** · blocked by site: **5** · ru
 | cost_of_attendance | 2 (4%) | 1 | 13 (25%) | 46 (87%) | 2 | 5 |
 | admissions_tests | 0 (0%) | 0 | 0 (0%) | 46 (87%) | 2 | 5 |
 | common_data_set | 0 (0%) | 0 | 0 (0%) | 8 (15%) | 40 | 5 |
-| merit_scholarships | 2 (4%) | 6 | 12 (23%) | 46 (87%) | 2 | 5 |
-| ap_credit | 0 (0%) | 6 | 9 (17%) | 20 (38%) | 28 | 5 |
+| merit_scholarships | 2 (4%) | 6 | 13 (25%) | 46 (87%) | 2 | 5 |
+| ap_credit | 0 (0%) | 6 | 9 (17%) | 21 (40%) | 27 | 5 |
 | clep_credit | 0 (0%) | 6 | 10 (19%) | 16 (30%) | 32 | 5 |
 | ib_credit | 0 (0%) | 3 | 4 (8%) | 9 (17%) | 39 | 5 |
 | dual_enrollment | 2 (4%) | 18 | 25 (47%) | 37 (70%) | 11 | 5 |
@@ -25,17 +25,17 @@ Institutions in scope: **53** · crawled: **48** · blocked by site: **5** · ru
 
 | quality | count |
 |---|---|
-| ambiguous years | 6 |
+| ambiguous years | 5 |
 | blocked requests | 66 |
 | candidates | 522 |
-| conflicts | 161 |
+| conflicts | 158 |
 | documents | 3273 |
 | extraction failures | 0 |
 | fetch errors | 275 |
 | fetches | 3614 |
-| ready | 184 |
+| ready | 183 |
 | semantic review | 247 |
-| stale sources | 229 |
+| stale sources | 230 |
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-101453`, `ipeds-101693`, `ipeds-101736`, `ipeds-101879`, `ipeds-102076`
 
@@ -144,7 +144,7 @@ Institutions in scope: **121** · crawled: **97** · blocked by site: **24** · 
 | extraction failures | 0 |
 | fetch errors | 562 |
 | fetches | 6847 |
-| ready | 373 |
+| ready | 365 |
 | semantic review | 190 |
 | stale sources | 81 |
 
@@ -255,7 +255,7 @@ Institutions in scope: **55** · crawled: **49** · blocked by site: **6** · ru
 | extraction failures | 0 |
 | fetch errors | 228 |
 | fetches | 3547 |
-| ready | 101 |
+| ready | 97 |
 | semantic review | 141 |
 | stale sources | 57 |
 
@@ -292,7 +292,7 @@ Institutions in scope: **59** · crawled: **52** · blocked by site: **7** · ru
 | extraction failures | 0 |
 | fetch errors | 97 |
 | fetches | 3823 |
-| ready | 138 |
+| ready | 136 |
 | semantic review | 206 |
 | stale sources | 55 |
 
@@ -304,19 +304,19 @@ Institutions in scope: **71** · crawled: **62** · blocked by site: **9** · ru
 
 | category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
 |---|---|---|---|---|---|---|
-| tuition_fees | 0 (0%) | 0 | 35 (49%) | 60 (85%) | 2 | 9 |
-| cost_of_attendance | 0 (0%) | 0 | 18 (25%) | 59 (83%) | 3 | 9 |
+| tuition_fees | 8 (11%) | 1 | 35 (49%) | 60 (85%) | 2 | 9 |
+| cost_of_attendance | 4 (6%) | 1 | 18 (25%) | 59 (83%) | 3 | 9 |
 | admissions_tests | 0 (0%) | 0 | 1 (1%) | 58 (82%) | 4 | 9 |
 | common_data_set | 0 (0%) | 0 | 1 (1%) | 10 (14%) | 52 | 9 |
-| merit_scholarships | 0 (0%) | 0 | 8 (11%) | 59 (83%) | 3 | 9 |
-| ap_credit | 0 (0%) | 0 | 8 (11%) | 26 (37%) | 36 | 9 |
-| clep_credit | 0 (0%) | 0 | 9 (13%) | 19 (27%) | 43 | 9 |
-| ib_credit | 0 (0%) | 0 | 7 (10%) | 18 (25%) | 44 | 9 |
-| dual_enrollment | 0 (0%) | 0 | 10 (14%) | 41 (58%) | 21 | 9 |
-| transfer_credit | 0 (0%) | 0 | 17 (24%) | 56 (79%) | 6 | 9 |
+| merit_scholarships | 1 (1%) | 2 | 8 (11%) | 59 (83%) | 3 | 9 |
+| ap_credit | 1 (1%) | 4 | 8 (11%) | 26 (37%) | 36 | 9 |
+| clep_credit | 0 (0%) | 4 | 9 (13%) | 19 (27%) | 43 | 9 |
+| ib_credit | 1 (1%) | 1 | 7 (10%) | 18 (25%) | 44 | 9 |
+| dual_enrollment | 1 (1%) | 1 | 10 (14%) | 41 (58%) | 21 | 9 |
+| transfer_credit | 1 (1%) | 8 | 17 (24%) | 56 (79%) | 6 | 9 |
 | statewide_articulation | 0 (0%) | 0 | 0 (0%) | 24 (34%) | 38 | 9 |
 | residency | 0 (0%) | 0 | 0 (0%) | 39 (55%) | 23 | 9 |
-| degree_requirements | 0 (0%) | 0 | 3 (4%) | 47 (66%) | 15 | 9 |
+| degree_requirements | 1 (1%) | 0 | 3 (4%) | 47 (66%) | 15 | 9 |
 | aid_appeals | 0 (0%) | 0 | 44 (62%) | 48 (68%) | 14 | 9 |
 
 | quality | count |
@@ -329,7 +329,7 @@ Institutions in scope: **71** · crawled: **62** · blocked by site: **9** · ru
 | extraction failures | 0 |
 | fetch errors | 480 |
 | fetches | 4447 |
-| ready | 295 |
+| ready | 290 |
 | semantic review | 144 |
 | stale sources | 78 |
 
