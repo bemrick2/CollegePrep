@@ -38,7 +38,7 @@ Data that the backend doesn't model yet is kept in the browser:
 - planning preferences
 - benchmark summaries
 
-The live source returns "unavailable" for cost projections. Each gap has a contract request in [`docs/frontend/CONTRACT_REQUESTS.md`](../docs/frontend/CONTRACT_REQUESTS.md).
+Both sources return "unavailable" for cost projections; the parent cost outlook shows only published costs × years to degree (when the institution level is known) and the savings opportunities each school's verified records list. Each gap has a contract request in [`docs/frontend/CONTRACT_REQUESTS.md`](../docs/frontend/CONTRACT_REQUESTS.md).
 
 ## Screens
 
@@ -61,7 +61,7 @@ The live source returns "unavailable" for cost projections. Each gap has a contr
 - **No invented data.**
   - Missing domains render as "No verified record yet".
   - Score estimates appear only when the backend writes them.
-  - Demo financials carry an "Illustrative example" banner.
+  - No estimated savings anywhere: dollar figures are published costs, and a community-college-then-transfer path is labelled as unverified.
 - **Practice estimates are never shown as official scores.**
 - **Accessibility.**
   - Shell screens have a skip link. Progress bars and rings are labelled, and answers can be chosen by keyboard (1–4 or A–D).

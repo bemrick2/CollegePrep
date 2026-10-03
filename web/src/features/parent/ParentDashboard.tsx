@@ -1,15 +1,15 @@
 import { Link, Navigate } from 'react-router-dom'
-import { useApp, useAsync } from '../../lib/app'
-import type { CostProjection, SkillEstimate, Student } from '../../lib/data/types'
+import { useApp } from '../../lib/app'
+import type { SkillEstimate, Student } from '../../lib/data/types'
 import { ButtonLink, Card, CardHeader, EmptyState, Notice, PageLoading, Pill, ProgressBar, cx } from '../../components/ui'
-import { ArrowRight, Compass, Flame, Info, School, Target, Users, Wallet } from '../../components/icons'
+import { ArrowRight, Compass, Flame, Info, Target, Users } from '../../components/icons'
 import { latestEstimate, recentTrend, useStudentOverview, type StudentOverview } from '../student/useStudentOverview'
 import { SECTION_LABEL, SECTION_ORDER, nextBenchmarkDue, pacingVerdict } from '../../lib/engine/benchmark'
 import { daysBetween, formatShortDate, isoWeekday } from '../../lib/engine/dates'
 import { EXAM_NAME } from '../onboarding/options'
 import { useCatalog } from '../practice/useCatalog'
+import { CostOutlook } from './CostOutlook'
 
-const usd = (n: number) => n.toLocaleString(undefined, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 })
 
 export function ParentDashboard() {
   const { ctx, activeStudent } = useApp()
@@ -56,10 +56,8 @@ function sectionRollup(estimates: SkillEstimate[]) {
 }
 
 function Panel({ student, o }: { student: Student; o: StudentOverview }) {
-  const { source } = useApp()
   const exam = o.plan?.exam_family ?? 'act'
   const catalog = useCatalog(exam)
-  const cost = useAsync(() => source.costProjection(student.id), [source, student.id])
   const est = latestEstimate(o.scores, exam)[0]
   const goal = o.week.goal?.target_questions ?? null
   const trend = recentTrend(o.history, o.today, o.tz)
@@ -172,7 +170,7 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
         </Card>
       </div>
 
-      <CostCard cost={cost.data} loading={cost.loading} />
+      <CostOutlook />
 
       <p className="text-xs text-ink-3">
         Last practice: {lastDay ? formatShortDate(lastDay) : 'never'} · Time zone {o.tz}
@@ -213,63 +211,3 @@ function ActionRow({ a, n }: { a: Action; n: number }) {
   return a.to ? <Link to={a.to}>{body}</Link> : body
 }
 
-function CostCard({ cost, loading }: { cost?: CostProjection; loading: boolean }) {
-  if (loading || !cost) return null
-  if (cost.status === 'unavailable')
-    return (
-      <Card>
-        <CardHeader title={<span className="flex items-center gap-2"><Wallet size={18} /> College cost outlook</span>} />
-        <div className="grid gap-4 p-5 md:grid-cols-[1fr_auto] md:items-center">
-          <p className="text-sm text-ink-2">
-            A projected total cost and savings plan will appear here once there is enough verified data for your target schools. We don't estimate costs we can't source.
-          </p>
-          <ButtonLink to="/colleges" variant="brand">
-            <School size={18} /> Compare verified prices
-          </ButtonLink>
-        </div>
-      </Card>
-    )
-  return (
-    <Card className="overflow-hidden">
-      {cost.illustrative && (
-        <div className="flex items-center gap-2 bg-gold-soft px-5 py-2 text-xs font-semibold text-gold-ink">
-          <Info size={14} /> Illustrative example — not based on your family's data or verified school records.
-        </div>
-      )}
-      <CardHeader title={<span className="flex items-center gap-2"><Wallet size={18} /> College cost outlook</span>} subtitle="Four-year total, before need-based aid" />
-      <div className="grid gap-6 p-5 md:grid-cols-[1fr_1.2fr]">
-        <div className="grid grid-cols-3 gap-3 md:grid-cols-1">
-          <Money label="Projected cost" value={cost.baseline_total!} />
-          <Money label="Optimized path" value={cost.optimized_total!} tone="brand" />
-          <Money label="Potential savings" value={cost.savings!} tone="go" />
-        </div>
-        <div>
-          <div className="text-sm font-semibold text-ink">Where the savings come from</div>
-          <ul className="mt-3 grid gap-3">
-            {cost.levers?.map((l) => (
-              <li key={l.key}>
-                <div className="mb-1 flex justify-between gap-2 text-sm">
-                  <span className="text-ink-2">{l.label}</span>
-                  <span className="font-semibold tabular text-ink">{l.estimated_savings === null ? 'Unknown' : usd(l.estimated_savings)}</span>
-                </div>
-                <ProgressBar value={l.estimated_savings ?? 0} max={cost.savings || 1} tone="go" label={l.label} className="h-2" />
-              </li>
-            ))}
-          </ul>
-          <Link to="/colleges" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand hover:underline">
-            Compare schools and paths <ArrowRight size={16} />
-          </Link>
-        </div>
-      </div>
-    </Card>
-  )
-}
-
-function Money({ label, value, tone }: { label: string; value: number; tone?: 'go' | 'brand' }) {
-  return (
-    <div>
-      <div className="text-xs font-semibold uppercase tracking-wide text-ink-3">{label}</div>
-      <div className={cx('display mt-1 text-2xl font-semibold tabular md:text-3xl', tone === 'go' ? 'text-go' : tone === 'brand' ? 'text-brand' : 'text-ink')}>{usd(value)}</div>
-    </div>
-  )
-}

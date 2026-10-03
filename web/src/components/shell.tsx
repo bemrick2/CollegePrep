@@ -95,7 +95,7 @@ export function StudentShell() {
           )}
         </div>
       </header>
-      <main id="main" className="mx-auto max-w-3xl px-4 py-5 md:py-8">
+      <main id="main" className="mx-auto max-w-3xl px-4 pb-28 pt-5 md:py-8">
         <Outlet />
       </main>
       <nav aria-label="Student" className="fixed inset-x-0 bottom-0 z-30 flex border-t border-line bg-surface/95 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden">
@@ -148,15 +148,16 @@ export function ParentShell() {
             )}
           </div>
         </div>
-        <nav aria-label="Parent" className="flex gap-1 overflow-x-auto px-3 pb-2 md:hidden">
-          <ParentLink to="/parent" end icon={<Home size={16} />} label="Overview" />
-          <ParentLink to="/colleges" icon={<Wallet size={16} />} label="Colleges & cost" />
-          <ParentLink to="/parent/household" icon={<Users size={16} />} label="Household" />
-        </nav>
       </header>
-      <main id="main" className="mx-auto max-w-6xl px-4 py-6 md:px-6 md:py-8">
+      <main id="main" className="mx-auto max-w-6xl px-4 pb-28 pt-6 md:px-6 md:py-8">
         <Outlet />
       </main>
+      <nav aria-label="Parent" className="fixed inset-x-0 bottom-0 z-30 flex border-t border-line bg-surface/95 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden">
+        <TabLink to="/parent" end icon={<Home />} label="Overview" />
+        <TabLink to="/parent/progress" icon={<Chart />} label="Progress" />
+        <TabLink to="/colleges" icon={<Wallet />} label="Cost" />
+        <TabLink to="/parent/household" icon={<Users />} label="Household" />
+      </nav>
     </div>
   )
 }

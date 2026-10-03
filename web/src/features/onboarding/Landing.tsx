@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 import { homePathFor, useApp } from '../../lib/app'
 import { Brand } from '../../components/shell'
@@ -7,22 +8,25 @@ import { Card, PageLoading } from '../../components/ui'
 export function Landing() {
   const { viewer, ctx, loading, liveAvailable, startDemo, useLive } = useApp()
   const navigate = useNavigate()
+  // Starting a demo signs the viewer in, which re-renders this page before any navigate() call lands; the
+  // redirect below must therefore go where the person chose, not to the generic "who's using" step.
+  const [intent, setIntent] = useState<string | null>(null)
   if (loading) return <PageLoading />
-  if (viewer) return <Navigate to={homePathFor(viewer, ctx)} replace />
+  if (viewer) return <Navigate to={intent ?? homePathFor(viewer, ctx)} replace />
 
   const begin = async (role: 'parent' | 'student') => {
     if (liveAvailable) {
       useLive()
       navigate(`/auth?role=${role}`)
     } else {
+      setIntent(role === 'parent' ? '/onboarding/parent' : '/onboarding/student')
       await startDemo(role, false)
-      navigate(role === 'parent' ? '/onboarding/parent' : '/onboarding/student')
     }
   }
 
   const sample = async (role: 'parent' | 'student') => {
+    setIntent(role === 'parent' ? '/parent' : '/student')
     await startDemo(role, true)
-    navigate(role === 'parent' ? '/parent' : '/student')
   }
 
   return (

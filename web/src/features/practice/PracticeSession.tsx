@@ -3,7 +3,7 @@ import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useApp, useAsync } from '../../lib/app'
 import type { Confidence, PracticeSession as Session } from '../../lib/data/types'
 import { ButtonLink, EmptyState, Notice, PageLoading, ProgressBar, Ring } from '../../components/ui'
-import { Book, Flame, Lightbulb, Sparkle, X } from '../../components/icons'
+import { Book, Compass, Flame, Lightbulb, Sparkle, X } from '../../components/icons'
 import { QuestionView, ConfidenceBar } from './QuestionView'
 import { Feedback } from './Feedback'
 import { useAttempt } from './useAttempt'
@@ -51,10 +51,12 @@ export function PracticeSession() {
   const attempt = useAttempt(student?.id ?? '', done ? null : question, session?.id ?? null)
   const [remember, setRemember] = useState<string | null>(null)
   const [aiNote, setAiNote] = useState<string | null>(null)
+  const [help, setHelp] = useState<{ concept: boolean; strategy: boolean }>({ concept: false, strategy: false })
 
   useEffect(() => {
     setRemember(null)
     setAiNote(null)
+    setHelp({ concept: false, strategy: false })
   }, [question?.id])
 
   if (!student) return <Navigate to="/student" replace />
@@ -97,14 +99,16 @@ export function PracticeSession() {
     else setIndex((i) => i + 1)
   }
 
-  const askTutor = async () => {
+  // "Teach me" and "Test strategy" before answering never reveal the answer: they show the skill's primer and the
+  // strategies for this section. The request is still recorded (request_ai_help) so help use is measured, and a
+  // tutor reply appears only if the backend tutor is switched on.
+  const askHelp = async (mode: 'concept' | 'strategy') => {
     if (!attempt.state.attemptId) return
-    const r = await source.requestAiHelp(attempt.state.attemptId, 'concept')
-    setAiNote(
-      r.status === 'disabled'
-        ? "The AI tutor isn't switched on yet. Try a hint — after you answer you'll get the full explanation."
-        : 'Your tutor request is queued. The explanation will appear here when it is ready.',
-    )
+    setHelp((h) => ({ ...h, [mode]: true }))
+    const r = await source.requestAiHelp(attempt.state.attemptId, mode)
+    const haveStatic = mode === 'concept' ? !!catalog.skill(question?.primary_skill_key)?.concept_summary : catalog.strategiesFor(question?.section).length > 0
+    if (r.status !== 'disabled') setAiNote('Your tutor request is queued. The explanation will appear here when it is ready.')
+    else if (!haveStatic) setAiNote("The AI tutor isn't switched on yet. Try a hint — after you answer you'll get the full explanation.")
   }
 
   const total = session.items.length
@@ -150,13 +154,31 @@ export function PracticeSession() {
             >
               <Lightbulb size={16} /> {state.hints.length ? 'Another hint' : 'Hint'}
             </button>
-            <button
-              onClick={() => void askTutor()}
-              disabled={!state.attemptId}
-              className="flex items-center gap-1.5 rounded-full border border-line-strong bg-surface px-3 py-1.5 text-sm font-semibold text-ink-2 hover:text-ink disabled:opacity-40"
-            >
-              <Sparkle size={16} /> Teach me
-            </button>
+            <HelpButton icon={<Sparkle size={16} />} label="Teach me" active={help.concept} disabled={!state.attemptId} onClick={() => void askHelp('concept')} />
+            <HelpButton icon={<Compass size={16} />} label="Test strategy" active={help.strategy} disabled={!state.attemptId} onClick={() => void askHelp('strategy')} />
+          </div>
+        )}
+        {!state.result && help.concept && question && catalog.skill(question.primary_skill_key)?.concept_summary && (
+          <div className="anim-rise mt-3 rounded-2xl border border-line bg-surface px-4 py-3 text-sm text-ink" role="note" aria-label="Concept">
+            <div className="mb-1 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-go">
+              <Book size={14} /> {catalog.skillName(question.primary_skill_key)}
+            </div>
+            {catalog.skill(question.primary_skill_key)?.concept_summary}
+          </div>
+        )}
+        {!state.result && help.strategy && question && catalog.strategiesFor(question.section).length > 0 && (
+          <div className="anim-rise mt-3 rounded-2xl border border-line bg-surface px-4 py-3 text-sm text-ink" role="note" aria-label="Test strategies">
+            <div className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-go">
+              <Compass size={14} /> Strategies that work here
+            </div>
+            <ul className="grid gap-2">
+              {catalog.strategiesFor(question.section).slice(0, 3).map((st) => (
+                <li key={st.strategy_key}>
+                  <span className="font-semibold">{st.name}.</span> <span className="text-ink-2">{st.description}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-2 text-xs text-ink-3">After you answer you'll see which one is fastest for this question.</p>
           </div>
         )}
         {state.hints.map((h, i) => (
@@ -194,7 +216,7 @@ export function PracticeSession() {
             {state.answer ? (
               <ConfidenceBar disabled={state.busy || !state.attemptId} onPick={(c) => void onPick(c)} />
             ) : (
-              <p className="py-4 text-center text-sm text-ink-3">Choose an answer</p>
+              <p className="py-4 text-center text-sm text-ink-3">{question && question.answer_format !== 'choice' ? 'Type your answer' : 'Choose an answer'}</p>
             )}
           </div>
         </div>
@@ -244,6 +266,22 @@ function SessionSummary({ outcomes, studentId }: { outcomes: Outcome[]; studentI
         </Link>
       </div>
     </div>
+  )
+}
+
+function HelpButton({ icon, label, active, disabled, onClick }: { icon: React.ReactNode; label: string; active: boolean; disabled: boolean; onClick: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      aria-pressed={active}
+      className={
+        'flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-semibold disabled:opacity-40 ' +
+        (active ? 'border-go bg-go-soft text-ink' : 'border-line-strong bg-surface text-ink-2 hover:text-ink')
+      }
+    >
+      {icon} {label}
+    </button>
   )
 }
 

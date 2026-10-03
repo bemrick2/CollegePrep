@@ -34,8 +34,36 @@ export interface FixtureQuestion {
 // Taxonomy
 // ---------------------------------------------------------------------------
 
+// Answer-free primers for "Teach me" before answering. Original text, written for these fixtures.
+const PRIMERS: Record<string, string> = {
+  act_punctuation: 'Commas set off extra information and join clauses only with a conjunction. A semicolon joins two complete sentences; a colon introduces something the first clause sets up.',
+  act_sentence_structure: 'Every sentence needs one complete main clause. Watch for fragments, run-ons, and modifiers that sit next to the wrong noun.',
+  act_usage: 'Subjects and verbs agree in number even when a phrase separates them, and pronouns must match the noun they replace.',
+  act_rhetorical_skills: "Ask what the sentence or paragraph is for. Pick the choice that fits the author's purpose, keeps the focus, and connects logically to what comes before and after.",
+  act_algebra_linear: 'Do the same operation to both sides to isolate the variable. For a system, substitute or eliminate one variable so a single-variable equation remains.',
+  act_functions: 'A function turns each input into one output. f(a) means replace x with a; read graphs by matching x-values to y-values.',
+  act_geometry: 'Write down what the figure gives you, then use the matching rule: angle sums, similar triangles, the Pythagorean theorem, or SOH-CAH-TOA.',
+  act_statistics_probability: 'Mean is the total divided by the count; median is the middle value. Probability is favorable outcomes over total outcomes.',
+  act_number_quantity: 'Turn percents into decimals (25% = 0.25) and apply changes one at a time. Ratios compare parts; keep units in the same order.',
+  act_main_idea: 'The main idea is what the whole passage or paragraph is mostly about, not one detail. Details must be stated in the text.',
+  act_inference: 'An inference is a small, supported step beyond the text. The right answer is the one the passage makes very likely, not merely possible.',
+  act_vocabulary_in_context: 'Use the sentence around the word. Replace it with your own word, then pick the choice with that meaning in this context.',
+  act_author_purpose: 'Ask why the author included a line or paragraph: to give an example, contrast, explain, or shift tone. Choices should describe its role.',
+  act_data_interpretation: 'Read titles, axes, and units first. Find the exact row, column, or point the question names before comparing or calculating.',
+  act_experiment_design: 'Identify what was changed on purpose (independent variable), what was measured (dependent), and what was held constant.',
+  act_conflicting_viewpoints: "Summarize each scientist's claim in a few words. Questions ask where they agree, where they differ, and what evidence would support each.",
+  sat_craft_structure: 'Focus on how the text works: word meaning in context, the purpose of a part, and how two texts relate.',
+  sat_information_ideas: 'Find claims and the evidence that supports them, including from tables and graphs. The answer must be backed by the text or data.',
+  sat_standard_english: 'Check boundaries between clauses, verb and pronoun agreement, and verb tense. The answer is the choice that is grammatically correct.',
+  sat_expression_of_ideas: 'Pick transitions by the relationship between ideas (contrast, cause, addition), and choose the option that meets the stated writing goal.',
+  sat_algebra: 'Translate words into linear equations or inequalities, then solve. Slope is rate of change; the y-intercept is the starting value.',
+  sat_advanced_math: 'Factor, expand, or rewrite expressions to reveal what you need. For quadratics, roots, vertex, and factored form are connected.',
+  sat_problem_solving_data: 'Use ratios, rates, percents, and units carefully. For statistics, know what mean, median, and margin of error describe.',
+  sat_geometry_trig: 'Use area and volume formulas, angle and triangle rules, circle facts, and right-triangle trigonometry. Draw and label what you know.',
+}
+
 function skill(exam_family: ExamFamily, section: string, domain: string | null, skill_key: string, name: string): Skill {
-  return { id: `sk-${skill_key}`, exam_family, section, domain, skill_key, name }
+  return { id: `sk-${skill_key}`, exam_family, section, domain, skill_key, name, concept_summary: PRIMERS[skill_key] ?? null }
 }
 
 export const SKILLS: Skill[] = [
@@ -72,16 +100,16 @@ export const SKILLS: Skill[] = [
 ]
 
 export const STRATEGIES: Strategy[] = [
-  { strategy_key: 'backsolve', name: 'Backsolve', description: 'Test the answer choices in the problem, starting with a middle value, until one works.' },
-  { strategy_key: 'plug_in_numbers', name: 'Plug In Numbers', description: 'Replace variables with simple numbers so an abstract question becomes arithmetic.' },
-  { strategy_key: 'predict_then_match', name: 'Predict, Then Match', description: 'Form your own answer before reading the choices, then pick the closest match.' },
-  { strategy_key: 'process_of_elimination', name: 'Process of Elimination', description: 'Cross out choices with a clear flaw; the survivor is your answer.' },
-  { strategy_key: 'read_question_first', name: 'Read the Question First', description: 'Know exactly what is being asked before diving into the passage or data.' },
-  { strategy_key: 'concise_is_correct', name: 'Concise Is Correct', description: 'When choices are all grammatical, the shortest clear one is usually best.' },
-  { strategy_key: 'find_the_trend', name: 'Find the Trend', description: 'Describe how one variable changes as another changes before answering.' },
-  { strategy_key: 'translate_to_algebra', name: 'Translate to Algebra', description: 'Turn the words into an equation one phrase at a time, then solve.' },
-  { strategy_key: 'locate_evidence', name: 'Locate the Evidence', description: 'Go back to the exact lines or table row that answer the question.' },
-  { strategy_key: 'draw_it_out', name: 'Draw It Out', description: 'Sketch the figure or situation and label what you know.' },
+  { strategy_key: 'backsolve', name: 'Backsolve', description: 'Test the answer choices in the problem, starting with a middle value, until one works.', sections: ['math'] },
+  { strategy_key: 'plug_in_numbers', name: 'Plug In Numbers', description: 'Replace variables with simple numbers so an abstract question becomes arithmetic.', sections: ['math'] },
+  { strategy_key: 'predict_then_match', name: 'Predict, Then Match', description: 'Form your own answer before reading the choices, then pick the closest match.', sections: ['reading', 'reading_writing', 'english'] },
+  { strategy_key: 'process_of_elimination', name: 'Process of Elimination', description: 'Cross out choices with a clear flaw; the survivor is your answer.', sections: ['english', 'math', 'reading', 'science', 'reading_writing'] },
+  { strategy_key: 'read_question_first', name: 'Read the Question First', description: 'Know exactly what is being asked before diving into the passage or data.', sections: ['reading', 'science', 'reading_writing'] },
+  { strategy_key: 'concise_is_correct', name: 'Concise Is Correct', description: 'When choices are all grammatical, the shortest clear one is usually best.', sections: ['english', 'reading_writing'] },
+  { strategy_key: 'find_the_trend', name: 'Find the Trend', description: 'Describe how one variable changes as another changes before answering.', sections: ['science', 'math'] },
+  { strategy_key: 'translate_to_algebra', name: 'Translate to Algebra', description: 'Turn the words into an equation one phrase at a time, then solve.', sections: ['math'] },
+  { strategy_key: 'locate_evidence', name: 'Locate the Evidence', description: 'Go back to the exact lines or table row that answer the question.', sections: ['reading', 'science', 'reading_writing'] },
+  { strategy_key: 'draw_it_out', name: 'Draw It Out', description: 'Sketch the figure or situation and label what you know.', sections: ['math'] },
 ]
 
 export const TRAPS: TrapType[] = [
@@ -152,7 +180,7 @@ const ACT_ENGLISH: FixtureQuestion[] = [
     section: 'english',
     difficulty: 1,
     passage: underline(EN_GARDEN, 3),
-    stem: 'Which choice is best for the bracketed portion?',
+    stem: 'Which choice is best for the underlined portion?',
     choices: [
       { key: 'A', text: NO_CHANGE },
       { key: 'B', text: 'trades' },
@@ -187,7 +215,7 @@ const ACT_ENGLISH: FixtureQuestion[] = [
     section: 'english',
     difficulty: 2,
     passage: underline(EN_GARDEN, 2),
-    stem: 'Which choice is best for the bracketed portion?',
+    stem: 'Which choice is best for the underlined portion?',
     choices: [
       { key: 'A', text: NO_CHANGE },
       { key: 'B', text: 'overflowing; the tomato vines' },
@@ -199,7 +227,7 @@ const ACT_ENGLISH: FixtureQuestion[] = [
     expected_time_seconds: 36,
     primary_skill_key: 'act_sentence_structure',
     hints: [
-      'Cover the bracketed punctuation. Could each side stand alone as a sentence?',
+      'Cover the underlined punctuation. Could each side stand alone as a sentence?',
       'Two complete sentences need more than a comma between them.',
     ],
     teaching_explanation:
@@ -222,7 +250,7 @@ const ACT_ENGLISH: FixtureQuestion[] = [
     section: 'english',
     difficulty: 2,
     passage: underline(EN_MONARCH, 4),
-    stem: 'Which choice is best for the bracketed portion?',
+    stem: 'Which choice is best for the underlined portion?',
     choices: [
       { key: 'A', text: NO_CHANGE },
       { key: 'B', text: 'The students find this fact amazing.' },
@@ -294,7 +322,7 @@ const ACT_ENGLISH: FixtureQuestion[] = [
     section: 'english',
     difficulty: 3,
     passage: underline(EN_GARDEN, 1),
-    stem: 'Which choice is best for the bracketed portion?',
+    stem: 'Which choice is best for the underlined portion?',
     choices: [
       { key: 'A', text: NO_CHANGE },
       { key: 'B', text: 'The neighbors who had argued for months about what to plant,' },
@@ -329,7 +357,7 @@ const ACT_ENGLISH: FixtureQuestion[] = [
     section: 'english',
     difficulty: 3,
     passage: underline(EN_MONARCH, 2),
-    stem: 'Which choice is best for the bracketed portion?',
+    stem: 'Which choice is best for the underlined portion?',
     choices: [
       { key: 'A', text: NO_CHANGE },
       { key: 'B', text: 'Using these reports,' },
@@ -364,7 +392,7 @@ const ACT_ENGLISH: FixtureQuestion[] = [
     section: 'english',
     difficulty: 3,
     passage: underline(EN_SEEDS, 1),
-    stem: 'Which choice is best for the bracketed portion?',
+    stem: 'Which choice is best for the underlined portion?',
     choices: [
       { key: 'A', text: NO_CHANGE },
       { key: 'B', text: 'seeds; bean,' },
@@ -399,7 +427,7 @@ const ACT_ENGLISH: FixtureQuestion[] = [
     section: 'english',
     difficulty: 4,
     passage: underline(EN_MONARCH, 1),
-    stem: 'Which choice is best for the bracketed portion?',
+    stem: 'Which choice is best for the underlined portion?',
     choices: [
       { key: 'A', text: NO_CHANGE },
       { key: 'B', text: 'Using tiny adhesive tags, monarch butterflies are marked by the students' },
@@ -434,7 +462,7 @@ const ACT_ENGLISH: FixtureQuestion[] = [
     section: 'english',
     difficulty: 4,
     passage: underline(EN_MONARCH, 3),
-    stem: 'Which choice is best for the bracketed portion?',
+    stem: 'Which choice is best for the underlined portion?',
     choices: [
       { key: 'A', text: NO_CHANGE },
       { key: 'B', text: 'have revealed' },

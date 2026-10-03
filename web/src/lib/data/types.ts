@@ -59,12 +59,16 @@ export interface Skill {
   domain: string | null
   skill_key: string
   name: string
+  /** Short, answer-free lesson for "Teach me" before answering (CR-8; demo fixtures only until the backend has it). */
+  concept_summary?: string | null
 }
 
 export interface Strategy {
   strategy_key: string
   name: string
   description: string | null
+  /** Sections where the strategy applies, for "Test strategy" before answering (CR-8). */
+  sections?: string[] | null
 }
 
 export interface TrapType {
@@ -289,6 +293,8 @@ export interface InstitutionIdentity {
   net_price_calculator_url: string | null
   identity_academic_year: string | null
   source_url: string | null
+  /** IPEDS institution level (CR-9). Absent from the live RPC today; costs are then shown per year only. */
+  level?: 'two_year' | 'four_year' | null
 }
 
 export interface CostRecord {

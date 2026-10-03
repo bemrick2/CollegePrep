@@ -9,10 +9,12 @@ Status as of 2026-10-02. In the live database: 0 exam versions, 0 skills, 0 ques
 | CR-1 | Student planning preferences | High | Browser `localStorage`, per device |
 | CR-2 | Benchmark sessions | High | Attempts are recorded; the summary is kept in the browser |
 | CR-3 | Practice score estimates | High | Reads `student_test_scores` (`practice_estimate`); shows "pending" when there are none |
-| CR-4 | Household cost projection | Medium | Live: "unavailable" state. Demo: illustrative numbers, labelled |
+| CR-4 | Household cost projection | Medium | Both sources: "unavailable". The parent view shows published costs and verified savings opportunities instead |
 | CR-5 | Question content fields: passage, remember-this, hint count | High (before content load) | Fixtures only |
 | CR-6 | Recommender diversification (v2) | Medium | v1 order, mirrored exactly |
 | CR-7 | Institutions with verified records for a year | Low | Free-text search over `institutions` |
+| CR-8 | Answer-free help content: skill primers, strategy sections | High (before content load) | Demo fixtures only; live falls back to "tutor not on yet" |
+| CR-9 | Institution level and saved schools | High | Demo snapshot carries IPEDS level; live shows per-year cost only. Saved schools in the browser |
 
 ## CR-1. Student planning preferences
 
@@ -70,7 +72,7 @@ The levers are AP credit, CLEP, dual enrollment, merit awards at the student's s
 
 - The product rule is to show financial implications only when verified data supports them.
 - The live UI therefore shows "unavailable" and links to the verified per-school comparison. That comparison does real arithmetic: published cost of attendance × years to degree, labelled as sticker price.
-- The demo shows an illustrative panel behind a prominent "Illustrative example" banner.
+- Both sources show "unavailable"; the parent view shows published costs and verified savings opportunities instead (the illustrative demo panel was removed).
 
 ## CR-5. Question content fields (needed before the question bank is loaded)
 
@@ -98,6 +100,25 @@ RPC institutions_with_verified_records(p_academic_year text, p_state text null)
 ```
 
 **Why.** In live mode the comparison screen can only offer free-text search across 5,920 institutions. Most of them have no verified current-year records, so a parent can easily compare empty columns. Demo mode suggests the 12 schools that do have verified 2026-27 records.
+
+## CR-8. Answer-free help content (pre-answer "Teach me" and "Test strategy")
+
+**Need.**
+- `skills.concept_summary` (`text | null`): a 1–3 sentence lesson on the skill that never refers to a specific question.
+- `question_strategies.sections` (`text[]`): sections where the strategy applies (`english`, `math`, `reading`, `science`, `reading_writing`).
+- Both readable wherever `skills` and `question_strategies` are readable today; served by the existing table reads (no new RPC).
+
+**Why.** Students ask for help *before* answering. "Teach me" and "Test strategy" must help without revealing the answer, so they can't use the per-question explanations or the question's tagged strategy (those stay hidden until `submit_practice_attempt`). The UI still calls `request_ai_help(attempt, 'concept' | 'strategy')` so help use is recorded.
+
+## CR-9. Institution level and saved schools
+
+**Need.**
+1. `level` (`'two_year' | 'four_year'`) on the institution identity returned by `compare_institutions` (and `institutions` reads). Source: IPEDS HD `ICLEVEL`, already used by the research registry.
+2. Saved schools per household: `household_id`, `institution_key`, `added_by`, `added_at`; up to ~8 per household. Read: household members with `view_progress`; write: guardians and the linked student.
+
+**Why.**
+1. The parent cost outlook multiplies a published annual cost by years to degree. Without the level it can't tell a 2-year college from a 4-year one, so live mode shows cost per year only and never compares across levels.
+2. The schools a family is comparing drive the parent dashboard, the cost outlook and (later) college-path suggestions. Today they live in one browser, so a parent's list doesn't follow them to another device or reach the student.
 
 ## Product decisions flagged (not contract requests)
 

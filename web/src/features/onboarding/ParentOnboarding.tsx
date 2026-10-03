@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
-import { useApp } from '../../lib/app'
+import { realName, useApp } from '../../lib/app'
 import { browserTimeZone, localDate, weekStartOf } from '../../lib/engine/dates'
 import { Button, Field, Notice, inputClass, cx } from '../../components/ui'
 import { StepFrame } from './Stepper'
@@ -12,7 +12,7 @@ export function ParentOnboarding() {
   const { source, viewer, refresh, setActiveStudentId } = useApp()
   const navigate = useNavigate()
   const [step, setStep] = useState(1)
-  const [householdName, setHouseholdName] = useState(viewer?.displayName ? `${viewer.displayName}'s household` : '')
+  const [householdName, setHouseholdName] = useState(realName(viewer) ? `${realName(viewer)}'s household` : '')
   const [tz, setTz] = useState(browserTimeZone())
   const [studentName, setStudentName] = useState('')
   const [grade, setGrade] = useState<number | null>(null)

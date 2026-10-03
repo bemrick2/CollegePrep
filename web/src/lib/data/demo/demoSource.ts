@@ -559,20 +559,11 @@ export class DemoSource implements DataSource {
   }
 
   async costProjection(): Promise<CostProjection> {
-    // Illustrative only. There is no backend projection model yet (contract request CR-4).
-    return delay({
-      status: 'available',
-      illustrative: true,
-      baseline_total: 87400,
-      optimized_total: 58200,
-      savings: 29200,
-      levers: [
-        { key: 'ap_credit', label: 'AP credit (2 exams at accepted scores)', estimated_savings: 7800, source_url: null },
-        { key: 'dual_enrollment', label: 'Dual enrollment in senior year', estimated_savings: 9400, source_url: null },
-        { key: 'merit', label: 'Merit scholarship at ACT 27+', estimated_savings: 12000, source_url: null },
-      ],
-    })
+    // Same as live: there is no verified household cost model yet (contract request CR-4). The parent view
+    // shows published costs and verified savings opportunities instead of estimated savings.
+    return delay({ status: 'unavailable', reason: 'No verified household cost model yet.' })
   }
+
 }
 
 export function demoTimeZone() {

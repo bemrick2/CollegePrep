@@ -291,7 +291,7 @@ function SkillRow({ name, section, tag, tone, value, detail }: { name: string; s
     <div className="flex items-center gap-3 rounded-xl bg-surface-2 px-3 py-2.5">
       <Target size={18} className={tone === 'warn' ? 'text-warn' : 'text-info'} />
       <div className="min-w-0 flex-1">
-        <div className="truncate text-sm font-semibold text-ink">{name}</div>
+        <div className="line-clamp-2 text-sm font-semibold leading-snug text-ink">{name}</div>
         <div className="text-xs text-ink-3">
           {SECTION_LABEL[section] ?? section} · {detail}
         </div>

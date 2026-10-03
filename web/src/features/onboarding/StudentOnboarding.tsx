@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
-import { useApp } from '../../lib/app'
+import { realName, useApp } from '../../lib/app'
 import { browserTimeZone, localDate, weekStartOf } from '../../lib/engine/dates'
 import { Button, Field, Notice, inputClass, cx } from '../../components/ui'
 import { StepFrame } from './Stepper'
@@ -11,7 +11,7 @@ export function StudentOnboarding() {
   const { source, viewer, ctx, refresh } = useApp()
   const navigate = useNavigate()
   const [step, setStep] = useState(1)
-  const [name, setName] = useState(viewer?.displayName ?? '')
+  const [name, setName] = useState(realName(viewer))
   const [grade, setGrade] = useState<number | null>(null)
   const [plan, setPlan] = useState<PlanDraft>(defaultPlanDraft)
   const [error, setError] = useState<string | null>(null)

@@ -339,7 +339,7 @@ export function Benchmark() {
           {current?.answer ? (
             <ConfidenceBar disabled={busy} onPick={(c) => void finishAttempt({ confidence: c })} />
           ) : (
-            <p className="py-2 text-center text-sm text-ink-3">Choose an answer</p>
+            <p className="py-2 text-center text-sm text-ink-3">{current && current.question.answer_format !== 'choice' ? 'Type your answer' : 'Choose an answer'}</p>
           )}
           <button
             disabled={busy || !current}

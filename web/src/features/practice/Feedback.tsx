@@ -68,17 +68,17 @@ export function Feedback({
 
       {visible.length > 0 && (
         <div className="mt-4">
-          <div role="tablist" aria-label="Explanation" className="flex gap-1 overflow-x-auto">
+          <div role="tablist" aria-label="Explanation" className="grid auto-cols-fr grid-flow-col gap-1 rounded-full bg-surface p-1">
             {visible.map((t) => (
               <button
                 key={t.key}
                 role="tab"
                 aria-selected={active === t.key}
                 onClick={() => setTab(t.key)}
-                className={cx('flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-semibold', active === t.key ? 'bg-ink text-bg' : 'bg-surface text-ink-2 hover:text-ink')}
+                className={cx('flex min-w-0 items-center justify-center gap-1.5 rounded-full px-2 py-1.5 text-[13px] font-semibold sm:text-sm', active === t.key ? 'bg-ink text-bg' : 'text-ink-2 hover:text-ink')}
               >
-                {t.icon}
-                {t.label}
+                <span className="hidden shrink-0 min-[400px]:inline">{t.icon}</span>
+                <span className="truncate">{t.label}</span>
               </button>
             ))}
           </div>

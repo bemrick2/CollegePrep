@@ -100,6 +100,8 @@ export function AppProvider({ children, source: injected }: { children: ReactNod
     if (withSample) {
       const { sampleFamily } = await import('./data/demo/seed')
       d.replaceStore(sampleFamily(persona))
+      const { SAMPLE_SCHOOLS, readSavedSchools, writeSavedSchools } = await import('./savedSchools')
+      if (readSavedSchools().length === 0) writeSavedSchools(SAMPLE_SCHOOLS)
     }
     else {
       d.reset()
@@ -153,6 +155,12 @@ export function useApp(): AppState {
 }
 
 /** Where a signed-in viewer belongs. */
+/** A person's real name for prefilling forms; demo placeholders such as "Student (demo)" are not names. */
+export function realName(viewer: Viewer | null): string {
+  const n = viewer?.displayName?.trim() ?? ''
+  return /\(demo\)$/i.test(n) ? '' : n
+}
+
 export function homePathFor(viewer: Viewer | null, ctx: HouseholdContext | null): string {
   if (!viewer) return '/'
   if (ctx?.myStudent) return '/student'

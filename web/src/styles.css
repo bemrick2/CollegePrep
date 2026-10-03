@@ -168,6 +168,11 @@ body {
   min-height: 100dvh;
 }
 
+/* Programmatic focus targets (headings moved to on each question) do not need a ring. */
+[tabindex="-1"]:focus-visible {
+  outline: none;
+}
+
 :focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 2px;

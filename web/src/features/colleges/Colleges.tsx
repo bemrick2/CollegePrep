@@ -4,11 +4,11 @@ import type { CostRecord, InstitutionComparison, InstitutionSearchHit } from '..
 import { Card, EmptyState, Notice, PageLoading, Pill, Segmented, cx, inputClass } from '../../components/ui'
 import { Info, School, X } from '../../components/icons'
 import { formatShortDate } from '../../lib/engine/dates'
+import { MAX_SAVED_SCHOOLS, readSavedSchools, writeSavedSchools } from '../../lib/savedSchools'
 
 const usd = (n: number | null | undefined) => (n == null ? null : n.toLocaleString(undefined, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }))
 const YEARS = ['2026-27', '2025-26']
-const MAX = 4
-const KEY = 'pp-compare'
+const MAX = MAX_SAVED_SCHOOLS
 
 const RESIDENCY_LABEL: Record<string, string> = { in_state: 'In-state', out_of_state: 'Out-of-state', not_applicable: 'All students', in_district: 'In-district' }
 const RES_ORDER: Record<string, number> = { in_district: 0, in_state: 1, not_applicable: 2, out_of_state: 3 }
@@ -26,27 +26,16 @@ const DOMAIN_LABEL: Record<string, string> = {
   appeals: 'Aid appeals',
 }
 
-function readSaved(): string[] {
-  try {
-    return JSON.parse(localStorage.getItem(KEY) ?? '[]') as string[]
-  } catch {
-    return []
-  }
-}
 
 export function Colleges() {
   const { source, mode } = useApp()
   const [year, setYear] = useState(YEARS[0]!)
-  const [keys, setKeys] = useState<string[]>(readSaved)
+  const [keys, setKeys] = useState<string[]>(readSavedSchools)
   const [query, setQuery] = useState('')
   const [years, setYearsInSchool] = useState(4)
 
   useEffect(() => {
-    try {
-      localStorage.setItem(KEY, JSON.stringify(keys))
-    } catch {
-      // ignore
-    }
+    writeSavedSchools(keys)
   }, [keys])
 
   const suggestions = useAsync(() => source.searchInstitutions(''), [source])
