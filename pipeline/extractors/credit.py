@@ -49,7 +49,15 @@ def _columns(rows, kind=None):
         score = next((i for i in range(1, width) if sum(bool(SCORE_CELL.match(r[i])) for r in body if i < len(r)) >= len(body) / 2), None)
         course = next((i for i in range(1, width) if i != score and sum(bool(COURSE_RE.search(r[i])) for r in body if i < len(r)) >= len(body) / 3), None)
         hours = None
-    if course == exam: course = None
+    if course == exam:  # "Advanced Placement Course | ... | GSW Course Credit" (GA r1): the next "course" header
+        course = next((i for i, h in enumerate(header) if i not in (exam, score) and 'course' in h.lower()), None)
+    if has_header and course is None:
+        # Headers that do not say "course" ("AMSC Exemption", GA r1 Atlanta Metropolitan; "Credit", Georgia Tech):
+        # the column whose cells are mostly course codes, as for headerless tables.
+        body = rows[1:]
+        width = max(len(r) for r in rows)
+        course = next((i for i in range(width) if i not in (exam, score)
+                       and sum(bool(COURSE_RE.search(r[i])) for r in body if i < len(r)) >= max(2, len(body) / 2)), None)
     if hours in (exam, score, course): hours = None
     if has_header and hours is None:  # "Credit Statement: 3 credit hours" (KY, Big Sandy): find the column by its cells
         body = rows[1:]
@@ -97,6 +105,9 @@ def table_equivalencies(kind, rows, table_hit=None):
     out, prev = [], None
     for row in body:
         cells = list(row)
+        if len([c for c in cells if c.strip()]) == 1 and not re.search(r'\d', ''.join(cells)):
+            prev = None  # a section heading ("Foreign Languages", GA r1: Gordon State) ends any rowspan
+            continue
         if len(cells) < width and prev:  # rowspan: the exam cell was merged into the previous row
             cells = [prev[2]] + cells
         hit = exams.match(kind, cells[ex] if ex < len(cells) else '')
@@ -181,6 +192,10 @@ def extract(inst, entry, page, today_year):
         checks = {'equivalencies': len(eqs), 'distinct_exams': len({e['exam_or_course_code'] for e in eqs}),
                   'rows_without_score': sum(1 for e in eqs if not e['minimum_score'])}
         if checks['rows_without_score']: issues = issues + ['rows_without_score']
+        if any(e['minimum_score'] and not re.search(r'\d|^[A-E][+-]?$|pass|no\s+credit', e['minimum_score'], re.I) for e in eqs):
+            issues = issues + ['score_cell_not_a_score']  # a header or section label read as a score (GA r1: "Score")
+        if any(re.fullmatch(r'\s*\d{1,3}(?:\s+\d{1,3})+\s*', e['minimum_score'] or '') for e in eqs):
+            issues = issues + ['stacked_cells_review']  # "50 62": two levels printed in one cell (GA r1: Gordon State CLEP)
         if any((e['credits_awarded'] or 0) > 16 for e in eqs):
             issues = issues + ['credits_implausible']  # merged cells ("3" and "6" read as 36)
         numeric = sum(1 for e in eqs if re.fullmatch(r'\s*\d{1,2}(\.\d)?\s*', e['institution_course_equivalent'] or ''))

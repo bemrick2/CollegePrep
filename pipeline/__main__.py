@@ -49,7 +49,7 @@ def main(argv=None):
         import json
         cov = json.loads((run_dir / 'coverage.json').read_text())
         snap = {k: cov[k] for k in ('state', 'academic_year', 'institutions', 'status_order', 'by_category', 'totals',
-                                    'statewide_sources', 'blocked_institutions', 'quality') if k in cov}
+                                    'statewide_sources', 'blocked_institutions', 'challenged_hosts', 'quality') if k in cov}
         snap['run'] = f'pipeline/runs/{state}/{run_dir.name}'
         out = Path('docs/coverage/pipeline') / f'{state}.json'
         out.write_text(json.dumps(snap, indent=1) + '\n'); print(out)

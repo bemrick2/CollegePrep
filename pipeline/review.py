@@ -8,13 +8,14 @@ Outputs in the run directory (all deterministic for a given crawl and repository
 """
 from __future__ import annotations
 import json, re
+from urllib.parse import urlsplit
 from collections import Counter, defaultdict
 from datetime import date
 
 from backend.catalog import ROOT, records
 from backend.store import natural_key
 from . import text as T, topics
-from .crawl import Run
+from .crawl import HostGate, Run
 from .extractors import appeals, catalog, cds, costs, credit, dual, merit, programmap, statepolicy, transfer
 
 EXTRACTORS = [credit.extract, costs.extract, cds.extract, merit.extract, appeals.extract, transfer.extract, dual.extract,
@@ -340,9 +341,39 @@ def coverage(registry, run: Run, cands, existing, today_year):
     state = {'pages_fetched': fetched[state_key], 'fetch_failures': failed[state_key],
              'categories': {cat: len(set(pages[state_key].get(cat, []))) for cat in topics.CATEGORY_DOMAINS}}
     blocked = sorted(r['institution_key'] for r in rows if r['pages_fetched'] and r['fetch_failures'] == r['pages_fetched'])
-    return {'state': registry['state'], 'academic_year': today_year, 'institutions': len(rows),
+    return {'challenged_hosts': challenged_hosts(run, pages, set(blocked)),'state': registry['state'], 'academic_year': today_year, 'institutions': len(rows),
             'status_order': STATUS_ORDER, 'by_category': {c: dict(v) for c, v in by_cat.items()},
             'totals': dict(totals), 'statewide_sources': state, 'blocked_institutions': blocked, 'rows': rows}
+
+
+CHALLENGE_ERRORS = ('blocked_bot_challenge', 'host_challenge_stop', 'blocked_forbidden')
+
+
+def challenged_hosts(run: Run, pages, blocked):
+    """Exception queue for hosts that refused the crawler (bot challenges past the crawl's stop threshold).
+
+    A whole-institution block is reported separately. Here one host (typically an Acalog catalog) refused while
+    the institution's other sites answered, so the gap is listed with the official pages found elsewhere on the
+    institution's sites for the same categories: the alternate sources a reviewer can use. Nothing is retried."""
+    per = defaultdict(Counter); urls = defaultdict(list)
+    for e in run.entries():
+        k = e.get('institution_key'); host = urlsplit(e.get('url', '')).netloc.lower()
+        if k in blocked or not k or k.startswith('state-'): continue
+        err = str(e.get('error') or '')
+        per[(k, host)]['refused' if err in CHALLENGE_ERRORS else 'ok' if e.get('page_file') else 'other'] += 1
+        if err == 'host_challenge_stop': per[(k, host)]['not_attempted'] += 1
+        urls[(k, host)].append(e.get('url', ''))
+    out = []
+    for (k, host), c in sorted(per.items()):
+        if not (c['not_attempted'] or c['refused'] - c['not_attempted'] >= HostGate.CHALLENGE_STOP): continue
+        cats = sorted({t for u in urls[(k, host)] for t in topics.link_topics(u)} | (
+            {'degree_requirements'} if any(topics.is_program_page(u) for u in urls[(k, host)]) else set()))
+        alternates = sorted({u for cat in cats for u in pages[k].get(cat, [])  # the URL itself must name the category
+                             if urlsplit(u).netloc.lower() != host and cat in topics.link_topics(u)})
+        out.append({'institution_key': k, 'host': host, 'refused': c['refused'], 'not_attempted': c['not_attempted'],
+                    'answered': c['ok'], 'categories': cats, 'alternate_sources': alternates[:15],
+                    'alternate_source_count': len(alternates)})
+    return out
 
 
 def quality(run, cands):
@@ -404,6 +435,15 @@ def write_queue(run: Run, registry, cands, verify, cov):
     if cov.get('blocked_institutions'):
         L.extend(['', '## Blocked by the site (every request refused; needs the browser fallback)', ''])
         L.extend(f"- {names.get(k, k)} (`{k}`)" for k in cov['blocked_institutions'])
+    if cov.get('challenged_hosts'):
+        L.extend(['', '## Hosts that refused automated access (challenge threshold reached; never evaded)', '',
+                  'Each needs an alternate official source or the browser fallback. Alternates are pages on the '
+                  "institution's other sites that cover the same categories.", ''])
+        for h in cov['challenged_hosts']:
+            L.append(f"- {names.get(h['institution_key'], h['institution_key'])} — `{h['host']}`: {h['refused']} refused "
+                     f"({h['not_attempted']} not attempted after the stop), {h['answered']} answered; categories "
+                     f"{', '.join(h['categories']) or 'none'}; alternates found: {h['alternate_source_count']}")
+            L.extend(f'  - {u}' for u in h['alternate_sources'][:5])
     L.extend(['', '## Leads: official pages found with no extracted record', ''])
     for r in cov['rows']:
         found = [c for c, s in r['categories'].items() if s == 'source_found']

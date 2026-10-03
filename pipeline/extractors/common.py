@@ -41,7 +41,9 @@ def make(domain, inst_key, academic_year, year_basis, record, evidence, entry, e
             'extractor': extractor, 'pipeline_version': PIPELINE_VERSION,
             'checks': checks or {}, 'issues': list(issues or []) + (
                 # A system site shared by several colleges' seeds may describe the system or another campus.
-                ['shared_site_attribution_review'] if entry.get('shared_host') and inst_key else [])}
+                ['shared_site_attribution_review'] if entry.get('shared_host') and inst_key else []) + (
+                # Records must cite https sources (validate_data); an http-only page needs an https twin or review (GA r1).
+                ['source_not_https'] if not src['url'].startswith('https://') else [])}
 
 
 def resolve_year(page, entry, today_year):
@@ -80,7 +82,8 @@ def professional_source(entry, page) -> bool:
     return bool(hit) and not re.search(r'undergraduate', page.title or '', re.I)
 
 
-INTERNATIONAL = re.compile(r'international[\s_-]*(students?|applicants?|admissions?)|/international(?=/|\s|$|\?)', re.I)
+INTERNATIONAL = re.compile(r'international[\s_-]*(students?|applicants?|admissions?|scholarships?|tuition|waivers?|funding)|'
+                           r'/international(?=/|\s|$|\?)|/isap/', re.I)  # GA r1: UWG /isap/ international waivers
 
 
 def international_source(entry, page):

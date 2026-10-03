@@ -51,6 +51,11 @@ def render():
             L += ['', '| quality | count |', '|---|---|'] + [f'| {k.replace("_", " ")} | {v} |' for k, v in q.items()]
         if s.get('blocked_institutions'):
             L += ['', 'Browser/manual exception queue (sites refuse automated requests): ' + ', '.join(f'`{k}`' for k in s['blocked_institutions'])]
+        if s.get('challenged_hosts'):
+            hosts = s['challenged_hosts']
+            L += ['', f'Hosts that refused after the challenge threshold ({len(hosts)}; alternates found for '
+                  f"{sum(1 for h in hosts if h['alternate_source_count'])}): "
+                  + ', '.join(f"`{h['host']}`" for h in hosts)]
         L.append('')
     out = DIR / 'README.md'
     out.write_text('\n'.join(L) + '\n', encoding='utf-8')
