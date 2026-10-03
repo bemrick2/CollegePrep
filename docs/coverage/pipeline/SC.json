@@ -1,0 +1,153 @@
+{
+ "state": "SC",
+ "academic_year": "2026-27",
+ "institutions": 55,
+ "status_order": [
+  "verified_current",
+  "partially_verified_current",
+  "candidate_ready",
+  "candidate_exception",
+  "source_found",
+  "not_found",
+  "fetch_failed"
+ ],
+ "by_category": {
+  "admissions_tests": {
+   "fetch_failed": 6,
+   "not_found": 3,
+   "source_found": 46
+  },
+  "aid_appeals": {
+   "candidate_exception": 35,
+   "fetch_failed": 6,
+   "not_found": 8,
+   "source_found": 6
+  },
+  "ap_credit": {
+   "candidate_exception": 8,
+   "candidate_ready": 5,
+   "fetch_failed": 6,
+   "not_found": 23,
+   "source_found": 13
+  },
+  "clep_credit": {
+   "candidate_exception": 3,
+   "candidate_ready": 6,
+   "fetch_failed": 6,
+   "not_found": 29,
+   "source_found": 11
+  },
+  "common_data_set": {
+   "fetch_failed": 6,
+   "not_found": 42,
+   "source_found": 7
+  },
+  "cost_of_attendance": {
+   "candidate_exception": 10,
+   "candidate_ready": 3,
+   "fetch_failed": 6,
+   "not_found": 2,
+   "source_found": 34
+  },
+  "degree_requirements": {
+   "candidate_exception": 1,
+   "fetch_failed": 6,
+   "not_found": 18,
+   "source_found": 30
+  },
+  "dual_enrollment": {
+   "candidate_exception": 6,
+   "candidate_ready": 13,
+   "fetch_failed": 6,
+   "not_found": 15,
+   "source_found": 15
+  },
+  "ib_credit": {
+   "candidate_exception": 7,
+   "candidate_ready": 5,
+   "fetch_failed": 6,
+   "not_found": 29,
+   "source_found": 8
+  },
+  "merit_scholarships": {
+   "candidate_exception": 1,
+   "candidate_ready": 5,
+   "fetch_failed": 6,
+   "not_found": 3,
+   "source_found": 40
+  },
+  "residency": {
+   "fetch_failed": 6,
+   "not_found": 16,
+   "source_found": 33
+  },
+  "statewide_articulation": {
+   "fetch_failed": 6,
+   "not_found": 31,
+   "source_found": 18
+  },
+  "transfer_credit": {
+   "candidate_exception": 6,
+   "candidate_ready": 13,
+   "fetch_failed": 6,
+   "not_found": 4,
+   "source_found": 26
+  },
+  "tuition_fees": {
+   "candidate_exception": 21,
+   "candidate_ready": 10,
+   "fetch_failed": 6,
+   "not_found": 2,
+   "source_found": 16
+  }
+ },
+ "totals": {
+  "candidate_exception": 98,
+  "candidate_ready": 60,
+  "fetch_failed": 84,
+  "not_found": 225,
+  "source_found": 303
+ },
+ "statewide_sources": {
+  "categories": {
+   "admissions_tests": 37,
+   "aid_appeals": 4,
+   "ap_credit": 5,
+   "clep_credit": 0,
+   "common_data_set": 0,
+   "cost_of_attendance": 6,
+   "degree_requirements": 0,
+   "dual_enrollment": 5,
+   "ib_credit": 1,
+   "merit_scholarships": 44,
+   "residency": 19,
+   "statewide_articulation": 2,
+   "transfer_credit": 20,
+   "tuition_fees": 40
+  },
+  "fetch_failures": 6,
+  "pages_fetched": 100
+ },
+ "blocked_institutions": [
+  "ipeds-217712",
+  "ipeds-217837",
+  "ipeds-218487",
+  "ipeds-218724",
+  "ipeds-218821",
+  "ipeds-218858"
+ ],
+ "quality": {
+  "ambiguous_years": 107,
+  "blocked_requests": 98,
+  "candidates": 428,
+  "conflicts": 78,
+  "documents": 3221,
+  "extraction_failures": 0,
+  "fetch_errors": 228,
+  "fetches": 3547,
+  "ready": 101,
+  "semantic_review": 141,
+  "stale_sources": 57
+ },
+ "run": "pipeline/runs/SC/2026-10-03"
+}

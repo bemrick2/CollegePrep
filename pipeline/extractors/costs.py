@@ -108,7 +108,8 @@ def column_meaning(header, home=None, private=False):
         # academic year is three terms / nine months; other counts are partial years or include summer.
         'period': ('year' if re.search(r'per\s+year|annual|academic\s+year|fall\s*(&|and)\s*spring|(two|2)\s+semesters|yearly|\byear\b|'
                                        r'^\W*(3|three)\s+(quarters|terms)\W*$|^\W*(9|nine)\s+months?\W*$', h) else
-                   'semester' if re.search(r'per\s+semester|single\s+semester|\bsemester\b|per\s+term|^\W*(1|one)\s+(term|quarter)\W*$', h) else
+                   'semester' if re.search(r'per\s+semester|single\s+semester|\bsemester\b|per\s+term|^\W*(1|one)\s+(term|quarter)\W*$|'
+                                           r'^\W*(fall|spring)(\s+(term|20\d\d))?\W*$', h) else
                    'partial_year' if re.search(r'^\W*(2|4|two|four)\s+(terms|quarters)\W*$|^\W*\d{1,2}\s+months?\W*$|^\W*(3|three)\s+semesters\W*$', h) else None),
         'year': next(iter(years)) if len(years) == 1 else None,
     }
@@ -194,6 +195,16 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
         m['header'] = headers[j] if j < len(headers) else ''
         cols.append(m)
     issues = list(page_issues)
+    # Headerless "TUITION | $8,172 | $8,171 | $16,343" (Benedict): when every row's third value is the sum
+    # of the first two, the columns are two terms and their year.
+    if ncols == 3 and not any(c['period'] for c in cols) and not any(h.strip() for h in headers[:3]):
+        full = [v for _, _, v, _ in keyed if len(v) == 3 and all(x is not None for x in v)]
+        if len(full) >= 3 and all(abs(v[0] + v[1] - v[2]) <= 1 for v in full):
+            cols[0]['period'] = cols[1]['period'] = 'semester'; cols[2]['period'] = 'year'
+    # "Fall | Spring | Total" (Presbyterian, Benedict): the total beside two semesters is the academic year.
+    if sum(c['period'] == 'semester' for c in cols) >= 2:
+        for c in cols:
+            if c['period'] is None and re.fullmatch(r'\W*(annual\s+)?total\W*', c['header'] or '', re.I): c['period'] = 'year'
     if any(c['period'] == 'year' for c in cols):
         keep = [j for j, c in enumerate(cols) if c['period'] not in ('semester', 'partial_year')]
     else:

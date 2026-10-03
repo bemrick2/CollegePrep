@@ -7,12 +7,14 @@ A surviving mutant means a safety rule has no test. Run: python scripts/mutation
 import shutil, subprocess, sys
 
 MUTS = [
+    ('pipeline/extractors/costs.py', "cols[0]['period'] = cols[1]['period'] = 'semester'; cols[2]['period'] = 'year'", "pass"),
+    ('pipeline/extractors/costs.py', "if c['period'] is None and re.fullmatch(r'\\W*(annual\\s+)?total\\W*', c['header'] or '', re.I): c['period'] = 'year'", "pass"),
     ('pipeline/extractors/credit.py', "            course = None  # \"Credit Granted | 12\"", "            pass  # \"Credit Granted | 12\""),
     ('pipeline/extractors/cds.py', "issues.append('zero_counts_with_enrollment')", "pass"),
     ('pipeline/extractors/credit.py', "if score and not re.search(r'\\d', score) and not course: continue", "pass"),
     ('pipeline/extractors/dual.py', "    if floor:  # ", "    if False:  # "),
     ('pipeline/extractors/transfer.py', "if part: v = int(part.group(1))", "pass"),
-    ('pipeline/extractors/merit.py', "r'outside[- ]scholarships?|external[- ]scholarships?|third[- ]party|military|veteran|foundation|/isap/', re.I)", "r'^$', re.I)"),
+    ('pipeline/extractors/merit.py', "r'outside[- ]scholarships?|external[- ]scholarships?|third[- ]party|military|veteran|foundation|/isap/|donor[- ]scholarships?', re.I)", "r'^$', re.I)"),
     ('pipeline/extractors/dual.py', "sat = None if sections else next(", "sat = None if False else next("),
     ('pipeline/extractors/dual.py', "if named or not m: return named", "if not m: return named"),
     ('pipeline/extractors/credit.py', "        course = pick_course()\n        body = rows[1:]", "        body = rows[1:]"),

@@ -189,7 +189,7 @@ def strip_tracking(query: str) -> str:
 def canonical_url(url: str) -> str:
     from urllib.parse import urlsplit, urlunsplit
     p = urlsplit(url)
-    return urlunsplit((p.scheme, p.netloc, p.path, strip_tracking(p.query), p.fragment))
+    return urlunsplit((p.scheme, p.netloc, p.path, strip_tracking(p.query), ''))  # no fragments (Erskine '#story')
 
 
 def year_labels(text: str):
