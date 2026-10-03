@@ -23,7 +23,9 @@ SCOPED_GRADE = re.compile(r'pass\s*/\s*fail|pass-fail|\bP/F\b|satisfactory/unsat
                           # the conditions of an outgoing block-transfer guarantee (River Parishes)
                           r'developmental|(?:for|exempt\s+the)\s+placement|placement\s+(?:assessment|test|exam)|math(?:ematics)?\s+and\s+science|block\s+transfer|'
                           # AR r1: one required course (UACCB) and prerequisites (UACCM); "D's accepted in some majors" (Clayton) keeps the general rule
-                          r'this\s+course|prerequisite', re.I)
+                          r'this\s+course|prerequisite|'
+                          # OK r1: an admission GPA standard ("average grade of C", Cameron/NSU/ECU) or a general-education rule (USAO)
+                          r'average\s+grade|general\s+education', re.I)
 RESIDENCE = re.compile(r'(?:(?:last|final)\s+(\d{2})\s+(?:semester\s+)?(?:credit\s+)?hours'
                        r'|(?:at\s+least|minimum\s+of|a\s+minimum\s+of)\s+(\d{2})\s+(?:semester\s+)?(?:credit\s+)?hours'
                        r'(?=.{0,80}(?:in\s+residence|at\s+the\s+university|at\s+the\s+college|through\s+the\s+university|earned\s+at)))', re.I)
