@@ -128,12 +128,21 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
       </div>
 
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-        <Kpi
-          label={`Estimated ${EXAM_NAME[exam]}`}
-          value={est?.composite != null ? String(est.composite) : '—'}
-          sub={est ? `Practice estimate · target ${o.plan?.target_score ?? '—'}` : 'Needs calibrated scoring'}
-          icon={<Target size={18} />}
-        />
+        {official ? (
+          <Kpi
+            label={`${official.score_source === 'official' ? 'Official' : 'Self-reported'} ${EXAM_NAME[exam]}`}
+            value={String(official.composite)}
+            sub={`${formatShortDate(official.test_date)} · target ${o.plan?.target_score ?? '—'}`}
+            icon={<Target size={18} />}
+          />
+        ) : (
+          <Kpi
+            label={`Target ${EXAM_NAME[exam]}`}
+            value={o.plan?.target_score != null ? String(o.plan.target_score) : '—'}
+            sub={est ? `Practice estimate ${est.composite}` : 'No score estimate yet (not calibrated)'}
+            icon={<Target size={18} />}
+          />
+        )}
         <Kpi label="Weekly goal" value={goal ? `${o.week.questions_submitted}/${goal}` : String(o.week.questions_submitted)} sub={goal ? `${Math.round((100 * o.week.questions_submitted) / goal)}% complete` : 'No goal set'} icon={<Compass size={18} />} bar={goal ? o.week.questions_submitted / goal : undefined} />
         <Kpi label="Streak" value={`${o.streak.current_streak} days`} sub={`Longest ${o.streak.longest_streak}`} icon={<Flame size={18} />} />
         <Kpi
@@ -194,7 +203,7 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
       </div>
 
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-        <PracticeIndicators history={o.history} />
+        <PracticeIndicators history={o.history} who={name} />
         <BenchmarkStatus history={o.benchmarks} forGuardian />
       </div>
 

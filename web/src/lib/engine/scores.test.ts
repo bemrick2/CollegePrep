@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import type { AttemptRecord } from '../data/types'
-import { MIN_FOR_SCORE, threeScores } from './scores'
+import { MIN_FOR_SCORE, priorScores, threeScores } from './scores'
 
 const now = new Date('2026-10-02T12:00:00Z')
 let id = 0
@@ -43,5 +43,14 @@ describe('threeScores', () => {
       ...Array.from({ length: 10 }, () => att({ skipped: true, is_correct: null })),
     ]
     expect(threeScores(h, now).knowledge.n).toBe(0)
+  })
+
+  it('prior window is the 28 days before, with no overlap', () => {
+    const h = [
+      ...Array.from({ length: 10 }, () => att({ submitted_at: '2026-09-20T00:00:00Z', is_correct: true })),
+      ...Array.from({ length: 10 }, () => att({ submitted_at: '2026-08-20T00:00:00Z', is_correct: false })),
+    ]
+    expect(threeScores(h, now).knowledge.value).toBe(100)
+    expect(priorScores(h, now).knowledge.value).toBe(0)
   })
 })

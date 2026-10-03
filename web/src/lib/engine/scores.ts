@@ -27,8 +27,12 @@ const pct = (num: number, den: number) => Math.round((100 * num) / den)
  * answers needed no hint. Each part needs MIN_FOR_SCORE attempts; the score uses the parts that qualify.
  */
 export function threeScores(history: AttemptRecord[], now: Date = new Date()): ThreeScores {
-  const since = now.getTime() - SCORE_WINDOW_DAYS * 86_400_000
-  const answered = history.filter((a) => !a.skipped && a.is_correct !== null && new Date(a.submitted_at).getTime() >= since)
+  const until = now.getTime()
+  const since = until - SCORE_WINDOW_DAYS * 86_400_000
+  const answered = history.filter((a) => {
+    const t = new Date(a.submitted_at).getTime()
+    return !a.skipped && a.is_correct !== null && t >= since && t <= until
+  })
 
   const knowledge: Score = { n: answered.length, value: answered.length >= MIN_FOR_SCORE ? pct(answered.filter((a) => a.is_correct).length, answered.length) : null }
 
@@ -49,4 +53,9 @@ export function threeScores(history: AttemptRecord[], now: Date = new Date()): T
     value: parts.length ? Math.round((100 * parts.reduce((s, x) => s + x, 0)) / parts.length) : null,
   }
   return { knowledge, pacing, strategy }
+}
+
+/** The same indicators for the previous window, for "change vs the 4 weeks before". */
+export function priorScores(history: AttemptRecord[], now: Date = new Date()): ThreeScores {
+  return threeScores(history, new Date(now.getTime() - SCORE_WINDOW_DAYS * 86_400_000))
 }

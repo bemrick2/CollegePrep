@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom'
-import { useApp, useAsync } from '../../lib/app'
 import type { CostRecord, InstitutionComparison } from '../../lib/data/types'
-import { readSavedSchools } from '../../lib/savedSchools'
+import { useSavedComparison, COMPARE_YEAR } from '../colleges/useSavedComparison'
 import { ArrowRight, Info, School, Wallet } from '../../components/icons'
 import { ButtonLink, Card, CardHeader, Pill } from '../../components/ui'
 
-const YEAR = '2026-27'
-const YEARS: Record<'two_year' | 'four_year', number> = { two_year: 2, four_year: 4 }
+const YEAR = COMPARE_YEAR
+const YEARS: Partial<Record<string, number>> = { two_year: 2, four_year: 4 }
 const usd = (n: number) => n.toLocaleString(undefined, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 })
 const RES_ORDER: Record<string, number> = { in_district: 0, in_state: 1, not_applicable: 2, out_of_state: 3 }
 const RES_LABEL: Record<string, string> = { in_district: 'in-district', in_state: 'in-state', not_applicable: 'all students', out_of_state: 'out-of-state' }
@@ -17,7 +16,7 @@ export interface SchoolOutlook {
   name: string
   annual: number | null
   residency: string | null
-  level: 'two_year' | 'four_year' | null
+  level: 'two_year' | 'four_year' | 'less_than_two_year' | null
   /** Published annual cost x years to degree; null when the level is unknown (no guessing). */
   degreeTotal: number | null
   sourceUrl: string | null
@@ -40,7 +39,7 @@ export function outlookFor(c: InstitutionComparison): SchoolOutlook {
     annual: cost?.total_cost_of_attendance ?? null,
     residency: cost?.residency ?? null,
     level,
-    degreeTotal: cost?.total_cost_of_attendance != null && level ? Math.round(cost.total_cost_of_attendance * YEARS[level]) : null,
+    degreeTotal: cost?.total_cost_of_attendance != null && level && YEARS[level] ? Math.round(cost.total_cost_of_attendance * YEARS[level]!) : null,
     sourceUrl: cost?.source_url ?? null,
     levers: Object.keys(LEVER_LABEL).filter((k) => kinds.has(k)).map((k) => LEVER_LABEL[k]!),
     meritAwards: ((c.domains.awards ?? []) as { award_type?: string }[]).filter((a) => (a.award_type ?? '').includes('merit')).length,
@@ -53,9 +52,8 @@ export function outlookFor(c: InstitutionComparison): SchoolOutlook {
  * and labelled as an example scenario until a verified transfer/articulation path exists for the pair.
  */
 export function CostOutlook({ showAlternative = false }: { showAlternative?: boolean }) {
-  const { source } = useApp()
-  const keys = readSavedSchools()
-  const cmp = useAsync(() => (keys.length ? source.compareInstitutions(keys, YEAR) : Promise.resolve([] as InstitutionComparison[])), [source, keys.join(',')])
+  const cmp = useSavedComparison(YEAR)
+  const keys = cmp.keys
   const rows = (cmp.data ?? [])
     .filter((c) => c.found)
     .map(outlookFor)

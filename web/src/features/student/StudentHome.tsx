@@ -122,7 +122,7 @@ function HomeBody({ name, o }: { name: string; o: StudentOverview }) {
             ) : (
               <>
                 <div className="display text-5xl font-semibold text-ink-3">—</div>
-                <p className="mt-1 text-xs text-ink-3">Score estimates appear once a calibrated scoring model is connected. Your benchmark breakdown shows where you stand today.</p>
+                <p className="mt-1 text-xs text-ink-3">No score estimate yet: turning practice into an {EXAM_NAME[exam]} score needs a calibrated question bank, and we won't guess. Your practice indicators and benchmarks show where you stand.</p>
               </>
             )}
           </div>

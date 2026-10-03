@@ -23,7 +23,8 @@ describe('app flows', () => {
     renderAt('/student', new DemoSource(sampleFamily('student')))
     expect(await screen.findByRole('heading', { name: 'Maya' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /About 10 minutes|Done for today/ })).toBeInTheDocument()
-    expect(screen.getByText(/Practice estimate — not an official score/)).toBeInTheDocument()
+    // No scaled-score estimate is produced (CR-3), so none is shown.
+    expect(screen.getByText(/No score estimate yet/)).toBeInTheDocument()
   })
 
   it('practice: answer with confidence, then see explanation tabs', async () => {
