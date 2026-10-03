@@ -819,6 +819,35 @@ class CrawlTests(unittest.TestCase):
         self.assertTrue(g.stopped('catalog.example.edu'))
         self.assertFalse(g.stopped('www.example.edu'))
 
+    def test_strong_document_links_go_one_level_deeper(self):
+        """Regression (TN r5, Rhodes): the 2026-27 AP/IB equivalency PDF was linked only from a depth-3 catalog page."""
+        import hashlib
+        from pipeline.crawl import crawl_institution
+        b = 'https://www.example.edu'
+        site = {b + '/': '<a href="/a/ap-credit.html">AP credit</a>',
+                b + '/a/ap-credit.html': '<a href="/b/ap-credit.html">AP credit</a>',
+                b + '/b/ap-credit.html': '<a href="/c/ap-credit.html">AP credit</a>',
+                b + '/c/ap-credit.html': ('<a href="/files/2026-27_AP_IB_Equivalencies.pdf">AP and IB equivalencies 2026-27</a>'
+                                          '<a href="/d/ap-credit.html">AP credit</a><a href="/files/ap-note.pdf">AP</a>'
+                                          '<a href="/hum/240">Humanities 240</a>')}
+
+        class Fake:
+            def fetch(self, url):
+                html = site.get(url, '%PDF-1.4 nothing')
+                body = f'<html><head><title>AP credit</title></head><body>{html}</body></html>'.encode()
+                return {'status': 200, 'final_url': url, 'content_type': 'text/html' if url in site else 'application/pdf',
+                        'sha256': hashlib.sha256(body + url.encode()).hexdigest()}, body
+        inst = {'institution_key': 'ipeds-1', 'domain': 'example.edu', 'allowed_domains': ['example.edu'],
+                'seeds': {'website': b + '/'}, 'existing_sources': []}
+        run = Run(self.tmp / 'deep')
+        crawl_institution(inst, run, Fake(), budget=20, max_depth=3, log=lambda *_: None)
+        urls = {e['url']: e['depth'] for e in run.entries()}
+        self.assertEqual(urls.get(b + '/files/2026-27_AP_IB_Equivalencies.pdf'), 4)
+        self.assertNotIn(b + '/d/ap-credit.html', urls)   # ordinary pages keep the depth limit
+        self.assertNotIn(b + '/files/ap-note.pdf', urls)  # and so do weak documents
+        self.assertEqual(topics.link_score('https://catalog.rhodes.edu/hum/240', 'HUM 240 Credit'), -1)
+        self.assertEqual(topics.link_score('https://catalog.example.edu/preview_course_nopop.php?catoid=3&coid=9', 'ENGL 1010'), -1)
+
     def test_courseleaf_program_links(self):
         self.assertTrue(topics.is_program_page('https://catalog.wku.edu/undergraduate/ogden/biology/biology-bs/'))
         self.assertFalse(topics.is_program_page('https://catalog.wku.edu/undergraduate/ogden/biology/biology-bs/biology-bs.pdf'))

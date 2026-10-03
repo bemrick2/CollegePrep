@@ -216,6 +216,13 @@ def requote(url: str) -> str:
                        quote(p.query, safe="=&%:@!$'()*+,;/?~-._"), ''))
 
 
+DOC_EXTRA_SCORE = 25
+
+
+def is_document_url(url: str) -> bool:
+    return urlsplit(url).path.lower().endswith(('.pdf', '.xlsx'))
+
+
 def crawl_institution(inst, run: Run, fetcher: Fetcher, budget=45, max_depth=3, log=print, program_budget=40):
     key = inst['institution_key']
     allowed = set(inst.get('allowed_domains') or [inst.get('domain')]) - {None}
@@ -226,7 +233,10 @@ def crawl_institution(inst, run: Run, fetcher: Fetcher, budget=45, max_depth=3, 
     def push(url, score, depth, via):
         url = requote(url.split('#')[0])
         host = urlsplit(url).netloc
-        if (not url.startswith('https://') and not url.startswith('http://')) or url in queued or depth > max_depth: return
+        if (not url.startswith('https://') and not url.startswith('http://')) or url in queued: return
+        # A strong document link (a current-year policy PDF, score >= DOC_EXTRA_SCORE) may go one level deeper:
+        # TN r5 found Rhodes' 2026-27 AP/IB equivalency PDF only on a depth-3 catalog page.
+        if depth > max_depth and not (depth == max_depth + 1 and score >= DOC_EXTRA_SCORE and is_document_url(url)): return
         if not in_host_scope(inst, host) or score < 0: return
         queued.add(url); heapq.heappush(frontier, (-score, depth, url, via))
 
@@ -235,7 +245,7 @@ def crawl_institution(inst, run: Run, fetcher: Fetcher, budget=45, max_depth=3, 
     for url in inst.get('existing_sources', []):
         push(url, 900, 0, 'existing_source')
     for e in run.entries():  # Resume: re-expand links from pages already stored for this institution.
-        if e.get('institution_key') == key and e.get('page_file') and e.get('depth', 0) < max_depth:
+        if e.get('institution_key') == key and e.get('page_file') and e.get('depth', 0) <= max_depth:
             _, d = run.load_page(e['page_file'])
             for url, score in d.get('links', []): push(url, score, e['depth'] + 1, e['url'])
 

@@ -7,6 +7,9 @@ A surviving mutant means a safety rule has no test. Run: python scripts/mutation
 import shutil, subprocess, sys
 
 MUTS = [
+    ('pipeline/crawl.py', "and score >= DOC_EXTRA_SCORE and is_document_url(url)", "and score >= 0"),
+    ('pipeline/crawl.py', "if depth > max_depth and not (depth == max_depth + 1", "if depth > max_depth and not (False"),
+    ('pipeline/topics.py', "or COURSE_PAGE.search(url): return -1", ": return -1"),
     ('pipeline/crawl.py', "if not self.allowed(url):", "if False:"),
     ('pipeline/promote.py', "RANK.get(record['verification_status'], 0) < 3 or ", "False and "),
     ('pipeline/review.py', "c['issues'].append('conflicts_with_verified_record')", "pass"),
