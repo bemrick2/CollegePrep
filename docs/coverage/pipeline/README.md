@@ -70,7 +70,7 @@ Institutions in scope: **85** · crawled: **76** · blocked by site: **9** · ru
 | extraction failures | 0 |
 | fetch errors | 663 |
 | fetches | 5316 |
-| ready | 104 |
+| ready | 105 |
 | semantic review | 151 |
 | stale sources | 65 |
 
@@ -186,6 +186,43 @@ Institutions in scope: **41** · crawled: **38** · blocked by site: **3** · ru
 | stale sources | 77 |
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-208725`, `ipeds-209250`, `ipeds-209940`
+
+## SC — 2026-27
+
+Institutions in scope: **55** · crawled: **49** · blocked by site: **6** · run: `pipeline/runs/SC/2026-10-03`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 0 (0%) | 0 | 31 (56%) | 47 (85%) | 2 | 6 |
+| cost_of_attendance | 0 (0%) | 0 | 13 (24%) | 47 (85%) | 2 | 6 |
+| admissions_tests | 0 (0%) | 0 | 0 (0%) | 46 (84%) | 3 | 6 |
+| common_data_set | 0 (0%) | 0 | 0 (0%) | 7 (13%) | 42 | 6 |
+| merit_scholarships | 0 (0%) | 0 | 6 (11%) | 46 (84%) | 3 | 6 |
+| ap_credit | 0 (0%) | 0 | 13 (24%) | 26 (47%) | 23 | 6 |
+| clep_credit | 0 (0%) | 0 | 9 (16%) | 20 (36%) | 29 | 6 |
+| ib_credit | 0 (0%) | 0 | 12 (22%) | 20 (36%) | 29 | 6 |
+| dual_enrollment | 0 (0%) | 0 | 19 (35%) | 34 (62%) | 15 | 6 |
+| transfer_credit | 0 (0%) | 0 | 19 (35%) | 45 (82%) | 4 | 6 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 18 (33%) | 31 | 6 |
+| residency | 0 (0%) | 0 | 0 (0%) | 33 (60%) | 16 | 6 |
+| degree_requirements | 0 (0%) | 0 | 1 (2%) | 31 (56%) | 18 | 6 |
+| aid_appeals | 0 (0%) | 0 | 35 (64%) | 41 (75%) | 8 | 6 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 107 |
+| blocked requests | 98 |
+| candidates | 428 |
+| conflicts | 78 |
+| documents | 3221 |
+| extraction failures | 0 |
+| fetch errors | 228 |
+| fetches | 3547 |
+| ready | 101 |
+| semantic review | 141 |
+| stale sources | 57 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-217712`, `ipeds-217837`, `ipeds-218487`, `ipeds-218724`, `ipeds-218821`, `ipeds-218858`
 
 ## TN — 2026-27
 

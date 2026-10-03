@@ -124,6 +124,8 @@ transportation, personal) or the total row is labelled cost of attendance. A tot
 room and board alone is stored as `total_direct_cost`. When components are printed per semester and
 the annual total separately, the annual printed total is used and per-semester rows stay in
 `components` only.
+In a "Fall | Spring | Total" table the Total column is the academic year; in a headerless table whose
+third column is the sum of the first two in every row, the third column is the year.
 
 ## Sites that refuse automated requests
 Seven Tennessee schools return 403 or bot challenges to every request from Actions runners. The

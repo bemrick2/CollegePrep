@@ -301,6 +301,19 @@ last 30 hours in residence at the university.</p>"""
         self.assertEqual([(e['institution_course_equivalent'], e['credits_awarded']) for e in c['record']['equivalencies']][:2],
                          [('POLS 1030', 3), ('BIOL 1110', 8)])
 
+    def test_fall_spring_total_columns(self):
+        """SC r1 (Presbyterian, Benedict): "Fall | Spring | Total" - the total column is the academic year."""
+        html = ('<title>Tuition and Fees 2026-27</title><h3>Residential Students</h3><table><tr><th>Direct Costs</th><th>Fall</th><th>Spring</th><th>Total</th></tr>'
+                '<tr><td>Tuition</td><td>22,180</td><td>22,180</td><td>44,360</td></tr><tr><td>Fees</td><td>1,600</td><td>1,600</td><td>3,200</td></tr>'
+                '<tr><td>Housing</td><td>3,572</td><td>3,572</td><td>7,144</td></tr><tr><td>Total</td><td>27,352</td><td>27,352</td><td>54,704</td></tr></table>')
+        [c] = costs.extract({**INST, 'control': 'private_nonprofit'}, ENTRY, T.parse_html(html), '2026-27')
+        self.assertEqual((c['record']['tuition'], c['record']['mandatory_fees'], c['record']['cost_period']), (44360, 3200, 'academic_year'))
+        html = ('<title>Tuition and Fees 2026-2027</title><h3>Boarding</h3><table><caption>BOARDING (ON-CAMPUS)</caption>'
+                '<tr><td>TUITION</td><td>$8,172</td><td>$8,171</td><td>$16,343</td></tr><tr><td>GENERAL FEES</td><td>$1,061</td><td>$1,061</td><td>$2,122</td></tr>'
+                '<tr><td>TECHNOLOGY FEE</td><td>$300</td><td>$300</td><td>$600</td></tr><tr><td>FOOD &amp; HOUSING</td><td>$3,726</td><td>$3,726</td><td>$7,452</td></tr></table>')
+        [c] = costs.extract({**INST, 'control': 'private_nonprofit'}, ENTRY, T.parse_html(html), '2026-27')
+        self.assertEqual(c['record']['tuition'], 16343)  # headerless: the column that sums the other two is the year
+
     def test_cost_tables_per_arrangement_and_enrollment(self):
         """AL r1: Enterprise State prints one table per living arrangement (named in the row-label header) and a
         less-than-half-time table; Alabama State prints two 'Subtotal' rows."""
@@ -435,6 +448,7 @@ last 30 hours in residence at the university.</p>"""
                          'https://lipscomb.edu/a/transferring-credit')
         self.assertEqual(requote('https://x.edu/p.php?catoid=3&navoid=9'), 'https://x.edu/p.php?catoid=3&navoid=9')
         self.assertEqual(T.canonical_url('https://x.edu/p?_gl=1&id=2'), 'https://x.edu/p?id=2')
+        self.assertEqual(T.canonical_url('https://www.erskine.edu/admissions-aid/#story'), 'https://www.erskine.edu/admissions-aid/')
 
     def test_ga_r1_review_regressions(self):
         """Defects found reviewing Georgia run 2026-10-03."""
@@ -471,7 +485,7 @@ last 30 hours in residence at the university.</p>"""
         # Agnes Scott / Georgia Southern / WGTC: other organizations' award lists; Thomas University: "+Scholarships" heading.
         table = ('<h2>National Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th><th>Eligibility</th></tr><tr><td>Coca-Cola Scholars</td><td>$20,000</td><td>Seniors</td></tr>'
                  '<tr><td>Ron Brown Scholar Program</td><td>$10,000</td><td>Seniors</td></tr></table>')
-        for url in ('https://www.example.edu/aid/outside-scholarships.html', 'https://www.example.edu/military-scholarships', 'https://www.example.edu/foundation/foundation-scholarship/'):
+        for url in ('https://www.example.edu/aid/outside-scholarships.html', 'https://www.example.edu/military-scholarships', 'https://www.example.edu/foundation/foundation-scholarship/', 'https://www.example.edu/aid/scholarships/donor-scholarships/index.html'):
             self.assertEqual(merit.extract(INST, {**ENTRY, 'url': url}, T.parse_html('<title>Scholarships</title>' + table), '2026-27'), [])
         self.assertEqual(len(merit.extract(INST, ENTRY, T.parse_html('<title>Scholarships</title>' + table), '2026-27')), 2)  # the same table elsewhere is kept
         [c] = merit.extract(INST, ENTRY, T.parse_html('<title>On Campus Students</title><h3>+Scholarships</h3><table><tr><th>Unweighted GPA</th><th>Scholarship</th></tr>'
