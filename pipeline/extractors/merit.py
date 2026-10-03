@@ -22,7 +22,8 @@ NOT_NAME = re.compile(r'^[\d<>=.\s/+%$,-]*$|tuition|\bfees?\b|per credit|per cou
 # from an academic-standards table).
 NOT_AWARD_NAME = re.compile(r'\bpell\b|supplemental\s+educational\s+opportunity|\bseog\b|work[- ]study|\bloans?\b|\bplus\b|'
                             r'college\s+access\s+program|counselor|director|coordinator|specialist|\bassistant\b|officer|advisor|'
-                            r'^(fewer|more|less)\s+than\b|^over\s+\d|\bcredit\s+hours?\b', re.I)
+                            r'^(fewer|more|less)\s+than\b|^over\s+\d|\bcredit\s+hours?\b|'
+                            r'^\W*(books?|supplies|transportation|personal\s+expenses?|loan\s+fees?|room|board|food)\b', re.I)  # OR: COA rows
 NOT_MERIT_PAGE = re.compile(r'academic[- ]standards|probation|satisfactory[- ]academic[- ]progress|financial[- ]aid[- ]staff|'
                             r'\bstaff\b|directory|meet[- ]the[- ]team|our[- ]team', re.I)
 HEADER_WORDS = re.compile(r'scholarship|award|merit|name|level|tier|amount|value|gpa|act\b|sat\b|criteria|requirement', re.I)
@@ -118,7 +119,7 @@ def _grid_award(t, header, body, context):
 
 
 def extract(inst, entry, page, today_year):
-    if not page.tables or common.professional_source(entry, page): return []
+    if not page.tables or common.professional_source(entry, page) or common.international_source(entry, page): return []
     if not SCHOLARSHIP_CONTEXT.search(page.title + ' ' + ' '.join(page.headings[:6]) + ' ' + entry.get('url', '')):
         return []
     if NOT_MERIT_PAGE.search(page.title + ' ' + entry.get('url', '')): return []

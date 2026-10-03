@@ -398,6 +398,52 @@ minimum grade point average (GPA) of 3.0 are eligible for dual enrollment. Out-o
         g = b'<html><head><title>Glossary | Dual Credit</title></head><body><p>Grade point average: GPA of 2.0 (a C average) on a 4.0 scale.</p></body></html>'
         self.assertEqual(dual.extract(INST, {**ENTRY, 'url': 'https://x.edu/dual-credit/glossary.aspx'}, T.parse_html(g, 'https://x'), '2026-27'), [])
 
+    def test_or_regressions_address_cost_rows_and_non_programs(self):
+        """Regression (OR): Lewis & Clark title address -> in_state; Clackamas COA rows as awards; UO/SOCC non-programs."""
+        self.assertIsNone(costs.residency('oregon', 'OR', private=True))
+        self.assertEqual(costs.residency('oregon residents', 'OR'), 'in_state')
+        self.assertTrue(merit.NOT_AWARD_NAME.search('Books/Supplies'))
+        self.assertTrue(merit.NOT_AWARD_NAME.search('Personal expenses (entertainment, clothes, etc.)'))
+        self.assertFalse(merit.NOT_AWARD_NAME.search('Presidential Scholarship'))
+        for title in ("Bachelor's Degree Requirements | University of Oregon Academic Catalog", 'Oregon Transfer Module (OTM) < SOCC'):
+            html = ('<html><head><title>%s</title></head><body><p>2026-2027 Catalog</p><h2>Courses</h2><table><caption>Course List</caption>'
+                    '<tr><th>Code</th><th>Title</th><th>Hours</th></tr><tr><td>WR 121</td><td>Composition</td><td>4</td></tr></table></body></html>' % title)
+            self.assertEqual(catalog.extract(INST, ENTRY, T.parse_html(html.encode(), 'https://x'), '2026-27'), [])
+
+    def test_quarter_term_columns_and_arrangement_vocabulary(self):
+        """Regression (OR: OSU '3 Terms | 1 Term', community colleges '1-4 Terms', Blue Mountain 'w/parent')."""
+        cm = costs.column_meaning
+        self.assertEqual([cm(h)['period'] for h in ('3 Terms', '1 Term', '2 terms', '4 Terms', '9 Months', '3 Months')],
+                         ['year', 'semester', 'partial_year', 'partial_year', 'year', 'partial_year'])
+        self.assertEqual(cm('Dependent (living w/parent)')['arrangement'], 'with_parents_or_family')
+        self.assertEqual(cm('Not living w/parents (dependent and independent)')['arrangement'], 'off_campus_not_with_family')
+        self.assertEqual(cm('Living in Student Housing')['arrangement'], 'on_campus')
+        self.assertEqual(cm('Living in Own House/Apartment')['arrangement'], 'off_campus_not_with_family')
+        self.assertIsNone(cm('Dependent Student')['arrangement'])  # dependency status is not a living arrangement
+        html = ('<html><head><title>Cost of Attendance</title></head><body><h2>2026-2027 Estimated Resident Undergraduate</h2><table>'
+                '<tr><th></th><th>3 Terms</th><th>1 Term</th></tr><tr><td>Tuition and Fees</td><td>$13,000</td><td>$4,333</td></tr>'
+                '<tr><td>Living Expenses (Food and Housing)</td><td>$15,000</td><td>$5,000</td></tr>'
+                '<tr><td>Books, Course Materials, Supplies, and Equipment</td><td>$1,200</td><td>$400</td></tr>'
+                '<tr><td>Estimated TOTAL</td><td>$29,200</td><td>$9,733</td></tr></table></body></html>')
+        (c,) = costs.extract({**INST, 'state': 'OR'}, ENTRY, T.parse_html(html.encode(), 'https://x'), '2026-27')
+        self.assertEqual((c['record']['residency'], c['record']['total_cost_of_attendance']), ('in_state', 29200))
+        self.assertNotIn('arrangement_unlabeled', c['issues'])
+
+    def test_international_pages_and_billable_subtotals(self):
+        """Regression (OR: PCC/Chemeketa international budgets conflicting with domestic COA; OSU billable subtotals)."""
+        from pipeline.extractors import common
+        P = type('P', (), {'title': ''})()
+        self.assertTrue(common.international_source({'url': 'https://www.pcc.edu/international-students/tuition/'}, P))
+        self.assertTrue(common.international_source({'url': 'https://www.centre.edu/admission-aid/international-applicants'}, P))
+        self.assertFalse(common.international_source({'url': 'https://x.edu/programs/international-business-ba/'}, P))
+        html = ('<html><head><title>Cost of Attendance</title></head><body><h2>2026-2027 Estimated Resident Undergraduate</h2><table>'
+                '<tr><th></th><th>3 Terms</th></tr><tr><td>Tuition and Fees</td><td>$13,000</td></tr><tr><td>Estimated Billable Cost Total</td><td>$13,000</td></tr>'
+                '<tr><td>Living Expenses (Food and Housing)</td><td>$15,000</td></tr><tr><td>Books, Course Materials, Supplies, and Equipment</td><td>$1,200</td></tr>'
+                '<tr><td>Estimated Non-Billable Cost Total</td><td>$16,200</td></tr><tr><td>Estimated TOTAL</td><td>$29,200</td></tr></table></body></html>')
+        (c,) = costs.extract({**INST, 'state': 'OR'}, ENTRY, T.parse_html(html.encode(), 'https://x'), '2026-27')
+        self.assertEqual(c['record']['total_cost_of_attendance'], 29200)
+        self.assertNotIn('components_do_not_reconcile', c['issues'])
+
     def test_two_documents_with_the_same_record_key_are_both_compared(self):
         a = credit.extract(INST, ENTRY, page('ap.html'), '2026-27')[0]
         other = {**ENTRY, 'url': 'https://example.edu/y', 'sha256': 'ef' * 32}
@@ -500,6 +546,17 @@ do not guarantee admission there. These Transfer Pathways have been effective be
         self.assertTrue(registry.in_host_scope(st, 'kctcs.edu'))
         self.assertFalse(registry.in_host_scope(st, 'ashland.kctcs.edu'))
         self.assertFalse(registry.in_host_scope(st, 'catalog.ashland.kctcs.edu'))
+
+    def test_state_handbook_chapters_keep_distinct_keys(self):
+        """Regression (NV): every NSHE handbook chapter is titled 'Title 4 - Codification ...'; all became key 'title-4'."""
+        sinst = {'institution_key': 'state-NV', 'state': 'NV', 'control': 'state'}
+        html = (b'<html><head><title>Title 4 - Codification of Board Policy Statements</title></head><body><p>Chapter 15</p>'
+                b'<p>REGULATIONS FOR DETERMINING RESIDENCY AND TUITION CHARGES</p>'
+                b'<p>A student must provide documentation to support residency classification at the request of an institution.</p></body></html>')
+        url = 'https://nshe.nevada.edu/Handbook/title4//T4-CH15%20Regulations%20for%20Determining%20Residency.pdf'
+        (c,) = statepolicy.extract(sinst, {**ENTRY, 'url': url}, T.parse_html(html, 'https://x'), '2026-27')
+        self.assertEqual(c['record']['policy_kind'], 'tuition_residency')
+        self.assertEqual(c['record']['policy_key'], 't4-ch15-regulations-for-determining-residency')
 
     def test_state_policy_promotion_path(self):
         tmp = Path(tempfile.mkdtemp())

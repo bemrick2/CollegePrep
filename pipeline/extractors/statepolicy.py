@@ -9,7 +9,7 @@ Every candidate is `semantic_review_required`: grouping sentences by keywords is
 """
 from __future__ import annotations
 import re
-from urllib.parse import urlsplit
+from urllib.parse import unquote, urlsplit
 
 from . import common
 
@@ -21,7 +21,7 @@ KINDS = [  # most specific first: a dual-admissions page lives under an "articul
     ('dual_enrollment', r'dual[\s_-]*(enrollment|credit)\s+policy|dual[\s_-]*(enrollment|credit)\b(?!.*(report|success|dashboard))'),
     ('statewide_articulation', r'transfer\s+pathway|articulation|common\s+course|reverse\s+transfer|transfer\s+maps?\b|'
                                r'statewide\s+transfer|transfer\s+agreements?|general\s+education\s+(transfer|certification)|transfer\s+policy'),
-    ('tuition_residency', r'residen(cy|t)\s+(classification|status|for\s+tuition|determination)|classification\s+of\s+students|in-state\s+tuition|out-of-state\s+tuition|domicile|determination\s+of\s+residency'),
+    ('tuition_residency', r'residen(cy|t)\s+(classification|status|for\s+tuition|determination)|classification\s+of\s+students|in-state\s+tuition|out-of-state\s+tuition|domicile|determination\s+of\s+residency|determining\s+residency|residency\s+(and|for)\s+tuition'),
 ]
 ROLES = [
     ('exceptions', r'(does|do|will)\s+not\s+guarantee|not\s+guaranteed|competitive|may\s+(require|have\s+additional)|except|however|not\s+every'),
@@ -58,9 +58,9 @@ def extract(inst, entry, page, today_year):
     year, basis, issues = common.resolve_year(page, entry, today_year)
     title = re.split(r'\s+[|–-]\s+', page.title)[0].strip() or kind.replace('_', ' ')
     key = slug(title)
-    if len(key) < 6 or re.fullmatch(r'[\d-]+', key) or key in {slug(x) for x in urlsplit(entry.get('url', '')).netloc.split('.')}:
+    if len(key) < 6 or re.fullmatch(r'[\d-]+', key) or re.match(r'(title|chapter|section|part|volume)-\d+$', key) or key in {slug(x) for x in urlsplit(entry.get('url', '')).netloc.split('.')}:
         # Generic titles ("KHEAA", "2026-2027", none) do not name a policy; the document's own name does.
-        doc = re.sub(r'\.(pdf|html?|aspx?|faces|php)$', '', urlsplit(entry.get('url', '')).path.rstrip('/').rsplit('/', 1)[-1], flags=re.I)
+        doc = re.sub(r'\.(pdf|html?|aspx?|faces|php)$', '', unquote(urlsplit(entry.get('url', '')).path.rstrip('/').rsplit('/', 1)[-1]), flags=re.I)
         key = slug(doc) or kind.replace('_', '-')
     rec = {'state': state, 'policy_kind': kind, 'policy_key': key, 'title': title,
            'summary': (grouped.get('guarantees') or grouped.get('requirements'))[0][:600],
