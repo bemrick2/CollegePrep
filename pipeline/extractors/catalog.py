@@ -61,6 +61,10 @@ CL_CODE = re.compile(r'^([A-Z]{2,5})\s?(\d{3,4}[A-Z]?)$')
 def courseleaf_groups(page):
     """Same shape as groups_from(): one group per Course List table, split at area-header rows."""
     out = []
+    # Footnote markers render as a trailing digit ("Introduction to Food Science 1", NC State); the page lists the
+    # footnotes as lines holding just that digit. Only those markers are stripped.
+    notes = {l.strip() for l in page.lines if re.fullmatch(r'\s*[1-9]\s*', l)}
+    unmark = lambda x: re.sub(r'\s+([1-9])(?:,\s*[1-9])*$', lambda m: '' if m.group(1) in notes else m.group(0), x) if notes else x
     for t in courseleaf_tables(page):
         rows = t['rows'][1:] if [c.strip().lower() for c in t['rows'][0]][:2] == ['code', 'title'] else t['rows']
         base = t.get('heading') or t.get('lead') or 'Program Requirements'
@@ -71,12 +75,13 @@ def courseleaf_groups(page):
             first = cells[0]
             m = CL_CODE.match(first)
             if m:
-                item = {'code': f'{m.group(1)} {m.group(2)}', 'title': cells[1] if len(cells) > 1 else ''}
+                item = {'code': f'{m.group(1)} {m.group(2)}', 'title': unmark(cells[1]) if len(cells) > 1 else ''}
                 if len(cells) > 2 and re.fullmatch(r'[\d.]+(\s*-\s*[\d.]+)?', cells[2]): item['credits'] = _credits(cells[2])
                 cur['courses'].append(item); continue
             tm = re.match(r'^total\s+(?:credit\s+)?(?:hours|credits)$', first, re.I)
             if tm and len(cells) > 1 and re.fullmatch(r'\d{1,3}', cells[-1]):
                 cur['total'] = int(cells[-1]); cur['rules'].append(' '.join(cells)); continue
+            cells[0] = first = unmark(first)
             text = ' '.join(c for c in cells if c)
             if re.match(r'^[A-Z]{2,5}\s?\d{3,4}[A-Z]?\b', first):  # "ENG 382 & ENG 391": a course pairing, kept verbatim
                 cur['rules'].append(text[:300]); cur['pairings'] = True; continue
@@ -180,6 +185,9 @@ def extract(inst, entry, page, today_year):
             if g['courses']: rd['courses'] = g['courses']
             elif g['rules']: rd['course_rules'] = g['rules'][:10]
             else: skipped += 1; continue
+        elif g['courses'] and re.search(r'elective|\bchoose\b|\bselect\b|options?\b|\blist\s+[A-Z0-9]\b', h.split(' — ')[-1], re.I):
+            # "Application Electives I" (NC State): a list to choose from, not courses all required
+            rd.update(group_type='elective_pool', courses=g['courses'])
         elif g['courses']:
             rd.update(group_type='all_required', courses=g['courses'])
         elif re.search(r'elective', h, re.I) and g['rules']:
