@@ -335,6 +335,33 @@ last 30 hours in residence at the university.</p>"""
         got = {c['record']['residency']: c['record']['components'] for c in costs.extract({**INST, 'state': 'AL'}, ENTRY, dup, '2026-27')}
         self.assertEqual((got['in_state']['Subtotal'], got['in_state']['Subtotal (2)']), (17118, 4320))
 
+    def test_ia_r1_rules(self):
+        """IA r1: Hawkeye eligibility headings; Graceland sample aid package; Wartburg academic-progress table; conditional
+        transfer grades (William Penn, Dubuque, Emmaus) and a cap for the major (Iowa)."""
+        got = merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h3>Students Involved in Student Life</h3><table><tr><th>Scholarship</th><th>Amount</th><th>Application Deadline</th></tr>'
+            '<tr><td>Billy Owens</td><td>$250</td><td>October 1</td></tr><tr><td>Goodwin Honor</td><td>$500</td><td>February 1</td></tr></table>'), '2026-27')
+        self.assertTrue(got and all(c['record']['eligibility_summary'] == 'Listed under: Students Involved in Student Life' for c in got))
+        package = merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Sample Award</h2><table><tr><th>Scholarship</th><th>Amount</th></tr>'
+            '<tr><td>Graceland Scholarships</td><td>$11,000</td></tr><tr><td>Outside Scholarship(s)</td><td>$2,400</td></tr>'
+            '<tr><td>Federal/State Grants</td><td>$8,395</td></tr><tr><td>Merit Award</td><td>$1,000</td></tr></table>'), '2026-27')
+        self.assertEqual(package, [])
+        sap = merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Financial Aid | Learn About Your Award</title><h2>Financial Aid Policies</h2><table><tr><th>Course Credits Completed</th><th>Required GPA</th><th>Pace (earned/attempted)</th></tr>'
+            '<tr><td>Course Credits Completed: 0.25-6.75</td><td>Required GPA: 1.60</td><td>Pace (earned/attempted): 67%</td></tr>'
+            '<tr><td>Course Credits Completed: 7.00-15.75</td><td>Required GPA: 1.80</td><td>Pace (earned/attempted): 67%</td></tr>'
+            '<tr><td>Course Credits Completed: 26.00+</td><td>Required GPA: 2.00</td><td>Pace (earned/attempted): 67%</td></tr></table>'), '2026-27')
+        self.assertEqual(sap, [])
+        base = '<title>Transfer Credit</title><p>Courses completed with a grade of D or better transfer to the university.</p>'
+        for scoped in ('For those students with an overall transfer grade point average of less than 2.0, only courses with a grade of "C-" or above will transfer.',
+                       'A grade of C or better when the minimum acceptable grade is stated to be a C is required for transfer.',
+                       'Students must earn a grade of C or better for the transfer of courses completed within the last fifteen years.'):
+            [c] = transfer.extract(INST, ENTRY, T.parse_html(base + f'<p>{scoped}</p>'), '2026-27')
+            self.assertEqual(c['record'].get('min_grade'), 'D', scoped)
+        [c] = transfer.extract(INST, ENTRY, T.parse_html(base + '<p>A maximum of 15 semester hours of approved transfer credit may be counted toward the major.</p>'), '2026-27')
+        self.assertNotIn('max_transfer_credits', c['record'])
+
     def test_ks_r1_rules(self):
         """KS r1: Hesston sample aid package; Barclay cost rows; Dodge City per-semester parentheticals; K-State Salina
         "Total Value"; Pitt State per-semester columns that mention the academic year, out-of-state table headings and an

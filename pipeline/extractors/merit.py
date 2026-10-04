@@ -15,7 +15,8 @@ from . import common
 
 EXTRACTOR = 'merit_table/v1'
 SCHOLARSHIP_CONTEXT = re.compile(r'scholarship|merit|\bawards?\b', re.I)  # not "awarding course credit" (AL: Stillman)
-NOT_MERIT = re.compile(r'need[- ]based|federal|pell|loan|work[- ]study|graduate|transfer|athletic|tuition|fees?\b|cost', re.I)
+NOT_MERIT = re.compile(r'need[- ]based|federal|pell|loan|work[- ]study|graduate|transfer|athletic|tuition|fees?\b|cost|'
+                       r'credits?\s+completed', re.I)  # IA (Wartburg): an academic-progress table
 NOT_NAME = re.compile(r'^[\d<>=.\s/+%$,-]*$|tuition|\bfees?\b|per credit|per course|deposit|housing|meal|eligib|'
                       r'\bstudents?\s+(is|who|still|are)\b|fall below|balance', re.I)
 # Names that are not merit awards (KY: federal aid and loans in an aid table, staff directories, credit-hour bands
@@ -43,6 +44,7 @@ PLACEHOLDER = re.compile(r'^\W*(n/?a|none|see\s+(?:requirements|criteria|details
 PHONE = re.compile(r'\(?\d{3}\)?[\s.-]\d{3}[.-]\d{4}')  # Tougaloo: a contact number in the ACT column is not a score
 ENROLLMENT = re.compile(r'^(full|half|part|three[-\s]quarter|3/4)[-\s]time$', re.I)  # Ole Miss Sumners: amount by enrollment intensity
 SCORE = re.compile(r'\b\d{1,4}\b')
+PACKAGE_ROW = re.compile(r'federal|pell|state\s+grants?|outside\s+scholarships?|student\s+employment|work[- ]study|\bloans?\b|^total\b', re.I)
 _N = r'(?:\d{1,2}|two|three|four|five|six|eight|ten)'
 MULTI_YEAR = re.compile(r'\b(?:for|over|value)\s+' + _N + r'\s+(?:fall/spring\s+)?(?:years|semesters|trimesters|quarters|terms)\b', re.I)  # outside parentheses
 MULTI_X = re.compile(r'\bx\s*' + _N + r'\s+(?:years|semesters|trimesters|quarters|terms)\b|\b' + _N + r'\s+(?:years|semesters|trimesters|quarters|terms)\s+x\b', re.I)
@@ -257,6 +259,8 @@ def extract(inst, entry, page, today_year):
         label = context.strip() if re.search(r'scholarship|award|grant|fellowship', named, re.I) else (_page_award_name(page) or context.strip() or page.title)
         label = label.strip().lstrip('+-–•*› ').strip()  # "+Scholarships" (Thomas University): an accordion icon, not the name
         found = shaped or _list_awards(t, header, body, label[:80], award_type)
+        # IA (Graceland): a sample aid package lists federal/state grants, outside scholarships and work beside the award
+        if sum(1 for r in body if r and PACKAGE_ROW.search(r[0])) >= 2: continue
         # MO (Southwest Baptist): the same heading over a different table is another year's version; which is which is unclear
         twins = [o for o in page.tables if o is not t and (o.get('heading') or '') == (t.get('heading') or '') and o.get('heading')
                  and o.get('rows') and o['rows'][0] == t['rows'][0] and o['rows'] != t['rows']]
@@ -281,6 +285,8 @@ def extract(inst, entry, page, today_year):
             res = PAGE_RESIDENCY.search(page.title + ' ' + context)
             if res and 'residency_requirement' not in rec:  # "In-State Freshman Scholarships" (AL: UAB has same-named awards per residency)
                 rec['residency_requirement'] = 'Out-of-state' if re.search(r'out|non', res.group(0), re.I) else 'In-state'
+            if context.strip() and not re.search(r'scholarship|award|grant|fellowship', context, re.I) and 'eligibility_summary' not in rec:
+                rec['eligibility_summary'] = f'Listed under: {context.strip()[:200]}'  # IA (Hawkeye): "GED, HiSET, or ELL Graduates"
             rec['notes'] = f'Extracted by {EXTRACTOR} from the table "{(context or page.title)[:100]}"; cells copied as printed.'
             out.append(common.make('awards', inst['institution_key'], rec_year, rec_basis, rec, ev, entry, EXTRACTOR,
                                    {'award_name': rec['award_name']}, {'thresholds': rec.get('thresholds')}, rec_issues + row_issues))
