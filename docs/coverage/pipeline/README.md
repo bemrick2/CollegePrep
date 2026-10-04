@@ -372,6 +372,41 @@ Institutions in scope: **121** · crawled: **97** · blocked by site: **24** · 
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-197887`, `ipeds-197966`, `ipeds-197993`, `ipeds-198039`, `ipeds-198084`, `ipeds-198118`, `ipeds-198376`, `ipeds-198464`, `ipeds-198534`, `ipeds-198862`, `ipeds-198914`, `ipeds-198987`, `ipeds-199023`, `ipeds-199069`, `ipeds-199111`, `ipeds-199272`, `ipeds-199333`, `ipeds-199494`, `ipeds-199698`, `ipeds-199731`, `ipeds-199768`, `ipeds-199795`, `ipeds-433174`, `ipeds-461032`
 
+## ND — 2026-27
+
+Institutions in scope: **19** · crawled: **19** · blocked by site: **0** · run: `pipeline/runs/ND/2026-10-04`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 0 (0%) | 0 | 8 (42%) | 19 (100%) | 0 | 0 |
+| cost_of_attendance | 0 (0%) | 0 | 4 (21%) | 17 (89%) | 2 | 0 |
+| admissions_tests | 0 (0%) | 0 | 0 (0%) | 19 (100%) | 0 | 0 |
+| common_data_set | 0 (0%) | 0 | 0 (0%) | 5 (26%) | 14 | 0 |
+| merit_scholarships | 0 (0%) | 0 | 7 (37%) | 19 (100%) | 0 | 0 |
+| ap_credit | 0 (0%) | 0 | 2 (11%) | 7 (37%) | 12 | 0 |
+| clep_credit | 0 (0%) | 0 | 2 (11%) | 7 (37%) | 12 | 0 |
+| ib_credit | 0 (0%) | 0 | 1 (5%) | 1 (5%) | 18 | 0 |
+| dual_enrollment | 0 (0%) | 0 | 7 (37%) | 15 (79%) | 4 | 0 |
+| transfer_credit | 0 (0%) | 0 | 3 (16%) | 17 (89%) | 2 | 0 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 8 (42%) | 11 | 0 |
+| residency | 0 (0%) | 0 | 0 (0%) | 8 (42%) | 11 | 0 |
+| degree_requirements | 0 (0%) | 0 | 0 (0%) | 12 (63%) | 7 | 0 |
+| aid_appeals | 0 (0%) | 0 | 13 (68%) | 17 (89%) | 2 | 0 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 10 |
+| blocked requests | 24 |
+| candidates | 106 |
+| conflicts | 27 |
+| documents | 1200 |
+| extraction failures | 0 |
+| fetch errors | 87 |
+| fetches | 1311 |
+| ready | 42 |
+| semantic review | 36 |
+| stale sources | 2 |
+
 ## NE — 2026-27
 
 Institutions in scope: **29** · crawled: **25** · blocked by site: **4** · run: `pipeline/runs/NE/2026-10-03`

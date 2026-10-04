@@ -335,6 +335,29 @@ last 30 hours in residence at the university.</p>"""
         got = {c['record']['residency']: c['record']['components'] for c in costs.extract({**INST, 'state': 'AL'}, ENTRY, dup, '2026-27')}
         self.assertEqual((got['in_state']['Subtotal'], got['in_state']['Subtotal (2)']), (17118, 4320))
 
+    def test_nd_r1_rules(self):
+        """ND r1: Lake Region en-dash cells and semester-basis amounts; Minot tiers with four-year totals; VCSU "for two
+        year"; Jamestown amounts under a blank header."""
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Scholarships</h2><table><tr><th>Scholarship</th><th>ACT</th><th>GPA</th><th>Amount</th></tr>'
+            '<tr><td>Presidential Scholarship</td><td>28 &amp; higher</td><td>–</td><td>$4,500</td></tr>'
+            '<tr><td>Part-time Scholarship</td><td></td><td>2.5</td><td>$100–$300 awarded on a semester basis</td></tr>'
+            '<tr><td>Clock Tower</td><td></td><td>3.05-3.64</td><td>$1,500 per year for two year ($3,000)</td></tr>'
+            '<tr><td>Leader Scholarship</td><td>25–27</td><td>3.8–4.0</td><td>$1,500</td></tr></table>'), '2026-27')}
+        self.assertNotIn('gpa_requirement', got['Presidential Scholarship'])
+        self.assertNotIn('award_max', got['Part-time Scholarship'])
+        self.assertNotIn('award_max', got['Clock Tower'])
+        self.assertEqual(got['Leader Scholarship']['award_max'], 1500)
+        [c] = merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Academic Excellence Scholarship</h2><table><tr><th>High School GPA</th><th>Scholarship Award</th></tr>'
+            '<tr><td>3.9+</td><td>$10,000 $2,500/year for a maximum of 4 years</td></tr><tr><td>3.7-3.89</td><td>$7,500 $1,875/year for a maximum of 4 years</td></tr>'
+            '<tr><td>3.5-3.69</td><td>$5,000 $1,250/year for a maximum of 4 years</td></tr></table>'), '2026-27')
+        self.assertNotIn('award_max', c['record'])
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Institutional Aid</h2><table><tr><th>Scholarship</th><th>GPA</th><th></th></tr>'
+            '<tr><td>Knight Scholarship</td><td>Below 2.5</td><td>$6000</td></tr><tr><td>Trustee Scholarship</td><td>2.5-3.0</td><td>$7000</td></tr></table>'), '2026-27')}
+        self.assertEqual(got['Knight Scholarship']['award_max'], 6000)
+
     def test_ne_r1_rules(self):
         """NE r1: community colleges' transfer-out advice (Northeast, Central, Mid-Plains) and an entrance requirement
         (Southeast); UNO's separate SL/HL column; Concordia's teacher scholarship and late fee are not course prices."""
