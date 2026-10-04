@@ -1,0 +1,1187 @@
+{
+ "01e854ecaa51079c": {
+  "decision": {
+   "candidate_id": "01e854ecaa51079c",
+   "reason": "Row checked against the published table (name, criteria and amount as printed). Year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "test_requirement",
+    "snippet": "500-559 | 145-164 | $16,000",
+    "value": "Old GED Score: 500-559"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "500-559 | 145-164 | $16,000",
+    "value": "$16,000"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:23:26+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "8423eac08c7e9c5b2075.json.gz",
+   "requested_url": "https://www.mountmarty.edu/tuition-and-aid/scholarships-and-awards/incoming-firstyear/",
+   "sha256": "8423eac08c7e9c5b2075a2ee810386cf17c1f12a6bcfc851a4921a99734149e1",
+   "title": "Incoming First-year Students",
+   "url": "https://www.mountmarty.edu/tuition-and-aid/scholarships-and-awards/incoming-firstyear/"
+  },
+  "year_basis": "labeled_entering_class"
+ },
+ "056f4e91fd534343": {
+  "decision": {
+   "candidate_id": "056f4e91fd534343",
+   "reason": "Transfer sentence checked against the official page; no transfer guarantee implied."
+  },
+  "evidence": [
+   {
+    "field": "min_grade",
+    "snippet": "In general, courses with a grade of C- or higher from an accredited institution will transfer (see the course catalog or contact the admission office for details).",
+    "value": "C-"
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:23:32+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "b7fa9dcb35ee3c6524aa.json.gz",
+   "requested_url": "https://www.mountmarty.edu/admission/undergraduate-students/transfer-students/transfer-faqs/",
+   "sha256": "b7fa9dcb35ee3c6524aa2df24320332325e38b9f82f5e40d681892006a51577c",
+   "title": "Transfer FAQs",
+   "url": "https://www.mountmarty.edu/admission/undergraduate-students/transfer-students/transfer-faqs/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "2807a1036960faa0": {
+  "decision": {
+   "candidate_id": "2807a1036960faa0",
+   "reason": "Policy lines and table rows checked against the official source as printed."
+  },
+  "evidence": [
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "Dual credit classes are offered at high schools partnering with Mount Marty University, allowing students to earn high school and college credits concurrently, at a fraction of the cost - $75 per credit hour.",
+    "value": 75
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "A cumulative GPA of 3.0",
+    "value": 3.0
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:24:18+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "b02a51a75e154e37a505.json.gz",
+   "requested_url": "https://www.mountmarty.edu/academics/dual-credit/",
+   "sha256": "b02a51a75e154e37a50586eb873d1f1a7adab00891b2b82dc9bfeb6997a18aed",
+   "title": "Dual Credit | Mount Marty University",
+   "url": "https://www.mountmarty.edu/academics/dual-credit/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "304c568ff4ef4f1a": {
+  "decision": {
+   "candidate_id": "304c568ff4ef4f1a",
+   "reason": "Cost column checked against the published 2026-27 table (residency from the column header; components and total as printed)."
+  },
+  "evidence": [
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $4,214",
+    "value": 4214
+   },
+   {
+    "field": "column:General Activity Fees",
+    "snippet": "General Activity Fees | $482",
+    "value": 482
+   },
+   {
+    "field": "column:Food and Housing",
+    "snippet": "Food and Housing | $11,322",
+    "value": 11322
+   },
+   {
+    "field": "column:Books and Supplies",
+    "snippet": "Books and Supplies | $230",
+    "value": 230
+   },
+   {
+    "field": "column:Program Fee",
+    "snippet": "Program Fee | $156",
+    "value": 156
+   },
+   {
+    "field": "column:Certification/License Test Fee",
+    "snippet": "Certification/License Test Fee | $362",
+    "value": 362
+   },
+   {
+    "field": "column:Loan Fee",
+    "snippet": "Loan Fee | $150",
+    "value": 150
+   },
+   {
+    "field": "column:Miscellaneous",
+    "snippet": "Miscellaneous | $2,378",
+    "value": 2378
+   },
+   {
+    "field": "column:Transportation",
+    "snippet": "Transportation | $1,876",
+    "value": 1876
+   },
+   {
+    "field": "column:Annual Estimated Total",
+    "snippet": "Annual Estimated Total | $21,170",
+    "value": 21170
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:23:02+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "cec2333b72ce55ef8e0d.json.gz",
+   "requested_url": "https://www.bhsu.edu/admissions/tuition-fees.html",
+   "sha256": "cec2333b72ce55ef8e0d4f250f24e3cd7f26fc4ea031bdcb01d7d807920b0299",
+   "title": "Tuition, Fees & Cost of Attendance | Black Hills State University",
+   "url": "https://www.bhsu.edu/admissions/tuition-fees.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "3ad941e030511793": {
+  "decision": {
+   "candidate_id": "3ad941e030511793",
+   "reason": "Cost column checked against the published 2026-27 table (residency from the column header; components and total as printed)."
+  },
+  "evidence": [
+   {
+    "field": "column:Tuition and Fees(4)",
+    "snippet": "Tuition and Fees(4) | $9,780 | $11,460 | $13,479 | $11,214",
+    "value": 9780
+   },
+   {
+    "field": "column:Housing and Food",
+    "snippet": "Housing and Food | $11,024 | $11,024 | $11,024 | $11,024",
+    "value": 11024
+   },
+   {
+    "field": "column:Total Direct Costs",
+    "snippet": "Total Direct Costs | $20,804 | $22,484 | $24,503 | $22,238",
+    "value": 20804
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:25:44+00:00",
+   "kind": "html",
+   "last_modified": "Sun, 04 Oct 2026 03:46:30 GMT",
+   "page_file": "daf39aba5930b6ec8d02.json.gz",
+   "requested_url": "https://www.sdstate.edu/office-financial-aid-scholarships/cost-attendance",
+   "sha256": "daf39aba5930b6ec8d027d30991223f51fa84662816a1386ad36aa477a9c2fcb",
+   "title": "Cost of Attendance | South Dakota State University",
+   "url": "https://www.sdstate.edu/office-financial-aid-scholarships/cost-attendance"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "47b6884812109344": {
+  "decision": {
+   "candidate_id": "47b6884812109344",
+   "reason": "Row checked against the published table (name, criteria and amount as printed). Year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "$9,000 | Gold Scholar | 34 | 1490",
+    "value": "$9,000"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "$9,000 | Gold Scholar | 34 | 1490",
+    "value": "ACT 34 / SAT 1490"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:25:16+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "b528050b8594d7a15f1d.json.gz",
+   "requested_url": "https://www.sdsmt.edu/admissions-aid/financial-aid-and-scholarships/scholarships/index.html",
+   "sha256": "b528050b8594d7a15f1d3747bfd88ae71acde8e41622b76ce53acc4c2e26dd95",
+   "title": "SD Mines Freshman Scholarships & Financial Aid Guide",
+   "url": "https://www.sdsmt.edu/admissions-aid/financial-aid-and-scholarships/scholarships/index.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "47c25e507edbc682": {
+  "decision": {
+   "candidate_id": "47c25e507edbc682",
+   "reason": "Transfer sentence checked against the official page; no transfer guarantee implied."
+  },
+  "evidence": [
+   {
+    "field": "min_grade",
+    "snippet": "Acceptance of transfer credits is contingent upon the student having completed the course or courses with a grade of “C” or better, and, in the Registrar's judgment, the course credit and content is similar to that contained in the Southeast Tech course.",
+    "value": "C"
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:29:52+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "1529524d2e47eea4d99e.json.gz",
+   "requested_url": "https://www.southeasttech.edu/apply/transfer-students.php",
+   "sha256": "1529524d2e47eea4d99ef1fdfe2ce0403ccf7faf5a9c30941af00fa797763159",
+   "title": "Transfer To Southeast Tech - Transfer Students, Credits",
+   "url": "https://www.southeasttech.edu/apply/transfer-students.php"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "48296647501341b1": {
+  "decision": {
+   "candidate_id": "48296647501341b1",
+   "reason": "Policy lines and table rows checked against the official source as printed."
+  },
+  "evidence": [
+   {
+    "field": "equivalencies[CLEP-CALCULUS|50]",
+    "snippet": "Calculus | 50 | Math requirement (3 credits)"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-ALGEBRA|50]",
+    "snippet": "College Algebra | 50 | Math requirement (3 credits)"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-COMPOSITION|50]",
+    "snippet": "College Composition | 50 | ENGL101 (3 credits)"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-MATHEMATICS|50]",
+    "snippet": "College Mathematics | 50 | Math requirement (3 credits)"
+   },
+   {
+    "field": "equivalencies[CLEP-FINANCIAL-ACCOUNTING|50]",
+    "snippet": "Financial Accounting | 50 | ACCT110 (3 credits)"
+   },
+   {
+    "field": "equivalencies[CLEP-HUMAN-GROWTH-DEVELOPMENT|50]",
+    "snippet": "Human Growth & Development | 50 | PSYC130 (3 credits)Behavioral science requirement (3 credits)"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-BUSINESS-LAW|50]",
+    "snippet": "Intro Business Law | 50 | BUS140 (3 credits)"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MANAGEMENT|50]",
+    "snippet": "Management, Principles of | 50 | BUS212 (3 credits)"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MARKETING|50]",
+    "snippet": "Marketing, Principles of | 50 | BUS120 (3 credits)"
+   },
+   {
+    "field": "equivalencies[CLEP-PRECALCULUS|50]",
+    "snippet": "Precalculus | 50 | Math requirement (3 credits)"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|50]",
+    "snippet": "Psychology, Introductory | 50 | Behavioral science requirement (3 credits)"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|50]",
+    "snippet": "Sociology, Introductory | 50 | Social science requirement (3 credits)"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:23:12+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "4423c406223bdc2f8922.json.gz",
+   "requested_url": "https://www.mitchelltech.edu/admissions/admissions-process/credit-for-prior-learning/",
+   "sha256": "4423c406223bdc2f892289de671ebba057839c8eb4e95e8b6504fff5d9e391c5",
+   "title": "Credit for Prior Learning | Mitchell Technical College",
+   "url": "https://www.mitchelltech.edu/admissions/admissions-process/credit-for-prior-learning/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "4fd329ded33bb66d": {
+  "decision": {
+   "candidate_id": "4fd329ded33bb66d",
+   "reason": "Row checked against the published table (name, criteria and amount as printed). Year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "$6,000 | Silver Scholar | 31-33 | 1390",
+    "value": "$6,000"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "$6,000 | Silver Scholar | 31-33 | 1390",
+    "value": "ACT 31-33 / SAT 1390"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:25:16+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "b528050b8594d7a15f1d.json.gz",
+   "requested_url": "https://www.sdsmt.edu/admissions-aid/financial-aid-and-scholarships/scholarships/index.html",
+   "sha256": "b528050b8594d7a15f1d3747bfd88ae71acde8e41622b76ce53acc4c2e26dd95",
+   "title": "SD Mines Freshman Scholarships & Financial Aid Guide",
+   "url": "https://www.sdsmt.edu/admissions-aid/financial-aid-and-scholarships/scholarships/index.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "5020294378c03d7a": {
+  "decision": {
+   "candidate_id": "5020294378c03d7a",
+   "reason": "Row checked against the published table (name, criteria and amount as printed). Year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "$2,000 | Hardrock Scholar | 24 | 1160",
+    "value": "$2,000"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "$2,000 | Hardrock Scholar | 24 | 1160",
+    "value": "ACT 24 / SAT 1160"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:25:16+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "b528050b8594d7a15f1d.json.gz",
+   "requested_url": "https://www.sdsmt.edu/admissions-aid/financial-aid-and-scholarships/scholarships/index.html",
+   "sha256": "b528050b8594d7a15f1d3747bfd88ae71acde8e41622b76ce53acc4c2e26dd95",
+   "title": "SD Mines Freshman Scholarships & Financial Aid Guide",
+   "url": "https://www.sdsmt.edu/admissions-aid/financial-aid-and-scholarships/scholarships/index.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "5164c4a62f16ec3f": {
+  "decision": {
+   "candidate_id": "5164c4a62f16ec3f",
+   "reason": "Policy lines and table rows checked against the official source as printed."
+  },
+  "evidence": [
+   {
+    "field": "equivalencies[AP-CALCULUS-AB|3]",
+    "snippet": "Calculus AB | 3 | Math requirement (3 credits) | "
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-BC|3]",
+    "snippet": "Calculus BC | 3 | Math requirement (3 credits) | "
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3]",
+    "snippet": "English Language and Composition | 3 | ENGL 101 (3 credits) | "
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3]",
+    "snippet": "English Literature and Composition | 3 | ENGL 101 (3 credits) | "
+   },
+   {
+    "field": "equivalencies[AP-PSYCHOLOGY|3]",
+    "snippet": "Psychology | 3 | PSYC 101 (3 credits) | "
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:23:12+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "4423c406223bdc2f8922.json.gz",
+   "requested_url": "https://www.mitchelltech.edu/admissions/admissions-process/credit-for-prior-learning/",
+   "sha256": "4423c406223bdc2f892289de671ebba057839c8eb4e95e8b6504fff5d9e391c5",
+   "title": "Credit for Prior Learning | Mitchell Technical College",
+   "url": "https://www.mitchelltech.edu/admissions/admissions-process/credit-for-prior-learning/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "5807a03dfac5fce3": {
+  "decision": {
+   "candidate_id": "5807a03dfac5fce3",
+   "reason": "Cost column checked against the published 2026-27 table (residency from the column header; components and total as printed)."
+  },
+  "evidence": [
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $7,866",
+    "value": 7866
+   },
+   {
+    "field": "column:General Activity Fees",
+    "snippet": "General Activity Fees | $482",
+    "value": 482
+   },
+   {
+    "field": "column:Food and Housing",
+    "snippet": "Food and Housing | $11,322",
+    "value": 11322
+   },
+   {
+    "field": "column:Books and Supplies",
+    "snippet": "Books and Supplies | $230",
+    "value": 230
+   },
+   {
+    "field": "column:Program Fee",
+    "snippet": "Program Fee | $156",
+    "value": 156
+   },
+   {
+    "field": "column:Certification/License Test Fee",
+    "snippet": "Certification/License Test Fee | $362",
+    "value": 362
+   },
+   {
+    "field": "column:Loan Fee",
+    "snippet": "Loan Fee | $150",
+    "value": 150
+   },
+   {
+    "field": "column:Miscellaneous",
+    "snippet": "Miscellaneous | $2,378",
+    "value": 2378
+   },
+   {
+    "field": "column:Transportation",
+    "snippet": "Transportation | $1,876",
+    "value": 1876
+   },
+   {
+    "field": "column:Annual Estimated Total",
+    "snippet": "Annual Estimated Total | $24,822",
+    "value": 24822
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:23:02+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "cec2333b72ce55ef8e0d.json.gz",
+   "requested_url": "https://www.bhsu.edu/admissions/tuition-fees.html",
+   "sha256": "cec2333b72ce55ef8e0d4f250f24e3cd7f26fc4ea031bdcb01d7d807920b0299",
+   "title": "Tuition, Fees & Cost of Attendance | Black Hills State University",
+   "url": "https://www.bhsu.edu/admissions/tuition-fees.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "63a9b20366372fa7": {
+  "decision": {
+   "candidate_id": "63a9b20366372fa7",
+   "reason": "Policy lines and table rows checked against the official source as printed."
+  },
+  "evidence": [
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "DSU currently has over 400 South Dakota high school juniors and seniors can begin their college career early through DSU's dual credit program. At a discounted rate of $80.37 per credit hour, you’ll earn college credits that also count toward your high school diploma.",
+    "value": 80.37
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "earn a cumulative GPA of at least 3.50 on a 4.0 scale; or",
+    "value": 3.5
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "earn a cumulative GPA of at least 3.25 on a 4.0 scale; or",
+    "value": 3.25
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:23:05+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 21 Sep 2026 15:29:04 GMT",
+   "page_file": "23268514a78897fe4ad0.json.gz",
+   "requested_url": "https://dsu.edu/admissions/undergraduate/dual-credit.html",
+   "sha256": "23268514a78897fe4ad0aae81e901ea5bae43e3f296a2b9d0a9916d16f86a32b",
+   "title": "Dual Credit - Dakota State University",
+   "url": "https://dsu.edu/admissions/undergraduate/dual-credit.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "793f8504a80ceb82": {
+  "decision": {
+   "candidate_id": "793f8504a80ceb82",
+   "reason": "Cost column checked against the published 2026-27 table (residency from the column header; components and total as printed)."
+  },
+  "evidence": [
+   {
+    "field": "on_campus:Tuition and Fees(4)",
+    "snippet": "Tuition and Fees(4) | $9,780 | $11,460 | $13,479 | $11,214",
+    "value": 13479
+   },
+   {
+    "field": "on_campus:Housing and Food",
+    "snippet": "Housing and Food | $11,024 | $11,024 | $11,024 | $11,024",
+    "value": 11024
+   },
+   {
+    "field": "on_campus:Total Direct Costs",
+    "snippet": "Total Direct Costs | $20,804 | $22,484 | $24,503 | $22,238",
+    "value": 24503
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:25:44+00:00",
+   "kind": "html",
+   "last_modified": "Sun, 04 Oct 2026 03:46:30 GMT",
+   "page_file": "daf39aba5930b6ec8d02.json.gz",
+   "requested_url": "https://www.sdstate.edu/office-financial-aid-scholarships/cost-attendance",
+   "sha256": "daf39aba5930b6ec8d027d30991223f51fa84662816a1386ad36aa477a9c2fcb",
+   "title": "Cost of Attendance | South Dakota State University",
+   "url": "https://www.sdstate.edu/office-financial-aid-scholarships/cost-attendance"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "8526391ab09f16bb": {
+  "decision": {
+   "candidate_id": "8526391ab09f16bb",
+   "reason": "Transfer sentence checked against the official page; no transfer guarantee implied."
+  },
+  "evidence": [
+   {
+    "field": "max_transfer_credits",
+    "snippet": "A maximum of 60 semester hours of transfer credit from a two-year college may apply toward graduation, and may not exceed one-half of the total semester hours required for completion of your USD degree.",
+    "value": 60
+   },
+   {
+    "field": "residency_requirement_credits",
+    "snippet": "Click to Open Transferring Credit: The Basics To receive a bachelor's degree from the University of South Dakota, you must complete a minimum of 30 hours of USD credit, including at least 15 of the final 30 hours completed immediately prior to the degree.",
+    "value": 15
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:34:43+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "1e08da707289ab746ed2.json.gz",
+   "requested_url": "https://www.usd.edu/Admissions-and-Aid/Undergraduate-Admissions/Transfer-Students",
+   "sha256": "1e08da707289ab746ed2a5d8dafec47e29df177de8ddc39632bad055dced22be",
+   "title": "Transfer Students | University of South Dakota",
+   "url": "https://www.usd.edu/Admissions-and-Aid/Undergraduate-Admissions/Transfer-Students"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "881a98ce3fc8f838": {
+  "decision": {
+   "candidate_id": "881a98ce3fc8f838",
+   "reason": "Policy lines and table rows checked against the official source as printed."
+  },
+  "evidence": [
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "to enroll in college coursework at the rate of $80.37 per credit hour (or 1/2 of the",
+    "value": 80.37
+   },
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "courses. These courses are offered at $40 per credit hour.",
+    "value": 40
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "earn a cumulative unweighted high school GPA of at least 3.50 on a 4.0 scale",
+    "value": 3.5
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "earn a cumulative unweighted high school GPA of at least 3.25 on a 4.0 scale",
+    "value": 3.25
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:22:57+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "03f4c027b0dea0d64652.json.gz",
+   "requested_url": "https://www.bhsu.edu/admissions/dual-credit/index.html",
+   "sha256": "03f4c027b0dea0d646523fbd49d20b11d0cdb1ddb1d688b109f37531c3012d90",
+   "title": "Dual Credit",
+   "url": "https://www.bhsu.edu/admissions/dual-credit/index.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "947220ae356fae2c": {
+  "decision": {
+   "candidate_id": "947220ae356fae2c",
+   "reason": "Policy lines and table rows checked against the official source as printed."
+  },
+  "evidence": [
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "The State of South Dakota allows Juniors and Seniors in South Dakota High Schools to take college courses with WDTC for $80.37 per credit hour.  For payment information and due dates visit our Student Accounts Office page. Payment for Dual Enrollment courses are due before the start of the semester.",
+    "value": 80.37
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:40:06+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "8cf918f9701c6057f3c1.json.gz",
+   "requested_url": "https://www.wdt.edu/future-students/dual-enrollment",
+   "sha256": "8cf918f9701c6057f3c10b54a6bdc8be798eb0919ef467b23b17c2b17664edd6",
+   "title": "Dual enrollment | College experience | Western Dakota Technical College",
+   "url": "https://www.wdt.edu/future-students/dual-enrollment/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "a5c7efcc8471680b": {
+  "decision": {
+   "candidate_id": "a5c7efcc8471680b",
+   "reason": "Row checked against the published table (name, criteria and amount as printed). Year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "$4,000 | Copper Scholar | 28-30 | 1300",
+    "value": "$4,000"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "$4,000 | Copper Scholar | 28-30 | 1300",
+    "value": "ACT 28-30 / SAT 1300"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:25:16+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "b528050b8594d7a15f1d.json.gz",
+   "requested_url": "https://www.sdsmt.edu/admissions-aid/financial-aid-and-scholarships/scholarships/index.html",
+   "sha256": "b528050b8594d7a15f1d3747bfd88ae71acde8e41622b76ce53acc4c2e26dd95",
+   "title": "SD Mines Freshman Scholarships & Financial Aid Guide",
+   "url": "https://www.sdsmt.edu/admissions-aid/financial-aid-and-scholarships/scholarships/index.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "a73db533d87c7801": {
+  "decision": {
+   "candidate_id": "a73db533d87c7801",
+   "reason": "Policy lines and table rows checked against the official source as printed."
+  },
+  "evidence": [
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|50]",
+    "snippet": "Introductory Psychology | PSYC 101 | 50 | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|50]",
+    "snippet": "Introductory Sociology | SOC 150 | 50 | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|50]",
+    "snippet": "Principles of Macroeconomics | ECON 202 | 50 | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|50]",
+    "snippet": "Principles of Microeconomics | ECON 201 | 50 | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-COMPOSITION|50]",
+    "snippet": "College Composition | ENGL 101 | 50 | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-ALGEBRA|50]",
+    "snippet": "College Algebra | MATH 114 | 50 | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-CALCULUS|50]",
+    "snippet": "Calculus | Highest math class required for program | 50 | 3-5"
+   },
+   {
+    "field": "equivalencies[CLEP-PRECALCULUS|50]",
+    "snippet": "Precalculus | MATH 116 | 50 | 5"
+   },
+   {
+    "field": "equivalencies[CLEP-BIOLOGY|50]",
+    "snippet": "Biology | BIO 101/101L | 50 | 4"
+   },
+   {
+    "field": "equivalencies[CLEP-CHEMISTRY|50]",
+    "snippet": "Chemistry | CHEM 106/106L | 50 | 4"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-BUSINESS-LAW|50]",
+    "snippet": "Introductory Business Law | BUS 140 | 50 | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MARKETING|50]",
+    "snippet": "Principles of Marketing | MKT 120 | 50 | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-LANGUAGE|50]",
+    "snippet": "Spanish Language Level I | SPAN 103 | 50 | 3"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:30:55+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "b41075d48b454807f029.json.gz",
+   "requested_url": "https://www.southeasttech.edu/student-life/registrars-office/clep-testing.php",
+   "sha256": "b41075d48b454807f0291a46d8041d64d92c772d27625c77b0246e745603add1",
+   "title": "CLEP Testing | Southeast Technical College |Sioux Falls",
+   "url": "https://www.southeasttech.edu/student-life/registrars-office/clep-testing.php"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "ad12aa4e2301d578": {
+  "decision": {
+   "candidate_id": "ad12aa4e2301d578",
+   "reason": "Row checked against the published table (name, criteria and amount as printed). Year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "$3,000 | Miner Scholar | 25-27 | 1200",
+    "value": "$3,000"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "$3,000 | Miner Scholar | 25-27 | 1200",
+    "value": "ACT 25-27 / SAT 1200"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:25:16+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "b528050b8594d7a15f1d.json.gz",
+   "requested_url": "https://www.sdsmt.edu/admissions-aid/financial-aid-and-scholarships/scholarships/index.html",
+   "sha256": "b528050b8594d7a15f1d3747bfd88ae71acde8e41622b76ce53acc4c2e26dd95",
+   "title": "SD Mines Freshman Scholarships & Financial Aid Guide",
+   "url": "https://www.sdsmt.edu/admissions-aid/financial-aid-and-scholarships/scholarships/index.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "cb27cba315ccc9a1": {
+  "decision": {
+   "candidate_id": "cb27cba315ccc9a1",
+   "reason": "Row checked against the published table (name, criteria and amount as printed). Year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "$12,000 | Presidential Scholar | 35-36 | 1530",
+    "value": "$12,000"
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "$12,000 | Presidential Scholar | 35-36 | 1530",
+    "value": "ACT 35-36 / SAT 1530"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:25:16+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "b528050b8594d7a15f1d.json.gz",
+   "requested_url": "https://www.sdsmt.edu/admissions-aid/financial-aid-and-scholarships/scholarships/index.html",
+   "sha256": "b528050b8594d7a15f1d3747bfd88ae71acde8e41622b76ce53acc4c2e26dd95",
+   "title": "SD Mines Freshman Scholarships & Financial Aid Guide",
+   "url": "https://www.sdsmt.edu/admissions-aid/financial-aid-and-scholarships/scholarships/index.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "cf73a91693ce99d3": {
+  "decision": {
+   "candidate_id": "cf73a91693ce99d3",
+   "reason": "Policy lines and table rows checked against the official source as printed."
+  },
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "High School cumulative unweighted GPA 3.50+",
+    "value": 3.5
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "High School cumulative unweighted GPA 3.25+",
+    "value": 3.25
+   },
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "If students wish to continue taking dual credit but do not have an approved Academic Suspension Waiver, they may take Dual Credit or Concurrent Credit while paying “full dual credit tuition” ($156.96 per credit hour) during the suspended term.",
+    "value": 156.96
+   },
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "If the petition is approved, students can continue taking dual credit as normal. If the petition is denied, students can retake the F/W course at full dual credit tuition: $156.96 per credit",
+    "value": 156.96
+   },
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "Dual credit courses cost an average of $78.48 per credit hour – compared to about $300 for non-high school students currently attending USD.",
+    "value": 78.48
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:30:36+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "cc5591683cf5f0f17db5.json.gz",
+   "requested_url": "https://www.usd.edu/Academics/Dual-Credit",
+   "sha256": "cc5591683cf5f0f17db5a60e8b40f38a07dc4fcdd06c86d51a560a3fcc4715a4",
+   "title": "Dual Credit | University of South Dakota",
+   "url": "https://www.usd.edu/Academics/Dual-Credit"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "d1c275baced94b30": {
+  "decision": {
+   "candidate_id": "d1c275baced94b30",
+   "reason": "Transfer sentence checked against the official page; no transfer guarantee implied."
+  },
+  "evidence": [
+   {
+    "field": "min_grade",
+    "snippet": "Apply Now Schedule a Tour Visit Us Request Info Chat Online Transfer of Credit Transferring College Credits to Western Dakota Technical College Postsecondary level credits from an accredited school in which the student has earned a grade of “C” or higher, or its equivalent, will be considered for transfer.",
+    "value": "C"
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:43:40+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "3d6307479b656d034e58.json.gz",
+   "requested_url": "https://www.wdt.edu/future-students/transfer-of-credit",
+   "sha256": "3d6307479b656d034e581f198e14deec605f96ad6ef424ebd4c97951b6de5bd5",
+   "title": "Transfer of Credit | Admissions | Western Dakota Technical College",
+   "url": "https://www.wdt.edu/future-students/transfer-of-credit/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "dc517fa4b40c4537": {
+  "decision": {
+   "candidate_id": "dc517fa4b40c4537",
+   "reason": "Transfer sentence checked against the official page; no transfer guarantee implied."
+  },
+  "evidence": [
+   {
+    "field": "min_grade",
+    "snippet": "Credits must have a grade of C or above to be considered for transfer.",
+    "value": "C"
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:22:58+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "4e89dac76d764daea831.json.gz",
+   "requested_url": "https://www.lakeareatech.edu/become-a-student/admissions-process/transfer-credits/",
+   "sha256": "4e89dac76d764daea8310da031a191072e7d943dcf2092d48074ab7dc36b9661",
+   "title": "Transfer Credits & Prior Learning | Lake Area Tech",
+   "url": "https://www.lakeareatech.edu/become-a-student/admissions-process/transfer-credits/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "f18c8e87a313f99b": {
+  "decision": {
+   "candidate_id": "f18c8e87a313f99b",
+   "reason": "Row checked against the published table (name, criteria and amount as printed). Year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "test_requirement",
+    "snippet": "560-629 | 165-174 | $18,000",
+    "value": "Old GED Score: 560-629"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "560-629 | 165-174 | $18,000",
+    "value": "$18,000"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:23:26+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "8423eac08c7e9c5b2075.json.gz",
+   "requested_url": "https://www.mountmarty.edu/tuition-and-aid/scholarships-and-awards/incoming-firstyear/",
+   "sha256": "8423eac08c7e9c5b2075a2ee810386cf17c1f12a6bcfc851a4921a99734149e1",
+   "title": "Incoming First-year Students",
+   "url": "https://www.mountmarty.edu/tuition-and-aid/scholarships-and-awards/incoming-firstyear/"
+  },
+  "year_basis": "labeled_entering_class"
+ },
+ "f7fbcc4e59e53bd6": {
+  "decision": {
+   "candidate_id": "f7fbcc4e59e53bd6",
+   "reason": "Cost column checked against the published 2026-27 table (residency from the column header; components and total as printed)."
+  },
+  "evidence": [
+   {
+    "field": "on_campus:Tuition & Fees",
+    "snippet": "Tuition & Fees | 9916 | 11457 | 13616",
+    "value": 13616
+   },
+   {
+    "field": "on_campus:Course/Discipline Fees*",
+    "snippet": "Course/Discipline Fees* | 510 | 510 | 510",
+    "value": 510
+   },
+   {
+    "field": "on_campus:Housing & Food",
+    "snippet": "Housing & Food | 11238 | 11238 | 11238",
+    "value": 11238
+   },
+   {
+    "field": "on_campus:Direct Costs Total",
+    "snippet": "Direct Costs Total | 21664 | 23205 | 25364",
+    "value": 25364
+   },
+   {
+    "field": "on_campus:Books, Course Materials, Supplies & Equipment",
+    "snippet": "Books, Course Materials, Supplies & Equipment | 800 | 800 | 800",
+    "value": 800
+   },
+   {
+    "field": "on_campus:Personal Expenses",
+    "snippet": "Personal Expenses | 2424 | 2424 | 2424",
+    "value": 2424
+   },
+   {
+    "field": "on_campus:Transportation Expenses",
+    "snippet": "Transportation Expenses | 1914 | 1914 | 1914",
+    "value": 1914
+   },
+   {
+    "field": "on_campus:Loan Fees",
+    "snippet": "Loan Fees | 68 | 68 | 68",
+    "value": 68
+   },
+   {
+    "field": "on_campus:Indirect Costs Total",
+    "snippet": "Indirect Costs Total | 5206 | 5206 | 5206",
+    "value": 5206
+   },
+   {
+    "field": "on_campus:Total Annual Cost of Attendance Estimate",
+    "snippet": "Total Annual Cost of Attendance Estimate | 26870 | 28411 | 30570",
+    "value": 30570
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:29:13+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "21a579b75950f72d8d94.json.gz",
+   "requested_url": "https://www.usd.edu/Admissions-and-Aid/Tuition-and-Costs/Undergraduate-Cost-of-Attendance",
+   "sha256": "21a579b75950f72d8d94937edcf8c0dd2a75b965e610ce7b3530ab2f374f0cdf",
+   "title": "Undergraduate Cost of Attendance | University of South Dakota",
+   "url": "https://www.usd.edu/Admissions-and-Aid/Tuition-and-Costs/Undergraduate-Cost-of-Attendance"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "fb9e1fca857e0a2e": {
+  "decision": {
+   "candidate_id": "fb9e1fca857e0a2e",
+   "reason": "Row checked against the published table (name, criteria and amount as printed). Year labelled on page."
+  },
+  "evidence": [
+   {
+    "field": "test_requirement",
+    "snippet": "630-800 | 175-200 | $21,000",
+    "value": "Old GED Score: 630-800"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "630-800 | 175-200 | $21,000",
+    "value": "$21,000"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:23:26+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "8423eac08c7e9c5b2075.json.gz",
+   "requested_url": "https://www.mountmarty.edu/tuition-and-aid/scholarships-and-awards/incoming-firstyear/",
+   "sha256": "8423eac08c7e9c5b2075a2ee810386cf17c1f12a6bcfc851a4921a99734149e1",
+   "title": "Incoming First-year Students",
+   "url": "https://www.mountmarty.edu/tuition-and-aid/scholarships-and-awards/incoming-firstyear/"
+  },
+  "year_basis": "labeled_entering_class"
+ },
+ "m6ddbbdf1c917c03": {
+  "decision": {
+   "candidate_id": "m6ddbbdf1c917c03",
+   "reason": "Transfer sentence checked against the official page; no transfer guarantee implied."
+  },
+  "evidence": [
+   {
+    "field": "min_grade",
+    "snippet": "A grade of C or better (2.0 on a 4.0 scale) shall be required in each course accepted in transfer.",
+    "source_url": "https://www.mitchelltech.edu/admissions/admissions-process/transfer-students/",
+    "value": "C"
+   },
+   {
+    "field": "min_grade",
+    "snippet": "A grade of C or better (2.0 on a 4.0 scale) shall be required in each course accepted in transfer.",
+    "source_url": "https://www.mitchelltech.edu/academics/registrar/registration-information/transfer-credit-evaluation/",
+    "value": "C"
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:23:16+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "a5cff7bdf05a6cf9eb34.json.gz",
+   "requested_url": "https://www.mitchelltech.edu/admissions/admissions-process/transfer-students/",
+   "sha256": "a5cff7bdf05a6cf9eb34638a42f8a80165ccb63ae62770c34a39f6518e75db05",
+   "title": "Transfer Students | Mitchell Technical College",
+   "url": "https://www.mitchelltech.edu/admissions/admissions-process/transfer-students/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "macd527f65b4a1b8": {
+  "decision": {
+   "candidate_id": "macd527f65b4a1b8",
+   "reason": "Policy lines and table rows checked against the official source as printed."
+  },
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "-Earn a cumulative GPA of at least 3.50 on a 4.0 scale;",
+    "source_url": "https://www.sdsmt.edu/admissions-aid/undergraduate-admissions/dual-enrollment-applicants.html",
+    "value": 3.5
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "-Earn a cumulative GPA of at least 3.25 on a 4.0 scale;",
+    "source_url": "https://www.sdsmt.edu/admissions-aid/undergraduate-admissions/dual-enrollment-applicants.html",
+    "value": 3.25
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "☐ 3. Student must have received a final grade of “B” or higher in all previous SDBOR HSDC courses OR have a 3.0 cumulative GPA",
+    "source_url": "https://www.sdsmt.edu/admissions-aid/assets/pdf-files/Credit%20Limit%20Waiver%20Petition.pdf",
+    "value": 3.0
+   },
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "Option 2: A student who cannot show good cause may pay the full HSDC tuition rate for a total cost of $145 per credit hour. If the",
+    "source_url": "https://www.sdsmt.edu/admissions-aid/assets/pdf-files/HSDC%20Eligibility%20Exemption%20Form%20W-F%20Grades.pdf",
+    "value": 145
+   },
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "in HSDC by 1.) successfully repeating the course(s) I earned the “W” or “F” grade in, and 2.) paying the full HSDC tuition rate at $145/credit",
+    "source_url": "https://www.sdsmt.edu/admissions-aid/assets/pdf-files/HSDC%20Eligibility%20Exemption%20Form%20W-F%20Grades.pdf",
+    "value": 145
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:29:34+00:00",
+   "kind": "pdf",
+   "last_modified": "Mon, 21 Sep 2026 17:27:57 GMT",
+   "page_file": "2d780e697858da640840.json.gz",
+   "requested_url": "https://www.sdsmt.edu/admissions-aid/assets/pdf-files/HSDC%20Eligibility%20Exemption%20Form%20W-F%20Grades.pdf",
+   "sha256": "2d780e697858da640840eaf9f10d3ec7717b9f7c42c7d6e68757d1f7abde29d7",
+   "title": "High School Dual Credit Program",
+   "url": "https://www.sdsmt.edu/admissions-aid/assets/pdf-files/HSDC%20Eligibility%20Exemption%20Form%20W-F%20Grades.pdf"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "mbb9e4f57e274fb3": {
+  "decision": {
+   "candidate_id": "mbb9e4f57e274fb3",
+   "reason": "Policy lines and table rows checked against the official source as printed."
+  },
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "Earn a cumulative GPA of at least 3.50 on a 4.0 scale.",
+    "source_url": "https://northern.edu/academics/high-school-programs/dual-credit",
+    "value": 3.5
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "Earn a cumulative GPA of at least 3.25 on a 4.0 scale.",
+    "source_url": "https://northern.edu/academics/high-school-programs/dual-credit",
+    "value": 3.25
+   },
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "Students are responsible for paying tuition for dual credit courses. Dual credit students pay $78.48 per credit hour ($235.44 for a 3-credit course and $313.92 for a 4-credit course). Tuition payments are due no later than published fall/spring census dates. All students should access their bill via",
+    "source_url": "https://northern.edu/academics/high-school-programs/dual-credit/high-school-dual-credit-resources",
+    "value": 78.48
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T04:29:21+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "e0c664a495a8a0f3ed79.json.gz",
+   "requested_url": "https://northern.edu/academics/high-school-programs/dual-credit",
+   "sha256": "e0c664a495a8a0f3ed79d13307672cc5d199146dad05ca473ba9146e7d47cec5",
+   "title": "High School Dual Credit | Northern State University in South Dakota",
+   "url": "https://northern.edu/academics/high-school-programs/dual-credit"
+  },
+  "year_basis": "source_unlabeled"
+ }
+}
