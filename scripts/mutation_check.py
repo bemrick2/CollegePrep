@@ -156,6 +156,8 @@ MUTS = [
     ('pipeline/extractors/merit.py', '        if tier_row and NOT_AWARD_NAME.search(title): continue', '        pass'),
     ('pipeline/extractors/merit.py', 'if context.strip() and not nav and not re.search', 'if context.strip() and not re.search'),
     ('pipeline/extractors/merit.py', "NOT_AWARD_NAME = re.compile(r'\\bph\\.?\\s?d\\b|\\bdoctoral\\b|\\bmaster\\'?s\\b|", "NOT_AWARD_NAME = re.compile(r'"),
+    ('pipeline/registry.py', '    return None if label in GENERIC_LABELS else label', '    return label'),
+    ('pipeline/registry.py', '        if folder != folders.get(key) and folder in owned:', '        if False:'),
 ]
 failed = False
 for f, old, new in MUTS:
