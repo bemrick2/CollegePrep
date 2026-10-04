@@ -7,6 +7,7 @@ import { App } from './App'
 import { DemoSource, DEMO_PARENT, DEMO_STUDENT } from './lib/data/demo/demoSource'
 import { emptyStore } from './lib/data/demo/store'
 import { sampleFamily } from './lib/data/demo/seed'
+import { writeInterests } from './lib/interestStore'
 
 function renderAt(path: string, source: DemoSource) {
   return render(
@@ -124,6 +125,74 @@ describe('app flows', () => {
     expect(await screen.findByText(/Primary target: University of Tennessee, Knoxville/)).toBeInTheDocument()
     expect(screen.getByText('$147,976 published cost of attendance over 4 years, before aid')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /See the full path/ })).toHaveAttribute('href', '/colleges/paths')
+  })
+
+  it('student onboarding asks how sure they are about a major and never requires one', async () => {
+    const user = userEvent.setup()
+    const src = new DemoSource(emptyStore())
+    src.switchPersona(DEMO_STUDENT, 'Student (demo)')
+    renderAt('/onboarding/student', src)
+    await user.type(await screen.findByLabelText('First name'), 'Jordan')
+    await user.click(screen.getByRole('button', { name: '11' }))
+    await user.click(screen.getByRole('button', { name: 'Continue' }))
+    await user.click(await screen.findByRole('button', { name: 'Continue' }))
+    expect(await screen.findByRole('heading', { name: 'What might you study?' })).toBeInTheDocument()
+    // Skippable before any choice.
+    expect(screen.getByRole('button', { name: 'Skip for now' })).toBeInTheDocument()
+    await user.click(screen.getByRole('button', { name: /I'm not sure yet/ }))
+    // Undecided: broad areas only, no majors panel.
+    expect(screen.queryByText(/Possible majors in/)).not.toBeInTheDocument()
+    await user.click(screen.getByRole('button', { name: 'Health' }))
+    await user.click(screen.getByRole('button', { name: 'Continue' }))
+    await user.click(await screen.findByRole('button', { name: 'Start my benchmark' }))
+    await screen.findByText(/benchmark/i)
+    const key = Object.keys(localStorage).find((k) => k.startsWith('pp-interests:'))!
+    expect(JSON.parse(localStorage.getItem(key)!)).toEqual({ certainty: 'unsure', interests: [{ kind: 'area', key: 'health' }] })
+  })
+
+  it('a student weighing several majors saves at least three, unranked', async () => {
+    const user = userEvent.setup()
+    const src = new DemoSource(emptyStore())
+    src.switchPersona(DEMO_STUDENT, 'Student (demo)')
+    renderAt('/onboarding/student', src)
+    await user.type(await screen.findByLabelText('First name'), 'Sam')
+    await user.click(screen.getByRole('button', { name: '10' }))
+    await user.click(screen.getByRole('button', { name: 'Continue' }))
+    await user.click(await screen.findByRole('button', { name: 'Continue' }))
+    await user.click(await screen.findByRole('button', { name: /considering a few things/ }))
+    await user.click(screen.getByRole('button', { name: 'Engineering & technology' }))
+    await user.click(screen.getByRole('button', { name: 'Computer science' }))
+    await user.click(screen.getByRole('button', { name: 'Mechanical engineering' }))
+    await user.click(screen.getByRole('button', { name: /^Business/ }))
+    await user.click(screen.getByRole('button', { name: 'Finance' }))
+    expect(screen.getByText(/3 saved/)).toBeInTheDocument()
+    await user.click(screen.getByRole('button', { name: 'Continue' }))
+    await user.click(await screen.findByRole('button', { name: 'Start my benchmark' }))
+    await screen.findByText(/benchmark/i)
+    const key = Object.keys(localStorage).find((k) => k.startsWith('pp-interests:'))!
+    const saved = JSON.parse(localStorage.getItem(key)!)
+    expect(saved.interests.map((i: { key: string }) => i.key)).toEqual(['computer-science', 'mechanical-eng', 'finance'])
+    expect(saved.interests.some((i: { focus?: boolean }) => i.focus)).toBe(false)
+  })
+
+  it('explore majors shows verified program fit across all interests and updates when interests change', async () => {
+    const user = userEvent.setup()
+    localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976']))
+    const store = sampleFamily('parent')
+    writeInterests(store.students[0]!.id, { certainty: 'few', interests: [{ kind: 'major', key: 'computer-science' }, { kind: 'major', key: 'mechanical-eng' }, { kind: 'major', key: 'finance' }] })
+    renderAt('/colleges/majors', new DemoSource(store))
+    expect(await screen.findByRole('heading', { name: 'Explore majors' })).toBeInTheDocument()
+    expect(
+      await screen.findByText("University of Tennessee, Knoxville has verified programs for Computer science; Mechanical engineering and Finance aren't in our verified list yet."),
+    ).toBeInTheDocument()
+    expect(screen.getByText(/Published rule: “Progression to upper-division departmental programs is competitive and space-limited/)).toBeInTheDocument()
+    // A school with no verified program list says so instead of implying anything.
+    expect(screen.getByText("We haven't verified Lipscomb University's program list yet.")).toBeInTheDocument()
+    // Unverified questions are asked, not answered.
+    expect(screen.getByText('Does the major require direct (freshman) admission?')).toBeInTheDocument()
+    expect(screen.queryByText(/requires freshman admission/)).not.toBeInTheDocument()
+    await user.click(screen.getByRole('button', { name: 'Remove Finance' }))
+    expect(await screen.findByText("University of Tennessee, Knoxville has verified programs for Computer science; Mechanical engineering isn't in our verified list yet.")).toBeInTheDocument()
   })
 
   it('choosing a role on the landing page goes straight to that onboarding (no second "who is using" step)', async () => {

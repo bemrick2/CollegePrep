@@ -10,6 +10,7 @@ import { EXAM_NAME } from '../onboarding/options'
 import { useCatalog } from '../practice/useCatalog'
 import { CostOutlook, outlookFor } from './CostOutlook'
 import { PrimaryTarget } from './PrimaryTarget'
+import { useInterests } from '../majors/useInterests'
 import { meritAwards } from '../../lib/engine/merit'
 import { useSavedComparison } from '../colleges/useSavedComparison'
 import { parentActions, type ParentAction } from '../../lib/engine/actions'
@@ -57,6 +58,7 @@ function sectionRollup(estimates: SkillEstimate[]) {
 
 function Panel({ student, o }: { student: Student; o: StudentOverview }) {
   const exam = o.plan?.exam_family ?? 'act'
+  const interestCount = useInterests(student.id).profile.interests.length
   const catalog = useCatalog(exam)
   const est = latestEstimate(o.scores, exam)[0]
   const goal = o.week.goal?.target_questions ?? null
@@ -90,6 +92,7 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
   })
   const official = [...o.scores].filter((x) => x.exam_family === exam && x.composite !== null && x.score_source !== 'practice_estimate').sort((a, b) => b.test_date.localeCompare(a.test_date))[0]
   const actions = parentActions({
+    interestsSaved: interestCount,
     name,
     exam,
     linked,
