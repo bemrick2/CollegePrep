@@ -12,5 +12,5 @@ export function useSavedComparison(year = COMPARE_YEAR) {
     () => (saved.keys.length ? source.compareInstitutions(saved.keys, year) : Promise.resolve([] as InstitutionComparison[])),
     [source, saved.keys.join(','), year],
   )
-  return { keys: saved.keys, ...cmp, loading: saved.loading || cmp.loading }
+  return { keys: saved.keys, primary: saved.primary, setPrimary: saved.setPrimary, canSetPrimary: saved.canSetPrimary, ...cmp, loading: saved.loading || cmp.loading }
 }

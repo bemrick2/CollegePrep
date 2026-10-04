@@ -435,6 +435,17 @@ export class LiveSource implements DataSource {
     await rpc<void>(this.sb, 'remove_household_school', { p_household: householdId, p_institution_key: institutionKey })
   }
 
+  // CR-12 (primary target school) is not in the backend yet. Hidden in the UI until it lands; no client storage.
+  readonly supportsPrimarySchool = false
+
+  async primarySchool(_householdId: string): Promise<string | null> {
+    return null
+  }
+
+  async setPrimarySchool(_householdId: string, _institutionKey: string | null): Promise<void> {
+    throw new DataError('Choosing a primary school is not available yet', 'invalid')
+  }
+
   async verifiedSchools(academicYear: string, state?: string): Promise<InstitutionSearchHit[]> {
     return rpc<InstitutionSearchHit[]>(this.sb, 'institutions_with_verified_records', { p_academic_year: academicYear, p_state: state ?? null })
   }
