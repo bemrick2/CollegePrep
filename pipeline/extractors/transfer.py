@@ -18,7 +18,7 @@ MAX_HOURS = re.compile(r'(?:maximum\s+of|no\s+more\s+than|up\s+to|a\s+maximum\s+
 # A grade rule for pass/fail courses or for one module/pathway (Rhodes, TN Tech r5) is not the general minimum.
 SCOPED_GRADE = re.compile(r'pass\s*/\s*fail|pass-fail|\bP/F\b|satisfactory/unsatisfactory|\bmodule\b|transfer\s+pathway|\bTTP\b|core\s+block|\bmajor\b|'
                           # GA r1: rules for named courses (Atlanta Metro composition, UNG/KSU "ENGL 1101") and advice ("encouraged")
-                          r'composition|\b(?:ENGL|MATH|English|Math)\s+\d{4}|encouraged|recommended|'
+                          r'composition|\b(?:ENGL?|MATH|English|Math)\s+\d{4}|encouraged|recommended|'  # CO r1: CCD \"ENG 1021\"
                           # LA r1: placement in developmental courses (Delgado), one college's math/science rule (LSU),
                           # the conditions of an outgoing block-transfer guarantee (River Parishes)
                           r'developmental|(?:for|exempt\s+the)\s+placement|placement\s+(?:assessment|test|exam)|math(?:ematics)?\s+and\s+science|block\s+transfer|'
@@ -57,7 +57,7 @@ def extract(inst, entry, page, today_year):
                 for m in GRADE.finditer(s): found['min_grade'].append((m.group(1).upper(), s))
             # LA r1: a cap on lower-level credit counted as upper-level (LSUA) or on credit from unaccredited schools
             # (NOBTS) is not the overall transfer maximum.
-            for m in ([] if re.search(r'upper[- ](?:level|division)|not\s+accredited|unaccredited|toward\s+the\s+major|most\s+(?:[\w-]+\s+)?(?:colleges|schools|universities|institutions)', s, re.I) else MAX_HOURS.finditer(s)):  # IA (Iowa): a cap for the major
+            for m in ([] if re.search(r'upper[- ](?:level|division)|not\s+accredited|unaccredited|toward\s+the\s+major|depending\s+on\s+(?:the|your)\s+(?:program|major)|most\s+(?:[\w-]+\s+)?(?:colleges|schools|universities|institutions)', s, re.I) else MAX_HOURS.finditer(s)):  # IA (Iowa): a cap for the major
                 found['max_transfer_credits'].append((int(m.group(1)), s))
         for m in ([] if re.search(r'attempted|probation|suspension|retain\s+this\s+status', s, re.I) else RESIDENCE.finditer(s)):
             v = int(m.group(1) or m.group(2))

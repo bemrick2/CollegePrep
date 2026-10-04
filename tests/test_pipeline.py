@@ -354,6 +354,22 @@ last 30 hours in residence at the university.</p>"""
         [c] = dual.extract(INST, ENTRY, page, '2026-27')
         self.assertEqual([t['min_hs_gpa'] for t in c['record']['dual_enrollment']['eligibility_tiers']], [2.5])
 
+    def test_co_r1_rules(self):
+        """CO r1: Otero's fall/spring split is not a minimum; CCD's ENG 1021 grade and Regis's program-dependent cap are
+        not general transfer rules; Western's charge for skipping a step is not the dual-enrollment price."""
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Institutional Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th><th>Requirements</th></tr>'
+            '<tr><td>SEBREA Scholarship</td><td>$1000 ($500 for Fall semester and $500 for Spring semester)</td><td>Rural business</td></tr>'
+            '<tr><td>Pinnacol Scholarship</td><td>$2,500</td><td>CTE pathway</td></tr></table>'), '2026-27')}
+        self.assertEqual((got['SEBREA Scholarship']['award_min'], got['SEBREA Scholarship']['award_max']), (1000, 1000))
+        self.assertEqual(transfer.extract(INST, ENTRY, T.parse_html(
+            '<title>Transfer</title><p>ENG 1021 must be completed with a grade of B or better for transfer.</p>'), '2026-27'), [])
+        [c] = transfer.extract(INST, ENTRY, T.parse_html(
+            '<title>Transfer Guides</title><p>Depending on the program, up to 87 credit hours may be eligible for transfer!</p>'
+            '<p>A transfer is accepted only for courses in which a grade of C- or better is earned.</p>'), '2026-27')
+        self.assertEqual((c['record'].get('min_grade'), c['record'].get('max_transfer_credits')), ('C-', None))
+        self.assertEqual(self._de('<p>Important: If you don’t do this step, you’ll be charged $116 per credit.</p>'), [])
+
     def test_ut_r1_rules(self):
         """UT r1: SUU "$12,000 ($6,000/semester*)" is one annual amount; Utah Tech's "Per Semester (full-time)" row-label
         header makes a semester table; Weber's scholarship-retention GPA is not the program's; SUU "N/A" notes are blank."""
