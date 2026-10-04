@@ -102,6 +102,8 @@ export function AppProvider({ children, source: injected }: { children: ReactNod
       d.replaceStore(sampleFamily(persona))
       const { SAMPLE_SCHOOLS, readSavedSchools, writeSavedSchools } = await import('./savedSchools')
       if (readSavedSchools().length === 0) writeSavedSchools(SAMPLE_SCHOOLS)
+      const { SAMPLE_INTERESTS, readInterests, writeInterests } = await import('./interestStore')
+      for (const st of d.sampleStudentIds()) if (readInterests(st).certainty === null) writeInterests(st, SAMPLE_INTERESTS)
     }
     else {
       d.reset()

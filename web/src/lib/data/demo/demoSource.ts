@@ -89,6 +89,11 @@ export class DemoSource implements DataSource {
     this.commit()
   }
 
+  /** Student ids in the current demo store (used to seed browser-only sample data). */
+  sampleStudentIds(): string[] {
+    return this.s.students.map((x) => x.id)
+  }
+
   reset() {
     this.s = emptyStore()
     this.commit()
