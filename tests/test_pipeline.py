@@ -1528,6 +1528,19 @@ class RegistryTests(unittest.TestCase):
         for path in sorted((ROOT / 'pipeline/registry').glob('*.json')):
             self.assertEqual(registry.build(path.stem), registry.load(path.stem), f'run: python -m pipeline registry --state {path.stem}')
 
+    def test_data_folders_are_unique_across_states(self):
+        """NM r1: a folder holding data belongs to one institution in every state (ERAU Prescott/Daytona, UNM branches, admissions.* hosts)."""
+        owner, curated = {}, registry.curated_folders()
+        for path in sorted((ROOT / 'pipeline/registry').glob('*.json')):
+            for inst in registry.load(path.stem)['institutions']:
+                key, folder = inst['institution_key'], inst['folder']
+                if folder in curated.values():  # a folder that already holds data belongs to exactly one institution
+                    self.assertEqual(owner.setdefault(folder, key), key, f'{folder} is shared by {owner[folder]} and {key}')
+                if folder in registry.GENERIC_LABELS:
+                    self.assertEqual(curated.get(key), folder, f'{key} would be filed under the generic folder {folder}')
+        self.assertFalse([f for f, keys in __import__('collections').Counter(curated.values()).items() if keys > 1])
+        self.assertEqual((registry.folder_label('ashland.kctcs.edu'), registry.folder_label('admissions.unl.edu')), ('ashland', None))
+
     def test_seed_overrides_need_reason_and_evidence(self):
         built = registry.load('NV')
         nsu = next(i for i in built['institutions'] if i['unitid'] == 441900)

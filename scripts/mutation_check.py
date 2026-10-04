@@ -152,6 +152,8 @@ MUTS = [
     ('pipeline/extractors/transfer.py', '(?:english|math(?:ematics)?)\\s+course|', ''),
     ('pipeline/extractors/dual.py', "NOT_ELIGIBILITY = re.compile(r'overload|", "NOT_ELIGIBILITY = re.compile(r'"),
     ('pipeline/extractors/transfer.py', "r'(?<!non-)(?<!non)developmental|", "r'developmental|"),
+    ('pipeline/registry.py', '    return None if label in GENERIC_LABELS else label', '    return label'),
+    ('pipeline/registry.py', '        if folder != folders.get(key) and folder in owned:', '        if False:'),
 ]
 failed = False
 for f, old, new in MUTS:
