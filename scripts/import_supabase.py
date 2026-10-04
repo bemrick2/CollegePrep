@@ -10,6 +10,7 @@ from backend.catalog import ROOT,records,IMPORT_DOMAINS,import_contract_errors
 from backend.store import natural_key
 from scripts.validate_data import validate_record
 from backend.test_criteria import parse as parse_test_criteria
+from backend.exam_keys import catalog as exam_catalog,exam_key
 SUPPORTED_DOMAINS=IMPORT_DOMAINS
 
 def literal(v):
@@ -25,7 +26,12 @@ def bulk_batch(rows,accept_corrections=False):
         problems=validate_record(ROOT/'data',row['payload'],0,domain=row['domain'])+import_contract_errors(row['domain'],row['payload'])
         if problems: raise ValueError('; '.join(problems))
     # Derived columns travel beside the payload, so the ledger keeps exactly the reviewed record.
-    derived=lambda row: parse_test_criteria(row['payload'].get('test_requirement')) if row['domain']=='awards' else {}
+    def derived(row):
+        r=row['payload']
+        if row['domain']=='awards': return parse_test_criteria(r.get('test_requirement'))
+        if row['domain']=='credit_policies':
+            return {'exam_keys':[exam_key(r.get('policy_kind'),e.get('exam_or_course_name')) for e in r.get('equivalencies') or []]}
+        return {}
     data=literal(json.dumps([{**row,'derived':derived(row)} for row in rows],ensure_ascii=False))+'::jsonb'
     sql=f'''begin;
 create temporary table import_rows(domain text,natural_key text,source_file text,payload jsonb,derived jsonb) on commit drop;
@@ -90,8 +96,9 @@ end $guard$;
     sql+=f"update public.credit_equivalencies e set is_current=false from public.credit_policies p,public.institutions i,import_rows r where e.credit_policy_id=p.id and p.institution_id=i.id and i.institution_key=r.payload->>'institution_key' and p.academic_year=r.payload->>'academic_year' and p.policy_kind=r.payload->>'policy_kind' and r.domain='credit_policies';\n"
     values=["(eq->>'"+k+"')"+('::numeric' if k=='credits_awarded' else '::boolean' if k.startswith('applies_to') else '') for k in eqfields]
     conflict=['credit_policy_id','exam_or_course_code','minimum_score','institution_course_equivalent']
-    updates=','.join(k+'=excluded.'+k for k in eqfields if k not in conflict)
-    sql+=f"insert into public.credit_equivalencies(credit_policy_id,{','.join(eqfields)},is_current) select p.id,{','.join(values)},true from import_rows r {instjoin} join public.credit_policies p on p.institution_id=i.id and p.academic_year=r.payload->>'academic_year' and p.policy_kind=r.payload->>'policy_kind' cross join lateral jsonb_array_elements(r.payload->'equivalencies') eq where r.domain='credit_policies' on conflict({','.join(conflict)}) do update set {updates},is_current=true;\ncommit;"
+    updates=','.join(k+'=excluded.'+k for k in eqfields+['exam_key'] if k not in conflict)
+    sql+='insert into public.exam_catalog(exam_key,family,display_name) values '+','.join(f'({literal(k)},{literal(f)},{literal(n)})' for k,f,n in exam_catalog())+' on conflict(exam_key) do update set family=excluded.family,display_name=excluded.display_name;\n'
+    sql+=f"insert into public.credit_equivalencies(credit_policy_id,{','.join(eqfields)},exam_key,is_current) select p.id,{','.join(values)},r.derived->'exam_keys'->>(x.n::int-1),true from import_rows r {instjoin} join public.credit_policies p on p.institution_id=i.id and p.academic_year=r.payload->>'academic_year' and p.policy_kind=r.payload->>'policy_kind' cross join lateral jsonb_array_elements(r.payload->'equivalencies') with ordinality as x(eq,n) where r.domain='credit_policies' on conflict({','.join(conflict)}) do update set {updates},is_current=true;\ncommit;"
     return sql
 
 def batches(size=400,accept_corrections=False):
@@ -119,11 +126,12 @@ TABLES={'institutions':'public.institutions where institution_key is not null','
 
 def reconcile_sql(fresh=True):
     """SQL assertions that every repository record landed in the ledger and its normalized table."""
-    counts={}; equivalencies=0; classified=0
+    counts={}; equivalencies=0; classified=0; keyed=0
     for _,domain,r in records():
         counts[domain]=counts.get(domain,0)+1
         if domain=='credit_policies': equivalencies+=len(r.get('equivalencies') or [])
         if domain=='awards' and parse_test_criteria(r.get('test_requirement'))['kind']: classified+=1
+        if domain=='credit_policies': keyed+=sum(1 for e in r.get('equivalencies') or [] if exam_key(r.get('policy_kind'),e.get('exam_or_course_name')))
     missing=set(counts)-set(TABLES)
     if missing: raise ValueError('No reconciliation table for domains: '+', '.join(sorted(missing)))
     checks=[]
@@ -132,6 +140,7 @@ def reconcile_sql(fresh=True):
         checks.append(f"if (select count(*) from {TABLES[domain]})<>{n} then raise exception 'normalized count mismatch for {domain}'; end if;")
     checks.append(f"if (select count(*) from public.credit_equivalencies where is_current)<>{equivalencies} then raise exception 'credit equivalency count mismatch'; end if;")
     checks.append(f"if (select count(*) from public.institutional_awards where test_criteria_kind is not null)<>{classified} then raise exception 'award test criteria count mismatch'; end if;")
+    checks.append(f"if (select count(*) from public.credit_equivalencies where is_current and exam_key is not null)<>{keyed} then raise exception 'exam key count mismatch'; end if;")
     if fresh: checks.append("if (select count(*) from ingestion.reference_revisions)<>0 then raise exception 'repeat import created revisions'; end if;")
     return 'do $reconcile$ begin\n '+'\n '.join(checks)+'\nend $reconcile$;\n'
 

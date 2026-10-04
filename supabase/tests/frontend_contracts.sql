@@ -299,6 +299,43 @@ do $$ begin
   delete from public.institutional_awards where award_name = 'Test Minimum Merit';
 end $$;
 
+-- CR-10 exam plan: student and view_progress guardians read; guardians and the linked student write.
+do $$ declare i int; begin
+  perform hp_test.as_owner();
+  insert into public.exam_catalog values ('ap:biology', 'ap', 'Biology'), ('clep:biology', 'clep', 'Biology');
+  insert into public.exam_catalog select 'ap:extra-' || n, 'ap', 'Extra ' || n from generate_series(1, 20) n;
+  perform hp_test.expect_error($q$insert into public.exam_catalog values ('clep:x', 'ap', 'X')$q$, '23514');
+  perform hp_test.as_anon();
+  perform hp_test.eq((select count(*) from public.exam_catalog where exam_key like '%biology'), 2::bigint, 'catalog is public');
+  perform hp_test.expect_error('select count(*) from public.student_exam_plan', '42501');
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+  insert into public.student_exam_plan(student_id, exam_key) values (current_setting('t.st')::uuid, 'ap:biology');
+  update public.student_exam_plan set score = 4, taken_on = date '2026-05-12' where exam_key = 'ap:biology';
+  perform hp_test.expect_error(format($q$update public.student_exam_plan set score = 6 where student_id = %L and exam_key = 'ap:biology'$q$, current_setting('t.st')), '23514');
+  perform hp_test.expect_error(format($q$insert into public.student_exam_plan(student_id, exam_key) values (%L, 'ap:no-such')$q$, current_setting('t.st')), '23503');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  insert into public.student_exam_plan(student_id, exam_key, score) values (current_setting('t.st')::uuid, 'clep:biology', 55);
+  perform hp_test.expect_error(format($q$update public.student_exam_plan set score = 5 where student_id = %L and exam_key = 'clep:biology'$q$, current_setting('t.st')), '23514');
+  perform hp_test.eq((select count(*) from public.student_exam_plan), 2::bigint, 'student reads the plan');
+  perform hp_test.check((select set_by from public.student_exam_plan where exam_key = 'clep:biology') = '20000000-0000-0000-0000-000000000051', 'set_by recorded');
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a2');
+  perform hp_test.eq((select count(*) from public.student_exam_plan), 0::bigint, 'guardian without view_progress reads nothing');
+  insert into public.student_exam_plan(student_id, exam_key) values (current_setting('t.st')::uuid, 'ap:extra-1');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000099');
+  perform hp_test.expect_error(format($q$insert into public.student_exam_plan(student_id, exam_key) values (%L, 'ap:extra-2')$q$, current_setting('t.st')), '42501');
+  perform hp_test.eq((select count(*) from public.student_exam_plan), 0::bigint, 'outsider reads nothing');
+  delete from public.student_exam_plan;
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+  perform hp_test.eq((select count(*) from public.student_exam_plan), 3::bigint, 'outsider deleted nothing');
+  for i in 2..18 loop
+    insert into public.student_exam_plan(student_id, exam_key) values (current_setting('t.st')::uuid, 'ap:extra-' || i);
+  end loop;
+  perform hp_test.expect_error(format($q$insert into public.student_exam_plan(student_id, exam_key) values (%L, 'ap:extra-19')$q$, current_setting('t.st')), '22023', '%up to 20%');
+  delete from public.student_exam_plan where exam_key = 'ap:extra-18';
+  insert into public.student_exam_plan(student_id, exam_key) values (current_setting('t.st')::uuid, 'ap:extra-19');
+  perform hp_test.as_owner();
+end $$;
+
 rollback;
 \o
 \echo frontend contract tests passed
