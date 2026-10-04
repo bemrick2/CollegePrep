@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { render, screen, within } from '@testing-library/react'
+import { cleanup, render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { AppProvider, realName } from './lib/app'
@@ -93,7 +93,15 @@ describe('app flows', () => {
     // Merit: published single minimums only, compared with the target (27), never stated as eligibility.
     expect(screen.getAllByText('ACT 31+').length).toBeGreaterThan(0)
     expect(screen.getAllByText('4 above target').length).toBeGreaterThan(0)
-    expect(screen.getByText(/Compared with the target of 27/)).toBeInTheDocument()
+    expect(screen.getAllByText(/Compared with the target of 27/).length).toBeGreaterThan(0)
+    // Ways to lower the cost: verified levers, conservative merit status, no dollar total.
+    expect(screen.getAllByRole('heading', { name: 'Ways to lower this cost' }).length).toBeGreaterThan(0)
+    expect(screen.getByText('4 more ACT points reaches 4 merit awards (ACT 31+)')).toBeInTheDocument()
+    expect(screen.getByText('3 need-based or access programs')).toBeInTheDocument()
+    // Elevate one school as the primary target; it moves first.
+    await user.click(screen.getAllByRole('button', { name: 'Make primary target' })[0]!)
+    expect(await screen.findByText('Primary target')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Clear primary' })).toBeInTheDocument()
     await user.selectOptions(screen.getByLabelText('Add an exam'), screen.getByRole('option', { name: 'AP Calculus AB' }))
     expect(await screen.findByText('Needs 3+')).toBeInTheDocument()
     await user.selectOptions(screen.getByLabelText('AP Calculus AB score'), '2')
@@ -102,6 +110,20 @@ describe('app flows', () => {
     expect(screen.getByText('Your 5 earns credit')).toBeInTheDocument()
     expect(screen.queryByText(/saved?\s+\$/i)).not.toBeInTheDocument()
     localStorage.clear()
+  })
+
+  it('dashboard elevates the primary target school with its top cost levers', async () => {
+    localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976']))
+    const src = new DemoSource(sampleFamily('parent'))
+    renderAt('/parent', src)
+    expect(await screen.findByText('Choose a primary target')).toBeInTheDocument()
+    cleanup()
+    localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976']))
+    localStorage.setItem('pp-primary', 'utk')
+    renderAt('/parent', src)
+    expect(await screen.findByText(/Primary target: University of Tennessee, Knoxville/)).toBeInTheDocument()
+    expect(screen.getByText('$147,976 published cost of attendance over 4 years, before aid')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /See the full path/ })).toHaveAttribute('href', '/colleges/paths')
   })
 
   it('choosing a role on the landing page goes straight to that onboarding (no second "who is using" step)', async () => {

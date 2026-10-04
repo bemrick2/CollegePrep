@@ -72,6 +72,15 @@ describe('LiveSource contracts (issue #37)', () => {
     expect(calls.at(-1)!.args).toEqual({ p_academic_year: '2026-27', p_state: null })
   })
 
+  it('CR-12 pending: no primary school in live mode, and no client-side stand-in', async () => {
+    const { sb, calls } = fakeClient({})
+    const src = new LiveSource(sb)
+    expect(src.supportsPrimarySchool).toBe(false)
+    expect(await src.primarySchool('h1')).toBeNull()
+    await expect(src.setPrimarySchool('h1', 'utk')).rejects.toThrow(/not available yet/)
+    expect(calls).toHaveLength(0)
+  })
+
   it('CR-5 / CR-8: catalog and questions select the new content fields', async () => {
     const { sb, calls } = fakeClient({
       practice_questions: [{ id: 'q1', section: 'reading', difficulty: 2, difficulty_label: 'easy', stem: 'S', choices: [{ key: 'A', text: 'a' }], answer_format: 'choice', expected_time_seconds: 60, hint_count: 2, practice_passages: { title: 'T', body: 'B' }, exam_versions: { exam_family: 'act' }, practice_question_skills: [] }],

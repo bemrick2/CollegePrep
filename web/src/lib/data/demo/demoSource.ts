@@ -25,7 +25,7 @@ import { emptyStore, loadStore, saveStore, uid, type DemoAttempt, type DemoStore
 import { gradeAnswer } from '../../engine/grading'
 import { recommend, skillEstimates, streakFrom, weeklyProgress } from '../../engine/analytics'
 import { browserTimeZone, localDate } from '../../engine/dates'
-import { MAX_SAVED_SCHOOLS, readSavedSchools, writeSavedSchools } from '../../savedSchools'
+import { MAX_SAVED_SCHOOLS, readPrimarySchool, readSavedSchools, writePrimarySchool, writeSavedSchools } from '../../savedSchools'
 
 export const DEMO_PARENT = 'demo-parent'
 export const DEMO_STUDENT = 'demo-student'
@@ -546,6 +546,18 @@ export class DemoSource implements DataSource {
 
   async removeSchool(_householdId: string, key: string) {
     writeSavedSchools(readSavedSchools().filter((k) => k !== key))
+    if (readPrimarySchool() === null) writePrimarySchool(null)
+  }
+
+  readonly supportsPrimarySchool = true
+
+  async primarySchool(_householdId: string) {
+    return delay(readPrimarySchool())
+  }
+
+  async setPrimarySchool(_householdId: string, key: string | null) {
+    if (key && !readSavedSchools().includes(key)) throw new DataError('Save the school first', 'invalid')
+    writePrimarySchool(key)
   }
 
   async verifiedSchools(academicYear: string): Promise<InstitutionSearchHit[]> {

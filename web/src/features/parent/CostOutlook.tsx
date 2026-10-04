@@ -57,7 +57,7 @@ export function CostOutlook({ showAlternative = false }: { showAlternative?: boo
   const rows = (cmp.data ?? [])
     .filter((c) => c.found)
     .map(outlookFor)
-    .sort((a, b) => (a.level === 'two_year' ? 1 : 0) - (b.level === 'two_year' ? 1 : 0))
+    .sort((a, b) => (a.level === 'two_year' ? 1 : 0) - (b.level === 'two_year' ? 1 : 0) || Number(b.key === cmp.primary) - Number(a.key === cmp.primary))
   const four = rows.filter((r) => r.level === 'four_year' && r.degreeTotal != null).sort((a, b) => a.degreeTotal! - b.degreeTotal!)
   const low = four[0]
   const high = four[four.length - 1]
@@ -100,7 +100,10 @@ export function CostOutlook({ showAlternative = false }: { showAlternative?: boo
             {rows.map((r) => (
               <li key={r.key} className="rounded-2xl border border-line p-4">
                 <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
-                  <span className="font-semibold text-ink">{r.name}</span>
+                  <span className="font-semibold text-ink">
+                    {r.name}
+                    {r.key === cmp.primary && <Pill tone="brand" className="ml-2 align-middle">Primary target</Pill>}
+                  </span>
                   {r.degreeTotal != null ? (
                     <span className="display text-xl font-semibold tabular text-ink">{usd(r.degreeTotal)}</span>
                   ) : r.annual != null ? (
