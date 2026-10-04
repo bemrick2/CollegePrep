@@ -348,8 +348,10 @@ last 30 hours in residence at the university.</p>"""
             '<tr><td>Federal/State Grants</td><td>$8,395</td></tr><tr><td>Merit Award</td><td>$1,000</td></tr></table>'), '2026-27')
         self.assertEqual(package, [])
         sap = merit.extract(INST, ENTRY, T.parse_html(
-            '<title>Scholarships</title><h2>Scholarship Requirements</h2><table><tr><th>Course Credits Completed</th><th>Required GPA</th></tr>'
-            '<tr><td>0.25-6.75</td><td>1.60</td></tr><tr><td>7.00-15.75</td><td>1.80</td></tr><tr><td>16.00+</td><td>2.00</td></tr></table>'), '2026-27')
+            '<title>Financial Aid | Learn About Your Award</title><h2>Financial Aid Policies</h2><table><tr><th>Course Credits Completed</th><th>Required GPA</th><th>Pace (earned/attempted)</th></tr>'
+            '<tr><td>Course Credits Completed: 0.25-6.75</td><td>Required GPA: 1.60</td><td>Pace (earned/attempted): 67%</td></tr>'
+            '<tr><td>Course Credits Completed: 7.00-15.75</td><td>Required GPA: 1.80</td><td>Pace (earned/attempted): 67%</td></tr>'
+            '<tr><td>Course Credits Completed: 26.00+</td><td>Required GPA: 2.00</td><td>Pace (earned/attempted): 67%</td></tr></table>'), '2026-27')
         self.assertEqual(sap, [])
         base = '<title>Transfer Credit</title><p>Courses completed with a grade of D or better transfer to the university.</p>'
         for scoped in ('For those students with an overall transfer grade point average of less than 2.0, only courses with a grade of "C-" or above will transfer.',
