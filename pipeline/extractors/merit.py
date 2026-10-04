@@ -27,7 +27,7 @@ NOT_AWARD_NAME = re.compile(r'\bpell\b|\brotc\b|yellow\s+ribbon|supplemental\s+e
                             r'^\W*(books?|supplies|transportation|personal\s+expenses?|loan\s+fees?|room|board|food)\b|'
                             r'^(reading|english|math(ematics)?|science|writing|composite)$|'
                             r'^(gpa|act|sat|clt|psat|scores?|tiers?|level|amount)$|^(annual\s+)?totals?$', re.I)  # OK (Oklahoma Christian): a header row repeated in the body  # AR: UA-PTC placement score rows  # OR: COA rows
-NOT_MERIT_PAGE = re.compile(r'undocumented|sample[- ]aid[- ]packages?|aid[- ]package[- ]examples?|retention|renewal|keep(?:ing)?[- ]your[- ]scholarship|academic[- ]standards|probation|satisfactory[- ]academic[- ]progress|financial[- ]aid[- ]staff|'
+NOT_MERIT_PAGE = re.compile(r'(?:private|outside|external)[- ]scholarships?|undocumented|sample[- ]aid[- ]packages?|aid[- ]package[- ]examples?|retention|renewal|keep(?:ing)?[- ]your[- ]scholarship|academic[- ]standards|probation|satisfactory[- ]academic[- ]progress|financial[- ]aid[- ]staff|'
                             r'\bstaff\b|directory|meet[- ]the[- ]team|our[- ]team|'
                             # GA r1: lists of other organizations' awards (Agnes Scott outside scholarships, Georgia Southern
                             # military scholarships, West Georgia Tech foundation awards) and international-office waivers (UWG ISAP).
@@ -253,6 +253,7 @@ def extract(inst, entry, page, today_year):
         context = ' '.join([t.get('heading') or '', t.get('caption') or ''])
         if NOT_MERIT.search(context): continue
         header, body = rows[0], rows[1:]
+        if sum(1 for r in body if any(PHONE.search(c) for c in r)) >= 2: continue  # NM (Luna): a staff contact table, not awards
         if re.search(r'award\s+amounts?', header[0], re.I) and any(T.money_values(c) for c in header[1:]):
             continue  # ID (BYU-Idaho): a transposed table - columns are award levels, rows are attributes ("Qualifications", "Duration")
         if any(T.money_values(c) for c in header[1:]):  # no header row (AL: UWA): infer columns from the cells
