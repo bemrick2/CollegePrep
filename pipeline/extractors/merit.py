@@ -21,13 +21,13 @@ NOT_NAME = re.compile(r'^[\d<>=.\s/+%$,-]*$|tuition|\bfees?\b|per credit|per cou
                       r'\bstudents?\s+(is|who|still|are)\b|fall below|balance', re.I)
 # Names that are not merit awards (KY: federal aid and loans in an aid table, staff directories, credit-hour bands
 # from an academic-standards table).
-NOT_AWARD_NAME = re.compile(r'\bpell\b|\brotc\b|supplemental\s+educational\s+opportunity|\bseog\b|work[- ]study|\bloans?\b|\bplus\b|'
+NOT_AWARD_NAME = re.compile(r'\bpell\b|\brotc\b|yellow\s+ribbon|supplemental\s+educational\s+opportunity|\bseog\b|work[- ]study|\bloans?\b|\bplus\b|'
                             r'college\s+access\s+program|counselor(?!(?:\x27|\u2019)?s?\s+(?:award|scholarship))|director|coordinator|specialist|\bassistant\b|officer|advisor|'
                             r'^(fewer|more|less)\s+than\b|^over\s+\d|\bcredit\s+hours?\b|'
                             r'^\W*(books?|supplies|transportation|personal\s+expenses?|loan\s+fees?|room|board|food)\b|'
                             r'^(reading|english|math(ematics)?|science|writing|composite)$|'
                             r'^(gpa|act|sat|clt|psat|scores?|tiers?|level|amount)$|^(annual\s+)?totals?$', re.I)  # OK (Oklahoma Christian): a header row repeated in the body  # AR: UA-PTC placement score rows  # OR: COA rows
-NOT_MERIT_PAGE = re.compile(r'sample[- ]aid[- ]packages?|aid[- ]package[- ]examples?|retention|renewal|keep(?:ing)?[- ]your[- ]scholarship|academic[- ]standards|probation|satisfactory[- ]academic[- ]progress|financial[- ]aid[- ]staff|'
+NOT_MERIT_PAGE = re.compile(r'undocumented|sample[- ]aid[- ]packages?|aid[- ]package[- ]examples?|retention|renewal|keep(?:ing)?[- ]your[- ]scholarship|academic[- ]standards|probation|satisfactory[- ]academic[- ]progress|financial[- ]aid[- ]staff|'
                             r'\bstaff\b|directory|meet[- ]the[- ]team|our[- ]team|'
                             # GA r1: lists of other organizations' awards (Agnes Scott outside scholarships, Georgia Southern
                             # military scholarships, West Georgia Tech foundation awards) and international-office waivers (UWG ISAP).
@@ -46,7 +46,7 @@ ENROLLMENT = re.compile(r'^(full|half|part|three[-\s]quarter|3/4)[-\s]time$', re
 SCORE = re.compile(r'\b\d{1,4}\b')
 PACKAGE_ROW = re.compile(r'federal|pell|state\s+grants?|outside\s+scholarships?|student\s+employment|work[- ]study|\bloans?\b|^total\b', re.I)
 _N = r'(?:\d{1,2}|two|three|four|five|six|eight|ten)'
-MULTI_YEAR = re.compile(r'\b(?:for|over|value|maximum\s+of)\s+' + _N + r'\s+(?:fall/spring\s+)?(?:years?|semesters|trimesters|quarters|terms)\b', re.I)  # outside parentheses; ND (VCSU "for two year", Minot "maximum of 4 years")
+MULTI_YEAR = re.compile(r'(?<!renewable\s)\b(?:for|over|value|maximum\s+of)\s+' + _N + r'\s+(?:fall/spring\s+)?(?:years?|semesters|trimesters|quarters|terms)\b', re.I)  # outside parentheses; ND (VCSU "for two year", Minot "maximum of 4 years")
 MULTI_X = re.compile(r'\bx\s*' + _N + r'\s+(?:years|semesters|trimesters|quarters|terms)\b|\b' + _N + r'\s+(?:years|semesters|trimesters|quarters|terms)\s+x\b', re.I)
 MERGED_GPA = re.compile(r'^(.*?[A-Za-z)])\s*(\d\.\d{1,2}\s*\+?\s*(?:GPA|grade\s+point\s+average)\.?)\s*$', re.I)
 MERGED_TEXT = re.compile(r'^(.{3,80}?\b(?:Scholarship|Award|Grant|Fellowship))(?=[A-Z][a-z])')

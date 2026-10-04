@@ -335,6 +335,24 @@ last 30 hours in residence at the university.</p>"""
         got = {c['record']['residency']: c['record']['components'] for c in costs.extract({**INST, 'state': 'AL'}, ENTRY, dup, '2026-27')}
         self.assertEqual((got['in_state']['Subtotal'], got['in_state']['Subtotal (2)']), (17118, 4320))
 
+    def test_mt_r1_rules(self):
+        """MT r1: Carroll's undocumented-student page and Yellow Ribbon row; UM "renewable for four years" is annual;
+        MSU-Northern's college-preparatory curriculum table is not credit by exam."""
+        table = ('<h2>Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th><th>Criteria</th></tr>'
+                 '<tr><td>Bishop Carroll Scholarship</td><td>$9,000</td><td>Admitted</td></tr>'
+                 '<tr><td>Yellow Ribbon Program for Veterans</td><td>$26,800</td><td>Post 9/11 GI Bill</td></tr>'
+                 '<tr><td>Admissions Scholarship</td><td>$4,000 renewable for four years ($16,000 four-year value)</td><td>4.0 GPA</td></tr>'
+                 '<tr><td>Trustee Scholarship</td><td>$5,000</td><td>3.5 GPA</td></tr></table>')
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html('<title>Scholarships</title>' + table), '2026-27')}
+        self.assertNotIn('Yellow Ribbon Program for Veterans', got)
+        self.assertEqual(got['Admissions Scholarship']['award_max'], 4000)
+        self.assertEqual(merit.extract(INST, {**ENTRY, 'url': 'https://x.edu/admission-aid/scholarships-grants/undocumented-student-information'},
+                                       T.parse_html('<title>Scholarships</title>' + table), '2026-27'), [])
+        rows = [['Course', 'Advanced Placement', 'Exam', 'Score'], ['Mathematics', 'AP courses prepare students', 'Calculus AB', '3+'],
+                ['English', 'AP courses prepare students', 'English Language', '3+'], ['Science', 'AP courses prepare students', 'Biology', '3+']]
+        p = T.Page('', 'Freshman Admission', [{'rows': rows, 'heading': 'College Preparatory Curriculum', 'caption': '', 'lead': ''}], [], [])
+        self.assertEqual(credit.extract(INST, ENTRY, p, '2026-27'), [])
+
     def test_nd_r1_rules(self):
         """ND r1: Lake Region en-dash cells and semester-basis amounts; Minot tiers with four-year totals; VCSU "for two
         year"; Jamestown amounts under a blank header."""
