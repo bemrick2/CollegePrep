@@ -133,6 +133,8 @@ MUTS = [
     ('pipeline/extractors/merit.py', '|yellow\\s+ribbon|', '|'),
     ('pipeline/extractors/merit.py', "r'(?<!renewable\\s)\\b(?:for", "r'\\b(?:for"),
     ('pipeline/extractors/credit.py', '            continue  # MT (MSU-Northern)', '            pass  # MT (MSU-Northern)'),
+    ('pipeline/extractors/merit.py', "(\\s*\\([^)]*\\))?$|^\\d+(\\.\\d+)?\\s+credits?\\s+or\\s+more$', re.I)", "$', re.I)"),
+    ('pipeline/extractors/merit.py', "|per\\s+semester|/\\s*semester', outside", "|per\\s+semester', outside"),
 ]
 failed = False
 for f, old, new in MUTS:
