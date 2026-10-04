@@ -21,7 +21,7 @@ NOT_NAME = re.compile(r'^[\d<>=.\s/+%$,-]*$|tuition|\bfees?\b|per credit|per cou
                       r'\bstudents?\s+(is|who|still|are)\b|fall below|balance', re.I)
 # Names that are not merit awards (KY: federal aid and loans in an aid table, staff directories, credit-hour bands
 # from an academic-standards table).
-NOT_AWARD_NAME = re.compile(r'\bpell\b|\brotc\b|yellow\s+ribbon|supplemental\s+educational\s+opportunity|\bseog\b|work[- ]study|\bloans?\b|\bplus\b|'
+NOT_AWARD_NAME = re.compile(r'\bph\.?\s?d\b|\bdoctoral\b|\bmaster\'?s\b|\bpell\b|\brotc\b|yellow\s+ribbon|supplemental\s+educational\s+opportunity|\bseog\b|work[- ]study|\bloans?\b|\bplus\b|'
                             r'college\s+access\s+program|counselor(?!(?:\x27|\u2019)?s?\s+(?:award|scholarship))|director|coordinator|specialist|\bassistant\b|officer|advisor|'
                             r'^(fewer|more|less)\s+than\b|^over\s+\d|\bcredit\s+hours?\b|'
                             r'^\W*(books?|supplies|transportation|personal\s+expenses?|loan\s+fees?|room|board|food)\b|'
@@ -158,6 +158,7 @@ def _list_awards(t, header, body, title, award_type):
         if lo is not None and re.search(r'\bup\s+to\b', amt, re.I):
             lo = None  # "Up to $5,000" is a maximum; the minimum is not printed
         tier_row = bool(threshold_label) or bool(re.search(r'\d.*\b(gpa|act|sat)\b', nm, re.I)) or bool(ENROLLMENT.match(nm))
+        if tier_row and NOT_AWARD_NAME.search(title): continue  # AZ (Prescott): tiers of a Ph.D. scholarship
         rec = {'award_name': f"{title}: {nm}" if tier_row else nm, 'award_type': award_type}
         if threshold_label:  # UTK Out-of-State Volunteer: "4.0+ | 34-36/1490-1600 | $18,000" and "4.0+ | 30-33/... | $9,000"
             parts = [(i, get(i)) for i in threshold_cols if get(i)]
@@ -302,7 +303,9 @@ def extract(inst, entry, page, today_year):
             res = PAGE_RESIDENCY.search(page.title + ' ' + context)
             if res and 'residency_requirement' not in rec:  # "In-State Freshman Scholarships" (AL: UAB has same-named awards per residency)
                 rec['residency_requirement'] = 'Out-of-state' if re.search(r'out|non', res.group(0), re.I) else 'In-state'
-            if context.strip() and not re.search(r'scholarship|award|grant|fellowship', context, re.I) and 'eligibility_summary' not in rec:
+            # AZ (Northland Pioneer): a page-navigation heading ('Social Media') is not where the award is listed
+            nav = re.search(r'social\s+media|quick\s+links|follow\s+us|connect\s+with\s+us|related\s+links|footer|navigation|\bmenu\b|academic\s+calendar', context, re.I)
+            if context.strip() and not nav and not re.search(r'scholarship|award|grant|fellowship', context, re.I) and 'eligibility_summary' not in rec:
                 rec['eligibility_summary'] = f'Listed under: {context.strip()[:200]}'  # IA (Hawkeye): "GED, HiSET, or ELL Graduates"
             rec['notes'] = f'Extracted by {EXTRACTOR} from the table "{(context or page.title)[:100]}"; cells copied as printed.'
             out.append(common.make('awards', inst['institution_key'], rec_year, rec_basis, rec, ev, entry, EXTRACTOR,

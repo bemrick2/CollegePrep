@@ -172,7 +172,7 @@ def _context(t, page, titles):
 
 def _candidates_from_table(t, inst, entry, page, today_year, page_year, page_basis, page_issues):
     out = []
-    if re.search(r'\binternational\b', t.get('heading') or '', re.I):
+    if re.search(r'\binternational\b', (t.get('heading') or '') + ' ' + (t.get('lead') or '')[:120], re.I):  # AZ (ERAU): the label is in the lead
         return out  # KS (Pitt State): an international students' budget is not an in-state or out-of-state cost
     for titles, headers, body in parse_tables(t['rows']):
         out += _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_year, page_year, page_basis, page_issues)
