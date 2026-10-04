@@ -30,7 +30,10 @@ SCOPED_GRADE = re.compile(r'pass\s*/\s*fail|pass-fail|\bP/F\b|satisfactory/unsat
                           r'a-levels?|dual\s+credit\s+courses|work\s+experience|work\s+credit|'
                           # IA r1: conditional rules - a GPA condition (William Penn), a department-stated minimum (Dubuque),
                           # an age condition (Emmaus "within the last fifteen years")
-                          r'grade\s+point\s+average\s+of\s+less\s+than|when\s+the\s+minimum|within\s+the\s+last\s+\w+\s+years', re.I)
+                          r'grade\s+point\s+average\s+of\s+less\s+than|when\s+the\s+minimum|within\s+the\s+last\s+\w+\s+years|'
+                          # NE r1: a community college's advice about transferring out (Northeast, Central, Mid-Plains) and an
+                          # entrance requirement (Southeast)
+                          r'another\s+(?:college|school|institution)|most\s+(?:[\w-]+\s+)?(?:colleges|schools|universities|institutions)|entrance\s+requirements?', re.I)
 RESIDENCE = re.compile(r'(?:(?:last|final)\s+(\d{2})\s+(?:semester\s+)?(?:credit\s+)?hours'
                        r'|(?:at\s+least|minimum\s+of|a\s+minimum\s+of)\s+(\d{2})\s+(?:semester\s+)?(?:credit\s+)?hours'
                        r'(?=.{0,80}(?:in\s+residence|at\s+the\s+university|at\s+the\s+college|through\s+the\s+university|earned\s+at)))', re.I)
@@ -54,7 +57,7 @@ def extract(inst, entry, page, today_year):
                 for m in GRADE.finditer(s): found['min_grade'].append((m.group(1).upper(), s))
             # LA r1: a cap on lower-level credit counted as upper-level (LSUA) or on credit from unaccredited schools
             # (NOBTS) is not the overall transfer maximum.
-            for m in ([] if re.search(r'upper[- ](?:level|division)|not\s+accredited|unaccredited|toward\s+the\s+major', s, re.I) else MAX_HOURS.finditer(s)):  # IA (Iowa): a cap for the major
+            for m in ([] if re.search(r'upper[- ](?:level|division)|not\s+accredited|unaccredited|toward\s+the\s+major|most\s+(?:[\w-]+\s+)?(?:colleges|schools|universities|institutions)', s, re.I) else MAX_HOURS.finditer(s)):  # IA (Iowa): a cap for the major
                 found['max_transfer_credits'].append((int(m.group(1)), s))
         for m in ([] if re.search(r'attempted|probation|suspension|retain\s+this\s+status', s, re.I) else RESIDENCE.finditer(s)):
             v = int(m.group(1) or m.group(2))

@@ -86,7 +86,7 @@ MUTS = [
     ('pipeline/extractors/merit.py', 'lo, hi = None, None  # LSUS', 'pass  # LSUS'),
     ('pipeline/extractors/merit.py', "rec['renewable'] = False  # UL Lafayette", 'pass  # UL Lafayette'),
     ('pipeline/extractors/transfer.py', "r'developmental|(?:for|exempt\\s+the)\\s+placement|placement\\s+(?:assessment|test|exam)|math(?:ematics)?\\s+and\\s+science|block\\s+transfer|'", "r'^$|'"),
-    ('pipeline/extractors/transfer.py', "[] if re.search(r'upper[- ](?:level|division)|not\\s+accredited|unaccredited|toward\\s+the\\s+major', s, re.I) else MAX_HOURS.finditer(s)", "[] if re.search(r'toward\\s+the\\s+major', s, re.I) else MAX_HOURS.finditer(s)"),
+    ('pipeline/extractors/transfer.py', "[] if re.search(r'upper[- ](?:level|division)|not\\s+accredited|unaccredited|toward\\s+the\\s+major|most", "[] if re.search(r'toward\\s+the\\s+major|most"),
     ('pipeline/extractors/credit.py', "            issues = issues + ['merged_score_cells']\n", '            pass\n'),
     ('pipeline/extractors/credit.py', "issues = issues + ['score_scale_mismatch']", 'pass'),
     ('pipeline/extractors/credit.py', "            score = f'{level} {score}'", '            pass'),
@@ -118,8 +118,12 @@ MUTS = [
     ('pipeline/extractors/merit.py', "                rec['eligibility_summary'] = f'Listed under: {context.strip()[:200]}'", '                pass'),
     ('pipeline/extractors/merit.py', '        if sum(1 for r in body if r and PACKAGE_ROW.search(r[0])) >= 2: continue', '        pass'),
     ('pipeline/extractors/merit.py', "|'\n                       r'credits?\\s+completed', re.I)", "', re.I)"),
-    ('pipeline/extractors/transfer.py', "r'grade\\s+point\\s+average\\s+of\\s+less\\s+than|when\\s+the\\s+minimum|within\\s+the\\s+last\\s+\\w+\\s+years', re.I)", "r'^$', re.I)"),
-    ('pipeline/extractors/transfer.py', '|toward\\s+the\\s+major', ''),
+    ('pipeline/extractors/transfer.py', "r'grade\\s+point\\s+average\\s+of\\s+less\\s+than|when\\s+the\\s+minimum|within\\s+the\\s+last\\s+\\w+\\s+years|'", "r'^$|'"),
+    ('pipeline/extractors/transfer.py', '|toward\\s+the\\s+major|most', '|most'),
+    ('pipeline/extractors/transfer.py', "r'another\\s+(?:college|school|institution)|most\\s+(?:[\\w-]+\\s+)?(?:colleges|schools|universities|institutions)|entrance\\s+requirements?', re.I)", "r'^$', re.I)"),
+    ('pipeline/extractors/transfer.py', "|toward\\s+the\\s+major|most\\s+(?:[\\w-]+\\s+)?(?:colleges|schools|universities|institutions)', s, re.I)", "|toward\\s+the\\s+major', s, re.I)"),
+    ('pipeline/extractors/dual.py', 'for m in ([] if question or not_price else PER_HOUR.finditer(line)):', 'for m in ([] if question else PER_HOUR.finditer(line)):'),
+    ('pipeline/extractors/credit.py', '            level = cells[lvl].strip().upper()  # NE (UNO)', '            pass  # NE (UNO)'),
 ]
 failed = False
 for f, old, new in MUTS:
