@@ -18,6 +18,8 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-10 | Canonical exam keys, student exam plan | ⏳ open | College paths match exams by normalized name; the exam list is kept in this browser |
 | CR-11 | Numeric test minimums on awards | ⏳ open | Single minimums parsed from `test_requirement` text; ranges/tiers shown as "read criteria" |
 | CR-12 | Primary target school | ⏳ open | Designed and working in demo; hidden in live (`supportsPrimarySchool = false`), no client stand-in |
+| CR-13 | Major certainty and saved interests | ⏳ open | Asked in onboarding and on Explore majors; kept in this browser |
+| CR-14 | Structured program, admission and degree-path fields | ⏳ open | Program match by name; admission/transfer/undeclared shown as unverified questions; progression text quoted |
 
 Live content note: the bank has no exam versions, skills or questions yet, so live practice and benchmarks show their empty states until content is loaded.
 
@@ -152,6 +154,36 @@ RPC institutions_with_verified_records(p_academic_year text, p_state text null)
 **Why.** Families compare up to four schools but usually have one they most want. The parent overview elevates that school: its published 4-year cost and the top ways to lower it (merit gap, exam credit, dual enrollment, need-based programs, aid appeal). College paths and the cost outlook list it first.
 
 **UI today.** `DataSource.supportsPrimarySchool` gates the feature. Demo: true, stored in the browser. Live: false, so the control and the dashboard card are hidden and nothing is stored client-side. When this lands, the LiveSource change is the two methods plus the flag.
+
+## CR-13. Major certainty and saved interests
+
+**Need.** `student_academic_interests` with these columns:
+- `student_id`
+- `certainty`: `'unsure' | 'few' | 'sure' | null`
+- `interests jsonb`: `[{ kind: 'area' | 'major', key, focus? }]`, up to 8 entries, with keys from the frontend list in `web/src/lib/engine/interests.ts`; alternatively a lookup table, if research prefers to own it
+- `updated_at`
+
+Read: household members with `view_progress`. Write: the linked student and guardians. None of it is required at any step.
+
+**Why.** Onboarding now asks how sure the student is about a major, and they can save broad areas or several possible majors. College paths and Explore majors evaluate every saved school against all of those interests. Today this is stored in one browser, so a parent's view on another device doesn't see it.
+
+## CR-14. Structured program, admission and degree-path fields
+
+**Need.** The fields below are listed in priority order. Each should have the usual source URL, academic year and verification status, and null means "not verified". Never fill them by inference.
+1. `academic_programs.cip_code`: 6-digit CIP, so interests match programs by classification instead of by name. All 94 imported programs have it null today.
+2. `academic_programs.admission_type`: `'direct' | 'pre_major' | 'open'`. Whether the major requires direct/freshman admission. The UI already renders "Freshman admission required" when it is `direct`.
+3. `academic_programs.internal_transfer`: `{ restricted: boolean, criteria_text, gpa_min? }`. Whether changing into the major after enrolling is limited.
+4. Institution-level `undeclared_policy`: `{ allowed: boolean, declare_by_text }`. Whether students can start undeclared or exploratory.
+5. `credit_equivalencies.applies_to_programs`, or the existing `applies_to_major` populated per program. How AP/CLEP/IB/dual-enrollment credit applies by degree path.
+6. `awards.program_keys` / `cip_codes`. Major-specific scholarships as structured links (`major_requirement` text exists but is usually empty).
+7. Program coverage completeness flag per institution and year (`programs_complete boolean`). Lets the UI say "not offered" instead of "not in our verified list".
+
+**Why.** The "keeps my options open" view answers each of these per school and per saved interest. Until the fields exist it shows only what's verified today:
+- matched program names
+- quoted progression text from degree maps (for example UTK CS's "competitive and space-limited")
+- shared first-year courses, where two published maps exist
+
+Everything else is shown as a question to ask the school.
 
 ## Product decisions flagged (not contract requests)
 
