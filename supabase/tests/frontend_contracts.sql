@@ -278,6 +278,28 @@ begin
   perform hp_test.as_owner();
 end $$;
 
+-- CR-11 award test criteria: shape is enforced, and compare_institutions serves the columns.
+do $$ begin
+  perform hp_test.as_owner();
+  insert into public.institutional_awards(institution_id, award_name, academic_year, award_type, test_requirement,
+    test_criteria_kind, act_min, sat_min, source_id, verification_status, last_verified_at)
+  values ('50000000-0000-0000-0000-000000000002', 'Test Minimum Merit', '2026-27', 'merit', 'Minimum 31 ACT / 1390 SAT.',
+    'single_minimum', 31, 1390, '50000000-0000-0000-0000-000000000001', 'verified', current_date);
+  perform hp_test.expect_error($q$insert into public.institutional_awards(institution_id, award_name, academic_year, award_type, test_criteria_kind, act_min, act_max, source_id, verification_status)
+    values ('50000000-0000-0000-0000-000000000002', 'Bad 1', '2026-27', 'merit', 'single_minimum', 30, 36, '50000000-0000-0000-0000-000000000001', 'unverified')$q$, '23514');
+  perform hp_test.expect_error($q$insert into public.institutional_awards(institution_id, award_name, academic_year, award_type, test_criteria_kind, act_min, source_id, verification_status)
+    values ('50000000-0000-0000-0000-000000000002', 'Bad 2', '2026-27', 'merit', 'range', 30, '50000000-0000-0000-0000-000000000001', 'unverified')$q$, '23514');
+  perform hp_test.expect_error($q$insert into public.institutional_awards(institution_id, award_name, academic_year, award_type, act_min, source_id, verification_status)
+    values ('50000000-0000-0000-0000-000000000002', 'Bad 3', '2026-27', 'merit', 30, '50000000-0000-0000-0000-000000000001', 'unverified')$q$, '23514');
+  perform hp_test.expect_error($q$insert into public.institutional_awards(institution_id, award_name, academic_year, award_type, test_criteria_kind, sat_min, source_id, verification_status)
+    values ('50000000-0000-0000-0000-000000000002', 'Bad 4', '2026-27', 'merit', 'single_minimum', 1700, '50000000-0000-0000-0000-000000000001', 'unverified')$q$, '23514');
+  perform hp_test.eq((select a->>'act_min' from jsonb_array_elements(
+      public.compare_institutions(array[(select institution_key from public.institutions where id = '50000000-0000-0000-0000-000000000002')], '2026-27')
+        ->'institutions'->0->'domains'->'awards') a where a->>'award_name' = 'Test Minimum Merit'), '31', 'compare_institutions serves act_min');
+  delete from public.institutional_awards where award_name = 'Test Minimum Merit';
+end $$;
+
 rollback;
 \o
 \echo frontend contract tests passed
+

@@ -9,6 +9,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from backend.catalog import ROOT,records,IMPORT_DOMAINS,import_contract_errors
 from backend.store import natural_key
 from scripts.validate_data import validate_record
+from backend.test_criteria import parse as parse_test_criteria
 SUPPORTED_DOMAINS=IMPORT_DOMAINS
 
 def literal(v):
@@ -23,10 +24,12 @@ def bulk_batch(rows,accept_corrections=False):
             raise ValueError('Domain needs an explicit normalized mapping: '+row['domain'])
         problems=validate_record(ROOT/'data',row['payload'],0,domain=row['domain'])+import_contract_errors(row['domain'],row['payload'])
         if problems: raise ValueError('; '.join(problems))
-    data=literal(json.dumps(rows,ensure_ascii=False))+'::jsonb'
+    # Derived columns travel beside the payload, so the ledger keeps exactly the reviewed record.
+    derived=lambda row: parse_test_criteria(row['payload'].get('test_requirement')) if row['domain']=='awards' else {}
+    data=literal(json.dumps([{**row,'derived':derived(row)} for row in rows],ensure_ascii=False))+'::jsonb'
     sql=f'''begin;
-create temporary table import_rows(domain text,natural_key text,source_file text,payload jsonb) on commit drop;
-insert into import_rows select * from jsonb_to_recordset({data}) as x(domain text,natural_key text,source_file text,payload jsonb);
+create temporary table import_rows(domain text,natural_key text,source_file text,payload jsonb,derived jsonb) on commit drop;
+insert into import_rows select * from jsonb_to_recordset({data}) as x(domain text,natural_key text,source_file text,payload jsonb,derived jsonb);
 do $guard$ begin
  perform pg_advisory_xact_lock(hashtextextended(natural_key,0)) from import_rows order by natural_key;
  if exists(select 1 from import_rows r join ingestion.reference_records old using(natural_key)
@@ -66,7 +69,7 @@ end $guard$;
     sql+=insert('costs','institution_costs',{**text('academic_year','residency','currency','student_population','notes'),**numbers('tuition','mandatory_fees','books_supplies','on_campus_food_housing','on_campus_other_expenses','total_cost_of_attendance')},['institution_id','academic_year','residency'],{'institution_id':'i.id',**{column:f"coalesce(r.payload->>{literal(column)},r.payload->'components'->>{literal(component)})::numeric" for column,component in [('room','on_campus_housing'),('board','food'),('transportation','transportation'),('personal_misc','miscellaneous_personal')]}},instjoin)
     sql+=insert('admissions_metrics','admissions_metrics',{**text('academic_year','applicant_population','test_policy','notes'),**ints('entering_fall_year','applications','admits','enrolled','sat_reading_25','sat_reading_75','sat_math_25','sat_math_75'),**numbers('act_25','act_75','admit_rate')},['institution_id','entering_fall_year','applicant_population'],{'institution_id':'i.id','sat_25':"coalesce(r.payload->>'sat_25',r.payload->>'sat_composite_25')::integer",'sat_75':"coalesce(r.payload->>'sat_75',r.payload->>'sat_composite_75')::integer",'average_gpa':"coalesce(r.payload->>'average_gpa',r.payload->>'average_high_school_gpa')::numeric"},instjoin)
     sql+=insert('state_aid','state_aid_programs',{**text('academic_year','program_name','program_type','eligibility_summary','residency_requirement','gpa_requirement','test_requirement','income_requirement','award_amount_text','renewal_requirements','application_method','notes'),**numbers('award_min','award_max'),'renewable':'boolean','priority_deadline':'date','final_deadline':'date'},['state_code','program_name','academic_year'],{'state_code':field('state'),'official_url':field('source_url')})
-    sql+=insert('awards','institutional_awards',{**text('academic_year','award_name','award_type','eligibility_summary','gpa_requirement','test_requirement','residency_requirement','major_requirement','award_amount_text','renewal_requirements','notes'),**numbers('award_min','award_max'),'automatic_consideration':'boolean','separate_application':'boolean','renewable':'boolean','full_tuition':'boolean','full_ride':'boolean','deadline':'date'},['institution_id','award_name','academic_year'],{'institution_id':'i.id'},instjoin)
+    sql+=insert('awards','institutional_awards',{**text('academic_year','award_name','award_type','eligibility_summary','gpa_requirement','test_requirement','residency_requirement','major_requirement','award_amount_text','renewal_requirements','notes'),**numbers('award_min','award_max'),'automatic_consideration':'boolean','separate_application':'boolean','renewable':'boolean','full_tuition':'boolean','full_ride':'boolean','deadline':'date'},['institution_id','award_name','academic_year'],{'institution_id':'i.id','test_criteria_kind':"r.derived->>'kind'",**{k:f"(r.derived->>{literal(k)})::integer" for k in ('act_min','act_max','sat_min','sat_max')}},instjoin)
     sql+=insert('appeals','appeal_policies',{**text('academic_year','appeal_kind','process_summary','required_documents','deadline_text','contact_method','notes','qualifying_path_evidence'),'offered':'boolean'},['institution_id','academic_year','appeal_kind'],{'institution_id':'i.id','policy_url':"coalesce(r.payload->>'policy_url',r.payload->>'source_url')",'qualifies_for_paid_addon':"coalesce((r.payload->>'qualifies_for_paid_addon')::boolean,false)"},instjoin)
     sql+=insert('credit_policies','credit_policies',{**text('academic_year','policy_kind','policy_url','notes'),**numbers('general_limit_credits','residency_credit_requirement')},['institution_id','policy_kind','academic_year'],{'institution_id':'i.id'},instjoin)
     sql+=insert('state_policies','state_policies',text('academic_year','policy_kind','policy_key','title','summary','notes'),['state_code','policy_kind','policy_key','academic_year'],{'state_code':"r.payload->>'state'",'official_url':"coalesce(r.payload->>'policy_url',r.payload->>'source_url')",'policy_details':'r.payload'})
@@ -116,10 +119,11 @@ TABLES={'institutions':'public.institutions where institution_key is not null','
 
 def reconcile_sql(fresh=True):
     """SQL assertions that every repository record landed in the ledger and its normalized table."""
-    counts={}; equivalencies=0
+    counts={}; equivalencies=0; classified=0
     for _,domain,r in records():
         counts[domain]=counts.get(domain,0)+1
         if domain=='credit_policies': equivalencies+=len(r.get('equivalencies') or [])
+        if domain=='awards' and parse_test_criteria(r.get('test_requirement'))['kind']: classified+=1
     missing=set(counts)-set(TABLES)
     if missing: raise ValueError('No reconciliation table for domains: '+', '.join(sorted(missing)))
     checks=[]
@@ -127,6 +131,7 @@ def reconcile_sql(fresh=True):
         checks.append(f"if (select count(*) from ingestion.reference_records where domain={literal(domain)})<>{n} then raise exception 'ledger count mismatch for {domain}'; end if;")
         checks.append(f"if (select count(*) from {TABLES[domain]})<>{n} then raise exception 'normalized count mismatch for {domain}'; end if;")
     checks.append(f"if (select count(*) from public.credit_equivalencies where is_current)<>{equivalencies} then raise exception 'credit equivalency count mismatch'; end if;")
+    checks.append(f"if (select count(*) from public.institutional_awards where test_criteria_kind is not null)<>{classified} then raise exception 'award test criteria count mismatch'; end if;")
     if fresh: checks.append("if (select count(*) from ingestion.reference_revisions)<>0 then raise exception 'repeat import created revisions'; end if;")
     return 'do $reconcile$ begin\n '+'\n '.join(checks)+'\nend $reconcile$;\n'
 
