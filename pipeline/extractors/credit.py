@@ -111,8 +111,7 @@ def table_equivalencies(kind, rows, table_hit=None):
     lvl = None
     col = lambda i: [r[i].strip() for r in body if i is not None and i < len(r) and r[i].strip()]
     if kind == 'IB' and sc is not None and col(sc) and all(re.fullmatch(r'(SL|HL|SL\s*/\s*HL)', c, re.I) for c in col(sc)):
-        lvl = sc
-        sc = next((i for i in range(width) if i not in (ex, lvl, co, hr) and col(i) and all(re.search(r'\d', c) for c in col(i))), None)
+        sc = next((i for i in range(width) if i not in (ex, sc, co, hr) and col(i) and all(re.search(r'\d', c) for c in col(i))), None)
     if kind == 'IB' and lvl is None:
         lvl = next((i for i in range(width) if i not in (ex, sc, co, hr) and col(i)
                     and sum(1 for c in col(i) if re.fullmatch(r'(SL|HL|SL\s*/\s*HL|HL\s*/\s*SL)', c, re.I)) >= 0.8 * len(col(i))), None)

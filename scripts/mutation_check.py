@@ -123,7 +123,6 @@ MUTS = [
     ('pipeline/extractors/transfer.py', "r'another\\s+(?:college|school|institution)|most\\s+(?:[\\w-]+\\s+)?(?:colleges|schools|universities|institutions)|entrance\\s+requirements?', re.I)", "r'^$', re.I)"),
     ('pipeline/extractors/transfer.py', "|toward\\s+the\\s+major|most\\s+(?:[\\w-]+\\s+)?(?:colleges|schools|universities|institutions)', s, re.I)", "|toward\\s+the\\s+major', s, re.I)"),
     ('pipeline/extractors/dual.py', 'for m in ([] if question or not_price else PER_HOUR.finditer(line)):', 'for m in ([] if question else PER_HOUR.finditer(line)):'),
-    ('pipeline/extractors/credit.py', '        lvl = sc\n', '        pass\n'),
     ('pipeline/extractors/credit.py', '            level = cells[lvl].strip().upper()  # NE (UNO)', '            pass  # NE (UNO)'),
 ]
 failed = False
