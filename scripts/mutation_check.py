@@ -102,7 +102,7 @@ MUTS = [
     ('pipeline/extractors/transfer.py', "r'average\\s+grade|general\\s+education|'", "r'^$|'"),
     ('pipeline/extractors/credit.py', "issues = issues + ['course_number_missing']", 'pass'),
     ('pipeline/extractors/merit.py', '|\\bper\\s+credit\\b', ''),
-    ('pipeline/extractors/merit.py', "|trimesters|quarters|terms)\\b', re.I)  # outside parentheses", "|terms)\\b', re.I)  # outside parentheses"),
+    ('pipeline/extractors/merit.py', "|trimesters|quarters|terms)\\b', re.I)  # outside parentheses;", "|terms)\\b', re.I)  # outside parentheses;"),
     ('pipeline/extractors/merit.py', "        vals += [float(a.replace(',', '')), float(b.replace(',', ''))]", '        pass'),
     ('pipeline/extractors/merit.py', "r'\\bpell\\b|\\brotc\\b|", "r'\\bpell\\b|"),
     ('pipeline/extractors/merit.py', " + (['duplicate_table_versions'] if twins else [])", ''),
@@ -124,6 +124,11 @@ MUTS = [
     ('pipeline/extractors/transfer.py', "|toward\\s+the\\s+major|most\\s+(?:[\\w-]+\\s+)?(?:colleges|schools|universities|institutions)', s, re.I)", "|toward\\s+the\\s+major', s, re.I)"),
     ('pipeline/extractors/dual.py', 'for m in ([] if question or not_price else PER_HOUR.finditer(line)):', 'for m in ([] if question else PER_HOUR.finditer(line)):'),
     ('pipeline/extractors/credit.py', '            level = cells[lvl].strip().upper()  # NE (UNO)', '            pass  # NE (UNO)'),
+    ('pipeline/extractors/merit.py', "|-+|—|–)\\W*$', re.I)", "|-+|—)\\W*$', re.I)"),
+    ('pipeline/extractors/merit.py', '            lo, hi = None, None  # ND (Lake Region)', '            pass  # ND (Lake Region)'),
+    ('pipeline/extractors/merit.py', '(?:for|over|value|maximum\\s+of)\\s+', '(?:for|over|value)\\s+'),
+    ('pipeline/extractors/merit.py', '        amounts = []  # ND (Minot)', '        pass  # ND (Minot)'),
+    ('pipeline/extractors/merit.py', '        amount = next((i for i, h in enumerate(header) if i != name and not h.strip() and body', '        amount = next((i for i, h in enumerate(header) if False and body'),
 ]
 failed = False
 for f, old, new in MUTS:

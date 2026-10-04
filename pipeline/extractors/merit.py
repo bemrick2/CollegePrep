@@ -40,13 +40,13 @@ HEADER_WORDS = re.compile(r'scholarship|award|merit|name|level|tier|amount|value
 THRESHOLD_CELL = re.compile(r'^\s*[<>≤≥]?\s*\d{1,4}(\.\d{1,2})?\s*(\+|[-–]\s*\d{1,4}(\.\d{1,2})?|or\s+(higher|above))?\s*$', re.I)
 
 
-PLACEHOLDER = re.compile(r'^\W*(n/?a|none|see\s+(?:requirements|criteria|details|below|website)|varies|tbd|-+|—)\W*$', re.I)
+PLACEHOLDER = re.compile(r'^\W*(n/?a|none|see\s+(?:requirements|criteria|details|below|website)|varies|tbd|-+|—|–)\W*$', re.I)  # ND (Lake Region): an en dash is an empty cell
 PHONE = re.compile(r'\(?\d{3}\)?[\s.-]\d{3}[.-]\d{4}')  # Tougaloo: a contact number in the ACT column is not a score
 ENROLLMENT = re.compile(r'^(full|half|part|three[-\s]quarter|3/4)[-\s]time$', re.I)  # Ole Miss Sumners: amount by enrollment intensity
 SCORE = re.compile(r'\b\d{1,4}\b')
 PACKAGE_ROW = re.compile(r'federal|pell|state\s+grants?|outside\s+scholarships?|student\s+employment|work[- ]study|\bloans?\b|^total\b', re.I)
 _N = r'(?:\d{1,2}|two|three|four|five|six|eight|ten)'
-MULTI_YEAR = re.compile(r'\b(?:for|over|value)\s+' + _N + r'\s+(?:fall/spring\s+)?(?:years|semesters|trimesters|quarters|terms)\b', re.I)  # outside parentheses
+MULTI_YEAR = re.compile(r'\b(?:for|over|value|maximum\s+of)\s+' + _N + r'\s+(?:fall/spring\s+)?(?:years?|semesters|trimesters|quarters|terms)\b', re.I)  # outside parentheses; ND (VCSU "for two year", Minot "maximum of 4 years")
 MULTI_X = re.compile(r'\bx\s*' + _N + r'\s+(?:years|semesters|trimesters|quarters|terms)\b|\b' + _N + r'\s+(?:years|semesters|trimesters|quarters|terms)\s+x\b', re.I)
 MERGED_GPA = re.compile(r'^(.*?[A-Za-z)])\s*(\d\.\d{1,2}\s*\+?\s*(?:GPA|grade\s+point\s+average)\.?)\s*$', re.I)
 MERGED_TEXT = re.compile(r'^(.{3,80}?\b(?:Scholarship|Award|Grant|Fellowship))(?=[A-Z][a-z])')
@@ -104,6 +104,9 @@ def _list_awards(t, header, body, title, award_type):
     multi_year = re.compile(r'4\s*years?|four\s+years?|total\s+over|over\s+\d|cumulative', re.I)
     amount = next((i for words in (('annual', 'per year', 'yearly', 'academic year', 'per academic'), ('amount', 'value', '$', 'award detail', 'offer'), ('award',))
                    for i, h in enumerate(header) if i != name and any(w in h.lower() for w in words) and not multi_year.search(h)), None)
+    if amount is None:  # ND (Jamestown): "Scholarship | GPA | (blank)" with the amounts under the blank header
+        amount = next((i for i, h in enumerate(header) if i != name and not h.strip() and body
+                       and sum(1 for r in body if i < len(r) and T.money_values(r[i])) >= 0.8 * len(body)), None)
     gpa = _col(header, 'gpa', 'grade point')
     act = _col(header, 'act')
     sat = _col(header, 'sat')
@@ -138,6 +141,9 @@ def _list_awards(t, header, body, title, award_type):
         if merged_gpa and not g: g = merged_gpa
         if not (amt or g or a or s or tst or crit): continue
         lo, hi = _amounts(amt)
+        outside = re.sub(r'\([^)]*\)', '', amt)
+        if re.search(r'semester\s+basis|per\s+semester', outside, re.I) and not re.search(r'per\s+year|annual|/\s*y(?:ea)?r', outside, re.I):
+            lo, hi = None, None  # ND (Lake Region): "$100–$300 awarded on a semester basis" is not an annual range
         if re.search(r'tuition[^$]*(\+|\bplus\b|\band\b)\s*\$', amt, re.I) or \
            MULTI_YEAR.search(re.sub(r'\([^)]*\)', '', amt)) or MULTI_X.search(amt) or re.search(r'\bfull\s+tuition\b|\bper\s+credit\b|\btotal\s+value\b', amt, re.I):  # KS (K-State Salina): "Total Value: $100,000"  # MO (Logan): "$400 per credit hour" is not an annual award
             # AR (UAPB) "$66,000 for four years"; OK (OU) "$16,000 ($4,000 x 4 years)", (USAO) "total estimated value 8 fall/spring
@@ -191,9 +197,11 @@ def _tier_award(t, header, body, context):
     if len(rows) < 3 or len(rows) < len(body) - 1: return []
     tiers = [{header[0].strip().lower() or 'threshold': r[0], 'amount_text': r[1]} for r in rows]
     amounts = [v for r in rows for v in T.money_values(r[1])]
+    if any(MULTI_YEAR.search(r[1]) or MULTI_X.search(r[1]) for r in rows):
+        amounts = []  # ND (Minot): "$10,000 $2,500/year for a maximum of 4 years" mixes totals with annual amounts
     title = (t.get('heading') or t.get('caption') or 'Merit scholarship tiers').strip().lstrip('+-–•*› ').strip()
-    rec = {'award_name': title[:120], 'award_type': 'institutional_merit', 'award_tiers': tiers,
-           'award_min': min(amounts), 'award_max': max(amounts)}
+    rec = {'award_name': title[:120], 'award_type': 'institutional_merit', 'award_tiers': tiers}
+    if amounts: rec['award_min'], rec['award_max'] = min(amounts), max(amounts)
     if re.search(r'one[\s–-]*time', header[1], re.I):  # Georgia Southern: "Annual Award Amount (One – Time)"
         rec['renewable'] = False
         rec['award_amount_text'] = header[1].strip()[:120]
