@@ -9,6 +9,7 @@ import { daysBetween, formatShortDate, isoWeekday } from '../../lib/engine/dates
 import { EXAM_NAME } from '../onboarding/options'
 import { useCatalog } from '../practice/useCatalog'
 import { CostOutlook, outlookFor } from './CostOutlook'
+import { meritAwards } from '../../lib/engine/merit'
 import { useSavedComparison } from '../colleges/useSavedComparison'
 import { parentActions, type ParentAction } from '../../lib/engine/actions'
 import { PracticeIndicators } from '../../components/PracticeIndicators'
@@ -102,11 +103,7 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
     schools: (saved.data ?? []).filter((c) => c.found).map((c) => ({
       name: c.institution?.display_name ?? c.institution_key,
       levers: outlookFor(c).levers,
-      awards: ((c.domains.awards ?? []) as { award_name?: string; thresholds?: { act_min?: number; sat_min?: number } | null }[]).map((a) => ({
-        name: a.award_name ?? 'Scholarship',
-        act_min: a.thresholds?.act_min ?? null,
-        sat_min: a.thresholds?.sat_min ?? null,
-      })),
+      awards: meritAwards(c.domains.awards).map((a) => ({ name: a.name, act_min: a.min.act, sat_min: a.min.sat })),
     })),
   })
 
