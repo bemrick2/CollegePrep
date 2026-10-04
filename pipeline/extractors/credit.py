@@ -191,6 +191,8 @@ def extract(inst, entry, page, today_year):
         kind = next((k for k in (exams.detect_kind(x) for x in (header_row, t.get('lead'), t.get('caption'), t.get('heading'))) if k), None) \
             or exams.detect_kind(page.title, entry['url'])
         if not kind: continue
+        if re.search(r'college\s+preparatory|admission\s+requirements?|core\s+curriculum', t.get('heading') or '', re.I):
+            continue  # MT (MSU-Northern): AP courses as a way to meet the high-school admission core, not credit by exam
         named = dict(t)
         if not t.get('lead') and heading_uses[t.get('heading')] > 1:
             named['heading'] = None  # several tables under one heading: the heading cannot name each table
