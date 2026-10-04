@@ -82,7 +82,6 @@ MUTS = [
     ('pipeline/extractors/merit.py', "f'{name} {v}' if v and SCORE.search(v) and not re.search(r'\\b(act|sat)\\b', v, re.I) else v", "f'{name} {v}' if v else v"),
     ('pipeline/extractors/merit.py', '|\\bno\\s+test|test[\\s-]*optional|without\\s+(a\\s+)?test', ''),
     ('pipeline/extractors/costs.py', "(None if re.search(r'on\\s*(/|and|&|or)\\s*off[- ]campus|on[- ]\\s*(and|&|or)\\s*off[- ]campus', h) else", '(None if False else'),
-    ('pipeline/extractors/merit.py', "('amount', 'value', '$', 'award detail', 'offer')", "('amount', 'value', '$', 'award detail')"),
     ('pipeline/extractors/merit.py', 'lo, hi = None, None  # LSUS', 'pass  # LSUS'),
     ('pipeline/extractors/merit.py', "rec['renewable'] = False  # UL Lafayette", 'pass  # UL Lafayette'),
     ('pipeline/extractors/transfer.py', "r'developmental|(?:for|exempt\\s+the)\\s+placement|placement\\s+(?:assessment|test|exam)|math(?:ematics)?\\s+and\\s+science|block\\s+transfer|'", "r'^$|'"),
@@ -111,7 +110,7 @@ MUTS = [
     ('pipeline/extractors/credit.py', "level = (None if both else 'HL'", "level = ('HL'"),
     ('pipeline/extractors/merit.py', '|sample[- ]aid[- ]packages?|aid[- ]package[- ]examples?|', '|'),
     ('pipeline/extractors/merit.py', "|^(annual\\s+)?totals?$', re.I)", "', re.I)"),
-    ('pipeline/extractors/merit.py', "    cell = re.sub(r'\\([^)]*\\bper\\s+(?:semester|term|trimester|quarter)\\b[^)]*\\)', '', cell, flags=re.I)", '    pass'),
+    ('pipeline/extractors/merit.py', "    cell = re.sub(r'\\([^)]*(?:\\bper\\s+|/\\s*)(?:semester|term|trimester|quarter)\\b[^)]*\\)', '', cell, flags=re.I)", '    pass'),
     ('pipeline/extractors/merit.py', '|\\btotal\\s+value\\b', ''),
     ('pipeline/extractors/costs.py', "        'period': ('semester' if re.search(r'per\\s+semester|per\\s+term\\b', h) else\n                   'year'", "        'period': ('year'"),
     ('pipeline/extractors/costs.py', '        return out  # KS (Pitt State)', '        pass  # KS (Pitt State)'),
@@ -135,6 +134,15 @@ MUTS = [
     ('pipeline/extractors/credit.py', '            continue  # MT (MSU-Northern)', '            pass  # MT (MSU-Northern)'),
     ('pipeline/extractors/merit.py', "(\\s*\\([^)]*\\))?$|^\\d+(\\.\\d+)?\\s+credits?\\s+or\\s+more$', re.I)", "$', re.I)"),
     ('pipeline/extractors/merit.py', "|per\\s+semester|/\\s*semester', outside", "|per\\s+semester', outside"),
+    ('pipeline/extractors/merit.py', "'offer', 'reward')", "'offer')"),
+    ('pipeline/extractors/merit.py', '            continue  # ID (BYU-Idaho)', '            pass  # ID (BYU-Idaho)'),
+    ('pipeline/extractors/merit.py', "            if not rec_open_max: rec['award_max'] = hi", "            rec['award_max'] = hi"),
+    ('pipeline/extractors/dual.py', "r'financial\\s+aid|fall\\s+below|satisfactory\\s+progress|graduation\\s+gpa|'", "r'"),
+    ('pipeline/extractors/merit.py', "'award detail', 'offer', 'reward')", "'award detail', 'reward')"),
+    ('pipeline/extractors/costs.py', "or column_meaning(cells[0])['period']\n", '\n'),
+    ('pipeline/extractors/merit.py', '(?:\\bper\\s+|/\\s*)(?:semester|term|trimester|quarter)', '\\bper\\s+(?:semester|term|trimester|quarter)'),
+    ('pipeline/extractors/dual.py', " and not re.search(r'scholarship', line, re.I):", ':'),
+    ('pipeline/extractors/credit.py', " and not re.fullmatch(r'\\s*(n/?a|none)\\s*', c, re.I)]", ']'),
 ]
 failed = False
 for f, old, new in MUTS:

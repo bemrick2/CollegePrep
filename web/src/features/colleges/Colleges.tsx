@@ -7,7 +7,7 @@ import { Info, School, X } from '../../components/icons'
 import { formatShortDate } from '../../lib/engine/dates'
 import { MAX_SAVED_SCHOOLS } from '../../lib/savedSchools'
 import { useSavedSchools } from './useSavedSchools'
-import { CollegesTabs } from './CollegePaths'
+import { CollegesTabs } from './CollegesTabs'
 
 const usd = (n: number | null | undefined) => (n == null ? null : n.toLocaleString(undefined, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }))
 const YEARS = ['2026-27', '2025-26']

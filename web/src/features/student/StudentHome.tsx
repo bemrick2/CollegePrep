@@ -4,6 +4,7 @@ import { ButtonLink, Card, CardHeader, Notice, PageLoading, Pill, ProgressBar, R
 import { Bolt, Compass, Flame, Target, Trophy } from '../../components/icons'
 import { PracticeIndicators } from '../../components/PracticeIndicators'
 import { BenchmarkStatus } from '../../components/BenchmarkStatus'
+import { useInterests } from '../majors/useInterests'
 import { addDays, localDate } from '../../lib/engine/dates'
 import { benchmarkAttemptIds, SECTION_LABEL } from '../../lib/engine/benchmark'
 import { achievements, levelOf, totalXp } from '../../lib/engine/gamify'
@@ -19,10 +20,11 @@ export function StudentHome() {
   if (o.loading && !o.data) return <PageLoading />
   if (o.error) return <Notice tone="bad" title="Couldn't load your plan">{o.error.message}</Notice>
   if (!o.data) return null
-  return <HomeBody name={student.display_name} o={o.data} />
+  return <HomeBody name={student.display_name} o={o.data} studentId={student.id} />
 }
 
-function HomeBody({ name, o }: { name: string; o: StudentOverview }) {
+function HomeBody({ name, o, studentId }: { name: string; o: StudentOverview; studentId: string }) {
+  const interests = useInterests(studentId).profile
   const exam = o.plan?.exam_family ?? 'act'
   const catalog = useCatalog(exam)
   const xp = totalXp(o.history)
@@ -201,6 +203,15 @@ function HomeBody({ name, o }: { name: string; o: StudentOverview }) {
 
         <BenchmarkStatus history={o.benchmarks} />
       </div>
+      {interests.certainty === null && interests.interests.length === 0 && (
+        <Notice tone="info" title="What might you study?">
+          Not sure is a fine answer.{' '}
+          <Link className="font-semibold underline" to="/colleges/majors">
+            Save a few interests
+          </Link>{' '}
+          and we'll show which of your colleges offer them.
+        </Notice>
+      )}
       {!o.plan && (
         <Notice tone="gold" title="Set your test and target">
           <Link className="font-semibold underline" to="/student/goals">

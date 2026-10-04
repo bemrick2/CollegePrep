@@ -335,6 +335,48 @@ last 30 hours in residence at the university.</p>"""
         got = {c['record']['residency']: c['record']['components'] for c in costs.extract({**INST, 'state': 'AL'}, ENTRY, dup, '2026-27')}
         self.assertEqual((got['in_state']['Subtotal'], got['in_state']['Subtotal (2)']), (17118, 4320))
 
+    def test_id_r1_rules(self):
+        """ID r1: New Saint Andrews "Reward" column and "$5,000 or more"; BYU-Idaho's transposed table; CSI's
+        financial-aid and continuation GPA lines are not dual-enrollment eligibility."""
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Merit Scholarships</h2><table><tr><th>Scholarship</th><th>Eligibility</th><th>Reward</th><th>Renewal</th></tr>'
+            '<tr><td>Presidential</td><td>Outstanding record</td><td>$5,000 or more</td><td>3.5 GPA</td></tr>'
+            '<tr><td>Legacy</td><td>Parent is an alumnus</td><td>$500</td><td>Auto</td></tr></table>'), '2026-27')}
+        self.assertEqual((got['Presidential']['award_min'], got['Presidential'].get('award_max')), (5000, None))
+        self.assertEqual(got['Legacy']['award_max'], 500)
+        transposed = merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Academic Scholarships</title><h2>New Freshman</h2><table><tr><th>2026-2027 Award Amounts</th><th>Full Tuition $2,544/semester</th><th>Half Tuition $1,272/semester</th></tr>'
+            '<tr><td>Qualifications</td><td>See matrix</td><td>See matrix</td></tr><tr><td>Duration</td><td>4 years</td><td>4 years</td></tr></table>'), '2026-27')
+        self.assertEqual(transposed, [])
+        page = T.parse_html('<title>Dual Credit Handbook</title><h1>Dual Credit</h1><ul><li>Have a minimum GPA of 2.5 to enroll in dual credit.</li>'
+                            '<li>To be eligible for Federal Financial Aid and to graduate, a student must have a 2.0 or higher cumulative GPA.</li>'
+                            '<li>Students who fall below a 2.0 cumulative GPA will be placed on probation.</li></ul>')
+        [c] = dual.extract(INST, ENTRY, page, '2026-27')
+        self.assertEqual([t['min_hs_gpa'] for t in c['record']['dual_enrollment']['eligibility_tiers']], [2.5])
+
+    def test_ut_r1_rules(self):
+        """UT r1: SUU "$12,000 ($6,000/semester*)" is one annual amount; Utah Tech's "Per Semester (full-time)" row-label
+        header makes a semester table; Weber's scholarship-retention GPA is not the program's; SUU "N/A" notes are blank."""
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Utah Resident</h2><table><tr><th>Scholarship</th><th>Award</th><th>GPA</th></tr>'
+            '<tr><td>Centurium Scholarship</td><td>$12,000 ($6,000/semester*)</td><td>2.50-3.69</td></tr>'
+            '<tr><td>Deans Scholarship</td><td>$2,000</td><td>3.60-3.79</td></tr></table>'), '2026-27')}
+        self.assertEqual((got['Centurium Scholarship']['award_min'], got['Centurium Scholarship']['award_max']), (12000, 12000))
+        html = ('<title>Tuition &amp; Costs</title><h2>2026-27 Academic Year</h2><table><tr><th>Per Semester (full-time)</th><th>Utah Resident</th><th>Non-Resident</th></tr>'
+                '<tr><td>Tuition</td><td>$2,784.12</td><td>$8,900.04</td></tr><tr><td>Student Fees</td><td>$456.75</td><td>$456.75</td></tr>'
+                '<tr><td>Total</td><td>$3,240.87</td><td>$9,356.79</td></tr></table>')
+        cands = costs.extract(INST, ENTRY, T.parse_html(html), '2026-27')
+        self.assertTrue(cands and all('cost_period_semester' in c['issues'] for c in cands))
+        [c] = self._de('<p>Have a cumulative high school GPA of 3.00 or higher to enroll in dual enrollment.</p>'
+                       '<p>Students must maintain a 2.5 college GPA to retain scholarship eligibility.</p>')
+        self.assertNotIn('college_gpa_to_continue', c['record']['dual_enrollment'])
+        p = T.Page('', 'Advanced Placement Credit', [{'heading': 'AP Credit', 'caption': '', 'lead': '', 'rows': [
+            ['AP Exam', 'Score', 'Course', 'Credits', 'Gen Ed'], ['Biology', '3-5', 'BIOL 1010', '3', 'N/A'],
+            ['Art History', '3-5', 'ARTH 2710', '3', 'Humanities'], ['Chemistry', '3-5', 'CHEM 1110', '4', 'n/a']]}], [], [])
+        [c] = credit.extract(INST, ENTRY, p, '2026-27')
+        notes = {e['exam_or_course_name']: e['notes'] for e in c['record']['equivalencies']}
+        self.assertEqual((notes['AP Biology'], notes['AP Art History'], notes['AP Chemistry']), (None, 'Humanities', None))
+
     def test_wy_r1_rules(self):
         """WY r1: Northwest's credit-load rows are named after the award and "/semester" amounts give no annual range."""
         got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
