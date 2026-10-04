@@ -925,6 +925,43 @@ Institutions in scope: **71** · crawled: **62** · blocked by site: **9** · ru
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-232618`, `ipeds-232788`, `ipeds-233037`, `ipeds-233116`, `ipeds-233301`, `ipeds-233426`, `ipeds-233772`, `ipeds-234207`, `ipeds-458113`
 
+## WA — 2026-27
+
+Institutions in scope: **60** · crawled: **48** · blocked by site: **12** · run: `pipeline/runs/WA/2026-10-04`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 0 (0%) | 0 | 29 (48%) | 47 (78%) | 1 | 12 |
+| cost_of_attendance | 0 (0%) | 0 | 19 (32%) | 47 (78%) | 1 | 12 |
+| admissions_tests | 0 (0%) | 0 | 0 (0%) | 46 (77%) | 2 | 12 |
+| common_data_set | 0 (0%) | 0 | 0 (0%) | 5 (8%) | 43 | 12 |
+| merit_scholarships | 0 (0%) | 0 | 6 (10%) | 47 (78%) | 1 | 12 |
+| ap_credit | 0 (0%) | 0 | 10 (17%) | 30 (50%) | 18 | 12 |
+| clep_credit | 0 (0%) | 0 | 5 (8%) | 19 (32%) | 29 | 12 |
+| ib_credit | 0 (0%) | 0 | 12 (20%) | 23 (38%) | 25 | 12 |
+| dual_enrollment | 0 (0%) | 0 | 0 (0%) | 18 (30%) | 30 | 12 |
+| transfer_credit | 0 (0%) | 0 | 6 (10%) | 46 (77%) | 2 | 12 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 18 (30%) | 30 | 12 |
+| residency | 0 (0%) | 0 | 0 (0%) | 35 (58%) | 13 | 12 |
+| degree_requirements | 0 (0%) | 0 | 0 (0%) | 36 (60%) | 12 | 12 |
+| aid_appeals | 0 (0%) | 0 | 35 (58%) | 42 (70%) | 6 | 12 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 15 |
+| blocked requests | 126 |
+| candidates | 228 |
+| conflicts | 78 |
+| documents | 3393 |
+| extraction failures | 0 |
+| fetch errors | 268 |
+| fetches | 3787 |
+| ready | 44 |
+| semantic review | 107 |
+| stale sources | 34 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-234669`, `ipeds-234827`, `ipeds-235097`, `ipeds-235103`, `ipeds-235316`, `ipeds-235431`, `ipeds-235671`, `ipeds-236258`, `ipeds-236577`, `ipeds-237039`, `ipeds-237109`, `ipeds-443049`
+
 ## WY — 2026-27
 
 Institutions in scope: **8** · crawled: **8** · blocked by site: **0** · run: `pipeline/runs/WY/2026-10-04`

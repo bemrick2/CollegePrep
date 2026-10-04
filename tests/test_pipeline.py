@@ -354,6 +354,39 @@ last 30 hours in residence at the university.</p>"""
         [c] = dual.extract(INST, ENTRY, page, '2026-27')
         self.assertEqual([t['min_hs_gpa'] for t in c['record']['dual_enrollment']['eligibility_tiers']], [2.5])
 
+    def test_wa_r1_rules(self):
+        """WA r1: Seattle Colleges' two-row header ("WA Resident" over "Living without Parent | Living with Parent"); a
+        two-row header that cannot be aligned is blocked; Columbia Basin's "One Quarter" table is one term; the direct
+        transfer agreement's "each course completed from this list" is not the general transfer minimum."""
+        INST_WA = {**INST, 'state': 'WA'}
+        rows = [['Estimated Cost', 'WA Resident', 'Non-Resident'],
+                ['Living without Parent', 'Living with Parent', 'Living without Parent', 'Living with Parent'],
+                ['Tuition and Fees', '$4,935', '$4,935', '$5,520', '$5,520'], ['Food and Housing', '$19,473', '$10,072', '$19,473', '$10,072'],
+                ['Total', '$24,408', '$15,007', '$24,993', '$15,592']]
+        p = T.Page('', 'Cost of Attendance', [{'heading': 'Annual Cost of Attendance 2026-27', 'caption': '', 'lead': '', 'rows': rows}], [], [])
+        got = {c['record']['residency']: c for c in costs.extract(INST_WA, ENTRY, p, '2026-27')}
+        self.assertEqual(set(got), {'in_state', 'out_of_state'})
+        self.assertEqual(sorted(a['arrangement'] for a in got['in_state']['record']['living_arrangements']),
+                         ['off_campus_not_with_family', 'with_parents_or_family'])
+        self.assertEqual(got['out_of_state']['record']['tuition_and_mandatory_fees'] if 'tuition_and_mandatory_fees' in got['out_of_state']['record']
+                         else got['out_of_state']['record']['tuition'], 5520)
+        uneven = [['Residency', 'Arizona Resident', 'Non-Resident'], ['Housing', 'With Parent', 'On-Campus', 'Off-Campus', 'On-Campus', 'Off-Campus'],
+                  ['Tuition & Fees', '$13,900', '$13,900', '$13,900', '$44,400', '$44,400'], ['Housing & Food', '$3,140', '$17,770', '$13,100', '$17,770', '$13,100'],
+                  ['Books', '$600', '$600', '$600', '$600', '$600']]
+        p = T.Page('', 'Cost of Attendance', [{'heading': '2026-2027 Cost of Attendance', 'caption': '', 'lead': '', 'rows': uneven}], [], [])
+        self.assertTrue(all('stacked_header_unparsed' in c['issues'] for c in costs.extract(INST, ENTRY, p, '2026-27')))
+        quarter = [['One Quarter', 'Resident Dependent Living with Parent(s)', 'Resident Living Away from Parent(s)'],
+                   ['Tuition & Fees', '$2,079', '$2,079'], ['Books & Supplies', '$176', '$176'], ['Total', '$2,255', '$2,255']]
+        p = T.Page('', 'Cost of Attendance', [{'heading': '2026-27 Cost of Attendance', 'caption': '', 'lead': '', 'rows': quarter}], [], [])
+        cands = costs.extract(INST, ENTRY, p, '2026-27')
+        self.assertTrue(cands and all('cost_period_semester' in c['issues'] for c in cands))
+        self.assertEqual(transfer.extract(INST, ENTRY, T.parse_html(
+            '<title>Transfer</title><p>For transfer purposes, a student must have a minimum grade of C or better in each course completed from this list.</p>'),
+            '2026-27'), [])
+        self.assertEqual(transfer.extract(INST, ENTRY, T.parse_html(
+            '<title>Transfer</title><p>The course must be completed with a grade of C or better, even though it does not transfer as college credit.</p>'),
+            '2026-27'), [])
+
     def test_az_r1_rules(self):
         """AZ r1: Prescott's Ph.D. scholarship tiers are graduate awards; Northland Pioneer's 'Social Media' heading is not where
         awards are listed; ERAU's international budget is labelled only in the table's lead text."""
