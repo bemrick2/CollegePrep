@@ -141,7 +141,8 @@ def table_equivalencies(kind, rows, table_hit=None):
               'minimum_score': score or None, 'institution_course_equivalent': course or None,
               'credits_awarded': _credits(get(hr)), 'notes': None}
         used = {ex, sc, co, hr, lvl}
-        rest = [c for i, c in enumerate(cells) if i not in used and c.strip()]
+        # UT (SUU): a "N/A" notes cell is a placeholder, not a note.
+        rest = [c for i, c in enumerate(cells) if i not in used and c.strip() and not re.fullmatch(r'\s*(n/?a|none)\s*', c, re.I)]
         if rest: eq['notes'] = ' | '.join(rest)
         out.append((eq, ' | '.join(cells)))
     return out

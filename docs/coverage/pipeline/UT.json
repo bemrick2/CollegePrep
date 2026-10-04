@@ -1,0 +1,143 @@
+{
+ "state": "UT",
+ "academic_year": "2026-27",
+ "institutions": 13,
+ "status_order": [
+  "verified_current",
+  "partially_verified_current",
+  "candidate_ready",
+  "candidate_exception",
+  "source_found",
+  "not_found",
+  "fetch_failed"
+ ],
+ "by_category": {
+  "admissions_tests": {
+   "fetch_failed": 1,
+   "not_found": 1,
+   "source_found": 11
+  },
+  "aid_appeals": {
+   "candidate_exception": 6,
+   "fetch_failed": 1,
+   "not_found": 3,
+   "source_found": 3
+  },
+  "ap_credit": {
+   "candidate_exception": 1,
+   "candidate_ready": 3,
+   "fetch_failed": 1,
+   "not_found": 4,
+   "source_found": 4
+  },
+  "clep_credit": {
+   "candidate_exception": 3,
+   "candidate_ready": 1,
+   "fetch_failed": 1,
+   "not_found": 8
+  },
+  "common_data_set": {
+   "fetch_failed": 1,
+   "not_found": 11,
+   "source_found": 1
+  },
+  "cost_of_attendance": {
+   "candidate_exception": 1,
+   "candidate_ready": 2,
+   "fetch_failed": 1,
+   "not_found": 1,
+   "source_found": 8
+  },
+  "degree_requirements": {
+   "candidate_ready": 1,
+   "fetch_failed": 1,
+   "not_found": 4,
+   "source_found": 7
+  },
+  "dual_enrollment": {
+   "candidate_ready": 1,
+   "fetch_failed": 1,
+   "not_found": 8,
+   "source_found": 3
+  },
+  "ib_credit": {
+   "candidate_exception": 3,
+   "candidate_ready": 2,
+   "fetch_failed": 1,
+   "not_found": 7
+  },
+  "merit_scholarships": {
+   "candidate_exception": 2,
+   "candidate_ready": 1,
+   "fetch_failed": 1,
+   "not_found": 2,
+   "source_found": 7
+  },
+  "residency": {
+   "fetch_failed": 1,
+   "not_found": 4,
+   "source_found": 8
+  },
+  "statewide_articulation": {
+   "fetch_failed": 1,
+   "not_found": 9,
+   "source_found": 3
+  },
+  "transfer_credit": {
+   "candidate_ready": 1,
+   "fetch_failed": 1,
+   "not_found": 1,
+   "source_found": 10
+  },
+  "tuition_fees": {
+   "candidate_exception": 3,
+   "candidate_ready": 2,
+   "fetch_failed": 1,
+   "source_found": 7
+  }
+ },
+ "totals": {
+  "candidate_exception": 19,
+  "candidate_ready": 14,
+  "fetch_failed": 14,
+  "not_found": 63,
+  "source_found": 72
+ },
+ "statewide_sources": {
+  "categories": {
+   "admissions_tests": 0,
+   "aid_appeals": 0,
+   "ap_credit": 8,
+   "clep_credit": 5,
+   "common_data_set": 0,
+   "cost_of_attendance": 1,
+   "degree_requirements": 0,
+   "dual_enrollment": 0,
+   "ib_credit": 2,
+   "merit_scholarships": 13,
+   "residency": 0,
+   "statewide_articulation": 0,
+   "transfer_credit": 2,
+   "tuition_fees": 3
+  },
+  "fetch_failures": 1,
+  "pages_fetched": 26
+ },
+ "blocked_institutions": [
+  "ipeds-230728"
+ ],
+ "quality": {
+  "ambiguous_years": 12,
+  "blocked_requests": 37,
+  "candidates": 213,
+  "conflicts": 14,
+  "documents": 765,
+  "extraction_failures": 0,
+  "fetch_errors": 72,
+  "fetches": 874,
+  "ready": 101,
+  "semantic_review": 15,
+  "stale_sources": 21
+ },
+ "run": "pipeline/runs/UT/2026-10-04"
+}

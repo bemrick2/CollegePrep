@@ -88,7 +88,8 @@ def _num(cell, lo, hi, decimals=False):
 def _amounts(cell):
     # "$11,000 ($44,000 over 4 years)" (Chowan): the multi-year figure is not the annual range
     cell = re.sub(r'\([^)]*(?:over|total|years?|4-year|four)[^)]*\)', '', cell or '', flags=re.I)
-    cell = re.sub(r'\([^)]*\bper\s+(?:semester|term|trimester|quarter)\b[^)]*\)', '', cell, flags=re.I)  # KS (Dodge City): "$2,000 per year ($1,000 per semester)"
+    # KS (Dodge City): "$2,000 per year ($1,000 per semester)"; UT (SUU): "$12,000 ($6,000/semester*)"
+    cell = re.sub(r'\([^)]*(?:\bper\s+|/\s*)(?:semester|term|trimester|quarter)\b[^)]*\)', '', cell, flags=re.I)
     vals = T.money_values(cell or '')
     # MO (Columbia College): "$1,000-2,000" prints the dollar sign once for the whole range
     for a, b in re.findall(r'\$\s*([\d,]{3,})\s*[-–]\s*([\d,]{3,})(?![\d,])', cell or ''):
