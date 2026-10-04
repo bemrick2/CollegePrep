@@ -336,6 +336,35 @@ do $$ declare i int; begin
   perform hp_test.as_owner();
 end $$;
 
+-- CR-13 academic interests: student and view_progress guardians read; guardians and the linked student write.
+do $$ begin
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+  insert into public.student_academic_interests(student_id, certainty, interests)
+  values (current_setting('t.st')::uuid, 'few', '[{"kind":"major","key":"computer-science"},{"kind":"area","key":"engineering","focus":true}]');
+  perform hp_test.expect_error(format($q$update public.student_academic_interests set certainty = 'maybe' where student_id = %L$q$, current_setting('t.st')), '23514');
+  perform hp_test.expect_error(format($q$update public.student_academic_interests set interests = '[{"kind":"club","key":"chess"}]' where student_id = %L$q$, current_setting('t.st')), '23514');
+  perform hp_test.expect_error(format($q$update public.student_academic_interests set interests = '[{"kind":"major","key":"Computer Science"}]' where student_id = %L$q$, current_setting('t.st')), '23514');
+  perform hp_test.expect_error(format($q$update public.student_academic_interests set interests = '[{"kind":"major","key":"a"},{"kind":"major","key":"a"}]' where student_id = %L$q$, current_setting('t.st')), '23514');
+  perform hp_test.expect_error(format($q$update public.student_academic_interests set interests = '[{"kind":"major","key":"a","focus":true},{"kind":"major","key":"b","focus":true}]' where student_id = %L$q$, current_setting('t.st')), '23514');
+  perform hp_test.expect_error(format($q$update public.student_academic_interests set interests = '[{"kind":"major","key":"a","note":"x"}]' where student_id = %L$q$, current_setting('t.st')), '23514');
+  perform hp_test.expect_error(format($q$update public.student_academic_interests set interests = (select jsonb_agg(jsonb_build_object('kind','major','key','k'||n)) from generate_series(1,9) n) where student_id = %L$q$, current_setting('t.st')), '23514');
+  update public.student_academic_interests set interests = (select jsonb_agg(jsonb_build_object('kind','major','key','k'||n)) from generate_series(1,8) n) where student_id = current_setting('t.st')::uuid;
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  update public.student_academic_interests set certainty = null, interests = '[]' where student_id = current_setting('t.st')::uuid;
+  perform hp_test.eq((select count(*) from public.student_academic_interests where certainty is null and interests = '[]'), 1::bigint, 'student clears; nothing is required');
+  perform hp_test.check((select set_by from public.student_academic_interests) = '20000000-0000-0000-0000-000000000051', 'set_by follows the writer');
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a2');
+  perform hp_test.eq((select count(*) from public.student_academic_interests), 0::bigint, 'guardian without view_progress reads nothing');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000099');
+  perform hp_test.eq((select count(*) from public.student_academic_interests), 0::bigint, 'outsider reads nothing');
+  update public.student_academic_interests set certainty = 'sure';
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+  perform hp_test.eq((select count(*) from public.student_academic_interests where certainty = 'sure'), 0::bigint, 'outsider changed nothing');
+  perform hp_test.as_anon();
+  perform hp_test.expect_error('select count(*) from public.student_academic_interests', '42501');
+  perform hp_test.as_owner();
+end $$;
+
 rollback;
 \o
 \echo frontend contract tests passed

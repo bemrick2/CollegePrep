@@ -21,13 +21,13 @@ comment on column public.credit_equivalencies.exam_key is
   'Canonical exam (exam_catalog) matched from the published exam name; null when the name is not in the catalog.';
 
 -- Read: the student and guardians with view_progress. Write: the household's guardians and the linked student.
-create function public.can_edit_exam_plan(p_student uuid) returns boolean
+create function public.can_edit_student_plans(p_student uuid) returns boolean
 language sql stable security definer set search_path = '' as $$
   select exists (select 1 from public.students s where s.id = p_student
     and (s.linked_user_id = auth.uid() or (s.household_id is not null and public.is_household_guardian(s.household_id))))
 $$;
-revoke all on function public.can_edit_exam_plan(uuid) from public, anon;
-grant execute on function public.can_edit_exam_plan(uuid) to authenticated, service_role;
+revoke all on function public.can_edit_student_plans(uuid) from public, anon;
+grant execute on function public.can_edit_student_plans(uuid) to authenticated, service_role;
 
 create table public.student_exam_plan (
   student_id uuid not null references public.students(id) on delete cascade,
@@ -72,10 +72,10 @@ grant select, insert (student_id, exam_key, score, taken_on), update (score, tak
 create policy exam_plan_read on public.student_exam_plan for select to authenticated
   using (public.can_view_student(student_id));
 create policy exam_plan_insert on public.student_exam_plan for insert to authenticated
-  with check (public.can_edit_exam_plan(student_id) and set_by = (select auth.uid()));
+  with check (public.can_edit_student_plans(student_id) and set_by = (select auth.uid()));
 create policy exam_plan_update on public.student_exam_plan for update to authenticated
-  using (public.can_edit_exam_plan(student_id)) with check (public.can_edit_exam_plan(student_id));
+  using (public.can_edit_student_plans(student_id)) with check (public.can_edit_student_plans(student_id));
 create policy exam_plan_delete on public.student_exam_plan for delete to authenticated
-  using (public.can_edit_exam_plan(student_id));
+  using (public.can_edit_student_plans(student_id));
 comment on table public.student_exam_plan is
   'CR-10: AP/CLEP exams a student plans or has taken (score null = planned). Up to 20 per student.';
