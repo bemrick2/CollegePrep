@@ -368,8 +368,7 @@ last 30 hours in residence at the university.</p>"""
         self.assertTrue(merit.extract(INST, ENTRY, T.parse_html('<title>Scholarships</title>' + awards), '2026-27'))
         self.assertEqual(merit.extract(INST, ENTRY, T.parse_html('<title>Private Scholarships</title>' + awards), '2026-27'), [])
         self.assertEqual(transfer.extract(INST, ENTRY, T.parse_html(
-            '<title>Admissions</title><p>Transfer 30 credit hours or more with a GPA of at least 2.0 and a college-level English course '
-            'with a grade of C or better.</p>'), '2026-27'), [])
+            '<title>Transfer</title><p>A college-level English course with a grade of C or better is required for transfer.</p>'), '2026-27'), [])
         # FL (New College): "non-developmental" coursework is the general rule, not a developmental-course rule.
         [c] = transfer.extract(INST, ENTRY, T.parse_html(
             '<title>Transfer</title><p>The college accepts transferable coursework with a grade of C or better, which is non-developmental.</p>'), '2026-27')
