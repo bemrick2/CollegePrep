@@ -86,6 +86,12 @@ export interface DataSource {
   saveSchool(householdId: string, institutionKey: string): Promise<void>
   removeSchool(householdId: string, institutionKey: string): Promise<void>
   verifiedSchools(academicYear: string, state?: string): Promise<InstitutionSearchHit[]>
+  /** One saved school the family elevates as its primary target (CR-12). False until the backend supports it;
+   *  the UI hides the control and shows no primary while false. */
+  readonly supportsPrimarySchool: boolean
+  primarySchool(householdId: string): Promise<string | null>
+  /** null clears it. The key must already be saved. */
+  setPrimarySchool(householdId: string, institutionKey: string | null): Promise<void>
 
   // Colleges
   searchInstitutions(query: string, state?: string): Promise<InstitutionSearchHit[]>

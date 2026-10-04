@@ -17,6 +17,7 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-9 | Institution level, saved schools | ✅ live | `level` from `compare_institutions`; saved schools via `save_/remove_household_school` (browser only for a student with no household) |
 | CR-10 | Canonical exam keys, student exam plan | ⏳ open | College paths match exams by normalized name; the exam list is kept in this browser |
 | CR-11 | Numeric test minimums on awards | ⏳ open | Single minimums parsed from `test_requirement` text; ranges/tiers shown as "read criteria" |
+| CR-12 | Primary target school | ⏳ open | Designed and working in demo; hidden in live (`supportsPrimarySchool = false`), no client stand-in |
 
 Live content note: the bank has no exam versions, skills or questions yet, so live practice and benchmarks show their empty states until content is loaded.
 
@@ -139,6 +140,18 @@ RPC institutions_with_verified_records(p_academic_year text, p_state text null)
 **Need.** On `awards` (served by `compare_institutions`): `act_min integer null`, `sat_min integer null`, and `test_criteria_kind` (`'single_minimum' | 'tiered' | 'range' | 'test_optional' | 'none'`), set when the award is reviewed. Tiered awards could add `test_tiers jsonb` (`[{ act_min, sat_min, amount }]`).
 
 **Why.** The parent "What to do next" card and the College paths merit row compare published test minimums with the student's target or official score. Today the minimum exists only as free text ("Minimum 31 ACT / 1390 SAT."). The UI extracts a single minimum only when the text states one plainly, and treats ranges, tiers and anything ambiguous as "read the criteria". That is safe but misses tiered awards such as UTK's Volunteer Scholarship.
+
+## CR-12. Primary target school
+
+**Need.**
+- `household_saved_schools.is_primary boolean not null default false`, with at most one primary per household (partial unique index on `household_id where is_primary`).
+- `set_household_primary_school(p_household uuid, p_institution_key text null)`: sets the primary; null clears it. The school must already be saved. Same write rule as `save_household_school`.
+- `remove_household_school` clears the primary when it removes that school.
+- `is_primary` is returned with the saved-schools read.
+
+**Why.** Families compare up to four schools but usually have one they most want. The parent overview elevates that school: its published 4-year cost and the top ways to lower it (merit gap, exam credit, dual enrollment, need-based programs, aid appeal). College paths and the cost outlook list it first.
+
+**UI today.** `DataSource.supportsPrimarySchool` gates the feature. Demo: true, stored in the browser. Live: false, so the control and the dashboard card are hidden and nothing is stored client-side. When this lands, the LiveSource change is the two methods plus the flag.
 
 ## Product decisions flagged (not contract requests)
 

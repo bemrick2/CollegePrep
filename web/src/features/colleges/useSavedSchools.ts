@@ -12,6 +12,9 @@ export function useSavedSchools() {
   const [keys, setKeys] = useState<string[]>(() => (householdId ? [] : readSavedSchools()))
   const [loading, setLoading] = useState(!!householdId)
   const [error, setError] = useState<string | null>(null)
+  // Primary target (CR-12): only where the source supports it and the family has a household.
+  const canSetPrimary = !!householdId && source.supportsPrimarySchool
+  const [primary, setPrimaryState] = useState<string | null>(null)
 
   useEffect(() => {
     let live = true
@@ -21,8 +24,8 @@ export function useSavedSchools() {
       return
     }
     setLoading(true)
-    source.savedSchools(householdId).then(
-      (k) => live && (setKeys(k), setLoading(false)),
+    Promise.all([source.savedSchools(householdId), source.supportsPrimarySchool ? source.primarySchool(householdId) : Promise.resolve(null)]).then(
+      ([k, p]) => live && (setKeys(k), setPrimaryState(p && k.includes(p) ? p : null), setLoading(false)),
       (e: Error) => live && (setError(e.message), setLoading(false)),
     )
     return () => {
@@ -63,5 +66,21 @@ export function useSavedSchools() {
     [keys, householdId, source],
   )
 
-  return { keys, add, remove, loading, error, max: MAX_SAVED_SCHOOLS }
+  const setPrimary = useCallback(
+    async (key: string | null) => {
+      if (!canSetPrimary || !householdId) return
+      const prev = primary
+      setPrimaryState(key)
+      setError(null)
+      try {
+        await source.setPrimarySchool(householdId, key)
+      } catch (e) {
+        setPrimaryState(prev)
+        setError((e as Error).message)
+      }
+    },
+    [canSetPrimary, householdId, primary, source],
+  )
+
+  return { keys, add, remove, loading, error, max: MAX_SAVED_SCHOOLS, primary: primary && keys.includes(primary) ? primary : null, setPrimary, canSetPrimary }
 }

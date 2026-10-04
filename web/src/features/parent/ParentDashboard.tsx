@@ -9,6 +9,7 @@ import { daysBetween, formatShortDate, isoWeekday } from '../../lib/engine/dates
 import { EXAM_NAME } from '../onboarding/options'
 import { useCatalog } from '../practice/useCatalog'
 import { CostOutlook, outlookFor } from './CostOutlook'
+import { PrimaryTarget } from './PrimaryTarget'
 import { meritAwards } from '../../lib/engine/merit'
 import { useSavedComparison } from '../colleges/useSavedComparison'
 import { parentActions, type ParentAction } from '../../lib/engine/actions'
@@ -198,6 +199,8 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
           )}
         </Card>
       </div>
+
+      <PrimaryTarget student={student} />
 
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
         <PracticeIndicators history={o.history} who={name} />
