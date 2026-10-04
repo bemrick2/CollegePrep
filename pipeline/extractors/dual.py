@@ -35,7 +35,7 @@ GRANT_YES = re.compile(r'\b(apply|applies|eligible|accept|accepted|covers|use|ma
 CONTINUE = re.compile(r'maintain\s+(?:a\s+)?(?:cumulative\s+)?(?:college\s+)?(?:gpa\s+of\s+)?(\d\.\d{1,2})\s*(?:cumulative\s+)?(?:college\s+)?(?:gpa)?', re.I)
 # A requirement for one kind of course (KCTCS: "Technical Education Dual Credit Courses ... 2.0 GPA") is
 # not the page's general minimum.
-SCOPED = re.compile(r'career[- ]and[- ]technical|\btechnical\b|\bCTE\b|\bvocational\b', re.I)
+SCOPED = re.compile(r'career[- ]and[- ]technical|\btechnical\b|\bCTE\b|\bvocational\b|\bcareer\s+dual\b|\bcareer\s+(?:certificate|programs?|courses?)\b', re.I)  # FL: "Career Dual Enrollment"
 # GPA lines that are not the high-school admission minimum: college/dual-enrollment course GPAs, prerequisite
 # waivers, placement-test alternatives, single-course prerequisites and special-population programs (TN r5:
 # Welch, Nashville State, Columbia State, Freed-Hardeman).
@@ -127,7 +127,9 @@ def extract(inst, entry, page, today_year):
             if 1 <= v <= 21 and re.search(r'semester|term|fall|spring', line, re.I) and not re.search(r'summer', line[:m.start()], re.I):
                 note('max_credit_hours_per_term', v, line)
         question = '?' in line or re.search(r'^\W*(is|are|do|does|can|will|how|what|why|when)\b|,\s*(are|is|do|does|can|will)\s+(we|you|i|students?)\b', line, re.I)
-        for m in ([] if question else PER_HOUR.finditer(line)):  # FAQ questions quote prices they ask about
+        # NE (Concordia): a scholarship for teachers' graduate hours and a late-registration fee are not the course price
+        not_price = re.search(r'\bteachers?\b|graduate\s+hours|\blate\s+(?:fee|registration)|late\s+fee', line, re.I)
+        for m in ([] if question or not_price else PER_HOUR.finditer(line)):  # FAQ questions quote prices they ask about
             v = int(m.group(1)) + (int(m.group(2)) / 100 if m.group(2) and m.group(2) != '00' else 0)
             near = line[max(0, m.start() - 40):m.end() + 30]
             kind = ('state_grant' if GRANT_PAYS.search(line) and re.search(r'grant|DEG', near, re.I) else

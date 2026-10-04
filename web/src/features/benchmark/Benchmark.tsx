@@ -1,17 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate, useSearchParams } from 'react-router-dom'
 import { useApp, useAsync } from '../../lib/app'
 import type { BenchmarkSummary, Confidence, ExamFamily, PublicQuestion } from '../../lib/data/types'
-import {
-  SECTION_LABEL,
-  computeMetrics,
-  nextDifficulty,
-  pickNext,
-  planBenchmark,
-  type BenchmarkKind,
-  type BenchmarkPlan,
-  type BenchmarkRecord,
-} from '../../lib/engine/benchmark'
+import { SECTION_LABEL, computeMetrics, nextDifficulty, pickNext, planBenchmark, type BenchmarkKind, type BenchmarkPlan, type BenchmarkRecord, benchmarkSchedule } from '../../lib/engine/benchmark'
 import { ActiveClock } from '../practice/useAttempt'
 import { QuestionView, ConfidenceBar } from '../practice/QuestionView'
 import { Button, ButtonLink, ChoiceCard, EmptyState, Notice, PageLoading, ProgressBar } from '../../components/ui'
@@ -61,9 +52,14 @@ export function Benchmark() {
     skipped: [] as Open[],
     returning: false,
     startedAt: '',
+    benchmarkId: null as string | null,
   })
 
-  const defaultKind: BenchmarkKind = (history.data?.length ?? 0) === 0 ? 'initial' : 'mini'
+  // The home screen links straight to the kind that is due (?kind=mini|full); otherwise use the schedule.
+  const [params] = useSearchParams()
+  const asked = params.get('kind')
+  const defaultKind: BenchmarkKind =
+    (history.data?.length ?? 0) === 0 ? 'initial' : asked === 'mini' || asked === 'full' ? asked : benchmarkSchedule(history.data ?? []).kind === 'full' ? 'full' : 'mini'
   const chosenKind = kind ?? defaultKind
   const bplan: BenchmarkPlan | null = useMemo(() => (pool.data ? planBenchmark(exam, chosenKind, pool.data) : null), [pool.data, exam, chosenKind])
   const section = bplan?.sections[sectionIdx]
@@ -71,7 +67,7 @@ export function Benchmark() {
   const present = useCallback(
     async (q: PublicQuestion) => {
       if (!student) return
-      const attemptId = await source.startAttempt(student.id, q.id, null)
+      const attemptId = await source.startAttempt(student.id, q.id, null, run.current.benchmarkId)
       const clock = new ActiveClock()
       clock.start()
       run.current.used.add(q.id)
@@ -123,7 +119,12 @@ export function Benchmark() {
       attempt_ids: records.map((x) => x.attempt_id),
       metrics: computeMetrics(records),
     }
-    void source.saveBenchmark(student.id, s).then(() => setSummary(s))
+    const id = run.current.benchmarkId
+    const done = id ? source.completeBenchmark(student.id, id, s) : Promise.resolve(s)
+    done.then(
+      (saved) => setSummary({ ...saved, metrics: s.metrics }), // show this run's full detail now; history reads the stored copy
+      (e: Error) => setError(e.message),
+    )
   }, [phase, summary, student, records, chosenKind, exam, source])
 
   if (!student) return <Navigate to="/student" replace />
@@ -252,9 +253,18 @@ export function Benchmark() {
           <Button
             size="lg"
             block
-            onClick={() => {
+            disabled={busy}
+            onClick={async () => {
               run.current.startedAt = new Date().toISOString()
-              void startSection(0)
+              setBusy(true)
+              try {
+                run.current.benchmarkId = await source.startBenchmark(student.id, chosenKind, exam)
+                void startSection(0)
+              } catch (e) {
+                setError((e as Error).message)
+              } finally {
+                setBusy(false)
+              }
             }}
           >
             Start {SECTION_LABEL[bplan.sections[0]!.section]}

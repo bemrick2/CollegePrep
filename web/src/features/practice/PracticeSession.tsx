@@ -91,7 +91,7 @@ export function PracticeSession() {
     const r = await attempt.submit({ confidence })
     if (!r || !question) return
     setOutcomes((o) => [...o, { correct: r.result.is_correct, elapsed_ms: r.result.elapsed_ms, expected: question.expected_time_seconds }])
-    setRemember(await source.rememberThis(question.id))
+    setRemember(r.result.remember_text ?? (await source.rememberThis(question.id)))
   }
 
   const next = () => {
@@ -118,6 +118,7 @@ export function PracticeSession() {
 
   return (
     <div className="mx-auto flex min-h-[calc(100dvh-28px)] max-w-5xl flex-col px-4">
+      <h1 className="sr-only">Practice · question {index + 1} of {total}</h1>
       <div className="flex h-16 items-center gap-3">
         <button
           onClick={() => {
@@ -132,8 +133,8 @@ export function PracticeSession() {
           <X />
         </button>
         <ProgressBar value={index + (state.result ? 1 : 0)} max={total} label={`Question ${index + 1} of ${total}`} className="h-3 flex-1" />
-        <span className="flex items-center gap-1 text-sm font-bold text-gold-ink tabular dark:text-gold" aria-label={`${run} correct in a row`}>
-          <Flame size={18} /> {run}
+        <span className="flex items-center gap-1 text-sm font-bold text-gold-ink tabular dark:text-gold">
+          <Flame size={18} /> {run}<span className="sr-only"> correct in a row</span>
         </span>
       </div>
 

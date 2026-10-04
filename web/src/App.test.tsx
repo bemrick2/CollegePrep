@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { render, screen, within } from '@testing-library/react'
+import { cleanup, render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { AppProvider, realName } from './lib/app'
@@ -23,7 +23,8 @@ describe('app flows', () => {
     renderAt('/student', new DemoSource(sampleFamily('student')))
     expect(await screen.findByRole('heading', { name: 'Maya' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /About 10 minutes|Done for today/ })).toBeInTheDocument()
-    expect(screen.getByText(/Practice estimate — not an official score/)).toBeInTheDocument()
+    // No scaled-score estimate is produced (CR-3), so none is shown.
+    expect(screen.getByText(/No score estimate yet/)).toBeInTheDocument()
   })
 
   it('practice: answer with confidence, then see explanation tabs', async () => {
@@ -53,20 +54,76 @@ describe('app flows', () => {
     expect(await src.getPlan(ctx.students[0]!.id)).toMatchObject({ exam_family: 'act' })
   })
 
-  it('parent cost outlook shows only published, verified costs and no estimated savings', async () => {
-    localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-221908']))
+  it('parent cost outlook leads with four-year schools, published costs only, no estimated savings', async () => {
+    localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976', 'ipeds-221908']))
     renderAt('/parent', new DemoSource(sampleFamily('parent')))
     expect(await screen.findByRole('heading', { name: 'How Maya is doing' })).toBeInTheDocument()
-    // UTK in-state $36,994 x 4 years; Northeast State (2-year) in-state $20,304 x 2 — never x 4.
+    // UTK in-state $36,994 x 4; Lipscomb $69,210 x 4; Northeast State (2-year) $20,304 x 2 — never x 4.
     expect(await screen.findByText('$147,976')).toBeInTheDocument()
+    expect(screen.getByText('$276,840')).toBeInTheDocument()
+    expect(screen.getByText('$128,864')).toBeInTheDocument() // difference between the two four-year schools
     expect(screen.getByText('$40,608')).toBeInTheDocument()
-    expect(screen.queryByText('$81,216')).not.toBeInTheDocument()
-    // Transfer path: 2 x 20,304 + 2 x 36,994, flagged as unverified.
-    expect(screen.getByText('$114,596')).toBeInTheDocument()
-    expect(screen.getByText(/haven't verified a transfer agreement/)).toBeInTheDocument()
     expect(screen.queryByText(/Potential savings/i)).not.toBeInTheDocument()
-    expect(screen.queryByText(/Illustrative/i)).not.toBeInTheDocument()
+    // No community-college path unless the family asked for the lowest-cost route.
+    expect(screen.queryByText(/Alternative lower-cost path/)).not.toBeInTheDocument()
     localStorage.removeItem('pp-compare')
+  })
+
+  it('alternative lower-cost path appears only for a lowest-cost goal, labelled as an unverified example', async () => {
+    localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-221908']))
+    const src = new DemoSource(sampleFamily('parent'))
+    const ctx = await src.getHouseholdContext()
+    await src.savePlan(ctx.students[0]!.id, { exam_family: 'act', target_score: 27, goals: ['lower_cost'], daily_minutes: 10 })
+    renderAt('/parent', src)
+    expect(await screen.findByText(/Alternative lower-cost path/)).toBeInTheDocument()
+    expect(screen.getByText(/transfer agreement not yet verified/)).toBeInTheDocument()
+    expect(screen.getByText(/not a recommendation/)).toBeInTheDocument()
+    localStorage.removeItem('pp-compare')
+  })
+
+  it('college paths match exam scores to the school\'s published table without estimating savings', async () => {
+    const user = userEvent.setup()
+    localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-221908']))
+    renderAt('/colleges/paths', new DemoSource(sampleFamily('parent')))
+    expect(await screen.findByRole('heading', { name: 'College paths' })).toBeInTheDocument()
+    expect(await screen.findByRole('heading', { name: 'University of Tennessee, Knoxville' })).toBeInTheDocument()
+    // The 2-year school is not a route card, and no transfer is implied.
+    expect(screen.queryByRole('heading', { name: 'Northeast State Community College' })).not.toBeInTheDocument()
+    expect(screen.getByText(/appears here only once a verified transfer agreement/)).toBeInTheDocument()
+    // Merit: published single minimums only, compared with the target (27), never stated as eligibility.
+    expect(screen.getAllByText('ACT 31+').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('4 above target').length).toBeGreaterThan(0)
+    expect(screen.getAllByText(/Compared with the target of 27/).length).toBeGreaterThan(0)
+    // Ways to lower the cost: verified levers, conservative merit status, no dollar total.
+    expect(screen.getAllByRole('heading', { name: 'Ways to lower this cost' }).length).toBeGreaterThan(0)
+    expect(screen.getByText('4 more ACT points reaches 4 merit awards (ACT 31+)')).toBeInTheDocument()
+    expect(screen.getByText('3 need-based or access programs')).toBeInTheDocument()
+    // Elevate one school as the primary target; it moves first.
+    await user.click(screen.getAllByRole('button', { name: 'Make primary target' })[0]!)
+    expect(await screen.findByText('Primary target')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Clear primary' })).toBeInTheDocument()
+    await user.selectOptions(screen.getByLabelText('Add an exam'), screen.getByRole('option', { name: 'AP Calculus AB' }))
+    expect(await screen.findByText('Needs 3+')).toBeInTheDocument()
+    await user.selectOptions(screen.getByLabelText('AP Calculus AB score'), '2')
+    expect(screen.getByText('Needs 3+ (yours: 2)')).toBeInTheDocument()
+    await user.selectOptions(screen.getByLabelText('AP Calculus AB score'), '5')
+    expect(screen.getByText('Your 5 earns credit')).toBeInTheDocument()
+    expect(screen.queryByText(/saved?\s+\$/i)).not.toBeInTheDocument()
+    localStorage.clear()
+  })
+
+  it('dashboard elevates the primary target school with its top cost levers', async () => {
+    localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976']))
+    const src = new DemoSource(sampleFamily('parent'))
+    renderAt('/parent', src)
+    expect(await screen.findByText('Choose a primary target')).toBeInTheDocument()
+    cleanup()
+    localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976']))
+    localStorage.setItem('pp-primary', 'utk')
+    renderAt('/parent', src)
+    expect(await screen.findByText(/Primary target: University of Tennessee, Knoxville/)).toBeInTheDocument()
+    expect(screen.getByText('$147,976 published cost of attendance over 4 years, before aid')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /See the full path/ })).toHaveAttribute('href', '/colleges/paths')
   })
 
   it('choosing a role on the landing page goes straight to that onboarding (no second "who is using" step)', async () => {
@@ -97,5 +154,19 @@ describe('app flows', () => {
     // Nothing is graded or revealed yet.
     expect(screen.queryByRole('tab', { name: /Other answers/ })).not.toBeInTheDocument()
     expect(screen.getAllByRole('radio').every((r) => r.getAttribute('aria-checked') === 'false')).toBe(true)
+  })
+
+  it('practice indicators say they are not ACT/SAT scores and explain each one', async () => {
+    const user = userEvent.setup()
+    renderAt('/student', new DemoSource(sampleFamily('student')))
+    expect(await screen.findByText(/Not ACT\/SAT scores/)).toBeInTheDocument()
+    await user.click(screen.getByRole('button', { name: /Strategy/ }))
+    expect(screen.getByText(/test-taking habits/)).toBeInTheDocument()
+  })
+
+  it('benchmark card shows what is due and links to the right kind', async () => {
+    renderAt('/student', new DemoSource(sampleFamily('student')))
+    expect(await screen.findByRole('heading', { name: /Benchmarks/ })).toBeInTheDocument()
+    expect(screen.getByText(/Mini benchmark|Full benchmark/)).toBeInTheDocument()
   })
 })

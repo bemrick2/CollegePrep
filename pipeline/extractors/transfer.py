@@ -18,7 +18,22 @@ MAX_HOURS = re.compile(r'(?:maximum\s+of|no\s+more\s+than|up\s+to|a\s+maximum\s+
 # A grade rule for pass/fail courses or for one module/pathway (Rhodes, TN Tech r5) is not the general minimum.
 SCOPED_GRADE = re.compile(r'pass\s*/\s*fail|pass-fail|\bP/F\b|satisfactory/unsatisfactory|\bmodule\b|transfer\s+pathway|\bTTP\b|core\s+block|\bmajor\b|'
                           # GA r1: rules for named courses (Atlanta Metro composition, UNG/KSU "ENGL 1101") and advice ("encouraged")
-                          r'composition|\b(?:ENGL|MATH|English|Math)\s+\d{4}|encouraged|recommended', re.I)
+                          r'composition|\b(?:ENGL|MATH|English|Math)\s+\d{4}|encouraged|recommended|'
+                          # LA r1: placement in developmental courses (Delgado), one college's math/science rule (LSU),
+                          # the conditions of an outgoing block-transfer guarantee (River Parishes)
+                          r'developmental|(?:for|exempt\s+the)\s+placement|placement\s+(?:assessment|test|exam)|math(?:ematics)?\s+and\s+science|block\s+transfer|'
+                          # AR r1: one required course (UACCB) and prerequisites (UACCM); "D's accepted in some majors" (Clayton) keeps the general rule
+                          r'this\s+course|prerequisite|'
+                          # OK r1: an admission GPA standard ("average grade of C", Cameron/NSU/ECU) or a general-education rule (USAO)
+                          r'average\s+grade|general\s+education|'
+                          # MO r1: A-Level credit (Truman international), dual-credit courses only (Westminster), work-experience credit (CCIS)
+                          r'a-levels?|dual\s+credit\s+courses|work\s+experience|work\s+credit|'
+                          # IA r1: conditional rules - a GPA condition (William Penn), a department-stated minimum (Dubuque),
+                          # an age condition (Emmaus "within the last fifteen years")
+                          r'grade\s+point\s+average\s+of\s+less\s+than|when\s+the\s+minimum|within\s+the\s+last\s+\w+\s+years|'
+                          # NE r1: a community college's advice about transferring out (Northeast, Central, Mid-Plains) and an
+                          # entrance requirement (Southeast)
+                          r'another\s+(?:college|school|institution)|most\s+(?:[\w-]+\s+)?(?:colleges|schools|universities|institutions)|entrance\s+requirements?', re.I)
 RESIDENCE = re.compile(r'(?:(?:last|final)\s+(\d{2})\s+(?:semester\s+)?(?:credit\s+)?hours'
                        r'|(?:at\s+least|minimum\s+of|a\s+minimum\s+of)\s+(\d{2})\s+(?:semester\s+)?(?:credit\s+)?hours'
                        r'(?=.{0,80}(?:in\s+residence|at\s+the\s+university|at\s+the\s+college|through\s+the\s+university|earned\s+at)))', re.I)
@@ -40,11 +55,15 @@ def extract(inst, entry, page, today_year):
         if re.search(r'transfer', s, re.I):
             if not SCOPED_GRADE.search(s):
                 for m in GRADE.finditer(s): found['min_grade'].append((m.group(1).upper(), s))
-            for m in MAX_HOURS.finditer(s): found['max_transfer_credits'].append((int(m.group(1)), s))
+            # LA r1: a cap on lower-level credit counted as upper-level (LSUA) or on credit from unaccredited schools
+            # (NOBTS) is not the overall transfer maximum.
+            for m in ([] if re.search(r'upper[- ](?:level|division)|not\s+accredited|unaccredited|toward\s+the\s+major|most\s+(?:[\w-]+\s+)?(?:colleges|schools|universities|institutions)', s, re.I) else MAX_HOURS.finditer(s)):  # IA (Iowa): a cap for the major
+                found['max_transfer_credits'].append((int(m.group(1)), s))
         for m in ([] if re.search(r'attempted|probation|suspension|retain\s+this\s+status', s, re.I) else RESIDENCE.finditer(s)):
             v = int(m.group(1) or m.group(2))
-            part = re.search(r'(\d{2})\s+of\s+the\s+(?:last|final)\s+' + str(v) + r'\b', s, re.I)
-            if part: v = int(part.group(1))  # "45 of the last 60 hours" (UGA), "20 of the last 30" (Coastal Georgia)
+            part = re.search(r'(\d{2}|twenty|thirty|forty|forty-five|fifteen|twenty-four)\s+(?:\(\d{2}\)\s+)?of\s+the\s+(?:last|final)\s+' + str(v) + r'\b', s, re.I)
+            words = {'fifteen': 15, 'twenty': 20, 'twenty-four': 24, 'thirty': 30, 'forty': 40, 'forty-five': 45}
+            if part: v = words.get(part.group(1).lower()) or int(part.group(1))  # "Thirty (30) of the last 60" (FGCU)  # "45 of the last 60 hours" (UGA), "20 of the last 30" (Coastal Georgia)
             if 12 <= v <= 60: found['residency_requirement_credits'].append((v, s))
     if not any(found.values()): return []
     year, basis, issues = common.resolve_year(page, entry, today_year)

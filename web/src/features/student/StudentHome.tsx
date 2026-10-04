@@ -1,10 +1,11 @@
 import { Link, Navigate } from 'react-router-dom'
 import { useApp } from '../../lib/app'
 import { ButtonLink, Card, CardHeader, Notice, PageLoading, Pill, ProgressBar, Ring, cx } from '../../components/ui'
-import { ArrowRight, Bolt, Clock, Compass, Flame, Target, Trophy } from '../../components/icons'
-import { MIN_FOR_SCORE, SCORE_WINDOW_DAYS, threeScores, type ThreeScores } from '../../lib/engine/scores'
+import { Bolt, Compass, Flame, Target, Trophy } from '../../components/icons'
+import { PracticeIndicators } from '../../components/PracticeIndicators'
+import { BenchmarkStatus } from '../../components/BenchmarkStatus'
 import { addDays, localDate } from '../../lib/engine/dates'
-import { nextBenchmarkDue, SECTION_LABEL } from '../../lib/engine/benchmark'
+import { benchmarkAttemptIds, SECTION_LABEL } from '../../lib/engine/benchmark'
 import { achievements, levelOf, totalXp } from '../../lib/engine/gamify'
 import { latestEstimate, recentTrend, useStudentOverview, type StudentOverview } from './useStudentOverview'
 import { useCatalog } from '../practice/useCatalog'
@@ -26,8 +27,9 @@ function HomeBody({ name, o }: { name: string; o: StudentOverview }) {
   const catalog = useCatalog(exam)
   const xp = totalXp(o.history)
   const lvl = levelOf(xp)
-  const practicedToday = o.history.some((a) => !a.skipped && localDate(a.submitted_at, o.tz) === o.today)
-  const due = nextBenchmarkDue(o.benchmarks)
+  // Benchmark answers count toward streak and XP but never mark today's daily practice done.
+  const benchIds = benchmarkAttemptIds(o.benchmarks)
+  const practicedToday = o.history.some((a) => !a.skipped && !benchIds.has(a.id) && localDate(a.submitted_at, o.tz) === o.today)
   const minutes = o.plan?.daily_minutes ?? 10
   const weakK = o.estimates.filter((e) => e.knowledge_weak)
   const weakP = o.estimates.filter((e) => e.pacing_weak)
@@ -49,10 +51,10 @@ function HomeBody({ name, o }: { name: string; o: StudentOverview }) {
           <h1 className="display text-[28px] font-semibold leading-tight text-ink">{name}</h1>
         </div>
         <div className="flex items-center gap-2">
-          <span className={cx('flex items-center gap-1 rounded-full px-3 py-1.5 text-sm font-bold tabular', o.streak.current_streak > 0 ? 'bg-gold-soft text-gold-ink' : 'bg-surface-2 text-ink-3')} aria-label={`${o.streak.current_streak} day streak`}>
-            <Flame size={18} /> {o.streak.current_streak}
+          <span className={cx('flex items-center gap-1 rounded-full px-3 py-1.5 text-sm font-bold tabular', o.streak.current_streak > 0 ? 'bg-gold-soft text-gold-ink' : 'bg-surface-2 text-ink-3')} title={`${o.streak.current_streak} day streak`}>
+            <Flame size={18} /> {o.streak.current_streak}<span className="sr-only"> day streak</span>
           </span>
-          <span className="rounded-full bg-brand-soft px-3 py-1.5 text-sm font-bold text-brand" aria-label={`Level ${lvl.level}`}>
+          <span className="rounded-full bg-brand-soft px-3 py-1.5 text-sm font-bold text-brand">
             Lv {lvl.level}
           </span>
         </div>
@@ -120,14 +122,14 @@ function HomeBody({ name, o }: { name: string; o: StudentOverview }) {
             ) : (
               <>
                 <div className="display text-5xl font-semibold text-ink-3">—</div>
-                <p className="mt-1 text-xs text-ink-3">Score estimates appear once a calibrated scoring model is connected. Your benchmark breakdown shows where you stand today.</p>
+                <p className="mt-1 text-xs text-ink-3">No score estimate yet: turning practice into an {EXAM_NAME[exam]} score needs a calibrated question bank, and we won't guess. Your practice indicators and benchmarks show where you stand.</p>
               </>
             )}
           </div>
         </Card>
       </div>
 
-      <ThreeScoresCard history={o.history} />
+      <PracticeIndicators history={o.history} />
 
       <Card>
         <CardHeader
@@ -197,30 +199,7 @@ function HomeBody({ name, o }: { name: string; o: StudentOverview }) {
           </div>
         </Card>
 
-        <Card>
-          <CardHeader title="Benchmarks" />
-          <div className="p-5 pt-3 text-sm">
-            {o.benchmarks.length === 0 ? (
-              <p className="text-ink-3">No benchmark yet.</p>
-            ) : (
-              <>
-                <p className="text-ink-2">
-                  {due.inDays === 0 ? (
-                    <>A {due.kind} benchmark is due — it shows how far you've come.</>
-                  ) : (
-                    <>Next mini benchmark in about {due.inDays} days.</>
-                  )}
-                </p>
-                {due.inDays === 0 && (
-                  <Link to="/student/benchmark" className="mt-2 inline-flex items-center gap-1 font-semibold text-go hover:underline">
-                    Take it now <ArrowRight size={16} />
-                  </Link>
-                )}
-                <p className="mt-2 text-xs text-ink-3">Last: {new Date(o.benchmarks.at(-1)!.completed_at).toLocaleDateString()}</p>
-              </>
-            )}
-          </div>
-        </Card>
+        <BenchmarkStatus history={o.benchmarks} />
       </div>
       {!o.plan && (
         <Notice tone="gold" title="Set your test and target">
@@ -231,48 +210,6 @@ function HomeBody({ name, o }: { name: string; o: StudentOverview }) {
         </Notice>
       )}
     </div>
-  )
-}
-
-const SCORE_HELP: Record<keyof ThreeScores, { label: string; help: string; icon: React.ReactNode }> = {
-  knowledge: { label: 'Knowledge', help: 'Questions you get right', icon: <Target size={16} /> },
-  pacing: { label: 'Pacing', help: 'Answers on test pace, not rushed', icon: <Clock size={16} /> },
-  strategy: { label: 'Strategy', help: 'Sure answers that are right, and right answers without hints', icon: <Compass size={16} /> },
-}
-
-/** Three separate scores so a student can see whether to study, speed up, or change how they test. */
-function ThreeScoresCard({ history }: { history: StudentOverview['history'] }) {
-  const s = threeScores(history)
-  const keys = Object.keys(SCORE_HELP) as (keyof ThreeScores)[]
-  return (
-    <Card>
-      <CardHeader title="Your three scores" subtitle={`Last ${SCORE_WINDOW_DAYS} days of practice`} />
-      <ul className="grid grid-cols-3 gap-2 p-5 pt-3">
-        {keys.map((k) => {
-          const v = s[k].value
-          const meta = SCORE_HELP[k]
-          return (
-            <li key={k} className="rounded-2xl bg-surface-2 p-3">
-              <div className="flex items-center gap-1 text-[13px] font-semibold text-ink-2">
-                <span className="hidden sm:inline">{meta.icon}</span> {meta.label}
-              </div>
-              {v === null ? (
-                <div className="mt-1 text-sm text-ink-3">
-                  <span className="display text-2xl font-semibold text-ink-3">—</span>
-                  <span className="block text-[11px] leading-tight">{Math.max(0, MIN_FOR_SCORE - s[k].n)} more answers</span>
-                </div>
-              ) : (
-                <>
-                  <div className={cx('display mt-1 text-3xl font-semibold tabular', v >= 75 ? 'text-go' : v >= 50 ? 'text-ink' : 'text-warn')}>{v}</div>
-                  <ProgressBar value={v} max={100} tone={v >= 75 ? 'go' : 'gold'} label={`${meta.label} ${v} of 100`} className="mt-1.5 h-1.5" />
-                </>
-              )}
-              <p className="mt-1.5 hidden text-[11px] leading-tight text-ink-3 sm:block">{meta.help}</p>
-            </li>
-          )
-        })}
-      </ul>
-    </Card>
   )
 }
 
@@ -320,6 +257,7 @@ function WeekDots({ o }: { o: StudentOverview }) {
             <span className={cx('text-[11px] font-semibold', isToday ? 'text-ink' : 'text-ink-3')}>{'MTWTFSS'[i]}</span>
             <span
               className={cx('grid h-6 w-6 place-items-center rounded-full text-[11px]', done ? 'bg-gold text-white' : isToday ? 'border-2 border-gold' : 'bg-surface-3')}
+              role="img"
               aria-label={`${d}: ${done ? 'practised' : 'not practised'}`}
             >
               {done ? <Flame size={12} /> : null}

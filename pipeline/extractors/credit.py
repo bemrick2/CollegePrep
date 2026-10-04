@@ -107,6 +107,14 @@ def table_equivalencies(kind, rows, table_hit=None):
         return out
     body = rows[1:] if has_header else rows
     width = len(rows[0])
+    # NE r1 (UNO): "Exam | Level | Score | Course" - a column of SL/HL is the level, the next numeric column the score.
+    lvl = None
+    col = lambda i: [r[i].strip() for r in body if i is not None and i < len(r) and r[i].strip()]
+    if kind == 'IB' and sc is not None and col(sc) and all(re.fullmatch(r'(SL|HL|SL\s*/\s*HL)', c, re.I) for c in col(sc)):
+        sc = next((i for i in range(width) if i not in (ex, sc, co, hr) and col(i) and all(re.search(r'\d', c) for c in col(i))), None)
+    if kind == 'IB' and lvl is None:
+        lvl = next((i for i in range(width) if i not in (ex, sc, co, hr) and col(i)
+                    and sum(1 for c in col(i) if re.fullmatch(r'(SL|HL|SL\s*/\s*HL|HL\s*/\s*SL)', c, re.I)) >= 0.8 * len(col(i))), None)
     out, prev = [], None
     for row in body:
         cells = list(row)
@@ -120,10 +128,19 @@ def table_equivalencies(kind, rows, table_hit=None):
         score, course = get(sc), get(co)
         if not score and not course: continue
         if score and not re.search(r'\d', score) and not course: continue  # a section heading row ("Foreign Languages", Gordon State)
+        # LA r1 (Xavier): "Biology, Standard Level | 6" and "Biology, Higher Level | 6" are different rules; keep the level.
+        label_cell = cells[ex] if ex < len(cells) else ''
+        both = re.search(r'\bSL\s*/\s*HL\b|\bHL\s*/\s*SL\b|standard\s+(?:and|or|/)\s+higher', label_cell, re.I)  # MO (Cottey): "Biology (SL/HL)"
+        level = (None if both else 'HL' if re.search(r'\bhigher\b|\bHL\b', label_cell, re.I) else
+                 'SL' if re.search(r'\bstandard\b|\bSL\b|\bsub(?:sidiary)?\b', cells[ex] if ex < len(cells) else '', re.I) else None)
+        if kind == 'IB' and not level and not both and lvl is not None and lvl < len(cells) and re.fullmatch(r'\s*(SL|HL)\s*', cells[lvl], re.I):
+            level = cells[lvl].strip().upper()  # NE (UNO): "Anthropology | SL | 5-7" keeps the level in its own column
+        if kind == 'IB' and level and score and not re.search(r'\b(HL|SL)\b|higher|standard', score, re.I):
+            score = f'{level} {score}'
         eq = {'exam_or_course_code': code, 'exam_or_course_name': name,
               'minimum_score': score or None, 'institution_course_equivalent': course or None,
               'credits_awarded': _credits(get(hr)), 'notes': None}
-        used = {ex, sc, co, hr}
+        used = {ex, sc, co, hr, lvl}
         rest = [c for i, c in enumerate(cells) if i not in used and c.strip()]
         if rest: eq['notes'] = ' | '.join(rest)
         out.append((eq, ' | '.join(cells)))
@@ -174,6 +191,8 @@ def extract(inst, entry, page, today_year):
         kind = next((k for k in (exams.detect_kind(x) for x in (header_row, t.get('lead'), t.get('caption'), t.get('heading'))) if k), None) \
             or exams.detect_kind(page.title, entry['url'])
         if not kind: continue
+        if re.search(r'college\s+preparatory|admission\s+requirements?|core\s+curriculum', t.get('heading') or '', re.I):
+            continue  # MT (MSU-Northern): AP courses as a way to meet the high-school admission core, not credit by exam
         named = dict(t)
         if not t.get('lead') and heading_uses[t.get('heading')] > 1:
             named['heading'] = None  # several tables under one heading: the heading cannot name each table
@@ -199,6 +218,25 @@ def extract(inst, entry, page, today_year):
         if any(re.fullmatch(r'\s*\d{1,3}\s+\d{1,3}\s*', e['minimum_score'] or '') for e in eqs): issues = issues + ['merged_score_cells']
         if any((e['credits_awarded'] or 0) > 16 for e in eqs):
             issues = issues + ['credits_implausible']  # merged cells ("3" and "6" read as 36)
+        # FL r1 (FSU, UWF, New College, USF, Ringling IB): the score column held course codes, subjects, levels
+        # ("HL") or a header word ("MINIMUM SCORE 4"); scores are numbers, ranges or "HL 5"-style levels with a number.
+        bad_score = sum(1 for e in eqs if e['minimum_score'] and (not re.search(r'\d', e['minimum_score'])
+                        or re.search(r'[A-Z]{2,4}\s?\d{3,4}|score(?!\s+of\s+\d)|credit|same as', e['minimum_score'], re.I)))
+        if bad_score and bad_score >= len(eqs) * 0.3: issues = issues + ['score_column_not_scores']
+        # Two score tiers merged into one cell ("4 5 to 7", Broward IB).
+        if any(re.fullmatch(r'\s*\d\s+\d\s+to\s+\d\s*', e['minimum_score'] or '') for e in eqs): issues = issues + ['merged_score_cells']
+        # LA r1 (Louisiana Tech): "3 or 4 5" is two tiers in one cell; "4, 5" and "4 or 5" are one tier.
+        if any(re.fullmatch(r'\s*\d{1,2}(?:\s*(?:or|,|-|–|to|and)\s*\d{1,2})+\s+\d{1,2}(?:\s+\d{1,2})*\s*', e['minimum_score'] or '') for e in eqs):
+            issues = issues + ['merged_score_cells']
+        # LA r1: "CLEP" rows scored 3 are AP rows; scores must fit the exam's scale (AP 1-5, IB 1-7, CLEP 20-80).
+        scale = {'AP': (1, 5), 'IB': (1, 7), 'CLEP': (20, 80)}.get(kind)
+        firsts = [int(m.group()) for e in eqs for m in [re.search(r'\d+', e['minimum_score'] or '')] if m]
+        if scale and firsts and any(not scale[0] <= v <= scale[1] for v in firsts):  # OK r1 (OKBU): one CLEP row scored 3 is already wrong
+            issues = issues + ['score_scale_mismatch']
+        if eqs and all(not e['institution_course_equivalent'] for e in eqs): issues = issues + ['course_column_missing']
+        # OK r1 (Cameron IB): "ENGL" with the number in another column is not a course.
+        bare = sum(1 for e in eqs if re.fullmatch(r'\s*[A-Z]{2,5}\s*', e['institution_course_equivalent'] or ''))
+        if bare and bare >= len(eqs) * 0.5: issues = issues + ['course_number_missing']
         numeric = sum(1 for e in eqs if re.fullmatch(r'\s*\d{1,2}(\.\d)?\s*', e['institution_course_equivalent'] or ''))
         if numeric and numeric >= len(eqs) / 2:
             issues = issues + ['course_column_numeric']  # the hours column was read as the course column

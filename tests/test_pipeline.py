@@ -335,6 +335,314 @@ last 30 hours in residence at the university.</p>"""
         got = {c['record']['residency']: c['record']['components'] for c in costs.extract({**INST, 'state': 'AL'}, ENTRY, dup, '2026-27')}
         self.assertEqual((got['in_state']['Subtotal'], got['in_state']['Subtotal (2)']), (17118, 4320))
 
+    def test_wy_r1_rules(self):
+        """WY r1: Northwest's credit-load rows are named after the award and "/semester" amounts give no annual range."""
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Welcome to Wyoming Scholarship</title><h2>Welcome to Wyoming Scholarship</h2><table><tr><th>Enrollment</th><th>Amount</th></tr>'
+            '<tr><td>15.0 credits or more</td><td>$2,300/semester</td></tr><tr><td>Full Time (12.0-14.5 credits)</td><td>$2,000/semester</td></tr>'
+            '<tr><td>Half Time (6.0-8.5 credits)</td><td>$1,000/semester</td></tr></table>'), '2026-27')}
+        self.assertEqual(sorted(got), ['Welcome to Wyoming Scholarship: 15.0 credits or more', 'Welcome to Wyoming Scholarship: Full Time (12.0-14.5 credits)',
+                                       'Welcome to Wyoming Scholarship: Half Time (6.0-8.5 credits)'])
+        self.assertTrue(all('award_max' not in r and 'gpa_requirement' not in r for r in got.values()))
+
+    def test_mt_r1_rules(self):
+        """MT r1: Carroll's undocumented-student page and Yellow Ribbon row; UM "renewable for four years" is annual;
+        MSU-Northern's college-preparatory curriculum table is not credit by exam."""
+        table = ('<h2>Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th><th>Criteria</th></tr>'
+                 '<tr><td>Bishop Carroll Scholarship</td><td>$9,000</td><td>Admitted</td></tr>'
+                 '<tr><td>Yellow Ribbon Program for Veterans</td><td>$26,800</td><td>Post 9/11 GI Bill</td></tr>'
+                 '<tr><td>Admissions Scholarship</td><td>$4,000 renewable for four years ($16,000 four-year value)</td><td>4.0 GPA</td></tr>'
+                 '<tr><td>Trustee Scholarship</td><td>$5,000</td><td>3.5 GPA</td></tr></table>')
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html('<title>Scholarships</title>' + table), '2026-27')}
+        self.assertNotIn('Yellow Ribbon Program for Veterans', got)
+        self.assertEqual(got['Admissions Scholarship']['award_max'], 4000)
+        self.assertEqual(merit.extract(INST, {**ENTRY, 'url': 'https://x.edu/admission-aid/scholarships-grants/undocumented-student-information'},
+                                       T.parse_html('<title>Scholarships</title>' + table), '2026-27'), [])
+        rows = [['Course', 'Advanced Placement', 'Exam', 'Score'], ['Mathematics', 'AP courses prepare students', 'Calculus AB', '3+'],
+                ['English', 'AP courses prepare students', 'English Language', '3+'], ['Science', 'AP courses prepare students', 'Biology', '3+']]
+        p = T.Page('', 'Freshman Admission', [{'rows': rows, 'heading': 'College Preparatory Curriculum', 'caption': '', 'lead': ''}], [], [])
+        self.assertEqual(credit.extract(INST, ENTRY, p, '2026-27'), [])
+
+    def test_nd_r1_rules(self):
+        """ND r1: Lake Region en-dash cells and semester-basis amounts; Minot tiers with four-year totals; VCSU "for two
+        year"; Jamestown amounts under a blank header."""
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Scholarships</h2><table><tr><th>Scholarship</th><th>ACT</th><th>GPA</th><th>Amount</th></tr>'
+            '<tr><td>Presidential Scholarship</td><td>28 &amp; higher</td><td>–</td><td>$4,500</td></tr>'
+            '<tr><td>Part-time Scholarship</td><td></td><td>2.5</td><td>$100–$300 awarded on a semester basis</td></tr>'
+            '<tr><td>Clock Tower</td><td></td><td>3.05-3.64</td><td>$1,500 per year for two year ($3,000)</td></tr>'
+            '<tr><td>Leader Scholarship</td><td>25–27</td><td>3.8–4.0</td><td>$1,500</td></tr></table>'), '2026-27')}
+        self.assertNotIn('gpa_requirement', got['Presidential Scholarship'])
+        self.assertNotIn('award_max', got['Part-time Scholarship'])
+        self.assertNotIn('award_max', got['Clock Tower'])
+        self.assertEqual(got['Leader Scholarship']['award_max'], 1500)
+        [c] = merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Academic Excellence Scholarship</h2><table><tr><th>High School GPA</th><th>Scholarship Award</th></tr>'
+            '<tr><td>3.9+</td><td>$10,000 $2,500/year for a maximum of 4 years</td></tr><tr><td>3.7-3.89</td><td>$7,500 $1,875/year for a maximum of 4 years</td></tr>'
+            '<tr><td>3.5-3.69</td><td>$5,000 $1,250/year for a maximum of 4 years</td></tr></table>'), '2026-27')
+        self.assertNotIn('award_max', c['record'])
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Institutional Aid</h2><table><tr><th>Scholarship</th><th>GPA</th><th></th></tr>'
+            '<tr><td>Knight Scholarship</td><td>Below 2.5</td><td>$6000</td></tr><tr><td>Trustee Scholarship</td><td>2.5-3.0</td><td>$7000</td></tr></table>'), '2026-27')}
+        self.assertEqual(got['Knight Scholarship']['award_max'], 6000)
+
+    def test_ne_r1_rules(self):
+        """NE r1: community colleges' transfer-out advice (Northeast, Central, Mid-Plains) and an entrance requirement
+        (Southeast); UNO's separate SL/HL column; Concordia's teacher scholarship and late fee are not course prices."""
+        base = '<title>Transfer Credit</title><p>Courses completed with a grade of D or better transfer to the university.</p>'
+        for scoped in ('The generally accepted requirements for transfer to another college include: Grades of "C" or higher in a transferable course.',
+                       'The degree requires 60 credit hours, and most schools require a course grade of C or higher to transfer.',
+                       'Applicants meet college entrance requirements through three or more hours of transfer credit with a grade of C or better.'):
+            [c] = transfer.extract(INST, ENTRY, T.parse_html(base + f'<p>{scoped}</p>'), '2026-27')
+            self.assertEqual(c['record'].get('min_grade'), 'D', scoped)
+        [c] = transfer.extract(INST, ENTRY, T.parse_html(base + '<p>Most four-year colleges will accept up to 60 semester credit hours earned at a community college as transfer credit.</p>'), '2026-27')
+        self.assertNotIn('max_transfer_credits', c['record'])
+        ib = [['IB Exam', 'Level', 'Score', 'Course'], ['Biology', 'SL', '5-7', 'BIOL 1020'], ['Biology', 'HL', '5-7', 'BIOL 1020 & BIOL 1030'],
+              ['Chemistry', 'HL', '5-7', 'CHEM 1180']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'IB', [{'rows': ib, 'heading': 'International Baccalaureate', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        self.assertEqual(sorted(e['minimum_score'] for e in c['record']['equivalencies']), ['HL 5-7', 'HL 5-7', 'SL 5-7'])
+        page = T.parse_html('<title>Dual Credit</title><h1>Dual Credit</h1><ul><li>Juniors and seniors with a 3.0 GPA are eligible for dual credit.</li>'
+                            '<li>Dual credit tuition is $150 per credit hour.</li>'
+                            '<li>Concordia provides scholarships up to $300/credit for teachers to earn the graduate hours to offer dual credit.</li>'
+                            '<li>Registration after the deadline will be assessed a $10/credit late fee.</li></ul>')
+        [c] = dual.extract(INST, ENTRY, page, '2026-27')
+        self.assertEqual([x['amount'] for x in c['record']['dual_enrollment']['per_credit_hour_charges']], [150])
+
+    def test_ia_r1_rules(self):
+        """IA r1: Hawkeye eligibility headings; Graceland sample aid package; Wartburg academic-progress table; conditional
+        transfer grades (William Penn, Dubuque, Emmaus) and a cap for the major (Iowa)."""
+        got = merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h3>Students Involved in Student Life</h3><table><tr><th>Scholarship</th><th>Amount</th><th>Application Deadline</th></tr>'
+            '<tr><td>Billy Owens</td><td>$250</td><td>October 1</td></tr><tr><td>Goodwin Honor</td><td>$500</td><td>February 1</td></tr></table>'), '2026-27')
+        self.assertTrue(got and all(c['record']['eligibility_summary'] == 'Listed under: Students Involved in Student Life' for c in got))
+        package = merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Sample Award</h2><table><tr><th>Scholarship</th><th>Amount</th></tr>'
+            '<tr><td>Graceland Scholarships</td><td>$11,000</td></tr><tr><td>Outside Scholarship(s)</td><td>$2,400</td></tr>'
+            '<tr><td>Federal/State Grants</td><td>$8,395</td></tr><tr><td>Merit Award</td><td>$1,000</td></tr></table>'), '2026-27')
+        self.assertEqual(package, [])
+        sap = merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Financial Aid | Learn About Your Award</title><h2>Financial Aid Policies</h2><table><tr><th>Course Credits Completed</th><th>Required GPA</th><th>Pace (earned/attempted)</th></tr>'
+            '<tr><td>Course Credits Completed: 0.25-6.75</td><td>Required GPA: 1.60</td><td>Pace (earned/attempted): 67%</td></tr>'
+            '<tr><td>Course Credits Completed: 7.00-15.75</td><td>Required GPA: 1.80</td><td>Pace (earned/attempted): 67%</td></tr>'
+            '<tr><td>Course Credits Completed: 26.00+</td><td>Required GPA: 2.00</td><td>Pace (earned/attempted): 67%</td></tr></table>'), '2026-27')
+        self.assertEqual(sap, [])
+        base = '<title>Transfer Credit</title><p>Courses completed with a grade of D or better transfer to the university.</p>'
+        for scoped in ('For those students with an overall transfer grade point average of less than 2.0, only courses with a grade of "C-" or above will transfer.',
+                       'A grade of C or better when the minimum acceptable grade is stated to be a C is required for transfer.',
+                       'Students must earn a grade of C or better for the transfer of courses completed within the last fifteen years.'):
+            [c] = transfer.extract(INST, ENTRY, T.parse_html(base + f'<p>{scoped}</p>'), '2026-27')
+            self.assertEqual(c['record'].get('min_grade'), 'D', scoped)
+        [c] = transfer.extract(INST, ENTRY, T.parse_html(base + '<p>A maximum of 15 semester hours of approved transfer credit may be counted toward the major.</p>'), '2026-27')
+        self.assertNotIn('max_transfer_credits', c['record'])
+
+    def test_ks_r1_rules(self):
+        """KS r1: Hesston sample aid package; Barclay cost rows; Dodge City per-semester parentheticals; K-State Salina
+        "Total Value"; Pitt State per-semester columns that mention the academic year, out-of-state table headings and an
+        international budget."""
+        table = ('<h2>Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th><th>Criteria</th></tr>'
+                 '<tr><td>Presidential Gold</td><td>$2,000 per year ($1,000 per semester)</td><td>3.5 GPA</td></tr>'
+                 '<tr><td>Vanier Scholarship</td><td>Total Value: $40,000 Freshman Year Award: $10,000</td><td>Incoming freshman</td></tr>'
+                 '<tr><td>Annual Total</td><td>$9,120</td><td></td></tr>'
+                 '<tr><td>Purple Merit</td><td>$1,000</td><td>2.5 GPA</td></tr></table>')
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html('<title>Scholarships</title>' + table), '2026-27')}
+        self.assertEqual((got['Presidential Gold']['award_min'], got['Presidential Gold']['award_max']), (2000, 2000))
+        self.assertNotIn('award_max', got['Vanier Scholarship'])
+        self.assertNotIn('Annual Total', got)
+        self.assertEqual(merit.extract(INST, {**ENTRY, 'url': 'https://x.edu/admissions/scholarships-and-aid/sample-aid-packages/'},
+                                       T.parse_html('<title>Scholarships</title>' + table), '2026-27'), [])
+        tbl = lambda heading, amt: {'heading': heading, 'caption': '', 'lead': '', 'rows': [
+            ['Tuition & costs per semester (academic year 2026-2027 )', ''], ['Tuition (flat rate, incl. campus fees)', amt], ['Books', '$500']]}
+        p = T.Page('Tuition and Costs 2026-2027', 'Tuition and Costs 2026-2027',
+                   [tbl('Undergraduate In-State Tuition & Costs', '$4,442'), tbl('Undergraduate Out-of-State Tuition & Costs', '$10,114'),
+                    tbl('International Undergraduate Tuition & Costs', '$20,228')], [], [])
+        got = {c['record']['residency']: c for c in costs.extract({**INST, 'state': 'KS'}, ENTRY, p, '2026-27')}
+        self.assertEqual(sorted(got), ['in_state', 'out_of_state'])
+        self.assertEqual(got['in_state']['record']['tuition'], 4442)
+        self.assertTrue(all('cost_period_semester' in c['issues'] for c in got.values()))
+
+    def test_mo_r1_rules(self):
+        """MO r1: Logan per-trimester totals and per-credit amounts; Columbia College "$1,000-2,000"; ROTC; Southwest
+        Baptist's two versions of one table; STLCC accreditation years; Truman A-Level, Westminster dual-credit-only
+        rules; Cottey "SL/HL" rows."""
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th><th>Criteria</th></tr>'
+            '<tr><td>President Scholarship</td><td>Up to $18,000 — $1,800 per trimester for 10 trimesters</td><td>3.75 GPA</td></tr>'
+            '<tr><td>Tower Scholarship</td><td>$400 per credit hour</td><td>Transfer student</td></tr>'
+            '<tr><td>Talent Award</td><td>$1,000-2,000</td><td>Audition</td></tr>'
+            '<tr><td>Army ROTC Scholarship</td><td>Full tuition</td><td>Visit goarmy.com</td></tr>'
+            '<tr><td>Sibling Award</td><td>$500</td><td>Sibling enrolled</td></tr></table>'), '2026-27')}
+        self.assertNotIn('award_max', got['President Scholarship'])
+        self.assertNotIn('award_max', got['Tower Scholarship'])
+        self.assertEqual((got['Talent Award']['award_min'], got['Talent Award']['award_max']), (1000, 2000))
+        self.assertNotIn('Army ROTC Scholarship', got)
+        table = lambda amt: ('<h2>Freshman Academic Scholarships</h2><table><tr><th>Award</th><th>Annual Total</th></tr>'
+                             f'<tr><td>Presidential Scholar</td><td>${amt},500</td></tr><tr><td>Dean Scholar</td><td>$9,000</td></tr></table>')
+        cands = merit.extract(INST, ENTRY, T.parse_html('<title>Scholarships</title>' + table(16) + table(18)), '2026-27')
+        self.assertTrue(cands and all('duplicate_table_versions' in c['issues'] for c in cands))
+        once = merit.extract(INST, ENTRY, T.parse_html('<title>Scholarships</title>' + table(16)), '2026-27')
+        self.assertTrue(once and all('duplicate_table_versions' not in c['issues'] for c in once))
+        self.assertEqual(T.year_labels("STLCC's program is accredited through the 2028–2029 school year."), {})
+        self.assertEqual(T.year_labels('Dual credit for the 2026-2027 school year.'), {'2026-27': 1})
+        base = '<title>Transfer Credit</title><p>Courses completed with a grade of D or better transfer to the university.</p>'
+        for scoped in ('Students must achieve a grade of C or higher to receive transfer credit for qualified A-Levels.',
+                       'Dual credit courses will be considered for transfer as long as the student has received a grade of "C" or better.'):
+            [c] = transfer.extract(INST, ENTRY, T.parse_html(base + f'<p>{scoped}</p>'), '2026-27')
+            self.assertEqual(c['record'].get('min_grade'), 'D', scoped)
+        ib = [['IB Exam', 'Score', 'Course', 'Hours'], ['Biology (SL/HL)', '4', 'BIO 101', '4'], ['Chemistry (HL)', '5', 'CHE 160', '4'],
+              ['Geography, Standard Level', '4', 'ENV 125', '3']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'IB', [{'rows': ib, 'heading': 'International Baccalaureate', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        self.assertEqual(sorted(e['minimum_score'] for e in c['record']['equivalencies']), ['4', 'HL 5', 'SL 4'])
+
+    def test_ok_r1_rules(self):
+        """OK r1: multi-year package values (OU, USAO, SWOSU); repeated header rows (Oklahoma Christian); admission GPA
+        standards and gen-ed rules in transfer text (Cameron, NSU, USAO); a CLEP row scored 3 (OKBU); bare department
+        codes as courses (Cameron IB)."""
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Freshman Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th><th>Criteria</th></tr>'
+            '<tr><td>GPA</td><td>ACT</td><td>SAT</td></tr>'
+            '<tr><td>Award of Excellence</td><td>$16,000 ($4,000 x 4 years)</td><td>31 ACT and 3.5 GPA</td></tr>'
+            '<tr><td>Welcome Scholarship</td><td>$44,760 total estimated value 8 fall/spring terms, $5,595 estimate/term</td><td>Non-resident</td></tr>'
+            '<tr><td>Green Scholarship</td><td>$10,000 total estimated value 4 years x ($1,500 tuition + $1,000 housing)</td><td>3.5 GPA</td></tr>'
+            '<tr><td>Nominee Scholarship</td><td>$3200 cash per year, full tuition, and residence hall scholarship</td><td>30 ACT</td></tr>'
+            '<tr><td>Tier Scholarship</td><td>$6350 ($3175 tuition waiver per semester) for up to 8 semesters.</td><td>3.5 GPA</td></tr>'
+            '<tr><td>Dougherty Scholarship</td><td>$4,000/year</td><td>28 ACT</td></tr></table>'), '2026-27')}
+        self.assertNotIn('GPA', got)
+        for name in ('Award of Excellence', 'Welcome Scholarship', 'Green Scholarship', 'Nominee Scholarship'):
+            self.assertNotIn('award_max', got[name], name)
+        self.assertEqual(got['Tier Scholarship']['award_max'], 6350)  # "for up to 8 semesters" is a duration, not a total
+        self.assertEqual(got['Dougherty Scholarship']['award_max'], 4000)
+        base = '<title>Transfer Credit</title><p>Courses completed with a grade of D or better transfer to the university.</p>'
+        for scoped in ('Transfer students must be in good standing and have an average grade of C or better at the sending institution.',
+                       'General education credit earned with a grade of C or better by the transferring student will apply toward the degree.'):
+            [c] = transfer.extract(INST, ENTRY, T.parse_html(base + f'<p>{scoped}</p>'), '2026-27')
+            self.assertEqual(c['record'].get('min_grade'), 'D', scoped)
+        clep = [['CLEP Exam', 'Score', 'Course', 'Hours'], ['History of the United States I', '3', 'HIST 1013', '3'],
+                ['American Government', '50', 'POLS 1113', '3'], ['College Algebra', '50', 'MATH 1513', '3'], ['Biology', '50', 'BIOL 1114', '4']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'CLEP', [{'rows': clep, 'heading': 'CLEP Credit', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        self.assertIn('score_scale_mismatch', c['issues'])
+        ib = [['IB Exam', 'Score', 'Course', 'Hours'], ['Film (HL)', '4 or higher', 'ENGL', '3'], ['Spanish (HL)', '5 or higher', 'SPAN', '3'],
+              ['Biology (HL)', '5 or higher', 'BIOL', '4']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'IB', [{'rows': ib, 'heading': 'International Baccalaureate', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        self.assertIn('course_number_missing', c['issues'])
+
+    def test_ar_r1_rules(self):
+        """AR r1: ATU and/or column; UA-PTC placement score rows; UCA merged-cell rows; UAPB four-year totals;
+        UACCB/UACCM course-specific grade rules."""
+        cands = merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Freshman Academic Scholarships</title><h2>Academic Scholarships</h2><table><tr><th>Level</th><th>ACT</th><th>SAT</th><th></th><th>GPA</th><th>Amount</th></tr>'
+            '<tr><td>Level-2</td><td>19-20</td><td>990-1050</td><td>or</td><td>3.25-3.49</td><td>$2,000</td></tr>'
+            '<tr><td>Level-4</td><td>24-27</td><td>1160-1290</td><td>&amp;</td><td>3.75+</td><td>$8,000</td></tr>'
+            '<tr><td>Level-1</td><td>N/A</td><td>N/A</td><td></td><td>2.75-3.24</td><td>$1,000</td></tr></table>'), '2026-27')
+        got = {c['record']['award_name']: c['issues'] for c in cands}
+        self.assertIn('threshold_logic_column', got['Level-2'])
+        self.assertIn('threshold_logic_column', got['Level-4'])
+        self.assertNotIn('threshold_logic_column', got['Level-1'])
+        sections = merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Concurrent Scholarship</title><h2>Scholarship Score Requirements</h2><table><tr><th>Subject</th><th>ACT</th><th>SAT</th></tr>'
+            '<tr><td>Reading</td><td>19+</td><td>470+</td></tr><tr><td>English</td><td>19+</td><td>470+</td></tr><tr><td>Math</td><td>19+</td><td>460+</td></tr></table>'), '2026-27')
+        self.assertEqual(sections, [])
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Freshman Scholarships</h2><table><tr><th></th><th>Scholarship</th><th>Requirements</th><th>Annual Total Award</th></tr>'
+            '<tr><td>Institutional</td><td>Achievement</td><td>Minimum 4.00 GPA</td><td>$6,500</td></tr>'
+            '<tr><td>Honors</td><td>Presidential</td><td>Minimum 3.90 GPA</td><td>$8,000</td></tr>'
+            '<tr><td>University</td><td>Minimum 3.75 GPA</td><td>$4,500</td></tr></table>'), '2026-27')}
+        self.assertEqual(sorted(got), ['Achievement', 'Presidential'])
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Academic Scholarships</h2><table><tr><th>Scholarship</th><th>Criteria</th><th>Amount</th></tr>'
+            '<tr><td>Chancellor Scholarship</td><td>Minimum 3.75 GPA</td><td>$66,000 for four years ($8,250 per semester)</td></tr>'
+            '<tr><td>Golden Lion Scholarship</td><td>Minimum 2.75 GPA</td><td>$4,000</td></tr></table>'), '2026-27')}
+        self.assertNotIn('award_max', got['Chancellor Scholarship'])
+        self.assertEqual(got['Golden Lion Scholarship']['award_max'], 4000)
+        base = '<title>Transfer Credit</title><p>Courses completed with a grade of D or better transfer to the university.</p>'
+        for scoped in ('This course is required and must be completed with a grade of C or higher through another institution and transferred.',
+                       'Grades of D are not acceptable in some majors and cannot be used as prerequisites for courses that require a grade of C or higher in transfer.'):
+            [c] = transfer.extract(INST, ENTRY, T.parse_html(base + f'<p>{scoped}</p>'), '2026-27')
+            self.assertEqual(c['record'].get('min_grade'), 'D', scoped)
+        [c] = transfer.extract(INST, ENTRY, T.parse_html('<title>Transfer</title><p>A minimum grade of C or better will be accepted for transfer credit '
+                                                        "(D's are accepted in some majors and for some lower division courses).</p>"), '2026-27')
+        self.assertEqual(c['record'].get('min_grade'), 'C')  # Clayton State: the general rule stands
+
+    def test_la_r1_rules(self):
+        """LA r1: UL Lafayette 'Offer' column and one-time awards; LSUS tuition-plus amounts; scoped transfer rules
+        (Delgado, LSU, River Parishes, LSUA, NOBTS); Louisiana Tech merged tiers; AP scores under a CLEP heading;
+        Xavier IB levels; Xavier summer fee schedule."""
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Freshman Scholarships</title><h2>Supplemental Scholarships</h2><table><tr><th>Scholarship</th><th>Eligibility Requirements</th><th>Offer</th></tr>'
+            '<tr><td>Valedictorian Scholarship</td><td>High School Valedictorian</td><td>$2,000 for freshman yearContact the office</td></tr>'
+            '<tr><td>Louisiana Scholarship</td><td>3.5 GPA</td><td>Tuition &amp; Fees + $1,200 Campus Housing Credit</td></tr>'
+            '<tr><td>Purple Scholarship</td><td>2.5 GPA</td><td>$2,000</td></tr></table>'), '2026-27')}
+        v = got['Valedictorian Scholarship']
+        self.assertEqual((v['award_max'], v['renewable']), (2000, False))
+        self.assertNotIn('award_max', got['Louisiana Scholarship'])
+        self.assertEqual((got['Purple Scholarship']['award_max'], got['Purple Scholarship'].get('renewable')), (2000, None))
+        base = '<title>Transfer Credit</title><p>Courses completed with a grade of C or better transfer to the university.</p>'
+        for scoped in ('Transfer equivalencies in developmental courses are used for placement if a grade of "C" or better is earned.',
+                       'Transfer applicants to the College of Science need a grade of C or better in all math and science courses.',
+                       'To qualify for block transfer guarantees, you must earn a grade of "D" or better in each course.'):
+            [c] = transfer.extract(INST, ENTRY, T.parse_html(base.replace('C or better', 'D or better') + f'<p>{scoped}</p>'), '2026-27')
+            self.assertEqual(c['record'].get('min_grade'), 'D', scoped)
+        # Ringling's heading "Transfer Credits and Placement" and UNCP's "not guaranteed the same benefits" keep the general rule.
+        for general in ('Transfer Credits and Placement Ringling College will consider for transfer any credit where a grade of C or better was earned.',
+                        'Students are not guaranteed the same benefits; however, they shall receive transfer credit for courses completed with a grade of "C" or better.'):
+            [c] = transfer.extract(INST, ENTRY, T.parse_html(f'<title>Transfer Credit</title><p>{general}</p>'), '2026-27')
+            self.assertEqual(c['record'].get('min_grade'), 'C', general)
+        for capped in ('A maximum of 15 hours of lower-level transfer credit evaluated as upper-level credit may be used toward the degree.',
+                       'Up to 18 semester hours from institutions not accredited by CHEA may be transferred.'):
+            [c] = transfer.extract(INST, ENTRY, T.parse_html(base + f'<p>{capped}</p>'), '2026-27')
+            self.assertNotIn('max_transfer_credits', c['record'], capped)
+        rows = [['AP Exam', 'Score', 'Course', 'Hours'], ['Biology', '3 or 4 5', 'Bio Science 101 Bio Science 101, 102', '3 6'],
+                ['Chemistry', '4, 5', 'CHEM 1070', '3'], ['Calculus AB', '4 or 5', 'MATH 240', '3']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'Advanced Placement', [{'rows': rows, 'heading': 'Advanced Placement', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        self.assertIn('merged_score_cells', c['issues'])
+        ok = [rows[0], rows[2], rows[3], ['Psychology', '3', 'PSYC 101', '3']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'Advanced Placement', [{'rows': ok, 'heading': 'Advanced Placement', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        self.assertEqual(c['issues'], [])
+        clep = [['CLEP Exam', 'Score', 'Course', 'Hours'], ['Biology', '3', 'BIOL 1100', '4'], ['Chemistry', '3', 'CHEM 1100', '4'], ['College Algebra', '3', 'MATH 1100', '3']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'CLEP', [{'rows': clep, 'heading': 'CLEP Credit', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        self.assertIn('score_scale_mismatch', c['issues'])
+        ib = [['IB Exam', 'Score', 'Course', 'Hours'], ['Biology, Standard Level', '6', 'BIOL 1030', '6'], ['Biology, Higher Level', '6', 'BIOL 1230', '8'],
+              ['Chemistry, Higher Level', '5', 'CHEM 1010', '4']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'IB', [{'rows': ib, 'heading': 'International Baccalaureate', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        self.assertEqual(sorted(e['minimum_score'] for e in c['record']['equivalencies']), ['HL 5', 'HL 6', 'SL 6'])
+        fees = T.Page('', 'Tuition and Fees', [{'heading': 'Tuition', 'caption': '', 'lead': '', 'rows': [
+            ['', 'In-State', 'Out-of-State'], ['Tuition', '$4,000', '$9,000'], ['Fees', '$500', '$500'], ['Total', '$4,500', '$9,500']]}], [], [])
+        self.assertTrue(costs.extract({**INST, 'state': 'LA'}, ENTRY, fees, '2026-27'))
+        self.assertEqual(costs.extract({**INST, 'state': 'LA'}, {**ENTRY, 'url': 'https://x.edu/forms-2026-2027/summer-2026-tuition-fees.pdf'}, fees, '2026-27'), [])
+
+    def test_ms_r1_merit_and_costs(self):
+        """MS r1: Tougaloo phone numbers and non-score criteria in the ACT column; USM GPA-band headers over ACT rows;
+        Ole Miss 'No Test Score' grid column; Sumners amounts by enrollment level; Alcorn 'On/Off Campus' budgets."""
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Academic Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th><th>GPA</th><th>ACT/SAT</th></tr>'
+            '<tr><td>Presidential Academic Scholarship</td><td>$9,000</td><td>3.5+</td><td>ACT: 27+ / SAT: 1220+</td></tr>'
+            '<tr><td>Eagle Academic Scholarship</td><td>$5,000</td><td>3.25+</td><td>Valedictorian or Salutatorian</td></tr>'
+            '<tr><td>Servant Leader Scholarship</td><td>$4,000</td><td>3.0+</td><td>21</td></tr>'
+            '<tr><td>Awarded at discretion of Athletic Department</td><td></td><td></td><td>601-977-7700</td></tr></table>'), '2026-27')}
+        self.assertEqual(got['Presidential Academic Scholarship']['test_requirement'], 'ACT: 27+ / SAT: 1220+')
+        self.assertEqual(got['Eagle Academic Scholarship']['test_requirement'], 'Valedictorian or Salutatorian')
+        self.assertEqual(got['Servant Leader Scholarship']['test_requirement'], 'ACT 21')
+        self.assertNotIn('Awarded at discretion of Athletic Department', got)
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Freshmen</title><h2>Academic Excellence Scholarships</h2><table><tr><th>3.0 - 3.24 GPA</th><th>Annual Merit Scholarship</th></tr>'
+            '<tr><td>23 - 25 ACT Score</td><td>$1,500 annually</td></tr><tr><td>26 - 29 ACT Score</td><td>$2,500 annually</td></tr></table>'), '2026-27')}
+        r = got['Academic Excellence Scholarships: 3.0 - 3.24 GPA 23 - 25 ACT Score']
+        self.assertEqual((r['gpa_requirement'], r['test_requirement']), ('3.0 - 3.24 GPA', '23 - 25 ACT Score'))
+        [c] = merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Academic Merit Scholarships</h2><table><tr><th>High School GPA</th><th>No Test Score</th><th>24-25 ACT</th><th>26-27 ACT</th></tr>'
+            '<tr><td>3.0-3.49</td><td>$3,000</td><td>$4,000</td><td>$5,000</td></tr><tr><td>3.5-3.74</td><td>$5,000</td><td>$7,000</td><td>$8,000</td></tr></table>'), '2026-27')
+        self.assertEqual((c['record']['award_min'], len(c['record']['award_tiers'])), (3000, 6))
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Sumners Scholarship</title><h2>Sumners Scholarship</h2><table><tr><th>Enrollment</th><th>Amount</th></tr>'
+            '<tr><td>Full Time</td><td>$5,000 per semester</td></tr><tr><td>Half-Time</td><td>$2,500 per semester</td></tr></table>'), '2026-27')}
+        self.assertEqual(sorted(got), ['Sumners Scholarship: Full Time', 'Sumners Scholarship: Half-Time'])
+        self.assertNotIn('gpa_requirement', got['Sumners Scholarship: Full Time'])
+        p = T.Page('Cost of Attendance', 'Cost of Attendance (COA) Budget', [{'heading': 'Cost of Attendance (COA) Budget', 'caption': '', 'lead': '', 'rows': [
+            ['2026-2027 Undergraduate Cost of Attendance'], ['', 'Undergraduate in State On/Off Campus Fall/Spring', 'Undergraduate out of State On/Off Campus Fall/Spring'],
+            ['Tuition', '$8,105.00', '$9,105.00'], ['Fees', '$730.00', '$730.00'], ['Housing', '$7,581.00', '$7,581.00'], ['Food', '$4,693.00', '$4,693.00'],
+            ['Total Cost of Attendance', '$21,109.00', '$22,109.00']]}], [], [])
+        got = {c['record']['residency']: c['record'] for c in costs.extract({**INST, 'state': 'MS'}, ENTRY, p, '2026-27')}
+        self.assertEqual((got['in_state']['tuition'], got['in_state'].get('living_arrangement')), (8105, None))
+
     def test_merit_columns_al_r1(self):
         """AL r1: annual vs four-year columns (AUM), a single 'Test Score' column (UAB), a requirements column
         (Huntingdon) and an entering-class heading (UA '2027 In-State Freshman ...')."""
@@ -464,6 +772,9 @@ last 30 hours in residence at the university.</p>"""
         self.assertEqual(tiers('<p>10th grade students must submit an overall GPA of 2.0 or higher after the completion of the 9th grade.</p>'), [(2.0, ['10'])])
         self.assertEqual(tiers('<p>11th and 12th graders with a 2.00 high school GPA can enroll in academic core classes.</p>'), [(2.0, ['11', '12'])])
         self.assertEqual(dual._grades('Students must have a minimum class rank of junior.'), ['11', '12'])
+        # FL r1: "Career Dual Enrollment" tiers are scoped, so the academic 3.0 stays the general minimum.
+        [c] = self._de('<p>A 3.0 high school GPA for Academic Dual Enrollment.</p><p>Career Dual Enrollment can be taken with a 2.5 or higher unweighted GPA.</p>')
+        self.assertEqual(c['record']['dual_enrollment'].get('min_hs_gpa'), 3.0)
         # VA r1 (ODU) / NC r1 (CPCC): "Art History" and "History of Art" are not IB History.
         self.assertIsNone(exams.match('IB', 'Art History'))
         self.assertIsNone(exams.match('IB', 'History of Art'))
@@ -485,6 +796,16 @@ last 30 hours in residence at the university.</p>"""
                 '<p>Transfer applicants are encouraged to have completed MATH 1101 with grades of "C" or better.</p>')
         [c] = transfer.extract(INST, ENTRY, T.parse_html(html), '2026-27')
         self.assertEqual(c['record'].get('residency_requirement_credits'), 45)
+        [c] = transfer.extract(INST, ENTRY, T.parse_html('<title>Transfer Admissions</title><p>Thirty (30) of the last 60 hours must be earned at FGCU to receive a baccalaureate degree.</p>'), '2026-27')
+        self.assertEqual(c['record'].get('residency_requirement_credits'), 30)
+        # FSU-style AP chart: the "score" column holds course codes; a table with no course column is incomplete.
+        rows = [['AP Exam', 'Score 3', 'Score 4'], ['Art History', 'ARH 2000 (3)', 'ARH 2000 & ARH 2050'], ['Biology', 'BSC 2010 (3)', 'BSC 2010 & 2011'],
+                ['Chemistry', 'CHM 1045 (3)', 'CHM 1045 & 1046']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'AP', [{'rows': rows, 'heading': 'Advanced Placement', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        self.assertIn('score_column_not_scores', c['issues'])
+        rows = [['IB Exam', 'Minimum Score', 'Credits'], ['Biology', '4', '8'], ['Chemistry', '5', '4'], ['Economics', '5', '3']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'IB', [{'rows': rows, 'heading': 'International Baccalaureate', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        self.assertIn('course_column_missing', c['issues'])
         self.assertNotIn('min_grade', c['record'])
         # NC r1: Chowan's "($44,000 over 4 years)" is not the annual maximum; Greensboro's achievements list and divinity aid are skipped.
         got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
@@ -495,7 +816,8 @@ last 30 hours in residence at the university.</p>"""
         # Agnes Scott / Georgia Southern / WGTC: other organizations' award lists; Thomas University: "+Scholarships" heading.
         table = ('<h2>National Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th><th>Eligibility</th></tr><tr><td>Coca-Cola Scholars</td><td>$20,000</td><td>Seniors</td></tr>'
                  '<tr><td>Ron Brown Scholar Program</td><td>$10,000</td><td>Seniors</td></tr></table>')
-        for url in ('https://www.example.edu/aid/outside-scholarships.html', 'https://www.example.edu/military-scholarships', 'https://www.example.edu/foundation/foundation-scholarship/', 'https://www.example.edu/aid/scholarships/donor-scholarships/index.html', 'https://www.example.edu/academics/student-academic-achievements/', 'https://home.example.edu/student-affairs/testing/intl_credits/'):
+        for url in ('https://www.example.edu/aid/outside-scholarships.html', 'https://www.example.edu/military-scholarships', 'https://www.example.edu/foundation/foundation-scholarship/', 'https://www.example.edu/aid/scholarships/donor-scholarships/index.html', 'https://www.example.edu/academics/student-academic-achievements/', 'https://home.example.edu/student-affairs/testing/intl_credits/',
+                    'https://www.example.edu/college/retirees/emeriti', 'https://www.example.edu/aid/scholarships/bright-futures.html', 'https://www.example.edu/aid/grants/teach'):
             self.assertEqual(merit.extract(INST, {**ENTRY, 'url': url}, T.parse_html('<title>Scholarships</title>' + table), '2026-27'), [])
         self.assertEqual(len(merit.extract(INST, ENTRY, T.parse_html('<title>Scholarships</title>' + table), '2026-27')), 2)  # the same table elsewhere is kept
         [c] = merit.extract(INST, ENTRY, T.parse_html('<title>On Campus Students</title><h3>+Scholarships</h3><table><tr><th>Unweighted GPA</th><th>Scholarship</th></tr>'

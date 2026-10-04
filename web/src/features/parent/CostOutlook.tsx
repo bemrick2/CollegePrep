@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom'
-import { useApp, useAsync } from '../../lib/app'
 import type { CostRecord, InstitutionComparison } from '../../lib/data/types'
-import { readSavedSchools } from '../../lib/savedSchools'
+import { useSavedComparison, COMPARE_YEAR } from '../colleges/useSavedComparison'
 import { ArrowRight, Info, School, Wallet } from '../../components/icons'
 import { ButtonLink, Card, CardHeader, Pill } from '../../components/ui'
 
-const YEAR = '2026-27'
-const YEARS: Record<'two_year' | 'four_year', number> = { two_year: 2, four_year: 4 }
+const YEAR = COMPARE_YEAR
+const YEARS: Partial<Record<string, number>> = { two_year: 2, four_year: 4 }
 const usd = (n: number) => n.toLocaleString(undefined, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 })
 const RES_ORDER: Record<string, number> = { in_district: 0, in_state: 1, not_applicable: 2, out_of_state: 3 }
 const RES_LABEL: Record<string, string> = { in_district: 'in-district', in_state: 'in-state', not_applicable: 'all students', out_of_state: 'out-of-state' }
@@ -17,7 +16,7 @@ export interface SchoolOutlook {
   name: string
   annual: number | null
   residency: string | null
-  level: 'two_year' | 'four_year' | null
+  level: 'two_year' | 'four_year' | 'less_than_two_year' | null
   /** Published annual cost x years to degree; null when the level is unknown (no guessing). */
   degreeTotal: number | null
   sourceUrl: string | null
@@ -40,18 +39,25 @@ export function outlookFor(c: InstitutionComparison): SchoolOutlook {
     annual: cost?.total_cost_of_attendance ?? null,
     residency: cost?.residency ?? null,
     level,
-    degreeTotal: cost?.total_cost_of_attendance != null && level ? Math.round(cost.total_cost_of_attendance * YEARS[level]) : null,
+    degreeTotal: cost?.total_cost_of_attendance != null && level && YEARS[level] ? Math.round(cost.total_cost_of_attendance * YEARS[level]!) : null,
     sourceUrl: cost?.source_url ?? null,
     levers: Object.keys(LEVER_LABEL).filter((k) => kinds.has(k)).map((k) => LEVER_LABEL[k]!),
-    meritAwards: (c.domains.awards ?? []).length,
+    meritAwards: ((c.domains.awards ?? []) as { award_type?: string }[]).filter((a) => (a.award_type ?? '').includes('merit')).length,
   }
 }
 
-export function CostOutlook() {
-  const { source } = useApp()
-  const keys = readSavedSchools()
-  const cmp = useAsync(() => (keys.length ? source.compareInstitutions(keys, YEAR) : Promise.resolve([] as InstitutionComparison[])), [source, keys.join(',')])
-  const rows = (cmp.data ?? []).filter((c) => c.found).map(outlookFor)
+/**
+ * The outlook leads with four-year options. A community-college start is an optional alternative: shown only
+ * when the family asked for the lowest-cost route (goal "lower_cost") and has a two-year school saved, collapsed,
+ * and labelled as an example scenario until a verified transfer/articulation path exists for the pair.
+ */
+export function CostOutlook({ showAlternative = false }: { showAlternative?: boolean }) {
+  const cmp = useSavedComparison(YEAR)
+  const keys = cmp.keys
+  const rows = (cmp.data ?? [])
+    .filter((c) => c.found)
+    .map(outlookFor)
+    .sort((a, b) => (a.level === 'two_year' ? 1 : 0) - (b.level === 'two_year' ? 1 : 0) || Number(b.key === cmp.primary) - Number(a.key === cmp.primary))
   const four = rows.filter((r) => r.level === 'four_year' && r.degreeTotal != null).sort((a, b) => a.degreeTotal! - b.degreeTotal!)
   const low = four[0]
   const high = four[four.length - 1]
@@ -90,24 +96,14 @@ export function CostOutlook() {
               </p>
             </div>
           )}
-          {path && path.total < path.direct && (
-            <div className="rounded-2xl border border-line bg-surface-2 p-4">
-              <div className="text-xs font-semibold uppercase tracking-wide text-brand">Path to explore</div>
-              <p className="mt-1 text-ink">
-                2 years at <span className="font-semibold">{path.start.name}</span>, then 2 at <span className="font-semibold">{path.finish.name}</span>:{' '}
-                <span className="display text-xl font-semibold tabular text-ink">{usd(path.total)}</span>{' '}
-                <span className="text-ink-2">vs {usd(path.direct)} for all 4 years there.</span>
-              </p>
-              <p className="mt-1.5 text-xs text-ink-3">
-                Only if your credits transfer toward the same degree. We haven't verified a transfer agreement for this pair yet — check each school's transfer policy.
-              </p>
-            </div>
-          )}
           <ul className="grid gap-3">
             {rows.map((r) => (
               <li key={r.key} className="rounded-2xl border border-line p-4">
                 <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
-                  <span className="font-semibold text-ink">{r.name}</span>
+                  <span className="font-semibold text-ink">
+                    {r.name}
+                    {r.key === cmp.primary && <Pill tone="brand" className="ml-2 align-middle">Primary target</Pill>}
+                  </span>
                   {r.degreeTotal != null ? (
                     <span className="display text-xl font-semibold tabular text-ink">{usd(r.degreeTotal)}</span>
                   ) : r.annual != null ? (
@@ -141,6 +137,20 @@ export function CostOutlook() {
               </li>
             ))}
           </ul>
+          {showAlternative && path && path.total < path.direct && (
+            <details className="group rounded-2xl border border-line bg-surface-2 p-4">
+              <summary className="cursor-pointer list-none text-sm font-semibold text-ink">
+                Alternative lower-cost path <span className="font-normal text-ink-3">· example scenario</span>
+              </summary>
+              <p className="mt-2 text-sm text-ink-2">
+                2 years at {path.start.name}, then 2 at {path.finish.name}: <span className="font-semibold tabular text-ink">{usd(path.total)}</span> at published prices,
+                vs {usd(path.direct)} for 4 years at {path.finish.name}.
+              </p>
+              <p className="mt-1.5 text-xs text-ink-3">
+                Potential path — transfer agreement not yet verified. It is not a recommendation, and credits may not all transfer or count toward the same degree.
+              </p>
+            </details>
+          )}
           <p className="flex gap-2 text-xs text-ink-3">
             <Info size={14} className="mt-0.5 shrink-0" />
             Sticker prices before grants and scholarships, at {YEAR} prices. Savings from credit and scholarships aren't estimated until we can source them.

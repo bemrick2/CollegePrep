@@ -1,0 +1,154 @@
+{
+ "state": "KS",
+ "academic_year": "2026-27",
+ "institutions": 53,
+ "status_order": [
+  "verified_current",
+  "partially_verified_current",
+  "candidate_ready",
+  "candidate_exception",
+  "source_found",
+  "not_found",
+  "fetch_failed"
+ ],
+ "by_category": {
+  "admissions_tests": {
+   "fetch_failed": 10,
+   "not_found": 1,
+   "source_found": 42
+  },
+  "aid_appeals": {
+   "candidate_exception": 23,
+   "fetch_failed": 10,
+   "not_found": 12,
+   "source_found": 8
+  },
+  "ap_credit": {
+   "candidate_exception": 2,
+   "candidate_ready": 3,
+   "fetch_failed": 10,
+   "not_found": 29,
+   "source_found": 9
+  },
+  "clep_credit": {
+   "candidate_exception": 3,
+   "candidate_ready": 1,
+   "fetch_failed": 10,
+   "not_found": 28,
+   "source_found": 11
+  },
+  "common_data_set": {
+   "fetch_failed": 10,
+   "not_found": 41,
+   "source_found": 2
+  },
+  "cost_of_attendance": {
+   "candidate_exception": 10,
+   "candidate_ready": 1,
+   "fetch_failed": 10,
+   "not_found": 1,
+   "source_found": 31
+  },
+  "degree_requirements": {
+   "fetch_failed": 10,
+   "not_found": 5,
+   "source_found": 38
+  },
+  "dual_enrollment": {
+   "candidate_exception": 2,
+   "candidate_ready": 7,
+   "fetch_failed": 10,
+   "not_found": 21,
+   "source_found": 13
+  },
+  "ib_credit": {
+   "candidate_exception": 2,
+   "fetch_failed": 10,
+   "not_found": 36,
+   "source_found": 5
+  },
+  "merit_scholarships": {
+   "candidate_exception": 1,
+   "candidate_ready": 6,
+   "fetch_failed": 10,
+   "not_found": 1,
+   "source_found": 35
+  },
+  "residency": {
+   "fetch_failed": 10,
+   "not_found": 20,
+   "source_found": 23
+  },
+  "statewide_articulation": {
+   "fetch_failed": 10,
+   "not_found": 22,
+   "source_found": 21
+  },
+  "transfer_credit": {
+   "candidate_exception": 4,
+   "candidate_ready": 5,
+   "fetch_failed": 10,
+   "not_found": 1,
+   "source_found": 33
+  },
+  "tuition_fees": {
+   "candidate_exception": 17,
+   "candidate_ready": 6,
+   "fetch_failed": 10,
+   "source_found": 20
+  }
+ },
+ "totals": {
+  "candidate_exception": 64,
+  "candidate_ready": 29,
+  "fetch_failed": 140,
+  "not_found": 218,
+  "source_found": 291
+ },
+ "statewide_sources": {
+  "categories": {
+   "admissions_tests": 24,
+   "aid_appeals": 7,
+   "ap_credit": 12,
+   "clep_credit": 87,
+   "common_data_set": 0,
+   "cost_of_attendance": 13,
+   "degree_requirements": 0,
+   "dual_enrollment": 50,
+   "ib_credit": 0,
+   "merit_scholarships": 46,
+   "residency": 49,
+   "statewide_articulation": 4,
+   "transfer_credit": 41,
+   "tuition_fees": 15
+  },
+  "fetch_failures": 1,
+  "pages_fetched": 171
+ },
+ "blocked_institutions": [
+  "ipeds-154907",
+  "ipeds-155007",
+  "ipeds-155098",
+  "ipeds-155210",
+  "ipeds-155292",
+  "ipeds-155593",
+  "ipeds-155627",
+  "ipeds-155830",
+  "ipeds-155858",
+  "ipeds-177038"
+ ],
+ "quality": {
+  "ambiguous_years": 16,
+  "blocked_requests": 142,
+  "candidates": 233,
+  "conflicts": 64,
+  "documents": 2865,
+  "extraction_failures": 0,
+  "fetch_errors": 303,
+  "fetches": 3310,
+  "ready": 74,
+  "semantic_review": 80,
+  "stale_sources": 36
+ },
+ "run": "pipeline/runs/KS/2026-10-03"
+}

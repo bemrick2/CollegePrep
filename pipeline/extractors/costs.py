@@ -99,14 +99,18 @@ def column_meaning(header, home=None, private=False):
     years = T.year_labels(header or '')
     return {
         'residency': residency(h, home, private),
-        'arrangement': ('off_campus_not_with_family' if re.search(r'not\s+(living\s+)?(with|w/)\s*(a\s+)?parents?|away\s+from\s+(home|parents)', h) else
+        # Alcorn: "Undergraduate in State On/Off Campus" is one budget for both, not an off-campus budget.
+        'arrangement': (None if re.search(r'on\s*(/|and|&|or)\s*off[- ]campus|on[- ]\s*(and|&|or)\s*off[- ]campus', h) else
+                        'off_campus_not_with_family' if re.search(r'not\s+(living\s+)?(with|w/)\s*(a\s+)?parents?|away\s+from\s+(home|parents)', h) else
                         'with_parents_or_family' if re.search(r'(with|w/)\s*(a\s+)?(parents?|family|relatives)|at home|commut', h) else
                         'off_campus_not_with_family' if re.search(r'off[- ]campus|own\s+(house|home|apartment)', h) else
                         'on_campus' if re.search(r'on[- ]campus|residence hall|student\s+housing|resident(\s+student|\s+budget)?$|resident student|residential', h) else
                         'other' if re.search(r'military|on base', h) else None),
         # Quarter calendars (OR) print "1 Term | 2 Terms | 3 Terms | 4 Terms" or "3 Months | 9 Months": the
         # academic year is three terms / nine months; other counts are partial years or include summer.
-        'period': ('year' if re.search(r'per\s+year|annual|academic\s+year|fall\s*(&|and)\s*spring|(two|2)\s+semesters|yearly|\byear\b|'
+        # KS (Pitt State): "Tuition & costs per semester (academic year 2026-2027)" is a semester column; the year names the term.
+        'period': ('semester' if re.search(r'per\s+semester|per\s+term\b', h) else
+                   'year' if re.search(r'per\s+year|annual|academic\s+year|fall\s*(&|and)\s*spring|(two|2)\s+semesters|yearly|\byear\b|'
                                        r'^\W*(3|three)\s+(quarters|terms)\W*$|^\W*(9|nine)\s+months?\W*$', h) else
                    'semester' if re.search(r'per\s+semester|single\s+semester|\bsemester\b|per\s+term|^\W*(1|one)\s+(term|quarter)\W*$|'
                                            r'^\W*(fall|spring)(\s+(term|20\d\d))?\W*$', h) else
@@ -166,6 +170,8 @@ def _context(t, page, titles):
 
 def _candidates_from_table(t, inst, entry, page, today_year, page_year, page_basis, page_issues):
     out = []
+    if re.search(r'\binternational\b', t.get('heading') or '', re.I):
+        return out  # KS (Pitt State): an international students' budget is not an in-state or out-of-state cost
     for titles, headers, body in parse_tables(t['rows']):
         out += _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_year, page_year, page_basis, page_issues)
     return out
@@ -350,6 +356,9 @@ def _pdf_tables(page):
 
 def extract(inst, entry, page, today_year):
     if common.professional_source(entry, page) or common.international_source(entry, page): return []
+    # LA r1 (Xavier "summer-2026-tuition-fees.pdf"), MS r1 (USM "cost-attendance-summer"): a summer schedule is not the academic year.
+    if re.search(r'summer', entry.get('url', '') + ' ' + page.title, re.I) and not re.search(r'fall|academic\s+year|annual', page.title, re.I):
+        return []
     page_year, page_basis, page_issues = common.resolve_year(page, entry, today_year)
     page_issues = [i for i in page_issues if not i.startswith('stale_year_label')]  # judged per table below
     if page_basis == 'ambiguous_year_labels': page_year = None; page_basis = 'source_unlabeled'; page_issues = []

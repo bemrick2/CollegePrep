@@ -1,10 +1,13 @@
 import { useEffect, useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useApp, useAsync } from '../../lib/app'
 import type { CostRecord, InstitutionComparison, InstitutionSearchHit } from '../../lib/data/types'
 import { Card, EmptyState, Notice, PageLoading, Pill, Segmented, cx, inputClass } from '../../components/ui'
 import { Info, School, X } from '../../components/icons'
 import { formatShortDate } from '../../lib/engine/dates'
-import { MAX_SAVED_SCHOOLS, readSavedSchools, writeSavedSchools } from '../../lib/savedSchools'
+import { MAX_SAVED_SCHOOLS } from '../../lib/savedSchools'
+import { useSavedSchools } from './useSavedSchools'
+import { CollegesTabs } from './CollegePaths'
 
 const usd = (n: number | null | undefined) => (n == null ? null : n.toLocaleString(undefined, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }))
 const YEARS = ['2026-27', '2025-26']
@@ -30,15 +33,13 @@ const DOMAIN_LABEL: Record<string, string> = {
 export function Colleges() {
   const { source, mode } = useApp()
   const [year, setYear] = useState(YEARS[0]!)
-  const [keys, setKeys] = useState<string[]>(readSavedSchools)
+  const saved = useSavedSchools()
+  const keys = saved.keys
   const [query, setQuery] = useState('')
   const [years, setYearsInSchool] = useState(4)
 
-  useEffect(() => {
-    writeSavedSchools(keys)
-  }, [keys])
-
-  const suggestions = useAsync(() => source.searchInstitutions(''), [source])
+  // Suggestions: schools with at least one verified record for the selected year (CR-7).
+  const suggestions = useAsync(() => source.verifiedSchools(year), [source, year])
   const [debounced, setDebounced] = useState('')
   useEffect(() => {
     const t = setTimeout(() => setDebounced(query), 250)
@@ -48,11 +49,23 @@ export function Colleges() {
   const cmp = useAsync(() => (keys.length ? source.compareInstitutions(keys, year) : Promise.resolve([] as InstitutionComparison[])), [source, keys.join(','), year])
 
   const add = (k: string) => {
-    setKeys((ks) => (ks.includes(k) || ks.length >= MAX ? ks : [...ks, k]))
+    void saved.add(k)
     setQuery('')
   }
 
-  const featured = useMemo(() => (mode === 'demo' ? (suggestions.data ?? []) : []), [mode, suggestions.data])
+  const [showAll, setShowAll] = useState(false)
+  // Four-year schools with a verified cost record first: the main path is direct admission to a four-year college.
+  const featuredAll = useMemo(
+    () =>
+      [...(suggestions.data ?? [])].sort(
+        (a, b) =>
+          Number(b.level === 'four_year') - Number(a.level === 'four_year') ||
+          Number(!!b.domains?.includes('costs')) - Number(!!a.domains?.includes('costs')) ||
+          a.display_name.localeCompare(b.display_name),
+      ),
+    [suggestions.data],
+  )
+  const featured = showAll ? featuredAll : featuredAll.slice(0, 12)
 
   return (
     <div className="grid grid-cols-1 gap-5">
@@ -62,7 +75,10 @@ export function Colleges() {
           <h1 className="display text-[30px] font-semibold leading-tight text-ink md:text-[36px]">Compare schools</h1>
           <p className="mt-1 max-w-2xl text-sm text-ink-2">Only verified records from official sources, for one academic year at a time. Blank means we haven't verified it yet — not that it doesn't exist.</p>
         </div>
-        <Segmented label="Academic year" value={year} onChange={setYear} options={YEARS.map((y) => ({ value: y, label: y }))} />
+        <div className="flex flex-wrap items-center gap-3">
+          <CollegesTabs />
+          <Segmented label="Academic year" value={year} onChange={setYear} options={YEARS.map((y) => ({ value: y, label: y }))} />
+        </div>
       </div>
 
       <Card className="p-4">
@@ -86,7 +102,7 @@ export function Colleges() {
         </div>
         {featured.length > 0 && (
           <div className="mt-3">
-            <div className="text-xs font-semibold text-ink-3">Schools with verified {YEARS[0]} records so far</div>
+            <div className="text-xs font-semibold text-ink-3">Schools with verified {year} records</div>
             <div className="mt-2 flex flex-wrap gap-1.5">
               {featured
                 .filter((f) => !keys.includes(f.institution_key))
@@ -95,9 +111,15 @@ export function Colleges() {
                     + {f.display_name}
                   </button>
                 ))}
+              {featuredAll.length > 12 && (
+                <button onClick={() => setShowAll((v) => !v)} className="px-2 py-1 text-xs font-semibold text-brand hover:underline">
+                  {showAll ? 'Show fewer' : `Show all ${featuredAll.length}`}
+                </button>
+              )}
             </div>
           </div>
         )}
+        {saved.error && <Notice tone="bad" className="mt-3">{saved.error}</Notice>}
         {mode === 'demo' && <p className="mt-3 text-xs text-ink-3">Demo uses a snapshot of verified records captured 2 Oct 2026. Signed-in accounts read the live database.</p>}
       </Card>
 
@@ -116,11 +138,14 @@ export function Colleges() {
           <div className="flex flex-wrap items-center gap-3 text-sm">
             <span className="font-semibold text-ink">Years to degree</span>
             <Segmented label="Years to degree" value={years} onChange={setYearsInSchool} options={[3, 3.5, 4, 5].map((y) => ({ value: y, label: String(y) }))} />
-            <span className="text-xs text-ink-3">AP, CLEP and dual-enrollment credit can shorten time to degree.</span>
+            <span className="text-xs text-ink-3">
+              Exam and dual-enrollment credit can shorten a degree when it covers required courses.{' '}
+              <Link to="/colleges/paths" className="font-semibold text-brand hover:underline">See paths</Link>
+            </span>
           </div>
           <div className={cx('grid gap-4', keys.length > 1 && 'md:grid-cols-2', keys.length === 3 && 'xl:grid-cols-3', keys.length >= 4 && 'xl:grid-cols-4', 'items-start')}>
             {cmp.data!.map((c) => (
-              <SchoolColumn key={c.institution_key} c={c} years={years} onRemove={() => setKeys((ks) => ks.filter((k) => k !== c.institution_key))} />
+              <SchoolColumn key={c.institution_key} c={c} years={years} onRemove={() => void saved.remove(c.institution_key)} />
             ))}
           </div>
           <Notice tone="neutral" title="How to read this">
