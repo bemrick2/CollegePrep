@@ -86,7 +86,7 @@ MUTS = [
     ('pipeline/extractors/merit.py', 'lo, hi = None, None  # LSUS', 'pass  # LSUS'),
     ('pipeline/extractors/merit.py', "rec['renewable'] = False  # UL Lafayette", 'pass  # UL Lafayette'),
     ('pipeline/extractors/transfer.py', "r'developmental|(?:for|exempt\\s+the)\\s+placement|placement\\s+(?:assessment|test|exam)|math(?:ematics)?\\s+and\\s+science|block\\s+transfer|'", "r'^$|'"),
-    ('pipeline/extractors/transfer.py', "[] if re.search(r'upper[- ](?:level|division)|not\\s+accredited|unaccredited', s, re.I) else MAX_HOURS.finditer(s)", 'MAX_HOURS.finditer(s)'),
+    ('pipeline/extractors/transfer.py', "[] if re.search(r'upper[- ](?:level|division)|not\\s+accredited|unaccredited|toward\\s+the\\s+major', s, re.I) else MAX_HOURS.finditer(s)", "[] if re.search(r'toward\\s+the\\s+major', s, re.I) else MAX_HOURS.finditer(s)"),
     ('pipeline/extractors/credit.py', "            issues = issues + ['merged_score_cells']\n", '            pass\n'),
     ('pipeline/extractors/credit.py', "issues = issues + ['score_scale_mismatch']", 'pass'),
     ('pipeline/extractors/credit.py', "            score = f'{level} {score}'", '            pass'),
@@ -107,7 +107,7 @@ MUTS = [
     ('pipeline/extractors/merit.py', "r'\\bpell\\b|\\brotc\\b|", "r'\\bpell\\b|"),
     ('pipeline/extractors/merit.py', " + (['duplicate_table_versions'] if twins else [])", ''),
     ('pipeline/text.py', "        if ACCREDIT_BEFORE.search((text or '')[max(0, m.start() - 60):m.start()]):\n            continue", '        if False:\n            continue'),
-    ('pipeline/extractors/transfer.py', "r'a-levels?|dual\\s+credit\\s+courses|work\\s+experience|work\\s+credit', re.I)", "r'^$', re.I)"),
+    ('pipeline/extractors/transfer.py', "r'a-levels?|dual\\s+credit\\s+courses|work\\s+experience|work\\s+credit|'", "r'^$|'"),
     ('pipeline/extractors/credit.py', "level = (None if both else 'HL'", "level = ('HL'"),
     ('pipeline/extractors/merit.py', "r'sample[- ]aid[- ]packages?|aid[- ]package[- ]examples?|", "r'"),
     ('pipeline/extractors/merit.py', "|^(annual\\s+)?totals?$', re.I)", "', re.I)"),
@@ -115,7 +115,11 @@ MUTS = [
     ('pipeline/extractors/merit.py', '|\\btotal\\s+value\\b', ''),
     ('pipeline/extractors/costs.py', "        'period': ('semester' if re.search(r'per\\s+semester|per\\s+term\\b', h) else\n                   'year'", "        'period': ('year'"),
     ('pipeline/extractors/costs.py', '        return out  # KS (Pitt State)', '        pass  # KS (Pitt State)'),
-    ('pipeline/extractors/costs.py', "res = c['residency'] or heading_res or page_res", "res = c['residency'] or page_res"),
+    ('pipeline/extractors/merit.py', "                rec['eligibility_summary'] = f'Listed under: {context.strip()[:200]}'", '                pass'),
+    ('pipeline/extractors/merit.py', '        if sum(1 for r in body if r and PACKAGE_ROW.search(r[0])) >= 2: continue', '        pass'),
+    ('pipeline/extractors/merit.py', "|'\n                       r'credits?\\s+completed', re.I)", "', re.I)"),
+    ('pipeline/extractors/transfer.py', "r'grade\\s+point\\s+average\\s+of\\s+less\\s+than|when\\s+the\\s+minimum|within\\s+the\\s+last\\s+\\w+\\s+years', re.I)", "r'^$', re.I)"),
+    ('pipeline/extractors/transfer.py', '|toward\\s+the\\s+major', ''),
 ]
 failed = False
 for f, old, new in MUTS:

@@ -247,12 +247,10 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
     private = inst.get('control') == 'private_nonprofit'
     # Page titles often end with an address ("Lewis & Clark, Portland, Oregon"): state names there are not residency.
     page_res = column_meaning(NAMED_STATE.sub(' ', page.title + ' ' + ' '.join(page.headings[:3])), home, private)['residency']
-    # KS (Pitt State): "Undergraduate Out-of-State Tuition & Costs" names the residency of a one-column table.
-    heading_res = column_meaning(NAMED_STATE.sub(' ', t.get('heading') or ''), home, private)['residency']
     groups = {}
     for j in keep:
         c = cols[j]
-        res = c['residency'] or heading_res or page_res or ('not_applicable' if private else None)
+        res = c['residency'] or page_res or ('not_applicable' if private else None)
         year = c['year'] or page_year
         groups.setdefault((res, year), []).append(j)
     out = []
