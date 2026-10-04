@@ -335,6 +335,16 @@ last 30 hours in residence at the university.</p>"""
         got = {c['record']['residency']: c['record']['components'] for c in costs.extract({**INST, 'state': 'AL'}, ENTRY, dup, '2026-27')}
         self.assertEqual((got['in_state']['Subtotal'], got['in_state']['Subtotal (2)']), (17118, 4320))
 
+    def test_wy_r1_rules(self):
+        """WY r1: Northwest's credit-load rows are named after the award and "/semester" amounts give no annual range."""
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Welcome to Wyoming Scholarship</title><h2>Welcome to Wyoming Scholarship</h2><table><tr><th>Enrollment</th><th>Amount</th></tr>'
+            '<tr><td>15.0 credits or more</td><td>$2,300/semester</td></tr><tr><td>Full Time (12.0-14.5 credits)</td><td>$2,000/semester</td></tr>'
+            '<tr><td>Half Time (6.0-8.5 credits)</td><td>$1,000/semester</td></tr></table>'), '2026-27')}
+        self.assertEqual(sorted(got), ['Welcome to Wyoming Scholarship: 15.0 credits or more', 'Welcome to Wyoming Scholarship: Full Time (12.0-14.5 credits)',
+                                       'Welcome to Wyoming Scholarship: Half Time (6.0-8.5 credits)'])
+        self.assertTrue(all('award_max' not in r and 'gpa_requirement' not in r for r in got.values()))
+
     def test_mt_r1_rules(self):
         """MT r1: Carroll's undocumented-student page and Yellow Ribbon row; UM "renewable for four years" is annual;
         MSU-Northern's college-preparatory curriculum table is not credit by exam."""

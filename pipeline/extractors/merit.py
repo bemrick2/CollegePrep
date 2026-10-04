@@ -42,7 +42,7 @@ THRESHOLD_CELL = re.compile(r'^\s*[<>≤≥]?\s*\d{1,4}(\.\d{1,2})?\s*(\+|[-–]
 
 PLACEHOLDER = re.compile(r'^\W*(n/?a|none|see\s+(?:requirements|criteria|details|below|website)|varies|tbd|-+|—|–)\W*$', re.I)  # ND (Lake Region): an en dash is an empty cell
 PHONE = re.compile(r'\(?\d{3}\)?[\s.-]\d{3}[.-]\d{4}')  # Tougaloo: a contact number in the ACT column is not a score
-ENROLLMENT = re.compile(r'^(full|half|part|three[-\s]quarter|3/4)[-\s]time$', re.I)  # Ole Miss Sumners: amount by enrollment intensity
+ENROLLMENT = re.compile(r'^(full|half|part|three[-\s]quarter|3/4)[-\s]time(\s*\([^)]*\))?$|^\d+(\.\d+)?\s+credits?\s+or\s+more$', re.I)  # WY (Northwest): "Full Time (12.0-14.5 credits)", "15.0 credits or more"  # Ole Miss Sumners: amount by enrollment intensity
 SCORE = re.compile(r'\b\d{1,4}\b')
 PACKAGE_ROW = re.compile(r'federal|pell|state\s+grants?|outside\s+scholarships?|student\s+employment|work[- ]study|\bloans?\b|^total\b', re.I)
 _N = r'(?:\d{1,2}|two|three|four|five|six|eight|ten)'
@@ -142,7 +142,7 @@ def _list_awards(t, header, body, title, award_type):
         if not (amt or g or a or s or tst or crit): continue
         lo, hi = _amounts(amt)
         outside = re.sub(r'\([^)]*\)', '', amt)
-        if re.search(r'semester\s+basis|per\s+semester', outside, re.I) and not re.search(r'per\s+year|annual|/\s*y(?:ea)?r', outside, re.I):
+        if re.search(r'semester\s+basis|per\s+semester|/\s*semester', outside, re.I) and not re.search(r'per\s+year|annual|/\s*y(?:ea)?r', outside, re.I):
             lo, hi = None, None  # ND (Lake Region): "$100–$300 awarded on a semester basis" is not an annual range
         if re.search(r'tuition[^$]*(\+|\bplus\b|\band\b)\s*\$', amt, re.I) or \
            MULTI_YEAR.search(re.sub(r'\([^)]*\)', '', amt)) or MULTI_X.search(amt) or re.search(r'\bfull\s+tuition\b|\bper\s+credit\b|\btotal\s+value\b', amt, re.I):  # KS (K-State Salina): "Total Value: $100,000"  # MO (Logan): "$400 per credit hour" is not an annual award
