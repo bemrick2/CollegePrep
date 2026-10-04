@@ -89,6 +89,35 @@ begin
   perform hp_test.as_owner();
 end $$;
 
+-- CR-12 primary school: one per household, must be saved, cleared by null or by removing the school.
+do $$ begin
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+  perform hp_test.eq((select count(*) from public.household_saved_schools where is_primary), 0::bigint, 'no primary by default');
+  perform public.set_household_primary_school(current_setting('t.hh')::uuid, 'contract-four');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  perform public.set_household_primary_school(current_setting('t.hh')::uuid, 'contract-two');
+  perform hp_test.eq((select string_agg(institution_key, ',') from public.household_saved_schools where is_primary), 'contract-two',
+    'student moves the primary; only one remains');
+  perform public.set_household_primary_school(current_setting('t.hh')::uuid, 'contract-two');  -- idempotent
+  perform hp_test.expect_error(format('select public.set_household_primary_school(%L, %L)', current_setting('t.hh'), 'contract-extra-1'),
+    '22023', '%Save%');
+  perform hp_test.expect_error(format($q$update public.household_saved_schools set is_primary = true where institution_key = 'contract-four' and household_id = %L$q$,
+    current_setting('t.hh')), '42501');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000099');
+  perform hp_test.expect_error(format('select public.set_household_primary_school(%L, %L)', current_setting('t.hh'), 'contract-four'), '42501');
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+  perform public.set_household_primary_school(current_setting('t.hh')::uuid, null);
+  perform hp_test.eq((select count(*) from public.household_saved_schools where is_primary), 0::bigint, 'null clears the primary');
+  perform public.set_household_primary_school(current_setting('t.hh')::uuid, 'contract-extra-7');
+  perform public.remove_household_school(current_setting('t.hh')::uuid, 'contract-extra-7');
+  perform hp_test.eq((select count(*) from public.household_saved_schools where is_primary), 0::bigint, 'removing the primary clears it');
+  perform public.save_household_school(current_setting('t.hh')::uuid, 'contract-extra-7');
+  perform hp_test.eq((select count(*) from public.household_saved_schools where is_primary), 0::bigint, 're-saving does not restore it');
+  perform hp_test.as_owner();
+  perform hp_test.expect_error(format($q$update public.household_saved_schools set is_primary = true where household_id = %L$q$,
+    current_setting('t.hh')), '23505');
+end $$;
+
 -- CR-1 planning preferences: guardians with set_goals write; the household's student reads but cannot write.
 do $$ begin
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a2');
