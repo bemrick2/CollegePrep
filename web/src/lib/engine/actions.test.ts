@@ -27,6 +27,9 @@ describe('parentActions', () => {
     const official = parentActions({ ...base, officialScore: { composite: 28, selfReported: true } }).find((x) => x.key === 'merit')!
     expect(official.detail).toMatch(/self-reported score \(unverified\) of 28 meets/)
     expect(parentActions({ ...base, targetScore: null }).some((x) => x.key === 'merit')).toBe(false)
+    const grouped = parentActions({ ...base, schools: [{ name: 'UTK', levers: [], awards: [{ name: 'Roddy', act_min: 31 }, { name: 'Neyland', act_min: 31 }] }] }).find((x) => x.key === 'merit')!
+    expect(grouped.title).toBe('UTK: 2 merit awards list ACT 31+')
+    expect(grouped.to).toBe('/colleges/paths')
   })
 
   it('shows verified credit and dual-enrollment actions only from school records', () => {

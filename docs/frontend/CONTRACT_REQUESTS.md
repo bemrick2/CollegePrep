@@ -16,6 +16,7 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-8 | Answer-free help content | ✅ live | `concept_summary` and `sections` selected in the catalog |
 | CR-9 | Institution level, saved schools | ✅ live | `level` from `compare_institutions`; saved schools via `save_/remove_household_school` (browser only for a student with no household) |
 | CR-10 | Canonical exam keys, student exam plan | ⏳ open | College paths match exams by normalized name; the exam list is kept in this browser |
+| CR-11 | Numeric test minimums on awards | ⏳ open | Single minimums parsed from `test_requirement` text; ranges/tiers shown as "read criteria" |
 
 Live content note: the bank has no exam versions, skills or questions yet, so live practice and benchmarks show their empty states until content is loaded.
 
@@ -132,6 +133,12 @@ RPC institutions_with_verified_records(p_academic_year text, p_state text null)
 **Why.**
 1. The College paths screen matches a student's AP/CLEP exams against each saved school's verified table. Until there is a shared key, it matches on a normalized name. An exam a school lists under an unexpected name shows as "Not in the published table", which is safe but can miss credit.
 2. The exam list currently lives in one browser, so a parent's entries don't reach the student or another device.
+
+## CR-11. Numeric test minimums on merit awards
+
+**Need.** On `awards` (served by `compare_institutions`): `act_min integer null`, `sat_min integer null`, and `test_criteria_kind` (`'single_minimum' | 'tiered' | 'range' | 'test_optional' | 'none'`), set when the award is reviewed. Tiered awards could add `test_tiers jsonb` (`[{ act_min, sat_min, amount }]`).
+
+**Why.** The parent "What to do next" card and the College paths merit row compare published test minimums with the student's target or official score. Today the minimum exists only as free text ("Minimum 31 ACT / 1390 SAT."). The UI extracts a single minimum only when the text states one plainly, and treats ranges, tiers and anything ambiguous as "read the criteria". That is safe but misses tiered awards such as UTK's Volunteer Scholarship.
 
 ## Product decisions flagged (not contract requests)
 

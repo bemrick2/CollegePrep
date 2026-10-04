@@ -70,10 +70,15 @@ export function parentActions(i: ActionInput, max = 5): ParentAction[] {
     const reach = merits.filter((m) => m.min > ref).sort((a, b) => a.min - b.min)[0]
     const met = merits.filter((m) => m.min <= ref).sort((a, b) => b.min - a.min)[0]
     const basis = i.officialScore ? (i.officialScore.selfReported ? 'self-reported score (unverified)' : 'official score') : 'target'
+    // Several awards at one school often share a minimum; name the group rather than one arbitrary award.
+    const label = (m: { school: string; award: string; min: number }) => {
+      const n = merits.filter((x) => x.school === m.school && x.min === m.min).length
+      return n > 1 ? `${m.school}: ${n} merit awards list ${exam} ${m.min}+` : `${m.school}: ${m.award} lists ${exam} ${m.min}+`
+    }
     if (reach)
-      out.push({ key: 'merit', rank: 6, tone: 'info', title: `${reach.school}: ${reach.award} lists ${exam} ${reach.min}+`, detail: `That's ${reach.min - ref} above the ${basis} of ${ref}. Published criteria only — not an eligibility decision.`, to: '/colleges' })
+      out.push({ key: 'merit', rank: 6, tone: 'info', title: label(reach), detail: `That's ${reach.min - ref} above the ${basis} of ${ref}. Published criteria only — not an eligibility decision.`, to: '/colleges/paths' })
     else if (met)
-      out.push({ key: 'merit', rank: 6, tone: 'info', title: `${met.school}: ${met.award} lists ${exam} ${met.min}+`, detail: `The ${basis} of ${ref} meets the published test criterion. Other criteria (GPA, deadlines) still apply — not an eligibility decision.`, to: '/colleges' })
+      out.push({ key: 'merit', rank: 6, tone: 'info', title: label(met), detail: `The ${basis} of ${ref} meets the published test criterion. Other criteria (GPA, deadlines) still apply — not an eligibility decision.`, to: '/colleges/paths' })
   }
 
   const credit = i.schools.find((s) => s.levers.some((l) => /AP|CLEP|IB/.test(l)))

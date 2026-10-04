@@ -1,7 +1,8 @@
-import { useMemo, useState } from "react";
-import { NavLink } from "react-router-dom";
-import { useApp } from "../../lib/app";
-import type { InstitutionComparison } from "../../lib/data/types";
+import { useMemo, useState } from 'react'
+import { NavLink } from 'react-router-dom'
+import { useApp, useAsync } from '../../lib/app'
+import { BASIS_LABEL, meritAwards, referenceScore, type ReferenceScore } from '../../lib/engine/merit'
+import type { InstitutionComparison } from '../../lib/data/types'
 import {
   HOURS_PER_SEMESTER,
   examOptions,
@@ -10,40 +11,28 @@ import {
   type ExamFamily,
   type ExamMatch,
   type PlannedExam,
-} from "../../lib/engine/examCredit";
-import { formatShortDate } from "../../lib/engine/dates";
-import { outlookFor } from "../parent/CostOutlook";
-import { useSavedComparison, COMPARE_YEAR } from "./useSavedComparison";
-import { useExamPlan } from "./useExamPlan";
-import { Book, Check, Clock, Info, School, X } from "../../components/icons";
-import {
-  ButtonLink,
-  Card,
-  EmptyState,
-  Notice,
-  PageLoading,
-  Pill,
-  cx,
-  inputClass,
-} from "../../components/ui";
+} from '../../lib/engine/examCredit'
+import { formatShortDate } from '../../lib/engine/dates'
+import { outlookFor } from '../parent/CostOutlook'
+import { useSavedComparison, COMPARE_YEAR } from './useSavedComparison'
+import { useExamPlan } from './useExamPlan'
+import { Book, Check, Clock, Trophy, Info, School, X } from '../../components/icons'
+import { ButtonLink, Card, EmptyState, Notice, PageLoading, Pill, cx, inputClass } from '../../components/ui'
 
 const usd = (n: number) =>
   n.toLocaleString(undefined, {
-    style: "currency",
-    currency: "USD",
+    style: 'currency',
+    currency: 'USD',
     maximumFractionDigits: 0,
-  });
+  })
 const SCORE_RANGE: Record<ExamFamily, [number, number]> = {
   AP: [1, 5],
   CLEP: [20, 80],
-};
+}
 
 export function CollegesTabs() {
   const tab = ({ isActive }: { isActive: boolean }) =>
-    cx(
-      "rounded-full px-4 py-1.5 text-sm font-semibold",
-      isActive ? "bg-ink text-surface" : "text-ink-2 hover:bg-surface-2",
-    );
+    cx('rounded-full px-4 py-1.5 text-sm font-semibold', isActive ? 'bg-ink text-surface' : 'text-ink-2 hover:bg-surface-2')
   return (
     <nav aria-label="Colleges views" className="flex gap-1">
       <NavLink to="/colleges" end className={tab}>
@@ -53,11 +42,10 @@ export function CollegesTabs() {
         Paths
       </NavLink>
     </nav>
-  );
+  )
 }
 
-const policiesOf = (c: InstitutionComparison) =>
-  (c.domains.credit_policies ?? []) as unknown as CreditPolicy[];
+const policiesOf = (c: InstitutionComparison) => (c.domains.credit_policies ?? []) as unknown as CreditPolicy[]
 
 /**
  * College paths: ways to finish a degree at the four-year schools the family saved, built only from each school's
@@ -65,30 +53,30 @@ const policiesOf = (c: InstitutionComparison) =>
  * is estimated, and no transfer is implied unless a verified transfer policy is on file.
  */
 export function CollegePaths() {
-  const { activeStudent, viewer } = useApp();
-  const cmp = useSavedComparison(COMPARE_YEAR);
-  const plan = useExamPlan(activeStudent?.id);
-  const schools = (cmp.data ?? []).filter((c) => c.found);
-  const four = schools.filter((c) => c.institution?.level !== "two_year");
-  const two = schools.filter((c) => c.institution?.level === "two_year");
-  const options = useMemo(() => examOptions(four.map(policiesOf)), [cmp.data]);
-  const isStudent = !!viewer && activeStudent?.linked_user_id === viewer.userId;
-  const who = isStudent
-    ? "you"
-    : (activeStudent?.display_name ?? "your student");
+  const { activeStudent, viewer } = useApp()
+  const cmp = useSavedComparison(COMPARE_YEAR)
+  const plan = useExamPlan(activeStudent?.id)
+  const { source } = useApp()
+  const sid = activeStudent?.id
+  const facts = useAsync(async () => (sid ? Promise.all([source.getPlan(sid), source.testScores(sid)]) : null), [source, sid])
+  const examFamily = facts.data?.[0]?.exam_family ?? 'act'
+  const ref = facts.data ? referenceScore(facts.data[1], examFamily, facts.data[0]?.target_score ?? null) : null
+  const schools = (cmp.data ?? []).filter((c) => c.found)
+  const four = schools.filter((c) => c.institution?.level !== 'two_year')
+  const two = schools.filter((c) => c.institution?.level === 'two_year')
+  const options = useMemo(() => examOptions(four.map(policiesOf)), [cmp.data])
+  const isStudent = !!viewer && activeStudent?.linked_user_id === viewer.userId
+  const who = isStudent ? 'you' : (activeStudent?.display_name ?? 'your student')
 
   return (
     <div className="grid grid-cols-1 gap-5">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <p className="text-sm text-ink-3">Colleges & cost</p>
-          <h1 className="display text-[30px] font-semibold leading-tight text-ink md:text-[36px]">
-            College paths
-          </h1>
+          <h1 className="display text-[30px] font-semibold leading-tight text-ink md:text-[36px]">College paths</h1>
           <p className="mt-1 max-w-2xl text-sm text-ink-2">
-            Ways to finish a degree at the schools you saved, from each school's
-            verified, published policies. Credit only counts where a school's
-            own table lists it.
+            Ways to finish a degree at the schools you saved, from each school's verified, published policies. Credit only counts where a school's own table
+            lists it.
           </p>
         </div>
         <CollegesTabs />
@@ -96,13 +84,8 @@ export function CollegePaths() {
 
       {cmp.keys.length === 0 ? (
         <Card>
-          <EmptyState
-            icon={<School size={32} />}
-            title="Save schools first"
-            action={<ButtonLink to="/colleges">Choose schools</ButtonLink>}
-          >
-            Paths compare the four-year schools you've saved: the standard four
-            years, exam credit and dual enrollment.
+          <EmptyState icon={<School size={32} />} title="Save schools first" action={<ButtonLink to="/colleges">Choose schools</ButtonLink>}>
+            Paths compare the four-year schools you've saved: the standard four years, exam credit and dual enrollment.
           </EmptyState>
         </Card>
       ) : cmp.loading && !cmp.data ? (
@@ -113,42 +96,30 @@ export function CollegePaths() {
         <>
           <ExamPlanner who={who} options={options} plan={plan} />
           {four.length === 0 ? (
-            <Notice tone="neutral">
-              None of your saved schools is a four-year college yet. Add one on
-              the Compare tab.
-            </Notice>
+            <Notice tone="neutral">None of your saved schools is a four-year college yet. Add one on the Compare tab.</Notice>
           ) : (
-            <div
-              className={cx(
-                "grid items-start gap-4",
-                four.length > 1 && "lg:grid-cols-2",
-              )}
-            >
+            <div className={cx('grid grid-cols-1 items-start gap-4', four.length > 1 && 'lg:grid-cols-2')}>
               {four.map((c) => (
-                <PathCard key={c.institution_key} c={c} exams={plan.exams} />
+                <PathCard key={c.institution_key} c={c} exams={plan.exams} exam={examFamily} reference={ref} />
               ))}
             </div>
           )}
           {two.length > 0 && (
             <p className="flex gap-2 text-xs text-ink-3">
               <Info size={14} className="mt-0.5 shrink-0" />
-              {two.map((c) => c.institution?.display_name).join(", ")}{" "}
-              {two.length === 1 ? "is a 2-year college" : "are 2-year colleges"}
-              . A transfer route appears here only once a verified transfer
-              agreement is on file.
+              {two.map((c) => c.institution?.display_name).join(', ')} {two.length === 1 ? 'is a 2-year college' : 'are 2-year colleges'}. A transfer route
+              appears here only once a verified transfer agreement is on file.
             </p>
           )}
           <Notice tone="neutral" title="How to read this">
-            Exam credit is matched to each school's published table for{" "}
-            {COMPARE_YEAR}; whether a course counts toward a specific major is
-            the school's decision. We don't estimate semesters or money saved:
-            many schools charge a flat full-time rate, and credit shortens a
-            degree only when it covers required courses.
+            Exam credit is matched to each school's published table for {COMPARE_YEAR}; whether a course counts toward a specific major is the school's
+            decision. We don't estimate semesters or money saved: many schools charge a flat full-time rate, and credit shortens a degree only when it covers
+            required courses.
           </Notice>
         </>
       )}
     </div>
-  );
+  )
 }
 
 function ExamPlanner({
@@ -156,56 +127,37 @@ function ExamPlanner({
   options,
   plan,
 }: {
-  who: string;
-  options: { family: ExamFamily; key: string; name: string }[];
-  plan: ReturnType<typeof useExamPlan>;
+  who: string
+  options: { family: ExamFamily; key: string; name: string }[]
+  plan: ReturnType<typeof useExamPlan>
 }) {
-  const [pick, setPick] = useState("");
-  const available = options.filter(
-    (o) => !plan.exams.some((e) => e.key === o.key),
-  );
+  const [pick, setPick] = useState('')
+  const available = options.filter((o) => !plan.exams.some((e) => e.key === o.key))
   const add = (key: string) => {
-    const o = options.find((x) => x.key === key);
-    if (o)
-      plan.add({ family: o.family, key: o.key, name: o.name, score: null });
-    setPick("");
-  };
-  const possessive = who === "you" ? "your" : `${who}'s`;
+    const o = options.find((x) => x.key === key)
+    if (o) plan.add({ family: o.family, key: o.key, name: o.name, score: null })
+    setPick('')
+  }
+  const possessive = who === 'you' ? 'your' : `${who}'s`
 
   return (
     <Card className="p-5 lg:max-w-3xl">
       <div className="flex items-center gap-2">
         <Book size={18} />
-        <h2 className="font-semibold text-ink">
-          {who === "you"
-            ? "Your"
-            : `${possessive.charAt(0).toUpperCase()}${possessive.slice(1)}`}{" "}
-          AP and CLEP exams
-        </h2>
+        <h2 className="font-semibold text-ink">{who === 'you' ? 'Your' : `${possessive.charAt(0).toUpperCase()}${possessive.slice(1)}`} AP and CLEP exams</h2>
       </div>
-      <p className="mt-1 text-sm text-ink-2">
-        Add exams {who} took or plan to take. Leave the score as “Planned” to
-        see what each school requires.
-      </p>
+      <p className="mt-1 text-sm text-ink-2">Add exams {who} took or plan to take. Leave the score as “Planned” to see what each school requires.</p>
 
       {plan.exams.length > 0 && (
         <ul className="mt-4 grid gap-2">
           {plan.exams.map((e) => (
-            <ExamRow
-              key={e.key}
-              exam={e}
-              onScore={(s) => plan.setScore(e.key, s)}
-              onRemove={() => plan.remove(e.key)}
-            />
+            <ExamRow key={e.key} exam={e} onScore={(s) => plan.setScore(e.key, s)} onRemove={() => plan.remove(e.key)} />
           ))}
         </ul>
       )}
 
       {options.length === 0 ? (
-        <p className="mt-4 text-sm text-ink-3">
-          None of your saved four-year schools has a verified AP or CLEP table
-          yet.
-        </p>
+        <p className="mt-4 text-sm text-ink-3">None of your saved four-year schools has a verified AP or CLEP table yet.</p>
       ) : (
         <div className="mt-4">
           <label htmlFor="add-exam" className="text-sm font-semibold text-ink">
@@ -213,13 +165,13 @@ function ExamPlanner({
           </label>
           <select
             id="add-exam"
-            className={cx(inputClass, "mt-1.5")}
+            className={cx(inputClass, 'mt-1.5')}
             value={pick}
             onChange={(e) => add(e.target.value)}
             disabled={plan.exams.length >= plan.max}
           >
             <option value="">Choose an exam…</option>
-            {(["AP", "CLEP"] as ExamFamily[]).map((f) => (
+            {(['AP', 'CLEP'] as ExamFamily[]).map((f) => (
               <optgroup key={f} label={f}>
                 {available
                   .filter((o) => o.family === f)
@@ -231,40 +183,25 @@ function ExamPlanner({
               </optgroup>
             ))}
           </select>
-          <p className="mt-1.5 text-xs text-ink-3">
-            Exams listed by your saved schools' published tables. Saved on this
-            device for now.
-          </p>
+          <p className="mt-1.5 text-xs text-ink-3">Exams listed by your saved schools' published tables. Saved on this device for now.</p>
         </div>
       )}
     </Card>
-  );
+  )
 }
 
-function ExamRow({
-  exam,
-  onScore,
-  onRemove,
-}: {
-  exam: PlannedExam;
-  onScore: (s: number | null) => void;
-  onRemove: () => void;
-}) {
-  const [lo, hi] = SCORE_RANGE[exam.family];
-  const scores = exam.family === "AP" ? [1, 2, 3, 4, 5] : null;
+function ExamRow({ exam, onScore, onRemove }: { exam: PlannedExam; onScore: (s: number | null) => void; onRemove: () => void }) {
+  const [lo, hi] = SCORE_RANGE[exam.family]
+  const scores = exam.family === 'AP' ? [1, 2, 3, 4, 5] : null
   return (
     <li className="flex items-center gap-2 rounded-xl border border-line p-2 pl-3">
-      <span className="min-w-0 flex-1 text-sm font-semibold text-ink">
-        {exam.name}
-      </span>
+      <span className="min-w-0 flex-1 text-sm font-semibold text-ink">{exam.name}</span>
       {scores ? (
         <select
           aria-label={`${exam.name} score`}
           className="rounded-lg border border-line-strong bg-surface px-2 py-1.5 text-sm"
-          value={exam.score ?? ""}
-          onChange={(e) =>
-            onScore(e.target.value ? Number(e.target.value) : null)
-          }
+          value={exam.score ?? ''}
+          onChange={(e) => onScore(e.target.value ? Number(e.target.value) : null)}
         >
           <option value="">Planned</option>
           {scores.map((s) => (
@@ -279,14 +216,10 @@ function ExamRow({
           inputMode="numeric"
           placeholder="Planned"
           className="w-24 rounded-lg border border-line-strong bg-surface px-2 py-1.5 text-sm"
-          value={exam.score ?? ""}
+          value={exam.score ?? ''}
           onChange={(e) => {
-            const n = Number(e.target.value);
-            onScore(
-              e.target.value === "" || Number.isNaN(n)
-                ? null
-                : Math.max(lo, Math.min(hi, Math.round(n))),
-            );
+            const n = Number(e.target.value)
+            onScore(e.target.value === '' || Number.isNaN(n) ? null : Math.max(lo, Math.min(hi, Math.round(n))))
           }}
         />
       )}
@@ -298,94 +231,55 @@ function ExamRow({
         <X size={16} />
       </button>
     </li>
-  );
+  )
 }
 
-function PathCard({
-  c,
-  exams,
-}: {
-  c: InstitutionComparison;
-  exams: PlannedExam[];
-}) {
-  const policies = policiesOf(c);
-  const outlook = outlookFor(c);
-  const credit = summarizeSchool(policies, exams);
-  const ap =
-    policies.find((p) => p.policy_kind === "AP") ??
-    policies.find((p) => p.policy_kind === "CLEP");
-  const dual = policies.find((p) => p.policy_kind === "dual_enrollment");
-  const statewide = policies.find(
-    (p) => p.policy_kind === "statewide_dual_credit",
-  );
+function PathCard({ c, exams, exam, reference }: { c: InstitutionComparison; exams: PlannedExam[]; exam: 'act' | 'sat'; reference: ReferenceScore | null }) {
+  const policies = policiesOf(c)
+  const outlook = outlookFor(c)
+  const credit = summarizeSchool(policies, exams)
+  const ap = policies.find((p) => p.policy_kind === 'AP') ?? policies.find((p) => p.policy_kind === 'CLEP')
+  const dual = policies.find((p) => p.policy_kind === 'dual_enrollment')
+  const statewide = policies.find((p) => p.policy_kind === 'statewide_dual_credit')
   const transfer = (
     (c.domains.transfer_policies ?? []) as {
-      policy_url?: string;
-      source_url?: string;
+      policy_url?: string
+      source_url?: string
     }[]
-  )[0];
-  const name = outlook.name;
-  const semesters = Math.floor(credit.publishedHours / HOURS_PER_SEMESTER);
+  )[0]
+  const name = outlook.name
+  const semesters = Math.floor(credit.publishedHours / HOURS_PER_SEMESTER)
 
   return (
-    <Card as="article" className="overflow-hidden">
+    <Card as="article" className="min-w-0 overflow-hidden">
       <div className="border-b border-line p-5">
-        <h2 className="display text-xl font-semibold leading-tight text-ink">
-          {name}
-        </h2>
-        <p className="mt-0.5 text-sm text-ink-3">
-          {[c.institution?.city, c.institution?.state_code]
-            .filter(Boolean)
-            .join(", ")}
-        </p>
+        <h2 className="display text-xl font-semibold leading-tight text-ink">{name}</h2>
+        <p className="mt-0.5 text-sm text-ink-3">{[c.institution?.city, c.institution?.state_code].filter(Boolean).join(', ')}</p>
       </div>
-      <ol className="grid divide-y divide-line">
-        <Route
-          icon={<Clock size={16} />}
-          title="Standard path"
-          tag="4 years · 8 semesters"
-        >
+      <ol className="grid grid-cols-1 divide-y divide-line">
+        <Route icon={<Clock size={16} />} title="Standard path" tag="4 years · 8 semesters">
           {outlook.degreeTotal != null ? (
             <p>
-              <span className="font-semibold tabular text-ink">
-                {usd(outlook.degreeTotal)}
-              </span>{" "}
-              published cost of attendance over 4 years, before aid.
+              <span className="font-semibold tabular text-ink">{usd(outlook.degreeTotal)}</span> published cost of attendance over 4 years, before aid.
             </p>
           ) : (
-            <p className="text-ink-3">
-              No verified cost of attendance for {COMPARE_YEAR} yet.
-            </p>
+            <p className="text-ink-3">No verified cost of attendance for {COMPARE_YEAR} yet.</p>
           )}
         </Route>
 
+        <MeritRoute c={c} exam={exam} reference={reference} />
+
         {!credit.hasTable && !dual && !statewide ? (
-          <Route
-            icon={<Book size={16} />}
-            title="Exam credit and dual enrollment"
-          >
-            <p className="text-ink-3">
-              No verified AP, CLEP or dual-enrollment policy yet. Check {name}'s
-              site.
-            </p>
+          <Route icon={<Book size={16} />} title="Exam credit and dual enrollment">
+            <p className="text-ink-3">No verified AP, CLEP or dual-enrollment policy yet. Check {name}'s site.</p>
           </Route>
         ) : (
           <>
-            <Route
-              icon={<Book size={16} />}
-              title="With exam credit"
-              source={ap?.policy_url ?? ap?.source_url}
-              verified={ap?.last_verified_at}
-            >
+            <Route icon={<Book size={16} />} title="With exam credit" source={ap?.policy_url ?? ap?.source_url} verified={ap?.last_verified_at}>
               {!credit.hasTable ? (
-                <p className="text-ink-3">
-                  No verified AP or CLEP credit table yet. Check the school's
-                  site.
-                </p>
+                <p className="text-ink-3">No verified AP or CLEP credit table yet. Check the school's site.</p>
               ) : exams.length === 0 ? (
-                <p className="text-ink-3">
-                  Add exams above to see what {name} awards.
-                </p>
+                <p className="text-ink-3">Add exams above to see what {name} awards.</p>
               ) : (
                 <>
                   <p>
@@ -393,42 +287,27 @@ function PathCard({
                       <>
                         <span className="font-semibold text-ink">
                           {credit.courses} of {exams.length}
-                        </span>{" "}
+                        </span>{' '}
                         exams earn credit at the listed scores
                         {credit.publishedHours > 0 && (
                           <>
-                            {" "}
-                            ·{" "}
-                            <span className="font-semibold tabular text-ink">
-                              {credit.publishedHours}
-                            </span>{" "}
-                            published credit hours
+                            {' '}
+                            · <span className="font-semibold tabular text-ink">{credit.publishedHours}</span> published credit hours
                           </>
                         )}
-                        {credit.coursesWithoutHours > 0 && (
-                          <>
-                            {" "}
-                            · {credit.coursesWithoutHours} with hours not listed
-                          </>
-                        )}
-                        .
+                        {credit.coursesWithoutHours > 0 && <> · {credit.coursesWithoutHours} with hours not listed</>}.
                       </>
                     ) : (
                       <>
                         None of the listed scores earns credit yet
-                        {exams.some((e) => e.score == null)
-                          ? " — planned exams show the score needed"
-                          : ""}
-                        .
+                        {exams.some((e) => e.score == null) ? ' — planned exams show the score needed' : ''}.
                       </>
                     )}
                   </p>
                   {semesters > 0 && (
                     <p className="mt-1 text-xs text-ink-3">
                       That's about {semesters} semester
-                      {semesters === 1 ? "" : "s"} of hours, which can shorten
-                      the degree only if the courses count toward its
-                      requirements.
+                      {semesters === 1 ? '' : 's'} of hours, which can shorten the degree only if the courses count toward its requirements.
                     </p>
                   )}
                   <ul className="mt-3 grid gap-2">
@@ -448,47 +327,32 @@ function PathCard({
             >
               {dual || statewide ? (
                 <div className="flex flex-wrap gap-1.5">
-                  {dual && (
-                    <Pill tone="go">Verified dual-enrollment policy</Pill>
-                  )}
+                  {dual && <Pill tone="go">Verified dual-enrollment policy</Pill>}
                   {statewide && (
                     <Pill tone="go">
                       Statewide dual credit
-                      {statewide.equivalency_count
-                        ? ` · ${statewide.equivalency_count} courses`
-                        : ""}
+                      {statewide.equivalency_count ? ` · ${statewide.equivalency_count} courses` : ''}
                     </Pill>
                   )}
                   <p className="w-full text-xs text-ink-3">
-                    Read the policy for GPA and eligibility rules; how credit
-                    from another college counts depends on its transfer
-                    evaluation.
+                    Read the policy for GPA and eligibility rules; how credit from another college counts depends on its transfer evaluation.
                   </p>
                 </div>
               ) : (
-                <p className="text-ink-3">
-                  No verified dual-enrollment policy yet.
-                </p>
+                <p className="text-ink-3">No verified dual-enrollment policy yet.</p>
               )}
             </Route>
           </>
         )}
 
         {transfer && (
-          <Route
-            icon={<Check size={16} />}
-            title="Transfer credit"
-            source={transfer.policy_url ?? transfer.source_url}
-          >
-            <p>
-              A verified transfer-credit policy is on file. Course-by-course
-              transfer still depends on the school's evaluation.
-            </p>
+          <Route icon={<Check size={16} />} title="Transfer credit" source={transfer.policy_url ?? transfer.source_url}>
+            <p>A verified transfer-credit policy is on file. Course-by-course transfer still depends on the school's evaluation.</p>
           </Route>
         )}
       </ol>
     </Card>
-  );
+  )
 }
 
 function Route({
@@ -499,85 +363,121 @@ function Route({
   verified,
   children,
 }: {
-  icon: React.ReactNode;
-  title: string;
-  tag?: string;
-  source?: string | null;
-  verified?: string | null;
-  children: React.ReactNode;
+  icon: React.ReactNode
+  title: string
+  tag?: string
+  source?: string | null
+  verified?: string | null
+  children: React.ReactNode
 }) {
   return (
     <li className="p-5 text-sm text-ink-2">
       <div className="mb-1.5 flex flex-wrap items-center gap-x-2 gap-y-1">
-        <span
-          className="grid h-7 w-7 place-items-center rounded-full bg-surface-2 text-ink-2"
-          aria-hidden
-        >
+        <span className="grid h-7 w-7 place-items-center rounded-full bg-surface-2 text-ink-2" aria-hidden>
           {icon}
         </span>
         <h3 className="font-semibold text-ink">{title}</h3>
         {tag && <Pill>{tag}</Pill>}
         {source && (
-          <a
-            href={source}
-            target="_blank"
-            rel="noreferrer"
-            className="ml-auto text-[11px] font-semibold text-ink-3 hover:text-ink hover:underline"
-          >
-            Source{verified ? ` · ${formatShortDate(verified)}` : ""} ↗
+          <a href={source} target="_blank" rel="noreferrer" className="ml-auto text-[11px] font-semibold text-ink-3 hover:text-ink hover:underline">
+            Source{verified ? ` · ${formatShortDate(verified)}` : ''} ↗
           </a>
         )}
       </div>
-      <div className="pl-9">{children}</div>
+      <div className="min-w-0 pl-9">{children}</div>
     </li>
-  );
+  )
 }
 
 function MatchRow({ m }: { m: ExamMatch }) {
-  const rows =
-    m.status === "qualifies"
-      ? m.earned
-      : m.thresholds.filter((t) => t.min === m.lowest);
+  const rows = m.status === 'qualifies' ? m.earned : m.thresholds.filter((t) => t.min === m.lowest)
   const course = rows
     .map((t) => t.course)
     .filter(Boolean)
-    .join(" / ");
-  const hours =
-    rows.length && rows.every((t) => t.credits != null)
-      ? Math.min(...rows.map((t) => t.credits!))
-      : null;
-  const status: Record<
-    ExamMatch["status"],
-    { tone: "go" | "warn" | "neutral"; label: string }
-  > = {
-    qualifies: { tone: "go", label: `Your ${m.exam.score} earns credit` },
+    .join(' / ')
+  const hours = rows.length && rows.every((t) => t.credits != null) ? Math.min(...rows.map((t) => t.credits!)) : null
+  const status: Record<ExamMatch['status'], { tone: 'go' | 'warn' | 'neutral'; label: string }> = {
+    qualifies: { tone: 'go', label: `Your ${m.exam.score} earns credit` },
     below: {
-      tone: "warn",
+      tone: 'warn',
       label: `Needs ${m.lowest}+ (yours: ${m.exam.score})`,
     },
-    planned: { tone: "neutral", label: `Needs ${m.lowest}+` },
-    not_awarded: { tone: "neutral", label: "No credit at any score" },
-    not_listed: { tone: "neutral", label: "Not in the published table" },
-    no_table: { tone: "neutral", label: "No table" },
-  };
-  const s = status[m.status];
+    planned: { tone: 'neutral', label: `Needs ${m.lowest}+` },
+    not_awarded: { tone: 'neutral', label: 'No credit at any score' },
+    not_listed: { tone: 'neutral', label: 'Not in the published table' },
+    no_table: { tone: 'neutral', label: 'No table' },
+  }
+  const s = status[m.status]
   return (
     <li className="rounded-xl bg-surface-2 p-3">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <span className="font-semibold text-ink">{m.exam.name}</span>
         <Pill tone={s.tone}>{s.label}</Pill>
       </div>
-      {course && m.status !== "not_awarded" && (
+      {course && m.status !== 'not_awarded' && (
         <p className="mt-1 text-xs text-ink-2">
-          {m.status === "qualifies" ? "Counts as" : "Would count as"} {course}
-          {hours != null ? ` · ${hours} hrs` : " · hours not listed"}
+          {m.status === 'qualifies' ? 'Counts as' : 'Would count as'} {course}
+          {hours != null ? ` · ${hours} hrs` : ' · hours not listed'}
         </p>
       )}
-      {m.status === "not_listed" && (
-        <p className="mt-1 text-xs text-ink-3">
-          Ask the school; the table may use a different exam name.
-        </p>
-      )}
+      {m.status === 'not_listed' && <p className="mt-1 text-xs text-ink-3">Ask the school; the table may use a different exam name.</p>}
     </li>
-  );
+  )
+}
+
+const EXAM_LABEL = { act: 'ACT', sat: 'SAT' } as const
+
+/** Merit scholarships with a plainly published test minimum, compared with an official, self-reported (labelled)
+ *  or target score. Never a practice estimate, and never stated as eligibility. */
+function MeritRoute({ c, exam, reference }: { c: InstitutionComparison; exam: 'act' | 'sat'; reference: ReferenceScore | null }) {
+  const merits = meritAwards(c.domains.awards)
+  const scored = merits.filter((m) => m.min[exam] != null).sort((a, b) => a.min[exam]! - b.min[exam]!)
+  const other = merits.length - scored.length
+  const groups = [...scored.reduce((g, m) => g.set(m.min[exam]!, [...(g.get(m.min[exam]!) ?? []), m]), new Map<number, typeof scored>())]
+  const label = EXAM_LABEL[exam]
+  if (merits.length === 0)
+    return (
+      <Route icon={<Trophy size={16} />} title="Merit scholarships">
+        <p className="text-ink-3">No verified merit scholarships yet.</p>
+      </Route>
+    )
+  return (
+    <Route icon={<Trophy size={16} />} title="Merit scholarships" tag={`${merits.length} verified`}>
+      {scored.length > 0 ? (
+        <ul className="grid grid-cols-1 gap-2">
+          {groups.map(([min, awards]) => {
+            const gap = reference ? min - reference.value : null
+            return (
+              <li key={min} className="rounded-xl bg-surface-2 p-3">
+                <div className="flex flex-wrap items-center gap-1.5">
+                  <Pill tone="gold">{label} {min}+</Pill>
+                  {gap !== null && (gap <= 0 ? <Pill tone="go">{reference!.basis === 'target' ? 'Target meets it' : 'Score meets it'}</Pill> : <Pill tone="warn">{gap} above {reference!.basis === 'target' ? 'target' : 'score'}</Pill>)}
+                  <span className="text-xs text-ink-3">{awards.length} award{awards.length === 1 ? '' : 's'}</span>
+                </div>
+                <ul className="mt-2 grid grid-cols-1 gap-1.5">
+                  {awards.map((m) => (
+                    <li key={m.name} className="text-xs">
+                      {m.sourceUrl ? (
+                        <a href={m.sourceUrl} target="_blank" rel="noreferrer" className="font-semibold text-ink hover:underline">{m.name}</a>
+                      ) : (
+                        <span className="font-semibold text-ink">{m.name}</span>
+                      )}
+                      <span className="block truncate text-ink-2">{m.amountText ?? (m.amountMax != null ? `Up to ${usd(m.amountMax)}` : 'Amount not published')}{m.gpaText ? ` · GPA: ${m.gpaText}` : ''}</span>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            )
+          })}
+        </ul>
+      ) : (
+        <p>None states a single {label} minimum; their criteria are GPA-based or tiered.</p>
+      )}
+      {other > 0 && scored.length > 0 && <p className="mt-2 text-xs text-ink-3">{other} more with GPA-only or tiered criteria — see Compare.</p>}
+      <p className="mt-2 text-xs text-ink-3">
+        {reference ? `Compared with the ${BASIS_LABEL[reference.basis]} of ${reference.value}. ` : `Set a target ${label} score to see the gap. `}
+        Published criteria only — not an eligibility decision; deadlines and other requirements apply.
+      </p>
+    </Route>
+  )
 }
