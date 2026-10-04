@@ -131,10 +131,6 @@
    "reason": "Values checked against the published page (dual-enrollment rate or eligibility line, or exam table, as printed)."
   },
   {
-   "candidate_id": "a2d60256ffc018c9",
-   "reason": "Cost column checked against the published table (residency and living arrangement from the column headers; components and total as printed)."
-  },
-  {
    "candidate_id": "mf456b6668cd4cc6",
    "reason": "Minimum transfer grade stated in the published policy."
   },
@@ -651,6 +647,10 @@
   {
    "candidate_id": "309d6babef7837a9",
    "reason": "The text-layout table merged credits into the course cell (\"4 BIO 100\") and left credits empty; not promoted as extracted."
+  },
+  {
+   "candidate_id": "a2d60256ffc018c9",
+   "reason": "The table has a two-row header (three housing columns under \"ARIZONA RESIDENT\", two under \"NON-RESIDENT\"); read without colspans, this Arizona-resident on-campus column ($13,900 tuition, $17,770 housing) was labelled out-of-state. Not promoted; the stacked-header check added in the Washington review now blocks this table."
   }
  ],
  "upgrade": []
