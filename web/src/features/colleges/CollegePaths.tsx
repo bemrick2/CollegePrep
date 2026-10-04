@@ -1,8 +1,12 @@
 import { useMemo, useState } from 'react'
-import { NavLink } from 'react-router-dom'
 import { useApp } from '../../lib/app'
 import { BASIS_LABEL, meritAwards, type ReferenceScore } from '../../lib/engine/merit'
 import { useMeritReference } from './useMeritReference'
+import { useInterests } from '../majors/useInterests'
+import { SchoolFitRow } from '../majors/SchoolFitRow'
+import { CollegesTabs } from './CollegesTabs'
+import type { SavedInterest } from '../../lib/engine/interests'
+import { Link } from 'react-router-dom'
 import { schoolLevers } from './schoolLevers'
 import { CostLeverList } from './CostLeverList'
 import type { InstitutionComparison } from '../../lib/data/types'
@@ -19,7 +23,7 @@ import { formatShortDate } from '../../lib/engine/dates'
 import { outlookFor } from '../parent/CostOutlook'
 import { useSavedComparison, COMPARE_YEAR } from './useSavedComparison'
 import { useExamPlan } from './useExamPlan'
-import { Book, Check, Clock, Trophy, Wallet, Info, School, X } from '../../components/icons'
+import { Book, Check, Clock, Sparkle, Trophy, Wallet, Info, School, X } from '../../components/icons'
 import { ButtonLink, Card, EmptyState, Notice, PageLoading, Pill, cx, inputClass } from '../../components/ui'
 
 const usd = (n: number) =>
@@ -33,20 +37,6 @@ const SCORE_RANGE: Record<ExamFamily, [number, number]> = {
   CLEP: [20, 80],
 }
 
-export function CollegesTabs() {
-  const tab = ({ isActive }: { isActive: boolean }) =>
-    cx('rounded-full px-4 py-1.5 text-sm font-semibold', isActive ? 'bg-ink text-surface' : 'text-ink-2 hover:bg-surface-2')
-  return (
-    <nav aria-label="Colleges views" className="flex gap-1">
-      <NavLink to="/colleges" end className={tab}>
-        Compare
-      </NavLink>
-      <NavLink to="/colleges/paths" className={tab}>
-        Paths
-      </NavLink>
-    </nav>
-  )
-}
 
 const policiesOf = (c: InstitutionComparison) => (c.domains.credit_policies ?? []) as unknown as CreditPolicy[]
 
@@ -60,6 +50,7 @@ export function CollegePaths() {
   const cmp = useSavedComparison(COMPARE_YEAR)
   const plan = useExamPlan(activeStudent?.id)
   const { exam: examFamily, reference: ref } = useMeritReference(activeStudent?.id)
+  const interests = useInterests(activeStudent?.id).profile.interests
   const schools = (cmp.data ?? []).filter((c) => c.found)
   // The family's primary target (CR-12), when set, leads.
   const four = schools
@@ -113,6 +104,7 @@ export function CollegePaths() {
                     key={c.institution_key}
                     c={c}
                     exams={plan.exams}
+                    interests={interests}
                     exam={examFamily}
                     reference={ref}
                     primary={cmp.primary === c.institution_key}
@@ -256,6 +248,7 @@ function ExamRow({ exam, onScore, onRemove }: { exam: PlannedExam; onScore: (s: 
 function PathCard({
   c,
   exams,
+  interests,
   exam,
   reference,
   primary = false,
@@ -264,6 +257,7 @@ function PathCard({
 }: {
   c: InstitutionComparison
   exams: PlannedExam[]
+  interests: SavedInterest[]
   exam: 'act' | 'sat'
   reference: ReferenceScore | null
   primary?: boolean
@@ -316,6 +310,16 @@ function PathCard({
             </p>
           ) : (
             <p className="text-ink-3">No verified cost of attendance for {COMPARE_YEAR} yet.</p>
+          )}
+        </Route>
+
+        <Route icon={<Sparkle size={16} />} title="Your interests">
+          {interests.length ? (
+            <SchoolFitRow compact name={name} domains={c.domains} interests={interests} />
+          ) : (
+            <p className="text-ink-3">
+              <Link to="/colleges/majors" className="font-semibold text-brand hover:underline">Add interests</Link> to see which of them {name} offers. Not sure yet is fine.
+            </p>
           )}
         </Route>
 

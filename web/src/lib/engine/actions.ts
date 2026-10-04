@@ -33,6 +33,8 @@ export interface ActionInput {
   /** Official (or explicitly self-reported) composite. Practice estimates must never be compared with thresholds. */
   officialScore: { composite: number; selfReported: boolean } | null
   schools: SchoolFacts[]
+  /** Saved interests (areas or majors); null when unknown. Never a required major. */
+  interestsSaved?: number | null
 }
 
 const EXAM = { act: 'ACT', sat: 'SAT' } as const
@@ -87,6 +89,8 @@ export function parentActions(i: ActionInput, max = 5): ParentAction[] {
   const dual = i.schools.find((s) => s.levers.some((l) => /dual/i.test(l)))
   if (dual && (i.goals.includes('college_credit') || i.goals.includes('lower_cost') || out.length < 4))
     out.push({ key: 'dual', rank: 8, tone: 'info', title: dual === credit ? 'Check its verified dual-enrollment policy' : `Check ${dual.name}'s verified dual-enrollment policy`, detail: 'Read its rules before enrolling in a high-school college course.', to: '/colleges/paths' })
+  if (i.interestsSaved === 0)
+    out.push({ key: 'majors', rank: 8.5, tone: 'info', title: 'Explore majors together', detail: `${i.name} hasn't saved any interests. Not sure is fine — broad areas are enough to see which colleges keep options open.`, to: '/colleges/majors' })
   out.push({ key: 'compare', rank: 9, tone: 'info', title: 'Compare your colleges side by side', detail: 'Verified costs, scholarships and credit policies.', to: '/colleges' })
   return finish(out, max)
 }
