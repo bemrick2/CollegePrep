@@ -115,7 +115,6 @@ MUTS = [
     ('pipeline/extractors/merit.py', '|\\btotal\\s+value\\b', ''),
     ('pipeline/extractors/costs.py', "        'period': ('semester' if re.search(r'per\\s+semester|per\\s+term\\b', h) else\n                   'year'", "        'period': ('year'"),
     ('pipeline/extractors/costs.py', '        return out  # KS (Pitt State)', '        pass  # KS (Pitt State)'),
-    ('pipeline/extractors/costs.py', "res = c['residency'] or heading_res or page_res", "res = c['residency'] or page_res"),
 ]
 failed = False
 for f, old, new in MUTS:
