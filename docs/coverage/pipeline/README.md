@@ -372,6 +372,43 @@ Institutions in scope: **121** · crawled: **97** · blocked by site: **24** · 
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-197887`, `ipeds-197966`, `ipeds-197993`, `ipeds-198039`, `ipeds-198084`, `ipeds-198118`, `ipeds-198376`, `ipeds-198464`, `ipeds-198534`, `ipeds-198862`, `ipeds-198914`, `ipeds-198987`, `ipeds-199023`, `ipeds-199069`, `ipeds-199111`, `ipeds-199272`, `ipeds-199333`, `ipeds-199494`, `ipeds-199698`, `ipeds-199731`, `ipeds-199768`, `ipeds-199795`, `ipeds-433174`, `ipeds-461032`
 
+## NE — 2026-27
+
+Institutions in scope: **29** · crawled: **25** · blocked by site: **4** · run: `pipeline/runs/NE/2026-10-03`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 4 (14%) | 0 | 11 (38%) | 23 (79%) | 2 | 4 |
+| cost_of_attendance | 3 (10%) | 0 | 8 (28%) | 24 (83%) | 1 | 4 |
+| admissions_tests | 0 (0%) | 0 | 0 (0%) | 23 (79%) | 2 | 4 |
+| common_data_set | 0 (0%) | 0 | 0 (0%) | 7 (24%) | 18 | 4 |
+| merit_scholarships | 0 (0%) | 4 | 4 (14%) | 23 (79%) | 2 | 4 |
+| ap_credit | 0 (0%) | 3 | 6 (21%) | 14 (48%) | 11 | 4 |
+| clep_credit | 0 (0%) | 2 | 4 (14%) | 11 (38%) | 14 | 4 |
+| ib_credit | 0 (0%) | 1 | 2 (7%) | 3 (10%) | 22 | 4 |
+| dual_enrollment | 1 (3%) | 3 | 4 (14%) | 17 (59%) | 8 | 4 |
+| transfer_credit | 2 (7%) | 4 | 6 (21%) | 23 (79%) | 2 | 4 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 7 (24%) | 18 | 4 |
+| residency | 0 (0%) | 0 | 0 (0%) | 11 (38%) | 14 | 4 |
+| degree_requirements | 0 (0%) | 0 | 0 (0%) | 18 (62%) | 7 | 4 |
+| aid_appeals | 0 (0%) | 0 | 16 (55%) | 20 (69%) | 5 | 4 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 9 |
+| blocked requests | 69 |
+| candidates | 170 |
+| conflicts | 34 |
+| documents | 1602 |
+| extraction failures | 0 |
+| fetch errors | 154 |
+| fetches | 1825 |
+| ready | 57 |
+| semantic review | 63 |
+| stale sources | 16 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-180878`, `ipeds-181020`, `ipeds-181534`, `ipeds-181604`
+
 ## NV — 2026-27
 
 Institutions in scope: **7** · crawled: **6** · blocked by site: **1** · run: `pipeline/runs/NV/2026-10-02-r2`

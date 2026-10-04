@@ -107,6 +107,15 @@ def table_equivalencies(kind, rows, table_hit=None):
         return out
     body = rows[1:] if has_header else rows
     width = len(rows[0])
+    # NE r1 (UNO): "Exam | Level | Score | Course" - a column of SL/HL is the level, the next numeric column the score.
+    lvl = None
+    col = lambda i: [r[i].strip() for r in body if i is not None and i < len(r) and r[i].strip()]
+    if kind == 'IB' and sc is not None and col(sc) and all(re.fullmatch(r'(SL|HL|SL\s*/\s*HL)', c, re.I) for c in col(sc)):
+        lvl = sc
+        sc = next((i for i in range(width) if i not in (ex, lvl, co, hr) and col(i) and all(re.search(r'\d', c) for c in col(i))), None)
+    if kind == 'IB' and lvl is None:
+        lvl = next((i for i in range(width) if i not in (ex, sc, co, hr) and col(i)
+                    and sum(1 for c in col(i) if re.fullmatch(r'(SL|HL|SL\s*/\s*HL|HL\s*/\s*SL)', c, re.I)) >= 0.8 * len(col(i))), None)
     out, prev = [], None
     for row in body:
         cells = list(row)
@@ -125,12 +134,14 @@ def table_equivalencies(kind, rows, table_hit=None):
         both = re.search(r'\bSL\s*/\s*HL\b|\bHL\s*/\s*SL\b|standard\s+(?:and|or|/)\s+higher', label_cell, re.I)  # MO (Cottey): "Biology (SL/HL)"
         level = (None if both else 'HL' if re.search(r'\bhigher\b|\bHL\b', label_cell, re.I) else
                  'SL' if re.search(r'\bstandard\b|\bSL\b|\bsub(?:sidiary)?\b', cells[ex] if ex < len(cells) else '', re.I) else None)
+        if kind == 'IB' and not level and not both and lvl is not None and lvl < len(cells) and re.fullmatch(r'\s*(SL|HL)\s*', cells[lvl], re.I):
+            level = cells[lvl].strip().upper()  # NE (UNO): "Anthropology | SL | 5-7" keeps the level in its own column
         if kind == 'IB' and level and score and not re.search(r'\b(HL|SL)\b|higher|standard', score, re.I):
             score = f'{level} {score}'
         eq = {'exam_or_course_code': code, 'exam_or_course_name': name,
               'minimum_score': score or None, 'institution_course_equivalent': course or None,
               'credits_awarded': _credits(get(hr)), 'notes': None}
-        used = {ex, sc, co, hr}
+        used = {ex, sc, co, hr, lvl}
         rest = [c for i, c in enumerate(cells) if i not in used and c.strip()]
         if rest: eq['notes'] = ' | '.join(rest)
         out.append((eq, ' | '.join(cells)))

@@ -335,6 +335,28 @@ last 30 hours in residence at the university.</p>"""
         got = {c['record']['residency']: c['record']['components'] for c in costs.extract({**INST, 'state': 'AL'}, ENTRY, dup, '2026-27')}
         self.assertEqual((got['in_state']['Subtotal'], got['in_state']['Subtotal (2)']), (17118, 4320))
 
+    def test_ne_r1_rules(self):
+        """NE r1: community colleges' transfer-out advice (Northeast, Central, Mid-Plains) and an entrance requirement
+        (Southeast); UNO's separate SL/HL column; Concordia's teacher scholarship and late fee are not course prices."""
+        base = '<title>Transfer Credit</title><p>Courses completed with a grade of D or better transfer to the university.</p>'
+        for scoped in ('The generally accepted requirements for transfer to another college include: Grades of "C" or higher in a transferable course.',
+                       'The degree requires 60 credit hours, and most schools require a course grade of C or higher to transfer.',
+                       'Applicants meet college entrance requirements through three or more hours of transfer credit with a grade of C or better.'):
+            [c] = transfer.extract(INST, ENTRY, T.parse_html(base + f'<p>{scoped}</p>'), '2026-27')
+            self.assertEqual(c['record'].get('min_grade'), 'D', scoped)
+        [c] = transfer.extract(INST, ENTRY, T.parse_html(base + '<p>Most four-year colleges will accept up to 60 semester credit hours earned at a community college as transfer credit.</p>'), '2026-27')
+        self.assertNotIn('max_transfer_credits', c['record'])
+        ib = [['IB Exam', 'Level', 'Score', 'Course'], ['Biology', 'SL', '5-7', 'BIOL 1020'], ['Biology', 'HL', '5-7', 'BIOL 1020 & BIOL 1030'],
+              ['Chemistry', 'HL', '5-7', 'CHEM 1180']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'IB', [{'rows': ib, 'heading': 'International Baccalaureate', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        self.assertEqual(sorted(e['minimum_score'] for e in c['record']['equivalencies']), ['HL 5-7', 'HL 5-7', 'SL 5-7'])
+        page = T.parse_html('<title>Dual Credit</title><h1>Dual Credit</h1><ul><li>Juniors and seniors with a 3.0 GPA are eligible for dual credit.</li>'
+                            '<li>Dual credit tuition is $150 per credit hour.</li>'
+                            '<li>Concordia provides scholarships up to $300/credit for teachers to earn the graduate hours to offer dual credit.</li>'
+                            '<li>Registration after the deadline will be assessed a $10/credit late fee.</li></ul>')
+        [c] = dual.extract(INST, ENTRY, page, '2026-27')
+        self.assertEqual([x['amount'] for x in c['record']['dual_enrollment']['per_credit_hour_charges']], [150])
+
     def test_ia_r1_rules(self):
         """IA r1: Hawkeye eligibility headings; Graceland sample aid package; Wartburg academic-progress table; conditional
         transfer grades (William Penn, Dubuque, Emmaus) and a cap for the major (Iowa)."""
