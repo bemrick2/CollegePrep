@@ -150,6 +150,43 @@ Institutions in scope: **48** · crawled: **46** · blocked by site: **2** · ru
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-153533`, `ipeds-154129`
 
+## ID — 2026-27
+
+Institutions in scope: **13** · crawled: **12** · blocked by site: **1** · run: `pipeline/runs/ID/2026-10-04`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 0 (0%) | 0 | 10 (77%) | 12 (92%) | 0 | 1 |
+| cost_of_attendance | 0 (0%) | 0 | 6 (46%) | 12 (92%) | 0 | 1 |
+| admissions_tests | 0 (0%) | 0 | 0 (0%) | 12 (92%) | 0 | 1 |
+| common_data_set | 0 (0%) | 0 | 0 (0%) | 1 (8%) | 11 | 1 |
+| merit_scholarships | 0 (0%) | 0 | 3 (23%) | 12 (92%) | 0 | 1 |
+| ap_credit | 0 (0%) | 0 | 0 (0%) | 6 (46%) | 6 | 1 |
+| clep_credit | 0 (0%) | 0 | 1 (8%) | 4 (31%) | 8 | 1 |
+| ib_credit | 0 (0%) | 0 | 0 (0%) | 4 (31%) | 8 | 1 |
+| dual_enrollment | 0 (0%) | 0 | 4 (31%) | 11 (85%) | 1 | 1 |
+| transfer_credit | 0 (0%) | 0 | 2 (15%) | 12 (92%) | 0 | 1 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 3 (23%) | 9 | 1 |
+| residency | 0 (0%) | 0 | 0 (0%) | 8 (62%) | 4 | 1 |
+| degree_requirements | 0 (0%) | 0 | 2 (15%) | 10 (77%) | 2 | 1 |
+| aid_appeals | 0 (0%) | 0 | 9 (69%) | 9 (69%) | 3 | 1 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 4 |
+| blocked requests | 19 |
+| candidates | 119 |
+| conflicts | 45 |
+| documents | 848 |
+| extraction failures | 0 |
+| fetch errors | 42 |
+| fetches | 909 |
+| ready | 37 |
+| semantic review | 49 |
+| stale sources | 7 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-142461`
+
 ## KS — 2026-27
 
 Institutions in scope: **53** · crawled: **43** · blocked by site: **10** · run: `pipeline/runs/KS/2026-10-03`

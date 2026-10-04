@@ -82,7 +82,6 @@ MUTS = [
     ('pipeline/extractors/merit.py', "f'{name} {v}' if v and SCORE.search(v) and not re.search(r'\\b(act|sat)\\b', v, re.I) else v", "f'{name} {v}' if v else v"),
     ('pipeline/extractors/merit.py', '|\\bno\\s+test|test[\\s-]*optional|without\\s+(a\\s+)?test', ''),
     ('pipeline/extractors/costs.py', "(None if re.search(r'on\\s*(/|and|&|or)\\s*off[- ]campus|on[- ]\\s*(and|&|or)\\s*off[- ]campus', h) else", '(None if False else'),
-    ('pipeline/extractors/merit.py', "('amount', 'value', '$', 'award detail', 'offer')", "('amount', 'value', '$', 'award detail')"),
     ('pipeline/extractors/merit.py', 'lo, hi = None, None  # LSUS', 'pass  # LSUS'),
     ('pipeline/extractors/merit.py', "rec['renewable'] = False  # UL Lafayette", 'pass  # UL Lafayette'),
     ('pipeline/extractors/transfer.py', "r'developmental|(?:for|exempt\\s+the)\\s+placement|placement\\s+(?:assessment|test|exam)|math(?:ematics)?\\s+and\\s+science|block\\s+transfer|'", "r'^$|'"),
@@ -135,6 +134,11 @@ MUTS = [
     ('pipeline/extractors/credit.py', '            continue  # MT (MSU-Northern)', '            pass  # MT (MSU-Northern)'),
     ('pipeline/extractors/merit.py', "(\\s*\\([^)]*\\))?$|^\\d+(\\.\\d+)?\\s+credits?\\s+or\\s+more$', re.I)", "$', re.I)"),
     ('pipeline/extractors/merit.py', "|per\\s+semester|/\\s*semester', outside", "|per\\s+semester', outside"),
+    ('pipeline/extractors/merit.py', "'offer', 'reward')", "'offer')"),
+    ('pipeline/extractors/merit.py', '            continue  # ID (BYU-Idaho)', '            pass  # ID (BYU-Idaho)'),
+    ('pipeline/extractors/merit.py', "            if not rec_open_max: rec['award_max'] = hi", "            rec['award_max'] = hi"),
+    ('pipeline/extractors/dual.py', "r'financial\\s+aid|fall\\s+below|satisfactory\\s+progress|graduation\\s+gpa|'", "r'"),
+    ('pipeline/extractors/merit.py', "'award detail', 'offer', 'reward')", "'award detail', 'reward')"),
 ]
 failed = False
 for f, old, new in MUTS:

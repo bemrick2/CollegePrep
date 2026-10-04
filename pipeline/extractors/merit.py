@@ -102,7 +102,7 @@ def _list_awards(t, header, body, title, award_type):
                  and not re.search(r'criteria|requirement|eligib|amount|annual|per\s+year|years?\b|value|total|\$', h, re.I)), None)
     # Annual columns win over four-year totals ("Total over 4 years | Total for academic year", AL: AUM).
     multi_year = re.compile(r'4\s*years?|four\s+years?|total\s+over|over\s+\d|cumulative', re.I)
-    amount = next((i for words in (('annual', 'per year', 'yearly', 'academic year', 'per academic'), ('amount', 'value', '$', 'award detail', 'offer'), ('award',))
+    amount = next((i for words in (('annual', 'per year', 'yearly', 'academic year', 'per academic'), ('amount', 'value', '$', 'award detail', 'offer', 'reward'), ('award',))
                    for i, h in enumerate(header) if i != name and any(w in h.lower() for w in words) and not multi_year.search(h)), None)
     if amount is None:  # ND (Jamestown): "Scholarship | GPA | (blank)" with the amounts under the blank header
         amount = next((i for i, h in enumerate(header) if i != name and not h.strip() and body
@@ -149,6 +149,10 @@ def _list_awards(t, header, body, title, award_type):
             # AR (UAPB) "$66,000 for four years"; OK (OU) "$16,000 ($4,000 x 4 years)", (USAO) "total estimated value 8 fall/spring
             # terms", (SWOSU) "$5000 cash per year, full tuition": the printed figure is not the annual award
             lo, hi = None, None  # LSUS: "Tuition & Fees + $1,200 Campus Housing Credit" is not a $1,200 award
+        if hi is not None and re.search(r'\bor\s+(?:more|greater|higher)\b|\band\s+up\b', amt, re.I):
+            hi = lo if lo is not None else hi; rec_open_max = True  # ID (New Saint Andrews): "$5,000 or more" has no maximum
+        else:
+            rec_open_max = False
         if lo is not None and re.search(r'\bup\s+to\b', amt, re.I):
             lo = None  # "Up to $5,000" is a maximum; the minimum is not printed
         tier_row = bool(threshold_label) or bool(re.search(r'\d.*\b(gpa|act|sat)\b', nm, re.I)) or bool(ENROLLMENT.match(nm))
@@ -173,7 +177,7 @@ def _list_awards(t, header, body, title, award_type):
             rec['renewable'] = False  # UL Lafayette: "$1,000 for freshman year"
         if hi is not None:
             if lo is not None: rec['award_min'] = lo
-            rec['award_max'] = hi
+            if not rec_open_max: rec['award_max'] = hi
         if g: rec['gpa_requirement'] = g
         # Prefix only bare scores: "ACT: 27+ / SAT: 1220+" already names the test, "Valedictorian" is not a score (Tougaloo).
         label = lambda name, v: f'{name} {v}' if v and SCORE.search(v) and not re.search(r'\b(act|sat)\b', v, re.I) else v
@@ -247,6 +251,8 @@ def extract(inst, entry, page, today_year):
         context = ' '.join([t.get('heading') or '', t.get('caption') or ''])
         if NOT_MERIT.search(context): continue
         header, body = rows[0], rows[1:]
+        if re.search(r'award\s+amounts?', header[0], re.I) and any(T.money_values(c) for c in header[1:]):
+            continue  # ID (BYU-Idaho): a transposed table - columns are award levels, rows are attributes ("Qualifications", "Duration")
         if any(T.money_values(c) for c in header[1:]):  # no header row (AL: UWA): infer columns from the cells
             amount_i = next(i for i, c in enumerate(header) if i and T.money_values(c))
             crit_i = next((i for i, c in enumerate(header) if i and i != amount_i and re.search(r'\b(gpa|act|sat)\b', c, re.I)), None)
