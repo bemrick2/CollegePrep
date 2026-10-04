@@ -90,6 +90,10 @@ describe('app flows', () => {
     // The 2-year school is not a route card, and no transfer is implied.
     expect(screen.queryByRole('heading', { name: 'Northeast State Community College' })).not.toBeInTheDocument()
     expect(screen.getByText(/appears here only once a verified transfer agreement/)).toBeInTheDocument()
+    // Merit: published single minimums only, compared with the target (27), never stated as eligibility.
+    expect(screen.getAllByText('ACT 31+').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('4 above target').length).toBeGreaterThan(0)
+    expect(screen.getByText(/Compared with the target of 27/)).toBeInTheDocument()
     await user.selectOptions(screen.getByLabelText('Add an exam'), screen.getByRole('option', { name: 'AP Calculus AB' }))
     expect(await screen.findByText('Needs 3+')).toBeInTheDocument()
     await user.selectOptions(screen.getByLabelText('AP Calculus AB score'), '2')
