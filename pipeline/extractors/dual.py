@@ -142,7 +142,8 @@ def extract(inst, entry, page, today_year):
             if GRANT_NO.search(line): note('state_grant_accepted', False, line)
             elif GRANT_YES.search(line) and not line.rstrip().endswith('?'): note('state_grant_accepted', True, line)
         m = CONTINUE.search(line)
-        if m and re.search(r'college|grant|eligib|DEG', line, re.I):
+        # UT (Weber): "maintain a 2.5 WSU GPA to retain scholarship eligibility" is a scholarship rule, not the program's.
+        if m and re.search(r'college|grant|eligib|DEG', line, re.I) and not re.search(r'scholarship', line, re.I):
             v = float(m.group(1))
             if 1.0 <= v <= 4.0: note('college_gpa_to_continue', v, line)
     if not tiers and not values and not charges: return []

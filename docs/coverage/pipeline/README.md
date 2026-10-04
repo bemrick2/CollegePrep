@@ -740,6 +740,43 @@ Institutions in scope: **59** · crawled: **52** · blocked by site: **7** · ru
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-219824`, `ipeds-219879`, `ipeds-219949`, `ipeds-221643`, `ipeds-221768`, `ipeds-222053`, `ipeds-486901`
 
+## UT — 2026-27
+
+Institutions in scope: **13** · crawled: **12** · blocked by site: **1** · run: `pipeline/runs/UT/2026-10-04`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 0 (0%) | 0 | 5 (38%) | 12 (92%) | 0 | 1 |
+| cost_of_attendance | 0 (0%) | 0 | 3 (23%) | 11 (85%) | 1 | 1 |
+| admissions_tests | 0 (0%) | 0 | 0 (0%) | 11 (85%) | 1 | 1 |
+| common_data_set | 0 (0%) | 0 | 0 (0%) | 1 (8%) | 11 | 1 |
+| merit_scholarships | 0 (0%) | 0 | 3 (23%) | 10 (77%) | 2 | 1 |
+| ap_credit | 0 (0%) | 0 | 4 (31%) | 8 (62%) | 4 | 1 |
+| clep_credit | 0 (0%) | 0 | 4 (31%) | 4 (31%) | 8 | 1 |
+| ib_credit | 0 (0%) | 0 | 5 (38%) | 5 (38%) | 7 | 1 |
+| dual_enrollment | 0 (0%) | 0 | 1 (8%) | 4 (31%) | 8 | 1 |
+| transfer_credit | 0 (0%) | 0 | 1 (8%) | 11 (85%) | 1 | 1 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 3 (23%) | 9 | 1 |
+| residency | 0 (0%) | 0 | 0 (0%) | 8 (62%) | 4 | 1 |
+| degree_requirements | 0 (0%) | 0 | 1 (8%) | 8 (62%) | 4 | 1 |
+| aid_appeals | 0 (0%) | 0 | 6 (46%) | 9 (69%) | 3 | 1 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 12 |
+| blocked requests | 37 |
+| candidates | 213 |
+| conflicts | 14 |
+| documents | 765 |
+| extraction failures | 0 |
+| fetch errors | 72 |
+| fetches | 874 |
+| ready | 101 |
+| semantic review | 15 |
+| stale sources | 21 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-230728`
+
 ## VA — 2026-27
 
 Institutions in scope: **71** · crawled: **62** · blocked by site: **9** · run: `pipeline/runs/VA/2026-10-03`

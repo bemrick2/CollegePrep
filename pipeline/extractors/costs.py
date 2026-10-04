@@ -145,8 +145,10 @@ def parse_tables(rows):
             if not has_money:
                 header = cells
                 # The row-label column's header can name the whole table's living arrangement or enrollment
-                # ("With Parent | 4 Month | 9 Month | 12 Month", AL: Enterprise State).
-                if cells and cells[0] and (column_meaning(cells[0])['arrangement'] or PART_TIME.search(cells[0])):
+                # ("With Parent | 4 Month | 9 Month | 12 Month", AL: Enterprise State), or its period
+                # (UT: Utah Tech "Per Semester (full-time) | Utah Resident | Non-Resident").
+                if cells and cells[0] and (column_meaning(cells[0])['arrangement'] or column_meaning(cells[0])['period']
+                                           or PART_TIME.search(cells[0])):
                     titles.append(cells[0])
                 continue
         if has_money and cells and cells[0]:
