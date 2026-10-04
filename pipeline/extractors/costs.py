@@ -108,7 +108,9 @@ def column_meaning(header, home=None, private=False):
                         'other' if re.search(r'military|on base', h) else None),
         # Quarter calendars (OR) print "1 Term | 2 Terms | 3 Terms | 4 Terms" or "3 Months | 9 Months": the
         # academic year is three terms / nine months; other counts are partial years or include summer.
-        'period': ('year' if re.search(r'per\s+year|annual|academic\s+year|fall\s*(&|and)\s*spring|(two|2)\s+semesters|yearly|\byear\b|'
+        # KS (Pitt State): "Tuition & costs per semester (academic year 2026-2027)" is a semester column; the year names the term.
+        'period': ('semester' if re.search(r'per\s+semester|per\s+term\b', h) else
+                   'year' if re.search(r'per\s+year|annual|academic\s+year|fall\s*(&|and)\s*spring|(two|2)\s+semesters|yearly|\byear\b|'
                                        r'^\W*(3|three)\s+(quarters|terms)\W*$|^\W*(9|nine)\s+months?\W*$', h) else
                    'semester' if re.search(r'per\s+semester|single\s+semester|\bsemester\b|per\s+term|^\W*(1|one)\s+(term|quarter)\W*$|'
                                            r'^\W*(fall|spring)(\s+(term|20\d\d))?\W*$', h) else
@@ -168,6 +170,8 @@ def _context(t, page, titles):
 
 def _candidates_from_table(t, inst, entry, page, today_year, page_year, page_basis, page_issues):
     out = []
+    if re.search(r'\binternational\b', t.get('heading') or '', re.I):
+        return out  # KS (Pitt State): an international students' budget is not an in-state or out-of-state cost
     for titles, headers, body in parse_tables(t['rows']):
         out += _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_year, page_year, page_basis, page_issues)
     return out

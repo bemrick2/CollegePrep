@@ -335,6 +335,31 @@ last 30 hours in residence at the university.</p>"""
         got = {c['record']['residency']: c['record']['components'] for c in costs.extract({**INST, 'state': 'AL'}, ENTRY, dup, '2026-27')}
         self.assertEqual((got['in_state']['Subtotal'], got['in_state']['Subtotal (2)']), (17118, 4320))
 
+    def test_ks_r1_rules(self):
+        """KS r1: Hesston sample aid package; Barclay cost rows; Dodge City per-semester parentheticals; K-State Salina
+        "Total Value"; Pitt State per-semester columns that mention the academic year, out-of-state table headings and an
+        international budget."""
+        table = ('<h2>Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th><th>Criteria</th></tr>'
+                 '<tr><td>Presidential Gold</td><td>$2,000 per year ($1,000 per semester)</td><td>3.5 GPA</td></tr>'
+                 '<tr><td>Vanier Scholarship</td><td>Total Value: $40,000 Freshman Year Award: $10,000</td><td>Incoming freshman</td></tr>'
+                 '<tr><td>Annual Total</td><td>$9,120</td><td></td></tr>'
+                 '<tr><td>Purple Merit</td><td>$1,000</td><td>2.5 GPA</td></tr></table>')
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html('<title>Scholarships</title>' + table), '2026-27')}
+        self.assertEqual((got['Presidential Gold']['award_min'], got['Presidential Gold']['award_max']), (2000, 2000))
+        self.assertNotIn('award_max', got['Vanier Scholarship'])
+        self.assertNotIn('Annual Total', got)
+        self.assertEqual(merit.extract(INST, {**ENTRY, 'url': 'https://x.edu/admissions/scholarships-and-aid/sample-aid-packages/'},
+                                       T.parse_html('<title>Scholarships</title>' + table), '2026-27'), [])
+        tbl = lambda heading, amt: {'heading': heading, 'caption': '', 'lead': '', 'rows': [
+            ['Tuition & costs per semester (academic year 2026-2027 )', ''], ['Tuition (flat rate, incl. campus fees)', amt], ['Books', '$500']]}
+        p = T.Page('Tuition and Costs 2026-2027', 'Tuition and Costs 2026-2027',
+                   [tbl('Undergraduate In-State Tuition & Costs', '$4,442'), tbl('Undergraduate Out-of-State Tuition & Costs', '$10,114'),
+                    tbl('International Undergraduate Tuition & Costs', '$20,228')], [], [])
+        got = {c['record']['residency']: c for c in costs.extract({**INST, 'state': 'KS'}, ENTRY, p, '2026-27')}
+        self.assertEqual(sorted(got), ['in_state', 'out_of_state'])
+        self.assertEqual(got['in_state']['record']['tuition'], 4442)
+        self.assertTrue(all('cost_period_semester' in c['issues'] for c in got.values()))
+
     def test_mo_r1_rules(self):
         """MO r1: Logan per-trimester totals and per-credit amounts; Columbia College "$1,000-2,000"; ROTC; Southwest
         Baptist's two versions of one table; STLCC accreditation years; Truman A-Level, Westminster dual-credit-only
