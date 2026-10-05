@@ -32,6 +32,7 @@ BACHELOR = re.compile(r'\b(B\.?\s?(A|S|F\.?A|M|S\.?N|S\.?W|B\.?A|S\.?E|S\.?E\.?E
                       r'Bachelor|\bH?BA\b|\bH?BS\b)', re.I)
 ASSOCIATE = re.compile(r'\b(A\.?\s?(A|S|A\.?S|A\.?T|S\.?T|F\.?A)\b\.?|Associate)', re.I)
 
+NOT_BACHELOR_URL = re.compile(r'(^|[/_-])(min|minor|minors|cert|certificate|certificates|grad|graduate|masters?|phd|doctoral)([/_-]|$)', re.I)
 # 'Accounting Major' in an undergraduate catalog: a major whose degree (BA/BS) the list does not print
 MAJOR = re.compile(r'\bmajor\b', re.I)
 NOT_MAJOR = re.compile(r'\b(minor|certificate|graduate|second\s+major|majors\))', re.I)
@@ -118,8 +119,10 @@ def collect_lists(target, run, entries):
             if not (is_program(href) or line): continue
             label = line or name
             if cat_filter and not re.search(cat_filter, label): continue
+            if NOT_BACHELOR_URL.search(urlsplit(href).path):  # UO minors repeat the major's anchor text: /min-anthropology/
+                label = name
             if href not in out:
-                level = credential_of(label)
+                level = None if NOT_BACHELOR_URL.search(urlsplit(href).path) else credential_of(label)
                 listed_as = level or ('major' if MAJOR.search(label) and not NOT_MAJOR.search(label) else None)
                 out[href] = {'name': name, 'printed': label, 'url': href, 'credential_level': level, 'listed_as': listed_as,
                              'listed_on': e['url'], 'listed_on_sha256': e.get('sha256'), 'listed_on_title': e.get('title', '')}
@@ -141,16 +144,40 @@ def program_page_candidates(target, inst, entry, page, today_year):
         from . import smartcatalog
         return smartcatalog.extract(inst, entry, page, today_year)
     out = CAT.extract(inst, entry, page, today_year)
-    if out or CAT.catalog_year(page)[0] is not None: return out
-    labels = printed_catalog_years(page)
-    if len({y for y, _ in labels}) != 1: return out
-    year, line = next(iter(labels))
-    view = T.Page(page.text, f'{CAT.program_name(page)} - {year} Catalog', page.tables, page.links, page.headings)
-    out = CAT.extract(inst, entry, view, today_year)
-    for c in out:
-        c['issues'] = c.get('issues', []) + ['catalog_year_from_page_label']
-        c['evidence'] = c.get('evidence', []) + [{'field': 'catalog_year', 'value': year, 'snippet': line[:200]}]
+    y0, printed0 = CAT.catalog_year(page)
+    year, line = printed0, (page.title or '')
+    if not out and y0 is None:
+        labels = printed_catalog_years(page)
+        if len({y for y, _ in labels}) == 1:
+            year, line = next(iter(labels))
+            view = T.Page(page.text, f'{CAT.program_name(page)} - {year} Catalog', page.tables, page.links, page.headings)
+            out = CAT.extract(inst, entry, view, today_year)
+            for c in out:  # the year is printed on this same document (e.g. CourseLeaf footer): labeled in source, with its line as evidence
+                c['evidence'] = c.get('evidence', []) + [{'field': 'catalog_year', 'value': year, 'snippet': line[:200],
+                                                          'note': 'catalog year label printed outside the page header'}]
+    if plat == 'courseleaf' and year:
+        from . import courseleaf
+        have = any(c['domain'] == 'academic_programs' for c in out)
+        plan = courseleaf.extract(inst, entry, page, year, line, have)
+        if have and plan:  # plan rows must use the program key the program candidate uses
+            pk = next(c['record']['program_key'] for c in out if c['domain'] == 'academic_programs')
+            for c in plan: c['record']['program_key'] = pk
+        out += plan
     return out
+
+
+PROGRAM_ONLY_ISSUES = ('requirement_groups_skipped',)
+
+
+def program_identity(c):
+    """A program record states name, award, URL, year and printed total only; a skipped requirement group elsewhere on
+    the page does not weaken those facts, so that issue stays on the requirement rows and leaves the program record."""
+    if c['domain'] == 'academic_programs':
+        moved = [i for i in c['issues'] if i in PROGRAM_ONLY_ISSUES]
+        if moved:
+            c['issues'] = [i for i in c['issues'] if i not in PROGRAM_ONLY_ISSUES]
+            c.setdefault('checks', {})['requirement_issues'] = moved
+    return c
 
 
 def extract_run(targets, run_dir, today=None):
@@ -176,7 +203,7 @@ def extract_run(targets, run_dir, today=None):
             inst = {'institution_key': key}
             if e.get('role') == 'program_page':
                 for c in program_page_candidates(t, inst, e, page, today_year):
-                    c['program_role'] = 'program_page'; cands.append(c); n_c += 1
+                    c['program_role'] = 'program_page'; cands.append(program_identity(c)); n_c += 1
             if e.get('kind') == 'pdf' and e.get('role') in ('degree_map', 'policy', 'policy_link'):
                 try:
                     for c in PM.extract(inst, e, page, today_year):
