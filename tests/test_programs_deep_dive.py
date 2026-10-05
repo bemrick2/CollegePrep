@@ -555,3 +555,42 @@ class CourseListHtmlTests(unittest.TestCase):
         self.assertEqual((t['heading'], t['context'], t['caption']), ('Major Requirements', 'Students must select one focus area.', 'Course List'))
         self.assertEqual([(r['classes'], r['cells'][0]['text'], r['cells'][0]['indent']) for r in t['rows']],
                          [(['even', 'areaheader'], 'Core', False), (['odd'], 'ENGR 110& ENGR 115', False), (['even', 'orclass'], 'or ENGR 310', True), (['even'], 'ACTG 417', True)])
+
+
+class CourseListLayoutGroupTests(unittest.TestCase):
+    TR = '<tr class="{c}"><td{span}>{a}</td>{rest}</tr>'
+
+    def table(self, rows, heading='Major Requirements', context=''):
+        from programs.courselist_html import course_lists
+        def row(kind, text, title='', cr=''):
+            if kind == 'head': return f'<tr class="even areaheader"><td colspan="2"><span class="courselistcomment areaheader">{text}</span></td><td>{cr}</td></tr>'
+            if kind == 'rule': return f'<tr class="odd"><td colspan="2"><span class="courselistcomment">{text}</span></td><td>{cr}</td></tr>'
+            if kind == 'irule': return f'<tr class="odd"><td colspan="2"><div style="margin-left:20px;"><span class="courselistcomment">{text}</span></div></td><td>{cr}</td></tr>'
+            if kind == 'opt': return f'<tr class="even"><td><div style="margin-left:20px;" class="blockindent"><a>{text}</a></div></td><td>{title}</td><td>{cr}</td></tr>'
+            if kind == 'or': return f'<tr class="even orclass"><td><div style="margin-left:20px;">or <a>{text}</a></div></td><td>{title}</td><td></td></tr>'
+            return f'<tr class="odd"><td><a>{text}</a></td><td>{title}</td><td>{cr}</td></tr>'
+        html = f'<h2>{heading}</h2><p>{context}</p><table class="sc_courselist"><caption>Course List</caption><tbody>' + ''.join(row(*r) for r in rows) + '</tbody></table>'
+        return course_lists(html)[0]
+
+    def test_required_choice_and_alternatives(self):
+        from programs import courseleaf as CL
+        t = self.table([('head', 'Core'), ('c', 'CS 161', 'Intro I', '4'), ('c', 'MTH 251Z', 'Calculus', '4'), ('or', 'MTH 251H', 'Calculus Honors'),
+                        ('rule', 'Select two courses from the following:', '', '8'), ('opt', 'CS 450', 'Graphics'), ('opt', 'CS 475', 'Parallel'), ('opt', 'CS 480', 'Translators'),
+                        ('rule', 'One of the following:'), ('opt', 'CS 330', 'X'), ('opt', 'CS 420', 'Y'), ('c', 'CS 499', 'Capstone', '4')])
+        g = CL.html_groups(t)
+        self.assertEqual([(s, x['type'], len(x['courses']), x.get('choose_count'), sorted(x['issues'])) for s, x in g],
+                         [('Core', 'all_required', 2, None, []), ('Core', 'choose_courses', 3, 2, []), ('Core', 'choose_courses', 2, 1, []), ('Core', 'all_required', 1, None, [])])
+        self.assertEqual(g[0][1]['courses'][1]['any_of'][1]['code'], 'MTH 251H')
+
+    def test_reference_track_and_unclear_tables_are_held(self):
+        from programs import courseleaf as CL
+        g = CL.html_groups(self.table([('c', 'EC 401', 'Research', '1-16')], heading='Courses Offered Pass/No Pass Only'))
+        self.assertIn('reference_or_track_heading', g[0][1]['issues'])
+        g = CL.html_groups(self.table([('c', 'ED 150', 'X', '3')], heading='ESOL', context='Students must select one or more focus areas or substitute with a minor.'))
+        self.assertIn('context_says_choose_among_tables', g[0][1]['issues'])
+        g = CL.html_groups(self.table([('rule', 'Select six NMC courses (can include up to three of the following):', '', '24'), ('opt', 'ART 101', 'A'), ('opt', 'ART 102', 'B')]))
+        self.assertTrue({'count_not_below_options', 'rule_mixes_other_courses'} <= g[0][1]['issues'])
+        g = CL.html_groups(self.table([('rule', 'Select 6-8 credits from the following:', '', '6-8'), ('opt', 'PSY 401', 'A'), ('irule', 'Any other PSY course')]))
+        self.assertTrue({'credit_range', 'text_option'} <= g[0][1]['issues'])
+        g = CL.html_groups(self.table([('c', 'GD 101', 'Design', '4')], heading='Bachelor of Fine Arts'), program_awards=3)
+        self.assertIn('award_specific_table', g[0][1]['issues'])

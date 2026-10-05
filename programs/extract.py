@@ -182,9 +182,11 @@ def program_page_candidates(target, inst, entry, page, today_year):
             pk = next(c['record']['program_key'] for c in out if c['domain'] == 'academic_programs')
             for c in plan: c['record']['program_key'] = pk
         out += plan
-        if have:  # Course List groups read row by row (courseleaf_list/v1), keyed to the program record
-            pk = next(c['record']['program_key'] for c in out if c['domain'] == 'academic_programs')
-            out += courseleaf.list_candidates(inst, entry, page, year, line, pk)
+        cl = (target.get('_courselists') or {}).get(entry.get('url'))
+        if have and cl:  # Course List groups read with their layout (courselist_html/v1), keyed to the program record
+            prog = next(c['record'] for c in out if c['domain'] == 'academic_programs')
+            awards = len(re.findall(r'\b(BA|BS|BFA|BM|BAS|BBA|BArch|BLA|BMus|BSN)\b', prog['program_name']))
+            out += courseleaf.html_candidates(inst, entry, cl[0], cl[1], year, prog['program_key'], max(1, awards))
     return out
 
 
@@ -574,6 +576,8 @@ def extract_run(targets, run_dir, today=None):
             elif e.get('error'): r['errors'][e['error'][:40]] += 1
         lists[key] = collect_lists(t, run, es) if t.get('catalog') else {'programs': [], 'counts': {}}
         if (t.get('catalog') or {}).get('platform') == 'coursedog': t = {**t, '_catalog_year': coursedog_year(run, es)}
+        if (t.get('catalog') or {}).get('platform') == 'courseleaf':
+            t = {**t, '_courselists': {e['via']: (e, json.loads(run.load_page(e['page_file'])[0].text)) for e in es if e.get('role') == 'courselist' and e.get('page_file')}}
         n_c = 0; seen_ev = set(); seen_feed_keys = set()
         for e in es:
             if not e.get('page_file'): continue
