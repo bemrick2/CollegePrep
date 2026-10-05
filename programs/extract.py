@@ -193,7 +193,11 @@ def thec_rows(page):
         data = json.loads(page.text)
     except ValueError:
         return []
-    return data.get('ProgramList', []) if isinstance(data, dict) else (data if isinstance(data, list) else [])
+    rows = (data.get('ProgramList') or data.get('programList') or []) if isinstance(data, dict) else (data if isinstance(data, list) else [])
+    # one spelling for every key, as the page's own table reads them (MajorName, Award, MajorCipCode, ...)
+    canon = {k.lower(): k for k in ('InstitutionName', 'MajorName', 'Award', 'MajorCipCode', 'CreditOrClockHours',
+                                     'CurrentProgramStatus', 'ProgramId', 'EffectiveStartDate', 'FederalTaxName')}
+    return [{canon.get(str(k).lower(), k): v for k, v in r.items()} for r in rows if isinstance(r, dict)]
 
 
 def thec_candidates(inst, entry, rows, today_year):
