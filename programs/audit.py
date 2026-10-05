@@ -92,9 +92,9 @@ def school_row(t, run, lists, summary, evidence, year='2026-27'):
                       'requirement_rows': len(reqs), 'program_catalog_record': bool(cats),
                       'programs_complete': any(c.get('programs_complete') is True for c in cats),
                       'verified_fields_by_name_or_cip': vfields, 'all_fields_by_name_or_cip': pfields,
-                      'cr14': {'cip_code': sum(1 for r in verified if r.get('cip_code')),
-                               'admission_type': sum(1 for r in verified if r.get('admission_type')),
-                               'internal_transfer': sum(1 for r in verified if r.get('internal_transfer')),
+                      'cr14': {'cip_code': sum(1 for r in progs if r.get('cip_code')),
+                               'admission_type': sum(1 for r in progs if r.get('admission_type')),
+                               'internal_transfer': sum(1 for r in progs if r.get('internal_transfer')),
                                'undeclared_policy': any(c.get('undeclared_policy') for c in cats),
                                'program_linked_awards': len(awards)}},
     }
