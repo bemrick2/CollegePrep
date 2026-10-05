@@ -74,6 +74,21 @@ def cross_errors(rows):
                 for _, d, r in rows if d == 'academic_programs' and r.get('verification_status') == 'verified'}
     anyprog = {(r.get('institution_key'), r.get('academic_year'), r.get('program_key')) for _, d, r in rows if d == 'academic_programs'}
     errs = []
+    # One program, one record: a state-inventory record (THEC) must not sit beside a catalog record for the same major
+    # and award (programs/promote.py folds them together).
+    import re
+    def key(r):
+        n = (r.get('program_name') or '').strip()
+        m = re.match(r'^(.*?),\s*([A-Za-z.]{2,12})\s*(\(.*\))?$', n) or re.match(r'^(.*?)\s*\(([A-Za-z.]{2,12})\)\s*$', n)
+        return (re.sub(r'[^a-z0-9]+', ' ', m.group(1).split(':')[0].lower()).strip(), re.sub(r'[^A-Z]', '', m.group(2).upper())) if m else None
+    inv, cat = {}, {}
+    for path, d, r in rows:
+        if d != 'academic_programs' or key(r) is None: continue
+        bucket = inv if str(r.get('program_url', '')).startswith('https://thec.ppr.tn.gov/') else cat
+        bucket.setdefault((r.get('institution_key'), r.get('academic_year'), key(r)), []).append((path, r.get('program_key')))
+    for k, items in inv.items():
+        if k in cat:
+            errs.append(f'{items[0][0]}: inventory record {items[0][1]!r} duplicates catalog record {cat[k][0][1]!r}')
     for path, d, r in rows:
         if d == 'program_catalogs' and r.get('programs_complete') is True:
             missing = [k for k in r.get('listed_program_keys') or [] if (r['institution_key'], r['academic_year'], k) not in verified]
