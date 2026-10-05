@@ -74,6 +74,10 @@ TN={
    'https://lipscomb.edu/admissions/freshmen-admissions/scholars-programs/college-business-swang-scholars-program',
    'https://lipscomb.edu/admissions/freshmen-admissions/scholars-programs/raymond-b-jones-engineering-scholars-program','https://lipscomb.edu/engineering/engineering-scholarship',
    'https://www.lipscomb.edu/engineering/academic-programs/prospective-students','https://lipscomb.edu/one-stop/registrar-faqs']),
+ 'cn':dict(priority=2,render='browser',catalog={'platform':'coursedog','home':'https://catalog.cn.edu/','path_prefix':'/programs/','min_depth':0,
+   'program_lists':['https://catalog.cn.edu/programs']},policy=['https://catalog.cn.edu/academic-policies','https://catalog.cn.edu/admissions']),
+ 'lanecollege':dict(priority=3,render='browser',catalog={'platform':'coursedog','home':'https://catalog.lanecollege.edu/','path_prefix':'/programs/','min_depth':0,
+   'program_lists':['https://catalog.lanecollege.edu/programs']},policy=['https://catalog.lanecollege.edu/academics/academic-regulations']),
  'cbu':dict(priority=1,catalog=smart('cbu.smartcatalogiq.com','/en/2026-2027/catalog/',min_depth=1),policy=[
    'https://www.cbu.edu/academics/undergraduate-programs/electrical-engineering/','https://www.cbu.edu/academics/undergraduate-programs/traditional-bsn-nursing-program/',
    'https://www.cbu.edu/admissions-aid/financial-aid/types-of-financial-aid/scholarships/','https://www.cbu.edu/admissions-aid/financial-aid/types-of-financial-aid/scholarships/pascal-fellowship']),
@@ -137,7 +141,7 @@ EXTRA_DISCOVER={'up':['https://www.up.edu/registrar/index.html','https://www.up.
  'wou':['https://wou.edu/registrar/','https://wou.edu/academics/'],'corban':['https://www.corban.edu/registrar/catalog/'],
  'warnerpacific-210304':['https://www.warnerpacific.edu/academics/registrar/academic-catalog/'],
  'bushnell':['https://bushnell.edu/academics/academic-support/registrar/academic-catalog/']}
-DISCOVER={'TN':['cn','trevecca','southern','lmunet','cumberland','fhu','king','milligan','bryan','maryvillecollege','sewanee','fisk','tusculum','tnwesleyan','bethelu','lanecollege','loc','johnsonu','welch','baptistu'],
+DISCOVER={'TN':['trevecca','southern','lmunet','cumberland','fhu','king','milligan','bryan','maryvillecollege','sewanee','fisk','tusculum','tnwesleyan','bethelu','loc','johnsonu','welch','baptistu'],
  'OR':['wou','reed','pacificu','corban','bushnell','warnerpacific-210304','multnomah']}
 PRI={'up':1,'georgefox':1,'sou':2,'wou':2,'eou':2,'osucascades':2,'willamette-210401':2,'lclark':2,'reed':2,'linfield':2,'pacificu':2,'cn':2,'trevecca':2,'southern':2,'lmunet':2,'sewanee':2,'maryvillecollege':2}
 BLOCKED_EXTRA={'utk': ['https://advising.utk.edu/', 'https://www.utk.edu/academics/majors'], 'mtsu': ['https://www.mtsu.edu/advising/', 'https://www.mtsu.edu/programs/'], 'memphis': ['https://www.memphis.edu/advising/', 'https://www.memphis.edu/academics/'], 'etsu': ['https://www.etsu.edu/advisement/', 'https://www.etsu.edu/academics/'], 'utm': ['https://www.utm.edu/academics/majors-and-programs', 'https://www.utm.edu/offices/advising'], 'belmont': ['https://www.belmont.edu/academics/majors-programs/'], 'lipscomb': ['https://www.lipscomb.edu/academics'], 'leeuniversity': ['https://www.leeuniversity.edu/academics/']}
