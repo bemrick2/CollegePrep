@@ -1,0 +1,69 @@
+name: Program research (deep dive)
+
+# Program & Degree Deep Dive retrieval, separate from the national first-pass pipeline
+# (research-pipeline.yml). Fetches official catalog program lists, program pages, degree maps and
+# program-admission policy pages for programs/targets/<STATE>.json, extracts candidates and evidence,
+# and commits the run back to the same branch. Never imports data; promotion is a reviewed PR.
+#
+# Trigger: push to a program-run/** branch carrying programs/run-request.json
+#   {"state": "TN", "run_id": "2026-10-05-a", "only": ["utk", "mtsu"]}
+# A re-push with the same run_id resumes the run (fetched URLs are skipped).
+on:
+  push:
+    branches: ['program-run/**']
+    paths: ['programs/run-request.json']
+
+concurrency:
+  group: program-research-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install PDF text tools and the headless browser for JavaScript catalogs
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+          pip install -q 'pypdf>=4,<6' 'playwright==1.47.0'
+          python -m playwright install --with-deps chromium
+      - name: Resolve run parameters
+        id: p
+        shell: bash
+        run: |
+          req=programs/run-request.json
+          state=$(python -c "import json;print(json.load(open('$req'))['state'].upper())")
+          only=$(python -c "import json;print(' '.join(json.load(open('$req')).get('only',[])))")
+          rid=$(python -c "import json;print(json.load(open('$req'))['run_id'])")
+          echo "state=$state" >> "$GITHUB_OUTPUT"; echo "only=$only" >> "$GITHUB_OUTPUT"
+          echo "dir=programs/runs/$state/$rid" >> "$GITHUB_OUTPUT"
+          echo "branch=${GITHUB_REF#refs/heads/}" >> "$GITHUB_OUTPUT"
+      - name: Crawl (resumable)
+        timeout-minutes: 240
+        run: |
+          python -m programs crawl --state "${{ steps.p.outputs.state }}" --run "${{ steps.p.outputs.dir }}" \
+            ${{ steps.p.outputs.only && format('--only {0}', steps.p.outputs.only) || '' }}
+      - name: Extract candidates and evidence
+        if: always()
+        run: python -m programs extract --state "${{ steps.p.outputs.state }}" --run "${{ steps.p.outputs.dir }}"
+      - name: Commit the run
+        if: always()
+        shell: bash
+        run: |
+          git config user.name "collegeprep-program-research[bot]"
+          git config user.email "noreply@github.com"
+          git add -f "${{ steps.p.outputs.dir }}"
+          git commit -q -m "Program research run ${{ steps.p.outputs.dir }} (workflow run ${{ github.run_id }})" || exit 0
+          for i in 1 2 3; do git pull -q --rebase origin "${{ steps.p.outputs.branch }}" && git push -q origin "HEAD:${{ steps.p.outputs.branch }}" && break; sleep 5; done
+      - name: Summary
+        if: always()
+        run: |
+          f="${{ steps.p.outputs.dir }}/review.md"
+          [ -f "$f" ] && head -c 60000 "$f" >> "$GITHUB_STEP_SUMMARY" || true

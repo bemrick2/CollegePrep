@@ -1,0 +1,250 @@
+"""Targeted program-depth retrieval for `programs/targets/<STATE>.json`.
+
+Unlike the national first-pass crawl (topic-ranked, ~45 pages per school), this crawl is driven by
+the catalog platform: it enumerates the current catalog's complete program list and program pages,
+degree-map indexes and their documents, and the program-admission / undeclared / change-of-major /
+major-scholarship pages a reviewer named. Each fetched URL is recorded with a `role`.
+
+Reused unchanged from `pipeline/crawl.py`: Fetcher (robots.txt, per-host delay, challenge backoff;
+challenges are recorded, never evaded), Run (manifest.jsonl + content-addressed parsed pages),
+parse_document and requote. The crawl is resumable: URLs already in the manifest are skipped.
+
+JavaScript-rendered catalogs (Coursedog, Kuali) are fetched through a headless browser only when a
+target says `"render": "browser"`. Rendering is not challenge evasion: robots.txt is still honoured
+and a challenge or error page is recorded as such.
+"""
+from __future__ import annotations
+import hashlib, re, threading
+from concurrent.futures import ThreadPoolExecutor
+from urllib.parse import urlsplit, parse_qs
+
+from pipeline.crawl import Fetcher, HostGate, Run, parse_document, requote, now
+from pipeline.registry import registrable_domain
+
+ROLES = ('catalog_home', 'catalog_nav', 'program_list', 'program_page', 'degree_map_index', 'degree_map',
+         'policy', 'policy_link', 'state_source', 'discover')
+
+POLICY_LINK = re.compile(
+    r'(direct[\s-]*admi|admission[s]?\s+(to|into)\s+(the\s+)?(major|program|college|school|nursing|engineering|business)|'
+    r'pre[\s-]?(nursing|engineering|business|major|professional)|progression|upper[\s-]*division\s+admission|'
+    r'apply\s+to\s+the\s+(major|program)|undeclared|undecided|exploratory|exploring\s+majors?|change\s+(of|your)\s+major|'
+    r'changing\s+majors?|declar(e|ing)\s+(a|your)\s+major|internal\s+transfer|intra[\s-]*university|major\s+change|'
+    r'four[\s-]*year\s+plan|4[\s-]*year\s+plan|degree\s+maps?|academic\s+maps?|program\s+maps?|plans?\s+of\s+study|'
+    r'scholarships?)', re.I)
+DISCOVER_LINK = re.compile(r'(catalog|catalogue|bulletin|majors|degrees|programs|academics)', re.I)
+DEGREE_MAP_LINK = re.compile(r'(map|plan|path|pathway|four[\s_-]*year|4[\s_-]*year|finish|sequence|curricul|worksheet|checksheet|flowchart)', re.I)
+SKIP_PATH = re.compile(r'/(search|course-search|courses?|coursesaz|azindex|archive|archives|pdf|print|login|calendar)(/|$)|'
+                       r'preview_course|preview_entity|acalog-api|\.(jpg|png|gif|css|js|zip|docx?)$', re.I)
+
+
+def host_of(url):
+    h = urlsplit(url).netloc.lower().split(':')[0]
+    return h[4:] if h.startswith('www.') else h
+
+
+def in_scope(target, url):
+    """Official hosts only: the institution's registrable domains plus explicitly listed catalog hosts."""
+    h = host_of(url)
+    if any(h == x or h.endswith('.' + x) for x in target.get('hosts', [])): return True
+    return registrable_domain(h) in set(target.get('domains', []))
+
+
+def canonical(url):
+    url = requote(url.split('#')[0])
+    if 'preview_program.php' in url or 'content.php' in url:  # Acalog: returnto/print params duplicate pages
+        p = urlsplit(url); q = parse_qs(p.query)
+        keep = '&'.join(f'{k}={q[k][0]}' for k in ('catoid', 'poid', 'navoid') if k in q)
+        url = f'{p.scheme}://{p.netloc}{p.path}?{keep}'
+    return url
+
+
+def program_rule(target):
+    """Predicate for a current-catalog program page URL, by platform."""
+    cat = target.get('catalog') or {}
+    plat = cat.get('platform'); custom = cat.get('program_link')
+    if custom:
+        rx = re.compile(custom); return lambda u: bool(rx.search(u)) and not SKIP_PATH.search(urlsplit(u).path)
+    if plat == 'acalog':
+        rx = re.compile(r'preview_program\.php\?catoid=%s&poid=\d+' % re.escape(str(cat.get('catoid'))))
+        return lambda u: bool(rx.search(u))
+    if plat in ('courseleaf', 'smartcatalog', 'coursedog', 'kuali', 'drupal'):
+        prefix = cat.get('path_prefix', '/'); chost = host_of(cat.get('home', ''))
+        def rule(u):
+            p = urlsplit(u)
+            if host_of(u) != chost or not p.path.startswith(prefix) or SKIP_PATH.search(p.path): return False
+            rest = p.path[len(prefix):].strip('/')
+            return rest.count('/') >= (cat.get('min_depth', 1))
+        return rule
+    return lambda u: False
+
+
+def nav_rule(target):
+    """Catalog navigation pages worth expanding to find program lists (Acalog content.php of the current catoid,
+    SmartCatalog / Coursedog section pages under the current catalog's path)."""
+    cat = target.get('catalog') or {}
+    if cat.get('platform') == 'acalog':
+        rx = re.compile(r'content\.php\?catoid=%s&navoid=\d+' % re.escape(str(cat.get('catoid'))))
+        return lambda u: bool(rx.search(u))
+    if cat.get('platform') == 'smartcatalog':
+        prefix = cat.get('path_prefix', '/'); chost = host_of(cat.get('home', ''))
+        return lambda u: host_of(u) == chost and urlsplit(u).path.startswith(prefix) and not SKIP_PATH.search(urlsplit(u).path)
+    return lambda u: False
+
+
+class BrowserFetcher:
+    """Rendered HTML for JavaScript catalogs via Playwright (installed only in the Actions job).
+    Same contract as pipeline.crawl.Fetcher.fetch: (meta, body). Robots and politeness come from `base`."""
+    def __init__(self, base: Fetcher):
+        self.base = base; self.lock = threading.Lock(); self._pw = None; self._browser = None
+
+    def _ensure(self):
+        if self._browser is None:
+            from playwright.sync_api import sync_playwright  # noqa: deferred import, optional dependency
+            self._pw = sync_playwright().start()
+            self._browser = self._pw.chromium.launch()
+
+    def fetch(self, url):
+        if not self.base.allowed(url):
+            return {'status': None, 'error': 'disallowed_by_robots'}, None
+        host = urlsplit(url).netloc.lower()
+        with self.lock:  # one browser page at a time keeps the load equal to a person reading
+            entry = self.base.gate.wait(host)
+            try:
+                self._ensure()
+                page = self._browser.new_page(user_agent='CollegePrepResearchBot/1.0 (+https://github.com/bemrick2/collegeprep; official-source research)')
+                try:
+                    resp = page.goto(url, wait_until='networkidle', timeout=60000)
+                    page.wait_for_timeout(1500)
+                    status = resp.status if resp else None
+                    body = page.content().encode('utf-8')
+                    final = page.url
+                finally:
+                    page.close()
+            except Exception as exc:
+                return {'status': None, 'error': f'render_exception:{type(exc).__name__}: {exc}'[:300]}, None
+            finally:
+                HostGate.done(entry)
+        meta = {'status': status, 'final_url': final, 'content_type': 'text/html; rendered', 'bytes': len(body), 'rendered': True}
+        if status != 200:
+            meta['error'] = 'blocked_forbidden' if status == 403 else f'http_{status}'
+            return meta, None
+        meta['sha256'] = hashlib.sha256(body).hexdigest()
+        return meta, body
+
+    def close(self):
+        if self._browser: self._browser.close(); self._pw.stop()
+
+
+def crawl_target(target, run: Run, fetcher, browser=None, log=print, caps=None):
+    caps = {'program_page': 450, 'catalog_nav': 30, 'degree_map': 250, 'policy_link': 40, 'discover': 25, **(caps or {}),
+            **(target.get('caps') or {})}
+    key = target['institution_key']
+    seen = {e['url'] for e in run.entries() if e.get('institution_key') == key}
+    counts = {}
+    for e in run.entries():
+        if e.get('institution_key') == key: counts[e.get('role')] = counts.get(e.get('role'), 0) + 1
+    is_program, is_nav = program_rule(target), nav_rule(target)
+    render = target.get('render') == 'browser' and browser is not None
+    cat = target.get('catalog') or {}
+    chost = host_of(cat.get('home', '')) if cat.get('home') else None
+    queue = []  # FIFO by stage keeps lists before pages
+
+    def push(url, role, via, depth=0):
+        url = canonical(url)
+        if not url.startswith('https://') and not url.startswith('http://'): return
+        if url in seen or not in_scope(target, url): return
+        if role in caps and counts.get(role, 0) >= caps[role]: return
+        seen.add(url); counts[role] = counts.get(role, 0) + 1
+        queue.append((url, role, via, depth))
+
+    if cat.get('home'): push(cat['home'], 'catalog_home', 'target')
+    for u in cat.get('program_lists', []): push(u, 'program_list', 'target')
+    for u in target.get('degree_maps', []): push(u, 'degree_map_index', 'target')
+    for u in target.get('policy', []): push(u, 'policy', 'target')
+    for u in target.get('discover', []): push(u, 'discover', 'target')
+    # Resume: re-expand stored pages' links
+    for e in run.entries():
+        if e.get('institution_key') == key and e.get('page_file'):
+            _, d = run.load_page(e['page_file'])
+            expand(target, e['role'], e['url'], [tuple(x) for x in d.get('links', [])], push, is_program, is_nav, e.get('depth', 0))
+
+    i = 0
+    while i < len(queue):
+        url, role, via, depth = queue[i]; i += 1
+        use_browser = render and chost and host_of(url) == chost and role in ('catalog_home', 'catalog_nav', 'program_list', 'program_page')
+        try:
+            meta, body = (browser if use_browser else fetcher).fetch(url)
+        except Exception as exc:
+            meta, body = {'status': None, 'error': f'fetch_exception:{type(exc).__name__}: {exc}'[:300]}, None
+        entry = {'institution_key': key, 'url': url, 'role': role, 'via': via, 'depth': depth, 'fetched_at': now(), **meta}
+        if body is not None:
+            try:
+                kind, page = parse_document(meta.get('final_url') or url, meta.get('content_type'), body)
+            except Exception as exc:
+                kind, page = 'error', None; entry['error'] = f'parse_exception:{type(exc).__name__}: {exc}'[:300]
+            entry['kind'] = kind
+            if page is None:
+                entry.setdefault('error', 'unparsed_' + kind)
+            else:
+                entry['title'] = (page.title or '')[:200]
+                links = [(canonical(h), (a or '')[:200]) for h, a in page.links if in_scope(target, h)]
+                entry['page_file'] = run.save_page(meta['sha256'], kind, page, links)
+                expand(target, role, url, links, push, is_program, is_nav, depth)
+        run.record(entry)
+    log(f"{key}: {len(queue)} fetched {dict(sorted(counts.items()))}")
+    return len(queue)
+
+
+def expand(target, role, url, links, push, is_program, is_nav, depth):
+    """Which links of a fetched page to follow, by the page's role."""
+    for href, anchor in links:
+        if role in ('catalog_home', 'catalog_nav', 'program_list'):
+            if is_program(href): push(href, 'program_page', url, depth + 1)
+            elif is_nav(href) and depth < 3: push(href, 'catalog_nav', url, depth + 1)
+        elif role == 'degree_map_index':
+            path = urlsplit(href).path.lower()
+            if (path.endswith('.pdf') and (DEGREE_MAP_LINK.search(href) or DEGREE_MAP_LINK.search(anchor or '')
+                                           or target.get('degree_map_any_pdf'))) or \
+               (target.get('degree_map_link') and re.search(target['degree_map_link'], href)):
+                push(href, 'degree_map', url, depth + 1)
+        elif role == 'policy' and depth == 0:
+            if POLICY_LINK.search(anchor or '') or POLICY_LINK.search(urlsplit(href).path.replace('-', ' ')):
+                push(href, 'policy_link', url, depth + 1)
+        elif role == 'discover' and depth < 1:
+            if DISCOVER_LINK.search(anchor or '') or DISCOVER_LINK.search(urlsplit(href).netloc + urlsplit(href).path):
+                push(href, 'discover', url, depth + 1)
+            elif POLICY_LINK.search(anchor or ''):
+                push(href, 'policy_link', url, depth + 1)
+
+
+def crawl(targets, run_dir, only=None, workers=8, delay=1.0, log=print, use_browser=True):
+    run = Run(run_dir)
+    fetcher = Fetcher(delay=delay)
+    sel = [t for t in targets['institutions'] if not only or t['institution_key'] in only or t['folder'] in only]
+    browser = None
+    if use_browser and any(t.get('render') == 'browser' for t in sel):
+        try:
+            import playwright  # noqa: F401
+            browser = BrowserFetcher(fetcher)
+        except ImportError:
+            log('playwright not installed: browser-rendered targets fetch their static HTML only')
+    state = {'institution_key': f"state-{targets['state']}", 'folder': 'state', 'domains': [],
+             'hosts': sorted({host_of(s['url']) for s in targets.get('state_sources', [])}),
+             'policy': [s['url'] for s in targets.get('state_sources', [])]}
+    if state['policy'] and not only: sel = sel + [state]
+
+    def one(t):
+        try:
+            return crawl_target(t, run, fetcher, browser=browser, log=log)
+        except Exception as exc:
+            run.record({'institution_key': t['institution_key'], 'url': '', 'role': 'error', 'fetched_at': now(),
+                        'error': f'institution_exception:{type(exc).__name__}: {exc}'[:300]})
+            log(f"{t['institution_key']}: stopped by {type(exc).__name__}: {exc}")
+    # Browser-rendered targets share one browser; run them after the static ones, sequentially.
+    static = [t for t in sel if not (t.get('render') == 'browser' and browser)]
+    rendered = [t for t in sel if t.get('render') == 'browser' and browser]
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        list(pool.map(one, static))
+    for t in rendered: one(t)
+    if browser: browser.close()
+    return run

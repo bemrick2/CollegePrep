@@ -1,0 +1,385 @@
+{
+ "state": "OR",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-208822",
+   "folder": "georgefox",
+   "name": "George Fox University",
+   "control": "private_nonprofit",
+   "domains": [
+    "georgefox.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.georgefox.edu/",
+    "https://catalog.georgefox.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-209506",
+   "folder": "oit",
+   "name": "Oregon Institute of Technology",
+   "control": "public",
+   "domains": [
+    "oit.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "render": "browser",
+   "catalog": {
+    "platform": "coursedog",
+    "home": "https://catalog.oit.edu/",
+    "path_prefix": "/programs/",
+    "min_depth": 0,
+    "program_lists": [
+     "https://catalog.oit.edu/programs"
+    ]
+   },
+   "policy": [
+    "https://www.oit.edu/academics/degrees",
+    "https://www.oit.edu/academics/degrees/nursing",
+    "https://www.oit.edu/admissions/criteria",
+    "https://www.oit.edu/college-costs/scholarships/new-transfer-student/engineering-honors-scholarship"
+   ]
+  },
+  {
+   "institution_key": "ipeds-209542",
+   "folder": "oregonstate",
+   "name": "Oregon State University",
+   "control": "public",
+   "domains": [
+    "oregonstate.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "platform": "courseleaf",
+    "home": "https://catalog.oregonstate.edu/",
+    "path_prefix": "/college-departments/",
+    "min_depth": 1,
+    "program_lists": [
+     "https://catalog.oregonstate.edu/programs/"
+    ]
+   },
+   "policy": [
+    "https://admissions.oregonstate.edu/uesp",
+    "https://catalog.oregonstate.edu/college-departments/engineering/",
+    "https://catalog.oregonstate.edu/college-departments/business/",
+    "https://catalog.oregonstate.edu/regulations/regulations.pdf",
+    "https://engineering.oregonstate.edu/about/curriculum-reform",
+    "https://engineering.oregonstate.edu/tools-services/how-to-pay-for-college/undergrad-scholarships",
+    "https://engineering.oregonstate.edu/tools-services/financial-support/scholarships/catalyst-scholars-program",
+    "https://admissions.oregonstate.edu/first-year-admission-requirements"
+   ]
+  },
+  {
+   "institution_key": "ipeds-209807",
+   "folder": "pdx",
+   "name": "Portland State University",
+   "control": "public",
+   "domains": [
+    "pdx.edu"
+   ],
+   "hosts": [
+    "pdx.smartcatalogiq.com"
+   ],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "platform": "smartcatalog",
+    "home": "https://pdx.smartcatalogiq.com/en/2026-2027/bulletin/",
+    "path_prefix": "/en/2026-2027/bulletin/",
+    "min_depth": 1,
+    "program_lists": [
+     "https://pdx.smartcatalogiq.com/en/2026-2027/bulletin/programs-of-study"
+    ]
+   },
+   "policy": [
+    "https://www.pdx.edu/advising/exploring-changing-majors",
+    "https://www.pdx.edu/business/undergrad-degree-requirements",
+    "https://www.pdx.edu/business/undergrad-funding",
+    "https://www.pdx.edu/computer-science/undergraduate-admission",
+    "https://www.pdx.edu/engineering/scholarships-funding",
+    "https://www.pdx.edu/registration/major-change",
+    "https://www.pdx.edu/engineering/upper-division-admissions",
+    "https://www.pdx.edu/psychology/program-details-psychology-babsminor"
+   ],
+   "degree_maps": [
+    "https://www.pdx.edu/registration/degree-maps"
+   ],
+   "degree_map_link": "pdx\\.edu/registration/.+-degree-map"
+  },
+  {
+   "institution_key": "ipeds-209551",
+   "folder": "uoregon",
+   "name": "University of Oregon",
+   "control": "public",
+   "domains": [
+    "uoregon.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "platform": "courseleaf",
+    "home": "https://catalog.uoregon.edu/",
+    "program_link": "catalog\\.uoregon\\.edu/.+/ug-[^/]+/?$",
+    "program_lists": [
+     "https://catalog.uoregon.edu/ug-programs/"
+    ]
+   },
+   "policy": [
+    "https://advising.uoregon.edu/content/choose-your-major",
+    "https://business.uoregon.edu/programs/undergraduate/apply",
+    "https://business.uoregon.edu/programs/undergraduate/apply/scholarships-funding/lundquist-scholarships",
+    "https://business.uoregon.edu/programs/undergraduate/apply/standard-admission/full-major-status",
+    "https://cs.uoregon.edu/undergraduate"
+   ]
+  },
+  {
+   "institution_key": "ipeds-209825",
+   "folder": "up",
+   "name": "University of Portland",
+   "control": "private_nonprofit",
+   "domains": [
+    "up.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.up.edu/",
+    "https://catalog.up.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-208646",
+   "folder": "eou",
+   "name": "Eastern Oregon University",
+   "control": "public",
+   "domains": [
+    "eou.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.eou.edu/",
+    "https://catalog.eou.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-209056",
+   "folder": "lclark",
+   "name": "Lewis & Clark College",
+   "control": "private_nonprofit",
+   "domains": [
+    "lclark.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.lclark.edu/",
+    "https://catalog.lclark.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-209065",
+   "folder": "linfield",
+   "name": "Linfield University",
+   "control": "private_nonprofit",
+   "domains": [
+    "linfield.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.linfield.edu/",
+    "https://catalog.linfield.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-440828",
+   "folder": "osucascades",
+   "name": "Oregon State University-Cascades Campus",
+   "control": "public",
+   "domains": [
+    "osucascades.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://osucascades.edu/",
+    "https://catalog.osucascades.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-209612",
+   "folder": "pacificu",
+   "name": "Pacific University",
+   "control": "private_nonprofit",
+   "domains": [
+    "pacificu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.pacificu.edu/",
+    "https://catalog.pacificu.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-209922",
+   "folder": "reed",
+   "name": "Reed College",
+   "control": "private_nonprofit",
+   "domains": [
+    "reed.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.reed.edu/",
+    "https://catalog.reed.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-210146",
+   "folder": "sou",
+   "name": "Southern Oregon University",
+   "control": "public",
+   "domains": [
+    "sou.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.sou.edu/",
+    "https://catalog.sou.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-210429",
+   "folder": "wou",
+   "name": "Western Oregon University",
+   "control": "public",
+   "domains": [
+    "wou.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://wou.edu/",
+    "https://catalog.wou.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-210401",
+   "folder": "willamette-210401",
+   "name": "Willamette University",
+   "control": "private_nonprofit",
+   "domains": [
+    "willamette.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.willamette.edu/",
+    "https://catalog.willamette.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-209409",
+   "folder": "bushnell",
+   "name": "Bushnell University",
+   "control": "private_nonprofit",
+   "domains": [
+    "bushnell.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.bushnell.edu/",
+    "https://catalog.bushnell.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-210331",
+   "folder": "corban",
+   "name": "Corban University",
+   "control": "private_nonprofit",
+   "domains": [
+    "corban.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.corban.edu/",
+    "https://catalog.corban.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-209287",
+   "folder": "multnomah",
+   "name": "Multnomah University",
+   "control": "private_nonprofit",
+   "domains": [
+    "multnomah.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.multnomah.edu/",
+    "https://catalog.multnomah.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-210304",
+   "folder": "warnerpacific-210304",
+   "name": "Warner Pacific University",
+   "control": "private_nonprofit",
+   "domains": [
+    "warnerpacific.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.warnerpacific.edu/",
+    "https://catalog.warnerpacific.edu/"
+   ],
+   "policy": []
+  }
+ ]
+}
