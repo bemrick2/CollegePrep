@@ -185,6 +185,9 @@ MUTS = [
     ('pipeline/extractors/costs.py', '(a\\s+)?(parents?|family)|', '(a\\s+)?parents?|'),
     ('pipeline/extractors/transfer.py', 'unaccredited|high\\s+school|', 'unaccredited|'),
 ]
+TIMEOUT = 90
+
+
 def run_one(root, mut):
     """Apply one mutant inside a private copy of the tree, run the suite there, restore it."""
     f, old, new = mut
@@ -194,7 +197,7 @@ def run_one(root, mut):
     try:
         open(path, 'w').write(original.replace(old, new, 1))
         try:
-            r = subprocess.run([sys.executable, '-m', 'unittest', 'tests.test_pipeline'], cwd=root, capture_output=True, text=True, timeout=90)
+            r = subprocess.run([sys.executable, '-m', 'unittest', 'tests.test_pipeline'], cwd=root, capture_output=True, text=True, timeout=TIMEOUT)
             return 'KILLED ' if r.returncode else 'SURVIVED'
         except subprocess.TimeoutExpired:
             return 'TIMEOUT'
@@ -205,7 +208,10 @@ def run_one(root, mut):
 def main():
     for f, old, _ in MUTS:  # a stale entry fails fast, before any copy or test run
         assert old in open(f).read(), (f, old)
+    global TIMEOUT
     workers = max(1, int(os.environ.get('MUTATION_WORKERS') or os.cpu_count() or 1))
+    # Parallel suites share the CPU, so each one runs slower; the per-mutant budget scales with the worker count.
+    TIMEOUT = int(os.environ.get('MUTATION_TIMEOUT') or 90 * workers)
     tmp = tempfile.mkdtemp(prefix='mutation-')
     skip = shutil.ignore_patterns('.git', 'node_modules', '__pycache__', 'runs')
     roots = queue.Queue()
@@ -222,7 +228,10 @@ def main():
         with concurrent.futures.ThreadPoolExecutor(workers) as pool:
             for (f, old, _), verdict in pool.map(job, MUTS):
                 print(verdict, f, old[:60], flush=True)
-                failed = failed or verdict != 'KILLED '
+                if verdict != 'KILLED ':
+                    failed = True
+                    # A workflow command, so the surviving mutant shows as a check annotation, not only in the raw log.
+                    print(f'::error file={f}::mutant {verdict.strip()}: {old[:120]!r}', flush=True)
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
     sys.exit(1 if failed else 0)
