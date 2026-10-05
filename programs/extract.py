@@ -82,6 +82,7 @@ YEAR_LABEL = re.compile(r'\b(20\d{2})\s*[-–]\s*(20\d{2})\s+(?:Undergraduate\s+
 
 LABEL_FIRST = re.compile(r'(?:Catalog|Catalogue|Bulletin)\s+(20\d{2})\s*[-–]\s*(20\d{2})(?=\s*(?:>|$))', re.I)
 EDITION = re.compile(r'(20\d{2})\s*[-–]\s*(\d{2})\s+Edition', re.I)
+NOT_CURRENT = re.compile(r'\[?\s*(not current|archived?)\b', re.I)  # Acalog selector: "2025-2026 Academic Catalog [NOT CURRENT CATALOGS]"
 ARCHIVE_LINK = re.compile(r'\s*(?:Download\s+)?PDF of\b', re.I)  # "PDF of the entire 2025-2026 Catalog": a download link, not this page's label
 
 
@@ -90,7 +91,7 @@ def printed_catalog_years(page):
     "2026-2027 Bulletin > ..." in a SmartCatalog breadcrumb), excluding 'Select a Catalog' archive menus."""
     found = set()
     for line in page.lines:
-        if len(line) > 160 or ARCHIVE_LINK.match(line): continue
+        if len(line) > 160 or ARCHIVE_LINK.match(line) or NOT_CURRENT.search(line): continue
         for m in YEAR_LABEL.finditer(line):
             if int(m.group(2)) == int(m.group(1)) + 1: found.add((f'{m.group(1)}-{m.group(2)}', line.strip()))
         m = LABEL_FIRST.match(line.strip())  # Linfield header "Catalog 2026-2027"; UP breadcrumb "Bulletin 2026-2027 > ..."
@@ -306,6 +307,44 @@ def printed_list_candidates(target, inst, run, es, today_year):
         out.append(common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec,
                                [{'field': 'program_name', 'value': name, 'snippet': name}, {'field': 'catalog_year', 'value': year, 'snippet': line[:200]}],
                                le, 'printed_list/v1', {'program_key': key}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}']))
+    return out
+
+
+AWARD_HEADING = re.compile(r'^(Bachelor of [A-Z][a-z]+(?:\s*/\s*Bachelor of [A-Z][a-z]+)*)$')
+
+
+def award_heading_candidates(inst, entry, page, today_year):
+    """Acalog college pages that list each department's programs under the award they lead to (Eastern Oregon:
+    'Bachelor of Arts/Bachelor of Science' / '•' / 'Art Major'). Each bulleted name under a bachelor's award heading
+    becomes a program record named as printed; concentrations, minors and certificates are not programs. The catalog
+    year is the page's current-catalog label (archived selector entries are marked [NOT CURRENT CATALOGS])."""
+    labels = printed_catalog_years(page)
+    if len({y for y, _ in labels}) != 1: return []
+    year, yline = min(labels); acad = f'{year[:4]}-{year[7:9]}'
+    lines = [l.strip() for l in page.lines]
+    by_text = defaultdict(set)
+    for u, txt in page.links:
+        if txt.strip(): by_text[txt.strip()].add(u)
+    out, seen = [], set()
+    i = 0
+    while i < len(lines):
+        m = AWARD_HEADING.match(lines[i])
+        if not m: i += 1; continue
+        award = m.group(1); j = i + 1
+        while j + 1 < len(lines) and lines[j] == '•':
+            name = lines[j + 1]; j += 2
+            if OPTION_NAME.search(name) or re.search(r'\b(minor|certificate|concentration)\b|\bw/', name, re.I) or name in seen: continue
+            urls = by_text.get(name, set())
+            if len(urls) != 1: continue  # the program's own catalog page must be linked from the name
+            seen.add(name)
+            url = next(iter(urls)); key = CAT.slug(name)
+            rec = {'program_key': key, 'program_name': name, 'credential_level': 'bachelor', 'catalog_year': year, 'program_url': url,
+                   'notes': f'Listed under "{award}" on the catalog college page.'}
+            out.append(common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec,
+                                   [{'field': 'program_name', 'value': name, 'snippet': name}, {'field': 'credential_level', 'value': 'bachelor', 'snippet': award},
+                                    {'field': 'catalog_year', 'value': year, 'snippet': yline[:200]}],
+                                   entry, 'award_heading/v1', {'program_key': key}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}']))
+        i = j
     return out
 
 
@@ -602,6 +641,9 @@ def extract_run(targets, run_dir, today=None):
                 for c in thec_candidates(inst, e, rows, today_year):
                     c['program_role'] = 'state_inventory'; cands.append(c); n_c += 1
                 continue
+            if e.get('role') == 'catalog_nav' and (t.get('catalog') or {}).get('platform') == 'acalog':
+                for c in award_heading_candidates(inst, e, page, today_year):
+                    c['program_role'] = 'program_list'; cands.append(c); n_c += 1
             if e.get('role') == 'program_page':
                 found = program_page_candidates(t, inst, e, page, today_year)
                 if any(is_option_page(c) for c in found): found = []  # the option's rows belong to its major
