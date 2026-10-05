@@ -25,6 +25,19 @@ def code_in(text, code):
     return re.search(rf'\b{re.escape(subj)}\s?{re.escape(num)}\b', text, re.I) is not None
 
 
+def segmented(s, squashed, min_piece=6):
+    """True when s (letters and digits only) splits into consecutive pieces of at least min_piece characters (or the
+    whole remainder) that each occur in the squashed document text: a title wrapped across lines of a two-column page
+    is printed in pieces between the other column's text."""
+    i = 0
+    while i < len(s):
+        j = len(s)
+        while j > i and s[i:j] not in squashed: j -= 1
+        if j == i or (j - i < min_piece and j < len(s)): return False
+        i = j
+    return True
+
+
 def check_candidate(c, text, other=None):
     probs = []
     r = c['record']; t = norm(text); squashed = squash(text)
@@ -47,14 +60,17 @@ def check_candidate(c, text, other=None):
             probs.append('total_credits not printed next to a total label')
     else:
         rd = r.get('rule_details', {})
+        wrapped = c.get('extractor') == 'clearpath_plan/v1'  # two-column PDF: wrapped titles are printed in pieces
         items = list(rd.get('courses', []))
         for term in rd.get('terms', []) or []:
             items += [i for i in term.get('items', []) if isinstance(i, dict)]
         for i in items:
             for f in ('text', 'milestone'):  # printed text rows and milestone cells (UO degree maps)
-                if i.get(f) and squash(i[f]) not in squashed: probs.append(f"{f} of an item not verbatim")
+                if i.get(f) and squash(i[f]) not in squashed and not (wrapped and segmented(squash(i[f]), squashed)):
+                    probs.append(f"{f} of an item not verbatim")
             if 'code' in i and not code_in(text, i['code']): probs.append(f"course {i['code']} not in source")
-            elif i.get('title') and not all(squash(part) in squashed for part in re.split(r'\s*\(', i['title'][:80]) if squash(part)):
+            elif i.get('title') and not all(squash(part) in squashed for part in re.split(r'\s*\(', i['title'][:80]) if squash(part)) \
+                    and not (wrapped and segmented(squash(i['title']), squashed)):
                 # PDF plans print a gen-ed tag such as "(Quantitative Reasoning)" on the next line; each part must be printed
                 probs.append(f"title of {i.get('code')} not verbatim")
         if r.get('minimum_credits') is not None and not re.search(rf'\b{int(r["minimum_credits"])}\b', text): probs.append('minimum_credits not printed')
