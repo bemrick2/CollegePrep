@@ -330,7 +330,7 @@ function PathCard({
         </Route>
 
         <Route icon={<Wallet size={16} />} title="Ways to lower this cost">
-          <CostLeverList levers={levers} />
+          <CostLeverList levers={levers} max={primary ? undefined : 3} expandable />
           <p className="mt-2 text-xs text-ink-3">
             From {name}'s verified records. Awards may not combine and aid depends on family finances, so no total is estimated.
           </p>
