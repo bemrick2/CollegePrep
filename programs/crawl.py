@@ -264,9 +264,11 @@ def crawl(targets, run_dir, only=None, workers=8, delay=1.0, log=print, use_brow
             browser = BrowserFetcher(fetcher)
         except ImportError:
             log('playwright not installed: browser-rendered targets fetch their static HTML only')
+    adapters = [s for s in targets.get('state_sources', []) if s.get('adapter')]
+    plain_sources = [s for s in targets.get('state_sources', []) if not s.get('adapter')]
     state = {'institution_key': f"state-{targets['state']}", 'folder': 'state', 'domains': [],
-             'hosts': sorted({host_of(s['url']) for s in targets.get('state_sources', [])}),
-             'policy': [s['url'] for s in targets.get('state_sources', [])]}
+             'hosts': sorted({host_of(s['url']) for s in plain_sources}),
+             'policy': [s['url'] for s in plain_sources]}
     if state['policy'] and not only: sel = sel + [state]
 
     def one(t):
@@ -282,5 +284,15 @@ def crawl(targets, run_dir, only=None, workers=8, delay=1.0, log=print, use_brow
     with ThreadPoolExecutor(max_workers=workers) as pool:
         list(pool.map(one, static))
     for t in rendered: one(t)
+    for a in adapters:
+        if a['adapter'] == 'thec_api':
+            from . import thec
+            names = {t['institution_key']: t['name'] for t in targets['institutions']
+                     if t.get('control') == 'public' and (not only or t['institution_key'] in only or t['folder'] in only)}
+            try:
+                thec.crawl(run, fetcher, names, log=log)
+            except Exception as exc:
+                run.record({'institution_key': f"state-{targets['state']}", 'url': a['url'], 'role': 'error', 'fetched_at': now(),
+                            'error': f'adapter_exception:{type(exc).__name__}: {exc}'[:300]})
     if browser: browser.close()
     return run

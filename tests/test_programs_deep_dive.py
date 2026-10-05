@@ -182,3 +182,38 @@ class DeepDiveEdgeTests(unittest.TestCase):
     def test_overlong_text_is_not_a_sentence(self):
         page = type('P', (), {'lines': ['Students are admitted directly to the major ' + 'x' * 700]})()
         self.assertEqual(list(X.sentences(page)), [])
+
+
+class ThecAdapterTests(unittest.TestCase):
+    """programs/thec.py: same requests the public search page makes; responses stored with hashes; names matched exactly
+    after normalisation (never fuzzily)."""
+    def test_inventory_requests_and_storage(self):
+        import io, json as J
+        from programs import thec
+        from pipeline.crawl import HostGate
+        calls = []
+        class Resp(io.BytesIO):
+            status = 200
+            def __enter__(self): return self
+            def __exit__(self, *a): pass
+        class Opener:
+            def open(self, req, timeout=None):
+                calls.append((req.get_method(), req.full_url, req.data))
+                if 'GetInstitutionList' in req.full_url:
+                    return Resp(J.dumps([{'InstitutionName': 'University of Tennessee, Knoxville', 'InstitutionId': 7}]).encode())
+                body = J.loads(req.data)
+                assert body['InstitutionId'] == 7 and body['IsActiveChecked'] is True
+                return Resp(J.dumps(J.dumps({'ProgramList': [{'MajorName': 'Mechanical Engineering', 'Award': 'BS', 'MajorCipCode': '14.1901'}]})).encode())
+        class F:
+            gate = HostGate(0); opener = Opener()
+            def allowed(self, url): return True
+        with tempfile.TemporaryDirectory() as d:
+            run = C.Run(Path(d))
+            thec.crawl(run, F(), {'utk': 'The University of Tennessee-Knoxville', 'x': 'Nowhere College'}, log=lambda *_: None)
+            es = run.entries()
+            inv = [e for e in es if e.get('role') == 'state_inventory']
+            self.assertEqual(len(inv), 1); self.assertTrue(inv[0]['sha256'])
+            self.assertIn('14.1901', run.load_page(inv[0]['page_file'])[0].text)
+            self.assertTrue(any('not in THEC list' in (e.get('error') or '') for e in es))
+            n = len(calls); thec.crawl(run, F(), {'utk': 'The University of Tennessee-Knoxville'}, log=lambda *_: None)
+            self.assertEqual(len(calls), n)  # resumable: nothing requested twice

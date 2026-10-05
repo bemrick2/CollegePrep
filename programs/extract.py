@@ -184,6 +184,42 @@ def program_identity(c):
     return c
 
 
+THEC_PAGE = 'https://thec.ppr.tn.gov/AcademicProgramInventorySearch'
+AWARD_LEVEL = [('bachelor', re.compile(r'^B[A-Z.]{0,6}$|^BACHELOR', re.I)), ('associate', re.compile(r'^A[A-Z.]{0,4}$|^ASSOCIATE', re.I))]
+
+
+def thec_rows(page):
+    try:
+        data = json.loads(page.text)
+    except ValueError:
+        return []
+    return data.get('ProgramList', []) if isinstance(data, dict) else (data if isinstance(data, list) else [])
+
+
+def thec_candidates(inst, entry, rows, today_year):
+    """THEC Academic Program Inventory rows (state-approved active programs) -> academic_programs candidates with the
+    federal CIP code exactly as the inventory prints it. The inventory is not labelled with an academic year: rows are
+    the programs active when fetched, recorded for the year in force at review (`source_unlabeled`)."""
+    out = []
+    for r in rows:
+        name, award = (r.get('MajorName') or '').strip(), (r.get('Award') or '').strip()
+        level = next((lvl for lvl, rx in AWARD_LEVEL if rx.match(award.replace(' ', ''))), None)
+        if not name or level is None: continue
+        if (r.get('CurrentProgramStatus') or 'Active').strip().lower() not in ('active', ''): continue
+        cip = (r.get('MajorCipCode') or '').strip()
+        rec = {'program_key': CAT.slug(f'{name} {award}'), 'program_name': f'{name}, {award}', 'credential_level': level,
+               'program_url': THEC_PAGE, 'notes': 'From the THEC Academic Program Inventory (state-approved active programs).'}
+        if re.fullmatch(r'\d{2}\.\d{4}', cip): rec.update(cip_code=cip, cip_source_url=THEC_PAGE)
+        if str(r.get('CreditOrClockHours') or '').strip().isdigit(): rec['total_credits'] = int(r['CreditOrClockHours'])
+        ev = [{'field': k, 'value': r.get(k), 'snippet': json.dumps({k: r.get(k)}, ensure_ascii=False)[:200]}
+              for k in ('InstitutionName', 'MajorName', 'Award', 'MajorCipCode', 'CreditOrClockHours', 'CurrentProgramStatus', 'ProgramId') if k in r]
+        c = common.make('academic_programs', inst['institution_key'], today_year, 'source_unlabeled', rec, ev, entry,
+                        'thec_inventory/v1', {'program_key': rec['program_key'], 'thec_program_id': r.get('ProgramId')})
+        c['record']['source_url'] = THEC_PAGE  # the public search page; the API request and response hash are in the candidate source
+        out.append(c)
+    return out
+
+
 def extract_run(targets, run_dir, today=None):
     run = Run(Path(run_dir)); today = today or date.today()
     today_year = T.current_academic_year(today)
@@ -191,7 +227,7 @@ def extract_run(targets, run_dir, today=None):
     by_inst = defaultdict(list)
     for e in entries: by_inst[e.get('institution_key')].append(e)
     tmap = {t['institution_key']: t for t in targets['institutions']}
-    lists, cands, evidence, summary = {}, [], [], {}
+    lists, cands, evidence, summary, inventory = {}, [], [], {}, {}
     for key, es in sorted(by_inst.items()):
         t = tmap.get(key, {'institution_key': key, 'catalog': {}})
         roles = defaultdict(lambda: {'fetched': 0, 'ok': 0, 'errors': defaultdict(int)})
@@ -205,6 +241,12 @@ def extract_run(targets, run_dir, today=None):
             if not e.get('page_file'): continue
             page, _ = run.load_page(e['page_file'])
             inst = {'institution_key': key}
+            if e.get('role') == 'state_inventory':
+                rows = thec_rows(page)
+                inventory[key] = rows
+                for c in thec_candidates(inst, e, rows, today_year):
+                    c['program_role'] = 'state_inventory'; cands.append(c); n_c += 1
+                continue
             if e.get('role') == 'program_page':
                 for c in program_page_candidates(t, inst, e, page, today_year):
                     c['program_role'] = 'program_page'; cands.append(program_identity(c)); n_c += 1
@@ -233,6 +275,7 @@ def extract_run(targets, run_dir, today=None):
         for c in cands: f.write(json.dumps(c, sort_keys=True, ensure_ascii=False) + '\n')
     with (d / 'evidence.jsonl').open('w') as f:
         for x in evidence: f.write(json.dumps(x, sort_keys=True, ensure_ascii=False) + '\n')
+    if inventory: (d / 'state_inventory.json').write_text(json.dumps(inventory, indent=1, ensure_ascii=False) + '\n')
     (d / 'summary.json').write_text(json.dumps(summary, indent=1, sort_keys=True) + '\n')
     (d / 'review.md').write_text(review_md(targets, summary, lists))
     return summary

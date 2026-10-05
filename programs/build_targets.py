@@ -146,7 +146,7 @@ for st,conf in (('TN',TN),('OR',OR)):
     out.sort(key=lambda t:(t['priority'],t['name']))
     doc={'state':st,'purpose':'Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. '
          'mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.',
-         'state_sources':[{'label':'THEC Academic Program Inventory','url':'https://thec.ppr.tn.gov/AcademicProgramInventorySearch'}] if st=='TN' else [],
+         'state_sources':[{'label':'THEC Academic Program Inventory','url':'https://thec.ppr.tn.gov/AcademicProgramInventorySearch','adapter':'thec_api'}] if st=='TN' else [],
          'institutions':out}
     (R/f'programs/targets/{st}.json').write_text(json.dumps(doc,indent=1)+'\n')
     print(st,len(out))
