@@ -142,6 +142,8 @@ def validate_record(path: Path, record: dict, index: int, domain=None):
                 errors.append('invalid '+field)
         if 'active' in record and record['active'] is not None and not isinstance(record['active'],bool):
             errors.append('active must be boolean or null')
+    from backend.program_fields import field_errors  # CR-14 program-depth fields
+    errors.extend(field_errors(domain,record))
     try: label=path.relative_to(ROOT)
     except ValueError: label=path
     return [f"{label} record {index}: {e}" for e in errors]
@@ -151,9 +153,11 @@ def main() -> int:
     total = 0
     seen = set()
     programs, requirements = set(), []
+    rows = []
     try:
         for path, domain, record in records():
             total += 1
+            rows.append((path, domain, record))
             # A requirement row needs its program for the same institution and year (the importer refuses
             # orphans: "Missing program dependency", VA r1 VSU).
             if domain == 'academic_programs': programs.add((record.get('institution_key'), record.get('academic_year'), record.get('program_key')))
@@ -171,6 +175,8 @@ def main() -> int:
                 errors.append(f'{path}: missing qualifying appeal evidence')
     except (ValueError, TypeError, KeyError) as exc:
         errors.append(str(exc))
+    from backend.program_fields import cross_errors
+    errors.extend(cross_errors(rows))
     errors.extend(f'{path}: degree requirement without its program {key[2]!r} for {key[1]}' for path, key in requirements if key not in programs)
 
     if errors:

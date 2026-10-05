@@ -117,3 +117,68 @@ class DeepDiveTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class ProgramFieldRuleTests(unittest.TestCase):
+    """backend/program_fields.py: CR-14 facts need verbatim evidence; completeness needs every listed program."""
+    from backend import program_fields as F
+
+    def test_admission_type_needs_quote_and_official_source(self):
+        F = self.F
+        ok = {'admission_type': 'direct', 'admission_details': {'quote': 'Admitted directly.', 'source_url': 'https://x.edu/a'}}
+        self.assertEqual(F.field_errors('academic_programs', ok), [])
+        self.assertTrue(F.field_errors('academic_programs', {'admission_type': 'direct'}))
+        self.assertTrue(F.field_errors('academic_programs', {'admission_type': 'competitive', 'admission_details': ok['admission_details']}))
+        self.assertTrue(F.field_errors('academic_programs', {'admission_type': 'direct', 'admission_details': {'quote': ' ', 'source_url': 'https://x.edu'}}))
+        self.assertTrue(F.field_errors('academic_programs', {'admission_type': 'direct', 'admission_details': {'quote': 'q', 'source_url': 'http://x.edu'}}))
+        self.assertTrue(F.field_errors('academic_programs', {'admission_details': ok['admission_details']}))
+
+    def test_cip_needs_format_and_source(self):
+        F = self.F
+        self.assertEqual(F.field_errors('academic_programs', {'cip_code': '14.1901', 'cip_source_url': 'https://thec.example/x'}), [])
+        self.assertTrue(F.field_errors('academic_programs', {'cip_code': '14.1901'}))
+        self.assertTrue(F.field_errors('academic_programs', {'cip_code': '1419', 'cip_source_url': 'https://x'}))
+
+    def test_internal_transfer_and_undeclared(self):
+        F = self.F
+        self.assertTrue(F.field_errors('academic_programs', {'internal_transfer': {'restricted': 'yes', 'quote': 'q', 'source_url': 'https://x'}}))
+        self.assertEqual(F.field_errors('academic_programs', {'internal_transfer': {'restricted': True, 'quote': 'q', 'source_url': 'https://x', 'gpa_min': 2.5}}), [])
+        base = {'institution_key': 'k', 'academic_year': '2026-27', 'catalog_url': 'https://x', 'source_url': 'https://x'}
+        self.assertTrue(F.field_errors('program_catalogs', {**base, 'undeclared_policy': {'allowed': True, 'source_url': 'https://x'}}))
+
+    def test_completeness_requires_every_listed_program_verified(self):
+        F = self.F
+        cat = {'institution_key': 'k', 'academic_year': '2026-27', 'catalog_url': 'https://x', 'source_url': 'https://x',
+               'programs_complete': True, 'listed_bachelor_programs': 2, 'completeness_basis': 'A-Z list', 'listed_program_keys': ['a', 'b']}
+        self.assertEqual(F.field_errors('program_catalogs', cat), [])
+        self.assertTrue(F.field_errors('program_catalogs', {**cat, 'listed_program_keys': ['a']}))
+        self.assertTrue(F.field_errors('program_catalogs', {**cat, 'completeness_basis': ''}))
+        prog = lambda k, s='verified': ('p', 'academic_programs', {'institution_key': 'k', 'academic_year': '2026-27', 'program_key': k, 'verification_status': s})
+        self.assertEqual(F.cross_errors([prog('a'), prog('b'), ('c', 'program_catalogs', cat)]), [])
+        self.assertTrue(F.cross_errors([prog('a'), prog('b', 'partially_verified'), ('c', 'program_catalogs', cat)]))
+        self.assertTrue(F.cross_errors([prog('a'), ('c', 'program_catalogs', cat)]))
+
+    def test_award_program_links(self):
+        F = self.F
+        aw = {'institution_key': 'k', 'academic_year': '2026-27', 'award_name': 'Eng', 'program_keys': ['me-bs'], 'major_requirement': 'Engineering majors'}
+        self.assertEqual(F.field_errors('awards', aw), [])
+        self.assertTrue(F.field_errors('awards', {**aw, 'major_requirement': None}))
+        self.assertTrue(F.field_errors('awards', {**aw, 'cip_codes': ['engineering']}))
+        self.assertTrue(F.cross_errors([('a', 'awards', aw)]))
+
+
+class DeepDiveEdgeTests(unittest.TestCase):
+    def test_off_domain_seed_never_fetched(self):
+        t = {**TARGET, 'policy': ['https://www.example.edu/undeclared', 'https://www.collegeranker.example.com/example-u']}
+        with tempfile.TemporaryDirectory() as d:
+            f = FakeFetcher(PAGES); C.crawl_target(t, C.Run(Path(d)), f, log=lambda *_: None)
+            self.assertFalse(any('collegeranker' in u for u in f.calls))
+
+    def test_graduate_names_never_classified(self):
+        self.assertIsNone(X.credential_of('Graduate Certificate, Associate Teacher Licensure'))
+        self.assertIsNone(X.credential_of('Master of Science, Computer Science'))
+        self.assertEqual(X.credential_of('Associate of Science (A.S.) in Nursing'), 'associate')
+
+    def test_overlong_text_is_not_a_sentence(self):
+        page = type('P', (), {'lines': ['Students are admitted directly to the major ' + 'x' * 700]})()
+        self.assertEqual(list(X.sentences(page)), [])
