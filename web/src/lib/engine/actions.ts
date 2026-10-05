@@ -35,6 +35,8 @@ export interface ActionInput {
   schools: SchoolFacts[]
   /** Saved interests (areas or majors); null when unknown. Never a required major. */
   interestsSaved?: number | null
+  /** False when the family hasn't given a home state, so prices are shown as in-state assumed. */
+  homeStateKnown?: boolean
 }
 
 const EXAM = { act: 'ACT', sat: 'SAT' } as const
@@ -54,13 +56,17 @@ export function parentActions(i: ActionInput, max = 5): ParentAction[] {
 
   const top = i.focus[0]
   if (top) out.push({ key: `focus-${top.section}`, rank: 3, tone: 'warn', title: `Focus on ${exam} ${top.label} this week`, detail: top.detail })
-  if (i.behind) out.push({ key: 'behind', rank: 4, tone: 'warn', title: "Behind on this week's goal", detail: `${i.behind.done} of ${i.behind.goal} questions; about ${i.behind.expected} would be on track by today.` })
+  // "Behind" only once practice has started; a student who hasn't begun gets the benchmark step instead.
+  if (i.behind && i.benchmarks > 0) out.push({ key: 'behind', rank: 4, tone: 'warn', title: "Behind on this week's goal", detail: `${i.behind.done} of ${i.behind.goal} questions; about ${i.behind.expected} would be on track by today.` })
   if (i.linked && i.idleDays !== null && i.idleDays >= 3) out.push({ key: 'idle', rank: 4, tone: 'warn', title: `No practice in ${i.idleDays} days`, detail: 'A quick check-in usually restarts the habit.' })
 
   if (i.schools.length === 0) {
     out.push({ key: 'schools', rank: 5, tone: 'info', title: 'Add target colleges', detail: 'Save the schools you might apply to, in any state, to see verified costs, credit policies and scholarships.', to: '/colleges' })
     return finish(out, max)
   }
+
+  if (i.homeStateKnown === false)
+    out.push({ key: 'home-state', rank: 5, tone: 'info', title: 'Set your home state', detail: 'College prices depend on residency. Until you set it, in-state prices are shown and marked as assumed.', to: '/colleges' })
 
   // Merit: a published numeric threshold above the reference score (target or official), nearest first.
   const ref = i.officialScore?.composite ?? i.targetScore

@@ -78,16 +78,6 @@ export function StudentOnboarding() {
           <Field label="First name" htmlFor="name">
             <input id="name" className={inputClass} value={name} onChange={(e) => setName(e.target.value)} autoComplete="given-name" />
           </Field>
-          <Field label="Home state (optional)" htmlFor="home-state-onb" hint="Used for in-state college prices.">
-            <select id="home-state-onb" className={inputClass} value={homeState} onChange={(e) => setHomeState(e.target.value)}>
-              <option value="">Prefer not to say</option>
-              {US_STATES.map(([c, n]) => (
-                <option key={c} value={c}>
-                  {n}
-                </option>
-              ))}
-            </select>
-          </Field>
           <div>
             <div className="text-sm font-semibold text-ink">What grade are you in?</div>
             <div className="mt-2 grid grid-cols-4 gap-2 sm:grid-cols-7">
@@ -104,6 +94,16 @@ export function StudentOnboarding() {
               ))}
             </div>
           </div>
+          <Field label="Home state (optional)" htmlFor="home-state-onb" hint="Used for in-state college prices.">
+            <select id="home-state-onb" className={inputClass} value={homeState} onChange={(e) => setHomeState(e.target.value)}>
+              <option value="">Prefer not to say</option>
+              {US_STATES.map(([c, n]) => (
+                <option key={c} value={c}>
+                  {n}
+                </option>
+              ))}
+            </select>
+          </Field>
         </div>
       </StepFrame>
     )

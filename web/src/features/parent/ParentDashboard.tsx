@@ -11,6 +11,7 @@ import { useCatalog } from '../practice/useCatalog'
 import { CostOutlook, outlookFor } from './CostOutlook'
 import { PrimaryTarget } from './PrimaryTarget'
 import { useInterests } from '../majors/useInterests'
+import { useHomeState } from '../../lib/homeState'
 import { labelOf } from '../../lib/engine/interests'
 import { meritAwards } from '../../lib/engine/merit'
 import { useSavedComparison } from '../colleges/useSavedComparison'
@@ -64,6 +65,7 @@ function sectionRollup(estimates: SkillEstimate[]) {
 function Panel({ student, o }: { student: Student; o: StudentOverview }) {
   const exam = o.plan?.exam_family ?? 'act'
   const interestCount = useInterests(student.id).profile.interests.length
+  const { homeState } = useHomeState()
   const catalog = useCatalog(exam)
   const est = latestEstimate(o.scores, exam)[0]
   const goal = o.week.goal?.target_questions ?? null
@@ -105,6 +107,7 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
     .sort((a, b) => b.test_date.localeCompare(a.test_date))[0]
   const actions = parentActions({
     interestsSaved: interestCount,
+    homeStateKnown: !!homeState,
     name,
     exam,
     linked,
@@ -159,86 +162,112 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
       <CostOutlook showAlternative={!!o.plan?.goals.includes('lower_cost')} />
 
       <SectionHeading title="Test prep" subtitle={`What ${name} should work on now`} />
-      <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-        {official ? (
-          <Kpi
-            label={`${official.score_source === 'official' ? 'Official' : 'Self-reported'} ${EXAM_NAME[exam]}`}
-            value={String(official.composite)}
-            sub={`${formatShortDate(official.test_date)} · target ${o.plan?.target_score ?? '—'}`}
-            icon={<Target size={18} />}
-          />
-        ) : (
-          <Kpi
-            label={`Target ${EXAM_NAME[exam]}`}
-            value={o.plan?.target_score != null ? String(o.plan.target_score) : '—'}
-            sub={est ? `Practice estimate ${est.composite}` : 'No score estimate yet (not calibrated)'}
-            icon={<Target size={18} />}
-          />
-        )}
-        <Kpi
-          label="Weekly goal"
-          value={goal ? `${o.week.questions_submitted}/${goal}` : String(o.week.questions_submitted)}
-          sub={goal ? `questions · ${Math.round((100 * o.week.questions_submitted) / goal)}% done` : 'questions · no goal set'}
-          icon={<Compass size={18} />}
-          bar={goal ? o.week.questions_submitted / goal : undefined}
-        />
-        <Kpi label="Streak" value={`${o.streak.current_streak} days`} sub={`Longest ${o.streak.longest_streak}`} icon={<Flame size={18} />} />
-        <Kpi
-          label="Accuracy, 7 days"
-          value={trend.recent.acc === null ? '—' : `${Math.round(trend.recent.acc * 100)}%`}
-          sub={
-            trend.prior.acc === null || trend.recent.acc === null
-              ? `${trend.recent.n} answered`
-              : `${trend.recent.acc >= trend.prior.acc ? '▲' : '▼'} from ${Math.round(trend.prior.acc * 100)}%`
-          }
-          icon={<Info size={18} />}
-        />
-      </div>
-
-      <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-        <Card>
-          <CardHeader title="By section" subtitle="Knowledge and pacing, from recent practice" />
-          <ul className="grid gap-3 p-5 pt-3">
-            {SECTION_ORDER[exam].map((sec) => {
-              const r = rollup.get(sec)
-              const acc = r && r.n ? r.c / r.n : null
-              const pace = r?.paces.length ? r.paces.reduce((a, b) => a + b, 0) / r.paces.length : null
-              const pv = pacingVerdict(pace)
-              return (
-                <li key={sec} className="grid gap-1.5">
-                  <div className="flex items-center justify-between gap-2 text-sm">
-                    <span className="font-semibold text-ink">{SECTION_LABEL[sec]}</span>
-                    <span className="flex items-center gap-1.5">
-                      {acc === null || (r && r.n < 5) ? (
-                        <Pill>Not enough data</Pill>
-                      ) : (
-                        <>
-                          <Pill tone={acc >= 0.75 ? 'go' : acc >= 0.6 ? 'brand' : 'warn'}>
-                            {acc >= 0.75 ? 'Strong' : acc >= 0.6 ? 'Developing' : 'Needs work'}
-                          </Pill>
-                          {pv === 'slow' && <Pill tone="warn">Pacing</Pill>}
-                        </>
-                      )}
-                    </span>
-                  </div>
-                  <ProgressBar value={acc ?? 0} label={`${SECTION_LABEL[sec]} accuracy`} tone={acc !== null && acc < 0.6 ? 'warn' : 'brand'} className="h-2" />
-                </li>
-              )
-            })}
-          </ul>
-          {o.estimates.filter((e) => e.knowledge_weak).length > 0 && (
-            <div className="border-t border-line px-5 py-3 text-xs text-ink-3">
-              Weakest skills:{' '}
-              {o.estimates
-                .filter((e) => e.knowledge_weak)
-                .map((e) => catalog.skillName(e.skill_key))
-                .join(', ')}
-            </div>
+      {o.history.length === 0 ? (
+        <Card className="p-5">
+          <h3 className="font-semibold text-ink">Practice hasn't started yet</h3>
+          <p className="mt-1 text-sm text-ink-2">
+            {linked
+              ? `${name} logs in and takes the starting benchmark (about 30 minutes).`
+              : `Once ${name} logs in with the invite code, they take a starting benchmark (about 30 minutes).`}{' '}
+            After that, this section shows what to work on, pacing and progress toward the{' '}
+            {o.plan?.target_score ? `${EXAM_NAME[exam]} ${o.plan.target_score} target` : 'target'}
+            {goal ? ` and the ${goal}-question weekly goal` : ''}.
+          </p>
+          {!linked && (
+            <Link to="/parent/household" className="mt-2 inline-flex text-sm font-semibold text-brand hover:underline">
+              Get the invite code
+            </Link>
           )}
         </Card>
-        <PracticeIndicators history={o.history} who={name} />
-      </div>
-      <BenchmarkStatus history={o.benchmarks} forGuardian />
+      ) : (
+        <>
+          <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+            {official ? (
+              <Kpi
+                label={`${official.score_source === 'official' ? 'Official' : 'Self-reported'} ${EXAM_NAME[exam]}`}
+                value={String(official.composite)}
+                sub={`${formatShortDate(official.test_date)} · target ${o.plan?.target_score ?? '—'}`}
+                icon={<Target size={18} />}
+              />
+            ) : (
+              <Kpi
+                label={`Target ${EXAM_NAME[exam]}`}
+                value={o.plan?.target_score != null ? String(o.plan.target_score) : '—'}
+                sub={est ? `Practice estimate ${est.composite}` : 'No score estimate yet (not calibrated)'}
+                icon={<Target size={18} />}
+              />
+            )}
+            <Kpi
+              label="Weekly goal"
+              value={goal ? `${o.week.questions_submitted}/${goal}` : String(o.week.questions_submitted)}
+              sub={goal ? `questions · ${Math.round((100 * o.week.questions_submitted) / goal)}% done` : 'questions · no goal set'}
+              icon={<Compass size={18} />}
+              bar={goal ? o.week.questions_submitted / goal : undefined}
+            />
+            <Kpi label="Streak" value={`${o.streak.current_streak} days`} sub={`Longest ${o.streak.longest_streak}`} icon={<Flame size={18} />} />
+            <Kpi
+              label="Accuracy, 7 days"
+              value={trend.recent.acc === null ? '—' : `${Math.round(trend.recent.acc * 100)}%`}
+              sub={
+                trend.prior.acc === null || trend.recent.acc === null
+                  ? `${trend.recent.n} answered`
+                  : `${trend.recent.acc >= trend.prior.acc ? '▲' : '▼'} from ${Math.round(trend.prior.acc * 100)}%`
+              }
+              icon={<Info size={18} />}
+            />
+          </div>
+
+          <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+            <Card>
+              <CardHeader title="By section" subtitle="Knowledge and pacing, from recent practice" />
+              <ul className="grid gap-3 p-5 pt-3">
+                {SECTION_ORDER[exam].map((sec) => {
+                  const r = rollup.get(sec)
+                  const acc = r && r.n ? r.c / r.n : null
+                  const pace = r?.paces.length ? r.paces.reduce((a, b) => a + b, 0) / r.paces.length : null
+                  const pv = pacingVerdict(pace)
+                  return (
+                    <li key={sec} className="grid gap-1.5">
+                      <div className="flex items-center justify-between gap-2 text-sm">
+                        <span className="font-semibold text-ink">{SECTION_LABEL[sec]}</span>
+                        <span className="flex items-center gap-1.5">
+                          {acc === null || (r && r.n < 5) ? (
+                            <Pill>Not enough data</Pill>
+                          ) : (
+                            <>
+                              <Pill tone={acc >= 0.75 ? 'go' : acc >= 0.6 ? 'brand' : 'warn'}>
+                                {acc >= 0.75 ? 'Strong' : acc >= 0.6 ? 'Developing' : 'Needs work'}
+                              </Pill>
+                              {pv === 'slow' && <Pill tone="warn">Pacing</Pill>}
+                            </>
+                          )}
+                        </span>
+                      </div>
+                      <ProgressBar
+                        value={acc ?? 0}
+                        label={`${SECTION_LABEL[sec]} accuracy`}
+                        tone={acc !== null && acc < 0.6 ? 'warn' : 'brand'}
+                        className="h-2"
+                      />
+                    </li>
+                  )
+                })}
+              </ul>
+              {o.estimates.filter((e) => e.knowledge_weak).length > 0 && (
+                <div className="border-t border-line px-5 py-3 text-xs text-ink-3">
+                  Weakest skills:{' '}
+                  {o.estimates
+                    .filter((e) => e.knowledge_weak)
+                    .map((e) => catalog.skillName(e.skill_key))
+                    .join(', ')}
+                </div>
+              )}
+            </Card>
+            <PracticeIndicators history={o.history} who={name} />
+          </div>
+          <BenchmarkStatus history={o.benchmarks} forGuardian />
+        </>
+      )}
 
       <p className="text-xs text-ink-3">
         Last practice: {lastDay ? formatShortDate(lastDay) : 'never'} · Time zone {o.tz}

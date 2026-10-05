@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { CostLever, LeverStatus } from '../../lib/engine/costLevers'
 import { Pill } from '../../components/ui'
 
@@ -10,8 +11,9 @@ const STATUS: Record<LeverStatus, { tone: 'go' | 'gold' | 'brand' | 'neutral'; l
 }
 
 /** Ways to lower one school's cost, from its verified records. No lever carries an estimated dollar saving. */
-export function CostLeverList({ levers, max }: { levers: CostLever[]; max?: number }) {
-  const shown = max ? levers.slice(0, max) : levers
+export function CostLeverList({ levers, max, expandable = false }: { levers: CostLever[]; max?: number; expandable?: boolean }) {
+  const [all, setAll] = useState(false)
+  const shown = max && !all ? levers.slice(0, max) : levers
   if (!levers.length) return <p className="text-ink-3">No verified scholarship, credit or aid records here yet.</p>
   return (
     <ul className="grid grid-cols-1 gap-2">
@@ -30,7 +32,17 @@ export function CostLeverList({ levers, max }: { levers: CostLever[]; max?: numb
           <p className="mt-0.5 text-xs text-ink-2">{l.detail}</p>
         </li>
       ))}
-      {max && levers.length > max && <li className="text-xs text-ink-3">+{levers.length - max} more on the path</li>}
+      {max && levers.length > max && (
+        <li className="text-xs text-ink-3">
+          {expandable ? (
+            <button type="button" onClick={() => setAll((v) => !v)} className="font-semibold text-brand hover:underline">
+              {all ? 'Show fewer' : `Show ${levers.length - max} more`}
+            </button>
+          ) : (
+            `+${levers.length - max} more on the path`
+          )}
+        </li>
+      )}
     </ul>
   )
 }
