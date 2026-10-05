@@ -4,7 +4,7 @@
 Each entry breaks one rule in the source; the pipeline test suite must then fail ("KILLED").
 A surviving mutant means a safety rule has no test. Run: python scripts/mutation_check.py
 """
-import shutil, subprocess, sys
+import concurrent.futures, os, queue, shutil, subprocess, sys, tempfile
 
 MUTS = [
     ('pipeline/extractors/credit.py', "if bad_score and bad_score >= len(eqs) * 0.3: issues = issues + ['score_column_not_scores']", 'pass'),
@@ -185,19 +185,48 @@ MUTS = [
     ('pipeline/extractors/costs.py', '(a\\s+)?(parents?|family)|', '(a\\s+)?parents?|'),
     ('pipeline/extractors/transfer.py', 'unaccredited|high\\s+school|', 'unaccredited|'),
 ]
-failed = False
-for f, old, new in MUTS:
-    original = open(f).read()
+def run_one(root, mut):
+    """Apply one mutant inside a private copy of the tree, run the suite there, restore it."""
+    f, old, new = mut
+    path = os.path.join(root, f)
+    original = open(path).read()
     assert old in original, (f, old)
     try:
-        open(f, 'w').write(original.replace(old, new, 1))
+        open(path, 'w').write(original.replace(old, new, 1))
         try:
-            r = subprocess.run([sys.executable, '-m', 'unittest', 'tests.test_pipeline'], capture_output=True, text=True, timeout=90)
-            verdict = 'KILLED ' if r.returncode else 'SURVIVED'
+            r = subprocess.run([sys.executable, '-m', 'unittest', 'tests.test_pipeline'], cwd=root, capture_output=True, text=True, timeout=90)
+            return 'KILLED ' if r.returncode else 'SURVIVED'
         except subprocess.TimeoutExpired:
-            verdict = 'TIMEOUT'
+            return 'TIMEOUT'
     finally:
-        open(f, 'w').write(original)
-    print(verdict, f, old[:60], flush=True)
-    failed = failed or verdict != 'KILLED '
-sys.exit(1 if failed else 0)
+        open(path, 'w').write(original)
+
+
+def main():
+    for f, old, _ in MUTS:  # a stale entry fails fast, before any copy or test run
+        assert old in open(f).read(), (f, old)
+    workers = max(1, int(os.environ.get('MUTATION_WORKERS') or os.cpu_count() or 1))
+    tmp = tempfile.mkdtemp(prefix='mutation-')
+    skip = shutil.ignore_patterns('.git', 'node_modules', '__pycache__', 'runs')
+    roots = queue.Queue()
+    for i in range(workers):  # one private tree per worker, so mutants never see each other's edits
+        dst = os.path.join(tmp, str(i)); shutil.copytree('.', dst, ignore=skip); roots.put(dst)
+
+    def job(mut):
+        root = roots.get()
+        try: return mut, run_one(root, mut)
+        finally: roots.put(root)
+
+    failed = False
+    try:
+        with concurrent.futures.ThreadPoolExecutor(workers) as pool:
+            for (f, old, _), verdict in pool.map(job, MUTS):
+                print(verdict, f, old[:60], flush=True)
+                failed = failed or verdict != 'KILLED '
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+    sys.exit(1 if failed else 0)
+
+
+if __name__ == '__main__':
+    main()
