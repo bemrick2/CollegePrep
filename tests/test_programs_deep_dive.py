@@ -520,10 +520,12 @@ class CourseListGroupTests(unittest.TestCase):
         g = self.groups([['PH 211& PH 212', 'PHYSICS', '8'], ['Select one of the following math pairs:', '4-7'], ['MTH 251Z& MTH 252Z', 'CALCULUS', '8'],
                          ['Select an additional 7 credits from courses that count toward either major.', '7'], ['Capstone', ''], ['ANTH 209', 'Business Anthropology', '4'],
                          ['Select from the list below:', ''], ['BA 252', 'Global Perspectives', ''],
-                         ['Select 4 credits from the following:', '4'], ['BA 361', 'Communication', '4']])  # an option or a required course? held
+                         ['Select 4 credits from the following:', '4'], ['BA 361', 'Communication', '4'],  # an option or a required course? held
+                         ['Select 2 credits from the following courses:', '2'], ['Internships', '']])  # the list is not read: held
         self.assertEqual([(x['group_type'], sorted(x['issues'])) for _, x in g],
-                         [('all_required', ['complex_course_row']), ('choose_courses', ['complex_course_row', 'options_print_credits']),
-                          ('elective_pool', []), ('all_required', []), ('choose_unclear', ['choose_number_not_printed']), ('choose_credits', ['options_print_credits'])])
+                         [('all_required', ['complex_course_row']), ('choose_courses', ['complex_course_row', 'options_not_read', 'options_print_credits']),
+                          ('elective_pool', []), ('all_required', []), ('choose_unclear', ['choose_number_not_printed']), ('choose_credits', ['options_print_credits']),
+                          ('choose_credits', ['options_not_read'])])
         self.assertEqual(g[2][1]['course_rules'], ['Select an additional 7 credits from courses that count toward either major. 7'])
         g = self.groups([['H 301', 'X', '3']], heading='Recommended Public Health Elective Coursework')
         self.assertEqual(sorted(g[0][1]['issues']), ['heading_not_all_required'])

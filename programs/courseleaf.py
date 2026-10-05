@@ -138,6 +138,8 @@ def course_list_groups(table):
 
     def close():
         nonlocal cur
+        if cur and not cur['courses'] and cur['group_type'] in ('choose_courses', 'choose_credits') and re.search(r'\b(following|below|list|series|tracks?|options?|groups?|areas?)\b', cur['rule_text'], re.I):
+            cur['issues'].add('options_not_read')  # 'Select 2 credits from the following courses' whose list sits under sub-headings
         if cur and not cur['courses'] and cur['group_type'] in ('choose_courses', 'choose_credits') and not cur['issues']:
             # 'Select an additional 7 credits from courses that count toward either major.': a printed rule, no list
             cur = {'group_type': 'elective_pool', 'course_rules': [cur['rule_text']], 'rule_text': cur['rule_text'], 'courses': [], 'issues': set(),
