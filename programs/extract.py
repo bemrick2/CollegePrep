@@ -203,9 +203,18 @@ def thec_rows(page):
         return []
     rows = (data.get('ProgramList') or data.get('programList') or []) if isinstance(data, dict) else (data if isinstance(data, list) else [])
     # one spelling for every key, as the page's own table reads them (MajorName, Award, MajorCipCode, ...)
-    canon = {k.lower(): k for k in ('InstitutionName', 'MajorName', 'Award', 'MajorCipCode', 'CreditOrClockHours',
+    canon = {k.lower(): k for k in ('InstitutionName', 'MajorName', 'Award', 'MajorTaxCode', 'MajorCipCode', 'CreditOrClockHours',
                                      'CurrentProgramStatus', 'ProgramId', 'EffectiveStartDate', 'FederalTaxName')}
     return [{canon.get(str(k).lower(), k): v for k, v in r.items()} for r in rows if isinstance(r, dict)]
+
+
+def federal_cip(r):
+    """THEC prints MajorCipCode as TT.FF.SSSS.XX: TT is THEC's own MajorTaxCode (also printed separately), FF.SSSS is the
+    6-digit federal CIP (e.g. Mechanical Engineering BSME '09.14.1901.00', MajorTaxCode '09' -> 14.1901). The federal code
+    is taken only when the leading group equals the printed MajorTaxCode, so the layout is confirmed row by row."""
+    m = re.fullmatch(r'(\d{2})\.(\d{2})\.(\d{4})\.(\d{2})', (r.get('MajorCipCode') or '').strip())
+    if not m or m.group(1) != str(r.get('MajorTaxCode') or '').strip(): return None
+    return f'{m.group(2)}.{m.group(3)}'
 
 
 def thec_candidates(inst, entry, rows, today_year):
@@ -218,13 +227,13 @@ def thec_candidates(inst, entry, rows, today_year):
         level = next((lvl for lvl, rx in AWARD_LEVEL if rx.match(award.replace(' ', ''))), None)
         if not name or level is None: continue
         if (r.get('CurrentProgramStatus') or 'Active').strip().lower() not in ('active', ''): continue
-        cip = (r.get('MajorCipCode') or '').strip()
+        cip = federal_cip(r)
         rec = {'program_key': CAT.slug(f'{name} {award}'), 'program_name': f'{name}, {award}', 'credential_level': level,
                'program_url': THEC_PAGE, 'notes': 'From the THEC Academic Program Inventory (state-approved active programs).'}
-        if re.fullmatch(r'\d{2}\.\d{4}', cip): rec.update(cip_code=cip, cip_source_url=THEC_PAGE)
+        if cip: rec.update(cip_code=cip, cip_source_url=THEC_PAGE)
         if str(r.get('CreditOrClockHours') or '').strip().isdigit(): rec['total_credits'] = int(r['CreditOrClockHours'])
         ev = [{'field': k, 'value': r.get(k), 'snippet': json.dumps({k: r.get(k)}, ensure_ascii=False)[:200]}
-              for k in ('InstitutionName', 'MajorName', 'Award', 'MajorCipCode', 'CreditOrClockHours', 'CurrentProgramStatus', 'ProgramId') if k in r]
+              for k in ('InstitutionName', 'MajorName', 'Award', 'MajorTaxCode', 'MajorCipCode', 'CreditOrClockHours', 'CurrentProgramStatus', 'ProgramId') if k in r]
         c = common.make('academic_programs', inst['institution_key'], today_year, 'source_unlabeled', rec, ev, entry,
                         'thec_inventory/v1', {'program_key': rec['program_key'], 'thec_program_id': r.get('ProgramId')})
         c['record']['source_url'] = THEC_PAGE  # the public search page; the API request and response hash are in the candidate source
