@@ -118,7 +118,8 @@ def _quote(ids, ev):
     if not sents: raise ValueError('a field decision needs evidence_ids')
     urls = {s['url'] for s in sents}
     if len(urls) != 1: raise ValueError(f'evidence for one field must come from one document: {urls}')
-    return ' '.join(s['sentence'] for s in sents), sents[0]
+    # Sentences are verbatim but may be far apart on the page: an ellipsis marks every join.
+    return ' … '.join(s['sentence'] for s in sents), sents[0]
 
 
 def apply_field(f, folders, ev, archive):

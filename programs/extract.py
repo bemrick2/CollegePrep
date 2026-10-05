@@ -173,6 +173,14 @@ def program_page_candidates(target, inst, entry, page, today_year):
 PROGRAM_ONLY_ISSUES = ('requirement_groups_skipped',)
 
 
+OPTION_NAME = re.compile(r'\b(option|concentration|track|emphasis)\b(?!.*\bmajor\b)', re.I)
+
+
+def is_option_page(c):
+    """'Studio Art BFA Option' (OSU) is an option inside a major, not a degree program; the major has its own record."""
+    return c['domain'] == 'academic_programs' and bool(OPTION_NAME.search(c['record'].get('program_name', '')))
+
+
 def program_identity(c):
     """A program record states name, award, URL, year and printed total only; a skipped requirement group elsewhere on
     the page does not weaken those facts, so that issue stays on the requirement rows and leaves the program record."""
@@ -252,7 +260,9 @@ def extract_run(targets, run_dir, today=None):
                     c['program_role'] = 'state_inventory'; cands.append(c); n_c += 1
                 continue
             if e.get('role') == 'program_page':
-                for c in program_page_candidates(t, inst, e, page, today_year):
+                found = program_page_candidates(t, inst, e, page, today_year)
+                if any(is_option_page(c) for c in found): found = []  # the option's rows belong to its major
+                for c in found:
                     c['program_role'] = 'program_page'; cands.append(program_identity(c)); n_c += 1
             if e.get('kind') == 'pdf' and e.get('role') in ('degree_map', 'policy', 'policy_link'):
                 try:

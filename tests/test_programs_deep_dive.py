@@ -247,3 +247,26 @@ class SmartCatalogTests(unittest.TestCase):
         self.assertEqual(groups['required-courses']['record']['rule_details']['group_type'], 'all_required')
         self.assertEqual(groups['biology']['record']['rule_details']['group_type'], 'elective_pool')
         self.assertIn('group_type_unclear_heading', groups['biology']['issues'])
+
+
+class ReviewFindingsTests(unittest.TestCase):
+    """Regressions from the independent review of the first promotions (2026-10-05)."""
+    def test_option_pages_are_not_programs(self):
+        mk = lambda n: {'domain': 'academic_programs', 'record': {'program_name': n}}
+        self.assertTrue(X.is_option_page(mk('Studio Art BFA Option')))
+        self.assertFalse(X.is_option_page(mk('Art Undergraduate Major (BA, BFA, BS, HBA, HBFA, HBS)')))
+        self.assertFalse(X.is_option_page(mk('Mechanical Engineering B.S.')))
+
+    def test_smartcatalog_major_total_is_not_degree_total(self):
+        from pipeline import text as T
+        from programs import smartcatalog as S
+        p = T.Page('Anthropology B.A./B.S.\n2026-2027 Bulletin > CLAS > Anthropology B.A./B.S.\nTotal Credit Hours: 53-54', 'PSU - Anthropology B.A./B.S.',
+                   [{'heading': 'Required Courses', 'rows': [['Anth 101', 'Intro', '4']]}], [], ['Anthropology B.A./B.S.'])
+        out = S.extract({'institution_key': 'k'}, {'url': 'https://x.smartcatalogiq.com/a', 'sha256': 's', 'fetched_at': '2026-10-05T00:00:00'}, p, '2026-27')
+        self.assertNotIn('total_credits', out[0]['record'])
+        self.assertFalse(any(c['record'].get('requirement_kind') == 'total_credits' for c in out))
+
+    def test_joined_quotes_mark_the_gap(self):
+        from programs.promote import _quote
+        ev = {'a': {'sentence': 'One.', 'url': 'https://x', 'sha256': 'h', 'fetched_at': '2026'}, 'b': {'sentence': 'Two.', 'url': 'https://x', 'sha256': 'h', 'fetched_at': '2026'}}
+        self.assertEqual(_quote(['a', 'b'], ev)[0], 'One. … Two.')

@@ -100,8 +100,9 @@ def extract(inst, entry, page, today_year):
         groups.append({'program_key': pkey, 'requirement_key': 'recommended-sequence', 'requirement_kind': 'program_plan',
                        'rule_details': {'schema': 'requirement_group/v1', 'catalog_year': year, 'group_type': 'sequence',
                                         'category': 'recommended_sequence', 'terms': terms, 'source_section': 'Requirements'}})
-    totals = {int(m.group(1)) for l in page.lines for m in [TOTAL.match(l.strip('| '))] if m}
-    total = totals.pop() if len(totals) == 1 else None
+    # "Total Credit Hours: 53-54" on SmartCatalog program pages is the major's total, not the degree's (PSU review
+    # 2026-10-05), and ranges are common; it is not recorded as total_credits.
+    total = None
     # A program page with no parseable requirement tables still establishes the program (name, award, URL, year).
     src = common.source_of(entry)['url']
     prog = {'program_key': pkey, 'program_name': name, 'catalog_year': year, 'program_url': src, 'credential_level': 'bachelor',
