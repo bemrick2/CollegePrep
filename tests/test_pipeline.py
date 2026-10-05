@@ -398,7 +398,7 @@ last 30 hours in residence at the university.</p>"""
         self.assertEqual(transfer.extract(INST, {**ENTRY, 'url': 'https://www.example.edu/transfer-agreements/emu-guide.pdf'}, T.parse_html(page), '2026-27'), [])
         self.assertEqual(transfer.extract(INST, {**ENTRY, 'url': 'https://www.example.edu/files/Renewal_Articulation_2025.pdf'}, T.parse_html(page), '2026-27'), [])
         self.assertEqual(transfer.extract(INST, {**ENTRY, 'url': 'https://www.example.edu/files/TT-FVTC-Culinary-2026.pdf'}, T.parse_html(page), '2026-27'), [])
-        self.assertEqual(transfer.extract(INST, {**ENTRY, 'url': 'https://www.example.edu/files/transfer-guide-2026.pdf'}, T.parse_html(page), '2026-27'), [])
+        self.assertTrue(transfer.extract(INST, {**ENTRY, 'url': 'https://www.example.edu/transfer/transfer-credit-agreements/'}, T.parse_html(page), '2026-27'))
         [c] = transfer.extract(INST, {**ENTRY, 'url': 'https://www.example.edu/admissions/transfer/'}, T.parse_html(page), '2026-27')
         self.assertEqual(c['record']['min_grade'], 'C')
         [c] = self._de('<h1>Dual Enrollment</h1><ul><li>Have a minimum GPA of 2.5 to enroll.</li><li>Students need a 2.0 GPA or higher for credits to transfer.</li>'

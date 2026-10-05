@@ -46,8 +46,9 @@ def extract(inst, entry, page, today_year):
         return []
     if re.search(r'scholarship|financial[- ]aid|reverse[- ]transfer', page.title + ' ' + entry.get('url', ''), re.I):
         return []  # hour counts there are award or reverse-transfer conditions (AL: Enterprise, Reid State, Jefferson State)
-    if re.search(r'articulation|agreement|transfer[-_ ]?(?:guide|track)|\bTT[-_]', entry.get('url', ''), re.I):
-        return []  # MI r1: one partner's articulation agreement or transfer guide (HFC/WCC-EMU, NMU), not the institution's policy
+    url = entry.get('url', '')
+    if re.search(r'\.pdf$', url, re.I) and re.search(r'articulation|agreement|\bTT[-_]', url, re.I):
+        return []  # MI r1: a signed partner agreement PDF (HFC/WCC-EMU, NMU transfer tracks) states the other school's rules
     text = re.sub(r'\s+', ' ', page.text)
     sentences = [s.strip() for s in SENTENCE.split(text) if 25 <= len(s.strip()) <= 500]
     found = {'min_grade': [], 'max_transfer_credits': [], 'residency_requirement_credits': []}

@@ -202,13 +202,13 @@ MUTS = [
     ('pipeline/extractors/merit.py', " and test is not None and re.search(r'requirement|criteria|eligib', header[test], re.I):", ':'),
     ('pipeline/extractors/costs.py', '    if PROGRAM_TABLE.search(context):\n        return []\n', '    if PROGRAM_TABLE.search(context):\n        pass\n'),
     ('pipeline/extractors/credit.py', 'continue  # MI (Macomb)', 'pass  # MI (Macomb)'),
-    ('pipeline/extractors/transfer.py', "r'articulation|agreement|", "r'agreement|"),
-    ('pipeline/extractors/transfer.py', 'articulation|agreement|transfer', 'articulation|transfer'),
-    ('pipeline/extractors/transfer.py', 'transfer[-_ ]?(?:guide|track)|\\bTT', '\\bTT'),
-    ('pipeline/extractors/transfer.py', "|\\bTT[-_]', entry", "', entry"),
     ('pipeline/extractors/dual.py', 'credits\\s+to\\s+transfer|', ''),
     ('pipeline/extractors/dual.py', 'credits\\s+attempted|', ''),
     ('pipeline/registry.py', 'if label and label not in owned and (', 'if label and ('),
+    ('pipeline/extractors/transfer.py', "r'articulation|agreement|\\bTT", "r'agreement|\\bTT"),
+    ('pipeline/extractors/transfer.py', 'articulation|agreement|\\bTT', 'articulation|\\bTT'),
+    ('pipeline/extractors/transfer.py', "|\\bTT[-_]', url, re.I)", "', url, re.I)"),
+    ('pipeline/extractors/transfer.py', "if re.search(r'\\.pdf$', url, re.I) and ", 'if '),
 ]
 failed = False
 for f, old, new in MUTS:
