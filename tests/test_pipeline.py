@@ -488,7 +488,7 @@ last 30 hours in residence at the university.</p>"""
         names = [c['record']['award_name'] for c in merit.extract(INST, ENTRY, T.parse_html('<title>Scholarships</title>' + table), '2026-27')]
         self.assertIn('Dean Award', names)
         self.assertNotIn('October 1', names)
-        for title in ['International Baccalaureate Course Awards', 'CLEP Credit', 'College-Level Examination Program']:
+        for title in ['AP and IB Course Awards', 'CLEP Credit', 'College-Level Examination Program']:
             self.assertEqual(merit.extract(INST, ENTRY, T.parse_html('<title>%s</title>' % title + table), '2026-27'), [], title)
 
     def test_tx_r1_rules(self):
