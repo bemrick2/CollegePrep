@@ -158,6 +158,8 @@ def program_page_candidates(target, inst, entry, page, today_year):
         return smartcatalog.extract(inst, entry, page, today_year)
     if plat == 'drupal':
         return static_program_identity(inst, entry, page, today_year)
+    if plat == 'coursedog':
+        return coursedog_page_identity(inst, entry, page, today_year, target.get('_catalog_year'))
     out = CAT.extract(inst, entry, page, today_year)
     y0, printed0 = CAT.catalog_year(page)
     year, line = printed0, (page.title or '')
@@ -329,6 +331,40 @@ def listed_location_candidates(target, inst, run, es, listed, today_year):
                                 {'field': 'catalog_year', 'value': year, 'snippet': line[:200]}],
                                le, 'listed_location/v1', {'program_key': rec['program_key']}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}']))
     return out
+
+
+YEAR_STATEMENT = re.compile(r'[^.\n]*\bthis catalog applies to the (20\d{2})\s*[-–]\s*(20\d{2}) academic year[^.\n]*', re.I)
+
+
+def coursedog_year(run, es):
+    """(year, sentence) from the Coursedog catalog home page: "Information in this catalog applies to the 2026–2027
+    academic year ..." (Willamette). None when the home page prints no such statement."""
+    for e in es:
+        if e.get('role') == 'catalog_home' and e.get('page_file'):
+            m = YEAR_STATEMENT.search(run.load_page(e['page_file'])[0].text)
+            if m and int(m.group(2)) == int(m.group(1)) + 1:
+                return {'year': f'{m.group(1)}-{m.group(2)}', 'line': m.group(0).strip(), 'url': common.source_of(e)['url'], 'sha256': e.get('sha256')}
+    return None
+
+
+def coursedog_page_identity(inst, entry, page, today_year, cat_year):
+    """Rendered Coursedog program page (Willamette): the program title printed after the 'Programs/' breadcrumb
+    ('Biology (BA)') with its bachelor award, and a printed 'Bachelor of ...' degree line on the same page. The catalog
+    year is the catalog home page's own statement of the year it applies to (cat_year), quoted as evidence."""
+    lines = [l.strip() for l in page.lines if l.strip()]
+    i = next((i for i, l in enumerate(lines) if l == 'Programs/'), None)
+    if i is None or i + 1 >= len(lines) or not cat_year: return []
+    name = lines[i + 1]
+    degree = next((l for l in lines[i + 1:i + 40] if re.match(r'^Bachelor of ', l)), None)
+    if credential_of(name) != 'bachelor' or not degree or OPTION_NAME.search(name): return []
+    year = cat_year['year']; acad = f'{year[:4]}-{year[7:9]}'
+    rec = {'program_key': CAT.slug(name), 'program_name': name, 'credential_level': 'bachelor', 'catalog_year': year,
+           'program_url': common.source_of(entry)['url'], 'notes': f'Program title and degree ("{degree}") as printed on the catalog program page.'}
+    return [common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec,
+                        [{'field': 'program_name', 'value': name, 'snippet': name}, {'field': 'credential_level', 'value': 'bachelor', 'snippet': degree},
+                         {'field': 'catalog_year', 'value': year, 'snippet': cat_year['line'][:300], 'source_url': cat_year['url'], 'sha256': cat_year['sha256'],
+                          'note': "the catalog home page's statement of the academic year the catalog applies to"}],
+                        entry, 'coursedog_page/v1', {'program_key': rec['program_key']}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}'])]
 
 
 PROGRAM_ONLY_ISSUES = ('requirement_groups_skipped',)
@@ -518,6 +554,7 @@ def extract_run(targets, run_dir, today=None):
             if e.get('page_file'): r['ok'] += 1
             elif e.get('error'): r['errors'][e['error'][:40]] += 1
         lists[key] = collect_lists(t, run, es) if t.get('catalog') else {'programs': [], 'counts': {}}
+        if (t.get('catalog') or {}).get('platform') == 'coursedog': t = {**t, '_catalog_year': coursedog_year(run, es)}
         n_c = 0; seen_ev = set()
         for e in es:
             if not e.get('page_file'): continue
