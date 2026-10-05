@@ -354,6 +354,28 @@ last 30 hours in residence at the university.</p>"""
         [c] = dual.extract(INST, ENTRY, page, '2026-27')
         self.assertEqual([t['min_hs_gpa'] for t in c['record']['dual_enrollment']['eligibility_tiers']], [2.5])
 
+    def test_wi_r1_rules(self):
+        """WI r1: Marquette's refund 'Example', UW-Platteville's loans page, Concordia's 'On Campus/Off Campus (Not with
+        Family)' budget and Blackhawk's high-school grade clause."""
+        table = ('<table><tr><th>Scholarship</th><th>Amount</th></tr><tr><td>Dean Award</td><td>$1,932</td></tr>'
+                 '<tr><td>Honor Award</td><td>$791</td></tr><tr><td>Merit Award</td><td>$277</td></tr></table>')
+        self.assertTrue(merit.extract(INST, ENTRY, T.parse_html('<title>Award Information</title><h3>Scholarships</h3>' + table), '2026-27'))
+        self.assertEqual(merit.extract(INST, ENTRY, T.parse_html('<title>Award Information</title><h3>Example:</h3>' + table), '2026-27'), [])
+        loans = ('<h2>Dependent Students</h2><table><tr><th>Year</th><th>Amount</th></tr><tr><td>Freshman</td><td>$5,500</td></tr>'
+                 '<tr><td>Sophomore</td><td>$6,500</td></tr><tr><td>Junior/Senior</td><td>$7,500</td></tr></table>')
+        self.assertTrue(merit.extract(INST, ENTRY, T.parse_html('<title>Financial Aid &amp; Scholarships</title>' + loans), '2026-27'))
+        self.assertEqual(merit.extract(INST, ENTRY, T.parse_html('<title>Financial Aid &amp; Scholarships - Loans</title>' + loans), '2026-27'), [])
+        rows = [['', 'On Campus/Off Campus (Not with Family)', 'Living At Home'], ['Tuition', '$37,080', '$37,080'],
+                ['Books & Supplies', '$1,250', '$1,250'], ['Total', '$38,330', '$38,330']]
+        p = T.Page('', 'Cost of Attendance', [{'heading': 'Cost of Attendance 2026-27', 'caption': '', 'lead': '', 'rows': rows}], [], [])
+        [c] = costs.extract(INST, ENTRY, p, '2026-27')
+        self.assertNotIn('with_parents_or_family', [a['arrangement'] for a in c['record']['living_arrangements']][:1])
+        self.assertIsNone(costs.column_meaning('On Campus/Off Campus')['arrangement'])
+        self.assertEqual(costs.column_meaning('Off Campus (Not with Family)')['arrangement'], 'off_campus_not_with_family')
+        self.assertEqual(transfer.extract(INST, ENTRY, T.parse_html(
+            '<title>Transfer</title><p>Transfer credit is evaluated for high school courses for which advanced standing was granted and a grade '
+            'of "B" or better was earned.</p>'), '2026-27'), [])
+
     def test_tx_r1_rules(self):
         """TX r1: annual/four-year pairs, fall/spring splits, Yes/No and e-mail cells, AP credit tables; 'not living at
         home', 'At-Home' and a per-semester lead; residency 'N semester credit hours of the last M' and scoped caps."""
