@@ -18,7 +18,7 @@ Runs: TN: `programs/runs/TN/2026-10-05-a`, `programs/runs/TN/2026-10-05-b`, `pro
 | 1 | Lipscomb University (TN) | acalog | 0 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
 | 1 | Middle Tennessee State University (TN) | acalog | 0 | 97 | 0 | 97 | 97 | — | 0 / 2 | 0 / 4 | 0 / 31 | 0 / 6 | 0 / 4 | 0 | 1 | yes |
 | 1 | Tennessee Technological University (TN) | coursedog | 158 | 52 | 29 | 27 | 52 | — | 13 / 15 | 6 | 10 / 14 | 2 / 3 | 2 | 0 | 8 | — |
-| 1 | The University of Tennessee-Chattanooga (TN) | acalog | 0 | 49 | 121 | 0 | 104 | — | 15 | 4 | 28 | 4 | 2 | 82 | 0 | — |
+| 1 | The University of Tennessee-Chattanooga (TN) | acalog | 0 | 49 | 121 | 0 | 104 | — | 15 | 4 | 28 | 4 | 2 | 86 | 0 | — |
 | 1 | The University of Tennessee-Knoxville (TN) | acalog | 0 | 99 | 1 | 98 | 99 | — | 0 / 26 | 2 / 6 | 0 / 27 | 0 / 8 | 0 / 2 | 1 | 13 | yes |
 | 1 | University of Memphis (TN) | acalog | 1 | 62 | 0 | 62 | 62 | — | 0 / 10 | 0 / 2 | 0 / 20 | 0 / 5 | 0 / 4 | 0 | 0 | yes |
 | 1 | Vanderbilt University (TN) | kuali | 0 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
