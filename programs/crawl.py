@@ -118,7 +118,9 @@ class BrowserFetcher:
                 feeds = []
                 def keep(r):  # the catalog's own JSON data feed (Coursedog/Kuali), as the page itself loaded it
                     try:
-                        if 'json' in (r.headers.get('content-type') or '') and r.request.method == 'GET' and len(feeds) < 40:
+                        h = urlsplit(r.url).netloc.lower()
+                        catalog_backend = h.endswith(('coursedog.com', 'kuali.co')) or h == urlsplit(url).netloc.lower()
+                        if 'json' in (r.headers.get('content-type') or '') and catalog_backend and len(feeds) < 60:
                             b = r.body()
                             if len(b) < 8 * 1024 * 1024: feeds.append((r.url, r.status, b))
                     except Exception:
@@ -153,7 +155,7 @@ class BrowserFetcher:
 
 
 def crawl_target(target, run: Run, fetcher, browser=None, log=print, caps=None):
-    caps = {'program_page': 450, 'catalog_nav': 30, 'degree_map': 250, 'policy_link': 40, 'discover': 25, **(caps or {}),
+    caps = {'program_page': 450, 'catalog_nav': 30, 'degree_map': 250, 'policy_link': 40, 'discover': 25, 'catalog_pdf': 2, **(caps or {}),
             **(target.get('caps') or {})}
     key = target['institution_key']
     seen = {e['url'] for e in run.entries() if e.get('institution_key') == key}
@@ -206,6 +208,9 @@ def crawl_target(target, run: Run, fetcher, browser=None, log=print, caps=None):
                       'status': 200, 'sha256': fsha, 'bytes': len(fbody), 'kind': 'json', 'content_type': 'application/json'}
                 fe['page_file'] = run.save_page(fsha, 'json', T.Page(text, 'catalog data feed', [], [], []), [])
                 run.record(fe)
+                # Coursedog reports the catalog's own generated full-catalog PDF ("Download Catalog as PDF")
+                for m in re.finditer(r'"url":\s*"(https://coursedog-pdfs-public-prod\.s3\.[a-z0-9-]+\.amazonaws\.com/[^"]+\.pdf)"', text):
+                    if '"type": "catalog"' in text: push(m.group(1), 'catalog_pdf', furl, depth + 1)
             browser.last_feeds = []
         if body is not None:
             try:
