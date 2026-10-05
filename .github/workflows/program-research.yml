@@ -42,6 +42,8 @@ jobs:
           state=$(python -c "import json;print(json.load(open('$req'))['state'].upper())")
           only=$(python -c "import json;print(' '.join(json.load(open('$req')).get('only',[])))")
           rid=$(python -c "import json;print(json.load(open('$req'))['run_id'])")
+          ao=$(python -c "import json;print('--adapters-only' if json.load(open('$req')).get('adapters_only') else '')")
+          echo "adapters_only=$ao" >> "$GITHUB_OUTPUT"
           echo "state=$state" >> "$GITHUB_OUTPUT"; echo "only=$only" >> "$GITHUB_OUTPUT"
           echo "dir=programs/runs/$state/$rid" >> "$GITHUB_OUTPUT"
           echo "branch=${GITHUB_REF#refs/heads/}" >> "$GITHUB_OUTPUT"
@@ -50,7 +52,7 @@ jobs:
       - name: Crawl (resumable)
         timeout-minutes: 240
         run: |
-          python -m programs crawl --state "${{ steps.p.outputs.state }}" --run "${{ steps.p.outputs.dir }}" \
+          python -m programs crawl --state "${{ steps.p.outputs.state }}" --run "${{ steps.p.outputs.dir }}" ${{ steps.p.outputs.adapters_only }} \
             ${{ steps.p.outputs.only && format('--only {0}', steps.p.outputs.only) || '' }}
       - name: Extract candidates and evidence
         if: always()

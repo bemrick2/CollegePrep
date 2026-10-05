@@ -253,7 +253,7 @@ def expand(target, role, url, links, push, is_program, is_nav, depth):
                 push(href, 'policy_link', url, depth + 1)
 
 
-def crawl(targets, run_dir, only=None, workers=8, delay=1.0, log=print, use_browser=True):
+def crawl(targets, run_dir, only=None, workers=8, delay=1.0, log=print, use_browser=True, adapters_only=False):
     run = Run(run_dir)
     fetcher = Fetcher(delay=delay)
     sel = [t for t in targets['institutions'] if not only or t['institution_key'] in only or t['folder'] in only]
@@ -270,6 +270,7 @@ def crawl(targets, run_dir, only=None, workers=8, delay=1.0, log=print, use_brow
              'hosts': sorted({host_of(s['url']) for s in plain_sources}),
              'policy': [s['url'] for s in plain_sources]}
     if state['policy'] and not only: sel = sel + [state]
+    if adapters_only: sel = []
 
     def one(t):
         try:
