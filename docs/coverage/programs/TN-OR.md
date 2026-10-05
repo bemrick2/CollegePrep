@@ -23,8 +23,8 @@ Runs: TN: `programs/runs/TN/2026-10-05-a`, `programs/runs/TN/2026-10-05-b`, `pro
 | 1 | University of Memphis (TN) | acalog | 1 | 62 | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
 | 1 | Vanderbilt University (TN) | kuali | 0 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
 | 2 | Eastern Oregon University (OR) | acalog | 30 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
-| 2 | Lewis & Clark College (OR) | courseleaf | 0 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
-| 2 | Linfield University (OR) | courseleaf | 9 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
+| 2 | Lewis & Clark College (OR) | courseleaf | 0 | – | 29 | 0 | 0 | yes | 0 | 3 | 1 | 0 | 1 | 0 | 0 | yes |
+| 2 | Linfield University (OR) | courseleaf | 9 | – | 38 | 0 | 0 | — | 0 | 2 | 9 | 2 | 1 | 0 | 0 | — |
 | 2 | Oregon State University-Cascades Campus (OR) | courseleaf | 30 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
 | 2 | Pacific University (OR) | to be located | 0 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
 | 2 | Reed College (OR) | to be located | 0 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
@@ -84,7 +84,7 @@ Field cells: verified programs matching the field by printed name or CIP family 
 | The University of Tennessee-Chattanooga | 0 | 5 | 1 | 1 | 0 | 1 | 10 | 1 | 6 | 0 | 15 | 0 |
 | The University of Tennessee-Knoxville | 6 | 6 | 0 | 1 | 0 | 5 | 22 | 1 | 3 | 0 | 112 | 0 |
 | University of Memphis | 0 | 0 | 12 | 1 | 0 | 64 | 6 | 0 | 3 | 0 | 38 | 0 |
-| Vanderbilt University | 0 | 1 | 29 | 0 | 1 | 2 | 2 | 0 | 19 | 0 | 0 | 0 |
+| Vanderbilt University | 0 | 1 | 29 | 0 | 1 | 2 | 2 | 0 | 19 | 0 | 0 | 1 |
 | Eastern Oregon University | 0 | 1 | 11 | 4 | 1 | 24 | 1 | 0 | 0 | 0 | 3 | 1 |
 | Lewis & Clark College | 0 | 2 | 4 | 4 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 12 |
 | Linfield University | 0 | 2 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 |
@@ -94,7 +94,7 @@ Field cells: verified programs matching the field by printed name or CIP family 
 | Southern Oregon University | 0 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | Western Oregon University | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | Willamette University | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| Austin Peay State University | 0 | 3 | 2 | 4 | 0 | 2 | 6 | 1 | 6 | 0 | 1 | 0 |
+| Austin Peay State University | 0 | 3 | 2 | 4 | 0 | 2 | 6 | 1 | 6 | 0 | 1 | 3 |
 | Carson-Newman University | 0 | 1 | 5 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
 | Lee University | 0 | 1 | 4 | 0 | 0 | 95 | 5 | 0 | 2 | 0 | 45 | 0 |
 | Lincoln Memorial University | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
@@ -145,8 +145,8 @@ Field cells: verified programs matching the field by printed name or CIP family 
 - **University of Memphis** (TN, P1): catalog program pages behind a bot challenge (recorded, not evaded); no reviewed program_catalogs record (completeness unknown); no verified programs; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
 - **Vanderbilt University** (TN, P1): catalog retrieved but no program list parsed; no reviewed program_catalogs record (completeness unknown); no verified programs; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
 - **Eastern Oregon University** (OR, P2): no reviewed program_catalogs record (completeness unknown); no verified programs; priority fields listed but not verified: computer_science, business_finance, psychology; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
-- **Lewis & Clark College** (OR, P2): catalog retrieved but no program list parsed; no reviewed program_catalogs record (completeness unknown); no verified programs; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
-- **Linfield University** (OR, P2): no reviewed program_catalogs record (completeness unknown); no verified programs; priority fields listed but not verified: computer_science, business_finance; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
+- **Lewis & Clark College** (OR, P2): catalog retrieved but no program list parsed; no verified degree maps; no verified admission-to-major facts
+- **Linfield University** (OR, P2): no reviewed program_catalogs record (completeness unknown); no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
 - **Oregon State University-Cascades Campus** (OR, P2): no reviewed program_catalogs record (completeness unknown); no verified programs; priority fields listed but not verified: engineering, computer_science, business_finance, nursing_health, psychology; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
 - **Pacific University** (OR, P2): current catalog not retrieved; no reviewed program_catalogs record (completeness unknown); no verified programs; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
 - **Reed College** (OR, P2): current catalog not retrieved; no reviewed program_catalogs record (completeness unknown); no verified programs; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
