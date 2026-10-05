@@ -11,26 +11,31 @@ from __future__ import annotations
 import re
 
 from pipeline.extractors import common
-from pipeline.extractors.catalog import CATEGORY, KIND, slug
+from pipeline.extractors.catalog import CATEGORY, HEAD_CREDITS, KIND, slug
 
 EXTRACTOR = 'smartcatalog_program/v1'
-BREAD = re.compile(r'^(20\d{2})\s*[-–]\s*(20\d{2})\s+[^>]{0,60}?(Catalog|Catalogue|Bulletin)\s*>\s*(.+)$', re.I)
 CODE = re.compile(r'^([A-Z][A-Za-z]{1,4})\s?(\d{3}[A-Z]?)$')
 CRED = re.compile(r'^\d{1,2}(?:\.\d)?(?:\s*[-–]\s*\d{1,2})?$')
 TERM = re.compile(r'\b(freshman|sophomore|junior|senior|first|second|third|fourth)\s+year\b|\byear\s+[1-4]\b|\b(fall|spring|winter|summer)\s+(term|semester|quarter)\b', re.I)
 TOTAL = re.compile(r'^\W*total\s+(?:credit\s+)?(?:hours|credits)(?:\s+required)?\W*(?:for\s+[^:]+)?:?\s*(\d{2,3})\b', re.I)
 # all_required only when the heading itself says the list is required; anything else is a pool to choose from
-REQUIRED = re.compile(r'\b(required|requirements|core|major\s+courses|foundation)\b', re.I)
+REQUIRED = re.compile(r'\b(required|requirements|core|major\s+courses|foundation|complete\s+(the\s+)?following|complete\s+all)\b', re.I)
 CHOOSE = re.compile(r'\b(choose|select|approved|elective|electives|one\s+of|from\s+the\s+following)\b', re.I)
 BACHELOR = re.compile(r'\b(B\.?\s?(A|S|F\.?A|M|S\.?N|S\.?W|A\.?S|Arch|Mus|B\.?A|S\.?[A-Z]{1,3})\b\.?|bachelor)', re.I)
 NOT_PROGRAM = re.compile(r'\b(minor|certificate|graduate|master|ph\.?d|m\.?s\.?|m\.?a\.?|admission\s+requirements|objectives|outcomes|courses)\b', re.I)
 
 
+CRUMB_HEAD = re.compile(r'^(?=[^>]{0,80}(Catalog|Catalogue|Bulletin))[^>]{0,80}?\b(20\d{2})\s*[-–]\s*((?:20)?\d{2})\b[^>]{0,40}>', re.I)
+
+
 def program_year(page):
+    """The year in the breadcrumb's first segment: "2026-2027 Bulletin > ..." (PSU), "Academic Catalog 2026-2027 > ..." (CBU)."""
     for line in page.lines[:400]:
-        m = BREAD.match(line.strip())
-        if m and int(m.group(2)) == int(m.group(1)) + 1:
-            return f'{m.group(1)}-{m.group(2)}', line.strip()
+        m = CRUMB_HEAD.match(line.strip())
+        first, second = int(m.group(2)) if m else 0, (int(m.group(3)) if m else 0)
+        if m and second < 100: second += 2000  # "2026-27 Undergraduate Catalogue" (Union)
+        if m and second == first + 1:
+            return f'{first}-{second}', line.strip()
     return None, None
 
 
@@ -79,11 +84,16 @@ def extract(inst, entry, page, today_year):
         rd = {'schema': 'requirement_group/v1', 'catalog_year': year, 'category': cat, 'source_section': heading[:200] or 'Requirements',
               'group_type': 'all_required' if (REQUIRED.search(heading) and not CHOOSE.search(heading)) else 'elective_pool', 'courses': courses}
         if rules: rd['rule_text'] = ' '.join(rules)[:800]
+        mins = HEAD_CREDITS.search(heading)
+        alternatives = any(re.fullmatch(r'(or|and/or)', r.strip(), re.I) for r in rules)
         if cat == 'concentration': rd['concentration'] = heading[:120]
         key = slug(heading or 'requirements'); seen[key] = seen.get(key, 0) + 1
         if seen[key] > 1: key = f'{key}-{seen[key]}'
         g = {'program_key': pkey, 'requirement_key': key, 'requirement_kind': KIND.get(cat, 'other'), 'rule_details': rd}
-        if rd['group_type'] == 'elective_pool' and not CHOOSE.search(heading): g['_issues'] = ['group_type_unclear_heading']
+        if mins and int(mins.group(1)) > 0: g['minimum_credits'] = int(mins.group(1))
+        g['_issues'] = []
+        if rd['group_type'] == 'elective_pool' and not CHOOSE.search(heading): g['_issues'].append('group_type_unclear_heading')
+        if alternatives: g['_issues'].append('course_alternatives_in_rule_text')  # "MATH 105 OR MATH 111": not simply all required
         groups.append(g)
     if terms:
         groups.append({'program_key': pkey, 'requirement_key': 'recommended-sequence', 'requirement_kind': 'program_plan',
@@ -91,7 +101,7 @@ def extract(inst, entry, page, today_year):
                                         'category': 'recommended_sequence', 'terms': terms, 'source_section': 'Requirements'}})
     totals = {int(m.group(1)) for l in page.lines for m in [TOTAL.match(l.strip('| '))] if m}
     total = totals.pop() if len(totals) == 1 else None
-    if not groups and total is None: return []
+    # A program page with no parseable requirement tables still establishes the program (name, award, URL, year).
     src = common.source_of(entry)['url']
     prog = {'program_key': pkey, 'program_name': name, 'catalog_year': year, 'program_url': src, 'credential_level': 'bachelor',
             'notes': f'Extracted by {EXTRACTOR} from the published catalog program page.'}
