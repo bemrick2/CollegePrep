@@ -453,7 +453,8 @@
    "priority": 2,
    "discover": [
     "https://www.lmunet.edu/",
-    "https://catalog.lmunet.edu/"
+    "https://catalog.lmunet.edu/",
+    "https://undergraduatecatalog.lmunet.edu/"
    ],
    "policy": []
   },
@@ -749,13 +750,15 @@
     "johnsonu.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://johnsonu.edu/",
-    "https://catalog.johnsonu.edu/"
-   ],
-   "policy": []
+   "catalog": {
+    "platform": "pdf",
+    "home": "https://johnsonu.edu/academic-catalogs/",
+    "catalog_pdfs": [
+     "https://johnsonu.edu/wp-content/uploads/2026/06/2026-2027-Johnson-University-Undergraduate-Academic-Catalog-Final-06-19-2025.pdf"
+    ]
+   }
   },
   {
    "institution_key": "ipeds-220516",
@@ -766,13 +769,15 @@
     "king.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.king.edu/",
-    "https://catalog.king.edu/"
-   ],
-   "policy": []
+   "catalog": {
+    "platform": "pdf",
+    "home": "https://www.king.edu/academics/academic-catalogs/",
+    "catalog_pdfs": [
+     "https://media.king.edu/2026/08/academic-catalog.pdf"
+    ]
+   }
   },
   {
    "institution_key": "ipeds-220598",
