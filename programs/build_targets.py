@@ -43,7 +43,7 @@ TN={
    'https://www.utc.edu/enrollment-management-and-student-affairs/center-for-academic-support-and-advisement/academic-exploration/undecided-majors',
    'https://www.utc.edu/gary-w-rollins-college-of-business/student-resources/scholarships/general-scholarships'],
    degree_maps=['https://www.utc.edu/enrollment-management-and-student-affairs/advisement/advising-resources/clear-paths-for-advising/clear-paths-for-advising-2026-2027'],
-   degree_map_any_pdf=True),
+   degree_map_any_pdf=True,pdf_layout=True),
  'etsu':dict(priority=1,catalog=acalog('catalog.etsu.edu',65,[4652]),policy=[
    'https://www.etsu.edu/cas/applied-design/engineering/faq.php','https://www.etsu.edu/cas/applied-design/scholarship.php',
    'https://www.etsu.edu/cbat/management-supply-chain/documents/special_admission_requirements.pdf','https://www.etsu.edu/cbat_scholarships/',
@@ -74,6 +74,10 @@ TN={
    'https://lipscomb.edu/admissions/freshmen-admissions/scholars-programs/college-business-swang-scholars-program',
    'https://lipscomb.edu/admissions/freshmen-admissions/scholars-programs/raymond-b-jones-engineering-scholars-program','https://lipscomb.edu/engineering/engineering-scholarship',
    'https://www.lipscomb.edu/engineering/academic-programs/prospective-students','https://lipscomb.edu/one-stop/registrar-faqs']),
+ 'king':dict(priority=3,catalog={'platform':'pdf','home':'https://www.king.edu/academics/academic-catalogs/','catalog_pdfs':['https://media.king.edu/2026/08/academic-catalog.pdf'],
+   'bullet_majors':{'heading':'MAJORS (DEGREES AWARDED)','end':'MINORS'}}),
+ 'johnsonu':dict(priority=3,catalog={'platform':'pdf','home':'https://johnsonu.edu/academic-catalogs/',
+   'catalog_pdfs':['https://johnsonu.edu/wp-content/uploads/2026/06/2026-2027-Johnson-University-Undergraduate-Academic-Catalog-Final-06-19-2025.pdf']}),
  'cn':dict(priority=2,render='browser',catalog={'platform':'coursedog','home':'https://catalog.cn.edu/','path_prefix':'/programs/','min_depth':0,
    'program_lists':['https://catalog.cn.edu/programs']},policy=['https://catalog.cn.edu/academic-policies','https://catalog.cn.edu/admissions']),
  'lanecollege':dict(priority=3,render='browser',catalog={'platform':'coursedog','home':'https://catalog.lanecollege.edu/','path_prefix':'/programs/','min_depth':0,
@@ -137,15 +141,16 @@ OR={
    'https://www.oit.edu/admissions/criteria','https://www.oit.edu/college-costs/scholarships/new-transfer-student/engineering-honors-scholarship']),
 }
 HOSTS={}
-EXTRA_DISCOVER={'up':['https://www.up.edu/registrar/index.html','https://www.up.edu/academics/degrees-programs/index.html','https://up.smartcatalogiq.com/'],
+EXTRA_DISCOVER={'lmunet':['https://undergraduatecatalog.lmunet.edu/','https://undergraduatecatalog.lmunet.edu/degrees'],'up':['https://www.up.edu/registrar/index.html','https://www.up.edu/academics/degrees-programs/index.html','https://up.smartcatalogiq.com/'],
  'wou':['https://wou.edu/registrar/','https://wou.edu/academics/'],'corban':['https://www.corban.edu/registrar/catalog/'],
  'warnerpacific-210304':['https://www.warnerpacific.edu/academics/registrar/academic-catalog/'],
  'bushnell':['https://bushnell.edu/academics/academic-support/registrar/academic-catalog/']}
-DISCOVER={'TN':['trevecca','southern','lmunet','cumberland','fhu','king','milligan','bryan','maryvillecollege','sewanee','fisk','tusculum','tnwesleyan','bethelu','loc','johnsonu','welch','baptistu'],
+DISCOVER={'TN':['trevecca','southern','lmunet','cumberland','fhu','milligan','bryan','maryvillecollege','sewanee','fisk','tusculum','tnwesleyan','bethelu','loc','welch','baptistu'],
  'OR':['wou','reed','pacificu','corban','bushnell','warnerpacific-210304','multnomah']}
 PRI={'up':1,'georgefox':1,'sou':2,'wou':2,'eou':2,'osucascades':2,'willamette-210401':2,'lclark':2,'reed':2,'linfield':2,'pacificu':2,'cn':2,'trevecca':2,'southern':2,'lmunet':2,'sewanee':2,'maryvillecollege':2}
 BLOCKED_EXTRA={'utk': ['https://advising.utk.edu/', 'https://www.utk.edu/academics/majors'], 'mtsu': ['https://www.mtsu.edu/advising/', 'https://www.mtsu.edu/programs/'], 'memphis': ['https://www.memphis.edu/advising/', 'https://www.memphis.edu/academics/'], 'etsu': ['https://www.etsu.edu/advisement/', 'https://www.etsu.edu/academics/'], 'utm': ['https://www.utm.edu/academics/majors-and-programs', 'https://www.utm.edu/offices/advising'], 'belmont': ['https://www.belmont.edu/academics/majors-programs/'], 'lipscomb': ['https://www.lipscomb.edu/academics'], 'leeuniversity': ['https://www.leeuniversity.edu/academics/']}
 for k,v in BLOCKED_EXTRA.items(): TN[k]['policy']=TN[k]['policy']+v
+TYPE_PATH={'lmunet':{'url':'https://undergraduatecatalog.lmunet.edu/degrees','home':'https://undergraduatecatalog.lmunet.edu/'}}
 for st,conf in (('TN',TN),('OR',OR)):
     r=reg(st); out=[]
     for folder,c in conf.items():
@@ -157,6 +162,7 @@ for st,conf in (('TN',TN),('OR',OR)):
         out.append({'institution_key':i['institution_key'],'folder':folder,'name':i['name'],'control':i['control'],'domains':sorted(set(i['allowed_domains'])),'hosts':[],
           'mode':'discover','priority':PRI.get(folder,3),'discover':[i['seeds']['website'],f'https://catalog.{d}/']+EXTRA_DISCOVER.get(folder,[]),'policy':[]})
         out[-1]['hosts']=HOSTS.get(folder,[])
+        if folder in TYPE_PATH: out[-1]['type_path_list']=TYPE_PATH[folder]
     out.sort(key=lambda t:(t['priority'],t['name']))
     doc={'state':st,'purpose':'Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. '
          'mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.',

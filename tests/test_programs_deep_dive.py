@@ -677,3 +677,81 @@ class CourseListLayoutReviewTests(unittest.TestCase):
         self.assertIn('substitution_noted_on_page', out[0]['issues'])
         g = CL.html_groups(self.table([('c', 'DATA 488', 'Capstone (or)', '4'), ('opt', 'MATH 280', 'Internship')]))
         self.assertTrue({'indented_rows_after_required_course', 'substitute_in_title'} <= g[0][1]['issues'])
+
+
+class OutlineTests(unittest.TestCase):
+    def test_list_depth_and_blocks(self):
+        from programs.courselist_html import outline
+        html = ('<nav><ul><li>Home</li></ul></nav><h2>Major Requirements</h2><p>Select one of the following:</p>'
+                '<ul><li><a class="sc-courselink">PSY 200</a> General Psychology <ul><li>or PSY 201</li></ul></li><li>STAT 243Z</li></ul>')
+        b = outline(html)
+        self.assertEqual([(x['tag'], x['depth'], x['text']) for x in b],
+                         [('h2', 0, 'Major Requirements'), ('p', 0, 'Select one of the following:'), ('li', 1, 'PSY 200 General Psychology'), ('li', 2, 'or PSY 201'), ('li', 1, 'STAT 243Z')])
+
+
+class PdfLayoutTests(unittest.TestCase):
+    def test_bbox_parse(self):
+        from programs.pdf_layout import parse_bbox
+        x = ('<page width="612.0" height="792.0"><flow><block><line xMin="36.0" yMin="100.0" xMax="200.0" yMax="110.0">'
+             '<word xMin="36.0" yMin="100.0" xMax="60.0" yMax="110.0">ANTH</word><word xMin="62.0" yMin="100.0" xMax="90.0" yMax="110.0">1200:</word>'
+             '</line></block></flow></page>')
+        self.assertEqual(parse_bbox(x), [{'width': 612.0, 'height': 792.0, 'lines': [{'y': 100.0, 'y1': 110.0, 'words': [[36.0, 60.0, 'ANTH'], [62.0, 90.0, '1200:']]}]}])
+
+
+class ClearPathLayoutTests(unittest.TestCase):
+    def page(self):
+        def line(y, *ws): return {'y': y - 5, 'y1': y + 5, 'words': [[x, x + 10, t] for x, t in ws]}
+        L = [line(84, (38, 'First'), (59, 'Year'), (80, '–'), (87, '7-9'), (113, 'Hours')),
+             line(99, (38, 'Fall'), (55, 'Semester:')), line(99, (279, 'Hrs')), line(99, (307, 'Spring'), (336, 'Semester:')), line(99, (548, 'Hrs')),
+             line(114, (38, 'ANTH'), (64, '1200:'), (89, 'Cultural'), (124, '(Behavioral')), line(128, (38, 'Science)')), line(121, (279, '3')),
+             line(121, (307, 'ANTH'), (333, '1400:'), (358, 'Archaeology'), (548, '3')),
+             line(143, (38, 'Elective')), line(143, (279, '1-3')), line(143, (307, 'Writing'), (340, 'and'), (358, 'Communication')), line(143, (548, '3-4')),
+             line(160, (279, '4-6')), line(160, (548, '6-7')), line(170, (38, 'Completed:'))]
+        return [{'width': 612, 'height': 792, 'lines': L}]
+
+    def test_columns_wrapped_titles_and_totals(self):
+        from programs import clearpath as CP
+        years = CP.parse_layout(self.page())
+        label, fall, ft, spring, st, probs = years[0]
+        self.assertEqual((label, ft, st, probs), ('First Year – 7-9 Hours', '4-6', '6-7', set()))
+        self.assertEqual(fall, [['ANTH 1200: Cultural (Behavioral Science)', '3'], ['Elective', '1-3']])
+        self.assertEqual(spring, [['ANTH 1400: Archaeology', '3'], ['Writing and Communication', '3-4']])
+        self.assertTrue(CP.term_ok(fall, ft) and CP.term_ok(spring, st))
+        self.assertFalse(CP.term_ok([['Elective', '3']], '4-6'))
+
+    def test_three_line_title_stays_in_one_item(self):  # UTC Biology B.S. Third Year Spring (review 2026-10-05)
+        from programs import clearpath as CP
+        # lines at 100/113/126 belong to the item whose hours print on the middle line (113); the next item's single line is at 143
+        self.assertEqual(CP.blocks([100, 113, 126, 143], [113, 143]), [(0, 3), (3, 4)])
+        self.assertEqual(CP.blocks([114, 128, 143], [121, 143]), [(0, 2), (2, 3)])
+        self.assertIsNone(CP.blocks([100], [100, 120]))
+
+
+class BulletMajorTests(unittest.TestCase):
+    def test_two_column_bullets_with_bachelor_awards(self):  # King 2026-2027 Academic Catalog
+        from pipeline import text as T
+        txt = '\n'.join(['King', '2026-2027 Academic Catalog', 'MAJORS (DEGREES AWARDED)                o Special Education Track',
+                         '• Accounting (BS)                                          K-8)', '• Biology (BA, BS)                       • Nursing (BSN)',
+                         'o General Biology Track (BA, BS)        • Nursing Practice (BSN-DNP)', '• Business (PMBA, TMBA)                  • Exercise Science',
+                         'MINORS', '• Theatre (BA)'])
+        e = {'url': 'https://media.king.edu/2026/08/academic-catalog.pdf', 'sha256': 's', 'fetched_at': '2026-10-05T00:00:00'}
+        out = X.bullet_major_candidates({'catalog': {'bullet_majors': {'heading': 'MAJORS (DEGREES AWARDED)', 'end': 'MINORS'}}}, {'institution_key': 'k'}, e, T.Page(txt, '', [], [], []), '2026-27')
+        self.assertEqual([c['record']['program_name'] for c in out], ['Accounting (BS)', 'Biology (BA, BS)', 'Nursing (BSN)'])
+
+
+class TypePathTests(unittest.TestCase):
+    def test_award_paths_and_home_edition(self):  # Lincoln Memorial 2026-2027
+        from pipeline import text as T
+        lu, hu = 'https://undergraduatecatalog.lmunet.edu/degrees', 'https://undergraduatecatalog.lmunet.edu/'
+        links = [('https://undergraduatecatalog.lmunet.edu/education/bachelor-of-science/bs-in-education', 'BS in Education'),
+                 ('https://undergraduatecatalog.lmunet.edu/education/bachelor-of-science/bs-in-education', 'Bachelor of Science'),
+                 ('https://undergraduatecatalog.lmunet.edu/history/bachelor-of-arts/ba-history-general', 'BA in History - General Track'),
+                 ('https://undergraduatecatalog.lmunet.edu/nursing/associate-of-science-in-nursing/asn', 'Associate of Science in Nursing (ASN) (CIP code 51.3801)'),
+                 ('https://undergraduatecatalog.lmunet.edu/nursing/bachelor-of-science/bsn', 'Bachelor of Science in Nursing (BSN) (CIP code 51.3801)')]
+        pages = {'l': T.Page('Degrees', 'Degrees', [], links, []), 'h': T.Page('Undergraduate Catalog 2026-2027\nVol. XCVII', 'Catalog', [], [], [])}
+        class R:
+            def load_page(self, f): return pages[f], None
+        es = [{'url': lu, 'page_file': 'l', 'sha256': 'a', 'fetched_at': '2026-10-05T00:00:00'}, {'url': hu, 'page_file': 'h', 'sha256': 'b', 'fetched_at': '2026-10-05T00:00:00'}]
+        out = X.type_path_candidates({'type_path_list': {'url': lu, 'home': hu}}, {'institution_key': 'k'}, R(), es, '2026-27')
+        self.assertEqual([(c['record']['program_name'], c['record'].get('cip_code'), c['record']['catalog_year']) for c in out],
+                         [('BS in Education', None, '2026-2027'), ('Bachelor of Science in Nursing (BSN)', '51.3801', '2026-2027')])
