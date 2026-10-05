@@ -19,6 +19,20 @@ def literal(v):
     if isinstance(v,(int,float)): return str(v)
     return "'"+str(v).replace("'","''")+"'"
 
+def correction_gate(accept):
+    # True/False for the CLI switch; a set of natural keys for corrections approved one by one in data/corrections.json.
+    if isinstance(accept,(set,frozenset)):
+        return '(r.natural_key = any(array['+','.join(literal(k) for k in sorted(accept))+']::text[]))' if accept else 'false'
+    return literal(bool(accept))
+
+def approved_corrections(path):
+    """Natural keys whose verified status the repository owner approved correcting (data/corrections.json)."""
+    entries=json.loads(Path(path).read_text(encoding='utf-8'))['corrections']
+    for e in entries:
+        if not (e.get('natural_key') and e.get('reason') and e.get('approved_by') and e.get('approved_on')):
+            raise ValueError('Each approved correction needs natural_key, reason, approved_by and approved_on')
+    return frozenset(e['natural_key'] for e in entries)
+
 def bulk_batch(rows,accept_corrections=False):
     for row in rows:
         if row['domain'] not in SUPPORTED_DOMAINS:
@@ -41,7 +55,7 @@ do $guard$ begin
  if exists(select 1 from import_rows r join ingestion.reference_records old using(natural_key)
  where old.payload->>'verification_status'='verified' and (
  (r.payload->>'verification_status'<>'verified' and not (
- '''+literal(accept_corrections)+''' and nullif(btrim(r.payload->>'verification_correction_reason'),'') is not null)) or
+ '''+correction_gate(accept_corrections)+''' and nullif(btrim(r.payload->>'verification_correction_reason'),'') is not null)) or
  (old.payload->>'last_verified_at')::timestamptz>(r.payload->>'last_verified_at')::timestamptz))
  then raise exception 'Refusing weaker or older evidence'; end if;
 end $guard$;
@@ -148,9 +162,11 @@ if __name__=='__main__':
     p=argparse.ArgumentParser(); p.add_argument('--output',type=Path,required=True); p.add_argument('--batch-size',type=int,default=400)
     p.add_argument('--reconcile-sql',type=Path,help='also write count assertions for a fresh database after import')
     p.add_argument('--accept-corrections',action='store_true',help='allow reviewed status corrections only with a persisted verification_correction_reason')
+    p.add_argument('--approved-corrections',type=Path,help='JSON list of natural keys approved for a status correction (data/corrections.json)')
     p.add_argument('--existing-database',action='store_true',help='allow existing revision history during reconciliation'); a=p.parse_args()
     if not 1<=a.batch_size<=400: p.error('batch-size must be 1-400')
     a.output.mkdir(parents=True,exist_ok=True); count=0
-    for count,sql in enumerate(batches(a.batch_size,a.accept_corrections),1): (a.output/f'{count:04}.sql').write_text(sql,encoding='utf-8')
+    accept=approved_corrections(a.approved_corrections) if a.approved_corrections else a.accept_corrections
+    for count,sql in enumerate(batches(a.batch_size,accept),1): (a.output/f'{count:04}.sql').write_text(sql,encoding='utf-8')
     if a.reconcile_sql: a.reconcile_sql.write_text(reconcile_sql(fresh=not a.existing_database),encoding='utf-8')
     print(json.dumps({'batches':count,'output':str(a.output)}))

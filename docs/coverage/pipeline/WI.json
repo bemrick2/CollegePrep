@@ -1,0 +1,150 @@
+{
+ "state": "WI",
+ "academic_year": "2026-27",
+ "institutions": 56,
+ "status_order": [
+  "verified_current",
+  "partially_verified_current",
+  "candidate_ready",
+  "candidate_exception",
+  "source_found",
+  "not_found",
+  "fetch_failed"
+ ],
+ "by_category": {
+  "admissions_tests": {
+   "candidate_exception": 1,
+   "fetch_failed": 4,
+   "not_found": 6,
+   "source_found": 45
+  },
+  "aid_appeals": {
+   "candidate_exception": 33,
+   "fetch_failed": 4,
+   "not_found": 11,
+   "source_found": 8
+  },
+  "ap_credit": {
+   "candidate_exception": 7,
+   "candidate_ready": 5,
+   "fetch_failed": 4,
+   "not_found": 22,
+   "source_found": 18
+  },
+  "clep_credit": {
+   "candidate_exception": 8,
+   "candidate_ready": 2,
+   "fetch_failed": 4,
+   "not_found": 26,
+   "source_found": 16
+  },
+  "common_data_set": {
+   "candidate_exception": 1,
+   "fetch_failed": 4,
+   "not_found": 46,
+   "source_found": 5
+  },
+  "cost_of_attendance": {
+   "candidate_exception": 12,
+   "candidate_ready": 1,
+   "fetch_failed": 4,
+   "not_found": 2,
+   "source_found": 37
+  },
+  "degree_requirements": {
+   "candidate_exception": 1,
+   "fetch_failed": 4,
+   "not_found": 14,
+   "source_found": 37
+  },
+  "dual_enrollment": {
+   "candidate_ready": 6,
+   "fetch_failed": 4,
+   "not_found": 18,
+   "source_found": 28
+  },
+  "ib_credit": {
+   "candidate_exception": 3,
+   "candidate_ready": 2,
+   "fetch_failed": 4,
+   "not_found": 39,
+   "source_found": 8
+  },
+  "merit_scholarships": {
+   "candidate_ready": 3,
+   "fetch_failed": 4,
+   "not_found": 6,
+   "source_found": 43
+  },
+  "residency": {
+   "fetch_failed": 4,
+   "not_found": 21,
+   "source_found": 31
+  },
+  "statewide_articulation": {
+   "fetch_failed": 4,
+   "not_found": 27,
+   "source_found": 25
+  },
+  "transfer_credit": {
+   "candidate_ready": 8,
+   "fetch_failed": 4,
+   "not_found": 1,
+   "source_found": 43
+  },
+  "tuition_fees": {
+   "candidate_exception": 24,
+   "candidate_ready": 5,
+   "fetch_failed": 4,
+   "not_found": 2,
+   "source_found": 21
+  }
+ },
+ "totals": {
+  "candidate_exception": 90,
+  "candidate_ready": 32,
+  "fetch_failed": 56,
+  "not_found": 241,
+  "source_found": 365
+ },
+ "statewide_sources": {
+  "categories": {
+   "admissions_tests": 1,
+   "aid_appeals": 0,
+   "ap_credit": 0,
+   "clep_credit": 0,
+   "common_data_set": 0,
+   "cost_of_attendance": 1,
+   "degree_requirements": 0,
+   "dual_enrollment": 1,
+   "ib_credit": 0,
+   "merit_scholarships": 8,
+   "residency": 0,
+   "statewide_articulation": 0,
+   "transfer_credit": 0,
+   "tuition_fees": 1
+  },
+  "fetch_failures": 0,
+  "pages_fetched": 8
+ },
+ "blocked_institutions": [
+  "ipeds-238193",
+  "ipeds-240107",
+  "ipeds-240198",
+  "ipeds-240365"
+ ],
+ "quality": {
+  "ambiguous_years": 13,
+  "blocked_requests": 150,
+  "candidates": 238,
+  "conflicts": 63,
+  "documents": 3863,
+  "extraction_failures": 0,
+  "fetch_errors": 81,
+  "fetches": 4094,
+  "ready": 47,
+  "semantic_review": 88,
+  "stale_sources": 34
+ },
+ "run": "pipeline/runs/WI/2026-10-04"
+}

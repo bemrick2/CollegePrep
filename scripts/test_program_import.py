@@ -49,7 +49,9 @@ end $test$;
         sql+="do $negative$ begin\n begin\n"+body([changed])+"raise exception 'Expected rejection did not occur';\n exception when raise_exception then\n if sqlerrm<>"+"'"+expected+"' then raise; end if;\n end;\nend $negative$;\n"
     correction=copy.deepcopy(rows[-1]); correction['payload']['verification_status']='partially_verified'
     correction['payload']['verification_correction_reason']='Fixture: year label is not established by official source'
-    sql+=body([correction],accept_corrections=True)
+    # A per-key approval list (supabase/corrections.json) admits only the listed record.
+    sql+="do $negative$ begin\n begin\n"+body([correction],accept_corrections=frozenset({'["other"]'}))+"raise exception 'Expected rejection did not occur';\n exception when raise_exception then\n if sqlerrm<>'Refusing weaker or older evidence' then raise; end if;\n end;\nend $negative$;\n"
+    sql+=body([correction],accept_corrections=frozenset({correction['natural_key']}))
     revised=copy.deepcopy(next(r for r in rows if r['domain']=='credit_policies'))
     revised['payload']['equivalencies'][0]['exam_or_course_code']='TEST-NEW'
     sql+=body([revised])+body([revised])

@@ -121,6 +121,7 @@ export function ParentShell() {
           <Brand to="/parent" />
           <nav aria-label="Parent" className="ml-4 hidden gap-1 md:flex">
             <ParentLink to="/parent" end icon={<Home />} label="Overview" />
+            <ParentLink to="/parent/progress" icon={<Chart />} label="Progress" />
             <ParentLink to="/colleges" icon={<Wallet />} label="Colleges & cost" />
             <ParentLink to="/parent/household" icon={<Users />} label="Household" />
           </nav>
@@ -155,7 +156,7 @@ export function ParentShell() {
       <nav aria-label="Parent" className="fixed inset-x-0 bottom-0 z-30 flex border-t border-line bg-surface/95 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden">
         <TabLink to="/parent" end icon={<Home />} label="Overview" />
         <TabLink to="/parent/progress" icon={<Chart />} label="Progress" />
-        <TabLink to="/colleges" icon={<Wallet />} label="Cost" />
+        <TabLink to="/colleges" icon={<Wallet />} label="Colleges" />
         <TabLink to="/parent/household" icon={<Users />} label="Household" />
       </nav>
     </div>
