@@ -21,7 +21,7 @@ NOT_NAME = re.compile(r'^[\d<>=.\s/+%$,-]*$|tuition|\bfees?\b|per credit|per cou
                       r'\bstudents?\s+(is|who|still|are)\b|fall below|balance', re.I)
 # Names that are not merit awards (KY: federal aid and loans in an aid table, staff directories, credit-hour bands
 # from an academic-standards table).
-NOT_AWARD_NAME = re.compile(r'\bph\.?\s?d\b|\bdoctoral\b|\bmaster\'?s\b|\bpell\b|\brotc\b|yellow\s+ribbon|supplemental\s+educational\s+opportunity|\bseog\b|work[- ]study|\bloans?\b|\bplus\b|'
+NOT_AWARD_NAME = re.compile(r'\bap\s+credit\b|\bph\.?\s?d\b|\bdoctoral\b|\bmaster\'?s\b|\bpell\b|\brotc\b|yellow\s+ribbon|supplemental\s+educational\s+opportunity|\bseog\b|work[- ]study|\bloans?\b|\bplus\b|'
                             r'college\s+access\s+program|counselor(?!(?:\x27|\u2019)?s?\s+(?:award|scholarship))|director|coordinator|specialist|\bassistant\b|officer|advisor|'
                             r'^(fewer|more|less)\s+than\b|^over\s+\d|\bcredit\s+hours?\b|'
                             r'^\W*(books?|supplies|transportation|personal\s+expenses?|loan\s+fees?|room|board|food)\b|'
@@ -41,6 +41,7 @@ THRESHOLD_CELL = re.compile(r'^\s*[<>≤≥]?\s*\d{1,4}(\.\d{1,2})?\s*(\+|[-–]
 
 
 PLACEHOLDER = re.compile(r'^\W*(n/?a|none|see\s+(?:requirements|criteria|details|below|website)|varies|tbd|-+|—|–)\W*$', re.I)  # ND (Lake Region): an en dash is an empty cell
+YES_NO = re.compile(r'\s*(?:yes|no|all|any)\s*', re.I)
 PHONE = re.compile(r'\(?\d{3}\)?[\s.-]\d{3}[.-]\d{4}')  # Tougaloo: a contact number in the ACT column is not a score
 ENROLLMENT = re.compile(r'^(full|half|part|three[-\s]quarter|3/4)[-\s]time(\s*\([^)]*\))?$|^\d+(\.\d+)?\s+credits?\s+or\s+more$', re.I)  # WY (Northwest): "Full Time (12.0-14.5 credits)", "15.0 credits or more"  # Ole Miss Sumners: amount by enrollment intensity
 SCORE = re.compile(r'\b\d{1,4}\b')
@@ -95,6 +96,11 @@ def _amounts(cell):
     # MO (Columbia College): "$1,000-2,000" prints the dollar sign once for the whole range
     for a, b in re.findall(r'\$\s*([\d,]{3,})\s*[-–]\s*([\d,]{3,})(?![\d,])', cell or ''):
         vals += [float(a.replace(',', '')), float(b.replace(',', ''))]
+    # TX (TAMU-Corpus Christi): "$4,000/$16,000" is the annual award and its four-year total
+    pair = re.search(r'\$\s*([\d,]{3,})\s*/\s*\$\s*([\d,]{3,})', cell or '')
+    if pair and len(vals) == 2:
+        a, b = (float(x.replace(',', '')) for x in pair.groups())
+        if a and b / a in (2, 3, 4, 5): return a, a
     return (min(vals), max(vals)) if vals else (None, None)
 
 
@@ -138,13 +144,15 @@ def _list_awards(t, header, body, title, award_type):
         if not threshold_label and (NOT_NAME.search(nm) or NOT_AWARD_NAME.search(nm)): continue
         if nm.endswith(':') or len(nm.split()) > 12: continue  # worked examples and sentences, not award names
         get = lambda i: cells[i].strip() if i is not None and i < len(cells) else ''
-        amt, g, a, s, tst, crit, ren = (x if not (PLACEHOLDER.match(x) or PHONE.search(x)) else '' for x in (get(amount), get(gpa), get(act), get(sat), get(test), get(criteria), get(renewal)))
+        # TX (South Texas College) "GPA: Yes/No", (Texas Southmost) "All", (Texas State) contact e-mail cells are not criteria
+        amt, g, a, s, tst, crit, ren = (x if not (PLACEHOLDER.match(x) or PHONE.search(x) or '@' in x or YES_NO.fullmatch(x)) else '' for x in (get(amount), get(gpa), get(act), get(sat), get(test), get(criteria), get(renewal)))
         nm, merged_gpa = _split_name(nm)
         if merged_gpa and not g: g = merged_gpa
         if not (amt or g or a or s or tst or crit): continue
         lo, hi = _amounts(amt)
         outside = re.sub(r'\([^)]*\)', '', amt)
-        if re.search(r'semester\s+basis|per\s+semester|/\s*semester', outside, re.I) and not re.search(r'per\s+year|annual|/\s*y(?:ea)?r', outside, re.I):
+        if (re.search(r'semester\s+basis|per\s+semester|/\s*semester', outside, re.I) or re.search(r'\$[\d,.]+\s+(?:for\s+)?(?:the\s+)?(?:fall|spring)\b', outside, re.I)) \
+                and not re.search(r'per\s+year|annual|/\s*y(?:ea)?r', outside, re.I):  # TX (South Texas): "$500 Fall & $500 Spring"
             lo, hi = None, None  # ND (Lake Region): "$100–$300 awarded on a semester basis" is not an annual range
         if re.search(r'tuition[^$]*(\+|\bplus\b|\band\b)\s*\$', amt, re.I) or \
            MULTI_YEAR.search(re.sub(r'\([^)]*\)', '', amt)) or MULTI_X.search(amt) or re.search(r'\bfull\s+tuition\b|\bper\s+credit\b|\btotal\s+value\b', amt, re.I):  # KS (K-State Salina): "Total Value: $100,000"  # MO (Logan): "$400 per credit hour" is not an annual award
