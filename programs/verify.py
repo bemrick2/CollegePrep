@@ -28,6 +28,11 @@ def code_in(text, code):
 def check_candidate(c, text):
     probs = []
     r = c['record']; t = norm(text); squashed = squash(text)
+    if c.get('extractor') in ('thec_inventory/v1', 'coursedog_api/v1'):  # structured rows: every quoted field value is in the response
+        for ev in c.get('evidence', []):
+            if ev.get('value') not in (None, '') and json.dumps(ev['value'], ensure_ascii=False) not in text and str(ev['value']) not in text:
+                probs.append(f"{ev['field']} value not in source response")
+        return probs
     if c['domain'] == 'academic_programs':
         if norm(r['program_name']) not in t: probs.append('program_name not verbatim')
         cy = r.get('catalog_year') or ''
