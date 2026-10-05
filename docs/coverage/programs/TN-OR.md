@@ -13,7 +13,7 @@ Runs: TN: `programs/runs/TN/2026-10-05-a`, `programs/runs/TN/2026-10-05-b`, `pro
 | 1 | University of Oregon (OR) | courseleaf | 73 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
 | 1 | University of Portland (OR) | smartcatalog | 53 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
 | 1 | Belmont University (TN) | acalog | 0 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
-| 1 | Christian Brothers University (TN) | smartcatalog | 36 | – | 37 | 0 | 0 | — | 8 | 3 | 6 | 2 | 2 | 0 | 0 | — |
+| 1 | Christian Brothers University (TN) | smartcatalog | 36 | – | 37 | 0 | 0 | — | 8 | 3 | 6 | 2 | 2 | 0 | 1 | yes |
 | 1 | East Tennessee State University (TN) | acalog | 0 | 71 | 0 | 72 | 72 | — | 0 / 4 | 0 / 5 | 0 / 14 | 0 / 18 | 0 / 4 | 0 | 1 | yes |
 | 1 | Lipscomb University (TN) | acalog | 0 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
 | 1 | Middle Tennessee State University (TN) | acalog | 0 | 97 | 0 | 97 | 97 | — | 0 / 2 | 0 / 4 | 0 / 31 | 0 / 6 | 0 / 4 | 0 | 1 | yes |
@@ -135,7 +135,7 @@ Field cells: verified programs matching the field by printed name or CIP family 
 - **University of Oregon** (OR, P1): no reviewed program_catalogs record (completeness unknown); no verified programs; priority fields listed but not verified: computer_science, business_finance, psychology; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
 - **University of Portland** (OR, P1): no reviewed program_catalogs record (completeness unknown); no verified programs; priority fields listed but not verified: engineering, computer_science, business_finance, nursing_health, psychology; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
 - **Belmont University** (TN, P1): catalog program pages behind a bot challenge (recorded, not evaded); no reviewed program_catalogs record (completeness unknown); no verified programs; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
-- **Christian Brothers University** (TN, P1): no reviewed program_catalogs record (completeness unknown); no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
+- **Christian Brothers University** (TN, P1): no verified degree maps
 - **East Tennessee State University** (TN, P1): catalog program pages behind a bot challenge (recorded, not evaded); no verified programs (72 partially verified from the state inventory); no verified degree maps
 - **Lipscomb University** (TN, P1): catalog program pages behind a bot challenge (recorded, not evaded); no reviewed program_catalogs record (completeness unknown); no verified programs; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
 - **Middle Tennessee State University** (TN, P1): catalog program pages behind a bot challenge (recorded, not evaded); no verified programs (97 partially verified from the state inventory); no verified degree maps
