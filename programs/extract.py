@@ -263,6 +263,35 @@ def major_table_candidates(target, inst, run, es, today_year):
     return out
 
 
+LISTED_MAJOR = re.compile(r'^(.*?\bMajor \([^)]*\))')
+
+
+def listed_location_candidates(target, inst, run, es, listed, today_year):
+    """A branch campus whose programs are the parent university's catalog programs (OSU-Cascades): the parent catalog's
+    Programs page tags each program with the campuses that offer it, and `list_filter` keeps the rows tagged with this
+    campus. Each bachelor row becomes a program record for the campus, named as printed (up to the award list), linking
+    the parent catalog's program page; the tagged row is the evidence."""
+    tag = (target.get('catalog') or {}).get('list_filter')
+    if not tag: return []
+    page_of = {e['url']: e for e in es if e.get('page_file')}
+    out = []
+    for p in listed.get('programs', []):
+        if p.get('credential_level') != 'bachelor' or tag not in p.get('printed', ''): continue
+        m = LISTED_MAJOR.match(p['printed'])
+        le = page_of.get(p.get('listed_on'))
+        if not m or not le: continue
+        labels = printed_catalog_years(run.load_page(le['page_file'])[0])
+        if len({y for y, _ in labels}) != 1: continue
+        year, line = min(labels); acad = f'{year[:4]}-{year[7:9]}'; name = m.group(1).strip()
+        rec = {'program_key': CAT.slug(name), 'program_name': name, 'credential_level': 'bachelor', 'catalog_year': year, 'program_url': p['url'],
+               'notes': f'Listed on the catalog Programs page with the campus tag "{tag}".'}
+        out.append(common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec,
+                               [{'field': 'program_name', 'value': name, 'snippet': p['printed'][:300]},
+                                {'field': 'catalog_year', 'value': year, 'snippet': line[:200]}],
+                               le, 'listed_location/v1', {'program_key': rec['program_key']}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}']))
+    return out
+
+
 PROGRAM_ONLY_ISSUES = ('requirement_groups_skipped',)
 
 
@@ -491,6 +520,8 @@ def extract_run(targets, run_dir, today=None):
                                              'url': common.source_of(e)['url'], 'sha256': e.get('sha256'),
                                              'fetched_at': e.get('fetched_at'), 'page_title': e.get('title', ''),
                                              'role': e.get('role'), 'year_labels': sorted(T.year_labels(page.title + ' ' + page.text[:3000]))})
+        for c in listed_location_candidates(t, {'institution_key': key}, run, es, lists[key], today_year):
+            c['program_role'] = 'program_list'; cands.append(c); n_c += 1
         for c in major_table_candidates(t, {'institution_key': key}, run, es, today_year):
             c['program_role'] = 'program_list'; cands.append(c); n_c += 1
         summary[key] = {'roles': {k: {**v, 'errors': dict(v['errors'])} for k, v in roles.items()},
