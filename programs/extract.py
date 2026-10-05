@@ -393,6 +393,20 @@ THEC_PAGE = 'https://thec.ppr.tn.gov/AcademicProgramInventorySearch'
 AWARD_LEVEL = [('bachelor', re.compile(r'^B[A-Z.]{0,6}$|^BACHELOR', re.I)), ('associate', re.compile(r'^A[A-Z.]{0,4}$|^ASSOCIATE', re.I))]
 
 
+HOME_YEAR = re.compile(r'(?m)^\s*(20\d{2})\s*[-–]\s*(20\d{2})\s*\n+\s*((?:Undergraduate|Graduate)\s+Catalog(?:ue)?)\s*$')
+
+
+def coursedog_home_year(run, entries):
+    """(year, printed lines, home entry) from a Coursedog catalog home that prints '2026-2027' over 'Undergraduate Catalog'
+    (Tennessee Tech)."""
+    for e in entries:
+        if e.get('role') == 'catalog_home' and e.get('page_file'):
+            m = HOME_YEAR.search(run.load_page(e['page_file'])[0].text)
+            if m and int(m.group(2)) == int(m.group(1)) + 1 and m.group(3).startswith('Undergraduate'):
+                return f'{m.group(1)}-{m.group(2)}', f'{m.group(1)}-{m.group(2)} {m.group(3)}', e
+    return None, None, None
+
+
 def catalog_pdf_year(run, entries):
     """(year label, verbatim line, pdf entry) from the catalog's own generated PDF title page ("2026-2027 Catalog")."""
     for e in entries:
@@ -456,8 +470,9 @@ def catalog_pdf_programs(inst, entry, page, today_year):
 
 
 def coursedog_cip(v):
-    """'520301' or '52.0201 - Management' -> '52.0301' / '52.0201' (digits as printed, punctuation normalised)."""
-    m = re.match(r'^\s*(\d{2})\.?(\d{4})\b', str(v or ''))
+    """'520301' or '52.0201 - Management' -> '52.0301' / '52.0201' (digits as printed, punctuation normalised). A longer
+    digit string ('3252030100', a state inventory layout) is not a federal CIP as printed and gives None."""
+    m = re.match(r'^\s*(\d{2})\.?(\d{4})(?!\d)', str(v or ''))
     return f'{m.group(1)}.{m.group(2)}' if m else None
 
 
@@ -556,7 +571,7 @@ def extract_run(targets, run_dir, today=None):
             elif e.get('error'): r['errors'][e['error'][:40]] += 1
         lists[key] = collect_lists(t, run, es) if t.get('catalog') else {'programs': [], 'counts': {}}
         if (t.get('catalog') or {}).get('platform') == 'coursedog': t = {**t, '_catalog_year': coursedog_year(run, es)}
-        n_c = 0; seen_ev = set()
+        n_c = 0; seen_ev = set(); seen_feed_keys = set()
         for e in es:
             if not e.get('page_file'): continue
             page, _ = run.load_page(e['page_file'])
@@ -565,9 +580,13 @@ def extract_run(targets, run_dir, today=None):
                 for c in catalog_pdf_programs(inst, e, page, today_year):
                     c['program_role'] = 'catalog_pdf'; cands.append(c); n_c += 1
                 continue
-            if e.get('role') == 'catalog_api' and 'coursedog.com' in e.get('url', ''):
+            if (e.get('role') == 'catalog_api' or (e.get('role') == 'catalog_feed' and '/programs/search/' in e.get('url', ''))) and 'coursedog.com' in e.get('url', ''):
                 yr = catalog_pdf_year(run, es)
+                if not yr[0]: yr = coursedog_home_year(run, es)
                 for c in coursedog_candidates(t, inst, e, page, yr, today_year):
+                    k = c['record']['program_key']
+                    if k in seen_feed_keys or OPTION_NAME.search(c['record']['program_name']): continue  # feeds overlap; concentrations are not programs
+                    seen_feed_keys.add(k)
                     c['program_role'] = 'catalog_api'; cands.append(c); n_c += 1
                 continue
             if e.get('role') == 'state_inventory':

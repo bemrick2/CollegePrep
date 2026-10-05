@@ -500,3 +500,16 @@ class DottedProgramCodeTests(unittest.TestCase):
         e = {'url': 'https://coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com/cn/catalog/a.pdf', 'sha256': 's', 'fetched_at': '2026-10-05T00:00:00'}
         names = [c['record']['program_name'] for c in X.catalog_pdf_programs({'institution_key': 'k'}, e, T.Page(txt, '', [], [], []), '2026-27')]
         self.assertEqual(names, ['Biology (BS)', 'Biology-General (BA)', 'BA in Chemistry - Teacher Licensure', 'Nursing (BSN)'])
+
+
+class CoursedogFeedTests(unittest.TestCase):
+    def test_home_year_and_state_layout_cip(self):  # Tennessee Tech 2026-27
+        from pipeline import text as T
+        home = T.Page('Home\n\n2026-2027\nUndergraduate Catalog\n\nTennessee Tech University', 'Catalog', [], [], [])
+        class R:
+            def load_page(self, f): return home, None
+        y = X.coursedog_home_year(R(), [{'role': 'catalog_home', 'page_file': 'h', 'url': 'https://undergrad.catalog.tntech.edu/'}])
+        self.assertEqual(y[:2], ('2026-2027', '2026-2027 Undergraduate Catalog'))
+        self.assertEqual(X.coursedog_cip('520301'), '52.0301')
+        self.assertEqual(X.coursedog_cip('52.0201 - Management'), '52.0201')
+        self.assertIsNone(X.coursedog_cip('3252030100'))  # state inventory layout: not a federal CIP as printed
