@@ -7,6 +7,8 @@ import { StepFrame } from './Stepper'
 import { ExamAndTarget, GoalsAndPace, defaultPlanDraft, type PlanDraft } from './PlanFields'
 import { GRADES, graduationYearFor, timeZones } from './options'
 import { InviteCode } from './InviteCode'
+import { US_STATES } from '../../lib/engine/residency'
+import { writeHomeState } from '../../lib/homeState'
 
 export function ParentOnboarding() {
   const { source, viewer, refresh, setActiveStudentId } = useApp()
@@ -14,6 +16,7 @@ export function ParentOnboarding() {
   const [step, setStep] = useState(1)
   const [householdName, setHouseholdName] = useState(realName(viewer) ? `${realName(viewer)}'s household` : '')
   const [tz, setTz] = useState(browserTimeZone())
+  const [homeState, setHomeState] = useState('')
   const [studentName, setStudentName] = useState('')
   const [grade, setGrade] = useState<number | null>(null)
   const [plan, setPlan] = useState<PlanDraft>(defaultPlanDraft)
@@ -28,6 +31,7 @@ export function ParentOnboarding() {
     setError(null)
     try {
       const hid = await source.createHousehold(householdName.trim() || 'Our household', tz)
+      if (homeState) writeHomeState(hid, homeState)
       const sid = await source.addStudent(hid, studentName.trim(), grade ? graduationYearFor(grade) : null, grade)
       await source.savePlan(sid, { exam_family: plan.exam, target_score: plan.target, goals: plan.goals, daily_minutes: 10 })
       await source.setWeeklyGoal(sid, weekStartOf(localDate(new Date(), tz)), plan.weeklyQuestions, null)
@@ -63,6 +67,16 @@ export function ParentOnboarding() {
         <div className="grid gap-5">
           <Field label="Household name" htmlFor="hh">
             <input id="hh" className={inputClass} value={householdName} onChange={(e) => setHouseholdName(e.target.value)} placeholder="The Rivera household" />
+          </Field>
+          <Field label="Home state (optional)" htmlFor="home-state-onb" hint="Picks in-state or out-of-state college prices. You can change it later.">
+            <select id="home-state-onb" className={inputClass} value={homeState} onChange={(e) => setHomeState(e.target.value)}>
+              <option value="">Prefer not to say</option>
+              {US_STATES.map(([c, n]) => (
+                <option key={c} value={c}>
+                  {n}
+                </option>
+              ))}
+            </select>
           </Field>
           <Field label="Time zone" htmlFor="tz" hint="Streaks and weekly goals reset at local midnight.">
             <select id="tz" className={inputClass} value={tz} onChange={(e) => setTz(e.target.value)}>

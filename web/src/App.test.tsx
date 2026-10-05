@@ -21,11 +21,14 @@ function renderAt(path: string, source: DemoSource) {
 
 describe('app flows', () => {
   it('student home shows one clear next action', async () => {
+    localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976']))
     renderAt('/student', new DemoSource(sampleFamily('student')))
     expect(await screen.findByRole('heading', { name: 'Maya' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /About 10 minutes|Done for today/ })).toBeInTheDocument()
-    // No scaled-score estimate is produced (CR-3), so none is shown.
-    expect(screen.getByText(/No score estimate yet/)).toBeInTheDocument()
+    // No scaled-score estimate is produced (CR-3), so none is shown; why it matters comes from verified merit criteria.
+    expect(screen.getByText(/We don't estimate your ACT score from practice yet/)).toBeInTheDocument()
+    expect(await screen.findByText(/4 merit awards/)).toBeInTheDocument()
+    expect(screen.getByText(/4 above/)).toBeInTheDocument()
   })
 
   it('practice: answer with confidence, then see explanation tabs', async () => {
@@ -58,7 +61,7 @@ describe('app flows', () => {
   it('parent cost outlook leads with four-year schools, published costs only, no estimated savings', async () => {
     localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976', 'ipeds-221908']))
     renderAt('/parent', new DemoSource(sampleFamily('parent')))
-    expect(await screen.findByRole('heading', { name: 'How Maya is doing' })).toBeInTheDocument()
+    expect(await screen.findByRole('heading', { name: "Maya's plan" })).toBeInTheDocument()
     // UTK in-state $36,994 x 4; Lipscomb $69,210 x 4; Northeast State (2-year) $20,304 x 2 — never x 4.
     expect(await screen.findByText('$147,976')).toBeInTheDocument()
     expect(screen.getByText('$276,840')).toBeInTheDocument()
