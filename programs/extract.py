@@ -691,6 +691,7 @@ def extract_run(targets, run_dir, today=None):
         if (t.get('catalog') or {}).get('platform') == 'courseleaf':
             t = {**t, '_courselists': {e['via']: (e, json.loads(run.load_page(e['page_file'])[0].text)) for e in es if e.get('role') == 'courselist' and e.get('page_file')}}
         n_c = 0; seen_ev = set(); seen_feed_keys = set(); plan_links = {}
+        layouts = {x['via']: x for x in es if x.get('role') == 'pdf_layout' and x.get('page_file')}
         if (t.get('catalog') or {}).get('platform') == 'acalog':
             for e in es:
                 if e.get('role') == 'catalog_nav' and e.get('page_file'): plan_links.update(college_plan_links(run.load_page(e['page_file'])[0]))
@@ -731,8 +732,15 @@ def extract_run(targets, run_dir, today=None):
                     c['program_role'] = 'program_page'; cands.append(program_identity(c)); n_c += 1
             if e.get('kind') == 'pdf' and e.get('role') in ('degree_map', 'policy', 'policy_link'):
                 try:
-                    for c in PM.extract(inst, e, page, today_year):
+                    pm = PM.extract(inst, e, page, today_year)
+                    for c in pm:
                         c['program_role'] = 'degree_map'; cands.append(c); n_c += 1
+                    lay = layouts.get(e['url'])
+                    pk = next((c['record']['program_key'] for c in pm if c['domain'] == 'academic_programs'), None)
+                    if lay and pk:  # two-column Clear Path plan read from word positions (clearpath_plan/v1)
+                        from . import clearpath
+                        for c in clearpath.extract_layout(inst, e, page.lines, json.loads(run.load_page(lay['page_file'])[0].text), pk, today_year):
+                            c['program_role'] = 'degree_map'; cands.append(c); n_c += 1
                 except Exception as exc:  # an unusual PDF must not stop the run; it is counted
                     roles['degree_map']['errors'][f'programmap:{type(exc).__name__}'] += 1
             if e.get('role') in ('policy', 'policy_link', 'program_page', 'state_source', 'degree_map_index', 'discover') or key.startswith('state-'):

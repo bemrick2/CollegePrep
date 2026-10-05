@@ -696,3 +696,25 @@ class PdfLayoutTests(unittest.TestCase):
              '<word xMin="36.0" yMin="100.0" xMax="60.0" yMax="110.0">ANTH</word><word xMin="62.0" yMin="100.0" xMax="90.0" yMax="110.0">1200:</word>'
              '</line></block></flow></page>')
         self.assertEqual(parse_bbox(x), [{'width': 612.0, 'height': 792.0, 'lines': [{'y': 100.0, 'y1': 110.0, 'words': [[36.0, 60.0, 'ANTH'], [62.0, 90.0, '1200:']]}]}])
+
+
+class ClearPathLayoutTests(unittest.TestCase):
+    def page(self):
+        def line(y, *ws): return {'y': y - 5, 'y1': y + 5, 'words': [[x, x + 10, t] for x, t in ws]}
+        L = [line(84, (38, 'First'), (59, 'Year'), (80, '–'), (87, '7-9'), (113, 'Hours')),
+             line(99, (38, 'Fall'), (55, 'Semester:')), line(99, (279, 'Hrs')), line(99, (307, 'Spring'), (336, 'Semester:')), line(99, (548, 'Hrs')),
+             line(114, (38, 'ANTH'), (64, '1200:'), (89, 'Cultural'), (124, '(Behavioral')), line(128, (38, 'Science)')), line(121, (279, '3')),
+             line(121, (307, 'ANTH'), (333, '1400:'), (358, 'Archaeology'), (548, '3')),
+             line(143, (38, 'Elective')), line(143, (279, '1-3')), line(143, (307, 'Writing'), (340, 'and'), (358, 'Communication')), line(143, (548, '3-4')),
+             line(160, (279, '4-6')), line(160, (548, '6-7')), line(170, (38, 'Completed:'))]
+        return [{'width': 612, 'height': 792, 'lines': L}]
+
+    def test_columns_wrapped_titles_and_totals(self):
+        from programs import clearpath as CP
+        years = CP.parse_layout(self.page())
+        label, fall, ft, spring, st, probs = years[0]
+        self.assertEqual((label, ft, st, probs), ('First Year – 7-9 Hours', '4-6', '6-7', set()))
+        self.assertEqual(fall, [['ANTH 1200: Cultural (Behavioral Science)', '3'], ['Elective', '1-3']])
+        self.assertEqual(spring, [['ANTH 1400: Archaeology', '3'], ['Writing and Communication', '3-4']])
+        self.assertTrue(CP.term_ok(fall, ft) and CP.term_ok(spring, st))
+        self.assertFalse(CP.term_ok([['Elective', '3']], '4-6'))
