@@ -348,6 +348,79 @@ def award_heading_candidates(inst, entry, page, today_year):
     return out
 
 
+PLAN_YEAR = re.compile(r'^TYPICAL (FIRST|SECOND|THIRD|FOURTH|FIFTH) YEAR CURRICULUM$', re.I)
+PLAN_TERM = re.compile(r'^(Fall|Winter|Spring|Summer)$')
+PLAN_COURSE = re.compile(r'^([A-Z]{2,5} \d{3}[A-Z]?) (.+?) \((\d{1,2}(?:-\d{1,2})?)\)$')
+PLAN_TITLE = re.compile(r'^(.+?) Typical Four Year Curriculum(?: \((?:On-Campus|Online)\))?$')
+
+
+def college_plan_links(page):
+    """{plan url: program name} from an Acalog college page: within one department block (from its 'Go to information
+    for ...' line to the next), a 'Four Year Plan(s)' entry belongs to the department's only bachelor's program, or to the
+    program whose printed name without ' Major' equals the plan's name before ' Typical Four Year Curriculum'."""
+    lines = [l.strip() for l in page.lines]
+    by_text = defaultdict(set)
+    for u, txt in page.links:
+        if txt.strip(): by_text[txt.strip()].add(u)
+    starts = [i for i, l in enumerate(lines) if l.startswith('Go to information for ')] + [len(lines)]
+    out = {}
+    for a, b in zip(starts, starts[1:]):
+        block, programs, plans, mode = lines[a:b], [], [], None
+        for i, l in enumerate(block):
+            if AWARD_HEADING.match(l): mode = 'program'; continue
+            if l == 'Four Year Plan(s)': mode = 'plan'; continue
+            if l in ('Minor', 'Minors', 'Certificate', 'Certificates', 'Pre-Professional Programs'): mode = None; continue
+            if l == '•' and i + 1 < len(block):
+                n = block[i + 1]
+                if mode == 'program' and not (OPTION_NAME.search(n) or re.search(r'\b(minor|certificate|concentration)\b|\bw/', n, re.I)): programs.append(n)
+                elif mode == 'plan' and PLAN_TITLE.match(n): plans.append(n)
+        for pl in plans:
+            urls = by_text.get(pl, set())
+            if len(urls) != 1: continue
+            prefix = PLAN_TITLE.match(pl).group(1)
+            named = [n for n in programs if n.replace(' Major', '') == prefix]
+            target = named[0] if len(named) == 1 else (programs[0] if len(set(programs)) == 1 else None)
+            if target: out[next(iter(urls))] = target
+    return out
+
+
+def acalog_plan(inst, entry, page, program_name, today_year):
+    """An Acalog 'Typical Four Year Curriculum' page (Eastern Oregon) -> one program_plan sequence: year headings, term
+    headings, and each printed line as an item ('ANTH 201 Intro to Archaeology*SSC (5)' as a course item, any other line
+    as printed text). 'Note:' lines are kept as printed rules."""
+    labels = printed_catalog_years(page)
+    if len({y for y, _ in labels}) != 1: return []
+    year, yline = min(labels); acad = f'{year[:4]}-{year[7:9]}'
+    lines = [l.strip() for l in page.lines if l.strip()]
+    title = next((l for l in lines if PLAN_TITLE.match(l)), None)
+    if not title: return []
+    start = lines.index(title)
+    terms, cur, yr, notes, issues = [], None, None, [], set()
+    for l in lines[start + 1:]:
+        if l.startswith('Back to Top') or l.startswith('Print-Friendly') and terms: break
+        if PLAN_YEAR.match(l): yr = l; cur = None; continue  # printed as 'TYPICAL FIRST YEAR CURRICULUM'
+        if PLAN_TERM.match(l):
+            if yr is None: issues.add('term_without_year'); continue
+            cur = {'term_index': len(terms) + 1, 'label': f'{yr} — {l}', 'items': []}; terms.append(cur); continue
+        if l.startswith('Note:') or cur is None:
+            if yr and (l.startswith('Note:') or terms): notes.append(l)
+            continue
+        m = PLAN_COURSE.match(l)
+        if m and ' OR ' not in l.upper().replace(' OR OTHER', ''):
+            cr = m.group(3); cur['items'].append({'code': m.group(1), 'title': m.group(2), 'credits': int(cr) if cr.isdigit() else cr})
+        else:
+            cur['items'].append(l)
+    if len(terms) < 4: return []
+    key = CAT.slug(title)
+    rd = {'schema': 'requirement_group/v1', 'catalog_year': year, 'group_type': 'sequence', 'category': 'recommended_sequence', 'terms': terms,
+          'source_section': title}
+    if notes: rd['course_rules'] = notes
+    rec = {'program_key': CAT.slug(program_name), 'requirement_key': key[:90], 'requirement_kind': 'program_plan', 'rule_details': rd}
+    ev = [{'field': 'source_section', 'value': title, 'snippet': title}, {'field': 'catalog_year', 'value': year, 'snippet': yline[:200]}]
+    return [common.make('degree_requirements', inst['institution_key'], acad, 'labeled_in_source', rec, ev, entry, 'acalog_plan/v1',
+                        {'program_key': rec['program_key'], 'requirement_key': rec['requirement_key']}, {'terms': len(terms)}, sorted(issues))]
+
+
 LISTED_MAJOR = re.compile(r'^(.*?\bMajor \([^)]*\))')
 
 
@@ -617,7 +690,10 @@ def extract_run(targets, run_dir, today=None):
         if (t.get('catalog') or {}).get('platform') == 'coursedog': t = {**t, '_catalog_year': coursedog_year(run, es)}
         if (t.get('catalog') or {}).get('platform') == 'courseleaf':
             t = {**t, '_courselists': {e['via']: (e, json.loads(run.load_page(e['page_file'])[0].text)) for e in es if e.get('role') == 'courselist' and e.get('page_file')}}
-        n_c = 0; seen_ev = set(); seen_feed_keys = set()
+        n_c = 0; seen_ev = set(); seen_feed_keys = set(); plan_links = {}
+        if (t.get('catalog') or {}).get('platform') == 'acalog':
+            for e in es:
+                if e.get('role') == 'catalog_nav' and e.get('page_file'): plan_links.update(college_plan_links(run.load_page(e['page_file'])[0]))
         for e in es:
             if not e.get('page_file'): continue
             page, _ = run.load_page(e['page_file'])
@@ -644,6 +720,10 @@ def extract_run(targets, run_dir, today=None):
             if e.get('role') == 'catalog_nav' and (t.get('catalog') or {}).get('platform') == 'acalog':
                 for c in award_heading_candidates(inst, e, page, today_year):
                     c['program_role'] = 'program_list'; cands.append(c); n_c += 1
+            if e.get('role') == 'program_page' and e['url'] in plan_links:
+                for c in acalog_plan(inst, e, page, plan_links[e['url']], today_year):
+                    c['program_role'] = 'degree_map'; cands.append(c); n_c += 1
+                continue
             if e.get('role') == 'program_page':
                 found = program_page_candidates(t, inst, e, page, today_year)
                 if any(is_option_page(c) for c in found): found = []  # the option's rows belong to its major
