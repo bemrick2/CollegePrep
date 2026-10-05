@@ -310,7 +310,7 @@ def printed_list_candidates(target, inst, run, es, today_year):
     return out
 
 
-AWARD_HEADING = re.compile(r'^(Bachelor of [A-Z][a-z]+(?:\s*/\s*Bachelor of [A-Z][a-z]+)*)$')
+AWARD_HEADING = re.compile(r'^(Bachelor of [A-Z][a-z]+(?: [A-Z][a-z]+)?(?:\s*/\s*Bachelor of [A-Z][a-z]+(?: [A-Z][a-z]+)?)*)$')
 
 
 def award_heading_candidates(inst, entry, page, today_year):
