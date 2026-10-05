@@ -45,6 +45,8 @@ jobs:
           echo "state=$state" >> "$GITHUB_OUTPUT"; echo "only=$only" >> "$GITHUB_OUTPUT"
           echo "dir=programs/runs/$state/$rid" >> "$GITHUB_OUTPUT"
           echo "branch=${GITHUB_REF#refs/heads/}" >> "$GITHUB_OUTPUT"
+      - name: Diagnose refusals (only when the request lists URLs)
+        run: python -c "import json,sys; sys.exit(0 if json.load(open('programs/run-request.json')).get('diagnose') else 1)" && python -m programs.diagnose || true
       - name: Crawl (resumable)
         timeout-minutes: 240
         run: |

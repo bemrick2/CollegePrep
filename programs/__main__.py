@@ -16,6 +16,7 @@ def main(argv=None):
     c = sub.add_parser('crawl'); c.add_argument('--state', required=True); c.add_argument('--run', required=True)
     c.add_argument('--only', nargs='*'); c.add_argument('--workers', type=int, default=8); c.add_argument('--no-browser', action='store_true')
     e = sub.add_parser('extract'); e.add_argument('--state', required=True); e.add_argument('--run', required=True)
+    pr = sub.add_parser('promote'); pr.add_argument('decisions')
     a = sub.add_parser('audit'); a.add_argument('--states', nargs='+', default=['TN', 'OR']); a.add_argument('--check', action='store_true')
     args = ap.parse_args(argv)
     if args.cmd == 'crawl':
@@ -25,6 +26,9 @@ def main(argv=None):
         from .extract import extract_run
         s = extract_run(load_targets(args.state), args.run)
         print(json.dumps({k: {'candidates': v['candidates'], 'list': v['program_list_links']} for k, v in s.items()}, indent=1))
+    elif args.cmd == 'promote':
+        from .promote import promote
+        promote(Path(args.decisions))
     elif args.cmd == 'audit':
         from .audit import main as audit_main
         return audit_main(args.states, check=args.check)

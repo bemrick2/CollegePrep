@@ -32,6 +32,8 @@ POLICY_LINK = re.compile(
     r'four[\s-]*year\s+plan|4[\s-]*year\s+plan|degree\s+maps?|academic\s+maps?|program\s+maps?|plans?\s+of\s+study|'
     r'scholarships?)', re.I)
 DISCOVER_LINK = re.compile(r'(catalog|catalogue|bulletin|majors|degrees|programs|academics)', re.I)
+MAP_ANCHOR = re.compile(r'\b((academic|degree|program|major)\s+maps?|four[\s-]*year\s+(degree\s+)?plans?|4[\s-]*year\s+plans?|plans?\s+of\s+study|clear\s+paths?|finish\s+in\s+four|degree\s+plans?|curriculum\s+(guides?|sheets?|maps?)|check\s*sheets?)\b', re.I)
+MAP_URL = re.compile(r'(academic|degree|program)[-_]?maps?|four[-_]?year[-_]?plan|4[-_]?year[-_]?plan|plan[-_]?of[-_]?study|clear[-_]?path|checksheet', re.I)
 DEGREE_MAP_LINK = re.compile(r'(map|plan|path|pathway|four[\s_-]*year|4[\s_-]*year|finish|sequence|curricul|worksheet|checksheet|flowchart)', re.I)
 SKIP_PATH = re.compile(r'/(search|course-search|courses?|coursesaz|azindex|archive|archives|pdf|print|login|calendar)(/|$)|'
                        r'preview_course|preview_entity|acalog-api|\.(jpg|png|gif|css|js|zip|docx?)$', re.I)
@@ -113,8 +115,12 @@ class BrowserFetcher:
                 self._ensure()
                 page = self._browser.new_page(user_agent='CollegePrepResearchBot/1.0 (+https://github.com/bemrick2/collegeprep; official-source research)')
                 try:
-                    resp = page.goto(url, wait_until='networkidle', timeout=60000)
-                    page.wait_for_timeout(1500)
+                    resp = page.goto(url, wait_until='domcontentloaded', timeout=60000)
+                    try:  # JavaScript catalogs keep connections open; settle briefly instead of waiting for idle
+                        page.wait_for_load_state('networkidle', timeout=15000)
+                    except Exception:
+                        pass
+                    page.wait_for_timeout(2500)
                     status = resp.status if resp else None
                     body = page.content().encode('utf-8')
                     final = page.url
@@ -195,13 +201,43 @@ def crawl_target(target, run: Run, fetcher, browser=None, log=print, caps=None):
     return len(queue)
 
 
+NOT_BACHELOR_ANCHOR = re.compile(r'\b(minor|certificate|option|concentration|graduate|master|doctor|ph\.?\s?d|m\.?\s?s\.?|m\.?\s?a\.?|mba|'
+                                 r'm\.?\s?ed|ed\.?\s?d|dnp|post[- ]?bacc|endorsement|licensure|courses?)\b', re.I)
+BACHELOR_ANCHOR = re.compile(r'\b(B\.?\s?[A-Z]{1,4}\b\.?|bachelor|undergraduate\s+major|H?BA\b|H?BS\b)', re.I)
+
+
+def anchor_rank(anchor):
+    """0: names a bachelor's degree; 1: unlabeled; 2: names a minor, certificate, option or graduate award.
+    Ordering only: program pages are fetched bachelor-first so the per-school cap is spent on majors."""
+    a = anchor or ''
+    if BACHELOR_ANCHOR.search(a) and not re.search(r'\b(minor|certificate|option)\b', a, re.I): return 0
+    return 2 if NOT_BACHELOR_ANCHOR.search(a) else 1
+
+
 def expand(target, role, url, links, push, is_program, is_nav, depth):
     """Which links of a fetched page to follow, by the page's role."""
+    cat = target.get('catalog') or {}
+    lists_given = bool(cat.get('program_lists'))
+    if role in ('catalog_home', 'catalog_nav', 'program_list'):
+        progs = [(anchor_rank(a), h) for h, a in links if is_program(h)]
+        for rank, h in sorted(progs, key=lambda x: x[0]):
+            # A configured list page is the authority for which pages are programs; elsewhere only bachelor/unlabeled.
+            if rank < 2 and (role == 'program_list' or not lists_given or cat.get('platform') == 'acalog'):
+                push(h, 'program_page', url, depth + 1)
+        if not (lists_given and cat.get('platform') != 'acalog'):
+            for h, a in links:
+                if not is_program(h) and is_nav(h) and depth < 3: push(h, 'catalog_nav', url, depth + 1)
+        return
+    if role in ('policy', 'policy_link', 'discover'):
+        # Degree-map indexes and plan documents are often linked from advising or college pages, not the catalog.
+        for href, anchor in links:
+            path = urlsplit(href).path.lower()
+            if path.endswith('.pdf') and (MAP_ANCHOR.search(anchor or '') or MAP_URL.search(path)):
+                push(href, 'degree_map', url, depth + 1)
+            elif MAP_ANCHOR.search(anchor or '') and depth < 2:
+                push(href, 'degree_map_index', url, depth + 1)
     for href, anchor in links:
-        if role in ('catalog_home', 'catalog_nav', 'program_list'):
-            if is_program(href): push(href, 'program_page', url, depth + 1)
-            elif is_nav(href) and depth < 3: push(href, 'catalog_nav', url, depth + 1)
-        elif role == 'degree_map_index':
+        if role == 'degree_map_index':
             path = urlsplit(href).path.lower()
             if (path.endswith('.pdf') and (DEGREE_MAP_LINK.search(href) or DEGREE_MAP_LINK.search(anchor or '')
                                            or target.get('degree_map_any_pdf'))) or \
