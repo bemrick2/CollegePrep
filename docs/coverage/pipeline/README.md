@@ -814,6 +814,43 @@ Institutions in scope: **7** · crawled: **6** · blocked by site: **1** · run:
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-182500`
 
+## OH — 2026-27
+
+Institutions in scope: **124** · crawled: **101** · blocked by site: **23** · run: `pipeline/runs/OH/2026-10-05`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 0 (0%) | 0 | 57 (46%) | 98 (79%) | 3 | 23 |
+| cost_of_attendance | 0 (0%) | 0 | 24 (19%) | 97 (78%) | 4 | 23 |
+| admissions_tests | 0 (0%) | 0 | 0 (0%) | 92 (74%) | 9 | 23 |
+| common_data_set | 0 (0%) | 0 | 0 (0%) | 6 (5%) | 95 | 23 |
+| merit_scholarships | 0 (0%) | 0 | 20 (16%) | 98 (79%) | 3 | 23 |
+| ap_credit | 0 (0%) | 0 | 14 (11%) | 59 (48%) | 42 | 23 |
+| clep_credit | 0 (0%) | 0 | 8 (6%) | 40 (32%) | 61 | 23 |
+| ib_credit | 0 (0%) | 0 | 9 (7%) | 38 (31%) | 63 | 23 |
+| dual_enrollment | 0 (0%) | 0 | 4 (3%) | 42 (34%) | 59 | 23 |
+| transfer_credit | 0 (0%) | 0 | 27 (22%) | 95 (77%) | 6 | 23 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 58 (47%) | 43 | 23 |
+| residency | 0 (0%) | 0 | 0 (0%) | 53 (43%) | 48 | 23 |
+| degree_requirements | 0 (0%) | 0 | 2 (2%) | 73 (59%) | 28 | 23 |
+| aid_appeals | 0 (0%) | 0 | 64 (52%) | 74 (60%) | 27 | 23 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 71 |
+| blocked requests | 363 |
+| candidates | 1191 |
+| conflicts | 224 |
+| documents | 6646 |
+| extraction failures | 0 |
+| fetch errors | 421 |
+| fetches | 7430 |
+| ready | 466 |
+| semantic review | 259 |
+| stale sources | 91 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-200846`, `ipeds-200873`, `ipeds-201283`, `ipeds-201821`, `ipeds-201964`, `ipeds-202046`, `ipeds-202912`, `ipeds-203128`, `ipeds-203544`, `ipeds-203748`, `ipeds-204176`, `ipeds-204255`, `ipeds-204468`, `ipeds-204662`, `ipeds-204671`, `ipeds-204680`, `ipeds-204699`, `ipeds-204705`, `ipeds-205124`, `ipeds-206154`, `ipeds-206279`, `ipeds-206446`, `ipeds-206491`
+
 ## OK — 2026-27
 
 Institutions in scope: **40** · crawled: **34** · blocked by site: **6** · run: `pipeline/runs/OK/2026-10-03`

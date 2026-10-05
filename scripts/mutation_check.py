@@ -219,6 +219,16 @@ MUTS = [
     ('pipeline/extractors/dual.py', '\\bbelow\\s+an?\\s+\\d|', ''),
     ('pipeline/extractors/costs.py', '        return []  # IL (Olivet)', '        pass  # IL (Olivet)'),
     ('pipeline/extractors/catalog.py', "|transfer\\s+module|\\baccelerated\\b'", "|transfer\\s+module'"),
+    ('pipeline/extractors/merit.py', '^\\W*(?:\\d(?:st|nd|rd|th)\\s+(?:and\\s+\\d(?:st|nd|rd|th)\\s+)?semester\\s+\\w+|all\\s+(?:freshmen|sophomores|juniors|seniors))\\W*$|', ''),
+    ('pipeline/extractors/merit.py', '|all\\s+(?:freshmen|sophomores|juniors|seniors))\\W*$|', ')\\W*$|'),
+    ('pipeline/extractors/merit.py', '(?:and\\s+\\d(?:st|nd|rd|th)\\s+)?semester', 'semester'),
+    ('pipeline/extractors/merit.py', 'tuition[- ](?:and|&)[- ]fees|', ''),
+    ('pipeline/extractors/credit.py', "or re.search(r'does\\s+not\\s+award|non-?transferable', course, re.I)", "or re.search(r'non-?transferable', course, re.I)"),
+    ('pipeline/extractors/credit.py', "r'does\\s+not\\s+award|non-?transferable'", "r'does\\s+not\\s+award'"),
+    ('pipeline/extractors/dual.py', "|\\baverage\\s+college', line", "', line"),
+    ('pipeline/extractors/transfer.py', "|\\bmou\\b|pledge', url", "|pledge', url"),
+    ('pipeline/extractors/transfer.py', "|pledge', url", "', url"),
+    ('pipeline/extractors/transfer.py', 'applicants?\\s+present|', ''),
 ]
 failed = False
 for f, old, new in MUTS:

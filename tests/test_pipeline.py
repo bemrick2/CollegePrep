@@ -376,6 +376,30 @@ last 30 hours in residence at the university.</p>"""
             '<title>Transfer</title><p>Transfer credit is evaluated for high school courses for which advanced standing was granted and a grade '
             'of "B" or better was earned.</p>'), '2026-27'), [])
 
+    def test_oh_r1_rules(self):
+        """OH r1: OWU's academic-progress GPA rows, Walsh's OT tuition-and-fees page, CWRU/Dayton no-credit rows, a quoted
+        national average beside a dual-credit price, a DeVry transfer-pledge MOU and Kenyon's applicant-grade sentence."""
+        table = ('<h2>Scholarships</h2><table><tr><th>Scholarship</th><th>GPA</th><th>Amount</th></tr>'
+                 '<tr><td>1st Semester Freshman</td><td>1.50</td><td></td></tr><tr><td>1st and 2nd Semester Juniors</td><td>2.00</td><td></td></tr>'
+                 '<tr><td>All Seniors</td><td>2.00</td><td></td></tr><tr><td>Dean Award</td><td>3.5</td><td>$1,932</td></tr><tr><td>Honor Award</td><td>3.0</td><td>$791</td></tr></table>')
+        names = [c['record']['award_name'] for c in merit.extract(INST, ENTRY, T.parse_html('<title>Scholarships</title>' + table), '2026-27')]
+        self.assertEqual(sorted(names), ['Dean Award', 'Honor Award'])
+        self.assertEqual(merit.extract(INST, {**ENTRY, 'url': 'https://www.example.edu/ot-tuition-and-fees.html'}, T.parse_html('<title>Awards</title>' + table), '2026-27'), [])
+        ap = [['AP Exam', 'Score', 'Credits', 'Course'], ['AP Research', '---', '---', 'CWRU does not award credit for AP Research.'],
+              ['AP Seminar', 'N/A', '0', 'Non-Transferable Credit'], ['Art History', '4', '4', 'ART 101'], ['Biology', '4', '4', 'BIOL 1000'], ['Chemistry', '4', '4', 'CHEM 1000']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'AP', [{'rows': ap, 'heading': 'Advanced Placement Credit', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        codes = [e['exam_or_course_code'] for e in c['record']['equivalencies']]
+        self.assertNotIn('AP-RESEARCH', codes)
+        self.assertNotIn('AP-SEMINAR', codes)
+        [c] = self._de('<h1>Dual Credit</h1><ul><li>Dual credit tuition is $147.50 per credit hour</li>'
+                       '<li>The average college course costs $594 per credit hour.</li></ul>')
+        self.assertEqual([x['amount'] for x in c['record']['dual_enrollment']['per_credit_hour_charges']], [147.5])
+        page = '<title>Transfer</title><p>Only courses with a grade of C or better will be accepted for transfer to the university.</p>'
+        for u in ['https://www.example.edu/media/devry-university-mou.pdf', 'https://www.example.edu/files/transfer-pledge.pdf']:
+            self.assertEqual(transfer.extract(INST, {**ENTRY, 'url': u}, T.parse_html(page), '2026-27'), [], u)
+        self.assertEqual(transfer.extract(INST, ENTRY, T.parse_html('<title>Transfer Applicants</title><p>In most cases, successful transfer '
+                                                                    'applicants present grades of B or better in their current courses.</p>'), '2026-27'), [])
+
     def test_il_r1_rules(self):
         """IL r1: UIC deadline rows and Quincy's 'In This Section', Knox IB credit and AcademicWorks pages, Augustana's
         'Not accepted' rows, continuation and exception GPA lines, Olivet's GI Bill example, accelerated BS/MS programs."""
