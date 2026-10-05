@@ -192,7 +192,7 @@ MUTS = [
     ('pipeline/extractors/costs.py', '        semester_only = True\n', '        pass\n'),
     ('pipeline/extractors/transfer.py', '(?:some|certain|specific|health)\\s+[\\w/ -]{0,60}?programs?\\s+require|', ''),
     ('pipeline/extractors/transfer.py', 'students\\s+planning\\s+to\\s+transfer|', ''),
-    ('pipeline/extractors/dual.py', 'overload|petition|', 'overload|'),
+    ('pipeline/extractors/dual.py', 'attempted|petition|', 'attempted|'),
     ('pipeline/extractors/dual.py', 'course\\s+requirements\\s+for|', ''),
     ('pipeline/extractors/merit.py', '^\\W*(?:jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\\.?\\s+\\d{1,2}\\W*$|', ''),
     ('pipeline/extractors/merit.py', "r'course[- ]awards|", "r'"),
