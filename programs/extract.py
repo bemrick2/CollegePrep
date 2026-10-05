@@ -147,6 +147,8 @@ def program_page_candidates(target, inst, entry, page, today_year):
     if plat == 'smartcatalog':
         from . import smartcatalog
         return smartcatalog.extract(inst, entry, page, today_year)
+    if plat == 'drupal':
+        return static_program_identity(inst, entry, page, today_year)
     out = CAT.extract(inst, entry, page, today_year)
     y0, printed0 = CAT.catalog_year(page)
     year, line = printed0, (page.title or '')
@@ -168,6 +170,23 @@ def program_page_candidates(target, inst, entry, page, today_year):
             for c in plan: c['record']['program_key'] = pk
         out += plan
     return out
+
+
+def static_program_identity(inst, entry, page, today_year):
+    """Static HTML catalogs (George Fox, Rhodes): the program record only (name as printed in the page heading, the
+    bachelor award it names, the catalog year printed on the page). Requirement lists are not read here."""
+    name = (page.headings[0] if page.headings else (page.title or '').split(' | ')[0]).strip()
+    if credential_of(name) != 'bachelor' or OPTION_NAME.search(name): return []
+    labels = {y for y, _ in printed_catalog_years(page)}
+    if len(labels) != 1: return []
+    year = next(iter(labels)); line = next(l for y, l in printed_catalog_years(page) if y == year)
+    acad = f'{year[:4]}-{year[7:9]}'
+    rec = {'program_key': CAT.slug(name), 'program_name': name, 'credential_level': 'bachelor', 'catalog_year': year,
+           'program_url': common.source_of(entry)['url'], 'notes': 'Program heading and catalog year as printed on the catalog page.'}
+    issues = [] if acad >= today_year else [f'stale_year_label:{acad}']
+    return [common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec,
+                        [{'field': 'program_name', 'value': name, 'snippet': name}, {'field': 'catalog_year', 'value': year, 'snippet': line[:200]}],
+                        entry, 'static_program/v1', {'program_key': rec['program_key']}, {}, issues)]
 
 
 PROGRAM_ONLY_ISSUES = ('requirement_groups_skipped',)

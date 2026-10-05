@@ -322,3 +322,17 @@ class PageQuoteTests(unittest.TestCase):
             self.assertTrue(src['sha256'])
             with self.assertRaises(ValueError):
                 page_quote({'url': 'https://www.example.edu/undeclared', 'lines': ['Students are admitted directly.']}, run)
+
+
+class StaticProgramTests(unittest.TestCase):
+    def test_static_catalog_page_identity(self):
+        from pipeline import text as T
+        e = {'url': 'https://www.georgefox.edu/catalog/undergrad/curriculum/major_minor/csci_major.html', 'sha256': 's', 'fetched_at': '2026-10-05T00:00:00'}
+        p = T.Page('Bachelors (BS) in Computer Science\n2026-2027 Academic Catalog\nMajor Requirements', 'Bachelors (BS) in Computer Science', [], [], ['Bachelors (BS) in Computer Science'])
+        out = X.static_program_identity({'institution_key': 'k'}, e, p, '2026-27')
+        self.assertEqual(out[0]['record']['program_name'], 'Bachelors (BS) in Computer Science')
+        self.assertEqual(out[0]['academic_year'], '2026-27')
+        minor = T.Page('Computer Science Minor\n2026-2027 Academic Catalog', 'Computer Science Minor', [], [], ['Computer Science Minor'])
+        self.assertEqual(X.static_program_identity({'institution_key': 'k'}, e, minor, '2026-27'), [])
+        two_years = T.Page('Bachelors (BS) in X\n2026-2027 Academic Catalog\nsee the 2025-2026 Academic Catalog', 'Bachelors (BS) in X', [], [], ['Bachelors (BS) in X'])
+        self.assertEqual(X.static_program_identity({'institution_key': 'k'}, e, two_years, '2026-27'), [])  # ambiguous year: skipped
