@@ -115,6 +115,8 @@ def promote(decisions_path: Path, log=print):
         written += apply_field(f, folders, ev, archive)
     for mg in d.get('merge', []):
         written += apply_merge(mg, folders, archive)
+    for aw in d.get('awards', []):
+        written += apply_award(aw, folders, archive)
     for cat in d.get('catalogs', []):
         written += apply_catalog(cat, folders, ev, archive)
     out = ROOT / 'sources/programs' / state / run_dir.name / 'evidence.json'
@@ -203,6 +205,27 @@ def apply_merge(mg, folders, archive):
     payload['records'] = [r for r in payload['records'] if r['program_key'] != mg['drop']]
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
     archive[f"merge:{mg['institution_key']}:{mg['drop']}->{mg['keep']}"] = {'decision': mg, 'dropped': drop}
+    return 1
+
+
+def apply_award(aw, folders, archive):
+    """A major-specific scholarship the institution itself ties to a field: the award fields the reviewer read from the
+    page, the tie quoted verbatim (major_requirement) and checked against the stored page, and structured links to the
+    programs on file. An award page without a printed academic year is partially verified."""
+    year = aw.get('academic_year', '2026-27')
+    quote, src = page_quote(aw['page_quote'], RUN_CTX['run'])
+    progs = _records(folders[aw['institution_key']], 'academic_programs', year) or {'records': []}
+    have = {r['program_key'] for r in progs['records']}
+    missing = [k for k in aw.get('program_keys', []) if k not in have]
+    if missing: raise ValueError(f"award {aw['award']['award_name']!r}: programs not on file {missing}")
+    rec = {**aw['award'], 'institution_key': aw['institution_key'], 'academic_year': year, 'source_url': src['url'],
+           'major_requirement': quote, 'verification_status': 'verified' if aw.get('year_labeled') else 'partially_verified',
+           'last_verified_at': src['fetched_at'][:10]}
+    if not aw.get('year_labeled'): rec['academic_year_basis'] = 'aid_year_in_force_at_review_source_unlabeled'
+    if aw.get('program_keys'): rec['program_keys'] = aw['program_keys']
+    rec['notes'] = (rec.get('notes', '') + f" Reviewed {date.today().isoformat()}: {aw.get('reason', '')} Source document sha256 {src['sha256'][:16]}.").strip()
+    _upsert(_file_for(folders[aw['institution_key']], 'awards', year), aw['institution_key'], year, rec, 'awards')
+    archive[f"award:{aw['institution_key']}:{aw['award']['award_name']}"] = {'decision': aw, 'source': src}
     return 1
 
 
