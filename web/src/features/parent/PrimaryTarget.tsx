@@ -6,6 +6,7 @@ import { useExamPlan } from '../colleges/useExamPlan'
 import { schoolLevers } from '../colleges/schoolLevers'
 import { CostLeverList } from '../colleges/CostLeverList'
 import { outlookFor } from './CostOutlook'
+import { useHomeState } from '../../lib/homeState'
 import { ArrowRight, Flag } from '../../components/icons'
 import { ButtonLink, Card, CardHeader } from '../../components/ui'
 
@@ -20,6 +21,7 @@ export function PrimaryTarget({ student }: { student: Student }) {
   const cmp = useSavedComparison(COMPARE_YEAR)
   const { exam, reference } = useMeritReference(student.id)
   const plan = useExamPlan(student.id)
+  const { homeState } = useHomeState()
   if (!cmp.canSetPrimary || cmp.keys.length === 0 || (cmp.loading && !cmp.data)) return null
   const c = cmp.data?.find((x) => x.institution_key === cmp.primary && x.found)
   const name = student.display_name
@@ -41,7 +43,7 @@ export function PrimaryTarget({ student }: { student: Student }) {
       </Card>
     )
 
-  const o = outlookFor(c)
+  const o = outlookFor(c, homeState)
   return (
     <Card className="overflow-hidden ring-2 ring-brand">
       <CardHeader

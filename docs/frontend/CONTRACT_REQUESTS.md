@@ -20,6 +20,7 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-12 | Primary target school | ⏳ open | Designed and working in demo; hidden in live (`supportsPrimarySchool = false`), no client stand-in |
 | CR-13 | Major certainty and saved interests | ⏳ open | Asked in onboarding and on Explore majors; kept in this browser |
 | CR-14 | Structured program, admission and degree-path fields | ⏳ open | Program match by name; admission/transfer/undeclared shown as unverified questions; progression text quoted |
+| CR-15 | Household home state | ⏳ open | Asked (optional) in onboarding and on cost screens; kept in this browser; labelled as the family's answer |
 
 Live content note: the bank has no exam versions, skills or questions yet, so live practice and benchmarks show their empty states until content is loaded.
 
@@ -184,6 +185,12 @@ Read: household members with `view_progress`. Write: the linked student and guar
 - shared first-year courses, where two published maps exist
 
 Everything else is shown as a question to ask the school.
+
+## CR-15. Household home state
+
+**Need.** `households.home_state char(2) null` (and the same on a self-managed student profile), editable by guardians (or the student when there's no household), and returned with the household context. Optional everywhere.
+
+**Why.** Cost screens choose a school's in-state or out-of-state published price from the family's home state. Without it, every school showed its cheapest residency price, which understates cost for out-of-state options (for example, a Tennessee family looking at Oregon). The UI labels the state as the family's answer, not a residency determination. When a school publishes no out-of-state price, the UI flags it instead of showing the in-state figure as theirs. The state currently lives in one browser.
 
 ## Product decisions flagged (not contract requests)
 
