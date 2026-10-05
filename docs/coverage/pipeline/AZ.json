@@ -1,0 +1,156 @@
+{
+ "state": "AZ",
+ "academic_year": "2026-27",
+ "institutions": 32,
+ "status_order": [
+  "verified_current",
+  "partially_verified_current",
+  "candidate_ready",
+  "candidate_exception",
+  "source_found",
+  "not_found",
+  "fetch_failed"
+ ],
+ "by_category": {
+  "admissions_tests": {
+   "fetch_failed": 13,
+   "not_found": 3,
+   "source_found": 16
+  },
+  "aid_appeals": {
+   "candidate_exception": 13,
+   "fetch_failed": 13,
+   "not_found": 5,
+   "source_found": 1
+  },
+  "ap_credit": {
+   "candidate_exception": 1,
+   "fetch_failed": 13,
+   "not_found": 8,
+   "source_found": 10
+  },
+  "clep_credit": {
+   "candidate_exception": 2,
+   "fetch_failed": 13,
+   "not_found": 10,
+   "source_found": 7
+  },
+  "common_data_set": {
+   "fetch_failed": 13,
+   "not_found": 14,
+   "source_found": 5
+  },
+  "cost_of_attendance": {
+   "candidate_exception": 6,
+   "candidate_ready": 2,
+   "fetch_failed": 13,
+   "not_found": 1,
+   "source_found": 10
+  },
+  "degree_requirements": {
+   "fetch_failed": 13,
+   "not_found": 4,
+   "source_found": 15
+  },
+  "dual_enrollment": {
+   "candidate_exception": 1,
+   "candidate_ready": 4,
+   "fetch_failed": 13,
+   "not_found": 6,
+   "source_found": 8
+  },
+  "ib_credit": {
+   "candidate_exception": 1,
+   "candidate_ready": 1,
+   "fetch_failed": 13,
+   "not_found": 11,
+   "source_found": 6
+  },
+  "merit_scholarships": {
+   "candidate_ready": 2,
+   "fetch_failed": 13,
+   "not_found": 3,
+   "source_found": 14
+  },
+  "residency": {
+   "fetch_failed": 13,
+   "not_found": 6,
+   "source_found": 13
+  },
+  "statewide_articulation": {
+   "fetch_failed": 13,
+   "not_found": 14,
+   "source_found": 5
+  },
+  "transfer_credit": {
+   "candidate_exception": 2,
+   "candidate_ready": 2,
+   "fetch_failed": 13,
+   "not_found": 2,
+   "source_found": 13
+  },
+  "tuition_fees": {
+   "candidate_exception": 5,
+   "candidate_ready": 3,
+   "fetch_failed": 13,
+   "not_found": 2,
+   "source_found": 9
+  }
+ },
+ "totals": {
+  "candidate_exception": 31,
+  "candidate_ready": 14,
+  "fetch_failed": 182,
+  "not_found": 89,
+  "source_found": 132
+ },
+ "statewide_sources": {
+  "categories": {
+   "admissions_tests": 0,
+   "aid_appeals": 0,
+   "ap_credit": 0,
+   "clep_credit": 0,
+   "common_data_set": 0,
+   "cost_of_attendance": 0,
+   "degree_requirements": 0,
+   "dual_enrollment": 0,
+   "ib_credit": 0,
+   "merit_scholarships": 2,
+   "residency": 1,
+   "statewide_articulation": 0,
+   "transfer_credit": 1,
+   "tuition_fees": 7
+  },
+  "fetch_failures": 0,
+  "pages_fetched": 11
+ },
+ "blocked_institutions": [
+  "ipeds-104708",
+  "ipeds-105145",
+  "ipeds-105154",
+  "ipeds-105428",
+  "ipeds-105668",
+  "ipeds-105747",
+  "ipeds-105792",
+  "ipeds-105899",
+  "ipeds-364016",
+  "ipeds-364025",
+  "ipeds-384333",
+  "ipeds-436614",
+  "ipeds-464226"
+ ],
+ "quality": {
+  "ambiguous_years": 2,
+  "blocked_requests": 60,
+  "candidates": 162,
+  "conflicts": 73,
+  "documents": 1195,
+  "extraction_failures": 0,
+  "fetch_errors": 109,
+  "fetches": 1364,
+  "ready": 51,
+  "semantic_review": 53,
+  "stale_sources": 38
+ },
+ "run": "pipeline/runs/AZ/2026-10-04"
+}

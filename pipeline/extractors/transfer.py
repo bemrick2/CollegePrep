@@ -18,10 +18,10 @@ MAX_HOURS = re.compile(r'(?:maximum\s+of|no\s+more\s+than|up\s+to|a\s+maximum\s+
 # A grade rule for pass/fail courses or for one module/pathway (Rhodes, TN Tech r5) is not the general minimum.
 SCOPED_GRADE = re.compile(r'pass\s*/\s*fail|pass-fail|\bP/F\b|satisfactory/unsatisfactory|\bmodule\b|transfer\s+pathway|\bTTP\b|core\s+block|\bmajor\b|'
                           # GA r1: rules for named courses (Atlanta Metro composition, UNG/KSU "ENGL 1101") and advice ("encouraged")
-                          r'composition|\b(?:ENGL|MATH|English|Math)\s+\d{4}|encouraged|recommended|'
+                          r'composition|unaccredited|(?:english|math(?:ematics)?)\s+course|from\s+this\s+list|does\s+not\s+transfer|\b(?:ENGL?|MATH|English|Math)\s+\d{4}|encouraged|recommended|'  # CO r1: CCD \"ENG 1021\"
                           # LA r1: placement in developmental courses (Delgado), one college's math/science rule (LSU),
                           # the conditions of an outgoing block-transfer guarantee (River Parishes)
-                          r'developmental|(?:for|exempt\s+the)\s+placement|placement\s+(?:assessment|test|exam)|math(?:ematics)?\s+and\s+science|block\s+transfer|'
+                          r'(?<!non-)(?<!non)developmental|(?:for|exempt\s+the)\s+placement|placement\s+(?:assessment|test|exam)|math(?:ematics)?\s+and\s+science|block\s+transfer|'
                           # AR r1: one required course (UACCB) and prerequisites (UACCM); "D's accepted in some majors" (Clayton) keeps the general rule
                           r'this\s+course|prerequisite|'
                           # OK r1: an admission GPA standard ("average grade of C", Cameron/NSU/ECU) or a general-education rule (USAO)
@@ -57,11 +57,11 @@ def extract(inst, entry, page, today_year):
                 for m in GRADE.finditer(s): found['min_grade'].append((m.group(1).upper(), s))
             # LA r1: a cap on lower-level credit counted as upper-level (LSUA) or on credit from unaccredited schools
             # (NOBTS) is not the overall transfer maximum.
-            for m in ([] if re.search(r'upper[- ](?:level|division)|not\s+accredited|unaccredited|toward\s+the\s+major|most\s+(?:[\w-]+\s+)?(?:colleges|schools|universities|institutions)', s, re.I) else MAX_HOURS.finditer(s)):  # IA (Iowa): a cap for the major
+            for m in ([] if re.search(r'upper[- ](?:level|division)|not\s+accredited|unaccredited|toward\s+the\s+major|honors|required\s+to\s+accept|engineering\s+programs|option\s+[a-z]\b|depending\s+on\s+(?:the|your)\s+(?:program|major)|most\s+(?:[\w-]+\s+)?(?:colleges|schools|universities|institutions)', s, re.I) else MAX_HOURS.finditer(s)):  # IA (Iowa): a cap for the major
                 found['max_transfer_credits'].append((int(m.group(1)), s))
-        for m in ([] if re.search(r'attempted|probation|suspension|retain\s+this\s+status', s, re.I) else RESIDENCE.finditer(s)):
+        for m in ([] if re.search(r'attempted|probation|suspension|retain\s+this\s+status|(?:gpa|grade\s+point\s+average)(?:[^.]|\.(?=\d)){0,40}\b(?:for|on|in|during)\s+the\s+(?:last|final)|recognition|honors', s, re.I) else RESIDENCE.finditer(s)):
             v = int(m.group(1) or m.group(2))
-            part = re.search(r'(\d{2}|twenty|thirty|forty|forty-five|fifteen|twenty-four)\s+(?:\(\d{2}\)\s+)?of\s+the\s+(?:last|final)\s+' + str(v) + r'\b', s, re.I)
+            part = re.search(r'(\d{2}|twenty|thirty|forty|forty-five|fifteen|twenty-four)\s+(?:\(\d{2}\)\s+)?(?:semester\s+)?(?:credit\s+)?(?:hours\s+)?of\s+the\s+(?:last|final)\s+' + str(v) + r'\b', s, re.I)
             words = {'fifteen': 15, 'twenty': 20, 'twenty-four': 24, 'thirty': 30, 'forty': 40, 'forty-five': 45}
             if part: v = words.get(part.group(1).lower()) or int(part.group(1))  # "Thirty (30) of the last 60" (FGCU)  # "45 of the last 60 hours" (UGA), "20 of the last 30" (Coastal Georgia)
             if 12 <= v <= 60: found['residency_requirement_credits'].append((v, s))

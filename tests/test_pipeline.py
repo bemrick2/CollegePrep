@@ -354,6 +354,139 @@ last 30 hours in residence at the university.</p>"""
         [c] = dual.extract(INST, ENTRY, page, '2026-27')
         self.assertEqual([t['min_hs_gpa'] for t in c['record']['dual_enrollment']['eligibility_tiers']], [2.5])
 
+    def test_tx_r1_rules(self):
+        """TX r1: annual/four-year pairs, fall/spring splits, Yes/No and e-mail cells, AP credit tables; 'not living at
+        home', 'At-Home' and a per-semester lead; residency 'N semester credit hours of the last M' and scoped caps."""
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Freshman Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th><th>GPA</th></tr>'
+            '<tr><td>Presidential</td><td>$4,000/$16,000</td><td>3.95</td></tr><tr><td>College Success Scholarship</td><td>$500 Fall &amp; $500 Spring</td><td>Yes</td></tr>'
+            '<tr><td>Cambria Changing Lives</td><td>$250</td><td>No</td></tr><tr><td>Graduate College scholarships</td><td>$1,000</td><td>gc@txstate.edu</td></tr></table>'), '2026-27')}
+        self.assertEqual((got['Presidential']['award_min'], got['Presidential']['award_max']), (4000, 4000))
+        self.assertNotIn('award_max', got['College Success Scholarship'])
+        self.assertNotIn('gpa_requirement', got['Cambria Changing Lives'])
+        self.assertNotIn('gpa_requirement', got['Graduate College scholarships'])
+        self.assertEqual(merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Awards</h2><table><tr><th>Scholarship</th><th>Criteria</th></tr>'
+            '<tr><td>AP Credit Award Physics 1</td><td>Score of 3</td></tr><tr><td>AP Credit Award Physics 2</td><td>Score of 3</td></tr></table>'), '2026-27'), [])
+        stacked = [['Category', 'Out-of-State student not living at home', 'Out-of-State student living at home with parents'],
+                   ['Full Time', 'Full Time'], ['Tuition and fees', '$6,540', '$6,540'], ['Housing and food', '$18,240', '$8,800'], ['Total', '$24,780', '$15,340']]
+        p = T.Page('', 'Cost of Attendance', [{'heading': '2026-2027 Cost of Attendance', 'caption': '', 'lead': '', 'rows': stacked}], [], [])
+        [c] = costs.extract(INST, ENTRY, p, '2026-27')
+        self.assertEqual(sorted(a['arrangement'] for a in c['record']['living_arrangements']), ['off_campus_not_with_family', 'with_parents_or_family'])
+        athome = [['Fall/Spring', 'On-Campus', 'Off-Campus', 'At-Home'], ['Tuition & Fees', '$8,032', '$8,032', '$8,032'],
+                  ['Housing', '$8,446', '$10,380', '$3,700'], ['Total', '$16,478', '$18,412', '$11,732']]
+        p = T.Page('', 'Cost of Attendance', [{'heading': 'Cost of Attendance for 2026-2027', 'caption': '', 'lead': '', 'rows': athome}], [], [])
+        [c] = costs.extract(INST, ENTRY, p, '2026-27')
+        self.assertIn('with_parents_or_family', [a['arrangement'] for a in c['record']['living_arrangements']])
+        lead = [['Credit Hours', '12-18'], ['Tuition', '$15,370'], ['Technology Fee', '$270'], ['Total', '$15,640']]
+        p = T.Page('', 'Tuition and Fees', [{'heading': 'Tuition and Fees', 'caption': '', 'lead': 'Fall and Spring Semesters Block Rate 2026-27 (per semester)', 'rows': lead}], [], [])
+        self.assertTrue(all('cost_period_semester' in c['issues'] for c in costs.extract(INST, ENTRY, p, '2026-27')))
+        load = [['Expense', 'Resident Living Off Campus'], ['Tuition and Fees', '$4,935'], ['Books and Supplies', '$528'], ['Total', '$5,463']]
+        p = T.Page('', 'Tuition', [{'heading': 'Estimated Costs for 2026-27', 'caption': '', 'lead': 'These budgets reflect full-time enrollment, 15 credits per term.', 'rows': load}], [], [])
+        self.assertTrue(all('cost_period_semester' not in c['issues'] for c in costs.extract(INST, ENTRY, p, '2026-27')))
+        [c] = transfer.extract(INST, ENTRY, T.parse_html('<title>Transfer</title><p>Additionally, at least 24 semester credit hours of the last 30 hours '
+                                                          'completed that are required for the degree must be taken at the university.</p>'), '2026-27')
+        self.assertEqual(c['record']['residency_requirement_credits'], 24)
+        [c] = transfer.extract(INST, ENTRY, T.parse_html('<title>Transfer</title><p>Graduation includes earning 32 of the last 40 hours at the '
+                                                          'college with a minimum 2.0 GPA.</p>'), '2026-27')
+        self.assertEqual(c['record']['residency_requirement_credits'], 32)  # NC (Lees-McRae): the GPA is a separate condition
+        for s in ['Students need a GPA of at least 3.0 for the last 60 hours of baccalaureate studies at the university.',
+                  'A minimum of 30 semester credit hours must be earned at the university before the final semester to qualify for this recognition.',
+                  'A maximum of 12 hours of transferable Honors credits may transfer to the university.',
+                  'Texas public senior colleges are required to accept up to 66 hours of transfer credit from a community college.',
+                  'A maximum of 72 semester hours may be transferred from institutions that do not have engineering programs accredited by ABET.',
+                  'Students seeking to transfer from an unaccredited college may transfer courses with a grade of C or better.']:
+            self.assertEqual(transfer.extract(INST, ENTRY, T.parse_html('<title>Transfer</title><p>' + s + '</p>'), '2026-27'), [], s)
+
+    def test_wa_r1_rules(self):
+        """WA r1: Seattle Colleges' two-row header ("WA Resident" over "Living without Parent | Living with Parent"); a
+        two-row header that cannot be aligned is blocked; Columbia Basin's "One Quarter" table is one term; the direct
+        transfer agreement's "each course completed from this list" is not the general transfer minimum."""
+        INST_WA = {**INST, 'state': 'WA'}
+        rows = [['Estimated Cost', 'WA Resident', 'Non-Resident'],
+                ['Living without Parent', 'Living with Parent', 'Living without Parent', 'Living with Parent'],
+                ['Tuition and Fees', '$4,935', '$4,935', '$5,520', '$5,520'], ['Food and Housing', '$19,473', '$10,072', '$19,473', '$10,072'],
+                ['Total', '$24,408', '$15,007', '$24,993', '$15,592']]
+        p = T.Page('', 'Cost of Attendance', [{'heading': 'Annual Cost of Attendance 2026-27', 'caption': '', 'lead': '', 'rows': rows}], [], [])
+        got = {c['record']['residency']: c for c in costs.extract(INST_WA, ENTRY, p, '2026-27')}
+        self.assertEqual(set(got), {'in_state', 'out_of_state'})
+        self.assertEqual(sorted(a['arrangement'] for a in got['in_state']['record']['living_arrangements']),
+                         ['off_campus_not_with_family', 'with_parents_or_family'])
+        self.assertEqual(got['out_of_state']['record']['tuition_and_mandatory_fees'] if 'tuition_and_mandatory_fees' in got['out_of_state']['record']
+                         else got['out_of_state']['record']['tuition'], 5520)
+        uneven = [['Residency', 'Arizona Resident', 'Non-Resident'], ['Housing', 'With Parent', 'On-Campus', 'Off-Campus', 'On-Campus', 'Off-Campus'],
+                  ['Tuition & Fees', '$13,900', '$13,900', '$13,900', '$44,400', '$44,400'], ['Housing & Food', '$3,140', '$17,770', '$13,100', '$17,770', '$13,100'],
+                  ['Books', '$600', '$600', '$600', '$600', '$600']]
+        p = T.Page('', 'Cost of Attendance', [{'heading': '2026-2027 Cost of Attendance', 'caption': '', 'lead': '', 'rows': uneven}], [], [])
+        self.assertTrue(all('stacked_header_unparsed' in c['issues'] for c in costs.extract(INST, ENTRY, p, '2026-27')))
+        quarter = [['One Quarter', 'Resident Dependent Living with Parent(s)', 'Resident Living Away from Parent(s)'],
+                   ['Tuition & Fees', '$2,079', '$2,079'], ['Books & Supplies', '$176', '$176'], ['Total', '$2,255', '$2,255']]
+        p = T.Page('', 'Cost of Attendance', [{'heading': '2026-27 Cost of Attendance', 'caption': '', 'lead': '', 'rows': quarter}], [], [])
+        cands = costs.extract(INST, ENTRY, p, '2026-27')
+        self.assertTrue(cands and all('cost_period_semester' in c['issues'] for c in cands))
+        self.assertEqual(transfer.extract(INST, ENTRY, T.parse_html(
+            '<title>Transfer</title><p>For transfer purposes, a student must have a minimum grade of C or better in each course completed from this list.</p>'),
+            '2026-27'), [])
+        self.assertEqual(transfer.extract(INST, ENTRY, T.parse_html(
+            '<title>Transfer</title><p>The course must be completed with a grade of C or better, even though it does not transfer as college credit.</p>'),
+            '2026-27'), [])
+
+    def test_az_r1_rules(self):
+        """AZ r1: Prescott's Ph.D. scholarship tiers are graduate awards; Northland Pioneer's 'Social Media' heading is not where
+        awards are listed; ERAU's international budget is labelled only in the table's lead text."""
+        tiers = ('<title>Scholarships</title><h2>Ph.D. Changemaker Scholarship</h2><table><tr><th>Enrollment</th><th>Amount</th></tr>'
+                 '<tr><td>Full-time (12 or more credits)</td><td>$4,000 / term</td></tr><tr><td>Half time (6 – 8 credits)</td><td>$2,000 / term</td></tr>'
+                 '<tr><td>Three-quarter time (9 – 11 credits)</td><td>$3,000 / term</td></tr></table>')
+        self.assertEqual(merit.extract(INST, ENTRY, T.parse_html(tiers), '2026-27'), [])
+        self.assertTrue(merit.extract(INST, ENTRY, T.parse_html(tiers.replace('Ph.D. Changemaker', 'Changemaker')), '2026-27'))
+        nav = ('<title>Scholarships</title><h2>Social Media</h2><table><tr><th>Scholarship</th><th>Amount</th><th>Deadline</th></tr>'
+               '<tr><td>Visual Arts Scholarship</td><td>$4,000</td><td>September 18</td></tr><tr><td>President\'s Scholars</td><td>$2,200</td><td>March</td></tr></table>')
+        got = merit.extract(INST, ENTRY, T.parse_html(nav), '2026-27')
+        self.assertTrue(got and all('eligibility_summary' not in c['record'] for c in got))
+        p = T.Page('', 'Tuition and Costs', [{'heading': 'Academic Year 2026-27', 'caption': '', 'lead': 'International Student Cost of Attendance - Undergraduate',
+                                              'rows': [['Budget Component', 'Standard On-Campus Costs'], ['Tuition and Fees', '$47,844'],
+                                                       ['Housing and Food', '$15,816'], ['Total', '$63,660']]}], [], [])
+        self.assertEqual(costs.extract(INST, ENTRY, p, '2026-27'), [])
+
+    def test_nm_r1_rules(self):
+        """NM r1: Luna's staff contact table and NMSU's private-scholarship page are not awards; ENMU-Roswell's English-course
+        grade is not the general transfer minimum; WNMU's overload petition is not dual-enrollment eligibility."""
+        staff = ('<title>Scholarships</title><h2>Contacts</h2><table><tr><th>Name</th><th>Title</th><th>Phone</th><th>ACT</th></tr>'
+                 '<tr><td>Rachael Lucero</td><td>Registrar</td><td>505-587-3829</td><td>Click Here</td></tr>'
+                 '<tr><td>Ida Valdez</td><td>Associate Registrar</td><td>505-587-3823</td><td>Click Here</td></tr>'
+                 '<tr><td>Alicia Chacon</td><td>Associate Registrar</td><td>505-454-2546</td><td>Click Here</td></tr></table>')
+        self.assertEqual(merit.extract(INST, ENTRY, T.parse_html(staff), '2026-27'), [])
+        awards = ('<h2>Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th><th>Deadline</th></tr>'
+                  '<tr><td>Chemistry Scholarship</td><td>$1,000</td><td>October 31</td></tr>'
+                  '<tr><td>Youth Mentor Scholarship</td><td>$1,000</td><td>November 2</td></tr></table>')
+        self.assertTrue(merit.extract(INST, ENTRY, T.parse_html('<title>Scholarships</title>' + awards), '2026-27'))
+        self.assertEqual(merit.extract(INST, ENTRY, T.parse_html('<title>Private Scholarships</title>' + awards), '2026-27'), [])
+        self.assertEqual(transfer.extract(INST, ENTRY, T.parse_html(
+            '<title>Transfer</title><p>A college-level English course with a grade of C or better is required for transfer.</p>'), '2026-27'), [])
+        # FL (New College): "non-developmental" coursework is the general rule, not a developmental-course rule.
+        [c] = transfer.extract(INST, ENTRY, T.parse_html(
+            '<title>Transfer</title><p>The college accepts transferable coursework with a grade of C or better, which is non-developmental.</p>'), '2026-27')
+        self.assertEqual(c['record']['min_grade'], 'C')
+        [c] = self._de('<p>Have a cumulative high school GPA of 2.5 to enroll in dual credit.</p>'
+                       '<p>Dual Credit students wanting to take more than 18 hours must file a petition to overload with a 3.0 GPA.</p>')
+        self.assertEqual([t['min_hs_gpa'] for t in c['record']['dual_enrollment']['eligibility_tiers']], [2.5])
+
+    def test_co_r1_rules(self):
+        """CO r1: Otero's fall/spring split is not a minimum; CCD's ENG 1021 grade and Regis's program-dependent cap are
+        not general transfer rules; Western's charge for skipping a step is not the dual-enrollment price."""
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Institutional Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th><th>Requirements</th></tr>'
+            '<tr><td>SEBREA Scholarship</td><td>$1000 ($500 for Fall semester and $500 for Spring semester)</td><td>Rural business</td></tr>'
+            '<tr><td>Pinnacol Scholarship</td><td>$2,500</td><td>CTE pathway</td></tr></table>'), '2026-27')}
+        self.assertEqual((got['SEBREA Scholarship']['award_min'], got['SEBREA Scholarship']['award_max']), (1000, 1000))
+        self.assertEqual(transfer.extract(INST, ENTRY, T.parse_html(
+            '<title>Transfer</title><p>ENG 1021 must be completed with a grade of B or better for transfer.</p>'), '2026-27'), [])
+        [c] = transfer.extract(INST, ENTRY, T.parse_html(
+            '<title>Transfer Guides</title><p>Depending on the program, up to 87 credit hours may be eligible for transfer!</p>'
+            '<p>A transfer is accepted only for courses in which a grade of C- or better is earned.</p>'), '2026-27')
+        self.assertEqual((c['record'].get('min_grade'), c['record'].get('max_transfer_credits')), ('C-', None))
+        self.assertEqual(self._de('<p>Important: If you don’t do this step, you’ll be charged $116 per credit.</p>'), [])
+
     def test_ut_r1_rules(self):
         """UT r1: SUU "$12,000 ($6,000/semester*)" is one annual amount; Utah Tech's "Per Semester (full-time)" row-label
         header makes a semester table; Weber's scholarship-retention GPA is not the program's; SUU "N/A" notes are blank."""
@@ -1487,6 +1620,19 @@ class RegistryTests(unittest.TestCase):
     def test_every_committed_registry_is_current(self):
         for path in sorted((ROOT / 'pipeline/registry').glob('*.json')):
             self.assertEqual(registry.build(path.stem), registry.load(path.stem), f'run: python -m pipeline registry --state {path.stem}')
+
+    def test_data_folders_are_unique_across_states(self):
+        """NM r1: a folder holding data belongs to one institution in every state (ERAU Prescott/Daytona, UNM branches, admissions.* hosts)."""
+        owner, curated = {}, registry.curated_folders()
+        for path in sorted((ROOT / 'pipeline/registry').glob('*.json')):
+            for inst in registry.load(path.stem)['institutions']:
+                key, folder = inst['institution_key'], inst['folder']
+                if folder in curated.values():  # a folder that already holds data belongs to exactly one institution
+                    self.assertEqual(owner.setdefault(folder, key), key, f'{folder} is shared by {owner[folder]} and {key}')
+                if folder in registry.GENERIC_LABELS:
+                    self.assertEqual(curated.get(key), folder, f'{key} would be filed under the generic folder {folder}')
+        self.assertFalse([f for f, keys in __import__('collections').Counter(curated.values()).items() if keys > 1])
+        self.assertEqual((registry.folder_label('ashland.kctcs.edu'), registry.folder_label('admissions.unl.edu')), ('ashland', None))
 
     def test_seed_overrides_need_reason_and_evidence(self):
         built = registry.load('NV')

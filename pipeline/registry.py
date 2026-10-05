@@ -46,6 +46,17 @@ def registrable_domain(host: str) -> str:
     return '.'.join(labels[-2:])
 
 
+GENERIC_LABELS = {'admissions', 'admission', 'apply', 'www', 'web', 'catalog', 'catalogs', 'financialaid', 'finaid', 'aid',
+                  'futurestudents', 'my', 'online', 'students', 'go', 'info', 'enroll'}
+
+
+def folder_label(host):
+    """A folder name from a college's own host (ashland.kctcs.edu -> ashland), or None when the label is generic.
+    NE/NM: admissions.unl.edu and admissions.nmsu.edu both became "admissions", which names no college."""
+    label = host.split('.')[0]
+    return None if label in GENERIC_LABELS else label
+
+
 def curated_folders():
     """institution_key -> existing data/institutions/<folder> name."""
     out = {}
@@ -86,6 +97,7 @@ def build(state: str):
     state = state.upper()
     presence = existing_ipeds_presence(state)
     folders = curated_folders()
+    owned = set(folders.values())  # folders that already hold some institution's data
     cited = cited_sources()
     aliases = {}
     for p in (ROOT / 'data/institutions').glob('*/institution.json'):
@@ -108,6 +120,8 @@ def build(state: str):
         site = seeds.get('website')
         domain = registrable_domain(urlsplit(site).netloc) if site else None
         folder = folders.get(key) or (domain.split('.')[0] if domain else 'ipeds-' + r['UNITID'])
+        if folder != folders.get(key) and folder in owned:  # AZ/FL (ERAU): another state's campus already owns this folder
+            folder = f"{folder}-{r['UNITID']}"
         slugs.setdefault(folder, []).append(key)
         institutions.append({
             'institution_key': key, 'unitid': int(r['UNITID']), 'name': r['INSTNM'], 'city': r['CITY'], 'state': state,
@@ -122,9 +136,9 @@ def build(state: str):
     scope_shared_domains(institutions)
     for inst in institutions:  # A system college on its own subdomain is named after it (ashland.kctcs.edu -> ashland).
         own = [h for h in inst.get('allowed_hosts') or [] if h not in set(inst.get('shared_hosts') or [])]
-        if own and inst['folder'] not in folders.values() and inst['institution_key'] not in folders:
-            label = own[0].split('.')[0]
-            if label not in slugs or slugs[label] == [inst['institution_key']]:
+        if own and inst['institution_key'] not in folders:
+            label = folder_label(own[0])
+            if label and (label not in slugs or slugs[label] == [inst['institution_key']]):
                 slugs[inst['folder']].remove(inst['institution_key']); inst['folder'] = label; slugs.setdefault(label, []).append(inst['institution_key'])
     for inst in institutions:  # Two campuses sharing a domain get distinct folders.
         if len(slugs[inst['folder']]) > 1 and inst['folder'] not in folders.values():

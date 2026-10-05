@@ -90,6 +90,7 @@ def residency(h, home=None, private=False):
             return 'out_of_state' if any(neg for neg, _ in named) else 'in_state'
         return 'named_other_state'
     if re.search(r'in[- ]state', h, re.I): return 'in_state'
+    if home and re.search(rf'\b{home}\s+residents?\b', h, re.I): return 'in_state'  # WA (Seattle Colleges): "WA Resident"
     if re.search(r'\bresidents?\b', h, re.I) and not private and not HOUSING_RESIDENT.search(h): return 'in_state'
     return None
 
@@ -101,8 +102,8 @@ def column_meaning(header, home=None, private=False):
         'residency': residency(h, home, private),
         # Alcorn: "Undergraduate in State On/Off Campus" is one budget for both, not an off-campus budget.
         'arrangement': (None if re.search(r'on\s*(/|and|&|or)\s*off[- ]campus|on[- ]\s*(and|&|or)\s*off[- ]campus', h) else
-                        'off_campus_not_with_family' if re.search(r'not\s+(living\s+)?(with|w/)\s*(a\s+)?parents?|away\s+from\s+(home|parents)', h) else
-                        'with_parents_or_family' if re.search(r'(with|w/)\s*(a\s+)?(parents?|family|relatives)|at home|commut', h) else
+                        'off_campus_not_with_family' if re.search(r'not\s+(living\s+)?(with|w/)\s*(a\s+)?parents?|not\s+living\s+at\s+home|without\s+(a\s+)?parents?|away\s+from\s+(home|parents)', h) else
+                        'with_parents_or_family' if re.search(r'(with|w/)\s*(a\s+)?(parents?|family|relatives)|at[- ]home|commut', h) else
                         'off_campus_not_with_family' if re.search(r'off[- ]campus|own\s+(house|home|apartment)', h) else
                         'on_campus' if re.search(r'on[- ]campus|residence hall|student\s+housing|resident(\s+student|\s+budget)?$|resident student|residential', h) else
                         'other' if re.search(r'military|on base', h) else None),
@@ -125,7 +126,7 @@ def parse_tables(rows):
     Returns [(title_rows, headers, body)], body = [(label, [values], raw_row_text)]. A new segment
     starts when, after body rows, a one-cell row names a year or a residency (schools often stack
     "Tennessee Residents" and "Non-Tennessee Residents" blocks inside one <table>)."""
-    segments, titles, header, body = [], [], None, []
+    segments, titles, header, body, sub = [], [], None, [], []
 
     def close():
         if len(body) >= 2: segments.append((list(titles), header[1:] if header else [], list(body)))
@@ -151,10 +152,32 @@ def parse_tables(rows):
                                            or PART_TIME.search(cells[0])):
                     titles.append(cells[0])
                 continue
+        if header is not None and not body and not has_money and len(filled) >= 2:
+            sub.append(cells); continue  # a second header row ("Living without Parent | Living with Parent")
         if has_money and cells and cells[0]:
+            if sub and not body:
+                header = stack_header(header, sub, len(cells) - 1)
+                if header is None: header, titles = [], titles + [STACKED]
+                sub = []
             body.append((cells[0], [money(c) for c in cells[1:]], ' | '.join(cells)))
     close()
     return segments
+
+
+STACKED = '<stacked header>'
+
+
+def stack_header(header, sub, n):
+    """Combine a two-row header when the second row lines up evenly under the first; None when it does not.
+    WA (Seattle Colleges): "WA Resident | Non-Resident" over "Living without Parent | Living with Parent" x2.
+    AZ (Arizona): 3 + 2 housing columns under two residencies cannot be aligned without colspans, so it is None."""
+    if len(sub) != 1: return None
+    row = [c for c in sub[0]]
+    subs = row if len(row) == n else row[1:] if len(row) - 1 == n else None
+    top = [h for h in header[1:] if h.strip()]
+    if subs is None or not top or n % len(top): return None
+    span = n // len(top)
+    return [header[0]] + [f'{top[i // span]} {subs[i]}'.strip() for i in range(n)]
 
 
 PART_TIME = re.compile(r'less\s+than\s+half|half[- ]time|part[- ]time|three[- ]quarter[- ]time', re.I)
@@ -172,7 +195,7 @@ def _context(t, page, titles):
 
 def _candidates_from_table(t, inst, entry, page, today_year, page_year, page_basis, page_issues):
     out = []
-    if re.search(r'\binternational\b', t.get('heading') or '', re.I):
+    if re.search(r'\binternational\b', (t.get('heading') or '') + ' ' + (t.get('lead') or '')[:120], re.I):  # AZ (ERAU): the label is in the lead
         return out  # KS (Pitt State): an international students' budget is not an in-state or out-of-state cost
     for titles, headers, body in parse_tables(t['rows']):
         out += _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_year, page_year, page_basis, page_issues)
@@ -180,6 +203,8 @@ def _candidates_from_table(t, inst, entry, page, today_year, page_year, page_bas
 
 
 def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_year, page_year, page_basis, page_issues):
+    stacked = STACKED in titles
+    titles = [x for x in titles if x != STACKED]
     context = _context(t, page, titles)
     if SKIP_TABLE.search(context + ' ' + ' '.join(headers)) and not UNDERGRAD.search(context):
         return []
@@ -194,6 +219,13 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
     semester_total = None
     home, private = inst.get('state'), inst.get('control') == 'private_nonprofit'
     ctx = column_meaning(context, home, private)
+    # WA (Columbia Basin): a row-label header "One Quarter" names the period only when read on its own.
+    ctx['period'] = ctx['period'] or next((column_meaning(x)['period'] for x in titles if column_meaning(x)['period']), None)
+    # TX (Lubbock Christian): the lead "Fall and Spring Semesters Block Rate 2026-27 (per semester)" names the period
+    # "15 credit hours per semester" (GCCC, UIU) or "15 credits per term" (Everett) describes the load, not the figures' period.
+    lead_period = [m for m in re.finditer(r'\bper\s+(?:semester|term)\b', (t.get('lead') or '')[:160], re.I)
+                   if not re.search(r'(?:credits?|hours?)\s*$', (t.get('lead') or '')[:m.start()], re.I)]
+    if not ctx['period'] and lead_period: ctx['period'] = 'semester'
     cols = []
     for j in range(ncols):
         m = column_meaning(headers[j] if j < len(headers) else '', home, private)
@@ -202,7 +234,7 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
         m['arrangement'] = m['arrangement'] or ctx['arrangement']
         m['header'] = headers[j] if j < len(headers) else ''
         cols.append(m)
-    issues = list(page_issues)
+    issues = list(page_issues) + (['stacked_header_unparsed'] if stacked else [])
     # Headerless "TUITION | $8,172 | $8,171 | $16,343" (Benedict): when every row's third value is the sum
     # of the first two, the columns are two terms and their year.
     if ncols == 3 and not any(c['period'] for c in cols) and not any(h.strip() for h in headers[:3]):

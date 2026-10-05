@@ -1,0 +1,156 @@
+{
+ "state": "WA",
+ "academic_year": "2026-27",
+ "institutions": 60,
+ "status_order": [
+  "verified_current",
+  "partially_verified_current",
+  "candidate_ready",
+  "candidate_exception",
+  "source_found",
+  "not_found",
+  "fetch_failed"
+ ],
+ "by_category": {
+  "admissions_tests": {
+   "fetch_failed": 12,
+   "not_found": 2,
+   "source_found": 46
+  },
+  "aid_appeals": {
+   "candidate_exception": 35,
+   "fetch_failed": 12,
+   "not_found": 6,
+   "source_found": 7
+  },
+  "ap_credit": {
+   "candidate_exception": 5,
+   "candidate_ready": 5,
+   "fetch_failed": 12,
+   "not_found": 18,
+   "source_found": 20
+  },
+  "clep_credit": {
+   "candidate_exception": 1,
+   "candidate_ready": 4,
+   "fetch_failed": 12,
+   "not_found": 29,
+   "source_found": 14
+  },
+  "common_data_set": {
+   "fetch_failed": 12,
+   "not_found": 43,
+   "source_found": 5
+  },
+  "cost_of_attendance": {
+   "candidate_exception": 15,
+   "candidate_ready": 4,
+   "fetch_failed": 12,
+   "not_found": 1,
+   "source_found": 28
+  },
+  "degree_requirements": {
+   "fetch_failed": 12,
+   "not_found": 12,
+   "source_found": 36
+  },
+  "dual_enrollment": {
+   "fetch_failed": 12,
+   "not_found": 30,
+   "source_found": 18
+  },
+  "ib_credit": {
+   "candidate_exception": 8,
+   "candidate_ready": 4,
+   "fetch_failed": 12,
+   "not_found": 25,
+   "source_found": 11
+  },
+  "merit_scholarships": {
+   "candidate_exception": 2,
+   "candidate_ready": 4,
+   "fetch_failed": 12,
+   "not_found": 1,
+   "source_found": 41
+  },
+  "residency": {
+   "fetch_failed": 12,
+   "not_found": 13,
+   "source_found": 35
+  },
+  "statewide_articulation": {
+   "fetch_failed": 12,
+   "not_found": 30,
+   "source_found": 18
+  },
+  "transfer_credit": {
+   "candidate_exception": 2,
+   "candidate_ready": 4,
+   "fetch_failed": 12,
+   "not_found": 2,
+   "source_found": 40
+  },
+  "tuition_fees": {
+   "candidate_exception": 23,
+   "candidate_ready": 6,
+   "fetch_failed": 12,
+   "not_found": 1,
+   "source_found": 18
+  }
+ },
+ "totals": {
+  "candidate_exception": 91,
+  "candidate_ready": 31,
+  "fetch_failed": 168,
+  "not_found": 213,
+  "source_found": 337
+ },
+ "statewide_sources": {
+  "categories": {
+   "admissions_tests": 0,
+   "aid_appeals": 0,
+   "ap_credit": 0,
+   "clep_credit": 0,
+   "common_data_set": 0,
+   "cost_of_attendance": 0,
+   "degree_requirements": 0,
+   "dual_enrollment": 0,
+   "ib_credit": 0,
+   "merit_scholarships": 0,
+   "residency": 0,
+   "statewide_articulation": 0,
+   "transfer_credit": 0,
+   "tuition_fees": 0
+  },
+  "fetch_failures": 0,
+  "pages_fetched": 1
+ },
+ "blocked_institutions": [
+  "ipeds-234669",
+  "ipeds-234827",
+  "ipeds-235097",
+  "ipeds-235103",
+  "ipeds-235316",
+  "ipeds-235431",
+  "ipeds-235671",
+  "ipeds-236258",
+  "ipeds-236577",
+  "ipeds-237039",
+  "ipeds-237109",
+  "ipeds-443049"
+ ],
+ "quality": {
+  "ambiguous_years": 15,
+  "blocked_requests": 126,
+  "candidates": 228,
+  "conflicts": 78,
+  "documents": 3393,
+  "extraction_failures": 0,
+  "fetch_errors": 268,
+  "fetches": 3787,
+  "ready": 44,
+  "semantic_review": 107,
+  "stale_sources": 34
+ },
+ "run": "pipeline/runs/WA/2026-10-04"
+}
