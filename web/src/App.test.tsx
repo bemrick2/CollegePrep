@@ -199,6 +199,13 @@ describe('app flows', () => {
     expect(await screen.findByText("University of Tennessee, Knoxville has verified programs for Computer science; Mechanical engineering isn't in our verified list yet.")).toBeInTheDocument()
   })
 
+  it('compare places the target against the published middle 50%, without predicting admission', async () => {
+    localStorage.setItem('pp-compare', JSON.stringify(['utk']))
+    renderAt('/colleges', new DemoSource(sampleFamily('parent')))
+    expect(await screen.findByText((_, el) => el?.tagName === 'P' && /Target 27 is below the middle 50% \(28–32 ACT\)/.test(el.textContent ?? ''))).toBeInTheDocument()
+    expect(screen.getByText(/Not an admission prediction/)).toBeInTheDocument()
+  })
+
   it('choosing a role on the landing page goes straight to that onboarding (no second "who is using" step)', async () => {
     const user = userEvent.setup()
     renderAt('/', new DemoSource(emptyStore()))
