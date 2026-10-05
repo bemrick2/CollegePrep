@@ -12,13 +12,25 @@
     "georgefox.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.georgefox.edu/",
-    "https://catalog.georgefox.edu/"
+   "catalog": {
+    "platform": "drupal",
+    "home": "https://www.georgefox.edu/catalog/index.html",
+    "program_link": "georgefox\\.edu/catalog/undergrad[^?#]*\\.html$",
+    "program_lists": [
+     "https://www.georgefox.edu/catalog/index.html",
+     "https://www.georgefox.edu/catalog/undergrad/index.html"
+    ]
+   },
+   "policy": [
+    "https://www.georgefox.edu/college-admissions/academics/major/index.html",
+    "https://www.georgefox.edu/college-admissions/academics/major/engineering.html",
+    "https://www.georgefox.edu/college-admissions/academics/major/nursing.html"
    ],
-   "policy": []
+   "discover": [
+    "https://www.georgefox.edu/catalog/index.html"
+   ]
   },
   {
    "institution_key": "ipeds-209506",
@@ -130,7 +142,8 @@
    "catalog": {
     "platform": "courseleaf",
     "home": "https://catalog.uoregon.edu/",
-    "program_link": "catalog\\.uoregon\\.edu/.+/ug-[^/]+/?$",
+    "path_prefix": "/",
+    "min_depth": 1,
     "program_lists": [
      "https://catalog.uoregon.edu/ug-programs/"
     ]
@@ -151,12 +164,18 @@
    "domains": [
     "up.edu"
    ],
-   "hosts": [],
+   "hosts": [
+    "up.smartcatalogiq.com",
+    "up.catalog.acalog.com"
+   ],
    "mode": "discover",
    "priority": 1,
    "discover": [
     "https://www.up.edu/",
-    "https://catalog.up.edu/"
+    "https://catalog.up.edu/",
+    "https://www.up.edu/registrar/index.html",
+    "https://www.up.edu/academics/degrees-programs/index.html",
+    "https://up.smartcatalogiq.com/"
    ],
    "policy": []
   },
@@ -169,13 +188,23 @@
     "eou.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.eou.edu/",
-    "https://catalog.eou.edu/"
+   "catalog": {
+    "platform": "acalog",
+    "home": "https://catalog.eou.edu/index.php?catoid=8",
+    "catoid": 8,
+    "program_lists": [
+     "https://catalog.eou.edu/content.php?catoid=8&navoid=463"
+    ]
+   },
+   "degree_maps": [
+    "https://catalog.eou.edu/content.php?catoid=8&navoid=475"
    ],
-   "policy": []
+   "degree_map_any_pdf": true,
+   "policy": [
+    "https://www.eou.edu/academics/on-campus-majors-and-minors/"
+   ]
   },
   {
    "institution_key": "ipeds-209056",
@@ -186,13 +215,22 @@
     "lclark.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.lclark.edu/",
-    "https://catalog.lclark.edu/"
-   ],
-   "policy": []
+   "catalog": {
+    "platform": "courseleaf",
+    "home": "https://docs.lclark.edu/undergraduate/",
+    "path_prefix": "/undergraduate/",
+    "min_depth": 1,
+    "program_lists": [
+     "https://docs.lclark.edu/undergraduate/policiesprocedures/majorsminors/",
+     "https://docs.lclark.edu/undergraduate/programsofstudy/"
+    ]
+   },
+   "policy": [
+    "https://college.lclark.edu/academics/pre_professional/engineering/",
+    "https://college.lclark.edu/academics/pre_professional/business_mba/"
+   ]
   },
   {
    "institution_key": "ipeds-209065",
@@ -203,13 +241,20 @@
     "linfield.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.linfield.edu/",
-    "https://catalog.linfield.edu/"
-   ],
-   "policy": []
+   "catalog": {
+    "platform": "courseleaf",
+    "home": "https://catalog.linfield.edu/",
+    "program_link": "catalog\\.linfield\\.edu/programs-az/(.+-major/(index\\.html)?|nursing/)$",
+    "program_lists": [
+     "https://catalog.linfield.edu/programs-az/"
+    ]
+   },
+   "policy": [
+    "https://www.linfield.edu/academics/nursing/index.html",
+    "https://www.linfield.edu/academics/business/index.html"
+   ]
   },
   {
    "institution_key": "ipeds-440828",
@@ -219,14 +264,27 @@
    "domains": [
     "osucascades.edu"
    ],
-   "hosts": [],
-   "mode": "discover",
-   "priority": 2,
-   "discover": [
-    "https://osucascades.edu/",
-    "https://catalog.osucascades.edu/"
+   "hosts": [
+    "catalog.oregonstate.edu"
    ],
-   "policy": []
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "platform": "courseleaf",
+    "home": "https://catalog.oregonstate.edu/",
+    "path_prefix": "/college-departments/",
+    "min_depth": 1,
+    "program_lists": [
+     "https://catalog.oregonstate.edu/programs/"
+    ],
+    "list_filter": "OSU-Cascades"
+   },
+   "caps": {
+    "program_page": 0
+   },
+   "policy": [
+    "https://osucascades.edu/academics"
+   ]
   },
   {
    "institution_key": "ipeds-209612",
@@ -271,13 +329,17 @@
     "sou.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.sou.edu/",
-    "https://catalog.sou.edu/"
-   ],
-   "policy": []
+   "catalog": {
+    "platform": "acalog",
+    "home": "https://catalog.sou.edu/index.php?catoid=18",
+    "catoid": 18,
+    "program_lists": []
+   },
+   "policy": [
+    "https://sou.edu/academics/?_degree_facet=major"
+   ]
   },
   {
    "institution_key": "ipeds-210429",
@@ -292,7 +354,9 @@
    "priority": 2,
    "discover": [
     "https://wou.edu/",
-    "https://catalog.wou.edu/"
+    "https://catalog.wou.edu/",
+    "https://wou.edu/registrar/",
+    "https://wou.edu/academics/"
    ],
    "policy": []
   },
@@ -305,13 +369,20 @@
     "willamette.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.willamette.edu/",
-    "https://catalog.willamette.edu/"
-   ],
-   "policy": []
+   "catalog": {
+    "platform": "drupal",
+    "home": "https://catalog.willamette.edu/",
+    "program_link": "catalog\\.willamette\\.edu/(programs|college|undergraduate)/[^?#]+$",
+    "program_lists": [
+     "https://catalog.willamette.edu/programs",
+     "https://catalog.willamette.edu/college"
+    ]
+   },
+   "policy": [
+    "https://willamette.edu/academics/all-programs?programTypes=undergraduate"
+   ]
   },
   {
    "institution_key": "ipeds-209409",
@@ -326,7 +397,8 @@
    "priority": 3,
    "discover": [
     "https://www.bushnell.edu/",
-    "https://catalog.bushnell.edu/"
+    "https://catalog.bushnell.edu/",
+    "https://bushnell.edu/academics/academic-support/registrar/academic-catalog/"
    ],
    "policy": []
   },
@@ -343,7 +415,8 @@
    "priority": 3,
    "discover": [
     "https://www.corban.edu/",
-    "https://catalog.corban.edu/"
+    "https://catalog.corban.edu/",
+    "https://www.corban.edu/registrar/catalog/"
    ],
    "policy": []
   },
@@ -377,7 +450,8 @@
    "priority": 3,
    "discover": [
     "https://www.warnerpacific.edu/",
-    "https://catalog.warnerpacific.edu/"
+    "https://catalog.warnerpacific.edu/",
+    "https://www.warnerpacific.edu/academics/registrar/academic-catalog/"
    ],
    "policy": []
   }

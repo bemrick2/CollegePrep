@@ -113,8 +113,12 @@ class BrowserFetcher:
                 self._ensure()
                 page = self._browser.new_page(user_agent='CollegePrepResearchBot/1.0 (+https://github.com/bemrick2/collegeprep; official-source research)')
                 try:
-                    resp = page.goto(url, wait_until='networkidle', timeout=60000)
-                    page.wait_for_timeout(1500)
+                    resp = page.goto(url, wait_until='domcontentloaded', timeout=60000)
+                    try:  # JavaScript catalogs keep connections open; settle briefly instead of waiting for idle
+                        page.wait_for_load_state('networkidle', timeout=15000)
+                    except Exception:
+                        pass
+                    page.wait_for_timeout(2500)
                     status = resp.status if resp else None
                     body = page.content().encode('utf-8')
                     final = page.url
@@ -195,13 +199,35 @@ def crawl_target(target, run: Run, fetcher, browser=None, log=print, caps=None):
     return len(queue)
 
 
+NOT_BACHELOR_ANCHOR = re.compile(r'\b(minor|certificate|option|concentration|graduate|master|doctor|ph\.?\s?d|m\.?\s?s\.?|m\.?\s?a\.?|mba|'
+                                 r'm\.?\s?ed|ed\.?\s?d|dnp|post[- ]?bacc|endorsement|licensure|courses?)\b', re.I)
+BACHELOR_ANCHOR = re.compile(r'\b(B\.?\s?[A-Z]{1,4}\b\.?|bachelor|undergraduate\s+major|H?BA\b|H?BS\b)', re.I)
+
+
+def anchor_rank(anchor):
+    """0: names a bachelor's degree; 1: unlabeled; 2: names a minor, certificate, option or graduate award.
+    Ordering only: program pages are fetched bachelor-first so the per-school cap is spent on majors."""
+    a = anchor or ''
+    if BACHELOR_ANCHOR.search(a) and not re.search(r'\b(minor|certificate|option)\b', a, re.I): return 0
+    return 2 if NOT_BACHELOR_ANCHOR.search(a) else 1
+
+
 def expand(target, role, url, links, push, is_program, is_nav, depth):
     """Which links of a fetched page to follow, by the page's role."""
+    cat = target.get('catalog') or {}
+    lists_given = bool(cat.get('program_lists'))
+    if role in ('catalog_home', 'catalog_nav', 'program_list'):
+        progs = [(anchor_rank(a), h) for h, a in links if is_program(h)]
+        for rank, h in sorted(progs, key=lambda x: x[0]):
+            # A configured list page is the authority for which pages are programs; elsewhere only bachelor/unlabeled.
+            if rank < 2 and (role == 'program_list' or not lists_given or cat.get('platform') == 'acalog'):
+                push(h, 'program_page', url, depth + 1)
+        if not (lists_given and cat.get('platform') != 'acalog'):
+            for h, a in links:
+                if not is_program(h) and is_nav(h) and depth < 3: push(h, 'catalog_nav', url, depth + 1)
+        return
     for href, anchor in links:
-        if role in ('catalog_home', 'catalog_nav', 'program_list'):
-            if is_program(href): push(href, 'program_page', url, depth + 1)
-            elif is_nav(href) and depth < 3: push(href, 'catalog_nav', url, depth + 1)
-        elif role == 'degree_map_index':
+        if role == 'degree_map_index':
             path = urlsplit(href).path.lower()
             if (path.endswith('.pdf') and (DEGREE_MAP_LINK.search(href) or DEGREE_MAP_LINK.search(anchor or '')
                                            or target.get('degree_map_any_pdf'))) or \

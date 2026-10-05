@@ -65,7 +65,7 @@ def school_row(t, run, lists, summary, evidence, year='2026-27'):
     cats = [r for r in load_records(folder, 'program_catalogs') if r.get('academic_year') == year]
     awards = [r for r in load_records(folder, 'awards') if r.get('program_keys') or r.get('cip_codes')]
     lst = lists.get(key, {}); s = summary.get(key, {})
-    listed = [p['name'] for p in lst.get('programs', []) if p.get('credential_level') == 'bachelor']
+    listed = [p.get('printed') or p['name'] for p in lst.get('programs', []) if (p.get('listed_as') or p.get('credential_level')) in ('bachelor', 'major')]
     roles = s.get('roles', {})
     ev = defaultdict(int)
     for e in evidence.get(key, []): ev[e['category']] += 1

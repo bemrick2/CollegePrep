@@ -24,13 +24,17 @@ from urllib.parse import urlsplit
 from pipeline import text as T
 from pipeline.crawl import Run
 from pipeline.extractors import catalog as CAT, programmap as PM, common
-from .crawl import program_rule
+from .crawl import program_rule, in_scope
 
 GRAD = re.compile(r'\b(M\.?\s?S\.?|M\.?\s?A\.?|MBA|M\.?\s?Ed|M\.?\s?F\.?A|Ph\.?\s?D|Ed\.?\s?D|DNP|D\.?\s?P\.?\s?T|J\.?\s?D|'
                   r'Master|Doctor|Graduate|Post[- ]?bacc|Certificate|Minor|Endorsement)\b', re.I)
 BACHELOR = re.compile(r'\b(B\.?\s?(A|S|F\.?A|M|S\.?N|S\.?W|B\.?A|S\.?E|S\.?E\.?E|S\.?M\.?E|S\.?C\.?E|Arch|Mus|A\.?S|A\.?A\.?S|S\.?Ed|I\.?S)\b\.?|'
                       r'Bachelor|\bH?BA\b|\bH?BS\b)', re.I)
 ASSOCIATE = re.compile(r'\b(A\.?\s?(A|S|A\.?S|A\.?T|S\.?T|F\.?A)\b\.?|Associate)', re.I)
+
+# 'Accounting Major' in an undergraduate catalog: a major whose degree (BA/BS) the list does not print
+MAJOR = re.compile(r'\bmajor\b', re.I)
+NOT_MAJOR = re.compile(r'\b(minor|certificate|graduate|second\s+major|majors\))', re.I)
 
 EVIDENCE = [
     ('direct_admission', re.compile(r'\bdirect(ly)?[\s-]+admi(t|ts|tted|ssion|ssions)\b|\badmitted\s+directly\b', re.I)),
@@ -68,26 +72,85 @@ def credential_of(name):
     return None
 
 
+YEAR_LABEL = re.compile(r'\b(20\d{2})\s*[-–]\s*(20\d{2})\s+(?:Undergraduate\s+|University\s+|Academic\s+|General\s+)?(Catalog|Catalogue|Bulletin)\b', re.I)
+
+
+def printed_catalog_years(page):
+    """Catalog year labels printed anywhere on the page ("2026-2027 Catalog" in a CourseLeaf footer,
+    "2026-2027 Bulletin > ..." in a SmartCatalog breadcrumb), excluding 'Select a Catalog' archive menus."""
+    found = set()
+    for line in page.lines:
+        if len(line) > 160: continue
+        for m in YEAR_LABEL.finditer(line):
+            if int(m.group(2)) == int(m.group(1)) + 1: found.add((f'{m.group(1)}-{m.group(2)}', line.strip()))
+    menu = sum(1 for l in page.lines if re.fullmatch(r'20\d{2}-20\d{2}\s+(Catalog|Catalogue|Bulletin)', l.strip(), re.I))
+    if menu >= 3:  # an archive selector lists every year; only labels used in context (breadcrumb, footer) count
+        found = {(y, l) for y, l in found if not re.fullmatch(r'20\d{2}-20\d{2}\s+(Catalog|Catalogue|Bulletin)', l, re.I)}
+    return found
+
+
+def printed_line(page, anchor):
+    """The list page's own line for a link when it adds the awards: 'Accounting: BA, BS' (UO)."""
+    for line in page.lines:
+        if line.startswith(anchor) and len(line) > len(anchor) and re.match(r'^\s*[:(,–-]', line[len(anchor):]) and len(line) < 200:
+            return line
+    return None
+
+
 def collect_lists(target, run, entries):
-    """Program links on the current catalog's list/navigation pages, deduplicated by URL."""
+    """Program links on the current catalog's list pages (configured `program_lists`; Acalog navigation pages
+    otherwise), deduplicated by URL, each with the text exactly as printed."""
     is_program = program_rule(target)
+    cat_filter = (target.get('catalog') or {}).get('list_filter')
+    have_lists = any(e.get('role') == 'program_list' and e.get('page_file') for e in entries)
     out, years = {}, set()
     for e in entries:
-        if e.get('role') not in ('catalog_home', 'catalog_nav', 'program_list') or not e.get('page_file'): continue
+        roles = ('program_list',) if have_lists else ('catalog_home', 'catalog_nav')
+        if e.get('role') not in roles or not e.get('page_file'): continue
         page, d = run.load_page(e['page_file'])
         y, printed = CAT.catalog_year(page)
         if printed: years.add(printed)
+        else: years |= {y for y, _ in printed_catalog_years(page)}
         for href, anchor in d.get('links', []):
             name = re.sub(r'\s+', ' ', anchor or '').strip()
-            if not is_program(href) or not name or len(name) > 200: continue
+            if not name or len(name) > 200 or not in_scope(target, href): continue
+            line = printed_line(page, name)
+            if not (is_program(href) or line): continue
+            label = line or name
+            if cat_filter and not re.search(cat_filter, label): continue
             if href not in out:
-                out[href] = {'name': name, 'url': href, 'credential_level': credential_of(name),
+                level = credential_of(label)
+                listed_as = level or ('major' if MAJOR.search(label) and not NOT_MAJOR.search(label) else None)
+                out[href] = {'name': name, 'printed': label, 'url': href, 'credential_level': level, 'listed_as': listed_as,
                              'listed_on': e['url'], 'listed_on_sha256': e.get('sha256'), 'listed_on_title': e.get('title', '')}
     progs = sorted(out.values(), key=lambda p: p['name'].lower())
     return {'printed_years': sorted(years), 'programs': progs,
             'counts': {'links': len(progs), 'bachelor': sum(p['credential_level'] == 'bachelor' for p in progs),
+                       'major_unlabeled_degree': sum(p['listed_as'] == 'major' for p in progs),
                        'associate': sum(p['credential_level'] == 'associate' for p in progs),
                        'unclassified': sum(p['credential_level'] is None for p in progs)}}
+
+
+def program_page_candidates(target, inst, entry, page, today_year):
+    """catalog_program/v1 (Acalog, CourseLeaf) unchanged; when it finds no printed year in the page header but the
+    page itself prints exactly one catalog year label elsewhere (CourseLeaf footer "2026-2027 Catalog"), the same
+    extractor runs on a view of the page whose title carries that label, and every candidate records it as an issue
+    with the verbatim line. SmartCatalog pages use programs.smartcatalog."""
+    plat = (target.get('catalog') or {}).get('platform')
+    if plat == 'smartcatalog':
+        from . import smartcatalog
+        return smartcatalog.extract(inst, entry, page, today_year)
+    out = CAT.extract(inst, entry, page, today_year)
+    if out or CAT.catalog_year(page)[0] is not None: return out
+    labels = printed_catalog_years(page)
+    if len({y for y, _ in labels}) != 1: return out
+    year, line = next(iter(labels))
+    view = T.Page(page.text, f'{CAT.program_name(page)} - {year} Catalog', page.tables, page.links, page.headings)
+    out = CAT.extract(inst, entry, view, today_year)
+    for c in out:
+        c['issues'] = c.get('issues', []) + ['catalog_year_from_page_label']
+        c['evidence'] = c.get('evidence', []) + [{'field': 'catalog_year', 'value': year, 'snippet': line[:200]}]
+    return out
 
 
 def extract_run(targets, run_dir, today=None):
@@ -112,7 +175,7 @@ def extract_run(targets, run_dir, today=None):
             page, _ = run.load_page(e['page_file'])
             inst = {'institution_key': key}
             if e.get('role') == 'program_page':
-                for c in CAT.extract(inst, e, page, today_year):
+                for c in program_page_candidates(t, inst, e, page, today_year):
                     c['program_role'] = 'program_page'; cands.append(c); n_c += 1
             if e.get('kind') == 'pdf' and e.get('role') in ('degree_map', 'policy', 'policy_link'):
                 try:
