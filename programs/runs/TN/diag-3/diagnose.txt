@@ -1,0 +1,401 @@
+================================================================================
+https://thec.ppr.tn.gov/AcademicProgramInventorySearch 200
+{
+ "Transfer-Encoding": "chunked",
+ "Content-Type": "text/html; charset=utf-8",
+ "Server": "Microsoft-IIS/10.0",
+ "Strict-Transport-Security": "max-age=2592000",
+ "X-Powered-By": "ASP.NET",
+ "Date": "Mon, 05 Oct 2026 14:37:06 GMT",
+ "Connection": "close"
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Search - Dashboard</title>
+    <script type="text/javascript">
+        // const urlPrefix = /^(cb50sdcww00001|cb50sdcww00003|cb50sdcww00100|cb50sdcww00101|thec.ppr.tn.gov)/g.test(window.location.host) ? "/AcademicProgramInventorySearch" : "";
+        var prefix = /^(cb50sdcww00001|cb50sdcww00003|cb50sdcww00100|cb50sdcww00101|thec.ppr.tn.gov)/g.test(window.location.host) ? "/AcademicProgramInventorySearch" : "";
+        if(window.location.href.indexOf("thec.ppr.tn.gov/AcademicProgramInventorySearch_Dev") > 0)
+        {
+        prefix = "/AcademicProgramInventorySearch_Dev";
+        }
+        const urlPrefix = prefix;
+    </script>
+
+
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="/AcademicProgramInventorySearch/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- jQuery UI css -->
+    <link rel="stylesheet" href="/AcademicProgramInventorySearch/lib/jquery/css/jquery-ui-1.12.min.css" type="text/css" />
+    <link rel="stylesheet" href="/AcademicProgramInventorySearch/lib/jquery/css/jquery-ui-1.12.icon-font.min.css" type="text/css" />
+
+    <!-- Datatable css -->
+    <link rel="stylesheet" href="/AcademicProgramInventorySearch/lib/datatable/css/jquery.dataTables.min.css" type="text/css" />
+    <link rel="stylesheet" href="/AcademicProgramInventorySearch/lib/datatable/css/fixedColumns.dataTables.min.css" type="text/css" />
+    <link rel="stylesheet" href="/AcademicProgramInventorySearch/lib/datatable/css/select.dataTables.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/keytable/2.12.0/css/keyTable.dataTables.min.css" />
+
+    <!-- internal css -->
+    <link rel="stylesheet" href="/AcademicProgramInventorySearch/css/variables.css" type="text/css" />
+    <link rel="stylesheet" href="/AcademicProgramInventorySearch/css/site.css?v=q6ci2mUZYsN4-DC0NRM4NOjDH-wCoDgaevR354W8z0w" />
+    <link rel="stylesheet" href="/AcademicProgramInventorySearch/css/icons.css?v=HUP3-mswWzAQCgOKYqFPCQM85gdIp2wNw3_MTp-HHiQ" />
+    <link rel="stylesheet" href="/AcademicProgramInventorySearch/APISearch.Web.styles.css?v=XNSYJl6chnf2RFp7yJ71ZMMvex8M-dQ7kC8AkYVe7Uc" />
+
+    <!-- jQuery JavaScript -->
+    <script src="/AcademicProgramInventorySearch/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/AcademicProgramInventorySearch/lib/jquery/dist/jquery-ui-1.12.1.min.js"></script>
+
+    <!-- Datatable JavaScript -->
+    <script type="text/javascript" src="/AcademicProgramInventorySearch/lib/datatable/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="/AcademicProgramInventorySearch/lib/datatable/js/dataTables.fixedColumns.min.js"></script>
+    <script type="text/javascript" src="/AcademicProgramInventorySearch/lib/datatable/js/dataTables.select.min.js"></script>
+    <script type="text/javascript" src="/AcademicProgramInventorySearch/lib/datatable/js/dataTables.keyTable.min.js"></script>
+    <script type="text/javascript" src="/AcademicProgramInventorySearch/lib/datatable/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="/AcademicProgramInventorySearch/lib/datatable/js/dataTables.rowGroup.min.js"></script>
+    <script type="text/javascript" src="/AcademicProgramInventorySearch/lib/datatable/js/buttons.print.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/keytable/2.12.0/js/keyTable.dataTables.min.js"></script>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="/AcademicProgramInventorySearch/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- internal JavaScript -->
+    <script src="/AcademicProgramInventorySearch/js/site.js?v=gOwHLxIC329BcY5uCZq7bwE5IZTonzZzxs9oXgIKP38"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#nav a").each(function () {
+                if ($(this).attr("href") == window.location.pathname || $(this).attr("href") + "/" == window.location.pathname) {
+                    $(this).addClass("currentMenu");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Begin Header -->
+    <header b-rc4uit63ue>
+        <div b-rc4uit63ue class="header-top">
+            <div b-rc4uit63ue class="container">
+                <div b-rc4uit63ue class="row">
+                    <div b-rc4uit63ue class="col-sm-8 logo">
+                        <a href="/AcademicProgramInventorySearch">
+                            <img class="tn-icon-title" src="/AcademicProgramInventorySearch/img/TN-Icon-Title.svg" alt="Tennessee Higher Education Commission Academic Program Inventory" />
+                        </a>
+                        <div b-rc4uit63ue><a b-rc4uit63ue href="#main-content" class="skip-link">Skip to main content</a></div>
+                    </div>
+                    <div b-rc4uit63ue class="col-sm-4 text-right header-top-right">
+                        <a b-rc4uit63ue class="tn-link icon-home-1" href="https://www.tn.gov/" target="_blank">Go to TN.gov</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End Header -->
+
+    <nav b-rc4uit63ue id="nav">
+
+        <!-- Begin Navigation -->
+
+        <div b-rc4uit63ue class="container">
+            <div b-rc4uit63ue class="row">
+                <div b-rc4uit63ue class="col-auto menu">
+                    <button class="btn btn-secondary icon-home-1" role="button" id="home" onclick="window.location.href='/AcademicProgramInventorySearch'" formaction="/AcademicProgramInventorySearch">
+                        Home
+                    </button>
+                </div>
+                <div b-rc4uit63ue class="col-auto menu">
+                    <button class="btn btn-secondary" role="button" id="about" onclick="window.location.href='/AcademicProgramInventorySearch/Home/About'" formaction="/AcademicProgramInventorySearch/Home/About">
+                        About
+                    </button>
+                </div>
+                <div b-rc4uit63ue class="col-auto menu">
+                    <button class="btn btn-secondary" role="button" id="reports" onclick="window.location.href='/AcademicProgramInventorySearch/Reports'" formaction="/AcademicProgramInventorySearch/Reports">
+                        Reports
+                    </button>
+                </div>
+                <div b-rc4uit63ue class="col-auto menu">
+                    <button class="btn btn-secondary" role="button" id="userguides" onclick="window.location.href='/AcademicProgramInventorySearch/UserGuides'" formaction="/AcademicProgramInventorySearch/UserGuides">
+                        User Guides
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- End Navigation -->
+    </nav>
+
+    <div b-rc4uit63ue class="container">
+        <main b-rc4uit63ue role="main" class="pb-3" id="main-content" tabindex="-1">
+            <script type="text/javascript" src="/AcademicProgramInventorySearch/js/masterData.js"></script>
+<script type="text/javascript" src="/AcademicProgramInventorySearch/js/Home/home.js"></script>
+
+<div class="container framed">
+    <div>
+        <h1>API Search</h1>
+    </div>
+
+    <form id="needs-validation" novalidate>
+        <div>
+            <div class="row row-cols-md-4 row-cols-1 g-3">
+                <div class="col-md-6">
+                    <label for="lstInstitutions" class="form-label">Institution:</label>
+                    <input class="form-control" area-label="lstInstitutions" type="text" id="lstInstitutions" autocomplete="off" placeholder="Enter an Institution" />
+                </div>
+
+                <div class="col">
+                    <label for="lstFederalCIPCode" class="form-label">Federal CIP Code:</label>
+                    <input class="form-control" area-label="FederalCIPCode" maxlength="13" id="lstFederalCIPCode" autocomplete="off" placeholder="Enter a CIP Code" />
+                </div>
+
+                <div class="col">
+                    <label for="lstAward" class="form-label">Award:</label>
+                    <input class="form-control" area-label="Award" maxlength="13" id="lstAward" autocomplete="off" placeholder="Enter an Award" />
+                </div>
+
+                <div class="col-md-6">
+                    <label for="lstMajorName" class="form-label">Major Name:</label>
+                    <input class="form-control" area-label="MajorName" id="lstMajorName" maxlength="100" autocomplete="off" placeholder="Enter a Major Name" />
+                </div>
+
+                <div class="col-md-6">
+                    <label for="lstConcentrationName" class="form-label">Concentration Name:</label>
+                    <input class="form-control" area-label="MajorName" id="lstConcentrationName" maxlength="100" autocomplete="off" placeholder="Enter a Concentration Name" />
+                </div>
+
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col align-self-end">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <label for="ProgramStatus" class="form-label">Current Program Status:</label>
+                                </div>
+                                <div class="form-check col-auto">
+                                    <input class="form-check-input" type="checkbox" id="chkApprovedNotActive" value="ApprovedNotActive" checked>
+                                    <label class="form-check-label ApprovedNotActive" for="chkApprovedNotActive">Approved - Not Active</label>
+                                </div>
+                                <div class="form-check col-auto">
+                                    <input class="form-check-input" type="checkbox" id="chkActive" value="Active" checked>
+                                    <label class="form-check-label Active" for="chkActive">Active</label>
+                                </div>
+                                <div class="form-check col-auto">
+                                    <input class="form-check-input" type="checkbox" id="chkPhaseout" value="Phaseout" checked>
+                                    <label class="form-check-label Phase-Out" for="chkPhaseout">Phase-Out</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto align-self-end">
+                            <button id="btnClearSearch" type="button" class="btn btn-default">Clear Search</button>
+                            <button id="btnSearch" type="button" class="btn btn-default">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <table id="tblSearchResults" class="table hidden tblMajorProgramSearchResults">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Institution</th>
+                        <th>Federal <br>CIP Code</th>
+                        <th>Major Name</th>
+                        <th>Award</th>
+                        <th>Credit / Clock Hours</th>
+                        <th>Effective <br>Start Date</th>
+                        <th>Program Id</th>
+                        <th>Phase-Out <br>Begin Date</th>
+                        <th>Phase-Out <br>End Date</th>
+                        <th>Current <br>Program Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <br /><br />
+        </div>
+    </form>
+</div>
+        </main>
+    </div>
+
+    <footer b-rc4uit63ue class="footer">
+        <div b-rc4uit63ue class="footer-upper">
+            <img class="starball" src="/AcademicProgramInventorySearch/img/footer-starball.png" alt="" />
+        </div>
+        <div b-rc4uit63ue class="footer-lower">
+            <div b-rc4uit63ue class="container">
+                <div b-rc4uit63ue class="row g-0">
+                    <div b-rc4uit63ue class="col-lg-6 col-md-6 col-sm-6 columns">
+                    </div>
+                    <div b-rc4uit63ue class="col-lg-6 col-md-6 col-sm-6 columns text-right">
+                        <p b-rc4uit63ue class="support-email">For any support-related questions or comments, please email <a b-rc4uit63ue href="mailto:THEC_TSAC.ISG_Support@tn.gov">THEC_TSAC.ISG_Support@tn.gov</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+</body>
+</html>
+
+================================================================================
+https://www.tntech.edu/sacscoc/academic_program_inventory.php 200
+{
+ "Date": "Mon, 05 Oct 2026 14:37:06 GMT",
+ "Server": "Apache",
+ "Cache-Control": "private, max-age=0, must-revalidate",
+ "X-Powered-By": "PHP/8.1.29",
+ "Strict-Transport-Security": "max-age=15768000",
+ "Transfer-Encoding": "chunked",
+ "Content-Type": "text/html; charset=UTF-8",
+ "Connection": "close",
+ "Set-Cookie": "BIGipServerouweb-pool=187173386.47873.0000; path=/; Httponly; Secure"
+}
+<!DOCTYPE HTML><html lang="en">
+   <head><script type="text/javascript">var page_url="https://www.tntech.edu/sacscoc/academic_program_inventory.php";</script><link rel="canonical" href="https://www.tntech.edu/sacscoc/academic_program_inventory.php">
+      
+<!-- headcode include -->
+ <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#723AB6">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Arvo:400,400i,700,700i" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="/_resources/2023-theme/vendor/slick/1.8.1/slick.css" />
+	<link rel="stylesheet" href="/_resources/2023-theme/vendor/slick/1.8.1/slick-theme.css" />
+	<link rel="stylesheet" href="/_resources/2023-theme/vendor/foundation/6.8.0/foundation.css" />
+	<link rel="stylesheet" href="/_resources/2023-theme/css/app.css?v=1.01" />
+	<link rel="stylesheet" href="/_resources/2023-theme/css/lnm.css?v=1.21" />
+	<link rel="stylesheet" href="/_resources/2023-theme/vendor/fontawesome/fontawesome-all.css" />
+	<link rel="stylesheet" href="/_resources/2023-theme/css/oustyles.css" />
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TT3372H');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '502178499513133');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=502178499513133&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+
+
+<style>
+.flipProfile {
+	display: none;
+}
+	
+.flipTitle {
+    line-height: 1;
+    font-size: 1.2em;
+    /* color: #ffdd00; */
+    margin-bottom: 1em!important;
+}
+</style>
+
+<!-- End headcode include -->
+<script src="https://kit.fontawesome.com/e07fe5f145.js" crossorigin="anonymous"></script><title>SACSCOC - Academic Program Inventory</title>
+      <meta property="og:site_name" content="Tennessee Tech University">
+      <meta property="og:locale" content="en_US">
+      <meta property="og:url" content="https://www.tntech.edu/sacscoc/academic_program_inventory.php">
+      <meta property="og:type" content="website">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta property="og:title" content="SACSCOC - Academic Program Inventory">
+      <meta name="twitter:title" content="SACSCOC - Academic Program Inventory">
+      <meta property="og:image" content="https://www.tntech.edu/_default/Stock_Campus_Drone_23AUG19_00131.jpg">
+      <meta name="twitter:image" content="https://www.tntech.edu/_default/Stock_Campus_Drone_23AUG19_00131.jpg">
+      <meta name="page_type" content="Webpage">
+   <meta name="dynamicC
+================================================================================
+https://www.mtsu.edu/sacscoc/api/ 200
+{
+ "Date": "Mon, 05 Oct 2026 14:37:07 GMT",
+ "Content-Type": "text/html; charset=UTF-8",
+ "Transfer-Encoding": "chunked",
+ "Connection": "close",
+ "Server": "cloudflare",
+ "Vary": "Accept-Encoding",
+ "Link": "<https://www.mtsu.edu/sacscoc/wp-json/>; rel=\"https://api.w.org/\"",
+ "X-Powered-By": "WP Engine",
+ "X-Cacheable": "SHORT",
+ "Cache-Control": "max-age=600, must-revalidate",
+ "X-Cache": "MISS",
+ "X-Cache-Group": "normal",
+ "last-modified": "Mon, 05 Oct 2026 14:37:07 GMT",
+ "cf-cache-status": "MISS",
+ "set-cookie": "__cf_bm=UKR_k79wfiwGVaZRWwhQRNwT93ds0yoC89jii70dA.M-1791211026.7953317-1.0.1.1-SpsAwCW2H6W3oKG9gZjpWNYVVMNmS8kpp0ogR1JO_XxX26u2XuOCN1uj.sc0xS7VZf2mF8_O_aU0IzsiN7GDTIexpejfia_65wO330PHt0SO17vB3877T3nZAchXzRwk; HttpOnly; SameSite=None; Secure; Path=/; Domain=www.mtsu.edu; Expires=Mon, 05 Oct 2026 15:07:07 GMT",
+ "Access-Control-Allow-Origin": "https://w1.mtsu.edu",
+ "Access-Control-Allow-Private-Network": "true",
+ "Access-Control-Request-Private-Network": "true",
+ "Permissions-Policy": "geolocation=(), midi=(), sync-xhr=(), microphone=(),camera=(), magnetometer=(), gyroscope=(), fullscreen=(self), payment=()",
+ "Referrer-Policy": "origin",
+ "Strict-Transport-Security": "max-age=63072000; includeSubDomains",
+ "X-Content-Type-Options": "nosniff",
+ "X-Frame-Options": "SAMEORIGIN",
+ "X-XSS-Protection": "1; mode=block",
+ "CF-RAY": "a45d29957e5cfa7f-IAD",
+ "alt-svc": "h3=\":443\"; ma=86400"
+}
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+<script>
+var gform;gform||(document.addEventListener("gform_main_scripts_loaded",function(){gform.scriptsLoaded=!0}),document.addEventListener("gform/theme/scripts_loaded",function(){gform.themeScriptsLoaded=!0}),window.addEventListener("DOMContentLoaded",function(){gform.domLoaded=!0}),gform={domLoaded:!1,scriptsLoaded:!1,themeScriptsLoaded:!1,isFormEditor:()=>"function"==typeof InitializeEditor,callIfLoaded:function(o){return!(!gform.domLoaded||!gform.scriptsLoaded||!gform.themeScriptsLoaded&&!gform.isFormEditor()||(gform.isFormEditor()&&console.warn("The use of gform.initializeOnLoaded() is deprecated in the form editor context and will be removed in Gravity Forms 3.1."),o(),0))},initializeOnLoaded:function(o){gform.callIfLoaded(o)||(document.addEventListener("gform_main_scripts_loaded",()=>{gform.scriptsLoaded=!0,gform.callIfLoaded(o)}),document.addEventListener("gform/theme/scripts_loaded",()=>{gform.themeScriptsLoaded=!0,gform.callIfLoaded(o)}),window.addEventListener("DOMContentLoaded",()=>{gform.domLoaded=!0,gform.callIfLoaded(o)}))},hooks:{action:{},filter:{}},addAction:function(o,r,e,t){gform.addHook("action",o,r,e,t)},addFilter:function(o,r,e,t){gform.addHook("filter",o,r,e,t)},doAction:function(o){gform.doHook("action",o,arguments)},applyFilters:function(o){return gform.doHook("filter",o,arguments)},removeAction:function(o,r){gform.removeHook("action",o,r)},removeFilter:function(o,r,e){gform.removeHook("filter",o,r,e)},addHook:function(o,r,e,t,n){null==gform.hooks[o][r]&&(gform.hooks[o][r]=[]);var d=gform.hooks[o][r];null==n&&(n=r+"_"+d.length),gform.hooks[o][r].push({tag:n,callable:e,priority:t=null==t?10:t})},doHook:function(r,o,e){var t;if(e=Array.prototype.slice.call(e,1),null!=gform.hooks[r][o]&&((o=gform.hooks[r][o]).sort(function(o,r){return o.priority-r.priority}),o.forEach(function(o){"function"!=typeof(t=o.callable)&&(t=window[t]),"action"==r?t.apply(null,e):e[0]=t.apply(null,e)})),"filter"==r)return e[0]},removeHook:function(o,r,t,n){var e;null!=gform.hooks[o][r]&&(e=(e=gform.hooks[o][r]).filter(function(o,r,e){return!!(null!=n&&n!=o.tag||null!=t&&t!=o.priority)}),gform.hooks[o][r]=e)}});
+</script>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="shortcut icon" href="https://www.mtsu.edu/sacscoc/wp-content/themes/mtsu-theme/img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="https://use.typekit.net/pdo4uer.css">
+
+
+	<title>Academic Program Inventory &#8211; Accreditation</title>
+<meta name='robots' content='max-image-preview:large' />
+
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<script data-cfasync="false" data-pagespeed-no-defer>
+	var gtm4wp_datalayer_name = "dataLayer";
+	var dataLayer = dataLayer || [];
+	(function(){dataLayer.push(arguments);})('set', 'developer_id.dNGJiYT', true);
+</script>
+<!-- End Google Tag Manager for WordPress by gtm4wp.com --><link rel='dns-prefetch' href='//www.google.com' />
+<link rel='dns-prefetch' href='//www.googletagmanager.com' />
+<link rel='dns-prefetch' href='//kit.fontawesome.com' />
+<link rel="alternate" type="application/rss+xml" title="Accreditation &raquo; Feed" href="https://www.mtsu.edu/sacscoc/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Accreditation &raquo; Comments Feed" href="https://www.mtsu.edu/sacscoc/comments/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.mtsu.edu/sacscoc/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.mtsu.edu%2Fsacscoc%2Fapi%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.mtsu.edu/sacscoc/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.mtsu.edu%2Fsacscoc%2Fapi%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<st
