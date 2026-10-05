@@ -107,15 +107,18 @@ OR={
  'lclark':dict(priority=2,catalog={'platform':'courseleaf','home':'https://docs.lclark.edu/undergraduate/','path_prefix':'/undergraduate/','min_depth':1,
    'program_lists':['https://docs.lclark.edu/undergraduate/policiesprocedures/majorsminors/','https://docs.lclark.edu/undergraduate/programsofstudy/']},
    policy=['https://college.lclark.edu/academics/pre_professional/engineering/','https://college.lclark.edu/academics/pre_professional/business_mba/']),
- 'willamette-210401':dict(priority=2,catalog={'platform':'drupal','home':'https://catalog.willamette.edu/','program_link':r'catalog\.willamette\.edu/(programs|college|undergraduate)/[^?#]+$',
-   'program_lists':['https://catalog.willamette.edu/programs','https://catalog.willamette.edu/college']},policy=['https://willamette.edu/academics/all-programs?programTypes=undergraduate']),
- 'georgefox':dict(priority=1,catalog={'platform':'drupal','home':'https://www.georgefox.edu/catalog/index.html','program_link':r'georgefox\.edu/catalog/undergrad[^?#]*\.html$',
-   'program_lists':['https://www.georgefox.edu/catalog/index.html','https://www.georgefox.edu/catalog/undergrad/index.html']},
+ 'willamette-210401':dict(priority=2,render='browser',catalog={'platform':'coursedog','home':'https://catalog.willamette.edu/','path_prefix':'/programs/','min_depth':0,
+   'program_lists':['https://catalog.willamette.edu/programs']},policy=['https://willamette.edu/academics/all-programs?programTypes=undergraduate']),
+ 'georgefox':dict(priority=1,catalog={'platform':'drupal','home':'https://www.georgefox.edu/catalog/index.html','program_link':r'georgefox\.edu/catalog/undergrad/curriculum/major_minor/[a-z_]+_major(_[a-z]+)?\.html$',
+   'program_lists':['https://www.georgefox.edu/catalog/undergrad/curriculum/major_minor/index.html']},
    policy=['https://www.georgefox.edu/college-admissions/academics/major/index.html','https://www.georgefox.edu/college-admissions/academics/major/engineering.html',
    'https://www.georgefox.edu/college-admissions/academics/major/nursing.html'],discover=['https://www.georgefox.edu/catalog/index.html']),
  'eou':dict(priority=2,catalog=acalog('catalog.eou.edu',8,[463]),degree_maps=['https://catalog.eou.edu/content.php?catoid=8&navoid=475'],degree_map_any_pdf=True,
    policy=['https://www.eou.edu/academics/on-campus-majors-and-minors/']),
  'sou':dict(priority=2,catalog=acalog('catalog.sou.edu',18,[]),policy=['https://sou.edu/academics/?_degree_facet=major']),
+ 'up':dict(priority=1,catalog={'platform':'smartcatalog','home':'https://up.smartcatalogiq.com/en','path_prefix':'/en/2026-2027/','min_depth':2,
+   'program_lists':['https://up.smartcatalogiq.com/en/2026-2027/bulletin/university-academic-programs-of-study','https://up.smartcatalogiq.com/en']},
+   discover=['https://up.smartcatalogiq.com/en'],policy=[]),
  'osucascades':dict(priority=2,catalog={'platform':'courseleaf','home':'https://catalog.oregonstate.edu/','path_prefix':'/college-departments/','min_depth':1,
    'program_lists':['https://catalog.oregonstate.edu/programs/'],'list_filter':'OSU-Cascades'},caps={'program_page':0},
    policy=['https://osucascades.edu/academics']),
@@ -123,13 +126,13 @@ OR={
    'program_lists':['https://catalog.oit.edu/programs']},policy=['https://www.oit.edu/academics/degrees','https://www.oit.edu/academics/degrees/nursing',
    'https://www.oit.edu/admissions/criteria','https://www.oit.edu/college-costs/scholarships/new-transfer-student/engineering-honors-scholarship']),
 }
-HOSTS={'up':['up.smartcatalogiq.com','up.catalog.acalog.com']}
+HOSTS={}
 EXTRA_DISCOVER={'up':['https://www.up.edu/registrar/index.html','https://www.up.edu/academics/degrees-programs/index.html','https://up.smartcatalogiq.com/'],
  'wou':['https://wou.edu/registrar/','https://wou.edu/academics/'],'corban':['https://www.corban.edu/registrar/catalog/'],
  'warnerpacific-210304':['https://www.warnerpacific.edu/academics/registrar/academic-catalog/'],
  'bushnell':['https://bushnell.edu/academics/academic-support/registrar/academic-catalog/']}
 DISCOVER={'TN':['cn','trevecca','southern','lmunet','cumberland','fhu','king','milligan','bryan','maryvillecollege','sewanee','fisk','tusculum','tnwesleyan','bethelu','lanecollege','loc','johnsonu','welch','baptistu'],
- 'OR':['wou','up','reed','pacificu','corban','bushnell','warnerpacific-210304','multnomah']}
+ 'OR':['wou','reed','pacificu','corban','bushnell','warnerpacific-210304','multnomah']}
 PRI={'up':1,'georgefox':1,'sou':2,'wou':2,'eou':2,'osucascades':2,'willamette-210401':2,'lclark':2,'reed':2,'linfield':2,'pacificu':2,'cn':2,'trevecca':2,'southern':2,'lmunet':2,'sewanee':2,'maryvillecollege':2}
 BLOCKED_EXTRA={'utk': ['https://advising.utk.edu/', 'https://www.utk.edu/academics/majors'], 'mtsu': ['https://www.mtsu.edu/advising/', 'https://www.mtsu.edu/programs/'], 'memphis': ['https://www.memphis.edu/advising/', 'https://www.memphis.edu/academics/'], 'etsu': ['https://www.etsu.edu/advisement/', 'https://www.etsu.edu/academics/'], 'utm': ['https://www.utm.edu/academics/majors-and-programs', 'https://www.utm.edu/offices/advising'], 'belmont': ['https://www.belmont.edu/academics/majors-programs/'], 'lipscomb': ['https://www.lipscomb.edu/academics'], 'leeuniversity': ['https://www.leeuniversity.edu/academics/']}
 for k,v in BLOCKED_EXTRA.items(): TN[k]['policy']=TN[k]['policy']+v

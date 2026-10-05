@@ -17,10 +17,9 @@
    "catalog": {
     "platform": "drupal",
     "home": "https://www.georgefox.edu/catalog/index.html",
-    "program_link": "georgefox\\.edu/catalog/undergrad[^?#]*\\.html$",
+    "program_link": "georgefox\\.edu/catalog/undergrad/curriculum/major_minor/[a-z_]+_major(_[a-z]+)?\\.html$",
     "program_lists": [
-     "https://www.georgefox.edu/catalog/index.html",
-     "https://www.georgefox.edu/catalog/undergrad/index.html"
+     "https://www.georgefox.edu/catalog/undergrad/curriculum/major_minor/index.html"
     ]
    },
    "policy": [
@@ -165,17 +164,22 @@
     "up.edu"
    ],
    "hosts": [
-    "up.smartcatalogiq.com",
-    "up.catalog.acalog.com"
+    "up.smartcatalogiq.com"
    ],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
+   "catalog": {
+    "platform": "smartcatalog",
+    "home": "https://up.smartcatalogiq.com/en",
+    "path_prefix": "/en/2026-2027/",
+    "min_depth": 2,
+    "program_lists": [
+     "https://up.smartcatalogiq.com/en/2026-2027/bulletin/university-academic-programs-of-study",
+     "https://up.smartcatalogiq.com/en"
+    ]
+   },
    "discover": [
-    "https://www.up.edu/",
-    "https://catalog.up.edu/",
-    "https://www.up.edu/registrar/index.html",
-    "https://www.up.edu/academics/degrees-programs/index.html",
-    "https://up.smartcatalogiq.com/"
+    "https://up.smartcatalogiq.com/en"
    ],
    "policy": []
   },
@@ -371,13 +375,14 @@
    "hosts": [],
    "mode": "catalog",
    "priority": 2,
+   "render": "browser",
    "catalog": {
-    "platform": "drupal",
+    "platform": "coursedog",
     "home": "https://catalog.willamette.edu/",
-    "program_link": "catalog\\.willamette\\.edu/(programs|college|undergraduate)/[^?#]+$",
+    "path_prefix": "/programs/",
+    "min_depth": 0,
     "program_lists": [
-     "https://catalog.willamette.edu/programs",
-     "https://catalog.willamette.edu/college"
+     "https://catalog.willamette.edu/programs"
     ]
    },
    "policy": [
