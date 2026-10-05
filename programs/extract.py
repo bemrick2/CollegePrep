@@ -82,6 +82,7 @@ YEAR_LABEL = re.compile(r'\b(20\d{2})\s*[-–]\s*(20\d{2})\s+(?:Undergraduate\s+
 
 LABEL_FIRST = re.compile(r'(?:Catalog|Catalogue|Bulletin)\s+(20\d{2})\s*[-–]\s*(20\d{2})(?=\s*(?:>|$))', re.I)
 EDITION = re.compile(r'(20\d{2})\s*[-–]\s*(\d{2})\s+Edition', re.I)
+NOT_CURRENT = re.compile(r'\[?\s*(not current|archived?)\b', re.I)  # Acalog selector: "2025-2026 Academic Catalog [NOT CURRENT CATALOGS]"
 ARCHIVE_LINK = re.compile(r'\s*(?:Download\s+)?PDF of\b', re.I)  # "PDF of the entire 2025-2026 Catalog": a download link, not this page's label
 
 
@@ -90,7 +91,7 @@ def printed_catalog_years(page):
     "2026-2027 Bulletin > ..." in a SmartCatalog breadcrumb), excluding 'Select a Catalog' archive menus."""
     found = set()
     for line in page.lines:
-        if len(line) > 160 or ARCHIVE_LINK.match(line): continue
+        if len(line) > 160 or ARCHIVE_LINK.match(line) or NOT_CURRENT.search(line): continue
         for m in YEAR_LABEL.finditer(line):
             if int(m.group(2)) == int(m.group(1)) + 1: found.add((f'{m.group(1)}-{m.group(2)}', line.strip()))
         m = LABEL_FIRST.match(line.strip())  # Linfield header "Catalog 2026-2027"; UP breadcrumb "Bulletin 2026-2027 > ..."
@@ -182,9 +183,11 @@ def program_page_candidates(target, inst, entry, page, today_year):
             pk = next(c['record']['program_key'] for c in out if c['domain'] == 'academic_programs')
             for c in plan: c['record']['program_key'] = pk
         out += plan
-        if have:  # Course List groups read row by row (courseleaf_list/v1), keyed to the program record
-            pk = next(c['record']['program_key'] for c in out if c['domain'] == 'academic_programs')
-            out += courseleaf.list_candidates(inst, entry, page, year, line, pk)
+        cl = (target.get('_courselists') or {}).get(entry.get('url'))
+        if have and cl:  # Course List groups read with their layout (courselist_html/v1), keyed to the program record
+            prog = next(c['record'] for c in out if c['domain'] == 'academic_programs')
+            awards = len(re.findall(r'\b(BA|BS|BFA|BM|BAS|BBA|BArch|BLA|BMus|BSN)\b', prog['program_name']))
+            out += courseleaf.html_candidates(inst, entry, cl[0], cl[1], year, prog['program_key'], max(1, awards), page.text)
     return out
 
 
@@ -305,6 +308,117 @@ def printed_list_candidates(target, inst, run, es, today_year):
                                [{'field': 'program_name', 'value': name, 'snippet': name}, {'field': 'catalog_year', 'value': year, 'snippet': line[:200]}],
                                le, 'printed_list/v1', {'program_key': key}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}']))
     return out
+
+
+AWARD_HEADING = re.compile(r'^(Bachelor of [A-Z][a-z]+(?: [A-Z][a-z]+)?(?:\s*/\s*Bachelor of [A-Z][a-z]+(?: [A-Z][a-z]+)?)*)$')
+
+
+def award_heading_candidates(inst, entry, page, today_year):
+    """Acalog college pages that list each department's programs under the award they lead to (Eastern Oregon:
+    'Bachelor of Arts/Bachelor of Science' / '•' / 'Art Major'). Each bulleted name under a bachelor's award heading
+    becomes a program record named as printed; concentrations, minors and certificates are not programs. The catalog
+    year is the page's current-catalog label (archived selector entries are marked [NOT CURRENT CATALOGS])."""
+    labels = printed_catalog_years(page)
+    if len({y for y, _ in labels}) != 1: return []
+    year, yline = min(labels); acad = f'{year[:4]}-{year[7:9]}'
+    lines = [l.strip() for l in page.lines]
+    by_text = defaultdict(set)
+    for u, txt in page.links:
+        if txt.strip(): by_text[txt.strip()].add(u)
+    out, seen = [], set()
+    i = 0
+    while i < len(lines):
+        m = AWARD_HEADING.match(lines[i])
+        if not m: i += 1; continue
+        award = m.group(1); j = i + 1
+        while j + 1 < len(lines) and lines[j] == '•':
+            name = lines[j + 1]; j += 2
+            if OPTION_NAME.search(name) or re.search(r'\b(minor|certificate|concentration)\b|\bw/', name, re.I) or name in seen: continue
+            urls = by_text.get(name, set())
+            if len(urls) != 1: continue  # the program's own catalog page must be linked from the name
+            seen.add(name)
+            url = next(iter(urls)); key = CAT.slug(name)
+            rec = {'program_key': key, 'program_name': name, 'credential_level': 'bachelor', 'catalog_year': year, 'program_url': url,
+                   'notes': f'Listed under "{award}" on the catalog college page.'}
+            out.append(common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec,
+                                   [{'field': 'program_name', 'value': name, 'snippet': name}, {'field': 'credential_level', 'value': 'bachelor', 'snippet': award},
+                                    {'field': 'catalog_year', 'value': year, 'snippet': yline[:200]}],
+                                   entry, 'award_heading/v1', {'program_key': key}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}']))
+        i = j
+    return out
+
+
+PLAN_YEAR = re.compile(r'^TYPICAL (FIRST|SECOND|THIRD|FOURTH|FIFTH) YEAR CURRICULUM$', re.I)
+PLAN_TERM = re.compile(r'^(Fall|Winter|Spring|Summer)$')
+PLAN_COURSE = re.compile(r'^([A-Z]{2,5} \d{3}[A-Z]?) (.+?) \((\d{1,2}(?:-\d{1,2})?)\)$')
+PLAN_TITLE = re.compile(r'^(.+?) Typical Four Year Curriculum(?: \((?:On-Campus|Online)\))?$')
+
+
+def college_plan_links(page):
+    """{plan url: program name} from an Acalog college page: within one department block (from its 'Go to information
+    for ...' line to the next), a 'Four Year Plan(s)' entry belongs to the department's only bachelor's program, or to the
+    program whose printed name without ' Major' equals the plan's name before ' Typical Four Year Curriculum'."""
+    lines = [l.strip() for l in page.lines]
+    by_text = defaultdict(set)
+    for u, txt in page.links:
+        if txt.strip(): by_text[txt.strip()].add(u)
+    starts = [i for i, l in enumerate(lines) if l.startswith('Go to information for ')] + [len(lines)]
+    out = {}
+    for a, b in zip(starts, starts[1:]):
+        block, programs, plans, mode = lines[a:b], [], [], None
+        for i, l in enumerate(block):
+            if AWARD_HEADING.match(l): mode = 'program'; continue
+            if l == 'Four Year Plan(s)': mode = 'plan'; continue
+            if l in ('Minor', 'Minors', 'Certificate', 'Certificates', 'Pre-Professional Programs'): mode = None; continue
+            if l == '•' and i + 1 < len(block):
+                n = block[i + 1]
+                if mode == 'program' and not (OPTION_NAME.search(n) or re.search(r'\b(minor|certificate|concentration)\b|\bw/', n, re.I)): programs.append(n)
+                elif mode == 'plan' and PLAN_TITLE.match(n): plans.append(n)
+        for pl in plans:
+            urls = by_text.get(pl, set())
+            if len(urls) != 1: continue
+            prefix = PLAN_TITLE.match(pl).group(1)
+            named = [n for n in programs if n.replace(' Major', '') == prefix]
+            target = named[0] if len(named) == 1 else (programs[0] if len(set(programs)) == 1 else None)
+            if target: out[next(iter(urls))] = target
+    return out
+
+
+def acalog_plan(inst, entry, page, program_name, today_year):
+    """An Acalog 'Typical Four Year Curriculum' page (Eastern Oregon) -> one program_plan sequence: year headings, term
+    headings, and each printed line as an item ('ANTH 201 Intro to Archaeology*SSC (5)' as a course item, any other line
+    as printed text). 'Note:' lines are kept as printed rules."""
+    labels = printed_catalog_years(page)
+    if len({y for y, _ in labels}) != 1: return []
+    year, yline = min(labels); acad = f'{year[:4]}-{year[7:9]}'
+    lines = [l.strip() for l in page.lines if l.strip()]
+    title = next((l for l in lines if PLAN_TITLE.match(l)), None)
+    if not title: return []
+    start = lines.index(title)
+    terms, cur, yr, notes, issues = [], None, None, [], set()
+    for l in lines[start + 1:]:
+        if l.startswith('Back to Top') or l.startswith('Print-Friendly') and terms: break
+        if PLAN_YEAR.match(l): yr = l; cur = None; continue  # printed as 'TYPICAL FIRST YEAR CURRICULUM'
+        if PLAN_TERM.match(l):
+            if yr is None: issues.add('term_without_year'); continue
+            cur = {'term_index': len(terms) + 1, 'label': f'{yr} — {l}', 'items': []}; terms.append(cur); continue
+        if l.startswith('Note:') or cur is None:
+            if yr and (l.startswith('Note:') or terms): notes.append(l)
+            continue
+        m = PLAN_COURSE.match(l)
+        if m and ' OR ' not in l.upper().replace(' OR OTHER', ''):
+            cr = m.group(3); cur['items'].append({'code': m.group(1), 'title': m.group(2), 'credits': int(cr) if cr.isdigit() else cr})
+        else:
+            cur['items'].append(l)
+    if len(terms) < 4: return []
+    key = CAT.slug(title)
+    rd = {'schema': 'requirement_group/v1', 'catalog_year': year, 'group_type': 'sequence', 'category': 'recommended_sequence', 'terms': terms,
+          'source_section': title}
+    if notes: rd['course_rules'] = notes
+    rec = {'program_key': CAT.slug(program_name), 'requirement_key': key[:90], 'requirement_kind': 'program_plan', 'rule_details': rd}
+    ev = [{'field': 'source_section', 'value': title, 'snippet': title}, {'field': 'catalog_year', 'value': year, 'snippet': yline[:200]}]
+    return [common.make('degree_requirements', inst['institution_key'], acad, 'labeled_in_source', rec, ev, entry, 'acalog_plan/v1',
+                        {'program_key': rec['program_key'], 'requirement_key': rec['requirement_key']}, {'terms': len(terms)}, sorted(issues))]
 
 
 LISTED_MAJOR = re.compile(r'^(.*?\bMajor \([^)]*\))')
@@ -574,7 +688,13 @@ def extract_run(targets, run_dir, today=None):
             elif e.get('error'): r['errors'][e['error'][:40]] += 1
         lists[key] = collect_lists(t, run, es) if t.get('catalog') else {'programs': [], 'counts': {}}
         if (t.get('catalog') or {}).get('platform') == 'coursedog': t = {**t, '_catalog_year': coursedog_year(run, es)}
-        n_c = 0; seen_ev = set(); seen_feed_keys = set()
+        if (t.get('catalog') or {}).get('platform') == 'courseleaf':
+            t = {**t, '_courselists': {e['via']: (e, json.loads(run.load_page(e['page_file'])[0].text)) for e in es if e.get('role') == 'courselist' and e.get('page_file')}}
+        n_c = 0; seen_ev = set(); seen_feed_keys = set(); plan_links = {}
+        layouts = {x['via']: x for x in es if x.get('role') == 'pdf_layout' and x.get('page_file')}
+        if (t.get('catalog') or {}).get('platform') == 'acalog':
+            for e in es:
+                if e.get('role') == 'catalog_nav' and e.get('page_file'): plan_links.update(college_plan_links(run.load_page(e['page_file'])[0]))
         for e in es:
             if not e.get('page_file'): continue
             page, _ = run.load_page(e['page_file'])
@@ -598,6 +718,13 @@ def extract_run(targets, run_dir, today=None):
                 for c in thec_candidates(inst, e, rows, today_year):
                     c['program_role'] = 'state_inventory'; cands.append(c); n_c += 1
                 continue
+            if e.get('role') == 'catalog_nav' and (t.get('catalog') or {}).get('platform') == 'acalog':
+                for c in award_heading_candidates(inst, e, page, today_year):
+                    c['program_role'] = 'program_list'; cands.append(c); n_c += 1
+            if e.get('role') == 'program_page' and e['url'] in plan_links:
+                for c in acalog_plan(inst, e, page, plan_links[e['url']], today_year):
+                    c['program_role'] = 'degree_map'; cands.append(c); n_c += 1
+                continue
             if e.get('role') == 'program_page':
                 found = program_page_candidates(t, inst, e, page, today_year)
                 if any(is_option_page(c) for c in found): found = []  # the option's rows belong to its major
@@ -605,8 +732,15 @@ def extract_run(targets, run_dir, today=None):
                     c['program_role'] = 'program_page'; cands.append(program_identity(c)); n_c += 1
             if e.get('kind') == 'pdf' and e.get('role') in ('degree_map', 'policy', 'policy_link'):
                 try:
-                    for c in PM.extract(inst, e, page, today_year):
+                    pm = PM.extract(inst, e, page, today_year)
+                    for c in pm:
                         c['program_role'] = 'degree_map'; cands.append(c); n_c += 1
+                    lay = layouts.get(e['url'])
+                    pk = next((c['record']['program_key'] for c in pm if c['domain'] == 'academic_programs'), None)
+                    if lay and pk:  # two-column Clear Path plan read from word positions (clearpath_plan/v1)
+                        from . import clearpath
+                        for c in clearpath.extract_layout(inst, e, page.lines, json.loads(run.load_page(lay['page_file'])[0].text), pk, today_year):
+                            c['program_role'] = 'degree_map'; cands.append(c); n_c += 1
                 except Exception as exc:  # an unusual PDF must not stop the run; it is counted
                     roles['degree_map']['errors'][f'programmap:{type(exc).__name__}'] += 1
             if e.get('role') in ('policy', 'policy_link', 'program_page', 'state_source', 'degree_map_index', 'discover') or key.startswith('state-'):

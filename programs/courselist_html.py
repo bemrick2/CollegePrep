@@ -99,3 +99,48 @@ def course_lists(html_bytes):
 
 def to_text(tables):
     return json.dumps(tables, ensure_ascii=False, indent=0)
+
+
+class _Outline(HTMLParser):
+    """Block outline of a page's main content: headings, paragraphs, list items (with list nesting depth) and table rows,
+    each with its classes and text. Used for catalogs whose requirement lists are nested HTML lists (SmartCatalog)."""
+    BLOCKS = {'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'li', 'tr', 'dt', 'dd'}
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.out, self.stack, self.list_depth, self.skip, self.seq = [], [], 0, 0, 0
+
+    def handle_starttag(self, tag, attrs):
+        cls = (dict(attrs).get('class') or '').split()
+        if tag in ('script', 'style', 'nav', 'footer', 'header'): self.skip += 1; return
+        if tag in ('ul', 'ol'): self.list_depth += 1
+        if tag in self.BLOCKS:
+            self.seq += 1
+            self.stack.append({'tag': tag, 'depth': self.list_depth, 'classes': cls, 'text': [], 'seq': self.seq})
+        elif tag == 'br' and self.stack: self.stack[-1]['text'].append(' ')
+        elif self.stack and cls and tag in ('span', 'a', 'div', 'strong', 'em', 'td'):
+            self.stack[-1].setdefault('inner', []).extend(cls)
+
+    def handle_endtag(self, tag):
+        if tag in ('script', 'style', 'nav', 'footer', 'header'): self.skip = max(0, self.skip - 1); return
+        if tag in ('ul', 'ol'): self.list_depth = max(0, self.list_depth - 1)
+        if tag in self.BLOCKS and self.stack and self.stack[-1]['tag'] == tag:
+            b = self.stack.pop()
+            text = re.sub(r'\s+', ' ', ''.join(b['text'])).replace(' ', ' ').strip()
+            if text and not self.skip:
+                item = {'tag': b['tag'], 'depth': b['depth'], 'classes': b['classes'], 'text': text[:600], 'seq': b['seq']}
+                if b.get('inner'): item['inner'] = sorted(set(b['inner']))[:8]
+                self.out.append(item)
+            if self.stack and text: self.stack[-1]['text'].append(' ')  # nested block text is not repeated in its parent
+
+    def handle_data(self, data):
+        if self.stack and not self.skip: self.stack[-1]['text'].append(data)
+
+
+def outline(html_bytes):
+    r = _Outline()
+    try:
+        r.feed(html_bytes.decode('utf-8', 'replace') if isinstance(html_bytes, bytes) else html_bytes); r.close()
+    except Exception:
+        pass
+    return [{k: v for k, v in b.items() if k != 'seq'} for b in sorted(r.out, key=lambda b: b['seq'])]  # document order
