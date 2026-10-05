@@ -226,6 +226,56 @@ def catalog_pdf_year(run, entries):
     return None, None, None
 
 
+CODED_PROGRAM = re.compile(r'^([A-Z][A-Z0-9]*_[A-Z0-9_]+|[A-Z]{2,8}) - (.+)$')
+AWARD_SUFFIX = re.compile(r',\s*([A-Z]{2,6}(/[A-Z]{2,4})?|CERT|Certificate|Minor|MINOR|Option)\s*$')
+
+
+def catalog_pdf_programs(inst, entry, page, today_year):
+    """A catalog system's generated full-catalog PDF (Coursedog): each department section prints a 'Programs' block
+    listing its programs as 'Mechanical Engineering, BS' before 'Courses'. Bachelor-awarding names (award printed after
+    the comma) become program records for the year printed on the PDF title page. A name wrapped onto two lines is
+    rejoined only when the first line does not itself end in an award."""
+    lines = page.lines
+    year = None
+    for line in lines[:12]:
+        m = YEAR_LABEL.search(line)
+        if m and int(m.group(2)) == int(m.group(1)) + 1: year = f'{m.group(1)}-{m.group(2)}'; year_line = line.strip(); break
+    if not year: return []
+    acad = f'{year[:4]}-{year[7:9]}'
+    names, i = [], 0
+    while i < len(lines):
+        if lines[i].strip() == 'Programs':
+            j, buf = i + 1, ''
+            while j < len(lines) and lines[j].strip() not in ('Courses', 'All Programs') and j - i < 80:
+                l = lines[j].strip()
+                if re.search(r'\s{3,}|/\s*\d+$', l): break  # two-column layout or a page footer: not a simple list
+                coded = CODED_PROGRAM.match(l)
+                if coded:  # 'BBA_ACCT - Accounting (B.B.A.)' (Austin Peay): one program per line
+                    names.append((coded.group(2).strip(), coded.group(1))); buf = ''; j += 1; continue
+                buf = f'{buf} {l}'.strip() if buf and not AWARD_SUFFIX.search(buf) else l
+                if AWARD_SUFFIX.search(buf): names.append((buf, None)); buf = ''
+                j += 1
+            i = j
+        i += 1
+    out, seen = [], set()
+    for n, code in names:
+        if code is not None:
+            paren = re.search(r'\((B\.[A-Z.]{1,10})\)\s*$', n)
+            if not (paren or re.match(r'^B[A-Z]{1,5}_', code)): continue  # award printed in parentheses or as the code prefix
+        else:
+            m = AWARD_SUFFIX.search(n)
+            if not m or not re.fullmatch(r'B[A-Z]{1,5}', m.group(1)): continue  # bachelor awards only; combined BS/MS left out
+        key = CAT.slug(n)
+        if key in seen: continue
+        seen.add(key)
+        rec = {'program_key': key, 'program_name': n, 'credential_level': 'bachelor', 'catalog_year': year,
+               'program_url': common.source_of(entry)['url'], 'notes': "Listed in a department 'Programs' block of the catalog's generated full PDF."}
+        out.append(common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec,
+                               [{'field': 'program_name', 'value': n, 'snippet': n}, {'field': 'catalog_year', 'value': year, 'snippet': year_line}],
+                               entry, 'catalog_pdf_programs/v1', {'program_key': key}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}']))
+    return out
+
+
 def coursedog_cip(v):
     """'520301' or '52.0201 - Management' -> '52.0301' / '52.0201' (digits as printed, punctuation normalised)."""
     m = re.match(r'^\s*(\d{2})\.?(\d{4})\b', str(v or ''))
@@ -331,6 +381,10 @@ def extract_run(targets, run_dir, today=None):
             if not e.get('page_file'): continue
             page, _ = run.load_page(e['page_file'])
             inst = {'institution_key': key}
+            if e.get('role') == 'catalog_pdf':
+                for c in catalog_pdf_programs(inst, e, page, today_year):
+                    c['program_role'] = 'catalog_pdf'; cands.append(c); n_c += 1
+                continue
             if e.get('role') == 'catalog_api' and 'coursedog.com' in e.get('url', ''):
                 yr = catalog_pdf_year(run, es)
                 for c in coursedog_candidates(t, inst, e, page, yr, today_year):

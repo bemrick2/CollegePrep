@@ -336,3 +336,14 @@ class StaticProgramTests(unittest.TestCase):
         self.assertEqual(X.static_program_identity({'institution_key': 'k'}, e, minor, '2026-27'), [])
         two_years = T.Page('Bachelors (BS) in X\n2026-2027 Academic Catalog\nsee the 2025-2026 Academic Catalog', 'Bachelors (BS) in X', [], [], ['Bachelors (BS) in X'])
         self.assertEqual(X.static_program_identity({'institution_key': 'k'}, e, two_years, '2026-27'), [])  # ambiguous year: skipped
+
+
+class AwardInParenthesesTests(unittest.TestCase):
+    def test_parenthesised_award_matches_inventory_row(self):
+        from programs import match as Mt
+        from backend import program_fields as F
+        self.assertEqual(Mt.split_catalog_name('Accounting (B.B.A.)'), ('accounting', 'BBA'))
+        base = {'institution_key': 'k', 'academic_year': '2026-27'}
+        thec = ('p', 'academic_programs', {**base, 'program_key': 'a', 'program_name': 'ACCOUNTING, BBA', 'program_url': 'https://thec.ppr.tn.gov/AcademicProgramInventorySearch'})
+        cat = ('p', 'academic_programs', {**base, 'program_key': 'b', 'program_name': 'Accounting (B.B.A.)', 'program_url': 'https://x.edu/c.pdf'})
+        self.assertTrue(F.cross_errors([thec, cat]))
