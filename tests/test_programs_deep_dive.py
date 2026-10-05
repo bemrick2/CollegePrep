@@ -725,3 +725,33 @@ class ClearPathLayoutTests(unittest.TestCase):
         self.assertEqual(CP.blocks([100, 113, 126, 143], [113, 143]), [(0, 3), (3, 4)])
         self.assertEqual(CP.blocks([114, 128, 143], [121, 143]), [(0, 2), (2, 3)])
         self.assertIsNone(CP.blocks([100], [100, 120]))
+
+
+class BulletMajorTests(unittest.TestCase):
+    def test_two_column_bullets_with_bachelor_awards(self):  # King 2026-2027 Academic Catalog
+        from pipeline import text as T
+        txt = '\n'.join(['King', '2026-2027 Academic Catalog', 'MAJORS (DEGREES AWARDED)                o Special Education Track',
+                         '• Accounting (BS)                                          K-8)', '• Biology (BA, BS)                       • Nursing (BSN)',
+                         'o General Biology Track (BA, BS)        • Nursing Practice (BSN-DNP)', '• Business (PMBA, TMBA)                  • Exercise Science',
+                         'MINORS', '• Theatre (BA)'])
+        e = {'url': 'https://media.king.edu/2026/08/academic-catalog.pdf', 'sha256': 's', 'fetched_at': '2026-10-05T00:00:00'}
+        out = X.bullet_major_candidates({'catalog': {'bullet_majors': {'heading': 'MAJORS (DEGREES AWARDED)', 'end': 'MINORS'}}}, {'institution_key': 'k'}, e, T.Page(txt, '', [], [], []), '2026-27')
+        self.assertEqual([c['record']['program_name'] for c in out], ['Accounting (BS)', 'Biology (BA, BS)', 'Nursing (BSN)'])
+
+
+class TypePathTests(unittest.TestCase):
+    def test_award_paths_and_home_edition(self):  # Lincoln Memorial 2026-2027
+        from pipeline import text as T
+        lu, hu = 'https://undergraduatecatalog.lmunet.edu/degrees', 'https://undergraduatecatalog.lmunet.edu/'
+        links = [('https://undergraduatecatalog.lmunet.edu/education/bachelor-of-science/bs-in-education', 'BS in Education'),
+                 ('https://undergraduatecatalog.lmunet.edu/education/bachelor-of-science/bs-in-education', 'Bachelor of Science'),
+                 ('https://undergraduatecatalog.lmunet.edu/history/bachelor-of-arts/ba-history-general', 'BA in History - General Track'),
+                 ('https://undergraduatecatalog.lmunet.edu/nursing/associate-of-science-in-nursing/asn', 'Associate of Science in Nursing (ASN) (CIP code 51.3801)'),
+                 ('https://undergraduatecatalog.lmunet.edu/nursing/bachelor-of-science/bsn', 'Bachelor of Science in Nursing (BSN) (CIP code 51.3801)')]
+        pages = {'l': T.Page('Degrees', 'Degrees', [], links, []), 'h': T.Page('Undergraduate Catalog 2026-2027\nVol. XCVII', 'Catalog', [], [], [])}
+        class R:
+            def load_page(self, f): return pages[f], None
+        es = [{'url': lu, 'page_file': 'l', 'sha256': 'a', 'fetched_at': '2026-10-05T00:00:00'}, {'url': hu, 'page_file': 'h', 'sha256': 'b', 'fetched_at': '2026-10-05T00:00:00'}]
+        out = X.type_path_candidates({'type_path_list': {'url': lu, 'home': hu}}, {'institution_key': 'k'}, R(), es, '2026-27')
+        self.assertEqual([(c['record']['program_name'], c['record'].get('cip_code'), c['record']['catalog_year']) for c in out],
+                         [('BS in Education', None, '2026-2027'), ('Bachelor of Science in Nursing (BSN)', '51.3801', '2026-2027')])

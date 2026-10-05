@@ -421,6 +421,81 @@ def acalog_plan(inst, entry, page, program_name, today_year):
                         {'program_key': rec['program_key'], 'requirement_key': rec['requirement_key']}, {'terms': len(terms)}, sorted(issues))]
 
 
+BULLET_MAJOR = re.compile(r'^•\s+(.+?\((?:[^()]*\b)?B[A-Z]{1,4}(?:\b[^()]*)?\))$')
+
+
+def bullet_major_candidates(target, inst, entry, page, today_year):
+    """A catalog PDF's list of majors with the degrees awarded, printed as bullets in two columns (King: 'MAJORS (DEGREES
+    AWARDED)' / '• Biology (BA, BS)', tracks as 'o ...'). Each bullet whose parentheses name a bachelor's award
+    (BA, BS, BBA, BSN, BSW ...) is a program record named as printed; tracks, minors (no award) and graduate degrees
+    are not. The catalog year is the title page's '2026-2027 Academic Catalog'."""
+    conf = (target.get('catalog') or {}).get('bullet_majors')
+    if not conf: return []
+    lines = page.lines
+    year = yline = None
+    for l in lines[:12]:
+        m = YEAR_LABEL.search(l)
+        if m and int(m.group(2)) == int(m.group(1)) + 1: year, yline = f'{m.group(1)}-{m.group(2)}', l.strip(); break
+    if not year: return []
+    acad = f'{year[:4]}-{year[7:9]}'
+    start = next((i for i, l in enumerate(lines) if l.strip().startswith(conf['heading'])), None)
+    if start is None: return []
+    out, seen = [], set()
+    for l in lines[start + 1:]:
+        if l.strip() == conf.get('end', 'MINORS'): break
+        for frag in re.split(r'\s{3,}', l.strip()):
+            m = BULLET_MAJOR.match(frag.strip())
+            if not m or m.group(1) in seen: continue
+            awards = re.search(r'\(([^()]*)\)$', m.group(1)).group(1)
+            if not all(re.fullmatch(r'(RN-)?B[A-Z]{1,4}', a.strip()) for a in awards.split(',')): continue  # 'BSN-DNP' is doctoral
+            name = m.group(1).strip(); seen.add(name)
+            key = CAT.slug(name)
+            rec = {'program_key': key, 'program_name': name, 'credential_level': 'bachelor', 'catalog_year': year,
+                   'program_url': common.source_of(entry)['url'], 'notes': f'Listed under "{conf["heading"]}" in the catalog PDF.'}
+            out.append(common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec,
+                                   [{'field': 'program_name', 'value': name, 'snippet': frag.strip()}, {'field': 'catalog_year', 'value': year, 'snippet': yline}],
+                                   entry, 'bullet_majors/v1', {'program_key': key}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}']))
+    return out
+
+
+TYPE_LABELS = {'Bachelor of Science', 'Bachelor of Arts', 'Bachelor of Business Admin.', 'Bachelor of Fine Arts', 'Bachelor of Music'}
+CIP_IN_NAME = re.compile(r'\s*\(CIP code (\d{2}\.\d{4})\)\s*$')
+HOME_EDITION = re.compile(r'^(?:Undergraduate )?Catalog (20\d{2})-(20\d{2})$')
+
+
+def type_path_candidates(target, inst, run, es, today_year):
+    """A catalog whose degree list links each program under a path naming its award (Lincoln Memorial:
+    /education/bachelor-of-science/bs-in-education). Each linked name under a bachelor-of-* path is a program record
+    named as printed (a trailing '(CIP code 51.3801)' becomes the record's CIP, printed by the institution). Tracks,
+    concentrations and early-entry pathways are versions of a degree, not programs. The year is the catalog home's own
+    edition title ('Undergraduate Catalog 2026-2027')."""
+    conf = (target.get('catalog') or {}).get('type_path_list') or target.get('type_path_list')
+    if not conf: return []
+    page_of = {e['url']: e for e in es if e.get('page_file')}
+    le, he = page_of.get(conf['url']), page_of.get(conf['home'])
+    if not le or not he: return []
+    hp = run.load_page(he['page_file'])[0]
+    m = next((HOME_EDITION.match(l.strip()) for l in hp.lines if HOME_EDITION.match(l.strip())), None)
+    if not m or int(m.group(2)) != int(m.group(1)) + 1: return []
+    year = f'{m.group(1)}-{m.group(2)}'; yline = m.group(0); acad = f'{year[:4]}-{year[7:9]}'
+    page = run.load_page(le['page_file'])[0]
+    out, seen = [], set()
+    for u, t in page.links:
+        t = t.strip()
+        if not re.search(r'/bachelor-of-[a-z-]+/[^/]+$', u) or not t or t in TYPE_LABELS or u in seen: continue
+        if OPTION_NAME.search(t) or re.search(r'\b(track|early (entry|acceptance)|concentration|pathway)\b', t, re.I): continue
+        seen.add(u)
+        cm = CIP_IN_NAME.search(t); name = CIP_IN_NAME.sub('', t).strip(); key = CAT.slug(name)
+        rec = {'program_key': key, 'program_name': name, 'credential_level': 'bachelor', 'catalog_year': year, 'program_url': u,
+               'notes': 'Linked under a bachelor-of-* award path on the catalog\'s Degrees, Certificates, and Minors page.'}
+        if cm: rec.update(cip_code=cm.group(1), cip_source_url=common.source_of(le)['url'])
+        ev = [{'field': 'program_name', 'value': name, 'snippet': t}, {'field': 'credential_level', 'value': 'bachelor', 'snippet': u},
+              {'field': 'catalog_year', 'value': year, 'snippet': yline, 'source_url': common.source_of(he)['url'], 'sha256': he.get('sha256')}]
+        out.append(common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec, ev, le, 'type_path/v1',
+                               {'program_key': key}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}']))
+    return out
+
+
 LISTED_MAJOR = re.compile(r'^(.*?\bMajor \([^)]*\))')
 
 
@@ -700,7 +775,7 @@ def extract_run(targets, run_dir, today=None):
             page, _ = run.load_page(e['page_file'])
             inst = {'institution_key': key}
             if e.get('role') == 'catalog_pdf':
-                for c in catalog_pdf_programs(inst, e, page, today_year):
+                for c in catalog_pdf_programs(inst, e, page, today_year) + bullet_major_candidates(t, inst, e, page, today_year):
                     c['program_role'] = 'catalog_pdf'; cands.append(c); n_c += 1
                 continue
             if (e.get('role') == 'catalog_api' or (e.get('role') == 'catalog_feed' and '/programs/search/' in e.get('url', ''))) and 'coursedog.com' in e.get('url', ''):
@@ -754,6 +829,8 @@ def extract_run(targets, run_dir, today=None):
                                              'fetched_at': e.get('fetched_at'), 'page_title': e.get('title', ''),
                                              'role': e.get('role'), 'year_labels': sorted(T.year_labels(page.title + ' ' + page.text[:3000]))})
         for c in listed_location_candidates(t, {'institution_key': key}, run, es, lists[key], today_year):
+            c['program_role'] = 'program_list'; cands.append(c); n_c += 1
+        for c in type_path_candidates(t, {'institution_key': key}, run, es, today_year):
             c['program_role'] = 'program_list'; cands.append(c); n_c += 1
         for c in printed_list_candidates(t, {'institution_key': key}, run, es, today_year):
             c['program_role'] = 'program_list'; cands.append(c); n_c += 1
