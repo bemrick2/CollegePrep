@@ -298,6 +298,9 @@ def html_groups(table, program_awards=1, extra_issues=None):
         if g.get('rule_text') and re.search(r'\b(up to|can include|may include|at most|or an? (additional|other)|or another|advisor approval|approved by)\b', g['rule_text'], re.I):
             g['issues'].add('rule_mixes_other_courses')
         if g['rules']: g['issues'].add('text_option')
+        titles = ' '.join(c.get('title', '') for c in g['courses'] for c in (c.get('any_of') or [c]))
+        if SUBSTITUTE.search(titles): g['issues'].add('substitute_in_title')  # '(May be replaced by SOC 207)', '(or above)', '(or)'
+        if RULE_ROW.match(section or ''): g['issues'].add('section_label_is_rule')
         if held_until_header: g['issues'].add('after_subheading_inside_choice')
         if g['type'] == 'all_required' and g.get('starts_after_rule'):
             g['issues'].add('follows_rule_without_options')  # 'One of the following:' + unindented courses (UO Math & CS)
@@ -312,10 +315,11 @@ def html_groups(table, program_awards=1, extra_issues=None):
             sub = 'areasubheader' in (r.get('classes') or [])
             if cur is not None and cur['type'] != 'all_required' and sub:
                 cur['issues'].add('subheading_inside_choice')  # 'Group 1 / Group 2' or 'Series' under one rule: structure not representable
-                held_until_header = True
-            elif not sub:
-                held_until_header = False
-            close(); section = rw['text']; continue
+                close(); held_until_header = True
+            else:
+                close()  # the group before a main heading still belongs to the held span
+                if not sub: held_until_header = False
+            section = rw['text']; continue
         if rw['or']:
             m = OR_CODE.match(rw['text'])
             if cur and cur['courses'] and m:
@@ -354,6 +358,8 @@ def html_groups(table, program_awards=1, extra_issues=None):
             if was_choice and out: last_text_ended_choice[0] = out[-1][1]  # if indented rows follow, the text was part of the option list
             continue
         # indented row: an option of the open choice
+        if cur is not None and cur['type'] == 'all_required' and cur['courses']:
+            cur['issues'].add('indented_rows_after_required_course')  # 'DATA 488 ... (or)' + indented alternatives (Linfield)
         if cur is None and ended_by_text is not None:
             ended_by_text['issues'].add('choice_continues_after_text')  # 'Alternative Approved Courses:' + more options
         if cur is None or cur['type'] == 'all_required':
@@ -365,6 +371,7 @@ def html_groups(table, program_awards=1, extra_issues=None):
     return out
 
 
+SUBSTITUTE = re.compile(r'substitut|replac|in lieu|waiv|exception|equivalent|or above|\(or\b|may count|proficiency|placement', re.I)
 MAIN_TABLE = re.compile(r'\b((major|degree|pre-major|program) requirements|curriculum|core)\b', re.I)
 PARALLEL = re.compile(r'^(.+?)\s*(\([^)]+\)\s*Major Requirements|Major\s*[-–]\s*.+)$', re.I)
 TRACK_PROSE = re.compile(r'\b(choose one track|focus areas?|specializations?|concentrations?|tracks? from|one of the following (tracks|options|concentrations|areas))\b', re.I)
@@ -372,7 +379,21 @@ NOT_REQUIREMENT_HEADING = re.compile(r'^(contact information|program educational
                                      r'student learning outcomes|program learning outcomes|overview|admission|advising)$', re.I)
 
 
-def html_candidates(inst, entry, cl_entry, tables, year, program_key, program_awards):
+def substitution_codes(page_text):
+    """Course codes named in the page's own substitution / waiver notes ('MATH 241, MATH 246, or MATH 251Z may be
+    substituted'; 'STAT 243Z ... can be taken as substitutes for SOC 312')."""
+    codes = set()
+    for line in (page_text or '').split('\n'):
+        if re.search(r'substitut|in lieu|waive|may be replaced|placement (exam|test)|proficiency (exam|test)', line, re.I):
+            found = {re.sub(r'\s+', ' ', m) for m in re.findall(r'\b[A-Z]{2,5}[\s\u00a0]\d{3}[A-Z]?\b', line)}
+            codes |= found or {'*footnote*'}  # a note naming no course ('Placement test may waive the course requirement.')
+    return codes
+
+
+FOOTNOTED = re.compile(r'\s\d{1,2}(,\s?\d{1,2})*$')
+
+
+def html_candidates(inst, entry, cl_entry, tables, year, program_key, program_awards, page_text=''):
     """Table-level holds (second independent review): every Course List table after a page's first is held unless its
     heading names the major/degree requirements, curriculum or core; parallel tables ('Classics (Greek) Major
     Requirements', 'X Major - Y') are all held; once a table's preceding prose says to choose a track / focus area /
@@ -390,8 +411,13 @@ def html_candidates(inst, entry, cl_entry, tables, year, program_key, program_aw
         if CONTEXT_CHOICE.search(t.get('context') or '') or TRACK_PROSE.search(t.get('context') or ''): tracks_from_here = True
         if tracks_from_here: extra.add('context_says_choose_among_tables')
         label = '' if NOT_REQUIREMENT_HEADING.match(heading) else heading
+        subs = substitution_codes(page_text)
         for section, g in html_groups(t, program_awards, extra):
             n += 1
+            items = [c for x in g['courses'] for c in (x.get('any_of') or [x])]
+            if g['type'] == 'all_required' and (subs & {c['code'] for c in items} or
+                                                 ('*footnote*' in subs and any(FOOTNOTED.search(c.get('title', '')) for c in items))):
+                g['issues'].add('substitution_noted_on_page')  # a footnoted course on a page whose notes allow a waiver or substitute
             gt = {'choose_unclear': 'elective_pool'}.get(g['type'], g['type'])
             rd = {'schema': 'requirement_group/v1', 'catalog_year': year, 'group_type': gt,
                   'category': 'major_core' if gt == 'all_required' else 'major_elective',
