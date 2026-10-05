@@ -187,7 +187,7 @@ def program_page_candidates(target, inst, entry, page, today_year):
         if have and cl:  # Course List groups read with their layout (courselist_html/v1), keyed to the program record
             prog = next(c['record'] for c in out if c['domain'] == 'academic_programs')
             awards = len(re.findall(r'\b(BA|BS|BFA|BM|BAS|BBA|BArch|BLA|BMus|BSN)\b', prog['program_name']))
-            out += courseleaf.html_candidates(inst, entry, cl[0], cl[1], year, prog['program_key'], max(1, awards))
+            out += courseleaf.html_candidates(inst, entry, cl[0], cl[1], year, prog['program_key'], max(1, awards), page.text)
     return out
 
 

@@ -242,6 +242,7 @@ HTML_EXTRACTOR = 'courselist_html/v1'
 RULE_ROW = re.compile(r'^(select|choose|complete|take)\b|^(one|two|three|four|five|six|seven|eight|nine|ten|\d+)\b.*\b(of|from)\b.*\b(following|list|below)\b|^(one|two|three|four|five|\d+)\s+(courses?\s+)?(of|from)\b', re.I)
 REFERENCE_HEADING = re.compile(r'\b(approved|distribution|area\s+[ivx\d]+|group\s+[a-z\d]\b|courses offered|ensembles?|recommended|suggested|sample|example|'
                                r'options?|tracks?|concentrations?|focus|focal|domains?|emphas[ie]s|specialization|honors|electives?|pass/no pass)\b', re.I)
+TRACK_HEADING = re.compile(r'\b(options?|tracks?|concentrations?|focus|focal|domains?|emphas[ie]s|specialization|honors)\b', re.I)
 CONTEXT_CHOICE = re.compile(r'\b(select|choose|complete)\s+(one|two|at least one|one or more)\b[^.]*\b(focus areas?|tracks?|options?|concentrations?|areas?|domains?|emphases)\b|\bsuggested course combinations\b', re.I)
 AWARD_IN_HEADING = re.compile(r'\b(Bachelor of [A-Z][a-z]+|B\.?A\.?|B\.?S\.?|B\.?F\.?A\.?|B\.?M\.?)\b(?![a-z])')
 OR_CODE = re.compile(r'^or\s+([A-Z]{1,5}\s\d{3}[A-Z]?)$')
@@ -266,11 +267,13 @@ def _course(rw):
     return item
 
 
-def html_groups(table, program_awards=1):
+def html_groups(table, program_awards=1, extra_issues=None):
     """[(section, group)] for one stored course-list table."""
     heading, context = (table.get('heading') or '').strip(), table.get('context') or ''
     out, section, cur = [], '', None
-    table_issues = set()
+    table_issues = set(extra_issues or ())
+    held_until_header = False
+    last_text_ended_choice = [None]
     if CONTEXT_CHOICE.search(context): table_issues.add('context_says_choose_among_tables')
     if program_awards > 1 and AWARD_IN_HEADING.search(heading) and not re.search(r'major requirements', heading, re.I):
         table_issues.add('award_specific_table')
@@ -280,23 +283,43 @@ def html_groups(table, program_awards=1):
         if cur is None: return
         g = cur; cur = None
         if not g['courses'] and not g['rules']:
-            if g['type'] != 'all_required': g['issues'].add('options_not_read')
-            else: return
-        if REFERENCE_HEADING.search(f'{heading} {section}') and not re.search(r'\b(major|core) requirements\b', section, re.I):
-            g['issues'].add('reference_or_track_heading')
+            if g['type'] == 'all_required': return
+            if re.search(r'\b(following|below|list)\b', g.get('rule_text', ''), re.I) or not g.get('rule_text'):
+                g['issues'].add('options_not_read')
+            else:  # 'Select an additional 7 credits from courses that count toward either major.': a printed rule, no list
+                g['type'] = 'choose_unclear'; g['rules_only'] = True
+        where = f'{heading} {section}'
+        if g['type'] == 'all_required' and REFERENCE_HEADING.search(where) and not re.search(r'\b(major|core) requirements\b', section, re.I):
+            g['issues'].add('reference_or_track_heading')  # a list under 'Approved ...' / 'Electives' / 'Option' is not a required list
+        elif g['type'] != 'all_required' and TRACK_HEADING.search(where):
+            g['issues'].add('track_heading')  # a choice inside one track or option applies only to that track
         if g['type'] == 'choose_courses' and g.get('choose_count', 0) >= len(g['courses']) + len(g['rules']):
             g['issues'].add('count_not_below_options')
-        if g.get('rule_text') and re.search(r'\b(up to|can include|may include|at most)\b', g['rule_text'], re.I):
+        if g.get('rule_text') and re.search(r'\b(up to|can include|may include|at most|or an? (additional|other)|or another|advisor approval|approved by)\b', g['rule_text'], re.I):
             g['issues'].add('rule_mixes_other_courses')
         if g['rules']: g['issues'].add('text_option')
+        titles = ' '.join(c.get('title', '') for c in g['courses'] for c in (c.get('any_of') or [c]))
+        if SUBSTITUTE.search(titles): g['issues'].add('substitute_in_title')  # '(May be replaced by SOC 207)', '(or above)', '(or)'
+        if RULE_ROW.match(section or ''): g['issues'].add('section_label_is_rule')
+        if held_until_header: g['issues'].add('after_subheading_inside_choice')
+        if g['type'] == 'all_required' and g.get('starts_after_rule'):
+            g['issues'].add('follows_rule_without_options')  # 'One of the following:' + unindented courses (UO Math & CS)
         g['issues'] |= table_issues
         out.append((section or heading, g))
 
     for r in table.get('rows') or []:
         rw = _row(r)
         if not rw['text'] or rw['text'] in ('Code',) or re.match(r'^total (credits|hours)', rw['text'], re.I): continue
+        ended_by_text, last_text_ended_choice[0] = last_text_ended_choice[0], None
         if rw['header']:
-            close(); section = rw['text']; continue
+            sub = 'areasubheader' in (r.get('classes') or [])
+            if cur is not None and cur['type'] != 'all_required' and sub:
+                cur['issues'].add('subheading_inside_choice')  # 'Group 1 / Group 2' or 'Series' under one rule: structure not representable
+                close(); held_until_header = True
+            else:
+                close()  # the group before a main heading still belongs to the held span
+                if not sub: held_until_header = False
+            section = rw['text']; continue
         if rw['or']:
             m = OR_CODE.match(rw['text'])
             if cur and cur['courses'] and m:
@@ -311,7 +334,8 @@ def html_groups(table, program_awards=1):
         if not rw['indent']:
             if rw['code'] or rw['codeish']:
                 if cur is None or cur['type'] != 'all_required':
-                    close(); cur = {'type': 'all_required', 'courses': [], 'rules': [], 'issues': set()}
+                    after_rule = cur is not None and cur['type'] != 'all_required' and not cur['courses'] and not cur['rules']
+                    close(); cur = {'type': 'all_required', 'courses': [], 'rules': [], 'issues': set(), 'starts_after_rule': after_rule}
                 if rw['code'] and not rw['inner']: cur['courses'].append(_course(rw))
                 else: cur['issues'].add('complex_course_row')
                 continue
@@ -329,9 +353,15 @@ def html_groups(table, program_awards=1):
                     if m: cur['type'] = 'choose_courses'; w = m.group(1).lower(); cur['choose_count'] = NUMBER_WORDS.get(w) or int(w)
                     else: cur['issues'].add('choose_number_not_printed')
                 continue
+            was_choice = cur is not None and cur['type'] != 'all_required' and not rw['credits']
             close()  # any other non-indented text row (a requirement printed as text) ends the group; it is not a group itself
+            if was_choice and out: last_text_ended_choice[0] = out[-1][1]  # if indented rows follow, the text was part of the option list
             continue
         # indented row: an option of the open choice
+        if cur is not None and cur['type'] == 'all_required' and cur['courses']:
+            cur['issues'].add('indented_rows_after_required_course')  # 'DATA 488 ... (or)' + indented alternatives (Linfield)
+        if cur is None and ended_by_text is not None:
+            ended_by_text['issues'].add('choice_continues_after_text')  # 'Alternative Approved Courses:' + more options
         if cur is None or cur['type'] == 'all_required':
             close(); cur = {'type': 'choose_unclear', 'courses': [], 'rules': [], 'issues': {'indented_rows_without_rule'}}
         if rw['code'] and not rw['inner']: cur['courses'].append(_course(rw))
@@ -341,24 +371,64 @@ def html_groups(table, program_awards=1):
     return out
 
 
-def html_candidates(inst, entry, cl_entry, tables, year, program_key, program_awards):
+SUBSTITUTE = re.compile(r'substitut|replac|in lieu|waiv|exception|equivalent|or above|\(or\b|may count|proficiency|placement', re.I)
+MAIN_TABLE = re.compile(r'\b((major|degree|pre-major|program) requirements|curriculum|core)\b', re.I)
+PARALLEL = re.compile(r'^(.+?)\s*(\([^)]+\)\s*Major Requirements|Major\s*[-–]\s*.+)$', re.I)
+TRACK_PROSE = re.compile(r'\b(choose one track|focus areas?|specializations?|concentrations?|tracks? from|one of the following (tracks|options|concentrations|areas))\b', re.I)
+NOT_REQUIREMENT_HEADING = re.compile(r'^(contact information|program educational objectives|double-counting policy|internships?|learning outcomes|'
+                                     r'student learning outcomes|program learning outcomes|overview|admission|advising)$', re.I)
+
+
+def substitution_codes(page_text):
+    """Course codes named in the page's own substitution / waiver notes ('MATH 241, MATH 246, or MATH 251Z may be
+    substituted'; 'STAT 243Z ... can be taken as substitutes for SOC 312')."""
+    codes = set()
+    for line in (page_text or '').split('\n'):
+        if re.search(r'substitut|in lieu|waive|may be replaced|placement (exam|test)|proficiency (exam|test)', line, re.I):
+            found = {re.sub(r'\s+', ' ', m) for m in re.findall(r'\b[A-Z]{2,5}[\s\u00a0]\d{3}[A-Z]?\b', line)}
+            codes |= found or {'*footnote*'}  # a note naming no course ('Placement test may waive the course requirement.')
+    return codes
+
+
+FOOTNOTED = re.compile(r'\s\d{1,2}(,\s?\d{1,2})*$')
+
+
+def html_candidates(inst, entry, cl_entry, tables, year, program_key, program_awards, page_text=''):
+    """Table-level holds (second independent review): every Course List table after a page's first is held unless its
+    heading names the major/degree requirements, curriculum or core; parallel tables ('Classics (Greek) Major
+    Requirements', 'X Major - Y') are all held; once a table's preceding prose says to choose a track / focus area /
+    specialization / concentration, that table and every later one is held."""
     acad = f'{year[:4]}-{year[7:9]}'
     out, n = [], 0
-    for t in tables:
-        if (t.get('caption') or 'Course List').strip().lower() != 'course list': continue
-        for section, g in html_groups(t, program_awards):
+    lists = [t for t in tables if (t.get('caption') or 'Course List').strip().lower() == 'course list']
+    parallel = sum(1 for t in lists if PARALLEL.match((t.get('heading') or '').strip())) >= 2
+    tracks_from_here = False
+    for idx, t in enumerate(lists):
+        heading = (t.get('heading') or '').strip()
+        extra = set()
+        if idx > 0 and not MAIN_TABLE.search(heading): extra.add('secondary_table')
+        if parallel and PARALLEL.match(heading): extra.add('parallel_tables')
+        if CONTEXT_CHOICE.search(t.get('context') or '') or TRACK_PROSE.search(t.get('context') or ''): tracks_from_here = True
+        if tracks_from_here: extra.add('context_says_choose_among_tables')
+        label = '' if NOT_REQUIREMENT_HEADING.match(heading) else heading
+        subs = substitution_codes(page_text)
+        for section, g in html_groups(t, program_awards, extra):
             n += 1
+            items = [c for x in g['courses'] for c in (x.get('any_of') or [x])]
+            if g['type'] == 'all_required' and (subs & {c['code'] for c in items} or
+                                                 ('*footnote*' in subs and any(FOOTNOTED.search(c.get('title', '')) for c in items))):
+                g['issues'].add('substitution_noted_on_page')  # a footnoted course on a page whose notes allow a waiver or substitute
             gt = {'choose_unclear': 'elective_pool'}.get(g['type'], g['type'])
             rd = {'schema': 'requirement_group/v1', 'catalog_year': year, 'group_type': gt,
                   'category': 'major_core' if gt == 'all_required' else 'major_elective',
-                  'source_section': ' — '.join(x for x in dict.fromkeys(((t.get('heading') or '').strip(), section)) if x)}
+                  'source_section': ' — '.join(x for x in dict.fromkeys((label, '' if section == heading else section)) if x) or 'Course List'}
             if g['courses']: rd['courses'] = g['courses']
             if g.get('rule_text'): rd['rule_text'] = g['rule_text']
             rules = ([g['rule_text']] if gt == 'elective_pool' and g.get('rule_text') else []) + g['rules']
             if rules: rd['course_rules'] = rules
             for k in ('choose_count', 'choose_credits'):
                 if k in g: rd[k] = g[k]
-            key = f'major-{n}-{slug(section or t.get("heading") or "requirements")}'[:90]
+            key = f'major-{n}-{slug((section if section != heading else "") or label or "requirements")}'[:90]
             rec = {'program_key': program_key, 'requirement_key': key, 'requirement_kind': 'major', 'rule_details': rd}
             ev = [{'field': 'source_section', 'value': rd['source_section'], 'snippet': rd['source_section'][:200]}]
             if g.get('rule_text'): ev.append({'field': 'rule_text', 'value': g['rule_text'], 'snippet': g['rule_text'][:200]})

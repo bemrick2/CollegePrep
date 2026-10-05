@@ -630,3 +630,50 @@ class AcalogPlanTests(unittest.TestCase):
         self.assertEqual(rd['terms'][0]['items'][0], {'code': 'ART 101', 'title': 'Foundations of Visual Literacy*AEH', 'credits': 4})
         self.assertIsInstance(rd['terms'][2]['items'][0], str)  # an 'X OR Y' line stays printed text
         self.assertEqual(rd['course_rules'], ['Note: courses may be taken in either order.'])
+
+
+class CourseListLayoutReviewTests(unittest.TestCase):
+    table = CourseListLayoutGroupTests.table
+
+    def test_second_review_rules(self):
+        from programs import courseleaf as CL
+        # an unindented course list right after a rule row whose options were not indented
+        g = CL.html_groups(self.table([('rule', 'One of the following:'), ('c', 'CS 330', 'X', '4'), ('c', 'CS 420', 'Y', '4')]))
+        self.assertIn('follows_rule_without_options', g[-1][1]['issues'])
+        # options continue after an unindented text row
+        g = CL.html_groups(self.table([('rule', 'Select two courses from the following:', '', '8'), ('opt', 'ENSC 101', 'A'), ('opt', 'ENSC 102', 'B'),
+                                       ('rule', 'Alternative Approved Courses:'), ('opt', 'GEO 101', 'C')]))
+        self.assertTrue(any('choice_continues_after_text' in x['issues'] or 'choose_number_not_printed' in x['issues'] for _, x in g))
+        # a sub-heading inside an open choice holds the choice and what follows until the next heading
+        rows = [('rule', 'Select one group:', '', '8'), ('opt', 'MB 302', 'A'), ('opt', 'MB 303', 'B'), ('c', 'MB 999', 'Z', '1')]
+        t = self.table(rows); t['rows'].insert(2, {'classes': ['odd', 'areasubheader'], 'cells': [{'text': 'Group 2', 'indent': False, 'spans': ['courselistcomment', 'areasubheader'], 'colspan': 2}]})
+        g = CL.html_groups(t)
+        self.assertIn('subheading_inside_choice', g[0][1]['issues'])
+        # open-ended rules
+        g = CL.html_groups(self.table([('rule', 'Select one course from the following or another experience with advisor approval:', '', '3'), ('opt', 'X 101', 'A'), ('opt', 'X 102', 'B')]))
+        self.assertIn('rule_mixes_other_courses', g[0][1]['issues'])
+
+    def test_table_level_holds(self):
+        from programs import courseleaf as CL
+        main = self.table([('c', 'CLAS 101', 'A', '4')], heading='Classics Major Requirements')
+        greek = self.table([('c', 'GRK 301', 'B', '4')], heading='Classics (Greek) Major Requirements')
+        latin = self.table([('c', 'LAT 301', 'C', '4')], heading='Classics (Latin) Major Requirements')
+        ref = self.table([('c', 'ENVS 411', 'D', '4')], heading='Upper-Division Natural Science Courses')
+        e = {'url': 'https://catalog.uoregon.edu/x/', 'sha256': 's', 'fetched_at': '2026-10-05T00:00:00'}
+        out = CL.html_candidates({'institution_key': 'k'}, e, {'url': 'https://catalog.uoregon.edu/x/#courselist'}, [main, greek, latin, ref], '2026-2027', 'classics-ba', 1)
+        self.assertEqual([sorted(c['issues']) for c in out], [[], ['parallel_tables'], ['parallel_tables'], ['secondary_table']])
+        tracks = self.table([('c', 'J 101', 'E', '4')], heading='Major Requirements', context='Students choose one track from the following.')
+        out = CL.html_candidates({'institution_key': 'k'}, e, {'url': 'u'}, [tracks], '2026-2027', 'media', 1)
+        self.assertIn('context_says_choose_among_tables', out[0]['issues'])
+
+    def test_third_review_rules(self):
+        from programs import courseleaf as CL
+        e = {'url': 'https://catalog.uoregon.edu/x/', 'sha256': 's', 'fetched_at': '2026-10-05T00:00:00'}
+        t = self.table([('c', 'STAT 243Z', 'Elementary Statistics I 1', '4'), ('c', 'PSY 201Z', 'Mind', '4')])
+        out = CL.html_candidates({'institution_key': 'k'}, e, {'url': 'u'}, [t], '2026-2027', 'psy', 1, 'STAT 243Z is recommended. MATH 241 may be substituted.')
+        self.assertIn('substitution_noted_on_page', out[0]['issues'])
+        t = self.table([('c', 'MUS 126', 'Music Theory Fundamentals 1', '3')])
+        out = CL.html_candidates({'institution_key': 'k'}, e, {'url': 'u'}, [t], '2026-2027', 'mus', 1, 'Placement test may waive the course requirement.')
+        self.assertIn('substitution_noted_on_page', out[0]['issues'])
+        g = CL.html_groups(self.table([('c', 'DATA 488', 'Capstone (or)', '4'), ('opt', 'MATH 280', 'Internship')]))
+        self.assertTrue({'indented_rows_after_required_course', 'substitute_in_title'} <= g[0][1]['issues'])
