@@ -404,7 +404,7 @@ def catalog_pdf_year(run, entries):
     return None, None, None
 
 
-CODED_PROGRAM = re.compile(r'^([A-Z][A-Z0-9]*_[A-Z0-9_]+|[A-Z]{2,8}) - (.+)$')
+CODED_PROGRAM = re.compile(r'^([A-Z][A-Z0-9]*_[A-Z0-9_]+|[A-Z][A-Z0-9]*(?:\.[A-Z0-9]+)+|[A-Z]{2,8}) - (.+)$')  # BBA_ACCT (APSU), BIOL.BS (Carson-Newman)
 AWARD_SUFFIX = re.compile(r',\s*([A-Z]{2,6}(/[A-Z]{2,4})?|CERT|Certificate|Minor|MINOR|Option)\s*$')
 
 
@@ -438,8 +438,9 @@ def catalog_pdf_programs(inst, entry, page, today_year):
     out, seen = [], set()
     for n, code in names:
         if code is not None:
-            paren = re.search(r'\((B\.[A-Z.]{1,10})\)\s*$', n)
-            if not (paren or re.match(r'^B[A-Z]{1,5}_', code)): continue  # award printed in parentheses or as the code prefix
+            paren = re.search(r'\((B\.[A-Z.]{1,10}|B[A-Z]{1,4})\)\s*$', n)  # '(B.B.A.)', '(BS)'
+            if not (paren or re.match(r'^B[A-Z]{1,5}_', code) or re.search(r'\.B[A-Z]{1,4}$', code)): continue  # award in parentheses, code prefix or code suffix
+            if OPTION_NAME.search(n) or re.search(r'\bEmph\b|\bcert(ificate)?\b', n, re.I): continue  # emphases inside a major ('Emph.'), certificates
         else:
             m = AWARD_SUFFIX.search(n)
             if not m or not re.fullmatch(r'B[A-Z]{1,5}', m.group(1)): continue  # bachelor awards only; combined BS/MS left out
