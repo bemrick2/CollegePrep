@@ -3,7 +3,8 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import { homePathFor, useApp } from '../../lib/app'
 import { Brand } from '../../components/shell'
 import { ArrowRight, Bolt, Compass, Shield, Users, Wallet } from '../../components/icons'
-import { Card, PageLoading } from '../../components/ui'
+import { Card, PageLoading, buttonClass } from '../../components/ui'
+import { StoreBadges } from '../../components/StoreBadges'
 
 export function Landing() {
   const { viewer, ctx, loading, liveAvailable, startDemo, useLive } = useApp()
@@ -60,9 +61,19 @@ export function Landing() {
             <p className="mt-5 max-w-lg text-lg text-ink-2">
               Short daily practice that adapts to your student, and a calm view of what each college path really costs — built only on verified data.
             </p>
+            <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3">
+              <button onClick={() => void begin('parent')} className={buttonClass('go', 'lg')}>
+                Create your family plan <ArrowRight size={18} />
+              </button>
+              <button onClick={() => void begin('student')} className="text-sm font-semibold text-ink-2 hover:text-ink">
+                I'm a student — start here
+              </button>
+            </div>
+            <StoreBadges className="mt-4" />
           </div>
 
           <div className="grid gap-3">
+            <p className="text-xs font-semibold uppercase tracking-wide text-ink-3">Or choose how you'll use it</p>
             <RoleCard
               icon={<Users />}
               title="I'm a parent or guardian"
@@ -96,10 +107,24 @@ export function Landing() {
           <Feature icon={<Wallet />} title="Real prices, clearly sourced" body="College costs come from official sources with dates. Missing data is shown as missing — never guessed." />
         </section>
 
+        <section className="mt-16 grid items-center gap-6 rounded-3xl bg-surface-2 p-6 md:grid-cols-[1.2fr_1fr] md:p-10" aria-labelledby="apps-heading">
+          <div>
+            <h2 id="apps-heading" className="display text-2xl font-semibold text-ink md:text-3xl">
+              Practice on the go
+            </h2>
+            <p className="mt-2 max-w-lg text-ink-2">
+              Set up your family here, then sign in on the app with the same account. Your plan, progress and saved colleges come with you, so there's
+              nothing to buy again in the app.
+            </p>
+          </div>
+          <StoreBadges />
+        </section>
+
         <p className="mt-10 flex items-center gap-2 text-xs text-ink-3">
           <Shield size={14} /> We never store a student's date of birth. Students own their practice history.
         </p>
       </main>
+      <SiteFooter />
     </div>
   )
 }
@@ -124,5 +149,18 @@ function Feature({ icon, title, body }: { icon: React.ReactNode; title: string; 
       <h2 className="mt-3 font-semibold text-ink">{title}</h2>
       <p className="mt-1 text-sm text-ink-3">{body}</p>
     </Card>
+  )
+}
+
+export function SiteFooter() {
+  return (
+    <footer className="border-t border-line">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-6 md:px-6">
+        <div className="text-sm text-ink-3">
+          <Brand /> <span className="ml-2">ACT/SAT practice and verified college costs</span>
+        </div>
+        <StoreBadges />
+      </div>
+    </footer>
   )
 }
