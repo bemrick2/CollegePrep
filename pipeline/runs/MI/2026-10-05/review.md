@@ -1,0 +1,4516 @@
+# Review queue — MI (2026-27)
+
+Pages fetched: 5040; failures: 509. Candidates: 396 (91 without issues, 305 exceptions). Re-verification upgrades proposed: 0.
+
+## Coverage by category
+
+| category | verified_current | partially_verified_current | candidate_ready | candidate_exception | source_found | not_found | fetch_failed |
+|---|---|---|---|---|---|---|---|
+| tuition_fees | 0 | 0 | 11 | 25 | 28 | 1 | 10 |
+| cost_of_attendance | 0 | 0 | 5 | 14 | 41 | 5 | 10 |
+| admissions_tests | 0 | 0 | 0 | 1 | 60 | 4 | 10 |
+| common_data_set | 0 | 0 | 0 | 1 | 10 | 54 | 10 |
+| merit_scholarships | 0 | 0 | 6 | 5 | 50 | 4 | 10 |
+| ap_credit | 0 | 0 | 10 | 5 | 27 | 23 | 10 |
+| clep_credit | 0 | 0 | 6 | 3 | 21 | 35 | 10 |
+| ib_credit | 0 | 0 | 6 | 4 | 8 | 47 | 10 |
+| dual_enrollment | 0 | 0 | 15 | 2 | 39 | 9 | 10 |
+| transfer_credit | 0 | 0 | 5 | 3 | 52 | 5 | 10 |
+| statewide_articulation | 0 | 0 | 0 | 0 | 36 | 29 | 10 |
+| residency | 0 | 0 | 0 | 0 | 39 | 26 | 10 |
+| degree_requirements | 0 | 0 | 0 | 0 | 53 | 12 | 10 |
+| aid_appeals | 0 | 0 | 0 | 41 | 6 | 18 | 10 |
+
+## Ready for review (91)
+
+### `c6b1b10a13be7405` Albion College — awards 2027-28 [new] (labeled_in_source)
+- source: https://www.albion.edu/offices/financial-aid/aid-scholarships/scholarships/ (sha256 5aaf00b03c19)
+- checks: {"thresholds": null}
+  - award_amount_text: $12,000 ⟵ “Briton | 3.39 – 3.59 | $12,000”
+  - gpa_requirement: 3.39 – 3.59 ⟵ “Briton | 3.39 – 3.59 | $12,000”
+### `da677a4b1627a7d6` Albion College — awards 2027-28 [new] (labeled_in_source)
+- source: https://www.albion.edu/offices/financial-aid/aid-scholarships/scholarships/ (sha256 5aaf00b03c19)
+- checks: {"thresholds": null}
+  - award_amount_text: $10,000 ⟵ “Ferguson | 3.38 & Below | $10,000”
+  - gpa_requirement: 3.38 & Below ⟵ “Ferguson | 3.38 & Below | $10,000”
+### `f8fb3f510608ca4c` Albion College — awards 2027-28 [new] (labeled_in_source)
+- source: https://www.albion.edu/admission/apply/value/ (sha256 0d6722cf446c)
+- checks: {"thresholds": null}
+  - award_amount_text: $20,000 ⟵ “Presidential | 3.8 & Up | $20,000”
+  - gpa_requirement: 3.8 & Up ⟵ “Presidential | 3.8 & Up | $20,000”
+### `fbc6711b3a6f7f5d` Albion College — awards 2027-28 [new] (labeled_in_source)
+- source: https://www.albion.edu/admission/apply/value/ (sha256 0d6722cf446c)
+- checks: {"thresholds": null}
+  - award_amount_text: $16,000 ⟵ “Webster | 3.6 – 3.79 | $16,000”
+  - gpa_requirement: 3.6 – 3.79 ⟵ “Webster | 3.6 – 3.79 | $16,000”
+### `b625fe93af97bed3` Albion College — transfer_policies 2026-27 [new] (source_unlabeled)
+- source: https://www.albion.edu/offices/registrar/transfer-credits/ (sha256 486359572da5)
+- checks: {"fields": ["min_grade"]}
+  - min_grade: C ⟵ “Credit is only granted for transferable courses in which a grade of “C” (2.0) or better is earned.”
+### `28491a39cb291ee4` Andrews University — awards 2026-27 [new] (labeled_in_source)
+- source: https://www.andrews.edu/services/sfs/general_information/scholarships/ (sha256 d243d9545413)
+- checks: {"thresholds": null}
+  - gpa_requirement: GPA: 3.50 and higher ⟵ “3.50 and higher | $9,000”
+  - award_amount_text: $9,000 ⟵ “3.50 and higher | $9,000”
+### `8277764d3c882f00` Andrews University — awards 2026-27 [new] (labeled_in_source)
+- source: https://www.andrews.edu/services/sfs/general_information/scholarships/ (sha256 d243d9545413)
+- checks: {"thresholds": null}
+  - award_amount_text: 3.90 to 4.00 ⟵ “3.90 to 4.00 | $14,000”
+### `897089393887ae60` Andrews University — awards 2026-27 [new] (labeled_in_source)
+- source: https://www.andrews.edu/services/sfs/general_information/scholarships/index.html (sha256 8930a4e277f7)
+- checks: {"thresholds": null}
+  - award_amount_text: 2.50 (and below) - 3.49 ⟵ “2.50 (and below) - 3.49 | $8,000”
+### `a2f4155743ee2ec6` Andrews University — awards 2026-27 [new] (labeled_in_source)
+- source: https://www.andrews.edu/services/sfs/general_information/scholarships/index.html (sha256 8930a4e277f7)
+- checks: {"thresholds": null}
+  - gpa_requirement: GPA: 2.50 - 2.99 ⟵ “2.50 - 2.99 | $5,000”
+  - award_amount_text: $5,000 ⟵ “2.50 - 2.99 | $5,000”
+### `c6be42839c1613aa` Andrews University — awards 2026-27 [new] (labeled_in_source)
+- source: https://www.andrews.edu/services/sfs/general_information/scholarships/ (sha256 d243d9545413)
+- checks: {"thresholds": null}
+  - gpa_requirement: GPA: 3.00 - 3.49 ⟵ “3.00 - 3.49 | $7,000”
+  - award_amount_text: $7,000 ⟵ “3.00 - 3.49 | $7,000”
+### `d6a4b6756da6d15b` Andrews University — awards 2026-27 [new] (labeled_in_source)
+- source: https://www.andrews.edu/services/sfs/general_information/scholarships/index.html (sha256 8930a4e277f7)
+- checks: {"thresholds": null}
+  - gpa_requirement: GPA: Below 2.50 ⟵ “Below 2.50 | $3,000”
+  - award_amount_text: $3,000 ⟵ “Below 2.50 | $3,000”
+### `mcc1382fe7bb587f` Andrews University — credit_policies 2026-27 · policy_kind=dual_enrollment [new] (source_unlabeled)
+- source: https://www.andrews.edu/services/precollege/ (sha256 6c39740295cd)
+- checks: {"fields": ["min_hs_gpa", "per_credit_hour_charges"], "merged_pages": 3, "tiers": 1}
+  - per_credit_hour_charge: 172 ⟵ “Fall and Spring Classes - Just $172 per Credit!”
+  - eligibility_tier: 3.0 ⟵ “Students have a minimum cumulative GPA of 3.00 from an accredited high school.  If a transcript from an accredited high school cannot be submitted, standardized test scores are required.”
+  - per_credit_hour_charge: 172 ⟵ “Step 2: Once a year, apply at andrews.edu/apply. Complete a new application and submit.                                                     Tuition: $172 per credit”
+  - per_credit_hour_charge: 270 ⟵ “ Select undergraduate then select guest high school from the pull down menus                                                      ESL Tuition: $270 per credit”
+  - eligibility_tier: 3.25 ⟵ “All applicants must fill out and submit the online application. Students must have a 3.25 High School GPA with a college prep curriculum.* ACT, SAT or PSAT scores preferred. Students can be admitted without test scores, but must meet high school curriculum requirements. For questions, please email e”
+### `0e4c2b91c8a99b87` Aquinas College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.aquinas.edu/admissions/cost-of-attendance.html (sha256 db909540af4a)
+- checks: {"columns": 3, "components_reconcile": true, "rows": 6}
+  - on_campus:Tuition & Fees: 43640 ⟵ “Tuition & Fees | $43,640 | $43,640 | $43,640”
+  - on_campus:Housing & Food: 15134 ⟵ “Housing & Food | $15,134 | $12,620 | $2,292”
+  - on_campus:Books, Course materials, Supplies, & Equipment: 1200 ⟵ “Books, Course materials, Supplies, & Equipment | $1,200 | $1,200 | $1,200”
+  - on_campus:Transportation: 1202 ⟵ “Transportation | $1,202 | $2,650 | $2,650”
+  - on_campus:Personal Expenses: 1162 ⟵ “Personal Expenses | $1,162 | $1,162 | $1,162”
+  - on_campus:Total: 62338 ⟵ “Total | $62,338 | $61,272 | $50,944”
+  - off_campus_not_with_family:Tuition & Fees: 43640 ⟵ “Tuition & Fees | $43,640 | $43,640 | $43,640”
+  - off_campus_not_with_family:Housing & Food: 12620 ⟵ “Housing & Food | $15,134 | $12,620 | $2,292”
+  - off_campus_not_with_family:Books, Course materials, Supplies, & Equipment: 1200 ⟵ “Books, Course materials, Supplies, & Equipment | $1,200 | $1,200 | $1,200”
+  - off_campus_not_with_family:Transportation: 2650 ⟵ “Transportation | $1,202 | $2,650 | $2,650”
+  - off_campus_not_with_family:Personal Expenses: 1162 ⟵ “Personal Expenses | $1,162 | $1,162 | $1,162”
+  - off_campus_not_with_family:Total: 61272 ⟵ “Total | $62,338 | $61,272 | $50,944”
+  - with_parents_or_family:Tuition & Fees: 43640 ⟵ “Tuition & Fees | $43,640 | $43,640 | $43,640”
+  - with_parents_or_family:Housing & Food: 2292 ⟵ “Housing & Food | $15,134 | $12,620 | $2,292”
+  - with_parents_or_family:Books, Course materials, Supplies, & Equipment: 1200 ⟵ “Books, Course materials, Supplies, & Equipment | $1,200 | $1,200 | $1,200”
+  - with_parents_or_family:Transportation: 2650 ⟵ “Transportation | $1,202 | $2,650 | $2,650”
+  - with_parents_or_family:Personal Expenses: 1162 ⟵ “Personal Expenses | $1,162 | $1,162 | $1,162”
+  - with_parents_or_family:Total: 50944 ⟵ “Total | $62,338 | $61,272 | $50,944”
+### `88c892243ee52b02` Aquinas College — credit_policies 2026-27 · policy_kind=dual_enrollment [new] (source_unlabeled)
+- source: https://www.aquinas.edu/admissions/undergraduate/dual-enrollment.html (sha256 bddc3be3917e)
+- checks: {"fields": ["max_credit_hours_per_term"], "tiers": 0}
+  - max_credit_hours_per_term: 11 ⟵ “To see tuition rates for Dual Enrollment, visit the Tuition and Fees page. Dual-enrolled students may take up to 11 credits per semester.”
+### `555188f1fe862eae` Bay Mills Community College — credit_policies 2026-27 · policy_kind=dual_enrollment [new] (source_unlabeled)
+- source: https://www.bmcc.edu/admissions/uploads/9-12_dual_enrollment_faqs_397781_7.pdf (sha256 18c1794be1d6)
+- checks: {"fields": ["min_hs_gpa"], "tiers": 1}
+  - eligibility_tier: 3.0 ⟵ “pupils with a GPA of 3.0+ can participate.)”
+### `3574de0023d24096` Bay de Noc Community College — costs 2026-27 · residency=out_of_state [new] (source_unlabeled)
+- source: https://www.baycollege.edu/admissions/paying-for-college/tuition-costs.php (sha256 07e72951a4bf)
+- checks: {"columns": 1, "rows": 6}
+  - column:Tuition Rate: 347.0 ⟵ “Tuition Rate | $347.00”
+  - column:Student Success Fee: 12.0 ⟵ “Student Success Fee | $12.00”
+  - column:Technology Fee: 37.0 ⟵ “Technology Fee | $37.00”
+  - column:Facility Fee: 13.0 ⟵ “Facility Fee | $13.00”
+  - column:Tuition and Fees/Semester: 5940.0 ⟵ “Tuition and Fees/Semester | $5,940.00”
+  - column:Tuition and Fees/Year: 11880.0 ⟵ “Tuition and Fees/Year | $11,880.00”
+### `686cb1597a4686f2` Calvin University — awards 2027-28 [new] (labeled_in_source)
+- source: https://calvin.edu/financial-aid/types-aid/academic-scholarships (sha256 686a4b819739)
+- checks: {"thresholds": {"act_min": 31, "gpa_min": 3.95, "sat_min": 1400}}
+  - award_amount_text: $20,000 ⟵ “$20,000 | Trustee's | 3.95 and above | 1400 and above | 31 and above | 96 and above”
+  - gpa_requirement: 3.95 and above ⟵ “$20,000 | Trustee's | 3.95 and above | 1400 and above | 31 and above | 96 and above”
+  - test_requirement: ACT 31 and above / SAT 1400 and above ⟵ “$20,000 | Trustee's | 3.95 and above | 1400 and above | 31 and above | 96 and above”
+### `757fcf6bf8e5de2e` Calvin University — awards 2027-28 [new] (labeled_in_source)
+- source: https://calvin.edu/financial-aid/types-aid/academic-scholarships (sha256 686a4b819739)
+- checks: {"thresholds": null}
+  - award_amount_text: $16,000 ⟵ “$16,000 | Provost's | 3.75–3.84 | 1200–1290 | 25–27 | 78–85”
+  - gpa_requirement: 3.75–3.84 ⟵ “$16,000 | Provost's | 3.75–3.84 | 1200–1290 | 25–27 | 78–85”
+  - test_requirement: ACT 25–27 / SAT 1200–1290 ⟵ “$16,000 | Provost's | 3.75–3.84 | 1200–1290 | 25–27 | 78–85”
+### `bdcf4915e7f1737c` Calvin University — awards 2027-28 [new] (labeled_in_source)
+- source: https://calvin.edu/financial-aid/types-aid/academic-scholarships (sha256 686a4b819739)
+- checks: {"thresholds": null}
+  - award_amount_text: $18,000 ⟵ “$18,000 | President's | 3.85–3.94 | 1300–1390 | 28–30 | 86–95”
+  - gpa_requirement: 3.85–3.94 ⟵ “$18,000 | President's | 3.85–3.94 | 1300–1390 | 28–30 | 86–95”
+  - test_requirement: ACT 28–30 / SAT 1300–1390 ⟵ “$18,000 | President's | 3.85–3.94 | 1300–1390 | 28–30 | 86–95”
+### `c983243dd7b2773c` Calvin University — awards 2027-28 [new] (labeled_in_source)
+- source: https://calvin.edu/financial-aid/types-aid/academic-scholarships (sha256 686a4b819739)
+- checks: {"thresholds": null}
+  - award_amount_text: $10,000–$12,000 ⟵ “$10,000–$12,000 | Faculty's | 3.49 and below | N/A | N/A | N/A”
+  - gpa_requirement: 3.49 and below ⟵ “$10,000–$12,000 | Faculty's | 3.49 and below | N/A | N/A | N/A”
+### `fcabe0135afa7d4c` Calvin University — awards 2027-28 [new] (labeled_in_source)
+- source: https://calvin.edu/financial-aid/types-aid/academic-scholarships (sha256 686a4b819739)
+- checks: {"thresholds": null}
+  - award_amount_text: $14,000 ⟵ “$14,000 | Dean's | 3.50–3.74 | 1100–1190 | 22–24 | 72–77”
+  - gpa_requirement: 3.50–3.74 ⟵ “$14,000 | Dean's | 3.50–3.74 | 1100–1190 | 22–24 | 72–77”
+  - test_requirement: ACT 22–24 / SAT 1100–1190 ⟵ “$14,000 | Dean's | 3.50–3.74 | 1100–1190 | 22–24 | 72–77”
+### `0a29c2cdabd987ae` Calvin University — credit_policies 2026-27 · policy_kind=CLEP [new] (source_unlabeled)
+- source: https://calvin.edu/registrars-office/transfer (sha256 b686aca11aff)
+- checks: {"distinct_exams": 21, "equivalencies": 21, "rows_without_score": 0}
+  - equivalencies[CLEP-AMERICAN-GOVERNMENT|50]:  ⟵ “American Government | 50 |  | Social & Behavioral Science: Political Science | 3 hrs”
+  - equivalencies[CLEP-AMERICAN-LITERATURE|50]:  ⟵ “American Literature | 50 | English 220 | Humanities: Literature | 4 hrs”
+  - equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|50]:  ⟵ “Analyzing & Interpreting Literature | 50 | Elective |  | 3 hrs”
+  - equivalencies[CLEP-BIOLOGY|50]:  ⟵ “Biology | 50 | Biology 123 | Natural Sciences | 4 hrs”
+  - equivalencies[CLEP-CALCULUS|50]:  ⟵ “Calculus | 50 | Math 162 (Differential and Integral Calculus) | Mathematical Sciences | 4 hrs”
+  - equivalencies[CLEP-CHEMISTRY|50]:  ⟵ “Chemistry | 50 | Chemistry 101 | Natural Sciences | 4 hrs”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION|50]:  ⟵ “College Composition | 50 | Elective |  | 3 hrs”
+  - equivalencies[CLEP-COLLEGE-MATHEMATICS|50]:  ⟵ “College Mathematics | 50 | Elective |  | 4 hrs”
+  - equivalencies[CLEP-ENGLISH-LITERATURE|50]:  ⟵ “English Literature | 50 | English Elective |  | 3 hrs”
+  - equivalencies[CLEP-FINANCIAL-ACCOUNTING|55]:  ⟵ “Financial Accounting | 55 | Accounting 204 |  | 4 hrs”
+  - equivalencies[CLEP-HUMAN-GROWTH-DEVELOPMENT|50]:  ⟵ “Human Growth & Development | 50 | Psychology 201 |  | 4 hrs”
+  - equivalencies[CLEP-INFORMATION-SYSTEMS|50]:  ⟵ “Information Systems | 50 | Elective |  | 4 hrs”
+  - equivalencies[CLEP-INTRODUCTION-TO-EDUCATIONAL-PSYCHOLOGY|50]:  ⟵ “Introduction to Educational Psychology | 50 | Elective |  | 3 hrs”
+  - equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|50]:  ⟵ “Introduction to Psychology | 50 | Psychology 151 | Social & Behavioral Science: Psychology | 4 hrs”
+  - equivalencies[CLEP-INTRODUCTORY-BUSINESS-LAW|55]:  ⟵ “Introductory Business Law | 55 | Business 350 |  | 4 hrs”
+  - equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|50]:  ⟵ “Introductory Sociology | 50 | Sociology 151 | Social & Behavioral Science: Sociology & Social Work | 2 hrs”
+  - equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|50]:  ⟵ “Macroeconomics | 50 | Economics 191 | Social & Behavioral Science: Economics | 2 hrs”
+  - equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|50]:  ⟵ “Microeconomics | 50 | Economics 191 | Social & Behavioral Science: Economics | 2 hrs”
+  - equivalencies[CLEP-PRINCIPLES-OF-MANAGEMENT|50]:  ⟵ “Principles of Management | 50 | Elective |  | 3 hrs”
+  - equivalencies[CLEP-PRINCIPLES-OF-MARKETING|55]:  ⟵ “Principles of Marketing | 55 | Marketing 301 |  | 4 hrs”
+  - equivalencies[CLEP-SPANISH-WITH-WRITING|50]:  ⟵ “Spanish with Writing: Level 1 or Level 2 | 50 | Spanish 102 | World Languages 1 | 4 hrs”
+### `1054dc7c985ee944` Calvin University — credit_policies 2026-27 · policy_kind=IB [new] (source_unlabeled)
+- source: https://calvin.edu/registrars-office/transfer (sha256 b686aca11aff)
+- checks: {"distinct_exams": 12, "equivalencies": 12, "rows_without_score": 0}
+  - equivalencies[IB-BIOLOGY|5]:  ⟵ “Biology | 5 | Biology 123 | Natural Sciences | 4 hrs”
+  - equivalencies[IB-CHEMISTRY|5]:  ⟵ “Chemistry | 5 | Chemistry 101 | Natural Sciences | 4 hrs”
+  - equivalencies[IB-ECONOMICS|5]:  ⟵ “Economics | 5 | Economics 191 | Social & Behavioral Sciences | 2 hrs”
+  - equivalencies[IB-FRENCH|5]:  ⟵ “French | 5 | French 202 | World Languages 2 | 4 hrs”
+  - equivalencies[IB-GEOGRAPHY|5]:  ⟵ “Geography | 5 | Geography 110 | Social & Behavioral Sciences | 4 hrs”
+  - equivalencies[IB-HISTORY|5]:  ⟵ “History, Americas | 5 | History Elective | Humanities | 3 hrs”
+  - equivalencies[IB-MUSIC|5]:  ⟵ “Music | 5 | Music 103 | Arts & Rhetoric | 3 hrs”
+  - equivalencies[IB-PHILOSOPHY|5]:  ⟵ “Philosophy | 5 |  | Humanities | 3 hrs”
+  - equivalencies[IB-PHYSICS|5]:  ⟵ “Physics | 5 |  | Natural Sciences | 4 hrs”
+  - equivalencies[IB-PSYCHOLOGY|5]:  ⟵ “Psychology | 5 | Psychology 151 | Social & Behavioral Science | 4 hrs”
+  - equivalencies[IB-SPANISH|5]:  ⟵ “Spanish | 5 | Spanish 202 | World Languages 2 | 4 hrs”
+  - equivalencies[IB-VISUAL-ARTS|5]:  ⟵ “Visual Arts | 5 | Art Elective | Arts & Rhetoric | 3 hrs”
+### `3c0eb461a2bfba69` Calvin University — credit_policies 2026-27 · policy_kind=AP [new] (source_unlabeled)
+- source: https://calvin.edu/registrars-office/transfer (sha256 b686aca11aff)
+- checks: {"distinct_exams": 36, "equivalencies": 48, "rows_without_score": 0}
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|4]:  ⟵ “African American Studies | 4 | History core credit | Humanities: History | 3 hrs”
+  - equivalencies[AP-ART-HISTORY|4]:  ⟵ “Art History | 4 | Visual Arts core credit | Arts, Oral Rhetoric, Visual Rhetoric: Visual Arts | 3 hrs”
+  - equivalencies[AP-BIOLOGY|4]:  ⟵ “Biology | 4 | Biology 123 | Natural Sciences, Biology | 4 hrs”
+  - equivalencies[AP-CALCULUS-AB|3]:  ⟵ “Calculus AB (or AB subscore) | 3 | Mathematics core credit | Mathematical Science | 4 hrs”
+  - equivalencies[AP-CALCULUS-AB|4]:  ⟵ “Calculus AB (or AB subscore) | 4 | Math 162 (Differential and Integral Calculus) | Mathematical Science | 4 hrs”
+  - equivalencies[AP-CALCULUS-BC|3]:  ⟵ “Calculus BC | 3 | Math 162 (Differential and Integral Calculus) | Mathematical Science | 4 hrs”
+  - equivalencies[AP-CALCULUS-BC|4]:  ⟵ “Calculus BC | 4 | Math 162 (Differential and Integral Calculus) & Math 163 (Calculus: Modeling, Computation, Techniques of Integration) | Mathematical Science | 8 hrs”
+  - equivalencies[AP-CHEMISTRY|3]:  ⟵ “Chemistry | 3 | Elective credit |  | 3 hrs”
+  - equivalencies[AP-CHEMISTRY|4]:  ⟵ “Chemistry | 4 | Chemistry 101 & 101L | Natural Sciences, Chemistry | 4 hrs”
+  - equivalencies[AP-CHEMISTRY|5]:  ⟵ “Chemistry | 5 | Chemistry 101, 101L, 102, 102L | Natural Sciences, Chemistry | 8 hrs”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|3]:  ⟵ “Chinese Language/Culture | 3 | Chinese 102 | World Language 1 | 4 hrs”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|4]:  ⟵ “Chinese Language/Culture | 4 | Chinese 201 | World Language 2 | 4 hrs”
+  - equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|4]:  ⟵ “Comparative Govt & Politics | 4 | Politics 214 | Social & Behavioral Sciences: Political Science | 4 hrs”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|3]:  ⟵ “Computer Science A | 3 | Computer Science 108 & 108L | Mathematical Science | 4 hrs”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|4]:  ⟵ “English Language and Comp | 4 | English 101 | Foundational Writing | 4 hrs”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|4]:  ⟵ “English Literature and Comp | 4 | English Elective |  | 4 hrs”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|4]:  ⟵ “Environmental Science | 4 | Geo 210 |  | 4 hrs”
+  - equivalencies[AP-EUROPEAN-HISTORY|4]:  ⟵ “European History | 4 | History 152 | Humanities: History | 3 hrs”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]:  ⟵ “French Language and Culture | 3 | French 202 | World Language 2 | 4 hrs”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|4]:  ⟵ “French Language and Culture | 4 | French 301 | World Language 2 | 4 hrs”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3]:  ⟵ “German Language and Culture | 3 | German 202 | World Language 2 | 4 hrs”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|4]:  ⟵ “German Language and Culture | 4 | German 301 | World Language 2 | 4 hrs”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|4]:  ⟵ “Human Geography | 4 | Geography 101 | Social & Behavioral Sciences: Geography | 4 hrs”
+  - equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|3]:  ⟵ “Japanese Language and Culture | 3 | Japanese 102 | World Language 1 | 4 hrs”
+  - equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|4]:  ⟵ “Japanese Language and Culture | 4 | Japanese 201 | World Language 2 | 4 hrs”
+  - … 23 more rows
+### `2d1d92d778c6908b` Calvin University — transfer_policies 2026-27 [new] (source_unlabeled)
+- source: https://calvin.edu/registrars-office/transfer (sha256 b686aca11aff)
+- checks: {"fields": ["residency_requirement_credits"]}
+  - residency_requirement_credits: 30 ⟵ “Regardless of transfer credits, you must complete: At least four upper-level major courses 30 of the last 60 semester hours at Calvin Can I transfer credit from a college/university outside the U.S.?”
+### `f39dee6b37aeafa2` Cornerstone University — credit_policies 2026-27 · policy_kind=dual_enrollment [new] (labeled_in_source)
+- source: https://www.cornerstone.edu/admissions/first-year/dual-enrollment-program/ (sha256 0a644b2bbb55)
+- checks: {"fields": ["min_hs_gpa", "per_credit_hour_charges", "tuition_per_credit_hour"], "tiers": 3}
+  - per_credit_hour_charge: 199 ⟵ “Save Money & Graduate Sooner: At $199 per credit hour, Cornerstone offers one of the most affordable dual enrollment tuition rates in Michigan. Many students reduce their future college course load or shorten time to graduation.”
+  - per_credit_hour_charge: 199 ⟵ “Dual Enrollment Tuition and Michigan Funding: $199 per credit hour”
+  - per_credit_hour_charge: 199 ⟵ “Cornerstone University offers one of the most affordable dual enrollment tuition rates in Michigan at $199 per credit hour. Most three‑credit courses cost under $600, making high‑quality Christian higher education accessible to families and partner schools.”
+  - eligibility_tier: 3.0 ⟵ “High school sophomores, juniors, and seniors with a 3.0 or higher cumulative GPA are eligible to apply.”
+  - eligibility_tier: 3.0 ⟵ “High school sophomores, juniors, and seniors with a 3.0 or higher cumulative GPA are eligible to apply for Cornerstone University’s dual enrollment program.”
+  - eligibility_tier: 3.0 ⟵ “Ask your school to send your official high school transcript (showing a 3.0+ GPA) through one of the approved electronic services:”
+### `6734289daa711eb9` Delta College — costs 2026-27 · residency=out_of_state [new] (labeled_in_source)
+- source: https://www.delta.edu/costs-financial-aid/tuition-costs-fees.html (sha256 a70841dbdab4)
+- checks: {"columns": 1, "rows": 8}
+  - column:Tuition: 11115 ⟵ “Tuition | $6,300 | $10,620 | $11,115”
+  - column:Technology fee: 1170 ⟵ “Technology fee | $1,170 | $1,170 | $1,170”
+  - column:Registration fee: 120 ⟵ “Registration fee | $120 | $120 | $120”
+  - column:Books, course materials, supplies & equipment: 2250 ⟵ “Books, course materials, supplies & equipment | $2,250 | $2,250 | $2,250”
+  - column:Transportation: 3912 ⟵ “Transportation | $3,912 | $3,912 | $3,912”
+  - column:Miscellaneous: 3600 ⟵ “Miscellaneous | $3,600 | $3,600 | $3,600”
+  - column:Living with parent totals: 30207 ⟵ “Living with parent totals | $25,392 | $29,712 | $30,207”
+  - column:Living off campus totals: 34191 ⟵ “Living off campus totals | $29,376 | $33,696 | $34,191”
+### `b322914a24349a60` Ferris State University — credit_policies 2026-27 · policy_kind=IB [new] (source_unlabeled)
+- source: https://www.ferris.edu/admissions/registrar/ib/IBexamcredit.htm (sha256 7c3cffce7518)
+- checks: {"distinct_exams": 13, "equivalencies": 19, "rows_without_score": 0}
+  - equivalencies[IB-BIOLOGY|4]:  ⟵ “Biology | 4 | BIOL 103 | 4”
+  - equivalencies[IB-BIOLOGY|5, 6, or 7]:  ⟵ “Biology | 5, 6, or 7 | BIOL 121, 122 | 8”
+  - equivalencies[IB-CHEMISTRY|4]:  ⟵ “Chemistry | 4 | CHEM 121 | 5”
+  - equivalencies[IB-CHEMISTRY|5, 6, or 7]:  ⟵ “Chemistry | 5, 6, or 7 | CHEM 121, 122 | 10”
+  - equivalencies[IB-COMPUTER-SCIENCE|4, 5, 6, or 7]:  ⟵ “Computer Science | 4, 5, 6, or 7 | General ISYS | Department Review”
+  - equivalencies[IB-ECONOMICS|4]:  ⟵ “Economics | 4 | ECON 221 | 3”
+  - equivalencies[IB-ECONOMICS|5, 6, or 7]:  ⟵ “Economics | 5, 6, or 7 | ECON 221, 222 | 6”
+  - equivalencies[IB-GEOGRAPHY|4, 5, 6, or 7]:  ⟵ “Geography | 4, 5, 6, or 7 | GEOG 100 | 3”
+  - equivalencies[IB-HISTORY|4, 5, 6, or 7]:  ⟵ “History | 4, 5, 6, or 7 | HIST 151 | 3”
+  - equivalencies[IB-HISTORY|4, 5, 6, or 7]:  ⟵ “History of Islam | 4, 5, 6, or 7 | HIST 2-C | 3”
+  - equivalencies[IB-FRENCH|4 or 5]:  ⟵ “French, German, Spanish | 4 or 5 | 201 | 4”
+  - equivalencies[IB-FRENCH|6 or 7]:  ⟵ “French, German, Spanish | 6 or 7 | 201, 202 | 8”
+  - equivalencies[IB-MUSIC|4, 5, 6, or 7]:  ⟵ “Music 6 | 4, 5, 6, or 7 | MUSI 2-C | 3”
+  - equivalencies[IB-PHYSICS|4]:  ⟵ “Physics | 4 | PHYS 211 | 4”
+  - equivalencies[IB-PHYSICS|5, 6, or 7]:  ⟵ “Physics | 5, 6, or 7 | PHYS 211, 212 | 8”
+  - equivalencies[IB-PHILOSOPHY|4, 5, 6, or 7]:  ⟵ “Philosophy | 4, 5, 6, or 7 | PHIL 2-C | 3”
+  - equivalencies[IB-PSYCHOLOGY|4, 5, 6, or 7]:  ⟵ “Psychology | 4, 5, 6, or 7 | General PSYC | 3”
+  - equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY|4, 5, 6, or 7]:  ⟵ “Social Anthropology | 4, 5, 6, or 7 | General ANTH | 3”
+  - equivalencies[IB-THEATRE|4, 5, 6, or 7]:  ⟵ “Theater Arts | 4, 5, 6, or 7 | General THTR | 3”
+### `m485e419b51ff968` Glen Oaks Community College — credit_policies 2026-27 · policy_kind=dual_enrollment [new] (source_unlabeled)
+- source: https://www.glenoaks.edu/admissions/tell-us-who-you-are/high-school-students/dual-enrollment/dual-enrollment-parent-information.php (sha256 28d50334f03a)
+- checks: {"fields": ["min_hs_gpa"], "merged_pages": 2, "tiers": 1}
+  - eligibility_tier: 2.0 ⟵ “Students typically need a 2.0 GPA or higher for credits to transfer.”
+  - eligibility_tier: 2.0 ⟵ “school. Students need a 2.0 GPA or higher for credits to transfer.”
+### `fdfee8034edb8cba` Gogebic Community College — costs 2026-27 · residency=out_of_state [new] (labeled_in_source)
+- source: https://gogebic.edu/admissions/fa/cost_of_attendance.html (sha256 5e8857e4c602)
+- checks: {"columns": 1, "rows": 7}
+  - column:Tuition and Fees*: 8160 ⟵ “Tuition and Fees* | $5,190 | $7,170 | $8,160 | $9,390”
+  - column:Food and Housing (Living Expenses): 5332 ⟵ “Food and Housing (Living Expenses) | $5,332 | $5,332 | $5,332 | $5,332”
+  - column:Books, Course Materials, Supplies and Equipment: 1466 ⟵ “Books, Course Materials, Supplies and Equipment | $1,466 | $1,466 | $1,466 | $1,466”
+  - column:Transportation: 2070 ⟵ “Transportation | $2,070 | $2,070 | $2,070 | $2,070”
+  - column:Miscellaneous/Personal Expenses: 1778 ⟵ “Miscellaneous/Personal Expenses | $1,778 | $1,778 | $1,778 | $1,778”
+  - column:Semester: 9403 ⟵ “Semester | $7,918 | $8,908 | $9,403 | $10,018”
+  - column:Academic Year: 18806 ⟵ “Academic Year | $15,836 | $17,816 | $18,806 | $20,036”
+### `957a0ce872c6582a` Grand Rapids Community College — costs 2026-27 · residency=in_state [new] (labeled_in_source)
+- source: https://www.grcc.edu/pay-college/financial-aid-scholarships/use-your-aid/cost-attendance (sha256 b13c24183ced)
+- checks: {"columns": 1, "rows": 6}
+  - column:Tuition(25 credits; average of 40 contact hours): 17920 ⟵ “Tuition(25 credits; average of 40 contact hours) | $8,560 | $17,920 | $27,120”
+  - column:Fees: 460 ⟵ “Fees | $460 | $460 | $460”
+  - column:Books and Supplies: 626 ⟵ “Books and Supplies | $626 | $626 | $626”
+  - column:Personal Expenses: 4065 ⟵ “Personal Expenses | $4,065 | $4,065 | $4,065”
+  - column:Transportation: 4426 ⟵ “Transportation | $4,426 | $4,426 | $4,426”
+  - column:Loan Fees: 35 ⟵ “Loan Fees | $35 | $35 | $35”
+### `d982f8a9618df22e` Grand Rapids Community College — costs 2026-27 · residency=out_of_state [new] (labeled_in_source)
+- source: https://www.grcc.edu/pay-college/financial-aid-scholarships/use-your-aid/cost-attendance (sha256 b13c24183ced)
+- checks: {"columns": 1, "rows": 6}
+  - column:Tuition(25 credits; average of 40 contact hours): 27120 ⟵ “Tuition(25 credits; average of 40 contact hours) | $8,560 | $17,920 | $27,120”
+  - column:Fees: 460 ⟵ “Fees | $460 | $460 | $460”
+  - column:Books and Supplies: 626 ⟵ “Books and Supplies | $626 | $626 | $626”
+  - column:Personal Expenses: 4065 ⟵ “Personal Expenses | $4,065 | $4,065 | $4,065”
+  - column:Transportation: 4426 ⟵ “Transportation | $4,426 | $4,426 | $4,426”
+  - column:Loan Fees: 35 ⟵ “Loan Fees | $35 | $35 | $35”
+### `96f3229688e2a873` Grand Rapids Community College — credit_policies 2026-27 · policy_kind=dual_enrollment [new] (source_unlabeled)
+- source: https://www.grcc.edu/sites/default/files/docs/admissions/Dual_Enrollment_Handbook_2022-03-28_ada.pdf (sha256 7c6d40b3ca2b)
+- checks: {"fields": [], "tiers": 4}
+  - eligibility_tier: 1.5 ⟵ “• 1 to 14 credits attempted: required GPA of 1.5 or higher”
+  - eligibility_tier: 1.75 ⟵ “• 15-28 credits attempted: required GPA of 1.75 or higher”
+  - eligibility_tier: 2.0 ⟵ “• 29 or more credits attempted: required GPA of 2.0 or higher”
+  - eligibility_tier: 2.0 ⟵ “students achieve a cumulative grade point average (GPA) of at least 2.0, students will be in good”
+### `5ab2a6dbfdf04edc` Grand Valley State University — costs 2026-27 · residency=out_of_state [new] (labeled_in_source)
+- source: https://www.gvsu.edu/financialaid/cost-of-attendance-2026-2027-267.htm (sha256 fad04ebbaa02)
+- checks: {"columns": 2, "components_reconcile": true, "rows": 5}
+  - on_campus:Tuition & Fees*: 23848 ⟵ “Tuition & Fees* | $16,886 | $16,886 | $16,886 | $23,848 | $23,848”
+  - on_campus:Housing & Food**: 12738 ⟵ “Housing & Food** | $12,738 | $9,864 | $2,592 | $12,738 | $9,864”
+  - on_campus:Books, Course Materials, Supplies, and Equipment**: 832 ⟵ “Books, Course Materials, Supplies, and Equipment** | $832 | $832 | $832 | $832 | $832”
+  - on_campus:Miscellaneous Personal Expenses**: 2880 ⟵ “Miscellaneous Personal Expenses** | $2,880 | $2,880 | $2,880 | $2,880 | $2,880”
+  - on_campus:Total: 40298 ⟵ “Total | $33,336 | $30,462 | $23,190 | $40,298 | $37,424”
+  - off_campus_not_with_family:Tuition & Fees*: 23848 ⟵ “Tuition & Fees* | $16,886 | $16,886 | $16,886 | $23,848 | $23,848”
+  - off_campus_not_with_family:Housing & Food**: 9864 ⟵ “Housing & Food** | $12,738 | $9,864 | $2,592 | $12,738 | $9,864”
+  - off_campus_not_with_family:Books, Course Materials, Supplies, and Equipment**: 832 ⟵ “Books, Course Materials, Supplies, and Equipment** | $832 | $832 | $832 | $832 | $832”
+  - off_campus_not_with_family:Miscellaneous Personal Expenses**: 2880 ⟵ “Miscellaneous Personal Expenses** | $2,880 | $2,880 | $2,880 | $2,880 | $2,880”
+  - off_campus_not_with_family:Total: 37424 ⟵ “Total | $33,336 | $30,462 | $23,190 | $40,298 | $37,424”
+### `ad4f83aa9dec5e05` Grand Valley State University — costs 2026-27 · residency=in_state [new] (labeled_in_source)
+- source: https://www.gvsu.edu/financialaid/cost-of-attendance-2026-2027-267.htm (sha256 fad04ebbaa02)
+- checks: {"columns": 3, "components_reconcile": true, "rows": 5}
+  - on_campus:Tuition & Fees*: 16886 ⟵ “Tuition & Fees* | $16,886 | $16,886 | $16,886 | $23,848 | $23,848”
+  - on_campus:Housing & Food**: 12738 ⟵ “Housing & Food** | $12,738 | $9,864 | $2,592 | $12,738 | $9,864”
+  - on_campus:Books, Course Materials, Supplies, and Equipment**: 832 ⟵ “Books, Course Materials, Supplies, and Equipment** | $832 | $832 | $832 | $832 | $832”
+  - on_campus:Miscellaneous Personal Expenses**: 2880 ⟵ “Miscellaneous Personal Expenses** | $2,880 | $2,880 | $2,880 | $2,880 | $2,880”
+  - on_campus:Total: 33336 ⟵ “Total | $33,336 | $30,462 | $23,190 | $40,298 | $37,424”
+  - off_campus_not_with_family:Tuition & Fees*: 16886 ⟵ “Tuition & Fees* | $16,886 | $16,886 | $16,886 | $23,848 | $23,848”
+  - off_campus_not_with_family:Housing & Food**: 9864 ⟵ “Housing & Food** | $12,738 | $9,864 | $2,592 | $12,738 | $9,864”
+  - off_campus_not_with_family:Books, Course Materials, Supplies, and Equipment**: 832 ⟵ “Books, Course Materials, Supplies, and Equipment** | $832 | $832 | $832 | $832 | $832”
+  - off_campus_not_with_family:Miscellaneous Personal Expenses**: 2880 ⟵ “Miscellaneous Personal Expenses** | $2,880 | $2,880 | $2,880 | $2,880 | $2,880”
+  - off_campus_not_with_family:Total: 30462 ⟵ “Total | $33,336 | $30,462 | $23,190 | $40,298 | $37,424”
+  - with_parents_or_family:Tuition & Fees*: 16886 ⟵ “Tuition & Fees* | $16,886 | $16,886 | $16,886 | $23,848 | $23,848”
+  - with_parents_or_family:Housing & Food**: 2592 ⟵ “Housing & Food** | $12,738 | $9,864 | $2,592 | $12,738 | $9,864”
+  - with_parents_or_family:Books, Course Materials, Supplies, and Equipment**: 832 ⟵ “Books, Course Materials, Supplies, and Equipment** | $832 | $832 | $832 | $832 | $832”
+  - with_parents_or_family:Miscellaneous Personal Expenses**: 2880 ⟵ “Miscellaneous Personal Expenses** | $2,880 | $2,880 | $2,880 | $2,880 | $2,880”
+  - with_parents_or_family:Total: 23190 ⟵ “Total | $33,336 | $30,462 | $23,190 | $40,298 | $37,424”
+### `979e050c1cdf2989` Great Lakes Christian College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://glcc.edu/admissions-aid/financial-aid/tuition-fees/ (sha256 8e369692f325)
+- checks: {"columns": 1, "rows": 4}
+  - on_campus:Tuition ($9300 per semester)*: 18600 ⟵ “Tuition ($9300 per semester)* | $18,600”
+  - on_campus:Fees**: 2150 ⟵ “Fees** | $2,150”
+  - on_campus:Room & Board: 10860 ⟵ “Room & Board | $10,860”
+  - on_campus:Yearly Total: 31610 ⟵ “Yearly Total | $31,610”
+### `4a825ccc7874928e` Great Lakes Christian College — credit_policies 2026-27 · policy_kind=dual_enrollment [new] (source_unlabeled)
+- source: https://glcc.edu/admissions-aid/dual-enrollment/ (sha256 38b4c8154899)
+- checks: {"fields": ["per_credit_hour_charges"], "tiers": 0}
+  - per_credit_hour_charge: 150 ⟵ “Significant cost savings, with courses offered at only $150 per credit hour—a low-risk way to get ahead academically.”
+### `36477ab13b2f4959` Henry Ford College — credit_policies 2026-27 · policy_kind=AP [new] (source_unlabeled)
+- source: https://www.hfcc.edu/dual-enrollment (sha256 c166a2d0b6dd)
+- checks: {"distinct_exams": 22, "equivalencies": 26, "rows_without_score": 0}
+  - equivalencies[AP-UNITED-STATES-HISTORY|3 or above]:  ⟵ “American History | 3 or above | 3 semester hours | HIST 151 or HIST 152”
+  - equivalencies[AP-BIOLOGY|4 or 5]:  ⟵ “Biology | 4 or 5 | 4 semester hours | BIO 131”
+  - equivalencies[AP-CHEMISTRY|4 or 5]:  ⟵ “Chemistry | 4 or 5 | 4 semester hours | CHEM 111”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|4 or 5]:  ⟵ “Computer Science A | 4 or 5 | 4 semester hours | CIS 125”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|4 or 5]:  ⟵ “Computer Science Principles | 4 or 5 | 3 semester hours | CIS General Elective Credit”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|4 or above in Lang Comp AND 3 or above in Lit Comp]:  ⟵ “English Lang/Comp AND Lit Comp | 4 or above in Lang Comp AND 3 or above in Lit Comp | 3 semester hours each | ENG 131 AND ENG 132”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3 or above]:  ⟵ “English Lang/Comp OR Lit Comp | 3 or above | 3 semester hours | ENG 131”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|4 or 5]:  ⟵ “Environmental Science | 4 or 5 | 3 semester hours | BIO 138”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]:  ⟵ “French | 3 | 4 semester hours | FRE 131”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|4 or 5]:  ⟵ “French | 4 or 5 | 8 semester hours | FRE 131 and FRE 132”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3]:  ⟵ “German | 3 | 4 semester hours | GER 131”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|4 or 5]:  ⟵ “German | 4 or 5 | 8 semester hours | GER 131 and GER 132”
+  - equivalencies[AP-MACROECONOMICS|3 or above]:  ⟵ “Macroeconomics | 3 or above | 3 semester hours | BEC 151”
+  - equivalencies[AP-MICROECONOMICS|3 or above]:  ⟵ “Microeconomics | 3 or above | 3 semester hours | BEC 152”
+  - equivalencies[AP-CALCULUS-AB|3 or above]:  ⟵ “Math (Calculus AB) | 3 or above | 5 semester hours | MATH 180”
+  - equivalencies[AP-CALCULUS-BC|3 or above]:  ⟵ “Math (Calculus BC) | 3 or above | 10 semester hours | MATH 180 and MATH 183”
+  - equivalencies[AP-PRECALCULUS|3 or above]:  ⟵ “Math (Precalculus) | 3 or above | 5 semester hours | MATH 175”
+  - equivalencies[AP-STATISTICS|3 or above]:  ⟵ “Math (Statistics) | 3 or above | 4 semester hours | MATH 141”
+  - equivalencies[AP-MUSIC-THEORY|3 or above]:  ⟵ “Music Theory | 3 or above | 4 semester hours | MUS 135”
+  - equivalencies[AP-PHYSICS-1|3 or above]:  ⟵ “Physics 1: Algebra-Based | 3 or above | 4 semester hours | PHYS 131”
+  - equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|4 or 5]:  ⟵ “Physics C: Electricity and Magnetism | 4 or 5 | 5 semester hours | PHYS 232”
+  - equivalencies[AP-PHYSICS-C-MECHANICS|4 or 5]:  ⟵ “Physics C: Mechanics | 4 or 5 | 5 semester hours | PHYS 231”
+  - equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|3 or above]:  ⟵ “Political Science U.S. Government & Politics | 3 or above | 3 semester hours | POLS 131”
+  - equivalencies[AP-PSYCHOLOGY|3 or above]:  ⟵ “Psychology Introduction to Psychology | 3 or above | 3 semester hours | PSY 131”
+  - equivalencies[AP-SPANISH-LANGUAGE-CULTURE|3]:  ⟵ “Spanish | 3 | 4 semester hours | SPN 131”
+  - … 1 more rows
+### `7ad96557ea8712b1` Henry Ford College — credit_policies 2026-27 · policy_kind=CLEP [new] (source_unlabeled)
+- source: https://www.hfcc.edu/admissions/clep (sha256 a3ff2bf0acbb)
+- checks: {"distinct_exams": 17, "equivalencies": 20, "rows_without_score": 0}
+  - equivalencies[CLEP-FINANCIAL-ACCOUNTING|50]:  ⟵ “Financial Accounting | 50 | BAC 131 | 4”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION|50]:  ⟵ “College Composition | 50 | ENG 131 | 3”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION-MODULAR|50]:  ⟵ “College Composition Modular without essay | 50 | ENG 131 | 3”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|50]:  ⟵ “French Language: Level 1 | 50 | FRE 131, FRE 132 | 8”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|59]:  ⟵ “French Language: Level 2 | 59 | FRE 131, FRE 132, FRE 231 | 12”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|50]:  ⟵ “German Language: Level 1 | 50 | GER 131, GER 132 | 8”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|60]:  ⟵ “German Language: Level 2 | 60 | GER 131, GER 132, GER 231 | 12”
+  - equivalencies[CLEP-SPANISH-LANGUAGE|50]:  ⟵ “Spanish Language: Level 1 | 50 | SPN 131, SPN 132 | 8”
+  - equivalencies[CLEP-SPANISH-LANGUAGE|63]:  ⟵ “Spanish Language: Level 2 | 63 | SPN 131, SPN 132, SPN 231 | 12”
+  - equivalencies[CLEP-COLLEGE-ALGEBRA|50]:  ⟵ “College Algebra | 50 | MATH 115 | 5”
+  - equivalencies[CLEP-COLLEGE-MATHEMATICS|50]:  ⟵ “College Mathematics | 50 | MATH 131 | 4”
+  - equivalencies[CLEP-PRECALCULUS|50]:  ⟵ “Pre-Calculus | 50 | MATH 175 | 5”
+  - equivalencies[CLEP-CALCULUS|50]:  ⟵ “Calculus | 50 | MATH 180 | 5”
+  - equivalencies[CLEP-BIOLOGY|50]:  ⟵ “Biology | 50 | BIO 131 | 4”
+  - equivalencies[CLEP-CHEMISTRY|50]:  ⟵ “Chemistry | 50 | CHEM 111 | 4”
+  - equivalencies[CLEP-AMERICAN-GOVERNMENT|50]:  ⟵ “American Government | 50 | POLS 131 | 3”
+  - equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|50]:  ⟵ “Introductory Psychology | 50 | PSY 131 | 3”
+  - equivalencies[CLEP-HUMAN-GROWTH-DEVELOPMENT|50]:  ⟵ “Human Growth and Development | 50 | PSY 253 | 3”
+  - equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|50]:  ⟵ “Introductory Sociology | 50 | SOC 131 | 3”
+  - equivalencies[CLEP-WESTERN-CIVILIZATION-II|50]:  ⟵ “Western Civilization II | 50 | HIST 112 | 3”
+### `04232013d3376c91` Hope College — awards 2026-27 [new] (source_unlabeled)
+- source: https://hope.edu/admissions/scholarships.html (sha256 20af8c5342ab)
+- checks: {"thresholds": null}
+  - award_amount_text: $22,000/year ⟵ “Trustee Scholarship | $22,000/year | Test Score Required | 3.95+ GPA with 34+ ACT, 1490+ SAT, or 103+ CLT”
+  - gpa_requirement: Test Score Required ⟵ “Trustee Scholarship | $22,000/year | Test Score Required | 3.95+ GPA with 34+ ACT, 1490+ SAT, or 103+ CLT”
+  - test_requirement: 3.95+ GPA with 34+ ACT, 1490+ SAT, or 103+ CLT ⟵ “Trustee Scholarship | $22,000/year | Test Score Required | 3.95+ GPA with 34+ ACT, 1490+ SAT, or 103+ CLT”
+### `12821582b95cd118` Hope College — awards 2026-27 [new] (source_unlabeled)
+- source: https://hope.edu/admissions/scholarships.html (sha256 20af8c5342ab)
+- checks: {"thresholds": null}
+  - award_amount_text: $14,000/year and up ⟵ “Presidential Scholarship | $14,000/year and up | 3.95+ GPA | 3.8+ GPA with 28+ ACT, 1300+ SAT, or 86+ CLT”
+  - gpa_requirement: 3.95+ GPA ⟵ “Presidential Scholarship | $14,000/year and up | 3.95+ GPA | 3.8+ GPA with 28+ ACT, 1300+ SAT, or 86+ CLT”
+  - test_requirement: 3.8+ GPA with 28+ ACT, 1300+ SAT, or 86+ CLT ⟵ “Presidential Scholarship | $14,000/year and up | 3.95+ GPA | 3.8+ GPA with 28+ ACT, 1300+ SAT, or 86+ CLT”
+### `2e5a2b20d5dedbb6` Hope College — awards 2026-27 [new] (source_unlabeled)
+- source: https://hope.edu/admissions/scholarships.html (sha256 20af8c5342ab)
+- checks: {"thresholds": null}
+  - award_amount_text: $12,000/year ⟵ “Distinguished Scholar Award | $12,000/year | 3.8+ GPA | 3.6+ GPA with 26+ ACT, 1230+ SAT, or 81+ CLT”
+  - gpa_requirement: 3.8+ GPA ⟵ “Distinguished Scholar Award | $12,000/year | 3.8+ GPA | 3.6+ GPA with 26+ ACT, 1230+ SAT, or 81+ CLT”
+  - test_requirement: 3.6+ GPA with 26+ ACT, 1230+ SAT, or 81+ CLT ⟵ “Distinguished Scholar Award | $12,000/year | 3.8+ GPA | 3.6+ GPA with 26+ ACT, 1230+ SAT, or 81+ CLT”
+### `bef9d6371de64844` Hope College — awards 2026-27 [new] (source_unlabeled)
+- source: https://hope.edu/admissions/scholarships.html (sha256 20af8c5342ab)
+- checks: {"thresholds": null}
+  - award_amount_text: $8,000/year ⟵ “Anchor Award | $8,000/year | 3.4+ GPA | 3.2+ GPA and 22+ ACT, 1100+ SAT, or 72+ CLT”
+  - gpa_requirement: 3.4+ GPA ⟵ “Anchor Award | $8,000/year | 3.4+ GPA | 3.2+ GPA and 22+ ACT, 1100+ SAT, or 72+ CLT”
+  - test_requirement: 3.2+ GPA and 22+ ACT, 1100+ SAT, or 72+ CLT ⟵ “Anchor Award | $8,000/year | 3.4+ GPA | 3.2+ GPA and 22+ ACT, 1100+ SAT, or 72+ CLT”
+### `ec5a989245ed277c` Hope College — awards 2026-27 [new] (source_unlabeled)
+- source: https://hope.edu/admissions/scholarships.html (sha256 20af8c5342ab)
+- checks: {"thresholds": null}
+  - award_amount_text: $10,000/year ⟵ “Alumni Honors Scholarship | $10,000/year | 3.6+ GPA | 3.4+ GPA with 24+ ACT, 1160+ SAT, or 76+ CLT”
+  - gpa_requirement: 3.6+ GPA ⟵ “Alumni Honors Scholarship | $10,000/year | 3.6+ GPA | 3.4+ GPA with 24+ ACT, 1160+ SAT, or 76+ CLT”
+  - test_requirement: 3.4+ GPA with 24+ ACT, 1160+ SAT, or 76+ CLT ⟵ “Alumni Honors Scholarship | $10,000/year | 3.6+ GPA | 3.4+ GPA with 24+ ACT, 1160+ SAT, or 76+ CLT”
+### `89aa80eaf89c78ac` Jackson College — costs 2026-27 · residency=out_of_state [new] (labeled_in_source)
+- source: https://www.jccmi.edu/cost-aid/cost-of-attendance/estimated-cost-of-attendance/ (sha256 294b641344c0)
+- checks: {"columns": 1, "components_reconcile": true, "rows": 9}
+  - column:Tuition: 10032 ⟵ “Tuition | $5,016 | $5,856 | $10,032 | $5,016 | $0.00”
+  - column:Student Service Fee: 1368 ⟵ “Student Service Fee | $1,368 | $1,368 | $1,368 | $1,368 | $1,368.00”
+  - column:On-line Class Fee: 240 ⟵ “On-line Class Fee | $120 | $120 | $240 | $120 | $120.00”
+  - column:Books/Supplies: 1056 ⟵ “Books/Supplies | $1,056 | $1,056 | $1,056 | $1,056 | $1,056.00”
+  - column:Living Expenses: 12516 ⟵ “Living Expenses | $12,516 | $12,516 | $12,516 | $11,490 | $12,516.00”
+  - column:Personal: 1256 ⟵ “Personal | $1,256 | $1,256 | $1,256 | $1,256 | $1,256.00”
+  - column:Transportation: 870 ⟵ “Transportation | $1,740 | $1,740 | $870 | $870 | $1,740.00”
+  - column:Loan: 90 ⟵ “Loan | $90 | $90 | $90 | $90 | $90.00”
+  - column:TOTAL: 27428 ⟵ “TOTAL | $23,162 | $24,002 | $27,428 | $21,266 | $16,778.00”
+### `2178bfa2ed6b5672` Kalamazoo College — transfer_policies 2026-27 [new] (source_unlabeled)
+- source: https://registrar.kzoo.edu/academic-planning/academic-planning-2/transfer-ap-ib/ (sha256 e273e9ff51d3)
+- checks: {"fields": ["min_grade"]}
+  - min_grade: C ⟵ “To receive transfer credit for the course, the student must receive a grade of C or better (C- is not acceptable).”
+### `218a29cb13b5e65f` Kellogg Community College — transfer_policies 2026-27 [new] (source_unlabeled)
+- source: https://kellogg.edu/admissions/transfer/ (sha256 548aaef7645b)
+- checks: {"fields": ["min_grade"]}
+  - min_grade: C ⟵ “Please note: Courses completed with a passing grade of C or above may be considered for transfer.”
+### `3ed25ecf75827158` Kettering University — credit_policies 2026-27 · policy_kind=IB [new] (source_unlabeled)
+- source: https://www.kettering.edu/admissions-aid/undergraduate-admissions/ap-and-ib-credit (sha256 78fe6e79f003)
+- checks: {"distinct_exams": 11, "equivalencies": 11, "rows_without_score": 0}
+  - equivalencies[IB-BIOLOGY-HL|HL 6, 7]:  ⟵ “Biology (HL)3 | 6, 7 | 3 and 1 | BIOL-241 & BIOL-242”
+  - equivalencies[IB-CHEMISTRY-HL|HL 5, 6, 7]:  ⟵ “Chemistry (HL)3 | 5, 6, 7 | 3 and 1 | CHEM-135 & CHEM-136”
+  - equivalencies[IB-COMPUTER-SCIENCE-HL|HL 5, 6, 7]:  ⟵ “Computer Science (HL)3 | 5, 6, 7 | 4 | CS-297”
+  - equivalencies[IB-COMPUTER-SCIENCE-SL|SL 5, 6, 7]:  ⟵ “Computer Science (SL)3 | 5, 6, 7 | 4 | CS-297”
+  - equivalencies[IB-ECONOMICS-HL|HL 6, 7]:  ⟵ “Economics (HL)3 | 6, 7 | 4 | ECON-201”
+  - equivalencies[IB-HISTORY-HL|HL 6, 7]:  ⟵ “History (HL)2 | 6, 7 | 4 | HIST-297”
+  - equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION-HL|HL 5, 6, 7]:  ⟵ “Math: Applications and Interpretation (HL)1 | 5, 6, 7 | 4 | MATH-101”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES-HL|HL 5, 6, 7]:  ⟵ “Math: Analysis and Approaches (HL)1 | 5, 6, 7 | 4 | MATH-101”
+  - equivalencies[IB-PHILOSOPHY-HL|HL 5, 6, 7]:  ⟵ “Philosophy (HL)2 | 5, 6, 7 | 4 | PHIL-297”
+  - equivalencies[IB-PHYSICS-HL|HL 6,7]:  ⟵ “Physics (HL) | 6,7 | 3 and 1 | PHYS-114 & PHYS-115”
+  - equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY-HL|HL 6, 7]:  ⟵ “Social & Cultural Anthropology (HL)2 | 6, 7 | 4 | SSCI-297”
+### `bcbcfe115b5c5dee` Kettering University — credit_policies 2026-27 · policy_kind=AP [new] (source_unlabeled)
+- source: https://www.kettering.edu/admissions-aid/undergraduate-admissions/ap-and-ib-credit (sha256 78fe6e79f003)
+- checks: {"distinct_exams": 23, "equivalencies": 23, "rows_without_score": 0}
+  - equivalencies[AP-ART-HISTORY|4, 5]:  ⟵ “Art History1 | 4, 5 | 4 | HUMN-297”
+  - equivalencies[AP-2-D-ART-DESIGN|4, 5]:  ⟵ “Art Studio 2-D Design1 | 4, 5 | 4 | HUMN-297”
+  - equivalencies[AP-3-D-ART-DESIGN|4, 5]:  ⟵ “Art Studio 3-D Design1 | 4, 5 | 4 | HUMN-297”
+  - equivalencies[AP-CALCULUS-AB|4, 5]:  ⟵ “Calculus AB Subgrade3 | 4, 5 | 4 | MATH-101”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|4, 5]:  ⟵ “Chinese Language & Culture1 | 4, 5 | 4 | LA-197”
+  - equivalencies[AP-CHEMISTRY|4, 5]:  ⟵ “Chemistry | 4, 5 | 3 and 1 | CHEM-135/136orCHEM-137/136”
+  - equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|4, 5]:  ⟵ “Comparative Government and Politics2 | 4, 5 | 4 | SSCI-297”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|4, 5]:  ⟵ “Computer Science Principles3 | 4, 5 | 4 | CS-297”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|4, 5]:  ⟵ “English Language and Composition2 | 4, 5 | 4 | HUMN-297”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|4, 5]:  ⟵ “English Literature and Composition2 | 4, 5 | 4 | HUMN-297”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|4, 5]:  ⟵ “Environmental Science3 | 4, 5 | 4 | BIOL-297”
+  - equivalencies[AP-EUROPEAN-HISTORY|4, 5]:  ⟵ “European History1 | 4, 5 | 4 | SSCI-297”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|4, 5]:  ⟵ “French Language and Culture1 | 4, 5 | 4 | LA-197”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|4,5]:  ⟵ “Italian Language and Culture1 | 4,5 | 4 | LA-197”
+  - equivalencies[AP-LATIN|4, 5]:  ⟵ “Latin | 4, 5 | 4 | LA-197”
+  - equivalencies[AP-MACROECONOMICS|4, 5]:  ⟵ “Macroeconomics4 | 4, 5 | 4 | ECON-201”
+  - equivalencies[AP-MICROECONOMICS|4, 5]:  ⟵ “Microeconomics4 | 4, 5 | 4 | ECON-201”
+  - equivalencies[AP-MUSIC-THEORY|4, 5]:  ⟵ “Music Theory2 | 4, 5 | 4 | HUMN-297”
+  - equivalencies[AP-PHYSICS-C-MECHANICS|4, 5]:  ⟵ “Physics C, Part I-Mechanics3 | 4, 5 | 3 and 1 | PHYS-114 & PHYS-115”
+  - equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|4, 5]:  ⟵ “Physics C, Electricity & Magnetism3 | 4, 5 | 3 and 1 | PHYS-224 & PHYS-225”
+  - equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|4, 5]:  ⟵ “U.S. Government and Politics2 | 4, 5 | 4 | SSCI-297”
+  - equivalencies[AP-UNITED-STATES-HISTORY|4, 5]:  ⟵ “U.S. History2 | 4, 5 | 4 | HIST-297”
+  - equivalencies[AP-WORLD-HISTORY-MODERN|4, 5]:  ⟵ “World History2 | 4, 5 | 4 | SSCI-297”
+### `44002372f95a785f` Kuyper College — credit_policies 2026-27 · policy_kind=dual_enrollment [new] (source_unlabeled)
+- source: https://www.kuyper.edu/admissions/students/high-school-dual-enrollment/ (sha256 009bbd2cad2a)
+- checks: {"fields": ["alt_min_act", "alt_min_sat", "min_hs_gpa", "per_credit_hour_charges", "tuition_per_credit_hour"], "tiers": 1}
+  - per_credit_hour_charge: 190 ⟵ “Dual Enrollment is a great way to earn college credit while in High School. These classes are offered at a reduced tuition rate of $190 per credit hour ($570 for a 3-credit class). Students must meet the following criteria:”
+  - eligibility_tier: 3.0 ⟵ “Minimum current GPA of 3.0 and/or 1030 SAT, 20 ACT score, or 60 CLT score”
+### `044275720e465236` Lawrence Technological University — awards 2026-27 [new] (source_unlabeled)
+- source: https://ltu.edu/admissions/financial-aid/scholarships/ (sha256 3c0da1bf7f79)
+- checks: {"thresholds": null}
+  - award_amount_text: $4,000 ⟵ “Trustee Grant | $4,000”
+### `6fa742c7c4af5624` Lawrence Technological University — awards 2026-27 [new] (source_unlabeled)
+- source: https://ltu.edu/admissions/financial-aid/scholarships/ (sha256 3c0da1bf7f79)
+- checks: {"thresholds": null}
+  - award_amount_text: $14,000 ⟵ “Elite | $14,000”
+### `72d50beb7c36ddf1` Lawrence Technological University — awards 2026-27 [new] (source_unlabeled)
+- source: https://ltu.edu/admissions/financial-aid/scholarships/ (sha256 3c0da1bf7f79)
+- checks: {"thresholds": null}
+  - award_amount_text: $12,000 ⟵ “Preeminent | $12,000”
+### `a2ece256fbc19d65` Lawrence Technological University — awards 2026-27 [new] (source_unlabeled)
+- source: https://ltu.edu/admissions/financial-aid/scholarships/ (sha256 3c0da1bf7f79)
+- checks: {"thresholds": null}
+  - award_amount_text: $6,000 ⟵ “Trustee | $6,000”
+### `e4ba118296c8ba53` Lawrence Technological University — awards 2026-27 [new] (source_unlabeled)
+- source: https://ltu.edu/admissions/financial-aid/scholarships/ (sha256 3c0da1bf7f79)
+- checks: {"thresholds": null}
+  - award_amount_text: $16,000 ⟵ “Presidential | $16,000”
+### `f949545d2b006d8e` Lawrence Technological University — awards 2026-27 [new] (source_unlabeled)
+- source: https://ltu.edu/admissions/financial-aid/scholarships/ (sha256 3c0da1bf7f79)
+- checks: {"thresholds": null}
+  - award_amount_text: $10,000 ⟵ “Honors | $10,000”
+### `m010762df8cc64e5` Lawrence Technological University — credit_policies 2026-27 · policy_kind=dual_enrollment [new] (source_unlabeled)
+- source: https://ltu.edu/admissions/first-year-students/early-college-oxford/ (sha256 8d81ce0c7d0f)
+- checks: {"fields": ["min_hs_gpa"], "merged_pages": 2, "tiers": 1}
+  - eligibility_tier: 3.0 ⟵ “High school juniors and seniors are encouraged to apply if they maintain a 3.0 high school GPA or higher. Students must meet course requirements in order to be admitted. Please review course offerings at the link provided under Course Offerings if you are not sure which class you want to take:”
+  - eligibility_tier: 3.0 ⟵ “High school juniors and seniors are encouraged to apply if they maintain a 3.0 high school GPA or higher. Students will select a major and take courses within that major. After “High School” graduation, students are eligible for an excellent scholarship from LTU if they decide to continue their bach”
+### `225f323585df1095` Macomb Community College — credit_policies 2026-27 · policy_kind=AP [new] (source_unlabeled)
+- source: https://www.macomb.edu/admissions-aid/credit-for-prior-learning/advanced-placement.html (sha256 91d18bdc6e54)
+- checks: {"distinct_exams": 30, "equivalencies": 74, "rows_without_score": 0}
+  - equivalencies[AP-ART-HISTORY|1, 2]:  ⟵ “Art History | 1, 2 | None | None”
+  - equivalencies[AP-ART-HISTORY|3, 4, 5]:  ⟵ “Art History | 3, 4, 5 | 6 | ARTT Elective Credit”
+  - equivalencies[AP-BIOLOGY|1, 2]:  ⟵ “Biology | 1, 2 | None | None”
+  - equivalencies[AP-BIOLOGY|3, 4]:  ⟵ “Biology | 3, 4 | 4 | BIOL 1700”
+  - equivalencies[AP-BIOLOGY|5]:  ⟵ “Biology | 5 | 8 | BIOL 1700 and BIOL 1800”
+  - equivalencies[AP-CALCULUS-AB|1, 2]:  ⟵ “Calculus AB | 1, 2 | None | None”
+  - equivalencies[AP-CALCULUS-AB|3, 4, 5]:  ⟵ “Calculus AB | 3, 4, 5 | 4 | MATH 1760”
+  - equivalencies[AP-CALCULUS-BC|1, 2]:  ⟵ “Calculus BC | 1, 2 | None | None”
+  - equivalencies[AP-CALCULUS-BC|3, 4, 5]:  ⟵ “Calculus BC | 3, 4, 5 | 8 | MATH 1760 and MATH 1770”
+  - equivalencies[AP-CHEMISTRY|1, 2]:  ⟵ “Chemistry | 1, 2 | None | None”
+  - equivalencies[AP-CHEMISTRY|3, 4]:  ⟵ “Chemistry | 3, 4 | 4 | CHEM 1170”
+  - equivalencies[AP-CHEMISTRY|5]:  ⟵ “Chemistry | 5 | 8 | CHEM 1170 and CHEM 1180”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|1, 2]:  ⟵ “Chinese Language & Culture | 1, 2 | None | None”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|3, 4]:  ⟵ “Chinese Language & Culture | 3, 4 | 4 | HUMN Elective Credit”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|5]:  ⟵ “Chinese Language & Culture | 5 | 8 | HUMN Elective Credit”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|1, 2]:  ⟵ “Computer Science A | 1, 2 | None | None”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|3]:  ⟵ “Computer Science A | 3 | 4 | ITCS 1950”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|4, 5]:  ⟵ “Computer Science A | 4, 5 | 4 | ITCS 2530”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|3]:  ⟵ “Computer Science A | 3 | 3 | ENGL 1211”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|4, 5]:  ⟵ “Computer Science A | 4, 5 | 6 | ENGL 1211 and ENGL 1220”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|1, 2]:  ⟵ “Environmental Science | 1, 2 | None | None”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|3, 4, 5]:  ⟵ “Environmental Science | 3, 4, 5 | 4 | ENVS 1050”
+  - equivalencies[AP-EUROPEAN-HISTORY|1, 2]:  ⟵ “European History | 1, 2 | None | None”
+  - equivalencies[AP-EUROPEAN-HISTORY|3, 4, 5]:  ⟵ “European History | 3, 4, 5 | 8 | HIST 1500 and HIST 1600”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|1, 2]:  ⟵ “French Language | 1, 2 | None | None”
+  - … 49 more rows
+### `ae0286a5504aca1c` Macomb Community College — credit_policies 2026-27 · policy_kind=CLEP [new] (source_unlabeled)
+- source: https://www.macomb.edu/admissions-aid/credit-for-prior-learning/clep.html (sha256 257db6f4afe7)
+- checks: {"distinct_exams": 32, "equivalencies": 34, "rows_without_score": 0}
+  - equivalencies[CLEP-AMERICAN-LITERATURE|50]:  ⟵ “American Literature | 50 | 6 | ENGL-2715 & ENGL-2725”
+  - equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|50]:  ⟵ “Analyzing & Interpreting Literature | 50 | 6 | ENGL-2600 & ENGL-2610”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION|50]:  ⟵ “College Composition | 50 | 3 | ENGL-1211”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION-MODULAR|50]:  ⟵ “College Composition Modular | 50 | 3 | ENGL-1211”
+  - equivalencies[CLEP-ENGLISH-LITERATURE|50]:  ⟵ “English Literature | 50 | 6 | HUMN credit”
+  - equivalencies[CLEP-HUMANITIES|50]:  ⟵ “Humanities | 50 | 6 | HUMN-1210 & HUMN credit”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|50-61]:  ⟵ “French Language | 50-61 | 8 | FREN-1460 & FREN-1470”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|62 & above]:  ⟵ “French Language | 62 & above | 12 | FREN-1460, FREN-1470, & FREN-2460”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|50]:  ⟵ “German Language | 50 | 8 | GRMN-1460 & GRMN-1470”
+  - equivalencies[CLEP-SPANISH-LANGUAGE|50-61]:  ⟵ “Spanish Language | 50-61 | 8 | SPAN-1460 & SPAN-1470”
+  - equivalencies[CLEP-SPANISH-LANGUAGE|62 & above]:  ⟵ “Spanish Language | 62 & above | 16 | SPAN-1460, SPAN-1470, SPAN-2460 & SPAN-2470”
+  - equivalencies[CLEP-AMERICAN-GOVERNMENT|50]:  ⟵ “American Government | 50 | 4 | POLS-1000”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-I|50]:  ⟵ “History of the United States I: Early Colonization to 1877 | 50 | 4 | HIST-2100”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-II|50]:  ⟵ “History of the United States II: 1865 to Present | 50 | 4 | HIST-2200”
+  - equivalencies[CLEP-HUMAN-GROWTH-DEVELOPMENT|50]:  ⟵ “Human Growth & Development | 50 | 3 | PSYC-2210”
+  - equivalencies[CLEP-INTRODUCTION-TO-EDUCATIONAL-PSYCHOLOGY|50]:  ⟵ “Introduction to Educational Psychology | 50 | 3 | PSYC-2310”
+  - equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|50]:  ⟵ “Introductory Psychology | 50 | 4 | PSYC-1010”
+  - equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|50]:  ⟵ “Introductory Sociology | 50 | 4 | SOCY-1010”
+  - equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|50]:  ⟵ “Principles of Macroeconomics | 50 | 3 | ECON-1160”
+  - equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|50]:  ⟵ “Principles of Microeconomics | 50 | 3 | ECON-1170”
+  - equivalencies[CLEP-SOCIAL-SCIENCES-HISTORY|50]:  ⟵ “Social Sciences & History | 50 | 3 | HIST credit”
+  - equivalencies[CLEP-WESTERN-CIVILIZATION-I|50]:  ⟵ “Western Civilization I: Ancient Near East to 1648 | 50 | 4 | HIST-1500”
+  - equivalencies[CLEP-WESTERN-CIVILIZATION-II|50]:  ⟵ “Western Civilization II: 1648 to Present | 50 | 4 | HIST-1600”
+  - equivalencies[CLEP-BIOLOGY|50]:  ⟵ “Biology | 50 | 4 | BIOL-1700”
+  - equivalencies[CLEP-CALCULUS|50]:  ⟵ “Calculus | 50 | 4 | MATH-1760”
+  - … 9 more rows
+### `0682555421979369` Madonna University — awards 2026-27 [new] (source_unlabeled)
+- source: https://www.madonna.edu/tuition-and-financial-aid/scholarships-and-grants/ (sha256 65e709f48d5a)
+- checks: {"thresholds": null}
+  - award_amount_text: $3,000 ⟵ “Performing Arts Award | $3,000 | As determined by the Director of Performing Arts”
+  - test_requirement: As determined by the Director of Performing Arts ⟵ “Performing Arts Award | $3,000 | As determined by the Director of Performing Arts”
+### `4b18eec1e42f8ccb` Madonna University — awards 2026-27 [new] (source_unlabeled)
+- source: https://www.madonna.edu/tuition-and-financial-aid/scholarships-and-grants/ (sha256 65e709f48d5a)
+- checks: {"thresholds": null}
+  - test_requirement: Full-time employees and their dependents ⟵ “Felician-Sponsored Ministries | Varies | Full-time employees and their dependents”
+### `6e434c8a4c986ea3` Madonna University — awards 2026-27 [new] (source_unlabeled)
+- source: https://www.madonna.edu/tuition-and-financial-aid/scholarships-and-grants/ (sha256 65e709f48d5a)
+- checks: {"thresholds": null}
+  - award_amount_text: $4,000 ⟵ “Catholic High School | $4,000 | Catholic High school graduate”
+  - test_requirement: Catholic High school graduate ⟵ “Catholic High School | $4,000 | Catholic High school graduate”
+### `7b60c41c2b61f926` Madonna University — awards 2026-27 [new] (source_unlabeled)
+- source: https://www.madonna.edu/tuition-and-financial-aid/scholarships-and-grants/ (sha256 65e709f48d5a)
+- checks: {"thresholds": null}
+  - award_amount_text: $2,000 ⟵ “Alumni Legacy | $2,000 | Parent/Grandparent is a Madonna alumna/alumnus”
+  - test_requirement: Parent/Grandparent is a Madonna alumna/alumnus ⟵ “Alumni Legacy | $2,000 | Parent/Grandparent is a Madonna alumna/alumnus”
+### `b0bd0849a98ac884` Madonna University — awards 2026-27 [new] (source_unlabeled)
+- source: https://www.madonna.edu/tuition-and-financial-aid/scholarships-and-grants/ (sha256 65e709f48d5a)
+- checks: {"thresholds": null}
+  - award_amount_text: $1,000 ⟵ “Phi Theta Kappa Transfer | $1,000 | 3.5/PTK Member”
+  - test_requirement: 3.5/PTK Member ⟵ “Phi Theta Kappa Transfer | $1,000 | 3.5/PTK Member”
+### `8dc478437eab87ba` Madonna University — credit_policies 2026-27 · policy_kind=dual_enrollment [new] (labeled_in_source)
+- source: https://www.madonna.edu/admissions/dual-enrollment/ (sha256 aed53da3426d)
+- checks: {"fields": ["per_credit_hour_charges"], "tiers": 0}
+  - per_credit_hour_charge: 240 ⟵ “Affordable: $240/credit for 2025-26 – and Michigan's Dual Enrollment Fee Assistance often covers”
+### `478d8a7f7b7f9f9e` Michigan Technological University — credit_policies 2027-28 · policy_kind=IB [new] (labeled_in_title)
+- source: https://www.mtu.edu/admissions/enroll/ap-ib-clep/ib-current/index-2.html (sha256 cdbc05a04d54)
+- checks: {"distinct_exams": 16, "equivalencies": 18, "rows_without_score": 0}
+  - equivalencies[IB-BIOLOGY-HL|HL 5]:  ⟵ “Biology HL | 5 | BL 1100, 1110, 1200, 1210 | 8”
+  - equivalencies[IB-CHEMISTRY-HL|HL 5]:  ⟵ “Chemistry HL | 5 | CH 1150, 1151, 1153CH 1160, 1161, 1163 | 10”
+  - equivalencies[IB-COMPUTER-SCIENCE-HL|HL 5]:  ⟵ “Computer Science HL | 5 | May enroll in accelerated CS 1131 | ”
+  - equivalencies[IB-ECONOMICS-HL|HL 5]:  ⟵ “Economics HL | 5 | EC 2001 | 3”
+  - equivalencies[IB-GEOGRAPHY-HL|HL 5]:  ⟵ “Geography HL | 5 | SS 2400 | 3”
+  - equivalencies[IB-GERMAN-HL|HL 5]:  ⟵ “German Language or Literature HL | 5 | HU 2282, 3281, 3282upon successful completion ofeither HU 3284 or 3285* | 9”
+  - equivalencies[IB-HISTORY-HL|HL 5]:  ⟵ “History—Africa and the Middle East HL | 5 | SS 2505 | 3”
+  - equivalencies[IB-HISTORY|5]:  ⟵ “History—Asia and Oceania | 5 | SS 2505 | 3”
+  - equivalencies[IB-HISTORY-HL|HL 5]:  ⟵ “History—European HL | 5 | SS 2502 | 3”
+  - equivalencies[IB-HISTORY-HL|HL 5]:  ⟵ “History—US HL | 5 | SS 2500 | 3”
+  - equivalencies[IB-MUSIC-HL|HL 5]:  ⟵ “Music HL | 5 | MUS 1000 | 3”
+  - equivalencies[IB-PHILOSOPHY-HL|HL 5]:  ⟵ “Philosophy HL | 5 | HU 2700 | 3”
+  - equivalencies[IB-PHYSICS-HL|HL 5]:  ⟵ “Physics HL | 5 | PH 1110, 1111PH 1200, 1210 | 8”
+  - equivalencies[IB-PSYCHOLOGY-HL|HL 5]:  ⟵ “Psychology HL | 5 | PSY 2000 | 3”
+  - equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY-HL|HL 5]:  ⟵ “Social and Cultural Anthropology HL | 5 | SS 2100 | 3”
+  - equivalencies[IB-SPANISH-HL|HL 5]:  ⟵ “Spanish Language or Literature HL | 5 | HU 3291, 3292, and 3293upon successful completion ofHU 3294, 3295, or 3296* | 9”
+  - equivalencies[IB-THEATRE-HL|HL 5]:  ⟵ “Theatre Arts HL | 5 | THEA 1000 | 3”
+  - equivalencies[IB-VISUAL-ARTS-HL|HL 5]:  ⟵ “Visual Arts HL | 5 | ART 1000 | 3”
+### `73d864c301188789` Michigan Technological University — credit_policies 2026-27 · policy_kind=dual_enrollment [new] (source_unlabeled)
+- source: https://www.mtu.edu/admissions/academics/dual/ (sha256 e4a24d68cc3d)
+- checks: {"fields": ["min_hs_gpa"], "tiers": 3}
+  - eligibility_tier: 3.0 ⟵ “has approval from your high school to participate in the Michigan Dual Enrollment Program at Michigan Tech and has a cumulative high school GPA of 3.0 or higher, or”
+  - eligibility_tier: 3.0 ⟵ “eligible to participate in the Michigan Dual Enrollment Program and have a cumulative high school GPA of 3.0 or higher.”
+  - eligibility_tier: 3.0 ⟵ “optional for applicants who have a cumulative high school GPA of 3.0 or higher (on”
+### `7a23915540f77212` Michigan Technological University — credit_policies 2027-28 · policy_kind=CLEP [new] (labeled_in_title)
+- source: https://www.mtu.edu/admissions/enroll/ap-ib-clep/clep-current/ (sha256 f59ef1786fcb)
+- checks: {"distinct_exams": 20, "equivalencies": 20, "rows_without_score": 0}
+  - equivalencies[CLEP-AMERICAN-GOVERNMENT|50]:  ⟵ “American Government | 50 | SS 2600 | 3”
+  - equivalencies[CLEP-AMERICAN-LITERATURE|50]:  ⟵ “American Literature | 50 | HU 2501 | 3”
+  - equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|50]:  ⟵ “Analyzing and Interpreting Literature | 50 | HU 1XXX | 3”
+  - equivalencies[CLEP-BIOLOGY|50]:  ⟵ “Biology | 50 | BL 1400, 1410 | 4”
+  - equivalencies[CLEP-CALCULUS|50]:  ⟵ “Calculus | 50 | MA 1160 | 4”
+  - equivalencies[CLEP-CHEMISTRY|50]:  ⟵ “Chemistry | 50 | CH 1150, 1151, 1153CH 1160, 1161, 1163 | 10”
+  - equivalencies[CLEP-COLLEGE-ALGEBRA|50]:  ⟵ “College Algebra | 50 | MA 1030 | 3”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION|50]:  ⟵ “College Composition | 50 | UN 1014 | 3”
+  - equivalencies[CLEP-ENGLISH-LITERATURE|50]:  ⟵ “English Literature | 50 | HU 2538 | 3”
+  - equivalencies[CLEP-FINANCIAL-ACCOUNTING|50]:  ⟵ “Financial Accounting | 50 | ACC 2000 | 3”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-I|50]:  ⟵ “History of the United States I: Thru 1877 | 50 | SS 2500 | 3”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-II|50]:  ⟵ “History of the United States II: 1865-Present | 50 | SS 2501 | 3”
+  - equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|50]:  ⟵ “Introductory Psychology | 50 | PSY 2000 | 3”
+  - equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|50]:  ⟵ “Introductory Sociology | 50 | SS 2700 | 3”
+  - equivalencies[CLEP-INTRODUCTORY-BUSINESS-LAW|50]:  ⟵ “Introductory Business Law | 50 | BUS 2200 | 3”
+  - equivalencies[CLEP-PRECALCULUS|50]:  ⟵ “Pre-Calculus | 50 | MA 1032 | 4”
+  - equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|50]:  ⟵ “Principles of Macroeconomics* | 50 | EC 1XXX | 3”
+  - equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|50]:  ⟵ “Principles of Microeconomics* | 50 | EC 1XXX | 3”
+  - equivalencies[CLEP-WESTERN-CIVILIZATION-I|50]:  ⟵ “Western Civilization I: Thru 1648 | 50 | SS 2502 | 3”
+  - equivalencies[CLEP-WESTERN-CIVILIZATION-II|50]:  ⟵ “Western Civilization II: 1648-Present | 50 | SS 2503 | 3”
+### `d4baf2d359c3973e` Michigan Technological University — credit_policies 2026-27 · policy_kind=AP [new] (labeled_in_title)
+- source: https://www.mtu.edu/admissions/enroll/ap-ib-clep/ap-prospective/index.html (sha256 ca5769dff23a)
+- checks: {"distinct_exams": 29, "equivalencies": 30, "rows_without_score": 0}
+  - equivalencies[AP-ART-HISTORY|3 or higher]:  ⟵ “Art History | 3 or higher | ART 1000 for 3 credits”
+  - equivalencies[AP-DRAWING|3 or higher]:  ⟵ “Art Studio—Drawing | 3 or higher | ART 1000 for 3 credits”
+  - equivalencies[AP-2-D-ART-DESIGN|3 or higher]:  ⟵ “Art Studio—2D Design | 3 or higher | ART 1000 for 3 credits”
+  - equivalencies[AP-3-D-ART-DESIGN|3 or higher]:  ⟵ “Art Studio—3D Design | 3 or higher | ART 1000 for 3 credits”
+  - equivalencies[AP-BIOLOGY|5]:  ⟵ “Biology | 5 | BL 1100, BL 1110, BL 1200, BL 1210 for 8 credits”
+  - equivalencies[AP-CALCULUS-AB|4, 5]:  ⟵ “Calculus AB | 4, 5 | MA 1160 for 4 credits”
+  - equivalencies[AP-CALCULUS-BC|4, 5]:  ⟵ “Calculus BC | 4, 5 | MA 1160 and MA 2160 for 8 credits”
+  - equivalencies[AP-CHEMISTRY|4, 5]:  ⟵ “Chemistry | 4, 5 | CH 1150, 1151, 1153, 1160, 1161, 1163 for 10 credits”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|4, 5]:  ⟵ “Computer Science A | 4, 5 | CS 1121 for 3 credits”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|3 or higher]:  ⟵ “Computer Science Principles | 3 or higher | TRU XXXX for 3 credits”
+  - equivalencies[AP-MACROECONOMICS|4, 5]:  ⟵ “Economics—Macro | 4, 5 | ECA for 3 credits*”
+  - equivalencies[AP-MICROECONOMICS|4, 5]:  ⟵ “Economics—Micro | 4, 5 | ECA for 3 credits*”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3 or higher]:  ⟵ “English Language and Composition | 3 or higher | UN 1015 for 3 credits”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3 or higher]:  ⟵ “English Literature and Composition | 3 or higher | HU2503 for 3 credits”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|3 or higher]:  ⟵ “Environmental Sciences | 3 or higher | GE 2100 for 3 credits”
+  - equivalencies[AP-EUROPEAN-HISTORY|3 or higher]:  ⟵ “European History | 3 or higher | SS 2502 for 3 credits”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3 or higher]:  ⟵ “German Language | 3 or higher | HU 2282, 3281, 3282 for 9 credits upon successful completion of either HU 3284 or 3285‡”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|3 or higher]:  ⟵ “Human Geography | 3 or higher | SS 2400 for 3 credits”
+  - equivalencies[AP-MUSIC-THEORY|3 or higher]:  ⟵ “Music Theory | 3 or higher | MUS 1100 for 3 credits”
+  - equivalencies[AP-PHYSICS-1|4, 5]:  ⟵ “Physics 1 | 4, 5 | PH 1110, 1111 for 4 credits”
+  - equivalencies[AP-PHYSICS-2|4, 5]:  ⟵ “Physics 2 | 4, 5 | PH 1200, 1210 for 4 credits”
+  - equivalencies[AP-PHYSICS-C-MECHANICS|4, 5]:  ⟵ “Physics C—Mechanics(for physics majors) | 4, 5 | PH 1160, 1161 for 5 credits”
+  - equivalencies[AP-PHYSICS-C-MECHANICS|4, 5]:  ⟵ “Physics C—Mechanics(for all other majors) | 4, 5 | PH 1100, 2100 for 4 credits”
+  - equivalencies[AP-PRECALCULUS|3 or higher]:  ⟵ “Precalculus | 3 or higher | MA 1032 for 4 credits”
+  - equivalencies[AP-PSYCHOLOGY|3 or higher]:  ⟵ “Psychology | 3 or higher | PSY 2000 for 3 credits”
+  - … 5 more rows
+### `e622dd85f1d4d5f3` Michigan Technological University — credit_policies 2026-27 · policy_kind=CLEP [new] (labeled_in_title)
+- source: https://www.mtu.edu/admissions/enroll/ap-ib-clep/clep-prospective/index.html (sha256 64b36932f01a)
+- checks: {"distinct_exams": 20, "equivalencies": 20, "rows_without_score": 0}
+  - equivalencies[CLEP-AMERICAN-GOVERNMENT|50]:  ⟵ “American Government | 50 | SS 2600 | 3”
+  - equivalencies[CLEP-AMERICAN-LITERATURE|50]:  ⟵ “American Literature | 50 | HU 2501 | 3”
+  - equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|50]:  ⟵ “Analyzing and Interpreting Literature | 50 | HU 1XXX | 3”
+  - equivalencies[CLEP-BIOLOGY|50]:  ⟵ “Biology | 50 | BL 1400, 1410 | 4”
+  - equivalencies[CLEP-CALCULUS|50]:  ⟵ “Calculus | 50 | MA 1160 | 4”
+  - equivalencies[CLEP-CHEMISTRY|50]:  ⟵ “Chemistry | 50 | CH 1150, 1151, 1153CH 1160, 1161, 1163 | 10”
+  - equivalencies[CLEP-COLLEGE-ALGEBRA|50]:  ⟵ “College Algebra | 50 | MA 1030 | 3”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION|50]:  ⟵ “College Composition | 50 | UN 1014 | 3”
+  - equivalencies[CLEP-ENGLISH-LITERATURE|50]:  ⟵ “English Literature | 50 | HU 2538 | 3”
+  - equivalencies[CLEP-FINANCIAL-ACCOUNTING|50]:  ⟵ “Financial Accounting | 50 | ACC 2000 | 3”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-I|50]:  ⟵ “History of the United States I: Thru 1877 | 50 | SS 2500 | 3”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-II|50]:  ⟵ “History of the United States II: 1865-Present | 50 | SS 2501 | 3”
+  - equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|50]:  ⟵ “Introductory Psychology | 50 | PSY 2000 | 3”
+  - equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|50]:  ⟵ “Introductory Sociology | 50 | SS 2700 | 3”
+  - equivalencies[CLEP-INTRODUCTORY-BUSINESS-LAW|50]:  ⟵ “Introductory Business Law | 50 | BUS 2200 | 3”
+  - equivalencies[CLEP-PRECALCULUS|50]:  ⟵ “Pre-Calculus | 50 | MA 1032 | 4”
+  - equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|50]:  ⟵ “Principles of Macroeconomics* | 50 | EC 1XXX | 3”
+  - equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|50]:  ⟵ “Principles of Microeconomics* | 50 | EC 1XXX | 3”
+  - equivalencies[CLEP-WESTERN-CIVILIZATION-I|50]:  ⟵ “Western Civilization I: Thru 1648 | 50 | SS 2502 | 3”
+  - equivalencies[CLEP-WESTERN-CIVILIZATION-II|50]:  ⟵ “Western Civilization II: 1648-Present | 50 | SS 2503 | 3”
+### `f89a8ea9b59e1c25` Michigan Technological University — credit_policies 2026-27 · policy_kind=IB [new] (labeled_in_title)
+- source: https://www.mtu.edu/admissions/enroll/ap-ib-clep/ib-prospective/index.html (sha256 b57ae9fc1c33)
+- checks: {"distinct_exams": 16, "equivalencies": 18, "rows_without_score": 0}
+  - equivalencies[IB-BIOLOGY-HL|HL 5]:  ⟵ “Biology HL | 5 | BL 1100, 1110, 1200, 1210 | 8”
+  - equivalencies[IB-CHEMISTRY-HL|HL 5]:  ⟵ “Chemistry HL | 5 | CH 1150, 1151, 1153CH 1160, 1161, 1163 | 10”
+  - equivalencies[IB-COMPUTER-SCIENCE-HL|HL 5]:  ⟵ “Computer Science HL | 5 | May enroll in accelerated CS 1131 | ”
+  - equivalencies[IB-ECONOMICS-HL|HL 5]:  ⟵ “Economics HL | 5 | EC 2001 | 3”
+  - equivalencies[IB-GEOGRAPHY-HL|HL 5]:  ⟵ “Geography HL | 5 | SS 2400 | 3”
+  - equivalencies[IB-GERMAN-HL|HL 5]:  ⟵ “German Language or Literature HL | 5 | HU 2282, 3281, 3282upon successful completion ofeither HU 3284 or 3285* | 9”
+  - equivalencies[IB-HISTORY-HL|HL 5]:  ⟵ “History—Africa and the Middle East HL | 5 | SS 2505 | 3”
+  - equivalencies[IB-HISTORY|5]:  ⟵ “History—Asia and Oceania | 5 | SS 2505 | 3”
+  - equivalencies[IB-HISTORY-HL|HL 5]:  ⟵ “History—European HL | 5 | SS 2502 | 3”
+  - equivalencies[IB-HISTORY-HL|HL 5]:  ⟵ “History—US HL | 5 | SS 2500 | 3”
+  - equivalencies[IB-MUSIC-HL|HL 5]:  ⟵ “Music HL | 5 | MUS 1000 | 3”
+  - equivalencies[IB-PHILOSOPHY-HL|HL 5]:  ⟵ “Philosophy HL | 5 | HU 2700 | 3”
+  - equivalencies[IB-PHYSICS-HL|HL 5]:  ⟵ “Physics HL | 5 | PH 1110, 1111PH 1200, 1210 | 8”
+  - equivalencies[IB-PSYCHOLOGY-HL|HL 5]:  ⟵ “Psychology HL | 5 | PSY 2000 | 3”
+  - equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY-HL|HL 5]:  ⟵ “Social and Cultural Anthropology HL | 5 | SS 2100 | 3”
+  - equivalencies[IB-SPANISH-HL|HL 5]:  ⟵ “Spanish Language or Literature HL | 5 | HU 3291, 3292, and 3293upon successful completion ofHU 3294, 3295, or 3296* | 9”
+  - equivalencies[IB-THEATRE-HL|HL 5]:  ⟵ “Theatre Arts HL | 5 | THEA 1000 | 3”
+  - equivalencies[IB-VISUAL-ARTS-HL|HL 5]:  ⟵ “Visual Arts HL | 5 | ART 1000 | 3”
+### `m636de2474dfbc48` Michigan Technological University — transfer_policies 2026-27 [new] (source_unlabeled)
+- source: https://www.mtu.edu/admissions/apply/transfer/ (sha256 8841d2de3a15)
+- checks: {"fields": ["min_grade"], "merged_pages": 3}
+  - min_grade: C ⟵ “Michigan Tech UG Application Common Application Transfer Credit Transfer credit is granted for appropriate courses completed at another accredited institution with a grade of C or better.”
+  - min_grade: C ⟵ “Transfer credit is granted for appropriate courses completed at another accredited institution with a grade of C or better.”
+  - min_grade: C ⟵ “Transfer credit is granted for most courses completed at an accredited college or university with a grade of C or better.”
+### `1b81160600e23097` Mott Community College — credit_policies 2026-27 · policy_kind=CLEP [new] (source_unlabeled)
+- source: https://www.mcc.edu/placement-testing/advanced-placement-CLEP.shtml (sha256 68208bb0c6af)
+- checks: {"distinct_exams": 6, "equivalencies": 6, "rows_without_score": 0}
+  - equivalencies[CLEP-COLLEGE-COMPOSITION|50]:  ⟵ “College Composition | 50 | 3 | ENGL 101”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION-MODULAR|50]:  ⟵ “College Composition Modular | 50 | 3 | ENGL 101”
+  - equivalencies[CLEP-CALCULUS|50]:  ⟵ “Calculus | 50 | 5 | MATH 170”
+  - equivalencies[CLEP-COLLEGE-ALGEBRA|50]:  ⟵ “College Algebra | 50 | 4 | MATH 130”
+  - equivalencies[CLEP-COLLEGE-MATHEMATICS|50]:  ⟵ “College Mathematics | 50 | 6 | MATH 120 (+2cr. Math Elective)”
+  - equivalencies[CLEP-PRECALCULUS|50]:  ⟵ “Pre-Calculus | 50 | 5 | MATH 145”
+### `b0da784c4a1ea79b` Mott Community College — credit_policies 2026-27 · policy_kind=AP [new] (source_unlabeled)
+- source: https://www.mcc.edu/placement-testing/advanced-placement-CLEP.shtml (sha256 68208bb0c6af)
+- checks: {"distinct_exams": 4, "equivalencies": 4, "rows_without_score": 0}
+  - equivalencies[AP-CALCULUS-AB|3]:  ⟵ “Calculus AB | 3 | 5 | Math 170”
+  - equivalencies[AP-CALCULUS-BC|3]:  ⟵ “Calculus BC | 3 | 5 | Math 180”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3]:  ⟵ “English Language/Composition | 3 | 3 | English 101”
+  - equivalencies[AP-STATISTICS|3]:  ⟵ “Statistics | 3 | 4 | Math 150”
+### `m01bd9623932a706` Mott Community College — credit_policies 2026-27 · policy_kind=dual_enrollment [new] (source_unlabeled)
+- source: https://www.mcc.edu/admissions/dual-enrolled-early-admit-student.shtml (sha256 8e1a968b5cf6)
+- checks: {"fields": ["min_hs_gpa"], "merged_pages": 3, "tiers": 1}
+  - eligibility_tier: 2.5 ⟵ “Maintaining a high school cumulative GPA of 2.5 or higher. - If the student has not yet established a high school transcript, the application will be reviewed on a case by case basis to be decided by both the high school counselor and MCC's Dual Enrollment Office.”
+  - eligibility_tier: 2.5 ⟵ “pursuing a high school diploma and has a minimum cumulative 2.5 grade point average; The student has the signed permission of the”
+  - eligibility_tier: 2.0 ⟵ “mum 2.0 GPA in each college course as well as in the high school courses. Students may enroll in subsequent semesters by submit-”
+  - eligibility_tier: 2.5 ⟵ “Have a minimum 2.5 high school grade point average.”
+  - eligibility_tier: 2.0 ⟵ “EARLY ADMIT STUDENTS must maintain a minimum 2.0 grade point in all college and high school course work. If the GPA drops”
+  - eligibility_tier: 2.5 ⟵ “below a 2.0, college enrollment is not allowed until after high school graduation. Students with less than a 2.5 GPA may be considered”
+  - eligibility_tier: 2.5 ⟵ “pursuing a high school diploma and has a minimum cumulative 2.5 grade point average; The student has the signed permission of the”
+  - eligibility_tier: 2.0 ⟵ “mum 2.0 GPA in each college course as well as in the high school courses. Students may enroll in subsequent semesters by submit-”
+  - eligibility_tier: 2.5 ⟵ “Have a minimum 2.5 high school grade point average.”
+  - eligibility_tier: 2.0 ⟵ “EARLY ADMIT STUDENTS must maintain a minimum 2.0 grade point in all college and high school course work. If the GPA drops”
+  - eligibility_tier: 2.5 ⟵ “below a 2.0, college enrollment is not allowed until after high school graduation. Students with less than a 2.5 GPA may be considered”
+### `77a6513d75399156` Muskegon Community College — transfer_policies 2026-27 [new] (source_unlabeled)
+- source: https://www.muskegoncc.edu/admissions/become-a-student/students-transferring-to-mcc/ (sha256 7221421c36d1)
+- checks: {"fields": ["min_grade", "residency_requirement_credits"]}
+  - min_grade: C ⟵ “In general, we award college transfer credit for coursework completed with a grade of “C” or higher from regionally-accredited institutions of higher education.”
+  - min_grade: C ⟵ “Grades Only courses with a grade of “C” or higher will be considered for transfer credit.”
+  - residency_requirement_credits: 15 ⟵ “Degree Residency Requirement A student may transfer any number of credits to MCC; however, a student must complete at least 30 credit hours, or the last 15 credit hours of a degree, at MCC in order to receive a degree from MCC.”
+### `m26a61b0dea8651d` Northern Michigan University — credit_policies 2026-27 · policy_kind=dual_enrollment [new] (labeled_in_source)
+- source: https://nmu.edu/admissions/sites/admissions/files/2026-07/Northern-Promise-Applications-Dual-Enrollment-2026-27.pdf (sha256 b9507cd41558)
+- checks: {"fields": ["max_credit_hours_per_term", "per_credit_hour_charges", "tuition_per_credit_hour"], "merged_pages": 3, "tiers": 2}
+  - eligibility_tier: 3.0 ⟵ “Applicants must have completed the 10th grade of high school and have achieved a minimum 3.00 grade point average.  Those not meeting these criteria but who believe they could be successful in college course work should contact the NMU Admissions Office for guidance.”
+  - eligibility_tier: 3.0 ⟵ “Criteria for Admission and Enrollment: Completion of 10th grade and minimum 3.00 high school GPA.”
+  - max_credit_hours_per_term: 8 ⟵ “Enrollment Limits: Maximum of 8 credits per semester in any combination of Northern Promise programs (dual enrollment,”
+  - per_credit_hour_charge: 646 ⟵ “Web-based & off-campus course tuition costs: $646 per credit”
+  - eligibility_tier: 3.5 ⟵ “2. Student must have a minimum high school GPA of 3.5.”
+  - eligibility_tier: 3.0 ⟵ “Applicants must have completed the 10th grade of high school and have achieved a minimum 3.00 grade point average.  Those not meeting these criteria but who believe they could be successful in college course work should contact the NMU Admissions Office for guidance.”
+### `22d3a17460fffd9e` Northwestern Michigan College — costs 2026-27 · residency=out_of_state [new] (labeled_in_source)
+- source: https://www.nmc.edu/admissions/tuition-fees/cost-of-attendance.html (sha256 a09fa19eba29)
+- checks: {"columns": 1, "rows": 7}
+  - on_campus:Tuition And Fees: 50263 ⟵ “Tuition And Fees | $42,341 | $47,407 | $50,263 | $54,496”
+  - on_campus:Professional Credentials/Licenses: 2600 ⟵ “Professional Credentials/Licenses | $2,600 | $2,600 | $2,600 | $2,600”
+  - on_campus:Books, Course Materials, Supplies And Equipment: 476 ⟵ “Books, Course Materials, Supplies And Equipment | $476 | $476 | $476 | $476”
+  - on_campus:Living Expenses: On-Campus Housing And Food: 10950 ⟵ “Living Expenses: On-Campus Housing And Food | $10,950 | $10,950 | $10,950 | $10,950”
+  - on_campus:Transportation: 3100 ⟵ “Transportation | $1,100 | $2,300 | $3,100 | $3,100”
+  - on_campus:Miscellaneous Personal Expenses: 900 ⟵ “Miscellaneous Personal Expenses | $900 | $900 | $900 | $900”
+  - on_campus:Federal Student Loan Fees: 120 ⟵ “Federal Student Loan Fees | $120 | $120 | $120 | $120”
+### `d79ab141b2675732` Northwestern Michigan College — costs 2026-27 · residency=in_state [new] (labeled_in_source)
+- source: https://www.nmc.edu/admissions/tuition-fees/cost-of-attendance.html (sha256 a09fa19eba29)
+- checks: {"columns": 1, "rows": 7}
+  - on_campus:Tuition And Fees: 47407 ⟵ “Tuition And Fees | $42,341 | $47,407 | $50,263 | $54,496”
+  - on_campus:Professional Credentials/Licenses: 2600 ⟵ “Professional Credentials/Licenses | $2,600 | $2,600 | $2,600 | $2,600”
+  - on_campus:Books, Course Materials, Supplies And Equipment: 476 ⟵ “Books, Course Materials, Supplies And Equipment | $476 | $476 | $476 | $476”
+  - on_campus:Living Expenses: On-Campus Housing And Food: 10950 ⟵ “Living Expenses: On-Campus Housing And Food | $10,950 | $10,950 | $10,950 | $10,950”
+  - on_campus:Transportation: 2300 ⟵ “Transportation | $1,100 | $2,300 | $3,100 | $3,100”
+  - on_campus:Miscellaneous Personal Expenses: 900 ⟵ “Miscellaneous Personal Expenses | $900 | $900 | $900 | $900”
+  - on_campus:Federal Student Loan Fees: 120 ⟵ “Federal Student Loan Fees | $120 | $120 | $120 | $120”
+### `4595481f05fde53e` Northwestern Michigan College — credit_policies 2026-27 · policy_kind=IB [new] (source_unlabeled)
+- source: https://www.nmc.edu/student-services/records-registration/getting-things-done/credit-for-prior-learning/international-baccalaureate-credit.html (sha256 3035694a3e06)
+- checks: {"distinct_exams": 10, "equivalencies": 11, "rows_without_score": 0}
+  - equivalencies[IB-BIOLOGY|4]:  ⟵ “Biology | BIO 110/110L | Essential Biology & Lab | 4 | 4”
+  - equivalencies[IB-CHEMISTRY|4]:  ⟵ “Chemistry | CHM 150/150L | General Chemistry & Lab | 4 | 4”
+  - equivalencies[IB-ECONOMICS|4]:  ⟵ “Economics | ECO 201 | Principles of Macroeconomics | 4 | 3”
+  - equivalencies[IB-HISTORY|4]:  ⟵ “American History | HST 111 | US History to 1865 | 4 | 4”
+  - equivalencies[IB-HISTORY|4]:  ⟵ “European History | HST 235 | 20 th Century Europe | 4 | 3”
+  - equivalencies[IB-MUSIC|4]:  ⟵ “Music | MUS 110 | Music Appreciation Standard Lit | 4 | 3”
+  - equivalencies[IB-PHYSICS|4]:  ⟵ “Physics | PHY 121/121L | General Physics I & Lab | 4 | 4”
+  - equivalencies[IB-PSYCHOLOGY|4]:  ⟵ “Psychology | PSY 101 | Intro to Psychology | 4 | 3”
+  - equivalencies[IB-SPANISH|4]:  ⟵ “Spanish | SPN 101 | Elementary Spanish | 4 | 4”
+  - equivalencies[IB-VISUAL-ARTS|4]:  ⟵ “Visual Arts | ART Course | Art Elective | 4 | 3”
+  - equivalencies[IB-GEOGRAPHY|4]:  ⟵ “Geography | GEO 101 | Intro to Geography | 4 | 3”
+### `c1a1ab3f0fa0468b` Northwestern Michigan College — credit_policies 2026-27 · policy_kind=AP [new] (source_unlabeled)
+- source: https://www.nmc.edu/student-services/records-registration/getting-things-done/credit-for-prior-learning/advanced-placement/ap-courses-score-requirements.html (sha256 91ad69478b45)
+- checks: {"distinct_exams": 24, "equivalencies": 27, "rows_without_score": 0}
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|3]:  ⟵ “African American studies | 3 | Group 1 Humanities | Humanities | 3”
+  - equivalencies[AP-ART-HISTORY|3]:  ⟵ “Art History | 3 | ART-111 & ART-112 | Hist. of Western Art | 8”
+  - equivalencies[AP-BIOLOGY|3]:  ⟵ “Biology | 3 | BIO-115 | Biology I | 4”
+  - equivalencies[AP-BIOLOGY|4]:  ⟵ “Biology | 4 | BIO-115 & BIO-116 | Biology I & II | 8”
+  - equivalencies[AP-CALCULUS-AB|3]:  ⟵ “Calculus AB | 3 | MTH-141 | Calculus I | 5”
+  - equivalencies[AP-CALCULUS-BC|3]:  ⟵ “Calculus BC | 3 | MTH-141 & MTH-142 | Calculus I & II | 10”
+  - equivalencies[AP-CHEMISTRY|3]:  ⟵ “Chemistry | 3 | CHM-150 | General Chemistry | 5”
+  - equivalencies[AP-CHEMISTRY|4]:  ⟵ “Chemistry | 4 | CHM-150 & CHM-151 | General Chemistry | 10”
+  - equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|3]:  ⟵ “Comparative Government | 3 | PLS-132 | Comparative Government | 3”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|3]:  ⟵ “Computer Science A | 3 | EGR-111 | Intro to Computer Science | 4”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|3]:  ⟵ “Computer Science Principles | 3 | EGR-111 | Intro to Computer Science | 4”
+  - equivalencies[AP-MACROECONOMICS|3]:  ⟵ “Economics - Macro. | 3 | ECO-201 | Prin of Macroecon. | 3”
+  - equivalencies[AP-MICROECONOMICS|3]:  ⟵ “Economics - Micro. | 3 | ECO-202 | Prin of Microecon. | 3”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]:  ⟵ “French | 3 | FRN-101 & FRN-102 | Elementary French | 8”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3]:  ⟵ “German | 3 | GRM-101 & FRN-102 | Elementary German | 8”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|3]:  ⟵ “Human Geography | 3 | Group 1 Social Science | Geography | 3”
+  - equivalencies[AP-MUSIC-THEORY|3]:  ⟵ “Music Theory | 3 | MUS-101 | Theory of Music | 3”
+  - equivalencies[AP-PHYSICS-1|3]:  ⟵ “Physics 1 | 3 | PHY-121, PHY-121L | General Physics I | 4”
+  - equivalencies[AP-PHYSICS-2|3]:  ⟵ “Physics 2 | 3 | PHY-122, PHY-122L | General Physics 2 | 4”
+  - equivalencies[AP-PHYSICS-C-MECHANICS|3]:  ⟵ “Physics C - Mechanics | 3 | PHY-221, PHY-221R | Principles of Physics | 5”
+  - equivalencies[AP-PHYSICS-C-MECHANICS|3]:  ⟵ “Physics C - Elect. / Mech. | 3 | PHY-222, PHY-222R | Principles of Physics | 5”
+  - equivalencies[AP-PSYCHOLOGY|3]:  ⟵ “Psychology | 3 | PSY-101 | Intro to Psychology | 3”
+  - equivalencies[AP-RESEARCH|3]:  ⟵ “Research | 3 | General Elective | General Elective | 3”
+  - equivalencies[AP-SEMINAR|3]:  ⟵ “Seminar | 3 | General Elective | General Elective | 3”
+  - equivalencies[AP-SPANISH-LANGUAGE-CULTURE|3]:  ⟵ “Spanish | 3 | SPN-101, SPN-102 | Elementary Spanish | 8”
+  - … 2 more rows
+### `306e7ae525f934fa` Northwood University — credit_policies 2026-27 · policy_kind=dual_enrollment [new] (labeled_in_source)
+- source: https://www.northwood.edu/admissions/dual-enrollment/ (sha256 e3db8eef1c04)
+- checks: {"fields": ["min_hs_gpa"], "tiers": 1}
+  - eligibility_tier: 3.0 ⟵ “Students with a minimum 3.0 GPA”
+### `7c079e89c4c7d6fd` Northwood University — credit_policies 2026-27 · policy_kind=AP [new] (source_unlabeled)
+- source: https://www.northwood.edu/academics/undergraduate/placement/ (sha256 f306450198b2)
+- checks: {"distinct_exams": 20, "equivalencies": 23, "rows_without_score": 0}
+  - equivalencies[AP-DRAWING|4 or 5]:  ⟵ “Art, Studio – Drawing Portfolio | 4 or 5 | 3 | Humanities Elective”
+  - equivalencies[AP-BIOLOGY|3]:  ⟵ “Biology | 3 | 3 | Science Elective”
+  - equivalencies[AP-CALCULUS-AB|3]:  ⟵ “Calculus AB | 3 | 3 | MTH 3100 Calculus I”
+  - equivalencies[AP-CALCULUS-BC|3]:  ⟵ “Calculus BC | 3 | 3 | MTH 3200 Calculus II”
+  - equivalencies[AP-CHEMISTRY|3]:  ⟵ “Chemistry | 3 | 3 | Natural Science Elective”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|4 or 5]:  ⟵ “Computer Science A | 4 or 5 | 3 | MIS Elective”
+  - equivalencies[AP-MACROECONOMICS|3]:  ⟵ “Economics – Macroeconomics | 3 | 3 | ECN 2220 Macroeconomics”
+  - equivalencies[AP-MICROECONOMICS|3]:  ⟵ “Economics – Microeconomics | 3 | 3 | ECN 2210 Microeconomics”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3]:  ⟵ “English Language & Composition | 3 | 3 | ENG 1150 Composition I”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3]:  ⟵ “English Literature & Composition | 3 | 3 | ENG 1200 Composition II”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3 or 4]:  ⟵ “French Language | 3 or 4 | 3 | Foreign Lang. Elective”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|5]:  ⟵ “French Language | 5 | 6 | Foreign Lang. Elective”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3 or 4]:  ⟵ “German Language | 3 or 4 | 3 | Foreign Lang. Elective”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|5]:  ⟵ “German Language | 5 | 6 | Foreign Lang. Elective”
+  - equivalencies[AP-LATIN|3]:  ⟵ “Latin Literature | 3 | 3 | Humanities Elective”
+  - equivalencies[AP-MUSIC-THEORY|3]:  ⟵ “Music Theory | 3 | 3 | HUM 3130 Intro. to Music”
+  - equivalencies[AP-PHYSICS-C-MECHANICS|3]:  ⟵ “Physics C: Mechanics | 3 | 3 | Science Elective”
+  - equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|3]:  ⟵ “Physics C: Electricity & Magnetism | 3 | 3 | Science Elective”
+  - equivalencies[AP-PSYCHOLOGY|3]:  ⟵ “Psychology | 3 | 3 | PSY 3000 Prin. of Psychology”
+  - equivalencies[AP-SPANISH-LANGUAGE-CULTURE|3 or 4]:  ⟵ “Spanish Language | 3 or 4 | 3 | SPN 2010 Spanish I”
+  - equivalencies[AP-SPANISH-LANGUAGE-CULTURE|5]:  ⟵ “Spanish Language | 5 | 6 | SPN 2010, 2015 Spanish I and II”
+  - equivalencies[AP-SPANISH-LITERATURE-CULTURE|3]:  ⟵ “Spanish Literature | 3 | 3 | Humanities Elective”
+  - equivalencies[AP-STATISTICS|3]:  ⟵ “Statistics | 3 | 3 | MTH 2310 Statistics”
+### `3cf70cf36756d942` Saginaw Valley State University — costs 2026-27 · residency=in_state [new] (labeled_in_source)
+- source: https://www.svsu.edu/financialaid/costofattendance/2026-2027/ (sha256 6ecd28f8c2a4)
+- checks: {"columns": 1, "components_reconcile": true, "rows": 7}
+  - on_campus:Tuition & Fees (18 credits per academic year): 14400 ⟵ “Tuition & Fees (18 credits per academic year) | $14,400 | $14,400”
+  - on_campus:Books and Supplies: 1220 ⟵ “Books and Supplies | $1,220 | $1,220”
+  - on_campus:Housing and Food: 4530 ⟵ “Housing and Food | $4,530 | $4,530”
+  - on_campus:Transportation: 1670 ⟵ “Transportation | $1,670 | $1,670”
+  - on_campus:Loan Fees: 216 ⟵ “Loan Fees | $216 | $216”
+  - on_campus:Personal / Miscellaneous: 1340 ⟵ “Personal / Miscellaneous | $1,340 | $1,340”
+  - on_campus:Total Cost of Attendance: 23376 ⟵ “Total Cost of Attendance | $23,376 | $23,376”
+### `6512730b08f0e420` Saginaw Valley State University — costs 2026-27 · residency=out_of_state [new] (labeled_in_source)
+- source: https://www.svsu.edu/financialaid/costofattendance/2026-2027/ (sha256 6ecd28f8c2a4)
+- checks: {"columns": 1, "components_reconcile": true, "rows": 7}
+  - on_campus:Tuition & Fees (18 credits per academic year): 14400 ⟵ “Tuition & Fees (18 credits per academic year) | $14,400 | $14,400”
+  - on_campus:Books and Supplies: 1220 ⟵ “Books and Supplies | $1,220 | $1,220”
+  - on_campus:Housing and Food: 4530 ⟵ “Housing and Food | $4,530 | $4,530”
+  - on_campus:Transportation: 1670 ⟵ “Transportation | $1,670 | $1,670”
+  - on_campus:Loan Fees: 216 ⟵ “Loan Fees | $216 | $216”
+  - on_campus:Personal / Miscellaneous: 1340 ⟵ “Personal / Miscellaneous | $1,340 | $1,340”
+  - on_campus:Total Cost of Attendance: 23376 ⟵ “Total Cost of Attendance | $23,376 | $23,376”
+### `7cb2089c8f38cfd9` St Clair County Community College — costs 2026-27 · residency=out_of_state [new] (labeled_in_source)
+- source: https://sc4.edu/admissions/financial-aid/how-aid-is-determined/ (sha256 72b3df9bae94)
+- checks: {"columns": 1, "components_reconcile": true, "rows": 7}
+  - off_campus_not_with_family:Tuition and Fees (27 contact hours): 12826 ⟵ “Tuition and Fees (27 contact hours) | $5,536 | $9,234 | $12,826 | $5,536 | $9,234”
+  - off_campus_not_with_family:Books, Course Materials, Supplies and Equipment: 1828 ⟵ “Books, Course Materials, Supplies and Equipment | $1,828 | $1,828 | $1,828 | $1,828 | $1,828”
+  - off_campus_not_with_family:Transportation: 3286 ⟵ “Transportation | $3,286 | $3,286 | $3,286 | $3,286 | $3,286”
+  - off_campus_not_with_family:Living Expenses (Housing and Food): 9280 ⟵ “Living Expenses (Housing and Food) | $9,280 | $9,280 | $9,280 | $13,204 | $13,204”
+  - off_campus_not_with_family:Personal/Miscellaneous: 1692 ⟵ “Personal/Miscellaneous | $1,692 | $1,692 | $1,692 | $1,692 | $1,692”
+  - off_campus_not_with_family:Average Direct Loan Fees: 60 ⟵ “Average Direct Loan Fees | $60 | $60 | $60 | $60 | $60”
+  - off_campus_not_with_family:Total: 28972 ⟵ “Total | $21,682 | $25,380 | $28,972 | $25,606 | $29,304”
+### `443f11db65dad6fe` St Clair County Community College — credit_policies 2026-27 · policy_kind=AP [new] (source_unlabeled)
+- source: https://sc4.edu/admissions/testing-equivalencies/ (sha256 a443ea1fc0e4)
+- checks: {"distinct_exams": 26, "equivalencies": 29, "rows_without_score": 0}
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|3 or better]:  ⟵ “African American Studies | 3 or better | 3 | HIS 233”
+  - equivalencies[AP-2-D-ART-DESIGN|3 or better]:  ⟵ “Art, 2-D Design | 3 or better | 3 | ART 106”
+  - equivalencies[AP-3-D-ART-DESIGN|3 or better]:  ⟵ “Art, Studio 3-D Design | 3 or better | 3 | ART 107”
+  - equivalencies[AP-DRAWING|3 or better]:  ⟵ “Art, Studio-Drawing Portfolio | 3 or better | 3 | ART 101”
+  - equivalencies[AP-BIOLOGY|3 or better]:  ⟵ “Biology | 3 or better | 4 | BIO 101”
+  - equivalencies[AP-CALCULUS-AB|3 or better]:  ⟵ “Calculus AB | 3 or better | 4 | MTH 1140”
+  - equivalencies[AP-CALCULUS-BC|3 or better]:  ⟵ “Calculus BC | 3 or better | 4 | MTH 2150”
+  - equivalencies[AP-CHEMISTRY|3]:  ⟵ “Chemistry | 3 | 4 | CHM 101”
+  - equivalencies[AP-CHEMISTRY|4 or better]:  ⟵ “Chemistry | 4 or better | 5 | CHM 111”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|3 or better]:  ⟵ “Computer Science A | 3 or better | 4 | CIS 260”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|3 or better]:  ⟵ “Computer Science Principles | 3 or better | 2 | CIS 150”
+  - equivalencies[AP-MACROECONOMICS|3 or better]:  ⟵ “Economics-Macroeconomics | 3 or better | 3 | ECON 221”
+  - equivalencies[AP-MICROECONOMICS|3 or better]:  ⟵ “Economics-Microeconomics | 3 or better | 3 | ECON 222”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3 or better]:  ⟵ “English Language & Composition | 3 or better | 3 | ENG 101”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3 or better]:  ⟵ “English Literature & Composition | 3 or better | 3 | English Literature Credit”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|3 or better]:  ⟵ “Environmental Science | 3 or better | 4 | BIO 270, BIO-LAB credit”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3 or better]:  ⟵ “French Language | 3 or better | 8 | FR 101, 102”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3 or better]:  ⟵ “German Language | 3 or better | 8 | GR 101, 102”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|4 or better]:  ⟵ “Human Geography | 4 or better | 3 | GEO-102”
+  - equivalencies[AP-PHYSICS-1|3 or better]:  ⟵ “Physics 1 | 3 or better | 5 | PHY 121”
+  - equivalencies[AP-PHYSICS-2|3 or better]:  ⟵ “Physics 2 | 3 or better | 5 | PHY 122”
+  - equivalencies[AP-PHYSICS-C-MECHANICS|3]:  ⟵ “Physics C-Mechanics | 3 | 5 | PHY 121”
+  - equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|3]:  ⟵ “Physics C-Electricity & Magnetism | 3 | 5 | PHY 122”
+  - equivalencies[AP-PHYSICS-C-MECHANICS|4 or better]:  ⟵ “Physics C-Mechanics | 4 or better | 5 | PHY 221”
+  - equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|4 or better]:  ⟵ “Physics C-Electricity & Magnetism | 4 or better | 5 | PHY 222”
+  - … 4 more rows
+### `m5dacfc5437cfe22` University of Detroit Mercy — credit_policies 2026-27 · policy_kind=dual_enrollment [new] (source_unlabeled)
+- source: https://www.udmercy.edu/admission/dual-enrollment.php (sha256 e2b00beb6e9f)
+- checks: {"fields": ["per_credit_hour_charges", "tuition_per_credit_hour"], "merged_pages": 2, "tiers": 0}
+  - per_credit_hour_charge: 155 ⟵ “The tuition for dual enrollment is $155 per credit hour. Some courses may have a course fee above tuition.”
+  - per_credit_hour_charge: 155 ⟵ “The tuition for dual enrollment is $155 per credit hour. Some courses may have a course fee above tuition.”
+### `b85631db21d8ce2d` Washtenaw Community College — credit_policies 2026-27 · policy_kind=IB [new] (labeled_in_url)
+- source: https://www.wccnet.edu/start-now/prior-learning/2026-2027-IB-list-date-changed.pdf (sha256 f87bf7f5de2e)
+- checks: {"distinct_exams": 5, "equivalencies": 5, "rows_without_score": 0}
+  - equivalencies[IB-BIOLOGY|4]:  ⟵ “Biology                                        4                    4        BIO 101”
+  - equivalencies[IB-BUSINESS-MANAGEMENT|3]:  ⟵ “Business and Management                    4, 5, 6, 7               3        BMG 140”
+  - equivalencies[IB-CHEMISTRY|4]:  ⟵ “Chemistry                                  4, 5, 6, 7               4        CEM 111”
+  - equivalencies[IB-ENGLISH-A-LANGUAGE-LITERATURE|4]:  ⟵ “English A – Language &                     4, 5, 6, 7              4         ENG 091”
+  - equivalencies[IB-ENGLISH-A-LITERATURE|3]:  ⟵ “English A - Literature                     4, 5, 6, 7           3            ENG Elective Credit”
+### `d7acad616706e6a0` Washtenaw Community College — credit_policies 2026-27 · policy_kind=AP [new] (labeled_in_source)
+- source: https://www.wccnet.edu/start-now/prior-learning/2026-2027-AP-list-date-changed.pdf (sha256 12cdd172e408)
+- checks: {"distinct_exams": 31, "equivalencies": 31, "rows_without_score": 0}
+  - equivalencies[AP-ART-HISTORY|3]:  ⟵ “AP Art History                                    3                3         ART 130”
+  - equivalencies[AP-MUSIC-THEORY|3]:  ⟵ “AP Music Theory                                   3                3         MUS 140”
+  - equivalencies[AP-DRAWING|3]:  ⟵ “AP Drawing                                        3                3         ART 101”
+  - equivalencies[AP-2-D-ART-DESIGN|3]:  ⟵ “AP 2-D Art and Design                             3                3         ART 101”
+  - equivalencies[AP-3-D-ART-DESIGN|3]:  ⟵ “AP 3-D Art and Design                             3                3         ART 101”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3]:  ⟵ “AP English Language and                           3                4         ENG 111”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3]:  ⟵ “AP English Literature and                         3                3         Elective Credit”
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|3]:  ⟵ “AP African American Studies                       3                3         HST 150”
+  - equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|3]:  ⟵ “AP Comparative Government and                     3                3         Elective”
+  - equivalencies[AP-EUROPEAN-HISTORY|3]:  ⟵ “AP European History                               3                3         Elective”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|3]:  ⟵ “AP Human Geography                                3                3         GEO 101”
+  - equivalencies[AP-MACROECONOMICS|4]:  ⟵ “AP Macroeconomics                                 4                3         ECO 211”
+  - equivalencies[AP-MICROECONOMICS|4]:  ⟵ “AP Microeconomics                                 4                3         ECO 222”
+  - equivalencies[AP-PSYCHOLOGY|3]:  ⟵ “AP Psychology                                     3                3         PSY 100”
+  - equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|3]:  ⟵ “AP United States Government and                   3                3         PLS 112”
+  - equivalencies[AP-WORLD-HISTORY-MODERN|3]:  ⟵ “AP World History: Modern                          3                3         Elective”
+  - equivalencies[AP-PRECALCULUS|3]:  ⟵ “AP Precalculus                                    3                5         MTH 180”
+  - equivalencies[AP-CALCULUS-AB|3]:  ⟵ “AP Calculus AB                                    3                5         MTH 191”
+  - equivalencies[AP-CALCULUS-BC|3]:  ⟵ “AP Calculus BC                                    3                9         MTH 191 & MTH 192”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|3]:  ⟵ “AP Computer Science A                             3                4         CPS 161”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|3]:  ⟵ “AP Computer Science Principles                    3                3         CPS 120”
+  - equivalencies[AP-STATISTICS|3]:  ⟵ “AP Statistics                                     3                4         MTH 160”
+  - equivalencies[AP-BIOLOGY|3]:  ⟵ “AP Biology                                           3                4         BIO 101”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|3]:  ⟵ “AP Environmental Science                             3                4         ENV 101”
+  - equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|4]:  ⟵ “AP Physics C: Electricity and                        4                5         PHY 222”
+  - … 6 more rows
+### `5100b86db96c2b18` Western Michigan University — credit_policies 2026-27 · policy_kind=CLEP [new] (source_unlabeled)
+- source: https://wmich.edu/transfer/credit/clep (sha256 84765cf134fb)
+- checks: {"distinct_exams": 22, "equivalencies": 32, "rows_without_score": 0}
+  - equivalencies[CLEP-AMERICAN-GOVERNMENT|50]:  ⟵ “American Government | 50 | PSCI 2000 | 3 sem. hrs.”
+  - equivalencies[CLEP-BIOLOGY|50]:  ⟵ “Biology, General | 50 | BIOS 1050, 1120* | 6 sem. hrs.”
+  - equivalencies[CLEP-CALCULUS|50 - 59]:  ⟵ “Calculus | 50 - 59 | MATH 2000 | 4 sem. hrs.”
+  - equivalencies[CLEP-CALCULUS|60 or higher]:  ⟵ “Calculus | 60 or higher | MATH 1220 | 4 sem. hrs.”
+  - equivalencies[CLEP-CHEMISTRY|50]:  ⟵ “Chemistry | 50 | CHEM 1100, 1110 | 4 sem. hrs.”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|50 - 55]:  ⟵ “French | 50 - 55 | FREN 1000 | 4 sem. hrs.”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|56 - 62]:  ⟵ “French | 56 - 62 | FREN 1000 and 1010 | 8 sem. hrs.”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|63 - 67]:  ⟵ “French | 63 - 67 | FREN 1000, 1010, and 2000 | 12 sem. hrs.”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|68 - 80]:  ⟵ “French | 68 - 80 | FREN 1000, 1010, 2000, and 2010 | 16 sem. hrs.”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|50 - 55]:  ⟵ “German | 50 - 55 | GER 1000 | 4 sem. hrs.”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|56 - 62]:  ⟵ “German | 56 - 62 | GER 1000 and 1010 | 8 sem. hrs.”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|63 - 67]:  ⟵ “German | 63 - 67 | GER 1000, 1010, and 2000 | 12 sem. hrs.”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|68 - 80]:  ⟵ “German | 68 - 80 | GER 1000, 1010, 2000, and 2010 | 16 sem. hrs.”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-I|50]:  ⟵ “History of the United States I | 50 | HIST 2100 | 3 sem. hrs.”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-II|50]:  ⟵ “History of the United States II | 50 | HIST 2110 | 3 sem. hrs.”
+  - equivalencies[CLEP-HUMAN-GROWTH-DEVELOPMENT|50]:  ⟵ “Human Growth and Development | 50 | HSV 2250 | 3 sem. hrs.”
+  - equivalencies[CLEP-PRECALCULUS|60]:  ⟵ “Precalculus | 60 | MATH 1180 | 4 sem. hrs.”
+  - equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|50]:  ⟵ “Principles of Macroeconomics | 50 | ECON 2020 | 3 sem. hrs.”
+  - equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|50]:  ⟵ “Principles of Microeconomics | 50 | ECON 2010 | 3 sem. hrs.”
+  - equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|50]:  ⟵ “Psychology, Introductory | 50 | PSY 1000 | 3 sem. hrs.”
+  - equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|50]:  ⟵ “Sociology, Introductory | 50 | SOC 2000 | 3 sem. hrs.”
+  - equivalencies[CLEP-SPANISH-LANGUAGE|50 - 55]:  ⟵ “Spanish | 50 - 55 | SPAN 1000 | 4 sem. hrs.”
+  - equivalencies[CLEP-SPANISH-LANGUAGE|56 - 62]:  ⟵ “Spanish | 56 - 62 | SPAN 1000 and 1010 | 8 sem. hrs.”
+  - equivalencies[CLEP-SPANISH-LANGUAGE|63 - 67]:  ⟵ “Spanish | 63 - 67 | SPAN 1000, 1010, and 2000 | 12 sem. hrs.”
+  - equivalencies[CLEP-SPANISH-LANGUAGE|68 - 80]:  ⟵ “Spanish | 68 - 80 | SPAN 1000, 1010, 2000, and 2010 | 16 sem. hrs.”
+  - … 7 more rows
+
+## Exceptions (305)
+
+### `5eb32b80322533cc` Adrian College — appeals 2024-25 [new] (labeled_in_source)
+- source: https://www.adrian.edu/financial-aid/satisfactory-academic-progress-policy (sha256 dbb7f1e10810)
+- issues: stale_year_label:2024-25, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 5}
+  - sentence: sap_appeal ⟵ “Satisfactory Academic Progress Academic Plan & Appeal Procedure Any student placed on academic suspension due to the policy may appeal to the Academic Status and Review Committee.”
+  - sentence: sap_appeal ⟵ “After an application for appeal is received, the student will be notified in writing of the results of the Satisfactory Academic Progress Appeal.”
+  - sentence: sap_appeal ⟵ “Students who do not meet the terms of Satisfactory Academic Progress, and who either elect not to file an appeal, or who failed to meet the terms of their academic plan will be required to meet the Satisfactory Academic Progress standards before regaining eligibility for enrollment.”
+  - sentence: sap_appeal ⟵ “Students are limited to two (2) SAP Appeal submissions during their enrollment at Adrian College.”
+  - sentence: sap_appeal ⟵ “Satisfactory Academic Progress Probation Students will be assigned this status if they fail to meet satisfactory academic progress at the end of the SAP Warning period but successfully appeal.”
+### `7e37ae6b1c1090f2` Albion College — appeals 2027-28 [new] (labeled_in_source)
+- source: https://www.albion.edu/offices/financial-aid/forms-policies/requirements-to-receive-aid/ (sha256 01ae9b1e52ed)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 4}
+  - sentence: sap_appeal ⟵ “Financial Aid SAP Appeal Process Students who are on a financial aid suspension may file an appeal of eligibility if there are circumstances beyond their control leading to not meeting SAP standards.”
+  - sentence: sap_appeal ⟵ “Other special circumstance The following are NOT valid reasons for a SAP appeal: Unpreparedness for college coursework.”
+  - sentence: sap_appeal ⟵ “The appeal must include: Completed Satisfactory Academic Progress Appeal Request form including an explanation of what happened and what has changed that will allow SAP standards to be met.”
+  - sentence: sap_appeal ⟵ “All SAP appeal decisions are at the discretion of the review committee and are final.”
+### `05115029e6362789` Albion College — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.albion.edu/offices/accounting/25-26-tuition-and-fees/ (sha256 abc3713ab6cc)
+- issues: stale_year_label:2025-26
+- checks: {"columns": 1, "rows": 5}
+  - column:Tuition: Each 1/4 unit (below 3 units or above 4.5 units): 2431.0 ⟵ “Tuition: Each 1/4 unit (below 3 units or above 4.5 units) | 2431.00”
+  - column:Equestrian Western Team - Varsity fee (per semester): 500.0 ⟵ “Equestrian Western Team - Varsity fee (per semester) | 500.00”
+  - column:Equestrian Hunt Seat Team - Varsity fee (per semester): 500.0 ⟵ “Equestrian Hunt Seat Team - Varsity fee (per semester) | 500.00”
+  - column:Off Campus Study Administration Fee (per semester): 500.0 ⟵ “Off Campus Study Administration Fee (per semester) | 500.00”
+  - column:Non-college Housing Fee (per semester): 810.0 ⟵ “Non-college Housing Fee (per semester) | 810.00”
+### `422ead1641e2a7f0` Albion College — costs 2027-28 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.albion.edu/offices/financial-aid/affordable/ (sha256 32d3c1d49814)
+- issues: conflicting_sources:https://www.albion.edu/offices/financial-aid/affordable/,https://www.albion.edu/offices/financial-aid/cost-of-attendance/2027-28-tuition-realignment/,https://www.albion.edu/offices/financial-aid/cost-of-attendance/2027-28-tuition-realignment/
+- checks: {"columns": 1, "rows": 5}
+  - column:Tuition: 38000 ⟵ “Tuition | $38,000”
+  - column:Student Activity & Health and Wellness Fee: 660 ⟵ “Student Activity & Health and Wellness Fee | $660”
+  - column:Housing (Wesley/Seaton): 6480 ⟵ “Housing (Wesley/Seaton) | $6,480”
+  - column:Meals (21 meal plan): 7190 ⟵ “Meals (21 meal plan) | $7,190”
+  - column:27-28 College Cost: 52330 ⟵ “27-28 College Cost | $52,330”
+### `4e11637d97300866` Albion College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.albion.edu/offices/accounting/tuition-and-fees/ (sha256 2137ce7a7a57)
+- issues: conflicting_sources:https://www.albion.edu/offices/financial-aid/cost-of-attendance/
+- checks: {"columns": 1, "rows": 5}
+  - column:Tuition: Each 1/4 unit (below 3 units or above 4.5 units): 2504.0 ⟵ “Tuition: Each 1/4 unit (below 3 units or above 4.5 units) | 2504.00”
+  - column:Equestrian Western Team - Varsity fee (per semester): 500.0 ⟵ “Equestrian Western Team - Varsity fee (per semester) | 500.00”
+  - column:Equestrian Hunt Seat Team - Varsity fee (per semester): 500.0 ⟵ “Equestrian Hunt Seat Team - Varsity fee (per semester) | 500.00”
+  - column:Off Campus Study Administration Fee (per semester): 500.0 ⟵ “Off Campus Study Administration Fee (per semester) | 500.00”
+  - column:Non-college Housing Fee (per semester): 810.0 ⟵ “Non-college Housing Fee (per semester) | 810.00”
+### `57cab6fa33add481` Albion College — costs 2027-28 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.albion.edu/offices/financial-aid/cost-of-attendance/2027-28-tuition-realignment/ (sha256 6499f2108c70)
+- issues: conflicting_sources:https://www.albion.edu/offices/financial-aid/affordable/,https://www.albion.edu/offices/financial-aid/affordable/,https://www.albion.edu/offices/financial-aid/cost-of-attendance/2027-28-tuition-realignment/
+- checks: {"columns": 1, "components_reconcile": true, "rows": 5}
+  - column:Tuition: 38000 ⟵ “Tuition | $19,000 | $19,000 | $38,000”
+  - column:Student Activity & Health and Wellness Fee: 660 ⟵ “Student Activity & Health and Wellness Fee | $330 | $330 | $660”
+  - column:Housing (Wesley/Seaton): 6480 ⟵ “Housing (Wesley/Seaton) | $3,240 | $3,240 | $6,480”
+  - column:Meals (21 meal plan): 7190 ⟵ “Meals (21 meal plan) | $3,595 | $3,595 | $7,190”
+  - column:TOTAL: 52330 ⟵ “TOTAL | $26,165 | $26,165 | $52,330”
+### `8275aa62c28c6fba` Albion College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.albion.edu/offices/financial-aid/cost-of-attendance/ (sha256 859cd8d97c83)
+- issues: components_do_not_reconcile, conflicting_sources:https://www.albion.edu/offices/accounting/tuition-and-fees/
+- checks: {"columns": 1, "components_reconcile": false, "rows": 5}
+  - column:Tuition*: 59620 ⟵ “Tuition* | $29,810 | $29,810 | $59,620”
+  - column:Student Activity & Health and Wellness Fee: 640 ⟵ “Student Activity & Health and Wellness Fee | $320 | $320 | $640”
+  - column:Commuter Fee: 1620 ⟵ “Commuter Fee | $810 | $810 | $1,620”
+  - column:Total: 61880 ⟵ “Total | $30,940 | $30,940 | $61,880”
+  - column:Matriculation Fee**: 185 ⟵ “Matriculation Fee** | $185 | $0 | $185”
+### `8a4f636dd29235a2` Albion College — costs 2027-28 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.albion.edu/offices/financial-aid/affordable/ (sha256 d780c3c4a62a)
+- issues: conflicting_sources:https://www.albion.edu/offices/financial-aid/affordable/,https://www.albion.edu/offices/financial-aid/cost-of-attendance/2027-28-tuition-realignment/,https://www.albion.edu/offices/financial-aid/cost-of-attendance/2027-28-tuition-realignment/
+- checks: {"columns": 1, "rows": 5}
+  - column:Tuition: 38000 ⟵ “Tuition | $38,000”
+  - column:Student Activity & Health and Wellness Fee: 660 ⟵ “Student Activity & Health and Wellness Fee | $660”
+  - column:Housing (Wesley/Seaton): 6480 ⟵ “Housing (Wesley/Seaton) | $6,480”
+  - column:Meals (21 meal plan): 7190 ⟵ “Meals (21 meal plan) | $7,190”
+  - column:27-28 College Cost: 52330 ⟵ “27-28 College Cost | $52,330”
+### `d5e886626a99a6f6` Albion College — costs 2027-28 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.albion.edu/offices/financial-aid/cost-of-attendance/2027-28-tuition-realignment/ (sha256 ca396dd9b2f0)
+- issues: conflicting_sources:https://www.albion.edu/offices/financial-aid/affordable/,https://www.albion.edu/offices/financial-aid/affordable/,https://www.albion.edu/offices/financial-aid/cost-of-attendance/2027-28-tuition-realignment/
+- checks: {"columns": 1, "components_reconcile": true, "rows": 5}
+  - column:Tuition: 38000 ⟵ “Tuition | $19,000 | $19,000 | $38,000”
+  - column:Student Activity & Health and Wellness Fee: 660 ⟵ “Student Activity & Health and Wellness Fee | $330 | $330 | $660”
+  - column:Housing (Wesley/Seaton): 6480 ⟵ “Housing (Wesley/Seaton) | $3,240 | $3,240 | $6,480”
+  - column:Meals (21 meal plan): 7190 ⟵ “Meals (21 meal plan) | $3,595 | $3,595 | $7,190”
+  - column:TOTAL: 52330 ⟵ “TOTAL | $26,165 | $26,165 | $52,330”
+### `0b60e7653b2ceea7` Alma College — awards 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.alma.edu/financial-aid/scholarships/ (sha256 4b57d54945ff)
+- issues: ambiguous_year_labels
+- checks: {"thresholds": null}
+  - award_amount_text: $ 32,000.00/year ⟵ “Tartan | 3.30 – 3.59 | $ 32,000.00/year | $ 128,000”
+  - gpa_requirement: 3.30 – 3.59 ⟵ “Tartan | 3.30 – 3.59 | $ 32,000.00/year | $ 128,000”
+### `568815e12b0e6034` Alma College — awards 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.alma.edu/financial-aid/scholarships/ (sha256 4b57d54945ff)
+- issues: ambiguous_year_labels
+- checks: {"thresholds": null}
+  - award_amount_text: $ 36,000.00/year ⟵ “Trustee | 3.80 – 3.99 | $ 36,000.00/year | $ 144,000”
+  - gpa_requirement: 3.80 – 3.99 ⟵ “Trustee | 3.80 – 3.99 | $ 36,000.00/year | $ 144,000”
+### `7230fbfb30df0aac` Alma College — awards 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.alma.edu/financial-aid/scholarships/ (sha256 4b57d54945ff)
+- issues: ambiguous_year_labels
+- checks: {"thresholds": {"gpa_min": 4.0}}
+  - award_amount_text: $ 38,000.00/year ⟵ “Presidential | 4.0+ | $ 38,000.00/year | $ 152,000”
+  - gpa_requirement: 4.0+ ⟵ “Presidential | 4.0+ | $ 38,000.00/year | $ 152,000”
+### `77617765667d835e` Alma College — awards 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.alma.edu/financial-aid/scholarships/ (sha256 4b57d54945ff)
+- issues: ambiguous_year_labels
+- checks: {"thresholds": null}
+  - award_amount_text: $ 28,000.00/year ⟵ “Alma | <3.00 | $ 28,000.00/year | $ 112,000”
+  - gpa_requirement: <3.00 ⟵ “Alma | <3.00 | $ 28,000.00/year | $ 112,000”
+### `c90ff0897b1fe23f` Alma College — awards 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.alma.edu/financial-aid/scholarships/ (sha256 4b57d54945ff)
+- issues: ambiguous_year_labels
+- checks: {"thresholds": null}
+  - award_amount_text: $ 34,000.00/year ⟵ “Dean | 3.60 – 3.79 | $ 34,000.00/year | $ 136,000”
+  - gpa_requirement: 3.60 – 3.79 ⟵ “Dean | 3.60 – 3.79 | $ 34,000.00/year | $ 136,000”
+### `cf940e90123b2318` Alma College — awards 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.alma.edu/financial-aid/scholarships/ (sha256 4b57d54945ff)
+- issues: ambiguous_year_labels
+- checks: {"thresholds": null}
+  - award_amount_text: $ 30,000.00/year ⟵ “Achievement | 3.00 – 3.29 | $ 30,000.00/year | $ 120,000”
+  - gpa_requirement: 3.00 – 3.29 ⟵ “Achievement | 3.00 – 3.29 | $ 30,000.00/year | $ 120,000”
+### `0aa66b133e034422` Alma College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.alma.edu/financial-aid/undergraduate-costs-and-aid/ (sha256 d427fae638e3)
+- issues: multiple_total_rows
+- checks: {"columns": 1, "rows": 11}
+  - on_campus:Tuition*: 53304.0 ⟵ “Tuition* | $53,304.00”
+  - on_campus:Living Expenses: 15338.0 ⟵ “Living Expenses | $15,338.00”
+  - on_campus:Activity Fee: 270.0 ⟵ “Activity Fee | $270.00”
+  - on_campus:Orientation Week Fee: 400.0 ⟵ “Orientation Week Fee | $400.00”
+  - on_campus:Total Direct Costs: 69312.0 ⟵ “Total Direct Costs | $69,312.00”
+  - on_campus:Transportation: 600.0 ⟵ “Transportation | $600.00”
+  - on_campus:Books and Supplies: 1170.0 ⟵ “Books and Supplies | $1,170.00”
+  - on_campus:Health Insurance: 2000.0 ⟵ “Health Insurance | $2,000.00”
+  - on_campus:Loan Fees: 50.0 ⟵ “Loan Fees | $50.00”
+  - on_campus:Personal Expenses: 1000.0 ⟵ “Personal Expenses | $1,000.00”
+  - on_campus:Total Indirect Costs: 4820.0 ⟵ “Total Indirect Costs | $4,820.00”
+### `ce9430ef0a0da861` Alpena Community College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://discover.alpenacc.edu/terms_and_policies/tuition/estimated_costs.php (sha256 243b42894e01)
+- issues: arrangement_unlabeled, multiple_total_rows, residency_unknown
+- checks: {"columns": 3, "rows": 9}
+  - with_parents_or_family:Tuition: 4950 ⟵ “Tuition | $4,950 | $4,950 | $4,950”
+  - with_parents_or_family:Fees: 660 ⟵ “Fees | $660 | $660 | $660”
+  - with_parents_or_family:Books/Supplies: 1266 ⟵ “Books/Supplies | $1,266 | $1,266 | $1,266”
+  - with_parents_or_family:Food & Housing: 5000 ⟵ “Food & Housing | $5,000 | $10,090 | $9,200”
+  - with_parents_or_family:Personal: 968 ⟵ “Personal | $968 | $968 | $968”
+  - with_parents_or_family:Transportation - In County: 960 ⟵ “Transportation - In County | $960 | $960 | $1,160”
+  - with_parents_or_family:Transportation - Out of County: 1920 ⟵ “Transportation - Out of County | $1,920 | $1,920 | N/A”
+  - with_parents_or_family:Loan Fees: 40 ⟵ “Loan Fees | $40 | $40 | $40”
+  - with_parents_or_family:Total Cost for students living in Alpena County: 13844 ⟵ “Total Cost for students living in Alpena County | $13,844 | $18,934 | $18,244”
+  - with_parents_or_family:Total Cost for students living outside of Alpena County: 14804 ⟵ “Total Cost for students living outside of Alpena County | $14,804 | $19,894 | $18,244”
+  - column:Tuition: 4950 ⟵ “Tuition | $4,950 | $4,950 | $4,950”
+  - column:Fees: 660 ⟵ “Fees | $660 | $660 | $660”
+  - column:Books/Supplies: 1266 ⟵ “Books/Supplies | $1,266 | $1,266 | $1,266”
+  - column:Food & Housing: 10090 ⟵ “Food & Housing | $5,000 | $10,090 | $9,200”
+  - column:Personal: 968 ⟵ “Personal | $968 | $968 | $968”
+  - column:Transportation - In County: 960 ⟵ “Transportation - In County | $960 | $960 | $1,160”
+  - column:Transportation - Out of County: 1920 ⟵ “Transportation - Out of County | $1,920 | $1,920 | N/A”
+  - column:Loan Fees: 40 ⟵ “Loan Fees | $40 | $40 | $40”
+  - column:Total Cost for students living in Alpena County: 18934 ⟵ “Total Cost for students living in Alpena County | $13,844 | $18,934 | $18,244”
+  - column:Total Cost for students living outside of Alpena County: 19894 ⟵ “Total Cost for students living outside of Alpena County | $14,804 | $19,894 | $18,244”
+  - on_campus:Tuition: 4950 ⟵ “Tuition | $4,950 | $4,950 | $4,950”
+  - on_campus:Fees: 660 ⟵ “Fees | $660 | $660 | $660”
+  - on_campus:Books/Supplies: 1266 ⟵ “Books/Supplies | $1,266 | $1,266 | $1,266”
+  - on_campus:Food & Housing: 9200 ⟵ “Food & Housing | $5,000 | $10,090 | $9,200”
+  - on_campus:Personal: 968 ⟵ “Personal | $968 | $968 | $968”
+  - … 4 more rows
+### `2e1282e8a4d9fb59` Andrews University — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.andrews.edu/services/sfs/general_information/costs/index_2526.html (sha256 bcf9018f4714)
+- issues: components_do_not_reconcile, stale_year_label:2025-26
+- checks: {"columns": 1, "components_reconcile": false, "rows": 8}
+  - column:Tuition package: 12-16 credits: 35040.0 ⟵ “Tuition package: 12-16 credits | $17,520.00 * | $35,040.00 *”
+  - column:Residence Hall (double occupancy, Lamson, Meier): 5932.0 ⟵ “Residence Hall (double occupancy, Lamson, Meier) | $ 2,966.00 * | $ 5,932.00 *”
+  - column:Residence Hall (double occupancy, Burman): 3024.0 ⟵ “Residence Hall (double occupancy, Burman) | $ 1,512.00 | $ 3,024.00”
+  - column:Residence Hall (double occupancy, Damazo): 6162.0 ⟵ “Residence Hall (double occupancy, Damazo) | $ 3,081.00 | $ 6,162.00”
+  - column:Gold Meal Plan (non-refundable): 5222.0 ⟵ “Gold Meal Plan (non-refundable) | $ 2,611.00 * | $ 5,222.00 *”
+  - column:Platinum Meal Plan (non-refundable): 6254.0 ⟵ “Platinum Meal Plan (non-refundable) | $ 3,127.00 | $ 6,254.00”
+  - column:General Fees: 1414.0 ⟵ “General Fees | $ 707.00 * | $ 1,414.00 *”
+  - column:Total: 47608.0 ⟵ “Total | $23,804.00 | $47,608.00”
+### `b8f2ef1898cd3937` Andrews University — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.andrews.edu/services/sfs/general_information/costs/index.html (sha256 fa862dce04e4)
+- issues: components_do_not_reconcile
+- checks: {"columns": 1, "components_reconcile": false, "rows": 8}
+  - column:Tuition package: 12-16 credits: 36432.0 ⟵ “Tuition package: 12-16 credits | $18,216.00 * | $36,432.00 *”
+  - column:Residence Hall (double occupancy, Lamson, Meier): 6170.0 ⟵ “Residence Hall (double occupancy, Lamson, Meier) | $ 3,085.00 * | $ 6,170.00 *”
+  - column:Residence Hall (double occupancy, Burman): 3206.0 ⟵ “Residence Hall (double occupancy, Burman) | $ 1,603.00 | $ 3,206.00”
+  - column:Residence Hall (double occupancy, Damazo): 6408.0 ⟵ “Residence Hall (double occupancy, Damazo) | $ 3,204.00 | $ 6,408.00”
+  - column:Gold Meal Plan (non-refundable): 5484.0 ⟵ “Gold Meal Plan (non-refundable) | $ 2,742.00 * | $ 5,484.00 *”
+  - column:Platinum Meal Plan (non-refundable): 6568.0 ⟵ “Platinum Meal Plan (non-refundable) | $ 3,284.00 | $ 6,568.00”
+  - column:General Fees: 1470.0 ⟵ “General Fees | $ 735.00 * | $ 1,470.00 *”
+  - column:Total: 49556.0 ⟵ “Total | $24,778.00 | $49,556.00”
+### `f6cb7809b7d39702` Andrews University — credit_policies 2026-27 · policy_kind=AP [new] (source_unlabeled)
+- source: https://www.andrews.edu/services/registrar/students/prior_learning/ap.html (sha256 34afec15f086)
+- issues: score_scale_mismatch
+- checks: {"distinct_exams": 36, "equivalencies": 51, "rows_without_score": 0}
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|4]:  ⟵ “English Language & Composition | 4 | ENGL115 | 3”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|4]:  ⟵ “English Literature & Composition | 4 | ENGL 255 | 3”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|3]:  ⟵ “Chinese or Japanese or Latin | 3 | ILGS 121 | 3”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|4]:  ⟵ “Chinese or Japanese or Latin | 4 | ILGS 121, 122 | 6”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|5]:  ⟵ “Chinese or Japanese or Latin | 5 | ILGS 121, 122, 235 | 10”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]:  ⟵ “French Language & Culture | 3 | FREN 171 | 3”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|4]:  ⟵ “French Language & Culture | 4 | FREN 171, 172 | 6”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|5]:  ⟵ “French Language & Culture | 5 | FREN 171, 172, 275 | 10”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3]:  ⟵ “German Language & Culture | 3 | ILGS 121 | 3”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|4]:  ⟵ “German Language & Culture | 4 | ILGS 121, 122 | 6”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|5]:  ⟵ “German Language & Culture | 5 | ILGS 121, 122, 235 | 10”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|3]:  ⟵ “Italian Language & Culture | 3 | ITLN 141 | 3”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|4]:  ⟵ “Italian Language & Culture | 4 | ITLN 141, 142 | 6”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|5]:  ⟵ “Italian Language & Culture | 5 | ITLN 141, 142, ILGS 235 | 10”
+  - equivalencies[AP-SPANISH-LANGUAGE-CULTURE|3]:  ⟵ “Spanish Language & Culture | 3 | SPAN 171 | 3”
+  - equivalencies[AP-SPANISH-LANGUAGE-CULTURE|4]:  ⟵ “Spanish Language & Culture | 4 | SPAN 171, 172 | 6”
+  - equivalencies[AP-SPANISH-LANGUAGE-CULTURE|5]:  ⟵ “Spanish Language & Culture | 5 | SPAN 171, 172, 275 | 10”
+  - equivalencies[AP-SPANISH-LITERATURE-CULTURE|3]:  ⟵ “Spanish Literature & Culture | 3 | SPAN 171 | 3”
+  - equivalencies[AP-SPANISH-LITERATURE-CULTURE|4]:  ⟵ “Spanish Literature & Culture | 4 | SPAN 171, 172 | 6”
+  - equivalencies[AP-SPANISH-LITERATURE-CULTURE|5]:  ⟵ “Spanish Literature & Culture | 5 | SPAN 171, 172, 275 | 10”
+  - equivalencies[AP-EUROPEAN-HISTORY|3]:  ⟵ “European History | 3 | ACE / Elective | 3”
+  - equivalencies[AP-UNITED-STATES-HISTORY|4]:  ⟵ “US History | 4 | HIST 204, 205 | 6”
+  - equivalencies[AP-WORLD-HISTORY-MODERN|3]:  ⟵ “World History | 3 | ACE / Elective | 3”
+  - equivalencies[AP-2-D-ART-DESIGN|3]:  ⟵ “2-D Art and Design | 3 | ACE / Elective | 3”
+  - equivalencies[AP-3-D-ART-DESIGN|3]:  ⟵ “3-D Art and Design | 3 | ACE / Elective | 3”
+  - … 26 more rows
+### `0df93be728342ee8` Aquinas College — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.aquinas.edu/_files/_documents/Special%20Circumstances%202025-26.pdf (sha256 c43d3aa64339)
+- issues: ambiguous_year_labels, semantic_review_required, conflicting_sources:https://www.aquinas.edu/_files/_documents/PDF-Final-2026-27-Special-Circumstances.pdf,https://www.aquinas.edu/cost-aid/financial-aid-policies.html,https://www.aquinas.edu/cost-aid/finanical-aid-faqs.html
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: need_based_special_circumstances ⟵ “E, Grand Rapids, MI 49506 Ph: 616.632.2893 • Fx: 616.732.4547 • financialaid@aquinas.edu 2025-2026 Special Circumstances Form Please complete if you are asking us to consider special circumstances for the 2025-26 academic year that are not accurately reflected in the information provided on the Free Application for Federal Student Aid (FAFSA).”
+  - sentence: need_based_special_circumstances ⟵ “I/we understand that if I/we do not provide the requested documents then the Special Circumstances Evaluation will not be reviewed.”
+### `1ce562fac148fcdc` Aquinas College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.aquinas.edu/_files/_documents/PDF-Final-2026-27-Special-Circumstances.pdf (sha256 85901ffc6b61)
+- issues: semantic_review_required, conflicting_sources:https://www.aquinas.edu/_files/_documents/Special%20Circumstances%202025-26.pdf,https://www.aquinas.edu/cost-aid/financial-aid-policies.html,https://www.aquinas.edu/cost-aid/finanical-aid-faqs.html
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: need_based_special_circumstances ⟵ “E, Grand Rapids, MI 49506 Ph: 616.632.2893 • Fx: 616.732.4547 • financialaid@aquinas.edu 2026-2027 Special Circumstances Form Please complete if you are asking us to consider special circumstances for the 2026-27 academic year that are not accurately reflected in the information provided on the Free Application for Federal Student Aid (FAFSA).”
+  - sentence: need_based_special_circumstances ⟵ “Student’s Name: AQ ID: Complete and submit this form along with the following required documents: ☐Attach a statement, signed and dated detailed explanation of your special circumstance. ☐Attach signed copies of yours, your spouse’s and/or your parents’ 2024 and 2025 tax returns with schedule 1 and or/3 ☐Attach the 2026-2027 Household size Verification Form -https://www.aquinas.edu/cost-aid/forms-”
+  - sentence: need_based_special_circumstances ⟵ “Provide the following information about your special circumstance.”
+### `2dde7a7ab72bde3f` Aquinas College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.aquinas.edu/cost-aid/financial-aid-policies.html (sha256 5babaa74e253)
+- issues: semantic_review_required, conflicting_sources:https://www.aquinas.edu/cost-aid/26-27-financial-aid-packages.html
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: professional_judgment ⟵ “Professional Judgements There are unique situations where financial aid administrators can modify data related to FAFSA information.”
+  - sentence: professional_judgment ⟵ “A valid FAFSA must be on file to consider any professional judgment.”
+### `4ecbf967772c389e` Aquinas College — appeals 2026-27 [new] (labeled_in_title)
+- source: https://www.aquinas.edu/cost-aid/26-27-financial-aid-packages.html (sha256 cfde86c19eb1)
+- issues: semantic_review_required, conflicting_sources:https://www.aquinas.edu/cost-aid/financial-aid-policies.html
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: professional_judgment ⟵ “Professional Judgement & Special Circumstances Adjustments Adjustments are granted on a yearly basis.”
+### `706d1a86599187b5` Aquinas College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.aquinas.edu/cost-aid/forms-and-policies.html (sha256 aab236d1d759)
+- issues: semantic_review_required, conflicting_sources:https://www.aquinas.edu/cost-aid/26-27-financial-aid-packages.html,https://www.aquinas.edu/cost-aid/financial-aid-policies.html
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “Consider taking courses at a local community college for 2 semesters, with a 2.5 GPA or higher and no W’s or F’s. | Academic Plan 1 | The student’s SAP appeal has been approved, and they are placed on a one-semester Academic Plan to regain satisfactory SAP status.”
+  - sentence: sap_appeal ⟵ “If the student does not regain satisfactory SAP standing by the end of this one semester, they will lose financial aid eligibility with no option to appeal. | Academic Plan 2 | The student’s SAP appeal has been approved, and they are placed on a two-semester Academic Plan to regain satisfactory SAP status.”
+### `73d3c5f74195902e` Aquinas College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.aquinas.edu/cost-aid/finanical-aid-faqs.html (sha256 bd65d185cb05)
+- issues: semantic_review_required, conflicting_sources:https://www.aquinas.edu/_files/_documents/PDF-Final-2026-27-Special-Circumstances.pdf,https://www.aquinas.edu/_files/_documents/Special%20Circumstances%202025-26.pdf,https://www.aquinas.edu/cost-aid/financial-aid-policies.html
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “View our Special Circumstances Form for examples.”
+### `863ccdbd5d4f0d99` Aquinas College — appeals 2026-27 [new] (labeled_in_title)
+- source: https://www.aquinas.edu/cost-aid/26-27-financial-aid-packages.html (sha256 cfde86c19eb1)
+- issues: semantic_review_required, conflicting_sources:https://www.aquinas.edu/cost-aid/financial-aid-policies.html,https://www.aquinas.edu/cost-aid/forms-and-policies.html
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “How to Log In & View Your Financial Aid Offer - Step-by-step portal walkthrough guide for returning students FAFSA Completion & Contributor Signature Guide - Ensure your 2026–27 FAFSA is complete and properly signed Satisfactory Academic Progress (SAP) Policy - Review Aquinas' SAP requirements and the appeal process Private Loan Options - Information on private and alternative loans if additional ”
+### `8d1fd8fec9492190` Aquinas College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.aquinas.edu/cost-aid/financial-aid-policies.html (sha256 5babaa74e253)
+- issues: semantic_review_required, conflicting_sources:https://www.aquinas.edu/_files/_documents/PDF-Final-2026-27-Special-Circumstances.pdf,https://www.aquinas.edu/_files/_documents/Special%20Circumstances%202025-26.pdf,https://www.aquinas.edu/cost-aid/finanical-aid-faqs.html
+- checks: {"negative_sentences": 0, "sentences": 5}
+  - sentence: need_based_special_circumstances ⟵ “A student may have both a special circumstance and an unusual circumstance.”
+  - sentence: need_based_special_circumstances ⟵ “Submission of a special or unusual circumstance does not guarantee an adjustment will be made.”
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstances While the FAFSA (Free Application for Federal Student Aid) is intended to determine the amount a family can reasonably be expected to pay toward a student's college costs, circumstances occasionally arise that make the FAFSA data an inaccurate picture of the family’s current resources.”
+  - sentence: need_based_special_circumstances ⟵ “The Special Circumstances allows us to evaluate your current financial circumstances to determine if there is additional aid eligibility.”
+  - sentence: need_based_special_circumstances ⟵ “Medical bills paid by health insurance or reimbursed by health care coverage Unusual Circumstances The FAFSA determines dependency status based on a series of questions, however, financial aid administrators can make an adjustment to dependency in unique circumstances, more commonly referred to as dependency override.”
+### `d34fa99781344806` Aquinas College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.aquinas.edu/cost-aid/financial-aid-policies.html (sha256 5babaa74e253)
+- issues: semantic_review_required, conflicting_sources:https://www.aquinas.edu/cost-aid/26-27-financial-aid-packages.html,https://www.aquinas.edu/cost-aid/forms-and-policies.html
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “SAP Appeal and Reinstatement Students who have lost financial aid eligibility for failure to maintain SAP will be notified in writing of the cancellation of financial aid.”
+  - sentence: sap_appeal ⟵ “You can find the SAP Appeal Form here.”
+### `mc9e6133651cb57e` Aquinas College — transfer_policies 2026-27 [new] (source_unlabeled)
+- source: https://www.aquinas.edu/admissions/undergraduate/requirements.html (sha256 b728af23aad7)
+- issues: conflicting_sources:max_transfer_credits
+- checks: {"fields": ["max_transfer_credits", "residency_requirement_credits"], "merged_pages": 2}
+  - max_transfer_credits: 60 ⟵ “Transfer Credit Policy Aquinas accepts up to 60 semester hours of credit from an accredited community or junior college.”
+  - residency_requirement_credits: 30 ⟵ “However, at least 30 semester hours must be earned in residence at Aquinas.”
+  - max_transfer_credits: 90 ⟵ “Transfer Credit Policy Aquinas accepts up to 90 semester hours of credit from an accredited community or junior college.”
+  - residency_requirement_credits: 30 ⟵ “However, at least 30 semester hours must be earned in residence at Aquinas.”
+### `372dac9a0f9ec225` Bay de Noc Community College — appeals 2024-25 [new] (labeled_in_source)
+- source: https://www.baycollege.edu/admissions/paying-for-college/financial-aid-resources.php (sha256 f60e7f4a6635)
+- issues: stale_year_label:2024-25, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 5}
+  - sentence: sap_appeal ⟵ “Appeal: If a student has extenuating circumstances, he/she may contact the Financial Aid Office via email [email protected] or calling (906) 217-4020 to request a Financial Aid Satisfactory Academic Progress Appeal Form.”
+  - sentence: sap_appeal ⟵ “The appeal must include why the student failed to meet these standards, what has changed that will allow the student to meet these standards, and appropriate supporting documentation as outlined in the Financial Aid Satisfactory Academic Progress Appeal Form.”
+  - sentence: sap_appeal ⟵ “Submitting the Financial Aid Satisfactory Academic Progress Appeal or Maximum Time frame Appeal Form A student with extenuating circumstances who wishes to appeal his/her financial aid denial status must complete either the Financial Aid Satisfactory Academic Progress Appeal Form or the Maximum Time Frame Appeal Form.”
+  - sentence: sap_appeal ⟵ “You may appeal your Failure to Meet Satisfactory Academic Progress standards twice during your academic career at Bay College.”
+  - sentence: sap_appeal ⟵ “For example, your appeal for failure to meet the Financial Aid Satisfactory Academic Progress Standards is based on a specific chronic medical condition.”
+### `8abd4483bbccf1e6` Bay de Noc Community College — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.baycollege.edu/admissions/paying-for-college/financial-aid-fafsa.php (sha256 6e38f37a37c9)
+- issues: ambiguous_year_labels, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “If you have unusual circumstances that you believe warrant a dependency override, you should speak with the Director of Financial Aid.”
+### `cca87a16499b2c11` Bay de Noc Community College — appeals 2024-25 [new] (labeled_in_source)
+- source: https://www.baycollege.edu/admissions/paying-for-college/financial-aid-resources.php (sha256 f60e7f4a6635)
+- issues: stale_year_label:2024-25, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “An appeal based on a specific special circumstance will only be considered once for that circumstance.”
+### `032134b4eac2dd13` Bay de Noc Community College — costs 2026-27 · residency=not_applicable [new] (source_unlabeled)
+- source: https://www.baycollege.edu/admissions/paying-for-college/tuition-costs.php (sha256 07e72951a4bf)
+- issues: implausible_amount, residency_names_another_state, residency_unknown
+- checks: {"columns": 1, "rows": 6}
+  - column:Tuition Rate: 283.0 ⟵ “Tuition Rate | $283.00”
+  - column:Student Success Fee: 12.0 ⟵ “Student Success Fee | $12.00”
+  - column:Technology Fee: 37.0 ⟵ “Technology Fee | $37.00”
+  - column:Facility Fee: 13.0 ⟵ “Facility Fee | $13.00”
+  - column:Tuition and Fees/Semester: 4980.0 ⟵ “Tuition and Fees/Semester | $4,980.00”
+  - column:Tuition and Fees/Year: 9960.0 ⟵ “Tuition and Fees/Year | $9,960.00”
+### `5f641ad8f8ec9a27` Bay de Noc Community College — costs 2024-25 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.baycollege.edu/_resources-dev/pdf/about/consumer-information/michigan-transparency-act/2024-25-fy-budget.pdf (sha256 daa9f261e52d)
+- issues: implausible_amount, multiple_total_rows, residency_unknown, stale_year_label:2024-25
+- checks: {"columns": 1, "rows": 14}
+  - column:Tuition And Fees: 9354923 ⟵ “Tuition And Fees | 8,487,423 | 867,500 | 9,354,923”
+  - column:Net Tuition and Fees: 8545617 ⟵ “Net Tuition and Fees | 7,678,117 | 867,500 | 8,545,617”
+  - column:Total Operating Revenues: 12273568 ⟵ “Total Operating Revenues | 11,406,068 | 867,500 | 12,273,568”
+  - column:Salary and Wages: 11435845 ⟵ “Salary and Wages | 11,203,145 | 232,700 | 11,435,845”
+  - column:Benefits: 6175311 ⟵ “Benefits | 6,136,531 | 38,780 | 6,175,311”
+  - column:Advertising and Professional Services: 1653444 ⟵ “Advertising and Professional Services | 1,520,844 | 132,600 | 1,653,444”
+  - column:Supplies and Materials: 773225 ⟵ “Supplies and Materials | 758,225 | 15,000 | 773,225”
+  - column:Travel, Prof. Development and Other: 2447708 ⟵ “Travel, Prof. Development and Other | 2,396,208 | 51,500 | 2,447,708”
+  - column:Minor Equipment < $5,000 & Grant Capital: 231496 ⟵ “Minor Equipment < $5,000 & Grant Capital | 227,996 | 3,500 | 231,496”
+  - column:Total Operating Expense: 26316846 ⟵ “Total Operating Expense | 25,842,766 | 474,080 | 26,316,846”
+  - column:State Appropriations: 7844998 ⟵ “State Appropriations | 8,306,998 | (462,000) | 7,844,998”
+  - column:Investment Income: 310000 ⟵ “Investment Income | 165,000 | 145,000 | 310,000”
+  - column:Net Nonoperating Revenue (Exp): 14137607 ⟵ “Net Nonoperating Revenue (Exp) | 14,454,607 | (317,000) | 14,137,607”
+  - column:Increase (decrease) in Net Assets: 94329 ⟵ “Increase (decrease) in Net Assets | 17,909 | 76,420 | 94,329”
+### `9df681a7d2c0ee52` Bay de Noc Community College — costs 2023-24 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.baycollege.edu/_resources-dev/pdf/about/consumer-information/michigan-transparency-act/2023-24-fy-budget.pdf (sha256 3c6e0fefbf7c)
+- issues: implausible_amount, multiple_total_rows, residency_unknown, stale_year_label:2023-24
+- checks: {"columns": 1, "rows": 27}
+  - column:Tuition And Fees: 8224713 ⟵ “Tuition And Fees | 8,224,713”
+  - column:Net Tuition and Fees: 7451614 ⟵ “Net Tuition and Fees | 7,451,614”
+  - column:Federal Grants and Contracts: 683808 ⟵ “Federal Grants and Contracts | 683,808”
+  - column:Noncredit and Contracts: 542395 ⟵ “Noncredit and Contracts | 542,395”
+  - column:State and Local Grants and Contracts: 958973 ⟵ “State and Local Grants and Contracts | 958,973”
+  - column:Sales and Services: 608914 ⟵ “Sales and Services | 608,914”
+  - column:Other Revenues: 815793 ⟵ “Other Revenues | 815,793”
+  - column:Total Operating Revenues: 11061497 ⟵ “Total Operating Revenues | 11,061,497”
+  - column:Salary and Wages: 10770187 ⟵ “Salary and Wages | 10,770,187”
+  - column:Benefits: 5879728 ⟵ “Benefits | 5,879,728”
+  - column:Advertising and Professional Services: 1265831 ⟵ “Advertising and Professional Services | 1,265,831”
+  - column:Supplies and Materials: 701402 ⟵ “Supplies and Materials | 701,402”
+  - column:Rent, Utilities, and Insurance: 1273497 ⟵ “Rent, Utilities, and Insurance | 1,273,497”
+  - column:Travel, Prof. Development and Other: 2015434 ⟵ “Travel, Prof. Development and Other | 2,015,434”
+  - column:Minor Equipment < $5,000 & Grant Capital: 231551 ⟵ “Minor Equipment < $5,000 & Grant Capital | 231,551”
+  - column:Depreciation Expense: 2189558 ⟵ “Depreciation Expense | 2,189,558”
+  - column:Total Operating Expense: 24327188 ⟵ “Total Operating Expense | 24,327,188”
+  - column:State Appropriations: 6237600 ⟵ “State Appropriations | 6,237,600”
+  - column:MPSERS UAAL and Offset: 754919 ⟵ “MPSERS UAAL and Offset | 754,919”
+  - column:Personal Property Tax Reimbursement (Delta): 499856 ⟵ “Personal Property Tax Reimbursement (Delta) | 499,856”
+  - column:Renaissance Zone and Other Misc.: 100760 ⟵ “Renaissance Zone and Other Misc. | 100,760”
+  - column:Property Tax Levy: 4487889 ⟵ “Property Tax Levy | 4,487,889”
+  - column:Property Tax Dickinson County: 1221104 ⟵ “Property Tax Dickinson County | 1,221,104”
+  - column:Private Gift (Restricted): 336033 ⟵ “Private Gift (Restricted) | 336,033”
+  - column:Investment Income: 68733 ⟵ “Investment Income | 68,733”
+  - … 2 more rows
+### `c14d44ae487c60a0` Bay de Noc Community College — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.baycollege.edu/_resources-dev/pdf/about/consumer-information/michigan-transparency-act/2025-26-fy-budget.pdf.pdf (sha256 fd1cd695f733)
+- issues: implausible_amount, multiple_total_rows, residency_unknown, stale_year_label:2025-26
+- checks: {"columns": 1, "rows": 25}
+  - column:Tuition And Fees: 9347756 ⟵ “Tuition And Fees | 9,347,756”
+  - column:Net Tuition and Fees: 8160099 ⟵ “Net Tuition and Fees | 8,160,099”
+  - column:Federal Grants and Contracts: 1899905 ⟵ “Federal Grants and Contracts | 1,899,905”
+  - column:Noncredit and Contracts: 433696 ⟵ “Noncredit and Contracts | 433,696”
+  - column:State and Local Grants and Contracts: 260000 ⟵ “State and Local Grants and Contracts | 260,000”
+  - column:Sales and Services: 622838 ⟵ “Sales and Services | 622,838”
+  - column:Other Revenues: 771587 ⟵ “Other Revenues | 771,587”
+  - column:Total Operating Revenues: 12148125 ⟵ “Total Operating Revenues | 12,148,125”
+  - column:Salary and Wages: 11908184 ⟵ “Salary and Wages | 11,908,184”
+  - column:Benefits: 5969372 ⟵ “Benefits | 5,969,372”
+  - column:Advertising and Professional Services: 1938841 ⟵ “Advertising and Professional Services | 1,938,841”
+  - column:Supplies and Materials: 711654 ⟵ “Supplies and Materials | 711,654”
+  - column:Rent, Utilities, and Insurance: 1300893 ⟵ “Rent, Utilities, and Insurance | 1,300,893”
+  - column:Travel, Prof. Development and Other: 3105475 ⟵ “Travel, Prof. Development and Other | 3,105,475”
+  - column:Minor Equipment < $5,000 & Grant Capital: 151065 ⟵ “Minor Equipment < $5,000 & Grant Capital | 151,065”
+  - column:Depreciation Expense: 2355181 ⟵ “Depreciation Expense | 2,355,181”
+  - column:Total Operating Expense: 27440665 ⟵ “Total Operating Expense | 27,440,665”
+  - column:State Appropriations: 8083487 ⟵ “State Appropriations | 8,083,487”
+  - column:Property Tax Levy: 4942857 ⟵ “Property Tax Levy | 4,942,857”
+  - column:Property Tax Dickinson County: 1318714 ⟵ “Property Tax Dickinson County | 1,318,714”
+  - column:Private Gift (Restricted): 199000 ⟵ “Private Gift (Restricted) | 199,000”
+  - column:Investment Income: 275000 ⟵ “Investment Income | 275,000”
+  - column:Net Nonoperating Revenue (Exp): 14406464 ⟵ “Net Nonoperating Revenue (Exp) | 14,406,464”
+  - column:Transfers In/(Out): 886076 ⟵ “Transfers In/(Out) | 886,076”
+  - column:Increase (decrease) in Net Assets: 0 ⟵ “Increase (decrease) in Net Assets | 0”
+### `fd32cde2eadf87b3` Bay de Noc Community College — costs 2026-27 · residency=in_state [new] (source_unlabeled)
+- source: https://www.baycollege.edu/admissions/paying-for-college/tuition-costs.php (sha256 07e72951a4bf)
+- issues: implausible_amount
+- checks: {"columns": 1, "rows": 5}
+  - column:Tuition Rate: 165.0 ⟵ “Tuition Rate | $165.00”
+  - column:Student Success Fee: 12.0 ⟵ “Student Success Fee | $12.00”
+  - column:Technology Fee: 37.0 ⟵ “Technology Fee | $37.00”
+  - column:Tuition and Fees/Semester: 3210.0 ⟵ “Tuition and Fees/Semester | $3,210.00”
+  - column:Tuition and Fees/Year: 6420.0 ⟵ “Tuition and Fees/Year | $6,420.00”
+### `0e97c82325ab8902` Calvin University — appeals 2027-28 [new] (labeled_in_source)
+- source: https://calvin.edu/admissions/transfer/financial-aid-and-scholarships (sha256 15cd91358e86)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Optional: Submit a Special Circumstances Form The Special Circumstances Form informs us of any additional factors impacting your ability to pay for Calvin.”
+### `c6f8352c19b66eae` Calvin University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://calvin.edu/sites/default/files/2026-07/satisfactory-academic-progress-policy.pdf?v=2026-july (sha256 7c6da561e8be)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Students not making SAP may appeal their status by submitting a letter of appeal to the Financial Aid Office.”
+### `e14633f06aded891` Calvin University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://calvin.edu/admissions/apply/test-optional (sha256 e755950ac952)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Special circumstances Students who choose test optional may be asked for additional information.”
+### `00f6eb83d4ba7af1` Central Michigan University — appeals 2026-27 [new] (labeled_in_source)
+- source: https://training-www.cmich.edu/offices-departments/office-scholarships-financial-aid/award-notifications/satisfactory-academic-progress (sha256 5ad27b32688d)
+- issues: semantic_review_required, conflicting_sources:https://www.cmich.edu/docs/default-source/student-recruitment-and-retention-division/scholarships-and-financial-aid/2027/satisfactory-academic-progress-appeal-2026-2027.pdf?sfvrsn=f6ef394c_7,https://www.cmich.edu/offices-departments/office-scholarships-financial-aid/award-notifications/complete-satisfactory-progress-policy,https://www.cmich.edu/offices-departments/office-scholarships-financial-aid/award-notifications/satisfactory-academic-progress,https://www.cmich.edu/offices-departments/office-scholarships-financial-aid/scholarships/scholarship-appeal-process
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “May regain eligibility for financial aid if the student is either: Able to bring their academic record within the standards (bring cumulative GPA to meet the required standard, or is able to bring completion percentage over 67%) or Files a Satisfactory Academic Progress Appeal, and that appeal is approved.”
+  - sentence: sap_appeal ⟵ “All appeals must: Be submitted using the CMU Financial Aid Satisfactory Academic Progress Appeal 2026-27 available on the CMU OSFA website.”
+### `1f92800b17dc2a49` Central Michigan University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.cmich.edu/offices-departments/office-scholarships-financial-aid/scholarships/scholarship-appeal-process (sha256 172576a2ddf8)
+- issues: semantic_review_required, conflicting_sources:https://training-www.cmich.edu/offices-departments/office-scholarships-financial-aid/award-notifications/satisfactory-academic-progress,https://www.cmich.edu/docs/default-source/student-recruitment-and-retention-division/scholarships-and-financial-aid/2027/satisfactory-academic-progress-appeal-2026-2027.pdf?sfvrsn=f6ef394c_7,https://www.cmich.edu/offices-departments/office-scholarships-financial-aid/award-notifications/complete-satisfactory-progress-policy,https://www.cmich.edu/offices-departments/office-scholarships-financial-aid/award-notifications/satisfactory-academic-progress
+- checks: {"negative_sentences": 0, "sentences": 5}
+  - sentence: sap_appeal ⟵ “An academic appeal, if approved, will allow you to enroll in classes for the affected semester; a scholarship or SAP appeal, if approved, will allow you to receive your related aid for the affected semester.”
+  - sentence: sap_appeal ⟵ “Is a scholarship appeal the same as a Satisfactory Academic Progress (SAP) appeal?”
+  - sentence: sap_appeal ⟵ “No, a Satisfactory Academic Progress appeal is for students who are not meeting SAP standards.”
+  - sentence: sap_appeal ⟵ “SAP appeals are for students to appeal their loss of federal aid.”
+  - sentence: sap_appeal ⟵ “Students can appeal their merit scholarship(s) within the SAP appeal process.”
+### `671472457facd2d3` Central Michigan University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.cmich.edu/offices-departments/office-scholarships-financial-aid/award-notifications/complete-satisfactory-progress-policy (sha256 21f97d975848)
+- issues: semantic_review_required, conflicting_sources:https://training-www.cmich.edu/offices-departments/office-scholarships-financial-aid/award-notifications/satisfactory-academic-progress,https://www.cmich.edu/docs/default-source/student-recruitment-and-retention-division/scholarships-and-financial-aid/2027/satisfactory-academic-progress-appeal-2026-2027.pdf?sfvrsn=f6ef394c_7,https://www.cmich.edu/offices-departments/office-scholarships-financial-aid/award-notifications/satisfactory-academic-progress,https://www.cmich.edu/offices-departments/office-scholarships-financial-aid/scholarships/scholarship-appeal-process
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: sap_appeal ⟵ “Students may regain eligibility by either meeting the standards of SAP or by successfully submitting an approved SAP appeal.”
+  - sentence: sap_appeal ⟵ “All appeals must: Be submitted using the CMU Financial Aid Satisfactory Academic Progress Appeal form available on the CMU OSFA website.”
+  - sentence: sap_appeal ⟵ “SAP probation Students that have successfully been approved an SAP appeal are placed on SAP probation status.”
+### `69b0192edf08f5c0` Central Michigan University — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://training-www.cmich.edu/offices-departments/office-scholarships-financial-aid/applying-for-financial-aid/new-transfer-students/cmu-traditions-program (sha256 28b0e789a14b)
+- issues: ambiguous_year_labels, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “We have a special circumstances process in place to review changes in household income, divorce, death of a parent, etc.”
+### `785cf6de4b9d08be` Central Michigan University — appeals 2023-24 [new] (labeled_in_source)
+- source: https://www.cmich.edu/offices-departments/office-scholarships-financial-aid/consumer-information (sha256 d59ac0e57b86)
+- issues: stale_year_label:2023-24, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: professional_judgment ⟵ “IN THIS SECTION Consumer Information Rights and Responsibilities OneCentral Confidentiality and Release of Information Professional Judgement Net Price Calculator return to top of page 1200 S.”
+### `a551ee2e36d12adf` Central Michigan University — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.cmich.edu/docs/default-source/student-recruitment-and-retention-division/scholarships-and-financial-aid/2027/satisfactory-academic-progress-appeal-2026-2027.pdf?sfvrsn=f6ef394c_7 (sha256 2b19f00cdd81)
+- issues: semantic_review_required, conflicting_sources:https://training-www.cmich.edu/offices-departments/office-scholarships-financial-aid/award-notifications/satisfactory-academic-progress,https://www.cmich.edu/offices-departments/office-scholarships-financial-aid/award-notifications/complete-satisfactory-progress-policy,https://www.cmich.edu/offices-departments/office-scholarships-financial-aid/award-notifications/satisfactory-academic-progress,https://www.cmich.edu/offices-departments/office-scholarships-financial-aid/scholarships/scholarship-appeal-process
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: sap_appeal ⟵ “Clear Form Print Form OFFICE OF SCHOLARSHIPS AND FINANCIAL AID WARRINER HALL 202, MOUNT PLEASANT, MI 48859 PHONE: (989) 774-3674; FAX: (989) 774-3634 FINANCIAL AID PORTAL 2026-2027 SATISFACTORY ACADEMIC PROGRESS APPEAL FOR FINANCIAL AID ______________________________ ____________________________ ___________________________ Student Name (please print) Phone Number (including area code) Campus ID Nu”
+  - sentence: sap_appeal ⟵ “Yes No Circumstance(s) for Appeal Required Documentation a I am now meeting satisfactory A completed copy of the Satisfactory Academic Progress Appeal Form with your academic progress standards after written signature. the following: ATTACH a typed personal statement with your written signature that explains: Change of Grade 1.”
+  - sentence: sap_appeal ⟵ “A completed copy of the Satisfactory Academic Progress Appeal Form with your written signature.”
+### `e3a2f8e3f730b288` Central Michigan University — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.cmich.edu/offices-departments/office-scholarships-financial-aid/award-notifications/satisfactory-academic-progress (sha256 46f3bb5b42c5)
+- issues: semantic_review_required, conflicting_sources:https://training-www.cmich.edu/offices-departments/office-scholarships-financial-aid/award-notifications/satisfactory-academic-progress,https://www.cmich.edu/docs/default-source/student-recruitment-and-retention-division/scholarships-and-financial-aid/2027/satisfactory-academic-progress-appeal-2026-2027.pdf?sfvrsn=f6ef394c_7,https://www.cmich.edu/offices-departments/office-scholarships-financial-aid/award-notifications/complete-satisfactory-progress-policy,https://www.cmich.edu/offices-departments/office-scholarships-financial-aid/scholarships/scholarship-appeal-process
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “May regain eligibility for financial aid if the student is either: Able to bring their academic record within the standards (bring cumulative GPA to meet the required standard, or is able to bring completion percentage over 67%) or Files a Satisfactory Academic Progress Appeal, and that appeal is approved.”
+  - sentence: sap_appeal ⟵ “All appeals must: Be submitted using the CMU Financial Aid Satisfactory Academic Progress Appeal 2026-27 available on the CMU OSFA website.”
+### `e64bac28e72da644` Central Michigan University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.cmich.edu/offices-departments/office-scholarships-financial-aid/scholarships/scholarship-appeal-process (sha256 172576a2ddf8)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: scholarship_retention_appeal ⟵ “Students who complete an internship that is approved by their academic department and therefore did not meet the renewal criteria of their scholarship may submit an appeal.”
+### `542441796d4df4b6` Cleary University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.cleary.edu/aid-appeals/ (sha256 625dcceb71d0)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: dependency_override ⟵ “The advisor will review the students situation and determine if the student : Is unaccompanied and homeless; Merits a dependency override; Must instead provide parental data; or Should be permitted to borrow only unsubsidized loans because they can document that their parents have refused to support them or to provide parental information on the student’s FAFSA.”
+### `70d0f53cfade33e5` Cleary University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.cleary.edu/aid-appeals/ (sha256 625dcceb71d0)
+- issues: semantic_review_required, conflicting_sources:https://www.cleary.edu/admissions/managing-your-aid/
+- checks: {"negative_sentences": 0, "sentences": 4}
+  - sentence: need_based_special_circumstances ⟵ “Unusual Circumstances Unusual circumstances are conditions that support a change to a student’s dependency status based on a unique situation.”
+  - sentence: need_based_special_circumstances ⟵ “If there are unusual circumstances where you cannot provide your parents information on the FAFSA (e.g., human trafficking, refugee or asylum status, abuse, neglect, or abandonment) the Financial Aid Office may be able to make you an independent student for financial aid purposes.”
+  - sentence: need_based_special_circumstances ⟵ “See examples below of what may qualify you for an unusual circumstance, but note these examples individually do not automatically qualify you: Your parents refuse to contribute financially to your education.”
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstances If you or your family have experienced a significant change in your financial circumstances our financial aid office may take these special circumstances into account and adjust your FAFSA information.This includes situations that have occurred in your family since you filed the FAFSA or circumstances not accounted for on the FAFSA that may affect your ability to cover costs ”
+### `a4fced8a584a8a35` Cleary University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.cleary.edu/admissions/managing-your-aid/ (sha256 716fa29efc0c)
+- issues: semantic_review_required, conflicting_sources:https://www.cleary.edu/aid-appeals/
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “LEARN MORE AID APPEALS Students with unusual or special circumstances may qualify for adjustments to their dependency status or financial aid based on individual situations not fully reflected in the FAFSA.”
+### `595f53e9c5d92eb9` Cleary University — credit_policies 2026-27 · policy_kind=CLEP [new] (source_unlabeled)
+- source: https://www.cleary.edu/admissions/transfer-students/prior-learning-review/ (sha256 72d2d98297e0)
+- issues: rows_without_score
+- checks: {"distinct_exams": 8, "equivalencies": 8, "rows_without_score": 8}
+  - equivalencies[CLEP-FINANCIAL-ACCOUNTING|None]:  ⟵ “Financial Accounting | ACC 1000 (3)”
+  - equivalencies[CLEP-INTRODUCTORY-BUSINESS-LAW|None]:  ⟵ “Introductory Business Law | LAW 2900 (3)”
+  - equivalencies[CLEP-PRINCIPLES-OF-MARKETING|None]:  ⟵ “Principles of Marketing | MKT 2100 (3)”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION|None]:  ⟵ “College Composition | ENG 1000 (3)”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION-MODULAR|None]:  ⟵ “College Composition MOdular | ENG 1000 (3)”
+  - equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|None]:  ⟵ “Principles of Macroeconomics | ECO 1000 (3)”
+  - equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|None]:  ⟵ “Principles of Microeconomics | ECO 2000 (3)”
+  - equivalencies[CLEP-COLLEGE-MATHEMATICS|None]:  ⟵ “College Mathematics | MTH 1750 (3)”
+### `1f366d7ad262373b` Concordia University Ann Arbor — credit_policies 2026-27 · policy_kind=AP [new] (source_unlabeled)
+- source: https://www.cuaa.edu/admissions/transfer/advanced-placement.html (sha256 5de23591bbb1)
+- issues: rows_without_score
+- checks: {"distinct_exams": 33, "equivalencies": 33, "rows_without_score": 33}
+  - equivalencies[AP-DRAWING|None]:  ⟵ “Art Drawing | ART 1040 Drawing Fundamentals – 3 crs.”
+  - equivalencies[AP-BIOLOGY|None]:  ⟵ “Biology | BIO 1401 General Biology I – 4 crs.”
+  - equivalencies[AP-CALCULUS-AB|None]:  ⟵ “Calculus AB or Calculus AB Subscore | MATH 2010 Calculus I – 4 crs.”
+  - equivalencies[AP-CALCULUS-BC|None]:  ⟵ “Calculus BC | MATH 2020 Calculus II – 4 crs.”
+  - equivalencies[AP-CHEMISTRY|None]:  ⟵ “Chemistry | Score of 3: CHEM 1003 Introductory Chemistry Score of 4: CHEM 1414 General Chemistry I - 4 crs. Score of 5: CHEM 1414 Gen Chem I – 4 crs. and CHEM 1424 Gen Chem II – 4 crs.”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|None]:  ⟵ “Chinese Language and Culture | Core Language Credit – 3 crs.”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|None]:  ⟵ “Computer Science A | CSC 1010 Foundations of Computer Science – 3 crs.”
+  - equivalencies[AP-MACROECONOMICS|None]:  ⟵ “Macroeconomics | ECON 2200 Macroeconomics – 3 crs.”
+  - equivalencies[AP-MICROECONOMICS|None]:  ⟵ “Microeconomics | ECON 2100 Microeconomics - 3 crs.”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|None]:  ⟵ “English Language and Composition | ENG 1040 Intro to Writing – 3 crs.”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|None]:  ⟵ “English Literature and Composition | ENG 1030 Civ & Worldview Literature – 3 crs. (default) OR ENG 1040 Intro to Writing – 3 crs.”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|None]:  ⟵ “Environmental Science | ENV 1800 Environmental Science – 3 crs.”
+  - equivalencies[AP-EUROPEAN-HISTORY|None]:  ⟵ “European History | HIST 1099 Hist & World Views West World – 3 crs.”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|None]:  ⟵ “French Language | Core Language Credit – 3 crs.”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|None]:  ⟵ “German Language | GER 1010 Beginning German -4 crs.”
+  - equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|None]:  ⟵ “Comparative Government & Politics | POLS 3000 Comparative Politics – 3 crs.”
+  - equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|None]:  ⟵ “US Government & Politics | POLS 2010 American Government – 3 crs.”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|None]:  ⟵ “Human Geography | Elective Credit – 3 crs.”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|None]:  ⟵ “Italian Language and Culture | Core Language Credit – 3 crs.”
+  - equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|None]:  ⟵ “Japanese Language and Culture | Core Language Credit – 3 crs.”
+  - equivalencies[AP-LATIN|None]:  ⟵ “Latin: Virgil | Core Language Credit – 3 crs.”
+  - equivalencies[AP-MUSIC-THEORY|None]:  ⟵ “Music Theory | Elective – 3 crs.”
+  - equivalencies[AP-PHYSICS-C-MECHANICS|None]:  ⟵ “Physics C - Mech | Score of 4 or 5: PHYS 1514 General Physics I - 4 crs.”
+  - equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|None]:  ⟵ “Physics C – E&M | Score of 4 or 5: PHYS 1524 General Physics II – 4 crs.”
+  - equivalencies[AP-PRECALCULUS|None]:  ⟵ “Precalculus | MATH 1280 College Algebra”
+  - … 8 more rows
+### `2c9a39f07576d742` Cornerstone University — awards 2026-27 [new] (labeled_in_heading)
+- source: https://www.cornerstone.edu/tuition-financial-aid/apply-for-aid/scholarships-grants/undergraduate-scholarships/ (sha256 787b5e166326)
+- issues: duplicate_table_versions
+- checks: {"thresholds": null}
+  - award_amount_text: $1,000 per year ⟵ “2.50-2.99 | Cornerstone University Assistance | $1,000 per year”
+  - gpa_requirement: 2.50-2.99 ⟵ “2.50-2.99 | Cornerstone University Assistance | $1,000 per year”
+### `5a94fa55e20e15c4` Cornerstone University — awards 2026-27 [new] (labeled_in_heading)
+- source: https://www.cornerstone.edu/tuition-financial-aid/apply-for-aid/scholarships-grants/undergraduate-scholarships/ (sha256 787b5e166326)
+- issues: duplicate_table_versions
+- checks: {"thresholds": null}
+  - award_amount_text: $4,000 per year ⟵ “3.30-3.69 | Dean's Scholarship | $4,000 per year”
+  - gpa_requirement: 3.30-3.69 ⟵ “3.30-3.69 | Dean's Scholarship | $4,000 per year”
+### `627f4a4882aa8d90` Cornerstone University — awards 2026-27 [new] (labeled_in_heading)
+- source: https://www.cornerstone.edu/tuition-financial-aid/apply-for-aid/scholarships-grants/undergraduate-scholarships/ (sha256 787b5e166326)
+- issues: duplicate_table_versions
+- checks: {"thresholds": null}
+  - award_amount_text: $2,000 per year ⟵ “3.0-3.29 | Partners for Success Award | $2,000 per year”
+  - gpa_requirement: 3.0-3.29 ⟵ “3.0-3.29 | Partners for Success Award | $2,000 per year”
+### `b9bcd061ab7dd7f4` Cornerstone University — awards 2026-27 [new] (labeled_in_heading)
+- source: https://www.cornerstone.edu/tuition-financial-aid/apply-for-aid/scholarships-grants/undergraduate-scholarships/ (sha256 787b5e166326)
+- issues: duplicate_table_versions
+- checks: {"thresholds": null}
+  - award_amount_text: $8,000 per year ⟵ “4.0-4.29 | President's Scholarship | $8,000 per year”
+  - gpa_requirement: 4.0-4.29 ⟵ “4.0-4.29 | President's Scholarship | $8,000 per year”
+### `cd1f3002e97089d2` Cornerstone University — awards 2026-27 [new] (labeled_in_heading)
+- source: https://www.cornerstone.edu/tuition-financial-aid/apply-for-aid/scholarships-grants/undergraduate-scholarships/ (sha256 787b5e166326)
+- issues: duplicate_table_versions
+- checks: {"thresholds": null}
+  - award_amount_text: $10,000 per year ⟵ “4.3 & above | Trustee's Scholarship | $10,000 per year”
+  - gpa_requirement: 4.3 & above ⟵ “4.3 & above | Trustee's Scholarship | $10,000 per year”
+### `d89f7b905a0f4480` Cornerstone University — awards 2026-27 [new] (labeled_in_heading)
+- source: https://www.cornerstone.edu/tuition-financial-aid/apply-for-aid/scholarships-grants/undergraduate-scholarships/ (sha256 787b5e166326)
+- issues: duplicate_table_versions
+- checks: {"thresholds": null}
+  - award_amount_text: $5,000 per year ⟵ “3.70-3.99 | Chancellor's Scholarship | $5,000 per year”
+  - gpa_requirement: 3.70-3.99 ⟵ “3.70-3.99 | Chancellor's Scholarship | $5,000 per year”
+### `f6361e57f908b29f` Cornerstone University — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.cornerstone.edu/soar-tuition-and-aid/ (sha256 714dadf635b9)
+- issues: stale_year_label:2025-26
+- checks: {"columns": 1, "rows": 10}
+  - column:Tuition (Assoc./Bachelor’s): 2400 ⟵ “Tuition (Assoc./Bachelor’s) | $2,400”
+  - column:Tuition (Master’s): 3740 ⟵ “Tuition (Master’s) | $3,740”
+  - column:Fees: 0 ⟵ “Fees | $0”
+  - column:Food and Housing: 4400 ⟵ “Food and Housing | $4,400”
+  - column:Books: 0 ⟵ “Books | $0”
+  - column:Supplies: 50 ⟵ “Supplies | $50”
+  - column:Personal: 900 ⟵ “Personal | $900”
+  - column:Transportation: 300 ⟵ “Transportation | $300”
+  - column:Loan Fees (Undergraduate): 45 ⟵ “Loan Fees (Undergraduate) | $45”
+  - column:Loan Fees (Graduate): 100 ⟵ “Loan Fees (Graduate) | $100”
+### `7dc7ac3930f827e8` Cornerstone University — credit_policies 2026-27 · policy_kind=AP [new] (labeled_in_source)
+- source: https://www.cornerstone.edu/university-offices/registrar/credit-by-exam/ (sha256 0bcf78e0027d)
+- issues: conflicting_sources:https://www.cornerstone.edu/wp-content/uploads/2026/08/Cornerstone_University_AP_Equivalencies_2026.pdf
+- checks: {"distinct_exams": 30, "equivalencies": 45, "rows_without_score": 0}
+  - equivalencies[AP-ART-HISTORY|4]:  ⟵ “Art History | 4 | 3 | HUM-311 Imagination in Culture”
+  - equivalencies[AP-BIOLOGY|3]:  ⟵ “Biology | 3 | 4 | BIO-110/112 Intro to Biological Sciences”
+  - equivalencies[AP-CALCULUS-AB|3]:  ⟵ “Calculus AB | 3 | 4 | MAT-131 – Calculus I”
+  - equivalencies[AP-CALCULUS-BC|3]:  ⟵ “Calculus BC | 3 | 8 | MAT-131,132 – Calculus I, II”
+  - equivalencies[AP-CHEMISTRY|3]:  ⟵ “Chemistry | 3 | 8 | CHM-124/125, 126/127 Gen Chem I & II”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|3]:  ⟵ “Chinese Lang and Culture | 3 | 6 | Elective credit”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|4]:  ⟵ “Chinese Lang and Culture | 4 | 9 | Elective credit”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|5]:  ⟵ “Chinese Lang and Culture | 5 | 12 | Elective credit”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3]:  ⟵ “English Lang/Comp | 3 | 6 | ENG-114 & COM-120”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3]:  ⟵ “English Lit/Comp | 3 | 6 | ENG-114 & ENG-223 Intro to Lit”
+  - equivalencies[AP-EUROPEAN-HISTORY|3]:  ⟵ “European History | 3 | 6 | HIS Elective”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]:  ⟵ “French Language | 3 | 6 | FRN-102 and FRN-201”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|4]:  ⟵ “French Language | 4 | 9 | FRN-102, 201, 202”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|5]:  ⟵ “French Language | 5 | 12 | FRN-101, 102, 201 and 202”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3]:  ⟵ “German Language | 3 | 6 | GER-102 and GER-201”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|4]:  ⟵ “German Language | 4 | 9 | GER-102, 201 and 202”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|5]:  ⟵ “German Language | 5 | 12 | GER-101, 102, 201 and 202”
+  - equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|3]:  ⟵ “Comparative Govt & Politics | 3 | 3 | SSC Elective”
+  - equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|3]:  ⟵ “U.S. Government & Politics | 3 | 3 | SSC-211 American Government”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|3]:  ⟵ “Human Geography | 3 | 3 | SSC-161 World Geography”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|3]:  ⟵ “Italian Language & Culture | 3 | 6 | Elective credit”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|4]:  ⟵ “Italian Language & Culture | 4 | 9 | Elective credit”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|5]:  ⟵ “Italian Language & Culture | 5 | 12 | Elective credit”
+  - equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|3]:  ⟵ “Japanese Language & Culture | 3 | 6 | Elective credit”
+  - equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|4]:  ⟵ “Japanese Language & Culture | 4 | 9 | Elective credit”
+  - … 20 more rows
+### `7e2024c70ecd1643` Cornerstone University — credit_policies 2026-27 · policy_kind=AP [new] (source_unlabeled)
+- source: https://www.cornerstone.edu/wp-content/uploads/2026/08/Cornerstone_University_AP_Equivalencies_2026.pdf (sha256 d28e872f45b7)
+- issues: conflicting_sources:https://www.cornerstone.edu/university-offices/registrar/credit-by-exam/
+- checks: {"distinct_exams": 30, "equivalencies": 30, "rows_without_score": 0}
+  - equivalencies[AP-ART-HISTORY|4]:  ⟵ “Art History                                   4          3       HUM-311 Imagination in Culture”
+  - equivalencies[AP-BIOLOGY|3]:  ⟵ “Biology                                       3          4       BIO-110/112 Intro to Biological Sciences”
+  - equivalencies[AP-CALCULUS-AB|3]:  ⟵ “Calculus AB                                   3          4       MAT-131 - Calculus I”
+  - equivalencies[AP-CALCULUS-BC|3]:  ⟵ “Calculus BC                                   3          8       MAT-131,132 - Calculus I, II”
+  - equivalencies[AP-CHEMISTRY|3]:  ⟵ “Chemistry                                     3          8       CHM-124/125, 126/127 Gen Chem I & II”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|3]:  ⟵ “Chinese Lang and Culture                      3          6       Elective credit”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3]:  ⟵ “English Lang/Comp                             3          6       ENG-114 & COM-120”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3]:  ⟵ “English Lit/Comp                              3          6       ENG-114 & ENG-223 Intro to Lit”
+  - equivalencies[AP-EUROPEAN-HISTORY|3]:  ⟵ “European History                              3          6       HIS Elective”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]:  ⟵ “French Language                               3          6       FRN-102 and FRN-201”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3]:  ⟵ “German Language                               3          6       GER-102 and GER-201”
+  - equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|3]:  ⟵ “Comparative Govt & Politics                   3          3       SSC Elective”
+  - equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|3]:  ⟵ “U.S. Government & Politics                    3          3       SSC-211 American Government”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|3]:  ⟵ “Human Geography                               3          3       SSC-161 World Geography”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|3]:  ⟵ “Italian Language & Culture                    3          6       Elective credit”
+  - equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|3]:  ⟵ “Japanese Language & Culture                   3        6       Elective credit”
+  - equivalencies[AP-MUSIC-THEORY|3]:  ⟵ “Music Theory                                  3        3       MUS-110 Music Fundamentals”
+  - equivalencies[AP-PHYSICS-1|3]:  ⟵ “Physics 1                                     3        4       PHY-2114/215 General Physics I”
+  - equivalencies[AP-PHYSICS-2|3]:  ⟵ “Physics 2                                     3        4       PHY-216/217 General Physics II”
+  - equivalencies[AP-PHYSICS-C-MECHANICS|3]:  ⟵ “Physics C: Mechanics                          3        4       PHY-224/225 Physics for Scientists & Engineers I”
+  - equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|3]:  ⟵ “Physics C: Electricity and Magnetism          3        4       PHY-226/227 Physics for Scientists & Engineers II”
+  - equivalencies[AP-PRECALCULUS|3]:  ⟵ “Precalculus                                   3        4       MAT-122 Precalculus”
+  - equivalencies[AP-PSYCHOLOGY|3]:  ⟵ “Psychology                                    3        3       PSY-111 General Psychology”
+  - equivalencies[AP-RESEARCH|3]:  ⟵ “Research                                      3        6       General Elective”
+  - equivalencies[AP-SEMINAR|3]:  ⟵ “Seminar                                       3        3       General Elective”
+  - … 5 more rows
+### `886d15a05b17daa4` Cornerstone University — credit_policies 2026-27 · policy_kind=CLEP [new] (labeled_in_source)
+- source: https://www.cornerstone.edu/university-offices/registrar/credit-by-exam/ (sha256 0bcf78e0027d)
+- issues: conflicting_sources:https://www.cornerstone.edu/wp-content/uploads/2026/08/Cornerstone_University_CLEP_Equivalencies_2026.pdf
+- checks: {"distinct_exams": 29, "equivalencies": 31, "rows_without_score": 0}
+  - equivalencies[CLEP-AMERICAN-GOVERNMENT|50]:  ⟵ “American Government | 3 | 50 | SSC-211 American Government”
+  - equivalencies[CLEP-AMERICAN-LITERATURE|50]:  ⟵ “American Literature | 3 | 50 | ENG-334 American Renaissance”
+  - equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|50]:  ⟵ “Analyzing & Interpreting Literature | 3 | 50 | ENG-223 Introduction to Literature”
+  - equivalencies[CLEP-BIOLOGY|50]:  ⟵ “Biology | 6 | 50 | BIO-110/112 Intro to Biological Science”
+  - equivalencies[CLEP-CALCULUS|50]:  ⟵ “Calculus | 4 | 50 | MAT-131 Calculus I”
+  - equivalencies[CLEP-CHEMISTRY|50]:  ⟵ “Chemistry | 6 | 50 | CHM-124/125 and 126/127 General Chem I & II”
+  - equivalencies[CLEP-COLLEGE-ALGEBRA|50]:  ⟵ “College Algebra | 3 | 50 | MAT-121 College Algebra”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION|50]:  ⟵ “College Composition | 6 | 50 | ENG-114 & COM-120”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION-MODULAR|50]:  ⟵ “College Composition Modular | 3 | 50 | ENG-114 College Composition”
+  - equivalencies[CLEP-COLLEGE-MATHEMATICS|50]:  ⟵ “College Mathematics | 3 | 50 | MAT-110 College Mathematics”
+  - equivalencies[CLEP-ENGLISH-LITERATURE|50]:  ⟵ “English Literature | 6 | 50 | ENG-342 British Romantic & Victorian Lit”
+  - equivalencies[CLEP-FINANCIAL-ACCOUNTING|50]:  ⟵ “Financial Accounting | 3 | 50 | ACC-221 Accounting I”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|50]:  ⟵ “French Language Level 1* | 6 | 50 | FRN-101, 102 French I, II”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|62]:  ⟵ “French Language Level 2* | 9 | 62 | FRN-102/201/202”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|50]:  ⟵ “German Language Level 1* | 6 | 50 | Foreign Language Elective”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|60]:  ⟵ “German Language Level 2* | 9 | 60 | Foreign Language Elective”
+  - equivalencies[CLEP-HUMANITIES|50]:  ⟵ “Humanities | 3 | 50 | HUM-311 Imagination in Culture”
+  - equivalencies[CLEP-INFORMATION-SYSTEMS|50]:  ⟵ “Information Systems | 3 | 50 | CIS-211 Foundations of Info Systems”
+  - equivalencies[CLEP-INTRODUCTION-TO-EDUCATIONAL-PSYCHOLOGY|50]:  ⟵ “Intro to Educational Psychology | 3 | 50 | EDU elective”
+  - equivalencies[CLEP-INTRODUCTORY-BUSINESS-LAW|50]:  ⟵ “Introductory Business Law | 3 | 50 | BUS-361 Business Law”
+  - equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|50]:  ⟵ “Introductory Sociology | 3 | 50 | SOC-111 Introduction to Sociology”
+  - equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|50]:  ⟵ “Introductory Psychology | 3 | 50 | PSY-111 General Psychology”
+  - equivalencies[CLEP-PRECALCULUS|50]:  ⟵ “Precalculus | 3 | 50 | MAT-122 Trigonometry”
+  - equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|50]:  ⟵ “Principles of Macroeconomics | 3 | 50 | ECN-231 Macroeconomics”
+  - equivalencies[CLEP-PRINCIPLES-OF-MANAGEMENT|50]:  ⟵ “Principles of Management | 3 | 50 | MGT-231 Prin. of Management”
+  - … 6 more rows
+### `ad5ab64e85dbd85f` Cornerstone University — credit_policies 2026-27 · policy_kind=IB [new] (labeled_in_source)
+- source: https://www.cornerstone.edu/university-offices/registrar/credit-by-exam/ (sha256 0bcf78e0027d)
+- issues: score_column_not_scores
+- checks: {"distinct_exams": 8, "equivalencies": 9, "rows_without_score": 0}
+  - equivalencies[IB-BIOLOGY|Biology]:  ⟵ “Biology | BIO-111 or 151 | 4”
+  - equivalencies[IB-CHEMISTRY|Chemistry]:  ⟵ “Chemistry | CHM-121 & CHM-122 | 8”
+  - equivalencies[IB-ECONOMICS|Economics]:  ⟵ “Economics | ECN-231 | 3”
+  - equivalencies[IB-HISTORY|History]:  ⟵ “History | HIS Elective | 3”
+  - equivalencies[IB-MUSIC-HL|Music HL]:  ⟵ “Music HL | HUM-311 | 3”
+  - equivalencies[IB-PHYSICS|Physics]:  ⟵ “Physics | PHY-211 & PHY-212 | 8”
+  - equivalencies[IB-PSYCHOLOGY|Psychology]:  ⟵ “Psychology | PSY-111 | 3”
+  - equivalencies[IB-SPANISH|Spanish B]:  ⟵ “Spanish B | SPA-201 | 3 (score = 5)”
+  - equivalencies[IB-SPANISH|Spanish B]:  ⟵ “Spanish B | SPA-201 & SPA-202 | 6 (score = 6, 7)”
+### `bd5a864008954eba` Cornerstone University — credit_policies 2026-27 · policy_kind=CLEP [new] (source_unlabeled)
+- source: https://www.cornerstone.edu/wp-content/uploads/2026/08/Cornerstone_University_CLEP_Equivalencies_2026.pdf (sha256 cac791e65864)
+- issues: credits_implausible, score_scale_mismatch, conflicting_sources:https://www.cornerstone.edu/university-offices/registrar/credit-by-exam/
+- checks: {"distinct_exams": 30, "equivalencies": 32, "rows_without_score": 0}
+  - equivalencies[CLEP-AMERICAN-GOVERNMENT|3]:  ⟵ “American Government                           3              50       SSC-211 American Government”
+  - equivalencies[CLEP-AMERICAN-LITERATURE|3]:  ⟵ “American Literature                           3              50       ENG-334 American Renaissance”
+  - equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|3]:  ⟵ “Analyzing & Interpreting Literature           3              50       ENG-223 Introduction to Literature”
+  - equivalencies[CLEP-BIOLOGY|6]:  ⟵ “Biology                                       6              50       BIO-110/112 Intro to Biological Science”
+  - equivalencies[CLEP-CALCULUS|4]:  ⟵ “Calculus                                      4              50       MAT-131 Calculus I”
+  - equivalencies[CLEP-CHEMISTRY|6]:  ⟵ “Chemistry                                     6              50       CHM-124/125 and 126/127 General Chem I & II”
+  - equivalencies[CLEP-COLLEGE-ALGEBRA|3]:  ⟵ “College Algebra                               3              50       MAT-121 College Algebra”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION|6]:  ⟵ “College Composition                           6              50       ENG-114 & COM-120”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION-MODULAR|3]:  ⟵ “College Composition Modular                   3              50       ENG-114 College Composition”
+  - equivalencies[CLEP-COLLEGE-MATHEMATICS|3]:  ⟵ “College Mathematics                           3              50       MAT-110 College Mathematics”
+  - equivalencies[CLEP-ENGLISH-LITERATURE|6]:  ⟵ “English Literature                            6              50       ENG-342 British Romantic & Victorian Lit”
+  - equivalencies[CLEP-FINANCIAL-ACCOUNTING|3]:  ⟵ “Financial Accounting                          3              50       ACC-221 Accounting I”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|6]:  ⟵ “French Language Level 1*                      6              50       FRN-101, 102 French I, II”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|62]:  ⟵ “French Language Level 2*                      9              62       FRN-102/201/202”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|6]:  ⟵ “German Language Level 1*                      6              50       Foreign Language Elective”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|60]:  ⟵ “German Language Level 2*                      9              60       Foreign Language Elective”
+  - equivalencies[CLEP-HUMAN-GROWTH-DEVELOPMENT|3]:  ⟵ “Human Growth & Development                    3              50       PSY-235 Lifespan Dvlpt Psychology”
+  - equivalencies[CLEP-HUMANITIES|3]:  ⟵ “Humanities                                    3              50       HUM-311 Imagination in Culture”
+  - equivalencies[CLEP-INFORMATION-SYSTEMS|3]:  ⟵ “Information Systems                           3              50       CIS-211 Foundations of Info Systems”
+  - equivalencies[CLEP-INTRODUCTION-TO-EDUCATIONAL-PSYCHOLOGY|3]:  ⟵ “Intro to Educational Psychology               3              50       EDU elective”
+  - equivalencies[CLEP-INTRODUCTORY-BUSINESS-LAW|3]:  ⟵ “Introductory Business Law                     3              50       BUS-361 Business Law”
+  - equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|3]:  ⟵ “Introductory Sociology                        3              50       SOC-111 Introduction to Sociology”
+  - equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|3]:  ⟵ “Introductory Psychology                       3              50       PSY-111 General Psychology”
+  - equivalencies[CLEP-PRECALCULUS|3]:  ⟵ “Precalculus                                   3         50       MAT-122 Trigonometry”
+  - equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|3]:  ⟵ “Principles of Macroeconomics                  3         50       ECN-231 Macroeconomics”
+  - … 7 more rows
+### `0ad3893194f2ae25` Davenport University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.davenport.edu/financial-aid/resources/standards-academic-progress/sap-undergraduate (sha256 0fefb4936f02)
+- issues: semantic_review_required, conflicting_sources:https://www.davenport.edu/financial-aid/resources/special-circumstances
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: need_based_special_circumstances ⟵ “Mitigating circumstances may include but are not limited to illness or injury of the student or immediate family member; death of a relative; or other special circumstance.”
+  - sentence: need_based_special_circumstances ⟵ “In This Section Credit for Prior Learning Toggle submenu Financial Aid Resources FAQ One Big Beautiful Bill Act (OBBBA) Fill Out the FAFSA Financial Aid Deadlines Financial aid checklists High School Graduation / GED Completion Special Circumstances Standards of Academic Progress Higher Education Emergency Relief Fund How do I receive / accept aid?”
+### `7d8bf42ce11ffe8f` Davenport University — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.davenport.edu/financial-aid/resources/special-circumstances (sha256 2c678ad35794)
+- issues: semantic_review_required, conflicting_sources:https://www.davenport.edu/financial-aid/resources/standards-academic-progress/sap-undergraduate
+- checks: {"negative_sentences": 0, "sentences": 14}
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstances | Davenport University Skip to main content Close Search Home Menu Search Main navigation Toggle submenu Casa Latina Casa Latina (English) Programas de Casa Latina en Davenport Casa Latina Degree Programs Toggle submenu Academics Academic Calendar All Degree Programs All Certificate Programs Toggle submenu Areas of Study Arts & Sciences Business Health Professions Technology ”
+  - sentence: need_based_special_circumstances ⟵ “Another type of special circumstance that may affect your eligibility for aid includes participation in a study abroad program or taking an unusually heavy credit load at DU.”
+  - sentence: need_based_special_circumstances ⟵ “You may submit a Special Circumstance Form and the required documentation to the: Davenport Student Financial Services 6191 Kraft Avenue S.E.”
+  - sentence: need_based_special_circumstances ⟵ “Grand Rapids, MI 49512 financialservices@davenport.edu The Department of Education requires requests for a Special Circumstance or Unusual Circumstance must be reviewed by the school within 60 days from date of enrollment or date of submission, whichever is later.”
+  - sentence: need_based_special_circumstances ⟵ “If you have questions about a special circumstance, please contact a financial aid counselor on your campus.”
+  - sentence: need_based_special_circumstances ⟵ “Submit your Special Circumstance statement and supporting documentation to the address or through FA Doc Upload.”
+### `d0e3f43dfa412122` Davenport University — appeals 2024-25 [new] (labeled_in_source)
+- source: https://www.davenport.edu/financial-aid/resources (sha256 3821b0a58450)
+- issues: stale_year_label:2024-25, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: dependency_override ⟵ “Armed Forces for purposes other than training Graduate or graduate/professional student Married prior to filing and signing the Free Application for Federal Student Aid (FAFSA) Orphan or ward of the court Have legal dependents other than a spouse However, there may be family situations that warrant a dependency override for extreme circumstances, such as drug or physical abuse, neglect, abandonmen”
+  - sentence: dependency_override ⟵ “A Dependency Override Request may be made to the University in such cases.”
+### `050069a7e3728e09` Davenport University — awards 2024-25 [new] (labeled_in_source)
+- source: https://www.davenport.edu/financial-aid/scholarships (sha256 a867b4c6cce5)
+- issues: stale_year_label:2024-25
+- checks: {"thresholds": null}
+  - award_amount_text: $9,000 per year ⟵ “Distinction Scholarship | $9,000 per year | 3.50 to 3.84 GPA”
+  - eligibility_summary: 3.50 to 3.84 GPA ⟵ “Distinction Scholarship | $9,000 per year | 3.50 to 3.84 GPA”
+### `2d4866424538a01d` Davenport University — awards 2024-25 [new] (labeled_in_source)
+- source: https://www.davenport.edu/financial-aid/scholarships (sha256 a867b4c6cce5)
+- issues: stale_year_label:2024-25
+- checks: {"thresholds": null}
+  - award_amount_text: $6,000 per year ⟵ “Impact Scholarship | $6,000 per year | 2.75 to 2.99 GPA”
+  - eligibility_summary: 2.75 to 2.99 GPA ⟵ “Impact Scholarship | $6,000 per year | 2.75 to 2.99 GPA”
+### `32da7ae23d214858` Davenport University — awards 2024-25 [new] (labeled_in_source)
+- source: https://www.davenport.edu/financial-aid/scholarships (sha256 a867b4c6cce5)
+- issues: stale_year_label:2024-25
+- checks: {"thresholds": null}
+  - award_amount_text: $5,000 per year ⟵ “Signature Scholarship | $5,000 per year | Admitted with a GPA less than 2.75”
+  - eligibility_summary: Admitted with a GPA less than 2.75 ⟵ “Signature Scholarship | $5,000 per year | Admitted with a GPA less than 2.75”
+### `3558e6bb2007f214` Davenport University — awards 2024-25 [new] (labeled_in_source)
+- source: https://www.davenport.edu/financial-aid/scholarships (sha256 a867b4c6cce5)
+- issues: stale_year_label:2024-25
+- checks: {"thresholds": null}
+  - award_amount_text: $10,000 per year ⟵ “Executive Scholarship | $10,000 per year | 3.85+ GPA”
+  - eligibility_summary: 3.85+ GPA ⟵ “Executive Scholarship | $10,000 per year | 3.85+ GPA”
+### `7074ca90e0b9512e` Davenport University — awards 2024-25 [new] (labeled_in_source)
+- source: https://www.davenport.edu/financial-aid/scholarships (sha256 a867b4c6cce5)
+- issues: stale_year_label:2024-25
+- checks: {"thresholds": null}
+  - award_amount_text: Up to full tuition ⟵ “United Farmworker Scholarship | Up to full tuition | 2.0+ GPA | Application requirementsApplication deadline: January 16, 2027 | Maintain standards of academic progress”
+  - eligibility_summary: 2.0+ GPA ⟵ “United Farmworker Scholarship | Up to full tuition | 2.0+ GPA | Application requirementsApplication deadline: January 16, 2027 | Maintain standards of academic progress”
+  - renewal_requirements: Maintain standards of academic progress ⟵ “United Farmworker Scholarship | Up to full tuition | 2.0+ GPA | Application requirementsApplication deadline: January 16, 2027 | Maintain standards of academic progress”
+### `7617308b6e74791b` Davenport University — awards 2024-25 [new] (labeled_in_source)
+- source: https://www.davenport.edu/financial-aid/scholarships (sha256 a867b4c6cce5)
+- issues: stale_year_label:2024-25
+- checks: {"thresholds": null}
+  - award_amount_text: The scholarship covers the cost of tuition, books, fees, a study abroad experience, on-campus housing and meal plans ⟵ “Gerald R. Ford Memorial Scholarship | The scholarship covers the cost of tuition, books, fees, a study abroad experience, on-campus housing and meal plans | 3.75 GPA | Application requirementsApplication deadline: March 1, 2027 | 3.60+ GPA”
+  - eligibility_summary: 3.75 GPA ⟵ “Gerald R. Ford Memorial Scholarship | The scholarship covers the cost of tuition, books, fees, a study abroad experience, on-campus housing and meal plans | 3.75 GPA | Application requirementsApplication deadline: March 1, 2027 | 3.60+ GPA”
+  - renewal_requirements: 3.60+ GPA ⟵ “Gerald R. Ford Memorial Scholarship | The scholarship covers the cost of tuition, books, fees, a study abroad experience, on-campus housing and meal plans | 3.75 GPA | Application requirementsApplication deadline: March 1, 2027 | 3.60+ GPA”
+### `82ed70ee1e9ad23a` Davenport University — awards 2024-25 [new] (labeled_in_source)
+- source: https://www.davenport.edu/financial-aid/scholarships (sha256 a867b4c6cce5)
+- issues: stale_year_label:2024-25
+- checks: {"thresholds": null}
+  - award_amount_text: Amount variesProrated by enrollment level ⟵ “Davenport University Grant | Amount variesProrated by enrollment level | AdmittedAvailable to those receiving Signature, Achievement or Excellence scholarships Not available for student athletes | Recent high school graduate | Maintain standards of academic progress”
+  - eligibility_summary: AdmittedAvailable to those receiving Signature, Achievement or Excellence scholarships Not available for student athletes ⟵ “Davenport University Grant | Amount variesProrated by enrollment level | AdmittedAvailable to those receiving Signature, Achievement or Excellence scholarships Not available for student athletes | Recent high school graduate | Maintain standards of academic progress”
+  - renewal_requirements: Maintain standards of academic progress ⟵ “Davenport University Grant | Amount variesProrated by enrollment level | AdmittedAvailable to those receiving Signature, Achievement or Excellence scholarships Not available for student athletes | Recent high school graduate | Maintain standards of academic progress”
+### `8cbf2272ff7c6d3c` Davenport University — awards 2024-25 [new] (labeled_in_source)
+- source: https://www.davenport.edu/financial-aid/scholarships (sha256 a867b4c6cce5)
+- issues: stale_year_label:2024-25
+- checks: {"thresholds": null}
+  - award_amount_text: $7,000 per year ⟵ “Momentum Scholarship | $7,000 per year | 3.0 to 3.49 GPA”
+  - eligibility_summary: 3.0 to 3.49 GPA ⟵ “Momentum Scholarship | $7,000 per year | 3.0 to 3.49 GPA”
+### `97931031bc44979c` Davenport University — awards 2024-25 [new] (labeled_in_source)
+- source: https://www.davenport.edu/financial-aid/scholarships (sha256 a867b4c6cce5)
+- issues: stale_year_label:2024-25
+- checks: {"thresholds": null}
+  - award_amount_text: Up to full tuition ⟵ “Martin Luther King Inherit the Dream Scholarship | Up to full tuition | 2.0+ GPA | Application requirementsApplication deadline: December 1, 2026 | Maintain standards of academic progress”
+  - eligibility_summary: 2.0+ GPA ⟵ “Martin Luther King Inherit the Dream Scholarship | Up to full tuition | 2.0+ GPA | Application requirementsApplication deadline: December 1, 2026 | Maintain standards of academic progress”
+  - renewal_requirements: Maintain standards of academic progress ⟵ “Martin Luther King Inherit the Dream Scholarship | Up to full tuition | 2.0+ GPA | Application requirementsApplication deadline: December 1, 2026 | Maintain standards of academic progress”
+### `9f1185d6b54fb4f0` Davenport University — awards 2024-25 [new] (labeled_in_source)
+- source: https://www.davenport.edu/financial-aid/scholarships (sha256 a867b4c6cce5)
+- issues: stale_year_label:2024-25
+- checks: {"thresholds": null}
+  - award_amount_text: $2,000 per year*This is stackable with a merit-based scholarship. ⟵ “University President Scholarship | $2,000 per year*This is stackable with a merit-based scholarship. | 3.90+ GPAThree recipients will receive this scholarship each year. | Application requirementsApplication deadline: March 1, 2027 | Maintain standards of academic progress”
+  - eligibility_summary: 3.90+ GPAThree recipients will receive this scholarship each year. ⟵ “University President Scholarship | $2,000 per year*This is stackable with a merit-based scholarship. | 3.90+ GPAThree recipients will receive this scholarship each year. | Application requirementsApplication deadline: March 1, 2027 | Maintain standards of academic progress”
+  - renewal_requirements: Maintain standards of academic progress ⟵ “University President Scholarship | $2,000 per year*This is stackable with a merit-based scholarship. | 3.90+ GPAThree recipients will receive this scholarship each year. | Application requirementsApplication deadline: March 1, 2027 | Maintain standards of academic progress”
+### `34021ef95c878ee8` Davenport University — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.davenport.edu/sites/default/files/2026-07/OT%202627%20COA%20for%20website.pdf (sha256 1e7265e33d9b)
+- issues: arrangement_unlabeled, multiple_total_rows, conflicting_sources:https://www.davenport.edu/financial-aid/tuition-fees/budget
+- checks: {"columns": 4, "rows": 21}
+  - column:Tuition for 2026/2027 academic year =: 1148 ⟵ “Tuition for 2026/2027 academic year = | $1,148 | per credit hour”
+  - column:Credits: 17 ⟵ “Credits | 17 | 15 | 10 | 42”
+  - column:Total Tuition: 19516 ⟵ “Total Tuition | $19,516 | $17,220 | $11,480 | $48,216”
+  - column:Course Fees (estimated): 385 ⟵ “Course Fees (estimated) | $385 | $245 | $80 | $710”
+  - column:Registration Fee: 245 ⟵ “Registration Fee | $245 | $245 | $245 | $735”
+  - column:Technology Fee: 155 ⟵ “Technology Fee | $155 | $155 | $155 | $465”
+  - column:Student Activity Fee: 130 ⟵ “Student Activity Fee | $130 | $130 | $130 | $390”
+  - column:Student Accident Plan Fee: 40 ⟵ “Student Accident Plan Fee | $40 | $40 | $40 | $120”
+  - column:Wellness Center Fee: 25 ⟵ “Wellness Center Fee | $25 | $25 | $25 | $75”
+  - column:Books & Supplies (estimated): 176 ⟵ “Books & Supplies (estimated) | $176 | $250 | $250 | $676”
+  - column:Total Costs: 20672 ⟵ “Total Costs | $20,672 | $18,310 | $12,405 | $51,387”
+  - column:Credits (2): 12 ⟵ “Credits | 12 | 6 | 7 | 25”
+  - column:Total Tuition (2): 13776 ⟵ “Total Tuition | $13,776 | $6,888 | $8,036 | $28,700”
+  - column:Course Fees (estimated) (2): 310 ⟵ “Course Fees (estimated) | $310 | $0 | $415 | $725”
+  - column:Registration Fee (2): 245 ⟵ “Registration Fee | $245 | $245 | $245 | $735”
+  - column:Technology Fee (2): 155 ⟵ “Technology Fee | $155 | $155 | $155 | $465”
+  - column:Student Activity Fee (2): 130 ⟵ “Student Activity Fee | $130 | $130 | $130 | $390”
+  - column:Student Accident Plan Fee (2): 40 ⟵ “Student Accident Plan Fee | $40 | $40 | $40 | $120”
+  - column:Wellness Center Fee (2): 25 ⟵ “Wellness Center Fee | $25 | $25 | $25 | $75”
+  - column:Books & Supplies (estimated) (2): 86 ⟵ “Books & Supplies (estimated) | $86 | $198 | $0 | $284”
+  - column:Total Costs (2): 14767 ⟵ “Total Costs | $14,767 | $7,681 | $9,046 | $31,494”
+  - column:Credits: 15 ⟵ “Credits | 17 | 15 | 10 | 42”
+  - column:Total Tuition: 17220 ⟵ “Total Tuition | $19,516 | $17,220 | $11,480 | $48,216”
+  - column:Course Fees (estimated): 245 ⟵ “Course Fees (estimated) | $385 | $245 | $80 | $710”
+  - column:Registration Fee: 245 ⟵ “Registration Fee | $245 | $245 | $245 | $735”
+  - … 56 more rows
+### `856851b9ea06c9d9` Davenport University — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.davenport.edu/financial-aid/tuition-fees/budget (sha256 10c5dc55f767)
+- issues: arrangement_unlabeled, conflicting_sources:https://www.davenport.edu/sites/default/files/2026-07/OT%202627%20COA%20for%20website.pdf
+- checks: {"columns": 3, "components_reconcile": true, "rows": 7}
+  - column:Tuition & fees: 32945 ⟵ “Tuition & fees | $32,945 | $32,945 | $32,945”
+  - column:Books, course materials, supplies and equipment: 780 ⟵ “Books, course materials, supplies and equipment | $780 | $780 | $780”
+  - column:Food & Housing: 14048 ⟵ “Food & Housing | $14,048 | $14,280 | $5,616”
+  - column:Transportation: 2864 ⟵ “Transportation | $2,864 | $944 | $2,864”
+  - column:Personal: 9104 ⟵ “Personal | $9,104 | $3,008 | $3,640”
+  - column:Loan fees: 108 ⟵ “Loan fees | $108 | $66 | $66”
+  - column:Total budget*: 59849 ⟵ “Total budget* | $59,849 | $52,023 | $45,911”
+  - on_campus:Tuition & fees: 32945 ⟵ “Tuition & fees | $32,945 | $32,945 | $32,945”
+  - on_campus:Books, course materials, supplies and equipment: 780 ⟵ “Books, course materials, supplies and equipment | $780 | $780 | $780”
+  - on_campus:Food & Housing: 14280 ⟵ “Food & Housing | $14,048 | $14,280 | $5,616”
+  - on_campus:Transportation: 944 ⟵ “Transportation | $2,864 | $944 | $2,864”
+  - on_campus:Personal: 3008 ⟵ “Personal | $9,104 | $3,008 | $3,640”
+  - on_campus:Loan fees: 66 ⟵ “Loan fees | $108 | $66 | $66”
+  - on_campus:Total budget*: 52023 ⟵ “Total budget* | $59,849 | $52,023 | $45,911”
+  - off_campus_not_with_family:Tuition & fees: 32945 ⟵ “Tuition & fees | $32,945 | $32,945 | $32,945”
+  - off_campus_not_with_family:Books, course materials, supplies and equipment: 780 ⟵ “Books, course materials, supplies and equipment | $780 | $780 | $780”
+  - off_campus_not_with_family:Food & Housing: 5616 ⟵ “Food & Housing | $14,048 | $14,280 | $5,616”
+  - off_campus_not_with_family:Transportation: 2864 ⟵ “Transportation | $2,864 | $944 | $2,864”
+  - off_campus_not_with_family:Personal: 3640 ⟵ “Personal | $9,104 | $3,008 | $3,640”
+  - off_campus_not_with_family:Loan fees: 66 ⟵ “Loan fees | $108 | $66 | $66”
+  - off_campus_not_with_family:Total budget*: 45911 ⟵ “Total budget* | $59,849 | $52,023 | $45,911”
+### `1687f2dea500e999` Davenport University — credit_policies 2026-27 · policy_kind=AP [new] (labeled_in_title)
+- source: https://resources.davenport.edu/Portals/0/Registrar/Articulations/AP/26-27/AP_Grid_2026-2027.pdf (sha256 2b388bd4463a)
+- issues: conflicting_sources:https://resources.davenport.edu/Portals/0/Registrar/Articulations/AP/26-27/AP_ArticulationSubmissionForm_2026-2027.pdf
+- checks: {"distinct_exams": 31, "equivalencies": 32, "rows_without_score": 0}
+  - equivalencies[AP-RESEARCH|3]:  ⟵ “AP Research                                                         OPEN                          Open Elective                            3”
+  - equivalencies[AP-SEMINAR|3]:  ⟵ “AP Seminar                                                          OPEN                          Open Elective                            3”
+  - equivalencies[AP-MUSIC-THEORY|3]:  ⟵ “AP Music Theory                                                     OPEN                         Open Elective                             3”
+  - equivalencies[AP-2-D-ART-DESIGN|3]:  ⟵ “AP Studio Art: 2-D Design                                           OPEN                         Open Elective                             3”
+  - equivalencies[AP-3-D-ART-DESIGN|3]:  ⟵ “AP Studio Art: 3-D Design                                           OPEN                         Open Elective                             3”
+  - equivalencies[AP-DRAWING|3]:  ⟵ “AP Studio Art: Drawing                                              OPEN                         Open Elective                             3”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3]:  ⟵ “AP English Language and Composition                                 ENGL109                        Composition                             3”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3]:  ⟵ “AP English Literature and Composition                               ENGL109                        Composition                             3”
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|3]:  ⟵ “AP African American Studies                                         HIST385                    History Special Topics                      3”
+  - equivalencies[AP-MACROECONOMICS|3]:  ⟵ “AP Macroeconomics                                                   ECON201                      Macroeconomics                            3”
+  - equivalencies[AP-MICROECONOMICS|3]:  ⟵ “AP Microeconomics                                                   ECON200                      Microeconomics                            3”
+  - equivalencies[AP-PSYCHOLOGY|3]:  ⟵ “AP Psychology                                                       PSYC101                  Introductory Psychology                       3”
+  - equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|3]:  ⟵ “AP United States Government and Politics                            POLS111                   American Government                          3”
+  - equivalencies[AP-UNITED-STATES-HISTORY|3]:  ⟵ “AP United States History                                            HIST211                 Early United States History                    3”
+  - equivalencies[AP-WORLD-HISTORY-MODERN|3]:  ⟵ “AP World History                                                    HIST112                   Modern World History                         3”
+  - equivalencies[AP-PRECALCULUS|3]:  ⟵ “AP Precalculus                                             Score = 3 MATH120                   College Mathematics                         3”
+  - equivalencies[AP-PRECALCULUS|4]:  ⟵ “AP Precalculus                                             Score = 4 MATH150                       PreCalculus                             4”
+  - equivalencies[AP-CALCULUS-AB|4]:  ⟵ “AP Calculus AB                                                       MATH215                         Calculus I                            4”
+  - equivalencies[AP-CALCULUS-BC|4]:  ⟵ “AP Calculus BC                                                       MATH216                         Calculus II                           4”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|3]:  ⟵ “AP Computer Science A                                                CSCI231               Introduction to Programming                     3”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|3]:  ⟵ “AP Computer Science Principles                                       CSCI231               Introduction to Programming                     3”
+  - equivalencies[AP-STATISTICS|3]:  ⟵ “AP Statistics                                                        STAT220/219      Introduction to Statistics/Biostatistics             3”
+  - equivalencies[AP-BIOLOGY|3]:  ⟵ “AP Biology                                                          BIOL110                Foundations of Cell Biology                     3”
+  - equivalencies[AP-CHEMISTRY|3]:  ⟵ “AP Chemistry                                                        CHEM150                 Foundations in Chemistry                       3”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|3]:  ⟵ “AP Environmental Science                                            ENVS125          Introduction to Environmental Studies                 3”
+  - … 7 more rows
+### `3d5d7f920e5048de` Davenport University — credit_policies 2026-27 · policy_kind=IB [new] (labeled_in_title)
+- source: https://resources.davenport.edu/Portals/0/Registrar/Articulations/IB/26-27/IB_Grid_2026-2027.pdf (sha256 893f5b637d26)
+- issues: conflicting_sources:https://resources.davenport.edu/Portals/0/Registrar/Articulations/IB/26-27/IB_ArticulationSubmissionForm_2026-2027.pdf
+- checks: {"distinct_exams": 9, "equivalencies": 9, "rows_without_score": 0}
+  - equivalencies[IB-FRENCH|4]:  ⟵ “Foreign Language Exam - Level B: French                 4                                                                                  6”
+  - equivalencies[IB-GEOGRAPHY|4]:  ⟵ “Geography                                               4       GNSS                            General Social Science Credit              6”
+  - equivalencies[IB-HISTORY|4]:  ⟵ “History - Africa                                        4       GNSS                            General Social Science Credit              6”
+  - equivalencies[IB-MUSIC|4]:  ⟵ “Music                                                   4       GNHM                               General Humanities Credit               6”
+  - equivalencies[IB-PHILOSOPHY|4]:  ⟵ “Philosophy                                              4       GNHM                               General Humanities Credit               6”
+  - equivalencies[IB-PSYCHOLOGY|4]:  ⟵ “Psychology                                              4       PSYC101                              Introductory Psychology               3”
+  - equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY|4]:  ⟵ “Social and Cultural Anthropology                        4       GNSS                            General Social Science Credit              6”
+  - equivalencies[IB-THEATRE|4]:  ⟵ “Theater Arts                                            4       GNHM                               General Humanities Credit               3”
+  - equivalencies[IB-VISUAL-ARTS|4]:  ⟵ “Visual Arts                                             4       GNHM                               General Humanities Credit               3”
+### `82081c368a83cb81` Davenport University — credit_policies 2026-27 · policy_kind=IB [new] (labeled_in_title)
+- source: https://resources.davenport.edu/Portals/0/Registrar/Articulations/IB/26-27/IB_ArticulationSubmissionForm_2026-2027.pdf (sha256 e04353e07f3c)
+- issues: conflicting_sources:https://resources.davenport.edu/Portals/0/Registrar/Articulations/IB/26-27/IB_Grid_2026-2027.pdf
+- checks: {"distinct_exams": 12, "equivalencies": 12, "rows_without_score": 0}
+  - equivalencies[IB-BIOLOGY|4]:  ⟵ “Biology                                        4               BIOL110L      (if proof of Lab experience on transcript)       1”
+  - equivalencies[IB-CHEMISTRY|4]:  ⟵ “Chemistry                                      4               CHEM150L      (if proof of Lab experience on transcript)       1”
+  - equivalencies[IB-FRENCH|4]:  ⟵ “Foreign Language Exam - Level B: French        4                                                                              6”
+  - equivalencies[IB-GEOGRAPHY|4]:  ⟵ “Geography                                      4               GNSS          General Social Science Credit                    6”
+  - equivalencies[IB-HISTORY|4]:  ⟵ “History - Africa                               4               GNSS          General Social Science Credit                    6”
+  - equivalencies[IB-MUSIC|4]:  ⟵ “Music                                                    4                   GNHM            General Humanities Credit                        6”
+  - equivalencies[IB-PHILOSOPHY|4]:  ⟵ “Philosophy                                               4                   GNHM            General Humanities Credit                        6”
+  - equivalencies[IB-PHYSICS|4]:  ⟵ “Physics                                                  4                   PHYS100L        (if proof of Lab experience on transcript)       1”
+  - equivalencies[IB-PSYCHOLOGY|4]:  ⟵ “Psychology                                               4                   PSYC101         Introductory Psychology                          3”
+  - equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY|4]:  ⟵ “Social and Cultural Anthropology                         4                   GNSS            General Social Science Credit                    6”
+  - equivalencies[IB-THEATRE|4]:  ⟵ “Theatre Arts                                             4                   GNHM            General Humanities Credit                        3”
+  - equivalencies[IB-VISUAL-ARTS|4]:  ⟵ “Visual Arts                                              4                   GNHM            General Humanities Credit                        3”
+### `a58546df362f1284` Davenport University — credit_policies 2026-27 · policy_kind=AP [new] (labeled_in_title)
+- source: https://resources.davenport.edu/Portals/0/Registrar/Articulations/AP/26-27/AP_ArticulationSubmissionForm_2026-2027.pdf (sha256 be474f6479f0)
+- issues: conflicting_sources:https://resources.davenport.edu/Portals/0/Registrar/Articulations/AP/26-27/AP_Grid_2026-2027.pdf
+- checks: {"distinct_exams": 31, "equivalencies": 32, "rows_without_score": 0}
+  - equivalencies[AP-RESEARCH|3]:  ⟵ “AP Research                                         OPEN         Open Elective                   3”
+  - equivalencies[AP-SEMINAR|3]:  ⟵ “AP Seminar                                          OPEN         Open Elective                   3”
+  - equivalencies[AP-MUSIC-THEORY|3]:  ⟵ “AP Music Theory                                     OPEN         Open Elective                   3”
+  - equivalencies[AP-2-D-ART-DESIGN|3]:  ⟵ “AP Studio Art: 2-D Design                           OPEN         Open Elective                   3”
+  - equivalencies[AP-3-D-ART-DESIGN|3]:  ⟵ “AP Studio Art: 3-D Design                           OPEN         Open Elective                   3”
+  - equivalencies[AP-DRAWING|3]:  ⟵ “AP Studio Art: Drawing                              OPEN         Open Elective                   3”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3]:  ⟵ “AP English Language and Composition                 ENGL109      Composition                     3”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3]:  ⟵ “AP English Literature and Composition               ENGL109      Composition                     3”
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|3]:  ⟵ “AP African American Studies                         HIST385      History Special Topics          3”
+  - equivalencies[AP-MACROECONOMICS|3]:  ⟵ “AP Macroeconomics                                   ECON201      Macroeconomics                  3”
+  - equivalencies[AP-MICROECONOMICS|3]:  ⟵ “AP Microeconomics                                   ECON200      Microeconomics                  3”
+  - equivalencies[AP-PSYCHOLOGY|3]:  ⟵ “AP Psychology                                       PSYC101      Introductory Psychology         3”
+  - equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|3]:  ⟵ “AP United States Government and Politics            POLS111      American Government             3”
+  - equivalencies[AP-UNITED-STATES-HISTORY|3]:  ⟵ “AP United States History                            HIST211      Early United States History     3”
+  - equivalencies[AP-WORLD-HISTORY-MODERN|3]:  ⟵ “AP World History                                    HIS112       Modern World History            3”
+  - equivalencies[AP-PRECALCULUS|Score of 3]:  ⟵ “AP Precalculus           Score of 3                 MATH120      College Mathematics             3”
+  - equivalencies[AP-PRECALCULUS|Score of 4]:  ⟵ “AP Precalculus           Score of 4                 MATH150      Pre-Calculus                    4”
+  - equivalencies[AP-CALCULUS-AB|4]:  ⟵ “AP Calculus AB                                      MATH215      Calculus I                      4”
+  - equivalencies[AP-CALCULUS-BC|4]:  ⟵ “AP Calculus BC                                      MATH216      Calculus II                     4”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|3]:  ⟵ “AP Computer Science A                               CSCI231      Introduction to Programming     3”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|3]:  ⟵ “AP Computer Science Principles                      CSCI231      Introduction to Programming     3”
+  - equivalencies[AP-STATISTICS|3]:  ⟵ “AP Statistics                                       STAT220      Introduction to Statistics      3”
+  - equivalencies[AP-BIOLOGY|3]:  ⟵ “AP Biology                                                       BIOL110       Foundations of Cell Biology                          3”
+  - equivalencies[AP-CHEMISTRY|3]:  ⟵ “AP Chemistry                                                     CHEM150       Foundations in Chemistry                             3”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|3]:  ⟵ “AP Environmental Sciences                                        ENVS125       Introduction to Environmental Studies                3”
+  - … 7 more rows
+### `d00f91107ddb3e2d` Delta College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.delta.edu/costs-financial-aid/tuition-costs-fees.html (sha256 a70841dbdab4)
+- issues: arrangement_unlabeled, residency_unknown
+- checks: {"columns": 2, "rows": 8}
+  - column:Tuition: 6300 ⟵ “Tuition | $6,300 | $10,620 | $11,115”
+  - column:Technology fee: 1170 ⟵ “Technology fee | $1,170 | $1,170 | $1,170”
+  - column:Registration fee: 120 ⟵ “Registration fee | $120 | $120 | $120”
+  - column:Books, course materials, supplies & equipment: 2250 ⟵ “Books, course materials, supplies & equipment | $2,250 | $2,250 | $2,250”
+  - column:Transportation: 3912 ⟵ “Transportation | $3,912 | $3,912 | $3,912”
+  - column:Miscellaneous: 3600 ⟵ “Miscellaneous | $3,600 | $3,600 | $3,600”
+  - column:Living with parent totals: 25392 ⟵ “Living with parent totals | $25,392 | $29,712 | $30,207”
+  - column:Living off campus totals: 29376 ⟵ “Living off campus totals | $29,376 | $33,696 | $34,191”
+  - column:Tuition: 10620 ⟵ “Tuition | $6,300 | $10,620 | $11,115”
+  - column:Technology fee: 1170 ⟵ “Technology fee | $1,170 | $1,170 | $1,170”
+  - column:Registration fee: 120 ⟵ “Registration fee | $120 | $120 | $120”
+  - column:Books, course materials, supplies & equipment: 2250 ⟵ “Books, course materials, supplies & equipment | $2,250 | $2,250 | $2,250”
+  - column:Transportation: 3912 ⟵ “Transportation | $3,912 | $3,912 | $3,912”
+  - column:Miscellaneous: 3600 ⟵ “Miscellaneous | $3,600 | $3,600 | $3,600”
+  - column:Living with parent totals: 29712 ⟵ “Living with parent totals | $25,392 | $29,712 | $30,207”
+  - column:Living off campus totals: 33696 ⟵ “Living off campus totals | $29,376 | $33,696 | $34,191”
+### `18616254bf07cbdc` Ferris State University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.ferris.edu/admissions/financialaid/process/Sap.htm (sha256 5eb405bde5fa)
+- issues: semantic_review_required, conflicting_sources:https://www.ferris.edu/admissions/financialaid/PDFs/FASAP20200501.pdf,https://www.ferris.edu/admissions/financialaid/PDFs/SAPPolicyrev5.4.21.pdf,https://www.ferris.edu/admissions/financialaid/process/sap_paf.htm,https://www.ferris.edu/admissions/financialaid/process/sap_pef.htm,https://www.ferris.edu/admissions/financialaid/process/sapresourcesforadvisors.htm
+- checks: {"negative_sentences": 0, "sentences": 4}
+  - sentence: sap_appeal ⟵ “Satisfactory Academic Progress Appeals Appeals will be considered based on extenuating circumstances that prevented you from meeting the SAP requirements.”
+  - sentence: sap_appeal ⟵ “See the SAP Appeal Form for how to appeal.”
+  - sentence: sap_appeal ⟵ “Satisfactory Academic Progress (SAP) APPEAL Form.”
+  - sentence: sap_appeal ⟵ “Please note that submission of a SAP appeal does not guarantee its approval and you should not assume aid eligibility unless you have been notified (by email) that your appeal has been approved.”
+### `3a67fb9ff8f6fc33` Ferris State University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.ferris.edu/admissions/financialaid/PDFs/SAPPolicyrev5.4.21.pdf (sha256 57f6ac23b249)
+- issues: semantic_review_required, conflicting_sources:https://www.ferris.edu/admissions/financialaid/PDFs/FASAP20200501.pdf,https://www.ferris.edu/admissions/financialaid/process/Sap.htm,https://www.ferris.edu/admissions/financialaid/process/sap_paf.htm,https://www.ferris.edu/admissions/financialaid/process/sap_pef.htm,https://www.ferris.edu/admissions/financialaid/process/sapresourcesforadvisors.htm
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: sap_appeal ⟵ “J:\FINAid\Department\SAP\Sheri\SAP\SAP Policy.docx FINANCIAL AID PROBATION Students with approved SAP appeals will be placed on probation and are eligible to receive financial aid for one semester.”
+  - sentence: sap_appeal ⟵ “After the probationary period, students must meet the terms of the Financial Aid Satisfactory Academic Progress Policy or as outlined in the appeal approval notification.”
+  - sentence: sap_appeal ⟵ “Students must submit a Financial Aid Satisfactory Academic Progress Appeal Form and any supporting documentation.”
+### `744fa61ad19e4cf7` Ferris State University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.ferris.edu/admissions/financialaid/process/sap_paf.htm (sha256 78f1fb0873eb)
+- issues: semantic_review_required, conflicting_sources:https://www.ferris.edu/admissions/financialaid/PDFs/FASAP20200501.pdf,https://www.ferris.edu/admissions/financialaid/PDFs/SAPPolicyrev5.4.21.pdf,https://www.ferris.edu/admissions/financialaid/process/Sap.htm,https://www.ferris.edu/admissions/financialaid/process/sap_pef.htm,https://www.ferris.edu/admissions/financialaid/process/sapresourcesforadvisors.htm
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “It is imperative that the student acknowledge the academic plan that they are agreeing to comply with if their SAP appeal is approved.”
+### `b40ee3825c2037d1` Ferris State University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.ferris.edu/admissions/financialaid/process/sapresourcesforadvisors.htm (sha256 97ee4696324c)
+- issues: semantic_review_required, conflicting_sources:https://www.ferris.edu/admissions/financialaid/PDFs/FASAP20200501.pdf,https://www.ferris.edu/admissions/financialaid/PDFs/SAPPolicyrev5.4.21.pdf,https://www.ferris.edu/admissions/financialaid/process/Sap.htm,https://www.ferris.edu/admissions/financialaid/process/sap_paf.htm,https://www.ferris.edu/admissions/financialaid/process/sap_pef.htm
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “Link to the Financial Aid Satisfactory Academic Progress Policy APPEALS To submit a SAP appeal, the student obtains a SAP Appeal Form from the Financial Aid Office Forms webpage.”
+  - sentence: sap_appeal ⟵ “Examples of supporting documentation are included on the SAP Appeal form.”
+### `cf0d80145a5d18d4` Ferris State University — appeals 2025-26 [new] (labeled_in_source)
+- source: https://www.ferris.edu/admissions/financialaid/PDFs/SAPAPPEAL_2526_fillXR.pdf (sha256 3243e0ad8c7f)
+- issues: stale_year_label:2025-26, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 5}
+  - sentence: sap_appeal ⟵ “SAPFAL/SAPSPR/SAPSUM OFFICE OF SCHOLARSHIPS & FINANCIAL AID 2025-26 SATISFACTORY ACADEMIC PROGRESS APPEAL FORM COMPLETING AND SUBMITTING THIS FORM Documents may be submitted in person or via U.S.”
+  - sentence: sap_appeal ⟵ “SECTION 3: SATISFACTORY ACADEMIC PROGRESS REQUIREMENTS & CERTIFICATION Your Satisfactory Academic Progress (SAP) Appeal MUST INCLUDE ALL of the following for consideration.”
+  - sentence: sap_appeal ⟵ “Student Signature Date Student Phone Number Page 1 of 2 SAPFAL/SAPSPR/SAPSUM OFFICE OF SCHOLARSHIPS & FINANCIAL AID 2025-2026 SATISFACTORY ACADEMIC PROGRESS APPEAL FORM SECTION 4: TIPS FOR SUBMITTING A SUCCESSFUL SAP STATEMENT OF APPEAL In order to have your SAP Appeal request considered, you must submit ALL REQUIRED INFORMATION in the checklist on page 1, Section 3 AT THE SAME TIME to the Office ”
+  - sentence: sap_appeal ⟵ “You should be aware that the information you provide here will be reviewed in conjunction with any future SAP appeals as well.”
+  - sentence: sap_appeal ⟵ “Please note that all SAP appeals require some form of supporting documentation.”
+### `e72d4d5a75e9ca56` Ferris State University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.ferris.edu/admissions/financialaid/process/sap_pef.htm (sha256 c2d610884343)
+- issues: semantic_review_required, conflicting_sources:https://www.ferris.edu/admissions/financialaid/PDFs/FASAP20200501.pdf,https://www.ferris.edu/admissions/financialaid/PDFs/SAPPolicyrev5.4.21.pdf,https://www.ferris.edu/admissions/financialaid/process/Sap.htm,https://www.ferris.edu/admissions/financialaid/process/sap_paf.htm,https://www.ferris.edu/admissions/financialaid/process/sapresourcesforadvisors.htm
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “It is imperative that the student acknowledge the academic plan that they are agreeing to comply with if their SAP appeal is approved.”
+### `f5f38f62735e3613` Ferris State University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.ferris.edu/admissions/financialaid/PDFs/FASAP20200501.pdf (sha256 b73fcad7dbbb)
+- issues: semantic_review_required, conflicting_sources:https://www.ferris.edu/admissions/financialaid/PDFs/SAPPolicyrev5.4.21.pdf,https://www.ferris.edu/admissions/financialaid/process/Sap.htm,https://www.ferris.edu/admissions/financialaid/process/sap_paf.htm,https://www.ferris.edu/admissions/financialaid/process/sap_pef.htm,https://www.ferris.edu/admissions/financialaid/process/sapresourcesforadvisors.htm
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “After the probationary period, students must meet the terms of the Financial Aid Satisfactory Academic Progress Policy or as outlined in the appeal approval notification.”
+  - sentence: sap_appeal ⟵ “Students must submit a Financial Aid Satisfactory Academic Progress Appeal Form and any supporting documentation.”
+### `67b1e49347882b0d` Ferris State University — costs 2024-25 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.ferris.edu/administration/adminandfinance/finance/budget-office/fiscal-2024-2025-final-general-fund-operating-budget.pdf (sha256 b0ae5126d325)
+- issues: arrangement_unlabeled, implausible_amount, multiple_total_rows, residency_unknown, stale_year_label:2024-25
+- checks: {"columns": 3, "rows": 96}
+  - column:State Appropriation: 59646500 ⟵ “State Appropriation | 59,646,500 | 61,137,700 | 1,491,200 | 2.5%”
+  - column:Investment Income: 2000000 ⟵ “Investment Income | 2,000,000 | 2,025,929 | 25,929 | 1.3%”
+  - column:Other Revenue: 949049 ⟵ “Other Revenue | 949,049 | 2,083,602 | 1,134,553 | 119.5%”
+  - column:Benefits: 36527459 ⟵ “Benefits | 36,527,459 | 38,353,639 | 1,826,180 | 5.0%”
+  - column:Supplies: 0 ⟵ “Supplies | 0 | 8,505,396 | 8,505,396 | 0.0%”
+  - column:Travel: 0 ⟵ “Travel | 0 | 3,585,087 | 3,585,087 | 0.0%”
+  - column:Contracts and Services: 0 ⟵ “Contracts and Services | 0 | 20,407,260 | 20,407,260 | 0.0%”
+  - column:Maintenance and Repairs: 31004754 ⟵ “Maintenance and Repairs | 31,004,754 | 1,290,617 | (29,714,137) | ‐95.8%”
+  - column:Equipment and Plant: 0 ⟵ “Equipment and Plant | 0 | 394,868 | 394,868 | 0.0%”
+  - column:Building and Land: 442324 ⟵ “Building and Land | 442,324 | 0 | (442,324) | ‐100.0%”
+  - column:Student Assistance & Scholarships: 28283228 ⟵ “Student Assistance & Scholarships | 28,283,228 | 29,640,675 | 1,357,447 | 4.8%”
+  - column:Utilities: 4599455 ⟵ “Utilities | 4,599,455 | 4,387,617 | (211,838) | ‐4.6%”
+  - column:Total Operating Expenses: 64329761 ⟵ “Total Operating Expenses | 64,329,761 | 68,211,520 | 3,881,759 | 6.0%”
+  - column:Transfers Out: 1810629 ⟵ “Transfers Out | 1,810,629 | 751,719 | (1,058,910) | ‐58.5%”
+  - column:NET BUDGET SURPLUS/(DEFICIT): 0 ⟵ “NET BUDGET SURPLUS/(DEFICIT) | $0 | $0 | $0”
+  - column:FY 2024 State Appropriation: 59646500 ⟵ “FY 2024 State Appropriation | $59,646,500”
+  - column:FY 2025 State Appropriation: 61137700 ⟵ “FY 2025 State Appropriation | 61,137,700”
+  - column:Increase/(Decrease): 1491200 ⟵ “Increase/(Decrease) | $1,491,200”
+  - column:Tuition: 133.8 ⟵ “Tuition | $133.8 | $142.0 | $8.2 | 6.1%”
+  - column:Fees: 0.8 ⟵ “Fees | 0.8 | 1.2 | 0.4 | 50.0%”
+  - column:Total Tuition & Fee Revenue: 134.6 ⟵ “Total Tuition & Fee Revenue | $134.6 | $143.2 | $8.6 | 6.4%”
+  - column:Investment Income (2): 2.0 ⟵ “Investment Income | 2.0 | 2.0 | 0.0 | 0.0%”
+  - column:Other Revenue (2): 0.9 ⟵ “Other Revenue | 0.9 | 2.1 | 1.2 | 133.3%”
+  - column:Total Other Revenue: 2.9 ⟵ “Total Other Revenue | $2.9 | $4.1 | $1.2 | 41.4%”
+  - column:Tuition & Fees: 134.6 ⟵ “Tuition & Fees | $134.6 | $143.2 | $8.6 | 6.4%”
+  - … 258 more rows
+### `f601c9348a36c571` Ferris State University — credit_policies 2026-27 · policy_kind=AP [new] (source_unlabeled)
+- source: https://www.ferris.edu/admissions/registrar/ap-credit.htm (sha256 2ba084a72fbe)
+- issues: course_number_missing
+- checks: {"distinct_exams": 37, "equivalencies": 45, "rows_without_score": 0}
+  - equivalencies[AP-RESEARCH|3 - 4 - 5]:  ⟵ “Research | 3 - 4 - 5 | RESEARCH | AP | 3 | ASCG 1--”
+  - equivalencies[AP-SEMINAR|3 - 4 - 5]:  ⟵ “Seminar | 3 - 4 - 5 | SEMINAR | AP | 3 | ASCG 1--”
+  - equivalencies[AP-2-D-ART-DESIGN|3 - 4 - 5]:  ⟵ “2-D Art & Design | 3 - 4 - 5 | ART | DES | 3 | ARTS 102”
+  - equivalencies[AP-3-D-ART-DESIGN|3 - 4 - 5]:  ⟵ “3-D Art & Design | 3 - 4 - 5 | ART | DES2 | 3 | ARTS 220”
+  - equivalencies[AP-DRAWING|3 - 4 - 5]:  ⟵ “Drawing | 3 - 4 - 5 | ART | STDR | 3 | ARTS 101”
+  - equivalencies[AP-ART-HISTORY|3 - 4 - 5]:  ⟵ “Art History | 3 - 4 - 5 | ART | HIST | 6 | ARTH 110 & ARTH 111”
+  - equivalencies[AP-MUSIC-THEORY|3 - 4 - 5]:  ⟵ “Music Theory | 3 - 4 - 5 | MUSI | GENA | 2 | MUSI 121”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3 - 4 - 5]:  ⟵ “English Language & Composition | 3 - 4 - 5 | ENGL | LANG | 3 | ENGL 150”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3 - 4 - 5]:  ⟵ “English Literature & Composition | 3 - 4 - 5 | ENGL | LITR | 3 | LITR 150”
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|3 - 4 - 5]:  ⟵ “African American Studies | 3 - 4 - 5 | AFAM | STUD | 3 | AFAM 107”
+  - equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|3 - 4 - 5]:  ⟵ “Comparative Government & Politics | 3 - 4 - 5 | GOVT | COM | 4 | PLSC 1GS”
+  - equivalencies[AP-EUROPEAN-HISTORY|3]:  ⟵ “European History | 3 | HIST | EURO | 3 | HIST 1-C”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|3 - 4 - 5]:  ⟵ “Human Geography | 3 - 4 - 5 | HUMA | GEO | 3 | GEOG 112”
+  - equivalencies[AP-MACROECONOMICS|3 - 4 - 5]:  ⟵ “Macroeconomics | 3 - 4 - 5 | ECON | MACR | 3 | ECON 202”
+  - equivalencies[AP-MICROECONOMICS|3 - 4 - 5]:  ⟵ “Microeconomics | 3 - 4 - 5 | ECON | MICR | 3 | ECON 201”
+  - equivalencies[AP-PSYCHOLOGY|3 - 4 - 5]:  ⟵ “Psychology | 3 - 4 - 5 | PSYC | GEN | 4 | PSYC 150 & PSYC 1RS”
+  - equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|3 - 4 - 5]:  ⟵ “U.S. Government and Politics | 3 - 4 - 5 | GOVT | POL | 4 | PLSC 122 & PLSC 1RS”
+  - equivalencies[AP-UNITED-STATES-HISTORY|3]:  ⟵ “U.S. History | 3 | HIST | USA | 3 | HIST 121”
+  - equivalencies[AP-UNITED-STATES-HISTORY|4 - 5]:  ⟵ “U.S. History | 4 - 5 | HIST | USA | 6 | HIST 121 & 122”
+  - equivalencies[AP-WORLD-HISTORY-MODERN|3]:  ⟵ “World History: Modern | 3 | HIST WRLD | AP | 3 | HIST 211”
+  - equivalencies[AP-WORLD-HISTORY-MODERN|4 - 5]:  ⟵ “World History: Modern | 4 - 5 | HIST | WRLD | 6 | HIST 211 & 212”
+  - equivalencies[AP-CALCULUS-AB|3 - 4 - 5]:  ⟵ “Calculus AB/AB Subscore | 3 - 4 - 5 | MATH | CALCAB | 4 | MATH 220”
+  - equivalencies[AP-CALCULUS-BC|3]:  ⟵ “Calculus BC | 3 | MATH | CALCBC | 4 | MATH 220”
+  - equivalencies[AP-CALCULUS-BC|4 - 5]:  ⟵ “Calculus BC | 4 - 5 | MATH | CALCBC | 8 | MATH 220 & MATH 230”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|3 - 4 - 5]:  ⟵ “Computer Science A | 3 - 4 - 5 | COMP | SCIA | 3 | ISYS 110”
+  - … 20 more rows
+### `7637f75ef2e6bc91` Glen Oaks Community College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.glenoaks.edu/cost-aid/consumer-information/index.php (sha256 b000b727faf9)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: professional_judgment ⟵ “Professional Judgment, Appeals, and Re-Evaluations Glen Oaks Community College recognizes that the FAFSA may not always reflect a student's or family's current financial situation.”
+  - sentence: professional_judgment ⟵ “Under federal law, financial aid administrators have the authority to use Professional Judgment (PJ) to review and adjust financial aid eligibility based on documented special or unusual circumstances.”
+  - sentence: professional_judgment ⟵ “To begin this process: Submit the appropriate appeal form with supporting documentation If your request is denied or you need further clarification, request a follow-up meeting with the Director Important: All Professional Judgment decisions are made at the discretion of the financial aid administrator and are final.”
+### `79980c6b624b7496` Glen Oaks Community College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.glenoaks.edu/cost-aid/pay-your-tuition/tuition-refunds.php (sha256 c0acfad757ef)
+- issues: semantic_review_required, conflicting_sources:https://www.glenoaks.edu/cost-aid/consumer-information/index.php
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: need_based_special_circumstances ⟵ “Refunds – Special Circumstances A written request for a refund needs to be submitted to the Vice President of Student Services requesting a full refund of all tuition.”
+  - sentence: need_based_special_circumstances ⟵ “The handling of special circumstances such as those listed above is outlined within the Federal Financial Aid regulations available in the College’s Financial Aid Office.”
+### `b583825f6b562938` Glen Oaks Community College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.glenoaks.edu/cost-aid/consumer-information/index.php (sha256 b000b727faf9)
+- issues: semantic_review_required, conflicting_sources:https://www.glenoaks.edu/cost-aid/pay-your-tuition/tuition-refunds.php
+- checks: {"negative_sentences": 0, "sentences": 5}
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstances If you cannot provide parental information due to unusual circumstances, you may complete your FAFSA without that information.”
+  - sentence: need_based_special_circumstances ⟵ “Note: The following reasons do not qualify as special circumstances: Parents refuse to contribute financially Parents refuse to provide information Parents live out of state or abroad Student chooses not to live with parents Student lives with relatives or on their own Parent Refusal to Provide Information In very limited situations, the U.S.”
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstances: Requesting a Re-Evaluation Students may request a re-evaluation of aid eligibility due to changes in financial or household situations not captured on the original FAFSA.”
+  - sentence: need_based_special_circumstances ⟵ “Unusual Circumstances: Dependency Override Requests If you are unable to provide parental information on your FAFSA due to serious situations such as abuse, abandonment, or estrangement, you may request a dependency override based on unusual circumstances.”
+  - sentence: need_based_special_circumstances ⟵ “Situations considered for a dependency override include: Parent incarceration or abandonment Documentation of an unsafe or abusive home environment Homelessness or risk of homelessness Lack of parental contact or support Unusual circumstance requests must be submitted to the Financial Aid Office with supporting documentation.”
+### `7b471a629468c64a` Gogebic Community College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://gogebic.edu/admissions/fa/financialaidofferguide.html (sha256 58563f809714)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: need_based_special_circumstances ⟵ “You may request a recalculation of your financial need if there is a substantial change in your family’s financial circumstances by requesting a special circumstance review.”
+  - sentence: need_based_special_circumstances ⟵ “Please note that requesting a special circumstance review does not guarantee an increase in financial aid. 5) Failure to report additional assistance received can result in the adjustment, cancellation, or required repayment of aid offered by GCC.”
+  - sentence: need_based_special_circumstances ⟵ “Contact us at FAO@gogebic.edu or (906)307-1206 to request a Special Circumstance Appeal.”
+### `c88ee620f9d54258` Gogebic Community College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://gogebic.edu/admissions/fa/cost_of_attendance.html (sha256 5e8857e4c602)
+- issues: residency_unknown
+- checks: {"columns": 3, "components_reconcile": true, "rows": 6}
+  - with_parents_or_family:Tuition and Fees: 5536 ⟵ “Tuition and Fees | $5,536 | $5,536 | $5,536”
+  - with_parents_or_family:Books and Supplies: 733 ⟵ “Books and Supplies | $733 | $733 | $733”
+  - with_parents_or_family:Housing and Food: 991 ⟵ “Housing and Food | $991 | $3425 | $2511”
+  - with_parents_or_family:Transportation: 748 ⟵ “Transportation | $748 | $748 | $748”
+  - with_parents_or_family:Miscellaneous/Personal: 667 ⟵ “Miscellaneous/Personal | $667 | $667 | $667”
+  - with_parents_or_family:Estimated Total: 8675 ⟵ “Estimated Total | $8,675 | $11,109 | $10,195”
+  - off_campus_not_with_family:Tuition and Fees: 5536 ⟵ “Tuition and Fees | $5,536 | $5,536 | $5,536”
+  - off_campus_not_with_family:Books and Supplies: 733 ⟵ “Books and Supplies | $733 | $733 | $733”
+  - off_campus_not_with_family:Housing and Food: 3425 ⟵ “Housing and Food | $991 | $3425 | $2511”
+  - off_campus_not_with_family:Transportation: 748 ⟵ “Transportation | $748 | $748 | $748”
+  - off_campus_not_with_family:Miscellaneous/Personal: 667 ⟵ “Miscellaneous/Personal | $667 | $667 | $667”
+  - off_campus_not_with_family:Estimated Total: 11109 ⟵ “Estimated Total | $8,675 | $11,109 | $10,195”
+  - on_campus:Tuition and Fees: 5536 ⟵ “Tuition and Fees | $5,536 | $5,536 | $5,536”
+  - on_campus:Books and Supplies: 733 ⟵ “Books and Supplies | $733 | $733 | $733”
+  - on_campus:Housing and Food: 2511 ⟵ “Housing and Food | $991 | $3425 | $2511”
+  - on_campus:Transportation: 748 ⟵ “Transportation | $748 | $748 | $748”
+  - on_campus:Miscellaneous/Personal: 667 ⟵ “Miscellaneous/Personal | $667 | $667 | $667”
+  - on_campus:Estimated Total: 10195 ⟵ “Estimated Total | $8,675 | $11,109 | $10,195”
+### `40ff96c8afe3fe69` Grand Rapids Community College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.grcc.edu/pay-college/financial-aid-scholarships/maintain-your-aid/sap-policy-job-training-programs/sap-policy-job-trainingclock-hour-programs (sha256 d5f0d6e8903f)
+- issues: semantic_review_required, conflicting_sources:https://www.grcc.edu/pay-college/financial-aid-scholarships,https://www.grcc.edu/pay-college/financial-aid-scholarships/maintain-your-aid,https://www.grcc.edu/pay-college/financial-aid-scholarships/maintain-your-aid/sap-policy-job-training-programs,https://www.grcc.edu/pay-college/financial-aid-scholarships/maintain-your-aid/submitting-financial-aid-suspension-appeal
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Students submitting appeals should state the reasons why satisfactory academic progress was not made.”
+### `7e785fd8aace0050` Grand Rapids Community College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.grcc.edu/pay-college/financial-aid-scholarships/maintain-your-aid (sha256 8c6795d52a9d)
+- issues: semantic_review_required, conflicting_sources:https://www.grcc.edu/pay-college/financial-aid-scholarships,https://www.grcc.edu/pay-college/financial-aid-scholarships/maintain-your-aid/sap-policy-job-training-programs,https://www.grcc.edu/pay-college/financial-aid-scholarships/maintain-your-aid/sap-policy-job-training-programs/sap-policy-job-trainingclock-hour-programs,https://www.grcc.edu/pay-college/financial-aid-scholarships/maintain-your-aid/submitting-financial-aid-suspension-appeal
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “However, you may be eligible to submit a SAP Appeal if you’ve experienced extenuating circumstances.”
+### `a3d085a854f2ad79` Grand Rapids Community College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.grcc.edu/pay-college/financial-aid-scholarships/maintain-your-aid/submitting-financial-aid-suspension-appeal (sha256 54d4eb542a6b)
+- issues: semantic_review_required, conflicting_sources:https://www.grcc.edu/pay-college/financial-aid-scholarships,https://www.grcc.edu/pay-college/financial-aid-scholarships/maintain-your-aid,https://www.grcc.edu/pay-college/financial-aid-scholarships/maintain-your-aid/sap-policy-job-training-programs,https://www.grcc.edu/pay-college/financial-aid-scholarships/maintain-your-aid/sap-policy-job-training-programs/sap-policy-job-trainingclock-hour-programs
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: sap_appeal ⟵ “Click on the corresponding award year and choose SAP Appeal You will be presented with a box to explain your reason for this request.”
+  - sentence: sap_appeal ⟵ “Once that is complete press SUBMIT It will say “Your request has been successfully created!” Press OK You will be directed to a “Needs Action Box” labeled 20XX-20XX SAP Appeal.”
+  - sentence: sap_appeal ⟵ “This will take you to the SAP Appeal form.”
+### `b319c03bdbfdbeaf` Grand Rapids Community College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.grcc.edu/pay-college/financial-aid-scholarships (sha256 f2dd4349cd62)
+- issues: semantic_review_required, conflicting_sources:https://www.grcc.edu/pay-college/financial-aid-scholarships/maintain-your-aid,https://www.grcc.edu/pay-college/financial-aid-scholarships/maintain-your-aid/sap-policy-job-training-programs,https://www.grcc.edu/pay-college/financial-aid-scholarships/maintain-your-aid/sap-policy-job-training-programs/sap-policy-job-trainingclock-hour-programs,https://www.grcc.edu/pay-college/financial-aid-scholarships/maintain-your-aid/submitting-financial-aid-suspension-appeal
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Maintaining Aid Eligibility Forms Dropping Classes SAP Appeal Maintain Your Aid We’re Here to Help There are many options when it comes to accepting and managing your financial aid package.”
+### `ba64263348522313` Grand Rapids Community College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.grcc.edu/pay-college/financial-aid-scholarships/maintain-your-aid/forms (sha256 ae19d2c3c8a5)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “The following instructions are written for Student Forms and generally apply to all forms, including Residency, Leave of Absence, SAP, Special Circumstances, Dependency, and more.”
+### `c08160c3e2597379` Grand Rapids Community College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.grcc.edu/pay-college/financial-aid-scholarships/maintain-your-aid/sap-policy-job-training-programs (sha256 6b4b5699721b)
+- issues: semantic_review_required, conflicting_sources:https://www.grcc.edu/pay-college/financial-aid-scholarships,https://www.grcc.edu/pay-college/financial-aid-scholarships/maintain-your-aid,https://www.grcc.edu/pay-college/financial-aid-scholarships/maintain-your-aid/sap-policy-job-training-programs/sap-policy-job-trainingclock-hour-programs,https://www.grcc.edu/pay-college/financial-aid-scholarships/maintain-your-aid/submitting-financial-aid-suspension-appeal
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Students submitting appeals should state the reasons why satisfactory academic progress was not made.”
+### `e9008ea402825421` Grand Rapids Community College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.grcc.edu/pay-college/financial-aid-scholarships/use-your-aid/cost-attendance (sha256 b13c24183ced)
+- issues: residency_unknown
+- checks: {"columns": 1, "rows": 6}
+  - column:Tuition(25 credits; average of 40 contact hours): 8560 ⟵ “Tuition(25 credits; average of 40 contact hours) | $8,560 | $17,920 | $27,120”
+  - column:Fees: 460 ⟵ “Fees | $460 | $460 | $460”
+  - column:Books and Supplies: 626 ⟵ “Books and Supplies | $626 | $626 | $626”
+  - column:Personal Expenses: 4065 ⟵ “Personal Expenses | $4,065 | $4,065 | $4,065”
+  - column:Transportation: 4426 ⟵ “Transportation | $4,426 | $4,426 | $4,426”
+  - column:Loan Fees: 35 ⟵ “Loan Fees | $35 | $35 | $35”
+### `16ed25a9d350dde3` Grand Valley State University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.gvsu.edu/financialaid/satisfactory-academic-progress-sap-17.htm (sha256 81c0f37e8244)
+- issues: semantic_review_required, conflicting_sources:https://www.gvsu.edu/financialaid/award-letters-and-next-steps-201.htm,https://www.gvsu.edu/financialaid/financial-hardship-requests-226.htm,https://www.gvsu.edu/financialaid/satisfactory-academic-progress-sap-17.htm,https://www.gvsu.edu/financialaid/special-circumstances-181.htm
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “A student may submit an appeal based on the death of a relative, an injury or illness of the student, or other special circumstance.”
+### `434c779c5f140c6e` Grand Valley State University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.gvsu.edu/financialaid/satisfactory-academic-progress-sap-17.htm (sha256 2b8cd70d6fd6)
+- issues: semantic_review_required, conflicting_sources:https://www.gvsu.edu/financialaid/award-letters-and-next-steps-201.htm,https://www.gvsu.edu/financialaid/financial-hardship-requests-226.htm,https://www.gvsu.edu/financialaid/satisfactory-academic-progress-sap-17.htm,https://www.gvsu.edu/financialaid/special-circumstances-181.htm
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “A student may submit an appeal based on the death of a relative, an injury or illness of the student, or other special circumstance.”
+### `48ce07d2d4f906ac` Grand Valley State University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.gvsu.edu/financialaid/financial-hardship-requests-226.htm (sha256 9a63d396bb26)
+- issues: semantic_review_required, conflicting_sources:https://www.gvsu.edu/financialaid/award-letters-and-next-steps-201.htm,https://www.gvsu.edu/financialaid/satisfactory-academic-progress-sap-17.htm,https://www.gvsu.edu/financialaid/satisfactory-academic-progress-sap-17.htm,https://www.gvsu.edu/financialaid/special-circumstances-181.htm
+- checks: {"negative_sentences": 0, "sentences": 4}
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstances Request Form Financial Hardship Grant Request Form Laptops for Lakers Step 1: If you are eligible to file a FAFSA and have not done so, please start by filing today.”
+  - sentence: need_based_special_circumstances ⟵ “Step 2: In the event that you or your family has had a change in their financial situation from what is reported on the FAFSA, the Special Circumstances process can help us create a financial aid package that more accurately reflects that situation.”
+  - sentence: need_based_special_circumstances ⟵ “If a reason from the chart below fits your situations, complete the Special Circumstances Form.”
+  - sentence: need_based_special_circumstances ⟵ “Please keep in mind that funding is limited and not guaranteed. | Reasons to Complete the Special Circumstances Form | Reasons NOT to Complete the Special Circumstances Form | - Job loss or decrease in income | - Your SAI is already -1500 | - Changes to child support | - You have not yet filed a FAFSA or will not file a FAFSA | - Death of parent/spouse | - Your (student) marital status has changed”
+### `7aa430e0b08ec2db` Grand Valley State University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.gvsu.edu/financialaid/special-circumstances-181.htm (sha256 b866435a4763)
+- issues: semantic_review_required, conflicting_sources:https://www.gvsu.edu/financialaid/award-letters-and-next-steps-201.htm,https://www.gvsu.edu/financialaid/financial-hardship-requests-226.htm,https://www.gvsu.edu/financialaid/satisfactory-academic-progress-sap-17.htm,https://www.gvsu.edu/financialaid/satisfactory-academic-progress-sap-17.htm
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: need_based_special_circumstances ⟵ “These special circumstances may be either changes that have occurred in your family circumstances since you filed the Free Application for Federal Student Aid (FAFSA) or unusual family circumstances not accounted for on the FAFSA.”
+  - sentence: need_based_special_circumstances ⟵ “If your circumstances do not fit into one of the options listed below, you may still file the Special Circumstances Form for 'other circumstances' and attach a letter explaining your situation.”
+### `83425c3767cd2ae7` Grand Valley State University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.gvsu.edu/financialaid/satisfactory-academic-progress-sap-17.htm (sha256 81c0f37e8244)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 4}
+  - sentence: sap_appeal ⟵ “SAP Appeal Forms You can view your SAP status by logging in to myBanner, select Financial Aid > Eligibility > Academic Progress.”
+  - sentence: sap_appeal ⟵ “If a student is unable to regain eligibility by meeting the minimum SAP requirements after one semester (while on warning status), they have the option of completing the Satisfactory Academic Progress Appeal Form.”
+  - sentence: sap_appeal ⟵ “SAP Probation Status — Students that were placed on a SAP warning status that were unable to meet the minimum requirements will be given the option of appealing to the SAP Appeals Committee to request an exception to receive financial aid for one additional semester.”
+  - sentence: sap_appeal ⟵ “Based upon the discretion of the SAP Appeals Committee, students who have had continuous struggles with regaining and maintaining the minimum overall SAP standards may have an individualized Academic Plan created which outlines additional requirements that must also be met.”
+### `c6e64d83a5d60b84` Grand Valley State University — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.gvsu.edu/financialaid/award-letters-and-next-steps-201.htm (sha256 4b1797287594)
+- issues: semantic_review_required, conflicting_sources:https://www.gvsu.edu/financialaid/financial-hardship-requests-226.htm,https://www.gvsu.edu/financialaid/satisfactory-academic-progress-sap-17.htm,https://www.gvsu.edu/financialaid/satisfactory-academic-progress-sap-17.htm,https://www.gvsu.edu/financialaid/special-circumstances-181.htm
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “A Special Circumstances form is available online to notify us of changes to your family's circumstances that could potentially alter your financial aid award.”
+### `e575629a2addad4d` Great Lakes Christian College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://glcc.edu/admissions-aid/financial-aid/ (sha256 77b64a6e7e8e)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: need_based_special_circumstances ⟵ “Loans Special & Unusual Circumstances Occasionally, students have special and/or unusual circumstances which may warrant reconsideration of a financial aid eligibility.”
+  - sentence: need_based_special_circumstances ⟵ “You may apply for an adjustment to your financial aid based upon special or unusual circumstances.”
+### `ef3663d2704a6c72` Henry Ford College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.hfcc.edu/financial-aid/sap (sha256 34a07121fec1)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “HFC has a satisfactory academic progress appeal process in which a student can explain, in writing, any extenuating circumstances.”
+  - sentence: sap_appeal ⟵ “Students whose appeals are approved will be placed on Financial Aid Probation. “Financial Aid Probation” is a status assigned to a student who fails to make satisfactory academic progress, who has appealed, and who has had eligibility for Federal Title IV aid reinstated.”
+### `111cf298cc74e783` Henry Ford College — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.hfcc.edu/financial-aid/cost-attendance (sha256 ca34f6f49b7b)
+- issues: arrangement_unlabeled, residency_unknown, stale_year_label:2025-26
+- checks: {"columns": 2, "components_reconcile": true, "rows": 8}
+  - column:Tuition: 2856 ⟵ “Tuition | $2,856 | $4,992 | $7, 224”
+  - column:Fees: 796 ⟵ “Fees | $796 | $796 | $796”
+  - column:Books, Course Materials, Supplies, and Equipment: 1968 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,968 | $1,968 | $1,968”
+  - column:Housing and Food: 12240 ⟵ “Housing and Food | $12,240 | $12,240 | $12,240”
+  - column:Miscellaneous Personal Expenses: 3474 ⟵ “Miscellaneous Personal Expenses | $3,474 | $3,474 | $3,474”
+  - column:Federal Student Loan Fees: 36 ⟵ “Federal Student Loan Fees | $36 | $36 | $36”
+  - column:Transportation: 3294 ⟵ “Transportation | $3,294 | $3,294 | $3,294”
+  - column:Total: 24664 ⟵ “Total | $24,664 | $26,800 | $29,032”
+  - column:Tuition: 4992 ⟵ “Tuition | $2,856 | $4,992 | $7, 224”
+  - column:Fees: 796 ⟵ “Fees | $796 | $796 | $796”
+  - column:Books, Course Materials, Supplies, and Equipment: 1968 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,968 | $1,968 | $1,968”
+  - column:Housing and Food: 12240 ⟵ “Housing and Food | $12,240 | $12,240 | $12,240”
+  - column:Miscellaneous Personal Expenses: 3474 ⟵ “Miscellaneous Personal Expenses | $3,474 | $3,474 | $3,474”
+  - column:Federal Student Loan Fees: 36 ⟵ “Federal Student Loan Fees | $36 | $36 | $36”
+  - column:Transportation: 3294 ⟵ “Transportation | $3,294 | $3,294 | $3,294”
+  - column:Total: 26800 ⟵ “Total | $24,664 | $26,800 | $29,032”
+### `a1fbd4d777de8a2d` Henry Ford College — costs 2025-26 · residency=out_of_state [new] (labeled_in_source)
+- source: https://www.hfcc.edu/financial-aid/cost-attendance (sha256 ca34f6f49b7b)
+- issues: stale_year_label:2025-26
+- checks: {"columns": 1, "components_reconcile": true, "rows": 8}
+  - column:Tuition: 7224 ⟵ “Tuition | $2,856 | $4,992 | $7,224”
+  - column:Fees: 796 ⟵ “Fees | $796 | $796 | $796”
+  - column:Books, Course Materials, Supplies, and Equipment: 1968 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,968 | $1,968 | $1,968”
+  - column:Housing and Food: 6120 ⟵ “Housing and Food | $6,120 | $6,120 | $6,120”
+  - column:Miscellaneous Personal Expenses: 2160 ⟵ “Miscellaneous Personal Expenses | $2,160 | $2,160 | $2,160”
+  - column:Federal Student Loan Fees: 36 ⟵ “Federal Student Loan Fees | $36 | $36 | $36”
+  - column:Transportation: 3294 ⟵ “Transportation | $3,294 | $3,294 | $3,294”
+  - column:Total: 21598 ⟵ “Total | $17,230 | $19,366 | $21,598”
+### `0eea619789d3ae3d` Henry Ford College — transfer_policies 2023-24 [new] (labeled_in_source)
+- source: https://www.hfcc.edu/sites/hfcmain/files/transfer-agreements/2024-hfc-emu-rn-bsn-transfer-guide.pdf (sha256 f3399361539e)
+- issues: stale_year_label:2023-24
+- checks: {"fields": ["min_grade", "residency_requirement_credits"]}
+  - min_grade: C ⟵ “Only courses with a grade of “C” or better (2.0 on a 4.0 scale) will be accepted for transfer to either institution. 4.”
+  - residency_requirement_credits: 30 ⟵ “Of the last 30 hours completed before graduating, a minimum of 10 credit hours must be in courses offered by EMU.”
+### `m698c700d209560c` Henry Ford College — transfer_policies 2025-26 [new] (labeled_in_source)
+- source: https://www.hfcc.edu/sites/hfcmain/files/transfer-agreements/001-hfc-emu-smgt-f25-transfer-guide.pdf (sha256 a6017239a84a)
+- issues: stale_year_label:2025-26
+- checks: {"fields": ["min_grade", "residency_requirement_credits"], "merged_pages": 3}
+  - min_grade: C ⟵ “Only courses with a grade of “C” or better (2.0 on a 4.0 scale) will be accepted for transfer to either institution. 4.”
+  - residency_requirement_credits: 30 ⟵ “Of the last 30 hours completed before graduating, a minimum of 10 credit hours must be in courses offered by EMU.”
+  - min_grade: C ⟵ “Only courses with a grade of “C” or better (2.0 on a 4.0 scale) will be accepted for transfer to either institution. 4.”
+  - residency_requirement_credits: 30 ⟵ “Of the last 30 hours completed before graduating, a minimum of 10 credit hours must be in courses offered by EMU.”
+  - min_grade: C ⟵ “Only courses with a grade of “C” or better (2.0 on a 4.0 scale) will be accepted for transfer to either institution. 4.”
+  - residency_requirement_credits: 30 ⟵ “Of the last 30 hours completed before graduating, a minimum of 10 credit hours must be in courses offered by EMU.”
+### `mf07314e405fd30a` Henry Ford College — transfer_policies 2024-25 [new] (labeled_in_source)
+- source: https://www.hfcc.edu/sites/hfcmain/files/transfer-agreements/02hfc-preengr-general-to-emu-bs-me-transfer-guide_0.pdf (sha256 92d4be312dbf)
+- issues: stale_year_label:2024-25
+- checks: {"fields": ["min_grade", "residency_requirement_credits"], "merged_pages": 4}
+  - min_grade: C ⟵ “Only courses with a grade of “C” or better (2.0 on a 4.0 scale) will be accepted for transfer to either institution. 4.”
+  - residency_requirement_credits: 30 ⟵ “Of the last 30 hours completed before graduating, a minimum of 10 credit hours must be in courses offered by EMU.”
+  - min_grade: C ⟵ “Only courses with a grade of “C” or better (2.0 on a 4.0 scale) will be accepted for transfer to either institution. 4.”
+  - residency_requirement_credits: 30 ⟵ “Of the last 30 hours completed before graduating, a minimum of 10 credit hours must be in courses offered by EMU.”
+  - min_grade: C ⟵ “Only courses with a grade of “C” or better (2.0 on a 4.0 scale) will be accepted for transfer to either institution. 4.”
+  - min_grade: C ⟵ “Admission Requirements: To be considered for admission students must meet the following requirements: • A minimum EMU cumulative GPA of 2.7. (If a student has not yet established an EMU GPA, a combined GPA of 2.7 from all transfer institutions will be accepted) • Completion of PHY 223 with a grade of C or higher (or equivalent Transfer Credit) • Completion of MATH 120 and MATH 121, with a grade of”
+  - min_grade: C ⟵ “Admission Requirements: To be considered for admission students must meet the following requirements: • A minimum EMU cumulative GPA of 2.7. (If a student has not yet established an EMU GPA, a combined GPA of 2.7 from all transfer institutions will be accepted) • Completion of PHY 223 with a grade of C or higher (or equivalent Transfer Credit) • Completion of MATH 120 and MATH 121, with a grade of”
+  - residency_requirement_credits: 30 ⟵ “Of the last 30 hours completed before graduating, a minimum of 10 credit hours must be in courses offered by EMU.”
+  - min_grade: C ⟵ “Only courses with a grade of “C” or better (2.0 on a 4.0 scale) will be accepted for transfer to either institution. 4.”
+  - min_grade: C ⟵ “Admission Requirements: To be considered for admission students must meet the following requirements: • A minimum EMU cumulative GPA of 2.7. (If a student has not yet established an EMU GPA, a combined GPA of 2.7 from all transfer institutions will be accepted) • Completion of PHY 223 with a grade of C or higher (or equivalent Transfer Credit) • Completion of MATH 120 and MATH 121, with a grade of”
+  - min_grade: C ⟵ “Admission Requirements: To be considered for admission students must meet the following requirements: • A minimum EMU cumulative GPA of 2.7. (If a student has not yet established an EMU GPA, a combined GPA of 2.7 from all transfer institutions will be accepted) • Completion of PHY 223 with a grade of C or higher (or equivalent Transfer Credit) • Completion of MATH 120 and MATH 121, with a grade of”
+  - residency_requirement_credits: 30 ⟵ “Of the last 30 hours completed before graduating, a minimum of 10 credit hours must be in courses offered by EMU.”
+### `0473e0c714207c2b` Hope College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://hope.edu/offices/financial-aid/policies.html (sha256 d68c491c9cc1)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: scholarship_retention_appeal ⟵ “If a student appeals and attends Hope College under an approved Academic Plan for SAP, s/he remains eligible for financial aid as long as s/he continues to meet the conditions of the plan.”
+### `a1116b67c020b1f1` Hope College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://hope.edu/offices/financial-aid/policies.html (sha256 d68c491c9cc1)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 8}
+  - sentence: sap_appeal ⟵ “Students on SAP Suspension lose their eligibility for financial aid; however, they may appeal this status by submitting the Hope College SAP Appeal Form to the Office of Financial Aid.”
+  - sentence: sap_appeal ⟵ “SAP Appeals A student may appeal his or her suspension of aid eligibility if s/he believes there were extenuating circumstances that prevented normal academic progression.”
+  - sentence: sap_appeal ⟵ “To appeal, the student must submit to the Office of Financial Aid the Hope College SAP Appeal Form, which allows the student to explain and document extenuating circumstances.”
+  - sentence: sap_appeal ⟵ “The SAP Appeal Form, along with all required documentation, must be submitted to the Office of Financial Aid prior to November 1 if requesting reinstatement of financial aid eligibility for the fall semester, or March 1 if requesting reinstatement of financial aid eligibility for the spring semester.”
+  - sentence: sap_appeal ⟵ “Students are limited to three (3) SAP Appeal submissions during their enrollment at Hope College.”
+  - sentence: sap_appeal ⟵ “If an SAP appeal is approved, the student is placed on SAP Probation or SAP Academic Plan for one semester and s/he remains eligible to receive financial aid during this semester.”
+### `227675d1866c504f` Hope College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://hope.edu/offices/financial-aid/cost-payment.html (sha256 e2334469a12f)
+- issues: arrangement_unlabeled, conflicting_sources:https://hope.edu/admissions/costs-financial-aid.html
+- checks: {"columns": 5, "rows": 6}
+  - column:ANCHORED Tuition: 46450 ⟵ “ANCHORED Tuition | $46,450 | $43,450 | $41,500 | $39,990 | $37,990”
+  - column:Activity & Services Fee: 530 ⟵ “Activity & Services Fee | $530 | $530 | $530 | $530 | $530”
+  - column:Living Expenses (Food& Housing)*: 14400 ⟵ “Living Expenses (Food& Housing)* | $14,400 | $15,950 | $15,950 | $15,950 | $15,950”
+  - column:Books, Course Materials, Supplies & Equipment **: 1260 ⟵ “Books, Course Materials, Supplies & Equipment ** | $1,260 | $1,260 | $1,260 | $1,260 | $1,260”
+  - column:MiscEllaneous Personal Expenses: 1780 ⟵ “MiscEllaneous Personal Expenses | $1,780 | $1,780 | $1,780 | $1,780 | $1,780”
+  - column:Federal Student Loan Fees ***: 40 ⟵ “Federal Student Loan Fees *** | $40 | $40 | $40 | $40 | $40”
+  - column:ANCHORED Tuition: 43450 ⟵ “ANCHORED Tuition | $46,450 | $43,450 | $41,500 | $39,990 | $37,990”
+  - column:Activity & Services Fee: 530 ⟵ “Activity & Services Fee | $530 | $530 | $530 | $530 | $530”
+  - column:Living Expenses (Food& Housing)*: 15950 ⟵ “Living Expenses (Food& Housing)* | $14,400 | $15,950 | $15,950 | $15,950 | $15,950”
+  - column:Books, Course Materials, Supplies & Equipment **: 1260 ⟵ “Books, Course Materials, Supplies & Equipment ** | $1,260 | $1,260 | $1,260 | $1,260 | $1,260”
+  - column:MiscEllaneous Personal Expenses: 1780 ⟵ “MiscEllaneous Personal Expenses | $1,780 | $1,780 | $1,780 | $1,780 | $1,780”
+  - column:Federal Student Loan Fees ***: 40 ⟵ “Federal Student Loan Fees *** | $40 | $40 | $40 | $40 | $40”
+  - column:ANCHORED Tuition: 41500 ⟵ “ANCHORED Tuition | $46,450 | $43,450 | $41,500 | $39,990 | $37,990”
+  - column:Activity & Services Fee: 530 ⟵ “Activity & Services Fee | $530 | $530 | $530 | $530 | $530”
+  - column:Living Expenses (Food& Housing)*: 15950 ⟵ “Living Expenses (Food& Housing)* | $14,400 | $15,950 | $15,950 | $15,950 | $15,950”
+  - column:Books, Course Materials, Supplies & Equipment **: 1260 ⟵ “Books, Course Materials, Supplies & Equipment ** | $1,260 | $1,260 | $1,260 | $1,260 | $1,260”
+  - column:MiscEllaneous Personal Expenses: 1780 ⟵ “MiscEllaneous Personal Expenses | $1,780 | $1,780 | $1,780 | $1,780 | $1,780”
+  - column:Federal Student Loan Fees ***: 40 ⟵ “Federal Student Loan Fees *** | $40 | $40 | $40 | $40 | $40”
+  - column:ANCHORED Tuition: 39990 ⟵ “ANCHORED Tuition | $46,450 | $43,450 | $41,500 | $39,990 | $37,990”
+  - column:Activity & Services Fee: 530 ⟵ “Activity & Services Fee | $530 | $530 | $530 | $530 | $530”
+  - column:Living Expenses (Food& Housing)*: 15950 ⟵ “Living Expenses (Food& Housing)* | $14,400 | $15,950 | $15,950 | $15,950 | $15,950”
+  - column:Books, Course Materials, Supplies & Equipment **: 1260 ⟵ “Books, Course Materials, Supplies & Equipment ** | $1,260 | $1,260 | $1,260 | $1,260 | $1,260”
+  - column:MiscEllaneous Personal Expenses: 1780 ⟵ “MiscEllaneous Personal Expenses | $1,780 | $1,780 | $1,780 | $1,780 | $1,780”
+  - column:Federal Student Loan Fees ***: 40 ⟵ “Federal Student Loan Fees *** | $40 | $40 | $40 | $40 | $40”
+  - column:ANCHORED Tuition: 37990 ⟵ “ANCHORED Tuition | $46,450 | $43,450 | $41,500 | $39,990 | $37,990”
+  - … 5 more rows
+### `93186cd5219481c0` Hope College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://hope.edu/admissions/costs-financial-aid.html (sha256 d30689e732ba)
+- issues: conflicting_sources:https://hope.edu/offices/financial-aid/cost-payment.html
+- checks: {"columns": 1, "rows": 5}
+  - column:Tuition (Anchored Tuition Pledge): 46450 ⟵ “Tuition (Anchored Tuition Pledge) | $46,450”
+  - column:Housing (double-occupancy residence hall): 6800 ⟵ “Housing (double-occupancy residence hall) | $6,800”
+  - column:Food (Unlimited+ Plan): 7600 ⟵ “Food (Unlimited+ Plan) | $7,600”
+  - column:Activity & Support Services Fee**: 530 ⟵ “Activity & Support Services Fee** | $530”
+  - column:2026–27 College Costs: 61380 ⟵ “2026–27 College Costs | $61,380”
+### `486a252b2b72f2e9` Jackson College — appeals 2026-27 [new] (labeled_in_title)
+- source: https://www.jccmi.edu/wp-content/uploads/Special-Circumstances-Appeal-2026-2027.pdf (sha256 d7abff075c3f)
+- issues: semantic_review_required, conflicting_sources:https://www.jccmi.edu/cost-aid/financial-aid/financial-aid-forms/,https://www.jccmi.edu/cost-aid/financial-aid/keeping-financial-aid/,https://www.jccmi.edu/wp-content/uploads/Unusual-Circumstances-Appeal-Form-2026-2027.pdf
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: need_based_special_circumstances ⟵ “2026-2027 FAC26SPC Special Circumstances Appeal The Office of Financial Aid recognizes that students and their families may experience special circumstances that may affect their ability to contribute to the student’s educational costs.”
+  - sentence: need_based_special_circumstances ⟵ “The Special Circumstances Appeal is a formal request students can make to have their financial aid package reevaluated due to a significant change in their family’s financial situation or to request an increase in their Cost of Attendance (COA) budget.”
+  - sentence: need_based_special_circumstances ⟵ “Department of Education. 3 2026-2027 FAC26SPC Office of Financial Aid Use Only Special Circumstances Appeal Decision: □ Approved □ Additional Documents Needed □ Denied Reasoning/Notes/Calculations: FA Specialist Signature: ______________________________________________ Date: _________________ FA Senior Specialist Signature: _________________________________________ Date: _________________ *Please ”
+### `5229daca79b746d2` Jackson College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.jccmi.edu/cost-aid/financial-aid/financial-aid-forms/ (sha256 5152a044e696)
+- issues: semantic_review_required, conflicting_sources:https://www.jccmi.edu/cost-aid/financial-aid/keeping-financial-aid/,https://www.jccmi.edu/wp-content/uploads/Special-Circumstances-Appeal-2026-2027.pdf,https://www.jccmi.edu/wp-content/uploads/Unusual-Circumstances-Appeal-Form-2026-2027.pdf
+- checks: {"negative_sentences": 0, "sentences": 5}
+  - sentence: need_based_special_circumstances ⟵ “The Special Circumstances Appeal is a formal request students can make to have their Student Aid Index (SAI) reevaluated due to a significant change in their family’s financial situation.”
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstances Appeal 2026-2027 Unusual Circumstances Appeal In some circumstances, students are unable to provide their FAFSA contributors (parents’ or guardians’) information on the FAFSA.”
+  - sentence: need_based_special_circumstances ⟵ “Students who would like to request a dependency override to change their dependency status from dependent (requiring contributor information) to independent can do so by completing the Unusual Circumstances Appeal form.”
+  - sentence: need_based_special_circumstances ⟵ “The below conditions, either individually or in combination, are not grounds for an unusual circumstances appeal: Refusal from the contributor to provide support for the student’s education.”
+  - sentence: need_based_special_circumstances ⟵ “Unusual Circumstances Appeal 2026-2027 Unaccompanied Homeless Youth The Higher Education Act (HEA) uses the McKinney-Vento Act’s definition of homeless, which includes youth who lack a fixed, regular, and adequate nighttime residence; and unaccompanied, which includes youth not in the physical custody of a parent or guardian.”
+### `6b43403f69b3a85f` Jackson College — appeals 2026-27 [new] (labeled_in_title)
+- source: https://www.jccmi.edu/wp-content/uploads/Unusual-Circumstances-Appeal-Form-2026-2027.pdf (sha256 21b2c58d0a49)
+- issues: semantic_review_required, conflicting_sources:https://www.jccmi.edu/cost-aid/financial-aid/financial-aid-forms/,https://www.jccmi.edu/cost-aid/financial-aid/keeping-financial-aid/,https://www.jccmi.edu/wp-content/uploads/Special-Circumstances-Appeal-2026-2027.pdf
+- checks: {"negative_sentences": 0, "sentences": 4}
+  - sentence: need_based_special_circumstances ⟵ “2026-2027 FAC26SPC Unusual Circumstances Appeal The Office of Financial Aid recognizes that in some circumstances, students are unable to provide their contributors (parents’ or guardians’) information on the FAFSA.”
+  - sentence: need_based_special_circumstances ⟵ “The Unusual Circumstances Appeal is a formal request students can make to have their dependency status changed from dependent to independent. students requesting a change in financial aid status from dependent to independent.”
+  - sentence: need_based_special_circumstances ⟵ “Other documentation to confirm that the parents are not living in the United States and are unable to provide support. 1 2026-2027 FAC26SPC I have other Unusual Circumstances.”
+  - sentence: need_based_special_circumstances ⟵ “Department of Education. 3 2026-2027 FAC26SPC Office of Financial Aid Use Only Unusual Circumstances Appeal Decision: □ Approved □ Additional Documents Needed □ Denied Reasoning/Notes/Calculations: FA Specialist Signature: ______________________________________________ Date: _________________ FA Senior Specialist Signature: _________________________________________ Date: _________________ *Please ”
+### `784004ab2c3271e1` Jackson College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.jccmi.edu/cost-aid/financial-aid/financial-aid-forms/ (sha256 5152a044e696)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: dependency_override ⟵ “Circumstances that may permit a dependency override include: Custodial parent (contributor) is deceased and student has no contact with living contributor, if applicable.”
+### `7c478d6c73c308d5` Jackson College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.jccmi.edu/cost-aid/financial-aid/keeping-financial-aid/ (sha256 9ab7e9c1b886)
+- issues: semantic_review_required, conflicting_sources:https://www.jccmi.edu/cost-aid/financial-aid/financial-aid-forms/,https://www.jccmi.edu/wp-content/uploads/Special-Circumstances-Appeal-2026-2027.pdf,https://www.jccmi.edu/wp-content/uploads/Unusual-Circumstances-Appeal-Form-2026-2027.pdf
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Except under unusual circumstances, no financial aid is revoked without the student first being placed on warning status.”
+### `9e1591def5c39071` Jackson College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.jccmi.edu/cost-aid/financial-aid/financial-aid-forms/financial-aid-appeal-form/ (sha256 d12ef6dc825e)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Credit Limit Significant Academic Improvement (SAP) Explanation for Appeal Supporting Documents Upload any documents that you feel would help support your appeal.”
+### `e13be48ec07e8e48` Jackson College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.jccmi.edu/cost-aid/financial-aid/financial-aid-forms/ (sha256 5152a044e696)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 4}
+  - sentence: professional_judgment ⟵ “Department of Education Forms FAFSA – Paper application FAFSA – Online application Department of Education FSA ID Registration Professional Judgment Appeals Special Circumstances Appeal The Financial Aid Office recognizes that students and their families may experience special circumstances that may affect their ability to contribute to the student’s educational costs.”
+  - sentence: professional_judgment ⟵ “Homeless Verification form 2026-2027 *Both Special and Unusual Circumstance appeals are overseen through a review process using professional judgment by the Office of Financial Aid.”
+  - sentence: professional_judgment ⟵ “Department of Education. *There is not a deadline for submitting a professional judgment appeal.”
+  - sentence: professional_judgment ⟵ “Students who are actively enrolled may request a professional judgment appeal during their registered term(s).”
+### `89ca7842ae307017` Jackson College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.jccmi.edu/cost-aid/cost-of-attendance/estimated-cost-of-attendance/ (sha256 294b641344c0)
+- issues: arrangement_unlabeled, residency_unknown
+- checks: {"columns": 4, "components_reconcile": true, "rows": 9}
+  - column:Tuition: 5016 ⟵ “Tuition | $5,016 | $5,856 | $10,032 | $5,016 | $0.00”
+  - column:Student Service Fee: 1368 ⟵ “Student Service Fee | $1,368 | $1,368 | $1,368 | $1,368 | $1,368.00”
+  - column:On-line Class Fee: 120 ⟵ “On-line Class Fee | $120 | $120 | $240 | $120 | $120.00”
+  - column:Books/Supplies: 1056 ⟵ “Books/Supplies | $1,056 | $1,056 | $1,056 | $1,056 | $1,056.00”
+  - column:Living Expenses: 12516 ⟵ “Living Expenses | $12,516 | $12,516 | $12,516 | $11,490 | $12,516.00”
+  - column:Personal: 1256 ⟵ “Personal | $1,256 | $1,256 | $1,256 | $1,256 | $1,256.00”
+  - column:Transportation: 1740 ⟵ “Transportation | $1,740 | $1,740 | $870 | $870 | $1,740.00”
+  - column:Loan: 90 ⟵ “Loan | $90 | $90 | $90 | $90 | $90.00”
+  - column:TOTAL: 23162 ⟵ “TOTAL | $23,162 | $24,002 | $27,428 | $21,266 | $16,778.00”
+  - column:Tuition: 5856 ⟵ “Tuition | $5,016 | $5,856 | $10,032 | $5,016 | $0.00”
+  - column:Student Service Fee: 1368 ⟵ “Student Service Fee | $1,368 | $1,368 | $1,368 | $1,368 | $1,368.00”
+  - column:On-line Class Fee: 120 ⟵ “On-line Class Fee | $120 | $120 | $240 | $120 | $120.00”
+  - column:Books/Supplies: 1056 ⟵ “Books/Supplies | $1,056 | $1,056 | $1,056 | $1,056 | $1,056.00”
+  - column:Living Expenses: 12516 ⟵ “Living Expenses | $12,516 | $12,516 | $12,516 | $11,490 | $12,516.00”
+  - column:Personal: 1256 ⟵ “Personal | $1,256 | $1,256 | $1,256 | $1,256 | $1,256.00”
+  - column:Transportation: 1740 ⟵ “Transportation | $1,740 | $1,740 | $870 | $870 | $1,740.00”
+  - column:Loan: 90 ⟵ “Loan | $90 | $90 | $90 | $90 | $90.00”
+  - column:TOTAL: 24002 ⟵ “TOTAL | $23,162 | $24,002 | $27,428 | $21,266 | $16,778.00”
+  - on_campus:Tuition: 5016 ⟵ “Tuition | $5,016 | $5,856 | $10,032 | $5,016 | $0.00”
+  - on_campus:Student Service Fee: 1368 ⟵ “Student Service Fee | $1,368 | $1,368 | $1,368 | $1,368 | $1,368.00”
+  - on_campus:On-line Class Fee: 120 ⟵ “On-line Class Fee | $120 | $120 | $240 | $120 | $120.00”
+  - on_campus:Books/Supplies: 1056 ⟵ “Books/Supplies | $1,056 | $1,056 | $1,056 | $1,056 | $1,056.00”
+  - on_campus:Living Expenses: 11490 ⟵ “Living Expenses | $12,516 | $12,516 | $12,516 | $11,490 | $12,516.00”
+  - on_campus:Personal: 1256 ⟵ “Personal | $1,256 | $1,256 | $1,256 | $1,256 | $1,256.00”
+  - on_campus:Transportation: 870 ⟵ “Transportation | $1,740 | $1,740 | $870 | $870 | $1,740.00”
+  - … 11 more rows
+### `d92174d90320b178` Jackson College — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.jccmi.edu/cost-aid/cost-of-attendance/estimated-cost-of-attendance/ (sha256 294b641344c0)
+- issues: arrangement_unlabeled, residency_unknown, stale_year_label:2025-26
+- checks: {"columns": 4, "components_reconcile": true, "rows": 9}
+  - column:Tuition: 4824 ⟵ “Tuition | $4,824 | $5,616 | $7,200 | $4,824 | $0”
+  - column:Student Service Fee: 1320 ⟵ “Student Service Fee | $1,320 | $1,320 | $1,320 | $1,320 | $0”
+  - column:On-line Class Fee: 120 ⟵ “On-line Class Fee | $120 | $120 | $240 | $120 | $140.00”
+  - column:Books/supplies: 1082 ⟵ “Books/supplies | $1,082 | $1,082 | $1,082 | $1,082 | $1,082”
+  - column:Living Expenses: 12942 ⟵ “Living Expenses | $12,942 | $12,942 | $12,942 | $11,510 | $12,942”
+  - column:Personal: 1072 ⟵ “Personal | $1,072 | $1,072 | $1,072 | $1,072 | $1,072”
+  - column:Transportation: 1680 ⟵ “Transportation | $1,680 | $1,680 | $840 | $840 | $1,680”
+  - column:Loan: 90 ⟵ “Loan | $90 | $90 | $90 | $90 | $90”
+  - column:TOTAL: 23130 ⟵ “TOTAL | $23,130 | $23,922 | $24,786 | $20,858 | $17,006”
+  - column:Tuition: 5616 ⟵ “Tuition | $4,824 | $5,616 | $7,200 | $4,824 | $0”
+  - column:Student Service Fee: 1320 ⟵ “Student Service Fee | $1,320 | $1,320 | $1,320 | $1,320 | $0”
+  - column:On-line Class Fee: 120 ⟵ “On-line Class Fee | $120 | $120 | $240 | $120 | $140.00”
+  - column:Books/supplies: 1082 ⟵ “Books/supplies | $1,082 | $1,082 | $1,082 | $1,082 | $1,082”
+  - column:Living Expenses: 12942 ⟵ “Living Expenses | $12,942 | $12,942 | $12,942 | $11,510 | $12,942”
+  - column:Personal: 1072 ⟵ “Personal | $1,072 | $1,072 | $1,072 | $1,072 | $1,072”
+  - column:Transportation: 1680 ⟵ “Transportation | $1,680 | $1,680 | $840 | $840 | $1,680”
+  - column:Loan: 90 ⟵ “Loan | $90 | $90 | $90 | $90 | $90”
+  - column:TOTAL: 23922 ⟵ “TOTAL | $23,130 | $23,922 | $24,786 | $20,858 | $17,006”
+  - on_campus:Tuition: 4824 ⟵ “Tuition | $4,824 | $5,616 | $7,200 | $4,824 | $0”
+  - on_campus:Student Service Fee: 1320 ⟵ “Student Service Fee | $1,320 | $1,320 | $1,320 | $1,320 | $0”
+  - on_campus:On-line Class Fee: 120 ⟵ “On-line Class Fee | $120 | $120 | $240 | $120 | $140.00”
+  - on_campus:Books/supplies: 1082 ⟵ “Books/supplies | $1,082 | $1,082 | $1,082 | $1,082 | $1,082”
+  - on_campus:Living Expenses: 11510 ⟵ “Living Expenses | $12,942 | $12,942 | $12,942 | $11,510 | $12,942”
+  - on_campus:Personal: 1072 ⟵ “Personal | $1,072 | $1,072 | $1,072 | $1,072 | $1,072”
+  - on_campus:Transportation: 840 ⟵ “Transportation | $1,680 | $1,680 | $840 | $840 | $1,680”
+  - … 11 more rows
+### `e2e54121ff200555` Jackson College — costs 2025-26 · residency=out_of_state [new] (labeled_in_source)
+- source: https://www.jccmi.edu/cost-aid/cost-of-attendance/estimated-cost-of-attendance/ (sha256 294b641344c0)
+- issues: stale_year_label:2025-26
+- checks: {"columns": 1, "components_reconcile": true, "rows": 9}
+  - column:Tuition: 7200 ⟵ “Tuition | $4,824 | $5,616 | $7,200 | $4,824 | $0”
+  - column:Student Service Fee: 1320 ⟵ “Student Service Fee | $1,320 | $1,320 | $1,320 | $1,320 | $0”
+  - column:On-line Class Fee: 240 ⟵ “On-line Class Fee | $120 | $120 | $240 | $120 | $140.00”
+  - column:Books/supplies: 1082 ⟵ “Books/supplies | $1,082 | $1,082 | $1,082 | $1,082 | $1,082”
+  - column:Living Expenses: 12942 ⟵ “Living Expenses | $12,942 | $12,942 | $12,942 | $11,510 | $12,942”
+  - column:Personal: 1072 ⟵ “Personal | $1,072 | $1,072 | $1,072 | $1,072 | $1,072”
+  - column:Transportation: 840 ⟵ “Transportation | $1,680 | $1,680 | $840 | $840 | $1,680”
+  - column:Loan: 90 ⟵ “Loan | $90 | $90 | $90 | $90 | $90”
+  - column:TOTAL: 24786 ⟵ “TOTAL | $23,130 | $23,922 | $24,786 | $20,858 | $17,006”
+### `0aed4e4d614560c9` Kalamazoo College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://finaid.kzoo.edu/financial-aid-policies/financial-aid-appeals/ (sha256 a014cebafb41)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: professional_judgment ⟵ “Professional Judgment Depending on your situation, you may be eligible for a process called Professional Judgment.”
+  - sentence: professional_judgment ⟵ “Special Circumstances refer to changes in financial circumstances, such as: Changes to family income Recent job loss Forced retirement Unusual Circumstances refer to situations related to a student’s dependency status, such as: Inability to contact parent(s) Parent abandonment or incarceration Contact with parent(s) poses a risk to the student You can learn more about the Professional Judgment pro”
+### `42a2b7d7e47a5fb8` Kalamazoo College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://finaid.kzoo.edu/financial-aid-policies/financial-aid-appeals/ (sha256 a014cebafb41)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Current international students should contact the Office of Financial Aid to request a Special Circumstances form to complete for their appeal.”
+### `4e7c50422d6982a6` Kalamazoo College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://finaid.kzoo.edu/financial-aid-policies/satisfactory-academic-progress/ (sha256 3fd50bdf0601)
+- issues: semantic_review_required, conflicting_sources:https://finaid.kzoo.edu/financial-aid-policies/appealing-loss-of-aid/
+- checks: {"negative_sentences": 0, "sentences": 7}
+  - sentence: sap_appeal ⟵ “Refer to the section “SAP Monitoring and Appeals” for information about how to appeal.”
+  - sentence: sap_appeal ⟵ “SAP Monitoring and Appeals At the end of each Spring term (after grades are posted), the cumulative academic record is reviewed and SAP status is evaluated for all students.”
+  - sentence: sap_appeal ⟵ “Examples of these circumstances include a personal or immediate family member serious illness (physical or mental), death or an immediate family member, pending incomplete grades, etc… To appeal, the student must submit the Kalamazoo College SAP Appeal Form, which allows the student to explain and document extenuating circumstances.”
+  - sentence: sap_appeal ⟵ “The SAP Appeal Form, along with all required documentation, must be submitted to the Office of Financial Aid 30 days prior to the first day of class for the term you are requesting.”
+  - sentence: sap_appeal ⟵ “The Committee on Financial Aid Satisfactory Academic Progress (CFASAP) reviews SAP Appeals and includes the Dean of Financial Aid (chair), the Registrar, the Dean of Students, and the Director of Advising.”
+  - sentence: sap_appeal ⟵ “There isn’t a limit on the number of times a student may submit a SAP appeal.”
+### `c7af04bf6622be3a` Kalamazoo College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://finaid.kzoo.edu/financial-aid-policies/satisfactory-academic-progress/ (sha256 3fd50bdf0601)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: scholarship_retention_appeal ⟵ “A student may appeal their loss of scholarship/financial aid eligibility if they believe there were circumstances outside of their control that interrupted their normal academic progression.”
+### `d641cb5f11945cbc` Kalamazoo College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://finaid.kzoo.edu/financial-aid-policies/appealing-loss-of-aid/ (sha256 128e0c746a9a)
+- issues: semantic_review_required, conflicting_sources:https://finaid.kzoo.edu/financial-aid-policies/satisfactory-academic-progress/
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “You may either complete the Satisfactory Academic Progress Appeal Form or include the following information on your own document that you submit to the Office of Financial Aid.”
+### `148f4de0634042b6` Kalamazoo College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.kzoo.edu/catalog/policies/expenses-refund-policy-fees/ (sha256 32874c772547)
+- issues: conflicting_sources:https://finaid.kzoo.edu/cost/cost-of-attendance/
+- checks: {"columns": 1, "components_reconcile": true, "rows": 5}
+  - column:Tuition: 65265 ⟵ “Tuition | $65,265 | $21,755”
+  - column:Housing: 6669 ⟵ “Housing | $6,669 | $2,223”
+  - column:Food: 7134 ⟵ “Food | $7,134 | $2,378”
+  - column:Student Activity Fee: 693 ⟵ “Student Activity Fee | $693 | $231”
+  - column:Total: 79761 ⟵ “Total | $79,761 | $26,587”
+### `243e2ab77069f9a4` Kalamazoo College — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://finaid.kzoo.edu/cost/cost-of-attendance/ (sha256 9093b907588d)
+- issues: arrangement_unlabeled, multiple_total_rows, stale_year_label:2025-26
+- checks: {"columns": 2, "rows": 8}
+  - column:Tuition: 62811 ⟵ “Tuition | $62,811 | $62,811”
+  - column:Housing: 6405 ⟵ “Housing | $6,405 | $6,405”
+  - column:Food: 6852 ⟵ “Food | $6,852 | $6,852”
+  - column:Student Services Fee: 666 ⟵ “Student Services Fee | $666 | $666”
+  - column:Matriculation Fee: 350 ⟵ “Matriculation Fee | $350 | ”
+  - column:Total: 77084 ⟵ “Total | $77,084 | $76,734”
+  - column:Health Insurance*: 1329 ⟵ “Health Insurance* | $1,329 | $1,329”
+  - column:Total w/ Health Insurance: 78413 ⟵ “Total w/ Health Insurance | $78,413 | $78,063”
+  - column:Tuition: 62811 ⟵ “Tuition | $62,811 | $62,811”
+  - column:Housing: 6405 ⟵ “Housing | $6,405 | $6,405”
+  - column:Food: 6852 ⟵ “Food | $6,852 | $6,852”
+  - column:Student Services Fee: 666 ⟵ “Student Services Fee | $666 | $666”
+  - column:Total: 76734 ⟵ “Total | $77,084 | $76,734”
+  - column:Health Insurance*: 1329 ⟵ “Health Insurance* | $1,329 | $1,329”
+  - column:Total w/ Health Insurance: 78063 ⟵ “Total w/ Health Insurance | $78,413 | $78,063”
+### `eaaeafa1fd956caa` Kalamazoo College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://finaid.kzoo.edu/cost/cost-of-attendance/ (sha256 9093b907588d)
+- issues: arrangement_unlabeled, multiple_total_rows, conflicting_sources:https://www.kzoo.edu/catalog/policies/expenses-refund-policy-fees/
+- checks: {"columns": 2, "rows": 8}
+  - column:Tuition: 65265 ⟵ “Tuition | $65,265 | $65,265”
+  - column:Housing: 6669 ⟵ “Housing | $6,669 | $6,669”
+  - column:Food: 7134 ⟵ “Food | $7,134 | $7,134”
+  - column:Student Services Fee: 693 ⟵ “Student Services Fee | $693 | $693”
+  - column:Matriculation Fee: 350 ⟵ “Matriculation Fee | $350 | –”
+  - column:Total: 80111 ⟵ “Total | $80,111 | $79,761”
+  - column:Health Insurance*: 1562 ⟵ “Health Insurance* | $1,562 | $1,562”
+  - column:Total w/ Health Insurance: 81673 ⟵ “Total w/ Health Insurance | $81,673 | $81,323”
+  - column:Tuition: 65265 ⟵ “Tuition | $65,265 | $65,265”
+  - column:Housing: 6669 ⟵ “Housing | $6,669 | $6,669”
+  - column:Food: 7134 ⟵ “Food | $7,134 | $7,134”
+  - column:Student Services Fee: 693 ⟵ “Student Services Fee | $693 | $693”
+  - column:Total: 79761 ⟵ “Total | $80,111 | $79,761”
+  - column:Health Insurance*: 1562 ⟵ “Health Insurance* | $1,562 | $1,562”
+  - column:Total w/ Health Insurance: 81323 ⟵ “Total w/ Health Insurance | $81,673 | $81,323”
+### `19880fcf7b59b0a9` Kalamazoo College — credit_policies 2026-27 · policy_kind=IB [new] (source_unlabeled)
+- source: https://registrar.kzoo.edu/academic-planning/academic-planning-2/transfer-ap-ib/ (sha256 e273e9ff51d3)
+- issues: rows_without_score
+- checks: {"distinct_exams": 19, "equivalencies": 34, "rows_without_score": 34}
+  - equivalencies[IB-BIOLOGY|None]:  ⟵ “AP Biology | Elective in Biology”
+  - equivalencies[IB-CHEMISTRY|None]:  ⟵ “AP Chemistry | CHEM 110 (Must still take CHEM-110L)”
+  - equivalencies[IB-COMPUTER-SCIENCE|None]:  ⟵ “AP Computer Science A | COMP 150”
+  - equivalencies[IB-COMPUTER-SCIENCE|None]:  ⟵ “AP Computer Science AB | COMP 210”
+  - equivalencies[IB-COMPUTER-SCIENCE|None]:  ⟵ “AP Computer Science Principles | Non-major COMP course”
+  - equivalencies[IB-ECONOMICS|None]:  ⟵ “AP Economics (Macro or Microeconomics) | Non-major ECON course”
+  - equivalencies[IB-FRENCH|None]:  ⟵ “AP French (Language or Literature) | FREN 201 (or higher)*”
+  - equivalencies[IB-GERMAN|None]:  ⟵ “AP German Language | GERM 201 (or higher)*”
+  - equivalencies[IB-HISTORY|None]:  ⟵ “AP History (US, European, or World History) | Elective in HIST (does not fulfill field req.)”
+  - equivalencies[IB-GEOGRAPHY|None]:  ⟵ “AP Human Geography | General education elective”
+  - equivalencies[IB-LATIN|None]:  ⟵ “AP Latin (Literature or Vergil) | To be determined*”
+  - equivalencies[IB-MUSIC|None]:  ⟵ “AP Music Theory (No credit awarded for subscores) | MUSC 105 (prereq. course for major)”
+  - equivalencies[IB-PHYSICS|None]:  ⟵ “AP Physics B or AP Physics 2 | Non-major Physics course”
+  - equivalencies[IB-PHYSICS|None]:  ⟵ “AP Physics C – Mechanics | PHYS 150”
+  - equivalencies[IB-PHYSICS|None]:  ⟵ “AP Physics C – Electricity and Magnetism | PHYS 152”
+  - equivalencies[IB-PSYCHOLOGY|None]:  ⟵ “AP Psychology | PSYC 101”
+  - equivalencies[IB-SPANISH|None]:  ⟵ “AP Spanish (Language or Literature) | SPAN 201 (or higher)*”
+  - equivalencies[IB-CHEMISTRY|None]:  ⟵ “IB Chemistry | CHEM-110 (Must still take CHEM-110L)”
+  - equivalencies[IB-ECONOMICS|None]:  ⟵ “IB Economics | Non-major Economics course”
+  - equivalencies[IB-BUSINESS-MANAGEMENT|None]:  ⟵ “IB Business and Management | Non-major Economics course”
+  - equivalencies[IB-FILM|None]:  ⟵ “IB Film | General Elective course”
+  - equivalencies[IB-FRENCH|None]:  ⟵ “IB French A Language & Literature | Elective in French with departmental approval”
+  - equivalencies[IB-GEOGRAPHY|None]:  ⟵ “IB Geography | General Elective course”
+  - equivalencies[IB-GERMAN|None]:  ⟵ “IB German B | Non-major German course”
+  - equivalencies[IB-HISTORY|None]:  ⟵ “IB History – Africa | Elective in history with department approval”
+  - … 9 more rows
+### `0ff5e4e37a20406c` Kalamazoo Valley Community College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.kvcc.edu/admissions/finaid/forms/SAP_Standards_updated_2022.pdf (sha256 fb58731a17a1)
+- issues: semantic_review_required, conflicting_sources:https://www.kvcc.edu/admissions/finaid/2627forms/SAPAppeal.pdf,https://www.kvcc.edu/admissions/finaid/forms/SAP_Standards.pdf
+- checks: {"negative_sentences": 0, "sentences": 7}
+  - sentence: sap_appeal ⟵ “After completing this coursework, students can file a SAP appeal.”
+  - sentence: sap_appeal ⟵ “If you are able to meet SAP standards at the end of a semester of enrollment, you will need to complete a SAP Appeal Form to request consideration for financial aid in a subsequent semester.”
+  - sentence: sap_appeal ⟵ “All appeals must be completed using the SAP Appeal Form that may be found on our website under Download Forms (www.kvcc.edu/finaid) and must follow the process below. 1.”
+  - sentence: sap_appeal ⟵ “The SAP appeal form must explain the circumstances that caused you to not meet satisfactory academic progress standards – the circumstance must be significant in nature and must be able to demonstrate how the circumstance affected their success in the course(s). 2.”
+  - sentence: sap_appeal ⟵ “Recommended deadline to submit a SAP appeal or FAAP Review Form: Fall semester - October 1st, Winter semester – February 1st Summer semester- June 1st Reinstatement of Financial Aid Eligibility If an appeal is approved for you, financial aid may be awarded using one of the following options: 1.”
+  - sentence: sap_appeal ⟵ “Students will need to complete the SAP Appeal process to notify the Student Financial Services Office for a review of their status.”
+### `1933aa60f131c7b5` Kalamazoo Valley Community College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.kvcc.edu/admissions/finaid/forms/SAP_Standards.pdf (sha256 406ea002c34a)
+- issues: semantic_review_required, conflicting_sources:https://www.kvcc.edu/admissions/finaid/2627forms/SAPAppeal.pdf,https://www.kvcc.edu/admissions/finaid/forms/SAP_Standards_updated_2022.pdf
+- checks: {"negative_sentences": 0, "sentences": 6}
+  - sentence: sap_appeal ⟵ “If you experienced an extenuating circumstance that led to your ineligible SAP status, you may submit a SAP Appeal Form to request consideration for financial aid in a subsequent semester.”
+  - sentence: sap_appeal ⟵ “All appeals must be completed using the SAP Appeal Form located on our website under “Download Forms” (www.kvcc.edu/finaid) and must follow the process below. 1.”
+  - sentence: sap_appeal ⟵ “The SAP appeal form must explain the circumstances that caused you not to meet satisfactory academic progress standards – the circumstances must be significant in nature and must demonstrate how the circumstance affected your success in the course(s). 2.”
+  - sentence: sap_appeal ⟵ “Note: Students appealing their SAP status may not appeal under the “Undecided” program of study, which is not a conferred/earnable degree.”
+  - sentence: sap_appeal ⟵ “Recommended deadline to submit a SAP Appeal Form: Fall semester - October 1st Winter semester – February 1st Summer semester- June 1st Reinstatement of Financial Aid Eligibility If an appeal is approved for you, financial aid may be awarded using one of the following options: 1.”
+  - sentence: sap_appeal ⟵ “Students in clock-hour programs who fail to make SAP may appeal based on the same criteria listed in the Financial Aid Appeal Process section.”
+### `26c03e77aa72e2af` Kalamazoo Valley Community College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.kvcc.edu/admissions/finaid/howto.htm (sha256 6f88f59b2268)
+- issues: semantic_review_required, conflicting_sources:https://www.kvcc.edu/admissions/finaid/2627forms/DepStatusAppeal2627.pdf
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “If a major change occurs in your family's financial situation, contact the KVCC Financial Aid Office to review your special circumstances.”
+### `7185c955e46015bb` Kalamazoo Valley Community College — appeals 2026-27 [new] (labeled_in_title)
+- source: https://www.kvcc.edu/admissions/finaid/2627forms/DepStatusAppeal2627.pdf (sha256 82a0b0393c70)
+- issues: semantic_review_required, conflicting_sources:https://www.kvcc.edu/admissions/finaid/howto.htm
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: need_based_special_circumstances ⟵ “S TUDENT F INANCIAL S ERVICES 2026-2027 UNUSUAL CIRCUMSTANCES: DEPENDENCY STATUS APPEAL Student _______________________________________________ Valley ID # V00 _____________________ Phone _______________________________________________ Date of Birth ______________________ There are federal requirements that a student must meet to qualify for financial aid as an independent student.”
+  - sentence: need_based_special_circumstances ⟵ “You may qualify for a dependency status override if you are estranged from your parent/parents due to abuse, family alcoholism, drug abuse or other unusual circumstances beyond your control.”
+  - sentence: need_based_special_circumstances ⟵ “Four conditions that, individually or in combination with one another, do not qualify as unusual circumstances for a dependency status appeal:  Parents refusing to contribute to the student’s education.  Parents unwillingness to provide information on the FAFSA or for verification.  Parents not claiming the student as a dependent for income-tax purposes.  Students demonstrating total self-suff”
+### `7cc3c0839eec6ace` Kalamazoo Valley Community College — appeals 2026-27 [new] (labeled_in_title)
+- source: https://www.kvcc.edu/admissions/finaid/2627forms/DepStatusAppeal2627.pdf (sha256 82a0b0393c70)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: dependency_override ⟵ “Dependency Status Appeal Requirements 1.”
+  - sentence: dependency_override ⟵ “Submit supporting documentation to substantiate the reasons for your dependency override request.”
+### `e71b4188d507bce5` Kalamazoo Valley Community College — appeals 2027-28 [new] (labeled_in_source)
+- source: https://www.kvcc.edu/admissions/finaid/scholarships/ (sha256 6999d55db7d5)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Non-traditional students and students with special circumstances are encouraged to apply.”
+### `ef6354fe05ee65aa` Kalamazoo Valley Community College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.kvcc.edu/admissions/finaid/2627forms/SAPAppeal.pdf (sha256 94ea11fb34e1)
+- issues: semantic_review_required, conflicting_sources:https://www.kvcc.edu/admissions/finaid/forms/SAP_Standards.pdf,https://www.kvcc.edu/admissions/finaid/forms/SAP_Standards_updated_2022.pdf
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: sap_appeal ⟵ “S TUDENT F INANCIAL S ERVICES SATISFACTORY ACADEMIC PROGRESS APPEAL FORM □ Fall □ Winter Student Name: ________________________ Valley ID #: V00___________ Enrollment Term: 20_____ □ Summer Student Financial Services recognizes that students may experience special circumstances that impact their ability to complete courses successfully.”
+  - sentence: sap_appeal ⟵ “The following document ensures that an appeal process exists and is consistent for all students who wish to appeal their financial aid satisfactory academic progress status.”
+  - sentence: sap_appeal ⟵ “The full KVCC SAP policy is located at https://www.kvcc.edu/admissions/finaid/forms/SAP_Standards_Fall_2025.pdf Priority Deadline to submit a SAP appeal for Anticipated Enrollment Term Fall semester - July 1st Winter semester – October 1st Summer semester - March 1st Confidentiality Statement All information submitted with this Satisfactory Academic Progress (SAP) appeal will be kept as private as”
+### `f19d0cdd399ae344` Kalamazoo Valley Community College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.kvcc.edu/about/docs/AnnualBudget2627.pdf (sha256 eb968ae0120c)
+- issues: arrangement_unlabeled, implausible_amount, multiple_total_rows, residency_unknown
+- checks: {"columns": 8, "rows": 47}
+  - column:Kalamazoo Valley Community College: 1 ⟵ “Kalamazoo Valley Community College | 1 | Fiscal Year 2026-2027”
+  - column:Property Tax: 30468921 ⟵ “Property Tax | 30,468,921”
+  - column:State Aid: 15985000 ⟵ “State Aid | 15,985,000”
+  - column:Local Community Stabilization Funds: 1989145 ⟵ “Local Community Stabilization Funds | 1,989,145”
+  - column:Interest on Investments: 640000 ⟵ “Interest on Investments | 640,000”
+  - column:Other Taxes and Interest: 158000 ⟵ “Other Taxes and Interest | 158,000”
+  - column:Non-Credit and Academy Fees: 755000 ⟵ “Non-Credit and Academy Fees | 755,000”
+  - column:Training/Seminar Fees: 623000 ⟵ “Training/Seminar Fees | 623,000”
+  - column:Rental Income: 195000 ⟵ “Rental Income | 195,000”
+  - column:Restaurant & Food Hub Revenue: 1393646 ⟵ “Restaurant & Food Hub Revenue | 1,393,646”
+  - column:Miscellaneous: 347600 ⟵ “Miscellaneous | 347,600”
+  - column:Transfer from Aux. Fund for Overhead/College Auxiliaries: 187880 ⟵ “Transfer from Aux. Fund for Overhead/College Auxiliaries | 187,880”
+  - column:Transfer from Aux. Fund/Museum Auxiliaries: 180000 ⟵ “Transfer from Aux. Fund/Museum Auxiliaries | 180,000”
+  - column:Insurance and Other Benefits: 5913474 ⟵ “Insurance and Other Benefits | 5,913,474”
+  - column:Services: 7113851 ⟵ “Services | 7,113,851”
+  - column:Materials/Supplies: 3023407 ⟵ “Materials/Supplies | 3,023,407”
+  - column:Rent, Utilities & Insurance: 3509109 ⟵ “Rent, Utilities & Insurance | 3,509,109”
+  - column:Other Operating Expenses: 2305674 ⟵ “Other Operating Expenses | 2,305,674”
+  - column:$: 74813664 ⟵ “$ | 74,813,664”
+  - column:Contingency Budget Changes/Amendments: 300000 ⟵ “Contingency Budget Changes/Amendments | 300,000”
+  - column:Contingency for New Programs/Services: 200000 ⟵ “Contingency for New Programs/Services | 200,000”
+  - column:Designated Fund-Scholarships: 841000 ⟵ “Designated Fund-Scholarships | 841,000”
+  - column:Auxiliary Services: 100000 ⟵ “Auxiliary Services | 100,000”
+  - column:Plant Fund-College: 1800000 ⟵ “Plant Fund-College | 1,800,000”
+  - column:Kalamazoo Valley Community College (2): 2 ⟵ “Kalamazoo Valley Community College | 2 | Fiscal Year 2026-2027”
+  - … 125 more rows
+### `00eabb00403a8f4f` Kellogg Community College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://kellogg.edu/admissions/financial-aid/ (sha256 0a406572a458)
+- issues: semantic_review_required, conflicting_sources:https://kellogg.edu/admissions/financial-aid/,https://kellogg.edu/admissions/financial-aid/satisfactory-academic-progress/,https://kellogg.edu/wp-content/uploads/2024/12/SAP-Appeal-Contract.pdf
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Upcoming Financial Aid Deadlines 11/09/26: Satisfactory Academic Progress (SAP) Appeal Deadline for summer semester 11/25/26: Fall Loan Request Deadline Financial Aid & Textbooks Textbooks will be available in the Bruin Bookstore prior to the beginning of each semester.”
+### `91fca9ba7c1c9d80` Kellogg Community College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://kellogg.edu/wp-content/uploads/2024/12/SAP-Appeal-Contract.pdf (sha256 b0e71678f18d)
+- issues: semantic_review_required, conflicting_sources:https://kellogg.edu/admissions/financial-aid/,https://kellogg.edu/admissions/financial-aid/,https://kellogg.edu/admissions/financial-aid/satisfactory-academic-progress/
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “Satisfactory Academic Progress (SAP) Appeal Form for Financial Aid APE Student Name: _____________________________________________ Student KCC ID# _____________ Address:_______________________________ ______________ _____________ __________ City State Zip Phone Number: ________________________ Email Address:___________________________________ This document is for students who have the suspension s”
+  - sentence: sap_appeal ⟵ “SAP appeals will be denied without this documentation.”
+### `bf1f2c44b1b6446c` Kellogg Community College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://kellogg.edu/admissions/financial-aid/financial-aid-faqs/ (sha256 4c6940ec375c)
+- issues: semantic_review_required, conflicting_sources:https://kellogg.edu/admissions/financial-aid/financial-aid-award-types/
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “The Financial Aid Office has a special consideration form for students to fill out when there is a dramatic change in income.”
+### `c3e6a56cf6cea813` Kellogg Community College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://kellogg.edu/admissions/financial-aid/financial-aid-award-types/ (sha256 5a0e5d7ec7da)
+- issues: semantic_review_required, conflicting_sources:https://kellogg.edu/admissions/financial-aid/financial-aid-faqs/
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Kellogg Community College Foundation Scholarships A variety of scholarships are available through the KCC Foundation and are based on financial need, academic achievement or special circumstances.”
+### `c53863999a9bb942` Kellogg Community College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://kellogg.edu/admissions/financial-aid/satisfactory-academic-progress/ (sha256 e9aee2525469)
+- issues: semantic_review_required, conflicting_sources:https://kellogg.edu/admissions/financial-aid/,https://kellogg.edu/admissions/financial-aid/,https://kellogg.edu/wp-content/uploads/2024/12/SAP-Appeal-Contract.pdf
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “If the incomplete grade was instrumental in placing a student on financial aid probation or suspension, once completed, the student may request for a re-evaluation by submitting the Satisfactory Academic Progress Appeal form.”
+  - sentence: sap_appeal ⟵ “Students may be granted up to 3 approvals for Satisfactory Academic Progress appeals.”
+### `d10227c8ef58977e` Kellogg Community College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://kellogg.edu/admissions/financial-aid/ (sha256 b0bbcfb3933a)
+- issues: semantic_review_required, conflicting_sources:https://kellogg.edu/admissions/financial-aid/,https://kellogg.edu/admissions/financial-aid/satisfactory-academic-progress/,https://kellogg.edu/wp-content/uploads/2024/12/SAP-Appeal-Contract.pdf
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Upcoming Financial Aid Deadlines 11/09/26: Satisfactory Academic Progress (SAP) Appeal Deadline for summer semester 11/25/26: Fall Loan Request Deadline Financial Aid & Textbooks Textbooks will be available in the Bruin Bookstore prior to the beginning of each semester.”
+### `f11be6ce6e6f95bd` Kellogg Community College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://kellogg.edu/admissions/financial-aid/satisfactory-academic-progress/ (sha256 e9aee2525469)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: professional_judgment ⟵ “Reinstatement of all aid is subject to professional judgment, submission of proper documentation of the student’s circumstances, and availability of funds.”
+### `4ac3b60bae3b403c` Kettering University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.kettering.edu/admissions-aid/financial-aid-affordability/financial-aid/financial-aid-process/determining-need-eligibility (sha256 4b3a997070a5)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: professional_judgment ⟵ “The federal government provides us with a tool known as Professional Judgment to help with these situations.”
+  - sentence: professional_judgment ⟵ “Learn About Professional Judgment Eligibility Requirements General eligibility requirements that you must meet are: demonstrate financial need (for most programs), be a U.S. citizen or an eligible noncitizen, have a valid Social Security number (with the exception of students from the Republic of the Marshall Islands, Federated States of Micronesia or the Republic of Palau) be enrolled or accepted”
+### `210e5dc300c5a32a` Kettering University — credit_policies 2025-26 · policy_kind=AP [new] (labeled_in_source)
+- source: https://catalog.kettering.edu/undergrad/admissions/ (sha256 c4784943a496)
+- issues: stale_year_label:2025-26
+- checks: {"distinct_exams": 21, "equivalencies": 21, "rows_without_score": 0}
+  - equivalencies[AP-ART-HISTORY|4, 5]:  ⟵ “Art History1 | 4, 5 | 4 | HUMN-297”
+  - equivalencies[AP-2-D-ART-DESIGN|4, 5]:  ⟵ “Art Studio 2-D Design1 | 4, 5 | 4 | HUMN-297”
+  - equivalencies[AP-3-D-ART-DESIGN|4, 5]:  ⟵ “Art Studio 3-D Design1 | 4, 5 | 4 | HUMN-297”
+  - equivalencies[AP-CALCULUS-AB|4, 5]:  ⟵ “Calculus AB | 4, 5 | 4 | MATH-101”
+  - equivalencies[AP-CALCULUS-BC|4, 5]:  ⟵ “Calculus BC | 4, 5 | 4 and 4 | MATH-101 & MATH-102”
+  - equivalencies[AP-CHEMISTRY|4, 5]:  ⟵ “Chemistry | 4, 5 | 3 and 1 | CHEM-135/136 orCHEM-137/136”
+  - equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|4, 5]:  ⟵ “Comparative Government and Politics1 | 4, 5 | 4 | SSCI-297”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|4, 5]:  ⟵ “Computer Science A | 4, 5 | 4 | CS-101”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|4, 5]:  ⟵ “Computer Science Principles1, 2 | 4, 5 | 4 | CS-297”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|4, 5]:  ⟵ “English Language and Composition1 | 4, 5 | 4 | HUMN-297”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|4, 5]:  ⟵ “English Literature and Composition1 | 4, 5 | 4 | HUMN-297”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|4, 5]:  ⟵ “Environmental Science2 | 4, 5 | 4 | BIOL-297”
+  - equivalencies[AP-EUROPEAN-HISTORY|4, 5]:  ⟵ “European History1 | 4, 5 | 4 | SSCI-297”
+  - equivalencies[AP-MACROECONOMICS|4, 5]:  ⟵ “Macroeconomics3 | 4, 5 | 4 | ECON-201”
+  - equivalencies[AP-MICROECONOMICS|4, 5]:  ⟵ “Microeconomics3 | 4, 5 | 4 | ECON-201”
+  - equivalencies[AP-MUSIC-THEORY|4, 5]:  ⟵ “Music Theory1 | 4, 5 | 4 | HUMN-297”
+  - equivalencies[AP-PHYSICS-C-MECHANICS|4, 5]:  ⟵ “Physics C, Part I-Mechanics | 4, 5 | 3 and 1 | PHYS-114 & PHYS-115”
+  - equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|4, 5]:  ⟵ “Physics C, Part II-Electricity & Magnetism | 4, 5 | 3 and 1 | PHYS-224 & PHYS-225”
+  - equivalencies[AP-STATISTICS|4,5]:  ⟵ “Statistics | 4,5 | 4 | MATH-158”
+  - equivalencies[AP-UNITED-STATES-HISTORY|4, 5]:  ⟵ “U.S. History1 | 4, 5 | 4 | HIST-297”
+  - equivalencies[AP-WORLD-HISTORY-MODERN|4, 5]:  ⟵ “World History1 | 4, 5 | 4 | SSCI-297”
+### `f50f42dec5f9903d` Kettering University — credit_policies 2025-26 · policy_kind=IB [new] (labeled_in_source)
+- source: https://catalog.kettering.edu/undergrad/admissions/ (sha256 c4784943a496)
+- issues: stale_year_label:2025-26
+- checks: {"distinct_exams": 10, "equivalencies": 11, "rows_without_score": 0}
+  - equivalencies[IB-BIOLOGY|HL 6, 71]:  ⟵ “Biology (Higher Level) | 6, 71 | 3 and 1 | BIOL-241 & BIOL-242”
+  - equivalencies[IB-CHEMISTRY|HL 5, 6, 7]:  ⟵ “Chemistry (Higher Level) | 5, 6, 7 | 3 and 1 | CHEM-135 & CHEM-136”
+  - equivalencies[IB-COMPUTER-SCIENCE|HL 5, 6, 7]:  ⟵ “Computer Science (Higher Level) | 5, 6, 7 | 4 | CS-297”
+  - equivalencies[IB-COMPUTER-SCIENCE|SL 5, 6, 7]:  ⟵ “Computer Science (Standard Level) | 5, 6, 7 | 4 | CS-297”
+  - equivalencies[IB-ECONOMICS|HL 6, 7]:  ⟵ “Economics (Higher Level) | 6, 7 | 4 | ECON-201”
+  - equivalencies[IB-HISTORY|HL 6, 7]:  ⟵ “History (Higher Level)1 | 6, 7 | 4 | HIST-297”
+  - equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION|HL 5, 6, 7]:  ⟵ “Math: Applications and Interpretation (Higher Level) | 5, 6, 7 | 4 | MATH-101”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|HL 5, 6, 7]:  ⟵ “Math: Analysis and Approaches (Higher Level) | 5, 6, 7 | 4 | MATH-101”
+  - equivalencies[IB-PHILOSOPHY|HL 5, 6, 7]:  ⟵ “Philosophy (Higher Level)1 | 5, 6, 7 | 4 | PHIL-297”
+  - equivalencies[IB-PHYSICS|HL 6, 71]:  ⟵ “Physics (Higher Level) | 6, 71 | 3 and 1 | PHYS-114 & PHYS-115”
+  - equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY|HL 6, 7]:  ⟵ “Social & Cultural Anthropology (Higher Level)1 | 6, 7 | 4 | SSCI-297”
+### `26dea60f9e547cf1` Keweenaw Bay Ojibwa Community College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.kbocc.edu/wp-content/uploads/2026/07/2026-27-Cost-of-Attendance.pdf (sha256 bac301793592)
+- issues: arrangement_unlabeled, multiple_total_rows, residency_unknown
+- checks: {"columns": 2, "rows": 26}
+  - column:Tuition: 2280 ⟵ “Tuition | 2280 | 4560”
+  - column:Fees: 480 ⟵ “Fees | 480 | 960”
+  - column:Books: 633 ⟵ “Books | 633 | 1266”
+  - column:Room & Board: 2560 ⟵ “Room & Board | 2560 | 5120”
+  - column:Transportation: 1040 ⟵ “Transportation | 1040 | 2080”
+  - column:Personal: 735 ⟵ “Personal | 735 | 1470”
+  - column:Tuition (2): 1900 ⟵ “Tuition | 1900 | 3800”
+  - column:Fees (2): 330 ⟵ “Fees | 330 | 660”
+  - column:Books (2): 475 ⟵ “Books | 475 | 950”
+  - column:Room & Board (2): 1920 ⟵ “Room & Board | 1920 | 3840”
+  - column:Transportation (2): 780 ⟵ “Transportation | 780 | 1560”
+  - column:Personal (2): 552 ⟵ “Personal | 552 | 1103”
+  - column:Tuition (3): 1330 ⟵ “Tuition | 1330 | 2660”
+  - column:Fees (3): 285 ⟵ “Fees | 285 | 570”
+  - column:Books (3): 317 ⟵ “Books | 317 | 634”
+  - column:Room & Board (3): 1280 ⟵ “Room & Board | 1280 | 2560”
+  - column:Transportation (3): 520 ⟵ “Transportation | 520 | 1040”
+  - column:Personal (3): 368 ⟵ “Personal | 368 | 736”
+  - column:Total $ 4,100.00 $: 8200.0 ⟵ “Total $ 4,100.00 $ | 8,200.00”
+  - column:Tuition (4): 760 ⟵ “Tuition | 760 | 1520”
+  - column:Fees (4): 260 ⟵ “Fees | 260 | 520”
+  - column:Books (4): 158 ⟵ “Books | 158 | 316”
+  - column:Room & Board (4): 640 ⟵ “Room & Board | 640 | 1280”
+  - column:Transportation (4): 260 ⟵ “Transportation | 260 | 520”
+  - column:Personal (4): 184 ⟵ “Personal | 184 | 368”
+  - … 25 more rows
+### `23b1666d0da546fb` Kuyper College — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.kuyper.edu/tuition-aid/financial-aid/applying-for-financial-aid/ (sha256 c0f4488fba7e)
+- issues: ambiguous_year_labels, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: need_based_special_circumstances ⟵ “Forms and Applications Supplemental Information Special Circumstances: The supplemental form below is used for families that have special circumstances, such as: High out-of-pocket medical or dental expenses Families that pay private school tuition for the student’s sibling(s) If there is a loss of, or dramatic reduction of, income due to divorce, job loss, illness, or death of a parent/spouse Ple”
+  - sentence: need_based_special_circumstances ⟵ “Supplemental Information Form – 2026-2027 School Year Unusual Circumstances Unusual circumstances refer to the conditions that justify an administrator making an adjustment to a students dependency based upon unique situation (parental abandonment or abuse, refugee status), referred to as a dependency override.”
+### `8c6f33c6e3028a77` Kuyper College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.kuyper.edu/tuition-aid/tuition-and-housing/ (sha256 b445c9aee37d)
+- issues: arrangement_unlabeled
+- checks: {"columns": 3, "components_reconcile": true, "rows": 6}
+  - column:Tuition and Fees: 29550 ⟵ “Tuition and Fees | 29,550 | 29,550 | 29,550”
+  - column:Food and Housing*: 12086 ⟵ “Food and Housing* | 12,086 | 4,938 | 7,254”
+  - column:Books, course materials, supplies and equipment: 800 ⟵ “Books, course materials, supplies and equipment | 800 | 800 | 800”
+  - column:Transportation: 1110 ⟵ “Transportation | 1,110 | 1,985 | 1,985”
+  - column:Personal: 1240 ⟵ “Personal | 1,240 | 1,240 | 1,240”
+  - column:Total Budget: 44786 ⟵ “Total Budget | 44,786 | 38,513 | 40,829”
+  - off_campus_not_with_family:Tuition and Fees: 29550 ⟵ “Tuition and Fees | 29,550 | 29,550 | 29,550”
+  - off_campus_not_with_family:Food and Housing*: 4938 ⟵ “Food and Housing* | 12,086 | 4,938 | 7,254”
+  - off_campus_not_with_family:Books, course materials, supplies and equipment: 800 ⟵ “Books, course materials, supplies and equipment | 800 | 800 | 800”
+  - off_campus_not_with_family:Transportation: 1985 ⟵ “Transportation | 1,110 | 1,985 | 1,985”
+  - off_campus_not_with_family:Personal: 1240 ⟵ “Personal | 1,240 | 1,240 | 1,240”
+  - off_campus_not_with_family:Total Budget: 38513 ⟵ “Total Budget | 44,786 | 38,513 | 40,829”
+  - off_campus_not_with_family:Tuition and Fees: 29550 ⟵ “Tuition and Fees | 29,550 | 29,550 | 29,550”
+  - off_campus_not_with_family:Food and Housing*: 7254 ⟵ “Food and Housing* | 12,086 | 4,938 | 7,254”
+  - off_campus_not_with_family:Books, course materials, supplies and equipment: 800 ⟵ “Books, course materials, supplies and equipment | 800 | 800 | 800”
+  - off_campus_not_with_family:Transportation: 1985 ⟵ “Transportation | 1,110 | 1,985 | 1,985”
+  - off_campus_not_with_family:Personal: 1240 ⟵ “Personal | 1,240 | 1,240 | 1,240”
+  - off_campus_not_with_family:Total Budget: 40829 ⟵ “Total Budget | 44,786 | 38,513 | 40,829”
+### `1ef494653efa6997` Lake Michigan College — appeals 2025-26 [new] (labeled_in_source)
+- source: https://www.lakemichigancollege.edu/sites/default/files/25-26specialcircumstancesrequestformdependentstudent.pdf (sha256 766b231af7c4)
+- issues: stale_year_label:2025-26, semantic_review_required, conflicting_sources:https://www.lakemichigancollege.edu/sites/default/files/25-26specialcircumstancesrequestformindependentstudent.pdf
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: need_based_special_circumstances ⟵ “Napier Avenue Benton Harbor, MI 49022 Phone: 269-927-8112/ Fax: 269-927-8183 Questions/Send Form to: faforms@lakemichigancollege.edu Special Circumstances Request Form – Dependent Student | 2025-2026 Occasionally, unusual circumstances exist that may warrant reconsideration of financial aid eligibility.”
+  - sentence: need_based_special_circumstances ⟵ “These special circumstances may be changes that have occurred in your family and/or household since you filed the Free Application for Federal Student Aid (FAFSA).”
+  - sentence: need_based_special_circumstances ⟵ “We have listed the circumstances that most commonly qualify a student to file a Special Circumstances request.”
+### `452f005fa0a56b23` Lake Michigan College — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.lakemichigancollege.edu/mylmc/financial-aid-office (sha256 64d40ed97747)
+- issues: ambiguous_year_labels, semantic_review_required, conflicting_sources:https://www.lakemichigancollege.edu/sites/default/files/documents/financial-aid/satisfactory-academic-progress-appeal-form.pdf,https://www.lakemichigancollege.edu/sites/default/files/sap_appeal_form.pdf
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: sap_appeal ⟵ “SAP APPEAL FORM >> Policies and Procedures MINIMUM FINANCIAL AID SATISFACTORY ACADEMIC PROGRESS STANDARDS Satisfactory Academic Progress (SAP) is evaluated at the end of each period of payment period.”
+  - sentence: sap_appeal ⟵ “STUDENTS WILL BE NOTIFIED BY EMAIL, OF THEIR SAP STATUS, AT THE END OF EACH SEMESTER *Decisions of the SAP Appeals Committee are final and will not be overturned Appeal Deadlines Fall 2019 Final Deadline: October 4, 2019 Spring 2020 Final Deadline: February 7, 2020 In some instances, your appeal may not be reviewed until the end of the term when your grades have been posted and rolled into your st”
+  - sentence: sap_appeal ⟵ “Steps to file an appeal Complete and submit the Satisfactory Academic Progress Appeal Form; Attach a detailed, signed, dated statement outlining the extenuating circumstances that resulted in unsatisfactory progress; and Include a signed and dated statement explaining what has changed that will allow you to achieve academic success during the next period of enrollment at LMC.”
+### `4a992577615fab75` Lake Michigan College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.lakemichigancollege.edu/sites/default/files/sap_appeal_form.pdf (sha256 fa2fe208e5cd)
+- issues: semantic_review_required, conflicting_sources:https://www.lakemichigancollege.edu/mylmc/financial-aid-office,https://www.lakemichigancollege.edu/sites/default/files/documents/financial-aid/satisfactory-academic-progress-appeal-form.pdf
+- checks: {"negative_sentences": 0, "sentences": 5}
+  - sentence: sap_appeal ⟵ “A student can regain eligibility in one of two ways:  Meet the SAP Standards listed above (raise their GPA or Completion Rate to meet the Standard).  File a SAP Appeal with the Lake Michigan Financial Aid Department that demonstrates extenuating circumstances.”
+  - sentence: sap_appeal ⟵ “To file an appeal, please complete the following steps:  Complete the SAP Appeal Form*.  Provide a detailed letter explaining the extenuating circumstances that occurred, why the SAP Standards were not met during the timeframe in question, and what has changed in your circumstances that will now allow you to meet standards.”
+  - sentence: sap_appeal ⟵ “Please provide an explanation for each term that SAP was not satisfactorily met.  Meet with your Advisor* to complete the appeal form and create an academic plan moving forward.  Submit the SAP Appeal Form and all required supporting documentation to the LMC Financial Aid Forms email at faforms@lakemichigancollege.edu.”
+  - sentence: sap_appeal ⟵ “The SAP Appeal Committee reserves the right to deny appeals for unsubstantiated extenuating circumstances.”
+  - sentence: sap_appeal ⟵ “Failure to provide information requested by the SAP Appeal Committee within the designated 14-day timeframe will result in the appeal being denied. 2 Financial Aid Office 2755 E.”
+### `6b8ec16d24fa4b01` Lake Michigan College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.lakemichigancollege.edu/sites/default/files/26-27_special_circumstances_request_form_independent_student.pdf (sha256 f69e06c96532)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: need_based_special_circumstances ⟵ “Napier Avenue Benton Harbor, MI 49022 Phone: 269-927-8112/ Fax: 269-927-8183 Questions/Send Form to: faforms@lakemichigancollege.edu Occasionally, unusual circumstances exist that may warrant reconsideration of financial aid eligibility.”
+  - sentence: need_based_special_circumstances ⟵ “These special circumstances may be changes that have occurred in your family and/or household since you filed the 2026-2027 Free Application for Federal Student Aid (FAFSA).”
+  - sentence: need_based_special_circumstances ⟵ “We have listed the circumstances that most commonly qualify a student to file a Special Circumstances request.”
+### `ba598bbcfe130f56` Lake Michigan College — appeals 2025-26 [new] (labeled_in_source)
+- source: https://www.lakemichigancollege.edu/sites/default/files/25-26specialcircumstancesrequestformindependentstudent.pdf (sha256 043c93661cde)
+- issues: stale_year_label:2025-26, semantic_review_required, conflicting_sources:https://www.lakemichigancollege.edu/sites/default/files/25-26specialcircumstancesrequestformdependentstudent.pdf
+- checks: {"negative_sentences": 0, "sentences": 7}
+  - sentence: need_based_special_circumstances ⟵ “Napier Avenue Benton Harbor, MI 49022 Phone: 269-927-8112/ Fax: 269-927-8183 Questions/Send Form to: faforms@lakemichigancollege.edu Special Circumstances Request Form – Independent Student | 2025-2026 Occasionally, unusual circumstances exist that may warrant reconsideration of financial aid eligibility.”
+  - sentence: need_based_special_circumstances ⟵ “These special circumstances may be changes that have occurred in your family and/or household since you filed the Free Application for Federal Student Aid (FAFSA).”
+  - sentence: need_based_special_circumstances ⟵ “We have listed the circumstances that most commonly qualify a student to file a Special Circumstances request.”
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstances could include, but are not limited to, the following:  Unemployment or change in employment resul ng in a signiﬁcant decrease in annual income.  Divorce or separa on.  Death of a spouse.  Unusually high medical expenses not covered by insurance.”
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstances would NOT include items like:  High mortgage/car payments.  Credit Card debt.”
+  - sentence: need_based_special_circumstances ⟵ “To Qualify for a Special Circumstances Review, You Must:  Write a le er explaining your unique situa on in detail,  Complete all pages of this form,  Provide all requested documenta on,  Choose one or more of the situa ons outlined on the following pages.”
+### `da9bb54e85eec6ef` Lake Michigan College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.lakemichigancollege.edu/sites/default/files/documents/financial-aid/satisfactory-academic-progress-appeal-form.pdf (sha256 f560e8b2dfa8)
+- issues: semantic_review_required, conflicting_sources:https://www.lakemichigancollege.edu/mylmc/financial-aid-office,https://www.lakemichigancollege.edu/sites/default/files/sap_appeal_form.pdf
+- checks: {"negative_sentences": 0, "sentences": 5}
+  - sentence: sap_appeal ⟵ “Napier Avenue Benton Harbor, MI 49022 Phone: 269-927-8112 Email: Finaid@lakemichigancollege.edu Satisfactory Academic Progress Appeal Form In order to receive financial aid, students must meet Satisfactory Academic Progress Standards.”
+  - sentence: sap_appeal ⟵ “A student can regain eligibility in one of two ways: • Meet the Standards (raise their GPA or Completion Rate to meet the Standard), or, • File a SAP Appeal with the Lake Michigan Financial Aid Department and have the appeal approved.”
+  - sentence: sap_appeal ⟵ “To file an appeal, please complete the following steps: • Complete the SAP Appeal Form, • Provide a detailed letter explaining the extenuating circumstances that occurred, why the SAP Standards were not met, and what has changed in your circumstances that will now allow you to meet standards.”
+  - sentence: sap_appeal ⟵ “Please provide an explanation for each term that SAP was not satisfactorily met., • Meet with your Advisor to complete the appeal form and create an academic plan, • Submit the SAP Appeal Form and all supporting documentation to the LMC Financial Aid Forms email at FAforms@lakemichigancollege.edu .”
+  - sentence: sap_appeal ⟵ “Napier Avenue Benton Harbor, MI 49022 Phone: 269-927-8112 Email: Finaid@lakemichigancollege.edu Satisfactory Academic Progress Appeal Form First Name: _____________________ Last Name:_______________________ LMC Student ID: _______________ SATISFACTORY ACADEMIC PROGRESS APPEAL DOCUMENTATION Check which best fits your situation Include this type of documentation Obituary or death certificate.”
+### `5c5a1068899f9070` Lake Michigan College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.lakemichigancollege.edu/financial-aid/tuition-fees (sha256 b7b3089f12f8)
+- issues: arrangement_unlabeled, residency_unknown
+- checks: {"columns": 4, "components_reconcile": true, "rows": 6}
+  - column:Tuition & Fees: 4620.0 ⟵ “Tuition & Fees | $4620.00 | $3465.00 | $2,310.00 | $1,155.00”
+  - column:Books, Course Materials, Supplies, and Equipment: 2112.0 ⟵ “Books, Course Materials, Supplies, and Equipment | $2,112.00 | $1,584 | $1056.00 | 528.00”
+  - column:Housing & Food: 6735.96 ⟵ “Housing & Food | $6,735.96 | $6,735.96 | $6,735.96 | --”
+  - column:Transportation: 2720.0 ⟵ “Transportation | $2,720.00 | $2,720.00 | $2,720.00 | $2,720.00”
+  - column:Personal: 1876.0 ⟵ “Personal | $1,876.00 | $1,876.00 | $1,876.00 | --”
+  - column:Total: 18063.96 ⟵ “Total | $18,063.96 | $16,380.96 | $14,697.96 | $4,403.00”
+  - column:Tuition & Fees: 3465.0 ⟵ “Tuition & Fees | $4620.00 | $3465.00 | $2,310.00 | $1,155.00”
+  - column:Books, Course Materials, Supplies, and Equipment: 1584 ⟵ “Books, Course Materials, Supplies, and Equipment | $2,112.00 | $1,584 | $1056.00 | 528.00”
+  - column:Housing & Food: 6735.96 ⟵ “Housing & Food | $6,735.96 | $6,735.96 | $6,735.96 | --”
+  - column:Transportation: 2720.0 ⟵ “Transportation | $2,720.00 | $2,720.00 | $2,720.00 | $2,720.00”
+  - column:Personal: 1876.0 ⟵ “Personal | $1,876.00 | $1,876.00 | $1,876.00 | --”
+  - column:Total: 16380.96 ⟵ “Total | $18,063.96 | $16,380.96 | $14,697.96 | $4,403.00”
+  - column:Tuition & Fees: 2310.0 ⟵ “Tuition & Fees | $4620.00 | $3465.00 | $2,310.00 | $1,155.00”
+  - column:Books, Course Materials, Supplies, and Equipment: 1056.0 ⟵ “Books, Course Materials, Supplies, and Equipment | $2,112.00 | $1,584 | $1056.00 | 528.00”
+  - column:Housing & Food: 6735.96 ⟵ “Housing & Food | $6,735.96 | $6,735.96 | $6,735.96 | --”
+  - column:Transportation: 2720.0 ⟵ “Transportation | $2,720.00 | $2,720.00 | $2,720.00 | $2,720.00”
+  - column:Personal: 1876.0 ⟵ “Personal | $1,876.00 | $1,876.00 | $1,876.00 | --”
+  - column:Total: 14697.96 ⟵ “Total | $18,063.96 | $16,380.96 | $14,697.96 | $4,403.00”
+  - column:Tuition & Fees: 1155.0 ⟵ “Tuition & Fees | $4620.00 | $3465.00 | $2,310.00 | $1,155.00”
+  - column:Books, Course Materials, Supplies, and Equipment: 528.0 ⟵ “Books, Course Materials, Supplies, and Equipment | $2,112.00 | $1,584 | $1056.00 | 528.00”
+  - column:Transportation: 2720.0 ⟵ “Transportation | $2,720.00 | $2,720.00 | $2,720.00 | $2,720.00”
+  - column:Total: 4403.0 ⟵ “Total | $18,063.96 | $16,380.96 | $14,697.96 | $4,403.00”
+### `feedcdb778ffd522` Lansing Community College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.lcc.edu/financial-aid/ (sha256 7a68d690d83d)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: professional_judgment ⟵ “After you file your FAFSA, the Financial Aid Office may be able to adjust information on your FAFSA, with the possibility of increasing your aid eligibility under the professional judgment process.”
+### `24c6f0868558d6e2` Lawrence Technological University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://ltu.edu/admissions/financial-aid/sap/ (sha256 1f2f685cb28d)
+- issues: semantic_review_required, conflicting_sources:https://ltu.edu/wp-content/uploads/2024/12/SAP-Final-Policy-3March19-1.pdf,https://ltu.edu/wp-content/uploads/2026/08/New-SAP-Appeals-Form-2026-2027.pdf
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “View PDF Satisfactory Academic Progress Appeal Process When a determination is made by Lawrence Tech that a student has failed to make satisfactory academic progress, the student’s financial aid eligibility will be suspended.”
+  - sentence: sap_appeal ⟵ “Students have the opportunity to appeal the determination by submitting the Satisfactory Academic Progress Appeal Form, along with an appeal letter and any supporting documentation to the appeal.”
+### `4297082d95388b2d` Lawrence Technological University — appeals 2026-27 [new] (labeled_in_url)
+- source: https://ltu.edu/wp-content/uploads/2026/08/New-SAP-Appeals-Form-2026-2027.pdf (sha256 ada78a67f5e2)
+- issues: semantic_review_required, conflicting_sources:https://ltu.edu/admissions/financial-aid/sap/,https://ltu.edu/wp-content/uploads/2024/12/SAP-Final-Policy-3March19-1.pdf
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: sap_appeal ⟵ “SATISFACTORY ACEDEMIC PROGRESS APPEAL Satisfactory Academic Progress (SAP) Appeal Priority Deadlines by Semester____________ Summer 2026 May 26, 2026 Fall Semester: August 24, 2026 Summer 2027 June 1, 2027 Spring Semester: January 11, 2027 If your financial aid has been suspended because you did not meet Satisfactory Academic Progress (SAP), you may be able to appeal if you had a serious situation”
+  - sentence: sap_appeal ⟵ “To appeal, submit:  SAP Appeal Form  Appeal letter  Supporting documents (doctor’s note, hospital bill, obituary, etc.) Your appeal letter must explain:  Why you didn’t meet academic requirements  What has changed so you can succeed moving forward Each appeal is reviewed individually.”
+  - sentence: sap_appeal ⟵ “By signing this form, I am confirming that I have read the SAP Appeal instructions, understand my responsibilities, and know the important deadlines for the appeal process.”
+### `777acf3003109434` Lawrence Technological University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://ltu.edu/wp-content/uploads/2024/12/SAP-Final-Policy-3March19-1.pdf (sha256 c76b41e8e5a4)
+- issues: semantic_review_required, conflicting_sources:https://ltu.edu/admissions/financial-aid/sap/
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Students who have had their aid suspended because of unsatisfactory academic progress and who have documentable mitigating or other special circumstances, such as a death in the family or an illness may appeal their aid suspension.”
+### `c616d02240e9046d` Lawrence Technological University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://ltu.edu/wp-content/uploads/2024/12/SAP-Final-Policy-3March19-1.pdf (sha256 c76b41e8e5a4)
+- issues: semantic_review_required, conflicting_sources:https://ltu.edu/admissions/financial-aid/sap/,https://ltu.edu/wp-content/uploads/2026/08/New-SAP-Appeals-Form-2026-2027.pdf
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “SATISFACTORY ACADEMIC PROGRESS APPEAL PROCESS When a determination is made by Lawrence Tech that a student has failed to make satisfactory academic progress, the student's financial aid eligibility will be suspended.”
+  - sentence: sap_appeal ⟵ “To appeal, students must submit the Satisfactory Academic Progress Appeal Form, with an appeal letter and non-returnable supporting documentation; this may include a doctor’s statement, copy of hospital/urgent care/physician’s bill, obituary, funeral notice or death certificate.”
+### `ced8edd8e6858952` Lawrence Technological University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://ltu.edu/admissions/financial-aid/sap/ (sha256 1f2f685cb28d)
+- issues: semantic_review_required, conflicting_sources:https://ltu.edu/wp-content/uploads/2024/12/SAP-Final-Policy-3March19-1.pdf
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Reasons for appeal may include death of a relative, injury of illness of the student, or other special circumstances.”
+### `0a218ebddc3eb146` Lawrence Technological University — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://ltu.edu/admissions/financial-aid/attendance-cost/ (sha256 91c8e14dfa91)
+- issues: conflicting_sources:https://ltu.edu/admissions/tuition-and-fees/,https://ltu.edu/admissions/tuition-and-fees/
+- checks: {"columns": 1, "components_reconcile": true, "rows": 5}
+  - on_campus:Tuition (Full-time, Undergraduate): 46440 ⟵ “Tuition (Full-time, Undergraduate) | 46,440”
+  - on_campus:Fees (Registration, Resource): 2400 ⟵ “Fees (Registration, Resource) | 2,400”
+  - on_campus:Housing: 7966 ⟵ “Housing | 7,966”
+  - on_campus:Food: 5400 ⟵ “Food | 5,400”
+  - on_campus:Total: 62206 ⟵ “Total | $62,206”
+### `1193723b81b72aa6` Lawrence Technological University — costs 2026-27 · residency=not_applicable [new] (source_unlabeled)
+- source: https://ltu.edu/admissions/tuition-and-fees/ (sha256 da7412de6d77)
+- issues: conflicting_sources:https://ltu.edu/admissions/financial-aid/attendance-cost/,https://ltu.edu/admissions/tuition-and-fees/
+- checks: {"columns": 1, "components_reconcile": true, "rows": 4}
+  - column:Tuition and Fees: 47850 ⟵ “Tuition and Fees | $47,850”
+  - column:Housing: 7600 ⟵ “Housing | $7,600”
+  - column:Food: 5380 ⟵ “Food | $5,380”
+  - column:Total Cost: 60830 ⟵ “Total Cost | $60,830”
+### `c573274cad6f3d29` Lawrence Technological University — costs 2026-27 · residency=not_applicable [new] (source_unlabeled)
+- source: https://ltu.edu/admissions/tuition-and-fees/ (sha256 2e7988b5d190)
+- issues: conflicting_sources:https://ltu.edu/admissions/financial-aid/attendance-cost/,https://ltu.edu/admissions/tuition-and-fees/
+- checks: {"columns": 1, "components_reconcile": true, "rows": 4}
+  - column:Tuition and Fees: 47850 ⟵ “Tuition and Fees | $47,850”
+  - column:Housing: 7600 ⟵ “Housing | $7,600”
+  - column:Food: 5380 ⟵ “Food | $5,380”
+  - column:Total Cost: 60830 ⟵ “Total Cost | $60,830”
+### `229438edbf2dd9af` Macomb Community College — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.macomb.edu/about-macomb/consumer-information/price-of-attendance.html (sha256 2da665434dba)
+- issues: residency_unknown, stale_year_label:2025-26
+- checks: {"columns": 1, "components_reconcile": true, "rows": 6}
+  - column:Tuition and fees: 3745 ⟵ “Tuition and fees | $3,745”
+  - column:Food & Housing: 6472 ⟵ “Food & Housing | $6,472”
+  - column:Books/supplies: 2016 ⟵ “Books/supplies | $2,016”
+  - column:Transportation: 4811 ⟵ “Transportation | $4,811”
+  - column:Miscellaneous: 1464 ⟵ “Miscellaneous | $1,464”
+  - column:Total: 18508 ⟵ “Total | $18,508”
+### `23dc46ece83401be` Macomb Community College — credit_policies 2026-27 · policy_kind=IB [new] (source_unlabeled)
+- source: https://www.macomb.edu/admissions-aid/credit-for-prior-learning/advanced-placement.html (sha256 91d18bdc6e54)
+- issues: score_column_not_scores
+- checks: {"distinct_exams": 12, "equivalencies": 31, "rows_without_score": 0}
+  - equivalencies[IB-HISTORY|5+]:  ⟵ “American History | 5+ | 4 | HIST 2100 | 4”
+  - equivalencies[IB-HISTORY|N/A]:  ⟵ “American History | N/A | 5+ | HIST 2100 & HIST 2200 | 8”
+  - equivalencies[IB-HISTORY|N/A]:  ⟵ “American History | N/A | 5+ | ARTT 1360 & HUMN Elective Credit | 6”
+  - equivalencies[IB-HISTORY|5+]:  ⟵ “Asia/Middle East History | 5+ | 4 | HIST 2520 | 4”
+  - equivalencies[IB-HISTORY|N/A]:  ⟵ “Asia/Middle East History | N/A | 5+ | HIST 2520 & HIST 2650 | 7”
+  - equivalencies[IB-BIOLOGY|5+]:  ⟵ “Biology | 5+ | 4 | BIOL 1700 | 4”
+  - equivalencies[IB-BIOLOGY|N/A]:  ⟵ “Biology | N/A | 5+ | BIOL 1700 & BIOL 1800 | 8”
+  - equivalencies[IB-CHEMISTRY|5+]:  ⟵ “Chemistry | 5+ | 4 | CHEM 1170 | 4”
+  - equivalencies[IB-CHEMISTRY|N/A]:  ⟵ “Chemistry | N/A | 5+ | CHEM 1170 & CHEM 1180 | 8”
+  - equivalencies[IB-CHEMISTRY|N/A]:  ⟵ “Chemistry | N/A | 5+ | Chinese 1460 & 1470 | 8”
+  - equivalencies[IB-ECONOMICS|5+]:  ⟵ “Economics | 5+ | 4 | ECON 1160 | 3”
+  - equivalencies[IB-ECONOMICS|N/A]:  ⟵ “Economics | N/A | 5+ | ECON 1160 & ECON 1170 | 6”
+  - equivalencies[IB-ECONOMICS|N/A]:  ⟵ “Economics | N/A | 5+ | ENGL 1181/1211 & 1190/1220 | 8”
+  - equivalencies[IB-HISTORY|5+]:  ⟵ “European History | 5+ | 4 | HIST 1500 | 4”
+  - equivalencies[IB-HISTORY|N/A]:  ⟵ “European History | N/A | 5+ | HIST 1500 & HIST 1600 | 8”
+  - equivalencies[IB-FRENCH|5+]:  ⟵ “French | 5+ | 4 | FREN 2460 | 4”
+  - equivalencies[IB-FRENCH|N/A]:  ⟵ “French | N/A | 5+ | FREN 2460 & HUMN Elective Credit | 8”
+  - equivalencies[IB-GERMAN|5+]:  ⟵ “German | 5+ | 4 | HUMN Elective Credit | 4”
+  - equivalencies[IB-GERMAN|N/A]:  ⟵ “German | N/A | 5+ | HUMN Elective Credit | 8”
+  - equivalencies[IB-GERMAN|N/A]:  ⟵ “German | N/A | 5+ | MATH 1760 & MATH 1770 | 8”
+  - equivalencies[IB-MUSIC|5+]:  ⟵ “Music | 5+ | 4 | MUSC 1060 | 2”
+  - equivalencies[IB-MUSIC|N/A]:  ⟵ “Music | N/A | 5+ | MUSC 1060 & MUSC 1070 | 4”
+  - equivalencies[IB-PHYSICS|5+]:  ⟵ “Physics | 5+ | 4 | PHYS 1180 | 4”
+  - equivalencies[IB-PHYSICS|N/A]:  ⟵ “Physics | N/A | 5+ | PHYS 1180 & PHYS 1190 | 8”
+  - equivalencies[IB-PSYCHOLOGY|5+]:  ⟵ “Psychology | 5+ | 4 | PSYC 1010 | 4”
+  - … 6 more rows
+### `2a4853231c650f93` Madonna University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.madonna.edu/admissions/commitment/ (sha256 6b5808ef4528)
+- issues: semantic_review_required, conflicting_sources:https://www.madonna.edu/pdf/SAP_Policy.pdf
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “If the student is in Unsatisfactory Academic Progress status, they must submit and receive approval for an SAP appeal with the Office of Financial Aid by the required deadline for the award to be applied.”
+  - sentence: sap_appeal ⟵ “If the student is in Unsatisfactory Academic Progress status, they must submit and receive approval for an SAP appeal with the Office of Financial Aid by the required deadline for the award to be applied.”
+### `7c96890de6a4f2aa` Madonna University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.madonna.edu/pdf/SAP_Policy.pdf (sha256 7f01f0807cc5)
+- issues: semantic_review_required, conflicting_sources:https://www.madonna.edu/tuition-and-financial-aid/
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Subsequent review and a determination will be made based upon several factors, including Federal and State Regulations, the student's academic and financial aid history, and the students clearly stated and documented extenuating circumstances. • Examples of extenuating circumstances include: o Death of an immediate family member o Injury or illness of the student o Other special circumstances as a”
+### `b33accc2a587cb81` Madonna University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.madonna.edu/pdf/SAP_Policy.pdf (sha256 7f01f0807cc5)
+- issues: semantic_review_required, conflicting_sources:https://www.madonna.edu/admissions/commitment/
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “Students may only receive aid for one semester under the "warning" status. • In order to reestablish aid a student must meet the minimum SAP standards or successfully appeal through the Financial Aid SAP Appeal process • Students who receive all F, W or WF grades, or any combination thereof in a semester, will automatically be suspended regardless of previous SAP status or GPA.”
+  - sentence: sap_appeal ⟵ “Financial Aid Satisfactory Academic Progress Appeal process • To appeal an unsatisfactory progress status, students are required to provide a written explanation of reasons for petition, along with corrective action to be taken as applicable, and attach documentation to support his/her case for reinstatement or continuation of financial aid as part of the Special Academic or Administrative Student”
+### `f46a0fcd16f28181` Madonna University — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.madonna.edu/tuition-and-financial-aid/ (sha256 770fbbeb0e45)
+- issues: ambiguous_year_labels, semantic_review_required, conflicting_sources:https://www.madonna.edu/pdf/SAP_Policy.pdf
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstances Special Circumstances refer to financial situations: loss of employment, benefits or assets; reduction in income; elementary or secondary school tuition expenses; extensive medical expenses not covered by insurance.”
+  - sentence: need_based_special_circumstances ⟵ “Unusual Circumstances refer to conditions that justify an aid administrator making an adjustment to a student’s dependency status based on a unique situation: human trafficking; refugee or asylee status; parental abandonment, incarceration; death of a parent.”
+  - sentence: need_based_special_circumstances ⟵ “If you have a special or unusual circumstance, please contact our office for more information at finaid@madonna.edu or 734-432-5663.”
+### `642f20d5c3f5bd52` Madonna University — credit_policies 2024-25 · policy_kind=dual_enrollment [new] (labeled_in_source)
+- source: https://www.madonna.edu/pdf/admissions/Dual-Enrollment-Registration-Form.pdf (sha256 86321c99a9ae)
+- issues: stale_year_label:2024-25
+- checks: {"fields": ["per_credit_hour_charges", "tuition_per_credit_hour"], "tiers": 0}
+  - per_credit_hour_charge: 240 ⟵ “Dual Enrollment tuition is $240.00 per credit hour. AY2024-25”
+### `41ddcf5abbe768c6` Michigan State University — appeals 2024-25 [new] (labeled_in_source)
+- source: https://finaid.msu.edu/references/sap (sha256 9354f22fd9bc)
+- issues: stale_year_label:2024-25, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “Students wishing to appeal should use the online SAP Appeal Form.”
+  - sentence: sap_appeal ⟵ “SAP appeals cannot be approved multiple times for the same reasons or circumstances.”
+### `aa0cde0fde2327b5` Michigan State University — appeals 2024-25 [new] (labeled_in_source)
+- source: https://finaid.msu.edu/references/sap (sha256 9354f22fd9bc)
+- issues: stale_year_label:2024-25, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Appealing a denial of financial aid Students may appeal the denial of financial aid under certain circumstances including the death of a relative, injury or illness of the student, or other special circumstances.”
+### `0e74f78d7cda36ba` Michigan Technological University — credit_policies 2027-28 · policy_kind=AP [new] (labeled_in_title)
+- source: https://www.mtu.edu/admissions/enroll/ap-ib-clep/ap-current/index-2.html (sha256 f1aa2b5001bd)
+- issues: conflicting_sources:https://www.mtu.edu/admissions/enroll/ap-ib-clep/ap-current/
+- checks: {"distinct_exams": 29, "equivalencies": 30, "rows_without_score": 0}
+  - equivalencies[AP-ART-HISTORY|3 or higher]:  ⟵ “Art History | 3 or higher | ART 1000 for 3 credits”
+  - equivalencies[AP-DRAWING|3 or higher]:  ⟵ “Art Studio—Drawing | 3 or higher | ART 1000 for 3 credits”
+  - equivalencies[AP-2-D-ART-DESIGN|3 or higher]:  ⟵ “Art Studio—2D Design | 3 or higher | ART 1000 for 3 credits”
+  - equivalencies[AP-3-D-ART-DESIGN|3 or higher]:  ⟵ “Art Studio—3D Design | 3 or higher | ART 1000 for 3 credits”
+  - equivalencies[AP-BIOLOGY|5]:  ⟵ “Biology | 5 | BL 1100, BL 1110, BL 1200, BL 1210 for 8 credits”
+  - equivalencies[AP-CALCULUS-AB|4, 5]:  ⟵ “Calculus AB | 4, 5 | MA 1160 for 4 credits”
+  - equivalencies[AP-CALCULUS-BC|4, 5]:  ⟵ “Calculus BC | 4, 5 | MA 1160 and MA 2160 for 8 credits”
+  - equivalencies[AP-CHEMISTRY|4, 5]:  ⟵ “Chemistry | 4, 5 | CH 1150, 1151, 1153, 1160, 1161, 1163 for 10 credits”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|4, 5]:  ⟵ “Computer Science A | 4, 5 | CS 1121 for 3 credits”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|3 or higher]:  ⟵ “Computer Science Principles | 3 or higher | TRU XXXX for 3 credits”
+  - equivalencies[AP-MACROECONOMICS|4, 5]:  ⟵ “Economics—Macro | 4, 5 | ECA for 3 credits*”
+  - equivalencies[AP-MICROECONOMICS|4, 5]:  ⟵ “Economics—Micro | 4, 5 | ECA for 3 credits*”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3 or higher]:  ⟵ “English Language and Composition | 3 or higher | UN 1014 for 3 credits”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3 or higher]:  ⟵ “English Literature and Composition | 3 or higher | UN 2503 for 3 credits”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|3 or higher]:  ⟵ “Environmental Sciences | 3 or higher | GE 2100 for 3 credits”
+  - equivalencies[AP-EUROPEAN-HISTORY|3 or higher]:  ⟵ “European History | 3 or higher | SS 2502 for 3 credits”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3 or higher]:  ⟵ “German Language | 3 or higher | HU 2282, 3281, 3282 for 9 credits upon successful completion of either HU 3284 or 3285‡”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|3 or higher]:  ⟵ “Human Geography | 3 or higher | SS 2400 for 3 credits”
+  - equivalencies[AP-MUSIC-THEORY|3 or higher]:  ⟵ “Music Theory | 3 or higher | MUS 1100 for 3 credits”
+  - equivalencies[AP-PHYSICS-1|4, 5]:  ⟵ “Physics 1 | 4, 5 | PH 1110, 1111 for 4 credits”
+  - equivalencies[AP-PHYSICS-2|4, 5]:  ⟵ “Physics 2 | 4, 5 | PH 1200, 1210 for 4 credits”
+  - equivalencies[AP-PHYSICS-C-MECHANICS|4, 5]:  ⟵ “Physics C—Mechanics(for physics majors) | 4, 5 | PH 1160, 1161 for 5 credits”
+  - equivalencies[AP-PHYSICS-C-MECHANICS|4, 5]:  ⟵ “Physics C—Mechanics(for all other majors) | 4, 5 | PH 1100, 2100 for 4 credits”
+  - equivalencies[AP-PRECALCULUS|3 or higher]:  ⟵ “Precalculus | 3 or higher | MA 1032 for 4 credits”
+  - equivalencies[AP-PSYCHOLOGY|3 or higher]:  ⟵ “Psychology | 3 or higher | PSY 2000 for 3 credits”
+  - … 5 more rows
+### `f12fb945a09d2b50` Michigan Technological University — credit_policies 2027-28 · policy_kind=AP [new] (labeled_in_title)
+- source: https://www.mtu.edu/admissions/enroll/ap-ib-clep/ap-current/ (sha256 3d8a061b46bd)
+- issues: conflicting_sources:https://www.mtu.edu/admissions/enroll/ap-ib-clep/ap-current/index-2.html
+- checks: {"distinct_exams": 29, "equivalencies": 30, "rows_without_score": 0}
+  - equivalencies[AP-ART-HISTORY|3 or higher]:  ⟵ “Art History | 3 or higher | ART 1000 for 3 credits”
+  - equivalencies[AP-DRAWING|3 or higher]:  ⟵ “Art Studio—Drawing | 3 or higher | ART 1000 for 3 credits”
+  - equivalencies[AP-2-D-ART-DESIGN|3 or higher]:  ⟵ “Art Studio—2D Design | 3 or higher | ART 1000 for 3 credits”
+  - equivalencies[AP-3-D-ART-DESIGN|3 or higher]:  ⟵ “Art Studio—3D Design | 3 or higher | ART 1000 for 3 credits”
+  - equivalencies[AP-BIOLOGY|5]:  ⟵ “Biology | 5 | BL 1100, BL 1110, BL 1200, BL 1210 for 8 credits”
+  - equivalencies[AP-CALCULUS-AB|4, 5]:  ⟵ “Calculus AB | 4, 5 | MA 1160 for 4 credits”
+  - equivalencies[AP-CALCULUS-BC|4, 5]:  ⟵ “Calculus BC | 4, 5 | MA 1160 and MA 2160 for 8 credits”
+  - equivalencies[AP-CHEMISTRY|4, 5]:  ⟵ “Chemistry | 4, 5 | CH 1150, 1151, 1153, 1160, 1161, 1163 for 10 credits”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|4, 5]:  ⟵ “Computer Science A | 4, 5 | CS 1121 for 3 credits”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|3 or higher]:  ⟵ “Computer Science Principles | 3 or higher | TRU XXXX for 3 credits”
+  - equivalencies[AP-MACROECONOMICS|4, 5]:  ⟵ “Economics—Macro | 4, 5 | ECA for 3 credits*”
+  - equivalencies[AP-MICROECONOMICS|4, 5]:  ⟵ “Economics—Micro | 4, 5 | ECA for 3 credits*”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3 or higher]:  ⟵ “English Language and Composition | 3 or higher | UN 1015 for 3 credits”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3 or higher]:  ⟵ “English Literature and Composition | 3 or higher | HU2503 for 3 credits”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|3 or higher]:  ⟵ “Environmental Sciences | 3 or higher | GE 2100 for 3 credits”
+  - equivalencies[AP-EUROPEAN-HISTORY|3 or higher]:  ⟵ “European History | 3 or higher | SS 2502 for 3 credits”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3 or higher]:  ⟵ “German Language | 3 or higher | HU 2282, 3281, 3282 for 9 credits upon successful completion of either HU 3284 or 3285‡”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|3 or higher]:  ⟵ “Human Geography | 3 or higher | SS 2400 for 3 credits”
+  - equivalencies[AP-MUSIC-THEORY|3 or higher]:  ⟵ “Music Theory | 3 or higher | MUS 1100 for 3 credits”
+  - equivalencies[AP-PHYSICS-1|4, 5]:  ⟵ “Physics 1 | 4, 5 | PH 1110, 1111 for 4 credits”
+  - equivalencies[AP-PHYSICS-2|4, 5]:  ⟵ “Physics 2 | 4, 5 | PH 1200, 1210 for 4 credits”
+  - equivalencies[AP-PHYSICS-C-MECHANICS|4, 5]:  ⟵ “Physics C—Mechanics(for physics majors) | 4, 5 | PH 1160, 1161 for 5 credits”
+  - equivalencies[AP-PHYSICS-C-MECHANICS|4, 5]:  ⟵ “Physics C—Mechanics(for all other majors) | 4, 5 | PH 1100, 2100 for 4 credits”
+  - equivalencies[AP-PRECALCULUS|3 or higher]:  ⟵ “Precalculus | 3 or higher | MA 1032 for 4 credits”
+  - equivalencies[AP-PSYCHOLOGY|3 or higher]:  ⟵ “Psychology | 3 or higher | PSY 2000 for 3 credits”
+  - … 5 more rows
+### `21846a6e2e1cba9e` Mid Michigan College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://midmich.edu/admissions/finaid/applying (sha256 f0ec35a97314)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 4}
+  - sentence: need_based_special_circumstances ⟵ “Mid's Financial Aid team can review certain special circumstances and may adjust your FAFSA information when federal guidelines allow.”
+  - sentence: need_based_special_circumstances ⟵ “Request a Special Circumstance Review Special Circumstance Reviews require additional processing time, and there is no guarantee the review will result in more aid or different types of aid being awarded.”
+  - sentence: need_based_special_circumstances ⟵ “In limited circumstances, you may be able to request an Unusual Circumstances Review requesting that your dependency status be overridden.”
+  - sentence: need_based_special_circumstances ⟵ “Request an Unusual Circumstances Review Your parents' unwillingness and/or inability to financially support you and/or living on your own and paying your own bills are not, by themselves, reasons that demonstrate exceptional circumstances and cannot be considered.”
+### `404a3e82de2e2adf` Mid Michigan College — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://midmich.edu/admissions/finaid/finaid-next-steps (sha256 24cbf088e33f)
+- issues: ambiguous_year_labels, semantic_review_required, conflicting_sources:https://midmich.edu/admissions/finaid/sap
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “If your SAP Appeal is completed after the deadline, it will not take effect until the next semester.”
+  - sentence: sap_appeal ⟵ “Learn more about SAP Check Your SAP Status Initiate Your SAP Appeal CONTACT Financial Aid Call (989) 386-6664 finaid@midmich.edu Schedule an appointment Mid's School Code 006768 Harrison Campus Room 104 Mt.”
+### `9604966b34fd17cc` Mid Michigan College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://midmich.edu/admissions/finaid/sap (sha256 021ad16d70e7)
+- issues: semantic_review_required, conflicting_sources:https://midmich.edu/admissions/finaid/finaid-next-steps
+- checks: {"negative_sentences": 0, "sentences": 4}
+  - sentence: sap_appeal ⟵ “Be sure to submit the SAP Appeal & Academic Plan Form including supporting documents and your signed Individual Action Plan (IAP).”
+  - sentence: sap_appeal ⟵ “SAP Appeal & Academic Plan Form Additional Information The standards of Satisfactory Academic Progress include the following components Grade Point Average (GPA), Completion Rate, and Maximum Time Frame measures.”
+  - sentence: sap_appeal ⟵ “The student must submit a complete Appeal Packet (IAP, SAP Appeal Form, appeal letter, and supporting documentation if available) to Mid's Financial Aid team.”
+  - sentence: sap_appeal ⟵ “Writing a Successful Appeal Your Satisfactory Academic Progress (SAP) Appeal Explanation must include the following Explain What Happened Why were you unable to maintain satisfactory progress?”
+### `0931f1961eee26e2` Mid Michigan College — costs 2026-27 · residency=out_of_state [new] (labeled_in_source)
+- source: https://midmich.edu/admissions/tuition/26-27-rates (sha256 0f9b86dfa571)
+- issues: arrangement_unlabeled
+- checks: {"columns": 2, "rows": 9}
+  - with_parents_or_family:Tuition & Fees: 11544 ⟵ “Tuition & Fees | $6,136 | $6,136 | $9,178 | $9,178 | $11,544 | $11,544”
+  - with_parents_or_family:Enrollment Fee: 100 ⟵ “Enrollment Fee | $100 | $100 | $100 | $100 | $100 | $100”
+  - with_parents_or_family:Books & Course Materials: 1570 ⟵ “Books & Course Materials | $1,570 | $1,570 | $1,570 | $1,570 | $1,570 | $1,570”
+  - with_parents_or_family:Housing: 0 ⟵ “Housing | $0 | $7,920 | $0 | $7,920 | $0 | $,7920”
+  - with_parents_or_family:Food: 3555 ⟵ “Food | $3,555 | $3,555 | $3,555 | $3,555 | $3,555 | $3,555”
+  - with_parents_or_family:Transportation: 2070 ⟵ “Transportation | $2,070 | $2,070 | $2,070 | $2,070 | $2,070 | $2,070”
+  - with_parents_or_family:Personal Expenses: 2680 ⟵ “Personal Expenses | $2,680 | $2,680 | $2,680 | $2,680 | $2,680 | $2,680”
+  - with_parents_or_family:Loan Fees: 57 ⟵ “Loan Fees | $57 | $57 | $57 | $57 | $57 | $57”
+  - with_parents_or_family:Totals: 21576 ⟵ “Totals | $16,168 | $24,088 | $19,210 | $27,130 | $21,576 | $29,496”
+  - column:Tuition & Fees: 11544 ⟵ “Tuition & Fees | $6,136 | $6,136 | $9,178 | $9,178 | $11,544 | $11,544”
+  - column:Enrollment Fee: 100 ⟵ “Enrollment Fee | $100 | $100 | $100 | $100 | $100 | $100”
+  - column:Books & Course Materials: 1570 ⟵ “Books & Course Materials | $1,570 | $1,570 | $1,570 | $1,570 | $1,570 | $1,570”
+  - column:Housing: 7920 ⟵ “Housing | $0 | $7,920 | $0 | $7,920 | $0 | $,7920”
+  - column:Food: 3555 ⟵ “Food | $3,555 | $3,555 | $3,555 | $3,555 | $3,555 | $3,555”
+  - column:Transportation: 2070 ⟵ “Transportation | $2,070 | $2,070 | $2,070 | $2,070 | $2,070 | $2,070”
+  - column:Personal Expenses: 2680 ⟵ “Personal Expenses | $2,680 | $2,680 | $2,680 | $2,680 | $2,680 | $2,680”
+  - column:Loan Fees: 57 ⟵ “Loan Fees | $57 | $57 | $57 | $57 | $57 | $57”
+  - column:Totals: 29496 ⟵ “Totals | $16,168 | $24,088 | $19,210 | $27,130 | $21,576 | $29,496”
+### `bdfe817e7708880b` Mid Michigan College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://midmich.edu/admissions/tuition/26-27-rates (sha256 0f9b86dfa571)
+- issues: arrangement_unlabeled, residency_unknown
+- checks: {"columns": 4, "rows": 9}
+  - with_parents_or_family:Tuition & Fees: 6136 ⟵ “Tuition & Fees | $6,136 | $6,136 | $9,178 | $9,178 | $11,544 | $11,544”
+  - with_parents_or_family:Enrollment Fee: 100 ⟵ “Enrollment Fee | $100 | $100 | $100 | $100 | $100 | $100”
+  - with_parents_or_family:Books & Course Materials: 1570 ⟵ “Books & Course Materials | $1,570 | $1,570 | $1,570 | $1,570 | $1,570 | $1,570”
+  - with_parents_or_family:Housing: 0 ⟵ “Housing | $0 | $7,920 | $0 | $7,920 | $0 | $,7920”
+  - with_parents_or_family:Food: 3555 ⟵ “Food | $3,555 | $3,555 | $3,555 | $3,555 | $3,555 | $3,555”
+  - with_parents_or_family:Transportation: 2070 ⟵ “Transportation | $2,070 | $2,070 | $2,070 | $2,070 | $2,070 | $2,070”
+  - with_parents_or_family:Personal Expenses: 2680 ⟵ “Personal Expenses | $2,680 | $2,680 | $2,680 | $2,680 | $2,680 | $2,680”
+  - with_parents_or_family:Loan Fees: 57 ⟵ “Loan Fees | $57 | $57 | $57 | $57 | $57 | $57”
+  - with_parents_or_family:Totals: 16168 ⟵ “Totals | $16,168 | $24,088 | $19,210 | $27,130 | $21,576 | $29,496”
+  - column:Tuition & Fees: 6136 ⟵ “Tuition & Fees | $6,136 | $6,136 | $9,178 | $9,178 | $11,544 | $11,544”
+  - column:Enrollment Fee: 100 ⟵ “Enrollment Fee | $100 | $100 | $100 | $100 | $100 | $100”
+  - column:Books & Course Materials: 1570 ⟵ “Books & Course Materials | $1,570 | $1,570 | $1,570 | $1,570 | $1,570 | $1,570”
+  - column:Housing: 7920 ⟵ “Housing | $0 | $7,920 | $0 | $7,920 | $0 | $,7920”
+  - column:Food: 3555 ⟵ “Food | $3,555 | $3,555 | $3,555 | $3,555 | $3,555 | $3,555”
+  - column:Transportation: 2070 ⟵ “Transportation | $2,070 | $2,070 | $2,070 | $2,070 | $2,070 | $2,070”
+  - column:Personal Expenses: 2680 ⟵ “Personal Expenses | $2,680 | $2,680 | $2,680 | $2,680 | $2,680 | $2,680”
+  - column:Loan Fees: 57 ⟵ “Loan Fees | $57 | $57 | $57 | $57 | $57 | $57”
+  - column:Totals: 24088 ⟵ “Totals | $16,168 | $24,088 | $19,210 | $27,130 | $21,576 | $29,496”
+  - with_parents_or_family:Tuition & Fees: 9178 ⟵ “Tuition & Fees | $6,136 | $6,136 | $9,178 | $9,178 | $11,544 | $11,544”
+  - with_parents_or_family:Enrollment Fee: 100 ⟵ “Enrollment Fee | $100 | $100 | $100 | $100 | $100 | $100”
+  - with_parents_or_family:Books & Course Materials: 1570 ⟵ “Books & Course Materials | $1,570 | $1,570 | $1,570 | $1,570 | $1,570 | $1,570”
+  - with_parents_or_family:Housing: 0 ⟵ “Housing | $0 | $7,920 | $0 | $7,920 | $0 | $,7920”
+  - with_parents_or_family:Food: 3555 ⟵ “Food | $3,555 | $3,555 | $3,555 | $3,555 | $3,555 | $3,555”
+  - with_parents_or_family:Transportation: 2070 ⟵ “Transportation | $2,070 | $2,070 | $2,070 | $2,070 | $2,070 | $2,070”
+  - with_parents_or_family:Personal Expenses: 2680 ⟵ “Personal Expenses | $2,680 | $2,680 | $2,680 | $2,680 | $2,680 | $2,680”
+  - … 11 more rows
+### `c27ee465ecd3e71e` Mid Michigan College — costs 2025-26 · residency=out_of_state [new] (labeled_in_source)
+- source: https://midmich.edu/admissions/tuition/25-26-rates (sha256 b6462c818840)
+- issues: arrangement_unlabeled, stale_year_label:2025-26
+- checks: {"columns": 2, "rows": 9}
+  - with_parents_or_family:Tuition & Fees: 11726 ⟵ “Tuition & Fees | $6,136 | $6,136 | $9,048 | $9,048 | $11,726 | $11,726”
+  - with_parents_or_family:Enrollment Fee: 100 ⟵ “Enrollment Fee | $100 | $100 | $100 | $100 | $100 | $100”
+  - with_parents_or_family:Books & Course Materials: 1620 ⟵ “Books & Course Materials | $1,620 | $1,620 | $1,620 | $1,620 | $1,620 | $1,620”
+  - with_parents_or_family:Housing: 0 ⟵ “Housing | $0 | $5,266 | $0 | $5,226 | $0 | $5,226”
+  - with_parents_or_family:Food: 3384 ⟵ “Food | $3,384 | $3,384 | $3,384 | $3,384 | $3,384 | $3,384”
+  - with_parents_or_family:Transportation: 2010 ⟵ “Transportation | $2,010 | $2,010 | $2,010 | $2,010 | $2,010 | $2,010”
+  - with_parents_or_family:Personal Expenses: 2600 ⟵ “Personal Expenses | $2,600 | $2,600 | $2,600 | $2,600 | $2,600 | $2,600”
+  - with_parents_or_family:Loan Fees: 59 ⟵ “Loan Fees | $59 | $59 | $59 | $59 | $59 | $59”
+  - with_parents_or_family:Totals: 21499 ⟵ “Totals | $15,909 | $21,175 | $18,821 | $24,087 | $21,499 | $26,765”
+  - column:Tuition & Fees: 11726 ⟵ “Tuition & Fees | $6,136 | $6,136 | $9,048 | $9,048 | $11,726 | $11,726”
+  - column:Enrollment Fee: 100 ⟵ “Enrollment Fee | $100 | $100 | $100 | $100 | $100 | $100”
+  - column:Books & Course Materials: 1620 ⟵ “Books & Course Materials | $1,620 | $1,620 | $1,620 | $1,620 | $1,620 | $1,620”
+  - column:Housing: 5226 ⟵ “Housing | $0 | $5,266 | $0 | $5,226 | $0 | $5,226”
+  - column:Food: 3384 ⟵ “Food | $3,384 | $3,384 | $3,384 | $3,384 | $3,384 | $3,384”
+  - column:Transportation: 2010 ⟵ “Transportation | $2,010 | $2,010 | $2,010 | $2,010 | $2,010 | $2,010”
+  - column:Personal Expenses: 2600 ⟵ “Personal Expenses | $2,600 | $2,600 | $2,600 | $2,600 | $2,600 | $2,600”
+  - column:Loan Fees: 59 ⟵ “Loan Fees | $59 | $59 | $59 | $59 | $59 | $59”
+  - column:Totals: 26765 ⟵ “Totals | $15,909 | $21,175 | $18,821 | $24,087 | $21,499 | $26,765”
+### `c7dddbd7674a5eab` Mid Michigan College — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://midmich.edu/admissions/tuition/25-26-rates (sha256 b6462c818840)
+- issues: arrangement_unlabeled, residency_unknown, stale_year_label:2025-26
+- checks: {"columns": 4, "rows": 9}
+  - with_parents_or_family:Tuition & Fees: 6136 ⟵ “Tuition & Fees | $6,136 | $6,136 | $9,048 | $9,048 | $11,726 | $11,726”
+  - with_parents_or_family:Enrollment Fee: 100 ⟵ “Enrollment Fee | $100 | $100 | $100 | $100 | $100 | $100”
+  - with_parents_or_family:Books & Course Materials: 1620 ⟵ “Books & Course Materials | $1,620 | $1,620 | $1,620 | $1,620 | $1,620 | $1,620”
+  - with_parents_or_family:Housing: 0 ⟵ “Housing | $0 | $5,266 | $0 | $5,226 | $0 | $5,226”
+  - with_parents_or_family:Food: 3384 ⟵ “Food | $3,384 | $3,384 | $3,384 | $3,384 | $3,384 | $3,384”
+  - with_parents_or_family:Transportation: 2010 ⟵ “Transportation | $2,010 | $2,010 | $2,010 | $2,010 | $2,010 | $2,010”
+  - with_parents_or_family:Personal Expenses: 2600 ⟵ “Personal Expenses | $2,600 | $2,600 | $2,600 | $2,600 | $2,600 | $2,600”
+  - with_parents_or_family:Loan Fees: 59 ⟵ “Loan Fees | $59 | $59 | $59 | $59 | $59 | $59”
+  - with_parents_or_family:Totals: 15909 ⟵ “Totals | $15,909 | $21,175 | $18,821 | $24,087 | $21,499 | $26,765”
+  - column:Tuition & Fees: 6136 ⟵ “Tuition & Fees | $6,136 | $6,136 | $9,048 | $9,048 | $11,726 | $11,726”
+  - column:Enrollment Fee: 100 ⟵ “Enrollment Fee | $100 | $100 | $100 | $100 | $100 | $100”
+  - column:Books & Course Materials: 1620 ⟵ “Books & Course Materials | $1,620 | $1,620 | $1,620 | $1,620 | $1,620 | $1,620”
+  - column:Housing: 5266 ⟵ “Housing | $0 | $5,266 | $0 | $5,226 | $0 | $5,226”
+  - column:Food: 3384 ⟵ “Food | $3,384 | $3,384 | $3,384 | $3,384 | $3,384 | $3,384”
+  - column:Transportation: 2010 ⟵ “Transportation | $2,010 | $2,010 | $2,010 | $2,010 | $2,010 | $2,010”
+  - column:Personal Expenses: 2600 ⟵ “Personal Expenses | $2,600 | $2,600 | $2,600 | $2,600 | $2,600 | $2,600”
+  - column:Loan Fees: 59 ⟵ “Loan Fees | $59 | $59 | $59 | $59 | $59 | $59”
+  - column:Totals: 21175 ⟵ “Totals | $15,909 | $21,175 | $18,821 | $24,087 | $21,499 | $26,765”
+  - with_parents_or_family:Tuition & Fees: 9048 ⟵ “Tuition & Fees | $6,136 | $6,136 | $9,048 | $9,048 | $11,726 | $11,726”
+  - with_parents_or_family:Enrollment Fee: 100 ⟵ “Enrollment Fee | $100 | $100 | $100 | $100 | $100 | $100”
+  - with_parents_or_family:Books & Course Materials: 1620 ⟵ “Books & Course Materials | $1,620 | $1,620 | $1,620 | $1,620 | $1,620 | $1,620”
+  - with_parents_or_family:Housing: 0 ⟵ “Housing | $0 | $5,266 | $0 | $5,226 | $0 | $5,226”
+  - with_parents_or_family:Food: 3384 ⟵ “Food | $3,384 | $3,384 | $3,384 | $3,384 | $3,384 | $3,384”
+  - with_parents_or_family:Transportation: 2010 ⟵ “Transportation | $2,010 | $2,010 | $2,010 | $2,010 | $2,010 | $2,010”
+  - with_parents_or_family:Personal Expenses: 2600 ⟵ “Personal Expenses | $2,600 | $2,600 | $2,600 | $2,600 | $2,600 | $2,600”
+  - … 11 more rows
+### `02c1255320e1b9e3` Monroe County Community College — costs 2026-27 · residency=not_applicable [new] (source_unlabeled)
+- source: https://www.monroeccc.edu/tuition-fees (sha256 c459aabcbba3)
+- issues: arrangement_unlabeled, residency_unknown, conflicting_sources:https://www.monroeccc.edu/cost-of-attendance
+- checks: {"columns": 2, "components_reconcile": true, "rows": 4}
+  - column:Tuition: 3352.8 ⟵ “Tuition | $3,352.80 | $5,727.60 | $6,380.40”
+  - column:Registration Fee: 80 ⟵ “Registration Fee | $80 | $80 | $80”
+  - column:Technology Fee: 708 ⟵ “Technology Fee | $708 | $708 | $708”
+  - column:Total: 4140.8 ⟵ “Total | $4,140.80 | $6,515.60 | $7,168.40”
+  - column:Tuition: 5727.6 ⟵ “Tuition | $3,352.80 | $5,727.60 | $6,380.40”
+  - column:Registration Fee: 80 ⟵ “Registration Fee | $80 | $80 | $80”
+  - column:Technology Fee: 708 ⟵ “Technology Fee | $708 | $708 | $708”
+  - column:Total: 6515.6 ⟵ “Total | $4,140.80 | $6,515.60 | $7,168.40”
+### `03e1ac6636e50b5f` Monroe County Community College — costs 2026-27 · residency=out_of_state [new] (labeled_in_source)
+- source: https://www.monroeccc.edu/cost-of-attendance (sha256 79a2a2bae217)
+- issues: components_do_not_reconcile, conflicting_sources:https://www.monroeccc.edu/tuition-fees
+- checks: {"columns": 2, "components_reconcile": false, "rows": 7}
+  - with_parents_or_family:Tuition: 7976 ⟵ “Tuition | $7976 | $7976”
+  - with_parents_or_family:Fees: 1100 ⟵ “Fees | $1100 | $1100”
+  - with_parents_or_family:Books & Supplies: 1800 ⟵ “Books & Supplies | $1800 | $1800”
+  - with_parents_or_family:Housing & Food: 4500 ⟵ “Housing & Food | $4500 | $9000”
+  - with_parents_or_family:Personal & Miscellaneous: 2304 ⟵ “Personal & Miscellaneous | $2304 | $2304”
+  - with_parents_or_family:Transportation: 5568 ⟵ “Transportation | $5568 | $5568”
+  - with_parents_or_family:Total Estimated Cost: 23328 ⟵ “Total Estimated Cost | $23,328 | $27,828”
+  - off_campus_not_with_family:Tuition: 7976 ⟵ “Tuition | $7976 | $7976”
+  - off_campus_not_with_family:Fees: 1100 ⟵ “Fees | $1100 | $1100”
+  - off_campus_not_with_family:Books & Supplies: 1800 ⟵ “Books & Supplies | $1800 | $1800”
+  - off_campus_not_with_family:Housing & Food: 9000 ⟵ “Housing & Food | $4500 | $9000”
+  - off_campus_not_with_family:Personal & Miscellaneous: 2304 ⟵ “Personal & Miscellaneous | $2304 | $2304”
+  - off_campus_not_with_family:Transportation: 5568 ⟵ “Transportation | $5568 | $5568”
+  - off_campus_not_with_family:Total Estimated Cost: 27828 ⟵ “Total Estimated Cost | $23,328 | $27,828”
+### `54eece7c350cd139` Monroe County Community College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.monroeccc.edu/cost-of-attendance (sha256 79a2a2bae217)
+- issues: residency_unknown, conflicting_sources:https://www.monroeccc.edu/tuition-fees
+- checks: {"columns": 2, "components_reconcile": true, "rows": 7}
+  - with_parents_or_family:Tuition: 6884 ⟵ “Tuition | $6884 | $6884”
+  - with_parents_or_family:Fees: 1180 ⟵ “Fees | $1180 | $1180”
+  - with_parents_or_family:Books & Supplies: 1800 ⟵ “Books & Supplies | $1800 | $1800”
+  - with_parents_or_family:Housing & Food: 4500 ⟵ “Housing & Food | $4500 | $9000”
+  - with_parents_or_family:Personal & Miscellaneous: 2304 ⟵ “Personal & Miscellaneous | $2304 | $2304”
+  - with_parents_or_family:Transportation: 5568 ⟵ “Transportation | $5568 | $5568”
+  - with_parents_or_family:Total Estimated Cost: 22236 ⟵ “Total Estimated Cost | $22,236 | $26,736”
+  - off_campus_not_with_family:Tuition: 6884 ⟵ “Tuition | $6884 | $6884”
+  - off_campus_not_with_family:Fees: 1180 ⟵ “Fees | $1180 | $1180”
+  - off_campus_not_with_family:Books & Supplies: 1800 ⟵ “Books & Supplies | $1800 | $1800”
+  - off_campus_not_with_family:Housing & Food: 9000 ⟵ “Housing & Food | $4500 | $9000”
+  - off_campus_not_with_family:Personal & Miscellaneous: 2304 ⟵ “Personal & Miscellaneous | $2304 | $2304”
+  - off_campus_not_with_family:Transportation: 5568 ⟵ “Transportation | $5568 | $5568”
+  - off_campus_not_with_family:Total Estimated Cost: 26736 ⟵ “Total Estimated Cost | $22,236 | $26,736”
+### `7debde44ba7d15b9` Monroe County Community College — costs 2026-27 · residency=out_of_state [new] (source_unlabeled)
+- source: https://www.monroeccc.edu/tuition-fees (sha256 c459aabcbba3)
+- issues: conflicting_sources:https://www.monroeccc.edu/cost-of-attendance
+- checks: {"columns": 1, "components_reconcile": true, "rows": 4}
+  - column:Tuition: 6380.4 ⟵ “Tuition | $3,352.80 | $5,727.60 | $6,380.40”
+  - column:Registration Fee: 80 ⟵ “Registration Fee | $80 | $80 | $80”
+  - column:Technology Fee: 708 ⟵ “Technology Fee | $708 | $708 | $708”
+  - column:Total: 7168.4 ⟵ “Total | $4,140.80 | $6,515.60 | $7,168.40”
+### `6681969627ec612e` Montcalm Community College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.montcalm.edu/admission-aid/tuition-fees/estimated-costs-of-attendance/ (sha256 42440e2b623c)
+- issues: residency_unknown
+- checks: {"columns": 2, "components_reconcile": true, "rows": 9}
+  - on_campus:Tuition*: 3024 ⟵ “Tuition* | $3,024 | $3,024”
+  - on_campus:College Service Fee*: 432 ⟵ “College Service Fee* | $432 | $432”
+  - on_campus:Technology Fee*: 624 ⟵ “Technology Fee* | $624 | $624”
+  - on_campus:Housing: 7100 ⟵ “Housing | $7,100 | $7,100”
+  - on_campus:Books and Course Materials: 1200 ⟵ “Books and Course Materials | $1,200 | $1,200”
+  - on_campus:Transportation: 4092 ⟵ “Transportation | $4,092 | $4,092”
+  - on_campus:Personal Expenses: 1980 ⟵ “Personal Expenses | $1,980 | $1,980”
+  - on_campus:On-campus Food: 4900 ⟵ “On-campus Food | $4,900 | $4,900”
+  - on_campus:Total Estimated Cost of Attendance: 23352 ⟵ “Total Estimated Cost of Attendance | $23,352 | $23,352”
+  - on_campus:Tuition*: 3024 ⟵ “Tuition* | $3,024 | $3,024”
+  - on_campus:College Service Fee*: 432 ⟵ “College Service Fee* | $432 | $432”
+  - on_campus:Technology Fee*: 624 ⟵ “Technology Fee* | $624 | $624”
+  - on_campus:Housing: 7100 ⟵ “Housing | $7,100 | $7,100”
+  - on_campus:Books and Course Materials: 1200 ⟵ “Books and Course Materials | $1,200 | $1,200”
+  - on_campus:Transportation: 4092 ⟵ “Transportation | $4,092 | $4,092”
+  - on_campus:Personal Expenses: 1980 ⟵ “Personal Expenses | $1,980 | $1,980”
+  - on_campus:On-campus Food: 4900 ⟵ “On-campus Food | $4,900 | $4,900”
+  - on_campus:Total Estimated Cost of Attendance: 23352 ⟵ “Total Estimated Cost of Attendance | $23,352 | $23,352”
+### `2773c8224b8687a6` Mott Community College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.mcc.edu/financial-aid/satisfactory-academic-progress.shtml (sha256 6d6184f33bce)
+- issues: semantic_review_required, conflicting_sources:https://www.mcc.edu/cashier/tuition-and-fees.shtml
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “Failure to meet SAP standards will result in the cancellation of all aid programs requiring SAP until the student is meeting SAP on his or her own or has successfully appealed for reinstatement based on extenuating circumstances (see "SAP Appeal Process").”
+  - sentence: sap_appeal ⟵ “To do so, log on to https://mcc.studentforms.com and select Satisfactory Academic Progress appeal task for requirements to complete.”
+### `63c5fa62186e051f` Mott Community College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.mcc.edu/financial-aid/special-circumstances.shtml (sha256 0a3d52bca8e5)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 4}
+  - sentence: professional_judgment ⟵ “How to Request a Special Circumstance and Unusual Circumstances Review Request a PJ (Professional Judgment) Appeal via mcc.verifymyfafsa.com.”
+  - sentence: professional_judgment ⟵ “Professional Judgments There are three types of Professional Judgments, select the one which fits your circumstance, to ensure correct review is performed: Professional Judgment (Unusual Circumstances): Refer to the conditions that justify an aid administrator making an adjustment to a student's status based on a unique situation (e.g.,human trafficking, refugee or asylee status, parental abuse or”
+  - sentence: professional_judgment ⟵ “Professional Judgment (EFC/SAI): Administrators may evaluate a student's information submitted on the FAFSA for additional aid eligibility.”
+  - sentence: professional_judgment ⟵ “Professional Judgment (COA): Allows students to ask for adjustments in the amount of financial aid they might be offered by increasing the individual estimated COA.”
+### `9db3d78d814c1f53` Mott Community College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.mcc.edu/cashier/tuition-and-fees.shtml (sha256 8f340b219f18)
+- issues: semantic_review_required, conflicting_sources:https://www.mcc.edu/financial-aid/satisfactory-academic-progress.shtml
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: sap_appeal ⟵ “What is the difference between a tuition appeal and an SAP Appeal for Financial Aid?”
+  - sentence: sap_appeal ⟵ “An approved SAP Appeal re-establishes your eligibility to receive Financial Aid funding.”
+  - sentence: sap_appeal ⟵ “For more information please visit Satisfactory Academic Progress - Appeal Process or speak with Financial Aid.”
+### `b81bfe62129863a8` Mott Community College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.mcc.edu/financial-aid/special-circumstances.shtml (sha256 0a3d52bca8e5)
+- issues: semantic_review_required, conflicting_sources:https://www.mcc.edu/financial-aid/satisfactory-academic-progress.shtml
+- checks: {"negative_sentences": 0, "sentences": 7}
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstances - Financial Aid | Mott Community College skip to page content ENROLL NOW REQUEST INFORMATION Contact MCC Support through GIVING Programs Campus Life About Services Community MCC4me Registration for Fall 2026 Semester (Late Start & Second Half) Open Now!”
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstances Consideration If you or your parents have experienced a significant and prolonged decline in family income, you might be eligible for additional financial aid funds for the current academic year.”
+  - sentence: need_based_special_circumstances ⟵ “Circumstances that will be considered include the following: Loss of employment Other loss of income Separation or divorce (parents marital status) Death of a parent or spouse High unreimbursed medical and/or dental expenses One-time payment received Please be advised that once you have initiated a special circumstance request, the student’s FAFSA will be selected for a process called verification”
+  - sentence: need_based_special_circumstances ⟵ “Additional documentation may be required before your special circumstance will be reviewed and a determination can be made.”
+  - sentence: need_based_special_circumstances ⟵ “If you later decide not to pursue the special circumstance request, MCC is still required to complete the verification process before financial aid funds will be disbursed.”
+  - sentence: need_based_special_circumstances ⟵ “Unusual Circumstances Refer to conditions that justify financial aid administrators to make an adjustment to a student's dependency status based on a unique situation (e.g. human trafficking, refugee or asylee status, parental abandonment, incarceration), more commonly referred to as a "dependency override".”
+### `fcbc5f0e95b69455` Mott Community College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.mcc.edu/financial-aid/satisfactory-academic-progress.shtml (sha256 6d6184f33bce)
+- issues: semantic_review_required, conflicting_sources:https://www.mcc.edu/financial-aid/special-circumstances.shtml
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “The following extenuating circumstances will be considered for approval: Death of a relative Injury, illness, or other health related issue Withdrawal due to military service Other special circumstance Staff in the Writing Center in Room 2031 of the Curtice-Mott Complex are available to help you draft a quality appeal.”
+### `69435ecf66cd9bf5` Mott Community College — costs 2026-27 · residency=not_applicable [new] (source_unlabeled)
+- source: https://www.mcc.edu/financial-aid/cost-of-attendance.shtml (sha256 aa4e067816b9)
+- issues: arrangement_unlabeled, residency_unknown
+- checks: {"columns": 2, "components_reconcile": true, "rows": 7}
+  - column:Tuition & Fees: 6996.0 ⟵ “Tuition & Fees | $6,996.00 | $6,996.00”
+  - column:Living Expenses[1]: 12660.0 ⟵ “Living Expenses[1] | 12,660.00 | 24,000.00”
+  - column:Books/Supplies: 2220.0 ⟵ “Books/Supplies | 2,220.00 | 2,220.00”
+  - column:Misc/Personal[1]: 6210.0 ⟵ “Misc/Personal[1] | 6,210.00 | 7,200.00”
+  - column:Transportation[1]: 360.0 ⟵ “Transportation[1] | 360.00 | 1,620.00”
+  - column:Loan Origination Fees[1]: 85.0 ⟵ “Loan Origination Fees[1] | 85.00 | 85.00”
+  - column:Total: 28531.0 ⟵ “Total | $28,531.00 † | $42,121.00 †”
+  - column:Tuition & Fees: 6996.0 ⟵ “Tuition & Fees | $6,996.00 | $6,996.00”
+  - column:Living Expenses[1]: 24000.0 ⟵ “Living Expenses[1] | 12,660.00 | 24,000.00”
+  - column:Books/Supplies: 2220.0 ⟵ “Books/Supplies | 2,220.00 | 2,220.00”
+  - column:Misc/Personal[1]: 7200.0 ⟵ “Misc/Personal[1] | 6,210.00 | 7,200.00”
+  - column:Transportation[1]: 1620.0 ⟵ “Transportation[1] | 360.00 | 1,620.00”
+  - column:Loan Origination Fees[1]: 85.0 ⟵ “Loan Origination Fees[1] | 85.00 | 85.00”
+  - column:Total: 42121.0 ⟵ “Total | $28,531.00 † | $42,121.00 †”
+### `2a8b8458a60eb657` Muskegon Community College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.muskegoncc.edu/wp-content/uploads/2024/05/2122FAContractSAPPolicies.docx.pdf.pdf (sha256 13db1047b91b)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “If you feel there are mitigating circumstances in your case, you must complete the “Appeal Form for Satisfactory Academic Progress”.”
+### `m1e75c3e36e585e8` Muskegon Community College — credit_policies 2026-27 · policy_kind=dual_enrollment [new] (source_unlabeled)
+- source: https://www.muskegoncc.edu/wp-content/uploads/2024/11/Early_College_Brochure-4NOV24-secured.pdf (sha256 617d937fb078)
+- issues: multicolumn_layout_review
+- checks: {"fields": ["min_hs_gpa"], "merged_pages": 2, "tiers": 1}
+  - eligibility_tier: 2.5 ⟵ “Students can apply for Early College during their 10th grade year.  Applications are available in the high school counselor’s office or by clicking on the link below. Students must have at least a 2.5 GPA, and be on track to graduate high school.  Students should see their high school guidance couns”
+  - eligibility_tier: 2.5 ⟵ “Students need to have at least a 2.5 cumulative GPA and be                                                                                                        explored many options,”
+### `00e2b9db73bb08a1` North Central Michigan College — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.ncmich.edu/admissions/financial-aid/finaid_information.html (sha256 fb8608bca25a)
+- issues: ambiguous_year_labels, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: sap_appeal ⟵ “Financial Aid Probation Status Financial Aid Probation Status is assigned to a student who fails to make satisfactory academic progress, is terminated, has appealed, and then has had eligibility for aid reinstated for one semester/term.”
+  - sentence: sap_appeal ⟵ “A student may file a satisfactory academic progress appeal multiple times.”
+  - sentence: sap_appeal ⟵ “See the Satisfactory Academic Progress Appeal Form.”
+### `a6a93e586e0228e8` North Central Michigan College — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.ncmich.edu/admissions/financial-aid/finaid_information.html (sha256 fb8608bca25a)
+- issues: ambiguous_year_labels, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 14}
+  - sentence: need_based_special_circumstances ⟵ “The written appeal must: Explain any mitigating, extenuating or special circumstances.”
+  - sentence: need_based_special_circumstances ⟵ “Back to Top Special Circumstances/Financial Aid Adjustment Financial Aid may adjust a student’s financial aid award package based on special circumstances.”
+  - sentence: need_based_special_circumstances ⟵ “A special circumstance is used on a case-by-case basis when there has been involuntary, permanent income changes, unusual expenses, or changes in personal circumstances that occurred in the past year.”
+  - sentence: need_based_special_circumstances ⟵ “The special circumstances can be re-evaluated for both a dependent or independent student and also for a dependent student's parents.”
+  - sentence: need_based_special_circumstances ⟵ “This may include: Loss of employment/Retirement Separation/Divorce Death/Disability Loss of untaxed income, other income, or benefit Unusual expenses If you have had special circumstances you would like our office to consider, please take the following steps: Print and complete the Special Circumstances form below.”
+  - sentence: need_based_special_circumstances ⟵ “See the Special Circumstances Form.”
+### `0e575773a591f524` North Central Michigan College — costs 2026-27 · residency=out_of_state [new] (source_unlabeled)
+- source: https://www.ncmich.edu/admissions/financial-aid/finaid_information.html (sha256 fb8608bca25a)
+- issues: ambiguous_year_labels
+- checks: {"columns": 2, "components_reconcile": true, "rows": 7}
+  - with_parents_or_family:Tuition and Fees: 11388 ⟵ “Tuition and Fees | $5,898 | $5,898 | $9,288 | $9,288 | $11,388 | $11,388”
+  - with_parents_or_family:Books: 2500 ⟵ “Books | $2,500 | $2,500 | $2,500 | $2,500 | $2,500 | $2,500”
+  - with_parents_or_family:Transportation: 3000 ⟵ “Transportation | $3,000 | $3,000 | $3,000 | $3,000 | $3,000 | $3,000”
+  - with_parents_or_family:Personal: 2000 ⟵ “Personal | $2,000 | $2,000 | $2,000 | $2,000 | $2,000 | $2,000”
+  - with_parents_or_family:Food Expenses: 6000 ⟵ “Food Expenses | $6,000 | $6,000 | $6,000 | $6,000 | $6,000 | $6,000”
+  - with_parents_or_family:Housing Expenses*: 9600 ⟵ “Housing Expenses* | $9,600 | $5,000 | $9,600 | $5,000 | $9,600 | $5,000”
+  - with_parents_or_family:Total: 34488 ⟵ “Total | $28,998 | $24,398 | $32,388 | $27,788 | $34,488 | $29,888”
+  - on_campus:Tuition and Fees: 11388 ⟵ “Tuition and Fees | $5,898 | $5,898 | $9,288 | $9,288 | $11,388 | $11,388”
+  - on_campus:Books: 2500 ⟵ “Books | $2,500 | $2,500 | $2,500 | $2,500 | $2,500 | $2,500”
+  - on_campus:Transportation: 3000 ⟵ “Transportation | $3,000 | $3,000 | $3,000 | $3,000 | $3,000 | $3,000”
+  - on_campus:Personal: 2000 ⟵ “Personal | $2,000 | $2,000 | $2,000 | $2,000 | $2,000 | $2,000”
+  - on_campus:Food Expenses: 6000 ⟵ “Food Expenses | $6,000 | $6,000 | $6,000 | $6,000 | $6,000 | $6,000”
+  - on_campus:Housing Expenses*: 5000 ⟵ “Housing Expenses* | $9,600 | $5,000 | $9,600 | $5,000 | $9,600 | $5,000”
+  - on_campus:Total: 29888 ⟵ “Total | $28,998 | $24,398 | $32,388 | $27,788 | $34,488 | $29,888”
+### `2a4ee14a1078db57` North Central Michigan College — costs 2026-27 · residency=in_state [new] (labeled_in_source)
+- source: https://www.ncmich.edu/_binaries/_budget-and-transparency/general-fund-operating-budget-fy26-27.pdf (sha256 a179afcf66fb)
+- issues: arrangement_unlabeled, implausible_amount, multiple_total_rows, conflicting_sources:https://www.ncmich.edu/_binaries/_budget-and-transparency/revenue-expense-projections-25-26-26-27-2.pdf
+- checks: {"columns": 3, "rows": 17}
+  - column:Tuition and Fees: 7071208 ⟵ “Tuition and Fees | 7,071,208 | 6,722,890 | 348,318 | 5.2% | Tuition and Fees revenue includes a Board-approved 3.29% in-district rate increase”
+  - column:Property Tax: 8730000 ⟵ “Property Tax | 8,730,000 | 8,320,000 | 410,000 | 4.9% | Property Tax revenue represents aproximately 99% of estimated tax collections for”
+  - column:State Appropriations: 5150000 ⟵ “State Appropriations | 5,150,000 | 5,014,870 | 135,130 | 2.7% | State Appropriations for 2026-27 are based on a projected 0% increase from 2025-”
+  - column:Other Income: 1443100 ⟵ “Other Income | 1,443,100 | 1,342,000 | 101,100 | 7.5% | Other Income includes projected revenue for all non-credit programming including”
+  - column:Total Revenues: 22394308 ⟵ “Total Revenues | 22,394,308 | 21,399,760 | 994,548 | 4.6%”
+  - column:Salaries and Benefits: 16403961 ⟵ “Salaries and Benefits | 16,403,961 | 15,533,008 | 870,953 | 5.6% | Salaries and Benefits totals include a 3% salary/wage increase for all employee”
+  - column:Contracted Services, Professional: 2170600 ⟵ “Contracted Services, Professional | 2,170,600 | 2,243,390 | (72,790) | -3.2% | Contracted Services, Professional typically includes interim full-time positions;”
+  - column:Contracted Services, Maintenance: 165000 ⟵ “Contracted Services, Maintenance | 165,000 | 178,000 | (13,000) | -7.3% | Contracted Services, Maintenance includes such contracted services as fire safety,”
+  - column:Institutional Support: 655250 ⟵ “Institutional Support | 655,250 | 567,150 | 88,100 | 15.5% | Institutional Support includes classroom supplies, office supplies, library”
+  - column:Operational and Maintenance: 854000 ⟵ “Operational and Maintenance | 854,000 | 823,500 | 30,500 | 3.7% | Operational and Maintenance includes physical plant supplies, utilities, insurance,”
+  - column:Dues, Professional Development and: 881350 ⟵ “Dues, Professional Development and | 881,350 | 743,574 | 137,776 | 18.5% | A portion of the projected increases are due to funds shifted from other accounts.”
+  - column:Communications: 387500 ⟵ “Communications | 387,500 | 379,250 | 8,250 | 2.2% | Communications includes all aspects of marketing including digital and print.”
+  - column:Scholarships/Waivers: 678262 ⟵ “Scholarships/Waivers | 678,262 | 662,688 | 15,574 | 2.4%”
+  - column:Other Expenses: 248150 ⟵ “Other Expenses | 248,150 | 246,700 | 1,450 | 0.6%”
+  - column:Capital Outlay: 98235 ⟵ “Capital Outlay | 98,235 | 55,500 | 42,735 | 77.0% | Foundation support will offset some of the equipment expenditures.”
+  - column:Total Expenses before Transfers: 22542308 ⟵ “Total Expenses before Transfers | 22,542,308 | 21,432,760 | 1,109,548 | 5.2%”
+  - column:Total Expenses and Transfers: 22394308 ⟵ “Total Expenses and Transfers | 22,394,308 | 21,399,760 | 994,548 | 4.6%”
+  - column:Tuition and Fees: 6722890 ⟵ “Tuition and Fees | 7,071,208 | 6,722,890 | 348,318 | 5.2% | Tuition and Fees revenue includes a Board-approved 3.29% in-district rate increase”
+  - column:Property Tax: 8320000 ⟵ “Property Tax | 8,730,000 | 8,320,000 | 410,000 | 4.9% | Property Tax revenue represents aproximately 99% of estimated tax collections for”
+  - column:State Appropriations: 5014870 ⟵ “State Appropriations | 5,150,000 | 5,014,870 | 135,130 | 2.7% | State Appropriations for 2026-27 are based on a projected 0% increase from 2025-”
+  - column:Other Income: 1342000 ⟵ “Other Income | 1,443,100 | 1,342,000 | 101,100 | 7.5% | Other Income includes projected revenue for all non-credit programming including”
+  - column:Total Revenues: 21399760 ⟵ “Total Revenues | 22,394,308 | 21,399,760 | 994,548 | 4.6%”
+  - column:Salaries and Benefits: 15533008 ⟵ “Salaries and Benefits | 16,403,961 | 15,533,008 | 870,953 | 5.6% | Salaries and Benefits totals include a 3% salary/wage increase for all employee”
+  - column:Contracted Services, Professional: 2243390 ⟵ “Contracted Services, Professional | 2,170,600 | 2,243,390 | (72,790) | -3.2% | Contracted Services, Professional typically includes interim full-time positions;”
+  - column:Contracted Services, Maintenance: 178000 ⟵ “Contracted Services, Maintenance | 165,000 | 178,000 | (13,000) | -7.3% | Contracted Services, Maintenance includes such contracted services as fire safety,”
+  - … 24 more rows
+### `73da907ba09c8a55` North Central Michigan College — costs 2026-27 · residency=in_state [new] (source_unlabeled)
+- source: https://www.ncmich.edu/_binaries/_budget-and-transparency/revenue-expense-projections-25-26-26-27-2.pdf (sha256 d34073c59846)
+- issues: ambiguous_year_labels, arrangement_unlabeled, implausible_amount, multiple_total_rows, conflicting_sources:https://www.ncmich.edu/_binaries/_budget-and-transparency/general-fund-operating-budget-fy26-27.pdf
+- checks: {"columns": 3, "rows": 16}
+  - column:Property Tax: 8320000 ⟵ “Property Tax | 8,320,000 | 8,569,600”
+  - column:State Appropriations: 5014870 ⟵ “State Appropriations | 5,014,870 | 5,165,316”
+  - column:Other Income: 1342000 ⟵ “Other Income | 1,342,000 | 1,382,250”
+  - column:Total Revenue: 21399760 ⟵ “Total Revenue | 21,399,760 | 22,041,743”
+  - column:Salaries and Benefits: 15533008 ⟵ “Salaries and Benefits | 15,533,008 | 15,998,997”
+  - column:Contracted Services - Professional: 2243390 ⟵ “Contracted Services - Professional | 2,243,390 | 2,310,692”
+  - column:Contracted Services - Maintenance: 178000 ⟵ “Contracted Services - Maintenance | 178,000 | 183,340”
+  - column:Institutional Support: 567150 ⟵ “Institutional Support | 567,150 | 584,165”
+  - column:Operational and Maintenance: 823500 ⟵ “Operational and Maintenance | 823,500 | 848,205”
+  - column:Dues and Travel: 743574 ⟵ “Dues and Travel | 743,574 | 765,881”
+  - column:Communications: 379250 ⟵ “Communications | 379,250 | 390,628”
+  - column:Scholarships/Waivers: 662688 ⟵ “Scholarships/Waivers | 662,688 | 682,569”
+  - column:Other Expenses: 246700 ⟵ “Other Expenses | 246,700 | 254,101”
+  - column:Capital Outlay: 55500 ⟵ “Capital Outlay | 55,500 | 57,165”
+  - column:Total Expenses before Transfers: 21432760 ⟵ “Total Expenses before Transfers | 21,432,760 | 22,075,743”
+  - column:Total Expenses and Transfers: 21399760 ⟵ “Total Expenses and Transfers | 21,399,760 | 22,041,743”
+  - column:Tuition and Fees: 6722890 ⟵ “Tuition and Fees | $ | 6,722,890 $ | 6,924,577”
+  - column:Property Tax: 8569600 ⟵ “Property Tax | 8,320,000 | 8,569,600”
+  - column:State Appropriations: 5165316 ⟵ “State Appropriations | 5,014,870 | 5,165,316”
+  - column:Other Income: 1382250 ⟵ “Other Income | 1,342,000 | 1,382,250”
+  - column:Total Revenue: 22041743 ⟵ “Total Revenue | 21,399,760 | 22,041,743”
+  - column:Salaries and Benefits: 15998997 ⟵ “Salaries and Benefits | 15,533,008 | 15,998,997”
+  - column:Contracted Services - Professional: 2310692 ⟵ “Contracted Services - Professional | 2,243,390 | 2,310,692”
+  - column:Contracted Services - Maintenance: 183340 ⟵ “Contracted Services - Maintenance | 178,000 | 183,340”
+  - column:Institutional Support: 584165 ⟵ “Institutional Support | 567,150 | 584,165”
+  - … 9 more rows
+### `d796160b18a47af8` North Central Michigan College — costs 2026-27 · residency=not_applicable [new] (source_unlabeled)
+- source: https://www.ncmich.edu/admissions/financial-aid/finaid_information.html (sha256 fb8608bca25a)
+- issues: ambiguous_year_labels, residency_unknown
+- checks: {"columns": 4, "components_reconcile": true, "rows": 7}
+  - with_parents_or_family:Tuition and Fees: 5898 ⟵ “Tuition and Fees | $5,898 | $5,898 | $9,288 | $9,288 | $11,388 | $11,388”
+  - with_parents_or_family:Books: 2500 ⟵ “Books | $2,500 | $2,500 | $2,500 | $2,500 | $2,500 | $2,500”
+  - with_parents_or_family:Transportation: 3000 ⟵ “Transportation | $3,000 | $3,000 | $3,000 | $3,000 | $3,000 | $3,000”
+  - with_parents_or_family:Personal: 2000 ⟵ “Personal | $2,000 | $2,000 | $2,000 | $2,000 | $2,000 | $2,000”
+  - with_parents_or_family:Food Expenses: 6000 ⟵ “Food Expenses | $6,000 | $6,000 | $6,000 | $6,000 | $6,000 | $6,000”
+  - with_parents_or_family:Housing Expenses*: 9600 ⟵ “Housing Expenses* | $9,600 | $5,000 | $9,600 | $5,000 | $9,600 | $5,000”
+  - with_parents_or_family:Total: 28998 ⟵ “Total | $28,998 | $24,398 | $32,388 | $27,788 | $34,488 | $29,888”
+  - on_campus:Tuition and Fees: 5898 ⟵ “Tuition and Fees | $5,898 | $5,898 | $9,288 | $9,288 | $11,388 | $11,388”
+  - on_campus:Books: 2500 ⟵ “Books | $2,500 | $2,500 | $2,500 | $2,500 | $2,500 | $2,500”
+  - on_campus:Transportation: 3000 ⟵ “Transportation | $3,000 | $3,000 | $3,000 | $3,000 | $3,000 | $3,000”
+  - on_campus:Personal: 2000 ⟵ “Personal | $2,000 | $2,000 | $2,000 | $2,000 | $2,000 | $2,000”
+  - on_campus:Food Expenses: 6000 ⟵ “Food Expenses | $6,000 | $6,000 | $6,000 | $6,000 | $6,000 | $6,000”
+  - on_campus:Housing Expenses*: 5000 ⟵ “Housing Expenses* | $9,600 | $5,000 | $9,600 | $5,000 | $9,600 | $5,000”
+  - on_campus:Total: 24398 ⟵ “Total | $28,998 | $24,398 | $32,388 | $27,788 | $34,488 | $29,888”
+  - with_parents_or_family:Tuition and Fees: 9288 ⟵ “Tuition and Fees | $5,898 | $5,898 | $9,288 | $9,288 | $11,388 | $11,388”
+  - with_parents_or_family:Books: 2500 ⟵ “Books | $2,500 | $2,500 | $2,500 | $2,500 | $2,500 | $2,500”
+  - with_parents_or_family:Transportation: 3000 ⟵ “Transportation | $3,000 | $3,000 | $3,000 | $3,000 | $3,000 | $3,000”
+  - with_parents_or_family:Personal: 2000 ⟵ “Personal | $2,000 | $2,000 | $2,000 | $2,000 | $2,000 | $2,000”
+  - with_parents_or_family:Food Expenses: 6000 ⟵ “Food Expenses | $6,000 | $6,000 | $6,000 | $6,000 | $6,000 | $6,000”
+  - with_parents_or_family:Housing Expenses*: 9600 ⟵ “Housing Expenses* | $9,600 | $5,000 | $9,600 | $5,000 | $9,600 | $5,000”
+  - with_parents_or_family:Total: 32388 ⟵ “Total | $28,998 | $24,398 | $32,388 | $27,788 | $34,488 | $29,888”
+  - on_campus:Tuition and Fees: 9288 ⟵ “Tuition and Fees | $5,898 | $5,898 | $9,288 | $9,288 | $11,388 | $11,388”
+  - on_campus:Books: 2500 ⟵ “Books | $2,500 | $2,500 | $2,500 | $2,500 | $2,500 | $2,500”
+  - on_campus:Transportation: 3000 ⟵ “Transportation | $3,000 | $3,000 | $3,000 | $3,000 | $3,000 | $3,000”
+  - on_campus:Personal: 2000 ⟵ “Personal | $2,000 | $2,000 | $2,000 | $2,000 | $2,000 | $2,000”
+  - … 3 more rows
+### `987b1de26600c9c3` Northern Michigan University — admissions_metrics 2024-25 [new] (labeled_in_source)
+- source: https://nmu.edu/institutionaleffectiveness/sites/institutionaleffectiveness/files/2026-01/Northern-Michigan-University-CDS-2025-2026.pdf (sha256 8d5a46f03ddf)
+- issues: stale_year_label:2024-25
+- checks: {"fields": ["admits", "applications", "enrolled", "entering_fall_year"]}
+  - applications: 11399 ⟵ “Total first-time, first-year (degree-seeking) who applied                                             7,779              3,378                226         16   11,399”
+  - admits: 9695 ⟵ “Total first-time, first-year (degree-seeking) who were admitted                                       6,888              2,774                32          1    9,695”
+  - enrolled: 1533 ⟵ “Total first-time, first-year (degree-seeking) who enrolled                                            1,113               405                 14          1    1,533”
+### `975a6088181b8595` Northern Michigan University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://nmu.edu/financialaid/progresspolicy (sha256 ea50922f2709)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “If extenuating circumstances such as illness, injury, the death of a family member, or other events prevent the student from meeting these requirements, the termination of eligibility can be appealed to the SAP Appeal Committee.”
+  - sentence: sap_appeal ⟵ “Failure to meet the conditions of an SAP appeal approval will result in the loss of financial aid eligibility.”
+### `e92699dea80a9be4` Northern Michigan University — appeals 2026-27 [new] (labeled_in_source)
+- source: https://nmu.edu/financialaid/ (sha256 2022f1e20445)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: need_based_special_circumstances ⟵ “Learn More Special Circumstance If a family experiences situations such as the loss of a job, retirement, separation or divorce, death, excessive out-of-pocket medical expenses not covered by insurance, or additional family members attending college, they should complete a "Special Circumstance Re-evaluation for Financial Aid" and provide supporting documentation.”
+  - sentence: need_based_special_circumstances ⟵ “Click below for more information and contact our office with any questions FAFSA Special Circumstance Re-evaluation Unusual Circumstances If you are currently required to provide parent information on the FAFSA, but have an unusual circumstance which prevents you from doing so, you will be able to submit an appeal.”
+  - sentence: need_based_special_circumstances ⟵ “FAFSA Unusual Circumstances Know Your Next Steps If you are a continuing student or a student who has attended orientation and are enrolled in classes, learn where your financial aid offer is in the granting and notification process by checking your student financial aid online.”
+### `7cb37e367c1853b3` Northern Michigan University — costs 2026-27 · residency=out_of_state [new] (source_unlabeled)
+- source: https://nmu.edu/financialaid/sites/financialaid/files/2025-09/2026-2027-Non-Michigan-Midwest-Scholarship-Sheet.pdf (sha256 c36112502c17)
+- issues: ambiguous_year_labels, components_do_not_reconcile, conflicting_sources:https://nmu.edu/financialaid/sites/financialaid/files/2025-09/2026-2027-Non-Michigan-National-Scholarship-Sheet.pdf
+- checks: {"columns": 1, "components_reconcile": false, "rows": 4}
+  - column:TUITION & FEES: 20198 ⟵ “TUITION & FEES | $20,198”
+  - column:HOUSING & MEALS: 13420 ⟵ “HOUSING & MEALS | $13,420”
+  - column:TOTAL:: 33618 ⟵ “TOTAL: | $33,618”
+  - column:MINUS THE BRIDGE AWARD: 28018 ⟵ “MINUS THE BRIDGE AWARD | $28,018”
+### `b803bee76303dd3c` Northern Michigan University — costs 2023-24 · residency=not_applicable [new] (labeled_in_source)
+- source: https://nmu.edu/financialaid/sites/financialaid/files/2023-06/2024-2025%20Non-Michigan%20Resident%20Scholarship%20and%20Tuition%20Sheet_0.pdf (sha256 8e621821d854)
+- issues: components_do_not_reconcile, residency_unknown, stale_year_label:2023-24
+- checks: {"columns": 1, "components_reconcile": false, "rows": 4}
+  - column:TUITION & FEES: 18874 ⟵ “TUITION & FEES | $18,874”
+  - column:HOUSING & MEALS: 12752 ⟵ “HOUSING & MEALS | $12,752”
+  - column:TOTAL:: 31626 ⟵ “TOTAL: | $31,626”
+  - column:MINUS THE BRIDGE AWARD: 26026 ⟵ “MINUS THE BRIDGE AWARD | $26,026”
+### `d18d2d8da8da82fb` Northern Michigan University — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://nmu.edu/financialaid/sites/financialaid/files/2025-02/2025-2026%20Non-Michigan%20Resident%20National%20Scholarships.pdf (sha256 ac6ddad63b68)
+- issues: components_do_not_reconcile, residency_unknown, stale_year_label:2025-26
+- checks: {"columns": 1, "components_reconcile": false, "rows": 4}
+  - column:TUITION & FEES: 19488 ⟵ “TUITION & FEES | $19,488”
+  - column:HOUSING & MEALS: 12886 ⟵ “HOUSING & MEALS | $12,886”
+  - column:TOTAL:: 32374 ⟵ “TOTAL: | $32,374”
+  - column:MINUS THE BRIDGE+ AWARD: 26274 ⟵ “MINUS THE BRIDGE+ AWARD | $26,274”
+### `dde2b3afbad694a6` Northern Michigan University — costs 2025-26 · residency=out_of_state [new] (labeled_in_source)
+- source: https://nmu.edu/financialaid/sites/financialaid/files/2025-02/2025-2026%20Non-Resident%20Midwest%20Great%20Lakes%20Scholarships.pdf (sha256 b6fcd57304aa)
+- issues: components_do_not_reconcile, stale_year_label:2025-26
+- checks: {"columns": 1, "components_reconcile": false, "rows": 4}
+  - column:TUITION & FEES: 19488 ⟵ “TUITION & FEES | $19,488”
+  - column:HOUSING & MEALS: 12886 ⟵ “HOUSING & MEALS | $12,886”
+  - column:TOTAL:: 32374 ⟵ “TOTAL: | $32,374”
+  - column:MINUS THE BRIDGE AWARD: 26774 ⟵ “MINUS THE BRIDGE AWARD | $26,774”
+### `fa9091963d64e948` Northern Michigan University — costs 2026-27 · residency=out_of_state [new] (source_unlabeled)
+- source: https://nmu.edu/financialaid/sites/financialaid/files/2025-09/2026-2027-Non-Michigan-National-Scholarship-Sheet.pdf (sha256 07df6e096436)
+- issues: ambiguous_year_labels, components_do_not_reconcile, conflicting_sources:https://nmu.edu/financialaid/sites/financialaid/files/2025-09/2026-2027-Non-Michigan-Midwest-Scholarship-Sheet.pdf
+- checks: {"columns": 1, "components_reconcile": false, "rows": 4}
+  - column:TUITION & FEES: 20198 ⟵ “TUITION & FEES | $20,198”
+  - column:HOUSING & MEALS: 13420 ⟵ “HOUSING & MEALS | $13,420”
+  - column:TOTAL:: 33618 ⟵ “TOTAL: | $33,618”
+  - column:MINUS THE BRIDGE+ AWARD: 27518 ⟵ “MINUS THE BRIDGE+ AWARD | $27,518”
+### `84dfb94cfeef37f8` Northern Michigan University — transfer_policies 2023-24 [new] (labeled_in_source)
+- source: https://nmu.edu/transfer/sites/transfer/files/nmu_node_transfer/2026-05/Final%20NCMC%20and%20NMU%20Environmental%20Studies%20Agreement%20with%20signatures%202023-2026.pdf (sha256 7eaab8b4a947)
+- issues: stale_year_label:2023-24
+- checks: {"fields": ["min_grade"]}
+  - min_grade: C- ⟵ “Unless otherwise designated, a grade of C- or higher is required for transfer to NMU.”
+### `9a44af253398c8e8` Northern Michigan University — transfer_policies 2024-25 [new] (labeled_in_source)
+- source: https://nmu.edu/transfer/sites/transfer/files/nmu_node_transfer/2026-05/Northeast-Wisconsin-Technical-College-Renwal-2025-Applied-Workplace-Leadership.pdf (sha256 fcca71943796)
+- issues: stale_year_label:2024-25
+- checks: {"fields": ["min_grade"]}
+  - min_grade: C- ⟵ “Unless otherwise designated, a grade of C- or higher is required for transfer to NMU.”
+### `ma352855e949adf2` Northern Michigan University — transfer_policies 2025-26 [new] (labeled_in_source)
+- source: https://nmu.edu/transfer/sites/transfer/files/nmu_node_transfer/2026-05/FVTC_Renewal_CJ_Articulation_Agreement_2025-2.pdf (sha256 126d34fe1665)
+- issues: stale_year_label:2025-26
+- checks: {"fields": ["min_grade"], "merged_pages": 6}
+  - min_grade: C- ⟵ “Unless otherwise designated, a grade of C- or higher is required for transfer to NMU.”
+  - min_grade: C- ⟵ “Unless otherwise designated, a grade of C- or higher is required for transfer to NMU.”
+  - min_grade: C- ⟵ “Unless otherwise designated, a grade of C- or higher is required for transfer to NMU.”
+  - min_grade: C- ⟵ “A grade of C- or higher is required for transfer to NMU.”
+  - min_grade: C- ⟵ “Unless otherwise designated, a grade of C- or higher is required for transfer to NMU.”
+  - min_grade: C- ⟵ “Unless otherwise designated, a grade of C- or higher is required for transfer to NMU.”
+### `mf773ccdd8e11aee` Northern Michigan University — transfer_policies 2026-27 [new] (source_unlabeled)
+- source: https://nmu.edu/admissions/sites/admissions/files/2026-06/FVTC-Baking-2026.pdf (sha256 b80347d05830)
+- issues: conflicting_sources:min_grade
+- checks: {"fields": ["min_grade"], "merged_pages": 10}
+  - min_grade: C- ⟵ “Unless otherwise designated, a grade of C- or higher is required for transfer to NMU.”
+  - min_grade: C- ⟵ “Unless otherwise designated, a grade of C- or higher is required for transfer to NMU.”
+  - min_grade: C- ⟵ “Unless otherwise designated, a grade of C- or higher is required for transfer to NMU.”
+  - min_grade: C- ⟵ “Unless otherwise designated, a grade of C- or higher is required for transfer to NMU.”
+  - min_grade: C- ⟵ “Unless otherwise designated, a grade of C- or higher is required for transfer to NMU.”
+  - min_grade: C ⟵ “Transfer before completion of A.A.S. will not allow a student to follow this agreement. *A grade of “C” or better is needed in the Mathematics and Written English Competency Graduation Requirements.”
+  - min_grade: C- ⟵ “Unless otherwise designated, a grade of C- or higher is required for transfer to NMU.”
+  - min_grade: C- ⟵ “Unless otherwise designated, a grade of C- or higher is required for transfer to NMU.”
+  - residency_requirement_credits: 30 ⟵ “Complete a minimum of 30 semester hours of credit in residence at Northern Michigan University, excluding advanced placement credit.”
+  - residency_requirement_credits: 30 ⟵ “To learn more about the transfer process, visit nmu.edu/transfer or email transfer@nmu.edu Visit nmu.edu/education or email education@nmu.edu for more information on this pathway FOURTH YEAR AT NORTHERN MICHIGAN UNIVERSITY Summer Semester Complete a minimum of 30 semester hours of credit in residence at Northern Michigan University, excluding advanced placement credit.”
+### `0593f54530cd80fb` Northwestern Michigan College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.nmc.edu/financial-aid/forms-fa/index.html (sha256 1538b02bf271)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: dependency_override ⟵ “Use the request button in the upper right corner to request the PJ Dependency Override Appeal Form.”
+### `33ee6c74b183cab9` Northwestern Michigan College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.nmc.edu/financial-aid/forms-fa/index.html (sha256 1538b02bf271)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: professional_judgment ⟵ “You can complete a Professional Judgement EFC/SAI Appeal.”
+  - sentence: professional_judgment ⟵ “Use the request button in the upper right corner to request the Professional Judgement EFC/SAI Appeal Form.”
+  - sentence: professional_judgment ⟵ “I can’t provide parent information on the FAFSA This is an Unusual Circumstance Appeal or Professional Judgment (PJ) Dependency Status Override request to be considered an independent student.”
+### `4bcb287bd0df8080` Northwestern Michigan College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.nmc.edu/financial-aid/forms-fa/index.html (sha256 1538b02bf271)
+- issues: semantic_review_required, conflicting_sources:https://www.nmc.edu/financial-aid/satisfactory-academic-progress.html
+- checks: {"negative_sentences": 0, "sentences": 4}
+  - sentence: need_based_special_circumstances ⟵ “My income or family income has changed since I filed my FAFSA This is a Special Circumstance Appeal when your, your spouse, or your parent income is significantly lower now than it was in the year reported on the FAFSA.”
+  - sentence: need_based_special_circumstances ⟵ “However, if you answered no to all of the questions, but have unusual circumstances, such as those listed below, you may be able to complete your FAFSA without parent information: Your parents are incarcerated.”
+  - sentence: need_based_special_circumstances ⟵ “If you are not, you will have the option to indicate that you have special circumstances that make you unable to get your parents’ information.”
+  - sentence: need_based_special_circumstances ⟵ “I have costs higher than those in the Cost of Attendance This is a Special Circumstance Appeal for when your aid is being limited by the estimated Cost of Attendance (COA).”
+### `5126b9ced7d72d5f` Northwestern Michigan College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.nmc.edu/financial-aid/satisfactory-academic-progress.html (sha256 0d15208d1aef)
+- issues: semantic_review_required, conflicting_sources:https://www.nmc.edu/financial-aid/forms-fa/index.html
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “If you have had your financial aid suspended or have reached your maximum credits allowed for aid, you can appeal this decision by providing additional information surrounding the unusual circumstances beyond your control that has led to not meeting the SAP standards.”
+### `7e9d9f1244113b1c` Northwestern Michigan College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.nmc.edu/financial-aid/satisfactory-academic-progress.html (sha256 0d15208d1aef)
+- issues: semantic_review_required, conflicting_sources:https://www.nmc.edu/financial-aid/forms-fa/index.html
+- checks: {"negative_sentences": 0, "sentences": 5}
+  - sentence: sap_appeal ⟵ “If the student has graduated or exceeded the number of credits remaining to complete their current degree program(s), the student can complete a SAP Appeal to the Financial Aid Appeals Committee regarding a change in major or other reasons for exceeding attempted credits.”
+  - sentence: sap_appeal ⟵ “Probation (PROB) When a student on suspension status submits a SAP appeal, and is approved, the student will be placed on an Academic Plan for Financial Aid.”
+  - sentence: sap_appeal ⟵ “Reinstating aid eligibility For SAP Appeals and supporting documentation received after the following due dates, any reinstated financial aid will apply to the following semester.”
+  - sentence: sap_appeal ⟵ “SAP Appeal Due Dates | Semester | Due Date | Fall | September 30 | Spring | February 15 | Summer | June 15 Any time that a student meets the minimum quantitative (67%) and qualitative (2.0 cumulative GPA) requirements, they will be placed back in financial aid good standing and regain eligibility for Title IV Aid.”
+  - sentence: sap_appeal ⟵ “SAP appeals can be completed at nmc.verifymyfafsa.com.”
+### `80859a7f1e8e54af` Northwestern Michigan College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.nmc.edu/financial-aid/forms-fa/index.html (sha256 1538b02bf271)
+- issues: semantic_review_required, conflicting_sources:https://www.nmc.edu/financial-aid/satisfactory-academic-progress.html
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: sap_appeal ⟵ “My federal aid is suspended If you are ineligible due to failing to meet the Satisfactory Academic Progress (SAP) Policy, you can appeal.”
+  - sentence: sap_appeal ⟵ “Use the request button in the upper right corner to request the SAP Appeal Form.”
+  - sentence: sap_appeal ⟵ “SAP APPEAL DUE DATES Fall — September 30 Spring — February 15 Summer — June 15 My State of Michigan aid is suspended If you have been notified that you lost Michigan Reconnect aid for not meeting continuous enrollment, you can request a Continuous Enrollment (Leave of Absence) Appeal.”
+### `1772485762bddd66` Northwestern Michigan College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.nmc.edu/admissions/tuition-fees/index.html (sha256 c56bbaab64c8)
+- issues: residency_unknown, conflicting_sources:https://www.nmc.edu/admissions/tuition-fees/cost-of-attendance.html
+- checks: {"columns": 1, "rows": 7}
+  - column:In-District ( Grand Traverse County residents) Tuition: 163.0 ⟵ “In-District ( Grand Traverse County residents) Tuition | $163.00”
+  - column:In-State ( other Michigan counties) Tuition: 332.0 ⟵ “In-State ( other Michigan counties) Tuition | $332.00”
+  - column:Out-of-state Tuition: 431.0 ⟵ “Out-of-state Tuition | $431.00”
+  - column:International Tuition: 487.0 ⟵ “International Tuition | $487.00”
+  - column:General Fee for all residencies: Other fee of $36.75 per contact hour is a general fee covering a portion of costs for technology, orientation, placement, career testing, Student Government Association, and other student service activities.: 36.75 ⟵ “General Fee for all residencies: Other fee of $36.75 per contact hour is a general fee covering a portion of costs for technology, orientation, placement, career testing, Student Government Association, and other student service activities.”
+  - column:General Fee for all residencies for Nursing courses (HNR): 26.0 ⟵ “General Fee for all residencies for Nursing courses (HNR) | $26.00”
+  - column:Nursing Exam Software Fee for students in ADN & PN programs: 28.75 ⟵ “Nursing Exam Software Fee for students in ADN & PN programs | $28.75”
+### `2bfcf9d18cdd66f3` Northwestern Michigan College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.nmc.edu/admissions/tuition-fees/cost-of-attendance.html (sha256 a09fa19eba29)
+- issues: residency_unknown, conflicting_sources:https://www.nmc.edu/admissions/tuition-fees/index.html
+- checks: {"columns": 1, "rows": 6}
+  - on_campus:Tuition And Fees: 9076 ⟵ “Tuition And Fees | $9,076 | $9,076 | $8,500”
+  - on_campus:Books, Course Materials, Supplies And Equipment: 1057 ⟵ “Books, Course Materials, Supplies And Equipment | $1,057 | $1,057 | $1,057”
+  - on_campus:Living Expenses: On-Campus Housing And Food: 5400 ⟵ “Living Expenses: On-Campus Housing And Food | $5,400 | $5,400 | $5,400”
+  - on_campus:Transportation: 550 ⟵ “Transportation | $550 | $1,550 | $1,500”
+  - on_campus:Miscellaneous Personal Expenses: 250 ⟵ “Miscellaneous Personal Expenses | $250 | $250 | $250”
+  - on_campus:Federal Student Loan Fees: 60 ⟵ “Federal Student Loan Fees | $60 | $60 | $60”
+### `7e70f4d25f5b9881` Northwestern Michigan College — credit_policies 2026-27 · policy_kind=CLEP [new] (source_unlabeled)
+- source: https://www.nmc.edu/student-services/records-registration/getting-things-done/credit-for-prior-learning/college-level-examination-program/clep-courses-score-requirements.html (sha256 03de55fbec14)
+- issues: rows_without_score
+- checks: {"distinct_exams": 21, "equivalencies": 35, "rows_without_score": 5}
+  - equivalencies[CLEP-COLLEGE-COMPOSITION|50]:  ⟵ “College Composition | ENG 111 English Composition | 4 | 50”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION|None]:  ⟵ “College Composition | Social Science”
+  - equivalencies[CLEP-AMERICAN-GOVERNMENT|50]:  ⟵ “American Government | PLS 101 Survey of American Gov't. | 3 | 50”
+  - equivalencies[CLEP-HUMAN-GROWTH-DEVELOPMENT|50]:  ⟵ “Human Growth & Development | PSY 211 Developmental Psychology | 3 | 50”
+  - equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|50]:  ⟵ “Macroeconomics | ECO 201 Principles of Macroeconomics | 3 | 50”
+  - equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|50]:  ⟵ “Microeconomics | ECO 202 Principle of Microeconomics | 3 | 50”
+  - equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|50]:  ⟵ “Psychology, Intro | PSY 101 Intro to Psychology | 3 | 50”
+  - equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|50]:  ⟵ “Sociology, Intro | SOC 101 Intro to Sociology | 3 | 50”
+  - equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|None]:  ⟵ “Sociology, Intro | Natural Science”
+  - equivalencies[CLEP-BIOLOGY|50]:  ⟵ “Biology, General | BIO 115, 116 Biology I & II w/ Lab | 8 | 50”
+  - equivalencies[CLEP-CHEMISTRY|50]:  ⟵ “Chemistry, General | CHM 150, 150R, 151, 151R Gen. Chemistry I & II w/ Lab | 10 | 50”
+  - equivalencies[CLEP-CHEMISTRY|None]:  ⟵ “Chemistry, General | Mathematics”
+  - equivalencies[CLEP-CALCULUS|50]:  ⟵ “Calculus | MTH 141 Calculus I | 5 | 50”
+  - equivalencies[CLEP-PRECALCULUS|50]:  ⟵ “Pre-Calculus | MTH 140 College Algebra & Trig | 5 | 50”
+  - equivalencies[CLEP-PRECALCULUS|None]:  ⟵ “Pre-Calculus | Humanities”
+  - equivalencies[CLEP-AMERICAN-LITERATURE|50]:  ⟵ “American Literature | ENG 262 American Literature | 3 | 50”
+  - equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|50]:  ⟵ “Analyzing & Interpreting Literature | ENG 240 Intro to Literature | 3 | 50”
+  - equivalencies[CLEP-ENGLISH-LITERATURE|50]:  ⟵ “English Literature | ENG 261 British Literature | 3 | 50”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|50]:  ⟵ “French Language | FRN 101 Elementary French I | 3 | 50”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|52]:  ⟵ “French Language | FRN 102 Elementary French II | 3 | 52”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|54]:  ⟵ “French Language | FRN 201 Intermediate French I | 3 | 54”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|59]:  ⟵ “French Language | FRN 202 Intermediate French II | 3 | 59”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|50]:  ⟵ “German Language | GRM 101 Elementary German I | 4 | 50”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|53]:  ⟵ “German Language | GRM 102 Elementary German II | 4 | 53”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|56]:  ⟵ “German Language | GRM 201 Intermediate German I | 4 | 56”
+  - … 10 more rows
+### `218500b2ca7161a4` Northwood University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.northwood.edu/admissions/financial-aid/special-circumstances/ (sha256 d61cab52ac59)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: professional_judgment ⟵ “Request a Professional Judgement Review If you believe that you qualify for a professional judgement review, please complete the form and our team will review your request.”
+### `6c0733b97878dd70` Northwood University — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.northwood.edu/admissions/undergraduate-admissions/cost-of-attendance/ (sha256 1263450664da)
+- issues: conflicting_sources:https://international.northwood.edu/admissions/cost-to-attend/
+- checks: {"columns": 1, "rows": 5}
+  - on_campus:Tuition: 35300 ⟵ “Tuition | $17,650 | $17,650 | $35,300”
+  - on_campus:Student Fee*: 1700 ⟵ “Student Fee* | $850 | $850 | $1,700”
+  - on_campus:Housing**: 7000 ⟵ “Housing** | $3,500 | $3,500 | $7,000”
+  - on_campus:Food**: 7300 ⟵ “Food** | $3,650 | $3,650 | $7,300”
+  - on_campus:Resident Total: 51300 ⟵ “Resident Total | $25,650 | $25,650 | $51,300”
+### `c82c84647aef9158` Northwood University — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://international.northwood.edu/admissions/cost-to-attend/ (sha256 e8b0d63c4378)
+- issues: conflicting_sources:https://www.northwood.edu/admissions/undergraduate-admissions/cost-of-attendance/
+- checks: {"columns": 1, "rows": 7}
+  - on_campus:Tuition and Fees*: 35300 ⟵ “Tuition and Fees* | $17,650 | $17,650 | $35,300”
+  - on_campus:Books, Course Materials, Supplies & Equipment: 2570 ⟵ “Books, Course Materials, Supplies & Equipment | $1,285 | $1,285 | $2,570”
+  - on_campus:Housing and Food**: 14300 ⟵ “Housing and Food** | $7,150 | $7,150 | $14,300”
+  - on_campus:Transportation**: 1252 ⟵ “Transportation** | $626 | $626 | $1,252”
+  - on_campus:Personal**: 2134 ⟵ “Personal** | $1,067 | $1,067 | $2,134”
+  - on_campus:Average Loan Fees***: 190 ⟵ “Average Loan Fees*** | $95 | $95 | $190”
+  - on_campus:Resident Total: 55746 ⟵ “Resident Total | $27,873 | $27,873 | $55,746”
+### `5bc7b861a5b7022e` Oakland Community College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.oaklandcc.edu/financial-aid/sap (sha256 c73cddd64c13)
+- issues: semantic_review_required, conflicting_sources:https://www.oaklandcc.edu/financial-aid/satisfactory-academic
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: sap_appeal ⟵ “How to Stay Enrolled While Waiting for SAP Appeal Review?”
+  - sentence: sap_appeal ⟵ “If you're submitting a SAP appeal and still want to attend classes next semester, follow these steps to protect your schedule: Steps to Take: Submit Your SAP Appeal on Time Turn in your complete appeal by the deadline: Fall Semester – September 30 Winter Semester – January 31 Summer Semester – May 31 Set Up a Payment Plan or Pay Out-of-Pocket Until your appeal is reviewed and approved, financial a”
+  - sentence: sap_appeal ⟵ “What Happens If My SAP Appeal Is Not Approved?”
+### `e7615789dd03ac71` Oakland Community College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.oaklandcc.edu/financial-aid/sap (sha256 c73cddd64c13)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “The student may appeal, but only on the basis of: an injury or illness, the death of a relative, or other special circumstances.”
+### `fcd21a2935ce5861` Oakland Community College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.oaklandcc.edu/financial-aid/satisfactory-academic (sha256 bde778440b22)
+- issues: semantic_review_required, conflicting_sources:https://www.oaklandcc.edu/financial-aid/sap
+- checks: {"negative_sentences": 0, "sentences": 6}
+  - sentence: sap_appeal ⟵ “Students placed in Unsatisfactory Status will be notified via their OCC student email of the SAP status and provided with instructions for the SAP Appeal process.”
+  - sentence: sap_appeal ⟵ “SAP Appeal Process: A student placed in Unsatisfactory Status will be offered the opportunity to appeal.”
+  - sentence: sap_appeal ⟵ “Reinstatement of Financial Aid Eligibility: SAP Appeals approved by SFRS will result in federal financial aid reinstatement under one of the two following plans, each with its own set of requirements: Academic Plan (AP) – A student on an AP will have aid reinstated for one semester.”
+  - sentence: sap_appeal ⟵ “Appeal Approval - An approved SAP appeal will be valid for one year from the date of the approval.”
+  - sentence: sap_appeal ⟵ “A student whose SAP appeal is denied may submit another appeal after successfully completing a minimum of six (6) credit hours required for their selected program of study in a subsequent semester.”
+  - sentence: sap_appeal ⟵ “SAP Appeal Deadlines: SAP Request Form and FATV Online Appeal Session must be received by SFRS by the following deadlines to be considered for semester eligibility: Fall Semester – September 30 Winter Semester – January 31 Summer Semester – May 31 Disclaimer: SFRS retains the authority as granted by the U.S.”
+### `09e7b24c80e50734` Oakland Community College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.oaklandcc.edu/cost-and-aid/ (sha256 85bdbfb4ed9b)
+- issues: residency_unknown
+- checks: {"columns": 4, "components_reconcile": true, "rows": 8}
+  - with_parents_or_family:Tuition & Fees (Actual): 3314 ⟵ “Tuition & Fees (Actual) | $3,314 | $2,600 | $1,886 | $1,172”
+  - with_parents_or_family:Books & Supplies: 2656 ⟵ “Books & Supplies | 2,656 | 2,152 | 1,742 | 1,136”
+  - with_parents_or_family:Transportation: 1820 ⟵ “Transportation | 1,820 | 1,368 | 916 | 464”
+  - with_parents_or_family:Miscellaneous Expenses: 1554 ⟵ “Miscellaneous Expenses | 1,554 | 1,172 | 792 | ”
+  - with_parents_or_family:Loan Fees: 68 ⟵ “Loan Fees | 68 | 68 | 68 | ”
+  - with_parents_or_family:Living Expenses - Food and Housing: 4976 ⟵ “Living Expenses - Food and Housing | 4,976 | 4,976 | 4,976 | ”
+  - with_parents_or_family:Professional Licensures, Certifications & Programs Additional cost: 410 ⟵ “Professional Licensures, Certifications & Programs Additional cost | 410 | 410 | 410 | ”
+  - with_parents_or_family:Total: 14798 ⟵ “Total | $14,798 | $12,746 | $10,790 | $2,772”
+  - with_parents_or_family:Tuition & Fees (Actual): 2600 ⟵ “Tuition & Fees (Actual) | $3,314 | $2,600 | $1,886 | $1,172”
+  - with_parents_or_family:Books & Supplies: 2152 ⟵ “Books & Supplies | 2,656 | 2,152 | 1,742 | 1,136”
+  - with_parents_or_family:Transportation: 1368 ⟵ “Transportation | 1,820 | 1,368 | 916 | 464”
+  - with_parents_or_family:Miscellaneous Expenses: 1172 ⟵ “Miscellaneous Expenses | 1,554 | 1,172 | 792 | ”
+  - with_parents_or_family:Loan Fees: 68 ⟵ “Loan Fees | 68 | 68 | 68 | ”
+  - with_parents_or_family:Living Expenses - Food and Housing: 4976 ⟵ “Living Expenses - Food and Housing | 4,976 | 4,976 | 4,976 | ”
+  - with_parents_or_family:Professional Licensures, Certifications & Programs Additional cost: 410 ⟵ “Professional Licensures, Certifications & Programs Additional cost | 410 | 410 | 410 | ”
+  - with_parents_or_family:Total: 12746 ⟵ “Total | $14,798 | $12,746 | $10,790 | $2,772”
+  - with_parents_or_family:Tuition & Fees (Actual): 1886 ⟵ “Tuition & Fees (Actual) | $3,314 | $2,600 | $1,886 | $1,172”
+  - with_parents_or_family:Books & Supplies: 1742 ⟵ “Books & Supplies | 2,656 | 2,152 | 1,742 | 1,136”
+  - with_parents_or_family:Transportation: 916 ⟵ “Transportation | 1,820 | 1,368 | 916 | 464”
+  - with_parents_or_family:Miscellaneous Expenses: 792 ⟵ “Miscellaneous Expenses | 1,554 | 1,172 | 792 | ”
+  - with_parents_or_family:Loan Fees: 68 ⟵ “Loan Fees | 68 | 68 | 68 | ”
+  - with_parents_or_family:Living Expenses - Food and Housing: 4976 ⟵ “Living Expenses - Food and Housing | 4,976 | 4,976 | 4,976 | ”
+  - with_parents_or_family:Professional Licensures, Certifications & Programs Additional cost: 410 ⟵ “Professional Licensures, Certifications & Programs Additional cost | 410 | 410 | 410 | ”
+  - with_parents_or_family:Total: 10790 ⟵ “Total | $14,798 | $12,746 | $10,790 | $2,772”
+  - with_parents_or_family:Tuition & Fees (Actual): 1172 ⟵ “Tuition & Fees (Actual) | $3,314 | $2,600 | $1,886 | $1,172”
+  - … 3 more rows
+### `12219c87efee0211` Oakland Community College — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.oaklandcc.edu/cost-and-aid/ (sha256 85bdbfb4ed9b)
+- issues: residency_unknown, stale_year_label:2025-26
+- checks: {"columns": 4, "components_reconcile": true, "rows": 8}
+  - with_parents_or_family:Tuition & Fees (Actual): 3220 ⟵ “Tuition & Fees (Actual) | $3,220 | $2,520 | $1,840 | $1,140”
+  - with_parents_or_family:Books & Supplies: 2000 ⟵ “Books & Supplies | 2,000 | 1,510 | 1,110 | 520”
+  - with_parents_or_family:Transportation: 1770 ⟵ “Transportation | 1,770 | 1,330 | 890 | 460”
+  - with_parents_or_family:Miscellaneous Expenses: 1510 ⟵ “Miscellaneous Expenses | 1,510 | 1,140 | 770 | ”
+  - with_parents_or_family:Loan Fees: 66 ⟵ “Loan Fees | 66 | 66 | 66 | ”
+  - with_parents_or_family:Living Expenses - Food and Housing: 4840 ⟵ “Living Expenses - Food and Housing | 4,840 | 4,840 | 4,840 | ”
+  - with_parents_or_family:Professional Licensures, Certifications & Programs Additional cost: 571 ⟵ “Professional Licensures, Certifications & Programs Additional cost | 571 | 571 | 571 | ”
+  - with_parents_or_family:Total: 13977 ⟵ “Total | $13,977 | $11,977 | $10,087 | $2,120”
+  - with_parents_or_family:Tuition & Fees (Actual): 2520 ⟵ “Tuition & Fees (Actual) | $3,220 | $2,520 | $1,840 | $1,140”
+  - with_parents_or_family:Books & Supplies: 1510 ⟵ “Books & Supplies | 2,000 | 1,510 | 1,110 | 520”
+  - with_parents_or_family:Transportation: 1330 ⟵ “Transportation | 1,770 | 1,330 | 890 | 460”
+  - with_parents_or_family:Miscellaneous Expenses: 1140 ⟵ “Miscellaneous Expenses | 1,510 | 1,140 | 770 | ”
+  - with_parents_or_family:Loan Fees: 66 ⟵ “Loan Fees | 66 | 66 | 66 | ”
+  - with_parents_or_family:Living Expenses - Food and Housing: 4840 ⟵ “Living Expenses - Food and Housing | 4,840 | 4,840 | 4,840 | ”
+  - with_parents_or_family:Professional Licensures, Certifications & Programs Additional cost: 571 ⟵ “Professional Licensures, Certifications & Programs Additional cost | 571 | 571 | 571 | ”
+  - with_parents_or_family:Total: 11977 ⟵ “Total | $13,977 | $11,977 | $10,087 | $2,120”
+  - with_parents_or_family:Tuition & Fees (Actual): 1840 ⟵ “Tuition & Fees (Actual) | $3,220 | $2,520 | $1,840 | $1,140”
+  - with_parents_or_family:Books & Supplies: 1110 ⟵ “Books & Supplies | 2,000 | 1,510 | 1,110 | 520”
+  - with_parents_or_family:Transportation: 890 ⟵ “Transportation | 1,770 | 1,330 | 890 | 460”
+  - with_parents_or_family:Miscellaneous Expenses: 770 ⟵ “Miscellaneous Expenses | 1,510 | 1,140 | 770 | ”
+  - with_parents_or_family:Loan Fees: 66 ⟵ “Loan Fees | 66 | 66 | 66 | ”
+  - with_parents_or_family:Living Expenses - Food and Housing: 4840 ⟵ “Living Expenses - Food and Housing | 4,840 | 4,840 | 4,840 | ”
+  - with_parents_or_family:Professional Licensures, Certifications & Programs Additional cost: 571 ⟵ “Professional Licensures, Certifications & Programs Additional cost | 571 | 571 | 571 | ”
+  - with_parents_or_family:Total: 10087 ⟵ “Total | $13,977 | $11,977 | $10,087 | $2,120”
+  - with_parents_or_family:Tuition & Fees (Actual): 1140 ⟵ “Tuition & Fees (Actual) | $3,220 | $2,520 | $1,840 | $1,140”
+  - … 3 more rows
+### `a643fabefff61eae` Oakland Community College — credit_policies 2026-27 · policy_kind=dual_enrollment [new] (source_unlabeled)
+- source: https://www.oaklandcc.edu/admissions/dual-enrollment/pathway-catalog (sha256 8f5d2ae374db)
+- issues: conflicting_values:max_credit_hours_per_term
+- checks: {"fields": [], "tiers": 0}
+  - max_credit_hours_per_term: 15 ⟵ “Courses | Students earn up to 15 credits of core curriculum over four semesters:”
+  - max_credit_hours_per_term: 16 ⟵ “Courses | Students earn up to 16 credits of core curriculum over four semesters:”
+  - max_credit_hours_per_term: 18 ⟵ “Courses | Students earn up to 18 credits of core curriculum over four semesters:”
+  - max_credit_hours_per_term: 14 ⟵ “Courses | Students earn up to 14 credits of core curriculum over four semesters:”
+  - max_credit_hours_per_term: 16 ⟵ “Courses | Students earn up to 16 credits over four semesters:”
+  - max_credit_hours_per_term: 12 ⟵ “Courses | Students earn up to 12 credits over four semesters:”
+### `f23b51e45b068c76` Oakland University — costs 2026-27 · residency=not_applicable [new] (source_unlabeled)
+- source: https://www.oakland.edu/media/Oakland/Assets/Transparency/files/2026/FY-2026-1_Annual-Operating-Budget.pdf (sha256 6cc94dc74708)
+- issues: arrangement_unlabeled, residency_unknown
+- checks: {"columns": 5, "rows": 27}
+  - column:Resident UG Lower: 528.75 ⟵ “Resident UG Lower | 528.75 | 552.50”
+  - column:Resident UG Upper: 615.75 ⟵ “Resident UG Upper | 615.75 | 643.50”
+  - column:Resident Grad: 915.0 ⟵ “Resident Grad | 915.00 | 951.50”
+  - column:Resident Doctoral: 915.0 ⟵ “Resident Doctoral | 915.00 | 951.50”
+  - column:Non Resident UG Lower: 795.75 ⟵ “Non Resident UG Lower | 795.75 | 795.75”
+  - column:Non Resident UG Upper: 853.25 ⟵ “Non Resident UG Upper | 853.25 | 853.25”
+  - column:Non Resident Grad: 1027.0 ⟵ “Non Resident Grad | 1,027.00 | 1,078.25”
+  - column:Non Resident Doctoral: 1027.0 ⟵ “Non Resident Doctoral | 1,027.00 | 1,078.25”
+  - column:SBA 001-299 courses: 553.5 ⟵ “SBA 001-299 courses | 553.50 | 578.50”
+  - column:SBA 300+ courses: 651.0 ⟵ “SBA 300+ courses | 651.00 | 680.25”
+  - column:SECS 001-299 courses: 565.0 ⟵ “SECS 001-299 courses | 565.00 | 590.50”
+  - column:SECS 300+ courses: 665.0 ⟵ “SECS 300+ courses | 665.00 | 695.00”
+  - column:SHS 001-299 courses: 546.0 ⟵ “SHS 001-299 courses | 546.00 | 570.50”
+  - column:SHS 300+ courses: 638.25 ⟵ “SHS 300+ courses | 638.25 | 667.00”
+  - column:SON 001-299 courses: 559.25 ⟵ “SON 001-299 courses | 559.25 | 584.50”
+  - column:SON 300+ courses: 656.25 ⟵ “SON 300+ courses | 656.25 | 685.75”
+  - column:Competency: 55.0 ⟵ “Competency | 55.00 | 55.00”
+  - column:SOM: 60278.0 ⟵ “SOM | 60,278.00 | 61,484.00”
+  - column:Lower Division Tuition: 528.75 ⟵ “Lower Division Tuition | 528.75 | 552.50 | 30 | 15,862.50 | 16,575.00”
+  - column:Upper Division Tuition: 615.75 ⟵ “Upper Division Tuition | 615.75 | 643.50 | 30 | 18,472.50 | 19,305.00”
+  - column:CAS Residential Average: 17167.5 ⟵ “CAS Residential Average | 17,167.50 | 17,940.00 | 4.50%”
+  - column:Graduate Tuition: 915.0 ⟵ “Graduate Tuition | 915.00 | 951.50 | 24 | 21,960.00 | 22,836.00 | 3.99%”
+  - column:Doctoral Tuition: 915.0 ⟵ “Doctoral Tuition | 915.00 | 951.50 | 16 | 14,640.00 | 15,224.00 | 3.99%”
+  - column:Revenues over (Linder) expenditures: 8 ⟵ “Revenues over (Linder) expenditures | 8 | 18) | (96.3391.)”
+  - column:SOMFVES: 511 ⟵ “SOMFVES | 511 | 516 | 5 | 0.9891.”
+  - … 45 more rows
+### `0ebb3009cb80fabb` Saginaw Valley State University — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.svsu.edu/financialaid/applyforfinancialaid/specialcircumstances/ (sha256 ab7f483c4e00)
+- issues: ambiguous_year_labels, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstances Affecting Your Financial Aid Eligibility The SVSU Financial Aid Staff is here to assist you and your parents if you have special circumstances that may affect your eligibility for financial aid or ability to apply.”
+  - sentence: need_based_special_circumstances ⟵ “Special circumstances may encompass involuntary changes in income or employment, unusual dental or medical expenses paid not covered by insurance, divorce, separation or death, or other circumstances that have changed the total income level of the family.”
+  - sentence: need_based_special_circumstances ⟵ “We suggest downloading an Special Circumstance/Review of Assistance Form if circumstances have changed significantly.”
+### `502afacb18846023` Saginaw Valley State University — awards 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.svsu.edu/financialaid/typesoffinancialaid/scholarships/out-of-statestudentscholarships/ (sha256 525ce9827c51)
+- issues: ambiguous_year_labels
+- checks: {"thresholds": null}
+  - award_amount_text: Competitive Scholarship ⟵ “Competitive Scholarship | No”
+### `b4f2d9c081521671` Saginaw Valley State University — awards 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.svsu.edu/financialaid/typesoffinancialaid/scholarships/out-of-statestudentscholarships/ (sha256 525ce9827c51)
+- issues: ambiguous_year_labels
+- checks: {"thresholds": null}
+  - award_amount_text: Enrollment Requirements ⟵ “Enrollment Requirements | No minimum enrollment requirement”
+### `c8d37e80a3cd9d66` Saginaw Valley State University — awards 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.svsu.edu/financialaid/typesoffinancialaid/scholarships/out-of-statestudentscholarships/ (sha256 525ce9827c51)
+- issues: ambiguous_year_labels
+- checks: {"thresholds": null}
+  - award_amount_text: Award ⟵ “Award | Allows for a reduced nonresident tuition rate for all semesters”
+### `182e8d7291128b3f` Saginaw Valley State University — costs 2025-26 · residency=in_state [new] (labeled_in_source)
+- source: https://www.svsu.edu/financialaid/costofattendance/2025-2026/ (sha256 5ed754ed5c2f)
+- issues: stale_year_label:2025-26
+- checks: {"columns": 1, "components_reconcile": true, "rows": 6}
+  - on_campus:Tuition & Fees (18 credits per academic year): 14400 ⟵ “Tuition & Fees (18 credits per academic year) | $14,400 | $14,400”
+  - on_campus:Books and Supplies: 1190 ⟵ “Books and Supplies | $1,190 | $1,190”
+  - on_campus:Housing and Food: 4530 ⟵ “Housing and Food | $4,530 | $4,530”
+  - on_campus:Transportation: 1620 ⟵ “Transportation | $1,620 | $1,620”
+  - on_campus:Personal / Miscellaneous: 1300 ⟵ “Personal / Miscellaneous | $1,300 | $1,300”
+  - on_campus:Total Cost of Attendance: 23040 ⟵ “Total Cost of Attendance | $23,040 | $23,040”
+### `74cc4c0ad215325a` Saginaw Valley State University — costs 2025-26 · residency=out_of_state [new] (labeled_in_source)
+- source: https://www.svsu.edu/financialaid/costofattendance/2025-2026/ (sha256 5ed754ed5c2f)
+- issues: stale_year_label:2025-26
+- checks: {"columns": 1, "components_reconcile": true, "rows": 6}
+  - on_campus:Tuition & Fees (18 credits per academic year): 14400 ⟵ “Tuition & Fees (18 credits per academic year) | $14,400 | $14,400”
+  - on_campus:Books and Supplies: 1190 ⟵ “Books and Supplies | $1,190 | $1,190”
+  - on_campus:Housing and Food: 4530 ⟵ “Housing and Food | $4,530 | $4,530”
+  - on_campus:Transportation: 1620 ⟵ “Transportation | $1,620 | $1,620”
+  - on_campus:Personal / Miscellaneous: 1300 ⟵ “Personal / Miscellaneous | $1,300 | $1,300”
+  - on_campus:Total Cost of Attendance: 23040 ⟵ “Total Cost of Attendance | $23,040 | $23,040”
+### `b0dabb6cc0398705` Saginaw Valley State University — costs 2024-25 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.svsu.edu/financialaid/costofattendance/2024-2025/ (sha256 a8f215d2a97d)
+- issues: residency_unknown, stale_year_label:2024-25
+- checks: {"columns": 4, "components_reconcile": true, "rows": 6}
+  - with_parents_or_family:Tuition and Mandatory Fees: 12150 ⟵ “Tuition and Mandatory Fees | $12,150 | $9,110 | $6,080 | $3,040”
+  - with_parents_or_family:Books and Supplies: 1160 ⟵ “Books and Supplies | $1,160 | $870 | $580 | $290”
+  - with_parents_or_family:Housing and Food: 4260 ⟵ “Housing and Food | $4,260 | $4,260 | $4,260 | $0”
+  - with_parents_or_family:Transportation: 1570 ⟵ “Transportation | $1,570 | $1,180 | $790 | $390”
+  - with_parents_or_family:Personal/Miscellaneous: 1260 ⟵ “Personal/Miscellaneous | $1,260 | $950 | $630 | $0”
+  - with_parents_or_family:Cost of Attendance: 20400 ⟵ “Cost of Attendance | $20,400 | $16,370 | $12,340 | $3,720”
+  - with_parents_or_family:Tuition and Mandatory Fees: 9110 ⟵ “Tuition and Mandatory Fees | $12,150 | $9,110 | $6,080 | $3,040”
+  - with_parents_or_family:Books and Supplies: 870 ⟵ “Books and Supplies | $1,160 | $870 | $580 | $290”
+  - with_parents_or_family:Housing and Food: 4260 ⟵ “Housing and Food | $4,260 | $4,260 | $4,260 | $0”
+  - with_parents_or_family:Transportation: 1180 ⟵ “Transportation | $1,570 | $1,180 | $790 | $390”
+  - with_parents_or_family:Personal/Miscellaneous: 950 ⟵ “Personal/Miscellaneous | $1,260 | $950 | $630 | $0”
+  - with_parents_or_family:Cost of Attendance: 16370 ⟵ “Cost of Attendance | $20,400 | $16,370 | $12,340 | $3,720”
+  - with_parents_or_family:Tuition and Mandatory Fees: 6080 ⟵ “Tuition and Mandatory Fees | $12,150 | $9,110 | $6,080 | $3,040”
+  - with_parents_or_family:Books and Supplies: 580 ⟵ “Books and Supplies | $1,160 | $870 | $580 | $290”
+  - with_parents_or_family:Housing and Food: 4260 ⟵ “Housing and Food | $4,260 | $4,260 | $4,260 | $0”
+  - with_parents_or_family:Transportation: 790 ⟵ “Transportation | $1,570 | $1,180 | $790 | $390”
+  - with_parents_or_family:Personal/Miscellaneous: 630 ⟵ “Personal/Miscellaneous | $1,260 | $950 | $630 | $0”
+  - with_parents_or_family:Cost of Attendance: 12340 ⟵ “Cost of Attendance | $20,400 | $16,370 | $12,340 | $3,720”
+  - with_parents_or_family:Tuition and Mandatory Fees: 3040 ⟵ “Tuition and Mandatory Fees | $12,150 | $9,110 | $6,080 | $3,040”
+  - with_parents_or_family:Books and Supplies: 290 ⟵ “Books and Supplies | $1,160 | $870 | $580 | $290”
+  - with_parents_or_family:Housing and Food: 0 ⟵ “Housing and Food | $4,260 | $4,260 | $4,260 | $0”
+  - with_parents_or_family:Transportation: 390 ⟵ “Transportation | $1,570 | $1,180 | $790 | $390”
+  - with_parents_or_family:Personal/Miscellaneous: 0 ⟵ “Personal/Miscellaneous | $1,260 | $950 | $630 | $0”
+  - with_parents_or_family:Cost of Attendance: 3720 ⟵ “Cost of Attendance | $20,400 | $16,370 | $12,340 | $3,720”
+### `3417576d53cea11b` Schoolcraft Community College District — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.schoolcraft.edu/aid/ (sha256 fff4bad68942)
+- issues: ambiguous_year_labels, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “View Timeline Important Financial Aid Dates To ensure processing by the State & Federal due dates, for all semesters (Fall 2025, Winter 2026, Spring/Summer 2026) Last Day to Submit 25/26 FAFSA: June 30, 2026 Last Day to Submit Documents for State Aid: August 6, 2026 Last Day to Submit Spring/Summer 2026 Loan Requests: August 17, 2026 Last Day to Submit 2025-26 SAP Appeals: August 17, 2026 Last Day”
+### `13fbed39570c990e` Schoolcraft Community College District — costs 2024-25 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.schoolcraft.edu/wp-content/uploads/2024/10/2024-25-General-Fund-Budget.pdf (sha256 7bf5767cc9fa)
+- issues: implausible_amount, multiple_total_rows, residency_unknown, stale_year_label:2024-25
+- checks: {"columns": 1, "rows": 13}
+  - column:PROPERTY TAXES: 42473273 ⟵ “PROPERTY TAXES | $ | 42,473,273 | $ | 39,138,935 | 8.52%”
+  - column:STATE APPROPRIATIONS: 17194351 ⟵ “STATE APPROPRIATIONS | 18,680,826 | 17,194,351 | 8.65%”
+  - column:TUITION AND FEES: 39666653 ⟵ “TUITION AND FEES | 40,730,458 | 39,666,653 | 2.68%”
+  - column:OTHER SOURCES: 1393161 ⟵ “OTHER SOURCES | 2,325,062 | 1,393,161 | 66.89%”
+  - column:TOTAL ESTIMATED REVENUE: 104209619 ⟵ “TOTAL ESTIMATED REVENUE | $ | 104,209,619 | $ | 97,393,100 | 7.00%”
+  - column:INSTRUCTION: 51435434 ⟵ “INSTRUCTION | $ | 51,435,434 | $ | 47,836,854 | 7.52%”
+  - column:TECHNOLOGY: 7326455 ⟵ “TECHNOLOGY | 8,089,307 | 7,326,455 | 10.41%”
+  - column:PUBLIC SERVICE: 1100471 ⟵ “PUBLIC SERVICE | 1,227,503 | 1,100,471 | 11.54%”
+  - column:STUDENT SERVICES: 12102716 ⟵ “STUDENT SERVICES | 13,079,567 | 12,102,716 | 8.07%”
+  - column:INSTITUTIONAL ADMIN: 6937445 ⟵ “INSTITUTIONAL ADMIN | 7,473,066 | 6,937,445 | 7.72%”
+  - column:FACILITIES MGMT: 13534151 ⟵ “FACILITIES MGMT | 14,531,542 | 13,534,151 | 7.37%”
+  - column:TRANSFERS: 8555008 ⟵ “TRANSFERS | 8,373,200 | 8,555,008 | -2.13%”
+  - column:TOTAL ESTIMATED EXPENDITURES: 104209619 ⟵ “TOTAL ESTIMATED EXPENDITURES | $ | 104,209,619 | $ | 97,393,100 | 7.00%”
+### `a43e5d5bf3abb504` Schoolcraft Community College District — costs 2026-27 · residency=not_applicable [new] (source_unlabeled)
+- source: https://www.schoolcraft.edu/wp-content/uploads/2024/10/2024-25-General-Fund-Budget.pdf (sha256 7bf5767cc9fa)
+- issues: ambiguous_year_labels, arrangement_unlabeled, implausible_amount, multiple_total_rows, residency_unknown, conflicting_sources:https://www.schoolcraft.edu/wp-content/uploads/2025/02/Amended-General-Fund-Budget-for-Web.pdf
+- checks: {"columns": 2, "rows": 9}
+  - column:STATE APPROPRIATIONS: 18680826 ⟵ “STATE APPROPRIATIONS | 18,680,826 | 17,194,351 | 8.65%”
+  - column:TUITION AND FEES: 40730458 ⟵ “TUITION AND FEES | 40,730,458 | 39,666,653 | 2.68%”
+  - column:OTHER SOURCES: 2325062 ⟵ “OTHER SOURCES | 2,325,062 | 1,393,161 | 66.89%”
+  - column:TECHNOLOGY: 8089307 ⟵ “TECHNOLOGY | 8,089,307 | 7,326,455 | 10.41%”
+  - column:PUBLIC SERVICE: 1227503 ⟵ “PUBLIC SERVICE | 1,227,503 | 1,100,471 | 11.54%”
+  - column:STUDENT SERVICES: 13079567 ⟵ “STUDENT SERVICES | 13,079,567 | 12,102,716 | 8.07%”
+  - column:INSTITUTIONAL ADMIN: 7473066 ⟵ “INSTITUTIONAL ADMIN | 7,473,066 | 6,937,445 | 7.72%”
+  - column:FACILITIES MGMT: 14531542 ⟵ “FACILITIES MGMT | 14,531,542 | 13,534,151 | 7.37%”
+  - column:TRANSFERS: 8373200 ⟵ “TRANSFERS | 8,373,200 | 8,555,008 | -2.13%”
+  - column:PROPERTY TAXES: 39138935 ⟵ “PROPERTY TAXES | $ | 42,473,273 | $ | 39,138,935 | 8.52%”
+  - column:TOTAL ESTIMATED REVENUE: 97393100 ⟵ “TOTAL ESTIMATED REVENUE | $ | 104,209,619 | $ | 97,393,100 | 7.00%”
+  - column:INSTRUCTION: 47836854 ⟵ “INSTRUCTION | $ | 51,435,434 | $ | 47,836,854 | 7.52%”
+  - column:TOTAL ESTIMATED EXPENDITURES: 97393100 ⟵ “TOTAL ESTIMATED EXPENDITURES | $ | 104,209,619 | $ | 97,393,100 | 7.00%”
+### `af7e9cc43ab1ad37` Schoolcraft Community College District — costs 2026-27 · residency=not_applicable [new] (source_unlabeled)
+- source: https://www.schoolcraft.edu/wp-content/uploads/2025/02/Amended-General-Fund-Budget-for-Web.pdf (sha256 cb8595b145b5)
+- issues: arrangement_unlabeled, implausible_amount, multiple_total_rows, residency_unknown, conflicting_sources:https://www.schoolcraft.edu/wp-content/uploads/2024/10/2024-25-General-Fund-Budget.pdf
+- checks: {"columns": 3, "rows": 10}
+  - column:STATE APPROPRIATIONS: 20951833 ⟵ “STATE APPROPRIATIONS | 20,951,833 | 18,680,826 | 12.16%”
+  - column:TUITION AND FEES: 45495628 ⟵ “TUITION AND FEES | 45,495,628 | 40,730,458 | 11.70%”
+  - column:OTHER SOURCES: 2621120 ⟵ “OTHER SOURCES | 2,621,120 | 2,325,062 | 12.73%”
+  - column:TECHNOLOGY: 8284000 ⟵ “TECHNOLOGY | 8,284,000 | 8,089,307 | 2.41%”
+  - column:PUBLIC SERVICE: 1257047 ⟵ “PUBLIC SERVICE | 1,257,047 | 1,227,503 | 2.41%”
+  - column:STUDENT SERVICES: 13394366 ⟵ “STUDENT SERVICES | 13,394,366 | 13,079,567 | 2.41%”
+  - column:INSTITUTIONAL ADMIN: 7652927 ⟵ “INSTITUTIONAL ADMIN | 7,652,927 | 7,473,066 | 2.41%”
+  - column:FACILITIES MGMT: 14881287 ⟵ “FACILITIES MGMT | 14,881,287 | 14,531,542 | 2.41%”
+  - column:CONTINGENCY: 5591838 ⟵ “CONTINGENCY | 5,591,838 | ‐”
+  - column:TRANSFERS: 8373200 ⟵ “TRANSFERS | 8,373,200 | 8,373,200 | 0.00%”
+  - column:PROPERTY TAXES: 43039466 ⟵ “PROPERTY TAXES | $ | 43,039,466 | $ | 42,473,273 | 1.33%”
+  - column:STATE APPROPRIATIONS: 18680826 ⟵ “STATE APPROPRIATIONS | 20,951,833 | 18,680,826 | 12.16%”
+  - column:TUITION AND FEES: 40730458 ⟵ “TUITION AND FEES | 45,495,628 | 40,730,458 | 11.70%”
+  - column:OTHER SOURCES: 2325062 ⟵ “OTHER SOURCES | 2,621,120 | 2,325,062 | 12.73%”
+  - column:TOTAL ESTIMATED REVENUE: 112108046 ⟵ “TOTAL ESTIMATED REVENUE | $ | 112,108,046 | $ | 104,209,619 | 7.58%”
+  - column:INSTRUCTION: 52673381 ⟵ “INSTRUCTION | $ | 52,673,381 | $ | 51,435,434 | 2.41%”
+  - column:TECHNOLOGY: 8089307 ⟵ “TECHNOLOGY | 8,284,000 | 8,089,307 | 2.41%”
+  - column:PUBLIC SERVICE: 1227503 ⟵ “PUBLIC SERVICE | 1,257,047 | 1,227,503 | 2.41%”
+  - column:STUDENT SERVICES: 13079567 ⟵ “STUDENT SERVICES | 13,394,366 | 13,079,567 | 2.41%”
+  - column:INSTITUTIONAL ADMIN: 7473066 ⟵ “INSTITUTIONAL ADMIN | 7,652,927 | 7,473,066 | 2.41%”
+  - column:FACILITIES MGMT: 14531542 ⟵ “FACILITIES MGMT | 14,881,287 | 14,531,542 | 2.41%”
+  - column:TRANSFERS: 8373200 ⟵ “TRANSFERS | 8,373,200 | 8,373,200 | 0.00%”
+  - column:TOTAL ESTIMATED EXPENDITURES: 112108046 ⟵ “TOTAL ESTIMATED EXPENDITURES | $ | 112,108,046 | $ | 104,209,619 | 7.58%”
+  - column:PROPERTY TAXES: 42473273 ⟵ “PROPERTY TAXES | $ | 43,039,466 | $ | 42,473,273 | 1.33%”
+  - column:TOTAL ESTIMATED REVENUE: 104209619 ⟵ “TOTAL ESTIMATED REVENUE | $ | 112,108,046 | $ | 104,209,619 | 7.58%”
+  - … 2 more rows
+### `16c40710d6493db1` Southwestern Michigan College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.swmich.edu/cost-aid/financial-aid/scholarships/academic-scholarships/ (sha256 e4e1a489d9a4)
+- issues: semantic_review_required, conflicting_sources:https://www.swmich.edu/media/website/content-assets/documents/Contact-Financial-Aid-Next-Steps-V2-(1).pdf,https://www.swmich.edu/media/website/content-assets/documents/Fillable_Dependency_Override_Appeal_ADA.pdf,https://www.swmich.edu/media/website/content-assets/documents/Special_Circumstances_Appeal-ADA.pdf
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Exceptions to the above policies will only be made as a result of unusual circumstances beyond the student's control (e.g., major illness or accident) and must be requested in writing.”
+### `2734fdbf3d77f9e1` Southwestern Michigan College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.swmich.edu/media/website/content-assets/documents/Contact-Financial-Aid-Next-Steps-V2-(1).pdf (sha256 9d7da6fcd4ef)
+- issues: semantic_review_required, conflicting_sources:https://www.swmich.edu/media/website/content-assets/documents/Fillable_Dependency_Override_Appeal_ADA.pdf
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: dependency_override ⟵ “If you feel that you meet one of the above eligible circumstances then you may be eligible to complete a Dependency Override Appeal.”
+### `30a5f2e5386e2a6e` Southwestern Michigan College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.swmich.edu/media/website/content-assets/documents/Fillable_Dependency_Override_Appeal_ADA.pdf (sha256 32c05616bfb6)
+- issues: semantic_review_required, conflicting_sources:https://www.swmich.edu/cost-aid/financial-aid/scholarships/academic-scholarships/,https://www.swmich.edu/media/website/content-assets/documents/Contact-Financial-Aid-Next-Steps-V2-(1).pdf,https://www.swmich.edu/media/website/content-assets/documents/Special_Circumstances_Appeal-ADA.pdf
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “A detailed written explanation, signed by you, submitted with substantiating documentation of other unusual circumstances not covered in #1 or #2 above. (Use page 3 attached or type a letter). 2.”
+### `7b5ffe397a4d822a` Southwestern Michigan College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.swmich.edu/media/website/content-assets/documents/Contact-Financial-Aid-Next-Steps-V2-(1).pdf (sha256 9d7da6fcd4ef)
+- issues: semantic_review_required, conflicting_sources:https://www.swmich.edu/cost-aid/financial-aid/scholarships/academic-scholarships/,https://www.swmich.edu/media/website/content-assets/documents/Fillable_Dependency_Override_Appeal_ADA.pdf,https://www.swmich.edu/media/website/content-assets/documents/Special_Circumstances_Appeal-ADA.pdf
+- checks: {"negative_sentences": 0, "sentences": 4}
+  - sentence: need_based_special_circumstances ⟵ “We have outlined the potential next steps for your FAFSA application based on these different situations below: No Parent Information Only Requesting Unsubsidized Aid If on your FAFSA you indicated that you do not have a special circumstance but also will not be providing your parents information then the only federal financial aid that you are eligible for are unsubsidized student loans.”
+  - sentence: need_based_special_circumstances ⟵ “However, not all situations are considered a special circumstance.”
+  - sentence: need_based_special_circumstances ⟵ “For example, the following situations would not be considered as a special circumstance on their own without other factors: • You do not live with your parent(s). • Your parent(s) does not want to provide you with financial support. • Your parent(s) doesn’t want to contribute to your college expenses. • Your parent(s) doesn’t claim you as a dependent on their income tax return. • Your parent(s) do”
+  - sentence: need_based_special_circumstances ⟵ “If you think that you do not meet one of the special circumstances and would need to provide parental information then you can do so by logging back onto your FAFSA application and clicking make FAFSA corrections.”
+### `bae0e03bcc2e2de1` Southwestern Michigan College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.swmich.edu/media/website/content-assets/documents/Special_Circumstances_Appeal-ADA.pdf (sha256 78f28ae036bb)
+- issues: semantic_review_required, conflicting_sources:https://www.swmich.edu/cost-aid/financial-aid/scholarships/academic-scholarships/,https://www.swmich.edu/media/website/content-assets/documents/Contact-Financial-Aid-Next-Steps-V2-(1).pdf,https://www.swmich.edu/media/website/content-assets/documents/Fillable_Dependency_Override_Appeal_ADA.pdf
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Southwestern Michigan College 2026-2027 Special Circumstances Appeal Financial Aid Office, 58900 Cherry Grove Road, Dowagiac, MI 49047 Phone: 269.783.2143 Fax 269.783.2114 Email: finaid@swmich.edu Please Note: You must file the 2026-2027 Free Application for Federal Student Aid (FAFSA) before submitting this form.”
+### `bc4cd8c6163d024b` Southwestern Michigan College — appeals 2025-26 [new] (labeled_in_source)
+- source: https://www.swmich.edu/media/website/content-assets/documents/Fillable_Dependency_Override_Appeal_ADA-1.pdf (sha256 f43d6341fc1f)
+- issues: stale_year_label:2025-26, semantic_review_required, conflicting_sources:https://www.swmich.edu/media/website/content-assets/documents/Special_Circumstances_Appeal-ADA-4.pdf
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “A detailed written explanation, signed by you, submitted with substantiating documentation of other unusual circumstances not covered in #1 or #2 above. (Use page 3 attached or type a letter). 2.”
+### `e78eac6bff38593f` Southwestern Michigan College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.swmich.edu/media/website/content-assets/documents/sap-policy-ADA.pdf (sha256 5e4a6c225d1d)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “A student that does not achieve the minimum SAP standards at the end of the Warning term will be placed on financial aid Suspension and ineligible for financial aid in future terms, until the student achieves SAP or submits an approved SAP appeal (see Probation).”
+  - sentence: sap_appeal ⟵ “If a student does not appeal financial aid Suspension, but meets the standards of satisfactory academic progress in the future, financial aid eligibility will be reinstated A student may appeal being placed on Maximum Hour Limit status as a result of exceeding the maximum time frame, if it is the result of the inclusion of credits that are not applicable towards the student’s current program of st”
+### `f849857bd15710fd` Southwestern Michigan College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.swmich.edu/media/website/content-assets/documents/Fillable_Dependency_Override_Appeal_ADA.pdf (sha256 32c05616bfb6)
+- issues: semantic_review_required, conflicting_sources:https://www.swmich.edu/media/website/content-assets/documents/Contact-Financial-Aid-Next-Steps-V2-(1).pdf
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: dependency_override ⟵ “Southwestern Michigan College 2026-2027 Dependency Override Appeal Form Financial Aid Office, 58900 Cherry Grove Road, Dowagiac, MI 49047 Phone: 269.783.2143 Fax 269.783.2114 Email: finaid@swmich.edu Student Name Student ID # Street Address City, State, Zip Phone Number (including area code) PLEASE READ THE FOLLOWING CAREFULLY BEFORE PROCEEDING You are automatically considered to be independent an”
+### `f95833113e31cd12` Southwestern Michigan College — appeals 2025-26 [new] (labeled_in_source)
+- source: https://www.swmich.edu/media/website/content-assets/documents/Special_Circumstances_Appeal-ADA-4.pdf (sha256 758cbea8d7a3)
+- issues: stale_year_label:2025-26, semantic_review_required, conflicting_sources:https://www.swmich.edu/media/website/content-assets/documents/Fillable_Dependency_Override_Appeal_ADA-1.pdf
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Southwestern Michigan College 2025-2026 Special Circumstances Appeal Financial Aid Office, 58900 Cherry Grove Road, Dowagiac, MI 49047 Phone: 269.783.2143 Fax 269.783.2114 Email: finaid@swmich.edu Please Note: You must file the 2025-2026 Free Application for Federal Student Aid (FAFSA) before submitting this form.”
+### `fa456ece3120c619` Southwestern Michigan College — appeals 2025-26 [new] (labeled_in_source)
+- source: https://www.swmich.edu/media/website/content-assets/documents/Fillable_Dependency_Override_Appeal_ADA-1.pdf (sha256 f43d6341fc1f)
+- issues: stale_year_label:2025-26, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: dependency_override ⟵ “Southwestern Michigan College 2025-2026 Dependency Override Appeal Form Financial Aid Office, 58900 Cherry Grove Road, Dowagiac, MI 49047 Phone: 269.783.2143 Fax 269.783.2114 Email: finaid@swmich.edu Student Name Student ID # Street Address City, State, Zip Phone Number (including area code) PLEASE READ THE FOLLOWING CAREFULLY BEFORE PROCEEDING You are automatically considered to be independent an”
+### `633d5851cbb8146c` St Clair County Community College — appeals 2026-27 [new] (labeled_in_url)
+- source: https://sc4.edu/wp-content/uploads/2026/05/2026-27-Academic-Success-Financial-Aid-Appeal-Form-Fillable.pdf (sha256 de94c883e53d)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “The Academic Success/SAP Appeals Committee will notify you of the final appeal decision.”
+### `b3625d13de7e0820` St Clair County Community College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://sc4.edu/wp-content/uploads/2026/05/2026-27-Special-Circumstances-Form-Fillable.pdf (sha256 cdf4f148c50b)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: need_based_special_circumstances ⟵ “Box 5015, Port Huron, Michigan 48061-5015 810-989-5530  financialaid@sc4.edu  Fax: 810-989-5574  www.sc4.edu 2026-27 Special Circumstances Appeal Form Name Student ID/SS# Eligibility for 2026-2027 financial aid is determined by many factors, including 2024 income.”
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstance Required Documents • Copy of divorce decree/separation papers or evidence of separate living accommodations. • 2024 signed Tax Return(s) and 2024 W-2 Forms Divorce or Separation • 2025 signed Tax Return(s) and 2025 W-2 Forms (Student or Parent) • Provide a detailed letter of appeal that explains how your family’s financial situation has changed since 2024 • 2026-27 Income Veri”
+  - sentence: need_based_special_circumstances ⟵ “Box 5015, Port Huron, Michigan 48061-5015 810-989-5530  financialaid@sc4.edu  Fax: 810-989-5574  www.sc4.edu 2026-27 Special Circumstances Appeal Form (continued) Name Student ID/SS# Be certain you have completed the following before submitting your appeal to us: • Complete all sections of this form.”
+### `5a21b0cff1715805` St Clair County Community College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://sc4.edu/admissions/financial-aid/how-aid-is-determined/ (sha256 46626f61982b)
+- issues: residency_unknown
+- checks: {"columns": 1, "components_reconcile": true, "rows": 7}
+  - on_campus:Tuition and Fees (27 contact hours): 5536 ⟵ “Tuition and Fees (27 contact hours) | $5,536”
+  - on_campus:Books, Course Materials, Supplies and Equipment: 1828 ⟵ “Books, Course Materials, Supplies and Equipment | $1,828”
+  - on_campus:Transportation: 1648 ⟵ “Transportation | $1,648”
+  - on_campus:Living Expenses (Housing and Food): 15840 ⟵ “Living Expenses (Housing and Food) | $15,840”
+  - on_campus:Personal/Miscellaneous: 1692 ⟵ “Personal/Miscellaneous | $1,692”
+  - on_campus:Average Direct Loan Fees: 60 ⟵ “Average Direct Loan Fees | $60”
+  - on_campus:Total: 26604 ⟵ “Total | $26,604”
+### `f28f1df8fd980127` St Clair County Community College — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://sc4.edu/wp-content/uploads/2026/04/Budget-25-26-original-and-revised.pdf (sha256 cb7a03ffb02f)
+- issues: arrangement_unlabeled, implausible_amount, multiple_total_rows, residency_unknown, stale_year_label:2025-26
+- checks: {"columns": 3, "rows": 11}
+  - column:Property Tax: 13500000 ⟵ “Property Tax | 13,500,000 | 13,840,000”
+  - column:State Aid: 8600000 ⟵ “State Aid | 8,600,000 | 8,728,000”
+  - column:Other Income: 500000 ⟵ “Other Income | 500,000 | 750,000”
+  - column:FICA/Retirement: 6120000 ⟵ “FICA/Retirement | 6,120,000 | 6,200,000”
+  - column:Fringes: 3300000 ⟵ “Fringes | 3,300,000 | 3,300,000”
+  - column:General Insurance: 330000 ⟵ “General Insurance | 330,000 | 350,000”
+  - column:Utilities and Postage: 1650000 ⟵ “Utilities and Postage | 1,650,000 | 1,900,000”
+  - column:Transfers: Designated Funds: 3900000 ⟵ “Transfers: Designated Funds | 3,900,000 | 5,300,000”
+  - column:Operational Expenditures: 5150000 ⟵ “Operational Expenditures | 5,150,000 | 5,750,000”
+  - column:Restricted, Matching and Bond Retirement: 1000000 ⟵ “Restricted, Matching and Bond Retirement | 1,000,000 | 1,000,000”
+  - column:Unappropriated: 650000 ⟵ “Unappropriated | 650,000 | 500,000”
+  - column:Tuition and Fees: 17300000 ⟵ “Tuition and Fees | $ | 17,300,000 $ | 19,782,000”
+  - column:Property Tax: 13840000 ⟵ “Property Tax | 13,500,000 | 13,840,000”
+  - column:State Aid: 8728000 ⟵ “State Aid | 8,600,000 | 8,728,000”
+  - column:Other Income: 750000 ⟵ “Other Income | 500,000 | 750,000”
+  - column:Total Revenue: 39900000 ⟵ “Total Revenue | $ | 39,900,000 $ | 43,100,000”
+  - column:Salaries and Wages: 17800000 ⟵ “Salaries and Wages | $ | 17,800,000 $ | 18,800,000”
+  - column:FICA/Retirement: 6200000 ⟵ “FICA/Retirement | 6,120,000 | 6,200,000”
+  - column:Fringes: 3300000 ⟵ “Fringes | 3,300,000 | 3,300,000”
+  - column:General Insurance: 350000 ⟵ “General Insurance | 330,000 | 350,000”
+  - column:Utilities and Postage: 1900000 ⟵ “Utilities and Postage | 1,650,000 | 1,900,000”
+  - column:Transfers: Designated Funds: 5300000 ⟵ “Transfers: Designated Funds | 3,900,000 | 5,300,000”
+  - column:Operational Expenditures: 5750000 ⟵ “Operational Expenditures | 5,150,000 | 5,750,000”
+  - column:Restricted, Matching and Bond Retirement: 1000000 ⟵ “Restricted, Matching and Bond Retirement | 1,000,000 | 1,000,000”
+  - column:Unappropriated: 500000 ⟵ “Unappropriated | 650,000 | 500,000”
+  - … 5 more rows
+### `0a8b3c227c229dfc` University of Detroit Mercy — appeals 2025-26 [new] (labeled_in_source)
+- source: https://www.udmercy.edu/admission/financial-aid/files/2025-26-Special-Circumstances-Form-and-Checklist.pdf (sha256 37a3713ab516)
+- issues: stale_year_label:2025-26, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 4}
+  - sentence: need_based_special_circumstances ⟵ “Scholarship and Financial Aid Office Special Circumstances Form 2025-26 Students whose family experiences a change in financial circumstances that will lower family resources from 2022 to 2023 may be eligible for a recalculation of their aid eligibility based on estimated or actual 2023 income.”
+  - sentence: need_based_special_circumstances ⟵ “In order to be considered for a special circumstances calculation, students and their families must meet specific guidelines and provide documentation of the change.”
+  - sentence: need_based_special_circumstances ⟵ “This Special Circumstances Form is used to determine if the circumstances warrant an adjustment to your UDM financial aid award. 1) Submit a letter explaining the decrease of income.”
+  - sentence: need_based_special_circumstances ⟵ “Divorce or separation Death of parent or spouse Loss of untaxed income or benefit Illness/Disability Unusually high child-care costs (over $1000/month; document) Unusual medical or dental expenses not covered by insurance Tuition payments for siblings in kindergarten through 12th grade during January-December 2023 (If this is your only special circumstance you need to complete the Sibling Tuition ”
+### `1f4d278979d0e3d9` University of Detroit Mercy — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.udmercy.edu/admission/financial-aid/policies/sap_print (sha256 c9c273ab0c95)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 14}
+  - sentence: sap_appeal ⟵ “SAP Appeal Deadlines While you are expected to meet minimum academic progress requirements to maintain your financial aid eligibility, we understand that extenuating circumstances sometimes prevent students from making satisfactory progress towards their degree.”
+  - sentence: sap_appeal ⟵ “If you are ineligible for financial aid because you are not meeting SAP requirements before the beginning of the academic year, and extenuating circumstances have hindered your academic performance, you may submit a SAP Appeal to have your eligibility reconsidered.”
+  - sentence: sap_appeal ⟵ “If these students fail to meet SAP standards at the end of the second semester of the course sequence, financial aid eligibility will be suspended and the student must submit a SAP Appeal for further financial aid consideration.”
+  - sentence: sap_appeal ⟵ “Students seeking to regain financial aid eligibility must also submit a SAP Appeal for review.”
+  - sentence: sap_appeal ⟵ “SAP Appeal If you experienced an extenuating circumstance that impacted your academic progress you may submit a SAP Appeal.”
+  - sentence: sap_appeal ⟵ “A typed appeal letter requesting reinstatement of eligibility must be submitted to finaid@udmercy.edu by the SAP Appeal Deadline for the semester (see SAP Appeal Deadlines).”
+### `54a6d86b575ac52c` University of Detroit Mercy — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.udmercy.edu/admission/financial-aid/policies/index.php (sha256 d9b50df16b87)
+- issues: semantic_review_required, conflicting_sources:https://www.udmercy.edu/admission/financial-aid/files/2026-27-Special-Circumstances.pdf,https://www.udmercy.edu/admission/financial-aid/forms.php
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Should the verified financial information differ significantly from the original information provided on your FAFSA there may be a change in your financial aid eligibility.”
+### `5fd5246b1dbcec52` University of Detroit Mercy — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.udmercy.edu/admission/financial-aid/files/2026-27-Special-Circumstances.pdf (sha256 c13a5b9dcffa)
+- issues: semantic_review_required, conflicting_sources:https://www.udmercy.edu/admission/financial-aid/forms.php,https://www.udmercy.edu/admission/financial-aid/policies/index.php
+- checks: {"negative_sentences": 0, "sentences": 7}
+  - sentence: need_based_special_circumstances ⟵ “McNichols Rd Phone: 313-993-3350 • Fax: 313-993-3347 2026 - 2027 Special Circumstances This form must be submitted by April 1, 2027 for the 2026-2027 academic year.”
+  - sentence: need_based_special_circumstances ⟵ “These special circumstances may be either changes that have occurred in your family since you filed the Free Application for Federal Student Aid (FAFSA) or family circumstances not accounted for on the FAFSA.”
+  - sentence: need_based_special_circumstances ⟵ “On the following pages we have listed the circumstances that most commonly qualify a student to file a Special Circumstances request.”
+  - sentence: need_based_special_circumstances ⟵ “To Qualify for a Special Circumstances Review, You Must: • Write a letter explaining your particular situation.”
+  - sentence: need_based_special_circumstances ⟵ “At times we may ask for additional documentation If your circumstance(s) does NOT fit into one of the options, you may still file the Special Circumstances Form.”
+  - sentence: need_based_special_circumstances ⟵ “Doing so will delay the Special Circumstances review and may require additional documentation to be submitted.”
+### `77c59d349ea1694a` University of Detroit Mercy — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.udmercy.edu/admission/financial-aid/forms.php (sha256 0a8f2e6459ba)
+- issues: ambiguous_year_labels, semantic_review_required, conflicting_sources:https://www.udmercy.edu/admission/financial-aid/files/2026-27-Special-Circumstances.pdf,https://www.udmercy.edu/admission/financial-aid/policies/index.php
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: need_based_special_circumstances ⟵ “Document Submission Form - This form may be used to submit documentation to the Financial Aid Office only. 2025-26 Forms & Guides Open All | Close All 2025-26 Forms Ford-EEOC Scholarship Application Living-Expense-Worksheet Parent Refusal to Provide FAFSA Information Sibling Private School Tuition Form Special Circumstances Form and Checklist Statement-of-Educational-Purpose Summer 2026 Financial ”
+  - sentence: need_based_special_circumstances ⟵ “Independent students will complete this with themselves and their spouse, if applicable. 2025-26 Guides E-Guide Financing Options 2026-27 Forms & Guides Open All | Close All 2026-27 Forms Updated Forms coming soon Ford-EEOC Scholarship Application Living-Expense-Worksheet Parent Refusal to Provide FAFSA Information Sibling Private School Tuition Form Special Circumstances Form Identity Verificatio”
+### `864b88a7a4284bdd` University of Detroit Mercy — appeals 2024-25 [new] (labeled_in_title)
+- source: https://www.udmercy.edu/admission/financial-aid/24-25-fafsa.php (sha256 106d8501e338)
+- issues: stale_year_label:2024-25, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 4}
+  - sentence: need_based_special_circumstances ⟵ “Unusual Circumstances Students with unusual circumstances are defined as: A student for whom a financial aid administrator makes a documented determination of independence by reason of unusual circumstances which prevent the student from contacting parents.”
+  - sentence: need_based_special_circumstances ⟵ “Armed Forces Were an orphan, ward of the court or in foster care at the age of 13 or older Are or were a legally emancipated minor or in a legal guardianship as determined by a court in the student’s state of legal residence or Are a student unaccompanied and either homeless or self-supporting and at risk of being homeless Starting with the 2024-25 Award Year, both first-time and renewal applicant”
+  - sentence: need_based_special_circumstances ⟵ “If a student's institution approves their unusual circumstances, their independent status will carry over when they renew their FAFSA form in future award years, and they will be considered independent for as long as they remain at the same institution and their circumstances remain unchanged.”
+  - sentence: need_based_special_circumstances ⟵ “Families with significant reductions in income levels can review the special circumstances process.”
+### `60707fc2f9b75a3c` University of Detroit Mercy — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://lawschool.udmercy.edu/admissions/financial-aid/cost-of-attendance.php (sha256 67fc4f699715)
+- issues: components_do_not_reconcile, conflicting_sources:https://lawschool.udmercy.edu/admissions/financial-aid/cost-of-attendance_print,https://www.udmercy.edu/admission/financial-aid/cost/index.php,https://www.udmercy.edu/admission/financial-aid/cost/index_print
+- checks: {"columns": 1, "components_reconcile": false, "rows": 11}
+  - column:Tuition: 28356 ⟵ “Tuition | $28,356”
+  - column:Student Bar Association Fee: 146 ⟵ “Student Bar Association Fee | $146”
+  - column:Academic Services Fee: 185 ⟵ “Academic Services Fee | $185”
+  - column:Sum of Direct Expenses: 29237 ⟵ “Sum of Direct Expenses | $29,237”
+  - column:Books & Supplies: 3090 ⟵ “Books & Supplies | $3,090”
+  - column:Housing & Food: 15806 ⟵ “Housing & Food | $15,806”
+  - column:Transportation: 3944 ⟵ “Transportation | $3,944”
+  - column:Miscellaneous: 10244 ⟵ “Miscellaneous | $10,244”
+  - column:Loan Fee: 528 ⟵ “Loan Fee | $528”
+  - column:Sum of Indirect Expenses: 33612 ⟵ “Sum of Indirect Expenses | $33,612”
+  - column:Total Estimated Cost of Attendance: 62849 ⟵ “Total Estimated Cost of Attendance | $62,849”
+### `ad02b52dd7477178` University of Detroit Mercy — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.udmercy.edu/admission/financial-aid/cost/index_print (sha256 b1436d086a82)
+- issues: conflicting_sources:https://lawschool.udmercy.edu/admissions/financial-aid/cost-of-attendance.php,https://lawschool.udmercy.edu/admissions/financial-aid/cost-of-attendance_print,https://www.udmercy.edu/admission/financial-aid/cost/index.php
+- checks: {"columns": 3, "components_reconcile": true, "rows": 8}
+  - on_campus:Tuition (direct): 34276 ⟵ “Tuition (direct) | $34,276 | $34,276 | $34,276”
+  - on_campus:Housing & Food (direct OR indirect): 13248 ⟵ “Housing & Food (direct OR indirect) | $13,248 | $15,220 | $3,214”
+  - on_campus:Aquinas Fee: 800 ⟵ “Aquinas Fee | $800 | $800 | $800”
+  - on_campus:Books & Supplies (indirect): 1468 ⟵ “Books & Supplies (indirect) | $1,468 | $1,468 | $1,468”
+  - on_campus:Transportation (indirect): 1190 ⟵ “Transportation (indirect) | $1,190 | $3,220 | $3,220”
+  - on_campus:Personal Miscellaneous (indirect): 3146 ⟵ “Personal Miscellaneous (indirect) | $3,146 | $10,830 | $3,146”
+  - on_campus:Loan Fees (indirect): 72 ⟵ “Loan Fees (indirect) | $72 | $72 | $72”
+  - on_campus:Total Cost of Attendance: 54200 ⟵ “Total Cost of Attendance | $54,200 | $65,886 | $46,196”
+  - off_campus_not_with_family:Tuition (direct): 34276 ⟵ “Tuition (direct) | $34,276 | $34,276 | $34,276”
+  - off_campus_not_with_family:Housing & Food (direct OR indirect): 15220 ⟵ “Housing & Food (direct OR indirect) | $13,248 | $15,220 | $3,214”
+  - off_campus_not_with_family:Aquinas Fee: 800 ⟵ “Aquinas Fee | $800 | $800 | $800”
+  - off_campus_not_with_family:Books & Supplies (indirect): 1468 ⟵ “Books & Supplies (indirect) | $1,468 | $1,468 | $1,468”
+  - off_campus_not_with_family:Transportation (indirect): 3220 ⟵ “Transportation (indirect) | $1,190 | $3,220 | $3,220”
+  - off_campus_not_with_family:Personal Miscellaneous (indirect): 10830 ⟵ “Personal Miscellaneous (indirect) | $3,146 | $10,830 | $3,146”
+  - off_campus_not_with_family:Loan Fees (indirect): 72 ⟵ “Loan Fees (indirect) | $72 | $72 | $72”
+  - off_campus_not_with_family:Total Cost of Attendance: 65886 ⟵ “Total Cost of Attendance | $54,200 | $65,886 | $46,196”
+  - with_parents_or_family:Tuition (direct): 34276 ⟵ “Tuition (direct) | $34,276 | $34,276 | $34,276”
+  - with_parents_or_family:Housing & Food (direct OR indirect): 3214 ⟵ “Housing & Food (direct OR indirect) | $13,248 | $15,220 | $3,214”
+  - with_parents_or_family:Aquinas Fee: 800 ⟵ “Aquinas Fee | $800 | $800 | $800”
+  - with_parents_or_family:Books & Supplies (indirect): 1468 ⟵ “Books & Supplies (indirect) | $1,468 | $1,468 | $1,468”
+  - with_parents_or_family:Transportation (indirect): 3220 ⟵ “Transportation (indirect) | $1,190 | $3,220 | $3,220”
+  - with_parents_or_family:Personal Miscellaneous (indirect): 3146 ⟵ “Personal Miscellaneous (indirect) | $3,146 | $10,830 | $3,146”
+  - with_parents_or_family:Loan Fees (indirect): 72 ⟵ “Loan Fees (indirect) | $72 | $72 | $72”
+  - with_parents_or_family:Total Cost of Attendance: 46196 ⟵ “Total Cost of Attendance | $54,200 | $65,886 | $46,196”
+### `dd34d20555b7c457` University of Detroit Mercy — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://lawschool.udmercy.edu/admissions/financial-aid/cost-of-attendance_print (sha256 fc6840da2cea)
+- issues: components_do_not_reconcile, conflicting_sources:https://lawschool.udmercy.edu/admissions/financial-aid/cost-of-attendance.php,https://www.udmercy.edu/admission/financial-aid/cost/index.php,https://www.udmercy.edu/admission/financial-aid/cost/index_print
+- checks: {"columns": 1, "components_reconcile": false, "rows": 11}
+  - column:Tuition: 28356 ⟵ “Tuition | $28,356”
+  - column:Student Bar Association Fee: 146 ⟵ “Student Bar Association Fee | $146”
+  - column:Academic Services Fee: 185 ⟵ “Academic Services Fee | $185”
+  - column:Sum of Direct Expenses: 29237 ⟵ “Sum of Direct Expenses | $29,237”
+  - column:Books & Supplies: 3090 ⟵ “Books & Supplies | $3,090”
+  - column:Housing & Food: 15806 ⟵ “Housing & Food | $15,806”
+  - column:Transportation: 3944 ⟵ “Transportation | $3,944”
+  - column:Miscellaneous: 10244 ⟵ “Miscellaneous | $10,244”
+  - column:Loan Fee: 528 ⟵ “Loan Fee | $528”
+  - column:Sum of Indirect Expenses: 33612 ⟵ “Sum of Indirect Expenses | $33,612”
+  - column:Total Estimated Cost of Attendance: 62849 ⟵ “Total Estimated Cost of Attendance | $62,849”
+### `ef5471f72a2b74ec` University of Detroit Mercy — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.udmercy.edu/admission/financial-aid/cost/index.php (sha256 db194ddc60b8)
+- issues: conflicting_sources:https://lawschool.udmercy.edu/admissions/financial-aid/cost-of-attendance.php,https://lawschool.udmercy.edu/admissions/financial-aid/cost-of-attendance_print,https://www.udmercy.edu/admission/financial-aid/cost/index_print
+- checks: {"columns": 3, "components_reconcile": true, "rows": 8}
+  - on_campus:Tuition (direct): 34276 ⟵ “Tuition (direct) | $34,276 | $34,276 | $34,276”
+  - on_campus:Housing & Food (direct OR indirect): 13248 ⟵ “Housing & Food (direct OR indirect) | $13,248 | $15,220 | $3,214”
+  - on_campus:Aquinas Fee: 800 ⟵ “Aquinas Fee | $800 | $800 | $800”
+  - on_campus:Books & Supplies (indirect): 1468 ⟵ “Books & Supplies (indirect) | $1,468 | $1,468 | $1,468”
+  - on_campus:Transportation (indirect): 1190 ⟵ “Transportation (indirect) | $1,190 | $3,220 | $3,220”
+  - on_campus:Personal Miscellaneous (indirect): 3146 ⟵ “Personal Miscellaneous (indirect) | $3,146 | $10,830 | $3,146”
+  - on_campus:Loan Fees (indirect): 72 ⟵ “Loan Fees (indirect) | $72 | $72 | $72”
+  - on_campus:Total Cost of Attendance: 54200 ⟵ “Total Cost of Attendance | $54,200 | $65,886 | $46,196”
+  - off_campus_not_with_family:Tuition (direct): 34276 ⟵ “Tuition (direct) | $34,276 | $34,276 | $34,276”
+  - off_campus_not_with_family:Housing & Food (direct OR indirect): 15220 ⟵ “Housing & Food (direct OR indirect) | $13,248 | $15,220 | $3,214”
+  - off_campus_not_with_family:Aquinas Fee: 800 ⟵ “Aquinas Fee | $800 | $800 | $800”
+  - off_campus_not_with_family:Books & Supplies (indirect): 1468 ⟵ “Books & Supplies (indirect) | $1,468 | $1,468 | $1,468”
+  - off_campus_not_with_family:Transportation (indirect): 3220 ⟵ “Transportation (indirect) | $1,190 | $3,220 | $3,220”
+  - off_campus_not_with_family:Personal Miscellaneous (indirect): 10830 ⟵ “Personal Miscellaneous (indirect) | $3,146 | $10,830 | $3,146”
+  - off_campus_not_with_family:Loan Fees (indirect): 72 ⟵ “Loan Fees (indirect) | $72 | $72 | $72”
+  - off_campus_not_with_family:Total Cost of Attendance: 65886 ⟵ “Total Cost of Attendance | $54,200 | $65,886 | $46,196”
+  - with_parents_or_family:Tuition (direct): 34276 ⟵ “Tuition (direct) | $34,276 | $34,276 | $34,276”
+  - with_parents_or_family:Housing & Food (direct OR indirect): 3214 ⟵ “Housing & Food (direct OR indirect) | $13,248 | $15,220 | $3,214”
+  - with_parents_or_family:Aquinas Fee: 800 ⟵ “Aquinas Fee | $800 | $800 | $800”
+  - with_parents_or_family:Books & Supplies (indirect): 1468 ⟵ “Books & Supplies (indirect) | $1,468 | $1,468 | $1,468”
+  - with_parents_or_family:Transportation (indirect): 3220 ⟵ “Transportation (indirect) | $1,190 | $3,220 | $3,220”
+  - with_parents_or_family:Personal Miscellaneous (indirect): 3146 ⟵ “Personal Miscellaneous (indirect) | $3,146 | $10,830 | $3,146”
+  - with_parents_or_family:Loan Fees (indirect): 72 ⟵ “Loan Fees (indirect) | $72 | $72 | $72”
+  - with_parents_or_family:Total Cost of Attendance: 46196 ⟵ “Total Cost of Attendance | $54,200 | $65,886 | $46,196”
+### `1598d2a42b401bb5` Washtenaw Community College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.wccnet.edu/afford/cost/tuition/ (sha256 ea138cbbb986)
+- issues: arrangement_unlabeled, residency_unknown, conflicting_sources:https://www.wccnet.edu/afford/cost/tuition/,https://www.wccnet.edu/afford/cost/tuition/tuition-saving-calculator.php,https://www.wccnet.edu/webfiles/about-us/transparency/web/proposed-2026-27-budget.pdf
+- checks: {"columns": 3, "components_reconcile": true, "rows": 7}
+  - column:Tuition and Fees: 2736 ⟵ “Tuition and Fees | 2,736 | 4,968 | 6,888”
+  - column:Books and Supplies: 484 ⟵ “Books and Supplies | 484 | 484 | 484”
+  - column:Loan Fee: 66 ⟵ “Loan Fee | 66 | 66 | 66”
+  - column:Miscellaneous: 600 ⟵ “Miscellaneous | 600 | 600 | 600”
+  - column:Living Expenses (Housing and Food): 13512 ⟵ “Living Expenses (Housing and Food) | 13,512 | 12,392 | 13,512”
+  - column:Transportation: 2000 ⟵ “Transportation | 2,000 | 2,400 | 2,000”
+  - column:Total: 19398 ⟵ “Total | 19,398 | 20,910 | 23,550”
+  - column:Tuition and Fees: 4968 ⟵ “Tuition and Fees | 2,736 | 4,968 | 6,888”
+  - column:Books and Supplies: 484 ⟵ “Books and Supplies | 484 | 484 | 484”
+  - column:Loan Fee: 66 ⟵ “Loan Fee | 66 | 66 | 66”
+  - column:Miscellaneous: 600 ⟵ “Miscellaneous | 600 | 600 | 600”
+  - column:Living Expenses (Housing and Food): 12392 ⟵ “Living Expenses (Housing and Food) | 13,512 | 12,392 | 13,512”
+  - column:Transportation: 2400 ⟵ “Transportation | 2,000 | 2,400 | 2,000”
+  - column:Total: 20910 ⟵ “Total | 19,398 | 20,910 | 23,550”
+  - column:Tuition and Fees: 6888 ⟵ “Tuition and Fees | 2,736 | 4,968 | 6,888”
+  - column:Books and Supplies: 484 ⟵ “Books and Supplies | 484 | 484 | 484”
+  - column:Loan Fee: 66 ⟵ “Loan Fee | 66 | 66 | 66”
+  - column:Miscellaneous: 600 ⟵ “Miscellaneous | 600 | 600 | 600”
+  - column:Living Expenses (Housing and Food): 13512 ⟵ “Living Expenses (Housing and Food) | 13,512 | 12,392 | 13,512”
+  - column:Transportation: 2000 ⟵ “Transportation | 2,000 | 2,400 | 2,000”
+  - column:Total: 23550 ⟵ “Total | 19,398 | 20,910 | 23,550”
+### `49135fdc29376cfc` Washtenaw Community College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.wccnet.edu/afford/cost/tuition/tuition-saving-calculator.php (sha256 5eb2a38b8646)
+- issues: arrangement_unlabeled, residency_unknown, conflicting_sources:https://www.wccnet.edu/afford/cost/tuition/,https://www.wccnet.edu/afford/cost/tuition/,https://www.wccnet.edu/webfiles/about-us/transparency/web/proposed-2026-27-budget.pdf
+- checks: {"columns": 3, "components_reconcile": true, "rows": 7}
+  - column:Tuition and Fees: 2736 ⟵ “Tuition and Fees | 2,736 | 4,968 | 6,888”
+  - column:Books and Supplies: 484 ⟵ “Books and Supplies | 484 | 484 | 484”
+  - column:Loan Fee: 66 ⟵ “Loan Fee | 66 | 66 | 66”
+  - column:Miscellaneous: 600 ⟵ “Miscellaneous | 600 | 600 | 600”
+  - column:Living Expenses (Housing and Food): 13512 ⟵ “Living Expenses (Housing and Food) | 13,512 | 12,392 | 13,512”
+  - column:Transportation: 2000 ⟵ “Transportation | 2,000 | 2,400 | 2,000”
+  - column:Total: 19398 ⟵ “Total | 19,398 | 20,910 | 23,550”
+  - column:Tuition and Fees: 4968 ⟵ “Tuition and Fees | 2,736 | 4,968 | 6,888”
+  - column:Books and Supplies: 484 ⟵ “Books and Supplies | 484 | 484 | 484”
+  - column:Loan Fee: 66 ⟵ “Loan Fee | 66 | 66 | 66”
+  - column:Miscellaneous: 600 ⟵ “Miscellaneous | 600 | 600 | 600”
+  - column:Living Expenses (Housing and Food): 12392 ⟵ “Living Expenses (Housing and Food) | 13,512 | 12,392 | 13,512”
+  - column:Transportation: 2400 ⟵ “Transportation | 2,000 | 2,400 | 2,000”
+  - column:Total: 20910 ⟵ “Total | 19,398 | 20,910 | 23,550”
+  - column:Tuition and Fees: 6888 ⟵ “Tuition and Fees | 2,736 | 4,968 | 6,888”
+  - column:Books and Supplies: 484 ⟵ “Books and Supplies | 484 | 484 | 484”
+  - column:Loan Fee: 66 ⟵ “Loan Fee | 66 | 66 | 66”
+  - column:Miscellaneous: 600 ⟵ “Miscellaneous | 600 | 600 | 600”
+  - column:Living Expenses (Housing and Food): 13512 ⟵ “Living Expenses (Housing and Food) | 13,512 | 12,392 | 13,512”
+  - column:Transportation: 2000 ⟵ “Transportation | 2,000 | 2,400 | 2,000”
+  - column:Total: 23550 ⟵ “Total | 19,398 | 20,910 | 23,550”
+### `7e8333b7e3ab3b36` Washtenaw Community College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.wccnet.edu/webfiles/about-us/transparency/web/proposed-2026-27-budget.pdf (sha256 7e1c8ed9b76f)
+- issues: arrangement_unlabeled, implausible_amount, residency_unknown, conflicting_sources:https://www.wccnet.edu/afford/cost/tuition/,https://www.wccnet.edu/afford/cost/tuition/,https://www.wccnet.edu/afford/cost/tuition/tuition-saving-calculator.php
+- checks: {"columns": 2, "components_reconcile": true, "rows": 9}
+  - column:Tuition and Fees: 35899218 ⟵ “Tuition and Fees | $35,899,218 | Personnel | $96,706,256”
+  - column:Local Property Taxes: 81745765 ⟵ “Local Property Taxes | $81,745,765 | Non-Personnel | $30,063,328”
+  - column:State Appropriations: 19276454 ⟵ “State Appropriations | $19,276,454 | Utilities | $3,755,148”
+  - column:Investment Income: 4733480 ⟵ “Investment Income | $4,733,480 | Trade Partnerships | $5,567,471”
+  - column:Trade Partnerships: 7150739 ⟵ “Trade Partnerships | $7,150,739 | Institutional Initiatives | $2,552,000”
+  - column:Other Miscellaneous: 2363084 ⟵ “Other Miscellaneous | $2,363,084 | Total Expenditures | $138,644,203”
+  - column:Auxiliary Activities: 1585200 ⟵ “Auxiliary Activities | $1,585,200 | Operational and Non-Operational | $14,109,737”
+  - column:Total Revenue: 152753940 ⟵ “Total Revenue | $152,753,940 | Total Expenditures and Transfers | $152,753,940”
+  - column:Operational Revenue Over Expenditures: 0 ⟵ “Operational Revenue Over Expenditures | $0”
+  - column:Tuition and Fees: 96706256 ⟵ “Tuition and Fees | $35,899,218 | Personnel | $96,706,256”
+  - column:Local Property Taxes: 30063328 ⟵ “Local Property Taxes | $81,745,765 | Non-Personnel | $30,063,328”
+  - column:State Appropriations: 3755148 ⟵ “State Appropriations | $19,276,454 | Utilities | $3,755,148”
+  - column:Investment Income: 5567471 ⟵ “Investment Income | $4,733,480 | Trade Partnerships | $5,567,471”
+  - column:Trade Partnerships: 2552000 ⟵ “Trade Partnerships | $7,150,739 | Institutional Initiatives | $2,552,000”
+  - column:Other Miscellaneous: 138644203 ⟵ “Other Miscellaneous | $2,363,084 | Total Expenditures | $138,644,203”
+  - column:Auxiliary Activities: 14109737 ⟵ “Auxiliary Activities | $1,585,200 | Operational and Non-Operational | $14,109,737”
+  - column:Total Revenue: 152753940 ⟵ “Total Revenue | $152,753,940 | Total Expenditures and Transfers | $152,753,940”
+### `a5ac6658695d9b3d` Washtenaw Community College — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.wccnet.edu/afford/cost/tuition/past-tuition-rates.php (sha256 f864c695700d)
+- issues: arrangement_unlabeled, residency_unknown, stale_year_label:2025-26
+- checks: {"columns": 3, "components_reconcile": true, "rows": 7}
+  - column:Tuition and Fees: 2736 ⟵ “Tuition and Fees | 2,736 | 4,824 | 6,696”
+  - column:Books and Supplies: 646 ⟵ “Books and Supplies | 646 | 646 | 646”
+  - column:Loan Fee: 64 ⟵ “Loan Fee | 64 | 64 | 64”
+  - column:Miscellaneous: 600 ⟵ “Miscellaneous | 600 | 600 | 600”
+  - column:Living Expenses (Housing and Food): 4000 ⟵ “Living Expenses (Housing and Food) | 4,000 | 4,000 | 4,000”
+  - column:Transportation: 2000 ⟵ “Transportation | 2,000 | 2,400 | 2,000”
+  - column:Total: 10046 ⟵ “Total | 10,046 | 12,534 | 14,006”
+  - column:Tuition and Fees: 4824 ⟵ “Tuition and Fees | 2,736 | 4,824 | 6,696”
+  - column:Books and Supplies: 646 ⟵ “Books and Supplies | 646 | 646 | 646”
+  - column:Loan Fee: 64 ⟵ “Loan Fee | 64 | 64 | 64”
+  - column:Miscellaneous: 600 ⟵ “Miscellaneous | 600 | 600 | 600”
+  - column:Living Expenses (Housing and Food): 4000 ⟵ “Living Expenses (Housing and Food) | 4,000 | 4,000 | 4,000”
+  - column:Transportation: 2400 ⟵ “Transportation | 2,000 | 2,400 | 2,000”
+  - column:Total: 12534 ⟵ “Total | 10,046 | 12,534 | 14,006”
+  - column:Tuition and Fees: 6696 ⟵ “Tuition and Fees | 2,736 | 4,824 | 6,696”
+  - column:Books and Supplies: 646 ⟵ “Books and Supplies | 646 | 646 | 646”
+  - column:Loan Fee: 64 ⟵ “Loan Fee | 64 | 64 | 64”
+  - column:Miscellaneous: 600 ⟵ “Miscellaneous | 600 | 600 | 600”
+  - column:Living Expenses (Housing and Food): 4000 ⟵ “Living Expenses (Housing and Food) | 4,000 | 4,000 | 4,000”
+  - column:Transportation: 2000 ⟵ “Transportation | 2,000 | 2,400 | 2,000”
+  - column:Total: 14006 ⟵ “Total | 10,046 | 12,534 | 14,006”
+### `b5a49506f43d6389` Washtenaw Community College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.wccnet.edu/afford/cost/tuition/ (sha256 e8eef8e3222c)
+- issues: arrangement_unlabeled, residency_unknown, conflicting_sources:https://www.wccnet.edu/afford/cost/tuition/,https://www.wccnet.edu/afford/cost/tuition/tuition-saving-calculator.php,https://www.wccnet.edu/webfiles/about-us/transparency/web/proposed-2026-27-budget.pdf
+- checks: {"columns": 3, "components_reconcile": true, "rows": 7}
+  - column:Tuition and Fees: 2736 ⟵ “Tuition and Fees | 2,736 | 4,968 | 6,888”
+  - column:Books and Supplies: 484 ⟵ “Books and Supplies | 484 | 484 | 484”
+  - column:Loan Fee: 66 ⟵ “Loan Fee | 66 | 66 | 66”
+  - column:Miscellaneous: 600 ⟵ “Miscellaneous | 600 | 600 | 600”
+  - column:Living Expenses (Housing and Food): 13512 ⟵ “Living Expenses (Housing and Food) | 13,512 | 12,392 | 13,512”
+  - column:Transportation: 2000 ⟵ “Transportation | 2,000 | 2,400 | 2,000”
+  - column:Total: 19398 ⟵ “Total | 19,398 | 20,910 | 23,550”
+  - column:Tuition and Fees: 4968 ⟵ “Tuition and Fees | 2,736 | 4,968 | 6,888”
+  - column:Books and Supplies: 484 ⟵ “Books and Supplies | 484 | 484 | 484”
+  - column:Loan Fee: 66 ⟵ “Loan Fee | 66 | 66 | 66”
+  - column:Miscellaneous: 600 ⟵ “Miscellaneous | 600 | 600 | 600”
+  - column:Living Expenses (Housing and Food): 12392 ⟵ “Living Expenses (Housing and Food) | 13,512 | 12,392 | 13,512”
+  - column:Transportation: 2400 ⟵ “Transportation | 2,000 | 2,400 | 2,000”
+  - column:Total: 20910 ⟵ “Total | 19,398 | 20,910 | 23,550”
+  - column:Tuition and Fees: 6888 ⟵ “Tuition and Fees | 2,736 | 4,968 | 6,888”
+  - column:Books and Supplies: 484 ⟵ “Books and Supplies | 484 | 484 | 484”
+  - column:Loan Fee: 66 ⟵ “Loan Fee | 66 | 66 | 66”
+  - column:Miscellaneous: 600 ⟵ “Miscellaneous | 600 | 600 | 600”
+  - column:Living Expenses (Housing and Food): 13512 ⟵ “Living Expenses (Housing and Food) | 13,512 | 12,392 | 13,512”
+  - column:Transportation: 2000 ⟵ “Transportation | 2,000 | 2,400 | 2,000”
+  - column:Total: 23550 ⟵ “Total | 19,398 | 20,910 | 23,550”
+### `b5579cb16dfdb6b3` Washtenaw Community College — transfer_policies 2024-25 [new] (labeled_in_source)
+- source: https://www.wccnet.edu/webfiles/curriculum-assessment/web/articulation-agreements/college-articulation/emu-business-major-bba-business-admin-transfer-aa.pdf (sha256 c70977603089)
+- issues: stale_year_label:2024-25
+- checks: {"fields": ["min_grade", "residency_requirement_credits"]}
+  - min_grade: C ⟵ “Only courses with a grade of “C” or better (2.0 on a 4.0 scale) will be accepted for transfer to either institution. 4.”
+  - residency_requirement_credits: 30 ⟵ “Of the last 30 hours completed before graduating, a minimum of 10 credit hours must be in courses offered by EMU.”
+### `m592d342f0e5292e` Washtenaw Community College — transfer_policies 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.wccnet.edu/webfiles/curriculum-assessment/web/articulation-agreements/college-articulation/emu/emu-secondary-social-studies-education-bs--secondary-education-transfer-aa.pdf (sha256 69642b9d254b)
+- issues: ambiguous_year_labels, conflicting_sources:min_grade
+- checks: {"fields": ["min_grade", "residency_requirement_credits"], "merged_pages": 3}
+  - min_grade: C- ⟵ “General Notes • A grade of C- or better is required for a course to transfer. • A bachelor’s degree requires a minimum of 120 semester hours of credit.”
+  - min_grade: C ⟵ “Only courses with a grade of “C” or better (2.0 on a 4.0 scale) will be accepted for transfer to either institution. 4.”
+  - residency_requirement_credits: 30 ⟵ “Of the last 30 hours completed before graduating, a minimum of 10 credit hours must be in courses offered by EMU.”
+  - residency_requirement_credits: 30 ⟵ “To learn more about the transfer process, visit nmu.edu/transfer or email transfer@nmu.edu Visit nmu.edu/education or email education@nmu.edu for more information on this pathway THIRD & FOURTH YEAR AT NORTHERN MICHIGAN UNIVERSITY Winter Semester Complete a minimum of 30 semester hours of credit in residence at EDU 221 Affective Teaching (Major) Northern Michigan University, excluding advanced pla”
+### `3df11a34c2cc2a46` Western Michigan University — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://wmich.edu/finaid/financial-literacy/resources/special (sha256 b00fba46aca0)
+- issues: ambiguous_year_labels, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: need_based_special_circumstances ⟵ “Appeals process Through the appeals process, we can assist you (and your spouse if you're married) if you have special circumstances that may affect your financial aid eligibility or the ability to apply for financial aid.”
+  - sentence: need_based_special_circumstances ⟵ “For the special circumstance appeal, please contact Bronco Express at (269) 387-6000 to request a phone appointment with a Financial Services Specialist (located in the Faunce Student Service building).”
+  - sentence: need_based_special_circumstances ⟵ “If there are special financial circumstances that may affect your ability to pay for your education, you may request a review of the information provided on your FAFSA to see if your special circumstances can be considered for an adjustment to your SAI.”
+### `52b246aa6ce655f6` Western Michigan University — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://wmich.edu/finaid/apply/eligibility (sha256 fca5cfb61414)
+- issues: ambiguous_year_labels, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “File a satisfactory academic progress appeal Satisfactory academic progress policy Policy statement effective summer II 2019, to remain eligible for institutional, federal and state financial aid programs, students need to make satisfactory academic progress (SAP) toward a degree or certificate.”
+  - sentence: sap_appeal ⟵ “Appeal process If the student has received a “not eligible” notice due to not meeting SAP, the student may appeal for reinstatement of their financial aid eligibility based on extenuating circumstances.”
+### `c1bb061827a3c96a` Western Michigan University — appeals 2024-25 [new] (labeled_in_source)
+- source: https://wmich.edu/finaid/aid-types/institutional-offers (sha256 621208c384ce)
+- issues: stale_year_label:2024-25, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 5}
+  - sentence: sap_appeal ⟵ “Go to international student scholarship resources Institutional scholarships renewals and appeals Full-time enrollment and Satisfactory Academic Progress (SAP) are required for scholarships to pay.”
+  - sentence: sap_appeal ⟵ “If students are not meeting SAP requirements, then they must complete an SAP appeal with the Office of Student Financial Aid.”
+  - sentence: sap_appeal ⟵ “If student’s SAP appeal is granted, the reinstated SAP status will automatically allow the scholarship to pay and no additional scholarship appeal is necessary.”
+  - sentence: sap_appeal ⟵ “If satisfactory academic progress is required for renewal of your scholarship, you must file the SAP appeal form.”
+  - sentence: sap_appeal ⟵ “If satisfactory academic progress is required for renewal of your scholarship, you must file the SAP appeal form.”
+### `ca3b7ec8e1def386` Western Michigan University — appeals 2024-25 [new] (labeled_in_source)
+- source: https://wmich.edu/finaid/aid-types/institutional-offers (sha256 621208c384ce)
+- issues: stale_year_label:2024-25, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: scholarship_retention_appeal ⟵ “See our Scholarship Reinstatement Appeal form. | Offer | Renewal criteria | Medallion Scholarship | 3.5 GPA, 28 hours completed | President's Academic Excellence | 3.5 GPA, 28 hours completed | Admissions Scholarships (Bronco Merit, Bronco Honors, Bronco Recognition, Brown & Gold) | 3.0 GPA, 28 hours completed | Transfer Scholarships | 3.0 GPA, 24 hours completed | MLK Gold Scholarship, Detroit Pr”
+### `d31041bca23bf3b0` Western Michigan University — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://wmich.edu/finaid/apply/eligibility (sha256 fca5cfb61414)
+- issues: ambiguous_year_labels, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: professional_judgment ⟵ “In addition to these standards, Student Financial Aid may use professional judgment to terminate eligibility.”
+  - sentence: professional_judgment ⟵ “Appeal forms are available at http://wmich.studentforms.com Reinstatement of financial aid is dependent upon professional judgment and awards are based on the availability of funds.”
+### `f25162e2ccf98bfe` Western Michigan University — appeals 2024-25 [new] (labeled_in_source)
+- source: https://wmich.edu/finaid (sha256 2cd34bb14bdb)
+- issues: stale_year_label:2024-25, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Special circumstances Financial aid common forms Study abroad financial aid Contact us If you have any other questions or would like to speak with one of our helpful representatives, please visit Bronco Express or contact us at the link below.”
+### `5592f6c3cefba31d` Western Michigan University — awards 2024-25 [new] (labeled_in_source)
+- source: https://wmich.edu/finaid/aid-types/institutional-offers (sha256 621208c384ce)
+- issues: stale_year_label:2024-25, duplicate_table_versions
+- checks: {"thresholds": null}
+  - award_amount_text: Admissions Scholarships (Bronco Merit, Bronco Honors, Bronco Recognition, Brown & Gold) ⟵ “Admissions Scholarships (Bronco Merit, Bronco Honors, Bronco Recognition, Brown & Gold) | 3.0 GPA, 28 hours completed”
+  - renewal_requirements: 3.0 GPA, 28 hours completed ⟵ “Admissions Scholarships (Bronco Merit, Bronco Honors, Bronco Recognition, Brown & Gold) | 3.0 GPA, 28 hours completed”
+### `af4e4cd4176968b1` Western Michigan University — awards 2024-25 [new] (labeled_in_source)
+- source: https://wmich.edu/finaid/aid-types/institutional-offers (sha256 621208c384ce)
+- issues: stale_year_label:2024-25, duplicate_table_versions
+- checks: {"thresholds": null}
+  - award_amount_text: Medallion Scholarship ⟵ “Medallion Scholarship | 3.5 GPA, 28 hours completed”
+  - renewal_requirements: 3.5 GPA, 28 hours completed ⟵ “Medallion Scholarship | 3.5 GPA, 28 hours completed”
+### `b0b6cfb88478ed07` Western Michigan University — awards 2024-25 [new] (labeled_in_source)
+- source: https://wmich.edu/finaid/aid-types/institutional-offers (sha256 621208c384ce)
+- issues: stale_year_label:2024-25, duplicate_table_versions
+- checks: {"thresholds": null}
+  - award_amount_text: Seita Scholarship ⟵ “Seita Scholarship | Satisfactory Academic Progress. If satisfactory academic progress is required for renewal of your scholarship, you must file the SAP appeal form. You must additionally contact the Seita Scholars Program office for scholarship reinstatement approval.”
+  - renewal_requirements: Satisfactory Academic Progress. If satisfactory academic progress is required for renewal of your scholarship, you must file the SAP appeal form. You must additionally contact the Seita Scholars Program office for scholarship reinstatement approval. ⟵ “Seita Scholarship | Satisfactory Academic Progress. If satisfactory academic progress is required for renewal of your scholarship, you must file the SAP appeal form. You must additionally contact the Seita Scholars Program office for scholarship reinstatement approval.”
+### `b390e5e3809c39e6` Western Michigan University — awards 2024-25 [new] (labeled_in_source)
+- source: https://wmich.edu/finaid/aid-types/institutional-offers (sha256 621208c384ce)
+- issues: stale_year_label:2024-25, duplicate_table_versions
+- checks: {"thresholds": null}
+  - award_amount_text: Foundation Scholarship ⟵ “Foundation Scholarship | 3.0 GPA, 24 hours completed”
+  - renewal_requirements: 3.0 GPA, 24 hours completed ⟵ “Foundation Scholarship | 3.0 GPA, 24 hours completed”
+### `bfc702be0cdc41ca` Western Michigan University — awards 2024-25 [new] (labeled_in_source)
+- source: https://wmich.edu/finaid/aid-types/institutional-offers (sha256 621208c384ce)
+- issues: stale_year_label:2024-25, duplicate_table_versions
+- checks: {"thresholds": null}
+  - award_amount_text: MLK Gold Scholarship, Detroit Promise, Dean's Award, WMU Incentive ⟵ “MLK Gold Scholarship, Detroit Promise, Dean's Award, WMU Incentive | 2.5 GPA, 24 hours completed”
+  - renewal_requirements: 2.5 GPA, 24 hours completed ⟵ “MLK Gold Scholarship, Detroit Promise, Dean's Award, WMU Incentive | 2.5 GPA, 24 hours completed”
+### `c773948ae04f2ff0` Western Michigan University — awards 2024-25 [new] (labeled_in_source)
+- source: https://wmich.edu/finaid/aid-types/institutional-offers (sha256 621208c384ce)
+- issues: stale_year_label:2024-25, duplicate_table_versions
+- checks: {"thresholds": null}
+  - award_amount_text: Transfer Scholarships ⟵ “Transfer Scholarships | 3.0 GPA, 24 hours completed”
+  - renewal_requirements: 3.0 GPA, 24 hours completed ⟵ “Transfer Scholarships | 3.0 GPA, 24 hours completed”
+### `f7b16e431ad803c7` Western Michigan University — awards 2024-25 [new] (labeled_in_source)
+- source: https://wmich.edu/finaid/aid-types/institutional-offers (sha256 621208c384ce)
+- issues: stale_year_label:2024-25, duplicate_table_versions
+- checks: {"thresholds": null}
+  - award_amount_text: President's Academic Excellence ⟵ “President's Academic Excellence | 3.5 GPA, 28 hours completed”
+  - renewal_requirements: 3.5 GPA, 28 hours completed ⟵ “President's Academic Excellence | 3.5 GPA, 28 hours completed”
+### `08bf6ba57a4460ee` Western Michigan University — costs 2026-27 · residency=in_state [new] (source_unlabeled)
+- source: https://wmich.edu/finaid/cost-of-attendance (sha256 261c5c8934ab)
+- issues: ambiguous_year_labels, arrangement_unlabeled
+- checks: {"columns": 3, "components_reconcile": true, "rows": 8}
+  - column:Tuition: 4112 ⟵ “Tuition | $4,112 | $16,449 | $4,112”
+  - column:Standard Fees: 35 ⟵ “Standard Fees | $35 | $140 | $35”
+  - column:Housing and Food: 3648 ⟵ “Housing and Food | $3,648 | $14,590 | $3,648”
+  - column:Books/Supplies: 281 ⟵ “Books/Supplies | $281 | $1,128 | $281”
+  - column:Transportation: 720 ⟵ “Transportation | $720 | $2,880 | $720”
+  - column:Loan Fees: 9 ⟵ “Loan Fees | $9 | $37 | $9”
+  - column:Other: 512 ⟵ “Other | $512 | $2,046 | $512”
+  - column:TOTAL: 9317 ⟵ “TOTAL | $9,317 | $37,270 | $9,317”
+  - column:Tuition: 16449 ⟵ “Tuition | $4,112 | $16,449 | $4,112”
+  - column:Standard Fees: 140 ⟵ “Standard Fees | $35 | $140 | $35”
+  - column:Housing and Food: 14590 ⟵ “Housing and Food | $3,648 | $14,590 | $3,648”
+  - column:Books/Supplies: 1128 ⟵ “Books/Supplies | $281 | $1,128 | $281”
+  - column:Transportation: 2880 ⟵ “Transportation | $720 | $2,880 | $720”
+  - column:Loan Fees: 37 ⟵ “Loan Fees | $9 | $37 | $9”
+  - column:Other: 2046 ⟵ “Other | $512 | $2,046 | $512”
+  - column:TOTAL: 37270 ⟵ “TOTAL | $9,317 | $37,270 | $9,317”
+  - column:Tuition: 4112 ⟵ “Tuition | $4,112 | $16,449 | $4,112”
+  - column:Standard Fees: 35 ⟵ “Standard Fees | $35 | $140 | $35”
+  - column:Housing and Food: 3648 ⟵ “Housing and Food | $3,648 | $14,590 | $3,648”
+  - column:Books/Supplies: 281 ⟵ “Books/Supplies | $281 | $1,128 | $281”
+  - column:Transportation: 720 ⟵ “Transportation | $720 | $2,880 | $720”
+  - column:Loan Fees: 9 ⟵ “Loan Fees | $9 | $37 | $9”
+  - column:Other: 512 ⟵ “Other | $512 | $2,046 | $512”
+  - column:TOTAL: 9317 ⟵ “TOTAL | $9,317 | $37,270 | $9,317”
+### `1bbd098819c3e5d1` Western Michigan University — costs 2026-27 · residency=out_of_state [new] (source_unlabeled)
+- source: https://wmich.edu/finaid/cost-of-attendance (sha256 261c5c8934ab)
+- issues: ambiguous_year_labels, arrangement_unlabeled
+- checks: {"columns": 3, "components_reconcile": true, "rows": 8}
+  - column:Tuition: 5140 ⟵ “Tuition | $5,140 | $20,525 | $5,140”
+  - column:Standard Fees: 35 ⟵ “Standard Fees | $35 | $140 | $35”
+  - column:Housing and Food: 3121 ⟵ “Housing and Food | $3,121 | $14,590 | $3,121”
+  - column:Books/Supplies: 281 ⟵ “Books/Supplies | $281 | $1,128 | $281”
+  - column:Transportation: 465 ⟵ “Transportation | $465 | $2,880 | $465”
+  - column:Loan Fees: 9 ⟵ “Loan Fees | $9 | $37 | $9”
+  - column:Other: 512 ⟵ “Other | $512 | $2,046 | $512”
+  - column:TOTAL: 9563 ⟵ “TOTAL | $9,563 | $41,346 | $9,563”
+  - column:Tuition: 20525 ⟵ “Tuition | $5,140 | $20,525 | $5,140”
+  - column:Standard Fees: 140 ⟵ “Standard Fees | $35 | $140 | $35”
+  - column:Housing and Food: 14590 ⟵ “Housing and Food | $3,121 | $14,590 | $3,121”
+  - column:Books/Supplies: 1128 ⟵ “Books/Supplies | $281 | $1,128 | $281”
+  - column:Transportation: 2880 ⟵ “Transportation | $465 | $2,880 | $465”
+  - column:Loan Fees: 37 ⟵ “Loan Fees | $9 | $37 | $9”
+  - column:Other: 2046 ⟵ “Other | $512 | $2,046 | $512”
+  - column:TOTAL: 41346 ⟵ “TOTAL | $9,563 | $41,346 | $9,563”
+  - column:Tuition: 5140 ⟵ “Tuition | $5,140 | $20,525 | $5,140”
+  - column:Standard Fees: 35 ⟵ “Standard Fees | $35 | $140 | $35”
+  - column:Housing and Food: 3121 ⟵ “Housing and Food | $3,121 | $14,590 | $3,121”
+  - column:Books/Supplies: 281 ⟵ “Books/Supplies | $281 | $1,128 | $281”
+  - column:Transportation: 465 ⟵ “Transportation | $465 | $2,880 | $465”
+  - column:Loan Fees: 9 ⟵ “Loan Fees | $9 | $37 | $9”
+  - column:Other: 512 ⟵ “Other | $512 | $2,046 | $512”
+  - column:TOTAL: 9563 ⟵ “TOTAL | $9,563 | $41,346 | $9,563”
+
+## Re-verification of existing records (0)
+
+
+## Statewide sources
+
+Pages fetched: 1; pages by category: 
+
+## Blocked by the site (every request refused; needs the browser fallback)
+
+- Eastern Michigan University (`ipeds-169798`)
+- Grace Christian University (`ipeds-170000`)
+- Rochester University (`ipeds-170967`)
+- University of Michigan-Ann Arbor (`ipeds-170976`)
+- University of Michigan-Dearborn (`ipeds-171137`)
+- University of Michigan-Flint (`ipeds-171146`)
+- The University of Olivet (`ipeds-171599`)
+- Wayne State University (`ipeds-172644`)
+- West Shore Community College (`ipeds-172671`)
+- Yeshiva Gedolah of Greater Detroit (`ipeds-247773`)
+
+## Leads: official pages found with no extracted record
+
+- Adrian College: tuition_fees, cost_of_attendance, admissions_tests, common_data_set, merit_scholarships, dual_enrollment, transfer_credit, degree_requirements
+- Albion College: cost_of_attendance, admissions_tests, dual_enrollment, statewide_articulation, degree_requirements
+- Alma College: cost_of_attendance, admissions_tests, ib_credit, dual_enrollment, transfer_credit, degree_requirements
+- Alpena Community College: cost_of_attendance, admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements
+- Andrews University: cost_of_attendance, admissions_tests, clep_credit, transfer_credit, residency
+- Aquinas College: admissions_tests, merit_scholarships, ap_credit, transfer_credit, statewide_articulation
+- Baker College: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, degree_requirements
+- Bay Mills Community College: tuition_fees, admissions_tests, merit_scholarships, transfer_credit, statewide_articulation, degree_requirements, aid_appeals
+- Bay de Noc Community College: cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, dual_enrollment, transfer_credit, residency
+- Calvin University: tuition_fees, cost_of_attendance, admissions_tests, dual_enrollment, transfer_credit
+- Central Michigan University: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements
+- Cleary University: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, dual_enrollment, transfer_credit, statewide_articulation, degree_requirements
+- College for Creative Studies: cost_of_attendance
+- Concordia University Ann Arbor: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, transfer_credit, statewide_articulation, residency, degree_requirements, aid_appeals
+- Cornerstone University: tuition_fees, cost_of_attendance, admissions_tests, transfer_credit, statewide_articulation, residency, degree_requirements
+- Davenport University: admissions_tests, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements
+- Delta College: cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, clep_credit, ib_credit, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements
+- Ferris State University: cost_of_attendance, admissions_tests, common_data_set, merit_scholarships, clep_credit, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements
+- Glen Oaks Community College: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, transfer_credit, residency, degree_requirements
+- Gogebic Community College: admissions_tests, merit_scholarships, ap_credit, clep_credit, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements
+- Grand Rapids Community College: cost_of_attendance, admissions_tests, common_data_set, merit_scholarships, ap_credit, transfer_credit, residency, degree_requirements
+- Grand Valley State University: admissions_tests, merit_scholarships, ap_credit, clep_credit, dual_enrollment, transfer_credit, residency, degree_requirements
+- Great Lakes Christian College: cost_of_attendance, admissions_tests, merit_scholarships, transfer_credit, degree_requirements
+- Henry Ford College: admissions_tests, merit_scholarships, ib_credit, dual_enrollment, statewide_articulation, residency, degree_requirements
+- Hillsdale College: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, clep_credit, ib_credit, transfer_credit
+- Hope College: cost_of_attendance, admissions_tests, clep_credit, ib_credit, dual_enrollment, transfer_credit, degree_requirements
+- Jackson College: admissions_tests, merit_scholarships, ap_credit, clep_credit, dual_enrollment, transfer_credit, statewide_articulation, degree_requirements
+- Kalamazoo College: cost_of_attendance, admissions_tests, common_data_set, merit_scholarships, ap_credit, dual_enrollment, degree_requirements
+- Kalamazoo Valley Community College: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, transfer_credit, statewide_articulation, residency, degree_requirements
+- Kellogg Community College: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, statewide_articulation, residency, degree_requirements
+- Kettering University: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, statewide_articulation, degree_requirements
+- Keweenaw Bay Ojibwa Community College: tuition_fees, cost_of_attendance, admissions_tests, common_data_set, merit_scholarships, ap_credit, clep_credit, transfer_credit, statewide_articulation, degree_requirements
+- Kirtland Community College: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, clep_credit, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements
+- Kuyper College: admissions_tests, merit_scholarships, ap_credit, clep_credit, transfer_credit
+- Lake Michigan College: admissions_tests, merit_scholarships, ap_credit, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements
+- Lake Superior State University: tuition_fees, cost_of_attendance, admissions_tests, common_data_set, merit_scholarships, clep_credit, dual_enrollment, transfer_credit, aid_appeals
+- Lansing Community College: tuition_fees, cost_of_attendance, admissions_tests, ap_credit, dual_enrollment, transfer_credit, residency, degree_requirements
+- Lawrence Technological University: cost_of_attendance, admissions_tests, transfer_credit, statewide_articulation, degree_requirements
+- Macomb Community College: admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements
+- Madonna University: tuition_fees, cost_of_attendance, admissions_tests, ap_credit, transfer_credit, statewide_articulation, residency, degree_requirements
+- Michigan State University: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, residency, degree_requirements
+- Michigan Technological University: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, residency
+- Mid Michigan College: cost_of_attendance, admissions_tests, common_data_set, merit_scholarships, ap_credit, clep_credit, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements
+- Monroe County Community College: merit_scholarships, dual_enrollment, transfer_credit, residency, aid_appeals
+- Montcalm Community College: admissions_tests, merit_scholarships, clep_credit, dual_enrollment, transfer_credit, statewide_articulation, degree_requirements
+- Mott Community College: admissions_tests, common_data_set, merit_scholarships, transfer_credit, residency, degree_requirements
+- Muskegon Community College: tuition_fees, cost_of_attendance, admissions_tests, common_data_set, merit_scholarships, statewide_articulation, residency, degree_requirements
+- North Central Michigan College: admissions_tests, merit_scholarships, ap_credit, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements
+- Northern Michigan University: cost_of_attendance, merit_scholarships, clep_credit, statewide_articulation, residency, degree_requirements
+- Northwestern Michigan College: cost_of_attendance, admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements
+- Northwood University: cost_of_attendance, admissions_tests, merit_scholarships, transfer_credit, statewide_articulation, residency, degree_requirements
+- Oakland Community College: admissions_tests, merit_scholarships, ap_credit, clep_credit, transfer_credit, statewide_articulation, residency, degree_requirements
+- Oakland University: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, clep_credit, ib_credit, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements, aid_appeals
+- Sacred Heart Major Seminary: tuition_fees, admissions_tests
+- Saginaw Chippewa Tribal College: tuition_fees, admissions_tests, merit_scholarships, degree_requirements
+- Saginaw Valley State University: admissions_tests, ap_credit, clep_credit, ib_credit, dual_enrollment, transfer_credit, residency, degree_requirements
+- Schoolcraft Community College District: cost_of_attendance, admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, degree_requirements
+- Siena Heights University: tuition_fees, merit_scholarships, transfer_credit, statewide_articulation, degree_requirements
+- Southwestern Michigan College: tuition_fees, cost_of_attendance, admissions_tests, common_data_set, merit_scholarships, ap_credit, clep_credit, dual_enrollment, transfer_credit, residency, degree_requirements
+- Spring Arbor University: tuition_fees, dual_enrollment
+- St Clair County Community College: admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements
+- University of Detroit Mercy: admissions_tests, merit_scholarships, transfer_credit, residency, degree_requirements
+- Washtenaw Community College: admissions_tests, merit_scholarships, clep_credit, dual_enrollment, statewide_articulation, residency, degree_requirements, aid_appeals
+- Wayne County Community College District: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, clep_credit, dual_enrollment, degree_requirements
+- Western Michigan University: admissions_tests, ap_credit, ib_credit, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements
