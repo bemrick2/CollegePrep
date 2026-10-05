@@ -144,6 +144,9 @@ def page_quote(pq, run):
     printed lines (whitespace-normalised). Joined with ' … ' because lines may be apart on the page."""
     import re
     norm = lambda x: re.sub(r'\s+', ' ', x).strip()
+    if pq.get('run'):  # a page stored in another run of the same state
+        from pipeline.crawl import Run
+        run = Run(ROOT / pq['run'])
     hits = [e for e in run.entries() if pq['url'] in (e.get('url'), e.get('final_url')) and e.get('page_file')]
     if not hits: raise ValueError(f"page_quote: {pq['url']} not stored in the run")
     e = hits[-1]
