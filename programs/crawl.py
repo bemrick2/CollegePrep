@@ -232,9 +232,51 @@ def crawl_target(target, run: Run, fetcher, browser=None, log=print, caps=None):
                 links = [(canonical(h), (a or '')[:200]) for h, a in page.links if in_scope(target, h)]
                 entry['page_file'] = run.save_page(meta['sha256'], kind, page, links)
                 expand(target, role, url, links, push, is_program, is_nav, depth)
+                if kind == 'html' and role == 'program_page' and (target.get('catalog') or {}).get('platform') == 'courseleaf':
+                    store_courselists(run, key, url, body, depth)
+                if kind == 'html' and role == 'program_page' and (target.get('catalog') or {}).get('platform') == 'smartcatalog':
+                    store_outline(run, key, url, body, depth)
+                if kind == 'pdf' and role == 'degree_map' and target.get('pdf_layout'):
+                    store_pdf_layout(run, key, url, body, depth)
         run.record(entry)
     log(f"{key}: {len(queue)} fetched {dict(sorted(counts.items()))}")
     return len(queue)
+
+
+def store_courselists(run, key, url, body, depth):
+    """The page's CourseLeaf Course List tables with row classes and indentation (programs.courselist_html), stored as
+    their own JSON document (url + '#courselist') derived from the same fetched bytes."""
+    from .courselist_html import course_lists, to_text
+    tables = course_lists(body)
+    if not tables: return
+    text = to_text(tables); sha = hashlib.sha256(text.encode()).hexdigest()
+    run.record({'institution_key': key, 'url': url + '#courselist', 'role': 'courselist', 'via': url, 'depth': depth, 'fetched_at': now(),
+                'status': 200, 'sha256': sha, 'source_sha256': hashlib.sha256(body).hexdigest(), 'kind': 'json', 'tables': len(tables),
+                'page_file': run.save_page(sha, 'json', T.Page(text, 'CourseLeaf course lists', [], [], []), [])})
+
+
+def store_pdf_layout(run, key, url, body, depth):
+    """Word positions of a PDF (poppler `pdftotext -bbox-layout`), stored as their own JSON document (url + '#layout'):
+    two-column degree maps need x positions to keep the columns apart."""
+    from .pdf_layout import words
+    pages = words(body)
+    if not pages: return
+    text = json.dumps(pages, ensure_ascii=False); sha = hashlib.sha256(text.encode()).hexdigest()
+    run.record({'institution_key': key, 'url': url + '#layout', 'role': 'pdf_layout', 'via': url, 'depth': depth, 'fetched_at': now(),
+                'status': 200, 'sha256': sha, 'source_sha256': hashlib.sha256(body).hexdigest(), 'kind': 'json',
+                'page_file': run.save_page(sha, 'json', T.Page(text, 'pdf word layout', [], [], []), [])})
+
+
+def store_outline(run, key, url, body, depth):
+    """The page's block outline with list nesting (programs.courselist_html.outline), stored as its own JSON document
+    (url + '#outline') derived from the same fetched bytes."""
+    from .courselist_html import outline
+    blocks = outline(body)
+    if not blocks: return
+    text = json.dumps(blocks, ensure_ascii=False, indent=0); sha = hashlib.sha256(text.encode()).hexdigest()
+    run.record({'institution_key': key, 'url': url + '#outline', 'role': 'outline', 'via': url, 'depth': depth, 'fetched_at': now(),
+                'status': 200, 'sha256': sha, 'source_sha256': hashlib.sha256(body).hexdigest(), 'kind': 'json', 'blocks': len(blocks),
+                'page_file': run.save_page(sha, 'json', T.Page(text, 'page outline', [], [], []), [])})
 
 
 NOT_BACHELOR_ANCHOR = re.compile(r'\b(minor|certificate|option|concentration|graduate|master|doctor|ph\.?\s?d|m\.?\s?s\.?|m\.?\s?a\.?|mba|'
