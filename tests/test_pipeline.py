@@ -400,6 +400,21 @@ last 30 hours in residence at the university.</p>"""
             p = T.Page('', 'Costs', [{'heading': heading, 'caption': '', 'lead': '', 'rows': rows}], [], [])
             self.assertEqual(bool(costs.extract(INST, ENTRY, p, '2026-27')), bool(n), heading)
 
+    def test_ny_r1_rules(self):
+        """NY r1: SUNY Poly's "Semester Cost of Attendance" page, Buffalo State's superseded fall-2024-and-prior
+        scholarships and its faculty awards-recognition page."""
+        rows = [['', 'Amount'], ['Tuition', '$3,535'], ['Fees', '$778'], ['Housing', '$5,000'], ['Total', '$9,313']]
+        for title, period in [('Semester Cost of Attendance | SUNY Poly', 'semester'), ('Cost of Attendance | SUNY Poly', 'academic_year')]:
+            p = T.Page('', title, [{'heading': 'Cost of Attendance 2026-27', 'caption': '', 'lead': '', 'rows': rows}], [], [])
+            got = costs.extract(INST, ENTRY, p, '2026-27')
+            self.assertTrue(got, title)
+            self.assertEqual({c['record']['cost_period'] for c in got}, {period}, title)
+        page = T.parse_html('<title>Scholarships</title><h2>Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th></tr>'
+                            '<tr><td>Presidential Scholarship</td><td>$2,500</td></tr><tr><td>Provost Scholarship</td><td>$2,000</td></tr></table>')
+        self.assertTrue(merit.extract(INST, {**ENTRY, 'url': 'https://financialaid.x.edu/scholarships-first-year'}, page, '2026-27'))
+        for url in ['https://financialaid.x.edu/scholarships-fall-2024-and-prior', 'https://academicaffairs.x.edu/awards-recognition']:
+            self.assertEqual(merit.extract(INST, {**ENTRY, 'url': url}, page, '2026-27'), [], url)
+
     def test_oh_r1_rules(self):
         """OH r1: OWU's academic-progress GPA rows, Walsh's OT tuition-and-fees page, CWRU/Dayton no-credit rows, a quoted
         national average beside a dual-credit price, a DeVry transfer-pledge MOU and Kenyon's applicant-grade sentence."""

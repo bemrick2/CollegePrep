@@ -814,6 +814,43 @@ Institutions in scope: **7** · crawled: **6** · blocked by site: **1** · run:
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-182500`
 
+## NY — 2026-27
+
+Institutions in scope: **239** · crawled: **174** · blocked by site: **65** · run: `pipeline/runs/NY/2026-10-05`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 0 (0%) | 0 | 78 (33%) | 155 (65%) | 19 | 65 |
+| cost_of_attendance | 0 (0%) | 0 | 35 (15%) | 153 (64%) | 21 | 65 |
+| admissions_tests | 0 (0%) | 0 | 2 (1%) | 153 (64%) | 21 | 65 |
+| common_data_set | 0 (0%) | 0 | 2 (1%) | 24 (10%) | 150 | 65 |
+| merit_scholarships | 0 (0%) | 0 | 20 (8%) | 150 (63%) | 24 | 65 |
+| ap_credit | 0 (0%) | 0 | 33 (14%) | 93 (39%) | 81 | 65 |
+| clep_credit | 0 (0%) | 0 | 18 (8%) | 59 (25%) | 115 | 65 |
+| ib_credit | 0 (0%) | 0 | 27 (11%) | 50 (21%) | 124 | 65 |
+| dual_enrollment | 0 (0%) | 0 | 6 (3%) | 56 (23%) | 118 | 65 |
+| transfer_credit | 0 (0%) | 0 | 48 (20%) | 147 (62%) | 27 | 65 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 78 (33%) | 96 | 65 |
+| residency | 0 (0%) | 0 | 0 (0%) | 86 (36%) | 88 | 65 |
+| degree_requirements | 0 (0%) | 0 | 1 (0%) | 113 (47%) | 61 | 65 |
+| aid_appeals | 0 (0%) | 0 | 111 (46%) | 130 (54%) | 44 | 65 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 102 |
+| blocked requests | 293 |
+| candidates | 984 |
+| conflicts | 261 |
+| documents | 11137 |
+| extraction failures | 0 |
+| fetch errors | 533 |
+| fetches | 11963 |
+| ready | 278 |
+| semantic review | 371 |
+| stale sources | 138 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-128586`, `ipeds-189857`, `ipeds-190150`, `ipeds-190530`, `ipeds-190567`, `ipeds-190576`, `ipeds-190585`, `ipeds-190628`, `ipeds-190840`, `ipeds-192110`, `ipeds-192165`, `ipeds-192624`, `ipeds-192864`, `ipeds-193052`, `ipeds-193061`, `ipeds-193654`, `ipeds-193900`, `ipeds-193946`, `ipeds-194189`, `ipeds-194657`, `ipeds-194693`, `ipeds-194736`, `ipeds-194763`, `ipeds-195128`, `ipeds-195234`, `ipeds-195474`, `ipeds-195544`, `ipeds-196158`, `ipeds-196583`, `ipeds-197027`, `ipeds-197036`, `ipeds-197230`, `ipeds-197601`, `ipeds-197647`, `ipeds-197674`, `ipeds-197692`, `ipeds-197735`, `ipeds-197744`, `ipeds-245777`, `ipeds-375230`, `ipeds-386153`, `ipeds-405058`, `ipeds-420325`, `ipeds-431983`, `ipeds-451404`, `ipeds-455257`, `ipeds-475422`, `ipeds-481410`, `ipeds-484871`, `ipeds-485999`, `ipeds-486026`, `ipeds-486196`, `ipeds-487746`, `ipeds-490276`, `ipeds-490328`, `ipeds-490504`, `ipeds-491057`, `ipeds-491446`, `ipeds-493594`, `ipeds-493600`, `ipeds-493646`, `ipeds-493664`, `ipeds-493798`, `ipeds-495031`, `ipeds-498809`
+
 ## OH — 2026-27
 
 Institutions in scope: **124** · crawled: **101** · blocked by site: **23** · run: `pipeline/runs/OH/2026-10-05`

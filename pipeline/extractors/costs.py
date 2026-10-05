@@ -237,6 +237,8 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
     lead_period = [m for m in re.finditer(r'\bper\s+(?:semester|term)\b', (t.get('lead') or '')[:160], re.I)
                    if not re.search(r'(?:credits?|hours?)\s*$', (t.get('lead') or '')[:m.start()], re.I)]
     if not ctx['period'] and lead_period: ctx['period'] = 'semester'
+    # NY r1 (SUNY Poly): a page titled "Semester Cost of Attendance" prints one semester's figures in unlabeled columns.
+    if not ctx['period'] and re.search(r'^\W*semester\s+cost', page.title or '', re.I): ctx['period'] = 'semester'
     cols = []
     for j in range(ncols):
         m = column_meaning(headers[j] if j < len(headers) else '', home, private)

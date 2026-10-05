@@ -238,6 +238,10 @@ MUTS = [
     ('pipeline/extractors/transfer.py', "re.search(r'(?<!under)graduate[-_]?", "re.search(r'graduate[-_]?"),
     ('pipeline/extractors/costs.py', "SKIP_TABLE = re.compile(r'\\bmaster\\b|", "SKIP_TABLE = re.compile(r'"),
     ('pipeline/extractors/costs.py', '|\\bexample\\b|graduate|', '|graduate|'),
+    # NY r1
+    ('pipeline/extractors/costs.py', "    if not ctx['period'] and re.search(r'^\\W*semester\\s+cost', page.title or '', re.I): ctx['period'] = 'semester'", '    pass'),
+    ('pipeline/extractors/merit.py', "r'and[- ]prior\\b|awards[- ](?:and[- ])?recognition|'", "r'awards[- ](?:and[- ])?recognition|'"),
+    ('pipeline/extractors/merit.py', "|awards[- ](?:and[- ])?recognition|'", "|'"),
 ]
 failed = False
 for f, old, new in MUTS:

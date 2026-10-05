@@ -29,6 +29,8 @@ NOT_AWARD_NAME = re.compile(r'^\W*(?:freshman|sophomore|junior|senior)\s+\d+\s*(
                             r'^(gpa|act|sat|clt|psat|scores?|tiers?|level|amount)$|^(annual\s+)?totals?$', re.I)  # OK (Oklahoma Christian): a header row repeated in the body  # AR: UA-PTC placement score rows  # OR: COA rows
 NOT_MERIT_PAGE = re.compile(r'tuition[- ](?:and|&)[- ]fees|international[- ]baccalaureate(?![- ]scholarship)|academicworks|course[- ]awards|\bclep\b|examination[- ]program|(?:private|outside|external)[- ]scholarships?|undocumented|sample[- ]aid[- ]packages?|aid[- ]package[- ]examples?|retention|renewal|keep(?:ing)?[- ]your[- ]scholarship|academic[- ]standards|probation|satisfactory[- ]academic[- ]progress|financial[- ]aid[- ]staff|'
                             r'\bstaff\b|directory|meet[- ]the[- ]team|our[- ]team|'
+                            # NY r1: Buffalo State's superseded "scholarships-fall-2024-and-prior" and its faculty awards-recognition page.
+                            r'and[- ]prior\b|awards[- ](?:and[- ])?recognition|'
                             # GA r1: lists of other organizations' awards (Agnes Scott outside scholarships, Georgia Southern
                             # military scholarships, West Georgia Tech foundation awards) and international-office waivers (UWG ISAP).
                             r'outside[- ]scholarships?|external[- ]scholarships?|third[- ]party|military|veteran|foundation|/isap/|donor[- ]scholarships?|'
