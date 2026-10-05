@@ -677,3 +677,13 @@ class CourseListLayoutReviewTests(unittest.TestCase):
         self.assertIn('substitution_noted_on_page', out[0]['issues'])
         g = CL.html_groups(self.table([('c', 'DATA 488', 'Capstone (or)', '4'), ('opt', 'MATH 280', 'Internship')]))
         self.assertTrue({'indented_rows_after_required_course', 'substitute_in_title'} <= g[0][1]['issues'])
+
+
+class OutlineTests(unittest.TestCase):
+    def test_list_depth_and_blocks(self):
+        from programs.courselist_html import outline
+        html = ('<nav><ul><li>Home</li></ul></nav><h2>Major Requirements</h2><p>Select one of the following:</p>'
+                '<ul><li><a class="sc-courselink">PSY 200</a> General Psychology <ul><li>or PSY 201</li></ul></li><li>STAT 243Z</li></ul>')
+        b = outline(html)
+        self.assertEqual([(x['tag'], x['depth'], x['text']) for x in b],
+                         [('h2', 0, 'Major Requirements'), ('p', 0, 'Select one of the following:'), ('li', 1, 'PSY 200 General Psychology'), ('li', 2, 'or PSY 201'), ('li', 1, 'STAT 243Z')])
