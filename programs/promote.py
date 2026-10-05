@@ -65,6 +65,16 @@ def promote(decisions_path: Path, log=print):
         approvals += [{'candidate_id': c['candidate_id'], 'reason': ap['reason'], **({'accept_issues': ap['accept_issues']} if ap.get('accept_issues') else {})}
                       for c in sorted(hit, key=lambda c: c['domain'] != 'academic_programs') if c['candidate_id'] not in rejected]
     approvals.sort(key=lambda a: cands[a['candidate_id']]['domain'] != 'academic_programs')  # programs before their requirements
+    # A program already on file from the same program URL keeps its key (as pipeline/review.py does for curated rows),
+    # and so do its requirement rows: no second record for one program.
+    keymap = {}
+    for a in approvals:
+        c = cands[a['candidate_id']]
+        if c['domain'] != 'academic_programs': continue
+        old = _records(folders[c['institution_key']], 'academic_programs', c['academic_year'])
+        for r in (old or {}).get('records', []):
+            if r.get('program_url') == c['record'].get('program_url') and r['program_key'] != c['record']['program_key']:
+                keymap[(c['institution_key'], c['academic_year'], c['record']['program_key'])] = r['program_key']
     for a in approvals:
         c = cands.get(a['candidate_id'])
         if c is None: raise KeyError(f"unknown candidate {a['candidate_id']}")
@@ -72,6 +82,8 @@ def promote(decisions_path: Path, log=print):
         if status is None:
             raise ValueError(f"{c['candidate_id']} has open issues {c['issues']}; accept_issues with a reason is required")
         rec = dict(c['record']); rec['verification_status'] = status
+        mapped = keymap.get((c['institution_key'], c['academic_year'], rec.get('program_key')))
+        if mapped: rec['program_key'] = mapped
         note = f" Reviewed {date.today().isoformat()}: {a.get('reason', '').strip()}"
         if a.get('accept_issues'): note += f" Accepted issues {c['issues']}: {a['accept_issues']}"
         rec['notes'] = (rec.get('notes', '') + note + f" Evidence: sources/programs/{state}/{run_dir.name}/evidence.json#{c['candidate_id']}.").strip()
@@ -106,7 +118,8 @@ def _quote(ids, ev):
     if not sents: raise ValueError('a field decision needs evidence_ids')
     urls = {s['url'] for s in sents}
     if len(urls) != 1: raise ValueError(f'evidence for one field must come from one document: {urls}')
-    return ' '.join(s['sentence'] for s in sents), sents[0]
+    # Sentences are verbatim but may be far apart on the page: an ellipsis marks every join.
+    return ' … '.join(s['sentence'] for s in sents), sents[0]
 
 
 def apply_field(f, folders, ev, archive):
