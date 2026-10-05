@@ -106,7 +106,10 @@ def gaps(row):
     g, p, r = [], row['persisted'], row['run']
     if r is None: g.append('no program-depth run yet')
     else:
-        if r['catalog_pages_ok'] == 0: g.append('current catalog not retrieved' + (f" ({', '.join(r['catalog_fetch_errors'])})" if r['catalog_fetch_errors'] else ''))
+        errs = r['catalog_fetch_errors']
+        if any(k.startswith(('blocked_bot_challenge', 'host_challenge_stop')) for k in errs):
+            g.append('catalog program pages behind a bot challenge (recorded, not evaded)')
+        elif r['catalog_pages_ok'] == 0: g.append('current catalog not retrieved' + (f" ({', '.join(errs)})" if errs else ''))
         elif r['listed_bachelor_programs'] == 0: g.append('catalog retrieved but no program list parsed')
     if not p['program_catalog_record']: g.append('no reviewed program_catalogs record (completeness unknown)')
     if p['verified_programs'] == 0:
