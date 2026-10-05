@@ -47,6 +47,8 @@ def check_candidate(c, text):
         for term in rd.get('terms', []) or []:
             items += [i for i in term.get('items', []) if isinstance(i, dict)]
         for i in items:
+            for f in ('text', 'milestone'):  # printed text rows and milestone cells (UO degree maps)
+                if i.get(f) and squash(i[f]) not in squashed: probs.append(f"{f} of an item not verbatim")
             if 'code' in i and not code_in(text, i['code']): probs.append(f"course {i['code']} not in source")
             elif i.get('title') and not all(squash(part) in squashed for part in re.split(r'\s*\(', i['title'][:80]) if squash(part)):
                 # PDF plans print a gen-ed tag such as "(Quantitative Reasoning)" on the next line; each part must be printed

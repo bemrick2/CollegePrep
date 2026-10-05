@@ -460,3 +460,32 @@ class PrintedListTests(unittest.TestCase):
         self.assertEqual([(c['record']['program_name'], c['record']['program_url'][-8:], c['record']['catalog_year']) for c in out],
                          [('Biology, B.S., B.A.', 'mple/bio', '2026-2027'), ('Economics, B.A.', 'graduate-programs'[-8:], '2026-2027'),
                           ('Mathematics, Applied, B.S.', 'programs', '2026-2027'), ('Economics, B.B.A.', 'programs', '2026-2027')])
+
+
+class CoursedogPageTests(unittest.TestCase):
+    def test_rendered_program_page_with_catalog_year_statement(self):  # Willamette 2026-27
+        from pipeline import text as T
+        home = T.Page('Information in this catalog applies to the 2026–2027 academic year and is accurate to the best of our knowledge.', 'Catalog', [], [], [])
+        prog = T.Page('Home/\nPrograms/\nBiology (BA)\nBiology (BA)\nDownload as PDF\nDegree\nBachelor of Arts (BA)\nCopyright © 2026-2027 Willamette University', 'BA.BIOL Program', [], [], [])
+        class R:
+            def load_page(self, f): return {'h': home, 'p': prog}[f], None
+        es = [{'url': 'https://catalog.willamette.edu/', 'role': 'catalog_home', 'page_file': 'h', 'sha256': 's'}]
+        cy = X.coursedog_year(R(), es)
+        self.assertEqual(cy['year'], '2026-2027')
+        e = {'url': 'https://catalog.willamette.edu/programs/BA.BIOL', 'sha256': 't', 'fetched_at': '2026-10-05T00:00:00'}
+        out = X.coursedog_page_identity({'institution_key': 'k'}, e, prog, '2026-27', cy)
+        self.assertEqual([(c['record']['program_name'], c['record']['catalog_year']) for c in out], [('Biology (BA)', '2026-2027')])
+        self.assertEqual(X.coursedog_page_identity({'institution_key': 'k'}, e, prog, '2026-27', None), [])  # no year statement, no record
+        law = T.Page(prog.text.replace('Biology (BA)', 'Law (JD)').replace('Bachelor of Arts (BA)', 'Juris Doctor'), 'Law', [], [], [])
+        self.assertEqual(X.coursedog_page_identity({'institution_key': 'k'}, e, law, '2026-27', cy), [])
+
+    def test_milestones_column_kept_apart(self):  # UO 2026-27 Accounting / Business Administration / Music
+        from programs import courseleaf as CL
+        long = 'SPAN 3xx Hispanic Cultures through Literature or SPAN 3xx ' + 'Creative Writing in Spanish ' * 12
+        t = {'rows': [['Fall', 'Milestones', 'Credits'], ['ACTG 450', 'Advanced Financial Accounting', 'Attend Meet the Firms', '4'],
+                      ['Upper-division business elective courses', 'Register for commencement', '8'], ['', '', '2'], [long, '', '4'], ['', 'Credits', '', '18']]}
+        items = CL.parse_grid(t)[0][0]['items']
+        self.assertEqual(items[0], {'code': 'ACTG 450', 'title': 'Advanced Financial Accounting', 'credits': 4, 'milestone': 'Attend Meet the Firms'})
+        self.assertEqual(items[1], {'text': 'Upper-division business elective courses', 'credits': 8, 'milestone': 'Register for commencement'})
+        self.assertEqual(items[2], {'text': '', 'credits': 2})
+        self.assertEqual(items[3], long.strip() + ' | 4')  # never cut

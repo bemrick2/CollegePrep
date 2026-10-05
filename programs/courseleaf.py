@@ -27,12 +27,16 @@ def grids(page):
 
 
 def parse_grid(t):
-    terms, cur, total = [], None, None
+    """UO grids add a Milestones column ('Fall | Milestones | Credits'): a course row is [code, title, milestone,
+    credits] and a text row [text, milestone, credits] (the text cell spans two columns). The milestone is kept in its
+    own field, never inside the item text. A text row printed with credits only stays a row with empty text."""
+    terms, cur, total, milestones = [], None, None, False
     for row in t.get('rows') or []:
         cells = [c.strip() for c in row]
         nonempty = [c for c in cells if c]
         if not nonempty: continue
         if TERM.match(nonempty[0]) and all(c.lower() in HEADER_CELLS for c in nonempty[1:]):  # 'Fall | Milestones | Credits' (UO)
+            milestones = milestones or any(c.lower() == 'milestones' for c in nonempty[1:])
             cur = {'term_index': len(terms) + 1, 'label': nonempty[0], 'items': []}; terms.append(cur); continue
         if len(nonempty) >= 2 and nonempty[-2].lower() == 'total credits':
             total = nonempty[-1]; continue
@@ -45,9 +49,15 @@ def parse_grid(t):
         if m:
             item = {'code': f'{m.group(1)} {m.group(2)}', 'title': cells[1] if len(cells) > 2 else ''}
             if hours: item['credits'] = int(hours) if hours.isdigit() else hours
+            if milestones and len(cells) == 4 and cells[2]: item['milestone'] = cells[2]
+            cur['items'].append(item)
+        elif milestones and len(cells) == 3 and (cells[1] or not cells[0]):
+            item = {'text': cells[0]}
+            if cells[2]: item['credits'] = int(cells[2]) if cells[2].isdigit() else cells[2]
+            if cells[1]: item['milestone'] = cells[1]
             cur['items'].append(item)
         else:
-            cur['items'].append(' | '.join(nonempty)[:300])
+            cur['items'].append(' | '.join(nonempty))
     return terms, total
 
 

@@ -390,14 +390,25 @@
    "domains": [
     "cn.edu"
    ],
-   "hosts": [],
-   "mode": "discover",
-   "priority": 2,
-   "discover": [
-    "https://www.cn.edu/",
-    "https://catalog.cn.edu/"
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
    ],
-   "policy": []
+   "mode": "catalog",
+   "priority": 2,
+   "render": "browser",
+   "catalog": {
+    "platform": "coursedog",
+    "home": "https://catalog.cn.edu/",
+    "path_prefix": "/programs/",
+    "min_depth": 0,
+    "program_lists": [
+     "https://catalog.cn.edu/programs"
+    ]
+   },
+   "policy": [
+    "https://catalog.cn.edu/academic-policies",
+    "https://catalog.cn.edu/admissions"
+   ]
   },
   {
    "institution_key": "ipeds-220613",
@@ -767,14 +778,24 @@
    "domains": [
     "lanecollege.edu"
    ],
-   "hosts": [],
-   "mode": "discover",
-   "priority": 3,
-   "discover": [
-    "https://www.lanecollege.edu/",
-    "https://catalog.lanecollege.edu/"
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
    ],
-   "policy": []
+   "mode": "catalog",
+   "priority": 3,
+   "render": "browser",
+   "catalog": {
+    "platform": "coursedog",
+    "home": "https://catalog.lanecollege.edu/",
+    "path_prefix": "/programs/",
+    "min_depth": 0,
+    "program_lists": [
+     "https://catalog.lanecollege.edu/programs"
+    ]
+   },
+   "policy": [
+    "https://catalog.lanecollege.edu/academics/academic-regulations"
+   ]
   },
   {
    "institution_key": "ipeds-220604",
