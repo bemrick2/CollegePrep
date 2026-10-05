@@ -1,0 +1,12 @@
+{
+  "note": "Verified records whose status the repository owner approved correcting. scripts/live_import.sh passes this list to the importer; a verified record may be downgraded only if its natural key is listed here AND the record carries a verification_correction_reason. Entries stay as the audit trail.",
+  "corrections": [
+    {
+      "natural_key": "[\"costs\", \"ipeds-152992\", null, \"2027-28\", {\"residency\": \"not_applicable\"}]",
+      "record": "data/institutions/briarcliff/costs/2027-28.json",
+      "reason": "Briar Cliff 2027-28 cost was approved as an academic-year budget from a table headed \"Costs Per Semester\".",
+      "approved_by": "Brandon (repository owner), in the Claude session",
+      "approved_on": "2026-10-05"
+    }
+  ]
+}
