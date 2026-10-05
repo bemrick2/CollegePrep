@@ -75,17 +75,17 @@
    "source_found": 151
   },
   "aid_appeals": {
-   "candidate_exception": 110,
+   "candidate_exception": 111,
    "fetch_failed": 65,
-   "not_found": 45,
+   "not_found": 44,
    "source_found": 19
   },
   "ap_credit": {
    "candidate_exception": 14,
    "candidate_ready": 19,
    "fetch_failed": 65,
-   "not_found": 82,
-   "source_found": 59
+   "not_found": 81,
+   "source_found": 60
   },
   "clep_credit": {
    "candidate_exception": 7,
@@ -130,8 +130,8 @@
    "candidate_exception": 4,
    "candidate_ready": 17,
    "fetch_failed": 65,
-   "not_found": 25,
-   "source_found": 128
+   "not_found": 24,
+   "source_found": 129
   },
   "residency": {
    "fetch_failed": 65,
@@ -140,8 +140,8 @@
   },
   "statewide_articulation": {
    "fetch_failed": 65,
-   "not_found": 97,
-   "source_found": 77
+   "not_found": 96,
+   "source_found": 78
   },
   "transfer_credit": {
    "candidate_exception": 12,
@@ -161,15 +161,15 @@
  "institutions": 239,
  "quality": {
   "ambiguous_years": 102,
-  "blocked_requests": 280,
-  "candidates": 993,
+  "blocked_requests": 293,
+  "candidates": 995,
   "conflicts": 263,
-  "documents": 11061,
+  "documents": 11137,
   "extraction_failures": 0,
-  "fetch_errors": 499,
-  "fetches": 11840,
+  "fetch_errors": 533,
+  "fetches": 11963,
   "ready": 288,
-  "semantic_review": 369,
+  "semantic_review": 371,
   "stale_sources": 139
  },
  "rows": [
@@ -4510,24 +4510,24 @@
   {
    "categories": {
     "admissions_tests": "source_found",
-    "aid_appeals": "not_found",
-    "ap_credit": "not_found",
+    "aid_appeals": "candidate_exception",
+    "ap_credit": "source_found",
     "clep_credit": "not_found",
     "common_data_set": "not_found",
     "cost_of_attendance": "source_found",
     "degree_requirements": "source_found",
     "dual_enrollment": "not_found",
     "ib_credit": "not_found",
-    "merit_scholarships": "not_found",
+    "merit_scholarships": "source_found",
     "residency": "source_found",
-    "statewide_articulation": "not_found",
+    "statewide_articulation": "source_found",
     "transfer_credit": "source_found",
     "tuition_fees": "source_found"
    },
    "fetch_failures": 0,
    "institution_key": "ipeds-196866",
    "name": "Union College",
-   "pages_fetched": 13
+   "pages_fetched": 90
   },
   {
    "categories": {
@@ -4634,10 +4634,10 @@
     "transfer_credit": "source_found",
     "tuition_fees": "candidate_ready"
    },
-   "fetch_failures": 6,
+   "fetch_failures": 16,
    "institution_key": "ipeds-196088",
    "name": "University at Buffalo",
-   "pages_fetched": 80
+   "pages_fetched": 90
   },
   {
    "categories": {
@@ -4744,10 +4744,10 @@
     "transfer_credit": "source_found",
     "tuition_fees": "source_found"
    },
-   "fetch_failures": 4,
+   "fetch_failures": 43,
    "institution_key": "ipeds-197133",
    "name": "Vassar College",
-   "pages_fetched": 51
+   "pages_fetched": 90
   },
   {
    "categories": {
@@ -5463,10 +5463,10 @@
   "fetch_failed"
  ],
  "totals": {
-  "candidate_exception": 234,
+  "candidate_exception": 235,
   "candidate_ready": 151,
   "fetch_failed": 910,
-  "not_found": 993,
-  "source_found": 1058
+  "not_found": 989,
+  "source_found": 1061
  }
 }

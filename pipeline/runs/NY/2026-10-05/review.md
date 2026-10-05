@@ -1,6 +1,6 @@
 # Review queue — NY (2026-27)
 
-Pages fetched: 11750; failures: 770. Candidates: 993 (244 without issues, 749 exceptions). Re-verification upgrades proposed: 0.
+Pages fetched: 11876; failures: 819. Candidates: 995 (244 without issues, 751 exceptions). Re-verification upgrades proposed: 0.
 
 ## Coverage by category
 
@@ -10,16 +10,16 @@ Pages fetched: 11750; failures: 770. Candidates: 993 (244 without issues, 749 ex
 | cost_of_attendance | 0 | 0 | 13 | 23 | 117 | 21 | 65 |
 | admissions_tests | 0 | 0 | 2 | 0 | 151 | 21 | 65 |
 | common_data_set | 0 | 0 | 2 | 0 | 22 | 150 | 65 |
-| merit_scholarships | 0 | 0 | 17 | 4 | 128 | 25 | 65 |
-| ap_credit | 0 | 0 | 19 | 14 | 59 | 82 | 65 |
+| merit_scholarships | 0 | 0 | 17 | 4 | 129 | 24 | 65 |
+| ap_credit | 0 | 0 | 19 | 14 | 60 | 81 | 65 |
 | clep_credit | 0 | 0 | 11 | 7 | 41 | 115 | 65 |
 | ib_credit | 0 | 0 | 11 | 16 | 23 | 124 | 65 |
 | dual_enrollment | 0 | 0 | 6 | 0 | 50 | 118 | 65 |
 | transfer_credit | 0 | 0 | 38 | 12 | 97 | 27 | 65 |
-| statewide_articulation | 0 | 0 | 0 | 0 | 77 | 97 | 65 |
+| statewide_articulation | 0 | 0 | 0 | 0 | 78 | 96 | 65 |
 | residency | 0 | 0 | 0 | 0 | 86 | 88 | 65 |
 | degree_requirements | 0 | 0 | 0 | 1 | 112 | 61 | 65 |
-| aid_appeals | 0 | 0 | 0 | 110 | 19 | 45 | 65 |
+| aid_appeals | 0 | 0 | 0 | 111 | 19 | 44 | 65 |
 
 ## Ready for review (244)
 
@@ -2379,7 +2379,7 @@ Pages fetched: 11750; failures: 770. Candidates: 993 (244 without issues, 749 ex
   - off_campus_not_with_family:Living Allowance (inc 3 meals/day): 17655.0 ⟵ “Living Allowance (inc 3 meals/day) | $0 | $3,635.00 | $17,655.00”
   - … 5 more rows
 
-## Exceptions (749)
+## Exceptions (751)
 
 ### `0a87f5fe10d7b131` state-NY — state_policies 2026-27 · policy_kind=tuition_residency [new] (source_unlabeled)
 - source: https://hesc.ny.gov/sites/default/files/2025-08/20250822-AltPath-DREAM-Fact-Sheet-Comparison.pdf (sha256 2395991e2d91)
@@ -9147,6 +9147,16 @@ Pages fetched: 11750; failures: 770. Candidates: 993 (244 without issues, 749 ex
 - issues: stale_year_label:2010-11, semantic_review_required
 - checks: {"negative_sentences": 0, "sentences": 1}
   - sentence: need_based_special_circumstances ⟵ “This appeal is granted because of an exceptional or unusual circumstance and is good for one year (with a review after one semester), or for the completion ofthe degree or diploma, whichever comes first; or Attend another college or other post-secondary institution.”
+### `10dff4432f9568c3` Union College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://catalog.union.edu/content.php?catoid=29&navoid=1335 (sha256 5ee48ae0310b)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “The student must complete the Satisfactory Academic Progress Appeal Form and include documentation to support their basis of appeal, a letter that explains what has changed in the student’s situation that will allow the student to demonstrate SAP at the next evaluation and a plan of action developed with the academic advisor that will ensure they continue to meet SAP.”
+### `2e73b1f35498caba` Union College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://catalog.union.edu/content.php?catoid=29&navoid=1335 (sha256 5ee48ae0310b)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “The bases on which a student may file an appeal include the death of a relative, an injury or illness of the student, or other special circumstances beyond the student’s control.”
 ### `247c4ba2adf61344` University at Albany — appeals 2026-27 [new] (ambiguous_year_labels)
 - source: https://www.albany.edu/cost-aid/financial-aid/apply-new-york-state-grants-and-scholarships (sha256 7ca60c1157f6)
 - issues: ambiguous_year_labels, semantic_review_required, conflicting_sources:https://www.albany.edu/cost-aid/financial-aid,https://www.albany.edu/cost-aid/financial-aid/appeal-special-circumstances-or-dependency-override
@@ -9625,7 +9635,7 @@ Pages fetched: 87; pages by category: admissions_tests 43, aid_appeals 2, cost_o
 - Touro University: admissions_tests, merit_scholarships, ap_credit, statewide_articulation, residency, degree_requirements
 - Trocaire College: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, clep_credit, transfer_credit, degree_requirements
 - Ulster County Community College: tuition_fees, cost_of_attendance, merit_scholarships, ap_credit, dual_enrollment, transfer_credit, residency
-- Union College: tuition_fees, cost_of_attendance, admissions_tests, transfer_credit, residency, degree_requirements
+- Union College: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, transfer_credit, statewide_articulation, residency, degree_requirements
 - University at Albany: admissions_tests, merit_scholarships, transfer_credit, statewide_articulation, residency
 - University at Buffalo: cost_of_attendance, admissions_tests, merit_scholarships, transfer_credit, statewide_articulation, residency, degree_requirements, aid_appeals
 - University of Mount Saint Vincent: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, dual_enrollment, aid_appeals
