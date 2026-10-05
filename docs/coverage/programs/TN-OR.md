@@ -6,7 +6,7 @@ Runs: TN: `programs/runs/TN/2026-10-05-a`, `programs/runs/TN/2026-10-05-b`, `pro
 
 | P | School | Catalog | Run: listed bachelor | State inventory bachelor | Verified programs | Partially verified | With CIP | Complete? | Eng | CS | Bus | Health | Psy | Degree maps (verified) | Admission facts | Undeclared |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | George Fox University (OR) | drupal | 0 | – | 26 | 0 | 0 | — | 1 | 1 | 1 | 2 | 2 | 0 | 0 | — |
+| 1 | George Fox University (OR) | drupal | 0 | – | 26 | 0 | 0 | — | 1 | 1 | 1 | 2 | 2 | 0 | 1 | — |
 | 1 | Oregon Institute of Technology (OR) | coursedog | 8 | – | 30 | 0 | 0 | — | 2 | 2 | 2 | 0 | 1 | 0 | 0 | — |
 | 1 | Oregon State University (OR) | courseleaf | 114 | – | 103 | 0 | 0 | — | 13 | 3 | 14 | 2 | 1 | 89 | 17 | yes |
 | 1 | Portland State University (OR) | smartcatalog | 71 | – | 70 | 0 | 0 | — | 5 | 3 | 5 | 1 | 1 | 7 | 7 | yes |
@@ -128,7 +128,7 @@ Field cells: verified programs matching the field by printed name or CIP family 
 
 ## Largest gaps by school
 
-- **George Fox University** (OR, P1): catalog retrieved but no program list parsed; no reviewed program_catalogs record (completeness unknown); no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
+- **George Fox University** (OR, P1): catalog retrieved but no program list parsed; no reviewed program_catalogs record (completeness unknown); no verified degree maps; undeclared policy not verified
 - **Oregon Institute of Technology** (OR, P1): no reviewed program_catalogs record (completeness unknown); no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
 - **Oregon State University** (OR, P1): 11 listed bachelor programs not yet verified
 - **Portland State University** (OR, P1): 1 listed bachelor programs not yet verified
