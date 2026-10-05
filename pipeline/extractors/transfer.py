@@ -18,7 +18,7 @@ MAX_HOURS = re.compile(r'(?:maximum\s+of|no\s+more\s+than|up\s+to|a\s+maximum\s+
 # A grade rule for pass/fail courses or for one module/pathway (Rhodes, TN Tech r5) is not the general minimum.
 SCOPED_GRADE = re.compile(r'pass\s*/\s*fail|pass-fail|\bP/F\b|satisfactory/unsatisfactory|\bmodule\b|transfer\s+pathway|\bTTP\b|core\s+block|\bmajor\b|'
                           # GA r1: rules for named courses (Atlanta Metro composition, UNG/KSU "ENGL 1101") and advice ("encouraged")
-                          r'composition|unaccredited|(?:english|math(?:ematics)?)\s+course|from\s+this\s+list|does\s+not\s+transfer|\b(?:ENGL?|MATH|English|Math)\s+\d{4}|encouraged|recommended|'  # CO r1: CCD \"ENG 1021\"
+                          r'composition|unaccredited|high\s+school|(?:english|math(?:ematics)?)\s+course|from\s+this\s+list|does\s+not\s+transfer|\b(?:ENGL?|MATH|English|Math)\s+\d{4}|encouraged|recommended|'  # CO r1: CCD \"ENG 1021\"
                           # LA r1: placement in developmental courses (Delgado), one college's math/science rule (LSU),
                           # the conditions of an outgoing block-transfer guarantee (River Parishes)
                           r'(?<!non-)(?<!non)developmental|(?:for|exempt\s+the)\s+placement|placement\s+(?:assessment|test|exam)|math(?:ematics)?\s+and\s+science|block\s+transfer|'
