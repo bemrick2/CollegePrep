@@ -155,7 +155,7 @@ class BrowserFetcher:
 
 
 def crawl_target(target, run: Run, fetcher, browser=None, log=print, caps=None):
-    caps = {'program_page': 450, 'catalog_nav': 30, 'degree_map': 250, 'policy_link': 40, 'discover': 25, 'catalog_pdf': 2, **(caps or {}),
+    caps = {'program_page': 450, 'catalog_nav': 30, 'degree_map': 250, 'degree_map_index': 300, 'policy_link': 40, 'discover': 25, 'catalog_pdf': 2, **(caps or {}),
             **(target.get('caps') or {})}
     key = target['institution_key']
     seen = {e['url'] for e in run.entries() if e.get('institution_key') == key}
@@ -179,6 +179,7 @@ def crawl_target(target, run: Run, fetcher, browser=None, log=print, caps=None):
     if cat.get('home'): push(cat['home'], 'catalog_home', 'target')
     for u in cat.get('program_lists', []): push(u, 'program_list', 'target')
     for u in target.get('degree_maps', []): push(u, 'degree_map_index', 'target')
+    for u in (target.get('map_sources') or {}).get('lists', []): push(u, 'map_list', 'target')
     for u in target.get('policy', []): push(u, 'policy', 'target')
     for u in target.get('discover', []): push(u, 'discover', 'target')
     # Resume: re-expand stored pages' links
@@ -192,7 +193,11 @@ def crawl_target(target, run: Run, fetcher, browser=None, log=print, caps=None):
         url, role, via, depth = queue[i]; i += 1
         use_browser = render and chost and host_of(url) == chost and role in ('catalog_home', 'catalog_nav', 'program_list', 'program_page')
         try:
-            meta, body = (browser if use_browser else fetcher).fetch(url)
+            if role == 'catalog_pdf':
+                from .feeds import fetch_large
+                meta, body = fetch_large(fetcher, url)
+            else:
+                meta, body = (browser if use_browser else fetcher).fetch(url)
         except Exception as exc:
             meta, body = {'status': None, 'error': f'fetch_exception:{type(exc).__name__}: {exc}'[:300]}, None
         entry = {'institution_key': key, 'url': url, 'role': role, 'via': via, 'depth': depth, 'fetched_at': now(), **meta}
@@ -266,6 +271,11 @@ def expand(target, role, url, links, push, is_program, is_nav, depth):
                 push(href, 'degree_map', url, depth + 1)
             elif MAP_ANCHOR.search(anchor or '') and depth < 2:
                 push(href, 'degree_map_index', url, depth + 1)
+    if role == 'map_list':  # a school's own program directory whose program pages link that program's degree map
+        ms = target.get('map_sources') or {}
+        for href, anchor in links:
+            if re.search(ms.get('page_link', r'^$'), href): push(href, 'degree_map_index', url, depth + 1)
+        return
     for href, anchor in links:
         if role == 'degree_map_index':
             path = urlsplit(href).path.lower()

@@ -55,6 +55,7 @@ EVIDENCE = [
     ('declare_by', re.compile(r'\bdeclare\s+(a|their|your)?\s*major\b[^.]{0,80}\b(by|before|no\s+later|prior\s+to|within|upon)\b', re.I)),
     ('change_major', re.compile(r'\b(change\s+(of\s+)?(a\s+|their\s+|your\s+)?majors?|changing\s+(their\s+|your\s+)?majors?|'
                                 r'internal\s+transfer|intra[\s-]*university\s+transfer|transfer\s+(into|to)\s+(the|another)\s+(major|college|school))\b', re.I)),
+    ('exam_credit_in_program', re.compile(r'\b(Advanced\s+Placement|AP\s+(exam|credit|score)|International\s+Baccalaureate|IB\s+(exam|credit)|CLEP|dual[\s-](credit|enrollment))\b', re.I)),
     ('cip_code', re.compile(r'\bCIP\b[^0-9]{0,20}\d{2}\.\d{2,4}|\b\d{2}\.\d{4}\b(?=[^\n]{0,80}\b(B\.?S|B\.?A|Bachelor)\b)')),
     ('major_scholarship', re.compile(r'scholarships?\b[^.]{0,120}\b(engineering|computer|computing|business|finance|accounting|nursing|'
                                      r'psycholog|STEM|majors?\s+in)\b|\b(engineering|computer|computing|business|finance|nursing|psycholog)\w*\b[^.]{0,80}scholarships?', re.I)),
@@ -79,15 +80,23 @@ def credential_of(name):
 
 YEAR_LABEL = re.compile(r'\b(20\d{2})\s*[-–]\s*(20\d{2})\s+(?:Undergraduate\s+|University\s+|Academic\s+|General\s+)?(Catalog|Catalogue|Bulletin)\b', re.I)
 
+LABEL_FIRST = re.compile(r'(?:Catalog|Catalogue|Bulletin)\s+(20\d{2})\s*[-–]\s*(20\d{2})(?=\s*(?:>|$))', re.I)
+EDITION = re.compile(r'(20\d{2})\s*[-–]\s*(\d{2})\s+Edition', re.I)
+ARCHIVE_LINK = re.compile(r'\s*(?:Download\s+)?PDF of\b', re.I)  # "PDF of the entire 2025-2026 Catalog": a download link, not this page's label
+
 
 def printed_catalog_years(page):
     """Catalog year labels printed anywhere on the page ("2026-2027 Catalog" in a CourseLeaf footer,
     "2026-2027 Bulletin > ..." in a SmartCatalog breadcrumb), excluding 'Select a Catalog' archive menus."""
     found = set()
     for line in page.lines:
-        if len(line) > 160: continue
+        if len(line) > 160 or ARCHIVE_LINK.match(line): continue
         for m in YEAR_LABEL.finditer(line):
             if int(m.group(2)) == int(m.group(1)) + 1: found.add((f'{m.group(1)}-{m.group(2)}', line.strip()))
+        m = LABEL_FIRST.match(line.strip())  # Linfield header "Catalog 2026-2027"; UP breadcrumb "Bulletin 2026-2027 > ..."
+        if m and int(m.group(2)) == int(m.group(1)) + 1: found.add((f'{m.group(1)}-{m.group(2)}', line.strip()))
+        m = EDITION.fullmatch(line.strip())  # Lewis & Clark header: "2026-27 Edition"
+        if m and int(m.group(2)) == (int(m.group(1)) + 1) % 100: found.add((f'{m.group(1)}-{int(m.group(1)) + 1}', line.strip()))
     menu = sum(1 for l in page.lines if re.fullmatch(r'20\d{2}-20\d{2}\s+(Catalog|Catalogue|Bulletin)', l.strip(), re.I))
     if menu >= 3:  # an archive selector lists every year; only labels used in context (breadcrumb, footer) count
         found = {(y, l) for y, l in found if not re.fullmatch(r'20\d{2}-20\d{2}\s+(Catalog|Catalogue|Bulletin)', l, re.I)}
@@ -147,18 +156,22 @@ def program_page_candidates(target, inst, entry, page, today_year):
     if plat == 'smartcatalog':
         from . import smartcatalog
         return smartcatalog.extract(inst, entry, page, today_year)
+    if plat == 'drupal':
+        return static_program_identity(inst, entry, page, today_year)
     out = CAT.extract(inst, entry, page, today_year)
     y0, printed0 = CAT.catalog_year(page)
     year, line = printed0, (page.title or '')
     if not out and y0 is None:
         labels = printed_catalog_years(page)
         if len({y for y, _ in labels}) == 1:
-            year, line = next(iter(labels))
+            year, line = min(labels)
             view = T.Page(page.text, f'{CAT.program_name(page)} - {year} Catalog', page.tables, page.links, page.headings)
             out = CAT.extract(inst, entry, view, today_year)
             for c in out:  # the year is printed on this same document (e.g. CourseLeaf footer): labeled in source, with its line as evidence
                 c['evidence'] = c.get('evidence', []) + [{'field': 'catalog_year', 'value': year, 'snippet': line[:200],
                                                           'note': 'catalog year label printed outside the page header'}]
+    if not out and plat in ('courseleaf', 'acalog'):
+        out = stated_major_identity(inst, entry, page, today_year)
     if plat == 'courseleaf' and year:
         from . import courseleaf
         have = any(c['domain'] == 'academic_programs' for c in out)
@@ -167,6 +180,154 @@ def program_page_candidates(target, inst, entry, page, today_year):
             pk = next(c['record']['program_key'] for c in out if c['domain'] == 'academic_programs')
             for c in plan: c['record']['program_key'] = pk
         out += plan
+    return out
+
+
+def static_program_identity(inst, entry, page, today_year):
+    """Static HTML catalogs (George Fox, Rhodes): the program record only (name as printed in the page heading, the
+    bachelor award it names, the catalog year printed on the page). Requirement lists are not read here."""
+    name = (page.headings[0] if page.headings else (page.title or '').split(' | ')[0]).strip()
+    if credential_of(name) != 'bachelor' or OPTION_NAME.search(name): return []
+    labels = {y for y, _ in printed_catalog_years(page)}
+    if len(labels) != 1: return []
+    year = next(iter(labels)); line = next(l for y, l in printed_catalog_years(page) if y == year)
+    acad = f'{year[:4]}-{year[7:9]}'
+    rec = {'program_key': CAT.slug(name), 'program_name': name, 'credential_level': 'bachelor', 'catalog_year': year,
+           'program_url': common.source_of(entry)['url'], 'notes': 'Program heading and catalog year as printed on the catalog page.'}
+    issues = [] if acad >= today_year else [f'stale_year_label:{acad}']
+    return [common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec,
+                        [{'field': 'program_name', 'value': name, 'snippet': name}, {'field': 'catalog_year', 'value': year, 'snippet': line[:200]}],
+                        entry, 'static_program/v1', {'program_key': rec['program_key']}, {}, issues)]
+
+
+STATED_BACHELOR = re.compile(r'[^.\n]*\bthis major is available as an? (bachelor of [^.\n]*?) degree\b[^.\n]*\.', re.I)
+
+
+def stated_major_identity(inst, entry, page, today_year):
+    """'Accounting Major' pages (Linfield) print no award in the name but state it in a sentence: "This major is
+    available as a bachelor of arts or bachelor of science degree, ...". The program record keeps the name as printed;
+    the award sentence is its credential evidence and goes into the notes verbatim. No sentence, no record."""
+    name = CAT.program_name(page).strip()
+    if not re.search(r'\bmajor\b', name, re.I) or re.search(r'\bminor\b', name, re.I) or OPTION_NAME.search(name): return []
+    m = STATED_BACHELOR.search(page.text)
+    labels = printed_catalog_years(page)
+    if not m or len({y for y, _ in labels}) != 1: return []
+    year, line = min(labels); sentence = m.group(0).strip()
+    acad = f'{year[:4]}-{year[7:9]}'
+    rec = {'program_key': CAT.slug(name), 'program_name': name, 'credential_level': 'bachelor', 'catalog_year': year,
+           'program_url': common.source_of(entry)['url'],
+           'notes': f'Program name as printed; award as stated on the program page: "{sentence}"'}
+    issues = [] if acad >= today_year else [f'stale_year_label:{acad}']
+    return [common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec,
+                        [{'field': 'program_name', 'value': name, 'snippet': (page.title or name)[:200]},
+                         {'field': 'credential_level', 'value': 'bachelor', 'snippet': sentence[:300]},
+                         {'field': 'catalog_year', 'value': year, 'snippet': line[:200]}],
+                        entry, 'stated_major/v1', {'program_key': rec['program_key']}, {}, issues)]
+
+
+def major_table_candidates(target, inst, run, es, today_year):
+    """A catalog's own table of majors (Lewis & Clark "Majors and Minors": Major | Minor | Discipline, an X marking
+    each major) plus the catalog's own statement of the one bachelor's award its undergraduate majors lead to
+    (`award_statement`: url + verbatim quote, checked here against the stored page). Each row marked in the Major
+    column becomes a program record named as printed. Student-designed majors are not field programs."""
+    cat = target.get('catalog') or {}
+    conf, aw = cat.get('major_table'), cat.get('award_statement')
+    if not conf or not aw: return []
+    page_of = {e['url']: e for e in es if e.get('page_file')}
+    te, ae = page_of.get(conf), page_of.get(aw['url'])
+    if not te or not ae: return []
+    tpage, apage = run.load_page(te['page_file'])[0], run.load_page(ae['page_file'])[0]
+    if re.sub(r'\s+', ' ', aw['quote']) not in re.sub(r'\s+', ' ', apage.text): return []
+    labels = printed_catalog_years(tpage)
+    if len({y for y, _ in labels}) != 1: return []
+    year, line = min(labels); acad = f'{year[:4]}-{year[7:9]}'
+    out = []
+    for t in tpage.tables:
+        rows = t.get('rows') or []
+        head = [c.strip().lower() for c in rows[0]] if rows else []
+        if 'major' not in head or 'discipline' not in head: continue
+        mi, di = head.index('major'), head.index('discipline')
+        for row in rows[1:]:
+            if len(row) <= max(mi, di) or row[mi].strip().upper() != 'X': continue
+            name = row[di].strip()
+            if not name or re.search(r'student[- ]designed', name, re.I): continue
+            rec = {'program_key': CAT.slug(name), 'program_name': name, 'credential_level': aw.get('credential', 'bachelor'), 'catalog_year': year,
+                   'program_url': common.source_of(te)['url'],
+                   'notes': f'Marked as a major in the catalog\'s Majors and Minors table; award as stated in the catalog ({aw["url"]}): "{aw["quote"]}".'}
+            issues = [] if acad >= today_year else [f'stale_year_label:{acad}']
+            out.append(common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec,
+                                   [{'field': 'program_name', 'value': name, 'snippet': ' | '.join(c.strip() for c in row)[:200]},
+                                    {'field': 'credential_level', 'value': rec['credential_level'], 'snippet': aw['quote'][:300], 'source_url': aw['url'], 'sha256': ae.get('sha256')},
+                                    {'field': 'catalog_year', 'value': year, 'snippet': line[:200]}],
+                                   te, 'major_table/v1', {'program_key': rec['program_key']}, {}, issues))
+    return out
+
+
+PRINTED_DEGREE = re.compile(r'^([A-Z][^*†]+?),\s*((?:B\.[A-Za-z.]+)(?:,\s*B\.[A-Za-z.]+)*)$')
+
+
+def printed_list_candidates(target, inst, run, es, today_year):
+    """A catalog page that prints every undergraduate degree as "Name, Award[, Award]" under one heading (UP Bulletin
+    "Undergraduate Programs": "Biology, B.S., B.A."; "Civil Engineering, B.S.C.E."). Each such line under the heading
+    becomes a program record named as printed; the program URL is the line's own link when the page links it, else
+    the list page. Combined bachelor/master lines and post-baccalaureate degrees do not match the pattern."""
+    conf = (target.get('catalog') or {}).get('printed_list')
+    if not conf: return []
+    le = next((e for e in es if e['url'] == conf['url'] and e.get('page_file')), None)
+    if not le: return []
+    page = run.load_page(le['page_file'])[0]
+    labels = printed_catalog_years(page)
+    if len({y for y, _ in labels}) != 1: return []
+    year, line = min(labels); acad = f'{year[:4]}-{year[7:9]}'
+    lines = [l.strip() for l in page.lines]
+    starts = [i for i, l in enumerate(lines) if l == conf['heading']]
+    if not starts: return []
+    stop = conf.get('stop')
+    by_text = defaultdict(set)
+    for u, txt in page.links:
+        if txt.strip(): by_text[txt.strip()].add(u)
+    links = {t: next(iter(us)) for t, us in by_text.items() if len(us) == 1}  # 'Economics' links two programs: use neither
+    out = []
+    for l in lines[starts[-1] + 1:]:  # the last occurrence: the first is the table-of-contents entry
+        if stop and l == stop: break
+        m = PRINTED_DEGREE.match(l)
+        if not m: continue
+        name = l; key = CAT.slug(name)
+        rec = {'program_key': key, 'program_name': name, 'credential_level': 'bachelor', 'catalog_year': year,
+               'program_url': links.get(m.group(1).strip(), common.source_of(le)['url']),
+               'notes': f'Printed under "{conf["heading"]}" on the catalog page that lists every undergraduate program.'}
+        out.append(common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec,
+                               [{'field': 'program_name', 'value': name, 'snippet': name}, {'field': 'catalog_year', 'value': year, 'snippet': line[:200]}],
+                               le, 'printed_list/v1', {'program_key': key}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}']))
+    return out
+
+
+LISTED_MAJOR = re.compile(r'^(.*?\bMajor \([^)]*\))')
+
+
+def listed_location_candidates(target, inst, run, es, listed, today_year):
+    """A branch campus whose programs are the parent university's catalog programs (OSU-Cascades): the parent catalog's
+    Programs page tags each program with the campuses that offer it, and `list_filter` keeps the rows tagged with this
+    campus. Each bachelor row becomes a program record for the campus, named as printed (up to the award list), linking
+    the parent catalog's program page; the tagged row is the evidence."""
+    tag = (target.get('catalog') or {}).get('list_filter')
+    if not tag: return []
+    page_of = {e['url']: e for e in es if e.get('page_file')}
+    out = []
+    for p in listed.get('programs', []):
+        if p.get('credential_level') != 'bachelor' or tag not in p.get('printed', ''): continue
+        m = LISTED_MAJOR.match(p['printed'])
+        le = page_of.get(p.get('listed_on'))
+        if not m or not le: continue
+        labels = printed_catalog_years(run.load_page(le['page_file'])[0])
+        if len({y for y, _ in labels}) != 1: continue
+        year, line = min(labels); acad = f'{year[:4]}-{year[7:9]}'; name = m.group(1).strip()
+        rec = {'program_key': CAT.slug(name), 'program_name': name, 'credential_level': 'bachelor', 'catalog_year': year, 'program_url': p['url'],
+               'notes': f'Listed on the catalog Programs page with the campus tag "{tag}".'}
+        out.append(common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec,
+                               [{'field': 'program_name', 'value': name, 'snippet': p['printed'][:300]},
+                                {'field': 'catalog_year', 'value': year, 'snippet': line[:200]}],
+                               le, 'listed_location/v1', {'program_key': rec['program_key']}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}']))
     return out
 
 
@@ -205,6 +366,56 @@ def catalog_pdf_year(run, entries):
                 m = YEAR_LABEL.search(line)
                 if m and int(m.group(2)) == int(m.group(1)) + 1: return f'{m.group(1)}-{m.group(2)}', line.strip(), e
     return None, None, None
+
+
+CODED_PROGRAM = re.compile(r'^([A-Z][A-Z0-9]*_[A-Z0-9_]+|[A-Z]{2,8}) - (.+)$')
+AWARD_SUFFIX = re.compile(r',\s*([A-Z]{2,6}(/[A-Z]{2,4})?|CERT|Certificate|Minor|MINOR|Option)\s*$')
+
+
+def catalog_pdf_programs(inst, entry, page, today_year):
+    """A catalog system's generated full-catalog PDF (Coursedog): each department section prints a 'Programs' block
+    listing its programs as 'Mechanical Engineering, BS' before 'Courses'. Bachelor-awarding names (award printed after
+    the comma) become program records for the year printed on the PDF title page. A name wrapped onto two lines is
+    rejoined only when the first line does not itself end in an award."""
+    lines = page.lines
+    year = None
+    for line in lines[:12]:
+        m = YEAR_LABEL.search(line)
+        if m and int(m.group(2)) == int(m.group(1)) + 1: year = f'{m.group(1)}-{m.group(2)}'; year_line = line.strip(); break
+    if not year: return []
+    acad = f'{year[:4]}-{year[7:9]}'
+    names, i = [], 0
+    while i < len(lines):
+        if lines[i].strip() == 'Programs':
+            j, buf = i + 1, ''
+            while j < len(lines) and lines[j].strip() not in ('Courses', 'All Programs') and j - i < 80:
+                l = lines[j].strip()
+                if re.search(r'\s{3,}|/\s*\d+$', l): break  # two-column layout or a page footer: not a simple list
+                coded = CODED_PROGRAM.match(l)
+                if coded:  # 'BBA_ACCT - Accounting (B.B.A.)' (Austin Peay): one program per line
+                    names.append((coded.group(2).strip(), coded.group(1))); buf = ''; j += 1; continue
+                buf = f'{buf} {l}'.strip() if buf and not AWARD_SUFFIX.search(buf) else l
+                if AWARD_SUFFIX.search(buf): names.append((buf, None)); buf = ''
+                j += 1
+            i = j
+        i += 1
+    out, seen = [], set()
+    for n, code in names:
+        if code is not None:
+            paren = re.search(r'\((B\.[A-Z.]{1,10})\)\s*$', n)
+            if not (paren or re.match(r'^B[A-Z]{1,5}_', code)): continue  # award printed in parentheses or as the code prefix
+        else:
+            m = AWARD_SUFFIX.search(n)
+            if not m or not re.fullmatch(r'B[A-Z]{1,5}', m.group(1)): continue  # bachelor awards only; combined BS/MS left out
+        key = CAT.slug(n)
+        if key in seen: continue
+        seen.add(key)
+        rec = {'program_key': key, 'program_name': n, 'credential_level': 'bachelor', 'catalog_year': year,
+               'program_url': common.source_of(entry)['url'], 'notes': "Listed in a department 'Programs' block of the catalog's generated full PDF."}
+        out.append(common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec,
+                               [{'field': 'program_name', 'value': n, 'snippet': n}, {'field': 'catalog_year', 'value': year, 'snippet': year_line}],
+                               entry, 'catalog_pdf_programs/v1', {'program_key': key}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}']))
+    return out
 
 
 def coursedog_cip(v):
@@ -312,6 +523,10 @@ def extract_run(targets, run_dir, today=None):
             if not e.get('page_file'): continue
             page, _ = run.load_page(e['page_file'])
             inst = {'institution_key': key}
+            if e.get('role') == 'catalog_pdf':
+                for c in catalog_pdf_programs(inst, e, page, today_year):
+                    c['program_role'] = 'catalog_pdf'; cands.append(c); n_c += 1
+                continue
             if e.get('role') == 'catalog_api' and 'coursedog.com' in e.get('url', ''):
                 yr = catalog_pdf_year(run, es)
                 for c in coursedog_candidates(t, inst, e, page, yr, today_year):
@@ -344,6 +559,12 @@ def extract_run(targets, run_dir, today=None):
                                              'url': common.source_of(e)['url'], 'sha256': e.get('sha256'),
                                              'fetched_at': e.get('fetched_at'), 'page_title': e.get('title', ''),
                                              'role': e.get('role'), 'year_labels': sorted(T.year_labels(page.title + ' ' + page.text[:3000]))})
+        for c in listed_location_candidates(t, {'institution_key': key}, run, es, lists[key], today_year):
+            c['program_role'] = 'program_list'; cands.append(c); n_c += 1
+        for c in printed_list_candidates(t, {'institution_key': key}, run, es, today_year):
+            c['program_role'] = 'program_list'; cands.append(c); n_c += 1
+        for c in major_table_candidates(t, {'institution_key': key}, run, es, today_year):
+            c['program_role'] = 'program_list'; cands.append(c); n_c += 1
         summary[key] = {'roles': {k: {**v, 'errors': dict(v['errors'])} for k, v in roles.items()},
                         'program_list_links': lists[key]['counts'], 'candidates': n_c,
                         'evidence': sum(1 for x in evidence if x['institution_key'] == key)}

@@ -322,3 +322,141 @@ class PageQuoteTests(unittest.TestCase):
             self.assertTrue(src['sha256'])
             with self.assertRaises(ValueError):
                 page_quote({'url': 'https://www.example.edu/undeclared', 'lines': ['Students are admitted directly.']}, run)
+
+
+class StaticProgramTests(unittest.TestCase):
+    def test_static_catalog_page_identity(self):
+        from pipeline import text as T
+        e = {'url': 'https://www.georgefox.edu/catalog/undergrad/curriculum/major_minor/csci_major.html', 'sha256': 's', 'fetched_at': '2026-10-05T00:00:00'}
+        p = T.Page('Bachelors (BS) in Computer Science\n2026-2027 Academic Catalog\nMajor Requirements', 'Bachelors (BS) in Computer Science', [], [], ['Bachelors (BS) in Computer Science'])
+        out = X.static_program_identity({'institution_key': 'k'}, e, p, '2026-27')
+        self.assertEqual(out[0]['record']['program_name'], 'Bachelors (BS) in Computer Science')
+        self.assertEqual(out[0]['academic_year'], '2026-27')
+        minor = T.Page('Computer Science Minor\n2026-2027 Academic Catalog', 'Computer Science Minor', [], [], ['Computer Science Minor'])
+        self.assertEqual(X.static_program_identity({'institution_key': 'k'}, e, minor, '2026-27'), [])
+        two_years = T.Page('Bachelors (BS) in X\n2026-2027 Academic Catalog\nsee the 2025-2026 Academic Catalog', 'Bachelors (BS) in X', [], [], ['Bachelors (BS) in X'])
+        self.assertEqual(X.static_program_identity({'institution_key': 'k'}, e, two_years, '2026-27'), [])  # ambiguous year: skipped
+
+
+class AwardInParenthesesTests(unittest.TestCase):
+    def test_parenthesised_award_matches_inventory_row(self):
+        from programs import match as Mt
+        from backend import program_fields as F
+        self.assertEqual(Mt.split_catalog_name('Accounting (B.B.A.)'), ('accounting', 'BBA'))
+        base = {'institution_key': 'k', 'academic_year': '2026-27'}
+        thec = ('p', 'academic_programs', {**base, 'program_key': 'a', 'program_name': 'ACCOUNTING, BBA', 'program_url': 'https://thec.ppr.tn.gov/AcademicProgramInventorySearch'})
+        cat = ('p', 'academic_programs', {**base, 'program_key': 'b', 'program_name': 'Accounting (B.B.A.)', 'program_url': 'https://x.edu/c.pdf'})
+        self.assertTrue(F.cross_errors([thec, cat]))
+
+
+class CatalogPdfProgramsTests(unittest.TestCase):
+    def test_department_program_blocks(self):
+        from pipeline import text as T
+        txt = '\n'.join(['Oregon Institute of Technology', '2026-2027 Catalog', 'Intro', 'Programs',
+                         'Mechanical Engineering Technology/', 'Manufacturing Engineering Technology, BS', 'Mechanical Engineering, BS',
+                         'Emergency Medical Technology Paramedic, AAS', 'Civil Engineering, BS/MS', 'Manufacturing Engineering Technology, MS', 'Courses',
+                         'Programs', 'ACCT - Accounting Minor', 'BBA_ACCT - Accounting (B.B.A.)', 'BS_PHIL', 'BSRT_SRT - BSRT_Radiologic Technology', 'Courses'])
+        e = {'url': 'https://coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com/x/catalog/a.pdf', 'sha256': 's', 'fetched_at': '2026-10-05T00:00:00'}
+        names = [c['record']['program_name'] for c in X.catalog_pdf_programs({'institution_key': 'k'}, e, T.Page(txt, '', [], [], []), '2026-27')]
+        self.assertEqual(names, ['Mechanical Engineering Technology/ Manufacturing Engineering Technology, BS', 'Mechanical Engineering, BS',
+                                 'Accounting (B.B.A.)', 'BSRT_Radiologic Technology'])
+
+
+class CourseleafPlanTests(unittest.TestCase):
+    def grid(self, heading, caption='Degree Map'):
+        return {'caption': caption, 'heading': heading, 'rows': [['First Year'], ['Fall'], ['CS 210', 'Computer Science I', '4'],
+                                                                 ['', 'Credits', '4'], ['', 'Total Credits', '180']]}
+
+    def test_degree_maps_labelled_by_bachelor_headings(self):  # UO 2026-27 prints one 'Degree Map' per award
+        from pipeline import text as T
+        from programs import courseleaf as CL
+        e = {'url': 'https://catalog.uoregon.edu/cas/cs/', 'sha256': 's', 'fetched_at': '2026-10-05T00:00:00'}
+        two = [self.grid('Bachelor of Science in Computer Science'), self.grid('Bachelor of Arts in Computer Science')]
+        p = T.Page('Computer Science BA/BS', 'Computer Science BA/BS', two, [], [])
+        out = [c for c in CL.extract({'institution_key': 'k'}, e, p, '2026-2027', '2026-2027 Catalog', True) if c['domain'] == 'degree_requirements']
+        self.assertEqual([c['record']['requirement_key'] for c in out], ['bachelor-of-science-in-computer-science', 'bachelor-of-arts-in-computer-science'])
+        self.assertTrue(all(not c['issues'] for c in out))
+        same = [self.grid('Degree Map'), self.grid('Degree Map')]  # unlabelled: ambiguous, held for review
+        out = [c for c in CL.extract({'institution_key': 'k'}, e, T.Page('Computer Science BA/BS', 'Computer Science BA/BS', same, [], []), '2026-2027', '', True)
+               if c['domain'] == 'degree_requirements']
+        self.assertTrue(all(c['issues'] == ['multiple_plan_grids'] for c in out))
+
+    def test_term_header_row_with_milestones_column(self):  # UO 2026-27: 'Fall | Milestones | Credits'
+        from programs import courseleaf as CL
+        t = {'rows': [['First Year'], ['Fall', 'Milestones', 'Credits'], ['JPN 101', 'First-Year Japanese', '', '4'], ['', 'Credits', '', '16'],
+                      ['Winter'], ['WR 122Z', 'Composition II', '', '4']]}
+        self.assertEqual([(x['label'], len(x['items'])) for x in CL.parse_grid(t)[0]], [('First Year', 0), ('Fall', 1), ('Winter', 1)])
+        self.assertEqual(CL.parse_grid(t)[0][1]['credit_hours'], '16')
+
+
+class StatedMajorTests(unittest.TestCase):
+    def test_award_stated_in_a_sentence(self):  # Linfield 2026-27 'Accounting Major'
+        from pipeline import text as T
+        e = {'url': 'https://catalog.linfield.edu/programs-az/business/accounting-major/index.html', 'sha256': 's', 'fetched_at': '2026-10-05T00:00:00'}
+        txt = ('Accounting Major\nCatalog 2026-2027\nDegree Requirements\nThis major is available as a bachelor of arts or bachelor of science degree, '
+               'as defined in the section on degree requirements for all majors in this catalog.\nPDF of the entire 2025-2026 Catalog')
+        tgt = {'catalog': {'platform': 'courseleaf'}}
+        out = X.program_page_candidates(tgt, {'institution_key': 'k'}, e, T.Page(txt, 'Accounting Major < Linfield University', [], [], []), '2026-27')
+        self.assertEqual([(c['record']['program_name'], c['record']['credential_level'], c['record']['catalog_year']) for c in out],
+                         [('Accounting Major', 'bachelor', '2026-2027')])
+        none = txt.replace('This major is available as a bachelor of arts or bachelor of science degree', 'This major is great')
+        self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, T.Page(none, 'Accounting Major < Linfield University', [], [], []), '2026-27'), [])
+        minor = T.Page(txt, 'Accounting Minor for Students not Earning a Business Major < Linfield University', [], [], [])
+        self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, minor, '2026-27'), [])
+
+    def test_archive_pdf_link_is_not_a_year_label(self):
+        from pipeline import text as T
+        p = T.Page('Catalog 2026-2027\nPDF of the entire 2025-2026 Catalog\nDownload PDF of the entire 2024-2025 Bulletin', 't', [], [], [])
+        self.assertEqual({y for y, _ in X.printed_catalog_years(p)}, {'2026-2027'})
+
+
+class MajorTableTests(unittest.TestCase):
+    def test_marked_majors_with_catalog_award_statement(self):  # Lewis & Clark 2026-27
+        from pipeline import text as T
+        table = {'caption': 'Majors and Minors', 'rows': [['Major', 'Minor', 'Discipline'], ['', '', 'Anthropology, see Sociology and Anthropology'],
+                                                          ['X', '', 'Art (Studio)'], ['', 'X', 'Chinese'], ['X', 'X', 'Chemistry'], ['X', '', 'Student-Designed Major']]}
+        pages = {'t': T.Page('2026-27 Edition\nMajors and Minors', 'Majors', [table], [], []),
+                 'a': T.Page('Undergraduate work at Lewis & Clark leads to the bachelor of arts degree.', 'Requirements', [], [], [])}
+        class R:
+            def load_page(self, f): return pages[f], None
+        tu, au = 'https://docs.lclark.edu/undergraduate/policiesprocedures/majorsminors/', 'https://docs.lclark.edu/undergraduate/graduationrequirements/requirements/'
+        es = [{'url': tu, 'page_file': 't', 'sha256': 's1', 'fetched_at': '2026-10-05T00:00:00'}, {'url': au, 'page_file': 'a', 'sha256': 's2', 'fetched_at': '2026-10-05T00:00:00'}]
+        tgt = {'catalog': {'major_table': tu, 'award_statement': {'url': au, 'quote': 'Undergraduate work at Lewis & Clark leads to the bachelor of arts degree'}}}
+        out = X.major_table_candidates(tgt, {'institution_key': 'k'}, R(), es, '2026-27')
+        self.assertEqual([(c['record']['program_name'], c['record']['catalog_year']) for c in out], [('Art (Studio)', '2026-2027'), ('Chemistry', '2026-2027')])
+        tgt['catalog']['award_statement']['quote'] = 'Undergraduate work leads to the bachelor of science degree'  # not printed: nothing
+        self.assertEqual(X.major_table_candidates(tgt, {'institution_key': 'k'}, R(), es, '2026-27'), [])
+
+
+class ListedLocationTests(unittest.TestCase):
+    def test_campus_tagged_rows_only(self):  # OSU catalog Programs page, OSU-Cascades tag
+        from pipeline import text as T
+        lu = 'https://catalog.oregonstate.edu/programs/'
+        listed = {'programs': [
+            {'printed': 'Biology Undergraduate Major (BS, HBS)MajorCollege of ScienceUndergraduateCorvallisOSU-CascadesBS, HBS', 'credential_level': 'bachelor', 'url': 'https://catalog.oregonstate.edu/x/biology-bs-hbs/', 'listed_on': lu},
+            {'printed': 'Chemistry Undergraduate Major (BS, HBS)MajorCollege of ScienceUndergraduateCorvallisBS, HBS', 'credential_level': 'bachelor', 'url': 'https://catalog.oregonstate.edu/x/chem/', 'listed_on': lu},
+            {'printed': 'Visual Studies BFA OptionOptionCollege of Liberal ArtsUndergraduateOSU-Cascades', 'credential_level': 'bachelor', 'url': 'https://catalog.oregonstate.edu/x/vs/', 'listed_on': lu}]}
+        class R:
+            def load_page(self, f): return T.Page('Programs\n2026-2027 Catalog', 'Programs', [], [], []), None
+        es = [{'url': lu, 'page_file': 'p', 'sha256': 's', 'fetched_at': '2026-10-05T00:00:00'}]
+        out = X.listed_location_candidates({'catalog': {'list_filter': 'OSU-Cascades'}}, {'institution_key': 'k'}, R(), es, listed, '2026-27')
+        self.assertEqual([(c['record']['program_name'], c['record']['program_url'][-16:]) for c in out], [('Biology Undergraduate Major (BS, HBS)', '/biology-bs-hbs/')])
+
+
+class PrintedListTests(unittest.TestCase):
+    def test_degree_lines_under_heading(self):  # UP Bulletin 2026-2027 "Undergraduate Programs"
+        from pipeline import text as T
+        lu = 'https://up.smartcatalogiq.com/en/2026-2027/bulletin/university-academic-programs-of-study/undergraduate-programs'
+        txt = '\n'.join(['Bulletin 2026-2027 > University Academic Programs of Study > Undergraduate Programs', 'Undergraduate Programs', 'Minor Programs',
+                         'Undergraduate Programs', 'Biology, B.S., B.A.', 'Economics, B.A.', 'Mathematics, Applied, B.S.', '*Pre-law study', 'Economics, B.B.A.',
+                         'B.B.A./M.B.A. Program for Accounting Majors', 'Post Baccalaureate Professional Computer Science Degree, Prof-B.C.S.', 'Up one level', 'Art, B.A.'])
+        links = [('https://up.example/econ-ba', 'Economics'), ('https://up.example/econ-bba', 'Economics'), ('https://up.example/bio', 'Biology')]
+        page = T.Page(txt, 'University of Portland - Undergraduate Programs', [], links, [])
+        class R:
+            def load_page(self, f): return page, None
+        es = [{'url': lu, 'page_file': 'p', 'sha256': 's', 'fetched_at': '2026-10-05T00:00:00'}]
+        tgt = {'catalog': {'printed_list': {'url': lu, 'heading': 'Undergraduate Programs', 'stop': 'Up one level'}}}
+        out = X.printed_list_candidates(tgt, {'institution_key': 'k'}, R(), es, '2026-27')
+        self.assertEqual([(c['record']['program_name'], c['record']['program_url'][-8:], c['record']['catalog_year']) for c in out],
+                         [('Biology, B.S., B.A.', 'mple/bio', '2026-2027'), ('Economics, B.A.', 'graduate-programs'[-8:], '2026-2027'),
+                          ('Mathematics, Applied, B.S.', 'programs', '2026-2027'), ('Economics, B.B.A.', 'programs', '2026-2027')])
