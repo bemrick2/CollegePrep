@@ -376,6 +376,33 @@ last 30 hours in residence at the university.</p>"""
             '<title>Transfer</title><p>Transfer credit is evaluated for high school courses for which advanced standing was granted and a grade '
             'of "B" or better was earned.</p>'), '2026-27'), [])
 
+    def test_il_r1_rules(self):
+        """IL r1: UIC deadline rows and Quincy's 'In This Section', Knox IB credit and AcademicWorks pages, Augustana's
+        'Not accepted' rows, continuation and exception GPA lines, Olivet's GI Bill example, accelerated BS/MS programs."""
+        table = ('<h2>Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th></tr>'
+                 '<tr><td>Transfer applicants: April 1</td><td>$7,500</td></tr><tr><td>Fall 2026 (Priority)</td><td>$5,000</td></tr>'
+                 '<tr><td>In This Section</td><td>$4,000</td></tr><tr><td>Dean Award</td><td>$1,932</td></tr><tr><td>Honor Award</td><td>$791</td></tr></table>')
+        names = [c['record']['award_name'] for c in merit.extract(INST, ENTRY, T.parse_html('<title>Scholarships</title>' + table), '2026-27')]
+        self.assertEqual(sorted(names), ['Dean Award', 'Honor Award'])
+        for url in ['https://www.example.edu/international-baccalaureate', 'https://clc.academicworks.com/opportunities']:
+            self.assertEqual(merit.extract(INST, {**ENTRY, 'url': url}, T.parse_html('<title>Awards</title>' + table), '2026-27'), [], url)
+        self.assertTrue(merit.extract(INST, {**ENTRY, 'url': 'https://www.example.edu/international-baccalaureate-scholarship'}, T.parse_html('<title>Awards</title>' + table), '2026-27'))
+        ap = [['AP Exam', 'Score', 'Credits', 'Course'], ['African American Studies', 'NA', '', 'Not accepted'], ['Art History', '4', '4', 'ART 101'],
+              ['Biology', '4', '4', 'BIOL 1000'], ['Chemistry', '4', '4', 'CHEM 1000']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'AP', [{'rows': ap, 'heading': 'Advanced Placement Credit', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        self.assertNotIn('AP-AFRICAN-AMERICAN-STUDIES', [e['exam_or_course_code'] for e in c['record']['equivalencies']])
+        [c] = self._de('<h1>Dual Credit</h1><ul><li>Must have 3 completed semesters of coursework and a 2.75 GPA</li>'
+                       '<li>NOTE: Students with below a 2.25 GPA may request a review</li><li>Students are dropped at any time his/her cumulative GPA falls below a 2.0 GPA.</li></ul>')
+        self.assertEqual([t['min_hs_gpa'] for t in c['record']['dual_enrollment']['eligibility_tiers']], [2.75])
+        rows = [['', 'Amount'], ['University Tuition & Fees', '$41,120'], ['Less: Post-9/11 GI Bill', '$28,937'], ['Housing', '$8,000'], ['Amount Student Owes', '$0']]
+        p = T.Page('', 'Military Aid', [{'heading': 'Example 2026-27', 'caption': '', 'lead': '', 'rows': rows}], [], [])
+        self.assertEqual(costs.extract(INST, ENTRY, p, '2026-27'), [])
+        url = {**ENTRY, 'url': 'https://catalog.example.edu/undergraduate/science/biology/biology-bs/'}
+        raw = (FIX / 'courseleaf_program.html').read_bytes()
+        self.assertTrue(catalog.extract(INST, url, T.parse_html(raw, 'https://x'), '2026-27'))
+        acc = T.parse_html(raw.replace(b'Biology, Bachelor of Science', b'Biology, Bachelor of Science/MS Accelerated Program'), 'https://x')
+        self.assertEqual(catalog.extract(INST, url, acc, '2026-27'), [])
+
     def test_mi_r1_rules(self):
         """MI r1: Madonna's eligibility text under a GPA/ACT/SAT header, GRCC's program budgets, Macomb's no-credit score
         bands, partner articulation agreements, and transfer/continuation GPA lines on dual-enrollment pages."""

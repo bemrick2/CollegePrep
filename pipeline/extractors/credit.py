@@ -208,7 +208,7 @@ def extract(inst, entry, page, today_year):
         for eq, row_text in items:
             k = (eq['exam_or_course_code'], eq['minimum_score'], eq['institution_course_equivalent'])
             if k in seen: continue
-            if not eq['credits_awarded'] and re.fullmatch(r'\W*(?:none|no\s+credit|n/?a)\W*', eq['institution_course_equivalent'] or '', re.I):
+            if not eq['credits_awarded'] and re.fullmatch(r'\W*(?:none|no\s+credit|n/?a|not\s+accepted)\W*', eq['institution_course_equivalent'] or '', re.I):
                 continue  # MI (Macomb): "Art History | 1, 2 | None | None" is the score band that earns nothing
             seen.add(k); eqs.append(eq)
             evidence.append({'field': f"equivalencies[{eq['exam_or_course_code']}|{eq['minimum_score']}]", 'snippet': row_text[:300]})

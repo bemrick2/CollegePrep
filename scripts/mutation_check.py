@@ -209,6 +209,16 @@ MUTS = [
     ('pipeline/extractors/transfer.py', 'articulation|agreement|\\bTT', 'articulation|\\bTT'),
     ('pipeline/extractors/transfer.py', "|\\bTT[-_]', url, re.I)", "', url, re.I)"),
     ('pipeline/extractors/transfer.py', "if re.search(r'\\.pdf$', url, re.I) and ", 'if '),
+    ('pipeline/extractors/merit.py', '\\bapplicants?:|\\((?:final|priority)\\)|', '\\((?:final|priority)\\)|'),
+    ('pipeline/extractors/merit.py', '|\\((?:final|priority)\\)|^\\W*in', '|^\\W*in'),
+    ('pipeline/extractors/merit.py', '^\\W*in\\s+this\\s+section\\W*$|', ''),
+    ('pipeline/extractors/merit.py', 'international[- ]baccalaureate(?![- ]scholarship)|academicworks|', 'academicworks|'),
+    ('pipeline/extractors/merit.py', '(?![- ]scholarship)|academicworks|', '(?![- ]scholarship)|'),
+    ('pipeline/extractors/merit.py', 'international[- ]baccalaureate(?![- ]scholarship)', 'international[- ]baccalaureate'),
+    ('pipeline/extractors/credit.py', '|n/?a|not\\s+accepted)', '|n/?a)'),
+    ('pipeline/extractors/dual.py', '\\bbelow\\s+an?\\s+\\d|', ''),
+    ('pipeline/extractors/costs.py', '        return []  # IL (Olivet)', '        pass  # IL (Olivet)'),
+    ('pipeline/extractors/catalog.py', "|transfer\\s+module|\\baccelerated\\b'", "|transfer\\s+module'"),
 ]
 failed = False
 for f, old, new in MUTS:

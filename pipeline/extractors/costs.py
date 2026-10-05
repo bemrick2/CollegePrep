@@ -221,6 +221,8 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
         return []  # budgets for less-than-full-time enrollment are not the standard cost
     # Every printed money row is kept (and counts toward reconciliation); unrecognised rows get key None.
     keyed = [(row_key(label), label, vals, raw) for label, vals, raw in body if not SKIP_ROW.search(label)]
+    if any(re.search(r'yellow\s+ribbon|gi\s+bill|amount\s+student\s+owes', label, re.I) for _, label, _, _ in keyed):
+        return []  # IL (Olivet): a GI Bill / Yellow Ribbon worked example, not the cost of attendance
     kinds = {k for k, *_ in keyed}
     if not kinds & {'tuition', 'tuition_and_fees'} or len(kinds) < 2:
         return []

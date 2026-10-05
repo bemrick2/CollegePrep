@@ -150,7 +150,7 @@ def extract(inst, entry, page, today_year):
     name = program_name(page)
     # Bachelor's and associate programs only: university-wide "Bachelor's Degree Requirements" pages and the
     # Oregon Transfer Module are not programs (OR: UO, SOCC).
-    if not name or not credential(name) or re.search(r'\brequirements?\b|transfer\s+module', name, re.I): return []
+    if not name or not credential(name) or re.search(r'\brequirements?\b|transfer\s+module|\baccelerated\b', name, re.I): return []  # IL r1: Roosevelt's BS/MS accelerated pages list only the shared graduate courses
     year, printed_year = catalog_year(page)
     issues = []
     if year is None:
