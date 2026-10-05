@@ -11,7 +11,7 @@ Runs: TN: `programs/runs/TN/2026-10-05-a`, `programs/runs/TN/2026-10-05-b`, `pro
 | 1 | Oregon State University (OR) | courseleaf | 114 | – | 103 | 0 | 0 | — | 13 | 3 | 14 | 2 | 1 | 89 | 14 | yes |
 | 1 | Portland State University (OR) | smartcatalog | 71 | – | 70 | 0 | 0 | — | 5 | 3 | 5 | 1 | 1 | 7 | 7 | yes |
 | 1 | University of Oregon (OR) | courseleaf | 73 | – | 67 | 0 | 0 | — | 0 | 4 | 4 | 0 | 1 | 55 | 2 | — |
-| 1 | University of Portland (OR) | smartcatalog | 0 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
+| 1 | University of Portland (OR) | smartcatalog | 0 | – | 52 | 0 | 0 | yes | 4 | 1 | 10 | 3 | 1 | 0 | 0 | — |
 | 1 | Belmont University (TN) | acalog | 0 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
 | 1 | Christian Brothers University (TN) | smartcatalog | 36 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
 | 1 | East Tennessee State University (TN) | acalog | 0 | 71 | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
@@ -133,7 +133,7 @@ Field cells: verified programs matching the field by printed name or CIP family 
 - **Oregon State University** (OR, P1): 11 listed bachelor programs not yet verified
 - **Portland State University** (OR, P1): 1 listed bachelor programs not yet verified
 - **University of Oregon** (OR, P1): 6 listed bachelor programs not yet verified; undeclared policy not verified
-- **University of Portland** (OR, P1): catalog retrieved but no program list parsed; no reviewed program_catalogs record (completeness unknown); no verified programs; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
+- **University of Portland** (OR, P1): no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
 - **Belmont University** (TN, P1): catalog program pages behind a bot challenge (recorded, not evaded); no reviewed program_catalogs record (completeness unknown); no verified programs; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
 - **Christian Brothers University** (TN, P1): no reviewed program_catalogs record (completeness unknown); no verified programs; priority fields listed but not verified: engineering, computer_science, business_finance, nursing_health, psychology; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
 - **East Tennessee State University** (TN, P1): catalog program pages behind a bot challenge (recorded, not evaded); no reviewed program_catalogs record (completeness unknown); no verified programs; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
