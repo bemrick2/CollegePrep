@@ -54,7 +54,9 @@ def check_candidate(c, text, other=None):
         if norm(r['program_name']) not in t: probs.append('program_name not verbatim')
         cy = r.get('catalog_year') or ''
         y = re.match(r'(20\d{2})-(20\d{2})', cy)
-        if y and not re.search(rf'{y.group(1)}\s*[-–]\s*({y.group(2)}|{y.group(2)[2:]})', text): probs.append('catalog year not printed')
+        yev = next((ev for ev in c.get('evidence', []) if ev.get('field') == 'catalog_year' and ev.get('sha256') and ev['sha256'] != c['source'].get('sha256')), None)
+        ytext = other(yev['sha256']) if (yev and other) else text  # the year printed on another stored page of the catalog (its home)
+        if y and not re.search(rf'{y.group(1)}\s*[-–]\s*({y.group(2)}|{y.group(2)[2:]})', ytext): probs.append('catalog year not printed')
         n = int(r['total_credits']) if r.get('total_credits') is not None else None
         if n is not None and not re.search(rf'total[^0-9]{{0,40}}\b{n}\b|\b{n}\s+(total|hours\s+total)', text, re.I):
             probs.append('total_credits not printed next to a total label')
