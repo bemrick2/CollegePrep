@@ -22,7 +22,8 @@ TOTAL = re.compile(r'^\W*total\s+(?:credit\s+)?(?:hours|credits)(?:\s+required)?
 REQUIRED = re.compile(r'\b(required|requirements|core|major\s+courses|foundation|complete\s+(the\s+)?following|complete\s+all)\b', re.I)
 CHOOSE = re.compile(r'\b(choose|select|approved|elective|electives|one\s+of|from\s+the\s+following)\b', re.I)
 BACHELOR = re.compile(r'\b(B\.?\s?(A|S|F\.?A|M|S\.?N|S\.?W|A\.?S|Arch|Mus|B\.?A|S\.?[A-Z]{1,3})\b\.?|bachelor)', re.I)
-NOT_PROGRAM = re.compile(r'\b(minor|certificate|graduate|master|ph\.?d|m\.?s\.?|m\.?a\.?|admission\s+requirements|objectives|outcomes|courses)\b', re.I)
+NOT_PROGRAM = re.compile(r'\b(minor|certificate|graduate|master|ph\.?d|m\.?s\.?|m\.?a\.?|admission\s+requirements|objectives|outcomes|courses)\b|'
+                         r'^(admission|admissions|requirements?|policy|policies|general|academic|students?)\b|\bstudents\s+who\b|\balready\s+have\b', re.I)
 
 
 CRUMB_HEAD = re.compile(r'^(?=[^>]{0,80}(Catalog|Catalogue|Bulletin))[^>]{0,80}?\b(20\d{2})\s*[-–]\s*((?:20)?\d{2})\b[^>]{0,40}>', re.I)
@@ -99,8 +100,9 @@ def extract(inst, entry, page, today_year):
         groups.append({'program_key': pkey, 'requirement_key': 'recommended-sequence', 'requirement_kind': 'program_plan',
                        'rule_details': {'schema': 'requirement_group/v1', 'catalog_year': year, 'group_type': 'sequence',
                                         'category': 'recommended_sequence', 'terms': terms, 'source_section': 'Requirements'}})
-    totals = {int(m.group(1)) for l in page.lines for m in [TOTAL.match(l.strip('| '))] if m}
-    total = totals.pop() if len(totals) == 1 else None
+    # "Total Credit Hours: 53-54" on SmartCatalog program pages is the major's total, not the degree's (PSU review
+    # 2026-10-05), and ranges are common; it is not recorded as total_credits.
+    total = None
     # A program page with no parseable requirement tables still establishes the program (name, award, URL, year).
     src = common.source_of(entry)['url']
     prog = {'program_key': pkey, 'program_name': name, 'catalog_year': year, 'program_url': src, 'credential_level': 'bachelor',
