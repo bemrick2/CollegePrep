@@ -117,7 +117,7 @@ OR={
    'award_statement':{'url':'https://docs.lclark.edu/undergraduate/graduationrequirements/requirements/','quote':'Undergraduate work at Lewis & Clark leads to the bachelor of arts degree','credential':'bachelor'}},
    policy=['https://college.lclark.edu/academics/pre_professional/engineering/','https://college.lclark.edu/academics/pre_professional/business_mba/']),
  'willamette-210401':dict(priority=2,render='browser',catalog={'platform':'coursedog','home':'https://catalog.willamette.edu/','path_prefix':'/programs/','min_depth':0,
-   'program_lists':['https://catalog.willamette.edu/programs']},policy=['https://willamette.edu/academics/all-programs?programTypes=undergraduate']),
+   'program_lists':['https://catalog.willamette.edu/programs']+[f'https://catalog.willamette.edu/programs?page={n}&pq=&sortBy=name' for n in range(2,16)]},policy=['https://willamette.edu/academics/all-programs?programTypes=undergraduate']),
  'georgefox':dict(priority=1,catalog={'platform':'drupal','home':'https://www.georgefox.edu/catalog/index.html','program_link':r'georgefox\.edu/catalog/undergrad/curriculum/major_minor/[a-z_]+_major(_[a-z]+)?\.html$',
    'program_lists':['https://www.georgefox.edu/catalog/undergrad/curriculum/major_minor/index.html']},
    policy=['https://www.georgefox.edu/college-admissions/academics/major/index.html','https://www.georgefox.edu/college-admissions/academics/major/engineering.html',
