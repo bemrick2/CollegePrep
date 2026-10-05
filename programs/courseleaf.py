@@ -6,7 +6,8 @@ Rows: a one-cell row names a term or year ("First Year", "Fall"); [code, title, 
 [_, "Credits", n] row is the printed term subtotal; [_, "Total Credits", n] is the plan total. A code cell
 naming one course becomes a course item; joined or alternative cells ("CH 201& CH 204", "CE 383or CE 481")
 stay printed text. Nothing is inferred. A page with several grids (one per option) marks every plan
-`multiple_plan_grids`, because the grid's option is not reliably labelled.
+`multiple_plan_grids`, because the grid's option is not reliably labelled -- unless each grid sits under its own
+distinct "Bachelor of ..." heading (UO "Degree Map" tables), which then names the plan.
 """
 from __future__ import annotations
 import re
@@ -20,7 +21,7 @@ TERM = re.compile(r'^(first|second|third|fourth|fifth|freshman|sophomore|junior|
 
 
 def grids(page):
-    return [t for t in page.tables if (t.get('caption') or '').strip().lower() == 'plan of study grid']
+    return [t for t in page.tables if (t.get('caption') or '').strip().lower() in ('plan of study grid', 'degree map')]
 
 
 def parse_grid(t):
@@ -66,15 +67,23 @@ def extract(inst, entry, page, year, year_line, have_program):
         out.append(common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', prog,
                                [{'field': 'program_name', 'value': name, 'snippet': page.title[:200]},
                                 {'field': 'catalog_year', 'value': year, 'snippet': year_line[:200]}], entry, EXTRACTOR, {'program_key': pkey}))
+    headings = [(t.get('heading') or '').strip() for t in gs]
+    # UO prints one 'Degree Map' per award under its own heading ('Bachelor of Science in Computer Science'): distinct
+    # headings label the plans, so several grids are not ambiguous there.
+    labelled = len(parsed) > 1 and len(set(headings)) == len(headings) and all(re.search(r'\bbachelor\b', h, re.I) for h in headings)
     for i, (terms, total) in enumerate(parsed, 1):
         if not terms: continue
-        key = 'sample-plan' if len(parsed) == 1 else f'sample-plan-{i}'
+        if labelled:
+            key = slug(headings[i - 1])
+        else:
+            key = 'sample-plan' if len(parsed) == 1 else f'sample-plan-{i}'
+        caption = (gs[i - 1].get('caption') or 'Plan of Study Grid').strip()
         rd = {'schema': 'requirement_group/v1', 'catalog_year': year, 'group_type': 'sequence', 'category': 'recommended_sequence',
-              'terms': terms, 'source_section': 'Sample Plan: Plan of Study Grid' + (f' {i} of {len(parsed)}' if len(parsed) > 1 else '')}
+              'terms': terms, 'source_section': (headings[i - 1] if labelled else f'Sample Plan: {caption}' + (f' {i} of {len(parsed)}' if len(parsed) > 1 else ''))}
         if total: rd['rule_text'] = f'Total Credits {total} (as printed)'
         rec = {'program_key': pkey, 'requirement_key': key, 'requirement_kind': 'program_plan', 'rule_details': rd}
         ev = [{'field': 'term', 'value': t['label'], 'snippet': f"{t['label']}: {len(t['items'])} items, {t.get('credit_hours', '?')} credits"} for t in terms]
-        issues = ['multiple_plan_grids'] if len(parsed) > 1 else []
+        issues = ['multiple_plan_grids'] if len(parsed) > 1 and not labelled else []
         out.append(common.make('degree_requirements', inst['institution_key'], acad, 'labeled_in_source', rec, ev, entry, EXTRACTOR,
                                {'program_key': pkey, 'requirement_key': key}, {'terms': len(terms)}, issues))
     return out

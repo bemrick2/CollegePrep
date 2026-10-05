@@ -27,7 +27,7 @@ FIELDS = {
 }
 CIP_FIELD = {'engineering': ('14',), 'computer_science': ('11',), 'business_finance': ('52',), 'nursing_health': ('51',), 'psychology': ('42',)}
 EVIDENCE_KEYS = ['direct_admission', 'apply_to_major', 'pre_major', 'progression', 'open_declaration', 'gpa_requirement', 'undeclared', 'declare_by',
-                 'change_major', 'cip_code', 'major_scholarship']
+                 'change_major', 'cip_code', 'major_scholarship', 'exam_credit_in_program']
 
 
 def load_records(folder, domain):
@@ -180,8 +180,8 @@ def markdown(a):
                  f"{p['programs_with_degree_plan']} | {p['cr14']['admission_type']} | {yes(p['cr14']['undeclared_policy'])} |")
     L += ['', 'Field cells: verified programs matching the field by printed name or CIP family (/ including partially verified state-inventory records).', '',
           '## CR-14 field obtainability from retrieved official sources (sentences found, unreviewed)', '',
-          '| School | direct admit | apply to major | pre-major | progression | open declaration | GPA rule | undeclared | declare-by | change major | CIP | major scholarship |',
-          '|---|---|---|---|---|---|---|---|---|---|---|---|']
+          '| School | direct admit | apply to major | pre-major | progression | open declaration | GPA rule | undeclared | declare-by | change major | CIP | major scholarship | AP/IB/dual credit in program text |',
+          '|---|---|---|---|---|---|---|---|---|---|---|---|---|']
     for s in a['institutions']:
         if not s['run']: continue
         e = s['run']['evidence_sentences']

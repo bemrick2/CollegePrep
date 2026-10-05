@@ -360,3 +360,23 @@ class CatalogPdfProgramsTests(unittest.TestCase):
         names = [c['record']['program_name'] for c in X.catalog_pdf_programs({'institution_key': 'k'}, e, T.Page(txt, '', [], [], []), '2026-27')]
         self.assertEqual(names, ['Mechanical Engineering Technology/ Manufacturing Engineering Technology, BS', 'Mechanical Engineering, BS',
                                  'Accounting (B.B.A.)', 'BSRT_Radiologic Technology'])
+
+
+class CourseleafPlanTests(unittest.TestCase):
+    def grid(self, heading, caption='Degree Map'):
+        return {'caption': caption, 'heading': heading, 'rows': [['First Year'], ['Fall'], ['CS 210', 'Computer Science I', '4'],
+                                                                 ['', 'Credits', '4'], ['', 'Total Credits', '180']]}
+
+    def test_degree_maps_labelled_by_bachelor_headings(self):  # UO 2026-27 prints one 'Degree Map' per award
+        from pipeline import text as T
+        from programs import courseleaf as CL
+        e = {'url': 'https://catalog.uoregon.edu/cas/cs/', 'sha256': 's', 'fetched_at': '2026-10-05T00:00:00'}
+        two = [self.grid('Bachelor of Science in Computer Science'), self.grid('Bachelor of Arts in Computer Science')]
+        p = T.Page('Computer Science BA/BS', 'Computer Science BA/BS', two, [], [])
+        out = [c for c in CL.extract({'institution_key': 'k'}, e, p, '2026-2027', '2026-2027 Catalog', True) if c['domain'] == 'degree_requirements']
+        self.assertEqual([c['record']['requirement_key'] for c in out], ['bachelor-of-science-in-computer-science', 'bachelor-of-arts-in-computer-science'])
+        self.assertTrue(all(not c['issues'] for c in out))
+        same = [self.grid('Degree Map'), self.grid('Degree Map')]  # unlabelled: ambiguous, held for review
+        out = [c for c in CL.extract({'institution_key': 'k'}, e, T.Page('Computer Science BA/BS', 'Computer Science BA/BS', same, [], []), '2026-2027', '', True)
+               if c['domain'] == 'degree_requirements']
+        self.assertTrue(all(c['issues'] == ['multiple_plan_grids'] for c in out))
