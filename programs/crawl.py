@@ -236,6 +236,8 @@ def crawl_target(target, run: Run, fetcher, browser=None, log=print, caps=None):
                     store_courselists(run, key, url, body, depth)
                 if kind == 'html' and role == 'program_page' and (target.get('catalog') or {}).get('platform') == 'smartcatalog':
                     store_outline(run, key, url, body, depth)
+                if kind == 'pdf' and role == 'degree_map' and target.get('pdf_layout'):
+                    store_pdf_layout(run, key, url, body, depth)
         run.record(entry)
     log(f"{key}: {len(queue)} fetched {dict(sorted(counts.items()))}")
     return len(queue)
@@ -251,6 +253,18 @@ def store_courselists(run, key, url, body, depth):
     run.record({'institution_key': key, 'url': url + '#courselist', 'role': 'courselist', 'via': url, 'depth': depth, 'fetched_at': now(),
                 'status': 200, 'sha256': sha, 'source_sha256': hashlib.sha256(body).hexdigest(), 'kind': 'json', 'tables': len(tables),
                 'page_file': run.save_page(sha, 'json', T.Page(text, 'CourseLeaf course lists', [], [], []), [])})
+
+
+def store_pdf_layout(run, key, url, body, depth):
+    """Word positions of a PDF (poppler `pdftotext -bbox-layout`), stored as their own JSON document (url + '#layout'):
+    two-column degree maps need x positions to keep the columns apart."""
+    from .pdf_layout import words
+    pages = words(body)
+    if not pages: return
+    text = json.dumps(pages, ensure_ascii=False); sha = hashlib.sha256(text.encode()).hexdigest()
+    run.record({'institution_key': key, 'url': url + '#layout', 'role': 'pdf_layout', 'via': url, 'depth': depth, 'fetched_at': now(),
+                'status': 200, 'sha256': sha, 'source_sha256': hashlib.sha256(body).hexdigest(), 'kind': 'json',
+                'page_file': run.save_page(sha, 'json', T.Page(text, 'pdf word layout', [], [], []), [])})
 
 
 def store_outline(run, key, url, body, depth):

@@ -43,7 +43,7 @@ TN={
    'https://www.utc.edu/enrollment-management-and-student-affairs/center-for-academic-support-and-advisement/academic-exploration/undecided-majors',
    'https://www.utc.edu/gary-w-rollins-college-of-business/student-resources/scholarships/general-scholarships'],
    degree_maps=['https://www.utc.edu/enrollment-management-and-student-affairs/advisement/advising-resources/clear-paths-for-advising/clear-paths-for-advising-2026-2027'],
-   degree_map_any_pdf=True),
+   degree_map_any_pdf=True,pdf_layout=True),
  'etsu':dict(priority=1,catalog=acalog('catalog.etsu.edu',65,[4652]),policy=[
    'https://www.etsu.edu/cas/applied-design/engineering/faq.php','https://www.etsu.edu/cas/applied-design/scholarship.php',
    'https://www.etsu.edu/cbat/management-supply-chain/documents/special_admission_requirements.pdf','https://www.etsu.edu/cbat_scholarships/',

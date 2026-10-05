@@ -687,3 +687,12 @@ class OutlineTests(unittest.TestCase):
         b = outline(html)
         self.assertEqual([(x['tag'], x['depth'], x['text']) for x in b],
                          [('h2', 0, 'Major Requirements'), ('p', 0, 'Select one of the following:'), ('li', 1, 'PSY 200 General Psychology'), ('li', 2, 'or PSY 201'), ('li', 1, 'STAT 243Z')])
+
+
+class PdfLayoutTests(unittest.TestCase):
+    def test_bbox_parse(self):
+        from programs.pdf_layout import parse_bbox
+        x = ('<page width="612.0" height="792.0"><flow><block><line xMin="36.0" yMin="100.0" xMax="200.0" yMax="110.0">'
+             '<word xMin="36.0" yMin="100.0" xMax="60.0" yMax="110.0">ANTH</word><word xMin="62.0" yMin="100.0" xMax="90.0" yMax="110.0">1200:</word>'
+             '</line></block></flow></page>')
+        self.assertEqual(parse_bbox(x), [{'width': 612.0, 'height': 792.0, 'lines': [{'y': 100.0, 'y1': 110.0, 'words': [[36.0, 60.0, 'ANTH'], [62.0, 90.0, '1200:']]}]}])
