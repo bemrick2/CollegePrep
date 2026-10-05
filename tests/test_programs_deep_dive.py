@@ -182,3 +182,143 @@ class DeepDiveEdgeTests(unittest.TestCase):
     def test_overlong_text_is_not_a_sentence(self):
         page = type('P', (), {'lines': ['Students are admitted directly to the major ' + 'x' * 700]})()
         self.assertEqual(list(X.sentences(page)), [])
+
+
+class ThecAdapterTests(unittest.TestCase):
+    """programs/thec.py: same requests the public search page makes; responses stored with hashes; names matched exactly
+    after normalisation (never fuzzily)."""
+    def test_inventory_requests_and_storage(self):
+        import io, json as J
+        from programs import thec
+        from pipeline.crawl import HostGate
+        calls = []
+        class Resp(io.BytesIO):
+            status = 200
+            def __enter__(self): return self
+            def __exit__(self, *a): pass
+        class Opener:
+            def open(self, req, timeout=None):
+                calls.append((req.get_method(), req.full_url, req.data))
+                if 'GetInstitutionList' in req.full_url:
+                    return Resp(J.dumps([{'institutionName': 'University of Tennessee, Knoxville', 'institutionId': '7'}]).encode())
+                body = J.loads(req.data)
+                assert str(body['InstitutionId']) == '7' and body['IsActiveChecked'] is True
+                return Resp(J.dumps(J.dumps({'ProgramList': [{'MajorName': 'Mechanical Engineering', 'Award': 'BS', 'MajorCipCode': '14.1901'}]})).encode())
+        class F:
+            gate = HostGate(0); opener = Opener()
+            def allowed(self, url): return True
+        with tempfile.TemporaryDirectory() as d:
+            run = C.Run(Path(d))
+            thec.crawl(run, F(), {'utk': 'The University of Tennessee-Knoxville', 'x': 'Nowhere College'}, log=lambda *_: None)
+            es = run.entries()
+            inv = [e for e in es if e.get('role') == 'state_inventory']
+            self.assertEqual(len(inv), 1); self.assertTrue(inv[0]['sha256'])
+            self.assertIn('14.1901', run.load_page(inv[0]['page_file'])[0].text)
+            self.assertTrue(any('not in THEC list' in (e.get('error') or '') for e in es))
+            n = len(calls); thec.crawl(run, F(), {'utk': 'The University of Tennessee-Knoxville'}, log=lambda *_: None)
+            self.assertEqual(len(calls), n)  # resumable: nothing requested twice
+
+
+class SmartCatalogTests(unittest.TestCase):
+    def page(self, title, crumb, tables=()):
+        from pipeline import text as T
+        return T.Page(f'{title}\n{crumb}\nRequirements', f'Union University - {title}', list(tables), [], [title])
+
+    def test_policy_page_with_bachelor_in_title_is_not_a_program(self):  # Union 2026-27: admission policy page
+        from programs import smartcatalog as S
+        p = self.page("Admission of Students Who Already Have a Bachelor's Degree", '2026-27 Undergraduate Catalogue > Admissions > Admission of Students')
+        e = {'url': 'https://uu.smartcatalogiq.com/x', 'sha256': 'a', 'fetched_at': '2026-10-05T00:00:00'}
+        self.assertEqual(S.extract({'institution_key': 'k'}, e, p, '2026-27'), [])
+
+    def test_breadcrumb_year_forms(self):
+        from programs import smartcatalog as S
+        for crumb, y in [('2026-2027 Bulletin > College > Computer Science B.S.', '2026-2027'),
+                         ('Academic Catalog 2026-2027 > Programs > Psychology, Bachelor of Arts', '2026-2027'),
+                         ('2026-27 Undergraduate Catalogue > College > Art', '2026-2027'), ('Home > Programs > Art', None)]:
+            self.assertEqual(S.program_year(self.page('X, B.S.', crumb))[0], y)
+
+    def test_required_only_when_heading_says_so(self):
+        from programs import smartcatalog as S
+        rows = [['CS 161', 'Intro', '4'], ['CS 162', 'Data', '4']]
+        p = self.page('Computer Science B.S.', '2026-2027 Bulletin > CS > Computer Science B.S.',
+                      [{'heading': 'Required Courses', 'rows': rows}, {'heading': 'Biology:', 'rows': rows}])
+        e = {'url': 'https://pdx.smartcatalogiq.com/x', 'sha256': 'b', 'fetched_at': '2026-10-05T00:00:00'}
+        groups = {c['record']['requirement_key']: c for c in S.extract({'institution_key': 'k'}, e, p, '2026-27') if c['domain'] == 'degree_requirements'}
+        self.assertEqual(groups['required-courses']['record']['rule_details']['group_type'], 'all_required')
+        self.assertEqual(groups['biology']['record']['rule_details']['group_type'], 'elective_pool')
+        self.assertIn('group_type_unclear_heading', groups['biology']['issues'])
+
+
+class ReviewFindingsTests(unittest.TestCase):
+    """Regressions from the independent review of the first promotions (2026-10-05)."""
+    def test_option_pages_are_not_programs(self):
+        mk = lambda n: {'domain': 'academic_programs', 'record': {'program_name': n}}
+        self.assertTrue(X.is_option_page(mk('Studio Art BFA Option')))
+        self.assertFalse(X.is_option_page(mk('Art Undergraduate Major (BA, BFA, BS, HBA, HBFA, HBS)')))
+        self.assertFalse(X.is_option_page(mk('Mechanical Engineering B.S.')))
+
+    def test_smartcatalog_major_total_is_not_degree_total(self):
+        from pipeline import text as T
+        from programs import smartcatalog as S
+        p = T.Page('Anthropology B.A./B.S.\n2026-2027 Bulletin > CLAS > Anthropology B.A./B.S.\nTotal Credit Hours: 53-54', 'PSU - Anthropology B.A./B.S.',
+                   [{'heading': 'Required Courses', 'rows': [['Anth 101', 'Intro', '4']]}], [], ['Anthropology B.A./B.S.'])
+        out = S.extract({'institution_key': 'k'}, {'url': 'https://x.smartcatalogiq.com/a', 'sha256': 's', 'fetched_at': '2026-10-05T00:00:00'}, p, '2026-27')
+        self.assertNotIn('total_credits', out[0]['record'])
+        self.assertFalse(any(c['record'].get('requirement_kind') == 'total_credits' for c in out))
+
+    def test_joined_quotes_mark_the_gap(self):
+        from programs.promote import _quote
+        ev = {'a': {'sentence': 'One.', 'url': 'https://x', 'sha256': 'h', 'fetched_at': '2026'}, 'b': {'sentence': 'Two.', 'url': 'https://x', 'sha256': 'h', 'fetched_at': '2026'}}
+        self.assertEqual(_quote(['a', 'b'], ev)[0], 'One. … Two.')
+
+
+class ThecCipTests(unittest.TestCase):
+    def test_federal_cip_only_when_layout_confirmed(self):
+        self.assertEqual(X.federal_cip({'MajorCipCode': '09.14.1901.00', 'MajorTaxCode': '14'}), '14.1901')
+        self.assertIsNone(X.federal_cip({'MajorCipCode': '09.14.1901.00', 'MajorTaxCode': '09'}))  # layout not confirmed
+        self.assertIsNone(X.federal_cip({'MajorCipCode': '14.1901', 'MajorTaxCode': '09'}))
+
+    def test_inventory_rows_bachelor_only_and_unlabeled_year(self):
+        rows = [{'MajorName': 'MECHANICAL ENGINEERING', 'Award': 'BSME', 'MajorCipCode': '09.14.1901.00', 'MajorTaxCode': '14', 'CurrentProgramStatus': 'Active', 'CreditOrClockHours': '128'},
+                {'MajorName': 'MECHANICAL ENGINEERING', 'Award': 'MS', 'MajorCipCode': '09.14.1901.00', 'MajorTaxCode': '14', 'CurrentProgramStatus': 'Active'},
+                {'MajorName': 'NURSING', 'Award': 'C4', 'CurrentProgramStatus': 'Active'}]
+        out = X.thec_candidates({'institution_key': 'utk'}, {'url': 'https://thec.example/x', 'sha256': 'z', 'fetched_at': '2026-10-05T00:00:00'}, rows, '2026-27')
+        self.assertEqual(len(out), 1)
+        self.assertEqual(out[0]['record']['cip_code'], '14.1901')
+        self.assertEqual(out[0]['year_basis'], 'source_unlabeled')  # promotes as partially_verified, never verified
+
+
+class InventoryMatchTests(unittest.TestCase):
+    def test_exact_major_and_award_only(self):
+        from programs import match as Mt
+        rows = [{'MajorName': 'MECHANICAL ENGINEERING', 'Award': 'BSME'}, {'MajorName': 'COMPUTER SCIENCE', 'Award': 'BS'},
+                {'MajorName': 'PSYCHOLOGY', 'Award': 'BA'}, {'MajorName': 'PSYCHOLOGY', 'Award': 'BA'}]
+        recs = [{'program_key': 'me', 'program_name': 'Mechanical Engineering, B.S.M.E.'},
+                {'program_key': 'cyber', 'program_name': 'Computer Science: Cyber Security, B.S.'},
+                {'program_key': 'psy', 'program_name': 'Psychology, B.A.'},          # two identical rows: ambiguous
+                {'program_key': 'me-env', 'program_name': 'Mechanical Engineering, B.S.'},  # award differs
+                {'program_key': 'cs-ai', 'program_name': 'Computer Sciences, B.S.'}]        # name differs
+        self.assertEqual(sorted(Mt.match(recs, rows)), ['cyber', 'me'])
+
+
+class InventoryDuplicateTests(unittest.TestCase):
+    def test_inventory_and_catalog_record_for_one_program_is_an_error(self):
+        from backend import program_fields as F
+        base = {'institution_key': 'k', 'academic_year': '2026-27', 'verification_status': 'verified'}
+        thec = ('p', 'academic_programs', {**base, 'program_key': 'mechanical-engineering-bsme', 'program_name': 'MECHANICAL ENGINEERING, BSME',
+                                            'program_url': 'https://thec.ppr.tn.gov/AcademicProgramInventorySearch'})
+        cat = ('p', 'academic_programs', {**base, 'program_key': 'me', 'program_name': 'Mechanical Engineering, B.S.M.E.', 'program_url': 'https://catalog.x.edu/me'})
+        other = ('p', 'academic_programs', {**base, 'program_key': 'cs', 'program_name': 'Computer Science, B.S.', 'program_url': 'https://catalog.x.edu/cs'})
+        self.assertTrue(F.cross_errors([thec, cat]))
+        self.assertEqual(F.cross_errors([thec, other]), [])
+
+
+class PageQuoteTests(unittest.TestCase):
+    def test_lines_must_be_printed_on_the_stored_page(self):
+        from programs.promote import page_quote
+        with tempfile.TemporaryDirectory() as d:
+            f = FakeFetcher(PAGES); run = C.Run(Path(d)); C.crawl_target(TARGET, run, f, log=lambda *_: None)
+            q, src = page_quote({'url': 'https://www.example.edu/undeclared', 'lines': ['First-year students may enter as undeclared. Students must declare a major by the time they complete 45 credit hours.']}, run)
+            self.assertTrue(src['sha256'])
+            with self.assertRaises(ValueError):
+                page_quote({'url': 'https://www.example.edu/undeclared', 'lines': ['Students are admitted directly.']}, run)

@@ -32,6 +32,7 @@ BACHELOR = re.compile(r'\b(B\.?\s?(A|S|F\.?A|M|S\.?N|S\.?W|B\.?A|S\.?E|S\.?E\.?E
                       r'Bachelor|\bH?BA\b|\bH?BS\b)', re.I)
 ASSOCIATE = re.compile(r'\b(A\.?\s?(A|S|A\.?S|A\.?T|S\.?T|F\.?A)\b\.?|Associate)', re.I)
 
+NOT_BACHELOR_URL = re.compile(r'(^|[/_-])(min|minor|minors|cert|certificate|certificates|grad|graduate|masters?|phd|doctoral)([/_-]|$)', re.I)
 # 'Accounting Major' in an undergraduate catalog: a major whose degree (BA/BS) the list does not print
 MAJOR = re.compile(r'\bmajor\b', re.I)
 NOT_MAJOR = re.compile(r'\b(minor|certificate|graduate|second\s+major|majors\))', re.I)
@@ -43,7 +44,11 @@ EVIDENCE = [
                                   r'\badmission\s+(to|into)\s+the\s+(major|program|professional|upper[\s-]*division|nursing|school)|'
                                   r'\b(competitive|selective)\s+admission|\bspace[\s-]+limited\b|\blimited\s+enrollment\b', re.I)),
     ('pre_major', re.compile(r'\bpre[\s-](major|nursing|engineering|business|professional|health|computer)', re.I)),
-    ('progression', re.compile(r'\b(progression|progress\s+to|continu(e|ation)\s+in\s+the\s+(major|program)|good\s+standing\s+in\s+the\s+major)\b', re.I)),
+    ('progression', re.compile(r'\b(progression|progress\s+to|continu(e|ation)\s+in\s+the\s+(major|program)|good\s+standing\s+in\s+the\s+major|'
+                               r'opt[\s-]+in(to)?\b.{0,80}\bupper[\s-]*division|upper[\s-]*division\s+(admission|courses?|coursework|standing)|'
+                               r'admitted\s+(formally\s+)?to\s+(your|the|their)\s+(major|program|department)|restricted,?\s+upper[\s-]*division)', re.I)),
+    ('open_declaration', re.compile(r'\b(may|can)\s+(declare|choose|select)\b.{0,80}\b(at\s+any\s+time|anytime|upon\s+(admission|enrollment)|after\s+enrolling)|'
+                                    r'\bautomatic(ally)?\s+admi(ssion|tted)\b|\bopen\s+to\s+all\s+students\b', re.I)),
     ('gpa_requirement', re.compile(r'\b(minimum|cumulative|overall|combined|institutional)\b[^.]{0,60}\bG\.?P\.?A\.?\b[^.]{0,30}\b[1-4]\.\d{1,2}\b|'
                                    r'\b[1-4]\.\d{1,2}\b[^.]{0,30}\b(cumulative|overall|minimum)?\s*G\.?P\.?A', re.I)),
     ('undeclared', re.compile(r'\b(undeclared|undecided|exploratory|explor(e|ing)\s+(majors|options|studies)|academic\s+focus)\b', re.I)),
@@ -118,8 +123,10 @@ def collect_lists(target, run, entries):
             if not (is_program(href) or line): continue
             label = line or name
             if cat_filter and not re.search(cat_filter, label): continue
+            if NOT_BACHELOR_URL.search(urlsplit(href).path):  # UO minors repeat the major's anchor text: /min-anthropology/
+                label = name
             if href not in out:
-                level = credential_of(label)
+                level = None if NOT_BACHELOR_URL.search(urlsplit(href).path) else credential_of(label)
                 listed_as = level or ('major' if MAJOR.search(label) and not NOT_MAJOR.search(label) else None)
                 out[href] = {'name': name, 'printed': label, 'url': href, 'credential_level': level, 'listed_as': listed_as,
                              'listed_on': e['url'], 'listed_on_sha256': e.get('sha256'), 'listed_on_title': e.get('title', '')}
@@ -141,15 +148,97 @@ def program_page_candidates(target, inst, entry, page, today_year):
         from . import smartcatalog
         return smartcatalog.extract(inst, entry, page, today_year)
     out = CAT.extract(inst, entry, page, today_year)
-    if out or CAT.catalog_year(page)[0] is not None: return out
-    labels = printed_catalog_years(page)
-    if len({y for y, _ in labels}) != 1: return out
-    year, line = next(iter(labels))
-    view = T.Page(page.text, f'{CAT.program_name(page)} - {year} Catalog', page.tables, page.links, page.headings)
-    out = CAT.extract(inst, entry, view, today_year)
-    for c in out:
-        c['issues'] = c.get('issues', []) + ['catalog_year_from_page_label']
-        c['evidence'] = c.get('evidence', []) + [{'field': 'catalog_year', 'value': year, 'snippet': line[:200]}]
+    y0, printed0 = CAT.catalog_year(page)
+    year, line = printed0, (page.title or '')
+    if not out and y0 is None:
+        labels = printed_catalog_years(page)
+        if len({y for y, _ in labels}) == 1:
+            year, line = next(iter(labels))
+            view = T.Page(page.text, f'{CAT.program_name(page)} - {year} Catalog', page.tables, page.links, page.headings)
+            out = CAT.extract(inst, entry, view, today_year)
+            for c in out:  # the year is printed on this same document (e.g. CourseLeaf footer): labeled in source, with its line as evidence
+                c['evidence'] = c.get('evidence', []) + [{'field': 'catalog_year', 'value': year, 'snippet': line[:200],
+                                                          'note': 'catalog year label printed outside the page header'}]
+    if plat == 'courseleaf' and year:
+        from . import courseleaf
+        have = any(c['domain'] == 'academic_programs' for c in out)
+        plan = courseleaf.extract(inst, entry, page, year, line, have)
+        if have and plan:  # plan rows must use the program key the program candidate uses
+            pk = next(c['record']['program_key'] for c in out if c['domain'] == 'academic_programs')
+            for c in plan: c['record']['program_key'] = pk
+        out += plan
+    return out
+
+
+PROGRAM_ONLY_ISSUES = ('requirement_groups_skipped',)
+
+
+OPTION_NAME = re.compile(r'\b(option|concentration|track|emphasis)\b(?!.*\bmajor\b)', re.I)
+
+
+def is_option_page(c):
+    """'Studio Art BFA Option' (OSU) is an option inside a major, not a degree program; the major has its own record."""
+    return c['domain'] == 'academic_programs' and bool(OPTION_NAME.search(c['record'].get('program_name', '')))
+
+
+def program_identity(c):
+    """A program record states name, award, URL, year and printed total only; a skipped requirement group elsewhere on
+    the page does not weaken those facts, so that issue stays on the requirement rows and leaves the program record."""
+    if c['domain'] == 'academic_programs':
+        moved = [i for i in c['issues'] if i in PROGRAM_ONLY_ISSUES]
+        if moved:
+            c['issues'] = [i for i in c['issues'] if i not in PROGRAM_ONLY_ISSUES]
+            c.setdefault('checks', {})['requirement_issues'] = moved
+    return c
+
+
+THEC_PAGE = 'https://thec.ppr.tn.gov/AcademicProgramInventorySearch'
+AWARD_LEVEL = [('bachelor', re.compile(r'^B[A-Z.]{0,6}$|^BACHELOR', re.I)), ('associate', re.compile(r'^A[A-Z.]{0,4}$|^ASSOCIATE', re.I))]
+
+
+def thec_rows(page):
+    try:
+        data = json.loads(page.text)
+    except ValueError:
+        return []
+    rows = (data.get('ProgramList') or data.get('programList') or []) if isinstance(data, dict) else (data if isinstance(data, list) else [])
+    # one spelling for every key, as the page's own table reads them (MajorName, Award, MajorCipCode, ...)
+    canon = {k.lower(): k for k in ('InstitutionName', 'MajorName', 'Award', 'MajorTaxCode', 'MajorCipCode', 'CreditOrClockHours',
+                                     'CurrentProgramStatus', 'ProgramId', 'EffectiveStartDate', 'FederalTaxName')}
+    return [{canon.get(str(k).lower(), k): v for k, v in r.items()} for r in rows if isinstance(r, dict)]
+
+
+def federal_cip(r):
+    """THEC prints MajorCipCode as GG.FF.SSSS.XX, where FF.SSSS is the 6-digit federal CIP and FF is also printed as the
+    row's MajorTaxCode (Mechanical Engineering BSME '09.14.1901.00' with MajorTaxCode '14' -> 14.1901; checked on all
+    1,594 TN public rows of run 2026-10-05-thec2). The federal code is taken only when FF equals the printed MajorTaxCode,
+    so the layout is confirmed row by row."""
+    m = re.fullmatch(r'(\d{2})\.(\d{2})\.(\d{4})\.(\d{2})', (r.get('MajorCipCode') or '').strip())
+    if not m or m.group(2) != str(r.get('MajorTaxCode') or '').strip(): return None
+    return f'{m.group(2)}.{m.group(3)}'
+
+
+def thec_candidates(inst, entry, rows, today_year):
+    """THEC Academic Program Inventory rows (state-approved active programs) -> academic_programs candidates with the
+    federal CIP code exactly as the inventory prints it. The inventory is not labelled with an academic year: rows are
+    the programs active when fetched, recorded for the year in force at review (`source_unlabeled`)."""
+    out = []
+    for r in rows:
+        name, award = (r.get('MajorName') or '').strip(), (r.get('Award') or '').strip()
+        level = next((lvl for lvl, rx in AWARD_LEVEL if rx.match(award.replace(' ', ''))), None)
+        if not name or level is None: continue
+        if (r.get('CurrentProgramStatus') or 'Active').strip().lower() not in ('active', ''): continue
+        cip = federal_cip(r)
+        rec = {'program_key': CAT.slug(f'{name} {award}'), 'program_name': f'{name}, {award}', 'credential_level': level,
+               'program_url': THEC_PAGE, 'notes': 'From the THEC Academic Program Inventory (state-approved active programs).'}
+        if cip: rec.update(cip_code=cip, cip_source_url=THEC_PAGE)
+        if str(r.get('CreditOrClockHours') or '').strip().isdigit(): rec['total_credits'] = int(r['CreditOrClockHours'])
+        ev = [{'field': k, 'value': r.get(k), 'snippet': json.dumps({k: r.get(k)}, ensure_ascii=False)[:200]}
+              for k in ('InstitutionName', 'MajorName', 'Award', 'MajorTaxCode', 'MajorCipCode', 'CreditOrClockHours', 'CurrentProgramStatus', 'ProgramId') if k in r]
+        c = common.make('academic_programs', inst['institution_key'], today_year, 'source_unlabeled', rec, ev, entry,
+                        'thec_inventory/v1', {'program_key': rec['program_key'], 'thec_program_id': r.get('ProgramId')})
+        c['record']['source_url'] = THEC_PAGE  # the public search page; the API request and response hash are in the candidate source
+        out.append(c)
     return out
 
 
@@ -160,7 +249,7 @@ def extract_run(targets, run_dir, today=None):
     by_inst = defaultdict(list)
     for e in entries: by_inst[e.get('institution_key')].append(e)
     tmap = {t['institution_key']: t for t in targets['institutions']}
-    lists, cands, evidence, summary = {}, [], [], {}
+    lists, cands, evidence, summary, inventory = {}, [], [], {}, {}
     for key, es in sorted(by_inst.items()):
         t = tmap.get(key, {'institution_key': key, 'catalog': {}})
         roles = defaultdict(lambda: {'fetched': 0, 'ok': 0, 'errors': defaultdict(int)})
@@ -174,9 +263,17 @@ def extract_run(targets, run_dir, today=None):
             if not e.get('page_file'): continue
             page, _ = run.load_page(e['page_file'])
             inst = {'institution_key': key}
+            if e.get('role') == 'state_inventory':
+                rows = thec_rows(page)
+                inventory[key] = rows
+                for c in thec_candidates(inst, e, rows, today_year):
+                    c['program_role'] = 'state_inventory'; cands.append(c); n_c += 1
+                continue
             if e.get('role') == 'program_page':
-                for c in program_page_candidates(t, inst, e, page, today_year):
-                    c['program_role'] = 'program_page'; cands.append(c); n_c += 1
+                found = program_page_candidates(t, inst, e, page, today_year)
+                if any(is_option_page(c) for c in found): found = []  # the option's rows belong to its major
+                for c in found:
+                    c['program_role'] = 'program_page'; cands.append(program_identity(c)); n_c += 1
             if e.get('kind') == 'pdf' and e.get('role') in ('degree_map', 'policy', 'policy_link'):
                 try:
                     for c in PM.extract(inst, e, page, today_year):
@@ -202,6 +299,7 @@ def extract_run(targets, run_dir, today=None):
         for c in cands: f.write(json.dumps(c, sort_keys=True, ensure_ascii=False) + '\n')
     with (d / 'evidence.jsonl').open('w') as f:
         for x in evidence: f.write(json.dumps(x, sort_keys=True, ensure_ascii=False) + '\n')
+    if inventory: (d / 'state_inventory.json').write_text(json.dumps(inventory, indent=1, ensure_ascii=False) + '\n')
     (d / 'summary.json').write_text(json.dumps(summary, indent=1, sort_keys=True) + '\n')
     (d / 'review.md').write_text(review_md(targets, summary, lists))
     return summary

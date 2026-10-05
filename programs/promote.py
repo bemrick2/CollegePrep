@@ -29,6 +29,8 @@ from pathlib import Path
 from backend.catalog import ROOT
 from backend.store import natural_key
 from pipeline.promote import status_for, _upsert, _file_for
+from .extract import THEC_PAGE
+from .match import split_catalog_name
 
 FIELDS = ('admission_type', 'internal_transfer')
 
@@ -55,6 +57,8 @@ def promote(decisions_path: Path, log=print):
     targets = json.loads((ROOT / 'programs/targets' / f'{state}.json').read_text())
     folders = {t['institution_key']: t['folder'] for t in targets['institutions']}
     cands, ev = load_run(run_dir)
+    from pipeline.crawl import Run
+    RUN_CTX['run'] = Run(run_dir)
     archive, written = {}, 0
     approvals = list(d.get('approve', []))
     for ap in d.get('approve_programs', []):
@@ -65,6 +69,22 @@ def promote(decisions_path: Path, log=print):
         approvals += [{'candidate_id': c['candidate_id'], 'reason': ap['reason'], **({'accept_issues': ap['accept_issues']} if ap.get('accept_issues') else {})}
                       for c in sorted(hit, key=lambda c: c['domain'] != 'academic_programs') if c['candidate_id'] not in rejected]
     approvals.sort(key=lambda a: cands[a['candidate_id']]['domain'] != 'academic_programs')  # programs before their requirements
+    # A program already on file from the same program URL keeps its key (as pipeline/review.py does for curated rows),
+    # and so do its requirement rows: no second record for one program.
+    keymap = {}
+    for a in approvals:
+        c = cands[a['candidate_id']]
+        if c['domain'] != 'academic_programs': continue
+        old = _records(folders[c['institution_key']], 'academic_programs', c['academic_year'])
+        cand_name = split_catalog_name(c['record'].get('program_name', ''))
+        for r in (old or {}).get('records', []):
+            same_url = r.get('program_url') == c['record'].get('program_url')
+            # A state-inventory record (THEC) for the same major and award becomes this catalog record: one program, the
+            # catalog's stronger evidence, the inventory's CIP kept (exact name + award match only, programs.match).
+            same_inventory_program = (r.get('program_url') == THEC_PAGE and c['record'].get('program_url') != THEC_PAGE
+                                      and cand_name is not None and split_catalog_name(r.get('program_name', '')) == cand_name)
+            if (same_url or same_inventory_program) and r['program_key'] != c['record']['program_key']:
+                keymap[(c['institution_key'], c['academic_year'], c['record']['program_key'])] = r['program_key']
     for a in approvals:
         c = cands.get(a['candidate_id'])
         if c is None: raise KeyError(f"unknown candidate {a['candidate_id']}")
@@ -72,6 +92,8 @@ def promote(decisions_path: Path, log=print):
         if status is None:
             raise ValueError(f"{c['candidate_id']} has open issues {c['issues']}; accept_issues with a reason is required")
         rec = dict(c['record']); rec['verification_status'] = status
+        mapped = keymap.get((c['institution_key'], c['academic_year'], rec.get('program_key')))
+        if mapped: rec['program_key'] = mapped
         note = f" Reviewed {date.today().isoformat()}: {a.get('reason', '').strip()}"
         if a.get('accept_issues'): note += f" Accepted issues {c['issues']}: {a['accept_issues']}"
         rec['notes'] = (rec.get('notes', '') + note + f" Evidence: sources/programs/{state}/{run_dir.name}/evidence.json#{c['candidate_id']}.").strip()
@@ -106,7 +128,26 @@ def _quote(ids, ev):
     if not sents: raise ValueError('a field decision needs evidence_ids')
     urls = {s['url'] for s in sents}
     if len(urls) != 1: raise ValueError(f'evidence for one field must come from one document: {urls}')
-    return ' '.join(s['sentence'] for s in sents), sents[0]
+    # Sentences are verbatim but may be far apart on the page: an ellipsis marks every join.
+    return ' … '.join(s['sentence'] for s in sents), sents[0]
+
+
+RUN_CTX = {}
+
+
+def page_quote(pq, run):
+    """pq: {'url': ..., 'lines': [...]}: the newest stored document fetched from url; every line must be one of its
+    printed lines (whitespace-normalised). Joined with ' … ' because lines may be apart on the page."""
+    import re
+    norm = lambda x: re.sub(r'\s+', ' ', x).strip()
+    hits = [e for e in run.entries() if pq['url'] in (e.get('url'), e.get('final_url')) and e.get('page_file')]
+    if not hits: raise ValueError(f"page_quote: {pq['url']} not stored in the run")
+    e = hits[-1]
+    page, _ = run.load_page(e['page_file'])
+    printed = {norm(l) for l in page.lines}
+    missing = [l for l in pq['lines'] if norm(l) not in printed]
+    if missing: raise ValueError(f"page_quote: not printed on {pq['url']}: {missing}")
+    return ' … '.join(norm(l) for l in pq['lines']), {'url': e.get('final_url') or e['url'], 'sha256': e['sha256'], 'fetched_at': e['fetched_at']}
 
 
 def apply_field(f, folders, ev, archive):
@@ -115,7 +156,13 @@ def apply_field(f, folders, ev, archive):
     payload = json.loads(path.read_text())
     rec = next((r for r in payload['records'] if r['program_key'] == f['program_key']), None)
     if rec is None: raise ValueError(f"field for {f['program_key']!r}: program not on file")
-    quote, src = _quote(f['evidence_ids'], ev)
+    if f.get('page_quote'):  # lines copied from a stored page; each must occur in it verbatim
+        quote, src = page_quote(f['page_quote'], RUN_CTX['run'])
+    elif f.get('source_doc'):  # a structured official record (e.g. THEC inventory row), quoted as printed
+        sd = f['source_doc']
+        quote, src = sd['excerpt'], {'url': sd['url'], 'sha256': sd['sha256'], 'fetched_at': sd['fetched_at']}
+    else:
+        quote, src = _quote(f['evidence_ids'], ev)
     detail = {'quote': quote, 'source_url': src['url'], 'source_sha256': src['sha256'], 'retrieved_at': src['fetched_at'][:10]}
     for k in ('criteria_text', 'gpa_min', 'paths', 'notes'):
         if f.get(k) is not None: detail[k] = f[k]
@@ -125,26 +172,30 @@ def apply_field(f, folders, ev, archive):
         rec['internal_transfer'] = {'restricted': f['value'], **detail}
     elif f['field'] == 'cip_code':
         rec['cip_code'] = f['value']; rec['cip_source_url'] = src['url']
+        rec['notes'] = (rec.get('notes', '') + f" CIP {f['value']} from {src['url']} (document sha256 {src['sha256'][:16]}): {quote}").strip()
     else:
         raise ValueError(f"unknown field {f['field']}")
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
-    archive[f"field:{f['institution_key']}:{f['program_key']}:{f['field']}"] = {'decision': f, 'sentences': [ev[i] for i in f['evidence_ids']]}
+    archive[f"field:{f['institution_key']}:{f['program_key']}:{f['field']}"] = {'decision': f, 'sentences': [ev[i] for i in f.get('evidence_ids', [])]}
     return 1
 
 
 def apply_catalog(cat, folders, ev, archive):
     year = cat.get('academic_year', '2026-27')
+    status = cat.get('verification_status', 'verified')
+    if status not in ('verified', 'partially_verified'): raise ValueError('catalog status must be verified or partially_verified')
     rec = {'institution_key': cat['institution_key'], 'academic_year': year, 'catalog_url': cat['catalog_url'],
-           'source_url': cat['source_evidence']['url'], 'verification_status': 'verified',
+           'source_url': cat['source_evidence']['url'], 'verification_status': status,
            'last_verified_at': cat['source_evidence']['fetched_at'][:10]}
     for k in ('catalog_year_label', 'listed_bachelor_programs', 'programs_complete', 'completeness_basis', 'listed_program_keys'):
         if cat.get(k) is not None: rec[k] = cat[k]
     if cat.get('undeclared'):
-        u = cat['undeclared']; quote, src = _quote(u['evidence_ids'], ev)
+        u = cat['undeclared']
+        quote, src = page_quote(u['page_quote'], RUN_CTX['run']) if u.get('page_quote') else _quote(u['evidence_ids'], ev)
         rec['undeclared_policy'] = {'allowed': u['allowed'], 'quote': quote, 'source_url': src['url'], 'source_sha256': src['sha256'],
                                     **({'declare_by_text': u['declare_by_text']} if u.get('declare_by_text') else {})}
     rec['notes'] = (f"Reviewed {date.today().isoformat()}: {cat.get('reason', '')} List document sha256 "
                     f"{cat['source_evidence'].get('sha256', '')[:16]}.").strip()
     _upsert(_file_for(folders[cat['institution_key']], 'program_catalogs', year), cat['institution_key'], year, rec, 'program_catalogs')
-    archive[f"catalog:{cat['institution_key']}:{year}"] = {'decision': cat, 'sentences': [ev[i] for i in (cat.get('undeclared') or {}).get('evidence_ids', [])]}
+    archive[f"catalog:{cat['institution_key']}:{year}"] = {'decision': cat, 'sentences': [ev[i] for i in ((cat.get('undeclared') or {}).get('evidence_ids') or [])]}
     return 1
