@@ -15,7 +15,7 @@ from . import common
 
 EXTRACTOR = 'merit_table/v1'
 SCHOLARSHIP_CONTEXT = re.compile(r'scholarship|merit|\bawards?\b', re.I)  # not "awarding course credit" (AL: Stillman)
-NOT_MERIT = re.compile(r'need[- ]based|federal|pell|loan|work[- ]study|graduate|transfer|athletic|tuition|fees?\b|cost|'
+NOT_MERIT = re.compile(r'\bexamples?\b|need[- ]based|federal|pell|loan|work[- ]study|graduate|transfer|athletic|tuition|fees?\b|cost|'
                        r'credits?\s+completed', re.I)  # IA (Wartburg): an academic-progress table
 NOT_NAME = re.compile(r'^[\d<>=.\s/+%$,-]*$|tuition|\bfees?\b|per credit|per course|deposit|housing|meal|eligib|'
                       r'\bstudents?\s+(is|who|still|are)\b|fall below|balance', re.I)
@@ -252,6 +252,7 @@ def extract(inst, entry, page, today_year):
     if not SCHOLARSHIP_CONTEXT.search(page.title + ' ' + ' '.join(page.headings[:6]) + ' ' + entry.get('url', '')):
         return []
     if NOT_MERIT_PAGE.search(page.title + ' ' + entry.get('url', '')): return []
+    if re.search(r'(?:^|[-–|:]\s*)loans?\s*$', page.title, re.I): return []  # WI (UW-Platteville): a loans page's borrowing limits
     if re.search(r'transfer', entry.get('url', '') + ' ' + page.title, re.I):
         return []  # first-year merit only; transfer awards are a separate category
     year, basis, issues = common.resolve_year(page, entry, today_year)

@@ -55,7 +55,7 @@ export function Landing() {
               <br />
               Navigate a better path.
               <br />
-              <span className="text-brand">Pay less for college.</span>
+              <span className="text-brand">See what college could cost.</span>
             </h1>
             <p className="mt-5 max-w-lg text-lg text-ink-2">
               Short daily practice that adapts to your student, and a calm view of what each college path really costs — built only on verified data.
@@ -91,8 +91,8 @@ export function Landing() {
         </section>
 
         <section className="mt-16 grid gap-4 md:grid-cols-3" aria-label="What you get">
-          <Feature icon={<Bolt />} title="Nine minutes, not nine hours" body="Each session targets the skills that move your score: weak knowledge first, then pacing." />
-          <Feature icon={<Compass />} title="Know where you stand" body="Benchmarks separate what you know from how fast you work and how well you guess." />
+          <Feature icon={<Bolt />} title="About ten minutes a day" body="Each session targets the skills that move your score: weak knowledge first, then pacing." />
+          <Feature icon={<Compass />} title="Know where you stand" body="Benchmarks separate what you know from how fast you work and how well your test strategy is working." />
           <Feature icon={<Wallet />} title="Real prices, clearly sourced" body="College costs come from official sources with dates. Missing data is shown as missing — never guessed." />
         </section>
 
