@@ -209,11 +209,12 @@ def thec_rows(page):
 
 
 def federal_cip(r):
-    """THEC prints MajorCipCode as TT.FF.SSSS.XX: TT is THEC's own MajorTaxCode (also printed separately), FF.SSSS is the
-    6-digit federal CIP (e.g. Mechanical Engineering BSME '09.14.1901.00', MajorTaxCode '09' -> 14.1901). The federal code
-    is taken only when the leading group equals the printed MajorTaxCode, so the layout is confirmed row by row."""
+    """THEC prints MajorCipCode as GG.FF.SSSS.XX, where FF.SSSS is the 6-digit federal CIP and FF is also printed as the
+    row's MajorTaxCode (Mechanical Engineering BSME '09.14.1901.00' with MajorTaxCode '14' -> 14.1901; checked on all
+    1,594 TN public rows of run 2026-10-05-thec2). The federal code is taken only when FF equals the printed MajorTaxCode,
+    so the layout is confirmed row by row."""
     m = re.fullmatch(r'(\d{2})\.(\d{2})\.(\d{4})\.(\d{2})', (r.get('MajorCipCode') or '').strip())
-    if not m or m.group(1) != str(r.get('MajorTaxCode') or '').strip(): return None
+    if not m or m.group(2) != str(r.get('MajorTaxCode') or '').strip(): return None
     return f'{m.group(2)}.{m.group(3)}'
 
 
