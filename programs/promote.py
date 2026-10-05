@@ -113,6 +113,10 @@ def promote(decisions_path: Path, log=print):
         written += 1
     for f in d.get('fields', []):
         written += apply_field(f, folders, ev, archive)
+    for mg in d.get('merge', []):
+        written += apply_merge(mg, folders, archive)
+    for aw in d.get('awards', []):
+        written += apply_award(aw, folders, archive)
     for cat in d.get('catalogs', []):
         written += apply_catalog(cat, folders, ev, archive)
     out = ROOT / 'sources/programs' / state / run_dir.name / 'evidence.json'
@@ -177,6 +181,51 @@ def apply_field(f, folders, ev, archive):
         raise ValueError(f"unknown field {f['field']}")
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
     archive[f"field:{f['institution_key']}:{f['program_key']}:{f['field']}"] = {'decision': f, 'sentences': [ev[i] for i in f.get('evidence_ids', [])]}
+    return 1
+
+
+def apply_merge(mg, folders, archive):
+    """Reviewer-confirmed: an unpromoted-to-live state-inventory record (THEC) and a catalog record are one program whose
+    printed names differ ('EARTH AND ENVIRONMENTAL SCIENCES, BS' / 'Earth and Environmental Science (B.S.)'). The
+    inventory's CIP moves to the catalog record (quoted), and the inventory record is removed. Only inventory records
+    may be dropped, and only before they are imported (the decision must say so)."""
+    year = mg.get('academic_year', '2026-27')
+    path = _file_for(folders[mg['institution_key']], 'academic_programs', year)
+    payload = json.loads(path.read_text())
+    recs = {r['program_key']: r for r in payload['records']}
+    keep, drop = recs.get(mg['keep']), recs.get(mg['drop'])
+    if not keep or not drop: raise ValueError(f"merge {mg}: record missing")
+    if drop.get('program_url') != THEC_PAGE or keep.get('program_url') == THEC_PAGE:
+        raise ValueError(f"merge {mg}: only a state-inventory record can be folded into a catalog record")
+    if not mg.get('not_yet_imported'): raise ValueError('merge requires not_yet_imported: true (deletions do not propagate to the live database)')
+    if drop.get('cip_code') and not keep.get('cip_code'):
+        keep['cip_code'] = drop['cip_code']; keep['cip_source_url'] = drop['cip_source_url']
+        keep['notes'] = (keep.get('notes', '') + f" CIP {drop['cip_code']} from the THEC inventory record '{drop['program_name']}', "
+                         f"matched by reviewer: {mg['reason']}").strip()
+    payload['records'] = [r for r in payload['records'] if r['program_key'] != mg['drop']]
+    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+    archive[f"merge:{mg['institution_key']}:{mg['drop']}->{mg['keep']}"] = {'decision': mg, 'dropped': drop}
+    return 1
+
+
+def apply_award(aw, folders, archive):
+    """A major-specific scholarship the institution itself ties to a field: the award fields the reviewer read from the
+    page, the tie quoted verbatim (major_requirement) and checked against the stored page, and structured links to the
+    programs on file. An award page without a printed academic year is partially verified."""
+    year = aw.get('academic_year', '2026-27')
+    quote, src = page_quote(aw['page_quote'], RUN_CTX['run'])
+    progs = _records(folders[aw['institution_key']], 'academic_programs', year) or {'records': []}
+    have = {r['program_key'] for r in progs['records']}
+    missing = [k for k in aw.get('program_keys', []) if k not in have]
+    if missing: raise ValueError(f"award {aw['award']['award_name']!r}: programs not on file {missing}")
+    rec = {**aw['award'], 'institution_key': aw['institution_key'], 'academic_year': year, 'source_url': src['url'],
+           'major_requirement': quote, 'verification_status': 'verified' if aw.get('year_labeled') else 'partially_verified',
+           'last_verified_at': src['fetched_at'][:10]}
+    if not aw.get('year_labeled'): rec['academic_year_basis'] = 'aid_year_in_force_at_review_source_unlabeled'
+    if aw.get('program_keys'): rec['program_keys'] = aw['program_keys']
+    rec['notes'] = (rec.get('notes', '') + f" Reviewed {date.today().isoformat()}: {aw.get('reason', '')} Source document sha256 {src['sha256'][:16]}.").strip()
+    _upsert(_file_for(folders[aw['institution_key']], 'awards', year), aw['institution_key'], year, rec, 'awards')
+    archive[f"award:{aw['institution_key']}:{aw['award']['award_name']}"] = {'decision': aw, 'source': src}
     return 1
 
 
