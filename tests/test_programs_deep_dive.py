@@ -500,3 +500,111 @@ class DottedProgramCodeTests(unittest.TestCase):
         e = {'url': 'https://coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com/cn/catalog/a.pdf', 'sha256': 's', 'fetched_at': '2026-10-05T00:00:00'}
         names = [c['record']['program_name'] for c in X.catalog_pdf_programs({'institution_key': 'k'}, e, T.Page(txt, '', [], [], []), '2026-27')]
         self.assertEqual(names, ['Biology (BS)', 'Biology-General (BA)', 'BA in Chemistry - Teacher Licensure', 'Nursing (BSN)'])
+
+
+class CoursedogFeedTests(unittest.TestCase):
+    def test_home_year_and_state_layout_cip(self):  # Tennessee Tech 2026-27
+        from pipeline import text as T
+        home = T.Page('Home\n\n2026-2027\nUndergraduate Catalog\n\nTennessee Tech University', 'Catalog', [], [], [])
+        class R:
+            def load_page(self, f): return home, None
+        y = X.coursedog_home_year(R(), [{'role': 'catalog_home', 'page_file': 'h', 'url': 'https://undergrad.catalog.tntech.edu/'}])
+        self.assertEqual(y[:2], ('2026-2027', '2026-2027 Undergraduate Catalog'))
+        self.assertEqual(X.coursedog_cip('520301'), '52.0301')
+        self.assertEqual(X.coursedog_cip('52.0201 - Management'), '52.0201')
+        self.assertIsNone(X.coursedog_cip('3252030100'))  # state inventory layout: not a federal CIP as printed
+
+class CourseListGroupTests(unittest.TestCase):
+    def groups(self, rows, heading='X Major Requirements'):
+        from programs import courseleaf as CL
+        return CL.course_list_groups({'caption': 'Course List', 'heading': heading, 'rows': [['Code', 'Title', 'Credits']] + rows})
+
+    def test_required_run_then_select_with_blank_credit_options(self):  # OSU Accountancy 2026-27
+        g = self.groups([['ACTG 427', 'ASSURANCE AND ATTESTATION SERVICES', '4'], ['MATH 241', 'Calculus I', '4'], ['or MATH 251Z', 'Differential Calculus'],
+                         ['Major Courses', ''], ['Select two courses from the following:', '8'], ['ACTG 417', 'ADVANCED ACCOUNTING', ''], ['ACTG 420', 'IT AUDITING', ''],
+                         ['ACTG 490', 'CAPSTONE', '4'], ['Select a minimum of 9 credits from the following:', '9'], ['AG 311', 'X', ''], ['FW 340', 'Y', '']])
+        self.assertEqual([(s, x['group_type'], len(x['courses']), x.get('choose_count'), x.get('choose_credits'), sorted(x['issues'])) for s, x in g],
+                         [('X Major Requirements', 'all_required', 2, None, None, []), ('Major Courses', 'choose_courses', 2, 2, None, []),
+                          ('Major Courses', 'all_required', 1, None, None, []), ('Major Courses', 'choose_credits', 2, None, 9, [])])
+        self.assertEqual(g[0][1]['courses'][1], {'any_of': [{'code': 'MATH 241', 'title': 'Calculus I', 'credits': 4}, {'code': 'MATH 251Z', 'title': 'Differential Calculus'}]})
+
+    def test_unrepresentable_rows_are_held(self):
+        g = self.groups([['PH 211& PH 212', 'PHYSICS', '8'], ['Select one of the following math pairs:', '4-7'], ['MTH 251Z& MTH 252Z', 'CALCULUS', '8'],
+                         ['Select an additional 7 credits from courses that count toward either major.', '7'], ['Capstone', ''], ['ANTH 209', 'Business Anthropology', '4'],
+                         ['Select from the list below:', ''], ['BA 252', 'Global Perspectives', ''],
+                         ['Select 4 credits from the following:', '4'], ['BA 361', 'Communication', '4'],  # an option or a required course? held
+                         ['Select 2 credits from the following courses:', '2'], ['Internships', '']])  # the list is not read: held
+        self.assertEqual([(x['group_type'], sorted(x['issues'])) for _, x in g],
+                         [('all_required', ['complex_course_row']), ('choose_courses', ['complex_course_row', 'options_not_read', 'options_print_credits']),
+                          ('elective_pool', []), ('all_required', []), ('choose_unclear', ['choose_number_not_printed']), ('choose_credits', ['options_print_credits']),
+                          ('choose_credits', ['options_not_read'])])
+        self.assertEqual(g[2][1]['course_rules'], ['Select an additional 7 credits from courses that count toward either major. 7'])
+        g = self.groups([['H 301', 'X', '3']], heading='Recommended Public Health Elective Coursework')
+        self.assertEqual(sorted(g[0][1]['issues']), ['heading_not_all_required'])
+
+
+class CourseListHtmlTests(unittest.TestCase):
+    def test_row_classes_and_leading_indent(self):
+        from programs.courselist_html import course_lists
+        html = ('<h2>Major Requirements</h2><p>Students must select one focus area.</p><table class="sc_courselist"><caption>Course List</caption><tbody>'
+                '<tr class="even areaheader"><td colspan="2"><span class="courselistcomment areaheader">Core</span></td><td></td></tr>'
+                '<tr class="odd"><td><a>ENGR 110</a><span class="blockindent">&amp; <a>ENGR 115</a></span></td><td>X</td><td>3</td></tr>'
+                '<tr class="even orclass"><td><div style="margin-left:20px;" class="blockindent">or <a>ENGR 310</a></div></td><td>Y</td><td></td></tr>'
+                '<tr class="even"><td><div style="margin-left:20px;" class="blockindent"><a>ACTG 417</a></div></td><td>ADV</td><td></td></tr></tbody></table>')
+        t = course_lists(html)[0]
+        self.assertEqual((t['heading'], t['context'], t['caption']), ('Major Requirements', 'Students must select one focus area.', 'Course List'))
+        self.assertEqual([(r['classes'], r['cells'][0]['text'], r['cells'][0]['indent']) for r in t['rows']],
+                         [(['even', 'areaheader'], 'Core', False), (['odd'], 'ENGR 110& ENGR 115', False), (['even', 'orclass'], 'or ENGR 310', True), (['even'], 'ACTG 417', True)])
+
+
+class CourseListLayoutGroupTests(unittest.TestCase):
+    TR = '<tr class="{c}"><td{span}>{a}</td>{rest}</tr>'
+
+    def table(self, rows, heading='Major Requirements', context=''):
+        from programs.courselist_html import course_lists
+        def row(kind, text, title='', cr=''):
+            if kind == 'head': return f'<tr class="even areaheader"><td colspan="2"><span class="courselistcomment areaheader">{text}</span></td><td>{cr}</td></tr>'
+            if kind == 'rule': return f'<tr class="odd"><td colspan="2"><span class="courselistcomment">{text}</span></td><td>{cr}</td></tr>'
+            if kind == 'irule': return f'<tr class="odd"><td colspan="2"><div style="margin-left:20px;"><span class="courselistcomment">{text}</span></div></td><td>{cr}</td></tr>'
+            if kind == 'opt': return f'<tr class="even"><td><div style="margin-left:20px;" class="blockindent"><a>{text}</a></div></td><td>{title}</td><td>{cr}</td></tr>'
+            if kind == 'or': return f'<tr class="even orclass"><td><div style="margin-left:20px;">or <a>{text}</a></div></td><td>{title}</td><td></td></tr>'
+            return f'<tr class="odd"><td><a>{text}</a></td><td>{title}</td><td>{cr}</td></tr>'
+        html = f'<h2>{heading}</h2><p>{context}</p><table class="sc_courselist"><caption>Course List</caption><tbody>' + ''.join(row(*r) for r in rows) + '</tbody></table>'
+        return course_lists(html)[0]
+
+    def test_required_choice_and_alternatives(self):
+        from programs import courseleaf as CL
+        t = self.table([('head', 'Core'), ('c', 'CS 161', 'Intro I', '4'), ('c', 'MTH 251Z', 'Calculus', '4'), ('or', 'MTH 251H', 'Calculus Honors'),
+                        ('rule', 'Select two courses from the following:', '', '8'), ('opt', 'CS 450', 'Graphics'), ('opt', 'CS 475', 'Parallel'), ('opt', 'CS 480', 'Translators'),
+                        ('rule', 'One of the following:'), ('opt', 'CS 330', 'X'), ('opt', 'CS 420', 'Y'), ('c', 'CS 499', 'Capstone', '4')])
+        g = CL.html_groups(t)
+        self.assertEqual([(s, x['type'], len(x['courses']), x.get('choose_count'), sorted(x['issues'])) for s, x in g],
+                         [('Core', 'all_required', 2, None, []), ('Core', 'choose_courses', 3, 2, []), ('Core', 'choose_courses', 2, 1, []), ('Core', 'all_required', 1, None, [])])
+        self.assertEqual(g[0][1]['courses'][1]['any_of'][1]['code'], 'MTH 251H')
+
+    def test_reference_track_and_unclear_tables_are_held(self):
+        from programs import courseleaf as CL
+        g = CL.html_groups(self.table([('c', 'EC 401', 'Research', '1-16')], heading='Courses Offered Pass/No Pass Only'))
+        self.assertIn('reference_or_track_heading', g[0][1]['issues'])
+        g = CL.html_groups(self.table([('c', 'ED 150', 'X', '3')], heading='ESOL', context='Students must select one or more focus areas or substitute with a minor.'))
+        self.assertIn('context_says_choose_among_tables', g[0][1]['issues'])
+        g = CL.html_groups(self.table([('rule', 'Select six NMC courses (can include up to three of the following):', '', '24'), ('opt', 'ART 101', 'A'), ('opt', 'ART 102', 'B')]))
+        self.assertTrue({'count_not_below_options', 'rule_mixes_other_courses'} <= g[0][1]['issues'])
+        g = CL.html_groups(self.table([('rule', 'Select 6-8 credits from the following:', '', '6-8'), ('opt', 'PSY 401', 'A'), ('irule', 'Any other PSY course')]))
+        self.assertTrue({'credit_range', 'text_option'} <= g[0][1]['issues'])
+        g = CL.html_groups(self.table([('c', 'GD 101', 'Design', '4')], heading='Bachelor of Fine Arts'), program_awards=3)
+        self.assertIn('award_specific_table', g[0][1]['issues'])
+
+
+class AwardHeadingTests(unittest.TestCase):
+    def test_programs_under_award_headings(self):  # Eastern Oregon 2026-27 college pages
+        from pipeline import text as T
+        txt = '\n'.join(['2026-2027 Academic Catalog', 'Select a Catalog', '2026-2027 Academic Catalog', '2025-2026 Academic Catalog [NOT CURRENT CATALOGS]',
+                         'Art', 'Programs', 'Bachelor of Arts/Bachelor of Science', '•', 'Art Major', '•', 'Anthropology/Sociology w/Anthropology Concentration',
+                         'Bachelor of Applied Science', '•', 'Business Major [BAS]', 'Minor', '•', 'Art Minor', 'Four Year Plan(s)', '•', 'Art Typical Four Year Curriculum'])
+        links = [('https://catalog.eou.edu/preview_program.php?catoid=8&poid=1846', 'Art Major'), ('https://catalog.eou.edu/preview_program.php?catoid=8&poid=1990', 'Business Major [BAS]'),
+                 ('https://catalog.eou.edu/preview_program.php?catoid=8&poid=1850', 'Art Minor')]
+        e = {'url': 'https://catalog.eou.edu/content.php?catoid=8&navoid=466', 'sha256': 's', 'fetched_at': '2026-10-05T00:00:00'}
+        out = X.award_heading_candidates({'institution_key': 'k'}, e, T.Page(txt, 'College', [], links, []), '2026-27')
+        self.assertEqual([(c['record']['program_name'], c['record']['catalog_year'], c['record']['program_url'][-4:]) for c in out],
+                         [('Art Major', '2026-2027', '1846'), ('Business Major [BAS]', '2026-2027', '1990')])

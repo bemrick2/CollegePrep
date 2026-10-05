@@ -82,6 +82,7 @@ YEAR_LABEL = re.compile(r'\b(20\d{2})\s*[-–]\s*(20\d{2})\s+(?:Undergraduate\s+
 
 LABEL_FIRST = re.compile(r'(?:Catalog|Catalogue|Bulletin)\s+(20\d{2})\s*[-–]\s*(20\d{2})(?=\s*(?:>|$))', re.I)
 EDITION = re.compile(r'(20\d{2})\s*[-–]\s*(\d{2})\s+Edition', re.I)
+NOT_CURRENT = re.compile(r'\[?\s*(not current|archived?)\b', re.I)  # Acalog selector: "2025-2026 Academic Catalog [NOT CURRENT CATALOGS]"
 ARCHIVE_LINK = re.compile(r'\s*(?:Download\s+)?PDF of\b', re.I)  # "PDF of the entire 2025-2026 Catalog": a download link, not this page's label
 
 
@@ -90,7 +91,7 @@ def printed_catalog_years(page):
     "2026-2027 Bulletin > ..." in a SmartCatalog breadcrumb), excluding 'Select a Catalog' archive menus."""
     found = set()
     for line in page.lines:
-        if len(line) > 160 or ARCHIVE_LINK.match(line): continue
+        if len(line) > 160 or ARCHIVE_LINK.match(line) or NOT_CURRENT.search(line): continue
         for m in YEAR_LABEL.finditer(line):
             if int(m.group(2)) == int(m.group(1)) + 1: found.add((f'{m.group(1)}-{m.group(2)}', line.strip()))
         m = LABEL_FIRST.match(line.strip())  # Linfield header "Catalog 2026-2027"; UP breadcrumb "Bulletin 2026-2027 > ..."
@@ -182,6 +183,11 @@ def program_page_candidates(target, inst, entry, page, today_year):
             pk = next(c['record']['program_key'] for c in out if c['domain'] == 'academic_programs')
             for c in plan: c['record']['program_key'] = pk
         out += plan
+        cl = (target.get('_courselists') or {}).get(entry.get('url'))
+        if have and cl:  # Course List groups read with their layout (courselist_html/v1), keyed to the program record
+            prog = next(c['record'] for c in out if c['domain'] == 'academic_programs')
+            awards = len(re.findall(r'\b(BA|BS|BFA|BM|BAS|BBA|BArch|BLA|BMus|BSN)\b', prog['program_name']))
+            out += courseleaf.html_candidates(inst, entry, cl[0], cl[1], year, prog['program_key'], max(1, awards))
     return out
 
 
@@ -304,6 +310,44 @@ def printed_list_candidates(target, inst, run, es, today_year):
     return out
 
 
+AWARD_HEADING = re.compile(r'^(Bachelor of [A-Z][a-z]+(?: [A-Z][a-z]+)?(?:\s*/\s*Bachelor of [A-Z][a-z]+(?: [A-Z][a-z]+)?)*)$')
+
+
+def award_heading_candidates(inst, entry, page, today_year):
+    """Acalog college pages that list each department's programs under the award they lead to (Eastern Oregon:
+    'Bachelor of Arts/Bachelor of Science' / '•' / 'Art Major'). Each bulleted name under a bachelor's award heading
+    becomes a program record named as printed; concentrations, minors and certificates are not programs. The catalog
+    year is the page's current-catalog label (archived selector entries are marked [NOT CURRENT CATALOGS])."""
+    labels = printed_catalog_years(page)
+    if len({y for y, _ in labels}) != 1: return []
+    year, yline = min(labels); acad = f'{year[:4]}-{year[7:9]}'
+    lines = [l.strip() for l in page.lines]
+    by_text = defaultdict(set)
+    for u, txt in page.links:
+        if txt.strip(): by_text[txt.strip()].add(u)
+    out, seen = [], set()
+    i = 0
+    while i < len(lines):
+        m = AWARD_HEADING.match(lines[i])
+        if not m: i += 1; continue
+        award = m.group(1); j = i + 1
+        while j + 1 < len(lines) and lines[j] == '•':
+            name = lines[j + 1]; j += 2
+            if OPTION_NAME.search(name) or re.search(r'\b(minor|certificate|concentration)\b|\bw/', name, re.I) or name in seen: continue
+            urls = by_text.get(name, set())
+            if len(urls) != 1: continue  # the program's own catalog page must be linked from the name
+            seen.add(name)
+            url = next(iter(urls)); key = CAT.slug(name)
+            rec = {'program_key': key, 'program_name': name, 'credential_level': 'bachelor', 'catalog_year': year, 'program_url': url,
+                   'notes': f'Listed under "{award}" on the catalog college page.'}
+            out.append(common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec,
+                                   [{'field': 'program_name', 'value': name, 'snippet': name}, {'field': 'credential_level', 'value': 'bachelor', 'snippet': award},
+                                    {'field': 'catalog_year', 'value': year, 'snippet': yline[:200]}],
+                                   entry, 'award_heading/v1', {'program_key': key}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}']))
+        i = j
+    return out
+
+
 LISTED_MAJOR = re.compile(r'^(.*?\bMajor \([^)]*\))')
 
 
@@ -393,6 +437,20 @@ THEC_PAGE = 'https://thec.ppr.tn.gov/AcademicProgramInventorySearch'
 AWARD_LEVEL = [('bachelor', re.compile(r'^B[A-Z.]{0,6}$|^BACHELOR', re.I)), ('associate', re.compile(r'^A[A-Z.]{0,4}$|^ASSOCIATE', re.I))]
 
 
+HOME_YEAR = re.compile(r'(?m)^\s*(20\d{2})\s*[-–]\s*(20\d{2})\s*\n+\s*((?:Undergraduate|Graduate)\s+Catalog(?:ue)?)\s*$')
+
+
+def coursedog_home_year(run, entries):
+    """(year, printed lines, home entry) from a Coursedog catalog home that prints '2026-2027' over 'Undergraduate Catalog'
+    (Tennessee Tech)."""
+    for e in entries:
+        if e.get('role') == 'catalog_home' and e.get('page_file'):
+            m = HOME_YEAR.search(run.load_page(e['page_file'])[0].text)
+            if m and int(m.group(2)) == int(m.group(1)) + 1 and m.group(3).startswith('Undergraduate'):
+                return f'{m.group(1)}-{m.group(2)}', f'{m.group(1)}-{m.group(2)} {m.group(3)}', e
+    return None, None, None
+
+
 def catalog_pdf_year(run, entries):
     """(year label, verbatim line, pdf entry) from the catalog's own generated PDF title page ("2026-2027 Catalog")."""
     for e in entries:
@@ -456,8 +514,9 @@ def catalog_pdf_programs(inst, entry, page, today_year):
 
 
 def coursedog_cip(v):
-    """'520301' or '52.0201 - Management' -> '52.0301' / '52.0201' (digits as printed, punctuation normalised)."""
-    m = re.match(r'^\s*(\d{2})\.?(\d{4})\b', str(v or ''))
+    """'520301' or '52.0201 - Management' -> '52.0301' / '52.0201' (digits as printed, punctuation normalised). A longer
+    digit string ('3252030100', a state inventory layout) is not a federal CIP as printed and gives None."""
+    m = re.match(r'^\s*(\d{2})\.?(\d{4})(?!\d)', str(v or ''))
     return f'{m.group(1)}.{m.group(2)}' if m else None
 
 
@@ -556,7 +615,9 @@ def extract_run(targets, run_dir, today=None):
             elif e.get('error'): r['errors'][e['error'][:40]] += 1
         lists[key] = collect_lists(t, run, es) if t.get('catalog') else {'programs': [], 'counts': {}}
         if (t.get('catalog') or {}).get('platform') == 'coursedog': t = {**t, '_catalog_year': coursedog_year(run, es)}
-        n_c = 0; seen_ev = set()
+        if (t.get('catalog') or {}).get('platform') == 'courseleaf':
+            t = {**t, '_courselists': {e['via']: (e, json.loads(run.load_page(e['page_file'])[0].text)) for e in es if e.get('role') == 'courselist' and e.get('page_file')}}
+        n_c = 0; seen_ev = set(); seen_feed_keys = set()
         for e in es:
             if not e.get('page_file'): continue
             page, _ = run.load_page(e['page_file'])
@@ -565,9 +626,13 @@ def extract_run(targets, run_dir, today=None):
                 for c in catalog_pdf_programs(inst, e, page, today_year):
                     c['program_role'] = 'catalog_pdf'; cands.append(c); n_c += 1
                 continue
-            if e.get('role') == 'catalog_api' and 'coursedog.com' in e.get('url', ''):
+            if (e.get('role') == 'catalog_api' or (e.get('role') == 'catalog_feed' and '/programs/search/' in e.get('url', ''))) and 'coursedog.com' in e.get('url', ''):
                 yr = catalog_pdf_year(run, es)
+                if not yr[0]: yr = coursedog_home_year(run, es)
                 for c in coursedog_candidates(t, inst, e, page, yr, today_year):
+                    k = c['record']['program_key']
+                    if k in seen_feed_keys or OPTION_NAME.search(c['record']['program_name']): continue  # feeds overlap; concentrations are not programs
+                    seen_feed_keys.add(k)
                     c['program_role'] = 'catalog_api'; cands.append(c); n_c += 1
                 continue
             if e.get('role') == 'state_inventory':
@@ -576,6 +641,9 @@ def extract_run(targets, run_dir, today=None):
                 for c in thec_candidates(inst, e, rows, today_year):
                     c['program_role'] = 'state_inventory'; cands.append(c); n_c += 1
                 continue
+            if e.get('role') == 'catalog_nav' and (t.get('catalog') or {}).get('platform') == 'acalog':
+                for c in award_heading_candidates(inst, e, page, today_year):
+                    c['program_role'] = 'program_list'; cands.append(c); n_c += 1
             if e.get('role') == 'program_page':
                 found = program_page_candidates(t, inst, e, page, today_year)
                 if any(is_option_page(c) for c in found): found = []  # the option's rows belong to its major
