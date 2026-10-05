@@ -158,6 +158,13 @@ MUTS = [
     ('pipeline/extractors/merit.py', "NOT_AWARD_NAME = re.compile(r'\\bph\\.?\\s?d\\b|\\bdoctoral\\b|\\bmaster\\'?s\\b|", "NOT_AWARD_NAME = re.compile(r'"),
     ('pipeline/registry.py', '    return None if label in GENERIC_LABELS else label', '    return label'),
     ('pipeline/registry.py', '        if folder != folders.get(key) and folder in owned:', '        if False:'),
+    ('pipeline/extractors/costs.py', '                header = stack_header(header, sub, len(cells) - 1)', '                pass'),
+    ('pipeline/extractors/costs.py', '                if header is None: header, titles = [], titles + [STACKED]', '                if header is None: header = []'),
+    ('pipeline/extractors/costs.py', "    if home and re.search(rf'\\b{home}\\s+residents?\\b', h, re.I): return 'in_state'", '    pass'),
+    ('pipeline/extractors/costs.py', '|without\\s+(a\\s+)?parents?|away', '|away'),
+    ('pipeline/extractors/costs.py', "    ctx['period'] = ctx['period'] or next(", "    ctx['period'] = ctx['period'] or None and next("),
+    ('pipeline/extractors/transfer.py', 'from\\s+this\\s+list|', ''),
+    ('pipeline/extractors/transfer.py', 'does\\s+not\\s+transfer|', ''),
 ]
 failed = False
 for f, old, new in MUTS:
