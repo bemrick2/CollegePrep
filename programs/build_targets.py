@@ -140,7 +140,8 @@ for st,conf in (('TN',TN),('OR',OR)):
     r=reg(st); out=[]
     for folder,c in conf.items():
         i=r[folder]; out.append({'institution_key':i['institution_key'],'folder':folder,'name':i['name'],'control':i['control'],
-          'domains':sorted(set(i['allowed_domains'])),'hosts':sorted({h for h in [c['catalog']['home'].split('/')[2]] if 'smartcatalogiq' in h or 'kuali' in h} | ({'catalog.oregonstate.edu'} if folder=='osucascades' else set())),'mode':'catalog',**c})
+          'domains':sorted(set(i['allowed_domains'])),'hosts':sorted({h for h in [c['catalog']['home'].split('/')[2]] if 'smartcatalogiq' in h or 'kuali' in h} | ({'catalog.oregonstate.edu'} if folder=='osucascades' else set())
+          | ({'coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com'} if c['catalog'].get('platform')=='coursedog' else set())),'mode':'catalog',**c})
     for folder in DISCOVER[st]:
         i=r[folder]; d=i['domain']
         out.append({'institution_key':i['institution_key'],'folder':folder,'name':i['name'],'control':i['control'],'domains':sorted(set(i['allowed_domains'])),'hosts':[],
