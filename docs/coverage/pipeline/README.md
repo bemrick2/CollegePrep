@@ -925,6 +925,43 @@ Institutions in scope: **41** · crawled: **38** · blocked by site: **3** · ru
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-208725`, `ipeds-209250`, `ipeds-209940`
 
+## PA — 2026-27
+
+Institutions in scope: **153** · crawled: **135** · blocked by site: **18** · run: `pipeline/runs/PA/2026-10-05`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 0 (0%) | 0 | 73 (48%) | 129 (84%) | 6 | 18 |
+| cost_of_attendance | 0 (0%) | 0 | 39 (25%) | 124 (81%) | 11 | 18 |
+| admissions_tests | 0 (0%) | 0 | 9 (6%) | 119 (78%) | 16 | 18 |
+| common_data_set | 0 (0%) | 0 | 9 (6%) | 19 (12%) | 116 | 18 |
+| merit_scholarships | 0 (0%) | 0 | 18 (12%) | 122 (80%) | 13 | 18 |
+| ap_credit | 0 (0%) | 0 | 19 (12%) | 61 (40%) | 74 | 18 |
+| clep_credit | 0 (0%) | 0 | 9 (6%) | 46 (30%) | 89 | 18 |
+| ib_credit | 0 (0%) | 0 | 11 (7%) | 32 (21%) | 103 | 18 |
+| dual_enrollment | 0 (0%) | 0 | 41 (27%) | 82 (54%) | 53 | 18 |
+| transfer_credit | 0 (0%) | 0 | 37 (24%) | 117 (76%) | 18 | 18 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 50 (33%) | 85 | 18 |
+| residency | 0 (0%) | 0 | 0 (0%) | 54 (35%) | 81 | 18 |
+| degree_requirements | 0 (0%) | 0 | 1 (1%) | 82 (54%) | 53 | 18 |
+| aid_appeals | 0 (0%) | 0 | 69 (45%) | 86 (56%) | 49 | 18 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 33 |
+| blocked requests | 228 |
+| candidates | 1093 |
+| conflicts | 204 |
+| documents | 8883 |
+| extraction failures | 0 |
+| fetch errors | 486 |
+| fetches | 9597 |
+| ready | 366 |
+| semantic review | 205 |
+| stale sources | 141 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-211024`, `ipeds-211352`, `ipeds-211981`, `ipeds-212601`, `ipeds-212805`, `ipeds-212869`, `ipeds-212911`, `ipeds-213251`, `ipeds-214166`, `ipeds-214582`, `ipeds-214883`, `ipeds-215105`, `ipeds-215239`, `ipeds-215381`, `ipeds-216287`, `ipeds-216667`, `ipeds-216940`, `ipeds-217040`
+
 ## SC — 2026-27
 
 Institutions in scope: **55** · crawled: **49** · blocked by site: **6** · run: `pipeline/runs/SC/2026-10-03`

@@ -47,6 +47,8 @@ def extract(inst, entry, page, today_year):
     if re.search(r'scholarship|financial[- ]aid|reverse[- ]transfer', page.title + ' ' + entry.get('url', ''), re.I):
         return []  # hour counts there are award or reverse-transfer conditions (AL: Enterprise, Reid State, Jefferson State)
     url = entry.get('url', '')
+    if re.search(r'(?<!under)graduate[-_]?(?:programs?|transfer|admissions?)', url, re.I):
+        return []  # PA (Point Park): the graduate-programs transfer page
     if re.search(r'\.pdf$', url, re.I) and re.search(r'articulation|agreement|\bTT[-_]|\bmou\b|pledge', url, re.I):
         return []  # MI r1: a signed partner agreement PDF (HFC/WCC-EMU, NMU transfer tracks) states the other school's rules
     text = re.sub(r'\s+', ' ', page.text)
@@ -64,7 +66,7 @@ def extract(inst, entry, page, today_year):
                 found['max_transfer_credits'].append((int(m.group(1)), s))
         for m in ([] if re.search(r'attempted|probation|suspension|retain\s+this\s+status|(?:gpa|grade\s+point\s+average)(?:[^.]|\.(?=\d)){0,40}\b(?:for|on|in|during)\s+the\s+(?:last|final)|recognition|honors', s, re.I) else RESIDENCE.finditer(s)):
             v = int(m.group(1) or m.group(2))
-            part = re.search(r'(\d{2}|twenty|thirty|forty|forty-five|fifteen|twenty-four)\s+(?:\(\d{2}\)\s+)?(?:semester\s+)?(?:credit\s+)?(?:hours\s+)?of\s+the\s+(?:last|final)\s+' + str(v) + r'\b', s, re.I)
+            part = re.search(r'(\d{2}|twenty|thirty|forty|forty-five|fifteen|twenty-four)\s+(?:\(\d{2}\)\s+)?(?:semester\s+)?(?:credit\s+)?(?:hours\s+)?of\s+(?:the|their)\s+(?:last|final)\s+' + str(v) + r'\b', s, re.I)
             words = {'fifteen': 15, 'twenty': 20, 'twenty-four': 24, 'thirty': 30, 'forty': 40, 'forty-five': 45}
             if part: v = words.get(part.group(1).lower()) or int(part.group(1))  # "Thirty (30) of the last 60" (FGCU)  # "45 of the last 60 hours" (UGA), "20 of the last 30" (Coastal Georgia)
             if 12 <= v <= 60: found['residency_requirement_credits'].append((v, s))

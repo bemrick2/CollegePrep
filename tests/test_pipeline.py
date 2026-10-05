@@ -376,6 +376,30 @@ last 30 hours in residence at the university.</p>"""
             '<title>Transfer</title><p>Transfer credit is evaluated for high school courses for which advanced standing was granted and a grade '
             'of "B" or better was earned.</p>'), '2026-27'), [])
 
+    def test_pa_r1_rules(self):
+        """PA r1: Geneva's '$70,000 ($17,500 per year)', Penn State's 'four year value', Marywood's loan limits by credits,
+        Susquehanna's '24 of their final 32', Point Park's graduate transfer page, Thiel's master's budget and examples."""
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th></tr>'
+            '<tr><td>Founders Scholarship</td><td>$70,000 ($17,500 per year)</td></tr><tr><td>Baccalaureate Award</td><td>$26,000 four year value</td></tr>'
+            '<tr><td>Associate Award</td><td>$12,000 two-year value</td></tr><tr><td>Freshman 0-29 Credits</td><td>$3,500</td></tr>'
+            '<tr><td>Senior 90+ Credits</td><td>$5,500</td></tr><tr><td>Dean Award</td><td>$1,932</td></tr></table>'), '2026-27')}
+        self.assertEqual((got['Founders Scholarship']['award_min'], got['Founders Scholarship']['award_max']), (17500, 17500))
+        self.assertNotIn('award_max', got['Baccalaureate Award'])
+        self.assertNotIn('award_max', got['Associate Award'])
+        self.assertNotIn('Freshman 0-29 Credits', got)
+        self.assertNotIn('Senior 90+ Credits', got)
+        [c] = transfer.extract(INST, ENTRY, T.parse_html('<title>Transfer Credit</title><p>All bachelor\'s degree candidates take at least 62 semester '
+                                                          'hours, including 24 of their last 32 semester hours, at the university.</p>'), '2026-27')
+        self.assertEqual(c['record']['residency_requirement_credits'], 24)
+        page = '<title>Transfer Credits</title><p>Only courses with a grade of C or better will be accepted for transfer to the university.</p>'
+        self.assertEqual(transfer.extract(INST, {**ENTRY, 'url': 'https://www.example.edu/admissions/graduateprograms/gradtransfercredits/'}, T.parse_html(page), '2026-27'), [])
+        self.assertTrue(transfer.extract(INST, {**ENTRY, 'url': 'https://www.example.edu/admissions/undergraduate-transfer/'}, T.parse_html(page), '2026-27'))
+        rows = [['', 'Amount'], ['Tuition', '$31,000'], ['Fees', '$1,000'], ['Housing', '$8,000'], ['Total', '$40,000']]
+        for heading, n in [('Master in Speech-Language Pathology 2026-27', 0), ('Table explains an example 2026-27', 0), ('Cost of Attendance 2026-27', 1)]:
+            p = T.Page('', 'Costs', [{'heading': heading, 'caption': '', 'lead': '', 'rows': rows}], [], [])
+            self.assertEqual(bool(costs.extract(INST, ENTRY, p, '2026-27')), bool(n), heading)
+
     def test_oh_r1_rules(self):
         """OH r1: OWU's academic-progress GPA rows, Walsh's OT tuition-and-fees page, CWRU/Dayton no-credit rows, a quoted
         national average beside a dual-credit price, a DeVry transfer-pledge MOU and Kenyon's applicant-grade sentence."""

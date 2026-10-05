@@ -101,7 +101,7 @@ MUTS = [
     ('pipeline/extractors/transfer.py', "r'average\\s+grade|general\\s+education|'", "r'^$|'"),
     ('pipeline/extractors/credit.py', "issues = issues + ['course_number_missing']", 'pass'),
     ('pipeline/extractors/merit.py', '|\\bper\\s+credit\\b', ''),
-    ('pipeline/extractors/merit.py', "|trimesters|quarters|terms)\\b', re.I)  # outside parentheses;", "|terms)\\b', re.I)  # outside parentheses;"),
+    ('pipeline/extractors/merit.py', "(?:years?|semesters|trimesters|quarters|terms)\\b|'", "(?:years?|semesters|terms)\\b|'"),
     ('pipeline/extractors/merit.py', "        vals += [float(a.replace(',', '')), float(b.replace(',', ''))]", '        pass'),
     ('pipeline/extractors/merit.py', '|\\bpell\\b|\\brotc\\b|yellow', '|\\bpell\\b|yellow'),
     ('pipeline/extractors/merit.py', " + (['duplicate_table_versions'] if twins else [])", ''),
@@ -174,7 +174,7 @@ MUTS = [
     ('pipeline/extractors/costs.py', '|at[- ]home|', '|at home|'),
     ('pipeline/extractors/costs.py', "    if not ctx['period'] and lead_period: ctx['period'] = 'semester'", '    pass'),
     ('pipeline/extractors/costs.py', "                   if not re.search(r'(?:credits?|hours?)\\s*$', (t.get('lead') or '')[:m.start()], re.I)]", '                   if True]'),
-    ('pipeline/extractors/transfer.py', '(?:semester\\s+)?(?:credit\\s+)?(?:hours\\s+)?of\\s+the', 'of\\s+the'),
+    ('pipeline/extractors/transfer.py', '(?:semester\\s+)?(?:credit\\s+)?(?:hours\\s+)?of\\s+(?:the|their)', 'of\\s+(?:the|their)'),
     ('pipeline/extractors/transfer.py', "|(?:gpa|grade\\s+point\\s+average)(?:[^.]|\\.(?=\\d)){0,40}\\b(?:for|on|in|during)\\s+the\\s+(?:last|final)|recognition|honors', s, re.I)", "|recognition|honors', s, re.I)"),
     ('pipeline/extractors/transfer.py', "|recognition|honors', s, re.I)", "', s, re.I)"),
     ('pipeline/extractors/transfer.py', '|honors|required\\s+to\\s+accept|engineering\\s+programs|option\\s+[a-z]\\b|', '|'),
@@ -229,6 +229,15 @@ MUTS = [
     ('pipeline/extractors/transfer.py', "|\\bmou\\b|pledge', url", "|pledge', url"),
     ('pipeline/extractors/transfer.py', "|pledge', url", "', url"),
     ('pipeline/extractors/transfer.py', 'applicants?\\s+present|', ''),
+    ('pipeline/extractors/merit.py', "            lo = hi = int(per_year.group(1).replace(',', ''))  # PA (Geneva)", '            pass  # PA (Geneva)'),
+    ('pipeline/extractors/merit.py', "|'\n                        r'\\b' + _N + r'[\\s-]+years?\\s+value\\b', re.I)", "', re.I)"),
+    ('pipeline/extractors/merit.py', '^\\W*(?:freshman|sophomore|junior|senior)\\s+\\d+\\s*(?:[-–]\\s*\\d+|\\+)\\s+credits\\W*$|', ''),
+    ('pipeline/extractors/merit.py', '\\s+\\d+\\s*(?:[-–]\\s*\\d+|\\+)\\s+credits', '\\s+\\d+\\s*(?:[-–]\\s*\\d+)\\s+credits'),
+    ('pipeline/extractors/transfer.py', 'of\\s+(?:the|their)\\s+(?:last|final)', 'of\\s+the\\s+(?:last|final)'),
+    ('pipeline/extractors/transfer.py', '        return []  # PA (Point Park)', '        pass  # PA (Point Park)'),
+    ('pipeline/extractors/transfer.py', "re.search(r'(?<!under)graduate[-_]?", "re.search(r'graduate[-_]?"),
+    ('pipeline/extractors/costs.py', "SKIP_TABLE = re.compile(r'\\bmaster\\b|", "SKIP_TABLE = re.compile(r'"),
+    ('pipeline/extractors/costs.py', '|\\bexample\\b|graduate|', '|graduate|'),
 ]
 failed = False
 for f, old, new in MUTS:

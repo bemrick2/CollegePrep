@@ -37,7 +37,7 @@ ROW_LABELS = [  # first match wins
 ]
 _ROW = [(k, re.compile(p, re.I)) for k, p in ROW_LABELS]
 SKIP_ROW = re.compile(r'per\s+(credit|hour|week|month|night|course|lab|semester\s+hour)|(semester|credit)\s+hour|/\s*(credit|hour|week)|summer|parking|deposit|audit|transcript|graduation', re.I)
-SKIP_TABLE = re.compile(r'graduate|doctor|pharm|physician|law school|medicine|medical|dental|dnp|msn|\bmba\b|nurse practitioner|'
+SKIP_TABLE = re.compile(r'\bmaster\b|\bexample\b|graduate|doctor|pharm|physician|law school|medicine|medical|dental|dnp|msn|\bmba\b|nurse practitioner|'
                         r'online|per credit|part[- ]time|summer|international student', re.I)
 UNDERGRAD = re.compile(r'undergraduate', re.I)
 # MI: GRCC's "Nursing Programs" and NMC's "Automotive Technology Programs" budgets are for one program, not the standard cost.

@@ -21,7 +21,7 @@ NOT_NAME = re.compile(r'^[\d<>=.\s/+%$,-]*$|tuition|\bfees?\b|per credit|per cou
                       r'\bstudents?\s+(is|who|still|are)\b|fall below|balance', re.I)
 # Names that are not merit awards (KY: federal aid and loans in an aid table, staff directories, credit-hour bands
 # from an academic-standards table).
-NOT_AWARD_NAME = re.compile(r'^\W*(?:\d(?:st|nd|rd|th)\s+(?:and\s+\d(?:st|nd|rd|th)\s+)?semester\s+\w+|all\s+(?:freshmen|sophomores|juniors|seniors))\W*$|\bapplicants?:|\((?:final|priority)\)|^\W*in\s+this\s+section\W*$|^\W*(?:jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\.?\s+\d{1,2}\W*$|\bap\s+credit\b|\bph\.?\s?d\b|\bdoctoral\b|\bmaster\'?s\b|\bpell\b|\brotc\b|yellow\s+ribbon|supplemental\s+educational\s+opportunity|\bseog\b|work[- ]study|\bloans?\b|\bplus\b|'
+NOT_AWARD_NAME = re.compile(r'^\W*(?:freshman|sophomore|junior|senior)\s+\d+\s*(?:[-–]\s*\d+|\+)\s+credits\W*$|^\W*(?:\d(?:st|nd|rd|th)\s+(?:and\s+\d(?:st|nd|rd|th)\s+)?semester\s+\w+|all\s+(?:freshmen|sophomores|juniors|seniors))\W*$|\bapplicants?:|\((?:final|priority)\)|^\W*in\s+this\s+section\W*$|^\W*(?:jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\.?\s+\d{1,2}\W*$|\bap\s+credit\b|\bph\.?\s?d\b|\bdoctoral\b|\bmaster\'?s\b|\bpell\b|\brotc\b|yellow\s+ribbon|supplemental\s+educational\s+opportunity|\bseog\b|work[- ]study|\bloans?\b|\bplus\b|'
                             r'college\s+access\s+program|counselor(?!(?:\x27|\u2019)?s?\s+(?:award|scholarship))|director|coordinator|specialist|\bassistant\b|officer|advisor|'
                             r'^(fewer|more|less)\s+than\b|^over\s+\d|\bcredit\s+hours?\b|'
                             r'^\W*(books?|supplies|transportation|personal\s+expenses?|loan\s+fees?|room|board|food)\b|'
@@ -47,7 +47,8 @@ ENROLLMENT = re.compile(r'^(full|half|part|three[-\s]quarter|3/4)[-\s]time(\s*\(
 SCORE = re.compile(r'\b\d{1,4}\b')
 PACKAGE_ROW = re.compile(r'federal|pell|state\s+grants?|outside\s+scholarships?|student\s+employment|work[- ]study|\bloans?\b|^total\b', re.I)
 _N = r'(?:\d{1,2}|two|three|four|five|six|eight|ten)'
-MULTI_YEAR = re.compile(r'(?<!renewable\s)\b(?:for|over|value|maximum\s+of)\s+' + _N + r'\s+(?:fall/spring\s+)?(?:years?|semesters|trimesters|quarters|terms)\b', re.I)  # outside parentheses; ND (VCSU "for two year", Minot "maximum of 4 years")
+MULTI_YEAR = re.compile(r'(?<!renewable\s)\b(?:for|over|value|maximum\s+of)\s+' + _N + r'\s+(?:fall/spring\s+)?(?:years?|semesters|trimesters|quarters|terms)\b|'
+                        r'\b' + _N + r'[\s-]+years?\s+value\b', re.I)  # PA (Penn State campuses): "$26,000 four year value"  # outside parentheses; ND (VCSU "for two year", Minot "maximum of 4 years")
 MULTI_X = re.compile(r'\bx\s*' + _N + r'\s+(?:years|semesters|trimesters|quarters|terms)\b|\b' + _N + r'\s+(?:years|semesters|trimesters|quarters|terms)\s+x\b', re.I)
 MERGED_GPA = re.compile(r'^(.*?[A-Za-z)])\s*(\d\.\d{1,2}\s*\+?\s*(?:GPA|grade\s+point\s+average)\.?)\s*$', re.I)
 MERGED_TEXT = re.compile(r'^(.{3,80}?\b(?:Scholarship|Award|Grant|Fellowship))(?=[A-Z][a-z])')
@@ -159,6 +160,9 @@ def _list_awards(t, header, body, title, award_type):
             # AR (UAPB) "$66,000 for four years"; OK (OU) "$16,000 ($4,000 x 4 years)", (USAO) "total estimated value 8 fall/spring
             # terms", (SWOSU) "$5000 cash per year, full tuition": the printed figure is not the annual award
             lo, hi = None, None  # LSUS: "Tuition & Fees + $1,200 Campus Housing Credit" is not a $1,200 award
+        per_year = re.search(r'\(\s*\$\s?([\d,]+)\s*(?:per|/|a|each)\s*(?:year|yr)\s*\)', amt, re.I)
+        if per_year and hi is not None and int(per_year.group(1).replace(',', '')) < hi:
+            lo = hi = int(per_year.group(1).replace(',', ''))  # PA (Geneva): "$70,000 ($17,500 per year)" is $17,500 a year
         if hi is not None and re.search(r'\bor\s+(?:more|greater|higher)\b|\band\s+up\b', amt, re.I):
             hi = lo if lo is not None else hi; rec_open_max = True  # ID (New Saint Andrews): "$5,000 or more" has no maximum
         else:
