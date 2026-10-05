@@ -32,6 +32,8 @@ POLICY_LINK = re.compile(
     r'four[\s-]*year\s+plan|4[\s-]*year\s+plan|degree\s+maps?|academic\s+maps?|program\s+maps?|plans?\s+of\s+study|'
     r'scholarships?)', re.I)
 DISCOVER_LINK = re.compile(r'(catalog|catalogue|bulletin|majors|degrees|programs|academics)', re.I)
+MAP_ANCHOR = re.compile(r'\b((academic|degree|program|major)\s+maps?|four[\s-]*year\s+(degree\s+)?plans?|4[\s-]*year\s+plans?|plans?\s+of\s+study|clear\s+paths?|finish\s+in\s+four|degree\s+plans?|curriculum\s+(guides?|sheets?|maps?)|check\s*sheets?)\b', re.I)
+MAP_URL = re.compile(r'(academic|degree|program)[-_]?maps?|four[-_]?year[-_]?plan|4[-_]?year[-_]?plan|plan[-_]?of[-_]?study|clear[-_]?path|checksheet', re.I)
 DEGREE_MAP_LINK = re.compile(r'(map|plan|path|pathway|four[\s_-]*year|4[\s_-]*year|finish|sequence|curricul|worksheet|checksheet|flowchart)', re.I)
 SKIP_PATH = re.compile(r'/(search|course-search|courses?|coursesaz|azindex|archive|archives|pdf|print|login|calendar)(/|$)|'
                        r'preview_course|preview_entity|acalog-api|\.(jpg|png|gif|css|js|zip|docx?)$', re.I)
@@ -226,6 +228,14 @@ def expand(target, role, url, links, push, is_program, is_nav, depth):
             for h, a in links:
                 if not is_program(h) and is_nav(h) and depth < 3: push(h, 'catalog_nav', url, depth + 1)
         return
+    if role in ('policy', 'policy_link', 'discover'):
+        # Degree-map indexes and plan documents are often linked from advising or college pages, not the catalog.
+        for href, anchor in links:
+            path = urlsplit(href).path.lower()
+            if path.endswith('.pdf') and (MAP_ANCHOR.search(anchor or '') or MAP_URL.search(path)):
+                push(href, 'degree_map', url, depth + 1)
+            elif MAP_ANCHOR.search(anchor or '') and depth < 2:
+                push(href, 'degree_map_index', url, depth + 1)
     for href, anchor in links:
         if role == 'degree_map_index':
             path = urlsplit(href).path.lower()
