@@ -200,9 +200,9 @@ class ThecAdapterTests(unittest.TestCase):
             def open(self, req, timeout=None):
                 calls.append((req.get_method(), req.full_url, req.data))
                 if 'GetInstitutionList' in req.full_url:
-                    return Resp(J.dumps([{'InstitutionName': 'University of Tennessee, Knoxville', 'InstitutionId': 7}]).encode())
+                    return Resp(J.dumps([{'institutionName': 'University of Tennessee, Knoxville', 'institutionId': '7'}]).encode())
                 body = J.loads(req.data)
-                assert body['InstitutionId'] == 7 and body['IsActiveChecked'] is True
+                assert str(body['InstitutionId']) == '7' and body['IsActiveChecked'] is True
                 return Resp(J.dumps(J.dumps({'ProgramList': [{'MajorName': 'Mechanical Engineering', 'Award': 'BS', 'MajorCipCode': '14.1901'}]})).encode())
         class F:
             gate = HostGate(0); opener = Opener()

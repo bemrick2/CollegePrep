@@ -82,8 +82,9 @@ def crawl(run, fetcher, institution_names, log=print):
     rows = insts if isinstance(insts, list) else insts.get('InstitutionList') or insts.get('data') or []
     by_name = {}
     for r in rows:
-        name = r.get('InstitutionName') or r.get('Text') or r.get('text') or r.get('Name')
-        ident = r.get('InstitutionId') or r.get('Value') or r.get('value') or r.get('Id')
+        low = {str(k).lower(): v for k, v in r.items()}  # the endpoint answers in camelCase (institutionName)
+        name = low.get('institutionname') or low.get('text') or low.get('name')
+        ident = low.get('institutionid') or low.get('value') or low.get('id')
         if name and ident is not None: by_name[norm_name(name)] = ident
     for key, name in institution_names.items():
         ident = by_name.get(norm_name(name))
