@@ -5,6 +5,9 @@ import { Bolt, Compass, Flame, Target, Trophy } from '../../components/icons'
 import { PracticeIndicators } from '../../components/PracticeIndicators'
 import { BenchmarkStatus } from '../../components/BenchmarkStatus'
 import { useInterests } from '../majors/useInterests'
+import { useSavedComparison, COMPARE_YEAR } from '../colleges/useSavedComparison'
+import { useMeritReference } from '../colleges/useMeritReference'
+import { meritAwards } from '../../lib/engine/merit'
 import { addDays, localDate } from '../../lib/engine/dates'
 import { benchmarkAttemptIds, SECTION_LABEL } from '../../lib/engine/benchmark'
 import { achievements, levelOf, totalXp } from '../../lib/engine/gamify'
@@ -18,7 +21,12 @@ export function StudentHome() {
   const o = useStudentOverview(student?.id)
   if (!student) return <Navigate to="/start" replace />
   if (o.loading && !o.data) return <PageLoading />
-  if (o.error) return <Notice tone="bad" title="Couldn't load your plan">{o.error.message}</Notice>
+  if (o.error)
+    return (
+      <Notice tone="bad" title="Couldn't load your plan">
+        {o.error.message}
+      </Notice>
+    )
   if (!o.data) return null
   return <HomeBody name={student.display_name} o={o.data} studentId={student.id} />
 }
@@ -53,12 +61,17 @@ function HomeBody({ name, o, studentId }: { name: string; o: StudentOverview; st
           <h1 className="display text-[28px] font-semibold leading-tight text-ink">{name}</h1>
         </div>
         <div className="flex items-center gap-2">
-          <span className={cx('flex items-center gap-1 rounded-full px-3 py-1.5 text-sm font-bold tabular', o.streak.current_streak > 0 ? 'bg-gold-soft text-gold-ink' : 'bg-surface-2 text-ink-3')} title={`${o.streak.current_streak} day streak`}>
-            <Flame size={18} /> {o.streak.current_streak}<span className="sr-only"> day streak</span>
+          <span
+            className={cx(
+              'flex items-center gap-1 rounded-full px-3 py-1.5 text-sm font-bold tabular',
+              o.streak.current_streak > 0 ? 'bg-gold-soft text-gold-ink' : 'bg-surface-2 text-ink-3',
+            )}
+            title={`${o.streak.current_streak} day streak`}
+          >
+            <Flame size={18} /> {o.streak.current_streak}
+            <span className="sr-only"> day streak</span>
           </span>
-          <span className="rounded-full bg-brand-soft px-3 py-1.5 text-sm font-bold text-brand">
-            Lv {lvl.level}
-          </span>
+          <span className="rounded-full bg-brand-soft px-3 py-1.5 text-sm font-bold text-brand">Lv {lvl.level}</span>
         </div>
       </div>
 
@@ -76,7 +89,11 @@ function HomeBody({ name, o, studentId }: { name: string; o: StudentOverview; st
         <HeroCard
           eyebrow="Today"
           title="Done for today"
-          body={o.streak.current_streak > 1 ? `${o.streak.current_streak} days in a row. Come back tomorrow to keep it going — or take a bonus round now.` : 'Nice. Come back tomorrow to start a streak — or take a bonus round now.'}
+          body={
+            o.streak.current_streak > 1
+              ? `${o.streak.current_streak} days in a row. Come back tomorrow to keep it going — or take a bonus round now.`
+              : 'Nice. Come back tomorrow to start a streak — or take a bonus round now.'
+          }
           cta="Bonus round"
           to="/student/practice"
           variant="quiet"
@@ -100,35 +117,46 @@ function HomeBody({ name, o, studentId }: { name: string; o: StudentOverview; st
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <Card>
-          <CardHeader title="This week" subtitle={goal ? `${o.week.questions_submitted} of ${goal} questions` : `${o.week.questions_submitted} questions`} />
+          <CardHeader title="This week" subtitle={goal ? `${o.week.questions_submitted} of ${goal} questions` : `${o.week.questions_submitted} questions`} action={<Link to="/student/goals" className="text-sm font-semibold text-brand hover:underline">Goals</Link>} />
           <div className="flex items-center gap-4 p-5 pt-3">
             <Ring value={o.week.questions_submitted} max={goal ?? Math.max(1, o.week.questions_submitted)} size={80} stroke={9} label="Weekly goal progress">
-              <span className="text-lg font-bold tabular text-ink">{goal ? `${Math.min(100, Math.round((100 * o.week.questions_submitted) / goal))}%` : o.week.questions_submitted}</span>
+              <span className="text-lg font-bold tabular text-ink">
+                {goal ? `${Math.min(100, Math.round((100 * o.week.questions_submitted) / goal))}%` : o.week.questions_submitted}
+              </span>
             </Ring>
             <WeekDots o={o} />
           </div>
         </Card>
 
-        <Card>
-          <CardHeader title={`${EXAM_NAME[exam]} score`} subtitle={o.plan?.target_score ? `Target ${o.plan.target_score}` : 'No target set'} />
-          <div className="p-5 pt-3">
-            {est ? (
-              <>
-                <div className="flex items-baseline gap-2">
-                  <span className="display text-5xl font-semibold tabular text-ink">{est.composite}</span>
-                  {prevEst?.composite != null && est.composite! > prevEst.composite && <Pill tone="go">+{est.composite! - prevEst.composite}</Pill>}
-                  {o.plan?.target_score && est.composite! < o.plan.target_score && <span className="text-sm text-ink-3">{o.plan.target_score - est.composite!} to go</span>}
-                </div>
-                <p className="mt-1 text-xs text-ink-3">Practice estimate — not an official score.</p>
-              </>
-            ) : (
-              <>
-                <div className="display text-5xl font-semibold text-ink-3">—</div>
-                <p className="mt-1 text-xs text-ink-3">No score estimate yet: turning practice into an {EXAM_NAME[exam]} score needs a calibrated question bank, and we won't guess. Your practice indicators and benchmarks show where you stand.</p>
-              </>
-            )}
-          </div>
-        </Card>
+        {est ? (
+          <Card>
+            <CardHeader title={`${EXAM_NAME[exam]} score`} subtitle={o.plan?.target_score ? `Target ${o.plan.target_score}` : 'No target set'} />
+            <div className="p-5 pt-3">
+              {est ? (
+                <>
+                  <div className="flex items-baseline gap-2">
+                    <span className="display text-5xl font-semibold tabular text-ink">{est.composite}</span>
+                    {prevEst?.composite != null && est.composite! > prevEst.composite && <Pill tone="go">+{est.composite! - prevEst.composite}</Pill>}
+                    {o.plan?.target_score && est.composite! < o.plan.target_score && (
+                      <span className="text-sm text-ink-3">{o.plan.target_score - est.composite!} to go</span>
+                    )}
+                  </div>
+                  <p className="mt-1 text-xs text-ink-3">Practice estimate — not an official score.</p>
+                </>
+              ) : (
+                <>
+                  <div className="display text-5xl font-semibold text-ink-3">—</div>
+                  <p className="mt-1 text-xs text-ink-3">
+                    No score estimate yet: turning practice into an {EXAM_NAME[exam]} score needs a calibrated question bank, and we won't guess. Your practice
+                    indicators and benchmarks show where you stand.
+                  </p>
+                </>
+              )}
+            </div>
+          </Card>
+        ) : (
+          <WhyItMatters studentId={studentId} exam={exam} target={o.plan?.target_score ?? null} />
+        )}
       </div>
 
       <PracticeIndicators history={o.history} />
@@ -146,15 +174,33 @@ function HomeBody({ name, o, studentId }: { name: string; o: StudentOverview; st
         <div className="grid grid-cols-1 gap-2 p-5 pt-3">
           {weakK.length === 0 && weakP.length === 0 ? (
             <p className="text-sm text-ink-3">
-              {o.estimates.some((e) => e.knowledge_weak !== null) ? 'No weak skills flagged right now. Nice.' : 'Skills get flagged after about five answers each. Keep practising.'}
+              {o.estimates.some((e) => e.knowledge_weak !== null)
+                ? 'No weak skills flagged right now. Nice.'
+                : 'Skills get flagged after about five answers each. Keep practising.'}
             </p>
           ) : (
             <>
               {weakK.slice(0, 3).map((e) => (
-                <SkillRow key={e.skill_id} name={catalog.skillName(e.skill_key) ?? e.skill_key} section={e.section} tag="Knowledge" tone="warn" value={e.accuracy ?? 0} detail={`${Math.round((e.accuracy ?? 0) * 100)}% right`} />
+                <SkillRow
+                  key={e.skill_id}
+                  name={catalog.skillName(e.skill_key) ?? e.skill_key}
+                  section={e.section}
+                  tag="Knowledge"
+                  tone="warn"
+                  value={e.accuracy ?? 0}
+                  detail={`${Math.round((e.accuracy ?? 0) * 100)}% right`}
+                />
               ))}
               {weakP.slice(0, 2).map((e) => (
-                <SkillRow key={e.skill_id} name={catalog.skillName(e.skill_key) ?? e.skill_key} section={e.section} tag="Speed" tone="info" value={e.accuracy ?? 0} detail={`${e.pacing_ratio?.toFixed(1)}× test pace`} />
+                <SkillRow
+                  key={e.skill_id}
+                  name={catalog.skillName(e.skill_key) ?? e.skill_key}
+                  section={e.section}
+                  tag="Speed"
+                  tone="info"
+                  value={e.accuracy ?? 0}
+                  detail={`${e.pacing_ratio?.toFixed(1)}× test pace`}
+                />
               ))}
             </>
           )}
@@ -184,11 +230,13 @@ function HomeBody({ name, o, studentId }: { name: string; o: StudentOverview; st
               </p>
             )}
             <div className="flex flex-wrap gap-1.5">
-              {badges.filter((b) => b.earned).map((b) => (
-                <Pill key={b.key} tone="gold">
-                  <Trophy size={12} /> {b.title}
-                </Pill>
-              ))}
+              {badges
+                .filter((b) => b.earned)
+                .map((b) => (
+                  <Pill key={b.key} tone="gold">
+                    <Trophy size={12} /> {b.title}
+                  </Pill>
+                ))}
               {(() => {
                 const next = badges.find((b) => !b.earned)
                 return next ? (
@@ -224,7 +272,25 @@ function HomeBody({ name, o, studentId }: { name: string; o: StudentOverview; st
   )
 }
 
-function HeroCard({ eyebrow, title, body, cta, to, icon, variant = 'go', streakNote }: { eyebrow: string; title: string; body: string; cta: string; to: string; icon: React.ReactNode; variant?: 'go' | 'quiet'; streakNote?: string }) {
+function HeroCard({
+  eyebrow,
+  title,
+  body,
+  cta,
+  to,
+  icon,
+  variant = 'go',
+  streakNote,
+}: {
+  eyebrow: string
+  title: string
+  body: string
+  cta: string
+  to: string
+  icon: React.ReactNode
+  variant?: 'go' | 'quiet'
+  streakNote?: string
+}) {
   return (
     <section
       className={cx(
@@ -241,7 +307,11 @@ function HeroCard({ eyebrow, title, body, cta, to, icon, variant = 'go', streakN
           </h2>
           <p className={cx('mt-2 text-[15px]', variant === 'go' ? 'opacity-85' : 'text-ink-2')}>{body}</p>
         </div>
-        <span className={cx('grid h-14 w-14 shrink-0 place-items-center rounded-2xl', variant === 'go' ? 'bg-white/10 text-gold' : 'bg-gold-soft text-gold-ink')}>{icon}</span>
+        <span
+          className={cx('grid h-14 w-14 shrink-0 place-items-center rounded-2xl', variant === 'go' ? 'bg-white/10 text-gold' : 'bg-gold-soft text-gold-ink')}
+        >
+          {icon}
+        </span>
       </div>
       <ButtonLink to={to} size="lg" block className="mt-5" variant={variant === 'go' ? 'go' : 'secondary'}>
         {cta}
@@ -267,7 +337,10 @@ function WeekDots({ o }: { o: StudentOverview }) {
           <li key={d} className="flex flex-col items-center gap-1">
             <span className={cx('text-[11px] font-semibold', isToday ? 'text-ink' : 'text-ink-3')}>{'MTWTFSS'[i]}</span>
             <span
-              className={cx('grid h-6 w-6 place-items-center rounded-full text-[11px]', done ? 'bg-gold text-white' : isToday ? 'border-2 border-gold' : 'bg-surface-3')}
+              className={cx(
+                'grid h-6 w-6 place-items-center rounded-full text-[11px]',
+                done ? 'bg-gold text-white' : isToday ? 'border-2 border-gold' : 'bg-surface-3',
+              )}
               role="img"
               aria-label={`${d}: ${done ? 'practised' : 'not practised'}`}
             >
@@ -280,7 +353,21 @@ function WeekDots({ o }: { o: StudentOverview }) {
   )
 }
 
-function SkillRow({ name, section, tag, tone, value, detail }: { name: string; section: string; tag: string; tone: 'warn' | 'info'; value: number; detail: string }) {
+function SkillRow({
+  name,
+  section,
+  tag,
+  tone,
+  value,
+  detail,
+}: {
+  name: string
+  section: string
+  tag: string
+  tone: 'warn' | 'info'
+  value: number
+  detail: string
+}) {
   return (
     <div className="flex items-center gap-3 rounded-xl bg-surface-2 px-3 py-2.5">
       <Target size={18} className={tone === 'warn' ? 'text-warn' : 'text-info'} />
@@ -293,5 +380,60 @@ function SkillRow({ name, section, tag, tone, value, detail }: { name: string; s
       <Pill tone={tone}>{tag}</Pill>
       <span className="sr-only">{Math.round(value * 100)}%</span>
     </div>
+  )
+}
+
+/**
+ * Why today's practice matters, from verified records only: the nearest published merit minimum at the student's
+ * saved schools, compared with their target (or official score). No score estimate is implied.
+ */
+function WhyItMatters({ studentId, exam, target }: { studentId: string; exam: 'act' | 'sat'; target: number | null }) {
+  const cmp = useSavedComparison(COMPARE_YEAR)
+  const { reference } = useMeritReference(studentId)
+  const label = EXAM_NAME[exam]
+  const merits = (cmp.data ?? [])
+    .filter((c) => c.found)
+    .flatMap((c) => meritAwards(c.domains.awards).map((m) => ({ school: c.institution?.display_name ?? c.institution_key, name: m.name, min: m.min[exam] })))
+    .filter((m): m is { school: string; name: string; min: number } => m.min != null)
+  const ref = reference?.value ?? null
+  const next = ref != null ? merits.filter((m) => m.min > ref).sort((a, b) => a.min - b.min)[0] : undefined
+  const met = ref != null ? merits.filter((m) => m.min <= ref).sort((a, b) => b.min - a.min)[0] : undefined
+  const sameMin = next ? merits.filter((m) => m.school === next.school && m.min === next.min).length : 0
+  return (
+    <Card>
+      <CardHeader title="Why it matters" subtitle={target ? `Your target: ${label} ${target}` : 'No target set yet'} />
+      <div className="grid gap-2 p-5 pt-3 text-sm text-ink-2">
+        {cmp.keys.length === 0 ? (
+          <p>
+            <Link to="/colleges" className="font-semibold text-brand hover:underline">
+              Save colleges
+            </Link>{' '}
+            to see which scholarships list the score you're working toward.
+          </p>
+        ) : !target && !reference ? (
+          <p>
+            <Link to="/student/goals" className="font-semibold text-brand hover:underline">
+              Set a target
+            </Link>{' '}
+            to compare it with your colleges' published scholarship minimums.
+          </p>
+        ) : next ? (
+          <p>
+            {sameMin > 1 ? `${sameMin} merit awards` : next.name} at <span className="font-semibold text-ink">{next.school}</span> list {label} {next.min}+ —{' '}
+            <span className="font-semibold text-ink">{next.min - ref!} above</span> your {reference?.basis === 'target' ? 'target' : 'score'}.
+          </p>
+        ) : met ? (
+          <p>
+            Your {reference?.basis === 'target' ? 'target' : 'score'} meets the published {label} minimum for {met.name} at{' '}
+            <span className="font-semibold text-ink">{met.school}</span>. Other criteria apply.
+          </p>
+        ) : (
+          <p>None of your saved colleges publishes a single {label} minimum for a merit award yet.</p>
+        )}
+        <p className="text-xs text-ink-3">
+          Published criteria, not an eligibility decision. We don't estimate your {label} score from practice yet; benchmarks show what's changing.
+        </p>
+      </div>
+    </Card>
   )
 }

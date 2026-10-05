@@ -1,13 +1,16 @@
 import { Link } from 'react-router-dom'
 import type { CostRecord, InstitutionComparison } from '../../lib/data/types'
 import { useSavedComparison, COMPARE_YEAR } from '../colleges/useSavedComparison'
+import { MAX_SAVED_SCHOOLS } from '../../lib/savedSchools'
+import { pickCost, type ResidencyBasis } from '../../lib/engine/residency'
+import { useHomeState } from '../../lib/homeState'
+import { HomeStateControl } from '../colleges/HomeStateControl'
 import { ArrowRight, Info, School, Wallet } from '../../components/icons'
 import { ButtonLink, Card, CardHeader, Pill } from '../../components/ui'
 
 const YEAR = COMPARE_YEAR
 const YEARS: Partial<Record<string, number>> = { two_year: 2, four_year: 4 }
 const usd = (n: number) => n.toLocaleString(undefined, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 })
-const RES_ORDER: Record<string, number> = { in_district: 0, in_state: 1, not_applicable: 2, out_of_state: 3 }
 const RES_LABEL: Record<string, string> = { in_district: 'in-district', in_state: 'in-state', not_applicable: 'all students', out_of_state: 'out-of-state' }
 const LEVER_LABEL: Record<string, string> = { AP: 'AP credit', CLEP: 'CLEP credit', IB: 'IB credit', dual_enrollment: 'Dual enrollment', statewide_dual_credit: 'Statewide dual credit' }
 
@@ -22,15 +25,14 @@ export interface SchoolOutlook {
   sourceUrl: string | null
   levers: string[]
   meritAwards: number
+  /** How the price was chosen for this family (home state is a user-entered assumption). */
+  basis: ResidencyBasis
 }
 
 /** Only verified, published figures: the cheapest-residency cost of attendance x years, and the savings
  *  opportunities the school's own verified records list. No savings are estimated. */
-export function outlookFor(c: InstitutionComparison): SchoolOutlook {
-  const costs = [...((c.domains.costs ?? []) as unknown as CostRecord[])]
-    .filter((x) => x.total_cost_of_attendance != null)
-    .sort((a, b) => (RES_ORDER[a.residency] ?? 9) - (RES_ORDER[b.residency] ?? 9))
-  const cost = costs[0] ?? null
+export function outlookFor(c: InstitutionComparison, homeState: string | null = null): SchoolOutlook {
+  const { cost, basis } = pickCost((c.domains.costs ?? []) as unknown as CostRecord[], c.institution?.state_code, homeState)
   const level = c.institution?.level ?? null
   const kinds = new Set(((c.domains.credit_policies ?? []) as { policy_kind?: string }[]).map((p) => p.policy_kind ?? ''))
   return {
@@ -43,6 +45,7 @@ export function outlookFor(c: InstitutionComparison): SchoolOutlook {
     sourceUrl: cost?.source_url ?? null,
     levers: Object.keys(LEVER_LABEL).filter((k) => kinds.has(k)).map((k) => LEVER_LABEL[k]!),
     meritAwards: ((c.domains.awards ?? []) as { award_type?: string }[]).filter((a) => (a.award_type ?? '').includes('merit')).length,
+    basis,
   }
 }
 
@@ -53,15 +56,16 @@ export function outlookFor(c: InstitutionComparison): SchoolOutlook {
  */
 export function CostOutlook({ showAlternative = false }: { showAlternative?: boolean }) {
   const cmp = useSavedComparison(YEAR)
+  const { homeState } = useHomeState()
   const keys = cmp.keys
   const rows = (cmp.data ?? [])
     .filter((c) => c.found)
-    .map(outlookFor)
+    .map((c) => outlookFor(c, homeState))
     .sort((a, b) => (a.level === 'two_year' ? 1 : 0) - (b.level === 'two_year' ? 1 : 0) || Number(b.key === cmp.primary) - Number(a.key === cmp.primary))
-  const four = rows.filter((r) => r.level === 'four_year' && r.degreeTotal != null).sort((a, b) => a.degreeTotal! - b.degreeTotal!)
+  const four = rows.filter((r) => r.level === 'four_year' && r.degreeTotal != null && r.basis !== 'out_of_state_missing').sort((a, b) => a.degreeTotal! - b.degreeTotal!)
   const low = four[0]
   const high = four[four.length - 1]
-  const two = rows.filter((r) => r.level === 'two_year' && r.annual != null).sort((a, b) => a.annual! - b.annual!)[0]
+  const two = rows.filter((r) => r.level === 'two_year' && r.annual != null && r.basis !== 'out_of_state_missing').sort((a, b) => a.annual! - b.annual!)[0]
   // A transfer path is shown only as published prices for each leg, with the transfer itself flagged as unverified.
   const target = four[four.length - 1]
   const path =
@@ -77,7 +81,7 @@ export function CostOutlook({ showAlternative = false }: { showAlternative?: boo
       />
       {keys.length === 0 ? (
         <div className="grid gap-4 p-5 md:grid-cols-[1fr_auto] md:items-center">
-          <p className="text-sm text-ink-2">Pick up to four schools to see their verified costs and the credit and scholarship options each one publishes.</p>
+          <p className="text-sm text-ink-2">Save up to {MAX_SAVED_SCHOOLS} schools to see their verified costs and the credit and scholarship options each one publishes.</p>
           <ButtonLink to="/colleges" variant="brand">
             <School size={18} /> Choose schools
           </ButtonLink>
@@ -86,6 +90,7 @@ export function CostOutlook({ showAlternative = false }: { showAlternative?: boo
         <div className="p-5 text-sm text-ink-3">Loading verified costs…</div>
       ) : (
         <div className="grid gap-5 p-5">
+          <HomeStateControl />
           {low && high && low !== high && (
             <div className="rounded-2xl bg-go-soft p-4">
               <div className="text-xs font-semibold uppercase tracking-wide text-go">Biggest difference between your 4-year schools</div>
@@ -115,9 +120,13 @@ export function CostOutlook({ showAlternative = false }: { showAlternative?: boo
                     <span className="text-sm text-ink-3">No verified total yet</span>
                   )}
                 </div>
+                {r.basis === 'out_of_state_missing' && (
+                  <p className="mt-1 rounded-lg bg-warn-soft px-2 py-1 text-xs text-warn">No out-of-state price is published; this is the in-state price, so your cost is likely higher.</p>
+                )}
                 {r.annual != null && (
                   <p className="mt-0.5 text-xs text-ink-3">
                     {usd(r.annual)} a year, {RES_LABEL[r.residency ?? ''] ?? r.residency}
+                    {r.basis === 'assumed_in_state' && r.residency === 'in_state' ? ' (assumed)' : ''}
                     {r.level ? ` × ${YEARS[r.level]} years (${r.level === 'two_year' ? '2-year college' : '4-year degree'})` : ''}
                     {r.sourceUrl && (
                       <>
