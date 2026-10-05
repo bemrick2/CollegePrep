@@ -81,8 +81,8 @@ TN={
  'cbu':dict(priority=1,catalog=smart('cbu.smartcatalogiq.com','/en/2026-2027/catalog/',min_depth=1),policy=[
    'https://www.cbu.edu/academics/undergraduate-programs/electrical-engineering/','https://www.cbu.edu/academics/undergraduate-programs/traditional-bsn-nursing-program/',
    'https://www.cbu.edu/admissions-aid/financial-aid/types-of-financial-aid/scholarships/','https://www.cbu.edu/admissions-aid/financial-aid/types-of-financial-aid/scholarships/pascal-fellowship']),
- 'rhodes':dict(priority=2,catalog={'platform':'drupal','home':'https://catalog.rhodes.edu/','program_link':r'catalog\.rhodes\.edu/programs-study/[^/?#]+/[^/?#]+$',
-   'program_lists':['https://catalog.rhodes.edu/programs-study']},
+ 'rhodes':dict(priority=2,catalog={'platform':'drupal','home':'https://catalog.rhodes.edu/','program_link':r'catalog\.rhodes\.edu/programs-study/[^/?#]+$',
+   'program_lists':['https://catalog.rhodes.edu/programs-study'],'catalog_pdfs':['https://www.rhodes.edu/sites/default/files/Rhodes_College_Catalog_2026-27.pdf']},
    policy=['https://www.rhodes.edu/program-classifications','https://catalog.rhodes.edu/educational-program/academic-partnerships',
    'https://catalog.rhodes.edu/educational-program/requirements-degree','https://www.rhodes.edu/sites/default/files/Rhodes_College_Catalog_2026-27.pdf']),
  'uu':dict(priority=2,catalog=smart('uu.smartcatalogiq.com','/en/2026/2026-27-undergraduate-catalogue/',('academic-program/undergraduate-academic-programs','academic-program')),
