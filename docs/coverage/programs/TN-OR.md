@@ -22,7 +22,7 @@ Runs: TN: `programs/runs/TN/2026-10-05-a`, `programs/runs/TN/2026-10-05-b`, `pro
 | 1 | The University of Tennessee-Knoxville (TN) | acalog | 0 | 99 | 1 | 0 | 0 | — | 0 | 1 | 0 | 0 | 0 | 1 | 0 | — |
 | 1 | University of Memphis (TN) | acalog | 1 | 62 | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
 | 1 | Vanderbilt University (TN) | kuali | 0 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
-| 2 | Eastern Oregon University (OR) | acalog | 30 | – | 31 | 0 | 0 | — | 0 | 1 | 7 | 0 | 1 | 0 | 0 | — |
+| 2 | Eastern Oregon University (OR) | acalog | 30 | – | 31 | 0 | 0 | — | 0 | 1 | 7 | 0 | 1 | 16 | 0 | — |
 | 2 | Lewis & Clark College (OR) | courseleaf | 0 | – | 29 | 0 | 0 | yes | 0 | 3 | 1 | 0 | 1 | 0 | 0 | yes |
 | 2 | Linfield University (OR) | courseleaf | 9 | – | 38 | 0 | 0 | — | 0 | 2 | 9 | 2 | 1 | 0 | 0 | — |
 | 2 | Oregon State University-Cascades Campus (OR) | courseleaf | 30 | – | 26 | 0 | 0 | — | 3 | 1 | 3 | 1 | 1 | 0 | 0 | — |
@@ -144,7 +144,7 @@ Field cells: verified programs matching the field by printed name or CIP family 
 - **The University of Tennessee-Knoxville** (TN, P1): catalog program pages behind a bot challenge (recorded, not evaded); no reviewed program_catalogs record (completeness unknown); no verified admission-to-major facts; undeclared policy not verified
 - **University of Memphis** (TN, P1): catalog program pages behind a bot challenge (recorded, not evaded); no reviewed program_catalogs record (completeness unknown); no verified programs; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
 - **Vanderbilt University** (TN, P1): catalog retrieved but no program list parsed; no reviewed program_catalogs record (completeness unknown); no verified programs; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
-- **Eastern Oregon University** (OR, P2): no reviewed program_catalogs record (completeness unknown); no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
+- **Eastern Oregon University** (OR, P2): no reviewed program_catalogs record (completeness unknown); no verified admission-to-major facts; undeclared policy not verified
 - **Lewis & Clark College** (OR, P2): no verified degree maps; no verified admission-to-major facts
 - **Linfield University** (OR, P2): no reviewed program_catalogs record (completeness unknown); no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
 - **Oregon State University-Cascades Campus** (OR, P2): no reviewed program_catalogs record (completeness unknown); 4 listed bachelor programs not yet verified; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
