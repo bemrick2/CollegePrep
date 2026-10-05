@@ -14,10 +14,11 @@ target says `"render": "browser"`. Rendering is not challenge evasion: robots.tx
 and a challenge or error page is recorded as such.
 """
 from __future__ import annotations
-import hashlib, re, threading
+import hashlib, json, re, threading
 from concurrent.futures import ThreadPoolExecutor
 from urllib.parse import urlsplit, parse_qs
 
+from pipeline import text as T
 from pipeline.crawl import Fetcher, HostGate, Run, parse_document, requote, now
 from pipeline.registry import registrable_domain
 
@@ -97,7 +98,7 @@ class BrowserFetcher:
     """Rendered HTML for JavaScript catalogs via Playwright (installed only in the Actions job).
     Same contract as pipeline.crawl.Fetcher.fetch: (meta, body). Robots and politeness come from `base`."""
     def __init__(self, base: Fetcher):
-        self.base = base; self.lock = threading.Lock(); self._pw = None; self._browser = None
+        self.base = base; self.lock = threading.Lock(); self._pw = None; self._browser = None; self.last_feeds = []
 
     def _ensure(self):
         if self._browser is None:
@@ -114,6 +115,17 @@ class BrowserFetcher:
             try:
                 self._ensure()
                 page = self._browser.new_page(user_agent='CollegePrepResearchBot/1.0 (+https://github.com/bemrick2/collegeprep; official-source research)')
+                feeds = []
+                def keep(r):  # the catalog's own JSON data feed (Coursedog/Kuali), as the page itself loaded it
+                    try:
+                        h = urlsplit(r.url).netloc.lower()
+                        catalog_backend = h.endswith(('coursedog.com', 'kuali.co')) or h == urlsplit(url).netloc.lower()
+                        if 'json' in (r.headers.get('content-type') or '') and catalog_backend and len(feeds) < 60:
+                            b = r.body()
+                            if len(b) < 8 * 1024 * 1024: feeds.append((r.url, r.status, b, r.request.method, r.request.post_data))
+                    except Exception:
+                        pass
+                page.on('response', keep)
                 try:
                     resp = page.goto(url, wait_until='domcontentloaded', timeout=60000)
                     try:  # JavaScript catalogs keep connections open; settle briefly instead of waiting for idle
@@ -124,6 +136,7 @@ class BrowserFetcher:
                     status = resp.status if resp else None
                     body = page.content().encode('utf-8')
                     final = page.url
+                    self.last_feeds = feeds
                 finally:
                     page.close()
             except Exception as exc:
@@ -142,7 +155,7 @@ class BrowserFetcher:
 
 
 def crawl_target(target, run: Run, fetcher, browser=None, log=print, caps=None):
-    caps = {'program_page': 450, 'catalog_nav': 30, 'degree_map': 250, 'policy_link': 40, 'discover': 25, **(caps or {}),
+    caps = {'program_page': 450, 'catalog_nav': 30, 'degree_map': 250, 'policy_link': 40, 'discover': 25, 'catalog_pdf': 2, **(caps or {}),
             **(target.get('caps') or {})}
     key = target['institution_key']
     seen = {e['url'] for e in run.entries() if e.get('institution_key') == key}
@@ -183,6 +196,23 @@ def crawl_target(target, run: Run, fetcher, browser=None, log=print, caps=None):
         except Exception as exc:
             meta, body = {'status': None, 'error': f'fetch_exception:{type(exc).__name__}: {exc}'[:300]}, None
         entry = {'institution_key': key, 'url': url, 'role': role, 'via': via, 'depth': depth, 'fetched_at': now(), **meta}
+        if use_browser and body is not None and role in ('program_list', 'catalog_home', 'program_page'):
+            for furl, fstatus, fbody, fmethod, fpost in getattr(browser, 'last_feeds', []):
+                if fstatus != 200: continue
+                fsha = hashlib.sha256(fbody).hexdigest()
+                try:
+                    text = json.dumps(json.loads(fbody), indent=0, ensure_ascii=False)
+                except ValueError:
+                    continue
+                fe = {'institution_key': key, 'url': furl, 'role': 'catalog_feed', 'via': url, 'depth': depth + 1, 'fetched_at': now(),
+                      'status': 200, 'sha256': fsha, 'bytes': len(fbody), 'kind': 'json', 'content_type': 'application/json',
+                      'request_method': fmethod, **({'request_body': fpost[:4000]} if fpost else {})}
+                fe['page_file'] = run.save_page(fsha, 'json', T.Page(text, 'catalog data feed', [], [], []), [])
+                run.record(fe)
+                # Coursedog reports the catalog's own generated full-catalog PDF ("Download Catalog as PDF")
+                for m in re.finditer(r'"url":\s*"(https://coursedog-pdfs-public-prod\.s3\.[a-z0-9-]+\.amazonaws\.com/[^"]+\.pdf)"', text):
+                    if '"type": "catalog"' in text: push(m.group(1), 'catalog_pdf', furl, depth + 1)
+            browser.last_feeds = []
         if body is not None:
             try:
                 kind, page = parse_document(meta.get('final_url') or url, meta.get('content_type'), body)
@@ -285,6 +315,14 @@ def crawl(targets, run_dir, only=None, workers=8, delay=1.0, log=print, use_brow
     with ThreadPoolExecutor(max_workers=workers) as pool:
         list(pool.map(one, static))
     for t in rendered: one(t)
+    from . import feeds
+    for t in sel:
+        if t.get('render') == 'browser':
+            try:
+                feeds.complete(t, run, fetcher, log=log)
+            except Exception as exc:
+                run.record({'institution_key': t['institution_key'], 'url': '', 'role': 'error', 'fetched_at': now(),
+                            'error': f'feed_exception:{type(exc).__name__}: {exc}'[:300]})
     for a in adapters:
         if a['adapter'] == 'thec_api':
             from . import thec

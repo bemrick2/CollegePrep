@@ -270,3 +270,93 @@ class ReviewFindingsTests(unittest.TestCase):
         from programs.promote import _quote
         ev = {'a': {'sentence': 'One.', 'url': 'https://x', 'sha256': 'h', 'fetched_at': '2026'}, 'b': {'sentence': 'Two.', 'url': 'https://x', 'sha256': 'h', 'fetched_at': '2026'}}
         self.assertEqual(_quote(['a', 'b'], ev)[0], 'One. … Two.')
+
+
+class ThecCipTests(unittest.TestCase):
+    def test_federal_cip_only_when_layout_confirmed(self):
+        self.assertEqual(X.federal_cip({'MajorCipCode': '09.14.1901.00', 'MajorTaxCode': '14'}), '14.1901')
+        self.assertIsNone(X.federal_cip({'MajorCipCode': '09.14.1901.00', 'MajorTaxCode': '09'}))  # layout not confirmed
+        self.assertIsNone(X.federal_cip({'MajorCipCode': '14.1901', 'MajorTaxCode': '09'}))
+
+    def test_inventory_rows_bachelor_only_and_unlabeled_year(self):
+        rows = [{'MajorName': 'MECHANICAL ENGINEERING', 'Award': 'BSME', 'MajorCipCode': '09.14.1901.00', 'MajorTaxCode': '14', 'CurrentProgramStatus': 'Active', 'CreditOrClockHours': '128'},
+                {'MajorName': 'MECHANICAL ENGINEERING', 'Award': 'MS', 'MajorCipCode': '09.14.1901.00', 'MajorTaxCode': '14', 'CurrentProgramStatus': 'Active'},
+                {'MajorName': 'NURSING', 'Award': 'C4', 'CurrentProgramStatus': 'Active'}]
+        out = X.thec_candidates({'institution_key': 'utk'}, {'url': 'https://thec.example/x', 'sha256': 'z', 'fetched_at': '2026-10-05T00:00:00'}, rows, '2026-27')
+        self.assertEqual(len(out), 1)
+        self.assertEqual(out[0]['record']['cip_code'], '14.1901')
+        self.assertEqual(out[0]['year_basis'], 'source_unlabeled')  # promotes as partially_verified, never verified
+
+
+class InventoryMatchTests(unittest.TestCase):
+    def test_exact_major_and_award_only(self):
+        from programs import match as Mt
+        rows = [{'MajorName': 'MECHANICAL ENGINEERING', 'Award': 'BSME'}, {'MajorName': 'COMPUTER SCIENCE', 'Award': 'BS'},
+                {'MajorName': 'PSYCHOLOGY', 'Award': 'BA'}, {'MajorName': 'PSYCHOLOGY', 'Award': 'BA'}]
+        recs = [{'program_key': 'me', 'program_name': 'Mechanical Engineering, B.S.M.E.'},
+                {'program_key': 'cyber', 'program_name': 'Computer Science: Cyber Security, B.S.'},
+                {'program_key': 'psy', 'program_name': 'Psychology, B.A.'},          # two identical rows: ambiguous
+                {'program_key': 'me-env', 'program_name': 'Mechanical Engineering, B.S.'},  # award differs
+                {'program_key': 'cs-ai', 'program_name': 'Computer Sciences, B.S.'}]        # name differs
+        self.assertEqual(sorted(Mt.match(recs, rows)), ['cyber', 'me'])
+
+
+class InventoryDuplicateTests(unittest.TestCase):
+    def test_inventory_and_catalog_record_for_one_program_is_an_error(self):
+        from backend import program_fields as F
+        base = {'institution_key': 'k', 'academic_year': '2026-27', 'verification_status': 'verified'}
+        thec = ('p', 'academic_programs', {**base, 'program_key': 'mechanical-engineering-bsme', 'program_name': 'MECHANICAL ENGINEERING, BSME',
+                                            'program_url': 'https://thec.ppr.tn.gov/AcademicProgramInventorySearch'})
+        cat = ('p', 'academic_programs', {**base, 'program_key': 'me', 'program_name': 'Mechanical Engineering, B.S.M.E.', 'program_url': 'https://catalog.x.edu/me'})
+        other = ('p', 'academic_programs', {**base, 'program_key': 'cs', 'program_name': 'Computer Science, B.S.', 'program_url': 'https://catalog.x.edu/cs'})
+        self.assertTrue(F.cross_errors([thec, cat]))
+        self.assertEqual(F.cross_errors([thec, other]), [])
+
+
+class PageQuoteTests(unittest.TestCase):
+    def test_lines_must_be_printed_on_the_stored_page(self):
+        from programs.promote import page_quote
+        with tempfile.TemporaryDirectory() as d:
+            f = FakeFetcher(PAGES); run = C.Run(Path(d)); C.crawl_target(TARGET, run, f, log=lambda *_: None)
+            q, src = page_quote({'url': 'https://www.example.edu/undeclared', 'lines': ['First-year students may enter as undeclared. Students must declare a major by the time they complete 45 credit hours.']}, run)
+            self.assertTrue(src['sha256'])
+            with self.assertRaises(ValueError):
+                page_quote({'url': 'https://www.example.edu/undeclared', 'lines': ['Students are admitted directly.']}, run)
+
+
+class StaticProgramTests(unittest.TestCase):
+    def test_static_catalog_page_identity(self):
+        from pipeline import text as T
+        e = {'url': 'https://www.georgefox.edu/catalog/undergrad/curriculum/major_minor/csci_major.html', 'sha256': 's', 'fetched_at': '2026-10-05T00:00:00'}
+        p = T.Page('Bachelors (BS) in Computer Science\n2026-2027 Academic Catalog\nMajor Requirements', 'Bachelors (BS) in Computer Science', [], [], ['Bachelors (BS) in Computer Science'])
+        out = X.static_program_identity({'institution_key': 'k'}, e, p, '2026-27')
+        self.assertEqual(out[0]['record']['program_name'], 'Bachelors (BS) in Computer Science')
+        self.assertEqual(out[0]['academic_year'], '2026-27')
+        minor = T.Page('Computer Science Minor\n2026-2027 Academic Catalog', 'Computer Science Minor', [], [], ['Computer Science Minor'])
+        self.assertEqual(X.static_program_identity({'institution_key': 'k'}, e, minor, '2026-27'), [])
+        two_years = T.Page('Bachelors (BS) in X\n2026-2027 Academic Catalog\nsee the 2025-2026 Academic Catalog', 'Bachelors (BS) in X', [], [], ['Bachelors (BS) in X'])
+        self.assertEqual(X.static_program_identity({'institution_key': 'k'}, e, two_years, '2026-27'), [])  # ambiguous year: skipped
+
+
+class AwardInParenthesesTests(unittest.TestCase):
+    def test_parenthesised_award_matches_inventory_row(self):
+        from programs import match as Mt
+        from backend import program_fields as F
+        self.assertEqual(Mt.split_catalog_name('Accounting (B.B.A.)'), ('accounting', 'BBA'))
+        base = {'institution_key': 'k', 'academic_year': '2026-27'}
+        thec = ('p', 'academic_programs', {**base, 'program_key': 'a', 'program_name': 'ACCOUNTING, BBA', 'program_url': 'https://thec.ppr.tn.gov/AcademicProgramInventorySearch'})
+        cat = ('p', 'academic_programs', {**base, 'program_key': 'b', 'program_name': 'Accounting (B.B.A.)', 'program_url': 'https://x.edu/c.pdf'})
+        self.assertTrue(F.cross_errors([thec, cat]))
+
+
+class CatalogPdfProgramsTests(unittest.TestCase):
+    def test_department_program_blocks(self):
+        from pipeline import text as T
+        txt = '\n'.join(['Oregon Institute of Technology', '2026-2027 Catalog', 'Intro', 'Programs',
+                         'Mechanical Engineering Technology/', 'Manufacturing Engineering Technology, BS', 'Mechanical Engineering, BS',
+                         'Emergency Medical Technology Paramedic, AAS', 'Civil Engineering, BS/MS', 'Manufacturing Engineering Technology, MS', 'Courses',
+                         'Programs', 'ACCT - Accounting Minor', 'BBA_ACCT - Accounting (B.B.A.)', 'BS_PHIL', 'BSRT_SRT - BSRT_Radiologic Technology', 'Courses'])
+        e = {'url': 'https://coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com/x/catalog/a.pdf', 'sha256': 's', 'fetched_at': '2026-10-05T00:00:00'}
+        names = [c['record']['program_name'] for c in X.catalog_pdf_programs({'institution_key': 'k'}, e, T.Page(txt, '', [], [], []), '2026-27')]
+        self.assertEqual(names, ['Mechanical Engineering Technology/ Manufacturing Engineering Technology, BS', 'Mechanical Engineering, BS',
+                                 'Accounting (B.B.A.)', 'BSRT_Radiologic Technology'])
