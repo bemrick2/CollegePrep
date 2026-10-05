@@ -57,6 +57,8 @@ def promote(decisions_path: Path, log=print):
     targets = json.loads((ROOT / 'programs/targets' / f'{state}.json').read_text())
     folders = {t['institution_key']: t['folder'] for t in targets['institutions']}
     cands, ev = load_run(run_dir)
+    from pipeline.crawl import Run
+    RUN_CTX['run'] = Run(run_dir)
     archive, written = {}, 0
     approvals = list(d.get('approve', []))
     for ap in d.get('approve_programs', []):
@@ -130,13 +132,33 @@ def _quote(ids, ev):
     return ' … '.join(s['sentence'] for s in sents), sents[0]
 
 
+RUN_CTX = {}
+
+
+def page_quote(pq, run):
+    """pq: {'url': ..., 'lines': [...]}: the newest stored document fetched from url; every line must be one of its
+    printed lines (whitespace-normalised). Joined with ' … ' because lines may be apart on the page."""
+    import re
+    norm = lambda x: re.sub(r'\s+', ' ', x).strip()
+    hits = [e for e in run.entries() if pq['url'] in (e.get('url'), e.get('final_url')) and e.get('page_file')]
+    if not hits: raise ValueError(f"page_quote: {pq['url']} not stored in the run")
+    e = hits[-1]
+    page, _ = run.load_page(e['page_file'])
+    printed = {norm(l) for l in page.lines}
+    missing = [l for l in pq['lines'] if norm(l) not in printed]
+    if missing: raise ValueError(f"page_quote: not printed on {pq['url']}: {missing}")
+    return ' … '.join(norm(l) for l in pq['lines']), {'url': e.get('final_url') or e['url'], 'sha256': e['sha256'], 'fetched_at': e['fetched_at']}
+
+
 def apply_field(f, folders, ev, archive):
     year = f.get('academic_year', '2026-27')
     path = _file_for(folders[f['institution_key']], 'academic_programs', year)
     payload = json.loads(path.read_text())
     rec = next((r for r in payload['records'] if r['program_key'] == f['program_key']), None)
     if rec is None: raise ValueError(f"field for {f['program_key']!r}: program not on file")
-    if f.get('source_doc'):  # a structured official record (e.g. THEC inventory row), quoted as printed
+    if f.get('page_quote'):  # lines copied from a stored page; each must occur in it verbatim
+        quote, src = page_quote(f['page_quote'], RUN_CTX['run'])
+    elif f.get('source_doc'):  # a structured official record (e.g. THEC inventory row), quoted as printed
         sd = f['source_doc']
         quote, src = sd['excerpt'], {'url': sd['url'], 'sha256': sd['sha256'], 'fetched_at': sd['fetched_at']}
     else:
@@ -160,17 +182,20 @@ def apply_field(f, folders, ev, archive):
 
 def apply_catalog(cat, folders, ev, archive):
     year = cat.get('academic_year', '2026-27')
+    status = cat.get('verification_status', 'verified')
+    if status not in ('verified', 'partially_verified'): raise ValueError('catalog status must be verified or partially_verified')
     rec = {'institution_key': cat['institution_key'], 'academic_year': year, 'catalog_url': cat['catalog_url'],
-           'source_url': cat['source_evidence']['url'], 'verification_status': 'verified',
+           'source_url': cat['source_evidence']['url'], 'verification_status': status,
            'last_verified_at': cat['source_evidence']['fetched_at'][:10]}
     for k in ('catalog_year_label', 'listed_bachelor_programs', 'programs_complete', 'completeness_basis', 'listed_program_keys'):
         if cat.get(k) is not None: rec[k] = cat[k]
     if cat.get('undeclared'):
-        u = cat['undeclared']; quote, src = _quote(u['evidence_ids'], ev)
+        u = cat['undeclared']
+        quote, src = page_quote(u['page_quote'], RUN_CTX['run']) if u.get('page_quote') else _quote(u['evidence_ids'], ev)
         rec['undeclared_policy'] = {'allowed': u['allowed'], 'quote': quote, 'source_url': src['url'], 'source_sha256': src['sha256'],
                                     **({'declare_by_text': u['declare_by_text']} if u.get('declare_by_text') else {})}
     rec['notes'] = (f"Reviewed {date.today().isoformat()}: {cat.get('reason', '')} List document sha256 "
                     f"{cat['source_evidence'].get('sha256', '')[:16]}.").strip()
     _upsert(_file_for(folders[cat['institution_key']], 'program_catalogs', year), cat['institution_key'], year, rec, 'program_catalogs')
-    archive[f"catalog:{cat['institution_key']}:{year}"] = {'decision': cat, 'sentences': [ev[i] for i in (cat.get('undeclared') or {}).get('evidence_ids', [])]}
+    archive[f"catalog:{cat['institution_key']}:{year}"] = {'decision': cat, 'sentences': [ev[i] for i in ((cat.get('undeclared') or {}).get('evidence_ids') or [])]}
     return 1

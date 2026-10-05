@@ -311,3 +311,14 @@ class InventoryDuplicateTests(unittest.TestCase):
         other = ('p', 'academic_programs', {**base, 'program_key': 'cs', 'program_name': 'Computer Science, B.S.', 'program_url': 'https://catalog.x.edu/cs'})
         self.assertTrue(F.cross_errors([thec, cat]))
         self.assertEqual(F.cross_errors([thec, other]), [])
+
+
+class PageQuoteTests(unittest.TestCase):
+    def test_lines_must_be_printed_on_the_stored_page(self):
+        from programs.promote import page_quote
+        with tempfile.TemporaryDirectory() as d:
+            f = FakeFetcher(PAGES); run = C.Run(Path(d)); C.crawl_target(TARGET, run, f, log=lambda *_: None)
+            q, src = page_quote({'url': 'https://www.example.edu/undeclared', 'lines': ['First-year students may enter as undeclared. Students must declare a major by the time they complete 45 credit hours.']}, run)
+            self.assertTrue(src['sha256'])
+            with self.assertRaises(ValueError):
+                page_quote({'url': 'https://www.example.edu/undeclared', 'lines': ['Students are admitted directly.']}, run)
