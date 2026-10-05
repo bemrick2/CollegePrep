@@ -122,7 +122,7 @@ class BrowserFetcher:
                         catalog_backend = h.endswith(('coursedog.com', 'kuali.co')) or h == urlsplit(url).netloc.lower()
                         if 'json' in (r.headers.get('content-type') or '') and catalog_backend and len(feeds) < 60:
                             b = r.body()
-                            if len(b) < 8 * 1024 * 1024: feeds.append((r.url, r.status, b))
+                            if len(b) < 8 * 1024 * 1024: feeds.append((r.url, r.status, b, r.request.method, r.request.post_data))
                     except Exception:
                         pass
                 page.on('response', keep)
@@ -197,7 +197,7 @@ def crawl_target(target, run: Run, fetcher, browser=None, log=print, caps=None):
             meta, body = {'status': None, 'error': f'fetch_exception:{type(exc).__name__}: {exc}'[:300]}, None
         entry = {'institution_key': key, 'url': url, 'role': role, 'via': via, 'depth': depth, 'fetched_at': now(), **meta}
         if use_browser and body is not None and role in ('program_list', 'catalog_home', 'program_page'):
-            for furl, fstatus, fbody in getattr(browser, 'last_feeds', []):
+            for furl, fstatus, fbody, fmethod, fpost in getattr(browser, 'last_feeds', []):
                 if fstatus != 200: continue
                 fsha = hashlib.sha256(fbody).hexdigest()
                 try:
@@ -205,7 +205,8 @@ def crawl_target(target, run: Run, fetcher, browser=None, log=print, caps=None):
                 except ValueError:
                     continue
                 fe = {'institution_key': key, 'url': furl, 'role': 'catalog_feed', 'via': url, 'depth': depth + 1, 'fetched_at': now(),
-                      'status': 200, 'sha256': fsha, 'bytes': len(fbody), 'kind': 'json', 'content_type': 'application/json'}
+                      'status': 200, 'sha256': fsha, 'bytes': len(fbody), 'kind': 'json', 'content_type': 'application/json',
+                      'request_method': fmethod, **({'request_body': fpost[:4000]} if fpost else {})}
                 fe['page_file'] = run.save_page(fsha, 'json', T.Page(text, 'catalog data feed', [], [], []), [])
                 run.record(fe)
                 # Coursedog reports the catalog's own generated full-catalog PDF ("Download Catalog as PDF")
@@ -314,6 +315,14 @@ def crawl(targets, run_dir, only=None, workers=8, delay=1.0, log=print, use_brow
     with ThreadPoolExecutor(max_workers=workers) as pool:
         list(pool.map(one, static))
     for t in rendered: one(t)
+    from . import feeds
+    for t in sel:
+        if t.get('render') == 'browser':
+            try:
+                feeds.complete(t, run, fetcher, log=log)
+            except Exception as exc:
+                run.record({'institution_key': t['institution_key'], 'url': '', 'role': 'error', 'fetched_at': now(),
+                            'error': f'feed_exception:{type(exc).__name__}: {exc}'[:300]})
     for a in adapters:
         if a['adapter'] == 'thec_api':
             from . import thec
