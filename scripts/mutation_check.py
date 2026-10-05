@@ -184,6 +184,7 @@ MUTS = [
     ('pipeline/extractors/costs.py', 'on[- ]campus\\s*/\\s*off[- ]campus|on\\s*(/|and', 'on\\s*(/|and'),
     ('pipeline/extractors/costs.py', '(a\\s+)?(parents?|family)|', '(a\\s+)?parents?|'),
     ('pipeline/extractors/transfer.py', 'unaccredited|high\\s+school|', 'unaccredited|'),
+    ('pipeline/registry.py', '        if domain in PROGRAM_DEPTH_DOMAINS: continue\n', '        pass\n'),
 ]
 failed = False
 for f, old, new in MUTS:
