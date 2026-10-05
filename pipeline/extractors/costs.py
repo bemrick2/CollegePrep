@@ -102,8 +102,8 @@ def column_meaning(header, home=None, private=False):
         'residency': residency(h, home, private),
         # Alcorn: "Undergraduate in State On/Off Campus" is one budget for both, not an off-campus budget.
         'arrangement': (None if re.search(r'on\s*(/|and|&|or)\s*off[- ]campus|on[- ]\s*(and|&|or)\s*off[- ]campus', h) else
-                        'off_campus_not_with_family' if re.search(r'not\s+(living\s+)?(with|w/)\s*(a\s+)?parents?|without\s+(a\s+)?parents?|away\s+from\s+(home|parents)', h) else
-                        'with_parents_or_family' if re.search(r'(with|w/)\s*(a\s+)?(parents?|family|relatives)|at home|commut', h) else
+                        'off_campus_not_with_family' if re.search(r'not\s+(living\s+)?(with|w/)\s*(a\s+)?parents?|not\s+living\s+at\s+home|without\s+(a\s+)?parents?|away\s+from\s+(home|parents)', h) else
+                        'with_parents_or_family' if re.search(r'(with|w/)\s*(a\s+)?(parents?|family|relatives)|at[- ]home|commut', h) else
                         'off_campus_not_with_family' if re.search(r'off[- ]campus|own\s+(house|home|apartment)', h) else
                         'on_campus' if re.search(r'on[- ]campus|residence hall|student\s+housing|resident(\s+student|\s+budget)?$|resident student|residential', h) else
                         'other' if re.search(r'military|on base', h) else None),
@@ -221,6 +221,11 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
     ctx = column_meaning(context, home, private)
     # WA (Columbia Basin): a row-label header "One Quarter" names the period only when read on its own.
     ctx['period'] = ctx['period'] or next((column_meaning(x)['period'] for x in titles if column_meaning(x)['period']), None)
+    # TX (Lubbock Christian): the lead "Fall and Spring Semesters Block Rate 2026-27 (per semester)" names the period
+    # "15 credit hours per semester" (GCCC, UIU) or "15 credits per term" (Everett) describes the load, not the figures' period.
+    lead_period = [m for m in re.finditer(r'\bper\s+(?:semester|term)\b', (t.get('lead') or '')[:160], re.I)
+                   if not re.search(r'(?:credits?|hours?)\s*$', (t.get('lead') or '')[:m.start()], re.I)]
+    if not ctx['period'] and lead_period: ctx['period'] = 'semester'
     cols = []
     for j in range(ncols):
         m = column_meaning(headers[j] if j < len(headers) else '', home, private)

@@ -1,0 +1,163 @@
+{
+ "state": "TX",
+ "academic_year": "2026-27",
+ "institutions": 156,
+ "status_order": [
+  "verified_current",
+  "partially_verified_current",
+  "candidate_ready",
+  "candidate_exception",
+  "source_found",
+  "not_found",
+  "fetch_failed"
+ ],
+ "by_category": {
+  "admissions_tests": {
+   "candidate_exception": 1,
+   "candidate_ready": 3,
+   "fetch_failed": 11,
+   "not_found": 10,
+   "source_found": 131
+  },
+  "aid_appeals": {
+   "candidate_exception": 95,
+   "fetch_failed": 11,
+   "not_found": 36,
+   "source_found": 14
+  },
+  "ap_credit": {
+   "candidate_exception": 9,
+   "candidate_ready": 18,
+   "fetch_failed": 11,
+   "not_found": 89,
+   "source_found": 29
+  },
+  "clep_credit": {
+   "candidate_exception": 10,
+   "candidate_ready": 20,
+   "fetch_failed": 11,
+   "not_found": 88,
+   "source_found": 27
+  },
+  "common_data_set": {
+   "candidate_exception": 1,
+   "candidate_ready": 3,
+   "fetch_failed": 11,
+   "not_found": 123,
+   "source_found": 18
+  },
+  "cost_of_attendance": {
+   "candidate_exception": 37,
+   "candidate_ready": 20,
+   "fetch_failed": 11,
+   "not_found": 10,
+   "source_found": 78
+  },
+  "degree_requirements": {
+   "candidate_exception": 2,
+   "candidate_ready": 3,
+   "fetch_failed": 11,
+   "not_found": 39,
+   "source_found": 101
+  },
+  "dual_enrollment": {
+   "candidate_exception": 6,
+   "candidate_ready": 23,
+   "fetch_failed": 11,
+   "not_found": 41,
+   "source_found": 75
+  },
+  "ib_credit": {
+   "candidate_exception": 10,
+   "candidate_ready": 11,
+   "fetch_failed": 11,
+   "not_found": 106,
+   "source_found": 18
+  },
+  "merit_scholarships": {
+   "candidate_exception": 7,
+   "candidate_ready": 21,
+   "fetch_failed": 11,
+   "not_found": 8,
+   "source_found": 109
+  },
+  "residency": {
+   "fetch_failed": 11,
+   "not_found": 54,
+   "source_found": 91
+  },
+  "statewide_articulation": {
+   "fetch_failed": 11,
+   "not_found": 116,
+   "source_found": 29
+  },
+  "transfer_credit": {
+   "candidate_exception": 6,
+   "candidate_ready": 14,
+   "fetch_failed": 11,
+   "not_found": 7,
+   "source_found": 118
+  },
+  "tuition_fees": {
+   "candidate_exception": 50,
+   "candidate_ready": 27,
+   "fetch_failed": 11,
+   "not_found": 3,
+   "source_found": 65
+  }
+ },
+ "totals": {
+  "candidate_exception": 234,
+  "candidate_ready": 163,
+  "fetch_failed": 154,
+  "not_found": 730,
+  "source_found": 903
+ },
+ "statewide_sources": {
+  "categories": {
+   "admissions_tests": 0,
+   "aid_appeals": 0,
+   "ap_credit": 0,
+   "clep_credit": 0,
+   "common_data_set": 0,
+   "cost_of_attendance": 0,
+   "degree_requirements": 0,
+   "dual_enrollment": 0,
+   "ib_credit": 0,
+   "merit_scholarships": 0,
+   "residency": 0,
+   "statewide_articulation": 0,
+   "transfer_credit": 0,
+   "tuition_fees": 0
+  },
+  "fetch_failures": 1,
+  "pages_fetched": 1
+ },
+ "blocked_institutions": [
+  "ipeds-223320",
+  "ipeds-223506",
+  "ipeds-225399",
+  "ipeds-228316",
+  "ipeds-228325",
+  "ipeds-228787",
+  "ipeds-229267",
+  "ipeds-366261",
+  "ipeds-444398",
+  "ipeds-445203",
+  "ipeds-451857"
+ ],
+ "quality": {
+  "ambiguous_years": 78,
+  "blocked_requests": 413,
+  "candidates": 1635,
+  "conflicts": 347,
+  "documents": 9563,
+  "extraction_failures": 0,
+  "fetch_errors": 701,
+  "fetches": 10677,
+  "ready": 554,
+  "semantic_review": 346,
+  "stale_sources": 229
+ },
+ "run": "pipeline/runs/TX/2026-10-04"
+}
