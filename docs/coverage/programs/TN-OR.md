@@ -8,9 +8,9 @@ Runs: TN: `programs/runs/TN/2026-10-05-a`, `programs/runs/TN/2026-10-05-b`, `pro
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 1 | George Fox University (OR) | drupal | 0 | – | 26 | 0 | 0 | — | 1 | 1 | 1 | 2 | 2 | 0 | 0 | — |
 | 1 | Oregon Institute of Technology (OR) | coursedog | 8 | – | 30 | 0 | 0 | — | 2 | 2 | 2 | 0 | 1 | 0 | 0 | — |
-| 1 | Oregon State University (OR) | courseleaf | 114 | – | 103 | 0 | 0 | — | 13 | 3 | 14 | 2 | 1 | 59 | 14 | yes |
+| 1 | Oregon State University (OR) | courseleaf | 114 | – | 103 | 0 | 0 | — | 13 | 3 | 14 | 2 | 1 | 89 | 14 | yes |
 | 1 | Portland State University (OR) | smartcatalog | 71 | – | 70 | 0 | 0 | — | 5 | 3 | 5 | 1 | 1 | 7 | 7 | yes |
-| 1 | University of Oregon (OR) | courseleaf | 73 | – | 67 | 0 | 0 | — | 0 | 4 | 4 | 0 | 1 | 0 | 2 | — |
+| 1 | University of Oregon (OR) | courseleaf | 73 | – | 67 | 0 | 0 | — | 0 | 4 | 4 | 0 | 1 | 55 | 2 | — |
 | 1 | University of Portland (OR) | smartcatalog | 0 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
 | 1 | Belmont University (TN) | acalog | 0 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
 | 1 | Christian Brothers University (TN) | smartcatalog | 36 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
@@ -67,64 +67,64 @@ Field cells: verified programs matching the field by printed name or CIP family 
 
 ## CR-14 field obtainability from retrieved official sources (sentences found, unreviewed)
 
-| School | direct admit | apply to major | pre-major | progression | open declaration | GPA rule | undeclared | declare-by | change major | CIP | major scholarship |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| George Fox University | 1 | 3 | 2 | 4 | 0 | 3 | 6 | 0 | 1 | 0 | 0 |
-| Oregon Institute of Technology | 0 | 0 | 5 | 0 | 0 | 6 | 0 | 0 | 0 | 0 | 9 |
-| Oregon State University | 2 | 21 | 42 | 65 | 1 | 58 | 11 | 0 | 2 | 0 | 18 |
-| Portland State University | 0 | 8 | 13 | 23 | 4 | 14 | 11 | 2 | 5 | 0 | 20 |
-| University of Oregon | 25 | 13 | 30 | 121 | 2 | 37 | 0 | 0 | 10 | 0 | 28 |
-| University of Portland | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| Belmont University | 0 | 1 | 0 | 0 | 0 | 5 | 6 | 0 | 4 | 0 | 6 |
-| Christian Brothers University | 0 | 0 | 1 | 0 | 0 | 30 | 0 | 0 | 0 | 0 | 4 |
-| East Tennessee State University | 0 | 6 | 6 | 2 | 0 | 15 | 22 | 3 | 1 | 0 | 8 |
-| Lipscomb University | 6 | 1 | 6 | 7 | 0 | 5 | 0 | 0 | 3 | 0 | 6 |
-| Middle Tennessee State University | 0 | 2 | 1 | 0 | 0 | 16 | 5 | 0 | 3 | 0 | 42 |
-| Tennessee Technological University | 6 | 0 | 1 | 2 | 0 | 10 | 0 | 0 | 0 | 0 | 41 |
-| The University of Tennessee-Chattanooga | 0 | 5 | 1 | 1 | 0 | 1 | 10 | 1 | 6 | 0 | 15 |
-| The University of Tennessee-Knoxville | 6 | 6 | 0 | 1 | 0 | 5 | 22 | 1 | 3 | 0 | 112 |
-| University of Memphis | 0 | 0 | 12 | 1 | 0 | 64 | 6 | 0 | 3 | 0 | 38 |
-| Vanderbilt University | 0 | 1 | 29 | 0 | 1 | 2 | 2 | 0 | 19 | 0 | 0 |
-| Eastern Oregon University | 0 | 1 | 11 | 4 | 1 | 24 | 1 | 0 | 0 | 0 | 3 |
-| Lewis & Clark College | 0 | 2 | 4 | 4 | 1 | 0 | 1 | 0 | 0 | 0 | 0 |
-| Linfield University | 0 | 2 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 1 |
-| Oregon State University-Cascades Campus | 0 | 0 | 1 | 0 | 0 | 0 | 11 | 0 | 0 | 0 | 0 |
-| Pacific University | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 |
-| Reed College | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| Southern Oregon University | 0 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| Western Oregon University | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| Willamette University | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| Austin Peay State University | 0 | 3 | 2 | 4 | 0 | 2 | 6 | 1 | 6 | 0 | 1 |
-| Carson-Newman University | 0 | 1 | 5 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
-| Lee University | 0 | 1 | 4 | 0 | 0 | 95 | 5 | 0 | 2 | 0 | 45 |
-| Lincoln Memorial University | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| Maryville College | 0 | 0 | 3 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 |
-| Rhodes College | 0 | 0 | 5 | 0 | 0 | 4 | 1 | 0 | 1 | 0 | 0 |
-| Southern Adventist University | 0 | 1 | 1 | 0 | 0 | 6 | 1 | 0 | 0 | 0 | 2 |
-| Tennessee State University | 0 | 1 | 0 | 0 | 0 | 0 | 4 | 0 | 1 | 0 | 22 |
-| The University of Tennessee-Martin | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| The University of the South | 0 | 0 | 9 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| Trevecca Nazarene University | 0 | 0 | 0 | 0 | 0 | 2 | 0 | 0 | 0 | 0 | 0 |
-| Union University | 0 | 0 | 4 | 0 | 0 | 8 | 0 | 0 | 0 | 0 | 0 |
-| Bushnell University | 0 | 12 | 3 | 42 | 2 | 133 | 3 | 1 | 5 | 0 | 9 |
-| Corban University | 1 | 8 | 12 | 123 | 8 | 118 | 1 | 0 | 4 | 0 | 4 |
-| Multnomah University | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| Warner Pacific University | 0 | 0 | 1 | 2 | 0 | 1 | 1 | 0 | 0 | 0 | 3 |
-| Baptist Health Sciences University | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| Bethel University | 0 | 1 | 2 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 |
-| Bryan College-Dayton | 0 | 10 | 11 | 15 | 0 | 39 | 0 | 0 | 3 | 0 | 2 |
-| Cumberland University | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| Fisk University | 0 | 2 | 5 | 3 | 0 | 4 | 0 | 0 | 0 | 0 | 0 |
-| Freed-Hardeman University | 0 | 0 | 4 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
-| Johnson University | 0 | 1 | 1 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 |
-| King University | 0 | 3 | 3 | 1 | 0 | 5 | 0 | 0 | 0 | 0 | 0 |
-| Lane College | 0 | 0 | 0 | 0 | 0 | 5 | 0 | 1 | 1 | 0 | 3 |
-| Le Moyne-Owen College | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| Milligan University | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| Tennessee Wesleyan University | 0 | 0 | 2 | 0 | 0 | 11 | 0 | 0 | 0 | 0 | 0 |
-| The University of Tennessee Southern | 0 | 46 | 39 | 41 | 0 | 108 | 7 | 0 | 5 | 0 | 29 |
-| Tusculum University | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| Welch College | 0 | 0 | 1 | 0 | 0 | 2 | 0 | 0 | 0 | 0 | 3 |
+| School | direct admit | apply to major | pre-major | progression | open declaration | GPA rule | undeclared | declare-by | change major | CIP | major scholarship | AP/IB/dual credit in program text |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| George Fox University | 1 | 3 | 2 | 4 | 0 | 3 | 6 | 0 | 1 | 0 | 0 | 0 |
+| Oregon Institute of Technology | 0 | 0 | 5 | 0 | 0 | 6 | 0 | 0 | 0 | 0 | 9 | 0 |
+| Oregon State University | 2 | 21 | 42 | 65 | 1 | 58 | 11 | 0 | 2 | 0 | 18 | 11 |
+| Portland State University | 0 | 8 | 13 | 23 | 4 | 14 | 11 | 2 | 5 | 0 | 20 | 0 |
+| University of Oregon | 25 | 13 | 30 | 121 | 2 | 37 | 0 | 0 | 10 | 0 | 28 | 7 |
+| University of Portland | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Belmont University | 0 | 1 | 0 | 0 | 0 | 5 | 6 | 0 | 4 | 0 | 6 | 0 |
+| Christian Brothers University | 0 | 0 | 1 | 0 | 0 | 30 | 0 | 0 | 0 | 0 | 4 | 0 |
+| East Tennessee State University | 0 | 6 | 6 | 2 | 0 | 15 | 22 | 3 | 1 | 0 | 8 | 0 |
+| Lipscomb University | 6 | 1 | 6 | 7 | 0 | 5 | 0 | 0 | 3 | 0 | 6 | 0 |
+| Middle Tennessee State University | 0 | 2 | 1 | 0 | 0 | 16 | 5 | 0 | 3 | 0 | 42 | 0 |
+| Tennessee Technological University | 6 | 0 | 1 | 2 | 0 | 10 | 0 | 0 | 0 | 0 | 41 | 0 |
+| The University of Tennessee-Chattanooga | 0 | 5 | 1 | 1 | 0 | 1 | 10 | 1 | 6 | 0 | 15 | 0 |
+| The University of Tennessee-Knoxville | 6 | 6 | 0 | 1 | 0 | 5 | 22 | 1 | 3 | 0 | 112 | 0 |
+| University of Memphis | 0 | 0 | 12 | 1 | 0 | 64 | 6 | 0 | 3 | 0 | 38 | 0 |
+| Vanderbilt University | 0 | 1 | 29 | 0 | 1 | 2 | 2 | 0 | 19 | 0 | 0 | 0 |
+| Eastern Oregon University | 0 | 1 | 11 | 4 | 1 | 24 | 1 | 0 | 0 | 0 | 3 | 1 |
+| Lewis & Clark College | 0 | 2 | 4 | 4 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 12 |
+| Linfield University | 0 | 2 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 |
+| Oregon State University-Cascades Campus | 0 | 0 | 1 | 0 | 0 | 0 | 11 | 0 | 0 | 0 | 0 | 0 |
+| Pacific University | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 1 |
+| Reed College | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Southern Oregon University | 0 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Western Oregon University | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Willamette University | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Austin Peay State University | 0 | 3 | 2 | 4 | 0 | 2 | 6 | 1 | 6 | 0 | 1 | 0 |
+| Carson-Newman University | 0 | 1 | 5 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Lee University | 0 | 1 | 4 | 0 | 0 | 95 | 5 | 0 | 2 | 0 | 45 | 0 |
+| Lincoln Memorial University | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Maryville College | 0 | 0 | 3 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+| Rhodes College | 0 | 0 | 5 | 0 | 0 | 4 | 1 | 0 | 1 | 0 | 0 | 0 |
+| Southern Adventist University | 0 | 1 | 1 | 0 | 0 | 6 | 1 | 0 | 0 | 0 | 2 | 0 |
+| Tennessee State University | 0 | 1 | 0 | 0 | 0 | 0 | 4 | 0 | 1 | 0 | 22 | 0 |
+| The University of Tennessee-Martin | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| The University of the South | 0 | 0 | 9 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Trevecca Nazarene University | 0 | 0 | 0 | 0 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Union University | 0 | 0 | 4 | 0 | 0 | 8 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Bushnell University | 0 | 12 | 3 | 42 | 2 | 133 | 3 | 1 | 5 | 0 | 9 | 45 |
+| Corban University | 1 | 8 | 12 | 123 | 8 | 118 | 1 | 0 | 4 | 0 | 4 | 153 |
+| Multnomah University | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Warner Pacific University | 0 | 0 | 1 | 2 | 0 | 1 | 1 | 0 | 0 | 0 | 3 | 0 |
+| Baptist Health Sciences University | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Bethel University | 0 | 1 | 2 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 0 |
+| Bryan College-Dayton | 0 | 10 | 11 | 15 | 0 | 39 | 0 | 0 | 3 | 0 | 2 | 0 |
+| Cumberland University | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Fisk University | 0 | 2 | 5 | 3 | 0 | 4 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Freed-Hardeman University | 0 | 0 | 4 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Johnson University | 0 | 1 | 1 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+| King University | 0 | 3 | 3 | 1 | 0 | 5 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Lane College | 0 | 0 | 0 | 0 | 0 | 5 | 0 | 1 | 1 | 0 | 3 | 0 |
+| Le Moyne-Owen College | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Milligan University | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Tennessee Wesleyan University | 0 | 0 | 2 | 0 | 0 | 11 | 0 | 0 | 0 | 0 | 0 | 0 |
+| The University of Tennessee Southern | 0 | 46 | 39 | 41 | 0 | 108 | 7 | 0 | 5 | 0 | 29 | 0 |
+| Tusculum University | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Welch College | 0 | 0 | 1 | 0 | 0 | 2 | 0 | 0 | 0 | 0 | 3 | 0 |
 
 ## Largest gaps by school
 
@@ -132,7 +132,7 @@ Field cells: verified programs matching the field by printed name or CIP family 
 - **Oregon Institute of Technology** (OR, P1): no reviewed program_catalogs record (completeness unknown); no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
 - **Oregon State University** (OR, P1): 11 listed bachelor programs not yet verified
 - **Portland State University** (OR, P1): 1 listed bachelor programs not yet verified
-- **University of Oregon** (OR, P1): 6 listed bachelor programs not yet verified; no verified degree maps; undeclared policy not verified
+- **University of Oregon** (OR, P1): 6 listed bachelor programs not yet verified; undeclared policy not verified
 - **University of Portland** (OR, P1): catalog retrieved but no program list parsed; no reviewed program_catalogs record (completeness unknown); no verified programs; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
 - **Belmont University** (TN, P1): catalog program pages behind a bot challenge (recorded, not evaded); no reviewed program_catalogs record (completeness unknown); no verified programs; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
 - **Christian Brothers University** (TN, P1): no reviewed program_catalogs record (completeness unknown); no verified programs; priority fields listed but not verified: engineering, computer_science, business_finance, nursing_health, psychology; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
