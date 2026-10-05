@@ -354,6 +354,23 @@ last 30 hours in residence at the university.</p>"""
         [c] = dual.extract(INST, ENTRY, page, '2026-27')
         self.assertEqual([t['min_hs_gpa'] for t in c['record']['dual_enrollment']['eligibility_tiers']], [2.5])
 
+    def test_az_r1_rules(self):
+        """AZ r1: Prescott's Ph.D. scholarship tiers are graduate awards; Northland Pioneer's 'Social Media' heading is not where
+        awards are listed; ERAU's international budget is labelled only in the table's lead text."""
+        tiers = ('<title>Scholarships</title><h2>Ph.D. Changemaker Scholarship</h2><table><tr><th>Enrollment</th><th>Amount</th></tr>'
+                 '<tr><td>Full-time (12 or more credits)</td><td>$4,000 / term</td></tr><tr><td>Half time (6 – 8 credits)</td><td>$2,000 / term</td></tr>'
+                 '<tr><td>Three-quarter time (9 – 11 credits)</td><td>$3,000 / term</td></tr></table>')
+        self.assertEqual(merit.extract(INST, ENTRY, T.parse_html(tiers), '2026-27'), [])
+        self.assertTrue(merit.extract(INST, ENTRY, T.parse_html(tiers.replace('Ph.D. Changemaker', 'Changemaker')), '2026-27'))
+        nav = ('<title>Scholarships</title><h2>Social Media</h2><table><tr><th>Scholarship</th><th>Amount</th><th>Deadline</th></tr>'
+               '<tr><td>Visual Arts Scholarship</td><td>$4,000</td><td>September 18</td></tr><tr><td>President\'s Scholars</td><td>$2,200</td><td>March</td></tr></table>')
+        got = merit.extract(INST, ENTRY, T.parse_html(nav), '2026-27')
+        self.assertTrue(got and all('eligibility_summary' not in c['record'] for c in got))
+        p = T.Page('', 'Tuition and Costs', [{'heading': 'Academic Year 2026-27', 'caption': '', 'lead': 'International Student Cost of Attendance - Undergraduate',
+                                              'rows': [['Budget Component', 'Standard On-Campus Costs'], ['Tuition and Fees', '$47,844'],
+                                                       ['Housing and Food', '$15,816'], ['Total', '$63,660']]}], [], [])
+        self.assertEqual(costs.extract(INST, ENTRY, p, '2026-27'), [])
+
     def test_nm_r1_rules(self):
         """NM r1: Luna's staff contact table and NMSU's private-scholarship page are not awards; ENMU-Roswell's English-course
         grade is not the general transfer minimum; WNMU's overload petition is not dual-enrollment eligibility."""

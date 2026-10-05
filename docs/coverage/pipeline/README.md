@@ -76,6 +76,43 @@ Institutions in scope: **48** · crawled: **45** · blocked by site: **3** · ru
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-106713`, `ipeds-107512`, `ipeds-107877`
 
+## AZ — 2026-27
+
+Institutions in scope: **32** · crawled: **19** · blocked by site: **13** · run: `pipeline/runs/AZ/2026-10-04`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 0 (0%) | 0 | 8 (25%) | 17 (53%) | 2 | 13 |
+| cost_of_attendance | 0 (0%) | 0 | 8 (25%) | 18 (56%) | 1 | 13 |
+| admissions_tests | 0 (0%) | 0 | 0 (0%) | 16 (50%) | 3 | 13 |
+| common_data_set | 0 (0%) | 0 | 0 (0%) | 5 (16%) | 14 | 13 |
+| merit_scholarships | 0 (0%) | 0 | 2 (6%) | 16 (50%) | 3 | 13 |
+| ap_credit | 0 (0%) | 0 | 1 (3%) | 11 (34%) | 8 | 13 |
+| clep_credit | 0 (0%) | 0 | 2 (6%) | 9 (28%) | 10 | 13 |
+| ib_credit | 0 (0%) | 0 | 2 (6%) | 8 (25%) | 11 | 13 |
+| dual_enrollment | 0 (0%) | 0 | 5 (16%) | 13 (41%) | 6 | 13 |
+| transfer_credit | 0 (0%) | 0 | 4 (12%) | 17 (53%) | 2 | 13 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 5 (16%) | 14 | 13 |
+| residency | 0 (0%) | 0 | 0 (0%) | 13 (41%) | 6 | 13 |
+| degree_requirements | 0 (0%) | 0 | 0 (0%) | 15 (47%) | 4 | 13 |
+| aid_appeals | 0 (0%) | 0 | 13 (41%) | 14 (44%) | 5 | 13 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 2 |
+| blocked requests | 60 |
+| candidates | 162 |
+| conflicts | 73 |
+| documents | 1195 |
+| extraction failures | 0 |
+| fetch errors | 109 |
+| fetches | 1364 |
+| ready | 51 |
+| semantic review | 53 |
+| stale sources | 38 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-104708`, `ipeds-105145`, `ipeds-105154`, `ipeds-105428`, `ipeds-105668`, `ipeds-105747`, `ipeds-105792`, `ipeds-105899`, `ipeds-364016`, `ipeds-364025`, `ipeds-384333`, `ipeds-436614`, `ipeds-464226`
+
 ## CO — 2026-27
 
 Institutions in scope: **35** · crawled: **31** · blocked by site: **4** · run: `pipeline/runs/CO/2026-10-04`
