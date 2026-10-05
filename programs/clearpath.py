@@ -229,7 +229,7 @@ def extract_layout(inst, entry, page_text_lines, pages, program_key, today_year)
     terms, issues = [], set()
     for label, fall, ft, spring, st, probs in years:
         issues |= probs
-        ym = re.search(r'(\d{1,2})(?:-(\d{1,2}))?\s+Hours', label)
+        ym = re.search(r'[–-]\s*(\d{1,2})(?:-(\d{1,2}))?(?:\s+hours)?\s*$', label, re.I)  # 'Third Year – 30 hours', 'First Year – 31-33'
         if not ym or (_span(ft)[0] + _span(st)[0], _span(ft)[1] + _span(st)[1]) != (int(ym.group(1)), int(ym.group(2) or ym.group(1))):
             issues.add('year_total_mismatch')  # 'First Year – 30-37 Hours' must equal the two printed term totals
         for name, items, total in (('Fall Semester', fall, ft), ('Spring Semester', spring, st)):
