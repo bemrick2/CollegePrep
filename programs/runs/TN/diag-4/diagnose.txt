@@ -1,0 +1,1844 @@
+================================================================================
+https://thec.ppr.tn.gov/AcademicProgramInventorySearch/js/Home/home.js 200
+{
+ "Content-Length": "28000",
+ "Content-Type": "text/javascript",
+ "Last-Modified": "Fri, 07 Aug 2026 17:41:25 GMT",
+ "Accept-Ranges": "bytes",
+ "ETag": "\"1dd2693f7c63de0\"",
+ "Server": "Microsoft-IIS/10.0",
+ "Strict-Transport-Security": "max-age=2592000",
+ "X-Powered-By": "ASP.NET",
+ "Date": "Mon, 05 Oct 2026 14:39:17 GMT",
+ "Connection": "close"
+}
+﻿let $lstInstitutions;
+let $lstMajorName;
+let $lstConcentrationName;
+let $lstFederalCIPCode;
+let $lstAward;
+let $btnSearch;
+let $btnClearSearch;
+let $tblSearchResults;
+let $chkApprovedNotActive;
+let $chkActive;
+let $chkPhaseout;
+
+
+let ignoreGroupedAllValues = true;
+let cssRuleSelected = CSS_RULE.SELECTED.trim();
+let defaultSelectOptionEnabled = '<option value="" selected>Select</option>';
+let allInstitutionsList = '';
+
+let lstInstitutionsId = 'lstInstitutions';
+let lstMajorNameId = 'lstMajorName';
+let lstConcentrationNameId = 'lstConcentrationName';
+let lstFederalCIPCodeId = 'lstFederalCIPCode';
+let lstAwardId = 'lstAward';
+let btnSearchId = 'btnSearch';
+let btnClearSearchId = 'btnClearSearch';
+let tblSearchResultsId = 'tblSearchResults';
+let chkApprovedNotActiveId = 'chkApprovedNotActive';
+let chkActiveId = 'chkActive';
+let chkPhaseoutId = 'chkPhaseout';
+
+$(document).ready(function () {
+    $lstInstitution = $(SELECTOR.ID(lstInstitutionsId));
+    $lstMajorName = $(SELECTOR.ID(lstMajorNameId));
+    $lstConcentrationName = $(SELECTOR.ID(lstConcentrationNameId));
+    $lstFederalCIPCode = $(SELECTOR.ID(lstFederalCIPCodeId));
+    $lstAward = $(SELECTOR.ID(lstAwardId));
+
+    $btnSearch = $(SELECTOR.ID(btnSearchId));
+    $btnClearSearch = $(SELECTOR.ID(btnClearSearchId));
+    $tblSearchResults = $(SELECTOR.ID(tblSearchResultsId));
+    $chkApprovedNotActive = $(SELECTOR.ID(chkApprovedNotActiveId));
+    $chkActive = $(SELECTOR.ID(chkActiveId));
+    $chkPhaseout = $(SELECTOR.ID(chkPhaseoutId));
+
+    let selectedRow = null;
+    let selectedId = null;
+    let selectedA = null;
+
+    loadInstitutions();
+    loadMajorNames();
+    loadConcentrationNames();
+    loadFederalCipCodes();
+    loadAwards();
+
+    $('#tblSearchResults tbody').on('click', 'a.details', function () {
+        let table = $('#tblSearchResults').DataTable();
+        let programId = this.id;
+        let tr = $(this).closest('tr');
+        let a = $(this).closest('a');
+        let row = table.row(tr);
+        let concentrationName = $lstConcentrationName.val();
+
+        if (selectedRow != null) {
+            destroyChild(table.row(selectedRow));
+            selectedRow.removeClass('shown');
+            selectedA.addClass('collapsed');
+            selectedA.attr('aria-expanded', 'false');
+            if (selectedId == programId) {
+                selectedRow = null;
+                selectedId = null;
+                selectedA = null;
+                return;
+            }
+        }
+        selectedRow = tr;
+        selectedId = programId;
+        selectedA = a;
+
+        if (row.child.isShown()) {
+            destroyChild(row);
+            tr.removeClass('shown');
+            a.addClass('collapsed');
+            a.attr('aria-expanded', 'false');
+            // return keyboard focus to the control when collapsing
+            a.focus();
+        }
+        else {
+            createChild(row, programId, concentrationName);
+            tr.addClass('shown');
+            a.removeClass('collapsed');
+            a.attr('aria-expanded', 'true');
+        }
+    });
+
+    $btnClearSearch.click(function () {
+        $lstInstitution.val('');
+        $lstMajorName.val('');
+        $lstConcentrationName.val('');
+        $lstFederalCIPCode.val('');
+        $lstAward.val('');
+
+        $chkApprovedNotActive.prop(PROPERTY.CHECKED, true);
+        $chkActive.prop(PROPERTY.CHECKED, true);
+        $chkPhaseout.prop(PROPERTY.CHECKED, true);
+
+        if ($.fn.dataTable.isDataTable($tblSearchResults)) {
+            $tblSearchResults.DataTable().clear().draw();
+            $tblSearchResults.addClass(CSS_RULE.HIDDEN);
+            $('#tblSearchResults_wrapper').addClass(CSS_RULE.HIDDEN);
+        }
+    });
+
+    $btnSearch.click(function () {
+        selectedRow = null;
+        selectedId = null;
+        selectedA = null;
+
+        var selectedInstName = $lstInstitution.val();
+        var selectedInstitution = findElement(allInstitutionsList, "institutionName", selectedInstName);
+        var institutionValue = selectedInstitution != null
+            ? selectedInstitution.institutionId
+            : selectedInstName != "" ? "invalid" : null;
+
+        var majorNameValue = $lstMajorName.val();
+        var concentrationNameValue = $lstConcentrationName.val();
+        var federalCipCodeValue = $lstFederalCIPCode.val();
+        var awardValue = $lstAward.val();
+        var isApprovedNotActiveChecked = $chkApprovedNotActive.is(':checked')
+        var isActiveChecked = $chkActive.is(':checked')
+        var isPhaseoutChecked = $chkPhaseout.is(':checked')
+
+        var searchFilter = {
+            InstitutionId: institutionValue,
+            MajorName: majorNameValue,
+            ConcentrationName: concentrationNameValue,
+            FederalCipCode: federalCipCodeValue,
+            Award: awardValue,
+            IsApprovedNotActiveChecked: isApprovedNotActiveChecked,
+            IsActiveChecked: isActiveChecked,
+            IsPhaseoutChecked: isPhaseoutChecked
+        };
+
+        var dtoSearchFilter = JSON.stringify(searchFilter);
+        showWaitDialog(WAIT_DIALOG.NAME, 'Loading data...');
+
+        $.ajax(urlPrefix + '/Home/GetProgramList',
+            {
+                method: HTTP.POST,
+                dataType: DATA_TYPE.JSON,
+                contentType: CONTENT_TYPE.JSON,
+                data: dtoSearchFilter,
+                success: function (data, status, xhr) {
+                    $tblSearchResults.removeClass(CSS_RULE.HIDDEN);
+
+                    /*START -- To work with dataTables library*/
+                    var programs = JSON.parse(data).ProgramList;
+
+                    $tblSearchResults.DataTable().destroy();
+                    $tblSearchResults.DataTable({
+                        keys: {
+                            //columns: ':not(.dt-control)'
+                        },
+                        rowId: 'ProgramId',
+                        /*select: {
+                            style: 'single'
+                        },*/
+                        paging: false,
+                        scrollY: "60vh",
+                        scrollX: true,
+                        scrollCollapse: true,
+                        autoWidth: false,
+                        fixedColumns: {
+                            leftColumns: 4
+                        },
+                        language: {
+                            "emptyTable": "No programs found",
+                            "zeroRecords": "No matching records found",
+                            "info": "Showing _TOTAL_ program(s)",
+                            "infoEmpty": "No programs found",
+                            "infoFiltered": " - filtered from _MAX_ total program(s)",
+                        },
+                        dom: 'Bifrtp',
+                        data: programs,
+                        stripeClasses: [],
+                        buttons: [
+                            {
+                                extend: 'excel',
+                                text: 'Export to Excel',
+                                titleAttr: 'Export to Excel',
+                                title: 'API_Programs',
+                                className: 'btn btn-default btnExportToExcel',
+                                download: 'open',
+                                orientation: 'landscape',
+                                exportOptions: {
+                                    columns: [1, 2, 3, 4, 5, 6, 8, 9, 10]
+                                },
+                                sheetName: 'Major Programs',
+                                customize: function (xlsx) {
+                                    var sheet = xlsx.xl.worksheets["sheet1.xml"];
+
+                                    var freezePanes =
+                                        '<sheetViews><sheetView tabSelected="1" workbookViewId="0"><pane xSplit="1" ySplit="1" topLeftCell="B2" activePane="bottomRight" state="frozen"/></sheetView></sheetViews>';
+                                    var current = sheet.children[0].innerHTML;
+                                    current = freezePanes + current;
+                                    sheet.children[0].innerHTML = current;
+                                }
+                            },
+                            {
+                                extend: 'csv',
+                                text: 'Export to CSV',
+                                titleAttr: 'Export to CSV',
+                                title: 'API_Programs',
+                                className: 'btn btn-default btnExportToExcel',
+                                download: 'open',
+                                orientation: 'landscape',
+                                exportOptions: {
+                                    columns: [1, 2, 3, 4, 5, 6, 8, 9, 10]
+                                }
+                            }
+
+                        ],
+                        columns: [
+                            {
+                                className: 'dt-control',
+                                orderable: false,
+                                data: 'ConcentrationCount',
+                                defaultContent: '',
+                                width: "30px"
+                            },
+                            {
+                                data: 'InstitutionName',
+                                width: "200px",
+                                "orderData": [1, 2, 3, 4, 5, 6]
+                            },
+                            {
+                                //data: 'FederalTaxName',
+                                //width: "20%",
+                                data: 'MajorCipCode',
+                                width: "120px",
+                                "orderData": [2, 1, 3, 4, 5, 6]
+                            },
+                            {
+                                data: 'MajorName',
+                                width: "300px",
+                                "orderData": [3, 1, 2, 4, 5, 6]
+                            },
+                            {
+                                data: 'Award',
+                                width: "80px",
+                                "orderData": [4, 1, 2, 3, 5, 6]
+                            },
+                            {
+                                data: 'CreditOrClockHours',
+                                width: "80px",
+                                "orderData": [5, 1, 2, 3, 4, 6]
+                            },
+                            {
+                                data: 'EffectiveStartDate',
+                                width: "120px",
+                                "orderData": [6, 1, 2, 3, 4, 5]
+                            },
+                            {
+                                data: 'ProgramId',
+                                visible: false
+                            },
+                            {
+                                data: 'PhaseOutBeginDate',
+                                width: "120px",
+                                "orderData": [8, 1, 2, 3, 4, 5, 6],
+                                render: function (data, type, row) {
+                                    return type === 'sort' ? data : formatDate2(data, DATE_FORMAT.TYPICAL);
+                                }
+                            },
+                            {
+                                data: 'PhaseOutEndDate',
+                                width: "120px",
+                                "orderData": [9, 1, 2, 3, 4, 5, 6],
+                                render: function (data, type, row) {
+                                    return type === 'sort' ? data : formatDate2(data, DATE_FORMAT.TYPICAL);
+                                }
+                            },
+                            {
+                                data: 'CurrentProgramStatus',
+                                visible: true,
+                                width: "0x",
+                                "orderData": [10, 1, 2, 3, 4, 5, 6]
+                            }
+                        ],
+                        order: [[1, 'asc']],
+                        columnDefs: [
+                            {
+                                targets: 0,
+                                className: CSS_RULE.CENTERED,
+                                data: null,
+                                render: function (data, type, row) {
+                                    if (data === 0) {
+                                        return null;
+                                    }
+                                    return `<a id='${row.ProgramId}' class="expand-link collapsed details" href="javascript:void(0)" role="button" tabindex="0" aria-expanded="false" aria-label="Toggle concentrations for program ${row.ProgramId}"></a>`;
+                                }
+                            },
+                            {
+                                targets: 6,
+                                render: function (data, type, row) {
+                                    return type === 'sort' ? data : formatDate2(row.EffectiveStartDate, DATE_FORMAT.TYPICAL)
+                                }
+                            }
+                        ],
+                        fnRowCallback: function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+                            switch (aData["CurrentProgramStatusId"]) {
+                                case ProgramStatus.APPROVED_NOT_ACTIVE:
+                                    $(nRow).addClass(ProgramStatusRowColorCSSClass.APPROVED_NOT_ACTIVE);
+                                    break;
+                                case ProgramStatus.ACTIVE:
+                                    break;
+                                //case ProgramStatus.INACTIVE:
+                                //    $(nRow).addClass(ProgramStatusRowColorCSSClass.INACTIVE);
+                                //    break;
+                                case ProgramStatus.PHASE_OUT:
+                                    $(nRow).addClass(ProgramStatusRowColorCSSClass.PHASE_OUT);
+                                    break;
+                                //case ProgramStatus.TERMINATED:
+                                //    $(nRow).addClass(ProgramStatusRowColorCSSClass.TERMINATED);
+                                //    break;
+                            }
+                        },
+                        drawCallback: function () {
+                            var hasRows = this.api().rows({ filter: 'applied' }).data().length > 0;
+                            //$('.buttons-excel')[0].style.visibility = hasRows ? 'visible' : 'hidden'
+                            if (hasRows)
+                                enableControl($('.btnExportToExcel'));
+                            else
+                                disableControl($('.btnExportToExcel'), true);
+                        }
+                    });
+                    // Map Enter/Space from KeyTable to the control anchor
+                    var table = $tblSearchResults.DataTable();
+
+                    table.on('key', function (e, dt, key, cell, originalEvent) {
+                        if (key !== 13 && key !== 32) return;
+                        if (originalEvent && typeof originalEvent.preventDefault === 'function') {
+                            originalEvent.preventDefault();
+                        }
+
+                        if (!cell || typeof cell.node !== 'function') return;
+                        var cellNode = cell.node();
+
+                        if (!cellNode) return;
+                        var $cell = $(cellNode);
+                        var $anchor = $cell.find('a.details');
+
+                        if ($anchor && $anchor.length) {
+                            $anchor.trigger('click');
+                            return;
+                        }
+
+                        // If anchor not inside focused cell, find the row's control anchor and activate it.
+                        var $row = $cell.closest('tr');
+                        if ($row && $row.length) {
+                            var $ctrl = $row.find('a.details');
+                            if ($ctrl && $ctrl.length) $ctrl.trigger('click');
+                        }
+                    });
+                    $('.dataTables_scrollBody').on('scroll', function () {
+                        $(this).siblings('.dataTables_scrollHead').scrollLeft($(this).scrollLeft());
+                    });
+
+                    $('.dataTables_scrollHead').on('scroll', function () {
+                        $(this).siblings('.dataTables_scrollBody').scrollLeft($(this).scrollLeft());
+                    });
+                    $(table.table().node()).on('key-focus.dt', function (e, datatable, cell) {
+                        var cellNode = cell.node();
+                        if (!cellNode) return;
+
+                        var $scrollBody = $('.dataTables_scrollBody');
+                        var $cell = $(cellNode);
+                        var currentScroll = $scrollBody.scrollTop();
+                        var scrollBodyHeight = $scrollBody.height();
+
+                        var relativeTop = $cell.offset().top - $scrollBody.offset().top;
+                        if (relativeTop < 0) {
+                            $scrollBody.scrollTop(currentScroll + relativeTop - 10);
+                        } else if (relativeTop + $cell.outerHeight() > scrollBodyHeight) {
+                            $scrollBody.scrollTop(currentScroll + relativeTop + $cell.outerHeight() - scrollBodyHeight + 10);
+                        }
+
+                        $scrollBody.siblings('.dataTables_scrollHead')
+                            .scrollLeft($scrollBody.scrollLeft());
+                    });
+
+                    /*END -- To work with dataTables library*/
+                    closeWaitDialog(WAIT_DIALOG.NAME);
+                },
+                error: function (jqXhr, textStatus, errorMessage) {
+                    //debugger;
+                    //$('p').append('Error: ' + errorMessage);
+                    showError(jqXhr, errorMessage);
+                }
+            });
+
+        event.preventDefault();
+    });
+
+    var previousWidth = window.innerWidth;
+    var previousHeight = window.innerHeight;
+
+    window.addEventListener("resize", function () {
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+        if (width !== previousWidth || height !== previousHeight) {
+            if ($.fn.dataTable.isDataTable($tblSearchResults)) {
+                let table = $('#tblSearchResults').DataTable();
+                table.columns.adjust();
+                previousWidth = width;
+                previousHeight = height;
+            }
+        }
+    });
+});
+
+/*function findElement(arr, propName, propValue) {
+    for (var i = 0; i < arr.length; i++)
+        if (arr[i][propName] == propValue)
+            return arr[i];
+}*/
+
+// Helper to focus the first focusable cell in a child DataTable so keyboard navigation begins there
+function focusFirstCellOfChild(dt) {
+    if (!dt || typeof dt.cell !== 'function') return false;
+
+    var cell = dt.cell(0, 0);
+    if (!cell || typeof cell.node !== 'function') return false;
+
+    var node = cell.node();
+    if (!node) return false;
+
+    var $node = $(node);
+    $node.attr('tabindex', 0);
+    $node.focus();
+
+    // Update KeyTable's internal focus if available (feature-detect)
+    if (typeof cell.focus === 'function') {
+        cell.focus();
+        return true;
+    }
+
+    if (dt.keys && typeof dt.keys === 'function') {
+        var kt = dt.keys();
+        if (kt && typeof kt.focus === 'function') {
+            var idx = (typeof cell.index === 'function') ? cell.index() : null;
+            kt.focus(idx || node);
+            return true;
+        }
+    }
+
+    return true;
+}
+
+
+function createChild(row, programId, concentrationName) {
+    let childTable = $(`<table id="program${programId}" class= "stripe row-border order-column tblConcentrations" >
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Concentration Name</th>
+                                    <th class="text-center">Current Concentration Status</th>
+                                    <th class="text-center">Effective Start Date</th>
+                                    <th class="text-center">Inactive Start Date</th>
+                                    <th class="text-center">Termination Date</th>
+                                    <th class="text-center">Phase-Out Begin Date</th>
+                                    <th class="text-center">Phase-Out End Date</th>
+                                </tr>
+                            </thead>
+                        </table>`);
+
+    row.child(childTable, `${CSS_RULE.CENTERED}`).show();
+
+    let child = childTable.DataTable({
+        ajax: {
+            url: urlPrefix + '/Home/GetConcentrations',
+            dataSrc: '',
+            data: {
+                programId: programId,
+                concentrationName: concentrationName
+            },
+            type: HTTP.GET,
+            deferRender: true,
+        },
+        keys: true,
+        scrollXInner: true,
+        scrollCollapse: true,
+        scroller: true,
+        searching: false,
+        paging: true,
+        pageLength: 10,
+        lengthChange: false,
+        info: false,
+        autoWidth: false,
+        language: {
+            emptyTable: 'No concentrations found.'
+        },
+        columns: [
+            {
+                data: 'concentrationName',
+                "orderData": [0, 1, 2, 3, 4, 5, 6],
+                width: "30%"
+            },
+            {
+                data: 'programStatusName',
+                "orderData": [1, 0, 2, 3, 4, 5, 6],
+                width: "15%",
+            },
+            {
+                data: 'effectiveStartDate',
+                "orderData": [2, 0, 1, 3, 4, 5, 6],
+                width: "11%",
+            },
+            {
+                data: 'inactiveStartDate',
+                "orderData": [3, 0, 1, 2, 4, 5, 6],
+                width: "15%",
+            },
+            {
+                data: 'terminationDate',
+                "orderData": [4, 0, 1, 2, 3, 5, 6],
+                width: "15%",
+            },
+            {
+                data: 'phaseOutBeginDate',
+                "orderData": [5, 0, 1, 2, 3, 4, 6],
+                width: "17%",
+            },
+            {
+                data: 'phaseOutEndDate',
+                "orderData": [6, 0, 1, 2, 3, 4, 5],
+                width: "11%",
+            }
+        ],
+        columnDefs: [
+            {
+                targets: 2,
+                render: function (data, type, row) {
+                    return formatDate2(row.effectiveStartDate, DATE_FORMAT.TYPICAL)
+                }
+            },
+            {
+                targets: 3,
+                render: function (data, type, row) {
+                    return formatDate2(row.inactiveStartDate, DATE_FORMAT.TYPICAL)
+                }
+            },
+            {
+                targets: 4,
+                render: function (data, type, row) {
+                    return formatDate2(row.terminationDate, DATE_FORMAT.TYPICAL)
+                }
+            },
+            {
+                targets: 5,
+                render: function (data, type, row) {
+                    return formatDate2(row.phaseOutBeginDate, DATE_FORMAT.TYPICAL)
+                }
+            },
+            {
+                targets: 6,
+                render: function (data, type, row) {
+                    return formatDate2(row.phaseOutEndDate, DATE_FORMAT.TYPICAL)
+                }
+            }
+        ],
+        initComplete: function () {
+            var node = child && typeof child.table === 'function' ? child.table().node() : null;
+            if (node && !node.hasAttribute('tabindex')) {
+                node.setAttribute('tabindex', '0');
+            }
+        }
+    });
+   
+
+    $(`#program${programId}_wrapper`).addClass('center-block col-10');
+}
+
+function destroyChild(row) {
+    var $childTable = $('table', row.child());
+    if ($.fn.dataTable.isDataTable($childTable)) {
+        $childTable.DataTable().destroy();
+    }
+    $childTable.remove();
+    row.child.hide();
+}
+
+function findElement(arr, propName, propValue) {
+    // Defensive checks
+    if (!Array.isArray(arr) || arr.length === 0 || propValue == null) return null;
+
+    var pv = String(propValue).trim().toLowerCase();
+
+    // Use Array.prototype.find for clarity and reliability
+    var found = arr.find(function (item) {
+        if (!item || !(propName in item)) return false;
+        var val = item[propName];
+        if (val == null) return false;
+        return String(val).trim().toLowerCase() === pv;
+    });
+
+    return found || null;
+}
+
+function loadInstitutions() {
+    return getInstitutions(ignoreGroupedAllValues).then(function (institutionsList) {
+        allInstitutionsList = institutionsList;
+        var instNames = [];
+
+        $.each(institutionsList, function (idx, obj) {
+            //$institutionList.append('<option value="' + obj.institutionId + '" systemId="' + obj.systemId + '">' + obj.institutionName + '</option>');
+            instNames.push(obj.institutionName);
+        });
+
+        $lstInstitution.autocomplete({
+            source: instNames,
+            minLength: 0,
+            scroll: true
+        }).focus(function () {
+            $(this).autocomplete("search", "");
+        });
+    });
+}
+
+function loadMajorNames() {
+    return getMajorNames().then(function (majorNamesList) {
+        var majorNames = [];
+
+        $.each(majorNamesList, function (idx, obj) {
+            majorNames.push(obj);
+        });
+
+        $lstMajorName.autocomplete({
+            source: majorNames,
+            minLength: 0,
+            scroll: true
+        }).focus(function () {
+            $(this).autocomplete("search", "");
+        });
+    });
+}
+
+function loadConcentrationNames() {
+    return getConcentrationNames().then(function (concentrationNamesList) {
+        var concentrationNames = [];
+
+        $.each(concentrationNamesList, function (idx, obj) {
+            concentrationNames.push(obj);
+        });
+
+        $lstConcentrationName.autocomplete({
+            source: concentrationNames,
+            minLength: 0,
+            scroll: true
+        }).focus(function () {
+            $(this).autocomplete("search", "");
+        });
+    });
+}
+
+function loadFederalCipCodes() {
+    return getFederalCipCodes().then(function (federalCipCodesList) {
+        var federalCipCodes = [];
+
+        $.each(federalCipCodesList, function (idx, obj) {
+            federalCipCodes.push(obj.federalCipCode);
+        });
+
+        $lstFederalCIPCode.autocomplete({
+            source: federalCipCodes,
+            minLength: 0,
+            scroll: true
+        }).focus(function () {
+            $(this).autocomplete("search", "");
+        });
+    });
+}
+
+function loadAwards() {
+    return getAwards().then(function (awardsList) {
+        var awards = [];
+
+        $.each(awardsList, function (idx, obj) {
+            awards.push(obj);
+        });
+
+        $lstAward.autocomplete({
+            source: awards,
+            minLength: 0,
+            scroll: true
+        }).focus(function () {
+            $(this).autocomplete("search", "");
+        });
+    });
+}
+================================================================================
+https://thec.ppr.tn.gov/AcademicProgramInventorySearch/js/masterData.js 200
+{
+ "Content-Length": "2415",
+ "Content-Type": "text/javascript",
+ "Last-Modified": "Wed, 24 Jun 2026 16:26:33 GMT",
+ "Accept-Ranges": "bytes",
+ "ETag": "\"1dd03f638288bef\"",
+ "Server": "Microsoft-IIS/10.0",
+ "Strict-Transport-Security": "max-age=2592000",
+ "X-Powered-By": "ASP.NET",
+ "Date": "Mon, 05 Oct 2026 14:39:17 GMT",
+ "Connection": "close"
+}
+﻿$(document).ready(function () {
+});
+
+function getInstitutions(ignoreGroupedAllValues) {
+    return $.ajax(urlPrefix + '/MasterData/GetInstitutionList',
+        {
+            dataType: DATA_TYPE.JSON,
+            data: {
+                ignoreGroupedAllValues: ignoreGroupedAllValues
+            },
+            success: function (data, status, xhr) {
+                var jsonData = JSON.stringify(data);
+                return jsonData;
+            },
+            error: function (jqXhr, textStatus, errorMessage) {
+                showError(jqXhr, errorMessage);
+            }
+        });
+}
+
+function getMajorNames() {
+    return $.ajax(urlPrefix + '/MasterData/GetMajorNamesList',
+        {
+            dataType: DATA_TYPE.JSON,
+            success: function (data, status, xhr) {
+                var jsonData = JSON.stringify(data);
+                return jsonData;
+            },
+            error: function (jqXhr, textStatus, errorMessage) {
+                showError(jqXhr, errorMessage);
+            }
+        });
+}
+
+function getConcentrationNames() {
+    return $.ajax(urlPrefix + '/MasterData/GetConcentrationNamesList',
+        {
+            dataType: DATA_TYPE.JSON,
+            success: function (data, status, xhr) {
+                var jsonData = JSON.stringify(data);
+                return jsonData;
+            },
+            error: function (jqXhr, textStatus, errorMessage) {
+                showError(jqXhr, errorMessage);
+            }
+        });
+}
+
+function getFederalCipCodes() {
+    return $.ajax(urlPrefix + '/MasterData/GetFederalCipCodesList',
+        {
+            dataType: DATA_TYPE.JSON,
+            success: function (data, status, xhr) {
+                var jsonData = JSON.stringify(data);
+                return jsonData;
+            },
+            error: function (jqXhr, textStatus, errorMessage) {
+                showError(jqXhr, errorMessage);
+            }
+        });
+}
+
+function getAwards() {
+    return $.ajax(urlPrefix + '/MasterData/GetAwardsList',
+        {
+            dataType: DATA_TYPE.JSON,
+            success: function (data, status, xhr) {
+                var jsonData = JSON.stringify(data);
+                return jsonData;
+            },
+            error: function (jqXhr, textStatus, errorMessage) {
+                showError(jqXhr, errorMessage);
+            }
+        });
+}
+
+================================================================================
+https://thec.ppr.tn.gov/AcademicProgramInventorySearch/js/site.js 200
+{
+ "Content-Length": "32857",
+ "Content-Type": "text/javascript",
+ "Last-Modified": "Sun, 28 Jun 2026 03:20:55 GMT",
+ "Accept-Ranges": "bytes",
+ "ETag": "\"1dd06ad215f05d9\"",
+ "Server": "Microsoft-IIS/10.0",
+ "Strict-Transport-Security": "max-age=2592000",
+ "X-Powered-By": "ASP.NET",
+ "Date": "Mon, 05 Oct 2026 14:39:17 GMT",
+ "Connection": "close"
+}
+﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+// for details on configuring this project to bundle and minify static web assets.
+
+// Write your JavaScript code.
+
+// This controlls where the program section navigation scrolls to
+$(document).ready(function () {
+    $('.dropdown-toggle').dropdown();
+});
+
+const Systems = Object.freeze({
+    ALL_SYSTEMS: 0,
+    LGI_UNIVERSITIES: 1,
+    TBR_COMMUNITY_COLLEGES: 2,
+    UNIVERSITY_OF_TENNESSEE: 3,
+    TBR_TCAT: 4,
+    ALL_UNIVERSITIES: 9
+});
+
+const ProgramStatus = Object.freeze({
+    APPROVED_NOT_ACTIVE: 1,
+    ACTIVE: 2,
+    INACTIVE: 3,
+    PHASE_OUT: 4,
+    TERMINATED: 5
+});
+
+const ProgramType = Object.freeze({
+    MAJOR: 1,
+    MINOR: 2,
+    CERTIFICATE: 3
+});
+
+const ProgramStatusColorCSSClass = Object.freeze({
+    APPROVED_NOT_ACTIVE: "ApprovedNotActive",
+    INACTIVE: "Inactive",
+    PHASE_OUT: "Phase-Out",
+    TERMINATED: "Terminated"
+});
+
+const ProgramStatusRowColorCSSClass = Object.freeze({
+    APPROVED_NOT_ACTIVE: "ApprovedNotActive-row",
+    INACTIVE: "Inactive-row",
+    PHASE_OUT: "Phase-Out-row",
+    TERMINATED: "Terminated-row"
+});
+
+const HoursText = Object.freeze({
+    TCATHours: "Clock Hours",
+    NonTCATHours: "Credit Hours"
+});
+
+const OclAvailableOrAssigned = Object.freeze({
+    Available: 1,
+    Assigned: 2
+});
+
+const HistoryAction = Object.freeze({
+    Add: "Add",
+    Update: "Update",
+    Delete: "Delete",
+    ProgramTermination: "Program Termination",
+    ProgramReactivation: "Program Re-activation"
+});
+
+const ErrorMessage = Object.freeze({
+    SessionTimeOut: "Session timed-out. Please login again.",
+    UnexpectedError: "An unexpected error occurred. Refresh the page and try again. If the error persists, please reach out to the Support Team."
+});
+
+/**
+ * Constants for common element attributes
+ */
+var ATTRIBUTE = {
+    /** 'id' */
+    ID: "id",
+    /** 'disabled' */
+    DISABLED: "disabled",
+    /** 'checked' */
+    CHECKED: "checked",
+    /** 'type' */
+    TYPE: 'type',
+    /** 'title' */
+    TITLE: 'title',
+    /** 'hidden' */
+    HIDDEN: 'hidden',
+    /** 'border' */
+    BORDER: 'border',
+    /** 'min' */
+    MIN: 'min',
+    /** 'max' */
+    MAX: 'max'
+};
+
+/**
+ * Constants for common element properties
+ */
+var PROPERTY = {
+    /** 'id' */
+    ID: "id",
+    /** 'checked' */
+    CHECKED: "checked",
+    /** 'type' */
+    TYPE: 'type',
+    /** 'hidden' */
+    HIDDEN: 'hidden',
+    /** 'border' */
+    BORDER: 'border',
+    /** 'min' */
+    MIN: 'min',
+    /** 'max' */
+    MAX: 'max',
+    /** 'outerHTML' */
+    OUTER_HTML: 'outerHTML',
+    /** 'innerHTML' */
+    INNER_HTML: 'innerHTML',
+    /** 'title' */
+    TITLE: 'title',
+    /** 'src' */
+    SRC: 'src',
+    /** 'href' */
+    HREF: 'href',
+    /** 'tagName' */
+    TAG_NAME: 'tagName',
+    /** 'for' */
+    FOR: 'for',
+    /** 'defaultValue' */
+    DEFAULT_VALUE: 'defaultValue',
+    /** 'disabled' */
+    DISABLED: 'disabled',
+    /** 'name' */
+    NAME: 'name',
+    /** 'value' */
+    VALUE: 'value',
+    /** 'text' */
+    TEXT: 'text',
+    /** 'colspan' */
+    COLSPAN: 'colspan',
+    /** 'rowspan' */
+    ROWSPAN: 'rowspan',
+};
+
+/**
+ * Constants for common JQuery selectors
+ */
+var SELECTOR = {
+    /** Matches the body element */
+    BODY: 'body',
+    /** Matches controls that have the ':disabled' attribute set */
+    DISABLED: ':' + PROPERTY.DISABLED,
+    /** Matches controls that have the ':checked' attribute set */
+    CHECKED: ':' + PROPERTY.CHECKED,
+    /** Selectors for input controls */
+    INPUT: {
+        /** All input controls */
+        ALL: 'input',
+        /** Button type input controls */
+        BUTTON: 'input[type="button"]',
+        /** Checkbox type input controls */
+        CHECKBOX: 'input[type="checkbox"]',
+        /** Date type input controls */
+        DATE: 'input[type="date"]',
+        /** File type input controls */
+        FILE: 'input[type="file"]',
+        /** Number type input controls */
+        NUMBER: 'input[type="number"]',
+        /** File type input controls */
+        PASSWORD: 'input[type="password"]',
+        /** Phone type input controls */
+        PHONE: 'input[type="tel"]',
+        /** Email type input controls */
+        EMAIL: 'input[type=email]',
+        /** Text type input controls */
+        TEXT: 'input[type="text"]',
+        /** Submit type input/button controls */
+        SUBMIT: 'input[type="submit"], button[type="submit"]',
+        /** Reset type input/button controls */
+        RESET: 'input[type="reset"], button[type="reset"]',
+        /** Hidden input controls */
+        HIDDEN: 'input[type=hidden]',
+    },
+    /**
+     * Return a JQuery ID selector for the given identifier
+     * @param {string} identifier identifier of the control
+     * @returns {string} control identifier prefixed with '#'
+     */
+    ID: function (identifier) {
+        let hash = '#';
+        return isUndefinedOrEmpty(identifier) ? identifier : (identifier.indexOf(hash) !== 0 ? hash : '') + identifier;
+    },
+    /**
+     * Return a JQuery attribute selector for the given values
+     * @param {any} name name of the attribute to match
+     * @param {any} value attribute value to match
+     * @param {any} comparator comparison operator
+     */
+    ATTRIBUTE: function (name, value, comparator = COMPARATOR.Equals) {
+        return `[${name}${comparator}'${value}']`;
+    },
+    /** Matches elements that consume space in the document */
+    VISIBLE: ':visible',
+    /** Matches elements that are the first of the preceding selector */
+    FIRST_OF_TYPE: ':first-of-type',
+    /** Matches SPAN elements */
+    SPAN: 'span',
+    /** Matches DIV elements */
+    DIV: 'div',
+    /** Matches all OPTION element(s) */
+    OPTION: 'option',
+    /** Matches selected OPTION element(s) */
+    OPTION_SELECTED: 'option:selected',
+    /** Matches first OPTION element(s) */
+    OPTION_FIRST: 'option:first',
+    /** Matches selected option(s) of the specified select element */
+    SELECT_OPTION_SELECTED: function (selectIdentifier) {
+        return SELECTOR.ID(selectIdentifier) + SELECTOR.OPTION_SELECTED;
+    },
+    /**
+     * Return an nth-child selected for the specified index
+     * @param {number | string} index index of the child/children to match: number (1-based) | 'even' | 'odd' | equation
+     * @param {string} element (optional) child element to match
+     */
+    NTH_CHILD: function (index, element = undefined) {
+        return `${element || ''}:nth-child(${index})`;
+    },
+    /** Matches elements where the given attribute ends with the speicified value */
+    ENDS_WITH: function (attributeName, value) {
+        return `[${attributeName}$='${value}']`;
+    },
+    /** Matches elements where the given attribute have the speicified value */
+    HAS_VALUE: function (attributeName, value) {
+        return `[${attributeName}='${value}']`;
+    },
+    /** Matches elements where the given attribute starts with the speicified value */
+    STARTS_WITH: function (attributeName, value) {
+        return `[${attributeName}^='${value}']`;
+    },
+    /** Matches elements that contain the given text */
+    CONTAINS: (text) => { return `:contains('${text}'`; },
+};
+
+const COMPARATOR = {
+    /** '=' : Selects elements that have the specified attribute with a value exactly equal to a certain value */
+    Equals: '=',
+    /** '!=' : Select elements that either don’t have the specified attribute, or do have the specified attribute but not with a certain value */
+    NotEqual: '!=',
+    /** '*=' : Selects elements that have the specified attribute with a value containing a given substring */
+    Contains: '*=',
+    /** '~=' : Selects elements that have the specified attribute with a value containing a given word, delimited by spaces */
+    HasWord: '~=',
+    /** '^=' : Selects elements that have the specified attribute with a value beginning exactly with a given string */
+    StartWith: '^=',
+    /** '$=' : Selects elements that have the specified attribute with a value ending exactly with a given string. The comparison is case sensitive */
+    EndsWith: '$=',
+    /** '|=' : Selects elements that have the specified attribute with a value either equal to a given string or starting with that string followed by a hyphen (-) */
+    Prefix: '|='
+}
+
+/** 
+ *  Constants for common CSS rules 
+ *  IMPORTANT: Trailing space are included to simplify concatenation
+ */
+var CSS_RULE = {
+    /** Makes the font bold: 'centered' */
+    BOLD: 'bold ',
+    /** Centers the content: 'centered' */
+    CENTERED: 'text-center ',
+    /** Prevents text wrapping: 'text-nowrap' */
+    NO_WRAP: 'text-nowrap ',
+    /** Styles the form element: 'form-control' */
+    FORM_CONTROL: 'form-control ',
+    /** Aligns the content to the left: 'align-left' */
+    ALIGN_LEFT: 'align-left ',
+    /** Aligns the content to the right: 'align-right' */
+    ALIGN_RIGHT: 'align-right ',
+    /** Hides the element: 'hidden' */
+    HIDDEN: 'hidden ',
+    /** Styles a button element: 'button' */
+    BUTTON: 'button ',
+    /** Styles an element as active: 'active' */
+    ACTIVE: 'active ',
+    /** Styles an element as selected: 'selected' */
+    SELECTED: 'selected ',
+    /** Styles an element as an error box: 'error-box' */
+    ERROR_BOX: 'error-box ',
+    /** Styles an element as a warning box: 'warning-box' */
+    WARNING_BOX: 'warning-box ',
+    /** Styles an element as an info box: 'info-box' */
+    INFO_BOX: 'info-box ',
+    /** Adds left padding to indent the element: 'indent' */
+    INDENT: 'indent ',
+    /** Highlights the element as 'success' */
+    SUCCESS_HIGHLIGHT: 'success-highlight ',
+    /** Highlights the element as 'error' */
+    ERROR_HIGHLIGHT: 'error-highlight ',
+    /** Highlights the element as 'info' */
+    INFO_HIGHLIGHT: 'info-highlight ',
+    /** Highlights the element as 'warning' */
+    WARNING_HIGHLIGHT: 'warning-highlight ',
+    /** Sets any transition animation on an element to be slightly gradual */
+    SMOOTH: 'smooth ',
+    /** Prevents a UI dialog from showing the close button */
+    NO_CLOSE: 'no-close ',
+    /** Removes all element padding */
+    NO_PADDING: 'no-padding ',
+    /** Adds required notation to an element */
+    REQUIRED: 'required ',
+    /** Defines an element as a content container  */
+    CONTENT_CONTAINER: 'content-container ',
+    /** Defines a button as a non-primary button */
+    SECONDARY: 'secondary ',
+    /** Defines an element as non-floating */
+    NO_FLOAT: 'no-float ',
+    ZERO_WIDTH: 'zero-width ',
+};
+
+/** Constants for input types */
+var INPUT_TYPE = {
+    BUTTON: 'button',
+    CHECKBOX: 'checkbox',
+    DATE: 'date',
+    EMAIL: 'email',
+    HIDDEN: 'hidden',
+    MONTH: 'month',
+    NUMBER: 'number',
+    PASSWORD: 'password',
+    PHONE: 'tel',
+    RADIO: 'radio',
+    TEXT: 'text',
+    TIME: 'time',
+    SUBMIT: 'submit',
+    RESET: 'reset'
+};
+
+/** Constants to use when selecting HTML tags with JQuery */
+var TAG = {
+    /** returns 'a' */
+    ANCHOR: 'a',
+    /** returns 'header' */
+    HEADER: 'header',
+    /** returns 'form' */
+    FORM: 'form',
+    /** returns 'div' */
+    DIV: 'div',
+    /** returns 'span' */
+    SPAN: 'span',
+    /** returns 'input' */
+    INPUT: 'input',
+    /** returns 'label' */
+    LABEL: 'label',
+    /** returns 'select' */
+    SELECT: 'select',
+    /** returns 'button' */
+    BUTTON: 'button',
+    /** returns 'table' */
+    TABLE: 'table',
+    /** returns 'thead' */
+    TABLE_HEAD: 'thead',
+    /** returns 'tbody' */
+    TABLE_BODY: 'tbody',
+    /** returns 'tr' */
+    TABLE_ROW: 'tr',
+    /** returns 'th' */
+    TABLE_HEAD_CELL: 'th',
+    /** returns 'td' */
+    TABLE_CELL: 'td',
+    /** returns 'textarea' */
+    TEXTAREA: 'textarea',
+    /** returns 'img' */
+    IMAGE: 'img',
+    /** returns 'ul' */
+    UL: 'ul',
+    /** returns 'li' */
+    LI: 'li',
+    /** returns 'p' */
+    PARAGRAPH: 'p',
+};
+
+/** Constants to use when creating HTML elements with JQuery */
+var ELEMENT = {
+    /** returns '<a>' */
+    ANCHOR: `<${TAG.ANCHOR}>`,
+    /** returns '<form>' */
+    FORM: `<${TAG.FORM}>`,
+    /** returns '<div>' */
+    DIV: `<${TAG.DIV}>`,
+    /** returns '<span>' */
+    SPAN: `<${TAG.SPAN}>`,
+    /** returns '<input>' */
+    INPUT: `<${TAG.INPUT}>`,
+    /** returns '<label>' */
+    LABEL: `<${TAG.LABEL}>`,
+    /** returns '<select>' */
+    SELECT: `<${TAG.SELECT}>`,
+    /** returns '<button>' */
+    BUTTON: `<${TAG.BUTTON}>`,
+    /** returns '<table>' */
+    TABLE: `<${TAG.TABLE}>`,
+    /** returns '<thead>' */
+    TABLE_HEAD: `<${TAG.TABLE_HEAD}>`,
+    /** returns '<tbody>' */
+    TABLE_BODY: `<${TAG.TABLE_BODY}>`,
+    /** returns '<tr>' */
+    TABLE_ROW: `<${TAG.TABLE_ROW}>`,
+    /** returns '<th>' */
+    TABLE_HEAD_CELL: `<${TAG.TABLE_HEAD_CELL}>`,
+    /** returns '<td>' */
+    TABLE_CELL: `<${TAG.TABLE_CELL}>`,
+    /** returns '<textarea>' */
+    TEXTAREA: `<${TAG.TEXTAREA}>`,
+    /** returns '<img>' */
+    IMAGE: `<${TAG.IMAGE}>`,
+    /** returns '<ul>' */
+    UL: `<${TAG.UL}>`,
+    /** returns '<li>' */
+    LI: `<${TAG.LI}>`,
+    /** returns '<p>' */
+    PARAGRAPH: `<${TAG.PARAGRAPH}>`,
+};
+
+/** Constants for event binding */
+var EVENT = {
+    KEYDOWN: 'keydown',
+    KEYUP: 'keyup',
+    KEYPRESS: 'keypress',
+    CHANGE: 'change',
+    CLICK: 'click',
+    FOCUS: 'focus',
+    INPUT: 'input',
+    FOCUS_IN: 'focusin',
+    FOCUS_OUT: 'focusout',
+    BLUR: 'blur',
+    RESET: 'reset',
+    MOUSE_OVER: 'mouseover',
+    MOUSE_OUT: 'mouseout',
+    DISABLE: 'disable',
+    PASTE: 'paste',
+};
+
+/** Constants for dialog icon CSS rules */
+var ICON = {
+    ALERT: ' ui-icon-alert',
+    ERROR: ' ui-icon-error',
+    INFO: ' ui-icon-info',
+    QUESTION: ' ui-icon-question',
+    DISK: ' ui-icon-disk',
+    NONE: ''
+};
+
+const SortDirection = {
+    ASCENDING: 'A',
+    DESCENDING: 'D'
+}
+
+const TYPE_OF = Object.freeze({
+    /** 'bigint' */
+    BigInt: 'bigint',
+    /** 'boolean' */
+    Boolean: 'boolean',
+    /** 'function' */
+    Function: 'function',
+    /** 'number' */
+    Number: 'number',
+    /** 'object' */
+    Object: 'object',
+    /** 'string' */
+    String: 'string',
+    /** 'symbol' */
+    Symbol: 'symbol',
+    /** 'undefined' */
+    Undefined: 'undefined',
+});
+
+// Global variables for wait dialog
+var WAIT_DIALOG = {
+    NAME: 'Wait',
+    IMAGE_PATH: urlPrefix + "/img/animated-starball.gif",
+    COUNTER: 0,
+    INITIAL_LOAD: false,
+    GET_NEXT_ID: function (name) {
+        return name + ++this.COUNTER;
+    },
+    GET_CURRENT_ID: function (name) {
+        return name + this.COUNTER;
+    },
+    SET_INITIAL_LOAD: function (state) {
+        this.INITIAL_LOAD = state ? true : false;
+    }
+};
+
+/**
+ * Constants for HTTP Request methods
+ */
+const HTTP = {
+    /** 'GET' */
+    GET: 'GET',
+    /** 'POST' */
+    POST: 'POST',
+    /** 'PUT' */
+    PUT: 'PUT'
+};
+
+/**
+ * Constants for AJAX content type
+ */
+const CONTENT_TYPE = {
+    /** 'application/json; charset=utf-8' */
+    JSON: 'application/json; charset=utf-8'
+};
+
+/**
+ * Constants for AJAX data type
+ */
+const DATA_TYPE = {
+    /** 'JSON' */
+    JSON: 'JSON'
+};
+
+var DATE_FORMAT = {
+    /** Short date format 'mm/dd/yyyy' (no leading zeros) */
+    SHORT: 'mm/dd/yyyy',
+    /** Typical date format 'MM/DD/yyyy' (leading zeros) */
+    TYPICAL: 'MM/DD/yyyy',
+    /** Date format required by input elements set to type='date': 'yyyy-MM-DD' */
+    INPUT: 'yyyy-MM-DD',
+    /** Same as the short date format except with dashes to work in URLs 'mm-dd-yyyy' */
+    URL: 'mm-dd-yyyy',
+};
+
+/**
+ * Checks if a value is undefined or an empty string
+ * @param {any} text value to be checked
+ * @returns {boolean} true if the value is 'undefined' or an empty string, false otherwise
+ */
+function isUndefinedOrEmpty(text) {
+    return text === undefined || text === "" || text === null || text === 'null';
+}
+
+/**
+ * Get the text of the selected option of the given select element
+ * @param {HTMLSelectElement | string} select HTML select object or id of a select element
+ * @returns {string} the text of the selected option or an empty string if no option is selected
+ */
+function getSelectedOptionText(select) {
+    if (typeof select === "string") {
+        select = $(SELECTOR.ID(select));
+    }
+    var selected = select.find(":selected");
+
+    if (selected !== undefined) {
+        return selected.text();
+    }
+
+    return "";
+}
+
+/**
+ * Get the value of the selected option of the given select element
+ * @param {HTMLSelectElement | string} select HTML select object or id of a select element
+ * @returns {string} the value of the selected option or an empty string if no option is selected
+ */
+function getSelectedOptionValue(select) {
+    if (typeof select === "string") {
+        select = $(SELECTOR.ID(select));
+    }
+    var selected = select.find(":selected");
+
+    if (selected !== undefined) {
+        return selected.val();
+    }
+
+    return "";
+}
+
+/**
+ * Set the checked state of the given checkbox
+ * @param {HTMLInputElement | string} checkbox identifier for or reference to an HTML input[type=checkbox] element
+ * @param {boolean} checked desired check state: true = checked; false = unchecked
+ */
+function setCheckState(checkbox, checked) {
+    if (typeof checkbox === 'string') {
+        checkbox = $(SELECTOR.ID(checkbox));
+    }
+    if (checked === true) {
+        checkbox.attr(ATTRIBUTE.CHECKED, ATTRIBUTE.CHECKED);
+    } else {
+        checkbox.removeAttr(ATTRIBUTE.CHECKED);
+    }
+}
+
+/**
+ * Set the disabled state of the specified element(s)
+ * @param {string} obj JQuery selector or JQuery object
+ * @param {boolean} disable true: disabled the element(s), false: enabled the element(s)
+ */
+function disableControl(obj, disable) {
+    get$(obj).prop(ATTRIBUTE.DISABLED, disable === undefined ? true : disable);
+}
+
+/**
+ * Enable the specified element(s)
+ * @param {string} obj JQuery selector or JQuery object
+ */
+function enableControl(obj) {
+    disableControl(obj, false);
+}
+
+/**
+ * Set the hide state of the specified element(s)
+ * @param {string} obj JQuery selector or JQuery object
+ * @param {boolean} hide true: hide the element(s), false: show the element(s)
+ */
+function hideControl(obj, hide) {
+    get$(obj).prop(ATTRIBUTE.HIDDEN, hide === undefined ? true : hide);
+}
+
+/**
+ * Show the specified element(s)
+ * @param {string} obj JQuery selector or JQuery object
+ */
+function showControl(obj) {
+    hideControl(obj, false);
+}
+
+/**
+ * Get a jQuery object from the given element/identifier
+ * @param {HTMLElement | string} element HTML element or element identifier (or even jQuery object) 
+ *                                       to create a jQuery object from
+ */
+function get$(element) {
+    return (typeof element === TYPE_OF.String) ? $(SELECTOR.ID(element)) : $(element);
+}
+
+/**
+ * Gets a child element of the given parent
+ * @param {HTMLElement} parent element containting the child to find (HTML Element or JQuery object)
+ * @param {string} id identifier for the child element to find
+ */
+function getChild$(parent, id) {
+    return $(parent).find(SELECTOR.ID(id));
+}
+
+/**
+ * Trys to convert the given value to an integer if it's not empty, undefined, or null
+ * @param {string} value value to be converted
+ */
+function tryParseInt(value, failValue = '') {
+    return !isUndefinedOrEmpty(value) ? parseInt(value) : failValue;
+}
+
+/**
+ * Trys to convert the given value to a float if it's not empty, undefined, or null
+ * @param {string} value value to be converted
+ */
+function tryParseFloat(value, failValue = '') {
+    return !isUndefinedOrEmpty(value) ? parseFloat(value) : failValue;
+}
+
+/**
+ * Converts the given value to a boolean.
+ * @param {any} value
+ * @returns true if the value is one of the following: true | 'true' | 1 | 'yes' | 'y' | 't'
+ *          false for all other values
+ * Note: string values are case-insensitive
+ */
+function parseBoolean(value) {
+    return /^(true|yes|1|t|y)$/i.test(value);
+}
+
+/**
+ * Formats a datetime as mm-dd-yyyy
+ * @param {string} date value to be formatted
+ * @returns {string} formatted value
+ */
+function formatDate(date) {
+    return isIsoDateRegex(date) && !isUndefinedOrEmpty(date) ? date.substring(5, 7) + '/' + date.substring(8, 10) + '/' + date.substring(0, 4) : date;
+}
+
+//check for ISO date string only
+function isIsoDateRegex(dateToValidate) {
+    var regex = /^(\d{4})-0?(\d+)-0?(\d+)[T ]0?(\d+):0?(\d+):0?(\d+)$/;
+    if (regex.test(dateToValidate)) {
+        return true;
+    }
+    return false;
+}
+
+/**
+ * Formats a date with the specified format
+ * @param {any} date value to be formatted
+ * @param {any} format format to use
+ * Available placeholders:
+ *      mm : month (1-2 digits)
+ *      MM : month (2 digits)
+ *      MMM : month name (abbreviated)
+ *      MMMM : month name (full)
+ *      dd : day of the month (1-2 digits)
+ *      DD  : day of the month (2 digits)
+ *      ddd : day name (abbreviated)
+ *      dddd : day name (full)
+ *      yy : year (2 digits)
+ *      yyyy : year (4 digits)
+ *      hr : hour (2 digits)
+ *      HR : hour (12hr/2 digits)
+ *      mn : minutes (2 digits)
+ *      ss : seconds (2 digits)
+ *      ms : milliseconds (3 digits)
+ *      ap : AM/PM
+ * @returns {string} formatted value
+ */
+function formatDate2(date, format) {
+    if (isUndefinedOrEmpty(date)) {
+        return date;
+    }
+    var dateObject = undefined;
+    switch (typeof date) {
+        case 'object':
+            if (date instanceof Date) {
+                dateObject = date;
+            }
+            break;
+        case 'string':
+            var dateString = date;
+            if (!isIsoDateRegex(dateString)) {
+                dateString = date.toString().indexOf('T') === -1 ? date.toString() + 'T00:00:00' : date.toString();
+            }
+            dateObject = new Date(dateString);
+            break;
+        case 'number':
+            // assume milliseconds since 1/1/1970
+            dateObject = new Date(date);
+            break;
+    }
+    if (!isUndefinedOrEmpty(dateObject)) {
+        var month = dateObject.getMonth() + 1;
+        var day = dateObject.getDate();
+        var year = dateObject.getFullYear();
+
+        return format
+            .replace('mm', month)
+            .replace('MMMM', dateObject.toLocaleDateString('en', { month: 'long' }))
+            .replace('MMM', dateObject.toLocaleDateString('en', { month: 'short' }))
+            .replace('MM', ('0' + month).slice(-2))
+            .replace('dddd', dateObject.toLocaleDateString('en', { weekday: 'short' }))
+            .replace('ddd', dateObject.toLocaleDateString('en', { weekday: 'long' }))
+            .replace('dd', day)
+            .replace('DD', ('0' + day).slice(-2))
+            .replace('yyyy', year)
+            .replace('yy', year.toString().slice(-2))
+            .replace('hr', ('0' + dateObject.getHours()).slice(-2))
+            .replace('HR', ('0' + ((dateObject.getHours() + 11) % 12 + 1)).slice(-2))
+            .replace('mn', ('0' + dateObject.getMinutes()).slice(-2))
+            .replace('ss', ('0' + dateObject.getSeconds()).slice(-2))
+            .replace('ms', ('00' + dateObject.getMilliseconds()).slice(-3))
+            .replace('ap', dateObject.getHours() < 12 ? 'AM' : 'PM')
+            ;
+    }
+    return undefined;
+}
+
+/**
+ * Extra validation input type='number'  for firefox
+ * 
+ * @param {HTMLInputElement} input input control 
+ * @param {Event} event triggered event
+ */
+function getNumberInputValue(input, event) {
+    let value = $(input).val();
+    if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+        value = value === '' ? '0' : value;
+        value = event.data === '.' ? value + '.' : value;
+    }
+    return value;
+}
+
+/**
+ * Allow numeric only in an input.
+ * @param {event}  event
+ * @returns {boolean} 
+ */
+function onlyNumberKey(event) {
+
+    var ASCIICode = (event.which) ? event.which : event.keyCode
+    if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+    return true;
+}
+
+/**
+ * Allow numeric and dot only in an input.
+ * @param {event}  event
+ * @returns {boolean} 
+ */
+function onlyNumberAndDotKey(event) {
+
+    var ASCIICode = (event.which) ? event.which : event.keyCode
+    if (ASCIICode > 31 && (ASCIICode != 46 && (ASCIICode < 48 || ASCIICode > 57)))
+        return false;
+    return true;
+}
+
+/**
+ * Allow numeric and hyphen only in an input.
+ * @param {event}  event
+ * @returns {boolean} 
+ */
+function onlyNumberAndHyphenKey(event) {
+
+    var ASCIICode = (event.which) ? event.which : event.keyCode
+    if (ASCIICode > 31 && (ASCIICode != 45 && (ASCIICode < 48 || ASCIICode > 57)))
+        return false;
+    return true;
+}
+
+/**
+ * Displays a message in the specified control.
+ * @param {object | string} control JQuery object or selector
+ * @param {string} message message to be displayed in the HTML contents of the control
+ */
+function errorMessageShow(control, message) {
+    if (!isUndefinedOrEmpty(message)) {
+        $(control).html(message);
+        $(control).removeClass('hidden');
+        $(control).show();
+    }
+    else {
+        $(control).html('');
+        $(control).addClass('hidden');
+        $(control).hide();
+    }
+}
+
+/**
+ * Displays a modal confirmation dialog box
+ * @param {string} title text to display in the pop-up title bar
+ * @param {string} message message to be displayed in the pop-up (supports html markup)
+ * @param {Function} confirmFunction callback function to execute when the confirm button is clicked
+ * @param {string} alternateButtonText used to override the default button text of 'Ok'
+ * @param {string} [icon] icon to be displayed
+ */
+function showConfirmDialog(title, message, confirmFunction, alternateButtonText, icon) {
+    return new Promise((resolve) => {
+        var buttonText = isUndefinedOrEmpty(alternateButtonText) ? "Ok" : alternateButtonText;
+        var dialog = $(ELEMENT.DIV).html(message).dialog({
+            dialogClass: 'no-close',
+            title: title,
+            autoOpen: true,
+            modal: true,
+            resizable: false,
+            closeOnEscape: false,
+            width: "auto",
+            buttons: [
+                {
+                    text: buttonText,
+                    class: CSS_RULE.BUTTON,
+                    click: function () {
+                        if (confirmFunction) {
+                            confirmFunction.call();
+                        }
+                        $(this).dialog("destroy");
+                        resolve(true);
+                    }
+                }
+            ]
+        });
+        if (!isUndefinedOrEmpty(icon)) {
+            let container = $(ELEMENT.DIV).addClass("ui-dialog-icon").insertBefore(dialog);
+            $(ELEMENT.SPAN).addClass("ui-icon ui-icon-large" + icon).prependTo(container);
+        }
+    });
+}
+
+function showError(jqXhr, errorMessage) {
+    if (jqXhr.status == 401) //User unauthorized
+        showErrorDialog(ErrorMessage.SessionTimeOut);
+    else
+        showErrorDialog(ErrorMessage.UnexpectedError);
+}
+
+function showErrorDialog(errorMessage) {
+    return new Promise((resolve) => {
+        showConfirmDialog("Error", errorMessage, undefined, '', ICON.ERROR)
+            .then((result) => { resolve(result); });
+    });
+}
+
+function showInfoDialog(infoMessage) {
+    return new Promise((resolve) => {
+        showConfirmDialog("Info", infoMessage, undefined, undefined, ICON.INFO)
+            .then((result) => { resolve(result); });
+    });
+}
+
+/**
+ * Displays a Yes/No modal dialog box
+ * @param {string} title text to display in the pop-up title bar
+ * @param {string} message message to be displayed in the pop-up (supports html markup)
+ * @param {Function} yesFunction function to execute when 'yes' is clicked
+ * @param {Function} noFunction function to execute when 'no' is clicked
+  * @param {string} [icon] icon to be displayed
+*/
+function showYesNoDialog(title, message, yesFunction, noFunction, icon) {
+    return new Promise((resolve, reject) => {
+        var dialog = $(ELEMENT.DIV).html(message).dialog({
+            dialogClass: 'no-close',
+            title: title,
+            autoOpen: true,
+            modal: true,
+            resizable: false,
+            closeOnEscape: false,
+            buttons: [
+                {
+                    text: "Yes",
+                    click: function () {
+                        if (yesFunction && typeof yesFunction === 'function') {
+                            yesFunction.call();
+                        }
+                        $(this).dialog("destroy");
+                        resolve(true);
+                    }
+                },
+                {
+                    text: "No",
+                    click: function (e) {
+                        if (noFunction && typeof noFunction === 'function') {
+                            noFunction.call();
+                        }
+                        $(this).dialog("destroy");
+                        resolve(false);
+                    }
+                }
+            ],
+            open: (event) => {
+                $(event.target).parent().find('.ui-dialog-buttonpane .ui-dialog-buttonset button:eq(1)').focus();
+            }
+        });
+        if (!isUndefinedOrEmpty(icon)) {
+            let container = $(ELEMENT.DIV).addClass("ui-dialog-icon").insertBefore(dialog);
+            $(ELEMENT.SPAN).addClass("ui-icon ui-icon-large" + icon).prependTo(container);
+        }
+    });
+}
+
+function showWaitDialog(name, message) {
+    let id = name;
+    //LOG.Info(`Opening WAIT dialog ${id}`);
+    $(`<div class="wait-dialog" id="${id}"/>`)
+        .html(`<div class="wait-dialog-content">
+            <img src="${WAIT_DIALOG.IMAGE_PATH}" alt="Please Wait"/>
+            <div>${(message || '')}</div></div>`)
+        .dialog({
+            dialogClass: 'no-close',
+            autoOpen: true,
+            modal: true,
+            resizable: false,
+            closeOnEscape: false,
+            open: function () {
+                $(this).siblings('.ui-dialog-titlebar').hide();
+                $(this).dialog("widget").next('.ui-widget-overlay').addClass('wait-dialog-open');
+            },
+            close: function () {
+                $(this).dialog("widget").next('.ui-widget-overlay').removeClass('wait-dialog-open');
+            }
+        });
+}
+
+function closeWaitDialog(name) {
+    let id = name;
+    //LOG.Info(`Closing WAIT dialog ${id}`);
+    $(`#${id}`).dialog('destroy');
+}
+
+/**
+ * Find an object in an array
+ * 
+ * @param {Array} array array of objects
+ * @param {string} propertyName name of the property
+ * @param {any} value value to be compared
+ * @returns {object} the matching object or 'undefined'
+ */
+function findObjectInArray(array, propertyName, value) {
+    return array[getObjectIndex(array, propertyName, value)];
+}
+
+/**
+ * Get the index of an object from an array
+ * 
+ * @param {Array} array array of objects
+ * @param {string} propertyName name of the property
+ * @param {any} value value to be compared
+ * @returns {int} index of the matching object or -1 if not found
+ */
+function getObjectIndex(array, propertyName, value) {
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] !== undefined && array[i][propertyName] === value) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+/**
+ * Remove an object from the specified array that matches the given property name and value
+ *
+ * @param {Array} array array of objects
+ * @param {string} propertyName name of the property
+ * @param {any} value value to be compared
+ */
+function removeObjectInArray(array, propertyName, value) {
+    var index = getObjectIndex(array, propertyName, value);
+    if (index > -1) {
+        array.splice(index, 1);
+    }
+}
+
+function _instanceof(left, right) {
+    if (right !== null && typeof Symbol !== "undefined" && right[Symbol.hasInstance]) {
+        return right[Symbol.hasInstance](left);
+    } else {
+        return left instanceof right;
+    }
+}
+
+function _classCallCheck(instance, varructor) {
+    if (!_instanceof(instance, varructor)) {
+        throw new TypeError("Cannot call a class as a function");
+    }
+}
