@@ -104,6 +104,9 @@ export function AppProvider({ children, source: injected }: { children: ReactNod
       if (readSavedSchools().length === 0) writeSavedSchools(SAMPLE_SCHOOLS)
       const { SAMPLE_INTERESTS, readInterests, writeInterests } = await import('./interestStore')
       for (const st of d.sampleStudentIds()) if (readInterests(st).certainty === null) writeInterests(st, SAMPLE_INTERESTS)
+      // The sample family lives in Tennessee (their answer, like any family's).
+      const { readHomeState, writeHomeState } = await import('./homeState')
+      for (const h of d.sampleHouseholdIds()) if (!readHomeState(h)) writeHomeState(h, 'TN')
     }
     else {
       d.reset()

@@ -9,6 +9,8 @@ import { GRADES, graduationYearFor } from './options'
 import { CertaintyChoice, InterestPicker } from '../majors/InterestPicker'
 import type { InterestProfile, SavedInterest } from '../../lib/engine/interests'
 import { EMPTY_PROFILE, writeInterests } from '../../lib/interestStore'
+import { US_STATES } from '../../lib/engine/residency'
+import { writeHomeState } from '../../lib/homeState'
 
 export function StudentOnboarding() {
   const { source, viewer, ctx, refresh } = useApp()
@@ -16,6 +18,7 @@ export function StudentOnboarding() {
   const [step, setStep] = useState(1)
   const [name, setName] = useState(realName(viewer))
   const [grade, setGrade] = useState<number | null>(null)
+  const [homeState, setHomeState] = useState('')
   const [plan, setPlan] = useState<PlanDraft>(defaultPlanDraft)
   const [interests, setInterests] = useState<InterestProfile>(EMPTY_PROFILE)
   const toggle = (i: SavedInterest) =>
@@ -40,6 +43,7 @@ export function StudentOnboarding() {
         timeZone: tz,
       })
       if (interests.certainty || interests.interests.length) writeInterests(sid, interests)
+      if (homeState) writeHomeState(sid, homeState)
       await source.savePlan(sid, { exam_family: plan.exam, target_score: plan.target, goals: plan.goals, daily_minutes: 10 })
       await source.setWeeklyGoal(sid, weekStartOf(localDate(new Date(), tz)), plan.weeklyQuestions, null)
       finishing.current = true
@@ -73,6 +77,16 @@ export function StudentOnboarding() {
         <div className="grid gap-5">
           <Field label="First name" htmlFor="name">
             <input id="name" className={inputClass} value={name} onChange={(e) => setName(e.target.value)} autoComplete="given-name" />
+          </Field>
+          <Field label="Home state (optional)" htmlFor="home-state-onb" hint="Used for in-state college prices.">
+            <select id="home-state-onb" className={inputClass} value={homeState} onChange={(e) => setHomeState(e.target.value)}>
+              <option value="">Prefer not to say</option>
+              {US_STATES.map(([c, n]) => (
+                <option key={c} value={c}>
+                  {n}
+                </option>
+              ))}
+            </select>
           </Field>
           <div>
             <div className="text-sm font-semibold text-ink">What grade are you in?</div>
