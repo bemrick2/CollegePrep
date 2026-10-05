@@ -489,3 +489,14 @@ class CoursedogPageTests(unittest.TestCase):
         self.assertEqual(items[1], {'text': 'Upper-division business elective courses', 'credits': 8, 'milestone': 'Register for commencement'})
         self.assertEqual(items[2], {'text': '', 'credits': 2})
         self.assertEqual(items[3], long.strip() + ' | 4')  # never cut
+
+
+class DottedProgramCodeTests(unittest.TestCase):
+    def test_dotted_codes_and_parenthesised_awards(self):  # Carson-Newman 2026-2027 Coursedog catalog PDF
+        from pipeline import text as T
+        txt = '\n'.join(['Carson-Newman University', '2026-2027 Catalog', 'Programs', 'BIOL.BS - Biology (BS)', 'BIOL.GENRL.BA - Biology-General (BA)',
+                         'BIOL.RSRCH.BA - Biology-Research Emphasis (BA)', 'ACCT.MINOR - Accounting Minor', 'CHEM.TCHSC.BA - BA in Chemistry - Teacher Licensure',
+                         'MGED.SCI.BA - Middle Grades Educ-Teacher Licen. 6-8: Science Emph', 'CPS.BH.CERT - Certificate in Behavioral Health (Cert)', 'NURS.BSN - Nursing (BSN)', 'Courses'])
+        e = {'url': 'https://coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com/cn/catalog/a.pdf', 'sha256': 's', 'fetched_at': '2026-10-05T00:00:00'}
+        names = [c['record']['program_name'] for c in X.catalog_pdf_programs({'institution_key': 'k'}, e, T.Page(txt, '', [], [], []), '2026-27')]
+        self.assertEqual(names, ['Biology (BS)', 'Biology-General (BA)', 'BA in Chemistry - Teacher Licensure', 'Nursing (BSN)'])
