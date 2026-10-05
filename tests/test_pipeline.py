@@ -354,6 +354,29 @@ last 30 hours in residence at the university.</p>"""
         [c] = dual.extract(INST, ENTRY, page, '2026-27')
         self.assertEqual([t['min_hs_gpa'] for t in c['record']['dual_enrollment']['eligibility_tiers']], [2.5])
 
+    def test_nm_r1_rules(self):
+        """NM r1: Luna's staff contact table and NMSU's private-scholarship page are not awards; ENMU-Roswell's English-course
+        grade is not the general transfer minimum; WNMU's overload petition is not dual-enrollment eligibility."""
+        staff = ('<title>Scholarships</title><h2>Contacts</h2><table><tr><th>Name</th><th>Title</th><th>Phone</th><th>ACT</th></tr>'
+                 '<tr><td>Rachael Lucero</td><td>Registrar</td><td>505-587-3829</td><td>Click Here</td></tr>'
+                 '<tr><td>Ida Valdez</td><td>Associate Registrar</td><td>505-587-3823</td><td>Click Here</td></tr>'
+                 '<tr><td>Alicia Chacon</td><td>Associate Registrar</td><td>505-454-2546</td><td>Click Here</td></tr></table>')
+        self.assertEqual(merit.extract(INST, ENTRY, T.parse_html(staff), '2026-27'), [])
+        awards = ('<h2>Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th><th>Deadline</th></tr>'
+                  '<tr><td>Chemistry Scholarship</td><td>$1,000</td><td>October 31</td></tr>'
+                  '<tr><td>Youth Mentor Scholarship</td><td>$1,000</td><td>November 2</td></tr></table>')
+        self.assertTrue(merit.extract(INST, ENTRY, T.parse_html('<title>Scholarships</title>' + awards), '2026-27'))
+        self.assertEqual(merit.extract(INST, ENTRY, T.parse_html('<title>Private Scholarships</title>' + awards), '2026-27'), [])
+        self.assertEqual(transfer.extract(INST, ENTRY, T.parse_html(
+            '<title>Transfer</title><p>A college-level English course with a grade of C or better is required for transfer.</p>'), '2026-27'), [])
+        # FL (New College): "non-developmental" coursework is the general rule, not a developmental-course rule.
+        [c] = transfer.extract(INST, ENTRY, T.parse_html(
+            '<title>Transfer</title><p>The college accepts transferable coursework with a grade of C or better, which is non-developmental.</p>'), '2026-27')
+        self.assertEqual(c['record']['min_grade'], 'C')
+        [c] = self._de('<p>Have a cumulative high school GPA of 2.5 to enroll in dual credit.</p>'
+                       '<p>Dual Credit students wanting to take more than 18 hours must file a petition to overload with a 3.0 GPA.</p>')
+        self.assertEqual([t['min_hs_gpa'] for t in c['record']['dual_enrollment']['eligibility_tiers']], [2.5])
+
     def test_co_r1_rules(self):
         """CO r1: Otero's fall/spring split is not a minimum; CCD's ENG 1021 grade and Regis's program-dependent cap are
         not general transfer rules; Western's charge for skipping a step is not the dual-enrollment price."""
@@ -1503,6 +1526,19 @@ class RegistryTests(unittest.TestCase):
     def test_every_committed_registry_is_current(self):
         for path in sorted((ROOT / 'pipeline/registry').glob('*.json')):
             self.assertEqual(registry.build(path.stem), registry.load(path.stem), f'run: python -m pipeline registry --state {path.stem}')
+
+    def test_data_folders_are_unique_across_states(self):
+        """NM r1: a folder holding data belongs to one institution in every state (ERAU Prescott/Daytona, UNM branches, admissions.* hosts)."""
+        owner, curated = {}, registry.curated_folders()
+        for path in sorted((ROOT / 'pipeline/registry').glob('*.json')):
+            for inst in registry.load(path.stem)['institutions']:
+                key, folder = inst['institution_key'], inst['folder']
+                if folder in curated.values():  # a folder that already holds data belongs to exactly one institution
+                    self.assertEqual(owner.setdefault(folder, key), key, f'{folder} is shared by {owner[folder]} and {key}')
+                if folder in registry.GENERIC_LABELS:
+                    self.assertEqual(curated.get(key), folder, f'{key} would be filed under the generic folder {folder}')
+        self.assertFalse([f for f, keys in __import__('collections').Counter(curated.values()).items() if keys > 1])
+        self.assertEqual((registry.folder_label('ashland.kctcs.edu'), registry.folder_label('admissions.unl.edu')), ('ashland', None))
 
     def test_seed_overrides_need_reason_and_evidence(self):
         built = registry.load('NV')
