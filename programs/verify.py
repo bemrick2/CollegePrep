@@ -15,6 +15,11 @@ def norm(s):
     return re.sub(r'\s+', ' ', (s or '').replace('​', '')).strip().lower()
 
 
+def squash(s):
+    """Letters and digits only: PDF plan columns wrap titles across lines and hyphenate them."""
+    return re.sub(r'[^a-z0-9]', '', (s or '').lower())
+
+
 def code_in(text, code):
     subj, num = code.split(' ', 1)
     return re.search(rf'\b{re.escape(subj)}\s?{re.escape(num)}\b', text, re.I) is not None
@@ -22,13 +27,14 @@ def code_in(text, code):
 
 def check_candidate(c, text):
     probs = []
-    r = c['record']; t = norm(text)
+    r = c['record']; t = norm(text); squashed = squash(text)
     if c['domain'] == 'academic_programs':
         if norm(r['program_name']) not in t: probs.append('program_name not verbatim')
         cy = r.get('catalog_year') or ''
         y = re.match(r'(20\d{2})-(20\d{2})', cy)
         if y and not re.search(rf'{y.group(1)}\s*[-–]\s*({y.group(2)}|{y.group(2)[2:]})', text): probs.append('catalog year not printed')
-        if r.get('total_credits') is not None and not re.search(rf'total[^0-9]{{0,40}}\b{int(r["total_credits"])}\b', text, re.I):
+        n = int(r['total_credits']) if r.get('total_credits') is not None else None
+        if n is not None and not re.search(rf'total[^0-9]{{0,40}}\b{n}\b|\b{n}\s+(total|hours\s+total)', text, re.I):
             probs.append('total_credits not printed next to a total label')
     else:
         rd = r.get('rule_details', {})
@@ -37,7 +43,9 @@ def check_candidate(c, text):
             items += [i for i in term.get('items', []) if isinstance(i, dict)]
         for i in items:
             if 'code' in i and not code_in(text, i['code']): probs.append(f"course {i['code']} not in source")
-            elif i.get('title') and norm(i['title'][:60]) not in t: probs.append(f"title of {i.get('code')} not verbatim")
+            elif i.get('title') and not all(squash(part) in squashed for part in re.split(r'\s*\(', i['title'][:80]) if squash(part)):
+                # PDF plans print a gen-ed tag such as "(Quantitative Reasoning)" on the next line; each part must be printed
+                probs.append(f"title of {i.get('code')} not verbatim")
         if r.get('minimum_credits') is not None and not re.search(rf'\b{int(r["minimum_credits"])}\b', text): probs.append('minimum_credits not printed')
     return probs
 
