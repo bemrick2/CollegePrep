@@ -20,6 +20,9 @@ MUTS = [
     ('backend/program_fields.py', "if missing: errs.append(", 'if False: errs.append('),
     ('backend/program_fields.py', "if not isinstance(keys, list) or len(keys) != n or len(set(keys)) != len(keys):", 'if False:'),
     ('backend/program_fields.py', "if (r.get('program_keys') or r.get('cip_codes')) and not (r.get('major_requirement') or '').strip():", 'if False:'),
+    ('programs/smartcatalog.py', "if not name or not BACHELOR.search(name) or NOT_PROGRAM.search(name): return []", "if not name or not BACHELOR.search(name): return []"),
+    ('programs/smartcatalog.py', "'group_type': 'all_required' if (REQUIRED.search(heading) and not CHOOSE.search(heading)) else 'elective_pool'", "'group_type': 'elective_pool' if CHOOSE.search(heading) else 'all_required'"),
+    ('programs/thec.py', "        if (PROGRAMS, json.dumps(payload, sort_keys=True)) in done: continue", "        pass"),
 ]
 
 

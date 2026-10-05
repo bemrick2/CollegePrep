@@ -217,3 +217,33 @@ class ThecAdapterTests(unittest.TestCase):
             self.assertTrue(any('not in THEC list' in (e.get('error') or '') for e in es))
             n = len(calls); thec.crawl(run, F(), {'utk': 'The University of Tennessee-Knoxville'}, log=lambda *_: None)
             self.assertEqual(len(calls), n)  # resumable: nothing requested twice
+
+
+class SmartCatalogTests(unittest.TestCase):
+    def page(self, title, crumb, tables=()):
+        from pipeline import text as T
+        return T.Page(f'{title}\n{crumb}\nRequirements', f'Union University - {title}', list(tables), [], [title])
+
+    def test_policy_page_with_bachelor_in_title_is_not_a_program(self):  # Union 2026-27: admission policy page
+        from programs import smartcatalog as S
+        p = self.page("Admission of Students Who Already Have a Bachelor's Degree", '2026-27 Undergraduate Catalogue > Admissions > Admission of Students')
+        e = {'url': 'https://uu.smartcatalogiq.com/x', 'sha256': 'a', 'fetched_at': '2026-10-05T00:00:00'}
+        self.assertEqual(S.extract({'institution_key': 'k'}, e, p, '2026-27'), [])
+
+    def test_breadcrumb_year_forms(self):
+        from programs import smartcatalog as S
+        for crumb, y in [('2026-2027 Bulletin > College > Computer Science B.S.', '2026-2027'),
+                         ('Academic Catalog 2026-2027 > Programs > Psychology, Bachelor of Arts', '2026-2027'),
+                         ('2026-27 Undergraduate Catalogue > College > Art', '2026-2027'), ('Home > Programs > Art', None)]:
+            self.assertEqual(S.program_year(self.page('X, B.S.', crumb))[0], y)
+
+    def test_required_only_when_heading_says_so(self):
+        from programs import smartcatalog as S
+        rows = [['CS 161', 'Intro', '4'], ['CS 162', 'Data', '4']]
+        p = self.page('Computer Science B.S.', '2026-2027 Bulletin > CS > Computer Science B.S.',
+                      [{'heading': 'Required Courses', 'rows': rows}, {'heading': 'Biology:', 'rows': rows}])
+        e = {'url': 'https://pdx.smartcatalogiq.com/x', 'sha256': 'b', 'fetched_at': '2026-10-05T00:00:00'}
+        groups = {c['record']['requirement_key']: c for c in S.extract({'institution_key': 'k'}, e, p, '2026-27') if c['domain'] == 'degree_requirements'}
+        self.assertEqual(groups['required-courses']['record']['rule_details']['group_type'], 'all_required')
+        self.assertEqual(groups['biology']['record']['rule_details']['group_type'], 'elective_pool')
+        self.assertIn('group_type_unclear_heading', groups['biology']['issues'])
