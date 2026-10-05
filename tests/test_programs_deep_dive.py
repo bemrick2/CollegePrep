@@ -541,3 +541,17 @@ class CourseListGroupTests(unittest.TestCase):
         self.assertEqual(g[2][1]['course_rules'], ['Select an additional 7 credits from courses that count toward either major. 7'])
         g = self.groups([['H 301', 'X', '3']], heading='Recommended Public Health Elective Coursework')
         self.assertEqual(sorted(g[0][1]['issues']), ['heading_not_all_required'])
+
+
+class CourseListHtmlTests(unittest.TestCase):
+    def test_row_classes_and_leading_indent(self):
+        from programs.courselist_html import course_lists
+        html = ('<h2>Major Requirements</h2><p>Students must select one focus area.</p><table class="sc_courselist"><caption>Course List</caption><tbody>'
+                '<tr class="even areaheader"><td colspan="2"><span class="courselistcomment areaheader">Core</span></td><td></td></tr>'
+                '<tr class="odd"><td><a>ENGR 110</a><span class="blockindent">&amp; <a>ENGR 115</a></span></td><td>X</td><td>3</td></tr>'
+                '<tr class="even orclass"><td><div style="margin-left:20px;" class="blockindent">or <a>ENGR 310</a></div></td><td>Y</td><td></td></tr>'
+                '<tr class="even"><td><div style="margin-left:20px;" class="blockindent"><a>ACTG 417</a></div></td><td>ADV</td><td></td></tr></tbody></table>')
+        t = course_lists(html)[0]
+        self.assertEqual((t['heading'], t['context'], t['caption']), ('Major Requirements', 'Students must select one focus area.', 'Course List'))
+        self.assertEqual([(r['classes'], r['cells'][0]['text'], r['cells'][0]['indent']) for r in t['rows']],
+                         [(['even', 'areaheader'], 'Core', False), (['odd'], 'ENGR 110& ENGR 115', False), (['even', 'orclass'], 'or ENGR 310', True), (['even'], 'ACTG 417', True)])
