@@ -193,7 +193,9 @@ def _list_awards(t, header, body, title, award_type):
         # Prefix only bare scores: "ACT: 27+ / SAT: 1220+" already names the test, "Valedictorian" is not a score (Tougaloo).
         label = lambda name, v: f'{name} {v}' if v and SCORE.search(v) and not re.search(r'\b(act|sat)\b', v, re.I) else v
         tests = ' / '.join(x for x in [label('ACT', a), label('SAT', s) if s != a else ''] if x) or tst
-        if tests: rec['test_requirement'] = tests
+        if tests and not re.search(r'\d', tests) and test is not None and re.search(r'requirement|criteria|eligib', header[test], re.I):  # MI (Madonna): "Parent/Grandparent is a Madonna alumna" under a GPA/ACT/SAT header
+            if not crit: rec['eligibility_summary'] = tests[:600]
+        elif tests: rec['test_requirement'] = tests
         if crit:  # a bare points range is meaningless without its column name (Southern: "Points | 4,800 - 5,700")
             rec['eligibility_summary'] = (f"{header[criteria].strip()}: {crit}" if re.search(r'\bpoints?\b', header[criteria], re.I) else crit)[:600]
         if ren: rec['renewal_requirements'] = ren[:600]

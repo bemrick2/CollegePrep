@@ -40,6 +40,8 @@ SKIP_ROW = re.compile(r'per\s+(credit|hour|week|month|night|course|lab|semester\
 SKIP_TABLE = re.compile(r'graduate|doctor|pharm|physician|law school|medicine|medical|dental|dnp|msn|\bmba\b|nurse practitioner|'
                         r'online|per credit|part[- ]time|summer|international student', re.I)
 UNDERGRAD = re.compile(r'undergraduate', re.I)
+# MI: GRCC's "Nursing Programs" and NMC's "Automotive Technology Programs" budgets are for one program, not the standard cost.
+PROGRAM_TABLE = re.compile(r'\b(?:nursing|automotive(?:\s+technology)?|aviation|maritime|culinary|cosmetology|welding)\s+programs?\b', re.I)
 
 
 def row_key(label):
@@ -212,6 +214,8 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
     titles = [x for x in titles if x != STACKED]
     context = _context(t, page, titles)
     if SKIP_TABLE.search(context + ' ' + ' '.join(headers)) and not UNDERGRAD.search(context):
+        return []
+    if PROGRAM_TABLE.search(context):
         return []
     if PART_TIME.search(' '.join(titles)):
         return []  # budgets for less-than-full-time enrollment are not the standard cost

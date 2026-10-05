@@ -138,7 +138,8 @@ def build(state: str):
         own = [h for h in inst.get('allowed_hosts') or [] if h not in set(inst.get('shared_hosts') or [])]
         if own and inst['institution_key'] not in folders:
             label = folder_label(own[0])
-            if label and (label not in slugs or slugs[label] == [inst['institution_key']]):
+            # MI r1: the label must not be a folder another state's institution already fills (IA Marshalltown's mcc.iavalley.edu vs Mott)
+            if label and label not in owned and (label not in slugs or slugs[label] == [inst['institution_key']]):
                 slugs[inst['folder']].remove(inst['institution_key']); inst['folder'] = label; slugs.setdefault(label, []).append(inst['institution_key'])
     for inst in institutions:  # Two campuses sharing a domain get distinct folders.
         if len(slugs[inst['folder']]) > 1 and inst['folder'] not in folders.values():

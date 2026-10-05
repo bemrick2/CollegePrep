@@ -198,6 +198,17 @@ MUTS = [
     ('pipeline/extractors/merit.py', "r'course[- ]awards|", "r'"),
     ('pipeline/extractors/merit.py', '|\\bclep\\b|examination', '|examination'),
     ('pipeline/extractors/merit.py', '|examination[- ]program|(?:private', '|(?:private'),
+    ('pipeline/extractors/merit.py', "if tests and not re.search(r'\\d', tests) and test is not None", 'if False and test is not None'),
+    ('pipeline/extractors/merit.py', " and test is not None and re.search(r'requirement|criteria|eligib', header[test], re.I):", ':'),
+    ('pipeline/extractors/costs.py', '    if PROGRAM_TABLE.search(context):\n        return []\n', '    if PROGRAM_TABLE.search(context):\n        pass\n'),
+    ('pipeline/extractors/credit.py', 'continue  # MI (Macomb)', 'pass  # MI (Macomb)'),
+    ('pipeline/extractors/transfer.py', "r'articulation|agreement|", "r'agreement|"),
+    ('pipeline/extractors/transfer.py', 'articulation|agreement|transfer', 'articulation|transfer'),
+    ('pipeline/extractors/transfer.py', 'transfer[-_ ]?(?:guide|track)|\\bTT', '\\bTT'),
+    ('pipeline/extractors/transfer.py', "|\\bTT[-_]', entry", "', entry"),
+    ('pipeline/extractors/dual.py', 'credits\\s+to\\s+transfer|', ''),
+    ('pipeline/extractors/dual.py', 'credits\\s+attempted|', ''),
+    ('pipeline/registry.py', 'if label and label not in owned and (', 'if label and ('),
 ]
 failed = False
 for f, old, new in MUTS:

@@ -376,6 +376,35 @@ last 30 hours in residence at the university.</p>"""
             '<title>Transfer</title><p>Transfer credit is evaluated for high school courses for which advanced standing was granted and a grade '
             'of "B" or better was earned.</p>'), '2026-27'), [])
 
+    def test_mi_r1_rules(self):
+        """MI r1: Madonna's eligibility text under a GPA/ACT/SAT header, GRCC's program budgets, Macomb's no-credit score
+        bands, partner articulation agreements, and transfer/continuation GPA lines on dual-enrollment pages."""
+        got = {c['record']['award_name']: c['record'] for c in merit.extract(INST, ENTRY, T.parse_html(
+            '<title>Scholarships</title><h2>Scholarships</h2><table><tr><th>Scholarships</th><th>Amount/Year</th><th>Eligibility Requirements GPA / ACT / ~SAT</th></tr>'
+            '<tr><td>Alumni Legacy</td><td>$2,000</td><td>Parent/Grandparent is an alumna/alumnus</td></tr>'
+            '<tr><td>Honors Award</td><td>$5,000</td><td>3.5 / 24 / 1160</td></tr><tr><td>Dean Award</td><td>$3,000</td><td>3.0 / 21 / 1060</td></tr></table>'), '2026-27')}
+        self.assertNotIn('test_requirement', got['Alumni Legacy'])
+        self.assertEqual(got['Alumni Legacy']['eligibility_summary'], 'Parent/Grandparent is an alumna/alumnus')
+        self.assertIn('test_requirement', got['Honors Award'])
+        rows = [['', 'In-District', 'Out-of-District'], ['Tuition', '$17,920', '$27,120'], ['Fees', '$460', '$460'], ['Books and Supplies', '$626', '$626']]
+        for heading, n in [('Nursing Programs (Fall and Winter) 2026-27', 0), ('Cost of Attendance (Fall and Winter) 2026-27', 1)]:
+            p = T.Page('', 'Cost of Attendance', [{'heading': heading, 'caption': '', 'lead': '', 'rows': rows}], [], [])
+            self.assertEqual(bool(costs.extract(INST, ENTRY, p, '2026-27')), bool(n), heading)
+        ap = [['AP Exam', 'Score', 'Credits', 'Course'], ['Art History', '1, 2', 'None', 'None'], ['Art History', '3, 4, 5', '6', 'ARTT 1010'],
+              ['Biology', '3', '4', 'BIOL 1000'], ['Chemistry', '3', '4', 'CHEM 1000']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'AP', [{'rows': ap, 'heading': 'Advanced Placement Credit', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        self.assertEqual([e['minimum_score'] for e in c['record']['equivalencies'] if e['exam_or_course_code'] == 'AP-ART-HISTORY'], ['3, 4, 5'])
+        page = '<title>Transfer Guide</title><p>Only courses with a grade of C or better will be accepted for transfer to the university.</p>'
+        self.assertEqual(transfer.extract(INST, {**ENTRY, 'url': 'https://www.example.edu/transfer-agreements/emu-guide.pdf'}, T.parse_html(page), '2026-27'), [])
+        self.assertEqual(transfer.extract(INST, {**ENTRY, 'url': 'https://www.example.edu/files/Renewal_Articulation_2025.pdf'}, T.parse_html(page), '2026-27'), [])
+        self.assertEqual(transfer.extract(INST, {**ENTRY, 'url': 'https://www.example.edu/files/TT-FVTC-Culinary-2026.pdf'}, T.parse_html(page), '2026-27'), [])
+        self.assertEqual(transfer.extract(INST, {**ENTRY, 'url': 'https://www.example.edu/files/transfer-guide-2026.pdf'}, T.parse_html(page), '2026-27'), [])
+        [c] = transfer.extract(INST, {**ENTRY, 'url': 'https://www.example.edu/admissions/transfer/'}, T.parse_html(page), '2026-27')
+        self.assertEqual(c['record']['min_grade'], 'C')
+        [c] = self._de('<h1>Dual Enrollment</h1><ul><li>Have a minimum GPA of 2.5 to enroll.</li><li>Students need a 2.0 GPA or higher for credits to transfer.</li>'
+                       '<li>1 to 14 credits attempted: required GPA of 1.5 or higher</li></ul>')
+        self.assertEqual([t['min_hs_gpa'] for t in c['record']['dual_enrollment']['eligibility_tiers']], [2.5])
+
     def test_mn_r1_rules(self):
         """MN r1: one-rate and Midwest-exchange residency labels, SMSU's one-semester total, Minnesota State's
         program-scoped C rules, Minnesota West's petition/course GPA lines, deadline rows and exam-credit pages."""

@@ -409,6 +409,43 @@ Institutions in scope: **45** · crawled: **33** · blocked by site: **12** · r
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-158431`, `ipeds-159009`, `ipeds-159939`, `ipeds-160579`, `ipeds-160621`, `ipeds-160630`, `ipeds-160649`, `ipeds-160667`, `ipeds-434061`, `ipeds-440271`, `ipeds-483212`, `ipeds-490498`
 
+## MI — 2026-27
+
+Institutions in scope: **75** · crawled: **65** · blocked by site: **10** · run: `pipeline/runs/MI/2026-10-05`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 0 (0%) | 0 | 35 (47%) | 64 (85%) | 1 | 10 |
+| cost_of_attendance | 0 (0%) | 0 | 19 (25%) | 60 (80%) | 5 | 10 |
+| admissions_tests | 0 (0%) | 0 | 1 (1%) | 61 (81%) | 4 | 10 |
+| common_data_set | 0 (0%) | 0 | 1 (1%) | 11 (15%) | 54 | 10 |
+| merit_scholarships | 0 (0%) | 0 | 11 (15%) | 61 (81%) | 4 | 10 |
+| ap_credit | 0 (0%) | 0 | 15 (20%) | 42 (56%) | 23 | 10 |
+| clep_credit | 0 (0%) | 0 | 9 (12%) | 30 (40%) | 35 | 10 |
+| ib_credit | 0 (0%) | 0 | 10 (13%) | 18 (24%) | 47 | 10 |
+| dual_enrollment | 0 (0%) | 0 | 16 (21%) | 56 (75%) | 9 | 10 |
+| transfer_credit | 0 (0%) | 0 | 6 (8%) | 60 (80%) | 5 | 10 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 36 (48%) | 29 | 10 |
+| residency | 0 (0%) | 0 | 0 (0%) | 39 (52%) | 26 | 10 |
+| degree_requirements | 0 (0%) | 0 | 0 (0%) | 53 (71%) | 12 | 10 |
+| aid_appeals | 0 (0%) | 0 | 41 (55%) | 47 (63%) | 18 | 10 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 32 |
+| blocked requests | 245 |
+| candidates | 386 |
+| conflicts | 140 |
+| documents | 4531 |
+| extraction failures | 0 |
+| fetch errors | 265 |
+| fetches | 5041 |
+| ready | 108 |
+| semantic review | 153 |
+| stale sources | 66 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-169798`, `ipeds-170000`, `ipeds-170967`, `ipeds-170976`, `ipeds-171137`, `ipeds-171146`, `ipeds-171599`, `ipeds-172644`, `ipeds-172671`, `ipeds-247773`
+
 ## MN — 2026-27
 
 Institutions in scope: **69** · crawled: **65** · blocked by site: **4** · run: `pipeline/runs/MN/2026-10-04`
