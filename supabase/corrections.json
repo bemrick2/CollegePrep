@@ -7,6 +7,55 @@
       "reason": "Briar Cliff 2027-28 cost was approved as an academic-year budget from a table headed \"Costs Per Semester\".",
       "approved_by": "Brandon (repository owner), in the Claude session",
       "approved_on": "2026-10-05"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-199193\", null, \"2026-27\", {\"program_key\": \"science-education-bs-earth-science-concentration\", \"requirement_key\": \"plan-requirements-communication-advanced-writing\"}]",
+      "record": "data/institutions/ncsu/degree_requirements/2026-27.json",
+      "reason": "The catalog prints \"Choose from: 3\" above this list: the courses are a pool to choose from, not all required. The record was approved as all_required on 2026-10-03 in error (issue #95). The pool is kept; the number to choose is not printed in a form the extractor reads, so the record is not verified.",
+      "approved_by": "Brandon (repository owner), in the Claude session",
+      "approved_on": "2026-10-05"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-199193\", null, \"2026-27\", {\"program_key\": \"science-education-bs-earth-science-concentration\", \"requirement_key\": \"plan-requirements-mathematics\"}]",
+      "record": "data/institutions/ncsu/degree_requirements/2026-27.json",
+      "reason": "The catalog prints \"Choose from:\" choices together with other course-specific notes in one group; it is not an all-required list. The record was approved as all_required on 2026-10-03 in error (issue #95). Held for review: the group mixes choices and conditions that the source structure does not separate.",
+      "approved_by": "Brandon (repository owner), in the Claude session",
+      "approved_on": "2026-10-05"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-199193\", null, \"2026-27\", {\"program_key\": \"science-education-bs-chemistry-concentration\", \"requirement_key\": \"plan-requirements-mathematics\"}]",
+      "record": "data/institutions/ncsu/degree_requirements/2026-27.json",
+      "reason": "The catalog prints \"Choose from:\" choices together with other course-specific notes in one group; it is not an all-required list. The record was approved as all_required on 2026-10-03 in error (issue #95). Held for review: the group mixes choices and conditions that the source structure does not separate.",
+      "approved_by": "Brandon (repository owner), in the Claude session",
+      "approved_on": "2026-10-05"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-230737\", null, \"2026-27\", {\"program_key\": \"performance-b-m\", \"requirement_key\": \"program-requirements-music-industry-and-technology\"}]",
+      "record": "data/institutions/uvu/degree_requirements/2026-27.json",
+      "reason": "The catalog lists MUSC 1115, MUSC 1390 and MUSC 3412 as required and then \"Choose two credits from the following\" for the other seven courses; the record called all ten required (issue #95). Held for review as a mixed required-and-choice group.",
+      "approved_by": "Brandon (repository owner), in the Claude session",
+      "approved_on": "2026-10-05"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-157951\", null, \"2026-27\", {\"program_key\": \"visual-studies-bachelor-of-arts\", \"requirement_key\": \"studio-concentration-note-6-credit-hours-of-upper-level-discipline-specific-cour\"}]",
+      "record": "data/institutions/wku/degree_requirements/2026-27.json",
+      "reason": "The group prints \"Select two Upper-Level Art History Courses\" and a \"Required Capstone Course\" among its rows; the record called all 97 listed courses required (issue #95). Held for review as a mixed required-and-choice group; the group minimum is the printed \"Total Hours 49\", not the \"6 credit hours\" in the heading note.",
+      "approved_by": "Brandon (repository owner), in the Claude session",
+      "approved_on": "2026-10-05"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-157951\", null, \"2026-27\", {\"program_key\": \"visual-studies-bachelor-of-arts\", \"requirement_key\": \"professional-education-requirements-an-additional-25-semester-hours-in-professio\"}]",
+      "record": "data/institutions/wku/degree_requirements/2026-27.json",
+      "reason": "The catalog lists six required courses and then \"Choose two courses at 5 hours each\" among ELED 490, SEC 490 and MGE 490; the record called all nine required (issue #95). Held for review as a mixed required-and-choice group.",
+      "approved_by": "Brandon (repository owner), in the Claude session",
+      "approved_on": "2026-10-05"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-157951\", null, \"2026-27\", {\"program_key\": \"legal-studies-bachelor-of-arts\", \"requirement_key\": \"program-requirements-36-hours-program-core-courses\"}]",
+      "record": "data/institutions/wku/degree_requirements/2026-27.json",
+      "reason": "The group prints several \"(choose one)\" requirements (ethics, international/comparative, business, law and justice) and unrestricted electives; the record called all 64 listed courses required (issue #95). Held for review as a mixed group.",
+      "approved_by": "Brandon (repository owner), in the Claude session",
+      "approved_on": "2026-10-05"
     }
   ]
 }
