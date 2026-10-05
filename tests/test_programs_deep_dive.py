@@ -380,3 +380,10 @@ class CourseleafPlanTests(unittest.TestCase):
         out = [c for c in CL.extract({'institution_key': 'k'}, e, T.Page('Computer Science BA/BS', 'Computer Science BA/BS', same, [], []), '2026-2027', '', True)
                if c['domain'] == 'degree_requirements']
         self.assertTrue(all(c['issues'] == ['multiple_plan_grids'] for c in out))
+
+    def test_term_header_row_with_milestones_column(self):  # UO 2026-27: 'Fall | Milestones | Credits'
+        from programs import courseleaf as CL
+        t = {'rows': [['First Year'], ['Fall', 'Milestones', 'Credits'], ['JPN 101', 'First-Year Japanese', '', '4'], ['', 'Credits', '', '16'],
+                      ['Winter'], ['WR 122Z', 'Composition II', '', '4']]}
+        self.assertEqual([(x['label'], len(x['items'])) for x in CL.parse_grid(t)[0]], [('First Year', 0), ('Fall', 1), ('Winter', 1)])
+        self.assertEqual(CL.parse_grid(t)[0][1]['credit_hours'], '16')

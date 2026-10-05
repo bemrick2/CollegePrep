@@ -19,6 +19,8 @@ EXTRACTOR = 'courseleaf_plan/v1'
 ONE = re.compile(r'^([A-Z]{1,5})\s(\d{3}[A-Z]?)$')
 TERM = re.compile(r'^(first|second|third|fourth|fifth|freshman|sophomore|junior|senior)\s+year$|^year\s+\d$|^(fall|winter|spring|summer)(\s+(term|semester|quarter))?(\s+\d)?$', re.I)
 
+HEADER_CELLS = {'credits', 'milestones', 'hours', 'credit hours'}
+
 
 def grids(page):
     return [t for t in page.tables if (t.get('caption') or '').strip().lower() in ('plan of study grid', 'degree map')]
@@ -30,7 +32,7 @@ def parse_grid(t):
         cells = [c.strip() for c in row]
         nonempty = [c for c in cells if c]
         if not nonempty: continue
-        if len(nonempty) <= 2 and TERM.match(nonempty[0]):
+        if TERM.match(nonempty[0]) and all(c.lower() in HEADER_CELLS for c in nonempty[1:]):  # 'Fall | Milestones | Credits' (UO)
             cur = {'term_index': len(terms) + 1, 'label': nonempty[0], 'items': []}; terms.append(cur); continue
         if len(nonempty) >= 2 and nonempty[-2].lower() == 'total credits':
             total = nonempty[-1]; continue
