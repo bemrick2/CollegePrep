@@ -29,6 +29,8 @@ from pathlib import Path
 from backend.catalog import ROOT
 from backend.store import natural_key
 from pipeline.promote import status_for, _upsert, _file_for
+from .extract import THEC_PAGE
+from .match import split_catalog_name
 
 FIELDS = ('admission_type', 'internal_transfer')
 
@@ -72,8 +74,14 @@ def promote(decisions_path: Path, log=print):
         c = cands[a['candidate_id']]
         if c['domain'] != 'academic_programs': continue
         old = _records(folders[c['institution_key']], 'academic_programs', c['academic_year'])
+        cand_name = split_catalog_name(c['record'].get('program_name', ''))
         for r in (old or {}).get('records', []):
-            if r.get('program_url') == c['record'].get('program_url') and r['program_key'] != c['record']['program_key']:
+            same_url = r.get('program_url') == c['record'].get('program_url')
+            # A state-inventory record (THEC) for the same major and award becomes this catalog record: one program, the
+            # catalog's stronger evidence, the inventory's CIP kept (exact name + award match only, programs.match).
+            same_inventory_program = (r.get('program_url') == THEC_PAGE and c['record'].get('program_url') != THEC_PAGE
+                                      and cand_name is not None and split_catalog_name(r.get('program_name', '')) == cand_name)
+            if (same_url or same_inventory_program) and r['program_key'] != c['record']['program_key']:
                 keymap[(c['institution_key'], c['academic_year'], c['record']['program_key'])] = r['program_key']
     for a in approvals:
         c = cands.get(a['candidate_id'])

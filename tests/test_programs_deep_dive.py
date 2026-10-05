@@ -299,3 +299,15 @@ class InventoryMatchTests(unittest.TestCase):
                 {'program_key': 'me-env', 'program_name': 'Mechanical Engineering, B.S.'},  # award differs
                 {'program_key': 'cs-ai', 'program_name': 'Computer Sciences, B.S.'}]        # name differs
         self.assertEqual(sorted(Mt.match(recs, rows)), ['cyber', 'me'])
+
+
+class InventoryDuplicateTests(unittest.TestCase):
+    def test_inventory_and_catalog_record_for_one_program_is_an_error(self):
+        from backend import program_fields as F
+        base = {'institution_key': 'k', 'academic_year': '2026-27', 'verification_status': 'verified'}
+        thec = ('p', 'academic_programs', {**base, 'program_key': 'mechanical-engineering-bsme', 'program_name': 'MECHANICAL ENGINEERING, BSME',
+                                            'program_url': 'https://thec.ppr.tn.gov/AcademicProgramInventorySearch'})
+        cat = ('p', 'academic_programs', {**base, 'program_key': 'me', 'program_name': 'Mechanical Engineering, B.S.M.E.', 'program_url': 'https://catalog.x.edu/me'})
+        other = ('p', 'academic_programs', {**base, 'program_key': 'cs', 'program_name': 'Computer Science, B.S.', 'program_url': 'https://catalog.x.edu/cs'})
+        self.assertTrue(F.cross_errors([thec, cat]))
+        self.assertEqual(F.cross_errors([thec, other]), [])
