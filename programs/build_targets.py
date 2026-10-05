@@ -22,14 +22,17 @@ TN={
  'mtsu':dict(priority=1,catalog=acalog('catalog.mtsu.edu',49,[12728,12850,12870]),policy=[
    'https://nursing.mtsu.edu/future-bsn-students/','https://university-college.mtsu.edu/advising_undecided_chooseyourmajor/',
    'https://csc.mtsu.edu/scholarships/','https://jones.mtsu.edu/scholarships/','https://www.mtsu.edu/engineering/'],
-   degree_maps=['https://www.mtsu.edu/advising/maps.php','https://mtsu.edu/academic-maps/']),
+   degree_maps=[], degree_map_link=r'catalog\.mtsu\.edu/mime/media/view/49/\d+',
+   map_sources={'lists':['https://www.mtsu.edu/programs/','https://www.mtsu.edu/ucat/'],'page_link':r'www\.mtsu\.edu/programs?/[a-z0-9-]+/?$'}),
  'memphis':dict(priority=1,catalog=acalog('catalog.memphis.edu',43,[3163,3164,3170,3180]),policy=[
    'https://www.memphis.edu/aac/prepare/faqs.php','https://www.memphis.edu/fcbeundergrad/programs/bba-requirements.php',
    'https://www.memphis.edu/herff/future-students/orientation.php','https://www.memphis.edu/herff/students/scholarships.php',
    'https://www.memphis.edu/me/program/undergraduate/bsme_requirement.php','https://www.memphis.edu/nursing/program-admit/bsn/bsnadmissions.php',
-   'https://www.memphis.edu/fcbescholarships/scholarships/undergraduate/freshmen-1.php']),
+   'https://www.memphis.edu/fcbescholarships/scholarships/undergraduate/freshmen-1.php'],
+   degree_maps=['https://www.memphis.edu/cas/advising/degree_sheets.php'], degree_map_any_pdf=True),
  'tntech':dict(priority=1,render='browser',catalog={'platform':'coursedog','home':'https://undergrad.catalog.tntech.edu/','path_prefix':'/programs/','min_depth':0,
-   'program_lists':['https://undergrad.catalog.tntech.edu/programs','https://undergrad.catalog.tntech.edu/ugrequirements/majors']},
+   'program_lists':['https://undergrad.catalog.tntech.edu/programs','https://undergrad.catalog.tntech.edu/ugrequirements/majors']
+     +[f'https://undergrad.catalog.tntech.edu/programs?page={n}&pq=&sortBy=name' for n in range(2,13)]},
    policy=['https://www.tntech.edu/admissions/freshmen/index.php','https://www.tntech.edu/business/scholarships.php','https://www.tntech.edu/cis/undecided_majors.php',
    'https://www.tntech.edu/engineering/programs/csc/undergraduate-program.php','https://www.tntech.edu/engineering/programs/index.php',
    'https://www.tntech.edu/nursing/bsn-program.php','https://www.tntech.edu/sacscoc/academic_program_inventory.php','https://www.tntech.edu/engineering/admissions.php'],
