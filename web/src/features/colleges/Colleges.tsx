@@ -8,6 +8,9 @@ import { formatShortDate } from '../../lib/engine/dates'
 import { MAX_SAVED_SCHOOLS } from '../../lib/savedSchools'
 import { useSavedSchools } from './useSavedSchools'
 import { CollegesTabs } from './CollegesTabs'
+import { HomeStateControl } from './HomeStateControl'
+import { useHomeState } from '../../lib/homeState'
+import { pickCost, stateName } from '../../lib/engine/residency'
 
 const usd = (n: number | null | undefined) => (n == null ? null : n.toLocaleString(undefined, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }))
 const YEARS = ['2026-27', '2025-26']
@@ -54,16 +57,20 @@ export function Colleges() {
   }
 
   const [showAll, setShowAll] = useState(false)
+  const { homeState } = useHomeState()
+  const [stateFilter, setStateFilter] = useState('')
+  const states = useMemo(() => [...new Set((suggestions.data ?? []).map((x) => x.state_code).filter((x): x is string => !!x))].sort(), [suggestions.data])
   // Four-year schools with a verified cost record first: the main path is direct admission to a four-year college.
   const featuredAll = useMemo(
     () =>
-      [...(suggestions.data ?? [])].sort(
+      [...(suggestions.data ?? [])].filter((x) => !stateFilter || x.state_code === stateFilter).sort(
         (a, b) =>
           Number(b.level === 'four_year') - Number(a.level === 'four_year') ||
+          Number(b.state_code === homeState) - Number(a.state_code === homeState) ||
           Number(!!b.domains?.includes('costs')) - Number(!!a.domains?.includes('costs')) ||
           a.display_name.localeCompare(b.display_name),
       ),
-    [suggestions.data],
+    [suggestions.data, stateFilter, homeState],
   )
   const featured = showAll ? featuredAll : featuredAll.slice(0, 12)
 
@@ -102,7 +109,19 @@ export function Colleges() {
         </div>
         {featured.length > 0 && (
           <div className="mt-3">
-            <div className="text-xs font-semibold text-ink-3">Schools with verified {year} records</div>
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div className="text-xs font-semibold text-ink-3">Schools with verified {year} records</div>
+              {states.length > 1 && (
+                <select aria-label="Filter by state" value={stateFilter} onChange={(e) => setStateFilter(e.target.value)} className="h-8 rounded-lg border border-line-strong bg-surface px-2 text-xs font-semibold">
+                  <option value="">All states ({states.length})</option>
+                  {states.map((st) => (
+                    <option key={st} value={st}>
+                      {stateName(st)}
+                    </option>
+                  ))}
+                </select>
+              )}
+            </div>
             <div className="mt-2 flex flex-wrap gap-1.5">
               {featured
                 .filter((f) => !keys.includes(f.institution_key))
@@ -119,13 +138,14 @@ export function Colleges() {
             </div>
           </div>
         )}
+        <HomeStateControl className="mt-3" />
         {saved.error && <Notice tone="bad" className="mt-3">{saved.error}</Notice>}
         {mode === 'demo' && <p className="mt-3 text-xs text-ink-3">Demo uses a snapshot of verified records captured 2 Oct 2026. Signed-in accounts read the live database.</p>}
       </Card>
 
       {keys.length === 0 ? (
         <Card>
-          <EmptyState icon={<School size={32} />} title="Pick up to four schools">
+          <EmptyState icon={<School size={32} />} title={`Pick up to ${MAX} schools`}>
             You'll see verified cost of attendance, scholarships, credit policies and aid-appeal options side by side.
           </EmptyState>
         </Card>
@@ -136,14 +156,14 @@ export function Colleges() {
       ) : (
         <>
           <div className="flex flex-wrap items-center gap-3 text-sm">
-            <span className="font-semibold text-ink">Years to degree</span>
+            <span className="font-semibold text-ink">Years to degree <span className="font-normal text-ink-3">(your assumption)</span></span>
             <Segmented label="Years to degree" value={years} onChange={setYearsInSchool} options={[3, 3.5, 4, 5].map((y) => ({ value: y, label: String(y) }))} />
             <span className="text-xs text-ink-3">
               Exam and dual-enrollment credit can shorten a degree when it covers required courses.{' '}
               <Link to="/colleges/paths" className="font-semibold text-brand hover:underline">See paths</Link>
             </span>
           </div>
-          <div className={cx('grid gap-4', keys.length > 1 && 'md:grid-cols-2', keys.length === 3 && 'xl:grid-cols-3', keys.length >= 4 && 'xl:grid-cols-4', 'items-start')}>
+          <div className={cx('grid gap-4', keys.length > 1 && 'md:grid-cols-2', keys.length === 3 && 'xl:grid-cols-3', keys.length === 4 && 'xl:grid-cols-4', keys.length >= 5 && 'xl:grid-cols-3', 'items-start')}>
             {cmp.data!.map((c) => (
               <SchoolColumn key={c.institution_key} c={c} years={years} onRemove={() => void saved.remove(c.institution_key)} />
             ))}
@@ -164,7 +184,12 @@ function SchoolColumn({ c, years, onRemove }: { c: InstitutionComparison; years:
   const credit = (c.domains.credit_policies ?? []) as Record<string, unknown>[]
   const adm = (c.domains.admissions_metrics?.[0] ?? null) as Record<string, number | string | null> | null
   const appeals = (c.domains.appeals ?? []) as Record<string, unknown>[]
-  const [residency, setResidency] = useState(costs.find((x) => x.residency === 'in_state')?.residency ?? costs[0]?.residency ?? '')
+  const { homeState } = useHomeState()
+  const picked = pickCost(costs, inst?.state_code, homeState)
+  const [residency, setResidency] = useState(picked.cost?.residency ?? costs[0]?.residency ?? '')
+  useEffect(() => {
+    if (picked.cost) setResidency(picked.cost.residency)
+  }, [homeState]) // eslint-disable-line react-hooks/exhaustive-deps
   const cost = costs.find((x) => x.residency === residency) ?? costs[0]
 
   return (

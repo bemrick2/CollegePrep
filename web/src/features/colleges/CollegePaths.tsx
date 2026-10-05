@@ -5,6 +5,8 @@ import { useMeritReference } from './useMeritReference'
 import { useInterests } from '../majors/useInterests'
 import { SchoolFitRow } from '../majors/SchoolFitRow'
 import { CollegesTabs } from './CollegesTabs'
+import { HomeStateControl } from './HomeStateControl'
+import { useHomeState } from '../../lib/homeState'
 import type { SavedInterest } from '../../lib/engine/interests'
 import { Link } from 'react-router-dom'
 import { schoolLevers } from './schoolLevers'
@@ -87,6 +89,7 @@ export function CollegePaths() {
         <Notice tone="bad">{cmp.error.message}</Notice>
       ) : (
         <>
+          <HomeStateControl />
           <ExamPlanner who={who} options={options} plan={plan} />
           {four.length === 0 ? (
             <Notice tone="neutral">None of your saved schools is a four-year college yet. Add one on the Compare tab.</Notice>
@@ -266,7 +269,8 @@ function PathCard({
   onPrimary?: (on: boolean) => void
 }) {
   const policies = policiesOf(c)
-  const outlook = outlookFor(c)
+  const { homeState } = useHomeState()
+  const outlook = outlookFor(c, homeState)
   const credit = summarizeSchool(policies, exams)
   const ap = policies.find((p) => p.policy_kind === 'AP') ?? policies.find((p) => p.policy_kind === 'CLEP')
   const dual = policies.find((p) => p.policy_kind === 'dual_enrollment')
@@ -306,11 +310,13 @@ function PathCard({
         <Route icon={<Clock size={16} />} title="Standard path" tag="4 years · 8 semesters">
           {outlook.degreeTotal != null ? (
             <p>
-              <span className="font-semibold tabular text-ink">{usd(outlook.degreeTotal)}</span> published cost of attendance over 4 years, before aid.
+              <span className="font-semibold tabular text-ink">{usd(outlook.degreeTotal)}</span> published {outlook.residency === 'out_of_state' ? 'out-of-state ' : outlook.residency === 'in_state' ? 'in-state ' : ''}cost of attendance over 4 years, before aid
+              {outlook.basis === 'assumed_in_state' && outlook.residency === 'in_state' ? ' (in-state assumed — set your home state)' : ''}.
             </p>
           ) : (
             <p className="text-ink-3">No verified cost of attendance for {COMPARE_YEAR} yet.</p>
           )}
+          {outlook.basis === 'out_of_state_missing' && <p className="mt-1 text-xs text-warn">No out-of-state price is published, so this in-state figure likely understates your cost.</p>}
         </Route>
 
         <Route icon={<Sparkle size={16} />} title="Your interests">

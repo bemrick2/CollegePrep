@@ -58,7 +58,7 @@ export function parentActions(i: ActionInput, max = 5): ParentAction[] {
   if (i.linked && i.idleDays !== null && i.idleDays >= 3) out.push({ key: 'idle', rank: 4, tone: 'warn', title: `No practice in ${i.idleDays} days`, detail: 'A quick check-in usually restarts the habit.' })
 
   if (i.schools.length === 0) {
-    out.push({ key: 'schools', rank: 5, tone: 'info', title: 'Add target colleges', detail: 'Pick up to four to see verified costs, credit policies and scholarships.', to: '/colleges' })
+    out.push({ key: 'schools', rank: 5, tone: 'info', title: 'Add target colleges', detail: 'Save the schools you might apply to, in any state, to see verified costs, credit policies and scholarships.', to: '/colleges' })
     return finish(out, max)
   }
 
