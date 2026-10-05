@@ -182,6 +182,9 @@ def program_page_candidates(target, inst, entry, page, today_year):
             pk = next(c['record']['program_key'] for c in out if c['domain'] == 'academic_programs')
             for c in plan: c['record']['program_key'] = pk
         out += plan
+        if have:  # Course List groups read row by row (courseleaf_list/v1), keyed to the program record
+            pk = next(c['record']['program_key'] for c in out if c['domain'] == 'academic_programs')
+            out += courseleaf.list_candidates(inst, entry, page, year, line, pk)
     return out
 
 
