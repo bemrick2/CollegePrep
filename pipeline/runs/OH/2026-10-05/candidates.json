@@ -109717,6 +109717,173 @@
   "year_basis": "ambiguous_year_labels"
  },
  {
+  "academic_year": "2024-25",
+  "candidate_id": "d4404fdca17891e2",
+  "checks": {
+   "columns": 2,
+   "rows": 9
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "column:Tuition/Fees",
+    "snippet": "Tuition/Fees | $7,079 | $14,158 | $7,079 | $14,158",
+    "value": 14158
+   },
+   {
+    "field": "column:Housing",
+    "snippet": "Housing | $4,340 | $8,680 | $4,340 | $8,680",
+    "value": 8680
+   },
+   {
+    "field": "column:Food",
+    "snippet": "Food | $3,128 | $6,256 | $3,128 | $6,256",
+    "value": 6256
+   },
+   {
+    "field": "column:Books/Supplies",
+    "snippet": "Books/Supplies | $459 | $918 |  | ",
+    "value": 918
+   },
+   {
+    "field": "column:Transportation",
+    "snippet": "Transportation | $1,008 | $2,016 |  | ",
+    "value": 2016
+   },
+   {
+    "field": "column:Personal",
+    "snippet": "Personal | $511 | $1,022 |  | ",
+    "value": 1022
+   },
+   {
+    "field": "column:In-State Total",
+    "snippet": "In-State Total | $16,525 | $33,050 | $14,547 | $29,094",
+    "value": 33050
+   },
+   {
+    "field": "column:Out-of-State Fees",
+    "snippet": "Out-of-State Fees | $5,340 | $10,680 | $5,340 | $10,680",
+    "value": 10680
+   },
+   {
+    "field": "column:Out-of-State Total",
+    "snippet": "Out-of-State Total | $21,865 | $43,730 | $19,887 | $39,774",
+    "value": 43730
+   },
+   {
+    "field": "column:Tuition/Fees",
+    "snippet": "Tuition/Fees | $7,079 | $14,158 | $7,079 | $14,158",
+    "value": 14158
+   },
+   {
+    "field": "column:Housing",
+    "snippet": "Housing | $4,340 | $8,680 | $4,340 | $8,680",
+    "value": 8680
+   },
+   {
+    "field": "column:Food",
+    "snippet": "Food | $3,128 | $6,256 | $3,128 | $6,256",
+    "value": 6256
+   },
+   {
+    "field": "column:In-State Total",
+    "snippet": "In-State Total | $16,525 | $33,050 | $14,547 | $29,094",
+    "value": 29094
+   },
+   {
+    "field": "column:Out-of-State Fees",
+    "snippet": "Out-of-State Fees | $5,340 | $10,680 | $5,340 | $10,680",
+    "value": 10680
+   },
+   {
+    "field": "column:Out-of-State Total",
+    "snippet": "Out-of-State Total | $21,865 | $43,730 | $19,887 | $39,774",
+    "value": 39774
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-204820",
+  "issues": [
+   "arrangement_unlabeled",
+   "stale_year_label:2024-25",
+   "shared_site_attribution_review"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2024-25",
+   "books_supplies": 918,
+   "components": {
+    "Books/Supplies": 918,
+    "Food": 6256,
+    "Housing": 8680,
+    "In-State Total": 33050,
+    "Out-of-State Fees": 10680,
+    "Out-of-State Total": 43730,
+    "Personal": 1022,
+    "Transportation": 2016,
+    "Tuition/Fees": 14158
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-204820",
+   "last_verified_at": "2026-10-05",
+   "living_arrangements": [
+    {
+     "arrangement": "unlabeled",
+     "column_header": "Cost of Attendance - Annually",
+     "components": {
+      "Books/Supplies": 918,
+      "Food": 6256,
+      "Housing": 8680,
+      "In-State Total": 33050,
+      "Out-of-State Fees": 10680,
+      "Out-of-State Total": 43730,
+      "Personal": 1022,
+      "Transportation": 2016,
+      "Tuition/Fees": 14158
+     },
+     "total_cost_of_attendance": null
+    },
+    {
+     "arrangement": "unlabeled",
+     "column_header": "Direct Costs - Annually",
+     "components": {
+      "Food": 6256,
+      "Housing": 8680,
+      "In-State Total": 29094,
+      "Out-of-State Fees": 10680,
+      "Out-of-State Total": 39774,
+      "Tuition/Fees": 14158
+     },
+     "total_cost_of_attendance": null
+    }
+   ],
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \"The OHIO Guarantee™ 2024-2025 Cohort Athens Campus \"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "in_state",
+   "source_url": "https://www.ohio.edu/financial-aid/cost/2024-2025-cohort",
+   "total_cost_of_attendance": null,
+   "tuition": null,
+   "tuition_and_mandatory_fees": 14158,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-05T12:00:30+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 05 Oct 2026 11:21:41 GMT",
+   "page_file": "b8c69ea73ecdd3025bc2.json.gz",
+   "requested_url": "https://www.ohio.edu/financial-aid/cost/2024-2025-cohort",
+   "sha256": "b8c69ea73ecdd3025bc27c233dbfe896f31ee512d90714c8498fa6e84a536080",
+   "title": "The OHIO Guarantee™ 2024-2025 Cohort | Ohio University",
+   "url": "https://www.ohio.edu/financial-aid/cost/2024-2025-cohort"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
   "academic_year": "2026-27",
   "candidate_id": "m3084d394484fad5",
   "checks": {

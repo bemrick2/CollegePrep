@@ -1,6 +1,6 @@
 # Review queue — OH (2026-27)
 
-Pages fetched: 7412; failures: 783. Candidates: 1203 (446 without issues, 757 exceptions). Re-verification upgrades proposed: 0.
+Pages fetched: 7429; failures: 784. Candidates: 1204 (446 without issues, 758 exceptions). Re-verification upgrades proposed: 0.
 
 ## Coverage by category
 
@@ -2766,7 +2766,7 @@ Pages fetched: 7412; failures: 783. Candidates: 1203 (446 without issues, 757 ex
   - courses: MGT 3755 ⟵ “MGT 3755 - Managing Workplace Compliance”
   - courses: MGT 4801 ⟵ “MGT 4801 - Leadership in Business and Society”
 
-## Exceptions (757)
+## Exceptions (758)
 
 ### `45154ee876529a99` Art Academy of Cincinnati — appeals 2026-27 [new] (labeled_in_source)
 - source: https://www.artacademy.edu/money-matters/financial-aid/ (sha256 5b31948b76f4)
@@ -5623,6 +5623,25 @@ Pages fetched: 7412; failures: 783. Candidates: 1203 (446 without issues, 757 ex
   - column:Room(Classic Double): 8954 ⟵ “Room(Classic Double) | $8,954”
   - column:Meal Plan(Traditional 14): 5582 ⟵ “Meal Plan(Traditional 14) | $5,582”
   - column:TOTAL: 29554 ⟵ “TOTAL | $29,554”
+### `d4404fdca17891e2` Ohio University-Chillicothe Campus — costs 2024-25 · residency=in_state [new] (labeled_in_source)
+- source: https://www.ohio.edu/financial-aid/cost/2024-2025-cohort (sha256 b8c69ea73ecd)
+- issues: arrangement_unlabeled, stale_year_label:2024-25, shared_site_attribution_review
+- checks: {"columns": 2, "rows": 9}
+  - column:Tuition/Fees: 14158 ⟵ “Tuition/Fees | $7,079 | $14,158 | $7,079 | $14,158”
+  - column:Housing: 8680 ⟵ “Housing | $4,340 | $8,680 | $4,340 | $8,680”
+  - column:Food: 6256 ⟵ “Food | $3,128 | $6,256 | $3,128 | $6,256”
+  - column:Books/Supplies: 918 ⟵ “Books/Supplies | $459 | $918 |  | ”
+  - column:Transportation: 2016 ⟵ “Transportation | $1,008 | $2,016 |  | ”
+  - column:Personal: 1022 ⟵ “Personal | $511 | $1,022 |  | ”
+  - column:In-State Total: 33050 ⟵ “In-State Total | $16,525 | $33,050 | $14,547 | $29,094”
+  - column:Out-of-State Fees: 10680 ⟵ “Out-of-State Fees | $5,340 | $10,680 | $5,340 | $10,680”
+  - column:Out-of-State Total: 43730 ⟵ “Out-of-State Total | $21,865 | $43,730 | $19,887 | $39,774”
+  - column:Tuition/Fees: 14158 ⟵ “Tuition/Fees | $7,079 | $14,158 | $7,079 | $14,158”
+  - column:Housing: 8680 ⟵ “Housing | $4,340 | $8,680 | $4,340 | $8,680”
+  - column:Food: 6256 ⟵ “Food | $3,128 | $6,256 | $3,128 | $6,256”
+  - column:In-State Total: 29094 ⟵ “In-State Total | $16,525 | $33,050 | $14,547 | $29,094”
+  - column:Out-of-State Fees: 10680 ⟵ “Out-of-State Fees | $5,340 | $10,680 | $5,340 | $10,680”
+  - column:Out-of-State Total: 39774 ⟵ “Out-of-State Total | $21,865 | $43,730 | $19,887 | $39,774”
 ### `e24c070af97611c3` Ohio University-Chillicothe Campus — costs 2026-27 · residency=out_of_state [new] (labeled_in_source)
 - source: https://www.ohio.edu/admissions/freshman/costs-aid (sha256 4595e76e124c)
 - issues: shared_site_attribution_review
