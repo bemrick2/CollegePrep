@@ -26,7 +26,7 @@ FIELDS = {
     'psychology': re.compile(r'\bpsycholog', re.I),
 }
 CIP_FIELD = {'engineering': ('14',), 'computer_science': ('11',), 'business_finance': ('52',), 'nursing_health': ('51',), 'psychology': ('42',)}
-EVIDENCE_KEYS = ['direct_admission', 'apply_to_major', 'pre_major', 'gpa_requirement', 'undeclared', 'declare_by',
+EVIDENCE_KEYS = ['direct_admission', 'apply_to_major', 'pre_major', 'progression', 'open_declaration', 'gpa_requirement', 'undeclared', 'declare_by',
                  'change_major', 'cip_code', 'major_scholarship']
 
 
@@ -154,8 +154,8 @@ def markdown(a):
                  f"{p['programs_with_degree_plan']} | {p['cr14']['admission_type']} | {yes(p['cr14']['undeclared_policy'])} |")
     L += ['', 'Field cells: verified count (count of programs with matching names on the retrieved official list).', '',
           '## CR-14 field obtainability from retrieved official sources (sentences found, unreviewed)', '',
-          '| School | direct admit | apply to major | pre-major | GPA rule | undeclared | declare-by | change major | CIP | major scholarship |',
-          '|---|---|---|---|---|---|---|---|---|---|']
+          '| School | direct admit | apply to major | pre-major | progression | open declaration | GPA rule | undeclared | declare-by | change major | CIP | major scholarship |',
+          '|---|---|---|---|---|---|---|---|---|---|---|---|']
     for s in a['institutions']:
         if not s['run']: continue
         e = s['run']['evidence_sentences']
