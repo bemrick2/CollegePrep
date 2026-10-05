@@ -78,7 +78,8 @@ def cross_errors(rows):
     # and award (programs/promote.py folds them together).
     import re
     def key(r):
-        m = re.match(r'^(.*?),\s*([A-Za-z.]{2,12})\s*(\(.*\))?$', (r.get('program_name') or '').strip())
+        n = (r.get('program_name') or '').strip()
+        m = re.match(r'^(.*?),\s*([A-Za-z.]{2,12})\s*(\(.*\))?$', n) or re.match(r'^(.*?)\s*\(([A-Za-z.]{2,12})\)\s*$', n)
         return (re.sub(r'[^a-z0-9]+', ' ', m.group(1).split(':')[0].lower()).strip(), re.sub(r'[^A-Z]', '', m.group(2).upper())) if m else None
     inv, cat = {}, {}
     for path, d, r in rows:

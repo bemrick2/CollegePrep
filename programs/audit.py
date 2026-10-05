@@ -92,9 +92,9 @@ def school_row(t, run, lists, summary, evidence, year='2026-27'):
                       'requirement_rows': len(reqs), 'program_catalog_record': bool(cats),
                       'programs_complete': any(c.get('programs_complete') is True for c in cats),
                       'verified_fields_by_name_or_cip': vfields, 'all_fields_by_name_or_cip': pfields,
-                      'cr14': {'cip_code': sum(1 for r in verified if r.get('cip_code')),
-                               'admission_type': sum(1 for r in verified if r.get('admission_type')),
-                               'internal_transfer': sum(1 for r in verified if r.get('internal_transfer')),
+                      'cr14': {'cip_code': sum(1 for r in progs if r.get('cip_code')),
+                               'admission_type': sum(1 for r in progs if r.get('admission_type')),
+                               'internal_transfer': sum(1 for r in progs if r.get('internal_transfer')),
                                'undeclared_policy': any(c.get('undeclared_policy') for c in cats),
                                'program_linked_awards': len(awards)}},
     }
@@ -106,7 +106,10 @@ def gaps(row):
     g, p, r = [], row['persisted'], row['run']
     if r is None: g.append('no program-depth run yet')
     else:
-        if r['catalog_pages_ok'] == 0: g.append('current catalog not retrieved' + (f" ({', '.join(r['catalog_fetch_errors'])})" if r['catalog_fetch_errors'] else ''))
+        errs = r['catalog_fetch_errors']
+        if any(k.startswith(('blocked_bot_challenge', 'host_challenge_stop')) for k in errs):
+            g.append('catalog program pages behind a bot challenge (recorded, not evaded)')
+        elif r['catalog_pages_ok'] == 0: g.append('current catalog not retrieved' + (f" ({', '.join(errs)})" if errs else ''))
         elif r['listed_bachelor_programs'] == 0: g.append('catalog retrieved but no program list parsed')
     if not p['program_catalog_record']: g.append('no reviewed program_catalogs record (completeness unknown)')
     if p['verified_programs'] == 0:

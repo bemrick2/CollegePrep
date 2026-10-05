@@ -29,7 +29,8 @@ TN={
    'https://www.memphis.edu/me/program/undergraduate/bsme_requirement.php','https://www.memphis.edu/nursing/program-admit/bsn/bsnadmissions.php',
    'https://www.memphis.edu/fcbescholarships/scholarships/undergraduate/freshmen-1.php']),
  'tntech':dict(priority=1,render='browser',catalog={'platform':'coursedog','home':'https://undergrad.catalog.tntech.edu/','path_prefix':'/programs/','min_depth':0,
-   'program_lists':['https://undergrad.catalog.tntech.edu/programs','https://undergrad.catalog.tntech.edu/ugrequirements/majors']},
+   'program_lists':['https://undergrad.catalog.tntech.edu/programs','https://undergrad.catalog.tntech.edu/ugrequirements/majors']
+     +[f'https://undergrad.catalog.tntech.edu/programs?page={n}&pq=&sortBy=name' for n in range(2,13)]},
    policy=['https://www.tntech.edu/admissions/freshmen/index.php','https://www.tntech.edu/business/scholarships.php','https://www.tntech.edu/cis/undecided_majors.php',
    'https://www.tntech.edu/engineering/programs/csc/undergraduate-program.php','https://www.tntech.edu/engineering/programs/index.php',
    'https://www.tntech.edu/nursing/bsn-program.php','https://www.tntech.edu/sacscoc/academic_program_inventory.php','https://www.tntech.edu/engineering/admissions.php'],

@@ -64,3 +64,25 @@ def complete(target, run, fetcher, log=print):
             meta, body = _get(fetcher, full)
             _store(run, key, full, meta, body, u)
             done.add(full); log(f'{key}: kuali program list {meta.get("status")} {meta.get("bytes")}')
+
+
+LARGE_PDF_BYTES = 80 * 1024 * 1024
+
+
+def fetch_large(fetcher, url):
+    """A catalog's own full-catalog PDF can exceed the national fetcher's 15 MB cap (Tennessee Tech: about 16 MB).
+    Same robots and per-host politeness; a larger cap only for role catalog_pdf."""
+    if not fetcher.allowed(url): return {'status': None, 'error': 'disallowed_by_robots'}, None
+    host = urlsplit(url).netloc.lower(); entry = fetcher.gate.wait(host)
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': USER_AGENT, 'Accept': 'application/pdf'})
+        with fetcher.opener.open(req, timeout=180) as r:
+            b = r.read(LARGE_PDF_BYTES + 1); status = r.status; ctype = r.headers.get('Content-Type', '')
+    except Exception as exc:
+        return {'status': getattr(exc, 'code', None), 'error': f'{type(exc).__name__}: {exc}'[:300]}, None
+    finally:
+        HostGate.done(entry)
+    meta = {'status': status, 'final_url': url, 'content_type': ctype, 'bytes': len(b)}
+    if len(b) > LARGE_PDF_BYTES: meta['error'] = 'too_large'; return meta, None
+    meta['sha256'] = hashlib.sha256(b).hexdigest()
+    return meta, b

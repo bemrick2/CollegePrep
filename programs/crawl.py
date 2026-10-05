@@ -192,7 +192,11 @@ def crawl_target(target, run: Run, fetcher, browser=None, log=print, caps=None):
         url, role, via, depth = queue[i]; i += 1
         use_browser = render and chost and host_of(url) == chost and role in ('catalog_home', 'catalog_nav', 'program_list', 'program_page')
         try:
-            meta, body = (browser if use_browser else fetcher).fetch(url)
+            if role == 'catalog_pdf':
+                from .feeds import fetch_large
+                meta, body = fetch_large(fetcher, url)
+            else:
+                meta, body = (browser if use_browser else fetcher).fetch(url)
         except Exception as exc:
             meta, body = {'status': None, 'error': f'fetch_exception:{type(exc).__name__}: {exc}'[:300]}, None
         entry = {'institution_key': key, 'url': url, 'role': role, 'via': via, 'depth': depth, 'fetched_at': now(), **meta}

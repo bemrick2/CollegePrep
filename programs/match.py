@@ -18,8 +18,10 @@ def award(s):
 
 
 def split_catalog_name(name):
-    """('Computer Science', 'BS') from 'Computer Science: Cyber Security, B.S.'; None when no award is printed."""
-    m = re.match(r'^(.*?),\s*([A-Za-z.]{2,12})\s*(\(.*\))?$', name.strip())
+    """('Computer Science', 'BS') from 'Computer Science: Cyber Security, B.S.' or 'Computer Science (B.S.)'; None when
+    no award is printed."""
+    m = re.match(r'^(.*?),\s*([A-Za-z.]{2,12})\s*(\(.*\))?$', name.strip()) or \
+        re.match(r'^(.*?)\s*\(([A-Za-z.]{2,12})\)\s*$', name.strip())  # 'Accounting (B.B.A.)' (Austin Peay)
     if not m: return None
     major = m.group(1).split(':')[0]
     return norm(major), award(m.group(2))
