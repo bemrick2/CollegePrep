@@ -513,3 +513,45 @@ class CoursedogFeedTests(unittest.TestCase):
         self.assertEqual(X.coursedog_cip('520301'), '52.0301')
         self.assertEqual(X.coursedog_cip('52.0201 - Management'), '52.0201')
         self.assertIsNone(X.coursedog_cip('3252030100'))  # state inventory layout: not a federal CIP as printed
+
+class CourseListGroupTests(unittest.TestCase):
+    def groups(self, rows, heading='X Major Requirements'):
+        from programs import courseleaf as CL
+        return CL.course_list_groups({'caption': 'Course List', 'heading': heading, 'rows': [['Code', 'Title', 'Credits']] + rows})
+
+    def test_required_run_then_select_with_blank_credit_options(self):  # OSU Accountancy 2026-27
+        g = self.groups([['ACTG 427', 'ASSURANCE AND ATTESTATION SERVICES', '4'], ['MATH 241', 'Calculus I', '4'], ['or MATH 251Z', 'Differential Calculus'],
+                         ['Major Courses', ''], ['Select two courses from the following:', '8'], ['ACTG 417', 'ADVANCED ACCOUNTING', ''], ['ACTG 420', 'IT AUDITING', ''],
+                         ['ACTG 490', 'CAPSTONE', '4'], ['Select a minimum of 9 credits from the following:', '9'], ['AG 311', 'X', ''], ['FW 340', 'Y', '']])
+        self.assertEqual([(s, x['group_type'], len(x['courses']), x.get('choose_count'), x.get('choose_credits'), sorted(x['issues'])) for s, x in g],
+                         [('X Major Requirements', 'all_required', 2, None, None, []), ('Major Courses', 'choose_courses', 2, 2, None, []),
+                          ('Major Courses', 'all_required', 1, None, None, []), ('Major Courses', 'choose_credits', 2, None, 9, [])])
+        self.assertEqual(g[0][1]['courses'][1], {'any_of': [{'code': 'MATH 241', 'title': 'Calculus I', 'credits': 4}, {'code': 'MATH 251Z', 'title': 'Differential Calculus'}]})
+
+    def test_unrepresentable_rows_are_held(self):
+        g = self.groups([['PH 211& PH 212', 'PHYSICS', '8'], ['Select one of the following math pairs:', '4-7'], ['MTH 251Z& MTH 252Z', 'CALCULUS', '8'],
+                         ['Select an additional 7 credits from courses that count toward either major.', '7'], ['Capstone', ''], ['ANTH 209', 'Business Anthropology', '4'],
+                         ['Select from the list below:', ''], ['BA 252', 'Global Perspectives', ''],
+                         ['Select 4 credits from the following:', '4'], ['BA 361', 'Communication', '4'],  # an option or a required course? held
+                         ['Select 2 credits from the following courses:', '2'], ['Internships', '']])  # the list is not read: held
+        self.assertEqual([(x['group_type'], sorted(x['issues'])) for _, x in g],
+                         [('all_required', ['complex_course_row']), ('choose_courses', ['complex_course_row', 'options_not_read', 'options_print_credits']),
+                          ('elective_pool', []), ('all_required', []), ('choose_unclear', ['choose_number_not_printed']), ('choose_credits', ['options_print_credits']),
+                          ('choose_credits', ['options_not_read'])])
+        self.assertEqual(g[2][1]['course_rules'], ['Select an additional 7 credits from courses that count toward either major. 7'])
+        g = self.groups([['H 301', 'X', '3']], heading='Recommended Public Health Elective Coursework')
+        self.assertEqual(sorted(g[0][1]['issues']), ['heading_not_all_required'])
+
+
+class CourseListHtmlTests(unittest.TestCase):
+    def test_row_classes_and_leading_indent(self):
+        from programs.courselist_html import course_lists
+        html = ('<h2>Major Requirements</h2><p>Students must select one focus area.</p><table class="sc_courselist"><caption>Course List</caption><tbody>'
+                '<tr class="even areaheader"><td colspan="2"><span class="courselistcomment areaheader">Core</span></td><td></td></tr>'
+                '<tr class="odd"><td><a>ENGR 110</a><span class="blockindent">&amp; <a>ENGR 115</a></span></td><td>X</td><td>3</td></tr>'
+                '<tr class="even orclass"><td><div style="margin-left:20px;" class="blockindent">or <a>ENGR 310</a></div></td><td>Y</td><td></td></tr>'
+                '<tr class="even"><td><div style="margin-left:20px;" class="blockindent"><a>ACTG 417</a></div></td><td>ADV</td><td></td></tr></tbody></table>')
+        t = course_lists(html)[0]
+        self.assertEqual((t['heading'], t['context'], t['caption']), ('Major Requirements', 'Students must select one focus area.', 'Course List'))
+        self.assertEqual([(r['classes'], r['cells'][0]['text'], r['cells'][0]['indent']) for r in t['rows']],
+                         [(['even', 'areaheader'], 'Core', False), (['odd'], 'ENGR 110& ENGR 115', False), (['even', 'orclass'], 'or ENGR 310', True), (['even'], 'ACTG 417', True)])

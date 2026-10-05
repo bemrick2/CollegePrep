@@ -180,6 +180,7 @@ def crawl_target(target, run: Run, fetcher, browser=None, log=print, caps=None):
     for u in cat.get('program_lists', []): push(u, 'program_list', 'target')
     for u in target.get('degree_maps', []): push(u, 'degree_map_index', 'target')
     for u in (target.get('map_sources') or {}).get('lists', []): push(u, 'map_list', 'target')
+    for u in cat.get('catalog_pdfs', []): push(u, 'catalog_pdf', 'target')  # a catalog's own full PDF (fetched up to 80 MB)
     for u in target.get('policy', []): push(u, 'policy', 'target')
     for u in target.get('discover', []): push(u, 'discover', 'target')
     # Resume: re-expand stored pages' links
