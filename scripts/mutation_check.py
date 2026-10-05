@@ -184,6 +184,20 @@ MUTS = [
     ('pipeline/extractors/costs.py', 'on[- ]campus\\s*/\\s*off[- ]campus|on\\s*(/|and', 'on\\s*(/|and'),
     ('pipeline/extractors/costs.py', '(a\\s+)?(parents?|family)|', '(a\\s+)?parents?|'),
     ('pipeline/extractors/transfer.py', 'unaccredited|high\\s+school|', 'unaccredited|'),
+    ('pipeline/extractors/costs.py', "r'\\bno\\s+out[- ](?:of[- ])?state|", "r'(?!x)x|"),
+    ('pipeline/extractors/costs.py', "\\bnot\\s+charge\\s+out[- ]of[- ]state|'", "'"),
+    ('pipeline/extractors/costs.py', "r'\\bresidents?\\s*(?:&|and|/)\\s*non-?\\s?residents?'", "r'(?!x)x'"),
+    ('pipeline/extractors/costs.py', '(?:midwest|msep|wue|reciprocity)\\W+non', '(?:zzzz)\\W+non'),
+    ('pipeline/extractors/costs.py', "|\\bresidents?\\s+of\\s+other\\s+states'", "'"),
+    ('pipeline/extractors/costs.py', '        semester_only = True\n', '        pass\n'),
+    ('pipeline/extractors/transfer.py', '(?:some|certain|specific|health)\\s+[\\w/ -]{0,60}?programs?\\s+require|', ''),
+    ('pipeline/extractors/transfer.py', 'students\\s+planning\\s+to\\s+transfer|', ''),
+    ('pipeline/extractors/dual.py', 'overload|petition|', 'overload|'),
+    ('pipeline/extractors/dual.py', 'course\\s+requirements\\s+for|', ''),
+    ('pipeline/extractors/merit.py', '^\\W*(?:jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\\.?\\s+\\d{1,2}\\W*$|', ''),
+    ('pipeline/extractors/merit.py', "r'course[- ]awards|", "r'"),
+    ('pipeline/extractors/merit.py', '|\\bclep\\b|examination', '|examination'),
+    ('pipeline/extractors/merit.py', '|examination[- ]program|(?:private', '|(?:private'),
 ]
 failed = False
 for f, old, new in MUTS:
