@@ -54,7 +54,8 @@ export function parentActions(i: ActionInput, max = 5): ParentAction[] {
 
   const top = i.focus[0]
   if (top) out.push({ key: `focus-${top.section}`, rank: 3, tone: 'warn', title: `Focus on ${exam} ${top.label} this week`, detail: top.detail })
-  if (i.behind) out.push({ key: 'behind', rank: 4, tone: 'warn', title: "Behind on this week's goal", detail: `${i.behind.done} of ${i.behind.goal} questions; about ${i.behind.expected} would be on track by today.` })
+  // "Behind" only once practice has started; a student who hasn't begun gets the benchmark step instead.
+  if (i.behind && i.benchmarks > 0) out.push({ key: 'behind', rank: 4, tone: 'warn', title: "Behind on this week's goal", detail: `${i.behind.done} of ${i.behind.goal} questions; about ${i.behind.expected} would be on track by today.` })
   if (i.linked && i.idleDays !== null && i.idleDays >= 3) out.push({ key: 'idle', rank: 4, tone: 'warn', title: `No practice in ${i.idleDays} days`, detail: 'A quick check-in usually restarts the habit.' })
 
   if (i.schools.length === 0) {

@@ -25,11 +25,15 @@ def code_in(text, code):
     return re.search(rf'\b{re.escape(subj)}\s?{re.escape(num)}\b', text, re.I) is not None
 
 
-def check_candidate(c, text):
+def check_candidate(c, text, other=None):
     probs = []
     r = c['record']; t = norm(text); squashed = squash(text)
     if c.get('extractor') in ('thec_inventory/v1', 'coursedog_api/v1'):  # structured rows: every quoted field value is in the response
         for ev in c.get('evidence', []):
+            if ev.get('sha256') and ev['sha256'] != c['source'].get('sha256') and other:  # evidence from another stored document (catalog year)
+                if norm(ev.get('snippet', '')) not in norm(other(ev['sha256'])) and not all(norm(x) in norm(other(ev['sha256'])) for x in ev.get('snippet', '').split(' ', 1)):
+                    probs.append(f"{ev['field']} snippet not in its source document")
+                continue
             if ev.get('value') not in (None, '') and json.dumps(ev['value'], ensure_ascii=False) not in text and str(ev['value']) not in text:
                 probs.append(f"{ev['field']} value not in source response")
         return probs
@@ -47,6 +51,8 @@ def check_candidate(c, text):
         for term in rd.get('terms', []) or []:
             items += [i for i in term.get('items', []) if isinstance(i, dict)]
         for i in items:
+            for f in ('text', 'milestone'):  # printed text rows and milestone cells (UO degree maps)
+                if i.get(f) and squash(i[f]) not in squashed: probs.append(f"{f} of an item not verbatim")
             if 'code' in i and not code_in(text, i['code']): probs.append(f"course {i['code']} not in source")
             elif i.get('title') and not all(squash(part) in squashed for part in re.split(r'\s*\(', i['title'][:80]) if squash(part)):
                 # PDF plans print a gen-ed tag such as "(Quantitative Reasoning)" on the next line; each part must be printed
@@ -64,7 +70,11 @@ def main(run_dir, keys=None):
         if keys and c['institution_key'] not in keys: continue
         pf = pages.get(c['source'].get('sha256'))
         if pf not in cache: cache[pf] = run.load_page(pf)[0].text if pf else ''
-        probs = check_candidate(c, cache[pf]) if pf else ['source document not in run']
+        def other(sha):
+            f = pages.get(sha)
+            if f not in cache: cache[f] = run.load_page(f)[0].text if f else ''
+            return cache[f]
+        probs = check_candidate(c, cache[pf], other) if pf else ['source document not in run']
         report[c['candidate_id']] = probs
         bad += bool(probs)
     for line in (d / 'evidence.jsonl').read_text().splitlines():
