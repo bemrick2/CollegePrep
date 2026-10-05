@@ -13,6 +13,12 @@ const base: ActionInput = {
 }
 
 describe('parentActions', () => {
+  it('does not nag "behind" before practice has started', () => {
+    const fresh = parentActions({ ...base, benchmarks: 0, behind: { done: 0, goal: 40, expected: 6 } })
+    expect(fresh.some((x) => x.key === 'behind')).toBe(false)
+    expect(fresh.some((x) => x.key === 'bench')).toBe(true)
+  })
+
   it('leads with the weakest section and a benchmark when due', () => {
     const a = parentActions({ ...base, schedule: { ...base.schedule, inDays: 0, overdueDays: 3 } })
     expect(a.map((x) => x.key).slice(0, 2)).toEqual(['bench', 'focus-math'])

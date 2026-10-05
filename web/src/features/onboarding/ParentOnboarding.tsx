@@ -170,7 +170,7 @@ export function ParentOnboarding() {
           <Num n={1} /> Your student creates an account and chooses “I have an invite code”.
         </li>
         <li className="flex gap-3">
-          <Num n={2} /> They take a short benchmark — about 25 minutes — to set a baseline.
+          <Num n={2} /> They take a short benchmark — about 30 minutes — to set a baseline.
         </li>
         <li className="flex gap-3">
           <Num n={3} /> You'll see progress, pacing and next steps on your dashboard.

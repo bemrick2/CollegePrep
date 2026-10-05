@@ -101,6 +101,7 @@ describe('app flows', () => {
     // Ways to lower the cost: verified levers, conservative merit status, no dollar total.
     expect(screen.getAllByRole('heading', { name: 'Ways to lower this cost' }).length).toBeGreaterThan(0)
     expect(screen.getByText('4 more ACT points reaches 4 merit awards (ACT 31+)')).toBeInTheDocument()
+    await user.click(screen.getByRole('button', { name: /^Show \d+ more$/ }))
     expect(screen.getByText('3 need-based or access programs')).toBeInTheDocument()
     // Elevate one school as the primary target; it moves first.
     await user.click(screen.getAllByRole('button', { name: 'Make primary target' })[0]!)
