@@ -270,3 +270,32 @@ class ReviewFindingsTests(unittest.TestCase):
         from programs.promote import _quote
         ev = {'a': {'sentence': 'One.', 'url': 'https://x', 'sha256': 'h', 'fetched_at': '2026'}, 'b': {'sentence': 'Two.', 'url': 'https://x', 'sha256': 'h', 'fetched_at': '2026'}}
         self.assertEqual(_quote(['a', 'b'], ev)[0], 'One. … Two.')
+
+
+class ThecCipTests(unittest.TestCase):
+    def test_federal_cip_only_when_layout_confirmed(self):
+        self.assertEqual(X.federal_cip({'MajorCipCode': '09.14.1901.00', 'MajorTaxCode': '09'}), '14.1901')
+        self.assertIsNone(X.federal_cip({'MajorCipCode': '09.14.1901.00', 'MajorTaxCode': '06'}))  # layout not confirmed
+        self.assertIsNone(X.federal_cip({'MajorCipCode': '14.1901', 'MajorTaxCode': '09'}))
+
+    def test_inventory_rows_bachelor_only_and_unlabeled_year(self):
+        rows = [{'MajorName': 'MECHANICAL ENGINEERING', 'Award': 'BSME', 'MajorCipCode': '09.14.1901.00', 'MajorTaxCode': '09', 'CurrentProgramStatus': 'Active', 'CreditOrClockHours': '128'},
+                {'MajorName': 'MECHANICAL ENGINEERING', 'Award': 'MS', 'MajorCipCode': '09.14.1901.00', 'MajorTaxCode': '09', 'CurrentProgramStatus': 'Active'},
+                {'MajorName': 'NURSING', 'Award': 'C4', 'CurrentProgramStatus': 'Active'}]
+        out = X.thec_candidates({'institution_key': 'utk'}, {'url': 'https://thec.example/x', 'sha256': 'z', 'fetched_at': '2026-10-05T00:00:00'}, rows, '2026-27')
+        self.assertEqual(len(out), 1)
+        self.assertEqual(out[0]['record']['cip_code'], '14.1901')
+        self.assertEqual(out[0]['year_basis'], 'source_unlabeled')  # promotes as partially_verified, never verified
+
+
+class InventoryMatchTests(unittest.TestCase):
+    def test_exact_major_and_award_only(self):
+        from programs import match as Mt
+        rows = [{'MajorName': 'MECHANICAL ENGINEERING', 'Award': 'BSME'}, {'MajorName': 'COMPUTER SCIENCE', 'Award': 'BS'},
+                {'MajorName': 'PSYCHOLOGY', 'Award': 'BA'}, {'MajorName': 'PSYCHOLOGY', 'Award': 'BA'}]
+        recs = [{'program_key': 'me', 'program_name': 'Mechanical Engineering, B.S.M.E.'},
+                {'program_key': 'cyber', 'program_name': 'Computer Science: Cyber Security, B.S.'},
+                {'program_key': 'psy', 'program_name': 'Psychology, B.A.'},          # two identical rows: ambiguous
+                {'program_key': 'me-env', 'program_name': 'Mechanical Engineering, B.S.'},  # award differs
+                {'program_key': 'cs-ai', 'program_name': 'Computer Sciences, B.S.'}]        # name differs
+        self.assertEqual(sorted(Mt.match(recs, rows)), ['cyber', 'me'])

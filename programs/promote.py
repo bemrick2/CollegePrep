@@ -128,7 +128,11 @@ def apply_field(f, folders, ev, archive):
     payload = json.loads(path.read_text())
     rec = next((r for r in payload['records'] if r['program_key'] == f['program_key']), None)
     if rec is None: raise ValueError(f"field for {f['program_key']!r}: program not on file")
-    quote, src = _quote(f['evidence_ids'], ev)
+    if f.get('source_doc'):  # a structured official record (e.g. THEC inventory row), quoted as printed
+        sd = f['source_doc']
+        quote, src = sd['excerpt'], {'url': sd['url'], 'sha256': sd['sha256'], 'fetched_at': sd['fetched_at']}
+    else:
+        quote, src = _quote(f['evidence_ids'], ev)
     detail = {'quote': quote, 'source_url': src['url'], 'source_sha256': src['sha256'], 'retrieved_at': src['fetched_at'][:10]}
     for k in ('criteria_text', 'gpa_min', 'paths', 'notes'):
         if f.get(k) is not None: detail[k] = f[k]
@@ -138,10 +142,11 @@ def apply_field(f, folders, ev, archive):
         rec['internal_transfer'] = {'restricted': f['value'], **detail}
     elif f['field'] == 'cip_code':
         rec['cip_code'] = f['value']; rec['cip_source_url'] = src['url']
+        rec['notes'] = (rec.get('notes', '') + f" CIP {f['value']} from {src['url']} (document sha256 {src['sha256'][:16]}): {quote}").strip()
     else:
         raise ValueError(f"unknown field {f['field']}")
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
-    archive[f"field:{f['institution_key']}:{f['program_key']}:{f['field']}"] = {'decision': f, 'sentences': [ev[i] for i in f['evidence_ids']]}
+    archive[f"field:{f['institution_key']}:{f['program_key']}:{f['field']}"] = {'decision': f, 'sentences': [ev[i] for i in f.get('evidence_ids', [])]}
     return 1
 
 
