@@ -31,7 +31,7 @@ Runs: TN: `programs/runs/TN/2026-10-05-a`, `programs/runs/TN/2026-10-05-b`, `pro
 | 2 | Southern Oregon University (OR) | acalog | 0 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
 | 2 | Western Oregon University (OR) | to be located | 0 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
 | 2 | Willamette University (OR) | coursedog | 58 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
-| 2 | Austin Peay State University (TN) | coursedog | 5 | 50 | 51 | 10 | 53 | — | 1 / 3 | 4 | 11 / 12 | 5 | 2 | 0 | 0 | yes |
+| 2 | Austin Peay State University (TN) | coursedog | 5 | 50 | 51 | 10 | 53 | — | 1 / 3 | 4 | 11 / 12 | 5 | 2 | 0 | 5 | yes |
 | 2 | Carson-Newman University (TN) | coursedog | 8 | – | 66 | 0 | 0 | — | 0 | 2 | 14 | 2 | 2 | 0 | 0 | — |
 | 2 | Lee University (TN) | acalog | 0 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
 | 2 | Lincoln Memorial University (TN) | to be located | 0 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
@@ -153,7 +153,7 @@ Field cells: verified programs matching the field by printed name or CIP family 
 - **Southern Oregon University** (OR, P2): catalog program pages behind a bot challenge (recorded, not evaded); no reviewed program_catalogs record (completeness unknown); no verified programs; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
 - **Western Oregon University** (OR, P2): current catalog not retrieved; no reviewed program_catalogs record (completeness unknown); no verified programs; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
 - **Willamette University** (OR, P2): no reviewed program_catalogs record (completeness unknown); no verified programs; priority fields listed but not verified: engineering, computer_science, business_finance, nursing_health, psychology; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
-- **Austin Peay State University** (TN, P2): no verified degree maps; no verified admission-to-major facts
+- **Austin Peay State University** (TN, P2): no verified degree maps
 - **Carson-Newman University** (TN, P2): no reviewed program_catalogs record (completeness unknown); no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
 - **Lee University** (TN, P2): catalog program pages behind a bot challenge (recorded, not evaded); no reviewed program_catalogs record (completeness unknown); no verified programs; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
 - **Lincoln Memorial University** (TN, P2): current catalog not retrieved; no reviewed program_catalogs record (completeness unknown); no verified programs; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
