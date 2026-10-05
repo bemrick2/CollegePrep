@@ -81,7 +81,7 @@ MUTS = [
     ('pipeline/extractors/merit.py', "if i == gpa_col and re.search(r'\\d\\.\\d', header[i]) and re.search(r'\\b(act|sat)\\b', v, re.I):", 'if False:'),
     ('pipeline/extractors/merit.py', "f'{name} {v}' if v and SCORE.search(v) and not re.search(r'\\b(act|sat)\\b', v, re.I) else v", "f'{name} {v}' if v else v"),
     ('pipeline/extractors/merit.py', '|\\bno\\s+test|test[\\s-]*optional|without\\s+(a\\s+)?test', ''),
-    ('pipeline/extractors/costs.py', "(None if re.search(r'on\\s*(/|and|&|or)\\s*off[- ]campus|on[- ]\\s*(and|&|or)\\s*off[- ]campus', h) else", '(None if False else'),
+    ('pipeline/extractors/costs.py', "(None if re.search(r'on[- ]campus\\s*/\\s*off[- ]campus|on\\s*(/|and|&|or)\\s*off[- ]campus|on[- ]\\s*(and|&|or)\\s*off[- ]campus', h) else", '(None if False else'),
     ('pipeline/extractors/merit.py', 'lo, hi = None, None  # LSUS', 'pass  # LSUS'),
     ('pipeline/extractors/merit.py', "rec['renewable'] = False  # UL Lafayette", 'pass  # UL Lafayette'),
     ('pipeline/extractors/transfer.py', "r'(?<!non-)(?<!non)developmental|(?:for|exempt\\s+the)\\s+placement|placement\\s+(?:assessment|test|exam)|math(?:ematics)?\\s+and\\s+science|block\\s+transfer|'", "r'^$|'"),
@@ -173,12 +173,17 @@ MUTS = [
     ('pipeline/extractors/costs.py', '|not\\s+living\\s+at\\s+home|', '|'),
     ('pipeline/extractors/costs.py', '|at[- ]home|', '|at home|'),
     ('pipeline/extractors/costs.py', "    if not ctx['period'] and lead_period: ctx['period'] = 'semester'", '    pass'),
-    ('pipeline/extractors/costs.py', "                   if not re.search(r'(?:credits?|hours?)\\s*$', (t.get('lead') or '')[:m.start()], re.I)]", "                   if True]"),
+    ('pipeline/extractors/costs.py', "                   if not re.search(r'(?:credits?|hours?)\\s*$', (t.get('lead') or '')[:m.start()], re.I)]", '                   if True]'),
     ('pipeline/extractors/transfer.py', '(?:semester\\s+)?(?:credit\\s+)?(?:hours\\s+)?of\\s+the', 'of\\s+the'),
     ('pipeline/extractors/transfer.py', "|(?:gpa|grade\\s+point\\s+average)(?:[^.]|\\.(?=\\d)){0,40}\\b(?:for|on|in|during)\\s+the\\s+(?:last|final)|recognition|honors', s, re.I)", "|recognition|honors', s, re.I)"),
     ('pipeline/extractors/transfer.py', "|recognition|honors', s, re.I)", "', s, re.I)"),
     ('pipeline/extractors/transfer.py', '|honors|required\\s+to\\s+accept|engineering\\s+programs|option\\s+[a-z]\\b|', '|'),
     ('pipeline/extractors/transfer.py', "r'composition|unaccredited|", "r'composition|"),
+    ('pipeline/extractors/merit.py', "NOT_MERIT = re.compile(r'\\bexamples?\\b|", "NOT_MERIT = re.compile(r'"),
+    ('pipeline/extractors/merit.py', "    if re.search(r'(?:^|[-–|:]\\s*)loans?\\s*$', page.title, re.I): return []", '    pass'),
+    ('pipeline/extractors/costs.py', 'on[- ]campus\\s*/\\s*off[- ]campus|on\\s*(/|and', 'on\\s*(/|and'),
+    ('pipeline/extractors/costs.py', '(a\\s+)?(parents?|family)|', '(a\\s+)?parents?|'),
+    ('pipeline/extractors/transfer.py', 'unaccredited|high\\s+school|', 'unaccredited|'),
 ]
 failed = False
 for f, old, new in MUTS:

@@ -22,14 +22,17 @@ TN={
  'mtsu':dict(priority=1,catalog=acalog('catalog.mtsu.edu',49,[12728,12850,12870]),policy=[
    'https://nursing.mtsu.edu/future-bsn-students/','https://university-college.mtsu.edu/advising_undecided_chooseyourmajor/',
    'https://csc.mtsu.edu/scholarships/','https://jones.mtsu.edu/scholarships/','https://www.mtsu.edu/engineering/'],
-   degree_maps=['https://www.mtsu.edu/advising/maps.php','https://mtsu.edu/academic-maps/']),
+   degree_maps=[], degree_map_link=r'catalog\.mtsu\.edu/mime/media/view/49/\d+',
+   map_sources={'lists':['https://www.mtsu.edu/programs/','https://www.mtsu.edu/ucat/'],'page_link':r'www\.mtsu\.edu/programs?/[a-z0-9-]+/?$'}),
  'memphis':dict(priority=1,catalog=acalog('catalog.memphis.edu',43,[3163,3164,3170,3180]),policy=[
    'https://www.memphis.edu/aac/prepare/faqs.php','https://www.memphis.edu/fcbeundergrad/programs/bba-requirements.php',
    'https://www.memphis.edu/herff/future-students/orientation.php','https://www.memphis.edu/herff/students/scholarships.php',
    'https://www.memphis.edu/me/program/undergraduate/bsme_requirement.php','https://www.memphis.edu/nursing/program-admit/bsn/bsnadmissions.php',
-   'https://www.memphis.edu/fcbescholarships/scholarships/undergraduate/freshmen-1.php']),
+   'https://www.memphis.edu/fcbescholarships/scholarships/undergraduate/freshmen-1.php'],
+   degree_maps=['https://www.memphis.edu/cas/advising/degree_sheets.php'], degree_map_any_pdf=True),
  'tntech':dict(priority=1,render='browser',catalog={'platform':'coursedog','home':'https://undergrad.catalog.tntech.edu/','path_prefix':'/programs/','min_depth':0,
-   'program_lists':['https://undergrad.catalog.tntech.edu/programs','https://undergrad.catalog.tntech.edu/ugrequirements/majors']},
+   'program_lists':['https://undergrad.catalog.tntech.edu/programs','https://undergrad.catalog.tntech.edu/ugrequirements/majors']
+     +[f'https://undergrad.catalog.tntech.edu/programs?page={n}&pq=&sortBy=name' for n in range(2,13)]},
    policy=['https://www.tntech.edu/admissions/freshmen/index.php','https://www.tntech.edu/business/scholarships.php','https://www.tntech.edu/cis/undecided_majors.php',
    'https://www.tntech.edu/engineering/programs/csc/undergraduate-program.php','https://www.tntech.edu/engineering/programs/index.php',
    'https://www.tntech.edu/nursing/bsn-program.php','https://www.tntech.edu/sacscoc/academic_program_inventory.php','https://www.tntech.edu/engineering/admissions.php'],
@@ -71,6 +74,10 @@ TN={
    'https://lipscomb.edu/admissions/freshmen-admissions/scholars-programs/college-business-swang-scholars-program',
    'https://lipscomb.edu/admissions/freshmen-admissions/scholars-programs/raymond-b-jones-engineering-scholars-program','https://lipscomb.edu/engineering/engineering-scholarship',
    'https://www.lipscomb.edu/engineering/academic-programs/prospective-students','https://lipscomb.edu/one-stop/registrar-faqs']),
+ 'cn':dict(priority=2,render='browser',catalog={'platform':'coursedog','home':'https://catalog.cn.edu/','path_prefix':'/programs/','min_depth':0,
+   'program_lists':['https://catalog.cn.edu/programs']},policy=['https://catalog.cn.edu/academic-policies','https://catalog.cn.edu/admissions']),
+ 'lanecollege':dict(priority=3,render='browser',catalog={'platform':'coursedog','home':'https://catalog.lanecollege.edu/','path_prefix':'/programs/','min_depth':0,
+   'program_lists':['https://catalog.lanecollege.edu/programs']},policy=['https://catalog.lanecollege.edu/academics/academic-regulations']),
  'cbu':dict(priority=1,catalog=smart('cbu.smartcatalogiq.com','/en/2026-2027/catalog/',min_depth=1),policy=[
    'https://www.cbu.edu/academics/undergraduate-programs/electrical-engineering/','https://www.cbu.edu/academics/undergraduate-programs/traditional-bsn-nursing-program/',
    'https://www.cbu.edu/admissions-aid/financial-aid/types-of-financial-aid/scholarships/','https://www.cbu.edu/admissions-aid/financial-aid/types-of-financial-aid/scholarships/pascal-fellowship']),
@@ -105,10 +112,12 @@ OR={
  'linfield':dict(priority=2,catalog={'platform':'courseleaf','home':'https://catalog.linfield.edu/','program_link':r'catalog\.linfield\.edu/programs-az/(.+-major/(index\.html)?|nursing/)$',
    'program_lists':['https://catalog.linfield.edu/programs-az/']},policy=['https://www.linfield.edu/academics/nursing/index.html','https://www.linfield.edu/academics/business/index.html']),
  'lclark':dict(priority=2,catalog={'platform':'courseleaf','home':'https://docs.lclark.edu/undergraduate/','path_prefix':'/undergraduate/','min_depth':1,
-   'program_lists':['https://docs.lclark.edu/undergraduate/policiesprocedures/majorsminors/','https://docs.lclark.edu/undergraduate/programsofstudy/']},
+   'program_lists':['https://docs.lclark.edu/undergraduate/policiesprocedures/majorsminors/'],
+   'major_table':'https://docs.lclark.edu/undergraduate/policiesprocedures/majorsminors/',
+   'award_statement':{'url':'https://docs.lclark.edu/undergraduate/graduationrequirements/requirements/','quote':'Undergraduate work at Lewis & Clark leads to the bachelor of arts degree','credential':'bachelor'}},
    policy=['https://college.lclark.edu/academics/pre_professional/engineering/','https://college.lclark.edu/academics/pre_professional/business_mba/']),
  'willamette-210401':dict(priority=2,render='browser',catalog={'platform':'coursedog','home':'https://catalog.willamette.edu/','path_prefix':'/programs/','min_depth':0,
-   'program_lists':['https://catalog.willamette.edu/programs']},policy=['https://willamette.edu/academics/all-programs?programTypes=undergraduate']),
+   'program_lists':['https://catalog.willamette.edu/programs']+[f'https://catalog.willamette.edu/programs?page={n}&pq=&sortBy=name' for n in range(2,16)]},policy=['https://willamette.edu/academics/all-programs?programTypes=undergraduate']),
  'georgefox':dict(priority=1,catalog={'platform':'drupal','home':'https://www.georgefox.edu/catalog/index.html','program_link':r'georgefox\.edu/catalog/undergrad/curriculum/major_minor/[a-z_]+_major(_[a-z]+)?\.html$',
    'program_lists':['https://www.georgefox.edu/catalog/undergrad/curriculum/major_minor/index.html']},
    policy=['https://www.georgefox.edu/college-admissions/academics/major/index.html','https://www.georgefox.edu/college-admissions/academics/major/engineering.html',
@@ -117,7 +126,8 @@ OR={
    policy=['https://www.eou.edu/academics/on-campus-majors-and-minors/']),
  'sou':dict(priority=2,catalog=acalog('catalog.sou.edu',18,[]),policy=['https://sou.edu/academics/?_degree_facet=major']),
  'up':dict(priority=1,catalog={'platform':'smartcatalog','home':'https://up.smartcatalogiq.com/en','path_prefix':'/en/2026-2027/','min_depth':2,
-   'program_lists':['https://up.smartcatalogiq.com/en/2026-2027/bulletin/university-academic-programs-of-study','https://up.smartcatalogiq.com/en']},
+   'program_lists':['https://up.smartcatalogiq.com/en/2026-2027/bulletin/university-academic-programs-of-study/undergraduate-programs'],
+   'printed_list':{'url':'https://up.smartcatalogiq.com/en/2026-2027/bulletin/university-academic-programs-of-study/undergraduate-programs','heading':'Undergraduate Programs','stop':'Up one level'}},
    discover=['https://up.smartcatalogiq.com/en'],policy=[]),
  'osucascades':dict(priority=2,catalog={'platform':'courseleaf','home':'https://catalog.oregonstate.edu/','path_prefix':'/college-departments/','min_depth':1,
    'program_lists':['https://catalog.oregonstate.edu/programs/'],'list_filter':'OSU-Cascades'},caps={'program_page':0},
@@ -131,7 +141,7 @@ EXTRA_DISCOVER={'up':['https://www.up.edu/registrar/index.html','https://www.up.
  'wou':['https://wou.edu/registrar/','https://wou.edu/academics/'],'corban':['https://www.corban.edu/registrar/catalog/'],
  'warnerpacific-210304':['https://www.warnerpacific.edu/academics/registrar/academic-catalog/'],
  'bushnell':['https://bushnell.edu/academics/academic-support/registrar/academic-catalog/']}
-DISCOVER={'TN':['cn','trevecca','southern','lmunet','cumberland','fhu','king','milligan','bryan','maryvillecollege','sewanee','fisk','tusculum','tnwesleyan','bethelu','lanecollege','loc','johnsonu','welch','baptistu'],
+DISCOVER={'TN':['trevecca','southern','lmunet','cumberland','fhu','king','milligan','bryan','maryvillecollege','sewanee','fisk','tusculum','tnwesleyan','bethelu','loc','johnsonu','welch','baptistu'],
  'OR':['wou','reed','pacificu','corban','bushnell','warnerpacific-210304','multnomah']}
 PRI={'up':1,'georgefox':1,'sou':2,'wou':2,'eou':2,'osucascades':2,'willamette-210401':2,'lclark':2,'reed':2,'linfield':2,'pacificu':2,'cn':2,'trevecca':2,'southern':2,'lmunet':2,'sewanee':2,'maryvillecollege':2}
 BLOCKED_EXTRA={'utk': ['https://advising.utk.edu/', 'https://www.utk.edu/academics/majors'], 'mtsu': ['https://www.mtsu.edu/advising/', 'https://www.mtsu.edu/programs/'], 'memphis': ['https://www.memphis.edu/advising/', 'https://www.memphis.edu/academics/'], 'etsu': ['https://www.etsu.edu/advisement/', 'https://www.etsu.edu/academics/'], 'utm': ['https://www.utm.edu/academics/majors-and-programs', 'https://www.utm.edu/offices/advising'], 'belmont': ['https://www.belmont.edu/academics/majors-programs/'], 'lipscomb': ['https://www.lipscomb.edu/academics'], 'leeuniversity': ['https://www.leeuniversity.edu/academics/']}
