@@ -25,7 +25,7 @@ Runs: TN: `programs/runs/TN/2026-10-05-a`, `programs/runs/TN/2026-10-05-b`, `pro
 | 2 | Eastern Oregon University (OR) | acalog | 30 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
 | 2 | Lewis & Clark College (OR) | courseleaf | 0 | – | 29 | 0 | 0 | yes | 0 | 3 | 1 | 0 | 1 | 0 | 0 | yes |
 | 2 | Linfield University (OR) | courseleaf | 9 | – | 38 | 0 | 0 | — | 0 | 2 | 9 | 2 | 1 | 0 | 0 | — |
-| 2 | Oregon State University-Cascades Campus (OR) | courseleaf | 30 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
+| 2 | Oregon State University-Cascades Campus (OR) | courseleaf | 30 | – | 26 | 0 | 0 | — | 3 | 1 | 3 | 1 | 1 | 0 | 0 | — |
 | 2 | Pacific University (OR) | to be located | 0 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
 | 2 | Reed College (OR) | to be located | 0 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
 | 2 | Southern Oregon University (OR) | acalog | 0 | – | 0 | 0 | 0 | — | 0 | 0 | 0 | 0 | 0 | 0 | 0 | — |
@@ -147,7 +147,7 @@ Field cells: verified programs matching the field by printed name or CIP family 
 - **Eastern Oregon University** (OR, P2): no reviewed program_catalogs record (completeness unknown); no verified programs; priority fields listed but not verified: computer_science, business_finance, psychology; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
 - **Lewis & Clark College** (OR, P2): no verified degree maps; no verified admission-to-major facts
 - **Linfield University** (OR, P2): no reviewed program_catalogs record (completeness unknown); no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
-- **Oregon State University-Cascades Campus** (OR, P2): no reviewed program_catalogs record (completeness unknown); no verified programs; priority fields listed but not verified: engineering, computer_science, business_finance, nursing_health, psychology; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
+- **Oregon State University-Cascades Campus** (OR, P2): no reviewed program_catalogs record (completeness unknown); 4 listed bachelor programs not yet verified; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
 - **Pacific University** (OR, P2): current catalog not retrieved; no reviewed program_catalogs record (completeness unknown); no verified programs; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
 - **Reed College** (OR, P2): current catalog not retrieved; no reviewed program_catalogs record (completeness unknown); no verified programs; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
 - **Southern Oregon University** (OR, P2): catalog program pages behind a bot challenge (recorded, not evaded); no reviewed program_catalogs record (completeness unknown); no verified programs; no verified degree maps; no verified admission-to-major facts; undeclared policy not verified
