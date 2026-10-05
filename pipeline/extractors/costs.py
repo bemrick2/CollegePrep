@@ -101,8 +101,8 @@ def column_meaning(header, home=None, private=False):
     return {
         'residency': residency(h, home, private),
         # Alcorn: "Undergraduate in State On/Off Campus" is one budget for both, not an off-campus budget.
-        'arrangement': (None if re.search(r'on\s*(/|and|&|or)\s*off[- ]campus|on[- ]\s*(and|&|or)\s*off[- ]campus', h) else
-                        'off_campus_not_with_family' if re.search(r'not\s+(living\s+)?(with|w/)\s*(a\s+)?parents?|not\s+living\s+at\s+home|without\s+(a\s+)?parents?|away\s+from\s+(home|parents)', h) else
+        'arrangement': (None if re.search(r'on[- ]campus\s*/\s*off[- ]campus|on\s*(/|and|&|or)\s*off[- ]campus|on[- ]\s*(and|&|or)\s*off[- ]campus', h) else
+                        'off_campus_not_with_family' if re.search(r'not\s+(living\s+)?(with|w/)\s*(a\s+)?(parents?|family)|not\s+living\s+at\s+home|without\s+(a\s+)?parents?|away\s+from\s+(home|parents)', h) else
                         'with_parents_or_family' if re.search(r'(with|w/)\s*(a\s+)?(parents?|family|relatives)|at[- ]home|commut', h) else
                         'off_campus_not_with_family' if re.search(r'off[- ]campus|own\s+(house|home|apartment)', h) else
                         'on_campus' if re.search(r'on[- ]campus|residence hall|student\s+housing|resident(\s+student|\s+budget)?$|resident student|residential', h) else

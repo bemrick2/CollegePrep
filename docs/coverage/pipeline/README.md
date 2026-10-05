@@ -1036,6 +1036,43 @@ Institutions in scope: **60** · crawled: **48** · blocked by site: **12** · r
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-234669`, `ipeds-234827`, `ipeds-235097`, `ipeds-235103`, `ipeds-235316`, `ipeds-235431`, `ipeds-235671`, `ipeds-236258`, `ipeds-236577`, `ipeds-237039`, `ipeds-237109`, `ipeds-443049`
 
+## WI — 2026-27
+
+Institutions in scope: **56** · crawled: **52** · blocked by site: **4** · run: `pipeline/runs/WI/2026-10-04`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 0 (0%) | 0 | 29 (52%) | 50 (89%) | 2 | 4 |
+| cost_of_attendance | 0 (0%) | 0 | 13 (23%) | 50 (89%) | 2 | 4 |
+| admissions_tests | 0 (0%) | 0 | 1 (2%) | 46 (82%) | 6 | 4 |
+| common_data_set | 0 (0%) | 0 | 1 (2%) | 6 (11%) | 46 | 4 |
+| merit_scholarships | 0 (0%) | 0 | 3 (5%) | 46 (82%) | 6 | 4 |
+| ap_credit | 0 (0%) | 0 | 12 (21%) | 30 (54%) | 22 | 4 |
+| clep_credit | 0 (0%) | 0 | 10 (18%) | 26 (46%) | 26 | 4 |
+| ib_credit | 0 (0%) | 0 | 5 (9%) | 13 (23%) | 39 | 4 |
+| dual_enrollment | 0 (0%) | 0 | 6 (11%) | 34 (61%) | 18 | 4 |
+| transfer_credit | 0 (0%) | 0 | 8 (14%) | 51 (91%) | 1 | 4 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 25 (45%) | 27 | 4 |
+| residency | 0 (0%) | 0 | 0 (0%) | 31 (55%) | 21 | 4 |
+| degree_requirements | 0 (0%) | 0 | 1 (2%) | 38 (68%) | 14 | 4 |
+| aid_appeals | 0 (0%) | 0 | 33 (59%) | 41 (73%) | 11 | 4 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 13 |
+| blocked requests | 150 |
+| candidates | 238 |
+| conflicts | 63 |
+| documents | 3863 |
+| extraction failures | 0 |
+| fetch errors | 81 |
+| fetches | 4094 |
+| ready | 47 |
+| semantic review | 88 |
+| stale sources | 34 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-238193`, `ipeds-240107`, `ipeds-240198`, `ipeds-240365`
+
 ## WY — 2026-27
 
 Institutions in scope: **8** · crawled: **8** · blocked by site: **0** · run: `pipeline/runs/WY/2026-10-04`
