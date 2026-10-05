@@ -608,3 +608,25 @@ class AwardHeadingTests(unittest.TestCase):
         out = X.award_heading_candidates({'institution_key': 'k'}, e, T.Page(txt, 'College', [], links, []), '2026-27')
         self.assertEqual([(c['record']['program_name'], c['record']['catalog_year'], c['record']['program_url'][-4:]) for c in out],
                          [('Art Major', '2026-2027', '1846'), ('Business Major [BAS]', '2026-2027', '1990')])
+
+
+class AcalogPlanTests(unittest.TestCase):
+    def test_four_year_curriculum_and_college_page_link(self):  # Eastern Oregon 2026-27
+        from pipeline import text as T
+        college = T.Page('\n'.join(['2026-2027 Academic Catalog', 'Art', 'Go to information for Art.', 'Programs', 'Bachelor of Arts/Bachelor of Science', '•', 'Art Major',
+                                    'Minor', '•', 'Art Minor', 'Four Year Plan(s)', '•', 'Art Typical Four Year Curriculum', 'Theatre', 'Go to information for Theatre.']),
+                         'College', [], [('https://catalog.eou.edu/preview_program.php?catoid=8&poid=1847', 'Art Typical Four Year Curriculum')], [])
+        links = X.college_plan_links(college)
+        self.assertEqual(links, {'https://catalog.eou.edu/preview_program.php?catoid=8&poid=1847': 'Art Major'})
+        txt = '\n'.join(['2026-2027 Academic Catalog', '2025-2026 Academic Catalog [NOT CURRENT CATALOGS]', 'Art Typical Four Year Curriculum', 'TYPICAL FIRST YEAR CURRICULUM',
+                         'Fall', 'ART 101 Foundations of Visual Literacy*AEH (4)', 'General Education and non-art Elective Courses (12)', 'Winter', 'ART 121 Design II*APC (4)',
+                         'Spring', 'SOC 204Z Introduction to Sociology*SSC (4) OR SOC 206Z Social Problems*SSC (4)', 'TYPICAL SECOND YEAR CURRICULUM', 'Fall', 'ART 230 Drawing II (4)',
+                         'Note: courses may be taken in either order.', 'Back to Top'])
+        e = {'url': 'https://catalog.eou.edu/preview_program.php?catoid=8&poid=1847', 'sha256': 's', 'fetched_at': '2026-10-05T00:00:00'}
+        c = X.acalog_plan({'institution_key': 'k'}, e, T.Page(txt, 'Program: Art Typical Four Year Curriculum', [], [], []), 'Art Major', '2026-27')[0]
+        rd = c['record']['rule_details']
+        self.assertEqual((c['record']['program_key'], rd['catalog_year'], len(rd['terms'])), ('art-major', '2026-2027', 4))
+        self.assertEqual(rd['terms'][0]['label'], 'TYPICAL FIRST YEAR CURRICULUM — Fall')
+        self.assertEqual(rd['terms'][0]['items'][0], {'code': 'ART 101', 'title': 'Foundations of Visual Literacy*AEH', 'credits': 4})
+        self.assertIsInstance(rd['terms'][2]['items'][0], str)  # an 'X OR Y' line stays printed text
+        self.assertEqual(rd['course_rules'], ['Note: courses may be taken in either order.'])
