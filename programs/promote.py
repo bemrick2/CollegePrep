@@ -113,6 +113,8 @@ def promote(decisions_path: Path, log=print):
         written += 1
     for f in d.get('fields', []):
         written += apply_field(f, folders, ev, archive)
+    for mg in d.get('merge', []):
+        written += apply_merge(mg, folders, archive)
     for cat in d.get('catalogs', []):
         written += apply_catalog(cat, folders, ev, archive)
     out = ROOT / 'sources/programs' / state / run_dir.name / 'evidence.json'
@@ -177,6 +179,30 @@ def apply_field(f, folders, ev, archive):
         raise ValueError(f"unknown field {f['field']}")
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
     archive[f"field:{f['institution_key']}:{f['program_key']}:{f['field']}"] = {'decision': f, 'sentences': [ev[i] for i in f.get('evidence_ids', [])]}
+    return 1
+
+
+def apply_merge(mg, folders, archive):
+    """Reviewer-confirmed: an unpromoted-to-live state-inventory record (THEC) and a catalog record are one program whose
+    printed names differ ('EARTH AND ENVIRONMENTAL SCIENCES, BS' / 'Earth and Environmental Science (B.S.)'). The
+    inventory's CIP moves to the catalog record (quoted), and the inventory record is removed. Only inventory records
+    may be dropped, and only before they are imported (the decision must say so)."""
+    year = mg.get('academic_year', '2026-27')
+    path = _file_for(folders[mg['institution_key']], 'academic_programs', year)
+    payload = json.loads(path.read_text())
+    recs = {r['program_key']: r for r in payload['records']}
+    keep, drop = recs.get(mg['keep']), recs.get(mg['drop'])
+    if not keep or not drop: raise ValueError(f"merge {mg}: record missing")
+    if drop.get('program_url') != THEC_PAGE or keep.get('program_url') == THEC_PAGE:
+        raise ValueError(f"merge {mg}: only a state-inventory record can be folded into a catalog record")
+    if not mg.get('not_yet_imported'): raise ValueError('merge requires not_yet_imported: true (deletions do not propagate to the live database)')
+    if drop.get('cip_code') and not keep.get('cip_code'):
+        keep['cip_code'] = drop['cip_code']; keep['cip_source_url'] = drop['cip_source_url']
+        keep['notes'] = (keep.get('notes', '') + f" CIP {drop['cip_code']} from the THEC inventory record '{drop['program_name']}', "
+                         f"matched by reviewer: {mg['reason']}").strip()
+    payload['records'] = [r for r in payload['records'] if r['program_key'] != mg['drop']]
+    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+    archive[f"merge:{mg['institution_key']}:{mg['drop']}->{mg['keep']}"] = {'decision': mg, 'dropped': drop}
     return 1
 
 
