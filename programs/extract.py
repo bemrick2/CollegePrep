@@ -15,7 +15,7 @@ Extraction never infers: a program's absence from a list is not recorded as "not
 copied as printed with its URL and document hash; the credential level comes only from the printed name.
 """
 from __future__ import annotations
-import json, re
+import hashlib, json, re
 from collections import defaultdict
 from datetime import date
 from pathlib import Path
@@ -188,7 +188,8 @@ def extract_run(targets, run_dir, today=None):
                     for cat, rx in EVIDENCE:
                         if rx.search(s) and (cat, s) not in seen_ev:
                             seen_ev.add((cat, s))
-                            evidence.append({'institution_key': key, 'category': cat, 'sentence': s,
+                            evidence.append({'evidence_id': hashlib.sha1(f"{e.get('sha256')}|{s}".encode()).hexdigest()[:14],
+                                             'institution_key': key, 'category': cat, 'sentence': s,
                                              'url': common.source_of(e)['url'], 'sha256': e.get('sha256'),
                                              'fetched_at': e.get('fetched_at'), 'page_title': e.get('title', ''),
                                              'role': e.get('role'), 'year_labels': sorted(T.year_labels(page.title + ' ' + page.text[:3000]))})

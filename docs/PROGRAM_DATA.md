@@ -116,3 +116,23 @@ These schools get no second `institution.json`. A second one would collide with 
 | etsu | ipeds-220075 | East Tennessee State University |
 | belmont | ipeds-219709 | Belmont University |
 | vanderbilt | ipeds-221999 | Vanderbilt University |
+
+## CR-14 program-depth fields (migration `20261005150000_program_depth_cr14`)
+
+Optional on `academic_programs`; null means not verified. Each carries its own evidence because admission rules are
+usually published on a different page than the catalog program page.
+
+| field | shape | rule |
+| --- | --- | --- |
+| `cip_code` + `cip_source_url` | `"14.1901"`, https URL | Only from an official source that prints the code for this program (state program inventory, institutional CIP list). Never matched by name. |
+| `admission_type` + `admission_details` | `direct` / `pre_major` / `open`; `{quote, source_url, source_sha256, retrieved_at, criteria_text?, gpa_min?, paths?}` | See programs/README.md. A selective first-year path beside a standard path is listed in `paths`; the value is the standard path. |
+| `internal_transfer` | `{restricted, quote, source_url, criteria_text?, gpa_min?}` | Published limits on changing into the major after enrolling. |
+| `college` | text | As printed. |
+
+`program_catalogs` (one per institution and academic year): `catalog_url`, `catalog_year_label`,
+`listed_bachelor_programs`, `programs_complete`, `completeness_basis`, `listed_program_keys` (repository only),
+`undeclared_policy {allowed, quote, source_url, declare_by_text?}`. `programs_complete=true` requires every listed key
+to have a verified program record for the same year (`backend/program_fields.py`). Read API: `program_catalog_status(keys, year)`.
+
+`awards.program_keys` / `awards.cip_codes`: set only when the institution itself ties the award to the program or
+field; `major_requirement` must quote that tie.
