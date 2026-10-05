@@ -140,6 +140,30 @@ def _line_text(ws):
     return ' '.join(w[2] for w in ws)
 
 
+UNFINISHED = re.compile(r'(\b(or|and|the|of|for|to|in|with)|[,:\-–])$')
+
+
+def blocks(line_ys, hour_ys):
+    """Split title lines (sorted by y) into len(hour_ys) consecutive non-empty blocks, block k centred as closely as
+    possible on hours k: a wrapped title's lines straddle the hours printed on its middle line. Returns [(start, end)]
+    index ranges, or None when there are fewer lines than hours."""
+    n, m = len(line_ys), len(hour_ys)
+    if n < m or m == 0: return None
+    INF = float('inf')
+    best = [[INF] * (n + 1) for _ in range(m + 1)]; back = [[0] * (n + 1) for _ in range(m + 1)]
+    best[0][0] = 0.0
+    for k in range(1, m + 1):
+        for j in range(k, n - (m - k) + 1):
+            for i in range(k - 1, j):
+                if best[k - 1][i] == INF: continue
+                c = best[k - 1][i] + (sum(line_ys[i:j]) / (j - i) - hour_ys[k - 1]) ** 2
+                if c < best[k][j]: best[k][j], back[k][j] = c, i
+    out, j = [], n
+    for k in range(m, 0, -1):
+        i = back[k][j]; out.append((i, j)); j = i
+    return out[::-1]
+
+
 def parse_layout(pages):
     """[(year_label, fall_items, fall_total, spring_items, spring_total, problems)] from word positions.
 
@@ -179,18 +203,17 @@ def parse_layout(pages):
                     if HRS.match(t) and abs(x - bands[side]) < 25: continue
                     if t.startswith('*') and y > total[0]: continue    # footnote rows below the total
                     lines.setdefault(round(y), []).append((x, t))
-                items = [[[], h] for h in hours]
-                for ly, ws in sorted(lines.items()):
-                    if ly > total[0] + 2: continue
-                    txt = ' '.join(t for _, t in sorted(ws))
-                    if not items: problems.add('title_without_hours'); break
-                    best = min(range(len(items)), key=lambda i: (abs(items[i][1][0] - ly), i))
-                    if abs(items[best][1][0] - ly) > 22: problems.add('title_far_from_hours')
-                    items[best][0].append((ly, txt))
+                tl = [(ly, ' '.join(t for _, t in sorted(ws))) for ly, ws in sorted(lines.items()) if ly <= total[0] + 2]
+                groups = blocks([y for y, _ in tl], [h[0] for h in hours])
                 built = []
-                for frags, (hy, ht) in items:
-                    if not frags: problems.add('hours_without_title'); continue
-                    built.append([' '.join(t for _, t in sorted(frags)), ht])
+                if groups is None:
+                    problems.add('titles_not_matched_to_hours')
+                else:
+                    for (a, b), (hy, ht) in zip(groups, hours):
+                        if abs(sum(y for y, _ in tl[a:b]) / (b - a) - hy) > 12: problems.add('title_far_from_hours')
+                        title = ' '.join(t for _, t in tl[a:b])
+                        if UNFINISHED.search(title) or re.match(r'^([a-z]|1 \()', title): problems.add('title_looks_split')
+                        built.append([title, ht])
                 out.append(built); totals.append(total[1])
             years.append((row_text(yr), out[0], totals[0], out[1], totals[1], problems))
     return years or None

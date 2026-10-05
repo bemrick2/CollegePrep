@@ -718,3 +718,10 @@ class ClearPathLayoutTests(unittest.TestCase):
         self.assertEqual(spring, [['ANTH 1400: Archaeology', '3'], ['Writing and Communication', '3-4']])
         self.assertTrue(CP.term_ok(fall, ft) and CP.term_ok(spring, st))
         self.assertFalse(CP.term_ok([['Elective', '3']], '4-6'))
+
+    def test_three_line_title_stays_in_one_item(self):  # UTC Biology B.S. Third Year Spring (review 2026-10-05)
+        from programs import clearpath as CP
+        # lines at 100/113/126 belong to the item whose hours print on the middle line (113); the next item's single line is at 143
+        self.assertEqual(CP.blocks([100, 113, 126, 143], [113, 143]), [(0, 3), (3, 4)])
+        self.assertEqual(CP.blocks([114, 128, 143], [121, 143]), [(0, 2), (2, 3)])
+        self.assertIsNone(CP.blocks([100], [100, 120]))
