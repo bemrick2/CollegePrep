@@ -196,6 +196,55 @@ THEC_PAGE = 'https://thec.ppr.tn.gov/AcademicProgramInventorySearch'
 AWARD_LEVEL = [('bachelor', re.compile(r'^B[A-Z.]{0,6}$|^BACHELOR', re.I)), ('associate', re.compile(r'^A[A-Z.]{0,4}$|^ASSOCIATE', re.I))]
 
 
+def catalog_pdf_year(run, entries):
+    """(year label, verbatim line, pdf entry) from the catalog's own generated PDF title page ("2026-2027 Catalog")."""
+    for e in entries:
+        if e.get('role') == 'catalog_pdf' and e.get('page_file'):
+            page, _ = run.load_page(e['page_file'])
+            for line in page.lines[:12]:
+                m = YEAR_LABEL.search(line)
+                if m and int(m.group(2)) == int(m.group(1)) + 1: return f'{m.group(1)}-{m.group(2)}', line.strip(), e
+    return None, None, None
+
+
+def coursedog_cip(v):
+    """'520301' or '52.0201 - Management' -> '52.0301' / '52.0201' (digits as printed, punctuation normalised)."""
+    m = re.match(r'^\s*(\d{2})\.?(\d{4})\b', str(v or ''))
+    return f'{m.group(1)}.{m.group(2)}' if m else None
+
+
+def coursedog_candidates(target, inst, entry, page, yr, today_year):
+    """Coursedog catalog backend program rows -> academic_programs candidates (undergraduate, active, bachelor awards).
+    The catalog year comes from the same catalog's generated PDF title page; without it the year is unlabeled."""
+    try:
+        rows = json.loads(page.text).get('data') or []
+    except (ValueError, AttributeError):
+        return []
+    year, line, pdf = yr
+    home = (target.get('catalog') or {}).get('home', '').rstrip('/')
+    out = []
+    for r in rows:
+        name = (r.get('catalogDisplayName') or '').strip() or (r.get('name') or '').strip()
+        deg = (r.get('degreeDesignation') or '').strip()
+        if (r.get('level') or '') not in ('UG', '') or (r.get('status') or 'Active') != 'Active': continue
+        level = credential_of(f'{name} {deg}') if deg else credential_of(name)
+        if level != 'bachelor' or not r.get('programGroupId'): continue
+        acad = f'{year[:4]}-{year[7:9]}' if year else today_year
+        rec = {'program_key': CAT.slug(name), 'program_name': name, 'credential_level': level,
+               'program_url': f"{home}/programs/{r['programGroupId']}", 'notes': 'From the catalog backend program list (Coursedog) that the official catalog page loads.'}
+        if year: rec['catalog_year'] = year
+        cip = coursedog_cip(r.get('cipCode'))
+        if cip: rec.update(cip_code=cip, cip_source_url=rec['program_url'])
+        ev = [{'field': k, 'value': r.get(k), 'snippet': json.dumps({k: r.get(k)}, ensure_ascii=False)[:200]}
+              for k in ('catalogDisplayName', 'name', 'degreeDesignation', 'level', 'cipCode', 'status', 'effectiveStartDate', 'programGroupId') if k in r]
+        if year: ev.append({'field': 'catalog_year', 'value': year, 'snippet': line, 'source': (pdf or {}).get('url'), 'sha256': (pdf or {}).get('sha256')})
+        c = common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source' if year else 'source_unlabeled', rec, ev, entry,
+                        'coursedog_api/v1', {'program_key': rec['program_key'], 'group': r.get('programGroupId')})
+        c['record']['source_url'] = rec['program_url']  # the public program page; the backend response hash is in the candidate source
+        out.append(c)
+    return out
+
+
 def thec_rows(page):
     try:
         data = json.loads(page.text)
@@ -263,6 +312,11 @@ def extract_run(targets, run_dir, today=None):
             if not e.get('page_file'): continue
             page, _ = run.load_page(e['page_file'])
             inst = {'institution_key': key}
+            if e.get('role') == 'catalog_api' and 'coursedog.com' in e.get('url', ''):
+                yr = catalog_pdf_year(run, es)
+                for c in coursedog_candidates(t, inst, e, page, yr, today_year):
+                    c['program_role'] = 'catalog_api'; cands.append(c); n_c += 1
+                continue
             if e.get('role') == 'state_inventory':
                 rows = thec_rows(page)
                 inventory[key] = rows
