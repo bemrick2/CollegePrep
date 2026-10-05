@@ -4,8 +4,10 @@ import { useApp } from '../../lib/app'
 import { Card, CardHeader, EmptyState, Notice, PageLoading, Pill, ProgressBar, cx } from '../../components/ui'
 import { Chart } from '../../components/icons'
 import { addDays, formatDuration, formatShortDate, localDate } from '../../lib/engine/dates'
-import { SECTION_LABEL, SECTION_ORDER, pacingVerdict } from '../../lib/engine/benchmark'
-import { useStudentOverview, type StudentOverview } from '../student/useStudentOverview'
+import { SECTION_LABEL, SECTION_ORDER, benchmarkImprovement, pacingVerdict } from '../../lib/engine/benchmark'
+import { improvementVerdict } from '../../lib/engine/improving'
+import { ImprovingCard } from '../../components/ImprovingCard'
+import { recentTrend, useStudentOverview, type StudentOverview } from '../student/useStudentOverview'
 import { useCatalog } from '../practice/useCatalog'
 import { BenchmarkResults, PACE_COPY } from '../benchmark/BenchmarkResults'
 import type { SkillEstimate } from '../../lib/data/types'
@@ -68,6 +70,8 @@ function Body({ o, heading, who }: { o: StudentOverview; heading: string; who?: 
   return (
     <div className="grid grid-cols-1 gap-4">
       <h1 className="display text-[28px] font-semibold text-ink">{heading}</h1>
+
+      <ImprovingCard v={improvementVerdict(benchmarkImprovement(o.benchmarks), recentTrend(o.history, o.today, o.tz))} title={who ? `Is ${who} improving?` : 'Am I improving?'} />
 
       <PracticeIndicators history={o.history} who={who} showTrend />
 
