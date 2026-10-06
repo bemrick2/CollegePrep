@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useApp } from '../../lib/app'
 import { Button, Card, CardHeader, Field, Notice, Pill, inputClass } from '../../components/ui'
 import { InviteCode } from '../onboarding/InviteCode'
+import { PlanCard } from './PlanCard'
 import { GRADES, gradeLabel, graduationYearFor } from '../onboarding/options'
 import { DEMO_STUDENT } from '../../lib/data/demo/demoSource'
 
@@ -55,6 +56,7 @@ export function Household() {
         <p className="mt-1 text-sm text-ink-3">Time zone: {household.time_zone}</p>
       </div>
       {error && <Notice tone="bad">{error}</Notice>}
+      {me?.role === 'guardian' && <PlanCard householdId={household.id} />}
 
       <Card>
         <CardHeader

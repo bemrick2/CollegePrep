@@ -9,6 +9,8 @@ import type {
   HouseholdContext,
   InstitutionComparison,
   InstitutionSearchHit,
+  Entitlement,
+  BillingPlan,
   PracticeSession,
   PublicQuestion,
   Skill,
@@ -89,6 +91,15 @@ export interface DataSource {
   /** One saved school the family elevates as its primary target (CR-12). False until the backend supports it;
    *  the UI hides the control and shows no primary while false. */
   readonly supportsPrimarySchool: boolean
+  // Household billing (CR-16). Web purchases go through Stripe Checkout; access is the household entitlement.
+  /** False in the demo and until VITE_BILLING_ENABLED=true; the UI then shows no plan, price or checkout. */
+  readonly supportsBilling: boolean
+  entitlement(householdId: string): Promise<Entitlement>
+  billingPlans(): Promise<BillingPlan[]>
+  /** URL of a Stripe Checkout page for the household plan. */
+  startCheckout(householdId: string, lookupKey: string): Promise<string>
+  /** URL of the Stripe Customer Portal for the household's web subscription. */
+  billingPortalUrl(householdId: string): Promise<string>
   primarySchool(householdId: string): Promise<string | null>
   /** null clears it. The key must already be saved. */
   setPrimarySchool(householdId: string, institutionKey: string | null): Promise<void>

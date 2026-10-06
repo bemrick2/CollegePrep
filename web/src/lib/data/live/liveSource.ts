@@ -2,6 +2,8 @@ import type { SupabaseClient } from '@supabase/supabase-js'
 import type { DataSource } from '../source'
 import { DataError } from '../source'
 import type {
+  BillingPlan,
+  Entitlement,
   AttemptRecord,
   BenchmarkMetrics,
   BenchmarkSummary,
@@ -433,6 +435,36 @@ export class LiveSource implements DataSource {
 
   async removeSchool(householdId: string, institutionKey: string) {
     await rpc<void>(this.sb, 'remove_household_school', { p_household: householdId, p_institution_key: institutionKey })
+  }
+
+  // CR-16 billing: on only when the deployment sets VITE_BILLING_ENABLED=true (edge functions and Stripe ready).
+  readonly supportsBilling = import.meta.env.VITE_BILLING_ENABLED === 'true'
+
+  async entitlement(householdId: string): Promise<Entitlement> {
+    return rpc<Entitlement>(this.sb, 'household_entitlement', { p_household: householdId })
+  }
+
+  private async fn<T>(name: string, body?: Record<string, unknown>): Promise<T> {
+    const { data, error } = await this.sb.functions.invoke(name, body ? { body } : { method: 'GET' })
+    if (error) {
+      // Edge functions answer { error } with a status; surface that message, not a transport error.
+      const ctx = (error as { context?: Response }).context
+      const msg = ctx && typeof ctx.json === 'function' ? ((await ctx.json().catch(() => null)) as { error?: string } | null)?.error : null
+      throw new DataError(msg ?? error.message, 'invalid')
+    }
+    return data as T
+  }
+
+  async billingPlans(): Promise<BillingPlan[]> {
+    return (await this.fn<{ plans: BillingPlan[] }>('billing-plans')).plans
+  }
+
+  async startCheckout(householdId: string, lookupKey: string): Promise<string> {
+    return (await this.fn<{ url: string }>('billing-checkout', { household_id: householdId, lookup_key: lookupKey })).url
+  }
+
+  async billingPortalUrl(householdId: string): Promise<string> {
+    return (await this.fn<{ url: string }>('billing-portal', { household_id: householdId })).url
   }
 
   // CR-12 (primary target school) is not in the backend yet. Hidden in the UI until it lands; no client storage.

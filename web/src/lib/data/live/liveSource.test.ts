@@ -23,6 +23,9 @@ function fakeClient(data: Record<string, unknown>) {
       return builder(c)
     },
     auth: { getUser: () => Promise.resolve({ data: { user: { id: 'u1' } } }) },
+    functions: {
+      invoke: (name: string, opts: unknown) => (calls.push({ kind: 'rpc', name: `fn:${name}`, args: opts, ops: [] }), Promise.resolve({ data: data[`fn:${name}`] ?? null, error: null })),
+    },
   }
   return { sb: sb as unknown as SupabaseClient, calls }
 }
@@ -79,6 +82,26 @@ describe('LiveSource contracts (issue #37)', () => {
     expect(await src.primarySchool('h1')).toBeNull()
     await expect(src.setPrimarySchool('h1', 'utk')).rejects.toThrow(/not available yet/)
     expect(calls).toHaveLength(0)
+  })
+
+  it('CR-16 billing: entitlement RPC, Checkout and Portal through edge functions; no Stripe keys in the client', async () => {
+    const { sb, calls } = fakeClient({
+      household_entitlement: { active: true, status: 'active', can_manage_billing: true, managed_by: 'web' },
+      'fn:billing-checkout': { url: 'https://checkout.stripe.com/c/pay/cs_1' },
+      'fn:billing-portal': { url: 'https://billing.stripe.com/p/session/1' },
+      'fn:billing-plans': { plans: [{ lookup_key: 'pp_family_monthly', unit_amount: 1499, currency: 'usd', interval: 'month', product_name: 'Family' }] },
+    })
+    const src = new LiveSource(sb)
+    expect((await src.entitlement('h1')).managed_by).toBe('web')
+    expect(await src.startCheckout('h1', 'pp_family_monthly')).toBe('https://checkout.stripe.com/c/pay/cs_1')
+    expect(await src.billingPortalUrl('h1')).toBe('https://billing.stripe.com/p/session/1')
+    expect((await src.billingPlans())[0]!.lookup_key).toBe('pp_family_monthly')
+    expect(calls.map((c) => [c.name, c.args])).toEqual([
+      ['household_entitlement', { p_household: 'h1' }],
+      ['fn:billing-checkout', { body: { household_id: 'h1', lookup_key: 'pp_family_monthly' } }],
+      ['fn:billing-portal', { body: { household_id: 'h1' } }],
+      ['fn:billing-plans', { method: 'GET' }],
+    ])
   })
 
   it('CR-5 / CR-8: catalog and questions select the new content fields', async () => {

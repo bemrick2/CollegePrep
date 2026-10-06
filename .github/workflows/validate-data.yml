@@ -64,6 +64,8 @@ jobs:
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/school_comparison.sql
       - name: Test household accounts, permissions and subscriptions
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/household_access.sql
+      - name: Test household billing entitlement (CR-16)
+        run: psql -v ON_ERROR_STOP=1 -f supabase/tests/billing.sql
       - name: Test practice grading, recommendations, estimates and progress
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/practice_engine.sql
       - name: Front-end contract tests (issue #37)
