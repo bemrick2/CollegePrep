@@ -33,6 +33,7 @@ GAPS = {'catalog', 'catalog_count', 'degree_maps', 'requirement_groups', 'admiss
 REASONS = {
     'bot_challenge',            # catalog answers with a bot challenge (recorded, never evaded)
     'robots_disallowed',        # robots.txt disallows the catalog
+    'fetch_failed',             # the official host could not be fetched (TLS certificate chain, DNS, server error), diagnosed
     'no_year_label',            # official pages print no academic year
     'year_inconsistent',        # the source prints conflicting years or totals
     'layout_not_readable',      # the official layout cannot yet be read exactly (held, not guessed)

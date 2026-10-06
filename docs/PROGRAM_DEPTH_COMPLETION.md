@@ -83,5 +83,5 @@ A queued school never counts toward the 80%, so a state cannot be completed by q
 ```
 
 `gap` is one of `catalog`, `catalog_count`, `degree_maps`, `requirement_groups`, `admission_rules`, `institution`.
-`reason` is one of `bot_challenge`, `robots_disallowed`, `no_year_label`, `year_inconsistent`, `layout_not_readable`,
+`reason` is one of `bot_challenge`, `robots_disallowed`, `fetch_failed`, `no_year_label`, `year_inconsistent`, `layout_not_readable`,
 `not_published`, `no_official_statement`, `state_inventory_only`, `not_yet_researched`, `out_of_scope`.
