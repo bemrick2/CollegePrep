@@ -148,7 +148,7 @@ def state_status(state):
 def states_with_work():
     """States the deep dive has worked: a queue file, or a promoted program_catalogs record (only this workstream
     writes catalogs; the national crawler's occasional academic_programs records alone do not start a state)."""
-    s = {p.stem for p in (ROOT / 'programs/queue').glob('*.json')}
+    s = {p.stem for p in (ROOT / 'programs/queue').glob('*.json') if '.' not in p.stem}  # not <STATE>.proposed.json drafts
     folders = {f.parts[-3] for f in (ROOT / 'data/institutions').glob('*/program_catalogs/*.json')}
     if folders:
         for p in sorted((ROOT / 'pipeline/registry').glob('*.json')):

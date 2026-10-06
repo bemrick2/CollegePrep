@@ -39,6 +39,10 @@ MUTS = [
     ('programs/extract.py', "    if printed == name or OPTION_NAME.search(printed): return []", "    pass"),
     ('programs/verify.py', "if not other or norm(r['program_name']) not in norm(other(nev['sha256'])): probs.append", "if False: probs.append"),
     ('programs/verify.py', "if ev.get('field') == 'program_page_heading' and norm(ev.get('value', '')) not in t: probs.append", "if False: probs.append"),
+    ('pipeline/crawl.py', "        return 'robots_unreachable' if getattr(rp, 'unreachable', False) else 'disallowed_by_robots'", "        return 'disallowed_by_robots'"),
+    ('programs/queue_suggest.py', "            if f['challenged'] and not f['program_pages']:", "            if f['challenged'] or f['robots']:"),
+    ('programs/queue_suggest.py', "            if n and hit == 0:", "            if hit == 0:"),
+    ('programs/queue_suggest.py', "        if (k, gap) in have or (k, 'institution') in have: return", "        pass"),
 ]
 
 

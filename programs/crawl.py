@@ -108,7 +108,7 @@ class BrowserFetcher:
 
     def fetch(self, url):
         if not self.base.allowed(url):
-            return {'status': None, 'error': 'disallowed_by_robots'}, None
+            return {'status': None, 'error': self.base.refusal(url)}, None
         host = urlsplit(url).netloc.lower()
         with self.lock:  # one browser page at a time keeps the load equal to a person reading
             entry = self.base.gate.wait(host)
