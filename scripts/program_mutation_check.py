@@ -81,6 +81,13 @@ MUTS = [
     ('programs/crawl.py', "|coursesofinstruction|courses-of-instruction|", "|"),
     ('programs/crawl.py', "                if is_program(h) and re.search(cat['sitemap_program'], h): push(h, 'program_page', url, depth + 1)", "                if is_program(h): push(h, 'program_page', url, depth + 1)"),
     ('programs/crawl.py', "    if cat.get('platform') == 'courseleaf' and cat.get('nav_prefix'):", "    if False:"),
+    # department_section/v1: degree sections on department pages
+    ('programs/extract.py', "        if not m or SECTION_NOT_PROGRAM.search(h) or GRAD.search(m.group('name')): continue", "        if not m: continue"),
+    ('programs/extract.py', "    if len(labels) != 1: return []\n    year = next(iter(labels)); acad = f'{year[:4]}-{year[7:9]}'\n    yline", "    year = max(labels); acad = f'{year[:4]}-{year[7:9]}'\n    yline"),
+    ('programs/extract.py', "                                 r'plan|semester|map|sample|suggested|'", "                                 r''"),
+    ('programs/autoreview.py', "(u in seen_url and c['extractor'] not in SHARED_PAGE)", "(u in seen_url)"),
+    ('programs/autoreview.py', "(u in seen_url and c['extractor'] not in SHARED_PAGE)", "(False)"),
+    ('programs/promote.py', "and c['record']['program_key'] not in on_file_keys\n                        and c['extractor'] != 'department_section/v1')", ")"),
 ]
 
 

@@ -70,6 +70,29 @@ def check_folder_ownership(folders):
                          'regenerate the targets from the current registries')
 
 
+def program_keymap(approvals, cands, folders):
+    """(institution, year, candidate key) -> the key of the program already on file from the same page."""
+    keymap = {}
+    for a in approvals:
+        c = cands[a['candidate_id']]
+        if c['domain'] != 'academic_programs': continue
+        old = _records(folders[c['institution_key']], 'academic_programs', c['academic_year'])
+        cand_name = split_catalog_name(c['record'].get('program_name', ''))
+        on_file_keys = {r.get('program_key') for r in (old or {}).get('records', [])}
+        for r in (old or {}).get('records', []):
+            # a page that prints several degrees (department_section/v1) is the URL of each; a record already on file
+            # under its own key is never mapped onto a sibling's key
+            same_url = (r.get('program_url') == c['record'].get('program_url') and c['record']['program_key'] not in on_file_keys
+                        and c['extractor'] != 'department_section/v1')
+            # A state-inventory record (THEC) for the same major and award becomes this catalog record: one program, the
+            # catalog's stronger evidence, the inventory's CIP kept (exact name + award match only, programs.match).
+            same_inventory_program = (r.get('program_url') == THEC_PAGE and c['record'].get('program_url') != THEC_PAGE
+                                      and cand_name is not None and split_catalog_name(r.get('program_name', '')) == cand_name)
+            if (same_url or same_inventory_program) and r['program_key'] != c['record']['program_key']:
+                keymap[(c['institution_key'], c['academic_year'], c['record']['program_key'])] = r['program_key']
+    return keymap
+
+
 def promote(decisions_path: Path, log=print):
     d = json.loads(Path(decisions_path).read_text())
     run_dir = ROOT / d['run']
@@ -94,20 +117,7 @@ def promote(decisions_path: Path, log=print):
     approvals.sort(key=lambda a: cands[a['candidate_id']]['domain'] != 'academic_programs')  # programs before their requirements
     # A program already on file from the same program URL keeps its key (as pipeline/review.py does for curated rows),
     # and so do its requirement rows: no second record for one program.
-    keymap = {}
-    for a in approvals:
-        c = cands[a['candidate_id']]
-        if c['domain'] != 'academic_programs': continue
-        old = _records(folders[c['institution_key']], 'academic_programs', c['academic_year'])
-        cand_name = split_catalog_name(c['record'].get('program_name', ''))
-        for r in (old or {}).get('records', []):
-            same_url = r.get('program_url') == c['record'].get('program_url')
-            # A state-inventory record (THEC) for the same major and award becomes this catalog record: one program, the
-            # catalog's stronger evidence, the inventory's CIP kept (exact name + award match only, programs.match).
-            same_inventory_program = (r.get('program_url') == THEC_PAGE and c['record'].get('program_url') != THEC_PAGE
-                                      and cand_name is not None and split_catalog_name(r.get('program_name', '')) == cand_name)
-            if (same_url or same_inventory_program) and r['program_key'] != c['record']['program_key']:
-                keymap[(c['institution_key'], c['academic_year'], c['record']['program_key'])] = r['program_key']
+    keymap = program_keymap(approvals, cands, folders)
     for a in approvals:
         c = cands.get(a['candidate_id'])
         if c is None: raise KeyError(f"unknown candidate {a['candidate_id']}")
