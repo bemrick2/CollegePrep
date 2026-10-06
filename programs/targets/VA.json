@@ -1,0 +1,1026 @@
+{
+ "state": "VA",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-232186",
+   "folder": "gmu",
+   "name": "George Mason University",
+   "control": "public",
+   "domains": [
+    "gmu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.gmu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.gmu.edu/azindex/",
+     "https://catalog.gmu.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style program list on catalog.gmu.edu"
+  },
+  {
+   "institution_key": "ipeds-232423",
+   "folder": "jmu",
+   "name": "James Madison University",
+   "control": "public",
+   "domains": [
+    "jmu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.jmu.edu/",
+    "https://catalog.jmu.edu/",
+    "https://www.jmu.edu/academics/",
+    "https://www.jmu.edu/registrar/",
+    "https://www.jmu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-232557",
+   "folder": "liberty",
+   "name": "Liberty University",
+   "control": "private_nonprofit",
+   "domains": [
+    "liberty.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.liberty.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.liberty.edu/azindex/",
+     "https://catalog.liberty.edu/graduate/programs/",
+     "https://catalog.liberty.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style program list on catalog.liberty.edu"
+  },
+  {
+   "institution_key": "ipeds-232937",
+   "folder": "nsu",
+   "name": "Norfolk State University",
+   "control": "public",
+   "domains": [
+    "nsu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.nsu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.nsu.edu/azindex/",
+     "https://catalog.nsu.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style program list on catalog.nsu.edu"
+  },
+  {
+   "institution_key": "ipeds-232982",
+   "folder": "odu",
+   "name": "Old Dominion University",
+   "control": "public",
+   "domains": [
+    "odu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.odu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.odu.edu/azindex/",
+     "https://catalog.odu.edu/graduate/azindex/",
+     "https://catalog.odu.edu/graduate/business/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style program list on catalog.odu.edu"
+  },
+  {
+   "institution_key": "ipeds-234076",
+   "folder": "virginia",
+   "name": "University of Virginia-Main Campus",
+   "control": "public",
+   "domains": [
+    "virginia.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 72,
+    "home": "https://records.ureg.virginia.edu/index.php?catoid=72",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 72 on records.ureg.virginia.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-234030",
+   "folder": "vcu",
+   "name": "Virginia Commonwealth University",
+   "control": "public",
+   "domains": [
+    "vcu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://bulletin.vcu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://bulletin.vcu.edu/azindex/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style program list on bulletin.vcu.edu"
+  },
+  {
+   "institution_key": "ipeds-233921",
+   "folder": "vt",
+   "name": "Virginia Polytechnic Institute and State University",
+   "control": "public",
+   "domains": [
+    "vt.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.vt.edu/",
+    "https://catalog.vt.edu/",
+    "https://www.vt.edu/academics/",
+    "https://www.vt.edu/registrar/",
+    "https://www.vt.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-234155",
+   "folder": "vsu",
+   "name": "Virginia State University",
+   "control": "public",
+   "domains": [
+    "vsu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.vsu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.vsu.edu/graduate/programs/",
+     "https://catalog.vsu.edu/undergraduate/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style program list on catalog.vsu.edu"
+  },
+  {
+   "institution_key": "ipeds-231624",
+   "folder": "wm",
+   "name": "William & Mary",
+   "control": "public",
+   "domains": [
+    "wm.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 30,
+    "home": "https://catalog.wm.edu/index.php?catoid=30",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.wm.edu/content.php?catoid=30&navoid=4668"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 30 on catalog.wm.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-231581",
+   "folder": "bridgewater",
+   "name": "Bridgewater College",
+   "control": "private_nonprofit",
+   "domains": [
+    "bridgewater.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.bridgewater.edu/",
+    "https://catalog.bridgewater.edu/",
+    "https://www.bridgewater.edu/academics/",
+    "https://www.bridgewater.edu/registrar/",
+    "https://www.bridgewater.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-231712",
+   "folder": "cnu",
+   "name": "Christopher Newport University",
+   "control": "public",
+   "domains": [
+    "cnu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://cnu.edu/",
+    "https://catalog.cnu.edu/",
+    "https://www.cnu.edu/academics/",
+    "https://www.cnu.edu/registrar/",
+    "https://www.cnu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-232025",
+   "folder": "ehc",
+   "name": "Emory & Henry University",
+   "control": "private_nonprofit",
+   "domains": [
+    "ehc.edu",
+    "emoryhenry.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://catalog.ehc.edu/sites/default/files/202526-academic-catalog-4-22-26.pdf"
+    ],
+    "home": "https://catalog.ehc.edu/sites/default/files/202526-academic-catalog-4-22-26.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
+  },
+  {
+   "institution_key": "ipeds-232265",
+   "folder": "hamptonu",
+   "name": "Hampton University",
+   "control": "private_nonprofit",
+   "domains": [
+    "hamptonu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.hamptonu.edu/",
+    "https://catalog.hamptonu.edu/",
+    "https://www.hamptonu.edu/academics/",
+    "https://www.hamptonu.edu/registrar/",
+    "https://www.hamptonu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-232566",
+   "folder": "longwood",
+   "name": "Longwood University",
+   "control": "public",
+   "domains": [
+    "longwood.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 19,
+    "home": "https://catalog.longwood.edu/index.php?catoid=19",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.longwood.edu/content.php?catoid=19&navoid=974",
+     "https://catalog.longwood.edu/content.php?catoid=19&navoid=983",
+     "https://catalog.longwood.edu/content.php?catoid=19&navoid=1005"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 19 on catalog.longwood.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-232706",
+   "folder": "marymount",
+   "name": "Marymount University",
+   "control": "private_nonprofit",
+   "domains": [
+    "marymount.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.marymount.edu/",
+    "https://catalog.marymount.edu/",
+    "https://www.marymount.edu/academics/",
+    "https://www.marymount.edu/registrar/",
+    "https://www.marymount.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-233277",
+   "folder": "radford",
+   "name": "Radford University",
+   "control": "public",
+   "domains": [
+    "radford.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 62,
+    "home": "https://catalog.radford.edu/index.php?catoid=62",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.radford.edu/content.php?catoid=62&navoid=3423",
+     "https://catalog.radford.edu/content.php?catoid=62&navoid=3438"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 62 on catalog.radford.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-233295",
+   "folder": "rmc",
+   "name": "Randolph-Macon College",
+   "control": "private_nonprofit",
+   "domains": [
+    "rmc.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.rmc.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.rmc.edu/programs",
+     "https://catalog.rmc.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.rmc.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.rmc.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.rmc.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.rmc.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.rmc.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.rmc.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.rmc.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.rmc.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.rmc.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.rmc.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.rmc.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.rmc.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.rmc.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.rmc.edu (26 links)"
+  },
+  {
+   "institution_key": "ipeds-231651",
+   "folder": "regent",
+   "name": "Regent University",
+   "control": "private_nonprofit",
+   "domains": [
+    "regent.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.regent.edu/",
+    "https://catalog.regent.edu/",
+    "https://www.regent.edu/academics/",
+    "https://www.regent.edu/registrar/",
+    "https://www.regent.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-233426",
+   "folder": "roanoke",
+   "name": "Roanoke College",
+   "control": "private_nonprofit",
+   "domains": [
+    "roanoke.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.roanoke.edu/",
+    "https://catalog.roanoke.edu/",
+    "https://www.roanoke.edu/academics/",
+    "https://www.roanoke.edu/registrar/",
+    "https://www.roanoke.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-233541",
+   "folder": "su",
+   "name": "Shenandoah University",
+   "control": "private_nonprofit",
+   "domains": [
+    "su.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 35,
+    "home": "https://catalog.su.edu/index.php?catoid=35",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.su.edu/content.php?catoid=35&navoid=2089",
+     "https://catalog.su.edu/content.php?catoid=35&navoid=2091"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 35 on catalog.su.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-233611",
+   "folder": "svu",
+   "name": "Southern Virginia University",
+   "control": "private_nonprofit",
+   "domains": [
+    "svu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.svu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.svu.edu/programs"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style program list on catalog.svu.edu"
+  },
+  {
+   "institution_key": "ipeds-232609",
+   "folder": "lynchburg",
+   "name": "University of Lynchburg",
+   "control": "private_nonprofit",
+   "domains": [
+    "lynchburg.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.lynchburg.edu/",
+    "https://catalog.lynchburg.edu/",
+    "https://www.lynchburg.edu/academics/",
+    "https://www.lynchburg.edu/registrar/",
+    "https://www.lynchburg.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-232681",
+   "folder": "umw",
+   "name": "University of Mary Washington",
+   "control": "public",
+   "domains": [
+    "umw.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.umw.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.umw.edu/azindex/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style program list on catalog.umw.edu"
+  },
+  {
+   "institution_key": "ipeds-233374",
+   "folder": "richmond",
+   "name": "University of Richmond",
+   "control": "private_nonprofit",
+   "domains": [
+    "richmond.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.richmond.edu/",
+    "https://catalog.richmond.edu/",
+    "https://www.richmond.edu/academics/",
+    "https://www.richmond.edu/registrar/",
+    "https://www.richmond.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-233897",
+   "folder": "uvawise",
+   "name": "University of Virginia's College at Wise",
+   "control": "public",
+   "domains": [
+    "uvawise.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 9,
+    "home": "https://catalog.uvawise.edu/index.php?catoid=9",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 9 on catalog.uvawise.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-234085",
+   "folder": "vmi",
+   "name": "Virginia Military Institute",
+   "control": "public",
+   "domains": [
+    "vmi.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 41,
+    "home": "https://catalog.vmi.edu/index.php?catoid=41",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.vmi.edu/content.php?catoid=41&navoid=1637",
+     "https://catalog.vmi.edu/content.php?catoid=41&navoid=1638"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 41 on catalog.vmi.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-234164",
+   "folder": "vuu",
+   "name": "Virginia Union University",
+   "control": "private_nonprofit",
+   "domains": [
+    "vuu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.vuu.edu/",
+    "https://catalog.vuu.edu/",
+    "https://www.vuu.edu/academics/",
+    "https://www.vuu.edu/registrar/",
+    "https://www.vuu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-234173",
+   "folder": "vwu",
+   "name": "Virginia Wesleyan University",
+   "control": "private_nonprofit",
+   "domains": [
+    "vwu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.vwu.edu/",
+    "https://catalog.vwu.edu/",
+    "https://www.vwu.edu/academics/",
+    "https://www.vwu.edu/registrar/",
+    "https://www.vwu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-234207",
+   "folder": "wlu",
+   "name": "Washington and Lee University",
+   "control": "private_nonprofit",
+   "domains": [
+    "wlu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 46,
+    "home": "https://catalog.wlu.edu/index.php?catoid=46",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.wlu.edu/content.php?catoid=46&navoid=4710"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 46 on catalog.wlu.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-458113",
+   "folder": "ascent",
+   "name": "Ascent College",
+   "control": "private_nonprofit",
+   "domains": [
+    "ascent.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://ascent.edu/",
+    "https://catalog.ascent.edu/",
+    "https://www.ascent.edu/academics/",
+    "https://www.ascent.edu/registrar/",
+    "https://www.ascent.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-231420",
+   "folder": "averett",
+   "name": "Averett University",
+   "control": "private_nonprofit",
+   "domains": [
+    "averett.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.averett.edu/wp-content/uploads/Academic-Catalog-2026-27_v3.pdf"
+    ],
+    "home": "https://www.averett.edu/wp-content/uploads/Academic-Catalog-2026-27_v3.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-231554",
+   "folder": "bluefield",
+   "name": "Bluefield University",
+   "control": "private_nonprofit",
+   "domains": [
+    "bluefield.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.bluefield.edu/wp-content/uploads/2026/09/2026-2027-Doctoral-Academic-Catalog.pdf"
+    ],
+    "home": "https://www.bluefield.edu/wp-content/uploads/2026/09/2026-2027-Doctoral-Academic-Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-231785",
+   "folder": "bryantstratton",
+   "name": "Bryant & Stratton College-Virginia Beach",
+   "control": "private_nonprofit",
+   "domains": [
+    "bryantstratton.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 26,
+    "home": "https://catalog.bryantstratton.edu/index.php?catoid=26",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.bryantstratton.edu/content.php?catoid=26&navoid=754"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 26 on catalog.bryantstratton.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-232618",
+   "folder": "centrahealth",
+   "name": "Centra College",
+   "control": "private_nonprofit",
+   "domains": [
+    "centrahealth.com"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.centrahealth.com/college",
+    "https://catalog.centrahealth.com/",
+    "https://www.centrahealth.com/academics/",
+    "https://www.centrahealth.com/registrar/",
+    "https://www.centrahealth.com/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-232043",
+   "folder": "emu",
+   "name": "Eastern Mennonite University",
+   "control": "private_nonprofit",
+   "domains": [
+    "emu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://emu.edu/",
+    "https://catalog.emu.edu/",
+    "https://www.emu.edu/academics/",
+    "https://www.emu.edu/registrar/",
+    "https://www.emu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-460376",
+   "folder": "fxua",
+   "name": "Fairfax University of America",
+   "control": "private_nonprofit",
+   "domains": [
+    "fxua.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.fxua.edu/",
+    "https://catalog.fxua.edu/",
+    "https://www.fxua.edu/academics/",
+    "https://www.fxua.edu/registrar/",
+    "https://www.fxua.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-232089",
+   "folder": "ferrum",
+   "name": "Ferrum College",
+   "control": "private_nonprofit",
+   "domains": [
+    "ferrum.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.ferrum.edu/",
+    "https://catalog.ferrum.edu/",
+    "https://www.ferrum.edu/academics/",
+    "https://www.ferrum.edu/registrar/",
+    "https://www.ferrum.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-232256",
+   "folder": "hsc",
+   "name": "Hampden-Sydney College",
+   "control": "private_nonprofit",
+   "domains": [
+    "hsc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.hsc.edu/",
+    "https://catalog.hsc.edu/",
+    "https://www.hsc.edu/academics/",
+    "https://www.hsc.edu/registrar/",
+    "https://www.hsc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-232308",
+   "folder": "hollins",
+   "name": "Hollins University",
+   "control": "private_nonprofit",
+   "domains": [
+    "hollins.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.hollins.edu/wp-content/uploads/2026/01/Core-Curriculum-Catalog-2026-27.pdf"
+    ],
+    "home": "https://www.hollins.edu/wp-content/uploads/2026/01/Core-Curriculum-Catalog-2026-27.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-232672",
+   "folder": "marybaldwin",
+   "name": "Mary Baldwin University",
+   "control": "private_nonprofit",
+   "domains": [
+    "marybaldwin.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://catalog.marybaldwin.edu/sites/default/files/pdf/pdf_generator/20262027-academic-catalog.pdf"
+    ],
+    "home": "https://catalog.marybaldwin.edu/sites/default/files/pdf/pdf_generator/20262027-academic-catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-451927",
+   "folder": "phc",
+   "name": "Patrick Henry College",
+   "control": "private_nonprofit",
+   "domains": [
+    "phc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.phc.edu/",
+    "https://catalog.phc.edu/",
+    "https://www.phc.edu/academics/",
+    "https://www.phc.edu/registrar/",
+    "https://www.phc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-233301",
+   "folder": "randolphcollege",
+   "name": "Randolph College",
+   "control": "private_nonprofit",
+   "domains": [
+    "randolphcollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.randolphcollege.edu/",
+    "https://catalog.randolphcollege.edu/",
+    "https://www.randolphcollege.edu/academics/",
+    "https://www.randolphcollege.edu/registrar/",
+    "https://www.randolphcollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-233408",
+   "folder": "riversideonline",
+   "name": "Riverside College of Health Careers",
+   "control": "private_nonprofit",
+   "domains": [
+    "riversideonline.com"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.riversideonline.com/careers/college-of-health-careers",
+    "https://catalog.riversideonline.com/",
+    "https://www.riversideonline.com/academics/",
+    "https://www.riversideonline.com/registrar/",
+    "https://www.riversideonline.com/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-233718",
+   "folder": "sbc",
+   "name": "Sweet Briar College",
+   "control": "private_nonprofit",
+   "domains": [
+    "sbc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 26,
+    "home": "https://catalog.sbc.edu/index.php?catoid=26",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.sbc.edu/content.php?catoid=26&navoid=994",
+     "https://catalog.sbc.edu/content.php?catoid=26&navoid=1013"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 26 on catalog.sbc.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-449834",
+   "folder": "vbts",
+   "name": "Virginia Beach Theological Seminary",
+   "control": "private_nonprofit",
+   "domains": [
+    "vbts.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.vbts.edu/",
+    "https://catalog.vbts.edu/",
+    "https://www.vbts.edu/academics/",
+    "https://www.vbts.edu/registrar/",
+    "https://www.vbts.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-234137",
+   "folder": "vul",
+   "name": "Virginia University of Lynchburg",
+   "control": "private_nonprofit",
+   "domains": [
+    "vul.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.vul.edu/",
+    "https://catalog.vul.edu/",
+    "https://www.vul.edu/academics/",
+    "https://www.vul.edu/registrar/",
+    "https://www.vul.edu/catalog/"
+   ],
+   "policy": []
+  }
+ ]
+}

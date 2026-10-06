@@ -1,0 +1,1344 @@
+{
+ "state": "GA",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-139658",
+   "folder": "emory",
+   "name": "Emory University",
+   "control": "private_nonprofit",
+   "domains": [
+    "emory.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.emory.edu/",
+    "https://catalog.emory.edu/",
+    "https://www.emory.edu/academics/",
+    "https://www.emory.edu/registrar/",
+    "https://www.emory.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-139861",
+   "folder": "gcsu",
+   "name": "Georgia College & State University",
+   "control": "public",
+   "domains": [
+    "gcsu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 4,
+    "home": "https://catalog.gcsu.edu/index.php?catoid=4",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.gcsu.edu/content.php?catoid=4&navoid=195",
+     "https://catalog.gcsu.edu/content.php?catoid=4&navoid=205"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 4 on catalog.gcsu.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-447689",
+   "folder": "ggc",
+   "name": "Georgia Gwinnett College",
+   "control": "public",
+   "domains": [
+    "ggc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 55,
+    "home": "https://catalog.ggc.edu/index.php?catoid=55",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.ggc.edu/content.php?catoid=55&navoid=7694"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 55 on catalog.ggc.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-139755",
+   "folder": "gatech",
+   "name": "Georgia Institute of Technology-Main Campus",
+   "control": "public",
+   "domains": [
+    "gatech.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.gatech.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.gatech.edu/programs",
+     "https://catalog.gatech.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.gatech.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.gatech.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.gatech.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.gatech.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.gatech.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.gatech.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.gatech.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.gatech.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.gatech.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.gatech.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.gatech.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.gatech.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.gatech.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.gatech.edu (794 links)"
+  },
+  {
+   "institution_key": "ipeds-139931",
+   "folder": "georgiasouthern",
+   "name": "Georgia Southern University",
+   "control": "public",
+   "domains": [
+    "georgiasouthern.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 17,
+    "home": "https://catalog.georgiasouthern.edu/index.php?catoid=17",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.georgiasouthern.edu/content.php?catoid=17&navoid=1928",
+     "https://catalog.georgiasouthern.edu/content.php?catoid=17&navoid=1953",
+     "https://catalog.georgiasouthern.edu/content.php?catoid=17&navoid=1982",
+     "https://catalog.georgiasouthern.edu/content.php?catoid=17&navoid=1983"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 17 on catalog.georgiasouthern.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-139940",
+   "folder": "gsu",
+   "name": "Georgia State University",
+   "control": "public",
+   "domains": [
+    "gsu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 46,
+    "home": "https://catalogs.gsu.edu/index.php?catoid=46",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalogs.gsu.edu/content.php?catoid=46&navoid=5769",
+     "https://catalogs.gsu.edu/content.php?catoid=46&navoid=5948"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 46 on catalogs.gsu.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-486840",
+   "folder": "kennesaw",
+   "name": "Kennesaw State University",
+   "control": "public",
+   "domains": [
+    "kennesaw.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 84,
+    "home": "https://catalog.kennesaw.edu/index.php?catoid=84",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.kennesaw.edu/content.php?catoid=84&navoid=9371"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 84 on catalog.kennesaw.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-140951",
+   "folder": "scad",
+   "name": "Savannah College of Art and Design",
+   "control": "private_nonprofit",
+   "domains": [
+    "scad.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.scad.edu/",
+    "https://catalog.scad.edu/",
+    "https://www.scad.edu/academics/",
+    "https://www.scad.edu/registrar/",
+    "https://www.scad.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-139959",
+   "folder": "uga",
+   "name": "University of Georgia",
+   "control": "public",
+   "domains": [
+    "uga.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.uga.edu/",
+    "https://catalog.uga.edu/",
+    "https://www.uga.edu/academics/",
+    "https://www.uga.edu/registrar/",
+    "https://www.uga.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-482680",
+   "folder": "ung",
+   "name": "University of North Georgia",
+   "control": "public",
+   "domains": [
+    "ung.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 42,
+    "home": "https://catalog.ung.edu/index.php?catoid=42",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.ung.edu/content.php?catoid=42&navoid=1627"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 42 on catalog.ung.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-138558",
+   "folder": "abac",
+   "name": "Abraham Baldwin Agricultural College",
+   "control": "public",
+   "domains": [
+    "abac.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.abac.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.abac.edu/programs",
+     "https://catalog.abac.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.abac.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.abac.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.abac.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.abac.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.abac.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.abac.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.abac.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.abac.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.abac.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.abac.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.abac.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.abac.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.abac.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.abac.edu (28 links)"
+  },
+  {
+   "institution_key": "ipeds-482149",
+   "folder": "augusta",
+   "name": "Augusta University",
+   "control": "public",
+   "domains": [
+    "augusta.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 50,
+    "home": "https://catalog.augusta.edu/index.php?catoid=50",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.augusta.edu/content.php?catoid=50&navoid=6039"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 50 on catalog.augusta.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-139144",
+   "folder": "berry",
+   "name": "Berry College",
+   "control": "private_nonprofit",
+   "domains": [
+    "berry.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 30,
+    "home": "https://catalog.berry.edu/index.php?catoid=30",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.berry.edu/content.php?catoid=30&navoid=1126",
+     "https://catalog.berry.edu/content.php?catoid=30&navoid=1134",
+     "https://catalog.berry.edu/content.php?catoid=30&navoid=1142"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 30 on catalog.berry.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-138947",
+   "folder": "cau",
+   "name": "Clark Atlanta University",
+   "control": "private_nonprofit",
+   "domains": [
+    "cau.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.cau.edu/",
+    "https://catalog.cau.edu/",
+    "https://www.cau.edu/academics/",
+    "https://www.cau.edu/registrar/",
+    "https://www.cau.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-139311",
+   "folder": "clayton",
+   "name": "Clayton  State University",
+   "control": "public",
+   "domains": [
+    "clayton.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.clayton.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.clayton.edu/azindex/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style program list on catalog.clayton.edu"
+  },
+  {
+   "institution_key": "ipeds-139250",
+   "folder": "ccga",
+   "name": "College of Coastal Georgia",
+   "control": "public",
+   "domains": [
+    "ccga.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.ccga.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.ccga.edu/programs",
+     "https://catalog.ccga.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.ccga.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.ccga.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.ccga.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.ccga.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.ccga.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.ccga.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.ccga.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.ccga.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.ccga.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.ccga.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.ccga.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.ccga.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.ccga.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.ccga.edu (9 links)"
+  },
+  {
+   "institution_key": "ipeds-139366",
+   "folder": "columbusstate",
+   "name": "Columbus State University",
+   "control": "public",
+   "domains": [
+    "columbusstate.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.columbusstate.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.columbusstate.edu/azindex/",
+     "https://catalog.columbusstate.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style program list on catalog.columbusstate.edu"
+  },
+  {
+   "institution_key": "ipeds-139719",
+   "folder": "fvsu",
+   "name": "Fort Valley State University",
+   "control": "public",
+   "domains": [
+    "fvsu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 21,
+    "home": "https://catalog.fvsu.edu/index.php?catoid=21",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.fvsu.edu/content.php?catoid=21&navoid=989",
+     "https://catalog.fvsu.edu/content.php?catoid=21&navoid=997"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 21 on catalog.fvsu.edu (labelled 2025-2026)"
+  },
+  {
+   "institution_key": "ipeds-139764",
+   "folder": "gsw",
+   "name": "Georgia Southwestern State University",
+   "control": "public",
+   "domains": [
+    "gsw.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://gsw.edu/",
+    "https://catalog.gsw.edu/",
+    "https://www.gsw.edu/academics/",
+    "https://www.gsw.edu/registrar/",
+    "https://www.gsw.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-139968",
+   "folder": "gordonstate",
+   "name": "Gordon State College",
+   "control": "public",
+   "domains": [
+    "gordonstate.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.gordonstate.edu/documents/departments/academic-affairs/academic-catalog/2024-25-catalog-final-1-15-2025.pdf"
+    ],
+    "home": "https://www.gordonstate.edu/documents/departments/academic-affairs/academic-catalog/2024-25-catalog-final-1-15-2025.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2024-2025"
+  },
+  {
+   "institution_key": "ipeds-140447",
+   "folder": "mercer",
+   "name": "Mercer University",
+   "control": "private_nonprofit",
+   "domains": [
+    "mercer.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 6,
+    "home": "https://catalogs.mercer.edu/index.php?catoid=6",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalogs.mercer.edu/content.php?catoid=6&navoid=940"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 6 on catalogs.mercer.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-482158",
+   "folder": "mga",
+   "name": "Middle Georgia State University",
+   "control": "public",
+   "domains": [
+    "mga.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.mga.edu/",
+    "https://catalog.mga.edu/",
+    "https://www.mga.edu/academics/",
+    "https://www.mga.edu/registrar/",
+    "https://www.mga.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-140553",
+   "folder": "morehouse",
+   "name": "Morehouse College",
+   "control": "private_nonprofit",
+   "domains": [
+    "morehouse.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 7,
+    "home": "https://catalog.morehouse.edu/index.php?catoid=7",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.morehouse.edu/content.php?catoid=7&navoid=337"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 7 on catalog.morehouse.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-140696",
+   "folder": "oglethorpe",
+   "name": "Oglethorpe University",
+   "control": "private_nonprofit",
+   "domains": [
+    "oglethorpe.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://oglethorpe.edu/wp-content/uploads/2026/09/2026-2027-Bulletin-revised9302026.pdf"
+    ],
+    "home": "https://oglethorpe.edu/wp-content/uploads/2026/09/2026-2027-Bulletin-revised9302026.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-140818",
+   "folder": "piedmont",
+   "name": "Piedmont University",
+   "control": "private_nonprofit",
+   "domains": [
+    "piedmont.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.piedmont.edu/",
+    "https://catalog.piedmont.edu/",
+    "https://www.piedmont.edu/academics/",
+    "https://www.piedmont.edu/registrar/",
+    "https://www.piedmont.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-138868",
+   "folder": "point",
+   "name": "Point University",
+   "control": "private_nonprofit",
+   "domains": [
+    "point.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.point.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.point.edu/programs"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style program list on catalog.point.edu"
+  },
+  {
+   "institution_key": "ipeds-140872",
+   "folder": "reinhardt",
+   "name": "Reinhardt University",
+   "control": "private_nonprofit",
+   "domains": [
+    "reinhardt.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.reinhardt.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.reinhardt.edu/programs",
+     "https://catalog.reinhardt.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.reinhardt.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.reinhardt.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.reinhardt.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.reinhardt.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.reinhardt.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.reinhardt.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.reinhardt.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.reinhardt.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.reinhardt.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.reinhardt.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.reinhardt.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.reinhardt.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.reinhardt.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.reinhardt.edu (60 links)"
+  },
+  {
+   "institution_key": "ipeds-141060",
+   "folder": "spelman",
+   "name": "Spelman College",
+   "control": "private_nonprofit",
+   "domains": [
+    "spelman.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.spelman.edu/_1_Docs-and-Files/academics/college-bulletin/college-bulletin_2009-2010.pdf"
+    ],
+    "home": "https://www.spelman.edu/_1_Docs-and-Files/academics/college-bulletin/college-bulletin_2009-2010.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2009-2010"
+  },
+  {
+   "institution_key": "ipeds-141334",
+   "folder": "westga",
+   "name": "University of West Georgia",
+   "control": "public",
+   "domains": [
+    "westga.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 26,
+    "home": "https://catalog.westga.edu/index.php?catoid=26",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.westga.edu/content.php?catoid=26&navoid=1663"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 26 on catalog.westga.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-141264",
+   "folder": "valdosta",
+   "name": "Valdosta State University",
+   "control": "public",
+   "domains": [
+    "valdosta.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.valdosta.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.valdosta.edu/azindex/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style program list on catalog.valdosta.edu"
+  },
+  {
+   "institution_key": "ipeds-138600",
+   "folder": "agnesscott",
+   "name": "Agnes Scott College",
+   "control": "private_nonprofit",
+   "domains": [
+    "agnesscott.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.agnesscott.edu/",
+    "https://catalog.agnesscott.edu/",
+    "https://www.agnesscott.edu/academics/",
+    "https://www.agnesscott.edu/registrar/",
+    "https://www.agnesscott.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-138716",
+   "folder": "asurams",
+   "name": "Albany State University",
+   "control": "public",
+   "domains": [
+    "asurams.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.asurams.edu/",
+    "https://catalog.asurams.edu/",
+    "https://www.asurams.edu/academics/",
+    "https://www.asurams.edu/registrar/",
+    "https://www.asurams.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-138761",
+   "folder": "andrewcollege",
+   "name": "Andrew College",
+   "control": "private_nonprofit",
+   "domains": [
+    "andrewcollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.andrewcollege.edu/",
+    "https://catalog.andrewcollege.edu/",
+    "https://www.andrewcollege.edu/academics/",
+    "https://www.andrewcollege.edu/registrar/",
+    "https://www.andrewcollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-138901",
+   "folder": "atlm",
+   "name": "Atlanta Metropolitan State College",
+   "control": "public",
+   "domains": [
+    "atlm.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.atlm.edu/downloads/Catalogs/amsc-college-catalog-2026-2027.pdf"
+    ],
+    "home": "https://www.atlm.edu/downloads/Catalogs/amsc-college-catalog-2026-2027.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-139153",
+   "folder": "beulah",
+   "name": "Beulah Heights University",
+   "control": "private_nonprofit",
+   "domains": [
+    "beulah.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.beulah.edu/",
+    "https://catalog.beulah.edu/",
+    "https://www.beulah.edu/academics/",
+    "https://www.beulah.edu/registrar/",
+    "https://www.beulah.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-139199",
+   "folder": "brenau",
+   "name": "Brenau University",
+   "control": "private_nonprofit",
+   "domains": [
+    "brenau.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 26,
+    "home": "https://catalog.brenau.edu/index.php?catoid=26",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.brenau.edu/content.php?catoid=26&navoid=3287",
+     "https://catalog.brenau.edu/content.php?catoid=26&navoid=3288",
+     "https://catalog.brenau.edu/content.php?catoid=26&navoid=3395",
+     "https://catalog.brenau.edu/content.php?catoid=26&navoid=3410"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 26 on catalog.brenau.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-139205",
+   "folder": "bpc",
+   "name": "Brewton-Parker College",
+   "control": "private_nonprofit",
+   "domains": [
+    "bpc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 3,
+    "home": "https://catalog.bpc.edu/index.php?catoid=3",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.bpc.edu/content.php?catoid=3&navoid=109",
+     "https://catalog.bpc.edu/content.php?catoid=3&navoid=173"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 3 on catalog.bpc.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-493974",
+   "folder": "collegeofathens",
+   "name": "College of Athens",
+   "control": "private_nonprofit",
+   "domains": [
+    "collegeofathens.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://collegeofathens.edu/wp-content/uploads/2026/09/2026-27-CoA-Academic-Program-Catalog.pdf"
+    ],
+    "home": "https://collegeofathens.edu/wp-content/uploads/2026/09/2026-27-CoA-Academic-Program-Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-139393",
+   "folder": "covenant",
+   "name": "Covenant College",
+   "control": "private_nonprofit",
+   "domains": [
+    "covenant.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 31,
+    "home": "https://catalog.covenant.edu/index.php?catoid=31",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.covenant.edu/content.php?catoid=31&navoid=699",
+     "https://catalog.covenant.edu/content.php?catoid=31&navoid=711",
+     "https://catalog.covenant.edu/content.php?catoid=31&navoid=712"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 31 on catalog.covenant.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-139463",
+   "folder": "daltonstate",
+   "name": "Dalton State College",
+   "control": "public",
+   "domains": [
+    "daltonstate.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.daltonstate.edu/index.cms",
+    "https://catalog.daltonstate.edu/",
+    "https://www.daltonstate.edu/academics/",
+    "https://www.daltonstate.edu/registrar/",
+    "https://www.daltonstate.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-139621",
+   "folder": "ega",
+   "name": "East Georgia State College",
+   "control": "public",
+   "domains": [
+    "ega.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.ega.edu/",
+    "https://catalog.ega.edu/",
+    "https://www.ega.edu/academics/",
+    "https://www.ega.edu/registrar/",
+    "https://www.ega.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-139630",
+   "folder": "ec",
+   "name": "Emmanuel University",
+   "control": "private_nonprofit",
+   "domains": [
+    "ec.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.ec.edu/",
+    "https://catalog.ec.edu/",
+    "https://www.ec.edu/academics/",
+    "https://www.ec.edu/registrar/",
+    "https://www.ec.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-139700",
+   "folder": "highlands",
+   "name": "Georgia Highlands College",
+   "control": "public",
+   "domains": [
+    "highlands.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://sites.highlands.edu/office-of-the-provost/wp-content/uploads/sites/30/2022/07/GHC-CATALOG-WEB-2022-2023.pdf?v=5"
+    ],
+    "home": "https://sites.highlands.edu/office-of-the-provost/wp-content/uploads/sites/30/2022/07/GHC-CATALOG-WEB-2022-2023.pdf?v=5",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2022-2023"
+  },
+  {
+   "institution_key": "ipeds-485111",
+   "folder": "gmc",
+   "name": "Georgia Military College",
+   "control": "public",
+   "domains": [
+    "gmc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.gmc.edu/wp-content/uploads/2026/07/Official-2026-2027-Catalog.pdf"
+    ],
+    "home": "https://www.gmc.edu/wp-content/uploads/2026/07/Official-2026-2027-Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-140340",
+   "folder": "herzing",
+   "name": "Herzing University-Atlanta",
+   "control": "private_nonprofit",
+   "domains": [
+    "herzing.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 84,
+    "home": "https://catalog.herzing.edu/index.php?catoid=84",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.herzing.edu/content.php?catoid=84&navoid=7551"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 84 on catalog.herzing.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-140234",
+   "folder": "lagrange",
+   "name": "LaGrange College",
+   "control": "private_nonprofit",
+   "domains": [
+    "lagrange.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.lagrange.edu/Bulletin/2025-2026/_images/LaGrange_College_Bulletin_2025-2026.pdf"
+    ],
+    "home": "https://www.lagrange.edu/Bulletin/2025-2026/_images/LaGrange_College_Bulletin_2025-2026.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
+  },
+  {
+   "institution_key": "ipeds-140252",
+   "folder": "life",
+   "name": "Life University",
+   "control": "private_nonprofit",
+   "domains": [
+    "life.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 41,
+    "home": "https://catalog.life.edu/index.php?catoid=41",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.life.edu/content.php?catoid=41&navoid=5766"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 41 on catalog.life.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-135364",
+   "folder": "lutherrice",
+   "name": "Luther Rice College & Seminary",
+   "control": "private_nonprofit",
+   "domains": [
+    "lutherrice.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.lutherrice.edu/",
+    "https://catalog.lutherrice.edu/",
+    "https://www.lutherrice.edu/academics/",
+    "https://www.lutherrice.edu/registrar/",
+    "https://www.lutherrice.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-140571",
+   "folder": "morrisbrown",
+   "name": "Morris Brown College",
+   "control": "private_nonprofit",
+   "domains": [
+    "morrisbrown.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://morrisbrown.edu/wp-content/uploads/2025/07/MBC-Course-Catalog-08-29-revised.pdf"
+    ],
+    "home": "https://morrisbrown.edu/wp-content/uploads/2025/07/MBC-Course-Catalog-08-29-revised.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2024-2025"
+  },
+  {
+   "institution_key": "ipeds-140720",
+   "folder": "paine",
+   "name": "Paine College",
+   "control": "private_nonprofit",
+   "domains": [
+    "paine.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.paine.edu/",
+    "https://catalog.paine.edu/",
+    "https://www.paine.edu/academics/",
+    "https://www.paine.edu/registrar/",
+    "https://www.paine.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-490230",
+   "folder": "runiv",
+   "name": "Reformed University",
+   "control": "private_nonprofit",
+   "domains": [
+    "runiv.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://runiv.edu/",
+    "https://catalog.runiv.edu/",
+    "https://www.runiv.edu/academics/",
+    "https://www.runiv.edu/registrar/",
+    "https://www.runiv.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-140960",
+   "folder": "savannahstate",
+   "name": "Savannah State University",
+   "control": "public",
+   "domains": [
+    "savannahstate.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 17,
+    "home": "https://catalog.savannahstate.edu/index.php?catoid=17",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 17 on catalog.savannahstate.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-140988",
+   "folder": "shorter",
+   "name": "Shorter University",
+   "control": "private_nonprofit",
+   "domains": [
+    "shorter.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 9,
+    "home": "https://catalog.shorter.edu/index.php?catoid=9",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.shorter.edu/content.php?catoid=9&navoid=335",
+     "https://catalog.shorter.edu/content.php?catoid=9&navoid=344"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 9 on catalog.shorter.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-482699",
+   "folder": "sgsc",
+   "name": "South Georgia State College",
+   "control": "public",
+   "domains": [
+    "sgsc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.sgsc.edu/content/userfiles/files/2025-26%20Catalog.pdf"
+    ],
+    "home": "https://www.sgsc.edu/content/userfiles/files/2025-26%20Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
+  },
+  {
+   "institution_key": "ipeds-141167",
+   "folder": "thomasu",
+   "name": "Thomas University",
+   "control": "private_nonprofit",
+   "domains": [
+    "thomasu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.thomasu.edu/wp-content/uploads/2026/07/Thomas-University-2026-2027-Fall-Catalog.pdf"
+    ],
+    "home": "https://www.thomasu.edu/wp-content/uploads/2026/07/Thomas-University-2026-2027-Fall-Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-141185",
+   "folder": "tfc",
+   "name": "Toccoa Falls College",
+   "control": "private_nonprofit",
+   "domains": [
+    "tfc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://tfc.edu/",
+    "https://catalog.tfc.edu/",
+    "https://www.tfc.edu/academics/",
+    "https://www.tfc.edu/registrar/",
+    "https://www.tfc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-141237",
+   "folder": "truett",
+   "name": "Truett McConnell University",
+   "control": "private_nonprofit",
+   "domains": [
+    "truett.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://truett.edu/",
+    "https://catalog.truett.edu/",
+    "https://www.truett.edu/academics/",
+    "https://www.truett.edu/registrar/",
+    "https://www.truett.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-141325",
+   "folder": "wesleyancollege",
+   "name": "Wesleyan College",
+   "control": "private_nonprofit",
+   "domains": [
+    "wesleyancollege.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 7,
+    "home": "https://catalog.wesleyancollege.edu/index.php?catoid=7",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 7 on catalog.wesleyancollege.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-141361",
+   "folder": "yhc",
+   "name": "Young Harris College",
+   "control": "private_nonprofit",
+   "domains": [
+    "yhc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 32,
+    "home": "https://catalog.yhc.edu/index.php?catoid=32",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.yhc.edu/content.php?catoid=32&navoid=1633"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 32 on catalog.yhc.edu (labelled 2026-2027)"
+  }
+ ]
+}

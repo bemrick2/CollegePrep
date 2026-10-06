@@ -1,0 +1,1334 @@
+{
+ "state": "NC",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-197869",
+   "folder": "appstate",
+   "name": "Appalachian State University",
+   "control": "public",
+   "domains": [
+    "appstate.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 42,
+    "home": "https://bulletin.appstate.edu/index.php?catoid=42",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 42 on bulletin.appstate.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-198419",
+   "folder": "duke",
+   "name": "Duke University",
+   "control": "private_nonprofit",
+   "domains": [
+    "duke.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.duke.edu/",
+    "https://catalog.duke.edu/",
+    "https://www.duke.edu/academics/",
+    "https://www.duke.edu/registrar/",
+    "https://www.duke.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-198464",
+   "folder": "ecu",
+   "name": "East Carolina University",
+   "control": "public",
+   "domains": [
+    "ecu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 35,
+    "home": "https://catalog.ecu.edu/index.php?catoid=35",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.ecu.edu/content.php?catoid=35&navoid=2975",
+     "https://catalog.ecu.edu/content.php?catoid=35&navoid=2985",
+     "https://catalog.ecu.edu/content.php?catoid=35&navoid=2987",
+     "https://catalog.ecu.edu/content.php?catoid=35&navoid=2995"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 35 on catalog.ecu.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-199102",
+   "folder": "ncat",
+   "name": "North Carolina A & T State University",
+   "control": "public",
+   "domains": [
+    "ncat.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 19,
+    "home": "https://catalog.ncat.edu/index.php?catoid=19",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.ncat.edu/content.php?catoid=19&navoid=766"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 19 on catalog.ncat.edu (labelled 2025-2026)"
+  },
+  {
+   "institution_key": "ipeds-199193",
+   "folder": "ncsu",
+   "name": "North Carolina State University at Raleigh",
+   "control": "public",
+   "domains": [
+    "ncsu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.ncsu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.ncsu.edu/azindex/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style program list on catalog.ncsu.edu"
+  },
+  {
+   "institution_key": "ipeds-199218",
+   "folder": "uncw",
+   "name": "University of North Carolina Wilmington",
+   "control": "public",
+   "domains": [
+    "uncw.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 81,
+    "home": "https://catalogue.uncw.edu/index.php?catoid=81",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 81 on catalogue.uncw.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-199120",
+   "folder": "unc",
+   "name": "University of North Carolina at Chapel Hill",
+   "control": "public",
+   "domains": [
+    "unc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.unc.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.unc.edu/azindex/",
+     "https://catalog.unc.edu/programs/",
+     "https://catalog.unc.edu/undergraduate/programs-study/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style program list on catalog.unc.edu"
+  },
+  {
+   "institution_key": "ipeds-199139",
+   "folder": "charlotte",
+   "name": "University of North Carolina at Charlotte",
+   "control": "public",
+   "domains": [
+    "charlotte.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 31,
+    "home": "https://catalog.charlotte.edu/index.php?catoid=31",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 31 on catalog.charlotte.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-199148",
+   "folder": "uncg",
+   "name": "University of North Carolina at Greensboro",
+   "control": "public",
+   "domains": [
+    "uncg.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.uncg.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.uncg.edu/azindex/",
+     "https://catalog.uncg.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style program list on catalog.uncg.edu"
+  },
+  {
+   "institution_key": "ipeds-200004",
+   "folder": "wcu",
+   "name": "Western Carolina University",
+   "control": "public",
+   "domains": [
+    "wcu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 62,
+    "home": "https://catalog.wcu.edu/index.php?catoid=62",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.wcu.edu/content.php?catoid=62&navoid=2393",
+     "https://catalog.wcu.edu/content.php?catoid=62&navoid=2402"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 62 on catalog.wcu.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-197984",
+   "folder": "belmontabbeycollege",
+   "name": "Belmont Abbey College",
+   "control": "private_nonprofit",
+   "domains": [
+    "belmontabbeycollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.belmontabbeycollege.edu/",
+    "https://catalog.belmontabbeycollege.edu/",
+    "https://www.belmontabbeycollege.edu/academics/",
+    "https://www.belmontabbeycollege.edu/registrar/",
+    "https://www.belmontabbeycollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-198136",
+   "folder": "campbell",
+   "name": "Campbell University",
+   "control": "private_nonprofit",
+   "domains": [
+    "campbell.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 11,
+    "home": "https://courses.campbell.edu/index.php?catoid=11",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 11 on courses.campbell.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-198385",
+   "folder": "davidson",
+   "name": "Davidson College",
+   "control": "private_nonprofit",
+   "domains": [
+    "davidson.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 28,
+    "home": "https://catalog.davidson.edu/index.php?catoid=28",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 28 on catalog.davidson.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-198507",
+   "folder": "ecsu",
+   "name": "Elizabeth City State University",
+   "control": "public",
+   "domains": [
+    "ecsu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 12,
+    "home": "https://catalog.ecsu.edu/index.php?catoid=12",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.ecsu.edu/content.php?catoid=12&navoid=530",
+     "https://catalog.ecsu.edu/content.php?catoid=12&navoid=544"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 12 on catalog.ecsu.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-198516",
+   "folder": "elon",
+   "name": "Elon University",
+   "control": "private_nonprofit",
+   "domains": [
+    "elon.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.elon.edu/",
+    "https://catalog.elon.edu/",
+    "https://www.elon.edu/academics/",
+    "https://www.elon.edu/registrar/",
+    "https://www.elon.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-198543",
+   "folder": "uncfsu",
+   "name": "Fayetteville State University",
+   "control": "public",
+   "domains": [
+    "uncfsu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 29,
+    "home": "https://acalog.uncfsu.edu/index.php?catoid=29",
+    "platform": "acalog",
+    "program_lists": [
+     "https://acalog.uncfsu.edu/content.php?catoid=29&navoid=2875"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 29 on acalog.uncfsu.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-198561",
+   "folder": "gardner-webb",
+   "name": "Gardner-Webb University",
+   "control": "private_nonprofit",
+   "domains": [
+    "gardner-webb.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.gardner-webb.edu/",
+    "https://catalog.gardner-webb.edu/",
+    "https://www.gardner-webb.edu/academics/",
+    "https://www.gardner-webb.edu/registrar/",
+    "https://www.gardner-webb.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-198613",
+   "folder": "guilford",
+   "name": "Guilford College",
+   "control": "private_nonprofit",
+   "domains": [
+    "guilford.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.guilford.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.guilford.edu/azindex/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style program list on catalog.guilford.edu"
+  },
+  {
+   "institution_key": "ipeds-198695",
+   "folder": "highpoint",
+   "name": "High Point University",
+   "control": "private_nonprofit",
+   "domains": [
+    "highpoint.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.highpoint.edu/",
+    "https://catalog.highpoint.edu/",
+    "https://www.highpoint.edu/academics/",
+    "https://www.highpoint.edu/registrar/",
+    "https://www.highpoint.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-445708",
+   "folder": "jwu",
+   "name": "Johnson & Wales University-Charlotte",
+   "control": "private_nonprofit",
+   "domains": [
+    "jwu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.jwu.edu/wp-content/uploads/2026/08/2024-25-jwu-providence-catalog.pdf"
+    ],
+    "home": "https://www.jwu.edu/wp-content/uploads/2026/08/2024-25-jwu-providence-catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2024-2025"
+  },
+  {
+   "institution_key": "ipeds-198835",
+   "folder": "lr",
+   "name": "Lenoir-Rhyne University",
+   "control": "private_nonprofit",
+   "domains": [
+    "lr.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 20,
+    "home": "https://catalog.lr.edu/index.php?catoid=20",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.lr.edu/content.php?catoid=20&navoid=469",
+     "https://catalog.lr.edu/content.php?catoid=20&navoid=481",
+     "https://catalog.lr.edu/content.php?catoid=20&navoid=482"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 20 on catalog.lr.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-198950",
+   "folder": "meredith",
+   "name": "Meredith College",
+   "control": "private_nonprofit",
+   "domains": [
+    "meredith.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.meredith.edu/",
+    "https://catalog.meredith.edu/",
+    "https://www.meredith.edu/academics/",
+    "https://www.meredith.edu/registrar/",
+    "https://www.meredith.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-198969",
+   "folder": "methodist",
+   "name": "Methodist University",
+   "control": "private_nonprofit",
+   "domains": [
+    "methodist.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.methodist.edu/",
+    "https://catalog.methodist.edu/",
+    "https://www.methodist.edu/academics/",
+    "https://www.methodist.edu/registrar/",
+    "https://www.methodist.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-199157",
+   "folder": "nccu",
+   "name": "North Carolina Central University",
+   "control": "public",
+   "domains": [
+    "nccu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 37,
+    "home": "https://ecatalog.nccu.edu/index.php?catoid=37",
+    "platform": "acalog",
+    "program_lists": [
+     "https://ecatalog.nccu.edu/content.php?catoid=37&navoid=2950",
+     "https://ecatalog.nccu.edu/content.php?catoid=37&navoid=2953"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 37 on ecatalog.nccu.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-199412",
+   "folder": "queens",
+   "name": "Queens University of Charlotte",
+   "control": "private_nonprofit",
+   "domains": [
+    "queens.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.queens.edu/registrar/wp-content/uploads/sites/14/1790/94/2026-2027-Catalog-rev-9-2026.pdf"
+    ],
+    "home": "https://www.queens.edu/registrar/wp-content/uploads/sites/14/1790/94/2026-2027-Catalog-rev-9-2026.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-199111",
+   "folder": "unca",
+   "name": "University of North Carolina Asheville",
+   "control": "public",
+   "domains": [
+    "unca.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 23,
+    "home": "https://catalog.unca.edu/index.php?catoid=23",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.unca.edu/content.php?catoid=23&navoid=1397"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 23 on catalog.unca.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-199281",
+   "folder": "uncp",
+   "name": "University of North Carolina at Pembroke",
+   "control": "public",
+   "domains": [
+    "uncp.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 44,
+    "home": "https://catalog.uncp.edu/index.php?catoid=44",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.uncp.edu/content.php?catoid=44&navoid=3002",
+     "https://catalog.uncp.edu/content.php?catoid=44&navoid=3020",
+     "https://catalog.uncp.edu/content.php?catoid=44&navoid=3123"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 44 on catalog.uncp.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-199847",
+   "folder": "wfu",
+   "name": "Wake Forest University",
+   "control": "private_nonprofit",
+   "domains": [
+    "wfu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://bulletin.wfu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://bulletin.wfu.edu/divinity/programs/",
+     "https://bulletin.wfu.edu/graduate/programs/",
+     "https://bulletin.wfu.edu/professional-studies/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style program list on bulletin.wfu.edu"
+  },
+  {
+   "institution_key": "ipeds-199962",
+   "folder": "wingate",
+   "name": "Wingate University",
+   "control": "private_nonprofit",
+   "domains": [
+    "wingate.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.wingate.edu/",
+    "https://catalog.wingate.edu/",
+    "https://www.wingate.edu/academics/",
+    "https://www.wingate.edu/registrar/",
+    "https://www.wingate.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-199999",
+   "folder": "wssu",
+   "name": "Winston-Salem State University",
+   "control": "public",
+   "domains": [
+    "wssu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 48,
+    "home": "https://catalog.wssu.edu/index.php?catoid=48",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.wssu.edu/content.php?catoid=48&navoid=5429",
+     "https://catalog.wssu.edu/content.php?catoid=48&navoid=5541",
+     "https://catalog.wssu.edu/content.php?catoid=48&navoid=5543"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 48 on catalog.wssu.edu (labelled 2024-2025)"
+  },
+  {
+   "institution_key": "ipeds-197911",
+   "folder": "barton",
+   "name": "Barton College",
+   "control": "private_nonprofit",
+   "domains": [
+    "barton.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.barton.edu/",
+    "https://catalog.barton.edu/",
+    "https://www.barton.edu/academics/",
+    "https://www.barton.edu/registrar/",
+    "https://www.barton.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-197993",
+   "folder": "bennett",
+   "name": "Bennett College",
+   "control": "private_nonprofit",
+   "domains": [
+    "bennett.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.bennett.edu/",
+    "https://catalog.bennett.edu/",
+    "https://www.bennett.edu/academics/",
+    "https://www.bennett.edu/registrar/",
+    "https://www.bennett.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-198066",
+   "folder": "brevard",
+   "name": "Brevard College",
+   "control": "private_nonprofit",
+   "domains": [
+    "brevard.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.brevard.edu/",
+    "https://catalog.brevard.edu/",
+    "https://www.brevard.edu/academics/",
+    "https://www.brevard.edu/registrar/",
+    "https://www.brevard.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-198109",
+   "folder": "cabarruscollege",
+   "name": "Cabarrus College of Health Sciences",
+   "control": "private_nonprofit",
+   "domains": [
+    "cabarruscollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://cabarruscollege.edu/",
+    "https://catalog.cabarruscollege.edu/",
+    "https://www.cabarruscollege.edu/academics/",
+    "https://www.cabarruscollege.edu/registrar/",
+    "https://www.cabarruscollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-199971",
+   "folder": "carolina",
+   "name": "Carolina Christian College",
+   "control": "private_nonprofit",
+   "domains": [
+    "carolina.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.carolina.edu/",
+    "https://catalog.carolina.edu/",
+    "https://www.carolina.edu/academics/",
+    "https://www.carolina.edu/registrar/",
+    "https://www.carolina.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-461032",
+   "folder": "ccbs",
+   "name": "Carolina College of Biblical Studies",
+   "control": "private_nonprofit",
+   "domains": [
+    "ccbs.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://ccbs.edu/",
+    "https://catalog.ccbs.edu/",
+    "https://www.ccbs.edu/academics/",
+    "https://www.ccbs.edu/registrar/",
+    "https://www.ccbs.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-489937",
+   "folder": "carolinau",
+   "name": "Carolina University",
+   "control": "private_nonprofit",
+   "domains": [
+    "carolinau.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "home": "https://catalog.carolinau.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.carolinau.edu/programs"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style program list on catalog.carolinau.edu"
+  },
+  {
+   "institution_key": "ipeds-433174",
+   "folder": "carolinascollege",
+   "name": "Carolinas College of Health Sciences",
+   "control": "public",
+   "domains": [
+    "carolinascollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.carolinascollege.edu/",
+    "https://catalog.carolinascollege.edu/",
+    "https://www.carolinascollege.edu/academics/",
+    "https://www.carolinascollege.edu/registrar/",
+    "https://www.carolinascollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-198215",
+   "folder": "catawba",
+   "name": "Catawba College",
+   "control": "private_nonprofit",
+   "domains": [
+    "catawba.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.catawba.edu/media/catawba-college/site-assets/pdf/catalogs/2021-2022_Catalog.pdf"
+    ],
+    "home": "https://www.catawba.edu/media/catawba-college/site-assets/pdf/catalogs/2021-2022_Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2021-2022"
+  },
+  {
+   "institution_key": "ipeds-444778",
+   "folder": "charlottechristian",
+   "name": "Charlotte Christian College and Theological Seminary",
+   "control": "private_nonprofit",
+   "domains": [
+    "charlottechristian.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.charlottechristian.edu/_files/ugd/598e67_1d24eff5c3d54d4bb9697c65e6a44577.pdf"
+    ],
+    "home": "https://www.charlottechristian.edu/_files/ugd/598e67_1d24eff5c3d54d4bb9697c65e6a44577.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-198303",
+   "folder": "chowan",
+   "name": "Chowan University",
+   "control": "private_nonprofit",
+   "domains": [
+    "chowan.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 17,
+    "home": "https://catalog.chowan.edu/index.php?catoid=17",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.chowan.edu/content.php?catoid=17&navoid=2328",
+     "https://catalog.chowan.edu/content.php?catoid=17&navoid=2372",
+     "https://catalog.chowan.edu/content.php?catoid=17&navoid=2446"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 17 on catalog.chowan.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-198598",
+   "folder": "greensboro",
+   "name": "Greensboro College",
+   "control": "private_nonprofit",
+   "domains": [
+    "greensboro.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.greensboro.edu/",
+    "https://catalog.greensboro.edu/",
+    "https://www.greensboro.edu/academics/",
+    "https://www.greensboro.edu/registrar/",
+    "https://www.greensboro.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-198677",
+   "folder": "heritagebiblecollege",
+   "name": "Heritage Bible College",
+   "control": "private_nonprofit",
+   "domains": [
+    "heritagebiblecollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.heritagebiblecollege.edu/",
+    "https://catalog.heritagebiblecollege.edu/",
+    "https://www.heritagebiblecollege.edu/academics/",
+    "https://www.heritagebiblecollege.edu/registrar/",
+    "https://www.heritagebiblecollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-198756",
+   "folder": "jcsu",
+   "name": "Johnson C Smith University",
+   "control": "private_nonprofit",
+   "domains": [
+    "jcsu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.jcsu.edu/sites/default/files/2026-09/2026-27%20Catalog%20Revised%20August%202026.pdf"
+    ],
+    "home": "https://www.jcsu.edu/sites/default/files/2026-09/2026-27%20Catalog%20Revised%20August%202026.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-198808",
+   "folder": "lmc",
+   "name": "Lees-McRae College",
+   "control": "private_nonprofit",
+   "domains": [
+    "lmc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.lmc.edu/academics/files/College-Catalog-2026-27.pdf"
+    ],
+    "home": "https://www.lmc.edu/academics/files/College-Catalog-2026-27.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-198862",
+   "folder": "livingstone",
+   "name": "Livingstone College",
+   "control": "private_nonprofit",
+   "domains": [
+    "livingstone.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://livingstone.edu/",
+    "https://catalog.livingstone.edu/",
+    "https://www.livingstone.edu/academics/",
+    "https://www.livingstone.edu/registrar/",
+    "https://www.livingstone.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-461528",
+   "folder": "manna",
+   "name": "Manna University",
+   "control": "private_nonprofit",
+   "domains": [
+    "manna.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://manna.edu/wp-content/uploads/2025/10/2025-2026_Virginia_Academic_Catalog-Oct21.pdf"
+    ],
+    "home": "https://manna.edu/wp-content/uploads/2025/10/2025-2026_Virginia_Academic_Catalog-Oct21.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
+  },
+  {
+   "institution_key": "ipeds-198899",
+   "folder": "mhu",
+   "name": "Mars Hill University",
+   "control": "private_nonprofit",
+   "domains": [
+    "mhu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.mhu.edu/wp-content/uploads/2025/08/2025-2026-Academic-Catalog.pdf"
+    ],
+    "home": "https://www.mhu.edu/wp-content/uploads/2025/08/2025-2026-Academic-Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
+  },
+  {
+   "institution_key": "ipeds-199458",
+   "folder": "macuniversity",
+   "name": "Mid-Atlantic Christian University",
+   "control": "private_nonprofit",
+   "domains": [
+    "macuniversity.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.macuniversity.edu/wp-content/uploads/MACU-Academic-Catalog-2026-27.pdf"
+    ],
+    "home": "https://www.macuniversity.edu/wp-content/uploads/MACU-Academic-Catalog-2026-27.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-199032",
+   "folder": "montreat",
+   "name": "Montreat College",
+   "control": "private_nonprofit",
+   "domains": [
+    "montreat.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.montreat.edu/wp-content/uploads/2026/08/2026-27-SAS-Catalog.pdf"
+    ],
+    "home": "https://www.montreat.edu/wp-content/uploads/2026/08/2026-27-SAS-Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-199209",
+   "folder": "ncwc",
+   "name": "North Carolina Wesleyan University",
+   "control": "private_nonprofit",
+   "domains": [
+    "ncwc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 6,
+    "home": "https://catalog.ncwc.edu/index.php?catoid=6",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.ncwc.edu/content.php?catoid=6&navoid=255",
+     "https://catalog.ncwc.edu/content.php?catoid=6&navoid=269",
+     "https://catalog.ncwc.edu/content.php?catoid=6&navoid=270",
+     "https://catalog.ncwc.edu/content.php?catoid=6&navoid=272"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 6 on catalog.ncwc.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-199306",
+   "folder": "pfeiffer",
+   "name": "Pfeiffer University",
+   "control": "private_nonprofit",
+   "domains": [
+    "pfeiffer.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.pfeiffer.edu/",
+    "https://catalog.pfeiffer.edu/",
+    "https://www.pfeiffer.edu/academics/",
+    "https://www.pfeiffer.edu/registrar/",
+    "https://www.pfeiffer.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-199582",
+   "folder": "st-aug",
+   "name": "Saint Augustine's University",
+   "control": "private_nonprofit",
+   "domains": [
+    "st-aug.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 6,
+    "home": "https://catalog.st-aug.edu/index.php?catoid=6",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 6 on catalog.st-aug.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-199607",
+   "folder": "salem",
+   "name": "Salem College",
+   "control": "private_nonprofit",
+   "domains": [
+    "salem.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 34,
+    "home": "https://catalog.salem.edu/index.php?catoid=34",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.salem.edu/content.php?catoid=34&navoid=1491",
+     "https://catalog.salem.edu/content.php?catoid=34&navoid=1504"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 34 on catalog.salem.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-199643",
+   "folder": "shawu",
+   "name": "Shaw University",
+   "control": "private_nonprofit",
+   "domains": [
+    "shawu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 32,
+    "home": "https://catalog.shawu.edu/index.php?catoid=32",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.shawu.edu/content.php?catoid=32&navoid=1450",
+     "https://catalog.shawu.edu/content.php?catoid=32&navoid=1458",
+     "https://catalog.shawu.edu/content.php?catoid=32&navoid=1463"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 32 on catalog.shawu.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-199759",
+   "folder": "sebts",
+   "name": "Southeastern Baptist Theological Seminary",
+   "control": "private_nonprofit",
+   "domains": [
+    "sebts.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 31,
+    "home": "https://catalog.sebts.edu/index.php?catoid=31",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.sebts.edu/content.php?catoid=31&navoid=4526",
+     "https://catalog.sebts.edu/content.php?catoid=31&navoid=4528",
+     "https://catalog.sebts.edu/content.php?catoid=31&navoid=4557"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 31 on catalog.sebts.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-233602",
+   "folder": "sfwbc",
+   "name": "Southeastern Free Will Baptist Bible College",
+   "control": "private_nonprofit",
+   "domains": [
+    "sfwbc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.sfwbc.edu/wp-content/uploads/College-Catalog-2026-27-edits-10-5-26-edits-1.pdf"
+    ],
+    "home": "https://www.sfwbc.edu/wp-content/uploads/College-Catalog-2026-27-edits-10-5-26-edits-1.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-199698",
+   "folder": "sa",
+   "name": "St. Andrews University",
+   "control": "private_nonprofit",
+   "domains": [
+    "sa.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.sa.edu/",
+    "https://catalog.sa.edu/",
+    "https://www.sa.edu/academics/",
+    "https://www.sa.edu/registrar/",
+    "https://www.sa.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-199069",
+   "folder": "umo",
+   "name": "University of Mount Olive",
+   "control": "private_nonprofit",
+   "domains": [
+    "umo.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://umo.edu/",
+    "https://catalog.umo.edu/",
+    "https://www.umo.edu/academics/",
+    "https://www.umo.edu/registrar/",
+    "https://www.umo.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-199184",
+   "folder": "uncsa",
+   "name": "University of North Carolina School of the Arts",
+   "control": "public",
+   "domains": [
+    "uncsa.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.uncsa.edu/",
+    "https://catalog.uncsa.edu/",
+    "https://www.uncsa.edu/academics/",
+    "https://www.uncsa.edu/registrar/",
+    "https://www.uncsa.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-199865",
+   "folder": "warren-wilson",
+   "name": "Warren Wilson College",
+   "control": "private_nonprofit",
+   "domains": [
+    "warren-wilson.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.warren-wilson.edu/wp-content/uploads/2026/07/2026-27-Warren-Wilson-College-Catalog.pdf"
+    ],
+    "home": "https://www.warren-wilson.edu/wp-content/uploads/2026/07/2026-27-Warren-Wilson-College-Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-199272",
+   "folder": "peace",
+   "name": "William Peace University",
+   "control": "private_nonprofit",
+   "domains": [
+    "peace.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.peace.edu/",
+    "https://catalog.peace.edu/",
+    "https://www.peace.edu/academics/",
+    "https://www.peace.edu/registrar/",
+    "https://www.peace.edu/catalog/"
+   ],
+   "policy": []
+  }
+ ]
+}
