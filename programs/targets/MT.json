@@ -1,0 +1,323 @@
+{
+ "state": "MT",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-180203",
+   "folder": "ancollege",
+   "name": "Aaniiih Nakoda College",
+   "control": "public",
+   "domains": [
+    "ancollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.ancollege.edu/",
+    "https://catalog.ancollege.edu/",
+    "https://www.ancollege.edu/academics/",
+    "https://www.ancollege.edu/registrar/",
+    "https://www.ancollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-180054",
+   "folder": "bfcc",
+   "name": "Blackfeet Community College",
+   "control": "private_nonprofit",
+   "domains": [
+    "bfcc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://bfcc.edu/",
+    "https://catalog.bfcc.edu/",
+    "https://www.bfcc.edu/academics/",
+    "https://www.bfcc.edu/registrar/",
+    "https://www.bfcc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-180106",
+   "folder": "carroll",
+   "name": "Carroll College",
+   "control": "private_nonprofit",
+   "domains": [
+    "carroll.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://catalog.carroll.edu/sites/default/files/2024-2025Catalog.pdf"
+    ],
+    "home": "https://catalog.carroll.edu/sites/default/files/2024-2025Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2024-2025"
+  },
+  {
+   "institution_key": "ipeds-262165",
+   "folder": "montanabiblecollege",
+   "name": "Montana Bible College",
+   "control": "private_nonprofit",
+   "domains": [
+    "montanabiblecollege.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.montanabiblecollege.edu/_files/ugd/4e84a0_39157ef1a2384369ae9ab760ec80e9f2.pdf"
+    ],
+    "home": "https://www.montanabiblecollege.edu/_files/ugd/4e84a0_39157ef1a2384369ae9ab760ec80e9f2.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
+  },
+  {
+   "institution_key": "ipeds-180461",
+   "folder": "montana",
+   "name": "Montana State University",
+   "control": "public",
+   "domains": [
+    "montana.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.montana.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.montana.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-180416",
+   "folder": "mtech-180416",
+   "name": "Montana Technological University",
+   "control": "public",
+   "domains": [
+    "mtech.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 18,
+    "home": "https://catalog.mtech.edu/index.php?catoid=18",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.mtech.edu/content.php?catoid=18&navoid=1775",
+     "https://catalog.mtech.edu/content.php?catoid=18&navoid=1786"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 18 on catalog.mtech.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-180595",
+   "folder": "rocky",
+   "name": "Rocky Mountain College",
+   "control": "private_nonprofit",
+   "domains": [
+    "rocky.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.rocky.edu/",
+    "https://catalog.rocky.edu/",
+    "https://www.rocky.edu/academics/",
+    "https://www.rocky.edu/registrar/",
+    "https://www.rocky.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-180489",
+   "folder": "umt",
+   "name": "The University of Montana",
+   "control": "public",
+   "domains": [
+    "umt.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.umt.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.umt.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.umt.edu (program list https://catalog.umt.edu/programs/)"
+  },
+  {
+   "institution_key": "ipeds-180692",
+   "folder": "umwestern",
+   "name": "The University of Montana-Western",
+   "control": "public",
+   "domains": [
+    "umwestern.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 15,
+    "home": "https://catalog.umwestern.edu/index.php?catoid=15",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.umwestern.edu/content.php?catoid=15&navoid=517",
+     "https://catalog.umwestern.edu/content.php?catoid=15&navoid=526"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 15 on catalog.umwestern.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-180258",
+   "folder": "uprovidence",
+   "name": "University of Providence",
+   "control": "private_nonprofit",
+   "domains": [
+    "uprovidence.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.uprovidence.edu/wp-content/uploads/2026/03/2025-26-Full-Catalog-Final-3.2.26.pdf"
+    ],
+    "home": "https://www.uprovidence.edu/wp-content/uploads/2026/03/2025-26-Full-Catalog-Final-3.2.26.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
+  },
+  {
+   "institution_key": "ipeds-180179",
+   "folder": "msubillings",
+   "name": "Montana State University Billings",
+   "control": "public",
+   "domains": [
+    "msubillings.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.msubillings.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.msubillings.edu/undergraduate/programs-az/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.msubillings.edu (program list https://catalog.msubillings.edu/undergraduate/programs-az/)"
+  },
+  {
+   "institution_key": "ipeds-180522",
+   "folder": "msun",
+   "name": "Montana State University-Northern",
+   "control": "public",
+   "domains": [
+    "msun.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.msun.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.msun.edu/programs",
+     "https://catalog.msun.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.msun.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.msun.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.msun.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.msun.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.msun.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.msun.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.msun.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.msun.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.msun.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.msun.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.msun.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.msun.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.msun.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.msun.edu (27 links)"
+  },
+  {
+   "institution_key": "ipeds-180647",
+   "folder": "skc",
+   "name": "Salish Kootenai College",
+   "control": "public",
+   "domains": [
+    "skc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.skc.edu/",
+    "https://catalog.skc.edu/",
+    "https://www.skc.edu/academics/",
+    "https://www.skc.edu/registrar/",
+    "https://www.skc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-366340",
+   "folder": "stonechild",
+   "name": "Stone Child College",
+   "control": "public",
+   "domains": [
+    "stonechild.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.stonechild.edu/",
+    "https://catalog.stonechild.edu/",
+    "https://www.stonechild.edu/academics/",
+    "https://www.stonechild.edu/registrar/",
+    "https://www.stonechild.edu/catalog/"
+   ],
+   "policy": []
+  }
+ ]
+}

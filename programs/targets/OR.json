@@ -1,0 +1,679 @@
+{
+ "state": "OR",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-208822",
+   "folder": "georgefox",
+   "name": "George Fox University",
+   "control": "private_nonprofit",
+   "domains": [
+    "georgefox.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "platform": "drupal",
+    "home": "https://www.georgefox.edu/catalog/index.html",
+    "program_link": "georgefox\\.edu/catalog/undergrad/curriculum/major_minor/[a-z_]+_major(_[a-z]+)?\\.html$",
+    "program_lists": [
+     "https://www.georgefox.edu/catalog/undergrad/curriculum/major_minor/index.html"
+    ]
+   },
+   "policy": [
+    "https://www.georgefox.edu/college-admissions/academics/major/index.html",
+    "https://www.georgefox.edu/college-admissions/academics/major/engineering.html",
+    "https://www.georgefox.edu/college-admissions/academics/major/nursing.html",
+    "https://www.georgefox.edu/catalog/undergrad/curriculum/major_minor/declaring-major.html"
+   ],
+   "discover": [
+    "https://www.georgefox.edu/catalog/index.html"
+   ]
+  },
+  {
+   "institution_key": "ipeds-209506",
+   "folder": "oit",
+   "name": "Oregon Institute of Technology",
+   "control": "public",
+   "domains": [
+    "oit.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 1,
+   "render": "browser",
+   "catalog": {
+    "platform": "coursedog",
+    "home": "https://catalog.oit.edu/",
+    "path_prefix": "/programs/",
+    "min_depth": 0,
+    "program_lists": [
+     "https://catalog.oit.edu/programs",
+     "https://catalog.oit.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.oit.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.oit.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.oit.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.oit.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.oit.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.oit.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.oit.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.oit.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.oit.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.oit.edu/programs?page=12&pq=&sortBy=name"
+    ]
+   },
+   "policy": [
+    "https://www.oit.edu/academics/degrees",
+    "https://www.oit.edu/academics/degrees/nursing",
+    "https://www.oit.edu/admissions/criteria",
+    "https://www.oit.edu/college-costs/scholarships/new-transfer-student/engineering-honors-scholarship",
+    "https://www.oit.edu/admissions/first-year-admitted"
+   ]
+  },
+  {
+   "institution_key": "ipeds-209542",
+   "folder": "oregonstate",
+   "name": "Oregon State University",
+   "control": "public",
+   "domains": [
+    "oregonstate.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "platform": "courseleaf",
+    "home": "https://catalog.oregonstate.edu/",
+    "path_prefix": "/college-departments/",
+    "min_depth": 1,
+    "program_lists": [
+     "https://catalog.oregonstate.edu/programs/"
+    ]
+   },
+   "policy": [
+    "https://admissions.oregonstate.edu/uesp",
+    "https://catalog.oregonstate.edu/college-departments/engineering/",
+    "https://catalog.oregonstate.edu/college-departments/business/",
+    "https://catalog.oregonstate.edu/regulations/regulations.pdf",
+    "https://engineering.oregonstate.edu/about/curriculum-reform",
+    "https://engineering.oregonstate.edu/tools-services/how-to-pay-for-college/undergrad-scholarships",
+    "https://engineering.oregonstate.edu/tools-services/financial-support/scholarships/catalyst-scholars-program",
+    "https://admissions.oregonstate.edu/first-year-admission-requirements",
+    "https://business.oregonstate.edu/node/22251",
+    "https://business.oregonstate.edu/node/245",
+    "https://business.oregonstate.edu/programs/application-process-overview",
+    "https://admissions.oregonstate.edu/calculus-ready"
+   ]
+  },
+  {
+   "institution_key": "ipeds-209807",
+   "folder": "pdx",
+   "name": "Portland State University",
+   "control": "public",
+   "domains": [
+    "pdx.edu"
+   ],
+   "hosts": [
+    "pdx.smartcatalogiq.com"
+   ],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "platform": "smartcatalog",
+    "home": "https://pdx.smartcatalogiq.com/en/2026-2027/bulletin/",
+    "path_prefix": "/en/2026-2027/bulletin/",
+    "min_depth": 1,
+    "program_lists": [
+     "https://pdx.smartcatalogiq.com/en/2026-2027/bulletin/programs-of-study"
+    ]
+   },
+   "policy": [
+    "https://www.pdx.edu/advising/exploring-changing-majors",
+    "https://www.pdx.edu/business/undergrad-degree-requirements",
+    "https://www.pdx.edu/business/undergrad-funding",
+    "https://www.pdx.edu/computer-science/undergraduate-admission",
+    "https://www.pdx.edu/engineering/scholarships-funding",
+    "https://www.pdx.edu/registration/major-change",
+    "https://www.pdx.edu/engineering/upper-division-admissions",
+    "https://www.pdx.edu/psychology/program-details-psychology-babsminor"
+   ],
+   "degree_maps": [
+    "https://www.pdx.edu/registration/degree-maps"
+   ],
+   "degree_map_link": "pdx\\.edu/registration/.+-degree-map"
+  },
+  {
+   "institution_key": "ipeds-209551",
+   "folder": "uoregon",
+   "name": "University of Oregon",
+   "control": "public",
+   "domains": [
+    "uoregon.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "platform": "courseleaf",
+    "home": "https://catalog.uoregon.edu/",
+    "path_prefix": "/",
+    "min_depth": 1,
+    "program_lists": [
+     "https://catalog.uoregon.edu/ug-programs/"
+    ]
+   },
+   "policy": [
+    "https://advising.uoregon.edu/content/choose-your-major",
+    "https://business.uoregon.edu/programs/undergraduate/apply",
+    "https://business.uoregon.edu/programs/undergraduate/apply/scholarships-funding/lundquist-scholarships",
+    "https://business.uoregon.edu/programs/undergraduate/apply/standard-admission/full-major-status",
+    "https://cs.uoregon.edu/undergraduate",
+    "https://scds.uoregon.edu/cs/apply/declare-major-minor",
+    "https://scds.uoregon.edu/cs/undergraduate-programs/frequently-asked-questions"
+   ]
+  },
+  {
+   "institution_key": "ipeds-209825",
+   "folder": "up",
+   "name": "University of Portland",
+   "control": "private_nonprofit",
+   "domains": [
+    "up.edu"
+   ],
+   "hosts": [
+    "up.smartcatalogiq.com"
+   ],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "platform": "smartcatalog",
+    "home": "https://up.smartcatalogiq.com/en",
+    "path_prefix": "/en/2026-2027/",
+    "min_depth": 2,
+    "program_lists": [
+     "https://up.smartcatalogiq.com/en/2026-2027/bulletin/university-academic-programs-of-study/undergraduate-programs"
+    ],
+    "printed_list": {
+     "url": "https://up.smartcatalogiq.com/en/2026-2027/bulletin/university-academic-programs-of-study/undergraduate-programs",
+     "heading": "Undergraduate Programs",
+     "stop": "Up one level"
+    }
+   },
+   "discover": [
+    "https://up.smartcatalogiq.com/en"
+   ],
+   "policy": [
+    "https://up.smartcatalogiq.com/en/2026-2027/bulletin/university-services/admissions/first-year-students",
+    "https://engineering.up.edu/transfer-students.html",
+    "https://up.smartcatalogiq.com/en/2026-2027/bulletin/school-of-business/",
+    "https://up.smartcatalogiq.com/en/2026-2027/bulletin/donald-p-shiley-school-of-engineering/"
+   ]
+  },
+  {
+   "institution_key": "ipeds-208646",
+   "folder": "eou",
+   "name": "Eastern Oregon University",
+   "control": "public",
+   "domains": [
+    "eou.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "platform": "acalog",
+    "home": "https://catalog.eou.edu/index.php?catoid=8",
+    "catoid": 8,
+    "program_lists": [
+     "https://catalog.eou.edu/content.php?catoid=8&navoid=463"
+    ]
+   },
+   "degree_maps": [
+    "https://catalog.eou.edu/content.php?catoid=8&navoid=475"
+   ],
+   "degree_map_any_pdf": true,
+   "policy": [
+    "https://www.eou.edu/academics/on-campus-majors-and-minors/",
+    "https://catalog.eou.edu/content.php?catoid=8&navoid=462",
+    "https://eou.edu/business-administration",
+    "https://www.eou.edu/computer-science/"
+   ]
+  },
+  {
+   "institution_key": "ipeds-209056",
+   "folder": "lclark",
+   "name": "Lewis & Clark College",
+   "control": "private_nonprofit",
+   "domains": [
+    "lclark.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "platform": "courseleaf",
+    "home": "https://docs.lclark.edu/undergraduate/",
+    "path_prefix": "/undergraduate/",
+    "min_depth": 1,
+    "program_lists": [
+     "https://docs.lclark.edu/undergraduate/policiesprocedures/majorsminors/"
+    ],
+    "major_table": "https://docs.lclark.edu/undergraduate/policiesprocedures/majorsminors/",
+    "award_statement": {
+     "url": "https://docs.lclark.edu/undergraduate/graduationrequirements/requirements/",
+     "quote": "Undergraduate work at Lewis & Clark leads to the bachelor of arts degree",
+     "credential": "bachelor"
+    }
+   },
+   "policy": [
+    "https://college.lclark.edu/academics/pre_professional/engineering/",
+    "https://college.lclark.edu/academics/pre_professional/business_mba/",
+    "https://college.lclark.edu/academics/support/advising/major-exploration"
+   ]
+  },
+  {
+   "institution_key": "ipeds-209065",
+   "folder": "linfield",
+   "name": "Linfield University",
+   "control": "private_nonprofit",
+   "domains": [
+    "linfield.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "platform": "courseleaf",
+    "home": "https://catalog.linfield.edu/",
+    "program_link": "catalog\\.linfield\\.edu/programs-az/(.+-major/(index\\.html)?|nursing/)$",
+    "program_lists": [
+     "https://catalog.linfield.edu/programs-az/"
+    ]
+   },
+   "policy": [
+    "https://www.linfield.edu/academics/nursing/index.html",
+    "https://www.linfield.edu/academics/business/index.html",
+    "https://inside.linfield.edu/advising/for-students/declare-major.html",
+    "https://catalog.linfield.edu/degrees-and-programs/undergraduate/major/declaration/"
+   ]
+  },
+  {
+   "institution_key": "ipeds-440828",
+   "folder": "osucascades",
+   "name": "Oregon State University-Cascades Campus",
+   "control": "public",
+   "domains": [
+    "osucascades.edu"
+   ],
+   "hosts": [
+    "admissions.oregonstate.edu",
+    "business.oregonstate.edu",
+    "catalog.oregonstate.edu"
+   ],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "platform": "courseleaf",
+    "home": "https://catalog.oregonstate.edu/",
+    "path_prefix": "/college-departments/",
+    "min_depth": 1,
+    "program_lists": [
+     "https://catalog.oregonstate.edu/programs/"
+    ],
+    "list_filter": "OSU-Cascades"
+   },
+   "caps": {
+    "program_page": 60
+   },
+   "policy": [
+    "https://osucascades.edu/academics",
+    "https://osucascades.edu/admissions/admission-requirements",
+    "https://admissions.oregonstate.edu/calculus-ready",
+    "https://business.oregonstate.edu/programs/20696/admissions"
+   ]
+  },
+  {
+   "institution_key": "ipeds-209612",
+   "folder": "pacificu",
+   "name": "Pacific University",
+   "control": "private_nonprofit",
+   "domains": [
+    "pacificu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.pacificu.edu/",
+    "https://catalog.pacificu.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-209922",
+   "folder": "reed",
+   "name": "Reed College",
+   "control": "private_nonprofit",
+   "domains": [
+    "reed.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.reed.edu/",
+    "https://catalog.reed.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-210146",
+   "folder": "sou",
+   "name": "Southern Oregon University",
+   "control": "public",
+   "domains": [
+    "sou.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "platform": "acalog",
+    "home": "https://catalog.sou.edu/index.php?catoid=18",
+    "catoid": 18,
+    "program_lists": []
+   },
+   "policy": [
+    "https://sou.edu/academics/?_degree_facet=major"
+   ]
+  },
+  {
+   "institution_key": "ipeds-210429",
+   "folder": "wou",
+   "name": "Western Oregon University",
+   "control": "public",
+   "domains": [
+    "wou.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://wou.edu/",
+    "https://catalog.wou.edu/",
+    "https://wou.edu/registrar/",
+    "https://wou.edu/academics/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-210401",
+   "folder": "willamette-210401",
+   "name": "Willamette University",
+   "control": "private_nonprofit",
+   "domains": [
+    "willamette.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 2,
+   "render": "browser",
+   "catalog": {
+    "platform": "coursedog",
+    "home": "https://catalog.willamette.edu/",
+    "path_prefix": "/programs/",
+    "min_depth": 0,
+    "program_lists": [
+     "https://catalog.willamette.edu/programs",
+     "https://catalog.willamette.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.willamette.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.willamette.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.willamette.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.willamette.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.willamette.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.willamette.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.willamette.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.willamette.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.willamette.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.willamette.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.willamette.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.willamette.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.willamette.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [
+    "https://willamette.edu/academics/all-programs?programTypes=undergraduate",
+    "https://willamette.edu/undergraduate/business/index.html",
+    "https://willamette.edu/undergraduate/physics/info/engineering"
+   ]
+  },
+  {
+   "institution_key": "ipeds-209409",
+   "folder": "bushnell",
+   "name": "Bushnell University",
+   "control": "private_nonprofit",
+   "domains": [
+    "bushnell.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.bushnell.edu/",
+    "https://catalog.bushnell.edu/",
+    "https://bushnell.edu/academics/academic-support/registrar/academic-catalog/"
+   ],
+   "policy": [
+    "https://bushnell.edu/wp-content/uploads/2026/08/26-27-Bushnell-University-Academic-Catalog-FINAL.pdf",
+    "https://bushnell.edu/undergraduate-academics/"
+   ]
+  },
+  {
+   "institution_key": "ipeds-208390",
+   "folder": "chemeketa",
+   "name": "Chemeketa Community College",
+   "control": "public",
+   "domains": [
+    "chemeketa.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.chemeketa.edu/",
+    "https://catalog.chemeketa.edu/"
+   ],
+   "policy": [
+    "https://chemeketa.edu/programs-classes/program-finder/leadership-management/"
+   ]
+  },
+  {
+   "institution_key": "ipeds-210331",
+   "folder": "corban",
+   "name": "Corban University",
+   "control": "private_nonprofit",
+   "domains": [
+    "corban.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.corban.edu/",
+    "https://catalog.corban.edu/",
+    "https://www.corban.edu/registrar/catalog/"
+   ],
+   "policy": [
+    "https://www.corban.edu/registrar/catalog/",
+    "https://media.corban.edu/hydra/media/files/2026/07/02/2026-2027-academic-catalog_final.pdf",
+    "https://www.corban.edu/academics/majors-programs/"
+   ]
+  },
+  {
+   "institution_key": "ipeds-209241",
+   "folder": "mountangelabbey",
+   "name": "Mount Angel Seminary",
+   "control": "private_nonprofit",
+   "domains": [
+    "mountangelabbey.org"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.mountangelabbey.org/seminary",
+    "https://catalog.mountangelabbey.org/"
+   ],
+   "policy": [
+    "https://www.mountangelabbey.org/wp-content/uploads/Mount-Angel-Seminary-Academic-Catalog-2026-2027.pdf",
+    "https://www.mountangelabbey.org/seminary/admissions/"
+   ]
+  },
+  {
+   "institution_key": "ipeds-209250",
+   "folder": "mhcc",
+   "name": "Mt Hood Community College",
+   "control": "public",
+   "domains": [
+    "mhcc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.mhcc.edu/",
+    "https://catalog.mhcc.edu/"
+   ],
+   "policy": [
+    "https://catalog.mhcc.edu/degree-certificate-requirements/bachelor-of-applied-science/cybersecurity/",
+    "https://www.mhcc.edu/education-options/degrees-certificates/cybersecurity/bachelor-applied-science-cybersecurity/get-started"
+   ]
+  },
+  {
+   "institution_key": "ipeds-209287",
+   "folder": "multnomah",
+   "name": "Multnomah University",
+   "control": "private_nonprofit",
+   "domains": [
+    "multnomah.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.multnomah.edu/",
+    "https://catalog.multnomah.edu/"
+   ],
+   "policy": [
+    "https://www.multnomah.edu/",
+    "https://www.multnomah.edu/closure-2024/",
+    "https://www.multnomah.edu/closure-2025/"
+   ]
+  },
+  {
+   "institution_key": "ipeds-208725",
+   "folder": "newhope",
+   "name": "New Hope Christian College-Eugene",
+   "control": "private_nonprofit",
+   "domains": [
+    "newhope.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.newhope.edu/",
+    "https://catalog.newhope.edu/"
+   ],
+   "policy": [
+    "https://newhope.edu/academics/",
+    "https://www.newhope.edu/wp-content/uploads/2023/09/2023-2024-Academic-Catalog.pdf"
+   ]
+  },
+  {
+   "institution_key": "ipeds-407610",
+   "folder": "pacificbible",
+   "name": "Pacific Bible College",
+   "control": "private_nonprofit",
+   "domains": [
+    "pacificbible.edu"
+   ],
+   "hosts": [
+    "cdn.prod.website-files.com"
+   ],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://pacificbible.edu/",
+    "https://catalog.pacificbible.edu/"
+   ],
+   "policy": [
+    "https://pacificbible.edu/catalog",
+    "https://pacificbible.edu/faq"
+   ]
+  },
+  {
+   "institution_key": "ipeds-209603",
+   "folder": "willamette-209603",
+   "name": "Pacific Northwest College of Art",
+   "control": "private_nonprofit",
+   "domains": [
+    "willamette.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://willamette.edu/pnca/index.html",
+    "https://catalog.willamette.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-210304",
+   "folder": "warnerpacific-210304",
+   "name": "Warner Pacific University",
+   "control": "private_nonprofit",
+   "domains": [
+    "warnerpacific.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.warnerpacific.edu/",
+    "https://catalog.warnerpacific.edu/",
+    "https://www.warnerpacific.edu/academics/registrar/academic-catalog/"
+   ],
+   "policy": [
+    "https://www.warnerpacific.edu/wp-content/uploads/2026/08/catalog_2026_27_WPU_web.pdf"
+   ]
+  },
+  {
+   "institution_key": "ipeds-480198",
+   "folder": "warnerpacific-480198",
+   "name": "Warner Pacific University Professional and Graduate Studies",
+   "control": "private_nonprofit",
+   "domains": [
+    "warnerpacific.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.warnerpacific.edu/",
+    "https://catalog.warnerpacific.edu/"
+   ],
+   "policy": [
+    "https://www.warnerpacific.edu/wp-content/uploads/2026/08/catalog_2026_27_WPU_web.pdf",
+    "https://www.warnerpacific.edu/admissions-aid/admission-requirements/adult-degree-admission-requirements/"
+   ]
+  }
+ ]
+}
