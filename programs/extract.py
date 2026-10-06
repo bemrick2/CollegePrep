@@ -112,6 +112,11 @@ def printed_line(page, anchor):
     return None
 
 
+def norm_url(u):
+    """One key per page: '/x/index.html', '/x/' and '/x' are the same CourseLeaf page."""
+    return re.sub(r'(/index\.html?)?/?$', '', u.split('#')[0])
+
+
 def collect_lists(target, run, entries):
     """Program links on the current catalog's list pages (configured `program_lists`; Acalog navigation pages
     otherwise), deduplicated by URL, each with the text exactly as printed."""
@@ -135,10 +140,13 @@ def collect_lists(target, run, entries):
             if cat_filter and not re.search(cat_filter, label): continue
             if NOT_BACHELOR_URL.search(urlsplit(href).path):  # UO minors repeat the major's anchor text: /min-anthropology/
                 label = name
-            if href not in out:
+            nk = norm_url(href)
+            if nk in out and out[nk]['credential_level'] is None and credential_of(label) and not NOT_BACHELOR_URL.search(urlsplit(href).path):
+                del out[nk]  # the same page linked twice (A-Z index without the award, college list with it): keep the awarded line
+            if nk not in out:
                 level = None if NOT_BACHELOR_URL.search(urlsplit(href).path) else credential_of(label)
                 listed_as = level or ('major' if MAJOR.search(label) and not NOT_MAJOR.search(label) else None)
-                out[href] = {'name': name, 'printed': label, 'url': href, 'credential_level': level, 'listed_as': listed_as,
+                out[nk] = {'name': name, 'printed': label, 'url': href, 'credential_level': level, 'listed_as': listed_as,
                              'listed_on': e['url'], 'listed_on_sha256': e.get('sha256'), 'listed_on_title': e.get('title', '')}
     progs = sorted(out.values(), key=lambda p: p['name'].lower())
     return {'printed_years': sorted(years), 'programs': progs,
@@ -176,7 +184,8 @@ def program_page_candidates(target, inst, entry, page, today_year):
     if not out and plat in ('courseleaf', 'acalog'):
         out = stated_major_identity(inst, entry, page, today_year)
     if not out and plat == 'courseleaf':
-        listed = (target.get('_listed') or {}).get(entry.get('url'))
+        lk = target.get('_listed') or {}
+        listed = lk.get(norm_url(entry.get('url') or '')) or lk.get(entry.get('url'))
         out = department_major_identity(inst, entry, page, today_year, listed) or listed_program_identity(inst, entry, page, today_year, listed)
     if plat == 'courseleaf' and year:
         from . import courseleaf
@@ -265,7 +274,8 @@ def listed_program_identity(inst, entry, page, today_year, listed):
     if any(re.search(r'\bmajors\b', h, re.I) for h in page.headings): return []  # a page holding several majors
     names = [h.strip() for h in page.headings[:3]] + [CAT.program_name(page)]
     norm = lambda x: re.sub(r'\W+', ' ', x).strip().lower()
-    hit = next((n for n in names if n and (norm(n) == norm(base) or norm(n).startswith(norm(base) + ' '))), None)
+    # the page names the same program; the only extra text allowed is a parenthesised code or award ('Genetics (GENE)')
+    hit = next((n for n in names if n and norm(re.sub(r'(\s*\([^()]{1,12}\))+\s*$', '', n)) == norm(base)), None)
     if not hit: return []
     labels = printed_catalog_years(page)
     if len({y for y, _ in labels}) != 1: return []
@@ -837,7 +847,7 @@ def extract_run(targets, run_dir, today=None):
         lists[key] = collect_lists(t, run, es) if t.get('catalog') else {'programs': [], 'counts': {}}
         if (t.get('catalog') or {}).get('platform') == 'coursedog': t = {**t, '_catalog_year': coursedog_year(run, es)}
         if (t.get('catalog') or {}).get('platform') == 'courseleaf':
-            t = {**t, '_listed': {p['url']: p for p in lists[key].get('programs', [])}}
+            t = {**t, '_listed': {norm_url(p['url']): p for p in lists[key].get('programs', [])}}
             t = {**t, '_courselists': {e['via']: (e, json.loads(run.load_page(e['page_file'])[0].text)) for e in es if e.get('role') == 'courselist' and e.get('page_file')}}
         n_c = 0; seen_ev = set(); seen_feed_keys = set(); plan_links = {}
         layouts = {x['via']: x for x in es if x.get('role') == 'pdf_layout' and x.get('page_file')}

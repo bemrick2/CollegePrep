@@ -32,7 +32,10 @@ from pipeline import text as T
 
 ROOT = Path(__file__).resolve().parent.parent
 TRUSTED_PROGRAMS = {'catalog_program/v1', 'coursedog_api/v1', 'coursedog_page/v1', 'smartcatalog_program/v1', 'award_heading/v1',
-                    'department_major/v1', 'stated_major/v1', 'listed_location/v1', 'major_table/v1'}
+                    'department_major/v1', 'stated_major/v1', 'listed_location/v1', 'major_table/v1',
+                    # independent review 2026-10-06 (Auburn, 30 sampled): 26/30 right; the 4 errors were duplicate list links
+                    # (fixed: one list entry per page, the awarded line kept) and entry-path variants are now held
+                    'listed_program/v1'}
 OPTION = re.compile(r'\b(track|option|concentration|emphasis|specialization)\b', re.I)  # an option is not a program
 # combined and accelerated pathways into a graduate degree are not bachelor's programs of their own
 COMBINED = re.compile(r'\+|\b(accelerated|combined|dual|concurrent)\b|\b(B\.?[AS]\.?|BBA|B\.B\.A\.)\s*/\s*(M|J\.?D)|program for', re.I)
@@ -59,17 +62,24 @@ def review(state, run, today=None):
     cands, verify, lists = load(run)
     approve, held = [], Counter()
     program_keys = defaultdict(set)
-    seen = set()
+    seen, seen_url = set(), set()
+    # entry-path variants of one degree ('Architecture (Foundation Unit) – BArch' / '(Summer Design)') are held together
+    base = lambda c: re.sub(r'\s+', ' ', re.sub(r'\s*\([^()]*\)', '', c['record'].get('program_name', ''))).strip().lower()
+    variants = defaultdict(set)
+    for c in cands:
+        if c['domain'] == 'academic_programs': variants[(c['institution_key'], base(c))].add(c['record'].get('program_name'))
     for c in cands:
         if c['domain'] != 'academic_programs': continue
         k = (c['institution_key'], c['record'].get('program_key'))
+        u = (c['institution_key'], re.sub(r'(/index\.html?)?/?$', '', c['record'].get('program_url') or c['candidate_id']))
         why = ('untrusted_extractor' if c['extractor'] not in TRUSTED_PROGRAMS else 'issues' if c['issues'] else
                'not_verbatim' if verify.get(c['candidate_id']) else 'not_bachelor' if c['record'].get('credential_level') != 'bachelor' else
                'option_name' if OPTION.search(c['record'].get('program_name', '')) else
                'combined_program' if COMBINED.search(c['record'].get('program_name', '')) else
-               'not_current_year' if not current_year(c, today_year) else 'duplicate' if k in seen else None)
+               'entry_path_variant' if len(variants[(c['institution_key'], base(c))]) > 1 else
+               'not_current_year' if not current_year(c, today_year) else 'duplicate' if k in seen or u in seen_url else None)
         if why: held[why] += 1; continue
-        seen.add(k); program_keys[c['institution_key']].add(k[1])
+        seen.add(k); seen_url.add(u); program_keys[c['institution_key']].add(k[1])
         approve.append({'candidate_id': c['candidate_id'], 'reason': f"Standing review ({c['extractor']}): name, award and {c['record'].get('catalog_year')} catalog year verbatim in the stored official page."})
     for c in cands:
         if c['domain'] != 'degree_requirements': continue
