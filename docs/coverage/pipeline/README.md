@@ -1332,6 +1332,43 @@ Institutions in scope: **153** · crawled: **135** · blocked by site: **18** ·
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-211024`, `ipeds-211352`, `ipeds-211981`, `ipeds-212601`, `ipeds-212805`, `ipeds-212869`, `ipeds-212911`, `ipeds-213251`, `ipeds-214166`, `ipeds-214582`, `ipeds-214883`, `ipeds-215105`, `ipeds-215239`, `ipeds-215381`, `ipeds-216287`, `ipeds-216667`, `ipeds-216940`, `ipeds-217040`
 
+## RI — 2026-27
+
+Institutions in scope: **13** · crawled: **12** · blocked by site: **1** · run: `pipeline/runs/RI/2026-10-06`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 0 (0%) | 0 | 10 (77%) | 12 (92%) | 0 | 1 |
+| cost_of_attendance | 0 (0%) | 0 | 3 (23%) | 11 (85%) | 1 | 1 |
+| admissions_tests | 0 (0%) | 0 | 1 (8%) | 12 (92%) | 0 | 1 |
+| common_data_set | 0 (0%) | 0 | 1 (8%) | 1 (8%) | 11 | 1 |
+| merit_scholarships | 0 (0%) | 0 | 1 (8%) | 10 (77%) | 2 | 1 |
+| ap_credit | 0 (0%) | 0 | 1 (8%) | 6 (46%) | 6 | 1 |
+| clep_credit | 0 (0%) | 0 | 1 (8%) | 4 (31%) | 8 | 1 |
+| ib_credit | 0 (0%) | 0 | 0 (0%) | 1 (8%) | 11 | 1 |
+| dual_enrollment | 0 (0%) | 0 | 2 (15%) | 6 (46%) | 6 | 1 |
+| transfer_credit | 0 (0%) | 0 | 6 (46%) | 11 (85%) | 1 | 1 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 5 (38%) | 7 | 1 |
+| residency | 0 (0%) | 0 | 0 (0%) | 9 (69%) | 3 | 1 |
+| degree_requirements | 0 (0%) | 0 | 1 (8%) | 5 (38%) | 7 | 1 |
+| aid_appeals | 0 (0%) | 0 | 7 (54%) | 8 (62%) | 4 | 1 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 2 |
+| blocked requests | 17 |
+| candidates | 189 |
+| conflicts | 15 |
+| documents | 880 |
+| extraction failures | 0 |
+| fetch errors | 16 |
+| fetches | 913 |
+| ready | 122 |
+| semantic review | 16 |
+| stale sources | 14 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-460349`
+
 ## SC — 2026-27
 
 Institutions in scope: **55** · crawled: **49** · blocked by site: **6** · run: `pipeline/runs/SC/2026-10-03`
