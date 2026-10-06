@@ -5,11 +5,13 @@ import { Bolt, Compass, Flame, Target, Trophy } from '../../components/icons'
 import { PracticeIndicators } from '../../components/PracticeIndicators'
 import { BenchmarkStatus } from '../../components/BenchmarkStatus'
 import { useInterests } from '../majors/useInterests'
+import { improvementVerdict } from '../../lib/engine/improving'
+import { ImprovingCard } from '../../components/ImprovingCard'
 import { useSavedComparison, COMPARE_YEAR } from '../colleges/useSavedComparison'
 import { useMeritReference } from '../colleges/useMeritReference'
 import { meritAwards } from '../../lib/engine/merit'
 import { addDays, localDate } from '../../lib/engine/dates'
-import { benchmarkAttemptIds, SECTION_LABEL } from '../../lib/engine/benchmark'
+import { benchmarkImprovement, benchmarkAttemptIds, SECTION_LABEL } from '../../lib/engine/benchmark'
 import { achievements, levelOf, totalXp } from '../../lib/engine/gamify'
 import { latestEstimate, recentTrend, useStudentOverview, type StudentOverview } from './useStudentOverview'
 import { useCatalog } from '../practice/useCatalog'
@@ -169,6 +171,8 @@ function HomeBody({ name, o, studentId }: { name: string; o: StudentOverview; st
         )}
       </div>
 
+      {!fresh && <ImprovingCard v={improvementVerdict(benchmarkImprovement(o.benchmarks), trend)} />}
+
       {!fresh && <PracticeIndicators history={o.history} />}
 
       {!fresh && (
@@ -233,16 +237,7 @@ function HomeBody({ name, o, studentId }: { name: string; o: StudentOverview; st
                 </div>
                 <ProgressBar value={lvl.into} max={lvl.span} tone="gold" label="XP to next level" />
               </div>
-              {trend.recent.acc !== null && trend.prior.acc !== null && trend.recent.n >= 5 && trend.prior.n >= 5 && (
-                <p className="text-ink-2">
-                  Accuracy this week{' '}
-                  <span className={cx('font-semibold', trend.recent.acc >= trend.prior.acc ? 'text-go' : 'text-warn')}>
-                    {Math.round(trend.recent.acc * 100)}%
-                  </span>{' '}
-                  vs {Math.round(trend.prior.acc * 100)}% the week before.
-                </p>
-              )}
-              <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-1.5">
                 {badges
                   .filter((b) => b.earned)
                   .map((b) => (

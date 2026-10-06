@@ -11,6 +11,7 @@ import { useCatalog } from '../practice/useCatalog'
 import { CostOutlook, outlookFor } from './CostOutlook'
 import { PrimaryTarget } from './PrimaryTarget'
 import { useInterests } from '../majors/useInterests'
+import { useHomeState } from '../../lib/homeState'
 import { labelOf } from '../../lib/engine/interests'
 import { meritAwards } from '../../lib/engine/merit'
 import { useSavedComparison } from '../colleges/useSavedComparison'
@@ -64,6 +65,7 @@ function sectionRollup(estimates: SkillEstimate[]) {
 function Panel({ student, o }: { student: Student; o: StudentOverview }) {
   const exam = o.plan?.exam_family ?? 'act'
   const interestCount = useInterests(student.id).profile.interests.length
+  const { homeState } = useHomeState()
   const catalog = useCatalog(exam)
   const est = latestEstimate(o.scores, exam)[0]
   const goal = o.week.goal?.target_questions ?? null
@@ -105,6 +107,7 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
     .sort((a, b) => b.test_date.localeCompare(a.test_date))[0]
   const actions = parentActions({
     interestsSaved: interestCount,
+    homeStateKnown: !!homeState,
     name,
     exam,
     linked,

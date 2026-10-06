@@ -4,7 +4,7 @@
 Each entry breaks one rule in the source; the pipeline test suite must then fail ("KILLED").
 A surviving mutant means a safety rule has no test. Run: python scripts/mutation_check.py
 """
-import shutil, subprocess, sys
+import concurrent.futures, os, queue, shutil, subprocess, sys, tempfile
 
 MUTS = [
     ('pipeline/extractors/credit.py', "if bad_score and bad_score >= len(eqs) * 0.3: issues = issues + ['score_column_not_scores']", 'pass'),
@@ -184,20 +184,72 @@ MUTS = [
     ('pipeline/extractors/costs.py', 'on[- ]campus\\s*/\\s*off[- ]campus|on\\s*(/|and', 'on\\s*(/|and'),
     ('pipeline/extractors/costs.py', '(a\\s+)?(parents?|family)|', '(a\\s+)?parents?|'),
     ('pipeline/extractors/transfer.py', 'unaccredited|high\\s+school|', 'unaccredited|'),
+    # Issue #95: printed choice rules are not all_required
+    ('pipeline/extractors/catalog.py', "            choice_issues.append('mixed_required_and_choice')", '            pass'),
+    ('pipeline/extractors/catalog.py', "            choice_issues.append('choice_rule_unparsed')", '            pass'),
+    ('pipeline/extractors/catalog.py', "        elif g['courses'] and CHOICE_CUE.search(rules_text):", "        elif False:"),
+    ('pipeline/extractors/catalog.py', '{0,3}?(?:courses|classes)', '{0,3}?(?:zzzz)'),
+    ('pipeline/extractors/catalog.py', "(?:a\\s+minimum\\s+of\\s+|at\\s+least\\s+|an?\\s+additional\\s+)?", ''),
+    ('pipeline/extractors/catalog.py', "(\\d{1,2}|one|two|three|four|five|six)\\s+(?:additional", "(\\d{1,2})\\s+(?:additional"),
+    ('pipeline/extractors/catalog.py', "        if len(cue_lines) > 1 or", "        if False and len(cue_lines) > 1 or"),
+    ('pipeline/extractors/catalog.py', " and not CHOICE_CUE.search(r) for r in g['rules'])", " for r in g['rules'])"),
+    ('pipeline/extractors/catalog.py', "        elif g.get('courses_before_choice'):", "        elif False:"),
+    ('pipeline/extractors/catalog.py', "        if g.get('total') and g.get('table_groups') == 1 and", "        if g.get('total') and"),
+    ('pipeline/extractors/catalog.py', "(?:/[A-Z]{2,5})*)\\s?(\\d{3,4}[A-Z]?)$')", ")\\s?(\\d{3,4}[A-Z]?)$')"),
+    ('pipeline/extractors/catalog.py', "            if cur['courses'] and CHOICE_CUE.search(text): cur['courses_before_choice'] = True", "            pass"),
+    ('pipeline/registry.py', '        if domain in PROGRAM_DEPTH_DOMAINS: continue\n', '        pass\n'),
 ]
-failed = False
-for f, old, new in MUTS:
-    original = open(f).read()
+TIMEOUT = 90
+
+
+def run_one(root, mut):
+    """Apply one mutant inside a private copy of the tree, run the suite there, restore it."""
+    f, old, new = mut
+    path = os.path.join(root, f)
+    original = open(path).read()
     assert old in original, (f, old)
     try:
-        open(f, 'w').write(original.replace(old, new, 1))
+        open(path, 'w').write(original.replace(old, new, 1))
         try:
-            r = subprocess.run([sys.executable, '-m', 'unittest', 'tests.test_pipeline'], capture_output=True, text=True, timeout=90)
-            verdict = 'KILLED ' if r.returncode else 'SURVIVED'
+            r = subprocess.run([sys.executable, '-m', 'unittest', 'tests.test_pipeline'], cwd=root, capture_output=True, text=True, timeout=TIMEOUT)
+            return 'KILLED ' if r.returncode else 'SURVIVED'
         except subprocess.TimeoutExpired:
-            verdict = 'TIMEOUT'
+            return 'TIMEOUT'
     finally:
-        open(f, 'w').write(original)
-    print(verdict, f, old[:60], flush=True)
-    failed = failed or verdict != 'KILLED '
-sys.exit(1 if failed else 0)
+        open(path, 'w').write(original)
+
+
+def main():
+    for f, old, _ in MUTS:  # a stale entry fails fast, before any copy or test run
+        assert old in open(f).read(), (f, old)
+    global TIMEOUT
+    workers = max(1, int(os.environ.get('MUTATION_WORKERS') or os.cpu_count() or 1))
+    # Parallel suites share the CPU, so each one runs slower; the per-mutant budget scales with the worker count.
+    TIMEOUT = int(os.environ.get('MUTATION_TIMEOUT') or 90 * workers)
+    tmp = tempfile.mkdtemp(prefix='mutation-')
+    skip = shutil.ignore_patterns('.git', 'node_modules', '__pycache__', 'runs')
+    roots = queue.Queue()
+    for i in range(workers):  # one private tree per worker, so mutants never see each other's edits
+        dst = os.path.join(tmp, str(i)); shutil.copytree('.', dst, ignore=skip); roots.put(dst)
+
+    def job(mut):
+        root = roots.get()
+        try: return mut, run_one(root, mut)
+        finally: roots.put(root)
+
+    failed = False
+    try:
+        with concurrent.futures.ThreadPoolExecutor(workers) as pool:
+            for (f, old, _), verdict in pool.map(job, MUTS):
+                print(verdict, f, old[:60], flush=True)
+                if verdict != 'KILLED ':
+                    failed = True
+                    # A workflow command, so the surviving mutant shows as a check annotation, not only in the raw log.
+                    print(f'::error file={f}::mutant {verdict.strip()}: {old[:120]!r}', flush=True)
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+    sys.exit(1 if failed else 0)
+
+
+if __name__ == '__main__':
+    main()
