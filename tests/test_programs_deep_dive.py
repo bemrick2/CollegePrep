@@ -404,6 +404,33 @@ class StatedMajorTests(unittest.TestCase):
         minor = T.Page(txt, 'Accounting Minor for Students not Earning a Business Major < Linfield University', [], [], [])
         self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, minor, '2026-27'), [])
 
+    def test_department_page_named_by_its_list_line(self):  # UO 2026-27 'Cinema Studies' department page
+        from pipeline import text as T
+        from programs import verify as V
+        url = 'https://catalog.uoregon.edu/arts-sciences/humanities/cinema-studies/'
+        e = {'url': url, 'sha256': 'page', 'fetched_at': '2026-10-05T00:00:00'}
+        listed = {'name': 'Cinema Studies', 'printed': 'Cinema Studies: BA, BS', 'url': url, 'credential_level': 'bachelor',
+                  'listed_on': 'https://catalog.uoregon.edu/ug-programs/', 'listed_on_sha256': 'list'}
+        txt = 'Cinema Studies\nCinema Studies Major Requirements\nBachelor of Arts in Cinema Studies\n2026-2027 Catalog'
+        heads = ['Cinema Studies', 'Cinema Studies Major Requirements', 'Bachelor of Arts in Cinema Studies']
+        tgt = {'catalog': {'platform': 'courseleaf'}, '_listed': {url: listed}}
+        page = T.Page(txt, 'Cinema Studies | University of Oregon Academic Catalog', [], [], heads)
+        out = X.program_page_candidates(tgt, {'institution_key': 'k'}, e, page, '2026-27')
+        self.assertEqual([(c['record']['program_name'], c['record']['credential_level'], c['extractor']) for c in out],
+                         [('Cinema Studies: BA, BS', 'bachelor', 'department_major/v1')])
+        lists = {'list': 'Undergraduate Majors\nCinema Studies: BA, BS\n2026-2027 Catalog'}
+        self.assertEqual(V.check_candidate(out[0], txt, lists.get), [])
+        self.assertEqual(V.check_candidate(out[0], txt, {'list': 'Cinema Studies'}.get), ['program_name not verbatim on its list page'])
+        self.assertEqual(V.check_candidate(out[0], txt.replace('Cinema Studies Major Requirements', ''), lists.get), ['program page heading not printed'])
+        # several majors on one department page: no single '<Name> Major Requirements' heading, no record
+        multi = T.Page(txt, 't', [], [], ['Cinema Studies', "Majors - Bachelor's Degree"])
+        self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, multi, '2026-27'), [])
+        # the list must print the award; a bare anchor is not credential evidence
+        bare = {**tgt, '_listed': {url: {**listed, 'printed': 'Cinema Studies'}}}
+        self.assertEqual(X.program_page_candidates(bare, {'institution_key': 'k'}, e, page, '2026-27'), [])
+        minor = {**tgt, '_listed': {url: {**listed, 'credential_level': None}}}
+        self.assertEqual(X.program_page_candidates(minor, {'institution_key': 'k'}, e, page, '2026-27'), [])
+
     def test_archive_pdf_link_is_not_a_year_label(self):
         from pipeline import text as T
         p = T.Page('Catalog 2026-2027\nPDF of the entire 2025-2026 Catalog\nDownload PDF of the entire 2024-2025 Bulletin', 't', [], [], [])

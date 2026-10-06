@@ -34,6 +34,10 @@ MUTS = [
     ('programs/status.py', "if not (e.get('next_action') or '').strip(): errs.append", "if False: errs.append"),
     ('programs/status.py', "'degree_maps': 'met' if verified and len(plans & vkeys) >= PLAN_SHARE * len(verified)", "'degree_maps': 'met' if plans"),
     ('programs/status.py', "if cur != j: print(", "if False: print("),
+    ('programs/extract.py', "    if heading not in [h.strip() for h in page.headings]: return []", "    pass"),
+    ('programs/extract.py', "    if printed == name or OPTION_NAME.search(printed): return []", "    pass"),
+    ('programs/verify.py', "if not other or norm(r['program_name']) not in norm(other(nev['sha256'])): probs.append", "if False: probs.append"),
+    ('programs/verify.py', "if ev.get('field') == 'program_page_heading' and norm(ev.get('value', '')) not in t: probs.append", "if False: probs.append"),
 ]
 
 

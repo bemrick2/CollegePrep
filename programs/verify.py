@@ -51,7 +51,12 @@ def check_candidate(c, text, other=None):
                 probs.append(f"{ev['field']} value not in source response")
         return probs
     if c['domain'] == 'academic_programs':
-        if norm(r['program_name']) not in t: probs.append('program_name not verbatim')
+        nev = next((ev for ev in c.get('evidence', []) if ev.get('field') == 'program_name' and ev.get('sha256') and ev['sha256'] != c['source'].get('sha256')), None)
+        if nev:  # named on the catalog's program list (department_major/v1): printed there; the page must print the tying heading
+            if not other or norm(r['program_name']) not in norm(other(nev['sha256'])): probs.append('program_name not verbatim on its list page')
+            for ev in c.get('evidence', []):
+                if ev.get('field') == 'program_page_heading' and norm(ev.get('value', '')) not in t: probs.append('program page heading not printed')
+        elif norm(r['program_name']) not in t: probs.append('program_name not verbatim')
         cy = r.get('catalog_year') or ''
         y = re.match(r'(20\d{2})-(20\d{2})', cy)
         yev = next((ev for ev in c.get('evidence', []) if ev.get('field') == 'catalog_year' and ev.get('sha256') and ev['sha256'] != c['source'].get('sha256')), None)

@@ -175,6 +175,8 @@ def program_page_candidates(target, inst, entry, page, today_year):
                                                           'note': 'catalog year label printed outside the page header'}]
     if not out and plat in ('courseleaf', 'acalog'):
         out = stated_major_identity(inst, entry, page, today_year)
+    if not out and plat == 'courseleaf':
+        out = department_major_identity(inst, entry, page, today_year, (target.get('_listed') or {}).get(entry.get('url')))
     if plat == 'courseleaf' and year:
         from . import courseleaf
         have = any(c['domain'] == 'academic_programs' for c in out)
@@ -206,6 +208,32 @@ def static_program_identity(inst, entry, page, today_year):
     return [common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec,
                         [{'field': 'program_name', 'value': name, 'snippet': name}, {'field': 'catalog_year', 'value': year, 'snippet': line[:200]}],
                         entry, 'static_program/v1', {'program_key': rec['program_key']}, {}, issues)]
+
+
+def department_major_identity(inst, entry, page, today_year, listed):
+    """CourseLeaf department pages that hold one major (UO 'Cinema Studies'): the page prints no award in its name,
+    but the catalog's own program list links this exact page with the awards ('Cinema Studies: BA, BS') and the page
+    has a '<Name> Major Requirements' heading for that same name. The record is named by the list line as printed;
+    the list line is the credential evidence and the heading ties the page to it. A page holding several majors
+    ('Majors - Bachelor's Degree') has no such heading and yields nothing."""
+    if not listed or listed.get('credential_level') != 'bachelor' or not listed.get('listed_on_sha256'): return []
+    name, printed = listed['name'].strip(), listed['printed'].strip()
+    if printed == name or OPTION_NAME.search(printed): return []
+    heading = f'{name} Major Requirements'
+    if heading not in [h.strip() for h in page.headings]: return []
+    labels = printed_catalog_years(page)
+    if len({y for y, _ in labels}) != 1: return []
+    year, line = min(labels); acad = f'{year[:4]}-{year[7:9]}'
+    rec = {'program_key': CAT.slug(printed), 'program_name': printed, 'credential_level': 'bachelor', 'catalog_year': year,
+           'program_url': common.source_of(entry)['url'],
+           'notes': f'Named as printed on the catalog program list ({listed["listed_on"]}), which links this department page; '
+                    f'the page prints the heading "{heading}".'}
+    return [common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec,
+                        [{'field': 'program_name', 'value': printed, 'snippet': printed[:300], 'url': listed['listed_on'], 'sha256': listed.get('listed_on_sha256')},
+                         {'field': 'credential_level', 'value': 'bachelor', 'snippet': printed[:300], 'url': listed['listed_on'], 'sha256': listed.get('listed_on_sha256')},
+                         {'field': 'program_page_heading', 'value': heading, 'snippet': heading},
+                         {'field': 'catalog_year', 'value': year, 'snippet': line[:200]}],
+                        entry, 'department_major/v1', {'program_key': rec['program_key']}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}'])]
 
 
 STATED_BACHELOR = re.compile(r'[^.\n]*\bthis major is available as an? (bachelor of [^.\n]*?) degree\b[^.\n]*\.', re.I)
@@ -764,6 +792,7 @@ def extract_run(targets, run_dir, today=None):
         lists[key] = collect_lists(t, run, es) if t.get('catalog') else {'programs': [], 'counts': {}}
         if (t.get('catalog') or {}).get('platform') == 'coursedog': t = {**t, '_catalog_year': coursedog_year(run, es)}
         if (t.get('catalog') or {}).get('platform') == 'courseleaf':
+            t = {**t, '_listed': {p['url']: p for p in lists[key].get('programs', [])}}
             t = {**t, '_courselists': {e['via']: (e, json.loads(run.load_page(e['page_file'])[0].text)) for e in es if e.get('role') == 'courselist' and e.get('page_file')}}
         n_c = 0; seen_ev = set(); seen_feed_keys = set(); plan_links = {}
         layouts = {x['via']: x for x in es if x.get('role') == 'pdf_layout' and x.get('page_file')}
