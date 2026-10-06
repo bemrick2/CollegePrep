@@ -114,6 +114,7 @@ The rules shared with web purchases:
 7. **Configure Netlify** (site `college-optimizer-staging`, **Site configuration → Environment variables**). None of these are Stripe secrets:
    - `VITE_SUPABASE_URL = https://butlklkzafvklwasbynr.supabase.co`
    - `VITE_SUPABASE_PUBLISHABLE_KEY` = the project's publishable (anon) key
+   - `VITE_BILLING_ENVIRONMENT = sandbox` on the named staging site only; omit for production.
    - `VITE_BILLING_ENABLED = true`, only after steps 1–6 work in test mode
 8. **Test in test mode.** Check out with the card `4242 4242 4242 4242`, then confirm the Household page shows "Active". Open Manage billing and cancel; it should show "Ends <date>". Optionally run `stripe trigger invoice.payment_failed` against a test subscription and confirm "Payment retrying".
 9. **Go live.** Switch the Dashboard to live mode and repeat steps 3–5 with live keys. Live has its own webhook endpoint and signing secret. Then update `SITE_URL` for the production domain.
@@ -122,7 +123,7 @@ The rules shared with web purchases:
 
 - No prices, plans or checkout in the demo, or until `VITE_BILLING_ENABLED=true`.
 - No card fields; Stripe hosts them.
-- No entitlement is inferred on the client. Access is shown only from `household_entitlement`.
+- No entitlement is inferred on the client. Production access uses `household_entitlement`; the staging billing card uses membership-checked `household_sandbox_billing_status` for display only.
 - Students never see purchase UI.
 
 ## Scholarship Negotiator — deferred
@@ -131,6 +132,14 @@ $99 one-time per school appeal/reconsideration package; separate from the Family
 
 ## Sandbox setup check — October 6, 2026
 
-Sandbox account: `acct_1UNUxXBVFG4WtYp0`. Family Plan product: `prod_VOI20vz3FjE17k`; monthly and annual lookup-key prices created in Dashboard. The setup script can reuse them. Billing remains disabled pending secrets, deployment and end-to-end verification.
+Sandbox account: `acct_1UNUxXBVFG4WtYp0`. Product: `prod_VOI20vz3FjE17k`. Existing `setup_billing.mjs` completed with 1999/14900 USD pricing. Portal: `bpc_1UNVZXBVFG4WtYp0cOJoHPFv`; webhook: `we_1UNVZXBVFG4WtYp0bmPwOn7L`, configured with the exact endpoint and nine documented events.
 
-The CR-16 migration and billing functions were absent from the configured Supabase project at inspection. The implementation is on PR #101 / `claude/stripe-billing`, not main. `household_entitlement()` currently selects only production rows; a sandbox subscription therefore cannot show Active through that RPC. Do not remove the production filter or label sandbox rows as production. A separately authorized staging entitlement path must retain production isolation before the documented sandbox Active/Ends test can pass.
+Restricted key `prep-price-edge-functions` created with the six documented permissions and saved privately as `STRIPE_SECRET_KEY`. Webhook signing secret, SITE_URL and Portal configuration ID are saved in Supabase. No credentials are committed here.
+
+The existing billing migration and two sandbox isolation fixes are applied. All four billing Edge Functions are deployed through the supported Supabase deployment API; only the Stripe webhook has JWT verification disabled. Backend plans return the approved amounts, unsigned webhook requests return 400, TypeScript validation and billing tests pass.
+
+Sandbox customers are separated by environment, derived only from the server key. The staging billing card selects its display-only sandbox status RPC only with `VITE_BILLING_ENVIRONMENT=sandbox` on `college-optimizer-staging.netlify.app`. Both production entitlement RPCs and authenticated direct subscription reads exclude sandbox rows. The sandbox status RPC is not a production authorization source.
+
+Netlify staging public environment variables are configured. A build with billing disabled is deployed (`6ac4d094127348ef99b160f7`). Billing remains disabled until authenticated Checkout/Portal checks work. The project currently has no billing-enabled guardian household, and the browser is at staging sign-in. Owner sign-in/account creation is required to proceed with the documented Checkout → webhook → Active → Portal → cancellation → Ends test. End-to-end verification is pending; it has not been claimed as passed.
+
+Implementation and fixes remain on PR #101 / `claude/stripe-billing`; main has not been merged. No live Stripe billing was changed.
