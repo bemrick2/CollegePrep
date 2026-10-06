@@ -1,0 +1,141 @@
+{
+ "state": "NH",
+ "academic_year": "2026-27",
+ "institutions": 22,
+ "status_order": [
+  "verified_current",
+  "partially_verified_current",
+  "candidate_ready",
+  "candidate_exception",
+  "source_found",
+  "not_found",
+  "fetch_failed"
+ ],
+ "by_category": {
+  "admissions_tests": {
+   "fetch_failed": 2,
+   "not_found": 1,
+   "source_found": 19
+  },
+  "aid_appeals": {
+   "candidate_exception": 12,
+   "fetch_failed": 2,
+   "not_found": 4,
+   "source_found": 4
+  },
+  "ap_credit": {
+   "candidate_ready": 5,
+   "fetch_failed": 2,
+   "not_found": 6,
+   "source_found": 9
+  },
+  "clep_credit": {
+   "candidate_exception": 1,
+   "candidate_ready": 3,
+   "fetch_failed": 2,
+   "not_found": 8,
+   "source_found": 8
+  },
+  "common_data_set": {
+   "fetch_failed": 2,
+   "not_found": 19,
+   "source_found": 1
+  },
+  "cost_of_attendance": {
+   "candidate_exception": 2,
+   "fetch_failed": 2,
+   "source_found": 18
+  },
+  "degree_requirements": {
+   "fetch_failed": 2,
+   "not_found": 4,
+   "source_found": 16
+  },
+  "dual_enrollment": {
+   "candidate_ready": 1,
+   "fetch_failed": 2,
+   "not_found": 7,
+   "source_found": 12
+  },
+  "ib_credit": {
+   "candidate_ready": 1,
+   "fetch_failed": 2,
+   "not_found": 17,
+   "source_found": 2
+  },
+  "merit_scholarships": {
+   "candidate_exception": 2,
+   "candidate_ready": 1,
+   "fetch_failed": 2,
+   "source_found": 17
+  },
+  "residency": {
+   "fetch_failed": 2,
+   "not_found": 6,
+   "source_found": 14
+  },
+  "statewide_articulation": {
+   "fetch_failed": 2,
+   "not_found": 12,
+   "source_found": 8
+  },
+  "transfer_credit": {
+   "candidate_exception": 1,
+   "candidate_ready": 6,
+   "fetch_failed": 2,
+   "source_found": 13
+  },
+  "tuition_fees": {
+   "candidate_exception": 5,
+   "candidate_ready": 2,
+   "fetch_failed": 2,
+   "not_found": 1,
+   "source_found": 12
+  }
+ },
+ "totals": {
+  "candidate_exception": 23,
+  "candidate_ready": 19,
+  "fetch_failed": 28,
+  "not_found": 85,
+  "source_found": 153
+ },
+ "statewide_sources": {
+  "categories": {
+   "admissions_tests": 0,
+   "aid_appeals": 0,
+   "ap_credit": 0,
+   "clep_credit": 0,
+   "common_data_set": 0,
+   "cost_of_attendance": 0,
+   "degree_requirements": 0,
+   "dual_enrollment": 0,
+   "ib_credit": 0,
+   "merit_scholarships": 1,
+   "residency": 0,
+   "statewide_articulation": 0,
+   "transfer_credit": 0,
+   "tuition_fees": 0
+  },
+  "fetch_failures": 0,
+  "pages_fetched": 6
+ },
+ "blocked_institutions": [
+  "ipeds-182917",
+  "ipeds-183248"
+ ],
+ "quality": {
+  "ambiguous_years": 13,
+  "blocked_requests": 54,
+  "candidates": 100,
+  "conflicts": 52,
+  "documents": 1428,
+  "extraction_failures": 0,
+  "fetch_errors": 114,
+  "fetches": 1596,
+  "ready": 25,
+  "semantic_review": 40,
+  "stale_sources": 6
+ },
+ "run": "pipeline/runs/NH/2026-10-06"
+}

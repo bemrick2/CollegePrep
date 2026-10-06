@@ -16,6 +16,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import check_migration_history as h
+from live_write_guard import require_live_writes
 
 
 TRANSACTION_CONTROL = re.compile(r'^\s*(begin|commit|rollback|start\s+transaction|end)\s*;', re.I | re.M)
@@ -35,6 +36,8 @@ def transaction_sql(path: Path, version: str, name: str) -> str:
 
 def main() -> int:
     p = argparse.ArgumentParser(); p.add_argument('--dry-run', action='store_true'); a = p.parse_args()
+    if not a.dry_run:
+        require_live_writes()
     url = os.environ.get('DATABASE_URL') or sys.exit('DATABASE_URL is required')
     local, errors = h.local_migrations()
     errors += h.offline_errors(local)

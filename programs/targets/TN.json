@@ -1,0 +1,1029 @@
+{
+ "state": "TN",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [
+  {
+   "label": "THEC Academic Program Inventory",
+   "url": "https://thec.ppr.tn.gov/AcademicProgramInventorySearch",
+   "adapter": "thec_api"
+  }
+ ],
+ "institutions": [
+  {
+   "institution_key": "ipeds-219709",
+   "folder": "belmont",
+   "name": "Belmont University",
+   "control": "private_nonprofit",
+   "domains": [
+    "belmont.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "platform": "acalog",
+    "home": "https://catalog.belmont.edu/index.php?catoid=21",
+    "catoid": 21,
+    "program_lists": [
+     "https://catalog.belmont.edu/content.php?catoid=21&navoid=1170"
+    ]
+   },
+   "policy": [
+    "https://belmont.edu/academics/undeclared.html",
+    "https://www.belmont.edu/academics/majors-programs/computer-science/",
+    "https://www.belmont.edu/academics/majors-programs/nursing/",
+    "https://www.belmont.edu/registrar/advising-degree/change-of-major.html",
+    "https://www.belmont.edu/massey/",
+    "https://www.belmont.edu/academics/majors-programs/"
+   ],
+   "crawl_delay": 12
+  },
+  {
+   "institution_key": "ipeds-219833",
+   "folder": "cbu",
+   "name": "Christian Brothers University",
+   "control": "private_nonprofit",
+   "domains": [
+    "cbu.edu"
+   ],
+   "hosts": [
+    "cbu.smartcatalogiq.com"
+   ],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "platform": "smartcatalog",
+    "home": "https://cbu.smartcatalogiq.com/en/2026-2027/catalog/",
+    "path_prefix": "/en/2026-2027/catalog/",
+    "min_depth": 1,
+    "program_lists": [
+     "https://cbu.smartcatalogiq.com/en/2026-2027/catalog/programs-of-study"
+    ]
+   },
+   "policy": [
+    "https://www.cbu.edu/academics/undergraduate-programs/electrical-engineering/",
+    "https://www.cbu.edu/academics/undergraduate-programs/traditional-bsn-nursing-program/",
+    "https://www.cbu.edu/admissions-aid/financial-aid/types-of-financial-aid/scholarships/",
+    "https://www.cbu.edu/admissions-aid/financial-aid/types-of-financial-aid/scholarships/pascal-fellowship"
+   ]
+  },
+  {
+   "institution_key": "ipeds-220075",
+   "folder": "etsu",
+   "name": "East Tennessee State University",
+   "control": "public",
+   "domains": [
+    "etsu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "platform": "acalog",
+    "home": "https://catalog.etsu.edu/index.php?catoid=65",
+    "catoid": 65,
+    "program_lists": [
+     "https://catalog.etsu.edu/content.php?catoid=65&navoid=4652"
+    ]
+   },
+   "policy": [
+    "https://www.etsu.edu/cas/applied-design/engineering/faq.php",
+    "https://www.etsu.edu/cas/applied-design/scholarship.php",
+    "https://www.etsu.edu/cbat/management-supply-chain/documents/special_admission_requirements.pdf",
+    "https://www.etsu.edu/cbat_scholarships/",
+    "https://www.etsu.edu/nursing/prospective_students/",
+    "https://www.etsu.edu/uac/undecided.php",
+    "https://www.etsu.edu/advisement/",
+    "https://www.etsu.edu/academics/"
+   ],
+   "crawl_delay": 12
+  },
+  {
+   "institution_key": "ipeds-219976",
+   "folder": "lipscomb",
+   "name": "Lipscomb University",
+   "control": "private_nonprofit",
+   "domains": [
+    "lipscomb.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "platform": "acalog",
+    "home": "https://catalog.lipscomb.edu/index.php?catoid=33",
+    "catoid": 33,
+    "program_lists": [
+     "https://catalog.lipscomb.edu/content.php?catoid=33&navoid=2730"
+    ]
+   },
+   "policy": [
+    "https://lipscomb.edu/academics/programs/computer-science",
+    "https://lipscomb.edu/academics/programs/nursing",
+    "https://lipscomb.edu/admissions/freshmen-admissions/scholars-programs/college-business-swang-scholars-program",
+    "https://lipscomb.edu/admissions/freshmen-admissions/scholars-programs/raymond-b-jones-engineering-scholars-program",
+    "https://lipscomb.edu/engineering/engineering-scholarship",
+    "https://www.lipscomb.edu/engineering/academic-programs/prospective-students",
+    "https://lipscomb.edu/one-stop/registrar-faqs",
+    "https://www.lipscomb.edu/academics"
+   ],
+   "crawl_delay": 12
+  },
+  {
+   "institution_key": "ipeds-220978",
+   "folder": "mtsu",
+   "name": "Middle Tennessee State University",
+   "control": "public",
+   "domains": [
+    "mtsu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "platform": "acalog",
+    "home": "https://catalog.mtsu.edu/index.php?catoid=49",
+    "catoid": 49,
+    "program_lists": [
+     "https://catalog.mtsu.edu/content.php?catoid=49&navoid=12728",
+     "https://catalog.mtsu.edu/content.php?catoid=49&navoid=12850",
+     "https://catalog.mtsu.edu/content.php?catoid=49&navoid=12870"
+    ]
+   },
+   "policy": [
+    "https://nursing.mtsu.edu/future-bsn-students/",
+    "https://university-college.mtsu.edu/advising_undecided_chooseyourmajor/",
+    "https://csc.mtsu.edu/scholarships/",
+    "https://jones.mtsu.edu/scholarships/",
+    "https://www.mtsu.edu/engineering/",
+    "https://www.mtsu.edu/advising/",
+    "https://www.mtsu.edu/programs/"
+   ],
+   "degree_maps": [],
+   "degree_map_link": "catalog\\.mtsu\\.edu/mime/media/view/49/\\d+",
+   "map_sources": {
+    "lists": [
+     "https://www.mtsu.edu/programs/",
+     "https://www.mtsu.edu/ucat/"
+    ],
+    "page_link": "www\\.mtsu\\.edu/programs?/[a-z0-9-]+/?$"
+   },
+   "crawl_delay": 12
+  },
+  {
+   "institution_key": "ipeds-221847",
+   "folder": "tntech",
+   "name": "Tennessee Technological University",
+   "control": "public",
+   "domains": [
+    "tntech.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 1,
+   "render": "browser",
+   "catalog": {
+    "platform": "coursedog",
+    "home": "https://undergrad.catalog.tntech.edu/",
+    "path_prefix": "/programs/",
+    "min_depth": 0,
+    "program_lists": [
+     "https://undergrad.catalog.tntech.edu/programs",
+     "https://undergrad.catalog.tntech.edu/ugrequirements/majors",
+     "https://undergrad.catalog.tntech.edu/programs?page=2&pq=&sortBy=name",
+     "https://undergrad.catalog.tntech.edu/programs?page=3&pq=&sortBy=name",
+     "https://undergrad.catalog.tntech.edu/programs?page=4&pq=&sortBy=name",
+     "https://undergrad.catalog.tntech.edu/programs?page=5&pq=&sortBy=name",
+     "https://undergrad.catalog.tntech.edu/programs?page=6&pq=&sortBy=name",
+     "https://undergrad.catalog.tntech.edu/programs?page=7&pq=&sortBy=name",
+     "https://undergrad.catalog.tntech.edu/programs?page=8&pq=&sortBy=name",
+     "https://undergrad.catalog.tntech.edu/programs?page=9&pq=&sortBy=name",
+     "https://undergrad.catalog.tntech.edu/programs?page=10&pq=&sortBy=name",
+     "https://undergrad.catalog.tntech.edu/programs?page=11&pq=&sortBy=name",
+     "https://undergrad.catalog.tntech.edu/programs?page=12&pq=&sortBy=name"
+    ]
+   },
+   "policy": [
+    "https://www.tntech.edu/admissions/freshmen/index.php",
+    "https://www.tntech.edu/business/scholarships.php",
+    "https://www.tntech.edu/cis/undecided_majors.php",
+    "https://www.tntech.edu/engineering/programs/csc/undergraduate-program.php",
+    "https://www.tntech.edu/engineering/programs/index.php",
+    "https://www.tntech.edu/nursing/bsn-program.php",
+    "https://www.tntech.edu/sacscoc/academic_program_inventory.php",
+    "https://www.tntech.edu/engineering/admissions.php"
+   ],
+   "degree_maps": [
+    "https://www.tntech.edu/engineering/programs/index.php",
+    "https://www.tntech.edu/advisement/degree-maps.php"
+   ]
+  },
+  {
+   "institution_key": "ipeds-221740",
+   "folder": "utc",
+   "name": "The University of Tennessee-Chattanooga",
+   "control": "public",
+   "domains": [
+    "utc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "platform": "acalog",
+    "home": "https://catalog.utc.edu/index.php?catoid=53",
+    "catoid": 53,
+    "program_lists": [
+     "https://catalog.utc.edu/content.php?catoid=53&navoid=2300",
+     "https://catalog.utc.edu/content.php?catoid=53&navoid=2301",
+     "https://catalog.utc.edu/content.php?catoid=53&navoid=2302"
+    ]
+   },
+   "policy": [
+    "https://www.utc.edu/academic-affairs/registrar/change-requests",
+    "https://www.utc.edu/college-of-nursing/bachelor-of-science-nursing/bsn-admission",
+    "https://www.utc.edu/engineering-and-computer-science/center-for-student-success/student-organizations/scholarships-available",
+    "https://www.utc.edu/enrollment-management-and-student-affairs/center-for-academic-support-and-advisement/academic-exploration/undecided-majors",
+    "https://www.utc.edu/gary-w-rollins-college-of-business/student-resources/scholarships/general-scholarships"
+   ],
+   "degree_maps": [
+    "https://www.utc.edu/enrollment-management-and-student-affairs/advisement/advising-resources/clear-paths-for-advising/clear-paths-for-advising-2026-2027"
+   ],
+   "degree_map_any_pdf": true,
+   "pdf_layout": true
+  },
+  {
+   "institution_key": "utk",
+   "folder": "utk",
+   "name": "The University of Tennessee-Knoxville",
+   "control": "public",
+   "domains": [
+    "utk.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "platform": "acalog",
+    "home": "https://catalog.utk.edu/index.php?catoid=56",
+    "catoid": 56,
+    "program_lists": [
+     "https://catalog.utk.edu/content.php?catoid=56&navoid=12035"
+    ]
+   },
+   "policy": [
+    "https://admissions.utk.edu/apply/first-year/college-admission-requirements/",
+    "https://haslam.utk.edu/admissions/",
+    "https://nursing.utk.edu/admissions-and-aid/undergrad-admissions/",
+    "https://studentsuccess.utk.edu/career/university-exploratory-advising/",
+    "https://tickle.utk.edu/access/expanding/scholarships/",
+    "https://tickle.utk.edu/",
+    "https://haslam.utk.edu/scholarships/",
+    "https://advising.utk.edu/",
+    "https://www.utk.edu/academics/majors"
+   ],
+   "crawl_delay": 12
+  },
+  {
+   "institution_key": "ipeds-220862",
+   "folder": "memphis",
+   "name": "University of Memphis",
+   "control": "public",
+   "domains": [
+    "memphis.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "platform": "acalog",
+    "home": "https://catalog.memphis.edu/index.php?catoid=43",
+    "catoid": 43,
+    "program_lists": [
+     "https://catalog.memphis.edu/content.php?catoid=43&navoid=3163",
+     "https://catalog.memphis.edu/content.php?catoid=43&navoid=3164",
+     "https://catalog.memphis.edu/content.php?catoid=43&navoid=3170",
+     "https://catalog.memphis.edu/content.php?catoid=43&navoid=3180"
+    ]
+   },
+   "policy": [
+    "https://www.memphis.edu/aac/prepare/faqs.php",
+    "https://www.memphis.edu/fcbeundergrad/programs/bba-requirements.php",
+    "https://www.memphis.edu/herff/future-students/orientation.php",
+    "https://www.memphis.edu/herff/students/scholarships.php",
+    "https://www.memphis.edu/me/program/undergraduate/bsme_requirement.php",
+    "https://www.memphis.edu/nursing/program-admit/bsn/bsnadmissions.php",
+    "https://www.memphis.edu/fcbescholarships/scholarships/undergraduate/freshmen-1.php",
+    "https://www.memphis.edu/advising/",
+    "https://www.memphis.edu/academics/"
+   ],
+   "degree_maps": [
+    "https://www.memphis.edu/cas/advising/degree_sheets.php"
+   ],
+   "degree_map_any_pdf": true,
+   "crawl_delay": 12
+  },
+  {
+   "institution_key": "ipeds-221999",
+   "folder": "vanderbilt",
+   "name": "Vanderbilt University",
+   "control": "private_nonprofit",
+   "domains": [
+    "vanderbilt.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "render": "browser",
+   "catalog": {
+    "platform": "kuali",
+    "home": "https://www.vanderbilt.edu/catalogs/kuali/undergraduate-26-27",
+    "path_prefix": "/catalogs/",
+    "min_depth": 5,
+    "program_lists": []
+   },
+   "policy": [
+    "https://admissions.vanderbilt.edu/academics/",
+    "https://as.vanderbilt.edu/undergraduate-programs/majors-minors/",
+    "https://engineering.vanderbilt.edu/academics/Undergraduate/",
+    "https://engineering.vanderbilt.edu/undergraduate-admissions/",
+    "https://computing.vanderbilt.edu/undergraduate-programs/",
+    "https://nursing.vanderbilt.edu/programs/prenursing/",
+    "https://registrar.vanderbilt.edu/intra-university-transfers/index.php",
+    "https://business.vanderbilt.edu/business-minor/",
+    "https://registrar.vanderbilt.edu/documents/Undergraduate-Catalog-2025-26.pdf"
+   ]
+  },
+  {
+   "institution_key": "ipeds-219602",
+   "folder": "apsu",
+   "name": "Austin Peay State University",
+   "control": "public",
+   "domains": [
+    "apsu.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 2,
+   "render": "browser",
+   "catalog": {
+    "platform": "coursedog",
+    "home": "https://undergraduate.catalog.apsu.edu/",
+    "path_prefix": "/programs/",
+    "min_depth": 0,
+    "program_lists": [
+     "https://undergraduate.catalog.apsu.edu/programs",
+     "https://undergraduate.catalog.apsu.edu/academics/programsbycollege"
+    ]
+   },
+   "policy": [
+    "https://www.apsu.edu/business/programs/apply-bba.php",
+    "https://www.apsu.edu/cpos/changeofmajor.php",
+    "https://www.apsu.edu/csci/b_s_degrees/",
+    "https://www.apsu.edu/nursing/bachelornursing/bsn_criteria.php",
+    "https://www.apsu.edu/psychology/undergrad.php",
+    "https://www.apsu.edu/student-success/college-success/academic-focus.php"
+   ]
+  },
+  {
+   "institution_key": "ipeds-219806",
+   "folder": "cn",
+   "name": "Carson-Newman University",
+   "control": "private_nonprofit",
+   "domains": [
+    "cn.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 2,
+   "render": "browser",
+   "catalog": {
+    "platform": "coursedog",
+    "home": "https://catalog.cn.edu/",
+    "path_prefix": "/programs/",
+    "min_depth": 0,
+    "program_lists": [
+     "https://catalog.cn.edu/programs"
+    ]
+   },
+   "policy": [
+    "https://catalog.cn.edu/academic-policies",
+    "https://catalog.cn.edu/admissions"
+   ]
+  },
+  {
+   "institution_key": "ipeds-220613",
+   "folder": "leeuniversity",
+   "name": "Lee University",
+   "control": "private_nonprofit",
+   "domains": [
+    "leeuniversity.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "platform": "acalog",
+    "home": "https://catalog.leeuniversity.edu/index.php?catoid=23",
+    "catoid": 23,
+    "program_lists": [
+     "https://catalog.leeuniversity.edu/content.php?catoid=23&navoid=34328",
+     "https://catalog.leeuniversity.edu/content.php?catoid=23&navoid=33249",
+     "https://catalog.leeuniversity.edu/content.php?catoid=23&navoid=33424"
+    ]
+   },
+   "policy": [
+    "https://www.leeuniversity.edu/academics/nursing/admission/",
+    "https://www.leeuniversity.edu/academics/school-of-engineering/program/",
+    "https://www.leeuniversity.edu/financial-aid/scholarships/",
+    "https://www.leeuniversity.edu/wp-content/uploads/Academic-Advising-Handbook.pdf",
+    "https://www.leeuniversity.edu/academics/"
+   ],
+   "crawl_delay": 12
+  },
+  {
+   "institution_key": "ipeds-220631",
+   "folder": "lmunet",
+   "name": "Lincoln Memorial University",
+   "control": "private_nonprofit",
+   "domains": [
+    "lmunet.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.lmunet.edu/",
+    "https://catalog.lmunet.edu/",
+    "https://undergraduatecatalog.lmunet.edu/",
+    "https://undergraduatecatalog.lmunet.edu/degrees"
+   ],
+   "policy": [],
+   "type_path_list": {
+    "url": "https://undergraduatecatalog.lmunet.edu/degrees",
+    "home": "https://undergraduatecatalog.lmunet.edu/"
+   }
+  },
+  {
+   "institution_key": "ipeds-220710",
+   "folder": "maryvillecollege",
+   "name": "Maryville College",
+   "control": "private_nonprofit",
+   "domains": [
+    "maryvillecollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.maryvillecollege.edu/",
+    "https://catalog.maryvillecollege.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-221351",
+   "folder": "rhodes",
+   "name": "Rhodes College",
+   "control": "private_nonprofit",
+   "domains": [
+    "rhodes.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "platform": "drupal",
+    "home": "https://catalog.rhodes.edu/",
+    "program_link": "catalog\\.rhodes\\.edu/programs-study/[^/?#]+$",
+    "program_lists": [
+     "https://catalog.rhodes.edu/programs-study"
+    ],
+    "catalog_pdfs": [
+     "https://www.rhodes.edu/sites/default/files/Rhodes_College_Catalog_2026-27.pdf"
+    ]
+   },
+   "policy": [
+    "https://www.rhodes.edu/program-classifications",
+    "https://catalog.rhodes.edu/educational-program/academic-partnerships",
+    "https://catalog.rhodes.edu/educational-program/requirements-degree",
+    "https://www.rhodes.edu/sites/default/files/Rhodes_College_Catalog_2026-27.pdf"
+   ]
+  },
+  {
+   "institution_key": "ipeds-221661",
+   "folder": "southern",
+   "name": "Southern Adventist University",
+   "control": "private_nonprofit",
+   "domains": [
+    "southern.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.southern.edu/",
+    "https://catalog.southern.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-221838",
+   "folder": "tnstate",
+   "name": "Tennessee State University",
+   "control": "public",
+   "domains": [
+    "tnstate.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "platform": "acalog",
+    "home": "https://catalog.tnstate.edu/index.php?catoid=17",
+    "catoid": 17,
+    "program_lists": [
+     "https://catalog.tnstate.edu/content.php?catoid=17&navoid=963"
+    ]
+   },
+   "policy": [
+    "https://www.tnstate.edu/aarc/undecided/",
+    "https://www.tnstate.edu/engineering/degrees.aspx",
+    "https://www.tnstate.edu/engineering/scholarships.aspx",
+    "https://www.tnstate.edu/psychology/bspsych.aspx"
+   ],
+   "degree_maps": [
+    "https://www.tnstate.edu/academic_affairs/undergraduate_degree_programs.aspx"
+   ],
+   "crawl_delay": 12
+  },
+  {
+   "institution_key": "ipeds-221768",
+   "folder": "utm",
+   "name": "The University of Tennessee-Martin",
+   "control": "public",
+   "domains": [
+    "utm.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "platform": "acalog",
+    "home": "https://catalog.utm.edu/index.php?catoid=26",
+    "catoid": 26,
+    "program_lists": [
+     "https://catalog.utm.edu/content.php?catoid=26&navoid=722",
+     "https://catalog.utm.edu/content.php?catoid=26&navoid=729"
+    ]
+   },
+   "policy": [
+    "https://www.utm.edu/academics/departments/engineering",
+    "https://www.utm.edu/academics/majors-and-programs/nursing-(pre-licensure-bsn)",
+    "https://www.utm.edu/academics/majors-and-programs",
+    "https://www.utm.edu/offices/advising"
+   ],
+   "crawl_delay": 12
+  },
+  {
+   "institution_key": "ipeds-221519",
+   "folder": "sewanee",
+   "name": "The University of the South",
+   "control": "private_nonprofit",
+   "domains": [
+    "sewanee.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.sewanee.edu/",
+    "https://catalog.sewanee.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-221892",
+   "folder": "trevecca",
+   "name": "Trevecca Nazarene University",
+   "control": "private_nonprofit",
+   "domains": [
+    "trevecca.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.trevecca.edu/",
+    "https://catalog.trevecca.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-221971",
+   "folder": "uu",
+   "name": "Union University",
+   "control": "private_nonprofit",
+   "domains": [
+    "uu.edu"
+   ],
+   "hosts": [
+    "uu.smartcatalogiq.com"
+   ],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "platform": "smartcatalog",
+    "home": "https://uu.smartcatalogiq.com/en/2026/2026-27-undergraduate-catalogue/",
+    "path_prefix": "/en/2026/2026-27-undergraduate-catalogue/",
+    "min_depth": 1,
+    "program_lists": [
+     "https://uu.smartcatalogiq.com/en/2026/2026-27-undergraduate-catalogue/academic-program/undergraduate-academic-programs",
+     "https://uu.smartcatalogiq.com/en/2026/2026-27-undergraduate-catalogue/academic-program"
+    ]
+   },
+   "policy": [
+    "https://www.uu.edu/academics/departments/engineering/",
+    "https://www.uu.edu/academics/programs-of-study/computer-science/"
+   ]
+  },
+  {
+   "institution_key": "ipeds-219505",
+   "folder": "abcnash",
+   "name": "American Baptist College",
+   "control": "private_nonprofit",
+   "domains": [
+    "abcnash.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.abcnash.edu/",
+    "https://catalog.abcnash.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-219639",
+   "folder": "baptistu",
+   "name": "Baptist Health Sciences University",
+   "control": "private_nonprofit",
+   "domains": [
+    "baptistu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.baptistu.edu/",
+    "https://catalog.baptistu.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-219718",
+   "folder": "bethelu",
+   "name": "Bethel University",
+   "control": "private_nonprofit",
+   "domains": [
+    "bethelu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.bethelu.edu/",
+    "https://catalog.bethelu.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-219790",
+   "folder": "bryan",
+   "name": "Bryan College-Dayton",
+   "control": "private_nonprofit",
+   "domains": [
+    "bryan.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.bryan.edu/",
+    "https://catalog.bryan.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-219949",
+   "folder": "cumberland",
+   "name": "Cumberland University",
+   "control": "private_nonprofit",
+   "domains": [
+    "cumberland.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.cumberland.edu/",
+    "https://catalog.cumberland.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-220181",
+   "folder": "fisk",
+   "name": "Fisk University",
+   "control": "private_nonprofit",
+   "domains": [
+    "fisk.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.fisk.edu/",
+    "https://catalog.fisk.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-220215",
+   "folder": "fhu",
+   "name": "Freed-Hardeman University",
+   "control": "private_nonprofit",
+   "domains": [
+    "fhu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.fhu.edu/",
+    "https://catalog.fhu.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-499149",
+   "folder": "herzing",
+   "name": "Herzing University-Nashville",
+   "control": "private_nonprofit",
+   "domains": [
+    "herzing.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.herzing.edu/",
+    "https://catalog.herzing.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-220473",
+   "folder": "johnsonu",
+   "name": "Johnson University",
+   "control": "private_nonprofit",
+   "domains": [
+    "johnsonu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "platform": "pdf",
+    "home": "https://johnsonu.edu/academic-catalogs/",
+    "catalog_pdfs": [
+     "https://johnsonu.edu/wp-content/uploads/2026/06/2026-2027-Johnson-University-Undergraduate-Academic-Catalog-Final-06-19-2025.pdf"
+    ]
+   }
+  },
+  {
+   "institution_key": "ipeds-220516",
+   "folder": "king",
+   "name": "King University",
+   "control": "private_nonprofit",
+   "domains": [
+    "king.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "platform": "pdf",
+    "home": "https://www.king.edu/academics/academic-catalogs/",
+    "catalog_pdfs": [
+     "https://media.king.edu/2026/08/academic-catalog.pdf"
+    ],
+    "bullet_majors": {
+     "heading": "MAJORS (DEGREES AWARDED)",
+     "end": "MINORS"
+    }
+   }
+  },
+  {
+   "institution_key": "ipeds-220598",
+   "folder": "lanecollege",
+   "name": "Lane College",
+   "control": "private_nonprofit",
+   "domains": [
+    "lanecollege.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 3,
+   "render": "browser",
+   "catalog": {
+    "platform": "coursedog",
+    "home": "https://catalog.lanecollege.edu/",
+    "path_prefix": "/programs/",
+    "min_depth": 0,
+    "program_lists": [
+     "https://catalog.lanecollege.edu/programs"
+    ]
+   },
+   "policy": [
+    "https://catalog.lanecollege.edu/academics/academic-regulations"
+   ]
+  },
+  {
+   "institution_key": "ipeds-220604",
+   "folder": "loc",
+   "name": "Le Moyne-Owen College",
+   "control": "private_nonprofit",
+   "domains": [
+    "loc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.loc.edu/",
+    "https://catalog.loc.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-481225",
+   "folder": "midsouthchristian",
+   "name": "Mid-South Christian College",
+   "control": "private_nonprofit",
+   "domains": [
+    "midsouthchristian.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.midsouthchristian.edu/",
+    "https://catalog.midsouthchristian.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-486901",
+   "folder": "milligan",
+   "name": "Milligan University",
+   "control": "private_nonprofit",
+   "domains": [
+    "milligan.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.milligan.edu/",
+    "https://catalog.milligan.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-221731",
+   "folder": "tnwesleyan",
+   "name": "Tennessee Wesleyan University",
+   "control": "private_nonprofit",
+   "domains": [
+    "tnwesleyan.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.tnwesleyan.edu/",
+    "https://catalog.tnwesleyan.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-220701",
+   "folder": "utsouthern",
+   "name": "The University of Tennessee Southern",
+   "control": "public",
+   "domains": [
+    "utsouthern.edu"
+   ],
+   "hosts": [
+    "utsouthern.smartcatalogiq.com"
+   ],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "platform": "smartcatalog",
+    "home": "https://utsouthern.smartcatalogiq.com/en/2025-2026/undergraduate-catalog/",
+    "path_prefix": "/en/2025-2026/undergraduate-catalog/",
+    "min_depth": 1,
+    "program_lists": [
+     "https://utsouthern.smartcatalogiq.com/en/2025-2026/undergraduate-catalog/programs-of-study"
+    ]
+   },
+   "discover": [
+    "https://utsouthern.smartcatalogiq.com/"
+   ],
+   "policy": [
+    "https://utsouthern.edu/academics/majors-and-programs/",
+    "https://utsouthern.edu/academics/professional-studies/nursing-and-health-sciences/nursing/"
+   ]
+  },
+  {
+   "institution_key": "ipeds-221953",
+   "folder": "tusculum",
+   "name": "Tusculum University",
+   "control": "private_nonprofit",
+   "domains": [
+    "tusculum.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.tusculum.edu/",
+    "https://catalog.tusculum.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-449764",
+   "folder": "visible",
+   "name": "Visible Music College",
+   "control": "private_nonprofit",
+   "domains": [
+    "vfao.com",
+    "visible.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.visible.edu/",
+    "https://catalog.visible.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-220206",
+   "folder": "welch",
+   "name": "Welch College",
+   "control": "private_nonprofit",
+   "domains": [
+    "welch.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.welch.edu/",
+    "https://catalog.welch.edu/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-443340",
+   "folder": "williamsoncc",
+   "name": "Williamson Christian College",
+   "control": "private_nonprofit",
+   "domains": [
+    "williamsoncc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.williamsoncc.edu/",
+    "https://catalog.williamsoncc.edu/"
+   ],
+   "policy": []
+  }
+ ]
+}

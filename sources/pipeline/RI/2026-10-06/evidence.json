@@ -1,0 +1,713 @@
+{
+ "2d6bddab501553ea": {
+  "decision": {
+   "candidate_id": "2d6bddab501553ea",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "min_grade",
+    "snippet": "You will need to earn a grade of “C” or better in order for a class to be considered for transfer.",
+    "value": "C"
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T06:32:32+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "7bddff6b42a08a9746cd.json.gz",
+   "requested_url": "https://web.uri.edu/admission/transfer-resources/",
+   "sha256": "7bddff6b42a08a9746cd089ba274a72d700cac0b1ff88c51e36ed0d7341c1dac",
+   "title": "Transfer Resources – Undergraduate Admission",
+   "url": "https://web.uri.edu/admission/transfer/transfer-resources/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "3e38a2c71d660ca6": {
+  "decision": {
+   "candidate_id": "3e38a2c71d660ca6",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $35,850 | $35,850 | $71,700",
+    "value": 71700
+   },
+   {
+    "field": "column:Fees",
+    "snippet": "Fees | $1,475 | $1,475 | $2,950",
+    "value": 2950
+   },
+   {
+    "field": "column:Housing",
+    "snippet": "Housing | $5,205 | $5,205 | $10,410",
+    "value": 10410
+   },
+   {
+    "field": "column:Food",
+    "snippet": "Food | $4,052 | $4,052 | $8,104",
+    "value": 8104
+   },
+   {
+    "field": "column:Books& Materials",
+    "snippet": "Books& Materials | $650 | $650 | $1,300",
+    "value": 1300
+   },
+   {
+    "field": "column:Personal",
+    "snippet": "Personal | $1,410 | $1,410 | $2,820",
+    "value": 2820
+   },
+   {
+    "field": "column:Total Cost",
+    "snippet": "Total Cost | $48,642 | $48,642 | $97,284",
+    "value": 97284
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [
+   "stale_year_label:2025-26"
+  ],
+  "source": {
+   "fetched_at": "2026-10-06T06:31:00+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 06 Oct 2026 06:31:00 GMT",
+   "page_file": "b7389325496388dc14b2.json.gz",
+   "requested_url": "https://admission.brown.edu/tuition-aid/tuition-fees",
+   "sha256": "b7389325496388dc14b230ce6abf5808ac52f46187f13227a5fc88a144e7f581",
+   "title": "Undergraduate Tuition and Fees | Undergraduate Admission | Brown University",
+   "url": "https://admission.brown.edu/tuition-aid/tuition-fees"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "5ef84503979134b0": {
+  "decision": {
+   "candidate_id": "5ef84503979134b0",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "on_campus:Tuition & Fees",
+    "snippet": "Tuition & Fees | $54,404 | $54,404 | $56,238 | $56,238",
+    "value": 54404
+   },
+   {
+    "field": "on_campus:Housing & Food",
+    "snippet": "Housing & Food | $18,260 | $5,600 | $19,004 | $6,000",
+    "value": 18260
+   },
+   {
+    "field": "on_campus:Books & Supplies",
+    "snippet": "Books & Supplies | $1,400 | $1,400 | $1,200 | $1,200",
+    "value": 1400
+   },
+   {
+    "field": "on_campus:Transportation",
+    "snippet": "Transportation | $450 | $2,400 | $450 | $2,400",
+    "value": 450
+   },
+   {
+    "field": "on_campus:Miscellaneous",
+    "snippet": "Miscellaneous | $1,100 | $1,100 | $1,100 | $1,100",
+    "value": 1100
+   },
+   {
+    "field": "on_campus:Total Cost of Attendance:",
+    "snippet": "Total Cost of Attendance: | $75,614 | $64,904 | $77,992 | $66,938",
+    "value": 75614
+   },
+   {
+    "field": "with_parents_or_family:Tuition & Fees",
+    "snippet": "Tuition & Fees | $54,404 | $54,404 | $56,238 | $56,238",
+    "value": 54404
+   },
+   {
+    "field": "with_parents_or_family:Housing & Food",
+    "snippet": "Housing & Food | $18,260 | $5,600 | $19,004 | $6,000",
+    "value": 5600
+   },
+   {
+    "field": "with_parents_or_family:Books & Supplies",
+    "snippet": "Books & Supplies | $1,400 | $1,400 | $1,200 | $1,200",
+    "value": 1400
+   },
+   {
+    "field": "with_parents_or_family:Transportation",
+    "snippet": "Transportation | $450 | $2,400 | $450 | $2,400",
+    "value": 2400
+   },
+   {
+    "field": "with_parents_or_family:Miscellaneous",
+    "snippet": "Miscellaneous | $1,100 | $1,100 | $1,100 | $1,100",
+    "value": 1100
+   },
+   {
+    "field": "with_parents_or_family:Total Cost of Attendance:",
+    "snippet": "Total Cost of Attendance: | $75,614 | $64,904 | $77,992 | $66,938",
+    "value": 64904
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [
+   "stale_year_label:2025-26"
+  ],
+  "source": {
+   "fetched_at": "2026-10-06T06:30:55+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 06 Oct 2026 06:30:55 GMT",
+   "page_file": "fc7bf1f4b7997d4402ac.json.gz",
+   "requested_url": "https://www.bryant.edu/undergraduate/undergraduate-admission/tuition-and-financial-aid/tuition",
+   "sha256": "fc7bf1f4b7997d4402ac925ce8c0f7f89cf0e9f5912ad65e484960d67a03108e",
+   "title": "Tuition | Bryant University",
+   "url": "https://www.bryant.edu/undergraduate/undergraduate-admission/tuition-and-financial-aid/tuition"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "68e221be7287e974": {
+  "decision": {
+   "candidate_id": "68e221be7287e974",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $74,568",
+    "value": 74568
+   },
+   {
+    "field": "column:Fees (includes $100 Academic record fee for first time students)",
+    "snippet": "Fees (includes $100 Academic record fee for first time students) | $3,084",
+    "value": 3084
+   },
+   {
+    "field": "column:Housing",
+    "snippet": "Housing | $10,710",
+    "value": 10710
+   },
+   {
+    "field": "column:Food",
+    "snippet": "Food | $8,754",
+    "value": 8754
+   },
+   {
+    "field": "column:Subtotal - Direct Charges",
+    "snippet": "Subtotal - Direct Charges | $97,116",
+    "value": 97116
+   },
+   {
+    "field": "column:Miscellaneous Personal Expenses",
+    "snippet": "Miscellaneous Personal Expenses | $2,878",
+    "value": 2878
+   },
+   {
+    "field": "column:Total Direct and Indirect Charges",
+    "snippet": "Total Direct and Indirect Charges | $99,994",
+    "value": 99994
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T06:31:08+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 05 Oct 2026 18:02:54 GMT",
+   "page_file": "664bea1ac1c2de55b0e9.json.gz",
+   "requested_url": "https://finaid.brown.edu/estimate-cost-aid/cost",
+   "sha256": "664bea1ac1c2de55b0e981d251abd3fe9d9dc2c891e73abbab1b1d83dd0da36c",
+   "title": "Cost of Attendance | Undergraduate | Financial Aid Undergradute | Brown University",
+   "url": "https://finaid.brown.edu/estimate-cost-aid/cost"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "6efbabb6a62b492e": {
+  "decision": {
+   "candidate_id": "6efbabb6a62b492e",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "min_grade",
+    "snippet": "Only courses submitted on an official transcript with a grade of C or higher, from a regionally accredited institution, are eligible for transfer.",
+    "value": "C"
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T06:32:17+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 05 Oct 2026 20:33:04 GMT",
+   "page_file": "7790e914f5a1abcff347.json.gz",
+   "requested_url": "https://salve.edu/admissions/transfer-and-non-traditional-applicants",
+   "sha256": "7790e914f5a1abcff347e84afe18c911b1c1488bd1fd514eb9174050218a320c",
+   "title": "Transfer and Non-Traditional Applicants | Salve Regina University",
+   "url": "https://salve.edu/admissions/transfer-and-non-traditional-applicants"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "7d5e6debc9a54cd5": {
+  "decision": {
+   "candidate_id": "7d5e6debc9a54cd5",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "min_grade",
+    "snippet": "Next Transfer Credits arrow_drop_down_circle Transfer Credits Transfer Credits You may transfer up to 90 credits from a regionally accredited college or university for courses in which you have earned a grade of C or higher, as long as the courses are comparable to what is taught at RIC.",
+    "value": "C"
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T06:31:46+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 06 Oct 2026 06:31:28 GMT",
+   "page_file": "ce0facd02ddae82a0a8c.json.gz",
+   "requested_url": "https://www.ric.edu/node/36146",
+   "sha256": "ce0facd02ddae82a0a8c23e4b16828249fcb6668a37bfcf268bcb440a8745762",
+   "title": "Transfer Student Admission | Rhode Island College",
+   "url": "https://www.ric.edu/admissions-financial-aid/undergraduate-admission/transfer-student-admission"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "8a2be2dc84556e76": {
+  "decision": {
+   "candidate_id": "8a2be2dc84556e76",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "min_grade",
+    "snippet": "Grades of C- or better in courses required by the CCRI program of study are required for transfer.",
+    "value": "C-"
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T06:30:51+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 09 Jun 2026 16:14:49 GMT",
+   "page_file": "a263a2fc0d84f961e560.json.gz",
+   "requested_url": "https://catalog.ccri.edu/about-community-college/transfer-information/",
+   "sha256": "a263a2fc0d84f961e5604804445b6712756963fe27fa7d924f2ce50f638bbe86",
+   "title": "Transfer Information | 2026-2027 CCRI Academic Catalog",
+   "url": "https://catalog.ccri.edu/about-community-college/transfer-information/"
+  },
+  "year_basis": "labeled_in_title"
+ },
+ "8be38460ecf7e1f4": {
+  "decision": {
+   "candidate_id": "8be38460ecf7e1f4",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "min_grade",
+    "snippet": "You may transfer up to 62 credits for courses in which you’ve received a grade of “C” or better and that fit into the Bryant curriculum.",
+    "value": "C"
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T06:30:43+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 06 Oct 2026 06:30:43 GMT",
+   "page_file": "ff881f6ad8580fcf5a93.json.gz",
+   "requested_url": "https://www.bryant.edu/undergraduate/undergraduate-admission/applying-bryant/transfer-students",
+   "sha256": "ff881f6ad8580fcf5a93ee47eb24052ece9600ab1ad99be218bc59833bccf9bb",
+   "title": "Transfer Students | Bryant University",
+   "url": "https://www.bryant.edu/undergraduate/undergraduate-admission/applying-bryant/transfer-students"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "97084d79e7a62915": {
+  "decision": {
+   "candidate_id": "97084d79e7a62915",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $63,966 | $31,983",
+    "value": 63966
+   },
+   {
+    "field": "column:Student activity fee",
+    "snippet": "Student activity fee | $296 | $148",
+    "value": 296
+   },
+   {
+    "field": "column:Academic and technology fee",
+    "snippet": "Academic and technology fee | $874 | $437",
+    "value": 874
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [
+   "stale_year_label:2025-26"
+  ],
+  "source": {
+   "fetched_at": "2026-10-06T06:31:00+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 05 Oct 2026 13:26:14 GMT",
+   "page_file": "8b51b2da9ed010db534a.json.gz",
+   "requested_url": "https://sfs.risd.edu/student-accounts/billing-payment",
+   "sha256": "8b51b2da9ed010db534ab1722b5495deae9950de520f974ac242ff2e0ac1aaa6",
+   "title": "Billing and Payment at RISD | RISD Student Financial Services",
+   "url": "https://sfs.risd.edu/student-accounts/billing-payment"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "a915deefbfe79a2f": {
+  "decision": {
+   "candidate_id": "a915deefbfe79a2f",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "breakdown_reconciles": true,
+    "field": "applications",
+    "snippet": "Total first-time, first-year (degree-seeking) who applied           4368     23100            553                 0   28021",
+    "value": 28021
+   },
+   {
+    "breakdown_reconciles": true,
+    "field": "admits",
+    "snippet": "Total first-time, first-year (degree-seeking) who were admitted     3179     17302            411                 0   20892",
+    "value": 20892
+   },
+   {
+    "breakdown_reconciles": true,
+    "field": "enrolled",
+    "snippet": "Total first-time, first-year (degree-seeking) enrolled              1284        2113           34                 0   3431",
+    "value": 3431
+   },
+   {
+    "field": "sat_composite_25..75",
+    "snippet": "SAT Composite                     1090                      1210                       1310",
+    "value": [
+     1090,
+     1210,
+     1310
+    ]
+   },
+   {
+    "field": "sat_math_25..75",
+    "snippet": "SAT Math                           520                       590                       645",
+    "value": [
+     520,
+     590,
+     645
+    ]
+   },
+   {
+    "field": "act_25..75",
+    "snippet": "ACT Composite                      25                        28                         31",
+    "value": [
+     25,
+     28,
+     31
+    ]
+   }
+  ],
+  "extractor": "common_data_set/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T06:33:08+00:00",
+   "kind": "pdf",
+   "last_modified": "Tue, 07 Jul 2026 16:17:47 GMT",
+   "page_file": "21bd459ce8a5b74b8cb7.json.gz",
+   "requested_url": "https://web.uri.edu/ir/wp-content/uploads/sites/276/CDS-PDF-2025-2026_fillablePDF.pdf",
+   "sha256": "21bd459ce8a5b74b8cb726d056a0ed6abcd991cb5ff5ff79240cedee24e2102c",
+   "title": "Common Data Set 2025-2026",
+   "url": "https://web.uri.edu/ir/wp-content/uploads/sites/276/CDS-PDF-2025-2026_fillablePDF.pdf"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "b88427bb1cbb17bf": {
+  "decision": {
+   "candidate_id": "b88427bb1cbb17bf",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "with_parents_or_family:Tuition & Fees",
+    "snippet": "Tuition & Fees | $29,261.00 | $29,261.00 | $29,261.00",
+    "value": 29261.0
+   },
+   {
+    "field": "with_parents_or_family:Housing & Meals",
+    "snippet": "Housing & Meals | $5,158.00 | $15,108.00 | $12,216.00",
+    "value": 5158.0
+   },
+   {
+    "field": "on_campus:Tuition & Fees",
+    "snippet": "Tuition & Fees | $29,261.00 | $29,261.00 | $29,261.00",
+    "value": 29261.0
+   },
+   {
+    "field": "on_campus:Housing & Meals",
+    "snippet": "Housing & Meals | $5,158.00 | $15,108.00 | $12,216.00",
+    "value": 15108.0
+   },
+   {
+    "field": "off_campus_not_with_family:Tuition & Fees",
+    "snippet": "Tuition & Fees | $29,261.00 | $29,261.00 | $29,261.00",
+    "value": 29261.0
+   },
+   {
+    "field": "off_campus_not_with_family:Housing & Meals",
+    "snippet": "Housing & Meals | $5,158.00 | $15,108.00 | $12,216.00",
+    "value": 12216.0
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T06:30:45+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 06 Oct 2026 03:07:44 GMT",
+   "page_file": "88f60ad9af85aadd98bb.json.gz",
+   "requested_url": "https://www.ric.edu/admissions-financial-aid/full-time-undergraduate-cost-attendance",
+   "sha256": "88f60ad9af85aadd98bb0381aa988372764fa3de44a9550fa1033c1da8693648",
+   "title": "Full-Time Undergraduate Cost of Attendance | Rhode Island College",
+   "url": "https://www.ric.edu/admissions-financial-aid/full-time-undergraduate-cost-attendance"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "bd514fa788fa6d0e": {
+  "decision": {
+   "candidate_id": "bd514fa788fa6d0e",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "min_grade",
+    "snippet": "In order for us to accept transfer credits from other institutions, you must receive a grade of C or higher.",
+    "value": "C"
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T06:30:45+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 06 Oct 2026 05:56:31 GMT",
+   "page_file": "bdacefbc3d6a69bebeff.json.gz",
+   "requested_url": "https://www.risd.edu/admissions/transfer/apply",
+   "sha256": "bdacefbc3d6a69bebeff6c931c495b663d2097051dd0e481fc3024975ee07d04",
+   "title": "RISD Transfer Admissions Process and Requirements | RISD",
+   "url": "https://www.risd.edu/admissions/transfer/apply"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "ce22972364693241": {
+  "decision": {
+   "candidate_id": "ce22972364693241",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "with_parents_or_family:Tuition & Fees",
+    "snippet": "Tuition & Fees | $12,123.00 | $12,123.00 | $12,123.00",
+    "value": 12123.0
+   },
+   {
+    "field": "with_parents_or_family:Housing & Meals",
+    "snippet": "Housing & Meals | $5,158.00 | $15,108.00 | $12,216.00",
+    "value": 5158.0
+   },
+   {
+    "field": "on_campus:Tuition & Fees",
+    "snippet": "Tuition & Fees | $12,123.00 | $12,123.00 | $12,123.00",
+    "value": 12123.0
+   },
+   {
+    "field": "on_campus:Housing & Meals",
+    "snippet": "Housing & Meals | $5,158.00 | $15,108.00 | $12,216.00",
+    "value": 15108.0
+   },
+   {
+    "field": "off_campus_not_with_family:Tuition & Fees",
+    "snippet": "Tuition & Fees | $12,123.00 | $12,123.00 | $12,123.00",
+    "value": 12123.0
+   },
+   {
+    "field": "off_campus_not_with_family:Housing & Meals",
+    "snippet": "Housing & Meals | $5,158.00 | $15,108.00 | $12,216.00",
+    "value": 12216.0
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T06:30:45+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 06 Oct 2026 03:07:44 GMT",
+   "page_file": "88f60ad9af85aadd98bb.json.gz",
+   "requested_url": "https://www.ric.edu/admissions-financial-aid/full-time-undergraduate-cost-attendance",
+   "sha256": "88f60ad9af85aadd98bb0381aa988372764fa3de44a9550fa1033c1da8693648",
+   "title": "Full-Time Undergraduate Cost of Attendance | Rhode Island College",
+   "url": "https://www.ric.edu/admissions-financial-aid/full-time-undergraduate-cost-attendance"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "d138e62865353602": {
+  "decision": {
+   "candidate_id": "d138e62865353602",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $66,460 | $33,230",
+    "value": 66460
+   },
+   {
+    "field": "column:Student activity fee",
+    "snippet": "Student activity fee | $308 | $154",
+    "value": 308
+   },
+   {
+    "field": "column:Academic and technology fee",
+    "snippet": "Academic and technology fee | $908 | $454",
+    "value": 908
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T06:31:00+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 05 Oct 2026 13:26:14 GMT",
+   "page_file": "8b51b2da9ed010db534a.json.gz",
+   "requested_url": "https://sfs.risd.edu/student-accounts/billing-payment",
+   "sha256": "8b51b2da9ed010db534ab1722b5495deae9950de520f974ac242ff2e0ac1aaa6",
+   "title": "Billing and Payment at RISD | RISD Student Financial Services",
+   "url": "https://sfs.risd.edu/student-accounts/billing-payment"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "d5b1d6748618894c": {
+  "decision": {
+   "candidate_id": "d5b1d6748618894c",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "To be eligible for the Accelerate program, a student must have a 2.7 GPA and demonstrated",
+    "value": 2.7
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T06:30:48+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "0810364b98aefaab17a9.json.gz",
+   "requested_url": "https://www.ccri.edu/onestop/admissions/early-college/accelerate.html",
+   "sha256": "0810364b98aefaab17a947b204811643823ed6b784dce75566b4254aebf1d250",
+   "title": "Accelerate for High School Seniors – CCRI",
+   "url": "https://www.ccri.edu/onestop/admissions/early-college/accelerate.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "e310f8e497ce6e56": {
+  "decision": {
+   "candidate_id": "e310f8e497ce6e56",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $45,408",
+    "value": 45408
+   },
+   {
+    "field": "column:Typical first-year housing (See housing rates)",
+    "snippet": "Typical first-year housing (See housing rates) | $11,500",
+    "value": 11500
+   },
+   {
+    "field": "column:Gold meal plan (See meal plan rates)",
+    "snippet": "Gold meal plan (See meal plan rates) | $7,360",
+    "value": 7360
+   },
+   {
+    "field": "column:New student fee (first year only)",
+    "snippet": "New student fee (first year only) | $476",
+    "value": 476
+   },
+   {
+    "field": "column:Student activity fee",
+    "snippet": "Student activity fee | $250",
+    "value": 250
+   },
+   {
+    "field": "column:Total direct costs* for tuition, fees and living expenses",
+    "snippet": "Total direct costs* for tuition, fees and living expenses | $64,994",
+    "value": 64994
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T06:30:49+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "aebdbe86f5ba1c98623d.json.gz",
+   "requested_url": "https://www.jwu.edu/admissions-aid/cost-aid/undergraduate-tuition-fees/",
+   "sha256": "aebdbe86f5ba1c98623d587f5dec900ef879c4cb78974a62aa70ee1efabfe6e8",
+   "title": "Undergraduate Tuition & Fees | Johnson & Wales University",
+   "url": "https://www.jwu.edu/admissions-aid/cost-aid/undergraduate-tuition-fees/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "mfa8cc2bb0ebea0d": {
+  "decision": {
+   "candidate_id": "mfa8cc2bb0ebea0d",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "Students must have a minimum high school GPA of 2.7 to be eligible.",
+    "source_url": "https://www.neit.edu/highschool/dual-enrollment",
+    "value": 2.7
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "Students must have a minimum high school GPA of 2.7 to be eligible.",
+    "source_url": "https://www.neit.edu/highschool/dual-enrollment",
+    "value": 2.7
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "Students must have a minimum high school GPA of 2.7 to be eligible.",
+    "source_url": "https://www.neit.edu/highschool/dual-enrollment",
+    "value": 2.7
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T06:34:47+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "9c01a4fc9e59148469a0.json.gz",
+   "requested_url": "https://neit.edu/highschool/dual-enrollment",
+   "sha256": "9c01a4fc9e59148469a0bc29a6ade128747d554a34094efef011d7401da49633",
+   "title": "Dual Enrollment - NEIT",
+   "url": "https://www.neit.edu/highschool/dual-enrollment"
+  },
+  "year_basis": "labeled_in_source"
+ }
+}

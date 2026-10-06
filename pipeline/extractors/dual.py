@@ -39,7 +39,7 @@ SCOPED = re.compile(r'career[- ]and[- ]technical|\btechnical\b|\bCTE\b|\bvocatio
 # GPA lines that are not the high-school admission minimum: college/dual-enrollment course GPAs, prerequisite
 # waivers, placement-test alternatives, single-course prerequisites and special-population programs (TN r5:
 # Welch, Nashville State, Columbia State, Freed-Hardeman).
-NOT_ELIGIBILITY = re.compile(r'overload|financial\s+aid|fall\s+below|satisfactory\s+progress|graduation\s+gpa|'
+NOT_ELIGIBILITY = re.compile(r'overload|credits\s+to\s+transfer|credits\s+attempted|petition|course\s+requirements\s+for|financial\s+aid|fall\s+below|\bbelow\s+an?\s+\d|satisfactory\s+progress|graduation\s+gpa|'
                              r'postsecondary\s+courses|courses?\s+attempted|hours\s+of\s+\w+\s+dual\s+enrollment|dual\s+enrollment\s+(?:courses|hours)|'
                              r'waiv|placement|\bIEP\b|gifted|algebra|in\s+the\s+(?:two|three)\s+high\s+school|'
                              # GA r1: SAP and good-standing rules (Dalton State, Georgia Southern), "does not have a 2.00"
@@ -129,7 +129,7 @@ def extract(inst, entry, page, today_year):
                 note('max_credit_hours_per_term', v, line)
         question = '?' in line or re.search(r'^\W*(is|are|do|does|can|will|how|what|why|when)\b|,\s*(are|is|do|does|can|will)\s+(we|you|i|students?)\b', line, re.I)
         # NE (Concordia): a scholarship for teachers' graduate hours and a late-registration fee are not the course price
-        not_price = re.search(r'\bteachers?\b|graduate\s+hours|\blate\s+(?:fee|registration)|late\s+fee|if\s+you\s+(?:don[’\']?t|do\s+not)', line, re.I)  # CO r1: Western's charge for skipping a step
+        not_price = re.search(r'\bteachers?\b|graduate\s+hours|\blate\s+(?:fee|registration)|late\s+fee|if\s+you\s+(?:don[’\']?t|do\s+not)|\baverage\s+college', line, re.I)  # CO r1: Western's charge for skipping a step
         for m in ([] if question or not_price else PER_HOUR.finditer(line)):  # FAQ questions quote prices they ask about
             v = int(m.group(1)) + (int(m.group(2)) / 100 if m.group(2) and m.group(2) != '00' else 0)
             near = line[max(0, m.start() - 40):m.end() + 30]

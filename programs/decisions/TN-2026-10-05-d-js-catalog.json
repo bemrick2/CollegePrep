@@ -1,0 +1,39 @@
+{
+ "run": "programs/runs/TN/2026-10-05-d-js",
+ "run_branch": "program-run/tn-2026-10-05",
+ "reviewer": "Claude (Program & Degree Deep Dive), reviewed 2026-10-05",
+ "notes": "Austin Peay catalog record from its 2026-2027 Undergraduate Catalog PDF; undeclared policy quoted from the Academic Focus page (run 2026-10-05-a).",
+ "approve": [],
+ "fields": [],
+ "reject": [],
+ "catalogs": [
+  {
+   "institution_key": "ipeds-219602",
+   "catalog_url": "https://undergraduate.catalog.apsu.edu/",
+   "catalog_year_label": "2026-2027",
+   "source_evidence": {
+    "url": "https://coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com/apsu_banner_ethos/catalog/ad268727-590d-4e05-96e1-d3ce43a11080-apsu_banner_ethos-catalog-1776789491303.pdf",
+    "sha256": "6e56deda2ef0977d80a16e76b376b2f23ae0d8ec4cc989ef4d5ba5b069985a74",
+    "fetched_at": "2026-10-05T15:39:10+00:00"
+   },
+   "listed_bachelor_programs": 51,
+   "programs_complete": false,
+   "completeness_basis": "51 bachelor programs in the department 'Programs' blocks of the 2026-2027 Undergraduate Catalog PDF; whether the PDF export includes programs outside departments is not stated, so completeness is not claimed.",
+   "reason": "Official 2026-2027 catalog PDF (Coursedog export linked from the catalog).",
+   "undeclared": {
+    "allowed": true,
+    "page_quote": {
+     "url": "https://www.apsu.edu/student-success/college-success/academic-focus.php",
+     "lines": [
+      "Austin Peay State University requires all freshman without a declared major to select",
+      "Academic Focus (Undeclared) with a meta-major pathway.",
+      "Students prepare to declare a major within three semesters. Once a student has earned",
+      "42 credit hours, they will need to declare their major to their intended bachelor's"
+     ],
+     "run": "programs/runs/TN/2026-10-05-a"
+    },
+    "declare_by_text": "Declare a major by 42 earned credit hours (or change to the A.S. in University Studies)."
+   }
+  }
+ ]
+}

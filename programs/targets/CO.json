@@ -1,0 +1,675 @@
+{
+ "state": "CO",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-127556",
+   "folder": "coloradomesa",
+   "name": "Colorado Mesa University",
+   "control": "public",
+   "domains": [
+    "coloradomesa.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.coloradomesa.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.coloradomesa.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.coloradomesa.edu (program list https://catalog.coloradomesa.edu/programs/)"
+  },
+  {
+   "institution_key": "ipeds-126775",
+   "folder": "mines",
+   "name": "Colorado School of Mines",
+   "control": "public",
+   "domains": [
+    "mines.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.mines.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.mines.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-126818",
+   "folder": "colostate",
+   "name": "Colorado State University-Fort Collins",
+   "control": "public",
+   "domains": [
+    "colostate.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.colostate.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.colostate.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-127565",
+   "folder": "msudenver",
+   "name": "Metropolitan State University of Denver",
+   "control": "public",
+   "domains": [
+    "msudenver.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 60,
+    "home": "https://catalog.msudenver.edu/index.php?catoid=60",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.msudenver.edu/content.php?catoid=60&navoid=4429"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 60 on catalog.msudenver.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-128328",
+   "folder": "usafa",
+   "name": "United States Air Force Academy",
+   "control": "public",
+   "domains": [
+    "academyadmissions.com",
+    "usafa.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.usafa.edu/",
+    "https://catalog.usafa.edu/",
+    "https://www.usafa.edu/academics/",
+    "https://www.usafa.edu/registrar/",
+    "https://www.usafa.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-126614",
+   "folder": "colorado",
+   "name": "University of Colorado Boulder",
+   "control": "public",
+   "domains": [
+    "colorado.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.colorado.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.colorado.edu/programs-a-z/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.colorado.edu (program list https://catalog.colorado.edu/programs-a-z/)"
+  },
+  {
+   "institution_key": "ipeds-126580",
+   "folder": "uccs",
+   "name": "University of Colorado Colorado Springs",
+   "control": "public",
+   "domains": [
+    "uccs.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 41,
+    "home": "https://catalog.uccs.edu/index.php?catoid=41",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.uccs.edu/content.php?catoid=41&navoid=9774",
+     "https://catalog.uccs.edu/content.php?catoid=41&navoid=9790",
+     "https://catalog.uccs.edu/content.php?catoid=41&navoid=9807"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 41 on catalog.uccs.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-126562",
+   "folder": "ucdenver",
+   "name": "University of Colorado Denver/Anschutz Medical Campus",
+   "control": "public",
+   "domains": [
+    "ucdenver.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.ucdenver.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.ucdenver.edu/cu-denver/undergraduate/programs-a-z/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.ucdenver.edu (program list https://catalog.ucdenver.edu/cu-denver/undergraduate/programs-a-z/)"
+  },
+  {
+   "institution_key": "ipeds-127060",
+   "folder": "du",
+   "name": "University of Denver",
+   "control": "private_nonprofit",
+   "domains": [
+    "du.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.du.edu/",
+    "https://catalog.du.edu/",
+    "https://www.du.edu/academics/",
+    "https://www.du.edu/registrar/",
+    "https://www.du.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-127741",
+   "folder": "unco",
+   "name": "University of Northern Colorado",
+   "control": "public",
+   "domains": [
+    "unco.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.unco.edu/",
+    "https://catalog.unco.edu/",
+    "https://www.unco.edu/academics/",
+    "https://www.unco.edu/registrar/",
+    "https://www.unco.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-126182",
+   "folder": "adams",
+   "name": "Adams State University",
+   "control": "public",
+   "domains": [
+    "adams.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.adams.edu/",
+    "https://catalog.adams.edu/",
+    "https://www.adams.edu/academics/",
+    "https://www.adams.edu/registrar/",
+    "https://www.adams.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-126207",
+   "folder": "aims",
+   "name": "Aims Community College",
+   "control": "public",
+   "domains": [
+    "aims.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 50,
+    "home": "https://catalog.aims.edu/index.php?catoid=50",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.aims.edu/content.php?catoid=50&navoid=6261"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 50 on catalog.aims.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-126289",
+   "folder": "arapahoe",
+   "name": "Arapahoe Community College",
+   "control": "public",
+   "domains": [
+    "arapahoe.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.arapahoe.edu/",
+    "https://catalog.arapahoe.edu/",
+    "https://www.arapahoe.edu/academics/",
+    "https://www.arapahoe.edu/registrar/",
+    "https://www.arapahoe.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-126669",
+   "folder": "ccu",
+   "name": "Colorado Christian University",
+   "control": "private_nonprofit",
+   "domains": [
+    "ccu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.ccu.edu/",
+    "https://catalog.ccu.edu/",
+    "https://www.ccu.edu/academics/",
+    "https://www.ccu.edu/registrar/",
+    "https://www.ccu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-126678",
+   "folder": "coloradocollege",
+   "name": "Colorado College",
+   "control": "private_nonprofit",
+   "domains": [
+    "coloradocollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.coloradocollege.edu/",
+    "https://catalog.coloradocollege.edu/",
+    "https://www.coloradocollege.edu/academics/",
+    "https://www.coloradocollege.edu/registrar/",
+    "https://www.coloradocollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-126711",
+   "folder": "coloradomtn",
+   "name": "Colorado Mountain College",
+   "control": "public",
+   "domains": [
+    "coloradomtn.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 29,
+    "home": "https://catalog.coloradomtn.edu/index.php?catoid=29",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.coloradomtn.edu/content.php?catoid=29&navoid=2107",
+     "https://catalog.coloradomtn.edu/content.php?catoid=29&navoid=2112",
+     "https://catalog.coloradomtn.edu/content.php?catoid=29&navoid=2120"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 29 on catalog.coloradomtn.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-476975",
+   "folder": "csuglobal",
+   "name": "Colorado State University Global",
+   "control": "public",
+   "domains": [
+    "csuglobal.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://csuglobal.edu/",
+    "https://catalog.csuglobal.edu/",
+    "https://www.csuglobal.edu/academics/",
+    "https://www.csuglobal.edu/registrar/",
+    "https://www.csuglobal.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-128106",
+   "folder": "csupueblo",
+   "name": "Colorado State University Pueblo",
+   "control": "public",
+   "domains": [
+    "csupueblo.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.csupueblo.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.csupueblo.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-126942",
+   "folder": "ccd",
+   "name": "Community College of Denver",
+   "control": "public",
+   "domains": [
+    "ccd.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.ccd.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.ccd.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-127185",
+   "folder": "fortlewis",
+   "name": "Fort Lewis College",
+   "control": "public",
+   "domains": [
+    "fortlewis.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 63,
+    "home": "https://catalog.fortlewis.edu/index.php?catoid=63",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.fortlewis.edu/content.php?catoid=63&navoid=4635",
+     "https://catalog.fortlewis.edu/content.php?catoid=63&navoid=4637",
+     "https://catalog.fortlewis.edu/content.php?catoid=63&navoid=4644",
+     "https://catalog.fortlewis.edu/content.php?catoid=63&navoid=4649",
+     "https://catalog.fortlewis.edu/content.php?catoid=63&navoid=4651",
+     "https://catalog.fortlewis.edu/content.php?catoid=63&navoid=4653"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 63 on catalog.fortlewis.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-127200",
+   "folder": "frontrange",
+   "name": "Front Range Community College",
+   "control": "public",
+   "domains": [
+    "frontrange.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.frontrange.edu/",
+    "https://catalog.frontrange.edu/",
+    "https://www.frontrange.edu/academics/",
+    "https://www.frontrange.edu/registrar/",
+    "https://www.frontrange.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-127617",
+   "folder": "morgancc",
+   "name": "Morgan Community College",
+   "control": "public",
+   "domains": [
+    "morgancc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.morgancc.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.morgancc.edu/degrees",
+     "https://catalog.morgancc.edu/programs"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.morgancc.edu (program list https://catalog.morgancc.edu/degrees)"
+  },
+  {
+   "institution_key": "ipeds-127653",
+   "folder": "naropa",
+   "name": "Naropa University",
+   "control": "private_nonprofit",
+   "domains": [
+    "naropa.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://catalog.naropa.edu/wp-content/uploads/2026/08/Naropa-Catalog-PDF-2026-2027.pdf"
+    ],
+    "home": "https://catalog.naropa.edu/wp-content/uploads/2026/08/Naropa-Catalog-PDF-2026-2027.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-127714",
+   "folder": "nbc",
+   "name": "Nazarene Bible College",
+   "control": "private_nonprofit",
+   "domains": [
+    "nbc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://assets.nbc.edu/files/catalog-2026-2027.pdf"
+    ],
+    "home": "https://assets.nbc.edu/files/catalog-2026-2027.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-127820",
+   "folder": "pikespeak",
+   "name": "Pikes Peak State College",
+   "control": "public",
+   "domains": [
+    "pikespeak.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.pikespeak.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.pikespeak.edu/programs",
+     "https://catalog.pikespeak.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.pikespeak.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.pikespeak.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.pikespeak.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.pikespeak.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.pikespeak.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.pikespeak.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.pikespeak.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.pikespeak.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.pikespeak.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.pikespeak.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.pikespeak.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.pikespeak.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.pikespeak.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.pikespeak.edu (4 links)"
+  },
+  {
+   "institution_key": "ipeds-127884",
+   "folder": "pueblocc",
+   "name": "Pueblo Community College",
+   "control": "public",
+   "domains": [
+    "pueblocc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 11,
+    "home": "https://catalog.pueblocc.edu/index.php?catoid=11",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.pueblocc.edu/content.php?catoid=11&navoid=723",
+     "https://catalog.pueblocc.edu/content.php?catoid=11&navoid=731"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 11 on catalog.pueblocc.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-127909",
+   "folder": "rrcc",
+   "name": "Red Rocks Community College",
+   "control": "public",
+   "domains": [
+    "rrcc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.rrcc.edu/sites/default/files/2026-07/072026-RRCC-Catalog-26-27.pdf"
+    ],
+    "home": "https://www.rrcc.edu/sites/default/files/2026-07/072026-RRCC-Catalog-26-27.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-127918",
+   "folder": "regis",
+   "name": "Regis University",
+   "control": "private_nonprofit",
+   "domains": [
+    "regis.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.regis.edu/_documents/academics/catalogs/academic-calendar-27-28.pdf"
+    ],
+    "home": "https://www.regis.edu/_documents/academics/catalogs/academic-calendar-27-28.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2027-2028"
+  },
+  {
+   "institution_key": "ipeds-128258",
+   "folder": "trinidadstate",
+   "name": "Trinidad State College",
+   "control": "public",
+   "domains": [
+    "trinidadstate.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.trinidadstate.edu/catalog/pdf/2025_2026.pdf"
+    ],
+    "home": "https://www.trinidadstate.edu/catalog/pdf/2025_2026.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
+  },
+  {
+   "institution_key": "ipeds-128391",
+   "folder": "western",
+   "name": "Western Colorado University",
+   "control": "public",
+   "domains": [
+    "western.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.western.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.western.edu/undergraduate/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.western.edu (program list https://catalog.western.edu/undergraduate/programs/)"
+  }
+ ]
+}

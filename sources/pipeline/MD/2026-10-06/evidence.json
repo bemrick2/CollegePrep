@@ -1,0 +1,3273 @@
+{
+ "007fc99d76b2ce8e": {
+  "decision": {
+   "candidate_id": "007fc99d76b2ce8e",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "min_grade",
+    "snippet": "Transfer credit is only given for courses taken on a letter grade basis in which a final grade of “C-” or higher is earned.",
+    "value": "C-"
+   },
+   {
+    "field": "max_transfer_credits",
+    "snippet": "A maximum of 72 credit hours can be accepted in transfer.",
+    "value": 72
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:41:58+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "7acf43ca6a3eee6c87c8.json.gz",
+   "requested_url": "https://www.washcoll.edu/people_departments/offices/registrar/transfer-credit.php",
+   "sha256": "7acf43ca6a3eee6c87c82a9bf76ad1a6cacb83ef05e1414b5e1630c1bd2200f5",
+   "title": "Transfer Credit",
+   "url": "https://www.washcoll.edu/people_departments/offices/registrar/transfer-credit.php"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "0480cd4a0cc89461": {
+  "decision": {
+   "candidate_id": "0480cd4a0cc89461",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "breakdown_reconciles": true,
+    "field": "applications",
+    "snippet": "Total first-time, first-year (degree-seeking) who applied                                      1,251               1,852           409             0       3512",
+    "value": 3512
+   },
+   {
+    "breakdown_reconciles": true,
+    "field": "admits",
+    "snippet": "Total first-time, first-year (degree-seeking) who were admitted                                1,165               1,779           350             0       3294",
+    "value": 3294
+   },
+   {
+    "breakdown_reconciles": true,
+    "field": "enrolled",
+    "snippet": "Total first-time, first-year (degree-seeking) who enrolled                                       138                 126             7             0         271",
+    "value": 271
+   },
+   {
+    "field": "sat_composite_25..75",
+    "snippet": "SAT Composite                                       1080                 1240                1310",
+    "value": [
+     1080,
+     1240,
+     1310
+    ]
+   },
+   {
+    "field": "sat_reading_25..75",
+    "snippet": "SAT Evidence-Based Reading and   560                  640                690",
+    "value": [
+     560,
+     640,
+     690
+    ]
+   },
+   {
+    "field": "sat_math_25..75",
+    "snippet": "SAT Math                                             530                  590                640",
+    "value": [
+     530,
+     590,
+     640
+    ]
+   },
+   {
+    "field": "act_25..75",
+    "snippet": "ACT Composite                                        22                    24                 30",
+    "value": [
+     22,
+     24,
+     30
+    ]
+   }
+  ],
+  "extractor": "common_data_set/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:41:43+00:00",
+   "kind": "pdf",
+   "last_modified": null,
+   "page_file": "25c09140d714a2c33a17.json.gz",
+   "requested_url": "https://www.washcoll.edu/people_departments/offices/institutional-research/common_data_sets_cds/common-data-set-2025-2026-use.pdf",
+   "sha256": "25c09140d714a2c33a17c9e445311df17ab6ea8c23948e62b324049e2b6061b4",
+   "title": "Common Data Set 2025-2026",
+   "url": "https://www.washcoll.edu/people_departments/offices/institutional-research/common_data_sets_cds/common-data-set-2025-2026-use.pdf"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "16a56b8bdf67ea99": {
+  "decision": {
+   "candidate_id": "16a56b8bdf67ea99",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $23,306",
+    "value": 23306
+   },
+   {
+    "field": "column:Housing and Meals (depending on type of accommodation)",
+    "snippet": "Housing and Meals (depending on type of accommodation) | $15,296",
+    "value": 15296
+   },
+   {
+    "field": "column:Fees",
+    "snippet": "Fees | $3,050",
+    "value": 3050
+   },
+   {
+    "field": "column:TOTAL ESTIMATED BILLED EXPENSES",
+    "snippet": "TOTAL ESTIMATED BILLED EXPENSES | $41,652",
+    "value": 41652
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [
+   "stale_year_label:2025-26"
+  ],
+  "source": {
+   "fetched_at": "2026-10-06T02:24:52+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "80e3c899c8ffdf7c440f.json.gz",
+   "requested_url": "https://www.frostburg.edu/admissions-and-cost/undergraduate/tuition-and-aid.php",
+   "sha256": "80e3c899c8ffdf7c440fae124e4839dfc8c0f2c2bb00015a8b4c056cb5ba142b",
+   "title": "Tuition and Aid",
+   "url": "https://www.frostburg.edu/admissions-and-cost/undergraduate/tuition-and-aid.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "174ff86da21a602b": {
+  "decision": {
+   "candidate_id": "174ff86da21a602b",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "min_grade",
+    "snippet": "Up to 60 credits may be transferred and applied toward the MICA B.F.A., and only courses carrying a grade of “C” or better will be considered.",
+    "value": "C"
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:30:45+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "97ff91574d03b6cedcc4.json.gz",
+   "requested_url": "https://www.mica.edu/admissions/undergraduate-admission/transfer-admission/planning-your-transfer/",
+   "sha256": "97ff91574d03b6cedcc441010f2312f94253ca35f76607452aae2c486495adb9",
+   "title": "A Guide to Planning Your Transfer | MICA",
+   "url": "https://www.mica.edu/admissions/undergraduate-admission/transfer-admission/planning-your-transfer/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "176e1e62571bbf11": {
+  "decision": {
+   "candidate_id": "176e1e62571bbf11",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "column:Tuition and Mandatory Fees",
+    "snippet": "Tuition and Mandatory Fees | $11,466 | $23,590",
+    "value": 23590
+   },
+   {
+    "field": "column:Housing*",
+    "snippet": "Housing* | $8,150 | $8,150",
+    "value": 8150
+   },
+   {
+    "field": "column:Food**",
+    "snippet": "Food** | $6,368 | $6,368",
+    "value": 6368
+   },
+   {
+    "field": "column:Direct Costs",
+    "snippet": "Direct Costs | $25,984 | $38,108",
+    "value": 38108
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:32:59+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "8e33aa7bb3d4946239a2.json.gz",
+   "requested_url": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+   "sha256": "8e33aa7bb3d4946239a2e99d33ed1970e4dcc5b1f74d3e00352678f9751a3820",
+   "title": "Salisbury University Cost of Attendance | Salisbury University",
+   "url": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "1b1262d8db1ddeed": {
+  "decision": {
+   "candidate_id": "1b1262d8db1ddeed",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "min_grade",
+    "snippet": "For example, if a native student must earn a grade of “C” or better in a required course, the transfer student shall also be required to earn a “C“ or better to meet the same requirement.",
+    "value": "C"
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:27:08+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "59d4ad19eeda052eae5e.json.gz",
+   "requested_url": "https://www.garrettcollege.edu/disclosures-transfer-credit.php",
+   "sha256": "59d4ad19eeda052eae5e01596bccda680ee6422c401f845bdf78d403f6e18114",
+   "title": "Disclosures Transfer Credit - Garrett College",
+   "url": "https://www.garrettcollege.edu/disclosures-transfer-credit.php"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "2bfe8a0d6d955e49": {
+  "decision": {
+   "candidate_id": "2bfe8a0d6d955e49",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "column:Tuition and Mandatory Fees",
+    "snippet": "Tuition and Mandatory Fees | $11,466 | $23,590",
+    "value": 11466
+   },
+   {
+    "field": "column:Housing*",
+    "snippet": "Housing* | $8,150 | $8,150",
+    "value": 8150
+   },
+   {
+    "field": "column:Food**",
+    "snippet": "Food** | $6,368 | $6,368",
+    "value": 6368
+   },
+   {
+    "field": "column:Direct Costs",
+    "snippet": "Direct Costs | $25,984 | $38,108",
+    "value": 25984
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:32:59+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "8e33aa7bb3d4946239a2.json.gz",
+   "requested_url": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/",
+   "sha256": "8e33aa7bb3d4946239a2e99d33ed1970e4dcc5b1f74d3e00352678f9751a3820",
+   "title": "Salisbury University Cost of Attendance | Salisbury University",
+   "url": "https://www.salisbury.edu/admissions/financial-aid/cost-of-attendance/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "322ed3e005e54d5d": {
+  "decision": {
+   "candidate_id": "322ed3e005e54d5d",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "equivalencies[AP-2-D-ART-DESIGN|3, 4, 5]",
+    "snippet": "AP 2D Art & Design | ARTT Elective | 3, 4, 5 | 3 LL"
+   },
+   {
+    "field": "equivalencies[AP-3-D-ART-DESIGN|3, 4, 5]",
+    "snippet": "AP 3D Art & Design | ARTT Elective | 3, 4, 5 | 3 LL"
+   },
+   {
+    "field": "equivalencies[AP-ART-HISTORY|3, 4, 5]",
+    "snippet": "AP Art History | ARTH Elective | 3, 4, 5 | 6 LL"
+   },
+   {
+    "field": "equivalencies[AP-BIOLOGY|3, 4, 5]",
+    "snippet": "AP Biology | BIOL 103 (Satisfies Lecture w/ Lab requirement) | 3, 4, 5 | 4 LL"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-AB|3, 4, 5]",
+    "snippet": "AP Calculus AB | MATH 140 | 3, 4, 5 | 4 LL"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-BC|3, 4, 5]",
+    "snippet": "AP Calculus BC | MATH 140 and MATH 141 | 3, 4, 5 | 8 LL"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|3]",
+    "snippet": "AP Chemistry | CHEM 103 (Satisfies Lecture w/ Lab requirement) | 3 | 4 LL"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|4, 5]",
+    "snippet": "AP Chemistry | CHEM 103 and CHEM Elective (Satisfies Lecture w/ Lab requirement) | 4, 5 | 8 LL"
+   },
+   {
+    "field": "equivalencies[AP-CHINESE-LANGUAGE-CULTURE|3]",
+    "snippet": "AP Chinese Language and Culture | CHIN 114, CHIN 115, and CHIN Elective | 3 | 8 LL"
+   },
+   {
+    "field": "equivalencies[AP-CHINESE-LANGUAGE-CULTURE|4]",
+    "snippet": "AP Chinese Language and Culture | CHIN 114, CHIN 115, and CHIN Elective | 4 | 12 LL"
+   },
+   {
+    "field": "equivalencies[AP-CHINESE-LANGUAGE-CULTURE|5]",
+    "snippet": "AP Chinese Language and Culture | CHIN 114, CHIN 115, and CHIN Elective | 5 | 16 LL"
+   },
+   {
+    "field": "equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|3, 4, 5]",
+    "snippet": "AP Comparative Government and Politics | GVPT 280 | 3, 4, 5 | 3 LL"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-A|3, 4, 5]",
+    "snippet": "AP Computer Science A | CMIS 141 | 3, 4, 5 | 4 LL"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|3, 4, 5]",
+    "snippet": "AP Computer Science Principles | CMIS 102 | 3, 4, 5 | 3 LL"
+   },
+   {
+    "field": "equivalencies[AP-DRAWING|3, 4, 5]",
+    "snippet": "AP Drawing | ARTT 110 | 3, 4, 5 | 3 LL"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3]",
+    "snippet": "AP English Language and Composition | WRTG 111 and Elective | 3 | 6 LL"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|4, 5]",
+    "snippet": "AP English Language and Composition | WRTG 112 and Elective | 4, 5 | 6 LL"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3]",
+    "snippet": "AP English Literature and Composition | ENGL 102 | 3 | 3 LL"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|4, 5]",
+    "snippet": "AP English Literature and Composition | ENGL 102 and ENGL 240 | 4, 5 | 6 LL"
+   },
+   {
+    "field": "equivalencies[AP-ENVIRONMENTAL-SCIENCE|3, 4, 5]",
+    "snippet": "AP Environmental Science | Science Elective (Satisfies Lecture requirement) | 3, 4, 5 | 3 LL"
+   },
+   {
+    "field": "equivalencies[AP-EUROPEAN-HISTORY|3, 4, 5]",
+    "snippet": "AP European History | HIST 141 and HIST 142 | 3, 4, 5 | 6 LL"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]",
+    "snippet": "AP French Language | FREN 211 and FREN Elective | 3 | 6 LL"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|4]",
+    "snippet": "AP French Language | FREN 211, FREN 212, and FREN Elective | 4 | 9 LL"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|5]",
+    "snippet": "AP French Language | FREN 211, FREN 212, and FREN Elective | 5 | 12 LL"
+   },
+   {
+    "field": "equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3]",
+    "snippet": "AP German Language | GERM 211 and GERM Elective | 3 | 12 LL"
+   },
+   {
+    "field": "equivalencies[AP-GERMAN-LANGUAGE-CULTURE|4]",
+    "snippet": "AP German Language | GERM 211, GERM 212, and GERM Elective | 4 | 16 LL"
+   },
+   {
+    "field": "equivalencies[AP-GERMAN-LANGUAGE-CULTURE|5]",
+    "snippet": "AP German Language | GERM 211, GERM 212, and GERM Elective | 5 | 20 LL"
+   },
+   {
+    "field": "equivalencies[AP-HUMAN-GEOGRAPHY|3, 4, 5]",
+    "snippet": "AP Human Geography | GEOG Elective | 3, 4, 5 | 3 LL"
+   },
+   {
+    "field": "equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|3]",
+    "snippet": "AP Italian Language and Culture | ITAL 211 and ITAL Elective | 3 | 6 LL"
+   },
+   {
+    "field": "equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|4]",
+    "snippet": "AP Italian Language and Culture | ITAL 211, ITAL 212, and ITAL Elective | 4 | 9 LL"
+   },
+   {
+    "field": "equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|5]",
+    "snippet": "AP Italian Language and Culture | ITAL 211, ITAL 212, and ITAL Elective | 5 | 12 LL"
+   },
+   {
+    "field": "equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|3]",
+    "snippet": "AP Japanese Language and Culture | JAPN 115, JAPN 221 and JAPN Elective | 3 | 8 LL"
+   },
+   {
+    "field": "equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|4]",
+    "snippet": "AP Japanese Language and Culture | JAPN 115, JAPN 221 and JAPN Elective | 4 | 12 LL"
+   },
+   {
+    "field": "equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|5]",
+    "snippet": "AP Japanese Language and Culture | JAPN 115, JAPN 221 and JAPN Elective | 5 | 16 LL"
+   },
+   {
+    "field": "equivalencies[AP-LATIN|3]",
+    "snippet": "AP Latin | LATN elective | 3 | 6 LL"
+   },
+   {
+    "field": "equivalencies[AP-LATIN|4]",
+    "snippet": "AP Latin | LATN elective | 4 | 9 LL"
+   },
+   {
+    "field": "equivalencies[AP-LATIN|5]",
+    "snippet": "AP Latin | LATN elective | 5 | 12 LL"
+   },
+   {
+    "field": "equivalencies[AP-MACROECONOMICS|3, 4, 5]",
+    "snippet": "AP Macroeconomics | ECON 201 | 3, 4, 5 | 3 LL"
+   },
+   {
+    "field": "equivalencies[AP-MICROECONOMICS|3, 4, 5]",
+    "snippet": "AP Microeconomics | ECON 203 | 3, 4, 5 | 3 LL"
+   },
+   {
+    "field": "equivalencies[AP-MUSIC-THEORY|3]",
+    "snippet": "AP Music Theory | MUSC Elective | 3 | 3 LL"
+   },
+   {
+    "field": "equivalencies[AP-MUSIC-THEORY|4,5]",
+    "snippet": "AP Music Theory | MUSC Elective | 4,5 | 6 LL"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-1|3, 4, 5]",
+    "snippet": "AP Physics 1 | PHYS 111 and PHYS Lab (Satisfies Lecture w/ Lab requirement) | 3, 4, 5 | 4 LL"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-2|3, 4, 5]",
+    "snippet": "AP Physics 2: Algebra-Based | PHYS 112 and PHYS Lab (Satisfies Lecture w/ Lab requirement) | 3, 4, 5 | 4 LL"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|3, 4, 5]",
+    "snippet": "AP Physics C: Electricity and Magnetism | PHYS 122 (Satisfies Lecture w/ Lab requirement) | 3, 4, 5 | 4 LL"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-MECHANICS|3, 4, 5]",
+    "snippet": "AP Physics C: Mechanics | PHYS 121 (Satisfies Lecture w/ Lab requirement) | 3, 4, 5 | 4 LL"
+   },
+   {
+    "field": "equivalencies[AP-PRECALCULUS|3, 4, 5]",
+    "snippet": "AP Precalculus | MATH 115 | 3, 4, 5 | 4 LL"
+   },
+   {
+    "field": "equivalencies[AP-PSYCHOLOGY|3, 4 ,5]",
+    "snippet": "AP Psychology | PSYC 100 | 3, 4 ,5 | 3 LL"
+   },
+   {
+    "field": "equivalencies[AP-RESEARCH|3, 4, 5]",
+    "snippet": "AP Research | WRTG 391 | 3, 4, 5 | 3 LL"
+   },
+   {
+    "field": "equivalencies[AP-SEMINAR|3]",
+    "snippet": "AP Seminar | Elective | 3 | 3 LL"
+   },
+   {
+    "field": "equivalencies[AP-SEMINAR|4,5]",
+    "snippet": "AP Seminar | Elective | 4,5 | 6 LL"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|3]",
+    "snippet": "AP Spanish Language and Culture | SPAN 211 and SPAN 212 | 3 | 6 LL"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|4]",
+    "snippet": "AP Spanish Language and Culture | SPAN 211, SPAN 212, and SPAN Elective | 4 | 9 LL"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|5]",
+    "snippet": "AP Spanish Language and Culture | SPAN 211, SPAN 212, and SPAN Elective | 5 | 12 LL"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LITERATURE-CULTURE|3]",
+    "snippet": "AP Spanish Literature and Culture | SPAN Elective and HUMN Elective | 3 | 9 LL"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LITERATURE-CULTURE|4]",
+    "snippet": "AP Spanish Literature and Culture | SPAN Elective and HUMN Elective | 4 | 12 LL"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LITERATURE-CULTURE|5]",
+    "snippet": "AP Spanish Literature and Culture | SPAN Elective and HUMN Elective | 5 | 12 LL & 3 UL"
+   },
+   {
+    "field": "equivalencies[AP-STATISTICS|3, 4 ,5]",
+    "snippet": "AP Statistics | STAT 200 | 3, 4 ,5 | 3 LL"
+   },
+   {
+    "field": "equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|3, 4 ,5]",
+    "snippet": "AP United States Government and Politics | GVPT 170 | 3, 4 ,5 | 3 LL"
+   },
+   {
+    "field": "equivalencies[AP-UNITED-STATES-HISTORY|3, 4, 5]",
+    "snippet": "AP United States History | HIST 156 and HIST 157 | 3, 4, 5 | 6 LL"
+   },
+   {
+    "field": "equivalencies[AP-WORLD-HISTORY-MODERN|3, 4, 5]",
+    "snippet": "AP World History | HIST 115 and HIST 116 | 3, 4, 5 | 6 LL"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:39:34+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "f45879904de51b78ddc7.json.gz",
+   "requested_url": "https://www.umgc.edu/transfers-and-credits/fast-paths-to-credit/credit-by-exam/ap",
+   "sha256": "f45879904de51b78ddc7c246e69f059a07b19ccc96cd57dc8e3e22ada15558bf",
+   "title": "Advanced Placement | UMGC",
+   "url": "https://www.umgc.edu/transfers-and-credits/fast-paths-to-credit/credit-by-exam/ap"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "33e22c48abddace3": {
+  "decision": {
+   "candidate_id": "33e22c48abddace3",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "applications",
+    "snippet": "Total first-time, first-year (degree-seeking) who applied           2681",
+    "value": 2681
+   },
+   {
+    "field": "admits",
+    "snippet": "Total first-time, first-year (degree-seeking) who were admitted     2014",
+    "value": 2014
+   },
+   {
+    "field": "enrolled",
+    "snippet": "Total first-time, first-year (degree-seeking) enrolled              352",
+    "value": 352
+   }
+  ],
+  "extractor": "common_data_set/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:35:08+00:00",
+   "kind": "pdf",
+   "last_modified": "Wed, 13 May 2026 17:13:45 GMT",
+   "page_file": "45c5ce5e76e2f3912d38.json.gz",
+   "requested_url": "https://www.smcm.edu/app/uploads/sites/60/2026/05/CDS_25-26.pdf",
+   "sha256": "45c5ce5e76e2f3912d38b3e20c928742facce590be005a4e7dc534a8b2571e44",
+   "title": "Common Data Set 2025-2026",
+   "url": "https://www.smcm.edu/app/uploads/sites/60/2026/05/CDS_25-26.pdf"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "37c1ebdbc3e56bbb": {
+  "decision": {
+   "candidate_id": "37c1ebdbc3e56bbb",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "Has an overall unweighted grade point average of at least 2.75",
+    "value": 2.75
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "Has an overall weighted grade point average of at least 2.75",
+    "value": 2.75
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "Has an overall weighted grade point average of at least 2.75",
+    "value": 2.75
+   },
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "The tuition for dual enrollment (inclusive of all fees) is $150 per credit hour.",
+    "value": 150
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "Has an overall weighted grade point average of at least 2.75",
+    "value": 2.75
+   },
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "The tuition for dual enrollment (inclusive of all fees) is $150 per credit hour.",
+    "value": 150
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:34:12+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "81bd7d72954c35d2b8cd.json.gz",
+   "requested_url": "https://www.salisbury.edu/administration/academic-affairs/registrar/records-and-registration/dual-enrollment.aspx",
+   "sha256": "81bd7d72954c35d2b8cd61e7262d34e202ab3b2290605c36a4a06a60d9c9eee8",
+   "title": "Dual Enrollment | Registrar | Salisbury University",
+   "url": "https://www.salisbury.edu/administration/academic-affairs/registrar/records-and-registration/dual-enrollment.aspx"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "49ba152c08616b12": {
+  "decision": {
+   "candidate_id": "49ba152c08616b12",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY|3]",
+    "snippet": "Anthropology             Social and Cultural Anthropology              ANTH              Higher         5, 6, 7             ANTH201                3          Y"
+   },
+   {
+    "field": "equivalencies[IB-BIOLOGY|4]",
+    "snippet": "Biology                  Biology                                       BIOL            Standard         5, 6, 7              BIOL101               4          Y"
+   },
+   {
+    "field": "equivalencies[IB-BUSINESS-MANAGEMENT|3]",
+    "snippet": "Business                 Business and Organization                    BUSI         Standard or Higher   5, 6, 7           BSAD elective            3          N"
+   },
+   {
+    "field": "equivalencies[IB-CHEMISTRY|4]",
+    "snippet": "Chemistry                Chemistry                                     CHEM            Standard         5, 6, 7             CHEM131                4          Y"
+   },
+   {
+    "field": "equivalencies[IB-COMPUTER-SCIENCE|3]",
+    "snippet": "Computer Science         Computer Science                              CMSC              Higher          6, 7               CMSC 140               3          N"
+   },
+   {
+    "field": "equivalencies[IB-ECONOMICS|3]",
+    "snippet": "Economics                Economics                                     ECON            Standard         5, 6, 7           ECON elective            3          N"
+   },
+   {
+    "field": "equivalencies[IB-ENGLISH-A-LANGUAGE-LITERATURE|3]",
+    "snippet": "English A: Literature and Language            ENGL            Standard         5, 6, 7           ENGL elective            3         N"
+   },
+   {
+    "field": "equivalencies[IB-FILM|3]",
+    "snippet": "Film                     Film                                         FILM              Higher          5, 6, 7              FILM110               3          Y"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH|5]",
+    "snippet": "French                   French                                        FREN            Standard           5                 FREN202                3          Y"
+   },
+   {
+    "field": "equivalencies[IB-GEOGRAPHY|3]",
+    "snippet": "Geography                Geography                                     GEOG            Standard         5, 6, 7             GEOG105                3          Y"
+   },
+   {
+    "field": "equivalencies[IB-GERMAN|3]",
+    "snippet": "German                   German                                        GERM            Standard         5, 6, 7             GERM202                3          Y"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY|3]",
+    "snippet": "History                  Varies                                        HIST            Standard         5, 6, 7            HIST elective           3          N"
+   },
+   {
+    "field": "equivalencies[IB-LATIN|6]",
+    "snippet": "Latin                    Latin                                         LATN        Standard or Higher   5, 6, 7       LATN101 and LATN102          6          Y"
+   },
+   {
+    "field": "equivalencies[IB-PHILOSOPHY|3]",
+    "snippet": "Philosophy                       Philosophy        PHIL   Standard   5, 6, 7             PHIL101                 3        Y"
+   },
+   {
+    "field": "equivalencies[IB-PHYSICS|4]",
+    "snippet": "Physics                          Physics           PHYS   Standard   5, 6, 7            PHYS203                  4       Y"
+   },
+   {
+    "field": "equivalencies[IB-PSYCHOLOGY|3]",
+    "snippet": "Psychology                       Psychology        PSYC   Standard   5, 6, 7            PSYC102                  3       Y"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH|5]",
+    "snippet": "Spanish                          Spanish           SPAN   Standard     5          SPAN202 or SPAN203            3-4      Y"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:38:36+00:00",
+   "kind": "pdf",
+   "last_modified": null,
+   "page_file": "00eff41b2e8f077bd4c3.json.gz",
+   "requested_url": "https://www.montgomerycollege.edu/_documents/academics/credit-for-prior-learning/ib-exams-mc-equivalents.pdf",
+   "sha256": "00eff41b2e8f077bd4c31ea641cd6500f29888dfaf18be9e44b579fce63079b5",
+   "title": "IB EXAMS - MC EQUIVALENTS",
+   "url": "https://www.montgomerycollege.edu/_documents/academics/credit-for-prior-learning/ib-exams-mc-equivalents.pdf"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "588c76f5212d8545": {
+  "decision": {
+   "candidate_id": "588c76f5212d8545",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "with_parents_or_family:Tuition And Fees *",
+    "snippet": "Tuition And Fees * | $ 5,168 | $ 5,168",
+    "value": 5168
+   },
+   {
+    "field": "with_parents_or_family:Books, Course Materials, Supplies and Equipment **",
+    "snippet": "Books, Course Materials, Supplies and Equipment ** | $756 | $756",
+    "value": 756
+   },
+   {
+    "field": "with_parents_or_family:Housing & Food **",
+    "snippet": "Housing & Food ** | $5,504 | $17,200",
+    "value": 5504
+   },
+   {
+    "field": "with_parents_or_family:Transportation **",
+    "snippet": "Transportation ** | $3,638 | $3,638",
+    "value": 3638
+   },
+   {
+    "field": "with_parents_or_family:Miscellaneous Personal Expenses **",
+    "snippet": "Miscellaneous Personal Expenses ** | $12,238 | $12,238",
+    "value": 12238
+   },
+   {
+    "field": "with_parents_or_family:TOTAL EST. COST OF ATTENDANCE",
+    "snippet": "TOTAL EST. COST OF ATTENDANCE | $ 27,304 | $ 39,000",
+    "value": 27304
+   },
+   {
+    "field": "off_campus_not_with_family:Tuition And Fees *",
+    "snippet": "Tuition And Fees * | $ 5,168 | $ 5,168",
+    "value": 5168
+   },
+   {
+    "field": "off_campus_not_with_family:Books, Course Materials, Supplies and Equipment **",
+    "snippet": "Books, Course Materials, Supplies and Equipment ** | $756 | $756",
+    "value": 756
+   },
+   {
+    "field": "off_campus_not_with_family:Housing & Food **",
+    "snippet": "Housing & Food ** | $5,504 | $17,200",
+    "value": 17200
+   },
+   {
+    "field": "off_campus_not_with_family:Transportation **",
+    "snippet": "Transportation ** | $3,638 | $3,638",
+    "value": 3638
+   },
+   {
+    "field": "off_campus_not_with_family:Miscellaneous Personal Expenses **",
+    "snippet": "Miscellaneous Personal Expenses ** | $12,238 | $12,238",
+    "value": 12238
+   },
+   {
+    "field": "off_campus_not_with_family:TOTAL EST. COST OF ATTENDANCE",
+    "snippet": "TOTAL EST. COST OF ATTENDANCE | $ 27,304 | $ 39,000",
+    "value": 39000
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:31:18+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "47dd2d58b03016705efd.json.gz",
+   "requested_url": "https://www.montgomerycollege.edu/paying-for-college/financial-aid/cost-of-attendance.html",
+   "sha256": "47dd2d58b03016705efd27f860ba1e73b2b4475b0aa61fdd9c0d5bfe3fb61023",
+   "title": "Cost of Attendance | Montgomery College, Maryland",
+   "url": "https://www.montgomerycollege.edu/paying-for-college/financial-aid/cost-of-attendance.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "5f9a3a1c98239e89": {
+  "decision": {
+   "candidate_id": "5f9a3a1c98239e89",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "min_grade",
+    "snippet": "Generally, college-level courses completed at regionally-accredited institutions will be acceptable and awarded transfer credit, provided the course is similar in level, scope, content and expected learning outcomes Applicability of Transfer Courses to to courses offered at the University of Maryland and a grade of \"C-\" or higher is earned.",
+    "value": "C-"
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:41:39+00:00",
+   "kind": "pdf",
+   "last_modified": "Tue, 14 Jul 2026 16:53:32 GMT",
+   "page_file": "5371db41fc889e7318fb.json.gz",
+   "requested_url": "https://academiccatalog.umd.edu/undergraduate/registration-academic-requirements-regulations/transfer-credit/transfer-credit.pdf",
+   "sha256": "5371db41fc889e7318fb8a9327843b477846e4551b4dc15b6d90a89b97107541",
+   "title": "Transfer Credit         1",
+   "url": "https://academiccatalog.umd.edu/undergraduate/registration-academic-requirements-regulations/transfer-credit/transfer-credit.pdf"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "66481e4b202fa978": {
+  "decision": {
+   "candidate_id": "66481e4b202fa978",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "on_campus:Tuition",
+    "snippet": "Tuition | $12,855 | $22,855 | $29,909",
+    "value": 29909
+   },
+   {
+    "field": "on_campus:Fees",
+    "snippet": "Fees | $3,495 | $3,495 | $3,495",
+    "value": 3495
+   },
+   {
+    "field": "on_campus:Housing*",
+    "snippet": "Housing* | $10,390 | $10,390 | $10,390",
+    "value": 10390
+   },
+   {
+    "field": "on_campus:Meals**",
+    "snippet": "Meals** | $6,990 | $6,990 | $6,990",
+    "value": 6990
+   },
+   {
+    "field": "on_campus:Billable Charges to SMCM",
+    "snippet": "Billable Charges to SMCM | $33,730 | $43,730 | $50,784",
+    "value": 50784
+   },
+   {
+    "field": "on_campus:Books & Supplies",
+    "snippet": "Books & Supplies | $1,000 | $1,000 | $1,000",
+    "value": 1000
+   },
+   {
+    "field": "on_campus:Transportation",
+    "snippet": "Transportation | $455 | $455 | $1,120",
+    "value": 1120
+   },
+   {
+    "field": "on_campus:Personal Expenses",
+    "snippet": "Personal Expenses | $1,365 | $1,365 | $1,365",
+    "value": 1365
+   },
+   {
+    "field": "on_campus:Loan Fees",
+    "snippet": "Loan Fees | $70 | $70 | $70",
+    "value": 70
+   },
+   {
+    "field": "on_campus:Comprehensive Cost of Attendance",
+    "snippet": "Comprehensive Cost of Attendance | $36,620 | $46,620 | $54,339",
+    "value": 54339
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:35:19+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "5b441b6beb3e0d39e442.json.gz",
+   "requested_url": "https://www.smcm.edu/student-financial-assistance/tuition-fees/",
+   "sha256": "5b441b6beb3e0d39e4429d5f22d8253912f3b2ef15dc5b915bb0b0f77ec61241",
+   "title": "Tuition and Fees – Office of Student Financial Assistance | SMCM",
+   "url": "https://www.smcm.edu/student-financial-assistance/tuition-fees/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "6b3b40719798aa01": {
+  "decision": {
+   "candidate_id": "6b3b40719798aa01",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "equivalencies[CLEP-FINANCIAL-ACCOUNTING|50]",
+    "snippet": "Financial Accounting                                   50                   ACC210                3"
+   },
+   {
+    "field": "equivalencies[CLEP-INFORMATION-SYSTEMS|50]",
+    "snippet": "Information Systems                                    50                   CIS105                3         Interdisciplinary/Emerging Issues"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-BUSINESS-LAW|50]",
+    "snippet": "Introductory Business Law                              50                   BUS203                3"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MANAGEMENT|50]",
+    "snippet": "Principles of Management                               50                   BUS170                3"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MARKETING|50]",
+    "snippet": "Principles of Marketing                                50                   BUS201                3"
+   },
+   {
+    "field": "equivalencies[CLEP-AMERICAN-LITERATURE|50]",
+    "snippet": "American Literature                                    50                  ENG252                 3                Arts & Humanities"
+   },
+   {
+    "field": "equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|50]",
+    "snippet": "Analyzing and Interpreting Literature                  50                  ENG1XX                 3"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-COMPOSITION|50]",
+    "snippet": "College Composition                                    50                  ENG101                 3               English Composition"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-COMPOSITION-MODULAR|50]",
+    "snippet": "College Composition Modular                            50                  ENG101                 3               English Composition"
+   },
+   {
+    "field": "equivalencies[CLEP-ENGLISH-LITERATURE|50]",
+    "snippet": "English Literature                                     50                  ENG251                 3                Arts & Humanities"
+   },
+   {
+    "field": "equivalencies[CLEP-HUMANITIES|50]",
+    "snippet": "Humanities                                             50                  HUM1XX                 3                Arts & Humanities"
+   },
+   {
+    "field": "equivalencies[CLEP-AMERICAN-GOVERNMENT|50]",
+    "snippet": "American Government                                    50                 POL140                  3           Social & Behavioral Sciences"
+   },
+   {
+    "field": "equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-I|50]",
+    "snippet": "History of the United States I                         50                 HIS111                  3                Arts & Humanities"
+   },
+   {
+    "field": "equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-II|50]",
+    "snippet": "History of the United States II                        50                 HIS112                  3                Arts & Humanities"
+   },
+   {
+    "field": "equivalencies[CLEP-HUMAN-GROWTH-DEVELOPMENT|50]",
+    "snippet": "Human Growth and Development                           50                 PSY102                  3           Social & Behavioral Sciences"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTION-TO-EDUCATIONAL-PSYCHOLOGY|50]",
+    "snippet": "Introduction to Educational Psychology                 50                 PSY211                  3"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|50]",
+    "snippet": "Introductory Psychology                                50                 PSY101                  3           Social & Behavioral Sciences"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|50]",
+    "snippet": "Introductory Sociology                                 50                 SOC101                  3           Social & Behavioral Sciences"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|50]",
+    "snippet": "Principles of Macroeconomics                           50                 ECN201                  3           Social & Behavioral Sciences"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|50]",
+    "snippet": "Principles of Microeconomics                           50                 ECN202                  3           Social & Behavioral Sciences"
+   },
+   {
+    "field": "equivalencies[CLEP-SOCIAL-SCIENCES-HISTORY|50]",
+    "snippet": "Social Sciences and History                            50             SOC1XX & HIS1XX             6           Social & Behavioral Sciences"
+   },
+   {
+    "field": "equivalencies[CLEP-WESTERN-CIVILIZATION-I|50]",
+    "snippet": "Western Civilization I                                 50                 HIS101                  3                Arts & Humanities"
+   },
+   {
+    "field": "equivalencies[CLEP-WESTERN-CIVILIZATION-II|50]",
+    "snippet": "Western Civilization II                                50                 HIS102                  3                Arts & Humanities"
+   },
+   {
+    "field": "equivalencies[CLEP-BIOLOGY|50]",
+    "snippet": "Biology                                                50             BIO101 & BIO102             8                     Science"
+   },
+   {
+    "field": "equivalencies[CLEP-CALCULUS|50]",
+    "snippet": "Calculus W/ Elementary Functions                       50                 MAT190                  4                   Mathematics"
+   },
+   {
+    "field": "equivalencies[CLEP-CHEMISTRY|50]",
+    "snippet": "Chemistry                                              50             CHE101 & CHE102             8                     Science"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-ALGEBRA|50]",
+    "snippet": "College Algebra        50         MAT105          3      Mathematics"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-MATHEMATICS|50]",
+    "snippet": "College Mathematics    50         MAT1XX          3"
+   },
+   {
+    "field": "equivalencies[CLEP-PRECALCULUS|50]",
+    "snippet": "Precalculus            50         MAT110          4      Mathematics"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:26:46+00:00",
+   "kind": "pdf",
+   "last_modified": "Mon, 22 Jan 2024 23:31:40 GMT",
+   "page_file": "44d0463eee23d233ed57.json.gz",
+   "requested_url": "https://www.garrettcollege.edu/images/services/transfer/transfer-to-gc/clep.pdf",
+   "sha256": "44d0463eee23d233ed57c6ea724a578e1241ce34a7d6a7d093ab17fdc8fe5b36",
+   "title": "CLEP Score Requirements & Equivalancies",
+   "url": "https://www.garrettcollege.edu/images/services/transfer/transfer-to-gc/clep.pdf"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "709094988eb6c4d8": {
+  "decision": {
+   "candidate_id": "709094988eb6c4d8",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "with_parents_or_family:Tuition and Fees *",
+    "snippet": "Tuition and Fees * | $ 13,702 | $ 13,702",
+    "value": 13702
+   },
+   {
+    "field": "with_parents_or_family:Books, Course Materials, Supplies and Equipment **",
+    "snippet": "Books, Course Materials, Supplies and Equipment ** | $756 | $756",
+    "value": 756
+   },
+   {
+    "field": "with_parents_or_family:Housing & Food **",
+    "snippet": "Housing & Food ** | $5,504 | $17,200",
+    "value": 5504
+   },
+   {
+    "field": "with_parents_or_family:Transportation **",
+    "snippet": "Transportation ** | $3,638 | $3,638",
+    "value": 3638
+   },
+   {
+    "field": "with_parents_or_family:Miscellaneous Personal Expenses **",
+    "snippet": "Miscellaneous Personal Expenses ** | $12,238 | $12,238",
+    "value": 12238
+   },
+   {
+    "field": "with_parents_or_family:TOTAL EST. COST OF ATTENDANCE",
+    "snippet": "TOTAL EST. COST OF ATTENDANCE | $ 35,838 | $ 47,534",
+    "value": 35838
+   },
+   {
+    "field": "off_campus_not_with_family:Tuition and Fees *",
+    "snippet": "Tuition and Fees * | $ 13,702 | $ 13,702",
+    "value": 13702
+   },
+   {
+    "field": "off_campus_not_with_family:Books, Course Materials, Supplies and Equipment **",
+    "snippet": "Books, Course Materials, Supplies and Equipment ** | $756 | $756",
+    "value": 756
+   },
+   {
+    "field": "off_campus_not_with_family:Housing & Food **",
+    "snippet": "Housing & Food ** | $5,504 | $17,200",
+    "value": 17200
+   },
+   {
+    "field": "off_campus_not_with_family:Transportation **",
+    "snippet": "Transportation ** | $3,638 | $3,638",
+    "value": 3638
+   },
+   {
+    "field": "off_campus_not_with_family:Miscellaneous Personal Expenses **",
+    "snippet": "Miscellaneous Personal Expenses ** | $12,238 | $12,238",
+    "value": 12238
+   },
+   {
+    "field": "off_campus_not_with_family:TOTAL EST. COST OF ATTENDANCE",
+    "snippet": "TOTAL EST. COST OF ATTENDANCE | $ 35,838 | $ 47,534",
+    "value": 47534
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:31:18+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "47dd2d58b03016705efd.json.gz",
+   "requested_url": "https://www.montgomerycollege.edu/paying-for-college/financial-aid/cost-of-attendance.html",
+   "sha256": "47dd2d58b03016705efd27f860ba1e73b2b4475b0aa61fdd9c0d5bfe3fb61023",
+   "title": "Cost of Attendance | Montgomery College, Maryland",
+   "url": "https://www.montgomerycollege.edu/paying-for-college/financial-aid/cost-of-attendance.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "70c0deec8351bae9": {
+  "decision": {
+   "candidate_id": "70c0deec8351bae9",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "average GPA of an A or higher, or a weighted GPA of 3.5 or higher. Submitting test",
+    "value": 3.5
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:36:37+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "91e87d692c5a1c4a2197.json.gz",
+   "requested_url": "https://www.towson.edu/admissions/undergrad/nondegree/highschool.html",
+   "sha256": "91e87d692c5a1c4a2197635deed402e9b257c15ea7a57abba5039f137ce5de23",
+   "title": "High School Dual Enrollment | Towson University",
+   "url": "https://www.towson.edu/admissions/undergrad/nondegree/highschool.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "72e6e06479ffba14": {
+  "decision": {
+   "candidate_id": "72e6e06479ffba14",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "Minimum 3.0 high school GPA*",
+    "value": 3.0
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "For Biology, Chemistry, Computer Science, Cybersecurity, Engineering Science, Environmental Studies, Mathematics, or Physics - Minimum 3.75 high school GPA",
+    "value": 3.75
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:26:14+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 06 Oct 2026 00:19:53 GMT",
+   "page_file": "dfed7c549317523ccf20.json.gz",
+   "requested_url": "https://www.hagerstowncc.edu/admission-requirements-application-information-early-college-degree-program",
+   "sha256": "dfed7c549317523ccf2077aab80ac55220a80a78764bd7a46f9a67decd8b9f8d",
+   "title": "Admission Requirements & Application Information - Early College Degree Program | Hagerstown Community College",
+   "url": "https://www.hagerstowncc.edu/admission-requirements-application-information-early-college-degree-program"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "7f19487f186bfcbb": {
+  "decision": {
+   "candidate_id": "7f19487f186bfcbb",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "equivalencies[AP-ART-HISTORY|3]",
+    "snippet": "ART History                                     3, 4, 5            3                                   ART 106"
+   },
+   {
+    "field": "equivalencies[AP-DRAWING|3]",
+    "snippet": "Studio Art: Drawing                             3, 4, 5            3                                   ART 116"
+   },
+   {
+    "field": "equivalencies[AP-2-D-ART-DESIGN|3]",
+    "snippet": "Studio Art: 2D Design                           3, 4, 5            3     ART 110 or PHOTO 141 based on consultation with department chair"
+   },
+   {
+    "field": "equivalencies[AP-3-D-ART-DESIGN|3]",
+    "snippet": "Studio Art: 3D Design                           3, 4, 5            3                                   ART 113"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3]",
+    "snippet": "English Language & Composition                  3, 4, 5            3                                 ENG 151"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3]",
+    "snippet": "English Literature & Composition                3, 4, 5            3                                 ENG 152"
+   },
+   {
+    "field": "equivalencies[AP-RESEARCH|3]",
+    "snippet": "AP Research                                     3, 4, 5            3                             General Elective"
+   },
+   {
+    "field": "equivalencies[AP-SEMINAR|3]",
+    "snippet": "AP Seminar                                      3, 4, 5            3                                INDSC 199"
+   },
+   {
+    "field": "equivalencies[AP-MACROECONOMICS|3]",
+    "snippet": "Macroeconomics                                  3, 4, 5            3                                   EC 201"
+   },
+   {
+    "field": "equivalencies[AP-MICROECONOMICS|3]",
+    "snippet": "Microeconomics                                  3, 4, 5            3                                   EC 202"
+   },
+   {
+    "field": "equivalencies[AP-EUROPEAN-HISTORY|3]",
+    "snippet": "AP European History                              3, 4              3                                  HIST 211"
+   },
+   {
+    "field": "equivalencies[AP-EUROPEAN-HISTORY|5]",
+    "snippet": "AP European History                                5               6                       History Elective and HIST 211"
+   },
+   {
+    "field": "equivalencies[AP-PSYCHOLOGY|3]",
+    "snippet": "Psychology                                      3, 4, 5            3                                  PSY 101"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-AB|3]",
+    "snippet": "Calculus AB                                        3               4                                MATH 147"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-AB|4]",
+    "snippet": "Calculus AB                                      4, 5              4                                MATH 220"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-BC|3]",
+    "snippet": "Calculus BC                                        3               4                                MATH 220"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|3]",
+    "snippet": "Computer Science Principles                     3, 4, 5            3                       Information Systems Elective"
+   },
+   {
+    "field": "equivalencies[AP-STATISTICS|4]",
+    "snippet": "Statistics                                      3, 4, 5            4                                MATH 136"
+   },
+   {
+    "field": "equivalencies[AP-BIOLOGY|3]",
+    "snippet": "Biology                                           3                4                               BIO 104"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|3]",
+    "snippet": "Chemistry                                         3                3                         Chemistry Elective"
+   },
+   {
+    "field": "equivalencies[AP-ENVIRONMENTAL-SCIENCE|3]",
+    "snippet": "Environmental Science                             3                3                              ENV 150"
+   },
+   {
+    "field": "equivalencies[AP-ENVIRONMENTAL-SCIENCE|3]",
+    "snippet": "Environmental Science                            4, 5              3                              ENV 275"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-1|3]",
+    "snippet": "AP Physics 1: Algebra Based                       3                3                      Physics Elective (non-lab)"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-1|4]",
+    "snippet": "AP Physics 1: Algebra Based                                             4, 5            4             PHYS 210"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-2|3]",
+    "snippet": "AP Physics 2: Algebra Based                                              3              3       Physics Elective (lab)"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-2|4]",
+    "snippet": "AP Physics 2: Algebra Based                                             4, 5            4             PHYS 211"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-MECHANICS|3]",
+    "snippet": "AP Physics C: Mechanics                                                  3              3     Physics Elective (non-lab)"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-MECHANICS|4]",
+    "snippet": "AP Physics C: Mechanics                                                 4, 5            4             PHYS 215"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|3]",
+    "snippet": "AP Physics C: Electricity & Magnetism                                    3              3       Physics Elective (lab)"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|4]",
+    "snippet": "AP Physics C: Electricity & Magnetism                                   4, 5            4             PHYS 216"
+   },
+   {
+    "field": "equivalencies[AP-CHINESE-LANGUAGE-CULTURE|3]",
+    "snippet": "Chinese, German, Italian, Japanese, or Latin Language & Culture          3              3             FL 102"
+   },
+   {
+    "field": "equivalencies[AP-CHINESE-LANGUAGE-CULTURE|4]",
+    "snippet": "Chinese, German, Italian, Japanese, or Latin Language & Culture          4              3             FL 201"
+   },
+   {
+    "field": "equivalencies[AP-CHINESE-LANGUAGE-CULTURE|5]",
+    "snippet": "Chinese, German, Italian, Japanese, or Latin Language & Culture          5              6       FL 201 and FL 202"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]",
+    "snippet": "French Language and Culture                                              3              4             FR 102"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|4]",
+    "snippet": "French Language and Culture                                              4              3             FR 201"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|5]",
+    "snippet": "French Language and Culture                                              5              6       FR 201 and FR 202"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|3]",
+    "snippet": "Spanish Language and Culture                                             3              4            SPN 102"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|4]",
+    "snippet": "Spanish Language and Culture                                             4              3            SPN 201"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|5]",
+    "snippet": "Spanish Language and Culture                                             5              6      SPN 201 and SPN 202"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "issues": [
+   "stale_year_label:2025-26"
+  ],
+  "source": {
+   "fetched_at": "2026-10-06T02:37:42+00:00",
+   "kind": "pdf",
+   "last_modified": "Wed, 29 Apr 2026 13:43:38 GMT",
+   "page_file": "48223c17adeaa0c965cd.json.gz",
+   "requested_url": "https://www.stevenson.edu/wp-content/uploads/AP-Course-Equivs_2025_2026.pdf",
+   "sha256": "48223c17adeaa0c965cde2b30c22008a2f52b818cea5e25a6c9942cadb8bcbeb",
+   "title": "AP Exam   Minimum Score Required Credits                          SU Equivalent",
+   "url": "https://www.stevenson.edu/wp-content/uploads/AP-Course-Equivs_2025_2026.pdf"
+  },
+  "year_basis": "labeled_in_url"
+ },
+ "819f04ed202ce201": {
+  "decision": {
+   "candidate_id": "819f04ed202ce201",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "equivalencies[AP-AFRICAN-AMERICAN-STUDIES|3-5]",
+    "snippet": "African American Studies | 3-5 | 3 | LAN Elective (can be used to fulfill the Humanities General Education requirement and Cultural and Global Awareness Core Requirement)"
+   },
+   {
+    "field": "equivalencies[AP-ART-HISTORY|3]",
+    "snippet": "Art History | 3 | 3 | ART-1030"
+   },
+   {
+    "field": "equivalencies[AP-ART-HISTORY|3-5]",
+    "snippet": "Art History | 3-5 | 3 | ART-1010"
+   },
+   {
+    "field": "equivalencies[AP-BIOLOGY|3]",
+    "snippet": "Biology | 3 | 4 | BIO-1010 /BIO-1010L or BIO-1020 /BIO-1020L"
+   },
+   {
+    "field": "equivalencies[AP-BIOLOGY|4]",
+    "snippet": "Biology | 4 | 8 | Choose Two Courses: BIO-1010 /BIO-1010L or BIO-1020 /BIO-1020L or BIO-1060 /BIO-1060L"
+   },
+   {
+    "field": "equivalencies[AP-BIOLOGY|5]",
+    "snippet": "Biology | 5 | 8 | Choose Two Courses: BIO-1010 /BIO-1010L , BIO-1020 /BIO-1020L , BIO-1060 /BIO-1060L , BIO-1070 /BIO-1070L"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|3]",
+    "snippet": "Chemistry | 3 | 4 | CHE-1200 /CHE-1200L"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|4 or 5]",
+    "snippet": "Chemistry | 4 or 5 | 8 | CHE-1200 /CHE-1200L and CHE-1210 /CHE-1210L"
+   },
+   {
+    "field": "equivalencies[AP-CHINESE-LANGUAGE-CULTURE|3]",
+    "snippet": "Chinese Language and Culture | 3 | 3 | LAN Elective"
+   },
+   {
+    "field": "equivalencies[AP-CHINESE-LANGUAGE-CULTURE|4-5]",
+    "snippet": "Chinese Language and Culture | 4-5 | 6 | LAN Elective"
+   },
+   {
+    "field": "equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|3-5]",
+    "snippet": "Comparative Government and Politics | 3-5 | 3 | POL-1050"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-A|3-5]",
+    "snippet": "Computer Science A | 3-5 | 3 | CSC-1100"
+   },
+   {
+    "field": "equivalencies[AP-CYBERSECURITY|3-5]",
+    "snippet": "Cybersecurity | 3-5 | 3 | ITS-2090"
+   },
+   {
+    "field": "equivalencies[AP-MACROECONOMICS|3]",
+    "snippet": "Macro | 3 | 3 | ECN-1200"
+   },
+   {
+    "field": "equivalencies[AP-MICROECONOMICS|3]",
+    "snippet": "Micro | 3 | 3 | ECN-1200"
+   },
+   {
+    "field": "equivalencies[AP-ENVIRONMENTAL-SCIENCE|3-5]",
+    "snippet": "Environmental Sciences | 3-5 | 4 | ENV-1300 /ENV-1300L"
+   },
+   {
+    "field": "equivalencies[AP-EUROPEAN-HISTORY|3 4-5]",
+    "snippet": "European History | 3 4-5 | 3 6 | Humanities General Education Elective Humanities General Education Elective"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3-5]",
+    "snippet": "French Language and Culture | 3-5 | 3 | LAN Elective"
+   },
+   {
+    "field": "equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3 4-5]",
+    "snippet": "German Language and Culture | 3 4-5 | 3 6 | LAN Elective LAN Elective"
+   },
+   {
+    "field": "equivalencies[AP-HUMAN-GEOGRAPHY|3-5]",
+    "snippet": "Human Geography | 3-5 | 3 | GRY-1020"
+   },
+   {
+    "field": "equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|3 4-5]",
+    "snippet": "Italian Language and Culture | 3 4-5 | 3 6 | LAN Elective LAN Elective"
+   },
+   {
+    "field": "equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|3 4-5]",
+    "snippet": "Japanese Language and Culture | 3 4-5 | 3 6 | LAN Elective LAN Elective"
+   },
+   {
+    "field": "equivalencies[AP-LATIN|3 4-5]",
+    "snippet": "Latin | 3 4-5 | 3 6 | LAN Elective LAN Elective"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-AB|3-5]",
+    "snippet": "CALC AB | 3-5 | 4 | MTH-1200"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-BC|3-5]",
+    "snippet": "CALC BC | 3-5 | 4 | MTH-1200 and MTH-1210"
+   },
+   {
+    "field": "equivalencies[AP-PRECALCULUS|3-5]",
+    "snippet": "Pre-Calculus | 3-5 | 4 | MTH-1150"
+   },
+   {
+    "field": "equivalencies[AP-STATISTICS|3-5]",
+    "snippet": "Statistics | 3-5 | 3 | MTH-1015"
+   },
+   {
+    "field": "equivalencies[AP-MUSIC-THEORY|3, 4, or 5]",
+    "snippet": "Music Theory | 3, 4, or 5 | 3 | Music Elective"
+   },
+   {
+    "field": "equivalencies[AP-PSYCHOLOGY|3-5]",
+    "snippet": "Psychology | 3-5 | 3 | PSY-1010"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|3]",
+    "snippet": "Spanish Language and Culture | 3 | 6 | SPA-1010 and SPA-1020"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|4-5]",
+    "snippet": "Spanish Language and Culture | 4-5 | 6 | SPA-2010 and SPA-2020"
+   },
+   {
+    "field": "equivalencies[AP-WORLD-HISTORY-MODERN|3-5]",
+    "snippet": "World History: Modern | 3-5 | 3 | HST-1015"
+   },
+   {
+    "field": "equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|3-5]",
+    "snippet": "United States Government and Politics | 3-5 | 3 | POL-1010"
+   },
+   {
+    "field": "equivalencies[AP-UNITED-STATES-HISTORY|3]",
+    "snippet": "United States History | 3 | 3 | HST-1031 or HST-1032"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:18:03+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "3d311b5160ff77f5234e.json.gz",
+   "requested_url": "https://www.csmd.edu/apply-register/credit-for-prior-learning/index.html",
+   "sha256": "3d311b5160ff77f5234e566cfeabb5cba1364e189035a26a78a3897e2202bcf9",
+   "title": "Credit for Prior Learning",
+   "url": "https://www.csmd.edu/apply-register/credit-for-prior-learning/index.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "833705befc4d233c": {
+  "decision": {
+   "candidate_id": "833705befc4d233c",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "off_campus_not_with_family:Tuition & fees",
+    "snippet": "Tuition & fees | $4,536 | $7,708 | $11,114",
+    "value": 11114
+   },
+   {
+    "field": "off_campus_not_with_family:Books, materials & supplies",
+    "snippet": "Books, materials & supplies | $1,430 | $1,430 | $1,430",
+    "value": 1430
+   },
+   {
+    "field": "off_campus_not_with_family:Loan fees",
+    "snippet": "Loan fees | $112 | $112 | $112",
+    "value": 112
+   },
+   {
+    "field": "off_campus_not_with_family:Food & housing",
+    "snippet": "Food & housing | $15,742 | $15,742 | $15,742",
+    "value": 15742
+   },
+   {
+    "field": "off_campus_not_with_family:Personal expenses",
+    "snippet": "Personal expenses | $1,510 | $1,510 | $1,510",
+    "value": 1510
+   },
+   {
+    "field": "off_campus_not_with_family:Transportation",
+    "snippet": "Transportation | $2,168 | $2,168 | $2,168",
+    "value": 2168
+   },
+   {
+    "field": "off_campus_not_with_family:Total",
+    "snippet": "Total | $25,498 | $28,670 | $32,076",
+    "value": 32076
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:19:11+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "df4962f2a9b7a4797065.json.gz",
+   "requested_url": "https://www.ccbcmd.edu/Paying-for-College/Tuition-and-Fees/Cost-of-Attendance/index.html",
+   "sha256": "df4962f2a9b7a479706538911acd903973840233491823ebee655d3b7db256f9",
+   "title": "Cost of Attendance",
+   "url": "https://www.ccbcmd.edu/Paying-for-College/Tuition-and-Fees/Cost-of-Attendance/index.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "83f87607c64002dd": {
+  "decision": {
+   "candidate_id": "83f87607c64002dd",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "have an unweighted cumulative GPA of 2.0 may consider dual enrollment. Assessment",
+    "value": 2.0
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "have an unweighted cumulative GPA of 2.0 may consider dual enrollment. Assessment",
+    "value": 2.0
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [
+   "stale_year_label:2025-26"
+  ],
+  "source": {
+   "fetched_at": "2026-10-06T02:24:20+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "a8b2030b07024100803c.json.gz",
+   "requested_url": "https://www.frederick.edu/admissions/dual-enrollment.html",
+   "sha256": "a8b2030b07024100803ccdb5175aa2573f79588acf1b3754c90ccdf1e9679b23",
+   "title": "Dual Enrollment | FCC",
+   "url": "https://www.frederick.edu/admissions/dual-enrollment.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "943ad8ec05b6a5f1": {
+  "decision": {
+   "candidate_id": "943ad8ec05b6a5f1",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "equivalencies[AP-AFRICAN-AMERICAN-STUDIES|3]",
+    "snippet": "African American Studies                            3            SOC1XX, Social Science Elective                                     3         Social & Behavioral Sciences"
+   },
+   {
+    "field": "equivalencies[AP-ART-HISTORY|3]",
+    "snippet": "Art History                                         3            ART103, Art Appreciation                                            3              Arts & Humanities"
+   },
+   {
+    "field": "equivalencies[AP-DRAWING|3]",
+    "snippet": "Art: Drawing                                        3            ART201, Drawing I                                                   3              Arts & Humanities"
+   },
+   {
+    "field": "equivalencies[AP-BIOLOGY|3]",
+    "snippet": "Biology                                             3            BIO101 & BIO102, General Biology I & II                           4&4                    Science"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-AB|3]",
+    "snippet": "Calculus AB                                         3            MAT110, Pre-Calculus Math                                           4                 Mathematics"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-AB|4 or 5]",
+    "snippet": "Calculus AB                                       4 or 5         MAT190, Calculus I                                                  4                 Mathematics"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-BC|3]",
+    "snippet": "Calculus BC                                         3            MAT190, Calculus I                                                  4                 Mathematics"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-BC|4 or 5]",
+    "snippet": "Calculus BC                                       4 or 5         MAT190 & MAT191, Calculus I & II                                  4&4                 Mathematics"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|3 or 4]",
+    "snippet": "Chemistry                                         3 or 4         CHE101, General Chemistry I                                         4                    Science"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|5]",
+    "snippet": "Chemistry                                           5            CHE101 & CHE102, General Chemistry I & II                         4&4                    Science"
+   },
+   {
+    "field": "equivalencies[AP-CHINESE-LANGUAGE-CULTURE|3]",
+    "snippet": "Chinese Language and Culture                        3            ELE1XX, Elective                                                    6              Arts & Humanities"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-A|3]",
+    "snippet": "Computer Science A                                  3            CIS170, Computer Science Programming I                              4      Interdisciplinary/Emerging Issues"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|3]",
+    "snippet": "Computer Science Principles                         3            CIS130, Programming Logic                                           3      Interdisciplinary/Emerging Issues"
+   },
+   {
+    "field": "equivalencies[AP-MACROECONOMICS|3]",
+    "snippet": "Economics: MACRO                                    3            ECN201, Prin of Economics I (MACRO)                                 3         Social & Behavioral Sciences"
+   },
+   {
+    "field": "equivalencies[AP-MICROECONOMICS|3]",
+    "snippet": "Economics: MICRO                                    3            ECN202, Prin of Economics II (MICRO)                                3         Social & Behavioral Sciences"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3]",
+    "snippet": "English Language and Composition                    3            ENG101, Comp I–Expository Writing                                   3             English Composition"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3]",
+    "snippet": "English Literature and Composition                  3            ENG102, Comp II–Intro to Literature                                 3              Arts & Humanities"
+   },
+   {
+    "field": "equivalencies[AP-ENVIRONMENTAL-SCIENCE|3]",
+    "snippet": "Environmental Science                               3            ENV195, Environmental Science                                       3           Science (non laboratory)"
+   },
+   {
+    "field": "equivalencies[AP-EUROPEAN-HISTORY|3]",
+    "snippet": "European History                                    3            HIS1XX, History Elective                                            3              Arts & Humanities"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]",
+    "snippet": "French Language and Culture                         3            FRN101 & FRN102, Elementary French I & II                         3&3              Arts & Humanities"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]",
+    "snippet": "French Literature                                   3            FRN1XX, French Elective                                             3              Arts & Humanities"
+   },
+   {
+    "field": "equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3]",
+    "snippet": "German Language And Culture                         3            GRM101 & GRM102, Elementary German I & II                         3&3              Arts & Humanities"
+   },
+   {
+    "field": "equivalencies[AP-HUMAN-GEOGRAPHY|3]",
+    "snippet": "Human Geography                                     3            GEO201, Cultural Geography                                          3         Social & Behavioral Sciences"
+   },
+   {
+    "field": "equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|3]",
+    "snippet": "Italian Language and Culture                        3            ELE1XX, Elective                                                    6              Arts & Humanities"
+   },
+   {
+    "field": "equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|3]",
+    "snippet": "Japanese Language and Culture                       3            ELE1XX, Elective                                                    6              Arts & Humanities"
+   },
+   {
+    "field": "equivalencies[AP-LATIN|3]",
+    "snippet": "Latin                                               3            ELE1XX, Elective                                                    6              Arts & Humanities"
+   },
+   {
+    "field": "equivalencies[AP-MUSIC-THEORY|3]",
+    "snippet": "Music Theory                                        3            MUS1XX, Music Elective                                              3              Arts & Humanities"
+   },
+   {
+    "field": "equivalencies[AP-PRECALCULUS|3]",
+    "snippet": "Precalculus                                         3            MAT105, College Algebra                                             3                 Mathematics"
+   },
+   {
+    "field": "equivalencies[AP-PRECALCULUS|4 or 5]",
+    "snippet": "Precalculus                                       4 or 5         MAT110, Pre-Calculus Math                                           4                 Mathematics"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-1|3]",
+    "snippet": "Physics 1: Algebra-Based                            3            PHY1XX, Physics Elective                                            4                    Science"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-1|4 or 5]",
+    "snippet": "Physics 1: Algebra-Based                          4 or 5         PHY101, General Physics I                                           4                    Science"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-2|3]",
+    "snippet": "Physics 2: Algebra-Based                            3            PHY1XX, Physics Elective                                            4                    Science"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-2|4 or 5]",
+    "snippet": "Physics 2: Algebra-Based                          4 or 5         PHY102, General Physics II                                          4                    Science"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|3]",
+    "snippet": "Physics C: Electricity and Magnetism                3            PHY1XX, Physics Elective                                            4                    Science"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|4 or 5]",
+    "snippet": "Physics C: Electricity and Magnetism              4 or 5         PHY112, General Physics II (Calculus Based)                         4                    Science"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-MECHANICS|3]",
+    "snippet": "Physics C: Mechanics                                3            PHY1XX, Physics Elective                                            4                    Science"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-MECHANICS|4 or 5]",
+    "snippet": "Physics C: Mechanics                              4 or 5         PHY111, General Physics I (Calculus Based)                          4                    Science"
+   },
+   {
+    "field": "equivalencies[AP-PSYCHOLOGY|3]",
+    "snippet": "Psychology                                          3            PSY101, General Psychology                                          3         Social & Behavioral Sciences"
+   },
+   {
+    "field": "equivalencies[AP-RESEARCH|3]",
+    "snippet": "Research                                            3            ELE1XX, Elective                                                    3"
+   },
+   {
+    "field": "equivalencies[AP-SEMINAR|3]",
+    "snippet": "Seminar                                             3            ELE1XX, Elective                                                    3"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|3]",
+    "snippet": "Spanish Language and Culture                        3            SPN101 & SPN102, Elementary Spanish I & II                        3&3             Arts & Humanities"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LITERATURE-CULTURE|3]",
+    "snippet": "Spanish Literature                                  3            SPN1XX, Spanish Elective                                            3             Arts & Humanities"
+   },
+   {
+    "field": "equivalencies[AP-STATISTICS|3]",
+    "snippet": "Statistics                                          3            MAT210, Introductory Statistics                                     3               Mathematics"
+   },
+   {
+    "field": "equivalencies[AP-2-D-ART-DESIGN|3]",
+    "snippet": "Studio Art: 2D Design                               3            ART101, Basic Design I                                              3             Arts & Humanities"
+   },
+   {
+    "field": "equivalencies[AP-3-D-ART-DESIGN|3]",
+    "snippet": "Studio Art: 3D Design                               3            ART102, Basic Design II                                             3             Arts & Humanities"
+   },
+   {
+    "field": "equivalencies[AP-UNITED-STATES-HISTORY|3]",
+    "snippet": "U. S. History                                       3            HIS111 & HIS112, American History to 1865 & Since 1865            3&3             Arts & Humanities"
+   },
+   {
+    "field": "equivalencies[AP-WORLD-HISTORY-MODERN|3]",
+    "snippet": "World History                                       3            HIS106, World Civlizations Since Mid-1600s                          3             Arts & Humanities"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:27:23+00:00",
+   "kind": "pdf",
+   "last_modified": "Thu, 09 Apr 2026 21:55:28 GMT",
+   "page_file": "7b61b4b8e405a894c851.json.gz",
+   "requested_url": "https://www.garrettcollege.edu/images/services/transfer/transfer-to-gc/leap.pdf",
+   "sha256": "7b61b4b8e405a894c8512b999c94d1eec8c9cf07255f5bbb058d22a893afabe2",
+   "title": "AP Score Requirements & Equivalancies",
+   "url": "https://www.garrettcollege.edu/images/services/transfer/transfer-to-gc/leap.pdf"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "966f2b873f5ce34d": {
+  "decision": {
+   "candidate_id": "966f2b873f5ce34d",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "equivalencies[CLEP-FINANCIAL-ACCOUNTING|50]",
+    "snippet": "Financial Accounting                    50                      3          ACC 140 or ACC 215"
+   },
+   {
+    "field": "equivalencies[CLEP-INFORMATION-SYSTEMS|50]",
+    "snippet": "Information Systems                     50                      3                  IS 199"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-BUSINESS-LAW|50]",
+    "snippet": "Introductory Business Law               50                      3                LAW 208"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MANAGEMENT|50]",
+    "snippet": "Principles of Management                50                      3                MGT 204"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MARKETING|50]",
+    "snippet": "Principles of Marketing                 50                      3                MKT 206"
+   },
+   {
+    "field": "equivalencies[CLEP-HUMAN-GROWTH-DEVELOPMENT|50]",
+    "snippet": "Human Growth and Development            50                      3                 PSY 108"
+   },
+   {
+    "field": "equivalencies[CLEP-PRECALCULUS|50]",
+    "snippet": "Precalculus                             50                      3                MATH 147"
+   },
+   {
+    "field": "equivalencies[CLEP-AMERICAN-LITERATURE|50]",
+    "snippet": "American Literature                     50                      3                ENG 281"
+   },
+   {
+    "field": "equivalencies[CLEP-ENGLISH-LITERATURE|50]",
+    "snippet": "English Literature                      50                      3                ENG 281"
+   },
+   {
+    "field": "equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-II|50]",
+    "snippet": "History of the United States II:        50                      3                HIST 110"
+   },
+   {
+    "field": "equivalencies[CLEP-HUMANITIES|50]",
+    "snippet": "Humanities                              50                      3               HUM 199TR"
+   },
+   {
+    "field": "equivalencies[CLEP-BIOLOGY|50]",
+    "snippet": "Biology                                                        50                            11            See Below*"
+   },
+   {
+    "field": "equivalencies[CLEP-CALCULUS|50]",
+    "snippet": "Calculus                                                       50                             4            MATH 220"
+   },
+   {
+    "field": "equivalencies[CLEP-CHEMISTRY|50]",
+    "snippet": "Chemistry                                                      50                             3           CHEM 198TR"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-ALGEBRA|50]",
+    "snippet": "College Algebra                                                50                             4            MATH 137"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-MATHEMATICS|50]",
+    "snippet": "College Mathematics                                            50                             3            MATH 135"
+   },
+   {
+    "field": "equivalencies[CLEP-NATURAL-SCIENCES|50]",
+    "snippet": "Natural Sciences                                               50                             3            PHYS 198TR"
+   },
+   {
+    "field": "equivalencies[CLEP-AMERICAN-GOVERNMENT|50]",
+    "snippet": "American Government                                            50                             3            POSCI 102"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|50]",
+    "snippet": "Introductory Psychology                                        50                             3              PSY 101"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|50]",
+    "snippet": "Introductory Sociology                                         50                             3             SOC 101"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|50]",
+    "snippet": "Principles of Macroeconomics                                   50                             3              EC 201"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|50]",
+    "snippet": "Principles of Microeconomics                                   50                             3              EC 202"
+   },
+   {
+    "field": "equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|50]",
+    "snippet": "Analyzing and Interpreting Literature                          50                             3             ENG 152"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-COMPOSITION|50]",
+    "snippet": "College Composition                                            50                             3             ENG 151"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "issues": [
+   "stale_year_label:2025-26"
+  ],
+  "source": {
+   "fetched_at": "2026-10-06T02:35:03+00:00",
+   "kind": "pdf",
+   "last_modified": "Thu, 12 Mar 2026 15:10:02 GMT",
+   "page_file": "03f519c06268b97d1321.json.gz",
+   "requested_url": "https://www.stevenson.edu/wp-content/uploads/CLEP-Equivalences_2025_2026.pdf",
+   "sha256": "03f519c06268b97d13212a53ed846338adf325fa2ae01ea955cfaee159df2480",
+   "title": "2025 - 2026",
+   "url": "https://www.stevenson.edu/wp-content/uploads/CLEP-Equivalences_2025_2026.pdf"
+  },
+  "year_basis": "labeled_in_title"
+ },
+ "99c9a1638bbd8d77": {
+  "decision": {
+   "candidate_id": "99c9a1638bbd8d77",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "Have a 3.0 GPA (through 10th grade) & submit a transcript",
+    "value": 3.0
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "EC students must maintain a 2.0 GPA. If an EC student’s GPA falls below 2.0, they will be placed on academic probation. They have one semester to raise their GPA. If they do not, they will return to their high school.",
+    "value": 2.0
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:17:21+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "b3a6140ea8b316922b6a.json.gz",
+   "requested_url": "https://www.carrollcc.edu/admissions-aid/teens-and-high-school-students/early-college-program/",
+   "sha256": "b3a6140ea8b316922b6afcc5755c859067c428faca6291adbf008c7a9246d4f8",
+   "title": "Early College Program - Carroll Community College",
+   "url": "https://www.carrollcc.edu/admissions-aid/teens-and-high-school-students/early-college-program/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "a1c2dfa124ee11eb": {
+  "decision": {
+   "candidate_id": "a1c2dfa124ee11eb",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $7,414",
+    "value": 7414
+   },
+   {
+    "field": "column:Housing and Meals (depending on type of accommodation)",
+    "snippet": "Housing and Meals (depending on type of accommodation) | $15,296",
+    "value": 15296
+   },
+   {
+    "field": "column:Fees",
+    "snippet": "Fees | $3,050",
+    "value": 3050
+   },
+   {
+    "field": "column:TOTAL ESTIMATED BILLED EXPENSES",
+    "snippet": "TOTAL ESTIMATED BILLED EXPENSES | $25,760",
+    "value": 25760
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [
+   "stale_year_label:2025-26"
+  ],
+  "source": {
+   "fetched_at": "2026-10-06T02:24:52+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "80e3c899c8ffdf7c440f.json.gz",
+   "requested_url": "https://www.frostburg.edu/admissions-and-cost/undergraduate/tuition-and-aid.php",
+   "sha256": "80e3c899c8ffdf7c440fae124e4839dfc8c0f2c2bb00015a8b4c056cb5ba142b",
+   "title": "Tuition and Aid",
+   "url": "https://www.frostburg.edu/admissions-and-cost/undergraduate/tuition-and-aid.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "a6c159c2f2f02f5a": {
+  "decision": {
+   "candidate_id": "a6c159c2f2f02f5a",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "A GPA of 3.0 or higher in the discipline of the course you will be taking",
+    "value": 3.0
+   },
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "$0 per credit *",
+    "value": 0
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:28:48+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 06 Oct 2026 02:01:21 GMT",
+   "page_file": "e2496e577e59f98b4c4f.json.gz",
+   "requested_url": "https://www.hood.edu/admission-aid/admission/dual-enrollment-admission",
+   "sha256": "e2496e577e59f98b4c4fbca058a353648089d309ac6b68c9d592716e0f155d67",
+   "title": "Dual Enrollment Admission | Hood College",
+   "url": "https://www.hood.edu/admission-aid/admission/dual-enrollment-admission"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "be73a04dcf005843": {
+  "decision": {
+   "candidate_id": "be73a04dcf005843",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "equivalencies[CLEP-FINANCIAL-ACCOUNTING|50]",
+    "snippet": "Financial Accounting | 50 | 3 | ACC-2010"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MANAGEMENT|50]",
+    "snippet": "Principles of Management | 50 | 3 | BAD-1210"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-BUSINESS-LAW|50]",
+    "snippet": "Introductory Business Law | 50 | 3 | BAD-2070"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MARKETING|50]",
+    "snippet": "Principles of Marketing | 50 | 3 | BAD-2610"
+   },
+   {
+    "field": "equivalencies[CLEP-BIOLOGY|50]",
+    "snippet": "Biology | 50 | 3 | BIO Elective"
+   },
+   {
+    "field": "equivalencies[CLEP-CHEMISTRY|50]",
+    "snippet": "Chemistry | 50 | 3 | CHE-1050"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|50]",
+    "snippet": "Principles of Macroeconomics | 50 | 3 | ECN-2025"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|50]",
+    "snippet": "Principles of Microeconomics | 50 | 3 | ECN-2020"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-COMPOSITION|50]",
+    "snippet": "College Composition | 50 | 3 | ENG-1010"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-COMPOSITION-MODULAR|50]",
+    "snippet": "College Composition Modular | 50 | 3 | ENG-1010"
+   },
+   {
+    "field": "equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|50]",
+    "snippet": "Analyzing and Interpreting Literature | 50 | 3 | ENG-1020"
+   },
+   {
+    "field": "equivalencies[CLEP-ENGLISH-LITERATURE|50]",
+    "snippet": "English Literature | 50 | 6 | ENG-2010 and ENG-2020"
+   },
+   {
+    "field": "equivalencies[CLEP-AMERICAN-LITERATURE|50]",
+    "snippet": "American Literature | 50 | 6 | ENG-2200 and ENG-2210"
+   },
+   {
+    "field": "equivalencies[CLEP-FRENCH-LANGUAGE|50]",
+    "snippet": "French Language - Level I | 50 | 3 | LAN Elective"
+   },
+   {
+    "field": "equivalencies[CLEP-FRENCH-LANGUAGE|62]",
+    "snippet": "French Language - Level II | 62 | 3 | LAN Elective"
+   },
+   {
+    "field": "equivalencies[CLEP-WESTERN-CIVILIZATION-I|50]",
+    "snippet": "Western Civilization I: Ancient Far East to 1648 | 50 | 3 | HST-1011"
+   },
+   {
+    "field": "equivalencies[CLEP-WESTERN-CIVILIZATION-II|50]",
+    "snippet": "Western Civilization II: 1648 to present | 50 | 3 | HST Elective"
+   },
+   {
+    "field": "equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-I|50]",
+    "snippet": "History of the United States I: Early Colonizations to 1877 | 50 | 3 | HST-1031"
+   },
+   {
+    "field": "equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-II|50]",
+    "snippet": "History of the United States II: 1865 to the Present | 50 | 3 | HST-1032"
+   },
+   {
+    "field": "equivalencies[CLEP-HUMANITIES|50]",
+    "snippet": "Humanities | 50 | 3 | Humanities General Education Elective"
+   },
+   {
+    "field": "equivalencies[CLEP-SOCIAL-SCIENCES-HISTORY|50]",
+    "snippet": "Social Sciences and History | 50 | 3 | HST Elective"
+   },
+   {
+    "field": "equivalencies[CLEP-INFORMATION-SYSTEMS|50]",
+    "snippet": "Information Systems and Computer Applications | 50 | 3 | ITS-1010"
+   },
+   {
+    "field": "equivalencies[CLEP-GERMAN-LANGUAGE|50]",
+    "snippet": "German Language - Level 1 | 50 | 3 | LAN Elective"
+   },
+   {
+    "field": "equivalencies[CLEP-GERMAN-LANGUAGE|62]",
+    "snippet": "German Language - Level II | 62 | 3 | LAN Elective"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-MATHEMATICS|50]",
+    "snippet": "College Mathematics | 50 | 3 | MTH-1010"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-ALGEBRA|50]",
+    "snippet": "College Algebra | 50 | 3 | MTH-1120"
+   },
+   {
+    "field": "equivalencies[CLEP-PRECALCULUS|50]",
+    "snippet": "Precalculus | 50 | 4 | MTH-1150"
+   },
+   {
+    "field": "equivalencies[CLEP-CALCULUS|50]",
+    "snippet": "Calculus | 50 | 4 | MTH-1200"
+   },
+   {
+    "field": "equivalencies[CLEP-AMERICAN-GOVERNMENT|50]",
+    "snippet": "American Government | 50 | 3 | POL-1010"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|50]",
+    "snippet": "Introductory Psychology | 50 | 3 | PSY-1010"
+   },
+   {
+    "field": "equivalencies[CLEP-HUMAN-GROWTH-DEVELOPMENT|50]",
+    "snippet": "Human Growth and Development | 50 | 3 | PSY-2050"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTION-TO-EDUCATIONAL-PSYCHOLOGY|50]",
+    "snippet": "Introduction to Educational Psychology | 50 | 3 | PSY Elective"
+   },
+   {
+    "field": "equivalencies[CLEP-NATURAL-SCIENCES|50]",
+    "snippet": "Natural Sciences | 50 | 3 | SCE Elective"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|50]",
+    "snippet": "Introductory Sociology | 50 | 3 | SOC-1010"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-LANGUAGE|50]",
+    "snippet": "Spanish Language - Level I | 50 | 6 | SPA-1010 and SPA-1020"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-LANGUAGE|63]",
+    "snippet": "Spanish Language - Level II | 63 | 3 | SPA-2010"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-LANGUAGE|72]",
+    "snippet": "Spanish Language - Level III | 72 | 3 | SPA-2020"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:18:03+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "3d311b5160ff77f5234e.json.gz",
+   "requested_url": "https://www.csmd.edu/apply-register/credit-for-prior-learning/index.html",
+   "sha256": "3d311b5160ff77f5234e566cfeabb5cba1364e189035a26a78a3897e2202bcf9",
+   "title": "Credit for Prior Learning",
+   "url": "https://www.csmd.edu/apply-register/credit-for-prior-learning/index.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "c91df78acb37ddbc": {
+  "decision": {
+   "candidate_id": "c91df78acb37ddbc",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "on_campus:Tuition",
+    "snippet": "Tuition | 58,310 | 58,310 | 58,310",
+    "value": 58310
+   },
+   {
+    "field": "on_campus:Student life fee",
+    "snippet": "Student life fee | 1,375 | 1,375 | 1,375",
+    "value": 1375
+   },
+   {
+    "field": "on_campus:Tech fee",
+    "snippet": "Tech fee | 810 | 810 | 810",
+    "value": 810
+   },
+   {
+    "field": "on_campus:Housing",
+    "snippet": "Housing | 13,000 | 15,273 | 3,100",
+    "value": 13000
+   },
+   {
+    "field": "on_campus:Food (Meal plan: $4,300 plus additional food allowance: $4,136)",
+    "snippet": "Food (Meal plan: $4,300 plus additional food allowance: $4,136) | 8,436 | 8,436 | 2,575",
+    "value": 8436
+   },
+   {
+    "field": "on_campus:Books, course materials, supplies and equipment",
+    "snippet": "Books, course materials, supplies and equipment | 1,545 | 1,545 | 1,545",
+    "value": 1545
+   },
+   {
+    "field": "on_campus:Miscellaneous personal expenses",
+    "snippet": "Miscellaneous personal expenses | 1,030 | 1,030 | 1,030",
+    "value": 1030
+   },
+   {
+    "field": "on_campus:Transportation",
+    "snippet": "Transportation | 1,030 | 1,135 | 1,135",
+    "value": 1030
+   },
+   {
+    "field": "on_campus:Federal loan fees*",
+    "snippet": "Federal loan fees* | 900 | 950 | 900",
+    "value": 900
+   },
+   {
+    "field": "on_campus:Total",
+    "snippet": "Total | 86,436 | 88,864 | 70,780",
+    "value": 86436
+   },
+   {
+    "field": "off_campus_not_with_family:Tuition",
+    "snippet": "Tuition | 58,310 | 58,310 | 58,310",
+    "value": 58310
+   },
+   {
+    "field": "off_campus_not_with_family:Student life fee",
+    "snippet": "Student life fee | 1,375 | 1,375 | 1,375",
+    "value": 1375
+   },
+   {
+    "field": "off_campus_not_with_family:Tech fee",
+    "snippet": "Tech fee | 810 | 810 | 810",
+    "value": 810
+   },
+   {
+    "field": "off_campus_not_with_family:Housing",
+    "snippet": "Housing | 13,000 | 15,273 | 3,100",
+    "value": 15273
+   },
+   {
+    "field": "off_campus_not_with_family:Food (Meal plan: $4,300 plus additional food allowance: $4,136)",
+    "snippet": "Food (Meal plan: $4,300 plus additional food allowance: $4,136) | 8,436 | 8,436 | 2,575",
+    "value": 8436
+   },
+   {
+    "field": "off_campus_not_with_family:Books, course materials, supplies and equipment",
+    "snippet": "Books, course materials, supplies and equipment | 1,545 | 1,545 | 1,545",
+    "value": 1545
+   },
+   {
+    "field": "off_campus_not_with_family:Miscellaneous personal expenses",
+    "snippet": "Miscellaneous personal expenses | 1,030 | 1,030 | 1,030",
+    "value": 1030
+   },
+   {
+    "field": "off_campus_not_with_family:Transportation",
+    "snippet": "Transportation | 1,030 | 1,135 | 1,135",
+    "value": 1135
+   },
+   {
+    "field": "off_campus_not_with_family:Federal loan fees*",
+    "snippet": "Federal loan fees* | 900 | 950 | 900",
+    "value": 950
+   },
+   {
+    "field": "off_campus_not_with_family:Total",
+    "snippet": "Total | 86,436 | 88,864 | 70,780",
+    "value": 88864
+   },
+   {
+    "field": "with_parents_or_family:Tuition",
+    "snippet": "Tuition | 58,310 | 58,310 | 58,310",
+    "value": 58310
+   },
+   {
+    "field": "with_parents_or_family:Student life fee",
+    "snippet": "Student life fee | 1,375 | 1,375 | 1,375",
+    "value": 1375
+   },
+   {
+    "field": "with_parents_or_family:Tech fee",
+    "snippet": "Tech fee | 810 | 810 | 810",
+    "value": 810
+   },
+   {
+    "field": "with_parents_or_family:Housing",
+    "snippet": "Housing | 13,000 | 15,273 | 3,100",
+    "value": 3100
+   },
+   {
+    "field": "with_parents_or_family:Food (Meal plan: $4,300 plus additional food allowance: $4,136)",
+    "snippet": "Food (Meal plan: $4,300 plus additional food allowance: $4,136) | 8,436 | 8,436 | 2,575",
+    "value": 2575
+   },
+   {
+    "field": "with_parents_or_family:Books, course materials, supplies and equipment",
+    "snippet": "Books, course materials, supplies and equipment | 1,545 | 1,545 | 1,545",
+    "value": 1545
+   },
+   {
+    "field": "with_parents_or_family:Miscellaneous personal expenses",
+    "snippet": "Miscellaneous personal expenses | 1,030 | 1,030 | 1,030",
+    "value": 1030
+   },
+   {
+    "field": "with_parents_or_family:Transportation",
+    "snippet": "Transportation | 1,030 | 1,135 | 1,135",
+    "value": 1135
+   },
+   {
+    "field": "with_parents_or_family:Federal loan fees*",
+    "snippet": "Federal loan fees* | 900 | 950 | 900",
+    "value": 900
+   },
+   {
+    "field": "with_parents_or_family:Total",
+    "snippet": "Total | 86,436 | 88,864 | 70,780",
+    "value": 70780
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:30:22+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "d1b1d374d4da8979878f.json.gz",
+   "requested_url": "https://www.mica.edu/admissions/financial-aid/tuition-fees/undergraduate-tuition-fees/undergraduate-cost-of-attendance/",
+   "sha256": "d1b1d374d4da8979878fdbbadf5a57f38df932d59578b9286a9416dbcfb25b39",
+   "title": "Undergraduate Cost of Attendance | MICA",
+   "url": "https://www.mica.edu/admissions/financial-aid/tuition-fees/undergraduate-tuition-fees/undergraduate-cost-of-attendance/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "d4ba9f54d8c3e3d4": {
+  "decision": {
+   "candidate_id": "d4ba9f54d8c3e3d4",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "on_campus:Tuition/Fees",
+    "snippet": "Tuition/Fees | $14,086 | $34,183",
+    "value": 34183
+   },
+   {
+    "field": "on_campus:Housing",
+    "snippet": "Housing | $9,248 | $9,428",
+    "value": 9428
+   },
+   {
+    "field": "on_campus:Food",
+    "snippet": "Food | $6,490 | $6,490",
+    "value": 6490
+   },
+   {
+    "field": "on_campus:Books",
+    "snippet": "Books | $1,600 | $1,600",
+    "value": 1600
+   },
+   {
+    "field": "on_campus:Transportation",
+    "snippet": "Transportation | $1,900 | $1,900",
+    "value": 1900
+   },
+   {
+    "field": "on_campus:Other",
+    "snippet": "Other | $7,546 | $7,546",
+    "value": 7546
+   },
+   {
+    "field": "on_campus:Direct Loan Fee",
+    "snippet": "Direct Loan Fee | $142 | $142",
+    "value": 142
+   },
+   {
+    "field": "on_campus:PLUS Loan Fee",
+    "snippet": "PLUS Loan Fee | $1,264 | $1,264",
+    "value": 1264
+   },
+   {
+    "field": "on_campus:Total:",
+    "snippet": "Total: | $42,456 | $62,553",
+    "value": 62553
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:39:49+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "174d171c2b580f2cc969.json.gz",
+   "requested_url": "https://financialaid.umbc.edu/8119-2/",
+   "sha256": "174d171c2b580f2cc9696d1de7a702ef084f1e8b6269ce1fbf5e0365ae194c09",
+   "title": "2026-2027 Undergraduate Cost of Attendance – Financial Aid – UMBC",
+   "url": "https://financialaid.umbc.edu/8119-2/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "d5539797309d6186": {
+  "decision": {
+   "candidate_id": "d5539797309d6186",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY|4-7]",
+    "snippet": "Anthropology     Social and Cultural Anthropology                     SL, HL        4-7                  ATH230               3             Social & Behavioral Sciences"
+   },
+   {
+    "field": "equivalencies[IB-BIOLOGY|4-7]",
+    "snippet": "Biology          Biology                                              SL, HL        4-7                  BIO104                                       Science"
+   },
+   {
+    "field": "equivalencies[IB-BUSINESS-MANAGEMENT|4-7]",
+    "snippet": "Business         Business Management                                  SL, HL        4-7                  BUS101               3"
+   },
+   {
+    "field": "equivalencies[IB-ECONOMICS|4-7]",
+    "snippet": "Economics        Economics                                            SL, HL         4-7                 ECN201               3             Social & Behavioral Sciences"
+   },
+   {
+    "field": "equivalencies[IB-GEOGRAPHY|4-7]",
+    "snippet": "Geography        Geography                                            SL, HL         4-7                 GEO1xx               3"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY|4-7]",
+    "snippet": "History          History                                                             4-7                 HIS121               3                  Arts & Humanities"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH|5-7]",
+    "snippet": "French or Spanish (A or B)                                          5-7         FRN or SPN 101 & 102         6                  Arts & Humanities"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|4]",
+    "snippet": "Mathematics: Analysis and Approaches                                 4                  MAT110               4                     Mathematics"
+   },
+   {
+    "field": "equivalencies[IB-MUSIC|4-7]",
+    "snippet": "Music            Music                                                SL, HL         4-7                 MUS1xx               3"
+   },
+   {
+    "field": "equivalencies[IB-PSYCHOLOGY|4-7]",
+    "snippet": "Psychology       Psychology                                           SL, HL         4-7                 PSY101               3             Social & Behavioral Sciences"
+   },
+   {
+    "field": "equivalencies[IB-THEATRE|4-7]",
+    "snippet": "Theater          Theatre                                              SL, HL         4-7              THE1xx (GER)            3                  Arts & Humanities"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:27:21+00:00",
+   "kind": "pdf",
+   "last_modified": "Wed, 05 Jun 2024 00:38:53 GMT",
+   "page_file": "25f0dbd28160fb3e2b40.json.gz",
+   "requested_url": "https://www.garrettcollege.edu/images/services/transfer/transfer-to-gc/ib.pdf",
+   "sha256": "25f0dbd28160fb3e2b40b63a4cff45ab0dfa749db8017998fc4c5090a3763a50",
+   "title": "IB Score Requirements & Equivalancies",
+   "url": "https://www.garrettcollege.edu/images/services/transfer/transfer-to-gc/ib.pdf"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "e33d3d670ab4f90f": {
+  "decision": {
+   "candidate_id": "e33d3d670ab4f90f",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "max_transfer_credits",
+    "snippet": "Bill - Selected Reserves Federal Tuition Assistance Yellow Ribbon Campaign Salute Honor Green Zone Advocate Training Overview Sign Up Now Military Activation Veterans Benefit Certification Request Isakson & Roe Section 1018 Requirements Transfer Credit for Undergraduates General Transfer Policies A maximum of 70 credit hours from two-year institutions and 90 credit hours from four-year institution",
+    "value": 70
+   },
+   {
+    "field": "residency_requirement_credits",
+    "snippet": "Unless enrolled in an approved cooperative or study abroad program, 30 of the last 37 hours of coursework must be completed at Salisbury University.",
+    "value": 30
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:33:13+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "1efc41f3021197338237.json.gz",
+   "requested_url": "https://www.salisbury.edu/administration/academic-affairs/registrar/transfer-credit/",
+   "sha256": "1efc41f302119733823740e36ab8d1b3481027357e9f27a89ed833998eca545f",
+   "title": "Transfer Credit for Undergraduates | Salisbury University",
+   "url": "https://www.salisbury.edu/administration/academic-affairs/registrar/transfer-credit/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "ef384536b267ebb1": {
+  "decision": {
+   "candidate_id": "ef384536b267ebb1",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "equivalencies[AP-2-D-ART-DESIGN|3]",
+    "snippet": "2-D Art and Design | 3 | 3 | ART 101 (H)"
+   },
+   {
+    "field": "equivalencies[AP-3-D-ART-DESIGN|3]",
+    "snippet": "3-D Art and Design | 3 | 3 | ART 201 (H)"
+   },
+   {
+    "field": "equivalencies[AP-ART-HISTORY|3]",
+    "snippet": "Art History | 3 | 3 | ART 141 (H)"
+   },
+   {
+    "field": "equivalencies[AP-BIOLOGY|3]",
+    "snippet": "Biology | 3 | 4 | BIO 101 (S), BIO 111 or BIO 130 (S), BIO 131 or BIO 132 (S), BIO 133"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-AB|3]",
+    "snippet": "Calculus AB | 3 | 4 | MAT 201 (M)"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-BC|3]",
+    "snippet": "Calculus BC | 3 | 8 | MAT 201 (M), MAT 202 (M)"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|3]",
+    "snippet": "Chemistry | 3 | 4 | CHM 103 (S), CHM 113"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-A|3]",
+    "snippet": "Computer Science A | 3 | 6 | CSC 109, CSC 205"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|3]",
+    "snippet": "Computer Science Principles | 3 | 3 | CSC 104 (I)"
+   },
+   {
+    "field": "equivalencies[AP-DRAWING|3]",
+    "snippet": "Drawing | 3 | 6 | ART 130 (H), ART 230 (H)"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3]",
+    "snippet": "English Language and Composition | 3 | 3 | EGL 101 (E)"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3]",
+    "snippet": "English Literature and Composition | 3 | 6 | EGL 101 (E), EGL 102 (H)"
+   },
+   {
+    "field": "equivalencies[AP-ENVIRONMENTAL-SCIENCE|3]",
+    "snippet": "Environmental Science | 3 | 4 | ENV 106 (S), ENV 116"
+   },
+   {
+    "field": "equivalencies[AP-EUROPEAN-HISTORY|3]",
+    "snippet": "European History | 3 | 6 | HST 101 (H), HST 102 (H)"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]",
+    "snippet": "French Language and Culture | 3 | 6 | FRN 101 (H), FRN 102 (H)"
+   },
+   {
+    "field": "equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3]",
+    "snippet": "German Language and Culture | 3 | 6 | Arts/Humanities Elective (H)"
+   },
+   {
+    "field": "equivalencies[AP-HUMAN-GEOGRAPHY|3]",
+    "snippet": "Human Geography | 3 | 3 | GEO 102 (SS)"
+   },
+   {
+    "field": "equivalencies[AP-MICROECONOMICS|3]",
+    "snippet": "Microeconomics | 3 | 3 | ECO 221 (SS)"
+   },
+   {
+    "field": "equivalencies[AP-MACROECONOMICS|3]",
+    "snippet": "Macroeconomics | 3 | 3 | ECO 222 (SS)"
+   },
+   {
+    "field": "equivalencies[AP-MUSIC-THEORY|3]",
+    "snippet": "Music Theory | 3 | 7 | MUC 143 (H), MUC 110"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-1|3]",
+    "snippet": "Physics 1 | 3 | 4 | PHY 181 (SL)"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-2|3]",
+    "snippet": "Physics 2 | 3 | 4 | PHY 182 (SL)"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-MECHANICS|3]",
+    "snippet": "Physics C: Mechanics | 3 | 4 | PHY 217 (SL)"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|3]",
+    "snippet": "Physics C: Electricity and Magnetism | 3 | 4 | PHY 218 (SL)"
+   },
+   {
+    "field": "equivalencies[AP-PRECALCULUS|3]",
+    "snippet": "Precalculus | 3 | 4 | MAT 191 (M)"
+   },
+   {
+    "field": "equivalencies[AP-PSYCHOLOGY|3]",
+    "snippet": "Psychology | 3 | 3 | PSY 101 (SS)"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|3]",
+    "snippet": "Spanish Language and Culture | 3 | 6 | SPN 101 (H), SPN 102 (H)"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LITERATURE-CULTURE|3]",
+    "snippet": "Spanish Literature and Culture | 3 | 6 | SPN 101 (H), SPN 102 (H)"
+   },
+   {
+    "field": "equivalencies[AP-STATISTICS|3]",
+    "snippet": "Statistics | 3 | 4 | MAT 127 (M)"
+   },
+   {
+    "field": "equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|3]",
+    "snippet": "United States Government and Politics | 3 | 3 | POS 201 (SS)"
+   },
+   {
+    "field": "equivalencies[AP-UNITED-STATES-HISTORY|3]",
+    "snippet": "United States History | 3 | 6 | HST 201 (H), HST 202 (H)"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:15:37+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "d5c42943bc2537772c60.json.gz",
+   "requested_url": "https://www.cecil.edu/admissions/academic-credit-for-prior-learning-examinations",
+   "sha256": "d5c42943bc2537772c60378cef311fae1543da6c794b79d892276bdc246cff83",
+   "title": "Academic Credit for Prior Learning Examinations | Cecil College",
+   "url": "https://www.cecil.edu/admissions/academic-credit-for-prior-learning-examinations"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "f241627d47aec875": {
+  "decision": {
+   "candidate_id": "f241627d47aec875",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "off_campus_not_with_family:Books, Course Materials, Supplies & Equipment",
+    "snippet": "Books, Course Materials, Supplies & Equipment | $1,570 | $1,570 | $1,570",
+    "value": 1570
+   },
+   {
+    "field": "off_campus_not_with_family:Living Expenses: Food",
+    "snippet": "Living Expenses: Food | $3,426 | $3,426 | $3,426",
+    "value": 3426
+   },
+   {
+    "field": "off_campus_not_with_family:Living Expenses: Housing",
+    "snippet": "Living Expenses: Housing | $7,280 | $7,280 | $7,280",
+    "value": 7280
+   },
+   {
+    "field": "off_campus_not_with_family:Personal Expenses",
+    "snippet": "Personal Expenses | $7,618 | $7,618 | $7,618",
+    "value": 7618
+   },
+   {
+    "field": "off_campus_not_with_family:Transportation",
+    "snippet": "Transportation | $2,266 | $2,266 | $2,266",
+    "value": 2266
+   },
+   {
+    "field": "off_campus_not_with_family:Tuition & Fees",
+    "snippet": "Tuition & Fees | $4,054 | $8,038 | $10,630",
+    "value": 10630
+   },
+   {
+    "field": "off_campus_not_with_family:Total",
+    "snippet": "Total | $26,214 | $30,198 | $32,790",
+    "value": 32790
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:24:22+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "099ea7c7aba56ee6e6bb.json.gz",
+   "requested_url": "https://www.frederick.edu/paying-for-college/tuition-fees/cost-attendance.html",
+   "sha256": "099ea7c7aba56ee6e6bbda10f57d1f4023764b48597c173a1506664a5691819e",
+   "title": "Cost of Attendance | FCC",
+   "url": "https://www.frederick.edu/paying-for-college/tuition-fees/cost-attendance.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "f3853c53cdf25d1c": {
+  "decision": {
+   "candidate_id": "f3853c53cdf25d1c",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "equivalencies[AP-2-D-ART-DESIGN|3]",
+    "snippet": "ART-101 | 3 | Art-2D | 3"
+   },
+   {
+    "field": "equivalencies[AP-3-D-ART-DESIGN|3]",
+    "snippet": "ART-110 | 3 | Art-3D | 3"
+   },
+   {
+    "field": "equivalencies[AP-DRAWING|3]",
+    "snippet": "ART-120 | 3 | Art Studio-Drawing | 3"
+   },
+   {
+    "field": "equivalencies[AP-ART-HISTORY|3]",
+    "snippet": "ART-135; ART-136 | 6 | Art History | 3"
+   },
+   {
+    "field": "equivalencies[AP-BIOLOGY|3]",
+    "snippet": "BIOL-100 | 4 | Biology | 3"
+   },
+   {
+    "field": "equivalencies[AP-BIOLOGY|4]",
+    "snippet": "BIOL-101 | 4 | Biology | 4"
+   },
+   {
+    "field": "equivalencies[AP-BIOLOGY|5]",
+    "snippet": "BIOL-101 and BIOL-202 | 8 | Biology | 5"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|3]",
+    "snippet": "CHEM-101 | 4 | Chemistry | 3"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|4]",
+    "snippet": "CHEM-105 | 4 | Chemistry | 4"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|5]",
+    "snippet": "CHEM-105/ CHEM-106 | 8 | Chemistry | 5"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|3]",
+    "snippet": "CIS-105 | 3 | Computer Science Principles | 3"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-A|3 or 4]",
+    "snippet": "CIS-132 | 3 | Computer Science A | 3 or 4"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-A|5]",
+    "snippet": "CMSC-201 | 4 | Computer Science A | 5"
+   },
+   {
+    "field": "equivalencies[AP-MICROECONOMICS|3]",
+    "snippet": "ECON-100 | 3 | Micro Economics | 3"
+   },
+   {
+    "field": "equivalencies[AP-MACROECONOMICS|3]",
+    "snippet": "ECON-102 | 3 | Macro Economics | 3"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3]",
+    "snippet": "ENGL-101 | 3 | English Language and Comp | 3"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3]",
+    "snippet": "ENGL-102 | 3 | English Literature and Comp | 3"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]",
+    "snippet": "FREN-100, FREN-102 | 6 | French Language and Culture | 3"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|4]",
+    "snippet": "FREN-100/ FREN-102/ FREN-201 | 9 | French Language and Culture | 4"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|5]",
+    "snippet": "FREN 100/FREN 102/FREN 201/FREN 202 | 12 | French Language and Culture | 5"
+   },
+   {
+    "field": "equivalencies[AP-RESEARCH|3]",
+    "snippet": "General Elective | 3 | AP Research | 3"
+   },
+   {
+    "field": "equivalencies[AP-SEMINAR|3]",
+    "snippet": "General Elective | 3 | AP Seminar | 3"
+   },
+   {
+    "field": "equivalencies[AP-HUMAN-GEOGRAPHY|3]",
+    "snippet": "GEOG-105 | 3 | Human Geography | 3"
+   },
+   {
+    "field": "equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3]",
+    "snippet": "GERM-100/ GERM-102/ GERM-201/ GERM-202 | 12 | German Language and Culture | 3"
+   },
+   {
+    "field": "equivalencies[AP-STATISTICS|4]",
+    "snippet": "MATH-115 | 4 | Statistics | 4"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-AB|4]",
+    "snippet": "MATH-135 | 4 | Calculus AB or AB sub score | 4"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-BC|4]",
+    "snippet": "MATH-135 and MATH-136 | 8 | Calculus BC | 4"
+   },
+   {
+    "field": "equivalencies[AP-PRECALCULUS|4]",
+    "snippet": "MATH-130 | 5 | Precalculus (starting 2024) | 4"
+   },
+   {
+    "field": "equivalencies[AP-MUSIC-THEORY|3]",
+    "snippet": "MUSIC-105 | 3 | Music Theory | 3"
+   },
+   {
+    "field": "equivalencies[AP-MUSIC-THEORY|4]",
+    "snippet": "MUSIC-109 and MUSIC 105 | 4 | Music Theory | 4"
+   },
+   {
+    "field": "equivalencies[AP-MUSIC-THEORY|5]",
+    "snippet": "MUSIC-109 and MUSIC-111 | 7 | Music Theory | 5"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-1|3]",
+    "snippet": "PHYS-101 | 4 | Physics 1 | 3"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-2|3]",
+    "snippet": "PHYS-101, PHYS-102 | 8 | Physics 2 | 3"
+   },
+   {
+    "field": "equivalencies[AP-PSYCHOLOGY|3]",
+    "snippet": "PSYC-101 | 3 | Psychology | 3"
+   },
+   {
+    "field": "equivalencies[AP-ENVIRONMENTAL-SCIENCE|3]",
+    "snippet": "Science General Education | 3 | Environmental Science | 3"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|3]",
+    "snippet": "SPAN-100, SPAN-102 | 6 | Spanish Language and Culture | 3"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|4]",
+    "snippet": "SPAN-100/ SPAN-102/ SPAN-201 | 9 | Spanish Language and Culture | 4"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|5]",
+    "snippet": "SPAN-100/ SPAN-102/ SPAN-201/ SPAN-202 | 12 | Spanish Language and Culture | 5"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:17:43+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "e5f120e82596817bb051.json.gz",
+   "requested_url": "https://www.carrollcc.edu/admissions-aid/what-course-credit-do-i-already-have/advanced-placement-tests/",
+   "sha256": "e5f120e82596817bb0516f0e8cc12fca95304469ed5073d6171332b172dc8840",
+   "title": "Advanced Placement Tests - Carroll Community College",
+   "url": "https://www.carrollcc.edu/admissions-aid/what-course-credit-do-i-already-have/advanced-placement-tests/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "fd4656a679ed0935": {
+  "decision": {
+   "candidate_id": "fd4656a679ed0935",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "equivalencies[CLEP-AMERICAN-GOVERNMENT|50]",
+    "snippet": "American Government | GVPT 170 | 50 | 3 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-AMERICAN-LITERATURE|50]",
+    "snippet": "American Literature | Literature Elective (satisfies Arts & Humanities Gen Ed Requirement) | 50 | 3 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|50]",
+    "snippet": "Analyzing and Interpreting Literature | Literature Elective (satisfies Arts & Humanities Gen Ed Requirement) | 50 | 3 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-BIOLOGY|50]",
+    "snippet": "Biology | BIOL 101 and BIOL Lecture (3 Credits, satisfies Biological & Physical Sciences Gen Ed Requirement) | 50 | 6 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-CALCULUS|50]",
+    "snippet": "Calculus | MATH 140 | 50 | 4 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-CHEMISTRY|50]",
+    "snippet": "Chemistry | CHEM 121 and CHEM Lecture (3 Credits, satisfies Biological & Physical Sciences Gen Ed Requirement) | 50 | 6 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-ALGEBRA|50]",
+    "snippet": "College Algebra | MATH 107 | 50 | 3 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-COMPOSITION|50]",
+    "snippet": "College Composition | WRTG 111 and Elective (3 Credits) | 50 | 6 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-COMPOSITION-MODULAR|50]",
+    "snippet": "College Composition Modular | Elective | 50 | 3 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-MATHEMATICS|50]",
+    "snippet": "College Mathematics | MATH 105 | 50 | 3 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-ENGLISH-LITERATURE|50]",
+    "snippet": "English Literature | Literature Elective (satisfies Arts & Humanities Gen Ed Requirement) | 50 | 6 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-FINANCIAL-ACCOUNTING|50]",
+    "snippet": "Financial Accounting | ACCT 220 | 50 | 3 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-FRENCH-LANGUAGE|50]",
+    "snippet": "French Language (Level 1) | FREN 111 and FREN 112 | 50 | 6 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-FRENCH-LANGUAGE|59]",
+    "snippet": "French Language (Level 2) | FREN 111, FREN 112, and FREN 211 | 59 | 9 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-GERMAN-LANGUAGE|50]",
+    "snippet": "German Language (Level 1) | GERM 111 and GERM 112 | 50 | 6 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-GERMAN-LANGUAGE|60]",
+    "snippet": "German Language (Level 2) | GERM 111, GERM 112, and GERM 211 | 60 | 9 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-I|50]",
+    "snippet": "History of the United States I: Early Colonization to 1877 | HIST 156 | 50 | 3 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-II|50]",
+    "snippet": "History of the United States II: 1865 to the Present | HIST 157 | 50 | 3 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-HUMAN-GROWTH-DEVELOPMENT|50]",
+    "snippet": "Human Growth and Development | PSYC 351 | 50 | 3 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-HUMANITIES|50]",
+    "snippet": "Humanities | HUMN 100 | 50 | 3 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-INFORMATION-SYSTEMS|50]",
+    "snippet": "Information Systems | IFSM 201 | 50 | 3 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTION-TO-EDUCATIONAL-PSYCHOLOGY|50]",
+    "snippet": "Introduction to Educational Psychology | PSYC Elective (satisfies Behavioral & Social Sciences Gen Ed Requirement) | 50 | 3 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-BUSINESS-LAW|50]",
+    "snippet": "Introductory Business Law | BMGT 380 | 50 | 3 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|50]",
+    "snippet": "Introductory Psychology | PSYC 100 | 50 | 3 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|50]",
+    "snippet": "Introductory Sociology | SOCY 100 | 50 | 3 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-NATURAL-SCIENCES|50]",
+    "snippet": "Natural Sciences | NSCI 100 and BIOL 101 | 50 | 6 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-PRECALCULUS|50]",
+    "snippet": "Precalculus | MATH 115 | 50 | 3 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|50]",
+    "snippet": "Principles of Macroeconomics | ECON 201 | 50 | 3 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MANAGEMENT|50]",
+    "snippet": "Principles of Management | BMGT 364 | 50 | 3 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MARKETING|50]",
+    "snippet": "Principles of Marketing | MRKT 310 | 50 | 3 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|50]",
+    "snippet": "Principles of Microeconomics | ECON 203 | 50 | 3 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-LANGUAGE|50]",
+    "snippet": "Spanish Language (Level 1) | SPAN 111 and SPAN 112 | 50 | 6 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-LANGUAGE|63]",
+    "snippet": "Spanish Language (Level 2) | SPAN 111, SPAN 112, and SPAN 211 | 63 | 9 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-WITH-WRITING|50]",
+    "snippet": "Spanish with Writing (Level 1) | SPAN 111 and SPAN 112 | 50 | 6 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-WITH-WRITING|65]",
+    "snippet": "Spanish with Writing (Level 2) | SPAN 111, SPAN 112, SPAN 211, and Spanish Elective (3 Credits) | 65 | 12 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-WESTERN-CIVILIZATION-I|50]",
+    "snippet": "Western Civilization I: Ancient Near East To 1648 | HIST 141 | 50 | 3 LL"
+   },
+   {
+    "field": "equivalencies[CLEP-WESTERN-CIVILIZATION-II|50]",
+    "snippet": "Western Civilization II: 1648 to the Present | HIST 142 | 50 | 3 LL"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:39:38+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "b6d5d20d96eae3ed8d08.json.gz",
+   "requested_url": "https://www.umgc.edu/transfers-and-credits/fast-paths-to-credit/credit-by-exam/clep",
+   "sha256": "b6d5d20d96eae3ed8d08504eb1ee126d87db7ae1205f6cf1ead6e05635296a91",
+   "title": "College-Level Examination Program (CLEP) | UMGC",
+   "url": "https://www.umgc.edu/transfers-and-credits/fast-paths-to-credit/credit-by-exam/clep"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "m463fc501d9badf5": {
+  "decision": {
+   "candidate_id": "m463fc501d9badf5",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "min_grade",
+    "snippet": "You must earn a grade of “C-” or better for the credit to transfer.",
+    "source_url": "https://www.mcdaniel.edu/admissions-cost/undergraduate-admissions/transfer-student-admissions",
+    "value": "C-"
+   },
+   {
+    "field": "residency_requirement_credits",
+    "snippet": "Completion of the last 32 hours, not including the semester in education, in residence at the College.",
+    "source_url": "https://www.mcdaniel.edu/admissions-cost/undergraduate-admissions/transfer-student-admissions/transfer-student-guide",
+    "value": 32
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:30:22+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 06 Oct 2026 02:30:22 GMT",
+   "page_file": "a040f3aa62d45bdf99d7.json.gz",
+   "requested_url": "https://www.mcdaniel.edu/admissions-cost/undergraduate-admissions/transfer-student-admissions",
+   "sha256": "a040f3aa62d45bdf99d746ed77cd9e5c9e0758479d65ceef4261f7f9987c9609",
+   "title": "Transfer Student Admissions | McDaniel College",
+   "url": "https://www.mcdaniel.edu/admissions-cost/undergraduate-admissions/transfer-student-admissions"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "m5153bf0cbc3ea58": {
+  "decision": {
+   "candidate_id": "m5153bf0cbc3ea58",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "min_grade",
+    "snippet": "The courses and credits completed with a grade of “C” or better at other accredited institutions are generally transferable to Stevenson.",
+    "source_url": "https://www.stevenson.edu/admissions-aid/getting-started/transfer-students/",
+    "value": "C"
+   },
+   {
+    "field": "min_grade",
+    "snippet": "The courses and credits completed with a grade of “C” or better at other accredited institutions are generally transferable to Stevenson.",
+    "source_url": "https://www.stevenson.edu/admissions-aid/getting-started/transfer-students/",
+    "value": "C"
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:35:08+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "653fa679e34492edb9b5.json.gz",
+   "requested_url": "https://www.stevenson.edu/admissions-aid/getting-started/transfer-students",
+   "sha256": "653fa679e34492edb9b5be36b79b33d37cac54319e7e114c7ff7fa0c1fb7d703",
+   "title": "Transferring to Stevenson | Stevenson University",
+   "url": "https://www.stevenson.edu/admissions-aid/getting-started/transfer-students/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "m7644b42ecd05be6": {
+  "decision": {
+   "candidate_id": "m7644b42ecd05be6",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "Must possess a cumulative GPA of 2.5 or greater and",
+    "source_url": "https://www.chesapeake.edu/program/dual-enrollment/",
+    "value": 2.5
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "See if you’re eligible to participate. You must have completed your sophomore year of high school with a cumulative GPA of at least 2.5, and be enrolled in an eligible high school in our service region. Please see above section for details.",
+    "source_url": "https://www.chesapeake.edu/program/dual-enrollment/",
+    "value": 2.5
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "Dual Enrollment Students with a cumulative 3.0 high school GPA are eligible to take college English.",
+    "source_url": "https://www.chesapeake.edu/wp-content/uploads/2024/12/DualEnrollmentCertificationForm20240821_acc_reb.pdf",
+    "value": 3.0
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "• 2.5 or higher cumulative GPA and",
+    "source_url": "https://www.chesapeake.edu/wp-content/uploads/2024/12/DualEnrollmentCertificationForm20240821_acc_reb.pdf",
+    "value": 2.5
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "Must possess a cumulative GPA of 2.5 or greater and",
+    "source_url": "https://www.chesapeake.edu/program/dual-enrollment/",
+    "value": 2.5
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "See if you’re eligible to participate. You must have completed your sophomore year of high school with a cumulative GPA of at least 2.5, and be enrolled in an eligible high school in our service region. Please see above section for details.",
+    "source_url": "https://www.chesapeake.edu/program/dual-enrollment/",
+    "value": 2.5
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:17:46+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 08 Jul 2026 12:44:43 GMT",
+   "page_file": "461552c7cd5a15aa8909.json.gz",
+   "requested_url": "https://www.chesapeake.edu/program/dual-enrollment/",
+   "sha256": "461552c7cd5a15aa8909af0150fea61e2c290d6572f96be1efabee5d82422af6",
+   "title": "Dual Enrollment | Chesapeake College",
+   "url": "https://www.chesapeake.edu/program/dual-enrollment/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "m93a483d83523611": {
+  "decision": {
+   "candidate_id": "m93a483d83523611",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "residency_requirement_credits",
+    "snippet": "If admitted to Morgan as a degree seeking student you must earn the last 30 credit hours toward your desired degree at Morgan State.",
+    "source_url": "https://www.morgan.edu/office-of-undergraduate-admissions-and-recruitment/how-to-apply/transfer-applicants",
+    "value": 30
+   },
+   {
+    "field": "residency_requirement_credits",
+    "snippet": "In all cases, the transfer student must earn the last 30 credit hours toward the desired degree at the university as a full-time or part-time student.",
+    "source_url": "https://www.morgan.edu/office-of-the-registrar/transfer-evaluation-and-articulation-services",
+    "value": 30
+   },
+   {
+    "field": "residency_requirement_credits",
+    "snippet": "Current students within their last 30 semester hours OR graduating seniors in their final semester will be prohibited from taking courses at other colleges or universities unless they have obtained authorization for a waiver of the 30- hour rule from their Dean's office.",
+    "source_url": "https://www.morgan.edu/office-of-the-registrar/transfer-evaluation-and-articulation-services/off-campus-undergraduate-course-approval",
+    "value": 30
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:31:52+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "f7e978977821d4fcb62e.json.gz",
+   "requested_url": "https://www.morgan.edu/office-of-the-registrar/transfer-evaluation-and-articulation-services",
+   "sha256": "f7e978977821d4fcb62e1142905ef1345b5c0ba5d1093462a61135edfac7a0e5",
+   "title": "Transfer Evaluation and Articulation Services",
+   "url": "https://www.morgan.edu/office-of-the-registrar/transfer-evaluation-and-articulation-services"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "mf8a0ac1efcaf8cf": {
+  "decision": {
+   "candidate_id": "mf8a0ac1efcaf8cf",
+   "reason": "AUTO"
+  },
+  "evidence": [
+   {
+    "field": "residency_requirement_credits",
+    "snippet": "To graduate, students must complete the last 30 semester credit hours at UMES.",
+    "source_url": "https://www.umes.edu/admissions/wp-content/uploads/sites/44/2026/10/Guide-for-Transfer-Students.pdf",
+    "value": 30
+   },
+   {
+    "field": "residency_requirement_credits",
+    "snippet": "However, to graduate, a student must complete the last 30 semester hours at UMES.",
+    "source_url": "https://www.umes.edu/transfer-student-services/",
+    "value": 30
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T02:40:18+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "e12b83fa5d2b24e899ba.json.gz",
+   "requested_url": "https://www.umes.edu/transfer-student-services/",
+   "sha256": "e12b83fa5d2b24e899ba49a7e28516ec9e60b14335f0c9288845b1249218bbe5",
+   "title": "Transfer Student Services | UMES",
+   "url": "https://www.umes.edu/transfer-student-services/"
+  },
+  "year_basis": "source_unlabeled"
+ }
+}

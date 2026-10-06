@@ -8,7 +8,8 @@ QUALIFYING = {'merit_reconsideration','competing_offer_review','financial_aid_ap
 # Every persisted domain must have a normalized Supabase mapping, and controlled values
 # must match the database check constraints (see the latest supabase/migrations file).
 IMPORT_DOMAINS = frozenset({'institutions','costs','admissions_metrics','state_aid','awards','appeals',
-    'credit_policies','federal_aid','academic_programs','transfer_policies','degree_requirements','state_policies'})
+    'credit_policies','federal_aid','academic_programs','transfer_policies','degree_requirements','state_policies',
+    'program_catalogs'})
 CONTROLLED_VALUES = {
     'costs': {'residency': frozenset({'in_state','out_of_state','district','international','not_applicable'})},
     'credit_policies': {'policy_kind': frozenset({'AP','CLEP','IB','dual_enrollment','A_level','DSST','other',
@@ -33,6 +34,7 @@ REQUIRED_IMPORT_FIELDS = {
     'academic_programs': ('institution_key','academic_year','program_key','program_name','source_url'),
     'degree_requirements': ('institution_key','academic_year','program_key','requirement_key','requirement_kind','source_url'),
     'state_policies': ('state','academic_year','policy_kind','policy_key','title','source_url'),
+    'program_catalogs': ('institution_key','academic_year','catalog_url','source_url'),
 }
 
 def import_contract_errors(domain,r):

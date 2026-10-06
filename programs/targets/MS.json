@@ -1,0 +1,361 @@
+{
+ "state": "MS",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-175342",
+   "folder": "alcorn",
+   "name": "Alcorn State University",
+   "control": "public",
+   "domains": [
+    "alcorn.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.alcorn.edu/",
+    "https://catalog.alcorn.edu/",
+    "https://www.alcorn.edu/academics/",
+    "https://www.alcorn.edu/registrar/",
+    "https://www.alcorn.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-175421",
+   "folder": "belhaven",
+   "name": "Belhaven University",
+   "control": "private_nonprofit",
+   "domains": [
+    "belhaven.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 8,
+    "home": "https://catalog.belhaven.edu/index.php?catoid=8",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.belhaven.edu/content.php?catoid=8&navoid=1291"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 8 on catalog.belhaven.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-175616",
+   "folder": "deltastate",
+   "name": "Delta State University",
+   "control": "public",
+   "domains": [
+    "deltastate.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.deltastate.edu/",
+    "https://catalog.deltastate.edu/",
+    "https://www.deltastate.edu/academics/",
+    "https://www.deltastate.edu/registrar/",
+    "https://www.deltastate.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-175856",
+   "folder": "jsums",
+   "name": "Jackson State University",
+   "control": "public",
+   "domains": [
+    "jsums.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.jsums.edu/",
+    "https://catalog.jsums.edu/",
+    "https://www.jsums.edu/academics/",
+    "https://www.jsums.edu/registrar/",
+    "https://www.jsums.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-176053",
+   "folder": "mc",
+   "name": "Mississippi College",
+   "control": "private_nonprofit",
+   "domains": [
+    "mc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.mc.edu/",
+    "https://catalog.mc.edu/",
+    "https://www.mc.edu/academics/",
+    "https://www.mc.edu/registrar/",
+    "https://www.mc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-176080",
+   "folder": "msstate",
+   "name": "Mississippi State University",
+   "control": "public",
+   "domains": [
+    "msstate.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.msstate.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.msstate.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-176044",
+   "folder": "mvsu",
+   "name": "Mississippi Valley State University",
+   "control": "public",
+   "domains": [
+    "mvsu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.mvsu.edu/",
+    "https://catalog.mvsu.edu/",
+    "https://www.mvsu.edu/academics/",
+    "https://www.mvsu.edu/registrar/",
+    "https://www.mvsu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-176017",
+   "folder": "olemiss",
+   "name": "University of Mississippi",
+   "control": "public",
+   "domains": [
+    "olemiss.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.olemiss.edu/",
+    "https://catalog.olemiss.edu/",
+    "https://www.olemiss.edu/academics/",
+    "https://www.olemiss.edu/registrar/",
+    "https://www.olemiss.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-176372",
+   "folder": "usm",
+   "name": "University of Southern Mississippi",
+   "control": "public",
+   "domains": [
+    "usm.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 43,
+    "home": "https://catalog.usm.edu/index.php?catoid=43",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 43 on catalog.usm.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-176479",
+   "folder": "wmcarey",
+   "name": "William Carey University",
+   "control": "private_nonprofit",
+   "domains": [
+    "wmcarey.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 10,
+    "home": "https://catalog.wmcarey.edu/index.php?catoid=10",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.wmcarey.edu/content.php?catoid=10&navoid=194",
+     "https://catalog.wmcarey.edu/content.php?catoid=10&navoid=196",
+     "https://catalog.wmcarey.edu/content.php?catoid=10&navoid=206",
+     "https://catalog.wmcarey.edu/content.php?catoid=10&navoid=208"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 10 on catalog.wmcarey.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-175430",
+   "folder": "bmc",
+   "name": "Blue Mountain Christian University",
+   "control": "private_nonprofit",
+   "domains": [
+    "bmc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.bmc.edu/",
+    "https://catalog.bmc.edu/",
+    "https://www.bmc.edu/academics/",
+    "https://www.bmc.edu/registrar/",
+    "https://www.bmc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-175980",
+   "folder": "millsaps",
+   "name": "Millsaps College",
+   "control": "private_nonprofit",
+   "domains": [
+    "millsaps.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://millsaps.edu/wp-content/uploads/2026/08/College-Catalog-2026-27.pdf"
+    ],
+    "home": "https://millsaps.edu/wp-content/uploads/2026/08/College-Catalog-2026-27.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-176035",
+   "folder": "muw",
+   "name": "Mississippi University for Women",
+   "control": "public",
+   "domains": [
+    "muw.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 57,
+    "home": "https://bulletin.muw.edu/index.php?catoid=57",
+    "platform": "acalog",
+    "program_lists": [
+     "https://bulletin.muw.edu/content.php?catoid=57&navoid=3663",
+     "https://bulletin.muw.edu/content.php?catoid=57&navoid=3670"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 57 on bulletin.muw.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-176318",
+   "folder": "rustcollege",
+   "name": "Rust College",
+   "control": "private_nonprofit",
+   "domains": [
+    "rustcollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.rustcollege.edu/",
+    "https://catalog.rustcollege.edu/",
+    "https://www.rustcollege.edu/academics/",
+    "https://www.rustcollege.edu/registrar/",
+    "https://www.rustcollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-176336",
+   "folder": "southeasternbaptist",
+   "name": "Southeastern Baptist College",
+   "control": "private_nonprofit",
+   "domains": [
+    "southeasternbaptist.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://southeasternbaptist.edu/wp-content/uploads/2026/07/ACADEMIC-CATALOG-2026-2027.docx-2.pdf"
+    ],
+    "home": "https://southeasternbaptist.edu/wp-content/uploads/2026/07/ACADEMIC-CATALOG-2026-2027.docx-2.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-176406",
+   "folder": "tougaloo",
+   "name": "Tougaloo College",
+   "control": "private_nonprofit",
+   "domains": [
+    "tougaloo.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.tougaloo.edu/",
+    "https://catalog.tougaloo.edu/",
+    "https://www.tougaloo.edu/academics/",
+    "https://www.tougaloo.edu/registrar/",
+    "https://www.tougaloo.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-176451",
+   "folder": "wbs",
+   "name": "Wesley Biblical Seminary",
+   "control": "private_nonprofit",
+   "domains": [
+    "wbs.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://wbs.edu/wp-content/uploads/2025/08/WBS-2025-2026-Catalog.pdf"
+    ],
+    "home": "https://wbs.edu/wp-content/uploads/2025/08/WBS-2025-2026-Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
+  }
+ ]
+}

@@ -6,6 +6,9 @@ import { MAX_SAVED_SCHOOLS, readSavedSchools, writeSavedSchools } from '../../li
  * The household's saved schools (CR-9). Live: household_saved_schools via save/remove RPCs, so the list follows
  * the family across devices and reaches the student. A student with no household keeps the list in this browser.
  */
+const CHANGED = 'pp-saved-schools'
+const announce = () => window.dispatchEvent(new Event(CHANGED))
+
 export function useSavedSchools() {
   const { source, ctx, activeStudent } = useApp()
   const householdId = activeStudent?.household_id ?? ctx?.myStudent?.household_id ?? ctx?.households[0]?.id ?? null
@@ -15,6 +18,14 @@ export function useSavedSchools() {
   // Primary target (CR-12): only where the source supports it and the family has a household.
   const canSetPrimary = !!householdId && source.supportsPrimarySchool
   const [primary, setPrimaryState] = useState<string | null>(null)
+
+  const [version, setVersion] = useState(0)
+  // Every screen's copy of the list stays in step: a change anywhere tells the others to re-read it.
+  useEffect(() => {
+    const on = () => setVersion((v) => v + 1)
+    window.addEventListener(CHANGED, on)
+    return () => window.removeEventListener(CHANGED, on)
+  }, [])
 
   useEffect(() => {
     let live = true
@@ -31,7 +42,7 @@ export function useSavedSchools() {
     return () => {
       live = false
     }
-  }, [source, householdId])
+  }, [source, householdId, version])
 
   const add = useCallback(
     async (key: string) => {
@@ -42,6 +53,7 @@ export function useSavedSchools() {
       try {
         if (householdId) await source.saveSchool(householdId, key)
         else writeSavedSchools(next)
+        announce()
       } catch (e) {
         setKeys(keys)
         setError((e as Error).message)
@@ -58,6 +70,7 @@ export function useSavedSchools() {
       try {
         if (householdId) await source.removeSchool(householdId, key)
         else writeSavedSchools(next)
+        announce()
       } catch (e) {
         setKeys(keys)
         setError((e as Error).message)
@@ -74,6 +87,7 @@ export function useSavedSchools() {
       setError(null)
       try {
         await source.setPrimarySchool(householdId, key)
+        announce()
       } catch (e) {
         setPrimaryState(prev)
         setError((e as Error).message)
