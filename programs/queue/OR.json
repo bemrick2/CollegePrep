@@ -224,13 +224,6 @@
    "evidence_url": "https://chemeketa.edu/programs-classes/program-finder/leadership-management/"
   },
   {
-   "institution_key": "ipeds-209250",
-   "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Fetch the MHCC BAS Cybersecurity \"get started\" page (403 to the crawler) or the catalog admission section to confirm the associate-degree prerequisite.",
-   "detail": "Mt Hood CC offers one bachelor's (BAS Cybersecurity, 2026-27 catalog page stored in run OR/2026-10-06-scope); the admission page returned HTTP 403."
-  },
-  {
    "institution_key": "ipeds-209603",
    "gap": "institution",
    "reason": "out_of_scope",
@@ -263,27 +256,36 @@
    "evidence_url": "https://pacificbible.edu/catalog"
   },
   {
-   "institution_key": "ipeds-210304",
-   "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate the current Warner Pacific catalog (the reviewed PDF URL returned 404).",
-   "detail": "warnerpacific.edu catalog_2026_27_WPU_web.pdf returned HTTP 404 in run OR/2026-10-06-scope."
-  },
-  {
-   "institution_key": "ipeds-480198",
-   "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate the current Warner Pacific catalog; PGS bachelor's programs are adult degree programs.",
-   "detail": "Adult degree admission page stored in run OR/2026-10-06-scope (high school transcript accepted for applicants without college credit); catalog PDF returned 404.",
-   "evidence_url": "https://www.warnerpacific.edu/admissions-aid/admission-requirements/adult-degree-admission-requirements/"
-  },
-  {
    "institution_key": "ipeds-208725",
    "gap": "institution",
    "reason": "bot_challenge",
    "next_action": "Request access or an official program list; the block is not evaded.",
    "detail": "newhope.edu answered the academics page and the 2023-2024 catalog PDF (the latest linked) with HTTP 403 in run OR/2026-10-06-scope.",
    "evidence_url": "https://newhope.edu/academics/"
+  },
+  {
+   "institution_key": "ipeds-209250",
+   "gap": "institution",
+   "reason": "out_of_scope",
+   "next_action": "Re-check if MHCC adds a bachelor's open to entering first-year students.",
+   "detail": "Mt Hood CC's only bachelor's, the BAS in Cybersecurity, admits applicants who have \"Completed at least 90 college-level credits (courses numbered 100 or above) and met program prerequisites\" (2026-2027 catalog page, stored in runs OR/2026-10-06-scope and -wp).",
+   "evidence_url": "https://catalog.mhcc.edu/degree-certificate-requirements/bachelor-of-applied-science/cybersecurity/"
+  },
+  {
+   "institution_key": "ipeds-210304",
+   "gap": "institution",
+   "reason": "layout_not_readable",
+   "next_action": "Build a reader for the Warner Pacific catalog PDF programs section (or find an HTML program list).",
+   "detail": "The official Academic Catalog page links the 2026-2027 catalog as a single PDF (catalog_2026_27_WPU_web_R1.pdf, run OR/2026-10-06-wp); no program-list reader handles PDF catalogs of this layout yet.",
+   "evidence_url": "https://www.warnerpacific.edu/wp-content/uploads/2021/11/catalog_2026_27_WPU_web_R1.pdf"
+  },
+  {
+   "institution_key": "ipeds-480198",
+   "gap": "institution",
+   "reason": "layout_not_readable",
+   "next_action": "Same reader as Warner Pacific University (one catalog PDF covers both units).",
+   "detail": "Professional and Graduate Studies bachelor's programs are in the same 2026-2027 Warner Pacific catalog PDF; the adult-degree admission page is stored in run OR/2026-10-06-scope.",
+   "evidence_url": "https://www.warnerpacific.edu/wp-content/uploads/2021/11/catalog_2026_27_WPU_web_R1.pdf"
   }
  ]
 }
