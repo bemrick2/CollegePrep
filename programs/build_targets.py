@@ -137,7 +137,7 @@ OR={
    'program_lists':['https://catalog.oregonstate.edu/programs/'],'list_filter':'OSU-Cascades'},caps={'program_page':0},
    policy=['https://osucascades.edu/academics']),
  'oit':dict(priority=1,render='browser',catalog={'platform':'coursedog','home':'https://catalog.oit.edu/','path_prefix':'/programs/','min_depth':0,
-   'program_lists':['https://catalog.oit.edu/programs']},policy=['https://www.oit.edu/academics/degrees','https://www.oit.edu/academics/degrees/nursing',
+   'program_lists':['https://catalog.oit.edu/programs']+[f'https://catalog.oit.edu/programs?page={n}&pq=&sortBy=name' for n in range(2,13)]},policy=['https://www.oit.edu/academics/degrees','https://www.oit.edu/academics/degrees/nursing',
    'https://www.oit.edu/admissions/criteria','https://www.oit.edu/college-costs/scholarships/new-transfer-student/engineering-honors-scholarship']),
 }
 HOSTS={}
