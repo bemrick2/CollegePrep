@@ -181,18 +181,15 @@ begin
   end if;
   -- create_household_invitation checks that the profile is active, unlinked and in this household.
   v_code := public.create_household_invitation(p_household, 'student', p_student, 72);
+  -- Pick a code whose digest isn't taken (collisions are vanishingly rare; the unique index is the backstop).
   loop
     v_short := public.new_invite_code();
-    begin
-      update public.household_invitations i set recipient_email = v_email, short_code_hash = public.invite_code_digest(v_short)
-      where i.code_hash = encode(sha256(convert_to(v_code, 'UTF8')), 'hex')
-      returning i.id, i.expires_at into v_id, v_exp;
-      exit;
-    exception when unique_violation then
-      v_try := v_try + 1;
-      if v_try >= 5 then raise; end if;
-    end;
+    v_try := v_try + 1;
+    exit when not exists (select 1 from public.household_invitations i where i.short_code_hash = public.invite_code_digest(v_short)) or v_try >= 5;
   end loop;
+  update public.household_invitations i set recipient_email = v_email, short_code_hash = public.invite_code_digest(v_short)
+  where i.code_hash = encode(sha256(convert_to(v_code, 'UTF8')), 'hex')
+  returning i.id, i.expires_at into v_id, v_exp;
   if coalesce(p_replace, true) then
     update public.household_invitations i set revoked_at = now(), revoked_by = auth.uid()
     where i.household_id = p_household and i.student_id = p_student and i.id <> v_id
