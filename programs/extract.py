@@ -81,6 +81,7 @@ def credential_of(name):
 YEAR_LABEL = re.compile(r'\b(20\d{2})\s*[-–]\s*(20\d{2})\s+(?:Undergraduate\s+|University\s+|Academic\s+|General\s+)?(Catalog|Catalogue|Bulletin)\b', re.I)
 
 LABEL_FIRST = re.compile(r'(?:Catalog|Catalogue|Bulletin)\s+(20\d{2})\s*[-–]\s*(20\d{2})(?=\s*(?:>|$))', re.I)
+SHORT_LABEL = re.compile(r'\b(20\d{2})\s*[-–]\s*(\d{2})\s+(?:Undergraduate\s+|University\s+|Academic\s+|General\s+)?(?:Catalog|Catalogue|Bulletin)\b', re.I)  # UNI '2026-27 University Catalog'
 EDITION = re.compile(r'(20\d{2})\s*[-–]\s*(?:20)?(\d{2})\s+Edition', re.I)  # Lewis & Clark '2026-27 Edition'; Stetson '2026-2027 Edition'
 NOT_CURRENT = re.compile(r'\[?\s*(not current|archived?)\b', re.I)  # Acalog selector: "2025-2026 Academic Catalog [NOT CURRENT CATALOGS]"
 ARCHIVE_LINK = re.compile(r'\s*(?:Download\s+)?PDF of\b', re.I)  # "PDF of the entire 2025-2026 Catalog": a download link, not this page's label
@@ -99,6 +100,8 @@ def printed_catalog_years(page):
             if int(m.group(2)) == int(m.group(1)) + 1: found.add((f'{m.group(1)}-{m.group(2)}', line.strip()))
         m = LABEL_FIRST.search(line.strip())  # Linfield "Catalog 2026-2027"; UP "Bulletin 2026-2027 > ..."; Auburn "Auburn Bulletin 2026-2027"
         if m and int(m.group(2)) == int(m.group(1)) + 1: found.add((f'{m.group(1)}-{m.group(2)}', line.strip()))
+        for m in SHORT_LABEL.finditer(line):
+            if int(m.group(2)) == (int(m.group(1)) + 1) % 100: found.add((f'{m.group(1)}-{int(m.group(1)) + 1}', line.strip()))
         m = EDITION.fullmatch(line.strip())  # Lewis & Clark header: "2026-27 Edition"
         if m and int(m.group(2)) == (int(m.group(1)) + 1) % 100: found.add((f'{m.group(1)}-{int(m.group(1)) + 1}', line.strip()))
     menu = sum(1 for l in page.lines if re.fullmatch(r'20\d{2}-20\d{2}\s+(Catalog|Catalogue|Bulletin)', l.strip(), re.I))
@@ -190,6 +193,12 @@ def program_page_candidates(target, inst, entry, page, today_year):
         lk = target.get('_listed') or {}
         listed = lk.get(norm_url(entry.get('url') or '')) or lk.get(entry.get('url'))
         out = department_major_identity(inst, entry, page, today_year, listed) or listed_program_identity(inst, entry, page, today_year, listed)
+    if not out and plat == 'courseleaf' and page.headings and credential_of(page.headings[0]) == 'bachelor':
+        out = static_program_identity(inst, entry, page, today_year)  # UNI: 'Physics B.S.' heads a page without Course List tables
+        name = page.headings[0]
+        # UNI heads emphases like majors ('Art: Art History B.A.', whose plan reads 'Art: History Emphasis, B.A.'): a
+        # 'Major: Part' name on a page that speaks of emphases, and a dual major, are not programs of their own
+        if re.search(r'\bdual major\b', name, re.I) or (':' in name and re.search(r'\bemphas[ie]s\b', page.text, re.I)): out = []
     if not out and plat == 'courseleaf':
         return department_section_candidates(inst, entry, page, today_year)  # several degrees on one page: no plan or list rows read here
     if plat == 'courseleaf' and year:
@@ -341,15 +350,19 @@ def listed_program_identity(inst, entry, page, today_year, listed):
 
 
 STATED_BACHELOR = re.compile(r'[^.\n]*\bthis major is available as an? (bachelor of [^.\n]*?) degree\b[^.\n]*\.', re.I)
+DEGREE_TYPE = re.compile(r'(?m)^[ \t]*Degree Type:[ \t]*(B\.[ ]?[A-Z]{1,3}\.(?:[ ]?[A-Z]{1,2}\.)?)[ \t]*$')  # NDSU 'Degree Type: B.S.'
 
 
 def stated_major_identity(inst, entry, page, today_year):
     """'Accounting Major' pages (Linfield) print no award in the name but state it in a sentence: "This major is
-    available as a bachelor of arts or bachelor of science degree, ...". The program record keeps the name as printed;
+    available as a bachelor of arts or bachelor of science degree, ...", or on one line, 'Degree Type: B.S.' (NDSU). The program record keeps the name as printed;
     the award sentence is its credential evidence and goes into the notes verbatim. No sentence, no record."""
     name = CAT.program_name(page).strip()
-    if not re.search(r'\bmajor\b', name, re.I) or re.search(r'\bminor\b', name, re.I) or OPTION_NAME.search(name): return []
+    if not re.search(r'\bmajor\b', name, re.I) or re.search(r'\bminor\b|post[- ]?baccalaureate|second degree', name, re.I) or OPTION_NAME.search(name): return []
     m = STATED_BACHELOR.search(page.text)
+    types = {t.group(0).strip() for t in DEGREE_TYPE.finditer(page.text)}
+    if not m and len(types) == 1:  # one stated degree type for the whole page (NDSU); two types name two programs
+        m = DEGREE_TYPE.search(page.text)
     labels = printed_catalog_years(page)
     if not m or len({y for y, _ in labels}) != 1: return []
     year, line = min(labels); sentence = m.group(0).strip()
