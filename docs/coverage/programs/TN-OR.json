@@ -7,51 +7,47 @@
    "control": "private_nonprofit",
    "folder": "georgefox",
    "gaps": [
-    "catalog retrieved but no program list parsed",
-    "no reviewed program_catalogs record (completeness unknown)",
-    "no verified programs",
-    "no verified degree maps",
-    "no verified admission-to-major facts",
-    "undeclared policy not verified"
+    "current catalog not retrieved",
+    "no verified degree maps"
    ],
    "institution_key": "ipeds-208822",
    "name": "George Fox University",
    "persisted": {
     "all_fields_by_name_or_cip": {
-     "business_finance": 0,
-     "computer_science": 0,
-     "engineering": 0,
-     "nursing_health": 0,
-     "psychology": 0
+     "business_finance": 1,
+     "computer_science": 1,
+     "engineering": 1,
+     "nursing_health": 2,
+     "psychology": 2
     },
     "cr14": {
-     "admission_type": 0,
+     "admission_type": 1,
      "cip_code": 0,
      "internal_transfer": 0,
      "program_linked_awards": 0,
-     "undeclared_policy": false
+     "undeclared_policy": true
     },
     "partially_verified_programs": 0,
-    "program_catalog_record": false,
-    "programs": 0,
-    "programs_complete": false,
+    "program_catalog_record": true,
+    "programs": 26,
+    "programs_complete": true,
     "programs_with_cip": 0,
     "programs_with_degree_plan": 0,
     "requirement_rows": 0,
     "verified_fields_by_name_or_cip": {
-     "business_finance": 0,
-     "computer_science": 0,
-     "engineering": 0,
-     "nursing_health": 0,
-     "psychology": 0
+     "business_finance": 1,
+     "computer_science": 1,
+     "engineering": 1,
+     "nursing_health": 2,
+     "psychology": 2
     },
-    "verified_programs": 0
+    "verified_programs": 26
    },
    "priority": 1,
    "run": {
     "candidates": 0,
     "catalog_fetch_errors": {},
-    "catalog_pages_ok": 2,
+    "catalog_pages_ok": 0,
     "degree_map_docs_ok": 0,
     "evidence_sentences": {
      "apply_to_major": 2,
@@ -59,9 +55,10 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 2,
      "major_scholarship": 0,
-     "open_declaration": 0,
+     "open_declaration": 1,
      "pre_major": 2,
      "progression": 0,
      "undeclared": 6
@@ -74,14 +71,12 @@
      "nursing_health": 0,
      "psychology": 0
     },
-    "listed_program_links": 5,
-    "policy_pages_ok": 5,
-    "printed_catalog_years": [
-     "2026-2027"
-    ],
-    "program_pages_ok": 4
+    "listed_program_links": 0,
+    "policy_pages_ok": 6,
+    "printed_catalog_years": [],
+    "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/OR/2026-10-05-b",
+   "run_dir": "programs/runs/OR/2026-10-06-adm",
    "state": "OR"
   },
   {
@@ -90,9 +85,7 @@
    "control": "public",
    "folder": "oit",
    "gaps": [
-    "no reviewed program_catalogs record (completeness unknown)",
-    "no verified programs",
-    "priority fields listed but not verified: computer_science, business_finance, psychology",
+    "9 listed bachelor programs not yet verified",
     "no verified degree maps",
     "no verified admission-to-major facts",
     "undeclared policy not verified"
@@ -101,40 +94,40 @@
    "name": "Oregon Institute of Technology",
    "persisted": {
     "all_fields_by_name_or_cip": {
-     "business_finance": 0,
-     "computer_science": 0,
-     "engineering": 0,
-     "nursing_health": 0,
-     "psychology": 0
+     "business_finance": 10,
+     "computer_science": 4,
+     "engineering": 6,
+     "nursing_health": 1,
+     "psychology": 1
     },
     "cr14": {
      "admission_type": 0,
-     "cip_code": 0,
+     "cip_code": 12,
      "internal_transfer": 0,
-     "program_linked_awards": 0,
+     "program_linked_awards": 1,
      "undeclared_policy": false
     },
     "partially_verified_programs": 0,
-    "program_catalog_record": false,
-    "programs": 0,
+    "program_catalog_record": true,
+    "programs": 42,
     "programs_complete": false,
-    "programs_with_cip": 0,
+    "programs_with_cip": 12,
     "programs_with_degree_plan": 0,
     "requirement_rows": 0,
     "verified_fields_by_name_or_cip": {
-     "business_finance": 0,
-     "computer_science": 0,
-     "engineering": 0,
-     "nursing_health": 0,
-     "psychology": 0
+     "business_finance": 10,
+     "computer_science": 4,
+     "engineering": 6,
+     "nursing_health": 1,
+     "psychology": 1
     },
-    "verified_programs": 0
+    "verified_programs": 42
    },
    "priority": 1,
    "run": {
-    "candidates": 0,
+    "candidates": 78,
     "catalog_fetch_errors": {},
-    "catalog_pages_ok": 2,
+    "catalog_pages_ok": 13,
     "degree_map_docs_ok": 0,
     "evidence_sentences": {
      "apply_to_major": 0,
@@ -142,6 +135,7 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 6,
      "major_scholarship": 9,
      "open_declaration": 0,
@@ -149,20 +143,20 @@
      "progression": 0,
      "undeclared": 0
     },
-    "listed_bachelor_programs": 8,
+    "listed_bachelor_programs": 51,
     "listed_fields_by_name": {
-     "business_finance": 4,
-     "computer_science": 1,
-     "engineering": 0,
-     "nursing_health": 0,
+     "business_finance": 10,
+     "computer_science": 3,
+     "engineering": 5,
+     "nursing_health": 1,
      "psychology": 1
     },
-    "listed_program_links": 20,
+    "listed_program_links": 123,
     "policy_pages_ok": 8,
     "printed_catalog_years": [],
-    "program_pages_ok": 7
+    "program_pages_ok": 63
    },
-   "run_dir": "programs/runs/OR/2026-10-05-b",
+   "run_dir": "programs/runs/OR/2026-10-06-oit",
    "state": "OR"
   },
   {
@@ -171,81 +165,75 @@
    "control": "public",
    "folder": "oregonstate",
    "gaps": [
-    "no reviewed program_catalogs record (completeness unknown)",
-    "no verified programs",
-    "priority fields listed but not verified: engineering, computer_science, business_finance, nursing_health, psychology",
-    "no verified degree maps",
-    "no verified admission-to-major facts",
-    "undeclared policy not verified"
+    "current catalog not retrieved"
    ],
    "institution_key": "ipeds-209542",
    "name": "Oregon State University",
    "persisted": {
     "all_fields_by_name_or_cip": {
-     "business_finance": 0,
-     "computer_science": 0,
-     "engineering": 0,
-     "nursing_health": 0,
-     "psychology": 0
-    },
-    "cr14": {
-     "admission_type": 0,
-     "cip_code": 0,
-     "internal_transfer": 0,
-     "program_linked_awards": 0,
-     "undeclared_policy": false
-    },
-    "partially_verified_programs": 0,
-    "program_catalog_record": false,
-    "programs": 0,
-    "programs_complete": false,
-    "programs_with_cip": 0,
-    "programs_with_degree_plan": 0,
-    "requirement_rows": 0,
-    "verified_fields_by_name_or_cip": {
-     "business_finance": 0,
-     "computer_science": 0,
-     "engineering": 0,
-     "nursing_health": 0,
-     "psychology": 0
-    },
-    "verified_programs": 0
-   },
-   "priority": 1,
-   "run": {
-    "candidates": 938,
-    "catalog_fetch_errors": {},
-    "catalog_pages_ok": 2,
-    "degree_map_docs_ok": 0,
-    "evidence_sentences": {
-     "apply_to_major": 21,
-     "change_major": 2,
-     "cip_code": 0,
-     "declare_by": 0,
-     "direct_admission": 2,
-     "gpa_requirement": 58,
-     "major_scholarship": 18,
-     "open_declaration": 1,
-     "pre_major": 42,
-     "progression": 65,
-     "undeclared": 11
-    },
-    "listed_bachelor_programs": 114,
-    "listed_fields_by_name": {
-     "business_finance": 19,
-     "computer_science": 4,
-     "engineering": 15,
+     "business_finance": 14,
+     "computer_science": 3,
+     "engineering": 13,
      "nursing_health": 2,
      "psychology": 1
     },
-    "listed_program_links": 748,
-    "policy_pages_ok": 10,
-    "printed_catalog_years": [
-     "2026-2027"
-    ],
-    "program_pages_ok": 450
+    "cr14": {
+     "admission_type": 22,
+     "cip_code": 0,
+     "internal_transfer": 0,
+     "program_linked_awards": 1,
+     "undeclared_policy": true
+    },
+    "partially_verified_programs": 0,
+    "program_catalog_record": true,
+    "programs": 103,
+    "programs_complete": false,
+    "programs_with_cip": 0,
+    "programs_with_degree_plan": 89,
+    "requirement_rows": 344,
+    "verified_fields_by_name_or_cip": {
+     "business_finance": 14,
+     "computer_science": 3,
+     "engineering": 13,
+     "nursing_health": 2,
+     "psychology": 1
+    },
+    "verified_programs": 103
    },
-   "run_dir": "programs/runs/OR/2026-10-05-b",
+   "priority": 1,
+   "run": {
+    "candidates": 0,
+    "catalog_fetch_errors": {},
+    "catalog_pages_ok": 0,
+    "degree_map_docs_ok": 0,
+    "evidence_sentences": {
+     "apply_to_major": 4,
+     "change_major": 6,
+     "cip_code": 0,
+     "declare_by": 0,
+     "direct_admission": 7,
+     "exam_credit_in_program": 12,
+     "gpa_requirement": 13,
+     "major_scholarship": 16,
+     "open_declaration": 1,
+     "pre_major": 0,
+     "progression": 11,
+     "undeclared": 13
+    },
+    "listed_bachelor_programs": 0,
+    "listed_fields_by_name": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "listed_program_links": 0,
+    "policy_pages_ok": 13,
+    "printed_catalog_years": [],
+    "program_pages_ok": 0
+   },
+   "run_dir": "programs/runs/OR/2026-10-06-adm",
    "state": "OR"
   },
   {
@@ -254,45 +242,40 @@
    "control": "public",
    "folder": "pdx",
    "gaps": [
-    "no reviewed program_catalogs record (completeness unknown)",
-    "no verified programs",
-    "priority fields listed but not verified: engineering, computer_science, business_finance, nursing_health, psychology",
-    "no verified degree maps",
-    "no verified admission-to-major facts",
-    "undeclared policy not verified"
+    "1 listed bachelor programs not yet verified"
    ],
    "institution_key": "ipeds-209807",
    "name": "Portland State University",
    "persisted": {
     "all_fields_by_name_or_cip": {
-     "business_finance": 0,
-     "computer_science": 0,
-     "engineering": 0,
-     "nursing_health": 0,
-     "psychology": 0
+     "business_finance": 5,
+     "computer_science": 3,
+     "engineering": 5,
+     "nursing_health": 1,
+     "psychology": 1
     },
     "cr14": {
-     "admission_type": 0,
+     "admission_type": 7,
      "cip_code": 0,
      "internal_transfer": 0,
      "program_linked_awards": 0,
-     "undeclared_policy": false
+     "undeclared_policy": true
     },
     "partially_verified_programs": 0,
-    "program_catalog_record": false,
-    "programs": 0,
+    "program_catalog_record": true,
+    "programs": 70,
     "programs_complete": false,
     "programs_with_cip": 0,
-    "programs_with_degree_plan": 0,
-    "requirement_rows": 0,
+    "programs_with_degree_plan": 7,
+    "requirement_rows": 7,
     "verified_fields_by_name_or_cip": {
-     "business_finance": 0,
-     "computer_science": 0,
-     "engineering": 0,
-     "nursing_health": 0,
-     "psychology": 0
+     "business_finance": 5,
+     "computer_science": 3,
+     "engineering": 5,
+     "nursing_health": 1,
+     "psychology": 1
     },
-    "verified_programs": 0
+    "verified_programs": 70
    },
    "priority": 1,
    "run": {
@@ -306,6 +289,7 @@
      "cip_code": 0,
      "declare_by": 2,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 14,
      "major_scholarship": 20,
      "open_declaration": 4,
@@ -322,13 +306,13 @@
      "psychology": 1
     },
     "listed_program_links": 312,
-    "policy_pages_ok": 16,
+    "policy_pages_ok": 15,
     "printed_catalog_years": [
      "2026-2027"
     ],
     "program_pages_ok": 95
    },
-   "run_dir": "programs/runs/OR/2026-10-05-b",
+   "run_dir": "programs/runs/OR/2026-10-05-j-sc",
    "state": "OR"
   },
   {
@@ -337,128 +321,41 @@
    "control": "public",
    "folder": "uoregon",
    "gaps": [
-    "no reviewed program_catalogs record (completeness unknown)",
-    "no verified programs",
-    "priority fields listed but not verified: computer_science, business_finance, psychology",
-    "no verified degree maps",
-    "no verified admission-to-major facts",
+    "current catalog not retrieved",
     "undeclared policy not verified"
    ],
    "institution_key": "ipeds-209551",
    "name": "University of Oregon",
    "persisted": {
     "all_fields_by_name_or_cip": {
-     "business_finance": 0,
-     "computer_science": 0,
-     "engineering": 0,
-     "nursing_health": 0,
-     "psychology": 0
-    },
-    "cr14": {
-     "admission_type": 0,
-     "cip_code": 0,
-     "internal_transfer": 0,
-     "program_linked_awards": 0,
-     "undeclared_policy": false
-    },
-    "partially_verified_programs": 0,
-    "program_catalog_record": false,
-    "programs": 0,
-    "programs_complete": false,
-    "programs_with_cip": 0,
-    "programs_with_degree_plan": 0,
-    "requirement_rows": 0,
-    "verified_fields_by_name_or_cip": {
-     "business_finance": 0,
-     "computer_science": 0,
-     "engineering": 0,
-     "nursing_health": 0,
-     "psychology": 0
-    },
-    "verified_programs": 0
-   },
-   "priority": 1,
-   "run": {
-    "candidates": 613,
-    "catalog_fetch_errors": {},
-    "catalog_pages_ok": 2,
-    "degree_map_docs_ok": 0,
-    "evidence_sentences": {
-     "apply_to_major": 13,
-     "change_major": 10,
-     "cip_code": 0,
-     "declare_by": 0,
-     "direct_admission": 25,
-     "gpa_requirement": 37,
-     "major_scholarship": 28,
-     "open_declaration": 2,
-     "pre_major": 30,
-     "progression": 121,
-     "undeclared": 0
-    },
-    "listed_bachelor_programs": 73,
-    "listed_fields_by_name": {
      "business_finance": 4,
      "computer_science": 4,
      "engineering": 0,
      "nursing_health": 0,
      "psychology": 1
     },
-    "listed_program_links": 174,
-    "policy_pages_ok": 12,
-    "printed_catalog_years": [
-     "2026-2027"
-    ],
-    "program_pages_ok": 173
-   },
-   "run_dir": "programs/runs/OR/2026-10-05-b",
-   "state": "OR"
-  },
-  {
-   "catalog_home": null,
-   "catalog_platform": "to be located",
-   "control": "private_nonprofit",
-   "folder": "up",
-   "gaps": [
-    "current catalog not retrieved",
-    "no reviewed program_catalogs record (completeness unknown)",
-    "no verified programs",
-    "no verified degree maps",
-    "no verified admission-to-major facts",
-    "undeclared policy not verified"
-   ],
-   "institution_key": "ipeds-209825",
-   "name": "University of Portland",
-   "persisted": {
-    "all_fields_by_name_or_cip": {
-     "business_finance": 0,
-     "computer_science": 0,
-     "engineering": 0,
-     "nursing_health": 0,
-     "psychology": 0
-    },
     "cr14": {
-     "admission_type": 0,
+     "admission_type": 2,
      "cip_code": 0,
      "internal_transfer": 0,
-     "program_linked_awards": 0,
+     "program_linked_awards": 1,
      "undeclared_policy": false
     },
     "partially_verified_programs": 0,
-    "program_catalog_record": false,
-    "programs": 0,
+    "program_catalog_record": true,
+    "programs": 71,
     "programs_complete": false,
     "programs_with_cip": 0,
-    "programs_with_degree_plan": 0,
-    "requirement_rows": 0,
+    "programs_with_degree_plan": 55,
+    "requirement_rows": 235,
     "verified_fields_by_name_or_cip": {
-     "business_finance": 0,
-     "computer_science": 0,
+     "business_finance": 4,
+     "computer_science": 4,
      "engineering": 0,
      "nursing_health": 0,
-     "psychology": 0
+     "psychology": 1
     },
-    "verified_programs": 0
+    "verified_programs": 71
    },
    "priority": 1,
    "run": {
@@ -467,17 +364,18 @@
     "catalog_pages_ok": 0,
     "degree_map_docs_ok": 0,
     "evidence_sentences": {
-     "apply_to_major": 15,
-     "change_major": 6,
+     "apply_to_major": 7,
+     "change_major": 10,
      "cip_code": 0,
      "declare_by": 0,
-     "direct_admission": 0,
-     "gpa_requirement": 104,
-     "major_scholarship": 9,
-     "open_declaration": 39,
-     "pre_major": 4,
-     "progression": 131,
-     "undeclared": 5
+     "direct_admission": 25,
+     "exam_credit_in_program": 1,
+     "gpa_requirement": 5,
+     "major_scholarship": 28,
+     "open_declaration": 0,
+     "pre_major": 20,
+     "progression": 5,
+     "undeclared": 0
     },
     "listed_bachelor_programs": 0,
     "listed_fields_by_name": {
@@ -488,11 +386,90 @@
      "psychology": 0
     },
     "listed_program_links": 0,
-    "policy_pages_ok": 0,
+    "policy_pages_ok": 12,
     "printed_catalog_years": [],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/OR/2026-10-05-b",
+   "run_dir": "programs/runs/OR/2026-10-06-adm",
+   "state": "OR"
+  },
+  {
+   "catalog_home": "https://up.smartcatalogiq.com/en",
+   "catalog_platform": "smartcatalog",
+   "control": "private_nonprofit",
+   "folder": "up",
+   "gaps": [
+    "current catalog not retrieved",
+    "no verified degree maps",
+    "undeclared policy not verified"
+   ],
+   "institution_key": "ipeds-209825",
+   "name": "University of Portland",
+   "persisted": {
+    "all_fields_by_name_or_cip": {
+     "business_finance": 10,
+     "computer_science": 1,
+     "engineering": 4,
+     "nursing_health": 3,
+     "psychology": 1
+    },
+    "cr14": {
+     "admission_type": 1,
+     "cip_code": 0,
+     "internal_transfer": 1,
+     "program_linked_awards": 0,
+     "undeclared_policy": false
+    },
+    "partially_verified_programs": 0,
+    "program_catalog_record": true,
+    "programs": 52,
+    "programs_complete": true,
+    "programs_with_cip": 0,
+    "programs_with_degree_plan": 0,
+    "requirement_rows": 0,
+    "verified_fields_by_name_or_cip": {
+     "business_finance": 10,
+     "computer_science": 1,
+     "engineering": 4,
+     "nursing_health": 3,
+     "psychology": 1
+    },
+    "verified_programs": 52
+   },
+   "priority": 1,
+   "run": {
+    "candidates": 0,
+    "catalog_fetch_errors": {},
+    "catalog_pages_ok": 0,
+    "degree_map_docs_ok": 0,
+    "evidence_sentences": {
+     "apply_to_major": 0,
+     "change_major": 0,
+     "cip_code": 0,
+     "declare_by": 0,
+     "direct_admission": 0,
+     "exam_credit_in_program": 0,
+     "gpa_requirement": 0,
+     "major_scholarship": 0,
+     "open_declaration": 0,
+     "pre_major": 0,
+     "progression": 0,
+     "undeclared": 0
+    },
+    "listed_bachelor_programs": 0,
+    "listed_fields_by_name": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "listed_program_links": 0,
+    "policy_pages_ok": 4,
+    "printed_catalog_years": [],
+    "program_pages_ok": 0
+   },
+   "run_dir": "programs/runs/OR/2026-10-06-adm",
    "state": "OR"
   },
   {
@@ -501,7 +478,7 @@
    "control": "private_nonprofit",
    "folder": "belmont",
    "gaps": [
-    "catalog retrieved but no program list parsed",
+    "catalog program pages behind a bot challenge (recorded, not evaded)",
     "no reviewed program_catalogs record (completeness unknown)",
     "no verified programs",
     "no verified degree maps",
@@ -556,6 +533,7 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 5,
      "major_scholarship": 6,
      "open_declaration": 0,
@@ -572,13 +550,13 @@
      "psychology": 0
     },
     "listed_program_links": 0,
-    "policy_pages_ok": 7,
+    "policy_pages_ok": 8,
     "printed_catalog_years": [
      "2026-2027"
     ],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-b",
    "state": "TN"
   },
   {
@@ -629,21 +607,22 @@
    },
    "priority": 1,
    "run": {
-    "candidates": 394,
+    "candidates": 395,
     "catalog_fetch_errors": {},
-    "catalog_pages_ok": 10,
+    "catalog_pages_ok": 2,
     "degree_map_docs_ok": 0,
     "evidence_sentences": {
-     "apply_to_major": 7,
-     "change_major": 1,
+     "apply_to_major": 0,
+     "change_major": 0,
      "cip_code": 0,
-     "declare_by": 1,
+     "declare_by": 0,
      "direct_admission": 0,
-     "gpa_requirement": 57,
+     "exam_credit_in_program": 0,
+     "gpa_requirement": 30,
      "major_scholarship": 4,
-     "open_declaration": 1,
-     "pre_major": 12,
-     "progression": 5,
+     "open_declaration": 0,
+     "pre_major": 1,
+     "progression": 0,
      "undeclared": 0
     },
     "listed_bachelor_programs": 36,
@@ -659,9 +638,9 @@
     "printed_catalog_years": [
      "2026-2027"
     ],
-    "program_pages_ok": 291
+    "program_pages_ok": 36
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-b",
    "state": "TN"
   },
   {
@@ -670,7 +649,7 @@
    "control": "public",
    "folder": "etsu",
    "gaps": [
-    "catalog retrieved but no program list parsed",
+    "catalog program pages behind a bot challenge (recorded, not evaded)",
     "no reviewed program_catalogs record (completeness unknown)",
     "no verified programs",
     "no verified degree maps",
@@ -720,17 +699,18 @@
     "catalog_pages_ok": 1,
     "degree_map_docs_ok": 0,
     "evidence_sentences": {
-     "apply_to_major": 5,
+     "apply_to_major": 6,
      "change_major": 1,
      "cip_code": 0,
      "declare_by": 3,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 15,
      "major_scholarship": 8,
      "open_declaration": 0,
      "pre_major": 6,
-     "progression": 5,
-     "undeclared": 11
+     "progression": 2,
+     "undeclared": 22
     },
     "listed_bachelor_programs": 0,
     "listed_fields_by_name": {
@@ -741,13 +721,13 @@
      "psychology": 0
     },
     "listed_program_links": 0,
-    "policy_pages_ok": 14,
+    "policy_pages_ok": 15,
     "printed_catalog_years": [
      "2026-2027"
     ],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-b",
    "state": "TN",
    "state_inventory": {
     "bachelor_rows": 71,
@@ -760,7 +740,7 @@
    "control": "private_nonprofit",
    "folder": "lipscomb",
    "gaps": [
-    "catalog retrieved but no program list parsed",
+    "catalog program pages behind a bot challenge (recorded, not evaded)",
     "no reviewed program_catalogs record (completeness unknown)",
     "no verified programs",
     "no verified degree maps",
@@ -815,11 +795,12 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 6,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 5,
      "major_scholarship": 6,
      "open_declaration": 0,
-     "pre_major": 1,
-     "progression": 8,
+     "pre_major": 6,
+     "progression": 7,
      "undeclared": 0
     },
     "listed_bachelor_programs": 0,
@@ -831,13 +812,13 @@
      "psychology": 0
     },
     "listed_program_links": 2,
-    "policy_pages_ok": 9,
+    "policy_pages_ok": 11,
     "printed_catalog_years": [
      "2026-2027"
     ],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-b",
    "state": "TN"
   },
   {
@@ -846,7 +827,7 @@
    "control": "public",
    "folder": "mtsu",
    "gaps": [
-    "catalog retrieved but no program list parsed",
+    "catalog program pages behind a bot challenge (recorded, not evaded)",
     "no reviewed program_catalogs record (completeness unknown)",
     "no verified programs",
     "no verified degree maps",
@@ -888,25 +869,26 @@
    },
    "priority": 1,
    "run": {
-    "candidates": 0,
+    "candidates": 97,
     "catalog_fetch_errors": {
      "blocked_bot_challenge": 4,
      "host_challenge_stop": 30
     },
     "catalog_pages_ok": 1,
-    "degree_map_docs_ok": 0,
+    "degree_map_docs_ok": 15,
     "evidence_sentences": {
-     "apply_to_major": 2,
+     "apply_to_major": 15,
      "change_major": 3,
      "cip_code": 0,
      "declare_by": 0,
-     "direct_admission": 0,
-     "gpa_requirement": 16,
-     "major_scholarship": 42,
+     "direct_admission": 1,
+     "exam_credit_in_program": 6,
+     "gpa_requirement": 35,
+     "major_scholarship": 43,
      "open_declaration": 0,
-     "pre_major": 1,
-     "progression": 0,
-     "undeclared": 5
+     "pre_major": 12,
+     "progression": 10,
+     "undeclared": 7
     },
     "listed_bachelor_programs": 0,
     "listed_fields_by_name": {
@@ -917,13 +899,13 @@
      "psychology": 0
     },
     "listed_program_links": 1,
-    "policy_pages_ok": 15,
+    "policy_pages_ok": 16,
     "printed_catalog_years": [
      "2026-2027"
     ],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-f-maps",
    "state": "TN",
    "state_inventory": {
     "bachelor_rows": 97,
@@ -936,9 +918,9 @@
    "control": "public",
    "folder": "tntech",
    "gaps": [
-    "current catalog not retrieved (render_exception:TimeoutError: Page.goto)",
     "no reviewed program_catalogs record (completeness unknown)",
     "no verified programs",
+    "priority fields listed but not verified: engineering, computer_science, business_finance, nursing_health, psychology",
     "no verified degree maps",
     "no verified admission-to-major facts",
     "undeclared policy not verified"
@@ -978,18 +960,17 @@
    },
    "priority": 1,
    "run": {
-    "candidates": 0,
-    "catalog_fetch_errors": {
-     "render_exception:TimeoutError: Page.goto": 3
-    },
-    "catalog_pages_ok": 0,
-    "degree_map_docs_ok": 0,
+    "candidates": 81,
+    "catalog_fetch_errors": {},
+    "catalog_pages_ok": 14,
+    "degree_map_docs_ok": 5,
     "evidence_sentences": {
      "apply_to_major": 0,
      "change_major": 0,
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 6,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 10,
      "major_scholarship": 41,
      "open_declaration": 0,
@@ -997,20 +978,20 @@
      "progression": 2,
      "undeclared": 0
     },
-    "listed_bachelor_programs": 0,
+    "listed_bachelor_programs": 158,
     "listed_fields_by_name": {
-     "business_finance": 0,
-     "computer_science": 0,
-     "engineering": 0,
-     "nursing_health": 0,
-     "psychology": 0
+     "business_finance": 15,
+     "computer_science": 6,
+     "engineering": 19,
+     "nursing_health": 16,
+     "psychology": 1
     },
-    "listed_program_links": 0,
-    "policy_pages_ok": 15,
+    "listed_program_links": 240,
+    "policy_pages_ok": 10,
     "printed_catalog_years": [],
-    "program_pages_ok": 0
+    "program_pages_ok": 157
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-e-tntech",
    "state": "TN",
    "state_inventory": {
     "bachelor_rows": 52,
@@ -1023,7 +1004,7 @@
    "control": "public",
    "folder": "utc",
    "gaps": [
-    "catalog retrieved but no program list parsed",
+    "catalog program pages behind a bot challenge (recorded, not evaded)",
     "no reviewed program_catalogs record (completeness unknown)",
     "no verified admission-to-major facts",
     "undeclared policy not verified"
@@ -1063,7 +1044,7 @@
    },
    "priority": 1,
    "run": {
-    "candidates": 980,
+    "candidates": 1130,
     "catalog_fetch_errors": {
      "blocked_bot_challenge": 4,
      "host_challenge_stop": 16
@@ -1076,6 +1057,7 @@
      "cip_code": 0,
      "declare_by": 1,
      "direct_admission": 0,
+     "exam_credit_in_program": 7,
      "gpa_requirement": 1,
      "major_scholarship": 15,
      "open_declaration": 0,
@@ -1098,7 +1080,7 @@
     ],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-i-utc",
    "state": "TN",
    "state_inventory": {
     "bachelor_rows": 49,
@@ -1111,7 +1093,7 @@
    "control": "public",
    "folder": "utk",
    "gaps": [
-    "catalog retrieved but no program list parsed",
+    "catalog program pages behind a bot challenge (recorded, not evaded)",
     "no reviewed program_catalogs record (completeness unknown)",
     "no verified admission-to-major facts",
     "undeclared policy not verified"
@@ -1164,11 +1146,12 @@
      "cip_code": 0,
      "declare_by": 1,
      "direct_admission": 6,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 5,
      "major_scholarship": 112,
      "open_declaration": 0,
      "pre_major": 0,
-     "progression": 4,
+     "progression": 1,
      "undeclared": 22
     },
     "listed_bachelor_programs": 0,
@@ -1180,13 +1163,13 @@
      "psychology": 0
     },
     "listed_program_links": 4,
-    "policy_pages_ok": 12,
+    "policy_pages_ok": 13,
     "printed_catalog_years": [
      "2026-2027"
     ],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-b",
    "state": "TN",
    "state_inventory": {
     "bachelor_rows": 99,
@@ -1199,6 +1182,7 @@
    "control": "public",
    "folder": "memphis",
    "gaps": [
+    "catalog program pages behind a bot challenge (recorded, not evaded)",
     "no reviewed program_catalogs record (completeness unknown)",
     "no verified programs",
     "no verified degree maps",
@@ -1240,23 +1224,24 @@
    },
    "priority": 1,
    "run": {
-    "candidates": 0,
+    "candidates": 63,
     "catalog_fetch_errors": {
      "blocked_bot_challenge": 4,
      "host_challenge_stop": 30
     },
     "catalog_pages_ok": 1,
-    "degree_map_docs_ok": 0,
+    "degree_map_docs_ok": 11,
     "evidence_sentences": {
      "apply_to_major": 0,
      "change_major": 3,
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 64,
      "major_scholarship": 38,
      "open_declaration": 0,
-     "pre_major": 11,
+     "pre_major": 12,
      "progression": 5,
      "undeclared": 6
     },
@@ -1269,13 +1254,13 @@
      "psychology": 0
     },
     "listed_program_links": 2,
-    "policy_pages_ok": 34,
+    "policy_pages_ok": 36,
     "printed_catalog_years": [
      "2026-2027"
     ],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-f-maps",
    "state": "TN",
    "state_inventory": {
     "bachelor_rows": 62,
@@ -1340,6 +1325,7 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 1,
      "gpa_requirement": 2,
      "major_scholarship": 0,
      "open_declaration": 1,
@@ -1360,7 +1346,7 @@
     "printed_catalog_years": [],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-d-js",
    "state": "TN"
   },
   {
@@ -1369,10 +1355,7 @@
    "control": "public",
    "folder": "eou",
    "gaps": [
-    "no reviewed program_catalogs record (completeness unknown)",
-    "no verified programs",
-    "priority fields listed but not verified: computer_science, business_finance, psychology",
-    "no verified degree maps",
+    "current catalog not retrieved",
     "no verified admission-to-major facts",
     "undeclared policy not verified"
    ],
@@ -1380,11 +1363,11 @@
    "name": "Eastern Oregon University",
    "persisted": {
     "all_fields_by_name_or_cip": {
-     "business_finance": 0,
-     "computer_science": 0,
+     "business_finance": 7,
+     "computer_science": 1,
      "engineering": 0,
      "nursing_health": 0,
-     "psychology": 0
+     "psychology": 1
     },
     "cr14": {
      "admission_type": 0,
@@ -1394,59 +1377,55 @@
      "undeclared_policy": false
     },
     "partially_verified_programs": 0,
-    "program_catalog_record": false,
-    "programs": 0,
+    "program_catalog_record": true,
+    "programs": 31,
     "programs_complete": false,
     "programs_with_cip": 0,
-    "programs_with_degree_plan": 0,
-    "requirement_rows": 0,
+    "programs_with_degree_plan": 16,
+    "requirement_rows": 21,
     "verified_fields_by_name_or_cip": {
-     "business_finance": 0,
-     "computer_science": 0,
-     "engineering": 0,
-     "nursing_health": 0,
-     "psychology": 0
-    },
-    "verified_programs": 0
-   },
-   "priority": 2,
-   "run": {
-    "candidates": 0,
-    "catalog_fetch_errors": {},
-    "catalog_pages_ok": 24,
-    "degree_map_docs_ok": 0,
-    "evidence_sentences": {
-     "apply_to_major": 1,
-     "change_major": 0,
-     "cip_code": 0,
-     "declare_by": 0,
-     "direct_admission": 0,
-     "gpa_requirement": 24,
-     "major_scholarship": 3,
-     "open_declaration": 1,
-     "pre_major": 11,
-     "progression": 4,
-     "undeclared": 1
-    },
-    "listed_bachelor_programs": 30,
-    "listed_fields_by_name": {
      "business_finance": 7,
      "computer_science": 1,
      "engineering": 0,
      "nursing_health": 0,
      "psychology": 1
     },
-    "listed_program_links": 111,
-    "policy_pages_ok": 7,
-    "printed_catalog_years": [
-     "2023-2024",
-     "2024-2025",
-     "2025-2026",
-     "2026-2027"
-    ],
-    "program_pages_ok": 96
+    "verified_programs": 31
    },
-   "run_dir": "programs/runs/OR/2026-10-05-b",
+   "priority": 2,
+   "run": {
+    "candidates": 0,
+    "catalog_fetch_errors": {},
+    "catalog_pages_ok": 0,
+    "degree_map_docs_ok": 0,
+    "evidence_sentences": {
+     "apply_to_major": 0,
+     "change_major": 0,
+     "cip_code": 0,
+     "declare_by": 0,
+     "direct_admission": 0,
+     "exam_credit_in_program": 4,
+     "gpa_requirement": 24,
+     "major_scholarship": 3,
+     "open_declaration": 1,
+     "pre_major": 4,
+     "progression": 2,
+     "undeclared": 0
+    },
+    "listed_bachelor_programs": 0,
+    "listed_fields_by_name": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "listed_program_links": 0,
+    "policy_pages_ok": 11,
+    "printed_catalog_years": [],
+    "program_pages_ok": 0
+   },
+   "run_dir": "programs/runs/OR/2026-10-06-adm",
    "state": "OR"
   },
   {
@@ -1455,66 +1434,60 @@
    "control": "private_nonprofit",
    "folder": "lclark",
    "gaps": [
-    "catalog retrieved but no program list parsed",
-    "no reviewed program_catalogs record (completeness unknown)",
-    "no verified programs",
-    "no verified degree maps",
-    "no verified admission-to-major facts",
-    "undeclared policy not verified"
+    "no verified degree maps"
    ],
    "institution_key": "ipeds-209056",
    "name": "Lewis & Clark College",
    "persisted": {
     "all_fields_by_name_or_cip": {
-     "business_finance": 0,
-     "computer_science": 0,
+     "business_finance": 1,
+     "computer_science": 3,
      "engineering": 0,
      "nursing_health": 0,
-     "psychology": 0
+     "psychology": 1
     },
     "cr14": {
-     "admission_type": 0,
+     "admission_type": 2,
      "cip_code": 0,
      "internal_transfer": 0,
      "program_linked_awards": 0,
-     "undeclared_policy": false
+     "undeclared_policy": true
     },
     "partially_verified_programs": 0,
-    "program_catalog_record": false,
-    "programs": 0,
-    "programs_complete": false,
+    "program_catalog_record": true,
+    "programs": 29,
+    "programs_complete": true,
     "programs_with_cip": 0,
     "programs_with_degree_plan": 0,
     "requirement_rows": 0,
     "verified_fields_by_name_or_cip": {
-     "business_finance": 0,
-     "computer_science": 0,
+     "business_finance": 1,
+     "computer_science": 3,
      "engineering": 0,
      "nursing_health": 0,
-     "psychology": 0
+     "psychology": 1
     },
-    "verified_programs": 0
+    "verified_programs": 29
    },
    "priority": 2,
    "run": {
-    "candidates": 0,
-    "catalog_fetch_errors": {
-     "http_404": 1
-    },
+    "candidates": 29,
+    "catalog_fetch_errors": {},
     "catalog_pages_ok": 2,
     "degree_map_docs_ok": 0,
     "evidence_sentences": {
      "apply_to_major": 2,
      "change_major": 0,
      "cip_code": 0,
-     "declare_by": 0,
+     "declare_by": 1,
      "direct_admission": 0,
+     "exam_credit_in_program": 12,
      "gpa_requirement": 0,
      "major_scholarship": 0,
      "open_declaration": 1,
-     "pre_major": 4,
+     "pre_major": 5,
      "progression": 4,
-     "undeclared": 1
+     "undeclared": 2
     },
     "listed_bachelor_programs": 0,
     "listed_fields_by_name": {
@@ -1525,13 +1498,13 @@
      "psychology": 0
     },
     "listed_program_links": 23,
-    "policy_pages_ok": 3,
+    "policy_pages_ok": 4,
     "printed_catalog_years": [
      "2026-2027"
     ],
     "program_pages_ok": 22
    },
-   "run_dir": "programs/runs/OR/2026-10-05-b",
+   "run_dir": "programs/runs/OR/2026-10-06-cl2",
    "state": "OR"
   },
   {
@@ -1540,81 +1513,77 @@
    "control": "private_nonprofit",
    "folder": "linfield",
    "gaps": [
-    "no reviewed program_catalogs record (completeness unknown)",
-    "no verified programs",
-    "priority fields listed but not verified: computer_science, business_finance",
+    "current catalog not retrieved",
     "no verified degree maps",
-    "no verified admission-to-major facts",
     "undeclared policy not verified"
    ],
    "institution_key": "ipeds-209065",
    "name": "Linfield University",
    "persisted": {
     "all_fields_by_name_or_cip": {
-     "business_finance": 0,
-     "computer_science": 0,
+     "business_finance": 9,
+     "computer_science": 2,
      "engineering": 0,
-     "nursing_health": 0,
-     "psychology": 0
+     "nursing_health": 2,
+     "psychology": 1
     },
     "cr14": {
-     "admission_type": 0,
+     "admission_type": 4,
      "cip_code": 0,
-     "internal_transfer": 0,
+     "internal_transfer": 4,
      "program_linked_awards": 0,
      "undeclared_policy": false
     },
     "partially_verified_programs": 0,
-    "program_catalog_record": false,
-    "programs": 0,
+    "program_catalog_record": true,
+    "programs": 38,
     "programs_complete": false,
     "programs_with_cip": 0,
     "programs_with_degree_plan": 0,
-    "requirement_rows": 0,
+    "requirement_rows": 61,
     "verified_fields_by_name_or_cip": {
-     "business_finance": 0,
-     "computer_science": 0,
+     "business_finance": 9,
+     "computer_science": 2,
      "engineering": 0,
-     "nursing_health": 0,
-     "psychology": 0
+     "nursing_health": 2,
+     "psychology": 1
     },
-    "verified_programs": 0
+    "verified_programs": 38
    },
    "priority": 2,
    "run": {
     "candidates": 0,
     "catalog_fetch_errors": {},
-    "catalog_pages_ok": 2,
+    "catalog_pages_ok": 0,
     "degree_map_docs_ok": 0,
     "evidence_sentences": {
-     "apply_to_major": 2,
-     "change_major": 0,
+     "apply_to_major": 0,
+     "change_major": 2,
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 0,
-     "major_scholarship": 1,
+     "major_scholarship": 0,
      "open_declaration": 0,
-     "pre_major": 1,
+     "pre_major": 3,
      "progression": 1,
-     "undeclared": 0
+     "undeclared": 1
     },
-    "listed_bachelor_programs": 9,
+    "listed_bachelor_programs": 0,
     "listed_fields_by_name": {
-     "business_finance": 2,
-     "computer_science": 1,
+     "business_finance": 0,
+     "computer_science": 0,
      "engineering": 0,
      "nursing_health": 0,
      "psychology": 0
     },
-    "listed_program_links": 41,
-    "policy_pages_ok": 2,
-    "printed_catalog_years": [
-     "2026-2027"
-    ],
-    "program_pages_ok": 41
+    "listed_program_links": 0,
+    "policy_pages_ok": 3,
+    "printed_catalog_years": [],
+    "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/OR/2026-10-05-b",
+   "run_dir": "programs/runs/OR/2026-10-06-adm",
    "state": "OR"
   },
   {
@@ -1623,64 +1592,61 @@
    "control": "public",
    "folder": "osucascades",
    "gaps": [
-    "no reviewed program_catalogs record (completeness unknown)",
-    "no verified programs",
-    "priority fields listed but not verified: engineering, computer_science, business_finance, nursing_health, psychology",
-    "no verified degree maps",
-    "no verified admission-to-major facts",
-    "undeclared policy not verified"
+    "4 listed bachelor programs not yet verified",
+    "no verified degree maps"
    ],
    "institution_key": "ipeds-440828",
    "name": "Oregon State University-Cascades Campus",
    "persisted": {
     "all_fields_by_name_or_cip": {
-     "business_finance": 0,
-     "computer_science": 0,
-     "engineering": 0,
-     "nursing_health": 0,
-     "psychology": 0
+     "business_finance": 3,
+     "computer_science": 1,
+     "engineering": 3,
+     "nursing_health": 1,
+     "psychology": 1
     },
     "cr14": {
-     "admission_type": 0,
+     "admission_type": 4,
      "cip_code": 0,
      "internal_transfer": 0,
      "program_linked_awards": 0,
-     "undeclared_policy": false
+     "undeclared_policy": true
     },
     "partially_verified_programs": 0,
-    "program_catalog_record": false,
-    "programs": 0,
+    "program_catalog_record": true,
+    "programs": 26,
     "programs_complete": false,
     "programs_with_cip": 0,
     "programs_with_degree_plan": 0,
-    "requirement_rows": 0,
+    "requirement_rows": 26,
     "verified_fields_by_name_or_cip": {
-     "business_finance": 0,
-     "computer_science": 0,
-     "engineering": 0,
-     "nursing_health": 0,
-     "psychology": 0
+     "business_finance": 3,
+     "computer_science": 1,
+     "engineering": 3,
+     "nursing_health": 1,
+     "psychology": 1
     },
-    "verified_programs": 0
+    "verified_programs": 26
    },
    "priority": 2,
    "run": {
-    "candidates": 0,
+    "candidates": 28,
     "catalog_fetch_errors": {},
     "catalog_pages_ok": 2,
     "degree_map_docs_ok": 0,
     "evidence_sentences": {
-     "apply_to_major": 0,
-     "change_major": 0,
+     "apply_to_major": 2,
+     "change_major": 4,
      "cip_code": 0,
      "declare_by": 0,
-     "direct_admission": 0,
-     "gpa_requirement": 0,
+     "direct_admission": 8,
+     "exam_credit_in_program": 3,
+     "gpa_requirement": 2,
      "major_scholarship": 0,
      "open_declaration": 0,
      "pre_major": 1,
      "progression": 0,
-     "undeclared": 11
+     "undeclared": 14
     },
     "listed_bachelor_programs": 30,
     "listed_fields_by_name": {
@@ -1691,13 +1657,13 @@
      "psychology": 1
     },
     "listed_program_links": 96,
-    "policy_pages_ok": 2,
+    "policy_pages_ok": 6,
     "printed_catalog_years": [
      "2026-2027"
     ],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/OR/2026-10-05-b",
+   "run_dir": "programs/runs/OR/2026-10-06-cl2",
    "state": "OR"
   },
   {
@@ -1758,6 +1724,7 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 1,
      "gpa_requirement": 0,
      "major_scholarship": 0,
      "open_declaration": 0,
@@ -1839,6 +1806,7 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 0,
      "major_scholarship": 0,
      "open_declaration": 0,
@@ -1868,7 +1836,7 @@
    "control": "public",
    "folder": "sou",
    "gaps": [
-    "catalog retrieved but no program list parsed",
+    "catalog program pages behind a bot challenge (recorded, not evaded)",
     "no reviewed program_catalogs record (completeness unknown)",
     "no verified programs",
     "no verified degree maps",
@@ -1923,6 +1891,7 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 0,
      "major_scholarship": 0,
      "open_declaration": 0,
@@ -2006,6 +1975,7 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 0,
      "major_scholarship": 0,
      "open_declaration": 0,
@@ -2031,57 +2001,52 @@
   },
   {
    "catalog_home": "https://catalog.willamette.edu/",
-   "catalog_platform": "drupal",
+   "catalog_platform": "coursedog",
    "control": "private_nonprofit",
    "folder": "willamette-210401",
    "gaps": [
-    "catalog retrieved but no program list parsed",
-    "no reviewed program_catalogs record (completeness unknown)",
-    "no verified programs",
+    "current catalog not retrieved",
     "no verified degree maps",
-    "no verified admission-to-major facts",
     "undeclared policy not verified"
    ],
    "institution_key": "ipeds-210401",
    "name": "Willamette University",
    "persisted": {
     "all_fields_by_name_or_cip": {
-     "business_finance": 0,
-     "computer_science": 0,
-     "engineering": 0,
-     "nursing_health": 0,
-     "psychology": 0
+     "business_finance": 2,
+     "computer_science": 3,
+     "engineering": 1,
+     "nursing_health": 2,
+     "psychology": 1
     },
     "cr14": {
-     "admission_type": 0,
+     "admission_type": 3,
      "cip_code": 0,
      "internal_transfer": 0,
      "program_linked_awards": 0,
      "undeclared_policy": false
     },
     "partially_verified_programs": 0,
-    "program_catalog_record": false,
-    "programs": 0,
+    "program_catalog_record": true,
+    "programs": 49,
     "programs_complete": false,
     "programs_with_cip": 0,
     "programs_with_degree_plan": 0,
     "requirement_rows": 0,
     "verified_fields_by_name_or_cip": {
-     "business_finance": 0,
-     "computer_science": 0,
-     "engineering": 0,
-     "nursing_health": 0,
-     "psychology": 0
+     "business_finance": 2,
+     "computer_science": 3,
+     "engineering": 1,
+     "nursing_health": 2,
+     "psychology": 1
     },
-    "verified_programs": 0
+    "verified_programs": 49
    },
    "priority": 2,
    "run": {
     "candidates": 0,
-    "catalog_fetch_errors": {
-     "http_404": 1
-    },
-    "catalog_pages_ok": 2,
+    "catalog_fetch_errors": {},
+    "catalog_pages_ok": 0,
     "degree_map_docs_ok": 0,
     "evidence_sentences": {
      "apply_to_major": 0,
@@ -2089,11 +2054,12 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
-     "gpa_requirement": 0,
-     "major_scholarship": 0,
+     "exam_credit_in_program": 0,
+     "gpa_requirement": 1,
+     "major_scholarship": 1,
      "open_declaration": 0,
-     "pre_major": 0,
-     "progression": 0,
+     "pre_major": 1,
+     "progression": 1,
      "undeclared": 0
     },
     "listed_bachelor_programs": 0,
@@ -2105,13 +2071,11 @@
      "psychology": 0
     },
     "listed_program_links": 0,
-    "policy_pages_ok": 2,
-    "printed_catalog_years": [
-     "2026-2027"
-    ],
+    "policy_pages_ok": 5,
+    "printed_catalog_years": [],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/OR/2026-10-05-b",
+   "run_dir": "programs/runs/OR/2026-10-06-adm",
    "state": "OR"
   },
   {
@@ -2120,9 +2084,9 @@
    "control": "public",
    "folder": "apsu",
    "gaps": [
-    "current catalog not retrieved (render_exception:TimeoutError: Page.goto)",
     "no reviewed program_catalogs record (completeness unknown)",
     "no verified programs",
+    "priority fields listed but not verified: business_finance",
     "no verified degree maps",
     "no verified admission-to-major facts",
     "undeclared policy not verified"
@@ -2162,39 +2126,38 @@
    },
    "priority": 2,
    "run": {
-    "candidates": 0,
-    "catalog_fetch_errors": {
-     "render_exception:TimeoutError: Page.goto": 3
-    },
-    "catalog_pages_ok": 0,
-    "degree_map_docs_ok": 0,
+    "candidates": 104,
+    "catalog_fetch_errors": {},
+    "catalog_pages_ok": 3,
+    "degree_map_docs_ok": 1,
     "evidence_sentences": {
      "apply_to_major": 3,
      "change_major": 6,
      "cip_code": 0,
      "declare_by": 1,
      "direct_admission": 0,
+     "exam_credit_in_program": 3,
      "gpa_requirement": 2,
      "major_scholarship": 1,
      "open_declaration": 0,
-     "pre_major": 1,
-     "progression": 1,
+     "pre_major": 2,
+     "progression": 4,
      "undeclared": 6
     },
-    "listed_bachelor_programs": 0,
+    "listed_bachelor_programs": 5,
     "listed_fields_by_name": {
-     "business_finance": 0,
+     "business_finance": 1,
      "computer_science": 0,
      "engineering": 0,
      "nursing_health": 0,
      "psychology": 0
     },
-    "listed_program_links": 0,
-    "policy_pages_ok": 8,
+    "listed_program_links": 20,
+    "policy_pages_ok": 7,
     "printed_catalog_years": [],
-    "program_pages_ok": 0
+    "program_pages_ok": 6
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-d-js",
    "state": "TN",
    "state_inventory": {
     "bachelor_rows": 50,
@@ -2202,14 +2165,14 @@
    }
   },
   {
-   "catalog_home": null,
-   "catalog_platform": "to be located",
+   "catalog_home": "https://catalog.cn.edu/",
+   "catalog_platform": "coursedog",
    "control": "private_nonprofit",
    "folder": "cn",
    "gaps": [
-    "current catalog not retrieved",
     "no reviewed program_catalogs record (completeness unknown)",
     "no verified programs",
+    "priority fields listed but not verified: business_finance",
     "no verified degree maps",
     "no verified admission-to-major facts",
     "undeclared policy not verified"
@@ -2249,37 +2212,38 @@
    },
    "priority": 2,
    "run": {
-    "candidates": 0,
+    "candidates": 70,
     "catalog_fetch_errors": {},
-    "catalog_pages_ok": 0,
+    "catalog_pages_ok": 2,
     "degree_map_docs_ok": 0,
     "evidence_sentences": {
-     "apply_to_major": 1,
+     "apply_to_major": 0,
      "change_major": 0,
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
-     "gpa_requirement": 1,
+     "exam_credit_in_program": 0,
+     "gpa_requirement": 0,
      "major_scholarship": 0,
      "open_declaration": 0,
-     "pre_major": 5,
+     "pre_major": 0,
      "progression": 0,
      "undeclared": 0
     },
-    "listed_bachelor_programs": 0,
+    "listed_bachelor_programs": 8,
     "listed_fields_by_name": {
-     "business_finance": 0,
+     "business_finance": 4,
      "computer_science": 0,
      "engineering": 0,
      "nursing_health": 0,
      "psychology": 0
     },
-    "listed_program_links": 0,
-    "policy_pages_ok": 0,
+    "listed_program_links": 20,
+    "policy_pages_ok": 2,
     "printed_catalog_years": [],
-    "program_pages_ok": 0
+    "program_pages_ok": 13
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-g-cn",
    "state": "TN"
   },
   {
@@ -2288,7 +2252,7 @@
    "control": "private_nonprofit",
    "folder": "leeuniversity",
    "gaps": [
-    "catalog retrieved but no program list parsed",
+    "catalog program pages behind a bot challenge (recorded, not evaded)",
     "no reviewed program_catalogs record (completeness unknown)",
     "no verified programs",
     "no verified degree maps",
@@ -2343,11 +2307,12 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 95,
      "major_scholarship": 45,
-     "open_declaration": 3,
+     "open_declaration": 0,
      "pre_major": 4,
-     "progression": 4,
+     "progression": 0,
      "undeclared": 5
     },
     "listed_bachelor_programs": 0,
@@ -2359,11 +2324,11 @@
      "psychology": 0
     },
     "listed_program_links": 0,
-    "policy_pages_ok": 9,
+    "policy_pages_ok": 10,
     "printed_catalog_years": [],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-b",
    "state": "TN"
   },
   {
@@ -2414,21 +2379,22 @@
    },
    "priority": 2,
    "run": {
-    "candidates": 0,
+    "candidates": 29,
     "catalog_fetch_errors": {},
     "catalog_pages_ok": 0,
     "degree_map_docs_ok": 0,
     "evidence_sentences": {
-     "apply_to_major": 0,
-     "change_major": 0,
-     "cip_code": 0,
+     "apply_to_major": 15,
+     "change_major": 1,
+     "cip_code": 1,
      "declare_by": 0,
-     "direct_admission": 0,
-     "gpa_requirement": 0,
+     "direct_admission": 2,
+     "exam_credit_in_program": 22,
+     "gpa_requirement": 32,
      "major_scholarship": 0,
-     "open_declaration": 0,
-     "pre_major": 1,
-     "progression": 0,
+     "open_declaration": 1,
+     "pre_major": 21,
+     "progression": 21,
      "undeclared": 0
     },
     "listed_bachelor_programs": 0,
@@ -2444,7 +2410,7 @@
     "printed_catalog_years": [],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-j-pdf",
    "state": "TN"
   },
   {
@@ -2505,6 +2471,7 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 0,
      "major_scholarship": 0,
      "open_declaration": 0,
@@ -2525,7 +2492,7 @@
     "printed_catalog_years": [],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-b",
    "state": "TN"
   },
   {
@@ -2586,10 +2553,11 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 8,
      "gpa_requirement": 4,
      "major_scholarship": 0,
-     "open_declaration": 0,
-     "pre_major": 5,
+     "open_declaration": 2,
+     "pre_major": 9,
      "progression": 2,
      "undeclared": 1
     },
@@ -2601,12 +2569,12 @@
      "nursing_health": 0,
      "psychology": 0
     },
-    "listed_program_links": 1,
+    "listed_program_links": 43,
     "policy_pages_ok": 5,
     "printed_catalog_years": [],
-    "program_pages_ok": 0
+    "program_pages_ok": 41
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-h-rhodes",
    "state": "TN"
   },
   {
@@ -2667,6 +2635,7 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 6,
      "major_scholarship": 2,
      "open_declaration": 0,
@@ -2687,7 +2656,7 @@
     "printed_catalog_years": [],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-b",
    "state": "TN"
   },
   {
@@ -2696,7 +2665,7 @@
    "control": "public",
    "folder": "tnstate",
    "gaps": [
-    "current catalog not retrieved (disallowed_by_robots)",
+    "catalog program pages behind a bot challenge (recorded, not evaded)",
     "no reviewed program_catalogs record (completeness unknown)",
     "no verified programs",
     "no verified degree maps",
@@ -2740,21 +2709,23 @@
    "run": {
     "candidates": 0,
     "catalog_fetch_errors": {
-     "disallowed_by_robots": 2
+     "blocked_bot_challenge": 4,
+     "host_challenge_stop": 27
     },
-    "catalog_pages_ok": 0,
-    "degree_map_docs_ok": 0,
+    "catalog_pages_ok": 1,
+    "degree_map_docs_ok": 1,
     "evidence_sentences": {
      "apply_to_major": 1,
      "change_major": 1,
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 0,
      "major_scholarship": 22,
      "open_declaration": 0,
      "pre_major": 0,
-     "progression": 1,
+     "progression": 0,
      "undeclared": 4
     },
     "listed_bachelor_programs": 0,
@@ -2765,12 +2736,17 @@
      "nursing_health": 0,
      "psychology": 0
     },
-    "listed_program_links": 0,
-    "policy_pages_ok": 6,
-    "printed_catalog_years": [],
+    "listed_program_links": 8,
+    "policy_pages_ok": 5,
+    "printed_catalog_years": [
+     "2023-2024",
+     "2024-2025",
+     "2025-2026",
+     "2026-2027"
+    ],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-b",
    "state": "TN",
    "state_inventory": {
     "bachelor_rows": 41,
@@ -2783,7 +2759,7 @@
    "control": "public",
    "folder": "utm",
    "gaps": [
-    "catalog retrieved but no program list parsed",
+    "catalog program pages behind a bot challenge (recorded, not evaded)",
     "no reviewed program_catalogs record (completeness unknown)",
     "no verified programs",
     "no verified degree maps",
@@ -2838,6 +2814,7 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 0,
      "major_scholarship": 0,
      "open_declaration": 0,
@@ -2860,7 +2837,7 @@
     ],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-b",
    "state": "TN",
    "state_inventory": {
     "bachelor_rows": 48,
@@ -2925,6 +2902,7 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 0,
      "major_scholarship": 0,
      "open_declaration": 0,
@@ -2945,7 +2923,7 @@
     "printed_catalog_years": [],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-b",
    "state": "TN"
   },
   {
@@ -3006,6 +2984,7 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 2,
      "major_scholarship": 0,
      "open_declaration": 0,
@@ -3026,7 +3005,7 @@
     "printed_catalog_years": [],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-b",
    "state": "TN"
   },
   {
@@ -3077,21 +3056,22 @@
    },
    "priority": 2,
    "run": {
-    "candidates": 157,
+    "candidates": 0,
     "catalog_fetch_errors": {},
-    "catalog_pages_ok": 27,
+    "catalog_pages_ok": 3,
     "degree_map_docs_ok": 0,
     "evidence_sentences": {
-     "apply_to_major": 9,
+     "apply_to_major": 0,
      "change_major": 0,
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
-     "gpa_requirement": 67,
-     "major_scholarship": 2,
-     "open_declaration": 5,
-     "pre_major": 15,
-     "progression": 32,
+     "exam_credit_in_program": 0,
+     "gpa_requirement": 8,
+     "major_scholarship": 0,
+     "open_declaration": 0,
+     "pre_major": 4,
+     "progression": 0,
      "undeclared": 0
     },
     "listed_bachelor_programs": 0,
@@ -3107,9 +3087,9 @@
     "printed_catalog_years": [
      "2026-2027"
     ],
-    "program_pages_ok": 242
+    "program_pages_ok": 3
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-b",
    "state": "TN"
   },
   {
@@ -3165,17 +3145,18 @@
     "catalog_pages_ok": 0,
     "degree_map_docs_ok": 0,
     "evidence_sentences": {
-     "apply_to_major": 12,
-     "change_major": 5,
+     "apply_to_major": 4,
+     "change_major": 1,
      "cip_code": 0,
-     "declare_by": 1,
+     "declare_by": 0,
      "direct_admission": 0,
-     "gpa_requirement": 133,
-     "major_scholarship": 9,
-     "open_declaration": 2,
-     "pre_major": 3,
-     "progression": 42,
-     "undeclared": 3
+     "exam_credit_in_program": 14,
+     "gpa_requirement": 30,
+     "major_scholarship": 6,
+     "open_declaration": 1,
+     "pre_major": 2,
+     "progression": 14,
+     "undeclared": 1
     },
     "listed_bachelor_programs": 0,
     "listed_fields_by_name": {
@@ -3186,11 +3167,93 @@
      "psychology": 0
     },
     "listed_program_links": 0,
-    "policy_pages_ok": 0,
+    "policy_pages_ok": 2,
     "printed_catalog_years": [],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/OR/2026-10-05-b",
+   "run_dir": "programs/runs/OR/2026-10-06-scope",
+   "state": "OR"
+  },
+  {
+   "catalog_home": null,
+   "catalog_platform": "to be located",
+   "control": "public",
+   "folder": "chemeketa",
+   "gaps": [
+    "current catalog not retrieved",
+    "no reviewed program_catalogs record (completeness unknown)",
+    "no verified programs",
+    "no verified degree maps",
+    "no verified admission-to-major facts",
+    "undeclared policy not verified"
+   ],
+   "institution_key": "ipeds-208390",
+   "name": "Chemeketa Community College",
+   "persisted": {
+    "all_fields_by_name_or_cip": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "cr14": {
+     "admission_type": 0,
+     "cip_code": 0,
+     "internal_transfer": 0,
+     "program_linked_awards": 0,
+     "undeclared_policy": false
+    },
+    "partially_verified_programs": 0,
+    "program_catalog_record": false,
+    "programs": 0,
+    "programs_complete": false,
+    "programs_with_cip": 0,
+    "programs_with_degree_plan": 0,
+    "requirement_rows": 0,
+    "verified_fields_by_name_or_cip": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "verified_programs": 0
+   },
+   "priority": 3,
+   "run": {
+    "candidates": 0,
+    "catalog_fetch_errors": {},
+    "catalog_pages_ok": 0,
+    "degree_map_docs_ok": 0,
+    "evidence_sentences": {
+     "apply_to_major": 3,
+     "change_major": 2,
+     "cip_code": 0,
+     "declare_by": 0,
+     "direct_admission": 0,
+     "exam_credit_in_program": 0,
+     "gpa_requirement": 0,
+     "major_scholarship": 0,
+     "open_declaration": 0,
+     "pre_major": 0,
+     "progression": 0,
+     "undeclared": 0
+    },
+    "listed_bachelor_programs": 0,
+    "listed_fields_by_name": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "listed_program_links": 0,
+    "policy_pages_ok": 2,
+    "printed_catalog_years": [],
+    "program_pages_ok": 0
+   },
+   "run_dir": "programs/runs/OR/2026-10-06-scope",
    "state": "OR"
   },
   {
@@ -3246,17 +3309,182 @@
     "catalog_pages_ok": 0,
     "degree_map_docs_ok": 0,
     "evidence_sentences": {
-     "apply_to_major": 8,
-     "change_major": 4,
+     "apply_to_major": 2,
+     "change_major": 1,
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 1,
-     "gpa_requirement": 118,
-     "major_scholarship": 4,
-     "open_declaration": 8,
-     "pre_major": 12,
-     "progression": 123,
-     "undeclared": 1
+     "exam_credit_in_program": 26,
+     "gpa_requirement": 28,
+     "major_scholarship": 0,
+     "open_declaration": 3,
+     "pre_major": 0,
+     "progression": 21,
+     "undeclared": 0
+    },
+    "listed_bachelor_programs": 0,
+    "listed_fields_by_name": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "listed_program_links": 0,
+    "policy_pages_ok": 4,
+    "printed_catalog_years": [],
+    "program_pages_ok": 0
+   },
+   "run_dir": "programs/runs/OR/2026-10-06-scope",
+   "state": "OR"
+  },
+  {
+   "catalog_home": null,
+   "catalog_platform": "to be located",
+   "control": "private_nonprofit",
+   "folder": "mountangelabbey",
+   "gaps": [
+    "current catalog not retrieved",
+    "no reviewed program_catalogs record (completeness unknown)",
+    "no verified programs",
+    "no verified degree maps",
+    "no verified admission-to-major facts",
+    "undeclared policy not verified"
+   ],
+   "institution_key": "ipeds-209241",
+   "name": "Mount Angel Seminary",
+   "persisted": {
+    "all_fields_by_name_or_cip": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "cr14": {
+     "admission_type": 0,
+     "cip_code": 0,
+     "internal_transfer": 0,
+     "program_linked_awards": 0,
+     "undeclared_policy": false
+    },
+    "partially_verified_programs": 0,
+    "program_catalog_record": false,
+    "programs": 0,
+    "programs_complete": false,
+    "programs_with_cip": 0,
+    "programs_with_degree_plan": 0,
+    "requirement_rows": 0,
+    "verified_fields_by_name_or_cip": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "verified_programs": 0
+   },
+   "priority": 3,
+   "run": {
+    "candidates": 0,
+    "catalog_fetch_errors": {},
+    "catalog_pages_ok": 0,
+    "degree_map_docs_ok": 0,
+    "evidence_sentences": {
+     "apply_to_major": 1,
+     "change_major": 0,
+     "cip_code": 0,
+     "declare_by": 0,
+     "direct_admission": 1,
+     "exam_credit_in_program": 4,
+     "gpa_requirement": 14,
+     "major_scholarship": 0,
+     "open_declaration": 3,
+     "pre_major": 0,
+     "progression": 3,
+     "undeclared": 0
+    },
+    "listed_bachelor_programs": 0,
+    "listed_fields_by_name": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "listed_program_links": 0,
+    "policy_pages_ok": 2,
+    "printed_catalog_years": [],
+    "program_pages_ok": 0
+   },
+   "run_dir": "programs/runs/OR/2026-10-06-scope",
+   "state": "OR"
+  },
+  {
+   "catalog_home": null,
+   "catalog_platform": "to be located",
+   "control": "public",
+   "folder": "mhcc",
+   "gaps": [
+    "current catalog not retrieved",
+    "no reviewed program_catalogs record (completeness unknown)",
+    "no verified programs",
+    "no verified degree maps",
+    "no verified admission-to-major facts",
+    "undeclared policy not verified"
+   ],
+   "institution_key": "ipeds-209250",
+   "name": "Mt Hood Community College",
+   "persisted": {
+    "all_fields_by_name_or_cip": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "cr14": {
+     "admission_type": 0,
+     "cip_code": 0,
+     "internal_transfer": 0,
+     "program_linked_awards": 0,
+     "undeclared_policy": false
+    },
+    "partially_verified_programs": 0,
+    "program_catalog_record": false,
+    "programs": 0,
+    "programs_complete": false,
+    "programs_with_cip": 0,
+    "programs_with_degree_plan": 0,
+    "requirement_rows": 0,
+    "verified_fields_by_name_or_cip": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "verified_programs": 0
+   },
+   "priority": 3,
+   "run": {
+    "candidates": 0,
+    "catalog_fetch_errors": {},
+    "catalog_pages_ok": 0,
+    "degree_map_docs_ok": 0,
+    "evidence_sentences": {
+     "apply_to_major": 1,
+     "change_major": 0,
+     "cip_code": 0,
+     "declare_by": 0,
+     "direct_admission": 0,
+     "exam_credit_in_program": 0,
+     "gpa_requirement": 0,
+     "major_scholarship": 0,
+     "open_declaration": 0,
+     "pre_major": 0,
+     "progression": 2,
+     "undeclared": 0
     },
     "listed_bachelor_programs": 0,
     "listed_fields_by_name": {
@@ -3271,7 +3499,7 @@
     "printed_catalog_years": [],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/OR/2026-10-05-b",
+   "run_dir": "programs/runs/OR/2026-10-06-scope",
    "state": "OR"
   },
   {
@@ -3332,6 +3560,89 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 1,
+     "gpa_requirement": 0,
+     "major_scholarship": 0,
+     "open_declaration": 0,
+     "pre_major": 0,
+     "progression": 0,
+     "undeclared": 0
+    },
+    "listed_bachelor_programs": 0,
+    "listed_fields_by_name": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "listed_program_links": 0,
+    "policy_pages_ok": 3,
+    "printed_catalog_years": [],
+    "program_pages_ok": 0
+   },
+   "run_dir": "programs/runs/OR/2026-10-06-scope",
+   "state": "OR"
+  },
+  {
+   "catalog_home": null,
+   "catalog_platform": "to be located",
+   "control": "private_nonprofit",
+   "folder": "newhope",
+   "gaps": [
+    "current catalog not retrieved",
+    "no reviewed program_catalogs record (completeness unknown)",
+    "no verified programs",
+    "no verified degree maps",
+    "no verified admission-to-major facts",
+    "undeclared policy not verified"
+   ],
+   "institution_key": "ipeds-208725",
+   "name": "New Hope Christian College-Eugene",
+   "persisted": {
+    "all_fields_by_name_or_cip": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "cr14": {
+     "admission_type": 0,
+     "cip_code": 0,
+     "internal_transfer": 0,
+     "program_linked_awards": 0,
+     "undeclared_policy": false
+    },
+    "partially_verified_programs": 0,
+    "program_catalog_record": false,
+    "programs": 0,
+    "programs_complete": false,
+    "programs_with_cip": 0,
+    "programs_with_degree_plan": 0,
+    "requirement_rows": 0,
+    "verified_fields_by_name_or_cip": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "verified_programs": 0
+   },
+   "priority": 3,
+   "run": {
+    "candidates": 0,
+    "catalog_fetch_errors": {},
+    "catalog_pages_ok": 0,
+    "degree_map_docs_ok": 0,
+    "evidence_sentences": {
+     "apply_to_major": 0,
+     "change_major": 0,
+     "cip_code": 0,
+     "declare_by": 0,
+     "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 0,
      "major_scholarship": 0,
      "open_declaration": 0,
@@ -3352,7 +3663,141 @@
     "printed_catalog_years": [],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/OR/2026-10-05-b",
+   "run_dir": "programs/runs/OR/2026-10-06-scope",
+   "state": "OR"
+  },
+  {
+   "catalog_home": null,
+   "catalog_platform": "to be located",
+   "control": "private_nonprofit",
+   "folder": "pacificbible",
+   "gaps": [
+    "current catalog not retrieved",
+    "no reviewed program_catalogs record (completeness unknown)",
+    "no verified programs",
+    "no verified degree maps",
+    "no verified admission-to-major facts",
+    "undeclared policy not verified"
+   ],
+   "institution_key": "ipeds-407610",
+   "name": "Pacific Bible College",
+   "persisted": {
+    "all_fields_by_name_or_cip": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "cr14": {
+     "admission_type": 0,
+     "cip_code": 0,
+     "internal_transfer": 0,
+     "program_linked_awards": 0,
+     "undeclared_policy": false
+    },
+    "partially_verified_programs": 0,
+    "program_catalog_record": false,
+    "programs": 0,
+    "programs_complete": false,
+    "programs_with_cip": 0,
+    "programs_with_degree_plan": 0,
+    "requirement_rows": 0,
+    "verified_fields_by_name_or_cip": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "verified_programs": 0
+   },
+   "priority": 3,
+   "run": {
+    "candidates": 0,
+    "catalog_fetch_errors": {},
+    "catalog_pages_ok": 0,
+    "degree_map_docs_ok": 0,
+    "evidence_sentences": {
+     "apply_to_major": 0,
+     "change_major": 1,
+     "cip_code": 0,
+     "declare_by": 0,
+     "direct_admission": 0,
+     "exam_credit_in_program": 8,
+     "gpa_requirement": 11,
+     "major_scholarship": 0,
+     "open_declaration": 1,
+     "pre_major": 0,
+     "progression": 12,
+     "undeclared": 1
+    },
+    "listed_bachelor_programs": 0,
+    "listed_fields_by_name": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "listed_program_links": 0,
+    "policy_pages_ok": 2,
+    "printed_catalog_years": [],
+    "program_pages_ok": 0
+   },
+   "run_dir": "programs/runs/OR/2026-10-06-scope",
+   "state": "OR"
+  },
+  {
+   "catalog_home": null,
+   "catalog_platform": "to be located",
+   "control": "private_nonprofit",
+   "folder": "willamette-209603",
+   "gaps": [
+    "no program-depth run yet",
+    "no reviewed program_catalogs record (completeness unknown)",
+    "no verified programs",
+    "priority fields listed but not verified: engineering, computer_science, business_finance, nursing_health, psychology",
+    "no verified degree maps",
+    "no verified admission-to-major facts",
+    "undeclared policy not verified"
+   ],
+   "institution_key": "ipeds-209603",
+   "name": "Pacific Northwest College of Art",
+   "persisted": {
+    "all_fields_by_name_or_cip": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "cr14": {
+     "admission_type": 0,
+     "cip_code": 0,
+     "internal_transfer": 0,
+     "program_linked_awards": 0,
+     "undeclared_policy": false
+    },
+    "partially_verified_programs": 0,
+    "program_catalog_record": false,
+    "programs": 0,
+    "programs_complete": false,
+    "programs_with_cip": 0,
+    "programs_with_degree_plan": 0,
+    "requirement_rows": 0,
+    "verified_fields_by_name_or_cip": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "verified_programs": 0
+   },
+   "priority": 3,
+   "run": null,
+   "run_dir": null,
    "state": "OR"
   },
   {
@@ -3413,12 +3858,13 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
-     "gpa_requirement": 1,
-     "major_scholarship": 3,
+     "exam_credit_in_program": 0,
+     "gpa_requirement": 0,
+     "major_scholarship": 0,
      "open_declaration": 0,
-     "pre_major": 1,
-     "progression": 2,
-     "undeclared": 1
+     "pre_major": 0,
+     "progression": 0,
+     "undeclared": 0
     },
     "listed_bachelor_programs": 0,
     "listed_fields_by_name": {
@@ -3429,12 +3875,146 @@
      "psychology": 0
     },
     "listed_program_links": 0,
-    "policy_pages_ok": 2,
+    "policy_pages_ok": 0,
     "printed_catalog_years": [],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/OR/2026-10-05-b",
+   "run_dir": "programs/runs/OR/2026-10-06-scope",
    "state": "OR"
+  },
+  {
+   "catalog_home": null,
+   "catalog_platform": "to be located",
+   "control": "private_nonprofit",
+   "folder": "warnerpacific-480198",
+   "gaps": [
+    "current catalog not retrieved",
+    "no reviewed program_catalogs record (completeness unknown)",
+    "no verified programs",
+    "no verified degree maps",
+    "no verified admission-to-major facts",
+    "undeclared policy not verified"
+   ],
+   "institution_key": "ipeds-480198",
+   "name": "Warner Pacific University Professional and Graduate Studies",
+   "persisted": {
+    "all_fields_by_name_or_cip": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "cr14": {
+     "admission_type": 0,
+     "cip_code": 0,
+     "internal_transfer": 0,
+     "program_linked_awards": 0,
+     "undeclared_policy": false
+    },
+    "partially_verified_programs": 0,
+    "program_catalog_record": false,
+    "programs": 0,
+    "programs_complete": false,
+    "programs_with_cip": 0,
+    "programs_with_degree_plan": 0,
+    "requirement_rows": 0,
+    "verified_fields_by_name_or_cip": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "verified_programs": 0
+   },
+   "priority": 3,
+   "run": {
+    "candidates": 0,
+    "catalog_fetch_errors": {},
+    "catalog_pages_ok": 0,
+    "degree_map_docs_ok": 50,
+    "evidence_sentences": {
+     "apply_to_major": 0,
+     "change_major": 0,
+     "cip_code": 0,
+     "declare_by": 0,
+     "direct_admission": 0,
+     "exam_credit_in_program": 0,
+     "gpa_requirement": 1,
+     "major_scholarship": 2,
+     "open_declaration": 0,
+     "pre_major": 0,
+     "progression": 0,
+     "undeclared": 0
+    },
+    "listed_bachelor_programs": 0,
+    "listed_fields_by_name": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "listed_program_links": 0,
+    "policy_pages_ok": 3,
+    "printed_catalog_years": [],
+    "program_pages_ok": 0
+   },
+   "run_dir": "programs/runs/OR/2026-10-06-scope",
+   "state": "OR"
+  },
+  {
+   "catalog_home": null,
+   "catalog_platform": "to be located",
+   "control": "private_nonprofit",
+   "folder": "abcnash",
+   "gaps": [
+    "no program-depth run yet",
+    "no reviewed program_catalogs record (completeness unknown)",
+    "no verified programs",
+    "priority fields listed but not verified: engineering, computer_science, business_finance, nursing_health, psychology",
+    "no verified degree maps",
+    "no verified admission-to-major facts",
+    "undeclared policy not verified"
+   ],
+   "institution_key": "ipeds-219505",
+   "name": "American Baptist College",
+   "persisted": {
+    "all_fields_by_name_or_cip": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "cr14": {
+     "admission_type": 0,
+     "cip_code": 0,
+     "internal_transfer": 0,
+     "program_linked_awards": 0,
+     "undeclared_policy": false
+    },
+    "partially_verified_programs": 0,
+    "program_catalog_record": false,
+    "programs": 0,
+    "programs_complete": false,
+    "programs_with_cip": 0,
+    "programs_with_degree_plan": 0,
+    "requirement_rows": 0,
+    "verified_fields_by_name_or_cip": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "verified_programs": 0
+   },
+   "priority": 3,
+   "run": null,
+   "run_dir": null,
+   "state": "TN"
   },
   {
    "catalog_home": null,
@@ -3494,6 +4074,7 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 0,
      "major_scholarship": 0,
      "open_declaration": 0,
@@ -3514,7 +4095,7 @@
     "printed_catalog_years": [],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-b",
    "state": "TN"
   },
   {
@@ -3575,6 +4156,7 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 1,
      "major_scholarship": 0,
      "open_declaration": 0,
@@ -3595,7 +4177,7 @@
     "printed_catalog_years": [],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-b",
    "state": "TN"
   },
   {
@@ -3649,18 +4231,19 @@
     "candidates": 0,
     "catalog_fetch_errors": {},
     "catalog_pages_ok": 0,
-    "degree_map_docs_ok": 0,
+    "degree_map_docs_ok": 3,
     "evidence_sentences": {
      "apply_to_major": 10,
      "change_major": 3,
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 39,
      "major_scholarship": 2,
-     "open_declaration": 1,
+     "open_declaration": 0,
      "pre_major": 11,
-     "progression": 20,
+     "progression": 15,
      "undeclared": 0
     },
     "listed_bachelor_programs": 0,
@@ -3676,7 +4259,7 @@
     "printed_catalog_years": [],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-b",
    "state": "TN"
   },
   {
@@ -3737,6 +4320,7 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 0,
      "major_scholarship": 0,
      "open_declaration": 0,
@@ -3757,7 +4341,7 @@
     "printed_catalog_years": [],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-b",
    "state": "TN"
   },
   {
@@ -3818,11 +4402,12 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 4,
      "major_scholarship": 0,
      "open_declaration": 0,
      "pre_major": 5,
-     "progression": 7,
+     "progression": 3,
      "undeclared": 0
     },
     "listed_bachelor_programs": 0,
@@ -3838,7 +4423,7 @@
     "printed_catalog_years": [],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-b",
    "state": "TN"
   },
   {
@@ -3899,6 +4484,7 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 1,
      "major_scholarship": 0,
      "open_declaration": 0,
@@ -3919,16 +4505,68 @@
     "printed_catalog_years": [],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-b",
    "state": "TN"
   },
   {
    "catalog_home": null,
    "catalog_platform": "to be located",
    "control": "private_nonprofit",
+   "folder": "herzing",
+   "gaps": [
+    "no program-depth run yet",
+    "no reviewed program_catalogs record (completeness unknown)",
+    "no verified programs",
+    "priority fields listed but not verified: engineering, computer_science, business_finance, nursing_health, psychology",
+    "no verified degree maps",
+    "no verified admission-to-major facts",
+    "undeclared policy not verified"
+   ],
+   "institution_key": "ipeds-499149",
+   "name": "Herzing University-Nashville",
+   "persisted": {
+    "all_fields_by_name_or_cip": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "cr14": {
+     "admission_type": 0,
+     "cip_code": 0,
+     "internal_transfer": 0,
+     "program_linked_awards": 0,
+     "undeclared_policy": false
+    },
+    "partially_verified_programs": 0,
+    "program_catalog_record": false,
+    "programs": 0,
+    "programs_complete": false,
+    "programs_with_cip": 0,
+    "programs_with_degree_plan": 0,
+    "requirement_rows": 0,
+    "verified_fields_by_name_or_cip": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "verified_programs": 0
+   },
+   "priority": 3,
+   "run": null,
+   "run_dir": null,
+   "state": "TN"
+  },
+  {
+   "catalog_home": "https://johnsonu.edu/academic-catalogs/",
+   "catalog_platform": "pdf",
+   "control": "private_nonprofit",
    "folder": "johnsonu",
    "gaps": [
-    "current catalog not retrieved",
+    "catalog retrieved but no program list parsed",
     "no reviewed program_catalogs record (completeness unknown)",
     "no verified programs",
     "no verified degree maps",
@@ -3972,20 +4610,21 @@
    "run": {
     "candidates": 0,
     "catalog_fetch_errors": {},
-    "catalog_pages_ok": 0,
+    "catalog_pages_ok": 1,
     "degree_map_docs_ok": 0,
     "evidence_sentences": {
-     "apply_to_major": 1,
+     "apply_to_major": 0,
      "change_major": 0,
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 0,
      "major_scholarship": 0,
      "open_declaration": 0,
-     "pre_major": 1,
+     "pre_major": 0,
      "progression": 0,
-     "undeclared": 1
+     "undeclared": 0
     },
     "listed_bachelor_programs": 0,
     "listed_fields_by_name": {
@@ -3995,21 +4634,23 @@
      "nursing_health": 0,
      "psychology": 0
     },
-    "listed_program_links": 0,
-    "policy_pages_ok": 2,
-    "printed_catalog_years": [],
+    "listed_program_links": 1,
+    "policy_pages_ok": 0,
+    "printed_catalog_years": [
+     "2014-2015"
+    ],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-j-pdf",
    "state": "TN"
   },
   {
-   "catalog_home": null,
-   "catalog_platform": "to be located",
+   "catalog_home": "https://www.king.edu/academics/academic-catalogs/",
+   "catalog_platform": "pdf",
    "control": "private_nonprofit",
    "folder": "king",
    "gaps": [
-    "current catalog not retrieved",
+    "catalog retrieved but no program list parsed",
     "no reviewed program_catalogs record (completeness unknown)",
     "no verified programs",
     "no verified degree maps",
@@ -4051,21 +4692,22 @@
    },
    "priority": 3,
    "run": {
-    "candidates": 0,
+    "candidates": 33,
     "catalog_fetch_errors": {},
-    "catalog_pages_ok": 0,
+    "catalog_pages_ok": 1,
     "degree_map_docs_ok": 0,
     "evidence_sentences": {
-     "apply_to_major": 3,
+     "apply_to_major": 0,
      "change_major": 0,
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
-     "gpa_requirement": 5,
+     "exam_credit_in_program": 0,
+     "gpa_requirement": 0,
      "major_scholarship": 0,
      "open_declaration": 0,
-     "pre_major": 3,
-     "progression": 1,
+     "pre_major": 0,
+     "progression": 0,
      "undeclared": 0
     },
     "listed_bachelor_programs": 0,
@@ -4078,19 +4720,21 @@
     },
     "listed_program_links": 0,
     "policy_pages_ok": 0,
-    "printed_catalog_years": [],
+    "printed_catalog_years": [
+     "2026-2027"
+    ],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-j-pdf",
    "state": "TN"
   },
   {
-   "catalog_home": null,
-   "catalog_platform": "to be located",
+   "catalog_home": "https://catalog.lanecollege.edu/",
+   "catalog_platform": "coursedog",
    "control": "private_nonprofit",
    "folder": "lanecollege",
    "gaps": [
-    "current catalog not retrieved",
+    "catalog retrieved but no program list parsed",
     "no reviewed program_catalogs record (completeness unknown)",
     "no verified programs",
     "no verified degree maps",
@@ -4134,19 +4778,20 @@
    "run": {
     "candidates": 0,
     "catalog_fetch_errors": {},
-    "catalog_pages_ok": 0,
+    "catalog_pages_ok": 2,
     "degree_map_docs_ok": 0,
     "evidence_sentences": {
      "apply_to_major": 0,
-     "change_major": 1,
+     "change_major": 0,
      "cip_code": 0,
-     "declare_by": 1,
+     "declare_by": 0,
      "direct_admission": 0,
-     "gpa_requirement": 5,
-     "major_scholarship": 3,
+     "exam_credit_in_program": 5,
+     "gpa_requirement": 1,
+     "major_scholarship": 0,
      "open_declaration": 0,
-     "pre_major": 0,
-     "progression": 9,
+     "pre_major": 1,
+     "progression": 2,
      "undeclared": 0
     },
     "listed_bachelor_programs": 0,
@@ -4157,12 +4802,14 @@
      "nursing_health": 0,
      "psychology": 0
     },
-    "listed_program_links": 0,
-    "policy_pages_ok": 2,
-    "printed_catalog_years": [],
-    "program_pages_ok": 0
+    "listed_program_links": 20,
+    "policy_pages_ok": 1,
+    "printed_catalog_years": [
+     "2026-2027"
+    ],
+    "program_pages_ok": 20
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-g-cn",
    "state": "TN"
   },
   {
@@ -4223,6 +4870,7 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 0,
      "major_scholarship": 0,
      "open_declaration": 0,
@@ -4243,7 +4891,59 @@
     "printed_catalog_years": [],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-b",
+   "state": "TN"
+  },
+  {
+   "catalog_home": null,
+   "catalog_platform": "to be located",
+   "control": "private_nonprofit",
+   "folder": "midsouthchristian",
+   "gaps": [
+    "no program-depth run yet",
+    "no reviewed program_catalogs record (completeness unknown)",
+    "no verified programs",
+    "priority fields listed but not verified: engineering, computer_science, business_finance, nursing_health, psychology",
+    "no verified degree maps",
+    "no verified admission-to-major facts",
+    "undeclared policy not verified"
+   ],
+   "institution_key": "ipeds-481225",
+   "name": "Mid-South Christian College",
+   "persisted": {
+    "all_fields_by_name_or_cip": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "cr14": {
+     "admission_type": 0,
+     "cip_code": 0,
+     "internal_transfer": 0,
+     "program_linked_awards": 0,
+     "undeclared_policy": false
+    },
+    "partially_verified_programs": 0,
+    "program_catalog_record": false,
+    "programs": 0,
+    "programs_complete": false,
+    "programs_with_cip": 0,
+    "programs_with_degree_plan": 0,
+    "requirement_rows": 0,
+    "verified_fields_by_name_or_cip": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "verified_programs": 0
+   },
+   "priority": 3,
+   "run": null,
+   "run_dir": null,
    "state": "TN"
   },
   {
@@ -4304,6 +5004,7 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 0,
      "major_scholarship": 0,
      "open_declaration": 0,
@@ -4324,7 +5025,7 @@
     "printed_catalog_years": [],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-b",
    "state": "TN"
   },
   {
@@ -4385,6 +5086,7 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 11,
      "major_scholarship": 0,
      "open_declaration": 0,
@@ -4405,7 +5107,7 @@
     "printed_catalog_years": [],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-b",
    "state": "TN"
   },
   {
@@ -4456,23 +5158,22 @@
    },
    "priority": 3,
    "run": {
-    "candidates": 88,
-    "catalog_fetch_errors": {
-     "http_404": 1
-    },
-    "catalog_pages_ok": 27,
+    "candidates": 265,
+    "catalog_fetch_errors": {},
+    "catalog_pages_ok": 2,
     "degree_map_docs_ok": 0,
     "evidence_sentences": {
-     "apply_to_major": 48,
+     "apply_to_major": 46,
      "change_major": 5,
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
-     "gpa_requirement": 124,
-     "major_scholarship": 30,
-     "open_declaration": 18,
-     "pre_major": 41,
-     "progression": 64,
+     "exam_credit_in_program": 0,
+     "gpa_requirement": 108,
+     "major_scholarship": 29,
+     "open_declaration": 0,
+     "pre_major": 39,
+     "progression": 41,
      "undeclared": 7
     },
     "listed_bachelor_programs": 37,
@@ -4488,9 +5189,9 @@
     "printed_catalog_years": [
      "2025-2026"
     ],
-    "program_pages_ok": 348
+    "program_pages_ok": 37
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-b",
    "state": "TN",
    "state_inventory": {
     "bachelor_rows": 26,
@@ -4555,11 +5256,12 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 0,
      "major_scholarship": 0,
      "open_declaration": 0,
      "pre_major": 1,
-     "progression": 1,
+     "progression": 0,
      "undeclared": 0
     },
     "listed_bachelor_programs": 0,
@@ -4575,7 +5277,59 @@
     "printed_catalog_years": [],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-b",
+   "state": "TN"
+  },
+  {
+   "catalog_home": null,
+   "catalog_platform": "to be located",
+   "control": "private_nonprofit",
+   "folder": "visible",
+   "gaps": [
+    "no program-depth run yet",
+    "no reviewed program_catalogs record (completeness unknown)",
+    "no verified programs",
+    "priority fields listed but not verified: engineering, computer_science, business_finance, nursing_health, psychology",
+    "no verified degree maps",
+    "no verified admission-to-major facts",
+    "undeclared policy not verified"
+   ],
+   "institution_key": "ipeds-449764",
+   "name": "Visible Music College",
+   "persisted": {
+    "all_fields_by_name_or_cip": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "cr14": {
+     "admission_type": 0,
+     "cip_code": 0,
+     "internal_transfer": 0,
+     "program_linked_awards": 0,
+     "undeclared_policy": false
+    },
+    "partially_verified_programs": 0,
+    "program_catalog_record": false,
+    "programs": 0,
+    "programs_complete": false,
+    "programs_with_cip": 0,
+    "programs_with_degree_plan": 0,
+    "requirement_rows": 0,
+    "verified_fields_by_name_or_cip": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "verified_programs": 0
+   },
+   "priority": 3,
+   "run": null,
+   "run_dir": null,
    "state": "TN"
   },
   {
@@ -4636,6 +5390,7 @@
      "cip_code": 0,
      "declare_by": 0,
      "direct_admission": 0,
+     "exam_credit_in_program": 0,
      "gpa_requirement": 2,
      "major_scholarship": 3,
      "open_declaration": 0,
@@ -4656,16 +5411,89 @@
     "printed_catalog_years": [],
     "program_pages_ok": 0
    },
-   "run_dir": "programs/runs/TN/2026-10-05-a",
+   "run_dir": "programs/runs/TN/2026-10-05-b",
+   "state": "TN"
+  },
+  {
+   "catalog_home": null,
+   "catalog_platform": "to be located",
+   "control": "private_nonprofit",
+   "folder": "williamsoncc",
+   "gaps": [
+    "no program-depth run yet",
+    "no reviewed program_catalogs record (completeness unknown)",
+    "no verified programs",
+    "priority fields listed but not verified: engineering, computer_science, business_finance, nursing_health, psychology",
+    "no verified degree maps",
+    "no verified admission-to-major facts",
+    "undeclared policy not verified"
+   ],
+   "institution_key": "ipeds-443340",
+   "name": "Williamson Christian College",
+   "persisted": {
+    "all_fields_by_name_or_cip": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "cr14": {
+     "admission_type": 0,
+     "cip_code": 0,
+     "internal_transfer": 0,
+     "program_linked_awards": 0,
+     "undeclared_policy": false
+    },
+    "partially_verified_programs": 0,
+    "program_catalog_record": false,
+    "programs": 0,
+    "programs_complete": false,
+    "programs_with_cip": 0,
+    "programs_with_degree_plan": 0,
+    "requirement_rows": 0,
+    "verified_fields_by_name_or_cip": {
+     "business_finance": 0,
+     "computer_science": 0,
+     "engineering": 0,
+     "nursing_health": 0,
+     "psychology": 0
+    },
+    "verified_programs": 0
+   },
+   "priority": 3,
+   "run": null,
+   "run_dir": null,
    "state": "TN"
   }
  ],
  "runs": {
   "OR": [
-   "programs/runs/OR/2026-10-05-b"
+   "programs/runs/OR/2026-10-05-b",
+   "programs/runs/OR/2026-10-05-d",
+   "programs/runs/OR/2026-10-05-e-js",
+   "programs/runs/OR/2026-10-05-f-up",
+   "programs/runs/OR/2026-10-05-g-wu",
+   "programs/runs/OR/2026-10-05-h-cl",
+   "programs/runs/OR/2026-10-05-i-cl",
+   "programs/runs/OR/2026-10-05-j-sc",
+   "programs/runs/OR/2026-10-06-adm",
+   "programs/runs/OR/2026-10-06-casc",
+   "programs/runs/OR/2026-10-06-cl2",
+   "programs/runs/OR/2026-10-06-diag2",
+   "programs/runs/OR/2026-10-06-oit",
+   "programs/runs/OR/2026-10-06-scope"
   ],
   "TN": [
    "programs/runs/TN/2026-10-05-a",
+   "programs/runs/TN/2026-10-05-b",
+   "programs/runs/TN/2026-10-05-d-js",
+   "programs/runs/TN/2026-10-05-e-tntech",
+   "programs/runs/TN/2026-10-05-f-maps",
+   "programs/runs/TN/2026-10-05-g-cn",
+   "programs/runs/TN/2026-10-05-h-rhodes",
+   "programs/runs/TN/2026-10-05-i-utc",
+   "programs/runs/TN/2026-10-05-j-pdf",
    "programs/runs/TN/2026-10-05-thec2"
   ]
  },

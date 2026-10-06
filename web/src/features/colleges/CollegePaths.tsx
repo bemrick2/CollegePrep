@@ -22,7 +22,7 @@ import {
   type PlannedExam,
 } from '../../lib/engine/examCredit'
 import { formatShortDate } from '../../lib/engine/dates'
-import { outlookFor } from '../parent/CostOutlook'
+import { costPhrase, outlookFor } from '../parent/CostOutlook'
 import { useSavedComparison, COMPARE_YEAR } from './useSavedComparison'
 import { useExamPlan } from './useExamPlan'
 import { Book, Check, Clock, Sparkle, Trophy, Wallet, Info, School, X } from '../../components/icons'
@@ -308,15 +308,18 @@ function PathCard({
       </div>
       <ol className="grid grid-cols-1 divide-y divide-line">
         <Route icon={<Clock size={16} />} title="Standard path" tag="4 years · 8 semesters">
-          {outlook.degreeTotal != null ? (
-            <p>
-              <span className="font-semibold tabular text-ink">{usd(outlook.degreeTotal)}</span> published {outlook.residency === 'out_of_state' ? 'out-of-state ' : outlook.residency === 'in_state' ? 'in-state ' : ''}cost of attendance over 4 years, before aid
-              {outlook.basis === 'assumed_in_state' && outlook.residency === 'in_state' ? ' (in-state assumed — set your home state)' : ''}.
-            </p>
-          ) : (
-            <p className="text-ink-3">No verified cost of attendance for {COMPARE_YEAR} yet.</p>
-          )}
-          {outlook.basis === 'out_of_state_missing' && <p className="mt-1 text-xs text-warn">No out-of-state price is published, so this in-state figure likely understates your cost.</p>}
+          {(() => {
+            const c = costPhrase(outlook)
+            return (
+              <>
+                <p className={c.amount ? undefined : 'text-ink-3'}>
+                  {c.amount && <span className="font-semibold tabular text-ink">{c.amount} </span>}
+                  {c.amount ? c.label : c.label + '.'}
+                </p>
+                {c.note && <p className="mt-1 text-xs text-warn">{c.note}</p>}
+              </>
+            )
+          })()}
         </Route>
 
         <Route icon={<Sparkle size={16} />} title="Your interests">
