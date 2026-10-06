@@ -81,7 +81,7 @@ def review(state, run, today=None):
         approve.append({'candidate_id': c['candidate_id'], 'reason': f"Standing review ({c['extractor']}): rows verbatim in the stored official page; passed the layout hold rules."})
     catalogs = [c for c in catalog_records(state, run, lists, today_year)
                 # a list that names fewer bachelor's programs than are verified, or lists majors without their award, cannot bound the count
-                if c['listed_bachelor_programs'] >= len(program_keys[c['institution_key']]) and not lists[c['institution_key']]['counts'].get('major_unlabeled_degree')]
+                if c['listed_bachelor_programs'] >= max(5, len(program_keys[c['institution_key']])) and not lists[c['institution_key']]['counts'].get('major_unlabeled_degree')]
     return approve, catalogs, held
 
 

@@ -1126,3 +1126,31 @@ class SitemapTests(unittest.TestCase):
             pages = sorted(e['url'] for e in Run(Path(d)).entries() if e['role'] == 'program_page')
         self.assertEqual(pages, ['https://catalog.x.edu/undergraduate/arts/history/history-major/',
                                  'https://catalog.x.edu/undergraduate/sciences/biology/biology-bs/'])
+
+
+class ListedProgramTests(unittest.TestCase):
+    def test_award_from_the_list_name_from_the_page(self):  # Auburn 2026-27
+        from pipeline import text as T
+        from programs import verify as V
+        url = 'https://bulletin.auburn.edu/undergraduate/agriculture/agbusiness_major/'
+        e = {'url': url, 'sha256': 'page', 'fetched_at': '2026-10-06T00:00:00'}
+        listed = {'name': 'Agricultural Business & Economics – BS', 'printed': 'Agricultural Business & Economics – BS', 'url': url,
+                  'credential_level': 'bachelor', 'listed_on': 'https://bulletin.auburn.edu/undergraduate/majors/', 'listed_on_sha256': 'list'}
+        txt = 'Auburn Bulletin 2026-2027\nAgricultural Business & Economics (AGEC)\nCurriculum'
+        page = T.Page(txt, 'Agricultural Business & Economics (AGEC) | Auburn University Bulletin', [], [], ['Agricultural Business & Economics (AGEC)'])
+        tgt = {'catalog': {'platform': 'courseleaf'}, '_listed': {url: listed}}
+        out = X.program_page_candidates(tgt, {'institution_key': 'k'}, e, page, '2026-27')
+        self.assertEqual([(c['record']['program_name'], c['extractor'], c['record']['catalog_year']) for c in out],
+                         [('Agricultural Business & Economics – BS', 'listed_program/v1', '2026-2027')])
+        self.assertEqual(V.check_candidate(out[0], txt, {'list': 'Majors\nAgricultural Business & Economics – BS'}.get), [])
+        other = T.Page(txt.replace('Agricultural Business & Economics (AGEC)', 'Animal Sciences'), 't', [], [], ['Animal Sciences'])
+        self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, other, '2026-27'), [])  # page is another program
+        undated = T.Page('Agricultural Business & Economics (AGEC)', 't', [], [], ['Agricultural Business & Economics (AGEC)'])
+        self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, undated, '2026-27'), [])
+        bare = {**tgt, '_listed': {url: {**listed, 'printed': 'Agricultural Business & Economics'}}}
+        self.assertEqual(X.program_page_candidates(bare, {'institution_key': 'k'}, e, page, '2026-27'), [])
+
+    def test_strip_award(self):
+        for n, base in (('Accounting, BS', 'Accounting'), ('Biology (B.S.)', 'Biology'), ('Art, BA, BFA', 'Art'),
+                        ('Art, Media, and Design', 'Art, Media, and Design'), ('Economics: BA, BS', 'Economics')):
+            self.assertEqual(X.strip_award(n), base)
