@@ -1,4 +1,4 @@
--- Front-end contracts from issue #37: CR-1 planning preferences, CR-2 benchmarks, CR-5 question content,
+-- Front-end contracts from issue #37: CR-4 cost projection, CR-1 planning preferences, CR-2 benchmarks, CR-5 question content,
 -- CR-7 verified-record school list, CR-8 answer-free help fields, CR-9 institution level and saved schools.
 -- Everything is rolled back. Run with psql -v ON_ERROR_STOP=1.
 \set QUIET on
@@ -87,6 +87,35 @@ begin
   perform public.save_household_school(current_setting('t.hh')::uuid, 'contract-extra-7');
   perform hp_test.eq((select count(*) from public.household_saved_schools), 8::bigint, 'room after removal');
   perform hp_test.as_owner();
+end $$;
+
+-- CR-12 primary school: one per household, must be saved, cleared by null or by removing the school.
+do $$ begin
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+  perform hp_test.eq((select count(*) from public.household_saved_schools where is_primary), 0::bigint, 'no primary by default');
+  perform public.set_household_primary_school(current_setting('t.hh')::uuid, 'contract-four');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  perform public.set_household_primary_school(current_setting('t.hh')::uuid, 'contract-two');
+  perform hp_test.eq((select string_agg(institution_key, ',') from public.household_saved_schools where is_primary), 'contract-two',
+    'student moves the primary; only one remains');
+  perform public.set_household_primary_school(current_setting('t.hh')::uuid, 'contract-two');  -- idempotent
+  perform hp_test.expect_error(format('select public.set_household_primary_school(%L, %L)', current_setting('t.hh'), 'contract-extra-1'),
+    '22023', '%Save%');
+  perform hp_test.expect_error(format($q$update public.household_saved_schools set is_primary = true where institution_key = 'contract-four' and household_id = %L$q$,
+    current_setting('t.hh')), '42501');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000099');
+  perform hp_test.expect_error(format('select public.set_household_primary_school(%L, %L)', current_setting('t.hh'), 'contract-four'), '42501');
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+  perform public.set_household_primary_school(current_setting('t.hh')::uuid, null);
+  perform hp_test.eq((select count(*) from public.household_saved_schools where is_primary), 0::bigint, 'null clears the primary');
+  perform public.set_household_primary_school(current_setting('t.hh')::uuid, 'contract-extra-7');
+  perform public.remove_household_school(current_setting('t.hh')::uuid, 'contract-extra-7');
+  perform hp_test.eq((select count(*) from public.household_saved_schools where is_primary), 0::bigint, 'removing the primary clears it');
+  perform public.save_household_school(current_setting('t.hh')::uuid, 'contract-extra-7');
+  perform hp_test.eq((select count(*) from public.household_saved_schools where is_primary), 0::bigint, 're-saving does not restore it');
+  perform hp_test.as_owner();
+  perform hp_test.expect_error(format($q$update public.household_saved_schools set is_primary = true where household_id = %L$q$,
+    current_setting('t.hh')), '23505');
 end $$;
 
 -- CR-1 planning preferences: guardians with set_goals write; the household's student reads but cannot write.
@@ -187,6 +216,156 @@ begin
   perform hp_test.as_owner();
 end $$;
 
+-- CR-4 cost_projection: verified, exact-year data only; only capped prior credits are counted.
+insert into public.transfer_policies(institution_id, academic_year, policy_url, max_transfer_credits, source_id, verification_status, last_verified_at) values
+ ('50000000-0000-0000-0000-000000000002', '2026-27', 'https://example.edu/transfer', 60, '50000000-0000-0000-0000-000000000001', 'verified', current_date);
+insert into public.credit_policies(institution_id, policy_kind, academic_year, policy_url, general_limit_credits, source_id, verification_status, last_verified_at) values
+ ('50000000-0000-0000-0000-000000000002', 'dual_enrollment', '2026-27', 'https://example.edu/dual', 24, '50000000-0000-0000-0000-000000000001', 'verified', current_date),
+ ('50000000-0000-0000-0000-000000000002', 'AP', '2026-27', 'https://example.edu/ap', 6, '50000000-0000-0000-0000-000000000001', 'verified', current_date);
+insert into public.institutional_awards(institution_id, award_name, academic_year, award_type, award_max, source_id, verification_status, last_verified_at) values
+ ('50000000-0000-0000-0000-000000000002', 'Verified Merit', '2026-27', 'merit', 4000, '50000000-0000-0000-0000-000000000001', 'verified', current_date),
+ ('50000000-0000-0000-0000-000000000002', 'Draft Merit', '2026-27', 'merit', 9000, '50000000-0000-0000-0000-000000000001', 'unverified', null),
+ ('50000000-0000-0000-0000-000000000002', 'Old Merit', '2025-26', 'merit', 9000, '50000000-0000-0000-0000-000000000001', 'verified', current_date);
+insert into public.institution_costs(institution_id, academic_year, residency, tuition, source_id, verification_status) values
+ ('50000000-0000-0000-0000-000000000002', '2026-27', 'out_of_state', 30000, '50000000-0000-0000-0000-000000000001', 'unverified');
+do $$
+declare r jsonb; i jsonb; st uuid := current_setting('t.st')::uuid;
+begin
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+  r := public.cost_projection(st, array['contract-four', 'contract-two', 'no-such-school'], '2026-27',
+         '{"residency": "in_state", "prior_credits": 30}');
+  perform hp_test.check((r->>'guaranteed')::boolean = false and (r->>'prices_held_constant')::boolean, 'projection is labelled');
+  i := r->'institutions'->0;
+  perform hp_test.check(i->>'status' = 'ok' and (i->>'years')::int = 4 and i->>'years_source' = 'level_default', 'four-year default');
+  perform hp_test.eq((i->>'baseline_total')::numeric, 36000::numeric, 'baseline = annual x years');
+  perform hp_test.eq((i->'levers'->0->>'accepted_upper_bound')::numeric, 24::numeric, 'lowest verified cap wins (AP limit ignored)');
+  perform hp_test.check((i->'levers'->0->>'terms_saved')::int = 1 and (i->'levers'->0->>'counted')::boolean
+    and (i->'levers'->0->>'requires_confirmation')::boolean, 'one term saved, needs confirmation');
+  perform hp_test.eq((i->>'optimized_total')::numeric, 31500::numeric, 'optimized subtracts one term');
+  perform hp_test.eq((i->>'savings_total')::numeric, 4500::numeric, 'savings');
+  perform hp_test.eq(jsonb_array_length(i->'not_counted'->'awards'), 1, 'only verified exact-year awards are listed');
+  perform hp_test.check(i->'not_counted'->'awards'->0->>'award_name' = 'Verified Merit', 'listed award');
+  perform hp_test.check(r->'institutions'->1->>'status' = 'missing_cost', 'no fallback to another year');
+  perform hp_test.check(r->'institutions'->2->>'status' = 'unknown_institution', 'unknown school is explicit');
+
+  r := public.cost_projection(st, array['contract-four'], '2026-27', '{"residency": "out_of_state"}');
+  perform hp_test.check(r->'institutions'->0->>'status' = 'missing_cost', 'unverified cost is not used');
+  r := public.cost_projection(st, array['contract-two'], '2023-24', '{"residency": "in_state", "prior_credits": 30}');
+  i := r->'institutions'->0;
+  perform hp_test.check(i->'levers'->0->>'reason' = 'no_verified_cap' and (i->>'savings_total')::numeric = 0
+    and (i->>'baseline_total')::numeric = 6000, 'no verified cap: nothing counted');
+  r := public.cost_projection(st, array['contract-four'], '2026-27',
+         '{"residency": "in_state", "prior_credits": 90, "years": 1, "credits_per_term": 6}');
+  perform hp_test.eq((r->'institutions'->0->'levers'->0->>'terms_saved')::numeric, 1::numeric, 'at least one term is left');
+  r := public.cost_projection(st, array['contract-four'], '2026-27', '{"residency": "in_state"}');
+  perform hp_test.check(r->'institutions'->0->'levers'->0->>'reason' = 'no_prior_credits'
+    and (r->'institutions'->0->>'optimized_total')::numeric = 36000, 'no lever without stated credits');
+
+  perform hp_test.expect_error(format($q$select public.cost_projection(%L, array['contract-four'], '2026-27', '{}')$q$, st), '22023', '%residency%');
+  perform hp_test.expect_error(format($q$select public.cost_projection(%L, array['contract-four'], '2026-27', '{"residency":"in_state","merit":1}')$q$, st), '22023');
+  perform hp_test.expect_error(format($q$select public.cost_projection(%L, array['contract-four'], '2026-27', '{"residency":"in_state","years":7}')$q$, st), '22023');
+  perform hp_test.expect_error(format($q$select public.cost_projection(%L, array['contract-four'], '2026-27', '{"residency":"in_state","years":"x"}')$q$, st), '22023');
+  perform hp_test.expect_error(format($q$select public.cost_projection(%L, array['contract-four'], '2026', '{"residency":"in_state"}')$q$, st), '22023');
+
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  perform hp_test.check(public.cost_projection(st, array['contract-four'], '2026-27', '{"residency":"in_state"}') is not null, 'student can project');
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a2');
+  perform hp_test.expect_error(format($q$select public.cost_projection(%L, array['contract-four'], '2026-27', '{"residency":"in_state"}')$q$, st), '42501');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000099');
+  perform hp_test.expect_error(format($q$select public.cost_projection(%L, array['contract-four'], '2026-27', '{"residency":"in_state"}')$q$, st), '42501');
+  perform hp_test.as_anon();
+  perform hp_test.expect_error(format($q$select public.cost_projection(%L, array['contract-four'], '2026-27', '{"residency":"in_state"}')$q$, st), '42501');
+  perform hp_test.as_owner();
+end $$;
+
+-- CR-11 award test criteria: shape is enforced, and compare_institutions serves the columns.
+do $$ begin
+  perform hp_test.as_owner();
+  insert into public.institutional_awards(institution_id, award_name, academic_year, award_type, test_requirement,
+    test_criteria_kind, act_min, sat_min, source_id, verification_status, last_verified_at)
+  values ('50000000-0000-0000-0000-000000000002', 'Test Minimum Merit', '2026-27', 'merit', 'Minimum 31 ACT / 1390 SAT.',
+    'single_minimum', 31, 1390, '50000000-0000-0000-0000-000000000001', 'verified', current_date);
+  perform hp_test.expect_error($q$insert into public.institutional_awards(institution_id, award_name, academic_year, award_type, test_criteria_kind, act_min, act_max, source_id, verification_status)
+    values ('50000000-0000-0000-0000-000000000002', 'Bad 1', '2026-27', 'merit', 'single_minimum', 30, 36, '50000000-0000-0000-0000-000000000001', 'unverified')$q$, '23514');
+  perform hp_test.expect_error($q$insert into public.institutional_awards(institution_id, award_name, academic_year, award_type, test_criteria_kind, act_min, source_id, verification_status)
+    values ('50000000-0000-0000-0000-000000000002', 'Bad 2', '2026-27', 'merit', 'range', 30, '50000000-0000-0000-0000-000000000001', 'unverified')$q$, '23514');
+  perform hp_test.expect_error($q$insert into public.institutional_awards(institution_id, award_name, academic_year, award_type, act_min, source_id, verification_status)
+    values ('50000000-0000-0000-0000-000000000002', 'Bad 3', '2026-27', 'merit', 30, '50000000-0000-0000-0000-000000000001', 'unverified')$q$, '23514');
+  perform hp_test.expect_error($q$insert into public.institutional_awards(institution_id, award_name, academic_year, award_type, test_criteria_kind, sat_min, source_id, verification_status)
+    values ('50000000-0000-0000-0000-000000000002', 'Bad 4', '2026-27', 'merit', 'single_minimum', 1700, '50000000-0000-0000-0000-000000000001', 'unverified')$q$, '23514');
+  perform hp_test.eq((select a->>'act_min' from jsonb_array_elements(
+      public.compare_institutions(array[(select institution_key from public.institutions where id = '50000000-0000-0000-0000-000000000002')], '2026-27')
+        ->'institutions'->0->'domains'->'awards') a where a->>'award_name' = 'Test Minimum Merit'), '31', 'compare_institutions serves act_min');
+  delete from public.institutional_awards where award_name = 'Test Minimum Merit';
+end $$;
+
+-- CR-10 exam plan: student and view_progress guardians read; guardians and the linked student write.
+do $$ declare i int; begin
+  perform hp_test.as_owner();
+  insert into public.exam_catalog values ('ap:biology', 'ap', 'Biology'), ('clep:biology', 'clep', 'Biology');
+  insert into public.exam_catalog select 'ap:extra-' || n, 'ap', 'Extra ' || n from generate_series(1, 20) n;
+  perform hp_test.expect_error($q$insert into public.exam_catalog values ('clep:x', 'ap', 'X')$q$, '23514');
+  perform hp_test.as_anon();
+  perform hp_test.eq((select count(*) from public.exam_catalog where exam_key like '%biology'), 2::bigint, 'catalog is public');
+  perform hp_test.expect_error('select count(*) from public.student_exam_plan', '42501');
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+  insert into public.student_exam_plan(student_id, exam_key) values (current_setting('t.st')::uuid, 'ap:biology');
+  update public.student_exam_plan set score = 4, taken_on = date '2026-05-12' where exam_key = 'ap:biology';
+  perform hp_test.expect_error(format($q$update public.student_exam_plan set score = 6 where student_id = %L and exam_key = 'ap:biology'$q$, current_setting('t.st')), '23514');
+  perform hp_test.expect_error(format($q$insert into public.student_exam_plan(student_id, exam_key) values (%L, 'ap:no-such')$q$, current_setting('t.st')), '23503');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  insert into public.student_exam_plan(student_id, exam_key, score) values (current_setting('t.st')::uuid, 'clep:biology', 55);
+  perform hp_test.expect_error(format($q$update public.student_exam_plan set score = 5 where student_id = %L and exam_key = 'clep:biology'$q$, current_setting('t.st')), '23514');
+  perform hp_test.eq((select count(*) from public.student_exam_plan), 2::bigint, 'student reads the plan');
+  perform hp_test.check((select set_by from public.student_exam_plan where exam_key = 'clep:biology') = '20000000-0000-0000-0000-000000000051', 'set_by recorded');
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a2');
+  perform hp_test.eq((select count(*) from public.student_exam_plan), 0::bigint, 'guardian without view_progress reads nothing');
+  insert into public.student_exam_plan(student_id, exam_key) values (current_setting('t.st')::uuid, 'ap:extra-1');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000099');
+  perform hp_test.expect_error(format($q$insert into public.student_exam_plan(student_id, exam_key) values (%L, 'ap:extra-2')$q$, current_setting('t.st')), '42501');
+  perform hp_test.eq((select count(*) from public.student_exam_plan), 0::bigint, 'outsider reads nothing');
+  delete from public.student_exam_plan;
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+  perform hp_test.eq((select count(*) from public.student_exam_plan), 3::bigint, 'outsider deleted nothing');
+  for i in 2..18 loop
+    insert into public.student_exam_plan(student_id, exam_key) values (current_setting('t.st')::uuid, 'ap:extra-' || i);
+  end loop;
+  perform hp_test.expect_error(format($q$insert into public.student_exam_plan(student_id, exam_key) values (%L, 'ap:extra-19')$q$, current_setting('t.st')), '22023', '%up to 20%');
+  delete from public.student_exam_plan where exam_key = 'ap:extra-18';
+  insert into public.student_exam_plan(student_id, exam_key) values (current_setting('t.st')::uuid, 'ap:extra-19');
+  perform hp_test.as_owner();
+end $$;
+
+-- CR-13 academic interests: student and view_progress guardians read; guardians and the linked student write.
+do $$ begin
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+  insert into public.student_academic_interests(student_id, certainty, interests)
+  values (current_setting('t.st')::uuid, 'few', '[{"kind":"major","key":"computer-science"},{"kind":"area","key":"engineering","focus":true}]');
+  perform hp_test.expect_error(format($q$update public.student_academic_interests set certainty = 'maybe' where student_id = %L$q$, current_setting('t.st')), '23514');
+  perform hp_test.expect_error(format($q$update public.student_academic_interests set interests = '[{"kind":"club","key":"chess"}]' where student_id = %L$q$, current_setting('t.st')), '23514');
+  perform hp_test.expect_error(format($q$update public.student_academic_interests set interests = '[{"kind":"major","key":"Computer Science"}]' where student_id = %L$q$, current_setting('t.st')), '23514');
+  perform hp_test.expect_error(format($q$update public.student_academic_interests set interests = '[{"kind":"major","key":"a"},{"kind":"major","key":"a"}]' where student_id = %L$q$, current_setting('t.st')), '23514');
+  perform hp_test.expect_error(format($q$update public.student_academic_interests set interests = '[{"kind":"major","key":"a","focus":true},{"kind":"major","key":"b","focus":true}]' where student_id = %L$q$, current_setting('t.st')), '23514');
+  perform hp_test.expect_error(format($q$update public.student_academic_interests set interests = '[{"kind":"major","key":"a","note":"x"}]' where student_id = %L$q$, current_setting('t.st')), '23514');
+  perform hp_test.expect_error(format($q$update public.student_academic_interests set interests = (select jsonb_agg(jsonb_build_object('kind','major','key','k'||n)) from generate_series(1,9) n) where student_id = %L$q$, current_setting('t.st')), '23514');
+  update public.student_academic_interests set interests = (select jsonb_agg(jsonb_build_object('kind','major','key','k'||n)) from generate_series(1,8) n) where student_id = current_setting('t.st')::uuid;
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  update public.student_academic_interests set certainty = null, interests = '[]' where student_id = current_setting('t.st')::uuid;
+  perform hp_test.eq((select count(*) from public.student_academic_interests where certainty is null and interests = '[]'), 1::bigint, 'student clears; nothing is required');
+  perform hp_test.check((select set_by from public.student_academic_interests) = '20000000-0000-0000-0000-000000000051', 'set_by follows the writer');
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a2');
+  perform hp_test.eq((select count(*) from public.student_academic_interests), 0::bigint, 'guardian without view_progress reads nothing');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000099');
+  perform hp_test.eq((select count(*) from public.student_academic_interests), 0::bigint, 'outsider reads nothing');
+  update public.student_academic_interests set certainty = 'sure';
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+  perform hp_test.eq((select count(*) from public.student_academic_interests where certainty = 'sure'), 0::bigint, 'outsider changed nothing');
+  perform hp_test.as_anon();
+  perform hp_test.expect_error('select count(*) from public.student_academic_interests', '42501');
+  perform hp_test.as_owner();
+end $$;
+
 rollback;
 \o
 \echo frontend contract tests passed
+
