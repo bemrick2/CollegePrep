@@ -20,6 +20,7 @@ def main(argv=None):
     pr = sub.add_parser('promote'); pr.add_argument('decisions')
     a = sub.add_parser('audit'); a.add_argument('--states', nargs='+', default=['TN', 'OR']); a.add_argument('--check', action='store_true')
     st = sub.add_parser('status'); st.add_argument('--states', nargs='*'); st.add_argument('--check', action='store_true')
+    dt = sub.add_parser('detect'); dt.add_argument('--state', required=True); dt.add_argument('--runs', nargs='+', required=True); dt.add_argument('--refresh', action='store_true')
     qs = sub.add_parser('queue-suggest'); qs.add_argument('--state', required=True); qs.add_argument('--runs', nargs='*')
     args = ap.parse_args(argv)
     if args.cmd == 'crawl':
@@ -35,6 +36,9 @@ def main(argv=None):
     elif args.cmd == 'audit':
         from .audit import main as audit_main
         return audit_main(args.states, check=args.check)
+    elif args.cmd == 'detect':
+        from .detect import detect
+        detect(args.state.upper(), args.runs, refresh=args.refresh)
     elif args.cmd == 'queue-suggest':
         from .queue_suggest import main as qs_main
         return qs_main(args.state.upper(), args.runs)

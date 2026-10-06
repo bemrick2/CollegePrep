@@ -1005,3 +1005,36 @@ class CrawlDelayTests(unittest.TestCase):
                  'catalog': {'platform': 'acalog', 'home': 'https://catalog.example.edu/index.php?catoid=1', 'catoid': 1}}
             C.crawl_target(t, Run(Path(d)), f, log=lambda *_: None)
         self.assertEqual(f.gate.host_delay.get('catalog.example.edu'), 12)
+
+
+class DetectTests(unittest.TestCase):
+    """programs/detect.py: catalog platform from official links on stored discovery pages."""
+
+    def det(self, links, title='', text='', url='https://www.x.edu/'):
+        from programs import detect as D
+        return D.detect_institution([({'url': url}, {'title': title, 'text': text, 'links': links})])
+
+    def test_acalog_current_catalog_is_the_year_labelled_one(self):
+        cfg, why = self.det([('https://catalog.x.edu/index.php?catoid=40', '2024-2025 Undergraduate Catalog [ARCHIVED CATALOG]'),
+                             ('https://catalog.x.edu/index.php?catoid=56', '2026-2027 Undergraduate Catalog'),
+                             ('https://catalog.x.edu/content.php?catoid=56&navoid=900', 'Programs A-Z'),
+                             ('https://catalog.x.edu/content.php?catoid=56&navoid=901', 'Graduate Programs'),
+                             ('https://catalog.x.edu/content.php?catoid=40&navoid=12', 'Programs')])
+        self.assertEqual((cfg['platform'], cfg['catoid'], cfg['program_lists']), ('acalog', 56, ['https://catalog.x.edu/content.php?catoid=56&navoid=900']))
+
+    def test_undated_acalog_left_behind_loses_to_the_new_platform(self):
+        cfg, _ = self.det([('https://catalog.x.edu/index.php?catoid=27', 'Catalog')] +
+                          [(f'https://undergrad.catalog.x.edu/programs/P{i}', f'Prog {i}') for i in range(4)])
+        self.assertEqual(cfg['platform'], 'coursedog')
+
+    def test_smartcatalog_newest_year_path(self):
+        cfg, _ = self.det([('https://x.smartcatalogiq.com/en/2025-2026/catalog/a', 'a'), ('https://x.smartcatalogiq.com/en/2026-2027/catalog/b', 'b')])
+        self.assertEqual(cfg['home'], 'https://x.smartcatalogiq.com/en/2026-2027/catalog/')
+
+    def test_catalog_pdf_needs_a_year_and_is_not_graduate(self):
+        cfg, _ = self.det([('https://www.x.edu/files/2026-2027-Graduate-Catalog.pdf', 'Graduate Catalog'),
+                           ('https://www.x.edu/files/2026-27-Catalog.pdf', 'Academic Catalog'), ('https://www.x.edu/files/catalog.pdf', 'Catalog')])
+        self.assertEqual(cfg['catalog_pdfs'], ['https://www.x.edu/files/2026-27-Catalog.pdf'])
+
+    def test_nothing_recognised(self):
+        self.assertIsNone(self.det([('https://www.x.edu/about', 'About')])[0])

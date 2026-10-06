@@ -45,6 +45,9 @@ MUTS = [
     ('programs/queue_suggest.py', "        if (k, gap) in have or (k, 'institution') in have: return", "        pass"),
     ('programs/crawl.py', "if is_program(h) and (not tag or role != 'program_list' or tag in (a or ''))]", "if is_program(h)]"),
     ('programs/crawl.py', "    if target.get('crawl_delay') and chost:", "    if False:"),
+    ('programs/detect.py', "        pool = [c for c, y in dated.items() if y == newest] or list(cats)", "        pool = list(cats)"),
+    ('programs/detect.py', "                if ys: pdfs.append((max(ys), href, m))", "                pdfs.append((max(ys or {0}), href, m))"),
+    ('programs/detect.py', "            elif u.path.lower().endswith('.pdf') and CATALOG_WORD.search(a + ' ' + u.path) and not re.search(r'graduate|archive|handbook', a + u.path, re.I):", "            elif u.path.lower().endswith('.pdf') and CATALOG_WORD.search(a + ' ' + u.path):"),
 ]
 
 
