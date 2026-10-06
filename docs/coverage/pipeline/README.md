@@ -150,6 +150,43 @@ Institutions in scope: **32** · crawled: **19** · blocked by site: **13** · r
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-104708`, `ipeds-105145`, `ipeds-105154`, `ipeds-105428`, `ipeds-105668`, `ipeds-105747`, `ipeds-105792`, `ipeds-105899`, `ipeds-364016`, `ipeds-364025`, `ipeds-384333`, `ipeds-436614`, `ipeds-464226`
 
+## CA — 2026-27
+
+Institutions in scope: **242** · crawled: **201** · blocked by site: **41** · run: `pipeline/runs/CA/2026-10-06`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 0 (0%) | 0 | 103 (43%) | 193 (80%) | 8 | 41 |
+| cost_of_attendance | 0 (0%) | 0 | 61 (25%) | 190 (79%) | 11 | 41 |
+| admissions_tests | 0 (0%) | 0 | 6 (2%) | 189 (78%) | 12 | 41 |
+| common_data_set | 0 (0%) | 0 | 6 (2%) | 28 (12%) | 173 | 41 |
+| merit_scholarships | 0 (0%) | 0 | 17 (7%) | 182 (75%) | 19 | 41 |
+| ap_credit | 0 (0%) | 0 | 26 (11%) | 114 (47%) | 87 | 41 |
+| clep_credit | 0 (0%) | 0 | 19 (8%) | 81 (33%) | 120 | 41 |
+| ib_credit | 0 (0%) | 0 | 19 (8%) | 67 (28%) | 134 | 41 |
+| dual_enrollment | 0 (0%) | 0 | 14 (6%) | 109 (45%) | 92 | 41 |
+| transfer_credit | 0 (0%) | 0 | 25 (10%) | 183 (76%) | 18 | 41 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 101 (42%) | 100 | 41 |
+| residency | 0 (0%) | 0 | 0 (0%) | 141 (58%) | 60 | 41 |
+| degree_requirements | 0 (0%) | 0 | 5 (2%) | 174 (72%) | 27 | 41 |
+| aid_appeals | 0 (0%) | 0 | 132 (55%) | 164 (68%) | 37 | 41 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 93 |
+| blocked requests | 682 |
+| candidates | 1292 |
+| conflicts | 389 |
+| documents | 13579 |
+| extraction failures | 0 |
+| fetch errors | 728 |
+| fetches | 14989 |
+| ready | 287 |
+| semantic review | 520 |
+| stale sources | 321 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-109208`, `ipeds-110547`, `ipeds-111638`, `ipeds-111966`, `ipeds-112190`, `ipeds-113096`, `ipeds-113333`, `ipeds-113856`, `ipeds-114433`, `ipeds-114789`, `ipeds-117052`, `ipeds-117140`, `ipeds-117575`, `ipeds-117690`, `ipeds-117706`, `ipeds-117715`, `ipeds-117724`, `ipeds-117733`, `ipeds-117788`, `ipeds-117867`, `ipeds-118930`, `ipeds-119173`, `ipeds-120290`, `ipeds-120838`, `ipeds-120865`, `ipeds-122180`, `ipeds-123572`, `ipeds-125471`, `ipeds-125499`, `ipeds-444219`, `ipeds-445188`, `ipeds-460394`, `ipeds-486488`, `ipeds-488785`, `ipeds-489201`, `ipeds-490045`, `ipeds-490081`, `ipeds-493619`, `ipeds-495271`, `ipeds-497046`, `ipeds-497107`
+
 ## CO — 2026-27
 
 Institutions in scope: **35** · crawled: **31** · blocked by site: **4** · run: `pipeline/runs/CO/2026-10-04`
