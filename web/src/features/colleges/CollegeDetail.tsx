@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import { useApp, useAsync } from '../../lib/app'
 import type { CostRecord } from '../../lib/data/types'
 import { Button, Notice, PageLoading, Segmented, cx } from '../../components/ui'
@@ -42,6 +42,11 @@ export function CollegeDetail() {
   const who = isStudent ? 'you' : (activeStudent?.display_name ?? 'your student')
 
   const c = res.data?.[0]
+  // "View all …" links from Compare land on the matching section once the record has loaded.
+  const { hash } = useLocation()
+  useEffect(() => {
+    if (hash && c) document.getElementById(hash.slice(1))?.scrollIntoView?.({ block: 'start' })
+  }, [hash, !!c]) // eslint-disable-line react-hooks/exhaustive-deps
   if (res.loading && !res.data) return <PageLoading />
   if (res.error) return <Notice tone="bad">{res.error.message}</Notice>
   if (!c || !c.found)

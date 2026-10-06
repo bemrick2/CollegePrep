@@ -236,9 +236,20 @@ describe('app flows', () => {
   it('compare places the target against the published middle 50%, without predicting admission', async () => {
     localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976']))
     renderAt('/colleges/compare', new DemoSource(livingIn('TN', sampleFamily('parent'))))
-    expect(await screen.findByRole('heading', { name: 'Is it realistic?' })).toBeInTheDocument()
-    expect(await screen.findByText((_, el) => el?.tagName === 'P' && /Target 27 is below the middle 50% \(28–32 ACT\)/.test(el.textContent ?? ''))).toBeInTheDocument()
-    expect(screen.getAllByText(/Not an admission prediction/).length).toBeGreaterThan(0)
+    const table = await screen.findByRole('table', { name: 'College comparison' })
+    // One row per question, shared by every school: each body row has a cell for each compared school.
+    const rows = within(table).getAllByRole('row').slice(1)
+    expect(rows.map((r) => within(r).getByRole('rowheader').textContent)).toEqual(
+      expect.arrayContaining([expect.stringMatching(/^Cost of attendance/), expect.stringMatching(/^Admissions/), expect.stringMatching(/^Scholarships/), expect.stringMatching(/^Exam credit/), expect.stringMatching(/^Financial-aid appeals/)]),
+    )
+    for (const r of rows) expect(within(r).getAllByRole('cell')).toHaveLength(2)
+    expect(within(table).getAllByRole('columnheader').map((h) => h.textContent)).toEqual([expect.stringMatching(/University of Tennessee, Knoxville/), expect.stringMatching(/Lipscomb University/)])
+    expect(await within(table).findByText((_, el) => el?.tagName === 'P' && /Target 27 is below the middle 50%/.test(el.textContent ?? ''))).toBeInTheDocument()
+    expect(within(table).getAllByText(/Not an admission prediction/).length).toBeGreaterThan(0)
+    // Scholarships preview a fixed number; the rest are on the detail page. Missing records say so, never filled in.
+    const awards = rows.find((r) => /^Scholarships/.test(within(r).getByRole('rowheader').textContent ?? ''))!
+    expect(within(awards).getByRole('link', { name: /^View all \d+ scholarships$/ })).toHaveAttribute('href', '/colleges/utk#awards-heading')
+    expect(within(awards).getByText('No verified scholarships yet.')).toBeInTheDocument()
     // Each school row opens that school's detail page.
     expect(screen.getAllByRole('link', { name: /University of Tennessee, Knoxville/ })[0]).toHaveAttribute('href', '/colleges/utk')
     cleanup()
