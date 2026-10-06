@@ -71,7 +71,8 @@ still copy the link.
 
 ## Deploying
 
-- The migration `20261006120000_household_invitation_email.sql` is applied by the "Deploy Supabase migrations"
-  workflow when it reaches `main`.
-- The function is deployed with `supabase functions deploy send-household-invitation`, which keeps JWT
-  verification on.
+- The migration `20261006145257_household_invitation_email.sql` was applied to the live project with the Supabase
+  MCP on 2026-10-06, and the file is named with the version live recorded. The "Deploy Supabase migrations"
+  workflow couldn't apply it, because live also holds PR #101's billing migrations, which `main` doesn't have yet.
+- The function `send-household-invitation` is deployed with JWT verification on (version 2). Redeploy it with
+  `supabase functions deploy send-household-invitation`.
