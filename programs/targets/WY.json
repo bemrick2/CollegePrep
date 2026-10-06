@@ -1,0 +1,115 @@
+{
+ "state": "WY",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-240514",
+   "folder": "cwc",
+   "name": "Central Wyoming College",
+   "control": "public",
+   "domains": [
+    "cwc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.cwc.edu/wp-content/uploads/2026/08/2026-27-Catalog-Final.pdf"
+    ],
+    "home": "https://www.cwc.edu/wp-content/uploads/2026/08/2026-27-Catalog-Final.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-240620",
+   "folder": "lccc",
+   "name": "Laramie County Community College",
+   "control": "public",
+   "domains": [
+    "wy.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 12,
+    "home": "https://catalog.lccc.wy.edu/index.php?catoid=12",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 12 on catalog.lccc.wy.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-240657",
+   "folder": "nwc",
+   "name": "Northwest College",
+   "control": "public",
+   "domains": [
+    "nwc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 20,
+    "home": "https://catalog.nwc.edu/index.php?catoid=20",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.nwc.edu/content.php?catoid=20&navoid=1949"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 20 on catalog.nwc.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-240727",
+   "folder": "uwyo",
+   "name": "University of Wyoming",
+   "control": "public",
+   "domains": [
+    "uwyo.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 19,
+    "home": "https://acalogcatalog.uwyo.edu/index.php?catoid=19",
+    "platform": "acalog",
+    "program_lists": [
+     "https://acalogcatalog.uwyo.edu/content.php?catoid=19&navoid=1924"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 19 on acalogcatalog.uwyo.edu (labelled 2027-2028)"
+  },
+  {
+   "institution_key": "ipeds-240693",
+   "folder": "westernwyoming",
+   "name": "Western Wyoming Community College",
+   "control": "public",
+   "domains": [
+    "westernwyoming.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 11,
+    "home": "https://catalog.westernwyoming.edu/index.php?catoid=11",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.westernwyoming.edu/content.php?catoid=11&navoid=1748",
+     "https://catalog.westernwyoming.edu/content.php?catoid=11&navoid=1848"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 11 on catalog.westernwyoming.edu (labelled 2026-2027)"
+  }
+ ]
+}

@@ -1091,11 +1091,72 @@ class AutoReviewTests(unittest.TestCase):
                  self.prog('comb', 'Accelerated Bachelor\'s + JD'), self.prog('ms', 'History (MA)', level='master'),
                  self.prog('old', 'Art (BA)', year='2025-26'), self.prog('bad', 'Music (BA)'), self.prog('dup', 'Biology (BA)', key='ok'),
                  self.req('g1', 'ok'), self.req('g2', 'ok', issues=['indented_rows_without_rule']), self.req('g3', 'ok', ext='smartcatalog_program/v1'),
-                 self.req('g4', 'iss'), self.req('p1', 'ok', kind='program_plan', ext='courseleaf_plan/v1')]
+                 self.req('g4', 'iss'), self.req('p1', 'ok', kind='program_plan', ext='courseleaf_plan/v1'),
+                 self.prog('v1', 'Architecture (Foundation Unit) – BArch'), self.prog('v2', 'Architecture (Summer Design) – BArch'),
+                 self.prog('ba', 'Biology (BA)'), self.prog('bs', 'Biology (BS)')]
         d = self.run_dir(cands, verify={'bad': ['program_name not verbatim']})
         old = A.catalog_records; A.catalog_records = lambda *a: []  # catalog records need a targets file; tested separately
         try: approve, cats, held = A.review('ZZ', d, today=date(2026, 10, 6))
         finally: A.catalog_records = old
-        self.assertEqual({a['candidate_id'] for a in approve}, {'ok', 'g1', 'p1'})
+        self.assertEqual({a['candidate_id'] for a in approve}, {'ok', 'g1', 'p1', 'ba', 'bs'})
         self.assertEqual(held['issues'], 1); self.assertEqual(held['option_name'], 1); self.assertEqual(held['combined_program'], 1)
+        self.assertEqual(held['entry_path_variant'], 2)
         self.assertEqual(held['not_verbatim'], 1); self.assertEqual(held['duplicate'], 1); self.assertEqual(held['req_program_not_approved'], 1)
+
+
+class SitemapTests(unittest.TestCase):
+    def test_courseleaf_sitemap_yields_bachelor_program_pages(self):
+        from pipeline.crawl import Fetcher, Run
+        sm = b'''<?xml version="1.0"?><urlset>
+<url><loc>https://catalog.x.edu/undergraduate/sciences/biology/biology-bs/</loc></url>
+<url><loc>https://catalog.x.edu/undergraduate/sciences/biology/biology-minor/</loc></url>
+<url><loc>https://catalog.x.edu/graduate/sciences/biology/biology-ms/</loc></url>
+<url><loc>https://catalog.x.edu/undergraduate/arts/history/history-major/</loc></url>
+<url><loc>https://catalog.x.edu/undergraduate/arts/history/</loc></url>
+<url><loc>https://catalog.x.edu/undergraduate/business/bba-certificate/</loc></url>
+<url><loc>https://catalog.x.edu/graduate/business/accounting-bs/</loc></url>
+<url><loc>https://elsewhere.org/a-bs/</loc></url></urlset>'''
+        f = Fetcher(delay=0, timeout=1)
+        def raw(url):
+            if url.endswith('robots.txt'): return (404, url, {}, b'')
+            if url.endswith('sitemap.xml'): return (200, url, {'Content-Type': 'application/xml'}, sm)
+            return (200, url, {'Content-Type': 'text/html'}, b'<html><head><title>t</title></head><body>x</body></html>')
+        f._raw = raw
+        with tempfile.TemporaryDirectory() as d:
+            t = {'institution_key': 'k', 'folder': 'k', 'domains': ['x.edu'], 'mode': 'catalog',
+                 'catalog': {'platform': 'courseleaf', 'home': 'https://catalog.x.edu/', 'path_prefix': '/', 'min_depth': 1, 'program_lists': []}}
+            C.crawl_target(t, Run(Path(d)), f, log=lambda *_: None)
+            pages = sorted(e['url'] for e in Run(Path(d)).entries() if e['role'] == 'program_page')
+        self.assertEqual(pages, ['https://catalog.x.edu/undergraduate/arts/history/history-major/',
+                                 'https://catalog.x.edu/undergraduate/sciences/biology/biology-bs/'])
+
+
+class ListedProgramTests(unittest.TestCase):
+    def test_award_from_the_list_name_from_the_page(self):  # Auburn 2026-27
+        from pipeline import text as T
+        from programs import verify as V
+        url = 'https://bulletin.auburn.edu/undergraduate/agriculture/agbusiness_major/'
+        e = {'url': url, 'sha256': 'page', 'fetched_at': '2026-10-06T00:00:00'}
+        listed = {'name': 'Agricultural Business & Economics – BS', 'printed': 'Agricultural Business & Economics – BS', 'url': url,
+                  'credential_level': 'bachelor', 'listed_on': 'https://bulletin.auburn.edu/undergraduate/majors/', 'listed_on_sha256': 'list'}
+        txt = 'Auburn Bulletin 2026-2027\nAgricultural Business & Economics (AGEC)\nCurriculum'
+        page = T.Page(txt, 'Agricultural Business & Economics (AGEC) | Auburn University Bulletin', [], [], ['Agricultural Business & Economics (AGEC)'])
+        tgt = {'catalog': {'platform': 'courseleaf'}, '_listed': {url: listed}}
+        out = X.program_page_candidates(tgt, {'institution_key': 'k'}, e, page, '2026-27')
+        self.assertEqual([(c['record']['program_name'], c['extractor'], c['record']['catalog_year']) for c in out],
+                         [('Agricultural Business & Economics – BS', 'listed_program/v1', '2026-2027')])
+        self.assertEqual(V.check_candidate(out[0], txt, {'list': 'Majors\nAgricultural Business & Economics – BS'}.get), [])
+        other = T.Page(txt.replace('Agricultural Business & Economics (AGEC)', 'Animal Sciences'), 't', [], [], ['Animal Sciences'])
+        self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, other, '2026-27'), [])  # page is another program
+        undated = T.Page('Agricultural Business & Economics (AGEC)', 't', [], [], ['Agricultural Business & Economics (AGEC)'])
+        self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, undated, '2026-27'), [])
+        longer = T.Page(txt.replace('Agricultural Business & Economics (AGEC)', 'Agricultural Business & Economics Education'), 't', [], [],
+                        ['Agricultural Business & Economics Education'])
+        self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, longer, '2026-27'), [])  # another program's page
+        bare = {**tgt, '_listed': {url: {**listed, 'printed': 'Agricultural Business & Economics'}}}
+        self.assertEqual(X.program_page_candidates(bare, {'institution_key': 'k'}, e, page, '2026-27'), [])
+
+    def test_strip_award(self):
+        for n, base in (('Accounting, BS', 'Accounting'), ('Biology (B.S.)', 'Biology'), ('Art, BA, BFA', 'Art'),
+                        ('Art, Media, and Design', 'Art, Media, and Design'), ('Economics: BA, BS', 'Economics')):
+            self.assertEqual(X.strip_award(n), base)

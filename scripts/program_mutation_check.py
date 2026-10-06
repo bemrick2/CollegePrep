@@ -55,6 +55,11 @@ MUTS = [
     ('programs/autoreview.py', "'not_verbatim' if verify.get(c['candidate_id']) else 'not_bachelor'", "'not_bachelor'"),
     ('programs/autoreview.py', "               'program_not_approved' if c['record'].get('program_key') not in program_keys[c['institution_key']] else None)", "               None)"),
     ('programs/autoreview.py', "        why = ('untrusted_extractor' if (kind, c['extractor']) not in TRUSTED_REQUIREMENTS else", "        why = ('untrusted_extractor' if False else"),
+    ('programs/crawl.py', "            if re.search(r'(^|-)(minor|certificate|cert|ms|ma|mba|mfa|med|phd|edd|dnp|pmc|aas|as|aa)(-|$)', seg): continue", "            pass"),
+    ('programs/crawl.py', "            if not is_program(h) or re.search(r'(^|/)(grad|graduate|graduate-school)(/|$)', urlsplit(h).path.lower()): continue", "            pass"),
+    ('programs/extract.py', "    hit = next((n for n in names if n and norm(re.sub(r'(\\s*\\([^()]{1,12}\\))+\\s*$', '', n)) == norm(base)), None)", "    hit = next((n for n in names if n and norm(n).startswith(norm(base))), None)"),
+    ('programs/autoreview.py', "               'entry_path_variant' if len(variants[(c['institution_key'], base(c))]) > 1 else", ""),
+    ('programs/extract.py', "    if not base or base == printed or OPTION_NAME.search(printed): return []", "    pass"),
 ]
 
 
