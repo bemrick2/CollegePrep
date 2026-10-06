@@ -36,7 +36,7 @@ DISCOVER_LINK = re.compile(r'(catalog|catalogue|bulletin|majors|degrees|programs
 MAP_ANCHOR = re.compile(r'\b((academic|degree|program|major)\s+maps?|four[\s-]*year\s+(degree\s+)?plans?|4[\s-]*year\s+plans?|plans?\s+of\s+study|clear\s+paths?|finish\s+in\s+four|degree\s+plans?|curriculum\s+(guides?|sheets?|maps?)|check\s*sheets?)\b', re.I)
 MAP_URL = re.compile(r'(academic|degree|program)[-_]?maps?|four[-_]?year[-_]?plan|4[-_]?year[-_]?plan|plan[-_]?of[-_]?study|clear[-_]?path|checksheet', re.I)
 DEGREE_MAP_LINK = re.compile(r'(map|plan|path|pathway|four[\s_-]*year|4[\s_-]*year|finish|sequence|curricul|worksheet|checksheet|flowchart)', re.I)
-SKIP_PATH = re.compile(r'/(search|course-search|courses?|coursesaz|azindex|archive|archives|pdf|print|login|calendar)(/|$)|'
+SKIP_PATH = re.compile(r'/(search|course-search|courses?|coursesaz|azindex|coursesofinstruction|courses-of-instruction|archive|archives|pdf|print|login|calendar)(/|$)|'
                        r'preview_course|preview_entity|acalog-api|\.(jpg|png|gif|css|js|zip|docx?)$', re.I)
 
 
@@ -90,6 +90,11 @@ def nav_rule(target):
         return lambda u: bool(rx.search(u))
     if cat.get('platform') == 'smartcatalog':
         prefix = cat.get('path_prefix', '/'); chost = host_of(cat.get('home', ''))
+        return lambda u: host_of(u) == chost and urlsplit(u).path.startswith(prefix) and not SKIP_PATH.search(urlsplit(u).path)
+    if cat.get('platform') == 'courseleaf' and cat.get('nav_prefix'):
+        # a CourseLeaf catalog without a sitemap (MSState): its college and department pages under the undergraduate
+        # section link the program pages
+        prefix = cat['nav_prefix']; chost = host_of(cat.get('home', ''))
         return lambda u: host_of(u) == chost and urlsplit(u).path.startswith(prefix) and not SKIP_PATH.search(urlsplit(u).path)
     return lambda u: False
 
@@ -322,12 +327,18 @@ def expand(target, role, url, links, push, is_program, is_nav, depth):
     if role == 'sitemap':
         # CourseLeaf program pages end in the award ('.../biology-bs/', '.../history-major/'); bachelor's first, never minors,
         # certificates or graduate pages. The page itself must still print its award and year to become a record.
+        # UF writes them 'ACT_BSAC' / 'AEC_BS'; a one-word segment ('badm', 'busi': course subjects) is never an award.
         bach, other = [], []
+        if cat.get('sitemap_program'):  # a catalog whose program pages carry no award in the URL (uark department pages)
+            for h, _ in links:
+                if is_program(h) and re.search(cat['sitemap_program'], h): push(h, 'program_page', url, depth + 1)
+            return
         for h, _ in links:
             seg = urlsplit(h).path.rstrip('/').rsplit('/', 1)[-1].lower()
             if not is_program(h) or re.search(r'(^|/)(grad|graduate|graduate-school)(/|$)', urlsplit(h).path.lower()): continue
-            if re.search(r'(^|-)(minor|certificate|cert|ms|ma|mba|mfa|med|phd|edd|dnp|pmc|aas|as|aa)(-|$)', seg): continue
-            if re.search(r'(^|-)(b[a-z]{1,5}|major)(-|$)', seg): bach.append(h)
+            if not re.search(r'[-_]', seg): continue
+            if re.search(r'(^|[-_])(minor|certificate|cert|ms|ma|mba|mfa|med|phd|edd|dnp|pmc|aas|as|aa)([-_]|$)', seg): continue
+            if re.search(r'(^|[-_])(b[a-z]{1,5}|major)([-_]|$)', seg): bach.append(h)
         for h in bach: push(h, 'program_page', url, depth + 1)
         return
     if role in ('policy', 'policy_link', 'discover'):

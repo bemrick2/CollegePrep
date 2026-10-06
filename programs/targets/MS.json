@@ -118,13 +118,17 @@
    "priority": 1,
    "catalog": {
     "home": "https://catalog.msstate.edu/",
-    "min_depth": 1,
-    "path_prefix": "/",
+    "min_depth": 2,
+    "nav_prefix": "/undergraduate/",
+    "path_prefix": "/undergraduate/",
     "platform": "courseleaf",
     "program_lists": []
    },
    "policy": [],
-   "detected": "CourseLeaf-style catalog on catalog.msstate.edu (no program list link; pages found from the home page)"
+   "caps": {
+    "catalog_nav": 150
+   },
+   "detected": "CourseLeaf-style catalog on catalog.msstate.edu (no program list link; pages found from the home page); reviewed 2026-10-06: no sitemap (404), so the undergraduate college and department pages are walked"
   },
   {
    "institution_key": "ipeds-176044",
