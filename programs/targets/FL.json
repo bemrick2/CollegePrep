@@ -1,0 +1,1970 @@
+{
+ "state": "FL",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-133669",
+   "folder": "fau",
+   "name": "Florida Atlantic University",
+   "control": "public",
+   "domains": [
+    "fau.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.fau.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.fau.edu/programs"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.fau.edu (program list https://catalog.fau.edu/programs)"
+  },
+  {
+   "institution_key": "ipeds-433660",
+   "folder": "fgcu",
+   "name": "Florida Gulf Coast University",
+   "control": "public",
+   "domains": [
+    "fgcu.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.fgcu.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.fgcu.edu/programs",
+     "https://catalog.fgcu.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.fgcu.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.fgcu.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.fgcu.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.fgcu.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.fgcu.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.fgcu.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.fgcu.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.fgcu.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.fgcu.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.fgcu.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.fgcu.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.fgcu.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.fgcu.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.fgcu.edu (43 links)"
+  },
+  {
+   "institution_key": "ipeds-133951",
+   "folder": "fiu",
+   "name": "Florida International University",
+   "control": "public",
+   "domains": [
+    "fiu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.fiu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.fiu.edu/programs"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.fiu.edu (program list https://catalog.fiu.edu/programs)"
+  },
+  {
+   "institution_key": "ipeds-134097",
+   "folder": "fsu",
+   "name": "Florida State University",
+   "control": "public",
+   "domains": [
+    "fsu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.fsu.edu/",
+    "https://catalog.fsu.edu/",
+    "https://www.fsu.edu/academics/",
+    "https://www.fsu.edu/registrar/",
+    "https://www.fsu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-137847",
+   "folder": "ut",
+   "name": "The University of Tampa",
+   "control": "private_nonprofit",
+   "domains": [
+    "ut.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.ut.edu/",
+    "https://catalog.ut.edu/",
+    "https://www.ut.edu/academics/",
+    "https://www.ut.edu/registrar/",
+    "https://www.ut.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-132903",
+   "folder": "ucf",
+   "name": "University of Central Florida",
+   "control": "public",
+   "domains": [
+    "ucf.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.ucf.edu/",
+    "https://catalog.ucf.edu/",
+    "https://www.ucf.edu/academics/",
+    "https://www.ucf.edu/registrar/",
+    "https://www.ucf.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-134130",
+   "folder": "ufl",
+   "name": "University of Florida",
+   "control": "public",
+   "domains": [
+    "ufl.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.ufl.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.ufl.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-135726",
+   "folder": "miami",
+   "name": "University of Miami",
+   "control": "private_nonprofit",
+   "domains": [
+    "miami.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.miami.edu/",
+    "https://catalog.miami.edu/",
+    "https://www.miami.edu/academics/",
+    "https://www.miami.edu/registrar/",
+    "https://www.miami.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-136172",
+   "folder": "unf",
+   "name": "University of North Florida",
+   "control": "public",
+   "domains": [
+    "unf.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.unf.edu/",
+    "https://catalog.unf.edu/",
+    "https://www.unf.edu/academics/",
+    "https://www.unf.edu/registrar/",
+    "https://www.unf.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-137351",
+   "folder": "usf",
+   "name": "University of South Florida",
+   "control": "public",
+   "domains": [
+    "usf.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 25,
+    "home": "https://catalog.usf.edu/index.php?catoid=25",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.usf.edu/content.php?catoid=25&navoid=4331",
+     "https://catalog.usf.edu/content.php?catoid=25&navoid=4340",
+     "https://catalog.usf.edu/content.php?catoid=25&navoid=4346"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 25 on catalog.usf.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-132471",
+   "folder": "barry",
+   "name": "Barry University",
+   "control": "private_nonprofit",
+   "domains": [
+    "barry.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.barry.edu/",
+    "https://catalog.barry.edu/",
+    "https://www.barry.edu/academics/",
+    "https://www.barry.edu/registrar/",
+    "https://www.barry.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-132602",
+   "folder": "cookman",
+   "name": "Bethune-Cookman University",
+   "control": "private_nonprofit",
+   "domains": [
+    "cookman.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 41,
+    "home": "https://catalog.cookman.edu/index.php?catoid=41",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 41 on catalog.cookman.edu (labelled 2025-2026)"
+  },
+  {
+   "institution_key": "ipeds-133553",
+   "folder": "daytonabeach",
+   "name": "Embry-Riddle Aeronautical University-Daytona Beach",
+   "control": "private_nonprofit",
+   "domains": [
+    "erau.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://daytonabeach.erau.edu/",
+    "https://catalog.erau.edu/",
+    "https://www.erau.edu/academics/",
+    "https://www.erau.edu/registrar/",
+    "https://www.erau.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-426314",
+   "folder": "worldwide",
+   "name": "Embry-Riddle Aeronautical University-Worldwide",
+   "control": "private_nonprofit",
+   "domains": [
+    "erau.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://worldwide.erau.edu/",
+    "https://catalog.erau.edu/",
+    "https://www.erau.edu/academics/",
+    "https://www.erau.edu/registrar/",
+    "https://www.erau.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-133711",
+   "folder": "flagler",
+   "name": "Flagler College",
+   "control": "private_nonprofit",
+   "domains": [
+    "flagler.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 11,
+    "home": "https://catalog.flagler.edu/index.php?catoid=11",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 11 on catalog.flagler.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-133650",
+   "folder": "famu",
+   "name": "Florida Agricultural and Mechanical University",
+   "control": "public",
+   "domains": [
+    "famu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.famu.edu/",
+    "https://catalog.famu.edu/",
+    "https://www.famu.edu/academics/",
+    "https://www.famu.edu/registrar/",
+    "https://www.famu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-133881",
+   "folder": "fit-133881",
+   "name": "Florida Institute of Technology",
+   "control": "private_nonprofit",
+   "domains": [
+    "fit.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 20,
+    "home": "https://catalog.fit.edu/index.php?catoid=20",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.fit.edu/content.php?catoid=20&navoid=1245",
+     "https://catalog.fit.edu/content.php?catoid=20&navoid=1253",
+     "https://catalog.fit.edu/content.php?catoid=20&navoid=1331"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 20 on catalog.fit.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-134079",
+   "folder": "flsouthern",
+   "name": "Florida Southern College",
+   "control": "private_nonprofit",
+   "domains": [
+    "flsouthern.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.flsouthern.edu/getmedia/ea098b70-f921-487c-b2c5-0c0d28f23cd7/fsc-catalog-2024-2025.pdf"
+    ],
+    "home": "https://www.flsouthern.edu/getmedia/ea098b70-f921-487c-b2c5-0c0d28f23cd7/fsc-catalog-2024-2025.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2024-2025"
+  },
+  {
+   "institution_key": "ipeds-134945",
+   "folder": "ju",
+   "name": "Jacksonville University",
+   "control": "private_nonprofit",
+   "domains": [
+    "ju.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.ju.edu/index.php",
+    "https://catalog.ju.edu/",
+    "https://www.ju.edu/academics/",
+    "https://www.ju.edu/registrar/",
+    "https://www.ju.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-135081",
+   "folder": "keiseruniversity",
+   "name": "Keiser University-Ft Lauderdale",
+   "control": "private_nonprofit",
+   "domains": [
+    "keiseruniversity.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.keiseruniversity.edu/",
+    "https://catalog.keiseruniversity.edu/",
+    "https://www.keiseruniversity.edu/academics/",
+    "https://www.keiseruniversity.edu/registrar/",
+    "https://www.keiseruniversity.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-132657",
+   "folder": "lynn",
+   "name": "Lynn University",
+   "control": "private_nonprofit",
+   "domains": [
+    "lynn.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.lynn.edu/",
+    "https://catalog.lynn.edu/",
+    "https://www.lynn.edu/academics/",
+    "https://www.lynn.edu/registrar/",
+    "https://www.lynn.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-136215",
+   "folder": "nova",
+   "name": "Nova Southeastern University",
+   "control": "private_nonprofit",
+   "domains": [
+    "nova.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.nova.edu/",
+    "https://catalog.nova.edu/",
+    "https://www.nova.edu/academics/",
+    "https://www.nova.edu/registrar/",
+    "https://www.nova.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-136330",
+   "folder": "pba",
+   "name": "Palm Beach Atlantic University",
+   "control": "private_nonprofit",
+   "domains": [
+    "pba.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 55,
+    "home": "https://catalog.pba.edu/index.php?catoid=55",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.pba.edu/content.php?catoid=55&navoid=4390",
+     "https://catalog.pba.edu/content.php?catoid=55&navoid=4398",
+     "https://catalog.pba.edu/content.php?catoid=55&navoid=4427"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 55 on catalog.pba.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-136950",
+   "folder": "rollins",
+   "name": "Rollins College",
+   "control": "private_nonprofit",
+   "domains": [
+    "rollins.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 35,
+    "home": "https://catalog.rollins.edu/index.php?catoid=35",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.rollins.edu/content.php?catoid=35&navoid=1362",
+     "https://catalog.rollins.edu/content.php?catoid=35&navoid=1363",
+     "https://catalog.rollins.edu/content.php?catoid=35&navoid=1373",
+     "https://catalog.rollins.edu/content.php?catoid=35&navoid=1376"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 35 on catalog.rollins.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-137032",
+   "folder": "saintleo",
+   "name": "Saint Leo University",
+   "control": "private_nonprofit",
+   "domains": [
+    "saintleo.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.saintleo.edu/",
+    "https://catalog.saintleo.edu/",
+    "https://www.saintleo.edu/academics/",
+    "https://www.saintleo.edu/registrar/",
+    "https://www.saintleo.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-137564",
+   "folder": "seu",
+   "name": "Southeastern University",
+   "control": "private_nonprofit",
+   "domains": [
+    "seu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.seu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.seu.edu/programs"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.seu.edu (program list https://catalog.seu.edu/programs)"
+  },
+  {
+   "institution_key": "ipeds-137476",
+   "folder": "stu",
+   "name": "St. Thomas University",
+   "control": "private_nonprofit",
+   "domains": [
+    "stu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.stu.edu/wp-content/uploads/2025/04/Final-UG-Catalog-2024-2025-07-23-24.pdf"
+    ],
+    "home": "https://www.stu.edu/wp-content/uploads/2025/04/Final-UG-Catalog-2024-2025-07-23-24.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2024-2025"
+  },
+  {
+   "institution_key": "ipeds-137546",
+   "folder": "stetson",
+   "name": "Stetson University",
+   "control": "private_nonprofit",
+   "domains": [
+    "stetson.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.stetson.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.stetson.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-484473",
+   "folder": "ufonline",
+   "name": "University of Florida-Online",
+   "control": "public",
+   "domains": [
+    "ufl.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.ufl.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.ufl.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-138354",
+   "folder": "uwf",
+   "name": "University of West Florida",
+   "control": "public",
+   "domains": [
+    "uwf.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.uwf.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.uwf.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-133872",
+   "folder": "ahu",
+   "name": "AdventHealth University",
+   "control": "private_nonprofit",
+   "domains": [
+    "ahu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 82,
+    "home": "https://catalog.ahu.edu/index.php?catoid=82",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 82 on catalog.ahu.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-132842",
+   "folder": "albizu",
+   "name": "Albizu University-Miami",
+   "control": "private_nonprofit",
+   "domains": [
+    "albizu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.albizu.edu/",
+    "https://catalog.albizu.edu/",
+    "https://www.albizu.edu/academics/",
+    "https://www.albizu.edu/registrar/",
+    "https://www.albizu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-483595",
+   "folder": "agmu",
+   "name": "Ana G. Mendez University",
+   "control": "private_nonprofit",
+   "domains": [
+    "agmu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.agmu.edu/",
+    "https://catalog.agmu.edu/",
+    "https://www.agmu.edu/academics/",
+    "https://www.agmu.edu/registrar/",
+    "https://www.agmu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-446048",
+   "folder": "avemaria",
+   "name": "Ave Maria University",
+   "control": "private_nonprofit",
+   "domains": [
+    "avemaria.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "home": "https://catalog.avemaria.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.avemaria.edu/programs"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.avemaria.edu (program list https://catalog.avemaria.edu/programs)"
+  },
+  {
+   "institution_key": "ipeds-132408",
+   "folder": "buf",
+   "name": "Baptist University of Florida",
+   "control": "private_nonprofit",
+   "domains": [
+    "buf.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.buf.edu/",
+    "https://catalog.buf.edu/",
+    "https://www.buf.edu/academics/",
+    "https://www.buf.edu/registrar/",
+    "https://www.buf.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-384254",
+   "folder": "beaconcollege",
+   "name": "Beacon College",
+   "control": "private_nonprofit",
+   "domains": [
+    "beaconcollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.beaconcollege.edu/",
+    "https://catalog.beaconcollege.edu/",
+    "https://www.beaconcollege.edu/academics/",
+    "https://www.beaconcollege.edu/registrar/",
+    "https://www.beaconcollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-132709",
+   "folder": "broward",
+   "name": "Broward College",
+   "control": "public",
+   "domains": [
+    "broward.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.broward.edu/",
+    "https://catalog.broward.edu/",
+    "https://www.broward.edu/academics/",
+    "https://www.broward.edu/registrar/",
+    "https://www.broward.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-133021",
+   "folder": "chipola",
+   "name": "Chipola College",
+   "control": "public",
+   "domains": [
+    "chipola.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.chipola.edu/media/chipola/student-life/student-services/catalog/2026-2027/2026-2027-Chipola-College-Catalog.pdf"
+    ],
+    "home": "https://www.chipola.edu/media/chipola/student-life/student-services/catalog/2026-2027/2026-2027-Chipola-College-Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-132851",
+   "folder": "cf",
+   "name": "College of Central Florida",
+   "control": "public",
+   "domains": [
+    "cf.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 28,
+    "home": "https://catalog.cf.edu/index.php?catoid=28",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.cf.edu/content.php?catoid=28&navoid=2935",
+     "https://catalog.cf.edu/content.php?catoid=28&navoid=2936",
+     "https://catalog.cf.edu/content.php?catoid=28&navoid=2981"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 28 on catalog.cf.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-133386",
+   "folder": "daytonastate",
+   "name": "Daytona State College",
+   "control": "public",
+   "domains": [
+    "daytonastate.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.daytonastate.edu/",
+    "https://catalog.daytonastate.edu/",
+    "https://www.daytonastate.edu/academics/",
+    "https://www.daytonastate.edu/registrar/",
+    "https://www.daytonastate.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-132693",
+   "folder": "easternflorida",
+   "name": "Eastern Florida State College",
+   "control": "public",
+   "domains": [
+    "easternflorida.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.easternflorida.edu/",
+    "https://catalog.easternflorida.edu/",
+    "https://www.easternflorida.edu/academics/",
+    "https://www.easternflorida.edu/registrar/",
+    "https://www.easternflorida.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-133492",
+   "folder": "eckerd",
+   "name": "Eckerd College",
+   "control": "private_nonprofit",
+   "domains": [
+    "eckerd.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "home": "https://catalog.eckerd.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.eckerd.edu/programs"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.eckerd.edu (program list https://catalog.eckerd.edu/programs)"
+  },
+  {
+   "institution_key": "ipeds-133526",
+   "folder": "ew",
+   "name": "Edward Waters University",
+   "control": "private_nonprofit",
+   "domains": [
+    "ew.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.ew.edu/",
+    "https://catalog.ew.edu/",
+    "https://www.ew.edu/academics/",
+    "https://www.ew.edu/registrar/",
+    "https://www.ew.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-385619",
+   "folder": "evergladesuniversity",
+   "name": "Everglades University",
+   "control": "private_nonprofit",
+   "domains": [
+    "evergladesuniversity.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.evergladesuniversity.edu/",
+    "https://catalog.evergladesuniversity.edu/",
+    "https://www.evergladesuniversity.edu/academics/",
+    "https://www.evergladesuniversity.edu/registrar/",
+    "https://www.evergladesuniversity.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-494597",
+   "folder": "ftscc",
+   "name": "Faith Theological Seminary and Christian College",
+   "control": "private_nonprofit",
+   "domains": [
+    "ftscc.org"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.ftscc.org/",
+    "https://catalog.ftscc.org/",
+    "https://www.ftscc.org/academics/",
+    "https://www.ftscc.org/registrar/",
+    "https://www.ftscc.org/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-133809",
+   "folder": "floridacollege",
+   "name": "Florida College",
+   "control": "private_nonprofit",
+   "domains": [
+    "floridacollege.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://floridacollege.edu/wp-content/uploads/2026/07/2026-2027-Florida-College-Catalog-2.pdf"
+    ],
+    "home": "https://floridacollege.edu/wp-content/uploads/2026/07/2026-2027-Florida-College-Catalog-2.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-135160",
+   "folder": "fgc",
+   "name": "Florida Gateway College",
+   "control": "public",
+   "domains": [
+    "fgc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 27,
+    "home": "https://catalog.fgc.edu/index.php?catoid=27",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.fgc.edu/content.php?catoid=27&navoid=2733",
+     "https://catalog.fgc.edu/content.php?catoid=27&navoid=2770",
+     "https://catalog.fgc.edu/content.php?catoid=27&navoid=2772",
+     "https://catalog.fgc.edu/content.php?catoid=27&navoid=2787",
+     "https://catalog.fgc.edu/content.php?catoid=27&navoid=2788",
+     "https://catalog.fgc.edu/content.php?catoid=27&navoid=2794"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 27 on catalog.fgc.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-480569",
+   "folder": "fit-480569",
+   "name": "Florida Institute of Technology-Online",
+   "control": "private_nonprofit",
+   "domains": [
+    "fit.edu",
+    "floridatechonline.com"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 19,
+    "home": "https://catalog.fit.edu/index.php?catoid=19",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 19 on catalog.fit.edu (labelled 2025-2026)"
+  },
+  {
+   "institution_key": "ipeds-133979",
+   "folder": "fmuniv",
+   "name": "Florida Memorial University",
+   "control": "private_nonprofit",
+   "domains": [
+    "fmuniv.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.fmuniv.edu/",
+    "https://catalog.fmuniv.edu/",
+    "https://www.fmuniv.edu/academics/",
+    "https://www.fmuniv.edu/registrar/",
+    "https://www.fmuniv.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-482936",
+   "folder": "floridapoly",
+   "name": "Florida Polytechnic University",
+   "control": "public",
+   "domains": [
+    "floridapoly.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 37,
+    "home": "https://catalog.floridapoly.edu/index.php?catoid=37",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.floridapoly.edu/content.php?catoid=37&navoid=3501",
+     "https://catalog.floridapoly.edu/content.php?catoid=37&navoid=3513",
+     "https://catalog.floridapoly.edu/content.php?catoid=37&navoid=3517",
+     "https://catalog.floridapoly.edu/content.php?catoid=37&navoid=3558"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 37 on catalog.floridapoly.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-133508",
+   "folder": "fsw",
+   "name": "Florida SouthWestern State College",
+   "control": "public",
+   "domains": [
+    "fsw.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 27,
+    "home": "https://catalog.fsw.edu/index.php?catoid=27",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.fsw.edu/content.php?catoid=27&navoid=5492",
+     "https://catalog.fsw.edu/content.php?catoid=27&navoid=5499"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 27 on catalog.fsw.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-133702",
+   "folder": "fscj",
+   "name": "Florida State College at Jacksonville",
+   "control": "public",
+   "domains": [
+    "fscj.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "home": "https://catalog.fscj.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.fscj.edu/programs"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.fscj.edu (program list https://catalog.fscj.edu/programs)"
+  },
+  {
+   "institution_key": "ipeds-134343",
+   "folder": "gulfcoast",
+   "name": "Gulf Coast State College",
+   "control": "public",
+   "domains": [
+    "gulfcoast.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.gulfcoast.edu/catalog/current/documents/2026-2027-catalog.pdf"
+    ],
+    "home": "https://www.gulfcoast.edu/catalog/current/documents/2026-2027-catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-386472",
+   "folder": "herzing-386472",
+   "name": "Herzing University-Orlando",
+   "control": "private_nonprofit",
+   "domains": [
+    "herzing.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 84,
+    "home": "https://catalog.herzing.edu/index.php?catoid=84",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.herzing.edu/content.php?catoid=84&navoid=7551"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 84 on catalog.herzing.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-496973",
+   "folder": "herzing-496973",
+   "name": "Herzing University-Tampa",
+   "control": "private_nonprofit",
+   "domains": [
+    "herzing.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 84,
+    "home": "https://catalog.herzing.edu/index.php?catoid=84",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.herzing.edu/content.php?catoid=84&navoid=7551"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 84 on catalog.herzing.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-134495",
+   "folder": "hccfl",
+   "name": "Hillsborough Community College",
+   "control": "public",
+   "domains": [
+    "hccfl.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.hccfl.edu/",
+    "https://catalog.hccfl.edu/",
+    "https://www.hccfl.edu/academics/",
+    "https://www.hccfl.edu/registrar/",
+    "https://www.hccfl.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-134510",
+   "folder": "hsbc",
+   "name": "Hobe Sound Bible College",
+   "control": "private_nonprofit",
+   "domains": [
+    "hsbc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://hsbc.edu/wp-content/uploads/2026/09/2026-2027-Course-Catalog.pdf"
+    ],
+    "home": "https://hsbc.edu/wp-content/uploads/2026/09/2026-2027-Course-Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-367884",
+   "folder": "hodges",
+   "name": "Hodges University",
+   "control": "private_nonprofit",
+   "domains": [
+    "hodges.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.hodges.edu/",
+    "https://catalog.hodges.edu/",
+    "https://www.hodges.edu/academics/",
+    "https://www.hodges.edu/registrar/",
+    "https://www.hodges.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-134608",
+   "folder": "irsc",
+   "name": "Indian River State College",
+   "control": "public",
+   "domains": [
+    "irsc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.irsc.edu/",
+    "https://catalog.irsc.edu/",
+    "https://www.irsc.edu/academics/",
+    "https://www.irsc.edu/registrar/",
+    "https://www.irsc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-132879",
+   "folder": "johnsonu-132879",
+   "name": "Johnson University Florida",
+   "control": "private_nonprofit",
+   "domains": [
+    "johnsonu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://johnsonu.edu/wp-content/uploads/2021/06/2021-2022-Johnson-University-Academic-Catalog-approved-2021-06-23.pdf"
+    ],
+    "home": "https://johnsonu.edu/wp-content/uploads/2021/06/2021-2022-Johnson-University-Academic-Catalog-approved-2021-06-23.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2021-2022"
+  },
+  {
+   "institution_key": "ipeds-135188",
+   "folder": "lssc",
+   "name": "Lake-Sumter State College",
+   "control": "public",
+   "domains": [
+    "lssc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.lssc.edu/",
+    "https://catalog.lssc.edu/",
+    "https://www.lssc.edu/academics/",
+    "https://www.lssc.edu/registrar/",
+    "https://www.lssc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-135717",
+   "folder": "mdc",
+   "name": "Miami Dade College",
+   "control": "public",
+   "domains": [
+    "mdc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.mdc.edu/",
+    "https://catalog.mdc.edu/",
+    "https://www.mdc.edu/academics/",
+    "https://www.mdc.edu/registrar/",
+    "https://www.mdc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-262129",
+   "folder": "ncf",
+   "name": "New College of Florida",
+   "control": "public",
+   "domains": [
+    "ncf.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.ncf.edu/",
+    "https://catalog.ncf.edu/",
+    "https://www.ncf.edu/academics/",
+    "https://www.ncf.edu/registrar/",
+    "https://www.ncf.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-136145",
+   "folder": "nfc",
+   "name": "North Florida College",
+   "control": "public",
+   "domains": [
+    "nfc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.nfc.edu:443/admissions/catalog-and-schedule/College%20Catalog%202026-2027.pdf"
+    ],
+    "home": "https://www.nfc.edu:443/admissions/catalog-and-schedule/College%20Catalog%202026-2027.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-136233",
+   "folder": "nwfsc",
+   "name": "Northwest Florida State College",
+   "control": "public",
+   "domains": [
+    "nwfsc.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "home": "https://catalog.nwfsc.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.nwfsc.edu/programs",
+     "https://catalog.nwfsc.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.nwfsc.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.nwfsc.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.nwfsc.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.nwfsc.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.nwfsc.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.nwfsc.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.nwfsc.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.nwfsc.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.nwfsc.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.nwfsc.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.nwfsc.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.nwfsc.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.nwfsc.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.nwfsc.edu (183 links)"
+  },
+  {
+   "institution_key": "ipeds-136358",
+   "folder": "palmbeachstate",
+   "name": "Palm Beach State College",
+   "control": "public",
+   "domains": [
+    "palmbeachstate.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.palmbeachstate.edu/",
+    "https://catalog.palmbeachstate.edu/",
+    "https://www.palmbeachstate.edu/academics/",
+    "https://www.palmbeachstate.edu/registrar/",
+    "https://www.palmbeachstate.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-136400",
+   "folder": "phsc",
+   "name": "Pasco-Hernando State College",
+   "control": "public",
+   "domains": [
+    "phsc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.phsc.edu/",
+    "https://catalog.phsc.edu/",
+    "https://www.phsc.edu/academics/",
+    "https://www.phsc.edu/registrar/",
+    "https://www.phsc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-136473",
+   "folder": "pensacolastate",
+   "name": "Pensacola State College",
+   "control": "public",
+   "domains": [
+    "pensacolastate.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 6,
+    "home": "https://catalog.pensacolastate.edu/index.php?catoid=6",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.pensacolastate.edu/content.php?catoid=6&navoid=259"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 6 on catalog.pensacolastate.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-136516",
+   "folder": "polk",
+   "name": "Polk State College",
+   "control": "public",
+   "domains": [
+    "polk.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 55,
+    "home": "https://catalog.polk.edu/index.php?catoid=55",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.polk.edu/content.php?catoid=55&navoid=4002",
+     "https://catalog.polk.edu/content.php?catoid=55&navoid=4006",
+     "https://catalog.polk.edu/content.php?catoid=55&navoid=4021",
+     "https://catalog.polk.edu/content.php?catoid=55&navoid=4022",
+     "https://catalog.polk.edu/content.php?catoid=55&navoid=4023",
+     "https://catalog.polk.edu/content.php?catoid=55&navoid=4028",
+     "https://catalog.polk.edu/content.php?catoid=55&navoid=4029"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 55 on catalog.polk.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-456481",
+   "folder": "pupr-456481",
+   "name": "Polytechnic University of Puerto Rico-Miami",
+   "control": "private_nonprofit",
+   "domains": [
+    "pupr.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.pupr.edu/miami/",
+    "https://catalog.pupr.edu/",
+    "https://www.pupr.edu/academics/",
+    "https://www.pupr.edu/registrar/",
+    "https://www.pupr.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-456490",
+   "folder": "pupr-456490",
+   "name": "Polytechnic University of Puerto Rico-Orlando",
+   "control": "private_nonprofit",
+   "domains": [
+    "pupr.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.pupr.edu/orlando",
+    "https://catalog.pupr.edu/",
+    "https://www.pupr.edu/academics/",
+    "https://www.pupr.edu/registrar/",
+    "https://www.pupr.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-136774",
+   "folder": "ringling",
+   "name": "Ringling College of Art and Design",
+   "control": "private_nonprofit",
+   "domains": [
+    "ringling.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://catalog.ringling.edu/sites/default/files/20252026-catalog-8-17-26.pdf"
+    ],
+    "home": "https://catalog.ringling.edu/sites/default/files/20252026-catalog-8-17-26.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
+  },
+  {
+   "institution_key": "ipeds-137281",
+   "folder": "sjrstate",
+   "name": "Saint Johns River State College",
+   "control": "public",
+   "domains": [
+    "sjrstate.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 4,
+    "home": "https://catalog.sjrstate.edu/index.php?catoid=4",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.sjrstate.edu/content.php?catoid=4&navoid=213"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 4 on catalog.sjrstate.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-137096",
+   "folder": "sfcollege",
+   "name": "Santa Fe College",
+   "control": "public",
+   "domains": [
+    "sfcollege.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 28,
+    "home": "https://catalog.sfcollege.edu/index.php?catoid=28",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.sfcollege.edu/content.php?catoid=28&navoid=856",
+     "https://catalog.sfcollege.edu/content.php?catoid=28&navoid=864"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 28 on catalog.sfcollege.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-137209",
+   "folder": "seminolestate",
+   "name": "Seminole State College of Florida",
+   "control": "public",
+   "domains": [
+    "seminolestate.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.seminolestate.edu/media/catalog/catalog-pdfs/catalog-2026-2027.pdf?v=4"
+    ],
+    "home": "https://www.seminolestate.edu/media/catalog/catalog-pdfs/catalog-2026-2027.pdf?v=4",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-366003",
+   "folder": "sfbc",
+   "name": "South Florida Bible College and Theological Seminary",
+   "control": "private_nonprofit",
+   "domains": [
+    "sfbc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.sfbc.edu/",
+    "https://catalog.sfbc.edu/",
+    "https://www.sfbc.edu/academics/",
+    "https://www.sfbc.edu/registrar/",
+    "https://www.sfbc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-137315",
+   "folder": "southflorida",
+   "name": "South Florida State College",
+   "control": "public",
+   "domains": [
+    "southflorida.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 5,
+    "home": "https://catalog.southflorida.edu/index.php?catoid=5",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.southflorida.edu/content.php?catoid=5&navoid=305"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 5 on catalog.southflorida.edu (labelled 2024-2025)"
+  },
+  {
+   "institution_key": "ipeds-137078",
+   "folder": "spcollege",
+   "name": "St Petersburg College",
+   "control": "public",
+   "domains": [
+    "spcollege.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.spcollege.edu:443/Documents/2025-2026-college-catalog.pdf"
+    ],
+    "home": "https://www.spcollege.edu:443/Documents/2025-2026-college-catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
+  },
+  {
+   "institution_key": "ipeds-137272",
+   "folder": "sjvcs",
+   "name": "St. John Vianney College Seminary",
+   "control": "private_nonprofit",
+   "domains": [
+    "sjvcs.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.sjvcs.edu/",
+    "https://catalog.sjvcs.edu/",
+    "https://www.sjvcs.edu/academics/",
+    "https://www.sjvcs.edu/registrar/",
+    "https://www.sjvcs.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-135391",
+   "folder": "scf",
+   "name": "State College of Florida-Manatee-Sarasota",
+   "control": "public",
+   "domains": [
+    "scf.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 20,
+    "home": "https://catalog.scf.edu/index.php?catoid=20",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.scf.edu/content.php?catoid=20&navoid=1854"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 20 on catalog.scf.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-137759",
+   "folder": "fl",
+   "name": "Tallahassee Community College",
+   "control": "public",
+   "domains": [
+    "fl.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 24,
+    "home": "https://catalog.tsc.fl.edu/index.php?catoid=24",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.tsc.fl.edu/content.php?catoid=24&navoid=3657"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 24 on catalog.tsc.fl.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-137777",
+   "folder": "talmudicu",
+   "name": "Talmudic College of Florida",
+   "control": "private_nonprofit",
+   "domains": [
+    "talmudicu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.talmudicu.edu/",
+    "https://catalog.talmudicu.edu/",
+    "https://www.talmudicu.edu/academics/",
+    "https://www.talmudicu.edu/registrar/",
+    "https://www.talmudicu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-133960",
+   "folder": "cfk",
+   "name": "The College of the Florida Keys",
+   "control": "public",
+   "domains": [
+    "cfk.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.cfk.edu/forms/26-27%20CFK%20College%20Catalog%20-%20(V3)%2009252026.pdf"
+    ],
+    "home": "https://www.cfk.edu/forms/26-27%20CFK%20College%20Catalog%20-%20(V3)%2009252026.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-137953",
+   "folder": "tbc",
+   "name": "Trinity Baptist College",
+   "control": "private_nonprofit",
+   "domains": [
+    "tbc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.tbc.edu/",
+    "https://catalog.tbc.edu/",
+    "https://www.tbc.edu/academics/",
+    "https://www.tbc.edu/registrar/",
+    "https://www.tbc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-137962",
+   "folder": "trinitycollege",
+   "name": "Trinity College of Florida",
+   "control": "private_nonprofit",
+   "domains": [
+    "trinitycollege.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.trinitycollege.edu/wp-content/uploads/2026/09/TCF-Academic-Catalog-2026-27-Addendum-Course-Sub-BIBL-Sequence.pdf"
+    ],
+    "home": "https://www.trinitycollege.edu/wp-content/uploads/2026/09/TCF-Academic-Catalog-2026-27-Addendum-Course-Sub-BIBL-Sequence.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-135610",
+   "folder": "tiu",
+   "name": "Trinity International University-Florida",
+   "control": "private_nonprofit",
+   "domains": [
+    "tiu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "home": "https://catalog.tiu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.tiu.edu/programs",
+     "https://catalog.tiu.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.tiu.edu (program list https://catalog.tiu.edu/programs)"
+  },
+  {
+   "institution_key": "ipeds-457402",
+   "folder": "uftl",
+   "name": "University of Fort Lauderdale",
+   "control": "private_nonprofit",
+   "domains": [
+    "uftl.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://uftl.edu/wp-content/uploads/2026/09/CATALOG_2026-2027__UNIVERSITY-OF-FORT-LAUDERDALE.pdf"
+    ],
+    "home": "https://uftl.edu/wp-content/uploads/2026/09/CATALOG_2026-2027__UNIVERSITY-OF-FORT-LAUDERDALE.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-138187",
+   "folder": "valenciacollege",
+   "name": "Valencia College",
+   "control": "public",
+   "domains": [
+    "valenciacollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://valenciacollege.edu/",
+    "https://catalog.valenciacollege.edu/",
+    "https://www.valenciacollege.edu/academics/",
+    "https://www.valenciacollege.edu/registrar/",
+    "https://www.valenciacollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-138275",
+   "folder": "warner",
+   "name": "Warner University",
+   "control": "private_nonprofit",
+   "domains": [
+    "warner.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.warner.edu/academics/undergraduate_programs/admissions/criteria-for-admission/",
+    "https://catalog.warner.edu/",
+    "https://www.warner.edu/academics/",
+    "https://www.warner.edu/registrar/",
+    "https://www.warner.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-138293",
+   "folder": "webber",
+   "name": "Webber International University",
+   "control": "private_nonprofit",
+   "domains": [
+    "webber.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.webber.edu/wp-content/uploads/2026/09/Master_Catalog_AY2026-2027_Final_.pdf"
+    ],
+    "home": "https://www.webber.edu/wp-content/uploads/2026/09/Master_Catalog_AY2026-2027_Final_.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
+  },
+  {
+   "institution_key": "ipeds-363712",
+   "folder": "lecfl",
+   "name": "Yeshivah Gedolah Rabbinical College",
+   "control": "private_nonprofit",
+   "domains": [
+    "lecfl.com"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.lecfl.com/",
+    "https://catalog.lecfl.com/",
+    "https://www.lecfl.com/academics/",
+    "https://www.lecfl.com/registrar/",
+    "https://www.lecfl.com/catalog/"
+   ],
+   "policy": []
+  }
+ ]
+}

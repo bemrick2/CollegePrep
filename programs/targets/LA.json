@@ -1,0 +1,573 @@
+{
+ "state": "LA",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-159009",
+   "folder": "gram",
+   "name": "Grambling State University",
+   "control": "public",
+   "domains": [
+    "gram.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.gram.edu/",
+    "https://catalog.gram.edu/",
+    "https://www.gram.edu/academics/",
+    "https://www.gram.edu/registrar/",
+    "https://www.gram.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-159391",
+   "folder": "lsu",
+   "name": "Louisiana State University and Agricultural & Mechanical College",
+   "control": "public",
+   "domains": [
+    "lsu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 10,
+    "home": "https://catalog.lsu.edu/index.php?catoid=10",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 10 on catalog.lsu.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-159647",
+   "folder": "latech",
+   "name": "Louisiana Tech University",
+   "control": "public",
+   "domains": [
+    "latech.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 25,
+    "home": "https://catalog.latech.edu/index.php?catoid=25",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.latech.edu/content.php?catoid=25&navoid=1246"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 25 on catalog.latech.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-159717",
+   "folder": "mcneese",
+   "name": "McNeese State University",
+   "control": "public",
+   "domains": [
+    "mcneese.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 102,
+    "home": "https://catalog.mcneese.edu/index.php?catoid=102",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.mcneese.edu/content.php?catoid=102&navoid=8461"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 102 on catalog.mcneese.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-159966",
+   "folder": "nicholls",
+   "name": "Nicholls State University",
+   "control": "public",
+   "domains": [
+    "nicholls.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.nicholls.edu/",
+    "https://catalog.nicholls.edu/",
+    "https://www.nicholls.edu/academics/",
+    "https://www.nicholls.edu/registrar/",
+    "https://www.nicholls.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-160038",
+   "folder": "nsula",
+   "name": "Northwestern State University of Louisiana",
+   "control": "public",
+   "domains": [
+    "nsula.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.nsula.edu/",
+    "https://catalog.nsula.edu/",
+    "https://www.nsula.edu/academics/",
+    "https://www.nsula.edu/registrar/",
+    "https://www.nsula.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-160612",
+   "folder": "southeastern",
+   "name": "Southeastern Louisiana University",
+   "control": "public",
+   "domains": [
+    "southeastern.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 6,
+    "home": "https://catalog.southeastern.edu/index.php?catoid=6",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.southeastern.edu/content.php?catoid=6&navoid=189"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 6 on catalog.southeastern.edu (labelled 2027-2028)"
+  },
+  {
+   "institution_key": "ipeds-160621",
+   "folder": "subr",
+   "name": "Southern University and A & M College",
+   "control": "public",
+   "domains": [
+    "subr.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.subr.edu/",
+    "https://catalog.subr.edu/",
+    "https://www.subr.edu/academics/",
+    "https://www.subr.edu/registrar/",
+    "https://www.subr.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-160755",
+   "folder": "tulane",
+   "name": "Tulane University of Louisiana",
+   "control": "private_nonprofit",
+   "domains": [
+    "tulane.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.tulane.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.tulane.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.tulane.edu (program list https://catalog.tulane.edu/programs/)"
+  },
+  {
+   "institution_key": "ipeds-160658",
+   "folder": "louisiana",
+   "name": "University of Louisiana at Lafayette",
+   "control": "public",
+   "domains": [
+    "louisiana.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 26,
+    "home": "https://catalog.louisiana.edu/index.php?catoid=26",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.louisiana.edu/content.php?catoid=26&navoid=8959"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 26 on catalog.louisiana.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-497408",
+   "folder": "bcc",
+   "name": "Bridges Christian College",
+   "control": "private_nonprofit",
+   "domains": [
+    "bcc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.bcc.edu/",
+    "https://catalog.bcc.edu/",
+    "https://www.bcc.edu/academics/",
+    "https://www.bcc.edu/registrar/",
+    "https://www.bcc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-158477",
+   "folder": "centenary",
+   "name": "Centenary College of Louisiana",
+   "control": "private_nonprofit",
+   "domains": [
+    "centenary.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://static.centenary.edu/files/resources/2026-2027-course-catalogue-for-publishing-3.pdf"
+    ],
+    "home": "https://static.centenary.edu/files/resources/2026-2027-course-catalogue-for-publishing-3.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-158802",
+   "folder": "dillard",
+   "name": "Dillard University",
+   "control": "private_nonprofit",
+   "domains": [
+    "dillard.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.dillard.edu/",
+    "https://catalog.dillard.edu/",
+    "https://www.dillard.edu/academics/",
+    "https://www.dillard.edu/registrar/",
+    "https://www.dillard.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-160074",
+   "folder": "franu",
+   "name": "Franciscan Missionaries of Our Lady University",
+   "control": "private_nonprofit",
+   "domains": [
+    "franu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.franu.edu/",
+    "https://catalog.franu.edu/",
+    "https://www.franu.edu/academics/",
+    "https://www.franu.edu/registrar/",
+    "https://www.franu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-433536",
+   "folder": "herzing",
+   "name": "Herzing University-New Orleans",
+   "control": "private_nonprofit",
+   "domains": [
+    "herzing.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 84,
+    "home": "https://catalog.herzing.edu/index.php?catoid=84",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.herzing.edu/content.php?catoid=84&navoid=7551"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 84 on catalog.herzing.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-159568",
+   "folder": "lcuniversity",
+   "name": "Louisiana Christian University",
+   "control": "private_nonprofit",
+   "domains": [
+    "lcuniversity.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 22,
+    "home": "https://catalog.lcuniversity.edu/index.php?catoid=22",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.lcuniversity.edu/content.php?catoid=22&navoid=1047",
+     "https://catalog.lcuniversity.edu/content.php?catoid=22&navoid=1061"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 22 on catalog.lcuniversity.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-159382",
+   "folder": "lsua",
+   "name": "Louisiana State University-Alexandria",
+   "control": "public",
+   "domains": [
+    "lsua.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.lsua.edu/",
+    "https://catalog.lsua.edu/",
+    "https://www.lsua.edu/academics/",
+    "https://www.lsua.edu/registrar/",
+    "https://www.lsua.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-159416",
+   "folder": "lsus",
+   "name": "Louisiana State University-Shreveport",
+   "control": "public",
+   "domains": [
+    "lsus.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 6,
+    "home": "https://catalog.lsus.edu/index.php?catoid=6",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.lsus.edu/content.php?catoid=6&navoid=173",
+     "https://catalog.lsus.edu/content.php?catoid=6&navoid=176",
+     "https://catalog.lsus.edu/content.php?catoid=6&navoid=194"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 6 on catalog.lsus.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-159656",
+   "folder": "loyno",
+   "name": "Loyola University New Orleans",
+   "control": "private_nonprofit",
+   "domains": [
+    "loyno.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.loyno.edu/",
+    "https://catalog.loyno.edu/",
+    "https://www.loyno.edu/academics/",
+    "https://www.loyno.edu/registrar/",
+    "https://www.loyno.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-159948",
+   "folder": "nobts",
+   "name": "New Orleans Baptist Theological Seminary",
+   "control": "private_nonprofit",
+   "domains": [
+    "nobts.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.nobts.edu/",
+    "https://catalog.nobts.edu/",
+    "https://www.nobts.edu/academics/",
+    "https://www.nobts.edu/registrar/",
+    "https://www.nobts.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-451866",
+   "folder": "remingtoncollege-451866",
+   "name": "Remington College-Shreveport Campus",
+   "control": "private_nonprofit",
+   "domains": [
+    "remingtoncollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.remingtoncollege.edu/locations/shreveport/",
+    "https://catalog.remingtoncollege.edu/",
+    "https://www.remingtoncollege.edu/academics/",
+    "https://www.remingtoncollege.edu/registrar/",
+    "https://www.remingtoncollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-160409",
+   "folder": "sjasc",
+   "name": "Saint Joseph Seminary College",
+   "control": "private_nonprofit",
+   "domains": [
+    "sjasc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.sjasc.edu/s/SJSC-Bulletin-109th.pdf"
+    ],
+    "home": "https://www.sjasc.edu/s/SJSC-Bulletin-109th.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2019-2020"
+  },
+  {
+   "institution_key": "ipeds-160630",
+   "folder": "suno",
+   "name": "Southern University at New Orleans",
+   "control": "public",
+   "domains": [
+    "suno.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.suno.edu/",
+    "https://catalog.suno.edu/",
+    "https://www.suno.edu/academics/",
+    "https://www.suno.edu/registrar/",
+    "https://www.suno.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-160065",
+   "folder": "uhcno",
+   "name": "University of Holy Cross",
+   "control": "private_nonprofit",
+   "domains": [
+    "uhcno.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://uhcno.edu/academics/doc/catalogs/2022-2023-catalog.pdf"
+    ],
+    "home": "https://uhcno.edu/academics/doc/catalogs/2022-2023-catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2022-2023"
+  },
+  {
+   "institution_key": "ipeds-159993",
+   "folder": "ulm",
+   "name": "University of Louisiana at Monroe",
+   "control": "public",
+   "domains": [
+    "ulm.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.ulm.edu/",
+    "https://catalog.ulm.edu/",
+    "https://www.ulm.edu/academics/",
+    "https://www.ulm.edu/registrar/",
+    "https://www.ulm.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-159939",
+   "folder": "uno",
+   "name": "University of New Orleans",
+   "control": "public",
+   "domains": [
+    "uno.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://new.uno.edu/",
+    "https://catalog.uno.edu/",
+    "https://www.uno.edu/academics/",
+    "https://www.uno.edu/registrar/",
+    "https://www.uno.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-160904",
+   "folder": "xula",
+   "name": "Xavier University of Louisiana",
+   "control": "private_nonprofit",
+   "domains": [
+    "xula.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 46,
+    "home": "https://catalog.xula.edu/index.php?catoid=46",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.xula.edu/content.php?catoid=46&navoid=2520",
+     "https://catalog.xula.edu/content.php?catoid=46&navoid=2523"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 46 on catalog.xula.edu (labelled 2025-2026)"
+  }
+ ]
+}
