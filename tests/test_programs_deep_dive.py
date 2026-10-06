@@ -426,10 +426,12 @@ class StatedMajorTests(unittest.TestCase):
         multi = T.Page(txt, 't', [], [], ['Cinema Studies', "Majors - Bachelor's Degree"])
         self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, multi, '2026-27'), [])
         # the list must print the award; a bare anchor is not credential evidence
+        # (the page's own degree heading is still read, by department_section/v1)
         bare = {**tgt, '_listed': {url: {**listed, 'printed': 'Cinema Studies'}}}
-        self.assertEqual(X.program_page_candidates(bare, {'institution_key': 'k'}, e, page, '2026-27'), [])
+        got = X.program_page_candidates(bare, {'institution_key': 'k'}, e, page, '2026-27')
+        self.assertEqual([(c['extractor'], c['record']['program_name']) for c in got], [('department_section/v1', 'Bachelor of Arts in Cinema Studies')])
         minor = {**tgt, '_listed': {url: {**listed, 'credential_level': None}}}
-        self.assertEqual(X.program_page_candidates(minor, {'institution_key': 'k'}, e, page, '2026-27'), [])
+        self.assertEqual([c['extractor'] for c in X.program_page_candidates(minor, {'institution_key': 'k'}, e, page, '2026-27')], ['department_section/v1'])
 
     def test_archive_pdf_link_is_not_a_year_label(self):
         from pipeline import text as T
@@ -1151,6 +1153,43 @@ class AutoReviewTests(unittest.TestCase):
         self.assertEqual(held['variant_page'], 3); self.assertEqual(held['req_variant_page'], 1); self.assertEqual(held['duplicate'], 3)
 
 
+class DepartmentSectionTests(unittest.TestCase):
+    def test_degree_sections_on_a_department_page(self):  # MSState 2026-27, Arkansas 2026-27
+        from pipeline import text as T
+        e = {'url': 'https://catalog.x.edu/undergraduate/arts/departmentofbiology/', 'role': 'program_page', 'sha256': 'a' * 64,
+             'fetched_at': '2026-10-06T00:00:00+00:00', 'status': 200, 'kind': 'html'}
+        heads = ['Department of Biological Sciences', 'BS in Biological Sciences (BIO)', 'General Education Requirements', 'BS in Microbiology (MIC)',
+                 'BS in Clinical Laboratory Sciences (CLSC)1', 'Requirements for B.A. in Biology', 'B.S. in Biology Eight-Semester Degree Plan',
+                 'Requirements for B.S.E. in Childhood Education with STEM Concentration', 'B.S. with non-A.C.S. certification',
+                 'B.S. in Industrial Engineering and B.B.A. in Business Administration', 'BS in Applied Sociology (online degree)', 'Biology Minor']
+        page = T.Page('2026-2027 Undergraduate Catalog\n' + '\n'.join(heads), 'Department of Biological Sciences < X University', [], [], heads)
+        tgt = {'catalog': {'platform': 'courseleaf'}}
+        out = X.program_page_candidates(tgt, {'institution_key': 'k'}, e, page, '2026-27')
+        got = {c['record']['program_key']: c['record']['program_name'] for c in out}
+        self.assertEqual(got, {'biological-sciences-bs': 'BS in Biological Sciences (BIO)', 'microbiology-bs': 'BS in Microbiology (MIC)',
+                               'clinical-laboratory-sciences-bs': 'BS in Clinical Laboratory Sciences (CLSC)', 'biology-ba': 'B.A. in Biology'})
+        self.assertTrue(all(c['extractor'] == 'department_section/v1' and c['record']['program_url'] == e['url'] for c in out))
+        two = T.Page('2026-2027 Undergraduate Catalog\n2025-2026 Undergraduate Catalog\n' + '\n'.join(heads), 't', [], [], heads)
+        self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, two, '2026-27'), [])  # no single current label
+
+    def test_programs_sharing_a_page_are_not_duplicates(self):
+        from programs import autoreview as A
+        from datetime import date
+        P = AutoReviewTests.prog
+        def at(c, ext, url): c['extractor'] = ext; c['record']['program_url'] = url; return c
+        U = 'https://catalog.x.edu/undergraduate/arts/departmentofbiology/'
+        cands = [at(P(None, 'a', 'BS in Biology', key='biology-bs'), 'department_section/v1', U),
+                 at(P(None, 'b', 'BS in Microbiology', key='microbiology-bs'), 'department_section/v1', U),
+                 at(P(None, 'c', 'Chemistry, BS', key='chem'), 'catalog_program/v1', 'https://catalog.x.edu/chem/'),
+                 at(P(None, 'd', 'Chemistry, BA', key='chem-ba'), 'catalog_program/v1', 'https://catalog.x.edu/chem/')]
+        d = AutoReviewTests.run_dir(None, cands)
+        old = A.catalog_records; A.catalog_records = lambda *a: []
+        try: approve, cats, held = A.review('ZZ', d, today=date(2026, 10, 6))
+        finally: A.catalog_records = old
+        self.assertEqual({a['candidate_id'] for a in approve}, {'a', 'b', 'c'})  # one page, two programs; other extractors keep the URL rule
+        self.assertEqual(held['duplicate'], 1)
+
+
 class SitemapTests(unittest.TestCase):
     def test_courseleaf_sitemap_yields_bachelor_program_pages(self):
         from pipeline.crawl import Fetcher, Run
@@ -1283,6 +1322,25 @@ class CatalogOverwriteTests(unittest.TestCase):
                 self.assertEqual(json.loads((f / '2026-27.json').read_text())['records'][0]['listed_bachelor_programs'], 37)
             finally:
                 P.ROOT, PP.ROOT = old, oldp
+
+
+class ProgramKeymapTests(unittest.TestCase):
+    def test_programs_sharing_a_page_keep_their_own_keys(self):
+        from programs import promote as P
+        U = 'https://catalog.x.edu/dept/'
+        on_file = {'records': [{'program_key': 'biology-bs', 'program_url': U}, {'program_key': 'old-key', 'program_url': 'https://catalog.x.edu/chem/'}]}
+        cand = lambda cid, key, url, ext: {'candidate_id': cid, 'domain': 'academic_programs', 'institution_key': 'k', 'academic_year': '2026-27',
+                                           'extractor': ext, 'record': {'program_key': key, 'program_url': url, 'program_name': key}}
+        cands = {c['candidate_id']: c for c in [cand('a', 'biology-bs', U, 'department_section/v1'), cand('b', 'microbiology-bs', U, 'department_section/v1'),
+                                                 cand('m', 'microbiology-bs', U, 'catalog_program/v1'), cand('c', 'chemistry-bs', 'https://catalog.x.edu/chem/', 'catalog_program/v1')]}
+        old = P._records; P._records = lambda *a: on_file
+        try:
+            km = P.program_keymap([{'candidate_id': i} for i in ('a', 'b', 'c')], cands, {'k': 'x'})
+            self.assertEqual(km, {('k', '2026-27', 'chemistry-bs'): 'old-key'})  # a renamed program keeps its key; siblings never merge
+            km = P.program_keymap([{'candidate_id': 'm'}], cands, {'k': 'x'})
+            self.assertEqual(km, {('k', '2026-27', 'microbiology-bs'): 'biology-bs'})  # the one-program-per-page rule elsewhere is unchanged
+        finally:
+            P._records = old
 
 
 class FolderOwnershipTests(unittest.TestCase):

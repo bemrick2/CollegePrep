@@ -37,7 +37,12 @@ TRUSTED_PROGRAMS = {'catalog_program/v1', 'coursedog_api/v1', 'coursedog_page/v1
                     'department_major/v1', 'stated_major/v1', 'listed_location/v1', 'major_table/v1',
                     # independent review 2026-10-06 (Auburn, 30 sampled): 26/30 right; the 4 errors were duplicate list links
                     # (fixed: one list entry per page, the awarded line kept) and entry-path variants are now held
-                    'listed_program/v1'}
+                    'listed_program/v1',
+                    # independent review 2026-10-06 (MSState and Arkansas department pages, 36 sampled): 35/36 right; the error
+                    # was a branch-campus copy of a main-campus program, held by the several-pages rule (no base page)
+                    'department_section/v1'}
+# extractors whose programs share one page by design (several degree sections on a department page)
+SHARED_PAGE = {'department_section/v1'}
 OPTION = re.compile(r'\b(track|option|concentration|emphasis|specialization)\b', re.I)  # an option is not a program
 # combined and accelerated pathways into a graduate degree are not bachelor's programs of their own
 COMBINED = re.compile(r'\+|\b(accelerated|combined|dual|concurrent|double)\b|\bwith\s+(an?\s+)?((?-i:M\.?\s?[A-Z]{1,4})\b|Master)|\b(B\.?[AS]\.?|BBA|B\.B\.A\.)\s*/\s*(M|J\.?D)|program for', re.I)
@@ -114,7 +119,8 @@ def review(state, run, today=None):
                'combined_program' if COMBINED.search(c['record'].get('program_name', '')) else
                'entry_path_variant' if len(variants[(c['institution_key'], base(c))]) > 1 and plain(c) != c['record'].get('program_name', '').strip() else
                'variant_page' if url_of(c, 'program_url') in variant_pages else
-               'not_current_year' if not current_year(c, today_year) else 'duplicate' if k in seen or u in seen_url else None)
+               'not_current_year' if not current_year(c, today_year) else
+               'duplicate' if k in seen or (u in seen_url and c['extractor'] not in SHARED_PAGE) else None)
         if why: held[why] += 1; continue
         seen.add(k); seen_url.add(u); program_keys[c['institution_key']].add(k[1])
         approve.append({'candidate_id': c['candidate_id'], 'reason': f"Standing review ({c['extractor']}): name, award and {c['record'].get('catalog_year')} catalog year verbatim in the stored official page."})
