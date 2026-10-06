@@ -38,7 +38,7 @@ TRUSTED_PROGRAMS = {'catalog_program/v1', 'coursedog_api/v1', 'coursedog_page/v1
                     'listed_program/v1'}
 OPTION = re.compile(r'\b(track|option|concentration|emphasis|specialization)\b', re.I)  # an option is not a program
 # combined and accelerated pathways into a graduate degree are not bachelor's programs of their own
-COMBINED = re.compile(r'\+|\b(accelerated|combined|dual|concurrent)\b|\b(B\.?[AS]\.?|BBA|B\.B\.A\.)\s*/\s*(M|J\.?D)|program for', re.I)
+COMBINED = re.compile(r'\+|\b(accelerated|combined|dual|concurrent|double)\b|\bwith\s+(an?\s+)?((?-i:M\.?\s?[A-Z]{1,4})\b|Master)|\b(B\.?[AS]\.?|BBA|B\.B\.A\.)\s*/\s*(M|J\.?D)|program for', re.I)
 # a graduate award inside a name ('Business Administration, M.B.A.') also contains 'B.A.' for the bachelor's pattern
 GRADUATE = re.compile(r'\bM\.\s?B\.\s?A\b|\bMBA\b|\bM\.\s?(A|S|Ed|F\.?A)\.|\bMaster|\bPh\.?\s?D\b|\bDoctor', re.I)
 TRUSTED_REQUIREMENTS = {('major', 'courselist_html/v1'), ('program_plan', 'courseleaf_plan/v1'), ('program_plan', 'acalog_plan/v1'),
