@@ -1480,6 +1480,43 @@ Institutions in scope: **71** · crawled: **62** · blocked by site: **9** · ru
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-232618`, `ipeds-232788`, `ipeds-233037`, `ipeds-233116`, `ipeds-233301`, `ipeds-233426`, `ipeds-233772`, `ipeds-234207`, `ipeds-458113`
 
+## VT — 2026-27
+
+Institutions in scope: **11** · crawled: **10** · blocked by site: **1** · run: `pipeline/runs/VT/2026-10-06`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 0 (0%) | 0 | 4 (36%) | 9 (82%) | 1 | 1 |
+| cost_of_attendance | 0 (0%) | 0 | 2 (18%) | 9 (82%) | 1 | 1 |
+| admissions_tests | 0 (0%) | 0 | 1 (9%) | 9 (82%) | 1 | 1 |
+| common_data_set | 0 (0%) | 0 | 1 (9%) | 2 (18%) | 8 | 1 |
+| merit_scholarships | 0 (0%) | 0 | 2 (18%) | 10 (91%) | 0 | 1 |
+| ap_credit | 0 (0%) | 0 | 1 (9%) | 6 (55%) | 4 | 1 |
+| clep_credit | 0 (0%) | 0 | 0 (0%) | 4 (36%) | 6 | 1 |
+| ib_credit | 0 (0%) | 0 | 1 (9%) | 3 (27%) | 7 | 1 |
+| dual_enrollment | 0 (0%) | 0 | 0 (0%) | 7 (64%) | 3 | 1 |
+| transfer_credit | 0 (0%) | 0 | 2 (18%) | 10 (91%) | 0 | 1 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 4 (36%) | 6 | 1 |
+| residency | 0 (0%) | 0 | 0 (0%) | 7 (64%) | 3 | 1 |
+| degree_requirements | 0 (0%) | 0 | 0 (0%) | 8 (73%) | 2 | 1 |
+| aid_appeals | 0 (0%) | 0 | 6 (55%) | 7 (64%) | 3 | 1 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 0 |
+| blocked requests | 30 |
+| candidates | 34 |
+| conflicts | 2 |
+| documents | 695 |
+| extraction failures | 0 |
+| fetch errors | 61 |
+| fetches | 786 |
+| ready | 16 |
+| semantic review | 9 |
+| stale sources | 10 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-230889`
+
 ## WA — 2026-27
 
 Institutions in scope: **60** · crawled: **48** · blocked by site: **12** · run: `pipeline/runs/WA/2026-10-04`
