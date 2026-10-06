@@ -1195,3 +1195,21 @@ class CatalogOverwriteTests(unittest.TestCase):
                 self.assertEqual(json.loads((f / '2026-27.json').read_text())['records'][0]['listed_bachelor_programs'], 37)
             finally:
                 P.ROOT, PP.ROOT = old, oldp
+
+
+class FolderOwnershipTests(unittest.TestCase):
+    def test_a_folder_two_registries_claim_receives_no_records(self):
+        from programs import promote as P
+        with tempfile.TemporaryDirectory() as d:
+            old = P.ROOT; P.ROOT = Path(d)
+            try:
+                (Path(d) / 'pipeline/registry').mkdir(parents=True)
+                (Path(d) / 'pipeline/registry/AA.json').write_text(json.dumps({'institutions': [{'institution_key': 'a', 'folder': 'tiu'}]}))
+                (Path(d) / 'pipeline/registry/BB.json').write_text(json.dumps({'institutions': [{'institution_key': 'b', 'folder': 'tiu'}]}))
+                with self.assertRaises(ValueError): P.check_folder_ownership({'a': 'tiu'})
+                f = Path(d) / 'data/institutions/tiu/costs'; f.mkdir(parents=True)
+                (f / '2026-27.json').write_text(json.dumps({'institution_key': 'a', 'records': []}))
+                P.check_folder_ownership({'a': 'tiu'})  # its own records are already there
+                with self.assertRaises(ValueError): P.check_folder_ownership({'b': 'tiu'})
+            finally:
+                P.ROOT = old
