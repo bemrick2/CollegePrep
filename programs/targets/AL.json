@@ -1,0 +1,625 @@
+{
+ "state": "AL",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-100654",
+   "folder": "aamu",
+   "name": "Alabama A & M University",
+   "control": "public",
+   "domains": [
+    "aamu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.aamu.edu/",
+    "https://catalog.aamu.edu/",
+    "https://www.aamu.edu/academics/",
+    "https://www.aamu.edu/registrar/",
+    "https://www.aamu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-100858",
+   "folder": "auburn",
+   "name": "Auburn University",
+   "control": "public",
+   "domains": [
+    "auburn.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://bulletin.auburn.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://bulletin.auburn.edu/undergraduate/majors",
+     "https://bulletin.auburn.edu/undergraduate/majors/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on bulletin.auburn.edu (program list https://bulletin.auburn.edu/undergraduate/majors)"
+  },
+  {
+   "institution_key": "ipeds-101480",
+   "folder": "jsu",
+   "name": "Jacksonville State University",
+   "control": "public",
+   "domains": [
+    "jsu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.jsu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.jsu.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-102049",
+   "folder": "samford",
+   "name": "Samford University",
+   "control": "private_nonprofit",
+   "domains": [
+    "samford.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 34,
+    "home": "https://catalog.samford.edu/index.php?catoid=34",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.samford.edu/content.php?catoid=34&navoid=2259",
+     "https://catalog.samford.edu/content.php?catoid=34&navoid=2270"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 34 on catalog.samford.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-100751",
+   "folder": "ua",
+   "name": "The University of Alabama",
+   "control": "public",
+   "domains": [
+    "ua.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.ua.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.ua.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.ua.edu (program list https://catalog.ua.edu/programs/)"
+  },
+  {
+   "institution_key": "ipeds-102368",
+   "folder": "troy",
+   "name": "Troy University",
+   "control": "public",
+   "domains": [
+    "troy.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 9,
+    "home": "https://catalog.troy.edu/index.php?catoid=9",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.troy.edu/content.php?catoid=9&navoid=350"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 9 on catalog.troy.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-100663",
+   "folder": "uab",
+   "name": "University of Alabama at Birmingham",
+   "control": "public",
+   "domains": [
+    "uab.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.uab.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.uab.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-100706",
+   "folder": "uah",
+   "name": "University of Alabama in Huntsville",
+   "control": "public",
+   "domains": [
+    "uah.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.uah.edu/",
+    "https://catalog.uah.edu/",
+    "https://www.uah.edu/academics/",
+    "https://www.uah.edu/registrar/",
+    "https://www.uah.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-101879",
+   "folder": "una",
+   "name": "University of North Alabama",
+   "control": "public",
+   "domains": [
+    "una.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.una.edu/",
+    "https://catalog.una.edu/",
+    "https://www.una.edu/academics/",
+    "https://www.una.edu/registrar/",
+    "https://www.una.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-102094",
+   "folder": "southalabama",
+   "name": "University of South Alabama",
+   "control": "public",
+   "domains": [
+    "southalabama.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://bulletin.southalabama.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://bulletin.southalabama.edu/programs-az/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on bulletin.southalabama.edu (program list https://bulletin.southalabama.edu/programs-az/)"
+  },
+  {
+   "institution_key": "ipeds-100724",
+   "folder": "alasu",
+   "name": "Alabama State University",
+   "control": "public",
+   "domains": [
+    "alasu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.alasu.edu/",
+    "https://catalog.alasu.edu/",
+    "https://www.alasu.edu/academics/",
+    "https://www.alasu.edu/registrar/",
+    "https://www.alasu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-100830",
+   "folder": "aum",
+   "name": "Auburn University at Montgomery",
+   "control": "public",
+   "domains": [
+    "aum.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.aum.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.aum.edu/programs"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.aum.edu (program list https://catalog.aum.edu/programs)"
+  },
+  {
+   "institution_key": "ipeds-100937",
+   "folder": "bsc",
+   "name": "Birmingham-Southern College",
+   "control": "private_nonprofit",
+   "domains": [
+    "bsc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.bsc.edu/",
+    "https://catalog.bsc.edu/",
+    "https://www.bsc.edu/academics/",
+    "https://www.bsc.edu/registrar/",
+    "https://www.bsc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-101189",
+   "folder": "faulkner",
+   "name": "Faulkner University",
+   "control": "private_nonprofit",
+   "domains": [
+    "faulkner.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 5,
+    "home": "https://catalog.faulkner.edu/index.php?catoid=5",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.faulkner.edu/content.php?catoid=5&navoid=161"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 5 on catalog.faulkner.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-101453",
+   "folder": "hcu",
+   "name": "Heritage Christian University",
+   "control": "private_nonprofit",
+   "domains": [
+    "hcu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.hcu.edu/",
+    "https://catalog.hcu.edu/",
+    "https://www.hcu.edu/academics/",
+    "https://www.hcu.edu/registrar/",
+    "https://www.hcu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-101365",
+   "folder": "herzing",
+   "name": "Herzing University-Birmingham",
+   "control": "private_nonprofit",
+   "domains": [
+    "herzing.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 84,
+    "home": "https://catalog.herzing.edu/index.php?catoid=84",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.herzing.edu/content.php?catoid=84&navoid=7551"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 84 on catalog.herzing.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-101435",
+   "folder": "huntingdon",
+   "name": "Huntingdon College",
+   "control": "private_nonprofit",
+   "domains": [
+    "huntingdon.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.huntingdon.edu/wp-content/uploads/2026/08/2026-2027_Catalog_20260731v2.pdf"
+    ],
+    "home": "https://www.huntingdon.edu/wp-content/uploads/2026/08/2026-2027_Catalog_20260731v2.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-449348",
+   "folder": "huntsvillebiblecollege",
+   "name": "Huntsville Bible College",
+   "control": "private_nonprofit",
+   "domains": [
+    "huntsvillebiblecollege.org"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.huntsvillebiblecollege.org/",
+    "https://catalog.huntsvillebiblecollege.org/",
+    "https://www.huntsvillebiblecollege.org/academics/",
+    "https://www.huntsvillebiblecollege.org/registrar/",
+    "https://www.huntsvillebiblecollege.org/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-101675",
+   "folder": "miles",
+   "name": "Miles College",
+   "control": "private_nonprofit",
+   "domains": [
+    "miles.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.miles.edu/sites/default/files/2025-08/Miles%20College%20Academic%20Catalog%202025-2026.pdf"
+    ],
+    "home": "https://www.miles.edu/sites/default/files/2025-08/Miles%20College%20Academic%20Catalog%202025-2026.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
+  },
+  {
+   "institution_key": "ipeds-101912",
+   "folder": "oakwood",
+   "name": "Oakwood University",
+   "control": "private_nonprofit",
+   "domains": [
+    "oakwood.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://oakwood.edu/wp-content/uploads/16656_OU-Bulletin-2021-2022-Insides-FULL-1.pdf"
+    ],
+    "home": "https://oakwood.edu/wp-content/uploads/16656_OU-Bulletin-2021-2022-Insides-FULL-1.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2021-2022"
+  },
+  {
+   "institution_key": "ipeds-102058",
+   "folder": "selmau",
+   "name": "Selma University",
+   "control": "private_nonprofit",
+   "domains": [
+    "selmau.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.selmau.edu/_files/ugd/ce4945_0bfbed6719ae458cb6f814ae1ac14660.pdf"
+    ],
+    "home": "https://www.selmau.edu/_files/ugd/ce4945_0bfbed6719ae458cb6f814ae1ac14660.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2022-2023"
+  },
+  {
+   "institution_key": "ipeds-102234",
+   "folder": "shc",
+   "name": "Spring Hill College",
+   "control": "private_nonprofit",
+   "domains": [
+    "shc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.shc.edu/wp-content/uploads/2026/09/2026-2027-Bulletin-4.pdf"
+    ],
+    "home": "https://www.shc.edu/wp-content/uploads/2026/09/2026-2027-Bulletin-4.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-102270",
+   "folder": "stillman",
+   "name": "Stillman College",
+   "control": "private_nonprofit",
+   "domains": [
+    "stillman.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.stillman.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.stillman.edu/degrees"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.stillman.edu (program list https://catalog.stillman.edu/degrees)"
+  },
+  {
+   "institution_key": "ipeds-102298",
+   "folder": "talladega",
+   "name": "Talladega College",
+   "control": "private_nonprofit",
+   "domains": [
+    "talladega.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.talladega.edu/uploadedFiles/File/Talladega_Catalog_2022-2023.pdf"
+    ],
+    "home": "https://www.talladega.edu/uploadedFiles/File/Talladega_Catalog_2022-2023.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2022-2023"
+  },
+  {
+   "institution_key": "ipeds-102377",
+   "folder": "tuskegee",
+   "name": "Tuskegee University",
+   "control": "private_nonprofit",
+   "domains": [
+    "tuskegee.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 21,
+    "home": "https://catalog.tuskegee.edu/index.php?catoid=21",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.tuskegee.edu/content.php?catoid=21&navoid=1212"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 21 on catalog.tuskegee.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-102395",
+   "folder": "ussa",
+   "name": "United States Sports Academy",
+   "control": "private_nonprofit",
+   "domains": [
+    "ussa.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.ussa.edu/",
+    "https://catalog.ussa.edu/",
+    "https://www.ussa.edu/academics/",
+    "https://www.ussa.edu/registrar/",
+    "https://www.ussa.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-101693",
+   "folder": "umobile",
+   "name": "University of Mobile",
+   "control": "private_nonprofit",
+   "domains": [
+    "umobile.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.umobile.edu/",
+    "https://catalog.umobile.edu/",
+    "https://www.umobile.edu/academics/",
+    "https://www.umobile.edu/registrar/",
+    "https://www.umobile.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-101709",
+   "folder": "montevallo",
+   "name": "University of Montevallo",
+   "control": "public",
+   "domains": [
+    "montevallo.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 40,
+    "home": "https://bulletin.montevallo.edu/index.php?catoid=40",
+    "platform": "acalog",
+    "program_lists": [
+     "https://bulletin.montevallo.edu/content.php?catoid=40&navoid=5294",
+     "https://bulletin.montevallo.edu/content.php?catoid=40&navoid=5354"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 40 on bulletin.montevallo.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-101587",
+   "folder": "uwa",
+   "name": "University of West Alabama",
+   "control": "public",
+   "domains": [
+    "uwa.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 55,
+    "home": "https://catalog.uwa.edu/index.php?catoid=55",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 55 on catalog.uwa.edu (labelled 2026-2027)"
+  }
+ ]
+}
