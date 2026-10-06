@@ -54,6 +54,9 @@ export function App() {
         <Route path="/start" element={<Start />} />
         <Route path="/onboarding/parent" element={<ParentOnboarding />} />
         <Route path="/onboarding/student" element={<StudentOnboarding />} />
+      </Route>
+      {/* Join handles its own sign-in redirect so an invite link opened on a new device keeps its code. */}
+      <Route element={<FocusShell />}>
         <Route path="/join" element={<Join />} />
       </Route>
       <Route element={<RequireStudent><FocusShell /></RequireStudent>}>

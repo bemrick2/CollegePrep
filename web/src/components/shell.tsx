@@ -25,7 +25,10 @@ export function DemoBar() {
     <aside aria-label="Demo mode" className="bg-hero text-hero-ink">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-3 gap-y-1 px-4 py-1.5 text-xs">
         <span className="font-semibold">Demo mode</span>
-        <span className="hidden opacity-80 sm:inline">Practice questions and history are sample data stored in this browser.</span>
+        <span className="opacity-90">
+          Everything here, including invite codes, is sample data saved only in this browser.
+          <span className="hidden sm:inline"> It won't carry to another device.</span>
+        </span>
         <span className="ml-auto flex items-center gap-2">
           {canSwitch && (
             <button

@@ -25,7 +25,7 @@ describe('DemoSource follows the backend access rules', () => {
     await src.acceptInvitation(code)
     const ctx = await src.getHouseholdContext()
     expect(ctx.myStudent?.id).toBe(sid)
-    await expect(src.acceptInvitation(code)).rejects.toThrow(/invalid or has expired/)
+    await expect(src.acceptInvitation(code)).rejects.toThrow(/already been used/)
   })
 
   it('never lets a guardian practise as the student', async () => {

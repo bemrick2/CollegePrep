@@ -1,3 +1,4 @@
+import { INVITE_TTL_HOURS } from '../../invites'
 import type { DataSource } from '../source'
 import { DataError } from '../source'
 import type {
@@ -246,7 +247,7 @@ export class DemoSource implements DataSource {
       household_id: householdId,
       role,
       student_id: studentId ?? null,
-      expires_at: new Date(Date.now() + 72 * 3600_000).toISOString(),
+      expires_at: new Date(Date.now() + INVITE_TTL_HOURS * 3600_000).toISOString(),
       accepted_by: null,
     })
     this.commit()
@@ -255,9 +256,11 @@ export class DemoSource implements DataSource {
 
   async acceptInvitation(code: string) {
     const me = this.viewerId()
+    // Same rule order and messages as accept_household_invitation, so the UI can tell them apart.
     const inv = this.s.invitations.find((i) => i.code === code.trim().toUpperCase())
-    if (!inv || inv.accepted_by || inv.expires_at < new Date().toISOString())
-      throw new DataError('That code is invalid or has expired', 'invalid')
+    if (!inv) throw new DataError('Invalid invitation code', 'invalid')
+    if (inv.accepted_by) throw new DataError('Invitation has already been used', 'invalid')
+    if (inv.expires_at <= new Date().toISOString()) throw new DataError('Invitation has expired', 'invalid')
     inv.accepted_by = me
     if (inv.role === 'guardian') {
       this.s.members.push({

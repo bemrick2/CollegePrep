@@ -1,3 +1,4 @@
+import { INVITE_TTL_HOURS } from '../../invites'
 import type { SupabaseClient } from '@supabase/supabase-js'
 import type { DataSource } from '../source'
 import { DataError } from '../source'
@@ -195,7 +196,7 @@ export class LiveSource implements DataSource {
   }
 
   createInvitation(householdId: string, role: 'guardian' | 'student', studentId?: string) {
-    return rpc<string>(this.sb, 'create_household_invitation', { p_household: householdId, p_role: role, p_student: studentId ?? null })
+    return rpc<string>(this.sb, 'create_household_invitation', { p_household: householdId, p_role: role, p_student: studentId ?? null, p_ttl_hours: INVITE_TTL_HOURS })
   }
 
   acceptInvitation(code: string) {

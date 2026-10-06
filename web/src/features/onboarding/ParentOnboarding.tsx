@@ -158,7 +158,7 @@ export function ParentOnboarding() {
       step={4}
       total={4}
       title={`Invite ${studentName.trim() || 'your student'}`}
-      subtitle="Practice happens on your student's own login, so their history stays theirs. Share this code — it works once and expires in 72 hours."
+      subtitle="Practice happens on your student's own login, so their history stays theirs. Send them the invite link: it works once, on any device."
       footer={
         <Button size="lg" block onClick={() => void done()}>
           Go to your dashboard
@@ -168,7 +168,7 @@ export function ParentOnboarding() {
       {code && <InviteCode code={code} />}
       <ol className="mt-6 grid gap-3 text-sm text-ink-2">
         <li className="flex gap-3">
-          <Num n={1} /> Your student creates an account and chooses “I have an invite code”.
+          <Num n={1} /> Your student opens the link on their own phone or computer and creates their account (or enters the code under “I have an invite code”).
         </li>
         <li className="flex gap-3">
           <Num n={2} /> They take a short benchmark — about 30 minutes — to set a baseline.
