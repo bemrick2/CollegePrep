@@ -9,6 +9,8 @@ Nothing is promoted that a pilot review would have held:
   * no open issues (a stale year label, an option page, a held layout rule and so on are issues);
   * every value verbatim in its stored source (programs.verify: no problems for the candidate);
   * a program, not an option/track/concentration/emphasis of one, nor a combined/accelerated path into a graduate degree;
+  * when one program name is printed on several pages, only the base page's record and requirement rows (the page whose
+    URL slug the others extend); with no base page, none;
   * a bachelor's credential and a catalog year label of the current academic year or later, printed in the source;
   * requirement rows only for a program approved in the same decision or already on file.
 
@@ -35,7 +37,12 @@ TRUSTED_PROGRAMS = {'catalog_program/v1', 'coursedog_api/v1', 'coursedog_page/v1
                     'department_major/v1', 'stated_major/v1', 'listed_location/v1', 'major_table/v1',
                     # independent review 2026-10-06 (Auburn, 30 sampled): 26/30 right; the 4 errors were duplicate list links
                     # (fixed: one list entry per page, the awarded line kept) and entry-path variants are now held
-                    'listed_program/v1'}
+                    'listed_program/v1',
+                    # independent review 2026-10-06 (MSState and Arkansas department pages, 36 sampled): 35/36 right; the error
+                    # was a branch-campus copy of a main-campus program, held by the several-pages rule (no base page)
+                    'department_section/v1'}
+# extractors whose programs share one page by design (several degree sections on a department page)
+SHARED_PAGE = {'department_section/v1'}
 OPTION = re.compile(r'\b(track|option|concentration|emphasis|specialization)\b', re.I)  # an option is not a program
 # combined and accelerated pathways into a graduate degree are not bachelor's programs of their own
 COMBINED = re.compile(r'\+|\b(accelerated|combined|dual|concurrent|double)\b|\bwith\s+(an?\s+)?((?-i:M\.?\s?[A-Z]{1,4})\b|Master)|\b(B\.?[AS]\.?|BBA|B\.B\.A\.)\s*/\s*(M|J\.?D)|program for', re.I)
@@ -43,6 +50,25 @@ COMBINED = re.compile(r'\+|\b(accelerated|combined|dual|concurrent|double)\b|\bw
 GRADUATE = re.compile(r'\bM\.\s?B\.\s?A\b|\bMBA\b|\bM\.\s?(A|S|Ed|F\.?A)\.|\bMaster|\bPh\.?\s?D\b|\bDoctor', re.I)
 TRUSTED_REQUIREMENTS = {('major', 'courselist_html/v1'), ('program_plan', 'courseleaf_plan/v1'), ('program_plan', 'acalog_plan/v1'),
                         ('program_plan', 'clearpath_plan/v1'), ('program_plan', 'program_map/v1')}
+
+
+AWARD_SLUG = re.compile(r'-(b-?a|b-?s|bfa|bm|bba|bsn|bas|bsw|bae|bse|bme|bm?e|ba-bs|bachelor-of-[a-z-]+)$')
+
+
+def page_stem(url):
+    """A program page's identity for comparing pages that print one program name: the last path segment without an
+    award suffix ('asian-studies-ba' -> 'asian-studies'), so a cross-listed copy under another college path, and a
+    Coursedog default pathway view ('/programs/BFA.AA/general-aoYks' -> '/programs/BFA.AA'), are the same page."""
+    url = re.sub(r'/general-[A-Za-z0-9]+$', '', url)
+    return AWARD_SLUG.sub('', url.rsplit('/', 1)[-1])
+
+
+def base_stem(urls):
+    """When one program name is printed on several pages, the stem of the base page (the one every other page's stem
+    extends: 'biology-bs' / 'biology-bs-pre-professional'), or None when there is no such page."""
+    stems = {page_stem(u) for u in urls}
+    base = [b for b in stems if all(o == b or o.startswith(b + '-') for o in stems)]
+    return base[0] if len(base) == 1 else None
 
 
 def load(run):
@@ -73,6 +99,15 @@ def review(state, run, today=None):
     variants = defaultdict(set)
     for c in cands:
         if c['domain'] == 'academic_programs': variants[(c['institution_key'], base(c))].add(c['record'].get('program_name'))
+    # one program name printed on several pages (NSU 'Biology-BS' / 'Biology-BS-Pre-Professional', Liberty's online tracks):
+    # the record and its requirement rows come only from the base page (base_stem); no base page, no record
+    norm = lambda u: re.sub(r'(/index\.html?)?/?$', '', (u or '').split('#')[0])
+    url_of = lambda c, f: norm(c['record'].get(f) or (c.get('source') or {}).get('url'))
+    pages = defaultdict(set)
+    for c in cands:
+        u = url_of(c, 'program_url')
+        if c['domain'] == 'academic_programs' and u and not u.lower().endswith('.pdf'): pages[(c['institution_key'], c['record'].get('program_key'))].add(u)
+    variant_pages = {u for us in pages.values() if len(us) > 1 for u in us if page_stem(u) != base_stem(us)}
     for c in cands:
         if c['domain'] != 'academic_programs': continue
         k = (c['institution_key'], c['record'].get('program_key'))
@@ -83,7 +118,9 @@ def review(state, run, today=None):
                'option_name' if OPTION.search(c['record'].get('program_name', '')) else
                'combined_program' if COMBINED.search(c['record'].get('program_name', '')) else
                'entry_path_variant' if len(variants[(c['institution_key'], base(c))]) > 1 and plain(c) != c['record'].get('program_name', '').strip() else
-               'not_current_year' if not current_year(c, today_year) else 'duplicate' if k in seen or u in seen_url else None)
+               'variant_page' if url_of(c, 'program_url') in variant_pages else
+               'not_current_year' if not current_year(c, today_year) else
+               'duplicate' if k in seen or (u in seen_url and c['extractor'] not in SHARED_PAGE) else None)
         if why: held[why] += 1; continue
         seen.add(k); seen_url.add(u); program_keys[c['institution_key']].add(k[1])
         approve.append({'candidate_id': c['candidate_id'], 'reason': f"Standing review ({c['extractor']}): name, award and {c['record'].get('catalog_year')} catalog year verbatim in the stored official page."})
@@ -92,6 +129,7 @@ def review(state, run, today=None):
         kind = c['record'].get('requirement_kind')
         why = ('untrusted_extractor' if (kind, c['extractor']) not in TRUSTED_REQUIREMENTS else 'issues' if c['issues'] else
                'not_verbatim' if verify.get(c['candidate_id']) else 'not_current_year' if not current_year(c, today_year) else
+               'variant_page' if url_of(c, 'source_url') in variant_pages else
                'program_not_approved' if c['record'].get('program_key') not in program_keys[c['institution_key']] else None)
         if why: held['req_' + why] += 1; continue
         approve.append({'candidate_id': c['candidate_id'], 'reason': f"Standing review ({c['extractor']}): rows verbatim in the stored official page; passed the layout hold rules."})

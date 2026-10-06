@@ -1,0 +1,303 @@
+{
+ "state": "ND",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-200022",
+   "folder": "bismarckstate",
+   "name": "Bismarck State College",
+   "control": "public",
+   "domains": [
+    "bismarckstate.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.bismarckstate.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.bismarckstate.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-200059",
+   "folder": "dickinsonstate",
+   "name": "Dickinson State University",
+   "control": "public",
+   "domains": [
+    "dickinsonstate.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 4,
+    "home": "https://catalog.dickinsonstate.edu/index.php?catoid=4",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.dickinsonstate.edu/content.php?catoid=4&navoid=182",
+     "https://catalog.dickinsonstate.edu/content.php?catoid=4&navoid=201",
+     "https://catalog.dickinsonstate.edu/content.php?catoid=4&navoid=202",
+     "https://catalog.dickinsonstate.edu/content.php?catoid=4&navoid=207",
+     "https://catalog.dickinsonstate.edu/content.php?catoid=4&navoid=208",
+     "https://catalog.dickinsonstate.edu/content.php?catoid=4&navoid=243"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 4 on catalog.dickinsonstate.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-200226",
+   "folder": "mayvillestate",
+   "name": "Mayville State University",
+   "control": "public",
+   "domains": [
+    "mayvillestate.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.mayvillestate.edu/",
+    "https://catalog.mayvillestate.edu/",
+    "https://www.mayvillestate.edu/academics/",
+    "https://www.mayvillestate.edu/registrar/",
+    "https://www.mayvillestate.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-200253",
+   "folder": "minotstateu",
+   "name": "Minot State University",
+   "control": "public",
+   "domains": [
+    "minotstateu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.minotstateu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.minotstateu.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-200332",
+   "folder": "ndsu",
+   "name": "North Dakota State University-Main Campus",
+   "control": "public",
+   "domains": [
+    "ndsu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.ndsu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.ndsu.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-200484",
+   "folder": "trinitybiblecollege",
+   "name": "Trinity Bible College and Graduate School",
+   "control": "private_nonprofit",
+   "domains": [
+    "trinitybiblecollege.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://trinitybiblecollege.edu/wp-content/uploads/2026/07/2026-2027-Academic-Catalog-1.pdf"
+    ],
+    "home": "https://trinitybiblecollege.edu/wp-content/uploads/2026/07/2026-2027-Academic-Catalog-1.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-200156",
+   "folder": "uj",
+   "name": "University of Jamestown",
+   "control": "private_nonprofit",
+   "domains": [
+    "uj.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.uj.edu/",
+    "https://catalog.uj.edu/",
+    "https://www.uj.edu/academics/",
+    "https://www.uj.edu/registrar/",
+    "https://www.uj.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-200217",
+   "folder": "umary",
+   "name": "University of Mary",
+   "control": "private_nonprofit",
+   "domains": [
+    "umary.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 10,
+    "home": "https://catalog.umary.edu/index.php?catoid=10",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.umary.edu/content.php?catoid=10&navoid=1416",
+     "https://catalog.umary.edu/content.php?catoid=10&navoid=1431"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 10 on catalog.umary.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-200280",
+   "folder": "und",
+   "name": "University of North Dakota",
+   "control": "public",
+   "domains": [
+    "und.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://und.edu/",
+    "https://catalog.und.edu/",
+    "https://www.und.edu/academics/",
+    "https://www.und.edu/registrar/",
+    "https://www.und.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-200572",
+   "folder": "vcsu",
+   "name": "Valley City State University",
+   "control": "public",
+   "domains": [
+    "vcsu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.vcsu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.vcsu.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-200086",
+   "folder": "nhsc",
+   "name": "Nueta Hidatsa Sahnish College",
+   "control": "public",
+   "domains": [
+    "nhsc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://nhsc.edu/wp-content/uploads/2026/09/Final-Bulletin-2026-27.pdf"
+    ],
+    "home": "https://nhsc.edu/wp-content/uploads/2026/09/Final-Bulletin-2026-27.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-200466",
+   "folder": "sittingbull",
+   "name": "Sitting Bull College",
+   "control": "public",
+   "domains": [
+    "sittingbull.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.sittingbull.edu/",
+    "https://catalog.sittingbull.edu/",
+    "https://www.sittingbull.edu/academics/",
+    "https://www.sittingbull.edu/registrar/",
+    "https://www.sittingbull.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-200527",
+   "folder": "tm",
+   "name": "Turtle Mountain Community College",
+   "control": "private_nonprofit",
+   "domains": [
+    "tm.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.tm.edu/",
+    "https://catalog.tm.edu/",
+    "https://www.tm.edu/academics/",
+    "https://www.tm.edu/registrar/",
+    "https://www.tm.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-200554",
+   "folder": "uttc",
+   "name": "United Tribes Technical College",
+   "control": "private_nonprofit",
+   "domains": [
+    "uttc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://uttc.edu/",
+    "https://catalog.uttc.edu/",
+    "https://www.uttc.edu/academics/",
+    "https://www.uttc.edu/registrar/",
+    "https://www.uttc.edu/catalog/"
+   ],
+   "policy": []
+  }
+ ]
+}

@@ -81,7 +81,7 @@ def credential_of(name):
 YEAR_LABEL = re.compile(r'\b(20\d{2})\s*[-–]\s*(20\d{2})\s+(?:Undergraduate\s+|University\s+|Academic\s+|General\s+)?(Catalog|Catalogue|Bulletin)\b', re.I)
 
 LABEL_FIRST = re.compile(r'(?:Catalog|Catalogue|Bulletin)\s+(20\d{2})\s*[-–]\s*(20\d{2})(?=\s*(?:>|$))', re.I)
-EDITION = re.compile(r'(20\d{2})\s*[-–]\s*(\d{2})\s+Edition', re.I)
+EDITION = re.compile(r'(20\d{2})\s*[-–]\s*(?:20)?(\d{2})\s+Edition', re.I)  # Lewis & Clark '2026-27 Edition'; Stetson '2026-2027 Edition'
 NOT_CURRENT = re.compile(r'\[?\s*(not current|archived?)\b', re.I)  # Acalog selector: "2025-2026 Academic Catalog [NOT CURRENT CATALOGS]"
 ARCHIVE_LINK = re.compile(r'\s*(?:Download\s+)?PDF of\b', re.I)  # "PDF of the entire 2025-2026 Catalog": a download link, not this page's label
 
@@ -90,8 +90,11 @@ def printed_catalog_years(page):
     """Catalog year labels printed anywhere on the page ("2026-2027 Catalog" in a CourseLeaf footer,
     "2026-2027 Bulletin > ..." in a SmartCatalog breadcrumb), excluding 'Select a Catalog' archive menus."""
     found = set()
-    for line in page.lines:
+    lines = page.lines
+    for i, line in enumerate(lines):
         if len(line) > 160 or ARCHIVE_LINK.match(line) or NOT_CURRENT.search(line): continue
+        # a print-menu slot for a catalog PDF not yet posted ('2025-2026 Academic Catalog' / 'Coming Soon!!!', Stetson) is not this page's label
+        if any(re.match(r'\s*coming soon\b', l, re.I) for l in lines[i + 1:i + 3] if l.strip()): continue
         for m in YEAR_LABEL.finditer(line):
             if int(m.group(2)) == int(m.group(1)) + 1: found.add((f'{m.group(1)}-{m.group(2)}', line.strip()))
         m = LABEL_FIRST.search(line.strip())  # Linfield "Catalog 2026-2027"; UP "Bulletin 2026-2027 > ..."; Auburn "Auburn Bulletin 2026-2027"
@@ -187,6 +190,8 @@ def program_page_candidates(target, inst, entry, page, today_year):
         lk = target.get('_listed') or {}
         listed = lk.get(norm_url(entry.get('url') or '')) or lk.get(entry.get('url'))
         out = department_major_identity(inst, entry, page, today_year, listed) or listed_program_identity(inst, entry, page, today_year, listed)
+    if not out and plat == 'courseleaf':
+        return department_section_candidates(inst, entry, page, today_year)  # several degrees on one page: no plan or list rows read here
     if plat == 'courseleaf' and year:
         from . import courseleaf
         have = any(c['domain'] == 'academic_programs' for c in out)
@@ -200,6 +205,50 @@ def program_page_candidates(target, inst, entry, page, today_year):
             prog = next(c['record'] for c in out if c['domain'] == 'academic_programs')
             awards = len(re.findall(r'\b(BA|BS|BFA|BM|BAS|BBA|BArch|BLA|BMus|BSN)\b', prog['program_name']))
             out += courseleaf.html_candidates(inst, entry, cl[0], cl[1], year, prog['program_key'], max(1, awards), page.text)
+    return out
+
+
+SECTION_AWARD = {'bs': r'B\.?\s?S\.?|Bachelor of Science', 'ba': r'B\.?\s?A\.?|Bachelor of Arts', 'bfa': r'B\.?\s?F\.?\s?A\.?|Bachelor of Fine Arts',
+                 'bba': r'B\.?\s?B\.?\s?A\.?|Bachelor of Business Administration', 'bla': r'B\.?\s?L\.?\s?A\.?|Bachelor of Landscape Architecture',
+                 'bsn': r'B\.?\s?S\.?\s?N\.?|Bachelor of Science in Nursing', 'bm': r'B\.?\s?M\.?|Bachelor of Music',
+                 'bse': r'B\.?\s?S\.?\s?E\.?|Bachelor of Science in Education', 'bsw': r'B\.?\s?S\.?\s?W\.?|Bachelor of Social Work'}
+SECTION_HEADING = re.compile(r'^(?:Requirements for (?:the )?)?(?P<award>' + '|'.join(f'(?P<{k}>{v})' for k, v in SECTION_AWARD.items()) +
+                             r')\s+(?:degree\s+)?in\s+(?P<name>[A-Z][^()]*?)(?:\s*\([^()]*\))?\d?$')
+SECTION_NOT_PROGRAM = re.compile(r'\b(option|concentration|track|emphasis|specialization|minor|certificate|endorsement|accelerated|combined|'
+                                 r'plan|semester|map|sample|suggested|'
+                                 r'dual|double|second|online degree|pathway|pre-|with\b)|\+|/|\band\s+B\.?\s?[A-Z]|\bMaster', re.I)
+
+
+def department_section_candidates(inst, entry, page, today_year):
+    """department_section/v1: CourseLeaf department pages that print each bachelor's degree as its own section heading
+    ('BS in Biological Sciences (BIO)', 'B.A. in Chemistry': MSState 2026-27). One record per heading; the name is the
+    heading as printed, the award the heading's own, the catalog year the page's single current label. Headings for an
+    option, concentration, combined or second degree, or with two awards, are not programs. Several programs share the
+    department page as their URL."""
+    labels = {y for y, _ in printed_catalog_years(page)}
+    y0, printed0 = CAT.catalog_year(page)
+    if printed0: labels.add(printed0)
+    if len(labels) != 1: return []
+    year = next(iter(labels)); acad = f'{year[:4]}-{year[7:9]}'
+    yline = next((l for y, l in printed_catalog_years(page) if y == year), printed0 and (page.title or '')) or year
+    out, keys = [], set()
+    for h in page.headings:
+        h = h.strip()
+        m = SECTION_HEADING.match(h)
+        if not m or SECTION_NOT_PROGRAM.search(h) or GRAD.search(m.group('name')): continue
+        award = next(k for k in SECTION_AWARD if m.group(k))
+        name = m.group('name').strip(' ,')
+        key = CAT.slug(f'{name} {award}')
+        if key in keys: continue
+        keys.add(key)
+        printed = re.sub(r'^Requirements for (?:the )?', '', re.sub(r'\d$', '', h)).strip()  # uark: 'Requirements for B.S. in Biology'
+        rec = {'program_key': key, 'program_name': printed, 'credential_level': 'bachelor', 'catalog_year': year,
+               'program_url': common.source_of(entry)['url'],
+               'notes': 'Degree section heading on the catalog department page; the department page lists several degrees.'}
+        out.append(common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec,
+                               [{'field': 'program_name', 'value': rec['program_name'], 'snippet': h[:200]},
+                                {'field': 'catalog_year', 'value': year, 'snippet': str(yline)[:200]}],
+                               entry, 'department_section/v1', {'program_key': key}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}']))
     return out
 
 
