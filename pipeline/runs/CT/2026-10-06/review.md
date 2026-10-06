@@ -1,0 +1,2015 @@
+# Review queue — CT (2026-27)
+
+Pages fetched: 2245; failures: 178. Candidates: 159 (26 without issues, 133 exceptions). Re-verification upgrades proposed: 0.
+
+## Coverage by category
+
+| category | verified_current | partially_verified_current | candidate_ready | candidate_exception | source_found | not_found | fetch_failed |
+|---|---|---|---|---|---|---|---|
+| tuition_fees | 0 | 0 | 5 | 12 | 9 | 0 | 1 |
+| cost_of_attendance | 0 | 0 | 1 | 10 | 15 | 0 | 1 |
+| admissions_tests | 0 | 0 | 0 | 0 | 26 | 0 | 1 |
+| common_data_set | 0 | 0 | 0 | 0 | 1 | 25 | 1 |
+| merit_scholarships | 0 | 0 | 2 | 1 | 22 | 1 | 1 |
+| ap_credit | 0 | 0 | 2 | 11 | 8 | 5 | 1 |
+| clep_credit | 0 | 0 | 2 | 2 | 5 | 17 | 1 |
+| ib_credit | 0 | 0 | 2 | 8 | 6 | 10 | 1 |
+| dual_enrollment | 0 | 0 | 1 | 0 | 17 | 8 | 1 |
+| transfer_credit | 0 | 0 | 5 | 1 | 20 | 0 | 1 |
+| statewide_articulation | 0 | 0 | 0 | 0 | 10 | 16 | 1 |
+| residency | 0 | 0 | 0 | 0 | 15 | 11 | 1 |
+| degree_requirements | 0 | 0 | 0 | 1 | 21 | 4 | 1 |
+| aid_appeals | 0 | 0 | 0 | 17 | 4 | 5 | 1 |
+
+## Ready for review (26)
+
+### `d16f546ed2093600` Albertus Magnus College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.albertus.edu/admission-aid/business-office/undergraduate-degree-program/tuition-fees.php (sha256 2e89f3512d46)
+- checks: {"columns": 1, "rows": 3}
+  - column:Per Semester: 43386 ⟵ “Per Semester | $21,693 | $21,693 | $43,386”
+  - column:Comprehensive Fee - Traditional Undergraduate Program: 1000 ⟵ “Comprehensive Fee - Traditional Undergraduate Program | $500 | $500 | $1,000”
+  - column:Activity Fee Traditional Undergraduate Program: 800 ⟵ “Activity Fee Traditional Undergraduate Program | $400 | $400 | $800”
+### `06c18bc3de05ad20` Albertus Magnus College — credit_policies 2026-27 · policy_kind=dual_enrollment [new] (source_unlabeled)
+- source: https://catalog.albertus.edu/undergraduate/admissions/falcon-fast-track.php (sha256 c896bb951130)
+- checks: {"fields": ["min_hs_gpa", "per_credit_hour_charges"], "tiers": 1}
+  - eligibility_tier: 3.0 ⟵ “College Before College – High school seniors with a minimum 3.0 GPA may enroll in one Albertus Magnus College”
+  - per_credit_hour_charge: 20 ⟵ “course. Each additional credit beyond three credits is assessed at $20 per credit.”
+### `2dddf25db0d7fc68` Albertus Magnus College — transfer_policies 2026-27 [new] (source_unlabeled)
+- source: https://www.albertus.edu/undergraduate-degrees/apply-for-admission/admission-requirements/articulation-agreements.php (sha256 4c5f0bbc577d)
+- checks: {"fields": ["min_grade"]}
+  - min_grade: C ⟵ “Credits must be from an accredited institution and have a grade of “C” or higher to be evaluated and transferred in to Albertus Magnus College.”
+### `4cfd2d3598137674` Central Connecticut State University — credit_policies 2026-27 · policy_kind=CLEP [new] (source_unlabeled)
+- source: https://www.ccsu.edu/admissions/clep-exam-equivalencies (sha256 ae65e044b9f5)
+- checks: {"distinct_exams": 26, "equivalencies": 26, "rows_without_score": 0}
+  - equivalencies[CLEP-CALCULUS|48/*50]:  ⟵ “Calculus | 48/*50 | MATH 152 Calculus I | 4.00 | Mathematics”
+  - equivalencies[CLEP-COLLEGE-ALGEBRA|50]:  ⟵ “College Algebra | 50 | MATH 101 Intermediate Algebra | 3.00 | ”
+  - equivalencies[CLEP-COLLEGE-MATHEMATICS|49/*50]:  ⟵ “College Math | 49/*50 | MATH 1XX Elective (Skill Area II Credit) | 3.00 | Mathematics”
+  - equivalencies[CLEP-PRECALCULUS|50]:  ⟵ “Pre-Calculus | 50 | MATH 119 Pre-Calculus with Trigonometry | 4.00 | Mathematics”
+  - equivalencies[CLEP-BIOLOGY|49/*50]:  ⟵ “General Biology | 49/*50 | BIO 121 General Biology IBIO 122 General Biology II | 8.00 | Lab Science”
+  - equivalencies[CLEP-CHEMISTRY|48/*50]:  ⟵ “General Chemistry | 48/*50 | CHEM 161 General ChemistryCHEM 1XX Elective | 6.00 | Non Lab Science”
+  - equivalencies[CLEP-FINANCIAL-ACCOUNTING|50]:  ⟵ “Financial Accounting | 50 | AC 211 Intro Financial Accounting | 3.00 | ”
+  - equivalencies[CLEP-PRINCIPLES-OF-MANAGEMENT|50]:  ⟵ “Principles of Management | 50 | MGT 295 Fund of Mgmt & Orgz Behavior | 3.00 | ”
+  - equivalencies[CLEP-PRINCIPLES-OF-MARKETING|50]:  ⟵ “Principles of Marketing | 50 | MKT 295 Fundamentals of Marketing | 3.00 | ”
+  - equivalencies[CLEP-INTRODUCTORY-BUSINESS-LAW|51]:  ⟵ “Introductory Business Law | 51 | LAW 250 Legal & Ethical Env of Business | 3.00 | Arts & Humanities/EJI”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION|48/*50]:  ⟵ “College Composition(essay required) | 48/*50 | WRT 1XX Writing Elective | 3.00 | ”
+  - equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|50]:  ⟵ “Analyzing & Interpreting Literature | 50 | ENG 1XX | 3.00 | Arts & Humanities”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|50]:  ⟵ “French Language | 50 | FR 125 Intermediate French IFR 126 Intermediate French II | 6.00 | Written & Oral Communication/International”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|50]:  ⟵ “German Language | 50 | GER 125 Intermediate German IGER 126 Intermediate German II | 6.00 | Written & Oral Communication/International”
+  - equivalencies[CLEP-SPANISH-LANGUAGE|50-62]:  ⟵ “Spanish LanguageNon-heritage track students, please contact the World Languages department. | 50-62 | SPAN 190 Language for Heritage Speakers of Spanish ISPAN 191 Language for Heritage Speakers of Spanish II | 6.00 | Written & Oral Communication/International”
+  - equivalencies[CLEP-AMERICAN-GOVERNMENT|47/*50]:  ⟵ “American Government | 47/*50 | PS 110 American Government & Politics | 3.00 | Social Sciences”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-I|50]:  ⟵ “History of the United States 1 Early Colonizations to 1877 | 50 | HIST 161 American History to 1877 | 3.00 | Social Sciences”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-II|50]:  ⟵ “History of the United States 2 1865 to the Present | 50 | HIST 162 American History from 1877 to present | 3.00 | Social Sciences”
+  - equivalencies[CLEP-HUMANITIES|50]:  ⟵ “Humanities | 50 | HUM 1XX Elective | 3.00 | Arts & Humanities”
+  - equivalencies[CLEP-INTRODUCTION-TO-EDUCATIONAL-PSYCHOLOGY|50]:  ⟵ “Introductory to Educational Psychology | 50 | PSY 2XX | 3.00 | Behavioral Sciences”
+  - equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|47/*50]:  ⟵ “Introductory Psychology | 47/*50 | PSY 112 Introduction to Psychology | 3.00 | Behavioral Sciences”
+  - equivalencies[CLEP-HUMAN-GROWTH-DEVELOPMENT|46/*50]:  ⟵ “Human Growth & Development | 46/*50 | PSY 136 Lifespan Development | 3.00 | Behavioral Sciences”
+  - equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|48/*50]:  ⟵ “Prin. of Macroeconomics | 48/*50 | ECON 200 Principles of Macroeconomics | 3.00 | Social Sciences”
+  - equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|48/*50]:  ⟵ “Prin. of Microeconomics | 48/*50 | ECON 201 Principles of Microeconomics | 3.00 | Social Sciences”
+  - equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|46/*50]:  ⟵ “Introductory Sociology | 46/*50 | SOC 110 Introductory Sociology | 3.00 | Behavioral Sciences”
+  - … 1 more rows
+### `3d390d559dc7b8b9` Charter Oak State College — awards 2026-27 [new] (labeled_in_source)
+- source: https://www.charteroak.edu/catalog/current/fees_financial_aid_scholarships/undergraduate-current-fees.php (sha256 56335c164568)
+- checks: {"thresholds": null}
+  - award_amount_text: $270 per credit ⟵ “All Students | $270 per credit”
+### `496090b3511a0c2d` Charter Oak State College — awards 2026-27 [new] (labeled_in_source)
+- source: https://www.charteroak.edu/catalog/current/fees_financial_aid_scholarships/undergraduate-current-fees.php (sha256 56335c164568)
+- checks: {"thresholds": null}
+  - award_amount_text: $475 ⟵ “Registry for Non-CSCU School | $475”
+### `89423344ab49dcff` Charter Oak State College — awards 2026-27 [new] (labeled_in_source)
+- source: https://www.charteroak.edu/catalog/current/fees_financial_aid_scholarships/undergraduate-current-fees.php (sha256 56335c164568)
+- checks: {"thresholds": null}
+  - award_amount_text: Included ⟵ “EDTPA Credentialing | Included”
+### `92b33a6c68717a54` Charter Oak State College — awards 2026-27 [new] (labeled_in_source)
+- source: https://www.charteroak.edu/catalog/current/fees_financial_aid_scholarships/undergraduate-current-fees.php (sha256 56335c164568)
+- checks: {"thresholds": null}
+  - award_amount_text: $150 ⟵ “Reactivate Registry | $150”
+### `a3d772cfe8576ea3` Charter Oak State College — awards 2026-27 [new] (labeled_in_source)
+- source: https://www.charteroak.edu/catalog/current/fees_financial_aid_scholarships/undergraduate-current-fees.php (sha256 56335c164568)
+- checks: {"thresholds": null}
+  - award_amount_text: $7,290 ⟵ “Program Total | $7,290”
+### `bf4b1fe45786fd06` Charter Oak State College — awards 2026-27 [new] (labeled_in_source)
+- source: https://www.charteroak.edu/catalog/current/fees_financial_aid_scholarships/undergraduate-current-fees.php (sha256 56335c164568)
+- checks: {"thresholds": null}
+  - award_amount_text: $100 ⟵ “Registry for CSCU School | $100”
+### `377a6c8735602443` Charter Oak State College — transfer_policies 2026-27 [new] (labeled_in_source)
+- source: https://www.charteroak.edu/catalog/current/academic_policies_regulations/course_transfer_policy.php (sha256 651bcf49da11)
+- checks: {"fields": ["min_grade"]}
+  - min_grade: B ⟵ “Transfer credits can be no more than 10 years old and will only be accepted with grades of B or higher in courses substantially similar in content, and equivalent in term credit hours, to those offered at Charter Oak State College.”
+  - min_grade: B ⟵ “Transfer credits can be no more than 10 years old and will only be accepted with grades of B or higher in courses substantially similar in content, and equivalent in term credit hours, to those offered at Charter Oak State College.”
+### `854df4f5dd2f6d32` Connecticut College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.conncoll.edu/offices/office-of-the-controller/student-accounts/fees-and-payments/ (sha256 1288d4a87c3d)
+- checks: {"columns": 1, "rows": 4}
+  - column:Tuition: 72281 ⟵ “Tuition | $72,281”
+  - column:Student Activity Fee: 449 ⟵ “Student Activity Fee | $ 449”
+  - column:Room & Board: 20070 ⟵ “Room & Board | $20,070”
+  - column:Comprehensive Fee: 92800 ⟵ “Comprehensive Fee | $92,800”
+### `a888f690afa960f2` Connecticut State Community College — costs 2026-27 · residency=in_state [new] (labeled_in_source)
+- source: https://ctstate.edu/admissions-registration/financial-aid (sha256 6731c408cbf2)
+- checks: {"columns": 1, "components_reconcile": true, "rows": 7}
+  - column:Tuition and Fees: 5338 ⟵ “Tuition and Fees | $5,338 | $15,590 | $7,926”
+  - column:Books, Course Materials, Supplies and Equipment: 1500 ⟵ “Books, Course Materials, Supplies and Equipment | $1,500 | $1,500 | $1,500”
+  - column:Transportation: 3298 ⟵ “Transportation | $3,298 | $3,298 | $3,298”
+  - column:Miscellaneous Personal Expenses: 11093 ⟵ “Miscellaneous Personal Expenses | $11,093 | $11,093 | $11,093”
+  - column:Loan Fees: 84.56 ⟵ “Loan Fees | $84.56 | $84.56 | $84.56”
+  - column:Living Expenses (Food and Housing): 15590 ⟵ “Living Expenses (Food and Housing) | $15,590 | $15,153 | $15,153”
+  - column:Estimated Total Expenses: 36903.56 ⟵ “Estimated Total Expenses | $36,903.56 | $46,724.56 | $36,903.56”
+### `1f8d4e4a6acdda83` Fairfield University — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.fairfield.edu/admission-and-aid/tuition-and-costs/undergraduate/ (sha256 46bb4ccc1448)
+- checks: {"columns": 1, "rows": 22}
+  - column:Tuition: 61390 ⟵ “Tuition | $61,390”
+  - column:Associate Degree Comprehensive Tuition & Fees (Bellarmine): 16590 ⟵ “Associate Degree Comprehensive Tuition & Fees (Bellarmine) | $16,590”
+  - column:Single: 13550 ⟵ “Single | $13,550”
+  - column:Expanded Single: 15720 ⟵ “Expanded Single | $15,720”
+  - column:Double/Suite/Quad: 12100 ⟵ “Double/Suite/Quad | $12,100”
+  - column:Triple: 8560 ⟵ “Triple | $8,560”
+  - column:Expanded Triple: 11500 ⟵ “Expanded Triple | $11,500”
+  - column:Room - Single Occupancy Townhouses & Apartment Complex: 18540 ⟵ “Room - Single Occupancy Townhouses & Apartment Complex | $18,540”
+  - column:Room - Double Occupancy Townhouses & Apartment Complex: 16550 ⟵ “Room - Double Occupancy Townhouses & Apartment Complex | $16,550”
+  - column:Room - Triple Occupancy Townhouses & Apartment Complex: 12510 ⟵ “Room - Triple Occupancy Townhouses & Apartment Complex | $12,510”
+  - column:Board - Unlimited: 8430 ⟵ “Board - Unlimited | $8,430”
+  - column:Board - 14 Meals + Dining $100: 7690 ⟵ “Board - 14 Meals + Dining $100 | $7,690”
+  - column:Undergrad Student Activity Fee (charged in Fall semester): 1025 ⟵ “Undergrad Student Activity Fee (charged in Fall semester) | $1,025”
+  - column:Undergrad Student Activity Fee (if registered Full-Time only in Spring): 512.5 ⟵ “Undergrad Student Activity Fee (if registered Full-Time only in Spring) | $512.50”
+  - column:Orientation Fee (Freshmen only): 425 ⟵ “Orientation Fee (Freshmen only) | $425”
+  - column:Orientation Fee (Transfers only): 150 ⟵ “Orientation Fee (Transfers only) | $150”
+  - column:Finance Technology Fee (FNCE 2101): 150 ⟵ “Finance Technology Fee (FNCE 2101) | $150”
+  - column:Finance Technology Fee (ACCT 2265): 165 ⟵ “Finance Technology Fee (ACCT 2265) | $165”
+  - column:Nursing Testing Fee (per semester): 142 ⟵ “Nursing Testing Fee (per semester) | $142”
+  - column:Nursing Laboratory Fee/Clinical Fee (per semester): 157 ⟵ “Nursing Laboratory Fee/Clinical Fee (per semester) | $157”
+  - column:Nursing NCLEX Review Fee (Fall Only, Seniors & MEPN): 267 ⟵ “Nursing NCLEX Review Fee (Fall Only, Seniors & MEPN) | $267”
+  - column:Nursing ECCO Fee (NURS 4360/5360): 262 ⟵ “Nursing ECCO Fee (NURS 4360/5360) | $262”
+### `8a99b09871087215` Fairfield University — transfer_policies 2026-27 [new] (source_unlabeled)
+- source: https://www.fairfield.edu/admission-and-aid/apply/transfer-students/ (sha256 034113483082)
+- checks: {"fields": ["min_grade"]}
+  - min_grade: C ⟵ “Only courses worth three credit hours or more, or the equivalent at institutions with different credit policies, and completed with a grade of C or better will be considered for transfer credit.”
+### `b2db6575f7d9cd1d` Goodwin University — credit_policies 2026-27 · policy_kind=AP [new] (source_unlabeled)
+- source: https://www.goodwin.edu/transfer-students/credit-by-exam-ap (sha256 835ae346b5b8)
+- checks: {"distinct_exams": 28, "equivalencies": 29, "rows_without_score": 0}
+  - equivalencies[AP-3-D-ART-DESIGN|3]:  ⟵ “3-D Art and Design | HUM 1XX Humanities Elective | 3 | 3”
+  - equivalencies[AP-ART-HISTORY|3]:  ⟵ “Art History | HUM 202 Art History & Appreciation | 3 | 3”
+  - equivalencies[AP-BUSINESS-WITH-PERSONAL-FINANCE|3]:  ⟵ “Business with Personal Finance | BUS 121 Personal Finance and Insurance | 3 | 3”
+  - equivalencies[AP-BIOLOGY|3]:  ⟵ “Biology | BIO 120 Human Biology | 3 | 4”
+  - equivalencies[AP-CALCULUS-AB|3]:  ⟵ “Calculus AB | MATH B1XX Mathematics Elective | 3 | 3”
+  - equivalencies[AP-CALCULUS-BC|3]:  ⟵ “Calculus BC | MATH B1XX Mathematics Elective | 3 | 3”
+  - equivalencies[AP-CHEMISTRY|3]:  ⟵ “Chemistry | CHEM 101 Chemistry | 3 | 4”
+  - equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|3]:  ⟵ “Comparative Government and Politics | HUM 1XX Humanities Elective | 3 | 3”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3]:  ⟵ “English Language | ENG 101 English Composition | 3 | 3”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|3]:  ⟵ “Computer Science A | CAP 1XX Computer Elective | 3 | 3”
+  - equivalencies[AP-DRAWING|3]:  ⟵ “Drawing | HUM 1XX Humanities Elective | 3 | 3”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3]:  ⟵ “English Literature | ENG 102 Literature and Composition | 3 | 3”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|3]:  ⟵ “Environmental Science | SCI 1XX Science Elective | 3 | 4”
+  - equivalencies[AP-EUROPEAN-HISTORY|3]:  ⟵ “European History | HIS 1XX History Elective | 3 | 3”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]:  ⟵ “French Language | HUM 1XX Humanities Elective | 3 | 3”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]:  ⟵ “French Literature | HUM 2XX Humanities Elective | 3 | 3”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3]:  ⟵ “German Language | HUM 1XX Humanities Elective | 3 | 3”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|3]:  ⟵ “Human Geography | SOC 1XX Sociology Elective | 3 | 3”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|3]:  ⟵ “Italian Language and Culture | HUM 1XX Humanities Elective | 3 | 3”
+  - equivalencies[AP-MACROECONOMICS|3]:  ⟵ “Macroeconomics | ECN 101 Macroeconomics | 3 | 3”
+  - equivalencies[AP-MICROECONOMICS|3]:  ⟵ “Microeconomics | ECN 102 Microeconomics | 3 | 3”
+  - equivalencies[AP-MUSIC-THEORY|3]:  ⟵ “Music Theory | HUM 1XX Humanities Elective | 3 | 3”
+  - equivalencies[AP-PSYCHOLOGY|3]:  ⟵ “Psychology | PSY 112 Introduction to Psychology | 3 | 3”
+  - equivalencies[AP-SPANISH-LANGUAGE-CULTURE|3]:  ⟵ “Spanish Language | SPAN 1XX Spanish Elective | 3 | 3”
+  - equivalencies[AP-SPANISH-LITERATURE-CULTURE|3]:  ⟵ “Spanish Literature | SPAN 2XX Spanish Elective | 3 | 3”
+  - … 4 more rows
+### `35762c73bed47964` Sacred Heart University — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.sacredheart.edu/admissions--aid/financial-assistance/full-time-undergraduates/cost-of-education/ (sha256 5759adaff854)
+- checks: {"columns": 1, "rows": 4}
+  - on_campus:Tuition & Mandatory Fees (Full-Time Undergraduate): 54520 ⟵ “Tuition & Mandatory Fees (Full-Time Undergraduate) | $54,520”
+  - on_campus:On-Campus Housing (median price): 13730 ⟵ “On-Campus Housing (median price) | $13,730”
+  - on_campus:Big Red Meal Plan (required for all first-year residential students): 6970 ⟵ “Big Red Meal Plan (required for all first-year residential students) | $6,970”
+  - on_campus:Estimated Direct (Living On Campus) Charges: 75220 ⟵ “Estimated Direct (Living On Campus) Charges | $75,220”
+### `24edb74e24bb38be` University of Bridgeport — credit_policies 2026-27 · policy_kind=IB [new] (source_unlabeled)
+- source: https://www.bridgeport.edu/admissions/transfer/transfer-credit (sha256 d18b4c1ae5e6)
+- checks: {"distinct_exams": 19, "equivalencies": 33, "rows_without_score": 0}
+  - equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY|4]:  ⟵ “Anthropology | 4 | SOC 231 CULTURAL ANTHROPOLOGY | 3”
+  - equivalencies[IB-BIOLOGY|5]:  ⟵ “Biology | 5 | BIOL 101, SCI C101, OR SCI 102 | TOTAL 8”
+  - equivalencies[IB-BUSINESS-MANAGEMENT|4]:  ⟵ “Business & Management | 4 | BUAD 101 INTRODUCTION TO BUSINESS | 3”
+  - equivalencies[IB-CHEMISTRY|4]:  ⟵ “Chemistry | 4 | CHEM 103 GENERAL CHEMISTRY I | 4”
+  - equivalencies[IB-CHEMISTRY|5 - 6]:  ⟵ “Chemistry | 5 - 6 | CHEM 103 GENERAL CHEMISTRY II | 4”
+  - equivalencies[IB-CHEMISTRY|7]:  ⟵ “Chemistry | 7 | CHEM 113 | 4”
+  - equivalencies[IB-COMPUTER-SCIENCE-SL|SL 4]:  ⟵ “Computer Science (SL) | 4 | CPSCI 101 INTRO TO COMPUTING I | 3”
+  - equivalencies[IB-COMPUTER-SCIENCE-HL|HL 4]:  ⟵ “Computer Science (HL) | 4 | CPSCI 101 INTRO TO COMPUTING I | 3”
+  - equivalencies[IB-ECONOMICS|4]:  ⟵ “Economics | 4 | ECON 201 PRINCIPLES OF ECONOMICS I-MACRO | 3”
+  - equivalencies[IB-ENVIRONMENTAL-SYSTEMS-SOCIETIES|4]:  ⟵ “Environmental Systems and Society | 4 | BIOL 107 INTRO TO CONSV BIOL | 4”
+  - equivalencies[IB-HISTORY|4]:  ⟵ “European History | 4 | HIST 101 WORLD CIVILIZATION I TO THE 17TH CENTURY | 3”
+  - equivalencies[IB-FILM|5]:  ⟵ “Film | 5 | CIHT 181 INTRO TO FILM | 3”
+  - equivalencies[IB-FILM|5]:  ⟵ “Film | 5 | CIHT 262 FILM HISTORY | 3”
+  - equivalencies[IB-FRENCH|4]:  ⟵ “French | 4 | FREN 101 ELEMENTARY FRENCH I | 3”
+  - equivalencies[IB-FRENCH|5 - 6]:  ⟵ “French | 5 - 6 | FREN 102 ELEMENTARY FRENCH II | 3”
+  - equivalencies[IB-FRENCH|7]:  ⟵ “French | 7 | FREN 103 INTERMEDIATE FRENCH I | 3”
+  - equivalencies[IB-GERMAN|4]:  ⟵ “German | 4 | ELECTIVE CREDITS | 3”
+  - equivalencies[IB-GERMAN|5 - 6]:  ⟵ “German | 5 - 6 | ELECTIVE CREDITS | 3”
+  - equivalencies[IB-GERMAN|7]:  ⟵ “German | 7 | ELECTIVE CREDITS | 3”
+  - equivalencies[IB-HISTORY|4]:  ⟵ “History of the Americas | 4 | HIST 207 U.S. HISTORY TO 1877 | 3”
+  - equivalencies[IB-HISTORY|4]:  ⟵ “Islamic History | 4 | WREL 209 INTRODUCTION TO ISLAM | 3”
+  - equivalencies[IB-LATIN|4]:  ⟵ “Latin | 4 | ELECTIVE CREDITS | 3”
+  - equivalencies[IB-LATIN|5 - 7]:  ⟵ “Latin | 5 - 7 | ELECTIVE CREDITS | 3”
+  - equivalencies[IB-MUSIC|4]:  ⟵ “Music Theory | 4 | MUSC 109 MUSIC THEORY I | 3”
+  - equivalencies[IB-MUSIC|7]:  ⟵ “Music Theory | 7 | MUSC 110 MUSIC THEORY II | 3”
+  - … 8 more rows
+### `31619f0c5822f757` University of Bridgeport — credit_policies 2026-27 · policy_kind=CLEP [new] (source_unlabeled)
+- source: https://www.bridgeport.edu/admissions/transfer/transfer-credit (sha256 d18b4c1ae5e6)
+- checks: {"distinct_exams": 33, "equivalencies": 36, "rows_without_score": 0}
+  - equivalencies[CLEP-AMERICAN-GOVERNMENT|50 or Better]:  ⟵ “American Government | 50 or Better | PSCI 101 AMERICAN GOVERNMENT | 3”
+  - equivalencies[CLEP-AMERICAN-LITERATURE|50 or Better]:  ⟵ “American Literature | 50 or Better | ENGL 207 | 3”
+  - equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|50 or Better]:  ⟵ “Analyzing and Interpreting Literature | 50 or Better | ENGL ELECTIVE | 3”
+  - equivalencies[CLEP-BIOLOGY|50 or Better]:  ⟵ “Biology | 50 or Better | BIOL 101 GENERAL ORGANISM BIOLOGY | 4”
+  - equivalencies[CLEP-CALCULUS|50 or Better]:  ⟵ “Calculus | 50 or Better | MATH 110 CALCULUS AND ANALYTIC GEOMETRY I | 4”
+  - equivalencies[CLEP-CHEMISTRY|50 or Better]:  ⟵ “Chemistry | 50 or Better | CHEM 103 GENERAL CHEMISTRY I | 4”
+  - equivalencies[CLEP-COLLEGE-ALGEBRA|50 or Better]:  ⟵ “College Algebra | 50 or Better | MATH 106 COLLEGE ALGEBRA | 3”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION|50 or Better]:  ⟵ “College Composition | 50 or Better | ENGL 101 COMPOSITION & RHETORIC I | 3”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION-MODULAR|50 or Better]:  ⟵ “College Composition Modular | 50 or Better | ENGL ELECTIVE | 3”
+  - equivalencies[CLEP-COLLEGE-MATHEMATICS|50 or Better]:  ⟵ “College Mathematics | 50 or Better | MATH 106 COLLEGE ALGEBRA | 3”
+  - equivalencies[CLEP-ENGLISH-LITERATURE|50 or Better]:  ⟵ “English Literature | 50 or Better | ENGL ELECTIVE | 3”
+  - equivalencies[CLEP-FINANCIAL-ACCOUNTING|50 or Better]:  ⟵ “Financial Accounting | 50 or Better | ACCT 101 PRINCIPLES OF ACCOUNTING I | 3”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|50 or Better]:  ⟵ “French Language Level I | 50 or Better | ELEMENTARY FRENCH I | 3”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|50 or Better]:  ⟵ “French Language Level II | 50 or Better | ELEMENTARY FRENCH II | 3”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|50 or Better]:  ⟵ “German Language Level I | 50 or Better | ELECTIVE CREDITS | 3”
+  - equivalencies[CLEP-SOCIAL-SCIENCES-HISTORY|50 or Better]:  ⟵ “History and Social Sciences | 50 or Better | SOSC ELECTIVE | 3”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-I|50 or Better]:  ⟵ “History of the United States I | 50 or Better | HIST 207 U.S. HISTORY TO 1877 | 3”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-II|50 or Better]:  ⟵ “History of the United States II | 50 or Better | HIST 208 U.S. HISTORY SINCE 1877 | 3”
+  - equivalencies[CLEP-HUMAN-GROWTH-DEVELOPMENT|50 or Better]:  ⟵ “Human Growth and Development | 50 or Better | PSYC 205 LIFESPAN DEVELOPMENTAL PSYCHOLOGY | 3”
+  - equivalencies[CLEP-HUMANITIES|50 or Better]:  ⟵ “Humanities | 50 or Better | HUM C 201 HUMANITIES | 3”
+  - equivalencies[CLEP-INFORMATION-SYSTEMS|50 or Better]:  ⟵ “Information Systems | 50 or Better | CAIS 191 COMPUTER CONCEPTS | 3”
+  - equivalencies[CLEP-INTRODUCTION-TO-EDUCATIONAL-PSYCHOLOGY|50 or Better]:  ⟵ “Introduction to Educational Psychology | 50 or Better | PSYC 314 EDUCATIONAL PSYCHOLOGY | 3”
+  - equivalencies[CLEP-INTRODUCTORY-BUSINESS-LAW|50 or Better]:  ⟵ “Introductory Business Law | 50 or Better | BLAW 251 BUSINESS LAW I | 3”
+  - equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|50 or Better]:  ⟵ “Introductory Psychology | 50 or Better | PSYC 103 INTRODUCTION TO PSYCHOLOGY | 3”
+  - equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|50 or Better]:  ⟵ “Introductory Sociology | 50 or Better | SOC 101 PRINCIPLES OF SOCIOLOGY | 3”
+  - … 11 more rows
+### `me2bbf6239dce078` University of Bridgeport — transfer_policies 2026-27 [new] (source_unlabeled)
+- source: https://www.bridgeport.edu/admissions/international/undergraduate (sha256 7289c399f2a5)
+- checks: {"fields": ["residency_requirement_credits"], "merged_pages": 2}
+  - residency_requirement_credits: 30 ⟵ “You are required to complete your last 30 semester hours at University of Bridgeport and meet course requirements as described in each program to be eligible for a degree.”
+  - residency_requirement_credits: 30 ⟵ “When transferring to UB, we accept: A maximum of 66 credits from accredited two-year institutions A maximum of 90 credits from accredited four-year institutions To complete your degree, you must complete your final 30 credit hours at University of Bridgeport while satisfying all the requirements of your academic program.”
+### `c4a5445fdc76c3f1` University of Hartford — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.hartford.edu/admission/tuition-fees/default.aspx (sha256 b39d97bfa286)
+- checks: {"columns": 1, "components_reconcile": true, "rows": 5}
+  - on_campus:Tuition: 48464 ⟵ “Tuition | $24,232 | $48,464”
+  - on_campus:Fees: 3444 ⟵ “Fees | $1,722 | $3,444”
+  - on_campus:Housing: 9013 ⟵ “Housing | $4,506 | $9,013”
+  - on_campus:Meals: 6495 ⟵ “Meals | $3,248 | $6,495”
+  - on_campus:Total Direct Costs: 67416 ⟵ “Total Direct Costs | $33,708 | $67,416”
+### `9bc9a9a0ecbd234c` University of Hartford — credit_policies 2026-27 · policy_kind=AP [new] (source_unlabeled)
+- source: https://www.hartford.edu/admission/undergraduate/_files/ap-credits-from-testing-1-28-24.pdf (sha256 0220965ef85a)
+- checks: {"distinct_exams": 3, "equivalencies": 3, "rows_without_score": 0}
+  - equivalencies[AP-COMPUTER-SCIENCE-A|3]:  ⟵ “Computer Science A                        3                            CS 114, 4 CR”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|4]:  ⟵ “English Language & Composition            4                            WRT 110, 3 CR”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|4 or 5]:  ⟵ “English Literature & Composition          4 or 5                       ENG 140, 3 CR”
+### `a4152dabaca83599` University of New Haven — credit_policies 2026-27 · policy_kind=IB [new] (source_unlabeled)
+- source: https://www.newhaven.edu/admissions/undergraduate/the-application-process/first-year-student-application-process/college-credit.php (sha256 653eeb4c985f)
+- checks: {"distinct_exams": 24, "equivalencies": 41, "rows_without_score": 0}
+  - equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY|4]:  ⟵ “Anthropology | 4 | Elective | 3 | ”
+  - equivalencies[IB-BIOLOGY|5]:  ⟵ “Biology | 5 | BIOL1121/1123 or BIOL 1125/1126 | 4 | ”
+  - equivalencies[IB-BIOLOGY|7]:  ⟵ “Biology | 7 | BIOL2253/2255 | 4 | ”
+  - equivalencies[IB-BUSINESS-MANAGEMENT|4]:  ⟵ “Business & Management | 4 | Business Elective | 3 | ”
+  - equivalencies[IB-CHEMISTRY|4]:  ⟵ “Chemistry | 4 | CHEM1105 + CHEM1106 Intro to General and Organic Chemistry w/Lab | 4 | ”
+  - equivalencies[IB-CHEMISTRY|5-6]:  ⟵ “Chemistry | 5-6 | CHEM1115 General Chemistry | 3 | CH115 only - CH117 Lab is still required”
+  - equivalencies[IB-CHEMISTRY|7]:  ⟵ “Chemistry | 7 | CHEM1115 + CHEM1116 General Chemistry w/Lab | 6 | CH115 & CH116 only - CH117 & CH118 Labs are still required”
+  - equivalencies[IB-COMPUTER-SCIENCE-SL|SL 4]:  ⟵ “Computer Science (SL) | 4 | CSCI1110 Intro to Programming | 3 | for non-ECECS majors only”
+  - equivalencies[IB-COMPUTER-SCIENCE-HL|HL 4]:  ⟵ “Computer Science (HL) | 4 | CSCI2226 Data Structures and Algorithms | 3 | ”
+  - equivalencies[IB-ECONOMICS|4]:  ⟵ “Economics | 4 | ECON1133 + ECON1134 Principles of Economics I & II and ECON2200 Global Economy | 9 | ”
+  - equivalencies[IB-ENGLISH-A-LITERATURE|4]:  ⟵ “English A: Literature | 4 | Elective | 3 | ”
+  - equivalencies[IB-ENGLISH-A-LANGUAGE-LITERATURE|4]:  ⟵ “English A: Lang & Literature | 4 | Elective | 3 | ”
+  - equivalencies[IB-ENVIRONMENTAL-SYSTEMS-SOCIETIES|4]:  ⟵ “Environmental Systems and Society | 4 | ENVS 1101/1102 Introduction to Environmental Science w/Lab | 4 | ”
+  - equivalencies[IB-HISTORY|4]:  ⟵ “European History | 4 | HIST1102 Western World in Modern Times | 3 | ”
+  - equivalencies[IB-FILM|5]:  ⟵ “Film | 5 | COMM3340 History of Film | 3 | for non-Communication majors”
+  - equivalencies[IB-FILM|5]:  ⟵ “Film | 5 | COMM2214 Elements of Film | 3 | for Communication majors”
+  - equivalencies[IB-FRENCH|4]:  ⟵ “French | 4 | FREN1101 + FREN1102 Elementary French I & II | 6 | ”
+  - equivalencies[IB-FRENCH|5-6]:  ⟵ “French | 5-6 | FREN1101 + FREN1102 Elementary French I & II and FREN2201 Intermediate French I | 9 | ”
+  - equivalencies[IB-FRENCH|7]:  ⟵ “French | 7 | FREN1101 + FREN1102 Elementary French I & II and FREN2201 & FREN2202 Intermediate French I & II | 12 | ”
+  - equivalencies[IB-GERMAN|4]:  ⟵ “German | 4 | GERM1101 Elementary German I | 3 | ”
+  - equivalencies[IB-GERMAN|5-6]:  ⟵ “German | 5-6 | GERM1101 + GERM1102 Elementary German I & II | 6 | ”
+  - equivalencies[IB-GERMAN|7]:  ⟵ “German | 7 | GERM1101 + GERM1102 Elementary German I & II and GERM2201 Intermediate German I | 9 | ”
+  - equivalencies[IB-HISTORY|4]:  ⟵ “History of the Americas | 4 | HIST1122 American History Since 1607 | 3 | ”
+  - equivalencies[IB-HISTORY|4]:  ⟵ “Islamic History | 4 | History Elective | 3 | ”
+  - equivalencies[IB-LATIN|4]:  ⟵ “Latin | 4 | 2 Electives | 6 | ”
+  - … 16 more rows
+### `4392f58b7cc357ea` University of New Haven — transfer_policies 2026-27 [new] (source_unlabeled)
+- source: https://admissions.newhaven.edu/portal/tca (sha256 ab507f9f8925)
+- checks: {"fields": ["min_grade"]}
+  - min_grade: C ⟵ “Please note: All Engineering transfer credits will be evaluated by the department chair Courses numbered 01XX or 02XX are electives that do not have a direct equivalence at the University of New Haven Courses must be completed with a grade of C or higher and be 100 level or above in order to be eligible for transfer This is an advisement tool, not an official document.”
+### `770b7f506221fec1` Western Connecticut State University — awards 2026-27 [new] (labeled_in_source)
+- source: https://wcsu.academicworks.com/ (sha256 6efd6cbadf97)
+- checks: {"thresholds": null}
+  - test_requirement: ACT Deadline11/01/2026 ⟵ “Varies | KBE Building Corporation Endowment for Academic Support Fall 2026 and Spring 2027 This endownment was established to assist... | Deadline11/01/2026”
+### `d2738894daeccd9e` Western Connecticut State University — transfer_policies 2026-27 [new] (source_unlabeled)
+- source: https://www.wcsu.edu/admissions/transfer/ (sha256 ba359d0d2f05)
+- checks: {"fields": ["min_grade"]}
+  - min_grade: C- ⟵ “Western Connecticut State University accepts as transferable courses on which grades of “C-” or higher have been earned.”
+
+## Exceptions (133)
+
+### `34dfb85e71982663` Central Connecticut State University — credit_policies 2026-27 · policy_kind=AP [new] (source_unlabeled)
+- source: https://www.ccsu.edu/admissions/advanced-placement-ap-exam-course-equivalents (sha256 c96f3cd9f162)
+- issues: rows_without_score
+- checks: {"distinct_exams": 37, "equivalencies": 47, "rows_without_score": 47}
+  - equivalencies[AP-ART-HISTORY|None]:  ⟵ “AP 13 | Art History | ART 110 Intro to Art History | 3 | Arts & Humanities/Int'l”
+  - equivalencies[AP-DRAWING|None]:  ⟵ “AP 14 | Studio Art / Drawing | ART 130 Drawing I | 3 | Arts & Humanities”
+  - equivalencies[AP-2-D-ART-DESIGN|None]:  ⟵ “AP 15 | Studio Art / 2D Design | ART 120 Design I | 3 | Arts & Humanities”
+  - equivalencies[AP-3-D-ART-DESIGN|None]:  ⟵ “AP 16 | Studio Art / 3D Design | ART 124 3-D Design | 3 | Arts & Humanities”
+  - equivalencies[AP-MUSIC-THEORY|None]:  ⟵ “AP 75 | Music Theory | MUS 100 Search in Music | 3 | Arts & Humanities”
+  - equivalencies[AP-SEMINAR|None]:  ⟵ “AP 22 | Seminar | GEN 1XX Elective (will not substitute for WRT110 or 105P) | 3 | Written & Oral Comm”
+  - equivalencies[AP-RESEARCH|None]:  ⟵ “AP 23 | Research | GEN 1XX Elective (will not substitute for WRT110 or 105P) | 3 | Written & Oral Comm”
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|None]:  ⟵ “AP 10 | African American Studies | AFAM 110 Intro African American Studies | 3 | Social Sciences/EJI”
+  - equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|None]:  ⟵ “AP 58 | Comparative Gov't and Politics | PS 104 The World's Political System | 3 | Social Sciences/Int'l”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|None]:  ⟵ “AP 53 | Human Geography | GEOG 220 Human Geography | 3 | Social Sciences/Int'l”
+  - equivalencies[AP-UNITED-STATES-HISTORY|None]:  ⟵ “Human Geography | HIST 162 American History 1877 to Present | 3”
+  - equivalencies[AP-MACROECONOMICS|None]:  ⟵ “AP 35 | Macroeconomics | ECON 200 Principles of Macroeconomics | 3 | Social Sciences”
+  - equivalencies[AP-MICROECONOMICS|None]:  ⟵ “AP 34 | Microeconomics | ECON 201 1 Principles of Microeconomics | 3 | Social Sciences”
+  - equivalencies[AP-PSYCHOLOGY|None]:  ⟵ “AP 85 | Psychology | PSY 112 Introduction to Psychology | 3 | Behavioral Sciences”
+  - equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|None]:  ⟵ “AP 57 | U.S. Gov't & Politics | PS 110 American Govt. & Politics | 3 | Social Sciences”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|None]:  ⟵ “AP 36 | English Language and Composition | WRT 110 Introduction to College Writing | 3 | Written & Oral Comm”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|None]:  ⟵ “AP 37 | English Literature & Composition | WRT 110 Introduction to College Writing | 3 | Written & Oral Comm”
+  - equivalencies[AP-PRECALCULUS|None]:  ⟵ “AP 65 | Precalculus | MATH 119 Pre-Calculus w/Trigonometry | 4 | Mathematics”
+  - equivalencies[AP-CALCULUS-AB|None]:  ⟵ “AP 66 | Calculus AB | MATH 152 Calculus I | 4 | Mathematics”
+  - equivalencies[AP-CALCULUS-BC|None]:  ⟵ “AP 68 | Calculus BC | MATH 152 Calculus I | 4 | Mathematics”
+  - equivalencies[AP-STATISTICS|None]:  ⟵ “AP 90 | Statistics | STAT 104 Elementary Statistics I | 3 | Mathematics”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|None]:  ⟵ “AP 31 | Computer Science A | CS 151 Computer Science I | 3 | ”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|None]:  ⟵ “AP 32 | Computer Science Principles | CS 140 Survey of Computer Science | 3 | Mathematics”
+  - equivalencies[AP-CHEMISTRY|None]:  ⟵ “AP 25 | Chemistry | CHEM 161 General Chemistry | 3 | Science (Lecture & Lab)”
+  - equivalencies[AP-CHEMISTRY|None]:  ⟵ “Chemistry | CHEM 162 General Chemistry Lab | 1”
+  - … 22 more rows
+### `5b499eac34fa5b04` Charter Oak State College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.charteroak.edu/catalog/current/academic_policies_regulations/grade_appeal_procedures.php (sha256 5dca96ce1b3e)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: need_based_special_circumstances ⟵ “The program director’s review should generally be completed within 10 business days from receipt of the appeal materials from the student, unless unforeseen or special circumstances apply.”
+  - sentence: need_based_special_circumstances ⟵ “The program director’s review should generally be completed within 10 business days from receipt of the appeal materials from the student, unless unforeseen or special circumstances apply.”
+### `f498eb28830bf588` Charter Oak State College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.charteroak.edu/catalog/current/fees_financial_aid_scholarships/financial_aid_policies.php (sha256 5667da9930e8)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 4}
+  - sentence: sap_appeal ⟵ “Financial Aid Probation A student on financial aid warning who has not met all SAP standards by the end of the next semester of enrollment is no longer eligible to receive assistance under federal Title IV, state and institutional financial aid programs unless the student has an approved SAP appeal on file with the Office of Financial Aid.”
+  - sentence: sap_appeal ⟵ “Financial Aid Suspension A student whose SAP appeal is not approved will remain on financial aid suspension and will not be eligible to receive financial aid until all SAP deficiencies have been repaired.”
+  - sentence: sap_appeal ⟵ “Financial Aid Probation A student on financial aid warning who has not met all SAP standards by the end of the next semester of enrollment is no longer eligible to receive assistance under federal Title IV, state and institutional financial aid programs unless the student has an approved SAP appeal on file with the Office of Financial Aid.”
+  - sentence: sap_appeal ⟵ “Financial Aid Suspension A student whose SAP appeal is not approved will remain on financial aid suspension and will not be eligible to receive financial aid until all SAP deficiencies have been repaired.”
+### `5f93cb47e2dc2b0a` Charter Oak State College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.charteroak.edu/current/sfa/whatwillitcost.php (sha256 2f0c5265d780)
+- issues: residency_unknown, conflicting_sources:https://www.charteroak.edu/prospective/admissions/military/VA-Disclosure-Sheet-25-26.pdf
+- checks: {"columns": 1, "components_reconcile": true, "rows": 12}
+  - column:Tuition: 7896 ⟵ “Tuition | $7,896”
+  - column:Student Services Fee: 460 ⟵ “Student Services Fee | $460”
+  - column:Technology Fee: 150 ⟵ “Technology Fee | $150”
+  - column:Books and Supplies: 1120 ⟵ “Books and Supplies | $1,120”
+  - column:Loan Fees: 96 ⟵ “Loan Fees | $96”
+  - column:Food: 2752 ⟵ “Food | $2,752”
+  - column:Housing: 6400 ⟵ “Housing | $6,400”
+  - column:Miscellaneous Expenses: 5952 ⟵ “Miscellaneous Expenses | $5,952”
+  - column:Transportation Expenses: 1824 ⟵ “Transportation Expenses | $1,824”
+  - column:TOTAL AWARD YEAR COST OF ATTENDANCE: 26650 ⟵ “TOTAL AWARD YEAR COST OF ATTENDANCE | $26,650”
+  - column:TOTAL BILLED CHARGES: 8506 ⟵ “TOTAL BILLED CHARGES | $8,506”
+  - column:TOTAL ESTIMATED IN-DIRECT EXPENSES: 18144 ⟵ “TOTAL ESTIMATED IN-DIRECT EXPENSES | $18,144”
+### `703895c8e189c4ed` Charter Oak State College — costs 2026-27 · residency=not_applicable [new] (source_unlabeled)
+- source: https://www.charteroak.edu/prospective/admissions/military/VA-Disclosure-Sheet-25-26.pdf (sha256 22e0fd5916df)
+- issues: arrangement_unlabeled, multiple_total_rows, residency_unknown, conflicting_sources:https://www.charteroak.edu/current/sfa/whatwillitcost.php
+- checks: {"columns": 5, "rows": 5}
+  - column:Tuition & Fees: 1292 ⟵ “Tuition & Fees | $ | 1,292 $ | 2,279 $ | 3,266 $ | 4,253 | Students achieved a 57% graduation rate for the most recently examined cohort.”
+  - column:Books & Supplies: 140 ⟵ “Books & Supplies | $ | 140 $ | 280 $ | 420 $ | 560”
+  - column:Total Cost of Tuition Paid to College: 1432 ⟵ “Total Cost of Tuition Paid to College | $ | 1,432 $ | 2,559 $ | 3,686 $ | 4,813”
+  - column:Transportation: 228 ⟵ “Transportation | $ | 228 $ | 912 $ | 912 $ | 912”
+  - column:Total Cost of Tuition and Expenses:: 1660 ⟵ “Total Cost of Tuition and Expenses: | $ | 1,660 $ | 9,471 $ | 10,598 $ | 11,725 | credits including military”
+  - column:Tuition & Fees: 2279 ⟵ “Tuition & Fees | $ | 1,292 $ | 2,279 $ | 3,266 $ | 4,253 | Students achieved a 57% graduation rate for the most recently examined cohort.”
+  - column:Books & Supplies: 280 ⟵ “Books & Supplies | $ | 140 $ | 280 $ | 420 $ | 560”
+  - column:Total Cost of Tuition Paid to College: 2559 ⟵ “Total Cost of Tuition Paid to College | $ | 1,432 $ | 2,559 $ | 3,686 $ | 4,813”
+  - column:Transportation: 912 ⟵ “Transportation | $ | 228 $ | 912 $ | 912 $ | 912”
+  - column:Total Cost of Tuition and Expenses:: 9471 ⟵ “Total Cost of Tuition and Expenses: | $ | 1,660 $ | 9,471 $ | 10,598 $ | 11,725 | credits including military”
+  - column:Tuition & Fees: 3266 ⟵ “Tuition & Fees | $ | 1,292 $ | 2,279 $ | 3,266 $ | 4,253 | Students achieved a 57% graduation rate for the most recently examined cohort.”
+  - column:Books & Supplies: 420 ⟵ “Books & Supplies | $ | 140 $ | 280 $ | 420 $ | 560”
+  - column:Total Cost of Tuition Paid to College: 3686 ⟵ “Total Cost of Tuition Paid to College | $ | 1,432 $ | 2,559 $ | 3,686 $ | 4,813”
+  - column:Housing & Meals: 2976 ⟵ “Housing & Meals | $ | - | $ | 2,976 $ | 2,976 $ | 2,976”
+  - column:Transportation: 912 ⟵ “Transportation | $ | 228 $ | 912 $ | 912 $ | 912”
+  - column:Other Education Costs: 3024 ⟵ “Other Education Costs | $ | - | $ | 3,024 $ | 3,024 $ | 3,024 | Information regarding the”
+  - column:Total Cost of Tuition and Expenses:: 10598 ⟵ “Total Cost of Tuition and Expenses: | $ | 1,660 $ | 9,471 $ | 10,598 $ | 11,725 | credits including military”
+  - column:Tuition & Fees: 4253 ⟵ “Tuition & Fees | $ | 1,292 $ | 2,279 $ | 3,266 $ | 4,253 | Students achieved a 57% graduation rate for the most recently examined cohort.”
+  - column:Books & Supplies: 560 ⟵ “Books & Supplies | $ | 140 $ | 280 $ | 420 $ | 560”
+  - column:Total Cost of Tuition Paid to College: 4813 ⟵ “Total Cost of Tuition Paid to College | $ | 1,432 $ | 2,559 $ | 3,686 $ | 4,813”
+  - column:Housing & Meals: 2976 ⟵ “Housing & Meals | $ | - | $ | 2,976 $ | 2,976 $ | 2,976”
+  - column:Transportation: 912 ⟵ “Transportation | $ | 228 $ | 912 $ | 912 $ | 912”
+  - column:Other Education Costs: 3024 ⟵ “Other Education Costs | $ | - | $ | 3,024 $ | 3,024 $ | 3,024 | Information regarding the”
+  - column:Total Cost of Tuition and Expenses:: 11725 ⟵ “Total Cost of Tuition and Expenses: | $ | 1,660 $ | 9,471 $ | 10,598 $ | 11,725 | credits including military”
+  - column:Housing & Meals: 2976 ⟵ “Housing & Meals | $ | - | $ | 2,976 $ | 2,976 $ | 2,976”
+  - … 1 more rows
+### `d93d80d7360e8e08` Charter Oak State College — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.charteroak.edu/current/sfa/whatwillitcost.php (sha256 2f0c5265d780)
+- issues: residency_unknown, stale_year_label:2025-26
+- checks: {"columns": 1, "components_reconcile": true, "rows": 12}
+  - column:Tuition: 7896 ⟵ “Tuition | $7,896”
+  - column:Student Services Fee: 460 ⟵ “Student Services Fee | $460”
+  - column:Technology Fee: 150 ⟵ “Technology Fee | $150”
+  - column:Books and Supplies: 1100 ⟵ “Books and Supplies | $1,100”
+  - column:Loan Fees: 96 ⟵ “Loan Fees | $96”
+  - column:Food: 2640 ⟵ “Food | $2,640”
+  - column:Housing: 6160 ⟵ “Housing | $6,160”
+  - column:Miscellaneous Expenses: 5760 ⟵ “Miscellaneous Expenses | $5,760”
+  - column:Transportation Expenses: 1760 ⟵ “Transportation Expenses | $1,760”
+  - column:TOTAL AWARD YEAR COST OF ATTENDANCE: 26022 ⟵ “TOTAL AWARD YEAR COST OF ATTENDANCE | $26,022”
+  - column:TOTAL BILLED CHARGES: 8506 ⟵ “TOTAL BILLED CHARGES | $8,506”
+  - column:TOTAL ESTIMATED IN-DIRECT EXPENSES: 17516 ⟵ “TOTAL ESTIMATED IN-DIRECT EXPENSES | $17,516”
+### `43b1fb03fbc8fd30` Connecticut State Community College — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://ctstate.edu/images/2025-2026-Cost-of-Attendance.pdf (sha256 a720fc10ecd9)
+- issues: arrangement_unlabeled, residency_unknown, stale_year_label:2025-26
+- checks: {"columns": 3, "rows": 8}
+  - column:Tuition and: 5338 ⟵ “Tuition and | $5,338 | $15,596 | $7,926”
+  - column:Books, Course: 1500 ⟵ “Books, Course | $1,500 | $1,500 | $1,500”
+  - column:Transportation: 3146 ⟵ “Transportation | $3,146 | $3,146 | $3,146”
+  - column:Miscellaneous: 10009 ⟵ “Miscellaneous | $10,009 | $10,009 | $10,009”
+  - column:Loan Fees: 84.56 ⟵ “Loan Fees | $84.56 | $84.56 | $84.56”
+  - column:Internet Costs: 450 ⟵ “Internet Costs | $450 | $450 | $450”
+  - column:Living Expenses: 15443 ⟵ “Living Expenses | $15,443 | $15,081 | $15,081”
+  - column:Estimated: 35970.56 ⟵ “Estimated | $35,970.56 | $45,866.56 | $38,196.56”
+  - column:Tuition and: 15596 ⟵ “Tuition and | $5,338 | $15,596 | $7,926”
+  - column:Books, Course: 1500 ⟵ “Books, Course | $1,500 | $1,500 | $1,500”
+  - column:Transportation: 3146 ⟵ “Transportation | $3,146 | $3,146 | $3,146”
+  - column:Miscellaneous: 10009 ⟵ “Miscellaneous | $10,009 | $10,009 | $10,009”
+  - column:Loan Fees: 84.56 ⟵ “Loan Fees | $84.56 | $84.56 | $84.56”
+  - column:Internet Costs: 450 ⟵ “Internet Costs | $450 | $450 | $450”
+  - column:Living Expenses: 15081 ⟵ “Living Expenses | $15,443 | $15,081 | $15,081”
+  - column:Estimated: 45866.56 ⟵ “Estimated | $35,970.56 | $45,866.56 | $38,196.56”
+  - column:Tuition and: 7926 ⟵ “Tuition and | $5,338 | $15,596 | $7,926”
+  - column:Books, Course: 1500 ⟵ “Books, Course | $1,500 | $1,500 | $1,500”
+  - column:Transportation: 3146 ⟵ “Transportation | $3,146 | $3,146 | $3,146”
+  - column:Miscellaneous: 10009 ⟵ “Miscellaneous | $10,009 | $10,009 | $10,009”
+  - column:Loan Fees: 84.56 ⟵ “Loan Fees | $84.56 | $84.56 | $84.56”
+  - column:Internet Costs: 450 ⟵ “Internet Costs | $450 | $450 | $450”
+  - column:Living Expenses: 15081 ⟵ “Living Expenses | $15,443 | $15,081 | $15,081”
+  - column:Estimated: 38196.56 ⟵ “Estimated | $35,970.56 | $45,866.56 | $38,196.56”
+### `c7426046f233fb42` Connecticut State Community College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://ctstate.edu/admissions-registration/financial-aid/ (sha256 dc22e3c2d093)
+- issues: components_do_not_reconcile, residency_unknown
+- checks: {"columns": 1, "components_reconcile": false, "rows": 7}
+  - column:Tuition and Fees: 7926 ⟵ “Tuition and Fees | $5,338 | $15,590 | $7,926”
+  - column:Books, Course Materials, Supplies and Equipment: 1500 ⟵ “Books, Course Materials, Supplies and Equipment | $1,500 | $1,500 | $1,500”
+  - column:Transportation: 3298 ⟵ “Transportation | $3,298 | $3,298 | $3,298”
+  - column:Miscellaneous Personal Expenses: 11093 ⟵ “Miscellaneous Personal Expenses | $11,093 | $11,093 | $11,093”
+  - column:Loan Fees: 84.56 ⟵ “Loan Fees | $84.56 | $84.56 | $84.56”
+  - column:Living Expenses (Food and Housing): 15153 ⟵ “Living Expenses (Food and Housing) | $15,590 | $15,153 | $15,153”
+  - column:Estimated Total Expenses: 36903.56 ⟵ “Estimated Total Expenses | $36,903.56 | $46,724.56 | $36,903.56”
+### `e0bac18e8957e825` Connecticut State Community College — costs 2026-27 · residency=out_of_state [new] (labeled_in_source)
+- source: https://ctstate.edu/admissions-registration/financial-aid/ (sha256 dc22e3c2d093)
+- issues: components_do_not_reconcile
+- checks: {"columns": 1, "components_reconcile": false, "rows": 7}
+  - column:Tuition and Fees: 15590 ⟵ “Tuition and Fees | $5,338 | $15,590 | $7,926”
+  - column:Books, Course Materials, Supplies and Equipment: 1500 ⟵ “Books, Course Materials, Supplies and Equipment | $1,500 | $1,500 | $1,500”
+  - column:Transportation: 3298 ⟵ “Transportation | $3,298 | $3,298 | $3,298”
+  - column:Miscellaneous Personal Expenses: 11093 ⟵ “Miscellaneous Personal Expenses | $11,093 | $11,093 | $11,093”
+  - column:Loan Fees: 84.56 ⟵ “Loan Fees | $84.56 | $84.56 | $84.56”
+  - column:Living Expenses (Food and Housing): 15153 ⟵ “Living Expenses (Food and Housing) | $15,590 | $15,153 | $15,153”
+  - column:Estimated Total Expenses: 46724.56 ⟵ “Estimated Total Expenses | $36,903.56 | $46,724.56 | $36,903.56”
+### `cc01642de6c37395` Eastern Connecticut State University — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.easternct.edu/financial-aid/online-forms/special-circumstances.html (sha256 af6703650982)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 6}
+  - sentence: need_based_special_circumstances ⟵ “Some conditions that may constitute an appeal include: Loss of income due to involuntary loss of employment Divorce or separation Death of a parent or spouse High medical or dental costs not covered by insurance If you have experienced one of the above circumstances, please complete the online form for a Special Circumstances Appeal.”
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstance Appeals and Unusual Circumstance Applications will be reviewed on a case-by-case basis and a final decision will be based on the eligible reason and supporting documentation provided.”
+  - sentence: need_based_special_circumstances ⟵ “Complete and sign the Special Circumstances Appeal form.”
+  - sentence: need_based_special_circumstances ⟵ “During Step 1, our Financial Aid Counselors will determine if your circumstance is eligible to move forward in the Special Circumstance Process.”
+  - sentence: need_based_special_circumstances ⟵ “If you are eligible, your Financial Aid Counselor will contact you for additional documentation that will be needed to complete FAFSA Verification & the Special Circumstance re-evaluation.”
+  - sentence: need_based_special_circumstances ⟵ “All students requesting a Special Circumstances Appeal are subject to the verification process.”
+### `d4e638ae87f5c38f` Eastern Connecticut State University — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.easternct.edu/financial-aid/policies/satisfactoryprogress.html (sha256 8d66a88c010a)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “SAP Appeal If extenuating circumstances exist which contributed to the student’s failure to meet one of the above SAP Standards, a written appeal may be submitted.”
+  - sentence: sap_appeal ⟵ “Exceptions beyond the appeal deadline are at the discretion of Satisfactory Academic Progress administrator and Director of Financial Aid.”
+### `125f6e4632604b74` Eastern Connecticut State University — costs 2026-27 · residency=out_of_state [new] (labeled_in_source)
+- source: https://www.easternct.edu/admissions/tuition-fees.html (sha256 64540bfd5d6d)
+- issues: components_do_not_reconcile
+- checks: {"columns": 1, "components_reconcile": false, "rows": 6}
+  - on_campus:Tuition: 10498 ⟵ “Tuition | $6,998 | $6,998 | $6,998 | $10,498”
+  - on_campus:Fees: 6930 ⟵ “Fees | $6,930 | $6,930 | $6,930 | $6,930”
+  - on_campus:Housing (traditional-style double room and $44 residence hall fee): 9124 ⟵ “Housing (traditional-style double room and $44 residence hall fee) | N/A | $9,124 | $9,124 | $9,124”
+  - on_campus:Transportation Fee (U-Pass): 80 ⟵ “Transportation Fee (U-Pass) | $80 | $80 | $80 | $80”
+  - on_campus:Subtotal Direct Cost: 33900 ⟵ “Subtotal Direct Cost | $14,008 | $30,400 | $30,400 | $33,900”
+  - on_campus:Nursing fees per semester (Nursing students only): 450 ⟵ “Nursing fees per semester (Nursing students only) | $450 | $450 | $450 | $450”
+### `306555cca6bc8353` Eastern Connecticut State University — costs 2026-27 · residency=in_state [new] (labeled_in_source)
+- source: https://www.easternct.edu/admissions/tuition-fees.html (sha256 64540bfd5d6d)
+- issues: components_do_not_reconcile, conflicting_sources:https://www.easternct.edu/financial-aid/_images/2026-27coauftptfinal.pdf
+- checks: {"columns": 2, "components_reconcile": false, "rows": 6}
+  - with_parents_or_family:Tuition: 6998 ⟵ “Tuition | $6,998 | $6,998 | $6,998 | $10,498”
+  - with_parents_or_family:Fees: 6930 ⟵ “Fees | $6,930 | $6,930 | $6,930 | $6,930”
+  - with_parents_or_family:Transportation Fee (U-Pass): 80 ⟵ “Transportation Fee (U-Pass) | $80 | $80 | $80 | $80”
+  - with_parents_or_family:Subtotal Direct Cost: 14008 ⟵ “Subtotal Direct Cost | $14,008 | $30,400 | $30,400 | $33,900”
+  - with_parents_or_family:Nursing fees per semester (Nursing students only): 450 ⟵ “Nursing fees per semester (Nursing students only) | $450 | $450 | $450 | $450”
+  - on_campus:Tuition: 6998 ⟵ “Tuition | $6,998 | $6,998 | $6,998 | $10,498”
+  - on_campus:Fees: 6930 ⟵ “Fees | $6,930 | $6,930 | $6,930 | $6,930”
+  - on_campus:Housing (traditional-style double room and $44 residence hall fee): 9124 ⟵ “Housing (traditional-style double room and $44 residence hall fee) | N/A | $9,124 | $9,124 | $9,124”
+  - on_campus:Transportation Fee (U-Pass): 80 ⟵ “Transportation Fee (U-Pass) | $80 | $80 | $80 | $80”
+  - on_campus:Subtotal Direct Cost: 30400 ⟵ “Subtotal Direct Cost | $14,008 | $30,400 | $30,400 | $33,900”
+  - on_campus:Nursing fees per semester (Nursing students only): 450 ⟵ “Nursing fees per semester (Nursing students only) | $450 | $450 | $450 | $450”
+### `3e029997276a84e0` Eastern Connecticut State University — costs 2026-27 · residency=in_state [new] (labeled_in_source)
+- source: https://www.easternct.edu/financial-aid/_images/2026-27coauftptfinal.pdf (sha256 dc91a01dc33c)
+- issues: arrangement_unlabeled, conflicting_sources:https://www.easternct.edu/admissions/tuition-fees.html
+- checks: {"columns": 7, "rows": 19}
+  - column:Tuition: 6424 ⟵ “Tuition | $6,424 | $4,672 | $6,424 | $4,672 | $6,424 | $4,672 | $2,920”
+  - column:University General Fee: 8030 ⟵ “University General Fee | $8,030 | $5,840 | SS,030 | SS,840 | $8,030 | SS,840 | $3,650”
+  - column:Housi ng (AveragcCostofall Housi ng Option.'l): 10732 ⟵ “Housi ng (AveragcCostofall Housi ng Option.'l) | $10,732 | SJ0,732”
+  - column:Food Service: 7268 ⟵ “Food Service | $7,268 | $7,268”
+  - column:Books, Course M11terials, Supplie, 1111d Equipment: 807 ⟵ “Books, Course M11terials, Supplie, 1111d Equipment | $807 | S587 | S807 | $587 | '807 | $587 | $367”
+  - column:LivingExpenses: 3684 ⟵ “LivingExpenses | $3,684 | $3,684 | $12,000 | $12,000 | $12,000”
+  - column:FederalEducation Loan Fees: 130 ⟵ “FederalEducation Loan Fees | $130 | SIJO | SIJO | $130 | $130 | $130 | $130”
+  - column:Tuition (2): 6424 ⟵ “Tuition | $6,424 | $4,672 | $6,424 | S4,672 | $2,920”
+  - column:Univer,ityGenera!Fee: 8030 ⟵ “Univer,ityGenera!Fee | $8,030 | $5,840 | $8,030 | $5,840 | $3,650”
+  - column:Housi ng (AverageCost ofall Housi ng Options): 10732 ⟵ “Housi ng (AverageCost ofall Housi ng Options) | $10,732 | Sl 0,732”
+  - column:FoodServiee: 7268 ⟵ “FoodServiee | $7,268 | $7,268”
+  - column:Books,Course Materials, Supplies and Equi pment: 807 ⟵ “Books,Course Materials, Supplies and Equi pment | $807 | $587 | $807 | $587 | $367”
+  - column:Transponation: 619 ⟵ “Transponation | $619 | 94,0 | $900 | $654 | 9409”
+  - column:MisccllaneousPenona!Expenses: 1100 ⟵ “MisccllaneousPenona!Expenses | $1,100 | $800 | $1,100 | $800 | $,00”
+  - column:LlvingExpenxs: 12000 ⟵ “LlvingExpenxs | $12,000 | $12,000 | Sl 2,000”
+  - column:FederalEducation Loan Fees (2): 130 ⟵ “FederalEducation Loan Fees | $130 | $130 | $130 | $130 | $130”
+  - column:Total Dind Cost: 14534 ⟵ “Total Dind Cost | $14,534 | SI0,592 | $32,578 | $28,636 | $14,534 | $10,592 | $6,650”
+  - column:Total E1tim11.ted Colt of Attendance: 21554 ⟵ “Total E1tim11.ted Colt of Attendance | $21,554 | $16,738 | $35,234 | $30,603 | $29,470 | $24,763 | $20.056”
+  - column:Total Direct Coat: 32578 ⟵ “Total Direct Coat | $32,578 | $28,636 | $14,534 | St0,592 | $6650”
+  - column:Tuition: 4672 ⟵ “Tuition | $6,424 | $4,672 | $6,424 | $4,672 | $6,424 | $4,672 | $2,920”
+  - column:University General Fee: 5840 ⟵ “University General Fee | $8,030 | $5,840 | SS,030 | SS,840 | $8,030 | SS,840 | $3,650”
+  - column:Transponationfce: 80 ⟵ “Transponationfce | '" | $80 | $80 | S80 | $80 | $80 | S80”
+  - column:Food Service: 7268 ⟵ “Food Service | $7,268 | $7,268”
+  - column:LivingExpenses: 3684 ⟵ “LivingExpenses | $3,684 | $3,684 | $12,000 | $12,000 | $12,000”
+  - column:Tuition (2): 4672 ⟵ “Tuition | $6,424 | $4,672 | $6,424 | S4,672 | $2,920”
+  - … 74 more rows
+### `8c24cb71ade06238` Eastern Connecticut State University — costs 2026-27 · residency=not_applicable [new] (source_unlabeled)
+- source: https://www.easternct.edu/financial-aid/_images/2627grcoaftpt.pdf (sha256 a7824de7c471)
+- issues: arrangement_unlabeled, multiple_total_rows, residency_unknown, conflicting_sources:https://www.easternct.edu/admissions/tuition-fees.html
+- checks: {"columns": 6, "rows": 34}
+  - column:Tuition: 8658 ⟵ “Tuition | $8,658 | $8,658 | $8,658 | $8,658 | $8,658”
+  - column:University General Fee: 4842 ⟵ “University General Fee | $4,842 | $4,842 | $4,842 | $4,842 | $4,842”
+  - column:Student Activity Fee: 200 ⟵ “Student Activity Fee | $200 | $200”
+  - column:Total Direct Cost: 13500 ⟵ “Total Direct Cost | $13,500 | $31,744 | $13,500 | $31,744 | $13,500”
+  - column:Books, Course Materials, Supplies and Equipment: 660 ⟵ “Books, Course Materials, Supplies and Equipment | $660 | $660 | $660 | $660 | $660”
+  - column:Transportation: 1772 ⟵ “Transportation | $1,772 | $844 | $1,227 | $844 | $1,227”
+  - column:Miscellaneous Personal Expenses: 1638 ⟵ “Miscellaneous Personal Expenses | $1,638 | $1,638 | $1,638 | $1,638 | $1,638”
+  - column:Living Expenses: 3684 ⟵ “Living Expenses | $3,684 | - | $12,000 | - | $12,000”
+  - column:Federal Education Loan Fees: 130 ⟵ “Federal Education Loan Fees | $130 | $130 | $130 | $130 | $130”
+  - column:Total Variable Expenses: 7884 ⟵ “Total Variable Expenses | $7,884 | $3,272 | $15,655 | $3,272 | $15,655”
+  - column:Total Estimated Cost of Attendance: 21384 ⟵ “Total Estimated Cost of Attendance | $21,384 | $35,016 | $29,155 | $35,016 | $29,155”
+  - column:<> Over Registration Fee: 750 ⟵ “<> Over Registration Fee | $750 | $750 | $750 | $750 | $750”
+  - column:Tuition (2): 10582 ⟵ “Tuition | $10,582 | $7,696 | $10,582 | $7,696 | $10,582 | $7,696”
+  - column:University General Fee (2): 5918 ⟵ “University General Fee | $5,918 | $4,304 | $5,918 | $4,304 | $5,918 | $4,304”
+  - column:Total Direct Cost (2): 16500 ⟵ “Total Direct Cost | $16,500 | $12,000 | $34,544 | $30,044 | $16,500 | $12,000”
+  - column:Books, Course Materials, Supplies and Equipment (2): 807 ⟵ “Books, Course Materials, Supplies and Equipment | $807 | $587 | $807 | $587 | $807 | $587”
+  - column:Transportation (2): 1299 ⟵ “Transportation | $1,299 | $945 | $619 | $450 | $900 | $654”
+  - column:Miscellaneous Personal Expenses (2): 1201 ⟵ “Miscellaneous Personal Expenses | $1,201 | $874 | $1,201 | $874 | $1,201 | $874”
+  - column:Living Expenses (2): 3684 ⟵ “Living Expenses | $3,684 | $3,684 | - | - | $12,000 | $12,000”
+  - column:Federal Education Loan Fees (2): 130 ⟵ “Federal Education Loan Fees | $130 | $130 | $130 | $130 | $130 | $130”
+  - column:Total Variable Expenses (2): 7121 ⟵ “Total Variable Expenses | $7,121 | $6,219 | $2,757 | $2,040 | $15,038 | $14,245”
+  - column:Total Estimated Cost of Attendance (2): 23621 ⟵ “Total Estimated Cost of Attendance | $23,621 | $18,219 | $37,301 | $32,084 | $31,538 | $26,245”
+  - column:Tuition (3): 10582 ⟵ “Tuition | $10,582 | $7,696 | $10,582 | $7,696 | $4,810”
+  - column:University General Fee (3): 5918 ⟵ “University General Fee | $5,918 | $4,304 | $5,918 | $4,304 | $2,690”
+  - column:Housing (Average Cost of all Housing Options): 10732 ⟵ “Housing (Average Cost of all Housing Options) | $10,732 | $10,732 | - | -”
+  - … 154 more rows
+### `b2443f5b3618d1a5` Eastern Connecticut State University — costs 2025-26 · residency=in_state [new] (labeled_in_source)
+- source: https://www.easternct.edu/financial-aid/_images/septupdatedugcoa2526.pdf (sha256 87cffce92a8a)
+- issues: arrangement_unlabeled, multiple_total_rows, stale_year_label:2025-26
+- checks: {"columns": 6, "rows": 31}
+  - column:Tuition: 6998 ⟵ “Tuition | $6,998 | $6,998 | $6,998 | $10,498 | $10,498”
+  - column:University General Fee: 5674 ⟵ “University General Fee | $5,674 | $5,674 | $5,674 | $5,674 | $5,674”
+  - column:University Fee: 1056 ⟵ “University Fee | $1,056 | $1,056 | $1,056 | $1,056 | $1,056”
+  - column:Student Activity Fee: 200 ⟵ “Student Activity Fee | $200 | $200 | $200 | $200 | $200”
+  - column:Transportation Fee: 80 ⟵ “Transportation Fee | $80 | $80 | $80 | $80 | $80”
+  - column:Housing (Average Cost of all Housing Options): 10414 ⟵ “Housing (Average Cost of all Housing Options) | $10,414 | $10,414”
+  - column:Residence Hall Fee: 44 ⟵ “Residence Hall Fee | $44 | $44”
+  - column:Total Tuition and Fees: 14008 ⟵ “Total Tuition and Fees | $14,008 | $31,530 | $14,008 | $35,030 | $17,508”
+  - column:Nursing Fees Per Semester *(Nursing Students Only): 450 ⟵ “Nursing Fees Per Semester *(Nursing Students Only) | *$450 | *$450 | *$450 | *$450 | *$450”
+  - column:Books, Course Materials, Supplies and Equipment: 800 ⟵ “Books, Course Materials, Supplies and Equipment | $800 | $800 | $800 | $800 | $800”
+  - column:Transportation: 1874 ⟵ “Transportation | $1,874 | $892 | $1,298 | $892 | $1,298”
+  - column:Miscellaneous Personal Expenses: 1459 ⟵ “Miscellaneous Personal Expenses | $1,459 | $1,459 | $1,459 | $1,459 | $1,459”
+  - column:Living Expenses: 3538 ⟵ “Living Expenses | $3,538 | - | $10,877 | - | $10,877”
+  - column:Federal Education Loan Fees: 130 ⟵ “Federal Education Loan Fees | $130 | $130 | $130 | $130 | $130”
+  - column:Total Estimated Cost of Attendance: 21809 ⟵ “Total Estimated Cost of Attendance | $21,809 | $34,811 | $28,572 | $38,311 | $32,072”
+  - column:<> Over Registration Fee: 657 ⟵ “<> Over Registration Fee | $657 | $657 | $657 | $657 | $657”
+  - column:Tuition (2): 4672 ⟵ “Tuition | $4,672 | $4,672 | $4,672 | $4,672 | $4,672 | $2,920”
+  - column:University General Fee (2): 5840 ⟵ “University General Fee | $5,840 | $5,840 | $5,840 | $5,840 | $5,840 | $3,650”
+  - column:Transportation Fee (2): 80 ⟵ “Transportation Fee | $80 | $80 | $80 | $80 | $80 | $80”
+  - column:Housing (Average Cost of all Housing Options) (2): 10414 ⟵ “Housing (Average Cost of all Housing Options) | $10,414 | $10,414”
+  - column:Residence Hall Fee (2): 44 ⟵ “Residence Hall Fee | $44 | $44”
+  - column:Total Tuition and Fees (2): 10592 ⟵ “Total Tuition and Fees | $10,592 | $28,114 | $10,592 | $28,114 | $10,592 | $6,650”
+  - column:*$50: 50 ⟵ “*$50 | *$50 | *$50 | *$50 | *$50 | *$50”
+  - column:Books, Course Materials, Supplies and Equipment (2): 355 ⟵ “Books, Course Materials, Supplies and Equipment | $355 | $355 | $355 | $355 | $355 | $222”
+  - column:Transportation (2): 833 ⟵ “Transportation | $833 | $396 | $577 | $396 | $577 | $361”
+  - … 129 more rows
+### `e8b668b2264bdd84` Eastern Connecticut State University — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.easternct.edu/admissions/tuition-fees.html (sha256 64540bfd5d6d)
+- issues: components_do_not_reconcile, residency_names_another_state, residency_unknown, conflicting_sources:https://www.easternct.edu/financial-aid/_images/2627grcoaftpt.pdf
+- checks: {"columns": 1, "components_reconcile": false, "rows": 6}
+  - on_campus:Tuition: 6998 ⟵ “Tuition | $6,998 | $6,998 | $6,998 | $10,498”
+  - on_campus:Fees: 6930 ⟵ “Fees | $6,930 | $6,930 | $6,930 | $6,930”
+  - on_campus:Housing (traditional-style double room and $44 residence hall fee): 9124 ⟵ “Housing (traditional-style double room and $44 residence hall fee) | N/A | $9,124 | $9,124 | $9,124”
+  - on_campus:Transportation Fee (U-Pass): 80 ⟵ “Transportation Fee (U-Pass) | $80 | $80 | $80 | $80”
+  - on_campus:Subtotal Direct Cost: 30400 ⟵ “Subtotal Direct Cost | $14,008 | $30,400 | $30,400 | $33,900”
+  - on_campus:Nursing fees per semester (Nursing students only): 450 ⟵ “Nursing fees per semester (Nursing students only) | $450 | $450 | $450 | $450”
+### `1bd8335559750457` Eastern Connecticut State University — credit_policies 2026-27 · policy_kind=IB [new] (source_unlabeled)
+- source: https://www.easternct.edu/admissions/course-equivalencies/ib-equivalency.html (sha256 506efb2d94b6)
+- issues: rows_without_score
+- checks: {"distinct_exams": 14, "equivalencies": 15, "rows_without_score": 15}
+  - equivalencies[IB-VISUAL-ARTS-HL|None]:  ⟵ “Visual Arts HL | 5, 6, 7 | ART 100 | 3”
+  - equivalencies[IB-BIOLOGY-HL|None]:  ⟵ “Biology HL | 5, 6, 7 | BIO 115 | 4”
+  - equivalencies[IB-BUSINESS-MANAGEMENT-HL|None]:  ⟵ “Business and Management HL | 5, 6, 7 | BUS 201 | 3”
+  - equivalencies[IB-CHEMISTRY-HL|None]:  ⟵ “Chemistry HL | 5, 6, 7 | CHE 210, 212 | 4”
+  - equivalencies[IB-COMPUTER-SCIENCE-HL|None]:  ⟵ “Computer Science HL | 5, 6, 7 | CSC 100 | 3”
+  - equivalencies[IB-ECONOMICS-HL|None]:  ⟵ “Economics HL | 5, 6, 7 | ECO 200 | 3”
+  - equivalencies[IB-FRENCH-HL|None]:  ⟵ “French B HL | 5, 6, 7 | FRE 110 | 3”
+  - equivalencies[IB-GEOGRAPHY-HL|None]:  ⟵ “Geography HL | 5, 6, 7 | GEO 100 | 3”
+  - equivalencies[IB-HISTORY-HL|None]:  ⟵ “History of the Americas HL | 5, 6, 7 | HIS 120 | 3”
+  - equivalencies[IB-HISTORY-HL|None]:  ⟵ “History of Europe HL | 5, 6, 7 | HIS 116 | 3”
+  - equivalencies[IB-MUSIC-HL|None]:  ⟵ “Music HL | 5, 6, 7 | MUS 100 | 3”
+  - equivalencies[IB-PHYSICS-HL|None]:  ⟵ “Physics HL | 5, 6, 7 | PHY 204 | 4”
+  - equivalencies[IB-PSYCHOLOGY-HL|None]:  ⟵ “Psychology HL | 5, 6, 7 | PSY 100 | 3”
+  - equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY-HL|None]:  ⟵ “Social Anthropology HL | 5, 6, 7 | SOC 100 | 3”
+  - equivalencies[IB-SPANISH-HL|None]:  ⟵ “Spanish B HL | 5, 6, 7 | SPA 110 | 3”
+### `5791c41586ce631e` Eastern Connecticut State University — credit_policies 2026-27 · policy_kind=AP [new] (source_unlabeled)
+- source: https://www.easternct.edu/admissions/course-equivalencies/ap-college-credit-equivalency.html (sha256 be93e3920947)
+- issues: rows_without_score
+- checks: {"distinct_exams": 38, "equivalencies": 61, "rows_without_score": 61}
+  - equivalencies[AP-2-D-ART-DESIGN|None]:  ⟵ “2-D Art & Design | ART 110 (2D Design) | 3 | T1A- Arts in Context”
+  - equivalencies[AP-3-D-ART-DESIGN|None]:  ⟵ “3-D Art & Design | ART 111 (3D Design) | 3 | T1A- Arts in Context”
+  - equivalencies[AP-ART-HISTORY|None]:  ⟵ “Art History | ART 211 (Pre-History to 1400) | 4 | T1H- Historical Perspective”
+  - equivalencies[AP-ART-HISTORY|None]:  ⟵ “Art History | ART 212 (1400 to Present) | 4”
+  - equivalencies[AP-BIOLOGY|None]:  ⟵ “Biology | BIO 120 (Organismal Biology with Lab) | 4 | T1NS- Natural Science”
+  - equivalencies[AP-BIOLOGY|None]:  ⟵ “Biology | BIO 202 (Human Bio Lecture) | 3”
+  - equivalencies[AP-BIOLOGY|None]:  ⟵ “Biology | BIO 203 (Human Bio Lab) | 1”
+  - equivalencies[AP-CALCULUS-AB|None]:  ⟵ “Calculus AB | MAT 243 (Calculus 1 w Technology) | 4 | T1M- Mathematics”
+  - equivalencies[AP-CALCULUS-BC|None]:  ⟵ “Calculus BC | MAT 243 (Calculus 1 w Technology) | 4 | T1M- Mathematics”
+  - equivalencies[AP-CALCULUS-BC|None]:  ⟵ “Calculus BC | MAT 244 (Calculus 2 w Technology) | 4”
+  - equivalencies[AP-CHEMISTRY|None]:  ⟵ “Chemistry | CHE 210 (General Chemistry I) | 3 | ”
+  - equivalencies[AP-CHEMISTRY|None]:  ⟵ “Chemistry | CHE 211 (General Chemistry II) | 1”
+  - equivalencies[AP-CHEMISTRY|None]:  ⟵ “Chemistry | CHE 212 (General Chemistry I Lab) | 3”
+  - equivalencies[AP-CHEMISTRY|None]:  ⟵ “Chemistry | CHE 213 (General Chemistry II Lab) | 1”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|None]:  ⟵ “Chinese Language & Culture (Score 3) | CHI 111 (Introductory Chinese II) | 3 | ”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|None]:  ⟵ “Chinese Language & Culture (Score 4& 5) | CHI 2XX | 6 | ”
+  - equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|None]:  ⟵ “Comparative Government & Politics | PSC 208 (Comparative Politics) | 3 | T2IS - Individuals & Societies”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|None]:  ⟵ “Computer Science A | CSC 210 (Computer Science & Programming I) | 3 | T2IT - Applied Info Technology”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|None]:  ⟵ “Computer Science Principles | CSC 100 (Computer Concepts) | 3 | ”
+  - equivalencies[AP-DRAWING|None]:  ⟵ “Drawing | ART 202 (Drawing I) | 3 | T2CE- Creative Expression”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|None]:  ⟵ “English Language & Composition | ENG 100 (College Writing) | 3 | T1W- College Writing”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|None]:  ⟵ “English Literature & Composition | ENG 125 (Intro to Literature) | 3 | T1LT- Literature and Thought”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|None]:  ⟵ “Environmental Science | EES 315 (Environmental Science & Society) | 3 | T2NS - Natural Science”
+  - equivalencies[AP-EUROPEAN-HISTORY|None]:  ⟵ “European History | HIS 231 (Western Civ Since 1500) | 3 | T2CP- Cultural Perspective”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|None]:  ⟵ “French Language & Culture (Score 3) | FRE 111 (Introductory French II) | 3 | ”
+  - … 36 more rows
+### `1ad8e44cbdc7dbcc` Fairfield University — appeals 2024-25 [new] (labeled_in_title)
+- source: https://www.fairfield.edu/_files/documents/pdfs/1280987881_financial-aid-tuition_faq-forms_special-conditions-appeal-form-2024-25_01162024.pdf (sha256 2a0ff6d03a3d)
+- issues: stale_year_label:2024-25, semantic_review_required, conflicting_sources:https://www.fairfield.edu/admission-and-aid/financial-aid/policies/
+- checks: {"negative_sentences": 0, "sentences": 6}
+  - sentence: need_based_special_circumstances ⟵ “2024-2025 SPECIAL CIRCUMSTANCES APPEAL FORM FAIRFIELD UNIVERSITY OFFICE OF FINANCIAL AID Name: _________________________________________________________ Student ID: ___________________ Student Email: ____________________________________ Parent Email: ________________________________ Fall Deadline: August 1 Spring Deadline: January 1 Special Circumstances Appeals may be submitted once a preliminary”
+  - sentence: need_based_special_circumstances ⟵ “If you believe that there are special circumstances that were not considered in the financial aid application(s) or you can now document a significant change in your family’s financial circumstances subsequent to filing your FAFSA and CSS Profile, please complete this Special Circumstances Appeal Form and send in supporting documentation.”
+  - sentence: need_based_special_circumstances ⟵ “All students requesting a Special Circumstances Appeal are subject to the verification process and must submit verification documents for review of an appeal.”
+  - sentence: need_based_special_circumstances ⟵ “The appeal process may not restore reduced aid or offer additional aid. ***Submission of an appeal neither guarantees an adjustment to a student’s award nor prevents the accrual of late fees on any unpaid student account balances.*** Reasons for Special Circumstances Appeal Loss of Income.”
+  - sentence: need_based_special_circumstances ⟵ “Please note, appeals due to loss of overtime earnings, bonus/commission earnings, or any change in income with respect to self-employment, may not be able to be considered until the 2024 return is filed.”
+  - sentence: need_based_special_circumstances ⟵ “Other – Please Explain. _________________________________________________________________________________ ***Since each circumstance is unique, you must contact our office to discuss the Special Circumstances request. *** Personal Statement Please attach a personal statement describing the basis for your special circumstances appeal request.”
+### `4ff5b27b88d66b58` Fairfield University — appeals 2024-25 [new] (labeled_in_source)
+- source: https://www.fairfield.edu/admission-and-aid/financial-aid/policies/ (sha256 924138680426)
+- issues: stale_year_label:2024-25, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 5}
+  - sentence: sap_appeal ⟵ “Students who lose eligibility for financial aid as a result of failure to make satisfactory academic progress may appeal to be placed on financial aid probation.”
+  - sentence: sap_appeal ⟵ “If during the probation period the student has not successfully achieved satisfactory academic progress, the student may appeal with a modified academic plan.”
+  - sentence: sap_appeal ⟵ “Some examples of extenuating circumstances are: A student's serious illness or accident Death or serious illness in the student's immediate family Cancellation/discontinuance of a class by the University Other unforeseeable circumstances beyond the control of the student that caused the student to fall below the satisfactory progress standards Students should submit the SAP Appeal Form, including ”
+  - sentence: sap_appeal ⟵ “The SAP Appeal Form, personal letter, Academic Plan, and any other supporting documentation (if desired), should be submitted to the student's financial aid counselor in the Office of Financial Aid no later than July 1.”
+  - sentence: sap_appeal ⟵ “Students must submit the SAP Appeal Form, including a personal letter, explaining the reason for the request and reason for their current academic status.”
+### `5e2e4e9cff2da1ce` Fairfield University — appeals 2024-25 [new] (labeled_in_source)
+- source: https://www.fairfield.edu/admission-and-aid/financial-aid/policies/ (sha256 924138680426)
+- issues: stale_year_label:2024-25, semantic_review_required, conflicting_sources:https://www.fairfield.edu/_files/documents/pdfs/1280987881_financial-aid-tuition_faq-forms_special-conditions-appeal-form-2024-25_01162024.pdf
+- checks: {"negative_sentences": 0, "sentences": 7}
+  - sentence: need_based_special_circumstances ⟵ “Financial Aid Deadlines Special Circumstances Appeals Fairfield University's objective is to offer students the best financial aid award possible considering its policies (as described above), the federal financial aid funding levels, and the availability of institutional financial aid resources.”
+  - sentence: need_based_special_circumstances ⟵ “However, if there are special or extenuating circumstances that were not considered in the initial financial aid applications or there is new documentation of a significant change in the family's financial circumstances, students can download, print, and submit a Special Circumstances Appeal Form.”
+  - sentence: need_based_special_circumstances ⟵ “Submission of a special circumstances appeal neither guarantees an adjustment to a student's award, nor prevents the accrual of late fees on any unpaid student account balances.”
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstance Appeals are reviewed for federal and/or university aid as funding permits.”
+  - sentence: need_based_special_circumstances ⟵ “Federal regulations and institutional policies require that special circumstances fall within certain parameters and that they are accompanied with supporting documentation.”
+  - sentence: need_based_special_circumstances ⟵ “This form is designed to assist students/families in providing information critical to the review of their special circumstances appeal.”
+### `5e4cc48d63da0569` Fairfield University — appeals 2024-25 [new] (labeled_in_source)
+- source: https://www.fairfield.edu/admission-and-aid/financial-aid/policies/ (sha256 924138680426)
+- issues: stale_year_label:2024-25, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: scholarship_retention_appeal ⟵ “Students who lose eligibility for merit scholarship as a result of failure to meet the minimum GPA requirement may appeal to be placed on merit scholarship probation.”
+### `b291c3b844392c97` Fairfield University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.fairfield.edu/_files/documents/pdfs/fa_sap_appeal.pdf (sha256 b7e6b19f6ed0)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “Fairfield University Office of Financial Aid Satisfactory Academic Progress Appeal Form This form serves as an appeal request for reinstatement of my federal, state, and/or institutional financial aid.”
+  - sentence: sap_appeal ⟵ “Please indicate the type(s) of appeal and semesters requested below: Financial Aid _____ Merit _____ Fall _____ Spring _____ Have you previously submitted a SAP Appeal?”
+### `c1468bb17d8ec5c9` Fairfield University — appeals 2024-25 [new] (labeled_in_source)
+- source: https://www.fairfield.edu/admission-and-aid/financial-aid/policies/ (sha256 924138680426)
+- issues: stale_year_label:2024-25, semantic_review_required
+- checks: {"negative_sentences": 1, "sentences": 1}
+  - sentence: competing_offer_review ⟵ “Fairfield University does not negotiate need-based financial aid offers, nor is the University able to match need-based financial aid offers made by other colleges and universities.”
+### `09d9404b836aaec2` Goodwin University — credit_policies 2026-27 · policy_kind=CLEP [new] (source_unlabeled)
+- source: https://www.goodwin.edu/transfer-students/credit-by-exam-clep (sha256 bfc6872f2226)
+- issues: rows_without_score
+- checks: {"distinct_exams": 27, "equivalencies": 40, "rows_without_score": 4}
+  - equivalencies[CLEP-AMERICAN-LITERATURE|50]:  ⟵ “American Literature | ENG 2XX English Elective | 50 | 3”
+  - equivalencies[CLEP-AMERICAN-LITERATURE|50]:  ⟵ “American Literature | English Literature | 50 | 3”
+  - equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|50]:  ⟵ “Analyzing and Interpreting Literature (Student must take the optional essay) | ENG 102 Literature and Composition | 50 | 3”
+  - equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|50]:  ⟵ “Analyzing and Interpreting Literature (Student must take the optional essay) | ENG 1XX English Elective | 50 | 3”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION|50]:  ⟵ “College Composition | ENG 101 English Composition | 50 | 3”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION|50]:  ⟵ “College Composition | ENG 1XX English Elective | 50 | 3”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION-MODULAR|50]:  ⟵ “College Composition Modular (Student must take the optional CLEP essay) | ENG 101 English Composition | 50 | 3”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION-MODULAR|50]:  ⟵ “College Composition Modular (Student must take the optional CLEP essay) | ENG 1XX English Elective | 50 | 3”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION-MODULAR|None]:  ⟵ “College Composition Modular (Student must take the optional CLEP essay) | Humanities”
+  - equivalencies[CLEP-HUMANITIES|50]:  ⟵ “Humanities | HUM 1XX Humanities Elective | 50 | 6”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|50 / 59]:  ⟵ “French Language | HUM 1XX Humanities Electives (Number of credits awarded depends upon the official score) | 50 / 59 | 6 / 12”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|50 / 60]:  ⟵ “German Language | HUM 1XX Humanities Electives (Number of credits awarded depends upon the official score) | 50 / 60 | 6 / 12”
+  - equivalencies[CLEP-SPANISH-LANGUAGE|50]:  ⟵ “Spanish Language | SPAN 101 Spanish I | 50 | 6”
+  - equivalencies[CLEP-SPANISH-LANGUAGE|50 / 63]:  ⟵ “Spanish Language | SPAN 1XX Electives (Number of credits awarded depends upon the official score) | 50 / 63 | 6 / 12”
+  - equivalencies[CLEP-SPANISH-LANGUAGE|None]:  ⟵ “Spanish Language | Social Sciences”
+  - equivalencies[CLEP-AMERICAN-GOVERNMENT|50]:  ⟵ “American Government | ELC 1XX General Elective | 50 | 3”
+  - equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|50]:  ⟵ “Principles of Microeconomics | ECN 102 Microeconomics | 50 | 3”
+  - equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|50]:  ⟵ “Principles of Macroeconomics | ECN 101 Macroeconomics | 50 | 3”
+  - equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|50]:  ⟵ “Intro to Psychology | PSY 112 Introduction to Psychology | 50 | 3”
+  - equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|50]:  ⟵ “Intro to Sociology | SOC 101 Introduction to Sociology | 50 | 3”
+  - equivalencies[CLEP-HUMAN-GROWTH-DEVELOPMENT|50]:  ⟵ “Human Growth & Development | PSY 212 Lifespan Development | 50 | 3”
+  - equivalencies[CLEP-SOCIAL-SCIENCES-HISTORY|50]:  ⟵ “Social Sciences & History | HIS 1XX History Elective ELC 1XX General Elective | 50 | 3 3”
+  - equivalencies[CLEP-INTRODUCTION-TO-EDUCATIONAL-PSYCHOLOGY|50]:  ⟵ “Intro to Educational Psychology | PSY 2XX Psychology Elective | 50 | 3”
+  - equivalencies[CLEP-INTRODUCTION-TO-EDUCATIONAL-PSYCHOLOGY|None]:  ⟵ “Intro to Educational Psychology | Math and Sciences”
+  - equivalencies[CLEP-BIOLOGY|50]:  ⟵ “Biology | BIO 1XX Biology Elective | 50 | 4”
+  - … 15 more rows
+### `64b4e1b54d868f19` Holy Apostles College and Seminary — appeals 2026-27 [new] (labeled_in_source)
+- source: https://holyapostles.edu/tuition-and-financial-aid/ (sha256 64010189805e)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “To appeal, submit a SAP Appeal Form WITH official supporting documentation explaining the extenuating circumstances as described above.”
+### `098a2c81da298830` Mitchell College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://mitchell.edu/cost-and-aid/ (sha256 6232bcd67586)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: professional_judgment ⟵ “Professional Judgement Students may request an adjustment to their financial aid eligibility based on special or unusual circumstances.”
+  - sentence: professional_judgment ⟵ “Below is a brief description of the types of situations that may warrant a professional judgement adjustment.”
+### `b5182a44491e1ff3` Mitchell College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://mitchell.edu/cost-and-aid/ (sha256 6232bcd67586)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstances Possible examples of special circumstances may include: • Tuition expenses at an elementary or secondary school. • Unusual medical or dental expenses not covered by insurance. • A family member who recently became unemployed. • Changes in income or assets that may affect your eligibility for financial aid.”
+  - sentence: need_based_special_circumstances ⟵ “Unusual Circumstances • Adjustments to a student’s dependency status based on a unique situation • Human trafficking • Refugee or asylee status • Parental abandonment or incarceration Loans Since grant funds are limited, most students are awarded loans to help with their educational expenses.”
+### `ae4c1fb07ecbb290` Quinnipiac University — academic_programs 2026-27 · program_key=bachelor-of-arts-in-graphic-and-interactive-design [new] (labeled_in_source)
+- source: https://catalog.qu.edu/communications/interactive-media-design/graphic-interactive-design-ba/ (sha256 72efa8a086e9)
+- issues: stale_year_label:2026-27, requirement_groups_skipped
+- checks: {"courses": 25, "groups": 5, "groups_skipped": 2}
+  - program_name: Bachelor of Arts in Graphic and Interactive Design ⟵ “Bachelor of Arts in Graphic and Interactive Design - Quinnipiac University Academic Catalog”
+### `b417bbb460dcde57` Quinnipiac University — appeals 2026-27 [new] (labeled_in_heading)
+- source: https://catalog.qu.edu/university-policies/procedure-appeal-final-grade/ (sha256 4cb6b7ceee68)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstances If the chairperson is the instructor who assigned the grade, the student will contact the associate dean after failing to resolve the matter with the faculty member.”
+### `10f8d1e309b81a1f` Quinnipiac University — degree_requirements 2026-27 · program_key=bachelor-of-arts-in-graphic-and-interactive-design · requirement_key=2026-2027-edition-seminars-for-success [new] (labeled_in_source)
+- source: https://catalog.qu.edu/communications/interactive-media-design/graphic-interactive-design-ba/ (sha256 72efa8a086e9)
+- issues: stale_year_label:2026-27, requirement_groups_skipped
+  - courses: COM 101 ⟵ “COM 101 - Communications First-Year Seminar”
+  - courses: COM 201 ⟵ “COM 201 - Media Career Development”
+### `420649b985f9186d` Quinnipiac University — degree_requirements 2026-27 · program_key=bachelor-of-arts-in-graphic-and-interactive-design · requirement_key=2026-2027-edition-required-graphic-and-interactive-design-courses [new] (labeled_in_source)
+- source: https://catalog.qu.edu/communications/interactive-media-design/graphic-interactive-design-ba/ (sha256 72efa8a086e9)
+- issues: stale_year_label:2026-27, requirement_groups_skipped
+  - courses: GID 110 ⟵ “GID 110 - Design Research and Methods”
+  - courses: GID 161 ⟵ “GID 161 - Web Design I”
+  - courses: GID 250 ⟵ “GID 250 - Web Design II”
+  - courses: GID 270 ⟵ “GID 270 - Typography I”
+  - courses: GID 301 ⟵ “GID 301 - Motion Graphics I”
+  - courses: GID 315 ⟵ “GID 315 - Mobile Interaction Design”
+  - courses: GID 410 ⟵ “GID 410 - Web Design III”
+  - courses: GID 480 ⟵ “GID 480 - Senior Seminar and Portfolio”
+### `76b502c05138072d` Quinnipiac University — degree_requirements 2026-27 · program_key=bachelor-of-arts-in-graphic-and-interactive-design · requirement_key=2026-2027-edition-free-electives [new] (labeled_in_source)
+- source: https://catalog.qu.edu/communications/interactive-media-design/graphic-interactive-design-ba/ (sha256 72efa8a086e9)
+- issues: stale_year_label:2026-27, requirement_groups_skipped
+  - section: 2026-2027-edition-free-electives ⟵ “2026-2027 Edition — Free Electives”
+### `974434e08a5ea0e3` Quinnipiac University — degree_requirements 2026-27 · program_key=bachelor-of-arts-in-graphic-and-interactive-design · requirement_key=2026-2027-edition-required-school-of-communications-core-courses [new] (labeled_in_source)
+- source: https://catalog.qu.edu/communications/interactive-media-design/graphic-interactive-design-ba/ (sha256 72efa8a086e9)
+- issues: stale_year_label:2026-27, requirement_groups_skipped
+  - courses: COM 120 ⟵ “COM 120 - Media Industries and Trends”
+  - courses: COM 130 ⟵ “COM 130 - Visual Design”
+  - courses: COM 140 ⟵ “COM 140 - Storytelling”
+### `eefe08073dd64753` Quinnipiac University — degree_requirements 2026-27 · program_key=bachelor-of-arts-in-graphic-and-interactive-design · requirement_key=2026-2027-edition-graphic-and-interactive-design-electives [new] (labeled_in_source)
+- source: https://catalog.qu.edu/communications/interactive-media-design/graphic-interactive-design-ba/ (sha256 72efa8a086e9)
+- issues: stale_year_label:2026-27, requirement_groups_skipped, course_alternatives_in_rule_text
+  - courses: ADPR 405 ⟵ “ADPR 405 - The Agency”
+  - courses: COM 490 ⟵ “COM 490 - Communications Career Internship”
+  - courses: GID 200 ⟵ “GID 200 - Special Topics in Graphics and Interactive Design”
+  - courses: GID 210 ⟵ “GID 210 - Graphic Design History”
+  - courses: GID 242 ⟵ “GID 242 - Next-Gen Design”
+  - courses: GID 300 ⟵ “GID 300 - Special Topics in GID”
+  - courses: GID 305 ⟵ “GID 305 - Digital Photography”
+  - courses: GID 340 ⟵ “GID 340 - Italian Design and Visual Culture”
+  - courses: GID 370 ⟵ “GID 370 - Typography II”
+  - courses: GID 400 ⟵ “GID 400 - Special Topics in GID”
+  - courses: GID 416 ⟵ “GID 416 - Design Sprints”
+  - courses: GID 440 ⟵ “GID 440 - Motion Graphics II”
+### `mceba5a1d98d2e35` Quinnipiac University — transfer_policies 2026-27 [new] (labeled_in_heading)
+- source: https://catalog.qu.edu/university-policies/transfer-credit-incoming-graduates/ (sha256 aaba6d6df965)
+- issues: conflicting_values:min_grade
+- checks: {"fields": ["min_grade"], "merged_pages": 3}
+  - min_grade: C ⟵ “Courses completed at an accredited college or university with a grade of “C” or better, which are similar to courses offered at Quinnipiac, will usually transfer.”
+  - min_grade: C ⟵ “Quinnipiac University normally grants transfer credit for college-level courses appropriate to the chosen curriculum completed with a grade of C or better at an accredited college or university.”
+### `5d63229e72186cd6` Sacred Heart University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.sacredheart.edu/admissions--aid/financial-assistance/financial-assistance-withdrawal-policy/ (sha256 b70322404bf9)
+- issues: semantic_review_required, conflicting_sources:https://www.sacredheart.edu/admissions--aid/financial-assistance/full-time-undergraduates/satisfactory-academic-progress-policy/,https://www.sacredheart.edu/admissions--aid/financial-assistance/shu-online-students/satisfactory-academic-progress-policy/
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “If you wish to discuss your specific concerns further or have special circumstances that need to be addressed, please contact our office at 203-371-7980.”
+### `6e3b062817b53e6b` Sacred Heart University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.sacredheart.edu/admissions--aid/financial-assistance/full-time-undergraduates/satisfactory-academic-progress-policy/ (sha256 50e6e0e81cd4)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 10}
+  - sentence: sap_appeal ⟵ “Sections included in this policy are: FA SAP Standards Definitions FA SAP Review Process FA SAP Appeals Regaining Financial Aid Eligibility A printed copy of this FA SAP policy will be provided upon request.”
+  - sentence: sap_appeal ⟵ “Students without an approved FA SAP Appeal must repair deficiencies and meet satisfactory academic progress standards to regain eligibility for federal, state and institutional financial aid.”
+  - sentence: sap_appeal ⟵ “FA SAP Appeals As stated above, students on Financial Aid Suspension may appeal to have their eligibility reinstated for one term of Financial Aid Probation if mitigating circumstances prevented them from meeting the requirements.”
+  - sentence: sap_appeal ⟵ “Students who wish to appeal Financial Aid Suspension must adhere to the following procedure: Complete the FA SAP Appeal (also accessible via SHU Awards) with required student statements and documentation.”
+  - sentence: sap_appeal ⟵ “Submit completed FA SAP Appeal to the Office of Student Financial Assistance prior to the start of the semester for which you are seeking financial aid.”
+  - sentence: sap_appeal ⟵ “Note: Submitting the FA SAP Appeal does not guarantee approval or reinstatement of financial aid eligibility.”
+### `b47fc2f445036f2d` Sacred Heart University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.sacredheart.edu/admissions--aid/financial-assistance/shu-online-students/satisfactory-academic-progress-policy/ (sha256 da18c9cec78f)
+- issues: semantic_review_required, conflicting_sources:https://www.sacredheart.edu/admissions--aid/financial-assistance/financial-assistance-withdrawal-policy/,https://www.sacredheart.edu/admissions--aid/financial-assistance/full-time-undergraduates/satisfactory-academic-progress-policy/
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Such circumstances would include: the death of a relative; an injury of the student; an illness of the student; or other special circumstances.”
+### `f541cb5a01147c4b` Sacred Heart University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.sacredheart.edu/admissions--aid/financial-assistance/full-time-undergraduates/satisfactory-academic-progress-policy/ (sha256 50e6e0e81cd4)
+- issues: semantic_review_required, conflicting_sources:https://www.sacredheart.edu/admissions--aid/financial-assistance/financial-assistance-withdrawal-policy/,https://www.sacredheart.edu/admissions--aid/financial-assistance/shu-online-students/satisfactory-academic-progress-policy/
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Such circumstances would include: the death of a relative; an injury of the student; an illness of the student; or other special circumstances.”
+### `18e422e93442625e` Southern Connecticut State University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://inside.southernct.edu/onestop/financial-aid/new-undergraduate (sha256 95abc4f71503)
+- issues: semantic_review_required, conflicting_sources:https://inside.southernct.edu/onestop/financial-aid
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: need_based_special_circumstances ⟵ “Payment Plan through Student Accounts 7-month Payment Plan starts in April (sign up through Student Accounts) Private Scholarships - research and apply for scholarships Special or Unusual Circumstances If your family has experienced a significant change after completing the FAFSA, please reach out to us to see how we can help.”
+  - sentence: need_based_special_circumstances ⟵ “Visit our Special or Unusual Circumstances page for more information.”
+### `4ec0a2296a893986` Southern Connecticut State University — appeals 2026-27 [new] (labeled_in_source)
+- source: https://inside.southernct.edu/onestop/financial-aid (sha256 78502ac13a09)
+- issues: semantic_review_required, conflicting_sources:https://inside.southernct.edu/onestop/financial-aid/new-undergraduate
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Upload Your Documents Other Financial Aid Topics Financial Aid FAQ FAFSA Verification Revised Awards Financial Aid Authorization Special or Unusual Circumstances Cost of Attendance vs.”
+### `c5d4cf4ddec2073c` Southern Connecticut State University — costs 2026-27 · residency=out_of_state [new] (labeled_in_source)
+- source: https://www.southernct.edu/tuition-aid/cost-of-attendance (sha256 b625b31299a8)
+- issues: arrangement_unlabeled
+- checks: {"columns": 2, "rows": 8}
+  - column:Tuition: 5249 ⟵ “Tuition | $3499 | $3499 | $5249 | $5249”
+  - column:University General Fee: 2547 ⟵ “University General Fee | $2547 | $2547 | $2547 | $2547”
+  - column:University Fee;: 528 ⟵ “University Fee; | $528 | $528 | $528 | $528”
+  - column:Student Activity Fee: 70 ⟵ “Student Activity Fee | $70 | $70 | $70 | $70”
+  - column:Writing Center Fee: 20 ⟵ “Writing Center Fee | $20 | $20 | $20 | $20”
+  - column:Transportation Fee: 40 ⟵ “Transportation Fee | $40 | $40 | $40 | $40”
+  - column:Media Fee: 15 ⟵ “Media Fee | $15 | $15 | $15 | $15”
+  - column:Totals: 8469 ⟵ “Totals | $6719 | $6719 | $8469 | $8469”
+  - column:Tuition: 5249 ⟵ “Tuition | $3499 | $3499 | $5249 | $5249”
+  - column:University General Fee: 2547 ⟵ “University General Fee | $2547 | $2547 | $2547 | $2547”
+  - column:University Fee;: 528 ⟵ “University Fee; | $528 | $528 | $528 | $528”
+  - column:Student Activity Fee: 70 ⟵ “Student Activity Fee | $70 | $70 | $70 | $70”
+  - column:Writing Center Fee: 20 ⟵ “Writing Center Fee | $20 | $20 | $20 | $20”
+  - column:Transportation Fee: 40 ⟵ “Transportation Fee | $40 | $40 | $40 | $40”
+  - column:Media Fee: 15 ⟵ “Media Fee | $15 | $15 | $15 | $15”
+  - column:Totals: 8469 ⟵ “Totals | $6719 | $6719 | $8469 | $8469”
+### `f7d08c8769244d14` Southern Connecticut State University — costs 2026-27 · residency=in_state [new] (labeled_in_source)
+- source: https://www.southernct.edu/tuition-aid/cost-of-attendance (sha256 b625b31299a8)
+- issues: arrangement_unlabeled
+- checks: {"columns": 2, "rows": 8}
+  - column:Tuition: 3499 ⟵ “Tuition | $3499 | $3499 | $5249 | $5249”
+  - column:University General Fee: 2547 ⟵ “University General Fee | $2547 | $2547 | $2547 | $2547”
+  - column:University Fee;: 528 ⟵ “University Fee; | $528 | $528 | $528 | $528”
+  - column:Student Activity Fee: 70 ⟵ “Student Activity Fee | $70 | $70 | $70 | $70”
+  - column:Writing Center Fee: 20 ⟵ “Writing Center Fee | $20 | $20 | $20 | $20”
+  - column:Transportation Fee: 40 ⟵ “Transportation Fee | $40 | $40 | $40 | $40”
+  - column:Media Fee: 15 ⟵ “Media Fee | $15 | $15 | $15 | $15”
+  - column:Totals: 6719 ⟵ “Totals | $6719 | $6719 | $8469 | $8469”
+  - column:Tuition: 3499 ⟵ “Tuition | $3499 | $3499 | $5249 | $5249”
+  - column:University General Fee: 2547 ⟵ “University General Fee | $2547 | $2547 | $2547 | $2547”
+  - column:University Fee;: 528 ⟵ “University Fee; | $528 | $528 | $528 | $528”
+  - column:Student Activity Fee: 70 ⟵ “Student Activity Fee | $70 | $70 | $70 | $70”
+  - column:Writing Center Fee: 20 ⟵ “Writing Center Fee | $20 | $20 | $20 | $20”
+  - column:Transportation Fee: 40 ⟵ “Transportation Fee | $40 | $40 | $40 | $40”
+  - column:Media Fee: 15 ⟵ “Media Fee | $15 | $15 | $15 | $15”
+  - column:Totals: 6719 ⟵ “Totals | $6719 | $6719 | $8469 | $8469”
+### `bb5ebdf1701fb577` Southern Connecticut State University — credit_policies 2026-27 · policy_kind=AP [new] (labeled_in_source)
+- source: https://catalog.southernct.edu/undergraduate/transfer-credit-policies/advanced-placement.html (sha256 504cba0b1c71)
+- issues: rows_without_score
+- checks: {"distinct_exams": 40, "equivalencies": 60, "rows_without_score": 60}
+  - equivalencies[AP-RESEARCH|None]:  ⟵ “Research | ELE 0100 | ”
+  - equivalencies[AP-SEMINAR|None]:  ⟵ “Seminar | ELE 0100 | ”
+  - equivalencies[AP-ART-HISTORY|None]:  ⟵ “Art History | ART 104 or ART 105 | Interpreting Cultures”
+  - equivalencies[AP-2-D-ART-DESIGN|None]:  ⟵ “2-D Art and Design | ART 112 | ”
+  - equivalencies[AP-3-D-ART-DESIGN|None]:  ⟵ “3-D Art and Design | ART 113 | Creativity & Design”
+  - equivalencies[AP-DRAWING|None]:  ⟵ “Drawing | ART 150 | Creativity & Design”
+  - equivalencies[AP-MUSIC-THEORY|None]:  ⟵ “Music Theory | MUS 220 and 225 (5 cr.) | ”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|None]:  ⟵ “English Language & Comp. | ENG 110 | Written Communication Prerequisite”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|None]:  ⟵ “English Language & Comp. (min. score 4) | ENG 112 | Written Communication”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|None]:  ⟵ “English Literature & Comp | ELE 0100 | ”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|None]:  ⟵ “English Literature & Comp(min. score 4) | ENG 112 | Written Communication”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|None]:  ⟵ “English Literature & Comp(min. score 5) | ENG 112 and 217 (6 cr.) | Written Communication and Interpreting Cultures”
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|None]:  ⟵ “African American Studies | AFR 100 | ”
+  - equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|None]:  ⟵ “Comparative Gov't& Politics | PSC 200 | Individual, Social Institutions & Values”
+  - equivalencies[AP-EUROPEAN-HISTORY|None]:  ⟵ “European History | HIS 100 | Interpreting Cultures”
+  - equivalencies[AP-EUROPEAN-HISTORY|None]:  ⟵ “European History (min. score 4) | HIS 100 and 101 (6 cr.) | Interpreting Cultures”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|None]:  ⟵ “Human Geography | ELE 0100 | ”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|None]:  ⟵ “Human Geography (min. score 4) | GEO 200 | Interpreting Cultures”
+  - equivalencies[AP-MACROECONOMICS|None]:  ⟵ “Macroeconomics | ELE 0100 | ”
+  - equivalencies[AP-MACROECONOMICS|None]:  ⟵ “Macroeconomics (min. score 4) | ECO 100 | Individual, Social Institutions & Values”
+  - equivalencies[AP-MICROECONOMICS|None]:  ⟵ “Microeconomics | ELE 0100 | ”
+  - equivalencies[AP-MICROECONOMICS|None]:  ⟵ “Microeconomics (min. score 4) | ECO 101 | Global Interconnections”
+  - equivalencies[AP-PSYCHOLOGY|None]:  ⟵ “Psychology | PSY 100 | Individual, Social Institutions & Values”
+  - equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|None]:  ⟵ “U.S. Government & Politics | PSC 260 | United States Experience”
+  - equivalencies[AP-UNITED-STATES-HISTORY|None]:  ⟵ “U.S. History | HIS 110 | United States Experience”
+  - … 35 more rows
+### `e74a378f74f12316` Southern Connecticut State University — credit_policies 2026-27 · policy_kind=IB [new] (labeled_in_source)
+- source: https://catalog.southernct.edu/undergraduate/transfer-credit-policies/international-baccalaureate.html (sha256 f8bfaa875693)
+- issues: rows_without_score
+- checks: {"distinct_exams": 18, "equivalencies": 19, "rows_without_score": 19}
+  - equivalencies[IB-BIOLOGY|None]:  ⟵ “Biology | BIO 102 (4 cr.) andBIO 103 (8 cr.) | Natural World II: Life and Environment”
+  - equivalencies[IB-BUSINESS-MANAGEMENT|None]:  ⟵ “Business Management | ELE 0100 | ”
+  - equivalencies[IB-CHEMISTRY|None]:  ⟵ “Chemistry | CHE 120 (4 cr.) | Natural World I: Physical Realm”
+  - equivalencies[IB-COMPUTER-SCIENCE|None]:  ⟵ “Computer Science | CSC 101 | Technological Fluency”
+  - equivalencies[IB-ECONOMICS|None]:  ⟵ “Economics | ECO 100 | Individual, SocialInteractions & Values”
+  - equivalencies[IB-FILM|None]:  ⟵ “Film | COM 258 and 360 (6 cr.) | ”
+  - equivalencies[IB-GEOGRAPHY|None]:  ⟵ “Geography | GEO 100 | Global Interconnections”
+  - equivalencies[IB-GLOBAL-POLITICS|None]:  ⟵ “Global Politics | PSC 270 | Global Interconnections”
+  - equivalencies[IB-HISTORY|None]:  ⟵ “History | HIS 0200 | ”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|None]:  ⟵ “Math-Analysis and Approaches | MAT 150 (4 cr.) | Quantitative Reasoning”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|None]:  ⟵ “Math-Analysis and Approaches (min. score 5) | MAT 150 and 151 (8 cr.) | Quantitative Reasoning”
+  - equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION|None]:  ⟵ “Math-Applications and Interpretation | MAT 150 and 221 (8 cr.) | Quantitative Reasoning”
+  - equivalencies[IB-MUSIC|None]:  ⟵ “Music (min. score 3) | MUS 210 | Interpreting Cultures”
+  - equivalencies[IB-PHILOSOPHY|None]:  ⟵ “Philosophy | ELE 0100 | ”
+  - equivalencies[IB-PHYSICS|None]:  ⟵ “Physics | PHY 200 and 201 (8 cr.) | Natural World I: Physical Realm”
+  - equivalencies[IB-PSYCHOLOGY|None]:  ⟵ “Psychology | PSY 100 | Individual, SocialInteractions & Values”
+  - equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY|None]:  ⟵ “Social and Cultural Anthropology | ANT 100 | ”
+  - equivalencies[IB-THEATRE|None]:  ⟵ “Theater | ELE 0100 | ”
+  - equivalencies[IB-VISUAL-ARTS|None]:  ⟵ “Visual Arts | ART 0100 | ”
+### `1eb52c52b8c9a439` Trinity College — appeals 2025-26 [new] (labeled_in_source)
+- source: https://www.trincoll.edu/admissions/wp-content/uploads/sites/7/2024/07/25-26-SAP-Policy.pdf (sha256 bcdc0bdec9f6)
+- issues: stale_year_label:2025-26, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 8}
+  - sentence: sap_appeal ⟵ “Financial Aid Probation A student on financial aid warning who has not met all SAP qualitative and quantitative standards by the end of the next semester of enrollment is no longer eligible to receive assistance under federal Title IV, state, and institutional financial aid programs unless the student has an approved SAP appeal on file with the Office of Financial Aid.”
+  - sentence: sap_appeal ⟵ “All SAP appeals must be submitted to the Office of Financial Aid according to the process outlined in the Appeals section of this policy.”
+  - sentence: sap_appeal ⟵ “A student who wishes to appeal his or her financial aid suspension must adhere to the following procedures: 1. complete and sign an SAP appeal form; 2. attach supporting documentation to the SAP appeal form; and 3. submit the SAP appeal form with documentation to the Office of Financial Aid, according to the deadline schedule listed on the form.”
+  - sentence: sap_appeal ⟵ “Submitting an SAP appeal does not guarantee approval or reinstatement of financial aid eligibility.”
+  - sentence: sap_appeal ⟵ “SAP appeal reviews will result in one of the following outcomes: Not Approved A student whose SAP appeal is not approved will remain on financial aid suspension and will not be eligible to receive financial aid until all SAP deficiencies have been repaired (See Regaining Eligibility).”
+  - sentence: sap_appeal ⟵ “Approved with Probation A student whose SAP appeal is approved with probation will be placed on financial aid probation and is eligible to receive financial aid during the next semester of enrollment, provided the student remains in good academic standing with the College and meets all other program requirements.”
+### `6302cc659b78350a` Trinity College — appeals 2025-26 [new] (labeled_in_source)
+- source: https://www.trincoll.edu/admissions/wp-content/uploads/sites/7/2024/07/25-26-SAP-Policy.pdf (sha256 bcdc0bdec9f6)
+- issues: stale_year_label:2025-26, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Such circumstances would include: 5 1. the death of a relative; 2. an injury of the student; 3. an illness of the student; or 4. other special circumstances.”
+### `06c420bc193d0c19` Trinity College — costs 2026-27 · residency=not_applicable [new] (source_unlabeled)
+- source: https://www.trincoll.edu/admissions/finaid/consumer-information/ (sha256 a693ea289a2e)
+- issues: conflicting_sources:https://www.trincoll.edu/student-accounts/tuition-and-fees/
+- checks: {"columns": 1, "rows": 5}
+  - column:Tuition: 72820 ⟵ “Tuition | $72,820”
+  - column:Room: 13150 ⟵ “Room | $13,150”
+  - column:Board (19 meal plan): 7180 ⟵ “Board (19 meal plan) | $7,180”
+  - column:General Fee: 2900 ⟵ “General Fee | $2,900”
+  - column:Student Activity Fee: 430 ⟵ “Student Activity Fee | $430”
+### `2233ea2a403fb2df` Trinity College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.trincoll.edu/student-accounts/tuition-and-fees/ (sha256 26bc02d6cd57)
+- issues: conflicting_sources:https://www.trincoll.edu/admissions/finaid/consumer-information/
+- checks: {"columns": 1, "components_reconcile": true, "rows": 6}
+  - column:Tuition: 72820 ⟵ “Tuition | $36,410 | $36,410 | $72,820”
+  - column:General Fee: 2900 ⟵ “General Fee | $1,450 | $1,450 | $2,900”
+  - column:Student Activity Fee: 430 ⟵ “Student Activity Fee | $215 | $215 | $430”
+  - column:Standard Room*: 13150 ⟵ “Standard Room* | $6,575 | $6,575 | $13,150”
+  - column:Meal Plan (First-Year): 7180 ⟵ “Meal Plan (First-Year) | $3,590 | $3,590 | $7,180”
+  - column:Total Due: 96480 ⟵ “Total Due | $48,240 | $48,240 | $96,480”
+### `afd4912943ccc4b7` Trinity College — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.trincoll.edu/admissions/finaid/first-year-students/fees-and-packages/ (sha256 05ac3dd88dd6)
+- issues: stale_year_label:2025-26
+- checks: {"columns": 1, "components_reconcile": true, "rows": 6}
+  - column:Tuition: 70360 ⟵ “Tuition | $70,360”
+  - column:Room & Board: 19650 ⟵ “Room & Board | $19,650”
+  - column:Books & Supplies: 1000 ⟵ “Books & Supplies | $1,000”
+  - column:Required Fees: 3230 ⟵ “Required Fees | $3,230”
+  - column:Personal Expenses: 1154 ⟵ “Personal Expenses | $1,154”
+  - column:Total Cost: 95394 ⟵ “Total Cost | $95,394”
+### `c3d44cc6489c746c` Trinity College — credit_policies 2026-27 · policy_kind=AP [new] (source_unlabeled)
+- source: https://www.trincoll.edu/registrar/students/transfer-credit-information/prospective-new-students/ap-ib-credits/ (sha256 f5bfb3551cee)
+- issues: course_column_missing
+- checks: {"distinct_exams": 4, "equivalencies": 6, "rows_without_score": 0}
+  - equivalencies[AP-PHYSICS-C-MECHANICS|​4 or 5]:  ⟵ “​AP Physics C: Mechanics | ​4 or 5 | ​ | ​ | ​● | ​ | ​Phys 231”
+  - equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|​4 or 5]:  ⟵ “AP Physics C: Electricity and Magnetism​ | ​4 or 5 | ​ | ​ | ​ | ​● | ​”
+  - equivalencies[AP-PHYSICS-1|​4]:  ⟵ “​AP Physics 1 | ​4 | ​● | ​ | ​ | ​ | ​Phys 102”
+  - equivalencies[AP-PHYSICS-1|​5]:  ⟵ “​AP Physics 1 | ​5 | ​● | ​ | ​ | ​ | ​Phys 102 or Phys 231*”
+  - equivalencies[AP-PHYSICS-2|​4]:  ⟵ “AP Physics 2​ | ​4 | ​ | ​● | ​ | ​ | ​”
+  - equivalencies[AP-PHYSICS-2|​5]:  ⟵ “AP Physics 2​​ | ​5 | ​ | ​● | ​ | ​ | ​Phys 231*”
+### `0ce09fe613573205` University of Bridgeport — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.bridgeport.edu/files/docs/policies/sap-satisfactory-academic-progress-policy.pdf (sha256 b1892178d524)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Examples include death of a close relative, medical condition, injury or illness of the student, or other special circumstances.”
+### `a6fe625e9f293f42` University of Bridgeport — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.bridgeport.edu/files/docs/policies/sap-satisfactory-academic-progress-policy.pdf (sha256 b1892178d524)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 8}
+  - sentence: sap_appeal ⟵ “Students who do not meet SAP standards at the end of the Warning term will be placed in Unsatisfactory / Financial Aid Suspension and will lose eligibility for subsequent terms unless they regain eligibility by meeting SAP standards or eligibility is reinstated through an approved SAP appeal resulting in Probation status.”
+  - sentence: sap_appeal ⟵ “Student is not eligible for federal, state, or institutional aid unless reinstated through an approved SAP appeal resulting in Probation status or by meeting SAP standards without aid. • Probation (PG, PC, PB): Assigned after a SAP appeal is approved.”
+  - sentence: sap_appeal ⟵ “Financial SAP Appeals (Online Submission, Disclosure & Consent, and Electronic Signatures) If extenuating circumstances prevented a student from meeting SAP requirements, a SAP appeal may be filed.”
+  - sentence: sap_appeal ⟵ “How to Submit a SAP Appeal (Webform) Effective Spring 2026, the SAP appeal process has moved to an online webform to facilitate submission for on-campus and online students, including those residing outside Connecticut.”
+  - sentence: sap_appeal ⟵ “Students can access the SAP Appeal Webform by logging into the UB Portal, selecting Forms, choosing the Financial Aid department section, and selecting the SAP Appeal Webform.”
+  - sentence: sap_appeal ⟵ “Paper/PDF SAP appeal forms are no longer accepted.”
+### `f15557c4aae5b461` University of Bridgeport — appeals 2025-26 [new] (labeled_in_source)
+- source: https://www.bridgeport.edu/cost-financial-aid/financial-aid/types-of-aid (sha256 13cc4133c6eb)
+- issues: stale_year_label:2025-26, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “For financial aid purposes, students are considered “dependent” if they are under 24, unmarried, and have no legal dependents at the time the FAFSA is submitted. (Exceptions are made for veterans, wards of the court, and other special circumstances.) If a student is considered dependent, then the income and the assets of the parent have to be reported on the FAFSA.”
+### `3ee282faa392e711` University of Bridgeport — awards 2025-26 [new] (labeled_in_source)
+- source: https://www.bridgeport.edu/cost-financial-aid/financial-aid/types-of-aid (sha256 13cc4133c6eb)
+- issues: stale_year_label:2025-26
+- checks: {"thresholds": null}
+  - award_amount_text: $12,500 ⟵ “Provost’s Scholarship | $12,500”
+### `438a35c09a9d0851` University of Bridgeport — awards 2025-26 [new] (labeled_in_source)
+- source: https://www.bridgeport.edu/cost-financial-aid/financial-aid/types-of-aid (sha256 13cc4133c6eb)
+- issues: stale_year_label:2025-26
+- checks: {"thresholds": null}
+  - award_amount_text: $15,000 ⟵ “Presidential Scholarship | $15,000”
+### `49eedd8cb3d1a8bc` University of Bridgeport — awards 2025-26 [new] (labeled_in_source)
+- source: https://www.bridgeport.edu/cost-financial-aid/financial-aid/types-of-aid (sha256 13cc4133c6eb)
+- issues: stale_year_label:2025-26
+- checks: {"thresholds": null}
+  - award_amount_text: $5,000 ⟵ “Academic Achievement Grant | $5,000”
+### `d01613fbfc2c08f5` University of Bridgeport — awards 2025-26 [new] (labeled_in_source)
+- source: https://www.bridgeport.edu/cost-financial-aid/financial-aid/types-of-aid (sha256 13cc4133c6eb)
+- issues: stale_year_label:2025-26
+- checks: {"thresholds": null}
+  - award_amount_text: $10,000 ⟵ “Dean’s Achievement Scholarship | $10,000”
+### `fa6e5d73aa1416c7` University of Bridgeport — awards 2025-26 [new] (labeled_in_source)
+- source: https://www.bridgeport.edu/cost-financial-aid/financial-aid/types-of-aid (sha256 13cc4133c6eb)
+- issues: stale_year_label:2025-26
+- checks: {"thresholds": null}
+  - award_amount_text: $20,000 ⟵ “Trustee Scholarship | $20,000”
+### `ca33891929605dcc` University of Bridgeport — costs 2026-27 · residency=not_applicable [new] (source_unlabeled)
+- source: https://www.bridgeport.edu/cost-financial-aid/tuition-fees/eli (sha256 74ce25ea7352)
+- issues: cost_period_semester, conflicting_sources:https://www.bridgeport.edu/cost-financial-aid/tuition-fees/
+- checks: {"columns": 1, "rows": 5}
+  - column:Tuition: 5670 ⟵ “Tuition | $5,670”
+  - column:Tuition (morning only): 3240 ⟵ “Tuition (morning only) | $3,240”
+  - column:Tuition (afternoon only): 2430 ⟵ “Tuition (afternoon only) | $2,430”
+  - column:General fee: 250 ⟵ “General fee | $250”
+  - column:ELI health and accident insurance (fall): 2250 ⟵ “ELI health and accident insurance (fall) | $2,250”
+### `fc9513a53e9ab969` University of Bridgeport — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.bridgeport.edu/cost-financial-aid/tuition-fees/ (sha256 6f8ea7b4651c)
+- issues: conflicting_sources:https://www.bridgeport.edu/cost-financial-aid/tuition-fees/eli
+- checks: {"columns": 3, "components_reconcile": true, "rows": 8}
+  - on_campus:Tuition/fees: 37090 ⟵ “Tuition/fees | $37,090 | $37,090 | $37,090”
+  - on_campus:Food/housing: 16840 ⟵ “Food/housing | $16,840 | N/A | N/A”
+  - on_campus:Sub-total:: 53930 ⟵ “Sub-total: | $53,930 | $37,090 | $37,090”
+  - on_campus:Miscellaneous expenses: 4506 ⟵ “Miscellaneous expenses | $4,506 | $4,506 | $6,726”
+  - on_campus:Transportation costs: 2266 ⟵ “Transportation costs | $2,266 | $3,176 | $3,176”
+  - on_campus:Federal loan fees: 600 ⟵ “Federal loan fees | $600 | $600 | $600”
+  - on_campus:Sub-total: (2): 7372 ⟵ “Sub-total: | $7,372 | $14,162 | $19,278”
+  - on_campus:Total estimated cost of attendance*: 61302 ⟵ “Total estimated cost of attendance* | $61,302 | $51,252 | $56,368”
+  - with_parents_or_family:Tuition/fees: 37090 ⟵ “Tuition/fees | $37,090 | $37,090 | $37,090”
+  - with_parents_or_family:Sub-total:: 37090 ⟵ “Sub-total: | $53,930 | $37,090 | $37,090”
+  - with_parents_or_family:Food/housing: 5880 ⟵ “Food/housing | N/A | $5,880 | $8,776”
+  - with_parents_or_family:Miscellaneous expenses: 4506 ⟵ “Miscellaneous expenses | $4,506 | $4,506 | $6,726”
+  - with_parents_or_family:Transportation costs: 3176 ⟵ “Transportation costs | $2,266 | $3,176 | $3,176”
+  - with_parents_or_family:Federal loan fees: 600 ⟵ “Federal loan fees | $600 | $600 | $600”
+  - with_parents_or_family:Sub-total: (2): 14162 ⟵ “Sub-total: | $7,372 | $14,162 | $19,278”
+  - with_parents_or_family:Total estimated cost of attendance*: 51252 ⟵ “Total estimated cost of attendance* | $61,302 | $51,252 | $56,368”
+  - with_parents_or_family:Tuition/fees: 37090 ⟵ “Tuition/fees | $37,090 | $37,090 | $37,090”
+  - with_parents_or_family:Sub-total:: 37090 ⟵ “Sub-total: | $53,930 | $37,090 | $37,090”
+  - with_parents_or_family:Food/housing: 8776 ⟵ “Food/housing | N/A | $5,880 | $8,776”
+  - with_parents_or_family:Miscellaneous expenses: 6726 ⟵ “Miscellaneous expenses | $4,506 | $4,506 | $6,726”
+  - with_parents_or_family:Transportation costs: 3176 ⟵ “Transportation costs | $2,266 | $3,176 | $3,176”
+  - with_parents_or_family:Federal loan fees: 600 ⟵ “Federal loan fees | $600 | $600 | $600”
+  - with_parents_or_family:Sub-total: (2): 19278 ⟵ “Sub-total: | $7,372 | $14,162 | $19,278”
+  - with_parents_or_family:Total estimated cost of attendance*: 56368 ⟵ “Total estimated cost of attendance* | $61,302 | $51,252 | $56,368”
+### `d74e10689e8b7d46` University of Bridgeport — credit_policies 2026-27 · policy_kind=AP [new] (source_unlabeled)
+- source: https://www.bridgeport.edu/admissions/transfer/transfer-credit (sha256 d18b4c1ae5e6)
+- issues: score_column_not_scores
+- checks: {"distinct_exams": 32, "equivalencies": 32, "rows_without_score": 0}
+  - equivalencies[AP-ART-HISTORY|Art History]:  ⟵ “Art History | ADSN 117 SURVEY OF ART HISTORY I | 3”
+  - equivalencies[AP-BIOLOGY|Biology]:  ⟵ “Biology | BIOL 101 GENERAL ORGANISM BIOLOGY | 4”
+  - equivalencies[AP-CALCULUS-AB|Calculus AB]:  ⟵ “Calculus AB | MATH 110 CALCULUS AND ANALYTIC GEOMETRY I | 4”
+  - equivalencies[AP-CALCULUS-BC|Calculus BC]:  ⟵ “Calculus BC | MATH 110 CALCULUS AND ANALYTIC GEOMETRY I | 4”
+  - equivalencies[AP-CHEMISTRY|Chemistry]:  ⟵ “Chemistry | CHEM 103 GENERAL CHEMISTRY I | 4”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|Chinese Language and Culture]:  ⟵ “Chinese Language and Culture | CHIN 101 ELEMENTARY CHINESE I | 3”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|Computer Science A]:  ⟵ “Computer Science A | CPSCI 101 INTRO TO COMPUTING I | 3”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|English Language and Composition (score of 4+)]:  ⟵ “English Language and Composition (score of 4+) | ENGL 101 COMPOSITION AND RHETORIC | 3”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|English Literature and Composition (score of 4+)]:  ⟵ “English Literature and Composition (score of 4+) | ENGL 102 INTRODUCTION TO LITERATURE | 3”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|Environmental Science]:  ⟵ “Environmental Science | BIOL 107 INTRO TO CONSV BIOL | 3”
+  - equivalencies[AP-EUROPEAN-HISTORY|European History]:  ⟵ “European History | HIST ELECT | 3”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|French Language and Culture]:  ⟵ “French Language and Culture | FREN 101 ELEMENTARY FRENCH I | 3”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|German Language and Culture]:  ⟵ “German Language and Culture | ELECTIVE CREDITS | 3”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|Human Geography]:  ⟵ “Human Geography | SOSC 207 WORLD REG GEOGRAPHY | 3”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|Italian Language and Culture]:  ⟵ “Italian Language and Culture | ELECTIVE CREDITS | 3”
+  - equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|Japanese Language and Culture]:  ⟵ “Japanese Language and Culture | JAPN 101 ELEMENTARY JAPANESE I | 3”
+  - equivalencies[AP-LATIN|Latin]:  ⟵ “Latin | ELECTIVE CREDITS | 3”
+  - equivalencies[AP-MACROECONOMICS|Macroeconomics]:  ⟵ “Macroeconomics | ECON 201 PRINCIPLES OF ECONOMICS I-MACRO | 3”
+  - equivalencies[AP-MICROECONOMICS|Microeconomics]:  ⟵ “Microeconomics | ECON 202 PRINCIPLES OF ECONOMICS II-MICRO | 3”
+  - equivalencies[AP-MUSIC-THEORY|Music Theory]:  ⟵ “Music Theory | MUSC 109 MUSIC THEORY I | 3”
+  - equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|Physics C: Electricity and Magnetism]:  ⟵ “Physics C: Electricity and Magnetism | PHYS 202 GENERAL PHYSICS II | 4”
+  - equivalencies[AP-PHYSICS-C-MECHANICS|Physics C: Mechanics]:  ⟵ “Physics C: Mechanics | PHYS 201 GENERAL PHYSICS I | 4”
+  - equivalencies[AP-PSYCHOLOGY|Psychology]:  ⟵ “Psychology | PSYC 103 INTRODUCTION TO PSYCHOLOGY | 3”
+  - equivalencies[AP-RESEARCH|Research]:  ⟵ “Research | ELECTIVE CREDITS | 3”
+  - equivalencies[AP-SEMINAR|Seminar]:  ⟵ “Seminar | ELECTIVE CREDITS | 3”
+  - … 7 more rows
+### `57415c9d3298a23c` University of Bridgeport — transfer_policies 2024-25 [new] (labeled_in_source)
+- source: https://www.bridgeport.edu/admissions/transfer/ (sha256 508dcddc0d5c)
+- issues: stale_year_label:2024-25
+- checks: {"fields": ["residency_requirement_credits"]}
+  - residency_requirement_credits: 30 ⟵ “When transferring to UB, we accept: A maximum of 66 credits from accredited two-year institutions A maximum of 90 credits from accredited four-year institutions To complete your degree, you must complete your final 30 credit hours at University of Bridgeport while satisfying all the requirements of your academic program.”
+### `4a951c575d1ce858` University of Connecticut — appeals 2026-27 [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/2026/08/27/summer-sap-evaluation/ (sha256 c9ddd586a1be)
+- issues: semantic_review_required, shared_site_attribution_review, conflicting_sources:https://financialaid.uconn.edu/2025/08/25/summer-2025-financial-aid-sap-review/,https://financialaid.uconn.edu/2025/12/03/fall-sap-review/,https://financialaid.uconn.edu/2026/04/30/annual-sap-evaluation/,https://financialaid.uconn.edu/sap/
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Students who do not meet the SAP standards will have the option to submit a SAP Appeal.”
+### `8a68e564e9d920e0` University of Connecticut — appeals 2026-27 [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/2025/12/03/fall-sap-review/ (sha256 6d71ad43e8b6)
+- issues: semantic_review_required, shared_site_attribution_review, conflicting_sources:https://financialaid.uconn.edu/2025/08/25/summer-2025-financial-aid-sap-review/,https://financialaid.uconn.edu/2026/04/30/annual-sap-evaluation/,https://financialaid.uconn.edu/2026/08/27/summer-sap-evaluation/,https://financialaid.uconn.edu/sap/
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “The Financial Aid Eligibility Plan status applies to students whose SAP appeal was approved in 2025.”
+  - sentence: sap_appeal ⟵ “Students who do not meet the SAP standards will have the option to submit a SAP Appeal.”
+### `bbe6f08a982927c7` University of Connecticut — appeals 2026-27 [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/2025/08/25/summer-2025-financial-aid-sap-review/ (sha256 0e32b92fac1e)
+- issues: semantic_review_required, shared_site_attribution_review, conflicting_sources:https://financialaid.uconn.edu/2025/12/03/fall-sap-review/,https://financialaid.uconn.edu/2026/04/30/annual-sap-evaluation/,https://financialaid.uconn.edu/2026/08/27/summer-sap-evaluation/,https://financialaid.uconn.edu/sap/
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Students who do not meet the SAP standards will have the option to submit a SAP Appeal.”
+### `e5684305487bd9ab` University of Connecticut — appeals 2026-27 [new] (source_unlabeled)
+- source: https://financialaid.uconn.edu/sap/ (sha256 2d59fb59b556)
+- issues: semantic_review_required, shared_site_attribution_review, conflicting_sources:https://financialaid.uconn.edu/2025/08/25/summer-2025-financial-aid-sap-review/,https://financialaid.uconn.edu/2025/12/03/fall-sap-review/,https://financialaid.uconn.edu/2026/04/30/annual-sap-evaluation/,https://financialaid.uconn.edu/2026/08/27/summer-sap-evaluation/
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “Financial Aid Probation A student for whom a Satisfactory Academic Progress Appeal is approved will be granted a period of Financial Aid probation during which they will be placed on a Financial Aid Eligibility Plan.”
+  - sentence: sap_appeal ⟵ “To appeal, students must submit all of the following: Completed SAP Appeal Form on the Forms Portal Detailed reason for not meeting SAP A plan for academic success Any required supporting documentation as defined on the SAP Appeal Form Readmitted Students & SAP If a student is readmitted to the University and was previously cited for SAP or received a SAP communication from our office, they are re”
+### `ef3bc3eb842bb027` University of Connecticut — appeals 2026-27 [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/2026/04/30/annual-sap-evaluation/ (sha256 98e440974fc4)
+- issues: semantic_review_required, shared_site_attribution_review, conflicting_sources:https://financialaid.uconn.edu/2025/08/25/summer-2025-financial-aid-sap-review/,https://financialaid.uconn.edu/2025/12/03/fall-sap-review/,https://financialaid.uconn.edu/2026/08/27/summer-sap-evaluation/,https://financialaid.uconn.edu/sap/
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Students who do not meet the SAP standards will have the option to submit a SAP Appeal.”
+### `4349b1ada95a0909` University of Connecticut — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/cost/ (sha256 75d2572e3d3d)
+- issues: residency_unknown, shared_site_attribution_review
+- checks: {"columns": 1, "components_reconcile": true, "rows": 11}
+  - on_campus:Tuition: 26028 ⟵ “Tuition | 17,010 | 39,678 | 26,028”
+  - on_campus:University and Student Fees: 4564 ⟵ “University and Student Fees | 4,564 | 4,564 | 4,564”
+  - on_campus:On-Campus Housing Estimate: 10186 ⟵ “On-Campus Housing Estimate | 10,186 | 10,186 | 10,186”
+  - on_campus:On-Campus Food Estimate: 6896 ⟵ “On-Campus Food Estimate | 6,896 | 6,896 | 6,896”
+  - on_campus:Books, Course Materials, Supplies & Equipment: 1020 ⟵ “Books, Course Materials, Supplies & Equipment | 1,020 | 1,020 | 1,020”
+  - on_campus:Transportation: 2704 ⟵ “Transportation | 2,494 | 2,704 | 2,704”
+  - on_campus:Miscellaneous Personal Expenses: 1968 ⟵ “Miscellaneous Personal Expenses | 1,968 | 1,968 | 1,968”
+  - on_campus:Loan Fees: 92 ⟵ “Loan Fees | 92 | 92 | 92”
+  - on_campus:Subtotal Indirect Costs: 5784 ⟵ “Subtotal Indirect Costs | 5,574 | 5,784 | 5,784”
+  - on_campus:Estimated Total Expenses: 53458 ⟵ “Estimated Total Expenses | 44,230 | 67,108 | 53,458”
+  - on_campus:Subtotal Direct Costs: 47674 ⟵ “Subtotal Direct Costs | 38,656 | 61,324 | 47,674”
+### `4c130947c231c55c` University of Connecticut — costs 2026-27 · residency=out_of_state [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/cost/ (sha256 75d2572e3d3d)
+- issues: shared_site_attribution_review
+- checks: {"columns": 1, "components_reconcile": true, "rows": 11}
+  - on_campus:Tuition: 39678 ⟵ “Tuition | 17,010 | 39,678 | 26,028”
+  - on_campus:University and Student Fees: 4564 ⟵ “University and Student Fees | 4,564 | 4,564 | 4,564”
+  - on_campus:On-Campus Housing Estimate: 10186 ⟵ “On-Campus Housing Estimate | 10,186 | 10,186 | 10,186”
+  - on_campus:On-Campus Food Estimate: 6896 ⟵ “On-Campus Food Estimate | 6,896 | 6,896 | 6,896”
+  - on_campus:Books, Course Materials, Supplies & Equipment: 1020 ⟵ “Books, Course Materials, Supplies & Equipment | 1,020 | 1,020 | 1,020”
+  - on_campus:Transportation: 2704 ⟵ “Transportation | 2,494 | 2,704 | 2,704”
+  - on_campus:Miscellaneous Personal Expenses: 1968 ⟵ “Miscellaneous Personal Expenses | 1,968 | 1,968 | 1,968”
+  - on_campus:Loan Fees: 92 ⟵ “Loan Fees | 92 | 92 | 92”
+  - on_campus:Subtotal Indirect Costs: 5784 ⟵ “Subtotal Indirect Costs | 5,574 | 5,784 | 5,784”
+  - on_campus:Estimated Total Expenses: 67108 ⟵ “Estimated Total Expenses | 44,230 | 67,108 | 53,458”
+  - on_campus:Subtotal Direct Costs: 61324 ⟵ “Subtotal Direct Costs | 38,656 | 61,324 | 47,674”
+### `d88b39921e8618d7` University of Connecticut — costs 2026-27 · residency=in_state [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/cost/ (sha256 75d2572e3d3d)
+- issues: shared_site_attribution_review
+- checks: {"columns": 1, "components_reconcile": true, "rows": 11}
+  - on_campus:Tuition: 17010 ⟵ “Tuition | 17,010 | 39,678 | 26,028”
+  - on_campus:University and Student Fees: 4564 ⟵ “University and Student Fees | 4,564 | 4,564 | 4,564”
+  - on_campus:On-Campus Housing Estimate: 10186 ⟵ “On-Campus Housing Estimate | 10,186 | 10,186 | 10,186”
+  - on_campus:On-Campus Food Estimate: 6896 ⟵ “On-Campus Food Estimate | 6,896 | 6,896 | 6,896”
+  - on_campus:Books, Course Materials, Supplies & Equipment: 1020 ⟵ “Books, Course Materials, Supplies & Equipment | 1,020 | 1,020 | 1,020”
+  - on_campus:Transportation: 2494 ⟵ “Transportation | 2,494 | 2,704 | 2,704”
+  - on_campus:Miscellaneous Personal Expenses: 1968 ⟵ “Miscellaneous Personal Expenses | 1,968 | 1,968 | 1,968”
+  - on_campus:Loan Fees: 92 ⟵ “Loan Fees | 92 | 92 | 92”
+  - on_campus:Subtotal Indirect Costs: 5574 ⟵ “Subtotal Indirect Costs | 5,574 | 5,784 | 5,784”
+  - on_campus:Estimated Total Expenses: 44230 ⟵ “Estimated Total Expenses | 44,230 | 67,108 | 53,458”
+  - on_campus:Subtotal Direct Costs: 38656 ⟵ “Subtotal Direct Costs | 38,656 | 61,324 | 47,674”
+### `4b58705dc34f1805` University of Connecticut — credit_policies 2025-26 · policy_kind=AP [new] (labeled_in_source)
+- source: https://admissions.uconn.edu/apply/transfer/transfer-credit/ap-ib-a-level-credit/ (sha256 a992a84f39c9)
+- issues: stale_year_label:2025-26, shared_site_attribution_review
+- checks: {"distinct_exams": 36, "equivalencies": 39, "rows_without_score": 0}
+  - equivalencies[AP-ART-HISTORY|4, 5]:  ⟵ “AP Art History | 4, 5 | ARTH 1137 and 1138 | 6”
+  - equivalencies[AP-MUSIC-THEORY|4, 5]:  ⟵ “AP Music Theory | 4, 5 | MUSI 1011 | 3”
+  - equivalencies[AP-DRAWING|4, 5]:  ⟵ “AP Studio Art: Drawing | 4, 5 | ART 1030 | 3”
+  - equivalencies[AP-2-D-ART-DESIGN|4, 5]:  ⟵ “AP Studio Art: 2-D Design | 4, 5 | ART/Studio 1000-level | 3”
+  - equivalencies[AP-3-D-ART-DESIGN|4, 5]:  ⟵ “AP Studio Art: 3-D Design | 4, 5 | ART/Studio 1000-level | 3”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|4, 5]:  ⟵ “AP English Language and Composition | 4, 5 | ENGL 1011 | 4”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|4, 5]:  ⟵ “AP English Literature and Composition | 4, 5 | ENGL 1011 | 4”
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|4, 5]:  ⟵ “AP African American Studies | 4, 5 | AFRA 91000 | 3”
+  - equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|4, 5]:  ⟵ “AP Comparative Government and Politics | 4, 5 | POLS 1202 | 3”
+  - equivalencies[AP-EUROPEAN-HISTORY|4, 5]:  ⟵ “AP European History | 4, 5 | HIST 1400 | 3”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|4, 5]:  ⟵ “AP Human Geography | 4, 5 | GSCU 1000E | 3”
+  - equivalencies[AP-MACROECONOMICS|4, 5]:  ⟵ “AP Macroeconomics | 4, 5 | ECON 1202 | 3”
+  - equivalencies[AP-MICROECONOMICS|4, 5]:  ⟵ “AP Microeconomics | 4, 5 | ECON 1201 | 3”
+  - equivalencies[AP-PSYCHOLOGY|4, 5]:  ⟵ “AP Psychology | 4, 5 | PSYC 1000-level | 3”
+  - equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|4, 5]:  ⟵ “AP United States Government and Politics | 4, 5 | POLS 1602 | 3”
+  - equivalencies[AP-UNITED-STATES-HISTORY|4, 5]:  ⟵ “AP United States History | 4, 5 | HIST 1502 | 3”
+  - equivalencies[AP-WORLD-HISTORY-MODERN|4, 5]:  ⟵ “AP World History | 4, 5 | HIST 1201 | 3”
+  - equivalencies[AP-CALCULUS-AB|4, 5]:  ⟵ “AP Calculus AB | 4, 5 | MATH 1131Q | 4”
+  - equivalencies[AP-CALCULUS-BC|3]:  ⟵ “AP Calculus BC* | 3 | MATH 1131Q | 4”
+  - equivalencies[AP-CALCULUS-BC|4, 5]:  ⟵ “AP Calculus BC | 4, 5 | MATH 1131Q and 1132Q | 8”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|4, 5]:  ⟵ “AP Computer Science A | 4, 5 | CSE 1010 | 3”
+  - equivalencies[AP-PRECALCULUS|4, 5]:  ⟵ “AP Precalculus | 4, 5 | MATH 1060Q | 3”
+  - equivalencies[AP-STATISTICS|4, 5]:  ⟵ “AP Statistics | 4, 5 | STAT 1100Q | 4”
+  - equivalencies[AP-STATISTICS|*AB subscore of 4 or higher]:  ⟵ “AP Statistics | *AB subscore of 4 or higher”
+  - equivalencies[AP-BIOLOGY|4, 5]:  ⟵ “AP Biology | 4, 5 | BIOL 1107 and 1108 | 8”
+  - … 14 more rows
+### `9f1b205f116c1162` University of Connecticut — credit_policies 2025-26 · policy_kind=IB [new] (labeled_in_source)
+- source: https://admissions.uconn.edu/apply/transfer/transfer-credit/ap-ib-a-level-credit/ (sha256 a992a84f39c9)
+- issues: stale_year_label:2025-26, shared_site_attribution_review
+- checks: {"distinct_exams": 34, "equivalencies": 39, "rows_without_score": 0}
+  - equivalencies[IB-BIOLOGY-HL|HL 5, 6, 7]:  ⟵ “Biology HL | 5, 6, 7 | BIOL 1107 & BIOL 1108 | 8”
+  - equivalencies[IB-BIOLOGY-SL|SL 5, 6, 7]:  ⟵ “Biology SL | 5, 6, 7 | BIOL 91500 | 4”
+  - equivalencies[IB-CHEMISTRY-HL|HL 5, 6, 7]:  ⟵ “Chemistry HL | 5, 6, 7 | CHEM 1127Q and 1128Q | 8”
+  - equivalencies[IB-CHEMISTRY-SL|SL 5, 6, 7]:  ⟵ “Chemistry SL | 5, 6, 7 | CHEM 91500 | 4”
+  - equivalencies[IB-ECONOMICS-HL|HL 6, 7]:  ⟵ “Economics HL | 6, 7 | ECON 1000 | 3”
+  - equivalencies[IB-ECONOMICS-SL|SL 6, 7]:  ⟵ “Economics SL | 6, 7 | ECON 91000 | 3”
+  - equivalencies[IB-ENVIRONMENTAL-SYSTEMS-SOCIETIES-SL|SL 5, 6, 7]:  ⟵ “Environmental Systems and Societies SL | 5, 6, 7 | EVST 91000 | 3”
+  - equivalencies[IB-GEOGRAPHY-HL|HL 5, 6, 7]:  ⟵ “Geography HL | 5, 6, 7 | GSCU 1000E | 3”
+  - equivalencies[IB-GEOGRAPHY-SL|SL 5, 6, 7]:  ⟵ “Geography SL | 5, 6, 7 | GSCU 91000 | 3”
+  - equivalencies[IB-GLOBAL-POLITICS-HL|HL 5, 6, 7]:  ⟵ “Global Politics HL | 5, 6, 7 | POLS 91000 | 3”
+  - equivalencies[IB-GLOBAL-POLITICS-SL|SL 5, 6, 7]:  ⟵ “Global Politics SL | 5, 6, 7 | POLS 91000 | 3”
+  - equivalencies[IB-HISTORY-SL|SL 5, 6, 7]:  ⟵ “History SL | 5, 6, 7 | HIST 91000 | 3”
+  - equivalencies[IB-HISTORY-HL|HL 5, 6, 7]:  ⟵ “History of Africa and the Middle East HL | 5, 6, 7 | HIST 91015 | 3”
+  - equivalencies[IB-HISTORY-HL|HL 5, 6, 7]:  ⟵ “History of the Americas HL | 5, 6, 7 | HIST 91000 | 3”
+  - equivalencies[IB-LATIN-HL|HL 5, 6, 7]:  ⟵ “Latin HL | 5, 6, 7 | CAMS 91000 | 3”
+  - equivalencies[IB-LATIN-SL|SL 5, 6, 7]:  ⟵ “Latin SL | 5, 6, 7 | CAMS 91000 | 3”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES-HL|HL 6, 7]:  ⟵ “Math: Analysis & Approaches HL | 6, 7 | MATH 1131Q | 4”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES-SL|SL 6, 7]:  ⟵ “Math: Analysis & Approaches SL | 6, 7 | MATH 91050 | 3”
+  - equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION-HL|HL 7]:  ⟵ “Math: Applications & Interpretation HL | 7 | MATH 1131Q | 4”
+  - equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION-SL|SL 7]:  ⟵ “Math: Applications & Interpretation SL | 7 | MATH 91050 | 3”
+  - equivalencies[IB-PHILOSOPHY-HL|HL 5, 6, 7]:  ⟵ “Philosophy HL | 5, 6, 7 | PHIL 91000 | 3”
+  - equivalencies[IB-PHILOSOPHY-SL|SL 5, 6, 7]:  ⟵ “Philosophy SL | 5, 6, 7 | PHIL 91000 | 3”
+  - equivalencies[IB-PHYSICS-HL|HL 5]:  ⟵ “Physics HL | 5 | PHYS 1010Q | 4”
+  - equivalencies[IB-PHYSICS-HL|HL 6, 7]:  ⟵ “Physics HL | 6, 7 | PHYS 1600Q | 4”
+  - equivalencies[IB-PHYSICS-SL|SL 5]:  ⟵ “Physics SL | 5 | PHYS 1010Q | 4”
+  - … 14 more rows
+### `3396beea5aa38e0e` University of Connecticut-Avery Point — appeals 2026-27 [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/2026/08/27/summer-sap-evaluation/ (sha256 c9ddd586a1be)
+- issues: semantic_review_required, shared_site_attribution_review, conflicting_sources:https://financialaid.uconn.edu/2025/08/25/summer-2025-financial-aid-sap-review/,https://financialaid.uconn.edu/2025/12/03/fall-sap-review/,https://financialaid.uconn.edu/2026/04/30/annual-sap-evaluation/,https://financialaid.uconn.edu/sap/
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Students who do not meet the SAP standards will have the option to submit a SAP Appeal.”
+### `5edc0e16afa7850c` University of Connecticut-Avery Point — appeals 2026-27 [new] (source_unlabeled)
+- source: https://financialaid.uconn.edu/sap/ (sha256 2d59fb59b556)
+- issues: semantic_review_required, shared_site_attribution_review, conflicting_sources:https://financialaid.uconn.edu/2025/08/25/summer-2025-financial-aid-sap-review/,https://financialaid.uconn.edu/2025/12/03/fall-sap-review/,https://financialaid.uconn.edu/2026/04/30/annual-sap-evaluation/,https://financialaid.uconn.edu/2026/08/27/summer-sap-evaluation/
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “Financial Aid Probation A student for whom a Satisfactory Academic Progress Appeal is approved will be granted a period of Financial Aid probation during which they will be placed on a Financial Aid Eligibility Plan.”
+  - sentence: sap_appeal ⟵ “To appeal, students must submit all of the following: Completed SAP Appeal Form on the Forms Portal Detailed reason for not meeting SAP A plan for academic success Any required supporting documentation as defined on the SAP Appeal Form Readmitted Students & SAP If a student is readmitted to the University and was previously cited for SAP or received a SAP communication from our office, they are re”
+### `bca2cd693be62975` University of Connecticut-Avery Point — appeals 2026-27 [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/2026/04/30/annual-sap-evaluation/ (sha256 98e440974fc4)
+- issues: semantic_review_required, shared_site_attribution_review, conflicting_sources:https://financialaid.uconn.edu/2025/08/25/summer-2025-financial-aid-sap-review/,https://financialaid.uconn.edu/2025/12/03/fall-sap-review/,https://financialaid.uconn.edu/2026/08/27/summer-sap-evaluation/,https://financialaid.uconn.edu/sap/
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Students who do not meet the SAP standards will have the option to submit a SAP Appeal.”
+### `ca0d386bfbc1bd81` University of Connecticut-Avery Point — appeals 2026-27 [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/2025/12/03/fall-sap-review/ (sha256 6d71ad43e8b6)
+- issues: semantic_review_required, shared_site_attribution_review, conflicting_sources:https://financialaid.uconn.edu/2025/08/25/summer-2025-financial-aid-sap-review/,https://financialaid.uconn.edu/2026/04/30/annual-sap-evaluation/,https://financialaid.uconn.edu/2026/08/27/summer-sap-evaluation/,https://financialaid.uconn.edu/sap/
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “The Financial Aid Eligibility Plan status applies to students whose SAP appeal was approved in 2025.”
+  - sentence: sap_appeal ⟵ “Students who do not meet the SAP standards will have the option to submit a SAP Appeal.”
+### `fa3b6a20dae9344a` University of Connecticut-Avery Point — appeals 2026-27 [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/2025/08/25/summer-2025-financial-aid-sap-review/ (sha256 0e32b92fac1e)
+- issues: semantic_review_required, shared_site_attribution_review, conflicting_sources:https://financialaid.uconn.edu/2025/12/03/fall-sap-review/,https://financialaid.uconn.edu/2026/04/30/annual-sap-evaluation/,https://financialaid.uconn.edu/2026/08/27/summer-sap-evaluation/,https://financialaid.uconn.edu/sap/
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Students who do not meet the SAP standards will have the option to submit a SAP Appeal.”
+### `b8516ac86dd90473` University of Connecticut-Avery Point — costs 2026-27 · residency=out_of_state [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/cost/ (sha256 75d2572e3d3d)
+- issues: shared_site_attribution_review
+- checks: {"columns": 1, "components_reconcile": true, "rows": 11}
+  - on_campus:Tuition: 39678 ⟵ “Tuition | 17,010 | 39,678 | 26,028”
+  - on_campus:University and Student Fees: 4564 ⟵ “University and Student Fees | 4,564 | 4,564 | 4,564”
+  - on_campus:On-Campus Housing Estimate: 10186 ⟵ “On-Campus Housing Estimate | 10,186 | 10,186 | 10,186”
+  - on_campus:On-Campus Food Estimate: 6896 ⟵ “On-Campus Food Estimate | 6,896 | 6,896 | 6,896”
+  - on_campus:Books, Course Materials, Supplies & Equipment: 1020 ⟵ “Books, Course Materials, Supplies & Equipment | 1,020 | 1,020 | 1,020”
+  - on_campus:Transportation: 2704 ⟵ “Transportation | 2,494 | 2,704 | 2,704”
+  - on_campus:Miscellaneous Personal Expenses: 1968 ⟵ “Miscellaneous Personal Expenses | 1,968 | 1,968 | 1,968”
+  - on_campus:Loan Fees: 92 ⟵ “Loan Fees | 92 | 92 | 92”
+  - on_campus:Subtotal Indirect Costs: 5784 ⟵ “Subtotal Indirect Costs | 5,574 | 5,784 | 5,784”
+  - on_campus:Estimated Total Expenses: 67108 ⟵ “Estimated Total Expenses | 44,230 | 67,108 | 53,458”
+  - on_campus:Subtotal Direct Costs: 61324 ⟵ “Subtotal Direct Costs | 38,656 | 61,324 | 47,674”
+### `e8d4db8e15e962e6` University of Connecticut-Avery Point — costs 2026-27 · residency=in_state [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/cost/ (sha256 75d2572e3d3d)
+- issues: shared_site_attribution_review
+- checks: {"columns": 1, "components_reconcile": true, "rows": 11}
+  - on_campus:Tuition: 17010 ⟵ “Tuition | 17,010 | 39,678 | 26,028”
+  - on_campus:University and Student Fees: 4564 ⟵ “University and Student Fees | 4,564 | 4,564 | 4,564”
+  - on_campus:On-Campus Housing Estimate: 10186 ⟵ “On-Campus Housing Estimate | 10,186 | 10,186 | 10,186”
+  - on_campus:On-Campus Food Estimate: 6896 ⟵ “On-Campus Food Estimate | 6,896 | 6,896 | 6,896”
+  - on_campus:Books, Course Materials, Supplies & Equipment: 1020 ⟵ “Books, Course Materials, Supplies & Equipment | 1,020 | 1,020 | 1,020”
+  - on_campus:Transportation: 2494 ⟵ “Transportation | 2,494 | 2,704 | 2,704”
+  - on_campus:Miscellaneous Personal Expenses: 1968 ⟵ “Miscellaneous Personal Expenses | 1,968 | 1,968 | 1,968”
+  - on_campus:Loan Fees: 92 ⟵ “Loan Fees | 92 | 92 | 92”
+  - on_campus:Subtotal Indirect Costs: 5574 ⟵ “Subtotal Indirect Costs | 5,574 | 5,784 | 5,784”
+  - on_campus:Estimated Total Expenses: 44230 ⟵ “Estimated Total Expenses | 44,230 | 67,108 | 53,458”
+  - on_campus:Subtotal Direct Costs: 38656 ⟵ “Subtotal Direct Costs | 38,656 | 61,324 | 47,674”
+### `f7cd61e2fef2fa6a` University of Connecticut-Avery Point — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/cost/ (sha256 75d2572e3d3d)
+- issues: residency_unknown, shared_site_attribution_review
+- checks: {"columns": 1, "components_reconcile": true, "rows": 11}
+  - on_campus:Tuition: 26028 ⟵ “Tuition | 17,010 | 39,678 | 26,028”
+  - on_campus:University and Student Fees: 4564 ⟵ “University and Student Fees | 4,564 | 4,564 | 4,564”
+  - on_campus:On-Campus Housing Estimate: 10186 ⟵ “On-Campus Housing Estimate | 10,186 | 10,186 | 10,186”
+  - on_campus:On-Campus Food Estimate: 6896 ⟵ “On-Campus Food Estimate | 6,896 | 6,896 | 6,896”
+  - on_campus:Books, Course Materials, Supplies & Equipment: 1020 ⟵ “Books, Course Materials, Supplies & Equipment | 1,020 | 1,020 | 1,020”
+  - on_campus:Transportation: 2704 ⟵ “Transportation | 2,494 | 2,704 | 2,704”
+  - on_campus:Miscellaneous Personal Expenses: 1968 ⟵ “Miscellaneous Personal Expenses | 1,968 | 1,968 | 1,968”
+  - on_campus:Loan Fees: 92 ⟵ “Loan Fees | 92 | 92 | 92”
+  - on_campus:Subtotal Indirect Costs: 5784 ⟵ “Subtotal Indirect Costs | 5,574 | 5,784 | 5,784”
+  - on_campus:Estimated Total Expenses: 53458 ⟵ “Estimated Total Expenses | 44,230 | 67,108 | 53,458”
+  - on_campus:Subtotal Direct Costs: 47674 ⟵ “Subtotal Direct Costs | 38,656 | 61,324 | 47,674”
+### `4ddf2663f09ec40e` University of Connecticut-Avery Point — credit_policies 2025-26 · policy_kind=AP [new] (labeled_in_source)
+- source: https://admissions.uconn.edu/apply/transfer/transfer-credit/ap-ib-a-level-credit/ (sha256 a992a84f39c9)
+- issues: stale_year_label:2025-26, shared_site_attribution_review
+- checks: {"distinct_exams": 36, "equivalencies": 39, "rows_without_score": 0}
+  - equivalencies[AP-ART-HISTORY|4, 5]:  ⟵ “AP Art History | 4, 5 | ARTH 1137 and 1138 | 6”
+  - equivalencies[AP-MUSIC-THEORY|4, 5]:  ⟵ “AP Music Theory | 4, 5 | MUSI 1011 | 3”
+  - equivalencies[AP-DRAWING|4, 5]:  ⟵ “AP Studio Art: Drawing | 4, 5 | ART 1030 | 3”
+  - equivalencies[AP-2-D-ART-DESIGN|4, 5]:  ⟵ “AP Studio Art: 2-D Design | 4, 5 | ART/Studio 1000-level | 3”
+  - equivalencies[AP-3-D-ART-DESIGN|4, 5]:  ⟵ “AP Studio Art: 3-D Design | 4, 5 | ART/Studio 1000-level | 3”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|4, 5]:  ⟵ “AP English Language and Composition | 4, 5 | ENGL 1011 | 4”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|4, 5]:  ⟵ “AP English Literature and Composition | 4, 5 | ENGL 1011 | 4”
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|4, 5]:  ⟵ “AP African American Studies | 4, 5 | AFRA 91000 | 3”
+  - equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|4, 5]:  ⟵ “AP Comparative Government and Politics | 4, 5 | POLS 1202 | 3”
+  - equivalencies[AP-EUROPEAN-HISTORY|4, 5]:  ⟵ “AP European History | 4, 5 | HIST 1400 | 3”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|4, 5]:  ⟵ “AP Human Geography | 4, 5 | GSCU 1000E | 3”
+  - equivalencies[AP-MACROECONOMICS|4, 5]:  ⟵ “AP Macroeconomics | 4, 5 | ECON 1202 | 3”
+  - equivalencies[AP-MICROECONOMICS|4, 5]:  ⟵ “AP Microeconomics | 4, 5 | ECON 1201 | 3”
+  - equivalencies[AP-PSYCHOLOGY|4, 5]:  ⟵ “AP Psychology | 4, 5 | PSYC 1000-level | 3”
+  - equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|4, 5]:  ⟵ “AP United States Government and Politics | 4, 5 | POLS 1602 | 3”
+  - equivalencies[AP-UNITED-STATES-HISTORY|4, 5]:  ⟵ “AP United States History | 4, 5 | HIST 1502 | 3”
+  - equivalencies[AP-WORLD-HISTORY-MODERN|4, 5]:  ⟵ “AP World History | 4, 5 | HIST 1201 | 3”
+  - equivalencies[AP-CALCULUS-AB|4, 5]:  ⟵ “AP Calculus AB | 4, 5 | MATH 1131Q | 4”
+  - equivalencies[AP-CALCULUS-BC|3]:  ⟵ “AP Calculus BC* | 3 | MATH 1131Q | 4”
+  - equivalencies[AP-CALCULUS-BC|4, 5]:  ⟵ “AP Calculus BC | 4, 5 | MATH 1131Q and 1132Q | 8”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|4, 5]:  ⟵ “AP Computer Science A | 4, 5 | CSE 1010 | 3”
+  - equivalencies[AP-PRECALCULUS|4, 5]:  ⟵ “AP Precalculus | 4, 5 | MATH 1060Q | 3”
+  - equivalencies[AP-STATISTICS|4, 5]:  ⟵ “AP Statistics | 4, 5 | STAT 1100Q | 4”
+  - equivalencies[AP-STATISTICS|*AB subscore of 4 or higher]:  ⟵ “AP Statistics | *AB subscore of 4 or higher”
+  - equivalencies[AP-BIOLOGY|4, 5]:  ⟵ “AP Biology | 4, 5 | BIOL 1107 and 1108 | 8”
+  - … 14 more rows
+### `f5300068252438f6` University of Connecticut-Avery Point — credit_policies 2025-26 · policy_kind=IB [new] (labeled_in_source)
+- source: https://admissions.uconn.edu/apply/transfer/transfer-credit/ap-ib-a-level-credit/ (sha256 a992a84f39c9)
+- issues: stale_year_label:2025-26, shared_site_attribution_review
+- checks: {"distinct_exams": 34, "equivalencies": 39, "rows_without_score": 0}
+  - equivalencies[IB-BIOLOGY-HL|HL 5, 6, 7]:  ⟵ “Biology HL | 5, 6, 7 | BIOL 1107 & BIOL 1108 | 8”
+  - equivalencies[IB-BIOLOGY-SL|SL 5, 6, 7]:  ⟵ “Biology SL | 5, 6, 7 | BIOL 91500 | 4”
+  - equivalencies[IB-CHEMISTRY-HL|HL 5, 6, 7]:  ⟵ “Chemistry HL | 5, 6, 7 | CHEM 1127Q and 1128Q | 8”
+  - equivalencies[IB-CHEMISTRY-SL|SL 5, 6, 7]:  ⟵ “Chemistry SL | 5, 6, 7 | CHEM 91500 | 4”
+  - equivalencies[IB-ECONOMICS-HL|HL 6, 7]:  ⟵ “Economics HL | 6, 7 | ECON 1000 | 3”
+  - equivalencies[IB-ECONOMICS-SL|SL 6, 7]:  ⟵ “Economics SL | 6, 7 | ECON 91000 | 3”
+  - equivalencies[IB-ENVIRONMENTAL-SYSTEMS-SOCIETIES-SL|SL 5, 6, 7]:  ⟵ “Environmental Systems and Societies SL | 5, 6, 7 | EVST 91000 | 3”
+  - equivalencies[IB-GEOGRAPHY-HL|HL 5, 6, 7]:  ⟵ “Geography HL | 5, 6, 7 | GSCU 1000E | 3”
+  - equivalencies[IB-GEOGRAPHY-SL|SL 5, 6, 7]:  ⟵ “Geography SL | 5, 6, 7 | GSCU 91000 | 3”
+  - equivalencies[IB-GLOBAL-POLITICS-HL|HL 5, 6, 7]:  ⟵ “Global Politics HL | 5, 6, 7 | POLS 91000 | 3”
+  - equivalencies[IB-GLOBAL-POLITICS-SL|SL 5, 6, 7]:  ⟵ “Global Politics SL | 5, 6, 7 | POLS 91000 | 3”
+  - equivalencies[IB-HISTORY-SL|SL 5, 6, 7]:  ⟵ “History SL | 5, 6, 7 | HIST 91000 | 3”
+  - equivalencies[IB-HISTORY-HL|HL 5, 6, 7]:  ⟵ “History of Africa and the Middle East HL | 5, 6, 7 | HIST 91015 | 3”
+  - equivalencies[IB-HISTORY-HL|HL 5, 6, 7]:  ⟵ “History of the Americas HL | 5, 6, 7 | HIST 91000 | 3”
+  - equivalencies[IB-LATIN-HL|HL 5, 6, 7]:  ⟵ “Latin HL | 5, 6, 7 | CAMS 91000 | 3”
+  - equivalencies[IB-LATIN-SL|SL 5, 6, 7]:  ⟵ “Latin SL | 5, 6, 7 | CAMS 91000 | 3”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES-HL|HL 6, 7]:  ⟵ “Math: Analysis & Approaches HL | 6, 7 | MATH 1131Q | 4”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES-SL|SL 6, 7]:  ⟵ “Math: Analysis & Approaches SL | 6, 7 | MATH 91050 | 3”
+  - equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION-HL|HL 7]:  ⟵ “Math: Applications & Interpretation HL | 7 | MATH 1131Q | 4”
+  - equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION-SL|SL 7]:  ⟵ “Math: Applications & Interpretation SL | 7 | MATH 91050 | 3”
+  - equivalencies[IB-PHILOSOPHY-HL|HL 5, 6, 7]:  ⟵ “Philosophy HL | 5, 6, 7 | PHIL 91000 | 3”
+  - equivalencies[IB-PHILOSOPHY-SL|SL 5, 6, 7]:  ⟵ “Philosophy SL | 5, 6, 7 | PHIL 91000 | 3”
+  - equivalencies[IB-PHYSICS-HL|HL 5]:  ⟵ “Physics HL | 5 | PHYS 1010Q | 4”
+  - equivalencies[IB-PHYSICS-HL|HL 6, 7]:  ⟵ “Physics HL | 6, 7 | PHYS 1600Q | 4”
+  - equivalencies[IB-PHYSICS-SL|SL 5]:  ⟵ “Physics SL | 5 | PHYS 1010Q | 4”
+  - … 14 more rows
+### `07db87eaf89c2d77` University of Connecticut-Hartford Campus — appeals 2026-27 [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/2025/08/25/summer-2025-financial-aid-sap-review/ (sha256 0e32b92fac1e)
+- issues: semantic_review_required, shared_site_attribution_review, conflicting_sources:https://financialaid.uconn.edu/2025/12/03/fall-sap-review/,https://financialaid.uconn.edu/2026/04/30/annual-sap-evaluation/,https://financialaid.uconn.edu/2026/08/27/summer-sap-evaluation/,https://financialaid.uconn.edu/sap/
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Students who do not meet the SAP standards will have the option to submit a SAP Appeal.”
+### `17e142d26689ee77` University of Connecticut-Hartford Campus — appeals 2026-27 [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/2026/04/30/annual-sap-evaluation/ (sha256 98e440974fc4)
+- issues: semantic_review_required, shared_site_attribution_review, conflicting_sources:https://financialaid.uconn.edu/2025/08/25/summer-2025-financial-aid-sap-review/,https://financialaid.uconn.edu/2025/12/03/fall-sap-review/,https://financialaid.uconn.edu/2026/08/27/summer-sap-evaluation/,https://financialaid.uconn.edu/sap/
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Students who do not meet the SAP standards will have the option to submit a SAP Appeal.”
+### `40706e6a51d554dd` University of Connecticut-Hartford Campus — appeals 2026-27 [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/2026/08/27/summer-sap-evaluation/ (sha256 c9ddd586a1be)
+- issues: semantic_review_required, shared_site_attribution_review, conflicting_sources:https://financialaid.uconn.edu/2025/08/25/summer-2025-financial-aid-sap-review/,https://financialaid.uconn.edu/2025/12/03/fall-sap-review/,https://financialaid.uconn.edu/2026/04/30/annual-sap-evaluation/,https://financialaid.uconn.edu/sap/
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Students who do not meet the SAP standards will have the option to submit a SAP Appeal.”
+### `80127964e9d1089c` University of Connecticut-Hartford Campus — appeals 2026-27 [new] (source_unlabeled)
+- source: https://financialaid.uconn.edu/sap/ (sha256 2d59fb59b556)
+- issues: semantic_review_required, shared_site_attribution_review, conflicting_sources:https://financialaid.uconn.edu/2025/08/25/summer-2025-financial-aid-sap-review/,https://financialaid.uconn.edu/2025/12/03/fall-sap-review/,https://financialaid.uconn.edu/2026/04/30/annual-sap-evaluation/,https://financialaid.uconn.edu/2026/08/27/summer-sap-evaluation/
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “Financial Aid Probation A student for whom a Satisfactory Academic Progress Appeal is approved will be granted a period of Financial Aid probation during which they will be placed on a Financial Aid Eligibility Plan.”
+  - sentence: sap_appeal ⟵ “To appeal, students must submit all of the following: Completed SAP Appeal Form on the Forms Portal Detailed reason for not meeting SAP A plan for academic success Any required supporting documentation as defined on the SAP Appeal Form Readmitted Students & SAP If a student is readmitted to the University and was previously cited for SAP or received a SAP communication from our office, they are re”
+### `8ca25f1e90207f8b` University of Connecticut-Hartford Campus — appeals 2026-27 [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/2025/12/03/fall-sap-review/ (sha256 6d71ad43e8b6)
+- issues: semantic_review_required, shared_site_attribution_review, conflicting_sources:https://financialaid.uconn.edu/2025/08/25/summer-2025-financial-aid-sap-review/,https://financialaid.uconn.edu/2026/04/30/annual-sap-evaluation/,https://financialaid.uconn.edu/2026/08/27/summer-sap-evaluation/,https://financialaid.uconn.edu/sap/
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “The Financial Aid Eligibility Plan status applies to students whose SAP appeal was approved in 2025.”
+  - sentence: sap_appeal ⟵ “Students who do not meet the SAP standards will have the option to submit a SAP Appeal.”
+### `38799d626760a4e4` University of Connecticut-Hartford Campus — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/cost/ (sha256 75d2572e3d3d)
+- issues: residency_unknown, shared_site_attribution_review
+- checks: {"columns": 1, "components_reconcile": true, "rows": 11}
+  - on_campus:Tuition: 26028 ⟵ “Tuition | 17,010 | 39,678 | 26,028”
+  - on_campus:University and Student Fees: 4564 ⟵ “University and Student Fees | 4,564 | 4,564 | 4,564”
+  - on_campus:On-Campus Housing Estimate: 10186 ⟵ “On-Campus Housing Estimate | 10,186 | 10,186 | 10,186”
+  - on_campus:On-Campus Food Estimate: 6896 ⟵ “On-Campus Food Estimate | 6,896 | 6,896 | 6,896”
+  - on_campus:Books, Course Materials, Supplies & Equipment: 1020 ⟵ “Books, Course Materials, Supplies & Equipment | 1,020 | 1,020 | 1,020”
+  - on_campus:Transportation: 2704 ⟵ “Transportation | 2,494 | 2,704 | 2,704”
+  - on_campus:Miscellaneous Personal Expenses: 1968 ⟵ “Miscellaneous Personal Expenses | 1,968 | 1,968 | 1,968”
+  - on_campus:Loan Fees: 92 ⟵ “Loan Fees | 92 | 92 | 92”
+  - on_campus:Subtotal Indirect Costs: 5784 ⟵ “Subtotal Indirect Costs | 5,574 | 5,784 | 5,784”
+  - on_campus:Estimated Total Expenses: 53458 ⟵ “Estimated Total Expenses | 44,230 | 67,108 | 53,458”
+  - on_campus:Subtotal Direct Costs: 47674 ⟵ “Subtotal Direct Costs | 38,656 | 61,324 | 47,674”
+### `5d2959046ce25f34` University of Connecticut-Hartford Campus — costs 2026-27 · residency=out_of_state [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/cost/ (sha256 75d2572e3d3d)
+- issues: shared_site_attribution_review
+- checks: {"columns": 1, "components_reconcile": true, "rows": 11}
+  - on_campus:Tuition: 39678 ⟵ “Tuition | 17,010 | 39,678 | 26,028”
+  - on_campus:University and Student Fees: 4564 ⟵ “University and Student Fees | 4,564 | 4,564 | 4,564”
+  - on_campus:On-Campus Housing Estimate: 10186 ⟵ “On-Campus Housing Estimate | 10,186 | 10,186 | 10,186”
+  - on_campus:On-Campus Food Estimate: 6896 ⟵ “On-Campus Food Estimate | 6,896 | 6,896 | 6,896”
+  - on_campus:Books, Course Materials, Supplies & Equipment: 1020 ⟵ “Books, Course Materials, Supplies & Equipment | 1,020 | 1,020 | 1,020”
+  - on_campus:Transportation: 2704 ⟵ “Transportation | 2,494 | 2,704 | 2,704”
+  - on_campus:Miscellaneous Personal Expenses: 1968 ⟵ “Miscellaneous Personal Expenses | 1,968 | 1,968 | 1,968”
+  - on_campus:Loan Fees: 92 ⟵ “Loan Fees | 92 | 92 | 92”
+  - on_campus:Subtotal Indirect Costs: 5784 ⟵ “Subtotal Indirect Costs | 5,574 | 5,784 | 5,784”
+  - on_campus:Estimated Total Expenses: 67108 ⟵ “Estimated Total Expenses | 44,230 | 67,108 | 53,458”
+  - on_campus:Subtotal Direct Costs: 61324 ⟵ “Subtotal Direct Costs | 38,656 | 61,324 | 47,674”
+### `e72188539307753a` University of Connecticut-Hartford Campus — costs 2026-27 · residency=in_state [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/cost/ (sha256 75d2572e3d3d)
+- issues: shared_site_attribution_review
+- checks: {"columns": 1, "components_reconcile": true, "rows": 11}
+  - on_campus:Tuition: 17010 ⟵ “Tuition | 17,010 | 39,678 | 26,028”
+  - on_campus:University and Student Fees: 4564 ⟵ “University and Student Fees | 4,564 | 4,564 | 4,564”
+  - on_campus:On-Campus Housing Estimate: 10186 ⟵ “On-Campus Housing Estimate | 10,186 | 10,186 | 10,186”
+  - on_campus:On-Campus Food Estimate: 6896 ⟵ “On-Campus Food Estimate | 6,896 | 6,896 | 6,896”
+  - on_campus:Books, Course Materials, Supplies & Equipment: 1020 ⟵ “Books, Course Materials, Supplies & Equipment | 1,020 | 1,020 | 1,020”
+  - on_campus:Transportation: 2494 ⟵ “Transportation | 2,494 | 2,704 | 2,704”
+  - on_campus:Miscellaneous Personal Expenses: 1968 ⟵ “Miscellaneous Personal Expenses | 1,968 | 1,968 | 1,968”
+  - on_campus:Loan Fees: 92 ⟵ “Loan Fees | 92 | 92 | 92”
+  - on_campus:Subtotal Indirect Costs: 5574 ⟵ “Subtotal Indirect Costs | 5,574 | 5,784 | 5,784”
+  - on_campus:Estimated Total Expenses: 44230 ⟵ “Estimated Total Expenses | 44,230 | 67,108 | 53,458”
+  - on_campus:Subtotal Direct Costs: 38656 ⟵ “Subtotal Direct Costs | 38,656 | 61,324 | 47,674”
+### `61b8ac18e95a3735` University of Connecticut-Hartford Campus — credit_policies 2025-26 · policy_kind=IB [new] (labeled_in_source)
+- source: https://admissions.uconn.edu/apply/transfer/transfer-credit/ap-ib-a-level-credit/ (sha256 a992a84f39c9)
+- issues: stale_year_label:2025-26, shared_site_attribution_review
+- checks: {"distinct_exams": 34, "equivalencies": 39, "rows_without_score": 0}
+  - equivalencies[IB-BIOLOGY-HL|HL 5, 6, 7]:  ⟵ “Biology HL | 5, 6, 7 | BIOL 1107 & BIOL 1108 | 8”
+  - equivalencies[IB-BIOLOGY-SL|SL 5, 6, 7]:  ⟵ “Biology SL | 5, 6, 7 | BIOL 91500 | 4”
+  - equivalencies[IB-CHEMISTRY-HL|HL 5, 6, 7]:  ⟵ “Chemistry HL | 5, 6, 7 | CHEM 1127Q and 1128Q | 8”
+  - equivalencies[IB-CHEMISTRY-SL|SL 5, 6, 7]:  ⟵ “Chemistry SL | 5, 6, 7 | CHEM 91500 | 4”
+  - equivalencies[IB-ECONOMICS-HL|HL 6, 7]:  ⟵ “Economics HL | 6, 7 | ECON 1000 | 3”
+  - equivalencies[IB-ECONOMICS-SL|SL 6, 7]:  ⟵ “Economics SL | 6, 7 | ECON 91000 | 3”
+  - equivalencies[IB-ENVIRONMENTAL-SYSTEMS-SOCIETIES-SL|SL 5, 6, 7]:  ⟵ “Environmental Systems and Societies SL | 5, 6, 7 | EVST 91000 | 3”
+  - equivalencies[IB-GEOGRAPHY-HL|HL 5, 6, 7]:  ⟵ “Geography HL | 5, 6, 7 | GSCU 1000E | 3”
+  - equivalencies[IB-GEOGRAPHY-SL|SL 5, 6, 7]:  ⟵ “Geography SL | 5, 6, 7 | GSCU 91000 | 3”
+  - equivalencies[IB-GLOBAL-POLITICS-HL|HL 5, 6, 7]:  ⟵ “Global Politics HL | 5, 6, 7 | POLS 91000 | 3”
+  - equivalencies[IB-GLOBAL-POLITICS-SL|SL 5, 6, 7]:  ⟵ “Global Politics SL | 5, 6, 7 | POLS 91000 | 3”
+  - equivalencies[IB-HISTORY-SL|SL 5, 6, 7]:  ⟵ “History SL | 5, 6, 7 | HIST 91000 | 3”
+  - equivalencies[IB-HISTORY-HL|HL 5, 6, 7]:  ⟵ “History of Africa and the Middle East HL | 5, 6, 7 | HIST 91015 | 3”
+  - equivalencies[IB-HISTORY-HL|HL 5, 6, 7]:  ⟵ “History of the Americas HL | 5, 6, 7 | HIST 91000 | 3”
+  - equivalencies[IB-LATIN-HL|HL 5, 6, 7]:  ⟵ “Latin HL | 5, 6, 7 | CAMS 91000 | 3”
+  - equivalencies[IB-LATIN-SL|SL 5, 6, 7]:  ⟵ “Latin SL | 5, 6, 7 | CAMS 91000 | 3”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES-HL|HL 6, 7]:  ⟵ “Math: Analysis & Approaches HL | 6, 7 | MATH 1131Q | 4”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES-SL|SL 6, 7]:  ⟵ “Math: Analysis & Approaches SL | 6, 7 | MATH 91050 | 3”
+  - equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION-HL|HL 7]:  ⟵ “Math: Applications & Interpretation HL | 7 | MATH 1131Q | 4”
+  - equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION-SL|SL 7]:  ⟵ “Math: Applications & Interpretation SL | 7 | MATH 91050 | 3”
+  - equivalencies[IB-PHILOSOPHY-HL|HL 5, 6, 7]:  ⟵ “Philosophy HL | 5, 6, 7 | PHIL 91000 | 3”
+  - equivalencies[IB-PHILOSOPHY-SL|SL 5, 6, 7]:  ⟵ “Philosophy SL | 5, 6, 7 | PHIL 91000 | 3”
+  - equivalencies[IB-PHYSICS-HL|HL 5]:  ⟵ “Physics HL | 5 | PHYS 1010Q | 4”
+  - equivalencies[IB-PHYSICS-HL|HL 6, 7]:  ⟵ “Physics HL | 6, 7 | PHYS 1600Q | 4”
+  - equivalencies[IB-PHYSICS-SL|SL 5]:  ⟵ “Physics SL | 5 | PHYS 1010Q | 4”
+  - … 14 more rows
+### `f2abc65391da6bb8` University of Connecticut-Hartford Campus — credit_policies 2025-26 · policy_kind=AP [new] (labeled_in_source)
+- source: https://admissions.uconn.edu/apply/transfer/transfer-credit/ap-ib-a-level-credit/ (sha256 a992a84f39c9)
+- issues: stale_year_label:2025-26, shared_site_attribution_review
+- checks: {"distinct_exams": 36, "equivalencies": 39, "rows_without_score": 0}
+  - equivalencies[AP-ART-HISTORY|4, 5]:  ⟵ “AP Art History | 4, 5 | ARTH 1137 and 1138 | 6”
+  - equivalencies[AP-MUSIC-THEORY|4, 5]:  ⟵ “AP Music Theory | 4, 5 | MUSI 1011 | 3”
+  - equivalencies[AP-DRAWING|4, 5]:  ⟵ “AP Studio Art: Drawing | 4, 5 | ART 1030 | 3”
+  - equivalencies[AP-2-D-ART-DESIGN|4, 5]:  ⟵ “AP Studio Art: 2-D Design | 4, 5 | ART/Studio 1000-level | 3”
+  - equivalencies[AP-3-D-ART-DESIGN|4, 5]:  ⟵ “AP Studio Art: 3-D Design | 4, 5 | ART/Studio 1000-level | 3”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|4, 5]:  ⟵ “AP English Language and Composition | 4, 5 | ENGL 1011 | 4”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|4, 5]:  ⟵ “AP English Literature and Composition | 4, 5 | ENGL 1011 | 4”
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|4, 5]:  ⟵ “AP African American Studies | 4, 5 | AFRA 91000 | 3”
+  - equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|4, 5]:  ⟵ “AP Comparative Government and Politics | 4, 5 | POLS 1202 | 3”
+  - equivalencies[AP-EUROPEAN-HISTORY|4, 5]:  ⟵ “AP European History | 4, 5 | HIST 1400 | 3”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|4, 5]:  ⟵ “AP Human Geography | 4, 5 | GSCU 1000E | 3”
+  - equivalencies[AP-MACROECONOMICS|4, 5]:  ⟵ “AP Macroeconomics | 4, 5 | ECON 1202 | 3”
+  - equivalencies[AP-MICROECONOMICS|4, 5]:  ⟵ “AP Microeconomics | 4, 5 | ECON 1201 | 3”
+  - equivalencies[AP-PSYCHOLOGY|4, 5]:  ⟵ “AP Psychology | 4, 5 | PSYC 1000-level | 3”
+  - equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|4, 5]:  ⟵ “AP United States Government and Politics | 4, 5 | POLS 1602 | 3”
+  - equivalencies[AP-UNITED-STATES-HISTORY|4, 5]:  ⟵ “AP United States History | 4, 5 | HIST 1502 | 3”
+  - equivalencies[AP-WORLD-HISTORY-MODERN|4, 5]:  ⟵ “AP World History | 4, 5 | HIST 1201 | 3”
+  - equivalencies[AP-CALCULUS-AB|4, 5]:  ⟵ “AP Calculus AB | 4, 5 | MATH 1131Q | 4”
+  - equivalencies[AP-CALCULUS-BC|3]:  ⟵ “AP Calculus BC* | 3 | MATH 1131Q | 4”
+  - equivalencies[AP-CALCULUS-BC|4, 5]:  ⟵ “AP Calculus BC | 4, 5 | MATH 1131Q and 1132Q | 8”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|4, 5]:  ⟵ “AP Computer Science A | 4, 5 | CSE 1010 | 3”
+  - equivalencies[AP-PRECALCULUS|4, 5]:  ⟵ “AP Precalculus | 4, 5 | MATH 1060Q | 3”
+  - equivalencies[AP-STATISTICS|4, 5]:  ⟵ “AP Statistics | 4, 5 | STAT 1100Q | 4”
+  - equivalencies[AP-STATISTICS|*AB subscore of 4 or higher]:  ⟵ “AP Statistics | *AB subscore of 4 or higher”
+  - equivalencies[AP-BIOLOGY|4, 5]:  ⟵ “AP Biology | 4, 5 | BIOL 1107 and 1108 | 8”
+  - … 14 more rows
+### `1151aefbc005b1f2` University of Connecticut-Stamford — appeals 2026-27 [new] (source_unlabeled)
+- source: https://financialaid.uconn.edu/sap/ (sha256 2d59fb59b556)
+- issues: semantic_review_required, shared_site_attribution_review, conflicting_sources:https://financialaid.uconn.edu/2025/08/25/summer-2025-financial-aid-sap-review/,https://financialaid.uconn.edu/2025/12/03/fall-sap-review/,https://financialaid.uconn.edu/2026/04/30/annual-sap-evaluation/,https://financialaid.uconn.edu/2026/08/27/summer-sap-evaluation/
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “Financial Aid Probation A student for whom a Satisfactory Academic Progress Appeal is approved will be granted a period of Financial Aid probation during which they will be placed on a Financial Aid Eligibility Plan.”
+  - sentence: sap_appeal ⟵ “To appeal, students must submit all of the following: Completed SAP Appeal Form on the Forms Portal Detailed reason for not meeting SAP A plan for academic success Any required supporting documentation as defined on the SAP Appeal Form Readmitted Students & SAP If a student is readmitted to the University and was previously cited for SAP or received a SAP communication from our office, they are re”
+### `2ae9f52bbc156874` University of Connecticut-Stamford — appeals 2026-27 [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/2025/12/03/fall-sap-review/ (sha256 6d71ad43e8b6)
+- issues: semantic_review_required, shared_site_attribution_review, conflicting_sources:https://financialaid.uconn.edu/2025/08/25/summer-2025-financial-aid-sap-review/,https://financialaid.uconn.edu/2026/04/30/annual-sap-evaluation/,https://financialaid.uconn.edu/2026/08/27/summer-sap-evaluation/,https://financialaid.uconn.edu/sap/
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “The Financial Aid Eligibility Plan status applies to students whose SAP appeal was approved in 2025.”
+  - sentence: sap_appeal ⟵ “Students who do not meet the SAP standards will have the option to submit a SAP Appeal.”
+### `39770742e4bad65f` University of Connecticut-Stamford — appeals 2026-27 [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/2026/08/27/summer-sap-evaluation/ (sha256 c9ddd586a1be)
+- issues: semantic_review_required, shared_site_attribution_review, conflicting_sources:https://financialaid.uconn.edu/2025/08/25/summer-2025-financial-aid-sap-review/,https://financialaid.uconn.edu/2025/12/03/fall-sap-review/,https://financialaid.uconn.edu/2026/04/30/annual-sap-evaluation/,https://financialaid.uconn.edu/sap/
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Students who do not meet the SAP standards will have the option to submit a SAP Appeal.”
+### `6cfe52299dd9188b` University of Connecticut-Stamford — appeals 2026-27 [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/2025/08/25/summer-2025-financial-aid-sap-review/ (sha256 0e32b92fac1e)
+- issues: semantic_review_required, shared_site_attribution_review, conflicting_sources:https://financialaid.uconn.edu/2025/12/03/fall-sap-review/,https://financialaid.uconn.edu/2026/04/30/annual-sap-evaluation/,https://financialaid.uconn.edu/2026/08/27/summer-sap-evaluation/,https://financialaid.uconn.edu/sap/
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Students who do not meet the SAP standards will have the option to submit a SAP Appeal.”
+### `f188002858cadaa9` University of Connecticut-Stamford — appeals 2026-27 [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/2026/04/30/annual-sap-evaluation/ (sha256 98e440974fc4)
+- issues: semantic_review_required, shared_site_attribution_review, conflicting_sources:https://financialaid.uconn.edu/2025/08/25/summer-2025-financial-aid-sap-review/,https://financialaid.uconn.edu/2025/12/03/fall-sap-review/,https://financialaid.uconn.edu/2026/08/27/summer-sap-evaluation/,https://financialaid.uconn.edu/sap/
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Students who do not meet the SAP standards will have the option to submit a SAP Appeal.”
+### `8fac719ae41fb88c` University of Connecticut-Stamford — costs 2026-27 · residency=in_state [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/cost/ (sha256 75d2572e3d3d)
+- issues: shared_site_attribution_review
+- checks: {"columns": 1, "components_reconcile": true, "rows": 11}
+  - on_campus:Tuition: 17010 ⟵ “Tuition | 17,010 | 39,678 | 26,028”
+  - on_campus:University and Student Fees: 4564 ⟵ “University and Student Fees | 4,564 | 4,564 | 4,564”
+  - on_campus:On-Campus Housing Estimate: 10186 ⟵ “On-Campus Housing Estimate | 10,186 | 10,186 | 10,186”
+  - on_campus:On-Campus Food Estimate: 6896 ⟵ “On-Campus Food Estimate | 6,896 | 6,896 | 6,896”
+  - on_campus:Books, Course Materials, Supplies & Equipment: 1020 ⟵ “Books, Course Materials, Supplies & Equipment | 1,020 | 1,020 | 1,020”
+  - on_campus:Transportation: 2494 ⟵ “Transportation | 2,494 | 2,704 | 2,704”
+  - on_campus:Miscellaneous Personal Expenses: 1968 ⟵ “Miscellaneous Personal Expenses | 1,968 | 1,968 | 1,968”
+  - on_campus:Loan Fees: 92 ⟵ “Loan Fees | 92 | 92 | 92”
+  - on_campus:Subtotal Indirect Costs: 5574 ⟵ “Subtotal Indirect Costs | 5,574 | 5,784 | 5,784”
+  - on_campus:Estimated Total Expenses: 44230 ⟵ “Estimated Total Expenses | 44,230 | 67,108 | 53,458”
+  - on_campus:Subtotal Direct Costs: 38656 ⟵ “Subtotal Direct Costs | 38,656 | 61,324 | 47,674”
+### `9787b3f0fe572049` University of Connecticut-Stamford — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/cost/ (sha256 75d2572e3d3d)
+- issues: residency_unknown, shared_site_attribution_review
+- checks: {"columns": 1, "components_reconcile": true, "rows": 11}
+  - on_campus:Tuition: 26028 ⟵ “Tuition | 17,010 | 39,678 | 26,028”
+  - on_campus:University and Student Fees: 4564 ⟵ “University and Student Fees | 4,564 | 4,564 | 4,564”
+  - on_campus:On-Campus Housing Estimate: 10186 ⟵ “On-Campus Housing Estimate | 10,186 | 10,186 | 10,186”
+  - on_campus:On-Campus Food Estimate: 6896 ⟵ “On-Campus Food Estimate | 6,896 | 6,896 | 6,896”
+  - on_campus:Books, Course Materials, Supplies & Equipment: 1020 ⟵ “Books, Course Materials, Supplies & Equipment | 1,020 | 1,020 | 1,020”
+  - on_campus:Transportation: 2704 ⟵ “Transportation | 2,494 | 2,704 | 2,704”
+  - on_campus:Miscellaneous Personal Expenses: 1968 ⟵ “Miscellaneous Personal Expenses | 1,968 | 1,968 | 1,968”
+  - on_campus:Loan Fees: 92 ⟵ “Loan Fees | 92 | 92 | 92”
+  - on_campus:Subtotal Indirect Costs: 5784 ⟵ “Subtotal Indirect Costs | 5,574 | 5,784 | 5,784”
+  - on_campus:Estimated Total Expenses: 53458 ⟵ “Estimated Total Expenses | 44,230 | 67,108 | 53,458”
+  - on_campus:Subtotal Direct Costs: 47674 ⟵ “Subtotal Direct Costs | 38,656 | 61,324 | 47,674”
+### `c4e427af7e5fc513` University of Connecticut-Stamford — costs 2026-27 · residency=out_of_state [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/cost/ (sha256 75d2572e3d3d)
+- issues: shared_site_attribution_review
+- checks: {"columns": 1, "components_reconcile": true, "rows": 11}
+  - on_campus:Tuition: 39678 ⟵ “Tuition | 17,010 | 39,678 | 26,028”
+  - on_campus:University and Student Fees: 4564 ⟵ “University and Student Fees | 4,564 | 4,564 | 4,564”
+  - on_campus:On-Campus Housing Estimate: 10186 ⟵ “On-Campus Housing Estimate | 10,186 | 10,186 | 10,186”
+  - on_campus:On-Campus Food Estimate: 6896 ⟵ “On-Campus Food Estimate | 6,896 | 6,896 | 6,896”
+  - on_campus:Books, Course Materials, Supplies & Equipment: 1020 ⟵ “Books, Course Materials, Supplies & Equipment | 1,020 | 1,020 | 1,020”
+  - on_campus:Transportation: 2704 ⟵ “Transportation | 2,494 | 2,704 | 2,704”
+  - on_campus:Miscellaneous Personal Expenses: 1968 ⟵ “Miscellaneous Personal Expenses | 1,968 | 1,968 | 1,968”
+  - on_campus:Loan Fees: 92 ⟵ “Loan Fees | 92 | 92 | 92”
+  - on_campus:Subtotal Indirect Costs: 5784 ⟵ “Subtotal Indirect Costs | 5,574 | 5,784 | 5,784”
+  - on_campus:Estimated Total Expenses: 67108 ⟵ “Estimated Total Expenses | 44,230 | 67,108 | 53,458”
+  - on_campus:Subtotal Direct Costs: 61324 ⟵ “Subtotal Direct Costs | 38,656 | 61,324 | 47,674”
+### `0cbf6032c2b77019` University of Connecticut-Stamford — credit_policies 2025-26 · policy_kind=AP [new] (labeled_in_source)
+- source: https://admissions.uconn.edu/apply/transfer/transfer-credit/ap-ib-a-level-credit/ (sha256 a992a84f39c9)
+- issues: stale_year_label:2025-26, shared_site_attribution_review
+- checks: {"distinct_exams": 36, "equivalencies": 39, "rows_without_score": 0}
+  - equivalencies[AP-ART-HISTORY|4, 5]:  ⟵ “AP Art History | 4, 5 | ARTH 1137 and 1138 | 6”
+  - equivalencies[AP-MUSIC-THEORY|4, 5]:  ⟵ “AP Music Theory | 4, 5 | MUSI 1011 | 3”
+  - equivalencies[AP-DRAWING|4, 5]:  ⟵ “AP Studio Art: Drawing | 4, 5 | ART 1030 | 3”
+  - equivalencies[AP-2-D-ART-DESIGN|4, 5]:  ⟵ “AP Studio Art: 2-D Design | 4, 5 | ART/Studio 1000-level | 3”
+  - equivalencies[AP-3-D-ART-DESIGN|4, 5]:  ⟵ “AP Studio Art: 3-D Design | 4, 5 | ART/Studio 1000-level | 3”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|4, 5]:  ⟵ “AP English Language and Composition | 4, 5 | ENGL 1011 | 4”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|4, 5]:  ⟵ “AP English Literature and Composition | 4, 5 | ENGL 1011 | 4”
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|4, 5]:  ⟵ “AP African American Studies | 4, 5 | AFRA 91000 | 3”
+  - equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|4, 5]:  ⟵ “AP Comparative Government and Politics | 4, 5 | POLS 1202 | 3”
+  - equivalencies[AP-EUROPEAN-HISTORY|4, 5]:  ⟵ “AP European History | 4, 5 | HIST 1400 | 3”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|4, 5]:  ⟵ “AP Human Geography | 4, 5 | GSCU 1000E | 3”
+  - equivalencies[AP-MACROECONOMICS|4, 5]:  ⟵ “AP Macroeconomics | 4, 5 | ECON 1202 | 3”
+  - equivalencies[AP-MICROECONOMICS|4, 5]:  ⟵ “AP Microeconomics | 4, 5 | ECON 1201 | 3”
+  - equivalencies[AP-PSYCHOLOGY|4, 5]:  ⟵ “AP Psychology | 4, 5 | PSYC 1000-level | 3”
+  - equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|4, 5]:  ⟵ “AP United States Government and Politics | 4, 5 | POLS 1602 | 3”
+  - equivalencies[AP-UNITED-STATES-HISTORY|4, 5]:  ⟵ “AP United States History | 4, 5 | HIST 1502 | 3”
+  - equivalencies[AP-WORLD-HISTORY-MODERN|4, 5]:  ⟵ “AP World History | 4, 5 | HIST 1201 | 3”
+  - equivalencies[AP-CALCULUS-AB|4, 5]:  ⟵ “AP Calculus AB | 4, 5 | MATH 1131Q | 4”
+  - equivalencies[AP-CALCULUS-BC|3]:  ⟵ “AP Calculus BC* | 3 | MATH 1131Q | 4”
+  - equivalencies[AP-CALCULUS-BC|4, 5]:  ⟵ “AP Calculus BC | 4, 5 | MATH 1131Q and 1132Q | 8”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|4, 5]:  ⟵ “AP Computer Science A | 4, 5 | CSE 1010 | 3”
+  - equivalencies[AP-PRECALCULUS|4, 5]:  ⟵ “AP Precalculus | 4, 5 | MATH 1060Q | 3”
+  - equivalencies[AP-STATISTICS|4, 5]:  ⟵ “AP Statistics | 4, 5 | STAT 1100Q | 4”
+  - equivalencies[AP-STATISTICS|*AB subscore of 4 or higher]:  ⟵ “AP Statistics | *AB subscore of 4 or higher”
+  - equivalencies[AP-BIOLOGY|4, 5]:  ⟵ “AP Biology | 4, 5 | BIOL 1107 and 1108 | 8”
+  - … 14 more rows
+### `5315f41542a0b2d6` University of Connecticut-Stamford — credit_policies 2025-26 · policy_kind=IB [new] (labeled_in_source)
+- source: https://admissions.uconn.edu/apply/transfer/transfer-credit/ap-ib-a-level-credit/ (sha256 a992a84f39c9)
+- issues: stale_year_label:2025-26, shared_site_attribution_review
+- checks: {"distinct_exams": 34, "equivalencies": 39, "rows_without_score": 0}
+  - equivalencies[IB-BIOLOGY-HL|HL 5, 6, 7]:  ⟵ “Biology HL | 5, 6, 7 | BIOL 1107 & BIOL 1108 | 8”
+  - equivalencies[IB-BIOLOGY-SL|SL 5, 6, 7]:  ⟵ “Biology SL | 5, 6, 7 | BIOL 91500 | 4”
+  - equivalencies[IB-CHEMISTRY-HL|HL 5, 6, 7]:  ⟵ “Chemistry HL | 5, 6, 7 | CHEM 1127Q and 1128Q | 8”
+  - equivalencies[IB-CHEMISTRY-SL|SL 5, 6, 7]:  ⟵ “Chemistry SL | 5, 6, 7 | CHEM 91500 | 4”
+  - equivalencies[IB-ECONOMICS-HL|HL 6, 7]:  ⟵ “Economics HL | 6, 7 | ECON 1000 | 3”
+  - equivalencies[IB-ECONOMICS-SL|SL 6, 7]:  ⟵ “Economics SL | 6, 7 | ECON 91000 | 3”
+  - equivalencies[IB-ENVIRONMENTAL-SYSTEMS-SOCIETIES-SL|SL 5, 6, 7]:  ⟵ “Environmental Systems and Societies SL | 5, 6, 7 | EVST 91000 | 3”
+  - equivalencies[IB-GEOGRAPHY-HL|HL 5, 6, 7]:  ⟵ “Geography HL | 5, 6, 7 | GSCU 1000E | 3”
+  - equivalencies[IB-GEOGRAPHY-SL|SL 5, 6, 7]:  ⟵ “Geography SL | 5, 6, 7 | GSCU 91000 | 3”
+  - equivalencies[IB-GLOBAL-POLITICS-HL|HL 5, 6, 7]:  ⟵ “Global Politics HL | 5, 6, 7 | POLS 91000 | 3”
+  - equivalencies[IB-GLOBAL-POLITICS-SL|SL 5, 6, 7]:  ⟵ “Global Politics SL | 5, 6, 7 | POLS 91000 | 3”
+  - equivalencies[IB-HISTORY-SL|SL 5, 6, 7]:  ⟵ “History SL | 5, 6, 7 | HIST 91000 | 3”
+  - equivalencies[IB-HISTORY-HL|HL 5, 6, 7]:  ⟵ “History of Africa and the Middle East HL | 5, 6, 7 | HIST 91015 | 3”
+  - equivalencies[IB-HISTORY-HL|HL 5, 6, 7]:  ⟵ “History of the Americas HL | 5, 6, 7 | HIST 91000 | 3”
+  - equivalencies[IB-LATIN-HL|HL 5, 6, 7]:  ⟵ “Latin HL | 5, 6, 7 | CAMS 91000 | 3”
+  - equivalencies[IB-LATIN-SL|SL 5, 6, 7]:  ⟵ “Latin SL | 5, 6, 7 | CAMS 91000 | 3”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES-HL|HL 6, 7]:  ⟵ “Math: Analysis & Approaches HL | 6, 7 | MATH 1131Q | 4”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES-SL|SL 6, 7]:  ⟵ “Math: Analysis & Approaches SL | 6, 7 | MATH 91050 | 3”
+  - equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION-HL|HL 7]:  ⟵ “Math: Applications & Interpretation HL | 7 | MATH 1131Q | 4”
+  - equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION-SL|SL 7]:  ⟵ “Math: Applications & Interpretation SL | 7 | MATH 91050 | 3”
+  - equivalencies[IB-PHILOSOPHY-HL|HL 5, 6, 7]:  ⟵ “Philosophy HL | 5, 6, 7 | PHIL 91000 | 3”
+  - equivalencies[IB-PHILOSOPHY-SL|SL 5, 6, 7]:  ⟵ “Philosophy SL | 5, 6, 7 | PHIL 91000 | 3”
+  - equivalencies[IB-PHYSICS-HL|HL 5]:  ⟵ “Physics HL | 5 | PHYS 1010Q | 4”
+  - equivalencies[IB-PHYSICS-HL|HL 6, 7]:  ⟵ “Physics HL | 6, 7 | PHYS 1600Q | 4”
+  - equivalencies[IB-PHYSICS-SL|SL 5]:  ⟵ “Physics SL | 5 | PHYS 1010Q | 4”
+  - … 14 more rows
+### `0c1b6446f91a010c` University of Connecticut-Waterbury Campus — appeals 2026-27 [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/2026/08/27/summer-sap-evaluation/ (sha256 c9ddd586a1be)
+- issues: semantic_review_required, shared_site_attribution_review, conflicting_sources:https://financialaid.uconn.edu/2025/08/25/summer-2025-financial-aid-sap-review/,https://financialaid.uconn.edu/2025/12/03/fall-sap-review/,https://financialaid.uconn.edu/2026/04/30/annual-sap-evaluation/,https://financialaid.uconn.edu/sap/
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Students who do not meet the SAP standards will have the option to submit a SAP Appeal.”
+### `8ef83915cccc4114` University of Connecticut-Waterbury Campus — appeals 2026-27 [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/2025/12/03/fall-sap-review/ (sha256 6d71ad43e8b6)
+- issues: semantic_review_required, shared_site_attribution_review, conflicting_sources:https://financialaid.uconn.edu/2025/08/25/summer-2025-financial-aid-sap-review/,https://financialaid.uconn.edu/2026/04/30/annual-sap-evaluation/,https://financialaid.uconn.edu/2026/08/27/summer-sap-evaluation/,https://financialaid.uconn.edu/sap/
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “The Financial Aid Eligibility Plan status applies to students whose SAP appeal was approved in 2025.”
+  - sentence: sap_appeal ⟵ “Students who do not meet the SAP standards will have the option to submit a SAP Appeal.”
+### `adda1e252ae247c6` University of Connecticut-Waterbury Campus — appeals 2026-27 [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/2026/04/30/annual-sap-evaluation/ (sha256 98e440974fc4)
+- issues: semantic_review_required, shared_site_attribution_review, conflicting_sources:https://financialaid.uconn.edu/2025/08/25/summer-2025-financial-aid-sap-review/,https://financialaid.uconn.edu/2025/12/03/fall-sap-review/,https://financialaid.uconn.edu/2026/08/27/summer-sap-evaluation/,https://financialaid.uconn.edu/sap/
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Students who do not meet the SAP standards will have the option to submit a SAP Appeal.”
+### `d17f6b0fb7460859` University of Connecticut-Waterbury Campus — appeals 2026-27 [new] (source_unlabeled)
+- source: https://financialaid.uconn.edu/sap/ (sha256 2d59fb59b556)
+- issues: semantic_review_required, shared_site_attribution_review, conflicting_sources:https://financialaid.uconn.edu/2025/08/25/summer-2025-financial-aid-sap-review/,https://financialaid.uconn.edu/2025/12/03/fall-sap-review/,https://financialaid.uconn.edu/2026/04/30/annual-sap-evaluation/,https://financialaid.uconn.edu/2026/08/27/summer-sap-evaluation/
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “Financial Aid Probation A student for whom a Satisfactory Academic Progress Appeal is approved will be granted a period of Financial Aid probation during which they will be placed on a Financial Aid Eligibility Plan.”
+  - sentence: sap_appeal ⟵ “To appeal, students must submit all of the following: Completed SAP Appeal Form on the Forms Portal Detailed reason for not meeting SAP A plan for academic success Any required supporting documentation as defined on the SAP Appeal Form Readmitted Students & SAP If a student is readmitted to the University and was previously cited for SAP or received a SAP communication from our office, they are re”
+### `dffda532015a0fcb` University of Connecticut-Waterbury Campus — appeals 2026-27 [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/2025/08/25/summer-2025-financial-aid-sap-review/ (sha256 0e32b92fac1e)
+- issues: semantic_review_required, shared_site_attribution_review, conflicting_sources:https://financialaid.uconn.edu/2025/12/03/fall-sap-review/,https://financialaid.uconn.edu/2026/04/30/annual-sap-evaluation/,https://financialaid.uconn.edu/2026/08/27/summer-sap-evaluation/,https://financialaid.uconn.edu/sap/
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Students who do not meet the SAP standards will have the option to submit a SAP Appeal.”
+### `1bbd52ff76e02b0f` University of Connecticut-Waterbury Campus — costs 2026-27 · residency=in_state [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/cost/ (sha256 75d2572e3d3d)
+- issues: shared_site_attribution_review
+- checks: {"columns": 1, "components_reconcile": true, "rows": 11}
+  - on_campus:Tuition: 17010 ⟵ “Tuition | 17,010 | 39,678 | 26,028”
+  - on_campus:University and Student Fees: 4564 ⟵ “University and Student Fees | 4,564 | 4,564 | 4,564”
+  - on_campus:On-Campus Housing Estimate: 10186 ⟵ “On-Campus Housing Estimate | 10,186 | 10,186 | 10,186”
+  - on_campus:On-Campus Food Estimate: 6896 ⟵ “On-Campus Food Estimate | 6,896 | 6,896 | 6,896”
+  - on_campus:Books, Course Materials, Supplies & Equipment: 1020 ⟵ “Books, Course Materials, Supplies & Equipment | 1,020 | 1,020 | 1,020”
+  - on_campus:Transportation: 2494 ⟵ “Transportation | 2,494 | 2,704 | 2,704”
+  - on_campus:Miscellaneous Personal Expenses: 1968 ⟵ “Miscellaneous Personal Expenses | 1,968 | 1,968 | 1,968”
+  - on_campus:Loan Fees: 92 ⟵ “Loan Fees | 92 | 92 | 92”
+  - on_campus:Subtotal Indirect Costs: 5574 ⟵ “Subtotal Indirect Costs | 5,574 | 5,784 | 5,784”
+  - on_campus:Estimated Total Expenses: 44230 ⟵ “Estimated Total Expenses | 44,230 | 67,108 | 53,458”
+  - on_campus:Subtotal Direct Costs: 38656 ⟵ “Subtotal Direct Costs | 38,656 | 61,324 | 47,674”
+### `27311c57cc32b77b` University of Connecticut-Waterbury Campus — costs 2026-27 · residency=out_of_state [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/cost/ (sha256 75d2572e3d3d)
+- issues: shared_site_attribution_review
+- checks: {"columns": 1, "components_reconcile": true, "rows": 11}
+  - on_campus:Tuition: 39678 ⟵ “Tuition | 17,010 | 39,678 | 26,028”
+  - on_campus:University and Student Fees: 4564 ⟵ “University and Student Fees | 4,564 | 4,564 | 4,564”
+  - on_campus:On-Campus Housing Estimate: 10186 ⟵ “On-Campus Housing Estimate | 10,186 | 10,186 | 10,186”
+  - on_campus:On-Campus Food Estimate: 6896 ⟵ “On-Campus Food Estimate | 6,896 | 6,896 | 6,896”
+  - on_campus:Books, Course Materials, Supplies & Equipment: 1020 ⟵ “Books, Course Materials, Supplies & Equipment | 1,020 | 1,020 | 1,020”
+  - on_campus:Transportation: 2704 ⟵ “Transportation | 2,494 | 2,704 | 2,704”
+  - on_campus:Miscellaneous Personal Expenses: 1968 ⟵ “Miscellaneous Personal Expenses | 1,968 | 1,968 | 1,968”
+  - on_campus:Loan Fees: 92 ⟵ “Loan Fees | 92 | 92 | 92”
+  - on_campus:Subtotal Indirect Costs: 5784 ⟵ “Subtotal Indirect Costs | 5,574 | 5,784 | 5,784”
+  - on_campus:Estimated Total Expenses: 67108 ⟵ “Estimated Total Expenses | 44,230 | 67,108 | 53,458”
+  - on_campus:Subtotal Direct Costs: 61324 ⟵ “Subtotal Direct Costs | 38,656 | 61,324 | 47,674”
+### `cb2a90718c3ce4a8` University of Connecticut-Waterbury Campus — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://financialaid.uconn.edu/cost/ (sha256 75d2572e3d3d)
+- issues: residency_unknown, shared_site_attribution_review
+- checks: {"columns": 1, "components_reconcile": true, "rows": 11}
+  - on_campus:Tuition: 26028 ⟵ “Tuition | 17,010 | 39,678 | 26,028”
+  - on_campus:University and Student Fees: 4564 ⟵ “University and Student Fees | 4,564 | 4,564 | 4,564”
+  - on_campus:On-Campus Housing Estimate: 10186 ⟵ “On-Campus Housing Estimate | 10,186 | 10,186 | 10,186”
+  - on_campus:On-Campus Food Estimate: 6896 ⟵ “On-Campus Food Estimate | 6,896 | 6,896 | 6,896”
+  - on_campus:Books, Course Materials, Supplies & Equipment: 1020 ⟵ “Books, Course Materials, Supplies & Equipment | 1,020 | 1,020 | 1,020”
+  - on_campus:Transportation: 2704 ⟵ “Transportation | 2,494 | 2,704 | 2,704”
+  - on_campus:Miscellaneous Personal Expenses: 1968 ⟵ “Miscellaneous Personal Expenses | 1,968 | 1,968 | 1,968”
+  - on_campus:Loan Fees: 92 ⟵ “Loan Fees | 92 | 92 | 92”
+  - on_campus:Subtotal Indirect Costs: 5784 ⟵ “Subtotal Indirect Costs | 5,574 | 5,784 | 5,784”
+  - on_campus:Estimated Total Expenses: 53458 ⟵ “Estimated Total Expenses | 44,230 | 67,108 | 53,458”
+  - on_campus:Subtotal Direct Costs: 47674 ⟵ “Subtotal Direct Costs | 38,656 | 61,324 | 47,674”
+### `0808e532822dd594` University of Connecticut-Waterbury Campus — credit_policies 2025-26 · policy_kind=IB [new] (labeled_in_source)
+- source: https://admissions.uconn.edu/apply/transfer/transfer-credit/ap-ib-a-level-credit/ (sha256 a992a84f39c9)
+- issues: stale_year_label:2025-26, shared_site_attribution_review
+- checks: {"distinct_exams": 34, "equivalencies": 39, "rows_without_score": 0}
+  - equivalencies[IB-BIOLOGY-HL|HL 5, 6, 7]:  ⟵ “Biology HL | 5, 6, 7 | BIOL 1107 & BIOL 1108 | 8”
+  - equivalencies[IB-BIOLOGY-SL|SL 5, 6, 7]:  ⟵ “Biology SL | 5, 6, 7 | BIOL 91500 | 4”
+  - equivalencies[IB-CHEMISTRY-HL|HL 5, 6, 7]:  ⟵ “Chemistry HL | 5, 6, 7 | CHEM 1127Q and 1128Q | 8”
+  - equivalencies[IB-CHEMISTRY-SL|SL 5, 6, 7]:  ⟵ “Chemistry SL | 5, 6, 7 | CHEM 91500 | 4”
+  - equivalencies[IB-ECONOMICS-HL|HL 6, 7]:  ⟵ “Economics HL | 6, 7 | ECON 1000 | 3”
+  - equivalencies[IB-ECONOMICS-SL|SL 6, 7]:  ⟵ “Economics SL | 6, 7 | ECON 91000 | 3”
+  - equivalencies[IB-ENVIRONMENTAL-SYSTEMS-SOCIETIES-SL|SL 5, 6, 7]:  ⟵ “Environmental Systems and Societies SL | 5, 6, 7 | EVST 91000 | 3”
+  - equivalencies[IB-GEOGRAPHY-HL|HL 5, 6, 7]:  ⟵ “Geography HL | 5, 6, 7 | GSCU 1000E | 3”
+  - equivalencies[IB-GEOGRAPHY-SL|SL 5, 6, 7]:  ⟵ “Geography SL | 5, 6, 7 | GSCU 91000 | 3”
+  - equivalencies[IB-GLOBAL-POLITICS-HL|HL 5, 6, 7]:  ⟵ “Global Politics HL | 5, 6, 7 | POLS 91000 | 3”
+  - equivalencies[IB-GLOBAL-POLITICS-SL|SL 5, 6, 7]:  ⟵ “Global Politics SL | 5, 6, 7 | POLS 91000 | 3”
+  - equivalencies[IB-HISTORY-SL|SL 5, 6, 7]:  ⟵ “History SL | 5, 6, 7 | HIST 91000 | 3”
+  - equivalencies[IB-HISTORY-HL|HL 5, 6, 7]:  ⟵ “History of Africa and the Middle East HL | 5, 6, 7 | HIST 91015 | 3”
+  - equivalencies[IB-HISTORY-HL|HL 5, 6, 7]:  ⟵ “History of the Americas HL | 5, 6, 7 | HIST 91000 | 3”
+  - equivalencies[IB-LATIN-HL|HL 5, 6, 7]:  ⟵ “Latin HL | 5, 6, 7 | CAMS 91000 | 3”
+  - equivalencies[IB-LATIN-SL|SL 5, 6, 7]:  ⟵ “Latin SL | 5, 6, 7 | CAMS 91000 | 3”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES-HL|HL 6, 7]:  ⟵ “Math: Analysis & Approaches HL | 6, 7 | MATH 1131Q | 4”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES-SL|SL 6, 7]:  ⟵ “Math: Analysis & Approaches SL | 6, 7 | MATH 91050 | 3”
+  - equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION-HL|HL 7]:  ⟵ “Math: Applications & Interpretation HL | 7 | MATH 1131Q | 4”
+  - equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION-SL|SL 7]:  ⟵ “Math: Applications & Interpretation SL | 7 | MATH 91050 | 3”
+  - equivalencies[IB-PHILOSOPHY-HL|HL 5, 6, 7]:  ⟵ “Philosophy HL | 5, 6, 7 | PHIL 91000 | 3”
+  - equivalencies[IB-PHILOSOPHY-SL|SL 5, 6, 7]:  ⟵ “Philosophy SL | 5, 6, 7 | PHIL 91000 | 3”
+  - equivalencies[IB-PHYSICS-HL|HL 5]:  ⟵ “Physics HL | 5 | PHYS 1010Q | 4”
+  - equivalencies[IB-PHYSICS-HL|HL 6, 7]:  ⟵ “Physics HL | 6, 7 | PHYS 1600Q | 4”
+  - equivalencies[IB-PHYSICS-SL|SL 5]:  ⟵ “Physics SL | 5 | PHYS 1010Q | 4”
+  - … 14 more rows
+### `52451c7a0c99de93` University of Connecticut-Waterbury Campus — credit_policies 2025-26 · policy_kind=AP [new] (labeled_in_source)
+- source: https://admissions.uconn.edu/apply/transfer/transfer-credit/ap-ib-a-level-credit/ (sha256 a992a84f39c9)
+- issues: stale_year_label:2025-26, shared_site_attribution_review
+- checks: {"distinct_exams": 36, "equivalencies": 39, "rows_without_score": 0}
+  - equivalencies[AP-ART-HISTORY|4, 5]:  ⟵ “AP Art History | 4, 5 | ARTH 1137 and 1138 | 6”
+  - equivalencies[AP-MUSIC-THEORY|4, 5]:  ⟵ “AP Music Theory | 4, 5 | MUSI 1011 | 3”
+  - equivalencies[AP-DRAWING|4, 5]:  ⟵ “AP Studio Art: Drawing | 4, 5 | ART 1030 | 3”
+  - equivalencies[AP-2-D-ART-DESIGN|4, 5]:  ⟵ “AP Studio Art: 2-D Design | 4, 5 | ART/Studio 1000-level | 3”
+  - equivalencies[AP-3-D-ART-DESIGN|4, 5]:  ⟵ “AP Studio Art: 3-D Design | 4, 5 | ART/Studio 1000-level | 3”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|4, 5]:  ⟵ “AP English Language and Composition | 4, 5 | ENGL 1011 | 4”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|4, 5]:  ⟵ “AP English Literature and Composition | 4, 5 | ENGL 1011 | 4”
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|4, 5]:  ⟵ “AP African American Studies | 4, 5 | AFRA 91000 | 3”
+  - equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|4, 5]:  ⟵ “AP Comparative Government and Politics | 4, 5 | POLS 1202 | 3”
+  - equivalencies[AP-EUROPEAN-HISTORY|4, 5]:  ⟵ “AP European History | 4, 5 | HIST 1400 | 3”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|4, 5]:  ⟵ “AP Human Geography | 4, 5 | GSCU 1000E | 3”
+  - equivalencies[AP-MACROECONOMICS|4, 5]:  ⟵ “AP Macroeconomics | 4, 5 | ECON 1202 | 3”
+  - equivalencies[AP-MICROECONOMICS|4, 5]:  ⟵ “AP Microeconomics | 4, 5 | ECON 1201 | 3”
+  - equivalencies[AP-PSYCHOLOGY|4, 5]:  ⟵ “AP Psychology | 4, 5 | PSYC 1000-level | 3”
+  - equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|4, 5]:  ⟵ “AP United States Government and Politics | 4, 5 | POLS 1602 | 3”
+  - equivalencies[AP-UNITED-STATES-HISTORY|4, 5]:  ⟵ “AP United States History | 4, 5 | HIST 1502 | 3”
+  - equivalencies[AP-WORLD-HISTORY-MODERN|4, 5]:  ⟵ “AP World History | 4, 5 | HIST 1201 | 3”
+  - equivalencies[AP-CALCULUS-AB|4, 5]:  ⟵ “AP Calculus AB | 4, 5 | MATH 1131Q | 4”
+  - equivalencies[AP-CALCULUS-BC|3]:  ⟵ “AP Calculus BC* | 3 | MATH 1131Q | 4”
+  - equivalencies[AP-CALCULUS-BC|4, 5]:  ⟵ “AP Calculus BC | 4, 5 | MATH 1131Q and 1132Q | 8”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|4, 5]:  ⟵ “AP Computer Science A | 4, 5 | CSE 1010 | 3”
+  - equivalencies[AP-PRECALCULUS|4, 5]:  ⟵ “AP Precalculus | 4, 5 | MATH 1060Q | 3”
+  - equivalencies[AP-STATISTICS|4, 5]:  ⟵ “AP Statistics | 4, 5 | STAT 1100Q | 4”
+  - equivalencies[AP-STATISTICS|*AB subscore of 4 or higher]:  ⟵ “AP Statistics | *AB subscore of 4 or higher”
+  - equivalencies[AP-BIOLOGY|4, 5]:  ⟵ “AP Biology | 4, 5 | BIOL 1107 and 1108 | 8”
+  - … 14 more rows
+### `04e9e7c2f6dabf98` University of Hartford — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.hartford.edu/admission/financial-aid/apply-aid.aspx (sha256 f3cb8ac5fb61)
+- issues: semantic_review_required, conflicting_sources:https://www.hartford.edu/admission/financial-aid/_files/2026-2027-requestforadditionalfunds.pdf
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: professional_judgment ⟵ “This is done through a professional judgement process.”
+  - sentence: professional_judgment ⟵ “To start the professional judgement process, you will need to submit a brief narrative outlining the change in circumstance you would like reviewed.”
+### `134f0ac77ab6676f` University of Hartford — appeals 2025-26 [new] (labeled_in_title)
+- source: https://www.hartford.edu/admission/financial-aid/_files/2025-2026-requestforadditionalfunds.pdf (sha256 33c145359fcd)
+- issues: stale_year_label:2025-26, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: professional_judgment ⟵ “Please be advised that all professional judgment appeal decisions are final.”
+### `e2937ad2ec52289a` University of Hartford — appeals 2026-27 [new] (labeled_in_title)
+- source: https://www.hartford.edu/admission/financial-aid/_files/2026-2027-requestforadditionalfunds.pdf (sha256 965064abf22d)
+- issues: semantic_review_required, conflicting_sources:https://www.hartford.edu/admission/financial-aid/apply-aid.aspx
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: professional_judgment ⟵ “Please be advised that all professional judgment appeal decisions are final.”
+### `27d92fd3b8921eaf` University of Hartford — credit_policies 2026-27 · policy_kind=CLEP [new] (source_unlabeled)
+- source: https://www.hartford.edu/admission/_files/CLEPequivalents19.pdf (sha256 e084fdd43128)
+- issues: credits_implausible, score_scale_mismatch
+- checks: {"distinct_exams": 29, "equivalencies": 29, "rows_without_score": 0}
+  - equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|6]:  ⟵ “Analyzing and Interpreting Literature          ENG 140 & ENG 1XX                                                       6                 50”
+  - equivalencies[CLEP-AMERICAN-LITERATURE|6]:  ⟵ “American Literature                            ENG 220 & ENG 221                                                       6                 50”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION|6]:  ⟵ “College Composition                            WRT 110, WRT 111;if have WRT 110, WRT 111 & ELEC                        6                 50”
+  - equivalencies[CLEP-ENGLISH-LITERATURE|6]:  ⟵ “English Literature                             ENG 230 & ENG 231                                                       6                 50”
+  - equivalencies[CLEP-HUMANITIES|6]:  ⟵ “Humanities                                     HUM 1XX                                                                 6                 50”
+  - equivalencies[CLEP-BIOLOGY|6]:  ⟵ “Biology - No Lab Science                       BIO 1XX                                                                 6                 50”
+  - equivalencies[CLEP-CALCULUS|4]:  ⟵ “Calculus                                       M 144                                                                   4                 50”
+  - equivalencies[CLEP-CHEMISTRY|3]:  ⟵ “Chemistry                                      CH 1XX                                                                  3                 50”
+  - equivalencies[CLEP-COLLEGE-ALGEBRA|3]:  ⟵ “College Algebra                                M 1XX                                                                   3                 50”
+  - equivalencies[CLEP-COLLEGE-MATHEMATICS|3]:  ⟵ “College Mathematics                            M 116                                                                   3                 50”
+  - equivalencies[CLEP-NATURAL-SCIENCES|6]:  ⟵ “Natural Sciences                               ELEC 1XX                                                                6                 50”
+  - equivalencies[CLEP-PRECALCULUS|4]:  ⟵ “Precalculus                                    M 140                                                                   4                 50”
+  - equivalencies[CLEP-AMERICAN-GOVERNMENT|3]:  ⟵ “American Government                            POL 110                                                                 3                 50”
+  - equivalencies[CLEP-INTRODUCTION-TO-EDUCATIONAL-PSYCHOLOGY|3]:  ⟵ “Introduction to Educational Psychology         EDP 230                                                                 3                 50”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-I|3]:  ⟵ “History of the United States I                 HIS 130                                                                 3                 50”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-II|3]:  ⟵ “History of the United States II                HIS 131                                                                 3                 50”
+  - equivalencies[CLEP-HUMAN-GROWTH-DEVELOPMENT|3]:  ⟵ “Human Growth and Development                   PSY 132                                                                 3                 50”
+  - equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|3]:  ⟵ “Principles of Macroeconomics                   EC 110                                                                  3                 50”
+  - equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|3]:  ⟵ “Principles of Microeconomics                   EC 211                                                                  3                 50”
+  - equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|3]:  ⟵ “Introductory Psychology                        PSY105                                                                  3                 50”
+  - equivalencies[CLEP-SOCIAL-SCIENCES-HISTORY|6]:  ⟵ “Social Sciences and History                    HIS 1XX                                                                 6                 50”
+  - equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|3]:  ⟵ “Introductory Sociology                         SOC 110                                                                 3                 50”
+  - equivalencies[CLEP-WESTERN-CIVILIZATION-I|3]:  ⟵ “Western Civilization I                         HIS 1XX                                                                 3                 50”
+  - equivalencies[CLEP-WESTERN-CIVILIZATION-II|3]:  ⟵ “Western Civilization II                        HIS 1XX                                                                 3                 50”
+  - equivalencies[CLEP-FINANCIAL-ACCOUNTING|3]:  ⟵ “Financial Accounting                           AC 210                                                                  3                 50”
+  - … 4 more rows
+### `2caf357bdffa3930` University of New Haven — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.newhaven.edu/about/departments/bursars/tuition/undergraduate-2026-2027.php (sha256 b82c909596b7)
+- issues: cost_period_semester, conflicting_sources:https://www.newhaven.edu/about/departments/bursars/tuition/undergraduate-2026-2027.php,https://www.newhaven.edu/about/facts-figures.php,https://www.newhaven.edu/admissions/financial-aid/undergraduate/cost.php,https://www.newhaven.edu/admissions/financial-aid/undergraduate/cost.php
+- checks: {"columns": 1, "components_reconcile": true, "rows": 7}
+  - column:Tuition: 24670 ⟵ “Tuition | $24,670”
+  - column:General Student Fee: 965 ⟵ “General Student Fee | $965”
+  - column:Room: 6549 ⟵ “Room | $6,549”
+  - column:Prato Meal Plan: 3606 ⟵ “Prato Meal Plan | $3,606”
+  - column:Cell Phone: 100 ⟵ “Cell Phone | $100”
+  - column:Travel Insurance: 190 ⟵ “Travel Insurance | $190”
+  - column:Total Comprehensive Fee: 36080 ⟵ “Total Comprehensive Fee | $36,080”
+### `54880bfb49e911d5` University of New Haven — costs 2026-27 · residency=not_applicable [new] (source_unlabeled)
+- source: https://www.newhaven.edu/about/facts-figures.php (sha256 cec89f043f37)
+- issues: ambiguous_year_labels, conflicting_sources:https://www.newhaven.edu/about/departments/bursars/tuition/undergraduate-2026-2027.php,https://www.newhaven.edu/about/departments/bursars/tuition/undergraduate-2026-2027.php,https://www.newhaven.edu/admissions/financial-aid/undergraduate/cost.php,https://www.newhaven.edu/admissions/financial-aid/undergraduate/cost.php
+- checks: {"columns": 2, "rows": 8}
+  - off_campus_not_with_family:Tuition: 21330 ⟵ “Tuition | $21,330 | $14,220”
+  - off_campus_not_with_family:Estimate for Books: 792 ⟵ “Estimate for Books | $792 | $528”
+  - off_campus_not_with_family:Home Living Allowance - Off Campus: 15132 ⟵ “Home Living Allowance - Off Campus | $15,132 | $15,132”
+  - off_campus_not_with_family:Miscellaneous Expenses: 2026 ⟵ “Miscellaneous Expenses | $2,026 | $2,026”
+  - off_campus_not_with_family:Transportation Expenses: 2388 ⟵ “Transportation Expenses | $2,388 | $2,388”
+  - off_campus_not_with_family:Fees: 280 ⟵ “Fees | $280 | $240”
+  - off_campus_not_with_family:Federal Loan Fees: 176 ⟵ “Federal Loan Fees | $176 | $176”
+  - off_campus_not_with_family:Totals: 42124 ⟵ “Totals | $42,124 | $34,710”
+  - off_campus_not_with_family:Tuition: 14220 ⟵ “Tuition | $21,330 | $14,220”
+  - off_campus_not_with_family:Estimate for Books: 528 ⟵ “Estimate for Books | $792 | $528”
+  - off_campus_not_with_family:Home Living Allowance - Off Campus: 15132 ⟵ “Home Living Allowance - Off Campus | $15,132 | $15,132”
+  - off_campus_not_with_family:Miscellaneous Expenses: 2026 ⟵ “Miscellaneous Expenses | $2,026 | $2,026”
+  - off_campus_not_with_family:Transportation Expenses: 2388 ⟵ “Transportation Expenses | $2,388 | $2,388”
+  - off_campus_not_with_family:Fees: 240 ⟵ “Fees | $280 | $240”
+  - off_campus_not_with_family:Federal Loan Fees: 176 ⟵ “Federal Loan Fees | $176 | $176”
+  - off_campus_not_with_family:Totals: 34710 ⟵ “Totals | $42,124 | $34,710”
+### `566e60b1250346ab` University of New Haven — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.newhaven.edu/admissions/financial-aid/undergraduate/cost.php (sha256 f48e078558f0)
+- issues: conflicting_sources:https://www.newhaven.edu/about/departments/bursars/tuition/undergraduate-2026-2027.php,https://www.newhaven.edu/about/departments/bursars/tuition/undergraduate-2026-2027.php,https://www.newhaven.edu/about/facts-figures.php,https://www.newhaven.edu/admissions/financial-aid/undergraduate/cost.php
+- checks: {"columns": 2, "components_reconcile": true, "rows": 3}
+  - on_campus:Tuition/Fees: 51270 ⟵ “Tuition/Fees | $51,270 | $51,270”
+  - on_campus:Food and Housing**: 20998 ⟵ “Food and Housing** | $20,998 | $0”
+  - on_campus:Total Estimated Direct Costs*: 72268 ⟵ “Total Estimated Direct Costs* | $72,268 | $51,270”
+  - with_parents_or_family:Tuition/Fees: 51270 ⟵ “Tuition/Fees | $51,270 | $51,270”
+  - with_parents_or_family:Food and Housing**: 0 ⟵ “Food and Housing** | $20,998 | $0”
+  - with_parents_or_family:Total Estimated Direct Costs*: 51270 ⟵ “Total Estimated Direct Costs* | $72,268 | $51,270”
+### `5ab606446a14fa66` University of New Haven — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.newhaven.edu/admissions/financial-aid/undergraduate/cost.php (sha256 50c96e6957e0)
+- issues: conflicting_sources:https://www.newhaven.edu/about/departments/bursars/tuition/undergraduate-2026-2027.php,https://www.newhaven.edu/about/departments/bursars/tuition/undergraduate-2026-2027.php,https://www.newhaven.edu/about/facts-figures.php,https://www.newhaven.edu/admissions/financial-aid/undergraduate/cost.php
+- checks: {"columns": 2, "components_reconcile": true, "rows": 3}
+  - on_campus:Tuition/Fees: 51270 ⟵ “Tuition/Fees | $51,270 | $51,270”
+  - on_campus:Food and Housing**: 20998 ⟵ “Food and Housing** | $20,998 | $0”
+  - on_campus:Total Estimated Direct Costs*: 72268 ⟵ “Total Estimated Direct Costs* | $72,268 | $51,270”
+  - with_parents_or_family:Tuition/Fees: 51270 ⟵ “Tuition/Fees | $51,270 | $51,270”
+  - with_parents_or_family:Food and Housing**: 0 ⟵ “Food and Housing** | $20,998 | $0”
+  - with_parents_or_family:Total Estimated Direct Costs*: 51270 ⟵ “Total Estimated Direct Costs* | $72,268 | $51,270”
+### `6bcac77484376db1` University of New Haven — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.newhaven.edu/about/departments/bursars/tuition/undergraduate-2026-2027.php (sha256 79179a665eab)
+- issues: cost_period_semester, conflicting_sources:https://www.newhaven.edu/about/departments/bursars/tuition/undergraduate-2026-2027.php,https://www.newhaven.edu/about/facts-figures.php,https://www.newhaven.edu/admissions/financial-aid/undergraduate/cost.php,https://www.newhaven.edu/admissions/financial-aid/undergraduate/cost.php
+- checks: {"columns": 1, "components_reconcile": true, "rows": 7}
+  - column:Tuition: 24670 ⟵ “Tuition | $24,670”
+  - column:General Student Fee: 965 ⟵ “General Student Fee | $965”
+  - column:Room: 6549 ⟵ “Room | $6,549”
+  - column:Prato Meal Plan: 3606 ⟵ “Prato Meal Plan | $3,606”
+  - column:Cell Phone: 100 ⟵ “Cell Phone | $100”
+  - column:Travel Insurance: 190 ⟵ “Travel Insurance | $190”
+  - column:Total Comprehensive Fee: 36080 ⟵ “Total Comprehensive Fee | $36,080”
+### `fc92e379f68ecda5` University of New Haven — credit_policies 2026-27 · policy_kind=AP [new] (source_unlabeled)
+- source: https://www.newhaven.edu/admissions/undergraduate/the-application-process/first-year-student-application-process/college-credit.php (sha256 e8e6081014a4)
+- issues: score_column_not_scores
+- checks: {"distinct_exams": 38, "equivalencies": 40, "rows_without_score": 0}
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|African American Studies]:  ⟵ “African American Studies | HIST 1120 History of African Americans | 3”
+  - equivalencies[AP-ART-HISTORY|Art History]:  ⟵ “Art History | ARTS 2231 History of Art I | 3”
+  - equivalencies[AP-BIOLOGY|Biology (score of 3)]:  ⟵ “Biology (score of 3) | BIOL 1121/1123 (SHS majors), or, BIOL 1125/1126 (non-BIOL and non-SHS majors) | 4”
+  - equivalencies[AP-BIOLOGY|Biology (score of 4 or 5)]:  ⟵ “Biology (score of 4 or 5) | BIOL 2253/2255 (for BIOL majors) | 4”
+  - equivalencies[AP-CALCULUS-AB|Calculus AB]:  ⟵ “Calculus AB | MATH 1117 Calculus I | 4”
+  - equivalencies[AP-CALCULUS-BC|Calculus BC]:  ⟵ “Calculus BC | MATH 1117 and MATH 1118 Calculus I and Calculus II | 8”
+  - equivalencies[AP-CHEMISTRY|Chemistry (score of 3)]:  ⟵ “Chemistry (score of 3) | CHEM 1115 and CHEM 1117 General Chemistry I with Laboratory | 4”
+  - equivalencies[AP-CHEMISTRY|Chemistry (score of 4+)]:  ⟵ “Chemistry (score of 4+) | CHEM 1115/1117 and CHEM 1116/1118 General Chemistry I and II with Laboratory | 8”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|Chinese Language and Culture]:  ⟵ “Chinese Language and Culture | CHIN 1101 Conversational Chinese | 3”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|Computer Science A]:  ⟵ “Computer Science A | CSCI 1110 Introduction to C Programming | 3”
+  - equivalencies[AP-CYBERSECURITY|Cybersecurity]:  ⟵ “Cybersecurity | CSCI 2246 Introduction to Computer Security | 3”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|English Language and Composition (score of 4+)]:  ⟵ “English Language and Composition (score of 4+) | ENGL 1112 Seminar in Academic Inquiry | 3”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|English Literature and Composition (score of 4+)]:  ⟵ “English Literature and Composition (score of 4+) | ENGL 2200 Studies in Literature | 3”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|Environmental Science]:  ⟵ “Environmental Science | ENVS 1101 and ENVS 1102 Introduction to Environmental Science with Laboratory | 4”
+  - equivalencies[AP-EUROPEAN-HISTORY|European History]:  ⟵ “European History | HIST 1101 Foundations of the Western World -or- HIST 1102 Western World in Mod. Times | 3”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|French Language and Culture]:  ⟵ “French Language and Culture | FREN 1101 Elementary French I | 3”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|German Language and Culture]:  ⟵ “German Language and Culture | GERM 1101 Elementary German I | 3”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|Human Geography]:  ⟵ “Human Geography | Free Elective | 3”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|Italian Language and Culture]:  ⟵ “Italian Language and Culture | ITAL 1101 Elementary Italian I | 3”
+  - equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|Japanese Language and Culture]:  ⟵ “Japanese Language and Culture | Free Elective | 3”
+  - equivalencies[AP-LATIN|Latin]:  ⟵ “Latin | Free Elective | 3”
+  - equivalencies[AP-MACROECONOMICS|Macroeconomics]:  ⟵ “Macroeconomics | ECON 1133 Principles of Economics I | 3”
+  - equivalencies[AP-MICROECONOMICS|Microeconomics]:  ⟵ “Microeconomics | ECON 1134 Principles of Economics II | 3”
+  - equivalencies[AP-MUSIC-THEORY|Music Theory]:  ⟵ “Music Theory | MUSC 2101: Music Theory 1Music majors may also have MUSC 1101 Music Fundamentals and MUSC 2102 Music Theory 1 Lab waived | 3”
+  - equivalencies[AP-PHYSICS-1|Physics I]:  ⟵ “Physics I | PHYS 1103 General Physics I with Laboratory | 4”
+  - … 15 more rows
+### `752db907a88ab96c` Wesleyan University — appeals 2025-26 [new] (labeled_in_source)
+- source: https://www.wesleyan.edu/finaid/faqs-resources/faqs.html (sha256 3c4a8ab7fedd)
+- issues: stale_year_label:2025-26, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: competing_offer_review ⟵ “Please complete a Request for Reconsideration form: Request for Reconsideration 2025-26 Wesleyan does not "negotiate" financial aid awards nor do we match financial aid awards offered by other institutions.”
+### `8d3831c2882119ed` Wesleyan University — appeals 2025-26 [new] (labeled_in_source)
+- source: https://www.wesleyan.edu/finaid/faqs-resources/faqs.html (sha256 3c4a8ab7fedd)
+- issues: stale_year_label:2025-26, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: professional_judgment ⟵ “If you have experienced a significant change in your financial circumstances, you may be eligible to have your financial aid adjusted through a professional judgment assessment.”
+### `c6d6029d847f1f05` Wesleyan University — appeals 2025-26 [new] (labeled_in_source)
+- source: https://www.wesleyan.edu/finaid/faqs-resources/faqs.html (sha256 3c4a8ab7fedd)
+- issues: stale_year_label:2025-26, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: sap_appeal ⟵ “They must meet the satisfactory academic progress requirement after one term of financial aid warning, or they must submit and have approved a satisfactory academic progress appeal.”
+  - sentence: sap_appeal ⟵ “Students who fail to meet financial aid satisfactory academic progress and who fail to have the appeal approved are not eligible to receive any assistance from the Federal Title IV programs or any state financial aid programs.”
+  - sentence: sap_appeal ⟵ “In general, three outcomes are possible when a student submits a financial aid appeal due to failure to meet satisfactory academic progress.”
+### `ca153b218cb06e60` Wesleyan University — appeals 2027-28 [new] (labeled_in_source)
+- source: https://www.wesleyan.edu/admission/affordability-and-aid/applying-for-aid.html (sha256 ced7615bdb2a)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Students are not eligible to receive any assistance from the Federal Title IV aid programs or any state aid programs if they fail to meet SAP standards, fail to submit an SAP appeal (if required), and/or fail to receive approval of a submitted SAP appeal.”
+### `eb4ce8b1a8e0de7b` Wesleyan University — appeals 2025-26 [new] (labeled_in_source)
+- source: https://www.wesleyan.edu/finaid/faqs-resources/faqs.html (sha256 3c4a8ab7fedd)
+- issues: stale_year_label:2025-26, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 6}
+  - sentence: need_based_special_circumstances ⟵ “US citizens/permanent residents, DACA/undocumented applicants: all documentation or letters of special circumstance should be sent directly to the CollegeBoard’s IDOC (Institutional Documentation Service).”
+  - sentence: need_based_special_circumstances ⟵ “However, Wesleyan recognizes that occasionally a family may experience a sudden and precipitous change in financial circumstances.”
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstances Extenuating Circumstances The Financial Aid Office recognizes that your family’s financial circumstances may have changed significantly as a result of the COVID-19 pandemic.”
+  - sentence: need_based_special_circumstances ⟵ “While these are not the only areas that warrant reconsideration, Wesleyan will only address special circumstances that affect a family's ability to contribute; not their willingness.”
+  - sentence: need_based_special_circumstances ⟵ “Items such as credit card debt, weddings, car/mortgage payments, etc. are not considered special circumstances that would be reviewed.”
+  - sentence: need_based_special_circumstances ⟵ “These circumstances could include the death of a relative, an injury or illness of the student, or other special circumstances.”
+### `8e6fdd8685fc65bd` Wesleyan University — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.wesleyan.edu/admission/affordability-and-aid/cost-of-attendance.html (sha256 acc3c6cf6901)
+- issues: conflicting_sources:https://www.wesleyan.edu/bls/tuition.html
+- checks: {"columns": 1, "rows": 7}
+  - column:Tuition: 75916 ⟵ “Tuition | $75,916”
+  - column:Student Activity Fee: 404 ⟵ “Student Activity Fee | $404”
+  - column:New Student Matriculation Fee: 300 ⟵ “New Student Matriculation Fee | $300”
+  - column:Green Fund (optional)*: 50 ⟵ “Green Fund (optional)* | $50”
+  - column:Food and Housing: 21660 ⟵ “Food and Housing | $21,660”
+  - column:*Books and Supplies / Personal Expenses: 2750 ⟵ “*Books and Supplies / Personal Expenses | $2,750”
+  - column:**Direct Loan Origination Fees: 44 ⟵ “**Direct Loan Origination Fees | $44”
+### `bbc13819c6046a64` Wesleyan University — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.wesleyan.edu/bls/tuition.html (sha256 de618071fb9e)
+- issues: conflicting_sources:https://www.wesleyan.edu/admission/affordability-and-aid/cost-of-attendance.html
+- checks: {"columns": 1, "rows": 6}
+  - column:Tuition (2026 - 2027 Academic Year: 4745 ⟵ “Tuition (2026 - 2027 Academic Year | $4,745 | Cost per credit for Wesleyan undergraduate courses. GLS courses are worth .75 Wesleyan credits; the tuition is therefore 75% of that, or $3,558.75.”
+  - column:Tuition (2025 - 2026 Academic Year): 4528 ⟵ “Tuition (2025 - 2026 Academic Year) | $4,528 | Cost per credit for Wesleyan undergraduate courses. GLS courses are worth .75 Wesleyan credits; the tuition is therefore 75% of that, or $3,396.”
+  - column:Matriculation Fee: 100 ⟵ “Matriculation Fee | $100 | A one-time fee paid at time of acceptance of admission (not refundable)”
+  - column:Student Activity Fee (2026-2027 Academic Year): 202 ⟵ “Student Activity Fee (2026-2027 Academic Year) | $202 | Each fall or spring term in which a student enrolls. This fee will allow students to participate in extracurricular activities on campus (clubs, theater groups, etc.). BLS students hav”
+  - column:Course registration fee: 100 ⟵ “Course registration fee | $100 | Each term in which a student enrolls (not refundable)”
+  - column:Green Fund Fee (2026 - 2027 Academic Year): 25 ⟵ “Green Fund Fee (2026 - 2027 Academic Year) | $25 | Each fall or spring term in which a student enrolls. An opt-out fee set by students to fund sustainability projects on campus (Opt out link available in WesPortal through the last day of dr”
+### `f893093dd7910db3` Wesleyan University — credit_policies 2023-24 · policy_kind=IB [new] (labeled_in_source)
+- source: https://catalog.wesleyan.edu/pdf/Full%20PDF.pdf (sha256 9dc776c40d8a)
+- issues: stale_year_label:2023-24
+- checks: {"distinct_exams": 10, "equivalencies": 24, "rows_without_score": 0}
+  - equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY|1]:  ⟵ “have always been central to the discipline of anthropology.                              ANTH295C            Theory in Anthropology: Anthropology of                  1”
+  - equivalencies[IB-CHEMISTRY|1]:  ⟵ “• A strong background in chemistry is recommended for students planning to           BIOL/ENVS233/      Geobiology                                             1”
+  - equivalencies[IB-BIOLOGY|1]:  ⟵ “introductory biology, physics, and math (such as calculus or statistics) and       BIOL318            Nature and Nurture: The Interplay of Genes and         1”
+  - equivalencies[IB-BIOLOGY|1]:  ⟵ “• For double-major in Biology and Neuroscience and Behavior, NS&B/BIOL213            BIOL368/ENVS369/ Ecological Resilience: The Good, the Bad, and            1”
+  - equivalencies[IB-LATIN|1]:  ⟵ “Students are not expected to have any background in Latin or Greek in high             LAT331               Vergil: AENEID 2                                                1”
+  - equivalencies[IB-HISTORY|1]:  ⟵ “HIST215/MDST225 European Intellectual History to the                            1   ASTR430            Seminar on Astronomical Pedagogy *                           .25”
+  - equivalencies[IB-FILM|1]:  ⟵ “• Senior film board participation                                                     FILM305              Sophomore Colloquium for Declaring Majors                       1”
+  - equivalencies[IB-PHILOSOPHY|1]:  ⟵ “philosophy, to select a study abroad program, and to design a capstone project             COL228              Virtue and Vice in History, Literature, and               1”
+  - equivalencies[IB-HISTORY|1]:  ⟵ “methods, dance ethnography, history, and techniques that embrace diverse               DANC376              The Artist in the Community: Civic Engagement              1”
+  - equivalencies[IB-COMPUTER-SCIENCE|1]:  ⟵ “The Major in Computer Science (COMP) gives students an understanding of               MATH228              Discrete Mathematics                                        1”
+  - equivalencies[IB-MUSIC|1]:  ⟵ “An ongoing departmental colloquium is intended for the entire music                    MUSC212            South Indian Music: Solkattu                        1”
+  - equivalencies[IB-MUSIC|1]:  ⟵ “music.                                                                                 MUSC221            Live-Electronics for Composition, Improvisation,    1”
+  - equivalencies[IB-MUSIC|1]:  ⟵ “many different cultures; a music-instrument manufacturing workshop; a 45-              MUSC225            Sound Systems and Chamber Electronics               1”
+  - equivalencies[IB-FILM|1]:  ⟵ “Video to Film to Digital Media (FYS)                              MUSC245            Music in the United States in the Nineteenth        1”
+  - equivalencies[IB-MUSIC|1]:  ⟵ “Music and Influence from the 1840s to the                         MUSC246            The Symphony: Evolution of Genre                    1”
+  - equivalencies[IB-MUSIC|1]:  ⟵ “Trinidad and Tobago Music (FYS)                                   MUSC250            Film and Folk Music of India                        1”
+  - equivalencies[IB-MUSIC|1]:  ⟵ “Music Theory and Composition                                                           MUSC261            Music and Modernity in China, Japan, and Korea      1”
+  - equivalencies[IB-MUSIC|1]:  ⟵ “Music Performance                                                          MUSC507              Practicing Ethnomusicology                                    1”
+  - equivalencies[IB-MUSIC|1]:  ⟵ “music, cinema, art, dance, and religion of this region. Students are expected to          RELI239             Modern Shamanism: Ecstasy and Ancestors in                     1”
+  - equivalencies[IB-FILM|1]:  ⟵ “Voices in Theater and Film                                       THEA433           Mainstage Production - Performance Practice               1”
+  - equivalencies[IB-BUSINESS-MANAGEMENT|1]:  ⟵ “demonstrating how film exists at the intersection of business, technology, and            FILM319              Television Storytelling: The Conditions of                   1”
+  - equivalencies[IB-FILM|1]:  ⟵ “film production.                                                                          FILM322              Alfred Hitchcock                                             1”
+  - equivalencies[IB-FILM|1]:  ⟵ “In accordance with the University guidelines, students minoring in film studies           FILM342              Cinema of Adventure and Action                               1”
+  - equivalencies[IB-HISTORY|1]:  ⟵ “• Two History courses 300 level or higher                                             CSPL128              Introduction to Human Rights Standards                       1”
+
+## Re-verification of existing records (0)
+
+
+## Statewide sources
+
+Pages fetched: 12; pages by category: admissions_tests 1, clep_credit 1, merit_scholarships 1, residency 1, transfer_credit 2, tuition_fees 4
+
+## Blocked by the site (every request refused; needs the browser fallback)
+
+- University of Saint Joseph (`ipeds-130314`)
+
+## Leads: official pages found with no extracted record
+
+- Albertus Magnus College: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, clep_credit, ib_credit, statewide_articulation, degree_requirements
+- Central Connecticut State University: tuition_fees, cost_of_attendance, admissions_tests, common_data_set, merit_scholarships, dual_enrollment, transfer_credit, residency, degree_requirements
+- Charter Oak State College: admissions_tests, ap_credit, residency, degree_requirements
+- Connecticut College: cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, ib_credit, dual_enrollment, transfer_credit
+- Connecticut State Community College: admissions_tests, merit_scholarships, clep_credit, dual_enrollment, transfer_credit, residency, degree_requirements, aid_appeals
+- Eastern Connecticut State University: admissions_tests, merit_scholarships, transfer_credit, residency, degree_requirements
+- Fairfield University: cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, ib_credit, residency, degree_requirements
+- Goodwin University: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, statewide_articulation, degree_requirements, aid_appeals
+- Holy Apostles College and Seminary: tuition_fees, cost_of_attendance, admissions_tests, dual_enrollment, transfer_credit
+- Mitchell College: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, clep_credit, ib_credit, dual_enrollment, transfer_credit, degree_requirements
+- Quinnipiac University: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, residency
+- Sacred Heart University: cost_of_attendance, admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, residency, degree_requirements
+- Southern Connecticut State University: cost_of_attendance, admissions_tests, merit_scholarships, clep_credit, dual_enrollment, transfer_credit, residency, degree_requirements
+- Trinity College: admissions_tests, merit_scholarships, ib_credit, dual_enrollment, transfer_credit, degree_requirements
+- United States Coast Guard Academy: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, transfer_credit
+- University of Bridgeport: admissions_tests, transfer_credit, statewide_articulation, degree_requirements
+- University of Connecticut: admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements
+- University of Connecticut-Avery Point: admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements
+- University of Connecticut-Hartford Campus: admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements
+- University of Connecticut-Stamford: admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements
+- University of Connecticut-Waterbury Campus: admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements
+- University of Hartford: cost_of_attendance, admissions_tests, merit_scholarships, transfer_credit, residency, degree_requirements
+- University of New Haven: admissions_tests, merit_scholarships, clep_credit, dual_enrollment, statewide_articulation, degree_requirements, aid_appeals
+- Wesleyan University: cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, dual_enrollment, transfer_credit, degree_requirements
+- Western Connecticut State University: tuition_fees, cost_of_attendance, admissions_tests, dual_enrollment, statewide_articulation, residency, degree_requirements, aid_appeals
+- Yale University: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, ib_credit, transfer_credit
