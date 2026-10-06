@@ -240,6 +240,13 @@ def main():
     workers = max(1, int(os.environ.get('MUTATION_WORKERS') or os.cpu_count() or 1))
     # Parallel suites share the CPU, so each one runs slower; the per-mutant budget scales with the worker count.
     TIMEOUT = int(os.environ.get('MUTATION_TIMEOUT') or 90 * workers)
+    # CI shards the list across parallel jobs (MUTATION_SHARD=i/n, 1-based); every mutant runs in exactly one shard.
+    shard = os.environ.get('MUTATION_SHARD')
+    muts = MUTS
+    if shard:
+        i, n = (int(x) for x in shard.split('/'))
+        assert 1 <= i <= n, shard
+        muts = MUTS[i - 1::n]
     tmp = tempfile.mkdtemp(prefix='mutation-')
     skip = shutil.ignore_patterns('.git', 'node_modules', '__pycache__', 'runs')
     roots = queue.Queue()
@@ -254,7 +261,7 @@ def main():
     failed = False
     try:
         with concurrent.futures.ThreadPoolExecutor(workers) as pool:
-            for (f, old, _), verdict in pool.map(job, MUTS):
+            for (f, old, _), verdict in pool.map(job, muts):
                 print(verdict, f, old[:60], flush=True)
                 if verdict != 'KILLED ':
                     failed = True
