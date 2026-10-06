@@ -66,7 +66,8 @@ def review(state, run, today=None):
     # entry-path variants of one degree ('Architecture (Foundation Unit) – BArch' / '(Summer Design)') are held together
     from .extract import AWARDS
     drop = lambda m: '' if not AWARDS.fullmatch(m.group(1).strip()) else m.group(0)  # keep '(BS)', drop '(Summer Design)'
-    base = lambda c: re.sub(r'\s+', ' ', re.sub(r'\s*\(([^()]*)\)', drop, c['record'].get('program_name', ''))).strip().lower()
+    plain = lambda c: re.sub(r'\s+', ' ', re.sub(r'\s*\(([^()]*)\)', drop, c['record'].get('program_name', ''))).strip()
+    base = lambda c: plain(c).lower()  # the variant-free name is approved; '(Jeffco 2+SLU)' style variants are held
     variants = defaultdict(set)
     for c in cands:
         if c['domain'] == 'academic_programs': variants[(c['institution_key'], base(c))].add(c['record'].get('program_name'))
@@ -78,7 +79,7 @@ def review(state, run, today=None):
                'not_verbatim' if verify.get(c['candidate_id']) else 'not_bachelor' if c['record'].get('credential_level') != 'bachelor' else
                'option_name' if OPTION.search(c['record'].get('program_name', '')) else
                'combined_program' if COMBINED.search(c['record'].get('program_name', '')) else
-               'entry_path_variant' if len(variants[(c['institution_key'], base(c))]) > 1 else
+               'entry_path_variant' if len(variants[(c['institution_key'], base(c))]) > 1 and plain(c) != c['record'].get('program_name', '').strip() else
                'not_current_year' if not current_year(c, today_year) else 'duplicate' if k in seen or u in seen_url else None)
         if why: held[why] += 1; continue
         seen.add(k); seen_url.add(u); program_keys[c['institution_key']].add(k[1])

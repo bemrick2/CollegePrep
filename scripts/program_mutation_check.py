@@ -58,7 +58,8 @@ MUTS = [
     ('programs/crawl.py', "            if re.search(r'(^|-)(minor|certificate|cert|ms|ma|mba|mfa|med|phd|edd|dnp|pmc|aas|as|aa)(-|$)', seg): continue", "            pass"),
     ('programs/crawl.py', "            if not is_program(h) or re.search(r'(^|/)(grad|graduate|graduate-school)(/|$)', urlsplit(h).path.lower()): continue", "            pass"),
     ('programs/extract.py', "    hit = next((n for n in names if n and norm(re.sub(r'(\\s*\\([^()]{1,12}\\))+\\s*$', '', n)) == norm(base)), None)", "    hit = next((n for n in names if n and norm(n).startswith(norm(base))), None)"),
-    ('programs/autoreview.py', "               'entry_path_variant' if len(variants[(c['institution_key'], base(c))]) > 1 else", ""),
+    ('programs/autoreview.py', "               'entry_path_variant' if len(variants[(c['institution_key'], base(c))]) > 1 and plain(c) != c['record'].get('program_name', '').strip() else", ""),
+    ('programs/autoreview.py', " and plain(c) != c['record'].get('program_name', '').strip() else", " else"),
     ('programs/extract.py', "    if not base or base == printed or OPTION_NAME.search(printed): return []", "    pass"),
 ]
 
