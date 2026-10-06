@@ -74,5 +74,5 @@ still copy the link.
 
 - The migration `20261006120000_household_invitation_email.sql` is live, and the live migration history records
   it under that version. Future schema changes go through the "Deploy Supabase migrations" workflow on `main`.
-- The function `send-household-invitation` is deployed with JWT verification on. Redeploy it with
-  `supabase functions deploy send-household-invitation`.
+- The function `send-household-invitation` keeps JWT verification on. The "Deploy Supabase edge functions"
+  workflow deploys it when `supabase/functions/**` changes on `main`.

@@ -45,5 +45,6 @@ jobs:
           supabase functions deploy billing-plans --project-ref "$PROJECT_REF"
           supabase functions deploy billing-checkout --project-ref "$PROJECT_REF"
           supabase functions deploy billing-portal --project-ref "$PROJECT_REF"
+          supabase functions deploy send-household-invitation --project-ref "$PROJECT_REF"
           # Stripe authenticates the webhook with its signature, not a Supabase JWT.
           supabase functions deploy stripe-webhook --project-ref "$PROJECT_REF" --no-verify-jwt
