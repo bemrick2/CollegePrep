@@ -234,6 +234,10 @@ def apply_award(aw, folders, archive):
 
 def apply_catalog(cat, folders, ev, archive):
     year = cat.get('academic_year', '2026-27')
+    old = _records(folders[cat['institution_key']], 'program_catalogs', year)
+    if str(cat.get('reason', '')).startswith('Standing review') and any(
+            'Catalog-count review' in (r.get('notes') or '') or 'Standing review' not in (r.get('notes') or '') for r in (old or {}).get('records', [])):
+        return 0  # a mechanical count never replaces a reviewed one
     status = cat.get('verification_status', 'verified')
     if status not in ('verified', 'partially_verified'): raise ValueError('catalog status must be verified or partially_verified')
     rec = {'institution_key': cat['institution_key'], 'academic_year': year, 'catalog_url': cat['catalog_url'],
