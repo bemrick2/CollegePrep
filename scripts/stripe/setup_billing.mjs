@@ -4,7 +4,7 @@
 //
 //   export STRIPE_SECRET_KEY=sk_test_...        # test mode first; later sk_live_... for live
 //   node scripts/stripe/setup_billing.mjs \
-//     --monthly-cents 1499 --annual-cents 11900 --currency usd \
+//     --monthly-cents 1999 --annual-cents 14900 --currency usd \
 //     --site-url https://YOUR-SITE \
 //     --webhook-url https://<project-ref>.supabase.co/functions/v1/stripe-webhook
 //
@@ -76,7 +76,7 @@ const product =
   found.data[0] ??
   (await api('POST', 'products', {
     name: 'Prep & Price Family Plan',
-    description: 'ACT/SAT practice and college cost planning for one household (parents and students).',
+    description: 'Adaptive ACT/SAT prep and progress tools for every student in one household. Core college planning remains free.',
     metadata: { pp_plan: 'family' },
   }))
 console.log(`Product ${product.id}`)
