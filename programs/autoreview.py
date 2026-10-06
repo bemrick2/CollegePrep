@@ -64,7 +64,9 @@ def review(state, run, today=None):
     program_keys = defaultdict(set)
     seen, seen_url = set(), set()
     # entry-path variants of one degree ('Architecture (Foundation Unit) – BArch' / '(Summer Design)') are held together
-    base = lambda c: re.sub(r'\s+', ' ', re.sub(r'\s*\([^()]*\)', '', c['record'].get('program_name', ''))).strip().lower()
+    from .extract import AWARDS
+    drop = lambda m: '' if not AWARDS.fullmatch(m.group(1).strip()) else m.group(0)  # keep '(BS)', drop '(Summer Design)'
+    base = lambda c: re.sub(r'\s+', ' ', re.sub(r'\s*\(([^()]*)\)', drop, c['record'].get('program_name', ''))).strip().lower()
     variants = defaultdict(set)
     for c in cands:
         if c['domain'] == 'academic_programs': variants[(c['institution_key'], base(c))].add(c['record'].get('program_name'))

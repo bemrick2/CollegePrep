@@ -1092,12 +1092,13 @@ class AutoReviewTests(unittest.TestCase):
                  self.prog('old', 'Art (BA)', year='2025-26'), self.prog('bad', 'Music (BA)'), self.prog('dup', 'Biology (BA)', key='ok'),
                  self.req('g1', 'ok'), self.req('g2', 'ok', issues=['indented_rows_without_rule']), self.req('g3', 'ok', ext='smartcatalog_program/v1'),
                  self.req('g4', 'iss'), self.req('p1', 'ok', kind='program_plan', ext='courseleaf_plan/v1'),
-                 self.prog('v1', 'Architecture (Foundation Unit) – BArch'), self.prog('v2', 'Architecture (Summer Design) – BArch')]
+                 self.prog('v1', 'Architecture (Foundation Unit) – BArch'), self.prog('v2', 'Architecture (Summer Design) – BArch'),
+                 self.prog('ba', 'Biology (BA)'), self.prog('bs', 'Biology (BS)')]
         d = self.run_dir(cands, verify={'bad': ['program_name not verbatim']})
         old = A.catalog_records; A.catalog_records = lambda *a: []  # catalog records need a targets file; tested separately
         try: approve, cats, held = A.review('ZZ', d, today=date(2026, 10, 6))
         finally: A.catalog_records = old
-        self.assertEqual({a['candidate_id'] for a in approve}, {'ok', 'g1', 'p1'})
+        self.assertEqual({a['candidate_id'] for a in approve}, {'ok', 'g1', 'p1', 'ba', 'bs'})
         self.assertEqual(held['issues'], 1); self.assertEqual(held['option_name'], 1); self.assertEqual(held['combined_program'], 1)
         self.assertEqual(held['entry_path_variant'], 2)
         self.assertEqual(held['not_verbatim'], 1); self.assertEqual(held['duplicate'], 1); self.assertEqual(held['req_program_not_approved'], 1)
