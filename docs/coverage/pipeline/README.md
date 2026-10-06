@@ -1443,6 +1443,43 @@ Institutions in scope: **56** · crawled: **52** · blocked by site: **4** · ru
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-238193`, `ipeds-240107`, `ipeds-240198`, `ipeds-240365`
 
+## WV — 2026-27
+
+Institutions in scope: **28** · crawled: **21** · blocked by site: **7** · run: `pipeline/runs/WV/2026-10-06`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 0 (0%) | 0 | 15 (54%) | 21 (75%) | 0 | 7 |
+| cost_of_attendance | 0 (0%) | 0 | 9 (32%) | 21 (75%) | 0 | 7 |
+| admissions_tests | 0 (0%) | 0 | 0 (0%) | 20 (71%) | 1 | 7 |
+| common_data_set | 0 (0%) | 0 | 0 (0%) | 6 (21%) | 15 | 7 |
+| merit_scholarships | 0 (0%) | 0 | 3 (11%) | 21 (75%) | 0 | 7 |
+| ap_credit | 0 (0%) | 0 | 4 (14%) | 10 (36%) | 11 | 7 |
+| clep_credit | 0 (0%) | 0 | 1 (4%) | 3 (11%) | 18 | 7 |
+| ib_credit | 0 (0%) | 0 | 2 (7%) | 3 (11%) | 18 | 7 |
+| dual_enrollment | 0 (0%) | 0 | 1 (4%) | 14 (50%) | 7 | 7 |
+| transfer_credit | 0 (0%) | 0 | 9 (32%) | 21 (75%) | 0 | 7 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 9 (32%) | 12 | 7 |
+| residency | 0 (0%) | 0 | 0 (0%) | 18 (64%) | 3 | 7 |
+| degree_requirements | 0 (0%) | 0 | 1 (4%) | 18 (64%) | 3 | 7 |
+| aid_appeals | 0 (0%) | 0 | 15 (54%) | 19 (68%) | 2 | 7 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 5 |
+| blocked requests | 182 |
+| candidates | 332 |
+| conflicts | 37 |
+| documents | 1135 |
+| extraction failures | 0 |
+| fetch errors | 199 |
+| fetches | 1516 |
+| ready | 169 |
+| semantic review | 63 |
+| stale sources | 225 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-237136`, `ipeds-237181`, `ipeds-237385`, `ipeds-237437`, `ipeds-446774`, `ipeds-447582`, `ipeds-475398`
+
 ## WY — 2026-27
 
 Institutions in scope: **8** · crawled: **8** · blocked by site: **0** · run: `pipeline/runs/WY/2026-10-04`
