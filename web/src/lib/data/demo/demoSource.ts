@@ -1,5 +1,5 @@
-import { INVITE_TTL_HOURS } from '../../invites'
-import type { DataSource, InvitationSummary, InviteSendResult } from '../source'
+import { INVITE_TTL_HOURS, formatInviteCode } from '../../invites'
+import type { DataSource, InvitationSummary, InviteSendResult, StudentInvitation } from '../source'
 import { DataError } from '../source'
 import type {
   AttemptRecord,
@@ -64,6 +64,7 @@ export function toPublic(q: FixtureQuestion): PublicQuestion {
   }
 }
 
+const DEMO_ALPHABET = '23456789ABCDEFGHJKMNPQRSTWXYZ'
 const delay = <T,>(v: T): Promise<T> => new Promise((r) => setTimeout(() => r(v), 0))
 
 export class DemoSource implements DataSource {
@@ -241,11 +242,14 @@ export class DemoSource implements DataSource {
   }
 
   async createInvitation(householdId: string, role: 'guardian' | 'student', studentId?: string) {
-    const code = Array.from({ length: 8 }, () => 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'[Math.floor(Math.random() * 31)]).join('')
+    // Demo link tokens never look like live ones (64 hex), so a demo link can't switch a browser to live.
+    const code = `demo_${Array.from({ length: 24 }, () => 'abcdefghjkmnpqrstwxyz23456789'[Math.floor(Math.random() * 29)]).join('')}`
+    const short = Array.from({ length: 10 }, () => DEMO_ALPHABET[Math.floor(Math.random() * DEMO_ALPHABET.length)]).join('')
     this.s.invitations.push({
       id: uid(),
       created_at: new Date().toISOString(),
       code,
+      short_code: short,
       household_id: householdId,
       role,
       student_id: studentId ?? null,
@@ -259,7 +263,9 @@ export class DemoSource implements DataSource {
   async acceptInvitation(code: string) {
     const me = this.viewerId()
     // Same rule order and messages as accept_household_invitation, so the UI can tell them apart.
-    const inv = this.s.invitations.find((i) => i.code === code.trim().toUpperCase())
+    const raw = code.trim()
+    const norm = raw.toUpperCase().replace(/[^A-Z0-9]/g, '')
+    const inv = this.s.invitations.find((i) => i.code === raw || (i.short_code != null && i.short_code === norm))
     if (!inv) throw new DataError('Invalid invitation code', 'invalid')
     if (inv.accepted_by) throw new DataError('Invitation has already been used', 'invalid')
     if (inv.revoked_at) throw new DataError('Invitation has been revoked', 'invalid')
@@ -305,20 +311,24 @@ export class DemoSource implements DataSource {
   }
 
   /** Demo mode never sends email; it creates (replacing) the invitation so the code can be copied. */
-  async sendStudentInvitation(input: { householdId: string; studentId: string; email: string; code?: string }): Promise<InviteSendResult> {
+  async sendStudentInvitation(input: { householdId: string; studentId: string; email: string; code?: string; inviteCode?: string }): Promise<InviteSendResult> {
     const email = input.email.trim().toLowerCase()
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) throw new DataError('Enter a valid email address', 'invalid')
-    let code = input.code
-    if (!code) {
-      const now = new Date().toISOString()
-      for (const i of this.s.invitations)
-        if (i.household_id === input.householdId && i.student_id === input.studentId && !i.accepted_by && !i.revoked_at && i.expires_at > now) i.revoked_at = now
-      code = await this.createInvitation(input.householdId, 'student', input.studentId)
-    }
-    const inv = this.s.invitations.find((i) => i.code === code)
-    if (inv) inv.recipient_email = email
+    const inv = input.code ? this.s.invitations.find((i) => i.code === input.code) : null
+    const created = inv ? null : await this.createStudentInvitation(input.householdId, input.studentId)
+    const row = inv ?? this.s.invitations.find((i) => i.code === created!.code)!
+    row.recipient_email = email
     this.commit()
-    return { code, invitationId: inv?.id, expiresAt: inv?.expires_at, emailed: false, reason: 'demo' }
+    return { code: row.code, inviteCode: formatInviteCode(row.short_code ?? ''), invitationId: row.id, expiresAt: row.expires_at, emailed: false, reason: 'demo' }
+  }
+
+  async createStudentInvitation(householdId: string, studentId: string): Promise<StudentInvitation> {
+    const now = new Date().toISOString()
+    for (const i of this.s.invitations)
+      if (i.household_id === householdId && i.student_id === studentId && !i.accepted_by && !i.revoked_at && i.expires_at > now) i.revoked_at = now
+    const code = await this.createInvitation(householdId, 'student', studentId)
+    const row = this.s.invitations.find((i) => i.code === code)!
+    return { code, inviteCode: formatInviteCode(row.short_code!), invitationId: row.id!, expiresAt: row.expires_at }
   }
 
   async listInvitations(householdId: string): Promise<InvitationSummary[]> {

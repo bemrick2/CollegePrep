@@ -36,6 +36,8 @@ export function StudentInvite({
   const { source, mode } = useApp()
   const [email, setEmail] = useState('')
   const [code, setCode] = useState<string | null>(null)
+  const [inviteCode, setInviteCode] = useState<string | null>(null)
+  const [expiresAt, setExpiresAt] = useState<string | null>(null)
   const [currentId, setCurrentId] = useState<string | null>(null)
   const [busy, setBusy] = useState(false)
   const [result, setResult] = useState<{ kind: 'sent' | 'failed' | 'demo'; to: string; detail?: string } | null>(null)
@@ -69,8 +71,10 @@ export function StudentInvite({
     setResult(null)
     const to = email.trim()
     try {
-      const r = await source.sendStudentInvitation({ householdId, studentId: student.id, email: to, code: resendCode })
+      const r = await source.sendStudentInvitation({ householdId, studentId: student.id, email: to, code: resendCode, inviteCode: resendCode ? (inviteCode ?? undefined) : undefined })
       if (r.code) setCode(r.code)
+      if (r.inviteCode) setInviteCode(r.inviteCode)
+      if (r.expiresAt) setExpiresAt(r.expiresAt)
       if (r.invitationId) setCurrentId(r.invitationId)
       if (r.emailed) setResult({ kind: 'sent', to })
       else if (r.reason === 'demo') setResult({ kind: 'demo', to })
@@ -88,9 +92,12 @@ export function StudentInvite({
     setError(null)
     setResult(null)
     try {
-      // A new link replaces any outstanding one, as an emailed replacement does.
-      for (const i of invites) if (!i.accepted_at && !i.revoked_at && i.expires_at > new Date().toISOString()) await source.revokeInvitation(i.id)
-      setCode(await source.createInvitation(householdId, 'student', student.id))
+      // A new invitation replaces any outstanding one (server-side), as an emailed replacement does.
+      const inv = await source.createStudentInvitation(householdId, student.id)
+      setCode(inv.code)
+      setInviteCode(inv.inviteCode)
+      setExpiresAt(inv.expiresAt)
+      setCurrentId(inv.invitationId)
       changed()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Could not create the invitation')
@@ -104,6 +111,8 @@ export function StudentInvite({
     try {
       await source.revokeInvitation(id)
       setCode(null)
+      setInviteCode(null)
+      setExpiresAt(null)
       setCurrentId(null)
       setResult(null)
       changed()
@@ -156,7 +165,7 @@ export function StudentInvite({
 
       {code ? (
         <>
-          <InviteCode code={code} />
+          <InviteCode token={code} inviteCode={inviteCode} expiresAt={expiresAt} />
           {mode === 'demo' && onTryDemo && (
             <Button variant="secondary" onClick={() => onTryDemo(code)}>
               Try it as {student.display_name} (demo)

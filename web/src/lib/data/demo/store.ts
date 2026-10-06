@@ -21,6 +21,7 @@ export interface DemoInvitation {
   expires_at: string
   accepted_by: string | null
   id?: string
+  short_code?: string
   created_at?: string
   accepted_at?: string | null
   recipient_email?: string | null

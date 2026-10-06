@@ -45,7 +45,7 @@ export function Household() {
 
   const tryAsStudent = async (code: string) => {
     await switchDemoPersona('student')
-    navigate(`/join?code=${code}`)
+    navigate(`/join#t=${encodeURIComponent(code)}`)
   }
 
   return (
@@ -122,7 +122,7 @@ export function Household() {
           </ul>
           {me?.can_manage_members &&
             (codes.guardian ? (
-              <InviteCode code={codes.guardian} />
+              <InviteCode token={codes.guardian} />
             ) : (
               <Button size="sm" variant="secondary" onClick={() => void invite('guardian', 'guardian')}>
                 Invite a guardian

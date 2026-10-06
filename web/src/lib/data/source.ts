@@ -49,7 +49,9 @@ export interface DataSource {
   acceptInvitation(code: string): Promise<string>
   /** Create (replacing that student's outstanding invite) or resend a student invitation by email, server-side.
    *  Email failure never invalidates the invitation: the code comes back so it can be copied. */
-  sendStudentInvitation(input: { householdId: string; studentId: string; email: string; code?: string }): Promise<InviteSendResult>
+  sendStudentInvitation(input: { householdId: string; studentId: string; email: string; code?: string; inviteCode?: string }): Promise<InviteSendResult>
+  /** A new student invitation (link token + invite code) without email; replaces that student's outstanding one. */
+  createStudentInvitation(householdId: string, studentId: string): Promise<StudentInvitation>
   /** Outstanding and past invitations of a household the viewer guards (never the code or its hash). */
   listInvitations(householdId: string): Promise<InvitationSummary[]>
   revokeInvitation(invitationId: string): Promise<void>
@@ -114,9 +116,19 @@ export class DataError extends Error {
   }
 }
 
+export interface StudentInvitation {
+  /** Link token: long, unguessable, only ever put in a link. */
+  code: string
+  /** Human invite code, XXXXX-XXXXX. */
+  inviteCode: string
+  invitationId: string
+  expiresAt: string
+}
+
 export interface InviteSendResult {
   /** Present when a new invitation was created (or the one being resent); absent if creation itself failed. */
   code?: string
+  inviteCode?: string
   invitationId?: string
   expiresAt?: string
   emailed: boolean

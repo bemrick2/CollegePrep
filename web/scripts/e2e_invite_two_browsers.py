@@ -18,8 +18,9 @@ Run by the project owner (it creates real accounts):
   E2E_INVITE_EMAIL=student-inbox@example.com   # optional: also send the invitation email
   python web/scripts/e2e_invite_two_browsers.py
 
-Requires email confirmation to be off for the project (or pre-confirmed accounts); the script stops with a clear
-message if sign-up asks to confirm by email. It prints the two emails so the backend rows can be checked.
+Email confirmation stays on. When sign-up asks to confirm, the script pauses and asks you to paste the confirmation
+link from that inbox (it opens it in the same browser context). It prints the two emails so the backend rows can be
+checked.
 """
 import asyncio
 import os
@@ -43,9 +44,16 @@ async def sign_up(page, name, email):
     try:
         await page.wait_for_url(lambda u: "/auth" not in u, timeout=15_000)
     except Exception:
-        if await page.get_by_text("Check your email to confirm").count():
-            sys.exit("Sign-up requires email confirmation; turn it off for staging or use pre-confirmed accounts.")
-        raise
+        if not await page.get_by_text("Check your email to confirm").count():
+            raise
+        link = input(f"Paste the confirmation link sent to {email}: ").strip()
+        await page.goto(link)
+        await page.wait_for_load_state()
+        if "/auth" in page.url:  # confirmed, now sign in
+            await page.get_by_label("Email").fill(email)
+            await page.get_by_label("Password").fill(PASSWORD)
+            await page.get_by_role("button", name="Sign in").click()
+            await page.wait_for_url(lambda u: "/auth" not in u, timeout=15_000)
 
 
 async def main():
@@ -80,14 +88,15 @@ async def main():
         else:
             await a.get_by_role("button", name="Copy invite link or code instead").click()
         code = (await a.get_by_test_id("invite-code").inner_text(timeout=20_000)).strip()
-        assert len(code) == 64, f"expected a 64-character live code, got {code!r}"
+        assert len(code) == 11 and code[5] == "-", f"expected an XXXXX-XXXXX invite code, got {code!r}"
         await expect(a.get_by_text("Valid for 72 hours")).to_be_visible()
 
-        # B: student on their own device, via the invite link
-        await b.goto(f"{BASE}/join?code={code}")
+        # B: student on their own device, typing the human invite code (the emailed button is the token link)
+        await b.goto(f"{BASE}/join")
         await b.wait_for_url("**/auth?**")
         await sign_up(b, "Riley", student_email)
-        await b.wait_for_url("**/join?code=*")
+        await b.goto(f"{BASE}/join")
+        await b.get_by_label("Invite code").fill(code.lower())
         await b.get_by_role("button", name="Join").click()
         await b.wait_for_url(lambda u: "/student" in u or "/onboarding/student" in u, timeout=20_000)
 
@@ -97,12 +106,13 @@ async def main():
         await expect(a.get_by_text("Not linked yet")).to_have_count(0)
 
         # B: the code cannot be used again
-        await b.goto(f"{BASE}/join?code={code}")
+        await b.goto(f"{BASE}/join")
+        await b.get_by_label("Invite code").fill(code)
         await b.get_by_role("button", name="Join").click()
         await expect(b.get_by_text("Invitation already used")).to_be_visible()
 
         # Invalid link
-        await b.goto(f"{BASE}/join?code={'0' * 64}")
+        await b.goto(f"{BASE}/join#t={'0' * 64}")
         await b.get_by_role("button", name="Join").click()
         await expect(b.get_by_text("Invalid invitation")).to_be_visible()
 

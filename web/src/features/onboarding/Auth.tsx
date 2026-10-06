@@ -22,7 +22,7 @@ export function Auth() {
   // Only an invite link may ask to come back here after sign-in; anything else goes home.
   const next = params.get('next')
   if (viewer) {
-    if (next && /^\/join(\?|$)/.test(next)) return <Navigate to={next} replace />
+    if (next === '/join' || (next && /^\/join(\?|$)/.test(next))) return <Navigate to={next} replace />
     const home = homePathFor(viewer, ctx)
     if (home === '/start' && role) return <Navigate to={`/onboarding/${role}`} replace />
     return <Navigate to={home} replace />

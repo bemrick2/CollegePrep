@@ -13,9 +13,15 @@ export function pickOrigin(requested: string | null | undefined, allowed: string
   return list.includes(want) ? want : list[0]!
 }
 
-export function inviteEmail(i: { origin: string; code: string; inviter: string | null; student: string | null; expiresAt: string }) {
+/** The link carries the token in the URL fragment, which browsers never send to a server (so it stays out of
+ *  hosting and CDN logs). */
+export function joinLink(origin: string, token: string) {
+  return `${origin}/join#t=${encodeURIComponent(token)}`
+}
+
+export function inviteEmail(i: { origin: string; token: string; inviteCode: string; inviter: string | null; student: string | null; expiresAt: string }) {
   const who = i.inviter?.trim() || 'Your parent or guardian'
-  const link = `${i.origin}/join?code=${encodeURIComponent(i.code)}`
+  const link = joinLink(i.origin, i.token)
   const until = new Date(i.expiresAt).toUTCString().replace(' GMT', ' UTC')
   const subject = `${who} invited you to Prep & Price`
   const hello = i.student?.trim() ? `Hi ${i.student.trim()},` : 'Hi,'
@@ -27,7 +33,7 @@ export function inviteEmail(i: { origin: string; code: string; inviter: string |
     '',
     `Join Prep & Price: ${link}`,
     '',
-    `Invite code: ${i.code}`,
+    `Invite code: ${i.inviteCode}`,
     `Valid for 72 hours (until ${until}). It works once.`,
     '',
     "You'll create your own account (or sign in) before joining. If you weren't expecting this, you can ignore it.",
@@ -39,7 +45,7 @@ export function inviteEmail(i: { origin: string; code: string; inviter: string |
 <tr><td style="padding-top:24px;font-size:16px;line-height:1.5">${esc(hello)}<br>${esc(who)} invited you to join your Prep &amp; Price family.</td></tr>
 <tr><td style="padding-top:24px"><a href="${esc(link)}" style="display:inline-block;background:#127a59;color:#ffffff;text-decoration:none;font-weight:700;font-size:16px;padding:14px 24px;border-radius:10px">Join Prep &amp; Price</a></td></tr>
 <tr><td style="padding-top:24px;font-size:14px;color:#44515d">Or enter this invite code on the Join page:</td></tr>
-<tr><td style="padding-top:6px;font-family:Menlo,Consolas,monospace;font-size:13px;word-break:break-all;color:#15212b">${esc(i.code)}</td></tr>
+<tr><td style="padding-top:6px;font-family:Menlo,Consolas,monospace;font-size:22px;font-weight:700;letter-spacing:2px;color:#15212b">Invite code: ${esc(i.inviteCode)}</td></tr>
 <tr><td style="padding-top:12px;font-size:14px;color:#44515d">Valid for 72 hours (until ${esc(until)}). It works once.</td></tr>
 <tr><td style="padding-top:24px;font-size:12px;color:#56626e">You'll create your own account (or sign in) before joining. If you weren't expecting this, you can ignore it.</td></tr>
 </table></td></tr></table></body></html>`

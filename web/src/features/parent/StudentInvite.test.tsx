@@ -62,6 +62,7 @@ describe('emailing a student invitation', () => {
     await user.type(screen.getByLabelText('Recipient email'), 'riley@example.com')
     await user.click(screen.getByRole('button', { name: 'Send invitation' }))
     const code = (await screen.findByTestId('invite-code')).textContent!
+    expect(code).toMatch(/^[2-9A-HJKMNP-TW-Z]{5}-[2-9A-HJKMNP-TW-Z]{5}$/)
     await user.click(await screen.findByRole('button', { name: 'Revoke this invitation' }))
     expect(await screen.findByRole('button', { name: /Copy invite link or code instead/ })).toBeInTheDocument()
     await expect(src.acceptInvitation(code)).rejects.toThrow(/revoked/)
@@ -70,13 +71,16 @@ describe('emailing a student invitation', () => {
 
 describe('invitation email content', () => {
   it('links to our own site with the code attached, shows the code and 72 hours, and escapes names', () => {
-    const code = 'f'.repeat(64)
-    const m = inviteEmail({ origin: 'https://app.test', code, inviter: '<b>Jordan</b>', student: 'Riley', expiresAt: '2026-10-09T10:00:00Z' })
-    expect(m.link).toBe(`https://app.test/join?code=${code}`)
-    expect(m.html).toContain(`href="https://app.test/join?code=${code}"`)
+    const token = 'f'.repeat(64)
+    const m = inviteEmail({ origin: 'https://app.test', token, inviteCode: 'K7M4P-9Q2TX', inviter: '<b>Jordan</b>', student: 'Riley', expiresAt: '2026-10-09T10:00:00Z' })
+    // The token rides in the fragment (never sent to a server); people only ever see the short code.
+    expect(m.link).toBe(`https://app.test/join#t=${token}`)
+    expect(m.html).toContain(`href="https://app.test/join#t=${token}"`)
+    expect(m.text.split(token)).toHaveLength(2) // only inside the link
+    expect(m.html).toContain('Invite code: K7M4P-9Q2TX')
     expect(m.html).toContain('Join Prep &amp; Price')
     expect(m.html).toContain('&lt;b&gt;Jordan&lt;/b&gt; invited you to join your Prep &amp; Price family.')
-    expect(m.text).toContain(`Invite code: ${code}`)
+    expect(m.text).toContain('Invite code: K7M4P-9Q2TX')
     expect(m.text).toMatch(/Valid for 72 hours/)
     expect(m.subject).toBe('<b>Jordan</b> invited you to Prep & Price')
   })

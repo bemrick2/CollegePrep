@@ -5,6 +5,7 @@ import { DemoSource, DEMO_PARENT, DEMO_STUDENT } from './data/demo/demoSource'
 import { LiveSource } from './data/live/liveSource'
 import { supabase } from './supabase'
 import { clearStore } from './data/demo/store'
+import { readPendingInvite } from './invites'
 
 type Mode = 'demo' | 'live'
 
@@ -183,6 +184,8 @@ export function homePathFor(viewer: Viewer | null, ctx: HouseholdContext | null)
   if (!viewer) return '/'
   if (ctx?.myStudent) return '/student'
   if (ctx?.memberships.some((m) => m.role === 'guardian')) return '/parent'
+  // A student who opened an invite link, then signed up and confirmed by email, comes back to joining.
+  if (readPendingInvite()) return '/join'
   return '/start'
 }
 

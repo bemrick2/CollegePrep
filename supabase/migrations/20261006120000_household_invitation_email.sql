@@ -1,39 +1,91 @@
--- Email delivery for student invitations, plus revoke and replace.
+-- Student invitations: email delivery, a human invite code, revoke and replace.
 --
--- The invitation code is still generated and hashed by create_household_invitation (single use, 72 hours by
--- default, only the SHA-256 digest stored). This adds:
---   * recipient_email: who the parent chose to email. Stored on the invitation only; never copied to the student.
---   * revoked_at/revoked_by: a guardian can cancel an outstanding invitation; accepting a revoked one fails.
---   * email_send_count/last_emailed_at: bounds resends so the sender can't be used to spam an address.
---   * create_student_invitation: create (and, by default, replace earlier outstanding invitations for the same
---     student) in one call, as the signed-in guardian, so the existing permission checks apply unchanged.
---   * prepare_invitation_email: the server-side email function calls this, as the guardian, to check the code is
---     theirs and still usable and to record the send. It returns what the email needs, never the hash.
---   * revoke_household_invitation.
--- Nothing here grants a student or a recipient anything; the email only carries the link and code.
+-- Each student invitation now carries two credentials, both stored only as digests:
+--   * the link token (existing code_hash): 64 hex characters, 244 random bits, used by the emailed
+--     "Join Prep & Price" link and never shown to people;
+--   * the invite code (new short_code_hash): 10 characters from a 29-character unambiguous alphabet (about 48 bits), shown as XXXXX-XXXXX,
+--     case-insensitive. Its digest is keyed with a server-only pepper, and manual attempts are rate-limited per
+--     account, so the shorter code can't be guessed online or reversed from a leaked digest table alone.
+-- Both are single-use (one invitation row) and expire with it (72 hours by default).
+--
+-- Also added:
+--   * recipient_email: who the parent chose to email. Kept on the invitation only, never copied to the student.
+--   * revoked_at/revoked_by: a guardian can cancel an outstanding invitation; a replacement cancels the old one.
+--   * email_send_count/last_emailed_at: bound resends so the sender can't be used to spam an address.
+--   * redeem_household_invitation: the one entry point the app uses to join. It returns an outcome
+--     (joined / invalid / expired / used / revoked / rate_limited) rather than raising for those, so failed
+--     guesses are recorded and counted.
+-- Nothing here grants a student or an email recipient anything; the email only carries the link and the code.
 
 alter table public.household_invitations
+  add column short_code_hash text unique check (short_code_hash is null or short_code_hash ~ '^[0-9a-f]{64}$'),
   add column recipient_email text check (recipient_email is null or (length(recipient_email) <= 320 and recipient_email ~ '^[^@\s]+@[^@\s]+\.[^@\s]+$')),
   add column revoked_at timestamptz,
   add column revoked_by uuid references auth.users(id) on delete set null,
   add column email_send_count integer not null default 0 check (email_send_count >= 0),
   add column last_emailed_at timestamptz;
 
+-- short_code_hash stays unreadable to clients, like code_hash.
 grant select (recipient_email, revoked_at, last_emailed_at) on public.household_invitations to authenticated;
 
--- Same rules and order as before, with one addition: a revoked invitation is refused.
-create or replace function public.accept_household_invitation(p_code text) returns uuid
+-- Server-only pepper for invite-code digests. No client role can read it.
+create table public.invitation_code_pepper (
+  id boolean primary key default true check (id),
+  pepper bytea not null
+);
+alter table public.invitation_code_pepper enable row level security;
+revoke all on public.invitation_code_pepper from public, anon, authenticated;
+insert into public.invitation_code_pepper(pepper)
+values (decode(replace(gen_random_uuid()::text || gen_random_uuid()::text, '-', ''), 'hex'));
+
+-- Failed manual invite-code attempts, per account, for rate limiting. Not readable by clients.
+create table public.invitation_code_attempts (
+  user_id uuid not null references auth.users(id) on delete cascade,
+  attempted_at timestamptz not null default now()
+);
+create index invitation_code_attempts_user_idx on public.invitation_code_attempts(user_id, attempted_at);
+alter table public.invitation_code_attempts enable row level security;
+revoke all on public.invitation_code_attempts from public, anon, authenticated;
+
+-- 29 characters: digits 2-9 and letters without the lookalikes 0/O, 1/I/L and U/V.
+create function public.invite_code_alphabet() returns text language sql immutable set search_path = '' as
+$$ select '23456789ABCDEFGHJKMNPQRSTWXYZ'::text $$;
+
+-- Uppercase and drop separators/spaces; null when the result isn't a well-formed code.
+create function public.normalize_invite_code(p_code text) returns text language sql immutable set search_path = '' as $$
+  select case when c ~ ('^[' || public.invite_code_alphabet() || ']{10}$') then c end
+  from (select upper(regexp_replace(coalesce(p_code, ''), '[^A-Za-z0-9]', '', 'g')) as c) x
+$$;
+
+create function public.invite_code_digest(p_code text) returns text
+language sql stable security definer set search_path = '' as $$
+  select encode(sha256(p.pepper || convert_to(public.normalize_invite_code(p_code), 'UTF8')), 'hex')
+  from public.invitation_code_pepper p
+$$;
+
+-- An unbiased random code: only bytes below the largest multiple of the alphabet length are used.
+create function public.new_invite_code() returns text
+language plpgsql volatile set search_path = '' as $$
+declare a text := public.invite_code_alphabet(); n int := length(public.invite_code_alphabet());
+  lim int := 256 - (256 % length(public.invite_code_alphabet())); b bytea; out text := ''; i int;
+begin
+  while length(out) < 10 loop
+    b := decode(replace(gen_random_uuid()::text || gen_random_uuid()::text, '-', ''), 'hex');
+    for i in 0 .. length(b) - 1 loop
+      exit when length(out) = 10;
+      if get_byte(b, i) < lim then out := out || substr(a, get_byte(b, i) % n + 1, 1); end if;
+    end loop;
+  end loop;
+  return out;
+end $$;
+
+-- The joining rules, shared by both entry points. Raises only for problems with the joining account
+-- (already a member, profile already linked, …), never for a wrong or stale code.
+create function public.claim_household_invitation(p_invitation uuid) returns uuid
 language plpgsql security definer set search_path = '' as $$
 declare v_uid uuid := auth.uid(); v_inv public.household_invitations; v_student public.students; v_own public.students;
 begin
-  if v_uid is null then raise exception 'Authentication required' using errcode = '42501'; end if;
-  select * into v_inv from public.household_invitations i
-  where i.code_hash = encode(sha256(convert_to(lower(btrim(coalesce(p_code, ''))), 'UTF8')), 'hex')
-  for update;
-  if not found then raise exception 'Invalid invitation code' using errcode = '22023'; end if;
-  if v_inv.accepted_at is not null then raise exception 'Invitation has already been used' using errcode = '22023'; end if;
-  if v_inv.revoked_at is not null then raise exception 'Invitation has been revoked' using errcode = '22023'; end if;
-  if v_inv.expires_at <= now() then raise exception 'Invitation has expired' using errcode = '22023'; end if;
+  select * into v_inv from public.household_invitations i where i.id = p_invitation for update;
   if exists (select 1 from public.household_members m where m.household_id = v_inv.household_id and m.user_id = v_uid) then
     raise exception 'You are already a member of this household' using errcode = '22023';
   end if;
@@ -62,37 +114,97 @@ begin
   return v_inv.household_id;
 end $$;
 
--- Create a student invitation, optionally addressed, revoking that student's earlier outstanding ones.
+-- Link-token entry point, as before, now also refusing revoked invitations.
+create or replace function public.accept_household_invitation(p_code text) returns uuid
+language plpgsql security definer set search_path = '' as $$
+declare v_inv public.household_invitations;
+begin
+  if auth.uid() is null then raise exception 'Authentication required' using errcode = '42501'; end if;
+  select * into v_inv from public.household_invitations i
+  where i.code_hash = encode(sha256(convert_to(lower(btrim(coalesce(p_code, ''))), 'UTF8')), 'hex')
+  for update;
+  if not found then raise exception 'Invalid invitation code' using errcode = '22023'; end if;
+  if v_inv.accepted_at is not null then raise exception 'Invitation has already been used' using errcode = '22023'; end if;
+  if v_inv.revoked_at is not null then raise exception 'Invitation has been revoked' using errcode = '22023'; end if;
+  if v_inv.expires_at <= now() then raise exception 'Invitation has expired' using errcode = '22023'; end if;
+  return public.claim_household_invitation(v_inv.id);
+end $$;
+
+-- The app's join entry point: a link token or an invite code. Wrong codes count against the account
+-- (10 per 15 minutes, 30 per day); after that every manual code is refused until the window passes.
+create function public.redeem_household_invitation(p_code text)
+returns table (outcome text, household_id uuid)
+language plpgsql security definer set search_path = '' as $$
+declare v_uid uuid := auth.uid(); v_in text := btrim(coalesce(p_code, '')); v_inv public.household_invitations;
+begin
+  if v_uid is null then raise exception 'Authentication required' using errcode = '42501'; end if;
+  if v_in ~* '^[0-9a-f]{64}$' then
+    select * into v_inv from public.household_invitations i
+    where i.code_hash = encode(sha256(convert_to(lower(v_in), 'UTF8')), 'hex') for update;
+  else
+    if (select count(*) from public.invitation_code_attempts a where a.user_id = v_uid and a.attempted_at > now() - interval '15 minutes') >= 10
+       or (select count(*) from public.invitation_code_attempts a where a.user_id = v_uid and a.attempted_at > now() - interval '1 day') >= 30 then
+      return query select 'rate_limited'::text, null::uuid;
+      return;
+    end if;
+    if public.normalize_invite_code(v_in) is not null then
+      select * into v_inv from public.household_invitations i
+      where i.short_code_hash = public.invite_code_digest(v_in) for update;
+    end if;
+    if v_inv.id is null then
+      insert into public.invitation_code_attempts(user_id) values (v_uid);
+    end if;
+  end if;
+  if v_inv.id is null then return query select 'invalid'::text, null::uuid; return; end if;
+  if v_inv.accepted_at is not null then return query select 'used'::text, null::uuid; return; end if;
+  if v_inv.revoked_at is not null then return query select 'revoked'::text, null::uuid; return; end if;
+  if v_inv.expires_at <= now() then return query select 'expired'::text, null::uuid; return; end if;
+  return query select 'joined'::text, public.claim_household_invitation(v_inv.id);
+end $$;
+
+-- Create a student invitation (link token + invite code), optionally addressed, cancelling that student's
+-- earlier outstanding invitations.
 create function public.create_student_invitation(p_household uuid, p_student uuid, p_recipient_email text default null,
   p_replace boolean default true)
-returns table (code text, invitation_id uuid, expires_at timestamptz)
+returns table (code text, invite_code text, invitation_id uuid, expires_at timestamptz)
 language plpgsql security definer set search_path = '' as $$
-declare v_code text; v_id uuid; v_exp timestamptz; v_email text := nullif(lower(btrim(coalesce(p_recipient_email, ''))), '');
+declare v_code text; v_short text; v_id uuid; v_exp timestamptz; v_email text := nullif(lower(btrim(coalesce(p_recipient_email, ''))), '');
+  v_try int := 0;
 begin
   if p_student is null then raise exception 'Choose the student to invite' using errcode = '22023'; end if;
   if not public.has_household_permission(p_household, 'manage_students') then
     raise exception 'Not allowed to invite student members to this household' using errcode = '42501';
   end if;
-  -- create_household_invitation checks manage_students and that the profile is active and unlinked.
   if (select count(*) from public.household_invitations i where i.household_id = p_household
       and i.created_at > now() - interval '1 day') >= 30 then
     raise exception 'Too many invitations today; try again tomorrow' using errcode = '22023';
   end if;
+  -- create_household_invitation checks that the profile is active, unlinked and in this household.
   v_code := public.create_household_invitation(p_household, 'student', p_student, 72);
-  update public.household_invitations i set recipient_email = v_email
-  where i.code_hash = encode(sha256(convert_to(v_code, 'UTF8')), 'hex')
-  returning i.id, i.expires_at into v_id, v_exp;
+  loop
+    v_short := public.new_invite_code();
+    begin
+      update public.household_invitations i set recipient_email = v_email, short_code_hash = public.invite_code_digest(v_short)
+      where i.code_hash = encode(sha256(convert_to(v_code, 'UTF8')), 'hex')
+      returning i.id, i.expires_at into v_id, v_exp;
+      exit;
+    exception when unique_violation then
+      v_try := v_try + 1;
+      if v_try >= 5 then raise; end if;
+    end;
+  end loop;
   if coalesce(p_replace, true) then
     update public.household_invitations i set revoked_at = now(), revoked_by = auth.uid()
     where i.household_id = p_household and i.student_id = p_student and i.id <> v_id
       and i.accepted_at is null and i.revoked_at is null and i.expires_at > now();
   end if;
-  return query select v_code, v_id, v_exp;
+  return query select v_code, substr(v_short, 1, 5) || '-' || substr(v_short, 6, 5), v_id, v_exp;
 end $$;
 
--- Called by the email function as the guardian: confirms the code belongs to an invitation they may manage and
--- that it can still be used, records the send, and returns what the email shows. Never returns the hash.
-create function public.prepare_invitation_email(p_code text, p_recipient_email text)
+-- Called by the email function as the guardian: confirms the link token (and the invite code, when given)
+-- belong to an invitation they may manage that can still be used, records the send, and returns what the
+-- email shows. Never returns a digest.
+create function public.prepare_invitation_email(p_code text, p_recipient_email text, p_invite_code text default null)
 returns table (invitation_id uuid, student_name text, inviter_name text, expires_at timestamptz, recipient_email text)
 language plpgsql security definer set search_path = '' as $$
 declare v_inv public.household_invitations; v_email text := lower(btrim(coalesce(p_recipient_email, '')));
@@ -105,7 +217,8 @@ begin
   where i.code_hash = encode(sha256(convert_to(lower(btrim(coalesce(p_code, ''))), 'UTF8')), 'hex')
   for update;
   if not found or not public.has_household_permission(v_inv.household_id,
-      case v_inv.role when 'guardian' then 'manage_members' else 'manage_students' end) then
+      case v_inv.role when 'guardian' then 'manage_members' else 'manage_students' end)
+     or (p_invite_code is not null and v_inv.short_code_hash is distinct from public.invite_code_digest(p_invite_code)) then
     raise exception 'Invalid invitation code' using errcode = '22023';
   end if;
   if v_inv.accepted_at is not null then raise exception 'Invitation has already been used' using errcode = '22023'; end if;
@@ -137,10 +250,18 @@ begin
   where id = v_inv.id;
 end $$;
 
--- prepare_invitation_email is for the signed-in guardian (via the email function), like the others.
+-- Internal helpers are not callable by clients at all.
+revoke all on function public.invite_code_digest(text) from public, anon, authenticated;
+revoke all on function public.new_invite_code() from public, anon, authenticated;
+revoke all on function public.claim_household_invitation(uuid) from public, anon, authenticated;
+revoke all on function public.invite_code_alphabet() from public, anon;
+revoke all on function public.normalize_invite_code(text) from public, anon;
+
+revoke all on function public.redeem_household_invitation(text) from public, anon;
 revoke all on function public.create_student_invitation(uuid, uuid, text, boolean) from public, anon;
-revoke all on function public.prepare_invitation_email(text, text) from public, anon;
+revoke all on function public.prepare_invitation_email(text, text, text) from public, anon;
 revoke all on function public.revoke_household_invitation(uuid) from public, anon;
+grant execute on function public.redeem_household_invitation(text) to authenticated, service_role;
 grant execute on function public.create_student_invitation(uuid, uuid, text, boolean) to authenticated, service_role;
-grant execute on function public.prepare_invitation_email(text, text) to authenticated, service_role;
+grant execute on function public.prepare_invitation_email(text, text, text) to authenticated, service_role;
 grant execute on function public.revoke_household_invitation(uuid) to authenticated, service_role;
