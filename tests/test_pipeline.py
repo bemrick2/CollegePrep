@@ -1354,6 +1354,54 @@ minimum grade point average (GPA) of 3.0 are eligible for dual enrollment. Out-o
         g = {c['record']['requirement_key']: c['record'] for c in catalog.extract(INST, ENTRY, noted, '2026-27') if c['domain'] == 'degree_requirements'}
         self.assertEqual(g['program-requirements-52-hours-required-core']['rule_details']['courses'][0]['title'], 'Biological Concepts: Cells')
 
+    def test_catalog_choice_groups(self):
+        """Issue #95: printed select/choose rules were classified all_required (OSU, WKU, UVU, NC State)."""
+        raw = (FIX / 'courseleaf_program.html').read_bytes()
+        sel = b'<tr><td>Select 12 hours from the following:</td><td>12</td></tr>'
+        gen = b'<tr><td>ENG 100</td>'
+
+        def groups(html):
+            out = catalog.extract(INST, ENTRY, T.parse_html(html, 'https://x'), '2026-27')
+            return {c['record']['requirement_key']: c for c in out if c['domain'] == 'degree_requirements'}
+
+        elect, coll = 'program-requirements-52-hours-electives', 'colonnade-general-education-requirements'
+        for rule, want in [(b'Select a minimum of 9 credits from the following:', ('choose_credits', 'choose_credits', 9)),  # OSU
+                           (b'Choose two credits from the following:', ('choose_credits', 'choose_credits', 2)),  # UVU
+                           (b'Students must take an additional 15 credit hours from the following list of classes:', ('choose_credits', 'choose_credits', 15)),  # WKU Film
+                           (b'Choose two courses at 5 hours each:', ('choose_courses', 'choose_count', 2)),  # WKU
+                           (b'Required: select 12 hours from the following:', ('choose_credits', 'choose_credits', 12))]:  # one rule line, not mixed
+            with self.subTest(rule=rule):
+                g = groups(raw.replace(sel, b'<tr><td>' + rule + b'</td><td>9</td></tr>'))[elect]
+                rd = g['record']['rule_details']
+                self.assertEqual((rd['group_type'], want[1], rd[want[1]]), want)
+                self.assertNotIn('mixed_required_and_choice', g['issues'])
+        # WKU Film: a one-group table's own "Total Hours" is its minimum; a table split into several groups keeps it for none.
+        film = groups(raw.replace(b'<h2>Colonnade (General Education) Requirements</h2>', b'<h2>Colonnade Requirements (52 hours)</h2>'))
+        self.assertEqual(film['colonnade-requirements-52-hours']['record']['minimum_credits'], 37)
+        self.assertNotIn('minimum_credits', film[elect]['record'])
+        # WKU Film: cross-listed codes ("ENG/FILM 366") are courses, not area headers that end the list.
+        xl = groups(raw.replace(b'<td>BIOL 310</td>', b'<td>ENG/FILM 366</td>'))
+        self.assertIn('ENG/FILM 366', [c['code'] for c in xl[elect]['record']['rule_details']['courses']])
+        # A plain course list with no printed choice stays all_required.
+        self.assertEqual(groups(raw)[coll]['record']['rule_details']['group_type'], 'all_required')
+        # NC State "Choose from: 3-4": a choice with no readable count is a pool held for review, never all_required.
+        g = groups(raw.replace(gen, b'<tr><td>Choose from:</td><td>3-4</td></tr>' + gen))[coll]
+        self.assertEqual(g['record']['rule_details']['group_type'], 'elective_pool')
+        self.assertIn('choice_rule_unparsed', g['issues'])
+        # WKU Visual Studies: a required part and a choice in one group is held for review, not split by guesswork.
+        mixed = b'<tr><td>Select two Upper-Level Art History Courses:</td><td>6</td></tr><tr><td>Required Capstone Course:</td><td>1</td></tr>'
+        g = groups(raw.replace(gen, mixed + gen))[coll]
+        self.assertIn('mixed_required_and_choice', g['issues'])
+        self.assertNotEqual(g['record']['rule_details']['group_type'], 'all_required')
+        # UVU Music / WKU Professional Education: required courses printed above the choice line make the group mixed.
+        g = groups(raw.replace(b'<tr><td>BIOL 300</td>', b'<tr><td>BIOL 299</td><td>Seminar</td><td>1</td></tr>' + sel + b'<tr><td>BIOL 300</td>').replace(sel, b'', 1))[elect]
+        self.assertIn('mixed_required_and_choice', g['issues'])
+        # WKU Legal Studies: two separate "(choose one)" rules in one group are also mixed.
+        two = b'<tr><td>Ethics course (choose one)</td><td>3</td></tr><tr><td>International Elective course (choose one):</td><td>3</td></tr>'
+        g = groups(raw.replace(gen, two + gen))[coll]
+        self.assertIn('mixed_required_and_choice', g['issues'])
+        self.assertIn('choice_rule_unparsed', g['issues'])
+
     def test_dual_credit_vocabulary_and_faq_questions(self):
         """Regression (KY): 'Dual Credit' pages were skipped (TN says 'dual enrollment'); a FAQ question's price was taken as a charge."""
         html = (b'<html><head><title>Dual Credit | Example CTC</title></head><body><h1>Dual Credit</h1>'

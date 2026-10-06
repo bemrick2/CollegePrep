@@ -851,6 +851,43 @@ Institutions in scope: **29** · crawled: **25** · blocked by site: **4** · ru
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-180878`, `ipeds-181020`, `ipeds-181534`, `ipeds-181604`
 
+## NH — 2026-27
+
+Institutions in scope: **22** · crawled: **20** · blocked by site: **2** · run: `pipeline/runs/NH/2026-10-06`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 0 (0%) | 0 | 7 (32%) | 19 (86%) | 1 | 2 |
+| cost_of_attendance | 0 (0%) | 0 | 2 (9%) | 20 (91%) | 0 | 2 |
+| admissions_tests | 0 (0%) | 0 | 0 (0%) | 19 (86%) | 1 | 2 |
+| common_data_set | 0 (0%) | 0 | 0 (0%) | 1 (5%) | 19 | 2 |
+| merit_scholarships | 0 (0%) | 0 | 3 (14%) | 20 (91%) | 0 | 2 |
+| ap_credit | 0 (0%) | 0 | 5 (23%) | 14 (64%) | 6 | 2 |
+| clep_credit | 0 (0%) | 0 | 4 (18%) | 12 (55%) | 8 | 2 |
+| ib_credit | 0 (0%) | 0 | 1 (5%) | 3 (14%) | 17 | 2 |
+| dual_enrollment | 0 (0%) | 0 | 1 (5%) | 13 (59%) | 7 | 2 |
+| transfer_credit | 0 (0%) | 0 | 7 (32%) | 20 (91%) | 0 | 2 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 8 (36%) | 12 | 2 |
+| residency | 0 (0%) | 0 | 0 (0%) | 14 (64%) | 6 | 2 |
+| degree_requirements | 0 (0%) | 0 | 0 (0%) | 16 (73%) | 4 | 2 |
+| aid_appeals | 0 (0%) | 0 | 12 (55%) | 16 (73%) | 4 | 2 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 13 |
+| blocked requests | 54 |
+| candidates | 100 |
+| conflicts | 52 |
+| documents | 1428 |
+| extraction failures | 0 |
+| fetch errors | 114 |
+| fetches | 1596 |
+| ready | 25 |
+| semantic review | 40 |
+| stale sources | 6 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-182917`, `ipeds-183248`
+
 ## NJ — 2026-27
 
 Institutions in scope: **72** · crawled: **53** · blocked by site: **19** · run: `pipeline/runs/NJ/2026-10-05`

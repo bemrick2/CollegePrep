@@ -19,8 +19,13 @@ CREDIT_ONLY = re.compile(r'^\W*(?:Credit\s+Hours?|Credits?)\s*:?\s*([\d.]+(?:\s*
 TOTAL = re.compile(r'^\W*total\s+(?:credit\s+)?(?:hours|credits|semester\s+hours)(?:\s+required)?\s*(?:for\s+[^:]+)?\s*:?\s*(\d{2,3})\b', re.I)
 HEAD_CREDITS = re.compile(r'(\d{1,3})(?:\s*[-–]\s*\d{1,3})?\s*(?:semester\s+)?(?:credit\s+)?(?:hours|credits|hrs?\.?)\b', re.I)
 WORDS = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6}
-CHOOSE_N = re.compile(r'\b(?:choose|select|complete|take)\s+(?:any\s+)?(one|two|three|four|five|six|\d)\s+(?:courses?\s+)?(?:of|from)\b', re.I)
-CHOOSE_HOURS = re.compile(r'\b(?:choose|select|complete|take)\s+(\d{1,2})\s+(?:credit\s+)?(?:hours|credits)\b', re.I)
+CHOOSE_N = re.compile(r'\b(?:choose|select|complete|take)\s+(?:any\s+)?(one|two|three|four|five|six|\d)\s+(?:courses?\s+)?(?:of|from)\b|'
+                      # Issue #95 (WKU): "Choose two courses at 5 hours each"
+                      r'\b(?:choose|select|complete|take)\s+(?:any\s+)?(one|two|three|four|five|six|\d)\s+(?:[\w-]+\s+){0,3}?(?:courses|classes)\b', re.I)
+CHOOSE_HOURS = re.compile(r'\b(?:choose|select|complete|take)\s+(?:a\s+minimum\s+of\s+|at\s+least\s+|an?\s+additional\s+)?'
+                          r'(\d{1,2}|one|two|three|four|five|six)\s+(?:additional\s+)?(?:semester\s+)?(?:credit\s+)?(?:hours|credits)\b', re.I)
+# Issue #95: a printed choice ("Choose from:", "from the following", "(choose one)") whose count could not be read.
+CHOICE_CUE = re.compile(r'\bchoose\b|\bselect\b|\bfrom\s+the\s+following\b|\bone\s+of\s+the\s+following\b', re.I)
 DEGREE = [('bachelor', r'\bB\.?\s?(S|A|BA|FA|M|SN|SW|AS|ArCH|ED|Mus)\b\.?|(?i:bachelor)'), ('associate', r'\bA\.?\s?(S|A|AS|AT|ST|F\.?A)\b\.?|(?i:associate)')]
 GRADUATE = re.compile(r'\b(M\.?S|M\.?A|MBA|M\.?Ed|Ph\.?D|Ed\.?D|DNP|graduate|certificate|minor)\b', re.I)
 CATEGORY = [
@@ -55,7 +60,7 @@ def is_program_page(entry, page):
             or bool(courseleaf_tables(page)))
 
 
-CL_CODE = re.compile(r'^([A-Z]{2,5})\s?(\d{3,4}[A-Z]?)$')
+CL_CODE = re.compile(r'^([A-Z]{2,5}(?:/[A-Z]{2,5})*)\s?(\d{3,4}[A-Z]?)$')  # "ENG/FILM 366" (WKU): a cross-listed code
 
 
 def courseleaf_groups(page):
@@ -68,7 +73,7 @@ def courseleaf_groups(page):
     for t in courseleaf_tables(page):
         rows = t['rows'][1:] if [c.strip().lower() for c in t['rows'][0]][:2] == ['code', 'title'] else t['rows']
         base = t.get('heading') or t.get('lead') or 'Program Requirements'
-        cur = {'heading': base, 'courses': [], 'rules': [], 'total': None}; out.append(cur)
+        cur = {'heading': base, 'courses': [], 'rules': [], 'total': None}; out.append(cur); first_group = len(out) - 1
         for r in rows:
             cells = [c.strip() for c in r]
             if not any(cells): continue
@@ -91,7 +96,10 @@ def courseleaf_groups(page):
                 else:
                     cur['heading'] = f'{base} — {first}'[:200]
                 continue
+            if cur['courses'] and CHOICE_CUE.search(text): cur['courses_before_choice'] = True  # Issue #95 (UVU, WKU)
             cur['rules'].append(text[:300])  # "Select 1 ... from the list below: 3", "or PE 333" stay verbatim
+        kept = [g for g in out[first_group:] if g['courses'] or g['rules']]
+        for g in kept: g['table_groups'] = len(kept)  # a table's "Total Hours" is one group's only if it holds one group
     return [g for g in out if g['courses'] or g['rules']]
 
 
@@ -136,7 +144,9 @@ def groups_from(page):
         m = CREDIT_ONLY.match(line)
         if m and cur['courses'] and 'credits' not in cur['courses'][-1]:
             cur['courses'][-1]['credits'] = _credits(m.group(1)); continue
-        if len(line) <= 300: cur['rules'].append(line)
+        if len(line) <= 300:
+            if cur['courses'] and CHOICE_CUE.search(line): cur['courses_before_choice'] = True  # Issue #95
+            cur['rules'].append(line)
     return out
 
 
@@ -177,17 +187,34 @@ def extract(inst, entry, page, today_year):
         rd = {'schema': 'requirement_group/v1', 'catalog_year': printed_year, 'category': cat, 'source_section': h[:200]}
         mins = HEAD_CREDITS.search(h.split(' — ')[-1])  # a parent heading's "(52 hours)" is not each sub-area's minimum
         n_course = CHOOSE_N.search(text); n_hours = CHOOSE_HOURS.search(text)
+        rules_text = ' '.join(g['rules'])
+        choice_issues = []
+        # Issue #95: a group that prints a required part and a choice part ("Select two ... Required Capstone Course"),
+        # or two separate choices, is neither all-required nor one choice; it is held for review rather than split.
+        cue_lines = [r for r in g['rules'] if CHOICE_CUE.search(r)]
+        if len(cue_lines) > 1 or (cue_lines and any(re.search(r'\brequired\b', r, re.I) and not CHOICE_CUE.search(r) for r in g['rules'])):
+            choice_issues.append('mixed_required_and_choice')
+        elif g.get('courses_before_choice'):
+            # UVU Music, WKU Professional Education: courses printed above "Choose two ... from the following" are
+            # required and only the courses below it are the choice; the group is held rather than called one choice.
+            choice_issues.append('mixed_required_and_choice')
         if cat == 'concentration': rd['concentration'] = h[:120]
         if g['courses'] and n_course:
-            n = n_course.group(1).lower(); rd.update(group_type='choose_courses', choose_count=WORDS.get(n) or int(n), courses=g['courses'])
+            n = (n_course.group(1) or n_course.group(2)).lower()
+            rd.update(group_type='choose_courses', choose_count=WORDS.get(n) or int(n), courses=g['courses'])
         elif n_hours:
-            rd.update(group_type='choose_credits', choose_credits=int(n_hours.group(1)))
+            n = n_hours.group(1).lower()
+            rd.update(group_type='choose_credits', choose_credits=WORDS.get(n) or int(n))
             if g['courses']: rd['courses'] = g['courses']
             elif g['rules']: rd['course_rules'] = g['rules'][:10]
             else: skipped += 1; continue
         elif g['courses'] and re.search(r'elective|\bchoose\b|\bselect\b|options?\b|\blist\s+[A-Z0-9]\b', h.split(' — ')[-1], re.I):
             # "Application Electives I" (NC State): a list to choose from, not courses all required
             rd.update(group_type='elective_pool', courses=g['courses'])
+        elif g['courses'] and CHOICE_CUE.search(rules_text):
+            # Issue #95 (NC State "Choose from: 3-4"): a choice whose count is not printed in a readable form
+            rd.update(group_type='elective_pool', courses=g['courses'])
+            choice_issues.append('choice_rule_unparsed')
         elif g['courses']:
             rd.update(group_type='all_required', courses=g['courses'])
         elif re.search(r'elective', h, re.I) and g['rules']:
@@ -202,7 +229,10 @@ def extract(inst, entry, page, today_year):
                'requirement_kind': KIND.get(cat, 'other'), 'rule_details': rd}
         if g.get('pairings') or any(re.match(r'^\W*or\b', r, re.I) for r in g['rules']):
             rec['_issues'] = ['course_alternatives_in_rule_text']  # "or CHEM 116": the group is not simply all-required
+        if choice_issues: rec['_issues'] = rec.get('_issues', []) + choice_issues
         if mins and cat != 'program_total': rec['minimum_credits'] = int(mins.group(1))
+        # Issue #95 (WKU Film): a group's own printed "Total Hours 15" outranks a parent heading's "(36 hours)".
+        if g.get('total') and g.get('table_groups') == 1 and cat != 'program_total': rec['minimum_credits'] = g['total']
         groups.append(rec)
     if not groups: return []
     if skipped: issues.append('requirement_groups_skipped')
