@@ -1,0 +1,272 @@
+{
+ "state": "OR",
+ "entries": [
+  {
+   "institution_key": "ipeds-209551",
+   "gap": "admission_rules",
+   "reason": "no_official_statement",
+   "next_action": "Re-locate the School of Computer and Data Sciences declaration page (the reviewed URL returned 404 to the crawler) and fetch it.",
+   "detail": "Computer Science (BA/BS) and Mathematics and Computer Science (BA/BS): the 2026-2027 catalog pages and cs.uoregon.edu/undergraduate print no admission-to-major rule; scds.uoregon.edu/cs/apply/declare-major-minor returned HTTP 404 in run OR/2026-10-06-adm.",
+   "evidence_url": "https://catalog.uoregon.edu/arts-sciences/school-computer-data-sciences/computer-science/ug-computer-science/"
+  },
+  {
+   "institution_key": "ipeds-209807",
+   "gap": "degree_maps",
+   "reason": "layout_not_readable",
+   "next_action": "Extend the SmartCatalog plan reader to the departmental \"Degree Maps and Learning Outcomes\" pages.",
+   "detail": "Degree maps are published on per-department \"Degree Maps and Learning Outcomes\" pages of the 2026-2027 Bulletin; the SmartCatalog reader recognised 14 plans (7 promoted).",
+   "evidence_url": "https://pdx.smartcatalogiq.com/en/2026-2027/bulletin/college-of-the-arts/degree-maps-and-learning-outcomes"
+  },
+  {
+   "institution_key": "ipeds-209807",
+   "gap": "requirement_groups",
+   "reason": "layout_not_readable",
+   "next_action": "Add SmartCatalog hold rules (concentration ancestry, lead-paragraph rules, choose-N counts, cross-listed codes) and re-review.",
+   "detail": "Independent review of 35 sampled \"clean\" SmartCatalog major groups found 20 wrong (concentration-only lists, lost choose-N counts, dropped cross-listed courses); none promoted."
+  },
+  {
+   "institution_key": "ipeds-209825",
+   "gap": "admission_rules",
+   "reason": "no_official_statement",
+   "next_action": "Re-check the 2026-2027 Bulletin school pages at the next release; record internal-transfer criteria for Shiley programs.",
+   "detail": "Engineering (4 B.S. programs), Computer Science B.S.C.S. and the B.B.A. majors: the 2026-2027 Bulletin first-year admission page, the School of Business and Shiley School pages and the program pages print no first-year admission-to-major rule (the Bulletin only prefers one year of pre-calculus for Shiley applicants). engineering.up.edu/transfer-students.html prints criteria for internal and external transfer into engineering and computer science.",
+   "evidence_url": "https://up.smartcatalogiq.com/en/2026-2027/bulletin/university-services/admissions/first-year-students"
+  },
+  {
+   "institution_key": "ipeds-209825",
+   "gap": "degree_maps",
+   "reason": "not_published",
+   "next_action": "Look for departmental four-year plans outside the Bulletin.",
+   "detail": "55 program pages of the 2026-2027 Bulletin were read; 2 print a term-by-term curriculum, none in a form the plan readers accept."
+  },
+  {
+   "institution_key": "ipeds-209825",
+   "gap": "requirement_groups",
+   "reason": "layout_not_readable",
+   "next_action": "Same SmartCatalog hold rules as Portland State, then re-review.",
+   "detail": "Independent review of 35 sampled \"clean\" SmartCatalog major groups found 19 wrong (emphasis/concentration lists as major groups, parent heading used as the rule, lost counts); none promoted."
+  },
+  {
+   "institution_key": "ipeds-208822",
+   "gap": "admission_rules",
+   "reason": "no_official_statement",
+   "next_action": "Re-check department pages at the 2027-28 catalog release.",
+   "detail": "Engineering BS, Computer Science BS and Business Administration BA: the 2026-2027 catalog pages print no admission-to-major rule (Engineering prints a mid-program \"Engineering milestone\" with a 2.20 GPA in core courses); the catalog Declaring a Major page says only that \"Some departments have an application and screening process for admission to a major.\"",
+   "evidence_url": "https://www.georgefox.edu/catalog/undergrad/curriculum/major_minor/declaring-major.html"
+  },
+  {
+   "institution_key": "ipeds-208822",
+   "gap": "degree_maps",
+   "reason": "layout_not_readable",
+   "next_action": "Build a reader for the static George Fox major pages (sample four-year plans and requirement tables).",
+   "detail": "The static_program reader takes program identity only; 7 of 30 major pages print a semester plan that is not yet parsed."
+  },
+  {
+   "institution_key": "ipeds-208822",
+   "gap": "requirement_groups",
+   "reason": "layout_not_readable",
+   "next_action": "Same static-page reader as degree_maps.",
+   "detail": "Requirement tables on the 2026-2027 static major pages are not yet parsed (static_program/v1 reads identity only)."
+  },
+  {
+   "institution_key": "ipeds-209056",
+   "gap": "degree_maps",
+   "reason": "not_published",
+   "next_action": "Re-check at the 2027-28 catalog release.",
+   "detail": "22 program pages of the 2026-2027 catalog were read; none prints a four-year plan (3 mention a fall semester in passing)."
+  },
+  {
+   "institution_key": "ipeds-209056",
+   "gap": "requirement_groups",
+   "reason": "not_yet_researched",
+   "next_action": "Re-extract the CourseLeaf course lists (courselist_html) in a Lewis & Clark run."
+  },
+  {
+   "institution_key": "ipeds-210401",
+   "gap": "admission_rules",
+   "reason": "no_official_statement",
+   "next_action": "Re-check the Industrial Engineering and Operations Research program page at the next catalog release.",
+   "detail": "Industrial Engineering and Operations Research (BS): the 2026-2027 catalog program page and willamette.edu engineering pages print no admission-to-major rule (the 3+2 Columbia Combined Plan page applies to the partner degree)."
+  },
+  {
+   "institution_key": "ipeds-210401",
+   "gap": "degree_maps",
+   "reason": "not_published",
+   "next_action": "Re-check at the next catalog release.",
+   "detail": "66 program pages of the 2026-2027 Coursedog catalog were read; none prints a four-year plan."
+  },
+  {
+   "institution_key": "ipeds-210401",
+   "gap": "requirement_groups",
+   "reason": "layout_not_readable",
+   "next_action": "Build a Coursedog requirement reader (rendered requirement blocks or the catalog API).",
+   "detail": "Coursedog renders requirements client-side; the pipeline reads program identity only."
+  },
+  {
+   "institution_key": "ipeds-209506",
+   "gap": "catalog",
+   "reason": "layout_not_readable",
+   "next_action": "Let the Coursedog reader accept option-named programs that carry their own program code and BS award (e.g. BSBM-BS), then re-review.",
+   "detail": "42 of the 48 listed bachelor's programs are verified (87.5%, threshold 90%); the six option-named BS programs and Artificial Intelligence are held because option names are read as concentrations.",
+   "evidence_url": "https://catalog.oit.edu/programs"
+  },
+  {
+   "institution_key": "ipeds-209506",
+   "gap": "admission_rules",
+   "reason": "no_official_statement",
+   "next_action": "Re-check program pages at the next catalog release.",
+   "detail": "Civil Engineering BS, Mechanical Engineering BS and Software Engineering Technology BS: the 2026-2027 catalog pages, the first-year admission criteria page and the admitted-student page print no admission-to-major rule (STEM applicants are only \"strongly encouraged\" to take pre-calculus).",
+   "evidence_url": "https://www.oit.edu/admissions/criteria"
+  },
+  {
+   "institution_key": "ipeds-209506",
+   "gap": "degree_maps",
+   "reason": "not_yet_researched",
+   "next_action": "Fetch the per-program \"Degree Maps\" tabs (catalog.oit.edu/programs/<code>/degree-maps-*) in a browser-rendered run."
+  },
+  {
+   "institution_key": "ipeds-209506",
+   "gap": "requirement_groups",
+   "reason": "layout_not_readable",
+   "next_action": "Build a Coursedog requirement reader.",
+   "detail": "Coursedog renders requirements client-side; the pipeline reads program identity only."
+  },
+  {
+   "institution_key": "ipeds-209065",
+   "gap": "degree_maps",
+   "reason": "not_published",
+   "next_action": "Re-check at the next catalog release.",
+   "detail": "41 program pages of the 2026-2027 catalog were read; one prints a semester sequence, none a four-year plan."
+  },
+  {
+   "institution_key": "ipeds-208646",
+   "gap": "admission_rules",
+   "reason": "no_official_statement",
+   "next_action": "Re-check at the next catalog release.",
+   "detail": "Computer Science, Accounting, Business Administration and Business [BAS]: 2026-2027 catalog program pages and eou.edu program pages print completion rules (C- or better, 2.00 GPA in the major) but no admission-to-major rule.",
+   "evidence_url": "https://catalog.eou.edu/content.php?catoid=8&navoid=462"
+  },
+  {
+   "institution_key": "ipeds-208646",
+   "gap": "requirement_groups",
+   "reason": "layout_not_readable",
+   "next_action": "Review the Acalog requirement lists with the layout reader used for CourseLeaf.",
+   "detail": "All 12 Acalog major-requirement candidates carry review issues (held)."
+  },
+  {
+   "institution_key": "ipeds-440828",
+   "gap": "admission_rules",
+   "reason": "no_official_statement",
+   "next_action": "Ask whether the College of Engineering pre-calculus policy covers Computer Science at Bend; re-check at the next release.",
+   "detail": "Computer Science at OSU-Cascades: no page fetched names the undergraduate Computer Science major in an admission rule for the Bend campus."
+  },
+  {
+   "institution_key": "ipeds-440828",
+   "gap": "degree_maps",
+   "reason": "not_published",
+   "next_action": "Re-check OSU-Cascades advising pages for campus-specific plans.",
+   "detail": "OSU-Cascades majors share the Oregon State catalog program pages; their four-year plans are the Corvallis plans and no Bend-specific plan was found."
+  },
+  {
+   "institution_key": "ipeds-440828",
+   "gap": "requirement_groups",
+   "reason": "not_yet_researched",
+   "next_action": "Promote the Oregon State Course List groups for the shared program pages to the OSU-Cascades records after review."
+  },
+  {
+   "institution_key": "ipeds-209612",
+   "gap": "institution",
+   "reason": "bot_challenge",
+   "next_action": "Request catalog access or an official data export from the registrar; the challenge is not evaded.",
+   "detail": "Pacific University: the Acalog catalog answered program-list requests with a bot challenge (HTTP 202) and the crawler stopped at the host (run OR/2026-10-05-b)."
+  },
+  {
+   "institution_key": "ipeds-209922",
+   "gap": "institution",
+   "reason": "bot_challenge",
+   "next_action": "Request catalog access or an official data export from the registrar; the challenge is not evaded.",
+   "detail": "Reed College: the Acalog catalog answered program-list requests with a bot challenge (HTTP 202) and the crawler stopped at the host (run OR/2026-10-05-b)."
+  },
+  {
+   "institution_key": "ipeds-210146",
+   "gap": "institution",
+   "reason": "bot_challenge",
+   "next_action": "Request catalog access or an official data export from the registrar; the challenge is not evaded.",
+   "detail": "Southern Oregon University: the Acalog catalog answered program-list requests with a bot challenge (HTTP 202) and the crawler stopped at the host (run OR/2026-10-05-b)."
+  },
+  {
+   "institution_key": "ipeds-210429",
+   "gap": "institution",
+   "reason": "robots_disallowed",
+   "next_action": "Request permission or an official program export from the WOU registrar.",
+   "detail": "catalog.wou.edu robots.txt disallows the catalog for automated fetching (run OR/2026-10-05-b).",
+   "evidence_url": "https://catalog.wou.edu/robots.txt"
+  },
+  {
+   "institution_key": "ipeds-210331",
+   "gap": "institution",
+   "reason": "not_yet_researched",
+   "next_action": "Locate the current catalog (discovery run found no catalog link) and configure a catalog run."
+  },
+  {
+   "institution_key": "ipeds-209409",
+   "gap": "institution",
+   "reason": "not_yet_researched",
+   "next_action": "Locate the current catalog (discovery run found no catalog link) and configure a catalog run."
+  },
+  {
+   "institution_key": "ipeds-210304",
+   "gap": "institution",
+   "reason": "not_yet_researched",
+   "next_action": "Locate the current catalog (discovery run found no catalog link) and configure a catalog run."
+  },
+  {
+   "institution_key": "ipeds-209287",
+   "gap": "institution",
+   "reason": "not_yet_researched",
+   "next_action": "Locate the current catalog (discovery run found no catalog link) and configure a catalog run."
+  },
+  {
+   "institution_key": "ipeds-480198",
+   "gap": "institution",
+   "reason": "not_yet_researched",
+   "next_action": "Check whether the institution enrols first-year bachelor's students; queue as out of scope with the official evidence, or configure a catalog run."
+  },
+  {
+   "institution_key": "ipeds-208725",
+   "gap": "institution",
+   "reason": "not_yet_researched",
+   "next_action": "Check whether the institution enrols first-year bachelor's students; queue as out of scope with the official evidence, or configure a catalog run."
+  },
+  {
+   "institution_key": "ipeds-407610",
+   "gap": "institution",
+   "reason": "not_yet_researched",
+   "next_action": "Check whether the institution enrols first-year bachelor's students; queue as out of scope with the official evidence, or configure a catalog run."
+  },
+  {
+   "institution_key": "ipeds-209241",
+   "gap": "institution",
+   "reason": "not_yet_researched",
+   "next_action": "Check whether the institution enrols first-year bachelor's students; queue as out of scope with the official evidence, or configure a catalog run."
+  },
+  {
+   "institution_key": "ipeds-208390",
+   "gap": "institution",
+   "reason": "not_yet_researched",
+   "next_action": "Check whether the institution enrols first-year bachelor's students; queue as out of scope with the official evidence, or configure a catalog run."
+  },
+  {
+   "institution_key": "ipeds-209250",
+   "gap": "institution",
+   "reason": "not_yet_researched",
+   "next_action": "Check whether the institution enrols first-year bachelor's students; queue as out of scope with the official evidence, or configure a catalog run."
+  },
+  {
+   "institution_key": "ipeds-209603",
+   "gap": "institution",
+   "reason": "not_yet_researched",
+   "next_action": "Check whether the institution enrols first-year bachelor's students; queue as out of scope with the official evidence, or configure a catalog run."
+  }
+ ]
+}
