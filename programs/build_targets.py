@@ -150,12 +150,32 @@ DISCOVER={'TN':['trevecca','southern','lmunet','cumberland','fhu','milligan','br
 PRI={'up':1,'georgefox':1,'sou':2,'wou':2,'eou':2,'osucascades':2,'willamette-210401':2,'lclark':2,'reed':2,'linfield':2,'pacificu':2,'cn':2,'trevecca':2,'southern':2,'lmunet':2,'sewanee':2,'maryvillecollege':2}
 BLOCKED_EXTRA={'utk': ['https://advising.utk.edu/', 'https://www.utk.edu/academics/majors'], 'mtsu': ['https://www.mtsu.edu/advising/', 'https://www.mtsu.edu/programs/'], 'memphis': ['https://www.memphis.edu/advising/', 'https://www.memphis.edu/academics/'], 'etsu': ['https://www.etsu.edu/advisement/', 'https://www.etsu.edu/academics/'], 'utm': ['https://www.utm.edu/academics/majors-and-programs', 'https://www.utm.edu/offices/advising'], 'belmont': ['https://www.belmont.edu/academics/majors-programs/'], 'lipscomb': ['https://www.lipscomb.edu/academics'], 'leeuniversity': ['https://www.leeuniversity.edu/academics/']}
 for k,v in BLOCKED_EXTRA.items(): TN[k]['policy']=TN[k]['policy']+v
+# Official pages located by review (2026-10-06) that state, or are the places that would state, how students enter
+# high-value majors (admission_rules dimension, docs/PROGRAM_DEPTH_COMPLETION.md). Fetched as policy pages.
+ADMISSION_PAGES={'OR':{
+ 'up':['https://up.smartcatalogiq.com/en/2026-2027/bulletin/university-services/admissions/first-year-students',
+       'https://engineering.up.edu/transfer-students.html','https://up.smartcatalogiq.com/en/2026-2027/bulletin/school-of-business/',
+       'https://up.smartcatalogiq.com/en/2026-2027/bulletin/donald-p-shiley-school-of-engineering/'],
+ 'georgefox':['https://www.georgefox.edu/catalog/undergrad/curriculum/major_minor/declaring-major.html'],
+ 'lclark':['https://college.lclark.edu/academics/support/advising/major-exploration'],
+ 'uoregon':['https://scds.uoregon.edu/cs/apply/declare-major-minor','https://scds.uoregon.edu/cs/undergraduate-programs/frequently-asked-questions'],
+ 'oregonstate':['https://business.oregonstate.edu/node/22251','https://business.oregonstate.edu/node/245',
+                'https://business.oregonstate.edu/programs/application-process-overview','https://admissions.oregonstate.edu/calculus-ready'],
+ 'willamette-210401':['https://willamette.edu/undergraduate/business/index.html','https://willamette.edu/undergraduate/physics/info/engineering'],
+ 'oit':['https://www.oit.edu/admissions/criteria','https://www.oit.edu/admissions/first-year-admitted'],
+ 'linfield':['https://inside.linfield.edu/advising/for-students/declare-major.html','https://catalog.linfield.edu/degrees-and-programs/undergraduate/major/declaration/'],
+ 'eou':['https://catalog.eou.edu/content.php?catoid=8&navoid=462','https://eou.edu/business-administration','https://www.eou.edu/computer-science/'],
+ 'osucascades':['https://osucascades.edu/admissions/admission-requirements','https://admissions.oregonstate.edu/calculus-ready',
+                'https://business.oregonstate.edu/programs/20696/admissions'],
+},'TN':{}}
+for st,conf in (('TN',TN),('OR',OR)):
+    for k,v in ADMISSION_PAGES[st].items(): conf[k]['policy']=conf[k].get('policy',[])+[u for u in v if u not in conf[k].get('policy',[])]
 TYPE_PATH={'lmunet':{'url':'https://undergraduatecatalog.lmunet.edu/degrees','home':'https://undergraduatecatalog.lmunet.edu/'}}
 for st,conf in (('TN',TN),('OR',OR)):
     r=reg(st); out=[]
     for folder,c in conf.items():
         i=r[folder]; out.append({'institution_key':i['institution_key'],'folder':folder,'name':i['name'],'control':i['control'],
-          'domains':sorted(set(i['allowed_domains'])),'hosts':sorted({h for h in [c['catalog']['home'].split('/')[2]] if 'smartcatalogiq' in h or 'kuali' in h} | ({'catalog.oregonstate.edu'} if folder=='osucascades' else set())
+          'domains':sorted(set(i['allowed_domains'])),'hosts':sorted({h for h in [c['catalog']['home'].split('/')[2]] if 'smartcatalogiq' in h or 'kuali' in h} | ({'catalog.oregonstate.edu','admissions.oregonstate.edu','business.oregonstate.edu'} if folder=='osucascades' else set())
           | ({'coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com'} if c['catalog'].get('platform')=='coursedog' else set())),'mode':'catalog',**c})
     for folder in DISCOVER[st]:
         i=r[folder]; d=i['domain']

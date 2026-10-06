@@ -15,6 +15,7 @@ def main(argv=None):
     sub = ap.add_subparsers(dest='cmd', required=True)
     c = sub.add_parser('crawl'); c.add_argument('--state', required=True); c.add_argument('--run', required=True)
     c.add_argument('--only', nargs='*'); c.add_argument('--workers', type=int, default=8); c.add_argument('--no-browser', action='store_true'); c.add_argument('--adapters-only', action='store_true')
+    c.add_argument('--policy-only', action='store_true')
     e = sub.add_parser('extract'); e.add_argument('--state', required=True); e.add_argument('--run', required=True)
     pr = sub.add_parser('promote'); pr.add_argument('decisions')
     a = sub.add_parser('audit'); a.add_argument('--states', nargs='+', default=['TN', 'OR']); a.add_argument('--check', action='store_true')
@@ -22,7 +23,7 @@ def main(argv=None):
     args = ap.parse_args(argv)
     if args.cmd == 'crawl':
         from .crawl import crawl
-        crawl(load_targets(args.state), args.run, only=args.only, workers=args.workers, use_browser=not args.no_browser, adapters_only=args.adapters_only)
+        crawl(load_targets(args.state), args.run, only=args.only, workers=args.workers, use_browser=not args.no_browser, adapters_only=args.adapters_only, policy_only=args.policy_only)
     elif args.cmd == 'extract':
         from .extract import extract_run
         s = extract_run(load_targets(args.state), args.run)
