@@ -1,0 +1,150 @@
+{
+ "state": "MN",
+ "academic_year": "2026-27",
+ "institutions": 69,
+ "status_order": [
+  "verified_current",
+  "partially_verified_current",
+  "candidate_ready",
+  "candidate_exception",
+  "source_found",
+  "not_found",
+  "fetch_failed"
+ ],
+ "by_category": {
+  "admissions_tests": {
+   "fetch_failed": 4,
+   "not_found": 3,
+   "source_found": 62
+  },
+  "aid_appeals": {
+   "candidate_exception": 42,
+   "fetch_failed": 4,
+   "not_found": 13,
+   "source_found": 10
+  },
+  "ap_credit": {
+   "candidate_exception": 8,
+   "candidate_ready": 6,
+   "fetch_failed": 4,
+   "not_found": 18,
+   "source_found": 33
+  },
+  "clep_credit": {
+   "candidate_exception": 8,
+   "candidate_ready": 4,
+   "fetch_failed": 4,
+   "not_found": 22,
+   "source_found": 31
+  },
+  "common_data_set": {
+   "fetch_failed": 4,
+   "not_found": 55,
+   "source_found": 10
+  },
+  "cost_of_attendance": {
+   "candidate_exception": 21,
+   "candidate_ready": 3,
+   "fetch_failed": 4,
+   "not_found": 1,
+   "source_found": 40
+  },
+  "degree_requirements": {
+   "candidate_ready": 1,
+   "fetch_failed": 4,
+   "not_found": 14,
+   "source_found": 50
+  },
+  "dual_enrollment": {
+   "candidate_exception": 1,
+   "candidate_ready": 5,
+   "fetch_failed": 4,
+   "not_found": 40,
+   "source_found": 19
+  },
+  "ib_credit": {
+   "candidate_exception": 5,
+   "candidate_ready": 5,
+   "fetch_failed": 4,
+   "not_found": 38,
+   "source_found": 17
+  },
+  "merit_scholarships": {
+   "candidate_ready": 9,
+   "fetch_failed": 4,
+   "not_found": 4,
+   "source_found": 52
+  },
+  "residency": {
+   "fetch_failed": 4,
+   "not_found": 30,
+   "source_found": 35
+  },
+  "statewide_articulation": {
+   "fetch_failed": 4,
+   "not_found": 26,
+   "source_found": 39
+  },
+  "transfer_credit": {
+   "candidate_exception": 1,
+   "candidate_ready": 10,
+   "fetch_failed": 4,
+   "not_found": 1,
+   "source_found": 53
+  },
+  "tuition_fees": {
+   "candidate_exception": 27,
+   "candidate_ready": 8,
+   "fetch_failed": 4,
+   "not_found": 1,
+   "source_found": 29
+  }
+ },
+ "totals": {
+  "candidate_exception": 113,
+  "candidate_ready": 51,
+  "fetch_failed": 56,
+  "not_found": 266,
+  "source_found": 480
+ },
+ "statewide_sources": {
+  "categories": {
+   "admissions_tests": 0,
+   "aid_appeals": 0,
+   "ap_credit": 0,
+   "clep_credit": 0,
+   "common_data_set": 0,
+   "cost_of_attendance": 0,
+   "degree_requirements": 0,
+   "dual_enrollment": 0,
+   "ib_credit": 0,
+   "merit_scholarships": 0,
+   "residency": 0,
+   "statewide_articulation": 0,
+   "transfer_credit": 0,
+   "tuition_fees": 0
+  },
+  "fetch_failures": 0,
+  "pages_fetched": 1
+ },
+ "blocked_institutions": [
+  "ipeds-173142",
+  "ipeds-173708",
+  "ipeds-174491",
+  "ipeds-174525"
+ ],
+ "quality": {
+  "ambiguous_years": 30,
+  "blocked_requests": 92,
+  "candidates": 448,
+  "conflicts": 150,
+  "documents": 4866,
+  "extraction_failures": 0,
+  "fetch_errors": 293,
+  "fetches": 5251,
+  "ready": 185,
+  "semantic_review": 139,
+  "stale_sources": 35
+ },
+ "run": "pipeline/runs/MN/2026-10-04"
+}
