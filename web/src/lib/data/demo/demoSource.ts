@@ -593,7 +593,7 @@ export class DemoSource implements DataSource {
     return delay(list)
   }
 
-  async searchInstitutions(query: string): Promise<InstitutionSearchHit[]> {
+  async searchInstitutions(query: string, state?: string): Promise<InstitutionSearchHit[]> {
     const snap = await this.snapshot()
     const q = query.trim().toLowerCase()
     const list = (snap.institutions as unknown as InstitutionComparison[])
@@ -605,7 +605,7 @@ export class DemoSource implements DataSource {
         state_code: x.institution!.state_code,
         control: x.institution!.control,
       }))
-    return delay(q ? list.filter((x) => x.display_name.toLowerCase().includes(q)) : list)
+    return delay(list.filter((x) => (!q || x.display_name.toLowerCase().includes(q)) && (!state || x.state_code === state)))
   }
 
   async compareInstitutions(keys: string[], academicYear: string): Promise<InstitutionComparison[]> {

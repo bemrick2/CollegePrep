@@ -7,6 +7,7 @@ import { StepFrame } from './Stepper'
 import { ExamAndTarget, GoalsAndPace, defaultPlanDraft, type PlanDraft } from './PlanFields'
 import { GRADES, graduationYearFor, timeZones } from './options'
 import { InviteCode } from './InviteCode'
+import { StoreBadges } from '../../components/StoreBadges'
 import { US_STATES } from '../../lib/engine/residency'
 import { writeHomeState } from '../../lib/homeState'
 
@@ -170,12 +171,17 @@ export function ParentOnboarding() {
           <Num n={1} /> Your student creates an account and chooses “I have an invite code”.
         </li>
         <li className="flex gap-3">
-          <Num n={2} /> They take a short benchmark — about 25 minutes — to set a baseline.
+          <Num n={2} /> They take a short benchmark — about 30 minutes — to set a baseline.
         </li>
         <li className="flex gap-3">
           <Num n={3} /> You'll see progress, pacing and next steps on your dashboard.
         </li>
       </ol>
+      <div className="mt-6 rounded-2xl bg-surface-2 p-4">
+        <div className="text-sm font-semibold text-ink">On a phone?</div>
+        <p className="mt-0.5 text-sm text-ink-2">You and your student can sign in to the app with these same accounts. Nothing to buy again there.</p>
+        <StoreBadges className="mt-1" />
+      </div>
     </StepFrame>
   )
 }

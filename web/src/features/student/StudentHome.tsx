@@ -5,11 +5,13 @@ import { Bolt, Compass, Flame, Target, Trophy } from '../../components/icons'
 import { PracticeIndicators } from '../../components/PracticeIndicators'
 import { BenchmarkStatus } from '../../components/BenchmarkStatus'
 import { useInterests } from '../majors/useInterests'
+import { improvementVerdict } from '../../lib/engine/improving'
+import { ImprovingCard } from '../../components/ImprovingCard'
 import { useSavedComparison, COMPARE_YEAR } from '../colleges/useSavedComparison'
 import { useMeritReference } from '../colleges/useMeritReference'
 import { meritAwards } from '../../lib/engine/merit'
 import { addDays, localDate } from '../../lib/engine/dates'
-import { benchmarkAttemptIds, SECTION_LABEL } from '../../lib/engine/benchmark'
+import { benchmarkImprovement, benchmarkAttemptIds, SECTION_LABEL } from '../../lib/engine/benchmark'
 import { achievements, levelOf, totalXp } from '../../lib/engine/gamify'
 import { latestEstimate, recentTrend, useStudentOverview, type StudentOverview } from './useStudentOverview'
 import { useCatalog } from '../practice/useCatalog'
@@ -50,6 +52,8 @@ function HomeBody({ name, o, studentId }: { name: string; o: StudentOverview; st
   const trend = recentTrend(o.history, o.today, o.tz)
   const badges = achievements({ attempts: o.history, benchmarks: o.benchmarks, longestStreak: o.streak.longest_streak, goalsMet: o.goalsMet })
   const goal = o.week.goal?.target_questions ?? null
+  // Before the first benchmark the hero is the only next step; empty indicator, skill and benchmark cards would repeat it.
+  const fresh = o.benchmarks.length === 0 && o.history.length === 0
   const hour = new Date().getHours()
   const hello = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening'
 
@@ -80,7 +84,7 @@ function HomeBody({ name, o, studentId }: { name: string; o: StudentOverview; st
         <HeroCard
           eyebrow="Start here"
           title="Take your benchmark"
-          body={`About 25 minutes. It finds your strengths and gaps so every session after this is about ${minutes} minutes and aimed at what matters.`}
+          body={`About 30 minutes. It finds your strengths and gaps so every session after this is about ${minutes} minutes and aimed at what matters.`}
           cta="Start benchmark"
           to="/student/benchmark"
           icon={<Compass size={28} />}
@@ -117,7 +121,15 @@ function HomeBody({ name, o, studentId }: { name: string; o: StudentOverview; st
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <Card>
-          <CardHeader title="This week" subtitle={goal ? `${o.week.questions_submitted} of ${goal} questions` : `${o.week.questions_submitted} questions`} action={<Link to="/student/goals" className="text-sm font-semibold text-brand hover:underline">Goals</Link>} />
+          <CardHeader
+            title="This week"
+            subtitle={goal ? `${o.week.questions_submitted} of ${goal} questions` : `${o.week.questions_submitted} questions`}
+            action={
+              <Link to="/student/goals" className="text-sm font-semibold text-brand hover:underline">
+                Goals
+              </Link>
+            }
+          />
           <div className="flex items-center gap-4 p-5 pt-3">
             <Ring value={o.week.questions_submitted} max={goal ?? Math.max(1, o.week.questions_submitted)} size={80} stroke={9} label="Weekly goal progress">
               <span className="text-lg font-bold tabular text-ink">
@@ -159,98 +171,95 @@ function HomeBody({ name, o, studentId }: { name: string; o: StudentOverview; st
         )}
       </div>
 
-      <PracticeIndicators history={o.history} />
+      {!fresh && <ImprovingCard v={improvementVerdict(benchmarkImprovement(o.benchmarks), trend)} />}
 
-      <Card>
-        <CardHeader
-          title="Skills to work on"
-          subtitle="Knowledge and speed are tracked separately"
-          action={
-            <Link to="/student/progress" className="shrink-0 whitespace-nowrap text-sm font-semibold text-go hover:underline">
-              All skills
-            </Link>
-          }
-        />
-        <div className="grid grid-cols-1 gap-2 p-5 pt-3">
-          {weakK.length === 0 && weakP.length === 0 ? (
-            <p className="text-sm text-ink-3">
-              {o.estimates.some((e) => e.knowledge_weak !== null)
-                ? 'No weak skills flagged right now. Nice.'
-                : 'Skills get flagged after about five answers each. Keep practising.'}
-            </p>
-          ) : (
-            <>
-              {weakK.slice(0, 3).map((e) => (
-                <SkillRow
-                  key={e.skill_id}
-                  name={catalog.skillName(e.skill_key) ?? e.skill_key}
-                  section={e.section}
-                  tag="Knowledge"
-                  tone="warn"
-                  value={e.accuracy ?? 0}
-                  detail={`${Math.round((e.accuracy ?? 0) * 100)}% right`}
-                />
-              ))}
-              {weakP.slice(0, 2).map((e) => (
-                <SkillRow
-                  key={e.skill_id}
-                  name={catalog.skillName(e.skill_key) ?? e.skill_key}
-                  section={e.section}
-                  tag="Speed"
-                  tone="info"
-                  value={e.accuracy ?? 0}
-                  detail={`${e.pacing_ratio?.toFixed(1)}× test pace`}
-                />
-              ))}
-            </>
-          )}
-        </div>
-      </Card>
+      {!fresh && <PracticeIndicators history={o.history} />}
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      {!fresh && (
         <Card>
-          <CardHeader title="Momentum" />
-          <div className="grid gap-3 p-5 pt-3 text-sm">
-            <div>
-              <div className="mb-1 flex justify-between">
-                <span className="font-semibold text-ink">Level {lvl.level}</span>
-                <span className="tabular text-ink-3">
-                  {lvl.into}/{lvl.span} XP
-                </span>
-              </div>
-              <ProgressBar value={lvl.into} max={lvl.span} tone="gold" label="XP to next level" />
-            </div>
-            {trend.recent.acc !== null && trend.prior.acc !== null && trend.recent.n >= 5 && trend.prior.n >= 5 && (
-              <p className="text-ink-2">
-                Accuracy this week{' '}
-                <span className={cx('font-semibold', trend.recent.acc >= trend.prior.acc ? 'text-go' : 'text-warn')}>
-                  {Math.round(trend.recent.acc * 100)}%
-                </span>{' '}
-                vs {Math.round(trend.prior.acc * 100)}% the week before.
+          <CardHeader
+            title="Skills to work on"
+            subtitle="Knowledge and speed are tracked separately"
+            action={
+              <Link to="/student/progress" className="shrink-0 whitespace-nowrap text-sm font-semibold text-go hover:underline">
+                All skills
+              </Link>
+            }
+          />
+          <div className="grid grid-cols-1 gap-2 p-5 pt-3">
+            {weakK.length === 0 && weakP.length === 0 ? (
+              <p className="text-sm text-ink-3">
+                {o.estimates.some((e) => e.knowledge_weak !== null)
+                  ? 'No weak skills flagged right now. Nice.'
+                  : 'Skills get flagged after about five answers each. Keep practising.'}
               </p>
-            )}
-            <div className="flex flex-wrap gap-1.5">
-              {badges
-                .filter((b) => b.earned)
-                .map((b) => (
-                  <Pill key={b.key} tone="gold">
-                    <Trophy size={12} /> {b.title}
-                  </Pill>
+            ) : (
+              <>
+                {weakK.slice(0, 3).map((e) => (
+                  <SkillRow
+                    key={e.skill_id}
+                    name={catalog.skillName(e.skill_key) ?? e.skill_key}
+                    section={e.section}
+                    tag="Knowledge"
+                    tone="warn"
+                    value={e.accuracy ?? 0}
+                    detail={`${Math.round((e.accuracy ?? 0) * 100)}% right`}
+                  />
                 ))}
-              {(() => {
-                const next = badges.find((b) => !b.earned)
-                return next ? (
-                  <span className="text-xs text-ink-3">
-                    Next: {next.title} ({next.progress}/{next.goal})
-                  </span>
-                ) : null
-              })()}
-            </div>
+                {weakP.slice(0, 2).map((e) => (
+                  <SkillRow
+                    key={e.skill_id}
+                    name={catalog.skillName(e.skill_key) ?? e.skill_key}
+                    section={e.section}
+                    tag="Speed"
+                    tone="info"
+                    value={e.accuracy ?? 0}
+                    detail={`${e.pacing_ratio?.toFixed(1)}× test pace`}
+                  />
+                ))}
+              </>
+            )}
           </div>
         </Card>
+      )}
 
-        <BenchmarkStatus history={o.benchmarks} />
-      </div>
+      {!fresh && (
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <Card>
+            <CardHeader title="Momentum" />
+            <div className="grid gap-3 p-5 pt-3 text-sm">
+              <div>
+                <div className="mb-1 flex justify-between">
+                  <span className="font-semibold text-ink">Level {lvl.level}</span>
+                  <span className="tabular text-ink-3">
+                    {lvl.into}/{lvl.span} XP
+                  </span>
+                </div>
+                <ProgressBar value={lvl.into} max={lvl.span} tone="gold" label="XP to next level" />
+              </div>
+                <div className="flex flex-wrap gap-1.5">
+                {badges
+                  .filter((b) => b.earned)
+                  .map((b) => (
+                    <Pill key={b.key} tone="gold">
+                      <Trophy size={12} /> {b.title}
+                    </Pill>
+                  ))}
+                {(() => {
+                  const next = badges.find((b) => !b.earned)
+                  return next ? (
+                    <span className="text-xs text-ink-3">
+                      Next: {next.title} ({next.progress}/{next.goal})
+                    </span>
+                  ) : null
+                })()}
+              </div>
+            </div>
+          </Card>
+
+          <BenchmarkStatus history={o.benchmarks} />
+        </div>
+      )}
       {interests.certainty === null && interests.interests.length === 0 && (
         <Notice tone="info" title="What might you study?">
           Not sure is a fine answer.{' '}
