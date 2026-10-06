@@ -239,7 +239,7 @@ def apply_catalog(cat, folders, ev, archive):
     rec = {'institution_key': cat['institution_key'], 'academic_year': year, 'catalog_url': cat['catalog_url'],
            'source_url': cat['source_evidence']['url'], 'verification_status': status,
            'last_verified_at': cat['source_evidence']['fetched_at'][:10]}
-    for k in ('catalog_year_label', 'listed_bachelor_programs', 'programs_complete', 'completeness_basis', 'listed_program_keys'):
+    for k in ('catalog_year_label', 'listed_bachelor_programs', 'verified_listed_programs', 'programs_complete', 'completeness_basis', 'listed_program_keys'):
         if cat.get(k) is not None: rec[k] = cat[k]
     if cat.get('undeclared'):
         u = cat['undeclared']

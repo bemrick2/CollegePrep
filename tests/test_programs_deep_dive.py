@@ -855,6 +855,12 @@ class CompletionStatus(unittest.TestCase):
         r = self.S.state_status('ZZ')['institutions'][0]
         self.assertEqual(r['dimensions']['catalog'], 'open'); self.assertEqual(r['status'], 'partial_unqueued')
 
+    def test_only_verified_programs_on_the_list_count(self):
+        self.covered_school('big', n=10, listed=10)
+        self.put('big', 'program_catalogs', [{'verification_status': 'verified', 'listed_bachelor_programs': 10, 'verified_listed_programs': 8}])
+        r = self.S.state_status('ZZ')['institutions'][0]
+        self.assertEqual((r['catalog_share'], r['dimensions']['catalog']), (0.8, 'open'))
+
     def test_partially_verified_records_never_count_toward_the_catalog(self):
         self.put('big', 'academic_programs', [{'program_key': f'p{i}', 'program_name': f'X {i}', 'credential_level': 'bachelor',
                                                'verification_status': 'partially_verified'} for i in range(10)])
@@ -1094,7 +1100,7 @@ class AutoReviewTests(unittest.TestCase):
                  self.req('g4', 'iss'), self.req('p1', 'ok', kind='program_plan', ext='courseleaf_plan/v1'),
                  self.prog('v1', 'Architecture (Foundation Unit) – BArch'), self.prog('v2', 'Architecture (Summer Design) – BArch'),
                  self.prog('ba', 'Biology (BA)'), self.prog('bs', 'Biology (BS)'),
-                 self.prog('fin', 'Finance, B.S.B.A.'), self.prog('fin2', 'Finance, B.S.B.A. (Online Cohort)')]
+                 self.prog('mba', 'Business Administration, M.B.A.'), self.prog('fin', 'Finance, B.S.B.A.'), self.prog('fin2', 'Finance, B.S.B.A. (Online Cohort)')]
         d = self.run_dir(cands, verify={'bad': ['program_name not verbatim']})
         old = A.catalog_records; A.catalog_records = lambda *a: []  # catalog records need a targets file; tested separately
         try: approve, cats, held = A.review('ZZ', d, today=date(2026, 10, 6))
@@ -1161,3 +1167,13 @@ class ListedProgramTests(unittest.TestCase):
         for n, base in (('Accounting, BS', 'Accounting'), ('Biology (B.S.)', 'Biology'), ('Art, BA, BFA', 'Art'),
                         ('Art, Media, and Design', 'Art, Media, and Design'), ('Economics: BA, BS', 'Economics')):
             self.assertEqual(X.strip_award(n), base)
+
+
+class CatalogFieldTests(unittest.TestCase):
+    def test_verified_listed_programs_bounds(self):
+        from backend.program_fields import field_errors
+        base = {'institution_key': 'k', 'academic_year': '2026-27', 'catalog_url': 'https://c.x.edu/', 'source_url': 'https://c.x.edu/l',
+                'listed_bachelor_programs': 10}
+        self.assertEqual(field_errors('program_catalogs', {**base, 'verified_listed_programs': 10}), [])
+        self.assertTrue(field_errors('program_catalogs', {**base, 'verified_listed_programs': 11}))
+        self.assertTrue(field_errors('program_catalogs', {**base, 'verified_listed_programs': True}))
