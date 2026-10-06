@@ -36,6 +36,7 @@ export function StudentInvite({
   const { source, mode } = useApp()
   const [email, setEmail] = useState('')
   const [code, setCode] = useState<string | null>(null)
+  const [currentId, setCurrentId] = useState<string | null>(null)
   const [busy, setBusy] = useState(false)
   const [result, setResult] = useState<{ kind: 'sent' | 'failed' | 'demo'; to: string; detail?: string } | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -70,6 +71,7 @@ export function StudentInvite({
     try {
       const r = await source.sendStudentInvitation({ householdId, studentId: student.id, email: to, code: resendCode })
       if (r.code) setCode(r.code)
+      if (r.invitationId) setCurrentId(r.invitationId)
       if (r.emailed) setResult({ kind: 'sent', to })
       else if (r.reason === 'demo') setResult({ kind: 'demo', to })
       else setResult({ kind: 'failed', to, detail: r.reason === 'rejected' ? r.error : FAIL_COPY[r.reason ?? 'provider'] })
@@ -102,6 +104,7 @@ export function StudentInvite({
     try {
       await source.revokeInvitation(id)
       setCode(null)
+      setCurrentId(null)
       setResult(null)
       changed()
     } catch (err) {
@@ -178,8 +181,8 @@ export function StudentInvite({
           </button>
         </div>
       )}
-      {outstanding && code && (
-        <button type="button" className="justify-self-start text-sm font-semibold text-bad hover:underline" onClick={() => void revoke(outstanding.id)}>
+      {code && (currentId ?? outstanding?.id) && (
+        <button type="button" className="justify-self-start text-sm font-semibold text-bad hover:underline" onClick={() => void revoke((currentId ?? outstanding!.id)!)}>
           Revoke this invitation
         </button>
       )}

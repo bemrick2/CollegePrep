@@ -62,7 +62,7 @@ describe('emailing a student invitation', () => {
     await user.type(screen.getByLabelText('Recipient email'), 'riley@example.com')
     await user.click(screen.getByRole('button', { name: 'Send invitation' }))
     const code = (await screen.findByTestId('invite-code')).textContent!
-    await user.click(screen.getByRole('button', { name: 'Revoke this invitation' }))
+    await user.click(await screen.findByRole('button', { name: 'Revoke this invitation' }))
     expect(await screen.findByRole('button', { name: /Copy invite link or code instead/ })).toBeInTheDocument()
     await expect(src.acceptInvitation(code)).rejects.toThrow(/revoked/)
   })
