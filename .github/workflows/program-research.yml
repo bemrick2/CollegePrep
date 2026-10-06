@@ -49,11 +49,25 @@ jobs:
           echo "branch=${GITHUB_REF#refs/heads/}" >> "$GITHUB_OUTPUT"
       - name: Diagnose refusals (only when the request lists URLs)
         run: python -c "import json,sys; sys.exit(0 if json.load(open('programs/run-request.json')).get('diagnose') else 1)" && python -m programs.diagnose || true
-      - name: Crawl (resumable)
+      - name: Crawl (resumable, checkpointed)
         timeout-minutes: 240
+        shell: bash
         run: |
-          python -m programs crawl --state "${{ steps.p.outputs.state }}" --run "${{ steps.p.outputs.dir }}" ${{ steps.p.outputs.adapters_only }} \
-            ${{ steps.p.outputs.only && format('--only {0}', steps.p.outputs.only) || '' }}
+          # Crawl in 20-minute segments and push the stored pages after each one, so a runner failure loses at most one
+          # segment; the next segment (or a re-pushed request with the same run_id) resumes from the stored manifest.
+          git config user.name "collegeprep-program-research[bot]"
+          git config user.email "noreply@github.com"
+          for seg in $(seq 1 11); do
+            rc=0
+            timeout 1200 python -m programs crawl --state "${{ steps.p.outputs.state }}" --run "${{ steps.p.outputs.dir }}" ${{ steps.p.outputs.adapters_only }} \
+              ${{ steps.p.outputs.only && format('--only {0}', steps.p.outputs.only) || '' }} || rc=$?
+            if [ -d "${{ steps.p.outputs.dir }}" ]; then
+              git add -f "${{ steps.p.outputs.dir }}"
+              git commit -q -m "Program research run ${{ steps.p.outputs.dir }}: crawl checkpoint $seg (workflow run ${{ github.run_id }})" || true
+              for i in 1 2 3; do git pull -q --rebase origin "${{ steps.p.outputs.branch }}" && git push -q origin "HEAD:${{ steps.p.outputs.branch }}" && break; sleep 5; done
+            fi
+            [ "$rc" = "124" ] || exit $rc
+          done
       - name: Extract candidates and evidence
         if: always()
         run: python -m programs extract --state "${{ steps.p.outputs.state }}" --run "${{ steps.p.outputs.dir }}"
