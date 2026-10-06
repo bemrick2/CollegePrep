@@ -39,7 +39,7 @@ SCOPED = re.compile(r'career[- ]and[- ]technical|\btechnical\b|\bCTE\b|\bvocatio
 # GPA lines that are not the high-school admission minimum: college/dual-enrollment course GPAs, prerequisite
 # waivers, placement-test alternatives, single-course prerequisites and special-population programs (TN r5:
 # Welch, Nashville State, Columbia State, Freed-Hardeman).
-NOT_ELIGIBILITY = re.compile(r'overload|financial\s+aid|fall\s+below|satisfactory\s+progress|graduation\s+gpa|'
+NOT_ELIGIBILITY = re.compile(r'overload|petition|course\s+requirements\s+for|financial\s+aid|fall\s+below|satisfactory\s+progress|graduation\s+gpa|'
                              r'postsecondary\s+courses|courses?\s+attempted|hours\s+of\s+\w+\s+dual\s+enrollment|dual\s+enrollment\s+(?:courses|hours)|'
                              r'waiv|placement|\bIEP\b|gifted|algebra|in\s+the\s+(?:two|three)\s+high\s+school|'
                              # GA r1: SAP and good-standing rules (Dalton State, Georgia Southern), "does not have a 2.00"

@@ -15,14 +15,16 @@ def main(argv=None):
     sub = ap.add_subparsers(dest='cmd', required=True)
     c = sub.add_parser('crawl'); c.add_argument('--state', required=True); c.add_argument('--run', required=True)
     c.add_argument('--only', nargs='*'); c.add_argument('--workers', type=int, default=8); c.add_argument('--no-browser', action='store_true'); c.add_argument('--adapters-only', action='store_true')
+    c.add_argument('--policy-only', action='store_true')
     e = sub.add_parser('extract'); e.add_argument('--state', required=True); e.add_argument('--run', required=True)
     pr = sub.add_parser('promote'); pr.add_argument('decisions')
     a = sub.add_parser('audit'); a.add_argument('--states', nargs='+', default=['TN', 'OR']); a.add_argument('--check', action='store_true')
     st = sub.add_parser('status'); st.add_argument('--states', nargs='*'); st.add_argument('--check', action='store_true')
+    qs = sub.add_parser('queue-suggest'); qs.add_argument('--state', required=True); qs.add_argument('--runs', nargs='*')
     args = ap.parse_args(argv)
     if args.cmd == 'crawl':
         from .crawl import crawl
-        crawl(load_targets(args.state), args.run, only=args.only, workers=args.workers, use_browser=not args.no_browser, adapters_only=args.adapters_only)
+        crawl(load_targets(args.state), args.run, only=args.only, workers=args.workers, use_browser=not args.no_browser, adapters_only=args.adapters_only, policy_only=args.policy_only)
     elif args.cmd == 'extract':
         from .extract import extract_run
         s = extract_run(load_targets(args.state), args.run)
@@ -33,6 +35,9 @@ def main(argv=None):
     elif args.cmd == 'audit':
         from .audit import main as audit_main
         return audit_main(args.states, check=args.check)
+    elif args.cmd == 'queue-suggest':
+        from .queue_suggest import main as qs_main
+        return qs_main(args.state.upper(), args.runs)
     elif args.cmd == 'status':
         from .status import main as status_main
         return status_main([s.upper() for s in args.states] if args.states else None, check=args.check)

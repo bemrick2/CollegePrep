@@ -76,12 +76,6 @@
    "detail": "22 program pages of the 2026-2027 catalog were read; none prints a four-year plan (3 mention a fall semester in passing)."
   },
   {
-   "institution_key": "ipeds-209056",
-   "gap": "requirement_groups",
-   "reason": "not_yet_researched",
-   "next_action": "Re-extract the CourseLeaf course lists (courselist_html) in a Lewis & Clark run."
-  },
-  {
    "institution_key": "ipeds-210401",
    "gap": "admission_rules",
    "reason": "no_official_statement",
@@ -117,12 +111,6 @@
    "next_action": "Re-check program pages at the next catalog release.",
    "detail": "Civil Engineering BS, Mechanical Engineering BS and Software Engineering Technology BS: the 2026-2027 catalog pages, the first-year admission criteria page and the admitted-student page print no admission-to-major rule (STEM applicants are only \"strongly encouraged\" to take pre-calculus).",
    "evidence_url": "https://www.oit.edu/admissions/criteria"
-  },
-  {
-   "institution_key": "ipeds-209506",
-   "gap": "degree_maps",
-   "reason": "not_yet_researched",
-   "next_action": "Fetch the per-program \"Degree Maps\" tabs (catalog.oit.edu/programs/<code>/degree-maps-*) in a browser-rendered run."
   },
   {
    "institution_key": "ipeds-209506",
@@ -195,78 +183,113 @@
    "detail": "Southern Oregon University: the Acalog catalog answered program-list requests with a bot challenge (HTTP 202) and the crawler stopped at the host (run OR/2026-10-05-b)."
   },
   {
+   "institution_key": "ipeds-209056",
+   "gap": "requirement_groups",
+   "reason": "layout_not_readable",
+   "next_action": "Read department pages section by section so each Course List is keyed to its major (not the minor).",
+   "detail": "Lewis & Clark catalog pages are department pages that hold the major and the minor together; the program record comes from the Majors and Minors table, so Course List groups on the page are not tied to a program record (run OR/2026-10-06-cl2: 22 pages, 1 Course List capture)."
+  },
+  {
+   "institution_key": "ipeds-209506",
+   "gap": "degree_maps",
+   "reason": "layout_not_readable",
+   "next_action": "Render the per-program \"Degree Maps\" tabs (catalog.oit.edu/programs/<code>/degree-maps-*) in the browser fetch.",
+   "detail": "Oregon Tech program pages link a \"Degree Maps\" tab that Coursedog renders client-side; the browser fetch covers program pages only.",
+   "evidence_url": "https://catalog.oit.edu/programs/BACT-BS_BACT-MAJOR/degree-maps-UbBKU"
+  },
+  {
    "institution_key": "ipeds-210429",
    "gap": "institution",
-   "reason": "robots_disallowed",
-   "next_action": "Request permission or an official program export from the WOU registrar.",
-   "detail": "catalog.wou.edu robots.txt disallows the catalog for automated fetching (run OR/2026-10-05-b).",
+   "reason": "fetch_failed",
+   "next_action": "Fetch catalog.wou.edu with the missing intermediate certificate supplied (verification kept on) or through the browser fetch; then configure the Acalog catalog.",
+   "detail": "catalog.wou.edu fails TLS verification from the research runner (\"certificate verify failed: unable to get local issuer certificate\", diagnose run OR/2026-10-06-diag2), so its robots.txt is unreachable and the crawler stops. wou.edu itself is reachable. Earlier runs logged this as a robots refusal.",
    "evidence_url": "https://catalog.wou.edu/robots.txt"
-  },
-  {
-   "institution_key": "ipeds-210331",
-   "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate the current catalog (discovery run found no catalog link) and configure a catalog run."
-  },
-  {
-   "institution_key": "ipeds-209409",
-   "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate the current catalog (discovery run found no catalog link) and configure a catalog run."
-  },
-  {
-   "institution_key": "ipeds-210304",
-   "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate the current catalog (discovery run found no catalog link) and configure a catalog run."
   },
   {
    "institution_key": "ipeds-209287",
    "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate the current catalog (discovery run found no catalog link) and configure a catalog run."
-  },
-  {
-   "institution_key": "ipeds-480198",
-   "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Check whether the institution enrols first-year bachelor's students; queue as out of scope with the official evidence, or configure a catalog run."
-  },
-  {
-   "institution_key": "ipeds-208725",
-   "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Check whether the institution enrols first-year bachelor's students; queue as out of scope with the official evidence, or configure a catalog run."
-  },
-  {
-   "institution_key": "ipeds-407610",
-   "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Check whether the institution enrols first-year bachelor's students; queue as out of scope with the official evidence, or configure a catalog run."
+   "reason": "out_of_scope",
+   "next_action": "None while closed; re-check if Jessup University reopens undergraduate enrolment in Portland.",
+   "detail": "Multnomah University closure pages: \"May 1, 2024 serves as the institution’s last full day of educational instruction at the Portland, Oregon location\" and \"Beginning Fall 2025, Jessup University’s Portland Campus will transition to offering only Seminary and Graduate education\" (stored in run OR/2026-10-06-scope).",
+   "evidence_url": "https://www.multnomah.edu/closure-2024/"
   },
   {
    "institution_key": "ipeds-209241",
    "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Check whether the institution enrols first-year bachelor's students; queue as out of scope with the official evidence, or configure a catalog run."
+   "reason": "out_of_scope",
+   "next_action": "Re-check at the next catalog release.",
+   "detail": "Mount Angel Seminary 2026-2027 Academic Catalog: the College of Liberal Arts BA is for seminarians (\"Seminarians must have an affiliation with an (arch)diocese or religious community at the time of entering\"); non-seminarians may enrol only in the MA and DMin programs (stored in run OR/2026-10-06-scope).",
+   "evidence_url": "https://www.mountangelabbey.org/wp-content/uploads/Mount-Angel-Seminary-Academic-Catalog-2026-2027.pdf"
   },
   {
    "institution_key": "ipeds-208390",
    "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Check whether the institution enrols first-year bachelor's students; queue as out of scope with the official evidence, or configure a catalog run."
+   "reason": "out_of_scope",
+   "next_action": "Re-check if Chemeketa adds a bachelor's open to first-year students.",
+   "detail": "Chemeketa's only bachelor's, the BAS in Leadership & Management, requires a \"Completed Associate degree from regionally accredited institution with GPA of 2.0 or higher\" (stored in run OR/2026-10-06-scope); it is not open to entering first-year students.",
+   "evidence_url": "https://chemeketa.edu/programs-classes/program-finder/leadership-management/"
   },
   {
    "institution_key": "ipeds-209250",
    "gap": "institution",
    "reason": "not_yet_researched",
-   "next_action": "Check whether the institution enrols first-year bachelor's students; queue as out of scope with the official evidence, or configure a catalog run."
+   "next_action": "Fetch the MHCC BAS Cybersecurity \"get started\" page (403 to the crawler) or the catalog admission section to confirm the associate-degree prerequisite.",
+   "detail": "Mt Hood CC offers one bachelor's (BAS Cybersecurity, 2026-27 catalog page stored in run OR/2026-10-06-scope); the admission page returned HTTP 403."
   },
   {
    "institution_key": "ipeds-209603",
    "gap": "institution",
+   "reason": "out_of_scope",
+   "next_action": "None: PNCA programs are recorded under Willamette University.",
+   "detail": "Pacific Northwest College of Art is a college of Willamette University; its BFA programs are listed in the Willamette University 2026-2027 catalog and recorded under Willamette (e.g. Animated Arts (BFA)). IPEDS 2023-24 reports 0 entering first-year students for this unit.",
+   "evidence_url": "https://catalog.willamette.edu/programs/BFA.AA/general-aoYks"
+  },
+  {
+   "institution_key": "ipeds-210331",
+   "gap": "institution",
+   "reason": "layout_not_readable",
+   "next_action": "Build a reader for this catalog PDF's programs-of-study section (or find an HTML program list).",
+   "detail": "Corban University: the 2026-2027 catalog is a single PDF (stored in run OR/2026-10-06-scope); no program-list reader handles its layout yet.",
+   "evidence_url": "https://media.corban.edu/hydra/media/files/2026/07/02/2026-2027-academic-catalog_final.pdf"
+  },
+  {
+   "institution_key": "ipeds-209409",
+   "gap": "institution",
+   "reason": "layout_not_readable",
+   "next_action": "Build a reader for this catalog PDF's programs-of-study section (or find an HTML program list).",
+   "detail": "Bushnell University: the 2026-2027 catalog is a single PDF (stored in run OR/2026-10-06-scope); no program-list reader handles its layout yet.",
+   "evidence_url": "https://bushnell.edu/wp-content/uploads/2026/08/26-27-Bushnell-University-Academic-Catalog-FINAL.pdf"
+  },
+  {
+   "institution_key": "ipeds-407610",
+   "gap": "institution",
+   "reason": "layout_not_readable",
+   "next_action": "Build a reader for this catalog PDF's programs-of-study section (or find an HTML program list).",
+   "detail": "Pacific Bible College: the 2026-2027 catalog is a single PDF (stored in run OR/2026-10-06-scope); no program-list reader handles its layout yet.",
+   "evidence_url": "https://pacificbible.edu/catalog"
+  },
+  {
+   "institution_key": "ipeds-210304",
+   "gap": "institution",
    "reason": "not_yet_researched",
-   "next_action": "Check whether the institution enrols first-year bachelor's students; queue as out of scope with the official evidence, or configure a catalog run."
+   "next_action": "Locate the current Warner Pacific catalog (the reviewed PDF URL returned 404).",
+   "detail": "warnerpacific.edu catalog_2026_27_WPU_web.pdf returned HTTP 404 in run OR/2026-10-06-scope."
+  },
+  {
+   "institution_key": "ipeds-480198",
+   "gap": "institution",
+   "reason": "not_yet_researched",
+   "next_action": "Locate the current Warner Pacific catalog; PGS bachelor's programs are adult degree programs.",
+   "detail": "Adult degree admission page stored in run OR/2026-10-06-scope (high school transcript accepted for applicants without college credit); catalog PDF returned 404.",
+   "evidence_url": "https://www.warnerpacific.edu/admissions-aid/admission-requirements/adult-degree-admission-requirements/"
+  },
+  {
+   "institution_key": "ipeds-208725",
+   "gap": "institution",
+   "reason": "bot_challenge",
+   "next_action": "Request access or an official program list; the block is not evaded.",
+   "detail": "newhope.edu answered the academics page and the 2023-2024 catalog PDF (the latest linked) with HTTP 403 in run OR/2026-10-06-scope.",
+   "evidence_url": "https://newhope.edu/academics/"
   }
  ]
 }

@@ -108,7 +108,7 @@ class BrowserFetcher:
 
     def fetch(self, url):
         if not self.base.allowed(url):
-            return {'status': None, 'error': 'disallowed_by_robots'}, None
+            return {'status': None, 'error': self.base.refusal(url)}, None
         host = urlsplit(url).netloc.lower()
         with self.lock:  # one browser page at a time keeps the load equal to a person reading
             entry = self.base.gate.wait(host)
@@ -297,7 +297,8 @@ def expand(target, role, url, links, push, is_program, is_nav, depth):
     cat = target.get('catalog') or {}
     lists_given = bool(cat.get('program_lists'))
     if role in ('catalog_home', 'catalog_nav', 'program_list'):
-        progs = [(anchor_rank(a), h) for h, a in links if is_program(h)]
+        tag = cat.get('list_filter')  # a branch campus on its parent's catalog: only the rows tagged with this campus
+        progs = [(anchor_rank(a), h) for h, a in links if is_program(h) and (not tag or role != 'program_list' or tag in (a or ''))]
         for rank, h in sorted(progs, key=lambda x: x[0]):
             # A configured list page is the authority for which pages are programs; elsewhere only bachelor/unlabeled.
             if rank < 2 and (role == 'program_list' or not lists_given or cat.get('platform') == 'acalog'):
@@ -336,10 +337,12 @@ def expand(target, role, url, links, push, is_program, is_nav, depth):
                 push(href, 'policy_link', url, depth + 1)
 
 
-def crawl(targets, run_dir, only=None, workers=8, delay=1.0, log=print, use_browser=True, adapters_only=False):
+def crawl(targets, run_dir, only=None, workers=8, delay=1.0, log=print, use_browser=True, adapters_only=False, policy_only=False):
     run = Run(run_dir)
     fetcher = Fetcher(delay=delay)
     sel = [t for t in targets['institutions'] if not only or t['institution_key'] in only or t['folder'] in only]
+    if policy_only:  # a follow-up run for review: only the targets' policy pages (admission, declaration), no catalog crawl
+        sel = [{**t, 'catalog': {}, 'discover': [], 'render': None} for t in sel]
     browser = None
     if use_browser and any(t.get('render') == 'browser' for t in sel):
         try:

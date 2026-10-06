@@ -148,7 +148,7 @@ MUTS = [
     ('pipeline/extractors/transfer.py', '|depending\\s+on\\s+(?:the|your)\\s+(?:program|major)|most', '|most'),
     ('pipeline/extractors/dual.py', "|if\\s+you\\s+(?:don[’\\']?t|do\\s+not)', line, re.I)", "', line, re.I)"),
     ('pipeline/extractors/merit.py', '        if sum(1 for r in body if any(PHONE.search(c) for c in r)) >= 2: continue', '        pass'),
-    ('pipeline/extractors/merit.py', "r'(?:private|outside|external)[- ]scholarships?|undocumented|", "r'undocumented|"),
+    ('pipeline/extractors/merit.py', "|(?:private|outside|external)[- ]scholarships?|undocumented|", "|undocumented|"),
     ('pipeline/extractors/transfer.py', '(?:english|math(?:ematics)?)\\s+course|', ''),
     ('pipeline/extractors/dual.py', "NOT_ELIGIBILITY = re.compile(r'overload|", "NOT_ELIGIBILITY = re.compile(r'"),
     ('pipeline/extractors/transfer.py', "r'(?<!non-)(?<!non)developmental|", "r'developmental|"),
@@ -169,7 +169,7 @@ MUTS = [
     ('pipeline/extractors/merit.py', " or '@' in x or YES_NO", ' or YES_NO'),
     ('pipeline/extractors/merit.py', " or YES_NO.fullmatch(x)) else ''", ") else ''"),
     ('pipeline/extractors/merit.py', " or re.search(r'\\$[\\d,.]+\\s+(?:for\\s+)?(?:the\\s+)?(?:fall|spring)\\b', outside, re.I))", ')'),
-    ('pipeline/extractors/merit.py', "NOT_AWARD_NAME = re.compile(r'\\bap\\s+credit\\b|", "NOT_AWARD_NAME = re.compile(r'"),
+    ('pipeline/extractors/merit.py', "\\d{1,2}\\W*$|\\bap\\s+credit\\b|", "\\d{1,2}\\W*$|"),
     ('pipeline/extractors/costs.py', '|not\\s+living\\s+at\\s+home|', '|'),
     ('pipeline/extractors/costs.py', '|at[- ]home|', '|at home|'),
     ('pipeline/extractors/costs.py', "    if not ctx['period'] and lead_period: ctx['period'] = 'semester'", '    pass'),
@@ -184,6 +184,20 @@ MUTS = [
     ('pipeline/extractors/costs.py', 'on[- ]campus\\s*/\\s*off[- ]campus|on\\s*(/|and', 'on\\s*(/|and'),
     ('pipeline/extractors/costs.py', '(a\\s+)?(parents?|family)|', '(a\\s+)?parents?|'),
     ('pipeline/extractors/transfer.py', 'unaccredited|high\\s+school|', 'unaccredited|'),
+    ('pipeline/extractors/costs.py', "r'\\bno\\s+out[- ](?:of[- ])?state|", "r'(?!x)x|"),
+    ('pipeline/extractors/costs.py', "\\bnot\\s+charge\\s+out[- ]of[- ]state|'", "'"),
+    ('pipeline/extractors/costs.py', "r'\\bresidents?\\s*(?:&|and|/)\\s*non-?\\s?residents?'", "r'(?!x)x'"),
+    ('pipeline/extractors/costs.py', '(?:midwest|msep|wue|reciprocity)\\W+non', '(?:zzzz)\\W+non'),
+    ('pipeline/extractors/costs.py', "|\\bresidents?\\s+of\\s+other\\s+states'", "'"),
+    ('pipeline/extractors/costs.py', '        semester_only = True\n', '        pass\n'),
+    ('pipeline/extractors/transfer.py', '(?:some|certain|specific|health)\\s+[\\w/ -]{0,60}?programs?\\s+require|', ''),
+    ('pipeline/extractors/transfer.py', 'students\\s+planning\\s+to\\s+transfer|', ''),
+    ('pipeline/extractors/dual.py', 'overload|petition|', 'overload|'),
+    ('pipeline/extractors/dual.py', 'course\\s+requirements\\s+for|', ''),
+    ('pipeline/extractors/merit.py', '^\\W*(?:jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\\.?\\s+\\d{1,2}\\W*$|', ''),
+    ('pipeline/extractors/merit.py', "r'course[- ]awards|", "r'"),
+    ('pipeline/extractors/merit.py', '|\\bclep\\b|examination', '|examination'),
+    ('pipeline/extractors/merit.py', '|examination[- ]program|(?:private', '|(?:private'),
     # Issue #95: printed choice rules are not all_required
     ('pipeline/extractors/catalog.py', "            choice_issues.append('mixed_required_and_choice')", '            pass'),
     ('pipeline/extractors/catalog.py', "            choice_issues.append('choice_rule_unparsed')", '            pass'),
@@ -226,6 +240,13 @@ def main():
     workers = max(1, int(os.environ.get('MUTATION_WORKERS') or os.cpu_count() or 1))
     # Parallel suites share the CPU, so each one runs slower; the per-mutant budget scales with the worker count.
     TIMEOUT = int(os.environ.get('MUTATION_TIMEOUT') or 90 * workers)
+    # CI shards the list across parallel jobs (MUTATION_SHARD=i/n, 1-based); every mutant runs in exactly one shard.
+    shard = os.environ.get('MUTATION_SHARD')
+    muts = MUTS
+    if shard:
+        i, n = (int(x) for x in shard.split('/'))
+        assert 1 <= i <= n, shard
+        muts = MUTS[i - 1::n]
     tmp = tempfile.mkdtemp(prefix='mutation-')
     skip = shutil.ignore_patterns('.git', 'node_modules', '__pycache__', 'runs')
     roots = queue.Queue()
@@ -240,7 +261,7 @@ def main():
     failed = False
     try:
         with concurrent.futures.ThreadPoolExecutor(workers) as pool:
-            for (f, old, _), verdict in pool.map(job, MUTS):
+            for (f, old, _), verdict in pool.map(job, muts):
                 print(verdict, f, old[:60], flush=True)
                 if verdict != 'KILLED ':
                     failed = True

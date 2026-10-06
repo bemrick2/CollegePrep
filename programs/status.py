@@ -33,6 +33,7 @@ GAPS = {'catalog', 'catalog_count', 'degree_maps', 'requirement_groups', 'admiss
 REASONS = {
     'bot_challenge',            # catalog answers with a bot challenge (recorded, never evaded)
     'robots_disallowed',        # robots.txt disallows the catalog
+    'fetch_failed',             # the official host could not be fetched (TLS certificate chain, DNS, server error), diagnosed
     'no_year_label',            # official pages print no academic year
     'year_inconsistent',        # the source prints conflicting years or totals
     'layout_not_readable',      # the official layout cannot yet be read exactly (held, not guessed)
@@ -148,7 +149,7 @@ def state_status(state):
 def states_with_work():
     """States the deep dive has worked: a queue file, or a promoted program_catalogs record (only this workstream
     writes catalogs; the national crawler's occasional academic_programs records alone do not start a state)."""
-    s = {p.stem for p in (ROOT / 'programs/queue').glob('*.json')}
+    s = {p.stem for p in (ROOT / 'programs/queue').glob('*.json') if '.' not in p.stem}  # not <STATE>.proposed.json drafts
     folders = {f.parts[-3] for f in (ROOT / 'data/institutions').glob('*/program_catalogs/*.json')}
     if folders:
         for p in sorted((ROOT / 'pipeline/registry').glob('*.json')):

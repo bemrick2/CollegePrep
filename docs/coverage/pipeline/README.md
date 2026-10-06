@@ -409,6 +409,43 @@ Institutions in scope: **45** · crawled: **33** · blocked by site: **12** · r
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-158431`, `ipeds-159009`, `ipeds-159939`, `ipeds-160579`, `ipeds-160621`, `ipeds-160630`, `ipeds-160649`, `ipeds-160667`, `ipeds-434061`, `ipeds-440271`, `ipeds-483212`, `ipeds-490498`
 
+## MN — 2026-27
+
+Institutions in scope: **69** · crawled: **65** · blocked by site: **4** · run: `pipeline/runs/MN/2026-10-04`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 0 (0%) | 0 | 35 (51%) | 64 (93%) | 1 | 4 |
+| cost_of_attendance | 0 (0%) | 0 | 24 (35%) | 64 (93%) | 1 | 4 |
+| admissions_tests | 0 (0%) | 0 | 0 (0%) | 62 (90%) | 3 | 4 |
+| common_data_set | 0 (0%) | 0 | 0 (0%) | 10 (14%) | 55 | 4 |
+| merit_scholarships | 0 (0%) | 0 | 9 (13%) | 61 (88%) | 4 | 4 |
+| ap_credit | 0 (0%) | 0 | 14 (20%) | 47 (68%) | 18 | 4 |
+| clep_credit | 0 (0%) | 0 | 12 (17%) | 43 (62%) | 22 | 4 |
+| ib_credit | 0 (0%) | 0 | 10 (14%) | 27 (39%) | 38 | 4 |
+| dual_enrollment | 0 (0%) | 0 | 6 (9%) | 25 (36%) | 40 | 4 |
+| transfer_credit | 0 (0%) | 0 | 11 (16%) | 64 (93%) | 1 | 4 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 39 (57%) | 26 | 4 |
+| residency | 0 (0%) | 0 | 0 (0%) | 35 (51%) | 30 | 4 |
+| degree_requirements | 0 (0%) | 0 | 1 (1%) | 51 (74%) | 14 | 4 |
+| aid_appeals | 0 (0%) | 0 | 42 (61%) | 52 (75%) | 13 | 4 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 30 |
+| blocked requests | 92 |
+| candidates | 448 |
+| conflicts | 150 |
+| documents | 4866 |
+| extraction failures | 0 |
+| fetch errors | 293 |
+| fetches | 5251 |
+| ready | 185 |
+| semantic review | 139 |
+| stale sources | 35 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-173142`, `ipeds-173708`, `ipeds-174491`, `ipeds-174525`
+
 ## MO — 2026-27
 
 Institutions in scope: **70** · crawled: **65** · blocked by site: **5** · run: `pipeline/runs/MO/2026-10-03`

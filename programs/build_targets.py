@@ -134,7 +134,7 @@ OR={
    'printed_list':{'url':'https://up.smartcatalogiq.com/en/2026-2027/bulletin/university-academic-programs-of-study/undergraduate-programs','heading':'Undergraduate Programs','stop':'Up one level'}},
    discover=['https://up.smartcatalogiq.com/en'],policy=[]),
  'osucascades':dict(priority=2,catalog={'platform':'courseleaf','home':'https://catalog.oregonstate.edu/','path_prefix':'/college-departments/','min_depth':1,
-   'program_lists':['https://catalog.oregonstate.edu/programs/'],'list_filter':'OSU-Cascades'},caps={'program_page':0},
+   'program_lists':['https://catalog.oregonstate.edu/programs/'],'list_filter':'OSU-Cascades'},caps={'program_page':60},
    policy=['https://osucascades.edu/academics']),
  'oit':dict(priority=1,render='browser',catalog={'platform':'coursedog','home':'https://catalog.oit.edu/','path_prefix':'/programs/','min_depth':0,
    'program_lists':['https://catalog.oit.edu/programs']+[f'https://catalog.oit.edu/programs?page={n}&pq=&sortBy=name' for n in range(2,13)]},policy=['https://www.oit.edu/academics/degrees','https://www.oit.edu/academics/degrees/nursing',
@@ -150,18 +150,58 @@ DISCOVER={'TN':['trevecca','southern','lmunet','cumberland','fhu','milligan','br
 PRI={'up':1,'georgefox':1,'sou':2,'wou':2,'eou':2,'osucascades':2,'willamette-210401':2,'lclark':2,'reed':2,'linfield':2,'pacificu':2,'cn':2,'trevecca':2,'southern':2,'lmunet':2,'sewanee':2,'maryvillecollege':2}
 BLOCKED_EXTRA={'utk': ['https://advising.utk.edu/', 'https://www.utk.edu/academics/majors'], 'mtsu': ['https://www.mtsu.edu/advising/', 'https://www.mtsu.edu/programs/'], 'memphis': ['https://www.memphis.edu/advising/', 'https://www.memphis.edu/academics/'], 'etsu': ['https://www.etsu.edu/advisement/', 'https://www.etsu.edu/academics/'], 'utm': ['https://www.utm.edu/academics/majors-and-programs', 'https://www.utm.edu/offices/advising'], 'belmont': ['https://www.belmont.edu/academics/majors-programs/'], 'lipscomb': ['https://www.lipscomb.edu/academics'], 'leeuniversity': ['https://www.leeuniversity.edu/academics/']}
 for k,v in BLOCKED_EXTRA.items(): TN[k]['policy']=TN[k]['policy']+v
+# Official pages located by review (2026-10-06) that state, or are the places that would state, how students enter
+# high-value majors (admission_rules dimension, docs/PROGRAM_DEPTH_COMPLETION.md). Fetched as policy pages.
+ADMISSION_PAGES={'OR':{
+ 'up':['https://up.smartcatalogiq.com/en/2026-2027/bulletin/university-services/admissions/first-year-students',
+       'https://engineering.up.edu/transfer-students.html','https://up.smartcatalogiq.com/en/2026-2027/bulletin/school-of-business/',
+       'https://up.smartcatalogiq.com/en/2026-2027/bulletin/donald-p-shiley-school-of-engineering/'],
+ 'georgefox':['https://www.georgefox.edu/catalog/undergrad/curriculum/major_minor/declaring-major.html'],
+ 'lclark':['https://college.lclark.edu/academics/support/advising/major-exploration'],
+ 'uoregon':['https://scds.uoregon.edu/cs/apply/declare-major-minor','https://scds.uoregon.edu/cs/undergraduate-programs/frequently-asked-questions'],
+ 'oregonstate':['https://business.oregonstate.edu/node/22251','https://business.oregonstate.edu/node/245',
+                'https://business.oregonstate.edu/programs/application-process-overview','https://admissions.oregonstate.edu/calculus-ready'],
+ 'willamette-210401':['https://willamette.edu/undergraduate/business/index.html','https://willamette.edu/undergraduate/physics/info/engineering'],
+ 'oit':['https://www.oit.edu/admissions/criteria','https://www.oit.edu/admissions/first-year-admitted'],
+ 'linfield':['https://inside.linfield.edu/advising/for-students/declare-major.html','https://catalog.linfield.edu/degrees-and-programs/undergraduate/major/declaration/'],
+ 'eou':['https://catalog.eou.edu/content.php?catoid=8&navoid=462','https://eou.edu/business-administration','https://www.eou.edu/computer-science/'],
+ 'osucascades':['https://osucascades.edu/admissions/admission-requirements','https://admissions.oregonstate.edu/calculus-ready',
+                'https://business.oregonstate.edu/programs/20696/admissions'],
+},'TN':{}}
+for st,conf in (('TN',TN),('OR',OR)):
+    for k,v in ADMISSION_PAGES[st].items(): conf[k]['policy']=conf[k].get('policy',[])+[u for u in v if u not in conf[k].get('policy',[])]
+# Official catalog and scope pages for discover-mode institutions (catalog PDFs, closure notices, bachelor's entry rules),
+# located by review 2026-10-06. Fetched as policy pages so the queue cites stored documents.
+SCOPE_PAGES={'OR':{
+ 'corban':['https://www.corban.edu/registrar/catalog/','https://media.corban.edu/hydra/media/files/2026/07/02/2026-2027-academic-catalog_final.pdf','https://www.corban.edu/academics/majors-programs/'],
+ 'bushnell':['https://bushnell.edu/wp-content/uploads/2026/08/26-27-Bushnell-University-Academic-Catalog-FINAL.pdf','https://bushnell.edu/undergraduate-academics/'],
+ 'warnerpacific-210304':['https://www.warnerpacific.edu/wp-content/uploads/2026/08/catalog_2026_27_WPU_web.pdf'],
+ 'warnerpacific-480198':['https://www.warnerpacific.edu/wp-content/uploads/2026/08/catalog_2026_27_WPU_web.pdf',
+                         'https://www.warnerpacific.edu/admissions-aid/admission-requirements/adult-degree-admission-requirements/'],
+ 'multnomah':['https://www.multnomah.edu/','https://www.multnomah.edu/closure-2024/','https://www.multnomah.edu/closure-2025/'],
+ 'newhope':['https://newhope.edu/academics/','https://www.newhope.edu/wp-content/uploads/2023/09/2023-2024-Academic-Catalog.pdf'],
+ 'pacificbible':['https://pacificbible.edu/catalog','https://pacificbible.edu/faq'],
+ 'mountangelabbey':['https://www.mountangelabbey.org/wp-content/uploads/Mount-Angel-Seminary-Academic-Catalog-2026-2027.pdf','https://www.mountangelabbey.org/seminary/admissions/'],
+ 'chemeketa':['https://chemeketa.edu/programs-classes/program-finder/leadership-management/'],
+ 'mhcc':['https://catalog.mhcc.edu/degree-certificate-requirements/bachelor-of-applied-science/cybersecurity/',
+         'https://www.mhcc.edu/education-options/degrees-certificates/cybersecurity/bachelor-applied-science-cybersecurity/get-started'],
+ 'willamette':['https://pnca.willamette.edu/academics/bfa','https://catalog.willamette.edu/programs/BFA.IM/general-aoYks'],
+},'TN':{}}
+SCOPE_HOSTS={'pacificbible':['cdn.prod.website-files.com']}
 TYPE_PATH={'lmunet':{'url':'https://undergraduatecatalog.lmunet.edu/degrees','home':'https://undergraduatecatalog.lmunet.edu/'}}
 for st,conf in (('TN',TN),('OR',OR)):
     r=reg(st); out=[]
     for folder,c in conf.items():
         i=r[folder]; out.append({'institution_key':i['institution_key'],'folder':folder,'name':i['name'],'control':i['control'],
-          'domains':sorted(set(i['allowed_domains'])),'hosts':sorted({h for h in [c['catalog']['home'].split('/')[2]] if 'smartcatalogiq' in h or 'kuali' in h} | ({'catalog.oregonstate.edu'} if folder=='osucascades' else set())
+          'domains':sorted(set(i['allowed_domains'])),'hosts':sorted({h for h in [c['catalog']['home'].split('/')[2]] if 'smartcatalogiq' in h or 'kuali' in h} | ({'catalog.oregonstate.edu','admissions.oregonstate.edu','business.oregonstate.edu'} if folder=='osucascades' else set())
           | ({'coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com'} if c['catalog'].get('platform')=='coursedog' else set())),'mode':'catalog',**c})
-    for folder in DISCOVER[st]:
+    # every in-scope four-year institution is a target: unconfigured ones are discovered first
+    for folder in DISCOVER[st]+sorted(f for f in r if f not in conf and f not in DISCOVER[st]):
         i=r[folder]; d=i['domain']
         out.append({'institution_key':i['institution_key'],'folder':folder,'name':i['name'],'control':i['control'],'domains':sorted(set(i['allowed_domains'])),'hosts':[],
-          'mode':'discover','priority':PRI.get(folder,3),'discover':[i['seeds']['website'],f'https://catalog.{d}/']+EXTRA_DISCOVER.get(folder,[]),'policy':[]})
-        out[-1]['hosts']=HOSTS.get(folder,[])
+          'mode':'discover','priority':PRI.get(folder,3),'discover':[i['seeds']['website'],f'https://catalog.{d}/']+EXTRA_DISCOVER.get(folder,[]),
+          'policy':SCOPE_PAGES[st].get(folder,[])})
+        out[-1]['hosts']=HOSTS.get(folder,[])+SCOPE_HOSTS.get(folder,[])
         if folder in TYPE_PATH: out[-1]['type_path_list']=TYPE_PATH[folder]
     out.sort(key=lambda t:(t['priority'],t['name']))
     doc={'state':st,'purpose':'Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. '
