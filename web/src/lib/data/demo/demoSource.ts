@@ -3,6 +3,8 @@ import type { DataSource, InvitationSummary, InviteSendResult, StudentInvitation
 import { DataError } from '../source'
 import type {
   AttemptRecord,
+  BillingPlan,
+  Entitlement,
   BenchmarkSummary,
   Confidence,
   CostProjection,
@@ -626,6 +628,25 @@ export class DemoSource implements DataSource {
   }
 
   readonly supportsPrimarySchool = true
+
+  // The demo has no billing: no plan, price or checkout is shown (nothing is simulated).
+  readonly supportsBilling = false
+
+  async entitlement(_householdId: string): Promise<Entitlement> {
+    return { active: false, status: null, can_manage_billing: false }
+  }
+
+  async billingPlans(): Promise<BillingPlan[]> {
+    return []
+  }
+
+  async startCheckout(): Promise<string> {
+    throw new DataError('Billing is not available in the demo', 'invalid')
+  }
+
+  async billingPortalUrl(): Promise<string> {
+    throw new DataError('Billing is not available in the demo', 'invalid')
+  }
 
   async primarySchool(_householdId: string) {
     return delay(readPrimarySchool())

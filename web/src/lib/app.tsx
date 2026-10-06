@@ -81,8 +81,13 @@ export function AppProvider({ children, source: injected }: { children: ReactNod
     setLoading(true)
     void refresh()
     if (mode === 'live' && supabase) {
-      const { data } = supabase.auth.onAuthStateChange(() => void refresh())
-      return () => data.subscription.unsubscribe()
+      // Supabase holds its auth lock while notifying listeners. Defer calls to getUser/getSession.
+      let pending: ReturnType<typeof setTimeout> | undefined
+      const { data } = supabase.auth.onAuthStateChange(() => {
+        clearTimeout(pending)
+        pending = setTimeout(() => void refresh(), 0)
+      })
+      return () => { clearTimeout(pending); data.subscription.unsubscribe() }
     }
   }, [refresh, mode])
 

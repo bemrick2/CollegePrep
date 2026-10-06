@@ -1,5 +1,6 @@
-import { useState, type FormEvent } from 'react'
+import { useEffect, useState, type FormEvent } from 'react'
 import { Navigate, useNavigate, useSearchParams } from 'react-router-dom'
+import { signupConfirmationUrl } from '../../lib/authRedirect'
 import { supabase } from '../../lib/supabase'
 import { homePathFor, useApp } from '../../lib/app'
 import { Brand } from '../../components/shell'
@@ -8,7 +9,7 @@ import { Button, Card, Field, Notice, Segmented, inputClass } from '../../compon
 export function Auth() {
   const [params] = useSearchParams()
   const role = params.get('role')
-  const { viewer, ctx, refresh, startDemo } = useApp()
+  const { viewer, ctx, refresh, startDemo, mode, useLive } = useApp()
   const navigate = useNavigate()
   const [tab, setTab] = useState<'signup' | 'signin'>(role ? 'signup' : 'signin')
   const [name, setName] = useState('')
@@ -17,6 +18,9 @@ export function Auth() {
   const [error, setError] = useState<string | null>(null)
   const [info, setInfo] = useState<string | null>(null)
   const [busy, setBusy] = useState(false)
+
+  // Confirmation links can open in a fresh browser or from a previous demo session.
+  useEffect(() => { if (supabase && mode !== 'live') useLive() }, [mode, useLive])
 
   if (!supabase) return <Navigate to="/" replace />
   // Only an invite link may ask to come back here after sign-in; anything else goes home.
@@ -35,7 +39,7 @@ export function Auth() {
     setBusy(true)
     try {
       if (tab === 'signup') {
-        const { data, error: err } = await supabase!.auth.signUp({ email, password, options: { data: { display_name: name } } })
+        const { data, error: err } = await supabase!.auth.signUp({ email, password, options: { data: { display_name: name }, emailRedirectTo: signupConfirmationUrl(window.location.origin, import.meta.env.DEV, role) } })
         if (err) throw err
         if (!data.session) {
           setInfo('Check your email to confirm your account, then sign in.')
