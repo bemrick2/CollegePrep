@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { Navigate, useNavigate, useSearchParams } from 'react-router-dom'
+import { signupConfirmationUrl } from '../../lib/authRedirect'
 import { supabase } from '../../lib/supabase'
 import { homePathFor, useApp } from '../../lib/app'
 import { Brand } from '../../components/shell'
@@ -32,7 +33,7 @@ export function Auth() {
     setBusy(true)
     try {
       if (tab === 'signup') {
-        const { data, error: err } = await supabase!.auth.signUp({ email, password, options: { data: { display_name: name } } })
+        const { data, error: err } = await supabase!.auth.signUp({ email, password, options: { data: { display_name: name }, emailRedirectTo: signupConfirmationUrl(window.location.origin, import.meta.env.DEV, role) } })
         if (err) throw err
         if (!data.session) {
           setInfo('Check your email to confirm your account, then sign in.')
