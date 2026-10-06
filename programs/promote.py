@@ -76,8 +76,10 @@ def promote(decisions_path: Path, log=print):
     state = Path(d['run']).parts[-2]
     targets = json.loads((ROOT / 'programs/targets' / f'{state}.json').read_text())
     folders = {t['institution_key']: t['folder'] for t in targets['institutions']}
-    check_folder_ownership(folders)
     cands, ev = load_run(run_dir)
+    touched = {cands[a['candidate_id']]['institution_key'] for a in d.get('approve', []) if a['candidate_id'] in cands}
+    touched |= {x['institution_key'] for k in ('approve_programs', 'catalogs', 'fields', 'awards', 'merges') for x in d.get(k, []) if isinstance(x, dict) and x.get('institution_key')}
+    check_folder_ownership({k: f for k, f in folders.items() if k in touched})
     from pipeline.crawl import Run
     RUN_CTX['run'] = Run(run_dir)
     archive, written = {}, 0
