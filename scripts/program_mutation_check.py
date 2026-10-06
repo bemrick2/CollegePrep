@@ -48,6 +48,7 @@ MUTS = [
     ('programs/detect.py', "        pool = [c for c, y in dated.items() if y == newest] or list(cats)", "        pool = list(cats)"),
     ('programs/detect.py', "                if ys: pdfs.append((max(ys), href, m))", "                pdfs.append((max(ys or {0}), href, m))"),
     ('programs/detect.py', "            elif u.path.lower().endswith('.pdf') and CATALOG_WORD.search(a + ' ' + u.path) and not re.search(r'graduate|archive|handbook', a + u.path, re.I):", "            elif u.path.lower().endswith('.pdf') and CATALOG_WORD.search(a + ' ' + u.path):"),
+    ('programs/crawl.py', "            **({'degree_map': 0, 'degree_map_index': 0, 'policy_link': 0} if target.get('mode') == 'discover' else {}),", "            **({}),"),
 ]
 
 

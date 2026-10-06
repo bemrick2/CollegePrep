@@ -1044,3 +1044,19 @@ class DetectTests(unittest.TestCase):
 
     def test_nothing_recognised(self):
         self.assertIsNone(self.det([('https://www.x.edu/about', 'About')])[0])
+
+
+class DiscoverCapsTests(unittest.TestCase):
+    def test_discovery_does_not_follow_degree_maps_or_policy_links(self):
+        from pipeline.crawl import Fetcher, Run
+        f = Fetcher(delay=0, timeout=1)
+        body = (b'<html><head><title>X University</title></head><body><a href="https://www.x.edu/catalog/">Academic Catalog</a>'
+                b'<a href="https://www.x.edu/maps/four-year-plans.pdf">Four-Year Plans</a><a href="https://www.x.edu/advising/maps">Degree Maps</a></body></html>')
+        f._raw = lambda url: (200, url, {'Content-Type': 'text/html'}, body if not url.endswith('robots.txt') else b'')
+        with tempfile.TemporaryDirectory() as d:
+            t = {'institution_key': 'k', 'folder': 'k', 'domains': ['x.edu'], 'mode': 'discover', 'discover': ['https://www.x.edu/']}
+            run = C.crawl_target(t, Run(Path(d)), f, log=lambda *_: None) or Run(Path(d))
+            roles = {e['url']: e['role'] for e in Run(Path(d)).entries()}
+        self.assertEqual(roles.get('https://www.x.edu/catalog/'), 'discover')
+        self.assertNotIn('https://www.x.edu/maps/four-year-plans.pdf', roles)
+        self.assertNotIn('https://www.x.edu/advising/maps', roles)

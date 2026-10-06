@@ -156,6 +156,8 @@ class BrowserFetcher:
 
 def crawl_target(target, run: Run, fetcher, browser=None, log=print, caps=None):
     caps = {'program_page': 450, 'catalog_nav': 30, 'degree_map': 250, 'degree_map_index': 300, 'policy_link': 40, 'discover': 25, 'catalog_pdf': 2, **(caps or {}),
+            # discovery only locates the catalog: degree maps and policy links wait for the catalog run
+            **({'degree_map': 0, 'degree_map_index': 0, 'policy_link': 0} if target.get('mode') == 'discover' else {}),
             **(target.get('caps') or {})}
     key = target['institution_key']
     seen = {e['url'] for e in run.entries() if e.get('institution_key') == key}
