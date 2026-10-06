@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import type { CostRecord, InstitutionComparison } from '../../lib/data/types'
 import { useSavedComparison, COMPARE_YEAR } from '../colleges/useSavedComparison'
 import { MAX_SAVED_SCHOOLS } from '../../lib/savedSchools'
-import { pickCost, type ResidencyBasis } from '../../lib/engine/residency'
+import { pickCost, stateName, type ResidencyBasis } from '../../lib/engine/residency'
 import { useHomeState } from '../../lib/homeState'
 import { HomeStateControl } from '../colleges/HomeStateControl'
 import { ArrowRight, Info, School, Wallet } from '../../components/icons'
@@ -27,12 +27,23 @@ export interface SchoolOutlook {
   meritAwards: number
   /** How the price was chosen for this family (home state is a user-entered assumption). */
   basis: ResidencyBasis
+  /** True only when this is the price that applies to the family (or the same for everyone). Only comparable
+   *  rows enter cost ranking, differences or path math. */
+  comparable: boolean
+  /** The school's state, for "if you're a resident of …" wording when the home state is unknown. */
+  schoolState: string | null
 }
 
-/** Only verified, published figures: the cheapest-residency cost of attendance x years, and the savings
- *  opportunities the school's own verified records list. No savings are estimated. */
+/**
+ * Only verified, published figures. The price is the one that applies to the family's (stated) home state:
+ * in-state for a home-state school, out-of-state otherwise. When that price isn't published there is no number
+ * (never a substitute); when the home state is unknown, a public school's in-state price is kept but marked
+ * not comparable. No savings are estimated.
+ */
 export function outlookFor(c: InstitutionComparison, homeState: string | null = null): SchoolOutlook {
-  const { cost, basis } = pickCost((c.domains.costs ?? []) as unknown as CostRecord[], c.institution?.state_code, homeState)
+  const picked = pickCost((c.domains.costs ?? []) as unknown as CostRecord[], c.institution?.state_code, homeState)
+  const basis = picked.basis
+  const cost = basis === 'out_of_state_missing' ? null : picked.cost
   const level = c.institution?.level ?? null
   const kinds = new Set(((c.domains.credit_policies ?? []) as { policy_kind?: string }[]).map((p) => p.policy_kind ?? ''))
   return {
@@ -46,6 +57,22 @@ export function outlookFor(c: InstitutionComparison, homeState: string | null = 
     levers: Object.keys(LEVER_LABEL).filter((k) => kinds.has(k)).map((k) => LEVER_LABEL[k]!),
     meritAwards: ((c.domains.awards ?? []) as { award_type?: string }[]).filter((a) => (a.award_type ?? '').includes('merit')).length,
     basis,
+    comparable: cost?.total_cost_of_attendance != null && (basis === 'matched' || cost.residency === 'not_applicable'),
+    schoolState: c.institution?.state_code ?? null,
+  }
+}
+
+/** One wording for a school's applicable 4-year price, used everywhere a cost is shown. */
+export function costPhrase(o: SchoolOutlook): { amount: string | null; label: string; note: string | null } {
+  const res = o.residency === 'out_of_state' ? 'out-of-state ' : o.residency === 'in_state' || o.residency === 'in_district' ? 'in-state ' : ''
+  if (o.basis === 'out_of_state_missing')
+    return { amount: null, label: `No published out-of-state price for ${YEAR}`, note: 'We don’t substitute the in-state price, so this school is left out of cost comparisons.' }
+  if (o.degreeTotal == null) return { amount: null, label: `No verified ${YEAR} cost of attendance yet`, note: null }
+  const years = o.level ? YEARS[o.level] : 4
+  return {
+    amount: usd(o.degreeTotal),
+    label: `published ${res}cost of attendance over ${years} years, before aid`,
+    note: o.comparable ? null : `Applies if you live in ${stateName(o.schoolState) || 'its state'}; set your home state to compare it.`,
   }
 }
 
@@ -62,10 +89,10 @@ export function CostOutlook({ showAlternative = false }: { showAlternative?: boo
     .filter((c) => c.found)
     .map((c) => outlookFor(c, homeState))
     .sort((a, b) => (a.level === 'two_year' ? 1 : 0) - (b.level === 'two_year' ? 1 : 0) || Number(b.key === cmp.primary) - Number(a.key === cmp.primary))
-  const four = rows.filter((r) => r.level === 'four_year' && r.degreeTotal != null && r.basis !== 'out_of_state_missing').sort((a, b) => a.degreeTotal! - b.degreeTotal!)
+  const four = rows.filter((r) => r.level === 'four_year' && r.degreeTotal != null && r.comparable).sort((a, b) => a.degreeTotal! - b.degreeTotal!)
   const low = four[0]
   const high = four[four.length - 1]
-  const two = rows.filter((r) => r.level === 'two_year' && r.annual != null && r.basis !== 'out_of_state_missing').sort((a, b) => a.annual! - b.annual!)[0]
+  const two = rows.filter((r) => r.level === 'two_year' && r.annual != null && r.comparable).sort((a, b) => a.annual! - b.annual!)[0]
   // A transfer path is shown only as published prices for each leg, with the transfer itself flagged as unverified.
   const target = four[four.length - 1]
   const path =
@@ -101,6 +128,9 @@ export function CostOutlook({ showAlternative = false }: { showAlternative?: boo
               </p>
             </div>
           )}
+          {rows.some((r) => r.level === 'four_year' && !r.comparable) && four.length < 2 && (
+            <p className="text-xs text-ink-3">Cost differences appear once at least two 4-year schools have the price that applies to you.</p>
+          )}
           <ul className="grid gap-3">
             {rows.map((r) => (
               <li key={r.key} className="rounded-2xl border border-line p-4">
@@ -116,17 +146,26 @@ export function CostOutlook({ showAlternative = false }: { showAlternative?: boo
                       {usd(r.annual)}
                       <span className="text-sm font-normal text-ink-3"> /yr</span>
                     </span>
+                  ) : r.basis === 'out_of_state_missing' ? (
+                    <span className="text-sm text-ink-3">No out-of-state price published</span>
                   ) : (
                     <span className="text-sm text-ink-3">No verified total yet</span>
                   )}
                 </div>
                 {r.basis === 'out_of_state_missing' && (
-                  <p className="mt-1 rounded-lg bg-warn-soft px-2 py-1 text-xs text-warn">No out-of-state price is published; this is the in-state price, so your cost is likely higher.</p>
+                  <p className="mt-1 text-xs text-ink-3">
+                    {r.name} publishes only an in-state price for {YEAR}. We don't substitute it, so this school is left out of the cost comparison.
+                  </p>
+                )}
+                {!r.comparable && r.basis === 'assumed_in_state' && r.annual != null && (
+                  <p className="mt-1 text-xs text-warn">
+                    Shown if you live in {stateName(r.schoolState) || 'its state'}. Set your home state to include it in the comparison.
+                  </p>
                 )}
                 {r.annual != null && (
                   <p className="mt-0.5 text-xs text-ink-3">
                     {usd(r.annual)} a year, {RES_LABEL[r.residency ?? ''] ?? r.residency}
-                    {r.basis === 'assumed_in_state' && r.residency === 'in_state' ? ' (assumed)' : ''}
+                    {!r.comparable && r.basis === 'assumed_in_state' ? ' (if in-state)' : ''}
                     {r.level ? ` × ${YEARS[r.level]} years (${r.level === 'two_year' ? '2-year college' : '4-year degree'})` : ''}
                     {r.sourceUrl && (
                       <>
