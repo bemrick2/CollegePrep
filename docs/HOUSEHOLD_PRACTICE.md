@@ -199,6 +199,28 @@ Reasons are unchanged (`weak_knowledge`, `weak_pacing`, `new_skill`, `review`, `
   - `choices`: either plain strings or `[{key, text}]` objects with unique keys. A choice question's accepted answers must be keys.
 - **CR-8 answer-free help:** `skills.concept_summary` and `question_strategies.sections`, readable like the rest of those tables.
 
+## Cost projection (CR-4)
+
+`cost_projection(student, institution_keys[1-8], academic_year, assumptions)` is for the student's own login and for guardians with `view_progress`. It returns `definition: v1`, `guaranteed: false` and `prices_held_constant: true`.
+
+- **Assumptions:** only these keys are accepted:
+  - `residency` (required: `in_state`, `out_of_state`, `district`, `international`)
+  - `cost_basis` (`tuition_and_fees`, the default, or `cost_of_attendance`)
+  - `years` (1–6; defaults to 4 for a four-year school and 2 for a two-year school)
+  - `prior_credits` (0–90, as the family states it): college credit from dual enrollment or transfer coursework. AP and IB credit is not modelled here, because it depends on the exam and the score.
+  - `credits_per_term` (6–21, default 15)
+  - `terms_per_year` (2 or 3, default 2)
+- **Baseline:** the verified cost row for exactly that year and residency, times `years`.
+  - The cost is never taken from another year, and no inflation is guessed.
+  - Missing data gives `status` `missing_cost`, `missing_years` or `unknown_institution`.
+- **The only counted lever, `prior_credits`:**
+  - It is capped by the lowest verified cap for that year: the transfer maximum, or the dual-enrollment limit.
+  - Whole terms saved are `floor(credits / credits_per_term)`, always leaving at least one term to attend.
+  - With no verified cap nothing is counted (`reason: no_verified_cap`).
+  - It is always `requires_confirmation: true`, because course-by-course acceptance is never asserted.
+- **`not_counted`:** lists verified, exact-year awards, state aid for the school's state, and appeal processes the school offers. Nothing in it is added to a total or treated as eligibility.
+- **Not included:** a negotiation add-on.
+
 ## Practice score estimates (CR-3): not produced yet
 
 No `practice_estimate` rows are written. A scaled ACT or SAT estimate needs both of the following, and neither exists yet:
@@ -301,6 +323,7 @@ These estimates describe practice performance only. They are not predicted score
 - No AI provider, worker, rate limits or instructional-quality evaluation.
 - No notification sending, email reports or scheduler.
 - No item calibration and no score prediction (see CR-3 above).
+- Cost projection counts no awards or aid (see CR-4 above).
 - No deletion or export path for a student's data. Deleting a minor's practice data needs a confirmed, audited path and is a product decision.
 - No join request initiated by the student, and no recovery for a household with no remaining manager after account deletion.
 - Live since 2026-10-02 (`20261002183112_household_practice_progress`, recorded in `supabase/migration_history.json`). Supabase's security advisor lists the client-callable `SECURITY DEFINER` RPCs as warnings; that is the intended design. The six access helpers (`has_household_permission`, `is_household_*`, `can_*_student`) do not need to be RPC endpoints and are tracked for a move to a non-exposed schema.
