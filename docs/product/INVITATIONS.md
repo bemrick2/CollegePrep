@@ -57,12 +57,13 @@ or code, or retry. A retry resends the same code.
 
 ## One-time owner setup
 
-1. **Resend:** verify a sending domain for Prep & Price. The verified domains today are `inbox.familycues.com`,
-   which belongs to FamilyCues, and `getcimiento.com`, which is not verified. Keep click and open tracking off.
+1. **Resend:** the temporary sending domain is `mail.getcimiento.com`, added with click and open tracking off. The
+   sender is `Prep & Price <invites@mail.getcimiento.com>`, and the function uses it unless `INVITE_FROM_EMAIL` is
+   set.
 2. **Resend:** create an API key with sending access for that domain only.
 3. **Supabase → Edge Functions → Secrets** (project `butlklkzafvklwasbynr`):
    - `RESEND_API_KEY`: the key from step 2.
-   - `INVITE_FROM_EMAIL`: for example `Prep & Price <invites@your-domain>`.
+   - `INVITE_FROM_EMAIL` (optional): overrides the default sender.
    - `APP_ORIGINS` (optional until production): comma-separated allowed site origins. It defaults to
      `https://college-optimizer-staging.netlify.app`.
 
