@@ -335,6 +335,43 @@ Institutions in scope: **85** · crawled: **76** · blocked by site: **9** · ru
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-139366`, `ipeds-139630`, `ipeds-139940`, `ipeds-140243`, `ipeds-140872`, `ipeds-140951`, `ipeds-244437`, `ipeds-368911`, `ipeds-490230`
 
+## HI — 2026-27
+
+Institutions in scope: **15** · crawled: **12** · blocked by site: **3** · run: `pipeline/runs/HI/2026-10-06`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 0 (0%) | 0 | 6 (40%) | 12 (80%) | 0 | 3 |
+| cost_of_attendance | 0 (0%) | 0 | 4 (27%) | 12 (80%) | 0 | 3 |
+| admissions_tests | 0 (0%) | 0 | 0 (0%) | 12 (80%) | 0 | 3 |
+| common_data_set | 0 (0%) | 0 | 0 (0%) | 4 (27%) | 8 | 3 |
+| merit_scholarships | 0 (0%) | 0 | 0 (0%) | 11 (73%) | 1 | 3 |
+| ap_credit | 0 (0%) | 0 | 4 (27%) | 9 (60%) | 3 | 3 |
+| clep_credit | 0 (0%) | 0 | 2 (13%) | 7 (47%) | 5 | 3 |
+| ib_credit | 0 (0%) | 0 | 2 (13%) | 4 (27%) | 8 | 3 |
+| dual_enrollment | 0 (0%) | 0 | 0 (0%) | 8 (53%) | 4 | 3 |
+| transfer_credit | 0 (0%) | 0 | 1 (7%) | 12 (80%) | 0 | 3 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 6 (40%) | 6 | 3 |
+| residency | 0 (0%) | 0 | 0 (0%) | 9 (60%) | 3 | 3 |
+| degree_requirements | 0 (0%) | 0 | 0 (0%) | 11 (73%) | 1 | 3 |
+| aid_appeals | 0 (0%) | 0 | 9 (60%) | 10 (67%) | 2 | 3 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 9 |
+| blocked requests | 16 |
+| candidates | 60 |
+| conflicts | 18 |
+| documents | 820 |
+| extraction failures | 0 |
+| fetch errors | 48 |
+| fetches | 884 |
+| ready | 10 |
+| semantic review | 26 |
+| stale sources | 10 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-141680`, `ipeds-141811`, `ipeds-230047`
+
 ## IA — 2026-27
 
 Institutions in scope: **48** · crawled: **46** · blocked by site: **2** · run: `pipeline/runs/IA/2026-10-03`
