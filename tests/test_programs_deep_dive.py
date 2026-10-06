@@ -1017,6 +1017,7 @@ class DetectTests(unittest.TestCase):
     def test_acalog_current_catalog_is_the_year_labelled_one(self):
         cfg, why = self.det([('https://catalog.x.edu/index.php?catoid=70', '2024-2025 Undergraduate Catalog [ARCHIVED CATALOG]'),
                              ('https://catalog.x.edu/content.php?catoid=70&navoid=3', 'Archived 2024-2025'),
+                             ('https://catalog.x.edu/content.php?catoid=70&navoid=4', 'Archived'), ('https://catalog.x.edu/content.php?catoid=70&navoid=5', 'Archived'),
                              ('https://catalog.x.edu/index.php?catoid=40', '2024-2025 Undergraduate Catalog [ARCHIVED CATALOG]'),
                              ('https://catalog.x.edu/index.php?catoid=56', '2026-2027 Undergraduate Catalog'),
                              ('https://catalog.x.edu/content.php?catoid=56&navoid=900', 'Programs A-Z'),
