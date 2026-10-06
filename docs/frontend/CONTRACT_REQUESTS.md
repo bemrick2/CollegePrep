@@ -21,7 +21,7 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-13 | Major certainty and saved interests | ⏳ open | Asked in onboarding and on Explore majors; kept in this browser |
 | CR-14 | Structured program, admission and degree-path fields | 🚧 schema in PR #89, data in #91/#92 | Program match by name; admission/transfer/undeclared shown as unverified questions; progression text quoted |
 | CR-15 | Household home state | ⏳ open | Asked (optional) in onboarding and on cost screens; kept in this browser; labelled as the family's answer |
-| CR-16 | Household subscription entitlement | ⏳ open | No billing UI; apps and web will read one entitlement record (see docs/product/APP_DISTRIBUTION_AND_PAYMENTS.md) |
+| CR-16 | Subscription owner + household entitlement | ⏳ open | No plan, price, paywall or entitlement state anywhere; nothing simulated |
 
 Live content note: the bank has no exam versions, skills or questions yet, so live practice and benchmarks show their empty states until content is loaded.
 
@@ -204,22 +204,32 @@ Everything else is shown as a question to ask the school.
 
 **Why.** Cost screens choose a school's in-state or out-of-state published price from the family's home state. Without it, every school showed its cheapest residency price, which understates cost for out-of-state options (for example, a Tennessee family looking at Oregon). The UI labels the state as the family's answer, not a residency determination. When a school publishes no out-of-state price, the UI flags it instead of showing the in-state figure as theirs. The state currently lives in one browser.
 
-## CR-16. Household subscription entitlement
+## CR-16. Subscription owner and household entitlement
 
-**Need.** `household_entitlements` with these columns:
-- `household_id`
-- `plan`
-- `status` (`active | grace | expired | canceled`)
-- `current_period_end`
-- `source` (`web | apple | google | comp`)
-- `source_subscription_id`
-- `owner_user_id`
+**Need.** Three pieces, with the full field list and event map in `docs/product/APP_DISTRIBUTION_AND_PAYMENTS.md` ("Entitlement model"):
 
-Plus one read endpoint for the viewer's effective entitlement, filtered by household membership. Students inherit through membership.
+- `household_subscriptions`, with these fields:
+  - `household_id`, `owner_user_id`, `plan_key`
+  - `source` (`web | apple | google | comp`), `source_subscription_id`
+  - normalised `status`, `auto_renew`, period start/end
+  - `environment` (production or sandbox)
+- an append-only `household_subscription_events` log
+- a `household_entitlement(p_household)` read RPC returning `{ active, plan_key, status, period_end, source, owner_user_id, manage_url_hint }`
 
-Writes come only from server-side payment webhooks: the web processor now, and App Store or Play notifications if store billing is ever added.
+Every household member can read the entitlement: guardians with `view_progress` and linked students. Source details are visible only to the owner and to guardians with `can_manage_billing`. Writes come only from server-side handlers:
 
-**Why.** The website is where families subscribe; the iOS and Android apps sign in with the same account and must recognise the existing plan without a second purchase. Ownership (usually a parent) is separate from who uses the app (often the student). The decision record and policy flags are in `docs/product/APP_DISTRIBUTION_AND_PAYMENTS.md`.
+- the web processor's webhooks
+- App Store Server Notifications v2, plus verification of the signed transaction the app sends (`appAccountToken` = household id)
+- Play Real-time Developer Notifications, only if Google billing is adopted
+
+**Decision recorded (2026-10-05).** The website is primary. iOS offers the same household plan through Apple IAP, with no external checkout link. Our backend is the system of record; Apple and Google are only payment sources. Android uses the same entitlement model, and adds Play Billing only if policy requires it.
+
+**Why.**
+- A web subscriber must sign in to the iOS app and get access without buying again.
+- An iOS purchase must also unlock the web and the student's account.
+- Ownership (usually a parent) is separate from who uses the app (often the student).
+
+**UI today.** No plan, price, paywall or entitlement state anywhere until this lands. Nothing is simulated.
 
 ## Product decisions flagged (not contract requests)
 

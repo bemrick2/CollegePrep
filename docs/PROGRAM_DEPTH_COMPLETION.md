@@ -85,3 +85,21 @@ A queued school never counts toward the 80%, so a state cannot be completed by q
 `gap` is one of `catalog`, `catalog_count`, `degree_maps`, `requirement_groups`, `admission_rules`, `institution`.
 `reason` is one of `bot_challenge`, `robots_disallowed`, `fetch_failed`, `no_year_label`, `year_inconsistent`, `layout_not_readable`,
 `not_published`, `no_official_statement`, `state_inventory_only`, `not_yet_researched`, `out_of_scope`.
+
+## Production workflow per state
+
+The steps below run in order, and several states can be at different steps at once. Each run lives on its own `program-run/<st>-*` branch. Data PRs carry only reviewed decisions and records.
+
+1. **Discover:** run `program-research.yml` with every school in discover mode. It fetches each official website and likely catalog hosts, with no degree-map or policy expansion.
+2. **Detect:** `python -m programs detect --state XX --runs <discovery run>` writes `programs/targets/configs/XX.json`, which covers Acalog, SmartCatalog, Coursedog, Kuali, CourseLeaf and catalog PDFs. `python programs/build_targets.py XX` then writes the targets. To correct an entry by hand, mark it `"reviewed": true` so re-detection keeps it.
+3. **Catalog run:** run the detected web catalogs, then `python -m programs.verify <run>`.
+4. **Review:** `python -m programs autoreview --state XX --run <run>` applies the standing rules in `programs/autoreview.py`:
+   - Only extractors whose output passed an independent pilot review are accepted.
+   - Candidates are approved only with no issues, verbatim values, a bachelor's award and a current-year label.
+   - Options, tracks and combined graduate pathways are held.
+   - Requirement rows are approved only for an approved program.
+
+   The output is a decisions file for `python -m programs promote`. A new platform or extractor needs a sampled independent review before it joins the trusted set.
+5. **Admission rules:** run a policy-only follow-up for the admission and declaration pages of high-value majors at covered schools. These facts are reviewed one by one.
+6. **Queue:** `python -m programs queue-suggest --state XX` drafts entries from run evidence. A reviewer moves the accepted entries into `programs/queue/XX.json`.
+7. **Status:** `python -m programs status`, together with validation, the import test and CI.

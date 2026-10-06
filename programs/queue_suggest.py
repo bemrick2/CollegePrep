@@ -115,7 +115,7 @@ def suggest(state, runs=None):
         d = r['dimensions']
         if not r['verified_bachelor_programs']:  # nothing verified: one institution-level entry says why
             inv = f" {r['partially_verified_programs']} partially verified state-inventory records exist." if r['partially_verified_programs'] else ''
-            if f['challenged'] and not f['program_pages']:
+            if f['challenged'] and not f['program_pages'] and f['challenged'].most_common(1)[0][1] >= 3:
                 host, n = f['challenged'].most_common(1)[0]
                 add(k, 'institution', 'bot_challenge', 'Request catalog access or an official program export; the challenge is not evaded.',
                     f'{host} answered {n} requests with a bot challenge or block in runs {runs_named}; no program page was stored.{inv}', f'https://{host}/')
@@ -132,7 +132,12 @@ def suggest(state, runs=None):
                 add(k, 'institution', 'not_yet_researched', f'Locate and configure the catalog ({why}).')
             continue
         if d['catalog'] == 'open':
-            if r['partially_verified_programs'] and not r['verified_bachelor_programs']:
+            cat_host = [h for h, n in f['challenged'].items() if n >= 3 and re.match(r'(catalog|bulletin|catalogs)\.', h)]
+            if cat_host:
+                add(k, 'catalog', 'bot_challenge', 'Request catalog access or an official program export; the challenge is not evaded.',
+                    f"{cat_host[0]} answered {f['challenged'][cat_host[0]]} requests with a bot challenge in runs {runs_named}; "
+                    f"{r['verified_bachelor_programs']} programs are verified from other official pages.", f'https://{cat_host[0]}/')
+            elif r['partially_verified_programs'] and not r['verified_bachelor_programs']:
                 add(k, 'catalog', 'state_inventory_only', 'Obtain catalog access (the institution catalog was not readable) to verify the inventory programs.',
                     f"Only {r['partially_verified_programs']} partially verified state-inventory records (no academic-year label); "
                     f"catalog fetch errors: {dict(f['errors'].most_common(3))}.")

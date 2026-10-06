@@ -21,6 +21,7 @@ def main(argv=None):
     a = sub.add_parser('audit'); a.add_argument('--states', nargs='+', default=['TN', 'OR']); a.add_argument('--check', action='store_true')
     st = sub.add_parser('status'); st.add_argument('--states', nargs='*'); st.add_argument('--check', action='store_true')
     dt = sub.add_parser('detect'); dt.add_argument('--state', required=True); dt.add_argument('--runs', nargs='+', required=True); dt.add_argument('--refresh', action='store_true')
+    ar = sub.add_parser('autoreview'); ar.add_argument('--state', required=True); ar.add_argument('--run', required=True)
     qs = sub.add_parser('queue-suggest'); qs.add_argument('--state', required=True); qs.add_argument('--runs', nargs='*')
     args = ap.parse_args(argv)
     if args.cmd == 'crawl':
@@ -39,6 +40,9 @@ def main(argv=None):
     elif args.cmd == 'detect':
         from .detect import detect
         detect(args.state.upper(), args.runs, refresh=args.refresh)
+    elif args.cmd == 'autoreview':
+        from .autoreview import main as ar_main
+        return ar_main(args.state.upper(), Path(args.run).resolve())
     elif args.cmd == 'queue-suggest':
         from .queue_suggest import main as qs_main
         return qs_main(args.state.upper(), args.runs)
