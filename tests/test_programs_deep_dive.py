@@ -1099,3 +1099,28 @@ class AutoReviewTests(unittest.TestCase):
         self.assertEqual({a['candidate_id'] for a in approve}, {'ok', 'g1', 'p1'})
         self.assertEqual(held['issues'], 1); self.assertEqual(held['option_name'], 1); self.assertEqual(held['combined_program'], 1)
         self.assertEqual(held['not_verbatim'], 1); self.assertEqual(held['duplicate'], 1); self.assertEqual(held['req_program_not_approved'], 1)
+
+
+class SitemapTests(unittest.TestCase):
+    def test_courseleaf_sitemap_yields_bachelor_program_pages(self):
+        from pipeline.crawl import Fetcher, Run
+        sm = b'''<?xml version="1.0"?><urlset>
+<url><loc>https://catalog.x.edu/undergraduate/sciences/biology/biology-bs/</loc></url>
+<url><loc>https://catalog.x.edu/undergraduate/sciences/biology/biology-minor/</loc></url>
+<url><loc>https://catalog.x.edu/graduate/sciences/biology/biology-ms/</loc></url>
+<url><loc>https://catalog.x.edu/undergraduate/arts/history/history-major/</loc></url>
+<url><loc>https://catalog.x.edu/undergraduate/arts/history/</loc></url>
+<url><loc>https://elsewhere.org/a-bs/</loc></url></urlset>'''
+        f = Fetcher(delay=0, timeout=1)
+        def raw(url):
+            if url.endswith('robots.txt'): return (404, url, {}, b'')
+            if url.endswith('sitemap.xml'): return (200, url, {'Content-Type': 'application/xml'}, sm)
+            return (200, url, {'Content-Type': 'text/html'}, b'<html><head><title>t</title></head><body>x</body></html>')
+        f._raw = raw
+        with tempfile.TemporaryDirectory() as d:
+            t = {'institution_key': 'k', 'folder': 'k', 'domains': ['x.edu'], 'mode': 'catalog',
+                 'catalog': {'platform': 'courseleaf', 'home': 'https://catalog.x.edu/', 'path_prefix': '/', 'min_depth': 1, 'program_lists': []}}
+            C.crawl_target(t, Run(Path(d)), f, log=lambda *_: None)
+            pages = sorted(e['url'] for e in Run(Path(d)).entries() if e['role'] == 'program_page')
+        self.assertEqual(pages, ['https://catalog.x.edu/undergraduate/arts/history/history-major/',
+                                 'https://catalog.x.edu/undergraduate/sciences/biology/biology-bs/'])

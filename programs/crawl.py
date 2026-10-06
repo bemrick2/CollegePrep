@@ -181,6 +181,8 @@ def crawl_target(target, run: Run, fetcher, browser=None, log=print, caps=None):
         queue.append((url, role, via, depth))
 
     if cat.get('home'): push(cat['home'], 'catalog_home', 'target')
+    if cat.get('platform') == 'courseleaf' and chost:  # CourseLeaf publishes /sitemap.xml: every catalog page
+        push(f'https://{chost}/sitemap.xml', 'sitemap', 'target')
     for u in cat.get('program_lists', []): push(u, 'program_list', 'target')
     for u in target.get('degree_maps', []): push(u, 'degree_map_index', 'target')
     for u in (target.get('map_sources') or {}).get('lists', []): push(u, 'map_list', 'target')
@@ -223,6 +225,12 @@ def crawl_target(target, run: Run, fetcher, browser=None, log=print, caps=None):
                 for m in re.finditer(r'"url":\s*"(https://coursedog-pdfs-public-prod\.s3\.[a-z0-9-]+\.amazonaws\.com/[^"]+\.pdf)"', text):
                     if '"type": "catalog"' in text: push(m.group(1), 'catalog_pdf', furl, depth + 1)
             browser.last_feeds = []
+        if body is not None and role == 'sitemap':  # the catalog's own sitemap: candidate program pages by URL
+            locs = [canonical(u) for u in re.findall(rb'<loc>\s*(https?://[^<\s]+)\s*</loc>', body)[:20000] for u in [u.decode('utf-8', 'replace')]]
+            links = [(u, '') for u in locs if in_scope(target, u)]
+            entry.update(kind='xml', page_file=run.save_page(meta['sha256'], 'xml', T.Page('\n'.join(locs), 'sitemap', [], links, []), links), urls=len(locs))
+            expand(target, role, url, links, push, is_program, is_nav, depth)
+            run.record(entry); continue
         if body is not None:
             try:
                 kind, page = parse_document(meta.get('final_url') or url, meta.get('content_type'), body)
@@ -310,6 +318,17 @@ def expand(target, role, url, links, push, is_program, is_nav, depth):
         if not (lists_given and cat.get('platform') != 'acalog'):
             for h, a in links:
                 if not is_program(h) and is_nav(h) and depth < 3: push(h, 'catalog_nav', url, depth + 1)
+        return
+    if role == 'sitemap':
+        # CourseLeaf program pages end in the award ('.../biology-bs/', '.../history-major/'); bachelor's first, never minors,
+        # certificates or graduate pages. The page itself must still print its award and year to become a record.
+        bach, other = [], []
+        for h, _ in links:
+            seg = urlsplit(h).path.rstrip('/').rsplit('/', 1)[-1].lower()
+            if not is_program(h) or re.search(r'(^|/)(grad|graduate|graduate-school)(/|$)', urlsplit(h).path.lower()): continue
+            if re.search(r'(^|-)(minor|certificate|cert|ms|ma|mba|mfa|med|phd|edd|dnp|pmc|aas|as|aa)(-|$)', seg): continue
+            if re.search(r'(^|-)(b[a-z]{1,5}|major)(-|$)', seg): bach.append(h)
+        for h in bach: push(h, 'program_page', url, depth + 1)
         return
     if role in ('policy', 'policy_link', 'discover'):
         # Degree-map indexes and plan documents are often linked from advising or college pages, not the catalog.
