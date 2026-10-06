@@ -1,5 +1,5 @@
 import { INVITE_TTL_HOURS } from '../../invites'
-import type { DataSource } from '../source'
+import type { DataSource, InvitationSummary, InviteSendResult } from '../source'
 import { DataError } from '../source'
 import type {
   AttemptRecord,
@@ -243,6 +243,8 @@ export class DemoSource implements DataSource {
   async createInvitation(householdId: string, role: 'guardian' | 'student', studentId?: string) {
     const code = Array.from({ length: 8 }, () => 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'[Math.floor(Math.random() * 31)]).join('')
     this.s.invitations.push({
+      id: uid(),
+      created_at: new Date().toISOString(),
       code,
       household_id: householdId,
       role,
@@ -260,8 +262,10 @@ export class DemoSource implements DataSource {
     const inv = this.s.invitations.find((i) => i.code === code.trim().toUpperCase())
     if (!inv) throw new DataError('Invalid invitation code', 'invalid')
     if (inv.accepted_by) throw new DataError('Invitation has already been used', 'invalid')
+    if (inv.revoked_at) throw new DataError('Invitation has been revoked', 'invalid')
     if (inv.expires_at <= new Date().toISOString()) throw new DataError('Invitation has expired', 'invalid')
     inv.accepted_by = me
+    inv.accepted_at = new Date().toISOString()
     if (inv.role === 'guardian') {
       this.s.members.push({
         household_id: inv.household_id,
@@ -298,6 +302,50 @@ export class DemoSource implements DataSource {
     }
     this.commit()
     return inv.household_id
+  }
+
+  /** Demo mode never sends email; it creates (replacing) the invitation so the code can be copied. */
+  async sendStudentInvitation(input: { householdId: string; studentId: string; email: string; code?: string }): Promise<InviteSendResult> {
+    const email = input.email.trim().toLowerCase()
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) throw new DataError('Enter a valid email address', 'invalid')
+    let code = input.code
+    if (!code) {
+      const now = new Date().toISOString()
+      for (const i of this.s.invitations)
+        if (i.household_id === input.householdId && i.student_id === input.studentId && !i.accepted_by && !i.revoked_at && i.expires_at > now) i.revoked_at = now
+      code = await this.createInvitation(input.householdId, 'student', input.studentId)
+    }
+    const inv = this.s.invitations.find((i) => i.code === code)
+    if (inv) inv.recipient_email = email
+    this.commit()
+    return { code, invitationId: inv?.id, expiresAt: inv?.expires_at, emailed: false, reason: 'demo' }
+  }
+
+  async listInvitations(householdId: string): Promise<InvitationSummary[]> {
+    return delay(
+      this.s.invitations
+        .filter((i) => i.household_id === householdId)
+        .map((i) => ({
+          id: i.id ?? i.code,
+          role: i.role,
+          student_id: i.student_id,
+          recipient_email: i.recipient_email ?? null,
+          created_at: i.created_at ?? i.expires_at,
+          expires_at: i.expires_at,
+          accepted_at: i.accepted_at ?? (i.accepted_by ? i.expires_at : null),
+          revoked_at: i.revoked_at ?? null,
+          last_emailed_at: null,
+        }))
+        .reverse(),
+    )
+  }
+
+  async revokeInvitation(invitationId: string) {
+    const inv = this.s.invitations.find((i) => (i.id ?? i.code) === invitationId)
+    if (!inv) throw new DataError('Not allowed to revoke this invitation', 'forbidden')
+    if (inv.accepted_by) throw new DataError('Invitation has already been used', 'invalid')
+    inv.revoked_at ??= new Date().toISOString()
+    this.commit()
   }
 
   async setWeeklyGoal(studentId: string, weekStart: string, targetQuestions: number | null, targetMinutes: number | null) {

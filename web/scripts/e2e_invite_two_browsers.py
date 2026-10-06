@@ -15,6 +15,7 @@ Run by the project owner (it creates real accounts):
   E2E_EMAIL_PREFIX=you+pp-e2e \
   E2E_EMAIL_DOMAIN=example.com \
   E2E_PASSWORD='a long test password' \
+  E2E_INVITE_EMAIL=student-inbox@example.com   # optional: also send the invitation email
   python web/scripts/e2e_invite_two_browsers.py
 
 Requires email confirmation to be off for the project (or pre-confirmed accounts); the script stops with a clear
@@ -69,6 +70,15 @@ async def main():
         await a.get_by_role("button", name="9", exact=True).click()
         await a.get_by_role("button", name="Continue").click()
         await a.get_by_role("button", name="Create household").click()
+        invite_to = os.environ.get("E2E_INVITE_EMAIL")
+        if invite_to:
+            # Emails the student (server-side); the page still shows the link/code as a fallback.
+            await a.get_by_label("Recipient email").fill(invite_to)
+            await a.get_by_role("button", name="Send invitation").click()
+            await expect(a.get_by_text("Invitation sent").or_(a.get_by_text("We couldn't send the email"))).to_be_visible(timeout=20_000)
+            print("email:", "sent" if await a.get_by_text("Invitation sent").count() else "NOT sent (invite still valid)")
+        else:
+            await a.get_by_role("button", name="Copy invite link or code instead").click()
         code = (await a.get_by_test_id("invite-code").inner_text(timeout=20_000)).strip()
         assert len(code) == 64, f"expected a 64-character live code, got {code!r}"
         await expect(a.get_by_text("Valid for 72 hours")).to_be_visible()
@@ -89,7 +99,12 @@ async def main():
         # B: the code cannot be used again
         await b.goto(f"{BASE}/join?code={code}")
         await b.get_by_role("button", name="Join").click()
-        await expect(b.get_by_text("Already used").or_(b.get_by_text("Already joined"))).to_be_visible()
+        await expect(b.get_by_text("Invitation already used")).to_be_visible()
+
+        # Invalid link
+        await b.goto(f"{BASE}/join?code={'0' * 64}")
+        await b.get_by_role("button", name="Join").click()
+        await expect(b.get_by_text("Invalid invitation")).to_be_visible()
 
         await browser.close()
     print("PASS")

@@ -6,12 +6,13 @@
 /** Requested explicitly on every create so "valid for 72 hours" is a promise, not a default we hope holds. */
 export const INVITE_TTL_HOURS = 72
 
-export type InviteFailure = 'invalid' | 'expired' | 'used' | 'already_member' | 'already_linked' | 'needs_profile' | 'signed_out' | 'other'
+export type InviteFailure = 'invalid' | 'expired' | 'used' | 'revoked' | 'already_member' | 'already_linked' | 'needs_profile' | 'signed_out' | 'other'
 
 /** Classify the backend's (or demo's) error text. Matches the messages raised by accept_household_invitation. */
 export function inviteFailure(message: string): InviteFailure {
   const m = message.toLowerCase()
   if (m.includes('already been used')) return 'used'
+  if (m.includes('revoked')) return 'revoked'
   if (m.includes('expired')) return 'expired'
   if (m.includes('invalid invitation')) return 'invalid'
   if (m.includes('already a member')) return 'already_member'
@@ -25,12 +26,14 @@ export function inviteFailureCopy(kind: InviteFailure, raw: string, demo: boolea
   switch (kind) {
     case 'invalid':
       return demo
-        ? { title: 'Invalid code', body: 'Demo codes only work in the browser that created them. To test with two devices, use real accounts (sign in) instead of the demo.' }
-        : { title: 'Invalid code', body: 'We couldn’t find that code. Check that it was copied in full, or ask your parent or guardian for a new one.' }
+        ? { title: 'Invalid invitation', body: 'Demo codes only work in the browser that created them. To test with two devices, use real accounts (sign in) instead of the demo.' }
+        : { title: 'Invalid invitation', body: 'We couldn’t find that code. Check that it was copied in full, or ask your parent or guardian for a new one.' }
     case 'expired':
-      return { title: 'Expired code', body: `Codes are valid for ${INVITE_TTL_HOURS} hours. Ask your parent or guardian to create a new one.` }
+      return { title: 'Invitation expired', body: `Codes are valid for ${INVITE_TTL_HOURS} hours. Ask your parent or guardian to create a new one.` }
     case 'used':
-      return { title: 'Already used', body: 'Each code works once, and this one has been used. If that wasn’t you, ask for a new code.' }
+      return { title: 'Invitation already used', body: 'Each invitation works once, and this one has been used. If that wasn’t you, ask for a new one.' }
+    case 'revoked':
+      return { title: 'Invitation cancelled', body: 'Your parent or guardian cancelled this invitation or sent a newer one. Use the latest email, or ask for a new invitation.' }
     case 'already_member':
       return { title: 'Already joined', body: 'Your account is already part of this household.' }
     case 'already_linked':

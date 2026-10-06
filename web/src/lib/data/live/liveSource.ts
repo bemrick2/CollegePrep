@@ -1,6 +1,6 @@
 import { INVITE_TTL_HOURS } from '../../invites'
 import type { SupabaseClient } from '@supabase/supabase-js'
-import type { DataSource } from '../source'
+import type { DataSource, InvitationSummary, InviteSendResult } from '../source'
 import { DataError } from '../source'
 import type {
   AttemptRecord,
@@ -201,6 +201,47 @@ export class LiveSource implements DataSource {
 
   acceptInvitation(code: string) {
     return rpc<string>(this.sb, 'accept_household_invitation', { p_code: code.trim() })
+  }
+
+  async sendStudentInvitation(input: { householdId: string; studentId: string; email: string; code?: string }): Promise<InviteSendResult> {
+    const { data, error } = await this.sb.functions.invoke('send-household-invitation', {
+      body: { householdId: input.householdId, studentId: input.studentId, email: input.email, code: input.code, origin: window.location.origin },
+    })
+    if (error) {
+      // The function answers 4xx for requests it refuses (bad email, no permission) with a message in the body.
+      const ctx = (error as { context?: Response }).context
+      let message = 'We couldn’t send the invitation'
+      try {
+        const b = ctx ? await ctx.json() : null
+        if (b?.error) message = String(b.error)
+      } catch {
+        // keep the generic message
+      }
+      if (ctx && ctx.status >= 400 && ctx.status < 500) throw new DataError(message, ctx.status === 403 ? 'forbidden' : 'invalid')
+      // Unreachable function: nothing was created server-side that we know of; fall back to a plain invitation.
+      if (input.code) return { code: input.code, emailed: false, reason: 'provider' }
+      const rows = await rpc<{ code: string; invitation_id: string; expires_at: string }[]>(this.sb, 'create_student_invitation', {
+        p_household: input.householdId,
+        p_student: input.studentId,
+        p_recipient_email: input.email,
+      })
+      return { code: rows[0]!.code, invitationId: rows[0]!.invitation_id, expiresAt: rows[0]!.expires_at, emailed: false, reason: 'provider' }
+    }
+    return data as InviteSendResult
+  }
+
+  async listInvitations(householdId: string): Promise<InvitationSummary[]> {
+    const { data, error } = await this.sb
+      .from('household_invitations')
+      .select('id, role, student_id, recipient_email, created_at, expires_at, accepted_at, revoked_at, last_emailed_at')
+      .eq('household_id', householdId)
+      .order('created_at', { ascending: false })
+    if (error) fail(error)
+    return (data ?? []) as InvitationSummary[]
+  }
+
+  async revokeInvitation(invitationId: string) {
+    await rpc<null>(this.sb, 'revoke_household_invitation', { p_invitation: invitationId })
   }
 
   async setWeeklyGoal(studentId: string, weekStart: string, targetQuestions: number | null, targetMinutes: number | null) {

@@ -42,7 +42,7 @@ export function InviteCode({ code }: { code: string }) {
             {copied === 'link' ? 'Link copied' : 'Copy invite link'}
           </Button>
           <Button variant="secondary" size="sm" onClick={() => void copy('code')}>
-            {copied === 'code' ? 'Code copied' : 'Copy code'}
+            {copied === 'code' ? 'Code copied' : 'Copy invite code'}
           </Button>
         </div>
       </div>
