@@ -4,7 +4,7 @@
 Each entry breaks one rule in the source; the pipeline test suite must then fail ("KILLED").
 A surviving mutant means a safety rule has no test. Run: python scripts/mutation_check.py
 """
-import concurrent.futures, os, queue, shutil, subprocess, sys, tempfile
+import ast, concurrent.futures, os, queue, shutil, subprocess, sys, tempfile
 
 MUTS = [
     ('pipeline/extractors/credit.py', "if bad_score and bad_score >= len(eqs) * 0.3: issues = issues + ['score_column_not_scores']", 'pass'),
@@ -188,8 +188,64 @@ MUTS = [
 ]
 TIMEOUT = 90
 
+# Tests whose outcome can depend only on the code of the named module and what it imports (plus committed data and
+# fixtures, which a mutant never edits). For a mutant in a file outside that import closure such a test passes exactly
+# as it does unmutated, so it cannot kill the mutant and is not re-run for it. Rebuilding every state registry takes
+# ~80% of a suite run; every other test still runs for every mutant.
+CODE_SCOPED_TESTS = {
+    'tests.test_pipeline.RegistryTests.test_every_committed_registry_is_current': 'pipeline.registry',
+    'tests.test_pipeline.RegistryTests.test_tennessee_registry_is_current': 'pipeline.registry',
+}
 
-def run_one(root, mut):
+# Runs the suite minus the excluded ids and stops at the first failure: a mutant is KILLED if any test fails, so
+# stopping at the first failing test gives the same verdict, and a SURVIVED verdict still means every test passed.
+RUNNER = """
+import sys, unittest
+skip = set(sys.argv[1:])
+def flat(s):
+    for t in s:
+        yield from (flat(t) if isinstance(t, unittest.TestSuite) else [t])
+suite = unittest.TestSuite(t for t in flat(unittest.defaultTestLoader.loadTestsFromName('tests.test_pipeline')) if t.id() not in skip)
+sys.exit(0 if unittest.TextTestRunner(failfast=True, verbosity=0).run(suite).wasSuccessful() else 1)
+"""
+
+
+def module_file(mod):
+    path = mod.replace('.', '/')
+    for cand in (path + '.py', path + '/__init__.py'):
+        if os.path.exists(cand): return cand
+    return None
+
+
+def import_closure(mod):
+    """Repository files a module imports, directly or transitively (static imports, including relative ones)."""
+    seen, todo = set(), [mod]
+    while todo:
+        m = todo.pop(); f = module_file(m)
+        if not f or f in seen: continue
+        seen.add(f)
+        pkg = m if f.endswith('__init__.py') else m.rpartition('.')[0]
+        for node in ast.walk(ast.parse(open(f).read())):
+            if isinstance(node, ast.Import):
+                todo += [a.name for a in node.names]
+            elif isinstance(node, ast.ImportFrom):
+                base = node.module or ''
+                if node.level:
+                    parts = pkg.split('.')
+                    base = '.'.join(parts[:len(parts) - node.level + 1] + ([base] if base else []))
+                todo.append(base)
+                todo += [f'{base}.{a.name}' for a in node.names]  # "from . import x" may name a submodule
+            # every parent package's __init__ runs on import too
+        todo += ['.'.join(m.split('.')[:i]) for i in range(1, m.count('.') + 1)]
+    return seen
+
+
+def skipped_for(f, closures):
+    if f.startswith('tests/'): return []  # a mutant in the tests themselves runs the whole suite
+    return sorted(t for t, mod in CODE_SCOPED_TESTS.items() if f not in closures[mod])
+
+
+def run_one(root, mut, skip):
     """Apply one mutant inside a private copy of the tree, run the suite there, restore it."""
     f, old, new = mut
     path = os.path.join(root, f)
@@ -198,7 +254,7 @@ def run_one(root, mut):
     try:
         open(path, 'w').write(original.replace(old, new, 1))
         try:
-            r = subprocess.run([sys.executable, '-m', 'unittest', 'tests.test_pipeline'], cwd=root, capture_output=True, text=True, timeout=TIMEOUT)
+            r = subprocess.run([sys.executable, '-c', RUNNER, *skip], cwd=root, capture_output=True, text=True, timeout=TIMEOUT)
             return 'KILLED ' if r.returncode else 'SURVIVED'
         except subprocess.TimeoutExpired:
             return 'TIMEOUT'
@@ -209,6 +265,11 @@ def run_one(root, mut):
 def main():
     for f, old, _ in MUTS:  # a stale entry fails fast, before any copy or test run
         assert old in open(f).read(), (f, old)
+    sys.path.insert(0, '.')
+    ids = {t.id() for t in unittest_ids()}
+    missing = set(CODE_SCOPED_TESTS) - ids
+    assert not missing, f'CODE_SCOPED_TESTS names tests that no longer exist: {missing}'
+    closures = {mod: import_closure(mod) for mod in set(CODE_SCOPED_TESTS.values())}
     global TIMEOUT
     workers = max(1, int(os.environ.get('MUTATION_WORKERS') or os.cpu_count() or 1))
     # Parallel suites share the CPU, so each one runs slower; the per-mutant budget scales with the worker count.
@@ -221,7 +282,7 @@ def main():
 
     def job(mut):
         root = roots.get()
-        try: return mut, run_one(root, mut)
+        try: return mut, run_one(root, mut, skipped_for(mut[0], closures))
         finally: roots.put(root)
 
     failed = False
@@ -236,6 +297,14 @@ def main():
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
     sys.exit(1 if failed else 0)
+
+
+def unittest_ids():
+    import unittest
+    def flat(s):
+        for t in s:
+            yield from (flat(t) if isinstance(t, unittest.TestSuite) else [t])
+    return list(flat(unittest.defaultTestLoader.loadTestsFromName('tests.test_pipeline')))
 
 
 if __name__ == '__main__':
