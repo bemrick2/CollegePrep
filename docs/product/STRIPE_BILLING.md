@@ -80,12 +80,12 @@ The rules shared with web purchases:
 1. **Create the Stripe account.**
    - In the Stripe Dashboard, open the account switcher (top left), choose **New account**, and name it **Prep & Price**. All remaining Stripe steps happen inside that account.
    - Fill in **Settings → Business → Public details**: name, support email, website, and optionally terms and privacy URLs. Checkout and the Portal display these.
-2. **Decide prices.** Pick the monthly and annual amounts. Decide whether to enable **Stripe Tax**; registering where you must collect tax is a business and legal decision.
+2. **Approved prices (October 6, 2026).** Family Plan: USD $19.99/month (1999 cents, `pp_family_monthly`) or $149/year paid upfront (14900 cents, `pp_family_annual`). One household subscription covers all children. No traditional free trial. Core college planning remains free; the subscription unlocks adaptive ACT/SAT prep, benchmarks, AI explanations, practice plans and student/parent progress. Stripe Tax remains off until separately configured.
 3. **Test mode first.** With the Dashboard in **Test mode**, run the setup script in your own terminal. Use a test secret key in your shell only:
 
    ```
    export STRIPE_SECRET_KEY=sk_test_...      # Prep & Price account, test mode
-   node scripts/stripe/setup_billing.mjs --monthly-cents <amount> --annual-cents <amount> --currency usd \
+   node scripts/stripe/setup_billing.mjs --monthly-cents 1999 --annual-cents 14900 --currency usd \
      --site-url https://college-optimizer-staging.netlify.app \
      --webhook-url https://butlklkzafvklwasbynr.supabase.co/functions/v1/stripe-webhook
    unset STRIPE_SECRET_KEY
@@ -124,3 +124,13 @@ The rules shared with web purchases:
 - No card fields; Stripe hosts them.
 - No entitlement is inferred on the client. Access is shown only from `household_entitlement`.
 - Students never see purchase UI.
+
+## Scholarship Negotiator — deferred
+
+$99 one-time per school appeal/reconsideration package; separate from the Family Plan. Do not create a Stripe product or checkout until a server-enforced eligibility gate has verified a documented institutional process applicable to the student. Otherwise show: “We have not verified a formal aid reconsideration process for this school.” Never promise an award increase.
+
+## Sandbox setup check — October 6, 2026
+
+Sandbox account: `acct_1UNUxXBVFG4WtYp0`. Family Plan product: `prod_VOI20vz3FjE17k`; monthly and annual lookup-key prices created in Dashboard. The setup script can reuse them. Billing remains disabled pending secrets, deployment and end-to-end verification.
+
+The CR-16 migration and billing functions were absent from the configured Supabase project at inspection. The implementation is on PR #101 / `claude/stripe-billing`, not main. `household_entitlement()` currently selects only production rows; a sandbox subscription therefore cannot show Active through that RPC. Do not remove the production filter or label sandbox rows as production. A separately authorized staging entitlement path must retain production isolation before the documented sandbox Active/Ends test can pass.
