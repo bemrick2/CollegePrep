@@ -441,7 +441,10 @@ export class LiveSource implements DataSource {
   readonly supportsBilling = import.meta.env.VITE_BILLING_ENABLED === 'true'
 
   async entitlement(householdId: string): Promise<Entitlement> {
-    return rpc<Entitlement>(this.sb, 'household_entitlement', { p_household: householdId })
+    // Sandbox status is display-only; production access always uses household_entitlement.
+    const sandbox = import.meta.env.VITE_BILLING_ENVIRONMENT === 'sandbox' &&
+      typeof window !== 'undefined' && window.location.hostname === 'college-optimizer-staging.netlify.app'
+    return rpc<Entitlement>(this.sb, sandbox ? 'household_sandbox_billing_status' : 'household_entitlement', { p_household: householdId })
   }
 
   private async fn<T>(name: string, body?: Record<string, unknown>): Promise<T> {
