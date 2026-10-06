@@ -1785,6 +1785,17 @@ class ReviewAndPromoteTests(unittest.TestCase):
 
 
 class RegistryTests(unittest.TestCase):
+    def test_program_depth_records_do_not_queue_national_reverification(self):
+        """Issue #90: program-depth records (re-verified by programs/) stay out of existing_sources; other domains stay in."""
+        fake = [(Path('a.json'), 'academic_programs', {'institution_key': 'k', 'program_url': 'https://x.edu/prog'}),
+                (Path('b.json'), 'degree_requirements', {'institution_key': 'k', 'source_url': 'https://x.edu/req'}),
+                (Path('c.json'), 'program_catalogs', {'institution_key': 'k', 'source_url': 'https://x.edu/cat'}),
+                (Path('d.json'), 'costs', {'institution_key': 'k', 'source_url': 'https://x.edu/cost'}),
+                (Path('e.json'), 'transfer_policies', {'institution_key': 'k', 'policy_url': 'https://x.edu/transfer'}),
+                (Path('f.json'), 'awards', {'institution_key': 'k', 'source_url': 'https://x.edu/req'})]
+        with mock.patch.object(registry, 'records', lambda: iter(fake)):
+            self.assertEqual(registry.cited_sources(), {'k': ['https://x.edu/cost', 'https://x.edu/req', 'https://x.edu/transfer']})
+
     def test_tennessee_registry_is_current(self):
         built = registry.build('TN')
         self.assertEqual(built, registry.load('TN'), 'run: python -m pipeline registry --state TN')

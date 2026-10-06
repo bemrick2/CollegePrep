@@ -11,18 +11,19 @@
         "Residence Life Room (standard double)": 2881,
         "Tuition": 19941
       },
-      "cost_period": "academic_year",
+      "cost_period": "semester",
       "currency": "USD",
-      "last_verified_at": "2026-10-03",
+      "last_verified_at": "2026-10-05",
       "mandatory_fees": null,
-      "notes": "Extracted by cost_table/v2 from the table \" Cost for Undergraduate Students \"; printed rows copied, totals never recomputed. Reviewed 2026-10-03: Cost column checked against the published table (residency from the column header; components and total as printed). Evidence: sources/pipeline/IA/2026-10-03/evidence.json#02245e4de2e49a19.",
+      "notes": "Extracted by cost_table/v2 from the table \" Cost for Undergraduate Students \"; printed rows copied, totals never recomputed. Corrected 2026-10-05: the table is headed \"Costs Per Semester | 2027-2028\", so the components are per-semester charges and no annual figure is published. Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/IA/2026-10-03/evidence.json#02245e4de2e49a19.",
       "on_campus_food_housing": null,
       "residency": "not_applicable",
       "source_url": "https://www.briarcliff.edu/future-chargers/tuition-and-aid/costs-and-financial-aid/undergraduate",
       "student_population": "undergraduate",
       "total_cost_of_attendance": null,
-      "tuition": 19941,
-      "verification_status": "verified"
+      "tuition": null,
+      "verification_status": "unverified",
+      "verification_correction_reason": "The source table is headed \"Costs Per Semester | 2027-2028\"; these components are one semester's charges, not an academic year. The record was approved as academic_year on 2026-10-03 in error. The annual tuition field is cleared (it was a semester figure); the printed per-semester components are kept verbatim."
     }
   ]
 }

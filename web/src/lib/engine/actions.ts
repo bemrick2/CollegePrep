@@ -35,6 +35,8 @@ export interface ActionInput {
   schools: SchoolFacts[]
   /** Saved interests (areas or majors); null when unknown. Never a required major. */
   interestsSaved?: number | null
+  /** False when the family hasn't given a home state, so prices are shown as in-state assumed. */
+  homeStateKnown?: boolean
 }
 
 const EXAM = { act: 'ACT', sat: 'SAT' } as const
@@ -62,6 +64,9 @@ export function parentActions(i: ActionInput, max = 5): ParentAction[] {
     out.push({ key: 'schools', rank: 5, tone: 'info', title: 'Add target colleges', detail: 'Save the schools you might apply to, in any state, to see verified costs, credit policies and scholarships.', to: '/colleges' })
     return finish(out, max)
   }
+
+  if (i.homeStateKnown === false)
+    out.push({ key: 'home-state', rank: 5, tone: 'info', title: 'Set your home state', detail: 'College prices depend on residency. Until you set it, in-state prices are shown and marked as assumed.', to: '/colleges' })
 
   // Merit: a published numeric threshold above the reference score (target or official), nearest first.
   const ref = i.officialScore?.composite ?? i.targetScore

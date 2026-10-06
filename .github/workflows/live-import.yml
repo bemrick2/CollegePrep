@@ -10,6 +10,7 @@ on:
       - 'data/**'
       - 'scripts/import_supabase.py'
       - 'scripts/live_import.sh'
+      - 'supabase/corrections.json'
       - 'backend/catalog.py'
   workflow_dispatch:
   # Re-run after a migration deploy, so data that needs a new migration imports once it is live.
