@@ -1,0 +1,158 @@
+{
+ "state": "MI",
+ "academic_year": "2026-27",
+ "institutions": 75,
+ "status_order": [
+  "verified_current",
+  "partially_verified_current",
+  "candidate_ready",
+  "candidate_exception",
+  "source_found",
+  "not_found",
+  "fetch_failed"
+ ],
+ "by_category": {
+  "admissions_tests": {
+   "candidate_exception": 1,
+   "fetch_failed": 10,
+   "not_found": 4,
+   "source_found": 60
+  },
+  "aid_appeals": {
+   "candidate_exception": 41,
+   "fetch_failed": 10,
+   "not_found": 18,
+   "source_found": 6
+  },
+  "ap_credit": {
+   "candidate_exception": 5,
+   "candidate_ready": 10,
+   "fetch_failed": 10,
+   "not_found": 23,
+   "source_found": 27
+  },
+  "clep_credit": {
+   "candidate_exception": 3,
+   "candidate_ready": 6,
+   "fetch_failed": 10,
+   "not_found": 35,
+   "source_found": 21
+  },
+  "common_data_set": {
+   "candidate_exception": 1,
+   "fetch_failed": 10,
+   "not_found": 54,
+   "source_found": 10
+  },
+  "cost_of_attendance": {
+   "candidate_exception": 15,
+   "candidate_ready": 4,
+   "fetch_failed": 10,
+   "not_found": 5,
+   "source_found": 41
+  },
+  "degree_requirements": {
+   "fetch_failed": 10,
+   "not_found": 12,
+   "source_found": 53
+  },
+  "dual_enrollment": {
+   "candidate_exception": 2,
+   "candidate_ready": 14,
+   "fetch_failed": 10,
+   "not_found": 9,
+   "source_found": 40
+  },
+  "ib_credit": {
+   "candidate_exception": 4,
+   "candidate_ready": 6,
+   "fetch_failed": 10,
+   "not_found": 47,
+   "source_found": 8
+  },
+  "merit_scholarships": {
+   "candidate_exception": 5,
+   "candidate_ready": 6,
+   "fetch_failed": 10,
+   "not_found": 4,
+   "source_found": 50
+  },
+  "residency": {
+   "fetch_failed": 10,
+   "not_found": 26,
+   "source_found": 39
+  },
+  "statewide_articulation": {
+   "fetch_failed": 10,
+   "not_found": 29,
+   "source_found": 36
+  },
+  "transfer_credit": {
+   "candidate_exception": 1,
+   "candidate_ready": 5,
+   "fetch_failed": 10,
+   "not_found": 5,
+   "source_found": 54
+  },
+  "tuition_fees": {
+   "candidate_exception": 26,
+   "candidate_ready": 9,
+   "fetch_failed": 10,
+   "not_found": 1,
+   "source_found": 29
+  }
+ },
+ "totals": {
+  "candidate_exception": 104,
+  "candidate_ready": 60,
+  "fetch_failed": 140,
+  "not_found": 272,
+  "source_found": 474
+ },
+ "statewide_sources": {
+  "categories": {
+   "admissions_tests": 0,
+   "aid_appeals": 0,
+   "ap_credit": 0,
+   "clep_credit": 0,
+   "common_data_set": 0,
+   "cost_of_attendance": 0,
+   "degree_requirements": 0,
+   "dual_enrollment": 0,
+   "ib_credit": 0,
+   "merit_scholarships": 0,
+   "residency": 0,
+   "statewide_articulation": 0,
+   "transfer_credit": 0,
+   "tuition_fees": 0
+  },
+  "fetch_failures": 1,
+  "pages_fetched": 1
+ },
+ "blocked_institutions": [
+  "ipeds-169798",
+  "ipeds-170000",
+  "ipeds-170967",
+  "ipeds-170976",
+  "ipeds-171137",
+  "ipeds-171146",
+  "ipeds-171599",
+  "ipeds-172644",
+  "ipeds-172671",
+  "ipeds-247773"
+ ],
+ "quality": {
+  "ambiguous_years": 32,
+  "blocked_requests": 245,
+  "candidates": 386,
+  "conflicts": 140,
+  "documents": 4531,
+  "extraction_failures": 0,
+  "fetch_errors": 265,
+  "fetches": 5041,
+  "ready": 108,
+  "semantic_review": 153,
+  "stale_sources": 66
+ },
+ "run": "pipeline/runs/MI/2026-10-05"
+}

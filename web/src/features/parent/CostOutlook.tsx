@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom'
 import type { CostRecord, InstitutionComparison } from '../../lib/data/types'
 import { useSavedComparison, COMPARE_YEAR } from '../colleges/useSavedComparison'
-import { MAX_SAVED_SCHOOLS } from '../../lib/savedSchools'
 import { pickCost, stateName, type ResidencyBasis } from '../../lib/engine/residency'
 import { useHomeState } from '../../lib/homeState'
-import { HomeStateControl } from '../colleges/HomeStateControl'
-import { ArrowRight, Info, School, Wallet } from '../../components/icons'
-import { ButtonLink, Card, CardHeader, Pill } from '../../components/ui'
+import { X } from '../../components/icons'
+import { Pill } from '../../components/ui'
 
 const YEAR = COMPARE_YEAR
 const YEARS: Partial<Record<string, number>> = { two_year: 2, four_year: 4 }
@@ -84,7 +82,6 @@ export function costPhrase(o: SchoolOutlook): { amount: string | null; label: st
 export function CostOutlook({ showAlternative = false }: { showAlternative?: boolean }) {
   const cmp = useSavedComparison(YEAR)
   const { homeState } = useHomeState()
-  const keys = cmp.keys
   const rows = (cmp.data ?? [])
     .filter((c) => c.found)
     .map((c) => outlookFor(c, homeState))
@@ -96,118 +93,88 @@ export function CostOutlook({ showAlternative = false }: { showAlternative?: boo
   // A transfer path is shown only as published prices for each leg, with the transfer itself flagged as unverified.
   const target = four[four.length - 1]
   const path =
-    two && target && target.annual != null
-      ? { start: two, finish: target, total: Math.round(two.annual! * 2 + target.annual * 2), direct: target.degreeTotal! }
-      : null
+    two && target && target.annual != null ? { start: two, finish: target, total: Math.round(two.annual! * 2 + target.annual * 2), direct: target.degreeTotal! } : null
+
+  if (cmp.keys.length === 0) return null
+  if (cmp.loading && !cmp.data) return <p className="text-sm text-ink-3">Loading verified costs…</p>
 
   return (
-    <Card className="overflow-hidden">
-      <CardHeader
-        title={<span className="flex items-center gap-2"><Wallet size={18} /> College cost outlook</span>}
-        subtitle={`Published ${YEAR} cost of attendance for the schools you're comparing`}
-      />
-      {keys.length === 0 ? (
-        <div className="grid gap-4 p-5 md:grid-cols-[1fr_auto] md:items-center">
-          <p className="text-sm text-ink-2">Save up to {MAX_SAVED_SCHOOLS} schools to see their verified costs and the credit and scholarship options each one publishes.</p>
-          <ButtonLink to="/colleges" variant="brand">
-            <School size={18} /> Choose schools
-          </ButtonLink>
-        </div>
-      ) : cmp.loading ? (
-        <div className="p-5 text-sm text-ink-3">Loading verified costs…</div>
-      ) : (
-        <div className="grid gap-5 p-5">
-          <HomeStateControl />
-          {low && high && low !== high && (
-            <div className="rounded-2xl bg-go-soft p-4">
-              <div className="text-xs font-semibold uppercase tracking-wide text-go">Biggest difference between your 4-year schools</div>
-              <p className="mt-1 text-ink">
-                <span className="font-semibold">{low.name}</span> costs{' '}
-                <span className="display text-2xl font-semibold tabular text-go">{usd(high.degreeTotal! - low.degreeTotal!)}</span> less than{' '}
-                <span className="font-semibold">{high.name}</span> over 4 years at published prices.
-              </p>
-            </div>
-          )}
-          {rows.some((r) => r.level === 'four_year' && !r.comparable) && four.length < 2 && (
-            <p className="text-xs text-ink-3">Cost differences appear once at least two 4-year schools have the price that applies to you.</p>
-          )}
-          <ul className="grid gap-3">
-            {rows.map((r) => (
-              <li key={r.key} className="rounded-2xl border border-line p-4">
-                <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
-                  <span className="font-semibold text-ink">
-                    {r.name}
-                    {r.key === cmp.primary && <Pill tone="brand" className="ml-2 align-middle">Primary target</Pill>}
-                  </span>
-                  {r.degreeTotal != null ? (
-                    <span className="display text-xl font-semibold tabular text-ink">{usd(r.degreeTotal)}</span>
-                  ) : r.annual != null ? (
-                    <span className="display text-xl font-semibold tabular text-ink">
-                      {usd(r.annual)}
-                      <span className="text-sm font-normal text-ink-3"> /yr</span>
-                    </span>
-                  ) : r.basis === 'out_of_state_missing' ? (
-                    <span className="text-sm text-ink-3">No out-of-state price published</span>
-                  ) : (
-                    <span className="text-sm text-ink-3">No verified total yet</span>
-                  )}
-                </div>
-                {r.basis === 'out_of_state_missing' && (
-                  <p className="mt-1 text-xs text-ink-3">
-                    {r.name} publishes only an in-state price for {YEAR}. We don't substitute it, so this school is left out of the cost comparison.
-                  </p>
-                )}
-                {!r.comparable && r.basis === 'assumed_in_state' && r.annual != null && (
-                  <p className="mt-1 text-xs text-warn">
-                    Shown if you live in {stateName(r.schoolState) || 'its state'}. Set your home state to include it in the comparison.
-                  </p>
-                )}
-                {r.annual != null && (
-                  <p className="mt-0.5 text-xs text-ink-3">
-                    {usd(r.annual)} a year, {RES_LABEL[r.residency ?? ''] ?? r.residency}
-                    {!r.comparable && r.basis === 'assumed_in_state' ? ' (if in-state)' : ''}
-                    {r.level ? ` × ${YEARS[r.level]} years (${r.level === 'two_year' ? '2-year college' : '4-year degree'})` : ''}
-                    {r.sourceUrl && (
-                      <>
-                        {' · '}
-                        <a href={r.sourceUrl} target="_blank" rel="noreferrer" className="underline-offset-2 hover:underline">source</a>
-                      </>
-                    )}
-                  </p>
-                )}
-                <div className="mt-2 flex flex-wrap gap-1.5">
-                  {r.levers.map((l) => (
-                    <Pill key={l} tone="go">{l}</Pill>
-                  ))}
-                  {r.meritAwards > 0 && <Pill tone="gold">{r.meritAwards} merit award{r.meritAwards === 1 ? '' : 's'}</Pill>}
-                  {r.levers.length === 0 && r.meritAwards === 0 && <span className="text-xs text-ink-3">No verified credit or scholarship records yet</span>}
-                </div>
-              </li>
-            ))}
-          </ul>
-          {showAlternative && path && path.total < path.direct && (
-            <details className="group rounded-2xl border border-line bg-surface-2 p-4">
-              <summary className="cursor-pointer list-none text-sm font-semibold text-ink">
-                Alternative lower-cost path <span className="font-normal text-ink-3">· example scenario</span>
-              </summary>
-              <p className="mt-2 text-sm text-ink-2">
-                2 years at {path.start.name}, then 2 at {path.finish.name}: <span className="font-semibold tabular text-ink">{usd(path.total)}</span> at published prices,
-                vs {usd(path.direct)} for 4 years at {path.finish.name}.
-              </p>
-              <p className="mt-1.5 text-xs text-ink-3">
-                Potential path — transfer agreement not yet verified. It is not a recommendation, and credits may not all transfer or count toward the same degree.
-              </p>
-            </details>
-          )}
-          <p className="flex gap-2 text-xs text-ink-3">
-            <Info size={14} className="mt-0.5 shrink-0" />
-            Sticker prices before grants and scholarships, at {YEAR} prices. Savings from credit and scholarships aren't estimated until we can source them.
+    <div className="grid gap-6">
+      {low && high && low !== high && (
+        <div className="grid gap-1">
+          <div className="figure text-[36px] text-ink md:text-[44px]">{usd(high.degreeTotal! - low.degreeTotal!)}</div>
+          <p className="text-[15px] text-ink-2">
+            Biggest difference between your 4-year schools: <span className="font-semibold text-ink">{low.name}</span> costs that much less than{' '}
+            <span className="font-semibold text-ink">{high.name}</span> over 4 years at published prices.
           </p>
-          <Link to="/colleges" className="inline-flex items-center gap-1 text-sm font-semibold text-brand hover:underline">
-            Compare schools side by side <ArrowRight size={16} />
-          </Link>
         </div>
       )}
-    </Card>
+      {rows.some((r) => r.level === 'four_year' && !r.comparable) && four.length < 2 && (
+        <p className="text-sm text-ink-3">Cost differences appear once at least two 4-year schools have the price that applies to you.</p>
+      )}
+      <ul className="divide-y divide-line border-y border-line">
+        {rows.map((r) => (
+          <li key={r.key} className="flex flex-wrap items-start justify-between gap-x-6 gap-y-2 py-4">
+            <div className="min-w-0 flex-1">
+              <Link to={`/colleges/${encodeURIComponent(r.key)}`} className="font-semibold text-ink hover:underline">
+                {r.name}
+              </Link>
+              {r.key === cmp.primary && <Pill tone="brand" className="ml-2 align-middle">Top choice</Pill>}
+              {r.annual != null && (
+                <p className="mt-0.5 text-sm text-ink-3">
+                  {usd(r.annual)} a year, {RES_LABEL[r.residency ?? ''] ?? r.residency}
+                  {!r.comparable && r.basis === 'assumed_in_state' ? ' (if in-state)' : ''}
+                  {r.level ? ` × ${YEARS[r.level]} years` : ''}
+                  {r.sourceUrl && (
+                    <>
+                      {' · '}
+                      <a href={r.sourceUrl} target="_blank" rel="noreferrer" className="underline-offset-2 hover:underline">source</a>
+                    </>
+                  )}
+                </p>
+              )}
+              {r.basis === 'out_of_state_missing' && (
+                <p className="mt-0.5 text-sm text-ink-3">{r.name} publishes only an in-state price for {YEAR}. We don't substitute it, so this school is left out of the cost comparison.</p>
+              )}
+              {!r.comparable && r.basis === 'assumed_in_state' && r.annual != null && (
+                <p className="mt-0.5 text-sm text-warn">Shown if you live in {stateName(r.schoolState) || 'its state'}. Set your home state to include it in the comparison.</p>
+              )}
+              <p className="mt-1 text-sm text-ink-2">
+                {[...r.levers, r.meritAwards > 0 ? `${r.meritAwards} merit award${r.meritAwards === 1 ? '' : 's'}` : null].filter(Boolean).join(' · ') || <span className="text-ink-3">No verified credit or scholarship records yet</span>}
+              </p>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="text-right">
+                {r.degreeTotal != null ? (
+                  <span className="text-xl font-bold tabular text-ink">{usd(r.degreeTotal)}</span>
+                ) : r.basis === 'out_of_state_missing' ? (
+                  <span className="text-sm text-ink-3">No out-of-state price published</span>
+                ) : (
+                  <span className="text-sm text-ink-3">No verified total yet</span>
+                )}
+              </div>
+              <button type="button" onClick={() => void cmp.remove(r.key)} aria-label={`Remove ${r.name}`} className="grid h-8 w-8 place-items-center rounded-full text-ink-3 hover:bg-surface-2 hover:text-ink">
+                <X size={16} />
+              </button>
+            </div>
+          </li>
+        ))}
+      </ul>
+      {showAlternative && path && path.total < path.direct && (
+        <details className="group rounded-xl border border-line bg-surface p-4">
+          <summary className="cursor-pointer list-none text-sm font-semibold text-ink">
+            Alternative lower-cost path <span className="font-normal text-ink-3">· example scenario</span>
+          </summary>
+          <p className="mt-2 text-sm text-ink-2">
+            2 years at {path.start.name}, then 2 at {path.finish.name}: <span className="font-semibold tabular text-ink">{usd(path.total)}</span> at published prices, vs{' '}
+            {usd(path.direct)} for 4 years at {path.finish.name}.
+          </p>
+          <p className="mt-1.5 text-xs text-ink-3">
+            Potential path — transfer agreement not yet verified. It is not a recommendation, and credits may not all transfer or count toward the same degree.
+          </p>
+        </details>
+      )}
+      <p className="text-xs text-ink-3">Sticker prices before grants and scholarships, at {YEAR} prices. Savings from credit and scholarships aren't estimated until we can source them.</p>
+    </div>
   )
 }

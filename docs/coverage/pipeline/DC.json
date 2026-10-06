@@ -1,0 +1,131 @@
+{
+ "state": "DC",
+ "academic_year": "2026-27",
+ "institutions": 9,
+ "status_order": [
+  "verified_current",
+  "partially_verified_current",
+  "candidate_ready",
+  "candidate_exception",
+  "source_found",
+  "not_found",
+  "fetch_failed"
+ ],
+ "by_category": {
+  "admissions_tests": {
+   "fetch_failed": 2,
+   "source_found": 7
+  },
+  "aid_appeals": {
+   "candidate_exception": 6,
+   "fetch_failed": 2,
+   "not_found": 1
+  },
+  "ap_credit": {
+   "candidate_exception": 1,
+   "fetch_failed": 2,
+   "not_found": 2,
+   "source_found": 4
+  },
+  "clep_credit": {
+   "fetch_failed": 2,
+   "not_found": 7
+  },
+  "common_data_set": {
+   "fetch_failed": 2,
+   "not_found": 6,
+   "source_found": 1
+  },
+  "cost_of_attendance": {
+   "candidate_exception": 4,
+   "fetch_failed": 2,
+   "source_found": 3
+  },
+  "degree_requirements": {
+   "fetch_failed": 2,
+   "not_found": 5,
+   "source_found": 2
+  },
+  "dual_enrollment": {
+   "candidate_ready": 1,
+   "fetch_failed": 2,
+   "not_found": 1,
+   "source_found": 5
+  },
+  "ib_credit": {
+   "fetch_failed": 2,
+   "not_found": 4,
+   "source_found": 3
+  },
+  "merit_scholarships": {
+   "fetch_failed": 2,
+   "not_found": 1,
+   "source_found": 6
+  },
+  "residency": {
+   "fetch_failed": 2,
+   "not_found": 4,
+   "source_found": 3
+  },
+  "statewide_articulation": {
+   "fetch_failed": 2,
+   "not_found": 2,
+   "source_found": 5
+  },
+  "transfer_credit": {
+   "candidate_ready": 1,
+   "fetch_failed": 2,
+   "source_found": 6
+  },
+  "tuition_fees": {
+   "candidate_exception": 4,
+   "fetch_failed": 2,
+   "source_found": 3
+  }
+ },
+ "totals": {
+  "candidate_exception": 15,
+  "candidate_ready": 2,
+  "fetch_failed": 28,
+  "not_found": 33,
+  "source_found": 48
+ },
+ "statewide_sources": {
+  "categories": {
+   "admissions_tests": 55,
+   "aid_appeals": 5,
+   "ap_credit": 0,
+   "clep_credit": 0,
+   "common_data_set": 0,
+   "cost_of_attendance": 39,
+   "degree_requirements": 0,
+   "dual_enrollment": 1,
+   "ib_credit": 0,
+   "merit_scholarships": 2,
+   "residency": 26,
+   "statewide_articulation": 0,
+   "transfer_credit": 0,
+   "tuition_fees": 16
+  },
+  "fetch_failures": 9,
+  "pages_fetched": 270
+ },
+ "blocked_institutions": [
+  "ipeds-131159",
+  "ipeds-131450"
+ ],
+ "quality": {
+  "ambiguous_years": 7,
+  "blocked_requests": 18,
+  "candidates": 33,
+  "conflicts": 17,
+  "documents": 788,
+  "extraction_failures": 0,
+  "fetch_errors": 15,
+  "fetches": 821,
+  "ready": 6,
+  "semantic_review": 17,
+  "stale_sources": 9
+ },
+ "run": "pipeline/runs/DC/2026-10-06"
+}

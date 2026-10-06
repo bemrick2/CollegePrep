@@ -21,14 +21,16 @@ NOT_NAME = re.compile(r'^[\d<>=.\s/+%$,-]*$|tuition|\bfees?\b|per credit|per cou
                       r'\bstudents?\s+(is|who|still|are)\b|fall below|balance', re.I)
 # Names that are not merit awards (KY: federal aid and loans in an aid table, staff directories, credit-hour bands
 # from an academic-standards table).
-NOT_AWARD_NAME = re.compile(r'^\W*(?:jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\.?\s+\d{1,2}\W*$|\bap\s+credit\b|\bph\.?\s?d\b|\bdoctoral\b|\bmaster\'?s\b|\bpell\b|\brotc\b|yellow\s+ribbon|supplemental\s+educational\s+opportunity|\bseog\b|work[- ]study|\bloans?\b|\bplus\b|'
+NOT_AWARD_NAME = re.compile(r'^\W*(?:freshman|sophomore|junior|senior)\s+\d+\s*(?:[-–]\s*\d+|\+)\s+credits\W*$|^\W*(?:\d(?:st|nd|rd|th)\s+(?:and\s+\d(?:st|nd|rd|th)\s+)?semester\s+\w+|all\s+(?:freshmen|sophomores|juniors|seniors))\W*$|\bapplicants?:|\((?:final|priority)\)|^\W*in\s+this\s+section\W*$|^\W*(?:jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\.?\s+\d{1,2}\W*$|\bap\s+credit\b|\bph\.?\s?d\b|\bdoctoral\b|\bmaster\'?s\b|\bpell\b|\brotc\b|yellow\s+ribbon|supplemental\s+educational\s+opportunity|\bseog\b|work[- ]study|\bloans?\b|\bplus\b|'
                             r'college\s+access\s+program|counselor(?!(?:\x27|\u2019)?s?\s+(?:award|scholarship))|director|coordinator|specialist|\bassistant\b|officer|advisor|'
                             r'^(fewer|more|less)\s+than\b|^over\s+\d|\bcredit\s+hours?\b|'
                             r'^\W*(books?|supplies|transportation|personal\s+expenses?|loan\s+fees?|room|board|food)\b|'
                             r'^(reading|english|math(ematics)?|science|writing|composite)$|'
                             r'^(gpa|act|sat|clt|psat|scores?|tiers?|level|amount)$|^(annual\s+)?totals?$', re.I)  # OK (Oklahoma Christian): a header row repeated in the body  # AR: UA-PTC placement score rows  # OR: COA rows
-NOT_MERIT_PAGE = re.compile(r'course[- ]awards|\bclep\b|examination[- ]program|(?:private|outside|external)[- ]scholarships?|undocumented|sample[- ]aid[- ]packages?|aid[- ]package[- ]examples?|retention|renewal|keep(?:ing)?[- ]your[- ]scholarship|academic[- ]standards|probation|satisfactory[- ]academic[- ]progress|financial[- ]aid[- ]staff|'
+NOT_MERIT_PAGE = re.compile(r'tuition[- ](?:and|&)[- ]fees|international[- ]baccalaureate(?![- ]scholarship)|academicworks|course[- ]awards|\bclep\b|examination[- ]program|(?:private|outside|external)[- ]scholarships?|undocumented|sample[- ]aid[- ]packages?|aid[- ]package[- ]examples?|retention|renewal|keep(?:ing)?[- ]your[- ]scholarship|academic[- ]standards|probation|satisfactory[- ]academic[- ]progress|financial[- ]aid[- ]staff|'
                             r'\bstaff\b|directory|meet[- ]the[- ]team|our[- ]team|'
+                            # NY r1: Buffalo State's superseded "scholarships-fall-2024-and-prior" and its faculty awards-recognition page.
+                            r'and[- ]prior\b|awards[- ](?:and[- ])?recognition|'
                             # GA r1: lists of other organizations' awards (Agnes Scott outside scholarships, Georgia Southern
                             # military scholarships, West Georgia Tech foundation awards) and international-office waivers (UWG ISAP).
                             r'outside[- ]scholarships?|external[- ]scholarships?|third[- ]party|military|veteran|foundation|/isap/|donor[- ]scholarships?|'
@@ -47,7 +49,8 @@ ENROLLMENT = re.compile(r'^(full|half|part|three[-\s]quarter|3/4)[-\s]time(\s*\(
 SCORE = re.compile(r'\b\d{1,4}\b')
 PACKAGE_ROW = re.compile(r'federal|pell|state\s+grants?|outside\s+scholarships?|student\s+employment|work[- ]study|\bloans?\b|^total\b', re.I)
 _N = r'(?:\d{1,2}|two|three|four|five|six|eight|ten)'
-MULTI_YEAR = re.compile(r'(?<!renewable\s)\b(?:for|over|value|maximum\s+of)\s+' + _N + r'\s+(?:fall/spring\s+)?(?:years?|semesters|trimesters|quarters|terms)\b', re.I)  # outside parentheses; ND (VCSU "for two year", Minot "maximum of 4 years")
+MULTI_YEAR = re.compile(r'(?<!renewable\s)\b(?:for|over|value|maximum\s+of)\s+' + _N + r'\s+(?:fall/spring\s+)?(?:years?|semesters|trimesters|quarters|terms)\b|'
+                        r'\b' + _N + r'[\s-]+years?\s+value\b', re.I)  # PA (Penn State campuses): "$26,000 four year value"  # outside parentheses; ND (VCSU "for two year", Minot "maximum of 4 years")
 MULTI_X = re.compile(r'\bx\s*' + _N + r'\s+(?:years|semesters|trimesters|quarters|terms)\b|\b' + _N + r'\s+(?:years|semesters|trimesters|quarters|terms)\s+x\b', re.I)
 MERGED_GPA = re.compile(r'^(.*?[A-Za-z)])\s*(\d\.\d{1,2}\s*\+?\s*(?:GPA|grade\s+point\s+average)\.?)\s*$', re.I)
 MERGED_TEXT = re.compile(r'^(.{3,80}?\b(?:Scholarship|Award|Grant|Fellowship))(?=[A-Z][a-z])')
@@ -159,6 +162,9 @@ def _list_awards(t, header, body, title, award_type):
             # AR (UAPB) "$66,000 for four years"; OK (OU) "$16,000 ($4,000 x 4 years)", (USAO) "total estimated value 8 fall/spring
             # terms", (SWOSU) "$5000 cash per year, full tuition": the printed figure is not the annual award
             lo, hi = None, None  # LSUS: "Tuition & Fees + $1,200 Campus Housing Credit" is not a $1,200 award
+        per_year = re.search(r'\(\s*\$\s?([\d,]+)\s*(?:per|/|a|each)\s*(?:year|yr)\s*\)', amt, re.I)
+        if per_year and hi is not None and int(per_year.group(1).replace(',', '')) < hi:
+            lo = hi = int(per_year.group(1).replace(',', ''))  # PA (Geneva): "$70,000 ($17,500 per year)" is $17,500 a year
         if hi is not None and re.search(r'\bor\s+(?:more|greater|higher)\b|\band\s+up\b', amt, re.I):
             hi = lo if lo is not None else hi; rec_open_max = True  # ID (New Saint Andrews): "$5,000 or more" has no maximum
         else:
@@ -193,7 +199,9 @@ def _list_awards(t, header, body, title, award_type):
         # Prefix only bare scores: "ACT: 27+ / SAT: 1220+" already names the test, "Valedictorian" is not a score (Tougaloo).
         label = lambda name, v: f'{name} {v}' if v and SCORE.search(v) and not re.search(r'\b(act|sat)\b', v, re.I) else v
         tests = ' / '.join(x for x in [label('ACT', a), label('SAT', s) if s != a else ''] if x) or tst
-        if tests: rec['test_requirement'] = tests
+        if tests and not re.search(r'\d', tests) and test is not None and re.search(r'requirement|criteria|eligib', header[test], re.I):  # MI (Madonna): "Parent/Grandparent is a Madonna alumna" under a GPA/ACT/SAT header
+            if not crit: rec['eligibility_summary'] = tests[:600]
+        elif tests: rec['test_requirement'] = tests
         if crit:  # a bare points range is meaningless without its column name (Southern: "Points | 4,800 - 5,700")
             rec['eligibility_summary'] = (f"{header[criteria].strip()}: {crit}" if re.search(r'\bpoints?\b', header[criteria], re.I) else crit)[:600]
         if ren: rec['renewal_requirements'] = ren[:600]

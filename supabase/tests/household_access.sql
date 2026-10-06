@@ -80,7 +80,15 @@ do $$ begin
   perform public.accept_household_invitation(current_setting('t.inv_s1'));
   perform hp_test.check((select linked_user_id = auth.uid() and account_mode = 'student_login' and household_id = current_setting('t.hh_a')::uuid
     from public.students where id = current_setting('t.st1')::uuid), 'guardian-created profile claimed by student');
+  perform hp_test.expect_error('select public.accept_household_invitation(current_setting(''t.inv_s1''))', '22023', '%already been used%');
   perform hp_test.as_owner();
+  -- The claimed invitation is persisted with its 72-hour lifetime and who accepted it; claiming adds no profile.
+  perform hp_test.check((select abs(extract(epoch from (expires_at - created_at)) - 72 * 3600) < 5
+      and accepted_by = '20000000-0000-0000-0000-000000000051' and accepted_at is not null
+    from public.household_invitations where code_hash = encode(sha256(convert_to(current_setting('t.inv_s1'), 'UTF8')), 'hex')),
+    'student invitation persisted: 72h lifetime, accepted_at/accepted_by set');
+  perform hp_test.eq((select count(*) from public.students where household_id = current_setting('t.hh_a')::uuid
+      and linked_user_id = '20000000-0000-0000-0000-000000000051'), 1::bigint, 'claim links one profile, no duplicate');
   perform hp_test.check((select not can_manage_students and can_set_goals and not can_view_progress and not can_manage_members and not can_manage_billing
     from public.household_members where user_id = '20000000-0000-0000-0000-0000000000a2'), 'g2 flags from invitation');
 end $$;

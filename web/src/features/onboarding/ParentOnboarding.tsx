@@ -6,7 +6,7 @@ import { Button, Field, Notice, inputClass, cx } from '../../components/ui'
 import { StepFrame } from './Stepper'
 import { ExamAndTarget, GoalsAndPace, defaultPlanDraft, type PlanDraft } from './PlanFields'
 import { GRADES, graduationYearFor, timeZones } from './options'
-import { InviteCode } from './InviteCode'
+import { StudentInvite } from '../parent/StudentInvite'
 import { StoreBadges } from '../../components/StoreBadges'
 import { US_STATES } from '../../lib/engine/residency'
 import { writeHomeState } from '../../lib/homeState'
@@ -21,7 +21,7 @@ export function ParentOnboarding() {
   const [studentName, setStudentName] = useState('')
   const [grade, setGrade] = useState<number | null>(null)
   const [plan, setPlan] = useState<PlanDraft>(defaultPlanDraft)
-  const [code, setCode] = useState<string | null>(null)
+  const [created, setCreated] = useState<{ householdId: string; studentId: string } | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [busy, setBusy] = useState(false)
 
@@ -36,9 +36,8 @@ export function ParentOnboarding() {
       const sid = await source.addStudent(hid, studentName.trim(), grade ? graduationYearFor(grade) : null, grade)
       await source.savePlan(sid, { exam_family: plan.exam, target_score: plan.target, goals: plan.goals, daily_minutes: 10 })
       await source.setWeeklyGoal(sid, weekStartOf(localDate(new Date(), tz)), plan.weeklyQuestions, null)
-      const invite = await source.createInvitation(hid, 'student', sid)
       setActiveStudentId(sid)
-      setCode(invite)
+      setCreated({ householdId: hid, studentId: sid })
       setStep(4)
     } catch (e) {
       setError(e instanceof Error ? e.message : 'Could not finish setup')
@@ -158,17 +157,17 @@ export function ParentOnboarding() {
       step={4}
       total={4}
       title={`Invite ${studentName.trim() || 'your student'}`}
-      subtitle="Practice happens on your student's own login, so their history stays theirs. Share this code — it works once and expires in 72 hours."
+      subtitle="Practice happens on your student's own login, so their history stays theirs. Email them an invitation, or copy the link. You can also do this later from Household."
       footer={
         <Button size="lg" block onClick={() => void done()}>
           Go to your dashboard
         </Button>
       }
     >
-      {code && <InviteCode code={code} />}
+      {created && <StudentInvite showTitle={false} householdId={created.householdId} student={{ id: created.studentId, display_name: studentName.trim() || 'your student' }} />}
       <ol className="mt-6 grid gap-3 text-sm text-ink-2">
         <li className="flex gap-3">
-          <Num n={1} /> Your student creates an account and chooses “I have an invite code”.
+          <Num n={1} /> Your student opens the email (or your link) on their own phone or computer and creates their account.
         </li>
         <li className="flex gap-3">
           <Num n={2} /> They take a short benchmark — about 30 minutes — to set a baseline.

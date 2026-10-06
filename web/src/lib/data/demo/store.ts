@@ -20,6 +20,12 @@ export interface DemoInvitation {
   student_id: string | null
   expires_at: string
   accepted_by: string | null
+  id?: string
+  short_code?: string
+  created_at?: string
+  accepted_at?: string | null
+  recipient_email?: string | null
+  revoked_at?: string | null
 }
 
 export interface DemoGoal {

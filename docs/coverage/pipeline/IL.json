@@ -1,0 +1,158 @@
+{
+ "state": "IL",
+ "academic_year": "2026-27",
+ "institutions": 112,
+ "status_order": [
+  "verified_current",
+  "partially_verified_current",
+  "candidate_ready",
+  "candidate_exception",
+  "source_found",
+  "not_found",
+  "fetch_failed"
+ ],
+ "by_category": {
+  "admissions_tests": {
+   "candidate_ready": 1,
+   "fetch_failed": 8,
+   "not_found": 2,
+   "source_found": 101
+  },
+  "aid_appeals": {
+   "candidate_exception": 65,
+   "fetch_failed": 8,
+   "not_found": 17,
+   "source_found": 22
+  },
+  "ap_credit": {
+   "candidate_exception": 16,
+   "candidate_ready": 19,
+   "fetch_failed": 8,
+   "not_found": 41,
+   "source_found": 28
+  },
+  "clep_credit": {
+   "candidate_exception": 9,
+   "candidate_ready": 13,
+   "fetch_failed": 8,
+   "not_found": 53,
+   "source_found": 29
+  },
+  "common_data_set": {
+   "candidate_ready": 1,
+   "fetch_failed": 8,
+   "not_found": 90,
+   "source_found": 13
+  },
+  "cost_of_attendance": {
+   "candidate_exception": 25,
+   "candidate_ready": 6,
+   "fetch_failed": 8,
+   "not_found": 3,
+   "source_found": 70
+  },
+  "degree_requirements": {
+   "candidate_exception": 1,
+   "candidate_ready": 3,
+   "fetch_failed": 8,
+   "not_found": 15,
+   "source_found": 85
+  },
+  "dual_enrollment": {
+   "candidate_exception": 4,
+   "candidate_ready": 9,
+   "fetch_failed": 8,
+   "not_found": 36,
+   "source_found": 55
+  },
+  "ib_credit": {
+   "candidate_exception": 17,
+   "candidate_ready": 6,
+   "fetch_failed": 8,
+   "not_found": 66,
+   "source_found": 15
+  },
+  "merit_scholarships": {
+   "candidate_exception": 4,
+   "candidate_ready": 10,
+   "fetch_failed": 8,
+   "not_found": 3,
+   "source_found": 87
+  },
+  "residency": {
+   "fetch_failed": 8,
+   "not_found": 30,
+   "source_found": 74
+  },
+  "statewide_articulation": {
+   "fetch_failed": 8,
+   "not_found": 45,
+   "source_found": 59
+  },
+  "transfer_credit": {
+   "candidate_exception": 14,
+   "candidate_ready": 18,
+   "fetch_failed": 8,
+   "not_found": 4,
+   "source_found": 68
+  },
+  "tuition_fees": {
+   "candidate_exception": 40,
+   "candidate_ready": 12,
+   "fetch_failed": 8,
+   "not_found": 2,
+   "source_found": 50
+  }
+ },
+ "totals": {
+  "candidate_exception": 195,
+  "candidate_ready": 98,
+  "fetch_failed": 112,
+  "not_found": 407,
+  "source_found": 756
+ },
+ "statewide_sources": {
+  "categories": {
+   "admissions_tests": 0,
+   "aid_appeals": 0,
+   "ap_credit": 0,
+   "clep_credit": 0,
+   "common_data_set": 0,
+   "cost_of_attendance": 0,
+   "degree_requirements": 0,
+   "dual_enrollment": 0,
+   "ib_credit": 0,
+   "merit_scholarships": 0,
+   "residency": 0,
+   "statewide_articulation": 0,
+   "transfer_credit": 0,
+   "tuition_fees": 0
+  },
+  "fetch_failures": 1,
+  "pages_fetched": 1
+ },
+ "blocked_institutions": [
+  "ipeds-145682",
+  "ipeds-146612",
+  "ipeds-146667",
+  "ipeds-146816",
+  "ipeds-147396",
+  "ipeds-147660",
+  "ipeds-149329",
+  "ipeds-149781"
+ ],
+ "quality": {
+  "ambiguous_years": 72,
+  "blocked_requests": 238,
+  "candidates": 994,
+  "conflicts": 182,
+  "documents": 7556,
+  "extraction_failures": 0,
+  "fetch_errors": 316,
+  "fetches": 8110,
+  "ready": 219,
+  "semantic_review": 220,
+  "stale_sources": 81
+ },
+ "run": "pipeline/runs/IL/2026-10-05"
+}

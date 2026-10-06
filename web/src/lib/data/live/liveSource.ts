@@ -1,7 +1,10 @@
+import { INVITE_TTL_HOURS } from '../../invites'
 import type { SupabaseClient } from '@supabase/supabase-js'
-import type { DataSource } from '../source'
+import type { DataSource, InvitationSummary, InviteSendResult, StudentInvitation } from '../source'
 import { DataError } from '../source'
 import type {
+  BillingPlan,
+  Entitlement,
   AttemptRecord,
   BenchmarkMetrics,
   BenchmarkSummary,
@@ -40,6 +43,14 @@ async function rpc<T>(sb: SupabaseClient, fn: string, args: Record<string, unkno
   const { data, error } = await sb.rpc(fn, args)
   if (error) fail(error)
   return data as T
+}
+
+const OUTCOME_MESSAGE: Record<string, string> = {
+  invalid: 'Invalid invitation code',
+  expired: 'Invitation has expired',
+  used: 'Invitation has already been used',
+  revoked: 'Invitation has been revoked',
+  rate_limited: 'Too many invite code attempts; try again in 15 minutes',
 }
 
 const QUESTION_COLUMNS =
@@ -195,11 +206,62 @@ export class LiveSource implements DataSource {
   }
 
   createInvitation(householdId: string, role: 'guardian' | 'student', studentId?: string) {
-    return rpc<string>(this.sb, 'create_household_invitation', { p_household: householdId, p_role: role, p_student: studentId ?? null })
+    return rpc<string>(this.sb, 'create_household_invitation', { p_household: householdId, p_role: role, p_student: studentId ?? null, p_ttl_hours: INVITE_TTL_HOURS })
   }
 
-  acceptInvitation(code: string) {
-    return rpc<string>(this.sb, 'accept_household_invitation', { p_code: code.trim() })
+  async acceptInvitation(code: string) {
+    // Wrong, stale and used codes come back as outcomes (so failed guesses are counted server-side).
+    const rows = await rpc<{ outcome: string; household_id: string | null }[]>(this.sb, 'redeem_household_invitation', { p_code: code.trim() })
+    const r = rows[0]
+    if (r?.outcome === 'joined' && r.household_id) return r.household_id
+    throw new DataError(OUTCOME_MESSAGE[r?.outcome ?? 'invalid'] ?? OUTCOME_MESSAGE.invalid!, 'invalid')
+  }
+
+  async createStudentInvitation(householdId: string, studentId: string): Promise<StudentInvitation> {
+    const rows = await rpc<{ code: string; invite_code: string; invitation_id: string; expires_at: string }[]>(this.sb, 'create_student_invitation', {
+      p_household: householdId,
+      p_student: studentId,
+    })
+    const r = rows[0]!
+    return { code: r.code, inviteCode: r.invite_code, invitationId: r.invitation_id, expiresAt: r.expires_at }
+  }
+
+  async sendStudentInvitation(input: { householdId: string; studentId: string; email: string; code?: string; inviteCode?: string }): Promise<InviteSendResult> {
+    const { data, error } = await this.sb.functions.invoke('send-household-invitation', {
+      body: { householdId: input.householdId, studentId: input.studentId, email: input.email, code: input.code, inviteCode: input.inviteCode, origin: window.location.origin },
+    })
+    if (error) {
+      // The function answers 4xx for requests it refuses (bad email, no permission) with a message in the body.
+      const ctx = (error as { context?: Response }).context
+      let message = 'We couldn’t send the invitation'
+      try {
+        const b = ctx ? await ctx.json() : null
+        if (b?.error) message = String(b.error)
+      } catch {
+        // keep the generic message
+      }
+      const missing = !ctx || ctx.status === 404
+      if (!missing && ctx.status >= 400 && ctx.status < 500) throw new DataError(message, ctx.status === 403 ? 'forbidden' : 'invalid')
+      // The email function is unreachable or not deployed: still give the parent a working invitation to copy.
+      if (input.code) return { code: input.code, inviteCode: input.inviteCode, emailed: false, reason: missing ? 'not_configured' : 'provider' }
+      const inv = await this.createStudentInvitation(input.householdId, input.studentId)
+      return { ...inv, emailed: false, reason: missing ? 'not_configured' : 'provider' }
+    }
+    return data as InviteSendResult
+  }
+
+  async listInvitations(householdId: string): Promise<InvitationSummary[]> {
+    const { data, error } = await this.sb
+      .from('household_invitations')
+      .select('id, role, student_id, recipient_email, created_at, expires_at, accepted_at, revoked_at, last_emailed_at')
+      .eq('household_id', householdId)
+      .order('created_at', { ascending: false })
+    if (error) fail(error)
+    return (data ?? []) as InvitationSummary[]
+  }
+
+  async revokeInvitation(invitationId: string) {
+    await rpc<null>(this.sb, 'revoke_household_invitation', { p_invitation: invitationId })
   }
 
   async setWeeklyGoal(studentId: string, weekStart: string, targetQuestions: number | null, targetMinutes: number | null) {
@@ -433,6 +495,39 @@ export class LiveSource implements DataSource {
 
   async removeSchool(householdId: string, institutionKey: string) {
     await rpc<void>(this.sb, 'remove_household_school', { p_household: householdId, p_institution_key: institutionKey })
+  }
+
+  // CR-16 billing: on only when the deployment sets VITE_BILLING_ENABLED=true (edge functions and Stripe ready).
+  readonly supportsBilling = import.meta.env.VITE_BILLING_ENABLED === 'true'
+
+  async entitlement(householdId: string): Promise<Entitlement> {
+    // Sandbox status is display-only; production access always uses household_entitlement.
+    const sandbox = import.meta.env.VITE_BILLING_ENVIRONMENT === 'sandbox' &&
+      typeof window !== 'undefined' && window.location.hostname === 'college-optimizer-staging.netlify.app'
+    return rpc<Entitlement>(this.sb, sandbox ? 'household_sandbox_billing_status' : 'household_entitlement', { p_household: householdId })
+  }
+
+  private async fn<T>(name: string, body?: Record<string, unknown>): Promise<T> {
+    const { data, error } = await this.sb.functions.invoke(name, body ? { body } : { method: 'GET' })
+    if (error) {
+      // Edge functions answer { error } with a status; surface that message, not a transport error.
+      const ctx = (error as { context?: Response }).context
+      const msg = ctx && typeof ctx.json === 'function' ? ((await ctx.json().catch(() => null)) as { error?: string } | null)?.error : null
+      throw new DataError(msg ?? error.message, 'invalid')
+    }
+    return data as T
+  }
+
+  async billingPlans(): Promise<BillingPlan[]> {
+    return (await this.fn<{ plans: BillingPlan[] }>('billing-plans')).plans
+  }
+
+  async startCheckout(householdId: string, lookupKey: string): Promise<string> {
+    return (await this.fn<{ url: string }>('billing-checkout', { household_id: householdId, lookup_key: lookupKey })).url
+  }
+
+  async billingPortalUrl(householdId: string): Promise<string> {
+    return (await this.fn<{ url: string }>('billing-portal', { household_id: householdId })).url
   }
 
   // CR-12 (primary target school) is not in the backend yet. Hidden in the UI until it lands; no client storage.
