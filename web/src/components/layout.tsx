@@ -15,7 +15,7 @@ export function PageHeader({ kicker, title, children, actions }: { kicker?: Reac
         <h1 className="display mt-0.5 text-[28px] leading-tight text-ink md:text-[34px]">{title}</h1>
         {children && <div className="mt-1.5 max-w-2xl text-[15px] text-ink-2">{children}</div>}
       </div>
-      {actions && <div className="flex flex-wrap items-center gap-2">{actions}</div>}
+      {actions && <div className="flex min-w-0 max-w-full flex-wrap items-center gap-2">{actions}</div>}
     </header>
   )
 }
