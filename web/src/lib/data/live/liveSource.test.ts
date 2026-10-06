@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import type { SupabaseClient } from '@supabase/supabase-js'
 import { LiveSource } from './liveSource'
 
@@ -23,6 +23,9 @@ function fakeClient(data: Record<string, unknown>) {
       return builder(c)
     },
     auth: { getUser: () => Promise.resolve({ data: { user: { id: 'u1' } } }) },
+    functions: {
+      invoke: (name: string, opts: unknown) => (calls.push({ kind: 'rpc', name: `fn:${name}`, args: opts, ops: [] }), Promise.resolve({ data: data[`fn:${name}`] ?? null, error: null })),
+    },
   }
   return { sb: sb as unknown as SupabaseClient, calls }
 }
@@ -81,6 +84,26 @@ describe('LiveSource contracts (issue #37)', () => {
     expect(calls).toHaveLength(0)
   })
 
+  it('CR-16 billing: entitlement RPC, Checkout and Portal through edge functions; no Stripe keys in the client', async () => {
+    const { sb, calls } = fakeClient({
+      household_entitlement: { active: true, status: 'active', can_manage_billing: true, managed_by: 'web' },
+      'fn:billing-checkout': { url: 'https://checkout.stripe.com/c/pay/cs_1' },
+      'fn:billing-portal': { url: 'https://billing.stripe.com/p/session/1' },
+      'fn:billing-plans': { plans: [{ lookup_key: 'pp_family_monthly', unit_amount: 1499, currency: 'usd', interval: 'month', product_name: 'Family' }] },
+    })
+    const src = new LiveSource(sb)
+    expect((await src.entitlement('h1')).managed_by).toBe('web')
+    expect(await src.startCheckout('h1', 'pp_family_monthly')).toBe('https://checkout.stripe.com/c/pay/cs_1')
+    expect(await src.billingPortalUrl('h1')).toBe('https://billing.stripe.com/p/session/1')
+    expect((await src.billingPlans())[0]!.lookup_key).toBe('pp_family_monthly')
+    expect(calls.map((c) => [c.name, c.args])).toEqual([
+      ['household_entitlement', { p_household: 'h1' }],
+      ['fn:billing-checkout', { body: { household_id: 'h1', lookup_key: 'pp_family_monthly' } }],
+      ['fn:billing-portal', { body: { household_id: 'h1' } }],
+      ['fn:billing-plans', { method: 'GET' }],
+    ])
+  })
+
   it('CR-5 / CR-8: catalog and questions select the new content fields', async () => {
     const { sb, calls } = fakeClient({
       practice_questions: [{ id: 'q1', section: 'reading', difficulty: 2, difficulty_label: 'easy', stem: 'S', choices: [{ key: 'A', text: 'a' }], answer_format: 'choice', expected_time_seconds: 60, hint_count: 2, practice_passages: { title: 'T', body: 'B' }, exam_versions: { exam_family: 'act' }, practice_question_skills: [] }],
@@ -92,5 +115,27 @@ describe('LiveSource contracts (issue #37)', () => {
     expect(sel('question_strategies')).toContain('sections')
     const [q] = await src.publishedQuestions('act')
     expect(q).toMatchObject({ hint_count: 2, passage: 'T\n\nB' })
+  })
+})
+
+describe('sandbox billing status isolation', () => {
+  it('uses sandbox display status only on the staging host with an explicit flag', async () => {
+    vi.stubEnv('VITE_BILLING_ENVIRONMENT', 'sandbox')
+    vi.stubGlobal('window', { location: { hostname: 'college-optimizer-staging.netlify.app' } })
+    try {
+      const { sb, calls } = fakeClient({ household_sandbox_billing_status: { active: true } })
+      expect((await new LiveSource(sb).entitlement('h1')).active).toBe(true)
+      expect(calls[0]!.name).toBe('household_sandbox_billing_status')
+    } finally { vi.unstubAllEnvs(); vi.unstubAllGlobals() }
+  })
+
+  it('keeps the production entitlement RPC even if a sandbox flag reaches another host', async () => {
+    vi.stubEnv('VITE_BILLING_ENVIRONMENT', 'sandbox')
+    vi.stubGlobal('window', { location: { hostname: 'prepandprice.com' } })
+    try {
+      const { sb, calls } = fakeClient({ household_entitlement: { active: false } })
+      expect((await new LiveSource(sb).entitlement('h1')).active).toBe(false)
+      expect(calls[0]!.name).toBe('household_entitlement')
+    } finally { vi.unstubAllEnvs(); vi.unstubAllGlobals() }
   })
 })

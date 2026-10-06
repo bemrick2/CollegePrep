@@ -37,9 +37,11 @@ ROW_LABELS = [  # first match wins
 ]
 _ROW = [(k, re.compile(p, re.I)) for k, p in ROW_LABELS]
 SKIP_ROW = re.compile(r'per\s+(credit|hour|week|month|night|course|lab|semester\s+hour)|(semester|credit)\s+hour|/\s*(credit|hour|week)|summer|parking|deposit|audit|transcript|graduation', re.I)
-SKIP_TABLE = re.compile(r'graduate|doctor|pharm|physician|law school|medicine|medical|dental|dnp|msn|\bmba\b|nurse practitioner|'
+SKIP_TABLE = re.compile(r'\bmaster\b|\bexample\b|graduate|doctor|pharm|physician|law school|medicine|medical|dental|dnp|msn|\bmba\b|nurse practitioner|'
                         r'online|per credit|part[- ]time|summer|international student', re.I)
 UNDERGRAD = re.compile(r'undergraduate', re.I)
+# MI: GRCC's "Nursing Programs" and NMC's "Automotive Technology Programs" budgets are for one program, not the standard cost.
+PROGRAM_TABLE = re.compile(r'\b(?:nursing|automotive(?:\s+technology)?|aviation|maritime|culinary|cosmetology|welding)\s+programs?\b', re.I)
 
 
 def row_key(label):
@@ -213,10 +215,14 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
     context = _context(t, page, titles)
     if SKIP_TABLE.search(context + ' ' + ' '.join(headers)) and not UNDERGRAD.search(context):
         return []
+    if PROGRAM_TABLE.search(context):
+        return []
     if PART_TIME.search(' '.join(titles)):
         return []  # budgets for less-than-full-time enrollment are not the standard cost
     # Every printed money row is kept (and counts toward reconciliation); unrecognised rows get key None.
     keyed = [(row_key(label), label, vals, raw) for label, vals, raw in body if not SKIP_ROW.search(label)]
+    if any(re.search(r'yellow\s+ribbon|gi\s+bill|amount\s+student\s+owes', label, re.I) for _, label, _, _ in keyed):
+        return []  # IL (Olivet): a GI Bill / Yellow Ribbon worked example, not the cost of attendance
     kinds = {k for k, *_ in keyed}
     if not kinds & {'tuition', 'tuition_and_fees'} or len(kinds) < 2:
         return []
@@ -231,6 +237,8 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
     lead_period = [m for m in re.finditer(r'\bper\s+(?:semester|term)\b', (t.get('lead') or '')[:160], re.I)
                    if not re.search(r'(?:credits?|hours?)\s*$', (t.get('lead') or '')[:m.start()], re.I)]
     if not ctx['period'] and lead_period: ctx['period'] = 'semester'
+    # NY r1 (SUNY Poly): a page titled "Semester Cost of Attendance" prints one semester's figures in unlabeled columns.
+    if not ctx['period'] and re.search(r'^\W*semester\s+cost', page.title or '', re.I): ctx['period'] = 'semester'
     cols = []
     for j in range(ncols):
         m = column_meaning(headers[j] if j < len(headers) else '', home, private)

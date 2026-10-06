@@ -357,3 +357,25 @@ export interface CostProjection {
   levers?: { key: string; label: string; estimated_savings: number | null; source_url: string | null }[]
   illustrative?: boolean
 }
+
+/** Household plan access (CR-16), whatever the payment source. Provider ids never reach the client. */
+export interface Entitlement {
+  active: boolean
+  in_grace?: boolean
+  plan_key?: string | null
+  status: string | null
+  current_period_end?: string | null
+  cancel_at_period_end?: boolean
+  can_manage_billing: boolean
+  /** Where the plan is managed; only for the payer or a guardian who manages billing. */
+  managed_by?: 'web' | 'apple' | 'google' | 'comp' | null
+  is_owner?: boolean
+}
+
+export interface BillingPlan {
+  lookup_key: string
+  unit_amount: number | null
+  currency: string
+  interval: 'month' | 'year' | null
+  product_name: string | null
+}

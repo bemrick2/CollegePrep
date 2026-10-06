@@ -1,23 +1,26 @@
+import { useState } from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import { useApp } from '../../lib/app'
 import type { SkillEstimate, Student } from '../../lib/data/types'
-import { ButtonLink, Card, CardHeader, EmptyState, Notice, PageLoading, Pill, ProgressBar, cx } from '../../components/ui'
-import { ArrowRight, Compass, Flame, Info, Target, Users } from '../../components/icons'
+import { ButtonLink, Card, EmptyState, Notice, PageLoading, Pill, ProgressBar } from '../../components/ui'
+import { Users } from '../../components/icons'
 import { latestEstimate, recentTrend, useStudentOverview, type StudentOverview } from '../student/useStudentOverview'
 import { SECTION_LABEL, SECTION_ORDER, benchmarkSchedule, pacingVerdict } from '../../lib/engine/benchmark'
 import { daysBetween, formatShortDate, isoWeekday } from '../../lib/engine/dates'
 import { EXAM_NAME } from '../onboarding/options'
 import { useCatalog } from '../practice/useCatalog'
-import { CostOutlook, outlookFor } from './CostOutlook'
-import { PrimaryTarget } from './PrimaryTarget'
+import { costPhrase, outlookFor } from './CostOutlook'
+import { Figure, NextSteps, PageHeader, Row, RowList, Section, compactUsd } from '../../components/layout'
+import { planSummary, type PlanSummary } from '../../lib/engine/planSummary'
+import { schoolLevers } from '../colleges/schoolLevers'
+import { useExamPlan } from '../colleges/useExamPlan'
+import { useMeritReference } from '../colleges/useMeritReference'
 import { useInterests } from '../majors/useInterests'
 import { useHomeState } from '../../lib/homeState'
 import { labelOf } from '../../lib/engine/interests'
 import { meritAwards } from '../../lib/engine/merit'
 import { useSavedComparison } from '../colleges/useSavedComparison'
-import { parentActions, type ParentAction } from '../../lib/engine/actions'
-import { PracticeIndicators } from '../../components/PracticeIndicators'
-import { BenchmarkStatus } from '../../components/BenchmarkStatus'
+import { parentActions } from '../../lib/engine/actions'
 
 export function ParentDashboard() {
   const { ctx, activeStudent } = useApp()
@@ -46,8 +49,6 @@ function StudentPanel({ student }: { student: Student }) {
   if (!o.data) return null
   return <Panel student={student} o={o.data} />
 }
-
-type Action = ParentAction
 
 function sectionRollup(estimates: SkillEstimate[]) {
   const m = new Map<string, { n: number; c: number; paces: number[]; flagged: boolean }>()
@@ -82,6 +83,9 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
   const behind = goal !== null && expectedByNow !== null && o.week.questions_submitted < expectedByNow * 0.8
 
   const saved = useSavedComparison()
+  const exams = useExamPlan(student.id).exams
+  const merit = useMeritReference(student.id)
+  const [showAll, setShowAll] = useState(false)
   const weakSkill = (kind: 'knowledge' | 'pacing') =>
     [...o.estimates]
       .filter((e) => (kind === 'knowledge' ? e.knowledge_weak : e.pacing_weak))
@@ -128,99 +132,161 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
       })),
   })
 
+  // The plan: one headline cost, one opportunity, three next steps.
+  const schools = (saved.data ?? []).filter((c) => c.found)
+  const rows = schools.map((c) => ({ c, o: outlookFor(c, homeState) }))
+  const plan = planSummary(
+    rows.map(({ c, o }) => ({
+      key: c.institution_key,
+      name: o.name,
+      level: o.level,
+      total: o.degreeTotal,
+      comparable: o.comparable,
+      levers: schoolLevers(c, exams, exam, merit.reference),
+    })),
+    saved.primary,
+  )
+
   return (
-    <div className="grid grid-cols-1 gap-5">
-      <div className="flex flex-wrap items-end justify-between gap-3">
-        <div>
-          <p className="text-sm text-ink-3">Overview</p>
-          <h1 className="display text-[30px] font-semibold leading-tight text-ink md:text-[36px]">{name}'s plan</h1>
-        </div>
-        <div className="flex gap-2">
+    <div className="grid grid-cols-1 gap-10">
+      <PageHeader
+        title={`${name}'s college plan`}
+        actions={
           <Link to="/parent/goals" className="rounded-lg border border-line-strong bg-surface px-3 py-2 text-sm font-semibold text-ink hover:bg-surface-2">
             Edit goals
           </Link>
-          <Link to="/parent/progress" className="rounded-lg bg-brand px-3 py-2 text-sm font-semibold text-brand-ink hover:bg-brand-2">
-            Full progress
-          </Link>
+        }
+      />
+
+      <div className="grid gap-10 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] lg:gap-14">
+        <div className="grid content-start gap-8">
+          <PlanHeadline plan={plan} residency={rows.find((r) => r.o.key === plan.headline?.key)?.o.residency ?? null} schoolsSaved={schools.length} canChooseTop={saved.canSetPrimary && !saved.primary && schools.length > 1} />
+          {plan.opportunity && (
+            <div className="border-l-4 border-brand pl-4">
+              <h2 className="text-sm font-bold text-brand">Biggest opportunity</h2>
+              <p className="mt-1 text-lg font-semibold leading-snug text-ink">
+                {plan.opportunity.lever.title} at {plan.opportunity.school}
+              </p>
+              <p className="mt-1 text-sm text-ink-2">{plan.opportunity.lever.detail}</p>
+              <Link to="/colleges/paths" className="mt-2 inline-block text-sm font-semibold text-brand hover:underline">
+                See every way to lower the cost
+              </Link>
+            </div>
+          )}
         </div>
+
+        <section aria-labelledby="next-heading">
+          <h2 id="next-heading" className="text-[17px] font-bold text-ink">
+            What to do next
+          </h2>
+          <p className="mt-0.5 text-sm text-ink-3">From recorded practice and verified college records.</p>
+          <div className="mt-3">
+            <NextSteps items={(showAll ? actions : actions.slice(0, 3)).map((a) => ({ key: a.key, title: a.title, detail: a.detail, to: a.to }))} />
+          </div>
+          {actions.length > 3 && (
+            <button type="button" onClick={() => setShowAll((v) => !v)} className="mt-1 text-sm font-semibold text-brand hover:underline">
+              {showAll ? 'Show fewer' : `Show ${actions.length - 3} more`}
+            </button>
+          )}
+        </section>
       </div>
 
-      <Card>
-        <CardHeader title="What to do next" subtitle="Based on recorded practice and verified college records." />
-        <ol className="grid gap-2 p-5 pt-3">
-          {actions.slice(0, 6).map((a, i) => (
-            <li key={a.key}>
-              <ActionRow a={a} n={i + 1} />
-            </li>
-          ))}
-        </ol>
-      </Card>
-
-      <SectionHeading title="Colleges & cost" subtitle={`Where ${name} might go, what it could cost, and what can lower it`} />
-      <InterestsLine studentId={student.id} name={name} />
-      <PrimaryTarget student={student} />
-      <CostOutlook showAlternative={!!o.plan?.goals.includes('lower_cost')} />
-
-      <SectionHeading title="Test prep" subtitle={`What ${name} should work on now`} />
-      {o.history.length === 0 ? (
-        <Card className="p-5">
-          <h3 className="font-semibold text-ink">Practice hasn't started yet</h3>
-          <p className="mt-1 text-sm text-ink-2">
-            {linked
-              ? `${name} logs in and takes the starting benchmark (about 30 minutes).`
-              : `Once ${name} logs in with the invite code, they take a starting benchmark (about 30 minutes).`}{' '}
-            After that, this section shows what to work on, pacing and progress toward the{' '}
-            {o.plan?.target_score ? `${EXAM_NAME[exam]} ${o.plan.target_score} target` : 'target'}
-            {goal ? ` and the ${goal}-question weekly goal` : ''}.
-          </p>
-          {!linked && (
-            <Link to="/parent/household" className="mt-2 inline-flex text-sm font-semibold text-brand hover:underline">
-              Get the invite code
-            </Link>
-          )}
-        </Card>
-      ) : (
-        <>
-          <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-            {official ? (
-              <Kpi
-                label={`${official.score_source === 'official' ? 'Official' : 'Self-reported'} ${EXAM_NAME[exam]}`}
-                value={String(official.composite)}
-                sub={`${formatShortDate(official.test_date)} · target ${o.plan?.target_score ?? '—'}`}
-                icon={<Target size={18} />}
-              />
-            ) : (
-              <Kpi
-                label={`Target ${EXAM_NAME[exam]}`}
-                value={o.plan?.target_score != null ? String(o.plan.target_score) : '—'}
-                sub={est ? `Practice estimate ${est.composite}` : 'No score estimate yet (not calibrated)'}
-                icon={<Target size={18} />}
-              />
-            )}
-            <Kpi
-              label="Weekly goal"
-              value={goal ? `${o.week.questions_submitted}/${goal}` : String(o.week.questions_submitted)}
-              sub={goal ? `questions · ${Math.round((100 * o.week.questions_submitted) / goal)}% done` : 'questions · no goal set'}
-              icon={<Compass size={18} />}
-              bar={goal ? o.week.questions_submitted / goal : undefined}
-            />
-            <Kpi label="Streak" value={`${o.streak.current_streak} days`} sub={`Longest ${o.streak.longest_streak}`} icon={<Flame size={18} />} />
-            <Kpi
-              label="Accuracy, 7 days"
-              value={trend.recent.acc === null ? '—' : `${Math.round(trend.recent.acc * 100)}%`}
-              sub={
-                trend.prior.acc === null || trend.recent.acc === null
-                  ? `${trend.recent.n} answered`
-                  : `${trend.recent.acc >= trend.prior.acc ? '▲' : '▼'} from ${Math.round(trend.prior.acc * 100)}%`
-              }
-              icon={<Info size={18} />}
-            />
+      <Section
+        id="where-heading"
+        title={`Where ${name} might go`}
+        action={
+          <Link to="/colleges" className="font-semibold text-brand hover:underline">
+            Your colleges
+          </Link>
+        }
+      >
+        <InterestsLine studentId={student.id} name={name} />
+        {schools.length === 0 ? (
+          <div className="mt-4 flex flex-wrap items-center gap-3">
+            <ButtonLink to="/colleges" variant="brand" size="sm">
+              Choose colleges
+            </ButtonLink>
+            <span className="text-sm text-ink-3">Save the schools {name} might apply to, in any state.</span>
           </div>
+        ) : (
+          <RowList className="mt-4">
+            {rows.map(({ c, o }) => {
+              const cp = costPhrase(o)
+              return (
+                <Row
+                  key={c.institution_key}
+                  to={`/colleges/${encodeURIComponent(c.institution_key)}`}
+                  title={
+                    <>
+                      {o.name}
+                      {c.institution_key === saved.primary && <Pill tone="brand" className="ml-2 align-middle">Top choice</Pill>}
+                    </>
+                  }
+                  meta={[c.institution?.city, c.institution?.state_code].filter(Boolean).join(', ') + (o.level === 'two_year' ? ' · 2-year college' : '')}
+                  value={
+                    cp.amount && o.comparable ? (
+                      <span className="text-right">
+                        <span className="block text-lg font-bold tabular text-ink">{cp.amount}</span>
+                        <span className="block text-xs text-ink-3">{o.level === 'two_year' ? '2 years' : '4 years'}, before aid</span>
+                      </span>
+                    ) : (
+                      <span className="block max-w-[11rem] text-right text-xs text-ink-3">{o.basis === 'out_of_state_missing' ? 'No out-of-state price' : cp.amount ? 'Set your home state' : 'No verified cost yet'}</span>
+                    )
+                  }
+                />
+              )
+            })}
+          </RowList>
+        )}
+      </Section>
 
-          <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-            <Card>
-              <CardHeader title="By section" subtitle="Knowledge and pacing, from recent practice" />
-              <ul className="grid gap-3 p-5 pt-3">
+      <Section
+        id="prep-heading"
+        title="Test prep"
+        subtitle={`What ${name} should work on now`}
+        action={
+          <Link to="/parent/progress" className="font-semibold text-brand hover:underline">
+            Full progress
+          </Link>
+        }
+      >
+        {o.history.length === 0 ? (
+          <div className="max-w-2xl">
+            <h3 className="font-semibold text-ink">Practice hasn't started yet</h3>
+            <p className="mt-1 text-sm text-ink-2">
+              {linked
+                ? `${name} logs in and takes the starting benchmark (about 30 minutes).`
+                : `Once ${name} logs in with the invite code, they take a starting benchmark (about 30 minutes).`}{' '}
+              After that, this section shows what to work on, pacing and progress toward the{' '}
+              {o.plan?.target_score ? `${EXAM_NAME[exam]} ${o.plan.target_score} target` : 'target'}
+              {goal ? ` and the ${goal}-question weekly goal` : ''}.
+            </p>
+            {!linked && (
+              <Link to="/parent/household" className="mt-2 inline-flex text-sm font-semibold text-brand hover:underline">
+                Get the invite code
+              </Link>
+            )}
+          </div>
+        ) : (
+          <div className="grid gap-8">
+            <div className="grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4">
+              {official ? (
+                <Figure size="md" value={String(official.composite)} label={`${official.score_source === 'official' ? 'Official' : 'Self-reported'} ${EXAM_NAME[exam]}`} sub={`Target ${o.plan?.target_score ?? '—'}`} />
+              ) : (
+                <Figure size="md" value={o.plan?.target_score != null ? String(o.plan.target_score) : '—'} label={`Target ${EXAM_NAME[exam]}`} sub={est ? `Practice estimate ${est.composite}` : 'No score estimate yet (not calibrated)'} />
+              )}
+              <Figure size="md" value={goal ? `${o.week.questions_submitted}/${goal}` : String(o.week.questions_submitted)} label="This week" sub={goal ? `questions · ${Math.round((100 * o.week.questions_submitted) / goal)}% done` : 'questions · no goal set'} />
+              <Figure size="md" value={`${o.streak.current_streak}`} label={`Day streak`} sub={`Longest ${o.streak.longest_streak}`} />
+              <Figure
+                size="md"
+                value={trend.recent.acc === null ? '—' : `${Math.round(trend.recent.acc * 100)}%`}
+                label="Accuracy, 7 days"
+                sub={trend.prior.acc === null || trend.recent.acc === null ? `${trend.recent.n} answered` : `${trend.recent.acc >= trend.prior.acc ? '▲' : '▼'} from ${Math.round(trend.prior.acc * 100)}%`}
+              />
+            </div>
+            <div>
+              <h3 className="text-sm font-bold text-ink">By section</h3>
+              <ul className="mt-3 grid gap-3 sm:grid-cols-2 sm:gap-x-10">
                 {SECTION_ORDER[exam].map((sec) => {
                   const r = rollup.get(sec)
                   const acc = r && r.n ? r.c / r.n : null
@@ -235,39 +301,31 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
                             <Pill>Not enough data</Pill>
                           ) : (
                             <>
-                              <Pill tone={acc >= 0.75 ? 'go' : acc >= 0.6 ? 'brand' : 'warn'}>
-                                {acc >= 0.75 ? 'Strong' : acc >= 0.6 ? 'Developing' : 'Needs work'}
-                              </Pill>
+                              <Pill tone={acc >= 0.75 ? 'go' : acc >= 0.6 ? 'brand' : 'warn'}>{acc >= 0.75 ? 'Strong' : acc >= 0.6 ? 'Developing' : 'Needs work'}</Pill>
                               {pv === 'slow' && <Pill tone="warn">Pacing</Pill>}
                             </>
                           )}
                         </span>
                       </div>
-                      <ProgressBar
-                        value={acc ?? 0}
-                        label={`${SECTION_LABEL[sec]} accuracy`}
-                        tone={acc !== null && acc < 0.6 ? 'warn' : 'brand'}
-                        className="h-2"
-                      />
+                      <ProgressBar value={acc ?? 0} label={`${SECTION_LABEL[sec]} accuracy`} tone={acc !== null && acc < 0.6 ? 'warn' : 'brand'} className="h-1.5" />
                     </li>
                   )
                 })}
               </ul>
               {o.estimates.filter((e) => e.knowledge_weak).length > 0 && (
-                <div className="border-t border-line px-5 py-3 text-xs text-ink-3">
+                <p className="mt-3 text-sm text-ink-3">
                   Weakest skills:{' '}
                   {o.estimates
                     .filter((e) => e.knowledge_weak)
                     .map((e) => catalog.skillName(e.skill_key))
                     .join(', ')}
-                </div>
+                </p>
               )}
-            </Card>
-            <PracticeIndicators history={o.history} who={name} />
+            </div>
+            <NextBenchmark history={o.benchmarks} />
           </div>
-          <BenchmarkStatus history={o.benchmarks} forGuardian />
-        </>
-      )}
+        )}
+      </Section>
 
       <p className="text-xs text-ink-3">
         Last practice: {lastDay ? formatShortDate(lastDay) : 'never'} · Time zone {o.tz}
@@ -276,16 +334,56 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
   )
 }
 
-function SectionHeading({ title, subtitle }: { title: string; subtitle: string }) {
+function PlanHeadline({ plan, residency, schoolsSaved, canChooseTop }: { plan: PlanSummary; residency: string | null; schoolsSaved: number; canChooseTop: boolean }) {
+  if (!plan.headline)
+    return (
+      <div>
+        <Figure size="xl" tone="muted" value="—" label="Four-year cost" />
+        <p className="mt-2 max-w-md text-sm text-ink-2">
+          {plan.missing === 'no_schools' ? (
+            <>
+              <Link to="/colleges" className="font-semibold text-brand hover:underline">Save colleges</Link> to see what a four-year degree would cost your family at published prices.
+            </>
+          ) : plan.missing === 'no_four_year' ? (
+            'None of your saved schools is a four-year college yet.'
+          ) : (
+            <>
+              None of your saved schools has a published price that applies to you yet. <Link to="/colleges" className="font-semibold text-brand hover:underline">Set your home state</Link> or add schools.
+            </>
+          )}
+        </p>
+      </div>
+    )
   return (
-    <div className="mt-3 border-t border-line pt-5">
-      <h2 className="display text-2xl font-semibold text-ink">{title}</h2>
-      <p className="mt-0.5 text-sm text-ink-3">{subtitle}</p>
+    <div>
+      <Figure
+        size="xl"
+        value={compactUsd(plan.headline.total)}
+        label={`Four-year cost at ${plan.headline.name}`}
+        sub={`${plan.headline.total.toLocaleString(undefined, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 })} published ${residency === 'out_of_state' ? 'out-of-state ' : residency === 'in_state' || residency === 'in_district' ? 'in-state ' : ''}cost of attendance, before aid · ${plan.headline.why === 'top_choice' ? 'your top choice' : `lowest of ${schoolsSaved === 1 ? 'your saved school' : `your ${schoolsSaved} saved schools`}`}`}
+      />
+      {canChooseTop && (
+        <p className="mt-2 text-sm text-ink-3">
+          <Link to="/colleges/paths" className="font-semibold text-brand hover:underline">Mark a top choice</Link> to plan around the school {`they`} most want.
+        </p>
+      )}
     </div>
   )
 }
 
-/** The student's saved interests in one line; never a required major. */
+/** The next benchmark as one line with a date, not a card. */
+function NextBenchmark({ history }: { history: StudentOverview['benchmarks'] }) {
+  const next = benchmarkSchedule(history)
+  const kind = next.kind === 'initial' ? 'Starting benchmark' : next.kind === 'full' ? 'Full benchmark' : 'Mini benchmark'
+  return (
+    <p className="text-sm text-ink-2">
+      <span className="font-semibold text-ink">{kind}</span>{' '}
+      {next.inDays === 0 ? (next.overdueDays > 0 ? `was due ${next.overdueDays} day${next.overdueDays === 1 ? '' : 's'} ago` : 'is due now') : `is due ${formatShortDate(next.dueDate)}`}.{' '}
+      {history.length} taken so far.
+    </p>
+  )
+}
+
 function InterestsLine({ studentId, name }: { studentId: string; name: string }) {
   const { profile } = useInterests(studentId)
   const labels = profile.interests.map(labelOf)
@@ -306,34 +404,3 @@ function InterestsLine({ studentId, name }: { studentId: string; name: string })
   )
 }
 
-function Kpi({ label, value, sub, icon, bar }: { label: string; value: string; sub: string; icon: React.ReactNode; bar?: number }) {
-  return (
-    <Card className="p-4">
-      <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-ink-3">
-        <span className="text-brand">{icon}</span>
-        {label}
-      </div>
-      <div className="display mt-2 text-[32px] font-semibold leading-none tabular text-ink">{value}</div>
-      {bar !== undefined && <ProgressBar value={bar} label={label} tone="brand" className="mt-3 h-1.5" />}
-      <div className="mt-2 text-xs text-ink-3">{sub}</div>
-    </Card>
-  )
-}
-
-function ActionRow({ a, n }: { a: Action; n: number }) {
-  const dot = { go: 'bg-go', warn: 'bg-warn', info: 'bg-info', brand: 'bg-brand' }[a.tone]
-  const body = (
-    <div className="flex items-start gap-3 rounded-xl px-3 py-3 transition-colors hover:bg-surface-2">
-      <span className={cx('mt-1.5 h-2 w-2 shrink-0 rounded-full', dot)} aria-hidden />
-      <span className="min-w-0 flex-1">
-        <span className="block text-sm font-semibold text-ink">
-          <span className="sr-only">{n}. </span>
-          {a.title}
-        </span>
-        <span className="block text-sm text-ink-3">{a.detail}</span>
-      </span>
-      {a.to && <ArrowRight size={18} className="mt-0.5 shrink-0 text-ink-3" />}
-    </div>
-  )
-  return a.to ? <Link to={a.to}>{body}</Link> : body
-}

@@ -26,7 +26,7 @@ export function HomeStateControl({ className }: { className?: string }) {
           </option>
         ))}
       </select>
-      <span className="text-xs text-ink-3">
+      <span className="max-w-xs text-xs text-ink-3">
         {homeState ? 'Your answer. It picks in-state or out-of-state prices; each school decides residency.' : 'Not set: in-state prices are shown and marked as assumed.'}
       </span>
     </div>

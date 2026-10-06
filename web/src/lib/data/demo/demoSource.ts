@@ -1,7 +1,10 @@
-import type { DataSource } from '../source'
+import { INVITE_TTL_HOURS, formatInviteCode } from '../../invites'
+import type { DataSource, InvitationSummary, InviteSendResult, StudentInvitation } from '../source'
 import { DataError } from '../source'
 import type {
   AttemptRecord,
+  BillingPlan,
+  Entitlement,
   BenchmarkSummary,
   Confidence,
   CostProjection,
@@ -63,6 +66,7 @@ export function toPublic(q: FixtureQuestion): PublicQuestion {
   }
 }
 
+const DEMO_ALPHABET = '23456789ABCDEFGHJKMNPQRSTWXYZ'
 const delay = <T,>(v: T): Promise<T> => new Promise((r) => setTimeout(() => r(v), 0))
 
 export class DemoSource implements DataSource {
@@ -240,13 +244,18 @@ export class DemoSource implements DataSource {
   }
 
   async createInvitation(householdId: string, role: 'guardian' | 'student', studentId?: string) {
-    const code = Array.from({ length: 8 }, () => 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'[Math.floor(Math.random() * 31)]).join('')
+    // Demo link tokens never look like live ones (64 hex), so a demo link can't switch a browser to live.
+    const code = `demo_${Array.from({ length: 24 }, () => 'abcdefghjkmnpqrstwxyz23456789'[Math.floor(Math.random() * 29)]).join('')}`
+    const short = Array.from({ length: 10 }, () => DEMO_ALPHABET[Math.floor(Math.random() * DEMO_ALPHABET.length)]).join('')
     this.s.invitations.push({
+      id: uid(),
+      created_at: new Date().toISOString(),
       code,
+      short_code: short,
       household_id: householdId,
       role,
       student_id: studentId ?? null,
-      expires_at: new Date(Date.now() + 72 * 3600_000).toISOString(),
+      expires_at: new Date(Date.now() + INVITE_TTL_HOURS * 3600_000).toISOString(),
       accepted_by: null,
     })
     this.commit()
@@ -255,10 +264,16 @@ export class DemoSource implements DataSource {
 
   async acceptInvitation(code: string) {
     const me = this.viewerId()
-    const inv = this.s.invitations.find((i) => i.code === code.trim().toUpperCase())
-    if (!inv || inv.accepted_by || inv.expires_at < new Date().toISOString())
-      throw new DataError('That code is invalid or has expired', 'invalid')
+    // Same rule order and messages as accept_household_invitation, so the UI can tell them apart.
+    const raw = code.trim()
+    const norm = raw.toUpperCase().replace(/[^A-Z0-9]/g, '')
+    const inv = this.s.invitations.find((i) => i.code === raw || (i.short_code != null && i.short_code === norm))
+    if (!inv) throw new DataError('Invalid invitation code', 'invalid')
+    if (inv.accepted_by) throw new DataError('Invitation has already been used', 'invalid')
+    if (inv.revoked_at) throw new DataError('Invitation has been revoked', 'invalid')
+    if (inv.expires_at <= new Date().toISOString()) throw new DataError('Invitation has expired', 'invalid')
     inv.accepted_by = me
+    inv.accepted_at = new Date().toISOString()
     if (inv.role === 'guardian') {
       this.s.members.push({
         household_id: inv.household_id,
@@ -295,6 +310,54 @@ export class DemoSource implements DataSource {
     }
     this.commit()
     return inv.household_id
+  }
+
+  /** Demo mode never sends email; it creates (replacing) the invitation so the code can be copied. */
+  async sendStudentInvitation(input: { householdId: string; studentId: string; email: string; code?: string; inviteCode?: string }): Promise<InviteSendResult> {
+    const email = input.email.trim().toLowerCase()
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) throw new DataError('Enter a valid email address', 'invalid')
+    const inv = input.code ? this.s.invitations.find((i) => i.code === input.code) : null
+    const created = inv ? null : await this.createStudentInvitation(input.householdId, input.studentId)
+    const row = inv ?? this.s.invitations.find((i) => i.code === created!.code)!
+    row.recipient_email = email
+    this.commit()
+    return { code: row.code, inviteCode: formatInviteCode(row.short_code ?? ''), invitationId: row.id, expiresAt: row.expires_at, emailed: false, reason: 'demo' }
+  }
+
+  async createStudentInvitation(householdId: string, studentId: string): Promise<StudentInvitation> {
+    const now = new Date().toISOString()
+    for (const i of this.s.invitations)
+      if (i.household_id === householdId && i.student_id === studentId && !i.accepted_by && !i.revoked_at && i.expires_at > now) i.revoked_at = now
+    const code = await this.createInvitation(householdId, 'student', studentId)
+    const row = this.s.invitations.find((i) => i.code === code)!
+    return { code, inviteCode: formatInviteCode(row.short_code!), invitationId: row.id!, expiresAt: row.expires_at }
+  }
+
+  async listInvitations(householdId: string): Promise<InvitationSummary[]> {
+    return delay(
+      this.s.invitations
+        .filter((i) => i.household_id === householdId)
+        .map((i) => ({
+          id: i.id ?? i.code,
+          role: i.role,
+          student_id: i.student_id,
+          recipient_email: i.recipient_email ?? null,
+          created_at: i.created_at ?? i.expires_at,
+          expires_at: i.expires_at,
+          accepted_at: i.accepted_at ?? (i.accepted_by ? i.expires_at : null),
+          revoked_at: i.revoked_at ?? null,
+          last_emailed_at: null,
+        }))
+        .reverse(),
+    )
+  }
+
+  async revokeInvitation(invitationId: string) {
+    const inv = this.s.invitations.find((i) => (i.id ?? i.code) === invitationId)
+    if (!inv) throw new DataError('Not allowed to revoke this invitation', 'forbidden')
+    if (inv.accepted_by) throw new DataError('Invitation has already been used', 'invalid')
+    inv.revoked_at ??= new Date().toISOString()
+    this.commit()
   }
 
   async setWeeklyGoal(studentId: string, weekStart: string, targetQuestions: number | null, targetMinutes: number | null) {
@@ -565,6 +628,25 @@ export class DemoSource implements DataSource {
   }
 
   readonly supportsPrimarySchool = true
+
+  // The demo has no billing: no plan, price or checkout is shown (nothing is simulated).
+  readonly supportsBilling = false
+
+  async entitlement(_householdId: string): Promise<Entitlement> {
+    return { active: false, status: null, can_manage_billing: false }
+  }
+
+  async billingPlans(): Promise<BillingPlan[]> {
+    return []
+  }
+
+  async startCheckout(): Promise<string> {
+    throw new DataError('Billing is not available in the demo', 'invalid')
+  }
+
+  async billingPortalUrl(): Promise<string> {
+    throw new DataError('Billing is not available in the demo', 'invalid')
+  }
 
   async primarySchool(_householdId: string) {
     return delay(readPrimarySchool())
