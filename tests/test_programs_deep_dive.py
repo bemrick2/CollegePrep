@@ -941,7 +941,7 @@ class QueueSuggestTests(unittest.TestCase):
         from programs import status as S
         self.S = S; self.old = S.ROOT
         self.tmp = tempfile.TemporaryDirectory(); root = Path(self.tmp.name); S.ROOT = root; self.root = root
-        insts = [{'institution_key': k, 'name': k, 'folder': k, 'level': 'four_year'} for k in ('blocked', 'gone', 'quiet', 'open', 'nopages')]
+        insts = [{'institution_key': k, 'name': k, 'folder': k, 'level': 'four_year'} for k in ('blocked', 'gone', 'quiet', 'open', 'nopages', 'weak')]
         (root / 'pipeline/registry').mkdir(parents=True)
         (root / 'pipeline/registry/ZZ.json').write_text(json.dumps({'state': 'ZZ', 'institutions': insts}))
         (root / 'data/national/ipeds/2023-24/ZZ').mkdir(parents=True)
@@ -949,6 +949,7 @@ class QueueSuggestTests(unittest.TestCase):
         run = root / 'programs/runs/ZZ/r1'; (run / 'pages').mkdir(parents=True)
         rows = [{'institution_key': 'blocked', 'url': f'https://catalog.blocked.edu/p{i}', 'role': 'catalog_nav', 'error': 'blocked_bot_challenge'} for i in range(3)]
         rows += [{'institution_key': 'gone', 'url': 'https://catalog.gone.edu/', 'role': 'discover', 'error': 'disallowed_by_robots'}]
+        rows += [{'institution_key': 'weak', 'url': 'https://www.weak.edu/', 'role': 'discover', 'error': 'blocked_bot_challenge'}]
         import gzip as gz
         (run / 'pages/a.json.gz').write_bytes(gz.compress(json.dumps({'text': 'Computer Science BS\\nMajor requirements'}).encode()))
         rows += [{'institution_key': 'open', 'url': 'https://catalog.open.edu/cs', 'role': 'program_page', 'page_file': 'a.json.gz'}]
@@ -970,6 +971,7 @@ class QueueSuggestTests(unittest.TestCase):
         self.assertEqual(got[('blocked', 'institution')], 'bot_challenge')
         self.assertEqual(got[('gone', 'institution')], 'not_yet_researched')  # a refused/unreachable host proves nothing
         self.assertEqual(got[('quiet', 'institution')], 'not_yet_researched')
+        self.assertEqual(got[('weak', 'institution')], 'not_yet_researched')  # one challenged request proves nothing
         self.assertEqual(got[('open', 'degree_maps')], 'not_published')       # its program page was read: no plan marker
         self.assertEqual(got[('open', 'admission_rules')], 'no_official_statement')
         self.assertEqual(got[('open', 'catalog')], 'not_yet_researched')
