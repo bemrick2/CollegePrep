@@ -831,7 +831,10 @@ class CompletionStatus(unittest.TestCase):
                     {'institution_key': 'small', 'gap': 'institution', 'reason': 'not_yet_researched', 'next_action': 'run'}])
         s = self.S.state_status('ZZ')
         self.assertEqual(s['entering_student_share_covered'], 0.8)  # two-year enrolment is not in the denominator
-        self.assertEqual(s['status'], 'complete')
+        self.assertEqual(s['status'], 'in_progress')  # 'small' is only queued as not yet researched
+        self.queue([{'institution_key': 'mid', 'gap': 'institution', 'reason': 'bot_challenge', 'detail': 'challenge page', 'next_action': 'request access'},
+                    {'institution_key': 'small', 'gap': 'institution', 'reason': 'robots_disallowed', 'detail': 'robots.txt', 'next_action': 'ask'}])
+        self.assertEqual(self.S.state_status('ZZ')['status'], 'complete')
 
     def test_queued_large_school_does_not_count_toward_coverage(self):
         self.covered_school('mid'); self.covered_school('small')
