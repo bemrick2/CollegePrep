@@ -65,6 +65,7 @@ MUTS = [
     ('programs/autoreview.py', "               'graduate_name' if GRADUATE.search(c['record'].get('program_name', '')) else", ""),
     ('backend/program_fields.py', "            errs.append('verified_listed_programs must be an integer between 0 and listed_bachelor_programs')", "            pass"),
     ('programs/promote.py', "        return 0  # a mechanical count never replaces a reviewed one", "        pass"),
+    ('programs/promote.py', "    clash = {k: f for k, f in folders.items() if owners.get(f, {k}) - {k} and holder(f) != k}", "    clash = {}"),
 ]
 
 

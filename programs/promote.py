@@ -50,12 +50,33 @@ def _records(folder, domain, year):
     return json.loads(p.read_text()) if p.exists() else None
 
 
+def check_folder_ownership(folders):
+    """A data folder belongs to one institution across every committed state registry (pipeline/registry/*.json). A
+    target folder that another registry also gives to a different institution must not receive records (unless this
+    institution's records are already there): the national
+    registry decides folder names, and its disambiguation runs when a state's registry is regenerated."""
+    owners = {}
+    for p in sorted((ROOT / 'pipeline/registry').glob('*.json')):
+        for i in json.loads(p.read_text()).get('institutions', []):
+            owners.setdefault(i['folder'], set()).add(i['institution_key'])
+    def holder(f):  # the institution whose records are already in the folder, if any
+        for q in (ROOT / 'data/institutions' / f).glob('*/*.json'):
+            k = json.loads(q.read_text()).get('institution_key')
+            if k: return k
+        return None
+    clash = {k: f for k, f in folders.items() if owners.get(f, {k}) - {k} and holder(f) != k}
+    if clash:
+        raise ValueError(f'target folders owned by other institutions in a committed registry: {clash}; '
+                         'regenerate the targets from the current registries')
+
+
 def promote(decisions_path: Path, log=print):
     d = json.loads(Path(decisions_path).read_text())
     run_dir = ROOT / d['run']
     state = Path(d['run']).parts[-2]
     targets = json.loads((ROOT / 'programs/targets' / f'{state}.json').read_text())
     folders = {t['institution_key']: t['folder'] for t in targets['institutions']}
+    check_folder_ownership(folders)
     cands, ev = load_run(run_dir)
     from pipeline.crawl import Run
     RUN_CTX['run'] = Run(run_dir)
