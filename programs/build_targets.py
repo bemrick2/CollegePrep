@@ -209,7 +209,7 @@ def generic(st):
     for folder,c in cfgs.items():
         if folder not in r: continue
         conf[folder]={'priority':1 if rank[folder]<10 else 2 if rank[folder]<30 else 3,'catalog':c['catalog'],'policy':c.get('policy',[]),
-                      **({'render':c['render']} if c.get('render') else {}),**({'crawl_delay':c['crawl_delay']} if c.get('crawl_delay') else {}),
+                      **({'render':c['render']} if c.get('render') else {}),**({'crawl_delay':c['crawl_delay']} if c.get('crawl_delay') else {}),**({'caps':c['caps']} if c.get('caps') else {}),
                       'detected':c.get('detected')}
     for f in r: PRI.setdefault(f,1 if rank[f]<10 else 2 if rank[f]<30 else 3)
     return conf

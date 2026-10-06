@@ -426,15 +426,25 @@ class StatedMajorTests(unittest.TestCase):
         multi = T.Page(txt, 't', [], [], ['Cinema Studies', "Majors - Bachelor's Degree"])
         self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, multi, '2026-27'), [])
         # the list must print the award; a bare anchor is not credential evidence
+        # (the page's own degree heading is still read, by department_section/v1)
         bare = {**tgt, '_listed': {url: {**listed, 'printed': 'Cinema Studies'}}}
-        self.assertEqual(X.program_page_candidates(bare, {'institution_key': 'k'}, e, page, '2026-27'), [])
+        got = X.program_page_candidates(bare, {'institution_key': 'k'}, e, page, '2026-27')
+        self.assertEqual([(c['extractor'], c['record']['program_name']) for c in got], [('department_section/v1', 'Bachelor of Arts in Cinema Studies')])
         minor = {**tgt, '_listed': {url: {**listed, 'credential_level': None}}}
-        self.assertEqual(X.program_page_candidates(minor, {'institution_key': 'k'}, e, page, '2026-27'), [])
+        self.assertEqual([c['extractor'] for c in X.program_page_candidates(minor, {'institution_key': 'k'}, e, page, '2026-27')], ['department_section/v1'])
 
     def test_archive_pdf_link_is_not_a_year_label(self):
         from pipeline import text as T
         p = T.Page('Catalog 2026-2027\nPDF of the entire 2025-2026 Catalog\nDownload PDF of the entire 2024-2025 Bulletin', 't', [], [], [])
         self.assertEqual({y for y, _ in X.printed_catalog_years(p)}, {'2026-2027'})
+
+    def test_stetson_edition_header_and_coming_soon_pdf_slot(self):
+        from pipeline import text as T
+        # Stetson 2026-27: '2026-2027 Edition' heads the page; the print menu offers a not-yet-posted PDF of last year's catalog
+        p = T.Page('2026-2027 Edition\nBachelor of Science in Biology\nDownload Page (PDF)\n2025-2026 Academic Catalog\nComing Soon!!!', 't', [], [], [])
+        self.assertEqual({y for y, _ in X.printed_catalog_years(p)}, {'2026-2027'})
+        q = T.Page('2025-2026 Academic Catalog\nBachelor of Science in Biology', 't', [], [], [])
+        self.assertEqual({y for y, _ in X.printed_catalog_years(q)}, {'2025-2026'})  # a label in use still counts
 
 
 class MajorTableTests(unittest.TestCase):
@@ -855,6 +865,18 @@ class CompletionStatus(unittest.TestCase):
         r = self.S.state_status('ZZ')['institutions'][0]
         self.assertEqual(r['dimensions']['catalog'], 'open'); self.assertEqual(r['status'], 'partial_unqueued')
 
+    def test_only_verified_programs_on_the_list_count(self):
+        self.covered_school('big', n=10, listed=10)
+        self.put('big', 'program_catalogs', [{'verification_status': 'verified', 'listed_bachelor_programs': 10, 'verified_listed_programs': 8}])
+        r = self.S.state_status('ZZ')['institutions'][0]
+        self.assertEqual((r['catalog_share'], r['dimensions']['catalog']), (0.8, 'open'))
+
+    def test_a_mechanical_count_is_provisional(self):
+        self.covered_school('big', n=10, listed=10)
+        self.put('big', 'program_catalogs', [{'verification_status': 'verified', 'listed_bachelor_programs': 10,
+                                              'notes': 'Reviewed 2026-10-06: Standing review: official current-catalog program list pages.'}])
+        self.assertEqual(self.S.state_status('ZZ')['institutions'][0]['dimensions']['catalog'], 'open')
+
     def test_partially_verified_records_never_count_toward_the_catalog(self):
         self.put('big', 'academic_programs', [{'program_key': f'p{i}', 'program_name': f'X {i}', 'credential_level': 'bachelor',
                                                'verification_status': 'partially_verified'} for i in range(10)])
@@ -1093,15 +1115,79 @@ class AutoReviewTests(unittest.TestCase):
                  self.req('g1', 'ok'), self.req('g2', 'ok', issues=['indented_rows_without_rule']), self.req('g3', 'ok', ext='smartcatalog_program/v1'),
                  self.req('g4', 'iss'), self.req('p1', 'ok', kind='program_plan', ext='courseleaf_plan/v1'),
                  self.prog('v1', 'Architecture (Foundation Unit) – BArch'), self.prog('v2', 'Architecture (Summer Design) – BArch'),
-                 self.prog('ba', 'Biology (BA)'), self.prog('bs', 'Biology (BS)')]
+                 self.prog('ba', 'Biology (BA)'), self.prog('bs', 'Biology (BS)'),
+                 self.prog('mba', 'Business Administration, M.B.A.'), self.prog('fin', 'Finance, B.S.B.A.'), self.prog('fin2', 'Finance, B.S.B.A. (Online Cohort)')]
         d = self.run_dir(cands, verify={'bad': ['program_name not verbatim']})
         old = A.catalog_records; A.catalog_records = lambda *a: []  # catalog records need a targets file; tested separately
         try: approve, cats, held = A.review('ZZ', d, today=date(2026, 10, 6))
         finally: A.catalog_records = old
-        self.assertEqual({a['candidate_id'] for a in approve}, {'ok', 'g1', 'p1', 'ba', 'bs'})
+        self.assertEqual({a['candidate_id'] for a in approve}, {'ok', 'g1', 'p1', 'ba', 'bs', 'fin'})
         self.assertEqual(held['issues'], 1); self.assertEqual(held['option_name'], 1); self.assertEqual(held['combined_program'], 1)
-        self.assertEqual(held['entry_path_variant'], 2)
+        self.assertEqual(held['entry_path_variant'], 3)
         self.assertEqual(held['not_verbatim'], 1); self.assertEqual(held['duplicate'], 1); self.assertEqual(held['req_program_not_approved'], 1)
+
+    def test_one_program_on_several_pages_comes_from_the_base_page(self):
+        from programs import autoreview as A
+        from datetime import date
+        U = 'https://catalog.x.edu/undergraduate/sci/'
+        def at(c, url, field='program_url'): c['record'][field] = url; return c
+        cands = [at(self.prog('b1', 'Biology, BS', key='bio'), U + 'biology/biology-bs-pre-professional/'),
+                 at(self.prog('b0', 'Biology, BS', key='bio'), U + 'biology/biology-bs/'),
+                 at(self.req('rb1', 'bio'), U + 'biology/biology-bs-pre-professional/', 'source_url'),
+                 at(self.req('rb0', 'bio'), U + 'biology/biology-bs/#courselist', 'source_url'),
+                 # tracks with no plain page: no record (Liberty's online tracks)
+                 at(self.prog('t1', 'Bible, BS', key='bible'), U + 'bible-major-bs/bible-bs-apologetics-online'),
+                 at(self.prog('t2', 'Bible, BS', key='bible'), U + 'bible-major-bs/bible-bs-exposition-online'),
+                 # department page and its award page; a cross-listed copy; a Coursedog default pathway: one page each
+                 at(self.prog('a1', 'Asian Studies (BA)', key='asia'), U + 'asian-studies'),
+                 at(self.prog('a2', 'Asian Studies (BA)', key='asia'), U + 'asian-studies-ba'),
+                 at(self.prog('x1', 'Dance, BA', key='dance'), 'https://catalog.x.edu/arts/dance-ba/'),
+                 at(self.prog('x2', 'Dance, BA', key='dance'), 'https://catalog.x.edu/ugrad/arts/dance-ba/'),
+                 at(self.prog('w1', 'Art (BA)', key='art'), 'https://catalog.x.edu/programs/BA.ART'),
+                 at(self.prog('w2', 'Art (BA)', key='art'), 'https://catalog.x.edu/programs/BA.ART/general-aoYks')]
+        d = self.run_dir(cands)
+        old = A.catalog_records; A.catalog_records = lambda *a: []
+        try: approve, cats, held = A.review('ZZ', d, today=date(2026, 10, 6))
+        finally: A.catalog_records = old
+        self.assertEqual({a['candidate_id'] for a in approve}, {'b0', 'rb0', 'a1', 'x1', 'w1'})
+        self.assertEqual(held['variant_page'], 3); self.assertEqual(held['req_variant_page'], 1); self.assertEqual(held['duplicate'], 3)
+
+
+class DepartmentSectionTests(unittest.TestCase):
+    def test_degree_sections_on_a_department_page(self):  # MSState 2026-27, Arkansas 2026-27
+        from pipeline import text as T
+        e = {'url': 'https://catalog.x.edu/undergraduate/arts/departmentofbiology/', 'role': 'program_page', 'sha256': 'a' * 64,
+             'fetched_at': '2026-10-06T00:00:00+00:00', 'status': 200, 'kind': 'html'}
+        heads = ['Department of Biological Sciences', 'BS in Biological Sciences (BIO)', 'General Education Requirements', 'BS in Microbiology (MIC)',
+                 'BS in Clinical Laboratory Sciences (CLSC)1', 'Requirements for B.A. in Biology', 'B.S. in Biology Eight-Semester Degree Plan',
+                 'Requirements for B.S.E. in Childhood Education with STEM Concentration', 'B.S. with non-A.C.S. certification',
+                 'B.S. in Industrial Engineering and B.B.A. in Business Administration', 'BS in Applied Sociology (online degree)', 'Biology Minor']
+        page = T.Page('2026-2027 Undergraduate Catalog\n' + '\n'.join(heads), 'Department of Biological Sciences < X University', [], [], heads)
+        tgt = {'catalog': {'platform': 'courseleaf'}}
+        out = X.program_page_candidates(tgt, {'institution_key': 'k'}, e, page, '2026-27')
+        got = {c['record']['program_key']: c['record']['program_name'] for c in out}
+        self.assertEqual(got, {'biological-sciences-bs': 'BS in Biological Sciences (BIO)', 'microbiology-bs': 'BS in Microbiology (MIC)',
+                               'clinical-laboratory-sciences-bs': 'BS in Clinical Laboratory Sciences (CLSC)', 'biology-ba': 'B.A. in Biology'})
+        self.assertTrue(all(c['extractor'] == 'department_section/v1' and c['record']['program_url'] == e['url'] for c in out))
+        two = T.Page('2026-2027 Undergraduate Catalog\n2025-2026 Undergraduate Catalog\n' + '\n'.join(heads), 't', [], [], heads)
+        self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, two, '2026-27'), [])  # no single current label
+
+    def test_programs_sharing_a_page_are_not_duplicates(self):
+        from programs import autoreview as A
+        from datetime import date
+        P = AutoReviewTests.prog
+        def at(c, ext, url): c['extractor'] = ext; c['record']['program_url'] = url; return c
+        U = 'https://catalog.x.edu/undergraduate/arts/departmentofbiology/'
+        cands = [at(P(None, 'a', 'BS in Biology', key='biology-bs'), 'department_section/v1', U),
+                 at(P(None, 'b', 'BS in Microbiology', key='microbiology-bs'), 'department_section/v1', U),
+                 at(P(None, 'c', 'Chemistry, BS', key='chem'), 'catalog_program/v1', 'https://catalog.x.edu/chem/'),
+                 at(P(None, 'd', 'Chemistry, BA', key='chem-ba'), 'catalog_program/v1', 'https://catalog.x.edu/chem/')]
+        d = AutoReviewTests.run_dir(None, cands)
+        old = A.catalog_records; A.catalog_records = lambda *a: []
+        try: approve, cats, held = A.review('ZZ', d, today=date(2026, 10, 6))
+        finally: A.catalog_records = old
+        self.assertEqual({a['candidate_id'] for a in approve}, {'a', 'b', 'c'})  # one page, two programs; other extractors keep the URL rule
+        self.assertEqual(held['duplicate'], 1)
 
 
 class SitemapTests(unittest.TestCase):
@@ -1115,6 +1201,10 @@ class SitemapTests(unittest.TestCase):
 <url><loc>https://catalog.x.edu/undergraduate/arts/history/</loc></url>
 <url><loc>https://catalog.x.edu/undergraduate/business/bba-certificate/</loc></url>
 <url><loc>https://catalog.x.edu/graduate/business/accounting-bs/</loc></url>
+<url><loc>https://catalog.x.edu/UGRD/colleges-schools/UGAGL/AEC_BS/</loc></url>
+<url><loc>https://catalog.x.edu/undergraduatecatalog/coursesofinstruction/badm/</loc></url>
+<url><loc>https://catalog.x.edu/undergraduate/courses/busi/</loc></url>
+<url><loc>https://catalog.x.edu/undergraduate/business/busi/</loc></url>
 <url><loc>https://elsewhere.org/a-bs/</loc></url></urlset>'''
         f = Fetcher(delay=0, timeout=1)
         def raw(url):
@@ -1127,8 +1217,52 @@ class SitemapTests(unittest.TestCase):
                  'catalog': {'platform': 'courseleaf', 'home': 'https://catalog.x.edu/', 'path_prefix': '/', 'min_depth': 1, 'program_lists': []}}
             C.crawl_target(t, Run(Path(d)), f, log=lambda *_: None)
             pages = sorted(e['url'] for e in Run(Path(d)).entries() if e['role'] == 'program_page')
-        self.assertEqual(pages, ['https://catalog.x.edu/undergraduate/arts/history/history-major/',
+        # UF's underscore slugs are read; a one-word segment ('badm', 'busi': course subjects) is never an award
+        self.assertEqual(pages, ['https://catalog.x.edu/UGRD/colleges-schools/UGAGL/AEC_BS/',
+                                 'https://catalog.x.edu/undergraduate/arts/history/history-major/',
                                  'https://catalog.x.edu/undergraduate/sciences/biology/biology-bs/'])
+
+    def crawl(self, cat, pages):
+        from pipeline.crawl import Fetcher, Run
+        f = Fetcher(delay=0, timeout=1)
+        def raw(url):
+            if url.endswith('robots.txt'): return (404, url, {}, b'')
+            body = pages.get(url)
+            if body is None: return (404, url, {}, b'')
+            ct = 'application/xml' if url.endswith('.xml') else 'text/html'
+            return (200, url, {'Content-Type': ct}, body)
+        f._raw = raw
+        with tempfile.TemporaryDirectory() as d:
+            t = {'institution_key': 'k', 'folder': 'k', 'domains': ['x.edu'], 'mode': 'catalog', 'catalog': cat}
+            C.crawl_target(t, Run(Path(d)), f, log=lambda *_: None)
+            return sorted(e['url'] for e in Run(Path(d)).entries() if e['role'] == 'program_page')
+
+    def test_sitemap_program_pattern_for_department_pages(self):  # uark: programs on department pages, no award in the URL
+        sm = b'''<urlset><url><loc>https://catalog.x.edu/ugcat/colleges/arts/historyhist/</loc></url>
+<url><loc>https://catalog.x.edu/ugcat/colleges/arts/</loc></url><url><loc>https://catalog.x.edu/gradcat/colleges/arts/historyhist/</loc></url></urlset>'''
+        cat = {'platform': 'courseleaf', 'home': 'https://catalog.x.edu/', 'path_prefix': '/', 'min_depth': 1, 'program_lists': [],
+               'sitemap_program': r'/ugcat/colleges/[^/]+/[^/]+/$'}
+        self.assertEqual(self.crawl(cat, {'https://catalog.x.edu/sitemap.xml': sm}), ['https://catalog.x.edu/ugcat/colleges/arts/historyhist/'])
+        # course-description sections are never program pages (uark 'coursesofinstruction')
+        rule = C.program_rule({'catalog': cat})
+        self.assertTrue(rule('https://catalog.x.edu/ugcat/colleges/arts/historyhist/'))
+        self.assertFalse(rule('https://catalog.x.edu/ugcat/coursesofinstruction/hist/'))
+        self.assertFalse(rule('https://catalog.x.edu/ugcat/courses-of-instruction/hist/'))
+
+    def test_nav_prefix_walks_sections_without_a_sitemap(self):  # MSState: no sitemap; college and department pages link programs
+        page = lambda *links: ('<html><head><title>t</title></head><body>' + ''.join(f'<a href="{h}">{a}</a>' for h, a in links) + '</body></html>').encode()
+        U = 'https://catalog.x.edu/undergraduate/'
+        pages = {'https://catalog.x.edu/': page((U, 'Undergraduate'), ('https://catalog.x.edu/graduate/', 'Graduate')),
+                 U: page((U + 'arts/', 'College of Arts')),
+                 U + 'arts/': page((U + 'arts/history/', 'History')),
+                 U + 'arts/history/': page((U + 'arts/history/history-ba/', 'History, BA'), (U + 'arts/history/history-minor/', 'History Minor')),
+                 'https://catalog.x.edu/graduate/': page(('https://catalog.x.edu/graduate/arts/history/history-ma/', 'History, MA'))}
+        cat = {'platform': 'courseleaf', 'home': 'https://catalog.x.edu/', 'path_prefix': '/undergraduate/', 'min_depth': 2, 'program_lists': [],
+               'nav_prefix': '/undergraduate/'}
+        got = self.crawl(cat, pages)
+        self.assertIn(U + 'arts/history/history-ba/', got)
+        self.assertFalse([u for u in got if '/graduate/' in u])
+        self.assertEqual(self.crawl({**cat, 'nav_prefix': None}, pages), [])  # without it nothing past the home page
 
 
 class ListedProgramTests(unittest.TestCase):
@@ -1160,3 +1294,68 @@ class ListedProgramTests(unittest.TestCase):
         for n, base in (('Accounting, BS', 'Accounting'), ('Biology (B.S.)', 'Biology'), ('Art, BA, BFA', 'Art'),
                         ('Art, Media, and Design', 'Art, Media, and Design'), ('Economics: BA, BS', 'Economics')):
             self.assertEqual(X.strip_award(n), base)
+
+
+class CatalogFieldTests(unittest.TestCase):
+    def test_verified_listed_programs_bounds(self):
+        from backend.program_fields import field_errors
+        base = {'institution_key': 'k', 'academic_year': '2026-27', 'catalog_url': 'https://c.x.edu/', 'source_url': 'https://c.x.edu/l',
+                'listed_bachelor_programs': 10}
+        self.assertEqual(field_errors('program_catalogs', {**base, 'verified_listed_programs': 10}), [])
+        self.assertTrue(field_errors('program_catalogs', {**base, 'verified_listed_programs': 11}))
+        self.assertTrue(field_errors('program_catalogs', {**base, 'verified_listed_programs': True}))
+
+
+class CatalogOverwriteTests(unittest.TestCase):
+    def test_standing_review_count_never_replaces_a_reviewed_count(self):
+        from programs import promote as P
+        import pipeline.promote as PP
+        with tempfile.TemporaryDirectory() as d:
+            old, oldp = P.ROOT, PP.ROOT; P.ROOT = PP.ROOT = Path(d)
+            try:
+                f = Path(d) / 'data/institutions/x/program_catalogs'; f.mkdir(parents=True)
+                (f / '2026-27.json').write_text(json.dumps({'institution_key': 'k', 'academic_year': '2026-27', 'records': [
+                    {'listed_bachelor_programs': 37, 'notes': 'Reviewed 2026-10-06: Catalog-count review 2026-10-06: official current list page.'}]}))
+                cat = {'institution_key': 'k', 'catalog_url': 'https://c/', 'source_evidence': {'url': 'https://c/l', 'sha256': 's', 'fetched_at': '2026-10-06T00:00:00'},
+                       'listed_bachelor_programs': 72, 'reason': 'Standing review: official current-catalog program list pages.'}
+                self.assertEqual(P.apply_catalog(cat, {'k': 'x'}, {}, {}), 0)
+                self.assertEqual(json.loads((f / '2026-27.json').read_text())['records'][0]['listed_bachelor_programs'], 37)
+            finally:
+                P.ROOT, PP.ROOT = old, oldp
+
+
+class ProgramKeymapTests(unittest.TestCase):
+    def test_programs_sharing_a_page_keep_their_own_keys(self):
+        from programs import promote as P
+        U = 'https://catalog.x.edu/dept/'
+        on_file = {'records': [{'program_key': 'biology-bs', 'program_url': U}, {'program_key': 'old-key', 'program_url': 'https://catalog.x.edu/chem/'}]}
+        cand = lambda cid, key, url, ext: {'candidate_id': cid, 'domain': 'academic_programs', 'institution_key': 'k', 'academic_year': '2026-27',
+                                           'extractor': ext, 'record': {'program_key': key, 'program_url': url, 'program_name': key}}
+        cands = {c['candidate_id']: c for c in [cand('a', 'biology-bs', U, 'department_section/v1'), cand('b', 'microbiology-bs', U, 'department_section/v1'),
+                                                 cand('m', 'microbiology-bs', U, 'catalog_program/v1'), cand('c', 'chemistry-bs', 'https://catalog.x.edu/chem/', 'catalog_program/v1')]}
+        old = P._records; P._records = lambda *a: on_file
+        try:
+            km = P.program_keymap([{'candidate_id': i} for i in ('a', 'b', 'c')], cands, {'k': 'x'})
+            self.assertEqual(km, {('k', '2026-27', 'chemistry-bs'): 'old-key'})  # a renamed program keeps its key; siblings never merge
+            km = P.program_keymap([{'candidate_id': 'm'}], cands, {'k': 'x'})
+            self.assertEqual(km, {('k', '2026-27', 'microbiology-bs'): 'biology-bs'})  # the one-program-per-page rule elsewhere is unchanged
+        finally:
+            P._records = old
+
+
+class FolderOwnershipTests(unittest.TestCase):
+    def test_a_folder_two_registries_claim_receives_no_records(self):
+        from programs import promote as P
+        with tempfile.TemporaryDirectory() as d:
+            old = P.ROOT; P.ROOT = Path(d)
+            try:
+                (Path(d) / 'pipeline/registry').mkdir(parents=True)
+                (Path(d) / 'pipeline/registry/AA.json').write_text(json.dumps({'institutions': [{'institution_key': 'a', 'folder': 'tiu'}]}))
+                (Path(d) / 'pipeline/registry/BB.json').write_text(json.dumps({'institutions': [{'institution_key': 'b', 'folder': 'tiu'}]}))
+                with self.assertRaises(ValueError): P.check_folder_ownership({'a': 'tiu'})
+                f = Path(d) / 'data/institutions/tiu/costs'; f.mkdir(parents=True)
+                (f / '2026-27.json').write_text(json.dumps({'institution_key': 'a', 'records': []}))
+                P.check_folder_ownership({'a': 'tiu'})  # its own records are already there
+                with self.assertRaises(ValueError): P.check_folder_ownership({'b': 'tiu'})
+            finally:
+                P.ROOT = old

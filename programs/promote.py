@@ -50,6 +50,49 @@ def _records(folder, domain, year):
     return json.loads(p.read_text()) if p.exists() else None
 
 
+def check_folder_ownership(folders):
+    """A data folder belongs to one institution across every committed state registry (pipeline/registry/*.json). A
+    target folder that another registry also gives to a different institution must not receive records (unless this
+    institution's records are already there): the national
+    registry decides folder names, and its disambiguation runs when a state's registry is regenerated."""
+    owners = {}
+    for p in sorted((ROOT / 'pipeline/registry').glob('*.json')):
+        for i in json.loads(p.read_text()).get('institutions', []):
+            owners.setdefault(i['folder'], set()).add(i['institution_key'])
+    def holder(f):  # the institution whose records are already in the folder, if any
+        for q in (ROOT / 'data/institutions' / f).glob('*/*.json'):
+            k = json.loads(q.read_text()).get('institution_key')
+            if k: return k
+        return None
+    clash = {k: f for k, f in folders.items() if owners.get(f, {k}) - {k} and holder(f) != k}
+    if clash:
+        raise ValueError(f'target folders owned by other institutions in a committed registry: {clash}; '
+                         'regenerate the targets from the current registries')
+
+
+def program_keymap(approvals, cands, folders):
+    """(institution, year, candidate key) -> the key of the program already on file from the same page."""
+    keymap = {}
+    for a in approvals:
+        c = cands[a['candidate_id']]
+        if c['domain'] != 'academic_programs': continue
+        old = _records(folders[c['institution_key']], 'academic_programs', c['academic_year'])
+        cand_name = split_catalog_name(c['record'].get('program_name', ''))
+        on_file_keys = {r.get('program_key') for r in (old or {}).get('records', [])}
+        for r in (old or {}).get('records', []):
+            # a page that prints several degrees (department_section/v1) is the URL of each; a record already on file
+            # under its own key is never mapped onto a sibling's key
+            same_url = (r.get('program_url') == c['record'].get('program_url') and c['record']['program_key'] not in on_file_keys
+                        and c['extractor'] != 'department_section/v1')
+            # A state-inventory record (THEC) for the same major and award becomes this catalog record: one program, the
+            # catalog's stronger evidence, the inventory's CIP kept (exact name + award match only, programs.match).
+            same_inventory_program = (r.get('program_url') == THEC_PAGE and c['record'].get('program_url') != THEC_PAGE
+                                      and cand_name is not None and split_catalog_name(r.get('program_name', '')) == cand_name)
+            if (same_url or same_inventory_program) and r['program_key'] != c['record']['program_key']:
+                keymap[(c['institution_key'], c['academic_year'], c['record']['program_key'])] = r['program_key']
+    return keymap
+
+
 def promote(decisions_path: Path, log=print):
     d = json.loads(Path(decisions_path).read_text())
     run_dir = ROOT / d['run']
@@ -57,6 +100,9 @@ def promote(decisions_path: Path, log=print):
     targets = json.loads((ROOT / 'programs/targets' / f'{state}.json').read_text())
     folders = {t['institution_key']: t['folder'] for t in targets['institutions']}
     cands, ev = load_run(run_dir)
+    touched = {cands[a['candidate_id']]['institution_key'] for a in d.get('approve', []) if a['candidate_id'] in cands}
+    touched |= {x['institution_key'] for k in ('approve_programs', 'catalogs', 'fields', 'awards', 'merges') for x in d.get(k, []) if isinstance(x, dict) and x.get('institution_key')}
+    check_folder_ownership({k: f for k, f in folders.items() if k in touched})
     from pipeline.crawl import Run
     RUN_CTX['run'] = Run(run_dir)
     archive, written = {}, 0
@@ -71,20 +117,7 @@ def promote(decisions_path: Path, log=print):
     approvals.sort(key=lambda a: cands[a['candidate_id']]['domain'] != 'academic_programs')  # programs before their requirements
     # A program already on file from the same program URL keeps its key (as pipeline/review.py does for curated rows),
     # and so do its requirement rows: no second record for one program.
-    keymap = {}
-    for a in approvals:
-        c = cands[a['candidate_id']]
-        if c['domain'] != 'academic_programs': continue
-        old = _records(folders[c['institution_key']], 'academic_programs', c['academic_year'])
-        cand_name = split_catalog_name(c['record'].get('program_name', ''))
-        for r in (old or {}).get('records', []):
-            same_url = r.get('program_url') == c['record'].get('program_url')
-            # A state-inventory record (THEC) for the same major and award becomes this catalog record: one program, the
-            # catalog's stronger evidence, the inventory's CIP kept (exact name + award match only, programs.match).
-            same_inventory_program = (r.get('program_url') == THEC_PAGE and c['record'].get('program_url') != THEC_PAGE
-                                      and cand_name is not None and split_catalog_name(r.get('program_name', '')) == cand_name)
-            if (same_url or same_inventory_program) and r['program_key'] != c['record']['program_key']:
-                keymap[(c['institution_key'], c['academic_year'], c['record']['program_key'])] = r['program_key']
+    keymap = program_keymap(approvals, cands, folders)
     for a in approvals:
         c = cands.get(a['candidate_id'])
         if c is None: raise KeyError(f"unknown candidate {a['candidate_id']}")
@@ -234,12 +267,16 @@ def apply_award(aw, folders, archive):
 
 def apply_catalog(cat, folders, ev, archive):
     year = cat.get('academic_year', '2026-27')
+    old = _records(folders[cat['institution_key']], 'program_catalogs', year)
+    if str(cat.get('reason', '')).startswith('Standing review') and any(
+            'Catalog-count review' in (r.get('notes') or '') or 'Standing review' not in (r.get('notes') or '') for r in (old or {}).get('records', [])):
+        return 0  # a mechanical count never replaces a reviewed one
     status = cat.get('verification_status', 'verified')
     if status not in ('verified', 'partially_verified'): raise ValueError('catalog status must be verified or partially_verified')
     rec = {'institution_key': cat['institution_key'], 'academic_year': year, 'catalog_url': cat['catalog_url'],
            'source_url': cat['source_evidence']['url'], 'verification_status': status,
            'last_verified_at': cat['source_evidence']['fetched_at'][:10]}
-    for k in ('catalog_year_label', 'listed_bachelor_programs', 'programs_complete', 'completeness_basis', 'listed_program_keys'):
+    for k in ('catalog_year_label', 'listed_bachelor_programs', 'verified_listed_programs', 'programs_complete', 'completeness_basis', 'listed_program_keys'):
         if cat.get(k) is not None: rec[k] = cat[k]
     if cat.get('undeclared'):
         u = cat['undeclared']

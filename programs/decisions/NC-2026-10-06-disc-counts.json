@@ -1,0 +1,37 @@
+{
+ "run": "programs/runs/NC/2026-10-06-disc",
+ "run_branch": "program-run/*",
+ "reviewer": "Catalog-count review (independent agent, local stored pages only), 2026-10-06; checked by Claude",
+ "catalogs": [
+  {
+   "institution_key": "ipeds-199193",
+   "catalog_url": "https://catalog.ncsu.edu/",
+   "catalog_year_label": "2026-2027",
+   "source_evidence": {
+    "url": "https://catalog.ncsu.edu/undergraduate/",
+    "sha256": "31af2a037dc127dbf31d215cf9c5de51fdff76c835b278a684a23092fdc5ec1e",
+    "fetched_at": "2026-10-06T09:10:09+00:00"
+   },
+   "listed_bachelor_programs": 101,
+   "programs_complete": false,
+   "completeness_basis": "Majors list on the 'University Catalog 2026-2027' Undergraduate page (stored only in the discovery run; the target runs hold no list page because /azindex/ is robots-blocked). It lists 273 entries that mostly print concentrations ('Major (BS): X Concentration'); these were collapsed to 101 distinct major+award programs. Excluded: 9 AAS entries and first-year/exploratory/transfer entries. Counted anyway because unsure: 2 Mathematics Education double majors, and Biological Engineering (BS) separately from Biological, Agricultural, and Ecological Engineering (BS). The 99 verified records cover 72 of the 101.",
+   "reason": "Catalog-count review 2026-10-06: official current list page.",
+   "verified_listed_programs": 72
+  },
+  {
+   "institution_key": "ipeds-199847",
+   "catalog_url": "https://bulletin.wfu.edu/",
+   "catalog_year_label": "2026-2027",
+   "source_evidence": {
+    "url": "https://bulletin.wfu.edu/university/degrees-certificates-offered/",
+    "sha256": "5d25ec18d76eead5311c4f813d45b3649e5bf5565bb3be259586cadc677fe1cf",
+    "fetched_at": "2026-10-06T09:16:37+00:00"
+   },
+   "listed_bachelor_programs": 59,
+   "programs_complete": false,
+   "completeness_basis": "Degrees and Certificates Offered page of the 2026-2027 Bulletin (fetched via https://about.wfu.edu/academics/degrees/, which redirects there; stored only in the discovery run). Each bachelor award is counted per row and award as records are keyed (e.g. Biology BA and BS = 2), with Decision Analytics BS (listed twice) counted once. Excluded: combined BS/MS, MS/BA and BS/BA+MA rows and graduate/professional awards. The 55 verified records cover 55 of the 59; missing are Decision Analytics BS, Education BA, and Interdisciplinary Major BA and BS.",
+   "reason": "Catalog-count review 2026-10-06: official current list page.",
+   "verified_listed_programs": 55
+  }
+ ]
+}

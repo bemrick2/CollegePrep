@@ -468,6 +468,10 @@ last 30 hours in residence at the university.</p>"""
         self.assertTrue(catalog.extract(INST, url, T.parse_html(raw, 'https://x'), '2026-27'))
         acc = T.parse_html(raw.replace(b'Biology, Bachelor of Science', b'Biology, Bachelor of Science/MS Accelerated Program'), 'https://x')
         self.assertEqual(catalog.extract(INST, url, acc, '2026-27'), [])
+        # an 'Archived Catalogs' menu link (Stetson's navigation) is not an archived-catalog banner; the banner still is
+        stale = lambda b: any(i.startswith('stale_year_label') for c in catalog.extract(INST, url, T.parse_html(b, 'https://x'), '2026-27') for i in c['issues'])
+        self.assertFalse(stale(raw.replace(b'<body>', b'<body><ul><li><a href="/archive/">Archived Catalogs</a></li></ul>')))
+        self.assertTrue(stale(raw.replace(b'<body>', b'<body><p>Archived Catalog</p>')))
 
     def test_mi_r1_rules(self):
         """MI r1: Madonna's eligibility text under a GPA/ACT/SAT header, GRCC's program budgets, Macomb's no-credit score

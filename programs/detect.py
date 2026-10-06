@@ -10,6 +10,8 @@ recognisable from official links:
     degrees or majors.
   * SmartCatalog: <school>.smartcatalogiq.com/<lang>/<year-path>/...: the newest year path linked.
   * Kuali: <school>.kuali.co/catalog...
+  * Coursedog: catalog hosts linking /programs/<code> pages, or printing 'Powered by Coursedog' (FIU, FAU), which
+    otherwise look like CourseLeaf from their /programs list link.
   * CourseLeaf: catalog hosts linking /programs-az/, /azindex/ or /<level>/programs/ (program list) pages.
   * Catalog PDF: an official .pdf link whose text or file name says catalog/bulletin and carries an academic year.
 
@@ -56,6 +58,9 @@ def detect_institution(entries):
     for m, p in entries:
         text = (p.get('title') or '') + ' ' + (p.get('text') or '')[:4000]
         page_years = _years(text)
+        mh = urlsplit(m['url']).netloc.lower()
+        if mh.startswith(('catalog.', 'catalogs.', 'bulletin.')) and 'Powered by Coursedog' in (p.get('text') or ''):
+            coursedog[mh] += 3  # the catalog's own footer (FIU, FAU): its /programs pages render in the browser
         for href, anchor in p.get('links', []):
             u = urlsplit(href); host = u.netloc.lower(); a = (anchor or '').strip()
             q = parse_qs(u.query)
