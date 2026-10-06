@@ -1,0 +1,455 @@
+{
+ "state": "NE",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-180984",
+   "folder": "cune",
+   "name": "Concordia University-Nebraska",
+   "control": "private_nonprofit",
+   "domains": [
+    "cune.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.cune.edu/",
+    "https://catalog.cune.edu/",
+    "https://www.cune.edu/academics/",
+    "https://www.cune.edu/registrar/",
+    "https://www.cune.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-181002",
+   "folder": "creighton",
+   "name": "Creighton University",
+   "control": "private_nonprofit",
+   "domains": [
+    "creighton.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.creighton.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.creighton.edu/azindex/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style program list on catalog.creighton.edu"
+  },
+  {
+   "institution_key": "ipeds-181020",
+   "folder": "doane",
+   "name": "Doane University",
+   "control": "private_nonprofit",
+   "domains": [
+    "doane.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 35,
+    "home": "https://catalog.doane.edu/index.php?catoid=35",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.doane.edu/content.php?catoid=35&navoid=3912"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 35 on catalog.doane.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-181127",
+   "folder": "hastings",
+   "name": "Hastings College",
+   "control": "private_nonprofit",
+   "domains": [
+    "hastings.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.hastings.edu/wp-content/uploads/2021-22-Academic-Catalog_010821.pdf"
+    ],
+    "home": "https://www.hastings.edu/wp-content/uploads/2021-22-Academic-Catalog_010821.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2021-2022"
+  },
+  {
+   "institution_key": "ipeds-181330",
+   "folder": "midlandu",
+   "name": "Midland University",
+   "control": "private_nonprofit",
+   "domains": [
+    "midlandu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.midlandu.edu/",
+    "https://catalog.midlandu.edu/",
+    "https://www.midlandu.edu/academics/",
+    "https://www.midlandu.edu/registrar/",
+    "https://www.midlandu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-181446",
+   "folder": "nebrwesleyan",
+   "name": "Nebraska Wesleyan University",
+   "control": "private_nonprofit",
+   "domains": [
+    "nebrwesleyan.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.nebrwesleyan.edu/",
+    "https://catalog.nebrwesleyan.edu/",
+    "https://www.nebrwesleyan.edu/academics/",
+    "https://www.nebrwesleyan.edu/registrar/",
+    "https://www.nebrwesleyan.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-181215",
+   "folder": "unk",
+   "name": "University of Nebraska at Kearney",
+   "control": "public",
+   "domains": [
+    "unk.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.unk.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.unk.edu/azindex/",
+     "https://catalog.unk.edu/undergraduate/programsaz/",
+     "https://catalog.unk.edu/undergraduate/programsaz/programsaz.pdf"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style program list on catalog.unk.edu"
+  },
+  {
+   "institution_key": "ipeds-181394",
+   "folder": "unomaha",
+   "name": "University of Nebraska at Omaha",
+   "control": "public",
+   "domains": [
+    "unomaha.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.unomaha.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.unomaha.edu/azindex/",
+     "https://catalog.unomaha.edu/undergraduate/programsaz/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style program list on catalog.unomaha.edu"
+  },
+  {
+   "institution_key": "ipeds-181464",
+   "folder": "admissions",
+   "name": "University of Nebraska-Lincoln",
+   "control": "public",
+   "domains": [
+    "unl.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.unl.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.unl.edu/azindex/",
+     "https://catalog.unl.edu/graduate-professional/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style program list on catalog.unl.edu"
+  },
+  {
+   "institution_key": "ipeds-181853",
+   "folder": "york",
+   "name": "York University",
+   "control": "private_nonprofit",
+   "domains": [
+    "york.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.york.edu/registrar/catalog/2026-2027-catalog.pdf"
+    ],
+    "home": "https://www.york.edu/registrar/catalog/2026-2027-catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-180814",
+   "folder": "bellevue",
+   "name": "Bellevue University",
+   "control": "private_nonprofit",
+   "domains": [
+    "bellevue.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.bellevue.edu/",
+    "https://catalog.bellevue.edu/",
+    "https://www.bellevue.edu/academics/",
+    "https://www.bellevue.edu/registrar/",
+    "https://www.bellevue.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-180878",
+   "folder": "bryanhealthcollege",
+   "name": "Bryan College of Health Sciences",
+   "control": "private_nonprofit",
+   "domains": [
+    "bryanhealthcollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.bryanhealthcollege.edu/bcohs/",
+    "https://catalog.bryanhealthcollege.edu/",
+    "https://www.bryanhealthcollege.edu/academics/",
+    "https://www.bryanhealthcollege.edu/registrar/",
+    "https://www.bryanhealthcollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-180948",
+   "folder": "csc",
+   "name": "Chadron State College",
+   "control": "public",
+   "domains": [
+    "csc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.csc.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.csc.edu/azindex/",
+     "https://catalog.csc.edu/undergraduate/programs/business/bsed-field-endorsement-business-marketing-information-technology-education-6-12/",
+     "https://catalog.csc.edu/undergraduate/programs/education/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style program list on catalog.csc.edu"
+  },
+  {
+   "institution_key": "ipeds-180832",
+   "folder": "clarksoncollege",
+   "name": "Clarkson College",
+   "control": "private_nonprofit",
+   "domains": [
+    "clarksoncollege.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.clarksoncollege.edu/assets/files/2018-2019-Academic-Catalog.pdf"
+    ],
+    "home": "https://www.clarksoncollege.edu/assets/files/2018-2019-Academic-Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2018-2019"
+  },
+  {
+   "institution_key": "ipeds-181604",
+   "folder": "csm",
+   "name": "College of Saint Mary",
+   "control": "private_nonprofit",
+   "domains": [
+    "csm.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://catalog.csm.edu/sites/default/files/academic-catalog-20252026-7-14-26.pdf"
+    ],
+    "home": "https://catalog.csm.edu/sites/default/files/academic-catalog-20252026-7-14-26.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
+  },
+  {
+   "institution_key": "ipeds-181419",
+   "folder": "thenicc",
+   "name": "Nebraska Indian Community College",
+   "control": "public",
+   "domains": [
+    "thenicc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.thenicc.edu/images/pdfs/NICCCourseDescriptions2026-2027.pdf"
+    ],
+    "home": "https://www.thenicc.edu/images/pdfs/NICCCourseDescriptions2026-2027.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-181297",
+   "folder": "methodistcollege",
+   "name": "Nebraska Methodist College of Nursing & Allied Health",
+   "control": "private_nonprofit",
+   "domains": [
+    "methodistcollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.methodistcollege.edu/",
+    "https://catalog.methodistcollege.edu/",
+    "https://www.methodistcollege.edu/academics/",
+    "https://www.methodistcollege.edu/registrar/",
+    "https://www.methodistcollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-181534",
+   "folder": "peru",
+   "name": "Peru State College",
+   "control": "public",
+   "domains": [
+    "peru.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.peru.edu/",
+    "https://catalog.peru.edu/",
+    "https://www.peru.edu/academics/",
+    "https://www.peru.edu/registrar/",
+    "https://www.peru.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-181543",
+   "folder": "summitcc",
+   "name": "Summit Christian College",
+   "control": "private_nonprofit",
+   "domains": [
+    "summitcc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.summitcc.edu/",
+    "https://catalog.summitcc.edu/",
+    "https://www.summitcc.edu/academics/",
+    "https://www.summitcc.edu/registrar/",
+    "https://www.summitcc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-181738",
+   "folder": "ucollege",
+   "name": "Union Adventist University",
+   "control": "private_nonprofit",
+   "domains": [
+    "ucollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.ucollege.edu/",
+    "https://catalog.ucollege.edu/",
+    "https://www.ucollege.edu/academics/",
+    "https://www.ucollege.edu/registrar/",
+    "https://www.ucollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-181783",
+   "folder": "wsc",
+   "name": "Wayne State College",
+   "control": "public",
+   "domains": [
+    "wsc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.wsc.edu/",
+    "https://catalog.wsc.edu/",
+    "https://www.wsc.edu/academics/",
+    "https://www.wsc.edu/registrar/",
+    "https://www.wsc.edu/catalog/"
+   ],
+   "policy": []
+  }
+ ]
+}
