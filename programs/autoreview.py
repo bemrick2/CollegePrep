@@ -13,8 +13,11 @@ Nothing is promoted that a pilot review would have held:
   * requirement rows only for a program approved in the same decision or already on file.
 
 Catalog records: a list page set that prints one current catalog-year label yields a program_catalogs record whose
-listed_bachelor_programs counts every distinct list entry printing a bachelor's award. Options and tracks are counted
-too, so the count is an upper bound and the coverage share is never overstated. programs_complete is never set here.
+listed_bachelor_programs counts every distinct linked list entry printing a bachelor's award. Options and tracks are
+counted too, which errs high; a printed list line without a link is not counted, which can err low (UO 2026-27: 73
+linked entries against 78 printed lines), so each state's covered schools get a sampled hand check of the count. No record is written when the list
+names majors without their award, or names fewer bachelor's programs than the run verified (the list is then not the
+whole picture). programs_complete is never set here.
 
 New platforms and extractors are not added to TRUSTED without an independent accuracy review of a sample (see the
 SmartCatalog review recorded in programs/queue/OR.json).
@@ -76,7 +79,9 @@ def review(state, run, today=None):
                'program_not_approved' if c['record'].get('program_key') not in program_keys[c['institution_key']] else None)
         if why: held['req_' + why] += 1; continue
         approve.append({'candidate_id': c['candidate_id'], 'reason': f"Standing review ({c['extractor']}): rows verbatim in the stored official page; passed the layout hold rules."})
-    catalogs = catalog_records(state, run, lists, today_year)
+    catalogs = [c for c in catalog_records(state, run, lists, today_year)
+                # a list that names fewer bachelor's programs than are verified, or lists majors without their award, cannot bound the count
+                if c['listed_bachelor_programs'] >= len(program_keys[c['institution_key']]) and not lists[c['institution_key']]['counts'].get('major_unlabeled_degree')]
     return approve, catalogs, held
 
 
@@ -100,8 +105,9 @@ def catalog_records(state, run, lists, today_year):
         out.append({'institution_key': key, 'catalog_url': targets[key]['catalog']['home'], 'catalog_year_label': f'{y}-{y + 1}',
                     'source_evidence': {'url': src, 'sha256': m['sha256'], 'fetched_at': m['fetched_at']},
                     'listed_bachelor_programs': n, 'programs_complete': False,
-                    'completeness_basis': (f'Upper bound: {n} distinct entries on the official {y}-{y + 1} program list pages print a bachelor\'s '
-                                           'award (options, tracks and concentrations listed with an award are counted). Not checked as complete.'),
+                    'completeness_basis': (f'{n} distinct linked entries on the official {y}-{y + 1} program list pages print a bachelor\'s '
+                                           'award (options, tracks and concentrations listed with an award are counted; unlinked lines are not). '
+                                           'Not checked as complete.'),
                     'reason': 'Standing review: official current-catalog program list pages.'})
     return out
 
