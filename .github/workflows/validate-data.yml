@@ -28,6 +28,8 @@ jobs:
         run: python scripts/mutation_check.py
       - name: Mutation-check program deep-dive safety rules
         run: python scripts/program_mutation_check.py
+      - name: Program-depth completion status is current (docs/PROGRAM_DEPTH_COMPLETION.md)
+        run: python -m programs status --check
   database:
     runs-on: ubuntu-latest
     services:
