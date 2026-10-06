@@ -1,7 +1,7 @@
 // POST { household_id, lookup_key } -> { url } of a Stripe Checkout Session for the household plan.
 // Only a guardian with manage_billing may start it, and never while the household already has access.
 import { ACCESS_STATUSES, isLookupKey } from '../_shared/billing.ts'
-import { admin, canManageBilling, caller, cors, json, site, stripe } from '../_shared/runtime.ts'
+import { billingEnvironment, admin, canManageBilling, caller, cors, json, site, stripe } from '../_shared/runtime.ts'
 
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response(null, { headers: cors(req) })
@@ -12,6 +12,7 @@ Deno.serve(async (req) => {
   const householdId = typeof body.household_id === 'string' ? body.household_id : ''
   if (!householdId || !isLookupKey(body.lookup_key)) return json(req, { error: 'Unknown plan.' }, 400)
 
+  const environment = billingEnvironment()
   const db = admin()
   if (!(await canManageBilling(db, householdId, user.id))) return json(req, { error: 'Only a guardian who manages billing can choose a plan.' }, 403)
 
@@ -20,7 +21,7 @@ Deno.serve(async (req) => {
     .from('subscriptions')
     .select('id')
     .eq('household_id', householdId)
-    .eq('environment', 'production')
+    .eq('environment', environment)
     .in('status', ACCESS_STATUSES)
     .limit(1)
   if (active?.length) return json(req, { error: 'This household already has an active plan.' }, 409)
@@ -30,11 +31,11 @@ Deno.serve(async (req) => {
   if (!price) return json(req, { error: 'That plan is not available yet.' }, 503)
 
   // One Stripe customer per household, created once (idempotency key guards concurrent first checkouts).
-  let { data: customer } = await db.from('billing_customers').select('provider_customer_id').eq('household_id', householdId).eq('provider', 'stripe').maybeSingle()
+  let { data: customer } = await db.from('billing_customers').select('provider_customer_id').eq('household_id', householdId).eq('provider', 'stripe').eq('environment', environment).maybeSingle()
   if (!customer) {
-    const c = await s.customers.create({ email: user.email ?? undefined, metadata: { household_id: householdId } }, { idempotencyKey: `pp-customer-${householdId}` })
-    await db.from('billing_customers').upsert({ household_id: householdId, provider: 'stripe', provider_customer_id: c.id, created_by: user.id }, { onConflict: 'household_id,provider', ignoreDuplicates: true })
-    ;({ data: customer } = await db.from('billing_customers').select('provider_customer_id').eq('household_id', householdId).eq('provider', 'stripe').single())
+    const c = await s.customers.create({ email: user.email ?? undefined, metadata: { household_id: householdId } }, { idempotencyKey: `pp-customer-${environment}-${householdId}` })
+    await db.from('billing_customers').upsert({ household_id: householdId, provider: 'stripe', environment, provider_customer_id: c.id, created_by: user.id }, { onConflict: 'household_id,provider,environment', ignoreDuplicates: true })
+    ;({ data: customer } = await db.from('billing_customers').select('provider_customer_id').eq('household_id', householdId).eq('provider', 'stripe').eq('environment', environment).single())
   }
 
   const meta = { household_id: householdId, owner_user_id: user.id }
