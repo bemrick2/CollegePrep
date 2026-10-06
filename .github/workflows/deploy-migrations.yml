@@ -19,6 +19,8 @@ permissions:
 
 jobs:
   deploy:
+    # Owner hold: database paused for Apparent recovery. See docs/SUPABASE_PAUSE.md.
+    if: ${{ false }}
     runs-on: ubuntu-latest
     environment: supabase-live
     env:
