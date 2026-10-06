@@ -4,9 +4,11 @@
 // logged by kind only.
 //
 // Secrets (Supabase → Edge Functions → Secrets): RESEND_API_KEY, INVITE_FROM_EMAIL ("Prep & Price <invites@…>"),
-// APP_ORIGINS (comma-separated allowed site origins; the first is the default link base).
+// APP_ORIGINS (optional: comma-separated allowed site origins, first is the default; defaults to staging).
 import { createClient } from 'npm:@supabase/supabase-js@2'
 import { inviteEmail, pickOrigin } from './email.ts'
+
+const DEFAULT_ORIGINS = 'https://college-optimizer-staging.netlify.app'
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
@@ -75,7 +77,8 @@ Deno.serve(async (req) => {
     console.error('invite-email: not configured')
     return json(200, { ...result, emailed: false, reason: 'not_configured' })
   }
-  const origin = pickOrigin(body.origin ?? req.headers.get('Origin'), Deno.env.get('APP_ORIGINS') ?? '')
+  // Staging is the default link base until production origins are configured.
+  const origin = pickOrigin(body.origin ?? req.headers.get('Origin'), Deno.env.get('APP_ORIGINS') || DEFAULT_ORIGINS)
   if (!origin) {
     console.error('invite-email: no allowed origin configured')
     return json(200, { ...result, emailed: false, reason: 'not_configured' })

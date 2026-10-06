@@ -63,8 +63,8 @@ or code, or retry. A retry resends the same code.
 3. **Supabase → Edge Functions → Secrets** (project `butlklkzafvklwasbynr`):
    - `RESEND_API_KEY`: the key from step 2.
    - `INVITE_FROM_EMAIL`: for example `Prep & Price <invites@your-domain>`.
-   - `APP_ORIGINS`: `https://college-optimizer-staging.netlify.app` for staging, plus the production origin later,
-     comma-separated.
+   - `APP_ORIGINS` (optional until production): comma-separated allowed site origins. It defaults to
+     `https://college-optimizer-staging.netlify.app`.
 
 Until these secrets are set, sending returns `not_configured`. The parent sees "We couldn't send the email" and can
 still copy the link.
