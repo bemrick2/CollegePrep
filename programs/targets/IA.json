@@ -97,12 +97,14 @@
    "catalog": {
     "home": "https://catalog.iastate.edu/",
     "min_depth": 1,
-    "path_prefix": "/",
+    "path_prefix": "/collegescurricula/",
     "platform": "courseleaf",
-    "program_lists": []
+    "program_lists": [
+     "https://catalog.iastate.edu/collegescurricula/"
+    ]
    },
    "policy": [],
-   "detected": "CourseLeaf-style catalog on catalog.iastate.edu (no program list link; pages found from the home page)"
+   "detected": "CourseLeaf-style catalog on catalog.iastate.edu (no program list link; pages found from the home page); reviewed 2026-10-06: no sitemap; majors are listed on /collegescurricula/"
   },
   {
    "institution_key": "ipeds-153834",
@@ -200,10 +202,11 @@
     "min_depth": 1,
     "path_prefix": "/",
     "platform": "courseleaf",
-    "program_lists": []
+    "program_lists": [],
+    "sitemap_program": "catalog\\.uni\\.edu/(chas|csbs|coe|wilson)/[a-z]+(ba|bs|bfa|bm|bae|bas|bsw|bme|bsn)/$"
    },
    "policy": [],
-   "detected": "CourseLeaf-style catalog on catalog.uni.edu (no program list link; pages found from the home page)"
+   "detected": "CourseLeaf-style catalog on catalog.uni.edu (no program list link; pages found from the home page); reviewed 2026-10-06: program pages carry the award glued to the slug (artstudiobfa, arthistoryba)"
   },
   {
    "institution_key": "ipeds-154527",
