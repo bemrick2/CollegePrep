@@ -376,6 +376,41 @@ last 30 hours in residence at the university.</p>"""
             '<title>Transfer</title><p>Transfer credit is evaluated for high school courses for which advanced standing was granted and a grade '
             'of "B" or better was earned.</p>'), '2026-27'), [])
 
+    def test_mn_r1_rules(self):
+        """MN r1: one-rate and Midwest-exchange residency labels, SMSU's one-semester total, Minnesota State's
+        program-scoped C rules, Minnesota West's petition/course GPA lines, deadline rows and exam-credit pages."""
+        self.assertEqual(costs.residency('mn resident & non resident', 'MN'), 'not_applicable')
+        self.assertEqual(costs.residency('smsu does not charge out-of-state tuition', 'MN'), 'not_applicable')
+        self.assertEqual(costs.residency('no out-state tuition rates', 'MN'), 'not_applicable')
+        self.assertEqual(costs.residency('midwest nonresident', 'MN'), 'named_other_state')
+        self.assertEqual(costs.residency('residents of other states', 'MN'), 'out_of_state')
+        self.assertEqual(costs.residency('nonresident', 'MN'), 'out_of_state')
+        rows = [['Tuition and Fees (at 12-18 credits)', '$5,758'], ['Housing and Food Estimate', '$5,925'],
+                ['Total Estimated Charges for One Semester', '$11,683']]
+        lead = 'The following figures represent estimated costs for two semesters during the 2026-2027 academic year.'
+        p = T.Page('', 'Budget', [{'heading': 'Cost of Attendance', 'caption': '', 'lead': lead, 'rows': rows}], [], [])
+        self.assertTrue(all('cost_period_semester' in c['issues'] for c in costs.extract(INST, ENTRY, p, '2026-27')))
+        rows[-1] = ['Total Estimated Charges', '$11,683']
+        p = T.Page('', 'Budget', [{'heading': 'Cost of Attendance', 'caption': '', 'lead': lead, 'rows': rows}], [], [])
+        got = costs.extract(INST, ENTRY, p, '2026-27')
+        self.assertTrue(got and all('cost_period_semester' not in c['issues'] for c in got))
+        for s in ['While D grades transfer, some specialized/ occupational/technical programs require courses to have a grade of C or higher to fulfill requirements.',
+                  'Health programs require a grade of C or better in all courses, therefore grades of C- or below do not count.',
+                  'Students planning to transfer and who have made the proper selection of course work, and maintained grades of "C" or better, may expect to transfer without loss of credit.']:
+            self.assertEqual(transfer.extract(INST, ENTRY, T.parse_html('<title>Transfer</title><p>%s</p>' % s), '2026-27'), [], s)
+        [c] = transfer.extract(INST, ENTRY, T.parse_html('<title>Transfer</title><p>Only courses in which students earn a grade of C- or better may be transferred.</p>'), '2026-27')
+        self.assertEqual(c['record']['min_grade'], 'C-')
+        [c] = self._de('<h1>PSEO</h1><ul><li>HS GPA of 2.0 or higher</li><li>If the 2.0 GPA isn\'t met, a petition form may be completed with an advisor</li>'
+                       '<li>Course requirements for reading-based courses (2.6 GPA)</li></ul>')
+        self.assertEqual([t['min_hs_gpa'] for t in c['record']['dual_enrollment']['eligibility_tiers']], [2.0])
+        table = ('<h2>Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th></tr><tr><td>October 1</td><td>$1,000</td></tr>'
+                 '<tr><td>Dean Award</td><td>$1,932</td></tr><tr><td>Honor Award</td><td>$791</td></tr></table>')
+        names = [c['record']['award_name'] for c in merit.extract(INST, ENTRY, T.parse_html('<title>Scholarships</title>' + table), '2026-27')]
+        self.assertIn('Dean Award', names)
+        self.assertNotIn('October 1', names)
+        for title in ['International Baccalaureate Course Awards', 'CLEP Credit', 'College-Level Examination Program']:
+            self.assertEqual(merit.extract(INST, ENTRY, T.parse_html('<title>%s</title>' % title + table), '2026-27'), [], title)
+
     def test_tx_r1_rules(self):
         """TX r1: annual/four-year pairs, fall/spring splits, Yes/No and e-mail cells, AP credit tables; 'not living at
         home', 'At-Home' and a per-semester lead; residency 'N semester credit hours of the last M' and scoped caps."""
@@ -491,6 +526,10 @@ last 30 hours in residence at the university.</p>"""
         self.assertEqual(c['record']['min_grade'], 'C')
         [c] = self._de('<p>Have a cumulative high school GPA of 2.5 to enroll in dual credit.</p>'
                        '<p>Dual Credit students wanting to take more than 18 hours must file a petition to overload with a 3.0 GPA.</p>')
+        self.assertEqual([t['min_hs_gpa'] for t in c['record']['dual_enrollment']['eligibility_tiers']], [2.5])
+        # "overload" on its own (no "petition", which MN r1 also excludes) is still not eligibility.
+        [c] = self._de('<p>Have a cumulative high school GPA of 2.5 to enroll in dual credit.</p>'
+                       '<p>Dual Credit students may take a course overload with a 3.0 GPA.</p>')
         self.assertEqual([t['min_hs_gpa'] for t in c['record']['dual_enrollment']['eligibility_tiers']], [2.5])
 
     def test_co_r1_rules(self):

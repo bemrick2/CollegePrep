@@ -79,7 +79,12 @@ def residency(h, home=None, private=False):
     'Ohio and Indiana residents' on a Kentucky page is a reciprocity rate, not in-state tuition.
     'Resident' next to student/budget/hall or opposite 'commuter' is housing (KY: Union, Campbellsville,
     Lindsey Wilson), and a bare 'resident' never means in-state at a private college."""
-    if re.search(r'out[- ]of[- ]state|non-?\s?resident', h, re.I): return 'out_of_state'
+    # MN: "MN Resident & Non Resident" (UMN Crookston) and "SMSU does not charge out-of-state tuition" are one rate for all.
+    if re.search(r'\bno\s+out[- ](?:of[- ])?state|\bnot\s+charge\s+out[- ]of[- ]state|'
+                 r'\bresidents?\s*(?:&|and|/)\s*non-?\s?residents?', h, re.I): return 'not_applicable'
+    # MN (UMN Duluth): "Midwest nonresident" is the MSEP exchange rate for listed states, not the out-of-state rate.
+    if re.search(r'\b(?:midwest|msep|wue|reciprocity)\W+non-?\s?resident', h, re.I): return 'named_other_state'
+    if re.search(r'out[- ]of[- ]state|non-?\s?resident|\bresidents?\s+of\s+other\s+states', h, re.I): return 'out_of_state'
     named = [(m.group(1), re.sub(r'\s+', ' ', m.group(2).lower())) for m in NAMED_STATE.finditer(h)
              if not (m.group(2).lower() == 'virginia' and re.search(r'west\s+$', h[:m.start()], re.I))]
     if named:
@@ -277,6 +282,9 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
             semester_only = False
         else:
             issues.append('multiple_total_rows')
+    # MN (SMSU): a lone "Total Estimated Charges for One Semester" row overrides a lead about two semesters.
+    if len(totals) == 1 and re.search(r'\b(?:one|single|per)\s+(?:semester|term)\b', totals[0][1], re.I):
+        semester_only = True
     if semester_only: issues.append('cost_period_semester')
     private = inst.get('control') == 'private_nonprofit'
     # Page titles often end with an address ("Lewis & Clark, Portland, Oregon"): state names there are not residency.
