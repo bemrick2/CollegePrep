@@ -1,0 +1,148 @@
+{
+ "state": "WV",
+ "academic_year": "2026-27",
+ "institutions": 28,
+ "status_order": [
+  "verified_current",
+  "partially_verified_current",
+  "candidate_ready",
+  "candidate_exception",
+  "source_found",
+  "not_found",
+  "fetch_failed"
+ ],
+ "by_category": {
+  "admissions_tests": {
+   "fetch_failed": 7,
+   "not_found": 1,
+   "source_found": 20
+  },
+  "aid_appeals": {
+   "candidate_exception": 15,
+   "fetch_failed": 7,
+   "not_found": 2,
+   "source_found": 4
+  },
+  "ap_credit": {
+   "candidate_exception": 3,
+   "candidate_ready": 1,
+   "fetch_failed": 7,
+   "not_found": 11,
+   "source_found": 6
+  },
+  "clep_credit": {
+   "candidate_ready": 1,
+   "fetch_failed": 7,
+   "not_found": 18,
+   "source_found": 2
+  },
+  "common_data_set": {
+   "fetch_failed": 7,
+   "not_found": 15,
+   "source_found": 6
+  },
+  "cost_of_attendance": {
+   "candidate_exception": 3,
+   "candidate_ready": 6,
+   "fetch_failed": 7,
+   "source_found": 12
+  },
+  "degree_requirements": {
+   "candidate_exception": 1,
+   "fetch_failed": 7,
+   "not_found": 3,
+   "source_found": 17
+  },
+  "dual_enrollment": {
+   "candidate_ready": 1,
+   "fetch_failed": 7,
+   "not_found": 7,
+   "source_found": 13
+  },
+  "ib_credit": {
+   "candidate_exception": 1,
+   "candidate_ready": 1,
+   "fetch_failed": 7,
+   "not_found": 18,
+   "source_found": 1
+  },
+  "merit_scholarships": {
+   "candidate_exception": 1,
+   "candidate_ready": 2,
+   "fetch_failed": 7,
+   "source_found": 18
+  },
+  "residency": {
+   "fetch_failed": 7,
+   "not_found": 3,
+   "source_found": 18
+  },
+  "statewide_articulation": {
+   "fetch_failed": 7,
+   "not_found": 12,
+   "source_found": 9
+  },
+  "transfer_credit": {
+   "candidate_exception": 1,
+   "candidate_ready": 8,
+   "fetch_failed": 7,
+   "source_found": 12
+  },
+  "tuition_fees": {
+   "candidate_exception": 7,
+   "candidate_ready": 8,
+   "fetch_failed": 7,
+   "source_found": 6
+  }
+ },
+ "totals": {
+  "candidate_exception": 32,
+  "candidate_ready": 28,
+  "fetch_failed": 98,
+  "not_found": 90,
+  "source_found": 144
+ },
+ "statewide_sources": {
+  "categories": {
+   "admissions_tests": 2,
+   "aid_appeals": 0,
+   "ap_credit": 0,
+   "clep_credit": 0,
+   "common_data_set": 0,
+   "cost_of_attendance": 0,
+   "degree_requirements": 0,
+   "dual_enrollment": 0,
+   "ib_credit": 0,
+   "merit_scholarships": 1,
+   "residency": 0,
+   "statewide_articulation": 0,
+   "transfer_credit": 0,
+   "tuition_fees": 0
+  },
+  "fetch_failures": 0,
+  "pages_fetched": 2
+ },
+ "blocked_institutions": [
+  "ipeds-237136",
+  "ipeds-237181",
+  "ipeds-237385",
+  "ipeds-237437",
+  "ipeds-446774",
+  "ipeds-447582",
+  "ipeds-475398"
+ ],
+ "quality": {
+  "ambiguous_years": 5,
+  "blocked_requests": 182,
+  "candidates": 332,
+  "conflicts": 37,
+  "documents": 1135,
+  "extraction_failures": 0,
+  "fetch_errors": 199,
+  "fetches": 1516,
+  "ready": 169,
+  "semantic_review": 63,
+  "stale_sources": 225
+ },
+ "run": "pipeline/runs/WV/2026-10-06"
+}

@@ -1,0 +1,140 @@
+{
+ "state": "RI",
+ "academic_year": "2026-27",
+ "institutions": 13,
+ "status_order": [
+  "verified_current",
+  "partially_verified_current",
+  "candidate_ready",
+  "candidate_exception",
+  "source_found",
+  "not_found",
+  "fetch_failed"
+ ],
+ "by_category": {
+  "admissions_tests": {
+   "candidate_ready": 1,
+   "fetch_failed": 1,
+   "source_found": 11
+  },
+  "aid_appeals": {
+   "candidate_exception": 7,
+   "fetch_failed": 1,
+   "not_found": 4,
+   "source_found": 1
+  },
+  "ap_credit": {
+   "candidate_exception": 1,
+   "fetch_failed": 1,
+   "not_found": 6,
+   "source_found": 5
+  },
+  "clep_credit": {
+   "candidate_exception": 1,
+   "fetch_failed": 1,
+   "not_found": 8,
+   "source_found": 3
+  },
+  "common_data_set": {
+   "candidate_ready": 1,
+   "fetch_failed": 1,
+   "not_found": 11
+  },
+  "cost_of_attendance": {
+   "candidate_exception": 2,
+   "candidate_ready": 1,
+   "fetch_failed": 1,
+   "not_found": 1,
+   "source_found": 8
+  },
+  "degree_requirements": {
+   "candidate_ready": 1,
+   "fetch_failed": 1,
+   "not_found": 7,
+   "source_found": 4
+  },
+  "dual_enrollment": {
+   "candidate_ready": 2,
+   "fetch_failed": 1,
+   "not_found": 6,
+   "source_found": 4
+  },
+  "ib_credit": {
+   "fetch_failed": 1,
+   "not_found": 11,
+   "source_found": 1
+  },
+  "merit_scholarships": {
+   "candidate_ready": 1,
+   "fetch_failed": 1,
+   "not_found": 2,
+   "source_found": 9
+  },
+  "residency": {
+   "fetch_failed": 1,
+   "not_found": 3,
+   "source_found": 9
+  },
+  "statewide_articulation": {
+   "fetch_failed": 1,
+   "not_found": 7,
+   "source_found": 5
+  },
+  "transfer_credit": {
+   "candidate_ready": 6,
+   "fetch_failed": 1,
+   "not_found": 1,
+   "source_found": 5
+  },
+  "tuition_fees": {
+   "candidate_exception": 6,
+   "candidate_ready": 4,
+   "fetch_failed": 1,
+   "source_found": 2
+  }
+ },
+ "totals": {
+  "candidate_exception": 17,
+  "candidate_ready": 17,
+  "fetch_failed": 14,
+  "not_found": 67,
+  "source_found": 67
+ },
+ "statewide_sources": {
+  "categories": {
+   "admissions_tests": 0,
+   "aid_appeals": 0,
+   "ap_credit": 0,
+   "clep_credit": 0,
+   "common_data_set": 0,
+   "cost_of_attendance": 0,
+   "degree_requirements": 0,
+   "dual_enrollment": 0,
+   "ib_credit": 0,
+   "merit_scholarships": 0,
+   "residency": 0,
+   "statewide_articulation": 0,
+   "transfer_credit": 0,
+   "tuition_fees": 1
+  },
+  "fetch_failures": 0,
+  "pages_fetched": 1
+ },
+ "blocked_institutions": [
+  "ipeds-460349"
+ ],
+ "quality": {
+  "ambiguous_years": 2,
+  "blocked_requests": 17,
+  "candidates": 189,
+  "conflicts": 15,
+  "documents": 880,
+  "extraction_failures": 0,
+  "fetch_errors": 16,
+  "fetches": 913,
+  "ready": 122,
+  "semantic_review": 16,
+  "stale_sources": 14
+ },
+ "run": "pipeline/runs/RI/2026-10-06"
+}
