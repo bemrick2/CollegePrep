@@ -460,6 +460,9 @@ last 30 hours in residence at the university.</p>"""
         rows = [['', 'Amount'], ['University Tuition & Fees', '$41,120'], ['Less: Post-9/11 GI Bill', '$28,937'], ['Housing', '$8,000'], ['Amount Student Owes', '$0']]
         p = T.Page('', 'Military Aid', [{'heading': 'Example 2026-27', 'caption': '', 'lead': '', 'rows': rows}], [], [])
         self.assertEqual(costs.extract(INST, ENTRY, p, '2026-27'), [])
+        # The GI Bill rows alone (no "example" heading or military title, which later rules also exclude) still drop the table.
+        p = T.Page('', 'Costs', [{'heading': 'Cost of Attendance 2026-27', 'caption': '', 'lead': '', 'rows': rows}], [], [])
+        self.assertEqual(costs.extract(INST, ENTRY, p, '2026-27'), [])
         url = {**ENTRY, 'url': 'https://catalog.example.edu/undergraduate/science/biology/biology-bs/'}
         raw = (FIX / 'courseleaf_program.html').read_bytes()
         self.assertTrue(catalog.extract(INST, url, T.parse_html(raw, 'https://x'), '2026-27'))

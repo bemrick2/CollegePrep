@@ -1,0 +1,877 @@
+{
+ "state": "MN",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-173045",
+   "folder": "augsburg",
+   "name": "Augsburg University",
+   "control": "private_nonprofit",
+   "domains": [
+    "augsburg.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://web.augsburg.edu/registrar/catalog/2026-27-Course-Descriptions.pdf"
+    ],
+    "home": "https://web.augsburg.edu/registrar/catalog/2026-27-Course-Descriptions.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-173258",
+   "folder": "carleton",
+   "name": "Carleton College",
+   "control": "private_nonprofit",
+   "domains": [
+    "carleton.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.carleton.edu/",
+    "https://catalog.carleton.edu/",
+    "https://www.carleton.edu/academics/",
+    "https://www.carleton.edu/registrar/",
+    "https://www.carleton.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-174358",
+   "folder": "mnstate",
+   "name": "Minnesota State University Moorhead",
+   "control": "public",
+   "domains": [
+    "mnstate.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.mnstate.edu/",
+    "https://catalog.mnstate.edu/",
+    "https://www.mnstate.edu/academics/",
+    "https://www.mnstate.edu/registrar/",
+    "https://www.mnstate.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-173920",
+   "folder": "mnsu",
+   "name": "Minnesota State University-Mankato",
+   "control": "public",
+   "domains": [
+    "mnsu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://mnsu.edu/",
+    "https://catalog.mnsu.edu/",
+    "https://www.mnsu.edu/academics/",
+    "https://www.mnsu.edu/registrar/",
+    "https://www.mnsu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-174783",
+   "folder": "stcloudstate",
+   "name": "Saint Cloud State University",
+   "control": "public",
+   "domains": [
+    "stcloudstate.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.stcloudstate.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.stcloudstate.edu/programs",
+     "https://catalog.stcloudstate.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.stcloudstate.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.stcloudstate.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.stcloudstate.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.stcloudstate.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.stcloudstate.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.stcloudstate.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.stcloudstate.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.stcloudstate.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.stcloudstate.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.stcloudstate.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.stcloudstate.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.stcloudstate.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.stcloudstate.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.stcloudstate.edu (5 links)"
+  },
+  {
+   "institution_key": "ipeds-174844",
+   "folder": "stolaf",
+   "name": "St Olaf College",
+   "control": "private_nonprofit",
+   "domains": [
+    "stolaf.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.stolaf.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.stolaf.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-174233",
+   "folder": "umn-174233",
+   "name": "University of Minnesota-Duluth",
+   "control": "public",
+   "domains": [
+    "umn.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.d.umn.edu/",
+    "https://catalog.umn.edu/",
+    "https://www.umn.edu/academics/",
+    "https://www.umn.edu/registrar/",
+    "https://www.umn.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-174066",
+   "folder": "umn-174066",
+   "name": "University of Minnesota-Twin Cities",
+   "control": "public",
+   "domains": [
+    "umn.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://twin-cities.umn.edu/",
+    "https://catalog.umn.edu/",
+    "https://www.umn.edu/academics/",
+    "https://www.umn.edu/registrar/",
+    "https://www.umn.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-174914",
+   "folder": "stthomas",
+   "name": "University of St Thomas",
+   "control": "private_nonprofit",
+   "domains": [
+    "stthomas.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.stthomas.edu/_media-library/_documents/catalog/stthomas-ug-catalog-2025-2026.pdf"
+    ],
+    "home": "https://www.stthomas.edu/_media-library/_documents/catalog/stthomas-ug-catalog-2025-2026.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
+  },
+  {
+   "institution_key": "ipeds-175272",
+   "folder": "winona",
+   "name": "Winona State University",
+   "control": "public",
+   "domains": [
+    "winona.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 41,
+    "home": "https://catalog.winona.edu/index.php?catoid=41",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.winona.edu/content.php?catoid=41&navoid=8029"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 41 on catalog.winona.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-173124",
+   "folder": "bemidjistate",
+   "name": "Bemidji State University",
+   "control": "public",
+   "domains": [
+    "bemidjistate.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.bemidjistate.edu/",
+    "https://catalog.bemidjistate.edu/",
+    "https://www.bemidjistate.edu/academics/",
+    "https://www.bemidjistate.edu/registrar/",
+    "https://www.bemidjistate.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-173142",
+   "folder": "blc",
+   "name": "Bethany Lutheran College",
+   "control": "private_nonprofit",
+   "domains": [
+    "blc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.blc.edu/",
+    "https://catalog.blc.edu/",
+    "https://www.blc.edu/academics/",
+    "https://www.blc.edu/registrar/",
+    "https://www.blc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-173160",
+   "folder": "bethel",
+   "name": "Bethel University",
+   "control": "private_nonprofit",
+   "domains": [
+    "bethel.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.bethel.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.bethel.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-174747",
+   "folder": "csbsju-174747",
+   "name": "College of Saint Benedict",
+   "control": "private_nonprofit",
+   "domains": [
+    "csbsju.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://csbsju.edu/",
+    "https://catalog.csbsju.edu/",
+    "https://www.csbsju.edu/academics/",
+    "https://www.csbsju.edu/registrar/",
+    "https://www.csbsju.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-173300",
+   "folder": "concordiacollege",
+   "name": "Concordia College at Moorhead",
+   "control": "private_nonprofit",
+   "domains": [
+    "concordiacollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.concordiacollege.edu/",
+    "https://catalog.concordiacollege.edu/",
+    "https://www.concordiacollege.edu/academics/",
+    "https://www.concordiacollege.edu/registrar/",
+    "https://www.concordiacollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-173328",
+   "folder": "csp",
+   "name": "Concordia University-Saint Paul",
+   "control": "private_nonprofit",
+   "domains": [
+    "csp.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.csp.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.csp.edu/undergraduate/majors/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.csp.edu (program list https://catalog.csp.edu/undergraduate/majors/)"
+  },
+  {
+   "institution_key": "ipeds-174862",
+   "folder": "crown",
+   "name": "Crown College",
+   "control": "private_nonprofit",
+   "domains": [
+    "crown.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 37,
+    "home": "https://catalog.crown.edu/index.php?catoid=37",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.crown.edu/content.php?catoid=37&navoid=1346",
+     "https://catalog.crown.edu/content.php?catoid=37&navoid=1417"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 37 on catalog.crown.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-175227",
+   "folder": "dunwoody",
+   "name": "Dunwoody College of Technology",
+   "control": "private_nonprofit",
+   "domains": [
+    "dunwoody.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.dunwoody.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.dunwoody.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-173647",
+   "folder": "gustavus",
+   "name": "Gustavus Adolphus College",
+   "control": "private_nonprofit",
+   "domains": [
+    "gustavus.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.gustavus.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.gustavus.edu/programs"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.gustavus.edu (program list https://catalog.gustavus.edu/programs)"
+  },
+  {
+   "institution_key": "ipeds-173665",
+   "folder": "hamline",
+   "name": "Hamline University",
+   "control": "private_nonprofit",
+   "domains": [
+    "hamline.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 42,
+    "home": "https://bulletin.hamline.edu/index.php?catoid=42",
+    "platform": "acalog",
+    "program_lists": [
+     "https://bulletin.hamline.edu/content.php?catoid=42&navoid=2431",
+     "https://bulletin.hamline.edu/content.php?catoid=42&navoid=2441",
+     "https://bulletin.hamline.edu/content.php?catoid=42&navoid=2470"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 42 on bulletin.hamline.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-173902",
+   "folder": "macalester",
+   "name": "Macalester College",
+   "control": "private_nonprofit",
+   "domains": [
+    "macalester.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.macalester.edu/",
+    "https://catalog.macalester.edu/",
+    "https://www.macalester.edu/academics/",
+    "https://www.macalester.edu/registrar/",
+    "https://www.macalester.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-174437",
+   "folder": "northcentral",
+   "name": "North Central University",
+   "control": "private_nonprofit",
+   "domains": [
+    "northcentral.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.northcentral.edu/wp-content/uploads/2026/09/2025-26-Academic-Catalog-1.pdf"
+    ],
+    "home": "https://www.northcentral.edu/wp-content/uploads/2026/09/2025-26-Academic-Catalog-1.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
+  },
+  {
+   "institution_key": "ipeds-174792",
+   "folder": "csbsju-174792",
+   "name": "Saint Johns University",
+   "control": "private_nonprofit",
+   "domains": [
+    "csbsju.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://csbsju.edu/",
+    "https://catalog.csbsju.edu/",
+    "https://www.csbsju.edu/academics/",
+    "https://www.csbsju.edu/registrar/",
+    "https://www.csbsju.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-174817",
+   "folder": "smumn",
+   "name": "Saint Mary's University of Minnesota",
+   "control": "private_nonprofit",
+   "domains": [
+    "smumn.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 47,
+    "home": "https://catalog.smumn.edu/index.php?catoid=47",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.smumn.edu/content.php?catoid=47&navoid=2269"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 47 on catalog.smumn.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-175078",
+   "folder": "smsu",
+   "name": "Southwest Minnesota State University",
+   "control": "public",
+   "domains": [
+    "smsu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.smsu.edu/",
+    "https://catalog.smsu.edu/",
+    "https://www.smsu.edu/academics/",
+    "https://www.smsu.edu/registrar/",
+    "https://www.smsu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-175005",
+   "folder": "stkate",
+   "name": "St Catherine University",
+   "control": "private_nonprofit",
+   "domains": [
+    "stkate.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.stkate.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.stkate.edu/undergraduate/programs-of-study/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.stkate.edu (program list https://catalog.stkate.edu/undergraduate/programs-of-study/)"
+  },
+  {
+   "institution_key": "ipeds-174899",
+   "folder": "css",
+   "name": "The College of Saint Scholastica",
+   "control": "private_nonprofit",
+   "domains": [
+    "css.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.css.edu/",
+    "https://catalog.css.edu/",
+    "https://www.css.edu/academics/",
+    "https://www.css.edu/registrar/",
+    "https://www.css.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-174075",
+   "folder": "crk",
+   "name": "University of Minnesota-Crookston",
+   "control": "public",
+   "domains": [
+    "umn.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://crk.umn.edu/",
+    "https://catalog.umn.edu/",
+    "https://www.umn.edu/academics/",
+    "https://www.umn.edu/registrar/",
+    "https://www.umn.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-174251",
+   "folder": "morris",
+   "name": "University of Minnesota-Morris",
+   "control": "public",
+   "domains": [
+    "umn.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://morris.umn.edu/",
+    "https://catalog.umn.edu/",
+    "https://www.umn.edu/academics/",
+    "https://www.umn.edu/registrar/",
+    "https://www.umn.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-174491",
+   "folder": "unwsp",
+   "name": "University of Northwestern-St Paul",
+   "control": "private_nonprofit",
+   "domains": [
+    "unwsp.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.unwsp.edu/",
+    "https://catalog.unwsp.edu/",
+    "https://www.unwsp.edu/academics/",
+    "https://www.unwsp.edu/registrar/",
+    "https://www.unwsp.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-486284",
+   "folder": "bethanygu",
+   "name": "Bethany Global University",
+   "control": "private_nonprofit",
+   "domains": [
+    "bethanygu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://bethanygu.edu/",
+    "https://catalog.bethanygu.edu/",
+    "https://www.bethanygu.edu/academics/",
+    "https://www.bethanygu.edu/registrar/",
+    "https://www.bethanygu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-486053",
+   "folder": "bcsmn",
+   "name": "Bethlehem College & Seminary",
+   "control": "private_nonprofit",
+   "domains": [
+    "bcsmn.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://bcsmn.edu/wp-content/uploads/2021/10/acadCatalog_MN21-22_V2.pdf"
+    ],
+    "home": "https://bcsmn.edu/wp-content/uploads/2021/10/acadCatalog_MN21-22_V2.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2021-2022"
+  },
+  {
+   "institution_key": "ipeds-380368",
+   "folder": "fdltcc",
+   "name": "Fond du Lac Tribal and Community College",
+   "control": "public",
+   "domains": [
+    "fdltcc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://fdltcc.edu/wp-lib/wp-content/uploads/2026/08/FDLTCC-26-27-College-Catalog-Final-8.11.26.pdf"
+    ],
+    "home": "https://fdltcc.edu/wp-lib/wp-content/uploads/2026/08/FDLTCC-26-27-College-Catalog-Final-8.11.26.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-174154",
+   "folder": "herzing",
+   "name": "Herzing University-Minneapolis",
+   "control": "private_nonprofit",
+   "domains": [
+    "herzing.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 84,
+    "home": "https://catalog.herzing.edu/index.php?catoid=84",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.herzing.edu/content.php?catoid=84&navoid=7551"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 84 on catalog.herzing.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-173452",
+   "folder": "mlc-wels",
+   "name": "Martin Luther College",
+   "control": "private_nonprofit",
+   "domains": [
+    "mlc-wels.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.mlc-wels.edu/",
+    "https://catalog.mlc-wels.edu/",
+    "https://www.mlc-wels.edu/academics/",
+    "https://www.mlc-wels.edu/registrar/",
+    "https://www.mlc-wels.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-173957",
+   "folder": "mayo",
+   "name": "Mayo Clinic College of Medicine and Science",
+   "control": "private_nonprofit",
+   "domains": [
+    "mayo.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://college.mayo.edu/",
+    "https://catalog.mayo.edu/",
+    "https://www.mayo.edu/academics/",
+    "https://www.mayo.edu/registrar/",
+    "https://www.mayo.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-174020",
+   "folder": "metrostate",
+   "name": "Metropolitan State University",
+   "control": "public",
+   "domains": [
+    "metrostate.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.metrostate.edu/",
+    "https://catalog.metrostate.edu/",
+    "https://www.metrostate.edu/academics/",
+    "https://www.metrostate.edu/registrar/",
+    "https://www.metrostate.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-174127",
+   "folder": "mcad",
+   "name": "Minneapolis College of Art and Design",
+   "control": "private_nonprofit",
+   "domains": [
+    "mcad.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://mcad.edu/",
+    "https://catalog.mcad.edu/",
+    "https://www.mcad.edu/academics/",
+    "https://www.mcad.edu/registrar/",
+    "https://www.mcad.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-174507",
+   "folder": "nwhealth",
+   "name": "Northwestern Health Sciences University",
+   "control": "private_nonprofit",
+   "domains": [
+    "nwhealth.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.nwhealth.edu/",
+    "https://catalog.nwhealth.edu/",
+    "https://www.nwhealth.edu/academics/",
+    "https://www.nwhealth.edu/registrar/",
+    "https://www.nwhealth.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-174525",
+   "folder": "oakhills",
+   "name": "Oak Hills Christian College",
+   "control": "private_nonprofit",
+   "domains": [
+    "oakhills.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.oakhills.edu/",
+    "https://catalog.oakhills.edu/",
+    "https://www.oakhills.edu/academics/",
+    "https://www.oakhills.edu/registrar/",
+    "https://www.oakhills.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-456959",
+   "folder": "onestop",
+   "name": "University of Minnesota-Rochester",
+   "control": "public",
+   "domains": [
+    "umn.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://r.umn.edu/",
+    "https://catalog.umn.edu/",
+    "https://www.umn.edu/academics/",
+    "https://www.umn.edu/registrar/",
+    "https://www.umn.edu/catalog/"
+   ],
+   "policy": []
+  }
+ ]
+}

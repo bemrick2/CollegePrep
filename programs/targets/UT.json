@@ -1,0 +1,320 @@
+{
+ "state": "UT",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-230038",
+   "folder": "byu",
+   "name": "Brigham Young University",
+   "control": "private_nonprofit",
+   "domains": [
+    "byu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.byu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.byu.edu/programs"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.byu.edu (program list https://catalog.byu.edu/programs)"
+  },
+  {
+   "institution_key": "ipeds-230418",
+   "folder": "ensign",
+   "name": "Ensign College",
+   "control": "private_nonprofit",
+   "domains": [
+    "ensign.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.ensign.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.ensign.edu/programs",
+     "https://catalog.ensign.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.ensign.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.ensign.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.ensign.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.ensign.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.ensign.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.ensign.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.ensign.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.ensign.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.ensign.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.ensign.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.ensign.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.ensign.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.ensign.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.ensign.edu (10 links)"
+  },
+  {
+   "institution_key": "ipeds-480985",
+   "folder": "midwifery",
+   "name": "Midwives College of Utah",
+   "control": "private_nonprofit",
+   "domains": [
+    "midwifery.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.midwifery.edu/wordpress/wp-content/uploads/2026/07/2026-2027-Course-Catalog-6.2026-Megan-Koontz.pdf"
+    ],
+    "home": "https://www.midwifery.edu/wordpress/wp-content/uploads/2026/07/2026-2027-Course-Catalog-6.2026-Megan-Koontz.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-230597",
+   "folder": "snow",
+   "name": "Snow College",
+   "control": "public",
+   "domains": [
+    "snow.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.snow.edu/",
+    "https://catalog.snow.edu/",
+    "https://www.snow.edu/academics/",
+    "https://www.snow.edu/registrar/",
+    "https://www.snow.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-230603",
+   "folder": "suu",
+   "name": "Southern Utah University",
+   "control": "public",
+   "domains": [
+    "suu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 28,
+    "home": "https://catalog.suu.edu/index.php?catoid=28",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.suu.edu/content.php?catoid=28&navoid=5736",
+     "https://catalog.suu.edu/content.php?catoid=28&navoid=5738"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 28 on catalog.suu.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-230764",
+   "folder": "utah",
+   "name": "University of Utah",
+   "control": "public",
+   "domains": [
+    "utah.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.utah.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.utah.edu/programs"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.utah.edu (program list https://catalog.utah.edu/programs)"
+  },
+  {
+   "institution_key": "ipeds-230728",
+   "folder": "usu",
+   "name": "Utah State University",
+   "control": "public",
+   "domains": [
+    "usu.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.usu.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.usu.edu/programs",
+     "https://catalog.usu.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.usu.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.usu.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.usu.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.usu.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.usu.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.usu.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.usu.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.usu.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.usu.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.usu.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.usu.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.usu.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.usu.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.usu.edu (120 links)"
+  },
+  {
+   "institution_key": "ipeds-230171",
+   "folder": "utahtech",
+   "name": "Utah Tech University",
+   "control": "public",
+   "domains": [
+    "utahtech.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.utahtech.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.utahtech.edu/programs",
+     "https://catalog.utahtech.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.utahtech.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.utahtech.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.utahtech.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.utahtech.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.utahtech.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.utahtech.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.utahtech.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.utahtech.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.utahtech.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.utahtech.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.utahtech.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.utahtech.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.utahtech.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.utahtech.edu (53 links)"
+  },
+  {
+   "institution_key": "ipeds-230737",
+   "folder": "uvu",
+   "name": "Utah Valley University",
+   "control": "public",
+   "domains": [
+    "uvu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.uvu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.uvu.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.uvu.edu (program list https://catalog.uvu.edu/programs/)"
+  },
+  {
+   "institution_key": "ipeds-230807",
+   "folder": "westminstercollege",
+   "name": "Westminster University",
+   "control": "private_nonprofit",
+   "domains": [
+    "westminstercollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.westminstercollege.edu/",
+    "https://catalog.westminstercollege.edu/",
+    "https://www.westminstercollege.edu/academics/",
+    "https://www.westminstercollege.edu/registrar/",
+    "https://www.westminstercollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-230782",
+   "folder": "weber",
+   "name": "Weber State University",
+   "control": "public",
+   "domains": [
+    "weber.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 24,
+    "home": "https://catalog.weber.edu/index.php?catoid=24",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 24 on catalog.weber.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-433387",
+   "folder": "wgu",
+   "name": "Western Governors University",
+   "control": "private_nonprofit",
+   "domains": [
+    "wgu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.wgu.edu/",
+    "https://catalog.wgu.edu/",
+    "https://www.wgu.edu/academics/",
+    "https://www.wgu.edu/registrar/",
+    "https://www.wgu.edu/catalog/"
+   ],
+   "policy": []
+  }
+ ]
+}

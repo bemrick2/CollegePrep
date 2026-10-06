@@ -112,6 +112,7 @@ class Fetcher:
                 rp.allow_all = True
             else:
                 rp.disallow_all = True  # Unreachable robots: do not crawl that host this run.
+                rp.unreachable = True   # ...and say so: an unreachable host is not a robots refusal
             delay = rp.crawl_delay(USER_AGENT) if status == 200 else None
             if delay:
                 self.gate.set_delay(parts.netloc.lower(), delay)
@@ -119,11 +120,18 @@ class Fetcher:
                 self.robots[origin] = rp
         return rp.can_fetch(USER_AGENT, url)
 
+    def refusal(self, url) -> str:
+        """Why allowed() said no: robots.txt disallows the URL, or the host's robots.txt could not be fetched at all
+        (no DNS, connection refused, 5xx), which usually means the host does not exist or is down."""
+        parts = urlsplit(url)
+        rp = self.robots.get(f'{parts.scheme}://{parts.netloc}')
+        return 'robots_unreachable' if getattr(rp, 'unreachable', False) else 'disallowed_by_robots'
+
     def fetch(self, url):
         if self.gate.stopped(urlsplit(url).netloc.lower()):
             return {'status': None, 'error': 'host_challenge_stop'}, None  # recorded so coverage shows the gap
         if not self.allowed(url):
-            return {'status': None, 'error': 'disallowed_by_robots'}, None
+            return {'status': None, 'error': self.refusal(url)}, None
         status, final, headers, body = self._raw(url)
         meta = {'status': status, 'final_url': final, 'content_type': headers.get('Content-Type', ''),
                 'last_modified': headers.get('Last-Modified'), 'bytes': len(body)}
