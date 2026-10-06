@@ -150,6 +150,43 @@ Institutions in scope: **35** · crawled: **31** · blocked by site: **4** · ru
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-126669`, `ipeds-126748`, `ipeds-127389`, `ipeds-127565`
 
+## CT — 2026-27
+
+Institutions in scope: **27** · crawled: **26** · blocked by site: **1** · run: `pipeline/runs/CT/2026-10-06`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 0 (0%) | 0 | 17 (63%) | 26 (96%) | 0 | 1 |
+| cost_of_attendance | 0 (0%) | 0 | 11 (41%) | 26 (96%) | 0 | 1 |
+| admissions_tests | 0 (0%) | 0 | 0 (0%) | 26 (96%) | 0 | 1 |
+| common_data_set | 0 (0%) | 0 | 0 (0%) | 1 (4%) | 25 | 1 |
+| merit_scholarships | 0 (0%) | 0 | 3 (11%) | 25 (93%) | 1 | 1 |
+| ap_credit | 0 (0%) | 0 | 13 (48%) | 21 (78%) | 5 | 1 |
+| clep_credit | 0 (0%) | 0 | 4 (15%) | 9 (33%) | 17 | 1 |
+| ib_credit | 0 (0%) | 0 | 10 (37%) | 16 (59%) | 10 | 1 |
+| dual_enrollment | 0 (0%) | 0 | 1 (4%) | 18 (67%) | 8 | 1 |
+| transfer_credit | 0 (0%) | 0 | 6 (22%) | 26 (96%) | 0 | 1 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 10 (37%) | 16 | 1 |
+| residency | 0 (0%) | 0 | 0 (0%) | 15 (56%) | 11 | 1 |
+| degree_requirements | 0 (0%) | 0 | 1 (4%) | 22 (81%) | 4 | 1 |
+| aid_appeals | 0 (0%) | 0 | 17 (63%) | 21 (78%) | 5 | 1 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 1 |
+| blocked requests | 49 |
+| candidates | 159 |
+| conflicts | 52 |
+| documents | 2079 |
+| extraction failures | 0 |
+| fetch errors | 129 |
+| fetches | 2257 |
+| ready | 34 |
+| semantic review | 58 |
+| stale sources | 40 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-130314`
+
 ## GA — 2026-27
 
 Institutions in scope: **85** · crawled: **76** · blocked by site: **9** · run: `pipeline/runs/GA/2026-10-03`
