@@ -446,6 +446,43 @@ Institutions in scope: **45** · crawled: **33** · blocked by site: **12** · r
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-158431`, `ipeds-159009`, `ipeds-159939`, `ipeds-160579`, `ipeds-160621`, `ipeds-160630`, `ipeds-160649`, `ipeds-160667`, `ipeds-434061`, `ipeds-440271`, `ipeds-483212`, `ipeds-490498`
 
+## MD — 2026-27
+
+Institutions in scope: **46** · crawled: **42** · blocked by site: **4** · run: `pipeline/runs/MD/2026-10-06`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 0 (0%) | 0 | 24 (52%) | 41 (89%) | 1 | 4 |
+| cost_of_attendance | 0 (0%) | 0 | 14 (30%) | 40 (87%) | 2 | 4 |
+| admissions_tests | 0 (0%) | 0 | 2 (4%) | 39 (85%) | 3 | 4 |
+| common_data_set | 0 (0%) | 0 | 2 (4%) | 7 (15%) | 35 | 4 |
+| merit_scholarships | 0 (0%) | 0 | 3 (7%) | 40 (87%) | 2 | 4 |
+| ap_credit | 0 (0%) | 0 | 12 (26%) | 28 (61%) | 14 | 4 |
+| clep_credit | 0 (0%) | 0 | 10 (22%) | 25 (54%) | 17 | 4 |
+| ib_credit | 0 (0%) | 0 | 8 (17%) | 19 (41%) | 23 | 4 |
+| dual_enrollment | 0 (0%) | 0 | 9 (20%) | 31 (67%) | 11 | 4 |
+| transfer_credit | 0 (0%) | 0 | 10 (22%) | 38 (83%) | 4 | 4 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 25 (54%) | 17 | 4 |
+| residency | 0 (0%) | 0 | 0 (0%) | 38 (83%) | 4 | 4 |
+| degree_requirements | 0 (0%) | 0 | 1 (2%) | 34 (74%) | 8 | 4 |
+| aid_appeals | 0 (0%) | 0 | 28 (61%) | 35 (76%) | 7 | 4 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 12 |
+| blocked requests | 118 |
+| candidates | 488 |
+| conflicts | 140 |
+| documents | 3307 |
+| extraction failures | 0 |
+| fetch errors | 295 |
+| fetches | 3720 |
+| ready | 65 |
+| semantic review | 147 |
+| stale sources | 41 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-162210`, `ipeds-163462`, `ipeds-163657`, `ipeds-434937`
+
 ## MI — 2026-27
 
 Institutions in scope: **75** · crawled: **65** · blocked by site: **10** · run: `pipeline/runs/MI/2026-10-05`
