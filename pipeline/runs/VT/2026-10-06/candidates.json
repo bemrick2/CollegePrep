@@ -1,0 +1,3947 @@
+[
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "4ef5f6a7edb9a3f0",
+  "checks": {
+   "columns": 1,
+   "components_reconcile": true,
+   "rows": 7
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $72,924",
+    "value": 72924
+   },
+   {
+    "field": "column:Student Activity Fee",
+    "snippet": "Student Activity Fee | $542",
+    "value": 542
+   },
+   {
+    "field": "column:Living Expenses, including Housing (On-Campus) and Food (Meal Plan)",
+    "snippet": "Living Expenses, including Housing (On-Campus) and Food (Meal Plan) | $20,920",
+    "value": 20920
+   },
+   {
+    "field": "column:Books, Course Materials, Supplies (students receiving need-based financial assistance)",
+    "snippet": "Books, Course Materials, Supplies (students receiving need-based financial assistance) | $1,000",
+    "value": 1000
+   },
+   {
+    "field": "column:Transportation (varies by location)",
+    "snippet": "Transportation (varies by location) | $1,000",
+    "value": 1000
+   },
+   {
+    "field": "column:Miscellaneous Personal Expenses",
+    "snippet": "Miscellaneous Personal Expenses | $1,000",
+    "value": 1000
+   },
+   {
+    "field": "column:Total Cost of Attendance",
+    "snippet": "Total Cost of Attendance | $97,386",
+    "value": 97386
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-230959",
+  "issues": [
+   "conflicting_sources:https://www.middlebury.edu/school-english/admissions/dates-fees"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": 1000,
+   "components": {
+    "Books, Course Materials, Supplies (students receiving need-based financial assistance)": 1000,
+    "Living Expenses, including Housing (On-Campus) and Food (Meal Plan)": 20920,
+    "Miscellaneous Personal Expenses": 1000,
+    "Student Activity Fee": 542,
+    "Total Cost of Attendance": 97386,
+    "Transportation (varies by location)": 1000,
+    "Tuition": 72924
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-230959",
+   "last_verified_at": "2026-10-06",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \" Middlebury College \"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "not_applicable",
+   "source_url": "https://www.middlebury.edu/student-financial-services/tuition-fees-and-payment/tuition-and-fees",
+   "total_cost_of_attendance": 97386,
+   "tuition": 72924,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:37:56+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 06 Oct 2026 04:02:46 GMT",
+   "page_file": "1ee421085a13c7c9bacc.json.gz",
+   "requested_url": "https://www.middlebury.edu/office/student-financial-services/tuition-fees-and-payment/tuition-and-fees",
+   "sha256": "1ee421085a13c7c9bacca7e9e1bc5c69a92292e11c4a66a2d72c13927e48b0e8",
+   "title": "Tuition and Fees | Middlebury",
+   "url": "https://www.middlebury.edu/student-financial-services/tuition-fees-and-payment/tuition-and-fees"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "2e67c573c589b82b",
+  "checks": {
+   "columns": 1,
+   "rows": 5
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "column:Tuition:",
+    "snippet": "Tuition: | $71,700",
+    "value": 71700
+   },
+   {
+    "field": "column:Fees:",
+    "snippet": "Fees: | $1,200*",
+    "value": 1200
+   },
+   {
+    "field": "column:Room:",
+    "snippet": "Room: | $10,800",
+    "value": 10800
+   },
+   {
+    "field": "column:Board:",
+    "snippet": "Board: | $9,300",
+    "value": 9300
+   },
+   {
+    "field": "column:One-Time Fee:",
+    "snippet": "One-Time Fee: | $500",
+    "value": 500
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-230816",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": null,
+   "components": {
+    "Board:": 9300,
+    "Fees:": 1200,
+    "One-Time Fee:": 500,
+    "Room:": 10800,
+    "Tuition:": 71700
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-230816",
+   "last_verified_at": "2026-10-06",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \"2026–2027 Annual Fees and Sample Budget 2026–2027 Annual Fees and Sample Budget \"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "not_applicable",
+   "source_url": "https://www.bennington.edu/admissions/apply/financing-your-education/tuition-and-fees/undergraduate-sample-budget",
+   "student_population": "undergraduate",
+   "total_cost_of_attendance": null,
+   "tuition": 71700,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:37:58+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 06 Oct 2026 03:54:01 GMT",
+   "page_file": "eb7389ee0d81b8a1c6d0.json.gz",
+   "requested_url": "https://www.bennington.edu/admissions/apply/financing-your-education/tuition-and-fees/undergraduate-sample-budget",
+   "sha256": "eb7389ee0d81b8a1c6d08a034598e6e6d0296fad16fe787d080a4f2d19a8e97b",
+   "title": "Undergraduate Sample Budget | Bennington College",
+   "url": "https://www.bennington.edu/admissions/apply/financing-your-education/tuition-and-fees/undergraduate-sample-budget"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "60adb4312b73e45d",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 5
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Appeals Students whose financial aid eligibility is suspended may appeal to have it reinstated by submitting an appeal to the Satisfactory Academic Progress (SAP) Appeals Board.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "The SAP Appeals Board will consider the appeal based on evidence submitted in the full SAP appeal packet.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "The SAP Appeals Board generally reaches decisions to approve or deny appeals within two weeks of being received by the Financial Aid Office.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Multiple appeals may be accepted by the SAP Appeals board, with special consideration given to the circumstances in which their financial aid has been suspended.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "SAP Appeal forms can be found on the Financial Aid Forms page.",
+    "value": "sap_appeal"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-230861",
+  "issues": [
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "appeal_kind": "sap_appeal",
+   "institution_key": "ipeds-230861",
+   "last_verified_at": "2026-10-06",
+   "notes": "Extracted by appeal_sentences/v1; 5 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://ccv.edu/paying-for-ccv/financial-aid/financial-aid-policies/satisfactory-academic-progress/",
+   "process_summary": "Appeals Students whose financial aid eligibility is suspended may appeal to have it reinstated by submitting an appeal to the Satisfactory Academic Progress (SAP) Appeals Board.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://ccv.edu/paying-for-ccv/financial-aid/financial-aid-policies/satisfactory-academic-progress/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:38:00+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "325d776551abb3e7cff5.json.gz",
+   "requested_url": "https://ccv.edu/paying-for-ccv/financial-aid/financial-aid-policies/satisfactory-academic-progress/",
+   "sha256": "325d776551abb3e7cff5a8c6d5cc650dce68f86d5598327f0bd4ae2b0e23e811",
+   "title": "Satisfactory Academic Progress | CCV Financial Aid",
+   "url": "https://ccv.edu/paying-for-ccv/financial-aid/financial-aid-policies/satisfactory-academic-progress/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "cc45ca9d8532ace7",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "SATISFACTORY ACADEMIC PROGRESS APPEAL FORM Appealing as of the end of: _Spring 2026 __ Summer 2026 __ Fall 2026 Name: SMC ID: IMPORTANT INFORMATION REGARDING THE APPEAL PROCESS: • Appeals should be submitted within 30 days of receiving your notification. • You will be notified via your Saint Michael's College email with the decision of your appeal. • If your appeal is approved, you will be placed ",
+    "value": "sap_appeal"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-231059",
+  "issues": [
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "sap_appeal",
+   "institution_key": "ipeds-231059",
+   "last_verified_at": "2026-10-06",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.smcvt.edu/wp-content/uploads/2026/06/SAP-Appeal-Form-2026-2027.pdf",
+   "process_summary": "SATISFACTORY ACADEMIC PROGRESS APPEAL FORM Appealing as of the end of: _Spring 2026 __ Summer 2026 __ Fall 2026 Name: SMC ID: IMPORTANT INFORMATION REGARDING THE APPEAL PROCESS: • Appeals should be submitted within 30 days of receiving your notification. • You will be notified via your Saint Michael's College email with the decision of your appeal. • If your appeal is approved, you will be placed on financial aid probation for the next term of your enrollment.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.smcvt.edu/wp-content/uploads/2026/06/SAP-Appeal-Form-2026-2027.pdf",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:38:00+00:00",
+   "kind": "pdf",
+   "last_modified": "Wed, 24 Jun 2026 12:27:08 GMT",
+   "page_file": "6bdb3ffa14a9d4d712aa.json.gz",
+   "requested_url": "https://www.smcvt.edu/wp-content/uploads/2026/06/SAP-Appeal-Form-2026-2027.pdf",
+   "sha256": "6bdb3ffa14a9d4d712aa67acc66a8ab8a5b29899b6c6776a7e265e011d8ca62b",
+   "title": "SATISFACTORY ACADEMIC PROGRESS APPEAL FORM",
+   "url": "https://www.smcvt.edu/wp-content/uploads/2026/06/SAP-Appeal-Form-2026-2027.pdf"
+  },
+  "year_basis": "labeled_in_url"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "fac4316c371ae56c",
+  "checks": {
+   "columns": 1,
+   "components_reconcile": true,
+   "rows": 4
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $7,335",
+    "value": 7335
+   },
+   {
+    "field": "column:Room & Board",
+    "snippet": "Room & Board | $4,075",
+    "value": 4075
+   },
+   {
+    "field": "column:Facility Fee",
+    "snippet": "Facility Fee | $150",
+    "value": 150
+   },
+   {
+    "field": "column:Total",
+    "snippet": "Total | $11,560",
+    "value": 11560
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-230959",
+  "issues": [
+   "stacked_header_unparsed",
+   "conflicting_sources:https://www.middlebury.edu/student-financial-services/tuition-fees-and-payment/tuition-and-fees"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "books_supplies": null,
+   "components": {
+    "Facility Fee": 150,
+    "Room & Board": 4075,
+    "Total": 11560,
+    "Tuition": 7335
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-230959",
+   "last_verified_at": "2026-10-06",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \" Vermont Campus  2026 Dates\"; printed rows copied, totals never recomputed. The printed total covers direct (billed) costs only, so it is not a cost of attendance.",
+   "on_campus_food_housing": null,
+   "residency": "not_applicable",
+   "source_url": "https://www.middlebury.edu/school-english/admissions/dates-fees",
+   "total_cost_of_attendance": null,
+   "total_direct_cost": 11560,
+   "tuition": 7335,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:38:01+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 01 Oct 2026 18:49:48 GMT",
+   "page_file": "623a27e276ac97c44af7.json.gz",
+   "requested_url": "https://www.middlebury.edu/school-english/admissions/dates-fees",
+   "sha256": "623a27e276ac97c44af74a5d9eeaa02bc731df0c64a139c9163b6221f33698ff",
+   "title": "Dates and Fees | Middlebury Bread Loaf School of English",
+   "url": "https://www.middlebury.edu/school-english/admissions/dates-fees"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2025-26",
+  "candidate_id": "ae02601170f59e9f",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Let the financial aid office know if there are any special circumstances that your FAFSA does not demonstrate (parent job loss, medical expenses, etc.) so that we may work with you to tailor a financial aid package that meets your needs.",
+    "value": "need_based_special_circumstances"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-247649",
+  "issues": [
+   "stale_year_label:2025-26",
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2025-26",
+   "appeal_kind": "need_based_special_circumstances",
+   "institution_key": "ipeds-247649",
+   "last_verified_at": "2026-10-06",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.landmark.edu/admissions/tuition-financial-aid/applying-for-financial-aid",
+   "process_summary": "Let the financial aid office know if there are any special circumstances that your FAFSA does not demonstrate (parent job loss, medical expenses, etc.) so that we may work with you to tailor a financial aid package that meets your needs.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.landmark.edu/admissions/tuition-financial-aid/applying-for-financial-aid",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:38:06+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 06 Oct 2026 05:38:06 GMT",
+   "page_file": "3cdf78e1b837fad03ba6.json.gz",
+   "requested_url": "https://www.landmark.edu/admissions/tuition-financial-aid/applying-for-financial-aid",
+   "sha256": "3cdf78e1b837fad03ba6810407182820f8cee08881a67408e7731f1f3b2d9808",
+   "title": "Landmark College | Applying for Financial Aid",
+   "url": "https://www.landmark.edu/admissions/tuition-financial-aid/applying-for-financial-aid"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2025-26",
+  "candidate_id": "bde9cc00edcd4f22",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "You will also be invited to attend an award luncheon where you may network with fellow recipients and donors. **If there are special or unusual circumstances impacting your family that you feel are not well represented on your FAFSA, please contact the Office of Financial Aid to discuss documenting this through our Special Circumstances Review process.",
+    "value": "need_based_special_circumstances"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-230995",
+  "issues": [
+   "stale_year_label:2025-26",
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2025-26",
+   "appeal_kind": "need_based_special_circumstances",
+   "institution_key": "ipeds-230995",
+   "last_verified_at": "2026-10-06",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://home.norwich.edu/on/admissions-aid/scholarships-awards-military-benefits",
+   "process_summary": "You will also be invited to attend an award luncheon where you may network with fellow recipients and donors. **If there are special or unusual circumstances impacting your family that you feel are not well represented on your FAFSA, please contact the Office of Financial Aid to discuss documenting this through our Special Circumstances Review process.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://home.norwich.edu/on/admissions-aid/scholarships-awards-military-benefits",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:38:12+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 05 Oct 2026 23:04:49 GMT",
+   "page_file": "9653a67020481640f840.json.gz",
+   "requested_url": "https://home.norwich.edu/on/admissions-aid/scholarships-awards-military-benefits",
+   "sha256": "9653a67020481640f8408a561202bd7eca3a8eed46170764f2fb2f7d8f88be9d",
+   "title": "Scholarships, Awards & Military Benefits | Norwich University - On Campus",
+   "url": "https://home.norwich.edu/on/admissions-aid/scholarships-awards-military-benefits"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2025-26",
+  "candidate_id": "60e215548a8e4ecc",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Candidates may submit competing award offers in accordance with Norwich University’s Affordability Commitment. *On-campus graduate-level scholarships are not additive.",
+    "value": "competing_offer_review"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-230995",
+  "issues": [
+   "stale_year_label:2025-26",
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2025-26",
+   "appeal_kind": "competing_offer_review",
+   "institution_key": "ipeds-230995",
+   "last_verified_at": "2026-10-06",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://home.norwich.edu/on/admissions-aid/scholarships-awards-military-benefits",
+   "process_summary": "Candidates may submit competing award offers in accordance with Norwich University’s Affordability Commitment. *On-campus graduate-level scholarships are not additive.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://home.norwich.edu/on/admissions-aid/scholarships-awards-military-benefits",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:38:12+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 05 Oct 2026 23:04:49 GMT",
+   "page_file": "9653a67020481640f840.json.gz",
+   "requested_url": "https://home.norwich.edu/on/admissions-aid/scholarships-awards-military-benefits",
+   "sha256": "9653a67020481640f8408a561202bd7eca3a8eed46170764f2fb2f7d8f88be9d",
+   "title": "Scholarships, Awards & Military Benefits | Norwich University - On Campus",
+   "url": "https://home.norwich.edu/on/admissions-aid/scholarships-awards-military-benefits"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "4d7187e5c1b25651",
+  "checks": {
+   "fields": [
+    "min_grade"
+   ]
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "transfer_policies",
+  "evidence": [
+   {
+    "field": "min_grade",
+    "snippet": "Transfer courses must have a grade of C or higher.",
+    "value": "C"
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "institution_key": "ipeds-230816",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "institution_key": "ipeds-230816",
+   "last_verified_at": "2026-10-06",
+   "min_grade": "C",
+   "notes": "Extracted by transfer_sentences/v1; values copied from the cited sentences.",
+   "policy_url": "https://www.bennington.edu/sites/default/files/2026-03/hvcc_bennington-college-transfer-articulation-agreement-signed.pdf",
+   "source_url": "https://www.bennington.edu/sites/default/files/2026-03/hvcc_bennington-college-transfer-articulation-agreement-signed.pdf",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:38:13+00:00",
+   "kind": "pdf",
+   "last_modified": "Thu, 12 Mar 2026 19:59:59 GMT",
+   "page_file": "d6507b051cbbc8a6346f.json.gz",
+   "requested_url": "https://www.bennington.edu/sites/default/files/2026-03/hvcc_bennington-college-transfer-articulation-agreement-signed.pdf",
+   "sha256": "d6507b051cbbc8a6346fa3b3df11e244096000f048378f97cc9ebd276e15dc74",
+   "title": "TRANSFER ARTICULATION AGREEMENT",
+   "url": "https://www.bennington.edu/sites/default/files/2026-03/hvcc_bennington-college-transfer-articulation-agreement-signed.pdf"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "d1828403ec7c4fba",
+  "checks": {
+   "distinct_exams": 40,
+   "equivalencies": 50,
+   "rows_without_score": 0
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "credit_policies",
+  "evidence": [
+   {
+    "field": "equivalencies[AP-2-D-ART-DESIGN|4, 5]",
+    "snippet": "AP 2D Art and Design | 4, 5 | AR-1XX (Intro Level AR Elective) | Fulfills Literature & the Arts | 4"
+   },
+   {
+    "field": "equivalencies[AP-3-D-ART-DESIGN|4, 5]",
+    "snippet": "AP 3D Art and Design | 4, 5 | AR-1XX (Intro Level AR Elective) | Fulfills Literature & the Arts | 4"
+   },
+   {
+    "field": "equivalencies[AP-DRAWING|4, 5]",
+    "snippet": "AP Drawing | 4, 5 | AR-205 (Drawing I) | Fulfills Literature & the Arts | 4"
+   },
+   {
+    "field": "equivalencies[AP-ART-HISTORY|4, 5]",
+    "snippet": "AP Art History | 4, 5 | AH-251 (Ancient and Medieval Art) | Fulfills Literature & the Arts and Catholic Intellectual Traditions | 4"
+   },
+   {
+    "field": "equivalencies[AP-MUSIC-THEORY|4, 5]",
+    "snippet": "AP Music Theory | 4, 5 | MU-1XX (Entry Level Music Elective) | NA | 4"
+   },
+   {
+    "field": "equivalencies[AP-RESEARCH|4, 5]",
+    "snippet": "AP Research | 4, 5 | ID-1XX (Intro Level Interdisciplinary Elective) | NA | 4"
+   },
+   {
+    "field": "equivalencies[AP-SEMINAR|4, 5]",
+    "snippet": "AP Seminar | 4, 5 | ID-1XX (Intro Level Interdisciplinary Elective) | NA | 4"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|4, 5]",
+    "snippet": "AP English Language and Composition | 4, 5 | EN-101 (College Writing) | NA | 4"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|4, 5]",
+    "snippet": "AP English Literature and Composition | 4, 5 | EN-103 (Literature and Composition) | Fulfills Literature & the Arts | 4"
+   },
+   {
+    "field": "equivalencies[AP-AFRICAN-AMERICAN-STUDIES|4, 5]",
+    "snippet": "AP African American Studies | 4, 5 | HI-180 (African American History) | Fulfills History & Society and Engaging Diverse Identities | 4"
+   },
+   {
+    "field": "equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|4, 5]",
+    "snippet": "AP Comparative Government and Politics | 4, 5 | PO-285 (Introduction to Comparative Politics) | Fulfills History & Society | 4"
+   },
+   {
+    "field": "equivalencies[AP-EUROPEAN-HISTORY|4, 5]",
+    "snippet": "AP European History | 4, 5 | HI-1XX (Intro Level History Elective) | Fulfills History & Society | 4"
+   },
+   {
+    "field": "equivalencies[AP-HUMAN-GEOGRAPHY|4, 5]",
+    "snippet": "AP Human Geography | 4, 5 | ES-1XX (Intro Level Env Studies) | NA | 4"
+   },
+   {
+    "field": "equivalencies[AP-MACROECONOMICS|4, 5]",
+    "snippet": "AP Macroeconomics | 4, 5 | EC-101 (Principles of Macroeconomics) | NA | 4"
+   },
+   {
+    "field": "equivalencies[AP-MICROECONOMICS|4, 5]",
+    "snippet": "AP Microeconomics | 4, 5 | EC-103 (Principles of Microeconomics) | NA | 4"
+   },
+   {
+    "field": "equivalencies[AP-PSYCHOLOGY|4, 5]",
+    "snippet": "AP Psychology | 4, 5 | PS-101 (General Psychology) | NA | 4"
+   },
+   {
+    "field": "equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|4, 5]",
+    "snippet": "AP United States Government and Politics | 4, 5 | PO-120 (Introduction to US Politics) | Fulfills History & Society | 4"
+   },
+   {
+    "field": "equivalencies[AP-UNITED-STATES-HISTORY|4, 5]",
+    "snippet": "AP United States History | 4, 5 | HI-1XX (Intro Level History Elective) | Fulfills History & Society | 4"
+   },
+   {
+    "field": "equivalencies[AP-WORLD-HISTORY-MODERN|4, 5]",
+    "snippet": "AP World History: Modern | 4, 5 | HI-1XX (Intro Level History Elective) | Fulfills History & Society | 4"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-AB|3]",
+    "snippet": "AP Calculus AB | 3 | MA-130 (Elements of Calculus) | Fulfills Quantitative Reasoning | 4"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-AB|4, 5]",
+    "snippet": "AP Calculus AB | 4, 5 | MA-150 (Calculus I) | Fulfills Quantitative Reasoning | 4"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-BC|3]",
+    "snippet": "AP Calculus BC | 3 | MA-150 (Calculus I) | Fulfills Quantitative Reasoning | 4"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-BC|4, 5]",
+    "snippet": "AP Calculus BC | 4, 5 | MA-150 (Calculus I) & MA-160 (Calculus II) | Fulfills Quantitative Reasoning | 4 & 4"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-A|4, 5]",
+    "snippet": "AP Computer Science A | 4, 5 | CS-111 (Introduction to Computer Science I) | Fulfills Quantitative Reasoning | 4"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|4, 5]",
+    "snippet": "AP Computer Science Principles | 4, 5 | CS-1XX (Intro Level CS Elective) | NA | 4"
+   },
+   {
+    "field": "equivalencies[AP-PRECALCULUS|4, 5]",
+    "snippet": "AP Precalculus | 4, 5 | MA-104 (Precalculus) | NA | 4"
+   },
+   {
+    "field": "equivalencies[AP-STATISTICS|3, 4, 5]",
+    "snippet": "AP Statistics | 3, 4, 5 | ST-120 (Elementary Statistics) | Fulfills Quantitative Reasoning | 4"
+   },
+   {
+    "field": "equivalencies[AP-BIOLOGY|4, 5]",
+    "snippet": "AP Biology | 4, 5 | BI-1CO (Intro Level Biology Core) | Fulfills Scientific Inquiry | 4"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|4, 5]",
+    "snippet": "AP Chemistry | 4, 5 | CH-110 (General Chemistry I) | Fulfills Scientific Inquiry | 4"
+   },
+   {
+    "field": "equivalencies[AP-ENVIRONMENTAL-SCIENCE|4, 5]",
+    "snippet": "AP Environmental Science | 4, 5 | ES-107 (Environmental Science) | Fulfills Scientific Inquiry | 4"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-1|4, 5]",
+    "snippet": "AP Physics 1: Algebra-Based | 4, 5 | PY-220 (General Physics I) | Fulfills Scientific Inquiry | 4"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-2|4, 5]",
+    "snippet": "AP Physics 2: Algebra-Based | 4, 5 | PH-221 (General Physics II) | Fulfills Scientific Inquiry | 4"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|4, 5]",
+    "snippet": "AP Physics C: Electricity and Magnetism | 4, 5 | PH-211 (College Physics II) | Fulfills Scientific Inquiry | 4"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-MECHANICS|4, 5]",
+    "snippet": "AP Physics C: Mechanics | 4, 5 | PH-210 (College Physics I) | Fulfills Scientific Inquiry | 4"
+   },
+   {
+    "field": "equivalencies[AP-CHINESE-LANGUAGE-CULTURE|3]",
+    "snippet": "AP Chinese Language and Culture | 3 | LL-102 (Non-SMC Elementary Language II) | Second Language (BA) | 4"
+   },
+   {
+    "field": "equivalencies[AP-CHINESE-LANGUAGE-CULTURE|4, 5]",
+    "snippet": "AP Chinese Language and Culture | 4, 5 | LL-102 (Non-SMC Elementary Language II) & LL-203 (Non-SMC Intermed Language I) | Second Language (BA) | 4 & 4"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]",
+    "snippet": "AP French Language and Culture | 3 | FR-102 (Elementary French II) | Second Language (BA) | 4"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|4, 5]",
+    "snippet": "AP French Language and Culture | 4, 5 | FR-102 (Elementary French II) & FR-203 (Intermediate French I) | Second Language (BA) | 4 & 4"
+   },
+   {
+    "field": "equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3]",
+    "snippet": "AP German Language and Culture | 3 | LL-102 (Non-SMC Elementary Language II) | Second Language (BA) | 4"
+   },
+   {
+    "field": "equivalencies[AP-GERMAN-LANGUAGE-CULTURE|4, 5]",
+    "snippet": "AP German Language and Culture | 4, 5 | LL-102 (Non-SMC Elementary Language II) & LL-203 (Non-SMC Intermed Language I) | Second Language (BA) | 4 & 4"
+   },
+   {
+    "field": "equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|3]",
+    "snippet": "AP Italian Language and Culture | 3 | LL-102 (Non-SMC Elementary Language II) | Second Language (BA) | 4"
+   },
+   {
+    "field": "equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|4, 5]",
+    "snippet": "AP Italian Language and Culture | 4, 5 | LL-102 (Non-SMC Elementary Language II) & LL-203 (Non-SMC Intermed Language I) | Second Language (BA) | 4 & 4"
+   },
+   {
+    "field": "equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|3]",
+    "snippet": "AP Japanese Language and Culture | 3 | LL-102 (Non-SMC Elementary Language II) | Second Language (BA) | 4"
+   },
+   {
+    "field": "equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|4, 5]",
+    "snippet": "AP Japanese Language and Culture | 4, 5 | LL-102 (Non-SMC Elementary Language II) & LL-203 (Non-SMC Intermed Language I) | Second Language (BA) | 4 & 4"
+   },
+   {
+    "field": "equivalencies[AP-LATIN|3]",
+    "snippet": "AP Latin | 3 | LA-102 (Elementary Latin II) | Second Language (BA) | 4"
+   },
+   {
+    "field": "equivalencies[AP-LATIN|4, 5]",
+    "snippet": "AP Latin | 4, 5 | LA-102 (Elementary Latin II) & LA-2XX (Intermediate Latin Elective) | Second Language (BA) | 4 & 4"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|3]",
+    "snippet": "AP Spanish Language and Culture* | 3 | SP-102 (Elementary Spanish II) | Second Language (BA) | 4"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|4, 5]",
+    "snippet": "AP Spanish Language and Culture* | 4, 5 | SP-102 (Elementary Spanish II) & SP-203 (Intermediate Spanish I) | Second Language (BA) | 4 & 4"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LITERATURE-CULTURE|3]",
+    "snippet": "AP Spanish Literature and Culture* | 3 | SP-102 (Elementary Spanish II) | Second Language (BA) | 4"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LITERATURE-CULTURE|4, 5]",
+    "snippet": "AP Spanish Literature and Culture* | 4, 5 | SP-203 (Intermediate Spanish I) & SP-2XX (Intermediate Spanish Elective) | Second Language (BA) | 4 & 4"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "institution_key": "ipeds-231059",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "equivalencies": [
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-2-D-ART-DESIGN",
+     "exam_or_course_name": "AP 2-D Art & Design",
+     "institution_course_equivalent": "AR-1XX (Intro Level AR Elective)",
+     "minimum_score": "4, 5",
+     "notes": "Fulfills Literature & the Arts"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-3-D-ART-DESIGN",
+     "exam_or_course_name": "AP 3-D Art & Design",
+     "institution_course_equivalent": "AR-1XX (Intro Level AR Elective)",
+     "minimum_score": "4, 5",
+     "notes": "Fulfills Literature & the Arts"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-DRAWING",
+     "exam_or_course_name": "AP Drawing",
+     "institution_course_equivalent": "AR-205 (Drawing I)",
+     "minimum_score": "4, 5",
+     "notes": "Fulfills Literature & the Arts"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-ART-HISTORY",
+     "exam_or_course_name": "AP Art History",
+     "institution_course_equivalent": "AH-251 (Ancient and Medieval Art)",
+     "minimum_score": "4, 5",
+     "notes": "Fulfills Literature & the Arts and Catholic Intellectual Traditions"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-MUSIC-THEORY",
+     "exam_or_course_name": "AP Music Theory",
+     "institution_course_equivalent": "MU-1XX (Entry Level Music Elective)",
+     "minimum_score": "4, 5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-RESEARCH",
+     "exam_or_course_name": "AP Research",
+     "institution_course_equivalent": "ID-1XX (Intro Level Interdisciplinary Elective)",
+     "minimum_score": "4, 5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-SEMINAR",
+     "exam_or_course_name": "AP Seminar",
+     "institution_course_equivalent": "ID-1XX (Intro Level Interdisciplinary Elective)",
+     "minimum_score": "4, 5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-ENGLISH-LANGUAGE-COMPOSITION",
+     "exam_or_course_name": "AP English Language & Composition",
+     "institution_course_equivalent": "EN-101 (College Writing)",
+     "minimum_score": "4, 5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-ENGLISH-LITERATURE-COMPOSITION",
+     "exam_or_course_name": "AP English Literature & Composition",
+     "institution_course_equivalent": "EN-103 (Literature and Composition)",
+     "minimum_score": "4, 5",
+     "notes": "Fulfills Literature & the Arts"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-AFRICAN-AMERICAN-STUDIES",
+     "exam_or_course_name": "AP African American Studies",
+     "institution_course_equivalent": "HI-180 (African American History)",
+     "minimum_score": "4, 5",
+     "notes": "Fulfills History & Society and Engaging Diverse Identities"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-COMPARATIVE-GOVERNMENT-POLITICS",
+     "exam_or_course_name": "AP Comparative Government & Politics",
+     "institution_course_equivalent": "PO-285 (Introduction to Comparative Politics)",
+     "minimum_score": "4, 5",
+     "notes": "Fulfills History & Society"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-EUROPEAN-HISTORY",
+     "exam_or_course_name": "AP European History",
+     "institution_course_equivalent": "HI-1XX (Intro Level History Elective)",
+     "minimum_score": "4, 5",
+     "notes": "Fulfills History & Society"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-HUMAN-GEOGRAPHY",
+     "exam_or_course_name": "AP Human Geography",
+     "institution_course_equivalent": "ES-1XX (Intro Level Env Studies)",
+     "minimum_score": "4, 5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-MACROECONOMICS",
+     "exam_or_course_name": "AP Macroeconomics",
+     "institution_course_equivalent": "EC-101 (Principles of Macroeconomics)",
+     "minimum_score": "4, 5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-MICROECONOMICS",
+     "exam_or_course_name": "AP Microeconomics",
+     "institution_course_equivalent": "EC-103 (Principles of Microeconomics)",
+     "minimum_score": "4, 5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PSYCHOLOGY",
+     "exam_or_course_name": "AP Psychology",
+     "institution_course_equivalent": "PS-101 (General Psychology)",
+     "minimum_score": "4, 5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-UNITED-STATES-GOVERNMENT-POLITICS",
+     "exam_or_course_name": "AP United States Government & Politics",
+     "institution_course_equivalent": "PO-120 (Introduction to US Politics)",
+     "minimum_score": "4, 5",
+     "notes": "Fulfills History & Society"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-UNITED-STATES-HISTORY",
+     "exam_or_course_name": "AP United States History",
+     "institution_course_equivalent": "HI-1XX (Intro Level History Elective)",
+     "minimum_score": "4, 5",
+     "notes": "Fulfills History & Society"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-WORLD-HISTORY-MODERN",
+     "exam_or_course_name": "AP World History: Modern",
+     "institution_course_equivalent": "HI-1XX (Intro Level History Elective)",
+     "minimum_score": "4, 5",
+     "notes": "Fulfills History & Society"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-CALCULUS-AB",
+     "exam_or_course_name": "AP Calculus AB",
+     "institution_course_equivalent": "MA-130 (Elements of Calculus)",
+     "minimum_score": "3",
+     "notes": "Fulfills Quantitative Reasoning"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-CALCULUS-AB",
+     "exam_or_course_name": "AP Calculus AB",
+     "institution_course_equivalent": "MA-150 (Calculus I)",
+     "minimum_score": "4, 5",
+     "notes": "Fulfills Quantitative Reasoning"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-CALCULUS-BC",
+     "exam_or_course_name": "AP Calculus BC",
+     "institution_course_equivalent": "MA-150 (Calculus I)",
+     "minimum_score": "3",
+     "notes": "Fulfills Quantitative Reasoning"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-CALCULUS-BC",
+     "exam_or_course_name": "AP Calculus BC",
+     "institution_course_equivalent": "MA-150 (Calculus I) & MA-160 (Calculus II)",
+     "minimum_score": "4, 5",
+     "notes": "Fulfills Quantitative Reasoning"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-COMPUTER-SCIENCE-A",
+     "exam_or_course_name": "AP Computer Science A",
+     "institution_course_equivalent": "CS-111 (Introduction to Computer Science I)",
+     "minimum_score": "4, 5",
+     "notes": "Fulfills Quantitative Reasoning"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-COMPUTER-SCIENCE-PRINCIPLES",
+     "exam_or_course_name": "AP Computer Science Principles",
+     "institution_course_equivalent": "CS-1XX (Intro Level CS Elective)",
+     "minimum_score": "4, 5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PRECALCULUS",
+     "exam_or_course_name": "AP Precalculus",
+     "institution_course_equivalent": "MA-104 (Precalculus)",
+     "minimum_score": "4, 5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-STATISTICS",
+     "exam_or_course_name": "AP Statistics",
+     "institution_course_equivalent": "ST-120 (Elementary Statistics)",
+     "minimum_score": "3, 4, 5",
+     "notes": "Fulfills Quantitative Reasoning"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-BIOLOGY",
+     "exam_or_course_name": "AP Biology",
+     "institution_course_equivalent": "BI-1CO (Intro Level Biology Core)",
+     "minimum_score": "4, 5",
+     "notes": "Fulfills Scientific Inquiry"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-CHEMISTRY",
+     "exam_or_course_name": "AP Chemistry",
+     "institution_course_equivalent": "CH-110 (General Chemistry I)",
+     "minimum_score": "4, 5",
+     "notes": "Fulfills Scientific Inquiry"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-ENVIRONMENTAL-SCIENCE",
+     "exam_or_course_name": "AP Environmental Science",
+     "institution_course_equivalent": "ES-107 (Environmental Science)",
+     "minimum_score": "4, 5",
+     "notes": "Fulfills Scientific Inquiry"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PHYSICS-1",
+     "exam_or_course_name": "AP Physics 1",
+     "institution_course_equivalent": "PY-220 (General Physics I)",
+     "minimum_score": "4, 5",
+     "notes": "Fulfills Scientific Inquiry"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PHYSICS-2",
+     "exam_or_course_name": "AP Physics 2",
+     "institution_course_equivalent": "PH-221 (General Physics II)",
+     "minimum_score": "4, 5",
+     "notes": "Fulfills Scientific Inquiry"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PHYSICS-C-ELECTRICITY-MAGNETISM",
+     "exam_or_course_name": "AP Physics C: Electricity & Magnetism",
+     "institution_course_equivalent": "PH-211 (College Physics II)",
+     "minimum_score": "4, 5",
+     "notes": "Fulfills Scientific Inquiry"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PHYSICS-C-MECHANICS",
+     "exam_or_course_name": "AP Physics C: Mechanics",
+     "institution_course_equivalent": "PH-210 (College Physics I)",
+     "minimum_score": "4, 5",
+     "notes": "Fulfills Scientific Inquiry"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-CHINESE-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Chinese Language & Culture",
+     "institution_course_equivalent": "LL-102 (Non-SMC Elementary Language II)",
+     "minimum_score": "3",
+     "notes": "Second Language (BA)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-CHINESE-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Chinese Language & Culture",
+     "institution_course_equivalent": "LL-102 (Non-SMC Elementary Language II) & LL-203 (Non-SMC Intermed Language I)",
+     "minimum_score": "4, 5",
+     "notes": "Second Language (BA)"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-FRENCH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP French Language & Culture",
+     "institution_course_equivalent": "FR-102 (Elementary French II)",
+     "minimum_score": "3",
+     "notes": "Second Language (BA)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-FRENCH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP French Language & Culture",
+     "institution_course_equivalent": "FR-102 (Elementary French II) & FR-203 (Intermediate French I)",
+     "minimum_score": "4, 5",
+     "notes": "Second Language (BA)"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-GERMAN-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP German Language & Culture",
+     "institution_course_equivalent": "LL-102 (Non-SMC Elementary Language II)",
+     "minimum_score": "3",
+     "notes": "Second Language (BA)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-GERMAN-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP German Language & Culture",
+     "institution_course_equivalent": "LL-102 (Non-SMC Elementary Language II) & LL-203 (Non-SMC Intermed Language I)",
+     "minimum_score": "4, 5",
+     "notes": "Second Language (BA)"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-ITALIAN-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Italian Language & Culture",
+     "institution_course_equivalent": "LL-102 (Non-SMC Elementary Language II)",
+     "minimum_score": "3",
+     "notes": "Second Language (BA)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-ITALIAN-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Italian Language & Culture",
+     "institution_course_equivalent": "LL-102 (Non-SMC Elementary Language II) & LL-203 (Non-SMC Intermed Language I)",
+     "minimum_score": "4, 5",
+     "notes": "Second Language (BA)"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-JAPANESE-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Japanese Language & Culture",
+     "institution_course_equivalent": "LL-102 (Non-SMC Elementary Language II)",
+     "minimum_score": "3",
+     "notes": "Second Language (BA)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-JAPANESE-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Japanese Language & Culture",
+     "institution_course_equivalent": "LL-102 (Non-SMC Elementary Language II) & LL-203 (Non-SMC Intermed Language I)",
+     "minimum_score": "4, 5",
+     "notes": "Second Language (BA)"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-LATIN",
+     "exam_or_course_name": "AP Latin",
+     "institution_course_equivalent": "LA-102 (Elementary Latin II)",
+     "minimum_score": "3",
+     "notes": "Second Language (BA)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-LATIN",
+     "exam_or_course_name": "AP Latin",
+     "institution_course_equivalent": "LA-102 (Elementary Latin II) & LA-2XX (Intermediate Latin Elective)",
+     "minimum_score": "4, 5",
+     "notes": "Second Language (BA)"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-SPANISH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Spanish Language & Culture",
+     "institution_course_equivalent": "SP-102 (Elementary Spanish II)",
+     "minimum_score": "3",
+     "notes": "Second Language (BA)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-SPANISH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Spanish Language & Culture",
+     "institution_course_equivalent": "SP-102 (Elementary Spanish II) & SP-203 (Intermediate Spanish I)",
+     "minimum_score": "4, 5",
+     "notes": "Second Language (BA)"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-SPANISH-LITERATURE-CULTURE",
+     "exam_or_course_name": "AP Spanish Literature & Culture",
+     "institution_course_equivalent": "SP-102 (Elementary Spanish II)",
+     "minimum_score": "3",
+     "notes": "Second Language (BA)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-SPANISH-LITERATURE-CULTURE",
+     "exam_or_course_name": "AP Spanish Literature & Culture",
+     "institution_course_equivalent": "SP-203 (Intermediate Spanish I) & SP-2XX (Intermediate Spanish Elective)",
+     "minimum_score": "4, 5",
+     "notes": "Second Language (BA)"
+    }
+   ],
+   "institution_key": "ipeds-231059",
+   "last_verified_at": "2026-10-06",
+   "notes": "Extracted by credit_table/v1 from the published table; cells copied as printed.",
+   "policy_kind": "AP",
+   "policy_url": "https://catalog.smcvt.edu/undergraduate/transfer/ap",
+   "source_url": "https://catalog.smcvt.edu/undergraduate/transfer/ap",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:38:30+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "29ebd6cae7fac4ccf7c7.json.gz",
+   "requested_url": "https://catalog.smcvt.edu/undergraduate/transfer/ap",
+   "sha256": "29ebd6cae7fac4ccf7c77984695f611c2d60966c598d0ff0795b48baedf804e4",
+   "title": "Advanced Placement (AP) Program of the College Board | Saint Michael's College Catalog",
+   "url": "https://catalog.smcvt.edu/undergraduate/transfer/ap"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "22e7b19dadd91a2a",
+  "checks": {
+   "distinct_exams": 45,
+   "equivalencies": 50,
+   "rows_without_score": 0
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "credit_policies",
+  "evidence": [
+   {
+    "field": "equivalencies[IB-ENGLISH-A-LITERATURE-SL|SL No credit]",
+    "snippet": "English A: Literature (SL) | No credit | No credit | No credit | No credit"
+   },
+   {
+    "field": "equivalencies[IB-ENGLISH-A-LITERATURE-HL|HL No credit]",
+    "snippet": "English A: Literature (HL) | No credit | EN-1XX (4) | EN-1XX (4) | EN-1XX (4)"
+   },
+   {
+    "field": "equivalencies[IB-ENGLISH-A-LANGUAGE-LITERATURE-SL|SL No credit]",
+    "snippet": "English A: Language & Literature (SL) | No credit | No credit | No credit | No credit"
+   },
+   {
+    "field": "equivalencies[IB-ENGLISH-A-LANGUAGE-LITERATURE-HL|HL No credit]",
+    "snippet": "English A: Language & Literature (HL) | No credit | EN-1XX (4) | EN-1XX (4) | EN-1XX (4)"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH-SL|SL No credit]",
+    "snippet": "French A: Literature (SL) | No credit | FR-3XX (4) | FR-3XX (4) | FR-3XX (4)"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH-HL|HL No credit]",
+    "snippet": "French A: Literature (HL) | No credit | FR-3XX (4) & FR-3XX (4) | FR-3XX (4) & FR-3XX (4) | FR-3XX (4) & FR-3XX (4)"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH-SL|SL No credit]",
+    "snippet": "Spanish A: Literature (SL) | No credit | SP-3XX (4) | SP-3XX (4) | SP-3XX (4)"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH-HL|HL No credit]",
+    "snippet": "Spanish A: Literature (HL) | No credit | SP-3XX (4) & SP-3XX (4) | SP-3XX (4) & SP-3XX (4) | SP-3XX (4) & SP-3XX (4)"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH-SL|SL LANGUAGE ACQUISITION]",
+    "snippet": "Spanish Literature & Performance (SL) [SL only] | LANGUAGE ACQUISITION"
+   },
+   {
+    "field": "equivalencies[IB-LATIN-SL|SL No credit]",
+    "snippet": "Latin (SL) | No credit | LA-101 (4) | LA-101 (4) | LA-101 (4)"
+   },
+   {
+    "field": "equivalencies[IB-LATIN-HL|HL No credit]",
+    "snippet": "Latin (HL) | No credit | LA-101 (4) & LA 2XX (4) | LA-101 (4) & LA 2XX (4) | LA-101 (4) & LA 2XX (4)"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH-HL|HL INDIVIDUALS & SOCIETIES]",
+    "snippet": "Spanish B (HL) | INDIVIDUALS & SOCIETIES"
+   },
+   {
+    "field": "equivalencies[IB-BUSINESS-MANAGEMENT-SL|SL No credit]",
+    "snippet": "Business Management (SL) | No credit | BU-214 (4) | BU-214 (4) | BU-214 (4)"
+   },
+   {
+    "field": "equivalencies[IB-BUSINESS-MANAGEMENT-HL|HL No credit]",
+    "snippet": "Business Management (HL) | No credit | BU-214 (4) & BU-1XX (4) | BU-214 (4) & BU-1XX (4) | BU-214 (4) & BU-1XX (4)"
+   },
+   {
+    "field": "equivalencies[IB-ECONOMICS-SL|SL No credit]",
+    "snippet": "Economics (SL) | No credit | EC-101 (4) | EC-101 (4) | EC-101 (4)"
+   },
+   {
+    "field": "equivalencies[IB-ECONOMICS-HL|HL No credit]",
+    "snippet": "Economics (HL) | No credit | EC-101 (4) & EC-1XX (4) | EC-101 (4) & EC-1XX (4) | EC-101 (4) & EC-1XX (4)"
+   },
+   {
+    "field": "equivalencies[IB-GEOGRAPHY-SL|SL No credit]",
+    "snippet": "Geography (SL) | No credit | GG-1XX (4) | GG-1XX (4) | GG-1XX (4)"
+   },
+   {
+    "field": "equivalencies[IB-GEOGRAPHY-HL|HL No credit]",
+    "snippet": "Geography (HL) | No credit | GG-101 (4) | GG-101 (4) | GG-101 (4)"
+   },
+   {
+    "field": "equivalencies[IB-GLOBAL-POLITICS-SL|SL No credit]",
+    "snippet": "Global Politics (SL) | No credit | PO-245 (4) | PO-245 (4) | PO-245 (4)"
+   },
+   {
+    "field": "equivalencies[IB-GLOBAL-POLITICS-HL|HL No credit]",
+    "snippet": "Global Politics (HL) | No credit | PO-245 (4) & PO-1XX (4) | PO-245 (4) & PO-1XX (4) | PO-245 (4) & PO-1XX (4)"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY-SL|SL No credit]",
+    "snippet": "History (SL) | No credit | HI-1XX (4) | HI-1XX (4) | HI-1XX (4)"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY-HL|HL No credit]",
+    "snippet": "History (HL) | No credit | HI-1XX (4) & HI 1XX (4) | HI-1XX (4) & HI 1XX (4) | HI-1XX (4) & HI 1XX (4)"
+   },
+   {
+    "field": "equivalencies[IB-PHILOSOPHY-SL|SL No credit]",
+    "snippet": "Philosophy (SL) | No credit | No credit | No credit | PH-103 (4)"
+   },
+   {
+    "field": "equivalencies[IB-PHILOSOPHY-HL|HL No credit]",
+    "snippet": "Philosophy (HL) | No credit | PH-103 (4) | PH-103 (4) | PH-103 (4)"
+   },
+   {
+    "field": "equivalencies[IB-PSYCHOLOGY-SL|SL No credit]",
+    "snippet": "Psychology (SL) | No credit | PS-101 (4) | PS-101 (4) | PS-101 (4)"
+   },
+   {
+    "field": "equivalencies[IB-PSYCHOLOGY-HL|HL No credit]",
+    "snippet": "Psychology (HL) | No credit | PS-101 (4) | PS-101 (4) | PS-101 (4)"
+   },
+   {
+    "field": "equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY-SL|SL No credit]",
+    "snippet": "Social & Cultural Anthropology (SL) | No credit | ANT-109 (4) | ANT-109 (4) | ANT-109 (4)"
+   },
+   {
+    "field": "equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY-HL|HL No credit]",
+    "snippet": "Social & Cultural Anthropology (HL) | No credit | ANT-109 (4) & ANT-2XX (4) | ANT-109 (4) & ANT-2XX (4) | ANT-109 (4) & ANT-2XX (4)"
+   },
+   {
+    "field": "equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY-HL|HL SCIENCES]",
+    "snippet": "Social & Cultural Anthropology (HL) | SCIENCES"
+   },
+   {
+    "field": "equivalencies[IB-BIOLOGY-SL|SL No credit]",
+    "snippet": "Biology (SL) | No credit | BI-1XX (4) | BI-1XX (4) | BI-1XX (4)"
+   },
+   {
+    "field": "equivalencies[IB-BIOLOGY-HL|HL No credit]",
+    "snippet": "Biology (HL) | No credit | BI-1XX (4) & BI-1XX (4) | BI-1XX (4) & BI-1XX (4) | BI-1XX (4) & BI-1XX (4)"
+   },
+   {
+    "field": "equivalencies[IB-CHEMISTRY-SL|SL No credit]",
+    "snippet": "Chemistry (SL) | No credit | CH-110 (4) | CH-110 (4) | CH-110 (4)"
+   },
+   {
+    "field": "equivalencies[IB-CHEMISTRY-HL|HL No credit]",
+    "snippet": "Chemistry (HL) | No credit | CH-110 (4) & CH-1XX (4) | CH-110 (4) & CH-1XX (4) | CH-110 (4) & CH-1XX (4)"
+   },
+   {
+    "field": "equivalencies[IB-COMPUTER-SCIENCE-SL|SL No credit]",
+    "snippet": "Computer Science (SL) | No credit | CS-1XX (4) | CS-1XX (4) | CS-1XX (4)"
+   },
+   {
+    "field": "equivalencies[IB-COMPUTER-SCIENCE-HL|HL No credit]",
+    "snippet": "Computer Science (HL) | No credit | CS-1XX (4) & CS-1XX (4) | CS-1XX (4) & CS-1XX (4) | CS-1XX (4) & CS-1XX (4)"
+   },
+   {
+    "field": "equivalencies[IB-ENVIRONMENTAL-SYSTEMS-SOCIETIES-SL|SL No credit]",
+    "snippet": "Environmental Systems & Societies (SL) [SL only] | No credit | ES-106 (4) | ES-106 (4) | ES-106 (4)"
+   },
+   {
+    "field": "equivalencies[IB-PHYSICS-SL|SL No credit]",
+    "snippet": "Physics (SL) | No credit | PY-220 (4) | PY-220 (4) | PY-220 (4)"
+   },
+   {
+    "field": "equivalencies[IB-PHYSICS-HL|HL No credit]",
+    "snippet": "Physics (HL) | No credit | PY-220 (4) | PY-210 (4) | PY-210 (4)"
+   },
+   {
+    "field": "equivalencies[IB-PHYSICS-HL|HL MATHEMATICS]",
+    "snippet": "Physics (HL) | MATHEMATICS"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES-SL|SL No credit]",
+    "snippet": "Analysis & Approaches (SL) | No credit | MA-130 (4) | MA-130 (4) | MA-130 (4)"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES-HL|HL MA-130 (4)]",
+    "snippet": "Analysis & Approaches (HL) | MA-130 (4) | MA-150 (4) & MA-1XX (4) | MA-150 (4) & MA-1XX (4) | MA-150 (4) & MA-1XX (4)"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES-HL|HL ARTS]",
+    "snippet": "Analysis & Approaches (HL) | ARTS"
+   },
+   {
+    "field": "equivalencies[IB-FILM-SL|SL No credit]",
+    "snippet": "Film (SL) | No credit | MJD-219 (4) | MJD-219 (4) | MJD-219 (4)"
+   },
+   {
+    "field": "equivalencies[IB-FILM-HL|HL No credit]",
+    "snippet": "Film (HL) | No credit | MJD-219 (4) | MJD-219 (4) | MJD-219 (4)"
+   },
+   {
+    "field": "equivalencies[IB-MUSIC-SL|SL No credit]",
+    "snippet": "Music (SL) | No credit | MU-1XX (4) | MU-1XX (4) | MU-1XX (4)"
+   },
+   {
+    "field": "equivalencies[IB-MUSIC-HL|HL No credit]",
+    "snippet": "Music (HL) | No credit | MU-1XX (4) & MU-2XX (4) | MU-1XX (4) & MU-2XX (4) | MU-1XX (4) & MU-2XX (4)"
+   },
+   {
+    "field": "equivalencies[IB-THEATRE-SL|SL No credit]",
+    "snippet": "Theatre (SL) | No credit | TH-110 (4) | TH-110 (4) | TH-110 (4)"
+   },
+   {
+    "field": "equivalencies[IB-THEATRE-HL|HL No credit]",
+    "snippet": "Theatre (HL) | No credit | TH-2XX (4) | TH-2XX (4) | TH-2XX (4)"
+   },
+   {
+    "field": "equivalencies[IB-VISUAL-ARTS-SL|SL No credit]",
+    "snippet": "Visual Arts (SL) | No credit | AR-1XX (4) | AR-1XX (4) | AR-1XX (4)"
+   },
+   {
+    "field": "equivalencies[IB-VISUAL-ARTS-HL|HL No credit]",
+    "snippet": "Visual Arts (HL) | No credit | AR-1XX (4) | AR-1XX (4) | AR-1XX (4)"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "institution_key": "ipeds-231059",
+  "issues": [
+   "score_column_not_scores",
+   "score_scale_mismatch"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "equivalencies": [
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ENGLISH-A-LITERATURE-SL",
+     "exam_or_course_name": "IB English A: Literature (SL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "SL No credit",
+     "notes": "No credit | No credit | No credit"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ENGLISH-A-LITERATURE-HL",
+     "exam_or_course_name": "IB English A: Literature (HL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "HL No credit",
+     "notes": "EN-1XX (4) | EN-1XX (4) | EN-1XX (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ENGLISH-A-LANGUAGE-LITERATURE-SL",
+     "exam_or_course_name": "IB English A: Language & Literature (SL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "SL No credit",
+     "notes": "No credit | No credit | No credit"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ENGLISH-A-LANGUAGE-LITERATURE-HL",
+     "exam_or_course_name": "IB English A: Language & Literature (HL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "HL No credit",
+     "notes": "EN-1XX (4) | EN-1XX (4) | EN-1XX (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-FRENCH-SL",
+     "exam_or_course_name": "IB French (SL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "SL No credit",
+     "notes": "FR-3XX (4) | FR-3XX (4) | FR-3XX (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-FRENCH-HL",
+     "exam_or_course_name": "IB French (HL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "HL No credit",
+     "notes": "FR-3XX (4) & FR-3XX (4) | FR-3XX (4) & FR-3XX (4) | FR-3XX (4) & FR-3XX (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SPANISH-SL",
+     "exam_or_course_name": "IB Spanish (SL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "SL No credit",
+     "notes": "SP-3XX (4) | SP-3XX (4) | SP-3XX (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SPANISH-HL",
+     "exam_or_course_name": "IB Spanish (HL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "HL No credit",
+     "notes": "SP-3XX (4) & SP-3XX (4) | SP-3XX (4) & SP-3XX (4) | SP-3XX (4) & SP-3XX (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SPANISH-SL",
+     "exam_or_course_name": "IB Spanish (SL)",
+     "institution_course_equivalent": "LANGUAGE ACQUISITION",
+     "minimum_score": "SL LANGUAGE ACQUISITION",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-LATIN-SL",
+     "exam_or_course_name": "IB Latin (SL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "SL No credit",
+     "notes": "LA-101 (4) | LA-101 (4) | LA-101 (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-LATIN-HL",
+     "exam_or_course_name": "IB Latin (HL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "HL No credit",
+     "notes": "LA-101 (4) & LA 2XX (4) | LA-101 (4) & LA 2XX (4) | LA-101 (4) & LA 2XX (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SPANISH-HL",
+     "exam_or_course_name": "IB Spanish (HL)",
+     "institution_course_equivalent": "INDIVIDUALS & SOCIETIES",
+     "minimum_score": "HL INDIVIDUALS & SOCIETIES",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-BUSINESS-MANAGEMENT-SL",
+     "exam_or_course_name": "IB Business Management (SL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "SL No credit",
+     "notes": "BU-214 (4) | BU-214 (4) | BU-214 (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-BUSINESS-MANAGEMENT-HL",
+     "exam_or_course_name": "IB Business Management (HL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "HL No credit",
+     "notes": "BU-214 (4) & BU-1XX (4) | BU-214 (4) & BU-1XX (4) | BU-214 (4) & BU-1XX (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ECONOMICS-SL",
+     "exam_or_course_name": "IB Economics (SL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "SL No credit",
+     "notes": "EC-101 (4) | EC-101 (4) | EC-101 (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ECONOMICS-HL",
+     "exam_or_course_name": "IB Economics (HL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "HL No credit",
+     "notes": "EC-101 (4) & EC-1XX (4) | EC-101 (4) & EC-1XX (4) | EC-101 (4) & EC-1XX (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-GEOGRAPHY-SL",
+     "exam_or_course_name": "IB Geography (SL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "SL No credit",
+     "notes": "GG-1XX (4) | GG-1XX (4) | GG-1XX (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-GEOGRAPHY-HL",
+     "exam_or_course_name": "IB Geography (HL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "HL No credit",
+     "notes": "GG-101 (4) | GG-101 (4) | GG-101 (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-GLOBAL-POLITICS-SL",
+     "exam_or_course_name": "IB Global Politics (SL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "SL No credit",
+     "notes": "PO-245 (4) | PO-245 (4) | PO-245 (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-GLOBAL-POLITICS-HL",
+     "exam_or_course_name": "IB Global Politics (HL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "HL No credit",
+     "notes": "PO-245 (4) & PO-1XX (4) | PO-245 (4) & PO-1XX (4) | PO-245 (4) & PO-1XX (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-HISTORY-SL",
+     "exam_or_course_name": "IB History (SL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "SL No credit",
+     "notes": "HI-1XX (4) | HI-1XX (4) | HI-1XX (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-HISTORY-HL",
+     "exam_or_course_name": "IB History (HL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "HL No credit",
+     "notes": "HI-1XX (4) & HI 1XX (4) | HI-1XX (4) & HI 1XX (4) | HI-1XX (4) & HI 1XX (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PHILOSOPHY-SL",
+     "exam_or_course_name": "IB Philosophy (SL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "SL No credit",
+     "notes": "No credit | No credit | PH-103 (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PHILOSOPHY-HL",
+     "exam_or_course_name": "IB Philosophy (HL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "HL No credit",
+     "notes": "PH-103 (4) | PH-103 (4) | PH-103 (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PSYCHOLOGY-SL",
+     "exam_or_course_name": "IB Psychology (SL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "SL No credit",
+     "notes": "PS-101 (4) | PS-101 (4) | PS-101 (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PSYCHOLOGY-HL",
+     "exam_or_course_name": "IB Psychology (HL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "HL No credit",
+     "notes": "PS-101 (4) | PS-101 (4) | PS-101 (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SOCIAL-CULTURAL-ANTHROPOLOGY-SL",
+     "exam_or_course_name": "IB Social & Cultural Anthropology (SL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "SL No credit",
+     "notes": "ANT-109 (4) | ANT-109 (4) | ANT-109 (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SOCIAL-CULTURAL-ANTHROPOLOGY-HL",
+     "exam_or_course_name": "IB Social & Cultural Anthropology (HL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "HL No credit",
+     "notes": "ANT-109 (4) & ANT-2XX (4) | ANT-109 (4) & ANT-2XX (4) | ANT-109 (4) & ANT-2XX (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SOCIAL-CULTURAL-ANTHROPOLOGY-HL",
+     "exam_or_course_name": "IB Social & Cultural Anthropology (HL)",
+     "institution_course_equivalent": "SCIENCES",
+     "minimum_score": "HL SCIENCES",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-BIOLOGY-SL",
+     "exam_or_course_name": "IB Biology (SL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "SL No credit",
+     "notes": "BI-1XX (4) | BI-1XX (4) | BI-1XX (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-BIOLOGY-HL",
+     "exam_or_course_name": "IB Biology (HL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "HL No credit",
+     "notes": "BI-1XX (4) & BI-1XX (4) | BI-1XX (4) & BI-1XX (4) | BI-1XX (4) & BI-1XX (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-CHEMISTRY-SL",
+     "exam_or_course_name": "IB Chemistry (SL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "SL No credit",
+     "notes": "CH-110 (4) | CH-110 (4) | CH-110 (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-CHEMISTRY-HL",
+     "exam_or_course_name": "IB Chemistry (HL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "HL No credit",
+     "notes": "CH-110 (4) & CH-1XX (4) | CH-110 (4) & CH-1XX (4) | CH-110 (4) & CH-1XX (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-COMPUTER-SCIENCE-SL",
+     "exam_or_course_name": "IB Computer Science (SL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "SL No credit",
+     "notes": "CS-1XX (4) | CS-1XX (4) | CS-1XX (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-COMPUTER-SCIENCE-HL",
+     "exam_or_course_name": "IB Computer Science (HL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "HL No credit",
+     "notes": "CS-1XX (4) & CS-1XX (4) | CS-1XX (4) & CS-1XX (4) | CS-1XX (4) & CS-1XX (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ENVIRONMENTAL-SYSTEMS-SOCIETIES-SL",
+     "exam_or_course_name": "IB Environmental Systems & Societies (SL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "SL No credit",
+     "notes": "ES-106 (4) | ES-106 (4) | ES-106 (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PHYSICS-SL",
+     "exam_or_course_name": "IB Physics (SL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "SL No credit",
+     "notes": "PY-220 (4) | PY-220 (4) | PY-220 (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PHYSICS-HL",
+     "exam_or_course_name": "IB Physics (HL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "HL No credit",
+     "notes": "PY-220 (4) | PY-210 (4) | PY-210 (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PHYSICS-HL",
+     "exam_or_course_name": "IB Physics (HL)",
+     "institution_course_equivalent": "MATHEMATICS",
+     "minimum_score": "HL MATHEMATICS",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MATHEMATICS-ANALYSIS-APPROACHES-SL",
+     "exam_or_course_name": "IB Mathematics: Analysis & Approaches (SL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "SL No credit",
+     "notes": "MA-130 (4) | MA-130 (4) | MA-130 (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MATHEMATICS-ANALYSIS-APPROACHES-HL",
+     "exam_or_course_name": "IB Mathematics: Analysis & Approaches (HL)",
+     "institution_course_equivalent": "MA-130 (4)",
+     "minimum_score": "HL MA-130 (4)",
+     "notes": "MA-150 (4) & MA-1XX (4) | MA-150 (4) & MA-1XX (4) | MA-150 (4) & MA-1XX (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MATHEMATICS-ANALYSIS-APPROACHES-HL",
+     "exam_or_course_name": "IB Mathematics: Analysis & Approaches (HL)",
+     "institution_course_equivalent": "ARTS",
+     "minimum_score": "HL ARTS",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-FILM-SL",
+     "exam_or_course_name": "IB Film (SL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "SL No credit",
+     "notes": "MJD-219 (4) | MJD-219 (4) | MJD-219 (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-FILM-HL",
+     "exam_or_course_name": "IB Film (HL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "HL No credit",
+     "notes": "MJD-219 (4) | MJD-219 (4) | MJD-219 (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MUSIC-SL",
+     "exam_or_course_name": "IB Music (SL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "SL No credit",
+     "notes": "MU-1XX (4) | MU-1XX (4) | MU-1XX (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MUSIC-HL",
+     "exam_or_course_name": "IB Music (HL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "HL No credit",
+     "notes": "MU-1XX (4) & MU-2XX (4) | MU-1XX (4) & MU-2XX (4) | MU-1XX (4) & MU-2XX (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-THEATRE-SL",
+     "exam_or_course_name": "IB Theatre (SL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "SL No credit",
+     "notes": "TH-110 (4) | TH-110 (4) | TH-110 (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-THEATRE-HL",
+     "exam_or_course_name": "IB Theatre (HL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "HL No credit",
+     "notes": "TH-2XX (4) | TH-2XX (4) | TH-2XX (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-VISUAL-ARTS-SL",
+     "exam_or_course_name": "IB Visual Arts (SL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "SL No credit",
+     "notes": "AR-1XX (4) | AR-1XX (4) | AR-1XX (4)"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-VISUAL-ARTS-HL",
+     "exam_or_course_name": "IB Visual Arts (HL)",
+     "institution_course_equivalent": "No credit",
+     "minimum_score": "HL No credit",
+     "notes": "AR-1XX (4) | AR-1XX (4) | AR-1XX (4)"
+    }
+   ],
+   "institution_key": "ipeds-231059",
+   "last_verified_at": "2026-10-06",
+   "notes": "Extracted by credit_table/v1 from the published table; cells copied as printed.",
+   "policy_kind": "IB",
+   "policy_url": "https://catalog.smcvt.edu/undergraduate/transfer/ib",
+   "source_url": "https://catalog.smcvt.edu/undergraduate/transfer/ib",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:38:32+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "06bf13255fae19fbde98.json.gz",
+   "requested_url": "https://catalog.smcvt.edu/undergraduate/transfer/ib",
+   "sha256": "06bf13255fae19fbde9803452949528f87f1ae07863648c98c9f777dda1bf979",
+   "title": "International Baccalaureate (IB) Program | Saint Michael's College Catalog",
+   "url": "https://catalog.smcvt.edu/undergraduate/transfer/ib"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2024-25",
+  "candidate_id": "20704ab977cc6e4c",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "SATISFACTORY ACADEMIC PROGRESS APPEAL FORM Appealing as of the end of: __ Fall 2023 __ Spring 2024 __ Summer 2025 Name: SMC ID: IMPORTANT INFORMATION REGARDING THE APPEAL PROCESS: • Appeals should be submitted within 30 days of receiving your notification. • You will be notified via your Saint Michael's College email with the decision of your appeal. • If your appeal is approved, you will be place",
+    "value": "sap_appeal"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-231059",
+  "issues": [
+   "stale_year_label:2024-25",
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2024-25",
+   "appeal_kind": "sap_appeal",
+   "institution_key": "ipeds-231059",
+   "last_verified_at": "2026-10-06",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.smcvt.edu/wp-content/uploads/2024/06/SAP-Appeal-Form-2024-2025.pdf",
+   "process_summary": "SATISFACTORY ACADEMIC PROGRESS APPEAL FORM Appealing as of the end of: __ Fall 2023 __ Spring 2024 __ Summer 2025 Name: SMC ID: IMPORTANT INFORMATION REGARDING THE APPEAL PROCESS: • Appeals should be submitted within 30 days of receiving your notification. • You will be notified via your Saint Michael's College email with the decision of your appeal. • If your appeal is approved, you will be placed on financial aid probation for the next term of your enrollment.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.smcvt.edu/wp-content/uploads/2024/06/SAP-Appeal-Form-2024-2025.pdf",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:38:41+00:00",
+   "kind": "pdf",
+   "last_modified": "Sat, 24 Jan 2026 06:49:56 GMT",
+   "page_file": "c2410fcef05d3fd3fb2e.json.gz",
+   "requested_url": "https://www.smcvt.edu/wp-content/uploads/2024/06/SAP-Appeal-Form-2024-2025.pdf",
+   "sha256": "c2410fcef05d3fd3fb2e4aee44d4f0d9d11e0bc6ab991f5a0b1048aea3f572f0",
+   "title": "SATISFACTORY ACADEMIC PROGRESS APPEAL FORM",
+   "url": "https://www.smcvt.edu/wp-content/uploads/2024/06/SAP-Appeal-Form-2024-2025.pdf"
+  },
+  "year_basis": "labeled_in_url"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "99de87c17acef692",
+  "checks": {
+   "thresholds": null
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "awards",
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "Laptop computer | $1,000",
+    "value": "$1,000"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "institution_key": "ipeds-230816",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "award_amount_text": "$1,000",
+   "award_max": 1000,
+   "award_min": 1000,
+   "award_name": "Laptop computer",
+   "award_type": "institutional_other",
+   "eligibility_summary": "Listed under: Before Arrival: Estimated Expenses",
+   "institution_key": "ipeds-230816",
+   "last_verified_at": "2026-10-06",
+   "notes": "Extracted by merit_table/v1 from the table \"Before Arrival: Estimated Expenses \"; cells copied as printed.",
+   "source_url": "https://www.bennington.edu/admissions/apply/financing-your-education/financial-aid-undergraduates/apply-financial-aid-0",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:38:46+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 06 Oct 2026 05:38:45 GMT",
+   "page_file": "2529964a98f417da348b.json.gz",
+   "requested_url": "https://www.bennington.edu/admissions/apply/financing-your-education/financial-aid-undergraduates/apply-financial-aid-0",
+   "sha256": "2529964a98f417da348b9b8b414aefd1d692ec8967b8f535ab715216423b5fc4",
+   "title": "Financial Aid for International Undergraduates | Bennington College",
+   "url": "https://www.bennington.edu/admissions/apply/financing-your-education/financial-aid-undergraduates/apply-financial-aid-0"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "062c10021861f722",
+  "checks": {
+   "thresholds": null
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "awards",
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "Bedding & soft furnishings | $200",
+    "value": "$200"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "institution_key": "ipeds-230816",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "award_amount_text": "$200",
+   "award_max": 200,
+   "award_min": 200,
+   "award_name": "Bedding & soft furnishings",
+   "award_type": "institutional_other",
+   "eligibility_summary": "Listed under: Before Arrival: Estimated Expenses",
+   "institution_key": "ipeds-230816",
+   "last_verified_at": "2026-10-06",
+   "notes": "Extracted by merit_table/v1 from the table \"Before Arrival: Estimated Expenses \"; cells copied as printed.",
+   "source_url": "https://www.bennington.edu/admissions/apply/financing-your-education/financial-aid-undergraduates/apply-financial-aid-0",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:38:46+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 06 Oct 2026 05:38:45 GMT",
+   "page_file": "2529964a98f417da348b.json.gz",
+   "requested_url": "https://www.bennington.edu/admissions/apply/financing-your-education/financial-aid-undergraduates/apply-financial-aid-0",
+   "sha256": "2529964a98f417da348b9b8b414aefd1d692ec8967b8f535ab715216423b5fc4",
+   "title": "Financial Aid for International Undergraduates | Bennington College",
+   "url": "https://www.bennington.edu/admissions/apply/financing-your-education/financial-aid-undergraduates/apply-financial-aid-0"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "988fe543e04eb76a",
+  "checks": {
+   "thresholds": null
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "awards",
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "Clothing / footwear for changing weather | $300",
+    "value": "$300"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "institution_key": "ipeds-230816",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "award_amount_text": "$300",
+   "award_max": 300,
+   "award_min": 300,
+   "award_name": "Clothing / footwear for changing weather",
+   "award_type": "institutional_other",
+   "eligibility_summary": "Listed under: Before Arrival: Estimated Expenses",
+   "institution_key": "ipeds-230816",
+   "last_verified_at": "2026-10-06",
+   "notes": "Extracted by merit_table/v1 from the table \"Before Arrival: Estimated Expenses \"; cells copied as printed.",
+   "source_url": "https://www.bennington.edu/admissions/apply/financing-your-education/financial-aid-undergraduates/apply-financial-aid-0",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:38:46+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 06 Oct 2026 05:38:45 GMT",
+   "page_file": "2529964a98f417da348b.json.gz",
+   "requested_url": "https://www.bennington.edu/admissions/apply/financing-your-education/financial-aid-undergraduates/apply-financial-aid-0",
+   "sha256": "2529964a98f417da348b9b8b414aefd1d692ec8967b8f535ab715216423b5fc4",
+   "title": "Financial Aid for International Undergraduates | Bennington College",
+   "url": "https://www.bennington.edu/admissions/apply/financing-your-education/financial-aid-undergraduates/apply-financial-aid-0"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "0de9c7ed76913bc2",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 3
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Request for Review of Special Circumstances Congress has given Professional Adjustment (PJ) authority to financial aid administrators under the Higher Education Act (HEA).",
+    "value": "need_based_special_circumstances"
+   },
+   {
+    "field": "sentence",
+    "snippet": "PJ is a decision to alter the Expected Family Contribution when a special circumstance impacts a family’s ability to contribute to the student’s education.",
+    "value": "need_based_special_circumstances"
+   },
+   {
+    "field": "sentence",
+    "snippet": "It is expected that there will generally be one PJ for special circumstances during a student’s undergraduate studies.",
+    "value": "need_based_special_circumstances"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-230816",
+  "issues": [
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "appeal_kind": "need_based_special_circumstances",
+   "institution_key": "ipeds-230816",
+   "last_verified_at": "2026-10-06",
+   "notes": "Extracted by appeal_sentences/v1; 3 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.bennington.edu/sites/default/files/sources/docs/special-circumstances-25-26.pdf",
+   "process_summary": "Request for Review of Special Circumstances Congress has given Professional Adjustment (PJ) authority to financial aid administrators under the Higher Education Act (HEA).",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.bennington.edu/sites/default/files/sources/docs/special-circumstances-25-26.pdf",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:38:54+00:00",
+   "kind": "pdf",
+   "last_modified": "Tue, 08 Oct 2024 15:35:15 GMT",
+   "page_file": "de90a08b9ec29fca7460.json.gz",
+   "requested_url": "https://www.bennington.edu/sites/default/files/sources/docs/special-circumstances-25-26.pdf",
+   "sha256": "de90a08b9ec29fca7460e5b9549ad5b097b397f975f68b43161ef7ffcaa8ef3d",
+   "title": "Request for Review of Special Circumstances",
+   "url": "https://www.bennington.edu/sites/default/files/sources/docs/special-circumstances-25-26.pdf"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2025-26",
+  "candidate_id": "28fd5ac235303d1f",
+  "checks": {
+   "columns": 1,
+   "rows": 9
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "on_campus:Tuition (12-19 credits)",
+    "snippet": "Tuition (12-19 credits) | $24,365 | $24,365 | $48,730 | $24,365 | $24,365 | $48,730",
+    "value": 48730
+   },
+   {
+    "field": "on_campus:Room",
+    "snippet": "Room | $5,405 | $5,405 | $10,810 | $5,625 | $5,625 | $11,250",
+    "value": 10810
+   },
+   {
+    "field": "on_campus:Board (meal plan)",
+    "snippet": "Board (meal plan) | $2,235 | $2,235 | $4,470 | $2,348 | $2,348 | $4,696",
+    "value": 4470
+   },
+   {
+    "field": "on_campus:Room and board totals",
+    "snippet": "Room and board totals | $7,640 | $7,640 | $15,280 | $7,973 | $7,973 | $15,946",
+    "value": 15280
+   },
+   {
+    "field": "on_campus:Medical Insurance",
+    "snippet": "Medical Insurance | – | – | $2,120 | – | – | $2,928",
+    "value": 2120
+   },
+   {
+    "field": "on_campus:Student Activities Fee",
+    "snippet": "Student Activities Fee | $320 | $320 | $640 | $320 | $320 | $640",
+    "value": 640
+   },
+   {
+    "field": "on_campus:Technology Fee",
+    "snippet": "Technology Fee | $725 | $725 | $1,450 | $725 | $725 | $1,450",
+    "value": 1450
+   },
+   {
+    "field": "on_campus:University Health Services Fee",
+    "snippet": "University Health Services Fee | $445 | $445 | $890 | $445 | $445 | $890",
+    "value": 890
+   },
+   {
+    "field": "on_campus:Tuition, Room & Board total",
+    "snippet": "Tuition, Room & Board total | – | – | $64,010 | – | – | $64,700",
+    "value": 64010
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-230995",
+  "issues": [
+   "stale_year_label:2025-26"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2025-26",
+   "books_supplies": null,
+   "components": {
+    "Board (meal plan)": 4470,
+    "Medical Insurance": 2120,
+    "Room": 10810,
+    "Room and board totals": 15280,
+    "Student Activities Fee": 640,
+    "Technology Fee": 1450,
+    "Tuition (12-19 credits)": 48730,
+    "Tuition, Room & Board total": 64010,
+    "University Health Services Fee": 890
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-230995",
+   "last_verified_at": "2026-10-06",
+   "living_arrangement": "on_campus",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \" Undergraduate Resident Student Tuition, Costs, and Fees for Academic Years\"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "not_applicable",
+   "source_url": "https://www.norwich.edu/offices/bursar",
+   "student_population": "undergraduate",
+   "total_cost_of_attendance": null,
+   "tuition": 48730,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:39:07+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 05 Oct 2026 20:29:03 GMT",
+   "page_file": "c4c1989c98f6ad0c9d46.json.gz",
+   "requested_url": "https://www.norwich.edu/offices/bursar",
+   "sha256": "c4c1989c98f6ad0c9d464e10a55204cdf78a0786040ce82f34fc85e14b0ad4fa",
+   "title": "Bursar | Your Account | Norwich University",
+   "url": "https://www.norwich.edu/offices/bursar"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "eba3b10f8b2a3ab1",
+  "checks": {
+   "columns": 1,
+   "rows": 9
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "on_campus:Tuition (12-19 credits)",
+    "snippet": "Tuition (12-19 credits) | $24,365 | $24,365 | $48,730 | $24,365 | $24,365 | $48,730",
+    "value": 48730
+   },
+   {
+    "field": "on_campus:Room",
+    "snippet": "Room | $5,405 | $5,405 | $10,810 | $5,625 | $5,625 | $11,250",
+    "value": 11250
+   },
+   {
+    "field": "on_campus:Board (meal plan)",
+    "snippet": "Board (meal plan) | $2,235 | $2,235 | $4,470 | $2,348 | $2,348 | $4,696",
+    "value": 4696
+   },
+   {
+    "field": "on_campus:Room and board totals",
+    "snippet": "Room and board totals | $7,640 | $7,640 | $15,280 | $7,973 | $7,973 | $15,946",
+    "value": 15946
+   },
+   {
+    "field": "on_campus:Medical Insurance",
+    "snippet": "Medical Insurance | – | – | $2,120 | – | – | $2,928",
+    "value": 2928
+   },
+   {
+    "field": "on_campus:Student Activities Fee",
+    "snippet": "Student Activities Fee | $320 | $320 | $640 | $320 | $320 | $640",
+    "value": 640
+   },
+   {
+    "field": "on_campus:Technology Fee",
+    "snippet": "Technology Fee | $725 | $725 | $1,450 | $725 | $725 | $1,450",
+    "value": 1450
+   },
+   {
+    "field": "on_campus:University Health Services Fee",
+    "snippet": "University Health Services Fee | $445 | $445 | $890 | $445 | $445 | $890",
+    "value": 890
+   },
+   {
+    "field": "on_campus:Tuition, Room & Board total",
+    "snippet": "Tuition, Room & Board total | – | – | $64,010 | – | – | $64,700",
+    "value": 64700
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-230995",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": null,
+   "components": {
+    "Board (meal plan)": 4696,
+    "Medical Insurance": 2928,
+    "Room": 11250,
+    "Room and board totals": 15946,
+    "Student Activities Fee": 640,
+    "Technology Fee": 1450,
+    "Tuition (12-19 credits)": 48730,
+    "Tuition, Room & Board total": 64700,
+    "University Health Services Fee": 890
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-230995",
+   "last_verified_at": "2026-10-06",
+   "living_arrangement": "on_campus",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \" Undergraduate Resident Student Tuition, Costs, and Fees for Academic Years\"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "not_applicable",
+   "source_url": "https://www.norwich.edu/offices/bursar",
+   "student_population": "undergraduate",
+   "total_cost_of_attendance": null,
+   "tuition": 48730,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:39:07+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 05 Oct 2026 20:29:03 GMT",
+   "page_file": "c4c1989c98f6ad0c9d46.json.gz",
+   "requested_url": "https://www.norwich.edu/offices/bursar",
+   "sha256": "c4c1989c98f6ad0c9d464e10a55204cdf78a0786040ce82f34fc85e14b0ad4fa",
+   "title": "Bursar | Your Account | Norwich University",
+   "url": "https://www.norwich.edu/offices/bursar"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "0de787639f05f7aa",
+  "checks": {
+   "thresholds": {
+    "gpa_min": 3.9
+   }
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "awards",
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "3.9 and above | Trustee Award | $28,000–$34,000",
+    "value": "$28,000–$34,000"
+   },
+   {
+    "field": "gpa_requirement",
+    "snippet": "3.9 and above | Trustee Award | $28,000–$34,000",
+    "value": "3.9 and above"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "institution_key": "ipeds-230852",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "award_amount_text": "$28,000–$34,000",
+   "award_max": 34000,
+   "award_min": 28000,
+   "award_name": "Trustee Award",
+   "award_type": "institutional_merit",
+   "gpa_requirement": "3.9 and above",
+   "institution_key": "ipeds-230852",
+   "last_verified_at": "2026-10-06",
+   "notes": "Extracted by merit_table/v1 from the table \"Merit Scholarships \"; cells copied as printed.",
+   "source_url": "https://www.champlain.edu/financial-aid/types-of-aid/scholarships/",
+   "thresholds": {
+    "gpa_min": 3.9
+   },
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:39:07+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "f128ef8fc764510c2843.json.gz",
+   "requested_url": "https://www.champlain.edu/financial-aid/types-of-aid/scholarships/",
+   "sha256": "f128ef8fc764510c2843c8abd16c0c980e21c50c41802c6a374fb448c8080f33",
+   "title": "Scholarships & Grants | Champlain College, Burlington, Vermont",
+   "url": "https://www.champlain.edu/financial-aid/types-of-aid/scholarships/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "5f38b05cbc57e14a",
+  "checks": {
+   "thresholds": null
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "awards",
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "3.6 – 3.89 | President Award | $26,000–$32,000",
+    "value": "$26,000–$32,000"
+   },
+   {
+    "field": "gpa_requirement",
+    "snippet": "3.6 – 3.89 | President Award | $26,000–$32,000",
+    "value": "3.6 – 3.89"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "institution_key": "ipeds-230852",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "award_amount_text": "$26,000–$32,000",
+   "award_max": 32000,
+   "award_min": 26000,
+   "award_name": "President Award",
+   "award_type": "institutional_merit",
+   "gpa_requirement": "3.6 – 3.89",
+   "institution_key": "ipeds-230852",
+   "last_verified_at": "2026-10-06",
+   "notes": "Extracted by merit_table/v1 from the table \"Merit Scholarships \"; cells copied as printed.",
+   "source_url": "https://www.champlain.edu/financial-aid/types-of-aid/scholarships/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:39:07+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "f128ef8fc764510c2843.json.gz",
+   "requested_url": "https://www.champlain.edu/financial-aid/types-of-aid/scholarships/",
+   "sha256": "f128ef8fc764510c2843c8abd16c0c980e21c50c41802c6a374fb448c8080f33",
+   "title": "Scholarships & Grants | Champlain College, Burlington, Vermont",
+   "url": "https://www.champlain.edu/financial-aid/types-of-aid/scholarships/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "43825139aff4b077",
+  "checks": {
+   "thresholds": null
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "awards",
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "3.5 – 3.59 | Provost Award | $24,000–$31,000",
+    "value": "$24,000–$31,000"
+   },
+   {
+    "field": "gpa_requirement",
+    "snippet": "3.5 – 3.59 | Provost Award | $24,000–$31,000",
+    "value": "3.5 – 3.59"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "institution_key": "ipeds-230852",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "award_amount_text": "$24,000–$31,000",
+   "award_max": 31000,
+   "award_min": 24000,
+   "award_name": "Provost Award",
+   "award_type": "institutional_merit",
+   "gpa_requirement": "3.5 – 3.59",
+   "institution_key": "ipeds-230852",
+   "last_verified_at": "2026-10-06",
+   "notes": "Extracted by merit_table/v1 from the table \"Merit Scholarships \"; cells copied as printed.",
+   "source_url": "https://www.champlain.edu/financial-aid/types-of-aid/scholarships/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:39:07+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "f128ef8fc764510c2843.json.gz",
+   "requested_url": "https://www.champlain.edu/financial-aid/types-of-aid/scholarships/",
+   "sha256": "f128ef8fc764510c2843c8abd16c0c980e21c50c41802c6a374fb448c8080f33",
+   "title": "Scholarships & Grants | Champlain College, Burlington, Vermont",
+   "url": "https://www.champlain.edu/financial-aid/types-of-aid/scholarships/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "925d7cdc944699e4",
+  "checks": {
+   "thresholds": null
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "awards",
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "3.1 – 3.39 | Dean Award | $22,000–$25,000",
+    "value": "$22,000–$25,000"
+   },
+   {
+    "field": "gpa_requirement",
+    "snippet": "3.1 – 3.39 | Dean Award | $22,000–$25,000",
+    "value": "3.1 – 3.39"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "institution_key": "ipeds-230852",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "award_amount_text": "$22,000–$25,000",
+   "award_max": 25000,
+   "award_min": 22000,
+   "award_name": "Dean Award",
+   "award_type": "institutional_merit",
+   "gpa_requirement": "3.1 – 3.39",
+   "institution_key": "ipeds-230852",
+   "last_verified_at": "2026-10-06",
+   "notes": "Extracted by merit_table/v1 from the table \"Merit Scholarships \"; cells copied as printed.",
+   "source_url": "https://www.champlain.edu/financial-aid/types-of-aid/scholarships/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:39:07+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "f128ef8fc764510c2843.json.gz",
+   "requested_url": "https://www.champlain.edu/financial-aid/types-of-aid/scholarships/",
+   "sha256": "f128ef8fc764510c2843c8abd16c0c980e21c50c41802c6a374fb448c8080f33",
+   "title": "Scholarships & Grants | Champlain College, Burlington, Vermont",
+   "url": "https://www.champlain.edu/financial-aid/types-of-aid/scholarships/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "104d6fc4d5314a1e",
+  "checks": {
+   "thresholds": null
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "awards",
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "2.0 – 3.09 | Faculty Award | $19,000–$20,000",
+    "value": "$19,000–$20,000"
+   },
+   {
+    "field": "gpa_requirement",
+    "snippet": "2.0 – 3.09 | Faculty Award | $19,000–$20,000",
+    "value": "2.0 – 3.09"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "institution_key": "ipeds-230852",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "award_amount_text": "$19,000–$20,000",
+   "award_max": 20000,
+   "award_min": 19000,
+   "award_name": "Faculty Award",
+   "award_type": "institutional_merit",
+   "gpa_requirement": "2.0 – 3.09",
+   "institution_key": "ipeds-230852",
+   "last_verified_at": "2026-10-06",
+   "notes": "Extracted by merit_table/v1 from the table \"Merit Scholarships \"; cells copied as printed.",
+   "source_url": "https://www.champlain.edu/financial-aid/types-of-aid/scholarships/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:39:07+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "f128ef8fc764510c2843.json.gz",
+   "requested_url": "https://www.champlain.edu/financial-aid/types-of-aid/scholarships/",
+   "sha256": "f128ef8fc764510c2843c8abd16c0c980e21c50c41802c6a374fb448c8080f33",
+   "title": "Scholarships & Grants | Champlain College, Burlington, Vermont",
+   "url": "https://www.champlain.edu/financial-aid/types-of-aid/scholarships/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "5b400f320706626b",
+  "checks": {
+   "thresholds": {
+    "gpa_min": 3.5
+   }
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "awards",
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "3.5 and above | Champlain Scholarship | $25,000",
+    "value": "$25,000"
+   },
+   {
+    "field": "gpa_requirement",
+    "snippet": "3.5 and above | Champlain Scholarship | $25,000",
+    "value": "3.5 and above"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "institution_key": "ipeds-230852",
+  "issues": [
+   "duplicate_table_versions"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "award_amount_text": "$25,000",
+   "award_max": 25000,
+   "award_min": 25000,
+   "award_name": "Champlain Scholarship",
+   "award_type": "institutional_merit",
+   "gpa_requirement": "3.5 and above",
+   "institution_key": "ipeds-230852",
+   "last_verified_at": "2026-10-06",
+   "notes": "Extracted by merit_table/v1 from the table \"Merit Scholarships \"; cells copied as printed.",
+   "source_url": "https://www.champlain.edu/financial-aid/types-of-aid/scholarships/",
+   "thresholds": {
+    "gpa_min": 3.5
+   },
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:39:07+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "f128ef8fc764510c2843.json.gz",
+   "requested_url": "https://www.champlain.edu/financial-aid/types-of-aid/scholarships/",
+   "sha256": "f128ef8fc764510c2843c8abd16c0c980e21c50c41802c6a374fb448c8080f33",
+   "title": "Scholarships & Grants | Champlain College, Burlington, Vermont",
+   "url": "https://www.champlain.edu/financial-aid/types-of-aid/scholarships/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "c8844ceb797cf383",
+  "checks": {
+   "thresholds": {
+    "gpa_min": 3.8
+   }
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "awards",
+  "evidence": [
+   {
+    "field": "award_amount_text",
+    "snippet": "3.8 and above | Presidential Global | $35,000",
+    "value": "$35,000"
+   },
+   {
+    "field": "gpa_requirement",
+    "snippet": "3.8 and above | Presidential Global | $35,000",
+    "value": "3.8 and above"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "institution_key": "ipeds-230852",
+  "issues": [
+   "duplicate_table_versions"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "award_amount_text": "$35,000",
+   "award_max": 35000,
+   "award_min": 35000,
+   "award_name": "Presidential Global",
+   "award_type": "institutional_merit",
+   "gpa_requirement": "3.8 and above",
+   "institution_key": "ipeds-230852",
+   "last_verified_at": "2026-10-06",
+   "notes": "Extracted by merit_table/v1 from the table \"Merit Scholarships \"; cells copied as printed.",
+   "source_url": "https://www.champlain.edu/financial-aid/types-of-aid/scholarships/",
+   "thresholds": {
+    "gpa_min": 3.8
+   },
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:39:07+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "f128ef8fc764510c2843.json.gz",
+   "requested_url": "https://www.champlain.edu/financial-aid/types-of-aid/scholarships/",
+   "sha256": "f128ef8fc764510c2843c8abd16c0c980e21c50c41802c6a374fb448c8080f33",
+   "title": "Scholarships & Grants | Champlain College, Burlington, Vermont",
+   "url": "https://www.champlain.edu/financial-aid/types-of-aid/scholarships/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "72da9b6fbe7ac8ec",
+  "checks": {
+   "columns": 1,
+   "rows": 4
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $49,950",
+    "value": 49950
+   },
+   {
+    "field": "column:Tuition After Institutional Scholarship",
+    "snippet": "Tuition After Institutional Scholarship | $22,500",
+    "value": 22500
+   },
+   {
+    "field": "column:Food and Housing: Traditional Residence Hall View rates for all other residence options.",
+    "snippet": "Food and Housing: Traditional Residence Hall View rates for all other residence options. | $18,440",
+    "value": 18440
+   },
+   {
+    "field": "column:Comprehensive Fee",
+    "snippet": "Comprehensive Fee | $2,600",
+    "value": 2600
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-231059",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": null,
+   "components": {
+    "Comprehensive Fee": 2600,
+    "Food and Housing: Traditional Residence Hall View rates for all other residence options.": 18440,
+    "Tuition": 49950,
+    "Tuition After Institutional Scholarship": 22500
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-231059",
+   "last_verified_at": "2026-10-06",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \" Undergraduate Program Tuition and Fees  2026-27 Undergraduate Tuition and Fees\"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "not_applicable",
+   "source_url": "https://www.smcvt.edu/admission-aid/applysmc/international-scholarships/",
+   "student_population": "undergraduate",
+   "total_cost_of_attendance": null,
+   "tuition": null,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:39:17+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "04e56ca9f75785b4f674.json.gz",
+   "requested_url": "https://www.smcvt.edu/admission-aid/applysmc/international-scholarships/",
+   "sha256": "04e56ca9f75785b4f674b45412b67cbd5e1cdb16bc279ecd050bfdb6be710e93",
+   "title": "Tuition & The International Scholarship | Saint Michael's College",
+   "url": "https://www.smcvt.edu/admission-aid/applysmc/international-scholarships/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "84b0be4a86a98d9e",
+  "checks": {
+   "columns": 2,
+   "components_reconcile": false,
+   "rows": 11
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "on_campus:Tuition",
+    "snippet": "Tuition | $46,655 | $46,655",
+    "value": 46655
+   },
+   {
+    "field": "on_campus:Comprehensive Fee",
+    "snippet": "Comprehensive Fee | $3,058 | $3,058",
+    "value": 3058
+   },
+   {
+    "field": "on_campus:Program Fee",
+    "snippet": "Program Fee | $0 | $1,000",
+    "value": 0
+   },
+   {
+    "field": "on_campus:Average Food and Housing – Food and Housing Rates",
+    "snippet": "Average Food and Housing – Food and Housing Rates | $14,654 | $14,654",
+    "value": 14654
+   },
+   {
+    "field": "on_campus:Residential Engagement Council (REC) Fee",
+    "snippet": "Residential Engagement Council (REC) Fee | $30 | $30",
+    "value": 30
+   },
+   {
+    "field": "on_campus:Estimated Billable Costs",
+    "snippet": "Estimated Billable Costs | $64,397 | $65,397",
+    "value": 64397
+   },
+   {
+    "field": "on_campus:Estimated Books, Course Materials, Supplies, and Equipment",
+    "snippet": "Estimated Books, Course Materials, Supplies, and Equipment | $1,320 | $1,320",
+    "value": 1320
+   },
+   {
+    "field": "on_campus:Estimated Miscellaneous Personal Expenses",
+    "snippet": "Estimated Miscellaneous Personal Expenses | $2,443 | $2,443",
+    "value": 2443
+   },
+   {
+    "field": "on_campus:Estimated Transportation",
+    "snippet": "Estimated Transportation | $630 | $630",
+    "value": 630
+   },
+   {
+    "field": "on_campus:Estimated Loan Fees",
+    "snippet": "Estimated Loan Fees | $88 | $88",
+    "value": 88
+   },
+   {
+    "field": "on_campus:Total Cost of Attendance",
+    "snippet": "Total Cost of Attendance | $68,878 | $69,878",
+    "value": 68878
+   },
+   {
+    "field": "on_campus:Tuition",
+    "snippet": "Tuition | $46,655 | $46,655",
+    "value": 46655
+   },
+   {
+    "field": "on_campus:Comprehensive Fee",
+    "snippet": "Comprehensive Fee | $3,058 | $3,058",
+    "value": 3058
+   },
+   {
+    "field": "on_campus:Program Fee",
+    "snippet": "Program Fee | $0 | $1,000",
+    "value": 1000
+   },
+   {
+    "field": "on_campus:Average Food and Housing – Food and Housing Rates",
+    "snippet": "Average Food and Housing – Food and Housing Rates | $14,654 | $14,654",
+    "value": 14654
+   },
+   {
+    "field": "on_campus:Residential Engagement Council (REC) Fee",
+    "snippet": "Residential Engagement Council (REC) Fee | $30 | $30",
+    "value": 30
+   },
+   {
+    "field": "on_campus:Estimated Billable Costs",
+    "snippet": "Estimated Billable Costs | $64,397 | $65,397",
+    "value": 65397
+   },
+   {
+    "field": "on_campus:Estimated Books, Course Materials, Supplies, and Equipment",
+    "snippet": "Estimated Books, Course Materials, Supplies, and Equipment | $1,320 | $1,320",
+    "value": 1320
+   },
+   {
+    "field": "on_campus:Estimated Miscellaneous Personal Expenses",
+    "snippet": "Estimated Miscellaneous Personal Expenses | $2,443 | $2,443",
+    "value": 2443
+   },
+   {
+    "field": "on_campus:Estimated Transportation",
+    "snippet": "Estimated Transportation | $630 | $630",
+    "value": 630
+   },
+   {
+    "field": "on_campus:Estimated Loan Fees",
+    "snippet": "Estimated Loan Fees | $88 | $88",
+    "value": 88
+   },
+   {
+    "field": "on_campus:Total Cost of Attendance",
+    "snippet": "Total Cost of Attendance | $68,878 | $69,878",
+    "value": 69878
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-231174",
+  "issues": [
+   "components_do_not_reconcile"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": 1320,
+   "components": {
+    "Average Food and Housing – Food and Housing Rates": 14654,
+    "Comprehensive Fee": 3058,
+    "Estimated Billable Costs": 64397,
+    "Estimated Books, Course Materials, Supplies, and Equipment": 1320,
+    "Estimated Loan Fees": 88,
+    "Estimated Miscellaneous Personal Expenses": 2443,
+    "Estimated Transportation": 630,
+    "Program Fee": 0,
+    "Residential Engagement Council (REC) Fee": 30,
+    "Total Cost of Attendance": 68878,
+    "Tuition": 46655
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-231174",
+   "last_verified_at": "2026-10-06",
+   "living_arrangements": [
+    {
+     "arrangement": "on_campus",
+     "column_header": "Out-of-State Resident",
+     "components": {
+      "Average Food and Housing – Food and Housing Rates": 14654,
+      "Comprehensive Fee": 3058,
+      "Estimated Billable Costs": 64397,
+      "Estimated Books, Course Materials, Supplies, and Equipment": 1320,
+      "Estimated Loan Fees": 88,
+      "Estimated Miscellaneous Personal Expenses": 2443,
+      "Estimated Transportation": 630,
+      "Program Fee": 0,
+      "Residential Engagement Council (REC) Fee": 30,
+      "Total Cost of Attendance": 68878,
+      "Tuition": 46655
+     },
+     "total_cost_of_attendance": 68878
+    },
+    {
+     "arrangement": "on_campus",
+     "column_header": "Out-of-State Resident (enrolled in select colleges or schools)1",
+     "components": {
+      "Average Food and Housing – Food and Housing Rates": 14654,
+      "Comprehensive Fee": 3058,
+      "Estimated Billable Costs": 65397,
+      "Estimated Books, Course Materials, Supplies, and Equipment": 1320,
+      "Estimated Loan Fees": 88,
+      "Estimated Miscellaneous Personal Expenses": 2443,
+      "Estimated Transportation": 630,
+      "Program Fee": 1000,
+      "Residential Engagement Council (REC) Fee": 30,
+      "Total Cost of Attendance": 69878,
+      "Tuition": 46655
+     },
+     "total_cost_of_attendance": 69878
+    }
+   ],
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \"Undergraduate Tuition and Fees, 2026-2027 Academic Year Costs On-Campus Out-of-State Resident Student \"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": 14654,
+   "residency": "out_of_state",
+   "source_url": "https://www.uvm.edu/studentfinancialservices/costs-attending",
+   "student_population": "undergraduate",
+   "total_cost_of_attendance": 68878,
+   "tuition": 46655,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:39:44+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 05 Oct 2026 21:19:46 GMT",
+   "page_file": "4d0a380f27d3a9108020.json.gz",
+   "requested_url": "https://www.uvm.edu/studentfinancialservices/costs-attending",
+   "sha256": "4d0a380f27d3a910802092faf611b0d449437dcac6dea2d0ecaacea780de3fab",
+   "title": "Costs of Attending | The University of Vermont",
+   "url": "https://www.uvm.edu/studentfinancialservices/costs-attending"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "3e3fa39f5bee419e",
+  "checks": {
+   "columns": 2,
+   "components_reconcile": false,
+   "rows": 11
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "on_campus:Tuition",
+    "snippet": "Tuition | $16,938 | $16,938",
+    "value": 16938
+   },
+   {
+    "field": "on_campus:Comprehensive Fee",
+    "snippet": "Comprehensive Fee | $3,058 | $3,058",
+    "value": 3058
+   },
+   {
+    "field": "on_campus:Program Fee",
+    "snippet": "Program Fee | $0 | $1,000",
+    "value": 0
+   },
+   {
+    "field": "on_campus:Average Food and Housing -- Food and Housing Rates",
+    "snippet": "Average Food and Housing -- Food and Housing Rates | $14,654 | $14,654",
+    "value": 14654
+   },
+   {
+    "field": "on_campus:Residential Engagement Council (REC) Fee",
+    "snippet": "Residential Engagement Council (REC) Fee | $30 | $30",
+    "value": 30
+   },
+   {
+    "field": "on_campus:Estimated Billable Costs",
+    "snippet": "Estimated Billable Costs | $34,680 | $35,680",
+    "value": 34680
+   },
+   {
+    "field": "on_campus:Estimated Books, Course Materials, Supplies, and Equipment",
+    "snippet": "Estimated Books, Course Materials, Supplies, and Equipment | $1,320 | $1,320",
+    "value": 1320
+   },
+   {
+    "field": "on_campus:Estimated Miscellaneous Personal Expenses",
+    "snippet": "Estimated Miscellaneous Personal Expenses | $2,442 | $2,442",
+    "value": 2442
+   },
+   {
+    "field": "on_campus:Estimated Transportation",
+    "snippet": "Estimated Transportation | $234 | $234",
+    "value": 234
+   },
+   {
+    "field": "on_campus:Estimated Loan Fees",
+    "snippet": "Estimated Loan Fees | $86 | $86",
+    "value": 86
+   },
+   {
+    "field": "on_campus:Total Cost of Attendance",
+    "snippet": "Total Cost of Attendance | $38,762 | $39,762",
+    "value": 38762
+   },
+   {
+    "field": "on_campus:Tuition",
+    "snippet": "Tuition | $16,938 | $16,938",
+    "value": 16938
+   },
+   {
+    "field": "on_campus:Comprehensive Fee",
+    "snippet": "Comprehensive Fee | $3,058 | $3,058",
+    "value": 3058
+   },
+   {
+    "field": "on_campus:Program Fee",
+    "snippet": "Program Fee | $0 | $1,000",
+    "value": 1000
+   },
+   {
+    "field": "on_campus:Average Food and Housing -- Food and Housing Rates",
+    "snippet": "Average Food and Housing -- Food and Housing Rates | $14,654 | $14,654",
+    "value": 14654
+   },
+   {
+    "field": "on_campus:Residential Engagement Council (REC) Fee",
+    "snippet": "Residential Engagement Council (REC) Fee | $30 | $30",
+    "value": 30
+   },
+   {
+    "field": "on_campus:Estimated Billable Costs",
+    "snippet": "Estimated Billable Costs | $34,680 | $35,680",
+    "value": 35680
+   },
+   {
+    "field": "on_campus:Estimated Books, Course Materials, Supplies, and Equipment",
+    "snippet": "Estimated Books, Course Materials, Supplies, and Equipment | $1,320 | $1,320",
+    "value": 1320
+   },
+   {
+    "field": "on_campus:Estimated Miscellaneous Personal Expenses",
+    "snippet": "Estimated Miscellaneous Personal Expenses | $2,442 | $2,442",
+    "value": 2442
+   },
+   {
+    "field": "on_campus:Estimated Transportation",
+    "snippet": "Estimated Transportation | $234 | $234",
+    "value": 234
+   },
+   {
+    "field": "on_campus:Estimated Loan Fees",
+    "snippet": "Estimated Loan Fees | $86 | $86",
+    "value": 86
+   },
+   {
+    "field": "on_campus:Total Cost of Attendance",
+    "snippet": "Total Cost of Attendance | $38,762 | $39,762",
+    "value": 39762
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-231174",
+  "issues": [
+   "components_do_not_reconcile"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": 1320,
+   "components": {
+    "Average Food and Housing -- Food and Housing Rates": 14654,
+    "Comprehensive Fee": 3058,
+    "Estimated Billable Costs": 34680,
+    "Estimated Books, Course Materials, Supplies, and Equipment": 1320,
+    "Estimated Loan Fees": 86,
+    "Estimated Miscellaneous Personal Expenses": 2442,
+    "Estimated Transportation": 234,
+    "Program Fee": 0,
+    "Residential Engagement Council (REC) Fee": 30,
+    "Total Cost of Attendance": 38762,
+    "Tuition": 16938
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-231174",
+   "last_verified_at": "2026-10-06",
+   "living_arrangements": [
+    {
+     "arrangement": "on_campus",
+     "column_header": "Vermont Resident",
+     "components": {
+      "Average Food and Housing -- Food and Housing Rates": 14654,
+      "Comprehensive Fee": 3058,
+      "Estimated Billable Costs": 34680,
+      "Estimated Books, Course Materials, Supplies, and Equipment": 1320,
+      "Estimated Loan Fees": 86,
+      "Estimated Miscellaneous Personal Expenses": 2442,
+      "Estimated Transportation": 234,
+      "Program Fee": 0,
+      "Residential Engagement Council (REC) Fee": 30,
+      "Total Cost of Attendance": 38762,
+      "Tuition": 16938
+     },
+     "total_cost_of_attendance": 38762
+    },
+    {
+     "arrangement": "on_campus",
+     "column_header": "Vermont Resident (enrolled in select colleges or schools)1",
+     "components": {
+      "Average Food and Housing -- Food and Housing Rates": 14654,
+      "Comprehensive Fee": 3058,
+      "Estimated Billable Costs": 35680,
+      "Estimated Books, Course Materials, Supplies, and Equipment": 1320,
+      "Estimated Loan Fees": 86,
+      "Estimated Miscellaneous Personal Expenses": 2442,
+      "Estimated Transportation": 234,
+      "Program Fee": 1000,
+      "Residential Engagement Council (REC) Fee": 30,
+      "Total Cost of Attendance": 39762,
+      "Tuition": 16938
+     },
+     "total_cost_of_attendance": 39762
+    }
+   ],
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \"Undergraduate Tuition and Fees, 2026-2027 Academic Year Costs On-Campus Vermont Resident Student \"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": 14654,
+   "residency": "in_state",
+   "source_url": "https://www.uvm.edu/studentfinancialservices/costs-attending",
+   "student_population": "undergraduate",
+   "total_cost_of_attendance": 38762,
+   "tuition": 16938,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:39:44+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 05 Oct 2026 21:19:46 GMT",
+   "page_file": "4d0a380f27d3a9108020.json.gz",
+   "requested_url": "https://www.uvm.edu/studentfinancialservices/costs-attending",
+   "sha256": "4d0a380f27d3a910802092faf611b0d449437dcac6dea2d0ecaacea780de3fab",
+   "title": "Costs of Attending | The University of Vermont",
+   "url": "https://www.uvm.edu/studentfinancialservices/costs-attending"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2025-26",
+  "candidate_id": "bf19a5678d42c4b0",
+  "checks": {
+   "columns": 2,
+   "components_reconcile": false,
+   "rows": 10
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "on_campus:Tuition",
+    "snippet": "Tuition | $44,646 | $44,646",
+    "value": 44646
+   },
+   {
+    "field": "on_campus:Comprehensive Fee",
+    "snippet": "Comprehensive Fee | $2,908 | $2,908",
+    "value": 2908
+   },
+   {
+    "field": "on_campus:Program Fee",
+    "snippet": "Program Fee | $0 | $1,000",
+    "value": 0
+   },
+   {
+    "field": "on_campus:Average Food and Housing – Food and Housing Rates",
+    "snippet": "Average Food and Housing – Food and Housing Rates | $14,256 | $14,256",
+    "value": 14256
+   },
+   {
+    "field": "on_campus:Estimated Billable Costs",
+    "snippet": "Estimated Billable Costs | $61,810 | $62,810",
+    "value": 61810
+   },
+   {
+    "field": "on_campus:Estimated Books, Course Materials, Supplies, and Equipment",
+    "snippet": "Estimated Books, Course Materials, Supplies, and Equipment | $1,320 | $1,320",
+    "value": 1320
+   },
+   {
+    "field": "on_campus:Estimated Miscellaneous Personal Expenses",
+    "snippet": "Estimated Miscellaneous Personal Expenses | $2,380 | $2,380",
+    "value": 2380
+   },
+   {
+    "field": "on_campus:Estimated Transportation",
+    "snippet": "Estimated Transportation | $660 | $660",
+    "value": 660
+   },
+   {
+    "field": "on_campus:Estimated Loan Fees",
+    "snippet": "Estimated Loan Fees | $82 | $82",
+    "value": 82
+   },
+   {
+    "field": "on_campus:Total Cost of Attendance",
+    "snippet": "Total Cost of Attendance | $66,252 | $67,252",
+    "value": 66252
+   },
+   {
+    "field": "on_campus:Tuition",
+    "snippet": "Tuition | $44,646 | $44,646",
+    "value": 44646
+   },
+   {
+    "field": "on_campus:Comprehensive Fee",
+    "snippet": "Comprehensive Fee | $2,908 | $2,908",
+    "value": 2908
+   },
+   {
+    "field": "on_campus:Program Fee",
+    "snippet": "Program Fee | $0 | $1,000",
+    "value": 1000
+   },
+   {
+    "field": "on_campus:Average Food and Housing – Food and Housing Rates",
+    "snippet": "Average Food and Housing – Food and Housing Rates | $14,256 | $14,256",
+    "value": 14256
+   },
+   {
+    "field": "on_campus:Estimated Billable Costs",
+    "snippet": "Estimated Billable Costs | $61,810 | $62,810",
+    "value": 62810
+   },
+   {
+    "field": "on_campus:Estimated Books, Course Materials, Supplies, and Equipment",
+    "snippet": "Estimated Books, Course Materials, Supplies, and Equipment | $1,320 | $1,320",
+    "value": 1320
+   },
+   {
+    "field": "on_campus:Estimated Miscellaneous Personal Expenses",
+    "snippet": "Estimated Miscellaneous Personal Expenses | $2,380 | $2,380",
+    "value": 2380
+   },
+   {
+    "field": "on_campus:Estimated Transportation",
+    "snippet": "Estimated Transportation | $660 | $660",
+    "value": 660
+   },
+   {
+    "field": "on_campus:Estimated Loan Fees",
+    "snippet": "Estimated Loan Fees | $82 | $82",
+    "value": 82
+   },
+   {
+    "field": "on_campus:Total Cost of Attendance",
+    "snippet": "Total Cost of Attendance | $66,252 | $67,252",
+    "value": 67252
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-231174",
+  "issues": [
+   "components_do_not_reconcile",
+   "stale_year_label:2025-26"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2025-26",
+   "books_supplies": 1320,
+   "components": {
+    "Average Food and Housing – Food and Housing Rates": 14256,
+    "Comprehensive Fee": 2908,
+    "Estimated Billable Costs": 61810,
+    "Estimated Books, Course Materials, Supplies, and Equipment": 1320,
+    "Estimated Loan Fees": 82,
+    "Estimated Miscellaneous Personal Expenses": 2380,
+    "Estimated Transportation": 660,
+    "Program Fee": 0,
+    "Total Cost of Attendance": 66252,
+    "Tuition": 44646
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-231174",
+   "last_verified_at": "2026-10-06",
+   "living_arrangements": [
+    {
+     "arrangement": "on_campus",
+     "column_header": "Out-of-State Resident",
+     "components": {
+      "Average Food and Housing – Food and Housing Rates": 14256,
+      "Comprehensive Fee": 2908,
+      "Estimated Billable Costs": 61810,
+      "Estimated Books, Course Materials, Supplies, and Equipment": 1320,
+      "Estimated Loan Fees": 82,
+      "Estimated Miscellaneous Personal Expenses": 2380,
+      "Estimated Transportation": 660,
+      "Program Fee": 0,
+      "Total Cost of Attendance": 66252,
+      "Tuition": 44646
+     },
+     "total_cost_of_attendance": 66252
+    },
+    {
+     "arrangement": "on_campus",
+     "column_header": "Out-of-State Resident Enrolled In:The College of Nursing and Health Sciences, Grossman School of Business, or College of Engineering and Mathematical Sciences",
+     "components": {
+      "Average Food and Housing – Food and Housing Rates": 14256,
+      "Comprehensive Fee": 2908,
+      "Estimated Billable Costs": 62810,
+      "Estimated Books, Course Materials, Supplies, and Equipment": 1320,
+      "Estimated Loan Fees": 82,
+      "Estimated Miscellaneous Personal Expenses": 2380,
+      "Estimated Transportation": 660,
+      "Program Fee": 1000,
+      "Total Cost of Attendance": 67252,
+      "Tuition": 44646
+     },
+     "total_cost_of_attendance": 67252
+    }
+   ],
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \"Undergraduate Tuition and Fees, 2025-2026 Academic Year Costs On-Campus Out-of-State Resident Student \"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": 14256,
+   "residency": "out_of_state",
+   "source_url": "https://www.uvm.edu/studentfinancialservices/costs-attending",
+   "student_population": "undergraduate",
+   "total_cost_of_attendance": 66252,
+   "tuition": 44646,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:39:44+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 05 Oct 2026 21:19:46 GMT",
+   "page_file": "4d0a380f27d3a9108020.json.gz",
+   "requested_url": "https://www.uvm.edu/studentfinancialservices/costs-attending",
+   "sha256": "4d0a380f27d3a910802092faf611b0d449437dcac6dea2d0ecaacea780de3fab",
+   "title": "Costs of Attending | The University of Vermont",
+   "url": "https://www.uvm.edu/studentfinancialservices/costs-attending"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2025-26",
+  "candidate_id": "af9dcddf995495cd",
+  "checks": {
+   "columns": 2,
+   "components_reconcile": false,
+   "rows": 10
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "on_campus:Tuition",
+    "snippet": "Tuition | $16,606 | $16,606",
+    "value": 16606
+   },
+   {
+    "field": "on_campus:Comprehensive Fee",
+    "snippet": "Comprehensive Fee | $2,908 | $2,908",
+    "value": 2908
+   },
+   {
+    "field": "on_campus:Program Fee",
+    "snippet": "Program Fee | $0 | $1,000",
+    "value": 0
+   },
+   {
+    "field": "on_campus:Average Food and Housing -- Food and Housing Rates",
+    "snippet": "Average Food and Housing -- Food and Housing Rates | $14,256 | $14,256",
+    "value": 14256
+   },
+   {
+    "field": "on_campus:Estimated Billable Costs",
+    "snippet": "Estimated Billable Costs | $33,770 | $34,770",
+    "value": 33770
+   },
+   {
+    "field": "on_campus:Estimated Books, Course Materials, Supplies, and Equipment",
+    "snippet": "Estimated Books, Course Materials, Supplies, and Equipment | $1,320 | $1,320",
+    "value": 1320
+   },
+   {
+    "field": "on_campus:Estimated Miscellaneous Personal Expenses",
+    "snippet": "Estimated Miscellaneous Personal Expenses | $2,380 | $2,380",
+    "value": 2380
+   },
+   {
+    "field": "on_campus:Estimated Transportation",
+    "snippet": "Estimated Transportation | $234 | $234",
+    "value": 234
+   },
+   {
+    "field": "on_campus:Estimated Loan Fees",
+    "snippet": "Estimated Loan Fees | $82 | $82",
+    "value": 82
+   },
+   {
+    "field": "on_campus:Total Cost of Attendance",
+    "snippet": "Total Cost of Attendance | $37,786 | $38,786",
+    "value": 37786
+   },
+   {
+    "field": "on_campus:Tuition",
+    "snippet": "Tuition | $16,606 | $16,606",
+    "value": 16606
+   },
+   {
+    "field": "on_campus:Comprehensive Fee",
+    "snippet": "Comprehensive Fee | $2,908 | $2,908",
+    "value": 2908
+   },
+   {
+    "field": "on_campus:Program Fee",
+    "snippet": "Program Fee | $0 | $1,000",
+    "value": 1000
+   },
+   {
+    "field": "on_campus:Average Food and Housing -- Food and Housing Rates",
+    "snippet": "Average Food and Housing -- Food and Housing Rates | $14,256 | $14,256",
+    "value": 14256
+   },
+   {
+    "field": "on_campus:Estimated Billable Costs",
+    "snippet": "Estimated Billable Costs | $33,770 | $34,770",
+    "value": 34770
+   },
+   {
+    "field": "on_campus:Estimated Books, Course Materials, Supplies, and Equipment",
+    "snippet": "Estimated Books, Course Materials, Supplies, and Equipment | $1,320 | $1,320",
+    "value": 1320
+   },
+   {
+    "field": "on_campus:Estimated Miscellaneous Personal Expenses",
+    "snippet": "Estimated Miscellaneous Personal Expenses | $2,380 | $2,380",
+    "value": 2380
+   },
+   {
+    "field": "on_campus:Estimated Transportation",
+    "snippet": "Estimated Transportation | $234 | $234",
+    "value": 234
+   },
+   {
+    "field": "on_campus:Estimated Loan Fees",
+    "snippet": "Estimated Loan Fees | $82 | $82",
+    "value": 82
+   },
+   {
+    "field": "on_campus:Total Cost of Attendance",
+    "snippet": "Total Cost of Attendance | $37,786 | $38,786",
+    "value": 38786
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-231174",
+  "issues": [
+   "components_do_not_reconcile",
+   "stale_year_label:2025-26"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2025-26",
+   "books_supplies": 1320,
+   "components": {
+    "Average Food and Housing -- Food and Housing Rates": 14256,
+    "Comprehensive Fee": 2908,
+    "Estimated Billable Costs": 33770,
+    "Estimated Books, Course Materials, Supplies, and Equipment": 1320,
+    "Estimated Loan Fees": 82,
+    "Estimated Miscellaneous Personal Expenses": 2380,
+    "Estimated Transportation": 234,
+    "Program Fee": 0,
+    "Total Cost of Attendance": 37786,
+    "Tuition": 16606
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-231174",
+   "last_verified_at": "2026-10-06",
+   "living_arrangements": [
+    {
+     "arrangement": "on_campus",
+     "column_header": "Vermont Resident",
+     "components": {
+      "Average Food and Housing -- Food and Housing Rates": 14256,
+      "Comprehensive Fee": 2908,
+      "Estimated Billable Costs": 33770,
+      "Estimated Books, Course Materials, Supplies, and Equipment": 1320,
+      "Estimated Loan Fees": 82,
+      "Estimated Miscellaneous Personal Expenses": 2380,
+      "Estimated Transportation": 234,
+      "Program Fee": 0,
+      "Total Cost of Attendance": 37786,
+      "Tuition": 16606
+     },
+     "total_cost_of_attendance": 37786
+    },
+    {
+     "arrangement": "on_campus",
+     "column_header": "Vermont Resident Enrolled in:College of Nursing and Health Sciences, Grossman School of Business, or College of Engineering and Mathematical Sciences",
+     "components": {
+      "Average Food and Housing -- Food and Housing Rates": 14256,
+      "Comprehensive Fee": 2908,
+      "Estimated Billable Costs": 34770,
+      "Estimated Books, Course Materials, Supplies, and Equipment": 1320,
+      "Estimated Loan Fees": 82,
+      "Estimated Miscellaneous Personal Expenses": 2380,
+      "Estimated Transportation": 234,
+      "Program Fee": 1000,
+      "Total Cost of Attendance": 38786,
+      "Tuition": 16606
+     },
+     "total_cost_of_attendance": 38786
+    }
+   ],
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \"Undergraduate Tuition and Fees, 2025-2026 Academic Year Costs On-Campus Vermont Resident Student \"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": 14256,
+   "residency": "in_state",
+   "source_url": "https://www.uvm.edu/studentfinancialservices/costs-attending",
+   "student_population": "undergraduate",
+   "total_cost_of_attendance": 37786,
+   "tuition": 16606,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:39:44+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 05 Oct 2026 21:19:46 GMT",
+   "page_file": "4d0a380f27d3a9108020.json.gz",
+   "requested_url": "https://www.uvm.edu/studentfinancialservices/costs-attending",
+   "sha256": "4d0a380f27d3a910802092faf611b0d449437dcac6dea2d0ecaacea780de3fab",
+   "title": "Costs of Attending | The University of Vermont",
+   "url": "https://www.uvm.edu/studentfinancialservices/costs-attending"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2025-26",
+  "candidate_id": "68c3948dbbed37fc",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 6
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Jump to: Factors that may Affect your SAP Appeal Satisfactory Academic Progress (SAP) Tests Three Standards: 1.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "SAP Appeal A student who fails to meet a Satisfactory Academic Progress (SAP) Standard will be placed in a Financial Aid Suspension Status and will lose all financial aid eligibility until the student is in compliance with the SAP standards.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "A student whose aid eligibility has been suspended may appeal for a Probationary Semester by completing a SAP appeal.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "The appeal consists of: SAP Appeal Form and Academic Plan.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Students should make every effort to improve their SAP standing as they may be limited to two SAP appeals.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Satisfactory Academic Progress will include repeated and remedial coursework unless determined otherwise by the Financial Aid Office during review of a Satisfactory Academic Progress Appeal.",
+    "value": "sap_appeal"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-231165",
+  "issues": [
+   "stale_year_label:2025-26",
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2025-26",
+   "appeal_kind": "sap_appeal",
+   "institution_key": "ipeds-231165",
+   "last_verified_at": "2026-10-06",
+   "notes": "Extracted by appeal_sentences/v1; 6 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://vermontstate.edu/admission/financial-aid/understanding-your-financial-aid/satisfactory-academic-progress-for-financial-aid-eligibility/",
+   "process_summary": "Jump to: Factors that may Affect your SAP Appeal Satisfactory Academic Progress (SAP) Tests Three Standards: 1.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://vermontstate.edu/admission/financial-aid/understanding-your-financial-aid/satisfactory-academic-progress-for-financial-aid-eligibility/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:39:53+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "b2e9723c4066f08be1ad.json.gz",
+   "requested_url": "https://vermontstate.edu/admission/financial-aid/understanding-your-financial-aid/satisfactory-academic-progress-for-financial-aid-eligibility/",
+   "sha256": "b2e9723c4066f08be1ad603ad73fcbc4b45f861c025d21b10fb35952a47c304f",
+   "title": "Satisfactory Academic Progress for Financial Aid Eligibility - Vermont State University",
+   "url": "https://vermontstate.edu/admission/financial-aid/understanding-your-financial-aid/satisfactory-academic-progress-for-financial-aid-eligibility/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2025-26",
+  "candidate_id": "bcd714b134dac52c",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Special Circumstances Students with documented disabilities may be allotted additional time for completion of courses.",
+    "value": "need_based_special_circumstances"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-231165",
+  "issues": [
+   "stale_year_label:2025-26",
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2025-26",
+   "appeal_kind": "need_based_special_circumstances",
+   "institution_key": "ipeds-231165",
+   "last_verified_at": "2026-10-06",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://vermontstate.edu/admission/financial-aid/understanding-your-financial-aid/satisfactory-academic-progress-for-financial-aid-eligibility/",
+   "process_summary": "Special Circumstances Students with documented disabilities may be allotted additional time for completion of courses.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://vermontstate.edu/admission/financial-aid/understanding-your-financial-aid/satisfactory-academic-progress-for-financial-aid-eligibility/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:39:53+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "b2e9723c4066f08be1ad.json.gz",
+   "requested_url": "https://vermontstate.edu/admission/financial-aid/understanding-your-financial-aid/satisfactory-academic-progress-for-financial-aid-eligibility/",
+   "sha256": "b2e9723c4066f08be1ad603ad73fcbc4b45f861c025d21b10fb35952a47c304f",
+   "title": "Satisfactory Academic Progress for Financial Aid Eligibility - Vermont State University",
+   "url": "https://vermontstate.edu/admission/financial-aid/understanding-your-financial-aid/satisfactory-academic-progress-for-financial-aid-eligibility/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2024-25",
+  "candidate_id": "a5f109e92e5ba22c",
+  "checks": {
+   "fields": [
+    "act_25",
+    "act_50",
+    "act_75",
+    "admits",
+    "applications",
+    "enrolled",
+    "entering_fall_year",
+    "sat_composite_25",
+    "sat_composite_50",
+    "sat_composite_75",
+    "sat_math_25",
+    "sat_math_50",
+    "sat_math_75"
+   ]
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "admissions_metrics",
+  "evidence": [
+   {
+    "breakdown_reconciles": true,
+    "field": "applications",
+    "snippet": "Total first-time, first-year (degree-seeking) who applied           42        1521            1433           0     2996",
+    "value": 2996
+   },
+   {
+    "breakdown_reconciles": true,
+    "field": "admits",
+    "snippet": "Total first-time, first-year (degree-seeking) who were admitted     34          1188          112            0     1334",
+    "value": 1334
+   },
+   {
+    "breakdown_reconciles": true,
+    "field": "enrolled",
+    "snippet": "Total first-time, first-year (degree-seeking) enrolled               8          136            10            0      154",
+    "value": 154
+   },
+   {
+    "field": "sat_composite_25..75",
+    "snippet": "SAT Composite                     1308                      1335                       1375",
+    "value": [
+     1308,
+     1335,
+     1375
+    ]
+   },
+   {
+    "field": "sat_math_25..75",
+    "snippet": "SAT Math                           588                       610                       653",
+    "value": [
+     588,
+     610,
+     653
+    ]
+   },
+   {
+    "field": "act_25..75",
+    "snippet": "ACT Composite                      30                        32                         32",
+    "value": [
+     30,
+     32,
+     32
+    ]
+   }
+  ],
+  "extractor": "common_data_set/v1",
+  "institution_key": "ipeds-230816",
+  "issues": [
+   "stale_year_label:2024-25"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2024-25",
+   "act_25": 30,
+   "act_50": 32,
+   "act_75": 32,
+   "admits": 1334,
+   "applicant_population": "first_time_first_year_degree_seeking",
+   "applications": 2996,
+   "enrolled": 154,
+   "entering_fall_year": 2024,
+   "institution_key": "ipeds-230816",
+   "last_verified_at": "2026-10-06",
+   "notes": "Common Data Set 2024-25 sections C1/C9, extracted by common_data_set/v1; totals copied as printed.",
+   "sat_composite_25": 1308,
+   "sat_composite_50": 1335,
+   "sat_composite_75": 1375,
+   "sat_math_25": 588,
+   "sat_math_50": 610,
+   "sat_math_75": 653,
+   "source_url": "https://www.bennington.edu/sites/default/files/sources/docs/cds-2024-2025-bennington.pdf",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:40:24+00:00",
+   "kind": "pdf",
+   "last_modified": "Mon, 24 Nov 2025 18:48:18 GMT",
+   "page_file": "5ba210066d1e44127e1a.json.gz",
+   "requested_url": "https://www.bennington.edu/doc/95572",
+   "sha256": "5ba210066d1e44127e1a3edea0b069c12f4012cb7d5a31cfdadd37b2c601d80f",
+   "title": "Common Data Set 2024-2025",
+   "url": "https://www.bennington.edu/sites/default/files/sources/docs/cds-2024-2025-bennington.pdf"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "m120ec900d2eef96",
+  "checks": {
+   "fields": [
+    "min_grade"
+   ],
+   "merged_pages": 2
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "transfer_policies",
+  "evidence": [
+   {
+    "field": "min_grade",
+    "snippet": "Transferring Credit For courses that correspond to offerings at Saint Michael’s College, credit may be transferred for work completed at accredited colleges with a grade of C- or better.",
+    "source_url": "https://www.smcvt.edu/admission-aid/apply/transfer-students/",
+    "value": "C-"
+   },
+   {
+    "field": "min_grade",
+    "snippet": "Credit may be transferred for work completed at accredited colleges with a grade of C- or better, provided that the courses correspond to offerings at Saint Michael’s College.",
+    "source_url": "https://www.smcvt.edu/admission-aid/admission-faqs/",
+    "value": "C-"
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "institution_key": "ipeds-231059",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "additional_source_urls": [
+    "https://www.smcvt.edu/admission-aid/admission-faqs/"
+   ],
+   "institution_key": "ipeds-231059",
+   "last_verified_at": "2026-10-06",
+   "min_grade": "C-",
+   "notes": "Extracted by transfer_sentences/v1; values copied from the cited sentences.",
+   "policy_url": "https://www.smcvt.edu/admission-aid/apply/transfer-students/",
+   "source_url": "https://www.smcvt.edu/admission-aid/apply/transfer-students/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:37:56+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "ef1d08edb76028cd9374.json.gz",
+   "requested_url": "https://www.smcvt.edu/admission-aid/apply/transfer-students/",
+   "sha256": "ef1d08edb76028cd9374f33d25a74fa5d4fa06095becfe92fdf358f982f8ac0a",
+   "title": "Transfer Students | Saint Michael's College",
+   "url": "https://www.smcvt.edu/admission-aid/apply/transfer-students/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "mc3599080c624c49",
+  "checks": {
+   "fields": [
+    "min_grade"
+   ],
+   "merged_pages": 3
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "transfer_policies",
+  "evidence": [
+   {
+    "field": "min_grade",
+    "snippet": "Vermont Transfer Guarantee Details Champlain College will recognize, as part of this Transfer Guarantee, transfer credits already granted by CCV for the area of study with a grade of C or higher.",
+    "source_url": "https://www.champlain.edu/admissions/transfer-applicants/vermont-transfer-guarantee/",
+    "value": "C"
+   },
+   {
+    "field": "min_grade",
+    "snippet": "To be considered for transfer credit, courses must be completed with a grade of “C” or higher.",
+    "source_url": "https://www.champlain.edu/admissions/transfer-applicants/transferring-credits/",
+    "value": "C"
+   },
+   {
+    "field": "min_grade",
+    "snippet": "In order to be considered for transfer credit, a course must be completed with a grade of “C” or higher in accordance with the Champlain College grading scale.",
+    "source_url": "https://online.champlain.edu/admission/transfer-credit-options",
+    "value": "C"
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "institution_key": "ipeds-230852",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "additional_source_urls": [
+    "https://www.champlain.edu/admissions/transfer-applicants/transferring-credits/",
+    "https://www.champlain.edu/admissions/transfer-applicants/vermont-transfer-guarantee/"
+   ],
+   "institution_key": "ipeds-230852",
+   "last_verified_at": "2026-10-06",
+   "min_grade": "C",
+   "notes": "Extracted by transfer_sentences/v1; values copied from the cited sentences.",
+   "policy_url": "https://online.champlain.edu/admission/transfer-credit-options",
+   "source_url": "https://online.champlain.edu/admission/transfer-credit-options",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T05:38:27+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 05 Oct 2026 16:14:13 GMT",
+   "page_file": "882e3ef9c75edf13c4be.json.gz",
+   "requested_url": "https://online.champlain.edu/admission/transfer-credit-options",
+   "sha256": "882e3ef9c75edf13c4bed3ede5bd9bb4c498c04c625d43a0431ffb8b6c398ae9",
+   "title": "Transfer Credits & Fast-Track Your Degree | Champlain College Online",
+   "url": "https://online.champlain.edu/admission/transfer-credit-options"
+  },
+  "year_basis": "source_unlabeled"
+ }
+]
