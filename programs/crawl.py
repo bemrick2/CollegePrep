@@ -166,6 +166,8 @@ def crawl_target(target, run: Run, fetcher, browser=None, log=print, caps=None):
     render = target.get('render') == 'browser' and browser is not None
     cat = target.get('catalog') or {}
     chost = host_of(cat.get('home', '')) if cat.get('home') else None
+    if target.get('crawl_delay') and chost:  # a slower fixed pace for catalog hosts that rate-limit (never shortens a robots delay)
+        fetcher.gate.set_delay(urlsplit(cat['home']).netloc.lower(), target['crawl_delay'])
     queue = []  # FIFO by stage keeps lists before pages
 
     def push(url, role, via, depth=0):
