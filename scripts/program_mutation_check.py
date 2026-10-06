@@ -66,6 +66,7 @@ MUTS = [
     ('backend/program_fields.py', "            errs.append('verified_listed_programs must be an integer between 0 and listed_bachelor_programs')", "            pass"),
     ('programs/promote.py', "        return 0  # a mechanical count never replaces a reviewed one", "        pass"),
     ('programs/promote.py', "    clash = {k: f for k, f in folders.items() if owners.get(f, {k}) - {k} and holder(f) != k}", "    clash = {}"),
+    ('programs/status.py', "    reviewed = [c for c in cats if 'Standing review' not in (c.get('notes') or '')]", "    reviewed = cats"),
 ]
 
 

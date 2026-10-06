@@ -861,6 +861,12 @@ class CompletionStatus(unittest.TestCase):
         r = self.S.state_status('ZZ')['institutions'][0]
         self.assertEqual((r['catalog_share'], r['dimensions']['catalog']), (0.8, 'open'))
 
+    def test_a_mechanical_count_is_provisional(self):
+        self.covered_school('big', n=10, listed=10)
+        self.put('big', 'program_catalogs', [{'verification_status': 'verified', 'listed_bachelor_programs': 10,
+                                              'notes': 'Reviewed 2026-10-06: Standing review: official current-catalog program list pages.'}])
+        self.assertEqual(self.S.state_status('ZZ')['institutions'][0]['dimensions']['catalog'], 'open')
+
     def test_partially_verified_records_never_count_toward_the_catalog(self):
         self.put('big', 'academic_programs', [{'program_key': f'p{i}', 'program_name': f'X {i}', 'credential_level': 'bachelor',
                                                'verification_status': 'partially_verified'} for i in range(10)])

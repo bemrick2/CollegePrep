@@ -98,11 +98,14 @@ def institution_status(inst, q_entries):
     plans = {r['program_key'] for r in reqs if r.get('requirement_kind') == 'program_plan' and r.get('verification_status') == 'verified'}
     groups = [r for r in reqs if r.get('requirement_kind') == 'major' and r.get('verification_status') == 'verified']
     gaps = {e['gap'] for e in q_entries}
-    listed = max([c.get('listed_bachelor_programs') or 0 for c in cats] + [0])
-    complete = any(c.get('programs_complete') is True for c in cats)
+    # A mechanical count (autoreview 'Standing review') can undercount (UT Austin: 113 linked entries, 262 listed), so it
+    # is provisional: only a reviewed count (pilot review or catalog-count review) can make the catalog dimension met.
+    reviewed = [c for c in cats if 'Standing review' not in (c.get('notes') or '')]
+    listed = max([c.get('listed_bachelor_programs') or 0 for c in reviewed] + [0])
+    complete = any(c.get('programs_complete') is True for c in reviewed)
     # verified records that are on the official list (the reviewer's or autoreview's match) when recorded; records for
     # options or programs off the list must not inflate the share
-    matched = [c['verified_listed_programs'] for c in cats if c.get('verified_listed_programs') is not None]
+    matched = [c['verified_listed_programs'] for c in reviewed if c.get('verified_listed_programs') is not None]
     counted = min(len(verified), max(matched)) if matched else len(verified)
     share = (counted / listed) if listed else None
     covered = complete or (share is not None and share >= CATALOG_SHARE)  # both need a catalog record
