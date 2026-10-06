@@ -106,12 +106,10 @@
     "min_depth": 1,
     "path_prefix": "/",
     "platform": "courseleaf",
-    "program_lists": [
-     "https://catalog.ncsu.edu/azindex/"
-    ]
+    "program_lists": []
    },
    "policy": [],
-   "detected": "CourseLeaf-style program list on catalog.ncsu.edu"
+   "detected": "CourseLeaf-style catalog on catalog.ncsu.edu (no program list link; pages found from the home page)"
   },
   {
    "institution_key": "ipeds-199218",
@@ -150,13 +148,11 @@
     "path_prefix": "/",
     "platform": "courseleaf",
     "program_lists": [
-     "https://catalog.unc.edu/azindex/",
-     "https://catalog.unc.edu/programs/",
-     "https://catalog.unc.edu/undergraduate/programs-study/"
+     "https://catalog.unc.edu/programs/"
     ]
    },
    "policy": [],
-   "detected": "CourseLeaf-style program list on catalog.unc.edu"
+   "detected": "CourseLeaf-style catalog on catalog.unc.edu (program list https://catalog.unc.edu/programs/)"
   },
   {
    "institution_key": "ipeds-199139",
@@ -195,12 +191,11 @@
     "path_prefix": "/",
     "platform": "courseleaf",
     "program_lists": [
-     "https://catalog.uncg.edu/azindex/",
      "https://catalog.uncg.edu/programs/"
     ]
    },
    "policy": [],
-   "detected": "CourseLeaf-style program list on catalog.uncg.edu"
+   "detected": "CourseLeaf-style catalog on catalog.uncg.edu (program list https://catalog.uncg.edu/programs/)"
   },
   {
    "institution_key": "ipeds-200004",
@@ -386,12 +381,10 @@
     "min_depth": 1,
     "path_prefix": "/",
     "platform": "courseleaf",
-    "program_lists": [
-     "https://catalog.guilford.edu/azindex/"
-    ]
+    "program_lists": []
    },
    "policy": [],
-   "detected": "CourseLeaf-style program list on catalog.guilford.edu"
+   "detected": "CourseLeaf-style catalog on catalog.guilford.edu (no program list link; pages found from the home page)"
   },
   {
    "institution_key": "ipeds-198695",
@@ -467,16 +460,19 @@
     "meredith.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.meredith.edu/",
-    "https://catalog.meredith.edu/",
-    "https://www.meredith.edu/academics/",
-    "https://www.meredith.edu/registrar/",
-    "https://www.meredith.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.meredith.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.meredith.edu/degrees"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.meredith.edu (program list https://catalog.meredith.edu/degrees)"
   },
   {
    "institution_key": "ipeds-198969",
@@ -604,14 +600,10 @@
     "min_depth": 1,
     "path_prefix": "/",
     "platform": "courseleaf",
-    "program_lists": [
-     "https://bulletin.wfu.edu/divinity/programs/",
-     "https://bulletin.wfu.edu/graduate/programs/",
-     "https://bulletin.wfu.edu/professional-studies/programs/"
-    ]
+    "program_lists": []
    },
    "policy": [],
-   "detected": "CourseLeaf-style program list on bulletin.wfu.edu"
+   "detected": "CourseLeaf-style catalog on bulletin.wfu.edu (no program list link; pages found from the home page)"
   },
   {
    "institution_key": "ipeds-199962",
@@ -798,7 +790,7 @@
     ]
    },
    "policy": [],
-   "detected": "CourseLeaf-style program list on catalog.carolinau.edu"
+   "detected": "CourseLeaf-style catalog on catalog.carolinau.edu (program list https://catalog.carolinau.edu/programs)"
   },
   {
    "institution_key": "ipeds-433174",

@@ -76,8 +76,13 @@ def detect_institution(entries):
                 kuali.add(host)
             elif host.startswith(('catalog.', 'catalogs.', 'bulletin.', 'undergrad', 'undergraduate.')) and re.match(r'^/programs/[A-Za-z0-9._-]+/?$', u.path):
                 coursedog[host] += 1  # Coursedog program URLs: /programs/<code>
-            elif host.startswith(('catalog.', 'catalogs.', 'bulletin.')) and re.search(r'/(programs-az|azindex|programs)/?$|/(undergraduate|undergrad)/programs?/?', u.path):
+            elif host.startswith(('catalog.', 'catalogs.', 'bulletin.')) and re.search(
+                    r'^/((undergraduate|undergrad)/)?(programs?|programs-?a-?z|degrees?(-and-programs)?|majors?|programs-of-study)/?$|^/[^/]+/undergraduate/programs?(-?a-?z)?/?$', u.path) \
+                    and not re.search(r'grad(uate)?/|azindex', u.path.replace('undergrad', '')):
+                # CourseLeaf program lists; /azindex/ is the course index (and robots-disallowed on most CourseLeaf sites)
                 courseleaf[host].add(f'https://{host}{u.path}')
+            elif host.startswith(('catalog.', 'catalogs.', 'bulletin.')) and re.search(r'/(azindex|courses?-?a-?z|programs-az)/?$', u.path):
+                courseleaf.setdefault(host, set())
             elif u.path.lower().endswith('.pdf') and CATALOG_WORD.search(a + ' ' + u.path) and not re.search(r'graduate|archive|handbook', a + u.path, re.I):
                 ys = _years(a + ' ' + u.path)
                 if ys: pdfs.append((max(ys), href, m))
@@ -109,8 +114,9 @@ def detect_institution(entries):
         found.append((False, {'platform': 'kuali', 'home': f'https://{host}/catalog', 'path_prefix': '/catalog', 'min_depth': 0, 'program_lists': []}, f'Kuali {host}'))
     if courseleaf:
         host = max(courseleaf, key=lambda h: len(courseleaf[h]))
-        found.append((False, {'platform': 'courseleaf', 'home': f'https://{host}/', 'path_prefix': '/', 'min_depth': 1, 'program_lists': sorted(courseleaf[host])[:3]},
-                      f'CourseLeaf-style program list on {host}'))
+        lists = sorted(courseleaf[host], key=lambda u: ('undergrad' not in u, len(u)))[:2]
+        found.append((False, {'platform': 'courseleaf', 'home': f'https://{host}/', 'path_prefix': '/', 'min_depth': 1, 'program_lists': lists},
+                      f'CourseLeaf-style catalog on {host}' + (f' (program list {lists[0]})' if lists else ' (no program list link; pages found from the home page)')))
     if pdfs:
         y, href, _ = max(pdfs, key=lambda x: x[0])
         found.append((True, {'platform': 'pdf', 'home': href, 'catalog_pdfs': [href]}, f'catalog PDF labelled {y}-{y + 1}'))

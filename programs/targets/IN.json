@@ -188,12 +188,11 @@
     "path_prefix": "/",
     "platform": "courseleaf",
     "program_lists": [
-     "https://catalog.nd.edu/azindex/",
      "https://catalog.nd.edu/programs/"
     ]
    },
    "policy": [],
-   "detected": "CourseLeaf-style program list on catalog.nd.edu"
+   "detected": "CourseLeaf-style catalog on catalog.nd.edu (program list https://catalog.nd.edu/programs/)"
   },
   {
    "institution_key": "ipeds-151306",
@@ -542,13 +541,12 @@
     "path_prefix": "/",
     "platform": "courseleaf",
     "program_lists": [
-     "https://catalog.saintmarys.edu/azindex/",
-     "https://catalog.saintmarys.edu/graduate/financial-aid/programs/",
-     "https://catalog.saintmarys.edu/graduate/programs/"
+     "https://catalog.saintmarys.edu/undergraduate/programs/",
+     "https://catalog.saintmarys.edu/programs-az/"
     ]
    },
    "policy": [],
-   "detected": "CourseLeaf-style program list on catalog.saintmarys.edu"
+   "detected": "CourseLeaf-style catalog on catalog.saintmarys.edu (program list https://catalog.saintmarys.edu/undergraduate/programs/)"
   },
   {
    "institution_key": "ipeds-152530",
@@ -716,7 +714,7 @@
     ]
    },
    "policy": [],
-   "detected": "CourseLeaf-style program list on catalog.earlham.edu"
+   "detected": "CourseLeaf-style catalog on catalog.earlham.edu (program list https://catalog.earlham.edu/programs)"
   },
   {
    "institution_key": "ipeds-150604",
@@ -982,12 +980,11 @@
     "path_prefix": "/",
     "platform": "courseleaf",
     "program_lists": [
-     "https://catalog.purdueglobal.edu/azindex/",
      "https://catalog.purdueglobal.edu/programs/"
     ]
    },
    "policy": [],
-   "detected": "CourseLeaf-style program list on catalog.purdueglobal.edu"
+   "detected": "CourseLeaf-style catalog on catalog.purdueglobal.edu (program list https://catalog.purdueglobal.edu/programs/)"
   },
   {
    "institution_key": "ipeds-152381",
@@ -1124,16 +1121,19 @@
     "wabash.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.wabash.edu/",
-    "https://catalog.wabash.edu/",
-    "https://www.wabash.edu/academics/",
-    "https://www.wabash.edu/registrar/",
-    "https://www.wabash.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://bulletin.wabash.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://bulletin.wabash.edu/programsaz/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on bulletin.wabash.edu (program list https://bulletin.wabash.edu/programsaz/)"
   }
  ]
 }

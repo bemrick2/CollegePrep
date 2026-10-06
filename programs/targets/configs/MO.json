@@ -43,13 +43,15 @@
  },
  "cottey": {
   "catalog": {
-   "catalog_pdfs": [
-    "https://catalog.cottey.edu/sites/default/files/pdf/pdf_generator/cottey-college-catalog-2026-2027.pdf?v=1785437153"
-   ],
-   "home": "https://catalog.cottey.edu/sites/default/files/pdf/pdf_generator/cottey-college-catalog-2026-2027.pdf?v=1785437153",
-   "platform": "pdf"
+   "home": "https://catalog.cottey.edu/",
+   "min_depth": 1,
+   "path_prefix": "/",
+   "platform": "courseleaf",
+   "program_lists": [
+    "https://catalog.cottey.edu/degrees"
+   ]
   },
-  "detected": "catalog PDF labelled 2026-2027"
+  "detected": "CourseLeaf-style catalog on catalog.cottey.edu (program list https://catalog.cottey.edu/degrees)"
  },
  "coxcollege": {
   "catalog": {
@@ -139,7 +141,7 @@
     "https://catalog.logan.edu/programs"
    ]
   },
-  "detected": "CourseLeaf-style program list on catalog.logan.edu"
+  "detected": "CourseLeaf-style catalog on catalog.logan.edu (program list https://catalog.logan.edu/programs)"
  },
  "maryville": {
   "catalog": {
@@ -166,11 +168,9 @@
    "min_depth": 1,
    "path_prefix": "/",
    "platform": "courseleaf",
-   "program_lists": [
-    "https://catalog.missouri.edu/azindex/"
-   ]
+   "program_lists": []
   },
-  "detected": "CourseLeaf-style program list on catalog.missouri.edu"
+  "detected": "CourseLeaf-style catalog on catalog.missouri.edu (no program list link; pages found from the home page)"
  },
  "missouristate": {
   "catalog": {
@@ -188,12 +188,10 @@
    "path_prefix": "/",
    "platform": "courseleaf",
    "program_lists": [
-    "https://catalog.missouriwestern.edu/azindex/",
-    "https://catalog.missouriwestern.edu/graduate/programs/",
     "https://catalog.missouriwestern.edu/undergraduate/programs/"
    ]
   },
-  "detected": "CourseLeaf-style program list on catalog.missouriwestern.edu"
+  "detected": "CourseLeaf-style catalog on catalog.missouriwestern.edu (program list https://catalog.missouriwestern.edu/undergraduate/programs/)"
  },
  "mobap": {
   "catalog": {
@@ -224,11 +222,9 @@
    "min_depth": 1,
    "path_prefix": "/",
    "platform": "courseleaf",
-   "program_lists": [
-    "https://catalog.mst.edu/azindex/"
-   ]
+   "program_lists": []
   },
-  "detected": "CourseLeaf-style program list on catalog.mst.edu"
+  "detected": "CourseLeaf-style catalog on catalog.mst.edu (no program list link; pages found from the home page)"
  },
  "nwmissouri": {
   "catalog": {
@@ -309,12 +305,11 @@
    "path_prefix": "/",
    "platform": "courseleaf",
    "program_lists": [
-    "https://catalog.slu.edu/azindex/",
     "https://catalog.slu.edu/programs",
-    "https://catalog.slu.edu/programs-az/"
+    "https://catalog.slu.edu/programs/"
    ]
   },
-  "detected": "CourseLeaf-style program list on catalog.slu.edu"
+  "detected": "CourseLeaf-style catalog on catalog.slu.edu (program list https://catalog.slu.edu/programs)"
  },
  "stlcc": {
   "catalog": {
@@ -382,11 +377,9 @@
    "min_depth": 1,
    "path_prefix": "/",
    "platform": "courseleaf",
-   "program_lists": [
-    "https://catalog.umkc.edu/azindex/"
-   ]
+   "program_lists": []
   },
-  "detected": "CourseLeaf-style program list on catalog.umkc.edu"
+  "detected": "CourseLeaf-style catalog on catalog.umkc.edu (no program list link; pages found from the home page)"
  },
  "umsl": {
   "catalog": {
@@ -422,10 +415,9 @@
    "path_prefix": "/",
    "platform": "courseleaf",
    "program_lists": [
-    "https://bulletin.wustl.edu/azindex/",
     "https://bulletin.wustl.edu/programs/"
    ]
   },
-  "detected": "CourseLeaf-style program list on bulletin.wustl.edu"
+  "detected": "CourseLeaf-style catalog on bulletin.wustl.edu (program list https://bulletin.wustl.edu/programs/)"
  }
 }

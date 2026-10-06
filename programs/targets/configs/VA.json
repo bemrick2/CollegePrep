@@ -32,13 +32,15 @@
  },
  "ehc": {
   "catalog": {
-   "catalog_pdfs": [
-    "https://catalog.ehc.edu/sites/default/files/202526-academic-catalog-4-22-26.pdf"
-   ],
-   "home": "https://catalog.ehc.edu/sites/default/files/202526-academic-catalog-4-22-26.pdf",
-   "platform": "pdf"
+   "home": "https://catalog.ehc.edu/",
+   "min_depth": 1,
+   "path_prefix": "/",
+   "platform": "courseleaf",
+   "program_lists": [
+    "https://catalog.ehc.edu/degrees"
+   ]
   },
-  "detected": "catalog PDF labelled 2025-2026"
+  "detected": "CourseLeaf-style catalog on catalog.ehc.edu (program list https://catalog.ehc.edu/degrees)"
  },
  "gmu": {
   "catalog": {
@@ -47,11 +49,10 @@
    "path_prefix": "/",
    "platform": "courseleaf",
    "program_lists": [
-    "https://catalog.gmu.edu/azindex/",
     "https://catalog.gmu.edu/programs/"
    ]
   },
-  "detected": "CourseLeaf-style program list on catalog.gmu.edu"
+  "detected": "CourseLeaf-style catalog on catalog.gmu.edu (program list https://catalog.gmu.edu/programs/)"
  },
  "hollins": {
   "catalog": {
@@ -70,12 +71,11 @@
    "path_prefix": "/",
    "platform": "courseleaf",
    "program_lists": [
-    "https://catalog.liberty.edu/azindex/",
-    "https://catalog.liberty.edu/graduate/programs/",
+    "https://catalog.liberty.edu/undergraduate/programs/",
     "https://catalog.liberty.edu/programs/"
    ]
   },
-  "detected": "CourseLeaf-style program list on catalog.liberty.edu"
+  "detected": "CourseLeaf-style catalog on catalog.liberty.edu (program list https://catalog.liberty.edu/undergraduate/programs/)"
  },
  "longwood": {
   "catalog": {
@@ -92,13 +92,15 @@
  },
  "marybaldwin": {
   "catalog": {
-   "catalog_pdfs": [
-    "https://catalog.marybaldwin.edu/sites/default/files/pdf/pdf_generator/20262027-academic-catalog.pdf"
-   ],
-   "home": "https://catalog.marybaldwin.edu/sites/default/files/pdf/pdf_generator/20262027-academic-catalog.pdf",
-   "platform": "pdf"
+   "home": "https://catalog.marybaldwin.edu/",
+   "min_depth": 1,
+   "path_prefix": "/",
+   "platform": "courseleaf",
+   "program_lists": [
+    "https://catalog.marybaldwin.edu/degrees"
+   ]
   },
-  "detected": "catalog PDF labelled 2026-2027"
+  "detected": "CourseLeaf-style catalog on catalog.marybaldwin.edu (program list https://catalog.marybaldwin.edu/degrees)"
  },
  "nsu": {
   "catalog": {
@@ -107,11 +109,10 @@
    "path_prefix": "/",
    "platform": "courseleaf",
    "program_lists": [
-    "https://catalog.nsu.edu/azindex/",
     "https://catalog.nsu.edu/programs/"
    ]
   },
-  "detected": "CourseLeaf-style program list on catalog.nsu.edu"
+  "detected": "CourseLeaf-style catalog on catalog.nsu.edu (program list https://catalog.nsu.edu/programs/)"
  },
  "odu": {
   "catalog": {
@@ -120,12 +121,11 @@
    "path_prefix": "/",
    "platform": "courseleaf",
    "program_lists": [
-    "https://catalog.odu.edu/azindex/",
-    "https://catalog.odu.edu/graduate/azindex/",
-    "https://catalog.odu.edu/graduate/business/programs/"
+    "https://catalog.odu.edu/programs",
+    "https://catalog.odu.edu/programs/"
    ]
   },
-  "detected": "CourseLeaf-style program list on catalog.odu.edu"
+  "detected": "CourseLeaf-style catalog on catalog.odu.edu (program list https://catalog.odu.edu/programs)"
  },
  "radford": {
   "catalog": {
@@ -200,7 +200,7 @@
     "https://catalog.svu.edu/programs"
    ]
   },
-  "detected": "CourseLeaf-style program list on catalog.svu.edu"
+  "detected": "CourseLeaf-style catalog on catalog.svu.edu (program list https://catalog.svu.edu/programs)"
  },
  "umw": {
   "catalog": {
@@ -209,10 +209,10 @@
    "path_prefix": "/",
    "platform": "courseleaf",
    "program_lists": [
-    "https://catalog.umw.edu/azindex/"
+    "https://catalog.umw.edu/undergraduate/majors/"
    ]
   },
-  "detected": "CourseLeaf-style program list on catalog.umw.edu"
+  "detected": "CourseLeaf-style catalog on catalog.umw.edu (program list https://catalog.umw.edu/undergraduate/majors/)"
  },
  "uvawise": {
   "catalog": {
@@ -229,11 +229,9 @@
    "min_depth": 1,
    "path_prefix": "/",
    "platform": "courseleaf",
-   "program_lists": [
-    "https://bulletin.vcu.edu/azindex/"
-   ]
+   "program_lists": []
   },
-  "detected": "CourseLeaf-style program list on bulletin.vcu.edu"
+  "detected": "CourseLeaf-style catalog on bulletin.vcu.edu (no program list link; pages found from the home page)"
  },
  "virginia": {
   "catalog": {
@@ -263,11 +261,10 @@
    "path_prefix": "/",
    "platform": "courseleaf",
    "program_lists": [
-    "https://catalog.vsu.edu/graduate/programs/",
     "https://catalog.vsu.edu/undergraduate/programs/"
    ]
   },
-  "detected": "CourseLeaf-style program list on catalog.vsu.edu"
+  "detected": "CourseLeaf-style catalog on catalog.vsu.edu (program list https://catalog.vsu.edu/undergraduate/programs/)"
  },
  "wlu": {
   "catalog": {
