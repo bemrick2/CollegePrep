@@ -92,6 +92,7 @@ MUTS = [
     ('programs/extract.py', "    if not m and len(types) == 1:", "    if not m and types:"),
     ('programs/extract.py', "|post[- ]?baccalaureate|second degree', name, re.I)", "', name, re.I)"),
     ('programs/extract.py', "            if int(m.group(2)) == (int(m.group(1)) + 1) % 100: found.add((f'{m.group(1)}-{int(m.group(1)) + 1}', line.strip()))", "            pass"),
+    ('programs/extract.py', "        if re.search(r'\\bdual major\\b', name, re.I) or (':' in name and re.search(r'\\bemphas[ie]s\\b', page.text, re.I)): out = []", "        pass"),
 ]
 
 

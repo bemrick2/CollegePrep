@@ -1181,6 +1181,10 @@ class HeadingProgramTests(unittest.TestCase):
         out = X.program_page_candidates(tgt, {'institution_key': 'k'}, e, page, '2026-27')
         self.assertEqual([(c['extractor'], c['record']['program_name']) for c in out], [('static_program/v1', 'Physics B.S.')])
         self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, T.Page(page.text, 't', [], [], ['Physics Minor']), '2026-27'), [])
+        emph = T.Page('2026-27 University Catalog\nArt: Art History B.A.\nArt: History Emphasis, B.A.', 't', [], [], ['Art: Art History B.A.'])
+        self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, emph, '2026-27'), [])
+        dual = T.Page('2026-27 University Catalog\nMiddle Level Education Dual Major - Teaching B.A.', 't', [], [], ['Middle Level Education Dual Major - Teaching B.A.'])
+        self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, dual, '2026-27'), [])
 
 
 class DepartmentSectionTests(unittest.TestCase):

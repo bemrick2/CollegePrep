@@ -194,7 +194,11 @@ def program_page_candidates(target, inst, entry, page, today_year):
         listed = lk.get(norm_url(entry.get('url') or '')) or lk.get(entry.get('url'))
         out = department_major_identity(inst, entry, page, today_year, listed) or listed_program_identity(inst, entry, page, today_year, listed)
     if not out and plat == 'courseleaf' and page.headings and credential_of(page.headings[0]) == 'bachelor':
-        out = static_program_identity(inst, entry, page, today_year)  # UNI: 'Art: Art History B.A.' heads a page without Course List tables
+        out = static_program_identity(inst, entry, page, today_year)  # UNI: 'Physics B.S.' heads a page without Course List tables
+        name = page.headings[0]
+        # UNI heads emphases like majors ('Art: Art History B.A.', whose plan reads 'Art: History Emphasis, B.A.'): a
+        # 'Major: Part' name on a page that speaks of emphases, and a dual major, are not programs of their own
+        if re.search(r'\bdual major\b', name, re.I) or (':' in name and re.search(r'\bemphas[ie]s\b', page.text, re.I)): out = []
     if not out and plat == 'courseleaf':
         return department_section_candidates(inst, entry, page, today_year)  # several degrees on one page: no plan or list rows read here
     if plat == 'courseleaf' and year:
