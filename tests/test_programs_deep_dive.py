@@ -983,3 +983,14 @@ class QueueSuggestTests(unittest.TestCase):
             {'institution_key': 'blocked', 'gap': 'institution', 'reason': 'bot_challenge', 'detail': 'x', 'next_action': 'y'}]}))
         self.assertNotIn('blocked', {e['institution_key'] for e in Q.suggest('ZZ')})
         self.assertNotIn('ZZ.proposed', self.S.states_with_work())
+
+
+class BranchCampusListTests(unittest.TestCase):
+    def test_only_rows_tagged_with_the_campus_are_followed(self):
+        t = {'catalog': {'platform': 'courseleaf', 'home': 'https://catalog.example.edu/', 'path_prefix': '/college-departments/',
+                         'min_depth': 1, 'program_lists': ['https://catalog.example.edu/programs/'], 'list_filter': 'Branch'}}
+        links = [('https://catalog.example.edu/college-departments/a/x-bs/', 'X Undergraduate Major (BS)MajorCorvallisBranch'),
+                 ('https://catalog.example.edu/college-departments/a/y-bs/', 'Y Undergraduate Major (BS)MajorCorvallis')]
+        pushed = []
+        C.expand(t, 'program_list', 'u', links, lambda h, r, v, d: pushed.append(h), C.program_rule(t), C.nav_rule(t), 0)
+        self.assertEqual(pushed, ['https://catalog.example.edu/college-departments/a/x-bs/'])

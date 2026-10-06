@@ -134,7 +134,7 @@ OR={
    'printed_list':{'url':'https://up.smartcatalogiq.com/en/2026-2027/bulletin/university-academic-programs-of-study/undergraduate-programs','heading':'Undergraduate Programs','stop':'Up one level'}},
    discover=['https://up.smartcatalogiq.com/en'],policy=[]),
  'osucascades':dict(priority=2,catalog={'platform':'courseleaf','home':'https://catalog.oregonstate.edu/','path_prefix':'/college-departments/','min_depth':1,
-   'program_lists':['https://catalog.oregonstate.edu/programs/'],'list_filter':'OSU-Cascades'},caps={'program_page':0},
+   'program_lists':['https://catalog.oregonstate.edu/programs/'],'list_filter':'OSU-Cascades'},caps={'program_page':60},
    policy=['https://osucascades.edu/academics']),
  'oit':dict(priority=1,render='browser',catalog={'platform':'coursedog','home':'https://catalog.oit.edu/','path_prefix':'/programs/','min_depth':0,
    'program_lists':['https://catalog.oit.edu/programs']+[f'https://catalog.oit.edu/programs?page={n}&pq=&sortBy=name' for n in range(2,13)]},policy=['https://www.oit.edu/academics/degrees','https://www.oit.edu/academics/degrees/nursing',

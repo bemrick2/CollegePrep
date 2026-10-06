@@ -297,7 +297,8 @@ def expand(target, role, url, links, push, is_program, is_nav, depth):
     cat = target.get('catalog') or {}
     lists_given = bool(cat.get('program_lists'))
     if role in ('catalog_home', 'catalog_nav', 'program_list'):
-        progs = [(anchor_rank(a), h) for h, a in links if is_program(h)]
+        tag = cat.get('list_filter')  # a branch campus on its parent's catalog: only the rows tagged with this campus
+        progs = [(anchor_rank(a), h) for h, a in links if is_program(h) and (not tag or role != 'program_list' or tag in (a or ''))]
         for rank, h in sorted(progs, key=lambda x: x[0]):
             # A configured list page is the authority for which pages are programs; elsewhere only bachelor/unlabeled.
             if rank < 2 and (role == 'program_list' or not lists_given or cat.get('platform') == 'acalog'):

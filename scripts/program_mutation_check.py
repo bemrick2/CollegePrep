@@ -43,6 +43,7 @@ MUTS = [
     ('programs/queue_suggest.py', "            if f['challenged'] and not f['program_pages']:", "            if f['challenged'] or f['robots']:"),
     ('programs/queue_suggest.py', "            if n and hit == 0:", "            if hit == 0:"),
     ('programs/queue_suggest.py', "        if (k, gap) in have or (k, 'institution') in have: return", "        pass"),
+    ('programs/crawl.py', "if is_program(h) and (not tag or role != 'program_list' or tag in (a or ''))]", "if is_program(h)]"),
 ]
 
 
