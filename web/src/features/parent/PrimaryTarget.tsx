@@ -5,12 +5,11 @@ import { useMeritReference } from '../colleges/useMeritReference'
 import { useExamPlan } from '../colleges/useExamPlan'
 import { schoolLevers } from '../colleges/schoolLevers'
 import { CostLeverList } from '../colleges/CostLeverList'
-import { outlookFor } from './CostOutlook'
+import { costPhrase, outlookFor } from './CostOutlook'
 import { useHomeState } from '../../lib/homeState'
 import { ArrowRight, Flag } from '../../components/icons'
 import { ButtonLink, Card, CardHeader } from '../../components/ui'
 
-const usd = (n: number) => n.toLocaleString(undefined, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 })
 
 /**
  * The family's primary target school (CR-12): its published 4-year cost and the top ways to lower it. Renders
@@ -52,7 +51,10 @@ export function PrimaryTarget({ student }: { student: Student }) {
             <Flag size={18} /> Primary target: {o.name}
           </span>
         }
-        subtitle={o.degreeTotal != null ? `${usd(o.degreeTotal)} published cost of attendance over 4 years, before aid` : `No verified ${COMPARE_YEAR} cost yet`}
+        subtitle={(() => {
+          const c = costPhrase(o)
+          return [c.amount ? `${c.amount} ${c.label}` : c.label, c.note].filter(Boolean).join(' · ')
+        })()}
       />
       <div className="grid gap-3 p-5 pt-3 text-sm">
         <div className="text-xs font-bold uppercase tracking-wide text-ink-3">Ways to lower this cost</div>
