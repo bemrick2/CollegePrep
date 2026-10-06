@@ -40,7 +40,8 @@ MUTS = [
     ('programs/verify.py', "if not other or norm(r['program_name']) not in norm(other(nev['sha256'])): probs.append", "if False: probs.append"),
     ('programs/verify.py', "if ev.get('field') == 'program_page_heading' and norm(ev.get('value', '')) not in t: probs.append", "if False: probs.append"),
     ('pipeline/crawl.py', "        return 'robots_unreachable' if getattr(rp, 'unreachable', False) else 'disallowed_by_robots'", "        return 'disallowed_by_robots'"),
-    ('programs/queue_suggest.py', "            if f['challenged'] and not f['program_pages']:", "            if f['challenged'] or f['robots']:"),
+    ('programs/queue_suggest.py', "            if f['challenged'] and not f['program_pages'] and f['challenged'].most_common(1)[0][1] >= 3:", "            if f['challenged'] or f['robots']:"),
+    ('programs/queue_suggest.py', "and f['challenged'].most_common(1)[0][1] >= 3:", ":"),
     ('programs/queue_suggest.py', "            if n and hit == 0:", "            if hit == 0:"),
     ('programs/queue_suggest.py', "        if (k, gap) in have or (k, 'institution') in have: return", "        pass"),
     ('programs/crawl.py', "if is_program(h) and (not tag or role != 'program_list' or tag in (a or ''))]", "if is_program(h)]"),
@@ -49,6 +50,11 @@ MUTS = [
     ('programs/detect.py', "                if ys: pdfs.append((max(ys), href, m))", "                pdfs.append((max(ys or {0}), href, m))"),
     ('programs/detect.py', "            elif u.path.lower().endswith('.pdf') and CATALOG_WORD.search(a + ' ' + u.path) and not re.search(r'graduate|archive|handbook', a + u.path, re.I):", "            elif u.path.lower().endswith('.pdf') and CATALOG_WORD.search(a + ' ' + u.path):"),
     ('programs/crawl.py', "            **({'degree_map': 0, 'degree_map_index': 0, 'policy_link': 0} if target.get('mode') == 'discover' else {}),", "            **({}),"),
+    ('programs/autoreview.py', "               'combined_program' if COMBINED.search(c['record'].get('program_name', '')) else", ""),
+    ('programs/autoreview.py', "               'option_name' if OPTION.search(c['record'].get('program_name', '')) else", ""),
+    ('programs/autoreview.py', "'not_verbatim' if verify.get(c['candidate_id']) else 'not_bachelor'", "'not_bachelor'"),
+    ('programs/autoreview.py', "               'program_not_approved' if c['record'].get('program_key') not in program_keys[c['institution_key']] else None)", "               None)"),
+    ('programs/autoreview.py', "        why = ('untrusted_extractor' if (kind, c['extractor']) not in TRUSTED_REQUIREMENTS else", "        why = ('untrusted_extractor' if False else"),
 ]
 
 
