@@ -1,0 +1,1220 @@
+{
+ "state": "WA",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-235097",
+   "folder": "ewu",
+   "name": "Eastern Washington University",
+   "control": "public",
+   "domains": [
+    "ewu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.ewu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.ewu.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-235316",
+   "folder": "gonzaga",
+   "name": "Gonzaga University",
+   "control": "private_nonprofit",
+   "domains": [
+    "gonzaga.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.gonzaga.edu/",
+    "https://catalog.gonzaga.edu/",
+    "https://www.gonzaga.edu/academics/",
+    "https://www.gonzaga.edu/registrar/",
+    "https://www.gonzaga.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-236230",
+   "folder": "plu",
+   "name": "Pacific Lutheran University",
+   "control": "private_nonprofit",
+   "domains": [
+    "plu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.plu.edu/catalog-2023-2024/wp-content/uploads/sites/743/2024/01/catalog-23-24-clarifications-01-10.pdf"
+    ],
+    "home": "https://www.plu.edu/catalog-2023-2024/wp-content/uploads/sites/743/2024/01/catalog-23-24-clarifications-01-10.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2023-2024"
+  },
+  {
+   "institution_key": "ipeds-236595",
+   "folder": "seattleu",
+   "name": "Seattle University",
+   "control": "private_nonprofit",
+   "domains": [
+    "seattleu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 61,
+    "home": "https://catalog.seattleu.edu/index.php?catoid=61",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.seattleu.edu/content.php?catoid=61&navoid=6039",
+     "https://catalog.seattleu.edu/content.php?catoid=61&navoid=6060",
+     "https://catalog.seattleu.edu/content.php?catoid=61&navoid=6090",
+     "https://catalog.seattleu.edu/content.php?catoid=61&navoid=6337"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 61 on catalog.seattleu.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-377555",
+   "folder": "uwb",
+   "name": "University of Washington-Bothell Campus",
+   "control": "public",
+   "domains": [
+    "uwb.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.uwb.edu/catalog/wp-content/uploads/sites/44/2026/08/Accessible-2025-2026-General-Catalog.pdf"
+    ],
+    "home": "https://www.uwb.edu/catalog/wp-content/uploads/sites/44/2026/08/Accessible-2025-2026-General-Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
+  },
+  {
+   "institution_key": "ipeds-236948",
+   "folder": "washington",
+   "name": "University of Washington-Seattle Campus",
+   "control": "public",
+   "domains": [
+    "washington.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.washington.edu/",
+    "https://catalog.washington.edu/",
+    "https://www.washington.edu/academics/",
+    "https://www.washington.edu/registrar/",
+    "https://www.washington.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-377564",
+   "folder": "uw",
+   "name": "University of Washington-Tacoma Campus",
+   "control": "public",
+   "domains": [
+    "uw.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.tacoma.uw.edu/",
+    "https://catalog.uw.edu/",
+    "https://www.uw.edu/academics/",
+    "https://www.uw.edu/registrar/",
+    "https://www.uw.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-236939",
+   "folder": "wsu",
+   "name": "Washington State University",
+   "control": "public",
+   "domains": [
+    "wsu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://wsu.edu/",
+    "https://catalog.wsu.edu/",
+    "https://www.wsu.edu/academics/",
+    "https://www.wsu.edu/registrar/",
+    "https://www.wsu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-237011",
+   "folder": "wwu",
+   "name": "Western Washington University",
+   "control": "public",
+   "domains": [
+    "wwu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 23,
+    "home": "https://catalog.wwu.edu/index.php?catoid=23",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.wwu.edu/content.php?catoid=23&navoid=7035",
+     "https://catalog.wwu.edu/content.php?catoid=23&navoid=7070",
+     "https://catalog.wwu.edu/content.php?catoid=23&navoid=7099",
+     "https://catalog.wwu.edu/content.php?catoid=23&navoid=7100"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 23 on catalog.wwu.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-237066",
+   "folder": "whitworth",
+   "name": "Whitworth University",
+   "control": "private_nonprofit",
+   "domains": [
+    "whitworth.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.whitworth.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.whitworth.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-234669",
+   "folder": "bellevuecollege",
+   "name": "Bellevue College",
+   "control": "public",
+   "domains": [
+    "bellevuecollege.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 16,
+    "home": "https://catalog.bellevuecollege.edu/index.php?catoid=16",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.bellevuecollege.edu/content.php?catoid=16&navoid=1102",
+     "https://catalog.bellevuecollege.edu/content.php?catoid=16&navoid=1105",
+     "https://catalog.bellevuecollege.edu/content.php?catoid=16&navoid=1118",
+     "https://catalog.bellevuecollege.edu/content.php?catoid=16&navoid=1137"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 16 on catalog.bellevuecollege.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-234696",
+   "folder": "btc",
+   "name": "Bellingham Technical College",
+   "control": "public",
+   "domains": [
+    "btc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 15,
+    "home": "https://catalog.btc.edu/index.php?catoid=15",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.btc.edu/content.php?catoid=15&navoid=387"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 15 on catalog.btc.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-234711",
+   "folder": "bigbend",
+   "name": "Big Bend Community College",
+   "control": "public",
+   "domains": [
+    "bigbend.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://coursecatalog.bigbend.edu/sites/default/files/20252026-course-catalog-7-2-26.pdf"
+    ],
+    "home": "https://coursecatalog.bigbend.edu/sites/default/files/20252026-course-catalog-7-2-26.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
+  },
+  {
+   "institution_key": "ipeds-439190",
+   "folder": "cascadia",
+   "name": "Cascadia College",
+   "control": "public",
+   "domains": [
+    "cascadia.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.cascadia.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.cascadia.edu/degrees"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.cascadia.edu (program list https://catalog.cascadia.edu/degrees)"
+  },
+  {
+   "institution_key": "ipeds-234827",
+   "folder": "cwu",
+   "name": "Central Washington University",
+   "control": "public",
+   "domains": [
+    "cwu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.cwu.edu/",
+    "https://catalog.cwu.edu/",
+    "https://www.cwu.edu/academics/",
+    "https://www.cwu.edu/registrar/",
+    "https://www.cwu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-234845",
+   "folder": "centralia",
+   "name": "Centralia College",
+   "control": "public",
+   "domains": [
+    "centralia.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 6,
+    "home": "https://catalog.centralia.edu/index.php?catoid=6",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.centralia.edu/content.php?catoid=6&navoid=192"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 6 on catalog.centralia.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-234915",
+   "folder": "cityu",
+   "name": "City University of Seattle",
+   "control": "private_nonprofit",
+   "domains": [
+    "cityu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://cityu.edu/wp-content/uploads/2016/05/2018-2019-City-University-of-Seattle-Catalog.pdf"
+    ],
+    "home": "https://cityu.edu/wp-content/uploads/2016/05/2018-2019-City-University-of-Seattle-Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2018-2019"
+  },
+  {
+   "institution_key": "ipeds-234933",
+   "folder": "clark",
+   "name": "Clark College",
+   "control": "public",
+   "domains": [
+    "clark.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.clark.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.clark.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-234951",
+   "folder": "cptc",
+   "name": "Clover Park Technical College",
+   "control": "public",
+   "domains": [
+    "cptc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.cptc.edu/",
+    "https://catalog.cptc.edu/",
+    "https://www.cptc.edu/academics/",
+    "https://www.cptc.edu/registrar/",
+    "https://www.cptc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-234979",
+   "folder": "columbiabasin",
+   "name": "Columbia Basin College",
+   "control": "public",
+   "domains": [
+    "columbiabasin.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://catalog.columbiabasin.edu/_documents/cbc-catalog-2026-27.pdf"
+    ],
+    "home": "https://catalog.columbiabasin.edu/_documents/cbc-catalog-2026-27.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-235024",
+   "folder": "cornish",
+   "name": "Cornish College of the Arts",
+   "control": "private_nonprofit",
+   "domains": [
+    "cornish.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "http://www.cornish.edu/wp-content/uploads/2019/12/Cornish-Catalog-2019-2020-5.pdf"
+    ],
+    "home": "http://www.cornish.edu/wp-content/uploads/2019/12/Cornish-Catalog-2019-2020-5.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2019-2020"
+  },
+  {
+   "institution_key": "ipeds-235103",
+   "folder": "edmonds",
+   "name": "Edmonds College",
+   "control": "public",
+   "domains": [
+    "edmonds.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 69,
+    "home": "https://catalog.edmonds.edu/index.php?catoid=69",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.edmonds.edu/content.php?catoid=69&navoid=20848",
+     "https://catalog.edmonds.edu/content.php?catoid=69&navoid=20878",
+     "https://catalog.edmonds.edu/content.php?catoid=69&navoid=20904"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 69 on catalog.edmonds.edu (labelled 2027-2028)"
+  },
+  {
+   "institution_key": "ipeds-235149",
+   "folder": "everettcc",
+   "name": "Everett Community College",
+   "control": "public",
+   "domains": [
+    "everettcc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.everettcc.edu/",
+    "https://catalog.everettcc.edu/",
+    "https://www.everettcc.edu/academics/",
+    "https://www.everettcc.edu/registrar/",
+    "https://www.everettcc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-497213",
+   "folder": "greatnorthernu",
+   "name": "Great Northern University",
+   "control": "private_nonprofit",
+   "domains": [
+    "greatnorthernu.org"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.greatnorthernu.org/",
+    "https://catalog.greatnorthernu.org/",
+    "https://www.greatnorthernu.org/academics/",
+    "https://www.greatnorthernu.org/registrar/",
+    "https://www.greatnorthernu.org/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-236133",
+   "folder": "northwestu-236133",
+   "name": "Northwest University",
+   "control": "private_nonprofit",
+   "domains": [
+    "northwestu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 35,
+    "home": "https://catalog.northwestu.edu/index.php?catoid=35",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.northwestu.edu/content.php?catoid=35&navoid=2519",
+     "https://catalog.northwestu.edu/content.php?catoid=35&navoid=2531",
+     "https://catalog.northwestu.edu/content.php?catoid=35&navoid=2561"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 35 on catalog.northwestu.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-236452",
+   "folder": "stmartin",
+   "name": "Saint Martin's University",
+   "control": "private_nonprofit",
+   "domains": [
+    "stmartin.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.stmartin.edu/",
+    "https://catalog.stmartin.edu/",
+    "https://www.stmartin.edu/academics/",
+    "https://www.stmartin.edu/registrar/",
+    "https://www.stmartin.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-236577",
+   "folder": "spu",
+   "name": "Seattle Pacific University",
+   "control": "private_nonprofit",
+   "domains": [
+    "spu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.spu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.spu.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-235167",
+   "folder": "evergreen",
+   "name": "The Evergreen State College",
+   "control": "public",
+   "domains": [
+    "evergreen.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.evergreen.edu/",
+    "https://catalog.evergreen.edu/",
+    "https://www.evergreen.edu/academics/",
+    "https://www.evergreen.edu/registrar/",
+    "https://www.evergreen.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-236328",
+   "folder": "pugetsound",
+   "name": "University of Puget Sound",
+   "control": "private_nonprofit",
+   "domains": [
+    "pugetsound.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://bulletin.pugetsound.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://bulletin.pugetsound.edu/programs"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on bulletin.pugetsound.edu (program list https://bulletin.pugetsound.edu/programs)"
+  },
+  {
+   "institution_key": "ipeds-237057",
+   "folder": "whitman",
+   "name": "Whitman College",
+   "control": "private_nonprofit",
+   "domains": [
+    "whitman.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.whitman.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.whitman.edu/programs",
+     "https://catalog.whitman.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.whitman.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.whitman.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.whitman.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.whitman.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.whitman.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.whitman.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.whitman.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.whitman.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.whitman.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.whitman.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.whitman.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.whitman.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.whitman.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.whitman.edu (25 links)"
+  },
+  {
+   "institution_key": "ipeds-443049",
+   "folder": "faithiu",
+   "name": "Faith International University",
+   "control": "private_nonprofit",
+   "domains": [
+    "faithiu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.faithiu.edu/",
+    "https://catalog.faithiu.edu/",
+    "https://www.faithiu.edu/academics/",
+    "https://www.faithiu.edu/registrar/",
+    "https://www.faithiu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-235334",
+   "folder": "ghc",
+   "name": "Grays Harbor College",
+   "control": "public",
+   "domains": [
+    "ghc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 17,
+    "home": "https://catalog.ghc.edu/index.php?catoid=17",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.ghc.edu/content.php?catoid=17&navoid=720",
+     "https://catalog.ghc.edu/content.php?catoid=17&navoid=732"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 17 on catalog.ghc.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-235343",
+   "folder": "greenriver",
+   "name": "Green River College",
+   "control": "public",
+   "domains": [
+    "greenriver.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 11,
+    "home": "https://catalog.greenriver.edu/index.php?catoid=11",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.greenriver.edu/content.php?catoid=11&navoid=660",
+     "https://catalog.greenriver.edu/content.php?catoid=11&navoid=679",
+     "https://catalog.greenriver.edu/content.php?catoid=11&navoid=705"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 11 on catalog.greenriver.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-235422",
+   "folder": "heritage",
+   "name": "Heritage University",
+   "control": "private_nonprofit",
+   "domains": [
+    "heritage.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 21,
+    "home": "https://catalog.heritage.edu/index.php?catoid=21",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.heritage.edu/content.php?catoid=21&navoid=1119",
+     "https://catalog.heritage.edu/content.php?catoid=21&navoid=1136"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 21 on catalog.heritage.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-235431",
+   "folder": "highline",
+   "name": "Highline College",
+   "control": "public",
+   "domains": [
+    "highline.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 32,
+    "home": "https://catalog.highline.edu/index.php?catoid=32",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.highline.edu/content.php?catoid=32&navoid=2128",
+     "https://catalog.highline.edu/content.php?catoid=32&navoid=2135",
+     "https://catalog.highline.edu/content.php?catoid=32&navoid=2140",
+     "https://catalog.highline.edu/content.php?catoid=32&navoid=2141",
+     "https://catalog.highline.edu/content.php?catoid=32&navoid=2142"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 32 on catalog.highline.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-235699",
+   "folder": "lwtech",
+   "name": "Lake Washington Institute of Technology",
+   "control": "public",
+   "domains": [
+    "lwtech.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 20,
+    "home": "https://catalog.lwtech.edu/index.php?catoid=20",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.lwtech.edu/content.php?catoid=20&navoid=1148",
+     "https://catalog.lwtech.edu/content.php?catoid=20&navoid=1152"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 20 on catalog.lwtech.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-235750",
+   "folder": "lowercolumbia",
+   "name": "Lower Columbia College",
+   "control": "public",
+   "domains": [
+    "lowercolumbia.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://lowercolumbia.edu/publications/catalog/index.pdf"
+    ],
+    "home": "https://lowercolumbia.edu/publications/catalog/index.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-236072",
+   "folder": "northseattle",
+   "name": "North Seattle College",
+   "control": "public",
+   "domains": [
+    "northseattle.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.northseattle.edu/",
+    "https://catalog.northseattle.edu/",
+    "https://www.northseattle.edu/academics/",
+    "https://www.northseattle.edu/registrar/",
+    "https://www.northseattle.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-380377",
+   "folder": "nwic",
+   "name": "Northwest Indian College",
+   "control": "public",
+   "domains": [
+    "nwic.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.nwic.edu/",
+    "https://catalog.nwic.edu/",
+    "https://www.nwic.edu/academics/",
+    "https://www.nwic.edu/registrar/",
+    "https://www.nwic.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-487603",
+   "folder": "northwestu-487603",
+   "name": "Northwest University-Center for Online and Extended Education",
+   "control": "private_nonprofit",
+   "domains": [
+    "northwestu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 35,
+    "home": "https://catalog.northwestu.edu/index.php?catoid=35",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.northwestu.edu/content.php?catoid=35&navoid=2519",
+     "https://catalog.northwestu.edu/content.php?catoid=35&navoid=2531",
+     "https://catalog.northwestu.edu/content.php?catoid=35&navoid=2561"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 35 on catalog.northwestu.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-236188",
+   "folder": "olympic",
+   "name": "Olympic College",
+   "control": "public",
+   "domains": [
+    "olympic.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 25,
+    "home": "https://catalog.olympic.edu/index.php?catoid=25",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.olympic.edu/content.php?catoid=25&navoid=1307",
+     "https://catalog.olympic.edu/content.php?catoid=25&navoid=1315"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 25 on catalog.olympic.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-236258",
+   "folder": "pencol",
+   "name": "Peninsula College",
+   "control": "public",
+   "domains": [
+    "pencol.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "home": "https://catalog.pencol.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.pencol.edu/degrees"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.pencol.edu (program list https://catalog.pencol.edu/degrees)"
+  },
+  {
+   "institution_key": "ipeds-235237",
+   "folder": "ctc",
+   "name": "Pierce College District",
+   "control": "public",
+   "domains": [
+    "ctc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 21,
+    "home": "https://catalog.pierce.ctc.edu/index.php?catoid=21",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.pierce.ctc.edu/content.php?catoid=21&navoid=1185"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 21 on catalog.pierce.ctc.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-236382",
+   "folder": "rtc",
+   "name": "Renton Technical College",
+   "control": "public",
+   "domains": [
+    "rtc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 26,
+    "home": "https://catalog.rtc.edu/index.php?catoid=26",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.rtc.edu/content.php?catoid=26&navoid=1555",
+     "https://catalog.rtc.edu/content.php?catoid=26&navoid=1563"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 26 on catalog.rtc.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-236513",
+   "folder": "seattlecentral",
+   "name": "Seattle Central College",
+   "control": "public",
+   "domains": [
+    "seattlecentral.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://seattlecentral.edu/",
+    "https://catalog.seattlecentral.edu/",
+    "https://www.seattlecentral.edu/academics/",
+    "https://www.seattlecentral.edu/registrar/",
+    "https://www.seattlecentral.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-236638",
+   "folder": "skagit",
+   "name": "Skagit Valley College",
+   "control": "public",
+   "domains": [
+    "skagit.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 37,
+    "home": "https://catalog.skagit.edu/index.php?catoid=37",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.skagit.edu/content.php?catoid=37&navoid=3619"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 37 on catalog.skagit.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-236504",
+   "folder": "southseattle",
+   "name": "South Seattle College",
+   "control": "public",
+   "domains": [
+    "southseattle.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://southseattle.edu/",
+    "https://catalog.southseattle.edu/",
+    "https://www.southseattle.edu/academics/",
+    "https://www.southseattle.edu/registrar/",
+    "https://www.southseattle.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-236692",
+   "folder": "scc",
+   "name": "Spokane Community College",
+   "control": "public",
+   "domains": [
+    "spokane.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://scc.spokane.edu/",
+    "https://catalog.spokane.edu/",
+    "https://www.spokane.edu/academics/",
+    "https://www.spokane.edu/registrar/",
+    "https://www.spokane.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-236708",
+   "folder": "sfcc",
+   "name": "Spokane Falls Community College",
+   "control": "public",
+   "domains": [
+    "spokane.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://sfcc.spokane.edu/",
+    "https://catalog.spokane.edu/",
+    "https://www.spokane.edu/academics/",
+    "https://www.spokane.edu/registrar/",
+    "https://www.spokane.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-236753",
+   "folder": "tacomacc",
+   "name": "Tacoma Community College",
+   "control": "public",
+   "domains": [
+    "tacomacc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "home": "https://catalog.tacomacc.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.tacomacc.edu/programs"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.tacomacc.edu (program list https://catalog.tacomacc.edu/programs)"
+  },
+  {
+   "institution_key": "ipeds-236887",
+   "folder": "wwcc",
+   "name": "Walla Walla Community College",
+   "control": "public",
+   "domains": [
+    "wwcc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 7,
+    "home": "https://catalog.wwcc.edu/index.php?catoid=7",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.wwcc.edu/content.php?catoid=7&navoid=352"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 7 on catalog.wwcc.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-236896",
+   "folder": "wallawalla",
+   "name": "Walla Walla University",
+   "control": "private_nonprofit",
+   "domains": [
+    "wallawalla.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 4,
+    "home": "https://catalog.wallawalla.edu/index.php?catoid=4",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.wallawalla.edu/content.php?catoid=4&navoid=75"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 4 on catalog.wallawalla.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-236975",
+   "folder": "wvc",
+   "name": "Wenatchee Valley College",
+   "control": "public",
+   "domains": [
+    "wvc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "home": "https://catalog.wvc.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.wvc.edu/degrees",
+     "https://catalog.wvc.edu/programs"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.wvc.edu (program list https://catalog.wvc.edu/degrees)"
+  },
+  {
+   "institution_key": "ipeds-237039",
+   "folder": "whatcom",
+   "name": "Whatcom Community College",
+   "control": "public",
+   "domains": [
+    "whatcom.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://whatcom.edu/",
+    "https://catalog.whatcom.edu/",
+    "https://www.whatcom.edu/academics/",
+    "https://www.whatcom.edu/registrar/",
+    "https://www.whatcom.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-237109",
+   "folder": "yvcc",
+   "name": "Yakima Valley College",
+   "control": "public",
+   "domains": [
+    "yvcc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 13,
+    "home": "https://catalog.yvcc.edu/index.php?catoid=13",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.yvcc.edu/content.php?catoid=13&navoid=837"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 13 on catalog.yvcc.edu (labelled 2026-2027)"
+  }
+ ]
+}

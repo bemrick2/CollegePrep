@@ -1,0 +1,130 @@
+{
+ "state": "DE",
+ "academic_year": "2026-27",
+ "institutions": 6,
+ "status_order": [
+  "verified_current",
+  "partially_verified_current",
+  "candidate_ready",
+  "candidate_exception",
+  "source_found",
+  "not_found",
+  "fetch_failed"
+ ],
+ "by_category": {
+  "admissions_tests": {
+   "fetch_failed": 2,
+   "source_found": 4
+  },
+  "aid_appeals": {
+   "candidate_exception": 1,
+   "fetch_failed": 2,
+   "not_found": 3
+  },
+  "ap_credit": {
+   "fetch_failed": 2,
+   "not_found": 1,
+   "source_found": 3
+  },
+  "clep_credit": {
+   "fetch_failed": 2,
+   "not_found": 3,
+   "source_found": 1
+  },
+  "common_data_set": {
+   "fetch_failed": 2,
+   "not_found": 2,
+   "source_found": 2
+  },
+  "cost_of_attendance": {
+   "candidate_exception": 1,
+   "fetch_failed": 2,
+   "source_found": 3
+  },
+  "degree_requirements": {
+   "fetch_failed": 2,
+   "not_found": 1,
+   "source_found": 3
+  },
+  "dual_enrollment": {
+   "candidate_ready": 2,
+   "fetch_failed": 2,
+   "not_found": 1,
+   "source_found": 1
+  },
+  "ib_credit": {
+   "fetch_failed": 2,
+   "not_found": 3,
+   "source_found": 1
+  },
+  "merit_scholarships": {
+   "candidate_ready": 1,
+   "fetch_failed": 2,
+   "source_found": 3
+  },
+  "residency": {
+   "fetch_failed": 2,
+   "not_found": 2,
+   "source_found": 2
+  },
+  "statewide_articulation": {
+   "fetch_failed": 2,
+   "not_found": 2,
+   "source_found": 2
+  },
+  "transfer_credit": {
+   "fetch_failed": 2,
+   "source_found": 4
+  },
+  "tuition_fees": {
+   "candidate_exception": 1,
+   "fetch_failed": 2,
+   "source_found": 3
+  }
+ },
+ "totals": {
+  "candidate_exception": 3,
+  "candidate_ready": 3,
+  "fetch_failed": 28,
+  "not_found": 18,
+  "source_found": 32
+ },
+ "statewide_sources": {
+  "categories": {
+   "admissions_tests": 0,
+   "aid_appeals": 0,
+   "ap_credit": 0,
+   "clep_credit": 0,
+   "common_data_set": 0,
+   "cost_of_attendance": 0,
+   "degree_requirements": 0,
+   "dual_enrollment": 0,
+   "ib_credit": 0,
+   "merit_scholarships": 0,
+   "residency": 0,
+   "statewide_articulation": 0,
+   "transfer_credit": 0,
+   "tuition_fees": 0
+  },
+  "fetch_failures": 1,
+  "pages_fetched": 1
+ },
+ "blocked_institutions": [
+  "ipeds-130907",
+  "ipeds-432524"
+ ],
+ "quality": {
+  "ambiguous_years": 1,
+  "blocked_requests": 20,
+  "candidates": 37,
+  "conflicts": 2,
+  "documents": 295,
+  "extraction_failures": 0,
+  "fetch_errors": 8,
+  "fetches": 323,
+  "ready": 32,
+  "semantic_review": 4,
+  "stale_sources": 2
+ },
+ "run": "pipeline/runs/DE/2026-10-06"
+}

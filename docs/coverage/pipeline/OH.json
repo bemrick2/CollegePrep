@@ -1,0 +1,169 @@
+{
+ "state": "OH",
+ "academic_year": "2026-27",
+ "institutions": 124,
+ "status_order": [
+  "verified_current",
+  "partially_verified_current",
+  "candidate_ready",
+  "candidate_exception",
+  "source_found",
+  "not_found",
+  "fetch_failed"
+ ],
+ "by_category": {
+  "admissions_tests": {
+   "fetch_failed": 23,
+   "not_found": 9,
+   "source_found": 92
+  },
+  "aid_appeals": {
+   "candidate_exception": 64,
+   "fetch_failed": 23,
+   "not_found": 27,
+   "source_found": 10
+  },
+  "ap_credit": {
+   "candidate_exception": 7,
+   "candidate_ready": 7,
+   "fetch_failed": 23,
+   "not_found": 42,
+   "source_found": 45
+  },
+  "clep_credit": {
+   "candidate_exception": 6,
+   "candidate_ready": 2,
+   "fetch_failed": 23,
+   "not_found": 61,
+   "source_found": 32
+  },
+  "common_data_set": {
+   "fetch_failed": 23,
+   "not_found": 95,
+   "source_found": 6
+  },
+  "cost_of_attendance": {
+   "candidate_exception": 20,
+   "candidate_ready": 4,
+   "fetch_failed": 23,
+   "not_found": 4,
+   "source_found": 73
+  },
+  "degree_requirements": {
+   "candidate_ready": 2,
+   "fetch_failed": 23,
+   "not_found": 28,
+   "source_found": 71
+  },
+  "dual_enrollment": {
+   "candidate_ready": 4,
+   "fetch_failed": 23,
+   "not_found": 59,
+   "source_found": 38
+  },
+  "ib_credit": {
+   "candidate_exception": 5,
+   "candidate_ready": 4,
+   "fetch_failed": 23,
+   "not_found": 63,
+   "source_found": 29
+  },
+  "merit_scholarships": {
+   "candidate_exception": 7,
+   "candidate_ready": 13,
+   "fetch_failed": 23,
+   "not_found": 3,
+   "source_found": 78
+  },
+  "residency": {
+   "fetch_failed": 23,
+   "not_found": 48,
+   "source_found": 53
+  },
+  "statewide_articulation": {
+   "fetch_failed": 23,
+   "not_found": 43,
+   "source_found": 58
+  },
+  "transfer_credit": {
+   "candidate_exception": 8,
+   "candidate_ready": 19,
+   "fetch_failed": 23,
+   "not_found": 6,
+   "source_found": 68
+  },
+  "tuition_fees": {
+   "candidate_exception": 45,
+   "candidate_ready": 12,
+   "fetch_failed": 23,
+   "not_found": 3,
+   "source_found": 41
+  }
+ },
+ "totals": {
+  "candidate_exception": 162,
+  "candidate_ready": 67,
+  "fetch_failed": 322,
+  "not_found": 491,
+  "source_found": 694
+ },
+ "statewide_sources": {
+  "categories": {
+   "admissions_tests": 0,
+   "aid_appeals": 0,
+   "ap_credit": 0,
+   "clep_credit": 0,
+   "common_data_set": 0,
+   "cost_of_attendance": 1,
+   "degree_requirements": 0,
+   "dual_enrollment": 0,
+   "ib_credit": 0,
+   "merit_scholarships": 0,
+   "residency": 0,
+   "statewide_articulation": 0,
+   "transfer_credit": 0,
+   "tuition_fees": 1
+  },
+  "fetch_failures": 0,
+  "pages_fetched": 1
+ },
+ "blocked_institutions": [
+  "ipeds-200846",
+  "ipeds-200873",
+  "ipeds-201283",
+  "ipeds-201821",
+  "ipeds-201964",
+  "ipeds-202046",
+  "ipeds-202912",
+  "ipeds-203128",
+  "ipeds-203544",
+  "ipeds-203748",
+  "ipeds-204176",
+  "ipeds-204255",
+  "ipeds-204468",
+  "ipeds-204662",
+  "ipeds-204671",
+  "ipeds-204680",
+  "ipeds-204699",
+  "ipeds-204705",
+  "ipeds-205124",
+  "ipeds-206154",
+  "ipeds-206279",
+  "ipeds-206446",
+  "ipeds-206491"
+ ],
+ "quality": {
+  "ambiguous_years": 71,
+  "blocked_requests": 363,
+  "candidates": 1191,
+  "conflicts": 224,
+  "documents": 6646,
+  "extraction_failures": 0,
+  "fetch_errors": 421,
+  "fetches": 7430,
+  "ready": 466,
+  "semantic_review": 259,
+  "stale_sources": 91
+ },
+ "run": "pipeline/runs/OH/2026-10-05"
+}

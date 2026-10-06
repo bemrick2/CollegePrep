@@ -1,0 +1,160 @@
+{
+ "state": "NV",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-182005",
+   "folder": "csn",
+   "name": "College of Southern Nevada",
+   "control": "public",
+   "domains": [
+    "csn.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 23,
+    "home": "https://catalog.csn.edu/index.php?catoid=23",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.csn.edu/content.php?catoid=23&navoid=7311"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 23 on catalog.csn.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-182306",
+   "folder": "gbcnv",
+   "name": "Great Basin College",
+   "control": "public",
+   "domains": [
+    "gbcnv.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.gbcnv.edu/_resources/images/catalog/catalogs/catalog2025.pdf"
+    ],
+    "home": "https://www.gbcnv.edu/_resources/images/catalog/catalogs/catalog2025.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
+  },
+  {
+   "institution_key": "ipeds-441900",
+   "folder": "nevadastate",
+   "name": "Nevada State University",
+   "control": "public",
+   "domains": [
+    "nevadastate.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://nevadastate.edu/",
+    "https://catalog.nevadastate.edu/",
+    "https://www.nevadastate.edu/academics/",
+    "https://www.nevadastate.edu/registrar/",
+    "https://www.nevadastate.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-182500",
+   "folder": "tmcc",
+   "name": "Truckee Meadows Community College",
+   "control": "public",
+   "domains": [
+    "tmcc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.tmcc.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.tmcc.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-182281",
+   "folder": "unlv",
+   "name": "University of Nevada-Las Vegas",
+   "control": "public",
+   "domains": [
+    "unlv.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 53,
+    "home": "https://catalog.unlv.edu/index.php?catoid=53",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.unlv.edu/content.php?catoid=53&navoid=17219"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 53 on catalog.unlv.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-182290",
+   "folder": "unr",
+   "name": "University of Nevada-Reno",
+   "control": "public",
+   "domains": [
+    "unr.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 59,
+    "home": "https://catalog.unr.edu/index.php?catoid=59",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.unr.edu/content.php?catoid=59&navoid=121303",
+     "https://catalog.unr.edu/content.php?catoid=59&navoid=121304",
+     "https://catalog.unr.edu/content.php?catoid=59&navoid=121311"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 59 on catalog.unr.edu (labelled 2027-2028)"
+  },
+  {
+   "institution_key": "ipeds-182564",
+   "folder": "wnc",
+   "name": "Western Nevada College",
+   "control": "public",
+   "domains": [
+    "wnc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.wnc.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.wnc.edu/programs"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.wnc.edu (program list https://catalog.wnc.edu/programs)"
+  }
+ ]
+}

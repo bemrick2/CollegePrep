@@ -83,10 +83,17 @@ def in_scope(r, presence) -> bool:
             and r['CONTROL'] in {'1', '2'} and r['ICLEVEL'] in {'1', '2'} and r['UNITID'] in presence)
 
 
+PROGRAM_DEPTH_DOMAINS = frozenset({'academic_programs', 'degree_requirements', 'program_catalogs'})
+
+
 def cited_sources():
     """institution_key -> official URLs already cited by curated records (re-verified on every run)."""
     out = {}
     for path, domain, r in records():
+        # Issue #90: the Program & Degree Deep Dive pipeline (programs/) re-verifies program-depth records itself.
+        # Queuing their program pages here would spend a school's whole national crawl budget before it reached
+        # cost, aid and credit-policy pages.
+        if domain in PROGRAM_DEPTH_DOMAINS: continue
         if path.suffix == '.json' and r.get('institution_key'):
             for k in ('source_url', 'policy_url', 'program_url'):
                 if str(r.get(k) or '').startswith('https://'): out.setdefault(r['institution_key'], set()).add(r[k])
@@ -138,7 +145,8 @@ def build(state: str):
         own = [h for h in inst.get('allowed_hosts') or [] if h not in set(inst.get('shared_hosts') or [])]
         if own and inst['institution_key'] not in folders:
             label = folder_label(own[0])
-            if label and (label not in slugs or slugs[label] == [inst['institution_key']]):
+            # MI r1: the label must not be a folder another state's institution already fills (IA Marshalltown's mcc.iavalley.edu vs Mott)
+            if label and label not in owned and (label not in slugs or slugs[label] == [inst['institution_key']]):
                 slugs[inst['folder']].remove(inst['institution_key']); inst['folder'] = label; slugs.setdefault(label, []).append(inst['institution_key'])
     for inst in institutions:  # Two campuses sharing a domain get distinct folders.
         if len(slugs[inst['folder']]) > 1 and inst['folder'] not in folders.values():
