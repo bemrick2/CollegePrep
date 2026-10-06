@@ -100,7 +100,11 @@ def institution_status(inst, q_entries):
     gaps = {e['gap'] for e in q_entries}
     listed = max([c.get('listed_bachelor_programs') or 0 for c in cats] + [0])
     complete = any(c.get('programs_complete') is True for c in cats)
-    share = (len(verified) / listed) if listed else None
+    # verified records that are on the official list (the reviewer's or autoreview's match) when recorded; records for
+    # options or programs off the list must not inflate the share
+    matched = [c['verified_listed_programs'] for c in cats if c.get('verified_listed_programs') is not None]
+    counted = min(len(verified), max(matched)) if matched else len(verified)
+    share = (counted / listed) if listed else None
     covered = complete or (share is not None and share >= CATALOG_SHARE)  # both need a catalog record
     vkeys = {r['program_key'] for r in verified}
     hv = {f: [r for r in verified if rx.search(r.get('program_name', ''))] for f, rx in HIGH_VALUE.items()}

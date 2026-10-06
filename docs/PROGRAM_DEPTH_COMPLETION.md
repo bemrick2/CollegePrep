@@ -29,7 +29,7 @@ Each in-scope four-year institution is measured on four dimensions.
 
 | Dimension | Met when | Otherwise |
 |---|---|---|
-| **catalog** | a `program_catalogs` record exists and either `programs_complete` is true (every listed bachelor's program has a verified record, which the validator enforces) or verified bachelor's records are at least **90%** of the official `listed_bachelor_programs` | `queued` if the queue has a `catalog`, `catalog_count` or `institution` entry, else `open` |
+| **catalog** | a `program_catalogs` record exists and either `programs_complete` is true (every listed bachelor's program has a verified record, which the validator enforces) or verified bachelor's records are at least **90%** of the official `listed_bachelor_programs`. When the record carries `verified_listed_programs` (verified programs matched to the list by the reviewer or by autoreview), only those count, so records for options or off-list programs never inflate the share | `queued` if the queue has a `catalog`, `catalog_count` or `institution` entry, else `open` |
 | **degree_maps** | verified `program_plan` records cover at least **50%** of the verified bachelor's programs | `queued` with a `degree_maps` entry (e.g. `not_published`, `layout_not_readable`), else `open` |
 | **requirement_groups** | at least one verified `major` requirement record (required vs choose groups) | `queued` / `open` |
 | **admission_rules** | every high-value family the school offers (engineering, computer science, nursing, business) has at least one verified program with an official `admission_type` (direct / pre_major / open, with a verbatim quote) | `queued` with an `admission_rules` entry (e.g. `no_official_statement` after the pages were read), else `open` |
