@@ -57,12 +57,13 @@ or code, or retry. A retry resends the same code.
 
 ## One-time owner setup
 
-1. **Resend:** verify a sending domain for Prep & Price. The verified domains today are `inbox.familycues.com`,
-   which belongs to FamilyCues, and `getcimiento.com`, which is not verified. Keep click and open tracking off.
+1. **Resend:** the temporary sending domain is `mail.getcimiento.com`, added with click and open tracking off. The
+   sender is `Prep & Price <invites@mail.getcimiento.com>`, and the function uses it unless `INVITE_FROM_EMAIL` is
+   set.
 2. **Resend:** create an API key with sending access for that domain only.
 3. **Supabase → Edge Functions → Secrets** (project `butlklkzafvklwasbynr`):
    - `RESEND_API_KEY`: the key from step 2.
-   - `INVITE_FROM_EMAIL`: for example `Prep & Price <invites@your-domain>`.
+   - `INVITE_FROM_EMAIL` (optional): overrides the default sender.
    - `APP_ORIGINS` (optional until production): comma-separated allowed site origins. It defaults to
      `https://college-optimizer-staging.netlify.app`.
 
@@ -71,8 +72,7 @@ still copy the link.
 
 ## Deploying
 
-- The migration `20261006145257_household_invitation_email.sql` was applied to the live project with the Supabase
-  MCP on 2026-10-06, and the file is named with the version live recorded. The "Deploy Supabase migrations"
-  workflow couldn't apply it, because live also holds PR #101's billing migrations, which `main` doesn't have yet.
-- The function `send-household-invitation` is deployed with JWT verification on (version 2). Redeploy it with
-  `supabase functions deploy send-household-invitation`.
+- The migration `20261006120000_household_invitation_email.sql` is live, and the live migration history records
+  it under that version. Future schema changes go through the "Deploy Supabase migrations" workflow on `main`.
+- The function `send-household-invitation` keeps JWT verification on. The "Deploy Supabase edge functions"
+  workflow deploys it when `supabase/functions/**` changes on `main`.

@@ -3,12 +3,15 @@
 // student. No service-role key is used. Neither the link token nor the invite code is ever logged; failures are
 // logged by kind only.
 //
-// Secrets (Supabase → Edge Functions → Secrets): RESEND_API_KEY, INVITE_FROM_EMAIL ("Prep & Price <invites@…>"),
+// Secrets (Supabase → Edge Functions → Secrets): RESEND_API_KEY; optional INVITE_FROM_EMAIL (defaults to the
+// temporary sender below),
 // APP_ORIGINS (optional: comma-separated allowed site origins, first is the default; defaults to staging).
 import { createClient } from 'npm:@supabase/supabase-js@2'
 import { inviteEmail, pickOrigin } from './email.ts'
 
 const DEFAULT_ORIGINS = 'https://college-optimizer-staging.netlify.app'
+// Temporary Prep & Price sender (owner decision 2026-10-06); INVITE_FROM_EMAIL overrides it.
+const DEFAULT_FROM = 'Prep & Price <invites@mail.getcimiento.com>'
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
@@ -72,8 +75,8 @@ Deno.serve(async (req) => {
 
   // 3. Send. Any failure leaves the invitation valid.
   const key = Deno.env.get('RESEND_API_KEY')
-  const from = Deno.env.get('INVITE_FROM_EMAIL')
-  if (!key || !from) {
+  const from = Deno.env.get('INVITE_FROM_EMAIL') || DEFAULT_FROM
+  if (!key) {
     console.error('invite-email: not configured')
     return json(200, { ...result, emailed: false, reason: 'not_configured' })
   }
