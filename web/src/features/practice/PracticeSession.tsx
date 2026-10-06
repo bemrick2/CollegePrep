@@ -8,6 +8,7 @@ import { QuestionView, ConfidenceBar } from './QuestionView'
 import { Feedback } from './Feedback'
 import { useAttempt } from './useAttempt'
 import { useCatalog } from './useCatalog'
+import { RUSHED_BELOW } from '../../lib/engine/benchmark'
 import { xpFor } from '../../lib/engine/gamify'
 import { formatDuration, localDate, weekStartOf } from '../../lib/engine/dates'
 
@@ -15,6 +16,7 @@ interface Outcome {
   correct: boolean | null
   elapsed_ms: number
   expected: number | null
+  skill: string | null
 }
 
 const REASON_LABEL: Record<string, string> = {
@@ -85,12 +87,12 @@ export function PracticeSession() {
     }
   }
 
-  if (done) return <SessionSummary outcomes={outcomes} studentId={student.id} />
+  if (done) return <SessionSummary outcomes={outcomes} studentId={student.id} skillName={catalog.skillName} />
 
   const onPick = async (confidence: Confidence) => {
     const r = await attempt.submit({ confidence })
     if (!r || !question) return
-    setOutcomes((o) => [...o, { correct: r.result.is_correct, elapsed_ms: r.result.elapsed_ms, expected: question.expected_time_seconds }])
+    setOutcomes((o) => [...o, { correct: r.result.is_correct, elapsed_ms: r.result.elapsed_ms, expected: question.expected_time_seconds, skill: question.primary_skill_key }])
     setRemember(r.result.remember_text ?? (await source.rememberThis(question.id)))
   }
 
@@ -226,7 +228,7 @@ export function PracticeSession() {
   )
 }
 
-function SessionSummary({ outcomes, studentId }: { outcomes: Outcome[]; studentId: string }) {
+function SessionSummary({ outcomes, studentId, skillName }: { outcomes: Outcome[]; studentId: string; skillName: (k: string) => string | null }) {
   const { source, ctx } = useApp()
   const tz = ctx?.myStudent?.time_zone ?? ctx?.households[0]?.time_zone ?? 'UTC'
   const week = useAsync(() => source.weeklyProgress(studentId, weekStartOf(localDate(new Date(), tz))), [source, studentId])
@@ -238,6 +240,12 @@ function SessionSummary({ outcomes, studentId }: { outcomes: Outcome[]; studentI
   )
   const goal = week.data?.goal?.target_questions
   const doneQs = week.data?.questions_submitted ?? 0
+  // What this session worked on, per skill, and how many answers came in at test pace.
+  const bySkill = [...outcomes.reduce((m, o) => (o.skill && o.correct !== null ? m.set(o.skill, [...(m.get(o.skill) ?? []), o]) : m), new Map<string, Outcome[]>())]
+  const timed = outcomes.filter((o) => o.correct !== null && o.expected)
+  const ratio = (o: Outcome) => o.elapsed_ms / (o.expected! * 1000)
+  const onPace = timed.filter((o) => ratio(o) <= 1 && ratio(o) >= RUSHED_BELOW).length
+  const rushed = timed.filter((o) => ratio(o) < RUSHED_BELOW).length
   return (
     <div className="mx-auto flex min-h-[calc(100dvh-28px)] max-w-md flex-col items-center justify-center px-4 py-10 text-center">
       <div className="anim-pop">
@@ -257,6 +265,26 @@ function SessionSummary({ outcomes, studentId }: { outcomes: Outcome[]; studentI
         <SummaryTile label="Streak" value={week.data ? `${week.data.streak.current}d` : '—'} tone="gold" />
         <SummaryTile label="This week" value={goal ? `${doneQs}/${goal}` : String(doneQs)} />
       </div>
+      {bySkill.length > 0 && (
+        <div className="mt-4 w-full rounded-2xl border border-line bg-surface p-4 text-left">
+          <div className="text-xs font-semibold uppercase tracking-wide text-ink-3">What you worked on</div>
+          <ul className="mt-2 grid gap-1.5 text-sm">
+            {bySkill.map(([k, os]) => (
+              <li key={k} className="flex items-center justify-between gap-3">
+                <span className="min-w-0 truncate text-ink">{skillName(k) ?? k}</span>
+                <span className="shrink-0 font-semibold tabular text-ink-2">
+                  {os.filter((o) => o.correct).length}/{os.length}
+                </span>
+              </li>
+            ))}
+          </ul>
+          {timed.length > 0 && (
+            <p className="mt-2 text-xs text-ink-3">
+              {onPace} of {timed.length} at test pace{rushed ? ` · ${rushed} too fast to count — slow down a little` : ''}. These feed your skills and indicators; benchmarks show bigger changes.
+            </p>
+          )}
+        </div>
+      )}
       {goal && doneQs >= goal && <Notice tone="gold" className="mt-4 w-full">Weekly goal reached. Anything extra this week is a bonus.</Notice>}
       <div className="mt-8 grid w-full gap-3">
         <ButtonLink to="/student" size="lg" block>

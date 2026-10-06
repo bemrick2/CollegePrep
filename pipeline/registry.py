@@ -83,10 +83,17 @@ def in_scope(r, presence) -> bool:
             and r['CONTROL'] in {'1', '2'} and r['ICLEVEL'] in {'1', '2'} and r['UNITID'] in presence)
 
 
+PROGRAM_DEPTH_DOMAINS = frozenset({'academic_programs', 'degree_requirements', 'program_catalogs'})
+
+
 def cited_sources():
     """institution_key -> official URLs already cited by curated records (re-verified on every run)."""
     out = {}
     for path, domain, r in records():
+        # Issue #90: the Program & Degree Deep Dive pipeline (programs/) re-verifies program-depth records itself.
+        # Queuing their program pages here would spend a school's whole national crawl budget before it reached
+        # cost, aid and credit-policy pages.
+        if domain in PROGRAM_DEPTH_DOMAINS: continue
         if path.suffix == '.json' and r.get('institution_key'):
             for k in ('source_url', 'policy_url', 'program_url'):
                 if str(r.get(k) or '').startswith('https://'): out.setdefault(r['institution_key'], set()).add(r[k])

@@ -13,7 +13,7 @@ python scripts/validate_data.py
 python scripts/check_migration_history.py --live
 run -f supabase/checks/live_preflight.sql
 echo "Preflight passed"
-python scripts/import_supabase.py --output "$work/batches" --reconcile-sql "$work/reconcile.sql" --existing-database
+python scripts/import_supabase.py --output "$work/batches" --reconcile-sql "$work/reconcile.sql" --existing-database --approved-corrections supabase/corrections.json
 
 for f in "$work"/batches/*.sql; do run -f "$f"; done
 echo "Import pass 1 applied"

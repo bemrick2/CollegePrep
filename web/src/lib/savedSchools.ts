@@ -1,6 +1,7 @@
 /** Schools the household is comparing. Kept in the browser until the backend models saved schools (CR-9). */
 export const SAVED_SCHOOLS_KEY = 'pp-compare'
-export const MAX_SAVED_SCHOOLS = 4
+/** Six fits two states' worth of options on the comparison; the backend allows eight. */
+export const MAX_SAVED_SCHOOLS = 6
 
 export function readSavedSchools(): string[] {
   try {

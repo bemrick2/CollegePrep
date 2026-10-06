@@ -11,12 +11,13 @@ import { useCatalog } from '../practice/useCatalog'
 import { CostOutlook, outlookFor } from './CostOutlook'
 import { PrimaryTarget } from './PrimaryTarget'
 import { useInterests } from '../majors/useInterests'
+import { useHomeState } from '../../lib/homeState'
+import { labelOf } from '../../lib/engine/interests'
 import { meritAwards } from '../../lib/engine/merit'
 import { useSavedComparison } from '../colleges/useSavedComparison'
 import { parentActions, type ParentAction } from '../../lib/engine/actions'
 import { PracticeIndicators } from '../../components/PracticeIndicators'
 import { BenchmarkStatus } from '../../components/BenchmarkStatus'
-
 
 export function ParentDashboard() {
   const { ctx, activeStudent } = useApp()
@@ -36,7 +37,12 @@ export function ParentDashboard() {
 function StudentPanel({ student }: { student: Student }) {
   const o = useStudentOverview(student.id)
   if (o.loading && !o.data) return <PageLoading />
-  if (o.error) return <Notice tone="bad" title="Couldn't load progress">{o.error.message}</Notice>
+  if (o.error)
+    return (
+      <Notice tone="bad" title="Couldn't load progress">
+        {o.error.message}
+      </Notice>
+    )
   if (!o.data) return null
   return <Panel student={student} o={o.data} />
 }
@@ -59,6 +65,7 @@ function sectionRollup(estimates: SkillEstimate[]) {
 function Panel({ student, o }: { student: Student; o: StudentOverview }) {
   const exam = o.plan?.exam_family ?? 'act'
   const interestCount = useInterests(student.id).profile.interests.length
+  const { homeState } = useHomeState()
   const catalog = useCatalog(exam)
   const est = latestEstimate(o.scores, exam)[0]
   const goal = o.week.goal?.target_questions ?? null
@@ -83,16 +90,24 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
     const e = weakSkill(kind)
     if (!e) return []
     const skill = catalog.skillName(e.skill_key) ?? e.skill_key
-    return [{
-      section: e.section,
-      label: SECTION_LABEL[e.section] ?? e.section,
-      kind,
-      detail: kind === 'knowledge' ? `${skill}: ${Math.round((e.accuracy ?? 0) * 100)}% right over ${e.attempts} questions. Daily sessions already lead with it.` : `${skill}: about ${(e.pacing_ratio ?? 0).toFixed(1)}× test pace. Sessions now include timed work.`,
-    }]
+    return [
+      {
+        section: e.section,
+        label: SECTION_LABEL[e.section] ?? e.section,
+        kind,
+        detail:
+          kind === 'knowledge'
+            ? `${skill}: ${Math.round((e.accuracy ?? 0) * 100)}% right over ${e.attempts} questions. Daily sessions already lead with it.`
+            : `${skill}: about ${(e.pacing_ratio ?? 0).toFixed(1)}× test pace. Sessions now include timed work.`,
+      },
+    ]
   })
-  const official = [...o.scores].filter((x) => x.exam_family === exam && x.composite !== null && x.score_source !== 'practice_estimate').sort((a, b) => b.test_date.localeCompare(a.test_date))[0]
+  const official = [...o.scores]
+    .filter((x) => x.exam_family === exam && x.composite !== null && x.score_source !== 'practice_estimate')
+    .sort((a, b) => b.test_date.localeCompare(a.test_date))[0]
   const actions = parentActions({
     interestsSaved: interestCount,
+    homeStateKnown: !!homeState,
     name,
     exam,
     linked,
@@ -104,11 +119,13 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
     goals: o.plan?.goals ?? [],
     targetScore: o.plan?.target_score ?? null,
     officialScore: official ? { composite: official.composite!, selfReported: official.score_source === 'self_reported' } : null,
-    schools: (saved.data ?? []).filter((c) => c.found).map((c) => ({
-      name: c.institution?.display_name ?? c.institution_key,
-      levers: outlookFor(c).levers,
-      awards: meritAwards(c.domains.awards).map((a) => ({ name: a.name, act_min: a.min.act, sat_min: a.min.sat })),
-    })),
+    schools: (saved.data ?? [])
+      .filter((c) => c.found)
+      .map((c) => ({
+        name: c.institution?.display_name ?? c.institution_key,
+        levers: outlookFor(c).levers,
+        awards: meritAwards(c.domains.awards).map((a) => ({ name: a.name, act_min: a.min.act, sat_min: a.min.sat })),
+      })),
   })
 
   return (
@@ -116,7 +133,7 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <p className="text-sm text-ink-3">Overview</p>
-          <h1 className="display text-[30px] font-semibold leading-tight text-ink md:text-[36px]">How {name} is doing</h1>
+          <h1 className="display text-[30px] font-semibold leading-tight text-ink md:text-[36px]">{name}'s plan</h1>
         </div>
         <div className="flex gap-2">
           <Link to="/parent/goals" className="rounded-lg border border-line-strong bg-surface px-3 py-2 text-sm font-semibold text-ink hover:bg-surface-2">
@@ -128,94 +145,164 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-        {official ? (
-          <Kpi
-            label={`${official.score_source === 'official' ? 'Official' : 'Self-reported'} ${EXAM_NAME[exam]}`}
-            value={String(official.composite)}
-            sub={`${formatShortDate(official.test_date)} · target ${o.plan?.target_score ?? '—'}`}
-            icon={<Target size={18} />}
-          />
-        ) : (
-          <Kpi
-            label={`Target ${EXAM_NAME[exam]}`}
-            value={o.plan?.target_score != null ? String(o.plan.target_score) : '—'}
-            sub={est ? `Practice estimate ${est.composite}` : 'No score estimate yet (not calibrated)'}
-            icon={<Target size={18} />}
-          />
-        )}
-        <Kpi label="Weekly goal" value={goal ? `${o.week.questions_submitted}/${goal}` : String(o.week.questions_submitted)} sub={goal ? `questions · ${Math.round((100 * o.week.questions_submitted) / goal)}% done` : 'questions · no goal set'} icon={<Compass size={18} />} bar={goal ? o.week.questions_submitted / goal : undefined} />
-        <Kpi label="Streak" value={`${o.streak.current_streak} days`} sub={`Longest ${o.streak.longest_streak}`} icon={<Flame size={18} />} />
-        <Kpi
-          label="Accuracy, 7 days"
-          value={trend.recent.acc === null ? '—' : `${Math.round(trend.recent.acc * 100)}%`}
-          sub={trend.prior.acc === null || trend.recent.acc === null ? `${trend.recent.n} answered` : `${trend.recent.acc >= trend.prior.acc ? '▲' : '▼'} from ${Math.round(trend.prior.acc * 100)}%`}
-          icon={<Info size={18} />}
-        />
-      </div>
+      <Card>
+        <CardHeader title="What to do next" subtitle="Based on recorded practice and verified college records." />
+        <ol className="grid gap-2 p-5 pt-3">
+          {actions.slice(0, 6).map((a, i) => (
+            <li key={a.key}>
+              <ActionRow a={a} n={i + 1} />
+            </li>
+          ))}
+        </ol>
+      </Card>
 
+      <SectionHeading title="Colleges & cost" subtitle={`Where ${name} might go, what it could cost, and what can lower it`} />
+      <InterestsLine studentId={student.id} name={name} />
+      <PrimaryTarget student={student} />
+      <CostOutlook showAlternative={!!o.plan?.goals.includes('lower_cost')} />
 
-      <div className="grid grid-cols-1 gap-5 lg:grid-cols-[1.25fr_1fr]">
-        <Card>
-          <CardHeader title="What to do next" subtitle="Based on recorded practice and verified college records." />
-          <ol className="grid gap-2 p-5 pt-3">
-            {actions.slice(0, 6).map((a, i) => (
-              <li key={a.key}>
-                <ActionRow a={a} n={i + 1} />
-              </li>
-            ))}
-          </ol>
-        </Card>
-
-        <Card>
-          <CardHeader title="By section" subtitle="Knowledge and pacing, from recent practice" />
-          <ul className="grid gap-3 p-5 pt-3">
-            {SECTION_ORDER[exam].map((sec) => {
-              const r = rollup.get(sec)
-              const acc = r && r.n ? r.c / r.n : null
-              const pace = r?.paces.length ? r.paces.reduce((a, b) => a + b, 0) / r.paces.length : null
-              const pv = pacingVerdict(pace)
-              return (
-                <li key={sec} className="grid gap-1.5">
-                  <div className="flex items-center justify-between gap-2 text-sm">
-                    <span className="font-semibold text-ink">{SECTION_LABEL[sec]}</span>
-                    <span className="flex items-center gap-1.5">
-                      {acc === null || (r && r.n < 5) ? (
-                        <Pill>Not enough data</Pill>
-                      ) : (
-                        <>
-                          <Pill tone={acc >= 0.75 ? 'go' : acc >= 0.6 ? 'brand' : 'warn'}>{acc >= 0.75 ? 'Strong' : acc >= 0.6 ? 'Developing' : 'Needs work'}</Pill>
-                          {pv === 'slow' && <Pill tone="warn">Pacing</Pill>}
-                        </>
-                      )}
-                    </span>
-                  </div>
-                  <ProgressBar value={acc ?? 0} label={`${SECTION_LABEL[sec]} accuracy`} tone={acc !== null && acc < 0.6 ? 'warn' : 'brand'} className="h-2" />
-                </li>
-              )
-            })}
-          </ul>
-          {o.estimates.filter((e) => e.knowledge_weak).length > 0 && (
-            <div className="border-t border-line px-5 py-3 text-xs text-ink-3">
-              Weakest skills: {o.estimates.filter((e) => e.knowledge_weak).map((e) => catalog.skillName(e.skill_key)).join(', ')}
-            </div>
+      <SectionHeading title="Test prep" subtitle={`What ${name} should work on now`} />
+      {o.history.length === 0 ? (
+        <Card className="p-5">
+          <h3 className="font-semibold text-ink">Practice hasn't started yet</h3>
+          <p className="mt-1 text-sm text-ink-2">
+            {linked
+              ? `${name} logs in and takes the starting benchmark (about 30 minutes).`
+              : `Once ${name} logs in with the invite code, they take a starting benchmark (about 30 minutes).`}{' '}
+            After that, this section shows what to work on, pacing and progress toward the{' '}
+            {o.plan?.target_score ? `${EXAM_NAME[exam]} ${o.plan.target_score} target` : 'target'}
+            {goal ? ` and the ${goal}-question weekly goal` : ''}.
+          </p>
+          {!linked && (
+            <Link to="/parent/household" className="mt-2 inline-flex text-sm font-semibold text-brand hover:underline">
+              Get the invite code
+            </Link>
           )}
         </Card>
-      </div>
+      ) : (
+        <>
+          <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+            {official ? (
+              <Kpi
+                label={`${official.score_source === 'official' ? 'Official' : 'Self-reported'} ${EXAM_NAME[exam]}`}
+                value={String(official.composite)}
+                sub={`${formatShortDate(official.test_date)} · target ${o.plan?.target_score ?? '—'}`}
+                icon={<Target size={18} />}
+              />
+            ) : (
+              <Kpi
+                label={`Target ${EXAM_NAME[exam]}`}
+                value={o.plan?.target_score != null ? String(o.plan.target_score) : '—'}
+                sub={est ? `Practice estimate ${est.composite}` : 'No score estimate yet (not calibrated)'}
+                icon={<Target size={18} />}
+              />
+            )}
+            <Kpi
+              label="Weekly goal"
+              value={goal ? `${o.week.questions_submitted}/${goal}` : String(o.week.questions_submitted)}
+              sub={goal ? `questions · ${Math.round((100 * o.week.questions_submitted) / goal)}% done` : 'questions · no goal set'}
+              icon={<Compass size={18} />}
+              bar={goal ? o.week.questions_submitted / goal : undefined}
+            />
+            <Kpi label="Streak" value={`${o.streak.current_streak} days`} sub={`Longest ${o.streak.longest_streak}`} icon={<Flame size={18} />} />
+            <Kpi
+              label="Accuracy, 7 days"
+              value={trend.recent.acc === null ? '—' : `${Math.round(trend.recent.acc * 100)}%`}
+              sub={
+                trend.prior.acc === null || trend.recent.acc === null
+                  ? `${trend.recent.n} answered`
+                  : `${trend.recent.acc >= trend.prior.acc ? '▲' : '▼'} from ${Math.round(trend.prior.acc * 100)}%`
+              }
+              icon={<Info size={18} />}
+            />
+          </div>
 
-      <PrimaryTarget student={student} />
-
-      <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-        <PracticeIndicators history={o.history} who={name} />
-        <BenchmarkStatus history={o.benchmarks} forGuardian />
-      </div>
-
-      <CostOutlook showAlternative={!!o.plan?.goals.includes('lower_cost')} />
+          <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+            <Card>
+              <CardHeader title="By section" subtitle="Knowledge and pacing, from recent practice" />
+              <ul className="grid gap-3 p-5 pt-3">
+                {SECTION_ORDER[exam].map((sec) => {
+                  const r = rollup.get(sec)
+                  const acc = r && r.n ? r.c / r.n : null
+                  const pace = r?.paces.length ? r.paces.reduce((a, b) => a + b, 0) / r.paces.length : null
+                  const pv = pacingVerdict(pace)
+                  return (
+                    <li key={sec} className="grid gap-1.5">
+                      <div className="flex items-center justify-between gap-2 text-sm">
+                        <span className="font-semibold text-ink">{SECTION_LABEL[sec]}</span>
+                        <span className="flex items-center gap-1.5">
+                          {acc === null || (r && r.n < 5) ? (
+                            <Pill>Not enough data</Pill>
+                          ) : (
+                            <>
+                              <Pill tone={acc >= 0.75 ? 'go' : acc >= 0.6 ? 'brand' : 'warn'}>
+                                {acc >= 0.75 ? 'Strong' : acc >= 0.6 ? 'Developing' : 'Needs work'}
+                              </Pill>
+                              {pv === 'slow' && <Pill tone="warn">Pacing</Pill>}
+                            </>
+                          )}
+                        </span>
+                      </div>
+                      <ProgressBar
+                        value={acc ?? 0}
+                        label={`${SECTION_LABEL[sec]} accuracy`}
+                        tone={acc !== null && acc < 0.6 ? 'warn' : 'brand'}
+                        className="h-2"
+                      />
+                    </li>
+                  )
+                })}
+              </ul>
+              {o.estimates.filter((e) => e.knowledge_weak).length > 0 && (
+                <div className="border-t border-line px-5 py-3 text-xs text-ink-3">
+                  Weakest skills:{' '}
+                  {o.estimates
+                    .filter((e) => e.knowledge_weak)
+                    .map((e) => catalog.skillName(e.skill_key))
+                    .join(', ')}
+                </div>
+              )}
+            </Card>
+            <PracticeIndicators history={o.history} who={name} />
+          </div>
+          <BenchmarkStatus history={o.benchmarks} forGuardian />
+        </>
+      )}
 
       <p className="text-xs text-ink-3">
         Last practice: {lastDay ? formatShortDate(lastDay) : 'never'} · Time zone {o.tz}
       </p>
     </div>
+  )
+}
+
+function SectionHeading({ title, subtitle }: { title: string; subtitle: string }) {
+  return (
+    <div className="mt-3 border-t border-line pt-5">
+      <h2 className="display text-2xl font-semibold text-ink">{title}</h2>
+      <p className="mt-0.5 text-sm text-ink-3">{subtitle}</p>
+    </div>
+  )
+}
+
+/** The student's saved interests in one line; never a required major. */
+function InterestsLine({ studentId, name }: { studentId: string; name: string }) {
+  const { profile } = useInterests(studentId)
+  const labels = profile.interests.map(labelOf)
+  return (
+    <p className="text-sm text-ink-2">
+      {labels.length ? (
+        <>
+          {name} is considering <span className="font-semibold text-ink">{labels.join(', ')}</span>
+          {profile.interests.some((i) => i.focus) ? '' : ' (not ranked)'}.{' '}
+        </>
+      ) : (
+        <>{name} hasn't saved any study interests yet; not sure is fine. </>
+      )}
+      <Link to="/colleges/majors" className="font-semibold text-brand hover:underline">
+        Explore majors
+      </Link>
+    </p>
   )
 }
 
@@ -250,4 +337,3 @@ function ActionRow({ a, n }: { a: Action; n: number }) {
   )
   return a.to ? <Link to={a.to}>{body}</Link> : body
 }
-

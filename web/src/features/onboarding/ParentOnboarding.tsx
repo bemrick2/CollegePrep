@@ -7,6 +7,9 @@ import { StepFrame } from './Stepper'
 import { ExamAndTarget, GoalsAndPace, defaultPlanDraft, type PlanDraft } from './PlanFields'
 import { GRADES, graduationYearFor, timeZones } from './options'
 import { InviteCode } from './InviteCode'
+import { StoreBadges } from '../../components/StoreBadges'
+import { US_STATES } from '../../lib/engine/residency'
+import { writeHomeState } from '../../lib/homeState'
 
 export function ParentOnboarding() {
   const { source, viewer, refresh, setActiveStudentId } = useApp()
@@ -14,6 +17,7 @@ export function ParentOnboarding() {
   const [step, setStep] = useState(1)
   const [householdName, setHouseholdName] = useState(realName(viewer) ? `${realName(viewer)}'s household` : '')
   const [tz, setTz] = useState(browserTimeZone())
+  const [homeState, setHomeState] = useState('')
   const [studentName, setStudentName] = useState('')
   const [grade, setGrade] = useState<number | null>(null)
   const [plan, setPlan] = useState<PlanDraft>(defaultPlanDraft)
@@ -28,6 +32,7 @@ export function ParentOnboarding() {
     setError(null)
     try {
       const hid = await source.createHousehold(householdName.trim() || 'Our household', tz)
+      if (homeState) writeHomeState(hid, homeState)
       const sid = await source.addStudent(hid, studentName.trim(), grade ? graduationYearFor(grade) : null, grade)
       await source.savePlan(sid, { exam_family: plan.exam, target_score: plan.target, goals: plan.goals, daily_minutes: 10 })
       await source.setWeeklyGoal(sid, weekStartOf(localDate(new Date(), tz)), plan.weeklyQuestions, null)
@@ -63,6 +68,16 @@ export function ParentOnboarding() {
         <div className="grid gap-5">
           <Field label="Household name" htmlFor="hh">
             <input id="hh" className={inputClass} value={householdName} onChange={(e) => setHouseholdName(e.target.value)} placeholder="The Rivera household" />
+          </Field>
+          <Field label="Home state (optional)" htmlFor="home-state-onb" hint="Picks in-state or out-of-state college prices. You can change it later.">
+            <select id="home-state-onb" className={inputClass} value={homeState} onChange={(e) => setHomeState(e.target.value)}>
+              <option value="">Prefer not to say</option>
+              {US_STATES.map(([c, n]) => (
+                <option key={c} value={c}>
+                  {n}
+                </option>
+              ))}
+            </select>
           </Field>
           <Field label="Time zone" htmlFor="tz" hint="Streaks and weekly goals reset at local midnight.">
             <select id="tz" className={inputClass} value={tz} onChange={(e) => setTz(e.target.value)}>
@@ -156,12 +171,17 @@ export function ParentOnboarding() {
           <Num n={1} /> Your student creates an account and chooses “I have an invite code”.
         </li>
         <li className="flex gap-3">
-          <Num n={2} /> They take a short benchmark — about 25 minutes — to set a baseline.
+          <Num n={2} /> They take a short benchmark — about 30 minutes — to set a baseline.
         </li>
         <li className="flex gap-3">
           <Num n={3} /> You'll see progress, pacing and next steps on your dashboard.
         </li>
       </ol>
+      <div className="mt-6 rounded-2xl bg-surface-2 p-4">
+        <div className="text-sm font-semibold text-ink">On a phone?</div>
+        <p className="mt-0.5 text-sm text-ink-2">You and your student can sign in to the app with these same accounts. Nothing to buy again there.</p>
+        <StoreBadges className="mt-1" />
+      </div>
     </StepFrame>
   )
 }
