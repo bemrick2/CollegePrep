@@ -24,6 +24,16 @@ MUTS = [
     ('programs/smartcatalog.py', "'group_type': 'all_required' if (REQUIRED.search(heading) and not CHOOSE.search(heading)) else 'elective_pool'", "'group_type': 'elective_pool' if CHOOSE.search(heading) else 'all_required'"),
     ('programs/thec.py', "        if (PROGRAMS, json.dumps(payload, sort_keys=True)) in done: continue", "        pass"),
     ('backend/program_fields.py', "        if k in cat:", "        if False:"),
+    ('programs/status.py', "complete = not unaccounted and not errors and share >= COVERAGE_SHARE", "complete = not errors and share >= COVERAGE_SHARE"),
+    ('programs/status.py', "complete = not unaccounted and not errors and share >= COVERAGE_SHARE", "complete = not unaccounted and not errors"),
+    ('programs/status.py', "covered = complete or (share is not None and share >= CATALOG_SHARE)", "covered = complete or (share is not None and share > 0)"),
+    ('programs/status.py', "folders = {f.parts[-3] for f in (ROOT / 'data/institutions').glob('*/program_catalogs/*.json')}", "folders = set()"),
+    ('programs/status.py', "verified = [r for r in progs if r.get('verification_status') == 'verified' and r.get('credential_level') == 'bachelor']", "verified = [r for r in progs if r.get('credential_level') == 'bachelor']"),
+    ('programs/status.py', "covered = [r for r in rows if r['status'] in ('covered', 'covered_open_items')]", "covered = [r for r in rows if r['status'] != 'not_started']"),
+    ('programs/status.py', "four = [i for i in reg['institutions'] if i.get('level') == 'four_year']", "four = list(reg['institutions'])"),
+    ('programs/status.py', "if not (e.get('next_action') or '').strip(): errs.append", "if False: errs.append"),
+    ('programs/status.py', "'degree_maps': 'met' if verified and len(plans & vkeys) >= PLAN_SHARE * len(verified)", "'degree_maps': 'met' if plans"),
+    ('programs/status.py', "if cur != j: print(", "if False: print("),
 ]
 
 
