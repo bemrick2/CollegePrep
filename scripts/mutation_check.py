@@ -184,6 +184,19 @@ MUTS = [
     ('pipeline/extractors/costs.py', 'on[- ]campus\\s*/\\s*off[- ]campus|on\\s*(/|and', 'on\\s*(/|and'),
     ('pipeline/extractors/costs.py', '(a\\s+)?(parents?|family)|', '(a\\s+)?parents?|'),
     ('pipeline/extractors/transfer.py', 'unaccredited|high\\s+school|', 'unaccredited|'),
+    # Issue #95: printed choice rules are not all_required
+    ('pipeline/extractors/catalog.py', "            choice_issues.append('mixed_required_and_choice')", '            pass'),
+    ('pipeline/extractors/catalog.py', "            choice_issues.append('choice_rule_unparsed')", '            pass'),
+    ('pipeline/extractors/catalog.py', "        elif g['courses'] and CHOICE_CUE.search(rules_text):", "        elif False:"),
+    ('pipeline/extractors/catalog.py', '{0,3}?(?:courses|classes)', '{0,3}?(?:zzzz)'),
+    ('pipeline/extractors/catalog.py', "(?:a\\s+minimum\\s+of\\s+|at\\s+least\\s+|an?\\s+additional\\s+)?", ''),
+    ('pipeline/extractors/catalog.py', "(\\d{1,2}|one|two|three|four|five|six)\\s+(?:additional", "(\\d{1,2})\\s+(?:additional"),
+    ('pipeline/extractors/catalog.py', "        if len(cue_lines) > 1 or", "        if False and len(cue_lines) > 1 or"),
+    ('pipeline/extractors/catalog.py', " and not CHOICE_CUE.search(r) for r in g['rules'])", " for r in g['rules'])"),
+    ('pipeline/extractors/catalog.py', "        elif g.get('courses_before_choice'):", "        elif False:"),
+    ('pipeline/extractors/catalog.py', "        if g.get('total') and g.get('table_groups') == 1 and", "        if g.get('total') and"),
+    ('pipeline/extractors/catalog.py', "(?:/[A-Z]{2,5})*)\\s?(\\d{3,4}[A-Z]?)$')", ")\\s?(\\d{3,4}[A-Z]?)$')"),
+    ('pipeline/extractors/catalog.py', "            if cur['courses'] and CHOICE_CUE.search(text): cur['courses_before_choice'] = True", "            pass"),
     ('pipeline/registry.py', '        if domain in PROGRAM_DEPTH_DOMAINS: continue\n', '        pass\n'),
 ]
 TIMEOUT = 90
