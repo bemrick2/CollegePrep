@@ -108,7 +108,7 @@ class BrowserFetcher:
 
     def fetch(self, url):
         if not self.base.allowed(url):
-            return {'status': None, 'error': 'disallowed_by_robots'}, None
+            return {'status': None, 'error': self.base.refusal(url)}, None
         host = urlsplit(url).netloc.lower()
         with self.lock:  # one browser page at a time keeps the load equal to a person reading
             entry = self.base.gate.wait(host)
@@ -166,6 +166,8 @@ def crawl_target(target, run: Run, fetcher, browser=None, log=print, caps=None):
     render = target.get('render') == 'browser' and browser is not None
     cat = target.get('catalog') or {}
     chost = host_of(cat.get('home', '')) if cat.get('home') else None
+    if target.get('crawl_delay') and chost:  # a slower fixed pace for catalog hosts that rate-limit (never shortens a robots delay)
+        fetcher.gate.set_delay(urlsplit(cat['home']).netloc.lower(), target['crawl_delay'])
     queue = []  # FIFO by stage keeps lists before pages
 
     def push(url, role, via, depth=0):
@@ -297,7 +299,8 @@ def expand(target, role, url, links, push, is_program, is_nav, depth):
     cat = target.get('catalog') or {}
     lists_given = bool(cat.get('program_lists'))
     if role in ('catalog_home', 'catalog_nav', 'program_list'):
-        progs = [(anchor_rank(a), h) for h, a in links if is_program(h)]
+        tag = cat.get('list_filter')  # a branch campus on its parent's catalog: only the rows tagged with this campus
+        progs = [(anchor_rank(a), h) for h, a in links if is_program(h) and (not tag or role != 'program_list' or tag in (a or ''))]
         for rank, h in sorted(progs, key=lambda x: x[0]):
             # A configured list page is the authority for which pages are programs; elsewhere only bachelor/unlabeled.
             if rank < 2 and (role == 'program_list' or not lists_given or cat.get('platform') == 'acalog'):

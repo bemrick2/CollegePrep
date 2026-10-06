@@ -908,3 +908,100 @@ class CompletionStatus(unittest.TestCase):
         self.assertEqual(self.S.states_with_work(), [])
         self.covered_school('mid')
         self.assertEqual(self.S.states_with_work(), ['ZZ'])
+
+
+class RobotsRefusalTests(unittest.TestCase):
+    """An unreachable robots.txt (no such host) is recorded as robots_unreachable, not as a robots refusal."""
+
+    def fetcher(self, status, body=b''):
+        from pipeline.crawl import Fetcher
+        f = Fetcher(delay=0, timeout=1)
+        f._raw = lambda url: (status, url, {}, body)
+        return f
+
+    def test_unreachable_host_is_not_a_refusal(self):
+        f = self.fetcher(None)
+        self.assertFalse(f.allowed('https://catalog.nosuch.edu/x'))
+        self.assertEqual(f.refusal('https://catalog.nosuch.edu/x'), 'robots_unreachable')
+        self.assertEqual(f.fetch('https://catalog.nosuch.edu/x')[0]['error'], 'robots_unreachable')
+
+    def test_disallow_rule_is_a_refusal(self):
+        f = self.fetcher(200, b'User-agent: *\nDisallow: /\n')
+        self.assertFalse(f.allowed('https://catalog.example.edu/x'))
+        self.assertEqual(f.fetch('https://catalog.example.edu/x')[0]['error'], 'disallowed_by_robots')
+
+    def test_missing_robots_allows(self):
+        self.assertTrue(self.fetcher(404).allowed('https://catalog.example.edu/x'))
+
+
+class QueueSuggestTests(unittest.TestCase):
+    """programs/queue_suggest.py drafts queue entries only from what the runs show."""
+
+    def setUp(self):
+        from programs import status as S
+        self.S = S; self.old = S.ROOT
+        self.tmp = tempfile.TemporaryDirectory(); root = Path(self.tmp.name); S.ROOT = root; self.root = root
+        insts = [{'institution_key': k, 'name': k, 'folder': k, 'level': 'four_year'} for k in ('blocked', 'gone', 'quiet', 'open', 'nopages')]
+        (root / 'pipeline/registry').mkdir(parents=True)
+        (root / 'pipeline/registry/ZZ.json').write_text(json.dumps({'state': 'ZZ', 'institutions': insts}))
+        (root / 'data/national/ipeds/2023-24/ZZ').mkdir(parents=True)
+        (root / 'data/national/ipeds/2023-24/ZZ/admissions.csv').write_text('institution_key,enrolled\nblocked,1\n')
+        run = root / 'programs/runs/ZZ/r1'; (run / 'pages').mkdir(parents=True)
+        rows = [{'institution_key': 'blocked', 'url': f'https://catalog.blocked.edu/p{i}', 'role': 'catalog_nav', 'error': 'blocked_bot_challenge'} for i in range(3)]
+        rows += [{'institution_key': 'gone', 'url': 'https://catalog.gone.edu/', 'role': 'discover', 'error': 'disallowed_by_robots'}]
+        import gzip as gz
+        (run / 'pages/a.json.gz').write_bytes(gz.compress(json.dumps({'text': 'Computer Science BS\\nMajor requirements'}).encode()))
+        rows += [{'institution_key': 'open', 'url': 'https://catalog.open.edu/cs', 'role': 'program_page', 'page_file': 'a.json.gz'}]
+        (run / 'manifest.jsonl').write_text('\n'.join(json.dumps(r) for r in rows) + '\n')
+        (run / 'evidence.jsonl').write_text(''); (run / 'candidates.jsonl').write_text('')
+        d = root / 'data/institutions/open/academic_programs'; d.mkdir(parents=True)
+        (d / '2026-27.json').write_text(json.dumps({'institution_key': 'open', 'academic_year': '2026-27', 'records': [
+            {'program_key': 'cs', 'program_name': 'Computer Science BS', 'credential_level': 'bachelor', 'verification_status': 'verified'}]}))
+        d = root / 'data/institutions/nopages/academic_programs'; d.mkdir(parents=True)
+        (d / '2026-27.json').write_text(json.dumps({'institution_key': 'nopages', 'academic_year': '2026-27', 'records': [
+            {'program_key': 'h', 'program_name': 'History BA', 'credential_level': 'bachelor', 'verification_status': 'verified'}]}))
+
+    def tearDown(self):
+        self.S.ROOT = self.old; self.tmp.cleanup()
+
+    def test_proposals_follow_run_evidence(self):
+        from programs import queue_suggest as Q
+        got = {(e['institution_key'], e['gap']): e['reason'] for e in Q.suggest('ZZ')}
+        self.assertEqual(got[('blocked', 'institution')], 'bot_challenge')
+        self.assertEqual(got[('gone', 'institution')], 'not_yet_researched')  # a refused/unreachable host proves nothing
+        self.assertEqual(got[('quiet', 'institution')], 'not_yet_researched')
+        self.assertEqual(got[('open', 'degree_maps')], 'not_published')       # its program page was read: no plan marker
+        self.assertEqual(got[('open', 'admission_rules')], 'no_official_statement')
+        self.assertEqual(got[('open', 'catalog')], 'not_yet_researched')
+        self.assertEqual(got[('open', 'requirement_groups')], 'not_yet_researched')
+        self.assertEqual(got[('nopages', 'degree_maps')], 'not_yet_researched')  # no page read: absence is not shown
+
+    def test_committed_queue_entries_are_not_proposed_again(self):
+        from programs import queue_suggest as Q
+        (self.root / 'programs/queue').mkdir(parents=True)
+        (self.root / 'programs/queue/ZZ.json').write_text(json.dumps({'state': 'ZZ', 'entries': [
+            {'institution_key': 'blocked', 'gap': 'institution', 'reason': 'bot_challenge', 'detail': 'x', 'next_action': 'y'}]}))
+        self.assertNotIn('blocked', {e['institution_key'] for e in Q.suggest('ZZ')})
+        self.assertNotIn('ZZ.proposed', self.S.states_with_work())
+
+
+class BranchCampusListTests(unittest.TestCase):
+    def test_only_rows_tagged_with_the_campus_are_followed(self):
+        t = {'catalog': {'platform': 'courseleaf', 'home': 'https://catalog.example.edu/', 'path_prefix': '/college-departments/',
+                         'min_depth': 1, 'program_lists': ['https://catalog.example.edu/programs/'], 'list_filter': 'Branch'}}
+        links = [('https://catalog.example.edu/college-departments/a/x-bs/', 'X Undergraduate Major (BS)MajorCorvallisBranch'),
+                 ('https://catalog.example.edu/college-departments/a/y-bs/', 'Y Undergraduate Major (BS)MajorCorvallis')]
+        pushed = []
+        C.expand(t, 'program_list', 'u', links, lambda h, r, v, d: pushed.append(h), C.program_rule(t), C.nav_rule(t), 0)
+        self.assertEqual(pushed, ['https://catalog.example.edu/college-departments/a/x-bs/'])
+
+
+class CrawlDelayTests(unittest.TestCase):
+    def test_target_crawl_delay_slows_its_catalog_host(self):
+        from pipeline.crawl import Fetcher, Run
+        f = Fetcher(delay=0, timeout=1); f._raw = lambda url: (None, url, {}, b'')
+        with tempfile.TemporaryDirectory() as d:
+            t = {'institution_key': 'k', 'folder': 'k', 'domains': ['example.edu'], 'crawl_delay': 12,
+                 'catalog': {'platform': 'acalog', 'home': 'https://catalog.example.edu/index.php?catoid=1', 'catoid': 1}}
+            C.crawl_target(t, Run(Path(d)), f, log=lambda *_: None)
+        self.assertEqual(f.gate.host_delay.get('catalog.example.edu'), 12)

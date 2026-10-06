@@ -134,7 +134,7 @@ OR={
    'printed_list':{'url':'https://up.smartcatalogiq.com/en/2026-2027/bulletin/university-academic-programs-of-study/undergraduate-programs','heading':'Undergraduate Programs','stop':'Up one level'}},
    discover=['https://up.smartcatalogiq.com/en'],policy=[]),
  'osucascades':dict(priority=2,catalog={'platform':'courseleaf','home':'https://catalog.oregonstate.edu/','path_prefix':'/college-departments/','min_depth':1,
-   'program_lists':['https://catalog.oregonstate.edu/programs/'],'list_filter':'OSU-Cascades'},caps={'program_page':0},
+   'program_lists':['https://catalog.oregonstate.edu/programs/'],'list_filter':'OSU-Cascades'},caps={'program_page':60},
    policy=['https://osucascades.edu/academics']),
  'oit':dict(priority=1,render='browser',catalog={'platform':'coursedog','home':'https://catalog.oit.edu/','path_prefix':'/programs/','min_depth':0,
    'program_lists':['https://catalog.oit.edu/programs']+[f'https://catalog.oit.edu/programs?page={n}&pq=&sortBy=name' for n in range(2,13)]},policy=['https://www.oit.edu/academics/degrees','https://www.oit.edu/academics/degrees/nursing',
@@ -150,6 +150,11 @@ DISCOVER={'TN':['trevecca','southern','lmunet','cumberland','fhu','milligan','br
 PRI={'up':1,'georgefox':1,'sou':2,'wou':2,'eou':2,'osucascades':2,'willamette-210401':2,'lclark':2,'reed':2,'linfield':2,'pacificu':2,'cn':2,'trevecca':2,'southern':2,'lmunet':2,'sewanee':2,'maryvillecollege':2}
 BLOCKED_EXTRA={'utk': ['https://advising.utk.edu/', 'https://www.utk.edu/academics/majors'], 'mtsu': ['https://www.mtsu.edu/advising/', 'https://www.mtsu.edu/programs/'], 'memphis': ['https://www.memphis.edu/advising/', 'https://www.memphis.edu/academics/'], 'etsu': ['https://www.etsu.edu/advisement/', 'https://www.etsu.edu/academics/'], 'utm': ['https://www.utm.edu/academics/majors-and-programs', 'https://www.utm.edu/offices/advising'], 'belmont': ['https://www.belmont.edu/academics/majors-programs/'], 'lipscomb': ['https://www.lipscomb.edu/academics'], 'leeuniversity': ['https://www.leeuniversity.edu/academics/']}
 for k,v in BLOCKED_EXTRA.items(): TN[k]['policy']=TN[k]['policy']+v
+# Acalog hosts that answered a fast crawl with rate challenges (HTTP 202) but serve single requests: crawl them at a
+# slow fixed pace from the start (a politeness setting, not a way around a challenge; a challenge still stops the host).
+SLOW={'TN':{'belmont':12,'lipscomb':12,'leeuniversity':12,'utk':12,'mtsu':12,'memphis':12,'etsu':12,'tnstate':12,'utm':12},'OR':{}}
+for st,conf in (('TN',TN),('OR',OR)):
+    for k,d in SLOW[st].items(): conf[k]['crawl_delay']=d
 # Official pages located by review (2026-10-06) that state, or are the places that would state, how students enter
 # high-value majors (admission_rules dimension, docs/PROGRAM_DEPTH_COMPLETION.md). Fetched as policy pages.
 ADMISSION_PAGES={'OR':{

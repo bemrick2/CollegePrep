@@ -15,7 +15,7 @@ from pipeline.crawl import USER_AGENT, HostGate, now
 
 
 def _get(fetcher, url, method='GET', body=None):
-    if not fetcher.allowed(url): return {'status': None, 'error': 'disallowed_by_robots'}, None
+    if not fetcher.allowed(url): return {'status': None, 'error': fetcher.refusal(url)}, None
     host = urlsplit(url).netloc.lower(); entry = fetcher.gate.wait(host)
     try:
         req = urllib.request.Request(url, data=body.encode() if body else None, method=method,
@@ -72,7 +72,7 @@ LARGE_PDF_BYTES = 80 * 1024 * 1024
 def fetch_large(fetcher, url):
     """A catalog's own full-catalog PDF can exceed the national fetcher's 15 MB cap (Tennessee Tech: about 16 MB).
     Same robots and per-host politeness; a larger cap only for role catalog_pdf."""
-    if not fetcher.allowed(url): return {'status': None, 'error': 'disallowed_by_robots'}, None
+    if not fetcher.allowed(url): return {'status': None, 'error': fetcher.refusal(url)}, None
     host = urlsplit(url).netloc.lower(); entry = fetcher.gate.wait(host)
     try:
         req = urllib.request.Request(url, headers={'User-Agent': USER_AGENT, 'Accept': 'application/pdf'})
