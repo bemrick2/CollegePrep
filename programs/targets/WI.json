@@ -1,0 +1,924 @@
+{
+ "state": "WI",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-239105",
+   "folder": "marquette",
+   "name": "Marquette University",
+   "control": "private_nonprofit",
+   "domains": [
+    "marquette.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.marquette.edu/",
+    "https://catalog.marquette.edu/",
+    "https://www.marquette.edu/academics/",
+    "https://www.marquette.edu/registrar/",
+    "https://www.marquette.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-240268",
+   "folder": "uwec",
+   "name": "University of Wisconsin-Eau Claire",
+   "control": "public",
+   "domains": [
+    "uwec.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.uwec.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.uwec.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-240329",
+   "folder": "uwlax",
+   "name": "University of Wisconsin-La Crosse",
+   "control": "public",
+   "domains": [
+    "uwlax.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.uwlax.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.uwlax.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-240444",
+   "folder": "wisc",
+   "name": "University of Wisconsin-Madison",
+   "control": "public",
+   "domains": [
+    "wisc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.wisc.edu/",
+    "https://catalog.wisc.edu/",
+    "https://www.wisc.edu/academics/",
+    "https://www.wisc.edu/registrar/",
+    "https://www.wisc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-240453",
+   "folder": "uwm",
+   "name": "University of Wisconsin-Milwaukee",
+   "control": "public",
+   "domains": [
+    "uwm.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.uwm.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.uwm.edu/programs",
+     "https://catalog.uwm.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.uwm.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.uwm.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.uwm.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.uwm.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.uwm.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.uwm.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.uwm.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.uwm.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.uwm.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.uwm.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.uwm.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.uwm.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.uwm.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.uwm.edu (7 links)"
+  },
+  {
+   "institution_key": "ipeds-240365",
+   "folder": "uwosh",
+   "name": "University of Wisconsin-Oshkosh",
+   "control": "public",
+   "domains": [
+    "uwosh.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.uwosh.edu/",
+    "https://catalog.uwosh.edu/",
+    "https://www.uwosh.edu/academics/",
+    "https://www.uwosh.edu/registrar/",
+    "https://www.uwosh.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-240462",
+   "folder": "uwplatt",
+   "name": "University of Wisconsin-Platteville",
+   "control": "public",
+   "domains": [
+    "uwplatt.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.uwplatt.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.uwplatt.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-240480",
+   "folder": "uwsp",
+   "name": "University of Wisconsin-Stevens Point",
+   "control": "public",
+   "domains": [
+    "uwsp.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.uwsp.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.uwsp.edu/programs",
+     "https://catalog.uwsp.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.uwsp.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.uwsp.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.uwsp.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.uwsp.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.uwsp.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.uwsp.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.uwsp.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.uwsp.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.uwsp.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.uwsp.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.uwsp.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.uwsp.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.uwsp.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.uwsp.edu (26 links)"
+  },
+  {
+   "institution_key": "ipeds-240417",
+   "folder": "uwstout",
+   "name": "University of Wisconsin-Stout",
+   "control": "public",
+   "domains": [
+    "uwstout.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.uwstout.edu/",
+    "https://catalog.uwstout.edu/",
+    "https://www.uwstout.edu/academics/",
+    "https://www.uwstout.edu/registrar/",
+    "https://www.uwstout.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-240189",
+   "folder": "uww",
+   "name": "University of Wisconsin-Whitewater",
+   "control": "public",
+   "domains": [
+    "uww.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.uww.edu/",
+    "https://catalog.uww.edu/",
+    "https://www.uww.edu/academics/",
+    "https://www.uww.edu/registrar/",
+    "https://www.uww.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-238333",
+   "folder": "beloit",
+   "name": "Beloit College",
+   "control": "private_nonprofit",
+   "domains": [
+    "beloit.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.beloit.edu/",
+    "https://catalog.beloit.edu/",
+    "https://www.beloit.edu/academics/",
+    "https://www.beloit.edu/registrar/",
+    "https://www.beloit.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-238458",
+   "folder": "carrollu",
+   "name": "Carroll University",
+   "control": "private_nonprofit",
+   "domains": [
+    "carrollu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 18,
+    "home": "https://catalog.carrollu.edu/index.php?catoid=18",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.carrollu.edu/content.php?catoid=18&navoid=474",
+     "https://catalog.carrollu.edu/content.php?catoid=18&navoid=481"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 18 on catalog.carrollu.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-238476",
+   "folder": "carthage",
+   "name": "Carthage College",
+   "control": "private_nonprofit",
+   "domains": [
+    "carthage.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.carthage.edu/",
+    "https://catalog.carthage.edu/",
+    "https://www.carthage.edu/academics/",
+    "https://www.carthage.edu/registrar/",
+    "https://www.carthage.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-238616",
+   "folder": "cuw",
+   "name": "Concordia University-Wisconsin",
+   "control": "private_nonprofit",
+   "domains": [
+    "cuw.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.cuw.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.cuw.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-238661",
+   "folder": "edgewood",
+   "name": "Edgewood College",
+   "control": "private_nonprofit",
+   "domains": [
+    "edgewood.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.edgewood.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.edgewood.edu/programs"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.edgewood.edu (program list https://catalog.edgewood.edu/programs)"
+  },
+  {
+   "institution_key": "ipeds-240392",
+   "folder": "herzing-240392",
+   "name": "Herzing University-Madison",
+   "control": "private_nonprofit",
+   "domains": [
+    "herzing.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 84,
+    "home": "https://catalog.herzing.edu/index.php?catoid=84",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.herzing.edu/content.php?catoid=84&navoid=7551"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 84 on catalog.herzing.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-238980",
+   "folder": "lakeland",
+   "name": "Lakeland University",
+   "control": "private_nonprofit",
+   "domains": [
+    "lakeland.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 29,
+    "home": "https://catalog.lakeland.edu/index.php?catoid=29",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 29 on catalog.lakeland.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-239017",
+   "folder": "lawrence",
+   "name": "Lawrence University",
+   "control": "private_nonprofit",
+   "domains": [
+    "lawrence.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.lawrence.edu/",
+    "https://catalog.lawrence.edu/",
+    "https://www.lawrence.edu/academics/",
+    "https://www.lawrence.edu/registrar/",
+    "https://www.lawrence.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-239080",
+   "folder": "marianuniversity",
+   "name": "Marian University",
+   "control": "private_nonprofit",
+   "domains": [
+    "marianuniversity.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.marianuniversity.edu/wp-content/uploads/2026/09/2026-2027-Academic-Catalog.pdf"
+    ],
+    "home": "https://www.marianuniversity.edu/wp-content/uploads/2026/09/2026-2027-Academic-Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-239309",
+   "folder": "miad",
+   "name": "Milwaukee Institute of Art & Design",
+   "control": "private_nonprofit",
+   "domains": [
+    "miad.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.miad.edu/",
+    "https://catalog.miad.edu/",
+    "https://www.miad.edu/academics/",
+    "https://www.miad.edu/registrar/",
+    "https://www.miad.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-239318",
+   "folder": "msoe",
+   "name": "Milwaukee School of Engineering",
+   "control": "private_nonprofit",
+   "domains": [
+    "msoe.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 44,
+    "home": "https://catalog.msoe.edu/index.php?catoid=44",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.msoe.edu/content.php?catoid=44&navoid=1588"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 44 on catalog.msoe.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-239390",
+   "folder": "mtmary",
+   "name": "Mount Mary University",
+   "control": "private_nonprofit",
+   "domains": [
+    "mtmary.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.mtmary.edu/",
+    "https://catalog.mtmary.edu/",
+    "https://www.mtmary.edu/academics/",
+    "https://www.mtmary.edu/registrar/",
+    "https://www.mtmary.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-239628",
+   "folder": "ripon",
+   "name": "Ripon College",
+   "control": "private_nonprofit",
+   "domains": [
+    "ripon.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.ripon.edu/",
+    "https://catalog.ripon.edu/",
+    "https://www.ripon.edu/academics/",
+    "https://www.ripon.edu/registrar/",
+    "https://www.ripon.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-239716",
+   "folder": "snc",
+   "name": "Saint Norbert College",
+   "control": "private_nonprofit",
+   "domains": [
+    "snc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://snc.edu/sites/default/files/2025-07/catalog2024-25.pdf"
+    ],
+    "home": "https://snc.edu/sites/default/files/2025-07/catalog2024-25.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2024-2025"
+  },
+  {
+   "institution_key": "ipeds-240277",
+   "folder": "uwgb",
+   "name": "University of Wisconsin-Green Bay",
+   "control": "public",
+   "domains": [
+    "uwgb.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.uwgb.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.uwgb.edu/undergraduate/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.uwgb.edu (program list https://catalog.uwgb.edu/undergraduate/programs/)"
+  },
+  {
+   "institution_key": "ipeds-240374",
+   "folder": "uwp",
+   "name": "University of Wisconsin-Parkside",
+   "control": "public",
+   "domains": [
+    "uwp.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.uwp.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.uwp.edu/programs",
+     "https://catalog.uwp.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.uwp.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.uwp.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.uwp.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.uwp.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.uwp.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.uwp.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.uwp.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.uwp.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.uwp.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.uwp.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.uwp.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.uwp.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.uwp.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.uwp.edu (37 links)"
+  },
+  {
+   "institution_key": "ipeds-240471",
+   "folder": "uwrf",
+   "name": "University of Wisconsin-River Falls",
+   "control": "public",
+   "domains": [
+    "uwrf.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.uwrf.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.uwrf.edu/programs"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.uwrf.edu (program list https://catalog.uwrf.edu/programs)"
+  },
+  {
+   "institution_key": "ipeds-240426",
+   "folder": "uwsuper",
+   "name": "University of Wisconsin-Superior",
+   "control": "public",
+   "domains": [
+    "uwsuper.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://uwsuper.edu/wp-content/uploads/CECatalog-2026-27.pdf"
+    ],
+    "home": "https://uwsuper.edu/wp-content/uploads/CECatalog-2026-27.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-240107",
+   "folder": "viterbo",
+   "name": "Viterbo University",
+   "control": "private_nonprofit",
+   "domains": [
+    "viterbo.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.viterbo.edu/",
+    "https://catalog.viterbo.edu/",
+    "https://www.viterbo.edu/academics/",
+    "https://www.viterbo.edu/registrar/",
+    "https://www.viterbo.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-240338",
+   "folder": "wlc",
+   "name": "Wisconsin Lutheran College",
+   "control": "private_nonprofit",
+   "domains": [
+    "wlc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 28,
+    "home": "https://catalog.wlc.edu/index.php?catoid=28",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.wlc.edu/content.php?catoid=28&navoid=2272"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 28 on catalog.wlc.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-238193",
+   "folder": "alverno",
+   "name": "Alverno College",
+   "control": "private_nonprofit",
+   "domains": [
+    "alverno.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "home": "https://catalog.alverno.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.alverno.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.alverno.edu (program list https://catalog.alverno.edu/programs/)"
+  },
+  {
+   "institution_key": "ipeds-238324",
+   "folder": "bellincollege",
+   "name": "Bellin College",
+   "control": "private_nonprofit",
+   "domains": [
+    "bellincollege.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "home": "https://catalog.bellincollege.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.bellincollege.edu/degrees"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.bellincollege.edu (program list https://catalog.bellincollege.edu/degrees)"
+  },
+  {
+   "institution_key": "ipeds-451750",
+   "folder": "bryantstratton-451750",
+   "name": "Bryant & Stratton College-Wauwatosa",
+   "control": "private_nonprofit",
+   "domains": [
+    "bryantstratton.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 26,
+    "home": "https://catalog.bryantstratton.edu/index.php?catoid=26",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.bryantstratton.edu/content.php?catoid=26&navoid=754"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 26 on catalog.bryantstratton.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-413617",
+   "folder": "menominee",
+   "name": "College of Menominee Nation",
+   "control": "private_nonprofit",
+   "domains": [
+    "menominee.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.menominee.edu/",
+    "https://catalog.menominee.edu/",
+    "https://www.menominee.edu/academics/",
+    "https://www.menominee.edu/registrar/",
+    "https://www.menominee.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-459851",
+   "folder": "herzing-459851",
+   "name": "Herzing University-Brookfield",
+   "control": "private_nonprofit",
+   "domains": [
+    "herzing.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 84,
+    "home": "https://catalog.herzing.edu/index.php?catoid=84",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.herzing.edu/content.php?catoid=84&navoid=7551"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 84 on catalog.herzing.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-459842",
+   "folder": "herzing-459842",
+   "name": "Herzing University-Kenosha",
+   "control": "private_nonprofit",
+   "domains": [
+    "herzing.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 84,
+    "home": "https://catalog.herzing.edu/index.php?catoid=84",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.herzing.edu/content.php?catoid=84&navoid=7551"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 84 on catalog.herzing.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-260372",
+   "folder": "lco",
+   "name": "Lac Courte Oreilles Ojibwe University",
+   "control": "public",
+   "domains": [
+    "lco.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.lco.edu/",
+    "https://catalog.lco.edu/",
+    "https://www.lco.edu/academics/",
+    "https://www.lco.edu/registrar/",
+    "https://www.lco.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-238263",
+   "folder": "madisoncollege",
+   "name": "Madison Area Technical College",
+   "control": "public",
+   "domains": [
+    "madisoncollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://madisoncollege.edu/",
+    "https://catalog.madisoncollege.edu/",
+    "https://www.madisoncollege.edu/academics/",
+    "https://www.madisoncollege.edu/registrar/",
+    "https://www.madisoncollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-239071",
+   "folder": "mbu",
+   "name": "Maranatha Baptist University",
+   "control": "private_nonprofit",
+   "domains": [
+    "mbu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.mbu.edu/",
+    "https://catalog.mbu.edu/",
+    "https://www.mbu.edu/academics/",
+    "https://www.mbu.edu/registrar/",
+    "https://www.mbu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-239512",
+   "folder": "northland",
+   "name": "Northland College",
+   "control": "private_nonprofit",
+   "domains": [
+    "northland.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.northland.edu/",
+    "https://catalog.northland.edu/",
+    "https://www.northland.edu/academics/",
+    "https://www.northland.edu/registrar/",
+    "https://www.northland.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-491288",
+   "folder": "wisconsin",
+   "name": "University of Wisconsin-Milwaukee Flex",
+   "control": "public",
+   "domains": [
+    "wisconsin.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://flex.wisconsin.edu/",
+    "https://catalog.wisconsin.edu/",
+    "https://www.wisconsin.edu/academics/",
+    "https://www.wisconsin.edu/registrar/",
+    "https://www.wisconsin.edu/catalog/"
+   ],
+   "policy": []
+  }
+ ]
+}

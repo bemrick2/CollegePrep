@@ -1,0 +1,235 @@
+{
+ "state": "NM",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-187648",
+   "folder": "enmu",
+   "name": "Eastern New Mexico University-Main Campus",
+   "control": "public",
+   "domains": [
+    "enmu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.enmu.edu/",
+    "https://catalog.enmu.edu/",
+    "https://www.enmu.edu/academics/",
+    "https://www.enmu.edu/registrar/",
+    "https://www.enmu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-187745",
+   "folder": "iaia",
+   "name": "Institute of American Indian and Alaska Native Culture and Arts Development",
+   "control": "public",
+   "domains": [
+    "iaia.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://iaia.edu/",
+    "https://catalog.iaia.edu/",
+    "https://www.iaia.edu/academics/",
+    "https://www.iaia.edu/registrar/",
+    "https://www.iaia.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-187596",
+   "folder": "navajotech",
+   "name": "Navajo Technical University",
+   "control": "public",
+   "domains": [
+    "navajotech.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.navajotech.edu/",
+    "https://catalog.navajotech.edu/",
+    "https://www.navajotech.edu/academics/",
+    "https://www.navajotech.edu/registrar/",
+    "https://www.navajotech.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-187897",
+   "folder": "nmhu",
+   "name": "New Mexico Highlands University",
+   "control": "public",
+   "domains": [
+    "newmexicohighlands.com",
+    "nmhu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.nmhu.edu/",
+    "https://catalog.nmhu.edu/",
+    "https://www.nmhu.edu/academics/",
+    "https://www.nmhu.edu/registrar/",
+    "https://www.nmhu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-187967",
+   "folder": "nmt",
+   "name": "New Mexico Institute of Mining and Technology",
+   "control": "public",
+   "domains": [
+    "nmt.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.nmt.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.nmt.edu/programs"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.nmt.edu (program list https://catalog.nmt.edu/programs)"
+  },
+  {
+   "institution_key": "ipeds-188030",
+   "folder": "nmsu",
+   "name": "New Mexico State University-Main Campus",
+   "control": "public",
+   "domains": [
+    "nmsu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.nmsu.edu/",
+    "https://catalog.nmsu.edu/",
+    "https://www.nmsu.edu/academics/",
+    "https://www.nmsu.edu/registrar/",
+    "https://www.nmsu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-188058",
+   "folder": "nnmc",
+   "name": "Northern New Mexico College",
+   "control": "public",
+   "domains": [
+    "nnmc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 4,
+    "home": "https://catalog.nnmc.edu/index.php?catoid=4",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.nnmc.edu/content.php?catoid=4&navoid=151",
+     "https://catalog.nnmc.edu/content.php?catoid=4&navoid=171"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 4 on catalog.nnmc.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-245652",
+   "folder": "sjc",
+   "name": "St. John's College",
+   "control": "private_nonprofit",
+   "domains": [
+    "sjc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.sjc.edu/",
+    "https://catalog.sjc.edu/",
+    "https://www.sjc.edu/academics/",
+    "https://www.sjc.edu/registrar/",
+    "https://www.sjc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-187985",
+   "folder": "unm",
+   "name": "University of New Mexico-Main Campus",
+   "control": "public",
+   "domains": [
+    "unm.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://registrar.unm.edu/UNM%20Catalog/2009-10Catalog.pdf"
+    ],
+    "home": "https://registrar.unm.edu/UNM%20Catalog/2009-10Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2009-2010"
+  },
+  {
+   "institution_key": "ipeds-188182",
+   "folder": "usw",
+   "name": "University of the Southwest",
+   "control": "private_nonprofit",
+   "domains": [
+    "usw.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.usw.edu/",
+    "https://catalog.usw.edu/",
+    "https://www.usw.edu/academics/",
+    "https://www.usw.edu/registrar/",
+    "https://www.usw.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-188304",
+   "folder": "wnmu",
+   "name": "Western New Mexico University",
+   "control": "public",
+   "domains": [
+    "wnmu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 3,
+    "home": "https://catalog.wnmu.edu/index.php?catoid=3",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 3 on catalog.wnmu.edu (no year label seen)"
+  }
+ ]
+}
