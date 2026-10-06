@@ -1,6 +1,5 @@
 @import 'tailwindcss';
-@import '@fontsource-variable/inter';
-@import '@fontsource-variable/fraunces';
+@import '@fontsource-variable/manrope';
 
 @custom-variant dark {
   &:where([data-theme='dark'], [data-theme='dark'] *) {
@@ -13,59 +12,59 @@
   }
 }
 
-/* Prep & Price tokens. Warm paper, deep pine, a gold accent for momentum.
-   Student surfaces lean on --go (action); parent surfaces on --brand (calm). */
+/* Prep & Price tokens. Calm, cool paper; navy ink; deep pine for the plan and decisions; green for progress;
+   amber only for caution; gold only for student momentum. Numbers carry the hierarchy, not color. */
 :root {
-  --bg: #f7f5f0;
+  --bg: #f4f6f8;
   --surface: #ffffff;
-  --surface-2: #f1eee7;
-  --surface-3: #e9e4da;
-  --ink: #0e1a1f;
-  --ink-2: #44525a;
-  --ink-3: #5b6670;
-  --line: #e3ded3;
-  --line-strong: #cfc8ba;
-  --brand: #0b3d36;
-  --brand-2: #155e53;
-  --brand-ink: #f3efe6;
-  --brand-soft: #e3efe9;
-  --hero: #0b3d36;
-  --hero-ink: #f3efe6;
+  --surface-2: #eef1f4;
+  --surface-3: #e3e8ed;
+  --ink: #15212b;
+  --ink-2: #44515d;
+  --ink-3: #56626e;
+  --line: #e1e6eb;
+  --line-strong: #c9d1d9;
+  --brand: #0f5446;
+  --brand-2: #176b5a;
+  --brand-ink: #f4f8f6;
+  --brand-soft: #e4f0ec;
+  --hero: #0f5446;
+  --hero-ink: #f4f8f6;
   --go: #127a59;
   --go-strong: #0d5e43;
-  --go-soft: #dcf2e8;
-  --gold: #e9a91f;
-  --gold-soft: #fbefd0;
+  --go-soft: #dff2ea;
+  --gold: #e3a21a;
+  --gold-soft: #fbf0d6;
   --gold-ink: #6b4a00;
-  --bad: #c8374f;
-  --bad-soft: #fbe3e7;
-  --warn: #9a5000;
-  --warn-soft: #fcebd7;
+  --bad: #c33a50;
+  --bad-soft: #fbe5e9;
+  --warn: #965000;
+  --warn-soft: #fcefdf;
   --info: #2f5fd0;
-  --info-soft: #e2eafb;
+  --info-soft: #e5ecfb;
   --focus: #2f5fd0;
-  --shadow: 0 1px 2px rgb(14 26 31 / 0.05), 0 4px 16px rgb(14 26 31 / 0.06);
-  --shadow-lift: 0 2px 4px rgb(14 26 31 / 0.06), 0 12px 32px rgb(14 26 31 / 0.1);
+  --shadow: 0 1px 2px rgb(21 33 43 / 0.04);
+  --shadow-lift: 0 2px 6px rgb(21 33 43 / 0.06), 0 12px 28px rgb(21 33 43 / 0.08);
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --bg: #0c1416;
-    --surface: #131d20;
-    --surface-2: #19252a;
-    --surface-3: #223035;
-    --ink: #eef1ee;
-    --ink-2: #b6c0c0;
-    --ink-3: #9aa6a6;
-    --line: #26343a;
-    --line-strong: #34454c;
-    --brand: #7fd1bd;
+    --bg: #0e151b;
+    --surface: #141d24;
+    --surface-2: #1a252d;
+    --surface-3: #233039;
+    --ink: #e9eef2;
+    --ink-2: #b6c1ca;
+    --ink-3: #9dabb6;
+    --line: #24313a;
+    --line-strong: #34434e;
+    --brand: #7ccfba;
     --brand-2: #5fbba5;
-    --brand-ink: #0c1416;
-    --brand-soft: #173430;
-    --hero: #10342f;
-    --hero-ink: #eef1ee;
+    --brand-ink: #0e151b;
+    --brand-soft: #16302b;
+    --hero: #113a31;
+    --hero-ink: #e9eef2;
     --go: #3ccf9b;
     --go-strong: #2db786;
     --go-soft: #143a2e;
@@ -79,28 +78,28 @@
     --info: #86a8f5;
     --info-soft: #18254a;
     --focus: #86a8f5;
-    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.25);
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.25);
     --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.35), 0 12px 32px rgb(0 0 0 / 0.35);
     color-scheme: dark;
   }
 }
 
 :root[data-theme='dark'] {
-  --bg: #0c1416;
-  --surface: #131d20;
-  --surface-2: #19252a;
-  --surface-3: #223035;
-  --ink: #eef1ee;
-  --ink-2: #b6c0c0;
-  --ink-3: #9aa6a6;
-  --line: #26343a;
-  --line-strong: #34454c;
-  --brand: #7fd1bd;
+  --bg: #0e151b;
+  --surface: #141d24;
+  --surface-2: #1a252d;
+  --surface-3: #233039;
+  --ink: #e9eef2;
+  --ink-2: #b6c1ca;
+  --ink-3: #9dabb6;
+  --line: #24313a;
+  --line-strong: #34434e;
+  --brand: #7ccfba;
   --brand-2: #5fbba5;
-  --brand-ink: #0c1416;
-  --brand-soft: #173430;
-  --hero: #10342f;
-  --hero-ink: #eef1ee;
+  --brand-ink: #0e151b;
+  --brand-soft: #16302b;
+  --hero: #113a31;
+  --hero-ink: #e9eef2;
   --go: #3ccf9b;
   --go-strong: #2db786;
   --go-soft: #143a2e;
@@ -114,14 +113,14 @@
   --info: #86a8f5;
   --info-soft: #18254a;
   --focus: #86a8f5;
-  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.25);
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.25);
   --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.35), 0 12px 32px rgb(0 0 0 / 0.35);
   color-scheme: dark;
 }
 
 @theme inline {
-  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
-  --font-display: 'Fraunces Variable', ui-serif, Georgia, serif;
+  --font-sans: 'Manrope Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Manrope Variable', ui-sans-serif, system-ui, sans-serif;
   --color-bg: var(--bg);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
@@ -163,7 +162,6 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-sans);
-  font-feature-settings: 'cv11', 'ss01';
   -webkit-font-smoothing: antialiased;
   min-height: 100dvh;
 }
@@ -185,8 +183,16 @@ body {
 
 .display {
   font-family: var(--font-display);
-  font-optical-sizing: auto;
-  letter-spacing: -0.01em;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Figures that answer the screen's question: large, tight, tabular. */
+.figure {
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
 }
 
 @keyframes pop {

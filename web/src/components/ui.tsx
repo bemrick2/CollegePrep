@@ -48,7 +48,8 @@ export function ButtonLink({ variant = 'go', size = 'md', block, className, ...r
 }
 
 export function Card({ className, as: As = 'section', ...rest }: HTMLAttributes<HTMLElement> & { as?: 'section' | 'div' | 'article' }) {
-  return <As className={cx('rounded-2xl bg-surface border border-line shadow-card', className)} {...rest} />
+  // Cards are for things you act on or that must stand apart; most content sits directly on the page.
+  return <As className={cx('rounded-xl border border-line bg-surface', className)} {...rest} />
 }
 
 export function CardHeader({ title, subtitle, action, id }: { title: ReactNode; subtitle?: ReactNode; action?: ReactNode; id?: string }) {
@@ -144,7 +145,7 @@ export function Stat({ label, value, sub, tone }: { label: ReactNode; value: Rea
   const color = tone ? { go: 'text-go', bad: 'text-bad', warn: 'text-warn', gold: 'text-gold-ink' }[tone] : 'text-ink'
   return (
     <div className="min-w-0">
-      <div className="text-xs font-medium uppercase tracking-wide text-ink-3">{label}</div>
+      <div className="text-sm font-medium text-ink-3">{label}</div>
       <div className={cx('mt-1 text-2xl font-semibold tabular', color)}>{value}</div>
       {sub && <div className="mt-0.5 text-xs text-ink-3">{sub}</div>}
     </div>

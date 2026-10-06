@@ -81,7 +81,7 @@ export function StudentShell() {
       </a>
       <DemoBar />
       <header className="sticky top-0 z-30 border-b border-line bg-bg/90 backdrop-blur">
-        <div className="mx-auto flex h-14 max-w-3xl items-center gap-4 px-4">
+        <div className="mx-auto flex h-14 max-w-5xl items-center gap-4 px-4 md:px-6">
           <Brand to="/student" />
           <nav aria-label="Student" className="ml-6 hidden gap-1 md:flex">
             <TabLink to="/student" end icon={<Home />} label="Today" />
@@ -95,7 +95,7 @@ export function StudentShell() {
           )}
         </div>
       </header>
-      <main id="main" className="mx-auto max-w-3xl px-4 pb-28 pt-5 md:py-8">
+      <main id="main" className="mx-auto max-w-5xl px-4 pb-28 pt-5 md:px-6 md:py-10">
         <Outlet />
       </main>
       <nav aria-label="Student" className="fixed inset-x-0 bottom-0 z-30 flex border-t border-line bg-surface/95 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden">
@@ -120,9 +120,9 @@ export function ParentShell() {
         <div className="mx-auto flex h-16 max-w-6xl items-center gap-3 px-4 md:px-6">
           <Brand to="/parent" />
           <nav aria-label="Parent" className="ml-4 hidden gap-1 md:flex">
-            <ParentLink to="/parent" end icon={<Home />} label="Overview" />
+            <ParentLink to="/parent" end icon={<Home />} label="Home" />
             <ParentLink to="/parent/progress" icon={<Chart />} label="Progress" />
-            <ParentLink to="/colleges" icon={<Wallet />} label="Colleges & cost" />
+            <ParentLink to="/colleges" icon={<Wallet />} label="Colleges" />
             <ParentLink to="/parent/household" icon={<Users />} label="Household" />
           </nav>
           <div className="ml-auto flex items-center gap-3">
@@ -150,11 +150,11 @@ export function ParentShell() {
           </div>
         </div>
       </header>
-      <main id="main" className="mx-auto max-w-6xl px-4 pb-28 pt-6 md:px-6 md:py-8">
+      <main id="main" className="mx-auto max-w-6xl px-4 pb-28 pt-6 md:px-6 md:py-10">
         <Outlet />
       </main>
       <nav aria-label="Parent" className="fixed inset-x-0 bottom-0 z-30 flex border-t border-line bg-surface/95 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden">
-        <TabLink to="/parent" end icon={<Home />} label="Overview" />
+        <TabLink to="/parent" end icon={<Home />} label="Home" />
         <TabLink to="/parent/progress" icon={<Chart />} label="Progress" />
         <TabLink to="/colleges" icon={<Wallet />} label="Colleges" />
         <TabLink to="/parent/household" icon={<Users />} label="Household" />
