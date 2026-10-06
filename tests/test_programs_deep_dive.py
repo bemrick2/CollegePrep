@@ -994,3 +994,14 @@ class BranchCampusListTests(unittest.TestCase):
         pushed = []
         C.expand(t, 'program_list', 'u', links, lambda h, r, v, d: pushed.append(h), C.program_rule(t), C.nav_rule(t), 0)
         self.assertEqual(pushed, ['https://catalog.example.edu/college-departments/a/x-bs/'])
+
+
+class CrawlDelayTests(unittest.TestCase):
+    def test_target_crawl_delay_slows_its_catalog_host(self):
+        from pipeline.crawl import Fetcher, Run
+        f = Fetcher(delay=0, timeout=1); f._raw = lambda url: (None, url, {}, b'')
+        with tempfile.TemporaryDirectory() as d:
+            t = {'institution_key': 'k', 'folder': 'k', 'domains': ['example.edu'], 'crawl_delay': 12,
+                 'catalog': {'platform': 'acalog', 'home': 'https://catalog.example.edu/index.php?catoid=1', 'catoid': 1}}
+            C.crawl_target(t, Run(Path(d)), f, log=lambda *_: None)
+        self.assertEqual(f.gate.host_delay.get('catalog.example.edu'), 12)
