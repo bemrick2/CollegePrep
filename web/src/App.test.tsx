@@ -30,11 +30,13 @@ describe('app flows', () => {
     localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976']))
     renderAt('/student', new DemoSource(sampleFamily('student')))
     expect(await screen.findByRole('heading', { name: 'Maya' })).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: /About 10 minutes|Done for today/ })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /^ACT .+ — |Done for today|mixed practice/ })).toBeInTheDocument()
+    expect(screen.getAllByRole('link', { name: /^(Continue|Bonus round)$/ })).toHaveLength(1)
     // No scaled-score estimate is produced (CR-3), so none is shown; why it matters comes from verified merit criteria.
     expect(screen.getByText(/We don't estimate your ACT score from practice yet/)).toBeInTheDocument()
     expect(await screen.findByText(/4 merit awards/)).toBeInTheDocument()
-    expect(screen.getByText(/4 above/)).toBeInTheDocument()
+    expect(screen.getByText(/4 more ACT points/)).toBeInTheDocument()
+    expect(screen.getByText(/not an eligibility decision or a guarantee/)).toBeInTheDocument()
   })
 
   it('practice: answer with confidence, then see explanation tabs', async () => {
@@ -73,7 +75,14 @@ describe('app flows', () => {
   it('parent cost outlook leads with four-year schools, published costs only, no estimated savings', async () => {
     localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976', 'ipeds-221908']))
     renderAt('/parent', new DemoSource(livingIn('TN', sampleFamily('parent'))))
-    expect(await screen.findByRole('heading', { name: "Maya's plan" })).toBeInTheDocument()
+    // Home leads with one number: the lowest applicable four-year total (the 2-year school never heads the plan).
+    expect(await screen.findByRole('heading', { name: "Maya's college plan" })).toBeInTheDocument()
+    expect(await screen.findByText('$148K')).toBeInTheDocument()
+    expect(screen.getByText(/\$147,976 published in-state cost of attendance, before aid · lowest of your 3 saved schools/)).toBeInTheDocument()
+    expect(screen.getByText('Biggest opportunity')).toBeInTheDocument()
+    cleanup()
+    renderAt('/colleges', new DemoSource(livingIn('TN', sampleFamily('parent'))))
+    expect(await screen.findByRole('heading', { name: 'Your colleges', level: 1 })).toBeInTheDocument()
     // UTK in-state $36,994 x 4; Lipscomb $69,210 x 4; Northeast State (2-year) $20,304 x 2 — never x 4.
     expect(await screen.findByText('$147,976')).toBeInTheDocument()
     expect(screen.getByText('$276,840')).toBeInTheDocument()
@@ -88,13 +97,13 @@ describe('app flows', () => {
   it('cost uses the price that applies to the family and never substitutes a missing one', async () => {
     localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-221847', 'ipeds-220400']))
     // No home state: public prices are shown "if in-state" and kept out of the comparison.
-    renderAt('/parent', new DemoSource(sampleFamily('parent')))
+    renderAt('/colleges', new DemoSource(sampleFamily('parent')))
     expect(await screen.findAllByText(/Set your home state to include it in the comparison/)).toHaveLength(3)
     expect(screen.queryByText(/Biggest difference/)).not.toBeInTheDocument()
     cleanup()
     // Oregon family: out-of-state prices; a school with no out-of-state price shows no number and is excluded.
     localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-221847', 'ipeds-220400']))
-    renderAt('/parent', new DemoSource(livingIn('OR', sampleFamily('parent'))))
+    renderAt('/colleges', new DemoSource(livingIn('OR', sampleFamily('parent'))))
     expect(await screen.findByText('$229,792')).toBeInTheDocument() // UTK out-of-state 57,448 x 4
     expect(screen.getByText('$154,088')).toBeInTheDocument() // Tennessee Tech out-of-state 38,522 x 4
     expect(screen.getByText('No out-of-state price published')).toBeInTheDocument()
@@ -107,7 +116,7 @@ describe('app flows', () => {
     const src = new DemoSource(livingIn('TN', sampleFamily('parent')))
     const ctx = await src.getHouseholdContext()
     await src.savePlan(ctx.students[0]!.id, { exam_family: 'act', target_score: 27, goals: ['lower_cost'], daily_minutes: 10 })
-    renderAt('/parent', src)
+    renderAt('/colleges', src)
     expect(await screen.findByText(/Alternative lower-cost path/)).toBeInTheDocument()
     expect(screen.getByText(/transfer agreement not yet verified/)).toBeInTheDocument()
     expect(screen.getByText(/not a recommendation/)).toBeInTheDocument()
@@ -133,9 +142,9 @@ describe('app flows', () => {
     await user.click(screen.getByRole('button', { name: /^Show \d+ more$/ }))
     expect(screen.getByText('3 need-based or access programs')).toBeInTheDocument()
     // Elevate one school as the primary target; it moves first.
-    await user.click(screen.getAllByRole('button', { name: 'Make primary target' })[0]!)
-    expect(await screen.findByText('Primary target')).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'Clear primary' })).toBeInTheDocument()
+    await user.click(screen.getAllByRole('button', { name: 'Make top choice' })[0]!)
+    expect(await screen.findByText('Top choice')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Clear top choice' })).toBeInTheDocument()
     await user.selectOptions(screen.getByLabelText('Add an exam'), screen.getByRole('option', { name: 'AP Calculus AB' }))
     expect(await screen.findByText('Needs 3+')).toBeInTheDocument()
     await user.selectOptions(screen.getByLabelText('AP Calculus AB score'), '2')
@@ -150,14 +159,16 @@ describe('app flows', () => {
     localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976']))
     const src = new DemoSource(livingIn('TN', sampleFamily('parent')))
     renderAt('/parent', src)
-    expect(await screen.findByText('Choose a primary target')).toBeInTheDocument()
+    expect(await screen.findByRole('link', { name: 'Mark a top choice' })).toHaveAttribute('href', '/colleges/paths')
     cleanup()
     localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976']))
     localStorage.setItem('pp-primary', 'utk')
     renderAt('/parent', src)
-    expect(await screen.findByText(/Primary target: University of Tennessee, Knoxville/)).toBeInTheDocument()
-    expect(screen.getByText('$147,976 published in-state cost of attendance over 4 years, before aid')).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /See the full path/ })).toHaveAttribute('href', '/colleges/paths')
+    expect(await screen.findByText('Four-year cost at University of Tennessee, Knoxville')).toBeInTheDocument()
+    expect(screen.getByText(/\$147,976 published in-state cost of attendance, before aid · your top choice/)).toBeInTheDocument()
+    expect(screen.queryByRole('link', { name: 'Mark a top choice' })).not.toBeInTheDocument()
+    // The biggest opportunity is the top choice's strongest verified lever, worded as a possibility.
+    expect(screen.getByText(/4 more ACT points reaches 4 merit awards \(ACT 31\+\) at University of Tennessee, Knoxville/)).toBeInTheDocument()
   })
 
   it('student onboarding asks how sure they are about a major and never requires one', async () => {
@@ -229,10 +240,30 @@ describe('app flows', () => {
   })
 
   it('compare places the target against the published middle 50%, without predicting admission', async () => {
-    localStorage.setItem('pp-compare', JSON.stringify(['utk']))
-    renderAt('/colleges', new DemoSource(livingIn('TN', sampleFamily('parent'))))
-    expect(await screen.findByText((_, el) => el?.tagName === 'P' && /Target 27 is below the middle 50% \(28–32 ACT\)/.test(el.textContent ?? ''))).toBeInTheDocument()
-    expect(screen.getByText(/Not an admission prediction/)).toBeInTheDocument()
+    localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976']))
+    renderAt('/colleges/compare', new DemoSource(livingIn('TN', sampleFamily('parent'))))
+    const table = await screen.findByRole('table', { name: 'College comparison' })
+    // One row per question, shared by every school: each body row has a cell for each compared school.
+    const rows = within(table).getAllByRole('row').slice(1)
+    expect(rows.map((r) => within(r).getByRole('rowheader').textContent)).toEqual(
+      expect.arrayContaining([expect.stringMatching(/^Cost of attendance/), expect.stringMatching(/^Admissions/), expect.stringMatching(/^Scholarships/), expect.stringMatching(/^Exam credit/), expect.stringMatching(/^Financial-aid appeals/)]),
+    )
+    for (const r of rows) expect(within(r).getAllByRole('cell')).toHaveLength(2)
+    expect(within(table).getAllByRole('columnheader').map((h) => h.textContent)).toEqual([expect.stringMatching(/University of Tennessee, Knoxville/), expect.stringMatching(/Lipscomb University/)])
+    expect(await within(table).findByText((_, el) => el?.tagName === 'P' && /Target 27 is below the middle 50%/.test(el.textContent ?? ''))).toBeInTheDocument()
+    expect(within(table).getAllByText(/Not an admission prediction/).length).toBeGreaterThan(0)
+    // Scholarships preview a fixed number; the rest are on the detail page. Missing records say so, never filled in.
+    const awards = rows.find((r) => /^Scholarships/.test(within(r).getByRole('rowheader').textContent ?? ''))!
+    expect(within(awards).getByRole('link', { name: /^View all \d+ scholarships$/ })).toHaveAttribute('href', '/colleges/utk#awards-heading')
+    expect(within(awards).getByText('No verified scholarships yet.')).toBeInTheDocument()
+    // Each school row opens that school's detail page.
+    expect(screen.getAllByRole('link', { name: /University of Tennessee, Knoxville/ })[0]).toHaveAttribute('href', '/colleges/utk')
+    cleanup()
+    renderAt('/colleges/utk', new DemoSource(livingIn('TN', sampleFamily('parent'))))
+    expect(await screen.findByRole('heading', { name: 'University of Tennessee, Knoxville', level: 1 })).toBeInTheDocument()
+    expect(screen.getByText('$148K')).toBeInTheDocument()
+    expect(screen.getByText((_, el) => el?.tagName === 'P' && /Target 27 is below the middle 50%/.test(el.textContent ?? ''))).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Ways to lower the cost' })).toBeInTheDocument()
   })
 
   it('choosing a role on the landing page goes straight to that onboarding (no second "who is using" step)', async () => {
@@ -277,14 +308,14 @@ describe('app flows', () => {
 
   it('practice indicators say they are not ACT/SAT scores and explain each one', async () => {
     const user = userEvent.setup()
-    renderAt('/student', new DemoSource(sampleFamily('student')))
+    renderAt('/student/progress', new DemoSource(sampleFamily('student')))
     expect(await screen.findByText(/Not ACT\/SAT scores/)).toBeInTheDocument()
     await user.click(screen.getByRole('button', { name: /Strategy/ }))
     expect(screen.getByText(/test-taking habits/)).toBeInTheDocument()
   })
 
   it('benchmark card shows what is due and links to the right kind', async () => {
-    renderAt('/student', new DemoSource(sampleFamily('student')))
+    renderAt('/student/progress', new DemoSource(sampleFamily('student')))
     expect(await screen.findByRole('heading', { name: /Benchmarks/ })).toBeInTheDocument()
     expect(screen.getByText(/Mini benchmark|Full benchmark/)).toBeInTheDocument()
   })

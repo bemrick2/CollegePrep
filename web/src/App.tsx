@@ -19,6 +19,8 @@ const ParentDashboard = lazy(() => import('./features/parent/ParentDashboard').t
 const Household = lazy(() => import('./features/parent/Household').then((m) => ({ default: m.Household })))
 const Colleges = lazy(() => import('./features/colleges/Colleges').then((m) => ({ default: m.Colleges })))
 const ExploreMajors = lazy(() => import('./features/majors/ExploreMajors').then((m) => ({ default: m.ExploreMajors })))
+const Compare = lazy(() => import('./features/colleges/Compare').then((m) => ({ default: m.Compare })))
+const CollegeDetail = lazy(() => import('./features/colleges/CollegeDetail').then((m) => ({ default: m.CollegeDetail })))
 const CollegePaths = lazy(() => import('./features/colleges/CollegePaths').then((m) => ({ default: m.CollegePaths })))
 
 function RequireViewer({ children }: { children: ReactNode }) {
@@ -78,6 +80,8 @@ export function App() {
         <Route path="/colleges" element={<Colleges />} />
         <Route path="/colleges/paths" element={<CollegePaths />} />
         <Route path="/colleges/majors" element={<ExploreMajors />} />
+        <Route path="/colleges/compare" element={<Compare />} />
+        <Route path="/colleges/:key" element={<CollegeDetail />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

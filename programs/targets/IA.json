@@ -1,0 +1,698 @@
+{
+ "state": "IA",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-153144",
+   "folder": "coe",
+   "name": "Coe College",
+   "control": "private_nonprofit",
+   "domains": [
+    "coe.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.coe.edu/",
+    "https://catalog.coe.edu/",
+    "https://www.coe.edu/academics/",
+    "https://www.coe.edu/registrar/",
+    "https://www.coe.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-153250",
+   "folder": "dordt",
+   "name": "Dordt University",
+   "control": "private_nonprofit",
+   "domains": [
+    "dordt.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.dordt.edu/",
+    "https://catalog.dordt.edu/",
+    "https://www.dordt.edu/academics/",
+    "https://www.dordt.edu/registrar/",
+    "https://www.dordt.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-153269",
+   "folder": "drake",
+   "name": "Drake University",
+   "control": "private_nonprofit",
+   "domains": [
+    "drake.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.drake.edu/",
+    "https://catalog.drake.edu/",
+    "https://www.drake.edu/academics/",
+    "https://www.drake.edu/registrar/",
+    "https://www.drake.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-153384",
+   "folder": "grinnell",
+   "name": "Grinnell College",
+   "control": "private_nonprofit",
+   "domains": [
+    "grinnell.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.grinnell.edu/",
+    "https://catalog.grinnell.edu/",
+    "https://www.grinnell.edu/academics/",
+    "https://www.grinnell.edu/registrar/",
+    "https://www.grinnell.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-153603",
+   "folder": "iastate",
+   "name": "Iowa State University",
+   "control": "public",
+   "domains": [
+    "iastate.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.iastate.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.iastate.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-153834",
+   "folder": "luther",
+   "name": "Luther College",
+   "control": "private_nonprofit",
+   "domains": [
+    "luther.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.luther.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.luther.edu/programs",
+     "https://catalog.luther.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.luther.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.luther.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.luther.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.luther.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.luther.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.luther.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.luther.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.luther.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.luther.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.luther.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.luther.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.luther.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.luther.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.luther.edu (7 links)"
+  },
+  {
+   "institution_key": "ipeds-154235",
+   "folder": "sau",
+   "name": "Saint Ambrose University",
+   "control": "private_nonprofit",
+   "domains": [
+    "sau.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.sau.edu/",
+    "https://catalog.sau.edu/",
+    "https://www.sau.edu/academics/",
+    "https://www.sau.edu/registrar/",
+    "https://www.sau.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-153658",
+   "folder": "uiowa",
+   "name": "University of Iowa",
+   "control": "public",
+   "domains": [
+    "uiowa.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://uiowa.edu/",
+    "https://catalog.uiowa.edu/",
+    "https://www.uiowa.edu/academics/",
+    "https://www.uiowa.edu/registrar/",
+    "https://www.uiowa.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-154095",
+   "folder": "uni",
+   "name": "University of Northern Iowa",
+   "control": "public",
+   "domains": [
+    "uni.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.uni.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.uni.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-154527",
+   "folder": "wartburg",
+   "name": "Wartburg College",
+   "control": "private_nonprofit",
+   "domains": [
+    "wartburg.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 19,
+    "home": "https://catalog.wartburg.edu/index.php?catoid=19",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.wartburg.edu/content.php?catoid=19&navoid=1333",
+     "https://catalog.wartburg.edu/content.php?catoid=19&navoid=1337",
+     "https://catalog.wartburg.edu/content.php?catoid=19&navoid=1370",
+     "https://catalog.wartburg.edu/content.php?catoid=19&navoid=1382"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 19 on catalog.wartburg.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-152798",
+   "folder": "allencollege",
+   "name": "Allen College",
+   "control": "private_nonprofit",
+   "domains": [
+    "allencollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.allencollege.edu/",
+    "https://catalog.allencollege.edu/",
+    "https://www.allencollege.edu/academics/",
+    "https://www.allencollege.edu/registrar/",
+    "https://www.allencollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-153001",
+   "folder": "bvu",
+   "name": "Buena Vista University",
+   "control": "private_nonprofit",
+   "domains": [
+    "bvu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.bvu.edu/",
+    "https://catalog.bvu.edu/",
+    "https://www.bvu.edu/academics/",
+    "https://www.bvu.edu/registrar/",
+    "https://www.bvu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-153108",
+   "folder": "central",
+   "name": "Central College",
+   "control": "private_nonprofit",
+   "domains": [
+    "central.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.central.edu/",
+    "https://catalog.central.edu/",
+    "https://www.central.edu/academics/",
+    "https://www.central.edu/registrar/",
+    "https://www.central.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-153126",
+   "folder": "clarke",
+   "name": "Clarke University",
+   "control": "private_nonprofit",
+   "domains": [
+    "clarke.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://clarke.edu/wp-content/uploads/2026/08/AA_2026-2027-Academic-Catalog-1.pdf"
+    ],
+    "home": "https://clarke.edu/wp-content/uploads/2026/08/AA_2026-2027-Academic-Catalog-1.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-153162",
+   "folder": "cornellcollege",
+   "name": "Cornell College",
+   "control": "private_nonprofit",
+   "domains": [
+    "cornellcollege.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 17,
+    "home": "https://catalog.cornellcollege.edu/index.php?catoid=17",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.cornellcollege.edu/content.php?catoid=17&navoid=422",
+     "https://catalog.cornellcollege.edu/content.php?catoid=17&navoid=424",
+     "https://catalog.cornellcollege.edu/content.php?catoid=17&navoid=433"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 17 on catalog.cornellcollege.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-153302",
+   "folder": "emmaus",
+   "name": "Emmaus Bible College",
+   "control": "private_nonprofit",
+   "domains": [
+    "emmaus.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.emmaus.edu/sites/default/files/2026-05/academic-catalog-for-2026-2027-%28final.pdf"
+    ],
+    "home": "https://www.emmaus.edu/sites/default/files/2026-05/academic-catalog-for-2026-2027-%28final.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-153320",
+   "folder": "faith",
+   "name": "Faith Baptist Bible College and Theological Seminary",
+   "control": "private_nonprofit",
+   "domains": [
+    "faith.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://faith.edu/",
+    "https://catalog.faith.edu/",
+    "https://www.faith.edu/academics/",
+    "https://www.faith.edu/registrar/",
+    "https://www.faith.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-153366",
+   "folder": "graceland",
+   "name": "Graceland University-Lamoni",
+   "control": "private_nonprofit",
+   "domains": [
+    "graceland.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.graceland.edu/",
+    "https://catalog.graceland.edu/",
+    "https://www.graceland.edu/academics/",
+    "https://www.graceland.edu/registrar/",
+    "https://www.graceland.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-153375",
+   "folder": "grandview",
+   "name": "Grand View University",
+   "control": "private_nonprofit",
+   "domains": [
+    "grandview.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.grandview.edu/",
+    "https://catalog.grandview.edu/",
+    "https://www.grandview.edu/academics/",
+    "https://www.grandview.edu/registrar/",
+    "https://www.grandview.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-153825",
+   "folder": "loras",
+   "name": "Loras College",
+   "control": "private_nonprofit",
+   "domains": [
+    "loras.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 15,
+    "home": "https://catalog.loras.edu/index.php?catoid=15",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.loras.edu/content.php?catoid=15&navoid=837",
+     "https://catalog.loras.edu/content.php?catoid=15&navoid=839",
+     "https://catalog.loras.edu/content.php?catoid=15&navoid=858"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 15 on catalog.loras.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-153861",
+   "folder": "miu",
+   "name": "Maharishi International University",
+   "control": "private_nonprofit",
+   "domains": [
+    "miu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 8,
+    "home": "https://catalog.miu.edu/index.php?catoid=8",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.miu.edu/content.php?catoid=8&navoid=431",
+     "https://catalog.miu.edu/content.php?catoid=8&navoid=445",
+     "https://catalog.miu.edu/content.php?catoid=8&navoid=456"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 8 on catalog.miu.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-153977",
+   "folder": "mchs",
+   "name": "Mercy College of Health Sciences",
+   "control": "private_nonprofit",
+   "domains": [
+    "mchs.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.mchs.edu/",
+    "https://catalog.mchs.edu/",
+    "https://www.mchs.edu/academics/",
+    "https://www.mchs.edu/registrar/",
+    "https://www.mchs.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-154004",
+   "folder": "morningside",
+   "name": "Morningside University",
+   "control": "private_nonprofit",
+   "domains": [
+    "morningside.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.morningside.edu/",
+    "https://catalog.morningside.edu/",
+    "https://www.morningside.edu/academics/",
+    "https://www.morningside.edu/registrar/",
+    "https://www.morningside.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-154013",
+   "folder": "mtmercy",
+   "name": "Mount Mercy University",
+   "control": "private_nonprofit",
+   "domains": [
+    "mtmercy.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.mtmercy.edu/",
+    "https://catalog.mtmercy.edu/",
+    "https://www.mtmercy.edu/academics/",
+    "https://www.mtmercy.edu/registrar/",
+    "https://www.mtmercy.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-154101",
+   "folder": "nwciowa",
+   "name": "Northwestern College",
+   "control": "private_nonprofit",
+   "domains": [
+    "nwciowa.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 20,
+    "home": "https://catalog.nwciowa.edu/index.php?catoid=20",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.nwciowa.edu/content.php?catoid=20&navoid=522",
+     "https://catalog.nwciowa.edu/content.php?catoid=20&navoid=524"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 20 on catalog.nwciowa.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-154350",
+   "folder": "simpson",
+   "name": "Simpson College",
+   "control": "private_nonprofit",
+   "domains": [
+    "simpson.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 15,
+    "home": "https://catalog.simpson.edu/index.php?catoid=15",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.simpson.edu/content.php?catoid=15&navoid=1147",
+     "https://catalog.simpson.edu/content.php?catoid=15&navoid=1148"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 15 on catalog.simpson.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-154262",
+   "folder": "stlukescollege",
+   "name": "St Luke's College",
+   "control": "private_nonprofit",
+   "domains": [
+    "stlukescollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.stlukescollege.edu/",
+    "https://catalog.stlukescollege.edu/",
+    "https://www.stlukescollege.edu/academics/",
+    "https://www.stlukescollege.edu/registrar/",
+    "https://www.stlukescollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-153278",
+   "folder": "dbq",
+   "name": "University of Dubuque",
+   "control": "private_nonprofit",
+   "domains": [
+    "dbq.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.dbq.edu/",
+    "https://catalog.dbq.edu/",
+    "https://www.dbq.edu/academics/",
+    "https://www.dbq.edu/registrar/",
+    "https://www.dbq.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-154493",
+   "folder": "uiu",
+   "name": "Upper Iowa University",
+   "control": "private_nonprofit",
+   "domains": [
+    "uiu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 15,
+    "home": "https://catalog.uiu.edu/index.php?catoid=15",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.uiu.edu/content.php?catoid=15&navoid=1053",
+     "https://catalog.uiu.edu/content.php?catoid=15&navoid=1055"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 15 on catalog.uiu.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-154590",
+   "folder": "wmpenn",
+   "name": "William Penn University",
+   "control": "private_nonprofit",
+   "domains": [
+    "wmpenn.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.wmpenn.edu/wp-content/uploads/2026/09/2026-2027AcademicCatalog9.2.26.pdf"
+    ],
+    "home": "https://www.wmpenn.edu/wp-content/uploads/2026/09/2026-2027AcademicCatalog9.2.26.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-152992",
+   "folder": "briarcliff",
+   "name": "Briar Cliff University",
+   "control": "private_nonprofit",
+   "domains": [
+    "briarcliff.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.briarcliff.edu/",
+    "https://catalog.briarcliff.edu/",
+    "https://www.briarcliff.edu/academics/",
+    "https://www.briarcliff.edu/registrar/",
+    "https://www.briarcliff.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-153241",
+   "folder": "dwci",
+   "name": "Divine Word College",
+   "control": "private_nonprofit",
+   "domains": [
+    "dwci.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.dwci.edu/",
+    "https://catalog.dwci.edu/",
+    "https://www.dwci.edu/academics/",
+    "https://www.dwci.edu/registrar/",
+    "https://www.dwci.edu/catalog/"
+   ],
+   "policy": []
+  }
+ ]
+}

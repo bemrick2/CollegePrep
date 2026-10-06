@@ -941,7 +941,7 @@ class QueueSuggestTests(unittest.TestCase):
         from programs import status as S
         self.S = S; self.old = S.ROOT
         self.tmp = tempfile.TemporaryDirectory(); root = Path(self.tmp.name); S.ROOT = root; self.root = root
-        insts = [{'institution_key': k, 'name': k, 'folder': k, 'level': 'four_year'} for k in ('blocked', 'gone', 'quiet', 'open', 'nopages')]
+        insts = [{'institution_key': k, 'name': k, 'folder': k, 'level': 'four_year'} for k in ('blocked', 'gone', 'quiet', 'open', 'nopages', 'weak')]
         (root / 'pipeline/registry').mkdir(parents=True)
         (root / 'pipeline/registry/ZZ.json').write_text(json.dumps({'state': 'ZZ', 'institutions': insts}))
         (root / 'data/national/ipeds/2023-24/ZZ').mkdir(parents=True)
@@ -949,6 +949,7 @@ class QueueSuggestTests(unittest.TestCase):
         run = root / 'programs/runs/ZZ/r1'; (run / 'pages').mkdir(parents=True)
         rows = [{'institution_key': 'blocked', 'url': f'https://catalog.blocked.edu/p{i}', 'role': 'catalog_nav', 'error': 'blocked_bot_challenge'} for i in range(3)]
         rows += [{'institution_key': 'gone', 'url': 'https://catalog.gone.edu/', 'role': 'discover', 'error': 'disallowed_by_robots'}]
+        rows += [{'institution_key': 'weak', 'url': 'https://www.weak.edu/', 'role': 'discover', 'error': 'blocked_bot_challenge'}]
         import gzip as gz
         (run / 'pages/a.json.gz').write_bytes(gz.compress(json.dumps({'text': 'Computer Science BS\\nMajor requirements'}).encode()))
         rows += [{'institution_key': 'open', 'url': 'https://catalog.open.edu/cs', 'role': 'program_page', 'page_file': 'a.json.gz'}]
@@ -970,6 +971,7 @@ class QueueSuggestTests(unittest.TestCase):
         self.assertEqual(got[('blocked', 'institution')], 'bot_challenge')
         self.assertEqual(got[('gone', 'institution')], 'not_yet_researched')  # a refused/unreachable host proves nothing
         self.assertEqual(got[('quiet', 'institution')], 'not_yet_researched')
+        self.assertEqual(got[('weak', 'institution')], 'not_yet_researched')  # one challenged request proves nothing
         self.assertEqual(got[('open', 'degree_maps')], 'not_published')       # its program page was read: no plan marker
         self.assertEqual(got[('open', 'admission_rules')], 'no_official_statement')
         self.assertEqual(got[('open', 'catalog')], 'not_yet_researched')
@@ -1005,3 +1007,156 @@ class CrawlDelayTests(unittest.TestCase):
                  'catalog': {'platform': 'acalog', 'home': 'https://catalog.example.edu/index.php?catoid=1', 'catoid': 1}}
             C.crawl_target(t, Run(Path(d)), f, log=lambda *_: None)
         self.assertEqual(f.gate.host_delay.get('catalog.example.edu'), 12)
+
+
+class DetectTests(unittest.TestCase):
+    """programs/detect.py: catalog platform from official links on stored discovery pages."""
+
+    def det(self, links, title='', text='', url='https://www.x.edu/'):
+        from programs import detect as D
+        return D.detect_institution([({'url': url}, {'title': title, 'text': text, 'links': links})])
+
+    def test_acalog_current_catalog_is_the_year_labelled_one(self):
+        cfg, why = self.det([('https://catalog.x.edu/index.php?catoid=70', '2024-2025 Undergraduate Catalog [ARCHIVED CATALOG]'),
+                             ('https://catalog.x.edu/content.php?catoid=70&navoid=3', 'Archived 2024-2025'),
+                             ('https://catalog.x.edu/content.php?catoid=70&navoid=4', 'Archived'), ('https://catalog.x.edu/content.php?catoid=70&navoid=5', 'Archived'),
+                             ('https://catalog.x.edu/index.php?catoid=40', '2024-2025 Undergraduate Catalog [ARCHIVED CATALOG]'),
+                             ('https://catalog.x.edu/index.php?catoid=56', '2026-2027 Undergraduate Catalog'),
+                             ('https://catalog.x.edu/content.php?catoid=56&navoid=900', 'Programs A-Z'),
+                             ('https://catalog.x.edu/content.php?catoid=56&navoid=901', 'Graduate Programs'),
+                             ('https://catalog.x.edu/content.php?catoid=40&navoid=12', 'Programs')])
+        self.assertEqual((cfg['platform'], cfg['catoid'], cfg['program_lists']), ('acalog', 56, ['https://catalog.x.edu/content.php?catoid=56&navoid=900']))
+
+    def test_undated_acalog_left_behind_loses_to_the_new_platform(self):
+        cfg, _ = self.det([('https://catalog.x.edu/index.php?catoid=27', 'Catalog')] +
+                          [(f'https://undergrad.catalog.x.edu/programs/P{i}', f'Prog {i}') for i in range(4)])
+        self.assertEqual(cfg['platform'], 'coursedog')
+
+    def test_smartcatalog_newest_year_path(self):
+        cfg, _ = self.det([('https://x.smartcatalogiq.com/en/2025-2026/catalog/a', 'a'), ('https://x.smartcatalogiq.com/en/2026-2027/catalog/b', 'b')])
+        self.assertEqual(cfg['home'], 'https://x.smartcatalogiq.com/en/2026-2027/catalog/')
+
+    def test_catalog_pdf_needs_a_year_and_is_not_graduate(self):
+        cfg, _ = self.det([('https://www.x.edu/files/2026-2027-Graduate-Catalog.pdf', 'Graduate Catalog'),
+                           ('https://www.x.edu/files/2026-27-Catalog.pdf', 'Academic Catalog'), ('https://www.x.edu/files/catalog.pdf', 'Catalog')])
+        self.assertEqual(cfg['catalog_pdfs'], ['https://www.x.edu/files/2026-27-Catalog.pdf'])
+
+    def test_undated_pdf_is_not_a_catalog(self):
+        self.assertIsNone(self.det([('https://www.x.edu/files/catalog.pdf', 'Catalog')])[0])
+
+    def test_nothing_recognised(self):
+        self.assertIsNone(self.det([('https://www.x.edu/about', 'About')])[0])
+
+
+class DiscoverCapsTests(unittest.TestCase):
+    def test_discovery_does_not_follow_degree_maps_or_policy_links(self):
+        from pipeline.crawl import Fetcher, Run
+        f = Fetcher(delay=0, timeout=1)
+        body = (b'<html><head><title>X University</title></head><body><a href="https://www.x.edu/catalog/">Academic Catalog</a>'
+                b'<a href="https://www.x.edu/maps/four-year-plans.pdf">Four-Year Plans</a><a href="https://www.x.edu/advising/maps">Degree Maps</a></body></html>')
+        f._raw = lambda url: (200, url, {'Content-Type': 'text/html'}, body if not url.endswith('robots.txt') else b'')
+        with tempfile.TemporaryDirectory() as d:
+            t = {'institution_key': 'k', 'folder': 'k', 'domains': ['x.edu'], 'mode': 'discover', 'discover': ['https://www.x.edu/']}
+            run = C.crawl_target(t, Run(Path(d)), f, log=lambda *_: None) or Run(Path(d))
+            roles = {e['url']: e['role'] for e in Run(Path(d)).entries()}
+        self.assertEqual(roles.get('https://www.x.edu/catalog/'), 'discover')
+        self.assertNotIn('https://www.x.edu/maps/four-year-plans.pdf', roles)
+        self.assertNotIn('https://www.x.edu/advising/maps', roles)
+
+
+class AutoReviewTests(unittest.TestCase):
+    """programs/autoreview.py: the standing review rules for production states."""
+
+    def run_dir(self, cands, verify=None, lists=None):
+        d = Path(tempfile.mkdtemp())
+        (d / 'candidates.jsonl').write_text('\n'.join(json.dumps(c) for c in cands) + '\n')
+        (d / 'verify.json').write_text(json.dumps(verify or {}))
+        (d / 'program_lists.json').write_text(json.dumps(lists or {}))
+        (d / 'manifest.jsonl').write_text('')
+        return d
+
+    def prog(self, cid, name, ext='catalog_program/v1', issues=(), level='bachelor', year='2026-27', key=None):
+        return {'candidate_id': cid, 'domain': 'academic_programs', 'extractor': ext, 'issues': list(issues), 'institution_key': 'k',
+                'academic_year': year, 'record': {'program_key': key or cid, 'program_name': name, 'credential_level': level, 'catalog_year': '2026-2027'}}
+
+    def req(self, cid, pk, kind='major', ext='courselist_html/v1', issues=()):
+        return {'candidate_id': cid, 'domain': 'degree_requirements', 'extractor': ext, 'issues': list(issues), 'institution_key': 'k',
+                'academic_year': '2026-27', 'record': {'program_key': pk, 'requirement_kind': kind}}
+
+    def test_standing_rules(self):
+        from programs import autoreview as A
+        from datetime import date
+        cands = [self.prog('ok', 'Biology (BA)'), self.prog('iss', 'Chemistry (BS)', issues=['stale_year_label:2025-26']),
+                 self.prog('untr', 'Physics (BS)', ext='thec_inventory/v1'), self.prog('opt', 'Business, Marketing Option, BS'),
+                 self.prog('comb', 'Accelerated Bachelor\'s + JD'), self.prog('ms', 'History (MA)', level='master'),
+                 self.prog('old', 'Art (BA)', year='2025-26'), self.prog('bad', 'Music (BA)'), self.prog('dup', 'Biology (BA)', key='ok'),
+                 self.req('g1', 'ok'), self.req('g2', 'ok', issues=['indented_rows_without_rule']), self.req('g3', 'ok', ext='smartcatalog_program/v1'),
+                 self.req('g4', 'iss'), self.req('p1', 'ok', kind='program_plan', ext='courseleaf_plan/v1'),
+                 self.prog('v1', 'Architecture (Foundation Unit) – BArch'), self.prog('v2', 'Architecture (Summer Design) – BArch'),
+                 self.prog('ba', 'Biology (BA)'), self.prog('bs', 'Biology (BS)')]
+        d = self.run_dir(cands, verify={'bad': ['program_name not verbatim']})
+        old = A.catalog_records; A.catalog_records = lambda *a: []  # catalog records need a targets file; tested separately
+        try: approve, cats, held = A.review('ZZ', d, today=date(2026, 10, 6))
+        finally: A.catalog_records = old
+        self.assertEqual({a['candidate_id'] for a in approve}, {'ok', 'g1', 'p1', 'ba', 'bs'})
+        self.assertEqual(held['issues'], 1); self.assertEqual(held['option_name'], 1); self.assertEqual(held['combined_program'], 1)
+        self.assertEqual(held['entry_path_variant'], 2)
+        self.assertEqual(held['not_verbatim'], 1); self.assertEqual(held['duplicate'], 1); self.assertEqual(held['req_program_not_approved'], 1)
+
+
+class SitemapTests(unittest.TestCase):
+    def test_courseleaf_sitemap_yields_bachelor_program_pages(self):
+        from pipeline.crawl import Fetcher, Run
+        sm = b'''<?xml version="1.0"?><urlset>
+<url><loc>https://catalog.x.edu/undergraduate/sciences/biology/biology-bs/</loc></url>
+<url><loc>https://catalog.x.edu/undergraduate/sciences/biology/biology-minor/</loc></url>
+<url><loc>https://catalog.x.edu/graduate/sciences/biology/biology-ms/</loc></url>
+<url><loc>https://catalog.x.edu/undergraduate/arts/history/history-major/</loc></url>
+<url><loc>https://catalog.x.edu/undergraduate/arts/history/</loc></url>
+<url><loc>https://catalog.x.edu/undergraduate/business/bba-certificate/</loc></url>
+<url><loc>https://catalog.x.edu/graduate/business/accounting-bs/</loc></url>
+<url><loc>https://elsewhere.org/a-bs/</loc></url></urlset>'''
+        f = Fetcher(delay=0, timeout=1)
+        def raw(url):
+            if url.endswith('robots.txt'): return (404, url, {}, b'')
+            if url.endswith('sitemap.xml'): return (200, url, {'Content-Type': 'application/xml'}, sm)
+            return (200, url, {'Content-Type': 'text/html'}, b'<html><head><title>t</title></head><body>x</body></html>')
+        f._raw = raw
+        with tempfile.TemporaryDirectory() as d:
+            t = {'institution_key': 'k', 'folder': 'k', 'domains': ['x.edu'], 'mode': 'catalog',
+                 'catalog': {'platform': 'courseleaf', 'home': 'https://catalog.x.edu/', 'path_prefix': '/', 'min_depth': 1, 'program_lists': []}}
+            C.crawl_target(t, Run(Path(d)), f, log=lambda *_: None)
+            pages = sorted(e['url'] for e in Run(Path(d)).entries() if e['role'] == 'program_page')
+        self.assertEqual(pages, ['https://catalog.x.edu/undergraduate/arts/history/history-major/',
+                                 'https://catalog.x.edu/undergraduate/sciences/biology/biology-bs/'])
+
+
+class ListedProgramTests(unittest.TestCase):
+    def test_award_from_the_list_name_from_the_page(self):  # Auburn 2026-27
+        from pipeline import text as T
+        from programs import verify as V
+        url = 'https://bulletin.auburn.edu/undergraduate/agriculture/agbusiness_major/'
+        e = {'url': url, 'sha256': 'page', 'fetched_at': '2026-10-06T00:00:00'}
+        listed = {'name': 'Agricultural Business & Economics – BS', 'printed': 'Agricultural Business & Economics – BS', 'url': url,
+                  'credential_level': 'bachelor', 'listed_on': 'https://bulletin.auburn.edu/undergraduate/majors/', 'listed_on_sha256': 'list'}
+        txt = 'Auburn Bulletin 2026-2027\nAgricultural Business & Economics (AGEC)\nCurriculum'
+        page = T.Page(txt, 'Agricultural Business & Economics (AGEC) | Auburn University Bulletin', [], [], ['Agricultural Business & Economics (AGEC)'])
+        tgt = {'catalog': {'platform': 'courseleaf'}, '_listed': {url: listed}}
+        out = X.program_page_candidates(tgt, {'institution_key': 'k'}, e, page, '2026-27')
+        self.assertEqual([(c['record']['program_name'], c['extractor'], c['record']['catalog_year']) for c in out],
+                         [('Agricultural Business & Economics – BS', 'listed_program/v1', '2026-2027')])
+        self.assertEqual(V.check_candidate(out[0], txt, {'list': 'Majors\nAgricultural Business & Economics – BS'}.get), [])
+        other = T.Page(txt.replace('Agricultural Business & Economics (AGEC)', 'Animal Sciences'), 't', [], [], ['Animal Sciences'])
+        self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, other, '2026-27'), [])  # page is another program
+        undated = T.Page('Agricultural Business & Economics (AGEC)', 't', [], [], ['Agricultural Business & Economics (AGEC)'])
+        self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, undated, '2026-27'), [])
+        longer = T.Page(txt.replace('Agricultural Business & Economics (AGEC)', 'Agricultural Business & Economics Education'), 't', [], [],
+                        ['Agricultural Business & Economics Education'])
+        self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, longer, '2026-27'), [])  # another program's page
+        bare = {**tgt, '_listed': {url: {**listed, 'printed': 'Agricultural Business & Economics'}}}
+        self.assertEqual(X.program_page_candidates(bare, {'institution_key': 'k'}, e, page, '2026-27'), [])
+
+    def test_strip_award(self):
+        for n, base in (('Accounting, BS', 'Accounting'), ('Biology (B.S.)', 'Biology'), ('Art, BA, BFA', 'Art'),
+                        ('Art, Media, and Design', 'Art, Media, and Design'), ('Economics: BA, BS', 'Economics')):
+            self.assertEqual(X.strip_award(n), base)

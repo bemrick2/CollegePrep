@@ -194,17 +194,40 @@ SCOPE_PAGES={'OR':{
 },'TN':{}}
 SCOPE_HOSTS={'pacificbible':['cdn.prod.website-files.com']}
 TYPE_PATH={'lmunet':{'url':'https://undergraduatecatalog.lmunet.edu/degrees','home':'https://undergraduatecatalog.lmunet.edu/'}}
-for st,conf in (('TN',TN),('OR',OR)):
+import csv, sys
+PLATFORM_HOSTS=('smartcatalogiq.com','kuali.co','acalog.com')
+def entering(st):
+    p=R/f'data/national/ipeds/2023-24/{st}/admissions.csv'
+    return {x['institution_key']:int(x['enrolled'] or 0) for x in csv.DictReader(open(p))} if p.exists() else {}
+def generic(st):
+    """States beyond the TN/OR pilots: catalog configurations detected from a discovery run (programs/detect.py,
+    programs/targets/configs/<ST>.json, reviewed entries marked 'reviewed'); priority by entering students."""
+    p=R/f'programs/targets/configs/{st}.json'
+    cfgs=json.loads(p.read_text()) if p.exists() else {}
+    r=reg(st); e=entering(st); rank={f:n for n,f in enumerate(sorted(r,key=lambda f:-e.get(r[f]['institution_key'],0)))}
+    conf={}
+    for folder,c in cfgs.items():
+        if folder not in r: continue
+        conf[folder]={'priority':1 if rank[folder]<10 else 2 if rank[folder]<30 else 3,'catalog':c['catalog'],'policy':c.get('policy',[]),
+                      **({'render':c['render']} if c.get('render') else {}),**({'crawl_delay':c['crawl_delay']} if c.get('crawl_delay') else {}),
+                      'detected':c.get('detected')}
+    for f in r: PRI.setdefault(f,1 if rank[f]<10 else 2 if rank[f]<30 else 3)
+    return conf
+STATES=[('TN',TN),('OR',OR)]+[(st,generic(st)) for st in sys.argv[1:] if st not in ('TN','OR')]
+for st in sys.argv[1:]:
+    DISCOVER.setdefault(st,[]); SCOPE_PAGES.setdefault(st,{})
+for st,conf in STATES:
     r=reg(st); out=[]
     for folder,c in conf.items():
         i=r[folder]; out.append({'institution_key':i['institution_key'],'folder':folder,'name':i['name'],'control':i['control'],
-          'domains':sorted(set(i['allowed_domains'])),'hosts':sorted({h for h in [c['catalog']['home'].split('/')[2]] if 'smartcatalogiq' in h or 'kuali' in h} | ({'catalog.oregonstate.edu','admissions.oregonstate.edu','business.oregonstate.edu'} if folder=='osucascades' else set())
+          'domains':sorted(set(i['allowed_domains'])),'hosts':sorted({h for h in [c['catalog']['home'].split('/')[2]] if h.endswith(PLATFORM_HOSTS)} | ({'catalog.oregonstate.edu','admissions.oregonstate.edu','business.oregonstate.edu'} if folder=='osucascades' else set())
           | ({'coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com'} if c['catalog'].get('platform')=='coursedog' else set())),'mode':'catalog',**c})
     # every in-scope four-year institution is a target: unconfigured ones are discovered first
     for folder in DISCOVER[st]+sorted(f for f in r if f not in conf and f not in DISCOVER[st]):
         i=r[folder]; d=i['domain']
         out.append({'institution_key':i['institution_key'],'folder':folder,'name':i['name'],'control':i['control'],'domains':sorted(set(i['allowed_domains'])),'hosts':[],
-          'mode':'discover','priority':PRI.get(folder,3),'discover':[i['seeds']['website'],f'https://catalog.{d}/']+EXTRA_DISCOVER.get(folder,[]),
+          'mode':'discover','priority':PRI.get(folder,3),'discover':[i['seeds']['website'],f'https://catalog.{d}/']+EXTRA_DISCOVER.get(folder,[])
+            +([f'https://www.{d}/academics/',f'https://www.{d}/registrar/',f'https://www.{d}/catalog/'] if st not in ('TN','OR') else []),
           'policy':SCOPE_PAGES[st].get(folder,[])})
         out[-1]['hosts']=HOSTS.get(folder,[])+SCOPE_HOSTS.get(folder,[])
         if folder in TYPE_PATH: out[-1]['type_path_list']=TYPE_PATH[folder]
