@@ -97,6 +97,7 @@ The steps below run in order, and several states can be at different steps at on
    - Only extractors whose output passed an independent pilot review are accepted.
    - Candidates are approved only with no issues, verbatim values, a bachelor's award and a current-year label.
    - Options, tracks and combined graduate pathways are held.
+   - When one program name is printed on several pages (a major and its tracks), the record and its requirement rows come only from the base page, the one whose URL slug the others extend; with no base page the program is held.
    - Requirement rows are approved only for an approved program.
 
    The output is a decisions file for `python -m programs promote`. A new platform or extractor needs a sampled independent review before it joins the trusted set.

@@ -55,7 +55,7 @@ MUTS = [
     ('programs/autoreview.py', "'not_verbatim' if verify.get(c['candidate_id']) else 'not_bachelor'", "'not_bachelor'"),
     ('programs/autoreview.py', "               'program_not_approved' if c['record'].get('program_key') not in program_keys[c['institution_key']] else None)", "               None)"),
     ('programs/autoreview.py', "        why = ('untrusted_extractor' if (kind, c['extractor']) not in TRUSTED_REQUIREMENTS else", "        why = ('untrusted_extractor' if False else"),
-    ('programs/crawl.py', "            if re.search(r'(^|-)(minor|certificate|cert|ms|ma|mba|mfa|med|phd|edd|dnp|pmc|aas|as|aa)(-|$)', seg): continue", "            pass"),
+    ('programs/crawl.py', "            if re.search(r'(^|[-_])(minor|certificate|cert|ms|ma|mba|mfa|med|phd|edd|dnp|pmc|aas|as|aa)([-_]|$)', seg): continue", "            pass"),
     ('programs/crawl.py', "            if not is_program(h) or re.search(r'(^|/)(grad|graduate|graduate-school)(/|$)', urlsplit(h).path.lower()): continue", "            pass"),
     ('programs/extract.py', "    hit = next((n for n in names if n and norm(re.sub(r'(\\s*\\([^()]{1,12}\\))+\\s*$', '', n)) == norm(base)), None)", "    hit = next((n for n in names if n and norm(n).startswith(norm(base))), None)"),
     ('programs/autoreview.py', "               'entry_path_variant' if len(variants[(c['institution_key'], base(c))]) > 1 and plain(c) != c['record'].get('program_name', '').strip() else", ""),
@@ -67,6 +67,20 @@ MUTS = [
     ('programs/promote.py', "        return 0  # a mechanical count never replaces a reviewed one", "        pass"),
     ('programs/promote.py', "    clash = {k: f for k, f in folders.items() if owners.get(f, {k}) - {k} and holder(f) != k}", "    clash = {}"),
     ('programs/status.py', "    reviewed = [c for c in cats if 'Standing review' not in (c.get('notes') or '')]", "    reviewed = cats"),
+    # one program name on several pages: only the base page's record and requirement rows
+    ('programs/autoreview.py', "               'variant_page' if url_of(c, 'program_url') in variant_pages else", ""),
+    ('programs/autoreview.py', "               'variant_page' if url_of(c, 'source_url') in variant_pages else", ""),
+    ('programs/autoreview.py', "    base = [b for b in stems if all(o == b or o.startswith(b + '-') for o in stems)]", "    base = sorted(stems)[:1]"),
+    ('programs/autoreview.py', "    url = re.sub(r'/general-[A-Za-z0-9]+$', '', url)", "    pass"),
+    # Stetson: a not-yet-posted catalog PDF slot is not the page's label; a four-digit 'Edition' label is read
+    ('programs/extract.py', "        if any(re.match(r'\\s*coming soon\\b', l, re.I) for l in lines[i + 1:i + 3] if l.strip()): continue", "        pass"),
+    ('programs/extract.py', "EDITION = re.compile(r'(20\\d{2})\\s*[-–]\\s*(?:20)?(\\d{2})\\s+Edition', re.I)", "EDITION = re.compile(r'(20\\d{2})\\s*[-–]\\s*(\\d{2})\\s+Edition', re.I)"),
+    # CourseLeaf retrieval: a one-word sitemap segment is a course subject, not an award; course catalogs are skipped;
+    # catalogs without a sitemap walk their undergraduate section
+    ('programs/crawl.py', "            if not re.search(r'[-_]', seg): continue", "            pass"),
+    ('programs/crawl.py', "|coursesofinstruction|courses-of-instruction|", "|"),
+    ('programs/crawl.py', "                if is_program(h) and re.search(cat['sitemap_program'], h): push(h, 'program_page', url, depth + 1)", "                if is_program(h): push(h, 'program_page', url, depth + 1)"),
+    ('programs/crawl.py', "    if cat.get('platform') == 'courseleaf' and cat.get('nav_prefix'):", "    if False:"),
 ]
 
 

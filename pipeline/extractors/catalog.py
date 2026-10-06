@@ -165,7 +165,8 @@ def extract(inst, entry, page, today_year):
     issues = []
     if year is None:
         return []  # requirement_group/v1 needs the printed catalog year; an unlabeled program page is skipped
-    if re.search(r'archived\s+catalog', page.text[:4000], re.I) or year < today_year:
+    # an archived-catalog banner marks the page stale; a standalone 'Archived Catalogs' menu link (Stetson's nav) does not
+    if re.search(r'archived\s+catalog(?!s\s*$)', page.text[:4000], re.I | re.M) or year < today_year:
         issues.append(f'stale_year_label:{year}')
     pkey = slug(name)
     src = common.source_of(entry)['url']

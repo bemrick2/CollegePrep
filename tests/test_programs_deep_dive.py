@@ -436,6 +436,14 @@ class StatedMajorTests(unittest.TestCase):
         p = T.Page('Catalog 2026-2027\nPDF of the entire 2025-2026 Catalog\nDownload PDF of the entire 2024-2025 Bulletin', 't', [], [], [])
         self.assertEqual({y for y, _ in X.printed_catalog_years(p)}, {'2026-2027'})
 
+    def test_stetson_edition_header_and_coming_soon_pdf_slot(self):
+        from pipeline import text as T
+        # Stetson 2026-27: '2026-2027 Edition' heads the page; the print menu offers a not-yet-posted PDF of last year's catalog
+        p = T.Page('2026-2027 Edition\nBachelor of Science in Biology\nDownload Page (PDF)\n2025-2026 Academic Catalog\nComing Soon!!!', 't', [], [], [])
+        self.assertEqual({y for y, _ in X.printed_catalog_years(p)}, {'2026-2027'})
+        q = T.Page('2025-2026 Academic Catalog\nBachelor of Science in Biology', 't', [], [], [])
+        self.assertEqual({y for y, _ in X.printed_catalog_years(q)}, {'2025-2026'})  # a label in use still counts
+
 
 class MajorTableTests(unittest.TestCase):
     def test_marked_majors_with_catalog_award_statement(self):  # Lewis & Clark 2026-27
@@ -1116,6 +1124,32 @@ class AutoReviewTests(unittest.TestCase):
         self.assertEqual(held['entry_path_variant'], 3)
         self.assertEqual(held['not_verbatim'], 1); self.assertEqual(held['duplicate'], 1); self.assertEqual(held['req_program_not_approved'], 1)
 
+    def test_one_program_on_several_pages_comes_from_the_base_page(self):
+        from programs import autoreview as A
+        from datetime import date
+        U = 'https://catalog.x.edu/undergraduate/sci/'
+        def at(c, url, field='program_url'): c['record'][field] = url; return c
+        cands = [at(self.prog('b1', 'Biology, BS', key='bio'), U + 'biology/biology-bs-pre-professional/'),
+                 at(self.prog('b0', 'Biology, BS', key='bio'), U + 'biology/biology-bs/'),
+                 at(self.req('rb1', 'bio'), U + 'biology/biology-bs-pre-professional/', 'source_url'),
+                 at(self.req('rb0', 'bio'), U + 'biology/biology-bs/#courselist', 'source_url'),
+                 # tracks with no plain page: no record (Liberty's online tracks)
+                 at(self.prog('t1', 'Bible, BS', key='bible'), U + 'bible-major-bs/bible-bs-apologetics-online'),
+                 at(self.prog('t2', 'Bible, BS', key='bible'), U + 'bible-major-bs/bible-bs-exposition-online'),
+                 # department page and its award page; a cross-listed copy; a Coursedog default pathway: one page each
+                 at(self.prog('a1', 'Asian Studies (BA)', key='asia'), U + 'asian-studies'),
+                 at(self.prog('a2', 'Asian Studies (BA)', key='asia'), U + 'asian-studies-ba'),
+                 at(self.prog('x1', 'Dance, BA', key='dance'), 'https://catalog.x.edu/arts/dance-ba/'),
+                 at(self.prog('x2', 'Dance, BA', key='dance'), 'https://catalog.x.edu/ugrad/arts/dance-ba/'),
+                 at(self.prog('w1', 'Art (BA)', key='art'), 'https://catalog.x.edu/programs/BA.ART'),
+                 at(self.prog('w2', 'Art (BA)', key='art'), 'https://catalog.x.edu/programs/BA.ART/general-aoYks')]
+        d = self.run_dir(cands)
+        old = A.catalog_records; A.catalog_records = lambda *a: []
+        try: approve, cats, held = A.review('ZZ', d, today=date(2026, 10, 6))
+        finally: A.catalog_records = old
+        self.assertEqual({a['candidate_id'] for a in approve}, {'b0', 'rb0', 'a1', 'x1', 'w1'})
+        self.assertEqual(held['variant_page'], 3); self.assertEqual(held['req_variant_page'], 1); self.assertEqual(held['duplicate'], 3)
+
 
 class SitemapTests(unittest.TestCase):
     def test_courseleaf_sitemap_yields_bachelor_program_pages(self):
@@ -1128,6 +1162,10 @@ class SitemapTests(unittest.TestCase):
 <url><loc>https://catalog.x.edu/undergraduate/arts/history/</loc></url>
 <url><loc>https://catalog.x.edu/undergraduate/business/bba-certificate/</loc></url>
 <url><loc>https://catalog.x.edu/graduate/business/accounting-bs/</loc></url>
+<url><loc>https://catalog.x.edu/UGRD/colleges-schools/UGAGL/AEC_BS/</loc></url>
+<url><loc>https://catalog.x.edu/undergraduatecatalog/coursesofinstruction/badm/</loc></url>
+<url><loc>https://catalog.x.edu/undergraduate/courses/busi/</loc></url>
+<url><loc>https://catalog.x.edu/undergraduate/business/busi/</loc></url>
 <url><loc>https://elsewhere.org/a-bs/</loc></url></urlset>'''
         f = Fetcher(delay=0, timeout=1)
         def raw(url):
@@ -1140,8 +1178,52 @@ class SitemapTests(unittest.TestCase):
                  'catalog': {'platform': 'courseleaf', 'home': 'https://catalog.x.edu/', 'path_prefix': '/', 'min_depth': 1, 'program_lists': []}}
             C.crawl_target(t, Run(Path(d)), f, log=lambda *_: None)
             pages = sorted(e['url'] for e in Run(Path(d)).entries() if e['role'] == 'program_page')
-        self.assertEqual(pages, ['https://catalog.x.edu/undergraduate/arts/history/history-major/',
+        # UF's underscore slugs are read; a one-word segment ('badm', 'busi': course subjects) is never an award
+        self.assertEqual(pages, ['https://catalog.x.edu/UGRD/colleges-schools/UGAGL/AEC_BS/',
+                                 'https://catalog.x.edu/undergraduate/arts/history/history-major/',
                                  'https://catalog.x.edu/undergraduate/sciences/biology/biology-bs/'])
+
+    def crawl(self, cat, pages):
+        from pipeline.crawl import Fetcher, Run
+        f = Fetcher(delay=0, timeout=1)
+        def raw(url):
+            if url.endswith('robots.txt'): return (404, url, {}, b'')
+            body = pages.get(url)
+            if body is None: return (404, url, {}, b'')
+            ct = 'application/xml' if url.endswith('.xml') else 'text/html'
+            return (200, url, {'Content-Type': ct}, body)
+        f._raw = raw
+        with tempfile.TemporaryDirectory() as d:
+            t = {'institution_key': 'k', 'folder': 'k', 'domains': ['x.edu'], 'mode': 'catalog', 'catalog': cat}
+            C.crawl_target(t, Run(Path(d)), f, log=lambda *_: None)
+            return sorted(e['url'] for e in Run(Path(d)).entries() if e['role'] == 'program_page')
+
+    def test_sitemap_program_pattern_for_department_pages(self):  # uark: programs on department pages, no award in the URL
+        sm = b'''<urlset><url><loc>https://catalog.x.edu/ugcat/colleges/arts/historyhist/</loc></url>
+<url><loc>https://catalog.x.edu/ugcat/colleges/arts/</loc></url><url><loc>https://catalog.x.edu/gradcat/colleges/arts/historyhist/</loc></url></urlset>'''
+        cat = {'platform': 'courseleaf', 'home': 'https://catalog.x.edu/', 'path_prefix': '/', 'min_depth': 1, 'program_lists': [],
+               'sitemap_program': r'/ugcat/colleges/[^/]+/[^/]+/$'}
+        self.assertEqual(self.crawl(cat, {'https://catalog.x.edu/sitemap.xml': sm}), ['https://catalog.x.edu/ugcat/colleges/arts/historyhist/'])
+        # course-description sections are never program pages (uark 'coursesofinstruction')
+        rule = C.program_rule({'catalog': cat})
+        self.assertTrue(rule('https://catalog.x.edu/ugcat/colleges/arts/historyhist/'))
+        self.assertFalse(rule('https://catalog.x.edu/ugcat/coursesofinstruction/hist/'))
+        self.assertFalse(rule('https://catalog.x.edu/ugcat/courses-of-instruction/hist/'))
+
+    def test_nav_prefix_walks_sections_without_a_sitemap(self):  # MSState: no sitemap; college and department pages link programs
+        page = lambda *links: ('<html><head><title>t</title></head><body>' + ''.join(f'<a href="{h}">{a}</a>' for h, a in links) + '</body></html>').encode()
+        U = 'https://catalog.x.edu/undergraduate/'
+        pages = {'https://catalog.x.edu/': page((U, 'Undergraduate'), ('https://catalog.x.edu/graduate/', 'Graduate')),
+                 U: page((U + 'arts/', 'College of Arts')),
+                 U + 'arts/': page((U + 'arts/history/', 'History')),
+                 U + 'arts/history/': page((U + 'arts/history/history-ba/', 'History, BA'), (U + 'arts/history/history-minor/', 'History Minor')),
+                 'https://catalog.x.edu/graduate/': page(('https://catalog.x.edu/graduate/arts/history/history-ma/', 'History, MA'))}
+        cat = {'platform': 'courseleaf', 'home': 'https://catalog.x.edu/', 'path_prefix': '/undergraduate/', 'min_depth': 2, 'program_lists': [],
+               'nav_prefix': '/undergraduate/'}
+        got = self.crawl(cat, pages)
+        self.assertIn(U + 'arts/history/history-ba/', got)
+        self.assertFalse([u for u in got if '/graduate/' in u])
+        self.assertEqual(self.crawl({**cat, 'nav_prefix': None}, pages), [])  # without it nothing past the home page
 
 
 class ListedProgramTests(unittest.TestCase):
