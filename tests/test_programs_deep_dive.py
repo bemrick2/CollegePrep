@@ -1060,3 +1060,40 @@ class DiscoverCapsTests(unittest.TestCase):
         self.assertEqual(roles.get('https://www.x.edu/catalog/'), 'discover')
         self.assertNotIn('https://www.x.edu/maps/four-year-plans.pdf', roles)
         self.assertNotIn('https://www.x.edu/advising/maps', roles)
+
+
+class AutoReviewTests(unittest.TestCase):
+    """programs/autoreview.py: the standing review rules for production states."""
+
+    def run_dir(self, cands, verify=None, lists=None):
+        d = Path(tempfile.mkdtemp())
+        (d / 'candidates.jsonl').write_text('\n'.join(json.dumps(c) for c in cands) + '\n')
+        (d / 'verify.json').write_text(json.dumps(verify or {}))
+        (d / 'program_lists.json').write_text(json.dumps(lists or {}))
+        (d / 'manifest.jsonl').write_text('')
+        return d
+
+    def prog(self, cid, name, ext='catalog_program/v1', issues=(), level='bachelor', year='2026-27', key=None):
+        return {'candidate_id': cid, 'domain': 'academic_programs', 'extractor': ext, 'issues': list(issues), 'institution_key': 'k',
+                'academic_year': year, 'record': {'program_key': key or cid, 'program_name': name, 'credential_level': level, 'catalog_year': '2026-2027'}}
+
+    def req(self, cid, pk, kind='major', ext='courselist_html/v1', issues=()):
+        return {'candidate_id': cid, 'domain': 'degree_requirements', 'extractor': ext, 'issues': list(issues), 'institution_key': 'k',
+                'academic_year': '2026-27', 'record': {'program_key': pk, 'requirement_kind': kind}}
+
+    def test_standing_rules(self):
+        from programs import autoreview as A
+        from datetime import date
+        cands = [self.prog('ok', 'Biology (BA)'), self.prog('iss', 'Chemistry (BS)', issues=['stale_year_label:2025-26']),
+                 self.prog('untr', 'Physics (BS)', ext='thec_inventory/v1'), self.prog('opt', 'Business, Marketing Option, BS'),
+                 self.prog('comb', 'Accelerated Bachelor\'s + JD'), self.prog('ms', 'History (MA)', level='master'),
+                 self.prog('old', 'Art (BA)', year='2025-26'), self.prog('bad', 'Music (BA)'), self.prog('dup', 'Biology (BA)', key='ok'),
+                 self.req('g1', 'ok'), self.req('g2', 'ok', issues=['indented_rows_without_rule']), self.req('g3', 'ok', ext='smartcatalog_program/v1'),
+                 self.req('g4', 'iss'), self.req('p1', 'ok', kind='program_plan', ext='courseleaf_plan/v1')]
+        d = self.run_dir(cands, verify={'bad': ['program_name not verbatim']})
+        old = A.catalog_records; A.catalog_records = lambda *a: []  # catalog records need a targets file; tested separately
+        try: approve, cats, held = A.review('ZZ', d, today=date(2026, 10, 6))
+        finally: A.catalog_records = old
+        self.assertEqual({a['candidate_id'] for a in approve}, {'ok', 'g1', 'p1'})
+        self.assertEqual(held['issues'], 1); self.assertEqual(held['option_name'], 1); self.assertEqual(held['combined_program'], 1)
+        self.assertEqual(held['not_verbatim'], 1); self.assertEqual(held['duplicate'], 1); self.assertEqual(held['req_program_not_approved'], 1)
