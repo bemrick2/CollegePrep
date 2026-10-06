@@ -56,11 +56,13 @@ A state is **complete** only when all of these hold:
 4. **Promoted records pass validation:** `scripts/validate_data.py` (CR-14 field rules, provenance, verbatim quotes,
    `programs_complete` integrity), `python -m programs audit --check` and the database import tests all pass.
    CI enforces this for every promoted record, so a state cannot be complete on failing data.
+5. **Everything attempted:** no queue entry has reason `not_yet_researched`. That reason keeps a school visible while
+   work is pending, but a complete state has tried every school and dimension. Each remaining entry says what blocked
+   it (bot challenge, robots, not published, no official statement and so on).
 
 Otherwise the state is `in_progress`, or `not_started` when nothing has been done.
 
-A queued `not_yet_researched` entry keeps a school accounted for but does **not** count toward the 80%. So a state
-cannot be completed by queuing its large schools.
+A queued school never counts toward the 80%, so a state cannot be completed by queuing its large schools.
 
 ## What the rule deliberately does not do
 
