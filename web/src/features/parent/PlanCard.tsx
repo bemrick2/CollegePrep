@@ -45,7 +45,7 @@ export function PlanCard({ householdId }: { householdId: string }) {
   const e = ent.data
   return (
     <Card>
-      <CardHeader title="Family plan" subtitle="One plan covers every parent and student in the household, on the web and in the apps." />
+      <CardHeader title="Family plan" subtitle="Paid Prep tools for every student in one household. Core college planning stays free." />
       <div className="grid gap-3 p-5 pt-3 text-sm">
         {returned === 'success' && !e?.active && (
           <Notice tone="info">Thanks. Your plan turns on as soon as Stripe confirms the payment, usually within seconds.{poll >= 15 ? ' Refresh in a minute if it still hasn’t.' : ''}</Notice>
@@ -118,7 +118,7 @@ function ChoosePlan({ busy, onCheckout }: { busy: boolean; onCheckout: (lookupKe
           >
             <span className="block font-semibold text-ink">{p.interval === 'year' ? 'Annual' : 'Monthly'}</span>
             <span className="mt-0.5 block text-ink-2">
-              {money(p)} / {p.interval === 'year' ? 'year' : 'month'}
+              {money(p)} / {p.interval === 'year' ? 'year, paid upfront' : 'month'}
             </span>
           </button>
         ))}
