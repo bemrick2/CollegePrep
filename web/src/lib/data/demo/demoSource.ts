@@ -69,8 +69,14 @@ export class DemoSource implements DataSource {
   readonly mode = 'demo' as const
   private s: DemoStore
 
-  constructor(store?: DemoStore) {
+  /** `snapshot` replaces the bundled comparison snapshot, e.g. with records captured from the live
+   *  compare_institutions RPC for an acceptance scenario (see web/src/acceptance). */
+  constructor(store?: DemoStore, private opts: { snapshot?: Fx['snapshot'] } = {}) {
     this.s = store ?? loadStore()
+  }
+
+  private async snapshot(): Promise<Fx['snapshot']> {
+    return this.opts.snapshot ?? (await loadFixtures()).snapshot
   }
 
   private commit() {
@@ -92,6 +98,10 @@ export class DemoSource implements DataSource {
   /** Student ids in the current demo store (used to seed browser-only sample data). */
   sampleStudentIds(): string[] {
     return this.s.students.map((x) => x.id)
+  }
+
+  sampleHouseholdIds(): string[] {
+    return this.s.households.map((x) => x.id)
   }
 
   reset() {
@@ -566,9 +576,9 @@ export class DemoSource implements DataSource {
   }
 
   async verifiedSchools(academicYear: string): Promise<InstitutionSearchHit[]> {
-    const F = await loadFixtures()
-    if (academicYear !== F.snapshot.academic_year) return delay([])
-    const list = (F.snapshot.institutions as unknown as InstitutionComparison[])
+    const snap = await this.snapshot()
+    if (academicYear !== snap.academic_year) return delay([])
+    const list = (snap.institutions as unknown as InstitutionComparison[])
       .filter((x) => x.institution)
       .map((x) => ({
         institution_key: x.institution_key,
@@ -583,10 +593,10 @@ export class DemoSource implements DataSource {
     return delay(list)
   }
 
-  async searchInstitutions(query: string): Promise<InstitutionSearchHit[]> {
-    const F = await loadFixtures()
+  async searchInstitutions(query: string, state?: string): Promise<InstitutionSearchHit[]> {
+    const snap = await this.snapshot()
     const q = query.trim().toLowerCase()
-    const list = (F.snapshot.institutions as unknown as InstitutionComparison[])
+    const list = (snap.institutions as unknown as InstitutionComparison[])
       .filter((x) => x.institution)
       .map((x) => ({
         institution_key: x.institution_key,
@@ -595,16 +605,16 @@ export class DemoSource implements DataSource {
         state_code: x.institution!.state_code,
         control: x.institution!.control,
       }))
-    return delay(q ? list.filter((x) => x.display_name.toLowerCase().includes(q)) : list)
+    return delay(list.filter((x) => (!q || x.display_name.toLowerCase().includes(q)) && (!state || x.state_code === state)))
   }
 
   async compareInstitutions(keys: string[], academicYear: string): Promise<InstitutionComparison[]> {
-    const F = await loadFixtures()
-    const all = F.snapshot.institutions as unknown as InstitutionComparison[]
+    const snap = await this.snapshot()
+    const all = snap.institutions as unknown as InstitutionComparison[]
     return delay(
       keys.map(
         (k) =>
-          (academicYear === F.snapshot.academic_year ? all.find((x) => x.institution_key === k) : undefined) ?? {
+          (academicYear === snap.academic_year ? all.find((x) => x.institution_key === k) : undefined) ?? {
             institution_key: k,
             found: false,
             institution: null,

@@ -21,11 +21,14 @@ function renderAt(path: string, source: DemoSource) {
 
 describe('app flows', () => {
   it('student home shows one clear next action', async () => {
+    localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976']))
     renderAt('/student', new DemoSource(sampleFamily('student')))
     expect(await screen.findByRole('heading', { name: 'Maya' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /About 10 minutes|Done for today/ })).toBeInTheDocument()
-    // No scaled-score estimate is produced (CR-3), so none is shown.
-    expect(screen.getByText(/No score estimate yet/)).toBeInTheDocument()
+    // No scaled-score estimate is produced (CR-3), so none is shown; why it matters comes from verified merit criteria.
+    expect(screen.getByText(/We don't estimate your ACT score from practice yet/)).toBeInTheDocument()
+    expect(await screen.findByText(/4 merit awards/)).toBeInTheDocument()
+    expect(screen.getByText(/4 above/)).toBeInTheDocument()
   })
 
   it('practice: answer with confidence, then see explanation tabs', async () => {
@@ -58,7 +61,7 @@ describe('app flows', () => {
   it('parent cost outlook leads with four-year schools, published costs only, no estimated savings', async () => {
     localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976', 'ipeds-221908']))
     renderAt('/parent', new DemoSource(sampleFamily('parent')))
-    expect(await screen.findByRole('heading', { name: 'How Maya is doing' })).toBeInTheDocument()
+    expect(await screen.findByRole('heading', { name: "Maya's plan" })).toBeInTheDocument()
     // UTK in-state $36,994 x 4; Lipscomb $69,210 x 4; Northeast State (2-year) $20,304 x 2 — never x 4.
     expect(await screen.findByText('$147,976')).toBeInTheDocument()
     expect(screen.getByText('$276,840')).toBeInTheDocument()
@@ -98,6 +101,7 @@ describe('app flows', () => {
     // Ways to lower the cost: verified levers, conservative merit status, no dollar total.
     expect(screen.getAllByRole('heading', { name: 'Ways to lower this cost' }).length).toBeGreaterThan(0)
     expect(screen.getByText('4 more ACT points reaches 4 merit awards (ACT 31+)')).toBeInTheDocument()
+    await user.click(screen.getByRole('button', { name: /^Show \d+ more$/ }))
     expect(screen.getByText('3 need-based or access programs')).toBeInTheDocument()
     // Elevate one school as the primary target; it moves first.
     await user.click(screen.getAllByRole('button', { name: 'Make primary target' })[0]!)
@@ -195,12 +199,29 @@ describe('app flows', () => {
     expect(await screen.findByText("University of Tennessee, Knoxville has verified programs for Computer science; Mechanical engineering isn't in our verified list yet.")).toBeInTheDocument()
   })
 
+  it('compare places the target against the published middle 50%, without predicting admission', async () => {
+    localStorage.setItem('pp-compare', JSON.stringify(['utk']))
+    renderAt('/colleges', new DemoSource(sampleFamily('parent')))
+    expect(await screen.findByText((_, el) => el?.tagName === 'P' && /Target 27 is below the middle 50% \(28–32 ACT\)/.test(el.textContent ?? ''))).toBeInTheDocument()
+    expect(screen.getByText(/Not an admission prediction/)).toBeInTheDocument()
+  })
+
   it('choosing a role on the landing page goes straight to that onboarding (no second "who is using" step)', async () => {
     const user = userEvent.setup()
     renderAt('/', new DemoSource(emptyStore()))
-    await user.click(await screen.findByRole('button', { name: /I'm a student/ }))
+    await user.click(await screen.findByRole('button', { name: /^I'm a student\s*Take/ }))
     expect(await screen.findByRole('heading', { name: /Let's get you set up/ })).toBeInTheDocument()
     expect(screen.queryByRole('heading', { name: /Who's using/ })).not.toBeInTheDocument()
+  })
+
+  it('landing leads with creating a family plan; store badges say coming soon until listings exist', async () => {
+    const user = userEvent.setup()
+    renderAt('/', new DemoSource(emptyStore()))
+    expect(await screen.findAllByText(/Apps for iPhone and Android are coming soon/)).not.toHaveLength(0)
+    // No badge artwork or store link until a real listing URL is configured.
+    expect(screen.queryByRole('link', { name: /App Store|Google Play/ })).not.toBeInTheDocument()
+    await user.click(screen.getByRole('button', { name: /Create your family plan/ }))
+    expect(await screen.findByRole('heading', { name: /set up your household/i })).toBeInTheDocument()
   })
 
   it('demo placeholder names never prefill forms', async () => {
