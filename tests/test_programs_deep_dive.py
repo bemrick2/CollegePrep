@@ -1015,7 +1015,9 @@ class DetectTests(unittest.TestCase):
         return D.detect_institution([({'url': url}, {'title': title, 'text': text, 'links': links})])
 
     def test_acalog_current_catalog_is_the_year_labelled_one(self):
-        cfg, why = self.det([('https://catalog.x.edu/index.php?catoid=40', '2024-2025 Undergraduate Catalog [ARCHIVED CATALOG]'),
+        cfg, why = self.det([('https://catalog.x.edu/index.php?catoid=70', '2024-2025 Undergraduate Catalog [ARCHIVED CATALOG]'),
+                             ('https://catalog.x.edu/content.php?catoid=70&navoid=3', 'Archived 2024-2025'),
+                             ('https://catalog.x.edu/index.php?catoid=40', '2024-2025 Undergraduate Catalog [ARCHIVED CATALOG]'),
                              ('https://catalog.x.edu/index.php?catoid=56', '2026-2027 Undergraduate Catalog'),
                              ('https://catalog.x.edu/content.php?catoid=56&navoid=900', 'Programs A-Z'),
                              ('https://catalog.x.edu/content.php?catoid=56&navoid=901', 'Graduate Programs'),
@@ -1035,6 +1037,9 @@ class DetectTests(unittest.TestCase):
         cfg, _ = self.det([('https://www.x.edu/files/2026-2027-Graduate-Catalog.pdf', 'Graduate Catalog'),
                            ('https://www.x.edu/files/2026-27-Catalog.pdf', 'Academic Catalog'), ('https://www.x.edu/files/catalog.pdf', 'Catalog')])
         self.assertEqual(cfg['catalog_pdfs'], ['https://www.x.edu/files/2026-27-Catalog.pdf'])
+
+    def test_undated_pdf_is_not_a_catalog(self):
+        self.assertIsNone(self.det([('https://www.x.edu/files/catalog.pdf', 'Catalog')])[0])
 
     def test_nothing_recognised(self):
         self.assertIsNone(self.det([('https://www.x.edu/about', 'About')])[0])
