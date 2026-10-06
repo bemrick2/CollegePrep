@@ -855,6 +855,18 @@ class CompletionStatus(unittest.TestCase):
         r = self.S.state_status('ZZ')['institutions'][0]
         self.assertEqual(r['dimensions']['catalog'], 'open'); self.assertEqual(r['status'], 'partial_unqueued')
 
+    def test_only_verified_programs_on_the_list_count(self):
+        self.covered_school('big', n=10, listed=10)
+        self.put('big', 'program_catalogs', [{'verification_status': 'verified', 'listed_bachelor_programs': 10, 'verified_listed_programs': 8}])
+        r = self.S.state_status('ZZ')['institutions'][0]
+        self.assertEqual((r['catalog_share'], r['dimensions']['catalog']), (0.8, 'open'))
+
+    def test_a_mechanical_count_is_provisional(self):
+        self.covered_school('big', n=10, listed=10)
+        self.put('big', 'program_catalogs', [{'verification_status': 'verified', 'listed_bachelor_programs': 10,
+                                              'notes': 'Reviewed 2026-10-06: Standing review: official current-catalog program list pages.'}])
+        self.assertEqual(self.S.state_status('ZZ')['institutions'][0]['dimensions']['catalog'], 'open')
+
     def test_partially_verified_records_never_count_toward_the_catalog(self):
         self.put('big', 'academic_programs', [{'program_key': f'p{i}', 'program_name': f'X {i}', 'credential_level': 'bachelor',
                                                'verification_status': 'partially_verified'} for i in range(10)])
@@ -1093,14 +1105,15 @@ class AutoReviewTests(unittest.TestCase):
                  self.req('g1', 'ok'), self.req('g2', 'ok', issues=['indented_rows_without_rule']), self.req('g3', 'ok', ext='smartcatalog_program/v1'),
                  self.req('g4', 'iss'), self.req('p1', 'ok', kind='program_plan', ext='courseleaf_plan/v1'),
                  self.prog('v1', 'Architecture (Foundation Unit) – BArch'), self.prog('v2', 'Architecture (Summer Design) – BArch'),
-                 self.prog('ba', 'Biology (BA)'), self.prog('bs', 'Biology (BS)')]
+                 self.prog('ba', 'Biology (BA)'), self.prog('bs', 'Biology (BS)'),
+                 self.prog('mba', 'Business Administration, M.B.A.'), self.prog('fin', 'Finance, B.S.B.A.'), self.prog('fin2', 'Finance, B.S.B.A. (Online Cohort)')]
         d = self.run_dir(cands, verify={'bad': ['program_name not verbatim']})
         old = A.catalog_records; A.catalog_records = lambda *a: []  # catalog records need a targets file; tested separately
         try: approve, cats, held = A.review('ZZ', d, today=date(2026, 10, 6))
         finally: A.catalog_records = old
-        self.assertEqual({a['candidate_id'] for a in approve}, {'ok', 'g1', 'p1', 'ba', 'bs'})
+        self.assertEqual({a['candidate_id'] for a in approve}, {'ok', 'g1', 'p1', 'ba', 'bs', 'fin'})
         self.assertEqual(held['issues'], 1); self.assertEqual(held['option_name'], 1); self.assertEqual(held['combined_program'], 1)
-        self.assertEqual(held['entry_path_variant'], 2)
+        self.assertEqual(held['entry_path_variant'], 3)
         self.assertEqual(held['not_verbatim'], 1); self.assertEqual(held['duplicate'], 1); self.assertEqual(held['req_program_not_approved'], 1)
 
 
@@ -1160,3 +1173,49 @@ class ListedProgramTests(unittest.TestCase):
         for n, base in (('Accounting, BS', 'Accounting'), ('Biology (B.S.)', 'Biology'), ('Art, BA, BFA', 'Art'),
                         ('Art, Media, and Design', 'Art, Media, and Design'), ('Economics: BA, BS', 'Economics')):
             self.assertEqual(X.strip_award(n), base)
+
+
+class CatalogFieldTests(unittest.TestCase):
+    def test_verified_listed_programs_bounds(self):
+        from backend.program_fields import field_errors
+        base = {'institution_key': 'k', 'academic_year': '2026-27', 'catalog_url': 'https://c.x.edu/', 'source_url': 'https://c.x.edu/l',
+                'listed_bachelor_programs': 10}
+        self.assertEqual(field_errors('program_catalogs', {**base, 'verified_listed_programs': 10}), [])
+        self.assertTrue(field_errors('program_catalogs', {**base, 'verified_listed_programs': 11}))
+        self.assertTrue(field_errors('program_catalogs', {**base, 'verified_listed_programs': True}))
+
+
+class CatalogOverwriteTests(unittest.TestCase):
+    def test_standing_review_count_never_replaces_a_reviewed_count(self):
+        from programs import promote as P
+        import pipeline.promote as PP
+        with tempfile.TemporaryDirectory() as d:
+            old, oldp = P.ROOT, PP.ROOT; P.ROOT = PP.ROOT = Path(d)
+            try:
+                f = Path(d) / 'data/institutions/x/program_catalogs'; f.mkdir(parents=True)
+                (f / '2026-27.json').write_text(json.dumps({'institution_key': 'k', 'academic_year': '2026-27', 'records': [
+                    {'listed_bachelor_programs': 37, 'notes': 'Reviewed 2026-10-06: Catalog-count review 2026-10-06: official current list page.'}]}))
+                cat = {'institution_key': 'k', 'catalog_url': 'https://c/', 'source_evidence': {'url': 'https://c/l', 'sha256': 's', 'fetched_at': '2026-10-06T00:00:00'},
+                       'listed_bachelor_programs': 72, 'reason': 'Standing review: official current-catalog program list pages.'}
+                self.assertEqual(P.apply_catalog(cat, {'k': 'x'}, {}, {}), 0)
+                self.assertEqual(json.loads((f / '2026-27.json').read_text())['records'][0]['listed_bachelor_programs'], 37)
+            finally:
+                P.ROOT, PP.ROOT = old, oldp
+
+
+class FolderOwnershipTests(unittest.TestCase):
+    def test_a_folder_two_registries_claim_receives_no_records(self):
+        from programs import promote as P
+        with tempfile.TemporaryDirectory() as d:
+            old = P.ROOT; P.ROOT = Path(d)
+            try:
+                (Path(d) / 'pipeline/registry').mkdir(parents=True)
+                (Path(d) / 'pipeline/registry/AA.json').write_text(json.dumps({'institutions': [{'institution_key': 'a', 'folder': 'tiu'}]}))
+                (Path(d) / 'pipeline/registry/BB.json').write_text(json.dumps({'institutions': [{'institution_key': 'b', 'folder': 'tiu'}]}))
+                with self.assertRaises(ValueError): P.check_folder_ownership({'a': 'tiu'})
+                f = Path(d) / 'data/institutions/tiu/costs'; f.mkdir(parents=True)
+                (f / '2026-27.json').write_text(json.dumps({'institution_key': 'a', 'records': []}))
+                P.check_folder_ownership({'a': 'tiu'})  # its own records are already there
+                with self.assertRaises(ValueError): P.check_folder_ownership({'b': 'tiu'})
+            finally:
+                P.ROOT = old

@@ -50,6 +50,26 @@ def _records(folder, domain, year):
     return json.loads(p.read_text()) if p.exists() else None
 
 
+def check_folder_ownership(folders):
+    """A data folder belongs to one institution across every committed state registry (pipeline/registry/*.json). A
+    target folder that another registry also gives to a different institution must not receive records (unless this
+    institution's records are already there): the national
+    registry decides folder names, and its disambiguation runs when a state's registry is regenerated."""
+    owners = {}
+    for p in sorted((ROOT / 'pipeline/registry').glob('*.json')):
+        for i in json.loads(p.read_text()).get('institutions', []):
+            owners.setdefault(i['folder'], set()).add(i['institution_key'])
+    def holder(f):  # the institution whose records are already in the folder, if any
+        for q in (ROOT / 'data/institutions' / f).glob('*/*.json'):
+            k = json.loads(q.read_text()).get('institution_key')
+            if k: return k
+        return None
+    clash = {k: f for k, f in folders.items() if owners.get(f, {k}) - {k} and holder(f) != k}
+    if clash:
+        raise ValueError(f'target folders owned by other institutions in a committed registry: {clash}; '
+                         'regenerate the targets from the current registries')
+
+
 def promote(decisions_path: Path, log=print):
     d = json.loads(Path(decisions_path).read_text())
     run_dir = ROOT / d['run']
@@ -57,6 +77,9 @@ def promote(decisions_path: Path, log=print):
     targets = json.loads((ROOT / 'programs/targets' / f'{state}.json').read_text())
     folders = {t['institution_key']: t['folder'] for t in targets['institutions']}
     cands, ev = load_run(run_dir)
+    touched = {cands[a['candidate_id']]['institution_key'] for a in d.get('approve', []) if a['candidate_id'] in cands}
+    touched |= {x['institution_key'] for k in ('approve_programs', 'catalogs', 'fields', 'awards', 'merges') for x in d.get(k, []) if isinstance(x, dict) and x.get('institution_key')}
+    check_folder_ownership({k: f for k, f in folders.items() if k in touched})
     from pipeline.crawl import Run
     RUN_CTX['run'] = Run(run_dir)
     archive, written = {}, 0
@@ -234,12 +257,16 @@ def apply_award(aw, folders, archive):
 
 def apply_catalog(cat, folders, ev, archive):
     year = cat.get('academic_year', '2026-27')
+    old = _records(folders[cat['institution_key']], 'program_catalogs', year)
+    if str(cat.get('reason', '')).startswith('Standing review') and any(
+            'Catalog-count review' in (r.get('notes') or '') or 'Standing review' not in (r.get('notes') or '') for r in (old or {}).get('records', [])):
+        return 0  # a mechanical count never replaces a reviewed one
     status = cat.get('verification_status', 'verified')
     if status not in ('verified', 'partially_verified'): raise ValueError('catalog status must be verified or partially_verified')
     rec = {'institution_key': cat['institution_key'], 'academic_year': year, 'catalog_url': cat['catalog_url'],
            'source_url': cat['source_evidence']['url'], 'verification_status': status,
            'last_verified_at': cat['source_evidence']['fetched_at'][:10]}
-    for k in ('catalog_year_label', 'listed_bachelor_programs', 'programs_complete', 'completeness_basis', 'listed_program_keys'):
+    for k in ('catalog_year_label', 'listed_bachelor_programs', 'verified_listed_programs', 'programs_complete', 'completeness_basis', 'listed_program_keys'):
         if cat.get(k) is not None: rec[k] = cat[k]
     if cat.get('undeclared'):
         u = cat['undeclared']

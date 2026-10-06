@@ -47,6 +47,9 @@ def field_errors(domain, r):
         if r.get('catalog_url') and not str(r['catalog_url']).startswith('https://'): errs.append('catalog_url must use https://')
         n = r.get('listed_bachelor_programs')
         if n is not None and (isinstance(n, bool) or not isinstance(n, int) or n < 0): errs.append('invalid listed_bachelor_programs')
+        vl = r.get('verified_listed_programs')
+        if vl is not None and (isinstance(vl, bool) or not isinstance(vl, int) or vl < 0 or (isinstance(n, int) and vl > n)):
+            errs.append('verified_listed_programs must be an integer between 0 and listed_bachelor_programs')
         pc = r.get('programs_complete')
         if pc is not None and not isinstance(pc, bool): errs.append('programs_complete must be boolean or null')
         if pc is True:

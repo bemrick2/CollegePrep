@@ -38,7 +38,9 @@ TRUSTED_PROGRAMS = {'catalog_program/v1', 'coursedog_api/v1', 'coursedog_page/v1
                     'listed_program/v1'}
 OPTION = re.compile(r'\b(track|option|concentration|emphasis|specialization)\b', re.I)  # an option is not a program
 # combined and accelerated pathways into a graduate degree are not bachelor's programs of their own
-COMBINED = re.compile(r'\+|\b(accelerated|combined|dual|concurrent)\b|\b(B\.?[AS]\.?|BBA|B\.B\.A\.)\s*/\s*(M|J\.?D)|program for', re.I)
+COMBINED = re.compile(r'\+|\b(accelerated|combined|dual|concurrent|double)\b|\bwith\s+(an?\s+)?((?-i:M\.?\s?[A-Z]{1,4})\b|Master)|\b(B\.?[AS]\.?|BBA|B\.B\.A\.)\s*/\s*(M|J\.?D)|program for', re.I)
+# a graduate award inside a name ('Business Administration, M.B.A.') also contains 'B.A.' for the bachelor's pattern
+GRADUATE = re.compile(r'\bM\.\s?B\.\s?A\b|\bMBA\b|\bM\.\s?(A|S|Ed|F\.?A)\.|\bMaster|\bPh\.?\s?D\b|\bDoctor', re.I)
 TRUSTED_REQUIREMENTS = {('major', 'courselist_html/v1'), ('program_plan', 'courseleaf_plan/v1'), ('program_plan', 'acalog_plan/v1'),
                         ('program_plan', 'clearpath_plan/v1'), ('program_plan', 'program_map/v1')}
 
@@ -66,7 +68,8 @@ def review(state, run, today=None):
     # entry-path variants of one degree ('Architecture (Foundation Unit) – BArch' / '(Summer Design)') are held together
     from .extract import AWARDS
     drop = lambda m: '' if not AWARDS.fullmatch(m.group(1).strip()) else m.group(0)  # keep '(BS)', drop '(Summer Design)'
-    base = lambda c: re.sub(r'\s+', ' ', re.sub(r'\s*\(([^()]*)\)', drop, c['record'].get('program_name', ''))).strip().lower()
+    plain = lambda c: re.sub(r'\s+', ' ', re.sub(r'\s*\(([^()]*)\)', drop, c['record'].get('program_name', ''))).strip()
+    base = lambda c: plain(c).lower()  # the variant-free name is approved; '(Jeffco 2+SLU)' style variants are held
     variants = defaultdict(set)
     for c in cands:
         if c['domain'] == 'academic_programs': variants[(c['institution_key'], base(c))].add(c['record'].get('program_name'))
@@ -76,9 +79,10 @@ def review(state, run, today=None):
         u = (c['institution_key'], re.sub(r'(/index\.html?)?/?$', '', c['record'].get('program_url') or c['candidate_id']))
         why = ('untrusted_extractor' if c['extractor'] not in TRUSTED_PROGRAMS else 'issues' if c['issues'] else
                'not_verbatim' if verify.get(c['candidate_id']) else 'not_bachelor' if c['record'].get('credential_level') != 'bachelor' else
+               'graduate_name' if GRADUATE.search(c['record'].get('program_name', '')) else
                'option_name' if OPTION.search(c['record'].get('program_name', '')) else
                'combined_program' if COMBINED.search(c['record'].get('program_name', '')) else
-               'entry_path_variant' if len(variants[(c['institution_key'], base(c))]) > 1 else
+               'entry_path_variant' if len(variants[(c['institution_key'], base(c))]) > 1 and plain(c) != c['record'].get('program_name', '').strip() else
                'not_current_year' if not current_year(c, today_year) else 'duplicate' if k in seen or u in seen_url else None)
         if why: held[why] += 1; continue
         seen.add(k); seen_url.add(u); program_keys[c['institution_key']].add(k[1])
@@ -91,13 +95,17 @@ def review(state, run, today=None):
                'program_not_approved' if c['record'].get('program_key') not in program_keys[c['institution_key']] else None)
         if why: held['req_' + why] += 1; continue
         approve.append({'candidate_id': c['candidate_id'], 'reason': f"Standing review ({c['extractor']}): rows verbatim in the stored official page; passed the layout hold rules."})
-    catalogs = [c for c in catalog_records(state, run, lists, today_year)
+    approved_urls = defaultdict(set)
+    for a in approve:
+        c = next(x for x in cands if x['candidate_id'] == a['candidate_id'])
+        if c['domain'] == 'academic_programs': approved_urls[c['institution_key']].add(re.sub(r'(/index\.html?)?/?$', '', c['record'].get('program_url') or ''))
+    catalogs = [c for c in catalog_records(state, run, lists, today_year, approved_urls)
                 # a list that names fewer bachelor's programs than are verified, or lists majors without their award, cannot bound the count
                 if c['listed_bachelor_programs'] >= max(5, len(program_keys[c['institution_key']])) and not lists[c['institution_key']]['counts'].get('major_unlabeled_degree')]
     return approve, catalogs, held
 
 
-def catalog_records(state, run, lists, today_year):
+def catalog_records(state, run, lists, today_year, approved_urls=None):
     out = []
     manifest = {}
     for line in (Path(run) / 'manifest.jsonl').read_text().splitlines():
@@ -114,9 +122,10 @@ def catalog_records(state, run, lists, today_year):
         m = manifest.get(src)
         if not m: continue
         n = len({p['printed'].strip().lower() for p in progs})
+        on_list = {re.sub(r'(/index\.html?)?/?$', '', p['url']) for p in progs} & (approved_urls or {}).get(key, set())
         out.append({'institution_key': key, 'catalog_url': targets[key]['catalog']['home'], 'catalog_year_label': f'{y}-{y + 1}',
                     'source_evidence': {'url': src, 'sha256': m['sha256'], 'fetched_at': m['fetched_at']},
-                    'listed_bachelor_programs': n, 'programs_complete': False,
+                    'listed_bachelor_programs': n, 'verified_listed_programs': len(on_list), 'programs_complete': False,
                     'completeness_basis': (f'{n} distinct linked entries on the official {y}-{y + 1} program list pages print a bachelor\'s '
                                            'award (options, tracks and concentrations listed with an award are counted; unlinked lines are not). '
                                            'Not checked as complete.'),
