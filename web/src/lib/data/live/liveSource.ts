@@ -217,15 +217,22 @@ export class LiveSource implements DataSource {
       } catch {
         // keep the generic message
       }
-      if (ctx && ctx.status >= 400 && ctx.status < 500) throw new DataError(message, ctx.status === 403 ? 'forbidden' : 'invalid')
-      // Unreachable function: nothing was created server-side that we know of; fall back to a plain invitation.
-      if (input.code) return { code: input.code, emailed: false, reason: 'provider' }
-      const rows = await rpc<{ code: string; invitation_id: string; expires_at: string }[]>(this.sb, 'create_student_invitation', {
-        p_household: input.householdId,
-        p_student: input.studentId,
-        p_recipient_email: input.email,
-      })
-      return { code: rows[0]!.code, invitationId: rows[0]!.invitation_id, expiresAt: rows[0]!.expires_at, emailed: false, reason: 'provider' }
+      const missing = !ctx || ctx.status === 404
+      if (!missing && ctx.status >= 400 && ctx.status < 500) throw new DataError(message, ctx.status === 403 ? 'forbidden' : 'invalid')
+      // The email function is unreachable or not deployed: still give the parent a working invitation to copy.
+      if (input.code) return { code: input.code, emailed: false, reason: missing ? 'not_configured' : 'provider' }
+      const reason = missing ? ('not_configured' as const) : ('provider' as const)
+      try {
+        const rows = await rpc<{ code: string; invitation_id: string; expires_at: string }[]>(this.sb, 'create_student_invitation', {
+          p_household: input.householdId,
+          p_student: input.studentId,
+          p_recipient_email: input.email,
+        })
+        return { code: rows[0]!.code, invitationId: rows[0]!.invitation_id, expiresAt: rows[0]!.expires_at, emailed: false, reason }
+      } catch (e) {
+        if (e instanceof DataError && e.code !== 'unknown') throw e
+        return { code: await this.createInvitation(input.householdId, 'student', input.studentId), emailed: false, reason }
+      }
     }
     return data as InviteSendResult
   }
