@@ -13,6 +13,12 @@ const base: ActionInput = {
 }
 
 describe('parentActions', () => {
+  it('asks for the home state only when it is unknown and schools are saved', () => {
+    expect(parentActions({ ...base, homeStateKnown: false }).some((x) => x.key === 'home-state')).toBe(true)
+    expect(parentActions({ ...base, homeStateKnown: true }).some((x) => x.key === 'home-state')).toBe(false)
+    expect(parentActions({ ...base, homeStateKnown: false, schools: [] }).some((x) => x.key === 'home-state')).toBe(false)
+  })
+
   it('does not nag "behind" before practice has started', () => {
     const fresh = parentActions({ ...base, benchmarks: 0, behind: { done: 0, goal: 40, expected: 6 } })
     expect(fresh.some((x) => x.key === 'behind')).toBe(false)

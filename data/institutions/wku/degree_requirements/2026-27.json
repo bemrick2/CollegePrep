@@ -435,15 +435,19 @@
       "notes": "Reviewed 2026-10-02: Courseleaf catalog program page with printed 2026-2027 catalog year; groups and courses copied as printed; degree total from the printed plan total. Evidence: sources/pipeline/KY/2026-10-02-r2/evidence.json#039c9ac84ef3bf8d."
     },
     {
-      "last_verified_at": "2026-10-02",
-      "minimum_credits": 6,
+      "last_verified_at": "2026-10-05",
+      "minimum_credits": 49,
       "program_key": "visual-studies-bachelor-of-arts",
       "requirement_key": "studio-concentration-note-6-credit-hours-of-upper-level-discipline-specific-cour",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "concentration",
+        "source_section": "Studio Concentration — Note: 6 credit hours of upper-level, discipline-specific coursework cannot be duplicated across double majors in Art & Design",
         "concentration": "Studio Concentration — Note: 6 credit hours of upper-level, discipline-specific coursework cannot be duplicated across d",
+        "group_type": "choose_courses",
+        "choose_count": 2,
         "courses": [
           {
             "code": "ART 321",
@@ -834,14 +838,12 @@
             "title": "Capstone Seminar"
           }
         ],
-        "group_type": "all_required",
-        "rule_text": "Select two Upper-Level Art History Courses: 6 Required Capstone Course: 1 Total Hours 49",
-        "schema": "requirement_group/v1",
-        "source_section": "Studio Concentration — Note: 6 credit hours of upper-level, discipline-specific coursework cannot be duplicated across double majors in Art & Design"
+        "rule_text": "Select two Upper-Level Art History Courses: 6 Required Capstone Course: 1 Total Hours 49"
       },
       "source_url": "https://catalog.wku.edu/undergraduate/arts-letters/art/visual-studies-ba/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-02: Courseleaf catalog program page with printed 2026-2027 catalog year; groups and courses copied as printed; degree total from the printed plan total. Evidence: sources/pipeline/KY/2026-10-02-r2/evidence.json#4d5d1a3b4d538e60."
+      "verification_status": "unverified",
+      "notes": "Corrected 2026-10-05 (issue #95): The group prints \"Select two Upper-Level Art History Courses\" and a \"Required Capstone Course\" among its rows; the record called all 97 listed courses required (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/KY/2026-10-02-r2/evidence.json#4d5d1a3b4d538e60.",
+      "verification_correction_reason": "The group prints \"Select two Upper-Level Art History Courses\" and a \"Required Capstone Course\" among its rows; the record called all 97 listed courses required (issue #95). Held for review as a mixed required-and-choice group; the group minimum is the printed \"Total Hours 49\", not the \"6 credit hours\" in the heading note."
     },
     {
       "last_verified_at": "2026-10-02",
@@ -908,44 +910,48 @@
       "notes": "Reviewed 2026-10-02: Courseleaf catalog program page with printed 2026-2027 catalog year; groups and courses copied as printed; degree total from the printed plan total. Evidence: sources/pipeline/KY/2026-10-02-r2/evidence.json#94667f7d8c0d759d."
     },
     {
-      "last_verified_at": "2026-10-02",
+      "last_verified_at": "2026-10-05",
       "minimum_credits": 25,
       "program_key": "visual-studies-bachelor-of-arts",
       "requirement_key": "professional-education-requirements-an-additional-25-semester-hours-in-professio",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "major_core",
+        "source_section": "Professional Education Requirements — An additional 25 semester hours in Professional Education courses are required for state certification purposes.",
+        "group_type": "choose_courses",
+        "choose_count": 2,
         "courses": [
           {
             "code": "EDU 250",
-            "credits": 3,
-            "title": "Discover Teaching: Introduction to Teacher Education"
+            "title": "Discover Teaching: Introduction to Teacher Education",
+            "credits": 3
           },
           {
             "code": "PSY 310",
-            "credits": 3,
-            "title": "Educational Psychology: Development and Learning"
+            "title": "Educational Psychology: Development and Learning",
+            "credits": 3
           },
           {
             "code": "EDU 350",
-            "credits": 3,
-            "title": "Student Diversity and Differentiation"
+            "title": "Student Diversity and Differentiation",
+            "credits": 3
           },
           {
             "code": "EDU 360",
-            "credits": 3,
-            "title": "Behavior and Classroom Management in Education"
+            "title": "Behavior and Classroom Management in Education",
+            "credits": 3
           },
           {
             "code": "LTCY 497",
-            "credits": 0,
-            "title": "Literacy Competencies for Middle and High School Classroom Teachers"
+            "title": "Literacy Competencies for Middle and High School Classroom Teachers",
+            "credits": 0
           },
           {
             "code": "EDU 489",
-            "credits": 3,
-            "title": "Student Teaching Seminar"
+            "title": "Student Teaching Seminar",
+            "credits": 3
           },
           {
             "code": "ELED 490",
@@ -960,14 +966,12 @@
             "title": "Student Teaching"
           }
         ],
-        "group_type": "all_required",
-        "rule_text": "Choose two courses at 5 hours each: 10 Total Hours 25",
-        "schema": "requirement_group/v1",
-        "source_section": "Professional Education Requirements — An additional 25 semester hours in Professional Education courses are required for state certification purposes."
+        "rule_text": "Choose two courses at 5 hours each: 10 Total Hours 25"
       },
       "source_url": "https://catalog.wku.edu/undergraduate/arts-letters/art/visual-studies-ba/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-02: Courseleaf catalog program page with printed 2026-2027 catalog year; groups and courses copied as printed; degree total from the printed plan total. Evidence: sources/pipeline/KY/2026-10-02-r2/evidence.json#26d79b76e735d23d."
+      "verification_status": "unverified",
+      "notes": "Corrected 2026-10-05 (issue #95): The catalog lists six required courses and then \"Choose two courses at 5 hours each\" among ELED 490, SEC 490 and MGE 490; the record called all nine required (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/KY/2026-10-02-r2/evidence.json#26d79b76e735d23d.",
+      "verification_correction_reason": "The catalog lists six required courses and then \"Choose two courses at 5 hours each\" among ELED 490, SEC 490 and MGE 490; the record called all nine required (issue #95). Held for review as a mixed required-and-choice group."
     },
     {
       "last_verified_at": "2026-10-02",
@@ -1662,43 +1666,46 @@
       "notes": "Reviewed 2026-10-02: Courseleaf catalog program page with printed 2026-2027 catalog year; groups and courses copied as printed; degree total from the printed plan total. Evidence: sources/pipeline/KY/2026-10-02-r2/evidence.json#0980cf19ae796eff."
     },
     {
-      "last_verified_at": "2026-10-02",
+      "last_verified_at": "2026-10-05",
       "program_key": "legal-studies-bachelor-of-arts",
       "requirement_key": "program-requirements-36-hours-program-core-courses",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "major_core",
+        "source_section": "Program Requirements (36 hours) — Program Core Courses",
+        "group_type": "elective_pool",
         "courses": [
           {
             "code": "PS 220",
-            "credits": 3,
-            "title": "Judicial Process"
+            "title": "Judicial Process",
+            "credits": 3
           },
           {
             "code": "PLS 250",
-            "credits": 3,
-            "title": "Legal Research and Writing I"
+            "title": "Legal Research and Writing I",
+            "credits": 3
           },
           {
             "code": "PS 326",
-            "credits": 3,
-            "title": "Constitutional Law"
+            "title": "Constitutional Law",
+            "credits": 3
           },
           {
             "code": "HIST 445",
-            "credits": 3,
-            "title": "American Legal History to 1865"
+            "title": "American Legal History to 1865",
+            "credits": 3
           },
           {
             "code": "HIST 446",
-            "credits": 3,
-            "title": "American Legal History Since 1865"
+            "title": "American Legal History Since 1865",
+            "credits": 3
           },
           {
             "code": "LS 495",
-            "credits": 3,
-            "title": "Senior Seminar in Legal Studies"
+            "title": "Senior Seminar in Legal Studies",
+            "credits": 3
           },
           {
             "code": "SMC 301",
@@ -1933,14 +1940,13 @@
             "title": "International Organization and Law"
           }
         ],
-        "group_type": "all_required",
-        "rule_text": "Required Ethics course (choose one) 3 Required International/Comparative Elective course (choose one): 3 Required Business Elective (choose one): 3 Required Law and Justice Elective (choose one): 3 Unrestricted Electives (6 hours needed from at least two disciplines. 6 Total Hours 36",
-        "schema": "requirement_group/v1",
-        "source_section": "Program Requirements (36 hours) — Program Core Courses"
+        "rule_text": "Required Ethics course (choose one) 3 Required International/Comparative Elective course (choose one): 3 Required Business Elective (choose one): 3 Required Law and Justice Elective (choose one): 3 Unrestricted Electives (6 hours needed from at least two disciplines. 6 Total Hours 36"
       },
       "source_url": "https://catalog.wku.edu/undergraduate/arts-letters/history/legal-studies-ba/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-02: Courseleaf catalog program page with printed 2026-2027 catalog year; groups and courses copied as printed; degree total from the printed plan total. Evidence: sources/pipeline/KY/2026-10-02-r2/evidence.json#4457aa1801c0ac89."
+      "verification_status": "unverified",
+      "notes": "Corrected 2026-10-05 (issue #95): The group prints several \"(choose one)\" requirements (ethics, international/comparative, business, law and justice) and unrestricted electives; the record called all 64 listed courses required (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/KY/2026-10-02-r2/evidence.json#4457aa1801c0ac89.",
+      "minimum_credits": 36,
+      "verification_correction_reason": "The group prints several \"(choose one)\" requirements (ethics, international/comparative, business, law and justice) and unrestricted electives; the record called all 64 listed courses required (issue #95). Held for review as a mixed group."
     },
     {
       "last_verified_at": "2026-10-02",
@@ -2385,14 +2391,18 @@
       "notes": "Reviewed 2026-10-02: Courseleaf catalog program page with printed 2026-2027 catalog year; groups and courses copied as printed; degree total from the printed plan total. Evidence: sources/pipeline/KY/2026-10-02-r2/evidence.json#f0ba9962516478f6."
     },
     {
-      "last_verified_at": "2026-10-02",
-      "minimum_credits": 36,
+      "last_verified_at": "2026-10-05",
+      "minimum_credits": 15,
       "program_key": "film-bachelor-of-arts",
       "requirement_key": "program-requirements-36-hours",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "major_core",
+        "source_section": "Program Requirements (36 hours)",
+        "group_type": "choose_credits",
+        "choose_credits": 15,
         "courses": [
           {
             "code": "FILM 367",
@@ -2413,16 +2423,121 @@
           {
             "code": "ENG 365",
             "title": "Film Adaptation"
+          },
+          {
+            "code": "ENG/FILM 366",
+            "title": "History of Narrative Film"
+          },
+          {
+            "code": "ENG/FILM 465",
+            "title": "Film Genres"
+          },
+          {
+            "code": "ENG/FILM 466",
+            "title": "Film Theory"
+          },
+          {
+            "code": "BCOM 481",
+            "title": "Problems in Mass Communication"
+          },
+          {
+            "code": "PS 303",
+            "title": "Politics and Film"
+          },
+          {
+            "code": "ANTH 448",
+            "title": "Visual Anthropology"
+          },
+          {
+            "code": "ENG 295",
+            "title": "Popular Culture and Gender: Signs & Narratives"
+          },
+          {
+            "code": "FILM 382",
+            "title": "Film Production Workshop II"
+          },
+          {
+            "code": "FILM 394",
+            "title": "Film Animation"
+          },
+          {
+            "code": "FILM 450",
+            "title": "Feature Screenwriting"
+          },
+          {
+            "code": "FILM 482",
+            "title": "Film Production Workshop III"
+          },
+          {
+            "code": "FILM 486",
+            "title": "Film Capstone"
+          },
+          {
+            "code": "BCOM 266",
+            "title": "Basic Television Production"
+          },
+          {
+            "code": "BCOM 367",
+            "title": "Field Production"
+          },
+          {
+            "code": "BCOM 463",
+            "title": "Field Production II"
+          },
+          {
+            "code": "BCOM 466",
+            "title": "Television Directing"
+          },
+          {
+            "code": "BCOM 480",
+            "title": "Editing III"
+          },
+          {
+            "code": "VJP 131",
+            "title": "Fundamentals of Photography"
+          },
+          {
+            "code": "VJP 330",
+            "title": "Short Form Documentary"
+          },
+          {
+            "code": "VJP 430",
+            "title": "Advanced Short Form Documentary"
+          },
+          {
+            "code": "PERF 101",
+            "title": "Acting"
+          },
+          {
+            "code": "THEA/BCOM 303",
+            "title": "Acting for the Camera"
+          },
+          {
+            "code": "ENG 359",
+            "title": "Topics in Scriptwriting"
+          },
+          {
+            "code": "ANTH 449",
+            "title": "Ethnographic Video Production"
+          },
+          {
+            "code": "FILM 355",
+            "title": "Film Sound"
+          },
+          {
+            "code": "FILM 499",
+            "title": "Directed Study in Film"
+          },
+          {
+            "code": "FILM 489",
+            "title": "Thesis Development"
           }
         ],
-        "group_type": "all_required",
-        "rule_text": "Students must take an additional 15 credit hours from the following list of classes: 1 15",
-        "schema": "requirement_group/v1",
-        "source_section": "Program Requirements (36 hours)"
+        "rule_text": "Students must take an additional 15 credit hours from the following list of classes: 15 Total Hours 15"
       },
       "source_url": "https://catalog.wku.edu/undergraduate/arts-letters/media-communication/film-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-02: Courseleaf catalog program page with printed 2026-2027 catalog year; groups and courses copied as printed; degree total from the printed plan total. Evidence: sources/pipeline/KY/2026-10-02-r2/evidence.json#ca15996164db2cd5."
+      "notes": "Reviewed 2026-10-05 (issue #95): the table prints \"Students must take an additional 15 credit hours from the following list of classes\" above 32 courses and \"Total Hours 15\"; recorded as choose 15 credits from all 32 (the earlier record listed 5 and called them all required, with the parent heading's 36 hours as its minimum). Evidence: sources/pipeline/KY/2026-10-02-r2/evidence.json#ca15996164db2cd5."
     },
     {
       "last_verified_at": "2026-10-02",

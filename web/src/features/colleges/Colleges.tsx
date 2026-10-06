@@ -11,15 +11,33 @@ import { CollegesTabs } from './CollegesTabs'
 import { HomeStateControl } from './HomeStateControl'
 import { useHomeState } from '../../lib/homeState'
 import { pickCost, stateName } from '../../lib/engine/residency'
+import { useMeritReference } from './useMeritReference'
+import type { ReferenceScore } from '../../lib/engine/merit'
 
 const usd = (n: number | null | undefined) => (n == null ? null : n.toLocaleString(undefined, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }))
 const YEARS = ['2026-27', '2025-26']
 const MAX = MAX_SAVED_SCHOOLS
 
-const RESIDENCY_LABEL: Record<string, string> = { in_state: 'In-state', out_of_state: 'Out-of-state', not_applicable: 'All students', in_district: 'In-district' }
+const RESIDENCY_LABEL: Record<string, string> = {
+  in_state: 'In-state',
+  out_of_state: 'Out-of-state',
+  not_applicable: 'All students',
+  in_district: 'In-district',
+}
 const RES_ORDER: Record<string, number> = { in_district: 0, in_state: 1, not_applicable: 2, out_of_state: 3 }
-const POLICY_LABEL: Record<string, string> = { AP: 'AP', CLEP: 'CLEP', IB: 'IB', cambridge_international: 'Cambridge', dual_enrollment: 'Dual enrollment', statewide_dual_credit: 'Statewide dual credit', industry_certification: 'Industry certification' }
-const humanize = (k: string) => { const s = k.replace(/_/g, ' '); return s.charAt(0).toUpperCase() + s.slice(1) }
+const POLICY_LABEL: Record<string, string> = {
+  AP: 'AP',
+  CLEP: 'CLEP',
+  IB: 'IB',
+  cambridge_international: 'Cambridge',
+  dual_enrollment: 'Dual enrollment',
+  statewide_dual_credit: 'Statewide dual credit',
+  industry_certification: 'Industry certification',
+}
+const humanize = (k: string) => {
+  const s = k.replace(/_/g, ' ')
+  return s.charAt(0).toUpperCase() + s.slice(1)
+}
 const CONTROL_LABEL: Record<string, string> = { public: 'Public', private_nonprofit: 'Private nonprofit', private_for_profit: 'Private for-profit' }
 const DOMAIN_LABEL: Record<string, string> = {
   costs: 'Cost of attendance',
@@ -32,9 +50,9 @@ const DOMAIN_LABEL: Record<string, string> = {
   appeals: 'Aid appeals',
 }
 
-
 export function Colleges() {
-  const { source, mode } = useApp()
+  const { source, mode, activeStudent } = useApp()
+  const merit = useMeritReference(activeStudent?.id)
   const [year, setYear] = useState(YEARS[0]!)
   const saved = useSavedSchools()
   const keys = saved.keys
@@ -48,8 +66,15 @@ export function Colleges() {
     const t = setTimeout(() => setDebounced(query), 250)
     return () => clearTimeout(t)
   }, [query])
-  const results = useAsync(() => (debounced.trim().length >= 2 ? source.searchInstitutions(debounced) : Promise.resolve([] as InstitutionSearchHit[])), [source, debounced])
-  const cmp = useAsync(() => (keys.length ? source.compareInstitutions(keys, year) : Promise.resolve([] as InstitutionComparison[])), [source, keys.join(','), year])
+  const [stateFilter, setStateFilter] = useState('')
+  const results = useAsync(
+    () => (debounced.trim().length >= 2 ? source.searchInstitutions(debounced, stateFilter || undefined) : Promise.resolve([] as InstitutionSearchHit[])),
+    [source, debounced, stateFilter],
+  )
+  const cmp = useAsync(
+    () => (keys.length ? source.compareInstitutions(keys, year) : Promise.resolve([] as InstitutionComparison[])),
+    [source, keys.join(','), year],
+  )
 
   const add = (k: string) => {
     void saved.add(k)
@@ -58,18 +83,19 @@ export function Colleges() {
 
   const [showAll, setShowAll] = useState(false)
   const { homeState } = useHomeState()
-  const [stateFilter, setStateFilter] = useState('')
   const states = useMemo(() => [...new Set((suggestions.data ?? []).map((x) => x.state_code).filter((x): x is string => !!x))].sort(), [suggestions.data])
   // Four-year schools with a verified cost record first: the main path is direct admission to a four-year college.
   const featuredAll = useMemo(
     () =>
-      [...(suggestions.data ?? [])].filter((x) => !stateFilter || x.state_code === stateFilter).sort(
-        (a, b) =>
-          Number(b.level === 'four_year') - Number(a.level === 'four_year') ||
-          Number(b.state_code === homeState) - Number(a.state_code === homeState) ||
-          Number(!!b.domains?.includes('costs')) - Number(!!a.domains?.includes('costs')) ||
-          a.display_name.localeCompare(b.display_name),
-      ),
+      [...(suggestions.data ?? [])]
+        .filter((x) => !stateFilter || x.state_code === stateFilter)
+        .sort(
+          (a, b) =>
+            Number(b.level === 'four_year') - Number(a.level === 'four_year') ||
+            Number(b.state_code === homeState) - Number(a.state_code === homeState) ||
+            Number(!!b.domains?.includes('costs')) - Number(!!a.domains?.includes('costs')) ||
+            a.display_name.localeCompare(b.display_name),
+        ),
     [suggestions.data, stateFilter, homeState],
   )
   const featured = showAll ? featuredAll : featuredAll.slice(0, 12)
@@ -80,7 +106,9 @@ export function Colleges() {
         <div>
           <p className="text-sm text-ink-3">Colleges & cost</p>
           <h1 className="display text-[30px] font-semibold leading-tight text-ink md:text-[36px]">Compare schools</h1>
-          <p className="mt-1 max-w-2xl text-sm text-ink-2">Only verified records from official sources, for one academic year at a time. Blank means we haven't verified it yet — not that it doesn't exist.</p>
+          <p className="mt-1 max-w-2xl text-sm text-ink-2">
+            Only verified records from official sources, for one academic year at a time. Blank means we haven't verified it yet — not that it doesn't exist.
+          </p>
         </div>
         <div className="flex flex-wrap items-center gap-3">
           <CollegesTabs />
@@ -90,15 +118,36 @@ export function Colleges() {
 
       <Card className="p-4">
         <label htmlFor="school-search" className="text-sm font-semibold text-ink">
-          Add a school <span className="font-normal text-ink-3">({keys.length}/{MAX})</span>
+          Add a school{' '}
+          <span className="font-normal text-ink-3">
+            ({keys.length}/{MAX})
+          </span>
         </label>
         <div className="relative mt-1.5">
-          <input id="school-search" className={inputClass} placeholder="Search by name" value={query} onChange={(e) => setQuery(e.target.value)} disabled={keys.length >= MAX} autoComplete="off" role="combobox" aria-expanded={!!results.data?.length} aria-controls="school-results" />
+          <input
+            id="school-search"
+            className={inputClass}
+            placeholder="Search by name"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            disabled={keys.length >= MAX}
+            autoComplete="off"
+            role="combobox"
+            aria-expanded={!!results.data?.length}
+            aria-controls="school-results"
+          />
           {results.data && results.data.length > 0 && query.trim().length >= 2 && (
-            <ul id="school-results" role="listbox" className="absolute z-20 mt-1 max-h-72 w-full overflow-auto rounded-xl border border-line bg-surface shadow-lift">
+            <ul
+              id="school-results"
+              role="listbox"
+              className="absolute z-20 mt-1 max-h-72 w-full overflow-auto rounded-xl border border-line bg-surface shadow-lift"
+            >
               {results.data.map((r) => (
                 <li key={r.institution_key} role="option" aria-selected={false}>
-                  <button className="flex w-full items-center justify-between gap-2 px-4 py-2.5 text-left text-sm hover:bg-surface-2" onClick={() => add(r.institution_key)}>
+                  <button
+                    className="flex w-full items-center justify-between gap-2 px-4 py-2.5 text-left text-sm hover:bg-surface-2"
+                    onClick={() => add(r.institution_key)}
+                  >
                     <span className="font-semibold text-ink">{r.display_name}</span>
                     <span className="text-ink-3">{[r.city, r.state_code].filter(Boolean).join(', ')}</span>
                   </button>
@@ -112,7 +161,12 @@ export function Colleges() {
             <div className="flex flex-wrap items-center justify-between gap-2">
               <div className="text-xs font-semibold text-ink-3">Schools with verified {year} records</div>
               {states.length > 1 && (
-                <select aria-label="Filter by state" value={stateFilter} onChange={(e) => setStateFilter(e.target.value)} className="h-8 rounded-lg border border-line-strong bg-surface px-2 text-xs font-semibold">
+                <select
+                  aria-label="Filter by state"
+                  value={stateFilter}
+                  onChange={(e) => setStateFilter(e.target.value)}
+                  className="h-8 rounded-lg border border-line-strong bg-surface px-2 text-xs font-semibold"
+                >
                   <option value="">All states ({states.length})</option>
                   {states.map((st) => (
                     <option key={st} value={st}>
@@ -126,7 +180,12 @@ export function Colleges() {
               {featured
                 .filter((f) => !keys.includes(f.institution_key))
                 .map((f) => (
-                  <button key={f.institution_key} disabled={keys.length >= MAX} onClick={() => add(f.institution_key)} className="rounded-full border border-line-strong bg-surface px-3 py-1 text-xs font-semibold text-ink-2 hover:bg-surface-2 disabled:opacity-40">
+                  <button
+                    key={f.institution_key}
+                    disabled={keys.length >= MAX}
+                    onClick={() => add(f.institution_key)}
+                    className="rounded-full border border-line-strong bg-surface px-3 py-1 text-xs font-semibold text-ink-2 hover:bg-surface-2 disabled:opacity-40"
+                  >
                     + {f.display_name}
                   </button>
                 ))}
@@ -139,8 +198,14 @@ export function Colleges() {
           </div>
         )}
         <HomeStateControl className="mt-3" />
-        {saved.error && <Notice tone="bad" className="mt-3">{saved.error}</Notice>}
-        {mode === 'demo' && <p className="mt-3 text-xs text-ink-3">Demo uses a snapshot of verified records captured 2 Oct 2026. Signed-in accounts read the live database.</p>}
+        {saved.error && (
+          <Notice tone="bad" className="mt-3">
+            {saved.error}
+          </Notice>
+        )}
+        {mode === 'demo' && (
+          <p className="mt-3 text-xs text-ink-3">Demo uses a snapshot of verified records captured 2 Oct 2026. Signed-in accounts read the live database.</p>
+        )}
       </Card>
 
       {keys.length === 0 ? (
@@ -156,20 +221,46 @@ export function Colleges() {
       ) : (
         <>
           <div className="flex flex-wrap items-center gap-3 text-sm">
-            <span className="font-semibold text-ink">Years to degree <span className="font-normal text-ink-3">(your assumption)</span></span>
-            <Segmented label="Years to degree" value={years} onChange={setYearsInSchool} options={[3, 3.5, 4, 5].map((y) => ({ value: y, label: String(y) }))} />
+            <span className="font-semibold text-ink">
+              Years to degree <span className="font-normal text-ink-3">(your assumption)</span>
+            </span>
+            <Segmented
+              label="Years to degree"
+              value={years}
+              onChange={setYearsInSchool}
+              options={[3, 3.5, 4, 5].map((y) => ({ value: y, label: String(y) }))}
+            />
             <span className="text-xs text-ink-3">
               Exam and dual-enrollment credit can shorten a degree when it covers required courses.{' '}
-              <Link to="/colleges/paths" className="font-semibold text-brand hover:underline">See paths</Link>
+              <Link to="/colleges/paths" className="font-semibold text-brand hover:underline">
+                See paths
+              </Link>
             </span>
           </div>
-          <div className={cx('grid gap-4', keys.length > 1 && 'md:grid-cols-2', keys.length === 3 && 'xl:grid-cols-3', keys.length === 4 && 'xl:grid-cols-4', keys.length >= 5 && 'xl:grid-cols-3', 'items-start')}>
+          <div
+            className={cx(
+              'grid gap-4',
+              keys.length > 1 && 'md:grid-cols-2',
+              keys.length === 3 && 'xl:grid-cols-3',
+              keys.length === 4 && 'xl:grid-cols-4',
+              keys.length >= 5 && 'xl:grid-cols-3',
+              'items-start',
+            )}
+          >
             {cmp.data!.map((c) => (
-              <SchoolColumn key={c.institution_key} c={c} years={years} onRemove={() => void saved.remove(c.institution_key)} />
+              <SchoolColumn
+                key={c.institution_key}
+                c={c}
+                years={years}
+                reference={merit.reference}
+                exam={merit.exam}
+                onRemove={() => void saved.remove(c.institution_key)}
+              />
             ))}
           </div>
           <Notice tone="neutral" title="How to read this">
-            Totals are each school's published cost of attendance multiplied by years to degree, at {year} prices. They are sticker prices: before grants, scholarships and future price changes. Net price depends on your family's finances — use each school's net price calculator.
+            Totals are each school's published cost of attendance multiplied by years to degree, at {year} prices. They are sticker prices: before grants,
+            scholarships and future price changes. Net price depends on your family's finances — use each school's net price calculator.
           </Notice>
         </>
       )}
@@ -177,7 +268,19 @@ export function Colleges() {
   )
 }
 
-function SchoolColumn({ c, years, onRemove }: { c: InstitutionComparison; years: number; onRemove: () => void }) {
+function SchoolColumn({
+  c,
+  years,
+  onRemove,
+  reference,
+  exam,
+}: {
+  c: InstitutionComparison
+  years: number
+  onRemove: () => void
+  reference: ReferenceScore | null
+  exam: 'act' | 'sat'
+}) {
   const inst = c.institution
   const costs = [...((c.domains.costs ?? []) as unknown as CostRecord[])].sort((a, b) => (RES_ORDER[a.residency] ?? 9) - (RES_ORDER[b.residency] ?? 9))
   const awards = (c.domains.awards ?? []) as Record<string, unknown>[]
@@ -197,9 +300,15 @@ function SchoolColumn({ c, years, onRemove }: { c: InstitutionComparison; years:
       <div className="flex items-start gap-3 border-b border-line p-5">
         <div className="min-w-0 flex-1">
           <h2 className="display text-xl font-semibold leading-tight text-ink">{inst?.display_name ?? c.institution_key}</h2>
-          <p className="mt-0.5 text-sm text-ink-3">{inst ? [inst.city, inst.state_code, inst.control && CONTROL_LABEL[inst.control]].filter(Boolean).join(' · ') : 'Not found'}</p>
+          <p className="mt-0.5 text-sm text-ink-3">
+            {inst ? [inst.city, inst.state_code, inst.control && CONTROL_LABEL[inst.control]].filter(Boolean).join(' · ') : 'Not found'}
+          </p>
         </div>
-        <button onClick={onRemove} className="grid h-8 w-8 place-items-center rounded-full text-ink-3 hover:bg-surface-2 hover:text-ink" aria-label={`Remove ${inst?.display_name ?? c.institution_key}`}>
+        <button
+          onClick={onRemove}
+          className="grid h-8 w-8 place-items-center rounded-full text-ink-3 hover:bg-surface-2 hover:text-ink"
+          aria-label={`Remove ${inst?.display_name ?? c.institution_key}`}
+        >
           <X size={16} />
         </button>
       </div>
@@ -215,14 +324,21 @@ function SchoolColumn({ c, years, onRemove }: { c: InstitutionComparison; years:
               <>
                 {costs.length > 1 && (
                   <div className="mb-3">
-                    <Segmented label="Residency" value={residency} onChange={setResidency} options={costs.map((x) => ({ value: x.residency, label: RESIDENCY_LABEL[x.residency] ?? x.residency }))} />
+                    <Segmented
+                      label="Residency"
+                      value={residency}
+                      onChange={setResidency}
+                      options={costs.map((x) => ({ value: x.residency, label: RESIDENCY_LABEL[x.residency] ?? x.residency }))}
+                    />
                   </div>
                 )}
                 {cost && (
                   <>
                     <div className="flex items-baseline justify-between gap-2">
                       <span className="text-sm text-ink-2">Per year</span>
-                      <span className="display text-2xl font-semibold tabular text-ink">{usd(cost.total_cost_of_attendance) ?? <span className="text-base text-ink-3">Total not published</span>}</span>
+                      <span className="display text-2xl font-semibold tabular text-ink">
+                        {usd(cost.total_cost_of_attendance) ?? <span className="text-base text-ink-3">Total not published</span>}
+                      </span>
                     </div>
                     {cost.total_cost_of_attendance != null && (
                       <div className="mt-1 flex items-baseline justify-between gap-2">
@@ -248,11 +364,17 @@ function SchoolColumn({ c, years, onRemove }: { c: InstitutionComparison; years:
             {!adm ? (
               <Missing />
             ) : (
-              <dl className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
-                <Row k="ACT" text={adm.act_25 != null ? `${adm.act_25}–${adm.act_75}` : null} />
-                <Row k="SAT" text={adm.sat_25 != null ? `${adm.sat_25}–${adm.sat_75}` : null} />
-                <Row k="Admit rate" text={typeof adm.admit_rate === 'number' ? `${Math.round(adm.admit_rate <= 1 ? adm.admit_rate * 100 : adm.admit_rate)}%` : null} />
-              </dl>
+              <>
+                <dl className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
+                  <Row k="ACT" text={adm.act_25 != null ? `${adm.act_25}–${adm.act_75}` : null} />
+                  <Row k="SAT" text={adm.sat_25 != null ? `${adm.sat_25}–${adm.sat_75}` : null} />
+                  <Row
+                    k="Admit rate"
+                    text={typeof adm.admit_rate === 'number' ? `${Math.round(adm.admit_rate <= 1 ? adm.admit_rate * 100 : adm.admit_rate)}%` : null}
+                  />
+                </dl>
+                {reference && <RangeNote reference={reference} exam={exam} lo={adm[`${exam}_25`] as number | null} hi={adm[`${exam}_75`] as number | null} />}
+              </>
             )}
           </Section>
 
@@ -266,7 +388,9 @@ function SchoolColumn({ c, years, onRemove }: { c: InstitutionComparison; years:
                     <a href={String(a.source_url)} target="_blank" rel="noreferrer" className="font-semibold text-ink hover:underline">
                       {String(a.award_name)}
                     </a>
-                    <p className="line-clamp-2 text-xs text-ink-3">{a.award_amount_text ? String(a.award_amount_text) : usd(a.award_max as number) ?? 'Amount not published'}</p>
+                    <p className="line-clamp-2 text-xs text-ink-3">
+                      {a.award_amount_text ? String(a.award_amount_text) : (usd(a.award_max as number) ?? 'Amount not published')}
+                    </p>
                   </li>
                 ))}
                 {awards.length > 5 && <li className="text-xs text-ink-3">+{awards.length - 5} more verified awards</li>}
@@ -308,7 +432,8 @@ function SchoolColumn({ c, years, onRemove }: { c: InstitutionComparison; years:
 
           {c.missing_domains.length > 0 && (
             <div className="p-5 text-xs text-ink-3">
-              <Info size={14} className="mr-1 inline" /> Not yet verified for {c.academic_year}: {c.missing_domains.map((d) => DOMAIN_LABEL[d] ?? d).join(', ')}.
+              <Info size={14} className="mr-1 inline" /> Not yet verified for {c.academic_year}: {c.missing_domains.map((d) => DOMAIN_LABEL[d] ?? d).join(', ')}
+              .
             </div>
           )}
           {inst?.net_price_calculator_url && (
@@ -322,7 +447,19 @@ function SchoolColumn({ c, years, onRemove }: { c: InstitutionComparison; years:
   )
 }
 
-function Section({ title, children, source, verified, count }: { title: string; children: React.ReactNode; source?: string | null; verified?: string | null; count?: number }) {
+function Section({
+  title,
+  children,
+  source,
+  verified,
+  count,
+}: {
+  title: string
+  children: React.ReactNode
+  source?: string | null
+  verified?: string | null
+  count?: number
+}) {
   return (
     <section className="p-5">
       <div className="mb-2 flex items-baseline justify-between gap-2">
@@ -331,7 +468,13 @@ function Section({ title, children, source, verified, count }: { title: string; 
           {count ? ` · ${count}` : ''}
         </h3>
         {source && (
-          <a href={source} target="_blank" rel="noreferrer" className="text-[11px] font-semibold text-ink-3 hover:text-ink hover:underline" title={verified ? `Verified ${formatShortDate(verified)}` : undefined}>
+          <a
+            href={source}
+            target="_blank"
+            rel="noreferrer"
+            className="text-[11px] font-semibold text-ink-3 hover:text-ink hover:underline"
+            title={verified ? `Verified ${formatShortDate(verified)}` : undefined}
+          >
             Source{verified ? ` · ${formatShortDate(verified)}` : ''} ↗
           </a>
         )}
@@ -353,4 +496,18 @@ function Row({ k, v, text }: { k: string; v?: number | null; text?: string | nul
 
 function Missing() {
   return <p className="text-sm italic text-ink-3">No verified record yet</p>
+}
+
+/** Where the student's target or official score sits against the published middle 50% of admitted students.
+ *  A comparison of two published/entered numbers, never an admission prediction. */
+function RangeNote({ reference, exam, lo, hi }: { reference: ReferenceScore; exam: 'act' | 'sat'; lo: number | null; hi: number | null }) {
+  if (lo == null || hi == null) return null
+  const v = reference.value
+  const where = v < lo ? 'below' : v > hi ? 'above' : 'within'
+  const whose = reference.basis === 'target' ? 'Target' : reference.basis === 'official' ? 'Official score' : 'Self-reported score'
+  return (
+    <p className="mt-2 text-xs text-ink-2">
+      {whose} {v} is <span className="font-semibold text-ink">{where}</span> the middle 50% ({lo}–{hi} {exam.toUpperCase()}). Not an admission prediction.
+    </p>
+  )
 }
