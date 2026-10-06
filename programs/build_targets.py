@@ -170,6 +170,24 @@ ADMISSION_PAGES={'OR':{
 },'TN':{}}
 for st,conf in (('TN',TN),('OR',OR)):
     for k,v in ADMISSION_PAGES[st].items(): conf[k]['policy']=conf[k].get('policy',[])+[u for u in v if u not in conf[k].get('policy',[])]
+# Official catalog and scope pages for discover-mode institutions (catalog PDFs, closure notices, bachelor's entry rules),
+# located by review 2026-10-06. Fetched as policy pages so the queue cites stored documents.
+SCOPE_PAGES={'OR':{
+ 'corban':['https://www.corban.edu/registrar/catalog/','https://media.corban.edu/hydra/media/files/2026/07/02/2026-2027-academic-catalog_final.pdf','https://www.corban.edu/academics/majors-programs/'],
+ 'bushnell':['https://bushnell.edu/wp-content/uploads/2026/08/26-27-Bushnell-University-Academic-Catalog-FINAL.pdf','https://bushnell.edu/undergraduate-academics/'],
+ 'warnerpacific-210304':['https://www.warnerpacific.edu/wp-content/uploads/2026/08/catalog_2026_27_WPU_web.pdf'],
+ 'warnerpacific-480198':['https://www.warnerpacific.edu/wp-content/uploads/2026/08/catalog_2026_27_WPU_web.pdf',
+                         'https://www.warnerpacific.edu/admissions-aid/admission-requirements/adult-degree-admission-requirements/'],
+ 'multnomah':['https://www.multnomah.edu/','https://www.multnomah.edu/closure-2024/','https://www.multnomah.edu/closure-2025/'],
+ 'newhope':['https://newhope.edu/academics/','https://www.newhope.edu/wp-content/uploads/2023/09/2023-2024-Academic-Catalog.pdf'],
+ 'pacificbible':['https://pacificbible.edu/catalog','https://pacificbible.edu/faq'],
+ 'mountangelabbey':['https://www.mountangelabbey.org/wp-content/uploads/Mount-Angel-Seminary-Academic-Catalog-2026-2027.pdf','https://www.mountangelabbey.org/seminary/admissions/'],
+ 'chemeketa':['https://chemeketa.edu/programs-classes/program-finder/leadership-management/'],
+ 'mhcc':['https://catalog.mhcc.edu/degree-certificate-requirements/bachelor-of-applied-science/cybersecurity/',
+         'https://www.mhcc.edu/education-options/degrees-certificates/cybersecurity/bachelor-applied-science-cybersecurity/get-started'],
+ 'willamette':['https://pnca.willamette.edu/academics/bfa','https://catalog.willamette.edu/programs/BFA.IM/general-aoYks'],
+},'TN':{}}
+SCOPE_HOSTS={'pacificbible':['cdn.prod.website-files.com']}
 TYPE_PATH={'lmunet':{'url':'https://undergraduatecatalog.lmunet.edu/degrees','home':'https://undergraduatecatalog.lmunet.edu/'}}
 for st,conf in (('TN',TN),('OR',OR)):
     r=reg(st); out=[]
@@ -177,11 +195,13 @@ for st,conf in (('TN',TN),('OR',OR)):
         i=r[folder]; out.append({'institution_key':i['institution_key'],'folder':folder,'name':i['name'],'control':i['control'],
           'domains':sorted(set(i['allowed_domains'])),'hosts':sorted({h for h in [c['catalog']['home'].split('/')[2]] if 'smartcatalogiq' in h or 'kuali' in h} | ({'catalog.oregonstate.edu','admissions.oregonstate.edu','business.oregonstate.edu'} if folder=='osucascades' else set())
           | ({'coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com'} if c['catalog'].get('platform')=='coursedog' else set())),'mode':'catalog',**c})
-    for folder in DISCOVER[st]:
+    # every in-scope four-year institution is a target: unconfigured ones are discovered first
+    for folder in DISCOVER[st]+sorted(f for f in r if f not in conf and f not in DISCOVER[st]):
         i=r[folder]; d=i['domain']
         out.append({'institution_key':i['institution_key'],'folder':folder,'name':i['name'],'control':i['control'],'domains':sorted(set(i['allowed_domains'])),'hosts':[],
-          'mode':'discover','priority':PRI.get(folder,3),'discover':[i['seeds']['website'],f'https://catalog.{d}/']+EXTRA_DISCOVER.get(folder,[]),'policy':[]})
-        out[-1]['hosts']=HOSTS.get(folder,[])
+          'mode':'discover','priority':PRI.get(folder,3),'discover':[i['seeds']['website'],f'https://catalog.{d}/']+EXTRA_DISCOVER.get(folder,[]),
+          'policy':SCOPE_PAGES[st].get(folder,[])})
+        out[-1]['hosts']=HOSTS.get(folder,[])+SCOPE_HOSTS.get(folder,[])
         if folder in TYPE_PATH: out[-1]['type_path_list']=TYPE_PATH[folder]
     out.sort(key=lambda t:(t['priority'],t['name']))
     doc={'state':st,'purpose':'Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. '
