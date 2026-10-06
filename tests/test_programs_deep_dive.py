@@ -1177,3 +1177,21 @@ class CatalogFieldTests(unittest.TestCase):
         self.assertEqual(field_errors('program_catalogs', {**base, 'verified_listed_programs': 10}), [])
         self.assertTrue(field_errors('program_catalogs', {**base, 'verified_listed_programs': 11}))
         self.assertTrue(field_errors('program_catalogs', {**base, 'verified_listed_programs': True}))
+
+
+class CatalogOverwriteTests(unittest.TestCase):
+    def test_standing_review_count_never_replaces_a_reviewed_count(self):
+        from programs import promote as P
+        import pipeline.promote as PP
+        with tempfile.TemporaryDirectory() as d:
+            old, oldp = P.ROOT, PP.ROOT; P.ROOT = PP.ROOT = Path(d)
+            try:
+                f = Path(d) / 'data/institutions/x/program_catalogs'; f.mkdir(parents=True)
+                (f / '2026-27.json').write_text(json.dumps({'institution_key': 'k', 'academic_year': '2026-27', 'records': [
+                    {'listed_bachelor_programs': 37, 'notes': 'Reviewed 2026-10-06: Catalog-count review 2026-10-06: official current list page.'}]}))
+                cat = {'institution_key': 'k', 'catalog_url': 'https://c/', 'source_evidence': {'url': 'https://c/l', 'sha256': 's', 'fetched_at': '2026-10-06T00:00:00'},
+                       'listed_bachelor_programs': 72, 'reason': 'Standing review: official current-catalog program list pages.'}
+                self.assertEqual(P.apply_catalog(cat, {'k': 'x'}, {}, {}), 0)
+                self.assertEqual(json.loads((f / '2026-27.json').read_text())['records'][0]['listed_bachelor_programs'], 37)
+            finally:
+                P.ROOT, PP.ROOT = old, oldp
