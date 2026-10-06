@@ -446,6 +446,43 @@ Institutions in scope: **45** · crawled: **33** · blocked by site: **12** · r
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-158431`, `ipeds-159009`, `ipeds-159939`, `ipeds-160579`, `ipeds-160621`, `ipeds-160630`, `ipeds-160649`, `ipeds-160667`, `ipeds-434061`, `ipeds-440271`, `ipeds-483212`, `ipeds-490498`
 
+## MA — 2026-27
+
+Institutions in scope: **90** · crawled: **82** · blocked by site: **8** · run: `pipeline/runs/MA/2026-10-06`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 0 (0%) | 0 | 47 (52%) | 77 (86%) | 5 | 8 |
+| cost_of_attendance | 0 (0%) | 0 | 18 (20%) | 75 (83%) | 7 | 8 |
+| admissions_tests | 0 (0%) | 0 | 2 (2%) | 76 (84%) | 6 | 8 |
+| common_data_set | 0 (0%) | 0 | 2 (2%) | 12 (13%) | 70 | 8 |
+| merit_scholarships | 0 (0%) | 0 | 4 (4%) | 79 (88%) | 3 | 8 |
+| ap_credit | 0 (0%) | 0 | 12 (13%) | 39 (43%) | 43 | 8 |
+| clep_credit | 0 (0%) | 0 | 9 (10%) | 25 (28%) | 57 | 8 |
+| ib_credit | 0 (0%) | 0 | 7 (8%) | 23 (26%) | 59 | 8 |
+| dual_enrollment | 0 (0%) | 0 | 9 (10%) | 38 (42%) | 44 | 8 |
+| transfer_credit | 0 (0%) | 0 | 23 (26%) | 72 (80%) | 10 | 8 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 31 (34%) | 51 | 8 |
+| residency | 0 (0%) | 0 | 0 (0%) | 36 (40%) | 46 | 8 |
+| degree_requirements | 0 (0%) | 0 | 1 (1%) | 58 (64%) | 24 | 8 |
+| aid_appeals | 0 (0%) | 0 | 46 (51%) | 57 (63%) | 25 | 8 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 27 |
+| blocked requests | 161 |
+| candidates | 541 |
+| conflicts | 115 |
+| documents | 5773 |
+| extraction failures | 0 |
+| fetch errors | 249 |
+| fetches | 6183 |
+| ready | 234 |
+| semantic review | 155 |
+| stale sources | 135 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-164465`, `ipeds-165015`, `ipeds-165112`, `ipeds-165644`, `ipeds-166489`, `ipeds-166957`, `ipeds-167057`, `ipeds-168342`
+
 ## MD — 2026-27
 
 Institutions in scope: **46** · crawled: **42** · blocked by site: **4** · run: `pipeline/runs/MD/2026-10-06`
