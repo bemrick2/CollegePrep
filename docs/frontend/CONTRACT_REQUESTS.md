@@ -19,7 +19,7 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-11 | Numeric test minimums on awards | ⏳ open | Single minimums parsed from `test_requirement` text; ranges/tiers shown as "read criteria" |
 | CR-12 | Primary target school | ⏳ open | Designed and working in demo; hidden in live (`supportsPrimarySchool = false`), no client stand-in |
 | CR-13 | Major certainty and saved interests | ⏳ open | Asked in onboarding and on Explore majors; kept in this browser |
-| CR-14 | Structured program, admission and degree-path fields | ⏳ open | Program match by name; admission/transfer/undeclared shown as unverified questions; progression text quoted |
+| CR-14 | Structured program, admission and degree-path fields | 🚧 schema in PR #89, data in #91/#92 | Program match by name; admission/transfer/undeclared shown as unverified questions; progression text quoted |
 | CR-15 | Household home state | ⏳ open | Asked (optional) in onboarding and on cost screens; kept in this browser; labelled as the family's answer |
 | CR-16 | Household subscription entitlement | ⏳ open | No billing UI; apps and web will read one entitlement record (see docs/product/APP_DISTRIBUTION_AND_PAYMENTS.md) |
 
@@ -186,6 +186,17 @@ Read: household members with `view_progress`. Write: the linked student and guar
 - shared first-year courses, where two published maps exist
 
 Everything else is shown as a question to ask the school.
+
+**Backend response (Program & Degree Deep Dive, PR #89).** Migration `20261005150000_program_depth_cr14`:
+- Items 1–3 are columns on `academic_programs` and so appear in `compare_institutions` → `domains.academic_programs`:
+  - `cip_code` + `cip_source_url`
+  - `admission_type` + `admission_details {quote, source_url, source_sha256, criteria_text?, gpa_min?, paths?}`. `paths` lists a selective first-year path beside the standard one.
+  - `internal_transfer {restricted, quote, source_url, criteria_text?, gpa_min?}`
+  - `college`
+- Items 4 and 7 come from `program_catalog_status(keys, year)`, which returns one `program_catalogs` row per school and year: `programs_complete`, `listed_bachelor_programs`, `completeness_basis` and `undeclared_policy {allowed, quote, source_url, declare_by_text?}`. When `programs_complete` is not true, show "not in our verified list".
+- Item 6: `institutional_awards.program_keys` / `cip_codes`.
+- Item 5 (per-program credit applicability) is not modelled yet. Printed sample plans (`requirement_kind = 'program_plan'`) carry course codes per term.
+- **Partially verified state-inventory records.** Some Tennessee programs come from the THEC Academic Program Inventory: active state-approved programs with CIP, but no year label. They are `partially_verified`, so `compare_institutions` does not return them.
 
 ## CR-15. Household home state
 
