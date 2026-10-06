@@ -67,6 +67,14 @@ MUTS = [
     ('programs/promote.py', "        return 0  # a mechanical count never replaces a reviewed one", "        pass"),
     ('programs/promote.py', "    clash = {k: f for k, f in folders.items() if owners.get(f, {k}) - {k} and holder(f) != k}", "    clash = {}"),
     ('programs/status.py', "    reviewed = [c for c in cats if 'Standing review' not in (c.get('notes') or '')]", "    reviewed = cats"),
+    # one program name on several pages: only the base page's record and requirement rows
+    ('programs/autoreview.py', "               'variant_page' if url_of(c, 'program_url') in variant_pages else", ""),
+    ('programs/autoreview.py', "               'variant_page' if url_of(c, 'source_url') in variant_pages else", ""),
+    ('programs/autoreview.py', "    base = [b for b in stems if all(o == b or o.startswith(b + '-') for o in stems)]", "    base = sorted(stems)[:1]"),
+    ('programs/autoreview.py', "    url = re.sub(r'/general-[A-Za-z0-9]+$', '', url)", "    pass"),
+    # Stetson: a not-yet-posted catalog PDF slot is not the page's label; a four-digit 'Edition' label is read
+    ('programs/extract.py', "        if any(re.match(r'\\s*coming soon\\b', l, re.I) for l in lines[i + 1:i + 3] if l.strip()): continue", "        pass"),
+    ('programs/extract.py', "EDITION = re.compile(r'(20\\d{2})\\s*[-–]\\s*(?:20)?(\\d{2})\\s+Edition', re.I)", "EDITION = re.compile(r'(20\\d{2})\\s*[-–]\\s*(\\d{2})\\s+Edition', re.I)"),
 ]
 
 

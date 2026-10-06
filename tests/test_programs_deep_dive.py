@@ -436,6 +436,14 @@ class StatedMajorTests(unittest.TestCase):
         p = T.Page('Catalog 2026-2027\nPDF of the entire 2025-2026 Catalog\nDownload PDF of the entire 2024-2025 Bulletin', 't', [], [], [])
         self.assertEqual({y for y, _ in X.printed_catalog_years(p)}, {'2026-2027'})
 
+    def test_stetson_edition_header_and_coming_soon_pdf_slot(self):
+        from pipeline import text as T
+        # Stetson 2026-27: '2026-2027 Edition' heads the page; the print menu offers a not-yet-posted PDF of last year's catalog
+        p = T.Page('2026-2027 Edition\nBachelor of Science in Biology\nDownload Page (PDF)\n2025-2026 Academic Catalog\nComing Soon!!!', 't', [], [], [])
+        self.assertEqual({y for y, _ in X.printed_catalog_years(p)}, {'2026-2027'})
+        q = T.Page('2025-2026 Academic Catalog\nBachelor of Science in Biology', 't', [], [], [])
+        self.assertEqual({y for y, _ in X.printed_catalog_years(q)}, {'2025-2026'})  # a label in use still counts
+
 
 class MajorTableTests(unittest.TestCase):
     def test_marked_majors_with_catalog_award_statement(self):  # Lewis & Clark 2026-27
@@ -1115,6 +1123,32 @@ class AutoReviewTests(unittest.TestCase):
         self.assertEqual(held['issues'], 1); self.assertEqual(held['option_name'], 1); self.assertEqual(held['combined_program'], 1)
         self.assertEqual(held['entry_path_variant'], 3)
         self.assertEqual(held['not_verbatim'], 1); self.assertEqual(held['duplicate'], 1); self.assertEqual(held['req_program_not_approved'], 1)
+
+    def test_one_program_on_several_pages_comes_from_the_base_page(self):
+        from programs import autoreview as A
+        from datetime import date
+        U = 'https://catalog.x.edu/undergraduate/sci/'
+        def at(c, url, field='program_url'): c['record'][field] = url; return c
+        cands = [at(self.prog('b1', 'Biology, BS', key='bio'), U + 'biology/biology-bs-pre-professional/'),
+                 at(self.prog('b0', 'Biology, BS', key='bio'), U + 'biology/biology-bs/'),
+                 at(self.req('rb1', 'bio'), U + 'biology/biology-bs-pre-professional/', 'source_url'),
+                 at(self.req('rb0', 'bio'), U + 'biology/biology-bs/#courselist', 'source_url'),
+                 # tracks with no plain page: no record (Liberty's online tracks)
+                 at(self.prog('t1', 'Bible, BS', key='bible'), U + 'bible-major-bs/bible-bs-apologetics-online'),
+                 at(self.prog('t2', 'Bible, BS', key='bible'), U + 'bible-major-bs/bible-bs-exposition-online'),
+                 # department page and its award page; a cross-listed copy; a Coursedog default pathway: one page each
+                 at(self.prog('a1', 'Asian Studies (BA)', key='asia'), U + 'asian-studies'),
+                 at(self.prog('a2', 'Asian Studies (BA)', key='asia'), U + 'asian-studies-ba'),
+                 at(self.prog('x1', 'Dance, BA', key='dance'), 'https://catalog.x.edu/arts/dance-ba/'),
+                 at(self.prog('x2', 'Dance, BA', key='dance'), 'https://catalog.x.edu/ugrad/arts/dance-ba/'),
+                 at(self.prog('w1', 'Art (BA)', key='art'), 'https://catalog.x.edu/programs/BA.ART'),
+                 at(self.prog('w2', 'Art (BA)', key='art'), 'https://catalog.x.edu/programs/BA.ART/general-aoYks')]
+        d = self.run_dir(cands)
+        old = A.catalog_records; A.catalog_records = lambda *a: []
+        try: approve, cats, held = A.review('ZZ', d, today=date(2026, 10, 6))
+        finally: A.catalog_records = old
+        self.assertEqual({a['candidate_id'] for a in approve}, {'b0', 'rb0', 'a1', 'x1', 'w1'})
+        self.assertEqual(held['variant_page'], 3); self.assertEqual(held['req_variant_page'], 1); self.assertEqual(held['duplicate'], 3)
 
 
 class SitemapTests(unittest.TestCase):
