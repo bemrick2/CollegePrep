@@ -4,6 +4,15 @@ Status: **design and decision record, not legal advice.** Nothing here implement
 
 Tags: **[Certain]** = quoted from the store's own current text (checked 2026-10-05). **[Likely]** = from secondary sources or older knowledge; verify. **[Decision]** = a business choice we have to make.
 
+## Decision (2026-10-05)
+
+- **Web stays primary.** Marketing, onboarding and selling happen on the website.
+- **iOS offers the same household subscription through Apple In-App Purchase**, alongside the web purchase. This follows 3.1.3(b), so we don't rely on the 3.1.3(f) companion-app exception (flags A1/A2).
+- **No external checkout link inside iOS for now**, in any storefront, the US included.
+- **Our backend is the system of record for access.** A household's entitlement works the same whether payment came from the web, Apple or (later) Google. Apple and Google are payment sources that feed it, never the authority on access.
+- **Android keeps the same entitlement architecture.** No Google Play Billing purely for symmetry; add it only if Play policy requires it for the distribution approach we actually choose (flags G1–G3).
+- **Nothing is submitted to Apple yet.**
+
 ## Principles
 
 1. The **website** is where families learn about Prep & Price, create the household, choose a plan and pay (where permitted).
@@ -17,24 +26,50 @@ Tags: **[Certain]** = quoted from the store's own current text (checked 2026-10-
 |---|---|---|---|
 | Learn and compare | Landing page, sample family | — | — |
 | Create household and accounts | Yes (primary CTA "Create your family plan") | Sign in only (see flag A5) | Sign in only (see flag G4) |
-| Choose plan and pay | Web checkout (processor TBD; no billing exists yet) | None by default (flags A1–A4) | None by default (flags G1–G3) |
+| Choose plan and pay | Web checkout (processor TBD; no billing exists yet) | Apple IAP for the same household plan; no external link | None unless Play policy requires it for our approach (G1–G3) |
 | Use the service | Yes | Yes, with the same account | Yes, with the same account |
 | Entitlement check | Backend | Backend (read-only) | Backend (read-only) |
 | Manage or cancel the subscription | Web account page (to build) | No in-app management by default | No in-app management by default |
 
 ### Entitlement model (backend, CR-16)
 
-The backend needs a `household_entitlements` record with these fields:
+One household entitlement, fed by any payment source. Access is computed only from it.
 
-- `household_id`
-- `plan`
-- `status` (`active | grace | expired | canceled`)
-- `current_period_end`
-- `source` (`web | apple | google | comp`)
-- the source's subscription ID
-- `owner_user_id` (the payer, usually a guardian)
+**`household_subscriptions`**: one row per paid subscription, whatever its source.
 
-The apps and the web read entitlement through one endpoint, filtered by household membership. A student's access comes from their membership, not from their own purchase. If we ever add store billing, the store's server notifications (App Store Server Notifications, Google Real-time Developer Notifications) update the same record, so entitlement is one model regardless of where payment happened. The frontend shows plan status only from this record. It never infers a subscription from the device.
+| Field | Type | Notes |
+|---|---|---|
+| `id` | uuid | |
+| `household_id` | uuid | The subscription belongs to the household |
+| `owner_user_id` | uuid | The payer, usually a guardian; manages or cancels it |
+| `plan_key` | text | Same plan keys across web, Apple and Google |
+| `source` | `web \| apple \| google \| comp` | |
+| `source_customer_id` | text null | e.g. the web processor's customer id |
+| `source_subscription_id` | text | Web subscription id, Apple `originalTransactionId`, Google `purchaseToken` |
+| `status` | `trialing \| active \| grace \| billing_retry \| expired \| canceled \| refunded \| revoked` | Normalised across sources |
+| `auto_renew` | boolean | |
+| `current_period_start` / `current_period_end` | timestamptz | |
+| `environment` | `production \| sandbox` | Apple and Google sandbox purchases never grant production access |
+| `last_event_at` | timestamptz | |
+
+**`household_subscription_events`** is the append-only log of every source event, raw payload included. It is used for audit, replays and disputes.
+
+**`household_entitlement(p_household)`** is the read RPC: `{ active: boolean, plan_key, status, period_end, source, owner_user_id, manage_url_hint }`. It is computed from the subscriptions as the best active row (precedence: `active` > `grace`/`billing_retry` > others). Every household member can read it: guardians with `view_progress` and linked students. Only `owner_user_id` and guardians with `can_manage_billing` see source details.
+
+**Events that write it** (server-side only, never from the client):
+
+- **Web processor:** subscription created, renewed, payment failed, updated (plan change), canceled, refunded. The processor is TBD (CR-16 open).
+- **Apple:** App Store Server Notifications v2 (`SUBSCRIBED`, `DID_RENEW`, `DID_CHANGE_RENEWAL_STATUS`, `DID_FAIL_TO_RENEW` with grace period, `EXPIRED`, `REFUND`, `REVOKE`, `GRACE_PERIOD_EXPIRED`), plus on-demand verification of the signed transaction the app sends after purchase. The app's `appAccountToken` is set to the household's id, so a purchase links to the right household.
+- **Google** (only if adopted): Real-time Developer Notifications plus the Play Developer API purchase check.
+
+**Rules the frontend relies on:**
+
+1. **No double charge.** A household with an active entitlement from any source is never offered a purchase in any app. The iOS paywall appears only when `active` is false.
+2. **Managing a subscription.** Changing or cancelling happens where it was bought: web on the web account page; Apple through Apple's subscription settings. `manage_url_hint` tells the UI which to show.
+3. **Overlapping subscriptions.** If two active subscriptions exist (for example web and Apple), access stays on and the UI tells the owner where each one is managed. The backend never cancels a store subscription on its own.
+4. **Students** never see purchase UI or prices. A linked student's access comes from household membership.
+
+Until CR-16 lands, the frontend shows no plan, price or paywall anywhere and invents no entitlement state.
 
 ## Apple flags
 
@@ -94,7 +129,7 @@ The apps and the web read entitlement through one endpoint, filtered by househol
 
 ## Go-live checklist (apps)
 
-1. Decide A1 (IAP alongside web, the 3.1.3(f) argument, or US link-out), with counsel.
+1. ~~Decide A1~~ Decided 2026-10-05: Apple IAP alongside web; no iOS external link. Confirm the plan's IAP product setup with counsel before submission.
 2. Build CR-16 entitlements and a web account page for plan management and cancellation.
 3. Add the official badge files; set both URLs; verify badges render at 40px with clear space, in light and dark.
 4. Review store metadata and in-app copy per storefront for purchase language (A3/A4, G1/G3).
