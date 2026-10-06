@@ -556,6 +556,10 @@ last 30 hours in residence at the university.</p>"""
         [c] = self._de('<p>Have a cumulative high school GPA of 2.5 to enroll in dual credit.</p>'
                        '<p>Dual Credit students wanting to take more than 18 hours must file a petition to overload with a 3.0 GPA.</p>')
         self.assertEqual([t['min_hs_gpa'] for t in c['record']['dual_enrollment']['eligibility_tiers']], [2.5])
+        # "overload" on its own (no "petition", which MN r1 also excludes) is still not eligibility.
+        [c] = self._de('<p>Have a cumulative high school GPA of 2.5 to enroll in dual credit.</p>'
+                       '<p>Dual Credit students may take a course overload with a 3.0 GPA.</p>')
+        self.assertEqual([t['min_hs_gpa'] for t in c['record']['dual_enrollment']['eligibility_tiers']], [2.5])
 
     def test_co_r1_rules(self):
         """CO r1: Otero's fall/spring split is not a minimum; CCD's ENG 1021 grade and Regis's program-dependent cap are
