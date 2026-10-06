@@ -1110,6 +1110,8 @@ class SitemapTests(unittest.TestCase):
 <url><loc>https://catalog.x.edu/graduate/sciences/biology/biology-ms/</loc></url>
 <url><loc>https://catalog.x.edu/undergraduate/arts/history/history-major/</loc></url>
 <url><loc>https://catalog.x.edu/undergraduate/arts/history/</loc></url>
+<url><loc>https://catalog.x.edu/undergraduate/business/bba-certificate/</loc></url>
+<url><loc>https://catalog.x.edu/graduate/business/accounting-bs/</loc></url>
 <url><loc>https://elsewhere.org/a-bs/</loc></url></urlset>'''
         f = Fetcher(delay=0, timeout=1)
         def raw(url):
