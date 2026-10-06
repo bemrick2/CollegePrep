@@ -1995,28 +1995,32 @@
       "notes": "Reviewed 2026-10-04: Requirement block copied from the 2026-2027 catalog program page. Evidence: sources/pipeline/UT/2026-10-04/evidence.json#0e8f6879cc332549."
     },
     {
-      "last_verified_at": "2026-10-04",
+      "last_verified_at": "2026-10-05",
       "program_key": "performance-b-m",
       "requirement_key": "program-requirements-music-industry-and-technology",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "major_core",
+        "source_section": "Program Requirements — Music Industry and Technology:",
+        "group_type": "choose_credits",
+        "choose_credits": 2,
         "courses": [
           {
             "code": "MUSC 1115",
-            "credits": 1,
-            "title": "Music Notation and Score Preparation"
+            "title": "Music Notation and Score Preparation",
+            "credits": 1
           },
           {
             "code": "MUSC 1390",
-            "credits": 1,
-            "title": "Survey of Recording Techniques"
+            "title": "Survey of Recording Techniques",
+            "credits": 1
           },
           {
             "code": "MUSC 3412",
-            "credits": 3,
-            "title": "Music Career Development"
+            "title": "Music Career Development",
+            "credits": 3
           },
           {
             "code": "MUSC 1402",
@@ -2047,14 +2051,12 @@
             "title": "Studio Arranging and Producing (3)"
           }
         ],
-        "group_type": "all_required",
-        "rule_text": "Choose two credits from the following: 2",
-        "schema": "requirement_group/v1",
-        "source_section": "Program Requirements — Music Industry and Technology:"
+        "rule_text": "Choose two credits from the following: 2"
       },
       "source_url": "https://catalog.uvu.edu/arts/music/performance-bm/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-04: Requirement block copied from the 2026-2027 catalog program page. Evidence: sources/pipeline/UT/2026-10-04/evidence.json#ed8f6a6a24f8c477."
+      "verification_status": "unverified",
+      "notes": "Corrected 2026-10-05 (issue #95): The catalog lists MUSC 1115, MUSC 1390 and MUSC 3412 as required and then \"Choose two credits from the following\" for the other seven courses; the record called all ten required (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/UT/2026-10-04/evidence.json#ed8f6a6a24f8c477.",
+      "verification_correction_reason": "The catalog lists MUSC 1115, MUSC 1390 and MUSC 3412 as required and then \"Choose two credits from the following\" for the other seven courses; the record called all ten required (issue #95). Held for review as a mixed required-and-choice group."
     },
     {
       "last_verified_at": "2026-10-04",
