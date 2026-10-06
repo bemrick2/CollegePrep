@@ -1153,6 +1153,36 @@ class AutoReviewTests(unittest.TestCase):
         self.assertEqual(held['variant_page'], 3); self.assertEqual(held['req_variant_page'], 1); self.assertEqual(held['duplicate'], 3)
 
 
+class DegreeTypeTests(unittest.TestCase):
+    def test_one_stated_degree_type(self):  # NDSU 2026-27 'Accounting Major' / 'Degree Type: B.S.'
+        from pipeline import text as T
+        e = {'url': 'https://catalog.x.edu/curriculum/undergraduate/accounting-major/', 'role': 'program_page', 'sha256': 'a' * 64,
+             'fetched_at': '2026-10-06T00:00:00+00:00', 'kind': 'html'}
+        body = 'University Catalog 2026-2027\n2026-2027 Edition\nAccounting Major\nDegree Type: B.S.\nMinimum credits required: 120'
+        tgt = {'catalog': {'platform': 'courseleaf'}}
+        out = X.program_page_candidates(tgt, {'institution_key': 'k'}, e, T.Page(body, 'Accounting Major < X University', [], [], ['Accounting Major']), '2026-27')
+        self.assertEqual([(c['extractor'], c['record']['program_name'], c['evidence'][1]['snippet']) for c in out],
+                         [('stated_major/v1', 'Accounting Major', 'Degree Type: B.S.')])
+        two = body + '\nDegree Type: B.A.'
+        self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, T.Page(two, 'Accounting Major < X', [], [], ['Accounting Major']), '2026-27'), [])
+        pb = T.Page(body.replace('Accounting Major', 'Nursing Post Baccalaureate Major'), 'Nursing Post Baccalaureate Major < X', [], [], [])
+        self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, pb, '2026-27'), [])
+        inline = T.Page(body.replace('Degree Type: B.S.', 'The Degree Type: B.S. is not offered'), 'Accounting Major < X', [], [], [])
+        self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, inline, '2026-27'), [])  # a whole line only
+
+
+class HeadingProgramTests(unittest.TestCase):
+    def test_award_heading_without_course_list_tables(self):  # UNI 2026-27: 'Physics B.S.' under '2026-27 University Catalog'
+        from pipeline import text as T
+        e = {'url': 'https://catalog.x.edu/chas/physicsbs/', 'role': 'program_page', 'sha256': 'a' * 64, 'fetched_at': '2026-10-06T00:00:00+00:00', 'kind': 'html'}
+        tgt = {'catalog': {'platform': 'courseleaf'}}
+        page = T.Page('2026-27 University Catalog\nPhysics B.S.\nFour-Year Plan', 'Physics B.S. | X University Catalog', [], [], ['Physics B.S.', 'Four-Year Plan'])
+        self.assertEqual({y for y, _ in X.printed_catalog_years(page)}, {'2026-2027'})
+        out = X.program_page_candidates(tgt, {'institution_key': 'k'}, e, page, '2026-27')
+        self.assertEqual([(c['extractor'], c['record']['program_name']) for c in out], [('static_program/v1', 'Physics B.S.')])
+        self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, T.Page(page.text, 't', [], [], ['Physics Minor']), '2026-27'), [])
+
+
 class DepartmentSectionTests(unittest.TestCase):
     def test_degree_sections_on_a_department_page(self):  # MSState 2026-27, Arkansas 2026-27
         from pipeline import text as T

@@ -88,6 +88,10 @@ MUTS = [
     ('programs/autoreview.py', "(u in seen_url and c['extractor'] not in SHARED_PAGE)", "(u in seen_url)"),
     ('programs/autoreview.py', "(u in seen_url and c['extractor'] not in SHARED_PAGE)", "(False)"),
     ('programs/promote.py', "and c['record']['program_key'] not in on_file_keys\n                        and c['extractor'] != 'department_section/v1')", ")"),
+    # NDSU 'Degree Type: B.S.': one stated type only; post-baccalaureate paths are not programs
+    ('programs/extract.py', "    if not m and len(types) == 1:", "    if not m and types:"),
+    ('programs/extract.py', "|post[- ]?baccalaureate|second degree', name, re.I)", "', name, re.I)"),
+    ('programs/extract.py', "            if int(m.group(2)) == (int(m.group(1)) + 1) % 100: found.add((f'{m.group(1)}-{int(m.group(1)) + 1}', line.strip()))", "            pass"),
 ]
 
 
