@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [main]
 
+# A new push to a PR supersedes its running checks; main keeps every run.
+concurrency:
+  group: validate-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -24,10 +29,27 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Verify pinned official source archives
         run: python scripts/verify_sources.py
-      - name: Mutation-check pipeline safety rules
-        run: python scripts/mutation_check.py
       - name: Mutation-check program deep-dive safety rules
         run: python scripts/program_mutation_check.py
+      - name: Program-depth completion status is current (docs/PROGRAM_DEPTH_COMPLETION.md)
+        run: python -m programs status --check
+  mutation:
+    # The national pipeline's mutation check is the slowest step (about two hours on one runner); every mutant
+    # still runs, split across parallel shards.
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4, 5, 6, 7, 8]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Mutation-check pipeline safety rules (shard ${{ matrix.shard }}/8)
+        env:
+          MUTATION_SHARD: ${{ matrix.shard }}/8
+        run: python scripts/mutation_check.py
   database:
     runs-on: ubuntu-latest
     services:

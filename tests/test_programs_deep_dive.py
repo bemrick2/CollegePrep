@@ -404,6 +404,33 @@ class StatedMajorTests(unittest.TestCase):
         minor = T.Page(txt, 'Accounting Minor for Students not Earning a Business Major < Linfield University', [], [], [])
         self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, minor, '2026-27'), [])
 
+    def test_department_page_named_by_its_list_line(self):  # UO 2026-27 'Cinema Studies' department page
+        from pipeline import text as T
+        from programs import verify as V
+        url = 'https://catalog.uoregon.edu/arts-sciences/humanities/cinema-studies/'
+        e = {'url': url, 'sha256': 'page', 'fetched_at': '2026-10-05T00:00:00'}
+        listed = {'name': 'Cinema Studies', 'printed': 'Cinema Studies: BA, BS', 'url': url, 'credential_level': 'bachelor',
+                  'listed_on': 'https://catalog.uoregon.edu/ug-programs/', 'listed_on_sha256': 'list'}
+        txt = 'Cinema Studies\nCinema Studies Major Requirements\nBachelor of Arts in Cinema Studies\n2026-2027 Catalog'
+        heads = ['Cinema Studies', 'Cinema Studies Major Requirements', 'Bachelor of Arts in Cinema Studies']
+        tgt = {'catalog': {'platform': 'courseleaf'}, '_listed': {url: listed}}
+        page = T.Page(txt, 'Cinema Studies | University of Oregon Academic Catalog', [], [], heads)
+        out = X.program_page_candidates(tgt, {'institution_key': 'k'}, e, page, '2026-27')
+        self.assertEqual([(c['record']['program_name'], c['record']['credential_level'], c['extractor']) for c in out],
+                         [('Cinema Studies: BA, BS', 'bachelor', 'department_major/v1')])
+        lists = {'list': 'Undergraduate Majors\nCinema Studies: BA, BS\n2026-2027 Catalog'}
+        self.assertEqual(V.check_candidate(out[0], txt, lists.get), [])
+        self.assertEqual(V.check_candidate(out[0], txt, {'list': 'Cinema Studies'}.get), ['program_name not verbatim on its list page'])
+        self.assertEqual(V.check_candidate(out[0], txt.replace('Cinema Studies Major Requirements', ''), lists.get), ['program page heading not printed'])
+        # several majors on one department page: no single '<Name> Major Requirements' heading, no record
+        multi = T.Page(txt, 't', [], [], ['Cinema Studies', "Majors - Bachelor's Degree"])
+        self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, multi, '2026-27'), [])
+        # the list must print the award; a bare anchor is not credential evidence
+        bare = {**tgt, '_listed': {url: {**listed, 'printed': 'Cinema Studies'}}}
+        self.assertEqual(X.program_page_candidates(bare, {'institution_key': 'k'}, e, page, '2026-27'), [])
+        minor = {**tgt, '_listed': {url: {**listed, 'credential_level': None}}}
+        self.assertEqual(X.program_page_candidates(minor, {'institution_key': 'k'}, e, page, '2026-27'), [])
+
     def test_archive_pdf_link_is_not_a_year_label(self):
         from pipeline import text as T
         p = T.Page('Catalog 2026-2027\nPDF of the entire 2025-2026 Catalog\nDownload PDF of the entire 2024-2025 Bulletin', 't', [], [], [])
@@ -755,3 +782,129 @@ class TypePathTests(unittest.TestCase):
         out = X.type_path_candidates({'type_path_list': {'url': lu, 'home': hu}}, {'institution_key': 'k'}, R(), es, '2026-27')
         self.assertEqual([(c['record']['program_name'], c['record'].get('cip_code'), c['record']['catalog_year']) for c in out],
                          [('BS in Education', None, '2026-2027'), ('Bachelor of Science in Nursing (BSN)', '51.3801', '2026-2027')])
+
+
+class CompletionStatus(unittest.TestCase):
+    """programs/status.py: the state completion rule (docs/PROGRAM_DEPTH_COMPLETION.md)."""
+
+    def setUp(self):
+        from programs import status as S
+        self.S = S; self.old = S.ROOT
+        self.tmp = tempfile.TemporaryDirectory(); root = Path(self.tmp.name); S.ROOT = root
+        insts = [{'institution_key': k, 'name': k.upper(), 'folder': k, 'level': lvl}
+                 for k, lvl in (('big', 'four_year'), ('mid', 'four_year'), ('small', 'four_year'), ('cc', 'two_year'))]
+        (root / 'pipeline/registry').mkdir(parents=True)
+        (root / 'pipeline/registry/ZZ.json').write_text(json.dumps({'state': 'ZZ', 'institutions': insts}))
+        ip = root / 'data/national/ipeds/2023-24/ZZ'; ip.mkdir(parents=True)
+        (ip / 'admissions.csv').write_text('institution_key,enrolled\nbig,800\nmid,150\nsmall,50\ncc,5000\n')
+        (root / 'programs/queue').mkdir(parents=True)
+        self.root = root
+
+    def tearDown(self):
+        self.S.ROOT = self.old; self.tmp.cleanup()
+
+    def put(self, folder, domain, recs, year='2026-27'):
+        d = self.root / 'data/institutions' / folder / domain; d.mkdir(parents=True, exist_ok=True)
+        (d / f'{year}.json').write_text(json.dumps({'institution_key': folder, 'academic_year': year, 'records': recs}))
+
+    def queue(self, entries):
+        (self.root / 'programs/queue/ZZ.json').write_text(json.dumps({'state': 'ZZ', 'entries': entries}))
+
+    def covered_school(self, key, n=10, listed=10, plans=True, admission=True):
+        progs = [{'program_key': f'p{i}', 'program_name': 'Computer Science' if i == 0 else f'History {i}', 'credential_level': 'bachelor',
+                  'verification_status': 'verified', **({'admission_type': 'direct'} if admission and i == 0 else {})} for i in range(n)]
+        self.put(key, 'academic_programs', progs)
+        self.put(key, 'program_catalogs', [{'verification_status': 'verified', 'listed_bachelor_programs': listed}])
+        reqs = [{'program_key': 'p0', 'requirement_kind': 'major', 'verification_status': 'verified'}]
+        if plans: reqs += [{'program_key': f'p{i}', 'requirement_kind': 'program_plan', 'verification_status': 'verified'} for i in range(n)]
+        self.put(key, 'degree_requirements', reqs)
+
+    def test_untouched_state_is_not_started_and_unaccounted(self):
+        s = self.S.state_status('ZZ')
+        self.assertEqual(s['status'], 'not_started')
+        self.assertEqual(s['four_year_institutions'], 3)  # two-year colleges are out of deep-dive scope
+        self.assertEqual(len(s['unaccounted_institutions']), 3)
+
+    def test_complete_needs_coverage_and_every_gap_queued(self):
+        self.covered_school('big')
+        self.queue([{'institution_key': 'mid', 'gap': 'institution', 'reason': 'bot_challenge', 'detail': 'challenge page', 'next_action': 'request access'},
+                    {'institution_key': 'small', 'gap': 'institution', 'reason': 'not_yet_researched', 'next_action': 'run'}])
+        s = self.S.state_status('ZZ')
+        self.assertEqual(s['entering_student_share_covered'], 0.8)  # two-year enrolment is not in the denominator
+        self.assertEqual(s['status'], 'in_progress')  # 'small' is only queued as not yet researched
+        self.queue([{'institution_key': 'mid', 'gap': 'institution', 'reason': 'bot_challenge', 'detail': 'challenge page', 'next_action': 'request access'},
+                    {'institution_key': 'small', 'gap': 'institution', 'reason': 'robots_disallowed', 'detail': 'robots.txt', 'next_action': 'ask'}])
+        self.assertEqual(self.S.state_status('ZZ')['status'], 'complete')
+
+    def test_queued_large_school_does_not_count_toward_coverage(self):
+        self.covered_school('mid'); self.covered_school('small')
+        self.queue([{'institution_key': 'big', 'gap': 'institution', 'reason': 'bot_challenge', 'detail': 'x', 'next_action': 'y'}])
+        s = self.S.state_status('ZZ')
+        self.assertEqual(s['status'], 'in_progress')
+        self.assertEqual(s['unaccounted_institutions'], [])
+
+    def test_unqueued_school_blocks_completion(self):
+        self.covered_school('big'); self.covered_school('mid')
+        s = self.S.state_status('ZZ')
+        self.assertEqual(s['status'], 'in_progress'); self.assertEqual(s['unaccounted_institutions'], ['SMALL'])
+
+    def test_catalog_threshold_is_ninety_percent_of_the_official_list(self):
+        self.covered_school('big', n=9, listed=10)
+        self.assertEqual(self.S.state_status('ZZ')['institutions'][0]['dimensions']['catalog'], 'met')
+        self.covered_school('big', n=8, listed=10)
+        r = self.S.state_status('ZZ')['institutions'][0]
+        self.assertEqual(r['dimensions']['catalog'], 'open'); self.assertEqual(r['status'], 'partial_unqueued')
+
+    def test_partially_verified_records_never_count_toward_the_catalog(self):
+        self.put('big', 'academic_programs', [{'program_key': f'p{i}', 'program_name': f'X {i}', 'credential_level': 'bachelor',
+                                               'verification_status': 'partially_verified'} for i in range(10)])
+        self.put('big', 'program_catalogs', [{'verification_status': 'partially_verified', 'listed_bachelor_programs': 10}])
+        r = self.S.state_status('ZZ')['institutions'][0]
+        self.assertEqual(r['dimensions']['catalog'], 'open'); self.assertEqual(r['partially_verified_programs'], 10)
+
+    def test_catalog_record_is_required_for_coverage(self):
+        self.covered_school('big'); (self.root / 'data/institutions/big/program_catalogs/2026-27.json').unlink()
+        self.assertEqual(self.S.state_status('ZZ')['institutions'][0]['dimensions']['catalog'], 'open')
+
+    def test_degree_maps_and_admission_rules_open_until_met_or_queued(self):
+        self.covered_school('big', plans=False, admission=False)
+        r = self.S.state_status('ZZ')['institutions'][0]
+        self.assertEqual((r['dimensions']['degree_maps'], r['dimensions']['admission_rules'], r['status']), ('open', 'open', 'covered_open_items'))
+        self.assertEqual(r['high_value_without_admission_rule'], ['computer_science'])
+        self.queue([{'institution_key': 'big', 'gap': 'degree_maps', 'reason': 'not_published', 'detail': 'no plans', 'next_action': 'recheck'},
+                    {'institution_key': 'big', 'gap': 'admission_rules', 'reason': 'no_official_statement', 'detail': 'read', 'next_action': 'recheck'}])
+        self.assertEqual(self.S.state_status('ZZ')['institutions'][0]['status'], 'covered')
+
+    def test_half_of_programs_need_a_plan(self):
+        self.covered_school('big', plans=False)
+        self.put('big', 'degree_requirements', [{'program_key': 'p0', 'requirement_kind': 'major', 'verification_status': 'verified'}]
+                 + [{'program_key': f'p{i}', 'requirement_kind': 'program_plan', 'verification_status': 'verified'} for i in range(4)])
+        self.assertEqual(self.S.state_status('ZZ')['institutions'][0]['dimensions']['degree_maps'], 'open')
+
+    def test_malformed_queue_entries_are_errors(self):
+        self.queue([{'institution_key': 'nope', 'gap': 'catalog', 'reason': 'bot_challenge', 'detail': 'x', 'next_action': 'y'},
+                    {'institution_key': 'big', 'gap': 'vibes', 'reason': 'bot_challenge', 'detail': 'x', 'next_action': 'y'},
+                    {'institution_key': 'big', 'gap': 'catalog', 'reason': 'busy', 'detail': 'x', 'next_action': 'y'},
+                    {'institution_key': 'big', 'gap': 'catalog', 'reason': 'bot_challenge', 'detail': 'x', 'next_action': ' '},
+                    {'institution_key': 'big', 'gap': 'catalog', 'reason': 'bot_challenge', 'next_action': 'y'}])
+        self.assertEqual(len(self.S.state_status('ZZ')['queue_errors']), 5)
+
+    def test_latest_catalog_year_is_measured(self):
+        self.covered_school('big')
+        self.put('big', 'academic_programs', [], year='2025-26')
+        self.assertEqual(self.S.state_status('ZZ')['institutions'][0]['academic_years'], ['2026-27'])
+
+    def test_check_mode_detects_stale_status(self):
+        self.covered_school('big')
+        import contextlib, io
+        with contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(self.S.main(['ZZ'], check=True), 1)  # never generated
+            self.assertEqual(self.S.main(['ZZ']), 0)
+            self.assertEqual(self.S.main(['ZZ'], check=True), 0)
+            self.covered_school('mid')
+            self.assertEqual(self.S.main(['ZZ'], check=True), 1)
+
+    def test_states_with_work_finds_promoted_folders(self):
+        self.assertEqual(self.S.states_with_work(), [])
+        self.covered_school('mid')
+        self.assertEqual(self.S.states_with_work(), ['ZZ'])

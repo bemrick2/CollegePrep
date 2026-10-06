@@ -336,10 +336,12 @@ def expand(target, role, url, links, push, is_program, is_nav, depth):
                 push(href, 'policy_link', url, depth + 1)
 
 
-def crawl(targets, run_dir, only=None, workers=8, delay=1.0, log=print, use_browser=True, adapters_only=False):
+def crawl(targets, run_dir, only=None, workers=8, delay=1.0, log=print, use_browser=True, adapters_only=False, policy_only=False):
     run = Run(run_dir)
     fetcher = Fetcher(delay=delay)
     sel = [t for t in targets['institutions'] if not only or t['institution_key'] in only or t['folder'] in only]
+    if policy_only:  # a follow-up run for review: only the targets' policy pages (admission, declaration), no catalog crawl
+        sel = [{**t, 'catalog': {}, 'discover': [], 'render': None} for t in sel]
     browser = None
     if use_browser and any(t.get('render') == 'browser' for t in sel):
         try:
