@@ -9,6 +9,12 @@ import { emptyStore } from './lib/data/demo/store'
 import { sampleFamily } from './lib/data/demo/seed'
 import { writeInterests } from './lib/interestStore'
 
+/** The family's stated home state (the sample family lives in Tennessee). */
+function livingIn<T extends { households: { id: string }[] }>(state: string, store: T): T {
+  for (const h of store.households) localStorage.setItem(`pp-home-state:${h.id}`, state)
+  return store
+}
+
 function renderAt(path: string, source: DemoSource) {
   return render(
     <MemoryRouter initialEntries={[path]}>
@@ -60,7 +66,7 @@ describe('app flows', () => {
 
   it('parent cost outlook leads with four-year schools, published costs only, no estimated savings', async () => {
     localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976', 'ipeds-221908']))
-    renderAt('/parent', new DemoSource(sampleFamily('parent')))
+    renderAt('/parent', new DemoSource(livingIn('TN', sampleFamily('parent'))))
     expect(await screen.findByRole('heading', { name: "Maya's plan" })).toBeInTheDocument()
     // UTK in-state $36,994 x 4; Lipscomb $69,210 x 4; Northeast State (2-year) $20,304 x 2 — never x 4.
     expect(await screen.findByText('$147,976')).toBeInTheDocument()
@@ -73,9 +79,26 @@ describe('app flows', () => {
     localStorage.removeItem('pp-compare')
   })
 
+  it('cost uses the price that applies to the family and never substitutes a missing one', async () => {
+    localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-221847', 'ipeds-220400']))
+    // No home state: public prices are shown "if in-state" and kept out of the comparison.
+    renderAt('/parent', new DemoSource(sampleFamily('parent')))
+    expect(await screen.findAllByText(/Set your home state to include it in the comparison/)).toHaveLength(3)
+    expect(screen.queryByText(/Biggest difference/)).not.toBeInTheDocument()
+    cleanup()
+    // Oregon family: out-of-state prices; a school with no out-of-state price shows no number and is excluded.
+    localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-221847', 'ipeds-220400']))
+    renderAt('/parent', new DemoSource(livingIn('OR', sampleFamily('parent'))))
+    expect(await screen.findByText('$229,792')).toBeInTheDocument() // UTK out-of-state 57,448 x 4
+    expect(screen.getByText('$154,088')).toBeInTheDocument() // Tennessee Tech out-of-state 38,522 x 4
+    expect(screen.getByText('No out-of-state price published')).toBeInTheDocument()
+    expect(screen.queryByText('$42,636')).not.toBeInTheDocument() // Jackson State in-state x 2 is never substituted
+    expect(screen.getByText('$75,704')).toBeInTheDocument() // difference between the two comparable 4-year totals
+  })
+
   it('alternative lower-cost path appears only for a lowest-cost goal, labelled as an unverified example', async () => {
     localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-221908']))
-    const src = new DemoSource(sampleFamily('parent'))
+    const src = new DemoSource(livingIn('TN', sampleFamily('parent')))
     const ctx = await src.getHouseholdContext()
     await src.savePlan(ctx.students[0]!.id, { exam_family: 'act', target_score: 27, goals: ['lower_cost'], daily_minutes: 10 })
     renderAt('/parent', src)
@@ -88,7 +111,7 @@ describe('app flows', () => {
   it('college paths match exam scores to the school\'s published table without estimating savings', async () => {
     const user = userEvent.setup()
     localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-221908']))
-    renderAt('/colleges/paths', new DemoSource(sampleFamily('parent')))
+    renderAt('/colleges/paths', new DemoSource(livingIn('TN', sampleFamily('parent'))))
     expect(await screen.findByRole('heading', { name: 'College paths' })).toBeInTheDocument()
     expect(await screen.findByRole('heading', { name: 'University of Tennessee, Knoxville' })).toBeInTheDocument()
     // The 2-year school is not a route card, and no transfer is implied.
@@ -119,7 +142,7 @@ describe('app flows', () => {
 
   it('dashboard elevates the primary target school with its top cost levers', async () => {
     localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976']))
-    const src = new DemoSource(sampleFamily('parent'))
+    const src = new DemoSource(livingIn('TN', sampleFamily('parent')))
     renderAt('/parent', src)
     expect(await screen.findByText('Choose a primary target')).toBeInTheDocument()
     cleanup()
@@ -127,7 +150,7 @@ describe('app flows', () => {
     localStorage.setItem('pp-primary', 'utk')
     renderAt('/parent', src)
     expect(await screen.findByText(/Primary target: University of Tennessee, Knoxville/)).toBeInTheDocument()
-    expect(screen.getByText('$147,976 published cost of attendance over 4 years, before aid')).toBeInTheDocument()
+    expect(screen.getByText('$147,976 published in-state cost of attendance over 4 years, before aid')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /See the full path/ })).toHaveAttribute('href', '/colleges/paths')
   })
 
@@ -182,7 +205,7 @@ describe('app flows', () => {
   it('explore majors shows verified program fit across all interests and updates when interests change', async () => {
     const user = userEvent.setup()
     localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976']))
-    const store = sampleFamily('parent')
+    const store = livingIn('TN', sampleFamily('parent'))
     writeInterests(store.students[0]!.id, { certainty: 'few', interests: [{ kind: 'major', key: 'computer-science' }, { kind: 'major', key: 'mechanical-eng' }, { kind: 'major', key: 'finance' }] })
     renderAt('/colleges/majors', new DemoSource(store))
     expect(await screen.findByRole('heading', { name: 'Explore majors' })).toBeInTheDocument()
@@ -201,7 +224,7 @@ describe('app flows', () => {
 
   it('compare places the target against the published middle 50%, without predicting admission', async () => {
     localStorage.setItem('pp-compare', JSON.stringify(['utk']))
-    renderAt('/colleges', new DemoSource(sampleFamily('parent')))
+    renderAt('/colleges', new DemoSource(livingIn('TN', sampleFamily('parent'))))
     expect(await screen.findByText((_, el) => el?.tagName === 'P' && /Target 27 is below the middle 50% \(28–32 ACT\)/.test(el.textContent ?? ''))).toBeInTheDocument()
     expect(screen.getByText(/Not an admission prediction/)).toBeInTheDocument()
   })
