@@ -740,6 +740,43 @@ Institutions in scope: **29** · crawled: **25** · blocked by site: **4** · ru
 
 Browser/manual exception queue (sites refuse automated requests): `ipeds-180878`, `ipeds-181020`, `ipeds-181534`, `ipeds-181604`
 
+## NJ — 2026-27
+
+Institutions in scope: **72** · crawled: **53** · blocked by site: **19** · run: `pipeline/runs/NJ/2026-10-05`
+
+| category | verified | partially verified | structured (any) | source found (any) | not found | blocked |
+|---|---|---|---|---|---|---|
+| tuition_fees | 0 (0%) | 0 | 25 (35%) | 47 (65%) | 6 | 19 |
+| cost_of_attendance | 0 (0%) | 0 | 17 (24%) | 43 (60%) | 10 | 19 |
+| admissions_tests | 0 (0%) | 0 | 1 (1%) | 48 (67%) | 5 | 19 |
+| common_data_set | 0 (0%) | 0 | 1 (1%) | 9 (12%) | 44 | 19 |
+| merit_scholarships | 0 (0%) | 0 | 6 (8%) | 44 (61%) | 9 | 19 |
+| ap_credit | 0 (0%) | 0 | 12 (17%) | 31 (43%) | 22 | 19 |
+| clep_credit | 0 (0%) | 0 | 5 (7%) | 16 (22%) | 37 | 19 |
+| ib_credit | 0 (0%) | 0 | 6 (8%) | 10 (14%) | 43 | 19 |
+| dual_enrollment | 0 (0%) | 0 | 7 (10%) | 34 (47%) | 19 | 19 |
+| transfer_credit | 0 (0%) | 0 | 18 (25%) | 44 (61%) | 9 | 19 |
+| statewide_articulation | 0 (0%) | 0 | 0 (0%) | 23 (32%) | 30 | 19 |
+| residency | 0 (0%) | 0 | 0 (0%) | 25 (35%) | 28 | 19 |
+| degree_requirements | 0 (0%) | 0 | 2 (3%) | 36 (50%) | 17 | 19 |
+| aid_appeals | 0 (0%) | 0 | 36 (50%) | 43 (60%) | 10 | 19 |
+
+| quality | count |
+|---|---|
+| ambiguous years | 19 |
+| blocked requests | 77 |
+| candidates | 435 |
+| conflicts | 119 |
+| documents | 3468 |
+| extraction failures | 0 |
+| fetch errors | 181 |
+| fetches | 3726 |
+| ready | 148 |
+| semantic review | 120 |
+| stale sources | 61 |
+
+Browser/manual exception queue (sites refuse automated requests): `ipeds-186131`, `ipeds-186186`, `ipeds-186900`, `ipeds-384421`, `ipeds-451398`, `ipeds-481438`, `ipeds-488314`, `ipeds-488350`, `ipeds-490319`, `ipeds-490513`, `ipeds-491613`, `ipeds-491622`, `ipeds-491640`, `ipeds-491710`, `ipeds-491765`, `ipeds-491817`, `ipeds-491914`, `ipeds-493707`, `ipeds-493716`
+
 ## NM — 2026-27
 
 Institutions in scope: **30** · crawled: **28** · blocked by site: **2** · run: `pipeline/runs/NM/2026-10-04`
