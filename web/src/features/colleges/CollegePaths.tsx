@@ -26,7 +26,8 @@ import { costPhrase, outlookFor } from '../parent/CostOutlook'
 import { useSavedComparison, COMPARE_YEAR } from './useSavedComparison'
 import { useExamPlan } from './useExamPlan'
 import { Book, Check, Clock, Sparkle, Trophy, Wallet, Info, School, X } from '../../components/icons'
-import { ButtonLink, Card, EmptyState, Notice, PageLoading, Pill, cx, inputClass } from '../../components/ui'
+import { ButtonLink, EmptyState, Notice, PageLoading, Pill, cx, inputClass } from '../../components/ui'
+import { PageHeader, Section } from '../../components/layout'
 
 const usd = (n: number) =>
   n.toLocaleString(undefined, {
@@ -64,44 +65,44 @@ export function CollegePaths() {
   const who = isStudent ? 'you' : (activeStudent?.display_name ?? 'your student')
 
   return (
-    <div className="grid grid-cols-1 gap-5">
-      <div className="flex flex-wrap items-end justify-between gap-3">
-        <div>
-          <p className="text-sm text-ink-3">Colleges & cost</p>
-          <h1 className="display text-[30px] font-semibold leading-tight text-ink md:text-[36px]">College paths</h1>
-          <p className="mt-1 max-w-2xl text-sm text-ink-2">
-            Ways to finish a degree at the schools you saved, from each school's verified, published policies. Credit only counts where a school's own table
-            lists it.
-          </p>
-        </div>
-        <CollegesTabs />
-      </div>
+    <div className="grid grid-cols-1 gap-10">
+      <PageHeader kicker="Colleges & cost" title="College paths" actions={<CollegesTabs />}>
+        Ways to finish a degree at the schools you saved, from each school's verified, published policies. Credit only counts where a school's own table lists
+        it.
+      </PageHeader>
 
       {cmp.keys.length === 0 ? (
-        <Card>
-          <EmptyState icon={<School size={32} />} title="Save schools first" action={<ButtonLink to="/colleges">Choose schools</ButtonLink>}>
-            Paths compare the four-year schools you've saved: the standard four years, exam credit and dual enrollment.
-          </EmptyState>
-        </Card>
+        <EmptyState icon={<School size={32} />} title="Save schools first" action={<ButtonLink to="/colleges">Choose schools</ButtonLink>}>
+          Paths compare the four-year schools you've saved: the standard four years, exam credit and dual enrollment.
+        </EmptyState>
       ) : cmp.loading && !cmp.data ? (
         <PageLoading />
       ) : cmp.error ? (
         <Notice tone="bad">{cmp.error.message}</Notice>
       ) : (
         <>
-          <HomeStateControl />
           <ExamPlanner who={who} options={options} plan={plan} />
           {four.length === 0 ? (
-            <Notice tone="neutral">None of your saved schools is a four-year college yet. Add one on the Compare tab.</Notice>
+            <p className="text-[15px] text-ink-2">
+              None of your saved schools is a four-year college yet.{' '}
+              <Link to="/colleges" className="font-semibold text-brand hover:underline">
+                Add one
+              </Link>
+            </p>
           ) : (
-            <>
+            <Section
+              id="routes-heading"
+              title="Routes at each school"
+              subtitle="Standard path first, then what could lower the cost or shorten the degree"
+              action={<HomeStateControl />}
+            >
               {cmp.canSetPrimary && !cmp.primary && four.length > 1 && (
-                <p className="text-sm text-ink-2">
+                <p className="mb-4 text-sm text-ink-2">
                   Mark the school {who === 'you' ? 'you most want' : `${who} most wants`} to attend as the{' '}
-                  <span className="font-semibold text-ink">primary target</span>. The overview then focuses on its path.
+                  <span className="font-semibold text-ink">top choice</span>. Home then plans around it.
                 </p>
               )}
-              <div className={cx('grid grid-cols-1 items-start gap-4', four.length > 1 && 'lg:grid-cols-2')}>
+              <div className={cx('grid grid-cols-1 items-start gap-10', four.length > 1 && 'lg:grid-cols-2 lg:gap-x-14')}>
                 {four.map((c) => (
                   <PathCard
                     key={c.institution_key}
@@ -116,7 +117,7 @@ export function CollegePaths() {
                   />
                 ))}
               </div>
-            </>
+            </Section>
           )}
           {two.length > 0 && (
             <p className="flex gap-2 text-xs text-ink-3">
@@ -125,11 +126,11 @@ export function CollegePaths() {
               appears here only once a verified transfer agreement is on file.
             </p>
           )}
-          <Notice tone="neutral" title="How to read this">
-            Exam credit is matched to each school's published table for {COMPARE_YEAR}; whether a course counts toward a specific major is the school's
-            decision. We don't estimate semesters or money saved: many schools charge a flat full-time rate, and credit shortens a degree only when it covers
-            required courses.
-          </Notice>
+          <p className="max-w-3xl border-t border-line pt-6 text-sm text-ink-3">
+            <span className="font-semibold text-ink-2">How to read this.</span> Exam credit is matched to each school's published table for {COMPARE_YEAR};
+            whether a course counts toward a specific major is the school's decision. We don't estimate semesters or money saved: many schools charge a flat
+            full-time rate, and credit shortens a degree only when it covers required courses.
+          </p>
         </>
       )}
     </div>
@@ -155,15 +156,15 @@ function ExamPlanner({
   const possessive = who === 'you' ? 'your' : `${who}'s`
 
   return (
-    <Card className="p-5 lg:max-w-3xl">
-      <div className="flex items-center gap-2">
-        <Book size={18} />
-        <h2 className="font-semibold text-ink">{who === 'you' ? 'Your' : `${possessive.charAt(0).toUpperCase()}${possessive.slice(1)}`} AP and CLEP exams</h2>
-      </div>
-      <p className="mt-1 text-sm text-ink-2">Add exams {who} took or plan to take. Leave the score as “Planned” to see what each school requires.</p>
+    <Section
+      id="exams-heading"
+      className="lg:max-w-3xl"
+      title={`${who === 'you' ? 'Your' : `${possessive.charAt(0).toUpperCase()}${possessive.slice(1)}`} AP and CLEP exams`}
+      subtitle={`Add exams ${who} took or plan to take. Leave the score as “Planned” to see what each school requires.`}
+    >
 
       {plan.exams.length > 0 && (
-        <ul className="mt-4 grid gap-2">
+        <ul className="grid gap-2">
           {plan.exams.map((e) => (
             <ExamRow key={e.key} exam={e} onScore={(s) => plan.setScore(e.key, s)} onRemove={() => plan.remove(e.key)} />
           ))}
@@ -200,7 +201,7 @@ function ExamPlanner({
           <p className="mt-1.5 text-xs text-ink-3">Exams listed by your saved schools' published tables. Saved on this device for now.</p>
         </div>
       )}
-    </Card>
+    </Section>
   )
 }
 
@@ -286,12 +287,18 @@ function PathCard({
   const levers = schoolLevers(c, exams, exam, reference)
 
   return (
-    <Card as="article" className={cx('min-w-0 overflow-hidden', primary && 'ring-2 ring-brand')}>
-      <div className="flex flex-wrap items-start justify-between gap-2 border-b border-line p-5">
+    <article className="min-w-0">
+      <div className="flex flex-wrap items-start justify-between gap-2 pb-2">
         <div className="min-w-0">
-          {primary && <div className="mb-1 text-xs font-bold uppercase tracking-wide text-brand">Primary target</div>}
-          <h2 className="display text-xl font-semibold leading-tight text-ink">{name}</h2>
-          <p className="mt-0.5 text-sm text-ink-3">{[c.institution?.city, c.institution?.state_code].filter(Boolean).join(', ')}</p>
+          <h3 className="display text-[22px] leading-tight text-ink">
+            <Link to={`/colleges/${encodeURIComponent(c.institution_key)}`} className="hover:underline">
+              {name}
+            </Link>
+          </h3>
+          <p className="mt-0.5 flex flex-wrap items-center gap-2 text-sm text-ink-3">
+            {[c.institution?.city, c.institution?.state_code].filter(Boolean).join(', ')}
+            {primary && <Pill tone="brand">Top choice</Pill>}
+          </p>
         </div>
         {onPrimary && (
           <button
@@ -302,11 +309,11 @@ function PathCard({
               primary ? 'border-line text-ink-2 hover:bg-surface-2' : 'border-brand text-brand hover:bg-brand-soft',
             )}
           >
-            {primary ? 'Clear primary' : 'Make primary target'}
+            {primary ? 'Clear top choice' : 'Make top choice'}
           </button>
         )}
       </div>
-      <ol className="grid grid-cols-1 divide-y divide-line">
+      <ol className="relative grid grid-cols-1 before:absolute before:bottom-6 before:left-[13px] before:top-6 before:w-px before:bg-line" aria-label={`Routes at ${name}`}>
         <Route icon={<Clock size={16} />} title="Standard path" tag="4 years · 8 semesters">
           {(() => {
             const c = costPhrase(outlook)
@@ -341,11 +348,11 @@ function PathCard({
 
         <li>
           <details open={primary || !anyPrimary} className="group">
-            <summary className="cursor-pointer list-none px-5 py-3 text-sm font-semibold text-brand hover:bg-surface-2">
+            <summary className="relative cursor-pointer list-none py-3 pl-9 text-sm font-semibold text-brand hover:underline">
               <span className="group-open:hidden">Show scholarship, exam-credit and dual-enrollment details</span>
               <span className="hidden group-open:inline">Hide details</span>
             </summary>
-            <ol className="grid grid-cols-1 divide-y divide-line border-t border-line">
+            <ol className="grid grid-cols-1">
               <MeritRoute c={c} exam={exam} reference={reference} />
 
               {!credit.hasTable && !dual && !statewide ? (
@@ -433,7 +440,7 @@ function PathCard({
           </details>
         </li>
       </ol>
-    </Card>
+    </article>
   )
 }
 
@@ -453,16 +460,16 @@ function Route({
   children: React.ReactNode
 }) {
   return (
-    <li className="p-5 text-sm text-ink-2">
+    <li className="relative py-4 text-sm text-ink-2">
       <div className="mb-1.5 flex flex-wrap items-center gap-x-2 gap-y-1">
-        <span className="grid h-7 w-7 place-items-center rounded-full bg-surface-2 text-ink-2" aria-hidden>
+        <span className="relative grid h-7 w-7 place-items-center rounded-full border border-line bg-surface text-ink-2" aria-hidden>
           {icon}
         </span>
-        <h3 className="font-semibold text-ink">{title}</h3>
+        <h4 className="font-semibold text-ink">{title}</h4>
         {tag && <Pill>{tag}</Pill>}
         {source && (
           <a href={source} target="_blank" rel="noreferrer" className="ml-auto text-[11px] font-semibold text-ink-3 hover:text-ink hover:underline">
-            Source{verified ? ` · ${formatShortDate(verified)}` : ''} ↗
+            Source{verified ? `, ${formatShortDate(verified)}` : ''}
           </a>
         )}
       </div>
