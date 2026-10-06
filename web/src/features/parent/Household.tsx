@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useApp } from '../../lib/app'
 import { Button, Card, CardHeader, Field, Notice, Pill, inputClass } from '../../components/ui'
 import { InviteCode } from '../onboarding/InviteCode'
+import { StudentInvite } from './StudentInvite'
 import { GRADES, gradeLabel, graduationYearFor } from '../onboarding/options'
 import { DEMO_STUDENT } from '../../lib/data/demo/demoSource'
 
@@ -44,7 +45,7 @@ export function Household() {
 
   const tryAsStudent = async (code: string) => {
     await switchDemoPersona('student')
-    navigate(`/join?code=${code}`)
+    navigate(`/join#t=${encodeURIComponent(code)}`)
   }
 
   return (
@@ -98,22 +99,7 @@ export function Household() {
                 <span className="ml-auto">{s.linked_user_id ? <Pill tone="go">Has login</Pill> : <Pill tone="warn">Not linked yet</Pill>}</span>
               </div>
               {!s.linked_user_id && me?.can_manage_students && (
-                <div>
-                  {codes[s.id] ? (
-                    <div className="grid gap-3">
-                      <InviteCode code={codes[s.id]!} />
-                      {mode === 'demo' && (
-                        <Button variant="secondary" onClick={() => void tryAsStudent(codes[s.id]!)}>
-                          Try it as {s.display_name} (demo)
-                        </Button>
-                      )}
-                    </div>
-                  ) : (
-                    <Button size="sm" onClick={() => void invite(s.id, 'student', s.id)}>
-                      Create invite code for {s.display_name}
-                    </Button>
-                  )}
-                </div>
+                <StudentInvite householdId={household.id} student={s} onTryDemo={(code) => void tryAsStudent(code)} />
               )}
             </li>
           ))}
@@ -136,7 +122,7 @@ export function Household() {
           </ul>
           {me?.can_manage_members &&
             (codes.guardian ? (
-              <InviteCode code={codes.guardian} />
+              <InviteCode token={codes.guardian} />
             ) : (
               <Button size="sm" variant="secondary" onClick={() => void invite('guardian', 'guardian')}>
                 Invite a guardian

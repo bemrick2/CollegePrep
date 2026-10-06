@@ -47,6 +47,14 @@ export interface DataSource {
   }): Promise<string>
   createInvitation(householdId: string, role: 'guardian' | 'student', studentId?: string): Promise<string>
   acceptInvitation(code: string): Promise<string>
+  /** Create (replacing that student's outstanding invite) or resend a student invitation by email, server-side.
+   *  Email failure never invalidates the invitation: the code comes back so it can be copied. */
+  sendStudentInvitation(input: { householdId: string; studentId: string; email: string; code?: string; inviteCode?: string }): Promise<InviteSendResult>
+  /** A new student invitation (link token + invite code) without email; replaces that student's outstanding one. */
+  createStudentInvitation(householdId: string, studentId: string): Promise<StudentInvitation>
+  /** Outstanding and past invitations of a household the viewer guards (never the code or its hash). */
+  listInvitations(householdId: string): Promise<InvitationSummary[]>
+  revokeInvitation(invitationId: string): Promise<void>
 
   // Goals and progress
   setWeeklyGoal(studentId: string, weekStart: string, targetQuestions: number | null, targetMinutes: number | null): Promise<void>
@@ -106,4 +114,38 @@ export class DataError extends Error {
   ) {
     super(message)
   }
+}
+
+export interface StudentInvitation {
+  /** Link token: long, unguessable, only ever put in a link. */
+  code: string
+  /** Human invite code, XXXXX-XXXXX. */
+  inviteCode: string
+  invitationId: string
+  expiresAt: string
+}
+
+export interface InviteSendResult {
+  /** Present when a new invitation was created (or the one being resent); absent if creation itself failed. */
+  code?: string
+  inviteCode?: string
+  invitationId?: string
+  expiresAt?: string
+  emailed: boolean
+  /** not_configured: email isn't set up; provider: the email service failed; rejected: the invitation can't be
+   *  emailed (used, revoked, expired, too many sends); demo: demo mode never sends email. */
+  reason?: 'not_configured' | 'provider' | 'rejected' | 'demo'
+  error?: string
+}
+
+export interface InvitationSummary {
+  id: string
+  role: 'guardian' | 'student'
+  student_id: string | null
+  recipient_email: string | null
+  created_at: string
+  expires_at: string
+  accepted_at: string | null
+  revoked_at: string | null
+  last_emailed_at: string | null
 }

@@ -60,11 +60,17 @@ describe('app flows', () => {
     await user.click(screen.getByRole('button', { name: '11' }))
     await user.click(screen.getByRole('button', { name: 'Continue' }))
     await user.click(screen.getByRole('button', { name: 'Create household' }))
-    expect(await screen.findByText('Invite code')).toBeInTheDocument()
+    // No invitation (and no email) is required to create the student profile.
+    expect(await screen.findByRole('heading', { name: 'Invite Riley' })).toBeInTheDocument()
+    await user.type(screen.getByLabelText('Recipient email'), 'riley@example.com')
+    await user.click(screen.getByRole('button', { name: 'Send invitation' }))
+    expect(await screen.findByText('Demo mode doesn’t send email')).toBeInTheDocument()
+    expect(screen.getByText('Invite code')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Copy invite link' })).toBeInTheDocument()
     const ctx = await src.getHouseholdContext()
     expect(ctx.students.map((s) => s.display_name)).toEqual(['Riley'])
     expect(await src.getPlan(ctx.students[0]!.id)).toMatchObject({ exam_family: 'act' })
-  })
+  }, 15_000)
 
   it('parent cost outlook leads with four-year schools, published costs only, no estimated savings', async () => {
     localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976', 'ipeds-221908']))

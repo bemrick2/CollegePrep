@@ -88,6 +88,8 @@ jobs:
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/school_comparison.sql
       - name: Test household accounts, permissions and subscriptions
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/household_access.sql
+      - name: Emailed student invitations
+        run: psql -v ON_ERROR_STOP=1 -f supabase/tests/invitation_email.sql
       - name: Test practice grading, recommendations, estimates and progress
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/practice_engine.sql
       - name: CR-14 program-depth fields

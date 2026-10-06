@@ -1,4 +1,4 @@
-# Prep & Price web app (web/). Preview site only: no Supabase variables are set, so it runs in demo mode.
+# Prep & Price web app (web/). Staging reads VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY from Netlify env (publishable key only).
 # Never add service-role keys here or in the Netlify UI; the app only ever uses the publishable key.
 [build]
   base = "web"
