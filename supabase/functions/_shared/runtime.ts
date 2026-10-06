@@ -59,3 +59,11 @@ export async function canManageBilling(db: SupabaseClient, householdId: string, 
     .maybeSingle()
   return !!data
 }
+
+/** Billing mode comes from the server key, never from a request or browser flag. */
+export function billingEnvironment(): 'production' | 'sandbox' {
+  const key = env('STRIPE_SECRET_KEY')
+  if (/^(sk|rk)_test_/.test(key)) return 'sandbox'
+  if (/^(sk|rk)_live_/.test(key)) return 'production'
+  throw new Error('Invalid Stripe key mode')
+}
