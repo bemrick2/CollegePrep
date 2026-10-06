@@ -5,6 +5,7 @@ import { DemoSource, DEMO_PARENT, DEMO_STUDENT } from './data/demo/demoSource'
 import { LiveSource } from './data/live/liveSource'
 import { supabase } from './supabase'
 import { clearStore } from './data/demo/store'
+import { readPendingInvite } from './invites'
 
 type Mode = 'demo' | 'live'
 
@@ -30,12 +31,23 @@ const AppContext = createContext<AppState | null>(null)
 const MODE_KEY = 'pp-mode'
 const ACTIVE_KEY = 'pp-active-student'
 
+/**
+ * Live whenever a backend is configured, unless this browser explicitly chose the demo. A fresh browser (a
+ * student opening an invite on their own device) must never silently land in browser-only demo storage.
+ */
+export function initialMode(configured: boolean, stored: string | null): Mode {
+  if (!configured) return 'demo'
+  return stored === 'demo' ? 'demo' : 'live'
+}
+
 function readMode(): Mode {
+  let stored: string | null = null
   try {
-    return localStorage.getItem(MODE_KEY) === 'live' && supabase ? 'live' : 'demo'
+    stored = localStorage.getItem(MODE_KEY)
   } catch {
-    return 'demo'
+    // storage blocked: fall through with nothing stored
   }
+  return initialMode(supabase !== null, stored)
 }
 
 export function AppProvider({ children, source: injected }: { children: ReactNode; source?: DataSource }) {
@@ -128,7 +140,9 @@ export function AppProvider({ children, source: injected }: { children: ReactNod
   const resetDemo = async () => {
     clearStore()
     demo()?.reset()
-    await refresh()
+    // Leaving the demo returns to the real app when there is one, so the next sign-in is a live account.
+    if (supabase) persistMode('live')
+    else await refresh()
   }
 
   const signOut = async () => {
@@ -175,6 +189,8 @@ export function homePathFor(viewer: Viewer | null, ctx: HouseholdContext | null)
   if (!viewer) return '/'
   if (ctx?.myStudent) return '/student'
   if (ctx?.memberships.some((m) => m.role === 'guardian')) return '/parent'
+  // A student who opened an invite link, then signed up and confirmed by email, comes back to joining.
+  if (readPendingInvite()) return '/join'
   return '/start'
 }
 

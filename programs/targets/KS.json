@@ -1,0 +1,625 @@
+{
+ "state": "KS",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-154712",
+   "folder": "benedictine",
+   "name": "Benedictine College",
+   "control": "private_nonprofit",
+   "domains": [
+    "benedictine.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.benedictine.edu/wp-content/uploads/files/academics/college-catalog-2022-2023.pdf"
+    ],
+    "home": "https://www.benedictine.edu/wp-content/uploads/files/academics/college-catalog-2022-2023.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2022-2023"
+  },
+  {
+   "institution_key": "ipeds-155025",
+   "folder": "emporia",
+   "name": "Emporia State University",
+   "control": "public",
+   "domains": [
+    "emporia.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.emporia.edu/",
+    "https://catalog.emporia.edu/",
+    "https://www.emporia.edu/academics/",
+    "https://www.emporia.edu/registrar/",
+    "https://www.emporia.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-155061",
+   "folder": "fhsu",
+   "name": "Fort Hays State University",
+   "control": "public",
+   "domains": [
+    "fhsu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.fhsu.edu/",
+    "https://catalog.fhsu.edu/",
+    "https://www.fhsu.edu/academics/",
+    "https://www.fhsu.edu/registrar/",
+    "https://www.fhsu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-155089",
+   "folder": "friends",
+   "name": "Friends University",
+   "control": "private_nonprofit",
+   "domains": [
+    "friends.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 26,
+    "home": "https://catalog.friends.edu/index.php?catoid=26",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.friends.edu/content.php?catoid=26&navoid=1438"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 26 on catalog.friends.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-155399",
+   "folder": "k-state",
+   "name": "Kansas State University",
+   "control": "public",
+   "domains": [
+    "k-state.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.k-state.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.k-state.edu/programs",
+     "https://catalog.k-state.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.k-state.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.k-state.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.k-state.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.k-state.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.k-state.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.k-state.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.k-state.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.k-state.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.k-state.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.k-state.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.k-state.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.k-state.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.k-state.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.k-state.edu (80 links)"
+  },
+  {
+   "institution_key": "ipeds-155414",
+   "folder": "kwu",
+   "name": "Kansas Wesleyan University",
+   "control": "private_nonprofit",
+   "domains": [
+    "kwu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.kwu.edu/",
+    "https://catalog.kwu.edu/",
+    "https://www.kwu.edu/academics/",
+    "https://www.kwu.edu/registrar/",
+    "https://www.kwu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-155627",
+   "folder": "ottawa",
+   "name": "Ottawa University-Ottawa",
+   "control": "private_nonprofit",
+   "domains": [
+    "ottawa.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.ottawa.edu/",
+    "https://catalog.ottawa.edu/",
+    "https://www.ottawa.edu/academics/",
+    "https://www.ottawa.edu/registrar/",
+    "https://www.ottawa.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-155681",
+   "folder": "pittstate",
+   "name": "Pittsburg State University",
+   "control": "public",
+   "domains": [
+    "pittstate.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.pittstate.edu/",
+    "https://catalog.pittstate.edu/",
+    "https://www.pittstate.edu/academics/",
+    "https://www.pittstate.edu/registrar/",
+    "https://www.pittstate.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-155317",
+   "folder": "ku",
+   "name": "University of Kansas",
+   "control": "public",
+   "domains": [
+    "ku.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.ku.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.ku.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-156125",
+   "folder": "wichita",
+   "name": "Wichita State University",
+   "control": "public",
+   "domains": [
+    "wichita.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.wichita.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.wichita.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-154688",
+   "folder": "bakeru",
+   "name": "Baker University",
+   "control": "private_nonprofit",
+   "domains": [
+    "bakeru.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.bakeru.edu/",
+    "https://catalog.bakeru.edu/",
+    "https://www.bakeru.edu/academics/",
+    "https://www.bakeru.edu/registrar/",
+    "https://www.bakeru.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-155070",
+   "folder": "barclaycollege",
+   "name": "Barclay College",
+   "control": "private_nonprofit",
+   "domains": [
+    "barclaycollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.barclaycollege.edu/",
+    "https://catalog.barclaycollege.edu/",
+    "https://www.barclaycollege.edu/academics/",
+    "https://www.barclaycollege.edu/registrar/",
+    "https://www.barclaycollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-154721",
+   "folder": "bethanylb",
+   "name": "Bethany College",
+   "control": "private_nonprofit",
+   "domains": [
+    "bethanylb.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.bethanylb.edu/",
+    "https://catalog.bethanylb.edu/",
+    "https://www.bethanylb.edu/academics/",
+    "https://www.bethanylb.edu/registrar/",
+    "https://www.bethanylb.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-154749",
+   "folder": "bethelks",
+   "name": "Bethel College-North Newton",
+   "control": "private_nonprofit",
+   "domains": [
+    "bethelks.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.bethelks.edu/wp-content/uploads/2026/01/2025-2026-Course-Catalog-20251014.pdf"
+    ],
+    "home": "https://www.bethelks.edu/wp-content/uploads/2026/01/2025-2026-Course-Catalog-20251014.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
+  },
+  {
+   "institution_key": "ipeds-154855",
+   "folder": "centralchristian",
+   "name": "Central Christian College of Kansas",
+   "control": "private_nonprofit",
+   "domains": [
+    "centralchristian.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://centralchristian.edu/wp-content/uploads/2026/08/2026-2027-Catalog-Final.1.pdf"
+    ],
+    "home": "https://centralchristian.edu/wp-content/uploads/2026/08/2026-2027-Catalog-Final.1.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-177038",
+   "folder": "cleveland",
+   "name": "Cleveland University-Kansas City",
+   "control": "private_nonprofit",
+   "domains": [
+    "cleveland.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.cleveland.edu/",
+    "https://catalog.cleveland.edu/",
+    "https://www.cleveland.edu/academics/",
+    "https://www.cleveland.edu/registrar/",
+    "https://www.cleveland.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-155007",
+   "folder": "donnelly",
+   "name": "Donnelly College",
+   "control": "private_nonprofit",
+   "domains": [
+    "donnelly.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.donnelly.edu/",
+    "https://catalog.donnelly.edu/",
+    "https://www.donnelly.edu/academics/",
+    "https://www.donnelly.edu/registrar/",
+    "https://www.donnelly.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-155140",
+   "folder": "haskell",
+   "name": "Haskell Indian Nations University",
+   "control": "public",
+   "domains": [
+    "haskell.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://haskell.edu/wp-content/uploads/2026/08/HaskellAcademicCatalog20262027.pdf"
+    ],
+    "home": "https://haskell.edu/wp-content/uploads/2026/08/HaskellAcademicCatalog20262027.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-155177",
+   "folder": "hesston",
+   "name": "Hesston College",
+   "control": "private_nonprofit",
+   "domains": [
+    "hesston.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.hesston.edu/",
+    "https://catalog.hesston.edu/",
+    "https://www.hesston.edu/academics/",
+    "https://www.hesston.edu/registrar/",
+    "https://www.hesston.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-155308",
+   "folder": "kansaschristian",
+   "name": "Kansas Christian College",
+   "control": "private_nonprofit",
+   "domains": [
+    "kansaschristian.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://kansaschristian.edu/wp-content/uploads/2026/09/KCC-2026-2027-Catalog-1.pdf"
+    ],
+    "home": "https://kansaschristian.edu/wp-content/uploads/2026/09/KCC-2026-2027-Catalog-1.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-155496",
+   "folder": "mccks",
+   "name": "Manhattan Christian College",
+   "control": "private_nonprofit",
+   "domains": [
+    "mccks.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://mccks.edu/wp/wp-content/uploads/2026/05/2026-2027_Catalog.pdf"
+    ],
+    "home": "https://mccks.edu/wp/wp-content/uploads/2026/05/2026-2027_Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-155511",
+   "folder": "mcpherson",
+   "name": "McPherson College",
+   "control": "private_nonprofit",
+   "domains": [
+    "mcpherson.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.mcpherson.edu/",
+    "https://catalog.mcpherson.edu/",
+    "https://www.mcpherson.edu/academics/",
+    "https://www.mcpherson.edu/registrar/",
+    "https://www.mcpherson.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-155520",
+   "folder": "mnu",
+   "name": "MidAmerica Nazarene University",
+   "control": "private_nonprofit",
+   "domains": [
+    "mnu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 8,
+    "home": "https://catalog.mnu.edu/index.php?catoid=8",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.mnu.edu/content.php?catoid=8&navoid=619",
+     "https://catalog.mnu.edu/content.php?catoid=8&navoid=643"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 8 on catalog.mnu.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-155335",
+   "folder": "newmanu",
+   "name": "Newman University",
+   "control": "private_nonprofit",
+   "domains": [
+    "newmanu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 13,
+    "home": "https://catalog.newmanu.edu/index.php?catoid=13",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 13 on catalog.newmanu.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-155900",
+   "folder": "sckans",
+   "name": "Southwestern College",
+   "control": "private_nonprofit",
+   "domains": [
+    "sckans.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.sckans.edu/",
+    "https://catalog.sckans.edu/",
+    "https://www.sckans.edu/academics/",
+    "https://www.sckans.edu/registrar/",
+    "https://www.sckans.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-155937",
+   "folder": "sterling",
+   "name": "Sterling College",
+   "control": "private_nonprofit",
+   "domains": [
+    "sterling.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.sterling.edu/sites/default/files/2023.2024%20%20Academic%20Catalog%20Addendum.pdf"
+    ],
+    "home": "https://www.sterling.edu/sites/default/files/2023.2024%20%20Academic%20Catalog%20Addendum.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2023-2024"
+  },
+  {
+   "institution_key": "ipeds-155973",
+   "folder": "tabor",
+   "name": "Tabor College",
+   "control": "private_nonprofit",
+   "domains": [
+    "tabor.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://tabor.edu/",
+    "https://catalog.tabor.edu/",
+    "https://www.tabor.edu/academics/",
+    "https://www.tabor.edu/registrar/",
+    "https://www.tabor.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-155812",
+   "folder": "stmary",
+   "name": "University of Saint Mary",
+   "control": "private_nonprofit",
+   "domains": [
+    "stmary.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.stmary.edu/d/academic_catalog/2021-2022_Catalog.pdf"
+    ],
+    "home": "https://www.stmary.edu/d/academic_catalog/2021-2022_Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2021-2022"
+  },
+  {
+   "institution_key": "ipeds-156082",
+   "folder": "washburn",
+   "name": "Washburn University",
+   "control": "public",
+   "domains": [
+    "washburn.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.washburn.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.washburn.edu/programs-a-z/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.washburn.edu (program list https://catalog.washburn.edu/programs-a-z/)"
+  }
+ ]
+}

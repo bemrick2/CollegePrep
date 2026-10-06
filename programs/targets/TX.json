@@ -1,0 +1,2351 @@
+{
+ "state": "TX",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-228723",
+   "folder": "tamu",
+   "name": "Texas A & M University-College Station",
+   "control": "public",
+   "domains": [
+    "tamu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.tamu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.tamu.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.tamu.edu (program list https://catalog.tamu.edu/programs/)"
+  },
+  {
+   "institution_key": "ipeds-228459",
+   "folder": "txst",
+   "name": "Texas State University",
+   "control": "public",
+   "domains": [
+    "txst.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.txst.edu/",
+    "https://catalog.txst.edu/",
+    "https://www.txst.edu/academics/",
+    "https://www.txst.edu/registrar/",
+    "https://www.txst.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-229115",
+   "folder": "ttu",
+   "name": "Texas Tech University",
+   "control": "public",
+   "domains": [
+    "gototexastech.com",
+    "ttu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 26,
+    "home": "https://catalog.ttu.edu/index.php?catoid=26",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.ttu.edu/content.php?catoid=26&navoid=2311"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 26 on catalog.ttu.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-227368",
+   "folder": "utrgv",
+   "name": "The University of Texas Rio Grande Valley",
+   "control": "public",
+   "domains": [
+    "utrgv.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.utrgv.edu/",
+    "https://catalog.utrgv.edu/",
+    "https://www.utrgv.edu/academics/",
+    "https://www.utrgv.edu/registrar/",
+    "https://www.utrgv.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-228769",
+   "folder": "uta",
+   "name": "The University of Texas at Arlington",
+   "control": "public",
+   "domains": [
+    "uta.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.uta.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.uta.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-228778",
+   "folder": "utexas",
+   "name": "The University of Texas at Austin",
+   "control": "public",
+   "domains": [
+    "utexas.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.utexas.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.utexas.edu/undergraduate/programs/",
+     "https://catalog.utexas.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.utexas.edu (program list https://catalog.utexas.edu/undergraduate/programs/)"
+  },
+  {
+   "institution_key": "ipeds-228787",
+   "folder": "utdallas",
+   "name": "The University of Texas at Dallas",
+   "control": "public",
+   "domains": [
+    "utdallas.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.utdallas.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.utdallas.edu/2016/undergraduate/programs",
+     "https://catalog.utdallas.edu/2020/undergraduate/programs"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.utdallas.edu (program list https://catalog.utdallas.edu/2016/undergraduate/programs)"
+  },
+  {
+   "institution_key": "ipeds-229027",
+   "folder": "utsa",
+   "name": "The University of Texas at San Antonio",
+   "control": "public",
+   "domains": [
+    "utsa.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.utsa.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.utsa.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-225511",
+   "folder": "uh",
+   "name": "University of Houston",
+   "control": "public",
+   "domains": [
+    "uh.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 63,
+    "home": "https://publications.uh.edu/index.php?catoid=63",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 63 on publications.uh.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-227216",
+   "folder": "unt",
+   "name": "University of North Texas",
+   "control": "public",
+   "domains": [
+    "unt.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 40,
+    "home": "https://catalog.unt.edu/index.php?catoid=40",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.unt.edu/content.php?catoid=40&navoid=4658",
+     "https://catalog.unt.edu/content.php?catoid=40&navoid=4689"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 40 on catalog.unt.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-222831",
+   "folder": "angelo",
+   "name": "Angelo State University",
+   "control": "public",
+   "domains": [
+    "angelo.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.angelo.edu/",
+    "https://catalog.angelo.edu/",
+    "https://www.angelo.edu/academics/",
+    "https://www.angelo.edu/registrar/",
+    "https://www.angelo.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-223232",
+   "folder": "baylor",
+   "name": "Baylor University",
+   "control": "private_nonprofit",
+   "domains": [
+    "baylor.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.baylor.edu/",
+    "https://catalog.baylor.edu/",
+    "https://www.baylor.edu/academics/",
+    "https://www.baylor.edu/registrar/",
+    "https://www.baylor.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-226091",
+   "folder": "lamar",
+   "name": "Lamar University",
+   "control": "public",
+   "domains": [
+    "lamar.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.lamar.edu/",
+    "https://catalog.lamar.edu/",
+    "https://www.lamar.edu/academics/",
+    "https://www.lamar.edu/registrar/",
+    "https://www.lamar.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-227526",
+   "folder": "pvamu",
+   "name": "Prairie View A & M University",
+   "control": "public",
+   "domains": [
+    "pvamu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.pvamu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.pvamu.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.pvamu.edu (program list https://catalog.pvamu.edu/programs/)"
+  },
+  {
+   "institution_key": "ipeds-227757",
+   "folder": "rice",
+   "name": "Rice University",
+   "control": "private_nonprofit",
+   "domains": [
+    "rice.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.rice.edu/",
+    "https://catalog.rice.edu/",
+    "https://www.rice.edu/academics/",
+    "https://www.rice.edu/registrar/",
+    "https://www.rice.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-227881",
+   "folder": "shsu",
+   "name": "Sam Houston State University",
+   "control": "public",
+   "domains": [
+    "shsu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.shsu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.shsu.edu/undergraduate/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.shsu.edu (program list https://catalog.shsu.edu/undergraduate/programs/)"
+  },
+  {
+   "institution_key": "ipeds-228246",
+   "folder": "smu",
+   "name": "Southern Methodist University",
+   "control": "private_nonprofit",
+   "domains": [
+    "smu.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.smu.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.smu.edu/programs",
+     "https://catalog.smu.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.smu.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.smu.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.smu.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.smu.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.smu.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.smu.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.smu.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.smu.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.smu.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.smu.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.smu.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.smu.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.smu.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.smu.edu (35 links)"
+  },
+  {
+   "institution_key": "ipeds-228431",
+   "folder": "sfasu",
+   "name": "Stephen F Austin State University",
+   "control": "public",
+   "domains": [
+    "sfasu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 43,
+    "home": "https://catalog.sfasu.edu/index.php?catoid=43",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.sfasu.edu/content.php?catoid=43&navoid=2144",
+     "https://catalog.sfasu.edu/content.php?catoid=43&navoid=2155",
+     "https://catalog.sfasu.edu/content.php?catoid=43&navoid=2157",
+     "https://catalog.sfasu.edu/content.php?catoid=43&navoid=2174",
+     "https://catalog.sfasu.edu/content.php?catoid=43&navoid=2199"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 43 on catalog.sfasu.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-228529",
+   "folder": "tarleton",
+   "name": "Tarleton State University",
+   "control": "public",
+   "domains": [
+    "tarleton.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.tarleton.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.tarleton.edu/undergrad/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.tarleton.edu (program list https://catalog.tarleton.edu/undergrad/programs/)"
+  },
+  {
+   "institution_key": "ipeds-226152",
+   "folder": "tamiu",
+   "name": "Texas A & M International University",
+   "control": "public",
+   "domains": [
+    "tamiu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.tamiu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.tamiu.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-224554",
+   "folder": "tamuc",
+   "name": "Texas A & M University-Commerce",
+   "control": "public",
+   "domains": [
+    "tamuc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.tamuc.edu/",
+    "https://catalog.tamuc.edu/",
+    "https://www.tamuc.edu/academics/",
+    "https://www.tamuc.edu/registrar/",
+    "https://www.tamuc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-224147",
+   "folder": "tamucc",
+   "name": "Texas A & M University-Corpus Christi",
+   "control": "public",
+   "domains": [
+    "tamucc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.tamucc.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.tamucc.edu/undergraduate/programs-az/",
+     "https://catalog.tamucc.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.tamucc.edu (program list https://catalog.tamucc.edu/undergraduate/programs-az/)"
+  },
+  {
+   "institution_key": "ipeds-228705",
+   "folder": "tamuk",
+   "name": "Texas A & M University-Kingsville",
+   "control": "public",
+   "domains": [
+    "tamuk.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.tamuk.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.tamuk.edu/undergraduate/programs-az/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.tamuk.edu (program list https://catalog.tamuk.edu/undergraduate/programs-az/)"
+  },
+  {
+   "institution_key": "ipeds-228875",
+   "folder": "tcu",
+   "name": "Texas Christian University",
+   "control": "private_nonprofit",
+   "domains": [
+    "tcu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.tcu.edu/",
+    "https://catalog.tcu.edu/",
+    "https://www.tcu.edu/academics/",
+    "https://www.tcu.edu/registrar/",
+    "https://www.tcu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-229063",
+   "folder": "tsu",
+   "name": "Texas Southern University",
+   "control": "public",
+   "domains": [
+    "tsu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.tsu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.tsu.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-229179",
+   "folder": "twu",
+   "name": "Texas Woman's University",
+   "control": "public",
+   "domains": [
+    "twu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.twu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.twu.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-228796",
+   "folder": "utep",
+   "name": "The University of Texas at El Paso",
+   "control": "public",
+   "domains": [
+    "utep.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.utep.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.utep.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-228802",
+   "folder": "uttyler",
+   "name": "The University of Texas at Tyler",
+   "control": "public",
+   "domains": [
+    "uttyler.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.uttyler.edu/",
+    "https://catalog.uttyler.edu/",
+    "https://www.uttyler.edu/academics/",
+    "https://www.uttyler.edu/registrar/",
+    "https://www.uttyler.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-225432",
+   "folder": "uhd",
+   "name": "University of Houston-Downtown",
+   "control": "public",
+   "domains": [
+    "uhd.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 39,
+    "home": "https://catalog.uhd.edu/index.php?catoid=39",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.uhd.edu/content.php?catoid=39&navoid=2528",
+     "https://catalog.uhd.edu/content.php?catoid=39&navoid=2555"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 39 on catalog.uhd.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-229814",
+   "folder": "wtamu",
+   "name": "West Texas A & M University",
+   "control": "public",
+   "domains": [
+    "wtamu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catoid": 36,
+    "home": "https://catalog.wtamu.edu/index.php?catoid=36",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.wtamu.edu/content.php?catoid=36&navoid=3216",
+     "https://catalog.wtamu.edu/content.php?catoid=36&navoid=3219",
+     "https://catalog.wtamu.edu/content.php?catoid=36&navoid=3221",
+     "https://catalog.wtamu.edu/content.php?catoid=36&navoid=3234"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 36 on catalog.wtamu.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-222178",
+   "folder": "acu-222178",
+   "name": "Abilene Christian University",
+   "control": "private_nonprofit",
+   "domains": [
+    "acu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 22,
+    "home": "https://catalog.acu.edu/index.php?catoid=22",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.acu.edu/content.php?catoid=22&navoid=1289",
+     "https://catalog.acu.edu/content.php?catoid=22&navoid=1290",
+     "https://catalog.acu.edu/content.php?catoid=22&navoid=1292"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 22 on catalog.acu.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-497037",
+   "folder": "acu-497037",
+   "name": "Abilene Christian University-Undergraduate Online",
+   "control": "private_nonprofit",
+   "domains": [
+    "acu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 22,
+    "home": "https://catalog.acu.edu/index.php?catoid=22",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.acu.edu/content.php?catoid=22&navoid=1289",
+     "https://catalog.acu.edu/content.php?catoid=22&navoid=1290",
+     "https://catalog.acu.edu/content.php?catoid=22&navoid=1292"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 22 on catalog.acu.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-222877",
+   "folder": "abu",
+   "name": "Arlington Baptist University",
+   "control": "private_nonprofit",
+   "domains": [
+    "abu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://abu.edu/s/2025-2026-Catalog-rev102025.pdf"
+    ],
+    "home": "https://abu.edu/s/2025-2026-Catalog-rev102025.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
+  },
+  {
+   "institution_key": "ipeds-222983",
+   "folder": "austincollege",
+   "name": "Austin College",
+   "control": "private_nonprofit",
+   "domains": [
+    "austincollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.austincollege.edu/",
+    "https://catalog.austincollege.edu/",
+    "https://www.austincollege.edu/academics/",
+    "https://www.austincollege.edu/registrar/",
+    "https://www.austincollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-222992",
+   "folder": "austincc",
+   "name": "Austin Community College District",
+   "control": "public",
+   "domains": [
+    "austincc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.austincc.edu/",
+    "https://catalog.austincc.edu/",
+    "https://www.austincc.edu/academics/",
+    "https://www.austincc.edu/registrar/",
+    "https://www.austincc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-223117",
+   "folder": "bmats",
+   "name": "Baptist Missionary Association Theological Seminary",
+   "control": "private_nonprofit",
+   "domains": [
+    "bmats.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://bmats.edu/wp-content/uploads/2026/07/Catalog-2026-27.pdf"
+    ],
+    "home": "https://bmats.edu/wp-content/uploads/2026/07/Catalog-2026-27.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-444398",
+   "folder": "bua",
+   "name": "Baptist University of the Americas",
+   "control": "private_nonprofit",
+   "domains": [
+    "bua.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.bua.edu/",
+    "https://catalog.bua.edu/",
+    "https://www.bua.edu/academics/",
+    "https://www.bua.edu/registrar/",
+    "https://www.bua.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-223506",
+   "folder": "brazosport",
+   "name": "Brazosport College",
+   "control": "public",
+   "domains": [
+    "brazosport.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 36,
+    "home": "https://catalog.brazosport.edu/index.php?catoid=36",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 36 on catalog.brazosport.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-494630",
+   "folder": "cmctx",
+   "name": "Christ Mission College",
+   "control": "private_nonprofit",
+   "domains": [
+    "cmctx.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://cmctx.edu/",
+    "https://catalog.cmctx.edu/",
+    "https://www.cmctx.edu/academics/",
+    "https://www.cmctx.edu/registrar/",
+    "https://www.cmctx.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-388520",
+   "folder": "cbshouston",
+   "name": "College of Biblical Studies-Houston",
+   "control": "private_nonprofit",
+   "domains": [
+    "cbshouston.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://cbshouston.edu/",
+    "https://catalog.cbshouston.edu/",
+    "https://www.cbshouston.edu/academics/",
+    "https://www.cbshouston.edu/registrar/",
+    "https://www.cbshouston.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-226408",
+   "folder": "com",
+   "name": "College of the Mainland",
+   "control": "public",
+   "domains": [
+    "com.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.com.edu/",
+    "https://catalog.com.edu/",
+    "https://www.com.edu/academics/",
+    "https://www.com.edu/registrar/",
+    "https://www.com.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-247834",
+   "folder": "collin",
+   "name": "Collin County Community College District",
+   "control": "public",
+   "domains": [
+    "collin.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 7,
+    "home": "https://catalog.collin.edu/index.php?catoid=7",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.collin.edu/content.php?catoid=7&navoid=198",
+     "https://catalog.collin.edu/content.php?catoid=7&navoid=208"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 7 on catalog.collin.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-224004",
+   "folder": "concordia",
+   "name": "Concordia University Texas",
+   "control": "private_nonprofit",
+   "domains": [
+    "concordia.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.concordia.edu/resources/uploads/registrar/2026-2027%20Academic%20and%20Course%20Catalog%20v3.0.pdf"
+    ],
+    "home": "https://www.concordia.edu/resources/uploads/registrar/2026-2027%20Academic%20and%20Course%20Catalog%20v3.0.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-475608",
+   "folder": "criswell",
+   "name": "Criswell College",
+   "control": "private_nonprofit",
+   "domains": [
+    "criswell.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.criswell.edu/wp-content/uploads/2026/07/2026-2027-Academic-Catalog.pdf"
+    ],
+    "home": "https://www.criswell.edu/wp-content/uploads/2026/07/2026-2027-Academic-Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-224226",
+   "folder": "dbu",
+   "name": "Dallas Baptist University",
+   "control": "private_nonprofit",
+   "domains": [
+    "dbu.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "home": "https://catalog.dbu.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.dbu.edu/programs",
+     "https://catalog.dbu.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.dbu.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.dbu.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.dbu.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.dbu.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.dbu.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.dbu.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.dbu.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.dbu.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.dbu.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.dbu.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.dbu.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.dbu.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.dbu.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.dbu.edu (105 links)"
+  },
+  {
+   "institution_key": "ipeds-224244",
+   "folder": "dallas",
+   "name": "Dallas Christian College",
+   "control": "private_nonprofit",
+   "domains": [
+    "dallas.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.dallas.edu/wp-content/uploads/2026/07/DCC-Catalog-2026-2027.pdf"
+    ],
+    "home": "https://www.dallas.edu/wp-content/uploads/2026/07/DCC-Catalog-2026-2027.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-224615",
+   "folder": "dallascollege",
+   "name": "Dallas College",
+   "control": "public",
+   "domains": [
+    "dallascollege.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 5,
+    "home": "https://catalog.dallascollege.edu/index.php?catoid=5",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.dallascollege.edu/content.php?catoid=5&navoid=1242",
+     "https://catalog.dallascollege.edu/content.php?catoid=5&navoid=1258"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 5 on catalog.dallascollege.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-224350",
+   "folder": "delmar",
+   "name": "Del Mar College",
+   "control": "public",
+   "domains": [
+    "delmar.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "home": "https://catalog.delmar.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.delmar.edu/programs"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.delmar.edu (program list https://catalog.delmar.edu/programs)"
+  },
+  {
+   "institution_key": "ipeds-224527",
+   "folder": "etbu",
+   "name": "East Texas Baptist University",
+   "control": "private_nonprofit",
+   "domains": [
+    "etbu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.etbu.edu/sites/default/files/downloads/2026-2027%20University%20Catalog.pdf"
+    ],
+    "home": "https://www.etbu.edu/sites/default/files/downloads/2026-2027%20University%20Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-224961",
+   "folder": "gc",
+   "name": "Galveston College",
+   "control": "public",
+   "domains": [
+    "gc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 1,
+    "home": "https://catalog.gc.edu/index.php?catoid=1",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.gc.edu/content.php?catoid=1&navoid=35",
+     "https://catalog.gc.edu/content.php?catoid=1&navoid=36"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 1 on catalog.gc.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-481401",
+   "folder": "gsot",
+   "name": "Grace School of Theology",
+   "control": "private_nonprofit",
+   "domains": [
+    "gsot.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.gsot.edu/",
+    "https://catalog.gsot.edu/",
+    "https://www.gsot.edu/academics/",
+    "https://www.gsot.edu/registrar/",
+    "https://www.gsot.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-225070",
+   "folder": "grayson",
+   "name": "Grayson College",
+   "control": "public",
+   "domains": [
+    "grayson.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://catalog.grayson.edu/2026-2027/26-27-print-catalog.pdf"
+    ],
+    "home": "https://catalog.grayson.edu/2026-2027/26-27-print-catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-225201",
+   "folder": "hallmarkuniversity",
+   "name": "Hallmark University",
+   "control": "private_nonprofit",
+   "domains": [
+    "hallmarkuniversity.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.hallmarkuniversity.edu/",
+    "https://catalog.hallmarkuniversity.edu/",
+    "https://www.hallmarkuniversity.edu/academics/",
+    "https://www.hallmarkuniversity.edu/registrar/",
+    "https://www.hallmarkuniversity.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-225247",
+   "folder": "hsutx",
+   "name": "Hardin-Simmons University",
+   "control": "private_nonprofit",
+   "domains": [
+    "hsutx.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.hsutx.edu/wp-content/uploads/2018/08/2017-18-HSU-Undergrad-Catalog.pdf"
+    ],
+    "home": "https://www.hsutx.edu/wp-content/uploads/2018/08/2017-18-HSU-Undergrad-Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2017-2018"
+  },
+  {
+   "institution_key": "ipeds-225399",
+   "folder": "hc",
+   "name": "Houston Christian University",
+   "control": "private_nonprofit",
+   "domains": [
+    "hc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.hc.edu/",
+    "https://catalog.hc.edu/",
+    "https://www.hc.edu/academics/",
+    "https://www.hc.edu/registrar/",
+    "https://www.hc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-225423",
+   "folder": "hccs",
+   "name": "Houston Community College",
+   "control": "public",
+   "domains": [
+    "hccs.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 26,
+    "home": "https://catalog.hccs.edu/index.php?catoid=26",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.hccs.edu/content.php?catoid=26&navoid=1771",
+     "https://catalog.hccs.edu/content.php?catoid=26&navoid=1788"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 26 on catalog.hccs.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-225548",
+   "folder": "hputx",
+   "name": "Howard Payne University",
+   "control": "private_nonprofit",
+   "domains": [
+    "hputx.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.hputx.edu/wp-content/uploads/2025/10/2025-2026-University-Catalog.pdf"
+    ],
+    "home": "https://www.hputx.edu/wp-content/uploads/2025/10/2025-2026-University-Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
+  },
+  {
+   "institution_key": "ipeds-225575",
+   "folder": "htu",
+   "name": "Huston-Tillotson University",
+   "control": "private_nonprofit",
+   "domains": [
+    "htu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.htu.edu/",
+    "https://catalog.htu.edu/",
+    "https://www.htu.edu/academics/",
+    "https://www.htu.edu/registrar/",
+    "https://www.htu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-225885",
+   "folder": "jarvis",
+   "name": "Jarvis Christian University",
+   "control": "private_nonprofit",
+   "domains": [
+    "jarvis.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 4,
+    "home": "https://catalog.jarvis.edu/index.php?catoid=4",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.jarvis.edu/content.php?catoid=4&navoid=222",
+     "https://catalog.jarvis.edu/content.php?catoid=4&navoid=224",
+     "https://catalog.jarvis.edu/content.php?catoid=4&navoid=225",
+     "https://catalog.jarvis.edu/content.php?catoid=4&navoid=233",
+     "https://catalog.jarvis.edu/content.php?catoid=4&navoid=248"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 4 on catalog.jarvis.edu (labelled 2023-2024)"
+  },
+  {
+   "institution_key": "ipeds-226134",
+   "folder": "laredo",
+   "name": "Laredo College",
+   "control": "public",
+   "domains": [
+    "laredo.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.laredo.edu/",
+    "https://catalog.laredo.edu/",
+    "https://www.laredo.edu/academics/",
+    "https://www.laredo.edu/registrar/",
+    "https://www.laredo.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-226231",
+   "folder": "letu",
+   "name": "LeTourneau University",
+   "control": "private_nonprofit",
+   "domains": [
+    "letu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 21,
+    "home": "https://catalog.letu.edu/index.php?catoid=21",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.letu.edu/content.php?catoid=21&navoid=1952",
+     "https://catalog.letu.edu/content.php?catoid=21&navoid=1953",
+     "https://catalog.letu.edu/content.php?catoid=21&navoid=1957",
+     "https://catalog.letu.edu/content.php?catoid=21&navoid=1965",
+     "https://catalog.letu.edu/content.php?catoid=21&navoid=1968"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 21 on catalog.letu.edu (labelled 2027-2028)"
+  },
+  {
+   "institution_key": "ipeds-227182",
+   "folder": "lonestar",
+   "name": "Lone Star College System",
+   "control": "public",
+   "domains": [
+    "lonestar.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.lonestar.edu/departments/curriculuminstruction/2019-2020Catalog_FINAL.pdf"
+    ],
+    "home": "https://www.lonestar.edu/departments/curriculuminstruction/2019-2020Catalog_FINAL.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2019-2020"
+  },
+  {
+   "institution_key": "ipeds-226383",
+   "folder": "lcu",
+   "name": "Lubbock Christian University",
+   "control": "private_nonprofit",
+   "domains": [
+    "lcu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://lcu.edu/documents/righttoknow/Catalog2021-2022_v2.pdf"
+    ],
+    "home": "https://lcu.edu/documents/righttoknow/Catalog2021-2022_v2.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2021-2022"
+  },
+  {
+   "institution_key": "ipeds-226587",
+   "folder": "mcm",
+   "name": "McMurry University",
+   "control": "private_nonprofit",
+   "domains": [
+    "mcm.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://mcm.edu/",
+    "https://catalog.mcm.edu/",
+    "https://www.mcm.edu/academics/",
+    "https://www.mcm.edu/registrar/",
+    "https://www.mcm.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-417752",
+   "folder": "messengercollege",
+   "name": "Messenger College",
+   "control": "private_nonprofit",
+   "domains": [
+    "messengercollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.messengercollege.edu/",
+    "https://catalog.messengercollege.edu/",
+    "https://www.messengercollege.edu/academics/",
+    "https://www.messengercollege.edu/registrar/",
+    "https://www.messengercollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-226806",
+   "folder": "midland",
+   "name": "Midland College",
+   "control": "public",
+   "domains": [
+    "midland.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 20,
+    "home": "https://catalog.midland.edu/index.php?catoid=20",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 20 on catalog.midland.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-226833",
+   "folder": "msutexas",
+   "name": "Midwestern State University",
+   "control": "public",
+   "domains": [
+    "msutexas.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catoid": 48,
+    "home": "https://catalog.msutexas.edu/index.php?catoid=48",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.msutexas.edu/content.php?catoid=48&navoid=2856",
+     "https://catalog.msutexas.edu/content.php?catoid=48&navoid=2860"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 48 on catalog.msutexas.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-227146",
+   "folder": "navarrocollege",
+   "name": "Navarro College",
+   "control": "public",
+   "domains": [
+    "navarrocollege.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://catalog.navarrocollege.edu/2025-2026/catalog.pdf"
+    ],
+    "home": "https://catalog.navarrocollege.edu/2025-2026/catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
+  },
+  {
+   "institution_key": "ipeds-461795",
+   "folder": "na",
+   "name": "North American University",
+   "control": "private_nonprofit",
+   "domains": [
+    "na.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.na.edu/",
+    "https://catalog.na.edu/",
+    "https://www.na.edu/academics/",
+    "https://www.na.edu/registrar/",
+    "https://www.na.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-227304",
+   "folder": "odessa",
+   "name": "Odessa College",
+   "control": "public",
+   "domains": [
+    "odessa.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.odessa.edu/",
+    "https://catalog.odessa.edu/",
+    "https://www.odessa.edu/academics/",
+    "https://www.odessa.edu/registrar/",
+    "https://www.odessa.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-227331",
+   "folder": "ollusa",
+   "name": "Our Lady of the Lake University",
+   "control": "private_nonprofit",
+   "domains": [
+    "ollusa.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.ollusa.edu/",
+    "https://catalog.ollusa.edu/",
+    "https://www.ollusa.edu/academics/",
+    "https://www.ollusa.edu/registrar/",
+    "https://www.ollusa.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-243823",
+   "folder": "parker",
+   "name": "Parker University",
+   "control": "private_nonprofit",
+   "domains": [
+    "parker.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.parker.edu/",
+    "https://catalog.parker.edu/",
+    "https://www.parker.edu/academics/",
+    "https://www.parker.edu/registrar/",
+    "https://www.parker.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-227429",
+   "folder": "pqc",
+   "name": "Paul Quinn College",
+   "control": "private_nonprofit",
+   "domains": [
+    "pqc.edu",
+    "squarespace.com"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.pqc.edu/",
+    "https://catalog.pqc.edu/",
+    "https://www.pqc.edu/academics/",
+    "https://www.pqc.edu/registrar/",
+    "https://www.pqc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-497462",
+   "folder": "rccgnaseminary",
+   "name": "Redeemers University North America",
+   "control": "private_nonprofit",
+   "domains": [
+    "rccgnaseminary.org"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.rccgnaseminary.org/",
+    "https://catalog.rccgnaseminary.org/",
+    "https://www.rccgnaseminary.org/academics/",
+    "https://www.rccgnaseminary.org/registrar/",
+    "https://www.rccgnaseminary.org/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-223463",
+   "folder": "remingtoncollege-223463",
+   "name": "Remington College-Dallas Campus",
+   "control": "private_nonprofit",
+   "domains": [
+    "remingtoncollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.remingtoncollege.edu/locations/dallas/",
+    "https://catalog.remingtoncollege.edu/",
+    "https://www.remingtoncollege.edu/academics/",
+    "https://www.remingtoncollege.edu/registrar/",
+    "https://www.remingtoncollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-497000",
+   "folder": "remingtoncollege-497000",
+   "name": "Remington College-Online Dallas",
+   "control": "private_nonprofit",
+   "domains": [
+    "remingtoncollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.remingtoncollege.edu/locations/online/",
+    "https://catalog.remingtoncollege.edu/",
+    "https://www.remingtoncollege.edu/academics/",
+    "https://www.remingtoncollege.edu/registrar/",
+    "https://www.remingtoncollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-227845",
+   "folder": "stedwards",
+   "name": "Saint Edward's University",
+   "control": "private_nonprofit",
+   "domains": [
+    "stedwards.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.stedwards.edu/",
+    "https://catalog.stedwards.edu/",
+    "https://www.stedwards.edu/academics/",
+    "https://www.stedwards.edu/registrar/",
+    "https://www.stedwards.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-227924",
+   "folder": "alamo-227924",
+   "name": "San Antonio College",
+   "control": "public",
+   "domains": [
+    "alamo.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.alamo.edu/sac",
+    "https://catalog.alamo.edu/",
+    "https://www.alamo.edu/academics/",
+    "https://www.alamo.edu/registrar/",
+    "https://www.alamo.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-227979",
+   "folder": "sanjac",
+   "name": "San Jacinto Community College",
+   "control": "public",
+   "domains": [
+    "sanjac.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.sanjac.edu/",
+    "https://catalog.sanjac.edu/",
+    "https://www.sanjac.edu/academics/",
+    "https://www.sanjac.edu/registrar/",
+    "https://www.sanjac.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-228042",
+   "folder": "schreiner",
+   "name": "Schreiner University",
+   "control": "private_nonprofit",
+   "domains": [
+    "schreiner.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.schreiner.edu/",
+    "https://catalog.schreiner.edu/",
+    "https://www.schreiner.edu/academics/",
+    "https://www.schreiner.edu/registrar/",
+    "https://www.schreiner.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-409315",
+   "folder": "southtexascollege",
+   "name": "South Texas College",
+   "control": "public",
+   "domains": [
+    "southtexascollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.southtexascollege.edu/",
+    "https://catalog.southtexascollege.edu/",
+    "https://www.southtexascollege.edu/academics/",
+    "https://www.southtexascollege.edu/registrar/",
+    "https://www.southtexascollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-228468",
+   "folder": "swau",
+   "name": "Southwestern Adventist University",
+   "control": "private_nonprofit",
+   "domains": [
+    "swau.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.swau.edu/",
+    "https://catalog.swau.edu/",
+    "https://www.swau.edu/academics/",
+    "https://www.swau.edu/registrar/",
+    "https://www.swau.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-228325",
+   "folder": "sagu",
+   "name": "Southwestern Assemblies of God University",
+   "control": "private_nonprofit",
+   "domains": [
+    "sagu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.sagu.edu/",
+    "https://catalog.sagu.edu/",
+    "https://www.sagu.edu/academics/",
+    "https://www.sagu.edu/registrar/",
+    "https://www.sagu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-228486",
+   "folder": "swcc",
+   "name": "Southwestern Christian College",
+   "control": "private_nonprofit",
+   "domains": [
+    "swcc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.swcc.edu/",
+    "https://catalog.swcc.edu/",
+    "https://www.swcc.edu/academics/",
+    "https://www.swcc.edu/registrar/",
+    "https://www.swcc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-228343",
+   "folder": "southwestern",
+   "name": "Southwestern University",
+   "control": "private_nonprofit",
+   "domains": [
+    "southwestern.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.southwestern.edu/",
+    "https://catalog.southwestern.edu/",
+    "https://www.southwestern.edu/academics/",
+    "https://www.southwestern.edu/registrar/",
+    "https://www.southwestern.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-228149",
+   "folder": "stmarytx",
+   "name": "St. Mary's University",
+   "control": "private_nonprofit",
+   "domains": [
+    "stmarytx.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.stmarytx.edu/",
+    "https://catalog.stmarytx.edu/",
+    "https://www.stmarytx.edu/academics/",
+    "https://www.stmarytx.edu/registrar/",
+    "https://www.stmarytx.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-228501",
+   "folder": "sulross",
+   "name": "Sul Ross State University",
+   "control": "public",
+   "domains": [
+    "sulross.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.sulross.edu/",
+    "https://catalog.sulross.edu/",
+    "https://www.sulross.edu/academics/",
+    "https://www.sulross.edu/registrar/",
+    "https://www.sulross.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-483036",
+   "folder": "tamuct",
+   "name": "Texas A&M University-Central Texas",
+   "control": "public",
+   "domains": [
+    "tamuct.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://tamuct.edu/",
+    "https://catalog.tamuct.edu/",
+    "https://www.tamuct.edu/academics/",
+    "https://www.tamuct.edu/registrar/",
+    "https://www.tamuct.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-459949",
+   "folder": "tamusa",
+   "name": "Texas A&M University-San Antonio",
+   "control": "public",
+   "domains": [
+    "tamusa.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.tamusa.edu/",
+    "https://catalog.tamusa.edu/",
+    "https://www.tamusa.edu/academics/",
+    "https://www.tamusa.edu/registrar/",
+    "https://www.tamusa.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-224545",
+   "folder": "tamut",
+   "name": "Texas A&M University-Texarkana",
+   "control": "public",
+   "domains": [
+    "tamut.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.tamut.edu/",
+    "https://catalog.tamut.edu/",
+    "https://www.tamut.edu/academics/",
+    "https://www.tamut.edu/registrar/",
+    "https://www.tamut.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-228884",
+   "folder": "texascollege",
+   "name": "Texas College",
+   "control": "private_nonprofit",
+   "domains": [
+    "texascollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.texascollege.edu/",
+    "https://catalog.texascollege.edu/",
+    "https://www.texascollege.edu/academics/",
+    "https://www.texascollege.edu/registrar/",
+    "https://www.texascollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-228981",
+   "folder": "tlu",
+   "name": "Texas Lutheran University",
+   "control": "private_nonprofit",
+   "domains": [
+    "tlu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.tlu.edu/",
+    "https://catalog.tlu.edu/",
+    "https://www.tlu.edu/academics/",
+    "https://www.tlu.edu/registrar/",
+    "https://www.tlu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-229160",
+   "folder": "txwes",
+   "name": "Texas Wesleyan University",
+   "control": "private_nonprofit",
+   "domains": [
+    "txwes.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.txwes.edu/",
+    "https://catalog.txwes.edu/",
+    "https://www.txwes.edu/academics/",
+    "https://www.txwes.edu/registrar/",
+    "https://www.txwes.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-492607",
+   "folder": "thechicagoschool-492607",
+   "name": "The Chicago School at Dallas",
+   "control": "private_nonprofit",
+   "domains": [
+    "thechicagoschool.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.thechicagoschool.edu/in-the-community/locations/",
+    "https://catalog.thechicagoschool.edu/",
+    "https://www.thechicagoschool.edu/academics/",
+    "https://www.thechicagoschool.edu/registrar/",
+    "https://www.thechicagoschool.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-439701",
+   "folder": "tku",
+   "name": "The King's University",
+   "control": "private_nonprofit",
+   "domains": [
+    "tku.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.tku.edu/",
+    "https://catalog.tku.edu/",
+    "https://www.tku.edu/academics/",
+    "https://www.tku.edu/registrar/",
+    "https://www.tku.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-494603",
+   "folder": "swbts",
+   "name": "The Southwestern Baptist Theological Seminary",
+   "control": "private_nonprofit",
+   "domains": [
+    "swbts.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://swbts.edu/",
+    "https://catalog.swbts.edu/",
+    "https://www.swbts.edu/academics/",
+    "https://www.swbts.edu/registrar/",
+    "https://www.swbts.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-229018",
+   "folder": "utpb",
+   "name": "The University of Texas Permian Basin",
+   "control": "public",
+   "domains": [
+    "utpb.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.utpb.edu/",
+    "https://catalog.utpb.edu/",
+    "https://www.utpb.edu/academics/",
+    "https://www.utpb.edu/registrar/",
+    "https://www.utpb.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-229267",
+   "folder": "trinity",
+   "name": "Trinity University",
+   "control": "private_nonprofit",
+   "domains": [
+    "trinity.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://new.trinity.edu/",
+    "https://catalog.trinity.edu/",
+    "https://www.trinity.edu/academics/",
+    "https://www.trinity.edu/registrar/",
+    "https://www.trinity.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-225308",
+   "folder": "tvcc",
+   "name": "Trinity Valley Community College",
+   "control": "public",
+   "domains": [
+    "tvcc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.tvcc.edu/",
+    "https://catalog.tvcc.edu/",
+    "https://www.tvcc.edu/academics/",
+    "https://www.tvcc.edu/registrar/",
+    "https://www.tvcc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-229355",
+   "folder": "tjc",
+   "name": "Tyler Junior College",
+   "control": "public",
+   "domains": [
+    "tjc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.tjc.edu/",
+    "https://catalog.tjc.edu/",
+    "https://www.tjc.edu/academics/",
+    "https://www.tjc.edu/registrar/",
+    "https://www.tjc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-224323",
+   "folder": "udallas",
+   "name": "University of Dallas",
+   "control": "private_nonprofit",
+   "domains": [
+    "udallas.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://udallas.edu/",
+    "https://catalog.udallas.edu/",
+    "https://www.udallas.edu/academics/",
+    "https://www.udallas.edu/registrar/",
+    "https://www.udallas.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-225414",
+   "folder": "uhcl",
+   "name": "University of Houston-Clear Lake",
+   "control": "public",
+   "domains": [
+    "uhcl.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.uhcl.edu/",
+    "https://catalog.uhcl.edu/",
+    "https://www.uhcl.edu/academics/",
+    "https://www.uhcl.edu/registrar/",
+    "https://www.uhcl.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-225502",
+   "folder": "uhv",
+   "name": "University of Houston-Victoria",
+   "control": "public",
+   "domains": [
+    "uhv.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://uhv.edu/",
+    "https://catalog.uhv.edu/",
+    "https://www.uhv.edu/academics/",
+    "https://www.uhv.edu/registrar/",
+    "https://www.uhv.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-226471",
+   "folder": "umhb",
+   "name": "University of Mary Hardin-Baylor",
+   "control": "private_nonprofit",
+   "domains": [
+    "umhb.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://go.umhb.edu/",
+    "https://catalog.umhb.edu/",
+    "https://www.umhb.edu/academics/",
+    "https://www.umhb.edu/registrar/",
+    "https://www.umhb.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-484905",
+   "folder": "untdallas",
+   "name": "University of North Texas at Dallas",
+   "control": "public",
+   "domains": [
+    "untdallas.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://untdallas.edu/",
+    "https://catalog.untdallas.edu/",
+    "https://www.untdallas.edu/academics/",
+    "https://www.untdallas.edu/registrar/",
+    "https://www.untdallas.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-227863",
+   "folder": "stthom",
+   "name": "University of St Thomas",
+   "control": "private_nonprofit",
+   "domains": [
+    "stthom.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.stthom.edu/",
+    "https://catalog.stthom.edu/",
+    "https://www.stthom.edu/academics/",
+    "https://www.stthom.edu/registrar/",
+    "https://www.stthom.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-225627",
+   "folder": "uiw",
+   "name": "University of the Incarnate Word",
+   "control": "private_nonprofit",
+   "domains": [
+    "uiw.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.uiw.edu/",
+    "https://catalog.uiw.edu/",
+    "https://www.uiw.edu/academics/",
+    "https://www.uiw.edu/registrar/",
+    "https://www.uiw.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-229780",
+   "folder": "wbu",
+   "name": "Wayland Baptist University",
+   "control": "private_nonprofit",
+   "domains": [
+    "wbu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.wbu.edu/",
+    "https://catalog.wbu.edu/",
+    "https://www.wbu.edu/academics/",
+    "https://www.wbu.edu/registrar/",
+    "https://www.wbu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-229799",
+   "folder": "wc",
+   "name": "Weatherford College",
+   "control": "public",
+   "domains": [
+    "wc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.wc.edu/",
+    "https://catalog.wc.edu/",
+    "https://www.wc.edu/academics/",
+    "https://www.wc.edu/registrar/",
+    "https://www.wc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-229887",
+   "folder": "wileyc",
+   "name": "Wiley University",
+   "control": "private_nonprofit",
+   "domains": [
+    "wileyc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://wileyc.edu/",
+    "https://catalog.wileyc.edu/",
+    "https://www.wileyc.edu/academics/",
+    "https://www.wileyc.edu/registrar/",
+    "https://www.wileyc.edu/catalog/"
+   ],
+   "policy": []
+  }
+ ]
+}

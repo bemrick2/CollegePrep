@@ -37,9 +37,11 @@ ROW_LABELS = [  # first match wins
 ]
 _ROW = [(k, re.compile(p, re.I)) for k, p in ROW_LABELS]
 SKIP_ROW = re.compile(r'per\s+(credit|hour|week|month|night|course|lab|semester\s+hour)|(semester|credit)\s+hour|/\s*(credit|hour|week)|summer|parking|deposit|audit|transcript|graduation', re.I)
-SKIP_TABLE = re.compile(r'graduate|doctor|pharm|physician|law school|medicine|medical|dental|dnp|msn|\bmba\b|nurse practitioner|'
+SKIP_TABLE = re.compile(r'\bmaster\b|\bexample\b|graduate|doctor|pharm|physician|law school|medicine|medical|dental|dnp|msn|\bmba\b|nurse practitioner|'
                         r'online|per credit|part[- ]time|summer|international student', re.I)
 UNDERGRAD = re.compile(r'undergraduate', re.I)
+# MI: GRCC's "Nursing Programs" and NMC's "Automotive Technology Programs" budgets are for one program, not the standard cost.
+PROGRAM_TABLE = re.compile(r'\b(?:nursing|automotive(?:\s+technology)?|aviation|maritime|culinary|cosmetology|welding)\s+programs?\b', re.I)
 
 
 def row_key(label):
@@ -79,7 +81,12 @@ def residency(h, home=None, private=False):
     'Ohio and Indiana residents' on a Kentucky page is a reciprocity rate, not in-state tuition.
     'Resident' next to student/budget/hall or opposite 'commuter' is housing (KY: Union, Campbellsville,
     Lindsey Wilson), and a bare 'resident' never means in-state at a private college."""
-    if re.search(r'out[- ]of[- ]state|non-?\s?resident', h, re.I): return 'out_of_state'
+    # MN: "MN Resident & Non Resident" (UMN Crookston) and "SMSU does not charge out-of-state tuition" are one rate for all.
+    if re.search(r'\bno\s+out[- ](?:of[- ])?state|\bnot\s+charge\s+out[- ]of[- ]state|'
+                 r'\bresidents?\s*(?:&|and|/)\s*non-?\s?residents?', h, re.I): return 'not_applicable'
+    # MN (UMN Duluth): "Midwest nonresident" is the MSEP exchange rate for listed states, not the out-of-state rate.
+    if re.search(r'\b(?:midwest|msep|wue|reciprocity)\W+non-?\s?resident', h, re.I): return 'named_other_state'
+    if re.search(r'out[- ]of[- ]state|non-?\s?resident|\bresidents?\s+of\s+other\s+states', h, re.I): return 'out_of_state'
     named = [(m.group(1), re.sub(r'\s+', ' ', m.group(2).lower())) for m in NAMED_STATE.finditer(h)
              if not (m.group(2).lower() == 'virginia' and re.search(r'west\s+$', h[:m.start()], re.I))]
     if named:
@@ -208,10 +215,14 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
     context = _context(t, page, titles)
     if SKIP_TABLE.search(context + ' ' + ' '.join(headers)) and not UNDERGRAD.search(context):
         return []
+    if PROGRAM_TABLE.search(context):
+        return []
     if PART_TIME.search(' '.join(titles)):
         return []  # budgets for less-than-full-time enrollment are not the standard cost
     # Every printed money row is kept (and counts toward reconciliation); unrecognised rows get key None.
     keyed = [(row_key(label), label, vals, raw) for label, vals, raw in body if not SKIP_ROW.search(label)]
+    if any(re.search(r'yellow\s+ribbon|gi\s+bill|amount\s+student\s+owes', label, re.I) for _, label, _, _ in keyed):
+        return []  # IL (Olivet): a GI Bill / Yellow Ribbon worked example, not the cost of attendance
     kinds = {k for k, *_ in keyed}
     if not kinds & {'tuition', 'tuition_and_fees'} or len(kinds) < 2:
         return []
@@ -226,6 +237,8 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
     lead_period = [m for m in re.finditer(r'\bper\s+(?:semester|term)\b', (t.get('lead') or '')[:160], re.I)
                    if not re.search(r'(?:credits?|hours?)\s*$', (t.get('lead') or '')[:m.start()], re.I)]
     if not ctx['period'] and lead_period: ctx['period'] = 'semester'
+    # NY r1 (SUNY Poly): a page titled "Semester Cost of Attendance" prints one semester's figures in unlabeled columns.
+    if not ctx['period'] and re.search(r'^\W*semester\s+cost', page.title or '', re.I): ctx['period'] = 'semester'
     cols = []
     for j in range(ncols):
         m = column_meaning(headers[j] if j < len(headers) else '', home, private)
@@ -277,6 +290,9 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
             semester_only = False
         else:
             issues.append('multiple_total_rows')
+    # MN (SMSU): a lone "Total Estimated Charges for One Semester" row overrides a lead about two semesters.
+    if len(totals) == 1 and re.search(r'\b(?:one|single|per)\s+(?:semester|term)\b', totals[0][1], re.I):
+        semester_only = True
     if semester_only: issues.append('cost_period_semester')
     private = inst.get('control') == 'private_nonprofit'
     # Page titles often end with an address ("Lewis & Clark, Portland, Oregon"): state names there are not residency.

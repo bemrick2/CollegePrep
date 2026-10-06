@@ -101,7 +101,7 @@ MUTS = [
     ('pipeline/extractors/transfer.py', "r'average\\s+grade|general\\s+education|'", "r'^$|'"),
     ('pipeline/extractors/credit.py', "issues = issues + ['course_number_missing']", 'pass'),
     ('pipeline/extractors/merit.py', '|\\bper\\s+credit\\b', ''),
-    ('pipeline/extractors/merit.py', "|trimesters|quarters|terms)\\b', re.I)  # outside parentheses;", "|terms)\\b', re.I)  # outside parentheses;"),
+    ('pipeline/extractors/merit.py', "(?:years?|semesters|trimesters|quarters|terms)\\b|'", "(?:years?|semesters|terms)\\b|'"),
     ('pipeline/extractors/merit.py', "        vals += [float(a.replace(',', '')), float(b.replace(',', ''))]", '        pass'),
     ('pipeline/extractors/merit.py', '|\\bpell\\b|\\brotc\\b|yellow', '|\\bpell\\b|yellow'),
     ('pipeline/extractors/merit.py', " + (['duplicate_table_versions'] if twins else [])", ''),
@@ -137,7 +137,7 @@ MUTS = [
     ('pipeline/extractors/merit.py', "'offer', 'reward')", "'offer')"),
     ('pipeline/extractors/merit.py', '            continue  # ID (BYU-Idaho)', '            pass  # ID (BYU-Idaho)'),
     ('pipeline/extractors/merit.py', "            if not rec_open_max: rec['award_max'] = hi", "            rec['award_max'] = hi"),
-    ('pipeline/extractors/dual.py', "|financial\\s+aid|fall\\s+below|satisfactory\\s+progress|graduation\\s+gpa|'", "|'"),
+    ('pipeline/extractors/dual.py', "|financial\\s+aid|fall\\s+below|\\bbelow\\s+an?\\s+\\d|satisfactory\\s+progress|graduation\\s+gpa|'", "|\\bbelow\\s+an?\\s+\\d|'"),
     ('pipeline/extractors/merit.py', "'award detail', 'offer', 'reward')", "'award detail', 'reward')"),
     ('pipeline/extractors/costs.py', "or column_meaning(cells[0])['period']\n", '\n'),
     ('pipeline/extractors/merit.py', '(?:\\bper\\s+|/\\s*|', '(?:\\bper\\s+|'),
@@ -146,9 +146,9 @@ MUTS = [
     ('pipeline/extractors/merit.py', '|\\bfor\\s+(?:the\\s+)?(?:fall|spring)\\s+)(?:semester', ')(?:semester'),
     ('pipeline/extractors/transfer.py', '\\b(?:ENGL?|MATH', '\\b(?:ENGL|MATH'),
     ('pipeline/extractors/transfer.py', '|depending\\s+on\\s+(?:the|your)\\s+(?:program|major)|most', '|most'),
-    ('pipeline/extractors/dual.py', "|if\\s+you\\s+(?:don[’\\']?t|do\\s+not)', line, re.I)", "', line, re.I)"),
+    ('pipeline/extractors/dual.py', "|if\\s+you\\s+(?:don[’\\']?t|do\\s+not)|\\baverage", '|\\baverage'),
     ('pipeline/extractors/merit.py', '        if sum(1 for r in body if any(PHONE.search(c) for c in r)) >= 2: continue', '        pass'),
-    ('pipeline/extractors/merit.py', "r'(?:private|outside|external)[- ]scholarships?|undocumented|", "r'undocumented|"),
+    ('pipeline/extractors/merit.py', "|(?:private|outside|external)[- ]scholarships?|undocumented|", "|undocumented|"),
     ('pipeline/extractors/transfer.py', '(?:english|math(?:ematics)?)\\s+course|', ''),
     ('pipeline/extractors/dual.py', "NOT_ELIGIBILITY = re.compile(r'overload|", "NOT_ELIGIBILITY = re.compile(r'"),
     ('pipeline/extractors/transfer.py', "r'(?<!non-)(?<!non)developmental|", "r'developmental|"),
@@ -169,12 +169,12 @@ MUTS = [
     ('pipeline/extractors/merit.py', " or '@' in x or YES_NO", ' or YES_NO'),
     ('pipeline/extractors/merit.py', " or YES_NO.fullmatch(x)) else ''", ") else ''"),
     ('pipeline/extractors/merit.py', " or re.search(r'\\$[\\d,.]+\\s+(?:for\\s+)?(?:the\\s+)?(?:fall|spring)\\b', outside, re.I))", ')'),
-    ('pipeline/extractors/merit.py', "NOT_AWARD_NAME = re.compile(r'\\bap\\s+credit\\b|", "NOT_AWARD_NAME = re.compile(r'"),
+    ('pipeline/extractors/merit.py', "\\d{1,2}\\W*$|\\bap\\s+credit\\b|", "\\d{1,2}\\W*$|"),
     ('pipeline/extractors/costs.py', '|not\\s+living\\s+at\\s+home|', '|'),
     ('pipeline/extractors/costs.py', '|at[- ]home|', '|at home|'),
     ('pipeline/extractors/costs.py', "    if not ctx['period'] and lead_period: ctx['period'] = 'semester'", '    pass'),
     ('pipeline/extractors/costs.py', "                   if not re.search(r'(?:credits?|hours?)\\s*$', (t.get('lead') or '')[:m.start()], re.I)]", '                   if True]'),
-    ('pipeline/extractors/transfer.py', '(?:semester\\s+)?(?:credit\\s+)?(?:hours\\s+)?of\\s+the', 'of\\s+the'),
+    ('pipeline/extractors/transfer.py', '(?:semester\\s+)?(?:credit\\s+)?(?:hours\\s+)?of\\s+(?:the|their)', 'of\\s+(?:the|their)'),
     ('pipeline/extractors/transfer.py', "|(?:gpa|grade\\s+point\\s+average)(?:[^.]|\\.(?=\\d)){0,40}\\b(?:for|on|in|during)\\s+the\\s+(?:last|final)|recognition|honors', s, re.I)", "|recognition|honors', s, re.I)"),
     ('pipeline/extractors/transfer.py', "|recognition|honors', s, re.I)", "', s, re.I)"),
     ('pipeline/extractors/transfer.py', '|honors|required\\s+to\\s+accept|engineering\\s+programs|option\\s+[a-z]\\b|', '|'),
@@ -184,6 +184,77 @@ MUTS = [
     ('pipeline/extractors/costs.py', 'on[- ]campus\\s*/\\s*off[- ]campus|on\\s*(/|and', 'on\\s*(/|and'),
     ('pipeline/extractors/costs.py', '(a\\s+)?(parents?|family)|', '(a\\s+)?parents?|'),
     ('pipeline/extractors/transfer.py', 'unaccredited|high\\s+school|', 'unaccredited|'),
+    ('pipeline/extractors/costs.py', "r'\\bno\\s+out[- ](?:of[- ])?state|", "r'(?!x)x|"),
+    ('pipeline/extractors/costs.py', "\\bnot\\s+charge\\s+out[- ]of[- ]state|'", "'"),
+    ('pipeline/extractors/costs.py', "r'\\bresidents?\\s*(?:&|and|/)\\s*non-?\\s?residents?'", "r'(?!x)x'"),
+    ('pipeline/extractors/costs.py', '(?:midwest|msep|wue|reciprocity)\\W+non', '(?:zzzz)\\W+non'),
+    ('pipeline/extractors/costs.py', "|\\bresidents?\\s+of\\s+other\\s+states'", "'"),
+    ('pipeline/extractors/costs.py', '        semester_only = True\n', '        pass\n'),
+    ('pipeline/extractors/transfer.py', '(?:some|certain|specific|health)\\s+[\\w/ -]{0,60}?programs?\\s+require|', ''),
+    ('pipeline/extractors/transfer.py', 'students\\s+planning\\s+to\\s+transfer|', ''),
+    ('pipeline/extractors/dual.py', 'attempted|petition|', 'attempted|'),
+    ('pipeline/extractors/dual.py', 'course\\s+requirements\\s+for|', ''),
+    ('pipeline/extractors/merit.py', '^\\W*(?:jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\\.?\\s+\\d{1,2}\\W*$|', ''),
+    ('pipeline/extractors/merit.py', 'academicworks|course[- ]awards|', 'academicworks|'),
+    ('pipeline/extractors/merit.py', '|\\bclep\\b|examination', '|examination'),
+    ('pipeline/extractors/merit.py', '|examination[- ]program|(?:private', '|(?:private'),
+    ('pipeline/extractors/merit.py', "if tests and not re.search(r'\\d', tests) and test is not None", 'if False and test is not None'),
+    ('pipeline/extractors/merit.py', " and test is not None and re.search(r'requirement|criteria|eligib', header[test], re.I):", ':'),
+    ('pipeline/extractors/costs.py', '    if PROGRAM_TABLE.search(context):\n        return []\n', '    if PROGRAM_TABLE.search(context):\n        pass\n'),
+    ('pipeline/extractors/credit.py', 'continue  # MI (Macomb)', 'pass  # MI (Macomb)'),
+    ('pipeline/extractors/dual.py', 'credits\\s+to\\s+transfer|', ''),
+    ('pipeline/extractors/dual.py', 'credits\\s+attempted|', ''),
+    ('pipeline/registry.py', 'if label and label not in owned and (', 'if label and ('),
+    ('pipeline/extractors/transfer.py', "r'articulation|agreement|\\bTT", "r'agreement|\\bTT"),
+    ('pipeline/extractors/transfer.py', 'articulation|agreement|\\bTT', 'articulation|\\bTT'),
+    ('pipeline/extractors/transfer.py', '|\\bTT[-_]|\\bmou', '|\\bmou'),
+    ('pipeline/extractors/transfer.py', "if re.search(r'\\.pdf$', url, re.I) and ", 'if '),
+    ('pipeline/extractors/merit.py', '\\bapplicants?:|\\((?:final|priority)\\)|', '\\((?:final|priority)\\)|'),
+    ('pipeline/extractors/merit.py', '|\\((?:final|priority)\\)|^\\W*in', '|^\\W*in'),
+    ('pipeline/extractors/merit.py', '^\\W*in\\s+this\\s+section\\W*$|', ''),
+    ('pipeline/extractors/merit.py', 'international[- ]baccalaureate(?![- ]scholarship)|academicworks|', 'academicworks|'),
+    ('pipeline/extractors/merit.py', '(?![- ]scholarship)|academicworks|', '(?![- ]scholarship)|'),
+    ('pipeline/extractors/merit.py', 'international[- ]baccalaureate(?![- ]scholarship)', 'international[- ]baccalaureate'),
+    ('pipeline/extractors/credit.py', '|n/?a|not\\s+accepted)', '|n/?a)'),
+    ('pipeline/extractors/dual.py', '\\bbelow\\s+an?\\s+\\d|', ''),
+    ('pipeline/extractors/costs.py', '        return []  # IL (Olivet)', '        pass  # IL (Olivet)'),
+    ('pipeline/extractors/catalog.py', "|transfer\\s+module|\\baccelerated\\b'", "|transfer\\s+module'"),
+    ('pipeline/extractors/merit.py', '^\\W*(?:\\d(?:st|nd|rd|th)\\s+(?:and\\s+\\d(?:st|nd|rd|th)\\s+)?semester\\s+\\w+|all\\s+(?:freshmen|sophomores|juniors|seniors))\\W*$|', ''),
+    ('pipeline/extractors/merit.py', '|all\\s+(?:freshmen|sophomores|juniors|seniors))\\W*$|', ')\\W*$|'),
+    ('pipeline/extractors/merit.py', '(?:and\\s+\\d(?:st|nd|rd|th)\\s+)?semester', 'semester'),
+    ('pipeline/extractors/merit.py', 'tuition[- ](?:and|&)[- ]fees|', ''),
+    ('pipeline/extractors/credit.py', "or re.search(r'does\\s+not\\s+award|non-?transferable', course, re.I)", "or re.search(r'non-?transferable', course, re.I)"),
+    ('pipeline/extractors/credit.py', "r'does\\s+not\\s+award|non-?transferable'", "r'does\\s+not\\s+award'"),
+    ('pipeline/extractors/dual.py', "|\\baverage\\s+college', line", "', line"),
+    ('pipeline/extractors/transfer.py', "|\\bmou\\b|pledge', url", "|pledge', url"),
+    ('pipeline/extractors/transfer.py', "|pledge', url", "', url"),
+    ('pipeline/extractors/transfer.py', 'applicants?\\s+present|', ''),
+    ('pipeline/extractors/merit.py', "            lo = hi = int(per_year.group(1).replace(',', ''))  # PA (Geneva)", '            pass  # PA (Geneva)'),
+    ('pipeline/extractors/merit.py', "|'\n                        r'\\b' + _N + r'[\\s-]+years?\\s+value\\b', re.I)", "', re.I)"),
+    ('pipeline/extractors/merit.py', '^\\W*(?:freshman|sophomore|junior|senior)\\s+\\d+\\s*(?:[-–]\\s*\\d+|\\+)\\s+credits\\W*$|', ''),
+    ('pipeline/extractors/merit.py', '\\s+\\d+\\s*(?:[-–]\\s*\\d+|\\+)\\s+credits', '\\s+\\d+\\s*(?:[-–]\\s*\\d+)\\s+credits'),
+    ('pipeline/extractors/transfer.py', 'of\\s+(?:the|their)\\s+(?:last|final)', 'of\\s+the\\s+(?:last|final)'),
+    ('pipeline/extractors/transfer.py', '        return []  # PA (Point Park)', '        pass  # PA (Point Park)'),
+    ('pipeline/extractors/transfer.py', "re.search(r'(?<!under)graduate[-_]?", "re.search(r'graduate[-_]?"),
+    ('pipeline/extractors/costs.py', "SKIP_TABLE = re.compile(r'\\bmaster\\b|", "SKIP_TABLE = re.compile(r'"),
+    ('pipeline/extractors/costs.py', '|\\bexample\\b|graduate|', '|graduate|'),
+    # NY r1
+    ('pipeline/extractors/costs.py', "    if not ctx['period'] and re.search(r'^\\W*semester\\s+cost', page.title or '', re.I): ctx['period'] = 'semester'", '    pass'),
+    ('pipeline/extractors/merit.py', "r'and[- ]prior\\b|awards[- ](?:and[- ])?recognition|'", "r'awards[- ](?:and[- ])?recognition|'"),
+    ('pipeline/extractors/merit.py', "|awards[- ](?:and[- ])?recognition|'", "|'"),
+    # Issue #95: printed choice rules are not all_required
+    ('pipeline/extractors/catalog.py', "            choice_issues.append('mixed_required_and_choice')", '            pass'),
+    ('pipeline/extractors/catalog.py', "            choice_issues.append('choice_rule_unparsed')", '            pass'),
+    ('pipeline/extractors/catalog.py', "        elif g['courses'] and CHOICE_CUE.search(rules_text):", "        elif False:"),
+    ('pipeline/extractors/catalog.py', '{0,3}?(?:courses|classes)', '{0,3}?(?:zzzz)'),
+    ('pipeline/extractors/catalog.py', "(?:a\\s+minimum\\s+of\\s+|at\\s+least\\s+|an?\\s+additional\\s+)?", ''),
+    ('pipeline/extractors/catalog.py', "(\\d{1,2}|one|two|three|four|five|six)\\s+(?:additional", "(\\d{1,2})\\s+(?:additional"),
+    ('pipeline/extractors/catalog.py', "        if len(cue_lines) > 1 or", "        if False and len(cue_lines) > 1 or"),
+    ('pipeline/extractors/catalog.py', " and not CHOICE_CUE.search(r) for r in g['rules'])", " for r in g['rules'])"),
+    ('pipeline/extractors/catalog.py', "        elif g.get('courses_before_choice'):", "        elif False:"),
+    ('pipeline/extractors/catalog.py', "        if g.get('total') and g.get('table_groups') == 1 and", "        if g.get('total') and"),
+    ('pipeline/extractors/catalog.py', "(?:/[A-Z]{2,5})*)\\s?(\\d{3,4}[A-Z]?)$')", ")\\s?(\\d{3,4}[A-Z]?)$')"),
+    ('pipeline/extractors/catalog.py', "            if cur['courses'] and CHOICE_CUE.search(text): cur['courses_before_choice'] = True", "            pass"),
     ('pipeline/registry.py', '        if domain in PROGRAM_DEPTH_DOMAINS: continue\n', '        pass\n'),
 ]
 TIMEOUT = 90
@@ -213,6 +284,13 @@ def main():
     workers = max(1, int(os.environ.get('MUTATION_WORKERS') or os.cpu_count() or 1))
     # Parallel suites share the CPU, so each one runs slower; the per-mutant budget scales with the worker count.
     TIMEOUT = int(os.environ.get('MUTATION_TIMEOUT') or 90 * workers)
+    # CI shards the list across parallel jobs (MUTATION_SHARD=i/n, 1-based); every mutant runs in exactly one shard.
+    shard = os.environ.get('MUTATION_SHARD')
+    muts = MUTS
+    if shard:
+        i, n = (int(x) for x in shard.split('/'))
+        assert 1 <= i <= n, shard
+        muts = MUTS[i - 1::n]
     tmp = tempfile.mkdtemp(prefix='mutation-')
     skip = shutil.ignore_patterns('.git', 'node_modules', '__pycache__', 'runs')
     roots = queue.Queue()
@@ -227,7 +305,7 @@ def main():
     failed = False
     try:
         with concurrent.futures.ThreadPoolExecutor(workers) as pool:
-            for (f, old, _), verdict in pool.map(job, MUTS):
+            for (f, old, _), verdict in pool.map(job, muts):
                 print(verdict, f, old[:60], flush=True)
                 if verdict != 'KILLED ':
                     failed = True
