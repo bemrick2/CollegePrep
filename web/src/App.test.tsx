@@ -378,7 +378,7 @@ describe('weekly plan and parent accountability', () => {
     expect(await screen.findByRole('heading', { name: "Maya's week" })).toBeInTheDocument()
     expect(screen.getByRole('list', { name: "This week's practice days" })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Focus this week' })).toBeInTheDocument()
-    expect(screen.getByText(/benchmark (due|was due)|Next progress check/i)).toBeInTheDocument()
+    expect(screen.getByText(/benchmark (due|was due)|^Next progress check/i)).toBeInTheDocument()
     // Next week's goal comes from the same rule as the backend's suggest_next_week_goal.
     const set = await screen.findByRole('button', { name: /^Set next week to \d+$/ })
     const n = Number(set.textContent!.match(/\d+/)![0])
@@ -416,6 +416,32 @@ describe('weekly plan and parent accountability', () => {
     expect(await screen.findByRole('link', { name: 'Start progress check' })).toHaveAttribute('href', '/student/benchmark?kind=mini')
     expect(screen.getByRole('heading', { name: 'Mini benchmark' })).toBeInTheDocument()
   })
+
+  it('repeats: a check that reuses seen questions is not compared, and running out of fresh practice is said plainly', async () => {
+    const user = userEvent.setup()
+    const fam = sampleFamily('student')
+    const sid = Object.keys(fam.benchmarks)[0]!
+    const base = fam.benchmarks[sid]![0]!
+    base.completed_at = new Date(Date.now() - 40 * 86_400_000).toISOString()
+    // A mini check made of questions the student has practised many times.
+    const seenAttempts = fam.attempts.filter((a) => a.student_id === sid && a.submitted_at).slice(-6)
+    const sec = (section: string, correct: number, answered: number) => ({ section, answered, correct, skipped: 0, accuracy: correct / answered, pacing_ratio: 1, ceiling_difficulty: null })
+    const now = new Date()
+    for (const a of seenAttempts) {
+      fam.attempts.push({ ...a, id: `rep-${a.id}`, presented_at: now.toISOString(), submitted_at: now.toISOString(), session_id: null, benchmark_id: 'bm-rep' } as never)
+    }
+    fam.benchmarks[sid]!.push({ ...base, id: 'bm-rep', kind: 'mini', started_at: new Date(now.getTime() - 60_000).toISOString(), completed_at: now.toISOString(), attempt_ids: seenAttempts.map((a) => `rep-${a.id}`), metrics: { ...base.metrics, sections: [sec('math', 6, 6)] } })
+    renderAt('/student/progress', new DemoSource(fam))
+    await user.click(await screen.findByRole('button', { name: /mini benchmark/i }))
+    expect(await screen.findByText(/^\d+ questions? in this check (was|were) seen before$/)).toBeInTheDocument()
+    expect(screen.getAllByText('Not a clean comparison').length).toBeGreaterThan(0)
+    expect(screen.queryByText('Clear improvement')).not.toBeInTheDocument()
+    cleanup()
+    // The sample student has used every fresh ACT question: practice is review, said plainly, goal unchanged.
+    renderAt('/student', new DemoSource(sampleFamily('student')))
+    expect(await screen.findByText('No new practice questions left')).toBeInTheDocument()
+    expect(screen.getByText(/isn't new evidence of improvement/)).toBeInTheDocument()
+  }, 30_000)
 
   it('week turnover: last week is recapped, a missing goal is offered from last week, and nothing claims an email was sent', async () => {
     vi.useFakeTimers({ toFake: ['Date'] })
@@ -474,6 +500,7 @@ describe('weekly plan and parent accountability', () => {
       kind: 'mini',
       started_at: new Date().toISOString(),
       completed_at: new Date().toISOString(),
+      attempt_ids: [],
       metrics: { ...base.metrics, answered: 26, correct: 22, accuracy: 22 / 26, sections: [sec('math', 18, 20), sec('english', 4, 6)] },
     })
     renderAt('/student/progress', new DemoSource(fam))

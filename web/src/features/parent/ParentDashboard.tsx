@@ -255,6 +255,7 @@ function Panel({ student, o, onRefresh }: { student: Student; o: StudentOverview
           lastWeek={o.lastWeek ? weekRecap({ weekStart: addDays(o.weekStart, -7), tz: o.tz, plan: o.plan, week: o.lastWeek, history: o.history, benchmarks: o.benchmarks, estimates: o.estimates }) : null}
           recapFirst={showRecap(o.today, o.weekStart)}
           hasGoal={!!o.week.goal?.target_questions}
+          content={o.content}
           onRefresh={onRefresh}
         />
       ) : null}

@@ -13,6 +13,8 @@ import { xpFor } from '../../lib/engine/gamify'
 import { formatDuration, localDate, weekStartOf } from '../../lib/engine/dates'
 
 interface Outcome {
+  /** Shown to this student before: counts toward the goal, not fresh evidence. */
+  seenBefore: boolean
   correct: boolean | null
   elapsed_ms: number
   expected: number | null
@@ -92,7 +94,7 @@ export function PracticeSession() {
   const onPick = async (confidence: Confidence) => {
     const r = await attempt.submit({ confidence })
     if (!r || !question) return
-    setOutcomes((o) => [...o, { correct: r.result.is_correct, elapsed_ms: r.result.elapsed_ms, expected: question.expected_time_seconds, skill: question.primary_skill_key }])
+    setOutcomes((o) => [...o, { seenBefore: !!item?.seen_before, correct: r.result.is_correct, elapsed_ms: r.result.elapsed_ms, expected: question.expected_time_seconds, skill: question.primary_skill_key }])
     setRemember(r.result.remember_text ?? (await source.rememberThis(question.id)))
   }
 
@@ -144,6 +146,11 @@ export function PracticeSession() {
         {item && (
           <p className="mb-3 text-xs font-semibold text-go">
             {REASON_LABEL[item.reason] ?? 'Practice'} · {index + 1} of {total}
+            {item.seen_before && (
+              <span className="ml-2 rounded-full bg-surface-2 px-2 py-0.5 font-semibold text-ink-3" title="You've answered this question before. It counts toward your goal as review, not as a new result.">
+                Seen before
+              </span>
+            )}
           </p>
         )}
         {question && <QuestionView question={question} answer={state.answer} onChoose={attempt.choose} result={state.result} skillName={catalog.skillName(question.primary_skill_key)} />}
@@ -286,6 +293,12 @@ function SessionSummary({ outcomes, studentId, skillName }: { outcomes: Outcome[
         </div>
       )}
       {goal && doneQs >= goal && <Notice tone="gold" className="mt-4 w-full">Weekly goal reached. Anything extra this week is a bonus.</Notice>}
+      {outcomes.some((o) => o.seenBefore) && (
+        <p className="mt-4 w-full text-left text-sm text-ink-2">
+          {outcomes.filter((o) => !o.seenBefore).length} new, {outcomes.filter((o) => o.seenBefore).length} seen before. Questions you've seen before count toward your
+          goal as review; only new ones count as evidence of improvement.
+        </p>
+      )}
       <p className="mt-4 w-full text-left text-xs text-ink-3">
         Practice result on original Prep & Price questions, checked for answer accuracy. Not official ACT or SAT items, and not converted to a test score.
       </p>

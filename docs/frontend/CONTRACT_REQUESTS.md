@@ -28,6 +28,7 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-20 | Cost-of-attendance period (academic year vs 12 months) | ⏳ open | COA labelled "academic year"; summer and break living is the family's own number |
 | CR-21 | Question review metadata; serve only reviewed items | 🚧 migration `20261007140000` merged (#142), unapplied on hosted | Demo and local DB serve only items whose current content hash a review approved (`questionReview.ts`); live has no review fields |
 | CR-22 | Parent emails: weekly-summary opt-in, service-only digest and inactivity payloads, delivery log | ⏳ open (reference SQL in `scripts/local/proposals/cr22_parent_emails.sql`, local only) | Opt-in and email preview behind `VITE_WEEKLY_DIGEST`; sender `supabase/functions/send-weekly-digest` (not deployed) |
+| CR-23 | Fresh vs repeat vs progress-check questions on the server | ⏳ open | Demo holds check questions out of practice; live marks `seen_before` from attempts, and checks and trends exclude repeats client-side |
 
 Live content note: the bank has no exam versions, skills or questions yet, so live practice and benchmarks show their empty states until content is loaded.
 
@@ -327,6 +328,22 @@ In the app and the local database, an item is served only if a review approved i
 - a guardian who did not opt in gets nothing;
 - a week's summary is sent once only;
 - a failed send is retried, and an inactivity alert is sent once per stretch.
+
+## CR-23. Fresh questions, repeats and progress-check questions
+
+**Rule, as the app applies it now** (`web/src/lib/engine/freshness.ts`):
+- **Fresh:** a question the student has never been shown.
+- **Held for the next check:** in each section, the next mini check's worth of fresh questions is kept out of practice, mid-difficulty first. ACT holds English 3, Math 4, Reading 3, Science 3; SAT holds 4 and 4.
+- **Repeats:** allowed in practice as review, and counted toward the weekly goal. They are never evidence of improvement:
+  - the weekly trend uses first answers only;
+  - a progress-check section with any repeated question gets no verdict ("not a clean comparison").
+
+**Need (server):**
+1. **`start_practice_session` and `recommend_practice_set`:** exclude the held set unless nothing else is left, and return `seen_before` per item. Today the client marks it with one extra query.
+2. **`complete_benchmark` metrics:** per section, `repeats`, meaning attempts whose question the student had been shown before the benchmark started. That lets the stored history say whether a comparison is clean without client reconstruction.
+3. **`student_skill_estimates`:** add `first_answers` and `first_answer_accuracy` beside the existing totals, so any accuracy shown as progress can use first answers. The existing totals can keep driving targeting.
+
+**Why.** The bank is small (CR-21, #19). Without this, practice consumes the questions progress checks need, and recall of repeated items reads as improvement.
 
 ## Product decisions flagged (not contract requests)
 

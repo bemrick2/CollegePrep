@@ -24,6 +24,13 @@ RPCs. It does not run Supabase Auth, edge functions, email or Stripe.
 
 **Question content.** 58 original items. Each was reviewed by two independent blind solves plus a key and explanation audit; 3 were fixed and re-reviewed, and one disagreement (a reviewer's arithmetic slip) was worked by hand. Only items whose current content hash was approved are served, in the demo and in the local database. The review is AI review, not human editorial review. The server-side gate (CR-21, migration `20261007140000`, #142) serves only items whose server-computed sha256 matches a recorded approval. The local database seed records approvals through `approve_practice_question`, and is checked end to end. Not applied on hosted.
 
+**Fresh, repeat and progress-check questions.**
+- **Practice:** never uses the next check's fresh questions, and labels repeats "Seen before". The session summary says how many questions were new and how many were seen before.
+- **Progress checks:** use fresh questions first. A section with repeats is reported as "not a clean comparison", with no verdict.
+- **Trends:** "Am I improving?" and the weekly trend use first answers only.
+- **Running out:** the student home and the parent dashboard say plainly when no new practice questions are left, and the weekly goal is unchanged.
+- **Server:** the session-builder side is CR-23.
+
 ## In-app updates vs emails actually sent
 
 | Update | Shown in the app | Emailed today |

@@ -1,3 +1,4 @@
+import { practiceExclusions } from '../../engine/freshness'
 import { projectCosts } from '../../engine/costProjection'
 import type { InterestProfile } from '../../engine/interests'
 import { readInterests, writeInterests } from '../../interestStore'
@@ -491,7 +492,11 @@ export class DemoSource implements DataSource {
     this.requireLinked(studentId)
     if (targetMinutes < 5 || targetMinutes > 15) throw new DataError('Sessions are 5 to 15 minutes', 'invalid')
     const attempts = this.attemptsOf(studentId)
-    const pool = F.QUESTIONS.filter((q) => q.exam_family === examFamily)
+    const all = F.QUESTIONS.filter((q) => q.exam_family === examFamily)
+    // Keep the next progress check's fresh questions out of practice (engine/freshness.ts).
+    const seen = new Set(attempts.map((a) => a.question_id))
+    const held = practiceExclusions(examFamily, all, seen)
+    const pool = all.filter((q) => !held.has(q.id))
     const plan = recommend(
       pool.map((q) => ({ id: q.id, skill_id: skillIdOf(q), expected_time_seconds: q.expected_time_seconds })),
       skillEstimates(attempts, F.SKILLS),
@@ -504,7 +509,7 @@ export class DemoSource implements DataSource {
     return {
       id,
       target_minutes: targetMinutes,
-      items: plan.map((p, i) => ({ position: i + 1, question: toPublic(F.byId.get(p.question_id)!), reason: p.reason })),
+      items: plan.map((p, i) => ({ position: i + 1, question: toPublic(F.byId.get(p.question_id)!), reason: p.reason, seen_before: seen.has(p.question_id) })),
     }
   }
 

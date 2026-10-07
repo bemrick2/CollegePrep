@@ -10,7 +10,7 @@ import { meritAwards } from '../../lib/engine/merit'
 import { addDays, localDate } from '../../lib/engine/dates'
 import { benchmarkAttemptIds, benchmarkSchedule, SECTION_LABEL } from '../../lib/engine/benchmark'
 import { showRecap, weekRecap, weeklyPlan } from '../../lib/engine/weeklyPlan'
-import { LastWeekRecap, PacePill, ThisWeekGoal, WeekStrip, checkSentence, paceSentence } from '../../components/WeekPlan'
+import { FreshContentNotice, LastWeekRecap, PacePill, ThisWeekGoal, WeekStrip, checkSentence, paceSentence } from '../../components/WeekPlan'
 import { achievements, levelOf, totalXp } from '../../lib/engine/gamify'
 import { latestEstimate, useStudentOverview, type StudentOverview } from './useStudentOverview'
 import { useCatalog } from '../practice/useCatalog'
@@ -147,6 +147,9 @@ function HomeBody({ name, o, studentId, onRefresh, canSetGoals }: { name: string
                 />
               )}
               {recap && <LastWeekRecap recap={recap} compact className="mt-4 border-t border-line pt-4" />}
+              <div className="mt-4 empty:hidden">
+                <FreshContentNotice content={o.content} />
+              </div>
             </div>
           )}
           <div className={cx(!fresh && 'pt-5 md:pt-6')}>

@@ -7,8 +7,9 @@ import type { WeeklyPlan } from '../../lib/engine/weeklyPlan'
 import { formatShortDate } from '../../lib/engine/dates'
 import { Notice } from '../../components/ui'
 import { Section } from '../../components/layout'
-import { FocusList, LastWeekRecap, NextWeekGoal, PacePill, ThisWeekGoal, WeekStrip, checkSentence, paceSentence, recapSentence } from '../../components/WeekPlan'
+import { FocusList, FreshContentNotice, LastWeekRecap, NextWeekGoal, PacePill, ThisWeekGoal, WeekStrip, checkSentence, paceSentence, recapSentence } from '../../components/WeekPlan'
 import type { WeekRecap } from '../../lib/engine/weeklyPlan'
+import type { ContentStatus } from '../../lib/engine/freshness'
 import type { EmailDelivery } from '../../lib/data/source'
 
 /**
@@ -28,6 +29,7 @@ export function WeeklyUpdate({
   recapFirst = false,
   hasGoal = true,
   onRefresh = () => undefined,
+  content = null,
 }: {
   studentId: string
   name: string
@@ -41,6 +43,7 @@ export function WeeklyUpdate({
   recapFirst?: boolean
   hasGoal?: boolean
   onRefresh?: () => void
+  content?: ContentStatus | null
 }) {
   const { source } = useApp()
   const quiet = useAsync(() => source.inactiveStudents(), [source])
@@ -60,6 +63,7 @@ export function WeeklyUpdate({
             <ThisWeekGoal studentId={studentId} weekStart={plan.weekStart} lastGoal={lastWeek?.target ?? null} canSet={canSetGoals} name={name} goalsPath="/parent/goals" onSet={onRefresh} />
           )}
           {lastWeek && recapFirst && <LastWeekRecap recap={lastWeek} />}
+          <FreshContentNotice content={content} name={name} />
           <div>
             {lastWeek && recapFirst && <h3 className="mb-1 text-sm font-bold text-ink">This week</h3>}
             <p className="flex flex-wrap items-center gap-2 text-[15px] text-ink">

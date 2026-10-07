@@ -25,6 +25,13 @@ interface Open {
 
 type Phase = 'intro' | 'running' | 'break' | 'done'
 
+/** Per section, how many of this run's questions the student had seen before it started. */
+function repeatsIn(records: { question_id: string; section: string }[], seen: Set<string>) {
+  const m = new Map<string, number>()
+  for (const r of records) if (seen.has(r.question_id)) m.set(r.section, (m.get(r.section) ?? 0) + 1)
+  return m
+}
+
 export function Benchmark() {
   const { source, ctx } = useApp()
   const student = ctx?.myStudent ?? null
@@ -33,6 +40,9 @@ export function Benchmark() {
   const history = useAsync(() => (student ? source.listBenchmarks(student.id) : Promise.resolve([])), [source, student?.id])
   const exam: ExamFamily = plan.data?.exam_family ?? 'act'
   const pool = useAsync(() => source.publishedQuestions(exam), [source, exam])
+  // Everything this student has answered, for fresh-first selection and for marking repeats in the results.
+  const answered = useAsync(() => (student ? source.attemptHistory(student.id, '1970-01-01T00:00:00Z') : Promise.resolve([])), [source, student?.id])
+  const seenBefore = useMemo(() => new Set((answered.data ?? []).map((a) => a.question_id)), [answered.data])
   const catalog = useCatalog(exam)
 
   const [kind, setKind] = useState<BenchmarkKind | null>(null)
@@ -95,7 +105,9 @@ export function Benchmark() {
     if (!bplan || !section || !pool.data) return
     const r = run.current
     if (!r.returning && r.served < section.count) {
-      const q = pickNext(pool.data.filter((x) => x.exam_family === exam), section.section, r.target, r.used)
+      // Fresh questions first, so the check measures more than recall; seen ones only when a section runs out.
+      const inExam = pool.data.filter((x) => x.exam_family === exam)
+      const q = pickNext(inExam.filter((x) => !seenBefore.has(x.id)), section.section, r.target, r.used) ?? pickNext(inExam, section.section, r.target, r.used)
       if (q) return present(q)
     }
     const back = r.skipped.shift()
@@ -105,7 +117,7 @@ export function Benchmark() {
     }
     setCurrent(null)
     setPhase(sectionIdx + 1 >= bplan.sections.length ? 'done' : 'break')
-  }, [bplan, section, pool.data, exam, present, resume, sectionIdx])
+  }, [bplan, section, pool.data, exam, present, resume, sectionIdx, seenBefore])
 
   // When the run ends, save the summary.
   useEffect(() => {
@@ -128,7 +140,7 @@ export function Benchmark() {
   }, [phase, summary, student, records, chosenKind, exam, source])
 
   if (!student) return <Navigate to="/student" replace />
-  if (plan.loading || pool.loading || history.loading) return <PageLoading />
+  if (plan.loading || pool.loading || history.loading || answered.loading) return <PageLoading />
 
   if (!bplan || bplan.totalQuestions === 0)
     return (
@@ -296,7 +308,7 @@ export function Benchmark() {
 
   if (phase === 'done') {
     if (!summary) return <PageLoading />
-    return <BenchmarkResults summary={summary} strategies={catalog.strategies} traps={catalog.traps} skillName={catalog.skillName} history={history.data ?? []} />
+    return <BenchmarkResults summary={summary} strategies={catalog.strategies} traps={catalog.traps} skillName={catalog.skillName} history={history.data ?? []} attempts={answered.data ?? []} currentRepeats={repeatsIn(records, seenBefore)} />
   }
 
   const answeredInSection = records.filter((r) => r.section === section?.section).length

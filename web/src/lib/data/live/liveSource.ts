@@ -457,10 +457,14 @@ export class LiveSource implements DataSource {
     const qs = ids.length ? await this.sb.from('practice_questions').select(QUESTION_COLUMNS).in('id', ids) : { data: [], error: null }
     if (qs.error) fail(qs.error)
     const byId = new Map(((qs.data ?? []) as unknown as QuestionRow[]).map((q) => [q.id, toPublic(q)]))
+    // Seen before: any attempt at the question by this student. The new session has none yet, so every match is earlier.
+    const prior = ids.length ? await this.sb.from('practice_attempts').select('question_id').eq('student_id', studentId).in('question_id', ids) : { data: [], error: null }
+    if (prior.error) fail(prior.error)
+    const seen = new Set((prior.data ?? []).map((r) => r.question_id as string))
     return {
       id,
       target_minutes: targetMinutes,
-      items: (items.data ?? []).filter((i) => byId.has(i.question_id)).map((i) => ({ position: i.position, reason: i.reason, question: byId.get(i.question_id)! })),
+      items: (items.data ?? []).filter((i) => byId.has(i.question_id)).map((i) => ({ position: i.position, reason: i.reason, question: byId.get(i.question_id)!, seen_before: seen.has(i.question_id) })),
     }
   }
 
