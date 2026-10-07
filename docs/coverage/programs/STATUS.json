@@ -1,14 +1,14 @@
 {
  "national": {
-  "covered": 33,
+  "covered": 34,
   "definition": "Registered: four-year schools in the national registry (pipeline/registry; scope rule in pipeline/registry.py). Researched: a verified or partially verified deep-dive record, or a queue entry recording an attempt other than not_yet_researched. Covered: meets docs/PROGRAM_DEPTH_COMPLETION.md. Untracked states count as registered only.",
   "registered": 2119,
-  "researched": 405,
+  "researched": 407,
   "states": [
    {
-    "covered": 2,
+    "covered": 3,
     "registered": 6,
-    "researched": 4,
+    "researched": 6,
     "state": "AK",
     "tracked": true
    },
@@ -369,8 +369,8 @@
  "states": [
   {
    "coverage_threshold": 0.8,
-   "covered_institutions": 2,
-   "entering_student_share_covered": 0.905,
+   "covered_institutions": 3,
+   "entering_student_share_covered": 0.969,
    "four_year_institutions": 6,
    "institutions": [
     {
@@ -438,10 +438,10 @@
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": null,
+     "catalog_share": 1.0,
      "dimensions": {
       "admission_rules": "queued",
-      "catalog": "queued",
+      "catalog": "met",
       "degree_maps": "queued",
       "requirement_groups": "queued"
      },
@@ -450,20 +450,19 @@
       "business"
      ],
      "institution_key": "ipeds-102632",
-     "listed_bachelor_programs": null,
+     "listed_bachelor_programs": 18,
      "name": "University of Alaska Southeast",
      "partially_verified_programs": 0,
-     "programs_complete": false,
+     "programs_complete": true,
      "programs_with_plan": 0,
      "queue": [
-      "admission_rules:not_yet_researched",
-      "catalog:not_yet_researched",
-      "degree_maps:not_yet_researched",
+      "admission_rules:no_official_statement",
+      "degree_maps:not_published",
       "requirement_groups:layout_not_readable"
      ],
      "requirement_groups": 0,
-     "status": "partial",
-     "verified_bachelor_programs": 16
+     "status": "covered",
+     "verified_bachelor_programs": 18
     },
     {
      "academic_years": [],
@@ -483,7 +482,7 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "institution:no_year_label"
      ],
      "requirement_groups": 0,
      "status": "exception",
@@ -531,18 +530,18 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "institution:layout_not_readable"
      ],
      "requirement_groups": 0,
      "status": "exception",
      "verified_bachelor_programs": 0
     }
    ],
-   "not_yet_researched": 3,
-   "queue_entries": 10,
+   "not_yet_researched": 0,
+   "queue_entries": 9,
    "queue_errors": [],
    "state": "AK",
-   "status": "in_progress",
+   "status": "complete",
    "unaccounted_institutions": []
   },
   {

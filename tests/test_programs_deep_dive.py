@@ -175,7 +175,7 @@ class DeepDiveEdgeTests(unittest.TestCase):
             self.assertFalse(any('collegeranker' in u for u in f.calls))
 
     def test_single_pdf_catalog_is_fetched_as_catalog_pdf(self):
-        # Alaska Bible College: the whole 2026-2027 catalog is one 15.7 MB PDF; it must use the large-file fetch, not the page fetch
+        # Alaska Bible College: the whole 2026-2027 catalog is one 37 MB PDF; it must use the large-file fetch, not the page fetch
         from unittest import mock
         pdf = 'https://www.example.edu/catalog-2026-2027.pdf'
         t = {**TARGET, 'catalog': {'platform': 'pdf', 'home': pdf, 'catalog_pdfs': [pdf]}, 'policy': []}
@@ -1629,6 +1629,13 @@ class ListedEmphasisTests(unittest.TestCase):
             {'listed_as': 'bachelor', 'printed': 'Chemistry, B.A.College', 'url': 'https://a/chem-ba'},
             {'listed_as': None, 'printed': 'Art - Paint Emphasis, Minor', 'url': 'https://a/art-minor'}]}}
         self.assertEqual(sorted(u for _, u in listed_emphasis_pages(lists, norm)), ['https://a/chem-bio', 'https://a/fs', 'https://a/ps-ag'])
+
+    def test_degree_index_segment_is_not_a_certificate_path(self):
+        from programs.extract import not_bachelor_path
+        self.assertFalse(not_bachelor_path('https://catalog.uas.alaska.edu/certificate-degree-programs/bachelors-degrees/biology-ba/'))
+        self.assertTrue(not_bachelor_path('https://catalog.uas.alaska.edu/certificate-degree-programs/certificates/fisheries-technology/'))
+        self.assertTrue(not_bachelor_path('https://catalog.uoregon.edu/min-anthropology/'))
+        self.assertTrue(not_bachelor_path('https://catalog.wvu.edu/undergraduate/minors/accounting/'))
 
     def test_program_heading_skips_catalog_year_heading(self):
         from programs.extract import program_heading, static_program_identity

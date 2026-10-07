@@ -199,7 +199,7 @@ def crawl_target(target, run: Run, fetcher, browser=None, log=print, caps=None):
         for u in target['refetch']: push(u, 'program_page', 'refetch')
     elif cat.get('home') and not (cat.get('platform') == 'pdf' and cat['home'] in cat.get('catalog_pdfs', [])):
         # a catalog that is one PDF is fetched only as role catalog_pdf (the large-file cap; Alaska Bible College's 2026-2027
-        # catalog is 15.7 MB), so it is not first refused as an over-size catalog_home page
+        # catalog is 37 MB), so it is not first refused as an over-size catalog_home page
         push(cat['home'], 'catalog_home', 'target')
     if not target.get('refetch'):
         if cat.get('platform') == 'courseleaf' and chost:  # CourseLeaf publishes /sitemap.xml: every catalog page

@@ -33,6 +33,13 @@ BACHELOR = re.compile(r'(?<![A-Za-z]\.)\b(B\.?\s?(A|S|F\.?A|L\.\s?A|M|S\.?N|S\.?
 ASSOCIATE = re.compile(r'\b(A\.?\s?(A|S|A\.?S|A\.?T|S\.?T|F\.?A)\b\.?|Associate)', re.I)
 
 NOT_BACHELOR_URL = re.compile(r'(^|[/_-])(min|minor|minors|cert|certificate|certificates|grad|graduate|masters?|phd|doctoral)([/_-]|$)', re.I)
+
+
+def not_bachelor_path(href):
+    """A minor, certificate or graduate page by its URL path. A path segment naming a combined degree index
+    ('certificate-degree-programs', UAS; 'degree-programs') is not itself a certificate path."""
+    path = '/'.join(seg for seg in urlsplit(href).path.split('/') if 'degree' not in seg.lower())
+    return bool(NOT_BACHELOR_URL.search(path))
 # 'Accounting Major' in an undergraduate catalog: a major whose degree (BA/BS) the list does not print
 MAJOR = re.compile(r'\bmajor\b', re.I)
 NOT_MAJOR = re.compile(r'\b(minor|certificate|graduate|second\s+major|majors\))', re.I)
@@ -154,16 +161,16 @@ def collect_lists(target, run, entries):
             if not (is_program(href) or line): continue
             label = line or name
             if cat_filter and not re.search(cat_filter, label): continue
-            if NOT_BACHELOR_URL.search(urlsplit(href).path):  # UO minors repeat the major's anchor text: /min-anthropology/
+            if not_bachelor_path(href):  # UO minors repeat the major's anchor text: /min-anthropology/
                 label = name
             nk = norm_url(href)
             # UVU prints the award glued to the next column ('Architecture, B.ArchSmith College of ...'): the link's own text
             # ('Architecture, B.Arch') then carries the award
             award_of = lambda: list_award(label, name)
-            if nk in out and out[nk]['credential_level'] is None and award_of() and not NOT_BACHELOR_URL.search(urlsplit(href).path):
+            if nk in out and out[nk]['credential_level'] is None and award_of() and not not_bachelor_path(href):
                 del out[nk]  # the same page linked twice (A-Z index without the award, college list with it): keep the awarded line
             if nk not in out:
-                level = None if NOT_BACHELOR_URL.search(urlsplit(href).path) else award_of()
+                level = None if not_bachelor_path(href) else award_of()
                 listed_as = level or ('major' if MAJOR.search(label) and not NOT_MAJOR.search(label) else None)
                 out[nk] = {'name': name, 'printed': label, 'url': href, 'credential_level': level, 'listed_as': listed_as,
                              'listed_on': e['url'], 'listed_on_sha256': e.get('sha256'), 'listed_on_title': e.get('title', '')}
