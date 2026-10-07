@@ -177,6 +177,8 @@ class DeepDiveEdgeTests(unittest.TestCase):
     def test_graduate_names_never_classified(self):
         self.assertIsNone(X.credential_of('Graduate Certificate, Associate Teacher Licensure'))
         self.assertIsNone(X.credential_of('Master of Science, Computer Science'))
+        self.assertIsNone(X.credential_of('Business Administration, D.B.A.'))
+        self.assertIsNone(X.credential_of('Accounting, M.B.A.'))
         self.assertEqual(X.credential_of('Associate of Science (A.S.) in Nursing'), 'associate')
 
     def test_overlong_text_is_not_a_sentence(self):

@@ -1951,6 +1951,10 @@ class CatalogNameTests(unittest.TestCase):
         from pipeline import text as T
         name = lambda t: C.program_name(T.Page('', t, [], [], []))
         self.assertEqual(C.credential('Entertainment Design, B.F.A.'), 'bachelor')
+        # Marshall 2026-27: 'B.A.' inside a graduate award is not a bachelor's degree
+        self.assertIsNone(C.credential('Business Administration, D.B.A.'))
+        self.assertIsNone(C.credential('Accounting, M.B.A.'))
+        self.assertEqual(C.credential('Chemistry B.S./M.S.'), 'bachelor')
         self.assertEqual(name('Special Education - Mild/Moderate/Severe, B.S. | Utah Valley University Academic Catalog'),
                          'Special Education - Mild/Moderate/Severe, B.S.')
         self.assertEqual(name('Program: Biology, B.S. - Middle Tennessee State University - Acalog ACMS'), 'Biology, B.S.')

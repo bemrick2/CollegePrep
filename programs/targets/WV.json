@@ -178,6 +178,11 @@
    "mode": "catalog",
    "priority": 1,
    "catalog": {
+    "exclude_paths": [
+     "/potomacstatecollegeofwvu/",
+     "/westvirginiauniversityinstituteoftechnology/",
+     "/graduate/"
+    ],
     "home": "https://catalog.wvu.edu/",
     "min_depth": 1,
     "path_prefix": "/",
@@ -187,7 +192,7 @@
     ]
    },
    "policy": [],
-   "detected": "CourseLeaf-style catalog on catalog.wvu.edu (program list https://catalog.wvu.edu/programs/)"
+   "detected": "CourseLeaf-style catalog on catalog.wvu.edu (program list https://catalog.wvu.edu/programs/); reviewed 2026-10-07: the catalog also prints Potomac State College and WVU Institute of Technology (separate IPEDS institutions) under their own paths, excluded from WVU"
   },
   {
    "institution_key": "ipeds-237950",

@@ -66,6 +66,7 @@ MUTS = [
     ('programs/extract.py', "        emph = [EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) for line in printed]", "        emph = [EMPHASIS_ENTRY.match(line) for line in printed]"),
     ('programs/extract.py', "            if (re.sub(r'\\W+', '', m.group('base')).lower(), _award_key(m.group('award'))) in degrees: continue", "            pass"),
     ('programs/crawl.py', " or SKIP_PATH.search(p.path) or excluded(target, u): return False", " or SKIP_PATH.search(p.path): return False"),
+    ('programs/extract.py', "BACHELOR = re.compile(r'(?<![A-Za-z]\\.)\\b(B", "BACHELOR = re.compile(r'\\b(B"),
     ('programs/extract.py', "    while hs and YEAR_HEADING.match(hs[0]): hs = hs[1:]", "    pass"),
     ('programs/extract.py', " or OPTION_NAME.search(name) or GENERIC_DEGREES.match(name): return []", " or OPTION_NAME.search(name): return []"),
     ('programs/detect.py', "                if ys: pdfs.append((max(ys), href, m))", "                pdfs.append((max(ys or {0}), href, m))"),
