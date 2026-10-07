@@ -68,7 +68,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 
 | State | Status | Four-year schools | Covered | Entering students covered | Unaccounted schools | Not yet researched | Queue entries |
 |---|---|---|---|---|---|---|---|
-| AK | **complete** | 6 | 3 | 97% (needs 80%) | 0 | 0 | 9 |
+| AK | **complete** | 6 | 3 | 97% (needs 80%) | 0 | 0 | 8 |
 | AL | **in_progress** | 31 | 0 | 0% (needs 80%) | 0 | 28 | 35 |
 | AR | **in_progress** | 26 | 0 | 0% (needs 80%) | 0 | 23 | 26 |
 | AZ | **in_progress** | 17 | 0 | 0% (needs 80%) | 0 | 9 | 17 |
@@ -125,7 +125,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | School | Status | Verified bachelor's | Listed | Plans | Req. groups | Catalog | Maps | Groups | Admission rules | Queue |
 |---|---|---|---|---|---|---|---|---|---|---|
 | University of Alaska Anchorage | covered | 59 | 58 | 44 | 5 | met | met | met | queued | admission_rules:no_official_statement |
-| University of Alaska Fairbanks | covered | 61 | 61 | 0 | 1 | met | queued | met | queued | admission_rules:no_official_statement, degree_maps:layout_not_readable |
+| University of Alaska Fairbanks | covered | 61 | 61 | 56 | 1 | met | met | met | queued | admission_rules:no_official_statement |
 | University of Alaska Southeast | covered | 18 | 18 | 0 | 0 | met | queued | queued | queued | admission_rules:no_official_statement, degree_maps:not_published, requirement_groups:layout_not_readable |
 | Ilisagvik College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:no_year_label |
 | Alaska Pacific University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |

@@ -909,6 +909,19 @@ class RoadmapGridTests(unittest.TestCase):  # UAF 2026-27 roadmaps (#151 reader 
             _, out = self.grid(html)
             self.assertIn(issue.strip(), out[0]['issues'], issue)
 
+    def test_concentration_grids_and_a_one_term_year(self):  # UAF Aerospace Engineering, Early Childhood and Family Studies
+        two = GRID_HTML.replace('<h2>Roadmaps</h2>', '<h3>Robotics Concentration</h3>') + GRID_HTML.replace('<h2>Roadmaps</h2>', '<h3>Without Concentration</h3>')
+        _, out = self.grid(two)
+        self.assertEqual([(c['record']['requirement_key'], c['record']['rule_details']['source_section'], c['issues']) for c in out],
+                         [('roadmap-robotics-concentration', 'Robotics Concentration', []), ('roadmap-without-concentration', 'Without Concentration', [])])
+        _, out = self.grid(GRID_HTML + GRID_HTML)  # two grids under one 'Roadmaps' heading: which plan is which is not printed
+        self.assertTrue(all('multiple_plan_grids' in c['issues'] for c in out))
+        # a fifth year printing only Fall: its sum row keeps an empty cell for a second term that has no header
+        one = GRID_HTML.replace('<tr class="plangridtotal', '<tr class="plangridsum"><td> </td><td header="year0 year9_Term1_hourscol"></td></tr><tr class="plangridtotal')
+        self.assertEqual(self.grid(one)[1][0]['issues'], [])
+        bad = GRID_HTML.replace('<tr class="plangridtotal', '<tr class="even"><td header="year0 year9_Term1_codecol">MATH F200X</td></tr><tr class="plangridtotal')
+        self.assertIn('grid_cell_without_term', self.grid(bad)[1][0]['issues'])
+
     def test_verify_checks_items_against_grid_cells(self):
         import json as J
         from programs.verify import check_candidate
