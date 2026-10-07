@@ -248,7 +248,7 @@ MUTS = [
     ('pipeline/extractors/catalog.py', "        elif g['courses'] and CHOICE_CUE.search(rules_text):", "        elif False:"),
     ('pipeline/extractors/catalog.py', '{0,3}?(?:courses|classes)', '{0,3}?(?:zzzz)'),
     ('pipeline/extractors/catalog.py', "(?:a\\s+minimum\\s+of\\s+|at\\s+least\\s+|an?\\s+additional\\s+)?", ''),
-    ('pipeline/extractors/catalog.py', "(\\d{1,2}|one|two|three|four|five|six)\\s+(?:additional", "(\\d{1,2})\\s+(?:additional"),
+    ('pipeline/extractors/catalog.py', "(\\d{1,2}|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)\\s+(?:additional", "(\\d{1,2})\\s+(?:additional"),
     ('pipeline/extractors/catalog.py', "        if len(cue_lines) > 1 or", "        if False and len(cue_lines) > 1 or"),
     ('pipeline/extractors/catalog.py', " and not CHOICE_CUE.search(r) for r in g['rules'])", " for r in g['rules'])"),
     ('pipeline/extractors/catalog.py', "        elif g.get('courses_before_choice'):", "        elif False:"),
