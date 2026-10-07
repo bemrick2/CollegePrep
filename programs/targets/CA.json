@@ -119,16 +119,17 @@
     "berkeley.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.berkeley.edu/",
-    "https://catalog.berkeley.edu/",
-    "https://www.berkeley.edu/academics/",
-    "https://www.berkeley.edu/registrar/",
-    "https://www.berkeley.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://guide.berkeley.edu/",
+    "min_depth": 0,
+    "path_prefix": "/undergraduate/degree-programs/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "reviewed 2026-10-07: CourseLeaf catalog at guide.berkeley.edu/undergraduate/degree-programs/ (web search); the discovery run did not reach it"
   },
   {
    "institution_key": "ipeds-110644",
@@ -160,16 +161,17 @@
     "uci.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.uci.edu/",
-    "https://catalog.uci.edu/",
-    "https://www.uci.edu/academics/",
-    "https://www.uci.edu/registrar/",
-    "https://www.uci.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalogue.uci.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "reviewed 2026-10-07: CourseLeaf catalog at catalogue.uci.edu (web search); the discovery run did not reach it"
   },
   {
    "institution_key": "ipeds-110662",

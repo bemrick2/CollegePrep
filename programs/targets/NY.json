@@ -115,16 +115,25 @@
     "nyu.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.nyu.edu/",
-    "https://catalog.nyu.edu/",
-    "https://www.nyu.edu/academics/",
-    "https://www.nyu.edu/registrar/",
-    "https://www.nyu.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://bulletins.nyu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/undergraduate/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://bulletins.nyu.edu/undergraduate/arts-science/programs/",
+     "https://bulletins.nyu.edu/undergraduate/business/programs/",
+     "https://bulletins.nyu.edu/undergraduate/engineering/programs/",
+     "https://bulletins.nyu.edu/undergraduate/arts/programs/",
+     "https://bulletins.nyu.edu/undergraduate/professional-studies/programs/",
+     "https://bulletins.nyu.edu/undergraduate/individualized-study/programs/",
+     "https://bulletins.nyu.edu/undergraduate/social-work/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "reviewed 2026-10-07: CourseLeaf catalog at bulletins.nyu.edu school program lists (web search); the discovery run did not reach it"
   },
   {
    "institution_key": "ipeds-195003",

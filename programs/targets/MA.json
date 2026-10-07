@@ -115,16 +115,17 @@
     "northeastern.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.northeastern.edu/",
-    "https://catalog.northeastern.edu/",
-    "https://www.northeastern.edu/academics/",
-    "https://www.northeastern.edu/registrar/",
-    "https://www.northeastern.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.northeastern.edu/",
+    "min_depth": 1,
+    "path_prefix": "/undergraduate/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "reviewed 2026-10-07: CourseLeaf catalog at catalog.northeastern.edu (web search; registrar 2026-2027 catalog notice); the discovery run did not reach it"
   },
   {
    "institution_key": "ipeds-168148",

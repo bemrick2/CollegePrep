@@ -54,16 +54,17 @@
     "kent.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.kent.edu/",
-    "https://catalog.kent.edu/",
-    "https://www.kent.edu/academics/",
-    "https://www.kent.edu/registrar/",
-    "https://www.kent.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.kent.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "reviewed 2026-10-07: CourseLeaf catalog at catalog.kent.edu (web search); the discovery run did not reach it"
   },
   {
    "institution_key": "ipeds-204024",
@@ -74,16 +75,17 @@
     "miamioh.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://miamioh.edu/",
-    "https://catalog.miamioh.edu/",
-    "https://www.miamioh.edu/academics/",
-    "https://www.miamioh.edu/registrar/",
-    "https://www.miamioh.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://bulletin.miamioh.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "reviewed 2026-10-07: CourseLeaf catalog at bulletin.miamioh.edu (web search); the discovery run did not reach it"
   },
   {
    "institution_key": "ipeds-204796",

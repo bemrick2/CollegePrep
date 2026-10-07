@@ -121,16 +121,17 @@
     "temple.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.temple.edu/",
-    "https://catalog.temple.edu/",
-    "https://www.temple.edu/academics/",
-    "https://www.temple.edu/registrar/",
-    "https://www.temple.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://bulletin.temple.edu/",
+    "min_depth": 1,
+    "path_prefix": "/undergraduate/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "reviewed 2026-10-07: CourseLeaf catalog at bulletin.temple.edu/undergraduate/ (web search); the discovery run did not reach it"
   },
   {
    "institution_key": "ipeds-215062",
