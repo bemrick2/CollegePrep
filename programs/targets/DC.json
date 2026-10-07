@@ -12,16 +12,18 @@
     "american.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.american.edu/",
-    "https://catalog.american.edu/",
-    "https://www.american.edu/academics/",
-    "https://www.american.edu/registrar/",
-    "https://www.american.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 23,
+    "home": "https://catalog.american.edu/index.php?catoid=23",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.american.edu/content.php?catoid=23&navoid=4418"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 23 on catalog.american.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-131450",
@@ -52,16 +54,17 @@
     "gwu.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.gwu.edu/",
-    "https://catalog.gwu.edu/",
-    "https://www.gwu.edu/academics/",
-    "https://www.gwu.edu/registrar/",
-    "https://www.gwu.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://bulletin.gwu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on bulletin.gwu.edu (no program list link; pages found from the home page)"
   },
   {
    "institution_key": "ipeds-131496",
@@ -72,16 +75,19 @@
     "georgetown.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.georgetown.edu/",
-    "https://catalog.georgetown.edu/",
-    "https://www.georgetown.edu/academics/",
-    "https://www.georgetown.edu/registrar/",
-    "https://www.georgetown.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://bulletin.georgetown.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://bulletin.georgetown.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on bulletin.georgetown.edu (program list https://bulletin.georgetown.edu/programs/)"
   },
   {
    "institution_key": "ipeds-131520",
@@ -172,16 +178,17 @@
     "udc.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.udc.edu/",
-    "https://catalog.udc.edu/",
-    "https://www.udc.edu/academics/",
-    "https://www.udc.edu/registrar/",
-    "https://www.udc.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.udc.edu/docs/CourseCatalog20122013.pdf"
+    ],
+    "home": "https://www.udc.edu/docs/CourseCatalog20122013.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2012-2013"
   }
  ]
 }

@@ -52,16 +52,19 @@
     "gbc.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.gbc.edu/",
-    "https://catalog.gbc.edu/",
-    "https://www.gbc.edu/academics/",
-    "https://www.gbc.edu/registrar/",
-    "https://www.gbc.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 53,
+    "home": "https://catalog.gbc.edu/index.php?catoid=53",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.gbc.edu/content.php?catoid=53&navoid=4223",
+     "https://catalog.gbc.edu/content.php?catoid=53&navoid=4254"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 53 on catalog.gbc.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-130943",
@@ -72,16 +75,21 @@
     "udel.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.udel.edu/",
-    "https://catalog.udel.edu/",
-    "https://www.udel.edu/academics/",
-    "https://www.udel.edu/registrar/",
-    "https://www.udel.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 97,
+    "home": "https://catalog.udel.edu/index.php?catoid=97",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.udel.edu/content.php?catoid=97&navoid=35890",
+     "https://catalog.udel.edu/content.php?catoid=97&navoid=35899",
+     "https://catalog.udel.edu/content.php?catoid=97&navoid=35903",
+     "https://catalog.udel.edu/content.php?catoid=97&navoid=35904"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 97 on catalog.udel.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-131113",

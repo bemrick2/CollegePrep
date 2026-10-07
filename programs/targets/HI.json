@@ -31,17 +31,37 @@
    "domains": [
     "chaminade.edu"
    ],
-   "hosts": [],
-   "mode": "discover",
-   "priority": 1,
-   "discover": [
-    "https://www.chaminade.edu/",
-    "https://catalog.chaminade.edu/",
-    "https://www.chaminade.edu/academics/",
-    "https://www.chaminade.edu/registrar/",
-    "https://www.chaminade.edu/catalog/"
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
    ],
-   "policy": []
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.chaminade.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.chaminade.edu/programs",
+     "https://catalog.chaminade.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.chaminade.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.chaminade.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.chaminade.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.chaminade.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.chaminade.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.chaminade.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.chaminade.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.chaminade.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.chaminade.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.chaminade.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.chaminade.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.chaminade.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.chaminade.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.chaminade.edu (54 links)"
   },
   {
    "institution_key": "ipeds-141644",
@@ -51,17 +71,37 @@
    "domains": [
     "hpu.edu"
    ],
-   "hosts": [],
-   "mode": "discover",
-   "priority": 1,
-   "discover": [
-    "https://www.hpu.edu/",
-    "https://catalog.hpu.edu/",
-    "https://www.hpu.edu/academics/",
-    "https://www.hpu.edu/registrar/",
-    "https://www.hpu.edu/catalog/"
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
    ],
-   "policy": []
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.hpu.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.hpu.edu/programs",
+     "https://catalog.hpu.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.hpu.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.hpu.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.hpu.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.hpu.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.hpu.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.hpu.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.hpu.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.hpu.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.hpu.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.hpu.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.hpu.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.hpu.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.hpu.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.hpu.edu (42 links)"
   },
   {
    "institution_key": "ipeds-457484",
@@ -132,16 +172,18 @@
     "hawaii.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://manoa.hawaii.edu/",
-    "https://catalog.hawaii.edu/",
-    "https://www.hawaii.edu/academics/",
-    "https://www.hawaii.edu/registrar/",
-    "https://www.hawaii.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 4,
+    "home": "https://catalog.manoa.hawaii.edu/index.php?catoid=4",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.manoa.hawaii.edu/content.php?catoid=4&navoid=1018"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 4 on catalog.manoa.hawaii.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-141981",
