@@ -135,6 +135,12 @@ MUTS = [
     ('programs/courselist_html.py', "            elif self._td.get('_tail') is not None and not re.fullmatch", "            elif False and self._td.get('_tail') is not None and not re.fullmatch"),
     ('programs/courselist_html.py', "                if self._td.get('_tail') is None: self._td['_tail'] = len(''.join(self._td['text']))", "                self._td['_tail'] = len(''.join(self._td['text']))"),
     ('programs/crawl.py', "    if not target.get('refetch'):\n        if cat.get('platform')", "    if True:\n        if cat.get('platform')"),
+    # department_section/v1 scope (independent review 2026-10-07)
+    ('programs/extract.py', "    if re.search(r'(?im)^\\s*(below is a |the )?(sample|recommended) (4|four)[- ]year plan\\b', page.text or ''): return []", "    pass"),
+    ('programs/extract.py', "        if m.group('name').strip(' ,').lower() in specs or SECTION_PART.search(h): continue", "        if m.group('name').strip(' ,').lower() in specs: continue"),
+    ('programs/extract.py', "        if nm and any(u != here and _names_degree(a, nm, award) for u, a in others): continue", "        if nm and any(_names_degree(a, nm, award) for u, a in others): continue"),
+    ('programs/extract.py', "    return re.fullmatch(r'(?:' + SECTION_AWARD[award] + r')', rest.strip(), re.I) is not None", "    return credential_of(rest) == 'bachelor'"),
+    ('programs/extract.py', "    if anchor.startswith(name + ' '): rest = anchor[len(name):]", "    if name in anchor: rest = anchor.replace(name, '')"),
 ]
 
 

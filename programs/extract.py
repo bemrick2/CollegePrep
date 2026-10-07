@@ -239,9 +239,22 @@ SECTION_AWARD = {'bs': r'B\.?\s?S\.?|Bachelor of Science', 'ba': r'B\.?\s?A\.?|B
                  'bse': r'B\.?\s?S\.?\s?E\.?|Bachelor of Science in Education', 'bsw': r'B\.?\s?S\.?\s?W\.?|Bachelor of Social Work'}
 SECTION_HEADING = re.compile(r'^(?:Requirements for (?:the )?)?(?P<award>' + '|'.join(f'(?P<{k}>{v})' for k, v in SECTION_AWARD.items()) +
                              r')\s+(?:degree\s+)?in\s+(?P<name>[A-Z][^()]*?)(?:\s*\([^()]*\))?\d?$')
+# a heading that names a part of the degree's page ('... Degree Sequence', '... Degree Requirements', '... Degree Program
+# Requirements', '... Major Field', '... Requirements': PVAMU, Tulane, TAMU 2026-27) is not the degree's name as printed
+SECTION_PART = re.compile(r'\b(degree\s+(sequence|requirements?|program|plan)|major\s+field|requirements)\s*\d?$', re.I)
 SECTION_NOT_PROGRAM = re.compile(r'\b(option|concentration|track|emphasis|specialization|minor|certificate|endorsement|accelerated|combined|'
                                  r'plan|semester|map|sample|suggested|'
                                  r'dual|double|second|online degree|pathway|pre-|with\b)|\+|/|\band\s+B\.?\s?[A-Z]|\bMaster', re.I)
+
+
+def _names_degree(anchor, name, award):
+    """A link text that is exactly this degree: the name with this award before or after it ('Computer Engineering BS',
+    'Bachelor of Science in Computer Engineering'); never another award of the same name ('Economics BS' for a BBA) or a
+    longer name ('Accelerated Bachelor of Science in Nursing')."""
+    if anchor.startswith(name + ' '): rest = anchor[len(name):]
+    elif anchor.endswith(' ' + name): rest = re.sub(r'\s+in$', '', anchor[:-len(name)].strip())
+    else: return False
+    return re.fullmatch(r'(?:' + SECTION_AWARD[award] + r')', rest.strip(), re.I) is not None
 
 
 def department_section_candidates(inst, entry, page, today_year):
@@ -256,6 +269,11 @@ def department_section_candidates(inst, entry, page, today_year):
     if len(labels) != 1: return []
     year = next(iter(labels)); acad = f'{year[:4]}-{year[7:9]}'
     yline = next((l for y, l in printed_catalog_years(page) if y == year), printed0 and (page.title or '')) or year
+    # KU 2026-27: a program's sample-plan sub-page ('Below is a sample 4-year plan for students pursuing the BA in
+    # Anthropology') repeats the degree heading; the program's own page is its source
+    if re.search(r'(?im)^\s*(below is a |the )?(sample|recommended) (4|four)[- ]year plan\b', page.text or ''): return []
+    here = norm_url(common.source_of(entry)['url'])
+    others = [(norm_url(h), re.sub(r'[^a-z0-9]+', ' ', (a or '').lower()).strip()) for h, a in (page.links or [])]
     out, keys = [], set()
     # UF Geography: 'BA | Specializations: Environmental Geosciences | General Geography | ...' - a section heading that names a
     # specialization the page lists ('Bachelor of Arts in Environmental Geosciences') is not a degree of its own
@@ -264,9 +282,13 @@ def department_section_candidates(inst, entry, page, today_year):
         h = h.strip()
         m = SECTION_HEADING.match(h)
         if not m or SECTION_NOT_PROGRAM.search(h) or GRAD.search(m.group('name')): continue
-        if m.group('name').strip(' ,').lower() in specs: continue
+        if m.group('name').strip(' ,').lower() in specs or SECTION_PART.search(h): continue
         award = next(k for k in SECTION_AWARD if m.group(k))
         name = m.group('name').strip(' ,')
+        # the department page links the degree's own catalog page ('Computer Engineering BS', Wichita; 'Bachelor of Science in
+        # Business and Computer Science', WUSTL): that page is the degree's source, not this section
+        nm = re.sub(r'[^a-z0-9]+', ' ', name.lower()).strip()
+        if nm and any(u != here and _names_degree(a, nm, award) for u, a in others): continue
         key = CAT.slug(f'{name} {award}')
         if key in keys: continue
         keys.add(key)
