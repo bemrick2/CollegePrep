@@ -56,9 +56,19 @@ Official basis: https://supabase.com/docs/guides/platform/free-project-pausing
 2. Resume ONLY butlklkzafvklwasbynr; wait for ACTIVE_HEALTHY. Never recreate it.
 3. Verify the original accounts, ledger/revisions, schema/migration history,
    functions/config and provider retry state before allowing new live work.
-4. Reconcile the invitation history manifest against actual recorded DDL.
-   Review pending repository migrations, apply only genuinely pending versions,
-   then import latest reviewed GitHub data and run reconciliation/idempotence.
+4. Re-read the ACTUAL live migration history first (owner instruction
+   2026-10-06 18:52 CT): list supabase_migrations.schema_migrations (version,
+   name, statements) and the objects each pending migration would create.
+   Compare that with supabase/migration_history.json and supabase/migrations/.
+   The pre-pause evidence (this file, the manifest, a pre-pause query) only makes
+   it likely that #56's five migrations 20261006180000-20261006180400
+   (cost_projection, primary_school, award_test_criteria, exam_keys_and_plan,
+   student_academic_interests) and later ones are unapplied. Do not deploy them,
+   and do not edit migration_history.json, on that evidence alone. Apply a
+   version only when the live history lacks it AND its objects are absent;
+   reconcile the invitation entry (20261006120000) from the recorded live row,
+   never by reapplying its DDL. Then import latest reviewed GitHub data and run
+   reconciliation/idempotence.
 5. In a reviewed commit set hold=false, remove false job gates from migration
    and function workflows, and restore live-import's original workflow_run
    success condition. Explicitly dispatch migrations/functions/import in order;
