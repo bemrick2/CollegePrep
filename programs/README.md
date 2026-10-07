@@ -28,6 +28,9 @@ never infer absence, reviewed promotion by PR, regression tests and mutation che
    `summary.json`, `review.md`.
 4. **Review and promotion** — decisions in `programs/decisions/<STATE>-<run>.json`; `python -m programs promote`
    writes `data/` and archives evidence to `sources/programs/<STATE>/<run>/evidence.json`.
+4b. **Retention** — after promoting, run `python scripts/retain_evidence.py --push`: it writes `retention.json` beside the
+   run's `evidence.json` and adds every cited page and layout document to the append-only `evidence-store` branch, so
+   verification can be reproduced after the run branch is deleted. CI fails while any cited document is unretained.
 5. **Audit** — `python -m programs audit` writes `docs/coverage/programs/TN-OR.{json,md}`.
 
 ## CR-14 field rules (see also docs/PROGRAM_DATA.md)
