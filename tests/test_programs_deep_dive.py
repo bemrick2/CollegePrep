@@ -1533,3 +1533,11 @@ class NationalStatusTests(unittest.TestCase):
         self.assertEqual(len(n['states']), 51)  # every registry jurisdiction, tracked or not
         self.assertTrue(all(r['researched'] == r['covered'] == 0 for r in n['states'] if not r['tracked']))
         self.assertEqual(n['registered'], sum(r['registered'] for r in n['states']))
+
+
+class EnteringWeightTests(unittest.TestCase):
+    def test_open_admission_school_weighed_by_fall_first_time_count(self):
+        from programs import status
+        w = status.entering('UT')
+        self.assertGreater(w.get('ipeds-230737', 0), 0)  # UVU files no ADM survey; EF2023A first-time count is used
+        self.assertEqual(w.get('ipeds-230728'), 4388)    # an ADM 'enrolled' count is kept as reported

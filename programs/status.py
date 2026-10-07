@@ -51,6 +51,12 @@ def registry(state):
 
 
 def entering(state):
+    """Weight of each school: first-time students who enrolled, fall 2023. IPEDS ADM2023 'enrolled' where reported;
+    open-admission schools file no ADM survey (UVU), so their EF2023A first-time degree/certificate-seeking count
+    (sources/ipeds/2023-24/derived/ef2023a_first_time.csv) is used instead: the same population (all first-time
+    degree/certificate-seeking undergraduates, as ADM 'enrolled' counts them, associate-seeking included) and term.
+    Before this fallback such schools weighed 0, which overstated the share covered in states with open-admission
+    four-year institutions (Oregon: Chemeketa and Mt Hood, IPEDS four-year because they award bachelor's degrees)."""
     p = ROOT / 'data/national/ipeds/2023-24' / state / 'admissions.csv'
     out = {}
     if p.exists():
@@ -58,6 +64,13 @@ def entering(state):
             for r in csv.DictReader(fh):
                 try: out[r['institution_key']] = int(r['enrolled'] or 0)
                 except ValueError: out[r['institution_key']] = 0
+    ef = ROOT / 'sources/ipeds/2023-24/derived/ef2023a_first_time.csv'
+    reg = registry(state)
+    if ef.exists() and reg:
+        with ef.open(encoding='utf-8', newline='') as fh:
+            first = {r['unitid']: int(r['first_time']) for r in csv.DictReader(fh)}
+        for i in reg['institutions']:
+            if not out.get(i['institution_key']) and str(i.get('unitid')) in first: out[i['institution_key']] = first[str(i['unitid'])]
     return out
 
 

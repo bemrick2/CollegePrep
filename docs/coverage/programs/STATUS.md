@@ -71,14 +71,14 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | AL | **in_progress** | 31 | 0 | 0% (needs 80%) | 2 | 26 | 33 |
 | AR | **in_progress** | 26 | 0 | 0% (needs 80%) | 2 | 21 | 24 |
 | AZ | **in_progress** | 17 | 0 | 0% (needs 80%) | 0 | 9 | 17 |
-| CO | **in_progress** | 30 | 2 | 33% (needs 80%) | 0 | 24 | 35 |
+| CO | **in_progress** | 30 | 2 | 23% (needs 80%) | 0 | 24 | 35 |
 | FL | **in_progress** | 92 | 0 | 0% (needs 80%) | 1 | 74 | 91 |
 | GA | **in_progress** | 59 | 0 | 0% (needs 80%) | 0 | 38 | 62 |
 | IA | **in_progress** | 33 | 0 | 0% (needs 80%) | 1 | 28 | 32 |
-| ID | **in_progress** | 10 | 1 | 18% (needs 80%) | 0 | 10 | 10 |
-| IN | **in_progress** | 52 | 1 | 0% (needs 80%) | 0 | 38 | 55 |
+| ID | **in_progress** | 10 | 1 | 14% (needs 80%) | 0 | 10 | 10 |
+| IN | **in_progress** | 52 | 1 | 2% (needs 80%) | 0 | 38 | 55 |
 | KS | **in_progress** | 31 | 0 | 0% (needs 80%) | 2 | 26 | 35 |
-| KY | **in_progress** | 30 | 3 | 34% (needs 80%) | 0 | 27 | 33 |
+| KY | **in_progress** | 30 | 3 | 33% (needs 80%) | 0 | 27 | 33 |
 | LA | **in_progress** | 30 | 0 | 0% (needs 80%) | 3 | 20 | 28 |
 | MN | **in_progress** | 41 | 1 | 2% (needs 80%) | 0 | 35 | 48 |
 | MO | **in_progress** | 58 | 0 | 0% (needs 80%) | 1 | 43 | 63 |
@@ -86,11 +86,11 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | MT | **in_progress** | 14 | 0 | 0% (needs 80%) | 0 | 12 | 17 |
 | NC | **in_progress** | 63 | 2 | 7% (needs 80%) | 1 | 38 | 68 |
 | ND | **in_progress** | 14 | 0 | 0% (needs 80%) | 0 | 13 | 14 |
-| NE | **in_progress** | 23 | 1 | 8% (needs 80%) | 2 | 18 | 21 |
+| NE | **in_progress** | 23 | 1 | 7% (needs 80%) | 2 | 18 | 21 |
 | NM | **in_progress** | 11 | 0 | 0% (needs 80%) | 0 | 9 | 11 |
 | NV | **in_progress** | 9 | 0 | 0% (needs 80%) | 2 | 4 | 9 |
 | OK | **in_progress** | 28 | 0 | 0% (needs 80%) | 1 | 24 | 27 |
-| OR | **in_progress** | 29 | 10 | 84% (needs 80%) | 3 | 0 | 38 |
+| OR | **in_progress** | 29 | 10 | 71% (needs 80%) | 3 | 0 | 38 |
 | SC | **in_progress** | 37 | 0 | 0% (needs 80%) | 1 | 30 | 39 |
 | SD | **in_progress** | 15 | 0 | 0% (needs 80%) | 0 | 13 | 15 |
 | TN | **in_progress** | 43 | 1 | 5% (needs 80%) | 1 | 32 | 61 |
@@ -127,15 +127,15 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Faulkner University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Talladega College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Stillman College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Miles College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Birmingham-Southern College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Herzing University-Birmingham | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | United States Sports Academy | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Selma University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Huntsville Bible College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Heritage Christian University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Amridge University | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
 | Athens State University | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
-| Huntsville Bible College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Miles College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Selma University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 
 ## AR
 
@@ -148,6 +148,8 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | University of Arkansas-Fort Smith | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Harding University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Southern Arkansas University Main Campus | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| University of Arkansas Grantham | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| University of Arkansas at Monticello | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Arkansas at Little Rock | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Ouachita Baptist University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | University of Arkansas at Pine Bluff | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -155,17 +157,15 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Henderson State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Hendrix College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Lyon College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Philander Smith University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of the Ozarks | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Williams Baptist University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Central Baptist College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Ecclesia College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Arkansas Baptist College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Champion Christian College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Crowley's Ridge College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Ecclesia College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Champion Christian College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Jackson Theological Seminary | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
-| Philander Smith University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| University of Arkansas Grantham | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| University of Arkansas at Monticello | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Arkansas for Medical Sciences | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
 
 ## AZ
@@ -176,19 +176,19 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | University of Arizona | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Northern Arizona University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Arizona State University Digital Immersion | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Embry-Riddle Aeronautical University-Prescott | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Ottawa University-Surprise | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Prescott College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Arizona Christian University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Dine College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| GateWay Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Glendale Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Indian Bible College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| International Baptist College and Seminary | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Paradise Valley Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Pathways College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Rio Salado College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Paradise Valley Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Yavapai College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Embry-Riddle Aeronautical University-Prescott | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| GateWay Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Arizona Christian University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Ottawa University-Surprise | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Dine College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Prescott College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| International Baptist College and Seminary | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Indian Bible College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Pathways College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 
 ## CO
 
@@ -196,56 +196,79 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 |---|---|---|---|---|---|---|---|---|---|---|
 | University of Colorado Boulder | covered | 88 | 90 | 0 | 7 | met | queued | met | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched |
 | Colorado State University-Fort Collins | partial | 1 | – | 0 | 1 | queued | queued | met | met | catalog:not_yet_researched, degree_maps:not_yet_researched |
+| Front Range Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Metropolitan State University of Denver | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Pikes Peak State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Colorado Mesa University | covered | 89 | 94 | 83 | 439 | met | met | met | queued | admission_rules:not_yet_researched |
 | University of Colorado Colorado Springs | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | University of Colorado Denver/Anschutz Medical Campus | partial | 72 | 86 | 1 | 6 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | University of Denver | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Colorado School of Mines | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Arapahoe Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Community College of Denver | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Northern Colorado | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Aims Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Red Rocks Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | United States Air Force Academy | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Fort Lewis College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Colorado Christian University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Colorado State University Pueblo | partial | 33 | 49 | 32 | 61 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
+| Pueblo Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Colorado College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Regis University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Western Colorado University | partial | 2 | – | 2 | 7 | queued | met | met | met | catalog:not_yet_researched |
-| Colorado State University Global | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Naropa University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Adams State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Aims Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Arapahoe Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Colorado Christian University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Colorado Mountain College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Community College of Denver | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Front Range Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Morgan Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Nazarene Bible College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Pikes Peak State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Pueblo Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Red Rocks Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Trinidad State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Colorado Mountain College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Adams State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Colorado State University Global | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Morgan Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Naropa University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Nazarene Bible College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 
 ## FL
 
 | School | Status | Verified bachelor's | Listed | Plans | Req. groups | Catalog | Maps | Groups | Admission rules | Queue |
 |---|---|---|---|---|---|---|---|---|---|---|
+| Valencia College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Miami Dade College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Central Florida | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Florida | partial | 89 | – | 0 | 1 | queued | queued | met | queued | institution:not_yet_researched |
 | Florida State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of South Florida | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Broward College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Florida International University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Hillsborough Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Palm Beach State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Florida Atlantic University | partial | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Tallahassee Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| St Petersburg College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Indian River State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Florida SouthWestern State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Santa Fe College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | University of North Florida | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Florida Gulf Coast University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Florida State College at Jacksonville | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | The University of Tampa | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Miami | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Seminole State College of Florida | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Eastern Florida State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Nova Southeastern University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Pasco-Hernando State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Keiser University-Ft Lauderdale | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Embry-Riddle Aeronautical University-Daytona Beach | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| State College of Florida-Manatee-Sarasota | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Daytona State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of West Florida | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Florida Agricultural and Mechanical University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Pensacola State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| College of Central Florida | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Ana G. Mendez University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Southeastern University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Saint Johns River State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Lake-Sumter State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Florida Institute of Technology | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Polk State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Gulf Coast State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Florida-Online | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Lynn University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Jacksonville University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -253,10 +276,13 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Palm Beach Atlantic University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Embry-Riddle Aeronautical University-Worldwide | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Flagler College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Northwest Florida State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Florida Southern College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Rollins College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Stetson University | partial | 45 | – | 0 | 151 | queued | queued | met | queued | institution:not_yet_researched |
 | Saint Leo University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Florida Gateway College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| South Florida State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Barry University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | St. Thomas University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Eckerd College | partial | 41 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -264,63 +290,37 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Ringling College of Art and Design | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Florida Polytechnic University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Everglades University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Chipola College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Ave Maria University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Edward Waters University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Webber International University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Warner University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | New College of Florida | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| North Florida College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Florida College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| The College of the Florida Keys | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Beacon College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| University of Fort Lauderdale | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Trinity Baptist College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| AdventHealth University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Herzing University-Orlando | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Florida Institute of Technology-Online | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Trinity College of Florida | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Baptist University of Florida | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Herzing University-Tampa | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Albizu University-Miami | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| St. John Vianney College Seminary | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| AdventHealth University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Ana G. Mendez University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Atlantic Institute of Oriental Medicine | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
-| Broward College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Chipola College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| College of Central Florida | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Daytona State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Eastern Florida State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Faith Theological Seminary and Christian College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Florida Gateway College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Florida SouthWestern State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Florida State College at Jacksonville | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Gulf Coast State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Hillsborough Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Hobe Sound Bible College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Hodges University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Indian River State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Johnson University Florida | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Lake-Sumter State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Miami Dade College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| North Florida College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Northwest Florida State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Palm Beach State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Pasco-Hernando State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Pensacola State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Polk State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Polytechnic University of Puerto Rico-Miami | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Polytechnic University of Puerto Rico-Orlando | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Saint Johns River State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Santa Fe College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Seminole State College of Florida | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| South Florida Bible College and Theological Seminary | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| South Florida State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| St Petersburg College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| State College of Florida-Manatee-Sarasota | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Tallahassee Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Talmudic College of Florida | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| The College of the Florida Keys | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Trinity International University-Florida | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| University of Fort Lauderdale | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Valencia College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Herzing University-Tampa | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Yeshivah Gedolah Rabbinical College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Albizu University-Miami | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Johnson University Florida | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| South Florida Bible College and Theological Seminary | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Faith Theological Seminary and Christian College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Polytechnic University of Puerto Rico-Orlando | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Hodges University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| St. John Vianney College Seminary | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Talmudic College of Florida | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Trinity International University-Florida | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Atlantic Institute of Oriental Medicine | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
+| Polytechnic University of Puerto Rico-Miami | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 
 ## GA
 
@@ -335,28 +335,36 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Savannah College of Art and Design | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Georgia Gwinnett College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Georgia College & State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Albany State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Emory University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of West Georgia | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Middle Georgia State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Augusta University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Valdosta State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Abraham Baldwin Agricultural College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Dalton State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Point University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Columbus State University | partial | 26 | 39 | 0 | 21 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | Clark Atlanta University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Mercer University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Georgia Highlands College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Georgia Military College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Fort Valley State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Savannah State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Gordon State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Spelman College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | College of Coastal Georgia | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Morehouse College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Berry College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| East Georgia State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Georgia Southwestern State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| South Georgia State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Clayton  State University | partial | 26 | 34 | 16 | 13 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
 | Oglethorpe University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Reinhardt University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Piedmont University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Shorter University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Atlanta Metropolitan State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Covenant College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Brewton-Parker College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Young Harris College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
@@ -371,20 +379,12 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Paine College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Andrew College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Wesleyan College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Morris Brown College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Reformed University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Herzing University-Atlanta | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Luther Rice College & Seminary | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Albany State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Atlanta Metropolitan State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Beulah Heights University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | College of Athens | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Dalton State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| East Georgia State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Georgia Highlands College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Georgia Military College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Morris Brown College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Savannah State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| South Georgia State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 
 ## IA
 
@@ -414,14 +414,14 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Mount Mercy University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Clarke University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Upper Iowa University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Briar Cliff University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Faith Baptist Bible College and Theological Seminary | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Mercy College of Health Sciences | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Maharishi International University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Emmaus Bible College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | St Luke's College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Allen College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Briar Cliff University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Divine Word College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Allen College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Palmer College of Chiropractic | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
 
 ## ID
@@ -431,13 +431,13 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Brigham Young University-Idaho | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Boise State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Idaho | covered | 110 | 110 | 56 | 26 | met | met | met | queued | admission_rules:not_yet_researched |
+| Idaho State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| College of Southern Idaho | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Lewis-Clark State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | The College of Idaho | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Northwest Nazarene University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | New Saint Andrews College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Boise Bible College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| College of Southern Idaho | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Idaho State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 
 ## IN
 
@@ -451,15 +451,20 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Indiana State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Purdue University Fort Wayne | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | University of Southern Indiana | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Vincennes University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Purdue University Northwest | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Butler University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Indiana Wesleyan University-National & Global | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Indiana University-South Bend | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Purdue University Global | covered | 37 | 37 | 0 | 115 | met | queued | met | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched |
 | University of Indianapolis | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Trine University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Indiana University-Southeast | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Marian University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Valparaiso University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Rose-Hulman Institute of Technology | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Taylor University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Indiana Institute of Technology-College of Professional Studies | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | DePauw University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Indiana Wesleyan University-Marion | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Indiana University-Kokomo | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -481,20 +486,15 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Saint Mary-of-the-Woods College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Earlham College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Goshen College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Calumet College of Saint Joseph | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Oakland City University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Marian University-Ancilla | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Union Bible College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Mid-America College of Funeral Service | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Martin University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Horizon University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Veritas Baptist College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Trine University-Regional/Non-Traditional Campuses | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Calumet College of Saint Joseph | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Horizon University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Indiana Institute of Technology-College of Professional Studies | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Indiana Wesleyan University-National & Global | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Martin University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Mid-America College of Funeral Service | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Purdue University Global | covered | 37 | 37 | 0 | 115 | met | queued | met | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched |
-| Valparaiso University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Vincennes University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 
 ## KS
 
@@ -503,6 +503,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | University of Kansas | partial | 120 | – | 0 | 310 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | Kansas State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Wichita State University | partial | 41 | 94 | 0 | 66 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
+| Washburn University | partial | 49 | 75 | 0 | 146 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | Fort Hays State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Pittsburg State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Benedictine College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -521,16 +522,15 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Bethel College-North Newton | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Sterling College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Tabor College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Manhattan Christian College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Cleveland University-Kansas City | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Barclay College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Central Christian College of Kansas | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Donnelly College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Hesston College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Central Christian College of Kansas | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Barclay College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Donnelly College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Manhattan Christian College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Kansas Christian College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Ottawa University-Kansas City | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
+| Cleveland University-Kansas City | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Ottawa University-Online | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
-| Washburn University | partial | 49 | 75 | 0 | 146 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
+| Ottawa University-Kansas City | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
 
 ## KY
 
@@ -546,11 +546,13 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Campbellsville University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of the Cumberlands | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Bellarmine University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Lindsey Wilson College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Berea College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Thomas More University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Centre College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Asbury University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Kentucky State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| University of Pikeville | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Georgetown College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Transylvania University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Midway University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -562,10 +564,8 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Kentucky Christian University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Brescia University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Spalding University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Kentucky Mountain Bible College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Clear Creek Baptist Bible College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Lindsey Wilson College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| University of Pikeville | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Kentucky Mountain Bible College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 
 ## LA
 
@@ -579,6 +579,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Southern University and A & M College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Nicholls State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | McNeese State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| University of Louisiana at Monroe | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Northwestern State University of Louisiana | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Grambling State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | University of New Orleans | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -590,17 +591,16 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Dillard University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Louisiana Christian University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Southern University at New Orleans | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Franciscan Missionaries of Our Lady University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Herzing University-New Orleans | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Bridges Christian College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Louisiana State University Health Sciences Center-New Orleans | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
-| Louisiana State University Health Sciences Center-Shreveport | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
-| NationsUniversity | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
 | New Orleans Baptist Theological Seminary | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Remington College-Shreveport Campus | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Saint Joseph Seminary College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Franciscan Missionaries of Our Lady University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Holy Cross | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| University of Louisiana at Monroe | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Bridges Christian College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Herzing University-New Orleans | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| NationsUniversity | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
+| Saint Joseph Seminary College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Louisiana State University Health Sciences Center-New Orleans | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
+| Louisiana State University Health Sciences Center-Shreveport | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
 
 ## MN
 
@@ -641,12 +641,12 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Metropolitan State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Martin Luther College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Herzing University-Minneapolis | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Fond du Lac Tribal and Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Mayo Clinic College of Medicine and Science | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Bethany Global University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Bethlehem College & Seminary | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Fond du Lac Tribal and Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Northwestern Health Sciences University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Oak Hills Christian College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Bethlehem College & Seminary | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Northwestern Health Sciences University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 
 ## MO
 
@@ -654,6 +654,8 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 |---|---|---|---|---|---|---|---|---|---|---|
 | University of Missouri-Columbia | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Missouri State University-Springfield | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Ozarks Technical Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Saint Louis Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Washington University in St Louis | partial | 13 | 88 | 0 | 0 | queued | queued | queued | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:not_yet_researched |
 | Saint Louis University | partial | 80 | 91 | 61 | 3 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
 | University of Missouri-Kansas City | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -663,33 +665,44 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Northwest Missouri State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Lindenwood University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Maryville University of Saint Louis | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Ranken Technical College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Truman State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Missouri Western State University | partial | 34 | 42 | 0 | 28 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
+| Columbia College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Missouri Southern State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | University of Missouri-St Louis | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Webster University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Missouri Valley College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Avila University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Lincoln University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Rockhurst University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Drury University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Evangel University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Southwest Baptist University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Missouri Baptist University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Harris-Stowe State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | College of the Ozarks | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Culver-Stockton College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Kansas City Art Institute | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Central Methodist University-College of Liberal Arts and Sciences | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| William Woods University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | William Jewell College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Central Methodist University-College of Graduate and Extended Studies | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Park University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Fontbonne University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Westminster College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Ozark Christian College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Health Sciences and Pharmacy in St. Louis | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Mission University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Midwestern Baptist Theological Seminary | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Stephens College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Drury University-College of Continuing Professional Studies | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Cottey College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Hannibal-LaGrange University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Urshan College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Calvary University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| City Vision University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Central Christian College of the Bible | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Southeast Missouri Hospital College of Nursing and Health Sciences | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Logan University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Bolivar Technical College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -697,19 +710,6 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Evangel University-College of Online Learning | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Cox College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Barnes-Jewish College Goldfarb School of Nursing | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
-| Central Christian College of the Bible | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| City Vision University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Columbia College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Drury University-College of Continuing Professional Studies | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Harris-Stowe State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Lincoln University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Mission University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Missouri Western State University | partial | 34 | 42 | 0 | 28 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
-| Ozarks Technical Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Park University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Ranken Technical College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Saint Louis Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| William Woods University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 
 ## MS
 
@@ -730,8 +730,8 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Tougaloo College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Blue Mountain Christian University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Rust College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Wesley Biblical Seminary | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Southeastern Baptist College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Wesley Biblical Seminary | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 
 ## MT
 
@@ -739,18 +739,18 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 |---|---|---|---|---|---|---|---|---|---|---|
 | Montana State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | The University of Montana | partial | 50 | 78 | 36 | 134 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
+| Montana State University Billings | partial | 25 | 34 | 0 | 73 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | The University of Montana-Western | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Montana Technological University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Carroll College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Rocky Mountain College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| University of Providence | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Montana Bible College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Aaniiih Nakoda College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Blackfeet Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Montana State University Billings | partial | 25 | 34 | 0 | 73 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | Montana State University-Northern | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| University of Providence | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Salish Kootenai College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Blackfeet Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Stone Child College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Aaniiih Nakoda College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Montana Bible College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 
 ## NC
 
@@ -794,6 +794,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Livingstone College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | North Carolina Wesleyan University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Brevard College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| St. Andrews University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of North Carolina School of the Arts | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Greensboro College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Montreat College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -811,13 +812,12 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Mid-Atlantic Christian University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Cabarrus College of Health Sciences | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Carolinas College of Health Sciences | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Manna University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Carolina Christian College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Southeastern Free Will Baptist Bible College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Manna University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Carolina College of Biblical Studies | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Charlotte Christian College and Theological Seminary | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Heritage Bible College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Southeastern Free Will Baptist Bible College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| St. Andrews University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Watts College of Nursing | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
 
 ## ND
@@ -826,18 +826,18 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 |---|---|---|---|---|---|---|---|---|---|---|
 | North Dakota State University-Main Campus | partial | 52 | 115 | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of North Dakota | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Bismarck State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Mary | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Minot State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Jamestown | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Dickinson State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Valley City State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Trinity Bible College and Graduate School | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Bismarck State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Mayville State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Nueta Hidatsa Sahnish College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Sitting Bull College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Turtle Mountain Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | United Tribes Technical College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Mayville State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Trinity Bible College and Graduate School | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Sitting Bull College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Nueta Hidatsa Sahnish College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 
 ## NE
 
@@ -847,25 +847,25 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | University of Nebraska at Omaha | partial | 71 | 87 | 53 | 4 | queued | met | met | queued | institution:not_yet_researched |
 | Creighton University | partial | 25 | – | 0 | 36 | queued | queued | met | queued | institution:not_yet_researched |
 | University of Nebraska at Kearney | covered | 75 | 79 | 0 | 10 | met | queued | met | queued | institution:not_yet_researched |
+| Wayne State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Bellevue University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Nebraska Wesleyan University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Concordia University-Nebraska | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Hastings College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Chadron State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Midland University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Doane University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Peru State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | York University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Union Adventist University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | College of Saint Mary | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Bryan College of Health Sciences | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Nebraska Indian Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Nebraska Methodist College of Nursing & Allied Health | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Clarkson College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Summit Christian College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Bellevue University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | CHI Health School of Radiologic Technology | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
-| Chadron State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Nebraska Indian Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Peru State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Nebraska Medical Center | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
-| Wayne State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 
 ## NM
 
@@ -874,28 +874,28 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | University of New Mexico-Main Campus | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | New Mexico State University-Main Campus | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Eastern New Mexico University-Main Campus | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| New Mexico Institute of Mining and Technology | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| St. John's College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Institute of American Indian and Alaska Native Culture and Arts Development | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Navajo Technical University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Western New Mexico University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | New Mexico Highlands University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Navajo Technical University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| New Mexico Institute of Mining and Technology | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Northern New Mexico College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | University of the Southwest | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Western New Mexico University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| St. John's College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Institute of American Indian and Alaska Native Culture and Arts Development | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 
 ## NV
 
 | School | Status | Verified bachelor's | Listed | Plans | Req. groups | Catalog | Maps | Groups | Admission rules | Queue |
 |---|---|---|---|---|---|---|---|---|---|---|
-| University of Nevada-Las Vegas | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | College of Southern Nevada | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Great Basin College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| University of Nevada-Las Vegas | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| University of Nevada-Reno | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Truckee Meadows Community College | partial | 7 | – | 1 | 11 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | Nevada State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Western Nevada College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Great Basin College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Roseman University of Health Sciences | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
 | Touro University Nevada | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
-| Truckee Meadows Community College | partial | 7 | – | 1 | 11 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
-| University of Nevada-Reno | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Western Nevada College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 
 ## OK
 
@@ -906,28 +906,28 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | University of Central Oklahoma | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Oral Roberts University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Southwestern Oklahoma State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Oklahoma State University-Oklahoma City | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Oklahoma State University Institute of Technology | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Northeastern State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Tulsa | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Southeastern Oklahoma State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Langston University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Cameron University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Rogers State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Oklahoma Baptist University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Oklahoma City University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | East Central University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Southern Nazarene University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Northwestern Oklahoma State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Oklahoma Christian University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Science and Arts of Oklahoma | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Oklahoma Wesleyan University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Randall University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Family of Faith Christian University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Bacone College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Cameron University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Langston University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Mid-America Christian University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Oklahoma Wesleyan University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Oklahoma Panhandle State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Oklahoma State University Institute of Technology | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Oklahoma State University-Oklahoma City | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Rogers State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Southeastern Oklahoma State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Southern Nazarene University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Southwestern Christian University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Randall University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Bacone College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Family of Faith Christian University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Oklahoma-Health Sciences Center | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
 
 ## OR
@@ -936,7 +936,9 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 |---|---|---|---|---|---|---|---|---|---|---|
 | University of Oregon | covered | 71 | 78 | 55 | 122 | met | met | met | queued | admission_rules:no_official_statement |
 | Oregon State University | covered | 103 | 107 | 89 | 222 | met | met | met | met | – |
+| Chemeketa Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:out_of_scope |
 | Portland State University | covered | 70 | 71 | 7 | 0 | met | queued | queued | met | degree_maps:layout_not_readable, requirement_groups:layout_not_readable |
+| Mt Hood Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:out_of_scope |
 | University of Portland | covered | 52 | 52 | 0 | 0 | met | queued | queued | queued | admission_rules:no_official_statement, degree_maps:not_published, requirement_groups:layout_not_readable |
 | Southern Oregon University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Western Oregon University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:fetch_failed |
@@ -950,6 +952,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Eastern Oregon University | covered | 31 | 34 | 16 | 0 | met | met | queued | queued | admission_rules:no_official_statement, requirement_groups:layout_not_readable |
 | Oregon State University-Cascades Campus | covered | 26 | 28 | 0 | 26 | met | queued | met | queued | admission_rules:no_official_statement, degree_maps:not_published |
 | Corban University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:layout_not_readable |
+| Pacific Northwest College of Art | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:out_of_scope |
 | Bushnell University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:layout_not_readable |
 | Multnomah University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:out_of_scope |
 | Warner Pacific University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:layout_not_readable |
@@ -957,11 +960,8 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Warner Pacific University Professional and Graduate Studies | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:layout_not_readable |
 | Pacific Bible College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:layout_not_readable |
 | Mount Angel Seminary | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:out_of_scope |
-| Chemeketa Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:out_of_scope |
-| Mt Hood Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:out_of_scope |
 | National University of Natural Medicine | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
 | Oregon Health & Science University | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
-| Pacific Northwest College of Art | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:out_of_scope |
 | University of Western States | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
 
 ## SC
@@ -972,6 +972,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Clemson University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Coastal Carolina University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | College of Charleston | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Greenville Technical College | partial | 1 | – | 0 | 8 | queued | queued | met | met | catalog:not_yet_researched, degree_maps:not_yet_researched |
 | South Carolina State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Winthrop University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Anderson University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -982,6 +983,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Francis Marion University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Furman University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | University of South Carolina Aiken | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Bob Jones University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Wofford College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of South Carolina Beaufort | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Newberry College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -997,14 +999,12 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Coker University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Allen University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Southern Wesleyan University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Columbia International University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| American College of the Building Arts | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Bob Jones University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Clinton College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Greenville Technical College | partial | 1 | – | 0 | 8 | queued | queued | met | met | catalog:not_yet_researched, degree_maps:not_yet_researched |
-| Medical University of South Carolina | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
-| Morris College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Voorhees University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Morris College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Columbia International University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Clinton College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| American College of the Building Arts | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Medical University of South Carolina | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
 
 ## SD
 
@@ -1020,11 +1020,11 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | University of Sioux Falls | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Dakota Wesleyan University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Mount Marty University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Kairos University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Institute of Lutheran Theology | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Oglala Lakota College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Sinte Gleska University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Sisseton Wahpeton College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Kairos University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Institute of Lutheran Theology | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 
 ## TN
 
@@ -1057,46 +1057,57 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Freed-Hardeman University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Milligan University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Tusculum University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Lane College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Christian Brothers University | partial | 37 | – | 0 | 0 | queued | queued | queued | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:not_yet_researched |
+| Bryan College-Dayton | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | The University of Tennessee Southern | partial | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:state_inventory_only |
 | Johnson University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Tennessee Wesleyan University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | King University | partial | 33 | – | 0 | 0 | queued | queued | queued | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:not_yet_researched |
 | Le Moyne-Owen College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Welch College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Baptist Health Sciences University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Visible Music College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Herzing University-Nashville | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Mid-South Christian College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | American Baptist College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Bryan College-Dayton | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Lane College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| The University of Tennessee Health Science Center | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
-| Welch College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Williamson Christian College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| The University of Tennessee Health Science Center | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
 
 ## TX
 
 | School | Status | Verified bachelor's | Listed | Plans | Req. groups | Catalog | Maps | Groups | Admission rules | Queue |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Texas A & M University-College Station | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Lone Star College System | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | The University of Texas at Austin | partial | 96 | 262 | 90 | 78 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
+| Dallas College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Houston Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Texas State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Texas Tech University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | University of North Texas | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| San Jacinto Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | The University of Texas at San Antonio | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Collin County Community College District | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | University of Houston | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | The University of Texas Rio Grande Valley | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | The University of Texas at Arlington | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Austin Community College District | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | The University of Texas at Dallas | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| South Texas College | partial | 4 | – | 0 | 5 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | The University of Texas at El Paso | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Sam Houston State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| San Antonio College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Baylor University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Tyler Junior College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Tarleton State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Texas Christian University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Prairie View A & M University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Stephen F Austin State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Texas A & M University-Corpus Christi | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Trinity Valley Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Texas Southern University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Laredo College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Southern Methodist University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Lamar University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Houston-Downtown | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
@@ -1108,16 +1119,24 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Texas A & M University-Kingsville | partial | 10 | – | 10 | 0 | queued | met | queued | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, requirement_groups:layout_not_readable |
 | Texas A & M University-Commerce | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Rice University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Navarro College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of the Incarnate Word | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Odessa College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Texas A&M University-San Antonio | partial | 29 | – | 0 | 113 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
+| Midland College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Abilene Christian University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Del Mar College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Mary Hardin-Baylor | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| College of the Mainland | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Midwestern State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Houston Christian University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | The University of Texas Permian Basin | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of St Thomas | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Weatherford College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Saint Edward's University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Trinity University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Grayson College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Brazosport College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Dallas Baptist University | partial | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:state_inventory_only |
 | St. Mary's University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Texas Wesleyan University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -1128,74 +1147,55 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Hardin-Simmons University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Dallas | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | LeTourneau University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Galveston College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | McMurry University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Austin College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Our Lady of the Lake University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Wayland Baptist University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Texas Lutheran University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Southwestern Assemblies of God University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Lubbock Christian University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Schreiner University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Texas A&M University-Texarkana | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Texas College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Wiley University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Concordia University Texas | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Sul Ross State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Howard Payne University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| North American University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Huston-Tillotson University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Houston-Victoria | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Paul Quinn College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Southwestern Adventist University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Jarvis Christian University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | The Southwestern Baptist Theological Seminary | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Hallmark University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Abilene Christian University-Undergraduate Online | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Arlington Baptist University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Dallas Christian College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Parker University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Southwestern Christian College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Remington College-Dallas Campus | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| College of Biblical Studies-Houston | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Texas A&M University-Central Texas | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Remington College-Online Dallas | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | The King's University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Criswell College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Grace School of Theology | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Baptist University of the Americas | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Christ Mission College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Messenger College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Baptist Missionary Association Theological Seminary | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | The Chicago School at Dallas | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Amberton University | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
-| Arlington Baptist University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Austin Community College District | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Baptist University of the Americas | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Brazosport College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Christ Mission College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| College of Biblical Studies-Houston | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| College of the Mainland | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Collin County Community College District | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Dallas College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Del Mar College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Galveston College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Grace School of Theology | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Grayson College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Houston Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Huston-Tillotson University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Jarvis Christian University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Laredo College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Lone Star College System | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Midland College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Navarro College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| North American University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Odessa College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Our Lady of the Lake University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Parker University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Redeemers University North America | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Remington College-Dallas Campus | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Remington College-Online Dallas | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| San Antonio College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| San Jacinto Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| South Texas College | partial | 4 | – | 0 | 5 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
-| Southwestern Christian College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Texas College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Texas Tech University Health Sciences Center | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
 | Texas Tech University Health Sciences Center-El Paso | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
 | The University of Texas Health Science Center at Houston | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
 | The University of Texas Health Science Center at San Antonio | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
 | The University of Texas MD Anderson Cancer Center | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
 | The University of Texas Medical Branch at Galveston | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
-| Trinity Valley Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Tyler Junior College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of North Texas Health Science Center | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
-| Wayland Baptist University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Weatherford College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Wiley University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 
 ## UT
 
@@ -1203,16 +1203,16 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 |---|---|---|---|---|---|---|---|---|---|---|
 | Brigham Young University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Utah | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Utah State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Southern Utah University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Westminster University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Ensign College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Midwives College of Utah | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Snow College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Utah Tech University | partial | 55 | 95 | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Utah Valley University | partial | 105 | 155 | 68 | 522 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
+| Utah State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Weber State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Ensign College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Southern Utah University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Utah Tech University | partial | 55 | 95 | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Western Governors University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Snow College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Westminster University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Midwives College of Utah | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 
 ## VA
 
@@ -1246,6 +1246,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Marymount University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Virginia Wesleyan University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Emory & Henry University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Mary Baldwin University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Southern Virginia University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Virginia's College at Wise | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Averett University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -1255,18 +1256,17 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Hollins University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Eastern Mennonite University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Bluefield University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Bryant & Stratton College-Virginia Beach | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Sweet Briar College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Patrick Henry College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Riverside College of Health Careers | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Virginia University of Lynchburg | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Ascent College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Riverside College of Health Careers | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Bon Secours Memorial College of Nursing | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
-| Bryant & Stratton College-Virginia Beach | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Centra College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Fairfax University of America | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Mary Baldwin University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Sentara College of Health Sciences | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
 | Virginia Beach Theological Seminary | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Virginia University of Lynchburg | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 
 ## WA
 
@@ -1275,61 +1275,61 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | University of Washington-Seattle Campus | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Washington State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Western Washington University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Central Washington University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Bellevue College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Clark College | partial | 4 | – | 0 | 11 | queued | queued | met | met | catalog:not_yet_researched, degree_maps:not_yet_researched |
 | Eastern Washington University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Gonzaga University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Columbia Basin College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Everett Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Washington-Bothell Campus | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Tacoma Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Seattle Central College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Spokane Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Pierce College District | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Seattle University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Green River College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Olympic College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Spokane Falls Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Highline College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Skagit Valley College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Yakima Valley College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | University of Washington-Tacoma Campus | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Edmonds College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| North Seattle College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Pacific Lutheran University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Whatcom Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Walla Walla Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Whitworth University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Clover Park Technical College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Wenatchee Valley College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Puget Sound | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Lake Washington Institute of Technology | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Whitman College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| South Seattle College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Centralia College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Lower Columbia College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Renton Technical College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Seattle Pacific University | partial | 50 | 69 | 31 | 0 | queued | met | queued | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, requirement_groups:not_yet_researched |
+| Big Bend Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | The Evergreen State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Bellingham Technical College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Walla Walla University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Saint Martin's University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Grays Harbor College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Peninsula College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Cascadia College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Cornish College of the Arts | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Northwest University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Great Northern University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Antioch University-Seattle | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
-| Bastyr University | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
-| Bellevue College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Bellingham Technical College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Big Bend Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Cascadia College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Central Washington University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Centralia College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| City University of Seattle | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Clark College | partial | 4 | – | 0 | 11 | queued | queued | met | met | catalog:not_yet_researched, degree_maps:not_yet_researched |
-| Clover Park Technical College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Columbia Basin College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Edmonds College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Everett Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Faith International University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Grays Harbor College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Green River College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Heritage University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Highline College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Lake Washington Institute of Technology | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Lower Columbia College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| North Seattle College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Northwest Indian College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Northwest University-Center for Online and Extended Education | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Olympic College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Peninsula College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Pierce College District | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Renton Technical College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Seattle Central College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Skagit Valley College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| South Seattle College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Spokane Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Spokane Falls Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Tacoma Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Walla Walla Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Walla Walla University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Wenatchee Valley College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Whatcom Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| City University of Seattle | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Faith International University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Great Northern University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Whitworth University-Adult Degree Programs | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
-| Yakima Valley College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Antioch University-Seattle | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
+| Bastyr University | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
 
 ## WI
 
@@ -1342,6 +1342,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | University of Wisconsin-Eau Claire | partial | 2 | – | 0 | 0 | queued | queued | queued | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:layout_not_readable |
 | Marquette University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Wisconsin-Stevens Point | partial | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:state_inventory_only |
+| Madison Area Technical College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Wisconsin-Oshkosh | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | University of Wisconsin-Platteville | partial | 38 | – | 0 | 1 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | University of Wisconsin-Stout | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -1366,16 +1367,15 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Ripon College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Mount Mary University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Alverno College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| Bryant & Stratton College-Wauwatosa | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Northland College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Maranatha Baptist University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Bellin College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Herzing University-Brookfield | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Herzing University-Kenosha | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| University of Wisconsin-Milwaukee Flex | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Bryant & Stratton College-Wauwatosa | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| College of Menominee Nation | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Lac Courte Oreilles Ojibwe University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Madison Area Technical College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| College of Menominee Nation | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
+| University of Wisconsin-Milwaukee Flex | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Ottawa University-Milwaukee | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
 | University of Wisconsin-Parkside Flex | not_started | 0 | – | 0 | 0 | open | open | open | open | – |
 
@@ -1384,7 +1384,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | School | Status | Verified bachelor's | Listed | Plans | Req. groups | Catalog | Maps | Groups | Admission rules | Queue |
 |---|---|---|---|---|---|---|---|---|---|---|
 | University of Wyoming | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Central Wyoming College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Laramie County Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Northwest College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Western Wyoming Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Northwest College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
+| Central Wyoming College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
