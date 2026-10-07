@@ -339,6 +339,10 @@ def html_groups(table, program_awards=1, extra_issues=None):
         if SUBSTITUTE.search(titles): g['issues'].add('substitute_in_title')  # '(May be replaced by SOC 207)', '(or above)', '(or)'
         if RULE_ROW.match(section or ''): g['issues'].add('section_label_is_rule')
         if held_until_header: g['issues'].add('after_subheading_inside_choice')
+        if not table.get('sups_recorded') and any(FOOTNOTED.search(c.get('title', '')) for x in g['courses'] for c in (x.get('any_of') or [x])):
+            # a title ending in a number, read from a layout stored before superscripts were recorded: the number may be a
+            # footnote marker ('Strategic Management 3', issue #129); held until the page is re-fetched
+            g['issues'].add('title_number_unchecked')
         if g['type'] == 'all_required' and g.get('starts_after_rule'):
             g['issues'].add('follows_rule_without_options')  # 'One of the following:' + unindented courses (UO Math & CS)
         g['issues'] |= table_issues
