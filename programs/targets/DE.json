@@ -1,0 +1,115 @@
+{
+ "state": "DE",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-130934",
+   "folder": "desu",
+   "name": "Delaware State University",
+   "control": "public",
+   "domains": [
+    "desu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.desu.edu/",
+    "https://catalog.desu.edu/",
+    "https://www.desu.edu/academics/",
+    "https://www.desu.edu/registrar/",
+    "https://www.desu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-130907",
+   "folder": "dtcc",
+   "name": "Delaware Technical Community College-Terry",
+   "control": "public",
+   "domains": [
+    "dtcc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.dtcc.edu/",
+    "https://catalog.dtcc.edu/",
+    "https://www.dtcc.edu/academics/",
+    "https://www.dtcc.edu/registrar/",
+    "https://www.dtcc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-130989",
+   "folder": "gbc",
+   "name": "Goldey-Beacom College",
+   "control": "private_nonprofit",
+   "domains": [
+    "gbc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 53,
+    "home": "https://catalog.gbc.edu/index.php?catoid=53",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.gbc.edu/content.php?catoid=53&navoid=4223",
+     "https://catalog.gbc.edu/content.php?catoid=53&navoid=4254"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 53 on catalog.gbc.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-130943",
+   "folder": "udel",
+   "name": "University of Delaware",
+   "control": "public",
+   "domains": [
+    "udel.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 97,
+    "home": "https://catalog.udel.edu/index.php?catoid=97",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.udel.edu/content.php?catoid=97&navoid=35890",
+     "https://catalog.udel.edu/content.php?catoid=97&navoid=35899",
+     "https://catalog.udel.edu/content.php?catoid=97&navoid=35903",
+     "https://catalog.udel.edu/content.php?catoid=97&navoid=35904"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 97 on catalog.udel.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-131113",
+   "folder": "wilmu",
+   "name": "Wilmington University",
+   "control": "private_nonprofit",
+   "domains": [
+    "wilmu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.wilmu.edu/",
+    "https://catalog.wilmu.edu/",
+    "https://www.wilmu.edu/academics/",
+    "https://www.wilmu.edu/registrar/",
+    "https://www.wilmu.edu/catalog/"
+   ],
+   "policy": []
+  }
+ ]
+}

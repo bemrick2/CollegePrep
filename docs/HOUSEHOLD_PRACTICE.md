@@ -110,6 +110,13 @@ All functions use `search_path = ''`. Client RPCs and policy helpers are executa
 - **practice_question_distractors**: for each wrong choice, why it is wrong and its `trap_types` classification.
 - **practice_question_strategies**: role (primary or secondary), `is_fastest` (the fastest appropriate test-day strategy) and `strategy_explanation`.
 
+**Review gate (CR-21).** A question is served only when `status = 'published'` and `review_current` is true:
+
+- `review_status` (`approved`, `changes_needed`, `rejected`), `reviewed_at`, `review_method` and `content_hash` record the review. `public.approve_practice_question(id, method, reviewed_at, status)` (service role only) stores the server hash of the current content, `public.practice_question_content_hash()`.
+- The hash (sha256) covers exam version, type, section, stem, choices, answer format, accepted answers, hints, explanations, `remember_text`, the passage, skill tags, distractors and strategy links. Difficulty, calibration, expected time, blueprint, attribution, license and status are excluded, so recalibration keeps an approval.
+- Triggers keep `review_current` in step: any content edit, including a child-row or passage edit, sets it false until the question is approved again. `review_current` cannot be set directly, and edits are never blocked.
+- The question, skill-link, strategy-link and passage read policies, `start_practice_attempt`, and the recommender behind `recommend_practice_set` and `start_practice_session` all require it. Clients can read `review_current`; the other review columns are not granted.
+
 **Hidden until submission.** Clients never receive these:
 
 - `accepted_answers`

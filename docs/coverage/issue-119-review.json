@@ -1,0 +1,528 @@
+[
+ {
+  "key": "western:graphic-design-bachelor-of-arts:graphic-design-bachelor-of-arts-one-of-the-following-career-pathways",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "The record is a choose_credits 18 group whose only courses are ART 219 and ART 319. In the source, ART 219 and ART 319 are the two REQUIRED courses inside the Art and Design Career Pathway, which is only one of four alternative 18-credit pathways. The other 12 credits of that pathway come from ART 203/230/235/280/286/346/357 ('and 12 credits of the following:'). A choice of 18 credits from just two courses is not printed anywhere.",
+   "quotes": [
+    "One of the following Career Pathways:",
+    "Art and Design Career Pathway | 18",
+    "select 18 credits of ART electives, including the following two required courses:",
+    "ART 219 | Foundation Drawing II",
+    "ART 319 | Intermediate Drawing",
+    "and 12 credits of the following:",
+    "Strategic Communications Career Pathway | 18",
+    "Film and Theatre Career Pathway | 18",
+    "Computer Science Career Pathway | 18"
+   ],
+   "correct_reading": "Choose one of four 18-credit career pathways (Art and Design, Strategic Communications, Film and Theatre, Computer Science). The Art and Design pathway requires ART 219 and ART 319 plus 12 credits from ART 203, 230, 235, 280, 286, 346, 357. Each of the other pathways is 18 credits from its own listed COM/FILM, FILM/THTR, or CS courses."
+  },
+  "evidence": "stored official page https://catalog.western.edu/undergraduate/programs/design/graphic_design_ba/ (sha256 eb3e83baef940c91245e80a5ab75f22151ae4c77b9061d145580fc5e6adb9a12, fetched 2026-10-06T09:40:04+00:00, run programs/runs/CO/2026-10-06-cat; Course List layout sha256 344afc84cdca577ebc0241c7f3e74174769996d041c2dc64cdce895b2b6c89bc)"
+ },
+ {
+  "key": "western:graphic-design-bachelor-of-arts:graphic-design-bachelor-of-arts-and-12-credits-of-the-following",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "The record marks 39 courses all_required, mixing the Art and Design pathway's '12 credits of the following' list (ART 203-357, a credit choice) with every course of the three other alternative pathways (COM, FILM/THTR, CS). Its rule_text is just the three pathway header rows. The source makes ART 203-357 a choose-12-credits list inside one pathway, and the COM/FILM/THTR/CS courses belong to separate alternatives of a choose-one-of-four-pathways rule. FILM 234 is also duplicated in the record.",
+   "quotes": [
+    "One of the following Career Pathways:",
+    "and 12 credits of the following:",
+    "ART 203 | Introduction to Ceramics",
+    "ART 357 | Intermediate Printmaking",
+    "Strategic Communications Career Pathway | 18",
+    "Film and Theatre Career Pathway | 18",
+    "Computer Science Career Pathway | 18",
+    "All majors require a minimum of 60 credits and completion of one of the following career pathways for 18 credits."
+   ],
+   "correct_reading": "Inside the Art and Design pathway only: choose 12 credits from ART 203, 230, 235, 280, 286, 346, 357, in addition to the required ART 219 and ART 319. The Strategic Communications (COM 151-474, FILM 234), Film and Theatre (FILM 119-490, THTR 201-331), and Computer Science (CS 120-350) lists are separate 18-credit alternative pathways, and only one pathway is completed."
+  },
+  "evidence": "stored official page https://catalog.western.edu/undergraduate/programs/design/graphic_design_ba/ (sha256 eb3e83baef940c91245e80a5ab75f22151ae4c77b9061d145580fc5e6adb9a12, fetched 2026-10-06T09:40:04+00:00, run programs/runs/CO/2026-10-06-cat; Course List layout sha256 344afc84cdca577ebc0241c7f3e74174769996d041c2dc64cdce895b2b6c89bc)"
+ },
+ {
+  "key": "saintmarys:studio-art-concentration-bachelor-of-arts:major-requirements-42-hours-studio-electives",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "The 18-hour choice is recorded with an empty course list. The source prints the member courses of this choice under the area sub-headings that follow it (Ceramics:, Fibers:, New Media Art:, Painting:, Photo Media:, Printmaking:, Sculpture:, Electives:). The record also drops the printed footnote constraint ('At least three of the 12 hours at the 300-400 level.').",
+   "quotes": [
+    "Studio Electives",
+    "Select 18 hours, including 12 hours in one of the following areas: 2 | 18",
+    "Ceramics:",
+    "Electives:",
+    "2 At least three of the 12 hours at the 300-400 level."
+   ],
+   "correct_reading": "Studio Electives: select 18 hours of studio courses, of which 12 hours must be in one area of emphasis (Ceramics, Fibers, New Media Art, Painting, Photo Media, Printmaking, Sculpture, Electives), with at least 3 of those 12 hours at the 300-400 level (footnote 2); the area lists under the heading are the member courses of this single 18-hour choice."
+  },
+  "evidence": "stored official page https://catalog.saintmarys.edu/undergraduate/programs/art/studio-art-concentration-bachelor-arts/ (sha256 78e38216d129513cb239e61ac496dc66e23d161c9615b7b31d46d22493d0675e, fetched 2026-10-06T10:01:42+00:00, run programs/runs/IN/2026-10-06-cat; Course List layout sha256 0d19c71288bdcf60249fc3079701be27830c50153e0a1b049ea6d9ee55ebce8d)"
+ },
+ {
+  "key": "saintmarys:studio-art-concentration-bachelor-of-arts:major-requirements-42-hours-electives",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "'Electives:' (ART 225, 226, 308, 385, 499) is the last area sub-heading inside the Studio Electives 18-hour choice, at the same level as Ceramics:, Fibers:, and the other areas. It is not a standalone elective group, so the record wrongly treats a sub-heading inside a choice as its own elective_pool.",
+   "quotes": [
+    "Select 18 hours, including 12 hours in one of the following areas: 2 | 18",
+    "Sculpture:",
+    "Electives:",
+    "ART 225 | Typography",
+    "ART 499 | Internship",
+    "Upper Level Art History Elective"
+   ],
+   "correct_reading": "ART 225, 226, 308, 385 and 499 are the 'Electives:' area of the 18-hour Studio Electives choice and count toward those 18 hours. They are not a separate requirement. Studio Electives: select 18 hours of studio courses, of which 12 hours must be in one area of emphasis (Ceramics, Fibers, New Media Art, Painting, Photo Media, Printmaking, Sculpture, Electives), with at least 3 of those 12 hours at the 300-400 level (footnote 2); the area lists under the heading are the member courses of this single 18-hour choice."
+  },
+  "evidence": "stored official page https://catalog.saintmarys.edu/undergraduate/programs/art/studio-art-concentration-bachelor-arts/ (sha256 78e38216d129513cb239e61ac496dc66e23d161c9615b7b31d46d22493d0675e, fetched 2026-10-06T10:01:42+00:00, run programs/runs/IN/2026-10-06-cat; Course List layout sha256 0d19c71288bdcf60249fc3079701be27830c50153e0a1b049ea6d9ee55ebce8d)"
+ },
+ {
+  "key": "saintmarys:studio-art-concentration-bachelor-of-fine-arts:major-requirements-78-hours-studio-electives",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "The 45-hour choice is recorded with an empty course list. The member courses are printed under the area sub-headings (Ceramics: through Electives:) that follow the rule. The footnote constraint ('At least three hours of the 12 hours at the 300 or 400 level.') is also missing.",
+   "quotes": [
+    "Studio Electives",
+    "Select 45 hours, including 12 hours in one of the following areas: 2 | 45",
+    "Ceramics:",
+    "Electives:",
+    "2 At least three hours of the 12 hours at the 300 or 400 level."
+   ],
+   "correct_reading": "Studio Electives: select 45 hours of studio courses, of which 12 hours must be in one area of emphasis (Ceramics, Fibers, New Media Art, Painting, Photo Media, Printmaking, Sculpture, Electives), with at least 3 of those 12 hours at the 300-400 level (footnote 2); the area lists under the heading are the member courses of this single 45-hour choice."
+  },
+  "evidence": "stored official page https://catalog.saintmarys.edu/undergraduate/programs/art/studio-art-concentration-bachelor-fine-arts---art/ (sha256 37a833e1fa3598451690c97684bf4a113f7b5c8f785298f555b23aa3423e5177, fetched 2026-10-06T10:01:43+00:00, run programs/runs/IN/2026-10-06-cat; Course List layout sha256 96e3b0f9a3ed709caf74d28f8614e727100703c22449f9ab5ee1984c35947854)"
+ },
+ {
+  "key": "saintmarys:studio-art-concentration-bachelor-of-fine-arts:major-requirements-78-hours-electives",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "'Electives:' (ART 214, 225, 226, 308, 385, 499) is an area sub-heading inside the 45-hour Studio Electives choice, listed after Sculpture: and before the separate 'Upper Level Art History Electives' heading. It is not its own elective_pool group.",
+   "quotes": [
+    "Select 45 hours, including 12 hours in one of the following areas: 2 | 45",
+    "Sculpture:",
+    "Electives:",
+    "ART 214 | The Sustainable Cup",
+    "ART 499 | Internship",
+    "Upper Level Art History Electives"
+   ],
+   "correct_reading": "ART 214, 225, 226, 308, 385 and 499 are the 'Electives:' area of the 45-hour Studio Electives choice and count toward those 45 hours. They are not a separate requirement. Studio Electives: select 45 hours of studio courses, of which 12 hours must be in one area of emphasis (Ceramics, Fibers, New Media Art, Painting, Photo Media, Printmaking, Sculpture, Electives), with at least 3 of those 12 hours at the 300-400 level (footnote 2); the area lists under the heading are the member courses of this single 45-hour choice."
+  },
+  "evidence": "stored official page https://catalog.saintmarys.edu/undergraduate/programs/art/studio-art-concentration-bachelor-fine-arts---art/ (sha256 37a833e1fa3598451690c97684bf4a113f7b5c8f785298f555b23aa3423e5177, fetched 2026-10-06T10:01:43+00:00, run programs/runs/IN/2026-10-06-cat; Course List layout sha256 96e3b0f9a3ed709caf74d28f8614e727100703c22449f9ab5ee1984c35947854)"
+ },
+ {
+  "key": "saintmarys:studio-art-and-art-history-double-concentration-bachelor-of-arts:major-requirements-66-hours-studio-electives",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "The 18-hour choice is recorded with an empty course list. The source prints the member courses under the area sub-headings (Ceramics: through Electives:) directly below the rule. Footnote 1 ('At least three of the 12 hours at the 300-400 level.') is also omitted.",
+   "quotes": [
+    "Studio Electives",
+    "Select 18 hours, including 12 hours in one of the following areas: 1 | 18",
+    "Ceramics:",
+    "Electives:",
+    "1 At least three of the 12 hours at the 300-400 level."
+   ],
+   "correct_reading": "Studio Electives: select 18 hours of studio courses, of which 12 hours must be in one area of emphasis (Ceramics, Fibers, New Media Art, Painting, Photo Media, Printmaking, Sculpture, Electives), with at least 3 of those 12 hours at the 300-400 level (footnote 1); the area lists under the heading are the member courses of this single 18-hour choice."
+  },
+  "evidence": "stored official page https://catalog.saintmarys.edu/undergraduate/programs/art/studio-art-history-double-concentration-bachelor-arts/ (sha256 726ed1509da9265c4f719ee40772de0c32a77a52ab8c7ff8103ec9f0b9ba1921, fetched 2026-10-06T10:01:41+00:00, run programs/runs/IN/2026-10-06-cat; Course List layout sha256 efdf3c20d8d0c5119dcef1d2b1246cb454ef2e505fb93fc31ba2bc37c8a97285)"
+ },
+ {
+  "key": "saintmarys:studio-art-and-art-history-double-concentration-bachelor-of-arts:major-requirements-66-hours-electives",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "'Electives:' (ART 214, 225, 226, 308, 385, 499) is an area sub-heading inside the 18-hour Studio Electives choice, after Sculpture: and before 'Upper Level Art History Electives'. It is not a standalone elective_pool group.",
+   "quotes": [
+    "Select 18 hours, including 12 hours in one of the following areas: 1 | 18",
+    "Sculpture:",
+    "Electives:",
+    "ART 214 | The Sustainable Cup",
+    "ART 499 | Internship",
+    "Upper Level Art History Electives"
+   ],
+   "correct_reading": "ART 214, 225, 226, 308, 385 and 499 are the 'Electives:' area of the 18-hour Studio Electives choice and count toward those 18 hours. They are not a separate requirement. Studio Electives: select 18 hours of studio courses, of which 12 hours must be in one area of emphasis (Ceramics, Fibers, New Media Art, Painting, Photo Media, Printmaking, Sculpture, Electives), with at least 3 of those 12 hours at the 300-400 level (footnote 1); the area lists under the heading are the member courses of this single 18-hour choice."
+  },
+  "evidence": "stored official page https://catalog.saintmarys.edu/undergraduate/programs/art/studio-art-history-double-concentration-bachelor-arts/ (sha256 726ed1509da9265c4f719ee40772de0c32a77a52ab8c7ff8103ec9f0b9ba1921, fetched 2026-10-06T10:01:41+00:00, run programs/runs/IN/2026-10-06-cat; Course List layout sha256 efdf3c20d8d0c5119dcef1d2b1246cb454ef2e505fb93fc31ba2bc37c8a97285)"
+ },
+ {
+  "key": "saintmarys:studio-art-and-art-history-double-concentration-bachelor-of-arts:major-requirements-66-hours-upper-level-art-history-electives",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "The record is an elective_pool with no courses. The source prints a counted choice: five courses (15 credits) from at least two of six areas, and lists each area's member courses. The record has the wrong group type (no count) and is missing every member course. The sibling records also split the area sub-headings (Ancient/Medieval, Contemporary, and so on) into separate all_required groups, which is the same structural error.",
+   "quotes": [
+    "Upper Level Art History Electives",
+    "Select five courses from at least two of the following areas: | 15",
+    "Ancient/Medieval",
+    "Eighteenth/Nineteenth Century",
+    "Twentieth Century",
+    "Contemporary",
+    "Non-Western/Underrepresented Traditions",
+    "Media Specific",
+    "ART 343 | History of Photography",
+    "ART 344 | Film History and Analysis"
+   ],
+   "correct_reading": "Choose 5 courses (15 credits) drawn from at least two of these areas: Ancient/Medieval (ART 354, 390), Eighteenth/Nineteenth Century (ART 345, 354, 390), Twentieth Century (ART 345, 350, 390), Contemporary (ART 302, 356, 390, 490), Non-Western/Underrepresented Traditions (ART 353, 390), and Media Specific (ART 343, 344, 390). The area headings are sub-headings of this single choice."
+  },
+  "evidence": "stored official page https://catalog.saintmarys.edu/undergraduate/programs/art/studio-art-history-double-concentration-bachelor-arts/ (sha256 726ed1509da9265c4f719ee40772de0c32a77a52ab8c7ff8103ec9f0b9ba1921, fetched 2026-10-06T10:01:41+00:00, run programs/runs/IN/2026-10-06-cat; Course List layout sha256 efdf3c20d8d0c5119dcef1d2b1246cb454ef2e505fb93fc31ba2bc37c8a97285)"
+ },
+ {
+  "key": "saintmarys:ecology-evolution-and-environmental-biology-concentration-bachelor-of-science:major-requirements-60-hours-one-of-the-following-to-fulfill-upper-level-research",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "The heading says 'One of the following', so the source requires only one of the six courses. The record marks all six all_required. Its rule_text is also the next, unrelated row ('Additional math and/or science courses to bring the total to 60 hours if needed') plus the table total.",
+   "quotes": [
+    "One of the following to fulfill upper level Research Writing Course:",
+    "BIO 209 | Marine Biology",
+    "BIO 230 | Molecular Cell Biology",
+    "BIO 232 | Animal Behavior",
+    "BIO 316 | Conservation Biology",
+    "BIO 323 | Ecology",
+    "BIO 335 | Plant-Animal Interactions",
+    "Additional math and/or science courses to bring the total to 60 hours if needed"
+   ],
+   "correct_reading": "Choose 1 of BIO 209, 230, 232, 316, 323, 335 to satisfy the upper-level Research Writing Course requirement (choose_courses, count 1). The 'Additional math and/or science courses...' row is a separate filler note."
+  },
+  "evidence": "stored official page https://catalog.saintmarys.edu/undergraduate/programs/biology/ecology-evolution-environmental-biology-concentration-bachelor-science/ (sha256 2bd059a8e87e48eb974c9864a9b8272a8461954771fc7e4a3faf9785a1178541, fetched 2026-10-06T10:00:35+00:00, run programs/runs/IN/2026-10-06-cat; Course List layout sha256 b482bb1cbad96b6b7863e79bc9a7203142759af58366c6b32f0cfa3550007825)"
+ },
+ {
+  "key": "wku:religious-studies-bachelor-of-arts:program-requirements-30-hours-electives",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "The record is an elective_pool with no courses, only the rule 'Select two courses from the following: 1 6'. The source prints a choose-two choice (6 hours) whose indented members are the any-RELS option plus ten named courses (ANTH 446, ART 316, ART 407, ENG 396, ENG 487, HIST 318, HIST 407, HIST 454, PSYS 451, SOCL 322). So this is a choice with its member courses missing, and the group type should be choose_courses with a count of 2, not an open pool. The members were instead put into the sibling record 'program-requirements-30-hours-any-rels-course-not-already-counted-toward-the-maj' as all_required, which is also wrong.",
+   "quotes": [
+    "| Electives |",
+    "| Select two courses from the following: 1 | 6",
+    "| Any RELS course not already counted toward the major. |",
+    "| ANTH 446 | Anthropology of Religion |",
+    "| SOCL 322 | Religion in Society |"
+   ],
+   "correct_reading": "Electives: choose 2 courses (6 hours) from any RELS course not already counted toward the major, or from ANTH 446, ART 316, ART 407, ENG 396, ENG 487, HIST 318, HIST 407, HIST 454, PSYS 451, SOCL 322. Footnote 1 is attached to this choice: '9 Hours must be in religious studies courses; Students may count up to 1 year of language sequence...'."
+  },
+  "evidence": "stored official page https://catalog.wku.edu/undergraduate/arts-letters/history/religious-studies-ba/ (sha256 a798e0130e89bf2f12b684db0457d325e2b35ad8eef55c62a71794d85a9f1dac, fetched 2026-10-06T11:10:04+00:00, run programs/runs/KY/2026-10-06-cl; Course List layout sha256 1f094f4460a7b0798353c6e2d84d190c10f93709d39c9aaf3a563046ee7ef5bd)"
+ },
+ {
+  "key": "wku:journalism-bachelor-of-arts:program-requirements-42-hours-diversity-elective",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "The choose-one type and the 22 diversity courses SMC 310 through SWRK 300 are correct. But the record also lists JOUR 426 as a member of the diversity choice. In the source, JOUR 426 sits under its own area header 'Captone' (3 hours), which is a separate required course, not an option in the Diversity Elective. The record's rule_text also absorbs 'Captone 3'.",
+   "quotes": [
+    "| Diversity Elective |",
+    "| Select one from the following: | 3",
+    "| Captone | 3",
+    "JOUR 426 | Advanced Reporting"
+   ],
+   "correct_reading": "Diversity Elective: choose 1 course (3 hours) from SMC 310, AFAM 343, ASL 302, COMM 363, COMM 365, COMM 371, CRIM 361, CRIM 446, FLK 330, FLK 373, GWS 375, HIST 302, HIST 343, LEAD 450, PH 410, PS 373, SOCL 355, SOCL 362, SOCL 375, SOCL 376, SPS 400, SWRK 300. JOUR 426 is the separately required 'Captone' (3 hours)."
+  },
+  "evidence": "stored official page https://catalog.wku.edu/undergraduate/arts-letters/media-communication/journalism-ba/ (sha256 255ceb1183cfb517132c3d691ac80a68749dda4c4aca58fe28505a62e63d5800, fetched 2026-10-06T11:10:13+00:00, run programs/runs/KY/2026-10-06-cl; Course List layout sha256 7cf90a14780f9300bdff2fd3ba2edff810735f4b0facccd089f0713361081b48)"
+ },
+ {
+  "key": "wku:philosophy-bachelor-of-arts:philosophy-track-31-hours-electives",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "The record is an elective_pool with no courses ('Select four of the following: 12'). The source prints a choose-four choice (12 hours) whose indented members are 'Any philosophy (PHIL) course that is not already counting towards one of the above categories.' plus RELS 242, RELS 317 and RELS 318. The member options are missing, and the group should be choose_courses with a count of 4. Those RELS courses were instead put into a sibling record marked all_required.",
+   "quotes": [
+    "| Electives |",
+    "| Select four of the following: | 12",
+    "Any philosophy (PHIL) course that is not already counting towards one of the above categories.",
+    "RELS 242 | The Meaning of Life; Atheism to Zen",
+    "RELS 317 | Confucianism",
+    "RELS 318 | Daoism"
+   ],
+   "correct_reading": "Philosophy Track Electives: choose 4 courses (12 hours) from any PHIL course not already counted toward the categories above, or from RELS 242, RELS 317, RELS 318."
+  },
+  "evidence": "stored official page https://catalog.wku.edu/undergraduate/arts-letters/political-science/philosophy-ba/ (sha256 281635ca0214e15c695077db7c14e3974473da0f6f2e314f7485295353b3917a, fetched 2026-10-06T11:10:23+00:00, run programs/runs/KY/2026-10-06-cl; Course List layout sha256 a9d61e30a933db599d3b60833a4c468a7e74cbdaf0b6286fc55eb164d9417f59)"
+ },
+ {
+  "key": "wku:philosophy-bachelor-of-arts:philosophy-politics-and-policy-track-31-hours-electives",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "The record is an elective_pool with no courses. The source prints a 12-hour choice of at least two PHIL and at least two PS courses. Its indented members are any PHIL course not already counted, PS 201, PS 311, PS 316, PS 326, PS 327, PS 328, PS 330, PS 338, PS 340, and 'Any graduate political science (PS) course'. The member options are missing. Those PS courses were instead put into a sibling record marked all_required.",
+   "quotes": [
+    "| Select at least two philosophy (PHIL) courses and at least two political science (PS) courses from the following: | 12",
+    "Any philosophy course that is not already counting towards one of the above categories",
+    "PS 201 | Concepts of Political Science",
+    "PS 340 | Principles of Public Administration",
+    "Any graduate political science (PS) course"
+   ],
+   "correct_reading": "PPP Track Electives: 12 hours (4 courses), with at least 2 PHIL courses (any PHIL course not already counted) and at least 2 PS courses from PS 201, 311, 316, 326, 327, 328, 330, 338, 340, or any graduate PS course."
+  },
+  "evidence": "stored official page https://catalog.wku.edu/undergraduate/arts-letters/political-science/philosophy-ba/ (sha256 281635ca0214e15c695077db7c14e3974473da0f6f2e314f7485295353b3917a, fetched 2026-10-06T11:10:23+00:00, run programs/runs/KY/2026-10-06-cl; Course List layout sha256 a9d61e30a933db599d3b60833a4c468a7e74cbdaf0b6286fc55eb164d9417f59)"
+ },
+ {
+  "key": "ncsu:food-science-bs-business-technology-concentration:food-science-bs-business-technology-concentration-business-economics-minor-requi",
+  "action": "kept_verified_unchanged",
+  "verdict": {
+   "verdict": "supported",
+   "reason": "The structured claim matches the source: choose_courses with choose_count 1 from exactly the 10 printed courses (ACC 200, ACC 210, ARE 201, ARE 201A, ARE 303, ARE 304, ARE 321, EC 201, EC 205, BUS 370). The rule_text is verbatim text from the 'Business & Economics/Minor Requirements' area, which is the record's source_section: the intro paragraph (truncated mid-word at 'cours'), the choice row, and the 'Business/Economics Electives | 6' row. Including that 6-credit row adds the sibling requirement's text to this rule_text. It is not presented as a member or count of this choice, so it does not change the group's meaning. The previous reviewer's point about rule_text is a cosmetic cleanup, not a misstatement.",
+   "quotes": [
+    "Business & Economics/Minor Requirements",
+    "Nine credits of Business or Economics must be included or the student must complete a minor in any field of their choosing.",
+    "Select one of the following: | 3",
+    "ACC 200 | Introduction to Managerial Accounting",
+    "BUS 370 | Operations and Supply Chain Management",
+    "Business/Economics Electives | 6"
+   ],
+   "correct_reading": "Within the Business & Economics/Minor Requirements (9 credits of business/economics, or a minor instead), choose 1 course (3 credits) from ACC 200, ACC 210, ARE 201, ARE 201A, ARE 303, ARE 304, ARE 321, EC 201, EC 205, BUS 370. Separately, take 6 credits of Business/Economics Electives from the Business/Economics Electives list."
+  }
+ },
+ {
+  "key": "uvu:dance-b-s:program-requirements-strongly-recommended-3",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "'Strongly Recommended:' is a label inside the Pre-Dance Therapy Electives requirement ('Complete 25 credits from any DANC, HLSC, or PSY course'). It is advisory, not its own group. The record makes it a choose_credits group of 20 credits and fills its rule_text with the separate 'Free Electives 20 Credits' area ('All Tracks complete 20 credits from any course 1000 or higher...'). That wrongly makes the recommended Pre-Dance Therapy courses the member list of the 20-credit free-elective requirement.",
+   "quotes": [
+    "| Pre-Dance Therapy Electives 1 |",
+    "| Complete 25 credits from any DANC, HLSC, or PSY course |",
+    "| Strongly Recommended: |",
+    "| Free Electives | 20 Credits",
+    "| All Tracks complete 20 credits from any course 1000 or higher (students must complete a minimum of 40 upper-division credits) | 20"
+   ],
+   "correct_reading": "Pre-Dance Therapy Track: complete 25 elective credits from any DANC, HLSC or PSY course. DANC 3140, HLSC 1055, HLSC 1057, PSY 1100, PSY 1250, PSY 4300 and PSY 4400 are printed only as strongly recommended. Separately, all tracks complete 20 free-elective credits from any course 1000 or higher, with a minimum of 40 upper-division credits overall."
+  },
+  "evidence": "stored official page https://catalog.uvu.edu/arts/dance/dance-bs/ (sha256 bf139ecafcd4c44aae2131d80e86ad3c4df52f1f8472b7baaf9ef9620defd8b8, fetched 2026-10-06T22:38:49+00:00, run programs/runs/UT/2026-10-06-cat; Course List layout sha256 79173d4ac73619996e7596c4e6cfbc36b58d71cc680b852691e617a59ae72914)"
+ },
+ {
+  "key": "uvu:music-b-a:program-requirements-ensembles",
+  "action": "corrected_kept_verified",
+  "field": "rule_details.rule_text",
+  "before": "Complete 8 credits from the following on your major instrument: 8 Elective Requirements 29 Credits One Foreign Language 12 Complete any courses 1000 level or higher (may not include MUSC courses) (at least 9 credits must be upper-division, see graduation requirements) 17",
+  "after": "Complete 8 credits from the following on your major instrument: 8",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "The group type (choose 8 credits) and the six ensemble members match the source. But rule_text appends rows from a different area, the 'Elective Requirements 29 Credits' header with 'One Foreign Language 12' and the 17-credit any-course row, so it claims those as part of the ensemble rule. Narrow error: only rule_text is wrong.",
+   "quotes": [
+    "| Ensembles: |",
+    "| Complete 8 credits from the following on your major instrument: | 8",
+    "| Elective Requirements | 29 Credits",
+    "| One Foreign Language | 12"
+   ],
+   "correct_reading": "Ensembles: complete 8 credits on the major instrument from MUSC 3220R, 3270R, 3280R, 3300R, 3320R, 3700R (1 credit each, repeatable). Elective Requirements (29 credits: one foreign language for 12, plus 17 credits of non-MUSC courses at 1000 level or higher) is a separate area."
+  }
+ },
+ {
+  "key": "uvu:music-b-s:program-requirements-ensembles",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "The record marks all six ensembles all_required. The source is a credit choice ('Complete eight credits of the following on your major instrument: 8') over six 1-credit repeatable ensembles. rule_text also appends the separate 'Elective Requirements 30 Credits' area.",
+   "quotes": [
+    "| Ensembles: |",
+    "| Complete eight credits of the following on your major instrument: | 8",
+    "| Elective Requirements | 30 Credits"
+   ],
+   "correct_reading": "Ensembles: choose credits totaling 8 on the major instrument from MUSC 3220R, 3270R, 3280R, 3300R, 3320R, 3700R. Elective Requirements (30 credits of non-MUSC courses at 1000 level or higher) is a separate area."
+  },
+  "evidence": "stored official page https://catalog.uvu.edu/arts/music/music-bs/ (sha256 bf8eb6d9c0aa2c145c6c1b77de313581a30771f7dfe8d686de56d0e3b447c9f5, fetched 2026-10-06T22:38:54+00:00, run programs/runs/UT/2026-10-06-cat; Course List layout sha256 6190946962fe36993cdbf7c66a70e1a2adf17bf604ad70f78ebc4af96b2d0e81)"
+ },
+ {
+  "key": "uvu:theatre-studies-b-a:program-requirements-directing-courses",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "'DIRECTING COURSES:' is a category label inside the Courselist A credit choice, introduced by 'Complete 6 credits from the following courses. A minimum of 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above.'. The record makes these courses an all_required group of their own. They are only optional members of the Courselist A choice, and the credit-count rule is missing.",
+   "quotes": [
+    "| Courselist A: | 6 Credits",
+    "| Complete 6 credits from the following courses. A minimum of 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above. | 6",
+    "DIRECTING COURSES:"
+   ],
+   "correct_reading": "Courselist A: complete 6 credits from all listed courses (Directing: THEA 3612, 3614; Performance: THEA 1113, 1840R, 2033, 2131, 2156, 3113, 3116, 3133, 3150R, 3190R; Capstone: THEA 4993). The category labels are groupings inside one choice, and at least 27 of the 36 Courselist A/B/C credits must be 3000-level or above."
+  },
+  "evidence": "stored official page https://catalog.uvu.edu/arts/theatrical-arts-stage-screen/theatre-studies-ba/ (sha256 8e018133ed076b54f2ed6db21a8457a4eb56f5592eb9ddf5d15ce135f815b152, fetched 2026-10-06T22:39:02+00:00, run programs/runs/UT/2026-10-06-cat; Course List layout sha256 2d35d4dda620f95d5f7a2a2ac22423dbfb5ff661e8eb30db5b7a3c7755fe6772)"
+ },
+ {
+  "key": "uvu:theatre-studies-b-a:program-requirements-performance-courses",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "'PERFORMANCE COURSES:' is a category label inside the Courselist A credit choice, introduced by 'Complete 6 credits from the following courses. A minimum of 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above.'. The record makes these courses an all_required group of their own. They are only optional members of the Courselist A choice, and the credit-count rule is missing.",
+   "quotes": [
+    "| Courselist A: | 6 Credits",
+    "| Complete 6 credits from the following courses. A minimum of 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above. | 6",
+    "PERFORMANCE COURSES:"
+   ],
+   "correct_reading": "Courselist A: complete 6 credits from all listed courses (Directing: THEA 3612, 3614; Performance: THEA 1113, 1840R, 2033, 2131, 2156, 3113, 3116, 3133, 3150R, 3190R; Capstone: THEA 4993). The category labels are groupings inside one choice, and at least 27 of the 36 Courselist A/B/C credits must be 3000-level or above."
+  },
+  "evidence": "stored official page https://catalog.uvu.edu/arts/theatrical-arts-stage-screen/theatre-studies-ba/ (sha256 8e018133ed076b54f2ed6db21a8457a4eb56f5592eb9ddf5d15ce135f815b152, fetched 2026-10-06T22:39:02+00:00, run programs/runs/UT/2026-10-06-cat; Course List layout sha256 2d35d4dda620f95d5f7a2a2ac22423dbfb5ff661e8eb30db5b7a3c7755fe6772)"
+ },
+ {
+  "key": "uvu:theatre-studies-b-a:program-requirements-design-courses",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "'DESIGN COURSES:' is a category label inside the Courselist B credit choice, introduced by 'Complete 15 credits from the following courses. A minimum of 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above.'. The record makes these courses an all_required group of their own. They are only optional members of the Courselist B choice, and the credit-count rule is missing. (The DESIGN COURSES label row is not indented in the layout, but its courses are indented under the Courselist B choice row, and no separate count is printed.)",
+   "quotes": [
+    "| Courselist B: | 15 Credits",
+    "| Complete 15 credits from the following courses. A minimum of 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above. | 15",
+    "DESIGN COURSES:"
+   ],
+   "correct_reading": "Courselist B: complete 15 credits from all listed courses (Design: ART 1020, THEA 2540G, 3514, 3521, 4522, 3531, 4537, 3541, 4547, 3571, 4577; Technical Production: DAPR 2000, THEA 1223, 2203, 2204, 2531, 2574, 3223, 3511, 3542, 3565, 3573, 4540R, 4561; Capstone: THEA 2570R, 4570R, 4810R, 4995). The labels are groupings inside one choice, and at least 27 of the 36 A/B/C credits must be 3000-level or above."
+  },
+  "evidence": "stored official page https://catalog.uvu.edu/arts/theatrical-arts-stage-screen/theatre-studies-ba/ (sha256 8e018133ed076b54f2ed6db21a8457a4eb56f5592eb9ddf5d15ce135f815b152, fetched 2026-10-06T22:39:02+00:00, run programs/runs/UT/2026-10-06-cat; Course List layout sha256 2d35d4dda620f95d5f7a2a2ac22423dbfb5ff661e8eb30db5b7a3c7755fe6772)"
+ },
+ {
+  "key": "uvu:theatre-studies-b-a:program-requirements-technical-production-courses",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "'TECHNICAL PRODUCTION COURSES:' is a category label inside the Courselist B credit choice, introduced by 'Complete 15 credits from the following courses. A minimum of 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above.'. The record makes these courses an all_required group of their own. They are only optional members of the Courselist B choice, and the credit-count rule is missing.",
+   "quotes": [
+    "| Courselist B: | 15 Credits",
+    "| Complete 15 credits from the following courses. A minimum of 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above. | 15",
+    "TECHNICAL PRODUCTION COURSES:"
+   ],
+   "correct_reading": "Courselist B: complete 15 credits from all listed courses (Design: ART 1020, THEA 2540G, 3514, 3521, 4522, 3531, 4537, 3541, 4547, 3571, 4577; Technical Production: DAPR 2000, THEA 1223, 2203, 2204, 2531, 2574, 3223, 3511, 3542, 3565, 3573, 4540R, 4561; Capstone: THEA 2570R, 4570R, 4810R, 4995). The labels are groupings inside one choice, and at least 27 of the 36 A/B/C credits must be 3000-level or above."
+  },
+  "evidence": "stored official page https://catalog.uvu.edu/arts/theatrical-arts-stage-screen/theatre-studies-ba/ (sha256 8e018133ed076b54f2ed6db21a8457a4eb56f5592eb9ddf5d15ce135f815b152, fetched 2026-10-06T22:39:02+00:00, run programs/runs/UT/2026-10-06-cat; Course List layout sha256 2d35d4dda620f95d5f7a2a2ac22423dbfb5ff661e8eb30db5b7a3c7755fe6772)"
+ },
+ {
+  "key": "uvu:theatre-studies-b-a:program-requirements-dramaturgy-courses",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "'DRAMATURGY COURSES:' is a category label inside the Courselist C credit choice, introduced by 'Complete 15 credits from the following courses. At least 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above.'. The record makes these courses an all_required group of their own. They are only optional members of the Courselist C choice, and the credit-count rule is missing.",
+   "quotes": [
+    "| Courselist C: | 15 Credits",
+    "| Complete 15 credits from the following courses. At least 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above. | 15",
+    "DRAMATURGY COURSES:"
+   ],
+   "correct_reading": "Courselist C: complete 15 credits from all listed courses (THEA 2720R; Dramaturgy; Film Studies; Scriptwriting; Theatre Administration; Theatre for Children and Youth; Capstone: THEA 4900R, 4994). The category labels are groupings inside one choice, and at least 27 of the 36 A/B/C credits must be 3000-level or above."
+  },
+  "evidence": "stored official page https://catalog.uvu.edu/arts/theatrical-arts-stage-screen/theatre-studies-ba/ (sha256 8e018133ed076b54f2ed6db21a8457a4eb56f5592eb9ddf5d15ce135f815b152, fetched 2026-10-06T22:39:02+00:00, run programs/runs/UT/2026-10-06-cat; Course List layout sha256 2d35d4dda620f95d5f7a2a2ac22423dbfb5ff661e8eb30db5b7a3c7755fe6772)"
+ },
+ {
+  "key": "uvu:theatre-studies-b-a:program-requirements-film-studies-courses",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "'FILM STUDIES COURSES:' is a category label inside the Courselist C credit choice, introduced by 'Complete 15 credits from the following courses. At least 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above.'. The record makes these courses an all_required group of their own. They are only optional members of the Courselist C choice, and the credit-count rule is missing.",
+   "quotes": [
+    "| Courselist C: | 15 Credits",
+    "| Complete 15 credits from the following courses. At least 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above. | 15",
+    "FILM STUDIES COURSES:"
+   ],
+   "correct_reading": "Courselist C: complete 15 credits from all listed courses (THEA 2720R; Dramaturgy; Film Studies; Scriptwriting; Theatre Administration; Theatre for Children and Youth; Capstone: THEA 4900R, 4994). The category labels are groupings inside one choice, and at least 27 of the 36 A/B/C credits must be 3000-level or above."
+  },
+  "evidence": "stored official page https://catalog.uvu.edu/arts/theatrical-arts-stage-screen/theatre-studies-ba/ (sha256 8e018133ed076b54f2ed6db21a8457a4eb56f5592eb9ddf5d15ce135f815b152, fetched 2026-10-06T22:39:02+00:00, run programs/runs/UT/2026-10-06-cat; Course List layout sha256 2d35d4dda620f95d5f7a2a2ac22423dbfb5ff661e8eb30db5b7a3c7755fe6772)"
+ },
+ {
+  "key": "uvu:theatre-studies-b-a:program-requirements-scriptwriting-courses",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "'SCRIPTWRITING COURSES:' is a category label inside the Courselist C credit choice, introduced by 'Complete 15 credits from the following courses. At least 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above.'. The record makes these courses an all_required group of their own. They are only optional members of the Courselist C choice, and the credit-count rule is missing.",
+   "quotes": [
+    "| Courselist C: | 15 Credits",
+    "| Complete 15 credits from the following courses. At least 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above. | 15",
+    "SCRIPTWRITING COURSES:"
+   ],
+   "correct_reading": "Courselist C: complete 15 credits from all listed courses (THEA 2720R; Dramaturgy; Film Studies; Scriptwriting; Theatre Administration; Theatre for Children and Youth; Capstone: THEA 4900R, 4994). The category labels are groupings inside one choice, and at least 27 of the 36 A/B/C credits must be 3000-level or above."
+  },
+  "evidence": "stored official page https://catalog.uvu.edu/arts/theatrical-arts-stage-screen/theatre-studies-ba/ (sha256 8e018133ed076b54f2ed6db21a8457a4eb56f5592eb9ddf5d15ce135f815b152, fetched 2026-10-06T22:39:02+00:00, run programs/runs/UT/2026-10-06-cat; Course List layout sha256 2d35d4dda620f95d5f7a2a2ac22423dbfb5ff661e8eb30db5b7a3c7755fe6772)"
+ },
+ {
+  "key": "uvu:theatre-studies-b-a:program-requirements-theatre-administration-courses",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "'THEATRE ADMINISTRATION COURSES:' is a category label inside the Courselist C credit choice, introduced by 'Complete 15 credits from the following courses. At least 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above.'. The record makes these courses an all_required group of their own. They are only optional members of the Courselist C choice, and the credit-count rule is missing.",
+   "quotes": [
+    "| Courselist C: | 15 Credits",
+    "| Complete 15 credits from the following courses. At least 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above. | 15",
+    "THEATRE ADMINISTRATION COURSES:"
+   ],
+   "correct_reading": "Courselist C: complete 15 credits from all listed courses (THEA 2720R; Dramaturgy; Film Studies; Scriptwriting; Theatre Administration; Theatre for Children and Youth; Capstone: THEA 4900R, 4994). The category labels are groupings inside one choice, and at least 27 of the 36 A/B/C credits must be 3000-level or above."
+  },
+  "evidence": "stored official page https://catalog.uvu.edu/arts/theatrical-arts-stage-screen/theatre-studies-ba/ (sha256 8e018133ed076b54f2ed6db21a8457a4eb56f5592eb9ddf5d15ce135f815b152, fetched 2026-10-06T22:39:02+00:00, run programs/runs/UT/2026-10-06-cat; Course List layout sha256 2d35d4dda620f95d5f7a2a2ac22423dbfb5ff661e8eb30db5b7a3c7755fe6772)"
+ },
+ {
+  "key": "uvu:theatre-studies-b-a:program-requirements-theatre-for-children-and-youth-courses",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "'THEATRE FOR CHILDREN AND YOUTH COURSES:' is a category label inside the Courselist C credit choice, introduced by 'Complete 15 credits from the following courses. At least 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above.'. The record makes these courses an all_required group of their own. They are only optional members of the Courselist C choice, and the credit-count rule is missing.",
+   "quotes": [
+    "| Courselist C: | 15 Credits",
+    "| Complete 15 credits from the following courses. At least 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above. | 15",
+    "THEATRE FOR CHILDREN AND YOUTH COURSES:"
+   ],
+   "correct_reading": "Courselist C: complete 15 credits from all listed courses (THEA 2720R; Dramaturgy; Film Studies; Scriptwriting; Theatre Administration; Theatre for Children and Youth; Capstone: THEA 4900R, 4994). The category labels are groupings inside one choice, and at least 27 of the 36 A/B/C credits must be 3000-level or above."
+  },
+  "evidence": "stored official page https://catalog.uvu.edu/arts/theatrical-arts-stage-screen/theatre-studies-ba/ (sha256 8e018133ed076b54f2ed6db21a8457a4eb56f5592eb9ddf5d15ce135f815b152, fetched 2026-10-06T22:39:02+00:00, run programs/runs/UT/2026-10-06-cat; Course List layout sha256 2d35d4dda620f95d5f7a2a2ac22423dbfb5ff661e8eb30db5b7a3c7755fe6772)"
+ },
+ {
+  "key": "uvu:theatre-studies-b-a:program-requirements-capstone-courses-2",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "misstated",
+   "reason": "'CAPSTONE COURSES:' is a category label inside the Courselist C credit choice, introduced by 'Complete 15 credits from the following courses. At least 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above.'. The record makes these courses an all_required group of their own. They are only optional members of the Courselist C choice, and the credit-count rule is missing. rule_text also holds the unrelated 'Foreign Language Requirement 12 Credits' and 'Free Elective Requirement 11 Credits' rows.",
+   "quotes": [
+    "| Courselist C: | 15 Credits",
+    "| Complete 15 credits from the following courses. At least 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above. | 15",
+    "CAPSTONE COURSES:"
+   ],
+   "correct_reading": "Courselist C: complete 15 credits from all listed courses (THEA 2720R; Dramaturgy; Film Studies; Scriptwriting; Theatre Administration; Theatre for Children and Youth; Capstone: THEA 4900R, 4994). The category labels are groupings inside one choice, and at least 27 of the 36 A/B/C credits must be 3000-level or above."
+  },
+  "evidence": "stored official page https://catalog.uvu.edu/arts/theatrical-arts-stage-screen/theatre-studies-ba/ (sha256 8e018133ed076b54f2ed6db21a8457a4eb56f5592eb9ddf5d15ce135f815b152, fetched 2026-10-06T22:39:02+00:00, run programs/runs/UT/2026-10-06-cat; Course List layout sha256 2d35d4dda620f95d5f7a2a2ac22423dbfb5ff661e8eb30db5b7a3c7755fe6772)"
+ },
+ {
+  "key": "vsu:hospitality-management-major-bachelor-of-science-b-s:restricted-and-unrestricted-electives",
+  "action": "kept_verified_unchanged",
+  "verdict": {
+   "verdict": "supported",
+   "reason": "choose_courses with choose_count 3 from exactly the 9 printed HMGT courses matches 'Restricted Electives (Choose 3 courses from the following list.) | 9'. The rule_text is the verbatim text of the whole 'Restricted and Unrestricted Electives' table, which is the record's source_section, including the 'Unrestricted Electives | 3' and total rows. It does not alter the count or members of the choice. Tidying rule_text is optional and not a factual error.",
+   "quotes": [
+    "Restricted and Unrestricted Electives",
+    "Restricted Electives (Choose 3 courses from the following list.) | 9",
+    "HMGT 302 | Catering And Event Management",
+    "HMGT 455 | Independent Study in HMGT",
+    "Unrestricted Electives | 3",
+    "Total Credit Hours | 12"
+   ],
+   "correct_reading": "Choose 3 courses (9 credits) from HMGT 302, 304, 321, 324, 330, 350, 400, 444, 455. Separately, take 3 credits of unrestricted electives. The table totals 12."
+  }
+ },
+ {
+  "key": "vsu:visual-arts-bachelor-of-fine-arts-with-a-concentration-in-graphic-design-b-f-a:restricted-and-unrestricted-electives",
+  "action": "kept_verified_unchanged",
+  "verdict": {
+   "verdict": "supported",
+   "reason": "choose_courses with choose_count 4 from exactly the 15 printed VCAD courses matches 'Restricted Electives Choose 4 from the following courses: | 12'. The rule_text reproduces the whole 'Restricted and Unrestricted Electives' table, which is the record's source_section, including the separate 'Unrestricted Electives | 18' row and the total. That does not change the choice's count or members.",
+   "quotes": [
+    "Unrestricted Electives | 18",
+    "Restricted Electives Choose 4 from the following courses: | 12",
+    "VCAD 207 | Digital Photography I",
+    "VCAD 499 | Special Topics Graphic Design",
+    "Total Credit Hours | 30"
+   ],
+   "correct_reading": "Choose 4 courses (12 credits) from VCAD 207, 300, 301, 302, 304, 305, 307, 310, 315, 400, 410, 415, 416, 489, 499. Separately, take 18 credits of unrestricted electives. The table totals 30."
+  }
+ },
+ {
+  "key": "saintmarys:exercise-science-health-and-fitness-bachelor-of-arts:exercise-science-health-and-fitness-bachelor-of-arts-exhf-supporting-required-2",
+  "action": "downgraded",
+  "verdict": {
+   "verdict": "ambiguous",
+   "reason": "A second 'Supporting Required: 1' label is printed above PHIL 255, PHYS 111, PHYS 112, PSYC 305, which supports the record's all_required reading. However, in the layout these four rows are indented with blank credit cells, exactly like the BIO 240/318/340/417 members of 'Choose 3-4 courses from the following: | 11-12'. The first Supporting Required block, by contrast, is unindented and prints credits. The printed total also has no room for them: required courses 28 cr (4+4+3+4+3+3+3+1+3) + first supporting block 12 cr (4+2+3+3) + the 11-12 cr choice = 51-52, the printed 'Total Credits | 51-52'. Requiring four more courses would push the total far above that. So the page can be read either as four more required supporting courses (the label) or as further members of the choose 3-4 list under a stray comment row (indentation and arithmetic). The arithmetic favors the choice-member reading. The rule_text 'Total Credits 51-52' is just the table total.",
+   "quotes": [
+    "Choose 3-4 courses from the following: | 11-12",
+    "BIO 417 | Cancer Biology",
+    "Supporting Required: 1",
+    "PHIL 255 | Medical Ethics",
+    "PHYS 111 | College Physics I: Mechanics and Waves",
+    "PHYS 112 | College Physics II: Temperature, Electricity, and Light",
+    "PSYC 305 | Lifespan Developmental Psychology",
+    "Total Credits | 51-52"
+   ],
+   "correct_reading": "Most consistent with the printed total: choose 3-4 courses (11-12 credits) from BIO 240, 318, 340, 417, PHIL 255, PHYS 111, PHYS 112, PSYC 305. The second 'Supporting Required' label marks the non-BIO options as supporting courses. If the label is taken literally instead, the four would be required, but then the 51-52 total cannot hold."
+  },
+  "evidence": "stored official page https://catalog.saintmarys.edu/undergraduate/programs/biology/exercise-science/health-fitness-bachelor-arts/ (sha256 4448a4c853a99d68f5c758bbfa1dc60779cf0c37bce0e8b9429969a2c65c7fd9, fetched 2026-10-06T10:00:42+00:00, run programs/runs/IN/2026-10-06-cat; Course List layout sha256 e185edabb7a44598e2dc60e83035df7beed18e2e621caffdbb0dadf3f947c3b4)"
+ }
+]

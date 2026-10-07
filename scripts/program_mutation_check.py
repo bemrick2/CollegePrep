@@ -62,6 +62,8 @@ MUTS = [
     ('programs/crawl.py', "if is_program(h) and (not tag or role != 'program_list' or tag in (a or ''))]", "if is_program(h)]"),
     ('programs/crawl.py', "    if target.get('crawl_delay') and chost:", "    if False:"),
     ('programs/detect.py', "        pool = [c for c, y in dated.items() if y == newest] or list(cats)", "        pool = list(cats)"),
+    ('programs/detect.py', "            if cfgs[f].get('reviewed') or (len(owners) == 1 and f == owners[0]): continue", "            if cfgs[f].get('reviewed') or f in owners: continue"),
+    ('programs/detect.py', "        if len(folders) < 2: continue", "        if len(folders) < 1: continue"),
     ('programs/detect.py', "                if ys: pdfs.append((max(ys), href, m))", "                pdfs.append((max(ys or {0}), href, m))"),
     ('programs/detect.py', "            elif u.path.lower().endswith('.pdf') and CATALOG_WORD.search(a + ' ' + u.path) and not re.search(r'graduate|archive|handbook', a + u.path, re.I):", "            elif u.path.lower().endswith('.pdf') and CATALOG_WORD.search(a + ' ' + u.path):"),
     ('programs/crawl.py', "            **({'degree_map': 0, 'degree_map_index': 0, 'policy_link': 0} if target.get('mode') == 'discover' else {}),", "            **({}),"),
@@ -127,6 +129,12 @@ MUTS = [
     ('programs/courseleaf.py', "HEADER_CHOICE = re.compile(r'(\\(|[-–:]\\s*)(choose", "HEADER_CHOICE = re.compile(r'([-–:]\\s*)(choose"),
     ('programs/courseleaf.py', "HEADER_CHOICE = re.compile(r'(\\(|[-–:]\\s*)(choose", "HEADER_CHOICE = re.compile(r'(\\()(choose"),
     ('programs/courseleaf.py', "(choose|select|complete|take)\\s+(one|two|three|four|five|six|\\d+)\\b', re.I)", "(choose|select|complete|take)\\s+(\\w+)\\b', re.I)"),
+    # issue #129: trailing superscripts are footnote markers; a re-fetch run fetches only its pages
+    ('programs/courseleaf.py', "    if not tail or not text.endswith(tail) or not text[:-len(tail)].strip(): return text", "    if not tail: return text"),
+    ('programs/courseleaf.py', "title = strip_marks((cells[1].get('text') or '').strip(), cells[1].get('sup_tail'))", "title = (cells[1].get('text') or '').strip()"),
+    ('programs/courselist_html.py', "            elif self._td.get('_tail') is not None and not re.fullmatch", "            elif False and self._td.get('_tail') is not None and not re.fullmatch"),
+    ('programs/courselist_html.py', "                if self._td.get('_tail') is None: self._td['_tail'] = len(''.join(self._td['text']))", "                self._td['_tail'] = len(''.join(self._td['text']))"),
+    ('programs/crawl.py', "    if not target.get('refetch'):\n        if cat.get('platform')", "    if True:\n        if cat.get('platform')"),
 ]
 
 
