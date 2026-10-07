@@ -84,7 +84,7 @@ LABEL_FIRST = re.compile(r'(?:Catalog|Catalogue|Bulletin)\s+(20\d{2})\s*[-–]\s
 SHORT_LABEL = re.compile(r'\b(20\d{2})\s*[-–]\s*(\d{2})\s+(?:Undergraduate\s+|University\s+|Academic\s+|General\s+)?(?:Catalog|Catalogue|Bulletin)\b', re.I)  # UNI '2026-27 University Catalog'
 EDITION = re.compile(r'(20\d{2})\s*[-–]\s*(?:20)?(\d{2})\s+Edition', re.I)  # Lewis & Clark '2026-27 Edition'; Stetson '2026-2027 Edition'
 NOT_CURRENT = re.compile(r'\[?\s*(not current|archived?)\b', re.I)  # Acalog selector: "2025-2026 Academic Catalog [NOT CURRENT CATALOGS]"
-ARCHIVE_LINK = re.compile(r'\s*(?:Download\s+)?PDF of\b', re.I)  # "PDF of the entire 2025-2026 Catalog": a download link, not this page's label
+ARCHIVE_LINK = re.compile(r'\s*(?:Download\s+)?(?:an?\s+)?PDF of\b', re.I)  # "PDF of the entire 2025-2026 Catalog", uark "A PDF of the entire 2025-26 Undergraduate catalog.": a download link, not this page's label
 
 
 def printed_catalog_years(page):
@@ -244,10 +244,14 @@ def department_section_candidates(inst, entry, page, today_year):
     year = next(iter(labels)); acad = f'{year[:4]}-{year[7:9]}'
     yline = next((l for y, l in printed_catalog_years(page) if y == year), printed0 and (page.title or '')) or year
     out, keys = [], set()
+    # UF Geography: 'BA | Specializations: Environmental Geosciences | General Geography | ...' - a section heading that names a
+    # specialization the page lists ('Bachelor of Arts in Environmental Geosciences') is not a degree of its own
+    specs = {x.strip().lower() for l in re.findall(r'Specializations?:\s*([^\n]+)', page.text or '') for x in l.split('|') if x.strip()}
     for h in page.headings:
         h = h.strip()
         m = SECTION_HEADING.match(h)
         if not m or SECTION_NOT_PROGRAM.search(h) or GRAD.search(m.group('name')): continue
+        if m.group('name').strip(' ,').lower() in specs: continue
         award = next(k for k in SECTION_AWARD if m.group(k))
         name = m.group('name').strip(' ,')
         key = CAT.slug(f'{name} {award}')
@@ -862,13 +866,16 @@ def coursedog_candidates(target, inst, entry, page, yr, today_year):
         level = credential_of(f'{name} {deg}') if deg else credential_of(name)
         if level != 'bachelor' or not r.get('programGroupId'): continue
         acad = f'{year[:4]}-{year[7:9]}' if year else today_year
-        rec = {'program_key': CAT.slug(name), 'program_name': name, 'credential_level': level,
+        # FAU's feed has no catalogDisplayName and an internal short 'name' ('BA in Lang, Ling and Comparative Lit (LLCP)'); its
+        # printed full name is 'longName'. The key stays on the name so records already on file keep their keys.
+        shown = (r.get('catalogDisplayName') or '').strip() or (r.get('longName') or '').strip() or name
+        rec = {'program_key': CAT.slug(name), 'program_name': shown, 'credential_level': level,
                'program_url': f"{home}/programs/{r['programGroupId']}", 'notes': 'From the catalog backend program list (Coursedog) that the official catalog page loads.'}
         if year: rec['catalog_year'] = year
         cip = coursedog_cip(r.get('cipCode'))
         if cip: rec.update(cip_code=cip, cip_source_url=rec['program_url'])
         ev = [{'field': k, 'value': r.get(k), 'snippet': json.dumps({k: r.get(k)}, ensure_ascii=False)[:200]}
-              for k in ('catalogDisplayName', 'name', 'degreeDesignation', 'level', 'cipCode', 'status', 'effectiveStartDate', 'programGroupId') if k in r]
+              for k in ('catalogDisplayName', 'name', 'longName', 'degreeDesignation', 'level', 'cipCode', 'status', 'effectiveStartDate', 'programGroupId') if k in r]
         if year: ev.append({'field': 'catalog_year', 'value': year, 'snippet': line, 'source': (pdf or {}).get('url'), 'sha256': (pdf or {}).get('sha256')})
         c = common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source' if year else 'source_unlabeled', rec, ev, entry,
                         'coursedog_api/v1', {'program_key': rec['program_key'], 'group': r.get('programGroupId')})
