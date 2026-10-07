@@ -572,7 +572,8 @@ class CourseListGroupTests(unittest.TestCase):
                          ['Select 4 credits from the following:', '4'], ['BA 361', 'Communication', '4'],  # an option or a required course? held
                          ['Select 2 credits from the following courses:', '2'], ['Internships', '']])  # the list is not read: held
         self.assertEqual([(x['group_type'], sorted(x['issues'])) for _, x in g],
-                         [('all_required', ['complex_course_row']), ('choose_courses', ['complex_course_row', 'options_not_read', 'options_print_credits']),
+                         [('all_required', ['complex_course_row', 'joined_courses_row']),
+                          ('choose_courses', ['complex_course_row', 'joined_courses_row', 'options_not_read', 'options_print_credits']),
                           ('elective_pool', []), ('all_required', []), ('choose_unclear', ['choose_number_not_printed']), ('choose_credits', ['options_print_credits']),
                           ('choose_credits', ['options_not_read'])])
         self.assertEqual(g[2][1]['course_rules'], ['Select an additional 7 credits from courses that count toward either major. 7'])
@@ -618,6 +619,32 @@ class CourseListLayoutGroupTests(unittest.TestCase):
         self.assertEqual([(s, x['type'], len(x['courses']), x.get('choose_count'), sorted(x['issues'])) for s, x in g],
                          [('Core', 'all_required', 2, None, []), ('Core', 'choose_courses', 3, 2, []), ('Core', 'choose_courses', 2, 1, []), ('Core', 'all_required', 1, None, [])])
         self.assertEqual(g[0][1]['courses'][1]['any_of'][1]['code'], 'MTH 251H')
+
+    def test_printed_code_shapes_issue_95(self):
+        """Issue #95 recovery: codes as the catalogs print them are courses, not 'complex' rows that cut a list apart."""
+        from programs import courseleaf as CL
+        # Purdue Global prints no space; UVU and TAMUSA print four digits and a suffix letter
+        g = CL.html_groups(self.table([('c', 'IT222', 'Cloud', '5'), ('rule', 'Select one of the following:', '', '5'), ('opt', 'IN250', 'Python'), ('opt', 'IN251', 'C#'),
+                                       ('c', 'DANC 1100R', 'Ballet', '1'), ('c', 'ENGL 1302', 'Composition II', '3')]))
+        self.assertEqual([(x['type'], [c['code'] for c in x['courses']], sorted(x['issues'])) for _, x in g],
+                         [('all_required', ['IT222'], []), ('choose_courses', ['IN250', 'IN251'], []), ('all_required', ['DANC 1100R', 'ENGL 1302'], [])])
+        # WKU cross-listed courses stay inside the list, kept as printed
+        g = CL.html_groups(self.table([('rule', 'Select two of the following:', '', '6'), ('opt', 'FILM 367', 'Genres'), ('opt', 'ENG/FILM 366', 'Narrative Film'),
+                                       ('opt', 'ENG/FILM 466', 'Film Theory'), ('opt', 'BCOM 481', 'Problems')]))
+        self.assertEqual([(x['type'], x.get('choose_count'), [c['code'] for c in x['courses']], sorted(x['issues'])) for _, x in g],
+                         [('choose_courses', 2, ['FILM 367', 'ENG/FILM 366', 'ENG/FILM 466', 'BCOM 481'], [])])
+        # a lecture/lab pair and joined courses are held with a reason naming the shape
+        g = CL.html_groups(self.table([('rule', 'Select 4 hours from the following:', '', '4'), ('opt', 'BIOL 1306/1106', 'Biology'), ('opt', 'CHEM 1311/1111', 'Chemistry')]))
+        self.assertTrue({'complex_course_row', 'lecture_lab_pair_code'} <= g[0][1]['issues'])
+        g = CL.html_groups(self.table([('c', 'HIST 2700& HIST 2710', 'US History', '6')]))
+        self.assertTrue({'complex_course_row', 'joined_courses_row'} <= g[0][1]['issues'])
+        # 'Students must take an additional N credit hours from the following list' is a printed choice of credits
+        g = CL.html_groups(self.table([('rule', 'Students must take an additional 15 credit hours from the following list of classes:', '', '15'),
+                                       ('opt', 'FILM 367', 'A'), ('opt', 'FILM 399', 'B'), ('opt', 'FILM 469', 'C'), ('opt', 'ENG 309', 'D'), ('opt', 'ENG 365', 'E'), ('opt', 'PS 303', 'F')]))
+        self.assertEqual([(x['type'], x.get('choose_credits'), len(x['courses']), sorted(x['issues'])) for _, x in g], [('choose_credits', 15, 6, [])])
+        # an alternative printed in the new shapes joins the previous course
+        g = CL.html_groups(self.table([('c', 'MAT 1030', 'QR', '3'), ('or', 'MAT 1035', 'QR with Algebra')]))
+        self.assertEqual(g[0][1]['courses'][0]['any_of'][1]['code'], 'MAT 1035')
 
     def test_reference_track_and_unclear_tables_are_held(self):
         from programs import courseleaf as CL

@@ -114,12 +114,25 @@ def extract(inst, entry, page, year, year_line, have_program):
 # number is not printed, options that print their own credits) put an issue on the group so it is held for review.
 LIST_EXTRACTOR = 'courseleaf_list/v1'
 SELECT = re.compile(r'^(select|choose|complete)\b', re.I)
+LEAD_IN = re.compile(r'^students\s+must\s+(?=(?:take|complete|select|choose)\s+(?:an?\s+additional\s+|at\s+least\s+)?\d{1,2}\s+(?:additional\s+)?'
+                     r'(?:credit\s+hours|credits|hours)\s+(?:from|of)\s+the\s+following\b)', re.I)  # WKU Film: 'Students must take an additional 15 credit hours from the following list'
 NUMBER_WORDS = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10}
-COUNT = re.compile(r'^(?:select|choose|complete)\s+(?:(?:a\s+)?(?:minimum|total)\s+of\s+)?(one|two|three|four|five|six|seven|eight|nine|ten|\d+)\s+'
+COUNT = re.compile(r'^(?:select|choose|complete|take)\s+(?:(?:a\s+)?(?:minimum|total)\s+of\s+)?(one|two|three|four|five|six|seven|eight|nine|ten|\d+)\s+'
                    r'(?:additional\s+|more\s+|upper[- ]division\s+|lower[- ]division\s+|[A-Z]{2,5}\s+)*(?:courses?|of\s+the\s+following|from\s+the\s+following)\b', re.I)
-CREDITS = re.compile(r'^(?:select|choose|complete)\s+(?:(?:a\s+)?(?:minimum|total)\s+of\s+|at\s+least\s+|an\s+additional\s+)?(\d{1,2})(?:\s*-\s*\d{1,2})?\s+(?:additional\s+)?(?:credits?|credit\s+hours|hours|units)\b', re.I)
-CODE_CELL = re.compile(r'^[A-Z]{1,5}\s\d{3}[A-Z]?$')
-OR_ROW = re.compile(r'^or\s+([A-Z]{1,5}\s\d{3}[A-Z]?)$')
+CREDITS = re.compile(r'^(?:select|choose|complete|take)\s+(?:(?:a\s+)?(?:minimum|total)\s+of\s+|at\s+least\s+|an\s+additional\s+)?(\d{1,2})(?:\s*-\s*\d{1,2})?\s+(?:additional\s+)?(?:credits?|credit\s+hours|hours|units)\b', re.I)
+# One course code as printed: 'BIOL 101', 'IT222' (Purdue Global prints no space), 'ENGL 1302' / 'DANC 1100R' (TAMUSA, UVU:
+# four digits and a suffix letter), 'ENG/FILM 366' (WKU: one cross-listed course, kept as printed so the list is not cut).
+CODE = r'[A-Z]{1,5}(?:/[A-Z]{1,5})*\s?\d{3,4}[A-Z]?'
+CODE_CELL = re.compile(rf'^{CODE}$')
+OR_ROW = re.compile(rf'^or\s+({CODE})$')
+# Rows that print more than one course in the code cell are held with a reason naming the shape (issue #95 recovery).
+PAIR_CODE = re.compile(r'\d{3,4}[A-Z]?\s*/\s*\d{3,4}')  # 'BIOL 1306/1106' (TAMUSA): a lecture and its lab
+
+
+def complex_reasons(text):
+    if PAIR_CODE.search(text): return {'complex_course_row', 'lecture_lab_pair_code'}
+    if '&' in text: return {'complex_course_row', 'joined_courses_row'}
+    return {'complex_course_row'}
 NOT_REQUIRED_HEADING = re.compile(r'\b(recommended|suggested|electives?|options?|optional|choose|select|sample|example)\b', re.I)
 CREDIT_CELL = re.compile(r'^\d{1,2}(\s*-\s*\d{1,2})?$')
 
@@ -168,9 +181,9 @@ def course_list_groups(table):
         is_code = bool(CODE_CELL.match(first))
         complex_code = not is_code and bool(re.match(r'^[A-Z]{1,5}[\s/]', first)) and bool(re.search(r'\d{3}', first)) and len(first) < 40
         has_credits = len(cells) >= 2 and bool(CREDIT_CELL.match(cells[-1]))
-        if SELECT.match(first):
+        if SELECT.match(LEAD_IN.sub('', first)):
             close()
-            cnt, crd = COUNT.match(first), CREDITS.match(first)
+            cnt, crd = COUNT.match(LEAD_IN.sub('', first)), CREDITS.match(LEAD_IN.sub('', first))
             cur = {'rule_text': first + (f' {cells[-1]}' if has_credits else ''), 'courses': [], 'issues': set()}
             if cnt: cur['group_type'] = 'choose_courses'; w = cnt.group(1).lower(); cur['choose_count'] = NUMBER_WORDS.get(w) or int(w)
             elif crd: cur['group_type'] = 'choose_credits'; cur['choose_credits'] = int(crd.group(1))
@@ -179,17 +192,17 @@ def course_list_groups(table):
         if is_code or complex_code:
             choosing = cur is not None and cur['group_type'] != 'all_required'
             if choosing and not has_credits:
-                if complex_code: cur['issues'].add('complex_course_row')
+                if complex_code: cur['issues'] |= complex_reasons(first)
                 else: cur['courses'].append(_item(cells))
                 continue
             if choosing and has_credits and not cur['courses']:  # 'Select one of the following math pairs' + pairs with credits
                 cur['issues'].add('options_print_credits')
-                if complex_code: cur['issues'].add('complex_course_row')
+                if complex_code: cur['issues'] |= complex_reasons(first)
                 else: cur['courses'].append(_item(cells))
                 continue
             if cur is None or cur['group_type'] != 'all_required':
                 close(); cur = {'group_type': 'all_required', 'courses': [], 'issues': set()}
-            if complex_code: cur['issues'].add('complex_course_row')
+            if complex_code: cur['issues'] |= complex_reasons(first)
             else:
                 cur['courses'].append(_item(cells))
                 if not has_credits: cur['issues'].add('required_course_without_credits')
@@ -239,13 +252,13 @@ def list_candidates(inst, entry, page, year, year_line, program_key):
 #     program has several, counts at or above the number of listed options, "up to" / "can include" rules, printed
 #     credit ranges for a choice, text options, and any row the reader cannot represent exactly.
 HTML_EXTRACTOR = 'courselist_html/v1'
-RULE_ROW = re.compile(r'^(select|choose|complete|take)\b|^(one|two|three|four|five|six|seven|eight|nine|ten|\d+)\b.*\b(of|from)\b.*\b(following|list|below)\b|^(one|two|three|four|five|\d+)\s+(courses?\s+)?(of|from)\b', re.I)
+RULE_ROW = re.compile(r'^(select|choose|complete|take)\b|^students\s+must\s+(take|complete|select|choose)\s+(an?\s+additional\s+|at\s+least\s+)?\d{1,2}\s+(additional\s+)?(credit\s+hours|credits|hours)\s+(from|of)\s+the\s+following\b|^(one|two|three|four|five|six|seven|eight|nine|ten|\d+)\b.*\b(of|from)\b.*\b(following|list|below)\b|^(one|two|three|four|five|\d+)\s+(courses?\s+)?(of|from)\b', re.I)
 REFERENCE_HEADING = re.compile(r'\b(approved|distribution|area\s+[ivx\d]+|group\s+[a-z\d]\b|courses offered|ensembles?|recommended|suggested|sample|example|'
                                r'options?|tracks?|concentrations?|focus|focal|domains?|emphas[ie]s|specialization|honors|electives?|pass/no pass)\b', re.I)
 TRACK_HEADING = re.compile(r'\b(options?|tracks?|concentrations?|focus|focal|domains?|emphas[ie]s|specialization|honors)\b', re.I)
 CONTEXT_CHOICE = re.compile(r'\b(select|choose|complete)\s+(one|two|at least one|one or more)\b[^.]*\b(focus areas?|tracks?|options?|concentrations?|areas?|domains?|emphases)\b|\bsuggested course combinations\b', re.I)
 AWARD_IN_HEADING = re.compile(r'\b(Bachelor of [A-Z][a-z]+|B\.?A\.?|B\.?S\.?|B\.?F\.?A\.?|B\.?M\.?)\b(?![a-z])')
-OR_CODE = re.compile(r'^or\s+([A-Z]{1,5}\s\d{3}[A-Z]?)$')
+OR_CODE = OR_ROW
 
 
 def _row(r):
@@ -283,7 +296,7 @@ def html_groups(table, program_awards=1, extra_issues=None):
         if cur is None: return
         g = cur; cur = None
         if not g['courses'] and not g['rules']:
-            if g['type'] == 'all_required': return
+            if g['type'] == 'all_required' and not g['issues']: return  # a row held for its shape is reported, not dropped
             if re.search(r'\b(following|below|list)\b', g.get('rule_text', ''), re.I) or not g.get('rule_text'):
                 g['issues'].add('options_not_read')
             else:  # 'Select an additional 7 credits from courses that count toward either major.': a printed rule, no list
@@ -337,12 +350,13 @@ def html_groups(table, program_awards=1, extra_issues=None):
                     after_rule = cur is not None and cur['type'] != 'all_required' and not cur['courses'] and not cur['rules']
                     close(); cur = {'type': 'all_required', 'courses': [], 'rules': [], 'issues': set(), 'starts_after_rule': after_rule}
                 if rw['code'] and not rw['inner']: cur['courses'].append(_course(rw))
-                else: cur['issues'].add('complex_course_row')
+                else: cur['issues'] |= complex_reasons(rw['text'])
                 continue
             if RULE_ROW.match(rw['text']):
                 close()
                 t = rw['text'] + (f" {rw['credits']}" if rw['credits'] else '')
-                cnt, crd = COUNT.match(rw['text']), CREDITS.match(rw['text'])
+                rule = LEAD_IN.sub('', rw['text'])
+                cnt, crd = COUNT.match(rule), CREDITS.match(rule)
                 cur = {'type': 'choose_unclear', 'courses': [], 'rules': [], 'issues': set(), 'rule_text': t}
                 if cnt: cur['type'] = 'choose_courses'; w = cnt.group(1).lower(); cur['choose_count'] = NUMBER_WORDS.get(w) or int(w)
                 elif crd:
@@ -365,7 +379,7 @@ def html_groups(table, program_awards=1, extra_issues=None):
         if cur is None or cur['type'] == 'all_required':
             close(); cur = {'type': 'choose_unclear', 'courses': [], 'rules': [], 'issues': {'indented_rows_without_rule'}}
         if rw['code'] and not rw['inner']: cur['courses'].append(_course(rw))
-        elif rw['codeish']: cur['issues'].add('complex_course_row')
+        elif rw['codeish']: cur['issues'] |= complex_reasons(rw['text'])
         else: cur['rules'].append(rw['text'])
     close()
     return out

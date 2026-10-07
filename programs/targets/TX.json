@@ -1916,16 +1916,21 @@
     "tamusa.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.tamusa.edu/",
-    "https://catalog.tamusa.edu/",
-    "https://www.tamusa.edu/academics/",
-    "https://www.tamusa.edu/registrar/",
-    "https://www.tamusa.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.tamusa.edu/",
+    "min_depth": 1,
+    "path_prefix": "/undergraduate/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.tamusa.edu/undergraduate/",
+     "https://catalog.tamusa.edu/undergraduate/arts-sciences/",
+     "https://catalog.tamusa.edu/undergraduate/education-human-development/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf catalog on catalog.tamusa.edu (Course List and Plan of Study Grid tables on the archived 2026-27 program pages, national run TX-2026-10-04); configured by hand for the issue #95 recovery"
   },
   {
    "institution_key": "ipeds-224545",
