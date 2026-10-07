@@ -115,7 +115,7 @@ MUTS = [
     ('programs/extract.py', "    if len(awards) != 1 or len({y for y, _ in labels}) != 1: return []", "    if not awards or len({y for y, _ in labels}) != 1: return []"),
     ('programs/autoreview.py', "o.startswith((b + '-', b + '_'))", "o.startswith(b + '-')"),
     # UF Geography specializations are not degrees; FAU's Coursedog rows print their long name
-    ('programs/extract.py', "        if m.group('name').strip(' ,').lower() in specs: continue", "        pass"),
+    ('programs/extract.py', "        if m.group('name').strip(' ,').lower() in specs or SECTION_PART.search(h): continue", "        if SECTION_PART.search(h): continue"),
     ('programs/extract.py', "or (r.get('longName') or '').strip() or name", "or name"),
     ('programs/extract.py', "(?:Download\\s+)?(?:an?\\s+)?PDF of", "(?:Download\\s+)?PDF of"),
     # TAMUSA credits overview is not the first table; term headings are never overviews; named elective lists count
@@ -138,6 +138,12 @@ MUTS = [
     # a title ending in a number from a layout without superscript capture is held (issue #129)
     ('programs/courseleaf.py', "        if not table.get('sups_recorded') and any(FOOTNOTED.search(", "        if False and any(FOOTNOTED.search("),
     ('programs/courselist_html.py', "'caption': '', 'rows': [], 'sups_recorded': True}", "'caption': '', 'rows': []}"),
+    # department_section/v1 scope (independent review 2026-10-07)
+    ('programs/extract.py', "    if re.search(r'(?im)^\\s*(below is a |the )?(sample|recommended) (4|four)[- ]year plan\\b', page.text or ''): return []", "    pass"),
+    ('programs/extract.py', "        if m.group('name').strip(' ,').lower() in specs or SECTION_PART.search(h): continue", "        if m.group('name').strip(' ,').lower() in specs: continue"),
+    ('programs/extract.py', "        if nm and any(u != here and _names_degree(a, nm, award) for u, a in others): continue", "        if nm and any(_names_degree(a, nm, award) for u, a in others): continue"),
+    ('programs/extract.py', "    return re.fullmatch(r'(?:' + SECTION_AWARD[award] + r')', rest.strip(), re.I) is not None", "    return credential_of(rest) == 'bachelor'"),
+    ('programs/extract.py', "    if anchor.startswith(name + ' '): rest = anchor[len(name):]", "    if name in anchor: rest = anchor.replace(name, '')"),
 ]
 
 

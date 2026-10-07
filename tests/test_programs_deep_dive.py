@@ -1367,6 +1367,7 @@ class DepartmentSectionTests(unittest.TestCase):
         e = {'url': 'https://catalog.x.edu/undergraduate/arts/departmentofbiology/', 'role': 'program_page', 'sha256': 'a' * 64,
              'fetched_at': '2026-10-06T00:00:00+00:00', 'status': 200, 'kind': 'html'}
         heads = ['Department of Biological Sciences', 'BS in Biological Sciences (BIO)', 'General Education Requirements', 'BS in Microbiology (MIC)',
+                 'B.S. in Biology Sample Schedule', 'B.S. in Biology Suggested Sequence',
                  'BS in Clinical Laboratory Sciences (CLSC)1', 'Requirements for B.A. in Biology', 'B.S. in Biology Eight-Semester Degree Plan',
                  'Requirements for B.S.E. in Childhood Education with STEM Concentration', 'B.S. with non-A.C.S. certification',
                  'B.S. in Industrial Engineering and B.B.A. in Business Administration', 'BS in Applied Sociology (online degree)', 'Biology Minor']
@@ -1382,6 +1383,17 @@ class DepartmentSectionTests(unittest.TestCase):
         # uark 2026-27: a link to the previous year's PDF is not a second label of this page
         ua = T.Page('2026-27 Edition\nA PDF of the entire 2025-26 Undergraduate catalog.\nRequirements for B.S. in Exercise Science', 't', [], [], ['Requirements for B.S. in Exercise Science'])
         self.assertEqual([c['record']['program_key'] for c in X.department_section_candidates({'institution_key': 'k'}, e, ua, '2026-27')], ['exercise-science-bs'])
+        # the review of 2026-10-07: KU sample-plan sub-pages, PVAMU / Tulane section names, Wichita / WUSTL degree pages of their own
+        dep = lambda heads, text='', links=(): X.department_section_candidates(
+            {'institution_key': 'k'}, e, T.Page('2026-2027 Undergraduate Catalog\n' + text + '\n' + '\n'.join(heads), 't', [], list(links), heads), '2026-27')
+        self.assertEqual(dep(['BA in Anthropology'], 'Below is a sample 4-year plan for students pursuing the BA in Anthropology.'), [])
+        self.assertEqual(dep(['Bachelor of Science in Juvenile Justice Degree Sequence', 'BS in Health Policy and Management Requirements',
+                              'BS in Agribusiness Major Field']), [])
+        self.assertEqual(dep(['BS in Computer Engineering'], links=[('https://catalog.x.edu/ece/computer-engineering-bs/', 'Computer Engineering BS')]), [])
+        self.assertEqual(len(dep(['BS in Computer Engineering'], links=[(e['url'] + '#bs', 'Computer Engineering BS')])), 1)  # its own anchor
+        self.assertEqual(len(dep(['BBA in Economics'], links=[('https://catalog.x.edu/econ-bs/', 'Economics BS')])), 1)  # another award
+        self.assertEqual(len(dep(['BS in Nursing'], links=[('https://catalog.x.edu/absn/', 'Accelerated Bachelor of Science in Nursing')])), 1)
+        self.assertEqual(len(dep(['BS in Nursing'], links=[('https://catalog.x.edu/bsn/', 'Bachelor of Science in Nursing')])), 0)
         # UF Geography 2026-27: the About box lists specializations; their 'Bachelor of Arts in ...' headings are not degrees
         heads = ['Bachelor of Arts in Geography', 'Bachelor of Arts in Environmental Geosciences', 'Bachelor of Science in Geography']
         uf = T.Page('2026-2027 Undergraduate Catalog\nBA | Specializations: Environmental Geosciences | General Geography\n' + '\n'.join(heads), 't', [], [], heads)

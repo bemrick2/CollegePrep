@@ -199,6 +199,32 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "03675d5697138d0c": {
+  "decision": {
+   "candidate_id": "03675d5697138d0c",
+   "reason": "Held by the standing rules for its name shape only (combined_program / variant). Independent review 2026-10-07 against the stored official 2026-2027 page: a bachelor's degree of its own with its own requirements and award, named as printed: Single integrated major in the 2026-2027 catalog, not a double major: page states \"SLU's Bachelor of Arts in Computer Science + Computer Engineering program is built for students who want to understand how computers actually work\"; its own Requirements table lists \"Major Requirements | 70-71\" mixing"
+  },
+  "evidence": [
+   {
+    "field": "program_name",
+    "snippet": "Computer Science + Computer Engineering, B.A. < Saint Louis University Academic Catalog",
+    "value": "Computer Science + Computer Engineering, B.A."
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T10:05:29+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 21 Sep 2026 18:12:19 GMT",
+   "page_file": "d93fb82db36c98254a9b.json.gz",
+   "requested_url": "https://catalog.slu.edu/colleges-schools/science-engineering/computer-science/computer-science-computer-engineering-ba/",
+   "sha256": "d93fb82db36c98254a9b4b4601f6a47b76a93435cb927073585c31fe60b570dd",
+   "title": "Computer Science + Computer Engineering, B.A. < Saint Louis University Academic Catalog",
+   "url": "https://catalog.slu.edu/colleges-schools/science-engineering/computer-science/computer-science-computer-engineering-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "03c824da233f2f27": {
   "decision": {
    "candidate_id": "03c824da233f2f27",
@@ -470,6 +496,37 @@
    "sha256": "6f4f5bfa9b652e47d37b2b7a3b1220dbf00dea44696c26a4d15399c0ed1c653c",
    "title": "Health Sciences, B.S. < Saint Louis University Academic Catalog",
    "url": "https://catalog.slu.edu/colleges-schools/health-sciences/clinical-health-sciences/health-sciences-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "047a75bb7bb7ff18": {
+  "decision": {
+   "candidate_id": "047a75bb7bb7ff18",
+   "reason": "Standing review (static_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
+  },
+  "evidence": [
+   {
+    "field": "program_name",
+    "snippet": "Architecture, BS",
+    "value": "Architecture, BS"
+   },
+   {
+    "field": "catalog_year",
+    "snippet": "2026-27 Bulletin",
+    "value": "2026-2027"
+   }
+  ],
+  "extractor": "static_program/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T10:00:30+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 05 Oct 2026 15:32:24 GMT",
+   "page_file": "e4b773e6a2cae002ce07.json.gz",
+   "requested_url": "https://bulletin.wustl.edu/undergrad/architecture/majors/architecture-bs/",
+   "sha256": "e4b773e6a2cae002ce0767f5addc9ce34c33b2bb874ff318e2272970e1bdd1e7",
+   "title": "Architecture, BS | Washington University Bulletin",
+   "url": "https://bulletin.wustl.edu/undergrad/architecture/majors/architecture-bs/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -1398,6 +1455,32 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "19aa1cffce75fe1d": {
+  "decision": {
+   "candidate_id": "19aa1cffce75fe1d",
+   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
+  },
+  "evidence": [
+   {
+    "field": "program_name",
+    "snippet": "Law (Bachelor of Science, B.S.) < Missouri Western University",
+    "value": "Law (Bachelor of Science, B.S.)"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T10:08:37+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 06 Aug 2026 20:23:46 GMT",
+   "page_file": "38d02547b6da3313e49e.json.gz",
+   "requested_url": "https://catalog.missouriwestern.edu/undergraduate/business-professional-studies/criminal-justice-legal-studies/law-bs/index.html",
+   "sha256": "38d02547b6da3313e49ec4f0e4b77f29e42ca7a249f356171ccfac6d7caafb61",
+   "title": "Law (Bachelor of Science, B.S.) < Missouri Western University",
+   "url": "https://catalog.missouriwestern.edu/undergraduate/business-professional-studies/criminal-justice-legal-studies/law-bs/index.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "1a98bf04a8704767": {
   "decision": {
    "candidate_id": "1a98bf04a8704767",
@@ -1598,6 +1681,36 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "1ddd2be84ad77f2e": {
+  "decision": {
+   "candidate_id": "1ddd2be84ad77f2e",
+   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
+  },
+  "evidence": [
+   {
+    "field": "source_section",
+    "snippet": "Accreditation — Nuclear Medicine Technology",
+    "value": "Accreditation — Nuclear Medicine Technology"
+   }
+  ],
+  "extractor": "courselist_html/v1",
+  "issues": [],
+  "layout_source": {
+   "sha256": "cffcd991918788d41ec06d26341f595019d9c3c3e3332695b7c7c7d6d1755daa",
+   "url": "https://catalog.slu.edu/colleges-schools/health-sciences/clinical-health-sciences/nuclear-medicine-technology-bs/#courselist"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T10:03:57+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 30 Sep 2026 17:16:45 GMT",
+   "page_file": "99cc7eb28239e4b2ad51.json.gz",
+   "requested_url": "https://catalog.slu.edu/colleges-schools/health-sciences/clinical-health-sciences/nuclear-medicine-technology-bs/",
+   "sha256": "99cc7eb28239e4b2ad5123f924cdcaea2b534d4e80a9cb001d3bca12db2d01e1",
+   "title": "Nuclear Medicine Technology, B.S. < Saint Louis University Academic Catalog",
+   "url": "https://catalog.slu.edu/colleges-schools/health-sciences/clinical-health-sciences/nuclear-medicine-technology-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "1f459e45fa2ae41d": {
   "decision": {
    "candidate_id": "1f459e45fa2ae41d",
@@ -1734,6 +1847,58 @@
    "sha256": "aefb7031ff64c5ff583ad4a213e8304463fa10d3f7f066acefcd8306c5853132",
    "title": "Political Science, B.A. < Saint Louis University Academic Catalog",
    "url": "https://catalog.slu.edu/colleges-schools/arts-sciences/political-science/political-science-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "2552012cbb0cfb98": {
+  "decision": {
+   "candidate_id": "2552012cbb0cfb98",
+   "reason": "Held by the standing rules for its name shape only (combined_program / variant). Independent review 2026-10-07 against the stored official 2026-2027 page: a bachelor's degree of its own with its own requirements and award, named as printed: Single integrated major in the 2026-2027 catalog, not a double major: page states \"Saint Louis University's Bachelor of Arts in Computer Science + Art program is for students who refuse to choose between making things and building things\"; its own Requirements table lists \"Major Requirements | 71\" m"
+  },
+  "evidence": [
+   {
+    "field": "program_name",
+    "snippet": "Computer Science + Art, B.A. < Saint Louis University Academic Catalog",
+    "value": "Computer Science + Art, B.A."
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T10:05:28+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 21 Sep 2026 18:12:15 GMT",
+   "page_file": "8702a088c3706f28cf64.json.gz",
+   "requested_url": "https://catalog.slu.edu/colleges-schools/science-engineering/computer-science/computer-science-art-ba/",
+   "sha256": "8702a088c3706f28cf649d6f98b5503a0502c7b349d093be513e91b7fe509c37",
+   "title": "Computer Science + Art, B.A. < Saint Louis University Academic Catalog",
+   "url": "https://catalog.slu.edu/colleges-schools/science-engineering/computer-science/computer-science-art-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "25646572b0887e57": {
+  "decision": {
+   "candidate_id": "25646572b0887e57",
+   "reason": "Held by the standing rules for its name shape only (combined_program / variant). Independent review 2026-10-07 against the stored official 2026-2027 page: a bachelor's degree of its own with its own requirements and award, named as printed: Single integrated major in the 2026-2027 catalog, not a double major: page states \"The Bachelor of Arts in Computer Science + Psychology program prepares Saint Louis University students who can build that technology\"; its own Requirements table lists \"Major Requirements | 71\" mixing CSCI and partner"
+  },
+  "evidence": [
+   {
+    "field": "program_name",
+    "snippet": "Computer Science + Psychology, B.A. < Saint Louis University Academic Catalog",
+    "value": "Computer Science + Psychology, B.A."
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T10:05:35+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 21 Sep 2026 18:12:23 GMT",
+   "page_file": "056668ebda045cf88e95.json.gz",
+   "requested_url": "https://catalog.slu.edu/colleges-schools/science-engineering/computer-science/computer-science-psychology-ba/",
+   "sha256": "056668ebda045cf88e95e6674314fe7fadaf76f23fb4fba4ea52fd5ad2cd752e",
+   "title": "Computer Science + Psychology, B.A. < Saint Louis University Academic Catalog",
+   "url": "https://catalog.slu.edu/colleges-schools/science-engineering/computer-science/computer-science-psychology-ba/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -2124,6 +2289,32 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "2bb3a993de31ffc0": {
+  "decision": {
+   "candidate_id": "2bb3a993de31ffc0",
+   "reason": "Held by the standing rules for its name shape only (combined_program / variant). Independent review 2026-10-07 against the stored official 2026-2027 page: a bachelor's degree of its own with its own requirements and award, named as printed: Single integrated major in the 2026-2027 catalog, not a double major: page states \"SLU's Bachelor of Arts in Computer Science + Neuroscience program puts you at the intersection of algorithms and neurons\"; its own Requirements table lists \"Major Requirements | 81\" mixing CSCI and partner-discipline "
+  },
+  "evidence": [
+   {
+    "field": "program_name",
+    "snippet": "Computer Science + Neuroscience, B.A. < Saint Louis University Academic Catalog",
+    "value": "Computer Science + Neuroscience, B.A."
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T10:05:32+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 21 Sep 2026 18:12:20 GMT",
+   "page_file": "cba7f3cdc4cb9d8abfc1.json.gz",
+   "requested_url": "https://catalog.slu.edu/colleges-schools/science-engineering/computer-science/computer-science-neuroscience-ba/",
+   "sha256": "cba7f3cdc4cb9d8abfc1dc966345c611f67fd6d0aee4f0ee52d102bf48808be4",
+   "title": "Computer Science + Neuroscience, B.A. < Saint Louis University Academic Catalog",
+   "url": "https://catalog.slu.edu/colleges-schools/science-engineering/computer-science/computer-science-neuroscience-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "2ee5e8286622d7b6": {
   "decision": {
    "candidate_id": "2ee5e8286622d7b6",
@@ -2364,6 +2555,32 @@
    "sha256": "d6437e058d07fce9f72262c3ed0836ed89c227f1d428ad24b69b8fe9657fdeab",
    "title": "Social Work (Bachelor of Social Work, B.S.W.) < Missouri Western University",
    "url": "https://catalog.missouriwestern.edu/undergraduate/science-and-health/health-professions/social-work-bsw/index.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "3f86eece024d1d21": {
+  "decision": {
+   "candidate_id": "3f86eece024d1d21",
+   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
+  },
+  "evidence": [
+   {
+    "field": "program_name",
+    "snippet": "Nuclear Medicine Technology, B.S. < Saint Louis University Academic Catalog",
+    "value": "Nuclear Medicine Technology, B.S."
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T10:03:57+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 30 Sep 2026 17:16:45 GMT",
+   "page_file": "99cc7eb28239e4b2ad51.json.gz",
+   "requested_url": "https://catalog.slu.edu/colleges-schools/health-sciences/clinical-health-sciences/nuclear-medicine-technology-bs/",
+   "sha256": "99cc7eb28239e4b2ad5123f924cdcaea2b534d4e80a9cb001d3bca12db2d01e1",
+   "title": "Nuclear Medicine Technology, B.S. < Saint Louis University Academic Catalog",
+   "url": "https://catalog.slu.edu/colleges-schools/health-sciences/clinical-health-sciences/nuclear-medicine-technology-bs/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -3826,6 +4043,41 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "6dee3d1b4cd09a32": {
+  "decision": {
+   "candidate_id": "6dee3d1b4cd09a32",
+   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
+  },
+  "evidence": [
+   {
+    "field": "source_section",
+    "snippet": "RN-BSN Students — Restricted Electives",
+    "value": "RN-BSN Students — Restricted Electives"
+   },
+   {
+    "field": "rule_text",
+    "snippet": "Select a minimum of six credit hours from the following:",
+    "value": "Select a minimum of six credit hours from the following:"
+   }
+  ],
+  "extractor": "courselist_html/v1",
+  "issues": [],
+  "layout_source": {
+   "sha256": "a08fcf2ae69cb2b87934baf2640f3bcd0dee33d7a064b02f9ea46e5cc7afb7c5",
+   "url": "https://catalog.missouriwestern.edu/undergraduate/science-and-health/nursing/nursing-rn-bsn/index.html#courselist"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T10:08:47+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 06 Aug 2026 20:24:24 GMT",
+   "page_file": "d30452cbe436aa05d1f6.json.gz",
+   "requested_url": "https://catalog.missouriwestern.edu/undergraduate/science-and-health/nursing/nursing-rn-bsn/index.html",
+   "sha256": "d30452cbe436aa05d1f6d281e59a91686db5611826d94135f3e319cd7e26beeb",
+   "title": "Nursing, RN - BSN (Bachelor of Science in Nursing, B.S.N.) < Missouri Western University",
+   "url": "https://catalog.missouriwestern.edu/undergraduate/science-and-health/nursing/nursing-rn-bsn/index.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "70d80fd00c097da5": {
   "decision": {
    "candidate_id": "70d80fd00c097da5",
@@ -3991,6 +4243,32 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "768de258c362c3bc": {
+  "decision": {
+   "candidate_id": "768de258c362c3bc",
+   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
+  },
+  "evidence": [
+   {
+    "field": "program_name",
+    "snippet": "Medical Sciences, B.S. < Saint Louis University Academic Catalog",
+    "value": "Medical Sciences, B.S."
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T10:03:56+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 30 Sep 2026 17:16:44 GMT",
+   "page_file": "597201744f971cb58185.json.gz",
+   "requested_url": "https://catalog.slu.edu/colleges-schools/health-sciences/clinical-health-sciences/medical-sciences-bs/",
+   "sha256": "597201744f971cb581856f9ee6167758c611312661b68a10e70346b5311f4d36",
+   "title": "Medical Sciences, B.S. < Saint Louis University Academic Catalog",
+   "url": "https://catalog.slu.edu/colleges-schools/health-sciences/clinical-health-sciences/medical-sciences-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "76de726398388db4": {
   "decision": {
    "candidate_id": "76de726398388db4",
@@ -4127,6 +4405,36 @@
    "sha256": "1c328d340fb721c21296b50ee1f411b626d176b90f8547ea13f255e40ca232cb",
    "title": "Aerospace Engineering, B.S. < Saint Louis University Academic Catalog",
    "url": "https://catalog.slu.edu/colleges-schools/science-engineering/aerospace-mechanical/aerospace-engineering-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "7b53ec29096a51d7": {
+  "decision": {
+   "candidate_id": "7b53ec29096a51d7",
+   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
+  },
+  "evidence": [
+   {
+    "field": "source_section",
+    "snippet": "Medical Laboratory Science (Bachelor of Science, B.S.) — Major Requirements",
+    "value": "Medical Laboratory Science (Bachelor of Science, B.S.) — Major Requirements"
+   }
+  ],
+  "extractor": "courselist_html/v1",
+  "issues": [],
+  "layout_source": {
+   "sha256": "1bc32d7d93edba13027a07a7bc313283c2771bade8914682c7311dcc6bb200f0",
+   "url": "https://catalog.missouriwestern.edu/undergraduate/science-and-health/chemistry-mathematics-physics/medical-laboratory-science-bs/index.html#courselist"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T10:08:42+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 06 Aug 2026 20:24:27 GMT",
+   "page_file": "43239604e467f7c6678f.json.gz",
+   "requested_url": "https://catalog.missouriwestern.edu/undergraduate/science-and-health/chemistry-mathematics-physics/medical-laboratory-science-bs/index.html",
+   "sha256": "43239604e467f7c6678fb0bdbbdc14db8f7dc92f28292494ce34b0a189671a2e",
+   "title": "Medical Laboratory Science (Bachelor of Science, B.S.) < Missouri Western University",
+   "url": "https://catalog.missouriwestern.edu/undergraduate/science-and-health/chemistry-mathematics-physics/medical-laboratory-science-bs/index.html"
   },
   "year_basis": "labeled_in_source"
  },
@@ -4579,6 +4887,32 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "85382c8d3f4ddc57": {
+  "decision": {
+   "candidate_id": "85382c8d3f4ddc57",
+   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
+  },
+  "evidence": [
+   {
+    "field": "program_name",
+    "snippet": "Medical Laboratory Science (Bachelor of Science, B.S.) < Missouri Western University",
+    "value": "Medical Laboratory Science (Bachelor of Science, B.S.)"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T10:08:42+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 06 Aug 2026 20:24:27 GMT",
+   "page_file": "43239604e467f7c6678f.json.gz",
+   "requested_url": "https://catalog.missouriwestern.edu/undergraduate/science-and-health/chemistry-mathematics-physics/medical-laboratory-science-bs/index.html",
+   "sha256": "43239604e467f7c6678fb0bdbbdc14db8f7dc92f28292494ce34b0a189671a2e",
+   "title": "Medical Laboratory Science (Bachelor of Science, B.S.) < Missouri Western University",
+   "url": "https://catalog.missouriwestern.edu/undergraduate/science-and-health/chemistry-mathematics-physics/medical-laboratory-science-bs/index.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "858961ca3a289dc2": {
   "decision": {
    "candidate_id": "858961ca3a289dc2",
@@ -4888,6 +5222,63 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "8a6187f23ee47af8": {
+  "decision": {
+   "candidate_id": "8a6187f23ee47af8",
+   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
+  },
+  "evidence": [
+   {
+    "field": "program_name",
+    "snippet": "Nursing, RN - BSN (Bachelor of Science in Nursing, B.S.N.) < Missouri Western University",
+    "value": "Nursing, RN - BSN (Bachelor of Science in Nursing, B.S.N.)"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T10:08:47+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 06 Aug 2026 20:24:24 GMT",
+   "page_file": "d30452cbe436aa05d1f6.json.gz",
+   "requested_url": "https://catalog.missouriwestern.edu/undergraduate/science-and-health/nursing/nursing-rn-bsn/index.html",
+   "sha256": "d30452cbe436aa05d1f6d281e59a91686db5611826d94135f3e319cd7e26beeb",
+   "title": "Nursing, RN - BSN (Bachelor of Science in Nursing, B.S.N.) < Missouri Western University",
+   "url": "https://catalog.missouriwestern.edu/undergraduate/science-and-health/nursing/nursing-rn-bsn/index.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "8af0610f0b12bb2a": {
+  "decision": {
+   "candidate_id": "8af0610f0b12bb2a",
+   "reason": "Standing review (static_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
+  },
+  "evidence": [
+   {
+    "field": "program_name",
+    "snippet": "Pharmaceutical Sciences, BS",
+    "value": "Pharmaceutical Sciences, BS"
+   },
+   {
+    "field": "catalog_year",
+    "snippet": "2026-27 Bulletin",
+    "value": "2026-2027"
+   }
+  ],
+  "extractor": "static_program/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T10:01:44+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 05 Oct 2026 15:45:44 GMT",
+   "page_file": "a3426080c994eed24510.json.gz",
+   "requested_url": "https://bulletin.wustl.edu/undergrad/caps/programs/bs-pharmaceutical-sciences/",
+   "sha256": "a3426080c994eed24510a3adf13839e363a80353d76d58867c328349f2499b28",
+   "title": "Pharmaceutical Sciences, BS | Washington University Bulletin",
+   "url": "https://bulletin.wustl.edu/undergrad/caps/programs/bs-pharmaceutical-sciences/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "8b446fa7f57a8f68": {
   "decision": {
    "candidate_id": "8b446fa7f57a8f68",
@@ -5067,6 +5458,32 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "8d7971ab7ad9deb6": {
+  "decision": {
+   "candidate_id": "8d7971ab7ad9deb6",
+   "reason": "Held by the standing rules for its name shape only (combined_program / variant). Independent review 2026-10-07 against the stored official 2026-2027 page: a bachelor's degree of its own with its own requirements and award, named as printed: Single integrated major in the 2026-2027 catalog, not a double major: page states \"Saint Louis University's Bachelor of Arts Computer Science + Sociology, program builds students who can compute and think critically\"; its own Requirements table lists \"Major Requirements | 74\" mixing CSCI and partner"
+  },
+  "evidence": [
+   {
+    "field": "program_name",
+    "snippet": "Computer Science + Sociology, B.A. < Saint Louis University Academic Catalog",
+    "value": "Computer Science + Sociology, B.A."
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T10:05:36+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 21 Sep 2026 18:12:17 GMT",
+   "page_file": "1a68f99d9edfa832a08e.json.gz",
+   "requested_url": "https://catalog.slu.edu/colleges-schools/science-engineering/computer-science/computer-science-sociology-ba/",
+   "sha256": "1a68f99d9edfa832a08e02c58c18581c60ec20ecc2073dfef5df40cf6bc10324",
+   "title": "Computer Science + Sociology, B.A. < Saint Louis University Academic Catalog",
+   "url": "https://catalog.slu.edu/colleges-schools/science-engineering/computer-science/computer-science-sociology-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "8f07e75ede823ea2": {
   "decision": {
    "candidate_id": "8f07e75ede823ea2",
@@ -5090,6 +5507,32 @@
    "sha256": "b6bcdaac979a93a962e49915a9843e8628596d38afab10c9df0a506481fd9472",
    "title": "Applied Communications and Journalism (Bachelor of Science, B.S.) < Missouri Western University",
    "url": "https://catalog.missouriwestern.edu/undergraduate/liberal-arts/communication/applied-communications-and-journalism-bs/index.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "90d70d3d286648c2": {
+  "decision": {
+   "candidate_id": "90d70d3d286648c2",
+   "reason": "Held by the standing rules for its name shape only (combined_program / variant). Independent review 2026-10-07 against the stored official 2026-2027 page: a bachelor's degree of its own with its own requirements and award, named as printed: Standalone B.S. page (2026-2027 Catalog): \"Saint Louis University's Bachelor of Science in Medical Laboratory Science degree prepares graduates to take a national certification exam\"; own MLS curriculum with practicum, total 126+ credits. The 2+SLU transfer variant ('Medical Laboratory Science, B.S."
+  },
+  "evidence": [
+   {
+    "field": "program_name",
+    "snippet": "Medical Laboratory Science, B.S. < Saint Louis University Academic Catalog",
+    "value": "Medical Laboratory Science, B.S."
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T10:03:54+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 30 Sep 2026 17:16:42 GMT",
+   "page_file": "19e562326e70335acc64.json.gz",
+   "requested_url": "https://catalog.slu.edu/colleges-schools/health-sciences/clinical-health-sciences/medical-laboratory-science-bs/",
+   "sha256": "19e562326e70335acc6465f78892bd13aa675fc10d4a684f6f6966ac07a4cbde",
+   "title": "Medical Laboratory Science, B.S. < Saint Louis University Academic Catalog",
+   "url": "https://catalog.slu.edu/colleges-schools/health-sciences/clinical-health-sciences/medical-laboratory-science-bs/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -6084,6 +6527,36 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "ac42faede27489f3": {
+  "decision": {
+   "candidate_id": "ac42faede27489f3",
+   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
+  },
+  "evidence": [
+   {
+    "field": "source_section",
+    "snippet": "Law (Bachelor of Science, B.S.) — Major Requirements",
+    "value": "Law (Bachelor of Science, B.S.) — Major Requirements"
+   }
+  ],
+  "extractor": "courselist_html/v1",
+  "issues": [],
+  "layout_source": {
+   "sha256": "c3597d40342fb1e8e2bc5c41be179d46f5dfe9886688be1f55103c805e4f6ac1",
+   "url": "https://catalog.missouriwestern.edu/undergraduate/business-professional-studies/criminal-justice-legal-studies/law-bs/index.html#courselist"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T10:08:37+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 06 Aug 2026 20:23:46 GMT",
+   "page_file": "38d02547b6da3313e49e.json.gz",
+   "requested_url": "https://catalog.missouriwestern.edu/undergraduate/business-professional-studies/criminal-justice-legal-studies/law-bs/index.html",
+   "sha256": "38d02547b6da3313e49ec4f0e4b77f29e42ca7a249f356171ccfac6d7caafb61",
+   "title": "Law (Bachelor of Science, B.S.) < Missouri Western University",
+   "url": "https://catalog.missouriwestern.edu/undergraduate/business-professional-studies/criminal-justice-legal-studies/law-bs/index.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "ae10612b610819be": {
   "decision": {
    "candidate_id": "ae10612b610819be",
@@ -6593,6 +7066,36 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "c13a60cc682e4c71": {
+  "decision": {
+   "candidate_id": "c13a60cc682e4c71",
+   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
+  },
+  "evidence": [
+   {
+    "field": "source_section",
+    "snippet": "Scholarships and Financial Aid — Biomedical Laboratory Science",
+    "value": "Scholarships and Financial Aid — Biomedical Laboratory Science"
+   }
+  ],
+  "extractor": "courselist_html/v1",
+  "issues": [],
+  "layout_source": {
+   "sha256": "7af183ed27050219ff77b86c1079e12327614910911fec0d0f8cac45709cfd5e",
+   "url": "https://catalog.slu.edu/colleges-schools/health-sciences/clinical-health-sciences/medical-sciences-bs/#courselist"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T10:03:56+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 30 Sep 2026 17:16:44 GMT",
+   "page_file": "597201744f971cb58185.json.gz",
+   "requested_url": "https://catalog.slu.edu/colleges-schools/health-sciences/clinical-health-sciences/medical-sciences-bs/",
+   "sha256": "597201744f971cb581856f9ee6167758c611312661b68a10e70346b5311f4d36",
+   "title": "Medical Sciences, B.S. < Saint Louis University Academic Catalog",
+   "url": "https://catalog.slu.edu/colleges-schools/health-sciences/clinical-health-sciences/medical-sciences-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "c1d2313e5b5a804a": {
   "decision": {
    "candidate_id": "c1d2313e5b5a804a",
@@ -6854,6 +7357,36 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "ca23f068f12cdb8a": {
+  "decision": {
+   "candidate_id": "ca23f068f12cdb8a",
+   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
+  },
+  "evidence": [
+   {
+    "field": "source_section",
+    "snippet": "RN-BSN Students — Major Requirements",
+    "value": "RN-BSN Students — Major Requirements"
+   }
+  ],
+  "extractor": "courselist_html/v1",
+  "issues": [],
+  "layout_source": {
+   "sha256": "a08fcf2ae69cb2b87934baf2640f3bcd0dee33d7a064b02f9ea46e5cc7afb7c5",
+   "url": "https://catalog.missouriwestern.edu/undergraduate/science-and-health/nursing/nursing-rn-bsn/index.html#courselist"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T10:08:47+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 06 Aug 2026 20:24:24 GMT",
+   "page_file": "d30452cbe436aa05d1f6.json.gz",
+   "requested_url": "https://catalog.missouriwestern.edu/undergraduate/science-and-health/nursing/nursing-rn-bsn/index.html",
+   "sha256": "d30452cbe436aa05d1f6d281e59a91686db5611826d94135f3e319cd7e26beeb",
+   "title": "Nursing, RN - BSN (Bachelor of Science in Nursing, B.S.N.) < Missouri Western University",
+   "url": "https://catalog.missouriwestern.edu/undergraduate/science-and-health/nursing/nursing-rn-bsn/index.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "ca2553d5f88ecbab": {
   "decision": {
    "candidate_id": "ca2553d5f88ecbab",
@@ -7016,17 +7549,17 @@
   "decision": {
    "catalog_url": "https://catalog.missouriwestern.edu/",
    "catalog_year_label": "2026-2027",
-   "completeness_basis": "Undergraduate Catalog 'Programs' A-Z page (Academic Catalog 2026-2027) on the current catalog host: counted 42 entries carrying a bachelor's award (43 bachelor's links, with Biochemistry and Molecular Biology (B.S.) cross-listed under two departments and counted once); separately listed 'without Certification Option' B.S.E. entries, Law B.S., Musical Arts B.M.A. and Nursing RN-BSN were counted as their own entries (unsure, counted). Excluded minors, certificates, microcredentials, associate degrees and the Honors Program. 34 of the 42 have verified records.",
+   "completeness_basis": "Undergraduate Catalog 'Programs' A-Z page (Academic Catalog 2026-2027): 42 entries carrying a bachelor's award (Biochemistry and Molecular Biology B.S. cross-listed twice, counted once; the four 'without Certification Option' B.S.E. entries, Law B.S., Musical Arts B.M.A. and Nursing RN-BSN counted, unsure). Excluded minors, certificates, microcredentials, associate degrees and the Honors Program. 37 of the 42 have verified records; unverified: the four 'without Certification Option' B.S.E. entries and Musical Arts B.M.A.",
    "institution_key": "ipeds-178387",
    "listed_bachelor_programs": 42,
    "programs_complete": false,
-   "reason": "Catalog-count review 2026-10-06: official current list page.",
+   "reason": "Catalog-count review 2026-10-07: official current list page.",
    "source_evidence": {
     "fetched_at": "2026-10-06T10:07:55+00:00",
     "sha256": "4e525cf22dd76fd3d308f831ef27b401416f77ae50b6adaf744f73b89202bfcd",
     "url": "https://catalog.missouriwestern.edu/undergraduate/programs/"
    },
-   "verified_listed_programs": 34
+   "verified_listed_programs": 37
   },
   "sentences": []
  },
@@ -7052,17 +7585,17 @@
   "decision": {
    "catalog_url": "https://catalog.slu.edu/",
    "catalog_year_label": "2026-2027",
-   "completeness_basis": "2026-2027 'Majors and Programs' page (each entry tagged by program type; same entries as Programs A-Z): counted the 91 entries tagged Bachelor's, keyed by award as our records are (e.g. Biology, B.A. and Biology, B.S. separately), including the seven 'Computer Science + X, B.A.' majors, Philosophy for Ministry B.A. (Archdiocesan), Nursing B.S. (Accelerated) and Nursing B.S. (RN to B.S.N.) (unsure, counted). Excluded accelerated bachelor's-to-graduate programs, the seven bachelor's+bachelor's Dual Degree combinations (Harris-Stowe/WashU partner pathways for majors already listed), an Electrical and Computer Engineering Ph.D. mis-tagged Bachelor's, minors, certificates, microcredentials and graduate degrees; 2+SLU transfer pathways appear only in the site navigation, not in the list. 78 of the 91 have verified records; two verified records (Occupational Science, B.S. and Finance, B.S.B.A. (SCNU 2+SLU)) are not on the list.",
+   "completeness_basis": "2026-2027 'Majors and Programs' page: counted the 90 entries tagged Bachelor's, keyed by award (including the seven 'Computer Science + X, B.A.' majors, Philosophy for Ministry B.A. (Archdiocesan), Nursing B.S. (Accelerated) and Nursing B.S. (RN to B.S.N.), unsure, counted). Excluded accelerated bachelor's-to-graduate programs, the seven bachelor's+bachelor's Dual Degree combinations, the Electrical and Computer Engineering Ph.D. mis-tagged Bachelor's, minors, certificates and graduate degrees; the earlier figure of 91 is not reproducible from the page under these rules (it matches the Bachelor's-tagged entries before removing the mis-tagged Ph.D.), so it is corrected to 90. 80 of the 90 have verified records; Occupational Science B.S. and Finance B.S.B.A. (SCNU 2+SLU) have verified records but are not list entries. After this review, 8 more listed entries have verified records (Medical Laboratory Science B.S. and the seven Computer Science + X B.A. majors), so 88 of the 90 are verified; still without one: Nursing B.S. (RN to B.S.N.) (an entry path to Nursing B.S.) and Philosophy for Ministry B.A. (Archdiocesan).",
    "institution_key": "ipeds-179159",
-   "listed_bachelor_programs": 91,
+   "listed_bachelor_programs": 90,
    "programs_complete": false,
-   "reason": "Catalog-count review 2026-10-06: official current list page.",
+   "reason": "Catalog-count review 2026-10-07: official current list page.",
    "source_evidence": {
     "fetched_at": "2026-10-06T10:00:14+00:00",
     "sha256": "642bffd354ae2347572203a921c57ddd0c984ace477f4850ad7c74eade66b20d",
     "url": "https://catalog.slu.edu/programs"
    },
-   "verified_listed_programs": 78
+   "verified_listed_programs": 88
   },
   "sentences": []
  },
@@ -7107,6 +7640,67 @@
    "sha256": "627bafe6f596508de65432f5d3e436344a358f5fa315158b6d5fdde891494bdf",
    "title": "Supply Chain Management (Bachelor of Science in Business Administration, B.S.B.A.) < Missouri Western University",
    "url": "https://catalog.missouriwestern.edu/undergraduate/business-professional-studies/craig-school-of-business/supply-chain-management-bs/index.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "d2daff2c536625e3": {
+  "decision": {
+   "candidate_id": "d2daff2c536625e3",
+   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 13-14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 7 items, 17 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 7 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 12 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 14-15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 7 items, 18 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 18 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T10:03:57+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 30 Sep 2026 17:16:45 GMT",
+   "page_file": "99cc7eb28239e4b2ad51.json.gz",
+   "requested_url": "https://catalog.slu.edu/colleges-schools/health-sciences/clinical-health-sciences/nuclear-medicine-technology-bs/",
+   "sha256": "99cc7eb28239e4b2ad5123f924cdcaea2b534d4e80a9cb001d3bca12db2d01e1",
+   "title": "Nuclear Medicine Technology, B.S. < Saint Louis University Academic Catalog",
+   "url": "https://catalog.slu.edu/colleges-schools/health-sciences/clinical-health-sciences/nuclear-medicine-technology-bs/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -7434,6 +8028,32 @@
    "sha256": "83a14612f4ca996d34f324f1f89ef3aaecc032a951596df3dfcdc2fa29fdc560",
    "title": "Technology and Leadership, B.S. < Saint Louis University Academic Catalog",
    "url": "https://catalog.slu.edu/colleges-schools/professional-studies/technology-leadership-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "db9be11109e505eb": {
+  "decision": {
+   "candidate_id": "db9be11109e505eb",
+   "reason": "Held by the standing rules for its name shape only (combined_program / variant). Independent review 2026-10-07 against the stored official 2026-2027 page: a bachelor's degree of its own with its own requirements and award, named as printed: Single integrated major in the 2026-2027 catalog, not a double major: page states \"SLU's Bachelor of Arts in Computer Science + Health Information Management program prepares students to design, secure, and manage health information systems\"; its own Requirements table lists \"Major Requirements | 71"
+  },
+  "evidence": [
+   {
+    "field": "program_name",
+    "snippet": "Computer Science + Health Information Management, B.A. < Saint Louis University Academic Catalog",
+    "value": "Computer Science + Health Information Management, B.A."
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T10:05:31+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 21 Sep 2026 18:12:18 GMT",
+   "page_file": "3db298987e0e240f7df6.json.gz",
+   "requested_url": "https://catalog.slu.edu/colleges-schools/science-engineering/computer-science/computer-science-health-info-mgt-ba/",
+   "sha256": "3db298987e0e240f7df6bf6b01c8dc4cf106de95df3ef67a87a4b10d1d5744e8",
+   "title": "Computer Science + Health Information Management, B.A. < Saint Louis University Academic Catalog",
+   "url": "https://catalog.slu.edu/colleges-schools/science-engineering/computer-science/computer-science-health-info-mgt-ba/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -8181,6 +8801,32 @@
    "sha256": "74486fc40e20a9f848d9d6653eca90780ff19289d3972fae67ebbbe33b66fd09",
    "title": "Finance (Bachelor of Science in Business Administration, B.S.B.A.) < Missouri Western University",
    "url": "https://catalog.missouriwestern.edu/undergraduate/business-professional-studies/craig-school-of-business/finance-bs/index.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "f63d743a0444ce63": {
+  "decision": {
+   "candidate_id": "f63d743a0444ce63",
+   "reason": "Held by the standing rules for its name shape only (combined_program / variant). Independent review 2026-10-07 against the stored official 2026-2027 page: a bachelor's degree of its own with its own requirements and award, named as printed: Single integrated major in the 2026-2027 catalog, not a double major: page states \"SLU's Bachelor of Arts in Computer Science + Philosophy program prepares students who do — technically excellent, ethically serious\"; its own Requirements table lists \"Major Requirements | 71\" mixing CSCI and partner-"
+  },
+  "evidence": [
+   {
+    "field": "program_name",
+    "snippet": "Computer Science + Philosophy, B.A. < Saint Louis University Academic Catalog",
+    "value": "Computer Science + Philosophy, B.A."
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T10:05:33+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 21 Sep 2026 18:12:22 GMT",
+   "page_file": "cd9f5eba1c7dadf5b516.json.gz",
+   "requested_url": "https://catalog.slu.edu/colleges-schools/science-engineering/computer-science/computer-science-philosophy-ba/",
+   "sha256": "cd9f5eba1c7dadf5b51642b23f8cb660e20fb6ca8f15a89d1b562ada90a0180d",
+   "title": "Computer Science + Philosophy, B.A. < Saint Louis University Academic Catalog",
+   "url": "https://catalog.slu.edu/colleges-schools/science-engineering/computer-science/computer-science-philosophy-ba/"
   },
   "year_basis": "labeled_in_source"
  },
