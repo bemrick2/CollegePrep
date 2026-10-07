@@ -13,6 +13,8 @@ import { beforeAll, describe, expect, it } from 'vitest'
 import { QUESTIONS } from '../../src/lib/data/demo/fixtures'
 import { addDays, weekStartOf } from '../../src/lib/engine/dates'
 import { weeklyPlan } from '../../src/lib/engine/weeklyPlan'
+import { projectCosts } from '../../src/lib/engine/costProjection'
+import type { CostAssumptions, CostProjectionResult } from '../../src/lib/data/types'
 import { LiveSource } from '../../src/lib/data/live/liveSource'
 
 const URL_ = process.env.LOCAL_BACKEND_URL
@@ -164,5 +166,32 @@ describe.skipIf(!URL_)('LiveSource against the local backend', () => {
     expect(await parent.interests(studentId)).toEqual({ certainty: 'sure', interests: [{ kind: 'major', key: 'computer-science', focus: true }] })
     await expect(student.saveInterests(studentId, { certainty: 'sure', interests: [{ kind: 'major', key: 'Not A Key' }] })).rejects.toThrow()
     await expect((await as(OUTSIDER)).saveInterests(studentId, { certainty: 'unsure', interests: [] })).rejects.toThrow()
+  })
+
+  it('cost_projection on the server and the demo mirror give the same answer for the same verified records', async () => {
+    const keys = ['local-test-university', 'local-test-college']
+    const records = await parent.compareInstitutions(keys, '2026-27')
+    const cases: CostAssumptions[] = [
+      { residency: 'in_state' },
+      { residency: 'out_of_state', cost_basis: 'cost_of_attendance', exam_credits: 40, prior_credits: 30 },
+      { residency: 'in_state', cost_basis: 'cost_of_attendance', exam_credits: 18, years: 3, credits_per_term: 12 },
+      { residency: 'international', exam_credits: 9 },
+    ]
+    for (const a of cases) {
+      const live = await parent.costProjection(studentId, keys, '2026-27', a)
+      const mirror = projectCosts(records, '2026-27', a)
+      // JSON numbers from Postgres numeric compare by value; drop fields the mirror cannot know (state aid is server-only).
+      const norm = (r: CostProjectionResult) =>
+        JSON.parse(JSON.stringify(r.institutions.map((i) => ({ ...i, cost: i.cost ? { ...i.cost, last_verified_at: null, source_url: null } : i.cost, not_counted: undefined, levers: i.levers?.map((l) => ({ ...l, caps: l.caps.map((c) => ({ ...c, source_url: null })) })) }))), (_k, v) =>
+          typeof v === 'string' && /^-?\d+(\.\d+)?$/.test(v) ? Number(v) : v,
+        )
+      expect(norm(mirror), JSON.stringify(a)).toEqual(norm(live))
+    }
+    // The residency rule is in play: 120 planned credits minus 90 at the school leaves 30 outside credits.
+    const r = (await parent.costProjection(studentId, ['local-test-university'], '2026-27', { residency: 'out_of_state', exam_credits: 40, prior_credits: 30 })).institutions[0]!
+    expect(r.credit_savings).toMatchObject({ outside_credit_max: 30, credits_counted: 30, terms_saved: 2 })
+    // The college publishes one price for everyone; an in-state request uses it and says so.
+    const cc = (await parent.costProjection(studentId, ['local-test-college'], '2026-27', { residency: 'in_state' })).institutions[0]!
+    expect(cc.cost).toMatchObject({ residency: 'not_applicable', residency_requested: 'in_state' })
   })
 })

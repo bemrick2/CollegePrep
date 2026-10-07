@@ -93,6 +93,17 @@ describe('LiveSource contracts (issue #37)', () => {
     expect(calls.at(-1)!.ops).toContainEqual(['update', [{ certainty: 'sure', interests: [{ kind: 'major', key: 'finance' }, { kind: 'area', key: 'business', focus: true }] }]])
   })
 
+  it('CR-4 v2: cost_projection gets the student, keys, year and assumptions as sent', async () => {
+    const { sb, calls } = fakeClient({ cost_projection: { definition: 'v2', institutions: [] } })
+    const r = await new LiveSource(sb).costProjection('s1', ['utk'], '2026-27', { residency: 'in_state', cost_basis: 'cost_of_attendance', exam_credits: 8 })
+    expect(r.definition).toBe('v2')
+    expect(calls[0]).toMatchObject({
+      kind: 'rpc',
+      name: 'cost_projection',
+      args: { p_student: 's1', p_institution_keys: ['utk'], p_academic_year: '2026-27', p_assumptions: { residency: 'in_state', cost_basis: 'cost_of_attendance', exam_credits: 8 } },
+    })
+  })
+
   it('CR-16 billing: entitlement RPC, Checkout and Portal through edge functions; no Stripe keys in the client', async () => {
     const { sb, calls } = fakeClient({
       household_entitlement: { active: true, status: 'active', can_manage_billing: true, managed_by: 'web' },

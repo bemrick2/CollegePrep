@@ -278,6 +278,72 @@ begin
   perform hp_test.as_owner();
 end $$;
 
+-- CR-4 v2: one price for everyone, cost components, exam credit from the school's own table, residency rule.
+insert into public.institutions(id, institution_key, ipeds_name, display_name, state_code, city, control, level, source_id,
+  verification_status, last_verified_at, identity_academic_year) values
+ ('50000000-0000-0000-0000-000000000004', 'contract-private', 'Private', 'Private U', 'TN', 'Nashville', 'private', 'four_year',
+  '50000000-0000-0000-0000-000000000001', 'verified', current_date, '2023-24');
+insert into public.institution_costs(institution_id, academic_year, residency, tuition, mandatory_fees, on_campus_food_housing,
+  books_supplies, transportation, personal_misc, total_cost_of_attendance, source_id, verification_status, last_verified_at) values
+ ('50000000-0000-0000-0000-000000000004', '2026-27', 'not_applicable', 40000, 1000, 12000, 1200, 1500, 2300, 58000,
+  '50000000-0000-0000-0000-000000000001', 'verified', current_date);
+insert into public.credit_policies(institution_id, policy_kind, academic_year, policy_url, general_limit_credits, source_id, verification_status, last_verified_at) values
+ ('50000000-0000-0000-0000-000000000004', 'AP', '2026-27', 'https://example.edu/ap', 18, '50000000-0000-0000-0000-000000000001', 'verified', current_date);
+insert into public.transfer_policies(institution_id, academic_year, policy_url, max_transfer_credits, residency_requirement_credits, source_id, verification_status, last_verified_at) values
+ ('50000000-0000-0000-0000-000000000004', '2026-27', 'https://example.edu/transfer', 60, 100, '50000000-0000-0000-0000-000000000001', 'verified', current_date);
+do $$
+declare r jsonb; i jsonb; c jsonb; st uuid := current_setting('t.st')::uuid;
+begin
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+  r := public.cost_projection(st, array['contract-private'], '2026-27', '{"residency": "in_state", "exam_credits": 24}');
+  perform hp_test.check(r->>'definition' = 'v2', 'definition v2');
+  i := r->'institutions'->0;
+  perform hp_test.check(i->>'status' = 'ok' and i->'cost'->>'residency' = 'not_applicable'
+    and i->'cost'->>'residency_requested' = 'in_state', 'one price for everyone is used, and said so');
+  perform hp_test.eq((i->>'baseline_total')::numeric, 164000::numeric, 'tuition and fees x 4 years');
+  c := i->'cost'->'components';
+  perform hp_test.check((c->>'tuition')::numeric = 40000 and (c->>'mandatory_fees')::numeric = 1000
+    and (c->>'housing_food')::numeric = 12000 and (c->>'living_and_other')::numeric = 17000, 'components kept apart ' || c::text);
+  perform hp_test.check((i->'levers'->1->>'accepted_upper_bound')::numeric = 18 and i->'levers'->1->>'reason' = 'bounded_by_verified_limit',
+    'exam credit bounded by the verified AP limit');
+  c := i->'credit_savings';
+  perform hp_test.check(c->>'mechanism' = 'fewer_terms' and c->>'billing_structure' = 'unknown'
+    and (c->>'terms_saved')::int = 1 and (c->>'remainder_credits')::numeric = 3, 'one term saved, three credits short of another ' || c::text);
+  perform hp_test.eq((i->>'savings_total')::numeric, 20500::numeric, 'one term of tuition and fees');
+  perform hp_test.check((c->'by_component'->>'tuition')::numeric = 20000 and (c->'by_component'->>'mandatory_fees')::numeric = 500
+    and c->'by_component'->'living_and_other' = 'null'::jsonb, 'living costs are not in a tuition-and-fees saving');
+  perform hp_test.check(i->'not_counted'->>'loans' = 'no_data', 'no loan data is claimed');
+
+  r := public.cost_projection(st, array['contract-private'], '2026-27',
+         '{"residency": "out_of_state", "cost_basis": "cost_of_attendance", "exam_credits": 24, "prior_credits": 30}');
+  i := r->'institutions'->0;
+  c := i->'credit_savings';
+  perform hp_test.check((c->>'outside_credit_max')::numeric = 20 and (c->>'credits_counted')::numeric = 20,
+    'residency rule: 120 planned credits minus 100 at the school leaves 20 ' || c::text);
+  perform hp_test.check((i->'levers'->0->>'accepted_upper_bound')::numeric + (i->'levers'->1->>'accepted_upper_bound')::numeric = 20,
+    'levers share the bounded total');
+  perform hp_test.eq((i->>'savings_total')::numeric, 29000::numeric, 'one term of full cost of attendance');
+  perform hp_test.eq((c->'by_component'->>'living_and_other')::numeric, 8500::numeric, 'a term saved includes its living costs');
+
+  r := public.cost_projection(st, array['contract-private'], '2026-27', '{"residency": "in_state", "exam_credits": 10}');
+  i := r->'institutions'->0;
+  perform hp_test.check(i->'levers'->1->>'reason' = 'less_than_one_term' and (i->>'savings_total')::numeric = 0
+    and (i->'credit_savings'->>'remainder_credits')::numeric = 10, 'under a term: nothing counted, remainder shown');
+
+  r := public.cost_projection(st, array['contract-four'], '2026-27', '{"residency": "out_of_state", "exam_credits": 30}');
+  perform hp_test.check(r->'institutions'->0->>'status' = 'missing_cost' and r->'institutions'->0->'cost' = 'null'::jsonb,
+    'no fallback to an unverified price');
+  r := public.cost_projection(st, array['contract-four'], '2026-27', '{"residency": "in_state", "exam_credits": 30}');
+  perform hp_test.check((r->'institutions'->0->'levers'->1->>'accepted_upper_bound')::numeric = 6
+    and r->'institutions'->0->'levers'->1->>'reason' = 'less_than_one_term', 'a 6-credit AP limit is under one term');
+  r := public.cost_projection(st, array['contract-two'], '2023-24', '{"residency": "in_state", "exam_credits": 30}');
+  i := r->'institutions'->0;
+  perform hp_test.check(i->'levers'->1->>'reason' = 'from_school_table' and (i->'credit_savings'->>'terms_saved')::int = 2
+    and (i->>'savings_total')::numeric = 3000, 'exam credit with no published limit: two terms ' || i::text);
+  perform hp_test.expect_error(format($q$select public.cost_projection(%L, array['contract-four'], '2026-27', '{"residency":"in_state","exam_credits":91}')$q$, st), '22023');
+  perform hp_test.as_owner();
+end $$;
+
 -- CR-11 award test criteria: shape is enforced, and compare_institutions serves the columns.
 do $$ begin
   perform hp_test.as_owner();

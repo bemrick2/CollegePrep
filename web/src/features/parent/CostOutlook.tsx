@@ -174,7 +174,13 @@ export function CostOutlook({ showAlternative = false }: { showAlternative?: boo
           </p>
         </details>
       )}
-      <p className="text-xs text-ink-3">Sticker prices before grants and scholarships, at {YEAR} prices. Savings from credit and scholarships aren't estimated until we can source them.</p>
+      <p className="text-xs text-ink-3">
+        Sticker prices before grants and scholarships, at {YEAR} prices.{' '}
+        <Link to="/colleges/savings" className="font-semibold text-go-strong underline dark:text-go">
+          See cost & savings
+        </Link>{' '}
+        for tuition, fees and living costs apart, credit each school's rules allow, and your own grant and loan numbers.
+      </p>
     </div>
   )
 }

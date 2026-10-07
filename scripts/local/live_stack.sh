@@ -69,6 +69,28 @@ insert into public.institutions(ipeds_name, display_name, state_code, institutio
   ('Local Test University', 'Local Test University', 'TN', 'local-test-university'),
   ('Local Test College', 'Local Test College', 'TN', 'local-test-college')
 on conflict do nothing;
+-- Fictional verified prices and policies for those two schools, so cost_projection runs on real SQL locally.
+insert into public.sources(id, canonical_url, authority) values
+  ('5e000000-0000-4000-a000-000000000001', 'https://example.test/local-fixtures', 'institution')
+on conflict do nothing;
+update public.institutions set source_id = '5e000000-0000-4000-a000-000000000001', verification_status = 'verified',
+  level = case institution_key when 'local-test-college' then 'two_year' else 'four_year' end
+where institution_key in ('local-test-university', 'local-test-college');
+insert into public.institution_costs(institution_id, academic_year, residency, tuition, mandatory_fees, room, board,
+  books_supplies, transportation, personal_misc, total_cost_of_attendance, source_id, verification_status, last_verified_at)
+select i.id, '2026-27', r.residency, r.tuition, r.fees, r.room, r.board, 1200, 1500, 2300, r.coa,
+  '5e000000-0000-4000-a000-000000000001', 'verified', now()
+from public.institutions i
+join (values ('local-test-university', 'in_state', 11000, 2000, 6000, 5000, 29000),
+             ('local-test-university', 'out_of_state', 30000, 2000, 6000, 5000, 48000),
+             ('local-test-college', 'not_applicable', 4000, 500, null, null, null)) r(k, residency, tuition, fees, room, board, coa)
+  on r.k = i.institution_key;
+insert into public.credit_policies(institution_id, policy_kind, academic_year, policy_url, general_limit_credits, source_id, verification_status, last_verified_at)
+select id, 'AP', '2026-27', 'https://example.test/ap', 30, '5e000000-0000-4000-a000-000000000001', 'verified', now()
+from public.institutions where institution_key = 'local-test-university';
+insert into public.transfer_policies(institution_id, academic_year, policy_url, max_transfer_credits, residency_requirement_credits, source_id, verification_status, last_verified_at)
+select id, '2026-27', 'https://example.test/transfer', 45, 90, '5e000000-0000-4000-a000-000000000001', 'verified', now()
+from public.institutions where institution_key = 'local-test-university';
 SQL
 
   cat > "$RUN/pgrst.conf" <<CONF

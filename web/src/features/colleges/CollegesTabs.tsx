@@ -12,6 +12,9 @@ export function CollegesTabs() {
       <NavLink to="/colleges/compare" className={tab}>
         Compare
       </NavLink>
+      <NavLink to="/colleges/savings" className={tab}>
+        Cost & savings
+      </NavLink>
       <NavLink to="/colleges/paths" className={tab}>
         Paths
       </NavLink>

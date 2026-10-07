@@ -1,6 +1,6 @@
 # Prep & Price: what works, what is demo-only, what is missing
 
-Updated 2026-10-06. The hosted Supabase project is paused, so nothing below was checked against it after the pause.
+Updated 2026-10-07. The hosted Supabase project is paused, so nothing below was checked against it after the pause.
 "Local backend" means `scripts/local/live_stack.sh test`: plain PostgreSQL 16 with every repository migration,
 the app's original demo question bank, PostgREST, and locally signed JWTs. It runs the real SQL, RLS policies and
 RPCs. It does not run Supabase Auth, edge functions, email or Stripe.
@@ -29,7 +29,7 @@ RPCs. It does not run Supabase Auth, edge functions, email or Stripe.
 | Saved schools and primary target school (CR-12) | yes | yes, as of this change | checked locally with two fictional schools |
 | Major interests (CR-13) | browser | yes, as of this change | checked locally, including server rejection of malformed keys |
 | AP/CLEP exam plan (CR-10) | browser only | **not wired** | the app keys exams by normalized published names; the backend keys them by `exam_catalog`, which is empty in the repository migrations. Needs the catalog populated (Research) and a name-to-key mapping before it can move. |
-| Cost projection and savings levers (CR-4) | none | **not wired** | `cost_projection` RPC exists, but it returns `missing_cost` for any school priced the same for all students (`not_applicable`), which is 7 of 12 schools in the comparison snapshot; and no school has a verified credit cap yet, so counted savings are 0 everywhere. Reported on issue #37; wiring waits for that fix. |
+| Cost & savings view (CR-4 v2) | yes (same rules, `engine/costProjection.ts`) | yes, on `cost_projection` v2 | Tuition, fees and living costs shown apart; exam credit from each school's own table, transfer credit only under a verified cap, residency rule applied; savings only as whole terms finished early (billing structure unknown, CR-17). Grants and loans are family-entered and labelled; no loan data exists (CR-18). Server and mirror agree on the local backend. **The v2 migration is unapplied on hosted and awaits Research review.** |
 | Home state for in-state pricing (CR-15) | browser only | no backend | contract request still open |
 
 ## Accounts, invitations, billing

@@ -4,7 +4,8 @@ import type {
   AiHelpResult,
   AttemptRecord,
   BenchmarkSummary,
-  CostProjection,
+  CostAssumptions,
+  CostProjectionResult,
   ExamFamily,
   HelpMode,
   HintResult,
@@ -127,7 +128,8 @@ export interface DataSource {
   // Colleges
   searchInstitutions(query: string, state?: string): Promise<InstitutionSearchHit[]>
   compareInstitutions(keys: string[], academicYear: string): Promise<InstitutionComparison[]>
-  costProjection(studentId: string): Promise<CostProjection>
+  /** CR-4 v2: one call per set of schools that share the same assumptions (residency, credits). */
+  costProjection(studentId: string, institutionKeys: string[], academicYear: string, assumptions: CostAssumptions): Promise<CostProjectionResult>
 }
 
 export class DataError extends Error {

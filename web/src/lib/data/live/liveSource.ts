@@ -11,7 +11,8 @@ import type {
   BenchmarkMetrics,
   BenchmarkSummary,
   Choice,
-  CostProjection,
+  CostAssumptions,
+  CostProjectionResult,
   ExamFamily,
   HelpMode,
   HouseholdContext,
@@ -622,10 +623,12 @@ export class LiveSource implements DataSource {
     return r.institutions
   }
 
-  async costProjection(): Promise<CostProjection> {
-    return {
-      status: 'unavailable',
-      reason: 'Cost projections need a verified household cost model, which the backend does not provide yet.',
-    }
+  costProjection(studentId: string, institutionKeys: string[], academicYear: string, assumptions: CostAssumptions) {
+    return rpc<CostProjectionResult>(this.sb, 'cost_projection', {
+      p_student: studentId,
+      p_institution_keys: institutionKeys,
+      p_academic_year: academicYear,
+      p_assumptions: assumptions,
+    })
   }
 }

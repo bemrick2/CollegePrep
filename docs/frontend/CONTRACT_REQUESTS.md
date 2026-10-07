@@ -9,7 +9,7 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-1 | Student planning preferences | ✅ live | `LiveSource` reads/writes `student_planning_preferences` |
 | CR-2 | Benchmark sessions | ✅ live | `start_benchmark` → attempts with `p_benchmark` → `complete_benchmark`; history from `practice_benchmarks` (server metrics; the staircase ceiling is shown only for the run just finished) |
 | CR-3 | Practice score estimates | ⛔ not produced, by design | No estimate anywhere, demo included; "No score estimate yet" with the reason |
-| CR-4 | Household cost projection | ⏳ open | "Unavailable"; the parent view shows published costs and verified savings opportunities instead |
+| CR-4 | Household cost projection | 🚧 v2 proposed by Design (migration `20261007120000_cost_projection_v2.sql`), needs Research review | Cost & savings view (`/colleges/savings`) on `cost_projection` v2; the demo runs the same rules in `engine/costProjection.ts` |
 | CR-5 | Passages, remember-this, hint count | ✅ live | Passages and `hint_count` selected with questions; `remember_text` read from the submit result |
 | CR-6 | Recommender v2 | ✅ live | No client change needed |
 | CR-7 | Institutions with verified records | ✅ live | Comparison suggestions from `institutions_with_verified_records`, four-year schools with costs first |
@@ -22,6 +22,8 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-14 | Structured program, admission and degree-path fields | 🚧 schema in PR #89, data in #91/#92 | Program match by name; admission/transfer/undeclared shown as unverified questions; progression text quoted |
 | CR-15 | Household home state | ⏳ open | Asked (optional) in onboarding and on cost screens; kept in this browser; labelled as the family's answer |
 | CR-16 | Subscription owner + household entitlement | ⏳ open | No plan, price, paywall or entitlement state anywhere; nothing simulated |
+| CR-17 | How each school bills tuition (flat rate or per credit) | ⏳ open | Credit savings counted only as whole terms finished early; the remainder is shown, not counted |
+| CR-18 | Loan terms (federal limits, rates) as sourced records | ⏳ open | Families enter planned borrowing; it is shown as borrowed, never as a saving; no limits or rates shown |
 
 Live content note: the bank has no exam versions, skills or questions yet, so live practice and benchmarks show their empty states until content is loaded.
 
@@ -230,6 +232,31 @@ Every household member can read the entitlement: guardians with `view_progress` 
 - Ownership (usually a parent) is separate from who uses the app (often the student).
 
 **UI today.** No plan, price, paywall or entitlement state anywhere until this lands. Nothing is simulated.
+
+## CR-4 v2 (proposed by Design, 2026-10-07)
+
+v1 returned `missing_cost` for every school that publishes one price for all students (7 of the 12 schools in the comparison snapshot), and counted exam credit only under a transfer cap, which no school has on file. v2 keeps the signature and v1's rules, and changes:
+
+- **Residency.** Falls back to a verified `not_applicable` row; `cost.residency` says which row was used.
+- **Components.** `cost.components` lists tuition, fees, housing and food, books, transportation, personal, other, COA, and `living_and_other` (COA − tuition − fees, only when all three are published).
+- **Exam credit.** New `exam_credits` assumption: AP/IB/CLEP/Cambridge credit read from the school's own published equivalency table. It is bounded by a verified exam-credit limit if one exists, and needs no transfer cap.
+- **Residency rule.** A verified residency requirement bounds all outside credit against the plan's own credit total.
+- **Mechanism.** `credit_savings` gives `mechanism: fewer_terms`, `billing_structure: unknown`, `remainder_credits` and a by-component split.
+- **Aid and loans.** Awards and state aid stay listed, never subtracted. `not_counted.loans = 'no_data'`.
+
+SQL tests are in `supabase/tests/frontend_contracts.sql`. The local end-to-end test checks the server against the demo mirror.
+
+## CR-17. How each school bills tuition
+
+**Need.** Per institution and year: `tuition_structure` (`flat_rate` with the credit band, e.g. 12–18, or `per_credit` with the rate), with source.
+
+**Why.** It decides whether credit brought in lowers a term's bill (per credit) or only saves money by finishing early (flat rate). Until then, only whole terms are counted.
+
+## CR-18. Loan terms as sourced records
+
+**Need.** Federal Direct loan annual and aggregate limits by dependency status and year in school, plus the current interest rates and fees, each with a source URL and effective dates.
+
+**Why.** It lets the cost view say how planned borrowing compares with what a student can borrow, and what it costs to repay. Until then, the view shows only what the family enters, labelled as borrowed.
 
 ## Product decisions flagged (not contract requests)
 

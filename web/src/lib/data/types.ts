@@ -347,15 +347,141 @@ export interface InstitutionSearchHit {
   domains?: string[]
 }
 
-/** Household cost projection. No backend endpoint exists yet (contract request CR-4). */
-export interface CostProjection {
-  status: 'available' | 'unavailable'
-  reason?: string
+/** Cost projection (CR-4 v2, `cost_projection`). Verified, exact-year figures only; nothing here is guaranteed. */
+export type CostBasis = 'tuition_and_fees' | 'cost_of_attendance'
+export type ProjectionResidency = 'in_state' | 'out_of_state' | 'district' | 'international'
+
+export interface CostAssumptions {
+  residency: ProjectionResidency
+  cost_basis?: CostBasis
+  years?: number | null
+  /** Credit brought from elsewhere (dual enrollment, transfer). Counted only under a verified cap. */
+  prior_credits?: number
+  /** AP/IB/CLEP credit read from this school's own published equivalency table. */
+  exam_credits?: number
+  credits_per_term?: number
+  terms_per_year?: 2 | 3
+}
+
+/** Published parts of one year's price. null = not published. living_and_other = COA - tuition - fees. */
+export interface CostComponents {
+  tuition: number | null
+  mandatory_fees: number | null
+  housing_food: number | null
+  books_supplies: number | null
+  transportation: number | null
+  personal_misc: number | null
+  other_expenses: number | null
+  total_cost_of_attendance: number | null
+  living_and_other: number | null
+}
+
+export interface CreditCap {
+  kind: string
+  credits: number
+  source_url: string | null
+}
+
+export type LeverReason =
+  | 'no_prior_credits'
+  | 'no_exam_credits'
+  | 'no_verified_cap'
+  | 'bounded_by_verified_cap'
+  | 'bounded_by_verified_limit'
+  | 'from_school_table'
+  | 'less_than_one_term'
+
+export interface CreditLever {
+  kind: 'prior_credits' | 'exam_credits'
+  requested_credits: number
+  accepted_upper_bound: number
+  caps: CreditCap[]
+  /** What this lever alone would save; row totals combine levers. */
+  terms_saved: number
+  savings: number
+  counted: boolean
+  reason: LeverReason
+  requires_confirmation: true
+}
+
+export interface CreditSavings {
+  /** Savings come only from billing fewer terms by finishing early. */
+  mechanism: 'fewer_terms'
+  /** No flat-rate vs per-credit tuition data exists, so credit short of a full term is not counted. */
+  billing_structure: 'unknown'
+  credits_counted: number
+  residency_requirement_credits: number | null
+  outside_credit_max: number | null
+  terms_saved: number
+  remainder_credits: number
+  by_component: { tuition: number | null; mandatory_fees: number | null; living_and_other: number | null }
+  requires_confirmation: true
+}
+
+export interface AwardListing {
+  award_name: string
+  award_type: string | null
+  award_amount_text: string | null
+  award_min: number | null
+  award_max: number | null
+  full_tuition?: boolean | null
+  full_ride?: boolean | null
+  automatic_consideration: boolean | null
+  separate_application: boolean | null
+  eligibility_summary: string | null
+  renewable: boolean | null
+  source_url: string | null
+}
+
+export interface StateAidListing {
+  program_name: string
+  program_type: string | null
+  award_amount_text: string | null
+  award_min?: number | null
+  award_max?: number | null
+  eligibility_summary: string | null
+  official_url: string | null
+  source_url: string | null
+}
+
+export interface ProjectionCost {
+  basis: CostBasis
+  /** The verified row used: the requested residency, or 'not_applicable' (one price for everyone). */
+  residency: string
+  residency_requested: ProjectionResidency
+  annual?: number
+  /** Repeated from components on priced rows (v1 fields). */
+  tuition?: number | null
+  mandatory_fees?: number | null
+  total_cost_of_attendance?: number | null
+  components: CostComponents
+  source_url: string | null
+  last_verified_at: string | null
+}
+
+export interface ProjectionRow {
+  institution_key: string
+  display_name?: string
+  level?: 'four_year' | 'two_year' | 'less_than_two_year' | null
+  status: 'ok' | 'missing_cost' | 'missing_years' | 'unknown_institution'
+  cost?: ProjectionCost | null
+  years?: number
+  years_source?: 'level_default' | 'assumption'
   baseline_total?: number
+  levers?: CreditLever[]
+  credit_savings?: CreditSavings
   optimized_total?: number
-  savings?: number
-  levers?: { key: string; label: string; estimated_savings: number | null; source_url: string | null }[]
-  illustrative?: boolean
+  savings_total?: number
+  not_counted?: { awards: AwardListing[]; state_aid: StateAidListing[]; appeals: { appeal_kind: string; process_summary: string | null; policy_url: string | null }[]; loans: 'no_data' }
+}
+
+export interface CostProjectionResult {
+  academic_year: string
+  assumptions: Required<Omit<CostAssumptions, 'years'>> & { years: number | null }
+  prices_held_constant: true
+  guaranteed: false
+  definition: string
+  institutions: ProjectionRow[]
 }
 
 /** Household plan access (CR-16), whatever the payment source. Provider ids never reach the client. */
