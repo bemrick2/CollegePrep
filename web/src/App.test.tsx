@@ -160,17 +160,17 @@ describe('app flows', () => {
     localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976']))
     const src = new DemoSource(livingIn('TN', sampleFamily('parent')))
     renderAt('/parent', src)
-    expect(await screen.findByRole('link', { name: 'Mark a top choice' })).toHaveAttribute('href', '/colleges/paths')
+    expect(await screen.findByRole('link', { name: 'Mark a top choice' }, { timeout: 15_000 })).toHaveAttribute('href', '/colleges/paths')
     cleanup()
     localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976']))
     localStorage.setItem('pp-primary', 'utk')
     renderAt('/parent', src)
-    expect(await screen.findByText('Four-year cost at University of Tennessee, Knoxville')).toBeInTheDocument()
+    expect(await screen.findByText('Four-year cost at University of Tennessee, Knoxville', {}, { timeout: 15_000 })).toBeInTheDocument()
     expect(screen.getByText(/\$147,976 published in-state cost of attendance, before aid · your top choice/)).toBeInTheDocument()
     expect(screen.queryByRole('link', { name: 'Mark a top choice' })).not.toBeInTheDocument()
     // The biggest opportunity is the top choice's strongest verified lever, worded as a possibility.
     expect(screen.getByText(/4 more ACT points reaches 4 merit awards \(ACT 31\+\) at University of Tennessee, Knoxville/)).toBeInTheDocument()
-  })
+  }, 30_000) // two full dashboard renders; about 3s alone, slower when the whole suite runs in parallel
 
   it('student onboarding asks how sure they are about a major and never requires one', async () => {
     const user = userEvent.setup()
@@ -388,7 +388,18 @@ describe('weekly plan and parent accountability', () => {
     await user.click(screen.getByRole('checkbox', { name: /Tell me when Maya goes/ }))
     expect(await screen.findByText(/Saved\./)).toBeInTheDocument()
     const ctx = await src.getHouseholdContext()
-    expect(await src.getAlertPreference(ctx.students[0]!.id)).toEqual({ enabled: true, inactivityDays: 3 })
+    expect(await src.getAlertPreference(ctx.students[0]!.id)).toEqual({ enabled: true, inactivityDays: 3, weeklyDigest: false })
+    // The Monday summary: opt in, and preview exactly what the sender would build (demo sends nothing).
+    await user.click(screen.getByRole('checkbox', { name: "Email me a summary of Maya's week on Mondays." }))
+    await screen.findByText(/Saved\./)
+    expect(await src.getAlertPreference(ctx.students[0]!.id)).toMatchObject({ weeklyDigest: true })
+    expect(screen.getByText(/Demo: your choices are kept, but no email is sent\./)).toBeInTheDocument()
+    await user.click(screen.getByRole('button', { name: 'Preview the Monday email' }))
+    const preview = screen.getByRole('region', { name: 'Monday email preview' })
+    expect(within(preview).getByText(/^Maya's week on Prep & Price:/)).toBeInTheDocument()
+    expect(preview).toHaveTextContent(/practised on \d days? of 7/)
+    expect(preview).toHaveTextContent('not an ACT or SAT score')
+    expect(preview).not.toHaveTextContent(/predict|estimated score/i)
   }, 20_000)
 
   it('student home shows the week strip, pace, and puts a due progress check first', async () => {

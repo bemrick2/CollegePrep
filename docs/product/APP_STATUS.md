@@ -18,8 +18,8 @@ RPCs. It does not run Supabase Auth, edge functions, email or Stripe.
 | Parent weekly update: pace, days practised, focus, next check | yes | yes | yes |
 | Next-week goal suggestion (server rule, set in one tap by a guardian with goal permission) | yes | yes | yes (one-week history correctly gives no suggestion; a student cannot change the goal) |
 | Inactivity alert preference, and in-app "hasn't practised" notice | yes | yes | yes |
-| Inactivity alert **by email** | no | no | missing: no sender or schedule exists |
-| Weekly digest email to parents | no | no | missing |
+| Inactivity alert **by email** | choice kept, no email sent | sender built (`send-weekly-digest`, mode `inactivity`), not deployed | yes, end to end with the reference CR-22 SQL and a fake mail endpoint: once per stretch, retried after a failed send. Needs CR-22 applied, deployment and a scheduler. |
+| Weekly summary email to parents (Mondays) | opt-in and preview (no email sent) | opt-in behind `VITE_WEEKLY_DIGEST`; sender built, not deployed | yes, same test: dashboard numbers, opted-out guardians excluded, sent once per week, scheduler secret required. Preview uses the same composer as the email. Needs CR-22 applied, deployment and a scheduler. |
 
 **Question content.** 58 original items. Each was reviewed by two independent blind solves plus a key and explanation audit; 3 were fixed and re-reviewed, and one disagreement (a reviewer's arithmetic slip) was worked by hand. Only items whose current content hash was approved are served, in the demo and in the local database. The review is AI review, not human editorial review. The server-side gate (CR-21, migration `20261007140000`, #142) serves only items whose server-computed sha256 matches a recorded approval. The local database seed records approvals through `approve_practice_question`, and is checked end to end. Not applied on hosted.
 

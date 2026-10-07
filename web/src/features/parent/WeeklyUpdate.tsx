@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useApp, useAsync } from '../../lib/app'
 import type { AlertPreference } from '../../lib/data/source'
+import type { BenchmarkSummary } from '../../lib/data/types'
+import { weeklyDigestEmail, type DigestStudent } from '../../../../supabase/functions/send-weekly-digest/digest.ts'
 import type { WeeklyPlan } from '../../lib/engine/weeklyPlan'
 import { formatShortDate } from '../../lib/engine/dates'
 import { Notice, cx, inputClass } from '../../components/ui'
@@ -19,6 +21,7 @@ export function WeeklyUpdate({
   canSetGoals,
   skillName,
   lastPractice,
+  lastCheck = null,
 }: {
   studentId: string
   name: string
@@ -26,6 +29,7 @@ export function WeeklyUpdate({
   canSetGoals: boolean
   skillName: (key: string) => string | null | undefined
   lastPractice: string | null
+  lastCheck?: BenchmarkSummary | null
 }) {
   const { source } = useApp()
   const quiet = useAsync(() => source.inactiveStudents(), [source])
@@ -66,27 +70,51 @@ export function WeeklyUpdate({
               <NextWeekGoal studentId={studentId} weekStart={plan.weekStart} canSet={canSetGoals} name={name} />
             </div>
           </div>
-          <InactivityAlert studentId={studentId} name={name} onChange={quiet.reload} />
+          <EmailUpdates
+            studentId={studentId}
+            name={name}
+            onChange={quiet.reload}
+            preview={{
+              student_id: studentId,
+              student_name: name,
+              week_start: plan.weekStart,
+              goal_questions: plan.target,
+              questions_submitted: plan.done,
+              days_practised: plan.daysPractised,
+              last_practice_at: lastPractice,
+              focus: plan.focus.map((f) => ({ skill_name: skillName(f.skillKey) ?? f.skillKey, section: f.section, reason: f.why, accuracy: f.accuracy ?? null, pacing_ratio: f.pacingRatio ?? null })),
+              last_check: lastCheck ? { kind: lastCheck.kind, completed_at: lastCheck.completed_at } : null,
+              inactivity: alert ? { threshold_days: alert.thresholdDays, days_inactive: alert.daysInactive } : null,
+            }}
+          />
         </div>
       </div>
     </Section>
   )
 }
 
-function InactivityAlert({ studentId, name, onChange }: { studentId: string; name: string; onChange: () => void }) {
-  const { source } = useApp()
+/**
+ * Email updates the parent controls: the inactivity alert and the Monday summary (CR-22). The summary toggle and its
+ * preview appear only where the backend stores the choice; the preview is built by the same composer the sender
+ * uses, from this week so far.
+ */
+function EmailUpdates({ studentId, name, onChange, preview }: { studentId: string; name: string; onChange: () => void; preview: DigestStudent }) {
+  const { source, viewer } = useApp()
   const [pref, setPref] = useState<AlertPreference | null>(null)
   const [saved, setSaved] = useState<'idle' | 'saving' | 'saved' | { error: string }>('idle')
+  const [showPreview, setShowPreview] = useState(false)
+  const digest = source.supportsWeeklyDigest
   useEffect(() => {
     let alive = true
+    const fallback = { enabled: false, inactivityDays: 3, ...(digest ? { weeklyDigest: false } : {}) }
     source
       .getAlertPreference(studentId)
-      .then((p) => alive && setPref(p ?? { enabled: false, inactivityDays: 3 }))
-      .catch(() => alive && setPref({ enabled: false, inactivityDays: 3 }))
+      .then((p) => alive && setPref(p ?? fallback))
+      .catch(() => alive && setPref(fallback))
     return () => {
       alive = false
     }
-  }, [source, studentId])
+  }, [source, studentId, digest])
   if (!pref) return null
   const save = async (next: AlertPreference) => {
     setPref(next)
@@ -100,9 +128,11 @@ function InactivityAlert({ studentId, name, onChange }: { studentId: string; nam
     }
   }
   const id = `alert-days-${studentId}`
+  const demo = source.mode === 'demo'
+  const email = digest ? weeklyDigestEmail({ user_id: viewer?.userId ?? '', email: '', guardian_name: viewer?.displayName ?? null, time_zone: 'UTC', students: [preview] }, window.location.origin, { inProgress: true }) : null
   return (
     <div>
-      <h3 className="text-sm font-bold text-ink">Inactivity alert</h3>
+      <h3 className="text-sm font-bold text-ink">Email updates</h3>
       <label className="mt-2 flex items-start gap-3 text-sm text-ink-2">
         <input type="checkbox" className="mt-0.5 h-4 w-4 accent-[var(--go)]" checked={pref.enabled} onChange={(e) => void save({ ...pref, enabled: e.target.checked })} />
         <span>
@@ -123,10 +153,35 @@ function InactivityAlert({ studentId, name, onChange }: { studentId: string; nam
           days without practice.
         </span>
       </label>
+      {digest && (
+        <label className="mt-2 flex items-start gap-3 text-sm text-ink-2">
+          <input type="checkbox" className="mt-0.5 h-4 w-4 accent-[var(--go)]" checked={!!pref.weeklyDigest} onChange={(e) => void save({ ...pref, weeklyDigest: e.target.checked })} />
+          <span>Email me a summary of {name}'s week on Mondays.</span>
+        </label>
+      )}
       <p className="mt-1 text-xs text-ink-3">
-        {saved === 'saved' ? 'Saved. ' : ''}For now the alert shows here; email delivery of alerts comes later.
+        {saved === 'saved' ? 'Saved. ' : ''}
+        {demo
+          ? 'Demo: your choices are kept, but no email is sent.'
+          : digest
+            ? 'Alerts are emailed once per stretch without practice; the summary covers the week just finished.'
+            : 'For now the alert shows here; email delivery comes later.'}
       </p>
       {typeof saved === 'object' && <p className="text-sm text-bad">{saved.error}</p>}
+      {email && (
+        <div className="mt-2">
+          <button type="button" aria-expanded={showPreview} onClick={() => setShowPreview(!showPreview)} className="text-xs font-semibold text-go-strong underline dark:text-go">
+            {showPreview ? 'Hide the email preview' : 'Preview the Monday email'}
+          </button>
+          {showPreview && (
+            <div className="mt-2 rounded-xl border border-line bg-surface-2 p-3" aria-label="Monday email preview" role="region">
+              <p className="text-xs text-ink-3">Built from this week so far. The real email covers the full week.</p>
+              <p className="mt-2 text-sm font-semibold text-ink">{email.subject}</p>
+              <p className="mt-1 whitespace-pre-line text-sm text-ink-2">{email.text}</p>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   )
 }
