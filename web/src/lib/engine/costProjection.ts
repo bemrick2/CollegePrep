@@ -130,7 +130,7 @@ export function projectRow(c: InstitutionComparison, year: string, a: CostAssump
     levers: [lever('prior_credits', prior, priorOk, caps, priorReason), lever('exam_credits', exam, examOk, examCaps, examReason)],
     credit_savings: {
       certainty: 'potential',
-      assumes: ['counted_credit_applies_to_the_degree', 'schedule_allows_finishing_early'],
+      assumes: ['counted_credit_applies_to_the_degree', 'schedule_allows_finishing_early', ...(exam > 0 ? (['exam_credit_total_entered_by_family'] as const) : [])],
       mechanism: 'fewer_terms',
       billing_structure: 'unknown',
       credits_counted: total,
@@ -147,6 +147,8 @@ export function projectRow(c: InstitutionComparison, year: string, a: CostAssump
     },
     optimized_total: baseline - savings,
     savings_total: savings,
+    // Both totals include the potential credit saving; neither is a projected price.
+    totals_certainty: 'potential',
     not_counted: notCounted,
   }
 }

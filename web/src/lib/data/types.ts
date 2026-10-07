@@ -407,7 +407,8 @@ export interface CreditLever {
 export interface CreditSavings {
   /** Never a confirmed shorter degree: what it would save if the assumptions hold. */
   certainty: 'potential'
-  assumes: ('counted_credit_applies_to_the_degree' | 'schedule_allows_finishing_early')[]
+  /** exam_credit_total_entered_by_family: the exam credit total came from the client, not computed by the server. */
+  assumes: ('counted_credit_applies_to_the_degree' | 'schedule_allows_finishing_early' | 'exam_credit_total_entered_by_family')[]
   /** Savings come only from billing fewer terms by finishing early. */
   mechanism: 'fewer_terms'
   /** No flat-rate vs per-credit tuition data exists, so credit short of a full term is not counted. */
@@ -475,6 +476,8 @@ export interface ProjectionRow {
   credit_savings?: CreditSavings
   optimized_total?: number
   savings_total?: number
+  /** optimized_total and savings_total include potential credit savings; neither is a projected price. */
+  totals_certainty?: 'potential'
   not_counted?: { awards: AwardListing[]; state_aid: StateAidListing[]; appeals: { appeal_kind: string; process_summary: string | null; policy_url: string | null }[]; loans: 'no_data' }
 }
 
