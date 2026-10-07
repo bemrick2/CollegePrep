@@ -2771,116 +2771,51 @@
       "notes": "Reviewed 2026-10-04: Requirement block copied from the 2026-2027 catalog program page. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#4bf371e5503a9d55."
     },
     {
-      "last_verified_at": "2026-10-05",
+      "last_verified_at": "2026-10-06",
       "program_key": "bachelor-of-science-in-cloud-computing-and-solutions",
       "requirement_key": "program-requirements-major-requirements",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "major_core",
-        "choose_count": 1,
+        "source_section": "Program Requirements — Major Requirements",
+        "group_type": "all_required",
         "courses": [
           {
             "code": "IT 222",
-            "credits": 5,
-            "title": "🌐 Introduction to Cloud Computing"
+            "title": "🌐 Introduction to Cloud Computing",
+            "credits": 5
           },
           {
             "code": "IT 227",
-            "credits": 5,
-            "title": "🌐 Cloud Infrastructure Administration"
+            "title": "🌐 Cloud Infrastructure Administration",
+            "credits": 5
           },
           {
             "code": "IT 234",
-            "credits": 5,
-            "title": "🌐 Database Concepts"
-          },
-          {
-            "code": "IN 250",
-            "title": "🌐 Software Development Concepts Using Python"
-          },
-          {
-            "code": "IN 251",
-            "title": "🌐 Software Development Concepts Using C#"
-          },
-          {
-            "code": "IN 252",
-            "title": "🌐 Software Development Concepts Using Java"
-          },
-          {
-            "code": "IN 253",
-            "title": "🌐 Software Development Concepts Using JavaScript and PHP"
-          },
-          {
-            "code": "IT 273",
-            "credits": 5,
-            "title": "🌐 Networking Concepts"
-          },
-          {
-            "code": "IT 278",
-            "credits": 5,
-            "title": "🌐 Windows Administration"
-          },
-          {
-            "code": "IT 286",
-            "credits": 5,
-            "title": "🌐 Network Security Concepts"
-          },
-          {
-            "code": "IT 303",
-            "credits": 6,
-            "title": "🌐 Cloud Architecture Concepts and Design"
-          },
-          {
-            "code": "IT 304",
-            "credits": 6,
-            "title": "🌐 Application Development and Scripting in the Cloud"
-          },
-          {
-            "code": "IT 306",
-            "credits": 6,
-            "title": "🌐 Cloud Services Management"
-          },
-          {
-            "code": "IT 403",
-            "credits": 6,
-            "title": "🌐 Cloud Security"
-          },
-          {
-            "code": "IT 404",
-            "credits": 6,
-            "title": "🌐 Advanced Cloud Security"
-          },
-          {
-            "code": "IT 413",
-            "credits": 6,
-            "title": "🌐 Migrating Data and Applications to the Cloud"
-          },
-          {
-            "code": "IT 414",
-            "credits": 6,
-            "title": "🌐 Software Development Operations in Cloud Environments"
-          },
-          {
-            "code": "IT 460",
-            "credits": 6,
-            "title": "🌐 Systems Analysis and Design"
-          },
-          {
-            "code": "IT 473",
-            "credits": 6,
-            "title": "Bachelor's Capstone in Cloud Computing and Solutions"
+            "title": "🌐 Database Concepts",
+            "credits": 5
           }
-        ],
-        "group_type": "choose_courses",
-        "rule_text": "Select one of the following: 5 Total Major Requirements 89",
-        "schema": "requirement_group/v1",
-        "source_section": "Program Requirements — Major Requirements"
+        ]
       },
       "source_url": "https://catalog.purdueglobal.edu/undergraduate/business-information-technology/cloud-computing-solutions-bs/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The group prints 15 required courses and one \"Select one of the following\" among IN250-IN253; the record called it one choice of one from all 19 courses. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/IN/2026-10-04/evidence.json#f471cf82b1f943ea.",
-      "verification_correction_reason": "The group prints 15 required courses and one \"Select one of the following\" among IN250-IN253; the record called it one choice of one from all 19 courses. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 77b0e54d770a…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is 3 required courses. Independently re-verified against the archived source rows: Rows under 'Major Requirements': IT222, IT227, IT234 each '| 5' before 'Select one of the following: | 5'. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#f471cf82b1f943ea.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The group prints 15 required courses and one \"Select one of the following\" among IN250-IN253; the record called it one choice of one from all 19 courses. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 3 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-05",
@@ -3834,81 +3769,66 @@
       "notes": "Reviewed 2026-10-04: Requirement block copied from the 2026-2027 catalog program page. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#cce91badae07cc71."
     },
     {
-      "last_verified_at": "2026-10-05",
+      "last_verified_at": "2026-10-06",
       "program_key": "associate-of-applied-science-in-information-technology",
       "requirement_key": "program-requirements-major-requirements",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "major_core",
-        "choose_count": 1,
+        "source_section": "Program Requirements — Major Requirements",
+        "group_type": "all_required",
         "courses": [
           {
             "code": "CS 114",
-            "credits": 5,
-            "title": "Academic Strategies for the IT Professional"
+            "title": "Academic Strategies for the IT Professional",
+            "credits": 5
           },
           {
             "code": "IT 117",
-            "credits": 5,
-            "title": "🌐 Website Development"
+            "title": "🌐 Website Development",
+            "credits": 5
           },
           {
             "code": "IN 150",
-            "credits": 5,
-            "title": "Foundations for Success in Information Technology (IT) Careers"
+            "title": "Foundations for Success in Information Technology (IT) Careers",
+            "credits": 5
           },
           {
             "code": "IT 163",
-            "credits": 5,
-            "title": "🌐 Database Concepts Using Microsoft Access"
+            "title": "🌐 Database Concepts Using Microsoft Access",
+            "credits": 5
           },
           {
             "code": "IT 190",
-            "credits": 5,
-            "title": "🌐 Information Technology Concepts"
+            "title": "🌐 Information Technology Concepts",
+            "credits": 5
           },
           {
             "code": "IT 234",
-            "credits": 5,
-            "title": "🌐 Database Concepts"
-          },
-          {
-            "code": "IN 250",
-            "title": "🌐 Software Development Concepts Using Python"
-          },
-          {
-            "code": "IN 251",
-            "title": "🌐 Software Development Concepts Using C#"
-          },
-          {
-            "code": "IN 252",
-            "title": "🌐 Software Development Concepts Using Java"
-          },
-          {
-            "code": "IN 253",
-            "title": "🌐 Software Development Concepts Using JavaScript and PHP"
-          },
-          {
-            "code": "IT 273",
-            "credits": 5,
-            "title": "🌐 Networking Concepts"
-          },
-          {
-            "code": "IT 299",
-            "credits": 5,
-            "title": "IT Integrative Project"
+            "title": "🌐 Database Concepts",
+            "credits": 5
           }
-        ],
-        "group_type": "choose_courses",
-        "rule_text": "Select one of the following: 5 Total Major Requirements 45",
-        "schema": "requirement_group/v1",
-        "source_section": "Program Requirements — Major Requirements"
+        ]
       },
       "source_url": "https://catalog.purdueglobal.edu/undergraduate/business-information-technology/information-technology-aas/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The group prints eight required courses and one \"Select one of the following\" among IN250-IN253; the record called it one choice of one from all 12 courses. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/IN/2026-10-04/evidence.json#f22ab647e940088c.",
-      "verification_correction_reason": "The group prints eight required courses and one \"Select one of the following\" among IN250-IN253; the record called it one choice of one from all 12 courses. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 071358cda74e…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is 6 required courses. Independently re-verified against the archived source rows: 'Major Requirements': CS114, IT117, IN150, IT163, IT190, IT234 each '| 5' before 'Select one of the following: | 5'. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#f22ab647e940088c.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The group prints eight required courses and one \"Select one of the following\" among IN250-IN253; the record called it one choice of one from all 12 courses. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 3 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-05",
@@ -5231,13 +5151,16 @@
       "notes": "Reviewed 2026-10-04: Requirement block copied from the 2026-2027 catalog program page. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#c29921c2c1852356."
     },
     {
-      "last_verified_at": "2026-10-05",
+      "last_verified_at": "2026-10-06",
       "program_key": "associate-of-applied-science-in-health-science",
       "requirement_key": "preprofessional",
       "requirement_kind": "other",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "other",
+        "source_section": "Preprofessional",
+        "group_type": "choose_courses",
         "choose_count": 2,
         "courses": [
           {
@@ -5275,49 +5198,27 @@
           {
             "code": "SS 144",
             "title": "Sociology"
-          },
-          {
-            "code": "HS 305",
-            "title": "Research Methods for Health Sciences"
-          },
-          {
-            "code": "HS 315",
-            "title": "🌐 Practices in Public Health"
-          },
-          {
-            "code": "HS 340",
-            "title": "Epidemiology"
-          },
-          {
-            "code": "HW 310",
-            "title": "Complementary and Integrative Medicine"
-          },
-          {
-            "code": "SC 320",
-            "title": "Microbiology for Health Professions"
-          },
-          {
-            "code": "SC 335",
-            "title": "Survey of Biochemistry"
-          },
-          {
-            "code": "SC 415",
-            "title": "Environmental Health"
-          },
-          {
-            "code": "SC 435",
-            "title": "🌐 Genetics"
           }
         ],
-        "group_type": "choose_courses",
-        "rule_text": "Select two of the following: 10 Select two of the following: 12 Major Electives 23 TOTAL CREDITS 45",
-        "schema": "requirement_group/v1",
-        "source_section": "Preprofessional"
+        "rule_text": "Select two of the following: 10"
       },
       "source_url": "https://catalog.purdueglobal.edu/undergraduate/health-sciences/health-science-aas/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The concentration prints two separate \"Select two of the following\" lists (10 credits from nine 100-level courses, 12 credits from eight upper-level courses); the record called it one choice of two from all 17 courses. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/IN/2026-10-04/evidence.json#5282e3dbc49154f8.",
-      "verification_correction_reason": "The concentration prints two separate \"Select two of the following\" lists (10 credits from nine 100-level courses, 12 credits from eight upper-level courses); the record called it one choice of two from all 17 courses. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 e5fda4e45072…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 2 of 9 listed courses. Independently re-verified against the archived source rows: 'Select two of the following: | 10' then CM206, MM207, PS124, SC115, SC121, SC131, SC180, SC190, SS144. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#5282e3dbc49154f8.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The concentration prints two separate \"Select two of the following\" lists (10 credits from nine 100-level courses, 12 credits from eight upper-level courses); the record called it one choice of two from all 17 courses. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 3 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-05",
@@ -5399,13 +5300,16 @@
       "notes": "Reviewed 2026-10-04: Requirement block copied from the 2026-2027 catalog program page. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#57bf713edf5871e5."
     },
     {
-      "last_verified_at": "2026-10-05",
+      "last_verified_at": "2026-10-06",
       "program_key": "associate-of-science-in-health-science",
       "requirement_key": "preprofessional",
       "requirement_kind": "other",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "other",
+        "source_section": "Preprofessional",
+        "group_type": "choose_courses",
         "choose_count": 2,
         "courses": [
           {
@@ -5443,49 +5347,27 @@
           {
             "code": "SS 144",
             "title": "Sociology"
-          },
-          {
-            "code": "HS 305",
-            "title": "Research Methods for Health Sciences"
-          },
-          {
-            "code": "HS 315",
-            "title": "🌐 Practices in Public Health"
-          },
-          {
-            "code": "HS 340",
-            "title": "Epidemiology"
-          },
-          {
-            "code": "HW 310",
-            "title": "Complementary and Integrative Medicine"
-          },
-          {
-            "code": "SC 320",
-            "title": "Microbiology for Health Professions"
-          },
-          {
-            "code": "SC 335",
-            "title": "Survey of Biochemistry"
-          },
-          {
-            "code": "SC 415",
-            "title": "Environmental Health"
-          },
-          {
-            "code": "SC 435",
-            "title": "🌐 Genetics"
           }
         ],
-        "group_type": "choose_courses",
-        "rule_text": "Select two of the following: 10 Select two of the following: 12 TOTAL CREDITS 22",
-        "schema": "requirement_group/v1",
-        "source_section": "Preprofessional"
+        "rule_text": "Select two of the following: 10"
       },
       "source_url": "https://catalog.purdueglobal.edu/undergraduate/health-sciences/health-science-as/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The concentration prints two separate \"Select two of the following\" lists (10 credits from nine 100-level courses, 12 credits from eight upper-level courses); the record called it one choice of two from all 17 courses. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/IN/2026-10-04/evidence.json#8876d5e1eb7fe6a3.",
-      "verification_correction_reason": "The concentration prints two separate \"Select two of the following\" lists (10 credits from nine 100-level courses, 12 credits from eight upper-level courses); the record called it one choice of two from all 17 courses. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 cca0d111f7a1…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 2 of 9 listed courses. Independently re-verified against the archived source rows: 'Select two of the following: | 10' then CM206 ... SS144 (9 courses). Evidence: sources/pipeline/IN/2026-10-04/evidence.json#8876d5e1eb7fe6a3.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The concentration prints two separate \"Select two of the following\" lists (10 credits from nine 100-level courses, 12 credits from eight upper-level courses); the record called it one choice of two from all 17 courses. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 2 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-05",
@@ -8654,6 +8536,364 @@
       "source_url": "https://catalog.purdueglobal.edu/undergraduate/social-behavioral-sciences/fire-emergency-management-bs/",
       "verification_status": "verified",
       "notes": "Reviewed 2026-10-04: Requirement block copied from the 2026-2027 catalog program page. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#61510d93f562258c."
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "bachelor-of-science-in-cloud-computing-and-solutions",
+      "requirement_key": "program-requirements-major-requirements-2-select-one-of-the-following",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Program Requirements — Major Requirements — Select one of the following:",
+        "group_type": "choose_courses",
+        "choose_count": 1,
+        "courses": [
+          {
+            "code": "IN 250",
+            "title": "🌐 Software Development Concepts Using Python"
+          },
+          {
+            "code": "IN 251",
+            "title": "🌐 Software Development Concepts Using C#"
+          },
+          {
+            "code": "IN 252",
+            "title": "🌐 Software Development Concepts Using Java"
+          },
+          {
+            "code": "IN 253",
+            "title": "🌐 Software Development Concepts Using JavaScript and PHP"
+          }
+        ],
+        "rule_text": "Select one of the following: 5"
+      },
+      "source_url": "https://catalog.purdueglobal.edu/undergraduate/business-information-technology/cloud-computing-solutions-bs/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 77b0e54d770a…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 1 of 4 listed courses. Independently re-verified against the archived source rows: 'Select one of the following: | 5' followed by IN250, IN251, IN252, IN253 (no credits); next row IT273 '| 5' is required. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#6225efb6e3fd9292.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from program-requirements-major-requirements (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "bachelor-of-science-in-cloud-computing-and-solutions",
+      "requirement_key": "program-requirements-major-requirements-3-required",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Program Requirements — Major Requirements — Required",
+        "group_type": "all_required",
+        "courses": [
+          {
+            "code": "IT 273",
+            "title": "🌐 Networking Concepts",
+            "credits": 5
+          },
+          {
+            "code": "IT 278",
+            "title": "🌐 Windows Administration",
+            "credits": 5
+          },
+          {
+            "code": "IT 286",
+            "title": "🌐 Network Security Concepts",
+            "credits": 5
+          },
+          {
+            "code": "IT 303",
+            "title": "🌐 Cloud Architecture Concepts and Design",
+            "credits": 6
+          },
+          {
+            "code": "IT 304",
+            "title": "🌐 Application Development and Scripting in the Cloud",
+            "credits": 6
+          },
+          {
+            "code": "IT 306",
+            "title": "🌐 Cloud Services Management",
+            "credits": 6
+          },
+          {
+            "code": "IT 403",
+            "title": "🌐 Cloud Security",
+            "credits": 6
+          },
+          {
+            "code": "IT 404",
+            "title": "🌐 Advanced Cloud Security",
+            "credits": 6
+          },
+          {
+            "code": "IT 413",
+            "title": "🌐 Migrating Data and Applications to the Cloud",
+            "credits": 6
+          },
+          {
+            "code": "IT 414",
+            "title": "🌐 Software Development Operations in Cloud Environments",
+            "credits": 6
+          },
+          {
+            "code": "IT 460",
+            "title": "🌐 Systems Analysis and Design",
+            "credits": 6
+          },
+          {
+            "code": "IT 473",
+            "title": "Bachelor's Capstone in Cloud Computing and Solutions",
+            "credits": 6
+          }
+        ]
+      },
+      "source_url": "https://catalog.purdueglobal.edu/undergraduate/business-information-technology/cloud-computing-solutions-bs/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 77b0e54d770a…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is 12 required courses. Independently re-verified against the archived source rows: After the IN25x choice, IT273 ... IT473 each print their own credits (5/6) up to 'Total Major Requirements | 89'. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#4abf6d3ce7f4b6d5.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from program-requirements-major-requirements (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "associate-of-applied-science-in-information-technology",
+      "requirement_key": "program-requirements-major-requirements-2-select-one-of-the-following",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Program Requirements — Major Requirements — Select one of the following:",
+        "group_type": "choose_courses",
+        "choose_count": 1,
+        "courses": [
+          {
+            "code": "IN 250",
+            "title": "🌐 Software Development Concepts Using Python"
+          },
+          {
+            "code": "IN 251",
+            "title": "🌐 Software Development Concepts Using C#"
+          },
+          {
+            "code": "IN 252",
+            "title": "🌐 Software Development Concepts Using Java"
+          },
+          {
+            "code": "IN 253",
+            "title": "🌐 Software Development Concepts Using JavaScript and PHP"
+          }
+        ],
+        "rule_text": "Select one of the following: 5"
+      },
+      "source_url": "https://catalog.purdueglobal.edu/undergraduate/business-information-technology/information-technology-aas/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 071358cda74e…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 1 of 4 listed courses. Independently re-verified against the archived source rows: 'Select one of the following: | 5' then IN250, IN251, IN252, IN253 (blank credits). Evidence: sources/pipeline/IN/2026-10-04/evidence.json#6f6c1dad7e870ef7.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from program-requirements-major-requirements (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "associate-of-applied-science-in-information-technology",
+      "requirement_key": "program-requirements-major-requirements-3-required",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Program Requirements — Major Requirements — Required",
+        "group_type": "all_required",
+        "courses": [
+          {
+            "code": "IT 273",
+            "title": "🌐 Networking Concepts",
+            "credits": 5
+          },
+          {
+            "code": "IT 299",
+            "title": "IT Integrative Project",
+            "credits": 5
+          }
+        ]
+      },
+      "source_url": "https://catalog.purdueglobal.edu/undergraduate/business-information-technology/information-technology-aas/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 071358cda74e…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is 2 required courses. Independently re-verified against the archived source rows: After the choice: 'IT273 | Networking Concepts | 5', 'IT299 | IT Integrative Project | 5', then 'Total Major Requirements | 45'. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#8e815dc850d94c06.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from program-requirements-major-requirements (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "associate-of-applied-science-in-health-science",
+      "requirement_key": "preprofessional-2-select-two-of-the-following",
+      "requirement_kind": "other",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "other",
+        "source_section": "Preprofessional — Select two of the following:",
+        "group_type": "choose_courses",
+        "choose_count": 2,
+        "courses": [
+          {
+            "code": "HS 305",
+            "title": "Research Methods for Health Sciences"
+          },
+          {
+            "code": "HS 315",
+            "title": "🌐 Practices in Public Health"
+          },
+          {
+            "code": "HS 340",
+            "title": "Epidemiology"
+          },
+          {
+            "code": "HW 310",
+            "title": "Complementary and Integrative Medicine"
+          },
+          {
+            "code": "SC 320",
+            "title": "Microbiology for Health Professions"
+          },
+          {
+            "code": "SC 335",
+            "title": "Survey of Biochemistry"
+          },
+          {
+            "code": "SC 415",
+            "title": "Environmental Health"
+          },
+          {
+            "code": "SC 435",
+            "title": "🌐 Genetics"
+          }
+        ],
+        "rule_text": "Select two of the following: 12"
+      },
+      "source_url": "https://catalog.purdueglobal.edu/undergraduate/health-sciences/health-science-aas/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 e5fda4e45072…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 2 of 8 listed courses. Independently re-verified against the archived source rows: Second 'Select two of the following: | 12' then HS305, HS315, HS340, HW310, SC320, SC335, SC415, SC435. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#06ed216e14b3095f.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from preprofessional (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "associate-of-applied-science-in-health-science",
+      "requirement_key": "preprofessional-3-major-electives-23",
+      "requirement_kind": "other",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "other",
+        "source_section": "Preprofessional — Major Electives 23",
+        "group_type": "elective_pool",
+        "course_rules": [
+          "Major Electives 23"
+        ]
+      },
+      "source_url": "https://catalog.purdueglobal.edu/undergraduate/health-sciences/health-science-aas/",
+      "verification_status": "unverified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 e5fda4e45072…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is a pool as printed. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#c4be2b9395580a51.",
+      "verification_correction_reason": "The source prints only an area label with hours (\"Major Electives 23\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "split from preprofessional (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "associate-of-science-in-health-science",
+      "requirement_key": "preprofessional-2-select-two-of-the-following",
+      "requirement_kind": "other",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "other",
+        "source_section": "Preprofessional — Select two of the following:",
+        "group_type": "choose_courses",
+        "choose_count": 2,
+        "courses": [
+          {
+            "code": "HS 305",
+            "title": "Research Methods for Health Sciences"
+          },
+          {
+            "code": "HS 315",
+            "title": "🌐 Practices in Public Health"
+          },
+          {
+            "code": "HS 340",
+            "title": "Epidemiology"
+          },
+          {
+            "code": "HW 310",
+            "title": "Complementary and Integrative Medicine"
+          },
+          {
+            "code": "SC 320",
+            "title": "Microbiology for Health Professions"
+          },
+          {
+            "code": "SC 335",
+            "title": "Survey of Biochemistry"
+          },
+          {
+            "code": "SC 415",
+            "title": "Environmental Health"
+          },
+          {
+            "code": "SC 435",
+            "title": "🌐 Genetics"
+          }
+        ],
+        "rule_text": "Select two of the following: 12"
+      },
+      "source_url": "https://catalog.purdueglobal.edu/undergraduate/health-sciences/health-science-as/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 cca0d111f7a1…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 2 of 8 listed courses. Independently re-verified against the archived source rows: 'Select two of the following: | 12' then HS305 ... SC435 (8 courses), then 'TOTAL CREDITS | 22'. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#ef04e8cca255a67c.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from preprofessional (issue #95)"
+        }
+      ]
     }
   ]
 }

@@ -83,6 +83,8 @@ Categories:
 - `minor`: a minor.
 - `other`: anything else.
 
+**Groups that print a required part and choices.** A catalog section that prints required courses together with one or more printed choices ("Select one of the following", "Complete 6 credits from the following courses") is recorded as one row per printed part, in printed order: the required courses as `all_required`, each choice with its own count and members. The section's own `requirement_key` carries its first part that reads cleanly; the other parts take `<key>-<n>-<choice text>`. A part the rows cannot settle (an area printed with hours but no course list, a choice across areas, a count that disagrees with the printed hours, a list whose end cannot be read, a course marked "recommended") is kept `unverified` with the reason in `verification_correction_reason` (issue #95).
+
 **Course items.** A course item is `{"code": "COSC 102", "title": "...", "credits": 4}`. `credits` may be a string such as `"1-3"` when the catalog prints a range. Optional `prerequisites_text` and `corequisites_text` copy the catalog wording verbatim. A printed "X or Y" choice is `{"any_of": [item, item]}`.
 
 **Rules.**

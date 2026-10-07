@@ -1350,99 +1350,9 @@
  "2f8568a36373edcb": {
   "decision": {
    "candidate_id": "2f8568a36373edcb",
-   "reason": "Course list checked against the 2026-2027 VSU catalog table (codes, titles, hours; elective lists recorded as pools)."
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
   },
   "evidence": [
-   {
-    "field": "courses",
-    "snippet": "ARTS 203 - Printmaking I",
-    "value": "ARTS 203"
-   },
-   {
-    "field": "courses",
-    "snippet": "ARTS 204 - Printmaking II",
-    "value": "ARTS 204"
-   },
-   {
-    "field": "courses",
-    "snippet": "ARTS 303 - Sculpture - Wood",
-    "value": "ARTS 303"
-   },
-   {
-    "field": "courses",
-    "snippet": "ARTS 304 - Sculpture - Mold MakingI",
-    "value": "ARTS 304"
-   },
-   {
-    "field": "courses",
-    "snippet": "ARTS 305 - Painting - Still Life",
-    "value": "ARTS 305"
-   },
-   {
-    "field": "courses",
-    "snippet": "ARTS 306 - Painting - Landscape",
-    "value": "ARTS 306"
-   },
-   {
-    "field": "courses",
-    "snippet": "ARTS 309 - Ceramics - Hand Building",
-    "value": "ARTS 309"
-   },
-   {
-    "field": "courses",
-    "snippet": "ARTS 310 - Ceramics - Wheel Throwing",
-    "value": "ARTS 310"
-   },
-   {
-    "field": "courses",
-    "snippet": "ARTS 312 - Advanced Drawing",
-    "value": "ARTS 312"
-   },
-   {
-    "field": "courses",
-    "snippet": "ARTS 313 - Black & White Photography I",
-    "value": "ARTS 313"
-   },
-   {
-    "field": "courses",
-    "snippet": "ARTS 314 - Black & White Photography II",
-    "value": "ARTS 314"
-   },
-   {
-    "field": "courses",
-    "snippet": "ARTS 409 - Ceramics - Mold Making",
-    "value": "ARTS 409"
-   },
-   {
-    "field": "courses",
-    "snippet": "ARTS 410 - Ceramics - Mixed Media",
-    "value": "ARTS 410"
-   },
-   {
-    "field": "courses",
-    "snippet": "ARTS 412 - Experimental Drawing",
-    "value": "ARTS 412"
-   },
-   {
-    "field": "courses",
-    "snippet": "ARTS 413 - Sculpture - Metal",
-    "value": "ARTS 413"
-   },
-   {
-    "field": "courses",
-    "snippet": "ARTS 414 - Sculpture - Mixed Media",
-    "value": "ARTS 414"
-   },
-   {
-    "field": "courses",
-    "snippet": "ARTS 415 - Painting - Figure",
-    "value": "ARTS 415"
-   },
-   {
-    "field": "courses",
-    "snippet": "ARTS 416 - Painting - Mixed Media",
-    "value": "ARTS 416"
-   },
    {
     "field": "courses",
     "snippet": "ARTS 303 - Sculpture - Wood",
@@ -1506,6 +1416,7 @@
   ],
   "extractor": "catalog_program/v1",
   "issues": [],
+  "recovered_from": "2f8568a36373edcb",
   "source": {
    "fetched_at": "2026-10-03T10:35:50+00:00",
    "kind": "html",
@@ -2657,6 +2568,35 @@
    "sha256": "acbcc7c4015065cc05ec7aa1aed09417d61269448ca27f51430197cdb4ca53bb",
    "title": "Information Logistics Technology Major, Bachelor of Science (B.S) | Virginia State University Catalog",
    "url": "https://catalog.vsu.edu/undergraduate/college-engineering-technology/department-technology/information-logistics-technology-major-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "530b46dcbec055b9": {
+  "decision": {
+   "candidate_id": "530b46dcbec055b9",
+   "reason": "Issue #95 recovery: held; The source prints only an area label with hours (\"Unrestricted Electives 12\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery)."
+  },
+  "evidence": [
+   {
+    "field": "section",
+    "snippet": "Restricted and Unrestricted Electives — Unrestricted Electives 12",
+    "value": "restricted-and-unrestricted-electives-1-unrestricted-electives-12"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [
+   "area_requirement_without_course_list"
+  ],
+  "recovered_from": "2f8568a36373edcb",
+  "source": {
+   "fetched_at": "2026-10-03T10:35:50+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 31 Aug 2026 14:50:00 GMT",
+   "page_file": "2446c324763cf5bf2dcb.json.gz",
+   "requested_url": "https://catalog.vsu.edu/undergraduate/college-humanities-social-sciences/department-art-design/visual-arts-studio-concentration-bfa/",
+   "sha256": "2446c324763cf5bf2dcbb9c6ebcde8b0c36b6078697560bc68a356694813f869",
+   "title": "Visual Arts, Bachelor of Fine Arts with a Concentration in Studio Arts (B.F.A.) | Virginia State University Catalog",
+   "url": "https://catalog.vsu.edu/undergraduate/college-humanities-social-sciences/department-art-design/visual-arts-studio-concentration-bfa/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -5506,6 +5446,120 @@
    "sha256": "f4ee551392d2b91ae4ef452d6d7da6256a67ed7255632f8d96562e9e915e7091",
    "title": "Financial Aid | Bridgewater College",
    "url": "https://www.bridgewater.edu/admissions-aid/tuition-and-financial-aid/financial-aid/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "a680cc61d8d9551a": {
+  "decision": {
+   "candidate_id": "a680cc61d8d9551a",
+   "reason": "Issue #95 recovery: held; The printed count and the printed hours do not agree (\"Restricted Electives Choose 3 courses from the following list. 21\"). Held for review (issue #95 recovery)."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "ARTS 203 - Printmaking I",
+    "value": "ARTS 203"
+   },
+   {
+    "field": "courses",
+    "snippet": "ARTS 204 - Printmaking II",
+    "value": "ARTS 204"
+   },
+   {
+    "field": "courses",
+    "snippet": "ARTS 303 - Sculpture - Wood",
+    "value": "ARTS 303"
+   },
+   {
+    "field": "courses",
+    "snippet": "ARTS 304 - Sculpture - Mold MakingI",
+    "value": "ARTS 304"
+   },
+   {
+    "field": "courses",
+    "snippet": "ARTS 305 - Painting - Still Life",
+    "value": "ARTS 305"
+   },
+   {
+    "field": "courses",
+    "snippet": "ARTS 306 - Painting - Landscape",
+    "value": "ARTS 306"
+   },
+   {
+    "field": "courses",
+    "snippet": "ARTS 309 - Ceramics - Hand Building",
+    "value": "ARTS 309"
+   },
+   {
+    "field": "courses",
+    "snippet": "ARTS 310 - Ceramics - Wheel Throwing",
+    "value": "ARTS 310"
+   },
+   {
+    "field": "courses",
+    "snippet": "ARTS 312 - Advanced Drawing",
+    "value": "ARTS 312"
+   },
+   {
+    "field": "courses",
+    "snippet": "ARTS 313 - Black & White Photography I",
+    "value": "ARTS 313"
+   },
+   {
+    "field": "courses",
+    "snippet": "ARTS 314 - Black & White Photography II",
+    "value": "ARTS 314"
+   },
+   {
+    "field": "courses",
+    "snippet": "ARTS 409 - Ceramics - Mold Making",
+    "value": "ARTS 409"
+   },
+   {
+    "field": "courses",
+    "snippet": "ARTS 410 - Ceramics - Mixed Media",
+    "value": "ARTS 410"
+   },
+   {
+    "field": "courses",
+    "snippet": "ARTS 412 - Experimental Drawing",
+    "value": "ARTS 412"
+   },
+   {
+    "field": "courses",
+    "snippet": "ARTS 413 - Sculpture - Metal",
+    "value": "ARTS 413"
+   },
+   {
+    "field": "courses",
+    "snippet": "ARTS 414 - Sculpture - Mixed Media",
+    "value": "ARTS 414"
+   },
+   {
+    "field": "courses",
+    "snippet": "ARTS 415 - Painting - Figure",
+    "value": "ARTS 415"
+   },
+   {
+    "field": "courses",
+    "snippet": "ARTS 416 - Painting - Mixed Media",
+    "value": "ARTS 416"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [
+   "printed_count_and_credits_disagree"
+  ],
+  "recovered_from": "2f8568a36373edcb",
+  "source": {
+   "fetched_at": "2026-10-03T10:35:50+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 31 Aug 2026 14:50:00 GMT",
+   "page_file": "2446c324763cf5bf2dcb.json.gz",
+   "requested_url": "https://catalog.vsu.edu/undergraduate/college-humanities-social-sciences/department-art-design/visual-arts-studio-concentration-bfa/",
+   "sha256": "2446c324763cf5bf2dcbb9c6ebcde8b0c36b6078697560bc68a356694813f869",
+   "title": "Visual Arts, Bachelor of Fine Arts with a Concentration in Studio Arts (B.F.A.) | Virginia State University Catalog",
+   "url": "https://catalog.vsu.edu/undergraduate/college-humanities-social-sciences/department-art-design/visual-arts-studio-concentration-bfa/"
   },
   "year_basis": "labeled_in_source"
  },

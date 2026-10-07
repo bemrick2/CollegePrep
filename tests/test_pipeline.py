@@ -1395,19 +1395,108 @@ minimum grade point average (GPA) of 3.0 are eligible for dual enrollment. Out-o
         g = groups(raw.replace(gen, b'<tr><td>Choose from:</td><td>3-4</td></tr>' + gen))[coll]
         self.assertEqual(g['record']['rule_details']['group_type'], 'elective_pool')
         self.assertIn('choice_rule_unparsed', g['issues'])
-        # WKU Visual Studies: a required part and a choice in one group is held for review, not split by guesswork.
+        self.assertIn('choice_list_end_unclear', g['issues'])  # its members print their own hours: where the list ends is unknown
+        # Issue #95 recovery: a group that prints a required part and choices is split into one group per printed part.
+        def parts(gs, base):
+            return [(k, c['record']['rule_details'], [i for i in c['issues'] if i != 'requirement_groups_skipped']) for k, c in gs.items() if (c.get('checks') or {}).get('split_of') == base]
+        # WKU Visual Studies: the choice and the uncoded "Required Capstone Course" are separate parts; the courses below stay required.
         mixed = b'<tr><td>Select two Upper-Level Art History Courses:</td><td>6</td></tr><tr><td>Required Capstone Course:</td><td>1</td></tr>'
-        g = groups(raw.replace(gen, mixed + gen))[coll]
-        self.assertIn('mixed_required_and_choice', g['issues'])
-        self.assertNotEqual(g['record']['rule_details']['group_type'], 'all_required')
-        # UVU Music / WKU Professional Education: required courses printed above the choice line make the group mixed.
-        g = groups(raw.replace(b'<tr><td>BIOL 300</td>', b'<tr><td>BIOL 299</td><td>Seminar</td><td>1</td></tr>' + sel + b'<tr><td>BIOL 300</td>').replace(sel, b'', 1))[elect]
-        self.assertIn('mixed_required_and_choice', g['issues'])
-        # WKU Legal Studies: two separate "(choose one)" rules in one group are also mixed.
+        ps = parts(groups(raw.replace(gen, mixed + gen)), coll)
+        shapes = [(rd['group_type'], rd.get('choose_count'), [c['code'] for c in rd.get('courses', [])], iss) for _, rd, iss in ps]
+        self.assertIn(('elective_pool', None, [], ['choice_without_course_list']), shapes)  # "Select two ... Courses" prints no list: held
+        self.assertIn(('elective_pool', None, [], ['area_requirement_without_course_list']), shapes)
+        self.assertIn(('all_required', None, ['ENG 100', 'HIST 101'], []), shapes)
+        # UVU Music / WKU Professional Education: a course printed with its own hours above the choice is required.
+        ps = parts(groups(raw.replace(b'<tr><td>BIOL 300</td>', b'<tr><td>BIOL 299</td><td>Seminar</td><td>1</td></tr>' + sel + b'<tr><td>BIOL 300</td>').replace(sel, b'', 1)), elect)
+        req = [rd for _, rd, _ in ps if rd['group_type'] == 'all_required']
+        self.assertTrue(req and 'BIOL 299' in [c['code'] for c in req[0]['courses']])
+        self.assertIn(('choose_credits', 12, ['BIOL 300', 'BIOL 310']), [(rd['group_type'], rd.get('choose_credits'), [c['code'] for c in rd.get('courses', [])]) for _, rd, _ in ps])
+        # WKU Legal Studies: two "(choose one)" rules are two parts, each a choice of one.
         two = b'<tr><td>Ethics course (choose one)</td><td>3</td></tr><tr><td>International Elective course (choose one):</td><td>3</td></tr>'
-        g = groups(raw.replace(gen, two + gen))[coll]
-        self.assertIn('mixed_required_and_choice', g['issues'])
-        self.assertIn('choice_rule_unparsed', g['issues'])
+        ps = parts(groups(raw.replace(gen, two + gen)), coll)
+        self.assertEqual([(rd['group_type'], rd.get('choose_count')) for _, rd, _ in ps if rd['group_type'] != 'all_required'], [('elective_pool', None), ('choose_courses', 1)])
+        self.assertEqual([iss for _, rd, iss in ps if rd['group_type'] != 'all_required'], [['choice_without_course_list'], ['choice_list_end_unclear']])
+
+    def test_mixed_choice_groups_split_by_layout(self):
+        """Issue #95 recovery layouts: TAMUSA, Purdue Global, UVU, NC State (archived 2026-27 pages)."""
+        def table(rows, head='Code|Title|Credits'):
+            cells = lambda r: ''.join(f'<td>{c}</td>' for c in r.split('|'))
+            return ('<table class="sc_courselist"><caption>Course List</caption><tr>' + ''.join(f'<th>{h}</th>' for h in head.split('|')) + '</tr>'
+                    + ''.join(f'<tr>{cells(r)}</tr>' for r in rows) + '</table>')
+        def split(rows, heading='Departmental Requirements', every=False):
+            html = (f'<html><head><title>Example, BS &lt; Example University</title></head><body><p>2026-2027 Undergraduate Catalog</p>'
+                    f'<h1>Example, BS</h1><h2>{heading}</h2>{table(rows)}</body></html>').encode()
+            out = catalog.extract(INST, {**ENTRY, 'url': 'https://catalog.example.edu/ug/example-bs/'}, T.parse_html(html, 'https://x'), '2026-27')
+            return [(c['record']['requirement_key'], c['record']['rule_details'], c['issues']) for c in out
+                    if c['domain'] == 'degree_requirements' and (every or (c.get('checks') or {}).get('split_of')) and c['record']['requirement_key'] != 'program-total']
+        codes = lambda rd: [c.get('code') or [o['code'] for o in c['any_of']] for c in rd.get('courses', [])]
+        # TAMUSA Computer Science: two lab choices, then required courses printed with their own hours
+        ps = split(['Select one of the following:|1', 'BIOL 1106|General Biology I Lab|', 'CHEM 1111|General Chemistry Lab I|',
+                    'Select one of the following:|1', 'BIOL 1107|General Biology II Lab|', 'CHEM 1112|General Chemistry Lab II|',
+                    'MATH 2113|Calculus I Lab|1', 'MATH 2114|Calculus II Lab|1', 'or MATH 3340|Linear Algebra with Appl', 'Subtotal:|7'])
+        self.assertEqual([(rd['group_type'], rd.get('choose_count'), codes(rd), iss) for _, rd, iss in ps],
+                         [('choose_courses', 1, ['BIOL 1106', 'CHEM 1111'], []), ('choose_courses', 1, ['BIOL 1107', 'CHEM 1112'], []),
+                          ('all_required', None, ['MATH 2113', ['MATH 2114', 'MATH 3340']], [])])
+        self.assertEqual(ps[0][0], 'departmental-requirements')  # the group's own key carries its first clean part
+        self.assertEqual(len({k for k, _, _ in ps}), 3)
+        # Purdue Global: codes printed without a space; a choice in the middle of required courses
+        ps = split(['IT222|Introduction to Cloud Computing|5', 'Select one of the following:|5', 'IN250|Software Development Using Python|',
+                    'IN251|Software Development Using C#|', 'IT273|Networking Concepts|5', 'Total Major Requirements|89'], 'Major Requirements')
+        self.assertEqual([(rd['group_type'], codes(rd)) for _, rd, _ in ps],
+                         [('all_required', ['IT 222']), ('choose_courses', ['IN 250', 'IN 251']), ('all_required', ['IT 273'])])
+        # UVU: a credits label names the parts below it; "Complete the following:" opens a required part; uncoded areas are held
+        ps = split(['Biology|3', 'Humanities|3', 'Discipline Core Requirements|24 Credits', 'Complete 6 credits from the following courses:|6',
+                    'DANC 1100R|Beginning Ballet (1)|', 'DANC 1200R|Beginning Modern Dance (1)|', 'Complete the following:|', 'DANC 2110|Orientation to Dance|3'],
+                   'Distribution Courses')
+        self.assertEqual([(rd['group_type'], codes(rd) or rd.get('course_rules'), iss) for _, rd, iss in ps],
+                         [('elective_pool', ['Biology 3', 'Humanities 3'], ['area_requirement_without_course_list']),
+                          ('choose_credits', ['DANC 1100R', 'DANC 1200R'], []), ('all_required', ['DANC 2110'], [])])
+        self.assertIn('Discipline Core Requirements', ps[1][1]['source_section'])
+        self.assertEqual(ps[1][0], 'distribution-courses')
+        # NC State: "(select two):" counts; a choice across areas or a minimum is held
+        ps = split(['Crop Production Electives (select two):|6', 'CS 216|Crop Production|', 'CS 218|Forage Crops|', 'MA 141|Calculus I|4',
+                    'Choose one course from 4 of the 5 following areas:|12'], 'Electives')
+        self.assertEqual([(rd['group_type'], rd.get('choose_count'), iss) for _, rd, iss in ps],
+                         [('choose_courses', 2, []), ('all_required', None, []), ('elective_pool', None, ['choice_across_areas_or_minimum', 'printed_count_and_credits_disagree'])])
+        # Reviewed layouts (issue #95 recovery review):
+        # UVU Theatre: "CAPSTONE COURSE:" inside a Courselist choice is a label within the list, not a new required group
+        ps = split(['Complete 6 credits from the following courses:|6', 'THEA 3612|Directing I (3)|', 'CAPSTONE COURSE:|', 'THEA 4993|Capstone (3)|',
+                    'Large Ensembles:|', 'Complete 8 credits from the following:|8', 'MUSC 3220R|Choir (1)|'], 'Courselist A', every=True)
+        self.assertEqual([(rd['group_type'], codes(rd)) for _, rd, _ in ps], [('choose_credits', ['THEA 3612', 'THEA 4993']), ('choose_credits', ['MUSC 3220R'])])
+        self.assertIn('Large Ensembles', ps[1][1]['source_section'])  # a section header after the choice still names the next group
+        # UVU Ballroom: "Complete the following courses:" opens a required part even when its courses print no hours of their own
+        ps = split(['Choose one of the following:|3', 'MAT 1030|Quantitative Reasoning (3)|', 'MAT 1035|Quantitative Reasoning II (3)|', 'Complete the following courses:|',
+                    'DANC 2700R|American Social Dance II (1)|', 'DANC 2710R|International Ballroom Dance II (1)|'], 'Ballroom Dance Track')
+        self.assertEqual([(rd['group_type'], codes(rd)) for _, rd, _ in ps], [('choose_courses', ['MAT 1030', 'MAT 1035']), ('all_required', ['DANC 2700R', 'DANC 2710R'])])
+        # UVU Music: a course printed "(recommended)" under a distribution area is not required
+        ps = split(['Choose one of the following:|3', 'MAT 1030|Quantitative Reasoning (3)|', 'Physical Science|3', 'PHYS 1750|The Acoustics of Music (3) (recommended)|',
+                    'Complete the following:|', 'MUSC 1110|Music Theory I|3'], 'Distribution Courses')
+        self.assertIn(['recommended_course_not_required'], [iss for _, _, iss in ps])
+        # UVU Dance: courses printed under "Strongly Recommended:" are advice, not the choice's pool
+        ps = split(['Complete 26 credits from any DANC or other Department approved course|', 'Strongly Recommended:|', 'DANC 2330|Improvisation (1)|',
+                    'MUSC 1110|Music Theory I|3', 'Select one of the following:|3', 'MUSC 1120|Theory II|'], 'Ballroom Dance Track')
+        self.assertIn('recommended_courses_listed', ps[0][2])
+        # TAMUSA: areas under "Prescribed Electives (Choose 9 hours)" are options of that choice; the subtotal ends them
+        html_rows = ['HLTH 2110|Health Writing|1', 'Prescribed Electives (Choose 9 hours)|', 'Biomedical Sciences', 'BIOL 2316|Genetics|3', 'BIOL 2321|Microbiology|3',
+                     'Subtotal:|9', 'General Electives (Choose 10 hours)|', 'Subtotal:|10']
+        ps = split(html_rows, 'BS Public Health')
+        self.assertTrue(any(iss == ['option_area_within_choice'] and codes(rd) == ['BIOL 2316', 'BIOL 2321'] for _, rd, iss in ps))
+        self.assertIn(('choose_credits', 10, []), [(rd['group_type'], rd.get('choose_credits'), iss) for _, rd, iss in ps])
+        # WKU Theatre / NC State: an area right above a choice with the same hours names that choice (no second record)
+        ps = split(['THEA 219|Design|3', 'Restricted Electives|10', "Select 10 hours from any relevant THEA course with advisor's approval|10",
+                    'Linear Algebra Elective 2|3', 'Select one of the following:|', 'MA 305|Linear Algebra|', 'MA 405|Linear Algebra II|'], 'Design')
+        self.assertEqual([rd['group_type'] for _, rd, _ in ps], ['all_required', 'choose_credits', 'choose_courses'])
+        self.assertIn('Restricted Electives', ps[1][1]['source_section'])
+        # a count of courses with no list printed is a pool of the printed rule, held
+        ps = split(['MATH 1314|College Algebra|3', 'Choose one course from 4 of the 5 following areas:|12'], 'Capstone')
+        self.assertEqual((ps[1][1]['group_type'], ps[1][1]['course_rules']), ('elective_pool', ['Choose one course from 4 of the 5 following areas:']))
+        # VSU: a printed count of courses that does not fit the printed credits is held
+        ps = split(['Restricted Electives Choose 3 courses from the following list.|21', 'ARTS 203|Printmaking I|', 'ARTS 204|Printmaking II|',
+                    'ARTS 101|Drawing|3'], 'Electives')
+        self.assertEqual(ps[0][2], ['printed_count_and_credits_disagree'])
+        # an area above a choice with different printed hours is its own part, not the choice's label (VSU "Unrestricted Electives 12")
+        ps = split(['Unrestricted Electives|12', 'Restricted Electives Choose 3 courses from the following list.|21', 'ARTS 203|Printmaking I|', 'ARTS 101|Drawing|3'], 'Electives')
+        self.assertEqual([rd.get('course_rules') for _, rd, _ in ps][:1], [['Unrestricted Electives 12']])
 
     def test_dual_credit_vocabulary_and_faq_questions(self):
         """Regression (KY): 'Dual Credit' pages were skipped (TN says 'dual enrollment'); a FAQ question's price was taken as a charge."""

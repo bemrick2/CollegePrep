@@ -220,6 +220,38 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "005244df18381c53": {
+  "decision": {
+   "candidate_id": "005244df18381c53",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "MA 305 - Introductory Linear Algebra and Matrices",
+    "value": "MA 305"
+   },
+   {
+    "field": "courses",
+    "snippet": "MA 405 - Introduction to Linear Algebra",
+    "value": "MA 405"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "d246b63af34194fd",
+  "source": {
+   "fetched_at": "2026-10-03T08:06:35+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 17 Aug 2026 18:03:49 GMT",
+   "page_file": "366047be7a09a1e756b5.json.gz",
+   "requested_url": "https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-middle-grades-mathematics-concentration/",
+   "sha256": "366047be7a09a1e756b561fc3c40a2347c4ba13e15a4db9c8d013fac06a7803a",
+   "title": "Mathematics Education (BS): Middle Grades Mathematics Concentration < North Carolina State University",
+   "url": "https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-middle-grades-mathematics-concentration/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "006eef75d13439f6": {
   "decision": {
    "candidate_id": "006eef75d13439f6",
@@ -420,6 +452,35 @@
    "sha256": "d1b71d84a57afb981cf499aceddd7083fad4ed687fb0b77f59d30b70938c0881",
    "title": "Horticultural Science (BS): Plant Breeding and Biotechnology in Horticulture Concentration < North Carolina State University",
    "url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-plant-breeding-biotechnology-horticulture-concentration/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "05693674da5c5c0a": {
+  "decision": {
+   "candidate_id": "05693674da5c5c0a",
+   "reason": "Issue #95 recovery: held; The source prints only an area label with hours (\"Restricted Electives 13\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery)."
+  },
+  "evidence": [
+   {
+    "field": "section",
+    "snippet": "Plan Requirements — Concentration Electives — Restricted Electives 13",
+    "value": "plan-requirements-concentration-electives-4-restricted-electives-13"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [
+   "area_requirement_without_course_list"
+  ],
+  "recovered_from": "f7ccb222209b9989",
+  "source": {
+   "fetched_at": "2026-10-03T08:06:16+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 17 Aug 2026 17:59:20 GMT",
+   "page_file": "d94c49fadff21f046541.json.gz",
+   "requested_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-crop-biotechnology-semester/",
+   "sha256": "d94c49fadff21f0465414f93df0470a9d018ca7e3748f9b07b474d58fe5d4f0a",
+   "title": "Crop and Soil Sciences (BS): Crop Biotechnology < North Carolina State University",
+   "url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-crop-biotechnology-semester/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -1208,7 +1269,7 @@
  "113fdf747f5b25de": {
   "decision": {
    "candidate_id": "113fdf747f5b25de",
-   "reason": "Course list checked against the 2026-2027 NC State catalog table (codes, titles, hours; elective lists recorded as pools)."
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
   },
   "evidence": [
    {
@@ -1225,35 +1286,11 @@
     "field": "courses",
     "snippet": "SSC 185 - Land and Life",
     "value": "SSC 185"
-   },
-   {
-    "field": "courses",
-    "snippet": "CS 216 - Southern Row Crop Production - Cotton, Peanuts, and Tobacco",
-    "value": "CS 216"
-   },
-   {
-    "field": "courses",
-    "snippet": "CS 218 - Southern Row Crop Production - Corn, Small Grains and Soybeans",
-    "value": "CS 218"
-   },
-   {
-    "field": "courses",
-    "snippet": "CS 251 - Production of Forage Crops",
-    "value": "CS 251"
-   },
-   {
-    "field": "courses",
-    "snippet": "CSSC 492 - Professional Internship Experience in Crop and Soil Sciences",
-    "value": "CSSC 492"
-   },
-   {
-    "field": "courses",
-    "snippet": "CSSC 493 - Research Experience in Crop and Soil Sciences",
-    "value": "CSSC 493"
    }
   ],
   "extractor": "catalog_program/v1",
   "issues": [],
+  "recovered_from": "113fdf747f5b25de",
   "source": {
    "fetched_at": "2026-10-03T08:06:15+00:00",
    "kind": "html",
@@ -2996,6 +3033,38 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "2266928727cd9533": {
+  "decision": {
+   "candidate_id": "2266928727cd9533",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "CSSC 492 - Professional Internship Experience in Crop and Soil Sciences",
+    "value": "CSSC 492"
+   },
+   {
+    "field": "courses",
+    "snippet": "CSSC 493 - Research Experience in Crop and Soil Sciences",
+    "value": "CSSC 493"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "f7ccb222209b9989",
+  "source": {
+   "fetched_at": "2026-10-03T08:06:16+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 17 Aug 2026 17:59:20 GMT",
+   "page_file": "d94c49fadff21f046541.json.gz",
+   "requested_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-crop-biotechnology-semester/",
+   "sha256": "d94c49fadff21f0465414f93df0470a9d018ca7e3748f9b07b474d58fe5d4f0a",
+   "title": "Crop and Soil Sciences (BS): Crop Biotechnology < North Carolina State University",
+   "url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-crop-biotechnology-semester/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "23068239dcb2dc30": {
   "decision": {
    "candidate_id": "23068239dcb2dc30",
@@ -4636,6 +4705,43 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "3546e647be324cd1": {
+  "decision": {
+   "candidate_id": "3546e647be324cd1",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "CS 216 - Southern Row Crop Production - Cotton, Peanuts, and Tobacco",
+    "value": "CS 216"
+   },
+   {
+    "field": "courses",
+    "snippet": "CS 218 - Southern Row Crop Production - Corn, Small Grains and Soybeans",
+    "value": "CS 218"
+   },
+   {
+    "field": "courses",
+    "snippet": "CS 251 - Production of Forage Crops",
+    "value": "CS 251"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "113fdf747f5b25de",
+  "source": {
+   "fetched_at": "2026-10-03T08:06:15+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 17 Aug 2026 17:59:15 GMT",
+   "page_file": "52586c794d6b9902e267.json.gz",
+   "requested_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-agronomy/",
+   "sha256": "52586c794d6b9902e2674db7675cb4d7f6c4b6f6e1c127590e387f809dfe4381",
+   "title": "Crop and Soil Sciences (BS): Agronomy < North Carolina State University",
+   "url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-agronomy/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "35af17c2cf5d6aa4": {
   "decision": {
    "candidate_id": "35af17c2cf5d6aa4",
@@ -5128,6 +5234,67 @@
    "sha256": "84a696d2f9e99c6ee31d3aa6ffdff8339c8a6b74e6c65c5cd9e8b9311f718f4f",
    "title": "Science Education (BS): Physics Concentration < North Carolina State University",
    "url": "https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-physics-concentration/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "3cccb893e95ef79a": {
+  "decision": {
+   "candidate_id": "3cccb893e95ef79a",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "CSSC 492 - Professional Internship Experience in Crop and Soil Sciences",
+    "value": "CSSC 492"
+   },
+   {
+    "field": "courses",
+    "snippet": "CSSC 493 - Research Experience in Crop and Soil Sciences",
+    "value": "CSSC 493"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "83367d2b0d7bea45",
+  "source": {
+   "fetched_at": "2026-10-03T08:06:17+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 17 Aug 2026 17:59:25 GMT",
+   "page_file": "e4532a97fb68bd524950.json.gz",
+   "requested_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-soil-science/",
+   "sha256": "e4532a97fb68bd524950d5902a932db8709004d32e53ba6cb6d81e729255d528",
+   "title": "Crop and Soil Sciences (BS): Soil Science < North Carolina State University",
+   "url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-soil-science/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "3d231a74181d09da": {
+  "decision": {
+   "candidate_id": "3d231a74181d09da",
+   "reason": "Issue #95 recovery: held; The source prints only an area label with hours (\"Biotechnology Elective 4\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery)."
+  },
+  "evidence": [
+   {
+    "field": "section",
+    "snippet": "Plan Requirements — Concentration Electives — Biotechnology Elective 4",
+    "value": "plan-requirements-concentration-electives-2-biotechnology-elective-4"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [
+   "area_requirement_without_course_list"
+  ],
+  "recovered_from": "f7ccb222209b9989",
+  "source": {
+   "fetched_at": "2026-10-03T08:06:16+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 17 Aug 2026 17:59:20 GMT",
+   "page_file": "d94c49fadff21f046541.json.gz",
+   "requested_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-crop-biotechnology-semester/",
+   "sha256": "d94c49fadff21f0465414f93df0470a9d018ca7e3748f9b07b474d58fe5d4f0a",
+   "title": "Crop and Soil Sciences (BS): Crop Biotechnology < North Carolina State University",
+   "url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-crop-biotechnology-semester/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -6493,6 +6660,35 @@
    "url": "https://www.wssu.edu/admissions/apply/early-college.html"
   },
   "year_basis": "source_unlabeled"
+ },
+ "4eb382b342896249": {
+  "decision": {
+   "candidate_id": "4eb382b342896249",
+   "reason": "Issue #95 recovery: held; The source prints only an area label with hours (\"Soil Science Electives 6; Economics, Management & Policy Electives 6\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery)."
+  },
+  "evidence": [
+   {
+    "field": "section",
+    "snippet": "Plan Requirements — Concentration Electives — Soil Science Electives 6",
+    "value": "plan-requirements-concentration-electives-2-soil-science-electives-6"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [
+   "area_requirement_without_course_list"
+  ],
+  "recovered_from": "83367d2b0d7bea45",
+  "source": {
+   "fetched_at": "2026-10-03T08:06:17+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 17 Aug 2026 17:59:25 GMT",
+   "page_file": "e4532a97fb68bd524950.json.gz",
+   "requested_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-soil-science/",
+   "sha256": "e4532a97fb68bd524950d5902a932db8709004d32e53ba6cb6d81e729255d528",
+   "title": "Crop and Soil Sciences (BS): Soil Science < North Carolina State University",
+   "url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-soil-science/"
+  },
+  "year_basis": "labeled_in_source"
  },
  "4ee3b7d7e418f77a": {
   "decision": {
@@ -9271,6 +9467,38 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "69f37b8f22837a7b": {
+  "decision": {
+   "candidate_id": "69f37b8f22837a7b",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "CSSC 492 - Professional Internship Experience in Crop and Soil Sciences",
+    "value": "CSSC 492"
+   },
+   {
+    "field": "courses",
+    "snippet": "CSSC 493 - Research Experience in Crop and Soil Sciences",
+    "value": "CSSC 493"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "113fdf747f5b25de",
+  "source": {
+   "fetched_at": "2026-10-03T08:06:15+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 17 Aug 2026 17:59:15 GMT",
+   "page_file": "52586c794d6b9902e267.json.gz",
+   "requested_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-agronomy/",
+   "sha256": "52586c794d6b9902e2674db7675cb4d7f6c4b6f6e1c127590e387f809dfe4381",
+   "title": "Crop and Soil Sciences (BS): Agronomy < North Carolina State University",
+   "url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-agronomy/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "6a508b82dc69bee6": {
   "decision": {
    "candidate_id": "6a508b82dc69bee6",
@@ -11469,6 +11697,43 @@
   },
   "year_basis": "source_unlabeled"
  },
+ "7bb209e928f4ae2c": {
+  "decision": {
+   "candidate_id": "7bb209e928f4ae2c",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "MA 103 - Topics in Contemporary Mathematics",
+    "value": "MA 103"
+   },
+   {
+    "field": "courses",
+    "snippet": "MA 105 - Mathematics of Finance",
+    "value": "MA 105"
+   },
+   {
+    "field": "courses",
+    "snippet": "MA 114 - Introduction to Finite Mathematics with Applications",
+    "value": "MA 114"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "d246b63af34194fd",
+  "source": {
+   "fetched_at": "2026-10-03T08:06:35+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 17 Aug 2026 18:03:49 GMT",
+   "page_file": "366047be7a09a1e756b5.json.gz",
+   "requested_url": "https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-middle-grades-mathematics-concentration/",
+   "sha256": "366047be7a09a1e756b561fc3c40a2347c4ba13e15a4db9c8d013fac06a7803a",
+   "title": "Mathematics Education (BS): Middle Grades Mathematics Concentration < North Carolina State University",
+   "url": "https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-middle-grades-mathematics-concentration/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "7c2a5e947a4d3df9": {
   "decision": {
    "candidate_id": "7c2a5e947a4d3df9",
@@ -12101,7 +12366,7 @@
  "83367d2b0d7bea45": {
   "decision": {
    "candidate_id": "83367d2b0d7bea45",
-   "reason": "Course list checked against the 2026-2027 NC State catalog table (codes, titles, hours; elective lists recorded as pools)."
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
   },
   "evidence": [
    {
@@ -12113,20 +12378,11 @@
     "field": "courses",
     "snippet": "SSC 185 - Land and Life",
     "value": "SSC 185"
-   },
-   {
-    "field": "courses",
-    "snippet": "CSSC 492 - Professional Internship Experience in Crop and Soil Sciences",
-    "value": "CSSC 492"
-   },
-   {
-    "field": "courses",
-    "snippet": "CSSC 493 - Research Experience in Crop and Soil Sciences",
-    "value": "CSSC 493"
    }
   ],
   "extractor": "catalog_program/v1",
   "issues": [],
+  "recovered_from": "83367d2b0d7bea45",
   "source": {
    "fetched_at": "2026-10-03T08:06:17+00:00",
    "kind": "html",
@@ -17907,6 +18163,35 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "b80b38cdc0b880e6": {
+  "decision": {
+   "candidate_id": "b80b38cdc0b880e6",
+   "reason": "Issue #95 recovery: held; The source prints only an area label with hours (\"Restricted Electives 17\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery)."
+  },
+  "evidence": [
+   {
+    "field": "section",
+    "snippet": "Contact Person — Electives — Restricted Electives 17",
+    "value": "contact-person-electives-4-restricted-electives-17"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [
+   "area_requirement_without_course_list"
+  ],
+  "recovered_from": "113fdf747f5b25de",
+  "source": {
+   "fetched_at": "2026-10-03T08:06:15+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 17 Aug 2026 17:59:15 GMT",
+   "page_file": "52586c794d6b9902e267.json.gz",
+   "requested_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-agronomy/",
+   "sha256": "52586c794d6b9902e2674db7675cb4d7f6c4b6f6e1c127590e387f809dfe4381",
+   "title": "Crop and Soil Sciences (BS): Agronomy < North Carolina State University",
+   "url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-agronomy/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "b8af5063d9d94928": {
   "decision": {
    "candidate_id": "b8af5063d9d94928",
@@ -20265,7 +20550,7 @@
  "d246b63af34194fd": {
   "decision": {
    "candidate_id": "d246b63af34194fd",
-   "reason": "Course list checked against the 2026-2027 NC State catalog table (codes, titles, hours; elective lists recorded as pools)."
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
   },
   "evidence": [
    {
@@ -20287,35 +20572,11 @@
     "field": "courses",
     "snippet": "MA 408 - Foundations of Euclidean Geometry",
     "value": "MA 408"
-   },
-   {
-    "field": "courses",
-    "snippet": "MA 305 - Introductory Linear Algebra and Matrices",
-    "value": "MA 305"
-   },
-   {
-    "field": "courses",
-    "snippet": "MA 405 - Introduction to Linear Algebra",
-    "value": "MA 405"
-   },
-   {
-    "field": "courses",
-    "snippet": "MA 103 - Topics in Contemporary Mathematics",
-    "value": "MA 103"
-   },
-   {
-    "field": "courses",
-    "snippet": "MA 105 - Mathematics of Finance",
-    "value": "MA 105"
-   },
-   {
-    "field": "courses",
-    "snippet": "MA 114 - Introduction to Finite Mathematics with Applications",
-    "value": "MA 114"
    }
   ],
   "extractor": "catalog_program/v1",
   "issues": [],
+  "recovered_from": "d246b63af34194fd",
   "source": {
    "fetched_at": "2026-10-03T08:06:35+00:00",
    "kind": "html",
@@ -20889,6 +21150,35 @@
    "url": "https://www.wssu.edu/admissions/paying-for-college.html"
   },
   "year_basis": "source_unlabeled"
+ },
+ "d7a3f4faf0367a3c": {
+  "decision": {
+   "candidate_id": "d7a3f4faf0367a3c",
+   "reason": "Issue #95 recovery: held; The source prints only an area label with hours (\"Restricted Electives 15\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery)."
+  },
+  "evidence": [
+   {
+    "field": "section",
+    "snippet": "Plan Requirements — Concentration Electives — Restricted Electives 15",
+    "value": "plan-requirements-concentration-electives-4-restricted-electives-15"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [
+   "area_requirement_without_course_list"
+  ],
+  "recovered_from": "83367d2b0d7bea45",
+  "source": {
+   "fetched_at": "2026-10-03T08:06:17+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 17 Aug 2026 17:59:25 GMT",
+   "page_file": "e4532a97fb68bd524950.json.gz",
+   "requested_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-soil-science/",
+   "sha256": "e4532a97fb68bd524950d5902a932db8709004d32e53ba6cb6d81e729255d528",
+   "title": "Crop and Soil Sciences (BS): Soil Science < North Carolina State University",
+   "url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-soil-science/"
+  },
+  "year_basis": "labeled_in_source"
  },
  "d7c76b4dd9ef9688": {
   "decision": {
@@ -23940,7 +24230,7 @@
  "f7ccb222209b9989": {
   "decision": {
    "candidate_id": "f7ccb222209b9989",
-   "reason": "Course list checked against the 2026-2027 NC State catalog table (codes, titles, hours; elective lists recorded as pools)."
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
   },
   "evidence": [
    {
@@ -23962,20 +24252,11 @@
     "field": "courses",
     "snippet": "STS 302 - Contemporary Science, Technology and Human Values",
     "value": "STS 302"
-   },
-   {
-    "field": "courses",
-    "snippet": "CSSC 492 - Professional Internship Experience in Crop and Soil Sciences",
-    "value": "CSSC 492"
-   },
-   {
-    "field": "courses",
-    "snippet": "CSSC 493 - Research Experience in Crop and Soil Sciences",
-    "value": "CSSC 493"
    }
   ],
   "extractor": "catalog_program/v1",
   "issues": [],
+  "recovered_from": "f7ccb222209b9989",
   "source": {
    "fetched_at": "2026-10-03T08:06:16+00:00",
    "kind": "html",

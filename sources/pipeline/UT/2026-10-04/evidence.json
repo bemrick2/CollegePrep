@@ -50,6 +50,63 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "01d6fa8c06bcaa72": {
+  "decision": {
+   "candidate_id": "01d6fa8c06bcaa72",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "DANC 2110 - Orientation to Dance",
+    "value": "DANC 2110"
+   },
+   {
+    "field": "courses",
+    "snippet": "DANC 1610R - Dance Conditioning",
+    "value": "DANC 1610R"
+   },
+   {
+    "field": "courses",
+    "snippet": "DANC 2560G - ",
+    "value": "DANC 2560G"
+   },
+   {
+    "field": "courses",
+    "snippet": "DANC 3630 - Dance as a Cultural Practice II",
+    "value": "DANC 3630"
+   },
+   {
+    "field": "courses",
+    "snippet": "DANC 3680 - Dance Kinesiology",
+    "value": "DANC 3680"
+   },
+   {
+    "field": "courses",
+    "snippet": "DANC 4350 - Senior Capstone I",
+    "value": "DANC 4350"
+   },
+   {
+    "field": "courses",
+    "snippet": "DANC 4360 - Senior Capstone II",
+    "value": "DANC 4360"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "444bc6793bea21ff",
+  "source": {
+   "fetched_at": "2026-10-04T14:44:54+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 05 May 2026 21:30:26 GMT",
+   "page_file": "bf139ecafcd4c44aae21.json.gz",
+   "requested_url": "https://catalog.uvu.edu/arts/dance/dance-bs/",
+   "sha256": "bf139ecafcd4c44aae2131d80e86ad3c4df52f1f8472b7baaf9ef9620defd8b8",
+   "title": "Dance, B.S. | Utah Valley University Academic Catalog",
+   "url": "https://catalog.uvu.edu/arts/dance/dance-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "02aac60b413d001b": {
   "decision": {
    "candidate_id": "02aac60b413d001b",
@@ -139,6 +196,35 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "092567f3568a1b4d": {
+  "decision": {
+   "candidate_id": "092567f3568a1b4d",
+   "reason": "Issue #95 recovery: held; The source prints only an area label with hours (\"Humanities 3; Fine Arts 3; Social/Behavioral Science 3; Personal, Professional and Civic Growth 3\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery)."
+  },
+  "evidence": [
+   {
+    "field": "section",
+    "snippet": "Program Requirements — Distribution Courses: — Humanities 3",
+    "value": "program-requirements-distribution-courses-3-humanities-3"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [
+   "area_requirement_without_course_list"
+  ],
+  "recovered_from": "0d9063a67efff8ec",
+  "source": {
+   "fetched_at": "2026-10-04T14:44:58+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 05 May 2026 21:30:27 GMT",
+   "page_file": "98441e381b12b48d6e3e.json.gz",
+   "requested_url": "https://catalog.uvu.edu/arts/music/music-as/",
+   "sha256": "98441e381b12b48d6e3eaff53b70e7021e3f32b948c7e393b71aa1ed979e37c9",
+   "title": "Music, A.S. | Utah Valley University Academic Catalog",
+   "url": "https://catalog.uvu.edu/arts/music/music-as/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "095c548fb56b53fa": {
   "decision": {
    "candidate_id": "095c548fb56b53fa",
@@ -193,14 +279,9 @@
  "0d9063a67efff8ec": {
   "decision": {
    "candidate_id": "0d9063a67efff8ec",
-   "reason": "Requirement block copied from the 2026-2027 catalog program page."
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
   },
   "evidence": [
-   {
-    "field": "courses",
-    "snippet": "PHYS 1750 - The Acoustics of Music (3) (recommended)",
-    "value": "PHYS 1750"
-   },
    {
     "field": "courses",
     "snippet": "MUSC 1110 - Music Theory I",
@@ -260,60 +341,11 @@
     "field": "courses",
     "snippet": "MUSC 2160 - Group Piano IV",
     "value": "MUSC 2160"
-   },
-   {
-    "field": "courses",
-    "snippet": "MUSC 1240R - UVU Concert Choir (1)",
-    "value": "MUSC 1240R"
-   },
-   {
-    "field": "courses",
-    "snippet": "MUSC 1250R - University Band (1)",
-    "value": "MUSC 1250R"
-   },
-   {
-    "field": "courses",
-    "snippet": "MUSC 3220R - Chamber Choir (1)",
-    "value": "MUSC 3220R"
-   },
-   {
-    "field": "courses",
-    "snippet": "MUSC 3270R - Deep Green-Tenor/Bass Choir (1)",
-    "value": "MUSC 3270R"
-   },
-   {
-    "field": "courses",
-    "snippet": "MUSC 3280R - Emerald Singers-Soprano/Alto Choir (1)",
-    "value": "MUSC 3280R"
-   },
-   {
-    "field": "courses",
-    "snippet": "MUSC 3300R - Wind Symphony (1)",
-    "value": "MUSC 3300R"
-   },
-   {
-    "field": "courses",
-    "snippet": "MUSC 3320R - Jazz Orchestra (1)",
-    "value": "MUSC 3320R"
-   },
-   {
-    "field": "courses",
-    "snippet": "MUSC 3700R - Symphony Orchestra (1)",
-    "value": "MUSC 3700R"
-   },
-   {
-    "field": "courses",
-    "snippet": "MUSC 2500R - Private Lessons for Music Majors (1)",
-    "value": "MUSC 2500R"
-   },
-   {
-    "field": "courses",
-    "snippet": "MUSC 2510R - Performance Class (1)",
-    "value": "MUSC 2510R"
    }
   ],
   "extractor": "catalog_program/v1",
   "issues": [],
+  "recovered_from": "0d9063a67efff8ec",
   "source": {
    "fetched_at": "2026-10-04T14:44:58+00:00",
    "kind": "html",
@@ -427,6 +459,35 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "0f51ddc58342a8a9": {
+  "decision": {
+   "candidate_id": "0f51ddc58342a8a9",
+   "reason": "Issue #95 recovery: held; The source prints only an area label with hours (\"Biology 3; Physical Science 3\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery)."
+  },
+  "evidence": [
+   {
+    "field": "section",
+    "snippet": "Program Requirements — Distribution Courses: — Biology 3",
+    "value": "program-requirements-distribution-courses-1-biology-3"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [
+   "area_requirement_without_course_list"
+  ],
+  "recovered_from": "0d9063a67efff8ec",
+  "source": {
+   "fetched_at": "2026-10-04T14:44:58+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 05 May 2026 21:30:27 GMT",
+   "page_file": "98441e381b12b48d6e3e.json.gz",
+   "requested_url": "https://catalog.uvu.edu/arts/music/music-as/",
+   "sha256": "98441e381b12b48d6e3eaff53b70e7021e3f32b948c7e393b71aa1ed979e37c9",
+   "title": "Music, A.S. | Utah Valley University Academic Catalog",
+   "url": "https://catalog.uvu.edu/arts/music/music-as/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "1683e41502b13c7e": {
   "decision": {
    "candidate_id": "1683e41502b13c7e",
@@ -514,6 +575,35 @@
    "sha256": "ead7a9af79f130b865683401e058ac23727a3f9a102ce6afead5fb388cd7477c",
    "title": "Scholarships: How to get scholarship money for college - SUU",
    "url": "https://www.suu.edu/finaid/scholarships.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "1e7be3b527741ecc": {
+  "decision": {
+   "candidate_id": "1e7be3b527741ecc",
+   "reason": "Issue #95 recovery: held; The source prints the choice as \"Complete the requirements from one of the following tracks 49\"; its count or pool cannot be read as a number of courses or hours. Held for review (issue #95 recovery)."
+  },
+  "evidence": [
+   {
+    "field": "section",
+    "snippet": "Program Requirements — BS Dance Tracks — Complete the requirements from one of the following tracks",
+    "value": "program-requirements-distribution-courses-4-complete-the-requirements-from-one-of-th"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [
+   "choice_rule_unparsed"
+  ],
+  "recovered_from": "444bc6793bea21ff",
+  "source": {
+   "fetched_at": "2026-10-04T14:44:54+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 05 May 2026 21:30:26 GMT",
+   "page_file": "bf139ecafcd4c44aae21.json.gz",
+   "requested_url": "https://catalog.uvu.edu/arts/dance/dance-bs/",
+   "sha256": "bf139ecafcd4c44aae2131d80e86ad3c4df52f1f8472b7baaf9ef9620defd8b8",
+   "title": "Dance, B.S. | Utah Valley University Academic Catalog",
+   "url": "https://catalog.uvu.edu/arts/dance/dance-bs/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -630,6 +720,72 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "333e2e3471c6e913": {
+  "decision": {
+   "candidate_id": "333e2e3471c6e913",
+   "reason": "Issue #95 recovery: held; The source prints only an area label with hours (\"Biology 3; Humanities 3; Physical Science 3; Social/Behavioral Science 3; Personal, Professional, & Civic Growth 3\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery)."
+  },
+  "evidence": [
+   {
+    "field": "section",
+    "snippet": "Program Requirements — Distribution Courses — Biology 3",
+    "value": "program-requirements-distribution-courses-1-biology-3"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [
+   "area_requirement_without_course_list"
+  ],
+  "recovered_from": "444bc6793bea21ff",
+  "source": {
+   "fetched_at": "2026-10-04T14:44:54+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 05 May 2026 21:30:26 GMT",
+   "page_file": "bf139ecafcd4c44aae21.json.gz",
+   "requested_url": "https://catalog.uvu.edu/arts/dance/dance-bs/",
+   "sha256": "bf139ecafcd4c44aae2131d80e86ad3c4df52f1f8472b7baaf9ef9620defd8b8",
+   "title": "Dance, B.S. | Utah Valley University Academic Catalog",
+   "url": "https://catalog.uvu.edu/arts/dance/dance-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "381e0fc8d7eee010": {
+  "decision": {
+   "candidate_id": "381e0fc8d7eee010",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "DANC 2760R - Ballroom Dance Company Back Up Team (1)",
+    "value": "DANC 2760R"
+   },
+   {
+    "field": "courses",
+    "snippet": "DANC 3760R - Ballroom Dance Ensemble (2)",
+    "value": "DANC 3760R"
+   },
+   {
+    "field": "courses",
+    "snippet": "DANC 4760R - Ballroom Dance Company Tour Team (3)",
+    "value": "DANC 4760R"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "b03c7648f3a4afa4",
+  "source": {
+   "fetched_at": "2026-10-04T14:44:54+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 05 May 2026 21:30:26 GMT",
+   "page_file": "bf139ecafcd4c44aae21.json.gz",
+   "requested_url": "https://catalog.uvu.edu/arts/dance/dance-bs/",
+   "sha256": "bf139ecafcd4c44aae2131d80e86ad3c4df52f1f8472b7baaf9ef9620defd8b8",
+   "title": "Dance, B.S. | Utah Valley University Academic Catalog",
+   "url": "https://catalog.uvu.edu/arts/dance/dance-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "3932385879c4cc75": {
   "decision": {
    "candidate_id": "3932385879c4cc75",
@@ -701,6 +857,68 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "3ab504b37edc3362": {
+  "decision": {
+   "candidate_id": "3ab504b37edc3362",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "MUSC 1240R - UVU Concert Choir (1)",
+    "value": "MUSC 1240R"
+   },
+   {
+    "field": "courses",
+    "snippet": "MUSC 1250R - University Band (1)",
+    "value": "MUSC 1250R"
+   },
+   {
+    "field": "courses",
+    "snippet": "MUSC 3220R - Chamber Choir (1)",
+    "value": "MUSC 3220R"
+   },
+   {
+    "field": "courses",
+    "snippet": "MUSC 3270R - Deep Green-Tenor/Bass Choir (1)",
+    "value": "MUSC 3270R"
+   },
+   {
+    "field": "courses",
+    "snippet": "MUSC 3280R - Emerald Singers-Soprano/Alto Choir (1)",
+    "value": "MUSC 3280R"
+   },
+   {
+    "field": "courses",
+    "snippet": "MUSC 3300R - Wind Symphony (1)",
+    "value": "MUSC 3300R"
+   },
+   {
+    "field": "courses",
+    "snippet": "MUSC 3320R - Jazz Orchestra (1)",
+    "value": "MUSC 3320R"
+   },
+   {
+    "field": "courses",
+    "snippet": "MUSC 3700R - Symphony Orchestra (1)",
+    "value": "MUSC 3700R"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "0d9063a67efff8ec",
+  "source": {
+   "fetched_at": "2026-10-04T14:44:58+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 05 May 2026 21:30:27 GMT",
+   "page_file": "98441e381b12b48d6e3e.json.gz",
+   "requested_url": "https://catalog.uvu.edu/arts/music/music-as/",
+   "sha256": "98441e381b12b48d6e3eaff53b70e7021e3f32b948c7e393b71aa1ed979e37c9",
+   "title": "Music, A.S. | Utah Valley University Academic Catalog",
+   "url": "https://catalog.uvu.edu/arts/music/music-as/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "3c55660ae596ac92": {
   "decision": {
    "candidate_id": "3c55660ae596ac92",
@@ -768,7 +986,7 @@
  "444bc6793bea21ff": {
   "decision": {
    "candidate_id": "444bc6793bea21ff",
-   "reason": "Requirement block copied from the 2026-2027 catalog program page."
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
   },
   "evidence": [
    {
@@ -800,45 +1018,11 @@
     "field": "courses",
     "snippet": "DANC 1440R - Modern/Contemporary Dance Technique and Theory I/Semester II (3)",
     "value": "DANC 1440R"
-   },
-   {
-    "field": "courses",
-    "snippet": "DANC 2110 - Orientation to Dance",
-    "value": "DANC 2110"
-   },
-   {
-    "field": "courses",
-    "snippet": "DANC 1610R - Dance Conditioning",
-    "value": "DANC 1610R"
-   },
-   {
-    "field": "courses",
-    "snippet": "DANC 2560G - ",
-    "value": "DANC 2560G"
-   },
-   {
-    "field": "courses",
-    "snippet": "DANC 3630 - Dance as a Cultural Practice II",
-    "value": "DANC 3630"
-   },
-   {
-    "field": "courses",
-    "snippet": "DANC 3680 - Dance Kinesiology",
-    "value": "DANC 3680"
-   },
-   {
-    "field": "courses",
-    "snippet": "DANC 4350 - Senior Capstone I",
-    "value": "DANC 4350"
-   },
-   {
-    "field": "courses",
-    "snippet": "DANC 4360 - Senior Capstone II",
-    "value": "DANC 4360"
    }
   ],
   "extractor": "catalog_program/v1",
   "issues": [],
+  "recovered_from": "444bc6793bea21ff",
   "source": {
    "fetched_at": "2026-10-04T14:44:54+00:00",
    "kind": "html",
@@ -1390,6 +1574,35 @@
   },
   "year_basis": "source_unlabeled"
  },
+ "5fa60d5592be4f35": {
+  "decision": {
+   "candidate_id": "5fa60d5592be4f35",
+   "reason": "Issue #95 recovery: held; The source prints the choice as \"Choose from one of the following performance areas: 24\"; its count or pool cannot be read as a number of courses or hours. Held for review (issue #95 recovery)."
+  },
+  "evidence": [
+   {
+    "field": "section",
+    "snippet": "Program Requirements — Large Ensembles: — Choose from one of the following performance areas:",
+    "value": "program-requirements-large-ensembles-2-choose-from-one-of-the-following-perform"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [
+   "choice_rule_unparsed"
+  ],
+  "recovered_from": "8e7e4908af2281eb",
+  "source": {
+   "fetched_at": "2026-10-04T14:45:05+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 05 May 2026 21:30:30 GMT",
+   "page_file": "0e702f4106a7153d097a.json.gz",
+   "requested_url": "https://catalog.uvu.edu/arts/music/performance-bm/",
+   "sha256": "0e702f4106a7153d097a2831f9d87c2ab8eba5b33c8898be1f5e7bc9be1d86a7",
+   "title": "Performance, B.M. | Utah Valley University Academic Catalog",
+   "url": "https://catalog.uvu.edu/arts/music/performance-bm/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "60963abf7668394d": {
   "decision": {
    "candidate_id": "60963abf7668394d",
@@ -1566,7 +1779,7 @@
  "6804c6d1f21ed7a4": {
   "decision": {
    "candidate_id": "6804c6d1f21ed7a4",
-   "reason": "Requirement block copied from the 2026-2027 catalog program page."
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
   },
   "evidence": [
    {
@@ -1588,40 +1801,11 @@
     "field": "courses",
     "snippet": "MUSC 4510R - Performance Class (1) (Repeated 2 times)",
     "value": "MUSC 4510R"
-   },
-   {
-    "field": "courses",
-    "snippet": "MUSC 3220R - Chamber Choir (1)",
-    "value": "MUSC 3220R"
-   },
-   {
-    "field": "courses",
-    "snippet": "MUSC 3270R - Deep Green-Tenor/Bass Choir (1)",
-    "value": "MUSC 3270R"
-   },
-   {
-    "field": "courses",
-    "snippet": "MUSC 3280R - Emerald Singers-Soprano/Alto Choir (1)",
-    "value": "MUSC 3280R"
-   },
-   {
-    "field": "courses",
-    "snippet": "MUSC 3300R - Wind Symphony (1)",
-    "value": "MUSC 3300R"
-   },
-   {
-    "field": "courses",
-    "snippet": "MUSC 3320R - Jazz Orchestra (1)",
-    "value": "MUSC 3320R"
-   },
-   {
-    "field": "courses",
-    "snippet": "MUSC 3700R - Symphony Orchestra (1)",
-    "value": "MUSC 3700R"
    }
   ],
   "extractor": "catalog_program/v1",
   "issues": [],
+  "recovered_from": "6804c6d1f21ed7a4",
   "source": {
    "fetched_at": "2026-10-04T14:45:01+00:00",
    "kind": "html",
@@ -2568,6 +2752,35 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "7f0aa20f35b8fe2e": {
+  "decision": {
+   "candidate_id": "7f0aa20f35b8fe2e",
+   "reason": "Issue #95 recovery: held; The source marks the course \"(recommended)\" under a distribution area; it is not a required course. Held for review (issue #95 recovery)."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "PHYS 1750 - The Acoustics of Music (3) (recommended)",
+    "value": "PHYS 1750"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [
+   "recommended_course_not_required"
+  ],
+  "recovered_from": "0d9063a67efff8ec",
+  "source": {
+   "fetched_at": "2026-10-04T14:44:58+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 05 May 2026 21:30:27 GMT",
+   "page_file": "98441e381b12b48d6e3e.json.gz",
+   "requested_url": "https://catalog.uvu.edu/arts/music/music-as/",
+   "sha256": "98441e381b12b48d6e3eaff53b70e7021e3f32b948c7e393b71aa1ed979e37c9",
+   "title": "Music, A.S. | Utah Valley University Academic Catalog",
+   "url": "https://catalog.uvu.edu/arts/music/music-as/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "7f7afb89b0efdd03": {
   "decision": {
    "candidate_id": "7f7afb89b0efdd03",
@@ -2978,10 +3191,37 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "8bb4ddb0fcd01d9e": {
+  "decision": {
+   "candidate_id": "8bb4ddb0fcd01d9e",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "MUSC 2510R - Performance Class (1)",
+    "value": "MUSC 2510R"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "0d9063a67efff8ec",
+  "source": {
+   "fetched_at": "2026-10-04T14:44:58+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 05 May 2026 21:30:27 GMT",
+   "page_file": "98441e381b12b48d6e3e.json.gz",
+   "requested_url": "https://catalog.uvu.edu/arts/music/music-as/",
+   "sha256": "98441e381b12b48d6e3eaff53b70e7021e3f32b948c7e393b71aa1ed979e37c9",
+   "title": "Music, A.S. | Utah Valley University Academic Catalog",
+   "url": "https://catalog.uvu.edu/arts/music/music-as/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "8e7e4908af2281eb": {
   "decision": {
    "candidate_id": "8e7e4908af2281eb",
-   "reason": "Requirement block copied from the 2026-2027 catalog program page."
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
   },
   "evidence": [
    {
@@ -3017,6 +3257,7 @@
   ],
   "extractor": "catalog_program/v1",
   "issues": [],
+  "recovered_from": "8e7e4908af2281eb",
   "source": {
    "fetched_at": "2026-10-04T14:45:05+00:00",
    "kind": "html",
@@ -3414,6 +3655,58 @@
    "sha256": "3e05b06a9eae3e6407a8a591cc179462c2bb57ffcd71bd1e5d445b43e3035643",
    "title": "Art Education, B.S. | Utah Valley University Academic Catalog",
    "url": "https://catalog.uvu.edu/arts/art-design/art-education-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "988e03cef915bc33": {
+  "decision": {
+   "candidate_id": "988e03cef915bc33",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "MUSC 3220R - Chamber Choir (1)",
+    "value": "MUSC 3220R"
+   },
+   {
+    "field": "courses",
+    "snippet": "MUSC 3270R - Deep Green-Tenor/Bass Choir (1)",
+    "value": "MUSC 3270R"
+   },
+   {
+    "field": "courses",
+    "snippet": "MUSC 3280R - Emerald Singers-Soprano/Alto Choir (1)",
+    "value": "MUSC 3280R"
+   },
+   {
+    "field": "courses",
+    "snippet": "MUSC 3300R - Wind Symphony (1)",
+    "value": "MUSC 3300R"
+   },
+   {
+    "field": "courses",
+    "snippet": "MUSC 3320R - Jazz Orchestra (1)",
+    "value": "MUSC 3320R"
+   },
+   {
+    "field": "courses",
+    "snippet": "MUSC 3700R - Symphony Orchestra (1)",
+    "value": "MUSC 3700R"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "6804c6d1f21ed7a4",
+  "source": {
+   "fetched_at": "2026-10-04T14:45:01+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 05 May 2026 21:30:29 GMT",
+   "page_file": "5adb3fb6a3078c08b2d6.json.gz",
+   "requested_url": "https://catalog.uvu.edu/arts/music/music-education-bs/",
+   "sha256": "5adb3fb6a3078c08b2d66da95f61199967eb305bb9e244d44254de750f343e8b",
+   "title": "Music Education, B.S. | Utah Valley University Academic Catalog",
+   "url": "https://catalog.uvu.edu/arts/music/music-education-bs/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -4141,6 +4434,80 @@
   },
   "year_basis": "source_unlabeled"
  },
+ "a68d38d82265e454": {
+  "decision": {
+   "candidate_id": "a68d38d82265e454",
+   "reason": "Issue #95 recovery: held; The listed courses are printed under \"Strongly Recommended:\"; they are advice, not the pool of the printed choice. Held for review (issue #95 recovery)."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "DANC 2330 - Improvisation (1)",
+    "value": "DANC 2330"
+   },
+   {
+    "field": "courses",
+    "snippet": "DANC 2340 - Composition (2)",
+    "value": "DANC 2340"
+   },
+   {
+    "field": "courses",
+    "snippet": "DANC 2650R - Fundamentals of Movement (2)",
+    "value": "DANC 2650R"
+   },
+   {
+    "field": "courses",
+    "snippet": "DANC 2670 - Introduction to Laban Studies",
+    "value": "DANC 2670"
+   },
+   {
+    "field": "courses",
+    "snippet": "DANC 3140 - Dance Production and Lighting (2)",
+    "value": "DANC 3140"
+   },
+   {
+    "field": "courses",
+    "snippet": "DANC 3750 - (2)",
+    "value": "DANC 3750"
+   },
+   {
+    "field": "courses",
+    "snippet": "DANC 3850 - Arts Management for Dance (undefined)",
+    "value": "DANC 3850"
+   },
+   {
+    "field": "courses",
+    "snippet": "DANC 4880 - (3)",
+    "value": "DANC 4880"
+   },
+   {
+    "field": "courses",
+    "snippet": "HLSC 1055 - Pilates (1)",
+    "value": "HLSC 1055"
+   },
+   {
+    "field": "courses",
+    "snippet": "HLSC 1057 - Yoga (1)",
+    "value": "HLSC 1057"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [
+   "recommended_courses_listed"
+  ],
+  "recovered_from": "b03c7648f3a4afa4",
+  "source": {
+   "fetched_at": "2026-10-04T14:44:54+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 05 May 2026 21:30:26 GMT",
+   "page_file": "bf139ecafcd4c44aae21.json.gz",
+   "requested_url": "https://catalog.uvu.edu/arts/dance/dance-bs/",
+   "sha256": "bf139ecafcd4c44aae2131d80e86ad3c4df52f1f8472b7baaf9ef9620defd8b8",
+   "title": "Dance, B.S. | Utah Valley University Academic Catalog",
+   "url": "https://catalog.uvu.edu/arts/dance/dance-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "a6ce9adeac5de83e": {
   "decision": {
    "candidate_id": "a6ce9adeac5de83e",
@@ -4318,7 +4685,7 @@
  "b03c7648f3a4afa4": {
   "decision": {
    "candidate_id": "b03c7648f3a4afa4",
-   "reason": "Requirement block copied from the 2026-2027 catalog program page."
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
   },
   "evidence": [
    {
@@ -4375,25 +4742,11 @@
     "field": "courses",
     "snippet": "DANC 4740 - Ballroom Dance Teaching Methods and Theory (3)",
     "value": "DANC 4740"
-   },
-   {
-    "field": "courses",
-    "snippet": "DANC 2760R - Ballroom Dance Company Back Up Team (1)",
-    "value": "DANC 2760R"
-   },
-   {
-    "field": "courses",
-    "snippet": "DANC 3760R - Ballroom Dance Ensemble (2)",
-    "value": "DANC 3760R"
-   },
-   {
-    "field": "courses",
-    "snippet": "DANC 4760R - Ballroom Dance Company Tour Team (3)",
-    "value": "DANC 4760R"
    }
   ],
   "extractor": "catalog_program/v1",
   "issues": [],
+  "recovered_from": "b03c7648f3a4afa4",
   "source": {
    "fetched_at": "2026-10-04T14:44:54+00:00",
    "kind": "html",
@@ -5090,6 +5443,33 @@
    "sha256": "f86a040bea216ce9a4fb46094c34c283a9a25a785b93a075999d3e978c7c5163",
    "title": "Cost of Attendance - SUU",
    "url": "https://www.suu.edu/finaid/coa/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "de862ecff55b0097": {
+  "decision": {
+   "candidate_id": "de862ecff55b0097",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "MUSC 2500R - Private Lessons for Music Majors (1)",
+    "value": "MUSC 2500R"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "0d9063a67efff8ec",
+  "source": {
+   "fetched_at": "2026-10-04T14:44:58+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 05 May 2026 21:30:27 GMT",
+   "page_file": "98441e381b12b48d6e3e.json.gz",
+   "requested_url": "https://catalog.uvu.edu/arts/music/music-as/",
+   "sha256": "98441e381b12b48d6e3eaff53b70e7021e3f32b948c7e393b71aa1ed979e37c9",
+   "title": "Music, A.S. | Utah Valley University Academic Catalog",
+   "url": "https://catalog.uvu.edu/arts/music/music-as/"
   },
   "year_basis": "labeled_in_source"
  },

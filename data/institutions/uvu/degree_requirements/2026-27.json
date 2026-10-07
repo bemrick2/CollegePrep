@@ -328,13 +328,16 @@
       "notes": "Reviewed 2026-10-04: Requirement block copied from the 2026-2027 catalog program page. Evidence: sources/pipeline/UT/2026-10-04/evidence.json#6caf2cd542748bba."
     },
     {
-      "last_verified_at": "2026-10-04",
+      "last_verified_at": "2026-10-06",
       "program_key": "dance-b-s",
       "requirement_key": "program-requirements-distribution-courses",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "major_core",
+        "source_section": "Program Requirements — Discipline Core Requirements — Complete 6 credits from the following courses:",
+        "group_type": "choose_credits",
         "choose_credits": 6,
         "courses": [
           {
@@ -360,63 +363,39 @@
           {
             "code": "DANC 1440R",
             "title": "Modern/Contemporary Dance Technique and Theory I/Semester II (3)"
-          },
-          {
-            "code": "DANC 2110",
-            "credits": 3,
-            "title": "Orientation to Dance"
-          },
-          {
-            "code": "DANC 1610R",
-            "credits": 1,
-            "title": "Dance Conditioning"
-          },
-          {
-            "code": "DANC 2560G",
-            "credits": 3,
-            "title": ""
-          },
-          {
-            "code": "DANC 3630",
-            "credits": 3,
-            "title": "Dance as a Cultural Practice II"
-          },
-          {
-            "code": "DANC 3680",
-            "credits": 4,
-            "title": "Dance Kinesiology"
-          },
-          {
-            "code": "DANC 4350",
-            "credits": 2,
-            "title": "Senior Capstone I"
-          },
-          {
-            "code": "DANC 4360",
-            "credits": 2,
-            "title": "Senior Capstone II"
           }
         ],
-        "group_type": "choose_credits",
-        "rule_text": "Biology 3 Humanities 3 Physical Science 3 Social/Behavioral Science 3 Personal, Professional, & Civic Growth 3 Discipline Core Requirements 24 Credits Complete 6 credits from the following courses: 6 Complete the following: BS Dance Tracks 49 Credits Complete the requirements from one of the following tracks 49",
-        "schema": "requirement_group/v1",
-        "source_section": "Program Requirements — Distribution Courses"
+        "rule_text": "Complete 6 credits from the following courses: 6"
       },
       "source_url": "https://catalog.uvu.edu/arts/dance/dance-bs/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The section mixes distribution-area requirements, \"Complete 6 credits from the following courses\" (six DANC technique courses) and a \"Complete the following\" required list; the record called it a 6-credit choice from all 13 courses. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/UT/2026-10-04/evidence.json#444bc6793bea21ff.",
-      "verification_correction_reason": "The section mixes distribution-area requirements, \"Complete 6 credits from the following courses\" (six DANC technique courses) and a \"Complete the following\" required list; the record called it a 6-credit choice from all 13 courses. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 bf139ecafcd4…, fetched 2026-10-04) with the shared reader that splits a group into its printed parts; this part is choose 6 hours from 6 listed courses. Independently re-verified against the archived source rows: 'Complete 6 credits from the following courses: | 6' then DANC 1100R, 1200R, 1410R, 1270R, 1430R, 1440R, then 'Complete the following:'. (source_section label 'Distribution Courses — Discipline Core Requirements' is cosmetic.) Evidence: sources/pipeline/UT/2026-10-04/evidence.json#444bc6793bea21ff.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The section mixes distribution-area requirements, \"Complete 6 credits from the following courses\" (six DANC technique courses) and a \"Complete the following\" required list; the record called it a 6-credit choice from all 13 courses. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 4 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
-      "last_verified_at": "2026-10-04",
+      "last_verified_at": "2026-10-06",
       "program_key": "dance-b-s",
       "requirement_key": "program-requirements-ballroom-dance-track",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "concentration",
-        "choose_credits": 6,
-        "concentration": "Program Requirements — Ballroom Dance Track",
+        "source_section": "Program Requirements — Ballroom Dance Track",
+        "group_type": "all_required",
         "courses": [
           {
             "code": "DANC 2700R",
@@ -461,29 +440,27 @@
           {
             "code": "DANC 4740",
             "title": "Ballroom Dance Teaching Methods and Theory (3)"
-          },
-          {
-            "code": "DANC 2760R",
-            "title": "Ballroom Dance Company Back Up Team (1)"
-          },
-          {
-            "code": "DANC 3760R",
-            "title": "Ballroom Dance Ensemble (2)"
-          },
-          {
-            "code": "DANC 4760R",
-            "title": "Ballroom Dance Company Tour Team (3)"
           }
         ],
-        "group_type": "choose_credits",
-        "rule_text": "Complete the following courses: Complete 6 credits total from the following courses Complete 26 credits from any DANC or other Department approved course",
-        "schema": "requirement_group/v1",
-        "source_section": "Program Requirements — Ballroom Dance Track"
+        "concentration": "Program Requirements — Ballroom Dance Track"
       },
       "source_url": "https://catalog.uvu.edu/arts/dance/dance-bs/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The track prints 11 required courses (\"Complete the following courses\"), then \"Complete 6 credits total from the following\" among three ensembles and 26 further credits; the record called it a 6-credit choice from all 14 courses. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/UT/2026-10-04/evidence.json#b03c7648f3a4afa4.",
-      "verification_correction_reason": "The track prints 11 required courses (\"Complete the following courses\"), then \"Complete 6 credits total from the following\" among three ensembles and 26 further credits; the record called it a 6-credit choice from all 14 courses. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 bf139ecafcd4…, fetched 2026-10-04) with the shared reader that splits a group into its printed parts; this part is 11 required courses. Independently re-verified against the archived source rows: 'Ballroom Dance Track' / 'Complete the following courses:' then DANC 2700R ... DANC 4740 (11 rows) before 'Complete 6 credits total from the following courses'. Note: part of one-of-three track choice. Evidence: sources/pipeline/UT/2026-10-04/evidence.json#b03c7648f3a4afa4.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The track prints 11 required courses (\"Complete the following courses\"), then \"Complete 6 credits total from the following\" among three ensembles and 26 further credits; the record called it a 6-credit choice from all 14 courses. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 3 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-04",
@@ -937,129 +914,96 @@
       "notes": "Reviewed 2026-10-04: Requirement block copied from the 2026-2027 catalog program page. Evidence: sources/pipeline/UT/2026-10-04/evidence.json#906025b76c10c97d."
     },
     {
-      "last_verified_at": "2026-10-04",
+      "last_verified_at": "2026-10-06",
       "program_key": "music-a-s",
       "requirement_key": "program-requirements-distribution-courses",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "major_core",
-        "choose_credits": 4,
+        "source_section": "Program Requirements — Discipline Core Requirements — Complete the following:",
+        "group_type": "all_required",
         "courses": [
           {
-            "code": "PHYS 1750",
-            "title": "The Acoustics of Music (3) (recommended)"
-          },
-          {
             "code": "MUSC 1110",
-            "credits": 3,
-            "title": "Music Theory I"
+            "title": "Music Theory I",
+            "credits": 3
           },
           {
             "code": "MUSC 1120",
-            "credits": 3,
-            "title": "Music Theory II"
+            "title": "Music Theory II",
+            "credits": 3
           },
           {
             "code": "MUSC 1130",
-            "credits": 1,
-            "title": "Aural Skills I"
+            "title": "Aural Skills I",
+            "credits": 1
           },
           {
             "code": "MUSC 1140",
-            "credits": 1,
-            "title": "Aural Skills II"
+            "title": "Aural Skills II",
+            "credits": 1
           },
           {
             "code": "MUSC 1150",
-            "credits": 1,
-            "title": "Group Piano I"
+            "title": "Group Piano I",
+            "credits": 1
           },
           {
             "code": "MUSC 1160",
-            "credits": 1,
-            "title": "Group Piano II"
+            "title": "Group Piano II",
+            "credits": 1
           },
           {
             "code": "MUSC 2110",
-            "credits": 3,
-            "title": "Music Theory III"
+            "title": "Music Theory III",
+            "credits": 3
           },
           {
             "code": "MUSC 2125",
-            "credits": 3,
-            "title": "Music Theory IV"
+            "title": "Music Theory IV",
+            "credits": 3
           },
           {
             "code": "MUSC 2130",
-            "credits": 1,
-            "title": "Aural Skills III"
+            "title": "Aural Skills III",
+            "credits": 1
           },
           {
             "code": "MUSC 2140",
-            "credits": 1,
-            "title": "Aural Skills IV"
+            "title": "Aural Skills IV",
+            "credits": 1
           },
           {
             "code": "MUSC 2150",
-            "credits": 1,
-            "title": "Group Piano III"
+            "title": "Group Piano III",
+            "credits": 1
           },
           {
             "code": "MUSC 2160",
-            "credits": 1,
-            "title": "Group Piano IV"
-          },
-          {
-            "code": "MUSC 1240R",
-            "title": "UVU Concert Choir (1)"
-          },
-          {
-            "code": "MUSC 1250R",
-            "title": "University Band (1)"
-          },
-          {
-            "code": "MUSC 3220R",
-            "title": "Chamber Choir (1)"
-          },
-          {
-            "code": "MUSC 3270R",
-            "title": "Deep Green-Tenor/Bass Choir (1)"
-          },
-          {
-            "code": "MUSC 3280R",
-            "title": "Emerald Singers-Soprano/Alto Choir (1)"
-          },
-          {
-            "code": "MUSC 3300R",
-            "title": "Wind Symphony (1)"
-          },
-          {
-            "code": "MUSC 3320R",
-            "title": "Jazz Orchestra (1)"
-          },
-          {
-            "code": "MUSC 3700R",
-            "title": "Symphony Orchestra (1)"
-          },
-          {
-            "code": "MUSC 2500R",
-            "title": "Private Lessons for Music Majors (1)"
-          },
-          {
-            "code": "MUSC 2510R",
-            "title": "Performance Class (1)"
+            "title": "Group Piano IV",
+            "credits": 1
           }
-        ],
-        "group_type": "choose_credits",
-        "rule_text": "Biology 3 Physical Science 3 Humanities 3 Fine Arts 3 Social/Behavioral Science 3 Personal, Professional and Civic Growth 3 Discipline Core Requirements 32 Credits Complete the following: Complete 4 credits from the following on your major instrument: 4 Complete 4 credits of the following on major instrument: 4 Complete 4 credits of the following on major instrument or voice: 4",
-        "schema": "requirement_group/v1",
-        "source_section": "Program Requirements — Distribution Courses:"
+        ]
       },
       "source_url": "https://catalog.uvu.edu/arts/music/music-as/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The section mixes distribution-area requirements, a required theory/aural/piano list and several separate \"Complete 4 credits\" choices; the record called it a 4-credit choice from all 23 courses. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/UT/2026-10-04/evidence.json#0d9063a67efff8ec.",
-      "verification_correction_reason": "The section mixes distribution-area requirements, a required theory/aural/piano list and several separate \"Complete 4 credits\" choices; the record called it a 4-credit choice from all 23 courses. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 98441e381b12…, fetched 2026-10-04) with the shared reader that splits a group into its printed parts; this part is 12 required courses. Independently re-verified against the archived source rows: Rows: ['Discipline Core Requirements', '32 Credits'], ['Complete the following:', ''], then MUSC 1110 (3), 1120 (3), 1130 (1), 1140 (1), 1150 (1), 1160 (1), 2110 (3), 2125 (3), 2130 (1), 2140 (1), 2150 (1), 2160 (1). All 12 courses and credits match, and none is missing; the next row starts a separa Evidence: sources/pipeline/UT/2026-10-04/evidence.json#0d9063a67efff8ec.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The section mixes distribution-area requirements, a required theory/aural/piano list and several separate \"Complete 4 credits\" choices; the record called it a 4-credit choice from all 23 courses. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 7 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-04",
@@ -1750,69 +1694,56 @@
       "notes": "Reviewed 2026-10-04: Requirement block copied from the 2026-2027 catalog program page. Evidence: sources/pipeline/UT/2026-10-04/evidence.json#700b50776073f527."
     },
     {
-      "last_verified_at": "2026-10-04",
+      "last_verified_at": "2026-10-06",
       "program_key": "music-education-b-s",
       "requirement_key": "program-requirements-performance-skills-development-courses",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "major_core",
-        "choose_credits": 6,
+        "source_section": "Program Requirements — Performance Skills Development Courses",
+        "group_type": "all_required",
         "courses": [
           {
             "code": "MUSC 2500R",
-            "credits": 4,
-            "title": "Private Lessons for Music Majors (1) (Repeated 4 times on major instrument or voice) (Includes completion of sophomore review)"
+            "title": "Private Lessons for Music Majors (1) (Repeated 4 times on major instrument or voice) (Includes completion of sophomore review)",
+            "credits": 4
           },
           {
             "code": "MUSC 2510R",
-            "credits": 4,
-            "title": "Performance Class (1) (Repeated 4 times on major instrument or voice) (Includes completion of sophomore review)"
+            "title": "Performance Class (1) (Repeated 4 times on major instrument or voice) (Includes completion of sophomore review)",
+            "credits": 4
           },
           {
             "code": "MUSC 4500R",
-            "credits": 2,
-            "title": "Advanced Private Lessons for Music Majors (1) (Repeated 2 times on major instrument or voice) (Includes completion of 30-minute senior recital)"
+            "title": "Advanced Private Lessons for Music Majors (1) (Repeated 2 times on major instrument or voice) (Includes completion of 30-minute senior recital)",
+            "credits": 2
           },
           {
             "code": "MUSC 4510R",
-            "credits": 2,
-            "title": "Performance Class (1) (Repeated 2 times)"
-          },
-          {
-            "code": "MUSC 3220R",
-            "title": "Chamber Choir (1)"
-          },
-          {
-            "code": "MUSC 3270R",
-            "title": "Deep Green-Tenor/Bass Choir (1)"
-          },
-          {
-            "code": "MUSC 3280R",
-            "title": "Emerald Singers-Soprano/Alto Choir (1)"
-          },
-          {
-            "code": "MUSC 3300R",
-            "title": "Wind Symphony (1)"
-          },
-          {
-            "code": "MUSC 3320R",
-            "title": "Jazz Orchestra (1)"
-          },
-          {
-            "code": "MUSC 3700R",
-            "title": "Symphony Orchestra (1)"
+            "title": "Performance Class (1) (Repeated 2 times)",
+            "credits": 2
           }
-        ],
-        "group_type": "choose_credits",
-        "rule_text": "Complete 6 credits from the following on your major instrument (as assigned): 6",
-        "schema": "requirement_group/v1",
-        "source_section": "Program Requirements — Performance Skills Development Courses"
+        ]
       },
       "source_url": "https://catalog.uvu.edu/arts/music/music-education-bs/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The group prints four required lesson/performance-class courses and then \"Complete 6 credits from the following\" among six ensembles; the record called it a 6-credit choice from all ten courses. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/UT/2026-10-04/evidence.json#6804c6d1f21ed7a4.",
-      "verification_correction_reason": "The group prints four required lesson/performance-class courses and then \"Complete 6 credits from the following\" among six ensembles; the record called it a 6-credit choice from all ten courses. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 5adb3fb6a307…, fetched 2026-10-04) with the shared reader that splits a group into its printed parts; this part is 4 required courses. Independently re-verified against the archived source rows: 'Performance Skills Development Courses' rows MUSC 2500R |4, MUSC 2510R |4, MUSC 4500R |2, MUSC 4510R |2 (each with credits), then 'Complete 6 credits from the following...'. Evidence: sources/pipeline/UT/2026-10-04/evidence.json#6804c6d1f21ed7a4.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The group prints four required lesson/performance-class courses and then \"Complete 6 credits from the following\" among six ensembles; the record called it a 6-credit choice from all ten courses. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 2 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-04",
@@ -2111,13 +2042,16 @@
       "notes": "Reviewed 2026-10-04: Requirement block copied from the 2026-2027 catalog program page. Evidence: sources/pipeline/UT/2026-10-04/evidence.json#47140fbc2a7e1b63."
     },
     {
-      "last_verified_at": "2026-10-04",
+      "last_verified_at": "2026-10-06",
       "program_key": "performance-b-m",
       "requirement_key": "program-requirements-large-ensembles",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "major_core",
+        "source_section": "Program Requirements — Large Ensembles:",
+        "group_type": "choose_credits",
         "choose_credits": 8,
         "courses": [
           {
@@ -2145,15 +2079,25 @@
             "title": "Symphony Orchestra (1)"
           }
         ],
-        "group_type": "choose_credits",
-        "rule_text": "Complete 8 credits from the following on your major instrument: 8 Choose from one of the following performance areas: 24",
-        "schema": "requirement_group/v1",
-        "source_section": "Program Requirements — Large Ensembles:"
+        "rule_text": "Complete 8 credits from the following on your major instrument: 8"
       },
       "source_url": "https://catalog.uvu.edu/arts/music/performance-bm/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The group prints \"Complete 8 credits from the following\" among six ensembles and then a separate \"Choose from one of the following performance areas\" (24 credits); the record conflates the two. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/UT/2026-10-04/evidence.json#8e7e4908af2281eb.",
-      "verification_correction_reason": "The group prints \"Complete 8 credits from the following\" among six ensembles and then a separate \"Choose from one of the following performance areas\" (24 credits); the record conflates the two. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 0e702f4106a7…, fetched 2026-10-04) with the shared reader that splits a group into its printed parts; this part is choose 8 hours from 6 listed courses. Independently re-verified against the archived source rows: 'Large Ensembles:' / 'Complete 8 credits from the following on your major instrument: | 8' then MUSC 3220R, 3270R, 3280R, 3300R, 3320R, 3700R. Evidence: sources/pipeline/UT/2026-10-04/evidence.json#8e7e4908af2281eb.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The group prints \"Complete 8 credits from the following\" among six ensembles and then a separate \"Choose from one of the following performance areas\" (24 credits); the record conflates the two. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 2 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-04",
@@ -2357,8 +2301,22 @@
       },
       "source_url": "https://catalog.uvu.edu/arts/theatrical-arts-stage-screen/theatre-studies-ba/",
       "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The record pairs the \"CAPSTONE COURSE\" heading (THEA 4993) with the next section's \"Complete 15 credits from the following courses\" (Courselist B); the capstone course is not a 15-credit choice. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/UT/2026-10-04/evidence.json#eb58254add4af88d.",
-      "verification_correction_reason": "The record pairs the \"CAPSTONE COURSE\" heading (THEA 4993) with the next section's \"Complete 15 credits from the following courses\" (Courselist B); the capstone course is not a 15-credit choice. Held for review as a mixed required-and-choice group (issue #95)."
+      "notes": "Reviewed 2026-10-06 (issue #95 recovery): Not a requirement group in the source: \"CAPSTONE COURSE:\" is a label inside Courselist A (\"Complete 6 credits from the following courses\"); THEA 4993 is one of that choice's members, not a required course. Evidence: sources/pipeline/UT/2026-10-04/evidence.json#eb58254add4af88d.",
+      "verification_correction_reason": "Not a requirement group in the source: \"CAPSTONE COURSE:\" is a label inside Courselist A (\"Complete 6 credits from the following courses\"); THEA 4993 is one of that choice's members, not a required course. Held (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The record pairs the \"CAPSTONE COURSE\" heading (THEA 4993) with the next section's \"Complete 15 credits from the following courses\" (Courselist B); the capstone course is not a 15-credit choice. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "kept unverified: not a group in the source"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-04",
@@ -2530,8 +2488,22 @@
       },
       "source_url": "https://catalog.uvu.edu/arts/theatrical-arts-stage-screen/theatre-studies-ba/",
       "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The record pairs the \"CAPSTONE COURSES\" heading (THEA 2570R, 4570R, 4810R, 4995) with the next section's \"Complete 15 credits\" (Courselist C); the capstone list is not a 15-credit choice. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/UT/2026-10-04/evidence.json#5b7b99d4a83ffa83.",
-      "verification_correction_reason": "The record pairs the \"CAPSTONE COURSES\" heading (THEA 2570R, 4570R, 4810R, 4995) with the next section's \"Complete 15 credits\" (Courselist C); the capstone list is not a 15-credit choice. Held for review as a mixed required-and-choice group (issue #95)."
+      "notes": "Reviewed 2026-10-06 (issue #95 recovery): Not a requirement group in the source: \"CAPSTONE COURSES:\" is a label inside Courselist B (\"Complete 15 credits from the following courses\"); the listed courses are members of Courselists B and C, not a required group. Evidence: sources/pipeline/UT/2026-10-04/evidence.json#5b7b99d4a83ffa83.",
+      "verification_correction_reason": "Not a requirement group in the source: \"CAPSTONE COURSES:\" is a label inside Courselist B (\"Complete 15 credits from the following courses\"); the listed courses are members of Courselists B and C, not a required group. Held (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The record pairs the \"CAPSTONE COURSES\" heading (THEA 2570R, 4570R, 4810R, 4995) with the next section's \"Complete 15 credits\" (Courselist C); the capstone list is not a 15-credit choice. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "kept unverified: not a group in the source"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-04",
@@ -2945,6 +2917,542 @@
       "source_url": "https://catalog.uvu.edu/business/accounting/accounting-bs/",
       "verification_status": "verified",
       "notes": "Reviewed 2026-10-04: Requirement block copied from the 2026-2027 catalog program page. Evidence: sources/pipeline/UT/2026-10-04/evidence.json#b02d61fe91640be8."
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "dance-b-s",
+      "requirement_key": "program-requirements-distribution-courses-1-biology-3",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Program Requirements — Distribution Courses — Biology 3",
+        "group_type": "elective_pool",
+        "course_rules": [
+          "Biology 3",
+          "Humanities 3",
+          "Physical Science 3",
+          "Social/Behavioral Science 3",
+          "Personal, Professional, & Civic Growth 3"
+        ]
+      },
+      "source_url": "https://catalog.uvu.edu/arts/dance/dance-bs/",
+      "verification_status": "unverified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 bf139ecafcd4…, fetched 2026-10-04) with the shared reader that splits a group into its printed parts; this part is a pool as printed. Evidence: sources/pipeline/UT/2026-10-04/evidence.json#333e2e3471c6e913.",
+      "verification_correction_reason": "The source prints only an area label with hours (\"Biology 3; Humanities 3; Physical Science 3; Social/Behavioral Science 3; Personal, Professional, & Civic Growth 3\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "split from program-requirements-distribution-courses (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "dance-b-s",
+      "requirement_key": "program-requirements-distribution-courses-3-complete-the-following",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Program Requirements — Discipline Core Requirements — Complete the following:",
+        "group_type": "all_required",
+        "courses": [
+          {
+            "code": "DANC 2110",
+            "title": "Orientation to Dance",
+            "credits": 3
+          },
+          {
+            "code": "DANC 1610R",
+            "title": "Dance Conditioning",
+            "credits": 1
+          },
+          {
+            "code": "DANC 2560G",
+            "title": "",
+            "credits": 3
+          },
+          {
+            "code": "DANC 3630",
+            "title": "Dance as a Cultural Practice II",
+            "credits": 3
+          },
+          {
+            "code": "DANC 3680",
+            "title": "Dance Kinesiology",
+            "credits": 4
+          },
+          {
+            "code": "DANC 4350",
+            "title": "Senior Capstone I",
+            "credits": 2
+          },
+          {
+            "code": "DANC 4360",
+            "title": "Senior Capstone II",
+            "credits": 2
+          }
+        ]
+      },
+      "source_url": "https://catalog.uvu.edu/arts/dance/dance-bs/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 bf139ecafcd4…, fetched 2026-10-04) with the shared reader that splits a group into its printed parts; this part is 7 required courses. Independently re-verified against the archived source rows: 'Complete the following:' then DANC 2110, 1610R, 2560G, 3630, 3680, 4350, 4360, then 'BS Dance Tracks | 49 Credits'. Evidence: sources/pipeline/UT/2026-10-04/evidence.json#01d6fa8c06bcaa72.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from program-requirements-distribution-courses (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "dance-b-s",
+      "requirement_key": "program-requirements-distribution-courses-4-complete-the-requirements-from-one-of-th",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Program Requirements — BS Dance Tracks — Complete the requirements from one of the following tracks",
+        "group_type": "elective_pool",
+        "course_rules": [
+          "Complete the requirements from one of the following tracks"
+        ],
+        "rule_text": "Complete the requirements from one of the following tracks 49"
+      },
+      "source_url": "https://catalog.uvu.edu/arts/dance/dance-bs/",
+      "verification_status": "unverified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 bf139ecafcd4…, fetched 2026-10-04) with the shared reader that splits a group into its printed parts; this part is a pool as printed. Evidence: sources/pipeline/UT/2026-10-04/evidence.json#1e7be3b527741ecc.",
+      "verification_correction_reason": "The source prints the choice as \"Complete the requirements from one of the following tracks 49\"; its count or pool cannot be read as a number of courses or hours. Held for review (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "split from program-requirements-distribution-courses (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "dance-b-s",
+      "requirement_key": "program-requirements-ballroom-dance-track-2-complete-6-credits-total-from-the-follow",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "concentration",
+        "source_section": "Program Requirements — Ballroom Dance Track — Complete 6 credits total from the following courses",
+        "group_type": "choose_credits",
+        "choose_credits": 6,
+        "courses": [
+          {
+            "code": "DANC 2760R",
+            "title": "Ballroom Dance Company Back Up Team (1)"
+          },
+          {
+            "code": "DANC 3760R",
+            "title": "Ballroom Dance Ensemble (2)"
+          },
+          {
+            "code": "DANC 4760R",
+            "title": "Ballroom Dance Company Tour Team (3)"
+          }
+        ],
+        "rule_text": "Complete 6 credits total from the following courses",
+        "concentration": "Program Requirements — Ballroom Dance Track"
+      },
+      "source_url": "https://catalog.uvu.edu/arts/dance/dance-bs/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 bf139ecafcd4…, fetched 2026-10-04) with the shared reader that splits a group into its printed parts; this part is choose 6 hours from 3 listed courses. Independently re-verified against the archived source rows: 'Complete 6 credits total from the following courses' then DANC 2760R, 3760R, 4760R, then 'Complete 26 credits from any DANC...'. Evidence: sources/pipeline/UT/2026-10-04/evidence.json#381e0fc8d7eee010.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from program-requirements-ballroom-dance-track (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "dance-b-s",
+      "requirement_key": "program-requirements-ballroom-dance-track-3-complete-26-credits-from-any-danc-or-oth",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "concentration",
+        "source_section": "Program Requirements — Ballroom Dance Track — Complete 26 credits from any DANC or other Department approved course",
+        "group_type": "choose_credits",
+        "choose_credits": 26,
+        "courses": [
+          {
+            "code": "DANC 2330",
+            "title": "Improvisation (1)"
+          },
+          {
+            "code": "DANC 2340",
+            "title": "Composition (2)"
+          },
+          {
+            "any_of": [
+              {
+                "code": "DANC 2650R",
+                "title": "Fundamentals of Movement (2)"
+              },
+              {
+                "code": "DANC 2670",
+                "title": "Introduction to Laban Studies"
+              }
+            ]
+          },
+          {
+            "code": "DANC 3140",
+            "title": "Dance Production and Lighting (2)"
+          },
+          {
+            "code": "DANC 3750",
+            "title": "(2)"
+          },
+          {
+            "code": "DANC 3850",
+            "title": "Arts Management for Dance (undefined)"
+          },
+          {
+            "code": "DANC 4880",
+            "title": "(3)"
+          },
+          {
+            "code": "HLSC 1055",
+            "title": "Pilates (1)"
+          },
+          {
+            "code": "HLSC 1057",
+            "title": "Yoga (1)"
+          }
+        ],
+        "course_rules": [
+          "Strongly Recommended:"
+        ],
+        "rule_text": "Complete 26 credits from any DANC or other Department approved course",
+        "concentration": "Program Requirements — Ballroom Dance Track"
+      },
+      "source_url": "https://catalog.uvu.edu/arts/dance/dance-bs/",
+      "verification_status": "unverified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 bf139ecafcd4…, fetched 2026-10-04) with the shared reader that splits a group into its printed parts; this part is choose 26 hours from 9 listed courses. Evidence: sources/pipeline/UT/2026-10-04/evidence.json#a68d38d82265e454.",
+      "verification_correction_reason": "The listed courses are printed under \"Strongly Recommended:\"; they are advice, not the pool of the printed choice. Held for review (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "split from program-requirements-ballroom-dance-track (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "music-a-s",
+      "requirement_key": "program-requirements-distribution-courses-1-biology-3",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Program Requirements — Distribution Courses: — Biology 3",
+        "group_type": "elective_pool",
+        "course_rules": [
+          "Biology 3",
+          "Physical Science 3"
+        ]
+      },
+      "source_url": "https://catalog.uvu.edu/arts/music/music-as/",
+      "verification_status": "unverified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 98441e381b12…, fetched 2026-10-04) with the shared reader that splits a group into its printed parts; this part is a pool as printed. Evidence: sources/pipeline/UT/2026-10-04/evidence.json#0f51ddc58342a8a9.",
+      "verification_correction_reason": "The source prints only an area label with hours (\"Biology 3; Physical Science 3\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "split from program-requirements-distribution-courses (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "music-a-s",
+      "requirement_key": "program-requirements-distribution-courses-2-required",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Program Requirements — Distribution Courses: — Required",
+        "group_type": "all_required",
+        "courses": [
+          {
+            "code": "PHYS 1750",
+            "title": "The Acoustics of Music (3) (recommended)"
+          }
+        ]
+      },
+      "source_url": "https://catalog.uvu.edu/arts/music/music-as/",
+      "verification_status": "unverified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 98441e381b12…, fetched 2026-10-04) with the shared reader that splits a group into its printed parts; this part is 1 required courses. Evidence: sources/pipeline/UT/2026-10-04/evidence.json#7f0aa20f35b8fe2e.",
+      "verification_correction_reason": "The source marks the course \"(recommended)\" under a distribution area; it is not a required course. Held for review (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "split from program-requirements-distribution-courses (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "music-a-s",
+      "requirement_key": "program-requirements-distribution-courses-3-humanities-3",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Program Requirements — Distribution Courses: — Humanities 3",
+        "group_type": "elective_pool",
+        "course_rules": [
+          "Humanities 3",
+          "Fine Arts 3",
+          "Social/Behavioral Science 3",
+          "Personal, Professional and Civic Growth 3"
+        ]
+      },
+      "source_url": "https://catalog.uvu.edu/arts/music/music-as/",
+      "verification_status": "unverified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 98441e381b12…, fetched 2026-10-04) with the shared reader that splits a group into its printed parts; this part is a pool as printed. Evidence: sources/pipeline/UT/2026-10-04/evidence.json#092567f3568a1b4d.",
+      "verification_correction_reason": "The source prints only an area label with hours (\"Humanities 3; Fine Arts 3; Social/Behavioral Science 3; Personal, Professional and Civic Growth 3\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "split from program-requirements-distribution-courses (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "music-a-s",
+      "requirement_key": "program-requirements-distribution-courses-5-complete-4-credits-from-the-following-on",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Program Requirements — Discipline Core Requirements — Complete 4 credits from the following on your major instrument:",
+        "group_type": "choose_credits",
+        "choose_credits": 4,
+        "courses": [
+          {
+            "code": "MUSC 1240R",
+            "title": "UVU Concert Choir (1)"
+          },
+          {
+            "code": "MUSC 1250R",
+            "title": "University Band (1)"
+          },
+          {
+            "code": "MUSC 3220R",
+            "title": "Chamber Choir (1)"
+          },
+          {
+            "code": "MUSC 3270R",
+            "title": "Deep Green-Tenor/Bass Choir (1)"
+          },
+          {
+            "code": "MUSC 3280R",
+            "title": "Emerald Singers-Soprano/Alto Choir (1)"
+          },
+          {
+            "code": "MUSC 3300R",
+            "title": "Wind Symphony (1)"
+          },
+          {
+            "code": "MUSC 3320R",
+            "title": "Jazz Orchestra (1)"
+          },
+          {
+            "code": "MUSC 3700R",
+            "title": "Symphony Orchestra (1)"
+          }
+        ],
+        "rule_text": "Complete 4 credits from the following on your major instrument: 4"
+      },
+      "source_url": "https://catalog.uvu.edu/arts/music/music-as/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 98441e381b12…, fetched 2026-10-04) with the shared reader that splits a group into its printed parts; this part is choose 4 hours from 8 listed courses. Independently re-verified against the archived source rows: 'Complete 4 credits from the following on your major instrument: | 4' then MUSC 1240R, 1250R, 3220R, 3270R, 3280R, 3300R, 3320R, 3700R. Evidence: sources/pipeline/UT/2026-10-04/evidence.json#3ab504b37edc3362.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from program-requirements-distribution-courses (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "music-a-s",
+      "requirement_key": "program-requirements-distribution-courses-6-complete-4-credits-of-the-following-on-m",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Program Requirements — Discipline Core Requirements — Complete 4 credits of the following on major instrument:",
+        "group_type": "choose_credits",
+        "choose_credits": 4,
+        "courses": [
+          {
+            "code": "MUSC 2500R",
+            "title": "Private Lessons for Music Majors (1)"
+          }
+        ],
+        "rule_text": "Complete 4 credits of the following on major instrument: 4"
+      },
+      "source_url": "https://catalog.uvu.edu/arts/music/music-as/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 98441e381b12…, fetched 2026-10-04) with the shared reader that splits a group into its printed parts; this part is choose 4 hours from 1 listed courses. Independently re-verified against the archived source rows: 'Complete 4 credits of the following on major instrument: | 4' then only 'MUSC 2500R | Private Lessons for Music Majors (1)'. Evidence: sources/pipeline/UT/2026-10-04/evidence.json#de862ecff55b0097.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from program-requirements-distribution-courses (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "music-a-s",
+      "requirement_key": "program-requirements-distribution-courses-7-complete-4-credits-of-the-following-on-m",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Program Requirements — Discipline Core Requirements — Complete 4 credits of the following on major instrument or voice:",
+        "group_type": "choose_credits",
+        "choose_credits": 4,
+        "courses": [
+          {
+            "code": "MUSC 2510R",
+            "title": "Performance Class (1)"
+          }
+        ],
+        "rule_text": "Complete 4 credits of the following on major instrument or voice: 4"
+      },
+      "source_url": "https://catalog.uvu.edu/arts/music/music-as/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 98441e381b12…, fetched 2026-10-04) with the shared reader that splits a group into its printed parts; this part is choose 4 hours from 1 listed courses. Independently re-verified against the archived source rows: 'Complete 4 credits of the following on major instrument or voice: | 4' then only 'MUSC 2510R | Performance Class (1)' (last row of table). Evidence: sources/pipeline/UT/2026-10-04/evidence.json#8bb4ddb0fcd01d9e.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from program-requirements-distribution-courses (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "music-education-b-s",
+      "requirement_key": "program-requirements-performance-skills-development-courses-2-complete-6-credits-from-the-following-on",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Program Requirements — Performance Skills Development Courses — Complete 6 credits from the following on your major instrument (as assigned):",
+        "group_type": "choose_credits",
+        "choose_credits": 6,
+        "courses": [
+          {
+            "code": "MUSC 3220R",
+            "title": "Chamber Choir (1)"
+          },
+          {
+            "code": "MUSC 3270R",
+            "title": "Deep Green-Tenor/Bass Choir (1)"
+          },
+          {
+            "code": "MUSC 3280R",
+            "title": "Emerald Singers-Soprano/Alto Choir (1)"
+          },
+          {
+            "code": "MUSC 3300R",
+            "title": "Wind Symphony (1)"
+          },
+          {
+            "code": "MUSC 3320R",
+            "title": "Jazz Orchestra (1)"
+          },
+          {
+            "code": "MUSC 3700R",
+            "title": "Symphony Orchestra (1)"
+          }
+        ],
+        "rule_text": "Complete 6 credits from the following on your major instrument (as assigned): 6"
+      },
+      "source_url": "https://catalog.uvu.edu/arts/music/music-education-bs/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 5adb3fb6a307…, fetched 2026-10-04) with the shared reader that splits a group into its printed parts; this part is choose 6 hours from 6 listed courses. Independently re-verified against the archived source rows: 'Complete 6 credits from the following on your major instrument (as assigned): | 6' then MUSC 3220R, 3270R, 3280R, 3300R, 3320R, 3700R, then 'Secondary Education Courses'. Evidence: sources/pipeline/UT/2026-10-04/evidence.json#988e03cef915bc33.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from program-requirements-performance-skills-development-courses (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "performance-b-m",
+      "requirement_key": "program-requirements-large-ensembles-2-choose-from-one-of-the-following-perform",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Program Requirements — Large Ensembles: — Choose from one of the following performance areas:",
+        "group_type": "elective_pool",
+        "course_rules": [
+          "Choose from one of the following performance areas:"
+        ],
+        "rule_text": "Choose from one of the following performance areas: 24"
+      },
+      "source_url": "https://catalog.uvu.edu/arts/music/performance-bm/",
+      "verification_status": "unverified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 0e702f4106a7…, fetched 2026-10-04) with the shared reader that splits a group into its printed parts; this part is a pool as printed. Evidence: sources/pipeline/UT/2026-10-04/evidence.json#5fa60d5592be4f35.",
+      "verification_correction_reason": "The source prints the choice as \"Choose from one of the following performance areas: 24\"; its count or pool cannot be read as a number of courses or hours. Held for review (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "split from program-requirements-large-ensembles (issue #95)"
+        }
+      ]
     }
   ]
 }

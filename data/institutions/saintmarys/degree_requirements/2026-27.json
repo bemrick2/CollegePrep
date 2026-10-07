@@ -1980,146 +1980,121 @@
       "notes": "Reviewed 2026-10-04: Requirement block copied from the 2026-2027 catalog program page. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#7659ed0a3a84bd0b."
     },
     {
-      "last_verified_at": "2026-10-05",
+      "last_verified_at": "2026-10-06",
       "program_key": "accounting-bachelor-of-business-administration",
       "requirement_key": "major-requirements-63-hours-required",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "major_core",
-        "choose_count": 3,
+        "source_section": "Major Requirements (63 Hours) — Required",
+        "group_type": "all_required",
         "courses": [
           {
             "code": "BUAD 201",
-            "credits": 3,
-            "title": "Principles of Financial Accounting"
+            "title": "Principles of Financial Accounting",
+            "credits": 3
           },
           {
             "code": "BUAD 202",
-            "credits": 3,
-            "title": "Principles of Managerial Accounting"
+            "title": "Principles of Managerial Accounting",
+            "credits": 3
           },
           {
             "code": "BUAD 212",
-            "credits": 3,
-            "title": "Principles of Finance"
+            "title": "Principles of Finance",
+            "credits": 3
           },
           {
             "code": "BUAD 221",
-            "credits": 3,
-            "title": "Principles of Management"
+            "title": "Principles of Management",
+            "credits": 3
           },
           {
             "code": "BUAD 231",
-            "credits": 3,
-            "title": "Principles of Marketing"
+            "title": "Principles of Marketing",
+            "credits": 3
           },
           {
             "code": "BUAD 245",
-            "credits": 3,
-            "title": "Business Communication"
+            "title": "Business Communication",
+            "credits": 3
           },
           {
             "code": "BUAD 247",
-            "credits": 3,
-            "title": "Introduction to Excel, Statistics, and Business Analytics"
+            "title": "Introduction to Excel, Statistics, and Business Analytics",
+            "credits": 3
           },
           {
             "code": "BUAD 301",
-            "credits": 3,
-            "title": "Intermediate Accounting I"
+            "title": "Intermediate Accounting I",
+            "credits": 3
           },
           {
             "code": "BUAD 302",
-            "credits": 3,
-            "title": "Intermediate Accounting II"
+            "title": "Intermediate Accounting II",
+            "credits": 3
           },
           {
             "code": "BUAD 303",
-            "credits": 3,
-            "title": "Cost Accounting"
+            "title": "Cost Accounting",
+            "credits": 3
           },
           {
             "code": "BUAD 304",
-            "credits": 3,
-            "title": "Personal Income Tax"
+            "title": "Personal Income Tax",
+            "credits": 3
           },
           {
             "code": "BUAD 344",
-            "credits": 3,
-            "title": "Business Law I"
+            "title": "Business Law I",
+            "credits": 3
           },
           {
             "code": "BUAD 346",
-            "credits": 3,
-            "title": "Business & Organizational Ethics"
+            "title": "Business & Organizational Ethics",
+            "credits": 3
           },
           {
             "code": "BUAD 402",
-            "credits": 3,
-            "title": "Auditing"
+            "title": "Auditing",
+            "credits": 3
           },
           {
             "code": "BUAD 446",
-            "credits": 3,
-            "title": "Strategic Management"
+            "title": "Strategic Management",
+            "credits": 3
           },
           {
             "code": "ECON 251",
-            "credits": 3,
-            "title": "Principles of Macroeconomics"
+            "title": "Principles of Macroeconomics",
+            "credits": 3
           },
           {
             "code": "ECON 252",
-            "credits": 3,
-            "title": "Principles of Microeconomics"
-          },
-          {
-            "code": "BUAD 305",
-            "title": "Accounting for Not-for-Profit Organizations"
-          },
-          {
-            "code": "BUAD 306",
-            "title": "Fraud Examination"
-          },
-          {
-            "code": "BUAD 317",
-            "title": "Financial Statement Analysis"
-          },
-          {
-            "code": "BUAD 390",
-            "title": "Topics in Business (approved topics)"
-          },
-          {
-            "code": "BUAD 401",
-            "title": "Advanced Accounting"
-          },
-          {
-            "code": "BUAD 404",
-            "title": "Advanced Topics in Income Tax"
-          },
-          {
-            "code": "BUAD 405",
-            "title": "Partnerships, S-Corporations, Trusts -- Entity Taxation"
-          },
-          {
-            "code": "BUAD 441",
-            "title": "Advanced Business Analytics"
-          },
-          {
-            "code": "BUAD 444",
-            "title": "Business Law II"
+            "title": "Principles of Microeconomics",
+            "credits": 3
           }
-        ],
-        "group_type": "choose_courses",
-        "rule_text": "Select three of the following: 9",
-        "schema": "requirement_group/v1",
-        "source_section": "Major Requirements (63 Hours) — Required"
+        ]
       },
       "source_url": "https://catalog.saintmarys.edu/undergraduate/programs/business-administration-economics/accounting-bachelor-business-administration/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The group prints 17 required courses and then \"Select three of the following\" among nine electives; the record called it one choice of three from all 26 courses. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/IN/2026-10-04/evidence.json#6a11006f35f64f30.",
-      "verification_correction_reason": "The group prints 17 required courses and then \"Select three of the following\" among nine electives; the record called it one choice of three from all 26 courses. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 1d4de509536d…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is 17 required courses. Independently re-verified against the archived source rows: Rows under 'Required' list BUAD 201 ... ECON 252 (17 courses) up to 'Select three of the following: | 9'; MATH 214 sits under separate 'Other Required' part. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#6a11006f35f64f30.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The group prints 17 required courses and then \"Select three of the following\" among nine electives; the record called it one choice of three from all 26 courses. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 2 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-05",
@@ -2146,82 +2121,61 @@
       "notes": "Reviewed 2026-10-04: Requirement block copied from the 2026-2027 catalog program page. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#1b00ab0f7094f062."
     },
     {
-      "last_verified_at": "2026-10-05",
+      "last_verified_at": "2026-10-06",
       "program_key": "economics-bachelor-of-arts",
       "requirement_key": "major-requirements-34-hours-required",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "major_core",
-        "choose_count": 4,
+        "source_section": "Major Requirements (34 Hours) — Required",
+        "group_type": "all_required",
         "courses": [
           {
             "code": "ECON 251",
-            "credits": 3,
-            "title": "Principles of Macroeconomics"
+            "title": "Principles of Macroeconomics",
+            "credits": 3
           },
           {
             "code": "ECON 252",
-            "credits": 3,
-            "title": "Principles of Microeconomics"
+            "title": "Principles of Microeconomics",
+            "credits": 3
           },
           {
             "code": "ECON 351",
-            "credits": 3,
-            "title": "Intermediate Macroeconomics"
+            "title": "Intermediate Macroeconomics",
+            "credits": 3
           },
           {
             "code": "ECON 352",
-            "credits": 3,
-            "title": "Intermediate Microeconomics"
+            "title": "Intermediate Microeconomics",
+            "credits": 3
           },
           {
             "code": "ECON 457",
-            "credits": 3,
-            "title": "Introduction to Econometrics"
-          },
-          {
-            "code": "ECON 354",
-            "title": "Economic Development"
-          },
-          {
-            "code": "ECON 355",
-            "title": "Economics of Crime and Punishment"
-          },
-          {
-            "code": "ECON 356",
-            "title": "Comparative Economic Systems"
-          },
-          {
-            "code": "ECON 375",
-            "title": "Game Theory: Strategic Decision Making"
-          },
-          {
-            "code": "ECON 390",
-            "title": "Topics in Economics"
-          },
-          {
-            "code": "ECON 451",
-            "title": "History of Economic Thought"
-          },
-          {
-            "code": "ECON 452",
-            "title": "International Trade and Finance"
-          },
-          {
-            "code": "ECON 497",
-            "title": "Independent Study"
+            "title": "Introduction to Econometrics",
+            "credits": 3
           }
-        ],
-        "group_type": "choose_courses",
-        "rule_text": "Select four of the following: 12",
-        "schema": "requirement_group/v1",
-        "source_section": "Major Requirements (34 Hours) — Required"
+        ]
       },
       "source_url": "https://catalog.saintmarys.edu/undergraduate/programs/business-administration-economics/economics-bachelor-arts/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The group prints five required courses and then \"Select four of the following\" among eight electives; the record called it one choice of four from all 13 courses. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/IN/2026-10-04/evidence.json#6ed4cffddc96f307.",
-      "verification_correction_reason": "The group prints five required courses and then \"Select four of the following\" among eight electives; the record called it one choice of four from all 13 courses. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 3fba044b4348…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is 5 required courses. Independently re-verified against the archived source rows: 'Required' rows ECON 251, 252, 351, 352, 457 before 'Select four of the following: | 12'; MATH 113/214 under separate 'Required Supporting Course'. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#6ed4cffddc96f307.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The group prints five required courses and then \"Select four of the following\" among eight electives; the record called it one choice of four from all 13 courses. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 2 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-05",
@@ -2407,146 +2361,128 @@
       "notes": "Reviewed 2026-10-04: Requirement block copied from the 2026-2027 catalog program page. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#fd0b73391853a0e6."
     },
     {
-      "last_verified_at": "2026-10-05",
+      "last_verified_at": "2026-10-06",
       "program_key": "physics-bachelor-of-arts",
       "requirement_key": "major-requirements-38-42-hours-required",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "major_core",
-        "choose_count": 2,
+        "source_section": "Major Requirements (38-42 Hours) — Required",
+        "group_type": "all_required",
         "courses": [
           {
             "code": "PHYS 121",
-            "credits": 4,
-            "title": "General Physics I: Mechanics and Waves"
+            "title": "General Physics I: Mechanics and Waves",
+            "credits": 4
           },
           {
             "code": "PHYS 122",
-            "credits": 4,
-            "title": "General Physics II: Temperature, Electricity, and Light"
+            "title": "General Physics II: Temperature, Electricity, and Light",
+            "credits": 4
           },
           {
             "code": "PHYS 253",
-            "credits": 3,
-            "title": "General Physics III: Modern Physics"
+            "title": "General Physics III: Modern Physics",
+            "credits": 3
           },
           {
             "code": "PHYS 495",
-            "credits": 1,
-            "title": "Senior Seminar"
-          },
-          {
-            "code": "PHYS 272L",
-            "title": "Computational Physics Laboratory"
-          },
-          {
-            "code": "PHYS 282L",
-            "title": "Modern Experimental Laboratory"
-          },
-          {
-            "code": "PHYS 292L",
-            "title": "Wave Mechanics Laboratory"
-          },
-          {
-            "code": "PHYS 323",
-            "title": "Classical Mechanics"
-          },
-          {
-            "code": "PHYS 343",
-            "title": "Thermodynamics"
-          },
-          {
-            "code": "PHYS 424",
-            "title": "Quantum Mechanics"
-          },
-          {
-            "code": "PHYS 444",
-            "title": "Electricity and Magnetism"
+            "title": "Senior Seminar",
+            "credits": 1
           }
-        ],
-        "group_type": "choose_courses",
-        "rule_text": "Select two of the following: 2 Select three of the following: 9 Select one additional 200+ level PHYS course 3",
-        "schema": "requirement_group/v1",
-        "source_section": "Major Requirements (38-42 Hours) — Required"
+        ]
       },
       "source_url": "https://catalog.saintmarys.edu/undergraduate/programs/chemistry-physics/physics-bachelor-arts/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The group prints four required courses, \"Select two of the following\" labs, \"Select three of the following\" upper-level courses and one additional 200+ PHYS course; the record called it one choice of two from all 11 courses. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/IN/2026-10-04/evidence.json#a27149bf928e1ff4.",
-      "verification_correction_reason": "The group prints four required courses, \"Select two of the following\" labs, \"Select three of the following\" upper-level courses and one additional 200+ PHYS course; the record called it one choice of two from all 11 courses. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 a792cff99ffc…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is 4 required courses. Independently re-verified against the archived source rows: 'Required' rows PHYS 121, 122, 253, 495 before 'Select two of the following: | 2'. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#a27149bf928e1ff4.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The group prints four required courses, \"Select two of the following\" labs, \"Select three of the following\" upper-level courses and one additional 200+ PHYS course; the record called it one choice of two from all 11 courses. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 4 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
-      "last_verified_at": "2026-10-05",
+      "last_verified_at": "2026-10-06",
       "program_key": "physics-bachelor-of-science",
       "requirement_key": "major-requirements-61-hours-required",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "major_core",
-        "choose_count": 2,
+        "source_section": "Major Requirements (61 Hours) — Required",
+        "group_type": "all_required",
         "courses": [
           {
             "code": "PHYS 121",
-            "credits": 4,
-            "title": "General Physics I: Mechanics and Waves"
+            "title": "General Physics I: Mechanics and Waves",
+            "credits": 4
           },
           {
             "code": "PHYS 122",
-            "credits": 4,
-            "title": "General Physics II: Temperature, Electricity, and Light"
+            "title": "General Physics II: Temperature, Electricity, and Light",
+            "credits": 4
           },
           {
             "code": "PHYS 253",
-            "credits": 3,
-            "title": "General Physics III: Modern Physics"
+            "title": "General Physics III: Modern Physics",
+            "credits": 3
           },
           {
             "code": "PHYS 323",
-            "credits": 3,
-            "title": "Classical Mechanics"
+            "title": "Classical Mechanics",
+            "credits": 3
           },
           {
             "code": "PHYS 343",
-            "credits": 3,
-            "title": "Thermodynamics"
+            "title": "Thermodynamics",
+            "credits": 3
           },
           {
             "code": "PHYS 424",
-            "credits": 3,
-            "title": "Quantum Mechanics"
+            "title": "Quantum Mechanics",
+            "credits": 3
           },
           {
             "code": "PHYS 444",
-            "credits": 3,
-            "title": "Electricity and Magnetism"
+            "title": "Electricity and Magnetism",
+            "credits": 3
           },
           {
             "code": "PHYS 495",
-            "credits": 1,
-            "title": "Senior Seminar"
-          },
-          {
-            "code": "PHYS 272L",
-            "title": "Computational Physics Laboratory"
-          },
-          {
-            "code": "PHYS 282L",
-            "title": "Modern Experimental Laboratory"
-          },
-          {
-            "code": "PHYS 292L",
-            "title": "Wave Mechanics Laboratory"
+            "title": "Senior Seminar",
+            "credits": 1
           }
-        ],
-        "group_type": "choose_courses",
-        "rule_text": "Select two of the following: 2",
-        "schema": "requirement_group/v1",
-        "source_section": "Major Requirements (61 Hours) — Required"
+        ]
       },
       "source_url": "https://catalog.saintmarys.edu/undergraduate/programs/chemistry-physics/physics-bachelor-science/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The group prints eight required courses and then \"Select two of the following\" among three labs; the record called it one choice of two from all 11 courses. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/IN/2026-10-04/evidence.json#699b2776c16fc900.",
-      "verification_correction_reason": "The group prints eight required courses and then \"Select two of the following\" among three labs; the record called it one choice of two from all 11 courses. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 02ceb5788497…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is 8 required courses. Independently re-verified against the archived source rows: 'Required' rows PHYS 121, 122, 253, 323, 343, 424, 444, 495 before 'Select two of the following: | 2'. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#699b2776c16fc900.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The group prints eight required courses and then \"Select two of the following\" among three labs; the record called it one choice of two from all 11 courses. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 2 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-05",
@@ -6879,6 +6815,283 @@
       "source_url": "https://catalog.saintmarys.edu/undergraduate/programs/communication-studies-dance-theatre/theatre-bachelor-arts/",
       "verification_status": "verified",
       "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/IN/2026-10-06-cat/evidence.json#83298991278580b1."
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "accounting-bachelor-of-business-administration",
+      "requirement_key": "major-requirements-63-hours-required-2-select-three-of-the-following",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Major Requirements (63 Hours) — Required — Select three of the following:",
+        "group_type": "choose_courses",
+        "choose_count": 3,
+        "courses": [
+          {
+            "code": "BUAD 305",
+            "title": "Accounting for Not-for-Profit Organizations"
+          },
+          {
+            "code": "BUAD 306",
+            "title": "Fraud Examination"
+          },
+          {
+            "code": "BUAD 317",
+            "title": "Financial Statement Analysis"
+          },
+          {
+            "code": "BUAD 390",
+            "title": "Topics in Business (approved topics)"
+          },
+          {
+            "code": "BUAD 401",
+            "title": "Advanced Accounting"
+          },
+          {
+            "code": "BUAD 404",
+            "title": "Advanced Topics in Income Tax"
+          },
+          {
+            "code": "BUAD 405",
+            "title": "Partnerships, S-Corporations, Trusts -- Entity Taxation"
+          },
+          {
+            "code": "BUAD 441",
+            "title": "Advanced Business Analytics"
+          },
+          {
+            "code": "BUAD 444",
+            "title": "Business Law II"
+          }
+        ],
+        "rule_text": "Select three of the following: 9"
+      },
+      "source_url": "https://catalog.saintmarys.edu/undergraduate/programs/business-administration-economics/accounting-bachelor-business-administration/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 1d4de509536d…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 3 of 9 listed courses. Independently re-verified against the archived source rows: 'Select three of the following: | 9' followed by BUAD 305, 306, 317, 390, 401, 404, 405, 441, 444, then 'Other Required'. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#915902466fd866dd.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from major-requirements-63-hours-required (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "economics-bachelor-of-arts",
+      "requirement_key": "major-requirements-34-hours-required-2-select-four-of-the-following",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Major Requirements (34 Hours) — Required — Select four of the following:",
+        "group_type": "choose_courses",
+        "choose_count": 4,
+        "courses": [
+          {
+            "code": "ECON 354",
+            "title": "Economic Development"
+          },
+          {
+            "code": "ECON 355",
+            "title": "Economics of Crime and Punishment"
+          },
+          {
+            "code": "ECON 356",
+            "title": "Comparative Economic Systems"
+          },
+          {
+            "code": "ECON 375",
+            "title": "Game Theory: Strategic Decision Making"
+          },
+          {
+            "code": "ECON 390",
+            "title": "Topics in Economics"
+          },
+          {
+            "code": "ECON 451",
+            "title": "History of Economic Thought"
+          },
+          {
+            "code": "ECON 452",
+            "title": "International Trade and Finance"
+          },
+          {
+            "code": "ECON 497",
+            "title": "Independent Study"
+          }
+        ],
+        "rule_text": "Select four of the following: 12"
+      },
+      "source_url": "https://catalog.saintmarys.edu/undergraduate/programs/business-administration-economics/economics-bachelor-arts/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 3fba044b4348…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 4 of 8 listed courses. Independently re-verified against the archived source rows: 'Select four of the following: | 12' then ECON 354, 355, 356, 375, 390, 451, 452, 497, then 'Required Supporting Course'. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#635cb0b66e2a5e30.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from major-requirements-34-hours-required (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "physics-bachelor-of-arts",
+      "requirement_key": "major-requirements-38-42-hours-required-2-select-two-of-the-following",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Major Requirements (38-42 Hours) — Required — Select two of the following:",
+        "group_type": "choose_courses",
+        "choose_count": 2,
+        "courses": [
+          {
+            "code": "PHYS 272L",
+            "title": "Computational Physics Laboratory"
+          },
+          {
+            "code": "PHYS 282L",
+            "title": "Modern Experimental Laboratory"
+          },
+          {
+            "code": "PHYS 292L",
+            "title": "Wave Mechanics Laboratory"
+          }
+        ],
+        "rule_text": "Select two of the following: 2"
+      },
+      "source_url": "https://catalog.saintmarys.edu/undergraduate/programs/chemistry-physics/physics-bachelor-arts/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 a792cff99ffc…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 2 of 3 listed courses. Independently re-verified against the archived source rows: 'Select two of the following: | 2' then PHYS 272L, 282L, 292L, then 'Select three of the following: | 9'. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#5d6f1b1563b48994.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from major-requirements-38-42-hours-required (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "physics-bachelor-of-arts",
+      "requirement_key": "major-requirements-38-42-hours-required-3-select-three-of-the-following",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Major Requirements (38-42 Hours) — Required — Select three of the following:",
+        "group_type": "choose_courses",
+        "choose_count": 3,
+        "courses": [
+          {
+            "code": "PHYS 323",
+            "title": "Classical Mechanics"
+          },
+          {
+            "code": "PHYS 343",
+            "title": "Thermodynamics"
+          },
+          {
+            "code": "PHYS 424",
+            "title": "Quantum Mechanics"
+          },
+          {
+            "code": "PHYS 444",
+            "title": "Electricity and Magnetism"
+          }
+        ],
+        "rule_text": "Select three of the following: 9"
+      },
+      "source_url": "https://catalog.saintmarys.edu/undergraduate/programs/chemistry-physics/physics-bachelor-arts/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 a792cff99ffc…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 3 of 4 listed courses. Independently re-verified against the archived source rows: 'Select three of the following: | 9' then PHYS 323, 343, 424, 444, then 'Select one additional 200+ level PHYS course | 3'. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#e64c86e2efafa3b8.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from major-requirements-38-42-hours-required (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "physics-bachelor-of-arts",
+      "requirement_key": "major-requirements-38-42-hours-required-4-select-one-additional-200-level-phys-cou",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Major Requirements (38-42 Hours) — Required — Select one additional 200+ level PHYS course",
+        "group_type": "elective_pool",
+        "course_rules": [
+          "Select one additional 200+ level PHYS course"
+        ],
+        "rule_text": "Select one additional 200+ level PHYS course 3"
+      },
+      "source_url": "https://catalog.saintmarys.edu/undergraduate/programs/chemistry-physics/physics-bachelor-arts/",
+      "verification_status": "unverified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 a792cff99ffc…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is a pool as printed. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#1a2b0c9354037e53.",
+      "verification_correction_reason": "The source prints the choice as \"Select one additional 200+ level PHYS course 3\"; its count or pool cannot be read as a number of courses or hours. Held for review (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "split from major-requirements-38-42-hours-required (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "physics-bachelor-of-science",
+      "requirement_key": "major-requirements-61-hours-required-2-select-two-of-the-following",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Major Requirements (61 Hours) — Required — Select two of the following:",
+        "group_type": "choose_courses",
+        "choose_count": 2,
+        "courses": [
+          {
+            "code": "PHYS 272L",
+            "title": "Computational Physics Laboratory"
+          },
+          {
+            "code": "PHYS 282L",
+            "title": "Modern Experimental Laboratory"
+          },
+          {
+            "code": "PHYS 292L",
+            "title": "Wave Mechanics Laboratory"
+          }
+        ],
+        "rule_text": "Select two of the following: 2"
+      },
+      "source_url": "https://catalog.saintmarys.edu/undergraduate/programs/chemistry-physics/physics-bachelor-science/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 02ceb5788497…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 2 of 3 listed courses. Independently re-verified against the archived source rows: 'Select two of the following: | 2' then PHYS 272L, 282L, 292L, then 'Required Supporting Courses'. Evidence: sources/pipeline/IN/2026-10-04/evidence.json#e4f16ef8c196b695.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from major-requirements-61-hours-required (issue #95)"
+        }
+      ]
     }
   ]
 }

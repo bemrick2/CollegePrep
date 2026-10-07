@@ -446,109 +446,56 @@
       "notes": "Reviewed 2026-10-04: Requirement block copied from the 2026-2027 catalog program page. Evidence: sources/pipeline/CO/2026-10-04/evidence.json#bf5cbece5fdb0ee0."
     },
     {
-      "last_verified_at": "2026-10-04",
+      "last_verified_at": "2026-10-06",
       "program_key": "graphic-design-bachelor-of-fine-arts",
       "requirement_key": "graphic-design-bachelor-of-fine-arts-and-the-following-required-courses",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "major_core",
-        "choose_count": 2,
+        "source_section": "Graphic Design, Bachelor of Fine Arts — And the following Required courses:",
+        "group_type": "all_required",
         "courses": [
           {
             "code": "BUAD 270",
-            "credits": 3,
-            "title": "Principles of Marketing"
+            "title": "Principles of Marketing",
+            "credits": 3
           },
           {
             "code": "BUAD 335",
-            "credits": 3,
-            "title": "Marketing Communications"
+            "title": "Marketing Communications",
+            "credits": 3
           },
           {
             "code": "CS 160",
-            "credits": 3,
-            "title": "Introduction to Web Design"
+            "title": "Introduction to Web Design",
+            "credits": 3
           },
           {
             "code": "FILM 346",
-            "credits": 3,
-            "title": "Multimedia Communication"
-          },
-          {
-            "code": "ART 203",
-            "title": "Introduction to Ceramics"
-          },
-          {
-            "code": "ART 230",
-            "title": "Introduction to Sculpture"
-          },
-          {
-            "code": "ART 235",
-            "title": "Introduction to Jewelry"
-          },
-          {
-            "code": "ART 280",
-            "title": "Introduction to Painting"
-          },
-          {
-            "code": "ART 286",
-            "title": "Introduction to Watercolor"
-          },
-          {
-            "code": "ART 346",
-            "title": "Intermediate Photography"
-          },
-          {
-            "code": "ART 357",
-            "title": "Intermediate Printmaking"
-          },
-          {
-            "code": "BUAD 185",
-            "title": "Business Communication"
-          },
-          {
-            "code": "BUAD 327",
-            "title": "Social Media Marketing"
-          },
-          {
-            "code": "BUAD 345",
-            "title": "Consumer Behavior"
-          },
-          {
-            "code": "COM 241",
-            "title": "Media Writing"
-          },
-          {
-            "code": "COM 274",
-            "title": "Public Relations Communication"
-          },
-          {
-            "code": "COM 323",
-            "title": "Media/ Arts Management"
-          },
-          {
-            "code": "COM 375",
-            "title": "Social Media Skills"
-          },
-          {
-            "code": "SOC 120",
-            "title": "Communities & Social Change"
-          },
-          {
-            "code": "SOC 340",
-            "title": "Social Movements"
+            "title": "Multimedia Communication",
+            "credits": 3
           }
-        ],
-        "group_type": "choose_courses",
-        "rule_text": "Select two of the following: 6 Select two of the following: 6",
-        "schema": "requirement_group/v1",
-        "source_section": "Graphic Design, Bachelor of Fine Arts — And the following Required courses:"
+        ]
       },
       "source_url": "https://catalog.western.edu/undergraduate/programs/design/graphic_design_bfa/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The group prints four required courses (BUAD 270, BUAD 335, CS 160, FILM 346) and then two separate \"Select two of the following\" lists (studio art; communication/business); the record called it one choice of two from all 20 courses. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/CO/2026-10-04/evidence.json#94d1c78c354e43e7.",
-      "verification_correction_reason": "The group prints four required courses (BUAD 270, BUAD 335, CS 160, FILM 346) and then two separate \"Select two of the following\" lists (studio art; communication/business); the record called it one choice of two from all 20 courses. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 723eb609c307…, fetched 2026-10-04) with the shared reader that splits a group into its printed parts; this part is 4 required courses. Independently re-verified against the archived source rows: 'And the following Required courses:' then BUAD 270, BUAD 335, CS 160, FILM 346 (each '| 3') before 'Select two of the following:'. All 4 present. Evidence: sources/pipeline/CO/2026-10-04/evidence.json#94d1c78c354e43e7.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The group prints four required courses (BUAD 270, BUAD 335, CS 160, FILM 346) and then two separate \"Select two of the following\" lists (studio art; communication/business); the record called it one choice of two from all 20 courses. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 3 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-06",
@@ -1554,6 +1501,126 @@
       "source_url": "https://catalog.western.edu/undergraduate/programs/design/graphic_design_bfa/",
       "verification_status": "verified",
       "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#680e61aa5971c886."
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "graphic-design-bachelor-of-fine-arts",
+      "requirement_key": "graphic-design-bachelor-of-fine-arts-and-the-following-required-courses-2-select-two-of-the-following",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Graphic Design, Bachelor of Fine Arts — And the following Required courses: — Select two of the following:",
+        "group_type": "choose_courses",
+        "choose_count": 2,
+        "courses": [
+          {
+            "code": "ART 203",
+            "title": "Introduction to Ceramics"
+          },
+          {
+            "code": "ART 230",
+            "title": "Introduction to Sculpture"
+          },
+          {
+            "code": "ART 235",
+            "title": "Introduction to Jewelry"
+          },
+          {
+            "code": "ART 280",
+            "title": "Introduction to Painting"
+          },
+          {
+            "code": "ART 286",
+            "title": "Introduction to Watercolor"
+          },
+          {
+            "code": "ART 346",
+            "title": "Intermediate Photography"
+          },
+          {
+            "code": "ART 357",
+            "title": "Intermediate Printmaking"
+          }
+        ],
+        "rule_text": "Select two of the following: 6"
+      },
+      "source_url": "https://catalog.western.edu/undergraduate/programs/design/graphic_design_bfa/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 723eb609c307…, fetched 2026-10-04) with the shared reader that splits a group into its printed parts; this part is choose 2 of 7 listed courses. Independently re-verified against the archived source rows: First 'Select two of the following: | 6' then ART 203, 230, 235, 280, 286, 346, 357. Matches. Evidence: sources/pipeline/CO/2026-10-04/evidence.json#39df92074ac8d6dc.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from graphic-design-bachelor-of-fine-arts-and-the-following-required-courses (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "graphic-design-bachelor-of-fine-arts",
+      "requirement_key": "graphic-design-bachelor-of-fine-arts-and-the-following-required-courses-3-select-two-of-the-following",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Graphic Design, Bachelor of Fine Arts — And the following Required courses: — Select two of the following:",
+        "group_type": "choose_courses",
+        "choose_count": 2,
+        "courses": [
+          {
+            "code": "BUAD 185",
+            "title": "Business Communication"
+          },
+          {
+            "code": "BUAD 327",
+            "title": "Social Media Marketing"
+          },
+          {
+            "code": "BUAD 345",
+            "title": "Consumer Behavior"
+          },
+          {
+            "code": "COM 241",
+            "title": "Media Writing"
+          },
+          {
+            "code": "COM 274",
+            "title": "Public Relations Communication"
+          },
+          {
+            "code": "COM 323",
+            "title": "Media/ Arts Management"
+          },
+          {
+            "code": "COM 375",
+            "title": "Social Media Skills"
+          },
+          {
+            "code": "SOC 120",
+            "title": "Communities & Social Change"
+          },
+          {
+            "code": "SOC 340",
+            "title": "Social Movements"
+          }
+        ],
+        "rule_text": "Select two of the following: 6"
+      },
+      "source_url": "https://catalog.western.edu/undergraduate/programs/design/graphic_design_bfa/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 723eb609c307…, fetched 2026-10-04) with the shared reader that splits a group into its printed parts; this part is choose 2 of 9 listed courses. Independently re-verified against the archived source rows: Second 'Select two of the following: | 6' then BUAD 185, 327, 345, COM 241, 274, 323, 375, SOC 120, SOC 340 (last printed rows). Matches. Evidence: sources/pipeline/CO/2026-10-04/evidence.json#d5ca117faf95b555.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from graphic-design-bachelor-of-fine-arts-and-the-following-required-courses (issue #95)"
+        }
+      ]
     }
   ]
 }

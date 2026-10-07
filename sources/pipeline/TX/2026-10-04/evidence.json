@@ -96,6 +96,48 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "019fa12f5a382ea2": {
+  "decision": {
+   "candidate_id": "019fa12f5a382ea2",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "HIST 2301 - Texas History",
+    "value": "HIST 2301"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 2327 - History of Spanish Borderlands",
+    "value": "HIST 2327"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 2328 - Mexican American Hst 1848-Pres",
+    "value": "HIST 2328"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 2381 - African American History",
+    "value": "HIST 2381"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "1e7d1dca2b0433bd",
+  "source": {
+   "fetched_at": "2026-10-05T00:10:11+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 07 Aug 2026 19:19:15 GMT",
+   "page_file": "4e3bb93ec18403c917db.json.gz",
+   "requested_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/history-philosophy-geography/history-teacher-certification-ba/",
+   "sha256": "4e3bb93ec18403c917db3ac99826f8d8f9a65f23ebee4b2b5d807becd88a325a",
+   "title": "BA History with Teacher Certification | Texas A&M University-San Antonio Catalog",
+   "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/history-philosophy-geography/history-teacher-certification-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "0239c45c35b24e29": {
   "decision": {
    "candidate_id": "0239c45c35b24e29",
@@ -1584,6 +1626,35 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "15f55fc6acd4420b": {
+  "decision": {
+   "candidate_id": "15f55fc6acd4420b",
+   "reason": "Issue #95 recovery: held; The source prints only an area label with hours (\"Mathematics 3; Life & Physical Science 3; Life & Physical Science 3\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery)."
+  },
+  "evidence": [
+   {
+    "field": "section",
+    "snippet": "General Requirements — Core Curriculum — Mathematics 3",
+    "value": "general-requirements-core-curriculum-2-mathematics-3"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [
+   "area_requirement_without_course_list"
+  ],
+  "recovered_from": "bbbc26775d05da52",
+  "source": {
+   "fetched_at": "2026-10-05T00:10:13+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 07 Aug 2026 19:19:21 GMT",
+   "page_file": "693c915bcbcdb9482183.json.gz",
+   "requested_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-rhetoric-writing-emphasis/",
+   "sha256": "693c915bcbcdb94821835ddf3d2060a7d6fb54d9dfe6d14349e57812ebeb8375",
+   "title": "BA English: Writing, Media, and Culture Concentration | Texas A&M University-San Antonio Catalog",
+   "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-rhetoric-writing-emphasis/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "16b5f7a78fa2c94d": {
   "decision": {
    "candidate_id": "16b5f7a78fa2c94d",
@@ -1659,6 +1730,35 @@
    "sha256": "ecd5aa494edb8e59d35d00b38f920b43e062c8fa169a92fd7006218ffdd48a32",
    "title": "Bachelor of Science in Nursing: RN-to-BSN < South Texas College",
    "url": "https://catalog.southtexascollege.edu/baccalaureate-degrees/bsn-rn-to-bsn/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "18111ae1addf34a8": {
+  "decision": {
+   "candidate_id": "18111ae1addf34a8",
+   "reason": "Issue #95 recovery: held; The source prints only an area label with hours (\"Creative Arts 3; American History 3; American History 3; Government/Political Science 3; Government/Political Science 3; Social & Behavioral Sciences 3; Compone\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery)."
+  },
+  "evidence": [
+   {
+    "field": "section",
+    "snippet": "General Requirements — Language, Philosophy, and Culture — Creative Arts 3",
+    "value": "general-requirements-core-curriculum-4-creative-arts-3"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [
+   "area_requirement_without_course_list"
+  ],
+  "recovered_from": "c76131fb8a74ba73",
+  "source": {
+   "fetched_at": "2026-10-05T00:10:12+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 07 Aug 2026 19:19:19 GMT",
+   "page_file": "eda4cc889b91f0106e99.json.gz",
+   "requested_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-literature-emphasis/",
+   "sha256": "eda4cc889b91f0106e994fe0dcc749b7ff73b655f33faa1e33bb2cb227f369ed",
+   "title": "BA English: Literature Emphasis Concentration | Texas A&M University-San Antonio Catalog",
+   "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-literature-emphasis/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -2033,7 +2133,7 @@
  "1e7d1dca2b0433bd": {
   "decision": {
    "candidate_id": "1e7d1dca2b0433bd",
-   "reason": "Requirement block copied from the catalog program page."
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
   },
   "evidence": [
    {
@@ -2050,180 +2150,11 @@
     "field": "courses",
     "snippet": "HIST 4370 - Crucial Topics in History",
     "value": "HIST 4370"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 2301 - Texas History",
-    "value": "HIST 2301"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 2327 - History of Spanish Borderlands",
-    "value": "HIST 2327"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 2328 - Mexican American Hst 1848-Pres",
-    "value": "HIST 2328"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 2381 - African American History",
-    "value": "HIST 2381"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 3302 - Introduction to Public History",
-    "value": "HIST 3302"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 3303 - History of San Antonio",
-    "value": "HIST 3303"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 3312 - Europe in the Middle Ages",
-    "value": "HIST 3312"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 3315 - Early Modern Europe to 1815",
-    "value": "HIST 3315"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 3316 - Europe 1815 to 1914",
-    "value": "HIST 3316"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 3318 - Europe Since 1914",
-    "value": "HIST 3318"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 3330 - Colonial America",
-    "value": "HIST 3330"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 3331 - Amer Rev Early Repub 1763-1850",
-    "value": "HIST 3331"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 3334 - Civil War and Reconstruction",
-    "value": "HIST 3334"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 3335 - Gilded Age and Progressive Era",
-    "value": "HIST 3335"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 3336 - America's Rise to World Power",
-    "value": "HIST 3336"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 3338 - United States Since 1945",
-    "value": "HIST 3338"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 3351 - Latin America I: Colonial Era",
-    "value": "HIST 3351"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 3352 - Latin American II: Modern Era",
-    "value": "HIST 3352"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 3356 - Mexico",
-    "value": "HIST 3356"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 3358 - Asian History I",
-    "value": "HIST 3358"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 3359 - Asian History II",
-    "value": "HIST 3359"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 3360 - Digital Humanities",
-    "value": "HIST 3360"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 3365 - Oral History",
-    "value": "HIST 3365"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 4317 - Nazi Germany",
-    "value": "HIST 4317"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 4319 - The Holocaust",
-    "value": "HIST 4319"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 4340 - US Social and Cultural History",
-    "value": "HIST 4340"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 4342 - U.S. Foreign Policy",
-    "value": "HIST 4342"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 4345 - Native American History",
-    "value": "HIST 4345"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 4347 - The American West",
-    "value": "HIST 4347"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 4360 - United States Women's & Gender History",
-    "value": "HIST 4360"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 4363 - War and Society",
-    "value": "HIST 4363"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 4364 - Global Perspectives in Women's & Gender History",
-    "value": "HIST 4364"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 4366 - Childhood in America",
-    "value": "HIST 4366"
-   },
-   {
-    "field": "courses",
-    "snippet": "HIST 4398 - History Internship",
-    "value": "HIST 4398"
    }
   ],
   "extractor": "catalog_program/v1",
   "issues": [],
+  "recovered_from": "1e7d1dca2b0433bd",
   "source": {
    "fetched_at": "2026-10-05T00:10:11+00:00",
    "kind": "html",
@@ -2998,6 +2929,60 @@
    "sha256": "563d51b16ce73d136feeccb876b5919bd1f3732b89ec596c87af5285d0e0fc9d",
    "title": "BS Biology: Cell and Molecular Biology Concentration | Texas A&M University-San Antonio Catalog",
    "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/natural-sciences/biology-concentration-cell-molecular-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "2eb0381542e994a0": {
+  "decision": {
+   "candidate_id": "2eb0381542e994a0",
+   "reason": "Issue #95 recovery: held; These courses are one option area of a printed choice of hours, not required courses. Held for review (issue #95 recovery)."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "BIOL 1307 - Gen Biology II-Biol Organisms (and)",
+    "value": "BIOL 1307"
+   },
+   {
+    "field": "courses",
+    "snippet": "BIOL 1107 - General Biology II Lab",
+    "value": "BIOL 1107"
+   },
+   {
+    "field": "courses",
+    "snippet": "BIOL 2316 - Genetics (and)",
+    "value": "BIOL 2316"
+   },
+   {
+    "field": "courses",
+    "snippet": "BIOL 2116 - Genetics Laboratory",
+    "value": "BIOL 2116"
+   },
+   {
+    "field": "courses",
+    "snippet": "BIOL 2321 - Introduction to Microbiology (and)",
+    "value": "BIOL 2321"
+   },
+   {
+    "field": "courses",
+    "snippet": "BIOL 2121 - Introduction to Microbiology Laboratory",
+    "value": "BIOL 2121"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [
+   "option_area_within_choice"
+  ],
+  "recovered_from": "acaae9365d9593c3",
+  "source": {
+   "fetched_at": "2026-10-05T00:10:07+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 07 Aug 2026 19:18:57 GMT",
+   "page_file": "ebf1c285c87ae2cfa4c3.json.gz",
+   "requested_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/health-behavioral-sciences/community-health-bs/",
+   "sha256": "ebf1c285c87ae2cfa4c35ce20773917b31379fa01bfbd2750d5fa39fe7a031b2",
+   "title": "BS Public Health | Texas A&M University-San Antonio Catalog",
+   "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/health-behavioral-sciences/community-health-bs/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -3920,47 +3905,18 @@
  "36b40b90c147b32b": {
   "decision": {
    "candidate_id": "36b40b90c147b32b",
-   "reason": "Requirement block copied from the catalog program page."
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
   },
   "evidence": [
    {
     "field": "courses",
     "snippet": "CHEM 4341 - Biochemistry I",
     "value": "CHEM 4341"
-   },
-   {
-    "field": "courses",
-    "snippet": "PSYC 3315 - Health Psychology",
-    "value": "PSYC 3315"
-   },
-   {
-    "field": "courses",
-    "snippet": "PSYC 3316 - Physiological Psychology",
-    "value": "PSYC 3316"
-   },
-   {
-    "field": "courses",
-    "snippet": "PSYC 3324 - Cross-Cultural Psychology",
-    "value": "PSYC 3324"
-   },
-   {
-    "field": "courses",
-    "snippet": "PSYC 3325 - Abnormal Psychology",
-    "value": "PSYC 3325"
-   },
-   {
-    "field": "courses",
-    "snippet": "PSYC 3337 - Drugs, Addiction, & Behavior",
-    "value": "PSYC 3337"
-   },
-   {
-    "field": "courses",
-    "snippet": "EDKN 4320 - Motor Dev and Motor Learning",
-    "value": "EDKN 4320"
    }
   ],
   "extractor": "catalog_program/v1",
   "issues": [],
+  "recovered_from": "36b40b90c147b32b",
   "source": {
    "fetched_at": "2026-10-05T00:10:22+00:00",
    "kind": "html",
@@ -3970,6 +3926,163 @@
    "sha256": "06a7ce09be54267093c74dd0ea4dcd0cc58ec00931ea3b4f7d1de81c26c7c10e",
    "title": "BS Biology: Pre-Health Professions Concentration | Texas A&M University-San Antonio Catalog",
    "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/natural-sciences/biology-concentration-pre-health-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "36f31c539fb1d08c": {
+  "decision": {
+   "candidate_id": "36f31c539fb1d08c",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "ENGL 3302 - History of Text Technologies",
+    "value": "ENGL 3302"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 3303 - Professional Editing",
+    "value": "ENGL 3303"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 3304 - Genres in Creative Writing",
+    "value": "ENGL 3304"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 3317 - Grammar and Style",
+    "value": "ENGL 3317"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 3325 - Medieval through Early Modern British Literature",
+    "value": "ENGL 3325"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 3344 - Literature of the British Isles and Empire, 1660-1900",
+    "value": "ENGL 3344"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 3346 - 20th/21st Century Global Anglophone Literature",
+    "value": "ENGL 3346"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 3351 - Mexican Amer Lit & Culture",
+    "value": "ENGL 3351"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 3362 - Early American Literature",
+    "value": "ENGL 3362"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 3364 - 19th Century American Literature",
+    "value": "ENGL 3364"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 3366 - 20th/21st Century Amer Lit",
+    "value": "ENGL 3366"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 3376 - Mythology",
+    "value": "ENGL 3376"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 3380 - African Amer Lit & Culture",
+    "value": "ENGL 3380"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 4301 - Advanced Technical Writing",
+    "value": "ENGL 4301"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 4310 - Introd to Linguistics",
+    "value": "ENGL 4310"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 4312 - Intro to Composition Studies",
+    "value": "ENGL 4312"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 4330 - Topics in Creative Writing",
+    "value": "ENGL 4330"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 4342 - Rhetoric and Culture",
+    "value": "ENGL 4342"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 4343 - Grant Writing",
+    "value": "ENGL 4343"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 4344 - Digital Culture and Media",
+    "value": "ENGL 4344"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 4370 - Special Topics in English",
+    "value": "ENGL 4370"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 4375 - Studies in Women's Literature",
+    "value": "ENGL 4375"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 4386 - Topics in Black Studies",
+    "value": "ENGL 4386"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 4388 - Topics in Latinx Studies",
+    "value": "ENGL 4388"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 4394 - Topics in Film Studies",
+    "value": "ENGL 4394"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 4395 - Visual Studies",
+    "value": "ENGL 4395"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 4398 - Senior Seminar",
+    "value": "ENGL 4398"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "65b51b95c42f59f4",
+  "source": {
+   "fetched_at": "2026-10-05T00:10:15+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 07 Aug 2026 19:19:25 GMT",
+   "page_file": "70507ed7fe1c64e88caa.json.gz",
+   "requested_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-teacher-certification-ba/",
+   "sha256": "70507ed7fe1c64e88caa3ddaddbbafa1d68a0e893d6a56151b5341341dd5f0c7",
+   "title": "BA English with Teacher Certification | Texas A&M University-San Antonio Catalog",
+   "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-teacher-certification-ba/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -4028,7 +4141,7 @@
  "38070ee1b89ce8d9": {
   "decision": {
    "candidate_id": "38070ee1b89ce8d9",
-   "reason": "Requirement block copied from the catalog program page."
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
   },
   "evidence": [
    {
@@ -4055,50 +4168,11 @@
     "field": "courses",
     "snippet": "PHYS 2125 - University Physics Lab I",
     "value": "PHYS 2125"
-   },
-   {
-    "field": "courses",
-    "snippet": "BIOL 1107 - General Biology II Lab",
-    "value": "BIOL 1107"
-   },
-   {
-    "field": "courses",
-    "snippet": "CHEM 1112 - General Chemistry Lab II",
-    "value": "CHEM 1112"
-   },
-   {
-    "field": "courses",
-    "snippet": "GEOL 1102 - Earth Sciences Lab II",
-    "value": "GEOL 1102"
-   },
-   {
-    "field": "courses",
-    "snippet": "PHYS 1102 - General Physics Lab II",
-    "value": "PHYS 1102"
-   },
-   {
-    "field": "courses",
-    "snippet": "PHYS 2126 - University Physics Lab II",
-    "value": "PHYS 2126"
-   },
-   {
-    "field": "courses",
-    "snippet": "MATH 2113 - Calculus I Lab",
-    "value": "MATH 2113"
-   },
-   {
-    "field": "courses",
-    "snippet": "MATH 2114 - Calculus II Lab",
-    "value": "MATH 2114"
-   },
-   {
-    "field": "courses",
-    "snippet": "MATH 3340 - Linear Algebra with Appl",
-    "value": "MATH 3340"
    }
   ],
   "extractor": "catalog_program/v1",
   "issues": [],
+  "recovered_from": "38070ee1b89ce8d9",
   "source": {
    "fetched_at": "2026-10-05T00:09:56+00:00",
    "kind": "html",
@@ -4948,7 +5022,7 @@
  "40b008cc038dc93b": {
   "decision": {
    "candidate_id": "40b008cc038dc93b",
-   "reason": "Requirement block copied from the catalog program page."
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
   },
   "evidence": [
    {
@@ -4964,6 +5038,7 @@
   ],
   "extractor": "catalog_program/v1",
   "issues": [],
+  "recovered_from": "40b008cc038dc93b",
   "source": {
    "fetched_at": "2026-10-05T00:10:09+00:00",
    "kind": "html",
@@ -4999,6 +5074,63 @@
    "sha256": "23a6f335fea47b46a0b03ae9af4bf8c31884c767cf9f6a2fdbfaf6ed8616f1d4",
    "title": "BS Biology with Teacher Certification | Texas A&M University-San Antonio Catalog",
    "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/natural-sciences/biology-teacher-certification-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "423b8481edf3e8ae": {
+  "decision": {
+   "candidate_id": "423b8481edf3e8ae",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "ENGL 2321 - Themes & Genres British Lit",
+    "value": "ENGL 2321"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 2326 - Literature of the Americas",
+    "value": "ENGL 2326"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 2331 - Intro to World Literature",
+    "value": "ENGL 2331"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 2344 - Introduction to Fiction",
+    "value": "ENGL 2344"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 2346 - Introduction to Poetry",
+    "value": "ENGL 2346"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 2355 - Children's Literature",
+    "value": "ENGL 2355"
+   },
+   {
+    "field": "courses",
+    "snippet": "SPAN 2320 - Intro to Spanish Lang-Literat",
+    "value": "SPAN 2320"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "c76131fb8a74ba73",
+  "source": {
+   "fetched_at": "2026-10-05T00:10:12+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 07 Aug 2026 19:19:19 GMT",
+   "page_file": "eda4cc889b91f0106e99.json.gz",
+   "requested_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-literature-emphasis/",
+   "sha256": "eda4cc889b91f0106e994fe0dcc749b7ff73b655f33faa1e33bb2cb227f369ed",
+   "title": "BA English: Literature Emphasis Concentration | Texas A&M University-San Antonio Catalog",
+   "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-literature-emphasis/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -6603,6 +6735,58 @@
   },
   "year_basis": "source_unlabeled"
  },
+ "564b326d2ec18014": {
+  "decision": {
+   "candidate_id": "564b326d2ec18014",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "PSYC 3315 - Health Psychology",
+    "value": "PSYC 3315"
+   },
+   {
+    "field": "courses",
+    "snippet": "PSYC 3316 - Physiological Psychology",
+    "value": "PSYC 3316"
+   },
+   {
+    "field": "courses",
+    "snippet": "PSYC 3324 - Cross-Cultural Psychology",
+    "value": "PSYC 3324"
+   },
+   {
+    "field": "courses",
+    "snippet": "PSYC 3325 - Abnormal Psychology",
+    "value": "PSYC 3325"
+   },
+   {
+    "field": "courses",
+    "snippet": "PSYC 3337 - Drugs, Addiction, & Behavior",
+    "value": "PSYC 3337"
+   },
+   {
+    "field": "courses",
+    "snippet": "EDKN 4320 - Motor Dev and Motor Learning",
+    "value": "EDKN 4320"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "36b40b90c147b32b",
+  "source": {
+   "fetched_at": "2026-10-05T00:10:22+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 07 Aug 2026 19:19:44 GMT",
+   "page_file": "06a7ce09be54267093c7.json.gz",
+   "requested_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/natural-sciences/biology-concentration-pre-health-bs/",
+   "sha256": "06a7ce09be54267093c74dd0ea4dcd0cc58ec00931ea3b4f7d1de81c26c7c10e",
+   "title": "BS Biology: Pre-Health Professions Concentration | Texas A&M University-San Antonio Catalog",
+   "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/natural-sciences/biology-concentration-pre-health-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "568977dfcfc81861": {
   "decision": {
    "candidate_id": "568977dfcfc81861",
@@ -7117,7 +7301,7 @@
  "65b51b95c42f59f4": {
   "decision": {
    "candidate_id": "65b51b95c42f59f4",
-   "reason": "Requirement block copied from the catalog program page."
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
   },
   "evidence": [
    {
@@ -7154,145 +7338,11 @@
     "field": "courses",
     "snippet": "ENGL 4393 - Teaching Literature and Writing",
     "value": "ENGL 4393"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 3302 - History of Text Technologies",
-    "value": "ENGL 3302"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 3303 - Professional Editing",
-    "value": "ENGL 3303"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 3304 - Genres in Creative Writing",
-    "value": "ENGL 3304"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 3317 - Grammar and Style",
-    "value": "ENGL 3317"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 3325 - Medieval through Early Modern British Literature",
-    "value": "ENGL 3325"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 3344 - Literature of the British Isles and Empire, 1660-1900",
-    "value": "ENGL 3344"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 3346 - 20th/21st Century Global Anglophone Literature",
-    "value": "ENGL 3346"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 3351 - Mexican Amer Lit & Culture",
-    "value": "ENGL 3351"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 3362 - Early American Literature",
-    "value": "ENGL 3362"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 3364 - 19th Century American Literature",
-    "value": "ENGL 3364"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 3366 - 20th/21st Century Amer Lit",
-    "value": "ENGL 3366"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 3376 - Mythology",
-    "value": "ENGL 3376"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 3380 - African Amer Lit & Culture",
-    "value": "ENGL 3380"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4301 - Advanced Technical Writing",
-    "value": "ENGL 4301"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4310 - Introd to Linguistics",
-    "value": "ENGL 4310"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4312 - Intro to Composition Studies",
-    "value": "ENGL 4312"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4330 - Topics in Creative Writing",
-    "value": "ENGL 4330"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4342 - Rhetoric and Culture",
-    "value": "ENGL 4342"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4343 - Grant Writing",
-    "value": "ENGL 4343"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4344 - Digital Culture and Media",
-    "value": "ENGL 4344"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4370 - Special Topics in English",
-    "value": "ENGL 4370"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4375 - Studies in Women's Literature",
-    "value": "ENGL 4375"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4386 - Topics in Black Studies",
-    "value": "ENGL 4386"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4388 - Topics in Latinx Studies",
-    "value": "ENGL 4388"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4394 - Topics in Film Studies",
-    "value": "ENGL 4394"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4395 - Visual Studies",
-    "value": "ENGL 4395"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4398 - Senior Seminar",
-    "value": "ENGL 4398"
    }
   ],
   "extractor": "catalog_program/v1",
   "issues": [],
+  "recovered_from": "65b51b95c42f59f4",
   "source": {
    "fetched_at": "2026-10-05T00:10:15+00:00",
    "kind": "html",
@@ -9054,6 +9104,58 @@
   },
   "year_basis": "source_unlabeled"
  },
+ "78ce26eef0d145e0": {
+  "decision": {
+   "candidate_id": "78ce26eef0d145e0",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "ENGL 2321 - Themes & Genres British Lit",
+    "value": "ENGL 2321"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 2326 - Literature of the Americas",
+    "value": "ENGL 2326"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 2331 - Intro to World Literature",
+    "value": "ENGL 2331"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 2344 - Introduction to Fiction",
+    "value": "ENGL 2344"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 2346 - Introduction to Poetry",
+    "value": "ENGL 2346"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 2355 - Children's Literature",
+    "value": "ENGL 2355"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "bbbc26775d05da52",
+  "source": {
+   "fetched_at": "2026-10-05T00:10:13+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 07 Aug 2026 19:19:21 GMT",
+   "page_file": "693c915bcbcdb9482183.json.gz",
+   "requested_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-rhetoric-writing-emphasis/",
+   "sha256": "693c915bcbcdb94821835ddf3d2060a7d6fb54d9dfe6d14349e57812ebeb8375",
+   "title": "BA English: Writing, Media, and Culture Concentration | Texas A&M University-San Antonio Catalog",
+   "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-rhetoric-writing-emphasis/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "7976ae0da989d764": {
   "decision": {
    "candidate_id": "7976ae0da989d764",
@@ -9381,7 +9483,7 @@
  "7d8f3941bda37d34": {
   "decision": {
    "candidate_id": "7d8f3941bda37d34",
-   "reason": "Requirement block copied from the catalog program page."
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
   },
   "evidence": [
    {
@@ -9403,160 +9505,11 @@
     "field": "courses",
     "snippet": "ENGL 3315 - Introduction to Critical Theory",
     "value": "ENGL 3315"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 2311 - Technical Writing",
-    "value": "ENGL 2311"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 3303 - Professional Editing",
-    "value": "ENGL 3303"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 3304 - Genres in Creative Writing",
-    "value": "ENGL 3304"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 3317 - Grammar and Style",
-    "value": "ENGL 3317"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4301 - Advanced Technical Writing",
-    "value": "ENGL 4301"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4312 - Intro to Composition Studies",
-    "value": "ENGL 4312"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4330 - Topics in Creative Writing",
-    "value": "ENGL 4330"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4343 - Grant Writing",
-    "value": "ENGL 4343"
-   },
-   {
-    "field": "courses",
-    "snippet": "ARTS 2356 - Photography",
-    "value": "ARTS 2356"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 2388 - Introduction to Visual Studies",
-    "value": "ENGL 2388"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 3302 - History of Text Technologies",
-    "value": "ENGL 3302"
-   },
-   {
-    "field": "courses",
-    "snippet": "SPAN 3331 - Latin American Film History",
-    "value": "SPAN 3331"
-   },
-   {
-    "field": "courses",
-    "snippet": "CAPS 4301 - Topics in Creative Arts and Performance Studies",
-    "value": "CAPS 4301"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4344 - Digital Culture and Media",
-    "value": "ENGL 4344"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4394 - Topics in Film Studies",
-    "value": "ENGL 4394"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4395 - Visual Studies",
-    "value": "ENGL 4395"
-   },
-   {
-    "field": "courses",
-    "snippet": "ARTS 1302 - LatinX Art Appreciation",
-    "value": "ARTS 1302"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 2312 - Borderland Rhetorics",
-    "value": "ENGL 2312"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 3331 - Intersectional Shakespeare",
-    "value": "ENGL 3331"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 3351 - Mexican Amer Lit & Culture",
-    "value": "ENGL 3351"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 3376 - Mythology",
-    "value": "ENGL 3376"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 3380 - African Amer Lit & Culture",
-    "value": "ENGL 3380"
-   },
-   {
-    "field": "courses",
-    "snippet": "MUSI 4301 - Topics in Music Studies",
-    "value": "MUSI 4301"
-   },
-   {
-    "field": "courses",
-    "snippet": "SPAN 4319 - US Latina/o/e Soundscapes: Musical Cultures of Latin America",
-    "value": "SPAN 4319"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4342 - Rhetoric and Culture",
-    "value": "ENGL 4342"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4375 - Studies in Women's Literature",
-    "value": "ENGL 4375"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4386 - Topics in Black Studies",
-    "value": "ENGL 4386"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4388 - Topics in Latinx Studies",
-    "value": "ENGL 4388"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4341 - Internship",
-    "value": "ENGL 4341"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 4398 - Senior Seminar",
-    "value": "ENGL 4398"
    }
   ],
   "extractor": "catalog_program/v1",
   "issues": [],
+  "recovered_from": "7d8f3941bda37d34",
   "source": {
    "fetched_at": "2026-10-05T00:10:13+00:00",
    "kind": "html",
@@ -9782,6 +9735,43 @@
    "sha256": "03747548122ca6dbeb2ccf25eab8c3fa03d67c2873c4a2822ef8b1aaf82b8e03",
    "title": "Cost of Attendance | University of Houston-Clear Lake",
    "url": "https://www.uhcl.edu/costs-aid/tuition/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "82750f1543b7c5a0": {
+  "decision": {
+   "candidate_id": "82750f1543b7c5a0",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "MATH 2113 - Calculus I Lab",
+    "value": "MATH 2113"
+   },
+   {
+    "field": "courses",
+    "snippet": "MATH 2114 - Calculus II Lab",
+    "value": "MATH 2114"
+   },
+   {
+    "field": "courses",
+    "snippet": "MATH 3340 - Linear Algebra with Appl",
+    "value": "MATH 3340"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "38070ee1b89ce8d9",
+  "source": {
+   "fetched_at": "2026-10-05T00:09:56+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 07 Aug 2026 19:18:18 GMT",
+   "page_file": "bfcddba66ba7fcf47bfc.json.gz",
+   "requested_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/computational-engineering-mathematical-sciences/computer-science-bs/",
+   "sha256": "bfcddba66ba7fcf47bfc762513f15ce4f63e72bd70d3dabb3fd07d95407a2560",
+   "title": "BS Computer Science | Texas A&M University-San Antonio Catalog",
+   "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/computational-engineering-mathematical-sciences/computer-science-bs/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -10959,6 +10949,35 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "8df21d7a80c20125": {
+  "decision": {
+   "candidate_id": "8df21d7a80c20125",
+   "reason": "Issue #95 recovery: held; The source prints only an area label with hours (\"Creative Arts 3; American History 3; American History 3; Government/Political Science 3; Government/Political Science 3; Social & Behavioral Sciences 3; Compone\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery)."
+  },
+  "evidence": [
+   {
+    "field": "section",
+    "snippet": "General Requirements — Language, Philosophy, and Culture — Creative Arts 3",
+    "value": "general-requirements-core-curriculum-4-creative-arts-3"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [
+   "area_requirement_without_course_list"
+  ],
+  "recovered_from": "bbbc26775d05da52",
+  "source": {
+   "fetched_at": "2026-10-05T00:10:13+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 07 Aug 2026 19:19:21 GMT",
+   "page_file": "693c915bcbcdb9482183.json.gz",
+   "requested_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-rhetoric-writing-emphasis/",
+   "sha256": "693c915bcbcdb94821835ddf3d2060a7d6fb54d9dfe6d14349e57812ebeb8375",
+   "title": "BA English: Writing, Media, and Culture Concentration | Texas A&M University-San Antonio Catalog",
+   "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-rhetoric-writing-emphasis/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "8e052df7f64d5b64": {
   "decision": {
    "candidate_id": "8e052df7f64d5b64",
@@ -11393,7 +11412,7 @@
  "90ab51eb81c6b4ec": {
   "decision": {
    "candidate_id": "90ab51eb81c6b4ec",
-   "reason": "Requirement block copied from the catalog program page."
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
   },
   "evidence": [
    {
@@ -11419,6 +11438,7 @@
   ],
   "extractor": "catalog_program/v1",
   "issues": [],
+  "recovered_from": "90ab51eb81c6b4ec",
   "source": {
    "fetched_at": "2026-10-05T00:09:58+00:00",
    "kind": "html",
@@ -13544,6 +13564,88 @@
   },
   "year_basis": "source_unlabeled"
  },
+ "a2f09690ffbcd92b": {
+  "decision": {
+   "candidate_id": "a2f09690ffbcd92b",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "ARTS 1302 - LatinX Art Appreciation",
+    "value": "ARTS 1302"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 2312 - Borderland Rhetorics",
+    "value": "ENGL 2312"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 3331 - Intersectional Shakespeare",
+    "value": "ENGL 3331"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 3351 - Mexican Amer Lit & Culture",
+    "value": "ENGL 3351"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 3376 - Mythology",
+    "value": "ENGL 3376"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 3380 - African Amer Lit & Culture",
+    "value": "ENGL 3380"
+   },
+   {
+    "field": "courses",
+    "snippet": "MUSI 4301 - Topics in Music Studies",
+    "value": "MUSI 4301"
+   },
+   {
+    "field": "courses",
+    "snippet": "SPAN 4319 - US Latina/o/e Soundscapes: Musical Cultures of Latin America",
+    "value": "SPAN 4319"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 4342 - Rhetoric and Culture",
+    "value": "ENGL 4342"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 4375 - Studies in Women's Literature",
+    "value": "ENGL 4375"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 4386 - Topics in Black Studies",
+    "value": "ENGL 4386"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 4388 - Topics in Latinx Studies",
+    "value": "ENGL 4388"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "7d8f3941bda37d34",
+  "source": {
+   "fetched_at": "2026-10-05T00:10:13+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 07 Aug 2026 19:19:21 GMT",
+   "page_file": "693c915bcbcdb9482183.json.gz",
+   "requested_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-rhetoric-writing-emphasis/",
+   "sha256": "693c915bcbcdb94821835ddf3d2060a7d6fb54d9dfe6d14349e57812ebeb8375",
+   "title": "BA English: Writing, Media, and Culture Concentration | Texas A&M University-San Antonio Catalog",
+   "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-rhetoric-writing-emphasis/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "a3cb138a8bb99c77": {
   "decision": {
    "candidate_id": "a3cb138a8bb99c77",
@@ -13952,6 +14054,35 @@
    "sha256": "eda4cc889b91f0106e994fe0dcc749b7ff73b655f33faa1e33bb2cb227f369ed",
    "title": "BA English: Literature Emphasis Concentration | Texas A&M University-San Antonio Catalog",
    "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-literature-emphasis/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "a807e1b7c3fd897b": {
+  "decision": {
+   "candidate_id": "a807e1b7c3fd897b",
+   "reason": "Issue #95 recovery: held; The source prints only an area label with hours (\"Optional Minor or Electives (18 hrs.) 18\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery)."
+  },
+  "evidence": [
+   {
+    "field": "section",
+    "snippet": "General Requirements — Optional Minor or Electives (18 hrs.) 18",
+    "value": "general-requirements-required-major-courses-6-optional-minor-or-electives-18-hrs-18"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [
+   "area_requirement_without_course_list"
+  ],
+  "recovered_from": "7d8f3941bda37d34",
+  "source": {
+   "fetched_at": "2026-10-05T00:10:13+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 07 Aug 2026 19:19:21 GMT",
+   "page_file": "693c915bcbcdb9482183.json.gz",
+   "requested_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-rhetoric-writing-emphasis/",
+   "sha256": "693c915bcbcdb94821835ddf3d2060a7d6fb54d9dfe6d14349e57812ebeb8375",
+   "title": "BA English: Writing, Media, and Culture Concentration | Texas A&M University-San Antonio Catalog",
+   "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-rhetoric-writing-emphasis/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -14692,42 +14823,18 @@
  "acaae9365d9593c3": {
   "decision": {
    "candidate_id": "acaae9365d9593c3",
-   "reason": "Requirement block copied from the catalog program page."
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
   },
   "evidence": [
    {
-    "field": "courses",
-    "snippet": "BIOL 1307 - Gen Biology II-Biol Organisms (and)",
-    "value": "BIOL 1307"
-   },
-   {
-    "field": "courses",
-    "snippet": "BIOL 1107 - General Biology II Lab",
-    "value": "BIOL 1107"
-   },
-   {
-    "field": "courses",
-    "snippet": "BIOL 2316 - Genetics (and)",
-    "value": "BIOL 2316"
-   },
-   {
-    "field": "courses",
-    "snippet": "BIOL 2116 - Genetics Laboratory",
-    "value": "BIOL 2116"
-   },
-   {
-    "field": "courses",
-    "snippet": "BIOL 2321 - Introduction to Microbiology (and)",
-    "value": "BIOL 2321"
-   },
-   {
-    "field": "courses",
-    "snippet": "BIOL 2121 - Introduction to Microbiology Laboratory",
-    "value": "BIOL 2121"
+    "field": "section",
+    "snippet": "BS Public Health — General Electives (Choose 10 hours)",
+    "value": "bs-public-health-biomedical-sciences"
    }
   ],
   "extractor": "catalog_program/v1",
   "issues": [],
+  "recovered_from": "acaae9365d9593c3",
   "source": {
    "fetched_at": "2026-10-05T00:10:07+00:00",
    "kind": "html",
@@ -15098,6 +15205,68 @@
    "url": "https://www.com.edu/academics/courses-and-registration/transcript-evaluation.html"
   },
   "year_basis": "source_unlabeled"
+ },
+ "afe4ceb2216f98cc": {
+  "decision": {
+   "candidate_id": "afe4ceb2216f98cc",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "ARTS 2356 - Photography",
+    "value": "ARTS 2356"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 2388 - Introduction to Visual Studies",
+    "value": "ENGL 2388"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 3302 - History of Text Technologies",
+    "value": "ENGL 3302"
+   },
+   {
+    "field": "courses",
+    "snippet": "SPAN 3331 - Latin American Film History",
+    "value": "SPAN 3331"
+   },
+   {
+    "field": "courses",
+    "snippet": "CAPS 4301 - Topics in Creative Arts and Performance Studies",
+    "value": "CAPS 4301"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 4344 - Digital Culture and Media",
+    "value": "ENGL 4344"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 4394 - Topics in Film Studies",
+    "value": "ENGL 4394"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 4395 - Visual Studies",
+    "value": "ENGL 4395"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "7d8f3941bda37d34",
+  "source": {
+   "fetched_at": "2026-10-05T00:10:13+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 07 Aug 2026 19:19:21 GMT",
+   "page_file": "693c915bcbcdb9482183.json.gz",
+   "requested_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-rhetoric-writing-emphasis/",
+   "sha256": "693c915bcbcdb94821835ddf3d2060a7d6fb54d9dfe6d14349e57812ebeb8375",
+   "title": "BA English: Writing, Media, and Culture Concentration | Texas A&M University-San Antonio Catalog",
+   "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-rhetoric-writing-emphasis/"
+  },
+  "year_basis": "labeled_in_source"
  },
  "b19871cba9268e3b": {
   "decision": {
@@ -16205,7 +16374,7 @@
  "bbbc26775d05da52": {
   "decision": {
    "candidate_id": "bbbc26775d05da52",
-   "reason": "Requirement block copied from the catalog program page."
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
   },
   "evidence": [
    {
@@ -16217,40 +16386,11 @@
     "field": "courses",
     "snippet": "ENGL 1302 - Composition II",
     "value": "ENGL 1302"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 2321 - Themes & Genres British Lit",
-    "value": "ENGL 2321"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 2326 - Literature of the Americas",
-    "value": "ENGL 2326"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 2331 - Intro to World Literature",
-    "value": "ENGL 2331"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 2344 - Introduction to Fiction",
-    "value": "ENGL 2344"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 2346 - Introduction to Poetry",
-    "value": "ENGL 2346"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 2355 - Children's Literature",
-    "value": "ENGL 2355"
    }
   ],
   "extractor": "catalog_program/v1",
   "issues": [],
+  "recovered_from": "bbbc26775d05da52",
   "source": {
    "fetched_at": "2026-10-05T00:10:13+00:00",
    "kind": "html",
@@ -17151,7 +17291,7 @@
  "c76131fb8a74ba73": {
   "decision": {
    "candidate_id": "c76131fb8a74ba73",
-   "reason": "Requirement block copied from the catalog program page."
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
   },
   "evidence": [
    {
@@ -17163,45 +17303,11 @@
     "field": "courses",
     "snippet": "ENGL 1302 - Composition II",
     "value": "ENGL 1302"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 2321 - Themes & Genres British Lit",
-    "value": "ENGL 2321"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 2326 - Literature of the Americas",
-    "value": "ENGL 2326"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 2331 - Intro to World Literature",
-    "value": "ENGL 2331"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 2344 - Introduction to Fiction",
-    "value": "ENGL 2344"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 2346 - Introduction to Poetry",
-    "value": "ENGL 2346"
-   },
-   {
-    "field": "courses",
-    "snippet": "ENGL 2355 - Children's Literature",
-    "value": "ENGL 2355"
-   },
-   {
-    "field": "courses",
-    "snippet": "SPAN 2320 - Intro to Spanish Lang-Literat",
-    "value": "SPAN 2320"
    }
   ],
   "extractor": "catalog_program/v1",
   "issues": [],
+  "recovered_from": "c76131fb8a74ba73",
   "source": {
    "fetched_at": "2026-10-05T00:10:12+00:00",
    "kind": "html",
@@ -17217,7 +17323,7 @@
  "c8351f2bbb7919b0": {
   "decision": {
    "candidate_id": "c8351f2bbb7919b0",
-   "reason": "Requirement block copied from the catalog program page."
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
   },
   "evidence": [
    {
@@ -17279,25 +17385,11 @@
     "field": "courses",
     "snippet": "MGMT 4370 - Strategic Management",
     "value": "MGMT 4370"
-   },
-   {
-    "field": "courses",
-    "snippet": "BUAD 4301 - Ethical Decisions",
-    "value": "BUAD 4301"
-   },
-   {
-    "field": "courses",
-    "snippet": "BUAD 4302 - Ethical Decisions: Ethics Bowl",
-    "value": "BUAD 4302"
-   },
-   {
-    "field": "courses",
-    "snippet": "BUAD 4303 - Ethical Decisions Spcl Topics",
-    "value": "BUAD 4303"
    }
   ],
   "extractor": "catalog_program/v1",
   "issues": [],
+  "recovered_from": "c8351f2bbb7919b0",
   "source": {
    "fetched_at": "2026-10-05T00:10:34+00:00",
    "kind": "html",
@@ -17608,6 +17700,35 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "c9e8080df58c74db": {
+  "decision": {
+   "candidate_id": "c9e8080df58c74db",
+   "reason": "Issue #95 recovery: held; The source prints only an area label with hours (\"Mathematics 3; Life and Physical Sciences 3; Life and Physical Sciences 3\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery)."
+  },
+  "evidence": [
+   {
+    "field": "section",
+    "snippet": "General Requirements — Core Curriculum — Mathematics 3",
+    "value": "general-requirements-core-curriculum-2-mathematics-3"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [
+   "area_requirement_without_course_list"
+  ],
+  "recovered_from": "c76131fb8a74ba73",
+  "source": {
+   "fetched_at": "2026-10-05T00:10:12+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 07 Aug 2026 19:19:19 GMT",
+   "page_file": "eda4cc889b91f0106e99.json.gz",
+   "requested_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-literature-emphasis/",
+   "sha256": "eda4cc889b91f0106e994fe0dcc749b7ff73b655f33faa1e33bb2cb227f369ed",
+   "title": "BA English: Literature Emphasis Concentration | Texas A&M University-San Antonio Catalog",
+   "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-literature-emphasis/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "ca64d2ad6d34fa5b": {
   "decision": {
    "candidate_id": "ca64d2ad6d34fa5b",
@@ -17829,6 +17950,36 @@
    "sha256": "a872eedd2894628eab8a3488c6a57a8b31dfd27ddc14ebc95cc251d0d252b3fd",
    "title": "Cost of Attendance | UTRGV",
    "url": "https://www.utrgv.edu/som/admissions/tuition-and-financial-aid/cost-of-attendance/index.htm"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "cbd831a7a4cdc1db": {
+  "decision": {
+   "candidate_id": "cbd831a7a4cdc1db",
+   "reason": "Issue #95 recovery: held; The source prints \"Choose one course from 4 of the 5 following areas: 12\", a choice spread across areas or disciplines that one count cannot state. The printed count and the printed hours do not agree (\"Choose one course from 4 of the 5 following areas: 12\"). Held for review (issue #95 recovery)."
+  },
+  "evidence": [
+   {
+    "field": "section",
+    "snippet": "BS Psychology — Capstone — Choose one course from 4 of the 5 following areas:",
+    "value": "bs-psychology-capstone-2-choose-one-course-from-4-of-the-5-follow"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [
+   "choice_across_areas_or_minimum",
+   "printed_count_and_credits_disagree"
+  ],
+  "recovered_from": "40b008cc038dc93b",
+  "source": {
+   "fetched_at": "2026-10-05T00:10:09+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 07 Aug 2026 19:19:01 GMT",
+   "page_file": "d67b5723f3d7c8f45719.json.gz",
+   "requested_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/health-behavioral-sciences/psychology-bs/",
+   "sha256": "d67b5723f3d7c8f457195efb966a18994e65dd3827e758526b5485c3a56acf25",
+   "title": "BS Psychology | Texas A&M University-San Antonio Catalog",
+   "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/health-behavioral-sciences/psychology-bs/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -18200,6 +18351,43 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "cfd78cbf6f960551": {
+  "decision": {
+   "candidate_id": "cfd78cbf6f960551",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "BUAD 4301 - Ethical Decisions",
+    "value": "BUAD 4301"
+   },
+   {
+    "field": "courses",
+    "snippet": "BUAD 4302 - Ethical Decisions: Ethics Bowl",
+    "value": "BUAD 4302"
+   },
+   {
+    "field": "courses",
+    "snippet": "BUAD 4303 - Ethical Decisions Spcl Topics",
+    "value": "BUAD 4303"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "c8351f2bbb7919b0",
+  "source": {
+   "fetched_at": "2026-10-05T00:10:34+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 07 Aug 2026 19:20:21 GMT",
+   "page_file": "52d8a115826e0cd0185e.json.gz",
+   "requested_url": "https://catalog.tamusa.edu/undergraduate/business/accounting-finance/accounting-bba/",
+   "sha256": "52d8a115826e0cd0185e160cb2ac82a7a80d61c4e94368ae0c46ea2208494eea",
+   "title": "BBA Accounting | Texas A&M University-San Antonio Catalog",
+   "url": "https://catalog.tamusa.edu/undergraduate/business/accounting-finance/accounting-bba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "d05ed05121d9cecc": {
   "decision": {
    "candidate_id": "d05ed05121d9cecc",
@@ -18408,6 +18596,35 @@
    "sha256": "faeaf6c74ea08abe9f1dc0113f26e1a9724882f93faa0e27698de95c939a4be9",
    "title": "Incoming Freshmen Scholarships | Scholarships | Cost & Aid | Texas A&M University-Corpus Christi",
    "url": "https://www.tamucc.edu/cost-and-aid/scholarships/incoming-freshmen.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "d2a4a4b3b27595c2": {
+  "decision": {
+   "candidate_id": "d2a4a4b3b27595c2",
+   "reason": "Issue #95 recovery: held; The source prints only an area label with hours (\"Required Upper-Division CETE, CSCI, or CSEC course 12\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery)."
+  },
+  "evidence": [
+   {
+    "field": "section",
+    "snippet": "Department probation and withdrawal: — Major Electives — Required Upper-Division CETE, CSCI, or CSEC course 12",
+    "value": "department-probation-and-withdrawal-major-electives-2-required-upper-division-cete-csci-or-cse"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [
+   "area_requirement_without_course_list"
+  ],
+  "recovered_from": "90ab51eb81c6b4ec",
+  "source": {
+   "fetched_at": "2026-10-05T00:09:58+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 07 Aug 2026 19:18:22 GMT",
+   "page_file": "6346d6364b2547f9ed85.json.gz",
+   "requested_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/computational-engineering-mathematical-sciences/cyber-engineering-technology-bs/",
+   "sha256": "6346d6364b2547f9ed852c21845c691cfcc95e6a73d90f497fa2ad00a737d113",
+   "title": "BS Cyber Engineering Technology | Texas A&M University-San Antonio Catalog",
+   "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/computational-engineering-mathematical-sciences/cyber-engineering-technology-bs/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -18816,7 +19033,7 @@
  "d540dfd8fd083069": {
   "decision": {
    "candidate_id": "d540dfd8fd083069",
-   "reason": "Requirement block copied from the catalog program page."
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
   },
   "evidence": [
    {
@@ -18878,25 +19095,11 @@
     "field": "courses",
     "snippet": "MGMT 4370 - Strategic Management",
     "value": "MGMT 4370"
-   },
-   {
-    "field": "courses",
-    "snippet": "BUAD 4301 - Ethical Decisions",
-    "value": "BUAD 4301"
-   },
-   {
-    "field": "courses",
-    "snippet": "BUAD 4302 - Ethical Decisions: Ethics Bowl",
-    "value": "BUAD 4302"
-   },
-   {
-    "field": "courses",
-    "snippet": "BUAD 4303 - Ethical Decisions Spcl Topics",
-    "value": "BUAD 4303"
    }
   ],
   "extractor": "catalog_program/v1",
   "issues": [],
+  "recovered_from": "d540dfd8fd083069",
   "source": {
    "fetched_at": "2026-10-05T00:10:37+00:00",
    "kind": "html",
@@ -19388,6 +19591,38 @@
   },
   "year_basis": "source_unlabeled"
  },
+ "da9c718b8a41e4ce": {
+  "decision": {
+   "candidate_id": "da9c718b8a41e4ce",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "ENGL 4341 - Internship",
+    "value": "ENGL 4341"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 4398 - Senior Seminar",
+    "value": "ENGL 4398"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "7d8f3941bda37d34",
+  "source": {
+   "fetched_at": "2026-10-05T00:10:13+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 07 Aug 2026 19:19:21 GMT",
+   "page_file": "693c915bcbcdb9482183.json.gz",
+   "requested_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-rhetoric-writing-emphasis/",
+   "sha256": "693c915bcbcdb94821835ddf3d2060a7d6fb54d9dfe6d14349e57812ebeb8375",
+   "title": "BA English: Writing, Media, and Culture Concentration | Texas A&M University-San Antonio Catalog",
+   "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-rhetoric-writing-emphasis/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "dad9ab6e746c2557": {
   "decision": {
    "candidate_id": "dad9ab6e746c2557",
@@ -19862,6 +20097,123 @@
    "url": "https://www.utep.edu/admissions/_files/docs/clep-examination.pdf"
   },
   "year_basis": "source_unlabeled"
+ },
+ "de743117b77297e5": {
+  "decision": {
+   "candidate_id": "de743117b77297e5",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "HIST 3302 - Introduction to Public History",
+    "value": "HIST 3302"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 3303 - History of San Antonio",
+    "value": "HIST 3303"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 3312 - Europe in the Middle Ages",
+    "value": "HIST 3312"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 3315 - Early Modern Europe to 1815",
+    "value": "HIST 3315"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 3316 - Europe 1815 to 1914",
+    "value": "HIST 3316"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 3318 - Europe Since 1914",
+    "value": "HIST 3318"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 3330 - Colonial America",
+    "value": "HIST 3330"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 3331 - Amer Rev Early Repub 1763-1850",
+    "value": "HIST 3331"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 3334 - Civil War and Reconstruction",
+    "value": "HIST 3334"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 3335 - Gilded Age and Progressive Era",
+    "value": "HIST 3335"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 3336 - America's Rise to World Power",
+    "value": "HIST 3336"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 3338 - United States Since 1945",
+    "value": "HIST 3338"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 3351 - Latin America I: Colonial Era",
+    "value": "HIST 3351"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 3352 - Latin American II: Modern Era",
+    "value": "HIST 3352"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 3356 - Mexico",
+    "value": "HIST 3356"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 3358 - Asian History I",
+    "value": "HIST 3358"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 3359 - Asian History II",
+    "value": "HIST 3359"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 3360 - Digital Humanities",
+    "value": "HIST 3360"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 3365 - Oral History",
+    "value": "HIST 3365"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "1e7d1dca2b0433bd",
+  "source": {
+   "fetched_at": "2026-10-05T00:10:11+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 07 Aug 2026 19:19:15 GMT",
+   "page_file": "4e3bb93ec18403c917db.json.gz",
+   "requested_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/history-philosophy-geography/history-teacher-certification-ba/",
+   "sha256": "4e3bb93ec18403c917db3ac99826f8d8f9a65f23ebee4b2b5d807becd88a325a",
+   "title": "BA History with Teacher Certification | Texas A&M University-San Antonio Catalog",
+   "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/history-philosophy-geography/history-teacher-certification-ba/"
+  },
+  "year_basis": "labeled_in_source"
  },
  "deea6a952de48502": {
   "decision": {
@@ -20388,6 +20740,112 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "e247674270ec3709": {
+  "decision": {
+   "candidate_id": "e247674270ec3709",
+   "reason": "Issue #95 recovery: held; The source prints only an area label with hours (\"HIST Upper-Division Elective at either 3000 or 4000 level 3\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery)."
+  },
+  "evidence": [
+   {
+    "field": "section",
+    "snippet": "General Requirements — Major (Required) Courses — HIST Upper-Division Elective at either 3000 or 4000 level 3",
+    "value": "general-requirements-major-required-courses-1-hist-upper-division-elective-at-either-3"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [
+   "area_requirement_without_course_list"
+  ],
+  "recovered_from": "1e7d1dca2b0433bd",
+  "source": {
+   "fetched_at": "2026-10-05T00:10:11+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 07 Aug 2026 19:19:15 GMT",
+   "page_file": "4e3bb93ec18403c917db.json.gz",
+   "requested_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/history-philosophy-geography/history-teacher-certification-ba/",
+   "sha256": "4e3bb93ec18403c917db3ac99826f8d8f9a65f23ebee4b2b5d807becd88a325a",
+   "title": "BA History with Teacher Certification | Texas A&M University-San Antonio Catalog",
+   "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/history-philosophy-geography/history-teacher-certification-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "e25210bf124b6660": {
+  "decision": {
+   "candidate_id": "e25210bf124b6660",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "HIST 4317 - Nazi Germany",
+    "value": "HIST 4317"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 4319 - The Holocaust",
+    "value": "HIST 4319"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 4340 - US Social and Cultural History",
+    "value": "HIST 4340"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 4342 - U.S. Foreign Policy",
+    "value": "HIST 4342"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 4345 - Native American History",
+    "value": "HIST 4345"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 4347 - The American West",
+    "value": "HIST 4347"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 4360 - United States Women's & Gender History",
+    "value": "HIST 4360"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 4363 - War and Society",
+    "value": "HIST 4363"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 4364 - Global Perspectives in Women's & Gender History",
+    "value": "HIST 4364"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 4366 - Childhood in America",
+    "value": "HIST 4366"
+   },
+   {
+    "field": "courses",
+    "snippet": "HIST 4398 - History Internship",
+    "value": "HIST 4398"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "1e7d1dca2b0433bd",
+  "source": {
+   "fetched_at": "2026-10-05T00:10:11+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 07 Aug 2026 19:19:15 GMT",
+   "page_file": "4e3bb93ec18403c917db.json.gz",
+   "requested_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/history-philosophy-geography/history-teacher-certification-ba/",
+   "sha256": "4e3bb93ec18403c917db3ac99826f8d8f9a65f23ebee4b2b5d807becd88a325a",
+   "title": "BA History with Teacher Certification | Texas A&M University-San Antonio Catalog",
+   "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/history-philosophy-geography/history-teacher-certification-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "e42b7a13da817cdd": {
   "decision": {
    "candidate_id": "e42b7a13da817cdd",
@@ -20829,6 +21287,68 @@
    "sha256": "eda4cc889b91f0106e994fe0dcc749b7ff73b655f33faa1e33bb2cb227f369ed",
    "title": "BA English: Literature Emphasis Concentration | Texas A&M University-San Antonio Catalog",
    "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-literature-emphasis/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "ec997916916db825": {
+  "decision": {
+   "candidate_id": "ec997916916db825",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "ENGL 2311 - Technical Writing",
+    "value": "ENGL 2311"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 3303 - Professional Editing",
+    "value": "ENGL 3303"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 3304 - Genres in Creative Writing",
+    "value": "ENGL 3304"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 3317 - Grammar and Style",
+    "value": "ENGL 3317"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 4301 - Advanced Technical Writing",
+    "value": "ENGL 4301"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 4312 - Intro to Composition Studies",
+    "value": "ENGL 4312"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 4330 - Topics in Creative Writing",
+    "value": "ENGL 4330"
+   },
+   {
+    "field": "courses",
+    "snippet": "ENGL 4343 - Grant Writing",
+    "value": "ENGL 4343"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "7d8f3941bda37d34",
+  "source": {
+   "fetched_at": "2026-10-05T00:10:13+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 07 Aug 2026 19:19:21 GMT",
+   "page_file": "693c915bcbcdb9482183.json.gz",
+   "requested_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-rhetoric-writing-emphasis/",
+   "sha256": "693c915bcbcdb94821835ddf3d2060a7d6fb54d9dfe6d14349e57812ebeb8375",
+   "title": "BA English: Writing, Media, and Culture Concentration | Texas A&M University-San Antonio Catalog",
+   "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-rhetoric-writing-emphasis/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -21419,6 +21939,43 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "f38840320e296997": {
+  "decision": {
+   "candidate_id": "f38840320e296997",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "BUAD 4301 - Ethical Decisions",
+    "value": "BUAD 4301"
+   },
+   {
+    "field": "courses",
+    "snippet": "BUAD 4302 - Ethical Decisions: Ethics Bowl",
+    "value": "BUAD 4302"
+   },
+   {
+    "field": "courses",
+    "snippet": "BUAD 4303 - Ethical Decisions Spcl Topics",
+    "value": "BUAD 4303"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "d540dfd8fd083069",
+  "source": {
+   "fetched_at": "2026-10-05T00:10:37+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 30 Sep 2026 20:27:27 GMT",
+   "page_file": "18f3051e9232fcee8afc.json.gz",
+   "requested_url": "https://catalog.tamusa.edu/undergraduate/business/accounting-finance/finance-bba/",
+   "sha256": "18f3051e9232fcee8afc0ab3d6a29291c6f0fe696c16811f4fff5bf1cd749ec5",
+   "title": "BBA Finance | Texas A&M University-San Antonio Catalog",
+   "url": "https://catalog.tamusa.edu/undergraduate/business/accounting-finance/finance-bba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "f4287f22d83f5147": {
   "decision": {
    "candidate_id": "f4287f22d83f5147",
@@ -21764,6 +22321,53 @@
    "sha256": "cb2892307d6fe9de402512d35b12831a7057ea4292b4c85e16d4885933cf6d2a",
    "title": "Bachelor of Applied Technology in Operations Management < South Texas College",
    "url": "https://catalog.southtexascollege.edu/baccalaureate-degrees/bat-technology-management/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "f8306a25937246c9": {
+  "decision": {
+   "candidate_id": "f8306a25937246c9",
+   "reason": "Issue #95 recovery: independently re-verified against the archived source rows."
+  },
+  "evidence": [
+   {
+    "field": "courses",
+    "snippet": "BIOL 1107 - General Biology II Lab",
+    "value": "BIOL 1107"
+   },
+   {
+    "field": "courses",
+    "snippet": "CHEM 1112 - General Chemistry Lab II",
+    "value": "CHEM 1112"
+   },
+   {
+    "field": "courses",
+    "snippet": "GEOL 1102 - Earth Sciences Lab II",
+    "value": "GEOL 1102"
+   },
+   {
+    "field": "courses",
+    "snippet": "PHYS 1102 - General Physics Lab II",
+    "value": "PHYS 1102"
+   },
+   {
+    "field": "courses",
+    "snippet": "PHYS 2126 - University Physics Lab II",
+    "value": "PHYS 2126"
+   }
+  ],
+  "extractor": "catalog_program/v1",
+  "issues": [],
+  "recovered_from": "38070ee1b89ce8d9",
+  "source": {
+   "fetched_at": "2026-10-05T00:09:56+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 07 Aug 2026 19:18:18 GMT",
+   "page_file": "bfcddba66ba7fcf47bfc.json.gz",
+   "requested_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/computational-engineering-mathematical-sciences/computer-science-bs/",
+   "sha256": "bfcddba66ba7fcf47bfc762513f15ce4f63e72bd70d3dabb3fd07d95407a2560",
+   "title": "BS Computer Science | Texas A&M University-San Antonio Catalog",
+   "url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/computational-engineering-mathematical-sciences/computer-science-bs/"
   },
   "year_basis": "labeled_in_source"
  },

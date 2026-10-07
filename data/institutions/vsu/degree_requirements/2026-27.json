@@ -730,87 +730,18 @@
       "notes": "Reviewed 2026-10-03: Course list checked against the 2026-2027 VSU catalog table (codes, titles, hours; elective lists recorded as pools). Evidence: sources/pipeline/VA/2026-10-03/evidence.json#29bfb8cf4dd259a5."
     },
     {
-      "last_verified_at": "2026-10-03",
+      "last_verified_at": "2026-10-06",
       "program_key": "visual-arts-bachelor-of-fine-arts-with-a-concentration-in-studio-arts-b-f-a",
       "requirement_key": "restricted-and-unrestricted-electives",
       "requirement_kind": "other",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "free_elective",
-        "choose_count": 3,
+        "source_section": "Restricted and Unrestricted Electives",
+        "group_type": "choose_credits",
+        "choose_credits": 12,
         "courses": [
-          {
-            "code": "ARTS 203",
-            "title": "Printmaking I"
-          },
-          {
-            "code": "ARTS 204",
-            "title": "Printmaking II"
-          },
-          {
-            "code": "ARTS 303",
-            "title": "Sculpture - Wood"
-          },
-          {
-            "code": "ARTS 304",
-            "title": "Sculpture - Mold MakingI"
-          },
-          {
-            "code": "ARTS 305",
-            "title": "Painting - Still Life"
-          },
-          {
-            "code": "ARTS 306",
-            "title": "Painting - Landscape"
-          },
-          {
-            "code": "ARTS 309",
-            "title": "Ceramics - Hand Building"
-          },
-          {
-            "code": "ARTS 310",
-            "title": "Ceramics - Wheel Throwing"
-          },
-          {
-            "code": "ARTS 312",
-            "title": "Advanced Drawing"
-          },
-          {
-            "code": "ARTS 313",
-            "title": "Black & White Photography I"
-          },
-          {
-            "code": "ARTS 314",
-            "title": "Black & White Photography II"
-          },
-          {
-            "code": "ARTS 409",
-            "title": "Ceramics - Mold Making"
-          },
-          {
-            "code": "ARTS 410",
-            "title": "Ceramics - Mixed Media"
-          },
-          {
-            "code": "ARTS 412",
-            "title": "Experimental Drawing"
-          },
-          {
-            "code": "ARTS 413",
-            "title": "Sculpture - Metal"
-          },
-          {
-            "code": "ARTS 414",
-            "title": "Sculpture - Mixed Media"
-          },
-          {
-            "code": "ARTS 415",
-            "title": "Painting - Figure"
-          },
-          {
-            "code": "ARTS 416",
-            "title": "Painting - Mixed Media"
-          },
           {
             "code": "ARTS 303",
             "title": "Sculpture - Wood"
@@ -860,15 +791,25 @@
             "title": "Painting - Mixed Media"
           }
         ],
-        "group_type": "choose_courses",
-        "rule_text": "Unrestricted Electives 12 Restricted Electives Choose 3 courses from the following list. 21 Students are required to take 12 credits from paint, sculpture or ceramics from the following list: Total Credit Hours 33",
-        "schema": "requirement_group/v1",
-        "source_section": "Restricted and Unrestricted Electives"
+        "rule_text": "Students are required to take 12 credits from paint, sculpture or ceramics from the following list:"
       },
       "source_url": "https://catalog.vsu.edu/undergraduate/college-humanities-social-sciences/department-art-design/visual-arts-studio-concentration-bfa/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The group prints 12 unrestricted elective credits, \"Choose 3 courses\" for 21 restricted credits, and a separate 12-credit paint/sculpture/ceramics requirement; the count (3 courses) and the printed credits (21) do not agree and the record called it one choice of three from all 30 courses. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/VA/2026-10-03/evidence.json#2f8568a36373edcb.",
-      "verification_correction_reason": "The group prints 12 unrestricted elective credits, \"Choose 3 courses\" for 21 restricted credits, and a separate 12-credit paint/sculpture/ceramics requirement; the count (3 courses) and the printed credits (21) do not agree and the record called it one choice of three from all 30 courses. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 2446c324763c…, fetched 2026-10-03) with the shared reader that splits a group into its printed parts; this part is choose 12 hours from 12 listed courses. Independently re-verified against the archived source rows: Row 'Students are required to take 12 credits from paint, sculpture or ceramics from the following list:' followed by 12 rows ARTS 303..ARTS 416 before 'Total Credit Hours | 33'; credits 12 and members match exactly. Evidence: sources/pipeline/VA/2026-10-03/evidence.json#2f8568a36373edcb.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The group prints 12 unrestricted elective credits, \"Choose 3 courses\" for 21 restricted credits, and a separate 12-credit paint/sculpture/ceramics requirement; the count (3 courses) and the printed credits (21) do not agree and the record called it one choice of three from all 30 courses. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 3 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-03",
@@ -12489,6 +12430,135 @@
       "source_url": "https://catalog.vsu.edu/undergraduate/lewis-college-business/department-management-marketing/business-phase-marketing/",
       "verification_status": "verified",
       "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/VA/2026-10-06-cl/evidence.json#c0162ab1278a115a."
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "visual-arts-bachelor-of-fine-arts-with-a-concentration-in-studio-arts-b-f-a",
+      "requirement_key": "restricted-and-unrestricted-electives-1-unrestricted-electives-12",
+      "requirement_kind": "other",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "free_elective",
+        "source_section": "Restricted and Unrestricted Electives — Unrestricted Electives 12",
+        "group_type": "elective_pool",
+        "course_rules": [
+          "Unrestricted Electives 12"
+        ]
+      },
+      "source_url": "https://catalog.vsu.edu/undergraduate/college-humanities-social-sciences/department-art-design/visual-arts-studio-concentration-bfa/",
+      "verification_status": "unverified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 2446c324763c…, fetched 2026-10-03) with the shared reader that splits a group into its printed parts; this part is a pool as printed. Evidence: sources/pipeline/VA/2026-10-03/evidence.json#530b46dcbec055b9.",
+      "verification_correction_reason": "The source prints only an area label with hours (\"Unrestricted Electives 12\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "split from restricted-and-unrestricted-electives (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "visual-arts-bachelor-of-fine-arts-with-a-concentration-in-studio-arts-b-f-a",
+      "requirement_key": "restricted-and-unrestricted-electives-2-restricted-electives-choose-3-courses-fr",
+      "requirement_kind": "other",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "free_elective",
+        "source_section": "Restricted and Unrestricted Electives — Restricted Electives Choose 3 courses from the following list.",
+        "group_type": "choose_courses",
+        "choose_count": 3,
+        "courses": [
+          {
+            "code": "ARTS 203",
+            "title": "Printmaking I"
+          },
+          {
+            "code": "ARTS 204",
+            "title": "Printmaking II"
+          },
+          {
+            "code": "ARTS 303",
+            "title": "Sculpture - Wood"
+          },
+          {
+            "code": "ARTS 304",
+            "title": "Sculpture - Mold MakingI"
+          },
+          {
+            "code": "ARTS 305",
+            "title": "Painting - Still Life"
+          },
+          {
+            "code": "ARTS 306",
+            "title": "Painting - Landscape"
+          },
+          {
+            "code": "ARTS 309",
+            "title": "Ceramics - Hand Building"
+          },
+          {
+            "code": "ARTS 310",
+            "title": "Ceramics - Wheel Throwing"
+          },
+          {
+            "code": "ARTS 312",
+            "title": "Advanced Drawing"
+          },
+          {
+            "code": "ARTS 313",
+            "title": "Black & White Photography I"
+          },
+          {
+            "code": "ARTS 314",
+            "title": "Black & White Photography II"
+          },
+          {
+            "code": "ARTS 409",
+            "title": "Ceramics - Mold Making"
+          },
+          {
+            "code": "ARTS 410",
+            "title": "Ceramics - Mixed Media"
+          },
+          {
+            "code": "ARTS 412",
+            "title": "Experimental Drawing"
+          },
+          {
+            "code": "ARTS 413",
+            "title": "Sculpture - Metal"
+          },
+          {
+            "code": "ARTS 414",
+            "title": "Sculpture - Mixed Media"
+          },
+          {
+            "code": "ARTS 415",
+            "title": "Painting - Figure"
+          },
+          {
+            "code": "ARTS 416",
+            "title": "Painting - Mixed Media"
+          }
+        ],
+        "rule_text": "Restricted Electives Choose 3 courses from the following list. 21"
+      },
+      "source_url": "https://catalog.vsu.edu/undergraduate/college-humanities-social-sciences/department-art-design/visual-arts-studio-concentration-bfa/",
+      "verification_status": "unverified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 2446c324763c…, fetched 2026-10-03) with the shared reader that splits a group into its printed parts; this part is choose 3 of 18 listed courses. Evidence: sources/pipeline/VA/2026-10-03/evidence.json#a680cc61d8d9551a.",
+      "verification_correction_reason": "The printed count and the printed hours do not agree (\"Restricted Electives Choose 3 courses from the following list. 21\"). Held for review (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "split from restricted-and-unrestricted-electives (issue #95)"
+        }
+      ]
     }
   ]
 }

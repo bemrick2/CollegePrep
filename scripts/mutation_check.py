@@ -256,6 +256,24 @@ MUTS = [
     ('pipeline/extractors/catalog.py', "(?:/[A-Z]{2,5})*)\\s?(\\d{3,4}[A-Z]?)$')", ")\\s?(\\d{3,4}[A-Z]?)$')"),
     ('pipeline/extractors/catalog.py', "            if cur['courses'] and CHOICE_CUE.search(text): cur['courses_before_choice'] = True", "            pass"),
     ('pipeline/registry.py', '        if domain in PROGRAM_DEPTH_DOMAINS: continue\n', '        pass\n'),
+    # Issue #95 recovery: mixed choice groups are split into their printed parts (pipeline/extractors/catalog.py)
+    ('pipeline/extractors/catalog.py', "            if not ('mixed_required_and_choice' in choice_issues or len(parts) > 1 or any(iss for _, _, iss in parts)): parts = []", '            parts = []'),
+    ('pipeline/extractors/catalog.py', "                cur = start('required')  # a course with its own hours after the choice's members: required", "                cur['courses'].append(item); continue"),
+    ('pipeline/extractors/catalog.py', "                cur['courses'][-1] = {'any_of': (last['any_of'] if 'any_of' in last else [last]) + [alt]}", '                pass'),
+    ('pipeline/extractors/catalog.py', "                if not cur['courses'] or 'credits' not in item or 'choice_list_end_unclear' in cur['issues']:", "                if 'credits' not in item:"),
+    ('pipeline/extractors/catalog.py', "                if prev_area and (hours is None or re.sub(r'\\D', '', hours) == re.sub(r'\\D', '', prev_area[1].split()[-1])):", '                if prev_area:'),
+    ('pipeline/extractors/catalog.py', "        if option: seg['issues'].append('option_area_within_choice')", '        pass'),
+    ('pipeline/extractors/catalog.py', "                cur['issues'].append('recommended_course_not_required')", '                pass'),
+    ('pipeline/extractors/catalog.py', "                seg['issues'].append('recommended_courses_listed')", '                pass'),
+    ('pipeline/extractors/catalog.py', "            if header and first.endswith(':') and cur.get('open_choice') and member_next:", "            if header and first.endswith(':') and cur.get('open_choice'):"),
+    ('pipeline/extractors/catalog.py', "        if hours and re.fullmatch(r'\\d{1,2}', hours) and (int(hours) % count or int(hours) // count > 6):", '        if False:'),
+    ('pipeline/extractors/catalog.py', "    if ACROSS_AREAS.search(cue): issues.append('choice_across_areas_or_minimum')", '    pass'),
+    ('pipeline/extractors/catalog.py', "    elif rd['group_type'] == 'choose_courses':  # a count of courses with no list printed: the printed rule is the pool", '    elif False:'),
+    ('pipeline/extractors/catalog.py', '                elif pending_option: option_of = pending_option', '                elif False: option_of = pending_option'),
+    ('pipeline/extractors/catalog.py', '            if hours and SECTION_LABEL.match(hours) and not (CHOICE_CUE.search(cells[0]) or CHOOSE_HOURS.search(cells[0])):', '            if False:'),
+    ('pipeline/extractors/catalog.py', '            if REQUIRED_CUE.match(cells[0]):', '            if False:'),
+    ('pipeline/extractors/catalog.py', '            own = next((i for i, (_, _, iss) in enumerate(parts) if not iss), 0)', '            own = 0'),
+    ('pipeline/extractors/catalog.py', "            if len(parts) == 1 and parts[0][2] == ['course_pairings']: parts = []", '            pass'),
 ]
 TIMEOUT = 90
 

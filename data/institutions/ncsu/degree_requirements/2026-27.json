@@ -1516,13 +1516,17 @@
       "notes": "Reviewed 2026-10-03: Course list checked against the 2026-2027 NC State catalog table (codes, titles, hours; elective lists recorded as pools). Evidence: sources/pipeline/NC/2026-10-03/evidence.json#0eba8f58eac59e56."
     },
     {
-      "last_verified_at": "2026-10-03",
+      "last_verified_at": "2026-10-06",
       "program_key": "crop-and-soil-sciences-bs-agronomy",
       "requirement_key": "contact-person-electives",
       "requirement_kind": "other",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "other",
+        "source_section": "Contact Person — Electives",
+        "group_type": "choose_courses",
+        "choose_count": 1,
         "courses": [
           {
             "code": "CS 224",
@@ -1535,37 +1539,27 @@
           {
             "code": "SSC 185",
             "title": "Land and Life"
-          },
-          {
-            "code": "CS 216",
-            "title": "Southern Row Crop Production - Cotton, Peanuts, and Tobacco"
-          },
-          {
-            "code": "CS 218",
-            "title": "Southern Row Crop Production - Corn, Small Grains and Soybeans"
-          },
-          {
-            "code": "CS 251",
-            "title": "Production of Forage Crops"
-          },
-          {
-            "code": "CSSC 492",
-            "title": "Professional Internship Experience in Crop and Soil Sciences"
-          },
-          {
-            "code": "CSSC 493",
-            "title": "Research Experience in Crop and Soil Sciences"
           }
         ],
-        "group_type": "elective_pool",
-        "rule_text": "Foundation Elective (select one): 3 Crop Production Electives (select two): 6 Experiential Learning (select one): 3 Restricted Electives 17",
-        "schema": "requirement_group/v1",
-        "source_section": "Contact Person — Electives"
+        "rule_text": "Foundation Elective (select one): 3"
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-agronomy/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The group prints three separate choices (Foundation Elective select one, Crop Production Electives select two, Experiential Learning select one); the record called the eight courses one pool. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/NC/2026-10-03/evidence.json#113fdf747f5b25de.",
-      "verification_correction_reason": "The group prints three separate choices (Foundation Elective select one, Crop Production Electives select two, Experiential Learning select one); the record called the eight courses one pool. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 52586c794d6b…, fetched 2026-10-03) with the shared reader that splits a group into its printed parts; this part is choose 1 of 3 listed courses. Independently re-verified against the archived source rows: 'Foundation Elective (select one): | 3' then CS 224, CS 230, SSC 185, then 'Crop Production Electives (select two): | 6'. Evidence: sources/pipeline/NC/2026-10-03/evidence.json#113fdf747f5b25de.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The group prints three separate choices (Foundation Elective select one, Crop Production Electives select two, Experiential Learning select one); the record called the eight courses one pool. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 4 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-03",
@@ -17041,14 +17035,17 @@
       "verification_correction_reason": "The catalog prints \"Choose from:\" choices together with other course-specific notes in one group; it is not an all-required list. The record was approved as all_required on 2026-10-03 in error (issue #95). Held for review: the group mixes choices and conditions that the source structure does not separate."
     },
     {
-      "last_verified_at": "2026-10-03",
+      "last_verified_at": "2026-10-06",
       "program_key": "crop-and-soil-sciences-bs-soil-science",
       "requirement_key": "plan-requirements-concentration-electives",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "concentration",
-        "concentration": "Plan Requirements — Concentration Electives",
+        "source_section": "Plan Requirements — Concentration Electives",
+        "group_type": "choose_courses",
+        "choose_count": 1,
         "courses": [
           {
             "code": "FW 221",
@@ -17057,25 +17054,28 @@
           {
             "code": "SSC 185",
             "title": "Land and Life"
-          },
-          {
-            "code": "CSSC 492",
-            "title": "Professional Internship Experience in Crop and Soil Sciences"
-          },
-          {
-            "code": "CSSC 493",
-            "title": "Research Experience in Crop and Soil Sciences"
           }
         ],
-        "group_type": "elective_pool",
-        "rule_text": "Foundation Elective (select one): 3 Soil Science Electives 6 Economics, Management & Policy Electives 6 Experiential Learning (select one): 3 Restricted Electives 15",
-        "schema": "requirement_group/v1",
-        "source_section": "Plan Requirements — Concentration Electives"
+        "rule_text": "Foundation Elective (select one): 3",
+        "concentration": "Plan Requirements — Concentration Electives"
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-soil-science/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The group prints separate choices (Foundation Elective select one, Experiential Learning select one) plus 6-credit elective categories; the record called the four courses one pool. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/NC/2026-10-03/evidence.json#83367d2b0d7bea45.",
-      "verification_correction_reason": "The group prints separate choices (Foundation Elective select one, Experiential Learning select one) plus 6-credit elective categories; the record called the four courses one pool. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 e4532a97fb68…, fetched 2026-10-03) with the shared reader that splits a group into its printed parts; this part is choose 1 of 2 listed courses. Independently re-verified against the archived source rows: 'Foundation Elective (select one): | 3' then FW 221, SSC 185, then 'Soil Science Electives | 6'. Evidence: sources/pipeline/NC/2026-10-03/evidence.json#83367d2b0d7bea45.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The group prints separate choices (Foundation Elective select one, Experiential Learning select one) plus 6-credit elective categories; the record called the four courses one pool. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 4 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-03",
@@ -29431,65 +29431,56 @@
       "notes": "Reviewed 2026-10-03: Course list checked against the 2026-2027 NC State catalog table (codes, titles, hours; elective lists recorded as pools). Evidence: sources/pipeline/NC/2026-10-03/evidence.json#d1a086d1b74c7fd7."
     },
     {
-      "last_verified_at": "2026-10-03",
+      "last_verified_at": "2026-10-06",
       "program_key": "mathematics-education-bs-middle-grades-mathematics-concentration",
       "requirement_key": "plan-requirements-mathematics",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "major_core",
-        "choose_count": 1,
+        "source_section": "Plan Requirements — Mathematics",
+        "group_type": "all_required",
         "courses": [
           {
             "code": "MA 141",
-            "credits": 4,
-            "title": "Calculus I"
+            "title": "Calculus I",
+            "credits": 4
           },
           {
             "code": "MA 241",
-            "credits": 4,
-            "title": "Calculus II"
+            "title": "Calculus II",
+            "credits": 4
           },
           {
             "code": "MA 225",
-            "credits": 3,
-            "title": "Foundations of Advanced Mathematics"
+            "title": "Foundations of Advanced Mathematics",
+            "credits": 3
           },
           {
             "code": "MA 408",
-            "credits": 3,
-            "title": "Foundations of Euclidean Geometry"
-          },
-          {
-            "code": "MA 305",
-            "title": "Introductory Linear Algebra and Matrices"
-          },
-          {
-            "code": "MA 405",
-            "title": "Introduction to Linear Algebra"
-          },
-          {
-            "code": "MA 103",
-            "title": "Topics in Contemporary Mathematics"
-          },
-          {
-            "code": "MA 105",
-            "title": "Mathematics of Finance"
-          },
-          {
-            "code": "MA 114",
-            "title": "Introduction to Finite Mathematics with Applications"
+            "title": "Foundations of Euclidean Geometry",
+            "credits": 3
           }
-        ],
-        "group_type": "choose_courses",
-        "rule_text": "Linear Algebra Elective 3 Select one of the following: Discrete Math Elective 3 Select one of the following:",
-        "schema": "requirement_group/v1",
-        "source_section": "Plan Requirements — Mathematics"
+        ]
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-middle-grades-mathematics-concentration/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The group prints four required MA courses plus separate \"Select one of the following\" lists for the Linear Algebra and Discrete Math electives; the record called it one choice of one from all nine courses. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/NC/2026-10-03/evidence.json#d246b63af34194fd.",
-      "verification_correction_reason": "The group prints four required MA courses plus separate \"Select one of the following\" lists for the Linear Algebra and Discrete Math electives; the record called it one choice of one from all nine courses. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 366047be7a09…, fetched 2026-10-03) with the shared reader that splits a group into its printed parts; this part is 4 required courses. Independently re-verified against the archived source rows: 'Mathematics' rows MA 141, MA 241, MA 225, MA 408 (with hours) before 'Linear Algebra Elective 2 | 3'. Evidence: sources/pipeline/NC/2026-10-03/evidence.json#d246b63af34194fd.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The group prints four required MA courses plus separate \"Select one of the following\" lists for the Linear Algebra and Discrete Math electives; the record called it one choice of one from all nine courses. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 3 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-03",
@@ -33477,14 +33468,17 @@
       "notes": "Reviewed 2026-10-03: Course list checked against the 2026-2027 NC State catalog table (codes, titles, hours; elective lists recorded as pools). Evidence: sources/pipeline/NC/2026-10-03/evidence.json#f76bf91f625b36c5."
     },
     {
-      "last_verified_at": "2026-10-03",
+      "last_verified_at": "2026-10-06",
       "program_key": "crop-and-soil-sciences-bs-crop-biotechnology",
       "requirement_key": "plan-requirements-concentration-electives",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "concentration",
-        "concentration": "Plan Requirements — Concentration Electives",
+        "source_section": "Plan Requirements — Concentration Electives",
+        "group_type": "choose_courses",
+        "choose_count": 1,
         "courses": [
           {
             "code": "ANT 261",
@@ -33501,25 +33495,28 @@
           {
             "code": "STS 302",
             "title": "Contemporary Science, Technology and Human Values"
-          },
-          {
-            "code": "CSSC 492",
-            "title": "Professional Internship Experience in Crop and Soil Sciences"
-          },
-          {
-            "code": "CSSC 493",
-            "title": "Research Experience in Crop and Soil Sciences"
           }
         ],
-        "group_type": "elective_pool",
-        "rule_text": "Foundation Elective (select one): 3 Biotechnology Elective 4 Experiential Learning (select one): 3 Restricted Electives 13",
-        "schema": "requirement_group/v1",
-        "source_section": "Plan Requirements — Concentration Electives"
+        "rule_text": "Foundation Elective (select one): 3",
+        "concentration": "Plan Requirements — Concentration Electives"
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-crop-biotechnology-semester/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The group prints separate choices (Foundation Elective select one, Experiential Learning select one) plus a 4-credit Biotechnology Elective; the record called the six courses one pool. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/NC/2026-10-03/evidence.json#f7ccb222209b9989.",
-      "verification_correction_reason": "The group prints separate choices (Foundation Elective select one, Experiential Learning select one) plus a 4-credit Biotechnology Elective; the record called the six courses one pool. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 d94c49fadff2…, fetched 2026-10-03) with the shared reader that splits a group into its printed parts; this part is choose 1 of 4 listed courses. Independently re-verified against the archived source rows: 'Foundation Elective (select one): | 3' then ANT 261, CS 224, SOC 261, STS 302, then 'Biotechnology Elective | 4'. Evidence: sources/pipeline/NC/2026-10-03/evidence.json#f7ccb222209b9989.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The group prints separate choices (Foundation Elective select one, Experiential Learning select one) plus a 4-credit Biotechnology Elective; the record called the six courses one pool. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 4 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-03",
@@ -57493,6 +57490,377 @@
       "source_url": "https://catalog.ncsu.edu/undergraduate/university-college/music/music-technology-bs/",
       "verification_status": "verified",
       "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#b2ca945eefb7cfbd."
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "crop-and-soil-sciences-bs-agronomy",
+      "requirement_key": "contact-person-electives-2-crop-production-electives-select-two",
+      "requirement_kind": "other",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "other",
+        "source_section": "Contact Person — Electives — Crop Production Electives (select two):",
+        "group_type": "choose_courses",
+        "choose_count": 2,
+        "courses": [
+          {
+            "code": "CS 216",
+            "title": "Southern Row Crop Production - Cotton, Peanuts, and Tobacco"
+          },
+          {
+            "code": "CS 218",
+            "title": "Southern Row Crop Production - Corn, Small Grains and Soybeans"
+          },
+          {
+            "code": "CS 251",
+            "title": "Production of Forage Crops"
+          }
+        ],
+        "rule_text": "Crop Production Electives (select two): 6"
+      },
+      "source_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-agronomy/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 52586c794d6b…, fetched 2026-10-03) with the shared reader that splits a group into its printed parts; this part is choose 2 of 3 listed courses. Independently re-verified against the archived source rows: 'Crop Production Electives (select two): | 6' then CS 216, CS 218, CS 251. Evidence: sources/pipeline/NC/2026-10-03/evidence.json#3546e647be324cd1.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from contact-person-electives (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "crop-and-soil-sciences-bs-agronomy",
+      "requirement_key": "contact-person-electives-3-experiential-learning-select-one",
+      "requirement_kind": "other",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "other",
+        "source_section": "Contact Person — Electives — Experiential Learning (select one):",
+        "group_type": "choose_courses",
+        "choose_count": 1,
+        "courses": [
+          {
+            "code": "CSSC 492",
+            "title": "Professional Internship Experience in Crop and Soil Sciences"
+          },
+          {
+            "code": "CSSC 493",
+            "title": "Research Experience in Crop and Soil Sciences"
+          }
+        ],
+        "rule_text": "Experiential Learning (select one): 3"
+      },
+      "source_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-agronomy/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 52586c794d6b…, fetched 2026-10-03) with the shared reader that splits a group into its printed parts; this part is choose 1 of 2 listed courses. Independently re-verified against the archived source rows: 'Experiential Learning (select one): | 3' then CSSC 492, CSSC 493, then 'Restricted Electives | 17'. Evidence: sources/pipeline/NC/2026-10-03/evidence.json#69f37b8f22837a7b.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from contact-person-electives (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "crop-and-soil-sciences-bs-agronomy",
+      "requirement_key": "contact-person-electives-4-restricted-electives-17",
+      "requirement_kind": "other",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "other",
+        "source_section": "Contact Person — Electives — Restricted Electives 17",
+        "group_type": "elective_pool",
+        "course_rules": [
+          "Restricted Electives 17"
+        ]
+      },
+      "source_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-agronomy/",
+      "verification_status": "unverified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 52586c794d6b…, fetched 2026-10-03) with the shared reader that splits a group into its printed parts; this part is a pool as printed. Evidence: sources/pipeline/NC/2026-10-03/evidence.json#b80b38cdc0b880e6.",
+      "verification_correction_reason": "The source prints only an area label with hours (\"Restricted Electives 17\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "split from contact-person-electives (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "crop-and-soil-sciences-bs-soil-science",
+      "requirement_key": "plan-requirements-concentration-electives-2-soil-science-electives-6",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "concentration",
+        "source_section": "Plan Requirements — Concentration Electives — Soil Science Electives 6",
+        "group_type": "elective_pool",
+        "course_rules": [
+          "Soil Science Electives 6",
+          "Economics, Management & Policy Electives 6"
+        ],
+        "concentration": "Plan Requirements — Concentration Electives"
+      },
+      "source_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-soil-science/",
+      "verification_status": "unverified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 e4532a97fb68…, fetched 2026-10-03) with the shared reader that splits a group into its printed parts; this part is a pool as printed. Evidence: sources/pipeline/NC/2026-10-03/evidence.json#4eb382b342896249.",
+      "verification_correction_reason": "The source prints only an area label with hours (\"Soil Science Electives 6; Economics, Management & Policy Electives 6\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "split from plan-requirements-concentration-electives (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "crop-and-soil-sciences-bs-soil-science",
+      "requirement_key": "plan-requirements-concentration-electives-3-experiential-learning-select-one",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "concentration",
+        "source_section": "Plan Requirements — Concentration Electives — Experiential Learning (select one):",
+        "group_type": "choose_courses",
+        "choose_count": 1,
+        "courses": [
+          {
+            "code": "CSSC 492",
+            "title": "Professional Internship Experience in Crop and Soil Sciences"
+          },
+          {
+            "code": "CSSC 493",
+            "title": "Research Experience in Crop and Soil Sciences"
+          }
+        ],
+        "rule_text": "Experiential Learning (select one): 3",
+        "concentration": "Plan Requirements — Concentration Electives"
+      },
+      "source_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-soil-science/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 e4532a97fb68…, fetched 2026-10-03) with the shared reader that splits a group into its printed parts; this part is choose 1 of 2 listed courses. Independently re-verified against the archived source rows: 'Experiential Learning (select one): | 3' then CSSC 492, CSSC 493. Evidence: sources/pipeline/NC/2026-10-03/evidence.json#3cccb893e95ef79a.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from plan-requirements-concentration-electives (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "crop-and-soil-sciences-bs-soil-science",
+      "requirement_key": "plan-requirements-concentration-electives-4-restricted-electives-15",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "concentration",
+        "source_section": "Plan Requirements — Concentration Electives — Restricted Electives 15",
+        "group_type": "elective_pool",
+        "course_rules": [
+          "Restricted Electives 15"
+        ],
+        "concentration": "Plan Requirements — Concentration Electives"
+      },
+      "source_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-soil-science/",
+      "verification_status": "unverified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 e4532a97fb68…, fetched 2026-10-03) with the shared reader that splits a group into its printed parts; this part is a pool as printed. Evidence: sources/pipeline/NC/2026-10-03/evidence.json#d7a3f4faf0367a3c.",
+      "verification_correction_reason": "The source prints only an area label with hours (\"Restricted Electives 15\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "split from plan-requirements-concentration-electives (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "mathematics-education-bs-middle-grades-mathematics-concentration",
+      "requirement_key": "plan-requirements-mathematics-2-select-one-of-the-following",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Plan Requirements — Linear Algebra Elective — Select one of the following:",
+        "group_type": "choose_courses",
+        "choose_count": 1,
+        "courses": [
+          {
+            "code": "MA 305",
+            "title": "Introductory Linear Algebra and Matrices"
+          },
+          {
+            "code": "MA 405",
+            "title": "Introduction to Linear Algebra"
+          }
+        ],
+        "rule_text": "Select one of the following:"
+      },
+      "source_url": "https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-middle-grades-mathematics-concentration/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 366047be7a09…, fetched 2026-10-03) with the shared reader that splits a group into its printed parts; this part is choose 1 of 2 listed courses. Independently re-verified against the archived source rows: Rows: ['Linear Algebra Elective 2', '3'], ['Select one of the following:', ''], ['MA 305', 'Introductory Linear Algebra and Matrices', ''], ['MA 405', 'Introduction to Linear Algebra', ''], with 'Discrete Math Elective' following. choose 1 of MA 305 and MA 405 is exact. source_section Mathematics —  Evidence: sources/pipeline/NC/2026-10-03/evidence.json#005244df18381c53.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from plan-requirements-mathematics (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "mathematics-education-bs-middle-grades-mathematics-concentration",
+      "requirement_key": "plan-requirements-mathematics-3-select-one-of-the-following",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Plan Requirements — Discrete Math Elective — Select one of the following:",
+        "group_type": "choose_courses",
+        "choose_count": 1,
+        "courses": [
+          {
+            "code": "MA 103",
+            "title": "Topics in Contemporary Mathematics"
+          },
+          {
+            "code": "MA 105",
+            "title": "Mathematics of Finance"
+          },
+          {
+            "code": "MA 114",
+            "title": "Introduction to Finite Mathematics with Applications"
+          }
+        ],
+        "rule_text": "Select one of the following:"
+      },
+      "source_url": "https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-middle-grades-mathematics-concentration/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 366047be7a09…, fetched 2026-10-03) with the shared reader that splits a group into its printed parts; this part is choose 1 of 3 listed courses. Independently re-verified against the archived source rows: Rows: ['Discrete Math Elective', '3'], ['Select one of the following:', ''], MA 103, MA 105, MA 114, with ['Sciences', ''] following. choose 1 of exactly these 3 courses is correct. source_section Mathematics — Discrete Math Elective is accurate. Evidence: sources/pipeline/NC/2026-10-03/evidence.json#7bb209e928f4ae2c.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from plan-requirements-mathematics (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "crop-and-soil-sciences-bs-crop-biotechnology",
+      "requirement_key": "plan-requirements-concentration-electives-2-biotechnology-elective-4",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "concentration",
+        "source_section": "Plan Requirements — Concentration Electives — Biotechnology Elective 4",
+        "group_type": "elective_pool",
+        "course_rules": [
+          "Biotechnology Elective 4"
+        ],
+        "concentration": "Plan Requirements — Concentration Electives"
+      },
+      "source_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-crop-biotechnology-semester/",
+      "verification_status": "unverified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 d94c49fadff2…, fetched 2026-10-03) with the shared reader that splits a group into its printed parts; this part is a pool as printed. Evidence: sources/pipeline/NC/2026-10-03/evidence.json#3d231a74181d09da.",
+      "verification_correction_reason": "The source prints only an area label with hours (\"Biotechnology Elective 4\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "split from plan-requirements-concentration-electives (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "crop-and-soil-sciences-bs-crop-biotechnology",
+      "requirement_key": "plan-requirements-concentration-electives-3-experiential-learning-select-one",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "concentration",
+        "source_section": "Plan Requirements — Concentration Electives — Experiential Learning (select one):",
+        "group_type": "choose_courses",
+        "choose_count": 1,
+        "courses": [
+          {
+            "code": "CSSC 492",
+            "title": "Professional Internship Experience in Crop and Soil Sciences"
+          },
+          {
+            "code": "CSSC 493",
+            "title": "Research Experience in Crop and Soil Sciences"
+          }
+        ],
+        "rule_text": "Experiential Learning (select one): 3",
+        "concentration": "Plan Requirements — Concentration Electives"
+      },
+      "source_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-crop-biotechnology-semester/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 d94c49fadff2…, fetched 2026-10-03) with the shared reader that splits a group into its printed parts; this part is choose 1 of 2 listed courses. Independently re-verified against the archived source rows: 'Experiential Learning (select one): | 3' then CSSC 492, CSSC 493. Evidence: sources/pipeline/NC/2026-10-03/evidence.json#2266928727cd9533.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from plan-requirements-concentration-electives (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "crop-and-soil-sciences-bs-crop-biotechnology",
+      "requirement_key": "plan-requirements-concentration-electives-4-restricted-electives-13",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "concentration",
+        "source_section": "Plan Requirements — Concentration Electives — Restricted Electives 13",
+        "group_type": "elective_pool",
+        "course_rules": [
+          "Restricted Electives 13"
+        ],
+        "concentration": "Plan Requirements — Concentration Electives"
+      },
+      "source_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-crop-biotechnology-semester/",
+      "verification_status": "unverified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 d94c49fadff2…, fetched 2026-10-03) with the shared reader that splits a group into its printed parts; this part is a pool as printed. Evidence: sources/pipeline/NC/2026-10-03/evidence.json#05693674da5c5c0a.",
+      "verification_correction_reason": "The source prints only an area label with hours (\"Restricted Electives 13\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "split from plan-requirements-concentration-electives (issue #95)"
+        }
+      ]
     }
   ]
 }

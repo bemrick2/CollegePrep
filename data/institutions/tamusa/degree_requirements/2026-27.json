@@ -3,13 +3,16 @@
   "academic_year": "2026-27",
   "records": [
     {
-      "last_verified_at": "2026-10-05",
+      "last_verified_at": "2026-10-06",
       "program_key": "bs-computer-science",
       "requirement_key": "department-probation-and-withdrawal-departmental-requirements",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "major_core",
+        "source_section": "Department probation and withdrawal: — Departmental Requirements",
+        "group_type": "choose_courses",
         "choose_count": 1,
         "courses": [
           {
@@ -31,52 +34,27 @@
           {
             "code": "PHYS 2125",
             "title": "University Physics Lab I"
-          },
-          {
-            "code": "BIOL 1107",
-            "title": "General Biology II Lab"
-          },
-          {
-            "code": "CHEM 1112",
-            "title": "General Chemistry Lab II"
-          },
-          {
-            "code": "GEOL 1102",
-            "title": "Earth Sciences Lab II"
-          },
-          {
-            "code": "PHYS 1102",
-            "title": "General Physics Lab II"
-          },
-          {
-            "code": "PHYS 2126",
-            "title": "University Physics Lab II"
-          },
-          {
-            "code": "MATH 2113",
-            "credits": 1,
-            "title": "Calculus I Lab"
-          },
-          {
-            "code": "MATH 2114",
-            "credits": 1,
-            "title": "Calculus II Lab"
-          },
-          {
-            "code": "MATH 3340",
-            "credits": 3,
-            "title": "Linear Algebra with Appl"
           }
         ],
-        "group_type": "choose_courses",
-        "rule_text": "Select one of the following: 1 Select one of the following: 1 Subtotal: 7",
-        "schema": "requirement_group/v1",
-        "source_section": "Department probation and withdrawal: — Departmental Requirements"
+        "rule_text": "Select one of the following: 1"
       },
       "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/computational-engineering-mathematical-sciences/computer-science-bs/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The group prints two separate \"Select one of the following\" lab lists and three required courses (MATH 2113, MATH 2114, MATH 3340); the record called it one choice of one from all 13 courses. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/TX/2026-10-04/evidence.json#38070ee1b89ce8d9.",
-      "verification_correction_reason": "The group prints two separate \"Select one of the following\" lab lists and three required courses (MATH 2113, MATH 2114, MATH 3340); the record called it one choice of one from all 13 courses. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 bfcddba66ba7…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 1 of 5 listed courses. Independently re-verified against the archived source rows: Under 'Departmental Requirements': 'Select one of the following: | 1' then BIOL 1106, CHEM 1111, GEOL 1101, PHYS 1101, PHYS 2125. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#38070ee1b89ce8d9.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The group prints two separate \"Select one of the following\" lab lists and three required courses (MATH 2113, MATH 2114, MATH 3340); the record called it one choice of one from all 13 courses. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 3 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-05",
@@ -318,13 +296,17 @@
       "notes": "Reviewed 2026-10-04: Requirement block copied from the catalog program page. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#bbb34b7d8c1a157e."
     },
     {
-      "last_verified_at": "2026-10-05",
+      "last_verified_at": "2026-10-06",
       "program_key": "bs-cyber-engineering-technology",
       "requirement_key": "department-probation-and-withdrawal-major-electives",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "major_elective",
+        "source_section": "Department probation and withdrawal: — Major Electives",
+        "group_type": "choose_credits",
+        "choose_credits": 9,
         "courses": [
           {
             "code": "CETE 4390",
@@ -343,15 +325,25 @@
             "title": "Internship Cyber Engineer Tech"
           }
         ],
-        "group_type": "elective_pool",
-        "rule_text": "Select nine credits of the following: 9 Required Upper-Division CETE, CSCI, or CSEC course 12 Subtotal: 51 Total Credits 120",
-        "schema": "requirement_group/v1",
-        "source_section": "Department probation and withdrawal: — Major Electives"
+        "rule_text": "Select nine credits of the following: 9"
       },
       "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/computational-engineering-mathematical-sciences/cyber-engineering-technology-bs/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The group prints \"Select nine credits of the following\" among four CETE courses and a separate 12-credit \"Required Upper-Division CETE, CSCI, or CSEC course\" requirement; the record called the four courses one pool. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/TX/2026-10-04/evidence.json#90ab51eb81c6b4ec.",
-      "verification_correction_reason": "The group prints \"Select nine credits of the following\" among four CETE courses and a separate 12-credit \"Required Upper-Division CETE, CSCI, or CSEC course\" requirement; the record called the four courses one pool. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 6346d6364b25…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 9 hours from 4 listed courses. Independently re-verified against the archived source rows: 'Major Electives' > 'Select nine credits of the following: | 9' then CETE 4390, CETE 4392, CETE 4394, CETE 4396. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#90ab51eb81c6b4ec.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The group prints \"Select nine credits of the following\" among four CETE courses and a separate 12-credit \"Required Upper-Division CETE, CSCI, or CSEC course\" requirement; the record called the four courses one pool. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 2 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-05",
@@ -1396,52 +1388,39 @@
       "notes": "Reviewed 2026-10-04: Requirement block copied from the catalog program page. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#b6a5f9a7af174aef."
     },
     {
-      "last_verified_at": "2026-10-05",
+      "last_verified_at": "2026-10-06",
       "program_key": "bs-public-health",
       "requirement_key": "bs-public-health-biomedical-sciences",
       "requirement_kind": "other",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "other",
-        "choose_credits": 10,
-        "courses": [
-          {
-            "code": "BIOL 1307",
-            "credits": 3,
-            "title": "Gen Biology II-Biol Organisms (and)"
-          },
-          {
-            "code": "BIOL 1107",
-            "title": "General Biology II Lab"
-          },
-          {
-            "code": "BIOL 2316",
-            "credits": 3,
-            "title": "Genetics (and)"
-          },
-          {
-            "code": "BIOL 2116",
-            "title": "Genetics Laboratory"
-          },
-          {
-            "code": "BIOL 2321",
-            "credits": 3,
-            "title": "Introduction to Microbiology (and)"
-          },
-          {
-            "code": "BIOL 2121",
-            "title": "Introduction to Microbiology Laboratory"
-          }
-        ],
+        "source_section": "BS Public Health — General Electives (Choose 10 hours)",
         "group_type": "choose_credits",
-        "rule_text": "Subtotal: 9 General Electives (Choose 10 hours) Subtotal: 10 Total 120",
-        "schema": "requirement_group/v1",
-        "source_section": "BS Public Health — Biomedical Sciences"
+        "choose_credits": 10,
+        "course_rules": [
+          "General Electives (Choose 10 hours)"
+        ],
+        "rule_text": "General Electives (Choose 10 hours)"
       },
       "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/health-behavioral-sciences/community-health-bs/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The group prints six required biology lecture/lab courses (Subtotal 9) and then a separate \"General Electives (Choose 10 hours)\"; the record called the required courses a 10-credit choice. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/TX/2026-10-04/evidence.json#acaae9365d9593c3.",
-      "verification_correction_reason": "The group prints six required biology lecture/lab courses (Subtotal 9) and then a separate \"General Electives (Choose 10 hours)\"; the record called the required courses a 10-credit choice. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 ebf1c285c87a…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 10 hours (General Electives (Choose 10 hours)). Independently re-verified against the archived source rows: Rows: ['Subtotal:', '9'] (closes Prescribed Electives), then ['General Electives (Choose 10 hours)', ''], ['Subtotal:', '10']. choose_credits=10 and the rule text are verbatim, and there is no course list. source_section is misleading: General Electives is a separate section after the Prescribed Ele Evidence: sources/pipeline/TX/2026-10-04/evidence.json#acaae9365d9593c3.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The group prints six required biology lecture/lab courses (Subtotal 9) and then a separate \"General Electives (Choose 10 hours)\"; the record called the required courses a 10-credit choice. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 2 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-05",
@@ -1504,13 +1483,16 @@
       "notes": "Reviewed 2026-10-04: Requirement block copied from the catalog program page. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#91d0dc84ca4a7a61."
     },
     {
-      "last_verified_at": "2026-10-05",
+      "last_verified_at": "2026-10-06",
       "program_key": "bs-psychology",
       "requirement_key": "bs-psychology-capstone",
       "requirement_kind": "other",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "other",
+        "source_section": "BS Psychology — Capstone",
+        "group_type": "choose_courses",
         "choose_count": 1,
         "courses": [
           {
@@ -1522,15 +1504,25 @@
             "title": "History & System of Psychology"
           }
         ],
-        "group_type": "choose_courses",
-        "rule_text": "Select one of the following: 3 Choose one course from 4 of the 5 following areas: 12",
-        "schema": "requirement_group/v1",
-        "source_section": "BS Psychology — Capstone"
+        "rule_text": "Select one of the following: 3"
       },
       "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/health-behavioral-sciences/psychology-bs/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The capstone prints \"Select one of the following\" (PSYC 4388/4333) and a separate \"Choose one course from 4 of the 5 following areas\" (12 credits); the record represents only the first choice. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/TX/2026-10-04/evidence.json#40b008cc038dc93b.",
-      "verification_correction_reason": "The capstone prints \"Select one of the following\" (PSYC 4388/4333) and a separate \"Choose one course from 4 of the 5 following areas\" (12 credits); the record represents only the first choice. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 d67b5723f3d7…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 1 of 2 listed courses. Independently re-verified against the archived source rows: 'Capstone' > 'Select one of the following: | 3' then PSYC 4388, PSYC 4333; the next row is 'Choose one course from 4 of the 5 following areas: | 12'. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#40b008cc038dc93b.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The capstone prints \"Select one of the following\" (PSYC 4388/4333) and a separate \"Choose one course from 4 of the 5 following areas\" (12 credits); the record represents only the first choice. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 2 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-05",
@@ -1724,176 +1716,51 @@
       "notes": "Reviewed 2026-10-04: Requirement block copied from the catalog program page. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#8c03b34e7d9e300d."
     },
     {
-      "last_verified_at": "2026-10-05",
+      "last_verified_at": "2026-10-06",
       "program_key": "ba-history-with-teacher-certification",
       "requirement_key": "general-requirements-major-required-courses",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "major_core",
-        "choose_count": 2,
+        "source_section": "General Requirements — Major (Required) Courses",
+        "group_type": "all_required",
         "courses": [
           {
             "code": "HIST 3301",
-            "credits": 3,
-            "title": "Reading & Wrtng Like Historian"
+            "title": "Reading & Wrtng Like Historian",
+            "credits": 3
           },
           {
             "code": "HIST 4301",
-            "credits": 3,
-            "title": "Methods of Historical Research (taken during the semester prior to graduation)"
+            "title": "Methods of Historical Research (taken during the semester prior to graduation)",
+            "credits": 3
           },
           {
             "code": "HIST 4370",
-            "credits": 3,
-            "title": "Crucial Topics in History"
-          },
-          {
-            "code": "HIST 2301",
-            "title": "Texas History"
-          },
-          {
-            "code": "HIST 2327",
-            "title": "History of Spanish Borderlands"
-          },
-          {
-            "code": "HIST 2328",
-            "title": "Mexican American Hst 1848-Pres"
-          },
-          {
-            "code": "HIST 2381",
-            "title": "African American History"
-          },
-          {
-            "code": "HIST 3302",
-            "title": "Introduction to Public History"
-          },
-          {
-            "code": "HIST 3303",
-            "title": "History of San Antonio"
-          },
-          {
-            "code": "HIST 3312",
-            "title": "Europe in the Middle Ages"
-          },
-          {
-            "code": "HIST 3315",
-            "title": "Early Modern Europe to 1815"
-          },
-          {
-            "code": "HIST 3316",
-            "title": "Europe 1815 to 1914"
-          },
-          {
-            "code": "HIST 3318",
-            "title": "Europe Since 1914"
-          },
-          {
-            "code": "HIST 3330",
-            "title": "Colonial America"
-          },
-          {
-            "code": "HIST 3331",
-            "title": "Amer Rev Early Repub 1763-1850"
-          },
-          {
-            "code": "HIST 3334",
-            "title": "Civil War and Reconstruction"
-          },
-          {
-            "code": "HIST 3335",
-            "title": "Gilded Age and Progressive Era"
-          },
-          {
-            "code": "HIST 3336",
-            "title": "America's Rise to World Power"
-          },
-          {
-            "code": "HIST 3338",
-            "title": "United States Since 1945"
-          },
-          {
-            "code": "HIST 3351",
-            "title": "Latin America I: Colonial Era"
-          },
-          {
-            "code": "HIST 3352",
-            "title": "Latin American II: Modern Era"
-          },
-          {
-            "code": "HIST 3356",
-            "title": "Mexico"
-          },
-          {
-            "code": "HIST 3358",
-            "title": "Asian History I"
-          },
-          {
-            "code": "HIST 3359",
-            "title": "Asian History II"
-          },
-          {
-            "code": "HIST 3360",
-            "title": "Digital Humanities"
-          },
-          {
-            "code": "HIST 3365",
-            "title": "Oral History"
-          },
-          {
-            "code": "HIST 4317",
-            "title": "Nazi Germany"
-          },
-          {
-            "code": "HIST 4319",
-            "title": "The Holocaust"
-          },
-          {
-            "code": "HIST 4340",
-            "title": "US Social and Cultural History"
-          },
-          {
-            "code": "HIST 4342",
-            "title": "U.S. Foreign Policy"
-          },
-          {
-            "code": "HIST 4345",
-            "title": "Native American History"
-          },
-          {
-            "code": "HIST 4347",
-            "title": "The American West"
-          },
-          {
-            "code": "HIST 4360",
-            "title": "United States Women's & Gender History"
-          },
-          {
-            "code": "HIST 4363",
-            "title": "War and Society"
-          },
-          {
-            "code": "HIST 4364",
-            "title": "Global Perspectives in Women's & Gender History"
-          },
-          {
-            "code": "HIST 4366",
-            "title": "Childhood in America"
-          },
-          {
-            "code": "HIST 4398",
-            "title": "History Internship"
+            "title": "Crucial Topics in History",
+            "credits": 3
           }
-        ],
-        "group_type": "choose_courses",
-        "rule_text": "HIST Upper-Division Elective at either 3000 or 4000 level 3 Select two of the following: 6 Select four of the following: 12 Select four of the following: 12 Subtotal: 42",
-        "schema": "requirement_group/v1",
-        "source_section": "General Requirements — Major (Required) Courses"
+        ]
       },
       "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/history-philosophy-geography/history-teacher-certification-ba/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The group prints a required HIST upper-division elective and three required courses, then \"Select two of the following\" and two separate \"Select four of the following\" lists; the record called it one choice of two from all 37 courses. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/TX/2026-10-04/evidence.json#1e7d1dca2b0433bd.",
-      "verification_correction_reason": "The group prints a required HIST upper-division elective and three required courses, then \"Select two of the following\" and two separate \"Select four of the following\" lists; the record called it one choice of two from all 37 courses. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 4e3bb93ec184…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is 3 required courses. Independently re-verified against the archived source rows: 'Major (Required) Courses 4,5': HIST 3301, HIST 4301, HIST 4370 each '| 3' (the HIST upper-division elective row is a separate record), then 'Select two of the following: | 6'. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#1e7d1dca2b0433bd.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The group prints a required HIST upper-division elective and three required courses, then \"Select two of the following\" and two separate \"Select four of the following\" lists; the record called it one choice of two from all 37 courses. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 5 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-05",
@@ -1970,63 +1837,46 @@
       "notes": "Reviewed 2026-10-04: Requirement block copied from the catalog program page. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#951d4134af13d1cf."
     },
     {
-      "last_verified_at": "2026-10-05",
+      "last_verified_at": "2026-10-06",
       "program_key": "ba-english-literature-emphasis-concentration",
       "requirement_key": "general-requirements-core-curriculum",
       "requirement_kind": "general_education",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "general_education",
-        "choose_count": 1,
+        "source_section": "General Requirements — Core Curriculum",
+        "group_type": "all_required",
         "courses": [
           {
             "code": "ENGL 1301",
-            "credits": 3,
-            "title": "Composition I"
+            "title": "Composition I",
+            "credits": 3
           },
           {
             "code": "ENGL 1302",
-            "credits": 3,
-            "title": "Composition II"
-          },
-          {
-            "code": "ENGL 2321",
-            "title": "Themes & Genres British Lit"
-          },
-          {
-            "code": "ENGL 2326",
-            "title": "Literature of the Americas"
-          },
-          {
-            "code": "ENGL 2331",
-            "title": "Intro to World Literature"
-          },
-          {
-            "code": "ENGL 2344",
-            "title": "Introduction to Fiction"
-          },
-          {
-            "code": "ENGL 2346",
-            "title": "Introduction to Poetry"
-          },
-          {
-            "code": "ENGL 2355",
-            "title": "Children's Literature"
-          },
-          {
-            "code": "SPAN 2320",
-            "title": "Intro to Spanish Lang-Literat"
+            "title": "Composition II",
+            "credits": 3
           }
-        ],
-        "group_type": "choose_courses",
-        "rule_text": "Mathematics 3 Life and Physical Sciences 3 Life and Physical Sciences 3 Language, Philosophy, and Culture 3 Select one of the following: Creative Arts 3 American History 3 American History 3 Government/Political Science 3 Government/Political Science 3 Social & Behavioral Sciences 3 Component Area Option Course from Approved List 3 Component Area Option Course from Approved List 3 Subtotal: 42",
-        "schema": "requirement_group/v1",
-        "source_section": "General Requirements — Core Curriculum"
+        ]
       },
       "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-literature-emphasis/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The core curriculum prints required ENGL 1301/1302 and many area requirements, with \"Select one of the following\" only for the literature component; the record called it one choice of one from all nine courses. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/TX/2026-10-04/evidence.json#c76131fb8a74ba73.",
-      "verification_correction_reason": "The core curriculum prints required ENGL 1301/1302 and many area requirements, with \"Select one of the following\" only for the literature component; the record called it one choice of one from all nine courses. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 eda4cc889b91…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is 2 required courses. Independently re-verified against the archived source rows: 'Core Curriculum': 'ENGL 1301 | Composition I | 3', 'ENGL 1302 | Composition II | 3'. No other coded required rows in that part. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#c76131fb8a74ba73.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The core curriculum prints required ENGL 1301/1302 and many area requirements, with \"Select one of the following\" only for the literature component; the record called it one choice of one from all nine courses. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 4 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-05",
@@ -2257,59 +2107,46 @@
       "notes": "Reviewed 2026-10-04: Requirement block copied from the catalog program page. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#69f7363f52196ac4."
     },
     {
-      "last_verified_at": "2026-10-05",
+      "last_verified_at": "2026-10-06",
       "program_key": "ba-english-writing-media-and-culture-concentration",
       "requirement_key": "general-requirements-core-curriculum",
       "requirement_kind": "general_education",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "general_education",
-        "choose_count": 1,
+        "source_section": "General Requirements — Core Curriculum",
+        "group_type": "all_required",
         "courses": [
           {
             "code": "ENGL 1301",
-            "credits": 3,
-            "title": "Composition I"
+            "title": "Composition I",
+            "credits": 3
           },
           {
             "code": "ENGL 1302",
-            "credits": 3,
-            "title": "Composition II"
-          },
-          {
-            "code": "ENGL 2321",
-            "title": "Themes & Genres British Lit"
-          },
-          {
-            "code": "ENGL 2326",
-            "title": "Literature of the Americas"
-          },
-          {
-            "code": "ENGL 2331",
-            "title": "Intro to World Literature"
-          },
-          {
-            "code": "ENGL 2344",
-            "title": "Introduction to Fiction"
-          },
-          {
-            "code": "ENGL 2346",
-            "title": "Introduction to Poetry"
-          },
-          {
-            "code": "ENGL 2355",
-            "title": "Children's Literature"
+            "title": "Composition II",
+            "credits": 3
           }
-        ],
-        "group_type": "choose_courses",
-        "rule_text": "Mathematics 3 Life & Physical Science 3 Life & Physical Science 3 Language, Philosophy, and Culture 3 Select one of the following: Creative Arts 3 American History 3 American History 3 Government/Political Science 3 Government/Political Science 3 Social & Behavioral Sciences 3 Component Area Option Course from Approved List 3 Component Area Option Course from Approved List 3 Subtotal: 42",
-        "schema": "requirement_group/v1",
-        "source_section": "General Requirements — Core Curriculum"
+        ]
       },
       "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-rhetoric-writing-emphasis/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The core curriculum prints required ENGL 1301/1302 and many area requirements, with \"Select one of the following\" only for the literature component; the record called it one choice of one from all eight courses. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/TX/2026-10-04/evidence.json#bbbc26775d05da52.",
-      "verification_correction_reason": "The core curriculum prints required ENGL 1301/1302 and many area requirements, with \"Select one of the following\" only for the literature component; the record called it one choice of one from all eight courses. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 693c915bcbcd…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is 2 required courses. Independently re-verified against the archived source rows: 'Core Curriculum': ENGL 1301 '| 3', ENGL 1302 '| 3'. No other coded required rows. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#bbbc26775d05da52.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The core curriculum prints required ENGL 1301/1302 and many area requirements, with \"Select one of the following\" only for the literature component; the record called it one choice of one from all eight courses. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 4 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-05",
@@ -2336,165 +2173,56 @@
       "notes": "Reviewed 2026-10-04: Requirement block copied from the catalog program page. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#83c44cf2feebc438."
     },
     {
-      "last_verified_at": "2026-10-05",
+      "last_verified_at": "2026-10-06",
       "program_key": "ba-english-writing-media-and-culture-concentration",
       "requirement_key": "general-requirements-required-major-courses",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "major_core",
-        "choose_count": 4,
+        "source_section": "General Requirements — Required Major Courses",
+        "group_type": "all_required",
         "courses": [
           {
             "code": "ENGL 2370",
-            "credits": 3,
-            "title": "Intro to English Studies"
+            "title": "Intro to English Studies",
+            "credits": 3
           },
           {
             "code": "ENGL 2314",
-            "credits": 3,
-            "title": "Writing for the Professions"
+            "title": "Writing for the Professions",
+            "credits": 3
           },
           {
             "code": "ENGL 3312",
-            "credits": 3,
-            "title": "Introduction to Rhetoric"
+            "title": "Introduction to Rhetoric",
+            "credits": 3
           },
           {
             "code": "ENGL 3315",
-            "credits": 3,
-            "title": "Introduction to Critical Theory"
-          },
-          {
-            "code": "ENGL 2311",
-            "title": "Technical Writing"
-          },
-          {
-            "code": "ENGL 3303",
-            "title": "Professional Editing"
-          },
-          {
-            "code": "ENGL 3304",
-            "title": "Genres in Creative Writing"
-          },
-          {
-            "code": "ENGL 3317",
-            "title": "Grammar and Style"
-          },
-          {
-            "code": "ENGL 4301",
-            "title": "Advanced Technical Writing"
-          },
-          {
-            "code": "ENGL 4312",
-            "title": "Intro to Composition Studies"
-          },
-          {
-            "code": "ENGL 4330",
-            "title": "Topics in Creative Writing"
-          },
-          {
-            "code": "ENGL 4343",
-            "title": "Grant Writing"
-          },
-          {
-            "code": "ARTS 2356",
-            "title": "Photography"
-          },
-          {
-            "code": "ENGL 2388",
-            "title": "Introduction to Visual Studies"
-          },
-          {
-            "code": "ENGL 3302",
-            "title": "History of Text Technologies"
-          },
-          {
-            "code": "SPAN 3331",
-            "title": "Latin American Film History"
-          },
-          {
-            "code": "CAPS 4301",
-            "title": "Topics in Creative Arts and Performance Studies"
-          },
-          {
-            "code": "ENGL 4344",
-            "title": "Digital Culture and Media"
-          },
-          {
-            "code": "ENGL 4394",
-            "title": "Topics in Film Studies"
-          },
-          {
-            "code": "ENGL 4395",
-            "title": "Visual Studies"
-          },
-          {
-            "code": "ARTS 1302",
-            "title": "LatinX Art Appreciation"
-          },
-          {
-            "code": "ENGL 2312",
-            "title": "Borderland Rhetorics"
-          },
-          {
-            "code": "ENGL 3331",
-            "title": "Intersectional Shakespeare"
-          },
-          {
-            "code": "ENGL 3351",
-            "title": "Mexican Amer Lit & Culture"
-          },
-          {
-            "code": "ENGL 3376",
-            "title": "Mythology"
-          },
-          {
-            "code": "ENGL 3380",
-            "title": "African Amer Lit & Culture"
-          },
-          {
-            "code": "MUSI 4301",
-            "title": "Topics in Music Studies"
-          },
-          {
-            "code": "SPAN 4319",
-            "title": "US Latina/o/e Soundscapes: Musical Cultures of Latin America"
-          },
-          {
-            "code": "ENGL 4342",
-            "title": "Rhetoric and Culture"
-          },
-          {
-            "code": "ENGL 4375",
-            "title": "Studies in Women's Literature"
-          },
-          {
-            "code": "ENGL 4386",
-            "title": "Topics in Black Studies"
-          },
-          {
-            "code": "ENGL 4388",
-            "title": "Topics in Latinx Studies"
-          },
-          {
-            "code": "ENGL 4341",
-            "title": "Internship"
-          },
-          {
-            "code": "ENGL 4398",
-            "title": "Senior Seminar"
+            "title": "Introduction to Critical Theory",
+            "credits": 3
           }
-        ],
-        "group_type": "choose_courses",
-        "rule_text": "Writing Courses (Choose 4 of the following): 12 Media Courses (Choose 3 of the following): 9 Culture Courses (Choose 3 of the following): 9 Applications Courses (Choose 1 of the following): 3 Subtotal: 45 Optional Minor or Electives (18 hrs.) 18",
-        "schema": "requirement_group/v1",
-        "source_section": "General Requirements — Required Major Courses"
+        ]
       },
       "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-rhetoric-writing-emphasis/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The group prints four required courses and four separate choices (Writing choose 4, Media choose 3, Culture choose 3, Applications choose 1); the record called it one choice of four from all 34 courses. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/TX/2026-10-04/evidence.json#7d8f3941bda37d34.",
-      "verification_correction_reason": "The group prints four required courses and four separate choices (Writing choose 4, Media choose 3, Culture choose 3, Applications choose 1); the record called it one choice of four from all 34 courses. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 693c915bcbcd…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is 4 required courses. Independently re-verified against the archived source rows: 'Required Major Courses': ENGL 2370, 2314, 3312, 3315 each '| 3' before 'Writing Courses (Choose 4 of the following): | 12'. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#7d8f3941bda37d34.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The group prints four required courses and four separate choices (Writing choose 4, Media choose 3, Culture choose 3, Applications choose 1); the record called it one choice of four from all 34 courses. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 6 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-05",
@@ -2565,168 +2293,71 @@
       "notes": "Reviewed 2026-10-04: Requirement block copied from the catalog program page. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#4ed7474000501c6c."
     },
     {
-      "last_verified_at": "2026-10-05",
+      "last_verified_at": "2026-10-06",
       "program_key": "ba-english-with-teacher-certification",
       "requirement_key": "general-requirements-major-required-courses",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "major_core",
-        "choose_count": 4,
+        "source_section": "General Requirements — Major Required Courses",
+        "group_type": "all_required",
         "courses": [
           {
             "code": "ENGL 2370",
-            "credits": 3,
-            "title": "Introduction to Language, Culture, and Composition"
+            "title": "Introduction to Language, Culture, and Composition",
+            "credits": 3
           },
           {
             "code": "ENGL 3310",
-            "credits": 3,
-            "title": "Advanced Literary Analysis"
+            "title": "Advanced Literary Analysis",
+            "credits": 3
           },
           {
             "code": "ENGL 3312",
-            "credits": 3,
-            "title": "Introduction to Rhetoric"
+            "title": "Introduction to Rhetoric",
+            "credits": 3
           },
           {
             "code": "ENGL 3315",
-            "credits": 3,
-            "title": "Introduction to Critical Theory"
+            "title": "Introduction to Critical Theory",
+            "credits": 3
           },
           {
             "code": "ENGL 3331",
-            "credits": 3,
-            "title": "Intersectional Shakespeare"
+            "title": "Intersectional Shakespeare",
+            "credits": 3
           },
           {
             "code": "ENGL 4392",
-            "credits": 3,
-            "title": "Teaching English Language Arts"
+            "title": "Teaching English Language Arts",
+            "credits": 3
           },
           {
             "code": "ENGL 4393",
-            "credits": 3,
-            "title": "Teaching Literature and Writing"
-          },
-          {
-            "code": "ENGL 3302",
-            "title": "History of Text Technologies"
-          },
-          {
-            "code": "ENGL 3303",
-            "title": "Professional Editing"
-          },
-          {
-            "code": "ENGL 3304",
-            "title": "Genres in Creative Writing"
-          },
-          {
-            "code": "ENGL 3317",
-            "title": "Grammar and Style"
-          },
-          {
-            "code": "ENGL 3325",
-            "title": "Medieval through Early Modern British Literature"
-          },
-          {
-            "code": "ENGL 3344",
-            "title": "Literature of the British Isles and Empire, 1660-1900"
-          },
-          {
-            "code": "ENGL 3346",
-            "title": "20th/21st Century Global Anglophone Literature"
-          },
-          {
-            "code": "ENGL 3351",
-            "title": "Mexican Amer Lit & Culture"
-          },
-          {
-            "code": "ENGL 3362",
-            "title": "Early American Literature"
-          },
-          {
-            "code": "ENGL 3364",
-            "title": "19th Century American Literature"
-          },
-          {
-            "code": "ENGL 3366",
-            "title": "20th/21st Century Amer Lit"
-          },
-          {
-            "code": "ENGL 3376",
-            "title": "Mythology"
-          },
-          {
-            "code": "ENGL 3380",
-            "title": "African Amer Lit & Culture"
-          },
-          {
-            "code": "ENGL 4301",
-            "title": "Advanced Technical Writing"
-          },
-          {
-            "code": "ENGL 4310",
-            "title": "Introd to Linguistics"
-          },
-          {
-            "code": "ENGL 4312",
-            "title": "Intro to Composition Studies"
-          },
-          {
-            "code": "ENGL 4330",
-            "title": "Topics in Creative Writing"
-          },
-          {
-            "code": "ENGL 4342",
-            "title": "Rhetoric and Culture"
-          },
-          {
-            "code": "ENGL 4343",
-            "title": "Grant Writing"
-          },
-          {
-            "code": "ENGL 4344",
-            "title": "Digital Culture and Media"
-          },
-          {
-            "code": "ENGL 4370",
-            "title": "Special Topics in English"
-          },
-          {
-            "code": "ENGL 4375",
-            "title": "Studies in Women's Literature"
-          },
-          {
-            "code": "ENGL 4386",
-            "title": "Topics in Black Studies"
-          },
-          {
-            "code": "ENGL 4388",
-            "title": "Topics in Latinx Studies"
-          },
-          {
-            "code": "ENGL 4394",
-            "title": "Topics in Film Studies"
-          },
-          {
-            "code": "ENGL 4395",
-            "title": "Visual Studies"
-          },
-          {
-            "code": "ENGL 4398",
-            "title": "Senior Seminar"
+            "title": "Teaching Literature and Writing",
+            "credits": 3
           }
-        ],
-        "group_type": "choose_courses",
-        "rule_text": "Choose four of the following: 12",
-        "schema": "requirement_group/v1",
-        "source_section": "General Requirements — Major Required Courses"
+        ]
       },
       "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-teacher-certification-ba/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The group prints seven required courses and then \"Choose four of the following\" among the electives; the record called it one choice of four from all 34 courses. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/TX/2026-10-04/evidence.json#65b51b95c42f59f4.",
-      "verification_correction_reason": "The group prints seven required courses and then \"Choose four of the following\" among the electives; the record called it one choice of four from all 34 courses. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 70507ed7fe1c…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is 7 required courses. Independently re-verified against the archived source rows: 'Major Required Courses 2,3': ENGL 2370, 3310, 3312, 3315, 3331, 4392, 4393 each '| 3' before 'Choose four of the following: | 12'. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#65b51b95c42f59f4.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The group prints seven required courses and then \"Choose four of the following\" among the electives; the record called it one choice of four from all 34 courses. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 2 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-05",
@@ -3023,55 +2654,42 @@
       "notes": "Reviewed 2026-10-04: Requirement block copied from the catalog program page. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#4b77cf800b89c150."
     },
     {
-      "last_verified_at": "2026-10-05",
+      "last_verified_at": "2026-10-06",
       "program_key": "bs-biology-pre-health-professions-concentration",
       "requirement_key": "general-requirements-concentration-required-courses",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "concentration",
-        "choose_count": 2,
-        "concentration": "General Requirements — Concentration Required Courses",
+        "source_section": "General Requirements — Concentration Required Courses",
+        "group_type": "all_required",
         "courses": [
           {
             "code": "CHEM 4341",
-            "credits": 3,
-            "title": "Biochemistry I"
-          },
-          {
-            "code": "PSYC 3315",
-            "title": "Health Psychology"
-          },
-          {
-            "code": "PSYC 3316",
-            "title": "Physiological Psychology"
-          },
-          {
-            "code": "PSYC 3324",
-            "title": "Cross-Cultural Psychology"
-          },
-          {
-            "code": "PSYC 3325",
-            "title": "Abnormal Psychology"
-          },
-          {
-            "code": "PSYC 3337",
-            "title": "Drugs, Addiction, & Behavior"
-          },
-          {
-            "code": "EDKN 4320",
-            "title": "Motor Dev and Motor Learning"
+            "title": "Biochemistry I",
+            "credits": 3
           }
         ],
-        "group_type": "choose_courses",
-        "rule_text": "Choose 2 of the following: 6 Subtotal: 9",
-        "schema": "requirement_group/v1",
-        "source_section": "General Requirements — Concentration Required Courses"
+        "concentration": "General Requirements — Concentration Required Courses"
       },
       "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/natural-sciences/biology-concentration-pre-health-bs/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The group prints required CHEM 4341 and then \"Choose 2 of the following\" among six courses; the record called it one choice of two from all seven courses. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/TX/2026-10-04/evidence.json#36b40b90c147b32b.",
-      "verification_correction_reason": "The group prints required CHEM 4341 and then \"Choose 2 of the following\" among six courses; the record called it one choice of two from all seven courses. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 06a7ce09be54…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is 1 required courses. Independently re-verified against the archived source rows: 'Concentration Required Courses': 'CHEM 4341 | Biochemistry I | 3' then 'Choose 2 of the following: | 6'. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#36b40b90c147b32b.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The group prints required CHEM 4341 and then \"Choose 2 of the following\" among six courses; the record called it one choice of two from all seven courses. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 2 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-05",
@@ -4053,97 +3671,96 @@
       "notes": "Reviewed 2026-10-04: Requirement block copied from the catalog program page. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#102e428588e2256b."
     },
     {
-      "last_verified_at": "2026-10-05",
+      "last_verified_at": "2026-10-06",
       "program_key": "bba-accounting",
       "requirement_key": "bba-accounting-business-core-upper-level",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "major_core",
-        "choose_count": 1,
+        "source_section": "BBA Accounting — Business Core (Upper Level)",
+        "group_type": "all_required",
         "courses": [
           {
             "code": "ACCT 3302",
-            "credits": 3,
-            "title": "Intermediate Accounting I"
+            "title": "Intermediate Accounting I",
+            "credits": 3
           },
           {
             "code": "BCOM 3304",
-            "credits": 3,
-            "title": "Bus Communication"
+            "title": "Bus Communication",
+            "credits": 3
           },
           {
             "code": "BLAW 3341",
-            "credits": 3,
-            "title": "Business Law"
+            "title": "Business Law",
+            "credits": 3
           },
           {
             "code": "QMBS 2301",
-            "credits": 3,
-            "title": "Quantitative Skills-Business"
+            "title": "Quantitative Skills-Business",
+            "credits": 3
           },
           {
             "code": "QMBS 3360",
-            "credits": 3,
-            "title": "Business Statistics II"
+            "title": "Business Statistics II",
+            "credits": 3
           },
           {
             "code": "CISA 3358",
-            "credits": 3,
-            "title": "Management Information Systems"
+            "title": "Management Information Systems",
+            "credits": 3
           },
           {
             "code": "MGMT 3311",
-            "credits": 3,
-            "title": "Principles of Management"
+            "title": "Principles of Management",
+            "credits": 3
           },
           {
             "code": "FINC 3337",
-            "credits": 3,
-            "title": "Principles of Corporate Finance"
+            "title": "Principles of Corporate Finance",
+            "credits": 3
           },
           {
             "code": "MGMT 3320",
-            "credits": 3,
-            "title": "Supply Chain & Operations Mgmt"
+            "title": "Supply Chain & Operations Mgmt",
+            "credits": 3
           },
           {
             "code": "MKTG 3311",
-            "credits": 3,
-            "title": "Principles of Marketing"
+            "title": "Principles of Marketing",
+            "credits": 3
           },
           {
             "code": "BUAD 4070",
-            "credits": 0,
-            "title": "Business Capstone Lab"
+            "title": "Business Capstone Lab",
+            "credits": 0
           },
           {
             "code": "MGMT 4370",
-            "credits": 3,
-            "title": "Strategic Management"
-          },
-          {
-            "code": "BUAD 4301",
-            "title": "Ethical Decisions"
-          },
-          {
-            "code": "BUAD 4302",
-            "title": "Ethical Decisions: Ethics Bowl"
-          },
-          {
-            "code": "BUAD 4303",
-            "title": "Ethical Decisions Spcl Topics"
+            "title": "Strategic Management",
+            "credits": 3
           }
-        ],
-        "group_type": "choose_courses",
-        "rule_text": "Select one of COB's Approved Ethics Electives 3 Subtotal: 36",
-        "schema": "requirement_group/v1",
-        "source_section": "BBA Accounting — Business Core (Upper Level)"
+        ]
       },
       "source_url": "https://catalog.tamusa.edu/undergraduate/business/accounting-finance/accounting-bba/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The group prints 12 required business-core courses and \"Select one of COB's Approved Ethics Electives\" among BUAD 4301-4303; the record called it one choice of one from all 15 courses. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/TX/2026-10-04/evidence.json#c8351f2bbb7919b0.",
-      "verification_correction_reason": "The group prints 12 required business-core courses and \"Select one of COB's Approved Ethics Electives\" among BUAD 4301-4303; the record called it one choice of one from all 15 courses. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 52d8a115826e…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is 12 required courses. Independently re-verified against the archived source rows: 'Business Core (Upper Level) 2,4': ACCT 3302 ... 'BUAD 4070 | Business Capstone Lab 5 | 0', 'MGMT 4370 | Strategic Management 3 | 3' (12 courses), then 'Select one of COB's Approved Ethics Electives | 3'. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#c8351f2bbb7919b0.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The group prints 12 required business-core courses and \"Select one of COB's Approved Ethics Electives\" among BUAD 4301-4303; the record called it one choice of one from all 15 courses. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 2 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-05",
@@ -4631,97 +4248,96 @@
       "notes": "Reviewed 2026-10-04: Requirement block copied from the catalog program page. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#755cb41ebc80519a."
     },
     {
-      "last_verified_at": "2026-10-05",
+      "last_verified_at": "2026-10-06",
       "program_key": "bba-finance",
       "requirement_key": "general-requirements-business-core-upper-level",
       "requirement_kind": "major",
       "rule_details": {
+        "schema": "requirement_group/v1",
         "catalog_year": "2026-2027",
         "category": "major_core",
-        "choose_count": 1,
+        "source_section": "General Requirements — Business Core (Upper Level)",
+        "group_type": "all_required",
         "courses": [
           {
             "code": "ACCT 3302",
-            "credits": 3,
-            "title": "Intermediate Accounting I"
+            "title": "Intermediate Accounting I",
+            "credits": 3
           },
           {
             "code": "BCOM 3304",
-            "credits": 3,
-            "title": "Bus Communication"
+            "title": "Bus Communication",
+            "credits": 3
           },
           {
             "code": "BLAW 2341",
-            "credits": 3,
-            "title": "Business Law"
+            "title": "Business Law",
+            "credits": 3
           },
           {
             "code": "QMBS 2301",
-            "credits": 3,
-            "title": "Quantitative Skills-Business"
+            "title": "Quantitative Skills-Business",
+            "credits": 3
           },
           {
             "code": "QMBS 3360",
-            "credits": 3,
-            "title": "Business Statistics II"
+            "title": "Business Statistics II",
+            "credits": 3
           },
           {
             "code": "CISA 3358",
-            "credits": 3,
-            "title": "Management Information Systems"
+            "title": "Management Information Systems",
+            "credits": 3
           },
           {
             "code": "MGMT 3311",
-            "credits": 3,
-            "title": "Principles of Management"
+            "title": "Principles of Management",
+            "credits": 3
           },
           {
             "code": "FINC 3337",
-            "credits": 3,
-            "title": "Principles of Corporate Finance"
+            "title": "Principles of Corporate Finance",
+            "credits": 3
           },
           {
             "code": "MGMT 3320",
-            "credits": 3,
-            "title": "Supply Chain & Operations Mgmt"
+            "title": "Supply Chain & Operations Mgmt",
+            "credits": 3
           },
           {
             "code": "MKTG 3311",
-            "credits": 3,
-            "title": "Principles of Marketing"
+            "title": "Principles of Marketing",
+            "credits": 3
           },
           {
             "code": "BUAD 4070",
-            "credits": 0,
-            "title": "Business Capstone Lab"
+            "title": "Business Capstone Lab",
+            "credits": 0
           },
           {
             "code": "MGMT 4370",
-            "credits": 3,
-            "title": "Strategic Management"
-          },
-          {
-            "code": "BUAD 4301",
-            "title": "Ethical Decisions"
-          },
-          {
-            "code": "BUAD 4302",
-            "title": "Ethical Decisions: Ethics Bowl"
-          },
-          {
-            "code": "BUAD 4303",
-            "title": "Ethical Decisions Spcl Topics"
+            "title": "Strategic Management",
+            "credits": 3
           }
-        ],
-        "group_type": "choose_courses",
-        "rule_text": "Select one of COB's Approved Ethics Electives 3 Subtotal: 36",
-        "schema": "requirement_group/v1",
-        "source_section": "General Requirements — Business Core (Upper Level)"
+        ]
       },
       "source_url": "https://catalog.tamusa.edu/undergraduate/business/accounting-finance/finance-bba/",
-      "verification_status": "unverified",
-      "notes": "Corrected 2026-10-06 (issue #95 choice-group review): The group prints 12 required business-core courses and \"Select one of COB's Approved Ethics Electives\" among BUAD 4301-4303; the record called it one choice of one from all 15 courses. Held for review as a mixed required-and-choice group (issue #95). Approved for status correction by the repository owner (supabase/corrections.json). Evidence: sources/pipeline/TX/2026-10-04/evidence.json#d540dfd8fd083069.",
-      "verification_correction_reason": "The group prints 12 required business-core courses and \"Select one of COB's Approved Ethics Electives\" among BUAD 4301-4303; the record called it one choice of one from all 15 courses. Held for review as a mixed required-and-choice group (issue #95)."
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 18f3051e9232…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is 12 required courses. Independently re-verified against the archived source rows: 'Business Core (Upper Level) 2,4': ACCT 3302, BCOM 3304, 'BLAW 2341', QMBS 2301, QMBS 3360, CISA 3358, MGMT 3311, FINC 3337, MGMT 3320, MKTG 3311, BUAD 4070, MGMT 4370. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#d540dfd8fd083069.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 choice-group review (PR #113)",
+          "reason": "The group prints 12 required business-core courses and \"Select one of COB's Approved Ethics Electives\" among BUAD 4301-4303; the record called it one choice of one from all 15 courses. Held for review as a mixed required-and-choice group (issue #95)."
+        },
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split into 2 printed parts; this key keeps the group's first clean part"
+        }
+      ]
     },
     {
       "last_verified_at": "2026-10-05",
@@ -4766,6 +4382,1221 @@
       "source_url": "https://catalog.tamusa.edu/undergraduate/business/accounting-finance/finance-bba/",
       "verification_status": "verified",
       "notes": "Reviewed 2026-10-04: Requirement block copied from the catalog program page. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#aebed433395058a3."
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "bs-computer-science",
+      "requirement_key": "department-probation-and-withdrawal-departmental-requirements-2-select-one-of-the-following",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Department probation and withdrawal: — Departmental Requirements — Select one of the following:",
+        "group_type": "choose_courses",
+        "choose_count": 1,
+        "courses": [
+          {
+            "code": "BIOL 1107",
+            "title": "General Biology II Lab"
+          },
+          {
+            "code": "CHEM 1112",
+            "title": "General Chemistry Lab II"
+          },
+          {
+            "code": "GEOL 1102",
+            "title": "Earth Sciences Lab II"
+          },
+          {
+            "code": "PHYS 1102",
+            "title": "General Physics Lab II"
+          },
+          {
+            "code": "PHYS 2126",
+            "title": "University Physics Lab II"
+          }
+        ],
+        "rule_text": "Select one of the following: 1"
+      },
+      "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/computational-engineering-mathematical-sciences/computer-science-bs/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 bfcddba66ba7…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 1 of 5 listed courses. Independently re-verified against the archived source rows: Second 'Select one of the following: | 1' then BIOL 1107, CHEM 1112, GEOL 1102, PHYS 1102, PHYS 2126. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#f8306a25937246c9.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from department-probation-and-withdrawal-departmental-requirements (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "bs-computer-science",
+      "requirement_key": "department-probation-and-withdrawal-departmental-requirements-3-required",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "Department probation and withdrawal: — Departmental Requirements — Required",
+        "group_type": "all_required",
+        "courses": [
+          {
+            "code": "MATH 2113",
+            "title": "Calculus I Lab",
+            "credits": 1
+          },
+          {
+            "code": "MATH 2114",
+            "title": "Calculus II Lab",
+            "credits": 1
+          },
+          {
+            "code": "MATH 3340",
+            "title": "Linear Algebra with Appl",
+            "credits": 3
+          }
+        ]
+      },
+      "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/computational-engineering-mathematical-sciences/computer-science-bs/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 bfcddba66ba7…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is 3 required courses. Independently re-verified against the archived source rows: After the lab choices: 'MATH 2113 | Calculus I Lab | 1', 'MATH 2114 | Calculus II Lab | 1', 'MATH 3340 | Linear Algebra with Appl | 3', then 'Subtotal: | 7'. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#82750f1543b7c5a0.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from department-probation-and-withdrawal-departmental-requirements (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "bs-cyber-engineering-technology",
+      "requirement_key": "department-probation-and-withdrawal-major-electives-2-required-upper-division-cete-csci-or-cse",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_elective",
+        "source_section": "Department probation and withdrawal: — Major Electives — Required Upper-Division CETE, CSCI, or CSEC course 12",
+        "group_type": "elective_pool",
+        "course_rules": [
+          "Required Upper-Division CETE, CSCI, or CSEC course 12"
+        ]
+      },
+      "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/computational-engineering-mathematical-sciences/cyber-engineering-technology-bs/",
+      "verification_status": "unverified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 6346d6364b25…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is a pool as printed. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#d2a4a4b3b27595c2.",
+      "verification_correction_reason": "The source prints only an area label with hours (\"Required Upper-Division CETE, CSCI, or CSEC course 12\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "split from department-probation-and-withdrawal-major-electives (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "bs-public-health",
+      "requirement_key": "bs-public-health-biomedical-sciences-1-required",
+      "requirement_kind": "other",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "other",
+        "source_section": "BS Public Health — Biomedical Sciences — Required",
+        "group_type": "all_required",
+        "courses": [
+          {
+            "code": "BIOL 1307",
+            "title": "Gen Biology II-Biol Organisms (and)",
+            "credits": 3
+          },
+          {
+            "code": "BIOL 1107",
+            "title": "General Biology II Lab"
+          },
+          {
+            "code": "BIOL 2316",
+            "title": "Genetics (and)",
+            "credits": 3
+          },
+          {
+            "code": "BIOL 2116",
+            "title": "Genetics Laboratory"
+          },
+          {
+            "code": "BIOL 2321",
+            "title": "Introduction to Microbiology (and)",
+            "credits": 3
+          },
+          {
+            "code": "BIOL 2121",
+            "title": "Introduction to Microbiology Laboratory"
+          }
+        ]
+      },
+      "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/health-behavioral-sciences/community-health-bs/",
+      "verification_status": "unverified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 ebf1c285c87a…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is 6 required courses. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#2eb0381542e994a0.",
+      "verification_correction_reason": "These courses are one option area of a printed choice of hours, not required courses. Held for review (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "split from bs-public-health-biomedical-sciences (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "bs-psychology",
+      "requirement_key": "bs-psychology-capstone-2-choose-one-course-from-4-of-the-5-follow",
+      "requirement_kind": "other",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "other",
+        "source_section": "BS Psychology — Capstone — Choose one course from 4 of the 5 following areas:",
+        "group_type": "elective_pool",
+        "course_rules": [
+          "Choose one course from 4 of the 5 following areas:"
+        ],
+        "rule_text": "Choose one course from 4 of the 5 following areas: 12"
+      },
+      "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/health-behavioral-sciences/psychology-bs/",
+      "verification_status": "unverified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 d67b5723f3d7…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is a pool as printed. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#cbd831a7a4cdc1db.",
+      "verification_correction_reason": "The source prints \"Choose one course from 4 of the 5 following areas: 12\", a choice spread across areas or disciplines that one count cannot state. The printed count and the printed hours do not agree (\"Choose one course from 4 of the 5 following areas: 12\"). Held for review (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "split from bs-psychology-capstone (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "ba-history-with-teacher-certification",
+      "requirement_key": "general-requirements-major-required-courses-1-hist-upper-division-elective-at-either-3",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "General Requirements — Major (Required) Courses — HIST Upper-Division Elective at either 3000 or 4000 level 3",
+        "group_type": "elective_pool",
+        "course_rules": [
+          "HIST Upper-Division Elective at either 3000 or 4000 level 3"
+        ]
+      },
+      "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/history-philosophy-geography/history-teacher-certification-ba/",
+      "verification_status": "unverified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 4e3bb93ec184…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is a pool as printed. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#e247674270ec3709.",
+      "verification_correction_reason": "The source prints only an area label with hours (\"HIST Upper-Division Elective at either 3000 or 4000 level 3\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "split from general-requirements-major-required-courses (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "ba-history-with-teacher-certification",
+      "requirement_key": "general-requirements-major-required-courses-3-select-two-of-the-following",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "General Requirements — Major (Required) Courses — Select two of the following:",
+        "group_type": "choose_courses",
+        "choose_count": 2,
+        "courses": [
+          {
+            "code": "HIST 2301",
+            "title": "Texas History"
+          },
+          {
+            "code": "HIST 2327",
+            "title": "History of Spanish Borderlands"
+          },
+          {
+            "code": "HIST 2328",
+            "title": "Mexican American Hst 1848-Pres"
+          },
+          {
+            "code": "HIST 2381",
+            "title": "African American History"
+          }
+        ],
+        "rule_text": "Select two of the following: 6"
+      },
+      "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/history-philosophy-geography/history-teacher-certification-ba/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 4e3bb93ec184…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 2 of 4 listed courses. Independently re-verified against the archived source rows: 'Select two of the following: | 6' then HIST 2301, 2327, 2328, 2381. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#019fa12f5a382ea2.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from general-requirements-major-required-courses (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "ba-history-with-teacher-certification",
+      "requirement_key": "general-requirements-major-required-courses-4-select-four-of-the-following",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "General Requirements — Major (Required) Courses — Select four of the following:",
+        "group_type": "choose_courses",
+        "choose_count": 4,
+        "courses": [
+          {
+            "code": "HIST 3302",
+            "title": "Introduction to Public History"
+          },
+          {
+            "code": "HIST 3303",
+            "title": "History of San Antonio"
+          },
+          {
+            "code": "HIST 3312",
+            "title": "Europe in the Middle Ages"
+          },
+          {
+            "code": "HIST 3315",
+            "title": "Early Modern Europe to 1815"
+          },
+          {
+            "code": "HIST 3316",
+            "title": "Europe 1815 to 1914"
+          },
+          {
+            "code": "HIST 3318",
+            "title": "Europe Since 1914"
+          },
+          {
+            "code": "HIST 3330",
+            "title": "Colonial America"
+          },
+          {
+            "code": "HIST 3331",
+            "title": "Amer Rev Early Repub 1763-1850"
+          },
+          {
+            "code": "HIST 3334",
+            "title": "Civil War and Reconstruction"
+          },
+          {
+            "code": "HIST 3335",
+            "title": "Gilded Age and Progressive Era"
+          },
+          {
+            "code": "HIST 3336",
+            "title": "America's Rise to World Power"
+          },
+          {
+            "code": "HIST 3338",
+            "title": "United States Since 1945"
+          },
+          {
+            "code": "HIST 3351",
+            "title": "Latin America I: Colonial Era"
+          },
+          {
+            "code": "HIST 3352",
+            "title": "Latin American II: Modern Era"
+          },
+          {
+            "code": "HIST 3356",
+            "title": "Mexico"
+          },
+          {
+            "code": "HIST 3358",
+            "title": "Asian History I"
+          },
+          {
+            "code": "HIST 3359",
+            "title": "Asian History II"
+          },
+          {
+            "code": "HIST 3360",
+            "title": "Digital Humanities"
+          },
+          {
+            "code": "HIST 3365",
+            "title": "Oral History"
+          }
+        ],
+        "rule_text": "Select four of the following: 12"
+      },
+      "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/history-philosophy-geography/history-teacher-certification-ba/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 4e3bb93ec184…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 4 of 19 listed courses. Independently re-verified against the archived source rows: First 'Select four of the following: | 12' then HIST 3302 ... HIST 3365 (19 courses). Evidence: sources/pipeline/TX/2026-10-04/evidence.json#de743117b77297e5.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from general-requirements-major-required-courses (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "ba-history-with-teacher-certification",
+      "requirement_key": "general-requirements-major-required-courses-5-select-four-of-the-following",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "General Requirements — Major (Required) Courses — Select four of the following:",
+        "group_type": "choose_courses",
+        "choose_count": 4,
+        "courses": [
+          {
+            "code": "HIST 4317",
+            "title": "Nazi Germany"
+          },
+          {
+            "code": "HIST 4319",
+            "title": "The Holocaust"
+          },
+          {
+            "code": "HIST 4340",
+            "title": "US Social and Cultural History"
+          },
+          {
+            "code": "HIST 4342",
+            "title": "U.S. Foreign Policy"
+          },
+          {
+            "code": "HIST 4345",
+            "title": "Native American History"
+          },
+          {
+            "code": "HIST 4347",
+            "title": "The American West"
+          },
+          {
+            "code": "HIST 4360",
+            "title": "United States Women's & Gender History"
+          },
+          {
+            "code": "HIST 4363",
+            "title": "War and Society"
+          },
+          {
+            "code": "HIST 4364",
+            "title": "Global Perspectives in Women's & Gender History"
+          },
+          {
+            "code": "HIST 4366",
+            "title": "Childhood in America"
+          },
+          {
+            "code": "HIST 4398",
+            "title": "History Internship"
+          }
+        ],
+        "rule_text": "Select four of the following: 12"
+      },
+      "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/history-philosophy-geography/history-teacher-certification-ba/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 4e3bb93ec184…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 4 of 11 listed courses. Independently re-verified against the archived source rows: Second 'Select four of the following: | 12' then HIST 4317 ... HIST 4398 (11 courses). Evidence: sources/pipeline/TX/2026-10-04/evidence.json#e25210bf124b6660.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from general-requirements-major-required-courses (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "ba-english-literature-emphasis-concentration",
+      "requirement_key": "general-requirements-core-curriculum-2-mathematics-3",
+      "requirement_kind": "general_education",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "general_education",
+        "source_section": "General Requirements — Core Curriculum — Mathematics 3",
+        "group_type": "elective_pool",
+        "course_rules": [
+          "Mathematics 3",
+          "Life and Physical Sciences 3",
+          "Life and Physical Sciences 3"
+        ]
+      },
+      "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-literature-emphasis/",
+      "verification_status": "unverified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 eda4cc889b91…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is a pool as printed. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#c9e8080df58c74db.",
+      "verification_correction_reason": "The source prints only an area label with hours (\"Mathematics 3; Life and Physical Sciences 3; Life and Physical Sciences 3\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "split from general-requirements-core-curriculum (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "ba-english-literature-emphasis-concentration",
+      "requirement_key": "general-requirements-core-curriculum-3-select-one-of-the-following",
+      "requirement_kind": "general_education",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "general_education",
+        "source_section": "General Requirements — Language, Philosophy, and Culture — Select one of the following:",
+        "group_type": "choose_courses",
+        "choose_count": 1,
+        "courses": [
+          {
+            "code": "ENGL 2321",
+            "title": "Themes & Genres British Lit"
+          },
+          {
+            "code": "ENGL 2326",
+            "title": "Literature of the Americas"
+          },
+          {
+            "code": "ENGL 2331",
+            "title": "Intro to World Literature"
+          },
+          {
+            "code": "ENGL 2344",
+            "title": "Introduction to Fiction"
+          },
+          {
+            "code": "ENGL 2346",
+            "title": "Introduction to Poetry"
+          },
+          {
+            "code": "ENGL 2355",
+            "title": "Children's Literature"
+          },
+          {
+            "code": "SPAN 2320",
+            "title": "Intro to Spanish Lang-Literat"
+          }
+        ],
+        "rule_text": "Select one of the following:"
+      },
+      "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-literature-emphasis/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 eda4cc889b91…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 1 of 7 listed courses. Independently re-verified against the archived source rows: 'Select one of the following:' (no credits printed) then ENGL 2321, 2326, 2331, 2344, 2346, 2355, SPAN 2320, then 'Creative Arts | 3'. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#423b8481edf3e8ae.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from general-requirements-core-curriculum (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "ba-english-literature-emphasis-concentration",
+      "requirement_key": "general-requirements-core-curriculum-4-creative-arts-3",
+      "requirement_kind": "general_education",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "general_education",
+        "source_section": "General Requirements — Language, Philosophy, and Culture — Creative Arts 3",
+        "group_type": "elective_pool",
+        "course_rules": [
+          "Creative Arts 3",
+          "American History 3",
+          "American History 3",
+          "Government/Political Science 3",
+          "Government/Political Science 3",
+          "Social & Behavioral Sciences 3",
+          "Component Area Option Course from Approved List 3",
+          "Component Area Option Course from Approved List 3"
+        ]
+      },
+      "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-literature-emphasis/",
+      "verification_status": "unverified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 eda4cc889b91…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is a pool as printed. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#18111ae1addf34a8.",
+      "verification_correction_reason": "The source prints only an area label with hours (\"Creative Arts 3; American History 3; American History 3; Government/Political Science 3; Government/Political Science 3; Social & Behavioral Sciences 3; Compone\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "split from general-requirements-core-curriculum (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "ba-english-writing-media-and-culture-concentration",
+      "requirement_key": "general-requirements-core-curriculum-2-mathematics-3",
+      "requirement_kind": "general_education",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "general_education",
+        "source_section": "General Requirements — Core Curriculum — Mathematics 3",
+        "group_type": "elective_pool",
+        "course_rules": [
+          "Mathematics 3",
+          "Life & Physical Science 3",
+          "Life & Physical Science 3"
+        ]
+      },
+      "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-rhetoric-writing-emphasis/",
+      "verification_status": "unverified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 693c915bcbcd…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is a pool as printed. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#15f55fc6acd4420b.",
+      "verification_correction_reason": "The source prints only an area label with hours (\"Mathematics 3; Life & Physical Science 3; Life & Physical Science 3\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "split from general-requirements-core-curriculum (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "ba-english-writing-media-and-culture-concentration",
+      "requirement_key": "general-requirements-core-curriculum-3-select-one-of-the-following",
+      "requirement_kind": "general_education",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "general_education",
+        "source_section": "General Requirements — Language, Philosophy, and Culture — Select one of the following:",
+        "group_type": "choose_courses",
+        "choose_count": 1,
+        "courses": [
+          {
+            "code": "ENGL 2321",
+            "title": "Themes & Genres British Lit"
+          },
+          {
+            "code": "ENGL 2326",
+            "title": "Literature of the Americas"
+          },
+          {
+            "code": "ENGL 2331",
+            "title": "Intro to World Literature"
+          },
+          {
+            "code": "ENGL 2344",
+            "title": "Introduction to Fiction"
+          },
+          {
+            "code": "ENGL 2346",
+            "title": "Introduction to Poetry"
+          },
+          {
+            "code": "ENGL 2355",
+            "title": "Children's Literature"
+          }
+        ],
+        "rule_text": "Select one of the following:"
+      },
+      "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-rhetoric-writing-emphasis/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 693c915bcbcd…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 1 of 6 listed courses. Independently re-verified against the archived source rows: 'Select one of the following:' then ENGL 2321, 2326, 2331, 2344, 2346, 2355 (no SPAN on this page), then 'Creative Arts | 3'. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#78ce26eef0d145e0.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from general-requirements-core-curriculum (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "ba-english-writing-media-and-culture-concentration",
+      "requirement_key": "general-requirements-core-curriculum-4-creative-arts-3",
+      "requirement_kind": "general_education",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "general_education",
+        "source_section": "General Requirements — Language, Philosophy, and Culture — Creative Arts 3",
+        "group_type": "elective_pool",
+        "course_rules": [
+          "Creative Arts 3",
+          "American History 3",
+          "American History 3",
+          "Government/Political Science 3",
+          "Government/Political Science 3",
+          "Social & Behavioral Sciences 3",
+          "Component Area Option Course from Approved List 3",
+          "Component Area Option Course from Approved List 3"
+        ]
+      },
+      "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-rhetoric-writing-emphasis/",
+      "verification_status": "unverified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 693c915bcbcd…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is a pool as printed. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#8df21d7a80c20125.",
+      "verification_correction_reason": "The source prints only an area label with hours (\"Creative Arts 3; American History 3; American History 3; Government/Political Science 3; Government/Political Science 3; Social & Behavioral Sciences 3; Compone\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "split from general-requirements-core-curriculum (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "ba-english-writing-media-and-culture-concentration",
+      "requirement_key": "general-requirements-required-major-courses-2-writing-courses-choose-4-of-the-followin",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "General Requirements — Required Major Courses — Writing Courses (Choose 4 of the following):",
+        "group_type": "choose_courses",
+        "choose_count": 4,
+        "courses": [
+          {
+            "code": "ENGL 2311",
+            "title": "Technical Writing"
+          },
+          {
+            "code": "ENGL 3303",
+            "title": "Professional Editing"
+          },
+          {
+            "code": "ENGL 3304",
+            "title": "Genres in Creative Writing"
+          },
+          {
+            "code": "ENGL 3317",
+            "title": "Grammar and Style"
+          },
+          {
+            "code": "ENGL 4301",
+            "title": "Advanced Technical Writing"
+          },
+          {
+            "code": "ENGL 4312",
+            "title": "Intro to Composition Studies"
+          },
+          {
+            "code": "ENGL 4330",
+            "title": "Topics in Creative Writing"
+          },
+          {
+            "code": "ENGL 4343",
+            "title": "Grant Writing"
+          }
+        ],
+        "rule_text": "Writing Courses (Choose 4 of the following): 12"
+      },
+      "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-rhetoric-writing-emphasis/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 693c915bcbcd…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 4 of 8 listed courses. Independently re-verified against the archived source rows: 'Writing Courses (Choose 4 of the following): | 12' then ENGL 2311, 3303, 3304, 3317, 4301, 4312, 4330, 4343. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#ec997916916db825.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from general-requirements-required-major-courses (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "ba-english-writing-media-and-culture-concentration",
+      "requirement_key": "general-requirements-required-major-courses-3-media-courses-choose-3-of-the-following",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "General Requirements — Required Major Courses — Media Courses (Choose 3 of the following):",
+        "group_type": "choose_courses",
+        "choose_count": 3,
+        "courses": [
+          {
+            "code": "ARTS 2356",
+            "title": "Photography"
+          },
+          {
+            "code": "ENGL 2388",
+            "title": "Introduction to Visual Studies"
+          },
+          {
+            "code": "ENGL 3302",
+            "title": "History of Text Technologies"
+          },
+          {
+            "code": "SPAN 3331",
+            "title": "Latin American Film History"
+          },
+          {
+            "code": "CAPS 4301",
+            "title": "Topics in Creative Arts and Performance Studies"
+          },
+          {
+            "code": "ENGL 4344",
+            "title": "Digital Culture and Media"
+          },
+          {
+            "code": "ENGL 4394",
+            "title": "Topics in Film Studies"
+          },
+          {
+            "code": "ENGL 4395",
+            "title": "Visual Studies"
+          }
+        ],
+        "rule_text": "Media Courses (Choose 3 of the following): 9"
+      },
+      "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-rhetoric-writing-emphasis/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 693c915bcbcd…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 3 of 8 listed courses. Independently re-verified against the archived source rows: 'Media Courses (Choose 3 of the following): | 9' then ARTS 2356, ENGL 2388, 3302, SPAN 3331, CAPS 4301, ENGL 4344, 4394, 4395. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#afe4ceb2216f98cc.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from general-requirements-required-major-courses (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "ba-english-writing-media-and-culture-concentration",
+      "requirement_key": "general-requirements-required-major-courses-4-culture-courses-choose-3-of-the-followin",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "General Requirements — Required Major Courses — Culture Courses (Choose 3 of the following):",
+        "group_type": "choose_courses",
+        "choose_count": 3,
+        "courses": [
+          {
+            "code": "ARTS 1302",
+            "title": "LatinX Art Appreciation"
+          },
+          {
+            "code": "ENGL 2312",
+            "title": "Borderland Rhetorics"
+          },
+          {
+            "code": "ENGL 3331",
+            "title": "Intersectional Shakespeare"
+          },
+          {
+            "code": "ENGL 3351",
+            "title": "Mexican Amer Lit & Culture"
+          },
+          {
+            "code": "ENGL 3376",
+            "title": "Mythology"
+          },
+          {
+            "code": "ENGL 3380",
+            "title": "African Amer Lit & Culture"
+          },
+          {
+            "code": "MUSI 4301",
+            "title": "Topics in Music Studies"
+          },
+          {
+            "code": "SPAN 4319",
+            "title": "US Latina/o/e Soundscapes: Musical Cultures of Latin America"
+          },
+          {
+            "code": "ENGL 4342",
+            "title": "Rhetoric and Culture"
+          },
+          {
+            "code": "ENGL 4375",
+            "title": "Studies in Women's Literature"
+          },
+          {
+            "code": "ENGL 4386",
+            "title": "Topics in Black Studies"
+          },
+          {
+            "code": "ENGL 4388",
+            "title": "Topics in Latinx Studies"
+          }
+        ],
+        "rule_text": "Culture Courses (Choose 3 of the following): 9"
+      },
+      "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-rhetoric-writing-emphasis/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 693c915bcbcd…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 3 of 12 listed courses. Independently re-verified against the archived source rows: 'Culture Courses (Choose 3 of the following): | 9' then ARTS 1302 ... ENGL 4388 (12 courses). Evidence: sources/pipeline/TX/2026-10-04/evidence.json#a2f09690ffbcd92b.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from general-requirements-required-major-courses (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "ba-english-writing-media-and-culture-concentration",
+      "requirement_key": "general-requirements-required-major-courses-5-applications-courses-choose-1-of-the-fol",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "General Requirements — Required Major Courses — Applications Courses (Choose 1 of the following):",
+        "group_type": "choose_courses",
+        "choose_count": 1,
+        "courses": [
+          {
+            "code": "ENGL 4341",
+            "title": "Internship"
+          },
+          {
+            "code": "ENGL 4398",
+            "title": "Senior Seminar"
+          }
+        ],
+        "rule_text": "Applications Courses (Choose 1 of the following): 3"
+      },
+      "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-rhetoric-writing-emphasis/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 693c915bcbcd…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 1 of 2 listed courses. Independently re-verified against the archived source rows: 'Applications Courses (Choose 1 of the following): | 3' then ENGL 4341, ENGL 4398. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#da9c718b8a41e4ce.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from general-requirements-required-major-courses (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "ba-english-writing-media-and-culture-concentration",
+      "requirement_key": "general-requirements-required-major-courses-6-optional-minor-or-electives-18-hrs-18",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "General Requirements — Optional Minor or Electives (18 hrs.) 18",
+        "group_type": "elective_pool",
+        "course_rules": [
+          "Optional Minor or Electives (18 hrs.) 18"
+        ]
+      },
+      "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-ba-rhetoric-writing-emphasis/",
+      "verification_status": "unverified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 693c915bcbcd…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is a pool as printed. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#a807e1b7c3fd897b.",
+      "verification_correction_reason": "The source prints only an area label with hours (\"Optional Minor or Electives (18 hrs.) 18\") and no course list, so the pool cannot be verified from the page. Held for review (issue #95 recovery).",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "unverified",
+          "by": "issue #95 recovery",
+          "action": "split from general-requirements-required-major-courses (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "ba-english-with-teacher-certification",
+      "requirement_key": "general-requirements-major-required-courses-2-choose-four-of-the-following",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "General Requirements — Major Required Courses — Choose four of the following:",
+        "group_type": "choose_courses",
+        "choose_count": 4,
+        "courses": [
+          {
+            "code": "ENGL 3302",
+            "title": "History of Text Technologies"
+          },
+          {
+            "code": "ENGL 3303",
+            "title": "Professional Editing"
+          },
+          {
+            "code": "ENGL 3304",
+            "title": "Genres in Creative Writing"
+          },
+          {
+            "code": "ENGL 3317",
+            "title": "Grammar and Style"
+          },
+          {
+            "code": "ENGL 3325",
+            "title": "Medieval through Early Modern British Literature"
+          },
+          {
+            "code": "ENGL 3344",
+            "title": "Literature of the British Isles and Empire, 1660-1900"
+          },
+          {
+            "code": "ENGL 3346",
+            "title": "20th/21st Century Global Anglophone Literature"
+          },
+          {
+            "code": "ENGL 3351",
+            "title": "Mexican Amer Lit & Culture"
+          },
+          {
+            "code": "ENGL 3362",
+            "title": "Early American Literature"
+          },
+          {
+            "code": "ENGL 3364",
+            "title": "19th Century American Literature"
+          },
+          {
+            "code": "ENGL 3366",
+            "title": "20th/21st Century Amer Lit"
+          },
+          {
+            "code": "ENGL 3376",
+            "title": "Mythology"
+          },
+          {
+            "code": "ENGL 3380",
+            "title": "African Amer Lit & Culture"
+          },
+          {
+            "code": "ENGL 4301",
+            "title": "Advanced Technical Writing"
+          },
+          {
+            "code": "ENGL 4310",
+            "title": "Introd to Linguistics"
+          },
+          {
+            "code": "ENGL 4312",
+            "title": "Intro to Composition Studies"
+          },
+          {
+            "code": "ENGL 4330",
+            "title": "Topics in Creative Writing"
+          },
+          {
+            "code": "ENGL 4342",
+            "title": "Rhetoric and Culture"
+          },
+          {
+            "code": "ENGL 4343",
+            "title": "Grant Writing"
+          },
+          {
+            "code": "ENGL 4344",
+            "title": "Digital Culture and Media"
+          },
+          {
+            "code": "ENGL 4370",
+            "title": "Special Topics in English"
+          },
+          {
+            "code": "ENGL 4375",
+            "title": "Studies in Women's Literature"
+          },
+          {
+            "code": "ENGL 4386",
+            "title": "Topics in Black Studies"
+          },
+          {
+            "code": "ENGL 4388",
+            "title": "Topics in Latinx Studies"
+          },
+          {
+            "code": "ENGL 4394",
+            "title": "Topics in Film Studies"
+          },
+          {
+            "code": "ENGL 4395",
+            "title": "Visual Studies"
+          },
+          {
+            "code": "ENGL 4398",
+            "title": "Senior Seminar"
+          }
+        ],
+        "rule_text": "Choose four of the following: 12"
+      },
+      "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/language-literature-arts/english-teacher-certification-ba/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 70507ed7fe1c…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 4 of 27 listed courses. Independently re-verified against the archived source rows: 'Choose four of the following: | 12' then ENGL 3302 ... ENGL 4398 (27 courses) before 'Teacher Certification Required Courses 4'. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#36f31c539fb1d08c.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from general-requirements-major-required-courses (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "bs-biology-pre-health-professions-concentration",
+      "requirement_key": "general-requirements-concentration-required-courses-2-choose-2-of-the-following",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "concentration",
+        "source_section": "General Requirements — Concentration Required Courses — Choose 2 of the following:",
+        "group_type": "choose_courses",
+        "choose_count": 2,
+        "courses": [
+          {
+            "code": "PSYC 3315",
+            "title": "Health Psychology"
+          },
+          {
+            "code": "PSYC 3316",
+            "title": "Physiological Psychology"
+          },
+          {
+            "code": "PSYC 3324",
+            "title": "Cross-Cultural Psychology"
+          },
+          {
+            "code": "PSYC 3325",
+            "title": "Abnormal Psychology"
+          },
+          {
+            "code": "PSYC 3337",
+            "title": "Drugs, Addiction, & Behavior"
+          },
+          {
+            "code": "EDKN 4320",
+            "title": "Motor Dev and Motor Learning"
+          }
+        ],
+        "rule_text": "Choose 2 of the following: 6",
+        "concentration": "General Requirements — Concentration Required Courses"
+      },
+      "source_url": "https://catalog.tamusa.edu/undergraduate/arts-sciences/natural-sciences/biology-concentration-pre-health-bs/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 06a7ce09be54…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 2 of 6 listed courses. Independently re-verified against the archived source rows: 'Choose 2 of the following: | 6' then PSYC 3315, 3316, 3324, 3325, 3337, EDKN 4320. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#564b326d2ec18014.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from general-requirements-concentration-required-courses (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "bba-accounting",
+      "requirement_key": "bba-accounting-business-core-upper-level-2-select-one-of-cob-s-approved-ethics-elec",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "BBA Accounting — Business Core (Upper Level) — Select one of COB's Approved Ethics Electives",
+        "group_type": "choose_courses",
+        "choose_count": 1,
+        "courses": [
+          {
+            "code": "BUAD 4301",
+            "title": "Ethical Decisions"
+          },
+          {
+            "code": "BUAD 4302",
+            "title": "Ethical Decisions: Ethics Bowl"
+          },
+          {
+            "code": "BUAD 4303",
+            "title": "Ethical Decisions Spcl Topics"
+          }
+        ],
+        "rule_text": "Select one of COB's Approved Ethics Electives 3"
+      },
+      "source_url": "https://catalog.tamusa.edu/undergraduate/business/accounting-finance/accounting-bba/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 52d8a115826e…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 1 of 3 listed courses. Independently re-verified against the archived source rows: 'Select one of COB's Approved Ethics Electives | 3' then BUAD 4301, 4302, 4303. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#cfd78cbf6f960551.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from bba-accounting-business-core-upper-level (issue #95)"
+        }
+      ]
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "bba-finance",
+      "requirement_key": "general-requirements-business-core-upper-level-2-select-one-of-cob-s-approved-ethics-elec",
+      "requirement_kind": "major",
+      "rule_details": {
+        "schema": "requirement_group/v1",
+        "catalog_year": "2026-2027",
+        "category": "major_core",
+        "source_section": "General Requirements — Business Core (Upper Level) — Select one of COB's Approved Ethics Electives",
+        "group_type": "choose_courses",
+        "choose_count": 1,
+        "courses": [
+          {
+            "code": "BUAD 4301",
+            "title": "Ethical Decisions"
+          },
+          {
+            "code": "BUAD 4302",
+            "title": "Ethical Decisions: Ethics Bowl"
+          },
+          {
+            "code": "BUAD 4303",
+            "title": "Ethical Decisions Spcl Topics"
+          }
+        ],
+        "rule_text": "Select one of COB's Approved Ethics Electives 3"
+      },
+      "source_url": "https://catalog.tamusa.edu/undergraduate/business/accounting-finance/finance-bba/",
+      "verification_status": "verified",
+      "notes": "Recovered 2026-10-06 (issue #95 choice-group recovery): re-read from the archived official page (sha256 18f3051e9232…, fetched 2026-10-05) with the shared reader that splits a group into its printed parts; this part is choose 1 of 3 listed courses. Independently re-verified against the archived source rows: 'Select one of COB's Approved Ethics Electives | 3' then BUAD 4301, 4302, 4303. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#f38840320e296997.",
+      "correction_history": [
+        {
+          "date": "2026-10-06",
+          "status": "verified",
+          "by": "issue #95 recovery",
+          "action": "split from general-requirements-business-core-upper-level (issue #95)"
+        }
+      ]
     }
   ]
 }
