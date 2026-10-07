@@ -2,8 +2,12 @@ import { useId, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useApp, useAsync } from '../../lib/app'
 import type { AwardListing, CostBasis, CostComponents, CreditLever, InstitutionComparison, ProjectionRow } from '../../lib/data/types'
-import { netPrice, type FamilyAid } from '../../lib/engine/costProjection'
+import { fullProgram, potentialSaving, termsSaving, type FamilyAid, type FullProgram, type PotentialSaving } from '../../lib/engine/costProjection'
+import { degreeCredit, type DegreeCreditResult, type ExamApplicability, type PlanTerm } from '../../lib/engine/degreeCredit'
 import { summarizeSchool, type CreditPolicy } from '../../lib/engine/examCredit'
+import { labelOf, type SavedInterest } from '../../lib/engine/interests'
+import { schoolFit, type SchoolDomains } from '../../lib/engine/programFit'
+import { useInterests } from '../majors/useInterests'
 import { stateName } from '../../lib/engine/residency'
 import { useHomeState } from '../../lib/homeState'
 import { Card, EmptyState, Notice, Pill, Segmented, Spinner, cx } from '../../components/ui'
@@ -56,23 +60,27 @@ export function Savings() {
     return homeState && st && homeState !== st ? 'out_of_state' : 'in_state'
   }
   const otherCredits = family.entries.otherCredits
+  const interests = useInterests(studentId).profile.interests
+  const credits = new Map(schools.map((c) => [c.institution_key, schoolCredit(c, examCredits(c), interests)]))
   const rows = useAsync(
     () =>
       !studentId || !schools.length
-        ? Promise.resolve([] as ProjectionRow[])
+        ? Promise.resolve([] as { main: ProjectionRow; planOnly: ProjectionRow | null }[])
         : Promise.all(
-            schools.map((c) =>
-              source
-                .costProjection(studentId, [c.institution_key], YEAR, {
-                  residency: residencyFor(c),
-                  cost_basis: basis,
-                  exam_credits: Math.min(examCredits(c).publishedHours, 90),
-                  prior_credits: otherCredits,
-                })
-                .then((r) => r.institutions[0]!),
-            ),
+            schools.map(async (c) => {
+              const accepted = Math.min(examCredits(c).publishedHours, 90)
+              const base = { residency: residencyFor(c), cost_basis: basis } as const
+              const main = (await source.costProjection(studentId, [c.institution_key], YEAR, { ...base, exam_credits: accepted, prior_credits: otherCredits })).institutions[0]!
+              // A second, narrower scenario: only exam credit shown to match the major's published plan.
+              const tiers = credits.get(c.institution_key)?.tiers
+              const planOnly =
+                tiers && (tiers.applicableHours !== accepted || otherCredits > 0)
+                  ? (await source.costProjection(studentId, [c.institution_key], YEAR, { ...base, exam_credits: Math.min(tiers.applicableHours, 90) })).institutions[0]!
+                  : null
+              return { main, planOnly }
+            }),
           ),
-    [source, studentId, schools.map((c) => c.institution_key).join(','), homeState, basis, otherCredits, JSON.stringify(exams)],
+    [source, studentId, schools.map((c) => c.institution_key).join(','), homeState, basis, otherCredits, JSON.stringify(exams), JSON.stringify(interests)],
   )
 
   return (
@@ -147,18 +155,20 @@ export function Savings() {
         </Notice>
       ) : (
         <div className={cx('grid gap-4 transition-opacity', rows.loading && 'opacity-60')} aria-busy={rows.loading}>
-          {(rows.data ?? []).map((r) => {
+          {(rows.data ?? []).map(({ main: r, planOnly }) => {
             const c = schools.find((x) => x.institution_key === r.institution_key)
             if (!c) return null // removed while the projection reloads
             return (
               <SchoolSavings
                 key={r.institution_key}
                 row={r}
+                planOnly={planOnly}
                 comparison={c}
                 assumedResidency={!homeState}
                 aid={family.aidFor(r.institution_key)}
                 onAid={(a) => family.setAid(r.institution_key, a)}
                 examSummary={examCredits(c)}
+                credit={credits.get(r.institution_key)!}
                 onBasis={setBasis}
               />
             )
@@ -170,6 +180,29 @@ export function Savings() {
       )}
     </div>
   )
+}
+
+interface SchoolCredit {
+  /** The selected major's program at this school, when its verified term-by-term plan is on file. */
+  program: { name: string; url: string | null } | null
+  /** Why applicability can't be checked, when program is null. */
+  reason: 'no_major' | 'no_program' | 'no_plan' | null
+  major: string | null
+  tiers: DegreeCreditResult | null
+}
+
+/** The major to check: the student's focus major, else their first saved major. Areas are too broad to check. */
+function schoolCredit(c: InstitutionComparison, summary: ReturnType<typeof summarizeSchool>, interests: SavedInterest[]): SchoolCredit {
+  const majors = interests.filter((i) => i.kind === 'major')
+  const pick = majors.find((i) => i.focus) ?? majors[0]
+  if (!pick) return { program: null, reason: 'no_major', major: null, tiers: null }
+  const fit = schoolFit(c.domains as unknown as SchoolDomains, [pick]).fits[0]!
+  const plans = (c.domains.degree_requirements ?? []) as { program_key?: string; source_url?: string; rule_details?: { terms?: PlanTerm[] } }[]
+  for (const p of fit.programs) {
+    const plan = plans.find((r) => r.program_key === p.key && (r.rule_details?.terms ?? []).length)
+    if (plan) return { program: { name: p.name, url: plan.source_url ?? p.url }, reason: null, major: fit.label, tiers: degreeCredit(summary.matches, plan.rule_details!.terms!) }
+  }
+  return { program: null, reason: fit.status === 'verified' ? 'no_plan' : 'no_program', major: labelOf(pick), tiers: null }
 }
 
 function residencyLine(row: ProjectionRow, assumed: boolean, schoolState: string | null | undefined) {
@@ -186,9 +219,13 @@ function SchoolSavings({
   aid,
   onAid,
   examSummary,
+  credit,
+  planOnly,
   onBasis,
 }: {
   row: ProjectionRow
+  planOnly: ProjectionRow | null
+  credit: SchoolCredit
   comparison: InstitutionComparison
   assumedResidency: boolean
   aid: FamilyAid
@@ -196,10 +233,10 @@ function SchoolSavings({
   examSummary: ReturnType<typeof summarizeSchool>
   onBasis: (b: CostBasis) => void
 }) {
+  const full = fullProgram(row, aid)
   const name = row.display_name ?? comparison.institution?.display_name ?? row.institution_key
   const headingId = useId()
   const c = row.cost?.components
-  const net = netPrice(row, aid)
   const awards = row.not_counted?.awards ?? []
 
   return (
@@ -251,7 +288,7 @@ function SchoolSavings({
                   )
                 })}
                 <dl className="mt-1 flex justify-between gap-3 border-t border-line pt-2">
-                  <dt className="font-semibold text-ink">Cost of attendance</dt>
+                  <dt className="font-semibold text-ink">Cost of attendance, academic year</dt>
                   <dd className={c.total_cost_of_attendance != null ? 'tabular font-semibold text-ink' : 'text-ink-3'}>
                     {c.total_cost_of_attendance != null ? usd(c.total_cost_of_attendance) : 'Not published'}
                   </dd>
@@ -260,10 +297,26 @@ function SchoolSavings({
             ) : (
               <p className="mt-2 text-sm text-ink-2">No verified {YEAR} price for this residency. We don't substitute another year's or another residency's price.</p>
             )}
+            {c && (
+              <p className="mt-2 text-xs text-ink-3">
+                The school's budget for its academic year. We don't have a record of whether it covers summer or breaks, so year-round living is your number below.
+              </p>
+            )}
             {row.cost?.source_url && (
-              <a href={row.cost.source_url} target="_blank" rel="noreferrer" className="mt-2 inline-block text-xs font-semibold text-go-strong underline dark:text-go">
+              <a href={row.cost.source_url} target="_blank" rel="noreferrer" className="mt-1 inline-block text-xs font-semibold text-go-strong underline dark:text-go">
                 Published source
               </a>
+            )}
+            {row.status === 'ok' && (
+              <MoneyOrCount
+                id={`${row.institution_key}-year-round`}
+                label="Summer and break living, per year"
+                hint="Optional. Rent or food outside the school year, such as a 12-month lease."
+                value={aid.yearRoundLivingPerYear ?? null}
+                onChange={(n) => onAid({ yearRoundLivingPerYear: n })}
+                max={200000}
+                unit="dollars"
+              />
             )}
           </section>
 
@@ -273,10 +326,14 @@ function SchoolSavings({
             ) : row.status === 'missing_years' ? (
               <p className="text-sm text-ink-2">The school's program length isn't on file, so there is no multi-year total.</p>
             ) : (
-              <DegreeTotals row={row} net={net!} examSummary={examSummary} name={name} />
+              <FullProgramTotals row={row} full={full!} />
             )}
           </section>
         </div>
+      )}
+
+      {row.status === 'ok' && (
+        <CreditSteps row={row} planOnly={planOnly} credit={credit} examSummary={examSummary} aid={aid} name={name} />
       )}
 
       {row.status === 'ok' && (
@@ -286,7 +343,7 @@ function SchoolSavings({
             <MoneyOrCount
               id={`${row.institution_key}-grants`}
               label="Offered to you, per year"
-              hint="From an award letter. Free money that you don't repay."
+              hint="From an award letter, per academic year. Free money that you don't repay. Check whether it renews every year."
               value={aid.grantsPerYear}
               onChange={(n) => onAid({ grantsPerYear: n })}
               max={500000}
@@ -340,70 +397,191 @@ function MissingCost({ row, onBasis }: { row: ProjectionRow; onBasis: (b: CostBa
   return <p className="text-sm text-ink-2">Without a published price there is no total and no savings estimate.</p>
 }
 
-function DegreeTotals({ row, net, examSummary, name }: { row: ProjectionRow; net: NonNullable<ReturnType<typeof netPrice>>; examSummary: ReturnType<typeof summarizeSchool>; name: string }) {
-  const s = row.credit_savings!
+function FullProgramTotals({ row, full }: { row: ProjectionRow; full: FullProgram }) {
   const basis = row.cost!.basis
-  const years = row.years!
-  const exam = row.levers!.find((l) => l.kind === 'exam_credits')!
-  const prior = row.levers!.find((l) => l.kind === 'prior_credits')!
+  const years = full.years
   return (
     <div className="grid gap-3">
       <h3 className="text-sm font-semibold text-ink">
-        Over {years} {years === 1 ? 'year' : 'years'} <span className="font-normal text-ink-3">({BASIS_LABEL[basis].toLowerCase()})</span>
+        Full program, {years} {years === 1 ? 'year' : 'years'} <span className="font-normal text-ink-3">({BASIS_LABEL[basis].toLowerCase()}, no credit assumed)</span>
       </h3>
       <dl className="grid gap-1 text-sm" aria-label="From published price to what you pay">
-        <Line label="Published price" value={usd(net.publishedTotal)} sub={row.years_source === 'level_default' ? `${years} years is the usual length for this kind of school` : undefined} />
-        <Line label="Credit you bring" value={net.creditSavings ? `− ${usd(net.creditSavings)}` : usd(0)} tone={net.creditSavings ? 'go' : undefined} />
-        <Line label="Grants you entered" value={net.grants ? `− ${usd(net.grants)}` : 'None entered'} tone={net.grants ? 'go' : undefined} />
-        <Line label="Net price" value={usd(net.netPrice)} strong />
-        {net.borrowed > 0 && (
+        <Line label="Published price" value={usd(full.published)} sub={`${row.years_source === 'level_default' ? `${years} years is the usual length for this kind of school. ` : ''}Academic-year price × ${years}.`} />
+        {full.yearRound > 0 && <Line label="Summer and break living (your number)" value={`+ ${usd(full.yearRound)}`} />}
+        <Line label="Grants you entered" value={full.grants ? `− ${usd(full.grants)}` : 'None entered'} tone={full.grants ? 'go' : undefined} sub={full.grants ? `Per year × ${years} years` : undefined} />
+        <Line label="Net price" value={usd(full.netPrice)} strong />
+        {full.borrowed > 0 && (
           <>
-            <Line label="Borrowed (you repay this)" value={usd(net.borrowed)} indent />
-            <Line label="Paid from savings or income" value={usd(net.paidWithoutLoans)} indent />
+            <Line label="Borrowed (you repay this)" value={usd(full.borrowed)} indent />
+            <Line label="Paid from savings or income" value={usd(full.paidWithoutLoans)} indent />
           </>
         )}
       </dl>
-      {net.loansCapped && <p className="text-xs text-ink-3">The borrowing you entered is more than what's left to pay, so it stops at the net price.</p>}
-
-      <div className="rounded-xl bg-surface-2 px-3 py-3 text-sm">
-        <h4 className="font-semibold text-ink">How credit changes the cost</h4>
-        {s.terms_saved > 0 ? (
-          <p className="mt-1 text-ink-2">
-            {s.credits_counted} credits could let the student finish {s.terms_saved} {s.terms_saved === 1 ? 'term' : 'terms'} early. That saves{' '}
-            <span className="font-semibold text-ink">{usd(row.savings_total!)}</span>
-            {componentSplit(s.by_component)}. It saves money only by graduating sooner, not by lowering a term's bill.
-          </p>
-        ) : (
-          <p className="mt-1 text-ink-2">No counted credit saves a full term at {name}.</p>
-        )}
-        <ul className="mt-2 grid gap-1 text-ink-2">
-          <LeverLine lever={exam} examSummary={examSummary} />
-          <LeverLine lever={prior} />
-          {s.outside_credit_max != null && (
-            <li>
-              {name} requires {s.residency_requirement_credits} credits earned there, so at most {s.outside_credit_max} outside credits fit this plan.
-            </li>
-          )}
-          {s.remainder_credits > 0 && (
-            <li>
-              {s.remainder_credits} {s.remainder_credits === 1 ? 'credit falls' : 'credits fall'} short of another full term and {s.remainder_credits === 1 ? 'is' : 'are'} not counted. Whether
-              they lower a bill depends on whether {name} charges a flat rate or per credit, which we don't have.
-            </li>
-          )}
-        </ul>
-        {s.credits_counted > 0 && <p className="mt-2 text-xs text-ink-3">Confirm with the school's registrar before counting on any credit.</p>}
-      </div>
+      {full.loansCapped && <p className="text-xs text-ink-3">The borrowing you entered is more than what's left to pay, so it stops at the net price.</p>}
     </div>
   )
 }
 
-function componentSplit(b: { tuition: number | null; mandatory_fees: number | null; living_and_other: number | null }) {
+const APPLIES_LABEL: Record<ExamApplicability['status'], string> = {
+  applies: 'in the plan',
+  partly: 'partly in the plan',
+  elective_only: 'elective credit only',
+  not_in_plan: 'not a course this plan uses',
+  school_assigns: 'depends on which course the school assigns',
+  no_course: 'no course listed',
+}
+
+/** Accepted by the school -> applies to the major's plan -> removes a term; then savings only as stated potential. */
+function CreditSteps({ row, planOnly, credit, examSummary, aid, name }: { row: ProjectionRow; planOnly: ProjectionRow | null; credit: SchoolCredit; examSummary: ReturnType<typeof summarizeSchool>; aid: FamilyAid; name: string }) {
+  const s = row.credit_savings!
+  const exam = row.levers!.find((l) => l.kind === 'exam_credits')!
+  const prior = row.levers!.find((l) => l.kind === 'prior_credits')!
+  const tiers = credit.tiers
+  const all = potentialSaving(row, aid)
+  const narrow = planOnly ? potentialSaving(planOnly, aid) : tiers ? all : null
+  const shown = tiers?.coveredTerms.length ? termsSaving(row, tiers.coveredTerms.length, aid) : null
+  const anyCredit = exam.requested_credits > 0 || prior.requested_credits > 0 || examSummary.courses > 0
+  return (
+    <section className="border-t border-line px-5 py-4" aria-label={`${name}: credit the student brings`}>
+      <h3 className="text-sm font-semibold text-ink">Credit the student brings</h3>
+      {!anyCredit ? (
+        <p className="mt-1 text-sm text-ink-2">
+          No AP or CLEP scores that earn credit here, and no other credit entered. Add scores on{' '}
+          <Link to="/colleges/paths" className="font-semibold text-go-strong underline dark:text-go">
+            Paths
+          </Link>
+          .
+        </p>
+      ) : (
+        <ol className="mt-2 grid gap-3 text-sm md:grid-cols-3">
+          <li className="rounded-xl bg-surface-2 px-3 py-3">
+            <h4 className="font-semibold text-ink">1. Accepted by {name}</h4>
+            <ul className="mt-1 grid gap-1 text-ink-2">
+              <LeverLine lever={exam} examSummary={examSummary} />
+              <LeverLine lever={prior} />
+              {s.outside_credit_max != null && (
+                <li>
+                  {name} requires {s.residency_requirement_credits} credits earned there, so at most {s.outside_credit_max} outside credits fit.
+                </li>
+              )}
+            </ul>
+          </li>
+          <li className="rounded-xl bg-surface-2 px-3 py-3">
+            <h4 className="font-semibold text-ink">2. Counts toward {credit.major ?? 'the major'}</h4>
+            {tiers ? (
+              <>
+                <p className="mt-1 text-ink-2">
+                  Checked course by course against the published{' '}
+                  {credit.program!.url ? (
+                    <a href={credit.program!.url} target="_blank" rel="noreferrer" className="underline">
+                      {credit.program!.name} plan
+                    </a>
+                  ) : (
+                    `${credit.program!.name} plan`
+                  )}
+                  .
+                </p>
+                <p className="mt-1 font-semibold text-ink">{tierSummary(tiers)}</p>
+                <ul className="mt-1 grid gap-1 text-ink-2">
+                  {tiers.accepted.map((a) => (
+                    <li key={a.examName}>
+                      <span className="text-ink">{a.examName}</span>
+                      {a.course ? ` → ${a.course}` : ''}: {APPLIES_LABEL[a.status]}
+                      {a.matched.length ? ` (${a.matched.map((m) => `${m.code}, ${m.label}`).join('; ')})` : ''}
+                      {a.status === 'applies' && a.hours == null ? '; hours not published' : ''}
+                    </li>
+                  ))}
+                  {prior.requested_credits > 0 && <li>Credit from elsewhere: whether it counts toward the major depends on the courses, which we don't have.</li>}
+                </ul>
+                {tiers.accepted.some((a) => a.status === 'elective_only') && (
+                  <p className="mt-1 text-xs text-ink-3">Elective credit may fill one of the plan's elective slots, but which slots each course can fill isn't on file.</p>
+                )}
+              </>
+            ) : (
+              <p className="mt-1 text-ink-2">
+                {credit.reason === 'no_major' ? (
+                  <>
+                    Unknown. Save a major on{' '}
+                    <Link to="/colleges/majors" className="font-semibold text-go-strong underline dark:text-go">
+                      Majors
+                    </Link>{' '}
+                    to check credit against its plan.
+                  </>
+                ) : credit.reason === 'no_plan' ? (
+                  `Unknown. ${name} offers ${credit.major}, but its term-by-term plan isn't on file.`
+                ) : (
+                  `Unknown. No verified ${credit.major} program at ${name} on file.`
+                )}
+              </p>
+            )}
+          </li>
+          <li className="rounded-xl bg-surface-2 px-3 py-3">
+            <h4 className="font-semibold text-ink">3. Removes a term</h4>
+            <p className="mt-1 text-ink-2">
+              {tiers?.coveredTerms.length
+                ? `Every course in ${tiers.coveredTerms.map((t) => t.label).join(' and ')} of the published plan is covered. Course order and scheduling can still change this.`
+                : 'Not shown. A term is removed only if the remaining courses can be taken sooner, which depends on course order and the school’s schedule.'}
+            </p>
+          </li>
+        </ol>
+      )}
+
+      {(all || narrow || shown) && (
+        <div className="mt-3 rounded-xl border border-gold/40 px-3 py-3 text-sm">
+          <div className="flex flex-wrap items-baseline justify-between gap-2">
+            <h4 className="font-semibold text-ink">Potential savings, if the assumptions hold</h4>
+            <Pill tone="gold">Not a shorter degree</Pill>
+          </div>
+          <dl className="mt-2 grid gap-2">
+            {shown && <Scenario label={`Covered plan ${shown.terms === 1 ? 'term' : 'terms'} (${tiers!.coveredTerms.map((t) => t.label).join(', ')})`} p={shown} />}
+            {all && <Scenario label="If all accepted credit counts toward the degree" p={all} />}
+            {tiers && narrow !== all && <Scenario label={`Counting only credit that matches the ${credit.program!.name} plan`} p={narrow} />}
+            {tiers && narrow === all && all && <p className="text-xs text-ink-3">Same result counting only credit that matches the plan.</p>}
+          </dl>
+          <ul className="mt-2 grid gap-0.5 text-xs text-ink-3">
+            <li>Assumes the credit counts toward the degree and the schedule lets the student finish early.</li>
+            {s.remainder_credits > 0 && <li>{s.remainder_credits} accepted credits short of another full term aren't counted; whether they lower a bill depends on how {name} charges, which we don't have.</li>}
+            <li>Grants you entered stop for terms not attended, so they're subtracted from the saving. Year-round living isn't counted as saved.</li>
+            <li>Confirm with the school's registrar and an academic advisor before planning around it.</li>
+          </ul>
+        </div>
+      )}
+    </section>
+  )
+}
+
+function tierSummary(t: DegreeCreditResult) {
+  const n = (st: ExamApplicability['status']) => t.accepted.filter((a) => a.status === st).length
+  const applies = n('applies')
   const parts = [
-    b.tuition ? `${usd(b.tuition)} tuition` : null,
-    b.mandatory_fees ? `${usd(b.mandatory_fees)} fees` : null,
-    b.living_and_other ? `${usd(b.living_and_other)} living costs` : null,
+    applies ? `${applies} in the plan${t.applicableHours ? ` (${t.applicableHours} published hours)` : ''}${t.applicableWithoutHours ? `${t.applicableHours ? ', ' : ' ('}${t.applicableWithoutHours} without published hours${t.applicableHours ? '' : ')'}` : ''}` : null,
+    n('partly') ? `${n('partly')} partly` : null,
+    n('elective_only') ? `${n('elective_only')} elective only` : null,
+    n('not_in_plan') ? `${n('not_in_plan')} not used by the plan` : null,
+    n('school_assigns') ? `${n('school_assigns')} depend on the course assigned` : null,
   ].filter(Boolean)
-  return parts.length ? ` (${parts.join(', ')})` : ''
+  return parts.length ? `${parts.join('; ')}.` : 'No accepted exam credit to check.'
+}
+
+function Scenario({ label, p }: { label: string; p: PotentialSaving | null }) {
+  if (!p)
+    return (
+      <div className="flex justify-between gap-3">
+        <dt className="text-ink-2">{label}</dt>
+        <dd className="text-ink-3">Not a full term</dd>
+      </div>
+    )
+  return (
+    <div className="flex justify-between gap-3">
+      <dt className="text-ink-2">
+        {label}
+        <span className="block text-xs text-ink-3">
+          {p.terms} {p.terms === 1 ? 'term' : 'terms'}: {usd(p.gross)} published price{p.lostGrants ? `, minus ${usd(p.lostGrants)} in grants not paid` : ''}
+        </span>
+      </dt>
+      <dd className="shrink-0 tabular font-semibold text-ink">up to {usd(p.net)}</dd>
+    </div>
+  )
 }
 
 function LeverLine({ lever, examSummary }: { lever: CreditLever; examSummary?: ReturnType<typeof summarizeSchool> }) {

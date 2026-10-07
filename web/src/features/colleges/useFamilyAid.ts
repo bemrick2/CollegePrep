@@ -23,7 +23,7 @@ function read(studentId: string | undefined): FamilyEntries {
     if (!v || typeof v !== 'object') return EMPTY
     const bySchool: Record<string, FamilyAid> = {}
     for (const [k, a] of Object.entries(v.bySchool ?? {}))
-      if (a && typeof a === 'object') bySchool[k] = { grantsPerYear: clamp(a.grantsPerYear, 500_000), loansPerYear: clamp(a.loansPerYear, 500_000) }
+      if (a && typeof a === 'object') bySchool[k] = { grantsPerYear: clamp(a.grantsPerYear, 500_000), loansPerYear: clamp(a.loansPerYear, 500_000), yearRoundLivingPerYear: clamp(a.yearRoundLivingPerYear, 200_000) }
     return { otherCredits: clamp(v.otherCredits, 90) ?? 0, bySchool }
   } catch {
     return EMPTY

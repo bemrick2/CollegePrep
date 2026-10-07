@@ -129,6 +129,8 @@ export function projectRow(c: InstitutionComparison, year: string, a: CostAssump
     baseline_total: baseline,
     levers: [lever('prior_credits', prior, priorOk, caps, priorReason), lever('exam_credits', exam, examOk, examCaps, examReason)],
     credit_savings: {
+      certainty: 'potential',
+      assumes: ['counted_credit_applies_to_the_degree', 'schedule_allows_finishing_early'],
       mechanism: 'fewer_terms',
       billing_structure: 'unknown',
       credits_counted: total,
@@ -170,45 +172,71 @@ export function projectCosts(comparisons: InstitutionComparison[], year: string,
 
 /** Money the family entered (from an award letter or their own plan). Never comes from research data. */
 export interface FamilyAid {
-  /** Grants and scholarships already offered, per year. Free money: lowers the price. */
+  /** Grants and scholarships already offered, per academic year. Free money: lowers the price. */
   grantsPerYear: number | null
-  /** Planned borrowing per year. Not a saving: repaid later, with interest (not modelled). */
+  /** Planned borrowing per academic year. Not a saving: repaid later, with interest (not modelled). */
   loansPerYear: number | null
+  /** Living costs outside the school's academic-year budget (summer, breaks, a 12-month lease), per year. */
+  yearRoundLivingPerYear?: number | null
 }
 
-export interface NetPriceBreakdown {
-  publishedTotal: number
-  creditSavings: number
-  afterCredit: number
-  /** Years actually attended after credit (fractional when a term is saved). */
-  yearsAttended: number
+const pos = (n: number | null | undefined) => Math.max(n ?? 0, 0)
+
+export interface FullProgram {
+  /** Years in the program with no credit assumed: the school's usual length or the family's assumption. */
+  years: number
+  /** The school's published academic-year price x years. */
+  published: number
+  /** The family's year-round living number x years (0 when not entered). */
+  yearRound: number
   grants: number
   netPrice: number
   borrowed: number
   paidWithoutLoans: number
-  /** True when the entered loans would exceed what is left to pay; borrowing is capped there. */
   loansCapped: boolean
 }
 
-/** Published total -> credit counted by the school's rules -> grants the family entered -> how the rest is paid. */
-export function netPrice(row: ProjectionRow, aid: FamilyAid, termsPerYear = 2): NetPriceBreakdown | null {
+/**
+ * What the full program costs: published academic-year price for every year, plus the family's own year-round
+ * living number, minus grants they were offered for every year. No credit is assumed to shorten anything.
+ */
+export function fullProgram(row: ProjectionRow, aid: FamilyAid): FullProgram | null {
   if (row.status !== 'ok' || row.baseline_total == null || row.years == null) return null
-  const credit = row.savings_total ?? 0
-  const afterCredit = row.baseline_total - credit
-  const yearsAttended = row.years - (row.credit_savings?.terms_saved ?? 0) / termsPerYear
-  const grants = Math.min(Math.max(aid.grantsPerYear ?? 0, 0) * yearsAttended, afterCredit)
-  const net = afterCredit - grants
-  const wantLoans = Math.max(aid.loansPerYear ?? 0, 0) * yearsAttended
+  const years = row.years
+  const published = row.baseline_total
+  const yearRound = pos(aid.yearRoundLivingPerYear) * years
+  const grants = Math.min(pos(aid.grantsPerYear) * years, published + yearRound)
+  const net = published + yearRound - grants
+  const wantLoans = pos(aid.loansPerYear) * years
   const borrowed = Math.min(wantLoans, net)
-  return {
-    publishedTotal: row.baseline_total,
-    creditSavings: credit,
-    afterCredit,
-    yearsAttended,
-    grants: round2(grants),
-    netPrice: round2(net),
-    borrowed: round2(borrowed),
-    paidWithoutLoans: round2(net - borrowed),
-    loansCapped: wantLoans > net,
-  }
+  return { years, published, yearRound, grants: round2(grants), netPrice: round2(net), borrowed: round2(borrowed), paidWithoutLoans: round2(net - borrowed), loansCapped: wantLoans > net }
+}
+
+export interface PotentialSaving {
+  terms: number
+  /** Published price of the terms not attended (tuition and fees, plus academic-year living on full cost). */
+  gross: number
+  /** Grants the family entered for the terms not attended; they are not paid for terms not enrolled. */
+  lostGrants: number
+  /** gross - lostGrants. Year-round living is not counted: finishing a term early may not remove a summer. */
+  net: number
+}
+
+/** A saving under the projection's stated assumptions (credit applies, schedule allows). Never a confirmed shorter degree. */
+export function potentialSaving(row: ProjectionRow, aid: FamilyAid, termsPerYear = 2): PotentialSaving | null {
+  const s = row.credit_savings
+  if (row.status !== 'ok' || !s || s.terms_saved <= 0) return null
+  const gross = row.savings_total ?? 0
+  const lostGrants = round2((pos(aid.grantsPerYear) * s.terms_saved) / termsPerYear)
+  return { terms: s.terms_saved, gross, lostGrants, net: round2(Math.max(gross - lostGrants, 0)) }
+}
+
+/** The same terms-to-dollars rule, for whole plan terms shown to be covered (degreeCredit coveredTerms). */
+export function termsSaving(row: ProjectionRow, terms: number, aid: FamilyAid, termsPerYear = 2): PotentialSaving | null {
+  const annual = row.cost?.annual
+  if (row.status !== 'ok' || annual == null || terms <= 0 || row.years == null) return null
+  const t = Math.min(terms, row.years * termsPerYear - 1)
+  const gross = round2((t * annual) / termsPerYear)
+  const lostGrants = round2((pos(aid.grantsPerYear) * t) / termsPerYear)
+  return { terms: t, gross, lostGrants, net: round2(Math.max(gross - lostGrants, 0)) }
 }
