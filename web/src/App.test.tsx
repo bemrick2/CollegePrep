@@ -320,3 +320,40 @@ describe('app flows', () => {
     expect(screen.getByText(/Mini benchmark|Full benchmark/)).toBeInTheDocument()
   })
 })
+
+describe('weekly plan and parent accountability', () => {
+  it('parent sees the week, the focus, the next check, and can set next week and an inactivity alert', async () => {
+    const user = userEvent.setup()
+    const src = new DemoSource(livingIn('TN', sampleFamily('parent')))
+    renderAt('/parent', src)
+    expect(await screen.findByRole('heading', { name: "Maya's week" })).toBeInTheDocument()
+    expect(screen.getByRole('list', { name: "This week's practice days" })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Focus this week' })).toBeInTheDocument()
+    expect(screen.getByText(/benchmark (due|was due)|Next progress check/i)).toBeInTheDocument()
+    // Next week's goal comes from the same rule as the backend's suggest_next_week_goal.
+    const set = await screen.findByRole('button', { name: /^Set next week to \d+$/ })
+    const n = Number(set.textContent!.match(/\d+/)![0])
+    await user.click(set)
+    expect(await screen.findByText(`Next week's goal is set to ${n}.`)).toBeInTheDocument()
+    // The alert is the parent's own setting.
+    await user.click(screen.getByRole('checkbox', { name: /Tell me when Maya goes/ }))
+    expect(await screen.findByText(/Saved\./)).toBeInTheDocument()
+    const ctx = await src.getHouseholdContext()
+    expect(await src.getAlertPreference(ctx.students[0]!.id)).toEqual({ enabled: true, inactivityDays: 3 })
+  }, 20_000)
+
+  it('student home shows the week strip, pace, and puts a due progress check first', async () => {
+    const fam = sampleFamily('student')
+    const ui = renderAt('/student', new DemoSource(fam))
+    expect(await screen.findByRole('list', { name: "This week's practice days" })).toBeInTheDocument()
+    expect(screen.getAllByText(/questions; \d+ by today is on pace|Goal met|No weekly goal yet/).length).toBeGreaterThan(0)
+    expect(screen.queryByRole('link', { name: 'Start progress check' })).not.toBeInTheDocument()
+    ui.unmount()
+    // Push every benchmark back 40 days: the mini check is now due and leads the page.
+    const aged = sampleFamily('student')
+    for (const list of Object.values(aged.benchmarks)) for (const b of list) b.completed_at = new Date(Date.now() - 40 * 86_400_000).toISOString()
+    renderAt('/student', new DemoSource(aged))
+    expect(await screen.findByRole('link', { name: 'Start progress check' })).toHaveAttribute('href', '/student/benchmark?kind=mini')
+    expect(screen.getByRole('heading', { name: 'Mini benchmark' })).toBeInTheDocument()
+  })
+})

@@ -8,7 +8,7 @@ import { ExamAndTarget, GoalsAndPace, defaultPlanDraft, type PlanDraft } from '.
 import { GRADES, graduationYearFor } from './options'
 import { CertaintyChoice, InterestPicker } from '../majors/InterestPicker'
 import type { InterestProfile, SavedInterest } from '../../lib/engine/interests'
-import { EMPTY_PROFILE, writeInterests } from '../../lib/interestStore'
+import { EMPTY_PROFILE } from '../../lib/interestStore'
 import { US_STATES } from '../../lib/engine/residency'
 import { writeHomeState } from '../../lib/homeState'
 
@@ -42,7 +42,7 @@ export function StudentOnboarding() {
         independent: false,
         timeZone: tz,
       })
-      if (interests.certainty || interests.interests.length) writeInterests(sid, interests)
+      if (interests.certainty || interests.interests.length) await source.saveInterests(sid, interests)
       if (homeState) writeHomeState(sid, homeState)
       await source.savePlan(sid, { exam_family: plan.exam, target_score: plan.target, goals: plan.goals, daily_minutes: 10 })
       await source.setWeeklyGoal(sid, weekStartOf(localDate(new Date(), tz)), plan.weeklyQuestions, null)

@@ -114,12 +114,34 @@ def extract(inst, entry, page, year, year_line, have_program):
 # number is not printed, options that print their own credits) put an issue on the group so it is held for review.
 LIST_EXTRACTOR = 'courseleaf_list/v1'
 SELECT = re.compile(r'^(select|choose|complete)\b', re.I)
+LEAD_IN = re.compile(r'^students\s+must\s+(?=(?:take|complete|select|choose)\s+(?:an?\s+additional\s+|at\s+least\s+)?\d{1,2}\s+(?:additional\s+)?'
+                     r'(?:credit\s+hours|credits|hours)\s+(?:from|of)\s+the\s+following\b)', re.I)  # WKU Film: 'Students must take an additional 15 credit hours from the following list'
 NUMBER_WORDS = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10}
-COUNT = re.compile(r'^(?:select|choose|complete)\s+(?:(?:a\s+)?(?:minimum|total)\s+of\s+)?(one|two|three|four|five|six|seven|eight|nine|ten|\d+)\s+'
+COUNT = re.compile(r'^(?:select|choose|complete|take)\s+(?:(?:a\s+)?(?:minimum|total)\s+of\s+)?(one|two|three|four|five|six|seven|eight|nine|ten|\d+)\s+'
                    r'(?:additional\s+|more\s+|upper[- ]division\s+|lower[- ]division\s+|[A-Z]{2,5}\s+)*(?:courses?|of\s+the\s+following|from\s+the\s+following)\b', re.I)
-CREDITS = re.compile(r'^(?:select|choose|complete)\s+(?:(?:a\s+)?(?:minimum|total)\s+of\s+|at\s+least\s+|an\s+additional\s+)?(\d{1,2})(?:\s*-\s*\d{1,2})?\s+(?:additional\s+)?(?:credits?|credit\s+hours|hours|units)\b', re.I)
-CODE_CELL = re.compile(r'^[A-Z]{1,5}\s\d{3}[A-Z]?$')
-OR_ROW = re.compile(r'^or\s+([A-Z]{1,5}\s\d{3}[A-Z]?)$')
+# TAMUSA "Select one of COB's Approved Ethics Electives" over its listed options: a number word, then a named list
+COUNT_NAMED = re.compile(r"^(?i:select|choose)\s+(?i:(one|two|three|four|five|six))\s+of\s+(?:[A-Z][\w'’&-]*\s+){1,5}(?i:electives?|courses?)\b")
+CREDITS = re.compile(r'^(?:select|choose|complete|take)\s+(?:(?:a\s+)?(?:minimum|total)\s+of\s+(?:at\s+least\s+)?|at\s+least\s+|an\s+additional\s+)?'
+                     r'(\d{1,2}|one|two|three|four|five|six|seven|eight|nine|ten)(?:\s*-\s*\d{1,2})?\s+(?:additional\s+)?(?:credits?|credit\s+hours|hours|units)\b', re.I)
+# 'Complete the following:' (UVU) prints an all-required list, not a choice
+ALL_FOLLOWING = re.compile(r'^(?:complete|take)\s+(?:all\s+(?:of\s+)?)?the\s+following(?:\s+(?:courses|requirements))?\s*:?\s*$', re.I)
+
+
+def _num(w):
+    return NUMBER_WORDS.get(w.lower()) or int(w)
+# One course code as printed: 'BIOL 101', 'IT222' (Purdue Global prints no space), 'ENGL 1302' / 'DANC 1100R' (TAMUSA, UVU:
+# four digits and a suffix letter), 'ENG/FILM 366' (WKU: one cross-listed course, kept as printed so the list is not cut).
+CODE = r'[A-Z]{1,5}(?:/[A-Z]{1,5})*\s?\d{3,4}[A-Z]?'
+CODE_CELL = re.compile(rf'^{CODE}$')
+OR_ROW = re.compile(rf'^or\s+({CODE})$')
+# Rows that print more than one course in the code cell are held with a reason naming the shape (issue #95 recovery).
+PAIR_CODE = re.compile(r'\d{3,4}[A-Z]?\s*/\s*\d{3,4}')  # 'BIOL 1306/1106' (TAMUSA): a lecture and its lab
+
+
+def complex_reasons(text):
+    if PAIR_CODE.search(text): return {'complex_course_row', 'lecture_lab_pair_code'}
+    if '&' in text: return {'complex_course_row', 'joined_courses_row'}
+    return {'complex_course_row'}
 NOT_REQUIRED_HEADING = re.compile(r'\b(recommended|suggested|electives?|options?|optional|choose|select|sample|example)\b', re.I)
 CREDIT_CELL = re.compile(r'^\d{1,2}(\s*-\s*\d{1,2})?$')
 
@@ -168,28 +190,28 @@ def course_list_groups(table):
         is_code = bool(CODE_CELL.match(first))
         complex_code = not is_code and bool(re.match(r'^[A-Z]{1,5}[\s/]', first)) and bool(re.search(r'\d{3}', first)) and len(first) < 40
         has_credits = len(cells) >= 2 and bool(CREDIT_CELL.match(cells[-1]))
-        if SELECT.match(first):
+        if SELECT.match(LEAD_IN.sub('', first)):
             close()
-            cnt, crd = COUNT.match(first), CREDITS.match(first)
+            cnt, crd = COUNT.match(LEAD_IN.sub('', first)), CREDITS.match(LEAD_IN.sub('', first))
             cur = {'rule_text': first + (f' {cells[-1]}' if has_credits else ''), 'courses': [], 'issues': set()}
             if cnt: cur['group_type'] = 'choose_courses'; w = cnt.group(1).lower(); cur['choose_count'] = NUMBER_WORDS.get(w) or int(w)
-            elif crd: cur['group_type'] = 'choose_credits'; cur['choose_credits'] = int(crd.group(1))
+            elif crd: cur['group_type'] = 'choose_credits'; cur['choose_credits'] = _num(crd.group(1))
             else: cur['group_type'] = 'choose_unclear'; cur['issues'].add('choose_number_not_printed')
             continue
         if is_code or complex_code:
             choosing = cur is not None and cur['group_type'] != 'all_required'
             if choosing and not has_credits:
-                if complex_code: cur['issues'].add('complex_course_row')
+                if complex_code: cur['issues'] |= complex_reasons(first)
                 else: cur['courses'].append(_item(cells))
                 continue
             if choosing and has_credits and not cur['courses']:  # 'Select one of the following math pairs' + pairs with credits
                 cur['issues'].add('options_print_credits')
-                if complex_code: cur['issues'].add('complex_course_row')
+                if complex_code: cur['issues'] |= complex_reasons(first)
                 else: cur['courses'].append(_item(cells))
                 continue
             if cur is None or cur['group_type'] != 'all_required':
                 close(); cur = {'group_type': 'all_required', 'courses': [], 'issues': set()}
-            if complex_code: cur['issues'].add('complex_course_row')
+            if complex_code: cur['issues'] |= complex_reasons(first)
             else:
                 cur['courses'].append(_item(cells))
                 if not has_credits: cur['issues'].add('required_course_without_credits')
@@ -239,13 +261,15 @@ def list_candidates(inst, entry, page, year, year_line, program_key):
 #     program has several, counts at or above the number of listed options, "up to" / "can include" rules, printed
 #     credit ranges for a choice, text options, and any row the reader cannot represent exactly.
 HTML_EXTRACTOR = 'courselist_html/v1'
-RULE_ROW = re.compile(r'^(select|choose|complete|take)\b|^(one|two|three|four|five|six|seven|eight|nine|ten|\d+)\b.*\b(of|from)\b.*\b(following|list|below)\b|^(one|two|three|four|five|\d+)\s+(courses?\s+)?(of|from)\b', re.I)
+# a heading that prints a choice: 'Prescribed Electives (Choose 9 hours)', 'Major Electives - Select 12 credits'
+HEADER_CHOICE = re.compile(r'(\(|[-–:]\s*)(choose|select|complete|take)\s+(one|two|three|four|five|six|\d+)\b', re.I)
+RULE_ROW = re.compile(r'^(select|choose|complete|take)\b|^students\s+must\s+(take|complete|select|choose)\s+(an?\s+additional\s+|at\s+least\s+)?\d{1,2}\s+(additional\s+)?(credit\s+hours|credits|hours)\s+(from|of)\s+the\s+following\b|^(one|two|three|four|five|six|seven|eight|nine|ten|\d+)\b.*\b(of|from)\b.*\b(following|list|below)\b|^(one|two|three|four|five|\d+)\s+(courses?\s+)?(of|from)\b', re.I)
 REFERENCE_HEADING = re.compile(r'\b(approved|distribution|area\s+[ivx\d]+|group\s+[a-z\d]\b|courses offered|ensembles?|recommended|suggested|sample|example|'
                                r'options?|tracks?|concentrations?|focus|focal|domains?|emphas[ie]s|specialization|honors|electives?|pass/no pass)\b', re.I)
 TRACK_HEADING = re.compile(r'\b(options?|tracks?|concentrations?|focus|focal|domains?|emphas[ie]s|specialization|honors)\b', re.I)
 CONTEXT_CHOICE = re.compile(r'\b(select|choose|complete)\s+(one|two|at least one|one or more)\b[^.]*\b(focus areas?|tracks?|options?|concentrations?|areas?|domains?|emphases)\b|\bsuggested course combinations\b', re.I)
 AWARD_IN_HEADING = re.compile(r'\b(Bachelor of [A-Z][a-z]+|B\.?A\.?|B\.?S\.?|B\.?F\.?A\.?|B\.?M\.?)\b(?![a-z])')
-OR_CODE = re.compile(r'^or\s+([A-Z]{1,5}\s\d{3}[A-Z]?)$')
+OR_CODE = OR_ROW
 
 
 def _row(r):
@@ -271,6 +295,7 @@ def html_groups(table, program_awards=1, extra_issues=None):
     """[(section, group)] for one stored course-list table."""
     heading, context = (table.get('heading') or '').strip(), table.get('context') or ''
     out, section, cur = [], '', None
+    parent = ''  # the main heading over sub-headings ('Prescribed Electives (Choose 9 hours)' over 'Cross-Cutting Issues')
     table_issues = set(extra_issues or ())
     held_until_header = False
     last_text_ended_choice = [None]
@@ -283,12 +308,14 @@ def html_groups(table, program_awards=1, extra_issues=None):
         if cur is None: return
         g = cur; cur = None
         if not g['courses'] and not g['rules']:
-            if g['type'] == 'all_required': return
+            if g['type'] == 'all_required' and not g['issues']: return  # a row held for its shape is reported, not dropped
             if re.search(r'\b(following|below|list)\b', g.get('rule_text', ''), re.I) or not g.get('rule_text'):
                 g['issues'].add('options_not_read')
             else:  # 'Select an additional 7 credits from courses that count toward either major.': a printed rule, no list
                 g['type'] = 'choose_unclear'; g['rules_only'] = True
         where = f'{heading} {section}'
+        if HEADER_CHOICE.search(parent if parent != section else '') or HEADER_CHOICE.search(section or ''):
+            g['issues'].add('heading_prints_choice')  # TAMUSA 'Prescribed Electives (Choose 9 hours)': the lists below are its options
         if g['type'] == 'all_required' and REFERENCE_HEADING.search(where) and not re.search(r'\b(major|core) requirements\b', section, re.I):
             g['issues'].add('reference_or_track_heading')  # a list under 'Approved ...' / 'Electives' / 'Option' is not a required list
         elif g['type'] != 'all_required' and TRACK_HEADING.search(where):
@@ -319,6 +346,7 @@ def html_groups(table, program_awards=1, extra_issues=None):
             else:
                 close()  # the group before a main heading still belongs to the held span
                 if not sub: held_until_header = False
+            if not sub: parent = rw['text']
             section = rw['text']; continue
         if rw['or']:
             m = OR_CODE.match(rw['text'])
@@ -337,16 +365,20 @@ def html_groups(table, program_awards=1, extra_issues=None):
                     after_rule = cur is not None and cur['type'] != 'all_required' and not cur['courses'] and not cur['rules']
                     close(); cur = {'type': 'all_required', 'courses': [], 'rules': [], 'issues': set(), 'starts_after_rule': after_rule}
                 if rw['code'] and not rw['inner']: cur['courses'].append(_course(rw))
-                else: cur['issues'].add('complex_course_row')
+                else: cur['issues'] |= complex_reasons(rw['text'])
+                continue
+            if ALL_FOLLOWING.match(rw['text']):
+                close(); cur = {'type': 'all_required', 'courses': [], 'rules': [], 'issues': set(), 'all_following': True}
                 continue
             if RULE_ROW.match(rw['text']):
                 close()
                 t = rw['text'] + (f" {rw['credits']}" if rw['credits'] else '')
-                cnt, crd = COUNT.match(rw['text']), CREDITS.match(rw['text'])
+                rule = LEAD_IN.sub('', rw['text'])
+                crd = CREDITS.match(rule); cnt = COUNT.match(rule) or (None if crd else COUNT_NAMED.match(rule))
                 cur = {'type': 'choose_unclear', 'courses': [], 'rules': [], 'issues': set(), 'rule_text': t}
                 if cnt: cur['type'] = 'choose_courses'; w = cnt.group(1).lower(); cur['choose_count'] = NUMBER_WORDS.get(w) or int(w)
                 elif crd:
-                    cur['type'] = 'choose_credits'; cur['choose_credits'] = int(crd.group(1))
+                    cur['type'] = 'choose_credits'; cur['choose_credits'] = _num(crd.group(1))
                     if re.search(r'\d\s*-\s*\d', rw['text']): cur['issues'].add('credit_range')
                 else:
                     m = re.match(r'^(one|two|three|four|five|six|\d+)\b', rw['text'], re.I)
@@ -358,14 +390,16 @@ def html_groups(table, program_awards=1, extra_issues=None):
             if was_choice and out: last_text_ended_choice[0] = out[-1][1]  # if indented rows follow, the text was part of the option list
             continue
         # indented row: an option of the open choice
-        if cur is not None and cur['type'] == 'all_required' and cur['courses']:
+        if cur is not None and cur['type'] == 'all_required' and cur['courses'] and not cur.get('all_following'):
             cur['issues'].add('indented_rows_after_required_course')  # 'DATA 488 ... (or)' + indented alternatives (Linfield)
         if cur is None and ended_by_text is not None:
             ended_by_text['issues'].add('choice_continues_after_text')  # 'Alternative Approved Courses:' + more options
-        if cur is None or cur['type'] == 'all_required':
+        if cur is not None and cur.get('all_following') and not cur['rules']:
+            pass  # 'Complete the following courses:' + indented courses: all of them are required
+        elif cur is None or cur['type'] == 'all_required':
             close(); cur = {'type': 'choose_unclear', 'courses': [], 'rules': [], 'issues': {'indented_rows_without_rule'}}
         if rw['code'] and not rw['inner']: cur['courses'].append(_course(rw))
-        elif rw['codeish']: cur['issues'].add('complex_course_row')
+        elif rw['codeish']: cur['issues'] |= complex_reasons(rw['text'])
         else: cur['rules'].append(rw['text'])
     close()
     return out
@@ -403,14 +437,27 @@ def html_candidates(inst, entry, cl_entry, tables, year, program_key, program_aw
     lists = [t for t in tables if (t.get('caption') or 'Course List').strip().lower() == 'course list']
     parallel = sum(1 for t in lists if PARALLEL.match((t.get('heading') or '').strip())) >= 2
     tracks_from_here = False
-    for idx, t in enumerate(lists):
+    # TAMUSA opens each program with a credits overview ('Core Curriculum | 42', 'Major Courses | 36', ..., 'Total Credits |
+    # 120'): every row an area label with no digits and its hours, ending in a Total row. That table is a summary, not the
+    # program's own requirement table, so it does not take the 'first table' place. Nothing else is skipped.
+    def overview(t):
+        rows = [[(c.get('text') or '').strip() for c in (r.get('cells') or [])] for r in t.get('rows') or [] if 'hidden' not in (r.get('classes') or [])]
+        rows = [[c for c in r if c] for r in rows if any(r)]
+        if TERM.search((t.get('heading') or '').strip()) or re.search(r'\b(fall|spring|summer|winter)\b', t.get('heading') or '', re.I):
+            return False  # Iowa State Accelerated Nursing: 'First Year Summer' is a term of the plan, not an overview
+        return (len(rows) >= 3 and re.match(r'^total\b', rows[-1][0], re.I) is not None
+                and all(len(r) == 2 and not re.search(r'\d', r[0]) and re.fullmatch(r'\d{1,3}(\s*[-–]\s*\d{1,3})?', r[1]) for r in rows))
+    idx = -1
+    for t in lists:
+        idx += 0 if idx < 0 and overview(t) else 1
         heading = (t.get('heading') or '').strip()
         extra = set()
         if idx > 0 and not MAIN_TABLE.search(heading): extra.add('secondary_table')
         if parallel and PARALLEL.match(heading): extra.add('parallel_tables')
         if CONTEXT_CHOICE.search(t.get('context') or '') or TRACK_PROSE.search(t.get('context') or ''): tracks_from_here = True
         if tracks_from_here: extra.add('context_says_choose_among_tables')
-        label = '' if NOT_REQUIREMENT_HEADING.match(heading) else heading
+        # the nearest heading can be the department's GPA policy printed above the table (TAMUSA 'Department withdrawal')
+        label = '' if NOT_REQUIREMENT_HEADING.match(heading) or re.search(r'\b(probation|withdrawal)\b', heading, re.I) else heading
         subs = substitution_codes(page_text)
         for section, g in html_groups(t, program_awards, extra):
             n += 1

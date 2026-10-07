@@ -3,6 +3,7 @@
 # prove idempotence with a second pass. Requires DATABASE_URL (admin connection string).
 # Never echo the URL; psql reads it from the environment.
 set -euo pipefail
+python "$(dirname "$0")/live_write_guard.py"
 : "${DATABASE_URL:?DATABASE_URL must be set to an admin connection string}"
 cd "$(dirname "$0")/.."
 work="$(mktemp -d)"; trap 'rm -rf "$work"' EXIT

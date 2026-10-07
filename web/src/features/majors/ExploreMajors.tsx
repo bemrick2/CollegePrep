@@ -36,6 +36,11 @@ export function ExploreMajors() {
         </div>
         <CollegesTabs />
       </div>
+      {it.error && (
+        <p role="alert" className="text-sm text-bad">
+          {it.error}. Your last saved choices are shown.
+        </p>
+      )}
 
       <Card className="p-5">
         <h2 className="font-semibold text-ink">{who === 'you' ? 'How sure are you about a major?' : `How sure is ${who} about a major?`}</h2>

@@ -4,6 +4,7 @@ import { useApp } from '../../lib/app'
 import { localDate, weekStartOf } from '../../lib/engine/dates'
 import { Button, Notice, PageLoading } from '../../components/ui'
 import { ExamAndTarget, GoalsAndPace, defaultPlanDraft, type PlanDraft } from '../onboarding/PlanFields'
+import { NextWeekGoal } from '../../components/WeekPlan'
 
 /** Edit test, target and weekly goal. Used by a student, or a guardian for the active student. */
 export function Goals({ forGuardian = false }: { forGuardian?: boolean }) {
@@ -28,6 +29,10 @@ export function Goals({ forGuardian = false }: { forGuardian?: boolean }) {
     })
   }, [source, student, tz])
 
+  // Goals in a household are set by guardians with the set-goals permission; an independent student sets their own.
+  const canSetGoals = forGuardian
+    ? !!ctx?.memberships.some((m) => m.household_id === student?.household_id && m.role === 'guardian' && m.can_set_goals)
+    : !student?.household_id
   if (!student) return <Navigate to="/" replace />
   if (!draft) return <PageLoading />
 
@@ -58,6 +63,14 @@ export function Goals({ forGuardian = false }: { forGuardian?: boolean }) {
       <Button size="lg" block className="mt-6" disabled={busy} onClick={() => void save()}>
         {busy ? 'Saving…' : 'Save'}
       </Button>
+      <section aria-labelledby="next-week-heading" className="mt-10 border-t border-line pt-6">
+        <h2 id="next-week-heading" className="text-[17px] font-bold text-ink">
+          Next week
+        </h2>
+        <div className="mt-2">
+          <NextWeekGoal studentId={student.id} weekStart={weekStartOf(localDate(new Date(), tz))} canSet={canSetGoals} />
+        </div>
+      </section>
     </div>
   )
 }

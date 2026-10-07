@@ -7,6 +7,15 @@ the same file. Each mutant breaks one rule; tests/test_programs_deep_dive.py mus
 import shutil, subprocess, sys
 
 MUTS = [
+    # issue #95 recovery: printed code shapes, specific hold reasons, held rows reported not dropped
+    ('programs/courseleaf.py', "CODE = r'[A-Z]{1,5}(?:/[A-Z]{1,5})*\\s?\\d{3,4}[A-Z]?'", "CODE = r'[A-Z]{1,5}\\s\\d{3,4}[A-Z]?'"),
+    ('programs/courseleaf.py', "    if PAIR_CODE.search(text): return {'complex_course_row', 'lecture_lab_pair_code'}", "    pass"),
+    ('programs/courseleaf.py', "            if g['type'] == 'all_required' and not g['issues']: return", "            if g['type'] == 'all_required': return"),
+    ('programs/courseleaf.py', "                rule = LEAD_IN.sub('', rw['text'])", "                rule = rw['text']"),
+    ('programs/courseleaf.py', "            if ALL_FOLLOWING.match(rw['text']):", "            if False:"),
+    ('programs/verify.py', "    if not m: return re.search(rf'\\b{re.escape(code)}\\b', text, re.I) is not None", "    if not m: return True"),
+    ('programs/verify.py', "    return re.search(rf'\\b{re.escape(subj)}\\s?{re.escape(num)}\\b', text, re.I) is not None", "    return True"),
+    ('programs/courseleaf.py', "        if cur is not None and cur.get('all_following') and not cur['rules']:", "        if False:"),
     ('programs/crawl.py', "return registrable_domain(h) in set(target.get('domains', []))", 'return True'),
     ('programs/crawl.py', "keep = '&'.join(f'{k}={q[k][0]}' for k in ('catoid', 'poid', 'navoid') if k in q)", "keep = p.query"),
     ('programs/crawl.py', "rx = re.compile(r'preview_program\\.php\\?catoid=%s&poid=\\d+' % re.escape(str(cat.get('catoid'))))",
@@ -97,6 +106,17 @@ MUTS = [
     ('programs/extract.py', "    if len(parts) >= 2 and re.fullmatch(r'[A-Z]{2,4}_[A-Z]{2,6}', parts[-2]): return []", "    pass"),
     ('programs/extract.py', "    if len(awards) != 1 or len({y for y, _ in labels}) != 1: return []", "    if not awards or len({y for y, _ in labels}) != 1: return []"),
     ('programs/autoreview.py', "o.startswith((b + '-', b + '_'))", "o.startswith(b + '-')"),
+    # TAMUSA credits overview is not the first table; term headings are never overviews; named elective lists count
+    ('programs/courseleaf.py', "        idx += 0 if idx < 0 and overview(t) else 1", "        idx += 1"),
+    ('programs/courseleaf.py', "            return False  # Iowa State Accelerated Nursing", "            pass  # Iowa State Accelerated Nursing"),
+    ('programs/courseleaf.py', "                crd = CREDITS.match(rule); cnt = COUNT.match(rule) or (None if crd else COUNT_NAMED.match(rule))", "                crd = CREDITS.match(rule); cnt = COUNT.match(rule)"),
+    ('programs/courseleaf.py', " or re.search(r'\\b(probation|withdrawal)\\b', heading, re.I) else heading", " else heading"),
+    ('programs/courseleaf.py', "            if not sub: parent = rw['text']", "            pass"),
+    ('programs/courseleaf.py', "        if HEADER_CHOICE.search(parent if parent != section else '') or HEADER_CHOICE.search(section or ''):", "        if HEADER_CHOICE.search(section or ''):"),
+    ('programs/courseleaf.py', "        if HEADER_CHOICE.search(parent if parent != section else '') or HEADER_CHOICE.search(section or ''):", "        if HEADER_CHOICE.search(parent if parent != section else ''):"),
+    ('programs/courseleaf.py', "HEADER_CHOICE = re.compile(r'(\\(|[-–:]\\s*)(choose", "HEADER_CHOICE = re.compile(r'([-–:]\\s*)(choose"),
+    ('programs/courseleaf.py', "HEADER_CHOICE = re.compile(r'(\\(|[-–:]\\s*)(choose", "HEADER_CHOICE = re.compile(r'(\\()(choose"),
+    ('programs/courseleaf.py', "(choose|select|complete|take)\\s+(one|two|three|four|five|six|\\d+)\\b', re.I)", "(choose|select|complete|take)\\s+(\\w+)\\b', re.I)"),
 ]
 
 

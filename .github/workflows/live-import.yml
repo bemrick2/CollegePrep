@@ -27,7 +27,8 @@ permissions:
 
 jobs:
   import:
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    # Owner hold: database paused for Apparent recovery. See docs/SUPABASE_PAUSE.md.
+    if: ${{ false }}
     runs-on: ubuntu-latest
     environment: supabase-live
     env:

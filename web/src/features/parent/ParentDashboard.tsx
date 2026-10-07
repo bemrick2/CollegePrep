@@ -10,6 +10,8 @@ import { daysBetween, formatShortDate, isoWeekday } from '../../lib/engine/dates
 import { EXAM_NAME } from '../onboarding/options'
 import { useCatalog } from '../practice/useCatalog'
 import { costPhrase, outlookFor } from './CostOutlook'
+import { WeeklyUpdate } from './WeeklyUpdate'
+import { weeklyPlan } from '../../lib/engine/weeklyPlan'
 import { Figure, NextSteps, PageHeader, Row, RowList, Section, compactUsd } from '../../components/layout'
 import { planSummary, type PlanSummary } from '../../lib/engine/planSummary'
 import { schoolLevers } from '../colleges/schoolLevers'
@@ -64,6 +66,7 @@ function sectionRollup(estimates: SkillEstimate[]) {
 }
 
 function Panel({ student, o }: { student: Student; o: StudentOverview }) {
+  const { ctx } = useApp()
   const exam = o.plan?.exam_family ?? 'act'
   const interestCount = useInterests(student.id).profile.interests.length
   const { homeState } = useHomeState()
@@ -239,6 +242,17 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
           </RowList>
         )}
       </Section>
+
+      {o.history.length > 0 || o.benchmarks.length > 0 ? (
+        <WeeklyUpdate
+          studentId={student.id}
+          name={name}
+          plan={weeklyPlan({ today: o.today, weekStart: o.weekStart, tz: o.tz, plan: o.plan, week: o.week, history: o.history, benchmarks: o.benchmarks, estimates: o.estimates })}
+          canSetGoals={!!ctx?.memberships.some((m) => m.household_id === student.household_id && m.role === 'guardian' && m.can_set_goals)}
+          skillName={catalog.skillName}
+          lastPractice={lastDay}
+        />
+      ) : null}
 
       <Section
         id="prep-heading"
