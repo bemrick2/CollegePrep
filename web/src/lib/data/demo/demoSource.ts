@@ -1,3 +1,4 @@
+import { projectCosts } from '../../engine/costProjection'
 import type { InterestProfile } from '../../engine/interests'
 import { readInterests, writeInterests } from '../../interestStore'
 import { INVITE_TTL_HOURS, formatInviteCode } from '../../invites'
@@ -10,7 +11,8 @@ import type {
   Entitlement,
   BenchmarkSummary,
   Confidence,
-  CostProjection,
+  CostAssumptions,
+  CostProjectionResult,
   ExamFamily,
   HelpMode,
   HouseholdContext,
@@ -760,10 +762,9 @@ export class DemoSource implements DataSource {
     )
   }
 
-  async costProjection(): Promise<CostProjection> {
-    // Same as live: there is no verified household cost model yet (contract request CR-4). The parent view
-    // shows published costs and verified savings opportunities instead of estimated savings.
-    return delay({ status: 'unavailable', reason: 'No verified household cost model yet.' })
+  async costProjection(_studentId: string, keys: string[], academicYear: string, assumptions: CostAssumptions): Promise<CostProjectionResult> {
+    // Same rules as the server (engine/costProjection.ts mirrors cost_projection v2) over the sample's verified records.
+    return delay(projectCosts(await this.compareInstitutions(keys, academicYear), academicYear, assumptions))
   }
 
 }

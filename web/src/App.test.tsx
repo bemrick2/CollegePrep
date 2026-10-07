@@ -8,6 +8,7 @@ import { DemoSource, DEMO_PARENT, DEMO_STUDENT } from './lib/data/demo/demoSourc
 import { emptyStore } from './lib/data/demo/store'
 import { sampleFamily } from './lib/data/demo/seed'
 import { writeInterests } from './lib/interestStore'
+import { examKey } from './lib/engine/examCredit'
 
 /** The family's stated home state (the sample family lives in Tennessee). */
 function livingIn<T extends { households: { id: string }[] }>(state: string, store: T): T {
@@ -237,6 +238,44 @@ describe('app flows', () => {
     expect(screen.queryByText(/requires freshman admission/)).not.toBeInTheDocument()
     await user.click(screen.getByRole('button', { name: 'Remove Finance' }))
     expect(await screen.findByText("University of Tennessee, Knoxville has verified programs for Computer science; Mechanical engineering isn't in our verified list yet.")).toBeInTheDocument()
+  })
+
+  it('cost & savings: parts kept apart, AP credit from the school table saves a term, grants and loans are the family\'s', async () => {
+    const user = userEvent.setup()
+    localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976']))
+    const store = livingIn('TN', sampleFamily('parent'))
+    const sid = store.students[0]!.id
+    // Five 3-hour AP courses from UTK's own table, plus one exam whose row lists a course but no hours.
+    const ap = (name: string, score: number) => ({ family: 'AP', key: examKey('AP', name), name, score })
+    localStorage.setItem(
+      `pp-exam-plan:${sid}`,
+      JSON.stringify([ap('AP Art History', 4), ap('AP Drawing', 5), ap('AP 2-D Art and Design', 4), ap('AP 3-D Art and Design', 5), ap('AP Business with Personal Finance', 4), ap('AP Calculus AB', 3)]),
+    )
+    renderAt('/colleges/savings', new DemoSource(store))
+    const utk = await screen.findByRole('article', { name: 'University of Tennessee, Knoxville' })
+    // The published year, by part.
+    expect(within(utk).getByText('Tuition').nextSibling).toHaveTextContent('$11,560')
+    expect(within(utk).getByText('Housing and food').nextSibling).toHaveTextContent('$14,738')
+    expect(within(utk).getByText('In-state price for Tennessee residents')).toBeInTheDocument()
+    // 15 credits = one term of full cost of attendance (36,994 / 2), and it says how.
+    expect(within(utk).getByText(/15 credits could let the student finish 1 term early/)).toHaveTextContent('$18,497')
+    expect(within(utk).getByText(/only by graduating sooner, not by lowering a term's bill/)).toBeInTheDocument()
+    expect(within(utk).getByText(/1 more earned course lists no hours and isn't counted/)).toBeInTheDocument()
+    // Listed scholarships are never subtracted; the family's own numbers are.
+    expect(within(utk).getByText('Grants you entered').nextSibling).toHaveTextContent('None entered')
+    await user.type(within(utk).getByLabelText('Offered to you, per year'), '4000')
+    await user.type(within(utk).getByLabelText('You plan to borrow, per year'), '5500')
+    // 147,976 - 18,497 = 129,479; grants 4,000 x 3.5 years attended = 14,000; borrowed 5,500 x 3.5 = 19,250.
+    expect(within(utk).getByText('Net price').nextSibling).toHaveTextContent('$115,479')
+    expect(within(utk).getByText('Borrowed (you repay this)').nextSibling).toHaveTextContent('$19,250')
+    expect(within(utk).getByText('Paid from savings or income').nextSibling).toHaveTextContent('$96,229')
+    // A school with only a total published says what is missing instead of guessing.
+    const other = screen.getByRole('article', { name: 'Lipscomb University' })
+    expect(within(other).getByText('One published price for all students')).toBeInTheDocument()
+    expect(within(other).getByText(/Not published separately: tuition, required fees/)).toBeInTheDocument()
+    // Tuition-only view: the school without published tuition offers the other basis instead of a number.
+    await user.click(screen.getByRole('radio', { name: 'Tuition and fees only' }))
+    expect(await within(await screen.findByRole('article', { name: 'Lipscomb University' })).findByRole('button', { name: 'Count full cost of attendance instead' })).toBeInTheDocument()
   })
 
   it('compare places the target against the published middle 50%, without predicting admission', async () => {
