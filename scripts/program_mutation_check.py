@@ -70,7 +70,7 @@ MUTS = [
     # one program name on several pages: only the base page's record and requirement rows
     ('programs/autoreview.py', "               'variant_page' if url_of(c, 'program_url') in variant_pages else", ""),
     ('programs/autoreview.py', "               'variant_page' if url_of(c, 'source_url') in variant_pages else", ""),
-    ('programs/autoreview.py', "    base = [b for b in stems if all(o == b or o.startswith(b + '-') for o in stems)]", "    base = sorted(stems)[:1]"),
+    ('programs/autoreview.py', "    base = [b for b in stems if all(o == b or o.startswith((b + '-', b + '_')) for o in stems)]", "    base = sorted(stems)[:1]"),
     ('programs/autoreview.py', "    url = re.sub(r'/general-[A-Za-z0-9]+$', '', url)", "    pass"),
     # Stetson: a not-yet-posted catalog PDF slot is not the page's label; a four-digit 'Edition' label is read
     ('programs/extract.py', "        if any(re.match(r'\\s*coming soon\\b', l, re.I) for l in lines[i + 1:i + 3] if l.strip()): continue", "        pass"),
@@ -93,6 +93,10 @@ MUTS = [
     ('programs/extract.py', "|post[- ]?baccalaureate|second degree', name, re.I)", "', name, re.I)"),
     ('programs/extract.py', "            if int(m.group(2)) == (int(m.group(1)) + 1) % 100: found.add((f'{m.group(1)}-{int(m.group(1)) + 1}', line.strip()))", "            pass"),
     ('programs/extract.py', "        if re.search(r'\\bdual major\\b', name, re.I) or (':' in name and re.search(r'\\bemphas[ie]s\\b', page.text, re.I)): out = []", "        pass"),
+    # UF degree_line/v1: specialization pages under a major's code; underscore slugs in the base-page rule
+    ('programs/extract.py', "    if len(parts) >= 2 and re.fullmatch(r'[A-Z]{2,4}_[A-Z]{2,6}', parts[-2]): return []", "    pass"),
+    ('programs/extract.py', "    if len(awards) != 1 or len({y for y, _ in labels}) != 1: return []", "    if not awards or len({y for y, _ in labels}) != 1: return []"),
+    ('programs/autoreview.py', "o.startswith((b + '-', b + '_'))", "o.startswith(b + '-')"),
 ]
 
 

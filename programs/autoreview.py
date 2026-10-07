@@ -43,7 +43,9 @@ TRUSTED_PROGRAMS = {'catalog_program/v1', 'coursedog_api/v1', 'coursedog_page/v1
                     'department_section/v1',
                     # independent review 2026-10-06 (UNI award-headed pages, 25 sampled): 21/25 right; the 4 errors (three
                     # 'Major: Emphasis' names, one dual major) are now excluded by the reader. Drupal pilots reviewed by hand.
-                    'static_program/v1'}
+                    'static_program/v1',
+                    # independent review 2026-10-06 (UF 'Degree: Bachelor of ...' pages, 25 sampled): 25/25 right
+                    'degree_line/v1'}
 # extractors whose programs share one page by design (several degree sections on a department page)
 SHARED_PAGE = {'department_section/v1'}
 OPTION = re.compile(r'\b(track|option|concentration|emphasis|specialization)\b', re.I)  # an option is not a program
@@ -55,7 +57,7 @@ TRUSTED_REQUIREMENTS = {('major', 'courselist_html/v1'), ('program_plan', 'cours
                         ('program_plan', 'clearpath_plan/v1'), ('program_plan', 'program_map/v1')}
 
 
-AWARD_SLUG = re.compile(r'-(b-?a|b-?s|bfa|bm|bba|bsn|bas|bsw|bae|bse|bme|bm?e|ba-bs|bachelor-of-[a-z-]+)$')
+AWARD_SLUG = re.compile(r'[-_](b-?a|b-?s|bfa|bm|bba|bsn|bas|bsw|bae|bse|bme|bm?e|ba-bs|bachelor-of-[a-z-]+)$', re.I)  # UF 'AEC_BS'
 
 
 def page_stem(url):
@@ -70,7 +72,7 @@ def base_stem(urls):
     """When one program name is printed on several pages, the stem of the base page (the one every other page's stem
     extends: 'biology-bs' / 'biology-bs-pre-professional'), or None when there is no such page."""
     stems = {page_stem(u) for u in urls}
-    base = [b for b in stems if all(o == b or o.startswith(b + '-') for o in stems)]
+    base = [b for b in stems if all(o == b or o.startswith((b + '-', b + '_')) for o in stems)]
     return base[0] if len(base) == 1 else None
 
 

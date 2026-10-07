@@ -1131,7 +1131,9 @@ class AutoReviewTests(unittest.TestCase):
         from datetime import date
         U = 'https://catalog.x.edu/undergraduate/sci/'
         def at(c, url, field='program_url'): c['record'][field] = url; return c
-        cands = [at(self.prog('b1', 'Biology, BS', key='bio'), U + 'biology/biology-bs-pre-professional/'),
+        cands = [at(self.prog('u0', 'Agricultural Education', key='aec'), 'https://catalog.x.edu/UGRD/UGAGL/AEC_BS/'),
+                 at(self.prog('u1', 'Agricultural Education', key='aec'), 'https://catalog.x.edu/UGRD/UGAGL/AEC_BS_UFO/'),
+                 at(self.prog('b1', 'Biology, BS', key='bio'), U + 'biology/biology-bs-pre-professional/'),
                  at(self.prog('b0', 'Biology, BS', key='bio'), U + 'biology/biology-bs/'),
                  at(self.req('rb1', 'bio'), U + 'biology/biology-bs-pre-professional/', 'source_url'),
                  at(self.req('rb0', 'bio'), U + 'biology/biology-bs/#courselist', 'source_url'),
@@ -1149,8 +1151,8 @@ class AutoReviewTests(unittest.TestCase):
         old = A.catalog_records; A.catalog_records = lambda *a: []
         try: approve, cats, held = A.review('ZZ', d, today=date(2026, 10, 6))
         finally: A.catalog_records = old
-        self.assertEqual({a['candidate_id'] for a in approve}, {'b0', 'rb0', 'a1', 'x1', 'w1'})
-        self.assertEqual(held['variant_page'], 3); self.assertEqual(held['req_variant_page'], 1); self.assertEqual(held['duplicate'], 3)
+        self.assertEqual({a['candidate_id'] for a in approve}, {'u0', 'b0', 'rb0', 'a1', 'x1', 'w1'})  # UF Online copy 'AEC_BS_UFO' held
+        self.assertEqual(held['variant_page'], 4); self.assertEqual(held['req_variant_page'], 1); self.assertEqual(held['duplicate'], 3)
 
 
 class DegreeTypeTests(unittest.TestCase):
@@ -1185,6 +1187,23 @@ class HeadingProgramTests(unittest.TestCase):
         self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, emph, '2026-27'), [])
         dual = T.Page('2026-27 University Catalog\nMiddle Level Education Dual Major - Teaching B.A.', 't', [], [], ['Middle Level Education Dual Major - Teaching B.A.'])
         self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, dual, '2026-27'), [])
+
+
+class DegreeLineTests(unittest.TestCase):
+    def test_uf_degree_line(self):  # UF 2026-27
+        from pipeline import text as T
+        tgt = {'catalog': {'platform': 'courseleaf'}}
+        def run(url, heads, body):
+            e = {'url': url, 'role': 'program_page', 'sha256': 'a' * 64, 'fetched_at': '2026-10-06T00:00:00+00:00', 'kind': 'html'}
+            page = T.Page(heads[0] + '\n' + body + '\nAll pages in 2026-2027 Academic Catalog.', heads[0] + ' | University of X Catalog', [], [], heads)
+            return [(c['extractor'], c['record']['program_name'], c['record']['program_key']) for c in X.program_page_candidates(tgt, {'institution_key': 'k'}, e, page, '2026-27')]
+        U = 'https://catalog.x.edu/UGRD/colleges-schools/UGACT/'
+        self.assertEqual(run(U + 'ACT_BSAC/', ['Accounting', 'Curriculum'], 'Degree: Bachelor of Science in Accounting'),
+                         [('degree_line/v1', 'Accounting', 'accounting-bachelor-of-science-in-accounting')])
+        self.assertEqual(run(U + 'BLY_BS/BLY_BS01/', ['Applied Biology'], 'Degree: Bachelor of Science'), [])  # a specialization page
+        self.assertEqual(run(U + 'ACT_BSAC/', ['Accounting'], 'Degree: Bachelor of Science\nDegree: Bachelor of Arts'), [])  # two awards
+        self.assertEqual(run(U + 'ACT_MIN/', ['Accounting Minor'], 'Degree: Bachelor of Science'), [])
+        self.assertEqual(run(U + 'ACT_BSAC/', ['Accounting'], 'The Degree: Bachelor of Science is common'), [])  # a whole line only
 
 
 class DepartmentSectionTests(unittest.TestCase):
