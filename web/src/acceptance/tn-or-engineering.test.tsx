@@ -10,6 +10,8 @@ import bundled from '../lib/data/demo/comparison-snapshot.json'
 import type { InstitutionComparison } from '../lib/data/types'
 import { outlookFor } from '../features/parent/CostOutlook'
 import { schoolFit } from '../lib/engine/programFit'
+import { writeInterests } from '../lib/interestStore'
+import { graduationYearFor } from '../features/onboarding/options'
 
 /**
  * Scenario: an 8th grader in Tennessee, interested in engineering, considering Tennessee and Oregon, wants a
@@ -50,18 +52,24 @@ describe(`acceptance: TN 8th grader, engineering, TN + OR, four-year, lowest cos
       </MemoryRouter>,
     )
 
-    // Onboarding: grade 8, Tennessee, not sure about a major but interested in engineering, lowest cost.
-    await user.type(await screen.findByLabelText('First name'), 'Alex')
+    // Setup: grade 8, Tennessee, ACT with no date yet, no score, two study days. Majors and cost goals are
+    // deferred to where they matter (Explore majors, Goals), so they are set there afterwards.
+    await user.type(await screen.findByLabelText('Your first name'), 'Alex')
     await user.selectOptions(screen.getByLabelText('Home state (optional)'), HOME)
-    await user.click(screen.getByRole('button', { name: '8' }))
+    await user.click(screen.getByRole('button', { name: `Class of ${graduationYearFor(8)}` }))
     await user.click(screen.getByRole('button', { name: 'Continue' }))
-    await user.click(await screen.findByRole('button', { name: 'Continue' }))
-    await user.click(await screen.findByRole('button', { name: /I'm not sure yet/ }))
-    await user.click(screen.getByRole('button', { name: 'Engineering & technology' }))
+    await user.click(await screen.findByRole('button', { name: /^ACT/ }))
+    await user.click(screen.getAllByRole('button', { name: 'Not sure yet' }).at(-1)!)
     await user.click(screen.getByRole('button', { name: 'Continue' }))
-    await user.click(await screen.findByRole('button', { name: /Lower the total cost/ }))
-    await user.click(screen.getByRole('button', { name: 'Start my benchmark' }))
-    await screen.findByText(/benchmark/i)
+    await user.click(await screen.findByRole('button', { name: 'Not yet' }))
+    await user.click(screen.getByRole('button', { name: 'Continue' }))
+    await user.click(await screen.findByRole('button', { name: 'Sat' }))
+    await user.click(screen.getByRole('button', { name: /^10 min/ }))
+    await user.click(screen.getByRole('button', { name: 'Accept this plan' }))
+    await screen.findByRole('link', { name: 'Start a 5-minute session' })
+    const me = (await src.getHouseholdContext()).myStudent!
+    writeInterests(me.id, { certainty: 'unsure', interests: [{ kind: 'area', key: 'engineering' }] })
+    await src.savePlan(me.id, { ...(await src.getPlan(me.id))!, goals: ['raise_score', 'lower_cost'] })
     ui.unmount()
 
     const schools = pickSchools()

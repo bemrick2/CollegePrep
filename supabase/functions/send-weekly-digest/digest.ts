@@ -159,3 +159,32 @@ export function lastCompletedWeekStart(now: Date): string {
   d.setUTCDate(d.getUTCDate() - dow - 7)
   return d.toISOString().slice(0, 10)
 }
+
+/** A linked student turned practice reminders off in the app (CR-27). One email per guardian per change. */
+export interface RemindersOffNotice {
+  user_id: string
+  email: string
+  guardian_name: string | null
+  student_name: string
+  changed_at: string
+  time_zone: string
+}
+
+export function remindersOffEmail(n: RemindersOffNotice, origin: string) {
+  const hello = n.guardian_name?.trim() ? `Hi ${n.guardian_name.trim().split(/\s+/)[0]},` : 'Hi,'
+  const when = new Date(n.changed_at).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZone: n.time_zone })
+  const subject = `${n.student_name} turned off practice reminders`
+  const body = `${n.student_name} turned off practice reminders in Prep & Price on ${when}. Practice itself isn't affected: ${n.student_name} can still practise any time, and progress still shows on your dashboard.`
+  const link = `${origin}/parent`
+  const why = `You get this because you're a guardian in ${n.student_name}'s household. ${n.student_name} was told you'd be notified. Snoozing a reminder doesn't send this.`
+  const text = ['Prep & Price', '', hello, body, '', `Open the parent dashboard: ${link}`, '', why].join('\n')
+  const html = `<!doctype html><html><body style="margin:0;background:#f4f6f8;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#15212b">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="padding:32px 16px"><tr><td align="center">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;background:#ffffff;border:1px solid #e1e6eb;border-radius:12px;padding:32px">
+<tr><td style="font-size:18px;font-weight:700;color:#0f5446">Prep &amp; Price</td></tr>
+<tr><td style="padding-top:20px;font-size:15px;line-height:1.5">${esc(hello)}<br>${esc(body)}</td></tr>
+<tr><td style="padding-top:24px"><a href="${esc(link)}" style="display:inline-block;background:#127a59;color:#ffffff;text-decoration:none;font-weight:700;font-size:15px;padding:12px 20px;border-radius:10px">Open the parent dashboard</a></td></tr>
+<tr><td style="padding-top:24px;font-size:12px;color:#56626e">${esc(why)}</td></tr>
+</table></td></tr></table></body></html>`
+  return { subject, text, html }
+}

@@ -35,3 +35,29 @@ export function timeZones(): string[] {
     return ['UTC', 'America/New_York', 'America/Chicago', 'America/Denver', 'America/Los_Angeles']
   }
 }
+
+/** Inverse of graduationYearFor: the grade this school year for a given graduation year (null outside 6–12). */
+export function gradeForGraduationYear(year: number, now = new Date()): number | null {
+  const schoolYearEnd = now.getMonth() >= 6 ? now.getFullYear() + 1 : now.getFullYear()
+  const g = 12 - (year - schoolYearEnd)
+  return g >= 6 && g <= 12 ? g : null
+}
+
+/** Graduation years for students in grades 12 down to 6 this school year. */
+export function graduationYears(now = new Date()): number[] {
+  return GRADES.slice().reverse().map((g) => graduationYearFor(g, now))
+}
+
+/** Languages the app is actually written in. A language control appears only when there is a choice. */
+export const SUPPORTED_LANGUAGES = [{ code: 'en', name: 'English' }] as const
+
+/** Session lengths. Short ones lead; 20 and 30 need CR-26 on the backend (daily_minutes 5–30). */
+export const SHORT_SESSIONS = [5, 10, 15] as const
+export const LONG_SESSIONS = [20, 30] as const
+
+/** The existing weekly question goal presets. */
+export const WEEKLY_GOALS = [
+  { value: 20, label: '20 · light' },
+  { value: 40, label: '40 · steady' },
+  { value: 60, label: '60 · intense' },
+] as const

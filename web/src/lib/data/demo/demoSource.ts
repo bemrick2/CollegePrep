@@ -3,7 +3,8 @@ import { projectCosts } from '../../engine/costProjection'
 import type { InterestProfile } from '../../engine/interests'
 import { readInterests, writeInterests } from '../../interestStore'
 import { INVITE_TTL_HOURS, formatInviteCode } from '../../invites'
-import type { AlertPreference, DataSource, InactiveStudent, InvitationSummary, InviteSendResult, StudentInvitation } from '../source'
+import type { AlertPreference, DataSource, DevicePermission, DevicePlatform, DeviceStatus, InactiveStudent, InvitationSummary, InviteSendResult, ReminderChange, ReminderDelivery, ReminderSettings, StudentInvitation } from '../source'
+import { DEFAULT_REMINDERS, settingsProblems } from '../../../../../supabase/functions/_shared/reminders.ts'
 import { suggestNextWeek, type NextWeekSuggestion } from '../../engine/weeklyPlan'
 import { DataError } from '../source'
 import type {
@@ -147,6 +148,21 @@ export class DemoSource implements DataSource {
 
   private requireView(studentId: string) {
     if (!this.canView(studentId)) throw new DataError('Not allowed to view this student', 'forbidden')
+  }
+
+  /** Mirrors can_set_student_goals: a guardian with set_goals, or the student's own login outside a household (or independent). */
+  private canSetGoals(studentId: string): boolean {
+    const me = this.viewerId()
+    const st = this.student(studentId)
+    if (st.linked_user_id === me && (!st.household_id || st.is_independent)) return true
+    return this.s.members.some((m) => m.household_id === st.household_id && m.user_id === me && m.role === 'guardian' && m.can_set_goals)
+  }
+
+  /** Mirrors the self_reported insert policy: a guardian who manages students, or the student's own login. */
+  private canReportScore(studentId: string): boolean {
+    const me = this.viewerId()
+    const st = this.student(studentId)
+    return st.linked_user_id === me || this.s.members.some((m) => m.household_id === st.household_id && m.user_id === me && m.can_manage_students)
   }
 
   private requireLinked(studentId: string) {
@@ -369,6 +385,7 @@ export class DemoSource implements DataSource {
   }
 
   async setWeeklyGoal(studentId: string, weekStart: string, targetQuestions: number | null, targetMinutes: number | null) {
+    if (!this.canSetGoals(studentId)) throw new DataError('Only a guardian with permission to set goals can set this goal', 'forbidden')
     const existing = this.s.goals.find((g) => g.student_id === studentId && g.week_start === weekStart)
     if (existing) {
       existing.target_questions = targetQuestions
@@ -456,6 +473,37 @@ export class DemoSource implements DataSource {
     return delay(this.s.scores.filter((x) => x.student_id === studentId))
   }
 
+  async addTestScore(studentId: string, score: { exam_family: ExamFamily; test_date: string; composite: number; section_scores: Record<string, number>; source?: 'self_reported' | 'practice_test' }) {
+    if (!this.canReportScore(studentId)) throw new DataError('Not allowed to add a score for this student', 'forbidden')
+    const id = uid('sc-')
+    this.s.scores.push({ id, student_id: studentId, exam_family: score.exam_family, test_date: score.test_date, composite: score.composite, section_scores: score.section_scores, score_source: score.source ?? 'self_reported' })
+    this.commit()
+    return delay(id)
+  }
+
+  // CR-26 mirror: setup answers on the "account" (this demo's store), not loose browser keys.
+  readonly supportsAccountSetup = true
+
+  async setupProgress(studentId: string) {
+    this.requireView(studentId)
+    return delay(this.s.setup?.[studentId] ?? null)
+  }
+
+  async saveSetupProgress(studentId: string, patch: { setupCompleted?: boolean; startingPointAnswered?: boolean; benchmarkScheduledFor?: string | null }) {
+    const me = this.viewerId()
+    const st = this.student(studentId)
+    const allowed = st.linked_user_id === me || this.canSetGoals(studentId) || this.s.members.some((m) => m.household_id === st.household_id && m.user_id === me && m.can_manage_students)
+    if (!allowed) throw new DataError('Not allowed to update setup for this student', 'forbidden')
+    const cur = this.s.setup?.[studentId] ?? { setupCompletedAt: null, startingPointAnsweredAt: null, benchmarkScheduledFor: null }
+    const now = new Date().toISOString()
+    ;(this.s.setup ??= {})[studentId] = {
+      setupCompletedAt: cur.setupCompletedAt ?? (patch.setupCompleted ? now : null),
+      startingPointAnsweredAt: cur.startingPointAnsweredAt ?? (patch.startingPointAnswered ? now : null),
+      benchmarkScheduledFor: 'benchmarkScheduledFor' in patch ? (patch.benchmarkScheduledFor ?? null) : cur.benchmarkScheduledFor,
+    }
+    this.commit()
+  }
+
   async attemptHistory(studentId: string, sinceIso: string): Promise<AttemptRecord[]> {
     this.requireView(studentId)
     return delay(
@@ -490,7 +538,7 @@ export class DemoSource implements DataSource {
   async startSession(studentId: string, targetMinutes: number, examFamily: ExamFamily): Promise<PracticeSession> {
     const F = await loadFixtures()
     this.requireLinked(studentId)
-    if (targetMinutes < 5 || targetMinutes > 15) throw new DataError('Sessions are 5 to 15 minutes', 'invalid')
+    if (targetMinutes < 5 || targetMinutes > 30) throw new DataError('Sessions are 5 to 30 minutes', 'invalid')
     const attempts = this.attemptsOf(studentId)
     const all = F.QUESTIONS.filter((q) => q.exam_family === examFamily)
     // Keep the next progress check's fresh questions out of practice (engine/freshness.ts).
@@ -642,6 +690,8 @@ export class DemoSource implements DataSource {
   }
 
   async savePlan(studentId: string, plan: StudentPlan) {
+    if (!this.canSetGoals(studentId)) throw new DataError('Only a guardian with permission to set goals can change this plan', 'forbidden')
+    if (!(plan.daily_minutes >= 5 && plan.daily_minutes <= 30)) throw new DataError('Sessions are 5 to 30 minutes', 'invalid')
     this.s.plans[studentId] = plan
     this.commit()
   }
@@ -687,6 +737,81 @@ export class DemoSource implements DataSource {
   async emailDeliveries() {
     return delay([] as import('../source').EmailDelivery[])
   }
+
+  // Practice reminders: the same rules as CR-27, in this browser. The demo never sends a push or an email.
+  readonly supportsReminders = true
+
+  async reminderSettings(studentId: string): Promise<ReminderSettings> {
+    this.requireView(studentId)
+    return delay({ ...DEFAULT_REMINDERS, ...(this.s.reminders?.[studentId] ?? {}) })
+  }
+
+  async saveReminderSettings(studentId: string, settings: ReminderSettings) {
+    const me = this.viewerId()
+    const st = this.student(studentId)
+    const role: 'student' | 'guardian' | null =
+      st.linked_user_id === me ? 'student' : this.s.members.some((m) => m.household_id === st.household_id && m.user_id === me && m.role === 'guardian' && m.can_set_goals) ? 'guardian' : null
+    if (!role) throw new DataError('Not allowed to change reminders for this student', 'forbidden')
+    const problems = settingsProblems(settings).filter((p) => !/inside quiet hours|during school hours/.test(p))
+    if (problems.length) throw new DataError(problems[0]!, 'invalid')
+    const old = this.s.reminders?.[studentId]
+    const changes = (this.s.reminderChanges ??= [])
+    let notify = false
+    if (!old || old.enabled !== settings.enabled) {
+      const recent = changes.some((c) => c.student_id === studentId && c.notifyGuardians && Date.now() - Date.parse(c.at) < 86_400_000)
+      notify = role === 'student' && !settings.enabled && !!old?.enabled && !!st.household_id && !st.is_independent && !recent
+      if (old || settings.enabled) changes.unshift({ id: uid('rc-'), student_id: studentId, enabled: settings.enabled, by: role, at: new Date().toISOString(), notifyGuardians: notify })
+    }
+    ;(this.s.reminders ??= {})[studentId] = { ...settings, snoozedUntil: settings.enabled && !old?.enabled ? null : (old?.snoozedUntil ?? null) }
+    this.commit()
+    return delay({ guardiansNotified: notify })
+  }
+
+  async snoozeReminders(studentId: string, minutes: number) {
+    this.requireLinked(studentId)
+    const cur = this.s.reminders?.[studentId]
+    if (!cur?.enabled) throw new DataError('Reminders are off', 'invalid')
+    const until = new Date(Date.now() + minutes * 60_000).toISOString()
+    this.s.reminders![studentId] = { ...cur, snoozedUntil: until }
+    this.commit()
+    return delay(until)
+  }
+
+  async reportNotificationDevice(input: { deviceId: string; permission: DevicePermission; subscription: PushSubscriptionJSON | null; platform: DevicePlatform }) {
+    const me = this.viewerId()
+    const list = (this.s.devices ??= [])
+    const row = { id: input.deviceId, user_id: me, permission: input.permission, platform: input.platform, subscribed: input.permission === 'granted' && !!input.subscription?.endpoint, checked_at: new Date().toISOString() }
+    const i = list.findIndex((d) => d.id === input.deviceId)
+    if (i >= 0) {
+      if (list[i]!.user_id !== me) throw new DataError('Not your device', 'forbidden')
+      list[i] = row
+    } else list.push(row)
+    this.commit()
+  }
+
+  async studentDevices(studentId: string): Promise<DeviceStatus[]> {
+    this.requireView(studentId)
+    const owner = this.student(studentId).linked_user_id
+    return delay(
+      (this.s.devices ?? [])
+        .filter((d) => owner && d.user_id === owner)
+        .map((d) => ({ deviceId: d.id, permission: d.permission, platform: d.platform, canReceive: d.permission === 'granted' && d.subscribed, checkedAt: d.checked_at })),
+    )
+  }
+
+  async reminderHistory(studentId: string): Promise<ReminderChange[]> {
+    this.requireView(studentId)
+    // Nothing is ever emailed from the demo, so emailedToMeAt is always null.
+    return delay((this.s.reminderChanges ?? []).filter((c) => c.student_id === studentId).map((c) => ({ id: c.id, enabled: c.enabled, by: c.by, at: c.at, notifyGuardians: c.notifyGuardians, emailedToMeAt: null })))
+  }
+
+  /** The demo sends no reminders. */
+  async latestReminder(studentId: string): Promise<ReminderDelivery | null> {
+    this.requireView(studentId)
+    return delay(null)
+  }
+
+  async markReminderOpened(_deliveryId: string) {}
 
   async interests(studentId: string) {
     return readInterests(studentId)

@@ -9,7 +9,7 @@ import { GRADES, gradeLabel, graduationYearFor } from '../onboarding/options'
 import { DEMO_STUDENT } from '../../lib/data/demo/demoSource'
 
 export function Household() {
-  const { ctx, source, refresh, mode, switchDemoPersona, setActiveStudentId } = useApp()
+  const { ctx, source, refresh, mode, setActiveStudentId } = useApp()
   const navigate = useNavigate()
   const household = ctx?.households[0]
   const me = ctx?.memberships.find((m) => m.household_id === household?.id)
@@ -45,8 +45,9 @@ export function Household() {
   }
 
   const tryAsStudent = async (code: string) => {
-    await switchDemoPersona('student')
-    navigate(`/join#t=${encodeURIComponent(code)}`)
+    // The join page switches to the student persona itself. Switching here first would re-render this
+    // guardian-only page as the student, which redirects to the student's setup instead of the join link.
+    navigate(`/join?demo_as=student#t=${encodeURIComponent(code)}`)
   }
 
   return (

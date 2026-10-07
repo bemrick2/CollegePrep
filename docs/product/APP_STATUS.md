@@ -5,7 +5,20 @@ Updated 2026-10-07. The hosted Supabase project is paused, so nothing below was 
 the app's original demo question bank, PostgREST, and locally signed JWTs. It runs the real SQL, RLS policies and
 RPCs. It does not run Supabase Auth, edge functions, email or Stripe.
 
-## The student journey
+## Setup (four screens)
+
+The screens are About you, Test and goal, Starting point and Weekly plan. Each question is asked once:
+- **Account name:** never asked again.
+- **Invited student:** sees only what the guardian didn't supply and that the student may save, usually just the starting point. A household plan and its goals stay guardian-only.
+- **Unknown answers:** "Not sure yet" (test or date), no goal score, and "Not yet" or "Don't remember the score" are all complete answers. Scores are never estimated.
+- **Weekly plan:** the family sees the proposed first week before accepting. The result screen shows the next assignment and the weekly commitment.
+- **Interrupted setup:** resumes in the same browser.
+- **Deferred:** majors, cost goals and AP/CLEP details.
+- **Language:** English only, so no language picker appears.
+- **Stored on the account (CR-26):** the test choice, test date, study days and session length (5, 10 or 15 first, then 20 or 30), the practice-test score source, setup completion and a scheduled starting benchmark. This is behind `VITE_ACCOUNT_SETUP`; without it, these stay in this browser.
+- **High school:** neither asked nor stored.
+- **How to start:** the starting benchmark is separate from quick practice. A student can start a 5-minute session now and take the benchmark later, now or at a chosen time. Only a finished benchmark counts as the starting point.
+
 
 | Step | Demo | Live code | Checked against the local backend |
 | --- | --- | --- | --- |

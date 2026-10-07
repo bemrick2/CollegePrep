@@ -176,6 +176,14 @@ describe.skipIf(!URL_)('LiveSource against the local backend', () => {
     await expect((await as(OUTSIDER)).saveInterests(studentId, { certainty: 'unsure', interests: [] })).rejects.toThrow()
   })
 
+  it('setup: a joined student reports a past score (self-reported only), but cannot change the household plan', async () => {
+    const id = await student.addTestScore(studentId, { exam_family: 'act', test_date: '2026-06-13', composite: 24, section_scores: { math: 23 } })
+    expect(await parent.testScores(studentId)).toEqual([expect.objectContaining({ id, exam_family: 'act', composite: 24, section_scores: { math: 23 }, score_source: 'self_reported' })])
+    await expect(student.savePlan(studentId, { exam_family: 'sat', target_score: null, goals: [], daily_minutes: 5 })).rejects.toThrow()
+    await expect(student.setWeeklyGoal(studentId, weekStart, 5, null)).rejects.toThrow()
+    await expect((await as(OUTSIDER)).addTestScore(studentId, { exam_family: 'act', test_date: '2026-06-13', composite: 30, section_scores: {} })).rejects.toThrow()
+  })
+
   it('cost_projection on the server and the demo mirror give the same answer for the same verified records', async () => {
     const keys = ['local-test-university', 'local-test-college']
     const records = await parent.compareInstitutions(keys, '2026-27')

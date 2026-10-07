@@ -69,7 +69,12 @@ insert into auth.users(id, email) values
   ('00000000-0000-4000-a000-000000000099', 'outsider@local.test'),
   ('00000000-0000-4000-a000-0000000000a3', 'parent3@local.test'),
   ('00000000-0000-4000-a000-0000000000a4', 'parent4@local.test'),
-  ('00000000-0000-4000-a000-000000000052', 'student2@local.test')
+  ('00000000-0000-4000-a000-000000000052', 'student2@local.test'),
+  ('00000000-0000-4000-a000-0000000000a5', 'parent5@local.test'),
+  ('00000000-0000-4000-a000-000000000053', 'student3@local.test'),
+  ('00000000-0000-4000-a000-000000000054', 'adult-student@local.test'),
+  ('00000000-0000-4000-a000-0000000000a6', 'parent6@local.test'),
+  ('00000000-0000-4000-a000-000000000055', 'student4@local.test')
 on conflict do nothing;
 -- Two obviously fictional, unverified schools so saved-school flows can run. Not research data.
 insert into public.institutions(ipeds_name, display_name, state_code, institution_key) values

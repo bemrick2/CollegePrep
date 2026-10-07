@@ -11,6 +11,7 @@ import { EXAM_NAME } from '../onboarding/options'
 import { useCatalog } from '../practice/useCatalog'
 import { costPhrase, outlookFor } from './CostOutlook'
 import { WeeklyUpdate } from './WeeklyUpdate'
+import { GuardianReminderStatus, ReminderSettingsPanel } from '../reminders/Reminders'
 import { showRecap, weekRecap, weeklyPlan } from '../../lib/engine/weeklyPlan'
 import { Figure, NextSteps, PageHeader, Row, RowList, Section, compactUsd } from '../../components/layout'
 import { planSummary, type PlanSummary } from '../../lib/engine/planSummary'
@@ -66,7 +67,7 @@ function sectionRollup(estimates: SkillEstimate[]) {
 }
 
 function Panel({ student, o, onRefresh }: { student: Student; o: StudentOverview; onRefresh: () => void }) {
-  const { ctx } = useApp()
+  const { ctx, source } = useApp()
   const exam = o.plan?.exam_family ?? 'act'
   const interestCount = useInterests(student.id).profile.interests.length
   const { homeState } = useHomeState()
@@ -110,7 +111,7 @@ function Panel({ student, o, onRefresh }: { student: Student; o: StudentOverview
     ]
   })
   const official = [...o.scores]
-    .filter((x) => x.exam_family === exam && x.composite !== null && x.score_source !== 'practice_estimate')
+    .filter((x) => x.exam_family === exam && x.composite !== null && (x.score_source === 'official' || x.score_source === 'self_reported'))
     .sort((a, b) => b.test_date.localeCompare(a.test_date))[0]
   const actions = parentActions({
     interestsSaved: interestCount,
@@ -259,6 +260,22 @@ function Panel({ student, o, onRefresh }: { student: Student; o: StudentOverview
           onRefresh={onRefresh}
         />
       ) : null}
+
+      {source.supportsReminders && (
+        <Section id="reminders-heading" title="Practice reminders" subtitle={`Friendly nudges on ${name}'s phone or computer`}>
+          <div className="grid max-w-2xl gap-4">
+            <ReminderSettingsPanel
+              studentId={student.id}
+              name={name}
+              as="guardian"
+              canEdit={!!ctx?.memberships.some((m) => m.household_id === student.household_id && m.role === 'guardian' && m.can_set_goals)}
+              hasGuardian
+              timeZone={o.tz}
+            />
+            <GuardianReminderStatus studentId={student.id} name={name} />
+          </div>
+        </Section>
+      )}
 
       <Section
         id="prep-heading"

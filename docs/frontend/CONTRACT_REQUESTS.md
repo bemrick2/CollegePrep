@@ -31,6 +31,8 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-23 | Fresh vs repeat vs progress-check questions on the server | ⏳ open | Demo holds check questions out of practice; live marks `seen_before` from attempts, and checks and trends exclude repeats client-side |
 | CR-24 | Rights gate: a published question needs an allowed license (+ attribution when required) | ⏳ open | Nothing enforced; editorial workflow stage 3 (`docs/product/CONTENT_PLAN.md`) |
 | CR-25 | "Report a problem" on a question | ⏳ open | No UI; nothing stored |
+| CR-26 | Setup on the account: test choice, test date, study days, 5–30 min sessions, practice-test score source, setup completion, benchmark schedule | ⏳ open (reference SQL in `scripts/local/proposals/cr26_account_setup.sql`, local only) | Behind `VITE_ACCOUNT_SETUP`; without it, answers stay in this browser and sessions are 5–15 min |
+| CR-27 | Practice reminders: settings, device permission, deliveries, snooze, guardian notice when a linked student turns them off | ⏳ open (reference SQL in `scripts/local/proposals/cr27_practice_reminders.sql`, local only) | Behind `VITE_PRACTICE_REMINDERS`; push sender, action endpoint and notice email built and tested locally, not deployed |
 
 Live content note: the bank has no exam versions, skills or questions yet, so live practice and benchmarks show their empty states until content is loaded.
 
@@ -372,6 +374,57 @@ Needed by stage 10 (monitoring) of the editorial workflow.
 - Never shown to other families.
 
 **Client:** a "Report a problem" link on the answer review, sending a reason and an optional note. It will be shown only once the RPC exists.
+
+## CR-26. Setup on the account
+
+Reference SQL, applied only to the local database: `scripts/local/proposals/cr26_account_setup.sql`. Behind `VITE_ACCOUNT_SETUP` in the app.
+
+**Why:** a guardian's setup choices must appear on the student's own device, and finished setup must not be asked again on another device. The local backend run (`web/scripts/local/setup.local.test.ts`) verifies both, using separate clients for the parent, the student's phone and the student's laptop.
+
+**Ask:**
+1. **`student_planning_preferences`:**
+   - Add `exam_intent` (`act`/`sat`/`both`/`undecided`), `planned_test_date date null` and `study_days smallint[]`.
+   - Widen `daily_minutes` to 5–30.
+   - Read/write rules are unchanged: set_goals guardians, or the student outside a household.
+2. **Sessions of 5–30 minutes:** `practice_sessions.target_minutes`, `start_practice_session` and `recommend_practice_set`. The app offers 5, 10 and 15 first, with 20 and 30 as "Longer".
+3. **`student_test_scores.score_source` adds `practice_test`:**
+   - Clients may insert it, alongside `self_reported`.
+   - It never appears in `student_official_scores` or merit comparisons.
+   - `official` stays server-only.
+4. **`student_setup_progress`:** `setup_completed_at`, `starting_point_answered_at` and `benchmark_scheduled_for`.
+   - Written through `update_setup_progress` by the student's own login, or by a guardian who manages the student or sets goals.
+   - A household student may finish their own setup and schedule the starting benchmark, but still can't edit the guardian-owned plan.
+   - Completion is never undone by a later write.
+
+**Not stored (owner decision 2026-10-07):** high school. It isn't needed for the first practice plan, and setup no longer asks for it.
+
+**Found while testing setup (fixed client-side):** an update that row security filters out returns no error and zero rows. `LiveSource.savePlan` and `setWeeklyGoal` now treat that as "not allowed".
+
+## CR-27. Practice reminders
+
+Reference SQL, applied only to the local database: `scripts/local/proposals/cr27_practice_reminders.sql`. It builds on CR-22's `parent_email_deliveries`.
+
+**Tables:**
+- `practice_reminder_settings`: times on the quarter hour (at most 3), days, quiet hours, school days and hours, a daily limit (1–3), a weekly limit (1–14), and `snoozed_until`.
+- `practice_reminder_changes`: each on/off change, who made it, and whether guardians are to be told.
+- `notification_devices`: the permission each device reported the last time the app opened there, and push keys. There's no direct client access.
+- `practice_reminder_deliveries`: every reminder sent, which counts toward the limits, and whether it was opened or snoozed.
+
+**Rules the server enforces:**
+- **Who can change settings:** the student's own login, or a guardian with set_goals.
+- **Snoozing** ("Remind me later") is student-only and notifies no one.
+- **Turning reminders off:** guardians are told only when the student's own login turns them off, and the student is in a household and not independent.
+  - Each guardian with view permission gets one email.
+  - At most one notice per student per 24 hours. Later changes are still recorded and shown in the app.
+- **Delivery status:** "emailed" is shown only from a `parent_email_deliveries` row (kind `reminders_off`).
+- **Device permission:** families see the permission as of each device's last app open, never endpoints or keys. Nothing claims to detect changes made in phone settings while the app is closed.
+
+**Functions (not deployed; hosted is held):**
+- `send-practice-reminders`: every 15 minutes, web push (VAPID, aes128gcm).
+- `practice-reminder-action`: a signed one-time "Remind me later" token.
+- `send-weekly-digest`: new mode `reminders_off`.
+
+**Owner secrets needed:** `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `VAPID_SUBJECT`, `REMINDER_CRON_SECRET`, `REMINDER_ACTION_SECRET`. Generate the VAPID pair with `scripts/local/vapid_keys.mjs`.
 
 ## Product decisions flagged (not contract requests)
 

@@ -62,14 +62,14 @@ describe('joining with an invite', () => {
     expect(await screen.findByText('Invitation attached')).toBeInTheDocument()
     expect(screen.queryByDisplayValue(a.code)).not.toBeInTheDocument() // the token is never shown
     await user.click(screen.getByRole('button', { name: 'Join' }))
-    expect(await screen.findByTestId('where')).toHaveTextContent('/student')
+    expect(await screen.findByTestId('where')).toHaveTextContent('/onboarding/student')
     ui.unmount()
 
     const b = await parentWithInvite()
     at('/join', b.src)
     await user.type(await screen.findByLabelText('Invite code'), b.inviteCode.toLowerCase())
     await user.click(screen.getByRole('button', { name: 'Join' }))
-    expect(await screen.findByTestId('where')).toHaveTextContent('/student')
+    expect(await screen.findByTestId('where')).toHaveTextContent('/onboarding/student')
     const ctx = await b.src.getHouseholdContext()
     expect(ctx.myStudent?.id).toBe(b.sid)
     expect(ctx.students.filter((s) => s.display_name === 'Riley')).toHaveLength(1)

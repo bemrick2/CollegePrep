@@ -9,7 +9,7 @@ import { StepFrame } from './Stepper'
 const FINAL = new Set(['invalid', 'expired', 'used', 'revoked', 'already_member', 'already_linked'])
 
 export function Join() {
-  const { source, viewer, loading, refresh, mode, liveAvailable, useLive } = useApp()
+  const { source, viewer, loading, refresh, mode, liveAvailable, useLive, switchDemoPersona } = useApp()
   const [params] = useSearchParams()
   const { hash } = useLocation()
   const navigate = useNavigate()
@@ -28,7 +28,14 @@ export function Join() {
     if (switchToLive) useLive()
   }, [switchToLive]) // eslint-disable-line react-hooks/exhaustive-deps
 
-  if (loading || switchToLive) return <PageLoading />
+  // Demo only: "Try it as <student>" from Household arrives here and becomes the student persona.
+  const demoAs = mode === 'demo' && params.get('demo_as') === 'student'
+  const [switched, setSwitched] = useState(!demoAs)
+  useEffect(() => {
+    if (demoAs && !switched) void switchDemoPersona('student').then(() => setSwitched(true))
+  }, [demoAs, switched]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  if (loading || switchToLive || !switched) return <PageLoading />
   if (!viewer) {
     if (mode === 'live') {
       // Keep the link token out of URLs and logs: hold it in this browser while the student signs up/confirms.
@@ -48,7 +55,8 @@ export function Join() {
       clearPendingInvite()
       await refresh()
       const ctx = await source.getHouseholdContext()
-      navigate(ctx.myStudent ? '/student' : '/parent')
+      // A joined student finishes setup with only what the guardian didn't already supply.
+      navigate(ctx.myStudent ? '/onboarding/student' : '/parent')
     } catch (err) {
       const raw = err instanceof Error ? err.message : 'That code did not work'
       const kind = inviteFailure(raw)
