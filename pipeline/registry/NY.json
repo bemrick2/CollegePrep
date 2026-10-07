@@ -1,7 +1,7 @@
 {
  "state": "NY",
  "source": "IPEDS HD2023 (sources/ipeds/2023-24/manifest.json)",
- "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record",
+ "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record; four-year colleges without one are included when IPEDS INSTCAT is 2 or 3 (awards undergraduate degrees)",
  "institutions": [
   {
    "institution_key": "ipeds-188429",
@@ -1175,6 +1175,27 @@
    ]
   },
   {
+   "institution_key": "ipeds-488004",
+   "unitid": 488004,
+   "name": "Central Yeshiva Beth Joseph",
+   "city": "Brooklyn",
+   "state": "NY",
+   "folder": "centralyeshivabethjoseph",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "centralyeshivabethjoseph.com",
+   "allowed_domains": [
+    "centralyeshivabethjoseph.com"
+   ],
+   "seeds": {
+    "website": "https://centralyeshivabethjoseph.com/",
+    "admissions": "https://centralyeshivabethjoseph.com/",
+    "financial_aid": "https://centralyeshivabethjoseph.com/",
+    "net_price": "https://www.centralyeshivabethjoseph.com/links/"
+   },
+   "existing_sources": []
+  },
+  {
    "institution_key": "ipeds-189857",
    "unitid": 189857,
    "name": "Central Yeshiva Tomchei Tmimim Lubavitz",
@@ -1610,6 +1631,27 @@
     "admissions": "https://www.ecc.edu/admissions",
     "financial_aid": "https://www.ecc.edu/admissions-and-aid/financial-aid.html",
     "net_price": "https://www.suny.edu/howmuch/"
+   },
+   "existing_sources": []
+  },
+  {
+   "institution_key": "ipeds-196680",
+   "unitid": 196680,
+   "name": "Excelsior University",
+   "city": "Albany",
+   "state": "NY",
+   "folder": "excelsior",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "excelsior.edu",
+   "allowed_domains": [
+    "excelsior.edu"
+   ],
+   "seeds": {
+    "website": "https://www.excelsior.edu/",
+    "admissions": "https://www.excelsior.edu/admissions",
+    "financial_aid": "https://www.excelsior.edu/financial-aid",
+    "net_price": "https://public.excelsior.edu/scripts/net-price-calculator/calculator.htm"
    },
    "existing_sources": []
   },
@@ -2568,6 +2610,28 @@
    ]
   },
   {
+   "institution_key": "ipeds-189282",
+   "unitid": 189282,
+   "name": "Mount Sinai Phillips School of Nursing",
+   "city": "New York",
+   "state": "NY",
+   "folder": "pson",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "pson.edu",
+   "allowed_domains": [
+    "mountsinai.org",
+    "pson.edu"
+   ],
+   "seeds": {
+    "website": "https://www.pson.edu/",
+    "admissions": "https://www.mountsinai.org/locations/beth-israel/pson/admissions",
+    "financial_aid": "https://www.mountsinai.org/locations/beth-israel/pson/financial-aid",
+    "net_price": "https://nces.ed.gov/ipeds/netpricecalculator/"
+   },
+   "existing_sources": []
+  },
+  {
    "institution_key": "ipeds-193478",
    "unitid": 193478,
    "name": "Nassau Community College",
@@ -3513,6 +3577,27 @@
    "existing_sources": [
     "https://www.corning-cc.edu/admissions/cpl/exam-credit.php"
    ]
+  },
+  {
+   "institution_key": "ipeds-196255",
+   "unitid": 196255,
+   "name": "SUNY Downstate Health Sciences University",
+   "city": "Brooklyn",
+   "state": "NY",
+   "folder": "downstate",
+   "control": "public",
+   "level": "four_year",
+   "domain": "downstate.edu",
+   "allowed_domains": [
+    "downstate.edu"
+   ],
+   "seeds": {
+    "website": "https://www.downstate.edu/",
+    "admissions": "https://www.downstate.edu/education-training/student-services/admissions/index.html",
+    "financial_aid": "https://www.downstate.edu/education-training/student-services/financial-aid/index.html",
+    "net_price": "https://www.suny.edu/smarttrack/net-price-calculator/"
+   },
+   "existing_sources": []
   },
   {
    "institution_key": "ipeds-196291",
@@ -4665,6 +4750,27 @@
    "existing_sources": [
     "https://admissions.rochester.edu/applying/transfer-students/"
    ]
+  },
+  {
+   "institution_key": "ipeds-196307",
+   "unitid": 196307,
+   "name": "Upstate Medical University",
+   "city": "Syracuse",
+   "state": "NY",
+   "folder": "upstate",
+   "control": "public",
+   "level": "four_year",
+   "domain": "upstate.edu",
+   "allowed_domains": [
+    "upstate.edu"
+   ],
+   "seeds": {
+    "website": "https://www.upstate.edu/",
+    "admissions": "https://www.upstate.edu/prospective/",
+    "financial_aid": "https://www.upstate.edu/currentstudents/financial_resources/finaid/",
+    "net_price": "https://www.suny.edu/howmuch/netpricecalculator.xhtml"
+   },
+   "existing_sources": []
   },
   {
    "institution_key": "ipeds-446604",

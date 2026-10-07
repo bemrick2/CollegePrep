@@ -1,7 +1,7 @@
 {
  "state": "OH",
  "source": "IPEDS HD2023 (sources/ipeds/2023-24/manifest.json)",
- "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record",
+ "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record; four-year colleges without one are included when IPEDS INSTCAT is 2 or 3 (awards undergraduate degrees)",
  "institutions": [
   {
    "institution_key": "ipeds-200873",
@@ -42,6 +42,26 @@
     "admissions": "https://antiochcollege.edu/admission",
     "financial_aid": "https://antiochcollege.edu/admission/aid-affordability",
     "net_price": "https://antiochcollege.edu/admission/financial-aid/net-price-calculator"
+   },
+   "existing_sources": []
+  },
+  {
+   "institution_key": "ipeds-245892",
+   "unitid": 245892,
+   "name": "Antioch University",
+   "city": "Yellow Springs",
+   "state": "OH",
+   "folder": "antioch",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "antioch.edu",
+   "allowed_domains": [
+    "antioch.edu"
+   ],
+   "seeds": {
+    "website": "https://www.antioch.edu/",
+    "admissions": "https://www.antioch.edu/admission-aid/admissions/",
+    "financial_aid": "https://www.antioch.edu/admission-aid/financial-aid/"
    },
    "existing_sources": []
   },
@@ -380,6 +400,27 @@
    "existing_sources": [
     "https://www.centralstate.edu/admissions-aid-tuition-costs/understanding-college-costs-and-payment-college-bills"
    ]
+  },
+  {
+   "institution_key": "ipeds-201867",
+   "unitid": 201867,
+   "name": "Cincinnati College of Mortuary Science",
+   "city": "Cincinnati",
+   "state": "OH",
+   "folder": "ccms",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "ccms.edu",
+   "allowed_domains": [
+    "ccms.edu"
+   ],
+   "seeds": {
+    "website": "https://www.ccms.edu/",
+    "admissions": "https://www.ccms.edu/admissions/",
+    "financial_aid": "https://www.ccms.edu/admissions/financial-aid-and-scholarships/",
+    "net_price": "https://www.ccms.edu/NetPriceCalculator.html"
+   },
+   "existing_sources": []
   },
   {
    "institution_key": "ipeds-201928",

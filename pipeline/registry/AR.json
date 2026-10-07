@@ -1,7 +1,7 @@
 {
  "state": "AR",
  "source": "IPEDS HD2023 (sources/ipeds/2023-24/manifest.json)",
- "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record",
+ "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record; four-year colleges without one are included when IPEDS INSTCAT is 2 or 3 (awards undergraduate degrees)",
  "institutions": [
   {
    "institution_key": "ipeds-106306",
@@ -432,6 +432,27 @@
    "existing_sources": [
     "https://via.hendrix.edu/admission-aid/transfer-applicants/"
    ]
+  },
+  {
+   "institution_key": "ipeds-497453",
+   "unitid": 497453,
+   "name": "Jackson Theological Seminary",
+   "city": "North Little Rock",
+   "state": "AR",
+   "folder": "jtseminary",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "jtseminary.edu",
+   "allowed_domains": [
+    "jtseminary.edu"
+   ],
+   "seeds": {
+    "website": "https://jtseminary.edu/",
+    "admissions": "https://jtseminary.edu/admission/",
+    "financial_aid": "https://jtseminary.edu/financial-aid/",
+    "net_price": "https://jtseminary.edu/tuition-and-fees/"
+   },
+   "existing_sources": []
   },
   {
    "institution_key": "ipeds-107141",
@@ -934,6 +955,27 @@
    "existing_sources": [
     "https://uapb.edu/administration/division-of-enrollment-management-and-student-success/office-of-student-financial-aid/scholarships-aid-test/scholarships-test/"
    ]
+  },
+  {
+   "institution_key": "ipeds-106263",
+   "unitid": 106263,
+   "name": "University of Arkansas for Medical Sciences",
+   "city": "Little Rock",
+   "state": "AR",
+   "folder": "uams",
+   "control": "public",
+   "level": "four_year",
+   "domain": "uams.edu",
+   "allowed_domains": [
+    "uams.edu"
+   ],
+   "seeds": {
+    "website": "https://www.uams.edu/",
+    "admissions": "https://students.uams.edu/future-students/",
+    "financial_aid": "https://students.uams.edu/financial-services/financial-aid/",
+    "net_price": "https://studentfinancialservices.uams.edu/tuition-and-fees/"
+   },
+   "existing_sources": []
   },
   {
    "institution_key": "ipeds-108092",

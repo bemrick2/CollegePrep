@@ -1,7 +1,7 @@
 {
  "state": "KS",
  "source": "IPEDS HD2023 (sources/ipeds/2023-24/manifest.json)",
- "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record",
+ "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record; four-year colleges without one are included when IPEDS INSTCAT is 2 or 3 (awards undergraduate degrees)",
  "institutions": [
   {
    "institution_key": "ipeds-154642",
@@ -879,6 +879,66 @@
    "existing_sources": []
   },
   {
+   "institution_key": "ipeds-155636",
+   "unitid": 155636,
+   "name": "Ottawa University-Kansas City",
+   "city": "Overland Park",
+   "state": "KS",
+   "folder": "ottawa-155636",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "ottawa.edu",
+   "allowed_domains": [
+    "ottawa.edu"
+   ],
+   "seeds": {
+    "website": "https://www.ottawa.edu/",
+    "admissions": "https://www.ottawa.edu/online-and-evening/admissions/overview",
+    "financial_aid": "https://www.ottawa.edu/online-and-evening/tuition-and-financial-aid/financial-aid",
+    "net_price": "https://www.ottawa.edu/online-and-evening/tuition-and-financial-aid/financial-aid/graduate-cost-estimator?campus=overland-park-ks"
+   },
+   "existing_sources": [],
+   "shared_domains": [
+    "ottawa.edu"
+   ],
+   "allowed_hosts": [
+    "ottawa.edu"
+   ],
+   "shared_hosts": [
+    "ottawa.edu"
+   ]
+  },
+  {
+   "institution_key": "ipeds-454582",
+   "unitid": 454582,
+   "name": "Ottawa University-Online",
+   "city": "Overland Park",
+   "state": "KS",
+   "folder": "ottawa-454582",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "ottawa.edu",
+   "allowed_domains": [
+    "ottawa.edu"
+   ],
+   "seeds": {
+    "website": "https://www.ottawa.edu/",
+    "admissions": "https://www.ottawa.edu/online-and-evening/admissions/admissions-process",
+    "financial_aid": "https://www.ottawa.edu/online-and-evening/tuition-and-financial-aid/financial-aid",
+    "net_price": "https://www.ottawa.edu/online-and-evening/tuition-and-financial-aid/financial-aid/undergraduate-cost-estimator"
+   },
+   "existing_sources": [],
+   "shared_domains": [
+    "ottawa.edu"
+   ],
+   "allowed_hosts": [
+    "ottawa.edu"
+   ],
+   "shared_hosts": [
+    "ottawa.edu"
+   ]
+  },
+  {
    "institution_key": "ipeds-155627",
    "unitid": 155627,
    "name": "Ottawa University-Ottawa",
@@ -897,7 +957,16 @@
     "financial_aid": "https://www.ottawa.edu/ouks/admissions/financial-aid",
     "net_price": "https://www.ottawa.edu/ouks/admissions/financial-aid/cost-estimator"
    },
-   "existing_sources": []
+   "existing_sources": [],
+   "shared_domains": [
+    "ottawa.edu"
+   ],
+   "allowed_hosts": [
+    "ottawa.edu"
+   ],
+   "shared_hosts": [
+    "ottawa.edu"
+   ]
   },
   {
    "institution_key": "ipeds-155681",

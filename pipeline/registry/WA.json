@@ -1,8 +1,49 @@
 {
  "state": "WA",
  "source": "IPEDS HD2023 (sources/ipeds/2023-24/manifest.json)",
- "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record",
+ "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record; four-year colleges without one are included when IPEDS INSTCAT is 2 or 3 (awards undergraduate degrees)",
  "institutions": [
+  {
+   "institution_key": "ipeds-245883",
+   "unitid": 245883,
+   "name": "Antioch University-Seattle",
+   "city": "Seattle",
+   "state": "WA",
+   "folder": "antiochseattle",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "antiochseattle.edu",
+   "allowed_domains": [
+    "antiochseattle.edu"
+   ],
+   "seeds": {
+    "website": "https://www.antiochseattle.edu/",
+    "admissions": "https://www.antiochseattle.edu/admissions/",
+    "financial_aid": "https://www.antiochseattle.edu/financial-aid-2/"
+   },
+   "existing_sources": []
+  },
+  {
+   "institution_key": "ipeds-235547",
+   "unitid": 235547,
+   "name": "Bastyr University",
+   "city": "Kenmore",
+   "state": "WA",
+   "folder": "bastyr",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "bastyr.edu",
+   "allowed_domains": [
+    "bastyr.edu"
+   ],
+   "seeds": {
+    "website": "https://www.bastyr.edu/",
+    "admissions": "https://www.bastyr.edu/admissions/",
+    "financial_aid": "https://www.bastyr.edu/admissions/financial-aid",
+    "net_price": "https://www.bastyr.edu/admissions/tuition-fees"
+   },
+   "existing_sources": []
+  },
   {
    "institution_key": "ipeds-235671",
    "unitid": 235671,
@@ -1312,7 +1353,46 @@
     "financial_aid": "https://www.whitworth.edu/cms/administration/financial-aid",
     "net_price": "https://publicforms.whitworth.edu/financial-aid/net-price-calculator/firstyear"
    },
-   "existing_sources": []
+   "existing_sources": [],
+   "shared_domains": [
+    "whitworth.edu"
+   ],
+   "allowed_hosts": [
+    "whitworth.edu"
+   ],
+   "shared_hosts": [
+    "whitworth.edu"
+   ]
+  },
+  {
+   "institution_key": "ipeds-475200",
+   "unitid": 475200,
+   "name": "Whitworth University-Adult Degree Programs",
+   "city": "Spokane",
+   "state": "WA",
+   "folder": "whitworth-475200",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "whitworth.edu",
+   "allowed_domains": [
+    "whitworth.edu"
+   ],
+   "seeds": {
+    "website": "https://www.whitworth.edu/cms/",
+    "admissions": "https://www.whitworth.edu/cms/academics/school-of-continuing-studies/",
+    "financial_aid": "https://www.whitworth.edu/cms/academics/school-of-continuing-studies/tuition-and-financial-aid/",
+    "net_price": "https://publicforms.whitworth.edu/financial-aid/net-price-calculator/firstyear"
+   },
+   "existing_sources": [],
+   "shared_domains": [
+    "whitworth.edu"
+   ],
+   "allowed_hosts": [
+    "whitworth.edu"
+   ],
+   "shared_hosts": [
+    "whitworth.edu"
+   ]
   },
   {
    "institution_key": "ipeds-237109",

@@ -1,7 +1,7 @@
 {
  "state": "TN",
  "source": "IPEDS HD2023 (sources/ipeds/2023-24/manifest.json)",
- "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record",
+ "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record; four-year colleges without one are included when IPEDS INSTCAT is 2 or 3 (awards undergraduate degrees)",
  "institutions": [
   {
    "institution_key": "ipeds-219505",
@@ -984,6 +984,27 @@
    "existing_sources": [
     "https://www.tnwesleyan.edu/admissions/undergraduate-admissions/dual-enrollment/"
    ]
+  },
+  {
+   "institution_key": "ipeds-487010",
+   "unitid": 487010,
+   "name": "The University of Tennessee Health Science Center",
+   "city": "Memphis",
+   "state": "TN",
+   "folder": "uthsc",
+   "control": "public",
+   "level": "four_year",
+   "domain": "uthsc.edu",
+   "allowed_domains": [
+    "uthsc.edu"
+   ],
+   "seeds": {
+    "website": "https://www.uthsc.edu/",
+    "admissions": "https://www.uthsc.edu/admissions",
+    "financial_aid": "https://www.uthsc.edu/financial-aid",
+    "net_price": "https://www.uthsc.edu/financial-aid/cost-of-attendance/index.php"
+   },
+   "existing_sources": []
   },
   {
    "institution_key": "ipeds-220701",

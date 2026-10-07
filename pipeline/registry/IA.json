@@ -1,7 +1,7 @@
 {
  "state": "IA",
  "source": "IPEDS HD2023 (sources/ipeds/2023-24/manifest.json)",
- "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record",
+ "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record; four-year colleges without one are included when IPEDS INSTCAT is 2 or 3 (awards undergraduate degrees)",
  "institutions": [
   {
    "institution_key": "ipeds-152798",
@@ -813,6 +813,26 @@
     "https://assets.nwciowa.edu/nwciowa/public/content/pdf/CCC.pdf",
     "https://www.nwciowa.edu/transfer-credits"
    ]
+  },
+  {
+   "institution_key": "ipeds-154174",
+   "unitid": 154174,
+   "name": "Palmer College of Chiropractic",
+   "city": "Davenport",
+   "state": "IA",
+   "folder": "palmer",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "palmer.edu",
+   "allowed_domains": [
+    "palmer.edu"
+   ],
+   "seeds": {
+    "website": "https://www.palmer.edu/",
+    "admissions": "https://www.palmer.edu/Admissions/",
+    "financial_aid": "https://www.palmer.edu/FinancialAid/"
+   },
+   "existing_sources": []
   },
   {
    "institution_key": "ipeds-154235",

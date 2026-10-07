@@ -1,7 +1,7 @@
 {
  "state": "VA",
  "source": "IPEDS HD2023 (sources/ipeds/2023-24/manifest.json)",
- "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record",
+ "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record; four-year colleges without one are included when IPEDS INSTCAT is 2 or 3 (awards undergraduate degrees)",
  "institutions": [
   {
    "institution_key": "ipeds-458113",
@@ -91,6 +91,27 @@
    "existing_sources": [
     "https://www.bluefield.edu/admissions/dual-enrollment/"
    ]
+  },
+  {
+   "institution_key": "ipeds-233356",
+   "unitid": 233356,
+   "name": "Bon Secours Memorial College of Nursing",
+   "city": "Richmond",
+   "state": "VA",
+   "folder": "bsmcon",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "bsmcon.edu",
+   "allowed_domains": [
+    "bsmcon.edu"
+   ],
+   "seeds": {
+    "website": "https://www.bsmcon.edu/",
+    "admissions": "https://www.bsmcon.edu/admissions",
+    "financial_aid": "https://www.bsmcon.edu/financial-aid",
+    "net_price": "https://www.bsmcon.edu/net-price-calculator"
+   },
+   "existing_sources": []
   },
   {
    "institution_key": "ipeds-231581",
@@ -1011,6 +1032,26 @@
     "admissions": "https://www.roanoke.edu/admissions",
     "financial_aid": "https://www.roanoke.edu/finaid",
     "net_price": "https://admapp.roanoke.edu/netcalc"
+   },
+   "existing_sources": []
+  },
+  {
+   "institution_key": "ipeds-232885",
+   "unitid": 232885,
+   "name": "Sentara College of Health Sciences",
+   "city": "Chesapeake",
+   "state": "VA",
+   "folder": "sentara",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "sentara.edu",
+   "allowed_domains": [
+    "sentara.edu"
+   ],
+   "seeds": {
+    "website": "https://www.sentara.edu/",
+    "admissions": "https://www.sentara.edu/admissions-aid",
+    "financial_aid": "https://www.sentara.edu/admissions-aid/applying-federal-aid"
    },
    "existing_sources": []
   },
