@@ -1,7 +1,7 @@
 {
  "state": "OR",
  "source": "IPEDS HD2023 (sources/ipeds/2023-24/manifest.json)",
- "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record",
+ "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record; four-year colleges without one are included when IPEDS INSTCAT is 2 or 3 (awards undergraduate degrees)",
  "institutions": [
   {
    "institution_key": "ipeds-208275",
@@ -392,6 +392,27 @@
    "existing_sources": []
   },
   {
+   "institution_key": "ipeds-209296",
+   "unitid": 209296,
+   "name": "National University of Natural Medicine",
+   "city": "Portland",
+   "state": "OR",
+   "folder": "nunm",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "nunm.edu",
+   "allowed_domains": [
+    "nunm.edu"
+   ],
+   "seeds": {
+    "website": "https://www.nunm.edu/",
+    "admissions": "https://nunm.edu/admissions/",
+    "financial_aid": "https://nunm.edu/financial-aid/",
+    "net_price": "https://studentservices.nunm.edu/tuition-and-fees/"
+   },
+   "existing_sources": []
+  },
+  {
    "institution_key": "ipeds-208725",
    "unitid": 208725,
    "name": "New Hope Christian College-Eugene",
@@ -435,6 +456,26 @@
    "existing_sources": [
     "https://oregoncoast.edu/cpl/"
    ]
+  },
+  {
+   "institution_key": "ipeds-209490",
+   "unitid": 209490,
+   "name": "Oregon Health & Science University",
+   "city": "Portland",
+   "state": "OR",
+   "folder": "ohsu",
+   "control": "public",
+   "level": "four_year",
+   "domain": "ohsu.edu",
+   "allowed_domains": [
+    "ohsu.edu"
+   ],
+   "seeds": {
+    "website": "https://www.ohsu.edu/",
+    "admissions": "https://www.ohsu.edu/education/academics-and-admissions",
+    "financial_aid": "https://www.ohsu.edu/education/financial-aid"
+   },
+   "existing_sources": []
   },
   {
    "institution_key": "ipeds-209506",
@@ -814,6 +855,27 @@
     "https://ww1.up.edu/admissions/files/ap-equivalents-2025.pdf",
     "https://ww1.up.edu/admissions/files/ib-equivalents-2025.pdf"
    ]
+  },
+  {
+   "institution_key": "ipeds-210438",
+   "unitid": 210438,
+   "name": "University of Western States",
+   "city": "Portland",
+   "state": "OR",
+   "folder": "uws",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "uws.edu",
+   "allowed_domains": [
+    "uws.edu"
+   ],
+   "seeds": {
+    "website": "https://www.uws.edu/",
+    "admissions": "https://www.uws.edu/admissions/",
+    "financial_aid": "https://www.uws.edu/admissions/financial-aid/",
+    "net_price": "https://www.uws.edu/consumer-information/"
+   },
+   "existing_sources": []
   },
   {
    "institution_key": "ipeds-210304",

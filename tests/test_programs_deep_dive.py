@@ -1522,6 +1522,71 @@ class FolderOwnershipTests(unittest.TestCase):
                 P.ROOT = old
 
 
+class ListedEmphasisTests(unittest.TestCase):
+    """UVU 2026-27 lists each emphasis as its own bachelor's program and has no line for the base degree."""
+    def test_listed_emphasis_is_a_program_only_without_a_base_degree(self):
+        import re
+        from programs.extract import listed_emphasis_pages
+        norm = lambda u: re.sub(r'/?$', '', u)
+        lists = {'x': {'programs': [
+            {'listed_as': 'bachelor', 'printed': 'Political Science - American Government Emphasis, B.A.College of Humanities', 'url': 'https://a/ps-ag'},
+            {'listed_as': 'bachelor', 'printed': 'Biology - Ecology Emphasis, B.S.College of Science', 'url': 'https://a/bio-eco'},
+            {'listed_as': 'bachelor', 'printed': 'Biology, B.S.College of Science', 'url': 'https://a/bio'},
+            {'listed_as': 'bachelor', 'printed': 'Forensic Science - Forensic Investigation Emphasis, B.SCollege of Health', 'url': 'https://a/fs'},
+            {'listed_as': 'bachelor', 'printed': 'Chemistry - Bio Emphasis, B.S.College', 'url': 'https://a/chem-bio'},
+            {'listed_as': 'bachelor', 'printed': 'Chemistry, B.A.College', 'url': 'https://a/chem-ba'},
+            {'listed_as': None, 'printed': 'Art - Paint Emphasis, Minor', 'url': 'https://a/art-minor'}]}}
+        self.assertEqual(sorted(u for _, u in listed_emphasis_pages(lists, norm)), ['https://a/chem-bio', 'https://a/fs', 'https://a/ps-ag'])
+
+    def test_award_glued_to_next_column_is_classified(self):
+        from programs.extract import list_award
+        glued = 'Architecture, B.ArchSmith College of Engineering and TechnologyUndergraduateBachelor'
+        self.assertEqual(list_award(glued, glued), 'bachelor')
+        self.assertIsNone(list_award('Accounting, MinorWoodbury School of BusinessUndergraduateMinor', 'Accounting, Minor'))
+
+    def test_listed_emphasis_page_is_kept(self):
+        from programs.extract import drops_option_page
+        found = [{'domain': 'academic_programs', 'record': {'program_name': 'Political Science - American Government Emphasis, B.A.'}}]
+        self.assertFalse(drops_option_page(found, 'k', 'https://a/ps-ag/', {('k', 'https://a/ps-ag')}))
+        self.assertTrue(drops_option_page(found, 'k', 'https://a/ps-ag/', set()))
+
+    def test_autoreview_approves_a_listed_emphasis_only_without_a_base_degree(self):
+        from programs import autoreview as A
+        from datetime import date
+        T = AutoReviewTests()
+        def at(c, url): c['record']['program_url'] = url; return c
+        cands = [at(T.prog('e1', 'Political Science - American Government Emphasis, B.A.'), 'https://a/ps-ag'),
+                 at(T.prog('e2', 'Biology - Ecology Emphasis, B.S.'), 'https://a/bio-eco'), at(T.prog('b', 'Biology, B.S.'), 'https://a/bio')]
+        lists = {'k': {'programs': [{'listed_as': 'bachelor', 'printed': 'Political Science - American Government Emphasis, B.A.', 'url': 'https://a/ps-ag'},
+                                    {'listed_as': 'bachelor', 'printed': 'Biology - Ecology Emphasis, B.S.', 'url': 'https://a/bio-eco'},
+                                    {'listed_as': 'bachelor', 'printed': 'Biology, B.S.', 'url': 'https://a/bio'}]}}
+        old = A.catalog_records; A.catalog_records = lambda *a: []
+        try: approve, _, held = A.review('ZZ', T.run_dir(cands, lists=lists), today=date(2026, 10, 7))
+        finally: A.catalog_records = old
+        self.assertEqual({a['candidate_id'] for a in approve}, {'e1', 'b'})
+        self.assertEqual(held['option_name'], 1)
+
+    def test_matriculation_sentences_are_evidence(self):
+        from programs.extract import EVIDENCE
+        rx = dict(EVIDENCE)['apply_to_major']
+        for s in ['To be considered matriculated in the Accounting degree, a student must complete the following courses with at least a C- grade:',
+                  'To be admitted to the BSME program, a student must complete the foundation courses in Mathematics.',
+                  'All prerequisite courses must be completed prior to application.',
+                  'Each application for acceptance into the program is for a specific semester only.']:
+            self.assertTrue(rx.search(s), s)
+class NationalStatusTests(unittest.TestCase):
+    def test_registered_researched_covered_kept_apart(self):
+        from programs import status
+        n = status.national([{'state': 'TN', 'covered_institutions': 1, 'institutions': [
+            {'status': 'covered', 'queue': []}, {'status': 'exception', 'queue': ['institution:bot_challenge']},
+            {'status': 'exception', 'queue': ['institution:not_yet_researched']}, {'status': 'not_started', 'queue': []}]}])
+        tn = next(r for r in n['states'] if r['state'] == 'TN')
+        self.assertEqual((tn['researched'], tn['covered'], tn['tracked']), (2, 1, True))
+        self.assertEqual(len(n['states']), 51)  # every registry jurisdiction, tracked or not
+        self.assertTrue(all(r['researched'] == r['covered'] == 0 for r in n['states'] if not r['tracked']))
+        self.assertEqual(n['registered'], sum(r['registered'] for r in n['states']))
+
+
 class EnteringWeightTests(unittest.TestCase):
     def test_open_admission_school_weighed_by_fall_first_time_count(self):
         from programs import status

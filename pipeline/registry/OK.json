@@ -1,7 +1,7 @@
 {
  "state": "OK",
  "source": "IPEDS HD2023 (sources/ipeds/2023-24/manifest.json)",
- "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record",
+ "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record; four-year colleges without one are included when IPEDS INSTCAT is 2 or 3 (awards undergraduate degrees)",
  "institutions": [
   {
    "institution_key": "ipeds-206817",
@@ -790,6 +790,27 @@
     "admissions": "https://www.uco.edu/admissions-aid/",
     "financial_aid": "https://www.uco.edu/admissions-aid/",
     "net_price": "https://www.uco.edu/admissions-aid/financial-aid/"
+   },
+   "existing_sources": []
+  },
+  {
+   "institution_key": "ipeds-207342",
+   "unitid": 207342,
+   "name": "University of Oklahoma-Health Sciences Center",
+   "city": "Oklahoma City",
+   "state": "OK",
+   "folder": "ouhsc",
+   "control": "public",
+   "level": "four_year",
+   "domain": "ouhsc.edu",
+   "allowed_domains": [
+    "ouhsc.edu"
+   ],
+   "seeds": {
+    "website": "https://ouhsc.edu/",
+    "admissions": "https://admissions.ouhsc.edu//default.aspx",
+    "financial_aid": "https://ouhsc.edu/financialservices/SFA/",
+    "net_price": "https://ouhsc.edu/financialservices/SFA/OUHSCCosts.asp"
    },
    "existing_sources": []
   },

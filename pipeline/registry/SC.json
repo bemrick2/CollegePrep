@@ -1,7 +1,7 @@
 {
  "state": "SC",
  "source": "IPEDS HD2023 (sources/ipeds/2023-24/manifest.json)",
- "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record",
+ "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record; four-year colleges without one are included when IPEDS INSTCAT is 2 or 3 (awards undergraduate degrees)",
  "institutions": [
   {
    "institution_key": "ipeds-217615",
@@ -602,6 +602,27 @@
     "admissions": "https://www.limestone.edu/admissions",
     "financial_aid": "https://www.limestone.edu/financial-aid",
     "net_price": "https://www.limestone.edu/admissions-aid/net-price-calculator"
+   },
+   "existing_sources": []
+  },
+  {
+   "institution_key": "ipeds-218335",
+   "unitid": 218335,
+   "name": "Medical University of South Carolina",
+   "city": "Charleston",
+   "state": "SC",
+   "folder": "musc",
+   "control": "public",
+   "level": "four_year",
+   "domain": "musc.edu",
+   "allowed_domains": [
+    "musc.edu"
+   ],
+   "seeds": {
+    "website": "https://web.musc.edu/",
+    "admissions": "https://education.musc.edu/admissions",
+    "financial_aid": "https://education.musc.edu/students/enrollment/financial-aid",
+    "net_price": "https://education.musc.edu/students/enrollment/bulletin/tuition-and-fees/2023-to-2024"
    },
    "existing_sources": []
   },
