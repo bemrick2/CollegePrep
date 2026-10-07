@@ -549,7 +549,9 @@ def parse_plangrid(t, footnote_defs):
                 continue
             m = cols[0]; slots.setdefault((m.group(1), m.group(2)), {})[m.group(3)] = c
         for col, s in slots.items():
-            if col not in by_col: issues.add('grid_cell_without_term'); continue
+            if col not in by_col:  # UAF Fifth Year with one term: its sum row still prints an empty second-term cell
+                if any(x.get('text') for x in s.values()): issues.add('grid_cell_without_term')
+                continue
             st = by_col[col]
             hours = (s.get('hourscol') or {}).get('text', '')
             if 'plangridsum' in cls:
@@ -595,15 +597,19 @@ def plangrid_candidates(inst, entry, grid_entry, doc, year, program_key):
                 m = re.match(r'^(\d+)\s*--\s*(.+)$', c.get('text') or '')
                 if m: defs[m.group(1)] = m.group(2).strip()
     grids_ = doc.get('grids') or []
+    heads = [(t.get('heading') or '').strip() for t in grids_]
+    # UAF prints one roadmap per concentration, each under its own heading ('Robotics Concentration', 'Without
+    # Concentration'): distinct headings name the plans, so several grids are not ambiguous there
+    labelled = len(grids_) > 1 and len(set(heads)) == len(heads) and all(h and h.lower() != 'roadmaps' for h in heads)
     out = []
     for i, t in enumerate(grids_, 1):
         terms, total, issues = parse_plangrid(t, defs)
         if not terms: continue
-        if len(grids_) > 1: issues.add('multiple_plan_grids')
-        key = 'roadmap' if len(grids_) == 1 else f'roadmap-{i}'
+        if len(grids_) > 1 and not labelled: issues.add('multiple_plan_grids')
+        key = 'roadmap' if len(grids_) == 1 else (f'roadmap-{slug(heads[i - 1])}'[:90] if labelled else f'roadmap-{i}')
         used = sorted({n for term in terms for it in term['items'] for x in [it, *it.get('options', [])] for n in x.get('footnotes', [])}, key=lambda n: (len(n), n))
         rd = {'schema': 'requirement_group/v1', 'catalog_year': year, 'group_type': 'sequence', 'category': 'recommended_sequence',
-              'terms': terms, 'source_section': ((t.get('heading') or 'Roadmap').strip() + (f' {i} of {len(grids_)}' if len(grids_) > 1 else ''))}
+              'terms': terms, 'source_section': (heads[i - 1] if labelled else (t.get('heading') or 'Roadmap').strip() + (f' {i} of {len(grids_)}' if len(grids_) > 1 else ''))}
         if used: rd['footnotes'] = {n: defs[n] for n in used if n in defs}
         if total: rd['rule_text'] = f'Total Credits {total} (as printed)'
         rec = {'program_key': program_key, 'requirement_key': key, 'requirement_kind': 'program_plan', 'rule_details': rd}
