@@ -192,15 +192,21 @@ def crawl_target(target, run: Run, fetcher, browser=None, log=print, caps=None):
         seen.add(url); counts[role] = counts.get(role, 0) + 1
         queue.append((url, role, via, depth))
 
-    if cat.get('home'): push(cat['home'], 'catalog_home', 'target')
-    if cat.get('platform') == 'courseleaf' and chost:  # CourseLeaf publishes /sitemap.xml: every catalog page
-        push(f'https://{chost}/sitemap.xml', 'sitemap', 'target')
-    for u in cat.get('program_lists', []): push(u, 'program_list', 'target')
-    for u in target.get('degree_maps', []): push(u, 'degree_map_index', 'target')
-    for u in (target.get('map_sources') or {}).get('lists', []): push(u, 'map_list', 'target')
-    for u in cat.get('catalog_pdfs', []): push(u, 'catalog_pdf', 'target')  # a catalog's own full PDF (fetched up to 80 MB)
-    for u in target.get('policy', []): push(u, 'policy', 'target')
-    for u in target.get('discover', []): push(u, 'discover', 'target')
+    if target.get('refetch'):
+        # A re-fetch run (issue #129): exactly these already-reviewed program pages, nothing discovered from them, so the
+        # new capture (Course List superscripts) is compared page for page with the stored one. A program page's links are
+        # never followed (expand), so nothing else is fetched.
+        for u in target['refetch']: push(u, 'program_page', 'refetch')
+    elif cat.get('home'): push(cat['home'], 'catalog_home', 'target')
+    if not target.get('refetch'):
+        if cat.get('platform') == 'courseleaf' and chost:  # CourseLeaf publishes /sitemap.xml: every catalog page
+            push(f'https://{chost}/sitemap.xml', 'sitemap', 'target')
+        for u in cat.get('program_lists', []): push(u, 'program_list', 'target')
+        for u in target.get('degree_maps', []): push(u, 'degree_map_index', 'target')
+        for u in (target.get('map_sources') or {}).get('lists', []): push(u, 'map_list', 'target')
+        for u in cat.get('catalog_pdfs', []): push(u, 'catalog_pdf', 'target')  # a catalog's own full PDF (fetched up to 80 MB)
+        for u in target.get('policy', []): push(u, 'policy', 'target')
+        for u in target.get('discover', []): push(u, 'discover', 'target')
     # Resume: re-expand stored pages' links
     for e in run.entries():
         if e.get('institution_key') == key and e.get('page_file'):

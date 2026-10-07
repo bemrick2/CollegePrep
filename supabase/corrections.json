@@ -385,6 +385,195 @@
       "reason": "The heading \"PSY/PSYS 440\" is a cross-listed course row, not a section: these courses are the tail of the program's elective list; the record called them all required. Held for review as a mixed required-and-choice group (issue #95).",
       "approved_by": "Brandon (repository owner), in the Claude session (authorization of 2026-10-06 17:28 CT to review all 48 records)",
       "approved_on": "2026-10-06"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-128391\", null, \"2026-27\", {\"program_key\": \"graphic-design-bachelor-of-arts\", \"requirement_key\": \"graphic-design-bachelor-of-arts-one-of-the-following-career-pathways\"}]",
+      "record": "data/institutions/western/degree_requirements/2026-27.json",
+      "reason": "The record is a choose_credits 18 group whose only courses are ART 219 and ART 319. In the source, ART 219 and ART 319 are the two REQUIRED courses inside the Art and Design Career Pathway, which is only one of four alternative 18-credit pathways. The other 12 credits of that pathway come from ART 203/230/235/280/286/346/357 ('and 12 credits of the following:'). A choice of 18 credits from just two courses is not printed anywhere. (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-128391\", null, \"2026-27\", {\"program_key\": \"graphic-design-bachelor-of-arts\", \"requirement_key\": \"graphic-design-bachelor-of-arts-and-12-credits-of-the-following\"}]",
+      "record": "data/institutions/western/degree_requirements/2026-27.json",
+      "reason": "The record marks 39 courses all_required, mixing the Art and Design pathway's '12 credits of the following' list (ART 203-357, a credit choice) with every course of the three other alternative pathways (COM, FILM/THTR, CS). Its rule_text is just the three pathway header rows. The source makes ART 203-357 a choose-12-credits list inside one pathway, and the COM/FILM/THTR/CS courses belong to separate alternatives of a choose-one-of-four-pathways rule. FILM 234 is also duplicated in the record. (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-152390\", null, \"2026-27\", {\"program_key\": \"studio-art-concentration-bachelor-of-arts\", \"requirement_key\": \"major-requirements-42-hours-studio-electives\"}]",
+      "record": "data/institutions/saintmarys/degree_requirements/2026-27.json",
+      "reason": "The 18-hour choice is recorded with an empty course list. The source prints the member courses of this choice under the area sub-headings that follow it (Ceramics:, Fibers:, New Media Art:, Painting:, Photo Media:, Printmaking:, Sculpture:, Electives:). The record also drops the printed footnote constraint ('At least three of the 12 hours at the 300-400 level.'). (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-152390\", null, \"2026-27\", {\"program_key\": \"studio-art-concentration-bachelor-of-arts\", \"requirement_key\": \"major-requirements-42-hours-electives\"}]",
+      "record": "data/institutions/saintmarys/degree_requirements/2026-27.json",
+      "reason": "'Electives:' (ART 225, 226, 308, 385, 499) is the last area sub-heading inside the Studio Electives 18-hour choice, at the same level as Ceramics:, Fibers:, and the other areas. It is not a standalone elective group, so the record wrongly treats a sub-heading inside a choice as its own elective_pool. (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-152390\", null, \"2026-27\", {\"program_key\": \"studio-art-concentration-bachelor-of-fine-arts\", \"requirement_key\": \"major-requirements-78-hours-studio-electives\"}]",
+      "record": "data/institutions/saintmarys/degree_requirements/2026-27.json",
+      "reason": "The 45-hour choice is recorded with an empty course list. The member courses are printed under the area sub-headings (Ceramics: through Electives:) that follow the rule. The footnote constraint ('At least three hours of the 12 hours at the 300 or 400 level.') is also missing. (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-152390\", null, \"2026-27\", {\"program_key\": \"studio-art-concentration-bachelor-of-fine-arts\", \"requirement_key\": \"major-requirements-78-hours-electives\"}]",
+      "record": "data/institutions/saintmarys/degree_requirements/2026-27.json",
+      "reason": "'Electives:' (ART 214, 225, 226, 308, 385, 499) is an area sub-heading inside the 45-hour Studio Electives choice, listed after Sculpture: and before the separate 'Upper Level Art History Electives' heading. It is not its own elective_pool group. (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-152390\", null, \"2026-27\", {\"program_key\": \"studio-art-and-art-history-double-concentration-bachelor-of-arts\", \"requirement_key\": \"major-requirements-66-hours-studio-electives\"}]",
+      "record": "data/institutions/saintmarys/degree_requirements/2026-27.json",
+      "reason": "The 18-hour choice is recorded with an empty course list. The source prints the member courses under the area sub-headings (Ceramics: through Electives:) directly below the rule. Footnote 1 ('At least three of the 12 hours at the 300-400 level.') is also omitted. (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-152390\", null, \"2026-27\", {\"program_key\": \"studio-art-and-art-history-double-concentration-bachelor-of-arts\", \"requirement_key\": \"major-requirements-66-hours-electives\"}]",
+      "record": "data/institutions/saintmarys/degree_requirements/2026-27.json",
+      "reason": "'Electives:' (ART 214, 225, 226, 308, 385, 499) is an area sub-heading inside the 18-hour Studio Electives choice, after Sculpture: and before 'Upper Level Art History Electives'. It is not a standalone elective_pool group. (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-152390\", null, \"2026-27\", {\"program_key\": \"studio-art-and-art-history-double-concentration-bachelor-of-arts\", \"requirement_key\": \"major-requirements-66-hours-upper-level-art-history-electives\"}]",
+      "record": "data/institutions/saintmarys/degree_requirements/2026-27.json",
+      "reason": "The record is an elective_pool with no courses. The source prints a counted choice: five courses (15 credits) from at least two of six areas, and lists each area's member courses. The record has the wrong group type (no count) and is missing every member course. The sibling records also split the area sub-headings (Ancient/Medieval, Contemporary, and so on) into separate all_required groups, which is the same structural error. (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-152390\", null, \"2026-27\", {\"program_key\": \"ecology-evolution-and-environmental-biology-concentration-bachelor-of-science\", \"requirement_key\": \"major-requirements-60-hours-one-of-the-following-to-fulfill-upper-level-research\"}]",
+      "record": "data/institutions/saintmarys/degree_requirements/2026-27.json",
+      "reason": "The heading says 'One of the following', so the source requires only one of the six courses. The record marks all six all_required. Its rule_text is also the next, unrelated row ('Additional math and/or science courses to bring the total to 60 hours if needed') plus the table total. (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-157951\", null, \"2026-27\", {\"program_key\": \"religious-studies-bachelor-of-arts\", \"requirement_key\": \"program-requirements-30-hours-electives\"}]",
+      "record": "data/institutions/wku/degree_requirements/2026-27.json",
+      "reason": "The record is an elective_pool with no courses, only the rule 'Select two courses from the following: 1 6'. The source prints a choose-two choice (6 hours) whose indented members are the any-RELS option plus ten named courses (ANTH 446, ART 316, ART 407, ENG 396, ENG 487, HIST 318, HIST 407, HIST 454, PSYS 451, SOCL 322). So this is a choice with its member courses missing, and the group type should be choose_courses with a count of 2, not an open pool. The members were instead put into the sibling record 'program-requirements-30-hours-any-rels-course-not-already-counted-toward-the-maj' as all_required, which is also wrong. (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-157951\", null, \"2026-27\", {\"program_key\": \"journalism-bachelor-of-arts\", \"requirement_key\": \"program-requirements-42-hours-diversity-elective\"}]",
+      "record": "data/institutions/wku/degree_requirements/2026-27.json",
+      "reason": "The choose-one type and the 22 diversity courses SMC 310 through SWRK 300 are correct. But the record also lists JOUR 426 as a member of the diversity choice. In the source, JOUR 426 sits under its own area header 'Captone' (3 hours), which is a separate required course, not an option in the Diversity Elective. The record's rule_text also absorbs 'Captone 3'. (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-157951\", null, \"2026-27\", {\"program_key\": \"philosophy-bachelor-of-arts\", \"requirement_key\": \"philosophy-track-31-hours-electives\"}]",
+      "record": "data/institutions/wku/degree_requirements/2026-27.json",
+      "reason": "The record is an elective_pool with no courses ('Select four of the following: 12'). The source prints a choose-four choice (12 hours) whose indented members are 'Any philosophy (PHIL) course that is not already counting towards one of the above categories.' plus RELS 242, RELS 317 and RELS 318. The member options are missing, and the group should be choose_courses with a count of 4. Those RELS courses were instead put into a sibling record marked all_required. (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-157951\", null, \"2026-27\", {\"program_key\": \"philosophy-bachelor-of-arts\", \"requirement_key\": \"philosophy-politics-and-policy-track-31-hours-electives\"}]",
+      "record": "data/institutions/wku/degree_requirements/2026-27.json",
+      "reason": "The record is an elective_pool with no courses. The source prints a 12-hour choice of at least two PHIL and at least two PS courses. Its indented members are any PHIL course not already counted, PS 201, PS 311, PS 316, PS 326, PS 327, PS 328, PS 330, PS 338, PS 340, and 'Any graduate political science (PS) course'. The member options are missing. Those PS courses were instead put into a sibling record marked all_required. (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-230737\", null, \"2026-27\", {\"program_key\": \"dance-b-s\", \"requirement_key\": \"program-requirements-strongly-recommended-3\"}]",
+      "record": "data/institutions/uvu/degree_requirements/2026-27.json",
+      "reason": "'Strongly Recommended:' is a label inside the Pre-Dance Therapy Electives requirement ('Complete 25 credits from any DANC, HLSC, or PSY course'). It is advisory, not its own group. The record makes it a choose_credits group of 20 credits and fills its rule_text with the separate 'Free Electives 20 Credits' area ('All Tracks complete 20 credits from any course 1000 or higher...'). That wrongly makes the recommended Pre-Dance Therapy courses the member list of the 20-credit free-elective requirement. (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-230737\", null, \"2026-27\", {\"program_key\": \"music-b-s\", \"requirement_key\": \"program-requirements-ensembles\"}]",
+      "record": "data/institutions/uvu/degree_requirements/2026-27.json",
+      "reason": "The record marks all six ensembles all_required. The source is a credit choice ('Complete eight credits of the following on your major instrument: 8') over six 1-credit repeatable ensembles. rule_text also appends the separate 'Elective Requirements 30 Credits' area. (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-230737\", null, \"2026-27\", {\"program_key\": \"theatre-studies-b-a\", \"requirement_key\": \"program-requirements-directing-courses\"}]",
+      "record": "data/institutions/uvu/degree_requirements/2026-27.json",
+      "reason": "'DIRECTING COURSES:' is a category label inside the Courselist A credit choice, introduced by 'Complete 6 credits from the following courses. A minimum of 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above.'. The record makes these courses an all_required group of their own. They are only optional members of the Courselist A choice, and the credit-count rule is missing. (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-230737\", null, \"2026-27\", {\"program_key\": \"theatre-studies-b-a\", \"requirement_key\": \"program-requirements-performance-courses\"}]",
+      "record": "data/institutions/uvu/degree_requirements/2026-27.json",
+      "reason": "'PERFORMANCE COURSES:' is a category label inside the Courselist A credit choice, introduced by 'Complete 6 credits from the following courses. A minimum of 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above.'. The record makes these courses an all_required group of their own. They are only optional members of the Courselist A choice, and the credit-count rule is missing. (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-230737\", null, \"2026-27\", {\"program_key\": \"theatre-studies-b-a\", \"requirement_key\": \"program-requirements-design-courses\"}]",
+      "record": "data/institutions/uvu/degree_requirements/2026-27.json",
+      "reason": "'DESIGN COURSES:' is a category label inside the Courselist B credit choice, introduced by 'Complete 15 credits from the following courses. A minimum of 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above.'. The record makes these courses an all_required group of their own. They are only optional members of the Courselist B choice, and the credit-count rule is missing. (The DESIGN COURSES label row is not indented in the layout, but its courses are indented under the Courselist B choice row, and no separate count is printed.) (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-230737\", null, \"2026-27\", {\"program_key\": \"theatre-studies-b-a\", \"requirement_key\": \"program-requirements-technical-production-courses\"}]",
+      "record": "data/institutions/uvu/degree_requirements/2026-27.json",
+      "reason": "'TECHNICAL PRODUCTION COURSES:' is a category label inside the Courselist B credit choice, introduced by 'Complete 15 credits from the following courses. A minimum of 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above.'. The record makes these courses an all_required group of their own. They are only optional members of the Courselist B choice, and the credit-count rule is missing. (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-230737\", null, \"2026-27\", {\"program_key\": \"theatre-studies-b-a\", \"requirement_key\": \"program-requirements-dramaturgy-courses\"}]",
+      "record": "data/institutions/uvu/degree_requirements/2026-27.json",
+      "reason": "'DRAMATURGY COURSES:' is a category label inside the Courselist C credit choice, introduced by 'Complete 15 credits from the following courses. At least 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above.'. The record makes these courses an all_required group of their own. They are only optional members of the Courselist C choice, and the credit-count rule is missing. (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-230737\", null, \"2026-27\", {\"program_key\": \"theatre-studies-b-a\", \"requirement_key\": \"program-requirements-film-studies-courses\"}]",
+      "record": "data/institutions/uvu/degree_requirements/2026-27.json",
+      "reason": "'FILM STUDIES COURSES:' is a category label inside the Courselist C credit choice, introduced by 'Complete 15 credits from the following courses. At least 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above.'. The record makes these courses an all_required group of their own. They are only optional members of the Courselist C choice, and the credit-count rule is missing. (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-230737\", null, \"2026-27\", {\"program_key\": \"theatre-studies-b-a\", \"requirement_key\": \"program-requirements-scriptwriting-courses\"}]",
+      "record": "data/institutions/uvu/degree_requirements/2026-27.json",
+      "reason": "'SCRIPTWRITING COURSES:' is a category label inside the Courselist C credit choice, introduced by 'Complete 15 credits from the following courses. At least 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above.'. The record makes these courses an all_required group of their own. They are only optional members of the Courselist C choice, and the credit-count rule is missing. (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-230737\", null, \"2026-27\", {\"program_key\": \"theatre-studies-b-a\", \"requirement_key\": \"program-requirements-theatre-administration-courses\"}]",
+      "record": "data/institutions/uvu/degree_requirements/2026-27.json",
+      "reason": "'THEATRE ADMINISTRATION COURSES:' is a category label inside the Courselist C credit choice, introduced by 'Complete 15 credits from the following courses. At least 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above.'. The record makes these courses an all_required group of their own. They are only optional members of the Courselist C choice, and the credit-count rule is missing. (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-230737\", null, \"2026-27\", {\"program_key\": \"theatre-studies-b-a\", \"requirement_key\": \"program-requirements-theatre-for-children-and-youth-courses\"}]",
+      "record": "data/institutions/uvu/degree_requirements/2026-27.json",
+      "reason": "'THEATRE FOR CHILDREN AND YOUTH COURSES:' is a category label inside the Courselist C credit choice, introduced by 'Complete 15 credits from the following courses. At least 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above.'. The record makes these courses an all_required group of their own. They are only optional members of the Courselist C choice, and the credit-count rule is missing. (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-230737\", null, \"2026-27\", {\"program_key\": \"theatre-studies-b-a\", \"requirement_key\": \"program-requirements-capstone-courses-2\"}]",
+      "record": "data/institutions/uvu/degree_requirements/2026-27.json",
+      "reason": "'CAPSTONE COURSES:' is a category label inside the Courselist C credit choice, introduced by 'Complete 15 credits from the following courses. At least 27 of the 36 credits in Courselists A, B, and C must be at the 3000 level or above.'. The record makes these courses an all_required group of their own. They are only optional members of the Courselist C choice, and the credit-count rule is missing. rule_text also holds the unrelated 'Foreign Language Requirement 12 Credits' and 'Free Elective Requirement 11 Credits' rows. (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-152390\", null, \"2026-27\", {\"program_key\": \"exercise-science-health-and-fitness-bachelor-of-arts\", \"requirement_key\": \"exercise-science-health-and-fitness-bachelor-of-arts-exhf-supporting-required-2\"}]",
+      "record": "data/institutions/saintmarys/degree_requirements/2026-27.json",
+      "reason": "Ambiguous as printed: A second 'Supporting Required: 1' label is printed above PHIL 255, PHYS 111, PHYS 112, PSYC 305, which supports the record's all_required reading. However, in the layout these four rows are indented with blank credit cells, exactly like the BIO 240/318/340/417 members of 'Choose 3-4 courses from the following: | 11-12'. The first Supporting Required block, by contrast, is unindented and prints credits. The printed total also has no room for them: required courses 28 cr (4+4+3+4+3+3+3+1+3) + first supporting block 12 cr (4+2+3+3) + the 11-12 cr choice = 51-52, the printed 'Total Credits | 51-52'. Requiring four more courses would push the total far above that. So the page can be read either as four more required supporting courses (the label) or as further members of the choose 3-4 list under a stray comment row (indentation and arithmetic). The arithmetic favors the choice-member reading. The rule_text 'Total Credits 51-52' is just the table total. (issue #119)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
+      "approved_on": "2026-10-07"
     }
   ]
 }

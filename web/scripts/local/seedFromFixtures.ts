@@ -7,6 +7,7 @@
 // hosted database.
 import { createHash } from 'node:crypto'
 import { QUESTIONS, SKILLS, STRATEGIES, TRAPS } from '../../src/lib/data/demo/fixtures'
+import { isReviewed } from '../../src/lib/data/demo/questionReview'
 
 const q = (s: string | null | undefined) => (s == null ? 'null' : `'${s.replace(/'/g, "''")}'`)
 const j = (v: unknown) => `${q(JSON.stringify(v))}::jsonb`
@@ -56,7 +57,7 @@ for (const x of QUESTIONS) {
   const accepted = x.answer_format === 'numeric' ? x.accepted_answers.filter((a) => /^-?([0-9]+\.?[0-9]*|\.[0-9]+|[0-9]+\/[0-9]+)$/.test(a.replace(/\s/g, ''))) : x.accepted_answers
   const remember = x.remember && x.remember.trim().split(/\s+/).length <= 16 ? x.remember : null
   out.push(
-    `insert into public.practice_questions(id, exam_version_id, question_type_id, section, difficulty, difficulty_label, stem, choices, answer_format, accepted_answers, hints, teaching_explanation, strategy_explanation, expected_time_seconds, status, passage_id, remember_text, source_attribution) values (${q(id)}, ${q(ev)}, ${q(uid(`qt:${x.exam_family}:${x.answer_format}`))}, ${q(x.section)}, ${x.difficulty}, ${q(label(x.difficulty))}, ${q(x.stem)}, ${j(x.choices)}, ${q(x.answer_format)}, ${j(accepted)}, ${j(x.hints)}, ${q(x.teaching_explanation)}, ${q(x.strategy_explanation)}, ${x.expected_time_seconds}, 'published', ${passage}, ${q(remember)}, 'Prep & Price original demo item') on conflict do nothing;`,
+    `insert into public.practice_questions(id, exam_version_id, question_type_id, section, difficulty, difficulty_label, stem, choices, answer_format, accepted_answers, hints, teaching_explanation, strategy_explanation, expected_time_seconds, status, passage_id, remember_text, source_attribution) values (${q(id)}, ${q(ev)}, ${q(uid(`qt:${x.exam_family}:${x.answer_format}`))}, ${q(x.section)}, ${x.difficulty}, ${q(label(x.difficulty))}, ${q(x.stem)}, ${j(x.choices)}, ${q(x.answer_format)}, ${j(accepted)}, ${j(x.hints)}, ${q(x.teaching_explanation)}, ${q(x.strategy_explanation)}, ${x.expected_time_seconds}, ${isReviewed(x) ? "'published'" : "'draft'"}, ${passage}, ${q(remember)}, 'Prep & Price original demo item') on conflict do nothing;`,
   )
   out.push(`insert into public.practice_question_skills(question_id, skill_id, is_primary) values (${q(id)}, ${q(uid(`sk:${x.primary_skill_key}`))}, true) on conflict do nothing;`)
   for (const d of x.distractors)

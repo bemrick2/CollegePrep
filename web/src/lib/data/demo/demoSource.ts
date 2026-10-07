@@ -45,8 +45,10 @@ type Fx = typeof import('./fixtures') & {
 }
 let fxPromise: Promise<Fx> | null = null
 export function loadFixtures(): Promise<Fx> {
-  fxPromise ??= Promise.all([import('./fixtures'), import('./comparison-snapshot.json')]).then(([f, snap]) => ({
+  fxPromise ??= Promise.all([import('./fixtures'), import('./comparison-snapshot.json'), import('./questionReview')]).then(([f, snap, review]) => ({
     ...f,
+    // Only items whose current content a review approved are served (questionReview.ts).
+    QUESTIONS: review.reviewedOnly(f.QUESTIONS),
     byId: new Map(f.QUESTIONS.map((q) => [q.id, q])),
     snapshot: snap.default as unknown as Fx['snapshot'],
   }))

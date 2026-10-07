@@ -296,7 +296,7 @@ export function Benchmark() {
 
   if (phase === 'done') {
     if (!summary) return <PageLoading />
-    return <BenchmarkResults summary={summary} strategies={catalog.strategies} traps={catalog.traps} skillName={catalog.skillName} />
+    return <BenchmarkResults summary={summary} strategies={catalog.strategies} traps={catalog.traps} skillName={catalog.skillName} history={history.data ?? []} />
   }
 
   const answeredInSection = records.filter((r) => r.section === section?.section).length

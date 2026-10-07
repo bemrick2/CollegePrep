@@ -26,6 +26,7 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-18 | Loan terms (federal limits, rates) as sourced records | ⏳ open | Families enter planned borrowing; it is shown as borrowed, never as a saving; no limits or rates shown |
 | CR-19 | Credit applicability: hours on equivalency rows, elective/gen-ed designations, plans for more majors | ⏳ open | Credit checked course by course against the major's verified plan where one exists; otherwise "unknown"; savings shown only as potential |
 | CR-20 | Cost-of-attendance period (academic year vs 12 months) | ⏳ open | COA labelled "academic year"; summer and break living is the family's own number |
+| CR-21 | Question review metadata; serve only reviewed items | ⏳ open | Demo and local DB serve only items whose current content hash a review approved (`questionReview.ts`); live has no review fields |
 
 Live content note: the bank has no exam versions, skills or questions yet, so live practice and benchmarks show their empty states until content is loaded.
 
@@ -285,6 +286,19 @@ Savings are shown only as potential, under stated assumptions. The UTK snapshot 
 **Need.** On `institution_costs`, `period` (`academic_year` with months, or `twelve_month`), from the school's budget page.
 
 **Why.** The view treats the published budget as the academic year, and asks the family for summer and break living separately. If a school's budget already covers twelve months, that would double-count.
+## CR-21. Question review metadata
+
+**Need.** These columns on `practice_questions`:
+- `review_status` (`approved`, `changes_needed`, `rejected`);
+- `reviewed_at`;
+- `review_method`;
+- `content_hash`.
+
+`start_practice_session`, `start_practice_attempt` and the published-question policy should also require `review_status = 'approved'` and a hash matching the current content, as well as `status = 'published'`.
+
+**Why.** The live bank is empty today. When content is loaded, nothing in the schema says whether an item's key and explanations were checked.
+
+In the app and the local database, an item is served only if a review approved its exact current content. The review record lives at `web/src/lib/data/demo/questionReviews.json`, built by `scripts/local/recordReviews.ts`. The method is two independent blind solves of every item, plus a key and explanation audit; disagreements are worked by hand. It is AI review, not human editorial review, and the record says so (`human_reviewed: false`).
 
 ## Product decisions flagged (not contract requests)
 

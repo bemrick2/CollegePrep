@@ -804,7 +804,7 @@ const ACT_MATH: FixtureQuestion[] = [
     section: 'math',
     difficulty: 4,
     stem:
-      'A bag holds 4 red, 5 blue, and 3 green marbles. Two marbles are drawn at random, one after the other, without replacement. What is the probability that both marbles are blue? Enter your answer as a fraction in lowest terms or a decimal.',
+      'A bag holds 4 red, 5 blue, and 3 green marbles. Two marbles are drawn at random, one after the other, without replacement. What is the probability that both marbles are blue? Enter your answer as a fraction in lowest terms or as a decimal rounded to the nearest thousandth.',
     choices: [],
     answer_format: 'numeric',
     accepted_answers: ['5/33', '0.1515', '.1515', '0.1516', '.1516', '0.152', '.152'],
@@ -1287,7 +1287,7 @@ const ACT_SCIENCE: FixtureQuestion[] = [
       { choice: 'D', rationale: 'The release angle is controlled by how the bob is released, not by how many swings are timed.', trap: 'true_but_irrelevant' },
     ],
     strategies: [
-      { strategy_key: 'process_of_elimination', role: 'primary', is_fastest: true, explanation: 'B, C, and D claim timing changes the pendulum itself, which it cannot.' },
+      { strategy_key: 'process_of_elimination', role: 'primary', is_fastest: true, explanation: 'B and C claim the timing method changes the pendulum itself, and D confuses how the swings are timed with how the bob is released; only A names a source of measurement error.' },
     ],
   },
   {
@@ -1585,7 +1585,7 @@ const SAT_RW: FixtureQuestion[] = [
     section: 'reading_writing',
     difficulty: 4,
     passage:
-      "The following text is from a novel. In the opening chapter, the narrator describes the family farm in loving detail: the creak of the porch swing, the smell of cut hay drying in the sun, the rows of corn stretching all the way to the tree line, and the old dog asleep in the shade of the barn. Only on the chapter's final page does the narrator mention that the farm was sold decades ago and that she has not seen it since she was a child.",
+      "The following text is from a novel. The porch swing creaks whenever the wind comes up from the creek. Cut hay dries in the sun, sweet and dusty; the rows of corn run all the way to the tree line; and the old dog sleeps in the shade of the barn. I can still walk every inch of it with my eyes closed, though the farm was sold forty years ago and I have not stood on that porch since I was nine.",
     stem: 'Which choice best describes the function of the final sentence in the overall structure of the text?',
     choices: [
       { key: 'A', text: 'It reveals information that recasts the earlier description as a memory rather than a present scene.' },
@@ -1599,7 +1599,7 @@ const SAT_RW: FixtureQuestion[] = [
     primary_skill_key: 'sat_craft_structure',
     hints: ['How does your understanding of the farm description change after you read the last sentence?'],
     teaching_explanation:
-      'The vivid details seem at first to describe a place the narrator is in now. The final sentence reveals the farm was sold long ago, so the reader realizes the description is a memory. That is a shift in how the earlier details are understood.',
+      'The present-tense details seem at first to describe a place the narrator is in now. The final sentence reveals the farm was sold forty years ago, so the reader realizes the description is a memory. That is a shift in how the earlier details are understood.',
     strategy_explanation: 'For function questions, ask what a sentence does to the rest of the text, not just what it says.',
     remember: 'Function questions ask what a sentence does, not what it says.',
     distractors: [

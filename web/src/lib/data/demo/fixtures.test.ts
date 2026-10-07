@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { QUESTIONS, SKILLS, STRATEGIES, TRAPS } from './fixtures'
+import { REVIEW_RECORD, contentHash, isReviewed, reviewedOnly } from './questionReview'
 
 const EXPECTED_COUNTS: Record<string, number> = {
   'act/english': 10,
@@ -11,6 +12,27 @@ const EXPECTED_COUNTS: Record<string, number> = {
 }
 
 const sectionKey = (q: { exam_family: string; section: string }) => `${q.exam_family}/${q.section}`
+
+describe('content review gate', () => {
+  it('every item in the bank is approved for its current content (edit an item -> re-review -> regenerate the record)', () => {
+    const stale = QUESTIONS.filter((q) => !isReviewed(q)).map((q) => q.id)
+    expect(stale, 'run the review and scripts/local/recordReviews.ts for these items').toEqual([])
+  })
+
+  it('an edit voids the approval, and unreviewed items are not served', () => {
+    const q = QUESTIONS[0]!
+    const edited = { ...q, stem: q.stem + ' ' }
+    expect(contentHash(edited)).not.toBe(contentHash(q))
+    expect(isReviewed(edited)).toBe(false)
+    expect(reviewedOnly([q, edited, { ...q, id: 'never-reviewed' }]).map((x) => x.stem)).toEqual([q.stem])
+  })
+
+  it('records how the review was done, and does not claim a human review', () => {
+    expect(REVIEW_RECORD.human_reviewed).toBe(false)
+    expect(REVIEW_RECORD.method).toMatch(/blind solves/)
+    for (const r of Object.values(REVIEW_RECORD.items)) if (r.blind_solves[0] < r.blind_solves[1]) expect(r.notes, 'a disagreement needs a recorded resolution').toBeTruthy()
+  })
+})
 
 describe('demo fixtures', () => {
   it('has the expected number of questions per exam and section', () => {
