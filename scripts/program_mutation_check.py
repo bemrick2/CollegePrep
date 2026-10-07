@@ -72,7 +72,7 @@ MUTS = [
     ('programs/extract.py', "    path = '/'.join(seg for seg in urlsplit(href).path.split('/') if 'degree' not in seg.lower())", "    path = urlsplit(href).path"),
     ('programs/extract.py', "    named = (page.title or '').split(' | ')[0].split(' < ')[0].strip()", "    named = (page.title or '').split(' | ')[0].strip()"),
     ('programs/extract.py', "    while hs and YEAR_HEADING.match(hs[0]): hs = hs[1:]", "    pass"),
-    ('programs/extract.py', " or OPTION_NAME.search(name) or GENERIC_DEGREES.match(name): return []", " or OPTION_NAME.search(name): return []"),
+    ('programs/extract.py', "    if credential_of(name) != 'bachelor' or GENERIC_DEGREES.match(name): return []", "    if credential_of(name) != 'bachelor': return []"),
     ('programs/detect.py', "                if ys: pdfs.append((max(ys), href, m))", "                pdfs.append((max(ys or {0}), href, m))"),
     ('programs/detect.py', "            elif u.path.lower().endswith('.pdf') and CATALOG_WORD.search(a + ' ' + u.path) and not re.search(r'graduate|archive|handbook', a + u.path, re.I):", "            elif u.path.lower().endswith('.pdf') and CATALOG_WORD.search(a + ' ' + u.path):"),
     ('programs/crawl.py', "            **({'degree_map': 0, 'degree_map_index': 0, 'policy_link': 0} if target.get('mode') == 'discover' else {}),", "            **({}),"),
@@ -194,6 +194,10 @@ MUTS = [
      "    labelled = len(grids_) > 1 and all(h for h in heads)"),
     ('programs/courseleaf.py', "                if any(x.get('text') for x in s.values()): issues.add('grid_cell_without_term')", "                pass"),
     ('programs/autoreview.py', " and not PAREN_VARIANT_ENTRY.match(n) and _degree_key(n):", " and _degree_key(n):"),
+    # Texas A&M 'X - BS, Y Track' list lines; track pages passed to the listed rule
+    ('programs/extract.py', "\n                or AWARD_DASH_OPTION_ENTRY.match(line)", ""),
+    ('programs/extract.py', "(p.get('printed') or '').replace('\\u200b', '')", "(p.get('printed') or '')"),
+    ('programs/extract.py', "    if credential_of(name) != 'bachelor' or GENERIC_DEGREES.match(name): return []", "    if credential_of(name) != 'bachelor' or OPTION_NAME.search(name) or GENERIC_DEGREES.match(name): return []"),
 ]
 
 

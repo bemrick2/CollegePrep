@@ -1914,6 +1914,28 @@ class ListedEmphasisTests(unittest.TestCase):
         self.assertEqual(listed_emphasis_pages(L(('Chemistry (Pre-Med)', 'c')), norm), set())  # no award printed: no degree line
         self.assertEqual(listed_emphasis_pages(L(('Marine Bio (Ecology)', 'm')), norm), set())  # 'Bio' is a word, not an award
 
+    def test_texas_am_dash_award_track_lines(self):  # Texas A&M 2026-27 Program Search list
+        import re
+        from programs.extract import listed_emphasis_pages
+        norm = lambda u: re.sub(r'/?$', '', u)
+        L = lambda *rows: {'x': {'programs': [{'listed_as': 'bachelor', 'printed': p, 'url': f'https://a/{u}'} for p, u in rows]}}
+        lists = L(('Civil Engineering -\u200b BS, Coastal Engineering Track', 'cv1'), ('Civil Engineering -\u200b BS, Structural Engineering Track', 'cv2'),
+                  ('Finance -\u200b BBA', 'fin'), ('Finance -\u200b BBA, Real Estate Track', 'fin-re'),
+                  ('Civil Engineering -\u200b MS', 'cv-ms'), ('History - BA, Pre-Law', 'hist-pl'))
+        self.assertEqual(sorted(u for _, u in listed_emphasis_pages(lists, norm)), ['https://a/cv1', 'https://a/cv2'])
+
+    def test_static_reader_passes_track_pages_to_the_listed_rule(self):  # Texas A&M track pages
+        from pipeline import text as T
+        e = {'url': 'https://catalog.x.edu/undergraduate/eng/civil/bs-coastal-engineering-track/', 'role': 'program_page', 'sha256': 'a' * 64,
+             'fetched_at': '2026-10-06T00:00:00+00:00', 'status': 200, 'kind': 'html'}
+        name = 'Civil Engineering - BS, Coastal Engineering Track'
+        page = T.Page('2026-2027 Edition\n' + name, name + ' < X Catalogs', [], [], ['X Catalogs', '2026-2027 Edition', name])
+        got = X.static_program_identity({'institution_key': 'k'}, e, page, '2026-27')
+        self.assertEqual([c['record']['program_name'] for c in got], [name])
+        # unless the list prints it as the degree's only entry, the extraction loop drops it as an option page
+        self.assertTrue(X.drops_option_page(got, 'k', e['url'], set()))
+        self.assertFalse(X.drops_option_page(got, 'k', e['url'], {('k', X.norm_emph(e['url']))}))
+
     def test_degree_page_plan_headings_keep_the_degree(self):  # Colorado, Maryland, Missouri, Tennessee, KU engineering 2026-27
         from pipeline import text as T
         e = {'url': 'https://catalog.x.edu/as/anthropology/anthropology-bachelor-arts-ba/', 'role': 'program_page', 'sha256': 'a' * 64,
