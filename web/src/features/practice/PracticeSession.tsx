@@ -49,7 +49,7 @@ export function PracticeSession() {
   useEffect(() => {
     if (!student || plan.loading || session) return
     // A reminder tap opens a short session (?quick=1); ?r= records that the reminder was opened.
-    const minutes = quick ? QUICK_SESSION_MINUTES : Math.min(15, Math.max(5, plan.data?.daily_minutes ?? 10))
+    const minutes = quick ? QUICK_SESSION_MINUTES : Math.min(source.supportsAccountSetup ? 30 : 15, Math.max(5, plan.data?.daily_minutes ?? 10))
     if (reminderId) void source.markReminderOpened(reminderId).catch(() => {})
     source.startSession(student.id, minutes, exam).then(setSession, (e: Error) => setError(e.message))
     // Start once per mount.

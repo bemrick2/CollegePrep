@@ -22,6 +22,7 @@ import type {
   PracticeSession,
   PublicQuestion,
   SkillEstimate,
+  SetupProgress,
   StudentPlan,
   SubmitInput,
   SubmitResult,
@@ -155,7 +156,7 @@ export class LiveSource implements DataSource {
   /** weeklyDigest: the backend has CR-22 (alert_preferences.weekly_digest). Off until it is applied on hosted. */
   constructor(
     private sb: SupabaseClient,
-    private opts: { weeklyDigest?: boolean; reminders?: boolean } = {},
+    private opts: { weeklyDigest?: boolean; reminders?: boolean; accountSetup?: boolean } = {},
   ) {}
 
   /** reminders: the backend has CR-27. Off until it is applied on hosted; the app then offers no reminders. */
@@ -457,7 +458,8 @@ export class LiveSource implements DataSource {
     })
   }
 
-  async addTestScore(studentId: string, score: { exam_family: ExamFamily; test_date: string; composite: number; section_scores: Record<string, number> }): Promise<string> {
+  async addTestScore(studentId: string, score: { exam_family: ExamFamily; test_date: string; composite: number; section_scores: Record<string, number>; source?: 'self_reported' | 'practice_test' }): Promise<string> {
+    if (score.source === 'practice_test' && !this.supportsAccountSetup) throw new DataError('Practice-test scores need CR-26 on the backend', 'invalid')
     // The score belongs to the exam version in force on the test date (latest effective_from on or before it).
     const ev = await this.sb
       .from('exam_versions')
@@ -471,7 +473,7 @@ export class LiveSource implements DataSource {
     if (!ev.data) throw new DataError(`No ${score.exam_family.toUpperCase()} version covers that test date yet`, 'invalid')
     const { data, error } = await this.sb
       .from('student_test_scores')
-      .insert({ student_id: studentId, exam_version_id: ev.data.id, test_date: score.test_date, composite: score.composite, section_scores: score.section_scores, score_source: 'self_reported' })
+      .insert({ student_id: studentId, exam_version_id: ev.data.id, test_date: score.test_date, composite: score.composite, section_scores: score.section_scores, score_source: score.source ?? 'self_reported' })
       .select('id')
       .single()
     if (error) fail(error)
@@ -604,19 +606,49 @@ export class LiveSource implements DataSource {
     return null
   }
 
+  /** accountSetup: the backend has CR-26 (setup answers on the account, 5–30 minute sessions). */
+  get supportsAccountSetup() {
+    return !!this.opts.accountSetup
+  }
+
   async getPlan(studentId: string): Promise<StudentPlan | null> {
-    const { data, error } = await this.sb
-      .from('student_planning_preferences')
-      .select('exam_family, target_score, goals, daily_minutes')
-      .eq('student_id', studentId)
-      .maybeSingle()
+    const cols = this.supportsAccountSetup ? 'exam_family, target_score, goals, daily_minutes, exam_intent, planned_test_date, study_days' : 'exam_family, target_score, goals, daily_minutes'
+    const { data, error } = await this.sb.from('student_planning_preferences').select(cols).eq('student_id', studentId).maybeSingle()
     if (error) fail(error)
     if (!data) return null
-    return { exam_family: (data.exam_family ?? 'act') as ExamFamily, target_score: data.target_score, goals: data.goals ?? [], daily_minutes: data.daily_minutes ?? 10 }
+    const r = data as unknown as { exam_family: ExamFamily | null; target_score: number | null; goals: string[] | null; daily_minutes: number | null; exam_intent?: StudentPlan['exam_intent']; planned_test_date?: string | null; study_days?: number[] | null }
+    return {
+      exam_family: (r.exam_family ?? 'act') as ExamFamily,
+      target_score: r.target_score,
+      goals: r.goals ?? [],
+      daily_minutes: r.daily_minutes ?? 10,
+      ...(this.supportsAccountSetup ? { exam_intent: r.exam_intent ?? null, planned_test_date: r.planned_test_date ?? null, study_days: r.study_days ?? null } : {}),
+    }
+  }
+
+  async setupProgress(studentId: string): Promise<SetupProgress | null> {
+    if (!this.supportsAccountSetup) return null
+    const { data, error } = await this.sb.from('student_setup_progress').select('setup_completed_at, starting_point_answered_at, benchmark_scheduled_for').eq('student_id', studentId).maybeSingle()
+    if (error) fail(error)
+    return data ? { setupCompletedAt: data.setup_completed_at, startingPointAnsweredAt: data.starting_point_answered_at, benchmarkScheduledFor: data.benchmark_scheduled_for } : null
+  }
+
+  async saveSetupProgress(studentId: string, patch: { setupCompleted?: boolean; startingPointAnswered?: boolean; benchmarkScheduledFor?: string | null }) {
+    if (!this.supportsAccountSetup) return
+    await rpc(this.sb, 'update_setup_progress', {
+      p_student: studentId,
+      p_patch: { setup_completed: !!patch.setupCompleted, starting_point_answered: !!patch.startingPointAnswered, ...('benchmarkScheduledFor' in patch ? { benchmark_scheduled_for: patch.benchmarkScheduledFor } : {}) },
+    })
   }
 
   async savePlan(studentId: string, plan: StudentPlan) {
-    const row = { exam_family: plan.exam_family, target_score: plan.target_score, goals: plan.goals, daily_minutes: plan.daily_minutes }
+    const row = {
+      exam_family: plan.exam_family,
+      target_score: plan.target_score,
+      goals: plan.goals,
+      daily_minutes: plan.daily_minutes,
+      ...(this.supportsAccountSetup && plan.exam_intent !== undefined ? { exam_intent: plan.exam_intent, planned_test_date: plan.planned_test_date ?? null, study_days: plan.study_days ?? null } : {}),
+    }
     const existing = await this.sb.from('student_planning_preferences').select('student_id').eq('student_id', studentId).maybeSingle()
     if (existing.error) fail(existing.error)
     const r = existing.data

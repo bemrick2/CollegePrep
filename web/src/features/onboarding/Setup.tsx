@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { realName, useApp, useAsync } from '../../lib/app'
-import type { ExamFamily, Student, StudentPlan, TestScore } from '../../lib/data/types'
+import type { ExamFamily, SetupProgress, Student, StudentPlan, TestScore } from '../../lib/data/types'
 import { browserTimeZone, localDate, weekStartOf } from '../../lib/engine/dates'
 import { planBenchmark } from '../../lib/engine/benchmark'
 import { contentStatus } from '../../lib/engine/freshness'
@@ -29,7 +29,6 @@ interface Draft {
   name: string
   gradYear: number | null
   homeState: string
-  highSchool: string
   intent: ExamIntent | null
   primary: ExamFamily | null
   testDate: string | null | undefined
@@ -56,7 +55,6 @@ const blank = (role: Role | null, name: string): Draft => ({
   name,
   gradYear: null,
   homeState: '',
-  highSchool: '',
   intent: null,
   primary: null,
   testDate: undefined,
@@ -84,6 +82,8 @@ interface Existing {
   scores: TestScore[]
   weeklyGoal: number | null
   hasBaseline: boolean
+  /** CR-26 on the account (null where the backend doesn't have it). */
+  progress: SetupProgress | null
 }
 
 export function Setup({ role: routeRole }: { role?: Role }) {
@@ -98,13 +98,14 @@ export function Setup({ role: routeRole }: { role?: Role }) {
   const existing = useAsync<Existing | null>(async () => {
     if (!myStudent) return null
     const tz = myStudent.time_zone ?? ctx?.households.find((h) => h.id === myStudent.household_id)?.time_zone ?? browserTimeZone()
-    const [plan, scores, week, benchmarks] = await Promise.all([
+    const [plan, scores, week, benchmarks, progress] = await Promise.all([
       source.getPlan(myStudent.id),
       source.testScores(myStudent.id).catch(() => []),
       source.weeklyProgress(myStudent.id, weekStartOf(localDate(new Date(), tz))).catch(() => null),
       source.listBenchmarks(myStudent.id).catch(() => []),
+      source.setupProgress(myStudent.id).catch(() => null),
     ])
-    return { student: myStudent, plan, scores, weeklyGoal: week?.goal?.target_questions ?? null, hasBaseline: benchmarks.length > 0 }
+    return { student: myStudent, plan, scores, weeklyGoal: week?.goal?.target_questions ?? null, hasBaseline: benchmarks.length > 0, progress }
   }, [source, myStudent?.id])
 
   if (!finishedHere && (loading || !ctx || (myStudent && existing.loading))) return <PageLoading />
@@ -168,8 +169,8 @@ function SetupFlow(p: {
     const out: Screen[] = []
     if (mode === 'self' && existing && existing.student.graduation_year == null) out.push('about')
     if (canPlan && !existing?.plan) out.push('test')
-    if (!(existing?.scores.length || stored.startingPointDone)) out.push('start')
-    if (canPlan && (!existing?.plan || !stored.studyDays?.length)) out.push('plan')
+    if (!(existing?.scores.length || existing?.progress?.startingPointAnsweredAt || stored.startingPointDone)) out.push('start')
+    if (canPlan && (!existing?.plan || !(existing.plan.study_days?.length || stored.studyDays?.length))) out.push('plan')
     return out
   }, [mode, existing, canPlan, stored])
   const screen: Screen | null = d.screen && screens.includes(d.screen) ? d.screen : (screens[0] ?? null)
@@ -224,12 +225,14 @@ function SetupFlow(p: {
         exam={exam}
         weekly={canPlan ? d.weekly : existing?.weeklyGoal ?? null}
         minutes={canPlan ? d.minutes : existing?.plan?.daily_minutes ?? null}
-        studyDays={canPlan ? d.studyDays : stored.studyDays ?? []}
+        studyDays={canPlan && screens.includes('plan') ? d.studyDays : (existing?.plan?.study_days ?? stored.studyDays ?? [])}
         target={canPlan ? target.value : existing?.plan?.target_score ?? null}
         setByGuardian={!canPlan}
         week={week}
         baseline={baseline ? { questions: baseline.totalQuestions, minutes: baseline.expectedMinutes } : null}
         needsBaseline={needsBaseline}
+        timeZone={d.tz}
+        benchmarkScheduledFor={existing?.progress?.benchmarkScheduledFor ?? null}
         onContinue={() => navigate(d.role === 'parent' ? '/parent' : '/student')}
       />
     )
@@ -258,18 +261,22 @@ function SetupFlow(p: {
           target_score: screens.includes('test') ? target.value : (existing?.plan?.target_score ?? null),
           goals: existing?.plan?.goals ?? ['raise_score'],
           daily_minutes: d.minutes ?? existing?.plan?.daily_minutes ?? 10,
+          ...(screens.includes('test') ? { exam_intent: d.intent, planned_test_date: d.intent === 'undecided' ? null : (d.testDate ?? null) } : { exam_intent: existing?.plan?.exam_intent ?? null, planned_test_date: existing?.plan?.planned_test_date ?? null }),
+          study_days: screens.includes('plan') ? [...d.studyDays].sort() : (existing?.plan?.study_days ?? null),
         })
         if (screens.includes('plan')) await source.setWeeklyGoal(sid, weekStartOf(today), d.weekly, null)
       }
-      if (screens.includes('start') && d.start === 'official' && !created.scoreSaved) {
-        await source.addTestScore(sid, { exam_family: scoreExam, test_date: d.scoreDate, composite: score.composite!, section_scores: score.sections })
+      const accountPractice = d.start === 'practice' && source.supportsAccountSetup
+      if (screens.includes('start') && (d.start === 'official' || accountPractice) && !created.scoreSaved) {
+        await source.addTestScore(sid, { exam_family: scoreExam, test_date: d.scoreDate, composite: score.composite!, section_scores: score.sections, source: d.start === 'official' ? 'self_reported' : 'practice_test' })
         created.scoreSaved = true
         set({ created })
       }
-      writeStudentSetup(sid, {
+      await source.saveSetupProgress(sid, { setupCompleted: true, startingPointAnswered: screens.includes('start') || undefined })
+      // Without CR-26 on the backend, the answers it can't store stay in this browser.
+      if (!source.supportsAccountSetup) writeStudentSetup(sid, {
         ...(screens.includes('test') ? { examIntent: d.intent ?? undefined, plannedTestDate: d.intent === 'undecided' ? null : (d.testDate ?? null) } : {}),
         ...(screens.includes('plan') ? { studyDays: [...d.studyDays].sort() } : {}),
-        ...(screens.includes('about') && d.highSchool.trim() ? { highSchool: d.highSchool.trim() } : {}),
         ...(screens.includes('start')
           ? {
               startingPointDone: true,
@@ -344,8 +351,6 @@ function SetupFlow(p: {
           onGradYear={(y) => set({ gradYear: y })}
           homeState={homeKnown || readHomeState(existing?.student.household_id ?? existing?.student.id) ? null : d.homeState}
           onHomeState={(v) => set({ homeState: v })}
-          highSchool={d.highSchool}
-          onHighSchool={(v) => set({ highSchool: v })}
         />
       )}
       {screen === 'test' && (
@@ -394,6 +399,7 @@ function SetupFlow(p: {
           tz={d.tz}
           onTz={(tz) => set({ tz })}
           exam={exam}
+          longSessions={source.supportsAccountSetup}
           preview={week}
           reminders={
             d.role === 'parent' ? (

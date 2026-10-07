@@ -64,9 +64,9 @@ describe(`acceptance: TN 8th grader, engineering, TN + OR, four-year, lowest cos
     await user.click(await screen.findByRole('button', { name: 'Not yet' }))
     await user.click(screen.getByRole('button', { name: 'Continue' }))
     await user.click(await screen.findByRole('button', { name: 'Sat' }))
-    await user.click(screen.getByRole('button', { name: '10 min' }))
+    await user.click(screen.getByRole('button', { name: /^10 min/ }))
     await user.click(screen.getByRole('button', { name: 'Accept this plan' }))
-    await screen.findByRole('link', { name: 'Start the starting benchmark' })
+    await screen.findByRole('link', { name: 'Start a 5-minute session' })
     const me = (await src.getHouseholdContext()).myStudent!
     writeInterests(me.id, { certainty: 'unsure', interests: [{ kind: 'area', key: 'engineering' }] })
     await src.savePlan(me.id, { ...(await src.getPlan(me.id))!, goals: ['raise_score', 'lower_cost'] })

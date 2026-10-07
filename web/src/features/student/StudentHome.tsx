@@ -11,6 +11,7 @@ import { addDays, localDate } from '../../lib/engine/dates'
 import { benchmarkAttemptIds, benchmarkSchedule, SECTION_LABEL } from '../../lib/engine/benchmark'
 import { showRecap, weekRecap, weeklyPlan } from '../../lib/engine/weeklyPlan'
 import { ReminderNudge } from '../reminders/Reminders'
+import { FirstSteps } from '../onboarding/FirstSteps'
 import { FreshContentNotice, LastWeekRecap, PacePill, ThisWeekGoal, WeekStrip, checkSentence, paceSentence } from '../../components/WeekPlan'
 import { achievements, levelOf, totalXp } from '../../lib/engine/gamify'
 import { latestEstimate, useStudentOverview, type StudentOverview } from './useStudentOverview'
@@ -162,6 +163,15 @@ function HomeBody({ name, o, studentId, onRefresh, canSetGoals }: { name: string
               </div>
             </div>
           )}
+          {o.benchmarks.length === 0 ? (
+            <div className={cx(!fresh && 'pt-5 md:pt-6')}>
+              <h2 id="next-title" className="mb-3 text-sm font-semibold text-ink-3">
+                {practicedToday ? 'Today' : 'Next up'}
+              </h2>
+              <FirstSteps studentId={studentId} exam={exam} baseline={o.baseline} scheduledFor={o.setup?.benchmarkScheduledFor ?? null} timeZone={o.tz} canStart name={name} />
+            </div>
+          ) : (
+            <>
           <div className={cx(!fresh && 'pt-5 md:pt-6')}>
             <p className="text-sm font-semibold text-ink-3">{practicedToday ? 'Today' : 'Next up'}</p>
             <h2 id="next-title" className="display mt-1 text-[26px] leading-tight text-ink md:text-[30px]">
@@ -179,6 +189,8 @@ function HomeBody({ name, o, studentId, onRefresh, canSetGoals }: { name: string
           <ButtonLink to={next.to} size="lg" block className="mt-6 md:mt-7" variant={practicedToday ? 'secondary' : 'go'}>
             {next.cta}
           </ButtonLink>
+            </>
+          )}
         </section>
 
         {!fresh && (

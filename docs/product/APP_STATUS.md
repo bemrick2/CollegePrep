@@ -15,7 +15,9 @@ The screens are About you, Test and goal, Starting point and Weekly plan. Each q
 - **Interrupted setup:** resumes in the same browser.
 - **Deferred:** majors, cost goals and AP/CLEP details.
 - **Language:** English only, so no language picker appears.
-- **Not stored in the database yet (CR-26):** exam intent, planned test date, study days, high school and practice-test scores.
+- **Stored on the account (CR-26):** the test choice, test date, study days and session length (5, 10 or 15 first, then 20 or 30), the practice-test score source, setup completion and a scheduled starting benchmark. This is behind `VITE_ACCOUNT_SETUP`; without it, these stay in this browser.
+- **High school:** neither asked nor stored.
+- **How to start:** the starting benchmark is separate from quick practice. A student can start a 5-minute session now and take the benchmark later, now or at a chosen time. Only a finished benchmark counts as the starting point.
 
 
 | Step | Demo | Live code | Checked against the local backend |

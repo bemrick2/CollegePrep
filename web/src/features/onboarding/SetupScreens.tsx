@@ -7,7 +7,7 @@ import { upcomingTestDates } from '../../lib/data/testDates'
 import { COMPOSITE_RANGE, SECTION_FIELDS, type ScoreCheck } from '../../lib/engine/scoreEntry'
 import { WEEKDAY_LABEL, type FirstWeek } from '../../lib/engine/firstWeek'
 import type { ExamIntent } from '../../lib/setupProfile'
-import { EXAM_NAME, SESSION_MINUTES, WEEKLY_GOALS, graduationYears, timeZones } from './options'
+import { EXAM_NAME, LONG_SESSIONS, SHORT_SESSIONS, WEEKLY_GOALS, graduationYears, timeZones } from './options'
 
 /** One tappable option in a grid; aria-pressed carries the state. */
 export function Chip({ selected, onClick, children, className, sub, dense }: { selected: boolean; onClick: () => void; children: ReactNode; className?: string; sub?: ReactNode; dense?: boolean }) {
@@ -55,8 +55,6 @@ export function AboutYou(p: {
   onGradYear: (y: number) => void
   homeState: string | null
   onHomeState: (v: string) => void
-  highSchool: string
-  onHighSchool: (v: string) => void
 }) {
   const parentView = p.role === 'parent'
   return (
@@ -105,9 +103,6 @@ export function AboutYou(p: {
               </select>
             </Field>
           )}
-          <Field label="High school (optional)" htmlFor="setup-school" hint="Kept on this device for now. Leave it blank if you'd rather not say.">
-            <input id="setup-school" className={inputClass} value={p.highSchool} onChange={(e) => p.onHighSchool(e.target.value)} autoComplete="off" maxLength={120} />
-          </Field>
         </>
       )}
     </div>
@@ -322,6 +317,8 @@ export function WeeklyPlanStep(p: {
   reminders: ReactNode
   preview: FirstWeek | null
   exam: ExamFamily
+  /** 20 and 30 minutes, where the backend stores them (CR-26). */
+  longSessions: boolean
 }) {
   const you = p.who === 'you'
   const w = p.preview
@@ -340,14 +337,32 @@ export function WeeklyPlanStep(p: {
         </div>
       </section>
       <section aria-labelledby="q-min">
-        <Question id="q-min">Minutes per session</Question>
+        <Question id="q-min" hint="Short sessions are the easiest to keep up. You can always do a bonus round.">
+          Minutes per session
+        </Question>
         <div className="grid grid-cols-3 gap-2">
-          {SESSION_MINUTES.map((m) => (
-            <Chip key={m} selected={p.minutes === m} onClick={() => p.onMinutes(m)}>
+          {SHORT_SESSIONS.map((m) => (
+            <Chip key={m} selected={p.minutes === m} onClick={() => p.onMinutes(m)} sub={m === 10 ? 'Most students' : undefined}>
               {m} min
             </Chip>
           ))}
         </div>
+        {p.longSessions && (
+          <div className="mt-2 flex flex-wrap items-center gap-2 text-sm text-ink-3">
+            <span>Longer:</span>
+            {LONG_SESSIONS.map((m) => (
+              <button
+                key={m}
+                type="button"
+                aria-pressed={p.minutes === m}
+                onClick={() => p.onMinutes(m)}
+                className={cx('h-9 rounded-lg border px-3 font-semibold', p.minutes === m ? 'border-go bg-go-soft text-ink' : 'border-line bg-surface text-ink-2')}
+              >
+                {m} min
+              </button>
+            ))}
+          </div>
+        )}
       </section>
       <section aria-labelledby="q-weekly">
         <Question id="q-weekly" hint="Counted Monday to Sunday. Benchmark answers count too.">
