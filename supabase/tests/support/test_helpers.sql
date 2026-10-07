@@ -102,3 +102,5 @@ insert into public.practice_question_strategies(question_id, strategy_id, role, 
  ('30000000-0000-0000-0000-000000000001', '31000000-0000-0000-0000-000000000002', 'primary', true, 'Try each choice in the equation.'),
  ('30000000-0000-0000-0000-000000000001', '31000000-0000-0000-0000-000000000001', 'secondary', false, 'Two choices have the wrong sign.'),
  ('30000000-0000-0000-0000-000000000005', '31000000-0000-0000-0000-000000000001', 'primary', false, null);
+-- CR-21: published questions are served only once their current content is approved.
+select public.approve_practice_question(id, 'test fixture') from public.practice_questions;

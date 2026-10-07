@@ -146,6 +146,7 @@ insert into public.practice_passages(id, exam_version_id, title, body) values
 update public.practice_questions set passage_id = '51000000-0000-0000-0000-000000000001', remember_text = 'Check the sign before choosing.',
   choices = '[{"key":"A","text":"-2"},{"key":"B","text":"2"},{"key":"C","text":"4"},{"key":"D","text":"8"}]'
 where id = '30000000-0000-0000-0000-000000000001';
+select public.approve_practice_question('30000000-0000-0000-0000-000000000001', 'test fixture');
 update public.skills set concept_summary = 'Isolate the variable by undoing operations in reverse order.' where skill_key = 'linear_equations';
 update public.question_strategies set sections = array['math'] where strategy_key = 'backsolve';
 do $$
@@ -433,6 +434,67 @@ do $$ begin
   perform hp_test.as_anon();
   perform hp_test.expect_error('select count(*) from public.student_academic_interests', '42501');
   perform hp_test.as_owner();
+end $$;
+
+-- CR-21 review gate: a published question is served only while its approved content is unchanged.
+do $$
+declare q3 constant uuid := '30000000-0000-0000-0000-000000000003'; q1 constant uuid := '30000000-0000-0000-0000-000000000001';
+  q4 constant uuid := '30000000-0000-0000-0000-000000000004'; h1 text; h2 text;
+begin
+  perform hp_test.check((select bool_and(review_current) from public.practice_questions where id in (q1, q3, q4)), 'approved fixtures are current');
+  update public.practice_questions set stem = 'Question 3 (edited)' where id = q3;
+  perform hp_test.check(not (select review_current from public.practice_questions where id = q3), 'stem edit voids the approval');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  perform hp_test.eq((select count(*) from public.practice_questions where id = q3), 0::bigint, 'unreviewed edit hidden');
+  perform hp_test.eq((select count(*) from public.practice_question_skills where question_id = q3), 0::bigint, 'its skill links hidden');
+  perform hp_test.expect_error(format('select public.start_practice_attempt(%L, %L)', current_setting('t.st'), q3), '22023', '%not available%');
+  perform hp_test.check(not exists (select 1 from public.recommend_practice_set(current_setting('t.st')::uuid, 15) r where r.question_id = q3),
+    'not recommended');
+  perform hp_test.check((select review_current from public.practice_questions where id = q1), 'clients read review_current');
+  perform hp_test.expect_error('select content_hash from public.practice_questions', '42501');
+  perform hp_test.expect_error('select review_status from public.practice_questions', '42501');
+  perform hp_test.expect_error(format($q$select public.approve_practice_question(%L, 'self')$q$, q3), '42501');
+  perform hp_test.as_owner();
+  h1 := public.approve_practice_question(q3, 'human: test reviewer');
+  perform hp_test.check((select review_current and review_status = 'approved' and content_hash = h1 and review_method = 'human: test reviewer'
+    from public.practice_questions where id = q3), 're-approval restores serving');
+  perform hp_test.eq(public.approve_practice_question(q3, 'human: test reviewer'), h1, 'hash is deterministic');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  perform hp_test.eq((select count(*) from public.practice_questions where id = q3), 1::bigint, 'approved edit visible');
+  perform public.start_practice_attempt(current_setting('t.st')::uuid, q3);
+  perform hp_test.as_owner();
+  -- Child rows and the passage are part of the reviewed content.
+  update public.practice_question_distractors set rationale = 'Changed rationale.' where question_id = q1 and choice_key = 'A';
+  perform hp_test.check(not (select review_current from public.practice_questions where id = q1), 'distractor edit voids the approval');
+  h2 := public.approve_practice_question(q1, 'test');
+  delete from public.practice_question_strategies where question_id = q1 and role = 'secondary';
+  perform hp_test.check(not (select review_current from public.practice_questions where id = q1), 'strategy removal voids the approval');
+  perform public.approve_practice_question(q1, 'test');
+  insert into public.practice_question_skills(question_id, skill_id) values (q1, '42000000-0000-0000-0000-00000000000c');
+  perform hp_test.check(not (select review_current from public.practice_questions where id = q1), 'new skill tag voids the approval');
+  perform public.approve_practice_question(q1, 'test');
+  update public.practice_passages set body = 'The [underlined] text, edited.' where id = '51000000-0000-0000-0000-000000000001';
+  perform hp_test.check(not (select review_current from public.practice_questions where id = q1), 'passage edit voids the approval');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  perform hp_test.eq((select count(*) from public.practice_passages), 0::bigint, 'passage of an unreviewed question hidden');
+  perform hp_test.as_owner();
+  perform public.approve_practice_question(q1, 'test');
+  -- Calibration does not void an approval; a non-approval decision does not serve.
+  update public.practice_questions set difficulty = 4, difficulty_calibrated = 0.3, expected_time_seconds = 75 where id = q4;
+  perform hp_test.check((select review_current from public.practice_questions where id = q4), 'calibration keeps the approval');
+  perform public.approve_practice_question(q4, 'human: test reviewer', now(), 'changes_needed');
+  perform hp_test.check(not (select review_current from public.practice_questions where id = q4), 'changes_needed is not served');
+  perform hp_test.expect_error(format($q$select public.approve_practice_question(%L, 'x', now(), 'maybe')$q$, q4), '22023');
+  perform hp_test.expect_error($q$select public.approve_practice_question('30000000-0000-0000-0000-0000000000ff', 'x')$q$, '22023');
+  perform hp_test.expect_error(format($q$update public.practice_questions set review_status = 'approved', content_hash = null where id = %L$q$, q4), '23514');
+  -- Forging a hash does not make a question current.
+  update public.practice_questions set review_status = 'approved', content_hash = repeat('0', 64) where id = q4;
+  perform hp_test.check(not (select review_current from public.practice_questions where id = q4), 'a stale hash is not current');
+  update public.practice_questions set review_current = true where id = q4;
+  perform hp_test.check(not (select review_current from public.practice_questions where id = q4), 'review_current cannot be set directly');
+  delete from public.practice_questions where id = '30000000-0000-0000-0000-000000000005';
+  perform hp_test.eq((select count(*) from public.practice_question_strategies where question_id = '30000000-0000-0000-0000-000000000005'), 0::bigint,
+    'deleting a question cascades through the triggers');
 end $$;
 
 rollback;
