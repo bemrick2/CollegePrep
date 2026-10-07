@@ -1436,11 +1436,13 @@ class SamplePlanPageTests(unittest.TestCase):  # KU 2026-27 sample-plan sub-page
         # KU Chemistry: 'Below is a sample 4-year plan for the American Chemical Society Certified BS degree'; Child Life: a
         # suspension notice between the heading and the sentence
         for t in ('Below is a sample 4-year plan for the American Chemical Society Certified BA degree in Anthropology.',
+                  'The recommended 4-year plan is listed below by semester to semester enrollment.',  # KU Civil Engineering
                   'Admission to this program has been suspended for the 2026-2027 academic year.\nBelow is a sample 4-year plan for students pursuing the BA.'):
             p = T.Page(body + t, 'BA in Anthropology', [], [], ['2026-27 Academic Catalog', 'BA in Anthropology'])  # KU's year heading first
             self.assertEqual([c for c in X.program_page_candidates(tgt, {'institution_key': 'k'}, e, p, '2026-27') if c['domain'] == 'academic_programs'], [], t)
         # the degree page itself: the sentence follows the requirements (KU Theatre Design's 'Major Junior/Senior Hours')
-        deg = T.Page(body + 'Requirements\nMajor Junior/Senior Hours\nStudents must earn 30 hours.\nBelow is a sample 4-year plan for students pursuing the BA.',
+        deg = T.Page(body + 'Requirements\nMajor Junior/Senior Hours\nStudents must earn 30 hours.\nBelow is a sample 4-year plan for students pursuing the BA.'
+                     '\nGrades of C- or Better\nA D does not meet the requirement.\nThe recommended 4-year plan is listed below by semester.',
                      'BA in Anthropology', [], [], ['BA in Anthropology', 'Requirements', 'Major Junior/Senior Hours'])
         self.assertTrue([c for c in X.program_page_candidates(tgt, {'institution_key': 'k'}, e, deg, '2026-27') if c['domain'] == 'academic_programs'])
 
@@ -1804,7 +1806,8 @@ class ListedEmphasisTests(unittest.TestCase):
              'fetched_at': '2026-10-06T00:00:00+00:00', 'status': 200, 'kind': 'html'}
         tgt = {'catalog': {'platform': 'courseleaf'}}
         for plan in ('Recommended Four-Year Plan of Study', 'The recommended 4-year plan is listed below by semester.', 'Sample Four-Year Plan'):
-            page = T.Page('2026-2027 Academic Catalog\nBA in Anthropology\nRequirements\n' + plan, 'BA in Anthropology', [], [], ['BA in Anthropology'])
+            page = T.Page('2026-2027 Academic Catalog\nBA in Anthropology\nRequirements\nStudents complete 30 hours in the major.\nMajor GPA of 2.0.\n' + plan,
+                          'BA in Anthropology', [], [], ['BA in Anthropology'])
             self.assertTrue([c for c in X.program_page_candidates(tgt, {'institution_key': 'k'}, e, page, '2026-27') if c['domain'] == 'academic_programs'], plan)
 
     def test_award_glued_to_next_column_is_classified(self):

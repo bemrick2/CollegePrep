@@ -172,7 +172,8 @@ MUTS = [
     ('programs/extract.py', "    m = re.match(r'^(?P<base>[^,():]+?)\\s+(?P<award>(?-i:B[A-Z]{1,4}))\\s*$', line)", "    m = None"),
     ('programs/extract.py', "(?P<award>(?-i:B[A-Z]{1,4}|B\\.\\s?[A-Z]", "(?P<award>(?i:B[A-Z]{1,4}|B\\.\\s?[A-Z]"),
     # a degree page's own plan heading is not a sample-plan page (Colorado, Maryland, Missouri, Tennessee, KU engineering)
-    ('programs/extract.py', "SAMPLE_PLAN_LINE = re.compile(r'(?im)^\\s*below is a sample (4|four)[- ]year plan for\\b')",
+    ('programs/extract.py', "|the recommended (?:4|four)[- ]year plan is listed below)\\b')", ")\\b')"),
+    ('programs/extract.py', "SAMPLE_PLAN_LINE = re.compile(r'(?im)^\\s*(?:below is a sample (?:4|four)[- ]year plan for|the recommended (?:4|four)[- ]year plan is listed below)\\b')",
      "SAMPLE_PLAN_LINE = re.compile(r'(?im)^\\s*(below is a |the )?(sample|recommended) (4|four)[- ]year plan\\b')"),
     ('programs/extract.py', "        if head in before[-2:]: return True", "        return True"),
     ('programs/extract.py', "        if head in before[-2:]: return True", "        if head in before[-1:]: return True"),

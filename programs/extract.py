@@ -193,11 +193,11 @@ def collect_lists(target, run, entries):
 
 # KU 2026-27: a program's sample-plan sub-page ('Below is a sample 4-year plan for students pursuing the BA in Anthropology',
 # 'The recommended 4-year plan is listed below') repeats the degree's name; the program's own page is its source
-# KU 2026-27 sub-pages of a degree open with 'Below is a sample 4-year plan for students pursuing the BA in Theatre.' right under
-# the page heading. KU's degree pages print the same sentence at the end, below the degree's requirements, and other catalogs'
+# KU 2026-27 sub-pages of a degree open with 'Below is a sample 4-year plan for students pursuing the BA in Theatre.' (engineering:
+# 'The recommended 4-year plan is listed below by semester') right under the page heading. KU's degree pages print the same sentence at the end, below the degree's requirements, and other catalogs'
 # degree pages carry a 'Recommended Four-Year Plan of Study' heading (Colorado, Maryland, Missouri, Tennessee) or 'The recommended
 # 4-year plan is listed below' (KU engineering): none of those is a plan page.
-SAMPLE_PLAN_LINE = re.compile(r'(?im)^\s*below is a sample (4|four)[- ]year plan for\b')
+SAMPLE_PLAN_LINE = re.compile(r'(?im)^\s*(?:below is a sample (?:4|four)[- ]year plan for|the recommended (?:4|four)[- ]year plan is listed below)\b')
 
 
 def sample_plan_page(page):
