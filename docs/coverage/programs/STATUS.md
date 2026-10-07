@@ -861,7 +861,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | School | Status | Verified bachelor's | Listed | Plans | Req. groups | Catalog | Maps | Groups | Admission rules | Queue |
 |---|---|---|---|---|---|---|---|---|---|---|
 | University of Maryland-College Park | partial | 1 | – | 0 | 5 | queued | queued | met | met | catalog:layout_not_readable, degree_maps:not_yet_researched |
-| Towson University | partial | 2 | – | 0 | 7 | queued | queued | met | met | catalog:not_yet_researched, degree_maps:not_yet_researched |
+| Towson University | partial | 4 | – | 0 | 7 | queued | queued | met | met | catalog:not_yet_researched, degree_maps:not_yet_researched |
 | Morgan State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | University of Maryland-Baltimore County | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Johns Hopkins University | partial | 68 | 77 | 5 | 2 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
