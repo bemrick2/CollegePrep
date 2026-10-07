@@ -1,0 +1,1 @@
+Retained evidence documents for CollegePrep (scripts/retain_evidence.py). Append-only: documents/<blob[:2]>/<blob>.json.gz (git blob ids of the exact bytes) are the fetched pages and layout documents cited by sources/*/*/*/evidence.json.
