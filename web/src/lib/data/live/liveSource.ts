@@ -1,3 +1,4 @@
+import { MAX_INTERESTS, type InterestProfile, type MajorCertainty, type SavedInterest } from '../../engine/interests'
 import { INVITE_TTL_HOURS } from '../../invites'
 import type { SupabaseClient } from '@supabase/supabase-js'
 import type { AlertPreference, DataSource, InactiveStudent, InvitationSummary, InviteSendResult, StudentInvitation } from '../source'
@@ -139,10 +140,10 @@ function fromServerMetrics(m: ServerMetrics | null, client?: BenchmarkMetrics): 
       section,
       answered: v.submitted,
       correct: v.correct,
-      skipped: client?.sections.find((x) => x.section === section)?.skipped ?? 0,
+      skipped: client?.sections?.find((x) => x.section === section)?.skipped ?? 0,
       accuracy: v.accuracy,
       pacing_ratio: v.pacing_ratio,
-      ceiling_difficulty: client?.sections.find((x) => x.section === section)?.ceiling_difficulty ?? null,
+      ceiling_difficulty: client?.sections?.find((x) => x.section === section)?.ceiling_difficulty ?? null,
     })),
   }
 }
@@ -570,15 +571,34 @@ export class LiveSource implements DataSource {
     return (await this.fn<{ url: string }>('billing-portal', { household_id: householdId })).url
   }
 
-  // CR-12 (primary target school) is not in the backend yet. Hidden in the UI until it lands; no client storage.
-  readonly supportsPrimarySchool = false
+  // CR-12: one saved school per household can be the primary target (set_household_primary_school).
+  readonly supportsPrimarySchool = true
 
-  async primarySchool(_householdId: string): Promise<string | null> {
-    return null
+  async primarySchool(householdId: string): Promise<string | null> {
+    const { data, error } = await this.sb.from('household_saved_schools').select('institution_key').eq('household_id', householdId).eq('is_primary', true).maybeSingle()
+    if (error) fail(error)
+    return (data?.institution_key as string | undefined) ?? null
   }
 
-  async setPrimarySchool(_householdId: string, _institutionKey: string | null): Promise<void> {
-    throw new DataError('Choosing a primary school is not available yet', 'invalid')
+  async setPrimarySchool(householdId: string, institutionKey: string | null): Promise<void> {
+    await rpc<null>(this.sb, 'set_household_primary_school', { p_household: householdId, p_institution_key: institutionKey })
+  }
+
+  async interests(studentId: string): Promise<InterestProfile> {
+    const { data, error } = await this.sb.from('student_academic_interests').select('certainty, interests').eq('student_id', studentId).maybeSingle()
+    if (error) fail(error)
+    return { certainty: (data?.certainty as MajorCertainty | null) ?? null, interests: ((data?.interests as SavedInterest[] | null) ?? []).slice(0, MAX_INTERESTS) }
+  }
+
+  async saveInterests(studentId: string, p: InterestProfile) {
+    // Only kind/key and a true focus are stored (the server rejects other fields).
+    const row = { certainty: p.certainty, interests: p.interests.slice(0, MAX_INTERESTS).map((i) => (i.focus ? { kind: i.kind, key: i.key, focus: true } : { kind: i.kind, key: i.key })) }
+    const existing = await this.sb.from('student_academic_interests').select('student_id').eq('student_id', studentId).maybeSingle()
+    if (existing.error) fail(existing.error)
+    const r = existing.data
+      ? await this.sb.from('student_academic_interests').update(row).eq('student_id', studentId)
+      : await this.sb.from('student_academic_interests').insert({ student_id: studentId, ...row })
+    if (r.error) fail(r.error)
   }
 
   async verifiedSchools(academicYear: string, state?: string): Promise<InstitutionSearchHit[]> {

@@ -1,32 +1,65 @@
 import { useCallback, useEffect, useState } from 'react'
+import { useApp } from '../../lib/app'
 import type { InterestProfile, MajorCertainty, SavedInterest } from '../../lib/engine/interests'
 import { MAX_INTERESTS } from '../../lib/engine/interests'
-import { readInterests, writeInterests } from '../../lib/interestStore'
+import { EMPTY_PROFILE, readInterests } from '../../lib/interestStore'
 
 const same = (a: SavedInterest, b: SavedInterest) => a.kind === b.kind && a.key === b.key
+const EVENT = 'pp-interests'
+/** Last known profile per student, so every screen shows the same answer without refetching. */
+const cache = new Map<string, InterestProfile>()
 
-/** Live view of a student's interests; every change is saved at once and shared by all screens on this device. */
+/**
+ * A student's interests (CR-13), from the data source: this browser in the demo, the household's account when
+ * signed in. Every change is saved at once and shared by all screens.
+ */
 export function useInterests(studentId: string | null | undefined) {
-  const [profile, setProfile] = useState<InterestProfile>(() => readInterests(studentId))
+  const { source } = useApp()
+  const initial = () => (!studentId ? EMPTY_PROFILE : (cache.get(studentId) ?? (source.mode === 'demo' ? readInterests(studentId) : EMPTY_PROFILE)))
+  const [profile, setProfile] = useState<InterestProfile>(initial)
+  const [error, setError] = useState<string | null>(null)
+
   useEffect(() => {
-    setProfile(readInterests(studentId))
-    const onChange = () => setProfile(readInterests(studentId))
-    window.addEventListener('pp-interests', onChange)
-    return () => window.removeEventListener('pp-interests', onChange)
-  }, [studentId])
+    setProfile(initial())
+    if (!studentId) return
+    let live = true
+    source.interests(studentId).then(
+      (p) => {
+        if (!live) return
+        cache.set(studentId, p)
+        setProfile(p)
+      },
+      () => undefined, // keep what we have; the screens work without interests
+    )
+    const onChange = () => cache.has(studentId) && setProfile(cache.get(studentId)!)
+    window.addEventListener(EVENT, onChange)
+    return () => {
+      live = false
+      window.removeEventListener(EVENT, onChange)
+    }
+  }, [studentId, source])
 
   const save = useCallback(
     (next: InterestProfile) => {
+      if (!studentId) return setProfile(next)
+      const before = cache.get(studentId) ?? profile
+      cache.set(studentId, next)
       setProfile(next)
-      if (!studentId) return
-      writeInterests(studentId, next)
-      window.dispatchEvent(new Event('pp-interests'))
+      setError(null)
+      window.dispatchEvent(new Event(EVENT))
+      source.saveInterests(studentId, next).catch((e: unknown) => {
+        cache.set(studentId, before)
+        setProfile(before)
+        setError(e instanceof Error ? e.message : 'Could not save your interests')
+        window.dispatchEvent(new Event(EVENT))
+      })
     },
-    [studentId],
+    [studentId, source, profile],
   )
 
   return {
     profile,
+    error,
     max: MAX_INTERESTS,
     setCertainty: (c: MajorCertainty) => save({ ...profile, certainty: c }),
     has: (i: SavedInterest) => profile.interests.some((x) => same(x, i)),
@@ -43,4 +76,9 @@ export function useInterests(studentId: string | null | undefined) {
     setFocus: (i: SavedInterest) => save({ ...profile, interests: profile.interests.map((x) => ({ ...x, focus: same(x, i) ? !x.focus : false })) }),
     replace: save,
   }
+}
+
+/** Test hook: forget cached profiles between renders of a fresh app. */
+export function resetInterestCache() {
+  cache.clear()
 }

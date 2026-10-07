@@ -1,3 +1,5 @@
+import type { InterestProfile } from '../../engine/interests'
+import { readInterests, writeInterests } from '../../interestStore'
 import { INVITE_TTL_HOURS, formatInviteCode } from '../../invites'
 import type { AlertPreference, DataSource, InactiveStudent, InvitationSummary, InviteSendResult, StudentInvitation } from '../source'
 import { suggestNextWeek, type NextWeekSuggestion } from '../../engine/weeklyPlan'
@@ -669,6 +671,14 @@ export class DemoSource implements DataSource {
   }
 
   readonly supportsPrimarySchool = true
+
+  async interests(studentId: string) {
+    return readInterests(studentId)
+  }
+
+  async saveInterests(studentId: string, profile: InterestProfile) {
+    writeInterests(studentId, profile)
+  }
 
   // The demo has no billing: no plan, price or checkout is shown (nothing is simulated).
   readonly supportsBilling = false

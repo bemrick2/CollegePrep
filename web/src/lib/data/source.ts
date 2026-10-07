@@ -1,3 +1,4 @@
+import type { InterestProfile } from '../engine/interests'
 import type { NextWeekSuggestion } from '../engine/weeklyPlan'
 import type {
   AiHelpResult,
@@ -107,6 +108,9 @@ export interface DataSource {
   /** One saved school the family elevates as its primary target (CR-12). False until the backend supports it;
    *  the UI hides the control and shows no primary while false. */
   readonly supportsPrimarySchool: boolean
+  /** Major certainty and up to 8 saved areas/majors (CR-13). Optional everywhere; empty when never set. */
+  interests(studentId: string): Promise<InterestProfile>
+  saveInterests(studentId: string, profile: InterestProfile): Promise<void>
   // Household billing (CR-16). Web purchases go through Stripe Checkout; access is the household entitlement.
   /** False in the demo and until VITE_BILLING_ENABLED=true; the UI then shows no plan, price or checkout. */
   readonly supportsBilling: boolean
