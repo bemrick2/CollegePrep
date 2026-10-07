@@ -135,6 +135,9 @@ MUTS = [
     ('programs/courselist_html.py', "            elif self._td.get('_tail') is not None and not re.fullmatch", "            elif False and self._td.get('_tail') is not None and not re.fullmatch"),
     ('programs/courselist_html.py', "                if self._td.get('_tail') is None: self._td['_tail'] = len(''.join(self._td['text']))", "                self._td['_tail'] = len(''.join(self._td['text']))"),
     ('programs/crawl.py', "    if not target.get('refetch'):\n        if cat.get('platform')", "    if True:\n        if cat.get('platform')"),
+    # a title ending in a number from a layout without superscript capture is held (issue #129)
+    ('programs/courseleaf.py', "        if not table.get('sups_recorded') and any(FOOTNOTED.search(", "        if False and any(FOOTNOTED.search("),
+    ('programs/courselist_html.py', "'caption': '', 'rows': [], 'sups_recorded': True}", "'caption': '', 'rows': []}"),
 ]
 
 

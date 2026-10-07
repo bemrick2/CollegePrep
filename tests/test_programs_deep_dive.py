@@ -836,9 +836,14 @@ class FootnoteMarkerTests(unittest.TestCase):  # issue #129: TAMUSA 'Strategic M
         items = [x for _, grp in g for c in grp['courses'] for x in (c.get('any_of') or [c])]
         self.assertEqual([x['title'] for x in items], ['Strategic Management', 'Business Capstone Lab', 'Programming Fundamentals 1',
                                                        '20th Century Art', 'Strategy Seminar'])
-        # a layout stored before superscripts were recorded is read exactly as before
+        self.assertTrue(t.get('sups_recorded'))
+        self.assertNotIn('title_number_unchecked', set().union(*(grp['issues'] for _, grp in g)))
+        # a layout stored before superscripts were recorded keeps its text, and a title ending in a number is held until re-fetched
         old = {'rows': [{'classes': [], 'cells': [{'text': 'MGMT 4370'}, {'text': 'Strategic Management 3'}, {'text': '3'}]}]}
         self.assertEqual(CL.html_groups(old)[0][1]['courses'][0]['title'], 'Strategic Management 3')
+        self.assertIn('title_number_unchecked', CL.html_groups(old)[0][1]['issues'])
+        plain = {'rows': [{'classes': [], 'cells': [{'text': 'MGMT 4370'}, {'text': 'Strategic Management'}, {'text': '3'}]}]}
+        self.assertNotIn('title_number_unchecked', CL.html_groups(plain)[0][1]['issues'])
         self.assertEqual(CL.strip_marks('3', '3'), '3')  # a title that is only a marker is not emptied
 
     def test_refetch_target_fetches_only_its_pages(self):

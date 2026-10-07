@@ -41,7 +41,8 @@ class _Reader(HTMLParser):
             if tag in HEADINGS: self._in_heading = tag; self._heading_buf = []
             elif tag == 'p' and self._in_heading is None: self._para = True; self._para_buf = []
             if tag == 'table' and 'sc_courselist' in cls:
-                self._t = {'heading': self.heading, 'context': ' '.join(self.after_heading)[-1500:], 'caption': '', 'rows': []}
+                # 'sups_recorded': this capture records <sup> footnote markers per cell (issue #129); layouts stored before it do not
+                self._t = {'heading': self.heading, 'context': ' '.join(self.after_heading)[-1500:], 'caption': '', 'rows': [], 'sups_recorded': True}
                 self._table_depth = 1
             return
         if tag == 'table': self._table_depth += 1
