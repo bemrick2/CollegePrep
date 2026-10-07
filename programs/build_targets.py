@@ -145,6 +145,13 @@ EXTRA_DISCOVER={'lmunet':['https://undergraduatecatalog.lmunet.edu/','https://un
  'wou':['https://wou.edu/registrar/','https://wou.edu/academics/'],'corban':['https://www.corban.edu/registrar/catalog/'],
  'warnerpacific-210304':['https://www.warnerpacific.edu/academics/registrar/academic-catalog/'],
  'bushnell':['https://bushnell.edu/academics/academic-support/registrar/academic-catalog/']}
+# Catalog locations surfaced by web search (2026-10-07) for large schools whose discovery run found no catalog.
+EXTRA_DISCOVER.update({'uvm':['https://catalogue.uvm.edu/undergraduate'],'snhu':['https://www.snhu.edu/admission/academic-catalogs'],
+ 'uri':['https://web.uri.edu/catalog/directory/'],'brown':['https://bulletin.brown.edu/'],'umd':['https://academiccatalog.umd.edu/undergraduate'],
+ 'jhu':['https://e-catalogue.jhu.edu/'],'newbrunswick':['https://www.rutgers.edu/academics/catalogs-archive-rutgers-new-brunswick'],
+ 'howard':['https://catalogue.howard.edu','https://ous.howard.edu/catalogs'],'dtcc':['https://dtcc.smartcatalogiq.com/current/catalog/programs-of-study'],
+ 'luc':['https://catalog.luc.edu/undergraduate/'],'sacredheart':['https://sacredheart.smartcatalogiq.com/en/2026-2027/2026-2027-undergraduate-catalog']})
+HOSTS.update({'dtcc':['dtcc.smartcatalogiq.com'],'sacredheart':['sacredheart.smartcatalogiq.com']})
 DISCOVER={'TN':['trevecca','southern','lmunet','cumberland','fhu','milligan','bryan','maryvillecollege','sewanee','fisk','tusculum','tnwesleyan','bethelu','loc','welch','baptistu'],
  'OR':['wou','reed','pacificu','corban','bushnell','warnerpacific-210304','multnomah']}
 PRI={'up':1,'georgefox':1,'sou':2,'wou':2,'eou':2,'osucascades':2,'willamette-210401':2,'lclark':2,'reed':2,'linfield':2,'pacificu':2,'cn':2,'trevecca':2,'southern':2,'lmunet':2,'sewanee':2,'maryvillecollege':2}
