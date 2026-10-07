@@ -1,6 +1,8 @@
 import type { BenchmarkSummary, Strategy, TrapType } from '../../lib/data/types'
 import { SECTION_LABEL, pacingVerdict } from '../../lib/engine/benchmark'
 import { compareProgress, type SectionChange } from '../../lib/engine/progressCheck'
+import { benchmarkRepeats } from '../../lib/engine/freshness'
+import type { AttemptRecord } from '../../lib/data/types'
 import { formatShortDate } from '../../lib/engine/dates'
 import { formatDuration } from '../../lib/engine/dates'
 import { ButtonLink, Card, CardHeader, Notice, Pill, ProgressBar, Ring } from '../../components/ui'
@@ -21,6 +23,8 @@ export function BenchmarkResults({
   traps,
   standalone = true,
   history = [],
+  attempts = [],
+  currentRepeats,
 }: {
   summary: BenchmarkSummary
   strategies?: Strategy[]
@@ -29,8 +33,14 @@ export function BenchmarkResults({
   standalone?: boolean
   /** Completed checks before this one, for the comparison with the baseline. */
   history?: BenchmarkSummary[]
+  /** The student's answers (all time), to tell which check questions were seen before. */
+  attempts?: AttemptRecord[]
+  /** For the run just finished, whose attempts aren't in `attempts` yet. */
+  currentRepeats?: Map<string, number>
 }) {
-  const comparison = summary.kind === 'initial' ? null : compareProgress(summary, history)
+  const repeatsOf = (b: BenchmarkSummary) => (b.id === summary.id && currentRepeats ? currentRepeats : benchmarkRepeats(b, attempts))
+  const comparison = summary.kind === 'initial' ? null : compareProgress(summary, history, repeatsOf)
+  const ownRepeats = [...repeatsOf(summary).values()].reduce((n, x) => n + x, 0)
   const m = summary.metrics
   const trapName = (k: string) => traps.find((t) => t.trap_key === k)?.name ?? k.replace(/_/g, ' ')
   const certain = m.calibration.find((c) => c.confidence === 3)
@@ -58,6 +68,12 @@ export function BenchmarkResults({
 
       <div className={standalone ? 'mt-8 grid gap-4' : 'grid gap-4'}>
         <ResultLabel />
+        {ownRepeats > 0 && (
+          <Notice tone="warn" title={`${ownRepeats} ${ownRepeats === 1 ? 'question' : 'questions'} in this check ${ownRepeats === 1 ? 'was' : 'were'} seen before`}>
+            There weren't enough new questions left for a fully fresh check. Sections with repeats aren't compared, because answering a question you've seen
+            isn't new evidence of improvement.
+          </Notice>
+        )}
         {comparison?.baseline && <Comparison changes={comparison.sinceBaseline} title={`Since your baseline (${formatShortDate(comparison.baseline.completed_at.slice(0, 10))})`} />}
         {comparison?.sinceLast && comparison.previous && <Comparison changes={comparison.sinceLast} title={`Since your last check (${formatShortDate(comparison.previous.completed_at.slice(0, 10))})`} />}
         <Card>
@@ -180,6 +196,7 @@ const VERDICT: Record<SectionChange['verdict'], { label: string; tone: 'go' | 'w
   down: { label: 'Clear drop', tone: 'warn' },
   within_noise: { label: 'Within normal variation', tone: 'neutral' },
   too_few: { label: 'Too few answers to tell', tone: 'neutral' },
+  not_clean: { label: 'Not a clean comparison', tone: 'neutral' },
 }
 
 function Comparison({ changes, title }: { changes: SectionChange[]; title: string }) {
@@ -200,6 +217,11 @@ function Comparison({ changes, title }: { changes: SectionChange[]; title: strin
                 </span>
                 {c.then && <Pill tone={v.tone}>{v.label}</Pill>}
               </span>
+              {c.verdict === 'not_clean' && (
+                <span className="basis-full text-xs text-ink-3">
+                  {c.repeatsNow + c.repeatsThen} {c.repeatsNow + c.repeatsThen === 1 ? 'question was' : 'questions were'} seen before. Recall isn't new evidence, so this change isn't judged.
+                </span>
+              )}
             </li>
           )
         })}

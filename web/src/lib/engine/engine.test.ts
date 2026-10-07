@@ -238,7 +238,8 @@ describe('benchmark', () => {
       ({ kind, completed_at: new Date(now.getTime() - daysAgo * 86_400_000).toISOString() }) as BenchmarkSummary
     expect(nextBenchmarkDue([], now)).toEqual({ kind: 'initial', inDays: 0 })
     expect(nextBenchmarkDue([b('initial', 10)], now)).toEqual({ kind: 'mini', inDays: 25 })
-    expect(nextBenchmarkDue([b('initial', 80)], now).kind).toBe('full')
+    expect(nextBenchmarkDue([b('initial', 80)], now).kind).toBe('mini')
+    expect(benchmarkSchedule([b('initial', 80)], now, true).kind).toBe('full')
   })
   it('gives a due date, counts overdue days, and a mini after a recent full resets the mini clock only', () => {
     const now = new Date('2026-10-02T12:00:00Z')
@@ -246,7 +247,9 @@ describe('benchmark', () => {
       ({ kind, completed_at: new Date(now.getTime() - daysAgo * 86_400_000).toISOString(), attempt_ids: [] as string[] }) as unknown as BenchmarkSummary
     expect(benchmarkSchedule([b('initial', 10)], now)).toMatchObject({ kind: 'mini', inDays: 25, dueDate: '2026-10-27', overdueDays: 0 })
     expect(benchmarkSchedule([b('initial', 40)], now)).toMatchObject({ kind: 'mini', inDays: 0, overdueDays: 5 })
-    expect(benchmarkSchedule([b('initial', 72), b('mini', 3)], now)).toMatchObject({ kind: 'full', inDays: 0, overdueDays: 2 })
+    expect(benchmarkSchedule([b('initial', 72), b('mini', 3)], now, true)).toMatchObject({ kind: 'full', inDays: 0, overdueDays: 2 })
+    // No held-out full form yet: the same history schedules a mini, counted from the last check.
+    expect(benchmarkSchedule([b('initial', 72), b('mini', 3)], now)).toMatchObject({ kind: 'mini', inDays: 32 })
     expect(benchmarkSchedule([b('full', 20), b('mini', 3)], now)).toMatchObject({ kind: 'mini', inDays: 32 })
   })
   it('reports improvement since the previous benchmark, by section, without treating it as a score', () => {

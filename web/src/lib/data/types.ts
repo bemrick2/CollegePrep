@@ -150,6 +150,8 @@ export interface SessionPlanItem {
   position: number
   question: PublicQuestion
   reason: 'weak_knowledge' | 'weak_pacing' | 'new_skill' | 'review' | 'untagged' | string
+  /** The student has been shown this question before (any session or check). Counts toward the goal; not fresh evidence. */
+  seen_before?: boolean
 }
 
 export interface PracticeSession {

@@ -5,9 +5,12 @@ import type { BenchmarkSummary } from '../../lib/data/types'
 import { weeklyDigestEmail, type DigestStudent } from '../../../../supabase/functions/send-weekly-digest/digest.ts'
 import type { WeeklyPlan } from '../../lib/engine/weeklyPlan'
 import { formatShortDate } from '../../lib/engine/dates'
-import { Notice, cx, inputClass } from '../../components/ui'
+import { Notice } from '../../components/ui'
 import { Section } from '../../components/layout'
-import { FocusList, NextWeekGoal, PacePill, WeekStrip, checkSentence, paceSentence } from '../../components/WeekPlan'
+import { FocusList, FreshContentNotice, LastWeekRecap, NextWeekGoal, PacePill, ThisWeekGoal, WeekStrip, checkSentence, paceSentence, recapSentence } from '../../components/WeekPlan'
+import type { WeekRecap } from '../../lib/engine/weeklyPlan'
+import type { ContentStatus } from '../../lib/engine/freshness'
+import type { EmailDelivery } from '../../lib/data/source'
 
 /**
  * The parent's weekly accountability view: is the plan happening (days practised, pace against the goal), what the
@@ -22,6 +25,11 @@ export function WeeklyUpdate({
   skillName,
   lastPractice,
   lastCheck = null,
+  lastWeek = null,
+  recapFirst = false,
+  hasGoal = true,
+  onRefresh = () => undefined,
+  content = null,
 }: {
   studentId: string
   name: string
@@ -30,10 +38,17 @@ export function WeeklyUpdate({
   skillName: (key: string) => string | null | undefined
   lastPractice: string | null
   lastCheck?: BenchmarkSummary | null
+  lastWeek?: WeekRecap | null
+  /** Monday to Wednesday: the finished week leads. */
+  recapFirst?: boolean
+  hasGoal?: boolean
+  onRefresh?: () => void
+  content?: ContentStatus | null
 }) {
   const { source } = useApp()
   const quiet = useAsync(() => source.inactiveStudents(), [source])
   const alert = quiet.data?.find((q) => q.studentId === studentId)
+  const deliveries = useAsync(() => source.emailDeliveries(), [source])
   return (
     <Section id="week-heading" title={`${name}'s week`} subtitle={`Week of ${formatShortDate(plan.weekStart)}, from recorded practice`}>
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:gap-14">
@@ -41,9 +56,16 @@ export function WeeklyUpdate({
           {alert && (
             <Notice tone="warn" title={alert.daysInactive == null ? `${name} hasn't practised yet` : `No practice in ${alert.daysInactive} days`}>
               Your alert is set for {alert.thresholdDays} {alert.thresholdDays === 1 ? 'day' : 'days'}. A quick check-in usually restarts the habit.
+              <span className="mt-1 block text-xs text-ink-3">{emailedLine(deliveries.data, 'inactivity', studentId)}</span>
             </Notice>
           )}
+          {!hasGoal && (
+            <ThisWeekGoal studentId={studentId} weekStart={plan.weekStart} lastGoal={lastWeek?.target ?? null} canSet={canSetGoals} name={name} goalsPath="/parent/goals" onSet={onRefresh} />
+          )}
+          {lastWeek && recapFirst && <LastWeekRecap recap={lastWeek} />}
+          <FreshContentNotice content={content} name={name} />
           <div>
+            {lastWeek && recapFirst && <h3 className="mb-1 text-sm font-bold text-ink">This week</h3>}
             <p className="flex flex-wrap items-center gap-2 text-[15px] text-ink">
               <PacePill plan={plan} /> {paceSentence(plan)}
             </p>
@@ -60,6 +82,11 @@ export function WeeklyUpdate({
           </div>
         </div>
         <div className="grid content-start gap-5">
+          {lastWeek && !recapFirst && (
+            <p className="text-sm text-ink-3">
+              <span className="font-semibold text-ink-2">Last week:</span> {recapSentence(lastWeek)}
+            </p>
+          )}
           <div>
             <h3 className="text-sm font-bold text-ink">Progress check</h3>
             <p className="mt-1 text-sm text-ink-2">{checkSentence(plan, name)}</p>
@@ -71,6 +98,7 @@ export function WeeklyUpdate({
             </div>
           </div>
           <EmailUpdates
+            deliveries={deliveries.data}
             studentId={studentId}
             name={name}
             onChange={quiet.reload}
@@ -98,7 +126,7 @@ export function WeeklyUpdate({
  * preview appear only where the backend stores the choice; the preview is built by the same composer the sender
  * uses, from this week so far.
  */
-function EmailUpdates({ studentId, name, onChange, preview }: { studentId: string; name: string; onChange: () => void; preview: DigestStudent }) {
+function EmailUpdates({ studentId, name, onChange, preview, deliveries }: { studentId: string; name: string; onChange: () => void; preview: DigestStudent; deliveries: EmailDelivery[] | null | undefined }) {
   const { source, viewer } = useApp()
   const [pref, setPref] = useState<AlertPreference | null>(null)
   const [saved, setSaved] = useState<'idle' | 'saving' | 'saved' | { error: string }>('idle')
@@ -140,7 +168,7 @@ function EmailUpdates({ studentId, name, onChange, preview }: { studentId: strin
           <select
             id={id}
             aria-label="Days without practice"
-            className={cx(inputClass, 'inline-block h-8 w-auto px-2 py-0 text-sm')}
+            className="mx-1 inline-block h-8 rounded-lg border border-line-strong bg-surface px-2 align-middle text-sm text-ink focus:border-focus focus:outline-none focus:ring-2 focus:ring-info/30"
             value={pref.inactivityDays}
             onChange={(e) => void save({ ...pref, inactivityDays: Number(e.target.value) })}
           >
@@ -168,6 +196,7 @@ function EmailUpdates({ studentId, name, onChange, preview }: { studentId: strin
             : 'For now the alert shows here; email delivery comes later.'}
       </p>
       {typeof saved === 'object' && <p className="text-sm text-bad">{saved.error}</p>}
+      <SentLog deliveries={deliveries} demo={demo} studentId={studentId} name={name} />
       {email && (
         <div className="mt-2">
           <button type="button" aria-expanded={showPreview} onClick={() => setShowPreview(!showPreview)} className="text-xs font-semibold text-go-strong underline dark:text-go">
@@ -181,6 +210,38 @@ function EmailUpdates({ studentId, name, onChange, preview }: { studentId: strin
             </div>
           )}
         </div>
+      )}
+    </div>
+  )
+}
+
+/** "Emailed Oct 5" only from the server's delivery record; otherwise say plainly that it was shown here only. */
+function emailedLine(d: EmailDelivery[] | null | undefined, kind: EmailDelivery['kind'], studentId: string): string {
+  const hit = (d ?? []).find((x) => x.kind === kind && (kind !== 'inactivity' || x.studentId === studentId))
+  return hit ? `Also emailed to you ${formatShortDate(hit.sentAt.slice(0, 10))}.` : 'Shown here on the dashboard. Not emailed.'
+}
+
+/** What has actually been emailed, from the server's delivery record. Never inferred from settings. */
+function SentLog({ deliveries, demo, studentId, name }: { deliveries: EmailDelivery[] | null | undefined; demo: boolean; studentId: string; name: string }) {
+  if (deliveries === undefined) return null
+  const mine = (deliveries ?? []).filter((d) => d.kind === 'weekly_digest' || d.studentId === studentId).slice(0, 5)
+  return (
+    <div className="mt-3">
+      <h4 className="text-xs font-bold text-ink">Emails sent to you</h4>
+      {demo ? (
+        <p className="mt-0.5 text-xs text-ink-3">None. The demo never sends email; updates appear only on this dashboard.</p>
+      ) : deliveries === null ? (
+        <p className="mt-0.5 text-xs text-ink-3">None. Email delivery isn't switched on yet, so updates appear only on this dashboard.</p>
+      ) : mine.length === 0 ? (
+        <p className="mt-0.5 text-xs text-ink-3">None yet.</p>
+      ) : (
+        <ul className="mt-0.5 grid gap-0.5 text-xs text-ink-2">
+          {mine.map((d) => (
+            <li key={`${d.kind}:${d.weekStart ?? d.studentId}:${d.sentAt}`}>
+              {d.kind === 'weekly_digest' ? `Weekly summary, week of ${formatShortDate(d.weekStart!)}` : `Inactivity alert about ${name}`}: emailed {formatShortDate(d.sentAt.slice(0, 10))}
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   )

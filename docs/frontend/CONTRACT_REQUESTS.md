@@ -17,17 +17,20 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-9 | Institution level, saved schools | ✅ live | `level` from `compare_institutions`; saved schools via `save_/remove_household_school` (browser only for a student with no household) |
 | CR-10 | Canonical exam keys, student exam plan | ⏳ open | College paths match exams by normalized name; the exam list is kept in this browser |
 | CR-11 | Numeric test minimums on awards | ⏳ open | Single minimums parsed from `test_requirement` text; ranges/tiers shown as "read criteria" |
-| CR-12 | Primary target school | ⏳ open | Designed and working in demo; hidden in live (`supportsPrimarySchool = false`), no client stand-in |
-| CR-13 | Major certainty and saved interests | ⏳ open | Asked in onboarding and on Explore majors; kept in this browser |
+| CR-12 | Primary target school | ✅ live | `supportsPrimarySchool = true` in `LiveSource` |
+| CR-13 | Major certainty and saved interests | ✅ live | Read/written through `student_academic_interests`; checked locally |
 | CR-14 | Structured program, admission and degree-path fields | 🚧 schema in PR #89, data in #91/#92 | Program match by name; admission/transfer/undeclared shown as unverified questions; progression text quoted |
 | CR-15 | Household home state | ⏳ open | Asked (optional) in onboarding and on cost screens; kept in this browser; labelled as the family's answer |
-| CR-16 | Subscription owner + household entitlement | ⏳ open | No plan, price, paywall or entitlement state anywhere; nothing simulated |
+| CR-16 | Subscription owner + household entitlement | 🚧 migrations `20261006103015`/`20261006103023` and edge functions merged (#108); untested against real Stripe | `PlanCard` reads `household_entitlement` (sandbox status display-only); checkout and portal via edge functions |
 | CR-17 | How each school bills tuition (flat rate or per credit) | ⏳ open | Credit savings counted only as whole terms finished early; the remainder is shown, not counted |
 | CR-18 | Loan terms (federal limits, rates) as sourced records | ⏳ open | Families enter planned borrowing; it is shown as borrowed, never as a saving; no limits or rates shown |
 | CR-19 | Credit applicability: hours on equivalency rows, elective/gen-ed designations, plans for more majors | ⏳ open | Credit checked course by course against the major's verified plan where one exists; otherwise "unknown"; savings shown only as potential |
 | CR-20 | Cost-of-attendance period (academic year vs 12 months) | ⏳ open | COA labelled "academic year"; summer and break living is the family's own number |
 | CR-21 | Question review metadata; serve only reviewed items | 🚧 migration `20261007140000` merged (#142), unapplied on hosted | Demo and local DB serve only items whose current content hash a review approved (`questionReview.ts`); live has no review fields |
 | CR-22 | Parent emails: weekly-summary opt-in, service-only digest and inactivity payloads, delivery log | ⏳ open (reference SQL in `scripts/local/proposals/cr22_parent_emails.sql`, local only) | Opt-in and email preview behind `VITE_WEEKLY_DIGEST`; sender `supabase/functions/send-weekly-digest` (not deployed) |
+| CR-23 | Fresh vs repeat vs progress-check questions on the server | ⏳ open | Demo holds check questions out of practice; live marks `seen_before` from attempts, and checks and trends exclude repeats client-side |
+| CR-24 | Rights gate: a published question needs an allowed license (+ attribution when required) | ⏳ open | Nothing enforced; editorial workflow stage 3 (`docs/product/CONTENT_PLAN.md`) |
+| CR-25 | "Report a problem" on a question | ⏳ open | No UI; nothing stored |
 
 Live content note: the bank has no exam versions, skills or questions yet, so live practice and benchmarks show their empty states until content is loaded.
 
@@ -327,6 +330,48 @@ In the app and the local database, an item is served only if a review approved i
 - a guardian who did not opt in gets nothing;
 - a week's summary is sent once only;
 - a failed send is retried, and an inactivity alert is sent once per stretch.
+
+## CR-23. Fresh questions, repeats and progress-check questions
+
+**Rule, as the app applies it now** (`web/src/lib/engine/freshness.ts`):
+- **Fresh:** a question the student has never been shown.
+- **Held for the next check:** in each section, the next mini check's worth of fresh questions is kept out of practice, mid-difficulty first. ACT holds English 3, Math 4, Reading 3, Science 3; SAT holds 4 and 4.
+- **Repeats:** allowed in practice as review, and counted toward the weekly goal. They are never evidence of improvement:
+  - the weekly trend uses first answers only;
+  - a progress-check section with any repeated question gets no verdict ("not a clean comparison").
+
+**Need (server):**
+1. **`start_practice_session` and `recommend_practice_set`:** exclude the held set unless nothing else is left, and return `seen_before` per item. Today the client marks it with one extra query.
+2. **`complete_benchmark` metrics:** per section, `repeats`, meaning attempts whose question the student had been shown before the benchmark started. That lets the stored history say whether a comparison is clean without client reconstruction.
+3. **`student_skill_estimates`:** add `first_answers` and `first_answer_accuracy` beside the existing totals, so any accuracy shown as progress can use first answers. The existing totals can keep driving targeting.
+
+**Why.** The bank is small (CR-21, #19). Without this, practice consumes the questions progress checks need, and recall of repeated items reads as improvement.
+
+## CR-24. Rights gate on published questions
+
+Needed by the human editorial workflow in `docs/product/CONTENT_PLAN.md` §5 (stage 3).
+
+**Ask:** a question can be `published` only when `license` is one of an agreed set, and `source_attribution` is non-empty when the license requires it. The suggested set is `original-owned`, `us-federal-pd`, `public-domain`, `cc-by-4.0` and `licensed:<vendor>`.
+
+**Why:**
+- Today `license` and `source_attribution` are free text and optional.
+- The CR-21 migration comment says that changing them does not void an approval [Certain]. That is the right behaviour for content review.
+- Rights are a separate gate, and nothing enforces them yet.
+
+**Client:** nothing to change; the demo's fixtures will carry the same fields.
+
+## CR-25. Report a problem with a question
+
+Needed by stage 10 (monitoring) of the editorial workflow.
+
+**Ask:**
+- An RPC `report_question_problem(p_attempt uuid, p_reason text, p_note text)`. Reasons: `wrong_key`, `two_answers`, `unclear`, `typo`, `other`. The note is at most 500 characters.
+- Callable by the attempt's student or a guardian with view permission.
+- Readable only by the service role.
+- Rate-limited per user.
+- Never shown to other families.
+
+**Client:** a "Report a problem" link on the answer review, sending a reason and an optional note. It will be shown only once the RPC exists.
 
 ## Product decisions flagged (not contract requests)
 

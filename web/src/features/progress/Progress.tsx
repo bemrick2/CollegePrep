@@ -4,8 +4,20 @@ import { useApp } from '../../lib/app'
 import { Card, CardHeader, EmptyState, Notice, PageLoading, Pill, ProgressBar, cx } from '../../components/ui'
 import { Chart } from '../../components/icons'
 import { addDays, formatDuration, formatShortDate, localDate } from '../../lib/engine/dates'
-import { SECTION_LABEL, SECTION_ORDER, benchmarkImprovement, pacingVerdict } from '../../lib/engine/benchmark'
-import { improvementVerdict } from '../../lib/engine/improving'
+import { SECTION_LABEL, SECTION_ORDER, pacingVerdict } from '../../lib/engine/benchmark'
+import { improvementVerdict, type CheckPair } from '../../lib/engine/improving'
+import { benchmarkRepeats } from '../../lib/engine/freshness'
+import type { AttemptRecord, BenchmarkSummary } from '../../lib/data/types'
+
+/** The last two progress checks, with how many of their questions had been seen before. */
+function lastTwoChecks(benchmarks: BenchmarkSummary[], history: AttemptRecord[]): CheckPair | null {
+  const byDate = [...benchmarks].sort((a, b) => a.completed_at.localeCompare(b.completed_at))
+  if (byDate.length < 2) return null
+  const to = byDate.at(-1)!
+  const from = byDate.at(-2)!
+  const count = (b: BenchmarkSummary) => [...benchmarkRepeats(b, history).values()].reduce((n, x) => n + x, 0)
+  return { from, to, repeats: count(from) + count(to) }
+}
 import { ImprovingCard } from '../../components/ImprovingCard'
 import { recentTrend, useStudentOverview, type StudentOverview } from '../student/useStudentOverview'
 import { useCatalog } from '../practice/useCatalog'
@@ -71,7 +83,7 @@ function Body({ o, heading, who }: { o: StudentOverview; heading: string; who?: 
     <div className="grid grid-cols-1 gap-4">
       <h1 className="display text-[28px] font-semibold text-ink">{heading}</h1>
 
-      <ImprovingCard v={improvementVerdict(benchmarkImprovement(o.benchmarks), recentTrend(o.history, o.today, o.tz))} title={who ? `Is ${who} improving?` : 'Am I improving?'} />
+      <ImprovingCard v={improvementVerdict(lastTwoChecks(o.benchmarks, o.history), recentTrend(o.history, o.today, o.tz))} title={who ? `Is ${who} improving?` : 'Am I improving?'} />
 
       <PracticeIndicators history={o.history} who={who} showTrend />
 
@@ -160,7 +172,7 @@ function Body({ o, heading, who }: { o: StudentOverview; heading: string; who?: 
               </button>
               {openBench === b.id && (
                 <div className="bg-surface-2 p-4">
-                  <BenchmarkResults summary={b} traps={catalog.traps} standalone={false} history={o.benchmarks} />
+                  <BenchmarkResults summary={b} traps={catalog.traps} standalone={false} history={o.benchmarks} attempts={o.history} />
                 </div>
               )}
             </li>
