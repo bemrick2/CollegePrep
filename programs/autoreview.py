@@ -152,7 +152,8 @@ def review(state, run, today=None):
                'graduate_name' if GRADUATE.search(c['record'].get('program_name', '')) else
                'option_name' if OPTION.search(c['record'].get('program_name', '')) and (c['institution_key'], url_of(c, 'program_url')) not in listed_emphases else
                'combined_program' if COMBINED.search(c['record'].get('program_name', '')) else
-               'entry_path_variant' if len(variants[(c['institution_key'], base(c))]) > 1 and plain(c) != c['record'].get('program_name', '').strip() else
+               'entry_path_variant' if len(variants[(c['institution_key'], base(c))]) > 1 and plain(c) != c['record'].get('program_name', '').strip()
+               and (c['institution_key'], url_of(c, 'program_url')) not in listed_emphases else
                'variant_page' if url_of(c, 'program_url') in variant_pages else
                'not_current_year' if not current_year(c, today_year) else
                'duplicate' if k in seen or (u in seen_url and c['extractor'] not in SHARED_PAGE) else None)

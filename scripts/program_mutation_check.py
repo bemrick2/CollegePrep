@@ -9,7 +9,8 @@ import shutil, subprocess, sys
 MUTS = [
     # UVU: listed emphases, glued awards, matriculation evidence
     ('programs/extract.py', "    return any(is_option_page(c) for c in found) and (key, norm_emph(url)) not in emphases", "    return any(is_option_page(c) for c in found)"),
-    ('programs/autoreview.py', "and (c['institution_key'], url_of(c, 'program_url')) not in listed_emphases else", "and True else"),
+    ('programs/autoreview.py', "'program_name', '')) and (c['institution_key'], url_of(c, 'program_url')) not in listed_emphases else", "'program_name', '')) and True else"),
+    ('programs/autoreview.py', "\n               and (c['institution_key'], url_of(c, 'program_url')) not in listed_emphases else", "\n               and True else"),
     ('programs/extract.py', " or credential_of(re.sub(r'(?<=[a-z.])(?=[A-Z][a-z])', ' ', label))", ""),
     ('programs/extract.py', "r'\\bprior\\s+to\\s+application\\b|", "r'"),
     # issue #95 recovery: printed code shapes, specific hold reasons, held rows reported not dropped
@@ -83,8 +84,8 @@ MUTS = [
     ('programs/crawl.py', "            if re.search(r'(^|[-_])(minor|certificate|cert|ms|ma|mba|mfa|med|phd|edd|dnp|pmc|aas|as|aa)([-_]|$)', seg): continue", "            pass"),
     ('programs/crawl.py', "            if not is_program(h) or re.search(r'(^|/)(grad|graduate|graduate-school)(/|$)', urlsplit(h).path.lower()): continue", "            pass"),
     ('programs/extract.py', "    hit = next((n for n in names if n and norm(re.sub(r'(\\s*\\([^()]{1,12}\\))+\\s*$', '', n)) == norm(base)), None)", "    hit = next((n for n in names if n and norm(n).startswith(norm(base))), None)"),
-    ('programs/autoreview.py', "               'entry_path_variant' if len(variants[(c['institution_key'], base(c))]) > 1 and plain(c) != c['record'].get('program_name', '').strip() else", ""),
-    ('programs/autoreview.py', " and plain(c) != c['record'].get('program_name', '').strip() else", " else"),
+    ('programs/autoreview.py', "               'entry_path_variant' if len(variants[(c['institution_key'], base(c))]) > 1 and plain(c) != c['record'].get('program_name', '').strip()\n               and (c['institution_key'], url_of(c, 'program_url')) not in listed_emphases else\n", ""),
+    ('programs/autoreview.py', " and plain(c) != c['record'].get('program_name', '').strip()\n", "\n"),
     ('programs/extract.py', "    if not base or base == printed or OPTION_NAME.search(printed): return []", "    pass"),
     ('programs/status.py', "    counted = min(len(verified), max(matched)) if matched else len(verified)", "    counted = len(verified)"),
     ('programs/autoreview.py', "               'graduate_name' if GRADUATE.search(c['record'].get('program_name', '')) else", ""),
@@ -147,17 +148,17 @@ MUTS = [
     ('programs/courseleaf.py', "        if not table.get('sups_recorded') and any(FOOTNOTED.search(", "        if False and any(FOOTNOTED.search("),
     ('programs/courselist_html.py', "'caption': '', 'rows': [], 'sups_recorded': True}", "'caption': '', 'rows': []}"),
     # department_section/v1 scope (independent review 2026-10-07)
-    ('programs/extract.py', "    if SAMPLE_PLAN_PAGE.search(page.text or ''): return []", "    pass"),
+    ('programs/extract.py', "    if sample_plan_page(page): return []", "    pass"),
     ('programs/extract.py', "        if m.group('name').strip(' ,').lower() in specs or SECTION_PART.search(h): continue", "        if m.group('name').strip(' ,').lower() in specs: continue"),
     ('programs/extract.py', "        if nm and any(u != here and _names_degree(a, nm, award) for u, a in others): continue", "        if nm and any(_names_degree(a, nm, award) for u, a in others): continue"),
     ('programs/extract.py', "    return re.fullmatch(r'(?:' + SECTION_AWARD[award] + r')', rest.strip(), re.I) is not None", "    return credential_of(rest) == 'bachelor'"),
     ('programs/extract.py', "    if anchor.startswith(name + ' '): rest = anchor[len(name):]", "    if name in anchor: rest = anchor.replace(name, '')"),
     # listed concentration lines (NC State 'X (BS): Y Concentration', Bryant 'Bachelor of Science in X: Y Concentration')
-    ('programs/extract.py', "                or AWARD_PAREN_OPTION_ENTRY.match(line) or BACHELOR_OF_OPTION_ENTRY.match(line) for line in printed]", "                or BACHELOR_OF_OPTION_ENTRY.match(line) for line in printed]"),
-    ('programs/extract.py', "                or AWARD_PAREN_OPTION_ENTRY.match(line) or BACHELOR_OF_OPTION_ENTRY.match(line) for line in printed]", "                or AWARD_PAREN_OPTION_ENTRY.match(line) for line in printed]"),
+    ('programs/extract.py', "                or AWARD_PAREN_OPTION_ENTRY.match(line) or BACHELOR_OF_OPTION_ENTRY.match(line) or PAREN_VARIANT_ENTRY.match(line)", "                or BACHELOR_OF_OPTION_ENTRY.match(line) or PAREN_VARIANT_ENTRY.match(line)"),
+    ('programs/extract.py', "                or AWARD_PAREN_OPTION_ENTRY.match(line) or BACHELOR_OF_OPTION_ENTRY.match(line) or PAREN_VARIANT_ENTRY.match(line)", "                or AWARD_PAREN_OPTION_ENTRY.match(line) or PAREN_VARIANT_ENTRY.match(line)"),
     ('programs/extract.py', "            if key in degrees or key in (offered or {}).get(ik, set()): continue", "            if key in degrees: continue"),
     ('programs/extract.py', "|(?-i:[AB][A-Z]{1,4}))\\)', line)", ")\\)', line)"),
-    ('programs/extract.py', "    return re.sub(r'[\\s.]', '', a).lower()", "    return a.replace(' ', '').rstrip('.').lower()"),
+    ('programs/extract.py', "    k = re.sub(r'[\\s.]', '', a).lower()", "    k = a.replace(' ', '').rstrip('.').lower()"),
     # KU sample-plan sub-pages give no program record (any reader); PVAMU awards
     ('programs/extract.py', "        found = [c for c in found if c['domain'] != 'academic_programs']", "        pass"),
     ('programs/extract.py', "|S\\.?Ed|Ed|I\\.?S|SCJ|SAG|SCHE|SDIET)\\b", "|S\\.?Ed|I\\.?S|SCJ|SAG|SCHE)\\b"),
@@ -166,6 +167,18 @@ MUTS = [
     ('programs/autoreview.py', "        canon = degree_page(us) if base is None else None", "        canon = degree_page(us)"),
     ('programs/autoreview.py', "    return out[0] if len(out) == 1 else None", "    return out[0] if out else None"),
     ('programs/autoreview.py', "|bachelors?-degrees?|b-?a|b-?s|bfa|bm)$", "|bachelors?-degrees?)$"),
+    # parenthetical variant lines (UT Arlington 'Data Science BS (Biology)', TAMUK 'Kinesiology, B.S. (Sport Business)')
+    ('programs/extract.py', "                or AWARD_PAREN_OPTION_ENTRY.match(line) or BACHELOR_OF_OPTION_ENTRY.match(line) or PAREN_VARIANT_ENTRY.match(line)", "                or AWARD_PAREN_OPTION_ENTRY.match(line) or BACHELOR_OF_OPTION_ENTRY.match(line)"),
+    ('programs/extract.py', "    return LONG_AWARD.get(k, k)", "    return k"),
+    ('programs/extract.py', "    m = re.match(r'^(?P<base>[^,():]+?)\\s+(?P<award>(?-i:B[A-Z]{1,4}))\\s*$', line)", "    m = None"),
+    ('programs/extract.py', "(?P<award>(?-i:B[A-Z]{1,4}|B\\.\\s?[A-Z]", "(?P<award>(?i:B[A-Z]{1,4}|B\\.\\s?[A-Z]"),
+    # a degree page's own plan heading is not a sample-plan page (Colorado, Maryland, Missouri, Tennessee, KU engineering)
+    ('programs/extract.py', "|the recommended (?:4|four)[- ]year plan is listed below)\\b')", ")\\b')"),
+    ('programs/extract.py', "SAMPLE_PLAN_LINE = re.compile(r'(?im)^\\s*(?:below is a sample (?:4|four)[- ]year plan for|the recommended (?:4|four)[- ]year plan is listed below)\\b')",
+     "SAMPLE_PLAN_LINE = re.compile(r'(?im)^\\s*(below is a |the )?(sample|recommended) (4|four)[- ]year plan\\b')"),
+    ('programs/extract.py', "        if head in before[-2:]: return True", "        return True"),
+    ('programs/extract.py', "        if head in before[-2:]: return True", "        if head in before[-1:]: return True"),
+    ('programs/extract.py', "    head = (program_heading(page) or '').strip()", "    head = next(iter(page.headings or []), '').strip()"),
     # UAF roadmap grids (courseleaf_plangrid/v1)
     ('programs/courseleaf.py', "                if st['open'] is None: issues.add('indented_row_without_rule'); st['term']['items'].append(item)", "                if st['open'] is None: st['term']['items'].append(item)"),
     ('programs/courseleaf.py', "            st['open'] = item if GRID_CHOICE.match(text) else None", "            st['open'] = item if GRID_CHOICE.match(text) else st['open']"),
@@ -189,7 +202,8 @@ def main():
         shutil.copy(path, path + '.bak')
         try:
             open(path, 'w', encoding='utf-8').write(src.replace(old, new))
-            r = subprocess.run([sys.executable, '-m', 'unittest', 'tests.test_programs_deep_dive'], capture_output=True)
+            # no bytecode: a restored source can share the mutant's mtime and size, and a stale .pyc would then run the mutant
+            r = subprocess.run([sys.executable, '-B', '-m', 'unittest', 'tests.test_programs_deep_dive'], capture_output=True)
             status = 'KILLED' if r.returncode else 'SURVIVED'
             print(f'{status}: {path}: {old[:70]}')
             if r.returncode == 0: survived.append(path)
