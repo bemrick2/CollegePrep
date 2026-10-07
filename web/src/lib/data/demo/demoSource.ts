@@ -149,6 +149,21 @@ export class DemoSource implements DataSource {
     if (!this.canView(studentId)) throw new DataError('Not allowed to view this student', 'forbidden')
   }
 
+  /** Mirrors can_set_student_goals: a guardian with set_goals, or the student's own login outside a household (or independent). */
+  private canSetGoals(studentId: string): boolean {
+    const me = this.viewerId()
+    const st = this.student(studentId)
+    if (st.linked_user_id === me && (!st.household_id || st.is_independent)) return true
+    return this.s.members.some((m) => m.household_id === st.household_id && m.user_id === me && m.role === 'guardian' && m.can_set_goals)
+  }
+
+  /** Mirrors the self_reported insert policy: a guardian who manages students, or the student's own login. */
+  private canReportScore(studentId: string): boolean {
+    const me = this.viewerId()
+    const st = this.student(studentId)
+    return st.linked_user_id === me || this.s.members.some((m) => m.household_id === st.household_id && m.user_id === me && m.can_manage_students)
+  }
+
   private requireLinked(studentId: string) {
     if (this.student(studentId).linked_user_id !== this.viewerId())
       throw new DataError("Only the student's own login can practise", 'forbidden')
@@ -369,6 +384,7 @@ export class DemoSource implements DataSource {
   }
 
   async setWeeklyGoal(studentId: string, weekStart: string, targetQuestions: number | null, targetMinutes: number | null) {
+    if (!this.canSetGoals(studentId)) throw new DataError('Only a guardian with permission to set goals can set this goal', 'forbidden')
     const existing = this.s.goals.find((g) => g.student_id === studentId && g.week_start === weekStart)
     if (existing) {
       existing.target_questions = targetQuestions
@@ -454,6 +470,14 @@ export class DemoSource implements DataSource {
   async testScores(studentId: string): Promise<TestScore[]> {
     this.requireView(studentId)
     return delay(this.s.scores.filter((x) => x.student_id === studentId))
+  }
+
+  async addTestScore(studentId: string, score: { exam_family: ExamFamily; test_date: string; composite: number; section_scores: Record<string, number> }) {
+    if (!this.canReportScore(studentId)) throw new DataError('Not allowed to add a score for this student', 'forbidden')
+    const id = uid('sc-')
+    this.s.scores.push({ id, student_id: studentId, exam_family: score.exam_family, test_date: score.test_date, composite: score.composite, section_scores: score.section_scores, score_source: 'self_reported' })
+    this.commit()
+    return delay(id)
   }
 
   async attemptHistory(studentId: string, sinceIso: string): Promise<AttemptRecord[]> {
@@ -642,6 +666,7 @@ export class DemoSource implements DataSource {
   }
 
   async savePlan(studentId: string, plan: StudentPlan) {
+    if (!this.canSetGoals(studentId)) throw new DataError('Only a guardian with permission to set goals can change this plan', 'forbidden')
     this.s.plans[studentId] = plan
     this.commit()
   }

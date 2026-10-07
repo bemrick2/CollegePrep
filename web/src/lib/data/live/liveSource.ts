@@ -383,6 +383,27 @@ export class LiveSource implements DataSource {
     })
   }
 
+  async addTestScore(studentId: string, score: { exam_family: ExamFamily; test_date: string; composite: number; section_scores: Record<string, number> }): Promise<string> {
+    // The score belongs to the exam version in force on the test date (latest effective_from on or before it).
+    const ev = await this.sb
+      .from('exam_versions')
+      .select('id, effective_from')
+      .eq('exam_family', score.exam_family)
+      .lte('effective_from', score.test_date)
+      .order('effective_from', { ascending: false })
+      .limit(1)
+      .maybeSingle()
+    if (ev.error) fail(ev.error)
+    if (!ev.data) throw new DataError(`No ${score.exam_family.toUpperCase()} version covers that test date yet`, 'invalid')
+    const { data, error } = await this.sb
+      .from('student_test_scores')
+      .insert({ student_id: studentId, exam_version_id: ev.data.id, test_date: score.test_date, composite: score.composite, section_scores: score.section_scores, score_source: 'self_reported' })
+      .select('id')
+      .single()
+    if (error) fail(error)
+    return data.id as string
+  }
+
   async attemptHistory(studentId: string, sinceIso: string): Promise<AttemptRecord[]> {
     const { data, error } = await this.sb
       .from('practice_attempts')
