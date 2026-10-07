@@ -7,7 +7,7 @@
 // hosted database.
 import { createHash } from 'node:crypto'
 import { QUESTIONS, SKILLS, STRATEGIES, TRAPS } from '../../src/lib/data/demo/fixtures'
-import { isReviewed } from '../../src/lib/data/demo/questionReview'
+import { REVIEW_RECORD, isReviewed } from '../../src/lib/data/demo/questionReview'
 
 const q = (s: string | null | undefined) => (s == null ? 'null' : `'${s.replace(/'/g, "''")}'`)
 const j = (v: unknown) => `${q(JSON.stringify(v))}::jsonb`
@@ -69,5 +69,10 @@ for (const x of QUESTIONS) {
       `insert into public.practice_question_strategies(question_id, strategy_id, role, is_fastest, strategy_explanation) values (${q(id)}, ${q(uid(`st:${s.strategy_key}`))}, ${q(s.role)}, ${s.is_fastest}, ${q(s.explanation)}) on conflict do nothing;`,
     )
 }
+// CR-21: record each approval on the server, which hashes the content itself (practice_question_content_hash).
+// Only items the review record approves for their current content are approved; the client hash is not sent.
+const METHOD = 'AI review: two blind solves + key and explanation audit (web/src/lib/data/demo/questionReviews.json)'
+for (const x of QUESTIONS.filter((q) => isReviewed(q)))
+  out.push(`select public.approve_practice_question(${q(uid(`q:${x.id}`))}, ${q(METHOD)}, ${q(REVIEW_RECORD.items[x.id]!.reviewed_at)}::timestamptz);`)
 out.push('commit;')
 process.stdout.write(out.join('\n') + '\n')
