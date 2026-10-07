@@ -70,6 +70,7 @@ MUTS = [
     ('programs/extract.py', "BACHELOR = re.compile(r'(?<![A-Za-z]\\.)\\b(B", "BACHELOR = re.compile(r'\\b(B"),
     ('programs/crawl.py', "    elif cat.get('home') and not (cat.get('platform') == 'pdf' and cat['home'] in cat.get('catalog_pdfs', [])):", "    elif cat.get('home'):"),
     ('programs/extract.py', "    path = '/'.join(seg for seg in urlsplit(href).path.split('/') if 'degree' not in seg.lower())", "    path = urlsplit(href).path"),
+    ('programs/extract.py', "    named = (page.title or '').split(' | ')[0].split(' < ')[0].strip()", "    named = (page.title or '').split(' | ')[0].strip()"),
     ('programs/extract.py', "    while hs and YEAR_HEADING.match(hs[0]): hs = hs[1:]", "    pass"),
     ('programs/extract.py', " or OPTION_NAME.search(name) or GENERIC_DEGREES.match(name): return []", " or OPTION_NAME.search(name): return []"),
     ('programs/detect.py', "                if ys: pdfs.append((max(ys), href, m))", "                pdfs.append((max(ys or {0}), href, m))"),

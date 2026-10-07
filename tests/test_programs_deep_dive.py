@@ -1721,6 +1721,11 @@ class ListedEmphasisTests(unittest.TestCase):
         # a page title that names no heading (the title rule does not apply): the year heading is still skipped
         untitled = T.Page(page.text, 'UAF Catalog', [], [], ['Catalog 2026-2027', 'Computer Science B.A.', 'Admission Requirements'])
         self.assertEqual(program_heading(untitled), 'Computer Science B.A.')
+        kent = T.Page('', 'Accounting - B.B.A. < Kent State University', [], [], ['University Catalog 2026-2027', 'Accounting - B.B.A.', 'About This Program'])
+        self.assertEqual(program_heading(kent), 'Accounting - B.B.A.')
+        # the ' < ' title form names the heading even when a non-year heading comes first
+        self.assertEqual(program_heading(T.Page('', 'Accounting - B.B.A. < Kent State University', [], [], ['Quick Links', 'Accounting - B.B.A.'])), 'Accounting - B.B.A.')
+        self.assertEqual(program_heading(T.Page('', 'X', [], [], ['University Catalog 2026-2027', 'Quick Links'])), 'Quick Links')
         got = static_program_identity({'institution_key': 'k'}, {'url': 'https://catalog.uaf.edu/bachelors/computer-science-ba/'}, page, '2026-27')
         self.assertEqual([c['record']['program_name'] for c in got], ['Computer Science B.A.'])
         index = T.Page('Catalog 2026-2027', "Bachelor's Degrees | UAS", [], [], ['Catalog 2026-2027', "Bachelor's Degrees"])

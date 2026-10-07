@@ -7,9 +7,11 @@ A surviving mutant means a safety rule has no test. Run: python scripts/mutation
 import ast, concurrent.futures, os, queue, shutil, subprocess, sys, tempfile
 
 MUTS = [
-    ('pipeline/extractors/catalog.py', "\\bB\\.?\\s?(F\\.\\s?A|S\\.\\s?N|S\\.\\s?W|L\\.\\s?A|S|A|", "\\bB\\.?\\s?(S|A|"),
+    ('pipeline/extractors/catalog.py', "\\bB\\.?\\s?(F\\.\\s?A|S\\.\\s?N|S\\.\\s?W|L\\.\\s?A|B\\.\\s?A|S|A|", "\\bB\\.?\\s?(S|A|"),
     ('pipeline/extractors/catalog.py', "re.search(r',\\s*(?:B|A)\\.\\s?[A-Z]', rest)", "False"),
     ('pipeline/extractors/common.py', " and not UNDERGRAD_AWARD.search((page.title or '').split('|')[0])", ''),
+    ('pipeline/extractors/catalog.py', "    if rest and not award_only and not (", "    if rest and not ("),
+    ('pipeline/registry.py', " and label not in other_states and (label not in slugs", " and (label not in slugs"),
     ('pipeline/extractors/catalog.py', "DEGREE = [('bachelor', r'(?<![A-Za-z]\\.)\\bB", "DEGREE = [('bachelor', r'\\bB"),
     ('pipeline/extractors/common.py', "UNDERGRAD_AWARD = re.compile(r'(^|,|\\s|\\()\\s*(", "UNDERGRAD_AWARD = re.compile(r'(^|,|\\s)\\s*("),
     ('pipeline/extractors/credit.py', "if bad_score and bad_score >= len(eqs) * 0.3: issues = issues + ['score_column_not_scores']", 'pass'),
@@ -211,7 +213,6 @@ MUTS = [
     ('pipeline/extractors/credit.py', 'continue  # MI (Macomb)', 'pass  # MI (Macomb)'),
     ('pipeline/extractors/dual.py', 'credits\\s+to\\s+transfer|', ''),
     ('pipeline/extractors/dual.py', 'credits\\s+attempted|', ''),
-    ('pipeline/registry.py', 'if label and label not in owned and (', 'if label and ('),
     ('pipeline/extractors/transfer.py', "r'articulation|agreement|\\bTT", "r'agreement|\\bTT"),
     ('pipeline/extractors/transfer.py', 'articulation|agreement|\\bTT', 'articulation|\\bTT'),
     ('pipeline/extractors/transfer.py', '|\\bTT[-_]|\\bmou', '|\\bmou'),
