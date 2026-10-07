@@ -1,7 +1,7 @@
 {
  "state": "AL",
  "source": "IPEDS HD2023 (sources/ipeds/2023-24/manifest.json)",
- "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record",
+ "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record; four-year colleges without one are included when IPEDS INSTCAT is 2 or 3 (awards undergraduate degrees)",
  "institutions": [
   {
    "institution_key": "ipeds-100654",
@@ -49,6 +49,47 @@
    "existing_sources": [
     "https://www.alasu.edu/admissions/early-college.php"
    ]
+  },
+  {
+   "institution_key": "ipeds-100690",
+   "unitid": 100690,
+   "name": "Amridge University",
+   "city": "Montgomery",
+   "state": "AL",
+   "folder": "amridgeuniversity",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "amridgeuniversity.edu",
+   "allowed_domains": [
+    "amridgeuniversity.edu"
+   ],
+   "seeds": {
+    "website": "https://www.amridgeuniversity.edu/",
+    "admissions": "https://www.amridgeuniversity.edu/admissions/",
+    "financial_aid": "https://www.amridgeuniversity.edu/financialaid/",
+    "net_price": "https://www2.amridgeuniversity.edu:9091/"
+   },
+   "existing_sources": []
+  },
+  {
+   "institution_key": "ipeds-100812",
+   "unitid": 100812,
+   "name": "Athens State University",
+   "city": "Athens",
+   "state": "AL",
+   "folder": "athens",
+   "control": "public",
+   "level": "four_year",
+   "domain": "athens.edu",
+   "allowed_domains": [
+    "athens.edu"
+   ],
+   "seeds": {
+    "website": "https://www.athens.edu/",
+    "admissions": "https://www.athens.edu/admissions/",
+    "financial_aid": "https://www.athens.edu/admissions/financial-aid"
+   },
+   "existing_sources": []
   },
   {
    "institution_key": "ipeds-100858",

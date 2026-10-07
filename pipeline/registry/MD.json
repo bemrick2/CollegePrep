@@ -1,7 +1,7 @@
 {
  "state": "MD",
  "source": "IPEDS HD2023 (sources/ipeds/2023-24/manifest.json)",
- "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record",
+ "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record; four-year colleges without one are included when IPEDS INSTCAT is 2 or 3 (awards undergraduate degrees)",
  "institutions": [
   {
    "institution_key": "ipeds-161688",
@@ -871,6 +871,27 @@
     "https://www.umgc.edu/transfers-and-credits/fast-paths-to-credit/credit-by-exam/ap",
     "https://www.umgc.edu/transfers-and-credits/fast-paths-to-credit/credit-by-exam/clep"
    ]
+  },
+  {
+   "institution_key": "ipeds-163259",
+   "unitid": 163259,
+   "name": "University of Maryland, Baltimore",
+   "city": "Baltimore",
+   "state": "MD",
+   "folder": "umaryland",
+   "control": "public",
+   "level": "four_year",
+   "domain": "umaryland.edu",
+   "allowed_domains": [
+    "umaryland.edu"
+   ],
+   "seeds": {
+    "website": "https://www.umaryland.edu/",
+    "admissions": "https://www.umaryland.edu/admissions/admissions-by-school/",
+    "financial_aid": "https://www.umaryland.edu/fin/",
+    "net_price": "https://www.umaryland.edu/oac/student-right-to-know/"
+   },
+   "existing_sources": []
   },
   {
    "institution_key": "ipeds-163268",

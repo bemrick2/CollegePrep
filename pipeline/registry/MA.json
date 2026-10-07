@@ -1,7 +1,7 @@
 {
  "state": "MA",
  "source": "IPEDS HD2023 (sources/ipeds/2023-24/manifest.json)",
- "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record",
+ "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record; four-year colleges without one are included when IPEDS INSTCAT is 2 or 3 (awards undergraduate degrees)",
  "institutions": [
   {
    "institution_key": "ipeds-164447",
@@ -1041,6 +1041,27 @@
    "existing_sources": []
   },
   {
+   "institution_key": "ipeds-166869",
+   "unitid": 166869,
+   "name": "MGH Institute of Health Professions",
+   "city": "Boston",
+   "state": "MA",
+   "folder": "mghihp",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "mghihp.edu",
+   "allowed_domains": [
+    "mghihp.edu"
+   ],
+   "seeds": {
+    "website": "https://www.mghihp.edu/",
+    "admissions": "https://www.mghihp.edu/admissions",
+    "financial_aid": "https://www.mghihp.edu/admissions/financial-aid-billing",
+    "net_price": "https://www.mghihp.edu/admissions/tuition-fees"
+   },
+   "existing_sources": []
+  },
+  {
    "institution_key": "ipeds-166647",
    "unitid": 166647,
    "name": "Massachusetts Bay Community College",
@@ -1365,6 +1386,50 @@
    },
    "existing_sources": [
     "https://admissions.northeastern.edu/application-information/transferring-credit/"
+   ],
+   "shared_domains": [
+    "northeastern.edu"
+   ],
+   "allowed_hosts": [
+    "admissions.northeastern.edu",
+    "northeastern.edu",
+    "studentfinance.northeastern.edu"
+   ],
+   "shared_hosts": [
+    "northeastern.edu",
+    "studentfinance.northeastern.edu"
+   ]
+  },
+  {
+   "institution_key": "ipeds-482705",
+   "unitid": 482705,
+   "name": "Northeastern University Professional Programs",
+   "city": "Boston",
+   "state": "MA",
+   "folder": "northeastern-482705",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "northeastern.edu",
+   "allowed_domains": [
+    "northeastern.edu"
+   ],
+   "seeds": {
+    "website": "https://www.northeastern.edu/",
+    "admissions": "https://www.northeastern.edu/admissions/",
+    "financial_aid": "https://studentfinance.northeastern.edu/",
+    "net_price": "https://studentfinance.northeastern.edu/financial-tools-and-calculators/"
+   },
+   "existing_sources": [],
+   "shared_domains": [
+    "northeastern.edu"
+   ],
+   "allowed_hosts": [
+    "northeastern.edu",
+    "studentfinance.northeastern.edu"
+   ],
+   "shared_hosts": [
+    "northeastern.edu",
+    "studentfinance.northeastern.edu"
    ]
   },
   {
@@ -1512,6 +1577,27 @@
    "shared_hosts": []
   },
   {
+   "institution_key": "ipeds-167677",
+   "unitid": 167677,
+   "name": "Saint John's Seminary",
+   "city": "Brighton",
+   "state": "MA",
+   "folder": "sjs",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "sjs.edu",
+   "allowed_domains": [
+    "sjs.edu"
+   ],
+   "seeds": {
+    "website": "https://www.sjs.edu/",
+    "admissions": "https://www.sjs.edu/",
+    "financial_aid": "https://www.sjs.edu/",
+    "net_price": "https://www.sjs.edu/"
+   },
+   "existing_sources": []
+  },
+  {
    "institution_key": "ipeds-167729",
    "unitid": 167729,
    "name": "Salem State University",
@@ -1621,6 +1707,45 @@
    },
    "existing_sources": [
     "https://springfield.edu/admissions/transfer-admissions/transferring-credits"
+   ],
+   "shared_domains": [
+    "springfield.edu"
+   ],
+   "allowed_hosts": [
+    "springfield.edu"
+   ],
+   "shared_hosts": [
+    "springfield.edu"
+   ]
+  },
+  {
+   "institution_key": "ipeds-475273",
+   "unitid": 475273,
+   "name": "Springfield College-Regional, Online, and Continuing Education",
+   "city": "Springfield",
+   "state": "MA",
+   "folder": "springfield-475273",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "springfield.edu",
+   "allowed_domains": [
+    "springfield.edu"
+   ],
+   "seeds": {
+    "website": "https://springfield.edu/regional-and-online",
+    "admissions": "https://springfield.edu/regional-and-online/admissions",
+    "financial_aid": "https://springfield.edu/regional-and-online/financial-aid",
+    "net_price": "https://springfield.edu/admissions/undergraduate-admissions/springfield-colleges-net-price-calculator"
+   },
+   "existing_sources": [],
+   "shared_domains": [
+    "springfield.edu"
+   ],
+   "allowed_hosts": [
+    "springfield.edu"
+   ],
+   "shared_hosts": [
+    "springfield.edu"
    ]
   },
   {
@@ -1951,6 +2076,26 @@
     "admissions": "https://wheatoncollege.edu/admission/",
     "financial_aid": "https://wheatoncollege.edu/about-wheaton-college/offices-services/student-financial-services/",
     "net_price": "https://www.collegenpc.com/WheatonCollegeMA"
+   },
+   "existing_sources": []
+  },
+  {
+   "institution_key": "ipeds-166717",
+   "unitid": 166717,
+   "name": "William James College",
+   "city": "Newton",
+   "state": "MA",
+   "folder": "williamjames",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "williamjames.edu",
+   "allowed_domains": [
+    "williamjames.edu"
+   ],
+   "seeds": {
+    "website": "https://www.williamjames.edu/",
+    "admissions": "https://www.williamjames.edu/",
+    "financial_aid": "https://www.williamjames.edu/"
    },
    "existing_sources": []
   },

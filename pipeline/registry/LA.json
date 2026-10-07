@@ -1,7 +1,7 @@
 {
  "state": "LA",
  "source": "IPEDS HD2023 (sources/ipeds/2023-24/manifest.json)",
- "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record",
+ "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record; four-year colleges without one are included when IPEDS INSTCAT is 2 or 3 (awards undergraduate degrees)",
  "institutions": [
   {
    "institution_key": "ipeds-487658",
@@ -327,6 +327,48 @@
    "existing_sources": []
   },
   {
+   "institution_key": "ipeds-159373",
+   "unitid": 159373,
+   "name": "Louisiana State University Health Sciences Center-New Orleans",
+   "city": "New Orleans",
+   "state": "LA",
+   "folder": "lsuhsc",
+   "control": "public",
+   "level": "four_year",
+   "domain": "lsuhsc.edu",
+   "allowed_domains": [
+    "lsuhsc.edu"
+   ],
+   "seeds": {
+    "website": "https://www.lsuhsc.edu/",
+    "admissions": "https://catalog.lsuhsc.edu/",
+    "financial_aid": "https://www.lsuhsc.edu/FinancialAid/",
+    "net_price": "https://www.lsuhsc.edu/tuition/"
+   },
+   "existing_sources": []
+  },
+  {
+   "institution_key": "ipeds-435000",
+   "unitid": 435000,
+   "name": "Louisiana State University Health Sciences Center-Shreveport",
+   "city": "Shreveport",
+   "state": "LA",
+   "folder": "lsuhs",
+   "control": "public",
+   "level": "four_year",
+   "domain": "lsuhs.edu",
+   "allowed_domains": [
+    "lsuhs.edu"
+   ],
+   "seeds": {
+    "website": "https://www.lsuhs.edu/",
+    "admissions": "https://www.lsuhs.edu/admissions",
+    "financial_aid": "https://www.lsuhs.edu/admissions/student-financial-aid",
+    "net_price": "https://www.lsuhs.edu/admissions/student-financial-aid/cost-of-attendance"
+   },
+   "existing_sources": []
+  },
+  {
    "institution_key": "ipeds-159391",
    "unitid": 159391,
    "name": "Louisiana State University and Agricultural & Mechanical College",
@@ -482,6 +524,26 @@
    "existing_sources": [
     "https://www.mcneese.edu/about-us/leadership-team/administrative-and-student-affairs/division-of-administrative-and-student-affairs/student-central/admissions/dual-enrollment/"
    ]
+  },
+  {
+   "institution_key": "ipeds-488721",
+   "unitid": 488721,
+   "name": "NationsUniversity",
+   "city": "New Orleans",
+   "state": "LA",
+   "folder": "nationsu",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "nationsu.edu",
+   "allowed_domains": [
+    "nationsu.edu"
+   ],
+   "seeds": {
+    "website": "https://www.nationsu.edu/",
+    "admissions": "https://www.nationsu.edu/admissions-overview",
+    "net_price": "https://www.nationsu.edu/tuition-policy"
+   },
+   "existing_sources": []
   },
   {
    "institution_key": "ipeds-159948",

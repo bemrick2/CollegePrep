@@ -79,8 +79,15 @@ def existing_ipeds_presence(state: str):
 
 
 def in_scope(r, presence) -> bool:
-    return (r['CYACTIVE'] == '1' and r['DEGGRANT'] == '1' and r['UGOFFER'] == '1'
-            and r['CONTROL'] in {'1', '2'} and r['ICLEVEL'] in {'1', '2'} and r['UNITID'] in presence)
+    """Active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, and either a 2023-24 first-time
+    undergraduate admissions/price record, or (four-year only) an IPEDS institutional category that awards undergraduate
+    degrees (INSTCAT 2 or 3). The second arm adds four-year colleges that enroll undergraduates but report no first-time
+    cohort: upper-division-only universities (Athens State), health-sciences universities (UAMS), online and transfer
+    institutions. System offices and district offices (INSTCAT -2), graduate-degree-only institutions (INSTCAT 1) and
+    unreported categories (INSTCAT -1) stay out; for-profit institutions (CONTROL 3) are outside the product scope."""
+    base = (r['CYACTIVE'] == '1' and r['DEGGRANT'] == '1' and r['UGOFFER'] == '1'
+            and r['CONTROL'] in {'1', '2'} and r['ICLEVEL'] in {'1', '2'})
+    return base and (r['UNITID'] in presence or (r['ICLEVEL'] == '1' and r.get('INSTCAT') in {'2', '3'}))
 
 
 PROGRAM_DEPTH_DOMAINS = frozenset({'academic_programs', 'degree_requirements', 'program_catalogs'})
@@ -148,12 +155,19 @@ def build(state: str):
             # MI r1: the label must not be a folder another state's institution already fills (IA Marshalltown's mcc.iavalley.edu vs Mott)
             if label and label not in owned and (label not in slugs or slugs[label] == [inst['institution_key']]):
                 slugs[inst['folder']].remove(inst['institution_key']); inst['folder'] = label; slugs.setdefault(label, []).append(inst['institution_key'])
+    # A folder the committed registry already gave an institution stays its own: a campus added later (registry scope
+    # widened 2026-10-07) takes the suffixed folder instead of renaming an existing one.
+    prior_path = REGISTRY_DIR / f'{state}.json'
+    prior = {i['institution_key']: i['folder'] for i in json.loads(prior_path.read_text())['institutions']} if prior_path.exists() else {}
     for inst in institutions:  # Two campuses sharing a domain get distinct folders.
-        if len(slugs[inst['folder']]) > 1 and inst['folder'] not in folders.values():
+        shared = slugs[inst['folder']]
+        keeps = [k for k in shared if prior.get(k) == inst['folder']]
+        if len(shared) > 1 and inst['folder'] not in folders.values() and not (len(keeps) == 1 and keeps[0] == inst['institution_key']):
             inst['folder'] = f"{inst['folder']}-{inst['unitid']}"
     return {'state': state, 'source': 'IPEDS HD2023 (sources/ipeds/2023-24/manifest.json)',
             'scope_rule': 'active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, '
-                          'with a 2023-24 IPEDS first-time undergraduate admissions or price record',
+                          'with a 2023-24 IPEDS first-time undergraduate admissions or price record; four-year colleges '
+                          'without one are included when IPEDS INSTCAT is 2 or 3 (awards undergraduate degrees)',
             'institutions': institutions, 'state_sources': state_sources(state)}
 
 

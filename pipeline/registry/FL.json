@@ -1,7 +1,7 @@
 {
  "state": "FL",
  "source": "IPEDS HD2023 (sources/ipeds/2023-24/manifest.json)",
- "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record",
+ "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record; four-year colleges without one are included when IPEDS INSTCAT is 2 or 3 (awards undergraduate degrees)",
  "institutions": [
   {
    "institution_key": "ipeds-133872",
@@ -68,6 +68,26 @@
     "admissions": "https://www.agmu.edu/en/admission-requirements",
     "financial_aid": "https://www.agmu.edu/en/financial-aid",
     "net_price": "https://agmu.edu/en/net-price-calculator"
+   },
+   "existing_sources": []
+  },
+  {
+   "institution_key": "ipeds-439446",
+   "unitid": 439446,
+   "name": "Atlantic Institute of Oriental Medicine",
+   "city": "Fort Lauderdale",
+   "state": "FL",
+   "folder": "atom",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "atom.edu",
+   "allowed_domains": [
+    "atom.edu"
+   ],
+   "seeds": {
+    "website": "https://www.atom.edu/",
+    "admissions": "https://www.atom.edu/",
+    "financial_aid": "https://www.atom.edu/"
    },
    "existing_sources": []
   },
