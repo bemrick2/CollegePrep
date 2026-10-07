@@ -119,6 +119,8 @@ LEAD_IN = re.compile(r'^students\s+must\s+(?=(?:take|complete|select|choose)\s+(
 NUMBER_WORDS = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10}
 COUNT = re.compile(r'^(?:select|choose|complete|take)\s+(?:(?:a\s+)?(?:minimum|total)\s+of\s+)?(one|two|three|four|five|six|seven|eight|nine|ten|\d+)\s+'
                    r'(?:additional\s+|more\s+|upper[- ]division\s+|lower[- ]division\s+|[A-Z]{2,5}\s+)*(?:courses?|of\s+the\s+following|from\s+the\s+following)\b', re.I)
+# TAMUSA "Select one of COB's Approved Ethics Electives" over its listed options: a number word, then a named list
+COUNT_NAMED = re.compile(r"^(?i:select|choose)\s+(?i:(one|two|three|four|five|six))\s+of\s+(?:[A-Z][\w'’&-]*\s+){1,5}(?i:electives?|courses?)\b")
 CREDITS = re.compile(r'^(?:select|choose|complete|take)\s+(?:(?:a\s+)?(?:minimum|total)\s+of\s+(?:at\s+least\s+)?|at\s+least\s+|an\s+additional\s+)?'
                      r'(\d{1,2}|one|two|three|four|five|six|seven|eight|nine|ten)(?:\s*-\s*\d{1,2})?\s+(?:additional\s+)?(?:credits?|credit\s+hours|hours|units)\b', re.I)
 # 'Complete the following:' (UVU) prints an all-required list, not a choice
@@ -366,7 +368,7 @@ def html_groups(table, program_awards=1, extra_issues=None):
                 close()
                 t = rw['text'] + (f" {rw['credits']}" if rw['credits'] else '')
                 rule = LEAD_IN.sub('', rw['text'])
-                cnt, crd = COUNT.match(rule), CREDITS.match(rule)
+                crd = CREDITS.match(rule); cnt = COUNT.match(rule) or (None if crd else COUNT_NAMED.match(rule))
                 cur = {'type': 'choose_unclear', 'courses': [], 'rules': [], 'issues': set(), 'rule_text': t}
                 if cnt: cur['type'] = 'choose_courses'; w = cnt.group(1).lower(); cur['choose_count'] = NUMBER_WORDS.get(w) or int(w)
                 elif crd:
@@ -429,14 +431,27 @@ def html_candidates(inst, entry, cl_entry, tables, year, program_key, program_aw
     lists = [t for t in tables if (t.get('caption') or 'Course List').strip().lower() == 'course list']
     parallel = sum(1 for t in lists if PARALLEL.match((t.get('heading') or '').strip())) >= 2
     tracks_from_here = False
-    for idx, t in enumerate(lists):
+    # TAMUSA opens each program with a credits overview ('Core Curriculum | 42', 'Major Courses | 36', ..., 'Total Credits |
+    # 120'): every row an area label with no digits and its hours, ending in a Total row. That table is a summary, not the
+    # program's own requirement table, so it does not take the 'first table' place. Nothing else is skipped.
+    def overview(t):
+        rows = [[(c.get('text') or '').strip() for c in (r.get('cells') or [])] for r in t.get('rows') or [] if 'hidden' not in (r.get('classes') or [])]
+        rows = [[c for c in r if c] for r in rows if any(r)]
+        if TERM.search((t.get('heading') or '').strip()) or re.search(r'\b(fall|spring|summer|winter)\b', t.get('heading') or '', re.I):
+            return False  # Iowa State Accelerated Nursing: 'First Year Summer' is a term of the plan, not an overview
+        return (len(rows) >= 3 and re.match(r'^total\b', rows[-1][0], re.I) is not None
+                and all(len(r) == 2 and not re.search(r'\d', r[0]) and re.fullmatch(r'\d{1,3}(\s*[-–]\s*\d{1,3})?', r[1]) for r in rows))
+    idx = -1
+    for t in lists:
+        idx += 0 if idx < 0 and overview(t) else 1
         heading = (t.get('heading') or '').strip()
         extra = set()
         if idx > 0 and not MAIN_TABLE.search(heading): extra.add('secondary_table')
         if parallel and PARALLEL.match(heading): extra.add('parallel_tables')
         if CONTEXT_CHOICE.search(t.get('context') or '') or TRACK_PROSE.search(t.get('context') or ''): tracks_from_here = True
         if tracks_from_here: extra.add('context_says_choose_among_tables')
-        label = '' if NOT_REQUIREMENT_HEADING.match(heading) else heading
+        # the nearest heading can be the department's GPA policy printed above the table (TAMUSA 'Department withdrawal')
+        label = '' if NOT_REQUIREMENT_HEADING.match(heading) or re.search(r'\b(probation|withdrawal)\b', heading, re.I) else heading
         subs = substitution_codes(page_text)
         for section, g in html_groups(t, program_awards, extra):
             n += 1
