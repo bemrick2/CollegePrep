@@ -1386,6 +1386,44 @@ class DegreeLineTests(unittest.TestCase):
         self.assertEqual(run(U + 'ACT_BSAC/', ['Accounting'], 'The Degree: Bachelor of Science is common'), [])  # a whole line only
 
 
+class DegreePageTests(unittest.TestCase):  # JHU 2026-27 (Research request in #151)
+    def test_the_degree_page_is_the_programs_page(self):
+        from programs.autoreview import degree_page
+        j = 'https://e-catalogue.jhu.edu/'
+        self.assertEqual(degree_page({j + 'as/archaeology-ugrad-major/', j + 'as/archaeology-ugrad-major/archaeology-bachelor-arts/'}),
+                         j + 'as/archaeology-ugrad-major/archaeology-bachelor-arts/')
+        self.assertEqual(degree_page({j + 'eng/engineering-professionals/civil-engineering/', j + 'eng/ft/civil-engineering/civil-engineering-bachelor-science/'}),
+                         j + 'eng/ft/civil-engineering/civil-engineering-bachelor-science/')
+        self.assertIsNone(degree_page({j + 'p/guitar-bachelor-music/', j + 'p/piano-bachelor-music/'}))  # two degree pages: none chosen
+        self.assertIsNone(degree_page({j + 'a/history/', j + 'b/history/'}))
+        self.assertEqual(degree_page({j + 'x/biology/', j + 'x/biology/biology-bs/'}), j + 'x/biology/biology-bs/')
+        from programs.autoreview import variant_pages_of
+        self.assertEqual(variant_pages_of([{j + 'as/archaeology-ugrad-major', j + 'as/archaeology-ugrad-major/archaeology-bachelor-arts'}, {j + 'z/only'}]), {j + 'as/archaeology-ugrad-major'})
+        self.assertEqual(variant_pages_of([{j + 'b/biology-bs', j + 'b/biology-bs-pre-professional'}]), {j + 'b/biology-bs-pre-professional'})
+        self.assertEqual(variant_pages_of([{j + 'c/asian-studies', j + 'c/asian-studies-ba'}]), set())  # one base page: both are that page
+        self.assertEqual(variant_pages_of([{j + 'u/ABC', j + 'u/ABC_HON'}]), {j + 'u/ABC_HON'})  # underscore extensions of a base page
+
+
+class SamplePlanPageTests(unittest.TestCase):  # KU 2026-27 sample-plan sub-pages; PVAMU award abbreviations (review of 2026-10-07)
+    def test_sample_plan_sub_page_gives_no_program_record(self):
+        from pipeline import text as T
+        e = {'url': 'https://catalog.x.edu/las/anthropology/ba-bgs/ba-anthropology/', 'role': 'program_page', 'sha256': 'a' * 64,
+             'fetched_at': '2026-10-06T00:00:00+00:00', 'status': 200, 'kind': 'html'}
+        tgt = {'catalog': {'platform': 'courseleaf'}}
+        body = '2026-2027 Academic Catalog\nBA in Anthropology\n'
+        page = T.Page(body + 'The Department of Anthropology offers a BA.', 'BA in Anthropology', [], [], ['BA in Anthropology'])
+        self.assertTrue([c for c in X.program_page_candidates(tgt, {'institution_key': 'k'}, e, page, '2026-27') if c['domain'] == 'academic_programs'])
+        plan = T.Page(body + 'Below is a sample 4-year plan for students pursuing the BA in Anthropology.', 'BA in Anthropology', [], [], ['BA in Anthropology'])
+        self.assertEqual([c for c in X.program_page_candidates(tgt, {'institution_key': 'k'}, e, plan, '2026-27') if c['domain'] == 'academic_programs'], [])
+
+    def test_pvamu_awards(self):
+        for n in ('Criminal Justice, BSCJ', 'Agriculture, BSAG', 'Chemical Engineering, BSCHE', 'Human Nutrition and Food, BSDIET'):
+            self.assertEqual(X.credential_of(n), 'bachelor', n)
+        self.assertIsNone(X.credential_of('Bsagent Studies'))
+        self.assertEqual(X.credential_of('Biology Education 6-12 Major (B.Ed.)'), 'bachelor')
+        self.assertIsNone(X.credential_of('Bedford Studies'))
+
+
 class DepartmentSectionTests(unittest.TestCase):
     def test_degree_sections_on_a_department_page(self):  # MSState 2026-27, Arkansas 2026-27
         from pipeline import text as T
