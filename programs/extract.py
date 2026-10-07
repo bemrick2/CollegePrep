@@ -342,6 +342,8 @@ def program_heading(page):
     """The page's first heading, past a heading that only labels the catalog year ('Catalog 2026-2027' above
     'Computer Science B.A.', UAF)."""
     hs = [h for h in (page.headings or [])]
+    named = (page.title or '').split(' | ')[0].strip()
+    if named and named in [h.strip() for h in hs]: return named  # UVM: '2026-27 Catalogue', 'Quick Links', 'Anthropology B.A.'
     while hs and YEAR_HEADING.match(hs[0]): hs = hs[1:]
     return hs[0] if hs else None
 
