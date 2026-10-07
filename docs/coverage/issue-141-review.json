@@ -1,0 +1,392 @@
+[
+ {
+  "key": "wku:religious-studies-bachelor-of-arts:program-requirements-30-hours-any-rels-course-not-already-counted-toward-the-maj",
+  "action": "downgraded",
+  "first_check": {
+   "verdict": "misstated",
+   "reason": "Record is all_required with 10 non-RELS courses, but the source prints them as options under the Electives area choice \"Select two courses from the following: 1 6\", together with \"Any RELS course not already counted toward the major.\" That line is an option, not a group heading, and the ten courses are not all required.",
+   "quotes": [
+    "Electives",
+    "Select two courses from the following: 1 6",
+    "Any RELS course not already counted toward the major.",
+    "ANTH 446 Anthropology of Religion"
+   ],
+   "correct_reading": "Electives: choose 2 courses (6 hours) from any RELS course not already counted or the 10 listed courses (ANTH 446 ... SOCL 322)."
+  },
+  "second_check": {
+   "verdict": "misstated",
+   "reason": "Issue claim confirmed. The ten non-RELS courses are indented options under the Electives area choice 'Select two courses from the following: 1 | 6'; the unindented line 'Any RELS course not already counted toward the major.' is the first option of that choice (a comment row), not a group heading. The record turns that option line into its section name and types the ten courses all_required, losing the select-two (6 hours) rule, the open 'any RELS course' option, and footnote 1 (9 hours must be in religious studies).",
+   "quotes": [
+    "| Electives |",
+    "| Select two courses from the following: 1 | 6",
+    "| Any RELS course not already counted toward the major. |",
+    "ANTH 446",
+    "SOCL 322",
+    "9 Hours must be in religious studies courses;  Students may count up to 1 year of language sequence in Arabic, Chinese, Greek, Hebrew, Japanese, or Latin, or other languages approved by the Department Chair."
+   ],
+   "correct_reading": "Electives (6 hours): select two courses from any RELS course not already counted toward the major or ANTH 446, ART 316, ART 407, ENG 396, ENG 487, HIST 318, HIST 407, HIST 454, PSYS 451, SOCL 322 (choose_courses 2); footnote 1 adds that 9 hours must be in religious studies courses and up to 1 year of an approved language sequence may count."
+  },
+  "evidence": "stored official page https://catalog.wku.edu/undergraduate/arts-letters/history/religious-studies-ba/ (sha256 a798e0130e89bf2f12b684db0457d325e2b35ad8eef55c62a71794d85a9f1dac, fetched 2026-10-06T11:10:04+00:00, run programs/runs/KY/2026-10-06-cl; Course List layout sha256 1f094f4460a7b0798353c6e2d84d190c10f93709d39c9aaf3a563046ee7ef5bd)"
+ },
+ {
+  "key": "wku:philosophy-bachelor-of-arts:philosophy-track-31-hours-any-philosophy-phil-course-that-is-not-already-countin",
+  "action": "downgraded",
+  "first_check": {
+   "verdict": "misstated",
+   "reason": "Record is all_required with RELS 242/317/318, but the source prints these under the Electives area as options in a \"Select four of the following: 12\" choice, alongside \"Any philosophy (PHIL) course not already counting\". The line \"Any philosophy...\" is a choice option, not a group heading, and the RELS courses are not required.",
+   "quotes": [
+    "Electives",
+    "Select four of the following: 12",
+    "Any philosophy (PHIL) course that is not already counting towards one of the above categories.",
+    "RELS 242 The Meaning of Life; Atheism to Zen"
+   ],
+   "correct_reading": "Philosophy Track Electives: choose 4 courses (12 hours) from any PHIL course not counted elsewhere or RELS 242, RELS 317, RELS 318."
+  },
+  "second_check": {
+   "verdict": "misstated",
+   "reason": "Issue claim confirmed (its quote is slightly paraphrased; the printed option reads 'Any philosophy (PHIL) course that is not already counting towards one of the above categories.'). In the Philosophy Track table the Electives area prints 'Select four of the following: | 12' and then four indented options: the any-PHIL line, RELS 242, RELS 317, RELS 318. The record uses the any-PHIL option as a heading and types the three RELS courses all_required; none is required, and rule_text 'Total Hours 31' is the track total, not this group's rule.",
+   "quotes": [
+    "| Electives |",
+    "| Select four of the following: | 12",
+    "Any philosophy (PHIL) course that is not already counting towards one of the above categories.",
+    "RELS 242",
+    "RELS 317",
+    "RELS 318",
+    "| Total Hours | 31"
+   ],
+   "correct_reading": "Philosophy Track Electives (12 hours): select four courses from any PHIL course not already counting towards the above categories, RELS 242, RELS 317, or RELS 318 (choose_courses 4, with an open any-PHIL option)."
+  },
+  "evidence": "stored official page https://catalog.wku.edu/undergraduate/arts-letters/political-science/philosophy-ba/ (sha256 281635ca0214e15c695077db7c14e3974473da0f6f2e314f7485295353b3917a, fetched 2026-10-06T11:10:23+00:00, run programs/runs/KY/2026-10-06-cl; Course List layout sha256 a9d61e30a933db599d3b60833a4c468a7e74cbdaf0b6286fc55eb164d9417f59)"
+ },
+ {
+  "key": "wku:philosophy-bachelor-of-arts:philosophy-politics-and-policy-track-31-hours-any-philosophy-course-that-is-not-",
+  "action": "downgraded",
+  "first_check": {
+   "verdict": "misstated",
+   "reason": "Record is all_required with nine PS courses, but the source prints them as options in the Electives choice \"Select at least two philosophy (PHIL) courses and at least two political science (PS) courses from the following: 12\"; the PS courses are not all required, the PHIL/PS minimums are lost, and the \"Any graduate political science (PS) course\" option is missing.",
+   "quotes": [
+    "Electives",
+    "Select at least two philosophy (PHIL) courses and at least two political science (PS) courses from the following: 12",
+    "Any philosophy course that is not already counting towards one of the above categories",
+    "Any graduate political science (PS) course"
+   ],
+   "correct_reading": "PPP Track Electives: 12 hours (four courses) chosen from any PHIL course not counted elsewhere, the nine listed PS courses, or any graduate PS course, with at least two PHIL and at least two PS courses."
+  },
+  "second_check": {
+   "verdict": "misstated",
+   "reason": "Issue claim confirmed. In the Philosophy, Politics, and Policy Track the Electives area prints 'Select at least two philosophy (PHIL) courses and at least two political science (PS) courses from the following: | 12' followed by indented options: the any-philosophy line, PS 201-PS 340, and 'Any graduate political science (PS) course'. The record makes the any-philosophy option its heading, types the nine PS courses all_required, drops the 12-hour total and the at-least-two PHIL / at-least-two PS minimums, and omits the 'Any graduate political science (PS) course' option.",
+   "quotes": [
+    "| Select at least two philosophy (PHIL) courses and at least two political science (PS) courses from the following: | 12",
+    "Any philosophy course that is not already counting towards one of the above categories",
+    "Any graduate political science (PS) course",
+    "| Total Hours | 31"
+   ],
+   "correct_reading": "PPP Track Electives (12 hours, i.e. four 3-hour courses): at least two PHIL courses (any PHIL course not already counting above) and at least two PS courses chosen from PS 201, 311, 316, 326, 327, 328, 330, 338, 340 or any graduate PS course."
+  },
+  "evidence": "stored official page https://catalog.wku.edu/undergraduate/arts-letters/political-science/philosophy-ba/ (sha256 281635ca0214e15c695077db7c14e3974473da0f6f2e314f7485295353b3917a, fetched 2026-10-06T11:10:23+00:00, run programs/runs/KY/2026-10-06-cl; Course List layout sha256 a9d61e30a933db599d3b60833a4c468a7e74cbdaf0b6286fc55eb164d9417f59)"
+ },
+ {
+  "key": "uvu:music-b-a:program-requirements-distribution-courses",
+  "action": "downgraded",
+  "first_check": {
+   "verdict": "misstated",
+   "reason": "Record is all_required with PHYS 1750 as a required course, but the source marks PHYS 1750 \"(recommended)\" under the Physical Science category; the distribution items are credit categories, not required courses. Also, rule_text wrongly includes the next area header \"Discipline Core Requirements 63 Credits\".",
+   "quotes": [
+    "Physical Science 3",
+    "PHYS 1750 The Acoustics of Music (3) (recommended)",
+    "Humanities Distribution (Fulfilled by completing Foreign Language Course 2020G/2020) 4"
+   ],
+   "correct_reading": "Distribution: Biology 3, Physical Science 3 (PHYS 1750 recommended, not required), Humanities 4 (via foreign language 2020G/2020), Social/Behavioral Science 3, Personal, Professional and Civic Growth 3."
+  },
+  "second_check": {
+   "verdict": "misstated",
+   "reason": "Issue claim confirmed. Under 'Distribution Courses:' (inside the General Education Requirements area) the source prints credit categories (Biology 3, Physical Science 3, Humanities Distribution, Social/Behavioral Science 3, Personal, Professional and Civic Growth 3). PHYS 1750 is indented under 'Physical Science' and marked '(recommended)', and the later plan line reads 'Physical Science Distribution (PHYS 1750 recommended)'. The record types PHYS 1750 as all_required, and its rule_text runs on into the next areaheader 'Discipline Core Requirements | 63 Credits', which is not part of this group.",
+   "quotes": [
+    "| Distribution Courses: |",
+    "| Biology | 3",
+    "| Physical Science | 3",
+    "| The Acoustics of Music (3) (recommended) |",
+    "| Humanities Distribution (Fulfilled by completing Foreign Language Course 2020G/2020) | 4",
+    "| Social/Behavioral Science | 3",
+    "| Personal, Professional and Civic Growth | 3",
+    "| Discipline Core Requirements | 63 Credits",
+    "| Physical Science Distribution (PHYS 1750 recommended) | 3"
+   ],
+   "correct_reading": "GE distribution: complete Biology (3), Physical Science (3; PHYS 1750 recommended, not required), Humanities (4, fulfilled by Foreign Language 2020G/2020), Social/Behavioral Science (3) and Personal, Professional and Civic Growth (3) distribution credits; no specific course is required."
+  },
+  "evidence": "stored official page https://catalog.uvu.edu/arts/music/music-ba/ (sha256 0275ad5798a040c1e82735d8f27062451a43a0682b368ec8cfc6de3c1f4c0d38, fetched 2026-10-06T22:38:52+00:00, run programs/runs/UT/2026-10-06-cat; Course List layout sha256 b3b6a476b2f2978ddc9ec3e17d237fb7f6db454143d9ab79088411abd7a71e41)"
+ },
+ {
+  "key": "uvu:music-b-a:program-requirements-musicianship-courses",
+  "action": "downgraded",
+  "first_check": {
+   "verdict": "misstated",
+   "reason": "Record turns the 17 listed musicianship courses into a choose_credits 8 pool. The source prints all 17 as required courses with their own credits, then a separate line requiring 8 credits of MUSC courses \"not already required for the degree\", which excludes these very courses.",
+   "quotes": [
+    "MUSC 1110 Music Theory I 3",
+    "MUSC 3451 Music History and Literature II 3",
+    "Complete 8 credits of MUSC courses not already required for the degree (at least 6 credits must be upper-division) 8"
+   ],
+   "correct_reading": "All 17 listed Musicianship courses (MUSC 1110 through MUSC 3451) are required, and separately 8 credits of other MUSC courses not otherwise required (at least 6 upper-division)."
+  },
+  "second_check": {
+   "verdict": "misstated",
+   "reason": "Issue claim confirmed. Under the Discipline Core Requirements area, after the label 'Musicianship Courses:' the 17 MUSC courses are printed unindented, each with its own credit hours (no choice heading), i.e. required. The next row 'Complete 8 credits of MUSC courses not already required for the degree (at least 6 credits must be upper-division) | 8' is a separate open elective requirement that by its wording excludes these required courses. The arithmetic confirms it: the 17 courses total 31 credits, + 8 elective + 16 Individual Musicianship Studies + 8 Ensembles = 63, matching 'Discipline Core Requirements | 63 Credits'. The record wrongly makes the 17 courses a choose_credits 8 pool.",
+   "quotes": [
+    "| Musicianship Courses: |",
+    "| MUSC 1110 | Music Theory I | 3",
+    "| MUSC 1115 | Music Notation and Score Preparation | 1",
+    "| Complete 8 credits of MUSC courses not already required for the degree (at least 6 credits must be upper-division) | 8",
+    "| Discipline Core Requirements | 63 Credits"
+   ],
+   "correct_reading": "All 17 musicianship courses (MUSC 1110 through MUSC 3451, 31 credits) are required; separately, complete 8 credits of other MUSC courses not already required for the degree, at least 6 upper-division (an open elective pool with no listed courses)."
+  },
+  "evidence": "stored official page https://catalog.uvu.edu/arts/music/music-ba/ (sha256 0275ad5798a040c1e82735d8f27062451a43a0682b368ec8cfc6de3c1f4c0d38, fetched 2026-10-06T22:38:52+00:00, run programs/runs/UT/2026-10-06-cat; Course List layout sha256 b3b6a476b2f2978ddc9ec3e17d237fb7f6db454143d9ab79088411abd7a71e41)"
+ },
+ {
+  "key": "uvu:music-b-s:program-requirements-distribution-courses",
+  "action": "downgraded",
+  "first_check": {
+   "verdict": "misstated",
+   "reason": "Record is all_required with PHYS 1750 as a required course, but the source marks PHYS 1750 \"(recommended)\" under the Physical Science category; the distribution items are credit categories, not required courses. Also, rule_text wrongly includes the next area header \"Discipline Core Requirements 63 Credits\".",
+   "quotes": [
+    "Physical Science 3",
+    "PHYS 1750 The Acoustics of Music (3) (recommended)",
+    "Humanities Distribution 3"
+   ],
+   "correct_reading": "Distribution: Biology 3, Physical Science 3 (PHYS 1750 recommended, not required), Humanities 3, Social/Behavioral Science 3, Personal, Professional and Civic Growth 3."
+  },
+  "second_check": {
+   "verdict": "misstated",
+   "reason": "Issue claim confirmed. Under 'Distribution Courses:' (inside the General Education Requirements area) the source prints credit categories (Biology 3, Physical Science 3, Humanities Distribution, Social/Behavioral Science 3, Personal, Professional and Civic Growth 3). PHYS 1750 is indented under 'Physical Science' and marked '(recommended)', and the later plan line reads 'Physical Science Distribution (PHYS 1750 recommended)'. The record types PHYS 1750 as all_required, and its rule_text runs on into the next areaheader 'Discipline Core Requirements | 63 Credits', which is not part of this group.",
+   "quotes": [
+    "| Distribution Courses: |",
+    "| Biology | 3",
+    "| Physical Science | 3",
+    "| The Acoustics of Music (3) (recommended) |",
+    "| Humanities Distribution | 3",
+    "| Social/Behavioral Science | 3",
+    "| Personal, Professional and Civic Growth | 3",
+    "| Discipline Core Requirements | 63 Credits",
+    "| Physical Science Distribution (PHYS 1750 recommended) | 3"
+   ],
+   "correct_reading": "GE distribution: complete Biology (3), Physical Science (3; PHYS 1750 recommended, not required), Humanities (3), Social/Behavioral Science (3) and Personal, Professional and Civic Growth (3) distribution credits; no specific course is required."
+  },
+  "evidence": "stored official page https://catalog.uvu.edu/arts/music/music-bs/ (sha256 bf8eb6d9c0aa2c145c6c1b77de313581a30771f7dfe8d686de56d0e3b447c9f5, fetched 2026-10-06T22:38:54+00:00, run programs/runs/UT/2026-10-06-cat; Course List layout sha256 6190946962fe36993cdbf7c66a70e1a2adf17bf604ad70f78ebc4af96b2d0e81)"
+ },
+ {
+  "key": "uvu:music-b-s:program-requirements-musicianship-courses",
+  "action": "downgraded",
+  "first_check": {
+   "verdict": "misstated",
+   "reason": "Record turns the 17 listed musicianship courses into a choose_credits 8 pool. The source prints all 17 as required courses with their own credits, then a separate line requiring 8 credits of MUSC courses \"not already required for the degree\", which excludes these very courses.",
+   "quotes": [
+    "MUSC 1110 Music Theory I 3",
+    "MUSC 3451 Music History and Literature II 3",
+    "Complete 8 credits of MUSC courses not already required for the degree (at least 6 credits must be upper-division) 8"
+   ],
+   "correct_reading": "All 17 listed Musicianship courses (MUSC 1110 through MUSC 3451) are required, and separately 8 credits of other MUSC courses not otherwise required (at least 6 upper-division)."
+  },
+  "second_check": {
+   "verdict": "misstated",
+   "reason": "Issue claim confirmed. Under the Discipline Core Requirements area, after the label 'Musicianship Courses;' the 17 MUSC courses are printed unindented, each with its own credit hours (no choice heading), i.e. required. The next row 'Complete 8 credits of MUSC courses not already required for the degree (at least 6 credits must be upper-division) | 8' is a separate open elective requirement that by its wording excludes these required courses. The arithmetic confirms it: the 17 courses total 31 credits, + 8 elective + 16 Individual Musicianship Studies + 8 Ensembles = 63, matching 'Discipline Core Requirements | 63 Credits'. The record wrongly makes the 17 courses a choose_credits 8 pool.",
+   "quotes": [
+    "| Musicianship Courses; |",
+    "| MUSC 1110 | Music Theory I | 3",
+    "| MUSC 1115 | Music Notation and Score Preparation | 1",
+    "| Complete 8 credits of MUSC courses not already required for the degree (at least 6 credits must be upper-division) | 8",
+    "| Discipline Core Requirements | 63 Credits"
+   ],
+   "correct_reading": "All 17 musicianship courses (MUSC 1110 through MUSC 3451, 31 credits) are required; separately, complete 8 credits of other MUSC courses not already required for the degree, at least 6 upper-division (an open elective pool with no listed courses)."
+  },
+  "evidence": "stored official page https://catalog.uvu.edu/arts/music/music-bs/ (sha256 bf8eb6d9c0aa2c145c6c1b77de313581a30771f7dfe8d686de56d0e3b447c9f5, fetched 2026-10-06T22:38:54+00:00, run programs/runs/UT/2026-10-06-cat; Course List layout sha256 6190946962fe36993cdbf7c66a70e1a2adf17bf604ad70f78ebc4af96b2d0e81)"
+ },
+ {
+  "key": "saintmarys:studio-art-concentration-bachelor-of-fine-arts:major-requirements-78-hours-correlate-courses",
+  "action": "downgraded",
+  "first_check": {
+   "verdict": "misstated",
+   "reason": "The choose-two count and the 16 coded courses are correct, but the printed option list does not stop at THTR 455: two further indented option rows, 'Pre-approved Topic courses' and 'Additional upper level Art History Courses', belong to the same 'Select two of the following: 6' list (layout shows both with indent=true before the 'Portfolio Reviews' areaheader). The record presents a closed list of 16 courses, so it omits printed members of the choice and wrongly excludes those options. The intro also says 'Six (6) hours must be in approved correlate courses.'",
+   "quotes": [
+    "Seventy-two (72) hours must be in art. Six (6) hours must be in approved correlate courses.",
+    "| Correlate Courses |",
+    "| Select two of the following: | 6",
+    "THTR 455",
+    "| Costume Design |",
+    "Pre-approved Topic courses",
+    "Additional upper level Art History Courses",
+    "| Portfolio Reviews |"
+   ],
+   "correct_reading": "Choose two courses (6 hours) from BIO 213, COMM 260, COMM 383, COMM 486, DANC 240, DANC 241, ENLT 278, MLIT 320, PHIL 245, PHIL 235, PHIL 252, THTR 205, THTR 245, THTR 380, THTR 445, THTR 455, or pre-approved topic courses, or additional upper-level art history courses."
+  },
+  "second_check": {
+   "verdict": "misstated",
+   "reason": "Issue claim confirmed. The choose-two (6 hours) and the 16 coded courses are correct, but the same indented option list continues with two non-coded options, 'Pre-approved Topic courses' and 'Additional upper level Art History Courses', before the next areaheader 'Portfolio Reviews' (both indent=true in the layout). The record presents a closed list of 16 courses, so a student choosing either open option would wrongly fail the requirement.",
+   "quotes": [
+    "Seventy-two (72) hours must be in art. Six (6) hours must be in approved correlate courses.",
+    "| Correlate Courses |",
+    "| Select two of the following: | 6",
+    "Pre-approved Topic courses",
+    "Additional upper level Art History Courses",
+    "| Portfolio Reviews |"
+   ],
+   "correct_reading": "Correlate Courses (6 hours): select two from BIO 213, COMM 260, COMM 383, COMM 486, DANC 240, DANC 241, ENLT 278, MLIT 320, PHIL 245, PHIL 235, PHIL 252, THTR 205, THTR 245, THTR 380, THTR 445, THTR 455, pre-approved topic courses, or additional upper-level art history courses."
+  },
+  "evidence": "stored official page https://catalog.saintmarys.edu/undergraduate/programs/art/studio-art-concentration-bachelor-fine-arts---art/ (sha256 37a833e1fa3598451690c97684bf4a113f7b5c8f785298f555b23aa3423e5177, fetched 2026-10-06T10:01:43+00:00, run programs/runs/IN/2026-10-06-cat; Course List layout sha256 96e3b0f9a3ed709caf74d28f8614e727100703c22449f9ab5ee1984c35947854)"
+ },
+ {
+  "key": "saintmarys:studio-art-and-art-history-double-concentration-bachelor-of-arts:major-requirements-66-hours-ancient-medieval",
+  "action": "downgraded",
+  "first_check": {
+   "verdict": "misstated",
+   "reason": "'Ancient/Medieval' is an unindented sub-heading (layout row class 'even'/'odd', not 'areaheader') inside the areaheader 'Upper Level Art History Electives', whose rule is 'Select five courses from at least two of the following areas: 15'. The record treats this sub-heading as its own group and types it all_required, claiming ART 354 and ART 390 are all required; the source requires none of them individually: they are options within a choose-five (15 hours) spanning at least two areas.",
+   "quotes": [
+    "| Upper Level Art History Electives |",
+    "| Select five courses from at least two of the following areas: | 15",
+    "| Ancient/Medieval |",
+    "ART 354",
+    "| Picturing Biodiversity: The Art of Natural History |",
+    "ART 390",
+    "| Topics in Art |",
+    "| Eighteenth/Nineteenth Century |"
+   ],
+   "correct_reading": "Under 'Upper Level Art History Electives' the student selects five courses (15 hours) drawn from at least two of the six areas (Ancient/Medieval, Eighteenth/Nineteenth Century, Twentieth Century, Contemporary, Non-Western/Underrepresented Traditions, Media Specific). 'Ancient/Medieval' is one area list inside that single choose-5 group; none of its courses is individually required."
+  },
+  "second_check": {
+   "verdict": "misstated",
+   "reason": "Issue claim confirmed. 'Ancient/Medieval' is an unindented sub-heading row (not an areaheader) inside the areaheader 'Upper Level Art History Electives', whose printed rule is 'Select five courses from at least two of the following areas: | 15'. It is one of six areas (Ancient/Medieval, Eighteenth/Nineteenth Century, Twentieth Century, Contemporary, Non-Western/Underrepresented Traditions, Media Specific). The record makes it its own all_required group, claiming ART 354, ART 390 are all required; the source requires none individually.",
+   "quotes": [
+    "| Upper Level Art History Electives |",
+    "| Select five courses from at least two of the following areas: | 15",
+    "| Ancient/Medieval |",
+    "| Media Specific |"
+   ],
+   "correct_reading": "Upper Level Art History Electives (15 hours): select five courses drawn from at least two of six areas (Ancient/Medieval: ART 354, 390; Eighteenth/Nineteenth Century: ART 345, 354, 390; Twentieth Century: ART 345, 350, 390; Contemporary: ART 302, 356, 390, 490; Non-Western/Underrepresented Traditions: ART 353, 390; Media Specific: ART 343, 344, 390). Area sub-headings are not separate groups."
+  },
+  "evidence": "stored official page https://catalog.saintmarys.edu/undergraduate/programs/art/studio-art-history-double-concentration-bachelor-arts/ (sha256 726ed1509da9265c4f719ee40772de0c32a77a52ab8c7ff8103ec9f0b9ba1921, fetched 2026-10-06T10:01:41+00:00, run programs/runs/IN/2026-10-06-cat; Course List layout sha256 efdf3c20d8d0c5119dcef1d2b1246cb454ef2e505fb93fc31ba2bc37c8a97285)"
+ },
+ {
+  "key": "saintmarys:studio-art-and-art-history-double-concentration-bachelor-of-arts:major-requirements-66-hours-eighteenth-nineteenth-century",
+  "action": "downgraded",
+  "first_check": {
+   "verdict": "misstated",
+   "reason": "'Eighteenth/Nineteenth Century' is an unindented sub-heading (layout row class 'even'/'odd', not 'areaheader') inside the areaheader 'Upper Level Art History Electives', whose rule is 'Select five courses from at least two of the following areas: 15'. The record treats this sub-heading as its own group and types it all_required, claiming ART 345, ART 354 and ART 390 are all required; the source requires none of them individually: they are options within a choose-five (15 hours) spanning at least two areas.",
+   "quotes": [
+    "| Upper Level Art History Electives |",
+    "| Select five courses from at least two of the following areas: | 15",
+    "| Eighteenth/Nineteenth Century |",
+    "ART 345",
+    "| Modern Art and Design |",
+    "ART 354",
+    "ART 390",
+    "| Twentieth Century |"
+   ],
+   "correct_reading": "Under 'Upper Level Art History Electives' the student selects five courses (15 hours) drawn from at least two of the six areas (Ancient/Medieval, Eighteenth/Nineteenth Century, Twentieth Century, Contemporary, Non-Western/Underrepresented Traditions, Media Specific). 'Eighteenth/Nineteenth Century' is one area list inside that single choose-5 group; none of its courses is individually required."
+  },
+  "second_check": {
+   "verdict": "misstated",
+   "reason": "Issue claim confirmed. 'Eighteenth/Nineteenth Century' is an unindented sub-heading row (not an areaheader) inside the areaheader 'Upper Level Art History Electives', whose printed rule is 'Select five courses from at least two of the following areas: | 15'. It is one of six areas (Ancient/Medieval, Eighteenth/Nineteenth Century, Twentieth Century, Contemporary, Non-Western/Underrepresented Traditions, Media Specific). The record makes it its own all_required group, claiming ART 345, ART 354, ART 390 are all required; the source requires none individually.",
+   "quotes": [
+    "| Upper Level Art History Electives |",
+    "| Select five courses from at least two of the following areas: | 15",
+    "| Eighteenth/Nineteenth Century |",
+    "| Media Specific |"
+   ],
+   "correct_reading": "Upper Level Art History Electives (15 hours): select five courses drawn from at least two of six areas (Ancient/Medieval: ART 354, 390; Eighteenth/Nineteenth Century: ART 345, 354, 390; Twentieth Century: ART 345, 350, 390; Contemporary: ART 302, 356, 390, 490; Non-Western/Underrepresented Traditions: ART 353, 390; Media Specific: ART 343, 344, 390). Area sub-headings are not separate groups."
+  },
+  "evidence": "stored official page https://catalog.saintmarys.edu/undergraduate/programs/art/studio-art-history-double-concentration-bachelor-arts/ (sha256 726ed1509da9265c4f719ee40772de0c32a77a52ab8c7ff8103ec9f0b9ba1921, fetched 2026-10-06T10:01:41+00:00, run programs/runs/IN/2026-10-06-cat; Course List layout sha256 efdf3c20d8d0c5119dcef1d2b1246cb454ef2e505fb93fc31ba2bc37c8a97285)"
+ },
+ {
+  "key": "saintmarys:studio-art-and-art-history-double-concentration-bachelor-of-arts:major-requirements-66-hours-twentieth-century",
+  "action": "downgraded",
+  "first_check": {
+   "verdict": "misstated",
+   "reason": "'Twentieth Century' is an unindented sub-heading (layout row class 'even'/'odd', not 'areaheader') inside the areaheader 'Upper Level Art History Electives', whose rule is 'Select five courses from at least two of the following areas: 15'. The record treats this sub-heading as its own group and types it all_required, claiming ART 345, ART 350 and ART 390 are all required; the source requires none of them individually: they are options within a choose-five (15 hours) spanning at least two areas.",
+   "quotes": [
+    "| Upper Level Art History Electives |",
+    "| Select five courses from at least two of the following areas: | 15",
+    "| Twentieth Century |",
+    "ART 345",
+    "ART 350",
+    "| Alternative Media: Art from 1945 to 1989 |",
+    "ART 390",
+    "| Contemporary |"
+   ],
+   "correct_reading": "Under 'Upper Level Art History Electives' the student selects five courses (15 hours) drawn from at least two of the six areas (Ancient/Medieval, Eighteenth/Nineteenth Century, Twentieth Century, Contemporary, Non-Western/Underrepresented Traditions, Media Specific). 'Twentieth Century' is one area list inside that single choose-5 group; none of its courses is individually required."
+  },
+  "second_check": {
+   "verdict": "misstated",
+   "reason": "Issue claim confirmed. 'Twentieth Century' is an unindented sub-heading row (not an areaheader) inside the areaheader 'Upper Level Art History Electives', whose printed rule is 'Select five courses from at least two of the following areas: | 15'. It is one of six areas (Ancient/Medieval, Eighteenth/Nineteenth Century, Twentieth Century, Contemporary, Non-Western/Underrepresented Traditions, Media Specific). The record makes it its own all_required group, claiming ART 345, ART 350, ART 390 are all required; the source requires none individually.",
+   "quotes": [
+    "| Upper Level Art History Electives |",
+    "| Select five courses from at least two of the following areas: | 15",
+    "| Twentieth Century |",
+    "| Media Specific |"
+   ],
+   "correct_reading": "Upper Level Art History Electives (15 hours): select five courses drawn from at least two of six areas (Ancient/Medieval: ART 354, 390; Eighteenth/Nineteenth Century: ART 345, 354, 390; Twentieth Century: ART 345, 350, 390; Contemporary: ART 302, 356, 390, 490; Non-Western/Underrepresented Traditions: ART 353, 390; Media Specific: ART 343, 344, 390). Area sub-headings are not separate groups."
+  },
+  "evidence": "stored official page https://catalog.saintmarys.edu/undergraduate/programs/art/studio-art-history-double-concentration-bachelor-arts/ (sha256 726ed1509da9265c4f719ee40772de0c32a77a52ab8c7ff8103ec9f0b9ba1921, fetched 2026-10-06T10:01:41+00:00, run programs/runs/IN/2026-10-06-cat; Course List layout sha256 efdf3c20d8d0c5119dcef1d2b1246cb454ef2e505fb93fc31ba2bc37c8a97285)"
+ },
+ {
+  "key": "saintmarys:studio-art-and-art-history-double-concentration-bachelor-of-arts:major-requirements-66-hours-contemporary",
+  "action": "downgraded",
+  "first_check": {
+   "verdict": "misstated",
+   "reason": "'Contemporary' is an unindented sub-heading (layout row class 'even'/'odd', not 'areaheader') inside the areaheader 'Upper Level Art History Electives', whose rule is 'Select five courses from at least two of the following areas: 15'. The record treats this sub-heading as its own group and types it all_required, claiming ART 302, ART 356, ART 390 and ART 490 are all required; the source requires none of them individually: they are options within a choose-five (15 hours) spanning at least two areas.",
+   "quotes": [
+    "| Upper Level Art History Electives |",
+    "| Select five courses from at least two of the following areas: | 15",
+    "| Contemporary |",
+    "ART 302",
+    "| Curatorial Studies: Theory + Practice |",
+    "ART 356",
+    "ART 390",
+    "ART 490",
+    "| Non-Western/Underrepresented Traditions |"
+   ],
+   "correct_reading": "Under 'Upper Level Art History Electives' the student selects five courses (15 hours) drawn from at least two of the six areas (Ancient/Medieval, Eighteenth/Nineteenth Century, Twentieth Century, Contemporary, Non-Western/Underrepresented Traditions, Media Specific). 'Contemporary' is one area list inside that single choose-5 group; none of its courses is individually required."
+  },
+  "second_check": {
+   "verdict": "misstated",
+   "reason": "Issue claim confirmed. 'Contemporary' is an unindented sub-heading row (not an areaheader) inside the areaheader 'Upper Level Art History Electives', whose printed rule is 'Select five courses from at least two of the following areas: | 15'. It is one of six areas (Ancient/Medieval, Eighteenth/Nineteenth Century, Twentieth Century, Contemporary, Non-Western/Underrepresented Traditions, Media Specific). The record makes it its own all_required group, claiming ART 302, ART 356, ART 390, ART 490 are all required; the source requires none individually.",
+   "quotes": [
+    "| Upper Level Art History Electives |",
+    "| Select five courses from at least two of the following areas: | 15",
+    "| Contemporary |",
+    "| Media Specific |"
+   ],
+   "correct_reading": "Upper Level Art History Electives (15 hours): select five courses drawn from at least two of six areas (Ancient/Medieval: ART 354, 390; Eighteenth/Nineteenth Century: ART 345, 354, 390; Twentieth Century: ART 345, 350, 390; Contemporary: ART 302, 356, 390, 490; Non-Western/Underrepresented Traditions: ART 353, 390; Media Specific: ART 343, 344, 390). Area sub-headings are not separate groups."
+  },
+  "evidence": "stored official page https://catalog.saintmarys.edu/undergraduate/programs/art/studio-art-history-double-concentration-bachelor-arts/ (sha256 726ed1509da9265c4f719ee40772de0c32a77a52ab8c7ff8103ec9f0b9ba1921, fetched 2026-10-06T10:01:41+00:00, run programs/runs/IN/2026-10-06-cat; Course List layout sha256 efdf3c20d8d0c5119dcef1d2b1246cb454ef2e505fb93fc31ba2bc37c8a97285)"
+ },
+ {
+  "key": "saintmarys:studio-art-and-art-history-double-concentration-bachelor-of-arts:major-requirements-66-hours-non-western-underrepresented-traditions",
+  "action": "downgraded",
+  "first_check": {
+   "verdict": "misstated",
+   "reason": "'Non-Western/Underrepresented Traditions' is an unindented sub-heading (layout row class 'even'/'odd', not 'areaheader') inside the areaheader 'Upper Level Art History Electives', whose rule is 'Select five courses from at least two of the following areas: 15'. The record treats this sub-heading as its own group and types it all_required, claiming ART 353 and ART 390 are all required; the source requires none of them individually: they are options within a choose-five (15 hours) spanning at least two areas.",
+   "quotes": [
+    "| Upper Level Art History Electives |",
+    "| Select five courses from at least two of the following areas: | 15",
+    "| Non-Western/Underrepresented Traditions |",
+    "ART 353",
+    "| Asian Art: Buddhist, Hindu, and Islamic Traditions |",
+    "ART 390",
+    "| Media Specific |"
+   ],
+   "correct_reading": "Under 'Upper Level Art History Electives' the student selects five courses (15 hours) drawn from at least two of the six areas (Ancient/Medieval, Eighteenth/Nineteenth Century, Twentieth Century, Contemporary, Non-Western/Underrepresented Traditions, Media Specific). 'Non-Western/Underrepresented Traditions' is one area list inside that single choose-5 group; none of its courses is individually required."
+  },
+  "second_check": {
+   "verdict": "misstated",
+   "reason": "Issue claim confirmed. 'Non-Western/Underrepresented Traditions' is an unindented sub-heading row (not an areaheader) inside the areaheader 'Upper Level Art History Electives', whose printed rule is 'Select five courses from at least two of the following areas: | 15'. It is one of six areas (Ancient/Medieval, Eighteenth/Nineteenth Century, Twentieth Century, Contemporary, Non-Western/Underrepresented Traditions, Media Specific). The record makes it its own all_required group, claiming ART 353, ART 390 are all required; the source requires none individually.",
+   "quotes": [
+    "| Upper Level Art History Electives |",
+    "| Select five courses from at least two of the following areas: | 15",
+    "| Non-Western/Underrepresented Traditions |",
+    "| Media Specific |"
+   ],
+   "correct_reading": "Upper Level Art History Electives (15 hours): select five courses drawn from at least two of six areas (Ancient/Medieval: ART 354, 390; Eighteenth/Nineteenth Century: ART 345, 354, 390; Twentieth Century: ART 345, 350, 390; Contemporary: ART 302, 356, 390, 490; Non-Western/Underrepresented Traditions: ART 353, 390; Media Specific: ART 343, 344, 390). Area sub-headings are not separate groups."
+  },
+  "evidence": "stored official page https://catalog.saintmarys.edu/undergraduate/programs/art/studio-art-history-double-concentration-bachelor-arts/ (sha256 726ed1509da9265c4f719ee40772de0c32a77a52ab8c7ff8103ec9f0b9ba1921, fetched 2026-10-06T10:01:41+00:00, run programs/runs/IN/2026-10-06-cat; Course List layout sha256 efdf3c20d8d0c5119dcef1d2b1246cb454ef2e505fb93fc31ba2bc37c8a97285)"
+ }
+]
