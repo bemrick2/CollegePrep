@@ -516,6 +516,18 @@ class CoursedogPageTests(unittest.TestCase):
         law = T.Page(prog.text.replace('Biology (BA)', 'Law (JD)').replace('Bachelor of Arts (BA)', 'Juris Doctor'), 'Law', [], [], [])
         self.assertEqual(X.coursedog_page_identity({'institution_key': 'k'}, e, law, '2026-27', cy), [])
 
+    def test_api_rows_use_the_printed_long_name(self):  # FAU 2026-27: no catalogDisplayName, short internal name
+        from pipeline import text as T
+        rows = {'data': [{'name': 'BA in Lang, Ling and Comparative Lit (LLCP)', 'longName': 'Bachelor of Arts in Languages, Linguistics and Comparative Literature',
+                          'level': 'UG', 'status': 'Active', 'programGroupId': 'g1'},
+                         {'catalogDisplayName': 'Biology (BS)', 'name': 'BS Bio', 'longName': 'Bachelor of Science in Biology', 'level': 'UG', 'programGroupId': 'g2'}]}
+        page = T.Page(json.dumps(rows), 'api', [], [], [])
+        e = {'url': 'https://app.coursedog.com/api/v1/x/programs', 'sha256': 's', 'fetched_at': '2026-10-06T00:00:00'}
+        out = X.coursedog_candidates({'catalog': {'home': 'https://catalog.fau.edu'}}, {'institution_key': 'k'}, e, page, (None, None, None), '2026-27')
+        self.assertEqual([(c['record']['program_key'], c['record']['program_name']) for c in out],
+                         [('ba-in-lang-ling-and-comparative-lit-llcp', 'Bachelor of Arts in Languages, Linguistics and Comparative Literature'),
+                          ('biology-bs', 'Biology (BS)')])
+
     def test_milestones_column_kept_apart(self):  # UO 2026-27 Accounting / Business Administration / Music
         from programs import courseleaf as CL
         long = 'SPAN 3xx Hispanic Cultures through Literature or SPAN 3xx ' + 'Creative Writing in Spanish ' * 12
@@ -1312,6 +1324,14 @@ class DepartmentSectionTests(unittest.TestCase):
         self.assertTrue(all(c['extractor'] == 'department_section/v1' and c['record']['program_url'] == e['url'] for c in out))
         two = T.Page('2026-2027 Undergraduate Catalog\n2025-2026 Undergraduate Catalog\n' + '\n'.join(heads), 't', [], [], heads)
         self.assertEqual(X.program_page_candidates(tgt, {'institution_key': 'k'}, e, two, '2026-27'), [])  # no single current label
+        # uark 2026-27: a link to the previous year's PDF is not a second label of this page
+        ua = T.Page('2026-27 Edition\nA PDF of the entire 2025-26 Undergraduate catalog.\nRequirements for B.S. in Exercise Science', 't', [], [], ['Requirements for B.S. in Exercise Science'])
+        self.assertEqual([c['record']['program_key'] for c in X.department_section_candidates({'institution_key': 'k'}, e, ua, '2026-27')], ['exercise-science-bs'])
+        # UF Geography 2026-27: the About box lists specializations; their 'Bachelor of Arts in ...' headings are not degrees
+        heads = ['Bachelor of Arts in Geography', 'Bachelor of Arts in Environmental Geosciences', 'Bachelor of Science in Geography']
+        uf = T.Page('2026-2027 Undergraduate Catalog\nBA | Specializations: Environmental Geosciences | General Geography\n' + '\n'.join(heads), 't', [], [], heads)
+        got = sorted(c['record']['program_name'] for c in X.department_section_candidates({'institution_key': 'k'}, e, uf, '2026-27'))
+        self.assertEqual(got, ['Bachelor of Arts in Geography', 'Bachelor of Science in Geography'])
 
     def test_programs_sharing_a_page_are_not_duplicates(self):
         from programs import autoreview as A
