@@ -29,7 +29,7 @@ RPCs. It does not run Supabase Auth, edge functions, email or Stripe.
 | Saved schools and primary target school (CR-12) | yes | yes, as of this change | checked locally with two fictional schools |
 | Major interests (CR-13) | browser | yes, as of this change | checked locally, including server rejection of malformed keys |
 | AP/CLEP exam plan (CR-10) | browser only | **not wired** | the app keys exams by normalized published names; the backend keys them by `exam_catalog`, which is empty in the repository migrations. Needs the catalog populated (Research) and a name-to-key mapping before it can move. |
-| Cost projection and savings levers (CR-4) | none | **not wired** | `cost_projection` RPC exists; client type and UI do not match its per-school shape yet. Next journey. |
+| Cost projection and savings levers (CR-4) | none | **not wired** | `cost_projection` RPC exists, but it returns `missing_cost` for any school priced the same for all students (`not_applicable`), which is 7 of 12 schools in the comparison snapshot; and no school has a verified credit cap yet, so counted savings are 0 everywhere. Reported on issue #37; wiring waits for that fix. |
 | Home state for in-state pricing (CR-15) | browser only | no backend | contract request still open |
 
 ## Accounts, invitations, billing
