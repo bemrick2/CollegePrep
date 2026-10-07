@@ -1,7 +1,7 @@
 {
  "state": "TX",
  "source": "IPEDS HD2023 (sources/ipeds/2023-24/manifest.json)",
- "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record",
+ "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record; four-year colleges without one are included when IPEDS INSTCAT is 2 or 3 (awards undergraduate degrees)",
  "institutions": [
   {
    "institution_key": "ipeds-222178",
@@ -108,6 +108,27 @@
    "existing_sources": [
     "https://www.actx.edu/dualcredit/handbook"
    ]
+  },
+  {
+   "institution_key": "ipeds-222628",
+   "unitid": 222628,
+   "name": "Amberton University",
+   "city": "Garland",
+   "state": "TX",
+   "folder": "amberton",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "amberton.edu",
+   "allowed_domains": [
+    "amberton.edu"
+   ],
+   "seeds": {
+    "website": "https://www.amberton.edu/",
+    "admissions": "https://www.amberton.edu/",
+    "financial_aid": "https://www.amberton.edu/",
+    "net_price": "https://helios.amberton.edu/index.html"
+   },
+   "existing_sources": []
   },
   {
    "institution_key": "ipeds-222822",
@@ -2828,6 +2849,62 @@
    ]
   },
   {
+   "institution_key": "ipeds-229337",
+   "unitid": 229337,
+   "name": "Texas Tech University Health Sciences Center",
+   "city": "Lubbock",
+   "state": "TX",
+   "folder": "ttuhsc",
+   "control": "public",
+   "level": "four_year",
+   "domain": "ttuhsc.edu",
+   "allowed_domains": [
+    "ttuhsc.edu"
+   ],
+   "seeds": {
+    "website": "https://www.ttuhsc.edu/",
+    "admissions": "https://www.ttuhsc.edu/medicine/admissions/",
+    "financial_aid": "https://www.ttuhsc.edu/financial-aid/",
+    "net_price": "https://www.fiscal.ttuhsc.edu/studentbusserv/tuitionestimates.aspx"
+   },
+   "existing_sources": [],
+   "shared_domains": [
+    "ttuhsc.edu"
+   ],
+   "allowed_hosts": [
+    "ttuhsc.edu"
+   ],
+   "shared_hosts": []
+  },
+  {
+   "institution_key": "ipeds-492689",
+   "unitid": 492689,
+   "name": "Texas Tech University Health Sciences Center-El Paso",
+   "city": "El Paso",
+   "state": "TX",
+   "folder": "elpaso",
+   "control": "public",
+   "level": "four_year",
+   "domain": "ttuhsc.edu",
+   "allowed_domains": [
+    "ttuhsc.edu"
+   ],
+   "seeds": {
+    "website": "https://elpaso.ttuhsc.edu/",
+    "admissions": "https://elpaso.ttuhsc.edu/som/admissions/",
+    "financial_aid": "https://elpaso.ttuhsc.edu/studentservices/Financial-Aid/",
+    "net_price": "https://www.depts.ttu.edu/financialaid/netCostCalcHome.php"
+   },
+   "existing_sources": [],
+   "shared_domains": [
+    "ttuhsc.edu"
+   ],
+   "allowed_hosts": [
+    "elpaso.ttuhsc.edu"
+   ],
+   "shared_hosts": []
+  },
+  {
    "institution_key": "ipeds-229160",
    "unitid": 229160,
    "name": "Texas Wesleyan University",
@@ -2970,6 +3047,107 @@
     "admissions": "https://swbts.edu/admissions/",
     "financial_aid": "https://swbts.edu/campus-life/offices/financial-aid/",
     "net_price": "https://catalog.swbts.edu/enrollment-services/student-fees-and-payment/"
+   },
+   "existing_sources": []
+  },
+  {
+   "institution_key": "ipeds-229300",
+   "unitid": 229300,
+   "name": "The University of Texas Health Science Center at Houston",
+   "city": "Houston",
+   "state": "TX",
+   "folder": "uth",
+   "control": "public",
+   "level": "four_year",
+   "domain": "uth.edu",
+   "allowed_domains": [
+    "uth.edu"
+   ],
+   "seeds": {
+    "website": "https://www.uth.edu/",
+    "admissions": "https://www.uth.edu/registrar/",
+    "financial_aid": "https://www.uth.edu/sfs/index.htm"
+   },
+   "existing_sources": [],
+   "shared_domains": [
+    "uth.edu"
+   ],
+   "allowed_hosts": [
+    "uth.edu"
+   ],
+   "shared_hosts": [
+    "uth.edu"
+   ]
+  },
+  {
+   "institution_key": "ipeds-228644",
+   "unitid": 228644,
+   "name": "The University of Texas Health Science Center at San Antonio",
+   "city": "San Antonio",
+   "state": "TX",
+   "folder": "uthscsa",
+   "control": "public",
+   "level": "four_year",
+   "domain": "uthscsa.edu",
+   "allowed_domains": [
+    "uthscsa.edu"
+   ],
+   "seeds": {
+    "website": "https://www.uthscsa.edu/",
+    "admissions": "https://uthscsa.edu/academics",
+    "financial_aid": "https://students.uthscsa.edu/financialaid/",
+    "net_price": "https://students.uthscsa.edu/financialaid/"
+   },
+   "existing_sources": []
+  },
+  {
+   "institution_key": "ipeds-416801",
+   "unitid": 416801,
+   "name": "The University of Texas MD Anderson Cancer Center",
+   "city": "Houston",
+   "state": "TX",
+   "folder": "mdanderson",
+   "control": "public",
+   "level": "four_year",
+   "domain": "mdanderson.org",
+   "allowed_domains": [
+    "mdanderson.org",
+    "uth.edu"
+   ],
+   "seeds": {
+    "website": "https://www.mdanderson.org/",
+    "admissions": "https://www.uth.edu/registrar/applicants/admissions.htm",
+    "financial_aid": "https://www.uth.edu/sfs/"
+   },
+   "existing_sources": [],
+   "shared_domains": [
+    "uth.edu"
+   ],
+   "allowed_hosts": [
+    "uth.edu"
+   ],
+   "shared_hosts": [
+    "uth.edu"
+   ]
+  },
+  {
+   "institution_key": "ipeds-228653",
+   "unitid": 228653,
+   "name": "The University of Texas Medical Branch at Galveston",
+   "city": "Galveston",
+   "state": "TX",
+   "folder": "utmb",
+   "control": "public",
+   "level": "four_year",
+   "domain": "utmb.edu",
+   "allowed_domains": [
+    "utmb.edu"
+   ],
+   "seeds": {
+    "website": "https://www.utmb.edu/",
+    "admissions": "https://www.utmb.edu/enrollmentservices/",
+    "financial_aid": "https://www.utmb.edu/enrollmentservices/resources/financial-aid",
+    "net_price": "https://www.utmb.edu/enrollmentservices/resources/studentaccounts/tuition-and-fee-sheets"
    },
    "existing_sources": []
   },
@@ -3368,6 +3546,27 @@
     "admissions": "https://www.unt.edu/admissions/index.html",
     "financial_aid": "https://financialaid.unt.edu/",
     "net_price": "https://www.highered.texas.gov/apps/NPC/?Fice=003594"
+   },
+   "existing_sources": []
+  },
+  {
+   "institution_key": "ipeds-228909",
+   "unitid": 228909,
+   "name": "University of North Texas Health Science Center",
+   "city": "Fort Worth",
+   "state": "TX",
+   "folder": "unthsc",
+   "control": "public",
+   "level": "four_year",
+   "domain": "unthsc.edu",
+   "allowed_domains": [
+    "unthsc.edu"
+   ],
+   "seeds": {
+    "website": "https://www.unthsc.edu/",
+    "admissions": "https://www.unthsc.edu/students/future-students/admissions/",
+    "financial_aid": "https://www.unthsc.edu/students/financial-aid/",
+    "net_price": "https://www.unthsc.edu/students/unthsc-tuition-and-fees/"
    },
    "existing_sources": []
   },

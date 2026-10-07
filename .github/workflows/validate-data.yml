@@ -23,6 +23,8 @@ jobs:
         run: python scripts/validate_data.py
       - name: Check migration history is frozen and consistent
         run: python scripts/check_migration_history.py
+      - name: Registry reconciliation against the IPEDS four-year universe is current
+        run: python scripts/registry_reconciliation.py --check
       - name: Evidence documents behind every promoted record are retained (scripts/retain_evidence.py)
         run: |
           python scripts/retain_evidence.py --check

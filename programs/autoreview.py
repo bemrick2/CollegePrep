@@ -113,6 +113,8 @@ def review(state, run, today=None):
         u = url_of(c, 'program_url')
         if c['domain'] == 'academic_programs' and u and not u.lower().endswith('.pdf'): pages[(c['institution_key'], c['record'].get('program_key'))].add(u)
     variant_pages = {u for us in pages.values() if len(us) > 1 for u in us if page_stem(u) != base_stem(us)}
+    from .extract import listed_emphasis_pages
+    listed_emphases = listed_emphasis_pages(lists, norm)
     for c in cands:
         if c['domain'] != 'academic_programs': continue
         k = (c['institution_key'], c['record'].get('program_key'))
@@ -120,7 +122,7 @@ def review(state, run, today=None):
         why = ('untrusted_extractor' if c['extractor'] not in TRUSTED_PROGRAMS else 'issues' if c['issues'] else
                'not_verbatim' if verify.get(c['candidate_id']) else 'not_bachelor' if c['record'].get('credential_level') != 'bachelor' else
                'graduate_name' if GRADUATE.search(c['record'].get('program_name', '')) else
-               'option_name' if OPTION.search(c['record'].get('program_name', '')) else
+               'option_name' if OPTION.search(c['record'].get('program_name', '')) and (c['institution_key'], url_of(c, 'program_url')) not in listed_emphases else
                'combined_program' if COMBINED.search(c['record'].get('program_name', '')) else
                'entry_path_variant' if len(variants[(c['institution_key'], base(c))]) > 1 and plain(c) != c['record'].get('program_name', '').strip() else
                'variant_page' if url_of(c, 'program_url') in variant_pages else

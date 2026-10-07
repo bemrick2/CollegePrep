@@ -1,7 +1,7 @@
 {
  "state": "PA",
  "source": "IPEDS HD2023 (sources/ipeds/2023-24/manifest.json)",
- "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record",
+ "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record; four-year colleges without one are included when IPEDS INSTCAT is 2 or 3 (awards undergraduate degrees)",
  "institutions": [
   {
    "institution_key": "ipeds-214023",
@@ -893,6 +893,27 @@
     "admissions": "https://www.gettysburg.edu/admissions-aid/",
     "financial_aid": "https://www.gettysburg.edu/admissions-aid/",
     "net_price": "https://www.gettysburg.edu/admissions-aid/tuition-fees/net-price-calculator"
+   },
+   "existing_sources": []
+  },
+  {
+   "institution_key": "ipeds-212771",
+   "unitid": 212771,
+   "name": "Gratz College",
+   "city": "Melrose Park",
+   "state": "PA",
+   "folder": "gratz",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "gratz.edu",
+   "allowed_domains": [
+    "gratz.edu"
+   ],
+   "seeds": {
+    "website": "https://www.gratz.edu/",
+    "admissions": "https://www.gratz.edu/admission-aid",
+    "financial_aid": "https://www.gratz.edu/admission-aid/financial-aid-scholarships",
+    "net_price": "https://www.gratz.edu/net-price-calculator"
    },
    "existing_sources": []
   },

@@ -1,7 +1,7 @@
 {
  "state": "NV",
  "source": "IPEDS HD2023 (sources/ipeds/2023-24/manifest.json)",
- "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record",
+ "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record; four-year colleges without one are included when IPEDS INSTCAT is 2 or 3 (awards undergraduate degrees)",
  "institutions": [
   {
    "institution_key": "ipeds-182005",
@@ -75,6 +75,46 @@
     "reason": "IPEDS HD2023 reports nsc.edu (Nevada State College); every nsc.edu seed returned 404 in run NV 2026-10-02 after the rename to Nevada State University.",
     "evidence": "https://nevadastate.edu/admissions/first-time-student/"
    }
+  },
+  {
+   "institution_key": "ipeds-445735",
+   "unitid": 445735,
+   "name": "Roseman University of Health Sciences",
+   "city": "Henderson",
+   "state": "NV",
+   "folder": "roseman",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "roseman.edu",
+   "allowed_domains": [
+    "roseman.edu"
+   ],
+   "seeds": {
+    "website": "https://www.roseman.edu/",
+    "net_price": "https://www.roseman.edu/students-alumni/bursar/tuition-and-fees/"
+   },
+   "existing_sources": []
+  },
+  {
+   "institution_key": "ipeds-459824",
+   "unitid": 459824,
+   "name": "Touro University Nevada",
+   "city": "Henderson",
+   "state": "NV",
+   "folder": "touro-459824",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "touro.edu",
+   "allowed_domains": [
+    "touro.edu"
+   ],
+   "seeds": {
+    "website": "https://www.tun.touro.edu/",
+    "admissions": "https://tun.touro.edu/admissions--aid/",
+    "financial_aid": "https://tun.touro.edu/admissions--aid/financial-aid/",
+    "net_price": "https://tun.touro.edu/admissions--aid/cost-of-attendance/"
+   },
+   "existing_sources": []
   },
   {
    "institution_key": "ipeds-182500",

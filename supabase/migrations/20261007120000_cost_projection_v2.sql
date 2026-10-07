@@ -13,6 +13,9 @@
 --    is the policy. prior_credits (credit brought from elsewhere) keeps the v1 rule: counted only under a verified cap.
 --  * Both are bounded by a verified residency requirement (credits that must be earned at the school), measured
 --    against the projection's own credit total (years x terms x credits per term).
+--  * Research review (#37): accepted credit is not degree-applicable credit, and degree-applicable credit is not
+--    term-reducing credit. optimized_total and savings_total therefore carry totals_certainty 'potential', and assumes
+--    names a family-entered exam credit total (the server does not re-check it against the school's table).
 --  * credit_savings is a potential saving, never a confirmed shorter degree: certainty 'potential', and assumes
 --    lists what it takes for granted (the counted credit applies to the degree; the schedule lets the student
 --    finish early). Whether credit applies to a given major is checked by the client against the verified degree
@@ -219,7 +222,8 @@ begin
       'baseline_total', v_baseline,
       'levers', jsonb_build_array(v_lever_prior, v_lever_exam),
       'credit_savings', jsonb_build_object('certainty', 'potential',
-        'assumes', jsonb_build_array('counted_credit_applies_to_the_degree', 'schedule_allows_finishing_early'),
+        'assumes', jsonb_build_array('counted_credit_applies_to_the_degree', 'schedule_allows_finishing_early')
+          || case when v_exam > 0 then jsonb_build_array('exam_credit_total_entered_by_family') else '[]'::jsonb end,
         'mechanism', 'fewer_terms', 'billing_structure', 'unknown',
         'credits_counted', v_total, 'residency_requirement_credits', v_res_req, 'outside_credit_max', v_outside_max,
         'terms_saved', v_terms, 'remainder_credits', v_total - v_terms * v_cpt,
@@ -231,6 +235,8 @@ begin
         'requires_confirmation', true),
       'optimized_total', v_baseline - v_savings,
       'savings_total', v_savings,
+      -- Research review (#37): both totals above include the potential credit saving; neither is a projected price.
+      'totals_certainty', 'potential',
       'not_counted', v_not));
   end loop;
 
