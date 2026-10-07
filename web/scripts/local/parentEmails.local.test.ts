@@ -150,6 +150,9 @@ describe.skipIf(!URL_ || !DENO)('parent emails: edge function + local backend + 
     const again = await call({ mode: 'weekly', week_start: week })
     expect(again.body).toMatchObject({ candidates: 0, sent: 0 })
     expect(inbox).toHaveLength(1)
+    // The app reports "emailed" only from the server's record; another family's guardian sees none of it.
+    expect(await (await as(PARENT)).emailDeliveries()).toEqual([expect.objectContaining({ kind: 'weekly_digest', weekStart: week, studentId: null })])
+    expect(await (await as(OTHER_PARENT)).emailDeliveries()).toEqual([])
   })
 
   it('inactivity alert: a failed send is retried next run, then never repeated for the same stretch', async () => {

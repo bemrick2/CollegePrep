@@ -1,7 +1,7 @@
 import { MAX_INTERESTS, type InterestProfile, type MajorCertainty, type SavedInterest } from '../../engine/interests'
 import { INVITE_TTL_HOURS } from '../../invites'
 import type { SupabaseClient } from '@supabase/supabase-js'
-import type { AlertPreference, DataSource, InactiveStudent, InvitationSummary, InviteSendResult, StudentInvitation } from '../source'
+import type { AlertPreference, EmailDelivery, DataSource, InactiveStudent, InvitationSummary, InviteSendResult, StudentInvitation } from '../source'
 import type { NextWeekSuggestion } from '../../engine/weeklyPlan'
 import { DataError } from '../source'
 import type {
@@ -302,6 +302,21 @@ export class LiveSource implements DataSource {
     if (r.error) fail(r.error)
   }
 
+  async emailDeliveries(): Promise<EmailDelivery[] | null> {
+    if (!this.supportsWeeklyDigest) return null
+    const { data, error } = await this.sb.from('parent_email_deliveries').select('kind, period_key, sent_at').order('sent_at', { ascending: false }).limit(20)
+    if (error) fail(error)
+    return (data ?? []).map((r) => {
+      const weekly = r.kind === 'weekly_digest'
+      return {
+        kind: r.kind as EmailDelivery['kind'],
+        weekStart: weekly ? (r.period_key as string) : null,
+        studentId: weekly ? null : String(r.period_key).split(':')[0]!,
+        sentAt: r.sent_at as string,
+      }
+    })
+  }
+
   async inactiveStudents(): Promise<InactiveStudent[]> {
     const rows = await rpc<{ student_id: string; days_inactive: number | null; threshold_days: number; last_submitted_at: string | null }[]>(this.sb, 'student_inactivity', {})
     return (rows ?? []).map((r) => ({ studentId: r.student_id, daysInactive: r.days_inactive, thresholdDays: r.threshold_days, lastSubmittedAt: r.last_submitted_at }))
@@ -442,10 +457,14 @@ export class LiveSource implements DataSource {
     const qs = ids.length ? await this.sb.from('practice_questions').select(QUESTION_COLUMNS).in('id', ids) : { data: [], error: null }
     if (qs.error) fail(qs.error)
     const byId = new Map(((qs.data ?? []) as unknown as QuestionRow[]).map((q) => [q.id, toPublic(q)]))
+    // Seen before: any attempt at the question by this student. The new session has none yet, so every match is earlier.
+    const prior = ids.length ? await this.sb.from('practice_attempts').select('question_id').eq('student_id', studentId).in('question_id', ids) : { data: [], error: null }
+    if (prior.error) fail(prior.error)
+    const seen = new Set((prior.data ?? []).map((r) => r.question_id as string))
     return {
       id,
       target_minutes: targetMinutes,
-      items: (items.data ?? []).filter((i) => byId.has(i.question_id)).map((i) => ({ position: i.position, reason: i.reason, question: byId.get(i.question_id)! })),
+      items: (items.data ?? []).filter((i) => byId.has(i.question_id)).map((i) => ({ position: i.position, reason: i.reason, question: byId.get(i.question_id)!, seen_before: seen.has(i.question_id) })),
     }
   }
 

@@ -6,9 +6,10 @@ import type { BenchmarkSummary } from '../data/types'
  * These are practice questions, not equated test forms: each check draws different items, and sections hold only
  * a handful of answers. So a change is called real only when it is larger than chance would usually produce:
  * more than two standard errors of the difference between two proportions (pooled). Smaller changes are reported
- * as "within normal variation", whatever their sign. Nothing here is converted to an ACT or SAT score.
+ * as "within normal variation", whatever their sign. A section where either check reused questions the student had
+ * seen before gets no verdict at all ("not_clean"). Nothing here is converted to an ACT or SAT score.
  */
-export type ChangeVerdict = 'up' | 'down' | 'within_noise' | 'too_few'
+export type ChangeVerdict = 'up' | 'down' | 'within_noise' | 'too_few' | 'not_clean'
 
 export interface SectionChange {
   section: string
@@ -19,6 +20,9 @@ export interface SectionChange {
   verdict: ChangeVerdict
   pacingNow: number | null
   pacingThen: number | null
+  /** Questions the student had seen before, in this check / the earlier one. Any repeat: no verdict. */
+  repeatsNow: number
+  repeatsThen: number
 }
 
 /** Fewer answers than this on either side and no change is judged at all. */
@@ -38,13 +42,23 @@ export function judgeChange(now: { correct: number; answered: number }, then: { 
   return { delta, verdict: Math.abs(delta) > 2 * se ? (delta > 0 ? 'up' : 'down') : 'within_noise' }
 }
 
-function compareTo(current: BenchmarkSummary, other: BenchmarkSummary | null): SectionChange[] {
+export type RepeatsOf = (b: BenchmarkSummary) => Map<string, number>
+const noRepeats: RepeatsOf = () => new Map()
+
+function compareTo(current: BenchmarkSummary, other: BenchmarkSummary | null, repeatsOf: RepeatsOf): SectionChange[] {
+  const rNow = repeatsOf(current)
+  const rThen = other ? repeatsOf(other) : new Map<string, number>()
   return current.metrics.sections.map((s) => {
     const o = other?.metrics.sections.find((x) => x.section === s.section) ?? null
     const now = { correct: s.correct, answered: s.answered, accuracy: s.accuracy }
-    if (!o) return { section: s.section, now, then: null, delta: null, verdict: 'too_few', pacingNow: s.pacing_ratio, pacingThen: null }
+    const repeatsNow = rNow.get(s.section) ?? 0
+    const repeatsThen = rThen.get(s.section) ?? 0
+    if (!o) return { section: s.section, now, then: null, delta: null, verdict: 'too_few', pacingNow: s.pacing_ratio, pacingThen: null, repeatsNow, repeatsThen }
     const then = { correct: o.correct, answered: o.answered, accuracy: o.accuracy }
-    return { section: s.section, now, then, ...judgeChange(now, then), pacingNow: s.pacing_ratio, pacingThen: o.pacing_ratio }
+    const judged = judgeChange(now, then)
+    // Recall of a question seen before is not new evidence: report the numbers, but no verdict.
+    const verdict: ChangeVerdict = repeatsNow > 0 || repeatsThen > 0 ? 'not_clean' : judged.verdict
+    return { section: s.section, now, then, delta: judged.delta, verdict, pacingNow: s.pacing_ratio, pacingThen: o.pacing_ratio, repeatsNow, repeatsThen }
   })
 }
 
@@ -57,14 +71,14 @@ export interface ProgressComparison {
 }
 
 /** `history` = completed checks before this one (any order). The first by date is the baseline. */
-export function compareProgress(current: BenchmarkSummary, history: BenchmarkSummary[]): ProgressComparison {
+export function compareProgress(current: BenchmarkSummary, history: BenchmarkSummary[], repeatsOf: RepeatsOf = noRepeats): ProgressComparison {
   const prior = history.filter((b) => b.id !== current.id && b.completed_at && b.completed_at <= current.completed_at).sort((a, b) => a.completed_at.localeCompare(b.completed_at))
   const baseline = prior.find((b) => b.kind === 'initial') ?? prior[0] ?? null
   const previous = prior.at(-1) ?? null
   return {
     baseline,
     previous,
-    sinceBaseline: baseline ? compareTo(current, baseline) : [],
-    sinceLast: previous && baseline && previous.id !== baseline.id ? compareTo(current, previous) : null,
+    sinceBaseline: baseline ? compareTo(current, baseline, repeatsOf) : [],
+    sinceLast: previous && baseline && previous.id !== baseline.id ? compareTo(current, previous, repeatsOf) : null,
   }
 }

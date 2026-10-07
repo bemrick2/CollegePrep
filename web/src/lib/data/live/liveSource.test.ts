@@ -104,6 +104,22 @@ describe('LiveSource contracts (issue #37)', () => {
     })
   })
 
+  it('CR-22: emails sent come only from the delivery record; without CR-22 the answer is unknown (null), not "none"', async () => {
+    const off = fakeClient({})
+    expect(await new LiveSource(off.sb).emailDeliveries()).toBeNull()
+    expect(off.calls).toHaveLength(0)
+    const on = fakeClient({
+      parent_email_deliveries: [
+        { kind: 'inactivity', period_key: 's1:2026-10-03T22:10:00+00:00', sent_at: '2026-10-06T13:00:00Z' },
+        { kind: 'weekly_digest', period_key: '2026-09-28', sent_at: '2026-10-05T13:00:00Z' },
+      ],
+    })
+    expect(await new LiveSource(on.sb, { weeklyDigest: true }).emailDeliveries()).toEqual([
+      { kind: 'inactivity', weekStart: null, studentId: 's1', sentAt: '2026-10-06T13:00:00Z' },
+      { kind: 'weekly_digest', weekStart: '2026-09-28', studentId: null, sentAt: '2026-10-05T13:00:00Z' },
+    ])
+  })
+
   it('CR-16 billing: entitlement RPC, Checkout and Portal through edge functions; no Stripe keys in the client', async () => {
     const { sb, calls } = fakeClient({
       household_entitlement: { active: true, status: 'active', can_manage_billing: true, managed_by: 'web' },

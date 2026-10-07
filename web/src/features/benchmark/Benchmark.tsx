@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Navigate, useNavigate, useSearchParams } from 'react-router-dom'
 import { useApp, useAsync } from '../../lib/app'
 import type { BenchmarkSummary, Confidence, ExamFamily, PublicQuestion } from '../../lib/data/types'
-import { SECTION_LABEL, computeMetrics, nextDifficulty, pickNext, planBenchmark, type BenchmarkKind, type BenchmarkPlan, type BenchmarkRecord, benchmarkSchedule } from '../../lib/engine/benchmark'
+import { FULL_FORM_READY, SECTION_LABEL, computeMetrics, nextDifficulty, pickNext, planBenchmark, type BenchmarkKind, type BenchmarkPlan, type BenchmarkRecord, benchmarkSchedule } from '../../lib/engine/benchmark'
 import { ActiveClock } from '../practice/useAttempt'
 import { QuestionView, ConfidenceBar } from '../practice/QuestionView'
 import { Button, ButtonLink, ChoiceCard, EmptyState, Notice, PageLoading, ProgressBar } from '../../components/ui'
@@ -25,6 +25,13 @@ interface Open {
 
 type Phase = 'intro' | 'running' | 'break' | 'done'
 
+/** Per section, how many of this run's questions the student had seen before it started. */
+function repeatsIn(records: { question_id: string; section: string }[], seen: Set<string>) {
+  const m = new Map<string, number>()
+  for (const r of records) if (seen.has(r.question_id)) m.set(r.section, (m.get(r.section) ?? 0) + 1)
+  return m
+}
+
 export function Benchmark() {
   const { source, ctx } = useApp()
   const student = ctx?.myStudent ?? null
@@ -33,6 +40,9 @@ export function Benchmark() {
   const history = useAsync(() => (student ? source.listBenchmarks(student.id) : Promise.resolve([])), [source, student?.id])
   const exam: ExamFamily = plan.data?.exam_family ?? 'act'
   const pool = useAsync(() => source.publishedQuestions(exam), [source, exam])
+  // Everything this student has answered, for fresh-first selection and for marking repeats in the results.
+  const answered = useAsync(() => (student ? source.attemptHistory(student.id, '1970-01-01T00:00:00Z') : Promise.resolve([])), [source, student?.id])
+  const seenBefore = useMemo(() => new Set((answered.data ?? []).map((a) => a.question_id)), [answered.data])
   const catalog = useCatalog(exam)
 
   const [kind, setKind] = useState<BenchmarkKind | null>(null)
@@ -59,7 +69,7 @@ export function Benchmark() {
   const [params] = useSearchParams()
   const asked = params.get('kind')
   const defaultKind: BenchmarkKind =
-    (history.data?.length ?? 0) === 0 ? 'initial' : asked === 'mini' || asked === 'full' ? asked : benchmarkSchedule(history.data ?? []).kind === 'full' ? 'full' : 'mini'
+    (history.data?.length ?? 0) === 0 ? 'initial' : asked === 'mini' || (asked === 'full' && FULL_FORM_READY) ? asked : benchmarkSchedule(history.data ?? []).kind === 'full' ? 'full' : 'mini'
   const chosenKind = kind ?? defaultKind
   const bplan: BenchmarkPlan | null = useMemo(() => (pool.data ? planBenchmark(exam, chosenKind, pool.data) : null), [pool.data, exam, chosenKind])
   const section = bplan?.sections[sectionIdx]
@@ -95,7 +105,9 @@ export function Benchmark() {
     if (!bplan || !section || !pool.data) return
     const r = run.current
     if (!r.returning && r.served < section.count) {
-      const q = pickNext(pool.data.filter((x) => x.exam_family === exam), section.section, r.target, r.used)
+      // Fresh questions first, so the check measures more than recall; seen ones only when a section runs out.
+      const inExam = pool.data.filter((x) => x.exam_family === exam)
+      const q = pickNext(inExam.filter((x) => !seenBefore.has(x.id)), section.section, r.target, r.used) ?? pickNext(inExam, section.section, r.target, r.used)
       if (q) return present(q)
     }
     const back = r.skipped.shift()
@@ -105,7 +117,7 @@ export function Benchmark() {
     }
     setCurrent(null)
     setPhase(sectionIdx + 1 >= bplan.sections.length ? 'done' : 'break')
-  }, [bplan, section, pool.data, exam, present, resume, sectionIdx])
+  }, [bplan, section, pool.data, exam, present, resume, sectionIdx, seenBefore])
 
   // When the run ends, save the summary.
   useEffect(() => {
@@ -128,7 +140,7 @@ export function Benchmark() {
   }, [phase, summary, student, records, chosenKind, exam, source])
 
   if (!student) return <Navigate to="/student" replace />
-  if (plan.loading || pool.loading || history.loading) return <PageLoading />
+  if (plan.loading || pool.loading || history.loading || answered.loading) return <PageLoading />
 
   if (!bplan || bplan.totalQuestions === 0)
     return (
@@ -208,7 +220,7 @@ export function Benchmark() {
   }
 
   if (phase === 'intro') {
-    const options: BenchmarkKind[] = (history.data?.length ?? 0) === 0 ? ['initial'] : ['mini', 'full']
+    const options: BenchmarkKind[] = (history.data?.length ?? 0) === 0 ? ['initial'] : FULL_FORM_READY ? ['mini', 'full'] : ['mini']
     return (
       <div className="mx-auto flex min-h-[calc(100dvh-28px)] max-w-xl flex-col px-4">
         <div className="flex h-16 items-center">
@@ -226,6 +238,11 @@ export function Benchmark() {
           <p className="mt-2 text-ink-2">
             {EXAM_NAME[exam]} benchmark · {bplan.totalQuestions} questions · about {bplan.expectedMinutes} minutes. It adapts as you go, so it is shorter than a full test.
           </p>
+          {chosenKind === 'mini' && !FULL_FORM_READY && (
+            <p className="mt-2 text-sm text-ink-3">
+              A full-length check isn't available yet. It needs its own set of questions that never appear in practice, and those haven't been written.
+            </p>
+          )}
           {options.length > 1 && (
             <div className="mt-6 grid gap-3">
               {options.map((k) => {
@@ -296,7 +313,7 @@ export function Benchmark() {
 
   if (phase === 'done') {
     if (!summary) return <PageLoading />
-    return <BenchmarkResults summary={summary} strategies={catalog.strategies} traps={catalog.traps} skillName={catalog.skillName} history={history.data ?? []} />
+    return <BenchmarkResults summary={summary} strategies={catalog.strategies} traps={catalog.traps} skillName={catalog.skillName} history={history.data ?? []} attempts={answered.data ?? []} currentRepeats={repeatsIn(records, seenBefore)} />
   }
 
   const answeredInSection = records.filter((r) => r.section === section?.section).length

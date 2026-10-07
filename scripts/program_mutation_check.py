@@ -146,7 +146,7 @@ MUTS = [
     ('programs/courseleaf.py', "        if not table.get('sups_recorded') and any(FOOTNOTED.search(", "        if False and any(FOOTNOTED.search("),
     ('programs/courselist_html.py', "'caption': '', 'rows': [], 'sups_recorded': True}", "'caption': '', 'rows': []}"),
     # department_section/v1 scope (independent review 2026-10-07)
-    ('programs/extract.py', "    if re.search(r'(?im)^\\s*(below is a |the )?(sample|recommended) (4|four)[- ]year plan\\b', page.text or ''): return []", "    pass"),
+    ('programs/extract.py', "    if SAMPLE_PLAN_PAGE.search(page.text or ''): return []", "    pass"),
     ('programs/extract.py', "        if m.group('name').strip(' ,').lower() in specs or SECTION_PART.search(h): continue", "        if m.group('name').strip(' ,').lower() in specs: continue"),
     ('programs/extract.py', "        if nm and any(u != here and _names_degree(a, nm, award) for u, a in others): continue", "        if nm and any(_names_degree(a, nm, award) for u, a in others): continue"),
     ('programs/extract.py', "    return re.fullmatch(r'(?:' + SECTION_AWARD[award] + r')', rest.strip(), re.I) is not None", "    return credential_of(rest) == 'bachelor'"),
@@ -157,6 +157,14 @@ MUTS = [
     ('programs/extract.py', "            if key in degrees or key in (offered or {}).get(ik, set()): continue", "            if key in degrees: continue"),
     ('programs/extract.py', "|(?-i:[AB][A-Z]{1,4}))\\)', line)", ")\\)', line)"),
     ('programs/extract.py', "    return re.sub(r'[\\s.]', '', a).lower()", "    return a.replace(' ', '').rstrip('.').lower()"),
+    # KU sample-plan sub-pages give no program record (any reader); PVAMU awards
+    ('programs/extract.py', "        found = [c for c in found if c['domain'] != 'academic_programs']", "        pass"),
+    ('programs/extract.py', "|S\\.?Ed|Ed|I\\.?S|SCJ|SAG|SCHE|SDIET)\\b", "|S\\.?Ed|I\\.?S|SCJ|SAG|SCHE)\\b"),
+    # JHU degree pages
+    ('programs/autoreview.py', "        canon = degree_page(us) if base is None else None", "        canon = None"),
+    ('programs/autoreview.py', "        canon = degree_page(us) if base is None else None", "        canon = degree_page(us)"),
+    ('programs/autoreview.py', "    return out[0] if len(out) == 1 else None", "    return out[0] if out else None"),
+    ('programs/autoreview.py', "|bachelors?-degrees?|b-?a|b-?s|bfa|bm)$", "|bachelors?-degrees?)$"),
 ]
 
 

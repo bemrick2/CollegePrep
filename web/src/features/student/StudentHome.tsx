@@ -7,10 +7,10 @@ import { useInterests } from '../majors/useInterests'
 import { useSavedComparison, COMPARE_YEAR } from '../colleges/useSavedComparison'
 import { useMeritReference } from '../colleges/useMeritReference'
 import { meritAwards } from '../../lib/engine/merit'
-import { localDate } from '../../lib/engine/dates'
+import { addDays, localDate } from '../../lib/engine/dates'
 import { benchmarkAttemptIds, benchmarkSchedule, SECTION_LABEL } from '../../lib/engine/benchmark'
-import { weeklyPlan } from '../../lib/engine/weeklyPlan'
-import { PacePill, WeekStrip, checkSentence, paceSentence } from '../../components/WeekPlan'
+import { showRecap, weekRecap, weeklyPlan } from '../../lib/engine/weeklyPlan'
+import { FreshContentNotice, LastWeekRecap, PacePill, ThisWeekGoal, WeekStrip, checkSentence, paceSentence } from '../../components/WeekPlan'
 import { achievements, levelOf, totalXp } from '../../lib/engine/gamify'
 import { latestEstimate, useStudentOverview, type StudentOverview } from './useStudentOverview'
 import { useCatalog } from '../practice/useCatalog'
@@ -29,10 +29,10 @@ export function StudentHome() {
       </Notice>
     )
   if (!o.data) return null
-  return <HomeBody name={student.display_name} o={o.data} studentId={student.id} />
+  return <HomeBody name={student.display_name} o={o.data} studentId={student.id} onRefresh={o.reload} canSetGoals={!student.household_id} />
 }
 
-function HomeBody({ name, o, studentId }: { name: string; o: StudentOverview; studentId: string }) {
+function HomeBody({ name, o, studentId, onRefresh, canSetGoals }: { name: string; o: StudentOverview; studentId: string; onRefresh: () => void; canSetGoals: boolean }) {
   const interests = useInterests(studentId).profile
   const exam = o.plan?.exam_family ?? 'act'
   const catalog = useCatalog(exam)
@@ -56,6 +56,8 @@ function HomeBody({ name, o, studentId }: { name: string; o: StudentOverview; st
   const schedule = benchmarkSchedule(o.benchmarks)
   const week = weeklyPlan({ today: o.today, weekStart: o.weekStart, tz: o.tz, plan: o.plan, week: o.week, history: o.history, benchmarks: o.benchmarks, estimates: o.estimates })
   const checkDue = o.benchmarks.length > 0 && schedule.inDays === 0
+  const lastWeekStart = addDays(o.weekStart, -7)
+  const recap = o.lastWeek && showRecap(o.today, o.weekStart) ? weekRecap({ weekStart: lastWeekStart, tz: o.tz, plan: o.plan, week: o.lastWeek, history: o.history, benchmarks: o.benchmarks, estimates: o.estimates }) : null
   const hour = new Date().getHours()
   const hello = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening'
 
@@ -134,6 +136,20 @@ function HomeBody({ name, o, studentId }: { name: string; o: StudentOverview; st
                 <PacePill plan={week} /> {paceSentence(week)}
               </p>
               {!checkDue && <p className="mt-1 text-xs text-ink-3">{checkSentence(week, 'you')}</p>}
+              {!goal && (
+                <ThisWeekGoal
+                  studentId={studentId}
+                  weekStart={o.weekStart}
+                  lastGoal={o.lastWeek?.goal?.target_questions ?? null}
+                  canSet={canSetGoals}
+                  goalsPath="/student/goals"
+                  onSet={onRefresh}
+                />
+              )}
+              {recap && <LastWeekRecap recap={recap} compact className="mt-4 border-t border-line pt-4" />}
+              <div className="mt-4 empty:hidden">
+                <FreshContentNotice content={o.content} />
+              </div>
             </div>
           )}
           <div className={cx(!fresh && 'pt-5 md:pt-6')}>

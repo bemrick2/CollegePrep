@@ -1,6 +1,7 @@
 import { useApp, useAsync } from '../../lib/app'
 import type { AttemptRecord, BenchmarkSummary, SkillEstimate, Streak, StudentPlan, TestScore, WeeklyProgress } from '../../lib/data/types'
 import { addDays, localDate, weekStartOf } from '../../lib/engine/dates'
+import { contentStatus, firstAnswers, seenSet, type ContentStatus } from '../../lib/engine/freshness'
 
 export interface StudentOverview {
   tz: string
@@ -14,6 +15,10 @@ export interface StudentOverview {
   benchmarks: BenchmarkSummary[]
   history: AttemptRecord[]
   goalsMet: number
+  /** The previous week's progress (Monday weekStart - 7), for the recap. */
+  lastWeek: WeeklyProgress | null
+  /** Fresh vs seen practice questions for the student's exam (engine/freshness.ts). */
+  content: ContentStatus | null
 }
 
 /** Everything the student home, progress page and parent dashboard read about one student. */
@@ -26,7 +31,8 @@ export function useStudentOverview(studentId: string | null | undefined) {
     if (!studentId) return null
     const today = localDate(new Date(), tz)
     const weekStart = weekStartOf(today)
-    const since = new Date(Date.now() - 70 * 86_400_000).toISOString()
+    // All answers: seen-before and repeat detection need the full record, not a recent window.
+    const since = '1970-01-01T00:00:00Z'
     const pastWeeks = [1, 2, 3, 4].map((w) => addDays(weekStart, -7 * w))
     const [plan, week, streak, estimates, scores, benchmarks, history, past] = await Promise.all([
       source.getPlan(studentId),
@@ -39,7 +45,10 @@ export function useStudentOverview(studentId: string | null | undefined) {
       Promise.all(pastWeeks.map((w) => source.weeklyProgress(studentId, w).catch(() => null))),
     ])
     const goalsMet = [week, ...past].filter((w) => w?.goal?.target_questions && w.questions_submitted >= w.goal.target_questions).length
-    return { tz, today, weekStart, plan, week, streak, estimates, scores, benchmarks, history, goalsMet }
+    const exam = plan?.exam_family ?? 'act'
+    const pool = await source.publishedQuestions(exam).catch(() => null)
+    const content = pool ? contentStatus(exam, pool, seenSet(history)) : null
+    return { tz, today, weekStart, plan, week, streak, estimates, scores, benchmarks, history, goalsMet, lastWeek: past[0] ?? null, content }
   }, [source, studentId, tz])
 }
 
@@ -58,14 +67,16 @@ export function latestEstimate(scores: TestScore[], exam: string) {
 }
 
 /** Accuracy over the last 7 days vs the 7 before, from answered attempts. */
+/** Accuracy over the last 7 days vs the 7 before, on FIRST answers only: a question seen before isn't new evidence. */
 export function recentTrend(history: AttemptRecord[], today: string, tz: string) {
+  const fresh = firstAnswers(history.filter((a) => !a.skipped))
   const bucket = (from: number, to: number) => {
-    const rs = history.filter((a) => {
-      if (a.skipped) return false
+    const rs = fresh.filter((a) => {
       const d = localDate(a.submitted_at, tz)
       return d > addDays(today, -to) && d <= addDays(today, -from)
     })
-    return { n: rs.length, acc: rs.length ? rs.filter((a) => a.is_correct).length / rs.length : null }
+    const correct = rs.filter((a) => a.is_correct).length
+    return { n: rs.length, correct, acc: rs.length ? correct / rs.length : null }
   }
   return { recent: bucket(0, 7), prior: bucket(7, 14) }
 }
