@@ -54,7 +54,9 @@ COMBINED = re.compile(r'\+|\b(accelerated|combined|dual|concurrent|double)\b|\bw
 # a graduate award inside a name ('Business Administration, M.B.A.') also contains 'B.A.' for the bachelor's pattern
 GRADUATE = re.compile(r'\bM\.\s?B\.\s?A\b|\bMBA\b|\bM\.\s?(A|S|Ed|F\.?A)\.|\bMaster|\bPh\.?\s?D\b|\bDoctor', re.I)
 TRUSTED_REQUIREMENTS = {('major', 'courselist_html/v1'), ('program_plan', 'courseleaf_plan/v1'), ('program_plan', 'acalog_plan/v1'),
-                        ('program_plan', 'clearpath_plan/v1'), ('program_plan', 'program_map/v1')}
+                        ('program_plan', 'clearpath_plan/v1'), ('program_plan', 'program_map/v1'),
+                        # UAF roadmap grids: independent review 2026-10-07 of 25 plans, every cell, 0 differences (#170)
+                        ('program_plan', 'courseleaf_plangrid/v1')}
 
 
 AWARD_SLUG = re.compile(r'[-_](b-?a|b-?s|bfa|bm|bba|bsn|bas|bsw|bae|bse|bme|bm?e|ba-bs|bachelor-of-[a-z-]+)$', re.I)  # UF 'AEC_BS'
