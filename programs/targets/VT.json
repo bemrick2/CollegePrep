@@ -217,17 +217,19 @@
     "uvm.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.uvm.edu/",
-    "https://catalog.uvm.edu/",
-    "https://catalogue.uvm.edu/undergraduate",
-    "https://www.uvm.edu/academics/",
-    "https://www.uvm.edu/registrar/",
-    "https://www.uvm.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalogue.uvm.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalogue.uvm.edu/undergraduate/majors/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalogue.uvm.edu (program list https://catalogue.uvm.edu/undergraduate/majors/)"
   },
   {
    "institution_key": "ipeds-231165",

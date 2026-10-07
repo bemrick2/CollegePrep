@@ -1169,6 +1169,15 @@ class CrawlDelayTests(unittest.TestCase):
 class DetectTests(unittest.TestCase):
     """programs/detect.py: catalog platform from official links on stored discovery pages."""
 
+    def test_catalog_host_spellings(self):
+        from programs.detect import catalog_host
+        for h in ('catalog.x.edu', 'catalogs.rutgers.edu', 'bulletin.brown.edu', 'catalogue.uvm.edu', 'e-catalogue.jhu.edu', 'academiccatalog.umd.edu'):
+            self.assertTrue(catalog_host(h), h)
+        for h in ('www.uvm.edu', 'mycatalogue.x.edu', 'catalogsearch-tool.x.com'):
+            self.assertFalse(catalog_host(h), h)
+        cfg, why = self.det([('https://catalogue.uvm.edu/undergraduate/majors/', 'Majors')], url='https://catalogue.uvm.edu/undergraduate/')
+        self.assertEqual((cfg['platform'], cfg['program_lists']), ('courseleaf', ['https://catalogue.uvm.edu/undergraduate/majors/']))
+
     def test_shared_catalog_kept_only_for_the_institution_that_owns_its_host(self):
         from programs import detect as D
         cat = lambda home: {'catalog': {'platform': 'acalog', 'home': home, 'catoid': 4}}

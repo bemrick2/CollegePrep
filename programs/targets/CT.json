@@ -77,17 +77,17 @@
    "hosts": [
     "sacredheart.smartcatalogiq.com"
    ],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.sacredheart.edu/",
-    "https://catalog.sacredheart.edu/",
-    "https://sacredheart.smartcatalogiq.com/en/2026-2027/2026-2027-undergraduate-catalog",
-    "https://www.sacredheart.edu/academics/",
-    "https://www.sacredheart.edu/registrar/",
-    "https://www.sacredheart.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://sacredheart.smartcatalogiq.com/en/2026-2027/2026-2027-undergraduate-catalog/",
+    "min_depth": 1,
+    "path_prefix": "/en/2026-2027/2026-2027-undergraduate-catalog/",
+    "platform": "smartcatalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "SmartCatalog sacredheart.smartcatalogiq.com newest year path 2026-2027/2026-2027-undergraduate-catalog"
   },
   {
    "institution_key": "ipeds-130493",

@@ -35,17 +35,19 @@
     "jhu.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.jhu.edu/",
-    "https://catalog.jhu.edu/",
-    "https://e-catalogue.jhu.edu/",
-    "https://www.jhu.edu/academics/",
-    "https://www.jhu.edu/registrar/",
-    "https://www.jhu.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://e-catalogue.jhu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://e-catalogue.jhu.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on e-catalogue.jhu.edu (program list https://e-catalogue.jhu.edu/programs/)"
   },
   {
    "institution_key": "ipeds-163046",
@@ -210,17 +212,20 @@
     "umd.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.umd.edu/",
-    "https://catalog.umd.edu/",
-    "https://academiccatalog.umd.edu/undergraduate",
-    "https://www.umd.edu/academics/",
-    "https://www.umd.edu/registrar/",
-    "https://www.umd.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://academiccatalog.umd.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://academiccatalog.umd.edu/undergraduate/programs",
+     "https://academiccatalog.umd.edu/undergraduate/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on academiccatalog.umd.edu (program list https://academiccatalog.umd.edu/undergraduate/programs)"
   },
   {
    "institution_key": "ipeds-476601",

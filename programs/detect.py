@@ -33,6 +33,15 @@ NOT_LIST = re.compile(r'\b(graduate|minors?|certificates?|archived?|course descr
 CATALOG_WORD = re.compile(r'catalog|catalogue|bulletin', re.I)
 
 
+CATALOG_HOST = re.compile(r'^(?:e-)?(?:academic)?(?:catalog(?:ue)?s?|bulletins?)\.', re.I)
+
+
+def catalog_host(host):
+    """A catalog's own host: catalog., catalogs., bulletin., and the spellings catalogue. (UVM), e-catalogue. (JHU) and
+    academiccatalog. (UMD)."""
+    return bool(CATALOG_HOST.match(host or ''))
+
+
 def _years(text):
     out = set()
     for a, b in YEAR.findall(text or ''):
@@ -79,14 +88,14 @@ def detect_institution(entries):
                 if ym: smart[(host, ym.group(1) or '', ym.group(2) + '/' + (ym.group(3) or '').rstrip('/'))] += 1
             elif host.endswith('.kuali.co'):
                 kuali.add(host)
-            elif host.startswith(('catalog.', 'catalogs.', 'bulletin.', 'undergrad', 'undergraduate.')) and re.match(r'^/programs/[A-Za-z0-9._-]+/?$', u.path):
+            elif (catalog_host(host) or host.startswith(('undergrad', 'undergraduate.'))) and re.match(r'^/programs/[A-Za-z0-9._-]+/?$', u.path):
                 coursedog[host] += 1  # Coursedog program URLs: /programs/<code>
-            elif host.startswith(('catalog.', 'catalogs.', 'bulletin.')) and re.search(
+            elif catalog_host(host) and re.search(
                     r'^/((undergraduate|undergrad)/)?(programs?|programs-?a-?z|degrees?(-and-programs)?|majors?|programs-of-study)/?$|^/[^/]+/undergraduate/programs?(-?a-?z)?/?$', u.path) \
                     and not re.search(r'grad(uate)?/|azindex', u.path.replace('undergrad', '')):
                 # CourseLeaf program lists; /azindex/ is the course index (and robots-disallowed on most CourseLeaf sites)
                 courseleaf[host].add(f'https://{host}{u.path}')
-            elif host.startswith(('catalog.', 'catalogs.', 'bulletin.')) and re.search(r'/(azindex|courses?-?a-?z|programs-az)/?$', u.path):
+            elif catalog_host(host) and re.search(r'/(azindex|courses?-?a-?z|programs-az)/?$', u.path):
                 courseleaf.setdefault(host, set())
             elif u.path.lower().endswith('.pdf') and CATALOG_WORD.search(a + ' ' + u.path) and not re.search(r'graduate|archive|handbook', a + u.path, re.I):
                 ys = _years(a + ' ' + u.path)

@@ -34,17 +34,17 @@
    "hosts": [
     "dtcc.smartcatalogiq.com"
    ],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.dtcc.edu/",
-    "https://catalog.dtcc.edu/",
-    "https://dtcc.smartcatalogiq.com/current/catalog/programs-of-study",
-    "https://www.dtcc.edu/academics/",
-    "https://www.dtcc.edu/registrar/",
-    "https://www.dtcc.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://dtcc.smartcatalogiq.com/en/2025-2026/",
+    "min_depth": 1,
+    "path_prefix": "/en/2025-2026/",
+    "platform": "smartcatalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "SmartCatalog dtcc.smartcatalogiq.com newest year path 2025-2026/"
   },
   {
    "institution_key": "ipeds-130989",
