@@ -273,6 +273,12 @@ def _program_page_candidates(target, inst, entry, page, today_year):
             prog = next(c['record'] for c in out if c['domain'] == 'academic_programs')
             awards = len(re.findall(r'\b(BA|BS|BFA|BM|BAS|BBA|BArch|BLA|BMus|BSN)\b', prog['program_name']))
             out += courseleaf.html_candidates(inst, entry, cl[0], cl[1], year, prog['program_key'], max(1, awards), page.text)
+        pg = (target.get('_plangrids') or {}).get(entry.get('url'))
+        # UAF roadmaps (sc_plangrid with no 'Plan of Study Grid' caption): read with their cell positions when the page gave
+        # no plan through courseleaf_plan/v1, so one grid is never read twice
+        if have and pg and not any(c['record'].get('requirement_kind') == 'program_plan' for c in out):
+            prog = next(c['record'] for c in out if c['domain'] == 'academic_programs')
+            out += courseleaf.plangrid_candidates(inst, entry, pg[0], pg[1], year, prog['program_key'])
     return out
 
 
@@ -1121,6 +1127,7 @@ def extract_run(targets, run_dir, today=None):
         if (t.get('catalog') or {}).get('platform') == 'courseleaf':
             t = {**t, '_listed': {norm_url(p['url']): p for p in lists[key].get('programs', [])}}
             t = {**t, '_courselists': {e['via']: (e, json.loads(run.load_page(e['page_file'])[0].text)) for e in es if e.get('role') == 'courselist' and e.get('page_file')}}
+            t = {**t, '_plangrids': {e['via']: (e, json.loads(run.load_page(e['page_file'])[0].text)) for e in es if e.get('role') == 'plangrid' and e.get('page_file')}}
         n_c = 0; seen_ev = set(); seen_feed_keys = set(); plan_links = {}
         layouts = {x['via']: x for x in es if x.get('role') == 'pdf_layout' and x.get('page_file')}
         if (t.get('catalog') or {}).get('platform') == 'acalog':

@@ -267,6 +267,7 @@ def crawl_target(target, run: Run, fetcher, browser=None, log=print, caps=None):
                 expand(target, role, url, links, push, is_program, is_nav, depth)
                 if kind == 'html' and role == 'program_page' and (target.get('catalog') or {}).get('platform') == 'courseleaf':
                     store_courselists(run, key, url, body, depth)
+                    store_plangrids(run, key, url, body, depth)
                 if kind == 'html' and role == 'program_page' and (target.get('catalog') or {}).get('platform') == 'smartcatalog':
                     store_outline(run, key, url, body, depth)
                 if kind == 'pdf' and role == 'degree_map' and target.get('pdf_layout'):
@@ -286,6 +287,18 @@ def store_courselists(run, key, url, body, depth):
     run.record({'institution_key': key, 'url': url + '#courselist', 'role': 'courselist', 'via': url, 'depth': depth, 'fetched_at': now(),
                 'status': 200, 'sha256': sha, 'source_sha256': hashlib.sha256(body).hexdigest(), 'kind': 'json', 'tables': len(tables),
                 'page_file': run.save_page(sha, 'json', T.Page(text, 'CourseLeaf course lists', [], [], []), [])})
+
+
+def store_plangrids(run, key, url, body, depth):
+    """The page's CourseLeaf roadmap grids with each cell's year/term column and footnote markers
+    (programs.courselist_html.plan_grids), stored as their own JSON document (url + '#plangrid')."""
+    from .courselist_html import plan_grids
+    grids = plan_grids(body)
+    if not grids: return
+    text = json.dumps(grids, ensure_ascii=False, indent=0); sha = hashlib.sha256(text.encode()).hexdigest()
+    run.record({'institution_key': key, 'url': url + '#plangrid', 'role': 'plangrid', 'via': url, 'depth': depth, 'fetched_at': now(),
+                'status': 200, 'sha256': sha, 'source_sha256': hashlib.sha256(body).hexdigest(), 'kind': 'json', 'tables': len(grids['grids']),
+                'page_file': run.save_page(sha, 'json', T.Page(text, 'CourseLeaf plan grids', [], [], []), [])})
 
 
 def store_pdf_layout(run, key, url, body, depth):

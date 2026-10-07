@@ -498,3 +498,118 @@ def html_candidates(inst, entry, cl_entry, tables, year, program_key, program_aw
             c['layout_source'] = {'url': cl_entry['url'], 'sha256': cl_entry.get('sha256')}
             out.append(c)
     return out
+
+
+# ---- Roadmap grids read with their cell positions (courseleaf_plangrid/v1) ---------------------------------------
+# UAF 2026-27 prints its semester roadmaps as `table.sc_plangrid` with two (or three) terms side by side. The shared page
+# parser flattens a row into its cells, so an option row printed under one term's "Complete one of the following:" loses
+# its column, and footnote markers run into the course code ('MATH F251X6'). This reader takes the grid as stored by
+# programs.courselist_html.plan_grids: every cell names its year and term column in its `header` attribute
+# ('year0 year0_Term1_codecol'), footnote markers are the cell's <sup> text, and an option row is indented under its
+# rule. Nothing is inferred: a cell without a column, an indented row with no open rule in its column, or a marker that is
+# not at the end of a cell holds the plan.
+PLANGRID_EXTRACTOR = 'courseleaf_plangrid/v1'
+GRID_CODE = re.compile(r'^([A-Z]{2,5})\s(F?\d{3}[A-Z]?)$')
+GRID_COL = re.compile(r'^(year\d+)_(Term\d+)_(codecol|hourscol)$')
+GRID_CHOICE = re.compile(r'^(?:complete|select|choose|take)\s+(?:one|two|three|\d+)\s+of\s+the\s+following\s*:?$', re.I)
+RECOMMENDED = re.compile(r'\s*\(\*\)$')
+
+
+def _credits(s):
+    s = (s or '').strip()
+    return int(s) if s.isdigit() else s
+
+
+def parse_plangrid(t, footnote_defs):
+    """(terms, total, issues) of one roadmap grid."""
+    years, terms, by_col, issues, total = {}, [], {}, set(), None
+    for row in t.get('rows') or []:
+        cls, cells = row.get('classes') or [], row.get('cells') or []
+        if 'plangridyear' in cls:
+            for c in cells:
+                if c.get('id'): years[c['id']] = c['text']
+            continue
+        if 'plangridterm' in cls:
+            for c in cells:
+                m = GRID_COL.match(c.get('id') or '')
+                if m and m.group(3) == 'codecol':
+                    term = {'term_index': len(terms) + 1, 'label': f"{years.get(m.group(1), m.group(1))} {c['text']}".strip(), 'items': []}
+                    terms.append(term); by_col[(m.group(1), m.group(2))] = {'term': term, 'open': None}
+            continue
+        if 'plangridtotal' in cls:
+            m = re.search(r'total credits\s+(\S+)', ' '.join(c['text'] for c in cells), re.I)
+            if m: total = m.group(1)
+            continue
+        slots = {}
+        for c in cells:
+            cols = [GRID_COL.match(h) for h in (c.get('header') or '').split()]
+            cols = [m for m in cols if m]
+            if not cols:
+                if c['text']: issues.add('grid_cell_without_column')
+                continue
+            m = cols[0]; slots.setdefault((m.group(1), m.group(2)), {})[m.group(3)] = c
+        for col, s in slots.items():
+            if col not in by_col: issues.add('grid_cell_without_term'); continue
+            st = by_col[col]
+            hours = (s.get('hourscol') or {}).get('text', '')
+            if 'plangridsum' in cls:
+                if hours: st['term']['credit_hours'] = hours
+                continue
+            code = s.get('codecol')
+            if not code or not code['text']:
+                if hours: issues.add('credits_without_item')
+                continue
+            text, sups = code['text'], code.get('sups') or []
+            marks = [n for x in sups for n in re.split(r'\s*,\s*', x) if n]  # one <sup> may print several ('20,25')
+            if sups:
+                tail = code.get('sup_tail') or ''
+                if tail and text.endswith(tail): text = text[:-len(tail)].rstrip()
+                else: issues.add('footnote_inside_cell')
+            item = {}
+            if RECOMMENDED.search(text): text = RECOMMENDED.sub('', text); item['recommended'] = True
+            m = GRID_CODE.match(text)
+            item = {('code' if m else 'text'): (f'{m.group(1)} {m.group(2)}' if m else text), **item}
+            if hours: item['credits'] = _credits(hours)
+            if marks:
+                item['footnotes'] = marks
+                if any(n not in footnote_defs for n in marks): issues.add('footnote_not_defined')
+            if code.get('indent'):
+                if st['open'] is None: issues.add('indented_row_without_rule'); st['term']['items'].append(item)
+                else: st['open'].setdefault('options', []).append(item)
+                continue
+            st['open'] = item if GRID_CHOICE.match(text) else None
+            st['term']['items'].append(item)
+    for st in by_col.values():
+        for it in st['term']['items']:
+            if GRID_CHOICE.match(it.get('text', '')) and not it.get('options'): issues.add('rule_without_options')
+    return terms, total, issues
+
+
+def plangrid_candidates(inst, entry, grid_entry, doc, year, program_key):
+    """program_plan candidates for a page's roadmap grids (programs.courselist_html.plan_grids output)."""
+    acad = f'{year[:4]}-{year[7:9]}'
+    defs = {}
+    for t in doc.get('footnotes') or []:
+        for r in t.get('rows') or []:
+            for c in r.get('cells') or []:
+                m = re.match(r'^(\d+)\s*--\s*(.+)$', c.get('text') or '')
+                if m: defs[m.group(1)] = m.group(2).strip()
+    grids_ = doc.get('grids') or []
+    out = []
+    for i, t in enumerate(grids_, 1):
+        terms, total, issues = parse_plangrid(t, defs)
+        if not terms: continue
+        if len(grids_) > 1: issues.add('multiple_plan_grids')
+        key = 'roadmap' if len(grids_) == 1 else f'roadmap-{i}'
+        used = sorted({n for term in terms for it in term['items'] for x in [it, *it.get('options', [])] for n in x.get('footnotes', [])}, key=lambda n: (len(n), n))
+        rd = {'schema': 'requirement_group/v1', 'catalog_year': year, 'group_type': 'sequence', 'category': 'recommended_sequence',
+              'terms': terms, 'source_section': ((t.get('heading') or 'Roadmap').strip() + (f' {i} of {len(grids_)}' if len(grids_) > 1 else ''))}
+        if used: rd['footnotes'] = {n: defs[n] for n in used if n in defs}
+        if total: rd['rule_text'] = f'Total Credits {total} (as printed)'
+        rec = {'program_key': program_key, 'requirement_key': key, 'requirement_kind': 'program_plan', 'rule_details': rd}
+        ev = [{'field': 'term', 'value': term['label'], 'snippet': f"{term['label']}: {len(term['items'])} items, {term.get('credit_hours', '?')} credits"} for term in terms]
+        c = common.make('degree_requirements', inst['institution_key'], acad, 'labeled_in_source', rec, ev, entry, PLANGRID_EXTRACTOR,
+                        {'program_key': program_key, 'requirement_key': key}, {'terms': len(terms)}, sorted(issues))
+        c['layout_source'] = {'url': grid_entry['url'], 'sha256': grid_entry.get('sha256')}
+        out.append(c)
+    return out
