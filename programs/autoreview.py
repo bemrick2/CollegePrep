@@ -137,11 +137,12 @@ def review(state, run, today=None):
         u = url_of(c, 'program_url')
         if c['domain'] == 'academic_programs' and u and not u.lower().endswith('.pdf'): pages[(c['institution_key'], c['record'].get('program_key'))].add(u)
     variant_pages = variant_pages_of(pages.values())
-    from .extract import listed_emphasis_pages, _degree_key
+    from .extract import listed_emphasis_pages, _degree_key, PAREN_VARIANT_ENTRY
     offered = defaultdict(set)  # degrees with a program candidate of their own (not an option page)
     for c in cands:
         n = c['record'].get('program_name', '') if c['domain'] == 'academic_programs' else ''
-        if n and not OPTION.search(n) and _degree_key(n): offered[c['institution_key']].add(_degree_key(n))
+        # a variant page's own heading ('Kinesiology, B.S. (Sport Business)', TAMUK) is not a page of the base degree
+        if n and not OPTION.search(n) and not PAREN_VARIANT_ENTRY.match(n) and _degree_key(n): offered[c['institution_key']].add(_degree_key(n))
     listed_emphases = listed_emphasis_pages(lists, norm, offered)
     for c in cands:
         if c['domain'] != 'academic_programs': continue

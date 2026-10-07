@@ -1404,6 +1404,17 @@ class AutoReviewTests(unittest.TestCase):
             lists['k']['programs'].append({'listed_as': 'bachelor', 'printed': 'Data Science BS', 'url': 'https://a/ds'})
             approve, _, held = A.review('ZZ', self.run_dir(mk(), lists=lists), today=date(2026, 10, 6))
             self.assertEqual(approve, []); self.assertEqual(held['entry_path_variant'], 2)
+            # TAMUK 2026-27 prints the variant as the page heading too ('Kinesiology, B.S. (Sport Business)'): that heading is
+            # not a page of the base degree, so the listed variants stay the degree's records
+            km = lambda: [at(self.prog('k1', 'Kinesiology, B.S. (Sport Business)', key='kin-sb'), 'https://a/kin-sb'),
+                          at(self.prog('k2', 'Kinesiology, B.S. (Sport and Leisure Studies)', key='kin-sls'), 'https://a/kin-sls')]
+            kl = {'k': {'programs': [{'listed_as': 'bachelor', 'printed': 'Kinesiology, B.S. (Sport Business)', 'url': 'https://a/kin-sb'},
+                                     {'listed_as': 'bachelor', 'printed': 'Kinesiology, B.S. (Sport and Leisure Studies)', 'url': 'https://a/kin-sls'}]}}
+            approve, _, held = A.review('ZZ', self.run_dir(km(), lists=kl), today=date(2026, 10, 6))
+            self.assertEqual([a['candidate_id'] for a in approve], ['k1', 'k2'])
+            # a page of the base degree of its own ('Kinesiology, B.S.') keeps the variants as options
+            approve, _, held = A.review('ZZ', self.run_dir(km() + [at(self.prog('k0', 'Kinesiology, B.S.', key='kin'), 'https://a/kin')], lists=kl), today=date(2026, 10, 6))
+            self.assertEqual([a['candidate_id'] for a in approve], ['k0'])
         finally: A.catalog_records = old
 
     def test_one_program_on_several_pages_comes_from_the_base_page(self):

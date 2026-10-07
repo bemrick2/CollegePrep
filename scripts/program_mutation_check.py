@@ -190,6 +190,7 @@ MUTS = [
     ('programs/verify.py', "                    if not any(x.startswith(printed) and re.sub(r'[\\s,]', '', x[len(printed):]) == re.sub(r'[\\s,]', '', marks) for x in cells):",
      "                    if not any(x.startswith(printed) for x in cells):"),
     ('programs/courselist_html.py', "            if self.table_class != 'sc_courselist':", "            if True:"),
+    ('programs/autoreview.py', " and not PAREN_VARIANT_ENTRY.match(n) and _degree_key(n):", " and _degree_key(n):"),
 ]
 
 
