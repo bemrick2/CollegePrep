@@ -158,6 +158,8 @@ MUTS = [
     ('pipeline/extractors/merit.py', "|\\bph\\.?\\s?d\\b|\\bdoctoral\\b|\\bmaster\\'?s\\b|", '|'),
     ('pipeline/registry.py', '    return None if label in GENERIC_LABELS else label', '    return label'),
     ('pipeline/registry.py', '        if folder != folders.get(key) and folder in owned:', '        if False:'),
+    ('pipeline/registry.py', "(r['UNITID'] in presence or (r['ICLEVEL'] == '1' and r.get('INSTCAT') in {'2', '3'}))", "(r['UNITID'] in presence)"),
+    ('pipeline/registry.py', "and not (len(keeps) == 1 and keeps[0] == inst['institution_key']):", ':'),
     ('pipeline/extractors/costs.py', '                header = stack_header(header, sub, len(cells) - 1)', '                pass'),
     ('pipeline/extractors/costs.py', '                if header is None: header, titles = [], titles + [STACKED]', '                if header is None: header = []'),
     ('pipeline/extractors/costs.py', "    if home and re.search(rf'\\b{home}\\s+residents?\\b', h, re.I): return 'in_state'", '    pass'),

@@ -23,6 +23,8 @@ jobs:
         run: python scripts/validate_data.py
       - name: Check migration history is frozen and consistent
         run: python scripts/check_migration_history.py
+      - name: Registry reconciliation against the IPEDS four-year universe is current
+        run: python scripts/registry_reconciliation.py --check
       - name: Verify actual coverage counts
         run: python scripts/update_coverage.py --check
       - name: Test backend product rules

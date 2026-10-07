@@ -1520,3 +1520,16 @@ class FolderOwnershipTests(unittest.TestCase):
                 with self.assertRaises(ValueError): P.check_folder_ownership({'b': 'tiu'})
             finally:
                 P.ROOT = old
+
+
+class NationalStatusTests(unittest.TestCase):
+    def test_registered_researched_covered_kept_apart(self):
+        from programs import status
+        n = status.national([{'state': 'TN', 'covered_institutions': 1, 'institutions': [
+            {'status': 'covered', 'queue': []}, {'status': 'exception', 'queue': ['institution:bot_challenge']},
+            {'status': 'exception', 'queue': ['institution:not_yet_researched']}, {'status': 'not_started', 'queue': []}]}])
+        tn = next(r for r in n['states'] if r['state'] == 'TN')
+        self.assertEqual((tn['researched'], tn['covered'], tn['tracked']), (2, 1, True))
+        self.assertEqual(len(n['states']), 51)  # every registry jurisdiction, tracked or not
+        self.assertTrue(all(r['researched'] == r['covered'] == 0 for r in n['states'] if not r['tracked']))
+        self.assertEqual(n['registered'], sum(r['registered'] for r in n['states']))

@@ -1,8 +1,29 @@
 {
  "state": "IL",
  "source": "IPEDS HD2023 (sources/ipeds/2023-24/manifest.json)",
- "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record",
+ "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record; four-year colleges without one are included when IPEDS INSTCAT is 2 or 3 (awards undergraduate degrees)",
  "institutions": [
+  {
+   "institution_key": "ipeds-142832",
+   "unitid": 142832,
+   "name": "Adler University",
+   "city": "Chicago",
+   "state": "IL",
+   "folder": "adler",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "adler.edu",
+   "allowed_domains": [
+    "adler.edu"
+   ],
+   "seeds": {
+    "website": "https://www.adler.edu/",
+    "admissions": "https://www.adler.edu/admission-aid/",
+    "financial_aid": "https://www.adler.edu/financial-aid-chicago/",
+    "net_price": "https://www.adler.edu/tuition-estimator/"
+   },
+   "existing_sources": []
+  },
   {
    "institution_key": "ipeds-142957",
    "unitid": 142957,
@@ -141,6 +162,27 @@
    "existing_sources": [
     "https://blackburn.edu/admissions-aid/transfer-students/"
    ]
+  },
+  {
+   "institution_key": "ipeds-143297",
+   "unitid": 143297,
+   "name": "Blessing Rieman College of Nursing and Health Sciences",
+   "city": "Quincy",
+   "state": "IL",
+   "folder": "brcn",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "brcn.edu",
+   "allowed_domains": [
+    "brcn.edu"
+   ],
+   "seeds": {
+    "website": "https://www.brcn.edu/",
+    "admissions": "https://www.brcn.edu/",
+    "financial_aid": "https://www.brcn.edu/",
+    "net_price": "https://nces.ed.gov/collegenavigator/?q=Blessing-Rieman+College+of+Nursing&s=all&id=143297"
+   },
+   "existing_sources": []
   },
   {
    "institution_key": "ipeds-143358",
@@ -1212,6 +1254,26 @@
    ]
   },
   {
+   "institution_key": "ipeds-146533",
+   "unitid": 146533,
+   "name": "Lakeview College of Nursing",
+   "city": "Danville",
+   "state": "IL",
+   "folder": "lcn",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "lcn.edu",
+   "allowed_domains": [
+    "lcn.edu"
+   ],
+   "seeds": {
+    "website": "https://lcn.edu/",
+    "admissions": "https://lcn.edu/admissions-requirements",
+    "financial_aid": "https://lcn.edu/tuition-and-financial-aid"
+   },
+   "existing_sources": []
+  },
+  {
    "institution_key": "ipeds-146612",
    "unitid": 146612,
    "name": "Lewis University",
@@ -1565,6 +1627,27 @@
    "existing_sources": []
   },
   {
+   "institution_key": "ipeds-147590",
+   "unitid": 147590,
+   "name": "National University of Health Sciences",
+   "city": "Lombard",
+   "state": "IL",
+   "folder": "nuhs",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "nuhs.edu",
+   "allowed_domains": [
+    "nuhs.edu"
+   ],
+   "seeds": {
+    "website": "https://www.nuhs.edu/",
+    "admissions": "https://www.nuhs.edu/admissions/",
+    "financial_aid": "https://www.nuhs.edu/student-services/fin-aid/",
+    "net_price": "https://www.nuhs.edu/about-us/consumer-information/financial-assistance-information/"
+   },
+   "existing_sources": []
+  },
+  {
    "institution_key": "ipeds-147660",
    "unitid": 147660,
    "name": "North Central College",
@@ -1676,6 +1759,27 @@
     "admissions": "https://www.northwestern.edu/admissions/",
     "financial_aid": "https://www.northwestern.edu/admissions/",
     "net_price": "https://npc.collegeboard.org/student/app/northwestern"
+   },
+   "existing_sources": []
+  },
+  {
+   "institution_key": "ipeds-149763",
+   "unitid": 149763,
+   "name": "Oak Point University",
+   "city": "Oak Brook",
+   "state": "IL",
+   "folder": "oakpoint",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "oakpoint.edu",
+   "allowed_domains": [
+    "oakpoint.edu"
+   ],
+   "seeds": {
+    "website": "https://oakpoint.edu/",
+    "admissions": "https://oakpoint.edu/admissions/",
+    "financial_aid": "https://oakpoint.edu/costs-financial-aid/",
+    "net_price": "https://oakpoint.clearcostcalculator.com/student/default/netpricecalculator"
    },
    "existing_sources": []
   },
@@ -1953,6 +2057,26 @@
    ]
   },
   {
+   "institution_key": "ipeds-148511",
+   "unitid": 148511,
+   "name": "Rush University",
+   "city": "Chicago",
+   "state": "IL",
+   "folder": "rush",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "rush.edu",
+   "allowed_domains": [
+    "rush.edu"
+   ],
+   "seeds": {
+    "website": "https://www.rushu.rush.edu/",
+    "admissions": "https://www.rushu.rush.edu/admissions",
+    "financial_aid": "https://www.rushu.rush.edu/finaid/"
+   },
+   "existing_sources": []
+  },
+  {
    "institution_key": "ipeds-149028",
    "unitid": 149028,
    "name": "Saint Anthony College of Nursing",
@@ -1971,6 +2095,27 @@
     "admissions": "https://www.osfhealthcare.org/sacn/admissions/undergraduate/bsn/",
     "financial_aid": "https://www.osfhealthcare.org/sacn/admissions/resources/financial-aid/",
     "net_price": "https://www.osfhealthcare.org/sacn/admissions/resources/financial-aid/net-price-calculator/"
+   },
+   "existing_sources": []
+  },
+  {
+   "institution_key": "ipeds-148575",
+   "unitid": 148575,
+   "name": "Saint Francis Medical Center College of Nursing",
+   "city": "Peoria",
+   "state": "IL",
+   "folder": "sfmccon",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "sfmccon.edu",
+   "allowed_domains": [
+    "sfmccon.edu"
+   ],
+   "seeds": {
+    "website": "https://www.sfmccon.edu/",
+    "admissions": "https://www.sfmccon.edu/",
+    "financial_aid": "https://www.sfmccon.edu/",
+    "net_price": "https://www.osfhealthcare.org/sfmccon/students/financial-aid/net-price-calculator/"
    },
    "existing_sources": []
   },
@@ -2224,6 +2369,27 @@
    ]
   },
   {
+   "institution_key": "ipeds-148593",
+   "unitid": 148593,
+   "name": "St. John's College-Department of Nursing",
+   "city": "Springfield",
+   "state": "IL",
+   "folder": "hshs",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "hshs.org",
+   "allowed_domains": [
+    "hshs.org"
+   ],
+   "seeds": {
+    "website": "https://www.hshs.org/stjohnscollege/",
+    "admissions": "https://www.hshs.org/StJohnsCollege/Prospective-Students/Admissions",
+    "financial_aid": "https://www.hshs.org/StJohnsCollege/Financial-Services",
+    "net_price": "https://www.hshs.org/StJohnsCollege/Financial-Services/Tuition-Payment-Plan-Policy/Net-Cost-Calculator"
+   },
+   "existing_sources": []
+  },
+  {
    "institution_key": "ipeds-149329",
    "unitid": 149329,
    "name": "Telshe Yeshiva-Chicago",
@@ -2283,6 +2449,27 @@
     "admissions": "https://www.trnty.edu/admissions",
     "financial_aid": "https://www.trnty.edu/admissions-financial-aid/",
     "net_price": "https://www.trnty.edu/finaid/mm-npcfs.html"
+   },
+   "existing_sources": []
+  },
+  {
+   "institution_key": "ipeds-146755",
+   "unitid": 146755,
+   "name": "Trinity College of Nursing & Health Sciences",
+   "city": "Rock Island",
+   "state": "IL",
+   "folder": "trinitycollegeqc",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "trinitycollegeqc.edu",
+   "allowed_domains": [
+    "trinitycollegeqc.edu"
+   ],
+   "seeds": {
+    "website": "https://www.trinitycollegeqc.edu/default.aspx",
+    "admissions": "https://www.trinitycollegeqc.edu/prospective-students.aspx",
+    "financial_aid": "https://www.trinitycollegeqc.edu/financial-aid.aspx",
+    "net_price": "https://www.trinitycollegeqc.edu/net-price-calculator.aspx"
    },
    "existing_sources": []
   },

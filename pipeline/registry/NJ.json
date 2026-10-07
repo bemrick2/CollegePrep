@@ -1,7 +1,7 @@
 {
  "state": "NJ",
  "source": "IPEDS HD2023 (sources/ipeds/2023-24/manifest.json)",
- "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record",
+ "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record; four-year colleges without one are included when IPEDS INSTCAT is 2 or 3 (awards undergraduate degrees)",
  "institutions": [
   {
    "institution_key": "ipeds-183600",
@@ -107,6 +107,24 @@
     "https://bergen.edu/financial-aid/cost-of-attendance/",
     "https://bergen.edu/new-students/transfertobcc/"
    ]
+  },
+  {
+   "institution_key": "ipeds-183804",
+   "unitid": 183804,
+   "name": "Beth Medrash Govoha",
+   "city": "Lakewood",
+   "state": "NJ",
+   "folder": "yeshivanotices",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "yeshivanotices.org",
+   "allowed_domains": [
+    "yeshivanotices.org"
+   ],
+   "seeds": {
+    "website": "https://yeshivanotices.org/"
+   },
+   "existing_sources": []
   },
   {
    "institution_key": "ipeds-488314",

@@ -1,7 +1,7 @@
 {
  "state": "MI",
  "source": "IPEDS HD2023 (sources/ipeds/2023-24/manifest.json)",
- "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record",
+ "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record; four-year colleges without one are included when IPEDS INSTCAT is 2 or 3 (awards undergraduate degrees)",
  "institutions": [
   {
    "institution_key": "ipeds-168528",
@@ -1513,6 +1513,27 @@
     "admissions": "https://www.umflint.edu/admissions/",
     "financial_aid": "https://www.umflint.edu/finaid/",
     "net_price": "https://www.umflint.edu/NetPriceCalculator.html"
+   },
+   "existing_sources": []
+  },
+  {
+   "institution_key": "ipeds-172608",
+   "unitid": 172608,
+   "name": "Walsh College",
+   "city": "Troy",
+   "state": "MI",
+   "folder": "walshcollege",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "walshcollege.edu",
+   "allowed_domains": [
+    "walshcollege.edu"
+   ],
+   "seeds": {
+    "website": "https://walshcollege.edu/",
+    "admissions": "https://walshcollege.edu/future-students/",
+    "financial_aid": "https://walshcollege.edu/financial-aid/",
+    "net_price": "https://walshcollege.edu/cost-of-attendance/"
    },
    "existing_sources": []
   },

@@ -1,7 +1,7 @@
 {
  "state": "NE",
  "source": "IPEDS HD2023 (sources/ipeds/2023-24/manifest.json)",
- "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record",
+ "scope_rule": "active, degree-granting, undergraduate, public or private nonprofit, 2- or 4-year, with a 2023-24 IPEDS first-time undergraduate admissions or price record; four-year colleges without one are included when IPEDS INSTCAT is 2 or 3 (awards undergraduate degrees)",
  "institutions": [
   {
    "institution_key": "ipeds-180814",
@@ -44,6 +44,26 @@
     "admissions": "https://www.bryanhealthcollege.edu/bcohs/admission/",
     "financial_aid": "https://www.bryanhealthcollege.edu/bcohs/admission/tuition-financial-aid-scholarships/",
     "net_price": "https://www.bryanhealthcollege.edu/bcohs/admission/tuition-financial-aid-scholarships/NetPriceCalculators/npcalc.htm"
+   },
+   "existing_sources": []
+  },
+  {
+   "institution_key": "ipeds-181145",
+   "unitid": 181145,
+   "name": "CHI Health School of Radiologic Technology",
+   "city": "Omaha",
+   "state": "NE",
+   "folder": "chihealth",
+   "control": "private_nonprofit",
+   "level": "four_year",
+   "domain": "chihealth.com",
+   "allowed_domains": [
+    "chihealth.com"
+   ],
+   "seeds": {
+    "website": "https://www.chihealth.com/school-of-radiologic-technology",
+    "admissions": "https://www.chihealth.com/school-of-radiologic-technology",
+    "financial_aid": "https://www.chihealth.com/school-of-radiologic-technology"
    },
    "existing_sources": []
   },
@@ -518,6 +538,27 @@
     "admissions": "https://www.ucollege.edu/admissions",
     "financial_aid": "https://www.ucollege.edu/financial",
     "net_price": "https://www.ucollege.edu/net-price-calculator/"
+   },
+   "existing_sources": []
+  },
+  {
+   "institution_key": "ipeds-181428",
+   "unitid": 181428,
+   "name": "University of Nebraska Medical Center",
+   "city": "Omaha",
+   "state": "NE",
+   "folder": "unmc",
+   "control": "public",
+   "level": "four_year",
+   "domain": "unmc.edu",
+   "allowed_domains": [
+    "unmc.edu"
+   ],
+   "seeds": {
+    "website": "https://www.unmc.edu/",
+    "admissions": "https://www.unmc.edu/education/admissions-financialaid.html",
+    "financial_aid": "https://www.unmc.edu/financialaid/",
+    "net_price": "https://www.unmc.edu/student-success/financial-aid/consumer-info/index.html"
    },
    "existing_sources": []
   },
