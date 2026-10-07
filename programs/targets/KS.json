@@ -194,7 +194,9 @@
    "domains": [
     "ku.edu"
    ],
-   "hosts": [],
+   "hosts": [
+    "catalog.ku.edu"
+   ],
    "mode": "catalog",
    "priority": 1,
    "catalog": {
@@ -205,7 +207,13 @@
     "program_lists": []
    },
    "policy": [],
-   "detected": "CourseLeaf-style catalog on catalog.ku.edu (no program list link; pages found from the home page)"
+   "detected": "CourseLeaf-style catalog on catalog.ku.edu (no program list link; pages found from the home page)",
+   "refetch": [
+    "https://catalog.ku.edu/education/health-sport-exercise-sciences/bs-sport-management/",
+    "https://catalog.ku.edu/education/health-sport-exercise-sciences/bse-community-health/",
+    "https://catalog.ku.edu/health-professions/health-information-management/bs/",
+    "https://catalog.ku.edu/health-professions/respiratory-care/bs/"
+   ]
   },
   {
    "institution_key": "ipeds-156125",
@@ -215,7 +223,9 @@
    "domains": [
     "wichita.edu"
    ],
-   "hosts": [],
+   "hosts": [
+    "catalog.wichita.edu"
+   ],
    "mode": "catalog",
    "priority": 1,
    "catalog": {
@@ -226,7 +236,10 @@
     "program_lists": []
    },
    "policy": [],
-   "detected": "CourseLeaf-style catalog on catalog.wichita.edu (no program list link; pages found from the home page)"
+   "detected": "CourseLeaf-style catalog on catalog.wichita.edu (no program list link; pages found from the home page)",
+   "refetch": [
+    "https://catalog.wichita.edu/undergraduate/w-frank-barton-business/bachelor-of-business-administration/"
+   ]
   },
   {
    "institution_key": "ipeds-154688",
@@ -606,7 +619,9 @@
    "domains": [
     "washburn.edu"
    ],
-   "hosts": [],
+   "hosts": [
+    "catalog.washburn.edu"
+   ],
    "mode": "catalog",
    "priority": 2,
    "catalog": {
@@ -619,7 +634,51 @@
     ]
    },
    "policy": [],
-   "detected": "CourseLeaf-style catalog on catalog.washburn.edu (program list https://catalog.washburn.edu/programs-a-z/)"
+   "detected": "CourseLeaf-style catalog on catalog.washburn.edu (program list https://catalog.washburn.edu/programs-a-z/)",
+   "refetch": [
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/anthropology/anthropology-ba/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/art/art-ba/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/art/art-education-bfa/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/art/art-history-ba/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/art/bachelor-fine-arts-degree-bfa/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/biology/forensic-biology-bs/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/biology/molecular-biology-biotechnology-bs/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/chemistry/biochemistry-ba/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/chemistry/biochemistry-bs/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/chemistry/chemistry-ba/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/chemistry/chemistry-bs-certified-american-chemical-society/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/chemistry/chemistry-bs-not-certified-american-chemical-society/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/chemistry/forensic-chemistry-bs/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/communication/communication-studies-ba/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/computer-information-science/computer-information-science-ba/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/computer-information-science/computer-information-science-bs/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/computer-information-science/computer-information-science-data-science-concentration-bs/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/computer-information-science/computer-information-science-digital-forensics-concentration-ba/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/economics/economics-ba/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/english/creative-writing-ba/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/english/english-literature-film-criticism-ba/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/history/history-ba/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/kinesiology/kinesiology-exercise-rehabilitation-science-bs/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/kinesiology/kinesiology-health-fitness-promotion-ba/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/kinesiology/kinesiology-sport-management-ba/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/mass-media/sport-event-media-ba/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/mathematics-statistics/mathematics-ba-bs/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/modern-languages/french-ba/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/modern-languages/spanish-ba/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/philosophy/philosophy-ba/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/physics/physics-ba/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/physics/physics-bs/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/political-science-public-administration/political-science-ba/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/psychology/psychology-ba/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/religious-studies/religious-studies-ba/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/sociology/sociology-ba/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/theatre/musical-theatre-ba/",
+    "https://catalog.washburn.edu/undergraduate/college-arts-sciences/theatre/theatre-ba/",
+    "https://catalog.washburn.edu/undergraduate/school-applied-studies/other-degrees-programs/technology-administration-bas/",
+    "https://catalog.washburn.edu/undergraduate/school-applied-studies/social-work-department/social-work-bsw/",
+    "https://catalog.washburn.edu/undergraduate/school-nursing/pre-licensure-bsn/",
+    "https://catalog.washburn.edu/undergraduate/school-nursing/rn-bsn/"
+   ]
   }
  ]
 }
