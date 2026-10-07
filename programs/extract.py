@@ -28,7 +28,7 @@ from .crawl import program_rule, in_scope, excluded
 
 GRAD = re.compile(r'\b(M\.?\s?S\.?|M\.?\s?A\.?|MBA|M\.?\s?Ed|M\.?\s?F\.?A|Ph\.?\s?D|Ed\.?\s?D|DNP|D\.?\s?P\.?\s?T|J\.?\s?D|'
                   r'Master|Doctor|Graduate|Post[- ]?bacc|Certificate|Minor|Endorsement)\b', re.I)
-BACHELOR = re.compile(r'(?<![A-Za-z]\.)\b(B\.?\s?(A|S|F\.?A|M|S\.?N|S\.?W|B\.?A|S\.?E|S\.?E\.?E|S\.?M\.?E|S\.?C\.?E|Arch|Mus|A\.?S|A\.?A\.?S|S\.?Ed|I\.?S)\b\.?|'
+BACHELOR = re.compile(r'(?<![A-Za-z]\.)\b(B\.?\s?(A|S|F\.?A|L\.\s?A|M|S\.?N|S\.?W|B\.?A|S\.?E|S\.?E\.?E|S\.?M\.?E|S\.?C\.?E|Arch|Mus|A\.?S|A\.?A\.?S|S\.?Ed|I\.?S)\b\.?|'
                       r'Bachelor|\bH?BA\b|\bH?BS\b)', re.I)
 ASSOCIATE = re.compile(r'\b(A\.?\s?(A|S|A\.?S|A\.?T|S\.?T|F\.?A)\b\.?|Associate)', re.I)
 
@@ -798,6 +798,8 @@ OPTION_NAME = re.compile(r'\b(option|concentration|track|emphasis)\b(?!.*\bmajor
 EMPHASIS_ENTRY = re.compile(r'^(?P<base>[^,]+?)\s+-\s+[^,]*\b(emphasis|concentration|track|option|specialization)\b[^,]*,\s*(?P<award>(?-i:(?:B|A)\.\s?[A-Z][a-z]{0,3}(?:\.[A-Z][a-z]{0,3})*\.?(?![a-z])))', re.I)
 
 
+# UAS 2026-27: 'Fisheries and Ocean Sciences with a Concentration in Fisheries Science, B.S.' (no 'Fisheries and Ocean Sciences, B.S.')
+WITH_EMPHASIS_ENTRY = re.compile(r'^(?P<base>[^,]+?)\s+with\s+an?\s+(?:concentration|emphasis|option|track|specialization)\s+in\s+[^,]+,\s*(?P<award>(?-i:(?:B|A)\.\s?[A-Z][a-z]{0,3}(?:\.[A-Z][a-z]{0,3})*\.?(?![a-z])))', re.I)
 # UNH 2026-27: 'Arts Major: Studio Art Option (B.A.)' beside (or without) 'Arts Major (B.A.)'
 OPTION_PAREN_ENTRY = re.compile(r'^(?P<base>[^:()]+?):\s+[^:()]*\b(emphasis|concentration|track|option|specialization)\b[^:()]*(?:\([^()]*\)[^:()]*)?\((?P<award>(?-i:(?:B|A)\.\s?[A-Z][a-z]{0,3}(?:\.[A-Z][a-z]{0,3})*\.?))\)', re.I)
 
@@ -828,7 +830,7 @@ def listed_emphasis_pages(lists, norm):
     for ik, v in (lists or {}).items():
         progs = [p for p in (v.get('programs') or []) if p.get('listed_as') == 'bachelor']
         printed = [re.sub(r'\s+', ' ', re.sub(r'(?<=[a-z.])(?=[A-Z][a-z])', ' ', p.get('printed') or '')).strip() for p in progs]
-        emph = [EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) for line in printed]
+        emph = [EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) or WITH_EMPHASIS_ENTRY.match(line) for line in printed]
         degrees = {_degree_key(o) for o, m in zip(printed, emph) if not m} - {None}
         for p, m in zip(progs, emph):
             if not m: continue

@@ -174,11 +174,25 @@ class DeepDiveEdgeTests(unittest.TestCase):
             f = FakeFetcher(PAGES); C.crawl_target(t, C.Run(Path(d)), f, log=lambda *_: None)
             self.assertFalse(any('collegeranker' in u for u in f.calls))
 
+    def test_single_pdf_catalog_is_fetched_as_catalog_pdf(self):
+        # Alaska Bible College: the whole 2026-2027 catalog is one 15.7 MB PDF; it must use the large-file fetch, not the page fetch
+        from unittest import mock
+        pdf = 'https://www.example.edu/catalog-2026-2027.pdf'
+        t = {**TARGET, 'catalog': {'platform': 'pdf', 'home': pdf, 'catalog_pdfs': [pdf]}, 'policy': []}
+        calls = []
+        def large(fetcher, url):
+            calls.append(url); return {'status': 404, 'error': 'http_404'}, None
+        with tempfile.TemporaryDirectory() as d, mock.patch('programs.feeds.fetch_large', large):
+            f = FakeFetcher(PAGES); C.crawl_target(t, C.Run(Path(d)), f, log=lambda *_: None)
+        self.assertEqual(calls, [pdf])
+        self.assertNotIn(pdf, f.calls)
+
     def test_graduate_names_never_classified(self):
         self.assertIsNone(X.credential_of('Graduate Certificate, Associate Teacher Licensure'))
         self.assertIsNone(X.credential_of('Master of Science, Computer Science'))
         self.assertIsNone(X.credential_of('Business Administration, D.B.A.'))
         self.assertIsNone(X.credential_of('Accounting, M.B.A.'))
+        self.assertEqual(X.credential_of('Liberal Arts, B.L.A.'), 'bachelor')
         self.assertEqual(X.credential_of('Associate of Science (A.S.) in Nursing'), 'associate')
 
     def test_overlong_text_is_not_a_sentence(self):
@@ -1647,8 +1661,11 @@ class ListedEmphasisTests(unittest.TestCase):
             {'listed_as': 'bachelor', 'printed': 'Animal Science Major (B.S.)', 'url': 'https://a/ans'},
             {'listed_as': 'bachelor', 'printed': 'Human Development and Family Studies Major: Early Childhood Education Option (Teacher Licensure) (B.S.)', 'url': 'https://a/hdfs-ece'},
             {'listed_as': 'bachelor', 'printed': 'Chemistry Major: Biochemistry Option (B.S.)', 'url': 'https://a/chem-bio'},
-            {'listed_as': 'bachelor', 'printed': 'Chemistry Major (B.A.)', 'url': 'https://a/chem-ba'}]}}
-        self.assertEqual(sorted(u for _, u in listed_emphasis_pages(lists, norm)), ['https://a/arts-studio', 'https://a/chem-bio', 'https://a/hdfs-ece'])
+            {'listed_as': 'bachelor', 'printed': 'Chemistry Major (B.A.)', 'url': 'https://a/chem-ba'},
+            {'listed_as': 'bachelor', 'printed': 'Fisheries and Ocean Sciences with a Concentration in Fisheries Science, B.S.', 'url': 'https://a/fish'},
+            {'listed_as': 'bachelor', 'printed': 'Biology with a Concentration in Ecology, B.S.', 'url': 'https://a/bio-eco'},
+            {'listed_as': 'bachelor', 'printed': 'Biology, B.S.', 'url': 'https://a/bio'}]}}
+        self.assertEqual(sorted(u for _, u in listed_emphasis_pages(lists, norm)), ['https://a/arts-studio', 'https://a/chem-bio', 'https://a/fish', 'https://a/hdfs-ece'])
 
     def test_award_glued_to_next_column_is_classified(self):
         from programs.extract import list_award

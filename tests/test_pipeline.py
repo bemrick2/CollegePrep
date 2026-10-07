@@ -1955,6 +1955,7 @@ class CatalogNameTests(unittest.TestCase):
         self.assertIsNone(C.credential('Business Administration, D.B.A.'))
         self.assertIsNone(C.credential('Accounting, M.B.A.'))
         self.assertEqual(C.credential('Chemistry B.S./M.S.'), 'bachelor')
+        self.assertEqual(C.credential('Liberal Arts, B.L.A.'), 'bachelor')  # UAS 2026-27
         self.assertEqual(name('Special Education - Mild/Moderate/Severe, B.S. | Utah Valley University Academic Catalog'),
                          'Special Education - Mild/Moderate/Severe, B.S.')
         self.assertEqual(name('Program: Biology, B.S. - Middle Tennessee State University - Acalog ACMS'), 'Biology, B.S.')
