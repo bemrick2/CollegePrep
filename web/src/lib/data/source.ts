@@ -1,3 +1,5 @@
+import type { ReminderSettings } from '../../../../supabase/functions/_shared/reminders.ts'
+export type { ReminderSettings }
 import type { InterestProfile } from '../engine/interests'
 import type { NextWeekSuggestion } from '../engine/weeklyPlan'
 import type {
@@ -118,6 +120,20 @@ export interface DataSource {
   readonly supportsWeeklyDigest: boolean
   /** Emails actually sent to this guardian, newest first; null where the backend can't say (CR-22 not applied). */
   emailDeliveries(): Promise<EmailDelivery[] | null>
+
+  /** Practice reminders (CR-27). False where the backend doesn't have them: the app then offers none. */
+  readonly supportsReminders: boolean
+  reminderSettings(studentId: string): Promise<ReminderSettings>
+  /** Guardians are told only when the student's own login turns reminders off (and isn't independent). */
+  saveReminderSettings(studentId: string, settings: ReminderSettings): Promise<{ guardiansNotified: boolean }>
+  /** "Remind me later". Never notifies anyone. Returns when reminders resume. */
+  snoozeReminders(studentId: string, minutes: number): Promise<string>
+  /** What this device allowed when the app last opened here. */
+  reportNotificationDevice(input: { deviceId: string; permission: DevicePermission; subscription: PushSubscriptionJSON | null; platform: DevicePlatform }): Promise<void>
+  studentDevices(studentId: string): Promise<DeviceStatus[]>
+  reminderHistory(studentId: string): Promise<ReminderChange[]>
+  latestReminder(studentId: string): Promise<ReminderDelivery | null>
+  markReminderOpened(deliveryId: string): Promise<void>
   /** Major certainty and up to 8 saved areas/majors (CR-13). Optional everywhere; empty when never set. */
   interests(studentId: string): Promise<InterestProfile>
   saveInterests(studentId: string, profile: InterestProfile): Promise<void>
@@ -185,8 +201,38 @@ export interface InvitationSummary {
 }
 
 /** One email the server recorded as sent to the signed-in guardian (CR-22 parent_email_deliveries). */
+export type DevicePermission = 'granted' | 'denied' | 'default' | 'unsupported'
+export type DevicePlatform = 'ios' | 'android' | 'desktop' | 'other'
+
+export interface DeviceStatus {
+  deviceId: string
+  permission: DevicePermission
+  platform: DevicePlatform | null
+  /** Allowed, subscribed, and the push service hasn't dropped it. */
+  canReceive: boolean
+  /** When the app last opened on that device. Device settings changed since then aren't known. */
+  checkedAt: string
+}
+
+export interface ReminderChange {
+  id: string
+  enabled: boolean
+  by: 'student' | 'guardian'
+  at: string
+  notifyGuardians: boolean
+  /** For the signed-in guardian: when the notice was actually emailed to them; null if not (yet). */
+  emailedToMeAt: string | null
+}
+
+export interface ReminderDelivery {
+  id: string
+  sentAt: string
+  openedAt: string | null
+  snoozedAt: string | null
+}
+
 export interface EmailDelivery {
-  kind: 'weekly_digest' | 'inactivity'
+  kind: 'weekly_digest' | 'inactivity' | 'reminders_off'
   /** weekly_digest: the week's Monday. inactivity: the student it was about. */
   weekStart: string | null
   studentId: string | null

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate, useSearchParams } from 'react-router-dom'
 import { useApp, useAsync } from '../../lib/app'
 import type { Confidence, PracticeSession as Session } from '../../lib/data/types'
 import { ButtonLink, EmptyState, Notice, PageLoading, ProgressBar, Ring } from '../../components/ui'
@@ -9,6 +9,7 @@ import { Feedback } from './Feedback'
 import { useAttempt } from './useAttempt'
 import { useCatalog } from './useCatalog'
 import { RUSHED_BELOW } from '../../lib/engine/benchmark'
+import { QUICK_SESSION_MINUTES } from '../../../../supabase/functions/_shared/reminders.ts'
 import { xpFor } from '../../lib/engine/gamify'
 import { formatDuration, localDate, weekStartOf } from '../../lib/engine/dates'
 
@@ -33,6 +34,9 @@ export function PracticeSession() {
   const { source, ctx } = useApp()
   const student = ctx?.myStudent ?? null
   const navigate = useNavigate()
+  const [params] = useSearchParams()
+  const quick = params.get('quick') === '1'
+  const reminderId = params.get('r')
   const plan = useAsync(() => (student ? source.getPlan(student.id) : Promise.resolve(null)), [source, student?.id])
   const exam = plan.data?.exam_family ?? 'act'
   const [session, setSession] = useState<Session | null>(null)
@@ -44,7 +48,9 @@ export function PracticeSession() {
 
   useEffect(() => {
     if (!student || plan.loading || session) return
-    const minutes = Math.min(15, Math.max(5, plan.data?.daily_minutes ?? 10))
+    // A reminder tap opens a short session (?quick=1); ?r= records that the reminder was opened.
+    const minutes = quick ? QUICK_SESSION_MINUTES : Math.min(15, Math.max(5, plan.data?.daily_minutes ?? 10))
+    if (reminderId) void source.markReminderOpened(reminderId).catch(() => {})
     source.startSession(student.id, minutes, exam).then(setSession, (e: Error) => setError(e.message))
     // Start once per mount.
     // eslint-disable-next-line react-hooks/exhaustive-deps

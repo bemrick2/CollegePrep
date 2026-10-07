@@ -32,6 +32,7 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-24 | Rights gate: a published question needs an allowed license (+ attribution when required) | ⏳ open | Nothing enforced; editorial workflow stage 3 (`docs/product/CONTENT_PLAN.md`) |
 | CR-25 | "Report a problem" on a question | ⏳ open | No UI; nothing stored |
 | CR-26 | Setup answers: exam intent, planned test date, study days, high school, practice-test scores, setup completion; longer sessions | ⏳ open | Four-screen setup stores these in this browser per student (`lib/setupProfile.ts`); official-test scores go to `student_test_scores` as `self_reported` |
+| CR-27 | Practice reminders: settings, device permission, deliveries, snooze, guardian notice when a linked student turns them off | ⏳ open (reference SQL in `scripts/local/proposals/cr27_practice_reminders.sql`, local only) | Behind `VITE_PRACTICE_REMINDERS`; push sender, action endpoint and notice email built and tested locally, not deployed |
 
 Live content note: the bank has no exam versions, skills or questions yet, so live practice and benchmarks show their empty states until content is loaded.
 
@@ -393,6 +394,32 @@ The four-screen setup (About you, Test and goal, Starting point, Weekly plan) as
 **Not requested:** student reminders. Only parent alerts exist, so setup offers reminders to parents only.
 
 **Found while testing setup (fixed client-side in the same PR):** an update that row security filters out returns no error and zero rows. `savePlan` and `setWeeklyGoal` used to report success when a household student tried to change a guardian-owned plan. Nothing was changed on the server, but the app said it was saved. `LiveSource` now treats zero rows as "not allowed". No schema change needed.
+
+## CR-27. Practice reminders
+
+Reference SQL, applied only to the local database: `scripts/local/proposals/cr27_practice_reminders.sql`. It builds on CR-22's `parent_email_deliveries`.
+
+**Tables:**
+- `practice_reminder_settings`: times on the quarter hour (at most 3), days, quiet hours, school days and hours, a daily limit (1–3), a weekly limit (1–14), and `snoozed_until`.
+- `practice_reminder_changes`: each on/off change, who made it, and whether guardians are to be told.
+- `notification_devices`: the permission each device reported the last time the app opened there, and push keys. There's no direct client access.
+- `practice_reminder_deliveries`: every reminder sent, which counts toward the limits, and whether it was opened or snoozed.
+
+**Rules the server enforces:**
+- **Who can change settings:** the student's own login, or a guardian with set_goals.
+- **Snoozing** ("Remind me later") is student-only and notifies no one.
+- **Turning reminders off:** guardians are told only when the student's own login turns them off, and the student is in a household and not independent.
+  - Each guardian with view permission gets one email.
+  - At most one notice per student per 24 hours. Later changes are still recorded and shown in the app.
+- **Delivery status:** "emailed" is shown only from a `parent_email_deliveries` row (kind `reminders_off`).
+- **Device permission:** families see the permission as of each device's last app open, never endpoints or keys. Nothing claims to detect changes made in phone settings while the app is closed.
+
+**Functions (not deployed; hosted is held):**
+- `send-practice-reminders`: every 15 minutes, web push (VAPID, aes128gcm).
+- `practice-reminder-action`: a signed one-time "Remind me later" token.
+- `send-weekly-digest`: new mode `reminders_off`.
+
+**Owner secrets needed:** `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `VAPID_SUBJECT`, `REMINDER_CRON_SECRET`, `REMINDER_ACTION_SECRET`. Generate the VAPID pair with `scripts/local/vapid_keys.mjs`.
 
 ## Product decisions flagged (not contract requests)
 

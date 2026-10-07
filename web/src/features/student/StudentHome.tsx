@@ -10,6 +10,7 @@ import { meritAwards } from '../../lib/engine/merit'
 import { addDays, localDate } from '../../lib/engine/dates'
 import { benchmarkAttemptIds, benchmarkSchedule, SECTION_LABEL } from '../../lib/engine/benchmark'
 import { showRecap, weekRecap, weeklyPlan } from '../../lib/engine/weeklyPlan'
+import { ReminderNudge } from '../reminders/Reminders'
 import { FreshContentNotice, LastWeekRecap, PacePill, ThisWeekGoal, WeekStrip, checkSentence, paceSentence } from '../../components/WeekPlan'
 import { achievements, levelOf, totalXp } from '../../lib/engine/gamify'
 import { latestEstimate, useStudentOverview, type StudentOverview } from './useStudentOverview'
@@ -33,6 +34,7 @@ export function StudentHome() {
 }
 
 function HomeBody({ name, o, studentId, onRefresh, canSetGoals }: { name: string; o: StudentOverview; studentId: string; onRefresh: () => void; canSetGoals: boolean }) {
+  const { source } = useApp()
   const interests = useInterests(studentId).profile
   const exam = o.plan?.exam_family ?? 'act'
   const catalog = useCatalog(exam)
@@ -106,6 +108,11 @@ function HomeBody({ name, o, studentId, onRefresh, canSetGoals }: { name: string
           <h1 className="display text-[28px] leading-tight text-ink">{name}</h1>
         </div>
         <div className="flex items-center gap-2">
+          {source.supportsReminders && (
+            <Link to="/student/reminders" className="rounded-full px-3 py-1.5 text-sm font-semibold text-ink-2 hover:bg-surface-2 hover:text-ink">
+              Reminders
+            </Link>
+          )}
           <span
             className={cx(
               'flex items-center gap-1 rounded-full px-3 py-1.5 text-sm font-bold tabular',
@@ -119,6 +126,8 @@ function HomeBody({ name, o, studentId, onRefresh, canSetGoals }: { name: string
           {!fresh && <span className="rounded-full bg-brand-soft px-3 py-1.5 text-sm font-bold text-brand">Lv {lvl.level}</span>}
         </div>
       </header>
+
+      {source.supportsReminders && <ReminderNudge studentId={studentId} practisedToday={practicedToday} />}
 
       <div className={cx('grid grid-cols-1 gap-8', !fresh && 'lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:gap-12')}>
         {/* The one thing to do now: where the week stands, what's next, why it matters, one button. */}
@@ -136,6 +145,7 @@ function HomeBody({ name, o, studentId, onRefresh, canSetGoals }: { name: string
                 <PacePill plan={week} /> {paceSentence(week)}
               </p>
               {!checkDue && <p className="mt-1 text-xs text-ink-3">{checkSentence(week, 'you')}</p>}
+
               {!goal && (
                 <ThisWeekGoal
                   studentId={studentId}

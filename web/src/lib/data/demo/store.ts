@@ -66,6 +66,10 @@ export interface DemoStore {
   benchmarks: Record<string, BenchmarkSummary[]>
   /** viewerId:studentId → inactivity alert setting. */
   alerts?: Record<string, { enabled: boolean; inactivityDays: number }>
+  /** Practice reminders (CR-27 mirror). Optional so older saved demos still load. */
+  reminders?: Record<string, import('../source').ReminderSettings>
+  reminderChanges?: { id: string; student_id: string; enabled: boolean; by: 'student' | 'guardian'; at: string; notifyGuardians: boolean }[]
+  devices?: { id: string; user_id: string; permission: import('../source').DevicePermission; platform: import('../source').DevicePlatform | null; subscribed: boolean; checked_at: string }[]
 }
 
 const KEY = 'pp-demo-v1'
