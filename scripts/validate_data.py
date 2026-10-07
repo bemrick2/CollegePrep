@@ -65,7 +65,12 @@ def requirement_group_errors(record):
     printed=str(rd.get('catalog_year') or '')
     m=re.match(r'^(\d{4})-(\d{2}|\d{4})$',year); n=re.match(r'^(\d{4})\s*[-–]\s*(\d{2}|\d{4})$',printed)
     if not n: errors.append('rule_details.catalog_year must be an explicit year range')
-    elif m and (n.group(1)!=m.group(1) or n.group(2)[-2:]!=m.group(2)[-2:]): errors.append('rule_details.catalog_year does not match academic_year')
+    elif m:
+        # a catalog label may cover one academic year ('2026-2027') or a multi-year period printed as such ('2026-2028',
+        # Cal Poly): the record's academic_year must be a year inside the printed period
+        y1=int(n.group(1)); y2=int(n.group(2)) if len(n.group(2))==4 else (y1//100)*100+int(n.group(2))
+        a=int(m.group(1))
+        if not (1<=y2-y1<=2 and y1<=a<y2 and m.group(2)[-2:]==str(a+1)[-2:]): errors.append('rule_details.catalog_year does not match academic_year')
     gt,cat=rd.get('group_type'),rd.get('category')
     if gt not in GROUP_TYPES: errors.append('invalid rule_details.group_type')
     if cat not in GROUP_CATEGORIES: errors.append('invalid rule_details.category')
