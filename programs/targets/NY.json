@@ -12,16 +12,19 @@
     "binghamton.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.binghamton.edu/",
-    "https://catalog.binghamton.edu/",
-    "https://www.binghamton.edu/academics/",
-    "https://www.binghamton.edu/registrar/",
-    "https://www.binghamton.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 7,
+    "home": "https://catalog.binghamton.edu/index.php?catoid=7",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.binghamton.edu/content.php?catoid=7&navoid=305",
+     "https://catalog.binghamton.edu/content.php?catoid=7&navoid=313"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 7 on catalog.binghamton.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-190594",
@@ -71,17 +74,37 @@
    "domains": [
     "cornell.edu"
    ],
-   "hosts": [],
-   "mode": "discover",
-   "priority": 1,
-   "discover": [
-    "https://www.cornell.edu/",
-    "https://catalog.cornell.edu/",
-    "https://www.cornell.edu/academics/",
-    "https://www.cornell.edu/registrar/",
-    "https://www.cornell.edu/catalog/"
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
    ],
-   "policy": []
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.cornell.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.cornell.edu/programs",
+     "https://catalog.cornell.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.cornell.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.cornell.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.cornell.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.cornell.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.cornell.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.cornell.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.cornell.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.cornell.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.cornell.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.cornell.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.cornell.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.cornell.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.cornell.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.cornell.edu (432 links)"
   },
   {
    "institution_key": "ipeds-193900",
@@ -132,16 +155,19 @@
     "stonybrook.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.stonybrook.edu/",
-    "https://catalog.stonybrook.edu/",
-    "https://www.stonybrook.edu/academics/",
-    "https://www.stonybrook.edu/registrar/",
-    "https://www.stonybrook.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 11,
+    "home": "https://catalog.stonybrook.edu/index.php?catoid=11",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.stonybrook.edu/content.php?catoid=11&navoid=1075",
+     "https://catalog.stonybrook.edu/content.php?catoid=11&navoid=1134"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 11 on catalog.stonybrook.edu (no year label seen)"
   },
   {
    "institution_key": "ipeds-196413",
@@ -192,16 +218,19 @@
     "buffalo.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.buffalo.edu/",
-    "https://catalog.buffalo.edu/",
-    "https://www.buffalo.edu/academics/",
-    "https://www.buffalo.edu/registrar/",
-    "https://www.buffalo.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 21,
+    "home": "https://catalogs.buffalo.edu/index.php?catoid=21",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalogs.buffalo.edu/content.php?catoid=21&navoid=1160",
+     "https://catalogs.buffalo.edu/content.php?catoid=21&navoid=1177"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 21 on catalogs.buffalo.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-188429",
@@ -212,16 +241,16 @@
     "adelphi.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.adelphi.edu/",
-    "https://catalog.adelphi.edu/",
-    "https://www.adelphi.edu/academics/",
-    "https://www.adelphi.edu/registrar/",
-    "https://www.adelphi.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 37,
+    "home": "https://catalog.adelphi.edu/index.php?catoid=37",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 37 on catalog.adelphi.edu (labelled 2025-2026)"
   },
   {
    "institution_key": "ipeds-190512",
@@ -373,16 +402,17 @@
     "farmingdale.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.farmingdale.edu/",
-    "https://catalog.farmingdale.edu/",
-    "https://www.farmingdale.edu/academics/",
-    "https://www.farmingdale.edu/registrar/",
-    "https://www.farmingdale.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://catalog.farmingdale.edu/2026-2027/catalog.pdf"
+    ],
+    "home": "https://catalog.farmingdale.edu/2026-2027/catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
   },
   {
    "institution_key": "ipeds-191126",
@@ -393,16 +423,17 @@
     "fitnyc.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.fitnyc.edu/",
-    "https://catalog.fitnyc.edu/",
-    "https://www.fitnyc.edu/academics/",
-    "https://www.fitnyc.edu/registrar/",
-    "https://www.fitnyc.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.fitnyc.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.fitnyc.edu (no program list link; pages found from the home page)"
   },
   {
    "institution_key": "ipeds-191241",
@@ -453,16 +484,20 @@
     "marist.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.marist.edu/",
-    "https://catalog.marist.edu/",
-    "https://www.marist.edu/academics/",
-    "https://www.marist.edu/registrar/",
-    "https://www.marist.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 12,
+    "home": "https://catalog.marist.edu/index.php?catoid=12",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.marist.edu/content.php?catoid=12&navoid=523",
+     "https://catalog.marist.edu/content.php?catoid=12&navoid=527",
+     "https://catalog.marist.edu/content.php?catoid=12&navoid=529"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 12 on catalog.marist.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-194310",
@@ -473,16 +508,17 @@
     "pace.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.pace.edu/",
-    "https://catalog.pace.edu/",
-    "https://www.pace.edu/academics/",
-    "https://www.pace.edu/registrar/",
-    "https://www.pace.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.pace.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.pace.edu (no program list link; pages found from the home page)"
   },
   {
    "institution_key": "ipeds-194824",
@@ -493,16 +529,21 @@
     "rpi.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.rpi.edu/",
-    "https://catalog.rpi.edu/",
-    "https://www.rpi.edu/academics/",
-    "https://www.rpi.edu/registrar/",
-    "https://www.rpi.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 34,
+    "home": "https://catalog.rpi.edu/index.php?catoid=34",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.rpi.edu/content.php?catoid=34&navoid=931",
+     "https://catalog.rpi.edu/content.php?catoid=34&navoid=933",
+     "https://catalog.rpi.edu/content.php?catoid=34&navoid=938",
+     "https://catalog.rpi.edu/content.php?catoid=34&navoid=945"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 34 on catalog.rpi.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-196130",
@@ -512,17 +553,37 @@
    "domains": [
     "buffalostate.edu"
    ],
-   "hosts": [],
-   "mode": "discover",
-   "priority": 2,
-   "discover": [
-    "https://suny.buffalostate.edu/",
-    "https://catalog.buffalostate.edu/",
-    "https://www.buffalostate.edu/academics/",
-    "https://www.buffalostate.edu/registrar/",
-    "https://www.buffalostate.edu/catalog/"
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
    ],
-   "policy": []
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.buffalostate.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.buffalostate.edu/programs",
+     "https://catalog.buffalostate.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.buffalostate.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.buffalostate.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.buffalostate.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.buffalostate.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.buffalostate.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.buffalostate.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.buffalostate.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.buffalostate.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.buffalostate.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.buffalostate.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.buffalostate.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.buffalostate.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.buffalostate.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.buffalostate.edu (36 links)"
   },
   {
    "institution_key": "ipeds-196185",
@@ -533,16 +594,20 @@
     "oneonta.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://suny.oneonta.edu/",
-    "https://catalog.oneonta.edu/",
-    "https://www.oneonta.edu/academics/",
-    "https://www.oneonta.edu/registrar/",
-    "https://www.oneonta.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 29,
+    "home": "https://catalog.oneonta.edu/index.php?catoid=29",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.oneonta.edu/content.php?catoid=29&navoid=1855",
+     "https://catalog.oneonta.edu/content.php?catoid=29&navoid=1860",
+     "https://catalog.oneonta.edu/content.php?catoid=29&navoid=1864"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 29 on catalog.oneonta.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-195809",
@@ -572,17 +637,37 @@
    "domains": [
     "newschool.edu"
    ],
-   "hosts": [],
-   "mode": "discover",
-   "priority": 2,
-   "discover": [
-    "https://www.newschool.edu/",
-    "https://catalog.newschool.edu/",
-    "https://www.newschool.edu/academics/",
-    "https://www.newschool.edu/registrar/",
-    "https://www.newschool.edu/catalog/"
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
    ],
-   "policy": []
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.newschool.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.newschool.edu/programs",
+     "https://catalog.newschool.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.newschool.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.newschool.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.newschool.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.newschool.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.newschool.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.newschool.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.newschool.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.newschool.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.newschool.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.newschool.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.newschool.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.newschool.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.newschool.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.newschool.edu (57 links)"
   },
   {
    "institution_key": "ipeds-195030",
@@ -613,16 +698,17 @@
     "acphs.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.acphs.edu/",
-    "https://catalog.acphs.edu/",
-    "https://www.acphs.edu/academics/",
-    "https://www.acphs.edu/registrar/",
-    "https://www.acphs.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.acphs.edu/wp-content/uploads/2026/09/2026-27-College-Catalog-updated-to-final-doc-091006.pdf"
+    ],
+    "home": "https://www.acphs.edu/wp-content/uploads/2026/09/2026-27-College-Catalog-updated-to-final-doc-091006.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
   },
   {
    "institution_key": "ipeds-188641",
@@ -653,16 +739,17 @@
     "amda.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.amda.edu/",
-    "https://catalog.amda.edu/",
-    "https://www.amda.edu/academics/",
-    "https://www.amda.edu/registrar/",
-    "https://www.amda.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://storage.amda.edu/media/documents/AMDA%202023-2024%20Interim%20Catalog%20(revised%20on%20Oct%2030,%202023).pdf?v=2.4.0.26"
+    ],
+    "home": "https://storage.amda.edu/media/documents/AMDA%202023-2024%20Interim%20Catalog%20(revised%20on%20Oct%2030,%202023).pdf?v=2.4.0.26",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2023-2024"
   },
   {
    "institution_key": "ipeds-188942",
@@ -773,16 +860,17 @@
     "barnard.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.barnard.edu/",
-    "https://catalog.barnard.edu/",
-    "https://www.barnard.edu/academics/",
-    "https://www.barnard.edu/registrar/",
-    "https://www.barnard.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.barnard.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.barnard.edu (no program list link; pages found from the home page)"
   },
   {
    "institution_key": "ipeds-476717",
@@ -793,16 +881,17 @@
     "byts.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.byts.edu/",
-    "https://catalog.byts.edu/",
-    "https://www.byts.edu/academics/",
-    "https://www.byts.edu/registrar/",
-    "https://www.byts.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.byts.edu/_files/ugd/11fd06_8ab0673652d044d9a2c7dc525c7eabf9.pdf"
+    ],
+    "home": "https://www.byts.edu/_files/ugd/11fd06_8ab0673652d044d9a2c7dc525c7eabf9.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
   },
   {
    "institution_key": "ipeds-444413",
@@ -1073,16 +1162,19 @@
     "canisius.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.canisius.edu/",
-    "https://catalog.canisius.edu/",
-    "https://www.canisius.edu/academics/",
-    "https://www.canisius.edu/registrar/",
-    "https://www.canisius.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.canisius.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.canisius.edu/undergraduate/majors/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.canisius.edu (program list https://catalog.canisius.edu/undergraduate/majors/)"
   },
   {
    "institution_key": "ipeds-488004",
@@ -1153,16 +1245,19 @@
     "colgate.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.colgate.edu/",
-    "https://catalog.colgate.edu/",
-    "https://www.colgate.edu/academics/",
-    "https://www.colgate.edu/registrar/",
-    "https://www.colgate.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 16,
+    "home": "https://catalog.colgate.edu/index.php?catoid=16",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.colgate.edu/content.php?catoid=16&navoid=819",
+     "https://catalog.colgate.edu/content.php?catoid=16&navoid=828"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 16 on catalog.colgate.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-190558",
@@ -1213,16 +1308,19 @@
     "ciachef.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.ciachef.edu/",
-    "https://catalog.ciachef.edu/",
-    "https://www.ciachef.edu/academics/",
-    "https://www.ciachef.edu/registrar/",
-    "https://www.ciachef.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.ciachef.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.ciachef.edu/degrees"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.ciachef.edu (program list https://catalog.ciachef.edu/degrees)"
   },
   {
    "institution_key": "ipeds-190716",
@@ -1233,16 +1331,17 @@
     "dyu.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.dyu.edu/",
-    "https://catalog.dyu.edu/",
-    "https://www.dyu.edu/academics/",
-    "https://www.dyu.edu/registrar/",
-    "https://www.dyu.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.dyu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.dyu.edu (no program list link; pages found from the home page)"
   },
   {
    "institution_key": "ipeds-190725",
@@ -1253,16 +1352,20 @@
     "daemen.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.daemen.edu/",
-    "https://catalog.daemen.edu/",
-    "https://www.daemen.edu/academics/",
-    "https://www.daemen.edu/registrar/",
-    "https://www.daemen.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 5,
+    "home": "https://catalog.daemen.edu/index.php?catoid=5",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.daemen.edu/content.php?catoid=5&navoid=135",
+     "https://catalog.daemen.edu/content.php?catoid=5&navoid=139",
+     "https://catalog.daemen.edu/content.php?catoid=5&navoid=150"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 5 on catalog.daemen.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-194569",
@@ -1293,16 +1396,17 @@
     "duny.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.duny.edu/",
-    "https://catalog.duny.edu/",
-    "https://www.duny.edu/academics/",
-    "https://www.duny.edu/registrar/",
-    "https://www.duny.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.duny.edu/wp-content/uploads/2021/06/Catalog-2024-2025-002.pdf"
+    ],
+    "home": "https://www.duny.edu/wp-content/uploads/2021/06/Catalog-2024-2025-002.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2024-2025"
   },
   {
    "institution_key": "ipeds-488305",
@@ -1333,16 +1437,20 @@
     "elmira.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.elmira.edu/",
-    "https://catalog.elmira.edu/",
-    "https://www.elmira.edu/academics/",
-    "https://www.elmira.edu/registrar/",
-    "https://www.elmira.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 72,
+    "home": "https://catalog.elmira.edu/index.php?catoid=72",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.elmira.edu/content.php?catoid=72&navoid=2296",
+     "https://catalog.elmira.edu/content.php?catoid=72&navoid=2304",
+     "https://catalog.elmira.edu/content.php?catoid=72&navoid=2305"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 72 on catalog.elmira.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-196264",
@@ -1353,16 +1461,17 @@
     "sunyempire.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.sunyempire.edu/",
-    "https://catalog.sunyempire.edu/",
-    "https://www.sunyempire.edu/academics/",
-    "https://www.sunyempire.edu/registrar/",
-    "https://www.sunyempire.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.sunyempire.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.sunyempire.edu (no program list link; pages found from the home page)"
   },
   {
    "institution_key": "ipeds-196680",
@@ -1452,17 +1561,37 @@
    "domains": [
     "hilbert.edu"
    ],
-   "hosts": [],
-   "mode": "discover",
-   "priority": 3,
-   "discover": [
-    "https://www.hilbert.edu/",
-    "https://catalog.hilbert.edu/",
-    "https://www.hilbert.edu/academics/",
-    "https://www.hilbert.edu/registrar/",
-    "https://www.hilbert.edu/catalog/"
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
    ],
-   "policy": []
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "home": "https://catalog.hilbert.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.hilbert.edu/programs",
+     "https://catalog.hilbert.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.hilbert.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.hilbert.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.hilbert.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.hilbert.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.hilbert.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.hilbert.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.hilbert.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.hilbert.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.hilbert.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.hilbert.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.hilbert.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.hilbert.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.hilbert.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.hilbert.edu (3 links)"
   },
   {
    "institution_key": "ipeds-191630",
@@ -1493,16 +1622,17 @@
     "houghton.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.houghton.edu/",
-    "https://catalog.houghton.edu/",
-    "https://www.houghton.edu/academics/",
-    "https://www.houghton.edu/registrar/",
-    "https://www.houghton.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.houghton.edu/wp-content/uploads/2026/02/2025-2026-Houghton-University-Catalog-02.11.2026.pdf"
+    ],
+    "home": "https://www.houghton.edu/wp-content/uploads/2026/02/2025-2026-Houghton-University-Catalog-02.11.2026.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
   },
   {
    "institution_key": "ipeds-191931",
@@ -1513,16 +1643,21 @@
     "iona.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.iona.edu/",
-    "https://catalog.iona.edu/",
-    "https://www.iona.edu/academics/",
-    "https://www.iona.edu/registrar/",
-    "https://www.iona.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 36,
+    "home": "https://catalog.iona.edu/index.php?catoid=36",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.iona.edu/content.php?catoid=36&navoid=1899",
+     "https://catalog.iona.edu/content.php?catoid=36&navoid=1903",
+     "https://catalog.iona.edu/content.php?catoid=36&navoid=1926",
+     "https://catalog.iona.edu/content.php?catoid=36&navoid=1929"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 36 on catalog.iona.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-191968",
@@ -1533,16 +1668,19 @@
     "ithaca.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.ithaca.edu/",
-    "https://catalog.ithaca.edu/",
-    "https://www.ithaca.edu/academics/",
-    "https://www.ithaca.edu/registrar/",
-    "https://www.ithaca.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.ithaca.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.ithaca.edu/undergrad/programsaz/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.ithaca.edu (program list https://catalog.ithaca.edu/undergrad/programsaz/)"
   },
   {
    "institution_key": "ipeds-192040",
@@ -1553,16 +1691,17 @@
     "jtsa.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.jtsa.edu/",
-    "https://catalog.jtsa.edu/",
-    "https://www.jtsa.edu/academics/",
-    "https://www.jtsa.edu/registrar/",
-    "https://www.jtsa.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.jtsa.edu/wp-content/uploads/2024/10/Davidson-Academic-Bulletin-AY-2024-2025-1.pdf"
+    ],
+    "home": "https://www.jtsa.edu/wp-content/uploads/2024/10/Davidson-Academic-Bulletin-AY-2024-2025-1.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2024-2025"
   },
   {
    "institution_key": "ipeds-192165",
@@ -1673,16 +1812,17 @@
     "manhattan.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.manhattan.edu/",
-    "https://catalog.manhattan.edu/",
-    "https://www.manhattan.edu/academics/",
-    "https://www.manhattan.edu/registrar/",
-    "https://www.manhattan.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.manhattan.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.manhattan.edu (no program list link; pages found from the home page)"
   },
   {
    "institution_key": "ipeds-192712",
@@ -1693,16 +1833,17 @@
     "msmnyc.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.msmnyc.edu/",
-    "https://catalog.msmnyc.edu/",
-    "https://www.msmnyc.edu/academics/",
-    "https://www.msmnyc.edu/registrar/",
-    "https://www.msmnyc.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.msmnyc.edu/wp-content/uploads/2026/09/2627-Academic-Catalog-2026-28-August-2026.pdf"
+    ],
+    "home": "https://www.msmnyc.edu/wp-content/uploads/2026/09/2627-Academic-Catalog-2026-28-August-2026.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
   },
   {
    "institution_key": "ipeds-192749",
@@ -1733,16 +1874,17 @@
     "mariacollege.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.mariacollege.edu/",
-    "https://catalog.mariacollege.edu/",
-    "https://www.mariacollege.edu/academics/",
-    "https://www.mariacollege.edu/registrar/",
-    "https://www.mariacollege.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://mariacollege.edu/wp-content/uploads/2026/08/26-27-Academic-Catalog.pdf"
+    ],
+    "home": "https://mariacollege.edu/wp-content/uploads/2026/08/26-27-Academic-Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
   },
   {
    "institution_key": "ipeds-192864",
@@ -1974,16 +2116,18 @@
     "naz.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www2.naz.edu/",
-    "https://catalog.naz.edu/",
-    "https://www.naz.edu/academics/",
-    "https://www.naz.edu/registrar/",
-    "https://www.naz.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 110,
+    "home": "https://catalog.naz.edu/index.php?catoid=110",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.naz.edu/content.php?catoid=110&navoid=3156"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 110 on catalog.naz.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-418126",
@@ -2034,16 +2178,17 @@
     "nysid.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.nysid.edu/",
-    "https://catalog.nysid.edu/",
-    "https://www.nysid.edu/academics/",
-    "https://www.nysid.edu/registrar/",
-    "https://www.nysid.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.nysid.edu/s/NYSID2022AcademicCatalog-Dec7v2.pdf"
+    ],
+    "home": "https://www.nysid.edu/s/NYSID2022AcademicCatalog-Dec7v2.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2022-2023"
   },
   {
    "institution_key": "ipeds-193973",
@@ -2113,17 +2258,37 @@
    "domains": [
     "pratt.edu"
    ],
-   "hosts": [],
-   "mode": "discover",
-   "priority": 3,
-   "discover": [
-    "https://www.pratt.edu/",
-    "https://catalog.pratt.edu/",
-    "https://www.pratt.edu/academics/",
-    "https://www.pratt.edu/registrar/",
-    "https://www.pratt.edu/catalog/"
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
    ],
-   "policy": []
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "home": "https://catalog.pratt.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.pratt.edu/programs",
+     "https://catalog.pratt.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.pratt.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.pratt.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.pratt.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.pratt.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.pratt.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.pratt.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.pratt.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.pratt.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.pratt.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.pratt.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.pratt.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.pratt.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.pratt.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.pratt.edu (12 links)"
   },
   {
    "institution_key": "ipeds-194657",
@@ -2294,16 +2459,19 @@
     "sage.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://sage.edu/",
-    "https://catalog.sage.edu/",
-    "https://www.sage.edu/academics/",
-    "https://www.sage.edu/registrar/",
-    "https://www.sage.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.sage.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.sage.edu/degrees"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.sage.edu (program list https://catalog.sage.edu/degrees)"
   },
   {
    "institution_key": "ipeds-196121",
@@ -2334,16 +2502,21 @@
     "geneseo.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.geneseo.edu/",
-    "https://catalog.geneseo.edu/",
-    "https://www.geneseo.edu/academics/",
-    "https://www.geneseo.edu/registrar/",
-    "https://www.geneseo.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 27,
+    "home": "https://bulletin.geneseo.edu/index.php?catoid=27",
+    "platform": "acalog",
+    "program_lists": [
+     "https://bulletin.geneseo.edu/content.php?catoid=27&navoid=1561",
+     "https://bulletin.geneseo.edu/content.php?catoid=27&navoid=1563",
+     "https://bulletin.geneseo.edu/content.php?catoid=27&navoid=1569",
+     "https://bulletin.geneseo.edu/content.php?catoid=27&navoid=1570"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 27 on bulletin.geneseo.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-196246",
@@ -2374,16 +2547,18 @@
     "potsdam.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.potsdam.edu/",
-    "https://catalog.potsdam.edu/",
-    "https://www.potsdam.edu/academics/",
-    "https://www.potsdam.edu/registrar/",
-    "https://www.potsdam.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 11,
+    "home": "https://catalog.potsdam.edu/index.php?catoid=11",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.potsdam.edu/content.php?catoid=11&navoid=893"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 11 on catalog.potsdam.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-196033",
@@ -2394,16 +2569,17 @@
     "cobleskill.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.cobleskill.edu/",
-    "https://catalog.cobleskill.edu/",
-    "https://www.cobleskill.edu/academics/",
-    "https://www.cobleskill.edu/registrar/",
-    "https://www.cobleskill.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.cobleskill.edu/academics/registrar/College%20Catalog%202026-2027%20for%20Web.pdf"
+    ],
+    "home": "https://www.cobleskill.edu/academics/registrar/College%20Catalog%202026-2027%20for%20Web.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
   },
   {
    "institution_key": "ipeds-196103",
@@ -2414,16 +2590,17 @@
     "esf.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.esf.edu/",
-    "https://catalog.esf.edu/",
-    "https://www.esf.edu/academics/",
-    "https://www.esf.edu/registrar/",
-    "https://www.esf.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.esf.edu/catalog/current/catalog.pdf"
+    ],
+    "home": "https://www.esf.edu/catalog/current/catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
   },
   {
    "institution_key": "ipeds-196006",
@@ -2454,16 +2631,17 @@
     "canton.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.canton.edu/",
-    "https://catalog.canton.edu/",
-    "https://www.canton.edu/academics/",
-    "https://www.canton.edu/registrar/",
-    "https://www.canton.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.canton.edu/media/pdf/catalog.pdf"
+    ],
+    "home": "https://www.canton.edu/media/pdf/catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
   },
   {
    "institution_key": "ipeds-196024",
@@ -2474,16 +2652,18 @@
     "delhi.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.delhi.edu/",
-    "https://catalog.delhi.edu/",
-    "https://www.delhi.edu/academics/",
-    "https://www.delhi.edu/registrar/",
-    "https://www.delhi.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 14,
+    "home": "https://catalog.delhi.edu/index.php?catoid=14",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.delhi.edu/content.php?catoid=14&navoid=248"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 14 on catalog.delhi.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-196255",
@@ -2514,16 +2694,17 @@
     "sunymaritime.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.sunymaritime.edu/",
-    "https://catalog.sunymaritime.edu/",
-    "https://www.sunymaritime.edu/academics/",
-    "https://www.sunymaritime.edu/registrar/",
-    "https://www.sunymaritime.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.sunymaritime.edu/sites/default/files/2025-11/suny-mc-college-catalog-2025-26.pdf"
+    ],
+    "home": "https://www.sunymaritime.edu/sites/default/files/2025-11/suny-mc-college-catalog-2025-26.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
   },
   {
    "institution_key": "ipeds-196051",
@@ -2534,16 +2715,17 @@
     "morrisville.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.morrisville.edu/",
-    "https://catalog.morrisville.edu/",
-    "https://www.morrisville.edu/academics/",
-    "https://www.morrisville.edu/registrar/",
-    "https://www.morrisville.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://documents.morrisville.edu/public/catalog/2025-26%20SUNY%20Morrisville%20College%20Catalog.pdf"
+    ],
+    "home": "https://documents.morrisville.edu/public/catalog/2025-26%20SUNY%20Morrisville%20College%20Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
   },
   {
    "institution_key": "ipeds-196237",
@@ -2554,16 +2736,16 @@
     "oldwestbury.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.oldwestbury.edu/",
-    "https://catalog.oldwestbury.edu/",
-    "https://www.oldwestbury.edu/academics/",
-    "https://www.oldwestbury.edu/registrar/",
-    "https://www.oldwestbury.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 20,
+    "home": "https://catalog.oldwestbury.edu/index.php?catoid=20",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 20 on catalog.oldwestbury.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-196112",
@@ -2614,16 +2796,17 @@
     "purchase.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.purchase.edu/",
-    "https://catalog.purchase.edu/",
-    "https://www.purchase.edu/academics/",
-    "https://www.purchase.edu/registrar/",
-    "https://www.purchase.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.purchase.edu/academics/college-catalog/SUNY-Purchase-College-Catalog-2026-27-NYED.pdf"
+    ],
+    "home": "https://www.purchase.edu/academics/college-catalog/SUNY-Purchase-College-Catalog-2026-27-NYED.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
   },
   {
    "institution_key": "ipeds-195304",
@@ -2674,16 +2857,21 @@
     "siena.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.siena.edu/",
-    "https://catalog.siena.edu/",
-    "https://www.siena.edu/academics/",
-    "https://www.siena.edu/registrar/",
-    "https://www.siena.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 21,
+    "home": "https://catalog.siena.edu/index.php?catoid=21",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.siena.edu/content.php?catoid=21&navoid=746",
+     "https://catalog.siena.edu/content.php?catoid=21&navoid=752",
+     "https://catalog.siena.edu/content.php?catoid=21&navoid=753",
+     "https://catalog.siena.edu/content.php?catoid=21&navoid=760"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 21 on catalog.siena.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-195526",
@@ -2694,16 +2882,17 @@
     "skidmore.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.skidmore.edu/",
-    "https://catalog.skidmore.edu/",
-    "https://www.skidmore.edu/academics/",
-    "https://www.skidmore.edu/registrar/",
-    "https://www.skidmore.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.skidmore.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.skidmore.edu (no program list link; pages found from the home page)"
   },
   {
    "institution_key": "ipeds-195164",
@@ -2714,16 +2903,19 @@
     "sbu.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.sbu.edu/",
-    "https://catalog.sbu.edu/",
-    "https://www.sbu.edu/academics/",
-    "https://www.sbu.edu/registrar/",
-    "https://www.sbu.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.sbu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.sbu.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.sbu.edu (program list https://catalog.sbu.edu/programs/)"
   },
   {
    "institution_key": "ipeds-195216",
@@ -2754,16 +2946,17 @@
     "sfc.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.sfc.edu/",
-    "https://catalog.sfc.edu/",
-    "https://www.sfc.edu/academics/",
-    "https://www.sfc.edu/registrar/",
-    "https://www.sfc.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://assets.sfc.edu/content/uploads/Academic-Catalogue.-2026-2027.-Sept.-30.-26_2026-09-30-234419_tvla.pdf"
+    ],
+    "home": "https://assets.sfc.edu/content/uploads/Academic-Catalogue.-2026-2027.-Sept.-30.-26_2026-09-30-234419_tvla.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
   },
   {
    "institution_key": "ipeds-195720",
@@ -2794,16 +2987,21 @@
     "sjny.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.sjny.edu/",
-    "https://catalog.sjny.edu/",
-    "https://www.sjny.edu/academics/",
-    "https://www.sjny.edu/registrar/",
-    "https://www.sjny.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 30,
+    "home": "https://catalog.sjny.edu/index.php?catoid=30",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.sjny.edu/content.php?catoid=30&navoid=1618",
+     "https://catalog.sjny.edu/content.php?catoid=30&navoid=1622",
+     "https://catalog.sjny.edu/content.php?catoid=30&navoid=1637",
+     "https://catalog.sjny.edu/content.php?catoid=30&navoid=1642"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 30 on catalog.sjny.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-195243",
@@ -2834,16 +3032,18 @@
     "cortland.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www2.cortland.edu/",
-    "https://catalog.cortland.edu/",
-    "https://www.cortland.edu/academics/",
-    "https://www.cortland.edu/registrar/",
-    "https://www.cortland.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 52,
+    "home": "https://catalog.cortland.edu/index.php?catoid=52",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.cortland.edu/content.php?catoid=52&navoid=7435"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 52 on catalog.cortland.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-196176",
@@ -2854,16 +3054,17 @@
     "newpaltz.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.newpaltz.edu/",
-    "https://catalog.newpaltz.edu/",
-    "https://www.newpaltz.edu/academics/",
-    "https://www.newpaltz.edu/registrar/",
-    "https://www.newpaltz.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.newpaltz.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.newpaltz.edu (no program list link; pages found from the home page)"
   },
   {
    "institution_key": "ipeds-196194",
@@ -2874,16 +3075,18 @@
     "oswego.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.oswego.edu/",
-    "https://catalog.oswego.edu/",
-    "https://www.oswego.edu/academics/",
-    "https://www.oswego.edu/registrar/",
-    "https://www.oswego.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 65,
+    "home": "https://catalog.oswego.edu/index.php?catoid=65",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.oswego.edu/content.php?catoid=65&navoid=8999"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 65 on catalog.oswego.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-196440",
@@ -2975,16 +3178,17 @@
     "cooper.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.cooper.edu/",
-    "https://catalog.cooper.edu/",
-    "https://www.cooper.edu/academics/",
-    "https://www.cooper.edu/registrar/",
-    "https://www.cooper.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://cooper.edu/sites/default/files/uploads/assets/registrar/CUCat_25-26_SUPP.pdf"
+    ],
+    "home": "https://cooper.edu/sites/default/files/uploads/assets/registrar/CUCat_25-26_SUPP.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
   },
   {
    "institution_key": "ipeds-192110",
@@ -2995,16 +3199,19 @@
     "juilliard.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.juilliard.edu/",
-    "https://catalog.juilliard.edu/",
-    "https://www.juilliard.edu/academics/",
-    "https://www.juilliard.edu/registrar/",
-    "https://www.juilliard.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 75,
+    "home": "https://catalog.juilliard.edu/index.php?catoid=75",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.juilliard.edu/content.php?catoid=75&navoid=8696",
+     "https://catalog.juilliard.edu/content.php?catoid=75&navoid=8706"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 75 on catalog.juilliard.edu (no year label seen)"
   },
   {
    "institution_key": "ipeds-196583",
@@ -3075,16 +3282,18 @@
     "union.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.union.edu/",
-    "https://catalog.union.edu/",
-    "https://www.union.edu/academics/",
-    "https://www.union.edu/registrar/",
-    "https://www.union.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 29,
+    "home": "https://catalog.union.edu/index.php?catoid=29",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.union.edu/content.php?catoid=29&navoid=1337"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 29 on catalog.union.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-197027",
@@ -3235,16 +3444,36 @@
     "vassar.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.vassar.edu/",
-    "https://catalog.vassar.edu/",
-    "https://www.vassar.edu/academics/",
-    "https://www.vassar.edu/registrar/",
-    "https://www.vassar.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 64,
+    "home": "https://catalogue.vassar.edu/index.php?catoid=64",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalogue.vassar.edu/content.php?catoid=64&navoid=12948",
+     "https://catalogue.vassar.edu/content.php?catoid=64&navoid=12961",
+     "https://catalogue.vassar.edu/content.php?catoid=64&navoid=12962",
+     "https://catalogue.vassar.edu/content.php?catoid=64&navoid=12966",
+     "https://catalogue.vassar.edu/content.php?catoid=64&navoid=12968",
+     "https://catalogue.vassar.edu/content.php?catoid=64&navoid=12980",
+     "https://catalogue.vassar.edu/content.php?catoid=64&navoid=12983",
+     "https://catalogue.vassar.edu/content.php?catoid=64&navoid=12989",
+     "https://catalogue.vassar.edu/content.php?catoid=64&navoid=12991",
+     "https://catalogue.vassar.edu/content.php?catoid=64&navoid=12994",
+     "https://catalogue.vassar.edu/content.php?catoid=64&navoid=12996",
+     "https://catalogue.vassar.edu/content.php?catoid=64&navoid=12997",
+     "https://catalogue.vassar.edu/content.php?catoid=64&navoid=12999",
+     "https://catalogue.vassar.edu/content.php?catoid=64&navoid=13005",
+     "https://catalogue.vassar.edu/content.php?catoid=64&navoid=13006",
+     "https://catalogue.vassar.edu/content.php?catoid=64&navoid=13008",
+     "https://catalogue.vassar.edu/content.php?catoid=64&navoid=13009",
+     "https://catalogue.vassar.edu/content.php?catoid=64&navoid=13010",
+     "https://catalogue.vassar.edu/content.php?catoid=64&navoid=13024"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 64 on catalogue.vassar.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-188340",
@@ -3275,16 +3504,17 @@
     "villa.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.villa.edu/",
-    "https://catalog.villa.edu/",
-    "https://www.villa.edu/academics/",
-    "https://www.villa.edu/registrar/",
-    "https://www.villa.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.villa.edu/wp-content/uploads/2026/09/VMC_Catalog_2026-2027-v2.pdf"
+    ],
+    "home": "https://www.villa.edu/wp-content/uploads/2026/09/VMC_Catalog_2026-2027-v2.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
   },
   {
    "institution_key": "ipeds-197197",
@@ -3294,17 +3524,37 @@
    "domains": [
     "wagner.edu"
    ],
-   "hosts": [],
-   "mode": "discover",
-   "priority": 3,
-   "discover": [
-    "https://www.wagner.edu/",
-    "https://catalog.wagner.edu/",
-    "https://www.wagner.edu/academics/",
-    "https://www.wagner.edu/registrar/",
-    "https://www.wagner.edu/catalog/"
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
    ],
-   "policy": []
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "home": "https://catalog.wagner.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.wagner.edu/programs",
+     "https://catalog.wagner.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.wagner.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.wagner.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.wagner.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.wagner.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.wagner.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.wagner.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.wagner.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.wagner.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.wagner.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.wagner.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.wagner.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.wagner.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.wagner.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.wagner.edu (27 links)"
   },
   {
    "institution_key": "ipeds-197221",
@@ -3315,16 +3565,17 @@
     "webb.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.webb.edu/",
-    "https://catalog.webb.edu/",
-    "https://www.webb.edu/academics/",
-    "https://www.webb.edu/registrar/",
-    "https://www.webb.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.webb.edu/wp-content/uploads/2022/10/Academic-Catalog-2022-23.pdf"
+    ],
+    "home": "https://www.webb.edu/wp-content/uploads/2022/10/Academic-Catalog-2022-23.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2022-2023"
   },
   {
    "institution_key": "ipeds-197230",
@@ -3575,16 +3826,17 @@
     "yu.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.yu.edu/",
-    "https://catalog.yu.edu/",
-    "https://www.yu.edu/academics/",
-    "https://www.yu.edu/registrar/",
-    "https://www.yu.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.yu.edu/sites/default/files/inline-files/Katz%20Associates%20Program%202025-2026%20Catalog.pdf"
+    ],
+    "home": "https://www.yu.edu/sites/default/files/inline-files/Katz%20Associates%20Program%202025-2026%20Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
   },
   {
    "institution_key": "ipeds-494737",
