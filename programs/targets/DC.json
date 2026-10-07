@@ -1,0 +1,194 @@
+{
+ "state": "DC",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-131159",
+   "folder": "american",
+   "name": "American University",
+   "control": "private_nonprofit",
+   "domains": [
+    "american.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 23,
+    "home": "https://catalog.american.edu/index.php?catoid=23",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.american.edu/content.php?catoid=23&navoid=4418"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 23 on catalog.american.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-131450",
+   "folder": "gallaudet",
+   "name": "Gallaudet University",
+   "control": "private_nonprofit",
+   "domains": [
+    "gallaudet.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.gallaudet.edu/",
+    "https://catalog.gallaudet.edu/",
+    "https://www.gallaudet.edu/academics/",
+    "https://www.gallaudet.edu/registrar/",
+    "https://www.gallaudet.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-131469",
+   "folder": "gwu",
+   "name": "George Washington University",
+   "control": "private_nonprofit",
+   "domains": [
+    "gwu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://bulletin.gwu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on bulletin.gwu.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-131496",
+   "folder": "georgetown",
+   "name": "Georgetown University",
+   "control": "private_nonprofit",
+   "domains": [
+    "georgetown.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://bulletin.georgetown.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://bulletin.georgetown.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on bulletin.georgetown.edu (program list https://bulletin.georgetown.edu/programs/)"
+  },
+  {
+   "institution_key": "ipeds-131520",
+   "folder": "howard",
+   "name": "Howard University",
+   "control": "private_nonprofit",
+   "domains": [
+    "howard.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.howard.edu/",
+    "https://catalog.howard.edu/",
+    "https://www.howard.edu/academics/",
+    "https://www.howard.edu/registrar/",
+    "https://www.howard.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-496803",
+   "folder": "newu",
+   "name": "NewU University",
+   "control": "private_nonprofit",
+   "domains": [
+    "newu.university"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://newu.university/",
+    "https://catalog.newu.university/",
+    "https://www.newu.university/academics/",
+    "https://www.newu.university/registrar/",
+    "https://www.newu.university/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-131283",
+   "folder": "catholic",
+   "name": "The Catholic University of America",
+   "control": "private_nonprofit",
+   "domains": [
+    "catholic.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.catholic.edu/",
+    "https://catalog.catholic.edu/",
+    "https://www.catholic.edu/academics/",
+    "https://www.catholic.edu/registrar/",
+    "https://www.catholic.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-131876",
+   "folder": "trinitydc",
+   "name": "Trinity Washington University",
+   "control": "private_nonprofit",
+   "domains": [
+    "trinitydc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.trinitydc.edu/",
+    "https://catalog.trinitydc.edu/",
+    "https://www.trinitydc.edu/academics/",
+    "https://www.trinitydc.edu/registrar/",
+    "https://www.trinitydc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-131399",
+   "folder": "udc",
+   "name": "University of the District of Columbia",
+   "control": "public",
+   "domains": [
+    "udc.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.udc.edu/docs/CourseCatalog20122013.pdf"
+    ],
+    "home": "https://www.udc.edu/docs/CourseCatalog20122013.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2012-2013"
+  }
+ ]
+}

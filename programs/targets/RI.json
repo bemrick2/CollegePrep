@@ -1,0 +1,259 @@
+{
+ "state": "RI",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-217156",
+   "folder": "brown",
+   "name": "Brown University",
+   "control": "private_nonprofit",
+   "domains": [
+    "brown.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.brown.edu/",
+    "https://catalog.brown.edu/",
+    "https://www.brown.edu/academics/",
+    "https://www.brown.edu/registrar/",
+    "https://www.brown.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-217165",
+   "folder": "bryant",
+   "name": "Bryant University",
+   "control": "private_nonprofit",
+   "domains": [
+    "bryant.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.bryant.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.bryant.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-217235",
+   "folder": "jwu-217235",
+   "name": "Johnson & Wales University-Providence",
+   "control": "private_nonprofit",
+   "domains": [
+    "jwu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.jwu.edu/wp-content/uploads/2026/08/2024-25-jwu-providence-catalog.pdf"
+    ],
+    "home": "https://www.jwu.edu/wp-content/uploads/2026/08/2024-25-jwu-providence-catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2024-2025"
+  },
+  {
+   "institution_key": "ipeds-217305",
+   "folder": "neit",
+   "name": "New England Institute of Technology",
+   "control": "private_nonprofit",
+   "domains": [
+    "neit.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.neit.edu/",
+    "https://catalog.neit.edu/",
+    "https://www.neit.edu/academics/",
+    "https://www.neit.edu/registrar/",
+    "https://www.neit.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-217402",
+   "folder": "providence",
+   "name": "Providence College",
+   "control": "private_nonprofit",
+   "domains": [
+    "providence.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 40,
+    "home": "https://catalog.providence.edu/index.php?catoid=40",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.providence.edu/content.php?catoid=40&navoid=1547",
+     "https://catalog.providence.edu/content.php?catoid=40&navoid=1550",
+     "https://catalog.providence.edu/content.php?catoid=40&navoid=1554"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 40 on catalog.providence.edu (labelled 2023-2024)"
+  },
+  {
+   "institution_key": "ipeds-217420",
+   "folder": "ric",
+   "name": "Rhode Island College",
+   "control": "public",
+   "domains": [
+    "ric.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.ric.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.ric.edu (no program list link; pages found from the home page)"
+  },
+  {
+   "institution_key": "ipeds-217493",
+   "folder": "risd",
+   "name": "Rhode Island School of Design",
+   "control": "private_nonprofit",
+   "domains": [
+    "risd.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.risd.edu/",
+    "https://catalog.risd.edu/",
+    "https://www.risd.edu/academics/",
+    "https://www.risd.edu/registrar/",
+    "https://www.risd.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-217518",
+   "folder": "rwu",
+   "name": "Roger Williams University",
+   "control": "private_nonprofit",
+   "domains": [
+    "rwu.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 18,
+    "home": "https://catalog.rwu.edu/index.php?catoid=18",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.rwu.edu/content.php?catoid=18&navoid=1765",
+     "https://catalog.rwu.edu/content.php?catoid=18&navoid=1766",
+     "https://catalog.rwu.edu/content.php?catoid=18&navoid=1779",
+     "https://catalog.rwu.edu/content.php?catoid=18&navoid=1790"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 18 on catalog.rwu.edu (no year label seen)"
+  },
+  {
+   "institution_key": "ipeds-217536",
+   "folder": "salve",
+   "name": "Salve Regina University",
+   "control": "private_nonprofit",
+   "domains": [
+    "salve.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.salve.edu/",
+    "https://catalog.salve.edu/",
+    "https://www.salve.edu/academics/",
+    "https://www.salve.edu/registrar/",
+    "https://www.salve.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-217484",
+   "folder": "uri",
+   "name": "University of Rhode Island",
+   "control": "public",
+   "domains": [
+    "uri.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://web.uri.edu/",
+    "https://catalog.uri.edu/",
+    "https://www.uri.edu/academics/",
+    "https://www.uri.edu/registrar/",
+    "https://www.uri.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-493822",
+   "folder": "collegeunbound",
+   "name": "College Unbound",
+   "control": "private_nonprofit",
+   "domains": [
+    "collegeunbound.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://collegeunbound.edu/",
+    "https://catalog.collegeunbound.edu/",
+    "https://www.collegeunbound.edu/academics/",
+    "https://www.collegeunbound.edu/registrar/",
+    "https://www.collegeunbound.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-460349",
+   "folder": "jwu",
+   "name": "Johnson & Wales University-Online",
+   "control": "private_nonprofit",
+   "domains": [
+    "jwu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://online.jwu.edu/?_ga=2.36357734.752362341.1629739669-391300583.1600981500",
+    "https://catalog.jwu.edu/",
+    "https://www.jwu.edu/academics/",
+    "https://www.jwu.edu/registrar/",
+    "https://www.jwu.edu/catalog/"
+   ],
+   "policy": []
+  }
+ ]
+}

@@ -816,6 +816,41 @@ class CourseListLayoutReviewTests(unittest.TestCase):
         self.assertTrue({'indented_rows_after_required_course', 'substitute_in_title'} <= g[0][1]['issues'])
 
 
+class FootnoteMarkerTests(unittest.TestCase):  # issue #129: TAMUSA 'Strategic Management 3', UF 'Principles of Journalism 1'
+    def test_trailing_superscripts_are_markers_not_title(self):
+        from programs.courselist_html import course_lists
+        from programs import courseleaf as CL
+        html = ('<h2>Major Requirements</h2><table class="sc_courselist"><caption>Course List</caption><tbody>'
+                '<tr><td><a>MGMT 4370</a></td><td>Strategic Management <sup>3</sup></td><td>3</td></tr>'
+                '<tr><td><a>BUAD 4070</a></td><td>Business Capstone Lab<sup>2</sup>,<sup>5</sup></td><td>0</td></tr>'
+                '<tr><td><a>CSCI 1436</a></td><td>Programming Fundamentals 1</td><td>3</td></tr>'
+                '<tr><td><a>ARTH 3301</a></td><td>20<sup>th</sup> Century Art</td><td>3</td></tr>'
+                '<tr class="orclass"><td><div style="margin-left:20px;">or <a>MGMT 4371</a></div></td><td>Strategy Seminar<sup>1</sup></td><td></td></tr>'
+                '</tbody></table>')
+        t = course_lists(html)[0]
+        cells = [r['cells'][1] for r in t['rows']]
+        self.assertEqual([c['text'] for c in cells], ['Strategic Management 3', 'Business Capstone Lab2,5', 'Programming Fundamentals 1',
+                                                      '20th Century Art', 'Strategy Seminar1'])  # the text stays as printed
+        self.assertEqual([c.get('sup_tail') for c in cells], ['3', '2,5', None, None, '1'])
+        g = CL.html_groups(t)
+        items = [x for _, grp in g for c in grp['courses'] for x in (c.get('any_of') or [c])]
+        self.assertEqual([x['title'] for x in items], ['Strategic Management', 'Business Capstone Lab', 'Programming Fundamentals 1',
+                                                       '20th Century Art', 'Strategy Seminar'])
+        # a layout stored before superscripts were recorded is read exactly as before
+        old = {'rows': [{'classes': [], 'cells': [{'text': 'MGMT 4370'}, {'text': 'Strategic Management 3'}, {'text': '3'}]}]}
+        self.assertEqual(CL.html_groups(old)[0][1]['courses'][0]['title'], 'Strategic Management 3')
+        self.assertEqual(CL.strip_marks('3', '3'), '3')  # a title that is only a marker is not emptied
+
+    def test_refetch_target_fetches_only_its_pages(self):
+        page = b'<html><head><title>P</title></head><body><a href="https://catalog.example.edu/preview_program.php?catoid=56&poid=1">Computer Science, BS</a></body></html>'
+        t = {**TARGET, 'refetch': ['https://catalog.example.edu/prog/']}
+        with tempfile.TemporaryDirectory() as d:
+            f = FakeFetcher({'https://catalog.example.edu/prog/': page, **PAGES}); run = C.Run(Path(d))
+            C.crawl_target(t, run, f, log=lambda *_: None)
+            self.assertEqual(f.calls, ['https://catalog.example.edu/prog/'])
+            self.assertEqual([(e['role'], e['via']) for e in run.entries()], [('program_page', 'refetch')])
+
+
 class OutlineTests(unittest.TestCase):
     def test_list_depth_and_blocks(self):
         from programs.courselist_html import outline
@@ -1133,6 +1168,21 @@ class CrawlDelayTests(unittest.TestCase):
 
 class DetectTests(unittest.TestCase):
     """programs/detect.py: catalog platform from official links on stored discovery pages."""
+
+    def test_shared_catalog_kept_only_for_the_institution_that_owns_its_host(self):
+        from programs import detect as D
+        cat = lambda home: {'catalog': {'platform': 'acalog', 'home': home, 'catoid': 4}}
+        insts = {f: {'seeds': {'website': w}} for f, w in [('manoa', 'https://manoa.hawaii.edu/'), ('hilo', 'https://hilo.hawaii.edu/'),
+                 ('maui', 'https://maui.hawaii.edu/'), ('unh', 'https://www.unh.edu/'), ('manchester', 'https://manchester.unh.edu/'),
+                 ('h1', 'https://www.herzing.edu/'), ('h2', 'https://www.herzing.edu/'), ('solo', 'https://www.solo.edu/')]}
+        m = 'https://catalog.manoa.hawaii.edu/index.php?catoid=4'
+        cfgs = {'manoa': cat(m), 'hilo': cat(m), 'maui': cat(m), 'unh': cat('https://catalog.unh.edu/'), 'manchester': cat('https://catalog.unh.edu/'),
+                'h1': cat('https://catalog.herzing.edu/'), 'h2': cat('https://catalog.herzing.edu/'), 'solo': cat('https://catalog.other.edu/')}
+        drop = D.shared_catalogs(cfgs, insts)
+        self.assertEqual(sorted(drop), ['h1', 'h2', 'hilo', 'manchester', 'maui'])
+        self.assertIn('belongs to manoa', drop['hilo'])
+        cfgs['h1']['reviewed'] = True
+        self.assertNotIn('h1', D.shared_catalogs(cfgs, insts))
 
     def det(self, links, title='', text='', url='https://www.x.edu/'):
         from programs import detect as D

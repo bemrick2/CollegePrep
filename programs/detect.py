@@ -137,6 +137,31 @@ def detect_institution(entries):
     return None, 'no catalog platform recognised on stored pages'
 
 
+def _host(url):
+    h = urlsplit(url or '').netloc.lower()
+    return h[4:] if h.startswith('www.') else h
+
+
+def shared_catalogs(cfgs, insts):
+    """Folders to drop because their detected catalog is another institution's: when several institutions (branch campuses,
+    an online unit, a system's colleges) link the same catalog, it is kept only for the one whose website host is the
+    catalog host or a parent of it (catalog.manoa.hawaii.edu: Manoa, not Hilo or Maui; catalog.unh.edu: UNH Durham, not
+    Manchester or the College of Professional Studies). With no single such institution it is kept for none: a shared
+    catalog cannot say which programs each campus offers. Reviewed entries are kept."""
+    by_home = defaultdict(list)
+    for folder, c in cfgs.items():
+        by_home[(c['catalog'].get('home'), c['catalog'].get('catoid'))].append(folder)
+    drop = {}
+    for (home, _), folders in by_home.items():
+        if len(folders) < 2: continue
+        host = _host(home)
+        owners = [f for f in folders if f in insts and (lambda w: w and (host == w or host.endswith('.' + w)))(_host(insts[f]['seeds'].get('website')))]
+        for f in folders:
+            if cfgs[f].get('reviewed') or (len(owners) == 1 and f == owners[0]): continue
+            drop[f] = f'shared catalog {home} ' + (f'belongs to {owners[0]}' if len(owners) == 1 else 'is shared by ' + ', '.join(sorted(folders)))
+    return drop
+
+
 def detect(state, run_dirs, refresh=False):
     by_inst = defaultdict(list)
     for d in run_dirs:
@@ -152,6 +177,9 @@ def detect(state, run_dirs, refresh=False):
             render = cfg.pop('_render', None)
             out[inst['folder']] = {'catalog': cfg, 'detected': why, **({'render': render} if render else {})}
         else: misses[inst['folder']] = why
+    by_folder = {i['folder']: i for i in reg.values()}
+    for folder, why in shared_catalogs(out, by_folder).items():
+        del out[folder]; misses[folder] = why
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(out, indent=1, sort_keys=True) + '\n')
     plats = Counter(v['catalog']['platform'] for v in out.values())

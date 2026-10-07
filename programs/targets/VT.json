@@ -1,0 +1,256 @@
+{
+ "state": "VT",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-230816",
+   "folder": "bennington",
+   "name": "Bennington College",
+   "control": "private_nonprofit",
+   "domains": [
+    "bennington.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.bennington.edu/",
+    "https://catalog.bennington.edu/",
+    "https://www.bennington.edu/academics/",
+    "https://www.bennington.edu/registrar/",
+    "https://www.bennington.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-230852",
+   "folder": "champlain",
+   "name": "Champlain College",
+   "control": "private_nonprofit",
+   "domains": [
+    "champlain.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 70,
+    "home": "https://catalog.champlain.edu/index.php?catoid=70",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.champlain.edu/content.php?catoid=70&navoid=1993",
+     "https://catalog.champlain.edu/content.php?catoid=70&navoid=2001"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 70 on catalog.champlain.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-230889",
+   "folder": "goddard",
+   "name": "Goddard College",
+   "control": "private_nonprofit",
+   "domains": [
+    "goddard.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.goddard.edu/",
+    "https://catalog.goddard.edu/",
+    "https://www.goddard.edu/academics/",
+    "https://www.goddard.edu/registrar/",
+    "https://www.goddard.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-247649",
+   "folder": "landmark",
+   "name": "Landmark College",
+   "control": "private_nonprofit",
+   "domains": [
+    "landmark.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 20,
+    "home": "https://catalog.landmark.edu/index.php?catoid=20",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.landmark.edu/content.php?catoid=20&navoid=547"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 20 on catalog.landmark.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-230959",
+   "folder": "middlebury",
+   "name": "Middlebury College",
+   "control": "private_nonprofit",
+   "domains": [
+    "middlebury.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.middlebury.edu/college/",
+    "https://catalog.middlebury.edu/",
+    "https://www.middlebury.edu/academics/",
+    "https://www.middlebury.edu/registrar/",
+    "https://www.middlebury.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-230995",
+   "folder": "norwich",
+   "name": "Norwich University",
+   "control": "private_nonprofit",
+   "domains": [
+    "norwich.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.norwich.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.norwich.edu/programs",
+     "https://catalog.norwich.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.norwich.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.norwich.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.norwich.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.norwich.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.norwich.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.norwich.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.norwich.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.norwich.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.norwich.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.norwich.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.norwich.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.norwich.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.norwich.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.norwich.edu (119 links)"
+  },
+  {
+   "institution_key": "ipeds-231059",
+   "folder": "smcvt",
+   "name": "Saint Michael's College",
+   "control": "private_nonprofit",
+   "domains": [
+    "smcvt.edu"
+   ],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.smcvt.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.smcvt.edu/programs",
+     "https://catalog.smcvt.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.smcvt.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.smcvt.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.smcvt.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.smcvt.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.smcvt.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.smcvt.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.smcvt.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.smcvt.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.smcvt.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.smcvt.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.smcvt.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.smcvt.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.smcvt.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.smcvt.edu (15 links)"
+  },
+  {
+   "institution_key": "ipeds-231095",
+   "folder": "sterlingcollege",
+   "name": "Sterling College",
+   "control": "private_nonprofit",
+   "domains": [
+    "sterlingcollege.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.sterlingcollege.edu/",
+    "https://catalog.sterlingcollege.edu/",
+    "https://www.sterlingcollege.edu/academics/",
+    "https://www.sterlingcollege.edu/registrar/",
+    "https://www.sterlingcollege.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-231174",
+   "folder": "uvm",
+   "name": "University of Vermont",
+   "control": "public",
+   "domains": [
+    "uvm.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.uvm.edu/",
+    "https://catalog.uvm.edu/",
+    "https://www.uvm.edu/academics/",
+    "https://www.uvm.edu/registrar/",
+    "https://www.uvm.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-231165",
+   "folder": "vermontstate",
+   "name": "Vermont State University",
+   "control": "public",
+   "domains": [
+    "vermontstate.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 16,
+    "home": "https://catalog.vermontstate.edu/index.php?catoid=16",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.vermontstate.edu/content.php?catoid=16&navoid=1112",
+     "https://catalog.vermontstate.edu/content.php?catoid=16&navoid=1116",
+     "https://catalog.vermontstate.edu/content.php?catoid=16&navoid=1119"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 16 on catalog.vermontstate.edu (labelled 2026-2027)"
+  }
+ ]
+}
