@@ -1445,6 +1445,9 @@ class SamplePlanPageTests(unittest.TestCase):  # KU 2026-27 sample-plan sub-page
                      '\nGrades of C- or Better\nA D does not meet the requirement.\nThe recommended 4-year plan is listed below by semester.',
                      'BA in Anthropology', [], [], ['BA in Anthropology', 'Requirements', 'Major Junior/Senior Hours'])
         self.assertTrue([c for c in X.program_page_candidates(tgt, {'institution_key': 'k'}, e, deg, '2026-27') if c['domain'] == 'academic_programs'])
+        # CourseLeaf tab labels printed right under the heading ('Requirements', 'Recommended Four-Year Plan of Study') are not the plan sentence
+        tabs = T.Page(body + 'Recommended Four-Year Plan of Study\nRequirements\nStudents complete 30 hours.', 'BA in Anthropology', [], [], ['BA in Anthropology'])
+        self.assertTrue([c for c in X.program_page_candidates(tgt, {'institution_key': 'k'}, e, tabs, '2026-27') if c['domain'] == 'academic_programs'])
 
     def test_pvamu_awards(self):
         for n in ('Criminal Justice, BSCJ', 'Agriculture, BSAG', 'Chemical Engineering, BSCHE', 'Human Nutrition and Food, BSDIET'):
