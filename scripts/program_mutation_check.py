@@ -160,6 +160,11 @@ MUTS = [
     # KU sample-plan sub-pages give no program record (any reader); PVAMU awards
     ('programs/extract.py', "        found = [c for c in found if c['domain'] != 'academic_programs']", "        pass"),
     ('programs/extract.py', "|S\\.?Ed|I\\.?S|SCJ|SAG|SCHE|SDIET)\\b", "|S\\.?Ed|I\\.?S)\\b"),
+    # JHU degree pages
+    ('programs/autoreview.py', "        canon = degree_page(us) if base is None else None", "        canon = None"),
+    ('programs/autoreview.py', "        canon = degree_page(us) if base is None else None", "        canon = degree_page(us)"),
+    ('programs/autoreview.py', "    return out[0] if len(out) == 1 else None", "    return out[0] if out else None"),
+    ('programs/autoreview.py', "|bachelors?-degrees?|b-?a|b-?s|bfa|bm)$", "|bachelors?-degrees?)$"),
 ]
 
 
