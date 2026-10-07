@@ -141,6 +141,18 @@ def list_award(label, name):
     return credential_of(label) or credential_of(name) or credential_of(re.sub(r'(?<=[a-z.])(?=[A-Z][a-z])', ' ', label))
 
 
+RUN_ON = re.compile(r'(?:(?<=[a-z)])|(?<=\b[AB][A-Z])|(?<=\b[AB][A-Z]{2})|(?<=\b[AB][A-Z]{3}))(?=[A-Z][a-z]+\s+(?:\S+\s+){4,}\S)')
+
+
+def coursedog_card_name(name):
+    """Coursedog program cards print the program's description right after its name with no space ('Accounting -
+    BSThe B.S. in Accounting will ...', East Stroudsburg; 'Bachelor of Arts - PsychologyThe mission of ...', Cal
+    Lutheran; shared reader request #153). The name is the text before the first point where a capital letter follows
+    a lowercase letter, a closing parenthesis or an award with no space, and at least five more words follow."""
+    m = RUN_ON.search(name)
+    return name[:m.start()].strip() if m and m.start() >= 3 else name
+
+
 def collect_lists(target, run, entries):
     """Program links on the current catalog's list pages (configured `program_lists`; Acalog navigation pages
     otherwise), deduplicated by URL, each with the text exactly as printed."""
@@ -165,6 +177,7 @@ def collect_lists(target, run, entries):
         else: years |= {y for y, _ in printed_catalog_years(page)}
         for href, anchor in d.get('links', []):
             name = re.sub(r'\s+', ' ', anchor or '').strip()
+            if (target.get('catalog') or {}).get('platform') == 'coursedog': name = coursedog_card_name(name)
             if not name or len(name) > 200 or not in_scope(target, href) or excluded(target, href): continue
             line = printed_line(page, name)
             if not (is_program(href) or line): continue
@@ -291,6 +304,14 @@ SECTION_HEADING = re.compile(r'^(?:Requirements for (?:the )?)?(?P<award>' + '|'
 # a heading that names a part of the degree's page ('... Degree Sequence', '... Degree Requirements', '... Degree Program
 # Requirements', '... Major Field', '... Requirements': PVAMU, Tulane, TAMU 2026-27) is not the degree's name as printed
 SECTION_PART = re.compile(r'\b(degree\s+(sequence|requirements?|program|plan)|major\s+field|requirements)\s*\d?$', re.I)
+# Shared reader requests #153 (CA/NY/PA 2026-27): a heading or title that names a part of a page, a roadmap, an office or a
+# policy is not a program's name, wherever it sits: 'B.A. in Theatre Minimum Grade Requirement' (West Chester), 'BS in
+# Information Systems Program Educational Objectives' (Drexel), 'Bachelor of Arts in Economics Roadmap - Quantitative
+# Reasoning' (SF State), 'Department of Nursing (BSN Pre-licensure)' (Vanguard), 'Requirements for a Bachelor's Degree'
+# (UCI), 'Modern Language Language for BA Degree' (Slippery Rock), 'Bachelor's Degree Requirements Archive' (UC Davis)
+NOT_PROGRAM_NAME = re.compile(r"\b(minimum\s+grade\s+requirements?|(program\s+)?educational\s+objectives|(student\s+)?learning\s+outcomes|roadmaps?|archive)\b"
+                              r"|^\s*(department|school|college|division|office)\s+of\b|^\s*requirements\s+for\s+(a|the)\b"
+                              r"|\bfor\s+(a\s+|the\s+)?B\.?\s?[A-Z]{1,3}\.?\s+degree\b", re.I)
 SECTION_NOT_PROGRAM = re.compile(r'\b(option|concentration|track|emphasis|specialization|minor|certificate|endorsement|accelerated|combined|'
                                  r'plan|semester|map|sample|suggested|'
                                  r'dual|double|second|online degree|pathway|pre-|with\b)|\+|/|\band\s+B\.?\s?[A-Z]|\bMaster', re.I)
@@ -331,7 +352,7 @@ def department_section_candidates(inst, entry, page, today_year):
         h = h.strip()
         m = SECTION_HEADING.match(h)
         if not m or SECTION_NOT_PROGRAM.search(h) or GRAD.search(m.group('name')): continue
-        if m.group('name').strip(' ,').lower() in specs or SECTION_PART.search(h): continue
+        if m.group('name').strip(' ,').lower() in specs or SECTION_PART.search(h) or NOT_PROGRAM_NAME.search(re.sub(r'^\s*requirements\s+for\s+(the\s+)?', '', h, flags=re.I)): continue
         award = next(k for k in SECTION_AWARD if m.group(k))
         name = m.group('name').strip(' ,')
         # the department page links the degree's own catalog page ('Computer Engineering BS', Wichita; 'Bachelor of Science in
@@ -384,7 +405,7 @@ def degree_line_identity(inst, entry, page, today_year):
 YEAR_HEADING = re.compile(r'^\s*(?:(?:19|20)\d{2}\s*[-–]\s*(?:19|20)?\d{2}\s+)?(?:(?:academic|university|undergraduate|general)\s+)?catalog(?:ue)?(?:\s+(?:19|20)\d{2}\s*[-–]\s*(?:19|20)?\d{2})?\s*$', re.I)
 
 
-GENERIC_DEGREES = re.compile(r"^\s*(?:bachelor|baccalaureate)(?:'?s)?\s+(?:degrees?|programs?)\b", re.I)  # UAS 'Bachelor's Degrees' index
+GENERIC_DEGREES = re.compile(r"^\s*(?:bachelor|baccalaureate)(?:['’]?s)?\s+(?:degrees?|programs?)\b", re.I)  # UAS 'Bachelor's Degrees' index
 
 
 def program_heading(page):
@@ -393,6 +414,13 @@ def program_heading(page):
     hs = [h for h in (page.headings or [])]
     named = (page.title or '').split(' | ')[0].split(' < ')[0].strip()  # Kent State: 'Accounting - B.B.A. < Kent State University'
     if named and named in [h.strip() for h in hs]: return named  # UVM: '2026-27 Catalogue', 'Quick Links', 'Anthropology B.A.'
+    # UC Davis: title 'General Catalog - Business, Bachelor of Science'; the heading runs the college on after the name
+    # ('Business, Bachelor of Science Graduate School of Management'): the name is the part the title prints
+    tail = named.split(' - ', 1)[1].strip() if ' - ' in named else ''
+    if tail and credential_of(tail) == 'bachelor':
+        for h in hs:
+            rest = h.strip()[len(tail):] if h.strip().startswith(tail + ' ') else ''
+            if re.match(r'\s+(college|school|graduate\s+school|division|department|faculty)\s+of\b', rest, re.I): return tail
     while hs and YEAR_HEADING.match(hs[0]): hs = hs[1:]
     return hs[0] if hs else None
 
@@ -403,7 +431,7 @@ def static_program_identity(inst, entry, page, today_year):
     name = (program_heading(page) or (page.title or '').split(' | ')[0]).strip()
     # an option or track page ('Civil Engineering - BS, Coastal Engineering Track', Texas A&M) gives its candidate, and the
     # extraction loop drops it unless the official list prints it as the degree's only entry (drops_option_page)
-    if credential_of(name) != 'bachelor' or GENERIC_DEGREES.match(name): return []
+    if credential_of(name) != 'bachelor' or GENERIC_DEGREES.match(name) or NOT_PROGRAM_NAME.search(name): return []
     labels = {y for y, _ in printed_catalog_years(page)}
     if len(labels) != 1: return []
     year = next(iter(labels)); line = next(l for y, l in printed_catalog_years(page) if y == year)
