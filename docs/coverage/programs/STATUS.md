@@ -232,7 +232,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Valencia College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Miami Dade College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Central Florida | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| University of Florida | partial | 89 | – | 0 | 1 | queued | queued | met | queued | institution:not_yet_researched |
+| University of Florida | partial | 89 | 129 | 0 | 1 | queued | queued | met | queued | institution:not_yet_researched |
 | Florida State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of South Florida | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Broward College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
