@@ -22,7 +22,7 @@ export const SECTION_LABEL: Record<string, string> = {
   reading_writing: 'Reading & Writing',
 }
 
-const PER_SECTION: Record<ExamFamily, Record<BenchmarkKind, Record<string, number>>> = {
+export const PER_SECTION: Record<ExamFamily, Record<BenchmarkKind, Record<string, number>>> = {
   act: {
     initial: { english: 7, math: 8, reading: 6, science: 6 },
     mini: { english: 3, math: 4, reading: 3, science: 3 },
@@ -247,3 +247,6 @@ export function benchmarkImprovement(history: BenchmarkSummary[]): BenchmarkChan
 export function benchmarkAttemptIds(history: BenchmarkSummary[]): Set<string> {
   return new Set(history.flatMap((b) => b.attempt_ids))
 }
+
+/** Questions per section in a mini progress check: what is held back from practice for the next check. */
+export const MINI_PER_SECTION: Record<ExamFamily, Record<string, number>> = { act: PER_SECTION.act.mini, sat: PER_SECTION.sat.mini }

@@ -123,6 +123,14 @@ describe.skipIf(!URL_)('LiveSource against the local backend', () => {
     await student.endSession(session.id)
   })
 
+  it('a new session marks exactly the questions already answered as seen before', async () => {
+    const answered = new Set((await student.attemptHistory(studentId, '1970-01-01T00:00:00Z')).map((a) => a.question_id))
+    const session = await student.startSession(studentId, 15, 'act')
+    expect(session.items.length).toBeGreaterThan(0)
+    for (const item of session.items) expect(item.seen_before, item.question.id).toBe(answered.has(item.question.id))
+    await student.endSession(session.id)
+  })
+
   it('the weekly plan reflects practice, excluding benchmark answers', async () => {
     const [week, history, benchmarks, estimates] = await Promise.all([
       student.weeklyProgress(studentId, weekStart),

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useApp, useAsync } from '../lib/app'
 import { addDays, formatShortDate } from '../lib/engine/dates'
 import { PACE_LABEL, suggestionReason, type WeekRecap, type WeeklyPlan } from '../lib/engine/weeklyPlan'
+import type { ContentStatus } from '../lib/engine/freshness'
 import { SECTION_LABEL } from '../lib/engine/benchmark'
 import { Button, Notice, Pill, cx } from './ui'
 import { Link } from 'react-router-dom'
@@ -201,4 +202,54 @@ export function ThisWeekGoal({
       {typeof state === 'object' && <p className="mt-1 text-bad">{state.error}</p>}
     </Notice>
   )
+}
+
+const EXAM = { act: 'ACT', sat: 'SAT' } as const
+const list = (xs: string[]) => (xs.length <= 1 ? (xs[0] ?? '') : `${xs.slice(0, -1).join(', ')} and ${xs.at(-1)}`)
+/** Below this many fresh practice questions, say how many are left. */
+export const LOW_FRESH = 15
+
+/**
+ * Says plainly when fresh practice runs low or out. Repeats still count toward the weekly goal (review helps), but
+ * they are not new evidence of improvement, and the goal is never lowered to hide the shortage.
+ */
+export function FreshContentNotice({ content, name }: { content: ContentStatus | null; name?: string }) {
+  if (!content) return null
+  const you = name ?? 'You'
+  const sec = (keys: string[]) => list(keys.map((k) => SECTION_LABEL[k] ?? k))
+  const checkShort = content.checkShortSections.length ? (
+    <p className="mt-1">
+      The next progress check can't be fully fresh in {sec(content.checkShortSections)}. Sections with questions seen before won't be compared.
+    </p>
+  ) : null
+  if (content.practiceAllReview)
+    return (
+      <Notice tone="warn" title="No new practice questions left">
+        <p>
+          {you}
+          {name ? ' has' : "'ve"} answered every {EXAM[content.exam]} practice question we have. Practice now repeats questions as review. Review counts toward the weekly
+          goal and helps memory, but it isn't new evidence of improvement, so trends and progress checks leave it out. More questions are needed; until they arrive,
+          practice is review.
+        </p>
+        {checkShort}
+      </Notice>
+    )
+  if (content.reviewOnlySections.length)
+    return (
+      <Notice tone="info" title={`No new ${sec(content.reviewOnlySections)} questions left`}>
+        <p>
+          Practice in {content.reviewOnlySections.length === 1 ? 'that section' : 'those sections'} is review: it counts toward the goal, not as new evidence of improvement.
+          {content.freshForPractice > 0 ? ` ${content.freshForPractice} new questions remain in other sections.` : ''}
+        </p>
+        {checkShort}
+      </Notice>
+    )
+  if (content.freshForPractice < LOW_FRESH)
+    return (
+      <Notice tone="info" title={`${content.freshForPractice} new practice ${content.freshForPractice === 1 ? 'question' : 'questions'} left`}>
+        <p>After that, practice repeats questions already seen, as review. A few new questions in each section are kept for the next progress check.</p>
+        {checkShort}
+      </Notice>
+    )
+  return checkShort ? <Notice tone="info">{checkShort}</Notice> : null
 }
