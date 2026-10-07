@@ -111,6 +111,8 @@ export interface DataSource {
   readonly supportsPrimarySchool: boolean
   /** True when the backend stores the weekly-summary opt-in (CR-22). The demo stores it but sends no email. */
   readonly supportsWeeklyDigest: boolean
+  /** Emails actually sent to this guardian, newest first; null where the backend can't say (CR-22 not applied). */
+  emailDeliveries(): Promise<EmailDelivery[] | null>
   /** Major certainty and up to 8 saved areas/majors (CR-13). Optional everywhere; empty when never set. */
   interests(studentId: string): Promise<InterestProfile>
   saveInterests(studentId: string, profile: InterestProfile): Promise<void>
@@ -175,6 +177,15 @@ export interface InvitationSummary {
   accepted_at: string | null
   revoked_at: string | null
   last_emailed_at: string | null
+}
+
+/** One email the server recorded as sent to the signed-in guardian (CR-22 parent_email_deliveries). */
+export interface EmailDelivery {
+  kind: 'weekly_digest' | 'inactivity'
+  /** weekly_digest: the week's Monday. inactivity: the student it was about. */
+  weekStart: string | null
+  studentId: string | null
+  sentAt: string
 }
 
 export interface AlertPreference {

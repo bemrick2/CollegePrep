@@ -678,6 +678,11 @@ export class DemoSource implements DataSource {
   // The demo keeps the weekly-summary choice so the preview can be tried; it never sends email.
   readonly supportsWeeklyDigest = true
 
+  /** The demo never sends email, so there is nothing to list. */
+  async emailDeliveries() {
+    return delay([] as import('../source').EmailDelivery[])
+  }
+
   async interests(studentId: string) {
     return readInterests(studentId)
   }

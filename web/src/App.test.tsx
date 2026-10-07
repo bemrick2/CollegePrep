@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { cleanup, render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
@@ -416,6 +416,49 @@ describe('weekly plan and parent accountability', () => {
     expect(await screen.findByRole('link', { name: 'Start progress check' })).toHaveAttribute('href', '/student/benchmark?kind=mini')
     expect(screen.getByRole('heading', { name: 'Mini benchmark' })).toBeInTheDocument()
   })
+
+  it('week turnover: last week is recapped, a missing goal is offered from last week, and nothing claims an email was sent', async () => {
+    vi.useFakeTimers({ toFake: ['Date'] })
+    vi.setSystemTime(new Date('2026-10-07T15:00:00Z')) // a Wednesday: the recap still leads
+    try {
+      const user = userEvent.setup()
+      const fam = livingIn('TN', sampleFamily('parent'))
+      const sid = fam.students[0]!.id
+      const thisWeek = '2026-10-05'
+      fam.goals = fam.goals.filter((g) => !(g.student_id === sid && g.week_start === thisWeek))
+      const src = new DemoSource(fam)
+      renderAt('/parent', src)
+      const recap = await screen.findByRole('region', { name: 'Last week' })
+      expect(within(recap).getByText(/week of Sep 28/)).toBeInTheDocument()
+      expect(within(recap).getByText(/of 40 questions|Goal met: \d+ of 40 questions/)).toBeInTheDocument()
+      expect(within(recap).getByRole('list', { name: "Last week's practice days" })).toBeInTheDocument()
+      // No goal this week: one tap carries last week's forward (the parent may set goals in the sample family).
+      expect(screen.getByText('No goal for this week yet')).toBeInTheDocument()
+      await user.click(screen.getByRole('button', { name: 'Use 40 again this week' }))
+      expect((await src.weeklyProgress(sid, thisWeek)).goal?.target_questions).toBe(40)
+      // Only what the server recorded as sent is called emailed; the demo sends nothing.
+      expect(await screen.findByText(/None\. The demo never sends email; updates appear only on this dashboard\./)).toBeInTheDocument()
+      expect(screen.queryByText(/emailed (to you )?(Mon|Tue|Wed|Thu|Fri|Sat|Sun|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/)).not.toBeInTheDocument()
+    } finally {
+      vi.useRealTimers()
+    }
+  }, 30_000)
+
+  it('student sees last week at the start of the week, and who sets a missing goal', async () => {
+    vi.useFakeTimers({ toFake: ['Date'] })
+    vi.setSystemTime(new Date('2026-10-05T15:00:00Z')) // Monday
+    try {
+      const fam = sampleFamily('student')
+      const sid = fam.students[0]!.id
+      fam.goals = fam.goals.filter((g) => !(g.student_id === sid && g.week_start === '2026-10-05'))
+      renderAt('/student', new DemoSource(fam))
+      expect(await screen.findByRole('region', { name: 'Last week' })).toBeInTheDocument()
+      expect(screen.getByText('No goal for this week yet')).toBeInTheDocument()
+      expect(screen.getByText('Your parent or guardian sets the weekly goal.')).toBeInTheDocument()
+    } finally {
+      vi.useRealTimers()
+    }
+  }, 30_000)
 
   it('a progress check is compared with the baseline, labelled as practice, with noise called noise', async () => {
     const user = userEvent.setup()

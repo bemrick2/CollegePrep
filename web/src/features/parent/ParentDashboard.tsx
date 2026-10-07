@@ -6,12 +6,12 @@ import { ButtonLink, Card, EmptyState, Notice, PageLoading, Pill, ProgressBar } 
 import { Users } from '../../components/icons'
 import { latestEstimate, recentTrend, useStudentOverview, type StudentOverview } from '../student/useStudentOverview'
 import { SECTION_LABEL, SECTION_ORDER, benchmarkSchedule, pacingVerdict } from '../../lib/engine/benchmark'
-import { daysBetween, formatShortDate, isoWeekday } from '../../lib/engine/dates'
+import { addDays, daysBetween, formatShortDate, isoWeekday } from '../../lib/engine/dates'
 import { EXAM_NAME } from '../onboarding/options'
 import { useCatalog } from '../practice/useCatalog'
 import { costPhrase, outlookFor } from './CostOutlook'
 import { WeeklyUpdate } from './WeeklyUpdate'
-import { weeklyPlan } from '../../lib/engine/weeklyPlan'
+import { showRecap, weekRecap, weeklyPlan } from '../../lib/engine/weeklyPlan'
 import { Figure, NextSteps, PageHeader, Row, RowList, Section, compactUsd } from '../../components/layout'
 import { planSummary, type PlanSummary } from '../../lib/engine/planSummary'
 import { schoolLevers } from '../colleges/schoolLevers'
@@ -49,7 +49,7 @@ function StudentPanel({ student }: { student: Student }) {
       </Notice>
     )
   if (!o.data) return null
-  return <Panel student={student} o={o.data} />
+  return <Panel student={student} o={o.data} onRefresh={o.reload} />
 }
 
 function sectionRollup(estimates: SkillEstimate[]) {
@@ -65,7 +65,7 @@ function sectionRollup(estimates: SkillEstimate[]) {
   return m
 }
 
-function Panel({ student, o }: { student: Student; o: StudentOverview }) {
+function Panel({ student, o, onRefresh }: { student: Student; o: StudentOverview; onRefresh: () => void }) {
   const { ctx } = useApp()
   const exam = o.plan?.exam_family ?? 'act'
   const interestCount = useInterests(student.id).profile.interests.length
@@ -252,6 +252,10 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
           skillName={catalog.skillName}
           lastPractice={lastDay}
           lastCheck={o.benchmarks.at(-1) ?? null}
+          lastWeek={o.lastWeek ? weekRecap({ weekStart: addDays(o.weekStart, -7), tz: o.tz, plan: o.plan, week: o.lastWeek, history: o.history, benchmarks: o.benchmarks, estimates: o.estimates }) : null}
+          recapFirst={showRecap(o.today, o.weekStart)}
+          hasGoal={!!o.week.goal?.target_questions}
+          onRefresh={onRefresh}
         />
       ) : null}
 
