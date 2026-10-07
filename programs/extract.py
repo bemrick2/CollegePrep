@@ -28,7 +28,8 @@ from .crawl import program_rule, in_scope, excluded
 
 GRAD = re.compile(r'\b(M\.?\s?S\.?|M\.?\s?A\.?|MBA|M\.?\s?Ed|M\.?\s?F\.?A|Ph\.?\s?D|Ed\.?\s?D|DNP|D\.?\s?P\.?\s?T|J\.?\s?D|'
                   r'Master|Doctor|Graduate|Post[- ]?bacc|Certificate|Minor|Endorsement)\b', re.I)
-BACHELOR = re.compile(r'(?<![A-Za-z]\.)\b(B\.?\s?(A|S|F\.?A|L\.\s?A|M|S\.?N|S\.?W|B\.?A|S\.?E|S\.?E\.?E|S\.?M\.?E|S\.?C\.?E|Arch|Mus|A\.?S|A\.?A\.?S|S\.?Ed|I\.?S)\b\.?|'
+# PVAMU 2026-27 also prints BSCJ, BSAG, BSCHE and BSDIET ('Criminal Justice, BSCJ')
+BACHELOR = re.compile(r'(?<![A-Za-z]\.)\b(B\.?\s?(A|S|F\.?A|L\.\s?A|M|S\.?N|S\.?W|B\.?A|S\.?E|S\.?E\.?E|S\.?M\.?E|S\.?C\.?E|Arch|Mus|A\.?S|A\.?A\.?S|S\.?Ed|I\.?S|SCJ|SAG|SCHE|SDIET)\b\.?|'
                       r'Bachelor|\bH?BA\b|\bH?BS\b)', re.I)
 ASSOCIATE = re.compile(r'\b(A\.?\s?(A|S|A\.?S|A\.?T|S\.?T|F\.?A)\b\.?|Associate)', re.I)
 
@@ -190,7 +191,19 @@ def collect_lists(target, run, entries):
                        'unclassified': sum(p['credential_level'] is None for p in progs)}}
 
 
+# KU 2026-27: a program's sample-plan sub-page ('Below is a sample 4-year plan for students pursuing the BA in Anthropology',
+# 'The recommended 4-year plan is listed below') repeats the degree's name; the program's own page is its source
+SAMPLE_PLAN_PAGE = re.compile(r'(?im)^\s*(below is a |the )?(sample|recommended) (4|four)[- ]year plan\b')
+
+
 def program_page_candidates(target, inst, entry, page, today_year):
+    found = _program_page_candidates(target, inst, entry, page, today_year)
+    if SAMPLE_PLAN_PAGE.search(page.text or ''):
+        found = [c for c in found if c['domain'] != 'academic_programs']
+    return found
+
+
+def _program_page_candidates(target, inst, entry, page, today_year):
     """catalog_program/v1 (Acalog, CourseLeaf) unchanged; when it finds no printed year in the page header but the
     page itself prints exactly one catalog year label elsewhere (CourseLeaf footer "2026-2027 Catalog"), the same
     extractor runs on a view of the page whose title carries that label, and every candidate records it as an issue
@@ -286,7 +299,7 @@ def department_section_candidates(inst, entry, page, today_year):
     yline = next((l for y, l in printed_catalog_years(page) if y == year), printed0 and (page.title or '')) or year
     # KU 2026-27: a program's sample-plan sub-page ('Below is a sample 4-year plan for students pursuing the BA in
     # Anthropology') repeats the degree heading; the program's own page is its source
-    if re.search(r'(?im)^\s*(below is a |the )?(sample|recommended) (4|four)[- ]year plan\b', page.text or ''): return []
+    if SAMPLE_PLAN_PAGE.search(page.text or ''): return []
     here = norm_url(common.source_of(entry)['url'])
     others = [(norm_url(h), re.sub(r'[^a-z0-9]+', ' ', (a or '').lower()).strip()) for h, a in (page.links or [])]
     out, keys = [], set()

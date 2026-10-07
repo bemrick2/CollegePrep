@@ -1386,6 +1386,24 @@ class DegreeLineTests(unittest.TestCase):
         self.assertEqual(run(U + 'ACT_BSAC/', ['Accounting'], 'The Degree: Bachelor of Science is common'), [])  # a whole line only
 
 
+class SamplePlanPageTests(unittest.TestCase):  # KU 2026-27 sample-plan sub-pages; PVAMU award abbreviations (review of 2026-10-07)
+    def test_sample_plan_sub_page_gives_no_program_record(self):
+        from pipeline import text as T
+        e = {'url': 'https://catalog.x.edu/las/anthropology/ba-bgs/ba-anthropology/', 'role': 'program_page', 'sha256': 'a' * 64,
+             'fetched_at': '2026-10-06T00:00:00+00:00', 'status': 200, 'kind': 'html'}
+        tgt = {'catalog': {'platform': 'courseleaf'}}
+        body = '2026-2027 Academic Catalog\nBA in Anthropology\n'
+        page = T.Page(body + 'The Department of Anthropology offers a BA.', 'BA in Anthropology', [], [], ['BA in Anthropology'])
+        self.assertTrue([c for c in X.program_page_candidates(tgt, {'institution_key': 'k'}, e, page, '2026-27') if c['domain'] == 'academic_programs'])
+        plan = T.Page(body + 'Below is a sample 4-year plan for students pursuing the BA in Anthropology.', 'BA in Anthropology', [], [], ['BA in Anthropology'])
+        self.assertEqual([c for c in X.program_page_candidates(tgt, {'institution_key': 'k'}, e, plan, '2026-27') if c['domain'] == 'academic_programs'], [])
+
+    def test_pvamu_awards(self):
+        for n in ('Criminal Justice, BSCJ', 'Agriculture, BSAG', 'Chemical Engineering, BSCHE', 'Human Nutrition and Food, BSDIET'):
+            self.assertEqual(X.credential_of(n), 'bachelor', n)
+        self.assertIsNone(X.credential_of('Bsagent Studies'))
+
+
 class DepartmentSectionTests(unittest.TestCase):
     def test_degree_sections_on_a_department_page(self):  # MSState 2026-27, Arkansas 2026-27
         from pipeline import text as T
