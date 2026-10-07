@@ -200,6 +200,9 @@ def program_page_candidates(target, inst, entry, page, today_year):
         # 'Major: Part' name on a page that speaks of emphases, and a dual major, are not programs of their own
         if re.search(r'\bdual major\b', name, re.I) or (':' in name and re.search(r'\bemphas[ie]s\b', page.text, re.I)): out = []
     if not out and plat == 'courseleaf':
+        out = degree_line_identity(inst, entry, page, today_year)
+        if out: return out  # program record only: UF requirement and plan tables are not read on this path yet
+    if not out and plat == 'courseleaf':
         return department_section_candidates(inst, entry, page, today_year)  # several degrees on one page: no plan or list rows read here
     if plat == 'courseleaf' and year:
         from . import courseleaf
@@ -259,6 +262,35 @@ def department_section_candidates(inst, entry, page, today_year):
                                 {'field': 'catalog_year', 'value': year, 'snippet': str(yline)[:200]}],
                                entry, 'department_section/v1', {'program_key': key}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}']))
     return out
+
+
+DEGREE_LINE = re.compile(r'(?m)^[ \t]*Degree:[ \t]*(Bachelor of [A-Z][A-Za-z]*(?: (?:in|of|and) [A-Z][A-Za-z]*| [A-Z][A-Za-z]*)*)[ \t]*$')
+
+
+def degree_line_identity(inst, entry, page, today_year):
+    """degree_line/v1: a program page headed by the program's name alone ('Accounting') that states its award on one
+    line, 'Degree: Bachelor of Science in Accounting' (UF 2026-27). The name is the page heading as printed; the award line
+    is the credential evidence; the page must print one current catalog label. Two degree lines, no line, or an option,
+    minor, certificate or online-copy heading give no record."""
+    if not page.headings: return []
+    name = page.headings[0].strip()
+    if not name or OPTION_NAME.search(name) or re.search(r'\b(minor|certificate|online)\b', name, re.I): return []
+    if name != CAT.program_name(page).strip(): return []
+    parts = [x for x in urlsplit(common.source_of(entry)['url']).path.split('/') if x]
+    if len(parts) >= 2 and re.fullmatch(r'[A-Z]{2,4}_[A-Z]{2,6}', parts[-2]): return []  # UF 'BLY_BS/BLY_BS01/': a specialization under its major's page
+    awards = {m.group(1) for m in DEGREE_LINE.finditer(page.text)}
+    labels = printed_catalog_years(page)
+    if len(awards) != 1 or len({y for y, _ in labels}) != 1: return []
+    m = DEGREE_LINE.search(page.text); award = m.group(1)
+    year, line = min(labels); acad = f'{year[:4]}-{year[7:9]}'
+    rec = {'program_key': CAT.slug(f'{name} {award}'), 'program_name': name, 'credential_level': 'bachelor', 'catalog_year': year,
+           'program_url': common.source_of(entry)['url'],
+           'notes': f'Program name as printed in the page heading; award as stated on the page: "{m.group(0).strip()}"'}
+    return [common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec,
+                        [{'field': 'program_name', 'value': name, 'snippet': name},
+                         {'field': 'credential_level', 'value': 'bachelor', 'snippet': m.group(0).strip()[:300]},
+                         {'field': 'catalog_year', 'value': year, 'snippet': line[:200]}],
+                        entry, 'degree_line/v1', {'program_key': rec['program_key']}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}'])]
 
 
 def static_program_identity(inst, entry, page, today_year):
