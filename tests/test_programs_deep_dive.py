@@ -602,6 +602,7 @@ class CourseListLayoutGroupTests(unittest.TestCase):
         from programs.courselist_html import course_lists
         def row(kind, text, title='', cr=''):
             if kind == 'head': return f'<tr class="even areaheader"><td colspan="2"><span class="courselistcomment areaheader">{text}</span></td><td>{cr}</td></tr>'
+            if kind == 'sub': return f'<tr class="odd areasubheader"><td colspan="2"><span class="courselistcomment areasubheader">{text}</span></td><td>{cr}</td></tr>'
             if kind == 'rule': return f'<tr class="odd"><td colspan="2"><span class="courselistcomment">{text}</span></td><td>{cr}</td></tr>'
             if kind == 'irule': return f'<tr class="odd"><td colspan="2"><div style="margin-left:20px;"><span class="courselistcomment">{text}</span></div></td><td>{cr}</td></tr>'
             if kind == 'opt': return f'<tr class="even"><td><div style="margin-left:20px;" class="blockindent"><a>{text}</a></div></td><td>{title}</td><td>{cr}</td></tr>'
@@ -771,6 +772,24 @@ class CourseListLayoutReviewTests(unittest.TestCase):
         # "Select 14 hours of Architectural Science Electives" is hours, never a count of courses
         g = CL.html_groups(self.table([('rule', 'Select 14 hours of Architectural Science Electives', '', '14'), ('opt', 'ARCH 300', 'A'), ('opt', 'ARCH 301', 'B')]))
         self.assertEqual((g[0][1]['type'], g[0][1].get('choose_credits')), ('choose_credits', 14))
+
+    def test_heading_that_prints_a_choice(self):  # TAMUSA BS Public Health 2026-27 (independent re-verification, issue #95)
+        from programs import courseleaf as CL
+        t = self.table([('head', 'Major Courses'), ('c', 'HLTH 2301', 'Foundations', '3'),
+                        ('head', 'Prescribed Electives (Choose 9 hours)'), ('sub', 'Cross-Cutting Issues'), ('c', 'HLTH 3370', 'Directed Study', '3'),
+                        ('sub', 'Emergency Management'), ('c', 'HLTH 3355', 'Society and Disaster', '3'),
+                        ('head', 'Capstone'), ('c', 'HLTH 4670', 'Internship', '6')])
+        self.assertEqual([(s, sorted(g['issues'])) for s, g in CL.html_groups(t)],
+                         [('Major Courses', []), ('Cross-Cutting Issues', ['heading_prints_choice']),
+                          ('Emergency Management', ['heading_prints_choice']), ('Capstone', [])])
+        # the section itself prints the choice (CUW 'Non-Western Global History (choose 2 courses)'); a dash form too
+        for h in ('Non-Western Global History (choose 2 courses)', 'Major Electives - Select 12 credits'):
+            g = CL.html_groups(self.table([('head', h), ('c', 'HIST 3301', 'Asia', '3'), ('c', 'HIST 3302', 'Africa', '3')]))
+            self.assertIn('heading_prints_choice', g[0][1]['issues'])
+        # an ordinary heading with a number in it, or one that says to complete all, is not a choice
+        for h in ('Required Courses (36 hours)', 'Major Core (Complete all courses)'):
+            g = CL.html_groups(self.table([('head', h), ('c', 'HIST 3301', 'Asia', '3')]))
+            self.assertNotIn('heading_prints_choice', g[0][1]['issues'])
 
     def test_third_review_rules(self):
         from programs import courseleaf as CL

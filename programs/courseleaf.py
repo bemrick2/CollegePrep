@@ -261,6 +261,8 @@ def list_candidates(inst, entry, page, year, year_line, program_key):
 #     program has several, counts at or above the number of listed options, "up to" / "can include" rules, printed
 #     credit ranges for a choice, text options, and any row the reader cannot represent exactly.
 HTML_EXTRACTOR = 'courselist_html/v1'
+# a heading that prints a choice: 'Prescribed Electives (Choose 9 hours)', 'Major Electives - Select 12 credits'
+HEADER_CHOICE = re.compile(r'(\(|[-–:]\s*)(choose|select|complete|take)\s+(one|two|three|four|five|six|\d+)\b', re.I)
 RULE_ROW = re.compile(r'^(select|choose|complete|take)\b|^students\s+must\s+(take|complete|select|choose)\s+(an?\s+additional\s+|at\s+least\s+)?\d{1,2}\s+(additional\s+)?(credit\s+hours|credits|hours)\s+(from|of)\s+the\s+following\b|^(one|two|three|four|five|six|seven|eight|nine|ten|\d+)\b.*\b(of|from)\b.*\b(following|list|below)\b|^(one|two|three|four|five|\d+)\s+(courses?\s+)?(of|from)\b', re.I)
 REFERENCE_HEADING = re.compile(r'\b(approved|distribution|area\s+[ivx\d]+|group\s+[a-z\d]\b|courses offered|ensembles?|recommended|suggested|sample|example|'
                                r'options?|tracks?|concentrations?|focus|focal|domains?|emphas[ie]s|specialization|honors|electives?|pass/no pass)\b', re.I)
@@ -293,6 +295,7 @@ def html_groups(table, program_awards=1, extra_issues=None):
     """[(section, group)] for one stored course-list table."""
     heading, context = (table.get('heading') or '').strip(), table.get('context') or ''
     out, section, cur = [], '', None
+    parent = ''  # the main heading over sub-headings ('Prescribed Electives (Choose 9 hours)' over 'Cross-Cutting Issues')
     table_issues = set(extra_issues or ())
     held_until_header = False
     last_text_ended_choice = [None]
@@ -311,6 +314,8 @@ def html_groups(table, program_awards=1, extra_issues=None):
             else:  # 'Select an additional 7 credits from courses that count toward either major.': a printed rule, no list
                 g['type'] = 'choose_unclear'; g['rules_only'] = True
         where = f'{heading} {section}'
+        if HEADER_CHOICE.search(parent if parent != section else '') or HEADER_CHOICE.search(section or ''):
+            g['issues'].add('heading_prints_choice')  # TAMUSA 'Prescribed Electives (Choose 9 hours)': the lists below are its options
         if g['type'] == 'all_required' and REFERENCE_HEADING.search(where) and not re.search(r'\b(major|core) requirements\b', section, re.I):
             g['issues'].add('reference_or_track_heading')  # a list under 'Approved ...' / 'Electives' / 'Option' is not a required list
         elif g['type'] != 'all_required' and TRACK_HEADING.search(where):
@@ -341,6 +346,7 @@ def html_groups(table, program_awards=1, extra_issues=None):
             else:
                 close()  # the group before a main heading still belongs to the held span
                 if not sub: held_until_header = False
+            if not sub: parent = rw['text']
             section = rw['text']; continue
         if rw['or']:
             m = OR_CODE.match(rw['text'])

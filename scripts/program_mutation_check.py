@@ -107,6 +107,12 @@ MUTS = [
     ('programs/courseleaf.py', "            return False  # Iowa State Accelerated Nursing", "            pass  # Iowa State Accelerated Nursing"),
     ('programs/courseleaf.py', "                crd = CREDITS.match(rule); cnt = COUNT.match(rule) or (None if crd else COUNT_NAMED.match(rule))", "                crd = CREDITS.match(rule); cnt = COUNT.match(rule)"),
     ('programs/courseleaf.py', " or re.search(r'\\b(probation|withdrawal)\\b', heading, re.I) else heading", " else heading"),
+    ('programs/courseleaf.py', "            if not sub: parent = rw['text']", "            pass"),
+    ('programs/courseleaf.py', "        if HEADER_CHOICE.search(parent if parent != section else '') or HEADER_CHOICE.search(section or ''):", "        if HEADER_CHOICE.search(section or ''):"),
+    ('programs/courseleaf.py', "        if HEADER_CHOICE.search(parent if parent != section else '') or HEADER_CHOICE.search(section or ''):", "        if HEADER_CHOICE.search(parent if parent != section else ''):"),
+    ('programs/courseleaf.py', "HEADER_CHOICE = re.compile(r'(\\(|[-–:]\\s*)(choose", "HEADER_CHOICE = re.compile(r'([-–:]\\s*)(choose"),
+    ('programs/courseleaf.py', "HEADER_CHOICE = re.compile(r'(\\(|[-–:]\\s*)(choose", "HEADER_CHOICE = re.compile(r'(\\()(choose"),
+    ('programs/courseleaf.py', "(choose|select|complete|take)\\s+(one|two|three|four|five|six|\\d+)\\b', re.I)", "(choose|select|complete|take)\\s+(\\w+)\\b', re.I)"),
 ]
 
 
