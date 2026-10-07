@@ -1,0 +1,308 @@
+{
+ "state": "NH",
+ "purpose": "Program & Degree Deep Dive targets. Seeds are official hosts only; facts come only from fetched pages. mode=catalog targets have a reviewed catalog platform configuration; mode=discover targets are first crawled to locate their catalog.",
+ "state_sources": [],
+ "institutions": [
+  {
+   "institution_key": "ipeds-182634",
+   "folder": "colby-sawyer",
+   "name": "Colby-Sawyer College",
+   "control": "private_nonprofit",
+   "domains": [
+    "colby-sawyer.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.colby-sawyer.edu/",
+    "https://catalog.colby-sawyer.edu/",
+    "https://www.colby-sawyer.edu/academics/",
+    "https://www.colby-sawyer.edu/registrar/",
+    "https://www.colby-sawyer.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-182670",
+   "folder": "dartmouth",
+   "name": "Dartmouth College",
+   "control": "private_nonprofit",
+   "domains": [
+    "dartmouth.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.dartmouth.edu/",
+    "https://catalog.dartmouth.edu/",
+    "https://www.dartmouth.edu/academics/",
+    "https://www.dartmouth.edu/registrar/",
+    "https://www.dartmouth.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-182795",
+   "folder": "franklinpierce",
+   "name": "Franklin Pierce University",
+   "control": "private_nonprofit",
+   "domains": [
+    "franklinpierce.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.franklinpierce.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.franklinpierce.edu/degrees"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.franklinpierce.edu (program list https://catalog.franklinpierce.edu/degrees)"
+  },
+  {
+   "institution_key": "ipeds-183062",
+   "folder": "keene",
+   "name": "Keene State College",
+   "control": "public",
+   "domains": [
+    "keene.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.keene.edu/",
+    "https://catalog.keene.edu/",
+    "https://www.keene.edu/academics/",
+    "https://www.keene.edu/registrar/",
+    "https://www.keene.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-182980",
+   "folder": "nec",
+   "name": "New England College",
+   "control": "private_nonprofit",
+   "domains": [
+    "nec.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 51,
+    "home": "https://catalog.nec.edu/index.php?catoid=51",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.nec.edu/content.php?catoid=51&navoid=2481",
+     "https://catalog.nec.edu/content.php?catoid=51&navoid=2509",
+     "https://catalog.nec.edu/content.php?catoid=51&navoid=2662"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 51 on catalog.nec.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-183080",
+   "folder": "plymouth",
+   "name": "Plymouth State University",
+   "control": "public",
+   "domains": [
+    "plymouth.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catalog_pdfs": [
+     "https://coursecatalog.plymouth.edu/pdf/Plymouth%20State%20University%202026-2027.pdf"
+    ],
+    "home": "https://coursecatalog.plymouth.edu/pdf/Plymouth%20State%20University%202026-2027.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
+  },
+  {
+   "institution_key": "ipeds-183211",
+   "folder": "rivier",
+   "name": "Rivier University",
+   "control": "private_nonprofit",
+   "domains": [
+    "rivier.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 119,
+    "home": "https://catalog.rivier.edu/index.php?catoid=119",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.rivier.edu/content.php?catoid=119&navoid=2572",
+     "https://catalog.rivier.edu/content.php?catoid=119&navoid=2585"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 119 on catalog.rivier.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-183239",
+   "folder": "anselm",
+   "name": "Saint Anselm College",
+   "control": "private_nonprofit",
+   "domains": [
+    "anselm.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "catoid": 18,
+    "home": "https://catalog.anselm.edu/index.php?catoid=18",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.anselm.edu/content.php?catoid=18&navoid=533",
+     "https://catalog.anselm.edu/content.php?catoid=18&navoid=535",
+     "https://catalog.anselm.edu/content.php?catoid=18&navoid=541",
+     "https://catalog.anselm.edu/content.php?catoid=18&navoid=548"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 18 on catalog.anselm.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-183026",
+   "folder": "snhu",
+   "name": "Southern New Hampshire University",
+   "control": "private_nonprofit",
+   "domains": [
+    "snhu.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 1,
+   "discover": [
+    "https://www.snhu.edu/",
+    "https://catalog.snhu.edu/",
+    "https://www.snhu.edu/academics/",
+    "https://www.snhu.edu/registrar/",
+    "https://www.snhu.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-183044",
+   "folder": "unh-183044",
+   "name": "University of New Hampshire-Main Campus",
+   "control": "public",
+   "domains": [
+    "unh.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.unh.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.unh.edu/undergraduate/programs/",
+     "https://catalog.unh.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.unh.edu (program list https://catalog.unh.edu/undergraduate/programs/)"
+  },
+  {
+   "institution_key": "ipeds-182917",
+   "folder": "magdalen",
+   "name": "Magdalen College",
+   "control": "private_nonprofit",
+   "domains": [
+    "magdalen.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://www.magdalen.edu/",
+    "https://catalog.magdalen.edu/",
+    "https://www.magdalen.edu/academics/",
+    "https://www.magdalen.edu/registrar/",
+    "https://www.magdalen.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-183275",
+   "folder": "thomasmorecollege",
+   "name": "Thomas More College of Liberal Arts",
+   "control": "private_nonprofit",
+   "domains": [
+    "thomasmorecollege.edu"
+   ],
+   "hosts": [],
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "catalog_pdfs": [
+     "http://thomasmorecollege.edu/wp-content/uploads/Thomas-More-College-Catalogue-2025-26-30-January-2026-1.pdf"
+    ],
+    "home": "http://thomasmorecollege.edu/wp-content/uploads/Thomas-More-College-Catalogue-2025-26-30-January-2026-1.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
+  },
+  {
+   "institution_key": "ipeds-183257",
+   "folder": "cps",
+   "name": "University of New Hampshire College of Professional Studies Online",
+   "control": "public",
+   "domains": [
+    "unh.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://cps.unh.edu/online",
+    "https://catalog.unh.edu/",
+    "https://www.unh.edu/academics/",
+    "https://www.unh.edu/registrar/",
+    "https://www.unh.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-183071",
+   "folder": "unh-183071",
+   "name": "University of New Hampshire at Manchester",
+   "control": "public",
+   "domains": [
+    "unh.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 2,
+   "discover": [
+    "https://manchester.unh.edu/",
+    "https://catalog.unh.edu/",
+    "https://www.unh.edu/academics/",
+    "https://www.unh.edu/registrar/",
+    "https://www.unh.edu/catalog/"
+   ],
+   "policy": []
+  }
+ ]
+}

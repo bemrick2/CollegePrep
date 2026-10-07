@@ -1134,6 +1134,21 @@ class CrawlDelayTests(unittest.TestCase):
 class DetectTests(unittest.TestCase):
     """programs/detect.py: catalog platform from official links on stored discovery pages."""
 
+    def test_shared_catalog_kept_only_for_the_institution_that_owns_its_host(self):
+        from programs import detect as D
+        cat = lambda home: {'catalog': {'platform': 'acalog', 'home': home, 'catoid': 4}}
+        insts = {f: {'seeds': {'website': w}} for f, w in [('manoa', 'https://manoa.hawaii.edu/'), ('hilo', 'https://hilo.hawaii.edu/'),
+                 ('maui', 'https://maui.hawaii.edu/'), ('unh', 'https://www.unh.edu/'), ('manchester', 'https://manchester.unh.edu/'),
+                 ('h1', 'https://www.herzing.edu/'), ('h2', 'https://www.herzing.edu/'), ('solo', 'https://www.solo.edu/')]}
+        m = 'https://catalog.manoa.hawaii.edu/index.php?catoid=4'
+        cfgs = {'manoa': cat(m), 'hilo': cat(m), 'maui': cat(m), 'unh': cat('https://catalog.unh.edu/'), 'manchester': cat('https://catalog.unh.edu/'),
+                'h1': cat('https://catalog.herzing.edu/'), 'h2': cat('https://catalog.herzing.edu/'), 'solo': cat('https://catalog.other.edu/')}
+        drop = D.shared_catalogs(cfgs, insts)
+        self.assertEqual(sorted(drop), ['h1', 'h2', 'hilo', 'manchester', 'maui'])
+        self.assertIn('belongs to manoa', drop['hilo'])
+        cfgs['h1']['reviewed'] = True
+        self.assertNotIn('h1', D.shared_catalogs(cfgs, insts))
+
     def det(self, links, title='', text='', url='https://www.x.edu/'):
         from programs import detect as D
         return D.detect_institution([({'url': url}, {'title': title, 'text': text, 'links': links})])
