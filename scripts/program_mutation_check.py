@@ -12,6 +12,8 @@ MUTS = [
     ('programs/courseleaf.py', "    if PAIR_CODE.search(text): return {'complex_course_row', 'lecture_lab_pair_code'}", "    pass"),
     ('programs/courseleaf.py', "            if g['type'] == 'all_required' and not g['issues']: return", "            if g['type'] == 'all_required': return"),
     ('programs/courseleaf.py', "                rule = LEAD_IN.sub('', rw['text'])", "                rule = rw['text']"),
+    ('programs/courseleaf.py', "            if ALL_FOLLOWING.match(rw['text']):", "            if False:"),
+    ('programs/courseleaf.py', "        if cur is not None and cur.get('all_following') and not cur['rules']:", "        if False:"),
     ('programs/crawl.py', "return registrable_domain(h) in set(target.get('domains', []))", 'return True'),
     ('programs/crawl.py', "keep = '&'.join(f'{k}={q[k][0]}' for k in ('catoid', 'poid', 'navoid') if k in q)", "keep = p.query"),
     ('programs/crawl.py', "rx = re.compile(r'preview_program\\.php\\?catoid=%s&poid=\\d+' % re.escape(str(cat.get('catoid'))))",

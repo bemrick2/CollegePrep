@@ -119,7 +119,14 @@ LEAD_IN = re.compile(r'^students\s+must\s+(?=(?:take|complete|select|choose)\s+(
 NUMBER_WORDS = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10}
 COUNT = re.compile(r'^(?:select|choose|complete|take)\s+(?:(?:a\s+)?(?:minimum|total)\s+of\s+)?(one|two|three|four|five|six|seven|eight|nine|ten|\d+)\s+'
                    r'(?:additional\s+|more\s+|upper[- ]division\s+|lower[- ]division\s+|[A-Z]{2,5}\s+)*(?:courses?|of\s+the\s+following|from\s+the\s+following)\b', re.I)
-CREDITS = re.compile(r'^(?:select|choose|complete|take)\s+(?:(?:a\s+)?(?:minimum|total)\s+of\s+|at\s+least\s+|an\s+additional\s+)?(\d{1,2})(?:\s*-\s*\d{1,2})?\s+(?:additional\s+)?(?:credits?|credit\s+hours|hours|units)\b', re.I)
+CREDITS = re.compile(r'^(?:select|choose|complete|take)\s+(?:(?:a\s+)?(?:minimum|total)\s+of\s+(?:at\s+least\s+)?|at\s+least\s+|an\s+additional\s+)?'
+                     r'(\d{1,2}|one|two|three|four|five|six|seven|eight|nine|ten)(?:\s*-\s*\d{1,2})?\s+(?:additional\s+)?(?:credits?|credit\s+hours|hours|units)\b', re.I)
+# 'Complete the following:' (UVU) prints an all-required list, not a choice
+ALL_FOLLOWING = re.compile(r'^(?:complete|take)\s+(?:all\s+(?:of\s+)?)?the\s+following(?:\s+(?:courses|requirements))?\s*:?\s*$', re.I)
+
+
+def _num(w):
+    return NUMBER_WORDS.get(w.lower()) or int(w)
 # One course code as printed: 'BIOL 101', 'IT222' (Purdue Global prints no space), 'ENGL 1302' / 'DANC 1100R' (TAMUSA, UVU:
 # four digits and a suffix letter), 'ENG/FILM 366' (WKU: one cross-listed course, kept as printed so the list is not cut).
 CODE = r'[A-Z]{1,5}(?:/[A-Z]{1,5})*\s?\d{3,4}[A-Z]?'
@@ -186,7 +193,7 @@ def course_list_groups(table):
             cnt, crd = COUNT.match(LEAD_IN.sub('', first)), CREDITS.match(LEAD_IN.sub('', first))
             cur = {'rule_text': first + (f' {cells[-1]}' if has_credits else ''), 'courses': [], 'issues': set()}
             if cnt: cur['group_type'] = 'choose_courses'; w = cnt.group(1).lower(); cur['choose_count'] = NUMBER_WORDS.get(w) or int(w)
-            elif crd: cur['group_type'] = 'choose_credits'; cur['choose_credits'] = int(crd.group(1))
+            elif crd: cur['group_type'] = 'choose_credits'; cur['choose_credits'] = _num(crd.group(1))
             else: cur['group_type'] = 'choose_unclear'; cur['issues'].add('choose_number_not_printed')
             continue
         if is_code or complex_code:
@@ -352,6 +359,9 @@ def html_groups(table, program_awards=1, extra_issues=None):
                 if rw['code'] and not rw['inner']: cur['courses'].append(_course(rw))
                 else: cur['issues'] |= complex_reasons(rw['text'])
                 continue
+            if ALL_FOLLOWING.match(rw['text']):
+                close(); cur = {'type': 'all_required', 'courses': [], 'rules': [], 'issues': set(), 'all_following': True}
+                continue
             if RULE_ROW.match(rw['text']):
                 close()
                 t = rw['text'] + (f" {rw['credits']}" if rw['credits'] else '')
@@ -360,7 +370,7 @@ def html_groups(table, program_awards=1, extra_issues=None):
                 cur = {'type': 'choose_unclear', 'courses': [], 'rules': [], 'issues': set(), 'rule_text': t}
                 if cnt: cur['type'] = 'choose_courses'; w = cnt.group(1).lower(); cur['choose_count'] = NUMBER_WORDS.get(w) or int(w)
                 elif crd:
-                    cur['type'] = 'choose_credits'; cur['choose_credits'] = int(crd.group(1))
+                    cur['type'] = 'choose_credits'; cur['choose_credits'] = _num(crd.group(1))
                     if re.search(r'\d\s*-\s*\d', rw['text']): cur['issues'].add('credit_range')
                 else:
                     m = re.match(r'^(one|two|three|four|five|six|\d+)\b', rw['text'], re.I)
@@ -372,11 +382,13 @@ def html_groups(table, program_awards=1, extra_issues=None):
             if was_choice and out: last_text_ended_choice[0] = out[-1][1]  # if indented rows follow, the text was part of the option list
             continue
         # indented row: an option of the open choice
-        if cur is not None and cur['type'] == 'all_required' and cur['courses']:
+        if cur is not None and cur['type'] == 'all_required' and cur['courses'] and not cur.get('all_following'):
             cur['issues'].add('indented_rows_after_required_course')  # 'DATA 488 ... (or)' + indented alternatives (Linfield)
         if cur is None and ended_by_text is not None:
             ended_by_text['issues'].add('choice_continues_after_text')  # 'Alternative Approved Courses:' + more options
-        if cur is None or cur['type'] == 'all_required':
+        if cur is not None and cur.get('all_following') and not cur['rules']:
+            pass  # 'Complete the following courses:' + indented courses: all of them are required
+        elif cur is None or cur['type'] == 'all_required':
             close(); cur = {'type': 'choose_unclear', 'courses': [], 'rules': [], 'issues': {'indented_rows_without_rule'}}
         if rw['code'] and not rw['inner']: cur['courses'].append(_course(rw))
         elif rw['codeish']: cur['issues'] |= complex_reasons(rw['text'])

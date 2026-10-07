@@ -642,6 +642,14 @@ class CourseListLayoutGroupTests(unittest.TestCase):
         g = CL.html_groups(self.table([('rule', 'Students must take an additional 15 credit hours from the following list of classes:', '', '15'),
                                        ('opt', 'FILM 367', 'A'), ('opt', 'FILM 399', 'B'), ('opt', 'FILM 469', 'C'), ('opt', 'ENG 309', 'D'), ('opt', 'ENG 365', 'E'), ('opt', 'PS 303', 'F')]))
         self.assertEqual([(x['type'], x.get('choose_credits'), len(x['courses']), sorted(x['issues'])) for _, x in g], [('choose_credits', 15, 6, [])])
+        # 'Complete the following:' prints an all-required list (UVU), indented or not
+        g = CL.html_groups(self.table([('rule', 'Complete the following:'), ('c', 'DANC 2110', 'Orientation', '3'), ('c', 'DANC 1610R', 'Conditioning', '1'),
+                                       ('rule', 'Complete the following courses:'), ('opt', 'DANC 2700R', 'Social Dance II'), ('opt', 'DANC 2710R', 'Ballroom II')]))
+        self.assertEqual([(x['type'], [c['code'] for c in x['courses']], sorted(x['issues'])) for _, x in g],
+                         [('all_required', ['DANC 2110', 'DANC 1610R'], []), ('all_required', ['DANC 2700R', 'DANC 2710R'], [])])
+        # a credit number printed as a word (WKU Theatre)
+        g = CL.html_groups(self.table([('rule', 'Take a total of at least two credit hours from the following:', '', '2'), ('opt', 'PERF 321', 'A'), ('opt', 'PERF 420', 'B'), ('opt', 'PERF 340', 'C')]))
+        self.assertEqual([(x['type'], x.get('choose_credits'), sorted(x['issues'])) for _, x in g], [('choose_credits', 2, [])])
         # an alternative printed in the new shapes joins the previous course
         g = CL.html_groups(self.table([('c', 'MAT 1030', 'QR', '3'), ('or', 'MAT 1035', 'QR with Algebra')]))
         self.assertEqual(g[0][1]['courses'][0]['any_of'][1]['code'], 'MAT 1035')
