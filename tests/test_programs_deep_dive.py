@@ -1306,6 +1306,24 @@ class AutoReviewTests(unittest.TestCase):
         self.assertEqual(held['entry_path_variant'], 3)
         self.assertEqual(held['not_verbatim'], 1); self.assertEqual(held['duplicate'], 1); self.assertEqual(held['req_program_not_approved'], 1)
 
+    def test_listed_variant_lines_are_the_degree(self):  # UT Arlington 2026-27: 'Data Science BS (Biology)', no 'Data Science BS' line
+        from programs import autoreview as A
+        from datetime import date
+        def at(c, url): c['record']['program_url'] = url; return c
+        mk = lambda: [at(self.prog('d1', 'Data Science BS (Biology)', key='ds-bio'), 'https://a/ds-bio'),
+                      at(self.prog('d2', 'Data Science BS (Computer Science)', key='ds-cs'), 'https://a/ds-cs')]
+        lists = {'k': {'programs': [{'listed_as': 'bachelor', 'printed': 'Data Science BS (Biology)', 'url': 'https://a/ds-bio'},
+                                    {'listed_as': 'bachelor', 'printed': 'Data Science BS (Computer Science)', 'url': 'https://a/ds-cs'}]}}
+        old = A.catalog_records; A.catalog_records = lambda *a: []
+        try:
+            approve, _, held = A.review('ZZ', self.run_dir(mk(), lists=lists), today=date(2026, 10, 6))
+            self.assertEqual([a['candidate_id'] for a in approve], ['d1', 'd2'])  # each listed line is a listed program
+            # with the base line printed, the variants stay held
+            lists['k']['programs'].append({'listed_as': 'bachelor', 'printed': 'Data Science BS', 'url': 'https://a/ds'})
+            approve, _, held = A.review('ZZ', self.run_dir(mk(), lists=lists), today=date(2026, 10, 6))
+            self.assertEqual(approve, []); self.assertEqual(held['entry_path_variant'], 2)
+        finally: A.catalog_records = old
+
     def test_one_program_on_several_pages_comes_from_the_base_page(self):
         from programs import autoreview as A
         from datetime import date
@@ -1415,6 +1433,16 @@ class SamplePlanPageTests(unittest.TestCase):  # KU 2026-27 sample-plan sub-page
         self.assertTrue([c for c in X.program_page_candidates(tgt, {'institution_key': 'k'}, e, page, '2026-27') if c['domain'] == 'academic_programs'])
         plan = T.Page(body + 'Below is a sample 4-year plan for students pursuing the BA in Anthropology.', 'BA in Anthropology', [], [], ['BA in Anthropology'])
         self.assertEqual([c for c in X.program_page_candidates(tgt, {'institution_key': 'k'}, e, plan, '2026-27') if c['domain'] == 'academic_programs'], [])
+        # KU Chemistry: 'Below is a sample 4-year plan for the American Chemical Society Certified BS degree'; Child Life: a
+        # suspension notice between the heading and the sentence
+        for t in ('Below is a sample 4-year plan for the American Chemical Society Certified BA degree in Anthropology.',
+                  'Admission to this program has been suspended for the 2026-2027 academic year.\nBelow is a sample 4-year plan for students pursuing the BA.'):
+            p = T.Page(body + t, 'BA in Anthropology', [], [], ['2026-27 Academic Catalog', 'BA in Anthropology'])  # KU's year heading first
+            self.assertEqual([c for c in X.program_page_candidates(tgt, {'institution_key': 'k'}, e, p, '2026-27') if c['domain'] == 'academic_programs'], [], t)
+        # the degree page itself: the sentence follows the requirements (KU Theatre Design's 'Major Junior/Senior Hours')
+        deg = T.Page(body + 'Requirements\nMajor Junior/Senior Hours\nStudents must earn 30 hours.\nBelow is a sample 4-year plan for students pursuing the BA.',
+                     'BA in Anthropology', [], [], ['BA in Anthropology', 'Requirements', 'Major Junior/Senior Hours'])
+        self.assertTrue([c for c in X.program_page_candidates(tgt, {'institution_key': 'k'}, e, deg, '2026-27') if c['domain'] == 'academic_programs'])
 
     def test_pvamu_awards(self):
         for n in ('Criminal Justice, BSCJ', 'Agriculture, BSAG', 'Chemical Engineering, BSCHE', 'Human Nutrition and Food, BSDIET'):
@@ -1449,7 +1477,11 @@ class DepartmentSectionTests(unittest.TestCase):
         # the review of 2026-10-07: KU sample-plan sub-pages, PVAMU / Tulane section names, Wichita / WUSTL degree pages of their own
         dep = lambda heads, text='', links=(): X.department_section_candidates(
             {'institution_key': 'k'}, e, T.Page('2026-2027 Undergraduate Catalog\n' + text + '\n' + '\n'.join(heads), 't', [], list(links), heads), '2026-27')
-        self.assertEqual(dep(['BA in Anthropology'], 'Below is a sample 4-year plan for students pursuing the BA in Anthropology.'), [])
+        plan = lambda text: X.department_section_candidates({'institution_key': 'k'}, e, T.Page(
+            '2026-2027 Undergraduate Catalog\nBA in Anthropology\n' + text, 't', [], [], ['BA in Anthropology']), '2026-27')
+        self.assertEqual(plan('Below is a sample 4-year plan for students pursuing the BA in Anthropology.'), [])
+        # KU's degree pages print the same sentence below the requirements, under another heading: still the degree
+        self.assertTrue(plan('Requirements\nMajor Hours\nStudents must earn 30 hours.\nBelow is a sample 4-year plan for students pursuing the BA in Anthropology.'))
         self.assertEqual(dep(['Bachelor of Science in Juvenile Justice Degree Sequence', 'BS in Health Policy and Management Requirements',
                               'BS in Agribusiness Major Field']), [])
         self.assertEqual(dep(['BS in Computer Engineering'], links=[('https://catalog.x.edu/ece/computer-engineering-bs/', 'Computer Engineering BS')]), [])
@@ -1681,6 +1713,9 @@ class ListedEmphasisTests(unittest.TestCase):
         page = T.Page('Catalog 2026-2027\nComputer Science B.A.', 'Computer Science B.A. | University of Alaska Fairbanks Catalog', [], [],
                       ['Catalog 2026-2027', 'Computer Science B.A.', 'Admission Requirements'])
         self.assertEqual(program_heading(page), 'Computer Science B.A.')
+        # a page title that names no heading (the title rule does not apply): the year heading is still skipped
+        untitled = T.Page(page.text, 'UAF Catalog', [], [], ['Catalog 2026-2027', 'Computer Science B.A.', 'Admission Requirements'])
+        self.assertEqual(program_heading(untitled), 'Computer Science B.A.')
         got = static_program_identity({'institution_key': 'k'}, {'url': 'https://catalog.uaf.edu/bachelors/computer-science-ba/'}, page, '2026-27')
         self.assertEqual([c['record']['program_name'] for c in got], ['Computer Science B.A.'])
         index = T.Page('Catalog 2026-2027', "Bachelor's Degrees | UAS", [], [], ['Catalog 2026-2027', "Bachelor's Degrees"])
@@ -1741,6 +1776,36 @@ class ListedEmphasisTests(unittest.TestCase):
             self.assertEqual([p['printed'] for p in got['programs']], ['Animal Science (BS): Industry Concentration'])
             t['catalog']['list_documents'][0]['run'] = str(Path(d) / 'missing')
             self.assertEqual(collect_lists(t, C.Run(Path(d) / 'cat'), [])['programs'], [])
+
+    def test_parenthetical_variant_lines(self):  # UT Arlington, Texas A&M-Kingsville 2026-27 (#148 follow-up)
+        import re
+        from programs.extract import listed_emphasis_pages, _degree_key
+        norm = lambda u: re.sub(r'/?$', '', u)
+        L = lambda *rows: {'x': {'programs': [{'listed_as': 'bachelor', 'printed': p, 'url': f'https://a/{u}'} for p, u in rows]}}
+        lists = L(('Data Science BS (Biology)', 'ds-bio'), ('Data Science BS (Computer Science)', 'ds-cs'),
+                  ('Kinesiology, B.S. (Sport Business)', 'kin-sb'), ('Geology BA (GIS)', 'geo-gis'),
+                  ('Chemistry BA (UTeach)', 'chem-ut'), ('Chemistry BA', 'chem'),
+                  ('Music, B.M. (Performance)', 'mus-perf'), ('Bachelor of Music in Music', 'mus'))
+        self.assertEqual(sorted(u for _, u in listed_emphasis_pages(lists, norm)),
+                         ['https://a/ds-bio', 'https://a/ds-cs', 'https://a/geo-gis', 'https://a/kin-sb'])
+        # a degree with a program page of its own keeps its variants held
+        self.assertEqual(sorted(u for _, u in listed_emphasis_pages(lists, norm, {'x': {('geology', 'ba')}})),
+                         ['https://a/ds-bio', 'https://a/ds-cs', 'https://a/kin-sb'])
+        self.assertEqual(_degree_key('Chemistry BA'), ('chemistry', 'ba'))
+        self.assertEqual(_degree_key('Bachelor of Music in Music'), ('music', 'bm'))
+        self.assertEqual(_degree_key('Bachelor of Fine Arts in Theatre'), _degree_key('Theatre (BFA)'))
+        self.assertIsNone(_degree_key('Chemistry Ba'))  # the award is printed in capitals
+        self.assertEqual(listed_emphasis_pages(L(('Chemistry (Pre-Med)', 'c')), norm), set())  # no award printed: no degree line
+        self.assertEqual(listed_emphasis_pages(L(('Marine Bio (Ecology)', 'm')), norm), set())  # 'Bio' is a word, not an award
+
+    def test_degree_page_plan_headings_keep_the_degree(self):  # Colorado, Maryland, Missouri, Tennessee, KU engineering 2026-27
+        from pipeline import text as T
+        e = {'url': 'https://catalog.x.edu/as/anthropology/anthropology-bachelor-arts-ba/', 'role': 'program_page', 'sha256': 'a' * 64,
+             'fetched_at': '2026-10-06T00:00:00+00:00', 'status': 200, 'kind': 'html'}
+        tgt = {'catalog': {'platform': 'courseleaf'}}
+        for plan in ('Recommended Four-Year Plan of Study', 'The recommended 4-year plan is listed below by semester.', 'Sample Four-Year Plan'):
+            page = T.Page('2026-2027 Academic Catalog\nBA in Anthropology\nRequirements\n' + plan, 'BA in Anthropology', [], [], ['BA in Anthropology'])
+            self.assertTrue([c for c in X.program_page_candidates(tgt, {'institution_key': 'k'}, e, page, '2026-27') if c['domain'] == 'academic_programs'], plan)
 
     def test_award_glued_to_next_column_is_classified(self):
         from programs.extract import list_award
