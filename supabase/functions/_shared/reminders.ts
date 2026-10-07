@@ -197,3 +197,38 @@ export function nextPossibleReminder(s: ReminderSettings, now: Date, timeZone: s
   }
   return null
 }
+
+// ---------------------------------------------------------------------------------------------------------------
+// One reminder, one device: shared by the web and native senders
+// ---------------------------------------------------------------------------------------------------------------
+
+/**
+ * The identity of one reminder: the student's local date and slot (or the end of a snooze). The database keeps at
+ * most one claimed-or-sent delivery per student and key, so overlapping sender runs, retries, and a student with a
+ * phone, a tablet and a laptop still get exactly one notification per reminder.
+ */
+export function reminderKey(slot: string, now: Date, timeZone: string, snoozedUntil: string | null): string {
+  return slot === 'snooze' ? `snooze:${snoozedUntil ?? ''}` : `${localParts(now, timeZone).date}:${slot}`
+}
+
+export type PushChannel = 'webpush' | 'fcm'
+
+export interface ReminderDevice {
+  id: string
+  channel: PushChannel
+  /** When the app last opened on this device (permission checked then). */
+  checkedAt: string
+}
+
+/**
+ * Which device gets the reminder: the one the student opened most recently, so it lands where they actually are;
+ * the native app wins a tie (on the same day) over a browser. The rest are fallbacks, tried in order only if the
+ * push service rejects the first, never in addition to it.
+ */
+export function deliveryOrder<T extends ReminderDevice>(devices: T[]): T[] {
+  const day = (iso: string) => iso.slice(0, 10)
+  return [...devices].sort((a, b) => {
+    if (day(a.checkedAt) === day(b.checkedAt) && a.channel !== b.channel) return a.channel === 'fcm' ? -1 : 1
+    return b.checkedAt.localeCompare(a.checkedAt)
+  })
+}

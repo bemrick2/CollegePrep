@@ -7,7 +7,8 @@
 --   practice_reminder_settings      the family's reminder times, days, quiet and school hours, limits; snooze
 --   practice_reminder_changes       every on/off change, who made it, and whether guardians are to be told
 --   notification_devices            each signed-in browser/device: permission as last seen on app open, push keys
---   practice_reminder_deliveries    every reminder sent (for limits) and what the student did with it
+--   practice_reminder_deliveries    one row per reminder (claimed before sending: never two per reminder, whatever the
+--                                   number of devices or overlapping sender runs) and what the student did with it
 --
 -- Rules the server enforces:
 --   - settings: readable by anyone who can view the student; writable by a guardian with set_goals or by the
@@ -77,13 +78,18 @@ create table public.notification_devices (
   user_id uuid not null references auth.users(id) on delete cascade,
   permission text not null check (permission in ('granted', 'denied', 'default', 'unsupported')),
   platform text check (platform in ('ios', 'android', 'desktop', 'other')),
+  -- webpush: a browser (endpoint + keys); fcm: the native iPhone/Android app (FCM registration token).
+  channel text not null default 'webpush' check (channel in ('webpush', 'fcm')),
+  push_token text check (push_token is null or length(push_token) between 20 and 4096),
   endpoint text check (endpoint is null or (endpoint ~ '^https://' and length(endpoint) <= 2048)),
   p256dh text check (p256dh is null or length(p256dh) <= 200),
   auth_secret text check (auth_secret is null or length(auth_secret) <= 100),
   checked_at timestamptz not null default now(),
   gone_at timestamptz,                         -- the push service said the subscription no longer exists
   created_at timestamptz not null default now(),
-  check ((endpoint is null) = (p256dh is null) and (endpoint is null) = (auth_secret is null))
+  check ((endpoint is null) = (p256dh is null) and (endpoint is null) = (auth_secret is null)),
+  check (channel = 'webpush' or endpoint is null),
+  check (channel = 'fcm' or push_token is null)
 );
 create index notification_devices_user_idx on public.notification_devices(user_id);
 alter table public.notification_devices enable row level security;
@@ -96,15 +102,19 @@ create table public.practice_reminder_deliveries (
   student_id uuid not null references public.students(id) on delete cascade,
   device_id uuid references public.notification_devices(id) on delete set null,
   slot text not null check (length(slot) <= 10),
-  status text not null check (status in ('sent', 'failed', 'gone')),
+  -- One reminder = one key (local date + slot, or the snooze's end). At most one claimed-or-sent row per key.
+  reminder_key text not null check (length(reminder_key) <= 80),
+  channel text check (channel in ('webpush', 'fcm')),
+  status text not null check (status in ('claimed', 'sent', 'failed', 'gone')),
   sent_at timestamptz not null default now(),
   opened_at timestamptz,
   snoozed_at timestamptz
 );
 create index practice_reminder_deliveries_student_idx on public.practice_reminder_deliveries(student_id, sent_at desc);
+create unique index practice_reminder_once on public.practice_reminder_deliveries(student_id, reminder_key) where status in ('claimed', 'sent');
 alter table public.practice_reminder_deliveries enable row level security;
 revoke all on public.practice_reminder_deliveries from anon, authenticated;
-grant select (id, student_id, slot, status, sent_at, opened_at, snoozed_at) on public.practice_reminder_deliveries to authenticated;
+grant select (id, student_id, slot, channel, status, sent_at, opened_at, snoozed_at) on public.practice_reminder_deliveries to authenticated;
 grant all on public.practice_reminder_deliveries to service_role;
 create policy reminder_deliveries_read on public.practice_reminder_deliveries for select to authenticated using (public.can_view_student(student_id));
 
@@ -176,21 +186,28 @@ begin
   return v;
 end $$;
 
-create function public.report_notification_device(p_device uuid, p_permission text, p_subscription jsonb default null, p_platform text default null)
+create function public.report_notification_device(p_device uuid, p_permission text, p_subscription jsonb default null, p_platform text default null,
+  p_channel text default 'webpush', p_token text default null)
 returns void language plpgsql volatile security definer set search_path = '' as $$
-declare v_owner uuid;
+declare v_owner uuid; v_granted boolean := p_permission = 'granted';
 begin
   if auth.uid() is null then raise exception 'Sign in first' using errcode = '42501'; end if;
   select user_id into v_owner from public.notification_devices where id = p_device;
   if v_owner is not null and v_owner <> auth.uid() then raise exception 'Not your device' using errcode = '42501'; end if;
-  insert into public.notification_devices as d (id, user_id, permission, platform, endpoint, p256dh, auth_secret, checked_at, gone_at)
-  values (p_device, auth.uid(), p_permission, p_platform,
-          case when p_permission = 'granted' then p_subscription->>'endpoint' end,
-          case when p_permission = 'granted' then p_subscription->'keys'->>'p256dh' end,
-          case when p_permission = 'granted' then p_subscription->'keys'->>'auth' end, now(), null)
+  -- A native token belongs to one install: if another login reported it before (shared phone), it moves here.
+  if p_channel = 'fcm' and p_token is not null then
+    delete from public.notification_devices where push_token = p_token and id <> p_device;
+  end if;
+  insert into public.notification_devices as d (id, user_id, permission, platform, channel, push_token, endpoint, p256dh, auth_secret, checked_at, gone_at)
+  values (p_device, auth.uid(), p_permission, p_platform, coalesce(p_channel, 'webpush'),
+          case when v_granted and p_channel = 'fcm' then p_token end,
+          case when v_granted and coalesce(p_channel, 'webpush') = 'webpush' then p_subscription->>'endpoint' end,
+          case when v_granted and coalesce(p_channel, 'webpush') = 'webpush' then p_subscription->'keys'->>'p256dh' end,
+          case when v_granted and coalesce(p_channel, 'webpush') = 'webpush' then p_subscription->'keys'->>'auth' end, now(), null)
   on conflict (id) do update set permission = excluded.permission, platform = coalesce(excluded.platform, d.platform),
+    channel = excluded.channel, push_token = excluded.push_token,
     endpoint = excluded.endpoint, p256dh = excluded.p256dh, auth_secret = excluded.auth_secret, checked_at = now(),
-    gone_at = case when excluded.endpoint is distinct from d.endpoint then null else d.gone_at end;
+    gone_at = case when excluded.endpoint is distinct from d.endpoint or excluded.push_token is distinct from d.push_token then null else d.gone_at end;
 end $$;
 
 -- What a family may see about a student's devices: permission as last seen, never endpoints or keys.
@@ -199,7 +216,7 @@ returns table (device_id uuid, permission text, platform text, can_receive boole
 language plpgsql stable security definer set search_path = '' as $$
 begin
   if not public.can_view_student(p_student) then raise exception 'Not allowed to view this student' using errcode = '42501'; end if;
-  return query select d.id, d.permission, d.platform, d.permission = 'granted' and d.endpoint is not null and d.gone_at is null, d.checked_at
+  return query select d.id, d.permission, d.platform, d.permission = 'granted' and (d.endpoint is not null or d.push_token is not null) and d.gone_at is null, d.checked_at
     from public.notification_devices d join public.students s on s.linked_user_id = d.user_id
     where s.id = p_student order by d.checked_at desc;
 end $$;
@@ -239,9 +256,11 @@ begin
     join public.students st on st.id = s.student_id and st.archived_at is null and st.linked_user_id is not null
     where s.enabled
   loop
-    select coalesce(jsonb_agg(jsonb_build_object('id', d.id, 'endpoint', d.endpoint, 'p256dh', d.p256dh, 'auth', d.auth_secret)), '[]'::jsonb)
+    select coalesce(jsonb_agg(jsonb_build_object('id', d.id, 'channel', d.channel, 'checkedAt', d.checked_at, 'endpoint', d.endpoint,
+             'p256dh', d.p256dh, 'auth', d.auth_secret, 'token', d.push_token) order by d.checked_at desc), '[]'::jsonb)
       into v_devices from public.notification_devices d
-      where d.user_id = r.linked_user_id and d.permission = 'granted' and d.endpoint is not null and d.gone_at is null;
+      where d.user_id = r.linked_user_id and d.permission = 'granted' and d.gone_at is null
+        and (d.endpoint is not null or d.push_token is not null);
     continue when jsonb_array_length(v_devices) = 0;
     v_tz := public.student_time_zone(r.student_id);
     v_today := (p_now at time zone v_tz)::date;
@@ -270,17 +289,32 @@ begin
   end loop;
 end $$;
 
-create function public.record_practice_reminder(p_id uuid, p_student uuid, p_device uuid, p_slot text, p_status text, p_at timestamptz default now())
-returns uuid language plpgsql volatile security definer set search_path = '' as $$
-declare v uuid;
+-- Claim a reminder before sending: false when this key was already claimed or sent (another run, a retry).
+create function public.claim_practice_reminder(p_id uuid, p_student uuid, p_key text, p_slot text, p_at timestamptz default now())
+returns boolean language plpgsql volatile security definer set search_path = '' as $$
 begin
-  insert into public.practice_reminder_deliveries(id, student_id, device_id, slot, status, sent_at) values (p_id, p_student, p_device, p_slot, p_status, p_at)
-  returning id into v;
-  if p_status = 'gone' then update public.notification_devices set gone_at = now() where id = p_device; end if;
-  -- A snooze is used once: the reminder at its end clears it.
-  if p_slot = 'snooze' and p_status = 'sent' then update public.practice_reminder_settings set snoozed_until = null where student_id = p_student; end if;
-  return v;
+  insert into public.practice_reminder_deliveries(id, student_id, slot, reminder_key, status, sent_at)
+  values (p_id, p_student, p_slot, p_key, 'claimed', p_at) on conflict do nothing;
+  return found;
 end $$;
+
+-- The outcome on the one device tried last. 'gone' retires that device; a sent snooze is used up.
+create function public.finish_practice_reminder(p_id uuid, p_device uuid, p_channel text, p_status text)
+returns void language plpgsql volatile security definer set search_path = '' as $$
+declare v public.practice_reminder_deliveries;
+begin
+  update public.practice_reminder_deliveries set device_id = p_device, channel = p_channel, status = p_status
+  where id = p_id and status = 'claimed' returning * into v;
+  if v.id is null then return; end if;
+  if p_status = 'sent' and v.slot = 'snooze' then
+    update public.practice_reminder_settings set snoozed_until = null where student_id = v.student_id;
+  end if;
+end $$;
+
+create function public.retire_notification_device(p_device uuid) returns void
+language sql volatile security definer set search_path = '' as $$
+  update public.notification_devices set gone_at = now() where id = p_device
+$$;
 
 -- The notification's "Remind me later" button, after the action endpoint has verified its signed token.
 create function public.snooze_practice_reminder_delivery(p_delivery uuid, p_minutes integer default 60) returns timestamptz
@@ -312,21 +346,25 @@ $$;
 
 revoke all on function public.set_practice_reminders(uuid, jsonb) from public, anon;
 revoke all on function public.snooze_practice_reminders(uuid, integer) from public, anon;
-revoke all on function public.report_notification_device(uuid, text, jsonb, text) from public, anon;
+revoke all on function public.report_notification_device(uuid, text, jsonb, text, text, text) from public, anon;
 revoke all on function public.student_notification_devices(uuid) from public, anon;
 revoke all on function public.practice_reminder_history(uuid) from public, anon;
 revoke all on function public.mark_practice_reminder_opened(uuid) from public, anon;
 grant execute on function public.set_practice_reminders(uuid, jsonb) to authenticated;
 grant execute on function public.snooze_practice_reminders(uuid, integer) to authenticated;
-grant execute on function public.report_notification_device(uuid, text, jsonb, text) to authenticated;
+grant execute on function public.report_notification_device(uuid, text, jsonb, text, text, text) to authenticated;
 grant execute on function public.student_notification_devices(uuid) to authenticated;
 grant execute on function public.practice_reminder_history(uuid) to authenticated;
 grant execute on function public.mark_practice_reminder_opened(uuid) to authenticated;
 revoke all on function public.practice_reminder_candidates(timestamptz) from public, anon, authenticated;
-revoke all on function public.record_practice_reminder(uuid, uuid, uuid, text, text, timestamptz) from public, anon, authenticated;
+revoke all on function public.claim_practice_reminder(uuid, uuid, text, text, timestamptz) from public, anon, authenticated;
+revoke all on function public.finish_practice_reminder(uuid, uuid, text, text) from public, anon, authenticated;
+revoke all on function public.retire_notification_device(uuid) from public, anon, authenticated;
 revoke all on function public.snooze_practice_reminder_delivery(uuid, integer) from public, anon, authenticated;
 revoke all on function public.reminder_opt_out_payload() from public, anon, authenticated;
 grant execute on function public.practice_reminder_candidates(timestamptz) to service_role;
-grant execute on function public.record_practice_reminder(uuid, uuid, uuid, text, text, timestamptz) to service_role;
+grant execute on function public.claim_practice_reminder(uuid, uuid, text, text, timestamptz) to service_role;
+grant execute on function public.finish_practice_reminder(uuid, uuid, text, text) to service_role;
+grant execute on function public.retire_notification_device(uuid) to service_role;
 grant execute on function public.snooze_practice_reminder_delivery(uuid, integer) to service_role;
 grant execute on function public.reminder_opt_out_payload() to service_role;
