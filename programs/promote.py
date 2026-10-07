@@ -142,7 +142,8 @@ def promote(decisions_path: Path, log=print):
                         if f in r and f not in rec: rec[f] = r[f]
         _upsert(_file_for(folders[c['institution_key']], c['domain'], c['academic_year']), c['institution_key'], c['academic_year'], rec, c['domain'])
         archive[c['candidate_id']] = {'source': c['source'], 'extractor': c['extractor'], 'year_basis': c['year_basis'],
-                                      'issues': c['issues'], 'evidence': c['evidence'], 'decision': a}
+                                      'issues': c['issues'], 'evidence': c['evidence'], 'decision': a,
+                                      **({'layout_source': c['layout_source']} if c.get('layout_source') else {})}  # the #courselist document read
         written += 1
     for f in d.get('fields', []):
         written += apply_field(f, folders, ev, archive)

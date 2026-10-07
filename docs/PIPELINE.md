@@ -12,6 +12,7 @@ Tennessee is the proving ground. Code: `pipeline/`. Tests: `tests/test_pipeline.
 | Crawl | `python -m pipeline crawl --state TN --run DIR` | GitHub Actions (needs open internet) | `DIR/manifest.jsonl`, `DIR/pages/*.json.gz` |
 | Review | `python -m pipeline review --state TN --run DIR` | anywhere | `candidates.json`, `verify.json`, `review.md`, `coverage.json` |
 | Promote | `python -m pipeline promote --state TN --decisions pipeline/decisions/TN-<run>.json` | anywhere | records in `data/`, evidence in `sources/pipeline/` |
+| Retain | `python scripts/retain_evidence.py --push` | anywhere | `retention.json` beside each evidence archive; cited pages and layout documents in the `evidence-store` branch |
 
 `run` = crawl + review. The workflow `.github/workflows/research-pipeline.yml` runs crawl and
 review and commits the run directory to a `pipeline-run/**` branch. It never imports data.
@@ -117,6 +118,8 @@ summaries are copied to `docs/coverage/pipeline/<STATE>.json`.
   (`{"state": "TN", "budget": 45, "run_date": "YYYY-MM-DD", "only": []}`) and push. Push again to resume.
 - **Manual/scheduled:** workflow_dispatch (state, only, budget) or the weekly Monday schedule.
 - Run branches are working branches; only decisions, promoted data and coverage summaries are merged.
+- The documents a promoted record cites are retained in the append-only `evidence-store` branch (by git blob id) and listed in
+  `retention.json`; CI fails while any cited page or layout document is unretained, so a deleted run branch loses nothing.
 
 ## Costs: what the totals mean
 `total_cost_of_attendance` is filled only when the school's table includes indirect costs (books,
