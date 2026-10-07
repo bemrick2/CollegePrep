@@ -167,16 +167,17 @@
     "vt.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.vt.edu/",
-    "https://catalog.vt.edu/",
-    "https://www.vt.edu/academics/",
-    "https://www.vt.edu/registrar/",
-    "https://www.vt.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.vt.edu/",
+    "min_depth": 1,
+    "path_prefix": "/undergraduate/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "reviewed 2026-10-07: CourseLeaf '2026-2027 Academic Catalog' at catalog.vt.edu (web search); undergraduate pages under /undergraduate/"
   },
   {
    "institution_key": "ipeds-234155",
@@ -731,6 +732,26 @@
    "detected": "catalog PDF labelled 2026-2027"
   },
   {
+   "institution_key": "ipeds-233356",
+   "folder": "bsmcon",
+   "name": "Bon Secours Memorial College of Nursing",
+   "control": "private_nonprofit",
+   "domains": [
+    "bsmcon.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.bsmcon.edu/",
+    "https://catalog.bsmcon.edu/",
+    "https://www.bsmcon.edu/academics/",
+    "https://www.bsmcon.edu/registrar/",
+    "https://www.bsmcon.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
    "institution_key": "ipeds-231785",
    "folder": "bryantstratton",
    "name": "Bryant & Stratton College-Virginia Beach",
@@ -953,6 +974,26 @@
     "https://www.riversideonline.com/academics/",
     "https://www.riversideonline.com/registrar/",
     "https://www.riversideonline.com/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-232885",
+   "folder": "sentara",
+   "name": "Sentara College of Health Sciences",
+   "control": "private_nonprofit",
+   "domains": [
+    "sentara.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.sentara.edu/",
+    "https://catalog.sentara.edu/",
+    "https://www.sentara.edu/academics/",
+    "https://www.sentara.edu/registrar/",
+    "https://www.sentara.edu/catalog/"
    ],
    "policy": []
   },

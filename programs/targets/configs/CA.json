@@ -41,13 +41,14 @@
  },
  "berkeley": {
   "catalog": {
-   "home": "https://guide.berkeley.edu/",
+   "home": "https://undergraduate.catalog.berkeley.edu/",
    "min_depth": 0,
-   "path_prefix": "/undergraduate/degree-programs/",
-   "platform": "courseleaf",
+   "path_prefix": "/programs/",
+   "platform": "coursedog",
    "program_lists": []
   },
-  "detected": "reviewed 2026-10-07: CourseLeaf catalog at guide.berkeley.edu/undergraduate/degree-programs/ (web search); the discovery run did not reach it",
+  "detected": "reviewed 2026-10-07: guide.berkeley.edu now serves the Registrar's catalog page, which links the Undergraduate Catalog at undergraduate.catalog.berkeley.edu (stored page b563bf2532a0, run CA/2026-10-07-cat); Coursedog-style host, rendered in the browser",
+  "render": "browser",
   "reviewed": true
  },
  "biola": {
@@ -311,7 +312,7 @@
  },
  "csusb": {
   "catalog": {
-   "home": "https://bulletin.csusb.edu/",
+   "home": "https://catalog.csusb.edu/",
    "min_depth": 1,
    "path_prefix": "/",
    "platform": "courseleaf",
@@ -320,7 +321,8 @@
     "https://bulletin.csusb.edu/programs-az/"
    ]
   },
-  "detected": "CourseLeaf-style catalog on bulletin.csusb.edu (program list https://bulletin.csusb.edu/programs-az)"
+  "detected": "CourseLeaf-style catalog on bulletin.csusb.edu (program list https://bulletin.csusb.edu/programs-az); reviewed 2026-10-07: the bulletin.csusb.edu program list links program pages on catalog.csusb.edu, now the catalog home",
+  "reviewed": true
  },
  "csusm": {
   "catalog": {

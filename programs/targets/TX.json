@@ -35,16 +35,19 @@
     "txst.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.txst.edu/",
-    "https://catalog.txst.edu/",
-    "https://www.txst.edu/academics/",
-    "https://www.txst.edu/registrar/",
-    "https://www.txst.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://mycatalog.txstate.edu/",
+    "min_depth": 1,
+    "path_prefix": "/undergraduate/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://mycatalog.txstate.edu/undergraduate/majors/"
+    ]
+   },
+   "policy": [],
+   "detected": "reviewed 2026-10-07: CourseLeaf catalog at mycatalog.txstate.edu, list of undergraduate degree programs at /undergraduate/majors/ (web search)"
   },
   {
    "institution_key": "ipeds-229115",
@@ -723,6 +726,26 @@
    },
    "policy": [],
    "detected": "Acalog catoid 22 on catalog.acu.edu (labelled 2026-2027)"
+  },
+  {
+   "institution_key": "ipeds-222628",
+   "folder": "amberton",
+   "name": "Amberton University",
+   "control": "private_nonprofit",
+   "domains": [
+    "amberton.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.amberton.edu/",
+    "https://catalog.amberton.edu/",
+    "https://www.amberton.edu/academics/",
+    "https://www.amberton.edu/registrar/",
+    "https://www.amberton.edu/catalog/"
+   ],
+   "policy": []
   },
   {
    "institution_key": "ipeds-222877",
@@ -1993,6 +2016,46 @@
    "policy": []
   },
   {
+   "institution_key": "ipeds-229337",
+   "folder": "ttuhsc",
+   "name": "Texas Tech University Health Sciences Center",
+   "control": "public",
+   "domains": [
+    "ttuhsc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.ttuhsc.edu/",
+    "https://catalog.ttuhsc.edu/",
+    "https://www.ttuhsc.edu/academics/",
+    "https://www.ttuhsc.edu/registrar/",
+    "https://www.ttuhsc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-492689",
+   "folder": "elpaso",
+   "name": "Texas Tech University Health Sciences Center-El Paso",
+   "control": "public",
+   "domains": [
+    "ttuhsc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://elpaso.ttuhsc.edu/",
+    "https://catalog.ttuhsc.edu/",
+    "https://www.ttuhsc.edu/academics/",
+    "https://www.ttuhsc.edu/registrar/",
+    "https://www.ttuhsc.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
    "institution_key": "ipeds-229160",
    "folder": "txwes",
    "name": "Texas Wesleyan University",
@@ -2069,6 +2132,87 @@
     "https://www.swbts.edu/academics/",
     "https://www.swbts.edu/registrar/",
     "https://www.swbts.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-229300",
+   "folder": "uth",
+   "name": "The University of Texas Health Science Center at Houston",
+   "control": "public",
+   "domains": [
+    "uth.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.uth.edu/",
+    "https://catalog.uth.edu/",
+    "https://www.uth.edu/academics/",
+    "https://www.uth.edu/registrar/",
+    "https://www.uth.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-228644",
+   "folder": "uthscsa",
+   "name": "The University of Texas Health Science Center at San Antonio",
+   "control": "public",
+   "domains": [
+    "uthscsa.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.uthscsa.edu/",
+    "https://catalog.uthscsa.edu/",
+    "https://www.uthscsa.edu/academics/",
+    "https://www.uthscsa.edu/registrar/",
+    "https://www.uthscsa.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-416801",
+   "folder": "mdanderson",
+   "name": "The University of Texas MD Anderson Cancer Center",
+   "control": "public",
+   "domains": [
+    "mdanderson.org",
+    "uth.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.mdanderson.org/",
+    "https://catalog.mdanderson.org/",
+    "https://www.mdanderson.org/academics/",
+    "https://www.mdanderson.org/registrar/",
+    "https://www.mdanderson.org/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-228653",
+   "folder": "utmb",
+   "name": "The University of Texas Medical Branch at Galveston",
+   "control": "public",
+   "domains": [
+    "utmb.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.utmb.edu/",
+    "https://catalog.utmb.edu/",
+    "https://www.utmb.edu/academics/",
+    "https://www.utmb.edu/registrar/",
+    "https://www.utmb.edu/catalog/"
    ],
    "policy": []
   },
@@ -2229,6 +2373,26 @@
     "https://www.umhb.edu/academics/",
     "https://www.umhb.edu/registrar/",
     "https://www.umhb.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-228909",
+   "folder": "unthsc",
+   "name": "University of North Texas Health Science Center",
+   "control": "public",
+   "domains": [
+    "unthsc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.unthsc.edu/",
+    "https://catalog.unthsc.edu/",
+    "https://www.unthsc.edu/academics/",
+    "https://www.unthsc.edu/registrar/",
+    "https://www.unthsc.edu/catalog/"
    ],
    "policy": []
   },
