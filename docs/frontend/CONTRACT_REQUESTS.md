@@ -26,7 +26,7 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-18 | Loan terms (federal limits, rates) as sourced records | ⏳ open | Families enter planned borrowing; it is shown as borrowed, never as a saving; no limits or rates shown |
 | CR-19 | Credit applicability: hours on equivalency rows, elective/gen-ed designations, plans for more majors | ⏳ open | Credit checked course by course against the major's verified plan where one exists; otherwise "unknown"; savings shown only as potential |
 | CR-20 | Cost-of-attendance period (academic year vs 12 months) | ⏳ open | COA labelled "academic year"; summer and break living is the family's own number |
-| CR-21 | Question review metadata; serve only reviewed items | ⏳ open | Demo and local DB serve only items whose current content hash a review approved (`questionReview.ts`); live has no review fields |
+| CR-21 | Question review metadata; serve only reviewed items | 🚧 migration `20261007140000` merged (#142), unapplied on hosted | Demo and local DB serve only items whose current content hash a review approved (`questionReview.ts`); live has no review fields |
 
 Live content note: the bank has no exam versions, skills or questions yet, so live practice and benchmarks show their empty states until content is loaded.
 
