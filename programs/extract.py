@@ -401,7 +401,9 @@ def static_program_identity(inst, entry, page, today_year):
     """Static HTML catalogs (George Fox, Rhodes): the program record only (name as printed in the page heading, the
     bachelor award it names, the catalog year printed on the page). Requirement lists are not read here."""
     name = (program_heading(page) or (page.title or '').split(' | ')[0]).strip()
-    if credential_of(name) != 'bachelor' or OPTION_NAME.search(name) or GENERIC_DEGREES.match(name): return []
+    # an option or track page ('Civil Engineering - BS, Coastal Engineering Track', Texas A&M) gives its candidate, and the
+    # extraction loop drops it unless the official list prints it as the degree's only entry (drops_option_page)
+    if credential_of(name) != 'bachelor' or GENERIC_DEGREES.match(name): return []
     labels = {y for y, _ in printed_catalog_years(page)}
     if len(labels) != 1: return []
     year = next(iter(labels)); line = next(l for y, l in printed_catalog_years(page) if y == year)
@@ -860,6 +862,8 @@ AWARD_PAREN_OPTION_ENTRY = re.compile(r'^(?P<base>[^:()]+?)\s*\((?P<award>(?-i:[
 # UT Arlington 2026-27 'Data Science BS (Biology)', Texas A&M-Kingsville 'Kinesiology, B.S. (Sport Business)': a degree printed
 # only as parenthetical variants (no 'Data Science BS' / 'Kinesiology, B.S.' line)
 PAREN_VARIANT_ENTRY = re.compile(r'^(?P<base>[^,()]+?),?\s+(?P<award>(?-i:B[A-Z]{1,4}|B\.\s?[A-Z][a-z]{0,3}\.?(?:[A-Z][a-z]{0,3}\.)?))\s*\((?P<variant>[^()]+)\)\s*$')
+# Texas A&M 2026-27: 'Civil Engineering - BS, Coastal Engineering Track' (no 'Civil Engineering - BS' line)
+AWARD_DASH_OPTION_ENTRY = re.compile(r'^(?P<base>[^,]+?)\s+-\s*(?P<award>(?-i:B[A-Z]{1,4}))\s*,\s*[^,]*\b(emphasis|concentration|track|option|specialization)\b[^,]*$', re.I)
 # Bryant 2026-27: 'Bachelor of Science in Business Administration: Accounting Concentration'
 BACHELOR_OF_OPTION_ENTRY = re.compile(r'^(?P<award>Bachelor of (?:Science|Arts|Fine Arts|Music|Business Administration))\s+in\s+(?P<base>[^:]+?)\s*:\s*[^:]*\b(emphasis|concentration|track|option|specialization)\b', re.I)
 
@@ -898,9 +902,10 @@ def listed_emphasis_pages(lists, norm, offered=None):
     out = set()
     for ik, v in (lists or {}).items():
         progs = [p for p in (v.get('programs') or []) if p.get('listed_as') == 'bachelor']
-        printed = [re.sub(r'\s+', ' ', re.sub(r'(?<=[a-z.])(?=[A-Z][a-z])', ' ', p.get('printed') or '')).strip() for p in progs]
+        printed = [re.sub(r'\s+', ' ', re.sub(r'(?<=[a-z.])(?=[A-Z][a-z])', ' ', (p.get('printed') or '').replace('\u200b', ''))).strip() for p in progs]
         emph = [EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) or WITH_EMPHASIS_ENTRY.match(line)
                 or AWARD_PAREN_OPTION_ENTRY.match(line) or BACHELOR_OF_OPTION_ENTRY.match(line) or PAREN_VARIANT_ENTRY.match(line)
+                or AWARD_DASH_OPTION_ENTRY.match(line)
                 for line in printed]
         degrees = {_degree_key(o) for o, m in zip(printed, emph) if not m} - {None}
         for p, m in zip(progs, emph):
