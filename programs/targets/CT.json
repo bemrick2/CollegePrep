@@ -52,16 +52,19 @@
     "qu.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.qu.edu/",
-    "https://catalog.qu.edu/",
-    "https://www.qu.edu/academics/",
-    "https://www.qu.edu/registrar/",
-    "https://www.qu.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.qu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.qu.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.qu.edu (program list https://catalog.qu.edu/programs/)"
   },
   {
    "institution_key": "ipeds-130253",
@@ -112,16 +115,19 @@
     "uconn.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://uconn.edu/",
-    "https://catalog.uconn.edu/",
-    "https://www.uconn.edu/academics/",
-    "https://www.uconn.edu/registrar/",
-    "https://www.uconn.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.uconn.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.uconn.edu/undergraduate/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.uconn.edu (program list https://catalog.uconn.edu/undergraduate/programs/)"
   },
   {
    "institution_key": "ipeds-129525",
@@ -132,16 +138,18 @@
     "hartford.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.hartford.edu/",
-    "https://catalog.hartford.edu/",
-    "https://www.hartford.edu/academics/",
-    "https://www.hartford.edu/registrar/",
-    "https://www.hartford.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 37,
+    "home": "https://catalog.hartford.edu/index.php?catoid=37",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.hartford.edu/content.php?catoid=37&navoid=4000"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 37 on catalog.hartford.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-129941",
@@ -152,16 +160,16 @@
     "newhaven.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.newhaven.edu/",
-    "https://catalog.newhaven.edu/",
-    "https://www.newhaven.edu/academics/",
-    "https://www.newhaven.edu/registrar/",
-    "https://www.newhaven.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 36,
+    "home": "https://catalog.newhaven.edu/index.php?catoid=36",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 36 on catalog.newhaven.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-130697",
@@ -172,16 +180,19 @@
     "wesleyan.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.wesleyan.edu/",
-    "https://catalog.wesleyan.edu/",
-    "https://www.wesleyan.edu/academics/",
-    "https://www.wesleyan.edu/registrar/",
-    "https://www.wesleyan.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.wesleyan.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.wesleyan.edu/majors/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.wesleyan.edu (program list https://catalog.wesleyan.edu/majors/)"
   },
   {
    "institution_key": "ipeds-130794",
@@ -212,16 +223,19 @@
     "albertus.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.albertus.edu/",
-    "https://catalog.albertus.edu/",
-    "https://www.albertus.edu/academics/",
-    "https://www.albertus.edu/registrar/",
-    "https://www.albertus.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.albertus.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.albertus.edu/undergraduate/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.albertus.edu (program list https://catalog.albertus.edu/undergraduate/programs/)"
   },
   {
    "institution_key": "ipeds-128780",
@@ -272,16 +286,17 @@
     "easternct.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.easternct.edu/",
-    "https://catalog.easternct.edu/",
-    "https://www.easternct.edu/academics/",
-    "https://www.easternct.edu/registrar/",
-    "https://www.easternct.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.easternct.edu/academics/_documents/catalog-2025-26-rev-09-11-25.pdf"
+    ],
+    "home": "https://www.easternct.edu/academics/_documents/catalog-2025-26-rev-09-11-25.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
   },
   {
    "institution_key": "ipeds-129154",
@@ -292,16 +307,19 @@
     "goodwin.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.goodwin.edu/",
-    "https://catalog.goodwin.edu/",
-    "https://www.goodwin.edu/academics/",
-    "https://www.goodwin.edu/registrar/",
-    "https://www.goodwin.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 7,
+    "home": "https://catalog.goodwin.edu/index.php?catoid=7",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.goodwin.edu/content.php?catoid=7&navoid=342",
+     "https://catalog.goodwin.edu/content.php?catoid=7&navoid=358"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 7 on catalog.goodwin.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-129534",
@@ -312,16 +330,17 @@
     "holyapostles.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.holyapostles.edu/",
-    "https://catalog.holyapostles.edu/",
-    "https://www.holyapostles.edu/academics/",
-    "https://www.holyapostles.edu/registrar/",
-    "https://www.holyapostles.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://holyapostles.edu/wp-content/uploads/2026/09/2026-2027-HACS-Academic-Catalog.pdf"
+    ],
+    "home": "https://holyapostles.edu/wp-content/uploads/2026/09/2026-2027-HACS-Academic-Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
   },
   {
    "institution_key": "ipeds-129774",
@@ -332,16 +351,17 @@
     "mitchell.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.mitchell.edu/",
-    "https://catalog.mitchell.edu/",
-    "https://www.mitchell.edu/academics/",
-    "https://www.mitchell.edu/registrar/",
-    "https://www.mitchell.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://mitchell.edu/wp-content/uploads/2017/09/Mitchell-College-Catalog-2017-18.pdf"
+    ],
+    "home": "https://mitchell.edu/wp-content/uploads/2017/09/Mitchell-College-Catalog-2017-18.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2017-2018"
   },
   {
    "institution_key": "ipeds-130590",
@@ -351,17 +371,37 @@
    "domains": [
     "trincoll.edu"
    ],
-   "hosts": [],
-   "mode": "discover",
-   "priority": 2,
-   "discover": [
-    "https://www.trincoll.edu/",
-    "https://catalog.trincoll.edu/",
-    "https://www.trincoll.edu/academics/",
-    "https://www.trincoll.edu/registrar/",
-    "https://www.trincoll.edu/catalog/"
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
    ],
-   "policy": []
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://bulletin.trincoll.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://bulletin.trincoll.edu/programs",
+     "https://bulletin.trincoll.edu/programs?page=2&pq=&sortBy=name",
+     "https://bulletin.trincoll.edu/programs?page=3&pq=&sortBy=name",
+     "https://bulletin.trincoll.edu/programs?page=4&pq=&sortBy=name",
+     "https://bulletin.trincoll.edu/programs?page=5&pq=&sortBy=name",
+     "https://bulletin.trincoll.edu/programs?page=6&pq=&sortBy=name",
+     "https://bulletin.trincoll.edu/programs?page=7&pq=&sortBy=name",
+     "https://bulletin.trincoll.edu/programs?page=8&pq=&sortBy=name",
+     "https://bulletin.trincoll.edu/programs?page=9&pq=&sortBy=name",
+     "https://bulletin.trincoll.edu/programs?page=10&pq=&sortBy=name",
+     "https://bulletin.trincoll.edu/programs?page=11&pq=&sortBy=name",
+     "https://bulletin.trincoll.edu/programs?page=12&pq=&sortBy=name",
+     "https://bulletin.trincoll.edu/programs?page=13&pq=&sortBy=name",
+     "https://bulletin.trincoll.edu/programs?page=14&pq=&sortBy=name",
+     "https://bulletin.trincoll.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on bulletin.trincoll.edu (83 links)"
   },
   {
    "institution_key": "ipeds-130624",
@@ -371,17 +411,37 @@
    "domains": [
     "uscga.edu"
    ],
-   "hosts": [],
-   "mode": "discover",
-   "priority": 2,
-   "discover": [
-    "https://www.uscga.edu/",
-    "https://catalog.uscga.edu/",
-    "https://www.uscga.edu/academics/",
-    "https://www.uscga.edu/registrar/",
-    "https://www.uscga.edu/catalog/"
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
    ],
-   "policy": []
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.uscga.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.uscga.edu/programs",
+     "https://catalog.uscga.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.uscga.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.uscga.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.uscga.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.uscga.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.uscga.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.uscga.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.uscga.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.uscga.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.uscga.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.uscga.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.uscga.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.uscga.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.uscga.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.uscga.edu (6 links)"
   },
   {
    "institution_key": "ipeds-128744",
@@ -392,16 +452,19 @@
     "bridgeport.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.bridgeport.edu/",
-    "https://catalog.bridgeport.edu/",
-    "https://www.bridgeport.edu/academics/",
-    "https://www.bridgeport.edu/registrar/",
-    "https://www.bridgeport.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 14,
+    "home": "https://catalog.bridgeport.edu/index.php?catoid=14",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.bridgeport.edu/content.php?catoid=14&navoid=928",
+     "https://catalog.bridgeport.edu/content.php?catoid=14&navoid=971"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 14 on catalog.bridgeport.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-436827",
@@ -492,16 +555,19 @@
     "usj.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.usj.edu/",
-    "https://catalog.usj.edu/",
-    "https://www.usj.edu/academics/",
-    "https://www.usj.edu/registrar/",
-    "https://www.usj.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 20,
+    "home": "https://catalog.usj.edu/index.php?catoid=20",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.usj.edu/content.php?catoid=20&navoid=1161",
+     "https://catalog.usj.edu/content.php?catoid=20&navoid=1172"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 20 on catalog.usj.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-130776",
