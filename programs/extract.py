@@ -42,7 +42,11 @@ EVIDENCE = [
     ('apply_to_major', re.compile(r'\b(apply|application|applying)\s+(for|to)\s+(admission\s+(to|into)\s+)?(the\s+|a\s+)?'
                                   r'(major|program|professional|upper[\s-]*division|nursing|school|college|bba|bsn|engineering)|'
                                   r'\badmission\s+(to|into)\s+the\s+(major|program|professional|upper[\s-]*division|nursing|school)|'
-                                  r'\b(competitive|selective)\s+admission|\bspace[\s-]+limited\b|\blimited\s+enrollment\b', re.I)),
+                                  r'\b(competitive|selective)\s+admission|\bspace[\s-]+limited\b|\blimited\s+enrollment\b|'
+                                  # UVU 'Matriculation Requirements': 'To be considered matriculated in the Accounting degree',
+                                  # 'To be admitted to the BSME program', '... for matriculation', 'prior to application'
+                                  r'\bmatriculated\s+(in|into)\s+the\b|\bfor\s+matriculation\b|\bto\s+be\s+admitted\s+to\s+the\s+\w+\s+program\b|'
+                                  r'\bprior\s+to\s+application\b|\bapplication\s+for\s+acceptance\s+into\s+the\s+program\b', re.I)),
     ('pre_major', re.compile(r'\bpre[\s-](major|nursing|engineering|business|professional|health|computer)', re.I)),
     ('progression', re.compile(r'\b(progression|progress\s+to|continu(e|ation)\s+in\s+the\s+(major|program)|good\s+standing\s+in\s+the\s+major|'
                                r'opt[\s-]+in(to)?\b.{0,80}\bupper[\s-]*division|upper[\s-]*division\s+(admission|courses?|coursework|standing)|'
@@ -123,6 +127,12 @@ def norm_url(u):
     return re.sub(r'(/index\.html?)?/?$', '', u.split('#')[0])
 
 
+def list_award(label, name):
+    """Award of a program-list entry: the printed line, else the link text, else the printed line with the words the
+    page glued together pulled apart ('Architecture, B.ArchSmith College of ...', UVU). Classification only."""
+    return credential_of(label) or credential_of(name) or credential_of(re.sub(r'(?<=[a-z.])(?=[A-Z][a-z])', ' ', label))
+
+
 def collect_lists(target, run, entries):
     """Program links on the current catalog's list pages (configured `program_lists`; Acalog navigation pages
     otherwise), deduplicated by URL, each with the text exactly as printed."""
@@ -147,10 +157,13 @@ def collect_lists(target, run, entries):
             if NOT_BACHELOR_URL.search(urlsplit(href).path):  # UO minors repeat the major's anchor text: /min-anthropology/
                 label = name
             nk = norm_url(href)
-            if nk in out and out[nk]['credential_level'] is None and credential_of(label) and not NOT_BACHELOR_URL.search(urlsplit(href).path):
+            # UVU prints the award glued to the next column ('Architecture, B.ArchSmith College of ...'): the link's own text
+            # ('Architecture, B.Arch') then carries the award
+            award_of = lambda: list_award(label, name)
+            if nk in out and out[nk]['credential_level'] is None and award_of() and not NOT_BACHELOR_URL.search(urlsplit(href).path):
                 del out[nk]  # the same page linked twice (A-Z index without the award, college list with it): keep the awarded line
             if nk not in out:
-                level = None if NOT_BACHELOR_URL.search(urlsplit(href).path) else credential_of(label)
+                level = None if NOT_BACHELOR_URL.search(urlsplit(href).path) else award_of()
                 listed_as = level or ('major' if MAJOR.search(label) and not NOT_MAJOR.search(label) else None)
                 out[nk] = {'name': name, 'printed': label, 'url': href, 'credential_level': level, 'listed_as': listed_as,
                              'listed_on': e['url'], 'listed_on_sha256': e.get('sha256'), 'listed_on_title': e.get('title', '')}
@@ -746,6 +759,38 @@ PROGRAM_ONLY_ISSUES = ('requirement_groups_skipped',)
 OPTION_NAME = re.compile(r'\b(option|concentration|track|emphasis)\b(?!.*\bmajor\b)', re.I)
 
 
+EMPHASIS_ENTRY = re.compile(r'^(?P<base>[^,]+?)\s+-\s+[^,]*\b(emphasis|concentration|track|option|specialization)\b[^,]*,\s*(?P<award>(?-i:(?:B|A)\.\s?[A-Z][a-z]{0,3}(?:\.[A-Z][a-z]{0,3})*\.?(?![a-z])))', re.I)
+
+
+def listed_emphasis_pages(lists, norm):
+    """(institution, page URL) of emphases the official program list prints as bachelor's programs of their own
+    ('Political Science - American Government Emphasis, B.A.', UVU 2026-27) when the list has no entry for the base
+    degree ('Political Science, B.A.'). There the emphasis is how the degree is offered, and a record for it is the only
+    record of that degree. Where the base degree is listed, every emphasis stays an option of it (held)."""
+    out = set()
+    for ik, v in (lists or {}).items():
+        progs = [p for p in (v.get('programs') or []) if p.get('listed_as') == 'bachelor']
+        printed = [re.sub(r'\s+', ' ', re.sub(r'(?<=[a-z.])(?=[A-Z][a-z])', ' ', p.get('printed') or '')).strip() for p in progs]
+        for p, line in zip(progs, printed):
+            m = EMPHASIS_ENTRY.match(line)
+            if not m: continue
+            award = m.group('award').replace(' ', '').rstrip('.').lower()
+            base = re.sub(r'\W+', '', m.group('base')).lower()
+            if any(re.sub(r'\W+', '', o.split(',')[0]).lower() == base and re.match(r'\s*' + re.escape(award) + r'\b', re.sub(r'[ ]', '', o.split(',', 1)[1]).lower().rstrip('.') if ',' in o else '')
+                   for o in printed if not EMPHASIS_ENTRY.match(o)): continue
+            out.add((ik, norm(p.get('url'))))
+    return out
+
+
+norm_emph = lambda u: re.sub(r'(/index\.html?)?/?$', '', (u or '').split('#')[0])
+
+
+def drops_option_page(found, key, url, emphases):
+    """An option/emphasis page's candidates are dropped (its rows belong to its major), unless the official list prints it
+    as a bachelor's program of its own with no line for the base degree (listed_emphasis_pages)."""
+    return any(is_option_page(c) for c in found) and (key, norm_emph(url)) not in emphases
+
+
 def is_option_page(c):
     """'Studio Art BFA Option' (OSU) is an option inside a major, not a degree program; the major has its own record."""
     return c['domain'] == 'academic_programs' and bool(OPTION_NAME.search(c['record'].get('program_name', '')))
@@ -946,6 +991,7 @@ def extract_run(targets, run_dir, today=None):
             if e.get('page_file'): r['ok'] += 1
             elif e.get('error'): r['errors'][e['error'][:40]] += 1
         lists[key] = collect_lists(t, run, es) if t.get('catalog') else {'programs': [], 'counts': {}}
+        emphases = listed_emphasis_pages({key: lists[key]}, norm_emph)
         if (t.get('catalog') or {}).get('platform') == 'coursedog': t = {**t, '_catalog_year': coursedog_year(run, es)}
         if (t.get('catalog') or {}).get('platform') == 'courseleaf':
             t = {**t, '_listed': {norm_url(p['url']): p for p in lists[key].get('programs', [])}}
@@ -987,7 +1033,8 @@ def extract_run(targets, run_dir, today=None):
                 continue
             if e.get('role') == 'program_page':
                 found = program_page_candidates(t, inst, e, page, today_year)
-                if any(is_option_page(c) for c in found): found = []  # the option's rows belong to its major
+                if drops_option_page(found, key, e.get('url'), emphases):
+                    found = []  # the option's rows belong to its major (unless the list prints it as the degree's only entry)
                 for c in found:
                     c['program_role'] = 'program_page'; cands.append(program_identity(c)); n_c += 1
             if e.get('kind') == 'pdf' and e.get('role') in ('degree_map', 'policy', 'policy_link'):

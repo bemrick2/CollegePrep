@@ -7,11 +7,14 @@ A surviving mutant means a safety rule has no test. Run: python scripts/mutation
 import ast, concurrent.futures, os, queue, shutil, subprocess, sys, tempfile
 
 MUTS = [
+    ('pipeline/extractors/catalog.py', "r'\\bB\\.?\\s?(F\\.\\s?A|S\\.\\s?N|S\\.\\s?W|S|A|", "r'\\bB\\.?\\s?(S|A|"),
+    ('pipeline/extractors/catalog.py', "re.search(r',\\s*(?:B|A)\\.\\s?[A-Z]', rest)", "False"),
+    ('pipeline/extractors/common.py', " and not UNDERGRAD_AWARD.search((page.title or '').split('|')[0])", ''),
     ('pipeline/extractors/credit.py', "if bad_score and bad_score >= len(eqs) * 0.3: issues = issues + ['score_column_not_scores']", 'pass'),
     ('pipeline/extractors/credit.py', "if eqs and all(not e['institution_course_equivalent'] for e in eqs): issues = issues + ['course_column_missing']", 'pass'),
     ('pipeline/promote.py', 'raise ValueError(f"{c[\'candidate_id\']}: requirement row for program', 'pass  # (f"{c[\'candidate_id\']}: requirement row for program'),
     ('pipeline/exams.py', "r'(?<!art\\s)(?<!art)\\bhistory\\b(?!\\s+of\\s+art)'", "r'\\bhistory\\b'"),
-    ('pipeline/extractors/catalog.py', ".split(' - ')[0].split(' | ')[0].strip()", ".split(' - ')[0].strip()"),
+    ('pipeline/extractors/catalog.py', ".split(' < ')[0].split(' | ')[0].strip()", ".split(' < ')[0].strip()"),
     ('pipeline/extractors/merit.py', "cell = re.sub(r'\\([^)]*(?:over|total|years?|4-year|four)[^)]*\\)', '', cell or '', flags=re.I)", 'pass'),
     ('pipeline/extractors/catalog.py', "lambda m: '' if m.group(1) in notes else m.group(0)", 'lambda m: m.group(0)'),
     ('pipeline/extractors/catalog.py', "rd.update(group_type='elective_pool', courses=g['courses'])", "rd.update(group_type='all_required', courses=g['courses'])"),

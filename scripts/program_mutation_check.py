@@ -7,6 +7,12 @@ the same file. Each mutant breaks one rule; tests/test_programs_deep_dive.py mus
 import shutil, subprocess, sys
 
 MUTS = [
+    # UVU: listed emphases, glued awards, matriculation evidence
+    ('programs/extract.py', "                   for o in printed if not EMPHASIS_ENTRY.match(o)): continue", "                   for o in printed if False): continue"),
+    ('programs/extract.py', "    return any(is_option_page(c) for c in found) and (key, norm_emph(url)) not in emphases", "    return any(is_option_page(c) for c in found)"),
+    ('programs/autoreview.py', "and (c['institution_key'], url_of(c, 'program_url')) not in listed_emphases else", "and True else"),
+    ('programs/extract.py', " or credential_of(re.sub(r'(?<=[a-z.])(?=[A-Z][a-z])', ' ', label))", ""),
+    ('programs/extract.py', "r'\\bprior\\s+to\\s+application\\b|", "r'"),
     # issue #95 recovery: printed code shapes, specific hold reasons, held rows reported not dropped
     ('programs/courseleaf.py', "CODE = r'[A-Z]{1,5}(?:/[A-Z]{1,5})*\\s?\\d{3,4}[A-Z]?'", "CODE = r'[A-Z]{1,5}\\s\\d{3,4}[A-Z]?'"),
     ('programs/courseleaf.py', "    if PAIR_CODE.search(text): return {'complex_course_row', 'lecture_lab_pair_code'}", "    pass"),
@@ -62,7 +68,7 @@ MUTS = [
     ('programs/detect.py', "            elif u.path.lower().endswith('.pdf') and CATALOG_WORD.search(a + ' ' + u.path) and not re.search(r'graduate|archive|handbook', a + u.path, re.I):", "            elif u.path.lower().endswith('.pdf') and CATALOG_WORD.search(a + ' ' + u.path):"),
     ('programs/crawl.py', "            **({'degree_map': 0, 'degree_map_index': 0, 'policy_link': 0} if target.get('mode') == 'discover' else {}),", "            **({}),"),
     ('programs/autoreview.py', "               'combined_program' if COMBINED.search(c['record'].get('program_name', '')) else", ""),
-    ('programs/autoreview.py', "               'option_name' if OPTION.search(c['record'].get('program_name', '')) else", ""),
+    ('programs/autoreview.py', "               'option_name' if OPTION.search(c['record'].get('program_name', '')) and (c['institution_key'], url_of(c, 'program_url')) not in listed_emphases else", ""),
     ('programs/autoreview.py', "'not_verbatim' if verify.get(c['candidate_id']) else 'not_bachelor'", "'not_bachelor'"),
     ('programs/autoreview.py', "               'program_not_approved' if c['record'].get('program_key') not in program_keys[c['institution_key']] else None)", "               None)"),
     ('programs/autoreview.py', "        why = ('untrusted_extractor' if (kind, c['extractor']) not in TRUSTED_REQUIREMENTS else", "        why = ('untrusted_extractor' if False else"),

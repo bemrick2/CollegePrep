@@ -315,6 +315,8 @@ begin
   perform hp_test.check((c->'by_component'->>'tuition')::numeric = 20000 and (c->'by_component'->>'mandatory_fees')::numeric = 500
     and c->'by_component'->'living_and_other' = 'null'::jsonb, 'living costs are not in a tuition-and-fees saving');
   perform hp_test.check(i->'not_counted'->>'loans' = 'no_data', 'no loan data is claimed');
+  perform hp_test.check(i->>'totals_certainty' = 'potential'
+    and i->'credit_savings'->'assumes' ? 'exam_credit_total_entered_by_family', 'totals and the family-entered exam total are labelled potential');
 
   r := public.cost_projection(st, array['contract-private'], '2026-27',
          '{"residency": "out_of_state", "cost_basis": "cost_of_attendance", "exam_credits": 24, "prior_credits": 30}');
