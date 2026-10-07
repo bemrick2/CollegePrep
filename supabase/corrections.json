@@ -574,6 +574,97 @@
       "reason": "Ambiguous as printed: A second 'Supporting Required: 1' label is printed above PHIL 255, PHYS 111, PHYS 112, PSYC 305, which supports the record's all_required reading. However, in the layout these four rows are indented with blank credit cells, exactly like the BIO 240/318/340/417 members of 'Choose 3-4 courses from the following: | 11-12'. The first Supporting Required block, by contrast, is unindented and prints credits. The printed total also has no room for them: required courses 28 cr (4+4+3+4+3+3+3+1+3) + first supporting block 12 cr (4+2+3+3) + the 11-12 cr choice = 51-52, the printed 'Total Credits | 51-52'. Requiring four more courses would push the total far above that. So the page can be read either as four more required supporting courses (the label) or as further members of the choose 3-4 list under a stray comment row (indentation and arithmetic). The arithmetic favors the choice-member reading. The rule_text 'Total Credits 51-52' is just the table total. (issue #119)",
       "approved_by": "Brandon (repository owner), 2026-10-07 instruction in the Claude session: \"#119: Review the 30 records individually and downgrade those whose verified claims are unsupported or misstated.\"",
       "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-157951\", null, \"2026-27\", {\"program_key\": \"religious-studies-bachelor-of-arts\", \"requirement_key\": \"program-requirements-30-hours-any-rels-course-not-already-counted-toward-the-maj\"}]",
+      "record": "data/institutions/wku/degree_requirements/2026-27.json",
+      "reason": "Issue claim confirmed. The ten non-RELS courses are indented options under the Electives area choice 'Select two courses from the following: 1 | 6'; the unindented line 'Any RELS course not already counted toward the major.' is the first option of that choice (a comment row), not a group heading. The record turns that option line into its section name and types the ten courses all_required, losing the select-two (6 hours) rule, the open 'any RELS course' option, and footnote 1 (9 hours must be in religious studies). (issue #141)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 10:10 CT instruction in the Claude session: \"Approve the corrections in #141 individually after checking each against its archived official source.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-157951\", null, \"2026-27\", {\"program_key\": \"philosophy-bachelor-of-arts\", \"requirement_key\": \"philosophy-track-31-hours-any-philosophy-phil-course-that-is-not-already-countin\"}]",
+      "record": "data/institutions/wku/degree_requirements/2026-27.json",
+      "reason": "Issue claim confirmed (its quote is slightly paraphrased; the printed option reads 'Any philosophy (PHIL) course that is not already counting towards one of the above categories.'). In the Philosophy Track table the Electives area prints 'Select four of the following: | 12' and then four indented options: the any-PHIL line, RELS 242, RELS 317, RELS 318. The record uses the any-PHIL option as a heading and types the three RELS courses all_required; none is required, and rule_text 'Total Hours 31' is the track total, not this group's rule. (issue #141)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 10:10 CT instruction in the Claude session: \"Approve the corrections in #141 individually after checking each against its archived official source.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-157951\", null, \"2026-27\", {\"program_key\": \"philosophy-bachelor-of-arts\", \"requirement_key\": \"philosophy-politics-and-policy-track-31-hours-any-philosophy-course-that-is-not-\"}]",
+      "record": "data/institutions/wku/degree_requirements/2026-27.json",
+      "reason": "Issue claim confirmed. In the Philosophy, Politics, and Policy Track the Electives area prints 'Select at least two philosophy (PHIL) courses and at least two political science (PS) courses from the following: | 12' followed by indented options: the any-philosophy line, PS 201-PS 340, and 'Any graduate political science (PS) course'. The record makes the any-philosophy option its heading, types the nine PS courses all_required, drops the 12-hour total and the at-least-two PHIL / at-least-two PS minimums, and omits the 'Any graduate political science (PS) course' option. (issue #141)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 10:10 CT instruction in the Claude session: \"Approve the corrections in #141 individually after checking each against its archived official source.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-230737\", null, \"2026-27\", {\"program_key\": \"music-b-a\", \"requirement_key\": \"program-requirements-distribution-courses\"}]",
+      "record": "data/institutions/uvu/degree_requirements/2026-27.json",
+      "reason": "Issue claim confirmed. Under 'Distribution Courses:' (inside the General Education Requirements area) the source prints credit categories (Biology 3, Physical Science 3, Humanities Distribution, Social/Behavioral Science 3, Personal, Professional and Civic Growth 3). PHYS 1750 is indented under 'Physical Science' and marked '(recommended)', and the later plan line reads 'Physical Science Distribution (PHYS 1750 recommended)'. The record types PHYS 1750 as all_required, and its rule_text runs on into the next areaheader 'Discipline Core Requirements | 63 Credits', which is not part of this group. (issue #141)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 10:10 CT instruction in the Claude session: \"Approve the corrections in #141 individually after checking each against its archived official source.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-230737\", null, \"2026-27\", {\"program_key\": \"music-b-a\", \"requirement_key\": \"program-requirements-musicianship-courses\"}]",
+      "record": "data/institutions/uvu/degree_requirements/2026-27.json",
+      "reason": "Issue claim confirmed. Under the Discipline Core Requirements area, after the label 'Musicianship Courses:' the 17 MUSC courses are printed unindented, each with its own credit hours (no choice heading), i.e. required. The next row 'Complete 8 credits of MUSC courses not already required for the degree (at least 6 credits must be upper-division) | 8' is a separate open elective requirement that by its wording excludes these required courses. The arithmetic confirms it: the 17 courses total 31 credits, + 8 elective + 16 Individual Musicianship Studies + 8 Ensembles = 63, matching 'Discipline Core Requirements | 63 Credits'. The record wrongly makes the 17 courses a choose_credits 8 pool. (issue #141)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 10:10 CT instruction in the Claude session: \"Approve the corrections in #141 individually after checking each against its archived official source.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-230737\", null, \"2026-27\", {\"program_key\": \"music-b-s\", \"requirement_key\": \"program-requirements-distribution-courses\"}]",
+      "record": "data/institutions/uvu/degree_requirements/2026-27.json",
+      "reason": "Issue claim confirmed. Under 'Distribution Courses:' (inside the General Education Requirements area) the source prints credit categories (Biology 3, Physical Science 3, Humanities Distribution, Social/Behavioral Science 3, Personal, Professional and Civic Growth 3). PHYS 1750 is indented under 'Physical Science' and marked '(recommended)', and the later plan line reads 'Physical Science Distribution (PHYS 1750 recommended)'. The record types PHYS 1750 as all_required, and its rule_text runs on into the next areaheader 'Discipline Core Requirements | 63 Credits', which is not part of this group. (issue #141)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 10:10 CT instruction in the Claude session: \"Approve the corrections in #141 individually after checking each against its archived official source.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-230737\", null, \"2026-27\", {\"program_key\": \"music-b-s\", \"requirement_key\": \"program-requirements-musicianship-courses\"}]",
+      "record": "data/institutions/uvu/degree_requirements/2026-27.json",
+      "reason": "Issue claim confirmed. Under the Discipline Core Requirements area, after the label 'Musicianship Courses;' the 17 MUSC courses are printed unindented, each with its own credit hours (no choice heading), i.e. required. The next row 'Complete 8 credits of MUSC courses not already required for the degree (at least 6 credits must be upper-division) | 8' is a separate open elective requirement that by its wording excludes these required courses. The arithmetic confirms it: the 17 courses total 31 credits, + 8 elective + 16 Individual Musicianship Studies + 8 Ensembles = 63, matching 'Discipline Core Requirements | 63 Credits'. The record wrongly makes the 17 courses a choose_credits 8 pool. (issue #141)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 10:10 CT instruction in the Claude session: \"Approve the corrections in #141 individually after checking each against its archived official source.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-152390\", null, \"2026-27\", {\"program_key\": \"studio-art-concentration-bachelor-of-fine-arts\", \"requirement_key\": \"major-requirements-78-hours-correlate-courses\"}]",
+      "record": "data/institutions/saintmarys/degree_requirements/2026-27.json",
+      "reason": "Issue claim confirmed. The choose-two (6 hours) and the 16 coded courses are correct, but the same indented option list continues with two non-coded options, 'Pre-approved Topic courses' and 'Additional upper level Art History Courses', before the next areaheader 'Portfolio Reviews' (both indent=true in the layout). The record presents a closed list of 16 courses, so a student choosing either open option would wrongly fail the requirement. (issue #141)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 10:10 CT instruction in the Claude session: \"Approve the corrections in #141 individually after checking each against its archived official source.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-152390\", null, \"2026-27\", {\"program_key\": \"studio-art-and-art-history-double-concentration-bachelor-of-arts\", \"requirement_key\": \"major-requirements-66-hours-ancient-medieval\"}]",
+      "record": "data/institutions/saintmarys/degree_requirements/2026-27.json",
+      "reason": "Issue claim confirmed. 'Ancient/Medieval' is an unindented sub-heading row (not an areaheader) inside the areaheader 'Upper Level Art History Electives', whose printed rule is 'Select five courses from at least two of the following areas: | 15'. It is one of six areas (Ancient/Medieval, Eighteenth/Nineteenth Century, Twentieth Century, Contemporary, Non-Western/Underrepresented Traditions, Media Specific). The record makes it its own all_required group, claiming ART 354, ART 390 are all required; the source requires none individually. (issue #141)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 10:10 CT instruction in the Claude session: \"Approve the corrections in #141 individually after checking each against its archived official source.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-152390\", null, \"2026-27\", {\"program_key\": \"studio-art-and-art-history-double-concentration-bachelor-of-arts\", \"requirement_key\": \"major-requirements-66-hours-eighteenth-nineteenth-century\"}]",
+      "record": "data/institutions/saintmarys/degree_requirements/2026-27.json",
+      "reason": "Issue claim confirmed. 'Eighteenth/Nineteenth Century' is an unindented sub-heading row (not an areaheader) inside the areaheader 'Upper Level Art History Electives', whose printed rule is 'Select five courses from at least two of the following areas: | 15'. It is one of six areas (Ancient/Medieval, Eighteenth/Nineteenth Century, Twentieth Century, Contemporary, Non-Western/Underrepresented Traditions, Media Specific). The record makes it its own all_required group, claiming ART 345, ART 354, ART 390 are all required; the source requires none individually. (issue #141)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 10:10 CT instruction in the Claude session: \"Approve the corrections in #141 individually after checking each against its archived official source.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-152390\", null, \"2026-27\", {\"program_key\": \"studio-art-and-art-history-double-concentration-bachelor-of-arts\", \"requirement_key\": \"major-requirements-66-hours-twentieth-century\"}]",
+      "record": "data/institutions/saintmarys/degree_requirements/2026-27.json",
+      "reason": "Issue claim confirmed. 'Twentieth Century' is an unindented sub-heading row (not an areaheader) inside the areaheader 'Upper Level Art History Electives', whose printed rule is 'Select five courses from at least two of the following areas: | 15'. It is one of six areas (Ancient/Medieval, Eighteenth/Nineteenth Century, Twentieth Century, Contemporary, Non-Western/Underrepresented Traditions, Media Specific). The record makes it its own all_required group, claiming ART 345, ART 350, ART 390 are all required; the source requires none individually. (issue #141)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 10:10 CT instruction in the Claude session: \"Approve the corrections in #141 individually after checking each against its archived official source.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-152390\", null, \"2026-27\", {\"program_key\": \"studio-art-and-art-history-double-concentration-bachelor-of-arts\", \"requirement_key\": \"major-requirements-66-hours-contemporary\"}]",
+      "record": "data/institutions/saintmarys/degree_requirements/2026-27.json",
+      "reason": "Issue claim confirmed. 'Contemporary' is an unindented sub-heading row (not an areaheader) inside the areaheader 'Upper Level Art History Electives', whose printed rule is 'Select five courses from at least two of the following areas: | 15'. It is one of six areas (Ancient/Medieval, Eighteenth/Nineteenth Century, Twentieth Century, Contemporary, Non-Western/Underrepresented Traditions, Media Specific). The record makes it its own all_required group, claiming ART 302, ART 356, ART 390, ART 490 are all required; the source requires none individually. (issue #141)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 10:10 CT instruction in the Claude session: \"Approve the corrections in #141 individually after checking each against its archived official source.\"",
+      "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-152390\", null, \"2026-27\", {\"program_key\": \"studio-art-and-art-history-double-concentration-bachelor-of-arts\", \"requirement_key\": \"major-requirements-66-hours-non-western-underrepresented-traditions\"}]",
+      "record": "data/institutions/saintmarys/degree_requirements/2026-27.json",
+      "reason": "Issue claim confirmed. 'Non-Western/Underrepresented Traditions' is an unindented sub-heading row (not an areaheader) inside the areaheader 'Upper Level Art History Electives', whose printed rule is 'Select five courses from at least two of the following areas: | 15'. It is one of six areas (Ancient/Medieval, Eighteenth/Nineteenth Century, Twentieth Century, Contemporary, Non-Western/Underrepresented Traditions, Media Specific). The record makes it its own all_required group, claiming ART 353, ART 390 are all required; the source requires none individually. (issue #141)",
+      "approved_by": "Brandon (repository owner), 2026-10-07 10:10 CT instruction in the Claude session: \"Approve the corrections in #141 individually after checking each against its archived official source.\"",
+      "approved_on": "2026-10-07"
     }
   ]
 }

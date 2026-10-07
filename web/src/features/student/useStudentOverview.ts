@@ -14,6 +14,8 @@ export interface StudentOverview {
   benchmarks: BenchmarkSummary[]
   history: AttemptRecord[]
   goalsMet: number
+  /** The previous week's progress (Monday weekStart - 7), for the recap. */
+  lastWeek: WeeklyProgress | null
 }
 
 /** Everything the student home, progress page and parent dashboard read about one student. */
@@ -39,7 +41,7 @@ export function useStudentOverview(studentId: string | null | undefined) {
       Promise.all(pastWeeks.map((w) => source.weeklyProgress(studentId, w).catch(() => null))),
     ])
     const goalsMet = [week, ...past].filter((w) => w?.goal?.target_questions && w.questions_submitted >= w.goal.target_questions).length
-    return { tz, today, weekStart, plan, week, streak, estimates, scores, benchmarks, history, goalsMet }
+    return { tz, today, weekStart, plan, week, streak, estimates, scores, benchmarks, history, goalsMet, lastWeek: past[0] ?? null }
   }, [source, studentId, tz])
 }
 

@@ -76,6 +76,30 @@ def base_stem(urls):
     return base[0] if len(base) == 1 else None
 
 
+DEGREE_SLUG = re.compile(r'[-_](bachelor-(arts|science|fine-arts|music)|bachelors?-degrees?|b-?a|b-?s|bfa|bm)$', re.I)
+
+
+def degree_page(urls):
+    """JHU 2026-27 prints a degree on its department page ('.../archaeology-ugrad-major/'), on an Engineering for
+    Professionals page ('.../engineering-professionals/civil-engineering/') and on the degree's own page
+    ('.../archaeology-bachelor-arts/', '.../civil-engineering-bachelor-science/'): when exactly one of the pages names an
+    award in its last path segment, it is the program's page and the others are variants."""
+    out = [u for u in urls if DEGREE_SLUG.search(u.rstrip('/').rsplit('/', 1)[-1])]
+    return out[0] if len(out) == 1 else None
+
+
+def variant_pages_of(groups):
+    """Pages that print a program name another page of the same program also prints, and are not that program's page:
+    the degree page when there is one (degree_page), else the base page (base_stem)."""
+    out = set()
+    for us in groups:
+        if len(us) < 2: continue
+        base = base_stem(us)
+        canon = degree_page(us) if base is None else None  # only where no page is the others' base page
+        out |= {u for u in us if u != canon} if canon else {u for u in us if page_stem(u) != base}
+    return out
+
+
 def load(run):
     run = Path(run)
     cands = [json.loads(l) for l in (run / 'candidates.jsonl').read_text().splitlines()]
@@ -112,9 +136,13 @@ def review(state, run, today=None):
     for c in cands:
         u = url_of(c, 'program_url')
         if c['domain'] == 'academic_programs' and u and not u.lower().endswith('.pdf'): pages[(c['institution_key'], c['record'].get('program_key'))].add(u)
-    variant_pages = {u for us in pages.values() if len(us) > 1 for u in us if page_stem(u) != base_stem(us)}
-    from .extract import listed_emphasis_pages
-    listed_emphases = listed_emphasis_pages(lists, norm)
+    variant_pages = variant_pages_of(pages.values())
+    from .extract import listed_emphasis_pages, _degree_key
+    offered = defaultdict(set)  # degrees with a program candidate of their own (not an option page)
+    for c in cands:
+        n = c['record'].get('program_name', '') if c['domain'] == 'academic_programs' else ''
+        if n and not OPTION.search(n) and _degree_key(n): offered[c['institution_key']].add(_degree_key(n))
+    listed_emphases = listed_emphasis_pages(lists, norm, offered)
     for c in cands:
         if c['domain'] != 'academic_programs': continue
         k = (c['institution_key'], c['record'].get('program_key'))

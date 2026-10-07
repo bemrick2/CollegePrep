@@ -28,7 +28,8 @@ from .crawl import program_rule, in_scope, excluded
 
 GRAD = re.compile(r'\b(M\.?\s?S\.?|M\.?\s?A\.?|MBA|M\.?\s?Ed|M\.?\s?F\.?A|Ph\.?\s?D|Ed\.?\s?D|DNP|D\.?\s?P\.?\s?T|J\.?\s?D|'
                   r'Master|Doctor|Graduate|Post[- ]?bacc|Certificate|Minor|Endorsement)\b', re.I)
-BACHELOR = re.compile(r'(?<![A-Za-z]\.)\b(B\.?\s?(A|S|F\.?A|L\.\s?A|M|S\.?N|S\.?W|B\.?A|S\.?E|S\.?E\.?E|S\.?M\.?E|S\.?C\.?E|Arch|Mus|A\.?S|A\.?A\.?S|S\.?Ed|I\.?S)\b\.?|'
+# PVAMU 2026-27 also prints BSCJ, BSAG, BSCHE and BSDIET ('Criminal Justice, BSCJ'); Liberty 'Biology Education 6-12 Major (B.Ed.)'
+BACHELOR = re.compile(r'(?<![A-Za-z]\.)\b(B\.?\s?(A|S|F\.?A|L\.\s?A|M|S\.?N|S\.?W|B\.?A|S\.?E|S\.?E\.?E|S\.?M\.?E|S\.?C\.?E|Arch|Mus|A\.?S|A\.?A\.?S|S\.?Ed|Ed|I\.?S|SCJ|SAG|SCHE|SDIET)\b\.?|'
                       r'Bachelor|\bH?BA\b|\bH?BS\b)', re.I)
 ASSOCIATE = re.compile(r'\b(A\.?\s?(A|S|A\.?S|A\.?T|S\.?T|F\.?A)\b\.?|Associate)', re.I)
 
@@ -145,12 +146,20 @@ def collect_lists(target, run, entries):
     otherwise), deduplicated by URL, each with the text exactly as printed."""
     is_program = program_rule(target)
     cat_filter = (target.get('catalog') or {}).get('list_filter')
-    have_lists = any(e.get('role') == 'program_list' and e.get('page_file') for e in entries)
+    # A list page this run could not fetch but an earlier run of the same catalog stored (NC State 2026-27: the
+    # 'University Catalog 2026-2027' undergraduate page is in the discovery run only) is read from that run, as stored.
+    docs = [(run, e) for e in entries]
+    for ld in (target.get('catalog') or {}).get('list_documents') or []:
+        rd = Path(__file__).resolve().parents[1] / ld['run']
+        other = Run(rd)  # a run that is not checked out here (a CI run branch holds one run) has no entries
+        docs += [(other, {**e, 'role': 'program_list'}) for e in other.entries()
+                 if e.get('institution_key') == target['institution_key'] and e.get('url') == ld['url'] and e.get('page_file')]
+    have_lists = any(e.get('role') == 'program_list' and e.get('page_file') for _, e in docs)
     out, years = {}, set()
-    for e in entries:
+    for src, e in docs:
         roles = ('program_list',) if have_lists else ('catalog_home', 'catalog_nav')
         if e.get('role') not in roles or not e.get('page_file'): continue
-        page, d = run.load_page(e['page_file'])
+        page, d = src.load_page(e['page_file'])
         y, printed = CAT.catalog_year(page)
         if printed: years.add(printed)
         else: years |= {y for y, _ in printed_catalog_years(page)}
@@ -182,7 +191,19 @@ def collect_lists(target, run, entries):
                        'unclassified': sum(p['credential_level'] is None for p in progs)}}
 
 
+# KU 2026-27: a program's sample-plan sub-page ('Below is a sample 4-year plan for students pursuing the BA in Anthropology',
+# 'The recommended 4-year plan is listed below') repeats the degree's name; the program's own page is its source
+SAMPLE_PLAN_PAGE = re.compile(r'(?im)^\s*(below is a |the )?(sample|recommended) (4|four)[- ]year plan\b')
+
+
 def program_page_candidates(target, inst, entry, page, today_year):
+    found = _program_page_candidates(target, inst, entry, page, today_year)
+    if SAMPLE_PLAN_PAGE.search(page.text or ''):
+        found = [c for c in found if c['domain'] != 'academic_programs']
+    return found
+
+
+def _program_page_candidates(target, inst, entry, page, today_year):
     """catalog_program/v1 (Acalog, CourseLeaf) unchanged; when it finds no printed year in the page header but the
     page itself prints exactly one catalog year label elsewhere (CourseLeaf footer "2026-2027 Catalog"), the same
     extractor runs on a view of the page whose title carries that label, and every candidate records it as an issue
@@ -278,7 +299,7 @@ def department_section_candidates(inst, entry, page, today_year):
     yline = next((l for y, l in printed_catalog_years(page) if y == year), printed0 and (page.title or '')) or year
     # KU 2026-27: a program's sample-plan sub-page ('Below is a sample 4-year plan for students pursuing the BA in
     # Anthropology') repeats the degree heading; the program's own page is its source
-    if re.search(r'(?im)^\s*(below is a |the )?(sample|recommended) (4|four)[- ]year plan\b', page.text or ''): return []
+    if SAMPLE_PLAN_PAGE.search(page.text or ''): return []
     here = norm_url(common.source_of(entry)['url'])
     others = [(norm_url(h), re.sub(r'[^a-z0-9]+', ' ', (a or '').lower()).strip()) for h, a in (page.links or [])]
     out, keys = [], set()
@@ -813,8 +834,14 @@ WITH_EMPHASIS_ENTRY = re.compile(r'^(?P<base>[^,]+?)\s+with\s+an?\s+(?:concentra
 OPTION_PAREN_ENTRY = re.compile(r'^(?P<base>[^:()]+?):\s+[^:()]*\b(emphasis|concentration|track|option|specialization)\b[^:()]*(?:\([^()]*\)[^:()]*)?\((?P<award>(?-i:(?:B|A)\.\s?[A-Z][a-z]{0,3}(?:\.[A-Z][a-z]{0,3})*\.?))\)', re.I)
 
 
+# NC State 2026-27: 'Animal Science (BS): Industry Concentration' (no 'Animal Science (BS)' line)
+AWARD_PAREN_OPTION_ENTRY = re.compile(r'^(?P<base>[^:()]+?)\s*\((?P<award>(?-i:[AB]\.?\s?[A-Z][A-Za-z]{0,3}\.?(?:[A-Z][a-z]{0,3}\.?)*))\)\s*:\s*[^:]*\b(emphasis|concentration|track|option|specialization)\b', re.I)
+# Bryant 2026-27: 'Bachelor of Science in Business Administration: Accounting Concentration'
+BACHELOR_OF_OPTION_ENTRY = re.compile(r'^(?P<award>Bachelor of (?:Science|Arts|Fine Arts|Music|Business Administration))\s+in\s+(?P<base>[^:]+?)\s*:\s*[^:]*\b(emphasis|concentration|track|option|specialization)\b', re.I)
+
+
 def _award_key(a):
-    return a.replace(' ', '').rstrip('.').lower()
+    return re.sub(r'[\s.]', '', a).lower()
 
 
 def _degree_key(line):
@@ -824,12 +851,14 @@ def _degree_key(line):
         head, rest = line.split(',', 1)
         m = re.match(r'\s*((?-i:(?:B|A)\.\s?[A-Z][a-z]{0,3}(?:\.[A-Z][a-z]{0,3})*\.?(?![a-z])))', rest)
         if m: return re.sub(r'\W+', '', head).lower(), _award_key(m.group(1))
-    m = re.match(r'^(?P<base>[^:()]+?)\s*\((?P<award>(?:B|A)\.[^)]*)\)', line)
+    m = re.match(r'^(?P<base>[^:()]+?)\s*\((?P<award>(?:B|A)\.[^)]*|(?-i:[AB][A-Z]{1,4}))\)', line)
+    if m: return re.sub(r'\W+', '', m.group('base')).lower(), _award_key(m.group('award'))
+    m = re.match(r'^(?P<award>Bachelor of (?:Science|Arts|Fine Arts|Music|Business Administration))\s+in\s+(?P<base>[^:,()]+?)\s*$', line, re.I)
     if m: return re.sub(r'\W+', '', m.group('base')).lower(), _award_key(m.group('award'))
     return None
 
 
-def listed_emphasis_pages(lists, norm):
+def listed_emphasis_pages(lists, norm, offered=None):
     """(institution, page URL) of emphases the official program list prints as bachelor's programs of their own
     ('Political Science - American Government Emphasis, B.A.', UVU 2026-27; 'Arts Major: Studio Art Option (B.A.)',
     UNH 2026-27) when the list has no entry for the base degree ('Political Science, B.A.'; 'Arts Major (B.A.)'). There
@@ -839,11 +868,15 @@ def listed_emphasis_pages(lists, norm):
     for ik, v in (lists or {}).items():
         progs = [p for p in (v.get('programs') or []) if p.get('listed_as') == 'bachelor']
         printed = [re.sub(r'\s+', ' ', re.sub(r'(?<=[a-z.])(?=[A-Z][a-z])', ' ', p.get('printed') or '')).strip() for p in progs]
-        emph = [EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) or WITH_EMPHASIS_ENTRY.match(line) for line in printed]
+        emph = [EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) or WITH_EMPHASIS_ENTRY.match(line)
+                or AWARD_PAREN_OPTION_ENTRY.match(line) or BACHELOR_OF_OPTION_ENTRY.match(line) for line in printed]
         degrees = {_degree_key(o) for o, m in zip(printed, emph) if not m} - {None}
         for p, m in zip(progs, emph):
             if not m: continue
-            if (re.sub(r'\W+', '', m.group('base')).lower(), _award_key(m.group('award'))) in degrees: continue
+            key = (re.sub(r'\W+', '', m.group('base')).lower(), _award_key(m.group('award')))
+            # the base degree is listed, or has a program page of its own in the run (NC State 'Computer Science (BS)'
+            # beside 'Computer Science (BS): Game Development Concentration'): the emphasis is an option of it
+            if key in degrees or key in (offered or {}).get(ik, set()): continue
             out.add((ik, norm(p.get('url'))))
     return out
 

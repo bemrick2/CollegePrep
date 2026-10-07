@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { cleanup, render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
@@ -160,17 +160,17 @@ describe('app flows', () => {
     localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976']))
     const src = new DemoSource(livingIn('TN', sampleFamily('parent')))
     renderAt('/parent', src)
-    expect(await screen.findByRole('link', { name: 'Mark a top choice' })).toHaveAttribute('href', '/colleges/paths')
+    expect(await screen.findByRole('link', { name: 'Mark a top choice' }, { timeout: 15_000 })).toHaveAttribute('href', '/colleges/paths')
     cleanup()
     localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976']))
     localStorage.setItem('pp-primary', 'utk')
     renderAt('/parent', src)
-    expect(await screen.findByText('Four-year cost at University of Tennessee, Knoxville')).toBeInTheDocument()
+    expect(await screen.findByText('Four-year cost at University of Tennessee, Knoxville', {}, { timeout: 15_000 })).toBeInTheDocument()
     expect(screen.getByText(/\$147,976 published in-state cost of attendance, before aid · your top choice/)).toBeInTheDocument()
     expect(screen.queryByRole('link', { name: 'Mark a top choice' })).not.toBeInTheDocument()
     // The biggest opportunity is the top choice's strongest verified lever, worded as a possibility.
     expect(screen.getByText(/4 more ACT points reaches 4 merit awards \(ACT 31\+\) at University of Tennessee, Knoxville/)).toBeInTheDocument()
-  })
+  }, 30_000) // two full dashboard renders; about 3s alone, slower when the whole suite runs in parallel
 
   it('student onboarding asks how sure they are about a major and never requires one', async () => {
     const user = userEvent.setup()
@@ -388,7 +388,18 @@ describe('weekly plan and parent accountability', () => {
     await user.click(screen.getByRole('checkbox', { name: /Tell me when Maya goes/ }))
     expect(await screen.findByText(/Saved\./)).toBeInTheDocument()
     const ctx = await src.getHouseholdContext()
-    expect(await src.getAlertPreference(ctx.students[0]!.id)).toEqual({ enabled: true, inactivityDays: 3 })
+    expect(await src.getAlertPreference(ctx.students[0]!.id)).toEqual({ enabled: true, inactivityDays: 3, weeklyDigest: false })
+    // The Monday summary: opt in, and preview exactly what the sender would build (demo sends nothing).
+    await user.click(screen.getByRole('checkbox', { name: "Email me a summary of Maya's week on Mondays." }))
+    await screen.findByText(/Saved\./)
+    expect(await src.getAlertPreference(ctx.students[0]!.id)).toMatchObject({ weeklyDigest: true })
+    expect(screen.getByText(/Demo: your choices are kept, but no email is sent\./)).toBeInTheDocument()
+    await user.click(screen.getByRole('button', { name: 'Preview the Monday email' }))
+    const preview = screen.getByRole('region', { name: 'Monday email preview' })
+    expect(within(preview).getByText(/^Maya's week on Prep & Price:/)).toBeInTheDocument()
+    expect(preview).toHaveTextContent(/practised on \d days? of 7/)
+    expect(preview).toHaveTextContent('not an ACT or SAT score')
+    expect(preview).not.toHaveTextContent(/predict|estimated score/i)
   }, 20_000)
 
   it('student home shows the week strip, pace, and puts a due progress check first', async () => {
@@ -405,6 +416,49 @@ describe('weekly plan and parent accountability', () => {
     expect(await screen.findByRole('link', { name: 'Start progress check' })).toHaveAttribute('href', '/student/benchmark?kind=mini')
     expect(screen.getByRole('heading', { name: 'Mini benchmark' })).toBeInTheDocument()
   })
+
+  it('week turnover: last week is recapped, a missing goal is offered from last week, and nothing claims an email was sent', async () => {
+    vi.useFakeTimers({ toFake: ['Date'] })
+    vi.setSystemTime(new Date('2026-10-07T15:00:00Z')) // a Wednesday: the recap still leads
+    try {
+      const user = userEvent.setup()
+      const fam = livingIn('TN', sampleFamily('parent'))
+      const sid = fam.students[0]!.id
+      const thisWeek = '2026-10-05'
+      fam.goals = fam.goals.filter((g) => !(g.student_id === sid && g.week_start === thisWeek))
+      const src = new DemoSource(fam)
+      renderAt('/parent', src)
+      const recap = await screen.findByRole('region', { name: 'Last week' })
+      expect(within(recap).getByText(/week of Sep 28/)).toBeInTheDocument()
+      expect(within(recap).getByText(/of 40 questions|Goal met: \d+ of 40 questions/)).toBeInTheDocument()
+      expect(within(recap).getByRole('list', { name: "Last week's practice days" })).toBeInTheDocument()
+      // No goal this week: one tap carries last week's forward (the parent may set goals in the sample family).
+      expect(screen.getByText('No goal for this week yet')).toBeInTheDocument()
+      await user.click(screen.getByRole('button', { name: 'Use 40 again this week' }))
+      expect((await src.weeklyProgress(sid, thisWeek)).goal?.target_questions).toBe(40)
+      // Only what the server recorded as sent is called emailed; the demo sends nothing.
+      expect(await screen.findByText(/None\. The demo never sends email; updates appear only on this dashboard\./)).toBeInTheDocument()
+      expect(screen.queryByText(/emailed (to you )?(Mon|Tue|Wed|Thu|Fri|Sat|Sun|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/)).not.toBeInTheDocument()
+    } finally {
+      vi.useRealTimers()
+    }
+  }, 30_000)
+
+  it('student sees last week at the start of the week, and who sets a missing goal', async () => {
+    vi.useFakeTimers({ toFake: ['Date'] })
+    vi.setSystemTime(new Date('2026-10-05T15:00:00Z')) // Monday
+    try {
+      const fam = sampleFamily('student')
+      const sid = fam.students[0]!.id
+      fam.goals = fam.goals.filter((g) => !(g.student_id === sid && g.week_start === '2026-10-05'))
+      renderAt('/student', new DemoSource(fam))
+      expect(await screen.findByRole('region', { name: 'Last week' })).toBeInTheDocument()
+      expect(screen.getByText('No goal for this week yet')).toBeInTheDocument()
+      expect(screen.getByText('Your parent or guardian sets the weekly goal.')).toBeInTheDocument()
+    } finally {
+      vi.useRealTimers()
+    }
+  }, 30_000)
 
   it('a progress check is compared with the baseline, labelled as practice, with noise called noise', async () => {
     const user = userEvent.setup()

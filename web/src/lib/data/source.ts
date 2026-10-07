@@ -109,6 +109,10 @@ export interface DataSource {
   /** One saved school the family elevates as its primary target (CR-12). False until the backend supports it;
    *  the UI hides the control and shows no primary while false. */
   readonly supportsPrimarySchool: boolean
+  /** True when the backend stores the weekly-summary opt-in (CR-22). The demo stores it but sends no email. */
+  readonly supportsWeeklyDigest: boolean
+  /** Emails actually sent to this guardian, newest first; null where the backend can't say (CR-22 not applied). */
+  emailDeliveries(): Promise<EmailDelivery[] | null>
   /** Major certainty and up to 8 saved areas/majors (CR-13). Optional everywhere; empty when never set. */
   interests(studentId: string): Promise<InterestProfile>
   saveInterests(studentId: string, profile: InterestProfile): Promise<void>
@@ -175,10 +179,22 @@ export interface InvitationSummary {
   last_emailed_at: string | null
 }
 
+/** One email the server recorded as sent to the signed-in guardian (CR-22 parent_email_deliveries). */
+export interface EmailDelivery {
+  kind: 'weekly_digest' | 'inactivity'
+  /** weekly_digest: the week's Monday. inactivity: the student it was about. */
+  weekStart: string | null
+  studentId: string | null
+  sentAt: string
+}
+
 export interface AlertPreference {
+  /** The inactivity alert. */
   enabled: boolean
   /** 1-60 days without practice before the guardian is told. */
   inactivityDays: number
+  /** Monday email summary of the student's week (CR-22). Only stored where supportsWeeklyDigest. */
+  weeklyDigest?: boolean
 }
 
 export interface InactiveStudent {

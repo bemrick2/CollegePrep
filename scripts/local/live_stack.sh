@@ -5,7 +5,7 @@
 #
 #   scripts/local/live_stack.sh up      # (re)create the database and start PostgREST + the /rest/v1 proxy
 #   scripts/local/live_stack.sh down    # stop them
-#   scripts/local/live_stack.sh test    # fresh database, then the LiveSource end-to-end test against it
+#   scripts/local/live_stack.sh test    # fresh database, then the local end-to-end tests (web/scripts/local/*.local.test.ts)
 #
 # Needs: a local PostgreSQL superuser (PGHOST/PGUSER/PGPASSWORD, default postgres@localhost) and a PostgREST binary
 # (POSTGREST_BIN). Nothing here talks to the hosted project. Auth is not emulated: tests sign JWTs for fixture
@@ -54,6 +54,10 @@ SQL
     psql -q -X -v ON_ERROR_STOP=1 -f "$m" >/dev/null || { echo "migration failed: $m" >&2; exit 1; }
   done
   psql -q -X -v ON_ERROR_STOP=1 -c "grant usage on schema public to anon, authenticated, service_role" >/dev/null
+  # Local-only reference implementations of open contract requests (not migrations; see each file's header).
+  for p in "$ROOT"/scripts/local/proposals/*.sql; do
+    [ -e "$p" ] && { psql -q -X -v ON_ERROR_STOP=1 -f "$p" >/dev/null || { echo "proposal failed: $p" >&2; exit 1; }; }
+  done
   (cd "$ROOT/web" && npx vite-node scripts/local/seedFromFixtures.ts) > "$RUN/seed.sql"
   psql -q -X -v ON_ERROR_STOP=1 -f "$RUN/seed.sql" >/dev/null
   # Fixture accounts for local tests: parent, student, second guardian, outsider.
@@ -62,7 +66,10 @@ insert into auth.users(id, email) values
   ('00000000-0000-4000-a000-0000000000a1', 'parent@local.test'),
   ('00000000-0000-4000-a000-000000000051', 'student@local.test'),
   ('00000000-0000-4000-a000-0000000000a2', 'guardian2@local.test'),
-  ('00000000-0000-4000-a000-000000000099', 'outsider@local.test')
+  ('00000000-0000-4000-a000-000000000099', 'outsider@local.test'),
+  ('00000000-0000-4000-a000-0000000000a3', 'parent3@local.test'),
+  ('00000000-0000-4000-a000-0000000000a4', 'parent4@local.test'),
+  ('00000000-0000-4000-a000-000000000052', 'student2@local.test')
 on conflict do nothing;
 -- Two obviously fictional, unverified schools so saved-school flows can run. Not research data.
 insert into public.institutions(ipeds_name, display_name, state_code, institution_key) values
@@ -119,7 +126,7 @@ case "${1:-up}" in
   down) down ;;
   test)
     up
-    (cd "$ROOT/web" && LOCAL_BACKEND_URL="http://127.0.0.1:$PORT" LOCAL_JWT_SECRET="$SECRET" npx vitest run scripts/local/liveSource.local.test.ts)
+    (cd "$ROOT/web" && LOCAL_BACKEND_URL="http://127.0.0.1:$PORT" LOCAL_JWT_SECRET="$SECRET" npx vitest run scripts/local/)
     ;;
   *) echo "usage: $0 up|down|test" >&2; exit 2 ;;
 esac

@@ -1386,6 +1386,44 @@ class DegreeLineTests(unittest.TestCase):
         self.assertEqual(run(U + 'ACT_BSAC/', ['Accounting'], 'The Degree: Bachelor of Science is common'), [])  # a whole line only
 
 
+class DegreePageTests(unittest.TestCase):  # JHU 2026-27 (Research request in #151)
+    def test_the_degree_page_is_the_programs_page(self):
+        from programs.autoreview import degree_page
+        j = 'https://e-catalogue.jhu.edu/'
+        self.assertEqual(degree_page({j + 'as/archaeology-ugrad-major/', j + 'as/archaeology-ugrad-major/archaeology-bachelor-arts/'}),
+                         j + 'as/archaeology-ugrad-major/archaeology-bachelor-arts/')
+        self.assertEqual(degree_page({j + 'eng/engineering-professionals/civil-engineering/', j + 'eng/ft/civil-engineering/civil-engineering-bachelor-science/'}),
+                         j + 'eng/ft/civil-engineering/civil-engineering-bachelor-science/')
+        self.assertIsNone(degree_page({j + 'p/guitar-bachelor-music/', j + 'p/piano-bachelor-music/'}))  # two degree pages: none chosen
+        self.assertIsNone(degree_page({j + 'a/history/', j + 'b/history/'}))
+        self.assertEqual(degree_page({j + 'x/biology/', j + 'x/biology/biology-bs/'}), j + 'x/biology/biology-bs/')
+        from programs.autoreview import variant_pages_of
+        self.assertEqual(variant_pages_of([{j + 'as/archaeology-ugrad-major', j + 'as/archaeology-ugrad-major/archaeology-bachelor-arts'}, {j + 'z/only'}]), {j + 'as/archaeology-ugrad-major'})
+        self.assertEqual(variant_pages_of([{j + 'b/biology-bs', j + 'b/biology-bs-pre-professional'}]), {j + 'b/biology-bs-pre-professional'})
+        self.assertEqual(variant_pages_of([{j + 'c/asian-studies', j + 'c/asian-studies-ba'}]), set())  # one base page: both are that page
+        self.assertEqual(variant_pages_of([{j + 'u/ABC', j + 'u/ABC_HON'}]), {j + 'u/ABC_HON'})  # underscore extensions of a base page
+
+
+class SamplePlanPageTests(unittest.TestCase):  # KU 2026-27 sample-plan sub-pages; PVAMU award abbreviations (review of 2026-10-07)
+    def test_sample_plan_sub_page_gives_no_program_record(self):
+        from pipeline import text as T
+        e = {'url': 'https://catalog.x.edu/las/anthropology/ba-bgs/ba-anthropology/', 'role': 'program_page', 'sha256': 'a' * 64,
+             'fetched_at': '2026-10-06T00:00:00+00:00', 'status': 200, 'kind': 'html'}
+        tgt = {'catalog': {'platform': 'courseleaf'}}
+        body = '2026-2027 Academic Catalog\nBA in Anthropology\n'
+        page = T.Page(body + 'The Department of Anthropology offers a BA.', 'BA in Anthropology', [], [], ['BA in Anthropology'])
+        self.assertTrue([c for c in X.program_page_candidates(tgt, {'institution_key': 'k'}, e, page, '2026-27') if c['domain'] == 'academic_programs'])
+        plan = T.Page(body + 'Below is a sample 4-year plan for students pursuing the BA in Anthropology.', 'BA in Anthropology', [], [], ['BA in Anthropology'])
+        self.assertEqual([c for c in X.program_page_candidates(tgt, {'institution_key': 'k'}, e, plan, '2026-27') if c['domain'] == 'academic_programs'], [])
+
+    def test_pvamu_awards(self):
+        for n in ('Criminal Justice, BSCJ', 'Agriculture, BSAG', 'Chemical Engineering, BSCHE', 'Human Nutrition and Food, BSDIET'):
+            self.assertEqual(X.credential_of(n), 'bachelor', n)
+        self.assertIsNone(X.credential_of('Bsagent Studies'))
+        self.assertEqual(X.credential_of('Biology Education 6-12 Major (B.Ed.)'), 'bachelor')
+        self.assertIsNone(X.credential_of('Bedford Studies'))
+
+
 class DepartmentSectionTests(unittest.TestCase):
     def test_degree_sections_on_a_department_page(self):  # MSState 2026-27, Arkansas 2026-27
         from pipeline import text as T
@@ -1673,6 +1711,36 @@ class ListedEmphasisTests(unittest.TestCase):
             {'listed_as': 'bachelor', 'printed': 'Biology with a Concentration in Ecology, B.S.', 'url': 'https://a/bio-eco'},
             {'listed_as': 'bachelor', 'printed': 'Biology, B.S.', 'url': 'https://a/bio'}]}}
         self.assertEqual(sorted(u for _, u in listed_emphasis_pages(lists, norm)), ['https://a/arts-studio', 'https://a/chem-bio', 'https://a/fish', 'https://a/hdfs-ece'])
+
+    def test_ncsu_and_bryant_concentration_lines(self):  # NC State, Bryant 2026-27 (Research request in #151)
+        import re, tempfile, json as J
+        from pathlib import Path
+        from programs.extract import listed_emphasis_pages, collect_lists
+        norm = lambda u: re.sub(r'/?$', '', u)
+        L = lambda *rows: {'x': {'programs': [{'listed_as': 'bachelor', 'printed': p, 'url': f'https://a/{u}'} for p, u in rows]}}
+        lists = L(('Animal Science (BS): Industry Concentration', 'ans-ind'), ('English (BA): Film Studies Concentration', 'eng-film'),
+                  ('English (BA)', 'eng'), ('Computer Science (BS): Game Development Concentration', 'cs-game'),
+                  ('Bachelor of Science in Business Administration: Accounting Concentration', 'bsba-acct'),
+                  ('Bachelor of Arts in Communication: Media Concentration', 'comm-media'), ('Bachelor of Arts in Communication', 'comm'))
+        self.assertEqual(sorted(u for _, u in listed_emphasis_pages(lists, norm)), ['https://a/ans-ind', 'https://a/bsba-acct', 'https://a/cs-game'])
+        # the base line may print its award with dots ('English (B.A.)') and the concentration line without
+        self.assertEqual(listed_emphasis_pages(L(('English (BA): Film Studies Concentration', 'f'), ('English (B.A.)', 'e')), norm), set())
+        # a degree with a program page of its own in the run keeps its concentrations as options
+        self.assertEqual(sorted(u for _, u in listed_emphasis_pages(lists, norm, {'x': {('computerscience', 'bs')}})), ['https://a/ans-ind', 'https://a/bsba-acct'])
+        # a list page stored by another run of the same catalog (NC State's discovery run) is read as stored; absent runs are skipped
+        page = (b'<html><head><title>Undergraduate</title></head><body><p>University Catalog 2026-2027</p>'
+                b'<a href="https://catalog.example.edu/ans/ans-bs-industry-concentration/">Animal Science (BS): Industry Concentration</a></body></html>')
+        with tempfile.TemporaryDirectory() as d:
+            other = Path(d) / 'disc'; f = FakeFetcher({'https://catalog.example.edu/undergraduate/': page}); run = C.Run(other)
+            C.crawl_target({**TARGET, 'refetch': ['https://catalog.example.edu/undergraduate/']}, run, f, log=lambda *_: None)
+            entries = [{**e, 'role': 'discover'} for e in run.entries()]
+            (other / 'manifest.jsonl').write_text(''.join(J.dumps(e) + '\n' for e in entries))
+            t = {**TARGET, 'catalog': {'platform': 'courseleaf', 'home': 'https://catalog.example.edu/', 'path_prefix': '/', 'min_depth': 1,
+                                       'list_documents': [{'run': str(other), 'url': 'https://catalog.example.edu/undergraduate/'}]}}
+            got = collect_lists(t, C.Run(Path(d) / 'cat'), [])
+            self.assertEqual([p['printed'] for p in got['programs']], ['Animal Science (BS): Industry Concentration'])
+            t['catalog']['list_documents'][0]['run'] = str(Path(d) / 'missing')
+            self.assertEqual(collect_lists(t, C.Run(Path(d) / 'cat'), [])['programs'], [])
 
     def test_award_glued_to_next_column_is_classified(self):
         from programs.extract import list_award

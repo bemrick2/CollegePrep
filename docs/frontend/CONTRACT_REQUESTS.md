@@ -26,7 +26,8 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-18 | Loan terms (federal limits, rates) as sourced records | ⏳ open | Families enter planned borrowing; it is shown as borrowed, never as a saving; no limits or rates shown |
 | CR-19 | Credit applicability: hours on equivalency rows, elective/gen-ed designations, plans for more majors | ⏳ open | Credit checked course by course against the major's verified plan where one exists; otherwise "unknown"; savings shown only as potential |
 | CR-20 | Cost-of-attendance period (academic year vs 12 months) | ⏳ open | COA labelled "academic year"; summer and break living is the family's own number |
-| CR-21 | Question review metadata; serve only reviewed items | ⏳ open | Demo and local DB serve only items whose current content hash a review approved (`questionReview.ts`); live has no review fields |
+| CR-21 | Question review metadata; serve only reviewed items | 🚧 migration `20261007140000` merged (#142), unapplied on hosted | Demo and local DB serve only items whose current content hash a review approved (`questionReview.ts`); live has no review fields |
+| CR-22 | Parent emails: weekly-summary opt-in, service-only digest and inactivity payloads, delivery log | ⏳ open (reference SQL in `scripts/local/proposals/cr22_parent_emails.sql`, local only) | Opt-in and email preview behind `VITE_WEEKLY_DIGEST`; sender `supabase/functions/send-weekly-digest` (not deployed) |
 
 Live content note: the bank has no exam versions, skills or questions yet, so live practice and benchmarks show their empty states until content is loaded.
 
@@ -299,6 +300,33 @@ Savings are shown only as potential, under stated assumptions. The UTK snapshot 
 **Why.** The live bank is empty today. When content is loaded, nothing in the schema says whether an item's key and explanations were checked.
 
 In the app and the local database, an item is served only if a review approved its exact current content. The review record lives at `web/src/lib/data/demo/questionReviews.json`, built by `scripts/local/recordReviews.ts`. The method is two independent blind solves of every item, plus a key and explanation audit; disagreements are worked by hand. It is AI review, not human editorial review, and the record says so (`human_reviewed: false`).
+
+## CR-22. Parent accountability emails
+
+**Need.** A scheduled sender has no signed-in user, so it needs service-role-only data functions. A reference implementation runs on the local disposable database only, in `scripts/local/proposals/cr22_parent_emails.sql`:
+
+- `alert_preferences.weekly_digest`: the guardian opts in per student. Default off; the guardian may write it.
+- `parent_email_deliveries(user_id, kind, period_key)`: one row per email sent, so sending is idempotent.
+- `weekly_digest_payload(p_week_start date) returns setof jsonb`: one row per opted-in guardian who hasn't already been sent that week. It covers each student's goal, questions submitted, practice days, last practice, up to three focus skills, last progress check and the inactivity state.
+- `inactivity_alert_payload() returns setof jsonb`: guardians whose enabled alert threshold is reached, once per stretch without practice. The period key is the student plus their last practice time.
+- `mark_parent_email_sent(user, kind, period_key) returns boolean`: false if already recorded.
+
+**How the reference works.** The payload functions call the existing dashboard RPCs as each guardian: `request.jwt.claims` is set to that guardian for the call and then restored. That way the recipients and the numbers follow the same permission checks and rules as the parent dashboard, with no second copy of them. Research may prefer a different mechanism; the payload shapes are what the sender and its tests rely on (`supabase/functions/send-weekly-digest/digest.ts`).
+
+**Decision to flag: service role.** Unlike the invitation function, the sender uses the service-role key, because there is no user session. It reads only through the functions above.
+
+**Deployment (held while Supabase is paused).** After the CR-22 migration is applied:
+1. Deploy `send-weekly-digest`.
+2. Set its secrets: `DIGEST_CRON_SECRET`, `RESEND_API_KEY`, and optionally `DIGEST_FROM_EMAIL` and `APP_ORIGINS`.
+3. Add a scheduler: weekly for `{"mode":"weekly"}` (Monday morning) and daily for `{"mode":"inactivity"}`.
+4. Set `VITE_WEEKLY_DIGEST=true` for the web build.
+
+**Tested locally.** `web/scripts/local/parentEmails.local.test.ts` runs the real function under Deno against the local database with a fake mail endpoint. It checks:
+- the scheduler secret is required;
+- dry-run content matches the dashboard numbers;
+- a guardian who did not opt in gets nothing;
+- a week's summary is sent once only;
+- a failed send is retried, and an inactivity alert is sent once per stretch.
 
 ## Product decisions flagged (not contract requests)
 
