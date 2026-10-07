@@ -217,6 +217,7 @@ def generic(st):
         if folder not in r: continue
         conf[folder]={'priority':1 if rank[folder]<10 else 2 if rank[folder]<30 else 3,'catalog':c['catalog'],'policy':c.get('policy',[]),
                       **({'render':c['render']} if c.get('render') else {}),**({'crawl_delay':c['crawl_delay']} if c.get('crawl_delay') else {}),**({'caps':c['caps']} if c.get('caps') else {}),
+                      **({'extra_hosts':c['hosts']} if c.get('hosts') else {}),  # reviewed: a catalog on another official domain (Texas State's mycatalog.txstate.edu)
                       'detected':c.get('detected')}
     for f in r: PRI.setdefault(f,1 if rank[f]<10 else 2 if rank[f]<30 else 3)
     return conf
@@ -228,7 +229,8 @@ for st,conf in STATES:
     for folder,c in conf.items():
         i=r[folder]; out.append({'institution_key':i['institution_key'],'folder':folder,'name':i['name'],'control':i['control'],
           'domains':sorted(set(i['allowed_domains'])),'hosts':sorted({h for h in [c['catalog']['home'].split('/')[2]] if h.endswith(PLATFORM_HOSTS)} | ({'catalog.oregonstate.edu','admissions.oregonstate.edu','business.oregonstate.edu'} if folder=='osucascades' else set())
-          | ({'coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com'} if c['catalog'].get('platform')=='coursedog' else set())),'mode':'catalog',**c})
+          | ({'coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com'} if c['catalog'].get('platform')=='coursedog' else set())
+          | set(c.get('extra_hosts',[]))),'mode':'catalog',**{k:v for k,v in c.items() if k!='extra_hosts'}})
     # every in-scope four-year institution is a target: unconfigured ones are discovered first
     for folder in DISCOVER[st]+sorted(f for f in r if f not in conf and f not in DISCOVER[st]):
         i=r[folder]; d=i['domain']
