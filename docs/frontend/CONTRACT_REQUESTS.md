@@ -31,7 +31,7 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-23 | Fresh vs repeat vs progress-check questions on the server | ⏳ open | Demo holds check questions out of practice; live marks `seen_before` from attempts, and checks and trends exclude repeats client-side |
 | CR-24 | Rights gate: a published question needs an allowed license (+ attribution when required) | ⏳ open | Nothing enforced; editorial workflow stage 3 (`docs/product/CONTENT_PLAN.md`) |
 | CR-25 | "Report a problem" on a question | ⏳ open | No UI; nothing stored |
-| CR-26 | Setup answers: exam intent, planned test date, study days, high school, practice-test scores, setup completion; longer sessions | ⏳ open | Four-screen setup stores these in this browser per student (`lib/setupProfile.ts`); official-test scores go to `student_test_scores` as `self_reported` |
+| CR-26 | Setup on the account: test choice, test date, study days, 5–30 min sessions, practice-test score source, setup completion, benchmark schedule | ⏳ open (reference SQL in `scripts/local/proposals/cr26_account_setup.sql`, local only) | Behind `VITE_ACCOUNT_SETUP`; without it, answers stay in this browser and sessions are 5–15 min |
 | CR-27 | Practice reminders: settings, device permission, deliveries, snooze, guardian notice when a linked student turns them off | ⏳ open (reference SQL in `scripts/local/proposals/cr27_practice_reminders.sql`, local only) | Behind `VITE_PRACTICE_REMINDERS`; push sender, action endpoint and notice email built and tested locally, not deployed |
 
 Live content note: the bank has no exam versions, skills or questions yet, so live practice and benchmarks show their empty states until content is loaded.
@@ -375,25 +375,30 @@ Needed by stage 10 (monitoring) of the editorial workflow.
 
 **Client:** a "Report a problem" link on the answer review, sending a reason and an optional note. It will be shown only once the RPC exists.
 
-## CR-26. Setup answers the database can't store yet
+## CR-26. Setup on the account
 
-The four-screen setup (About you, Test and goal, Starting point, Weekly plan) asks each question once. These answers have no column, so they're kept in this browser per student (`web/src/lib/setupProfile.ts`). That means they don't follow the family to another device, and a guardian's answers aren't visible on the student's device.
+Reference SQL, applied only to the local database: `scripts/local/proposals/cr26_account_setup.sql`. Behind `VITE_ACCOUNT_SETUP` in the app.
+
+**Why:** a guardian's setup choices must appear on the student's own device, and finished setup must not be asked again on another device. The local backend run (`web/scripts/local/setup.local.test.ts`) verifies both, using separate clients for the parent, the student's phone and the student's laptop.
 
 **Ask:**
-1. **`student_planning_preferences`** (same read/write rules as today: guardian with set-goals, or the student outside a household):
-   - `exam_intent text check (exam_intent in ('act','sat','both','undecided'))`. `exam_family` stays the test practice follows.
-   - `planned_test_date date null`. Null means "not sure yet". The app offers only published national dates (`web/src/lib/data/testDates.ts`, sources in the file).
-   - `study_days smallint[]`: ISO weekdays 1–7, at least one, no duplicates. Scheduling only: the weekly goal stays the number of questions for the Monday–Sunday week.
-   - Optionally widen `daily_minutes` beyond 5–15 (for example 5–60). The app offers only 5, 10 or 15 until then.
-2. **`student_test_scores`:** let clients add a practice-test score, kept apart from official ones:
-   - Either a new `score_source` value `practice_test`, insertable under the same policy as `self_reported`, or a `reported_kind` column.
-   - `student_official_scores` and merit comparisons must keep excluding it. Today the app never sends practice-test scores to the server.
-3. **`students.high_school_name text null`** (max 120), or a decision not to store it. It's optional in setup. Storing it adds identifying information about a minor, so the privacy policy draft (#165) would need to list it.
-4. **`students.setup_completed_at timestamptz null`** (or per-student `starting_point_answered_at`), so "haven't tested" or "don't remember" isn't asked again on another device.
+1. **`student_planning_preferences`:**
+   - Add `exam_intent` (`act`/`sat`/`both`/`undecided`), `planned_test_date date null` and `study_days smallint[]`.
+   - Widen `daily_minutes` to 5–30.
+   - Read/write rules are unchanged: set_goals guardians, or the student outside a household.
+2. **Sessions of 5–30 minutes:** `practice_sessions.target_minutes`, `start_practice_session` and `recommend_practice_set`. The app offers 5, 10 and 15 first, with 20 and 30 as "Longer".
+3. **`student_test_scores.score_source` adds `practice_test`:**
+   - Clients may insert it, alongside `self_reported`.
+   - It never appears in `student_official_scores` or merit comparisons.
+   - `official` stays server-only.
+4. **`student_setup_progress`:** `setup_completed_at`, `starting_point_answered_at` and `benchmark_scheduled_for`.
+   - Written through `update_setup_progress` by the student's own login, or by a guardian who manages the student or sets goals.
+   - A household student may finish their own setup and schedule the starting benchmark, but still can't edit the guardian-owned plan.
+   - Completion is never undone by a later write.
 
-**Not requested:** student reminders. Only parent alerts exist, so setup offers reminders to parents only.
+**Not stored (owner decision 2026-10-07):** high school. It isn't needed for the first practice plan, and setup no longer asks for it.
 
-**Found while testing setup (fixed client-side in the same PR):** an update that row security filters out returns no error and zero rows. `savePlan` and `setWeeklyGoal` used to report success when a household student tried to change a guardian-owned plan. Nothing was changed on the server, but the app said it was saved. `LiveSource` now treats zero rows as "not allowed". No schema change needed.
+**Found while testing setup (fixed client-side):** an update that row security filters out returns no error and zero rows. `LiveSource.savePlan` and `setWeeklyGoal` now treat that as "not allowed".
 
 ## CR-27. Practice reminders
 

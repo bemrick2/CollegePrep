@@ -6,6 +6,7 @@ import { StudentInvite } from '../parent/StudentInvite'
 import { StepFrame } from './Stepper'
 import { WeekPreview } from './SetupScreens'
 import { EXAM_NAME } from './options'
+import { FirstSteps } from './FirstSteps'
 import type { Role } from './SetupScreens'
 
 /**
@@ -26,6 +27,8 @@ export function SetupResult(p: {
   week: FirstWeek | null
   baseline: { questions: number; minutes: number } | null
   needsBaseline: boolean
+  timeZone: string
+  benchmarkScheduledFor: string | null
   onContinue: () => void
 }) {
   const parent = p.role === 'parent'
@@ -39,21 +42,15 @@ export function SetupResult(p: {
       hideProgress
       title={parent ? `${p.name || 'Your student'} is set up` : `You're set${p.name ? `, ${p.name}` : ''}`}
       footer={
-        parent ? (
-          <Button size="lg" block onClick={p.onContinue}>
-            Go to your dashboard
+        parent || p.needsBaseline ? (
+          <Button size="lg" block variant={parent ? 'go' : 'secondary'} onClick={p.onContinue}>
+            {parent ? 'Go to your dashboard' : 'Go to home'}
           </Button>
         ) : (
           <div className="grid gap-3">
-            {p.needsBaseline ? (
-              <ButtonLink to="/student/benchmark" size="lg" block>
-                Start the starting benchmark
-              </ButtonLink>
-            ) : (
-              <ButtonLink to="/student/practice" size="lg" block>
-                Start today's practice
-              </ButtonLink>
-            )}
+            <ButtonLink to="/student/practice" size="lg" block>
+              Start today's practice
+            </ButtonLink>
             <button type="button" onClick={p.onContinue} className="text-center text-sm font-semibold text-ink-2 hover:text-ink">
               Not now, go to home
             </button>
@@ -61,31 +58,37 @@ export function SetupResult(p: {
         )
       }
     >
-      <section aria-labelledby="next-heading" className="rounded-2xl border-2 border-go bg-go-soft p-4">
-        <h2 id="next-heading" className="text-sm font-semibold text-ink-2">
-          {parent ? `${p.name || 'Your student'}'s next assignment` : 'Your next assignment'}
-        </h2>
-        {p.needsBaseline ? (
-          <p className="mt-1 text-lg font-semibold text-ink">
-            Starting benchmark · {EXAM_NAME[p.exam]}
-            {p.baseline && (
+      {p.needsBaseline && p.studentId ? (
+        <>
+          <h2 className="mb-2 text-sm font-semibold text-ink-2">{parent ? `How ${p.name || 'your student'} can start` : 'Two ways to start'}</h2>
+          <FirstSteps
+            studentId={p.studentId}
+            exam={p.exam}
+            baseline={p.baseline}
+            scheduledFor={p.benchmarkScheduledFor}
+            timeZone={p.timeZone}
+            canStart={!parent}
+            name={p.name || 'your student'}
+          />
+          {parent && <p className="mt-2 text-sm text-ink-2">Practice happens on {p.name || 'your student'}'s own login. Invite them below.</p>}
+        </>
+      ) : (
+        <section aria-labelledby="next-heading" className="rounded-2xl border-2 border-go bg-go-soft p-4">
+          <h2 id="next-heading" className="text-sm font-semibold text-ink-2">
+            {parent ? `${p.name || 'Your student'}'s next assignment` : 'Your next assignment'}
+          </h2>
+          {next?.kind === 'practice' ? (
+            <p className="mt-1 text-lg font-semibold text-ink">
+              Practice · {formatShortDate(next.date)}
               <span className="block text-sm font-normal text-ink-2">
-                {p.baseline.questions} questions, about {p.baseline.minutes} minutes. It shows where {parent ? 'they' : 'you'} start, so practice can target the right skills.
+                {next.questions} questions, {next.minutes}-minute session
               </span>
-            )}
-          </p>
-        ) : next?.kind === 'practice' ? (
-          <p className="mt-1 text-lg font-semibold text-ink">
-            Practice · {formatShortDate(next.date)}
-            <span className="block text-sm font-normal text-ink-2">
-              {next.questions} questions, {next.minutes}-minute session
-            </span>
-          </p>
-        ) : (
-          <p className="mt-1 text-lg font-semibold text-ink">Today's practice set</p>
-        )}
-        {parent && p.needsBaseline && <p className="mt-2 text-sm text-ink-2">Practice happens on {p.name || 'your student'}'s own login. Invite them below.</p>}
-      </section>
+            </p>
+          ) : (
+            <p className="mt-1 text-lg font-semibold text-ink">Today's practice set</p>
+          )}
+        </section>
+      )}
 
       <section aria-labelledby="commit-heading" className="mt-5">
         <h2 id="commit-heading" className="text-[15px] font-semibold text-ink">

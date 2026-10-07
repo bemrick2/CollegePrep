@@ -192,7 +192,7 @@ function Body({ o, heading, who }: { o: StudentOverview; heading: string; who?: 
                 </span>
                 <span className="flex items-center gap-2">
                   <Pill tone={s.score_source === 'official' ? 'go' : s.score_source === 'self_reported' ? 'info' : 'neutral'}>
-                    {s.score_source === 'official' ? 'Official' : s.score_source === 'self_reported' ? 'Self-reported' : 'Practice estimate'}
+                    {s.score_source === 'official' ? 'Official' : s.score_source === 'self_reported' ? 'Self-reported' : s.score_source === 'practice_test' ? 'Practice test' : 'Practice estimate'}
                   </Pill>
                   <span className="text-lg font-semibold tabular text-ink">{s.composite ?? '—'}</span>
                 </span>

@@ -219,7 +219,7 @@ export interface TestScore {
   test_date: string
   composite: number | null
   section_scores: Record<string, number>
-  score_source: 'official' | 'self_reported' | 'practice_estimate'
+  score_source: 'official' | 'self_reported' | 'practice_estimate' | 'practice_test'
 }
 
 /** One submitted attempt, for history views. */
@@ -242,7 +242,22 @@ export interface StudentPlan {
   exam_family: ExamFamily
   target_score: number | null
   goals: string[]
+  /** Session length, 5–30 where the backend has CR-26, else 5–15. */
   daily_minutes: number
+  /** CR-26, on the account: the family's test choice (exam_family is the one practice follows). */
+  exam_intent?: 'act' | 'sat' | 'both' | 'undecided' | null
+  /** CR-26: a published national test date, or null for "not sure yet". */
+  planned_test_date?: string | null
+  /** CR-26: ISO weekdays, 1 = Monday. Scheduling only; the weekly goal is unchanged. */
+  study_days?: number[] | null
+}
+
+/** CR-26: setup state that follows the student across devices. */
+export interface SetupProgress {
+  setupCompletedAt: string | null
+  startingPointAnsweredAt: string | null
+  /** The student chose to take the starting benchmark later, at this time. */
+  benchmarkScheduledFor: string | null
 }
 
 /** Benchmark summaries are client-held until a backend table exists (contract request CR-2). */

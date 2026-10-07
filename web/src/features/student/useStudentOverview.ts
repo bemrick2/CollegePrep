@@ -1,3 +1,5 @@
+import { planBenchmark } from '../../lib/engine/benchmark'
+import type { SetupProgress } from '../../lib/data/types'
 import { useApp, useAsync } from '../../lib/app'
 import type { AttemptRecord, BenchmarkSummary, SkillEstimate, Streak, StudentPlan, TestScore, WeeklyProgress } from '../../lib/data/types'
 import { addDays, localDate, weekStartOf } from '../../lib/engine/dates'
@@ -19,6 +21,10 @@ export interface StudentOverview {
   lastWeek: WeeklyProgress | null
   /** Fresh vs seen practice questions for the student's exam (engine/freshness.ts). */
   content: ContentStatus | null
+  /** CR-26: setup state on the account, including a scheduled starting benchmark. */
+  setup: SetupProgress | null
+  /** The starting benchmark's real size for this exam's bank. */
+  baseline: { questions: number; minutes: number } | null
 }
 
 /** Everything the student home, progress page and parent dashboard read about one student. */
@@ -48,7 +54,10 @@ export function useStudentOverview(studentId: string | null | undefined) {
     const exam = plan?.exam_family ?? 'act'
     const pool = await source.publishedQuestions(exam).catch(() => null)
     const content = pool ? contentStatus(exam, pool, seenSet(history)) : null
-    return { tz, today, weekStart, plan, week, streak, estimates, scores, benchmarks, history, goalsMet, lastWeek: past[0] ?? null, content }
+    const setup = await source.setupProgress(studentId).catch(() => null)
+    const b = pool && pool.length ? planBenchmark(exam, 'initial', pool) : null
+    const baseline = b ? { questions: b.totalQuestions, minutes: b.expectedMinutes } : null
+    return { tz, today, weekStart, plan, week, streak, estimates, scores, benchmarks, history, goalsMet, lastWeek: past[0] ?? null, content, setup, baseline }
   }, [source, studentId, tz])
 }
 

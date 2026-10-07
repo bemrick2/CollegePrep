@@ -52,7 +52,7 @@ function readMode(): Mode {
 
 export function AppProvider({ children, source: injected }: { children: ReactNode; source?: DataSource }) {
   const [mode, setMode] = useState<Mode>(injected?.mode ?? readMode())
-  const source = useMemo<DataSource>(() => injected ?? (mode === 'live' && supabase ? new LiveSource(supabase, { weeklyDigest: import.meta.env.VITE_WEEKLY_DIGEST === 'true', reminders: import.meta.env.VITE_PRACTICE_REMINDERS === 'true' }) : new DemoSource()), [mode, injected])
+  const source = useMemo<DataSource>(() => injected ?? (mode === 'live' && supabase ? new LiveSource(supabase, { weeklyDigest: import.meta.env.VITE_WEEKLY_DIGEST === 'true', reminders: import.meta.env.VITE_PRACTICE_REMINDERS === 'true', accountSetup: import.meta.env.VITE_ACCOUNT_SETUP === 'true' }) : new DemoSource()), [mode, injected])
   const [viewer, setViewer] = useState<Viewer | null>(null)
   const [ctx, setCtx] = useState<HouseholdContext | null>(null)
   const [loading, setLoading] = useState(true)

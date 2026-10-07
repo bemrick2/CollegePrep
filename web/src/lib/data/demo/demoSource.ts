@@ -473,12 +473,35 @@ export class DemoSource implements DataSource {
     return delay(this.s.scores.filter((x) => x.student_id === studentId))
   }
 
-  async addTestScore(studentId: string, score: { exam_family: ExamFamily; test_date: string; composite: number; section_scores: Record<string, number> }) {
+  async addTestScore(studentId: string, score: { exam_family: ExamFamily; test_date: string; composite: number; section_scores: Record<string, number>; source?: 'self_reported' | 'practice_test' }) {
     if (!this.canReportScore(studentId)) throw new DataError('Not allowed to add a score for this student', 'forbidden')
     const id = uid('sc-')
-    this.s.scores.push({ id, student_id: studentId, exam_family: score.exam_family, test_date: score.test_date, composite: score.composite, section_scores: score.section_scores, score_source: 'self_reported' })
+    this.s.scores.push({ id, student_id: studentId, exam_family: score.exam_family, test_date: score.test_date, composite: score.composite, section_scores: score.section_scores, score_source: score.source ?? 'self_reported' })
     this.commit()
     return delay(id)
+  }
+
+  // CR-26 mirror: setup answers on the "account" (this demo's store), not loose browser keys.
+  readonly supportsAccountSetup = true
+
+  async setupProgress(studentId: string) {
+    this.requireView(studentId)
+    return delay(this.s.setup?.[studentId] ?? null)
+  }
+
+  async saveSetupProgress(studentId: string, patch: { setupCompleted?: boolean; startingPointAnswered?: boolean; benchmarkScheduledFor?: string | null }) {
+    const me = this.viewerId()
+    const st = this.student(studentId)
+    const allowed = st.linked_user_id === me || this.canSetGoals(studentId) || this.s.members.some((m) => m.household_id === st.household_id && m.user_id === me && m.can_manage_students)
+    if (!allowed) throw new DataError('Not allowed to update setup for this student', 'forbidden')
+    const cur = this.s.setup?.[studentId] ?? { setupCompletedAt: null, startingPointAnsweredAt: null, benchmarkScheduledFor: null }
+    const now = new Date().toISOString()
+    ;(this.s.setup ??= {})[studentId] = {
+      setupCompletedAt: cur.setupCompletedAt ?? (patch.setupCompleted ? now : null),
+      startingPointAnsweredAt: cur.startingPointAnsweredAt ?? (patch.startingPointAnswered ? now : null),
+      benchmarkScheduledFor: 'benchmarkScheduledFor' in patch ? (patch.benchmarkScheduledFor ?? null) : cur.benchmarkScheduledFor,
+    }
+    this.commit()
   }
 
   async attemptHistory(studentId: string, sinceIso: string): Promise<AttemptRecord[]> {
@@ -515,7 +538,7 @@ export class DemoSource implements DataSource {
   async startSession(studentId: string, targetMinutes: number, examFamily: ExamFamily): Promise<PracticeSession> {
     const F = await loadFixtures()
     this.requireLinked(studentId)
-    if (targetMinutes < 5 || targetMinutes > 15) throw new DataError('Sessions are 5 to 15 minutes', 'invalid')
+    if (targetMinutes < 5 || targetMinutes > 30) throw new DataError('Sessions are 5 to 30 minutes', 'invalid')
     const attempts = this.attemptsOf(studentId)
     const all = F.QUESTIONS.filter((q) => q.exam_family === examFamily)
     // Keep the next progress check's fresh questions out of practice (engine/freshness.ts).
@@ -668,6 +691,7 @@ export class DemoSource implements DataSource {
 
   async savePlan(studentId: string, plan: StudentPlan) {
     if (!this.canSetGoals(studentId)) throw new DataError('Only a guardian with permission to set goals can change this plan', 'forbidden')
+    if (!(plan.daily_minutes >= 5 && plan.daily_minutes <= 30)) throw new DataError('Sessions are 5 to 30 minutes', 'invalid')
     this.s.plans[studentId] = plan
     this.commit()
   }

@@ -111,7 +111,7 @@ function Panel({ student, o, onRefresh }: { student: Student; o: StudentOverview
     ]
   })
   const official = [...o.scores]
-    .filter((x) => x.exam_family === exam && x.composite !== null && x.score_source !== 'practice_estimate')
+    .filter((x) => x.exam_family === exam && x.composite !== null && (x.score_source === 'official' || x.score_source === 'self_reported'))
     .sort((a, b) => b.test_date.localeCompare(a.test_date))[0]
   const actions = parentActions({
     interestsSaved: interestCount,

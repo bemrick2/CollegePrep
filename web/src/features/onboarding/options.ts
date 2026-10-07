@@ -51,8 +51,9 @@ export function graduationYears(now = new Date()): number[] {
 /** Languages the app is actually written in. A language control appears only when there is a choice. */
 export const SUPPORTED_LANGUAGES = [{ code: 'en', name: 'English' }] as const
 
-/** Session lengths the plan can store today (student_planning_preferences.daily_minutes is 5–15). */
-export const SESSION_MINUTES = [5, 10, 15] as const
+/** Session lengths. Short ones lead; 20 and 30 need CR-26 on the backend (daily_minutes 5–30). */
+export const SHORT_SESSIONS = [5, 10, 15] as const
+export const LONG_SESSIONS = [20, 30] as const
 
 /** The existing weekly question goal presets. */
 export const WEEKLY_GOALS = [
