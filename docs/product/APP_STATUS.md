@@ -21,7 +21,7 @@ RPCs. It does not run Supabase Auth, edge functions, email or Stripe.
 | Inactivity alert **by email** | no | no | missing: no sender or schedule exists |
 | Weekly digest email to parents | no | no | missing |
 
-**Question content.** 58 original items. Each was reviewed by two independent blind solves plus a key and explanation audit; 3 were fixed and re-reviewed, and one disagreement (a reviewer's arithmetic slip) was worked by hand. Only items whose current content hash was approved are served, in the demo and in the local database. The review is AI review, not human editorial review. Live has no review fields yet (CR-21).
+**Question content.** 58 original items. Each was reviewed by two independent blind solves plus a key and explanation audit; 3 were fixed and re-reviewed, and one disagreement (a reviewer's arithmetic slip) was worked by hand. Only items whose current content hash was approved are served, in the demo and in the local database. The review is AI review, not human editorial review. The server-side gate (CR-21, migration `20261007140000`, #142) serves only items whose server-computed sha256 matches a recorded approval. The local database seed records approvals through `approve_practice_question`, and is checked end to end. Not applied on hosted.
 
 ## Colleges and cost
 
