@@ -184,17 +184,21 @@
    "domains": [
     "ucla.edu"
    ],
-   "hosts": [],
-   "mode": "discover",
-   "priority": 1,
-   "discover": [
-    "https://www.ucla.edu/",
-    "https://catalog.ucla.edu/",
-    "https://www.ucla.edu/academics/",
-    "https://www.ucla.edu/registrar/",
-    "https://www.ucla.edu/catalog/"
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
    ],
-   "policy": []
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://catalog.registrar.ucla.edu/",
+    "min_depth": 0,
+    "path_prefix": "/",
+    "platform": "coursedog",
+    "program_lists": []
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "reviewed 2026-10-07: UCLA General Catalog at catalog.registrar.ucla.edu (web search: /browse/College and Schools/..., /browse/Departments/...); JavaScript catalog, rendered in the browser"
   },
   {
    "institution_key": "ipeds-110671",
