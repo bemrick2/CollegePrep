@@ -863,7 +863,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Towson University | partial | 2 | – | 0 | 7 | queued | queued | met | met | catalog:not_yet_researched, degree_maps:not_yet_researched |
 | Morgan State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | University of Maryland-Baltimore County | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Johns Hopkins University | partial | 63 | – | 5 | 2 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
+| Johns Hopkins University | partial | 68 | 77 | 5 | 2 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | Salisbury University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | University of Maryland Global Campus | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | United States Naval Academy | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
