@@ -148,12 +148,15 @@ def build(state: str):
         if override:
             institutions[-1]['seed_override'] = {'ipeds_seeds': ipeds_seeds, 'reason': override['reason'], 'evidence': override['evidence']}
     scope_shared_domains(institutions)
+    # OH: Akron's wayne.uakron.edu must not take 'wayne', which Michigan's committed registry gives Wayne State
+    other_states = {i['folder'] for q in REGISTRY_DIR.glob('*.json') if q.stem != state
+                    for i in json.loads(q.read_text()).get('institutions', [])}
     for inst in institutions:  # A system college on its own subdomain is named after it (ashland.kctcs.edu -> ashland).
         own = [h for h in inst.get('allowed_hosts') or [] if h not in set(inst.get('shared_hosts') or [])]
         if own and inst['institution_key'] not in folders:
             label = folder_label(own[0])
             # MI r1: the label must not be a folder another state's institution already fills (IA Marshalltown's mcc.iavalley.edu vs Mott)
-            if label and label not in owned and (label not in slugs or slugs[label] == [inst['institution_key']]):
+            if label and label not in owned and label not in other_states and (label not in slugs or slugs[label] == [inst['institution_key']]):
                 slugs[inst['folder']].remove(inst['institution_key']); inst['folder'] = label; slugs.setdefault(label, []).append(inst['institution_key'])
     # A folder the committed registry already gave an institution stays its own: a campus added later (registry scope
     # widened 2026-10-07) takes the suffixed folder instead of renaming an existing one.
