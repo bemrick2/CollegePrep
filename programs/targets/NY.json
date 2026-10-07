@@ -187,16 +187,17 @@
     "syracuse.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.syracuse.edu/",
-    "https://catalog.syracuse.edu/",
-    "https://www.syracuse.edu/academics/",
-    "https://www.syracuse.edu/registrar/",
-    "https://www.syracuse.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://coursecatalog.syracuse.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "reviewed 2026-10-07: CourseLeaf catalog at coursecatalog.syracuse.edu (web search); the discovery run did not reach it"
   },
   {
    "institution_key": "ipeds-196060",

@@ -142,16 +142,17 @@
     "oakland.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.oakland.edu/",
-    "https://catalog.oakland.edu/",
-    "https://www.oakland.edu/academics/",
-    "https://www.oakland.edu/registrar/",
-    "https://www.oakland.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://undergraduatecatalog.oakland.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "reviewed 2026-10-07: CourseLeaf catalog at undergraduatecatalog.oakland.edu (web search); the discovery run did not reach it"
   },
   {
    "institution_key": "ipeds-170976",
