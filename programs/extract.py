@@ -24,7 +24,7 @@ from urllib.parse import urlsplit
 from pipeline import text as T
 from pipeline.crawl import Run
 from pipeline.extractors import catalog as CAT, programmap as PM, common
-from .crawl import program_rule, in_scope
+from .crawl import program_rule, in_scope, excluded
 
 GRAD = re.compile(r'\b(M\.?\s?S\.?|M\.?\s?A\.?|MBA|M\.?\s?Ed|M\.?\s?F\.?A|Ph\.?\s?D|Ed\.?\s?D|DNP|D\.?\s?P\.?\s?T|J\.?\s?D|'
                   r'Master|Doctor|Graduate|Post[- ]?bacc|Certificate|Minor|Endorsement)\b', re.I)
@@ -149,7 +149,7 @@ def collect_lists(target, run, entries):
         else: years |= {y for y, _ in printed_catalog_years(page)}
         for href, anchor in d.get('links', []):
             name = re.sub(r'\s+', ' ', anchor or '').strip()
-            if not name or len(name) > 200 or not in_scope(target, href): continue
+            if not name or len(name) > 200 or not in_scope(target, href) or excluded(target, href): continue
             line = printed_line(page, name)
             if not (is_program(href) or line): continue
             label = line or name
@@ -762,22 +762,41 @@ OPTION_NAME = re.compile(r'\b(option|concentration|track|emphasis)\b(?!.*\bmajor
 EMPHASIS_ENTRY = re.compile(r'^(?P<base>[^,]+?)\s+-\s+[^,]*\b(emphasis|concentration|track|option|specialization)\b[^,]*,\s*(?P<award>(?-i:(?:B|A)\.\s?[A-Z][a-z]{0,3}(?:\.[A-Z][a-z]{0,3})*\.?(?![a-z])))', re.I)
 
 
+# UNH 2026-27: 'Arts Major: Studio Art Option (B.A.)' beside (or without) 'Arts Major (B.A.)'
+OPTION_PAREN_ENTRY = re.compile(r'^(?P<base>[^:()]+?):\s+[^:()]*\b(emphasis|concentration|track|option|specialization)\b[^:()]*(?:\([^()]*\)[^:()]*)?\((?P<award>(?-i:(?:B|A)\.\s?[A-Z][a-z]{0,3}(?:\.[A-Z][a-z]{0,3})*\.?))\)', re.I)
+
+
+def _award_key(a):
+    return a.replace(' ', '').rstrip('.').lower()
+
+
+def _degree_key(line):
+    """(base, award) of a program-list line that names a degree without an emphasis: 'Political Science, B.A.' or
+    'Arts Major (B.A.)'."""
+    if ',' in line:
+        head, rest = line.split(',', 1)
+        m = re.match(r'\s*((?-i:(?:B|A)\.\s?[A-Z][a-z]{0,3}(?:\.[A-Z][a-z]{0,3})*\.?(?![a-z])))', rest)
+        if m: return re.sub(r'\W+', '', head).lower(), _award_key(m.group(1))
+    m = re.match(r'^(?P<base>[^:()]+?)\s*\((?P<award>(?:B|A)\.[^)]*)\)', line)
+    if m: return re.sub(r'\W+', '', m.group('base')).lower(), _award_key(m.group('award'))
+    return None
+
+
 def listed_emphasis_pages(lists, norm):
     """(institution, page URL) of emphases the official program list prints as bachelor's programs of their own
-    ('Political Science - American Government Emphasis, B.A.', UVU 2026-27) when the list has no entry for the base
-    degree ('Political Science, B.A.'). There the emphasis is how the degree is offered, and a record for it is the only
-    record of that degree. Where the base degree is listed, every emphasis stays an option of it (held)."""
+    ('Political Science - American Government Emphasis, B.A.', UVU 2026-27; 'Arts Major: Studio Art Option (B.A.)',
+    UNH 2026-27) when the list has no entry for the base degree ('Political Science, B.A.'; 'Arts Major (B.A.)'). There
+    the emphasis is how the degree is offered, and a record for it is the only record of that degree. Where the base
+    degree is listed, every emphasis stays an option of it (held)."""
     out = set()
     for ik, v in (lists or {}).items():
         progs = [p for p in (v.get('programs') or []) if p.get('listed_as') == 'bachelor']
         printed = [re.sub(r'\s+', ' ', re.sub(r'(?<=[a-z.])(?=[A-Z][a-z])', ' ', p.get('printed') or '')).strip() for p in progs]
-        for p, line in zip(progs, printed):
-            m = EMPHASIS_ENTRY.match(line)
+        emph = [EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) for line in printed]
+        degrees = {_degree_key(o) for o, m in zip(printed, emph) if not m} - {None}
+        for p, m in zip(progs, emph):
             if not m: continue
-            award = m.group('award').replace(' ', '').rstrip('.').lower()
-            base = re.sub(r'\W+', '', m.group('base')).lower()
-            if any(re.sub(r'\W+', '', o.split(',')[0]).lower() == base and re.match(r'\s*' + re.escape(award) + r'\b', re.sub(r'[ ]', '', o.split(',', 1)[1]).lower().rstrip('.') if ',' in o else '')
-                   for o in printed if not EMPHASIS_ENTRY.match(o)): continue
+            if (re.sub(r'\W+', '', m.group('base')).lower(), _award_key(m.group('award'))) in degrees: continue
             out.add((ik, norm(p.get('url'))))
     return out
 
@@ -1031,6 +1050,7 @@ def extract_run(targets, run_dir, today=None):
                 for c in acalog_plan(inst, e, page, plan_links[e['url']], today_year):
                     c['program_role'] = 'degree_map'; cands.append(c); n_c += 1
                 continue
+            if e.get('role') == 'program_page' and excluded(t, e.get('url')): continue
             if e.get('role') == 'program_page':
                 found = program_page_candidates(t, inst, e, page, today_year)
                 if drops_option_page(found, key, e.get('url'), emphases):

@@ -52,6 +52,13 @@ def in_scope(target, url):
     return registrable_domain(h) in set(target.get('domains', []))
 
 
+def excluded(target, url):
+    """A page under one of the catalog's `exclude_paths` belongs to another institution sharing the catalog (UNH's catalog
+    prints UNH Manchester and the College of Professional Studies under /undergraduate/professional-studies/)."""
+    path = urlsplit(url or '').path
+    return any(path.startswith(x) for x in (target.get('catalog') or {}).get('exclude_paths', []))
+
+
 def canonical(url):
     url = requote(url.split('#')[0])
     if 'preview_program.php' in url or 'content.php' in url:  # Acalog: returnto/print params duplicate pages
@@ -74,7 +81,7 @@ def program_rule(target):
         prefix = cat.get('path_prefix', '/'); chost = host_of(cat.get('home', ''))
         def rule(u):
             p = urlsplit(u)
-            if host_of(u) != chost or not p.path.startswith(prefix) or SKIP_PATH.search(p.path): return False
+            if host_of(u) != chost or not p.path.startswith(prefix) or SKIP_PATH.search(p.path) or excluded(target, u): return False
             rest = p.path[len(prefix):].strip('/')
             return rest.count('/') >= (cat.get('min_depth', 1))
         return rule

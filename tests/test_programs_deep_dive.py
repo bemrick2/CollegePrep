@@ -1553,6 +1553,29 @@ class ListedEmphasisTests(unittest.TestCase):
             {'listed_as': None, 'printed': 'Art - Paint Emphasis, Minor', 'url': 'https://a/art-minor'}]}}
         self.assertEqual(sorted(u for _, u in listed_emphasis_pages(lists, norm)), ['https://a/chem-bio', 'https://a/fs', 'https://a/ps-ag'])
 
+    def test_shared_catalog_sections_are_excluded(self):
+        from programs.crawl import program_rule, excluded
+        t = {'catalog': {'platform': 'courseleaf', 'home': 'https://catalog.unh.edu/', 'path_prefix': '/', 'min_depth': 1,
+                         'exclude_paths': ['/undergraduate/professional-studies/']}}
+        rule = program_rule(t)
+        self.assertTrue(rule('https://catalog.unh.edu/undergraduate/liberal-arts/programs-study/anthropology/anthropology-major-ba/'))
+        self.assertFalse(rule('https://catalog.unh.edu/undergraduate/professional-studies/manchester/programs-study/biotechnology/biotechnology-bs/'))
+        self.assertTrue(excluded(t, 'https://catalog.unh.edu/undergraduate/professional-studies/online/x/'))
+        self.assertFalse(excluded({'catalog': {}}, 'https://catalog.unh.edu/undergraduate/professional-studies/online/x/'))
+
+    def test_unh_option_lines(self):
+        import re
+        from programs.extract import listed_emphasis_pages
+        norm = lambda u: re.sub(r'/?$', '', u)
+        lists = {'x': {'programs': [
+            {'listed_as': 'bachelor', 'printed': 'Arts Major: Studio Art Option (B.A.)', 'url': 'https://a/arts-studio'},
+            {'listed_as': 'bachelor', 'printed': 'Animal Science Major: Equine Studies Option (B.S.)', 'url': 'https://a/ans-eq'},
+            {'listed_as': 'bachelor', 'printed': 'Animal Science Major (B.S.)', 'url': 'https://a/ans'},
+            {'listed_as': 'bachelor', 'printed': 'Human Development and Family Studies Major: Early Childhood Education Option (Teacher Licensure) (B.S.)', 'url': 'https://a/hdfs-ece'},
+            {'listed_as': 'bachelor', 'printed': 'Chemistry Major: Biochemistry Option (B.S.)', 'url': 'https://a/chem-bio'},
+            {'listed_as': 'bachelor', 'printed': 'Chemistry Major (B.A.)', 'url': 'https://a/chem-ba'}]}}
+        self.assertEqual(sorted(u for _, u in listed_emphasis_pages(lists, norm)), ['https://a/arts-studio', 'https://a/chem-bio', 'https://a/hdfs-ece'])
+
     def test_award_glued_to_next_column_is_classified(self):
         from programs.extract import list_award
         glued = 'Architecture, B.ArchSmith College of Engineering and TechnologyUndergraduateBachelor'

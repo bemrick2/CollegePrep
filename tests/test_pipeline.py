@@ -1180,6 +1180,9 @@ last 30 hours in residence at the university.</p>"""
                                                     T.Page('', 'Criminal Justice, B.S. | Utah Valley University Academic Catalog', [], [], [])))
         self.assertFalse(common.professional_source({'url': 'https://catalog.uvu.edu/health-public-service/allied-health/dental-hygiene-bs/'},
                                                     T.Page('', 'Dental Hygiene, B.S.', [], [], [])))
+        # UNH: the award in parentheses ('... Option (B.S.)') under a 'medical-veterinary' path
+        self.assertFalse(common.professional_source({'url': 'https://catalog.unh.edu/undergraduate/life-sciences-agriculture/programs-study/biomedical-science/biomedical-science-major-medical-veterinary-option-bs/'},
+                                                    T.Page('', 'Biomedical Science Major: Medical and Veterinary Sciences Option (B.S.) | University of New Hampshire Academic Catalog', [], [], [])))
         self.assertTrue(common.professional_source({'url': 'https://catalog.example.edu/dental/dmd/'}, T.Page('', 'Doctor of Dental Medicine, D.M.D.', [], [], [])))
         self.assertTrue(common.professional_source({'url': 'https://example.edu/law/jd/'}, T.Page('', 'Law, J.D. | Example', [], [], [])))
         # Agnes Scott / Georgia Southern / WGTC: other organizations' award lists; Thomas University: "+Scholarships" heading.
