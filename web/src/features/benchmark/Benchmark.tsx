@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Navigate, useNavigate, useSearchParams } from 'react-router-dom'
 import { useApp, useAsync } from '../../lib/app'
 import type { BenchmarkSummary, Confidence, ExamFamily, PublicQuestion } from '../../lib/data/types'
-import { SECTION_LABEL, computeMetrics, nextDifficulty, pickNext, planBenchmark, type BenchmarkKind, type BenchmarkPlan, type BenchmarkRecord, benchmarkSchedule } from '../../lib/engine/benchmark'
+import { FULL_FORM_READY, SECTION_LABEL, computeMetrics, nextDifficulty, pickNext, planBenchmark, type BenchmarkKind, type BenchmarkPlan, type BenchmarkRecord, benchmarkSchedule } from '../../lib/engine/benchmark'
 import { ActiveClock } from '../practice/useAttempt'
 import { QuestionView, ConfidenceBar } from '../practice/QuestionView'
 import { Button, ButtonLink, ChoiceCard, EmptyState, Notice, PageLoading, ProgressBar } from '../../components/ui'
@@ -69,7 +69,7 @@ export function Benchmark() {
   const [params] = useSearchParams()
   const asked = params.get('kind')
   const defaultKind: BenchmarkKind =
-    (history.data?.length ?? 0) === 0 ? 'initial' : asked === 'mini' || asked === 'full' ? asked : benchmarkSchedule(history.data ?? []).kind === 'full' ? 'full' : 'mini'
+    (history.data?.length ?? 0) === 0 ? 'initial' : asked === 'mini' || (asked === 'full' && FULL_FORM_READY) ? asked : benchmarkSchedule(history.data ?? []).kind === 'full' ? 'full' : 'mini'
   const chosenKind = kind ?? defaultKind
   const bplan: BenchmarkPlan | null = useMemo(() => (pool.data ? planBenchmark(exam, chosenKind, pool.data) : null), [pool.data, exam, chosenKind])
   const section = bplan?.sections[sectionIdx]
@@ -220,7 +220,7 @@ export function Benchmark() {
   }
 
   if (phase === 'intro') {
-    const options: BenchmarkKind[] = (history.data?.length ?? 0) === 0 ? ['initial'] : ['mini', 'full']
+    const options: BenchmarkKind[] = (history.data?.length ?? 0) === 0 ? ['initial'] : FULL_FORM_READY ? ['mini', 'full'] : ['mini']
     return (
       <div className="mx-auto flex min-h-[calc(100dvh-28px)] max-w-xl flex-col px-4">
         <div className="flex h-16 items-center">
@@ -238,6 +238,11 @@ export function Benchmark() {
           <p className="mt-2 text-ink-2">
             {EXAM_NAME[exam]} benchmark · {bplan.totalQuestions} questions · about {bplan.expectedMinutes} minutes. It adapts as you go, so it is shorter than a full test.
           </p>
+          {chosenKind === 'mini' && !FULL_FORM_READY && (
+            <p className="mt-2 text-sm text-ink-3">
+              A full-length check isn't available yet. It needs its own set of questions that never appear in practice, and those haven't been written.
+            </p>
+          )}
           {options.length > 1 && (
             <div className="mt-6 grid gap-3">
               {options.map((k) => {

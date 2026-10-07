@@ -178,6 +178,13 @@ export function pacingVerdict(ratio: number | null): PacingVerdict {
 export const MINI_EVERY_DAYS = 35
 export const FULL_EVERY_DAYS = 70
 
+/**
+ * A full check needs its own full-length set of questions, held out of practice entirely. None exists yet: a "full"
+ * plan would take every question in the bank, mostly ones the student has already practised. Until a held-out form
+ * is authored (docs/product/CONTENT_PLAN.md §2), every later check is a mini.
+ */
+export const FULL_FORM_READY = false
+
 export interface BenchmarkSchedule {
   kind: BenchmarkKind
   inDays: number
@@ -186,7 +193,7 @@ export interface BenchmarkSchedule {
   overdueDays: number
 }
 
-export function benchmarkSchedule(history: BenchmarkSummary[], today: Date = new Date()): BenchmarkSchedule {
+export function benchmarkSchedule(history: BenchmarkSummary[], today: Date = new Date(), fullReady: boolean = FULL_FORM_READY): BenchmarkSchedule {
   const iso = (d: Date) => d.toISOString().slice(0, 10)
   if (history.length === 0) return { kind: 'initial', inDays: 0, dueDate: iso(today), overdueDays: 0 }
   const byDate = [...history].sort((a, b) => b.completed_at.localeCompare(a.completed_at))
@@ -195,7 +202,7 @@ export function benchmarkSchedule(history: BenchmarkSummary[], today: Date = new
   const days = (s: string) => Math.floor((today.getTime() - new Date(s).getTime()) / 86_400_000)
   const sinceBroad = days(lastBroad.completed_at)
   const sinceLast = days(last.completed_at)
-  const kind: BenchmarkKind = sinceBroad >= FULL_EVERY_DAYS ? 'full' : 'mini'
+  const kind: BenchmarkKind = fullReady && sinceBroad >= FULL_EVERY_DAYS ? 'full' : 'mini'
   const remaining = kind === 'full' ? FULL_EVERY_DAYS - sinceBroad : MINI_EVERY_DAYS - sinceLast
   const due = new Date(today.getTime() + Math.max(0, remaining) * 86_400_000)
   return { kind, inDays: Math.max(0, remaining), dueDate: iso(due), overdueDays: Math.max(0, -remaining) }
