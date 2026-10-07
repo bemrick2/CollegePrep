@@ -26,6 +26,9 @@ create table public.parent_email_deliveries (
 alter table public.parent_email_deliveries enable row level security;
 revoke all on public.parent_email_deliveries from anon, authenticated;
 grant select, insert, delete on public.parent_email_deliveries to service_role;
+-- Guardians read their own delivery record, so the app can say what was actually emailed (never inferred).
+grant select (kind, period_key, sent_at) on public.parent_email_deliveries to authenticated;
+create policy own_email_deliveries on public.parent_email_deliveries for select to authenticated using (user_id = (select auth.uid()));
 
 create function public.weekly_digest_payload(p_week_start date) returns setof jsonb
 language plpgsql volatile security definer set search_path = '' as $$

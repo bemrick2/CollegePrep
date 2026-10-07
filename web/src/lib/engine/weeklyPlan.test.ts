@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import type { AttemptRecord, BenchmarkSummary, SkillEstimate, WeeklyProgress } from '../data/types'
-import { suggestNextWeek, suggestionReason, weeklyPlan } from './weeklyPlan'
+import { showRecap, suggestNextWeek, suggestionReason, weekRecap, weeklyPlan } from './weeklyPlan'
 
 const tz = 'America/Chicago'
 const at = (date: string, n: number, id = `${date}-${n}`): AttemptRecord =>
@@ -77,5 +77,25 @@ describe('next-week suggestion (mirrors suggest_next_week_goal v1)', () => {
   it('explains itself in plain words', () => {
     expect(suggestionReason(suggestNextWeek('2026-10-12', [{ target: 40, done: 44 }, { target: 40, done: 40 }]))).toMatch(/steps up/)
     expect(suggestionReason(suggestNextWeek('2026-10-12', []))).toMatch(/Not enough finished weeks/)
+  })
+})
+
+describe('last week recap', () => {
+  const base = { weekStart: '2026-09-28', tz, plan: { exam_family: 'act' as const, target_score: 27, goals: [], daily_minutes: 10 }, benchmarks: [], estimates: [] }
+  it('counts the finished week with the same rules, Sunday included, nothing "today"', () => {
+    const history = [at('2026-09-28', 1), at('2026-09-30', 1), at('2026-10-04', 1), at('2026-10-04', 2)]
+    const r = weekRecap({ ...base, week: week(20, 18), history })
+    expect(r).toMatchObject({ target: 20, done: 18, met: false, shortBy: 2, daysPractised: 3 })
+    expect(r.days.map((d) => d.status)).toEqual(['done', 'missed', 'done', 'missed', 'missed', 'missed', 'done'])
+    expect(r.days.some((d) => d.check)).toBe(false)
+  })
+  it('met and no-goal weeks', () => {
+    expect(weekRecap({ ...base, week: week(10, 12), history: [] })).toMatchObject({ met: true, shortBy: null })
+    expect(weekRecap({ ...base, week: week(null, 4), history: [] })).toMatchObject({ met: null, shortBy: null, target: null })
+  })
+  it('leads Monday to Wednesday only', () => {
+    expect(showRecap('2026-10-05', '2026-10-05')).toBe(true)
+    expect(showRecap('2026-10-07', '2026-10-05')).toBe(true)
+    expect(showRecap('2026-10-08', '2026-10-05')).toBe(false)
   })
 })

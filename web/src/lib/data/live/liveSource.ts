@@ -1,7 +1,7 @@
 import { MAX_INTERESTS, type InterestProfile, type MajorCertainty, type SavedInterest } from '../../engine/interests'
 import { INVITE_TTL_HOURS } from '../../invites'
 import type { SupabaseClient } from '@supabase/supabase-js'
-import type { AlertPreference, DataSource, InactiveStudent, InvitationSummary, InviteSendResult, StudentInvitation } from '../source'
+import type { AlertPreference, EmailDelivery, DataSource, InactiveStudent, InvitationSummary, InviteSendResult, StudentInvitation } from '../source'
 import type { NextWeekSuggestion } from '../../engine/weeklyPlan'
 import { DataError } from '../source'
 import type {
@@ -300,6 +300,21 @@ export class LiveSource implements DataSource {
       ? await this.sb.from('alert_preferences').update(fields).eq('student_id', studentId).eq('channel', 'email')
       : await this.sb.from('alert_preferences').insert({ student_id: studentId, channel: 'email', ...fields })
     if (r.error) fail(r.error)
+  }
+
+  async emailDeliveries(): Promise<EmailDelivery[] | null> {
+    if (!this.supportsWeeklyDigest) return null
+    const { data, error } = await this.sb.from('parent_email_deliveries').select('kind, period_key, sent_at').order('sent_at', { ascending: false }).limit(20)
+    if (error) fail(error)
+    return (data ?? []).map((r) => {
+      const weekly = r.kind === 'weekly_digest'
+      return {
+        kind: r.kind as EmailDelivery['kind'],
+        weekStart: weekly ? (r.period_key as string) : null,
+        studentId: weekly ? null : String(r.period_key).split(':')[0]!,
+        sentAt: r.sent_at as string,
+      }
+    })
   }
 
   async inactiveStudents(): Promise<InactiveStudent[]> {

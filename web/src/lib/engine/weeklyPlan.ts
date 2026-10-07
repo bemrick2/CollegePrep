@@ -173,3 +173,27 @@ export function suggestNextWeek(weekStart: string, past: { target: number | null
     completion: Math.round(completion * 1000) / 1000,
   }
 }
+
+/** A finished week, for the "Last week" recap on Monday. Same counting rules as the live plan. */
+export interface WeekRecap {
+  weekStart: string
+  target: number | null
+  done: number
+  /** null without a goal. */
+  met: boolean | null
+  shortBy: number | null
+  daysPractised: number
+  days: PlanDay[]
+}
+
+export function weekRecap(i: Omit<WeeklyPlanInput, 'today' | 'now'>): WeekRecap {
+  const sunday = addDays(i.weekStart, 6)
+  const p = weeklyPlan({ ...i, today: sunday, now: new Date(`${addDays(i.weekStart, 7)}T00:00:00Z`) })
+  // On a finished week, "today" (Sunday) is just another day.
+  const days = p.days.map((d) => ({ ...d, status: d.status === 'today_done' ? ('done' as const) : d.status === 'today' ? ('missed' as const) : d.status, check: null }))
+  const met = p.target == null ? null : p.done >= p.target
+  return { weekStart: i.weekStart, target: p.target, done: p.done, met, shortBy: met === false ? p.target! - p.done : null, daysPractised: days.filter((d) => d.status === 'done').length, days }
+}
+
+/** The recap leads at the start of a week (Monday to Wednesday), then steps aside for the current week. */
+export const showRecap = (today: string, weekStart: string) => today >= weekStart && today <= addDays(weekStart, 2)
