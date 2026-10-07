@@ -24,7 +24,7 @@ const STUDENT = '00000000-0000-4000-a000-000000000053'
 const ADULT = '00000000-0000-4000-a000-000000000054'
 const OUTSIDER = '00000000-0000-4000-a000-000000000099'
 const TZ = 'America/Chicago'
-const PORTS = { sender: 54341, action: 54342, digest: 54343, mail: 54344, push: 54345 }
+const PORTS = { sender: 54341, action: 54342, digest: 54343, mail: 54344, push: 54345, fcm: 54346 }
 const subtle = webcrypto.subtle as unknown as SubtleCrypto
 
 const b64 = (o: unknown) => Buffer.from(JSON.stringify(o)).toString('base64url')
@@ -81,6 +81,9 @@ describe.skipIf(!URL_ || !DENO)('practice reminders: push sender, snooze action,
   const inbox: { to: string[]; subject: string; text: string }[] = []
   const pushes: { path: string; headers: Record<string, unknown>; body: Buffer }[] = []
   let pushStatus = 201
+  let fcmServer: Server
+  let fcmStatus = 200
+  const fcmCalls: { path: string; auth: string; body: { message: Record<string, unknown> } }[] = []
   let parent: LiveSource
   let student: LiveSource
   let studentId = ''
@@ -121,6 +124,21 @@ describe.skipIf(!URL_ || !DENO)('practice reminders: push sender, snooze action,
       })
     }).listen(PORTS.mail, '127.0.0.1')
 
+    fcmServer = createServer((req, res) => {
+      let raw = ''
+      req.on('data', (c) => (raw += c))
+      req.on('end', () => {
+        if (req.url === '/token') {
+          res.writeHead(200, { 'content-type': 'application/json' }).end('{"access_token":"local-fcm-token"}')
+          return
+        }
+        fcmCalls.push({ path: req.url ?? '', auth: String(req.headers.authorization ?? ''), body: JSON.parse(raw) })
+        res.writeHead(fcmStatus, { 'content-type': 'application/json' }).end(fcmStatus === 200 ? '{"name":"projects/p/messages/1"}' : '{"error":{"status":"NOT_FOUND","details":[{"errorCode":"UNREGISTERED"}]}}')
+      })
+    }).listen(PORTS.fcm, '127.0.0.1')
+    const rsa = (await subtle.generateKey({ name: 'RSASSA-PKCS1-v1_5', modulusLength: 2048, publicExponent: new Uint8Array([1, 0, 1]), hash: 'SHA-256' }, true, ['sign'])) as CryptoKeyPair
+    const pkcs8 = Buffer.from(await subtle.exportKey('pkcs8', rsa.privateKey)).toString('base64')
+    const serviceAccount = { project_id: 'local-project', client_email: 'sender@local.test', private_key: `-----BEGIN PRIVATE KEY-----\n${pkcs8}\n-----END PRIVATE KEY-----\n`, token_uri: `http://127.0.0.1:${PORTS.fcm}/token` }
     const vapid = await p256()
     const env = {
       ...process.env,
@@ -135,6 +153,8 @@ describe.skipIf(!URL_ || !DENO)('practice reminders: push sender, snooze action,
       DIGEST_CRON_SECRET: 'local-digest-secret',
       RESEND_API_KEY: 'local-test-key',
       RESEND_API_URL: `http://127.0.0.1:${PORTS.mail}/emails`,
+      FCM_SERVICE_ACCOUNT: JSON.stringify(serviceAccount),
+      FCM_API_URL: `http://127.0.0.1:${PORTS.fcm}`,
     }
     const run = (fn: string, port: number, extra: string[] = []) => {
       const p = spawn(DENO!, ['run', '--allow-net', '--allow-env', '--allow-read', ...extra, `../supabase/functions/${fn}/index.ts`], { env: { ...env, DENO_SERVE_ADDRESS: `tcp:127.0.0.1:${port}` }, stdio: ['ignore', 'pipe', 'pipe'] })
@@ -166,6 +186,7 @@ describe.skipIf(!URL_ || !DENO)('practice reminders: push sender, snooze action,
     for (const p of procs) p.kill()
     mail?.close()
     push?.close()
+    fcmServer?.close()
   })
 
   it('only the family can read or change reminders', async () => {
@@ -176,22 +197,29 @@ describe.skipIf(!URL_ || !DENO)('practice reminders: push sender, snooze action,
   })
 
   it('devices report permission when the app opens; families see the state, never endpoints or keys', async () => {
+    // An older browser (a laptop opened earlier), then the phone browser opened now.
+    const old = await p256()
+    await student.reportNotificationDevice({ deviceId: '5f0f8a1e-4b6a-4a8e-9a55-2d7f3c1b0a09', permission: 'granted', platform: 'desktop', subscription: { endpoint: `https://127.0.0.1:${PORTS.push}/sub/older`, keys: { p256dh: b64u(old.pub), auth: b64u(authSecret) } } })
+    await new Promise((r) => setTimeout(r, 20))
     await student.reportNotificationDevice({ deviceId, permission: 'granted', platform: 'android', subscription: { endpoint: `https://127.0.0.1:${PORTS.push}/sub/one`, keys: { p256dh: b64u(ua.pub), auth: b64u(authSecret) } } })
     await student.reportNotificationDevice({ deviceId: '5f0f8a1e-4b6a-4a8e-9a55-2d7f3c1b0a02', permission: 'denied', platform: 'ios', subscription: null })
     const devices = await parent.studentDevices(studentId)
-    expect(devices.map((d) => [d.permission, d.platform, d.canReceive])).toEqual(expect.arrayContaining([['granted', 'android', true], ['denied', 'ios', false]]))
+    expect(devices.map((d) => [d.permission, d.platform, d.canReceive])).toEqual(expect.arrayContaining([['granted', 'android', true], ['granted', 'desktop', true], ['denied', 'ios', false]]))
     expect(JSON.stringify(devices)).not.toContain('sub/one')
     // A device id belongs to the login that first reported it.
     await expect(parent.reportNotificationDevice({ deviceId, permission: 'denied', platform: 'desktop', subscription: null })).rejects.toThrow()
   })
 
-  it('a guardian turns reminders on; at the chosen time one push goes out, encrypted, then the daily limit holds', async () => {
+  it('a guardian turns reminders on; at the chosen time exactly one push goes out, to one device, encrypted; then the daily limit holds', async () => {
     await freshSlot()
     expect(await parent.saveReminderSettings(studentId, settings())).toEqual({ guardiansNotified: false })
     expect(await student.reminderSettings(studentId)).toMatchObject({ enabled: true, times: [cur.slot] })
-    const first = await sendReminders()
-    expect(first.body).toMatchObject({ sent: 1, failed: 0 })
+    // Two scheduler runs at once (an overlap or a retry) and two subscribed devices: still one notification.
+    const [a, b] = await Promise.all([sendReminders(), sendReminders()])
+    expect(Number(a.body.sent) + Number(b.body.sent)).toBe(1)
     expect(pushes).toHaveLength(1)
+    // It went to the device opened most recently, not the older laptop as well.
+    expect(pushes[0]!.path).toBe('/sub/one')
     expect(pushes[0]!.headers).toMatchObject({ 'content-encoding': 'aes128gcm', ttl: '3600', topic: 'practice-reminder' })
     expect(String(pushes[0]!.headers.authorization)).toMatch(/^vapid t=.+, k=/)
     const payload = await decrypt(new Uint8Array(pushes[0]!.body), ua, authSecret)
@@ -240,18 +268,27 @@ describe.skipIf(!URL_ || !DENO)('practice reminders: push sender, snooze action,
     expect(inbox).toHaveLength(1)
   })
 
-  it('an independent adult is never reported; a subscription the push service drops is retired', async () => {
+  it('native app first (FCM); an uninstalled app is retired and the reminder falls back to the browser, once; an independent adult is never reported', async () => {
     const adult = await as(ADULT)
     const me = await adult.createSelfStudentProfile({ displayName: 'Alex', graduationYear: null, gradeLevel: null, independent: true, timeZone: TZ })
     const k = await p256()
     await adult.reportNotificationDevice({ deviceId: '5f0f8a1e-4b6a-4a8e-9a55-2d7f3c1b0a03', permission: 'granted', platform: 'desktop', subscription: { endpoint: `https://127.0.0.1:${PORTS.push}/sub/adult`, keys: { p256dh: b64u(k.pub), auth: b64u(authSecret) } } })
+    await adult.reportNotificationDevice({ deviceId: '5f0f8a1e-4b6a-4a8e-9a55-2d7f3c1b0a04', permission: 'granted', platform: 'ios', subscription: null, channel: 'fcm', token: 'local-fcm-registration-token-0001' })
     await freshSlot()
     await adult.saveReminderSettings(me, settings())
-    pushStatus = 410
+    fcmStatus = 404
+    const before = pushes.length
     const r = await sendReminders()
-    pushStatus = 201
-    expect(r.body).toMatchObject({ gone: 1 })
-    expect((await adult.studentDevices(me))[0]).toMatchObject({ permission: 'granted', canReceive: false })
+    fcmStatus = 200
+    expect(r.body).toMatchObject({ sent: 1, gone: 1 })
+    expect(fcmCalls).toHaveLength(1)
+    expect(fcmCalls[0]).toMatchObject({ path: '/v1/projects/local-project/messages:send', auth: 'Bearer local-fcm-token' })
+    expect(fcmCalls[0]!.body.message).toMatchObject({ token: 'local-fcm-registration-token-0001', apns: { headers: { 'apns-collapse-id': 'practice-reminder' } } })
+    expect((fcmCalls[0]!.body.message.data as Record<string, string>).path).toMatch(/^\/student\/practice\?quick=1&r=/)
+    expect(pushes.slice(before).map((p) => p.path)).toEqual(['/sub/adult'])
+    const devs = await adult.studentDevices(me)
+    expect(devs.find((d) => d.platform === 'ios')).toMatchObject({ permission: 'granted', canReceive: false })
+    expect(devs.find((d) => d.platform === 'desktop')).toMatchObject({ canReceive: true })
     expect(await adult.saveReminderSettings(me, settings({ enabled: false }))).toEqual({ guardiansNotified: false })
     expect((await sendNotices()).body).toMatchObject({ candidates: 0 })
     expect(inbox).toHaveLength(1)

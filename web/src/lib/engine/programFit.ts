@@ -1,4 +1,7 @@
 import { INTEREST_AREAS, MAJORS, labelOf, type SavedInterest } from './interests'
+import { COURSE_NUMBER, normalizeCode, readTermItems, type PlanTermLike } from './planItems'
+
+const COURSE_ONLY = new RegExp(`^[A-Z]{2,5} ${COURSE_NUMBER}$`)
 
 /**
  * "Keeps my options open": how a school's verified records line up with every interest a student saved.
@@ -25,7 +28,7 @@ interface DegreeRecord {
   program_key?: string | null
   source_url?: string | null
   rule_details?: {
-    terms?: { term_index?: number; items?: string[] }[]
+    terms?: PlanTermLike[]
     progression?: string | null
     grade_requirements?: string | null
     prior_credit_notes?: string | null
@@ -118,11 +121,13 @@ export function schoolFit(d: SchoolDomains, interests: SavedInterest[]): SchoolF
     for (const p of f.programs) {
       if (!p.key || mapped.has(p.key)) continue
       const map = degrees.find((r) => r.program_key === p.key)
-      const items = (map?.rule_details?.terms ?? []).filter((t) => (t.term_index ?? 99) <= 2).flatMap((t) => t.items ?? [])
+      const items = (map?.rule_details?.terms ?? []).filter((t) => (t.term_index ?? 99) <= 2).flatMap(readTermItems)
       if (!items.length) continue
       mapped.add(p.key)
-      for (const it of new Set(items.map((x) => x.trim())))
-        if (/^[A-Z]{2,5} \d{3}/.test(it)) firstYear.set(it, (firstYear.get(it) ?? new Set()).add(p.name))
+      // One named course per item: a structured course's code, or a text item that is exactly a course. Choices
+      // ("complete one of") and electives aren't a shared course.
+      const courses = items.flatMap((e) => (e.choices.length ? [] : e.code ? [e.code] : COURSE_ONLY.test(e.text) ? [normalizeCode(e.text)] : []))
+      for (const c of new Set(courses)) firstYear.set(c, (firstYear.get(c) ?? new Set()).add(p.name))
     }
   const shared = [...firstYear.entries()].filter(([, ps]) => ps.size >= 2)
   const sharedFirstYear = mapped.size >= 2 ? { courses: shared.map(([c]) => c), programs: [...new Set(shared.flatMap(([, ps]) => [...ps]))] } : null

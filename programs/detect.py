@@ -171,6 +171,25 @@ def shared_catalogs(cfgs, insts):
     return drop
 
 
+def shared_across_states(state, out, institutions, root=None):
+    """A catalog shared across states (Mills College at Northeastern, CA, links Northeastern's Boston catalog) is
+    attributed the same way as within a state: the other states' committed configs take part, and only this state's
+    folders are returned (folder -> reason)."""
+    root = root or ROOT
+    allc = {f'{state}:{f}': c for f, c in out.items()}
+    insts = {f'{state}:{i["folder"]}': i for i in institutions}
+    for q in sorted((root / 'programs/targets/configs').glob('*.json')):
+        oreg = root / 'pipeline/registry' / f'{q.stem}.json'
+        if q.stem == state or not oreg.exists(): continue
+        insts.update({f'{q.stem}:{i["folder"]}': i for i in json.loads(oreg.read_text())['institutions']})
+        allc.update({f'{q.stem}:{f}': c for f, c in json.loads(q.read_text()).items()})
+    drop = {}
+    for key, why in shared_catalogs(allc, insts).items():
+        st, folder = key.split(':', 1)
+        if st == state and folder in out: drop[folder] = why
+    return drop
+
+
 def detect(state, run_dirs, refresh=False):
     by_inst = defaultdict(list)
     for d in run_dirs:
@@ -186,8 +205,7 @@ def detect(state, run_dirs, refresh=False):
             render = cfg.pop('_render', None)
             out[inst['folder']] = {'catalog': cfg, 'detected': why, **({'render': render} if render else {})}
         else: misses[inst['folder']] = why
-    by_folder = {i['folder']: i for i in reg.values()}
-    for folder, why in shared_catalogs(out, by_folder).items():
+    for folder, why in shared_across_states(state, out, reg.values()).items():
         del out[folder]; misses[folder] = why
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(out, indent=1, sort_keys=True) + '\n')

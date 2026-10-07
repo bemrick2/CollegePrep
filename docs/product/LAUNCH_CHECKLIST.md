@@ -43,6 +43,20 @@ Hosted deployment is **held** (`.operations/supabase-live-hold.json`). Nothing b
 | C2 | CR-17 tuition billing basis, CR-18 loan terms, CR-19 credit applicability, CR-20 cost-of-attendance period | Research | ⏳ | Without them, savings stay "potential", which is correct but limited. |
 | C3 | CR-10 exam catalog (AP/CLEP plan in live), CR-15 home state, CR-11 award test minimums | Research | ⏳ | The live exam plan is not wired until the catalog exists. |
 
+## R. Real-device acceptance (reminders and parent emails)
+
+Local tests use a fake push service, fake FCM and fake mail. **They are not launch acceptance.** Once hosted is available, run each of the seven checks in `NATIVE_APPS.md` § Acceptance on a real iPhone (web push from the Home Screen web app) and a real Android phone. Repeat them in the native apps for milestone M2.
+
+| # | Check | Owner | Status |
+|---|---|---|---|
+| R1 | Delivery at the chosen time. Nothing during quiet hours, school hours, after today's practice, or past the limits | Owner (devices) + Design | ⛔ hosted held |
+| R2 | One notification per reminder across a phone and a laptop, and across overlapping sender runs | Owner + Design | ⛔ |
+| R3 | A tap opens a 5-minute session | Owner + Design | ⛔ |
+| R4 | "Remind me later" (notification button, or the home-screen card) pauses for an hour and emails no one | Owner + Design | ⛔ |
+| R5 | Turning reminders off in the app: exactly one real guardian email, and the dashboard shows "Emailed to you" only after it's sent | Owner + Design | ⛔ needs A7 |
+| R6 | Turning notifications off in device settings shows "blocked" after the next app open, never sooner | Owner + Design | ⛔ |
+| R7 | Reinstall or a new device: the old one is retired and the new one gets the next reminder | Owner + Design | ⛔ |
+
 ## D. Launch operations
 
 | # | Item | Owner | Status |

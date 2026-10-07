@@ -463,6 +463,14 @@ class StatedMajorTests(unittest.TestCase):
         self.assertEqual({y for y, _ in X.printed_catalog_years(q)}, {'2025-2026'})  # a label in use still counts
 
 
+    def test_campus_catalog_year_label(self):
+        from pipeline import text as T
+        # Pitt Johnstown 2026-27: the Acalog header names the campus between the year and 'Catalog'
+        p = T.Page('2026-2027 Johnstown Campus Catalog\nAccounting, BS', 't', [], [], [])
+        self.assertEqual({y for y, _ in X.printed_catalog_years(p)}, {'2026-2027'})
+        q = T.Page('2026-2027 Campus Life and Catalog of Events\nAccounting, BS', 't', [], [], [])
+        self.assertEqual(X.printed_catalog_years(q), set())
+
 class MajorTableTests(unittest.TestCase):
     def test_marked_majors_with_catalog_award_statement(self):  # Lewis & Clark 2026-27
         from pipeline import text as T
@@ -1308,6 +1316,25 @@ class DetectTests(unittest.TestCase):
         self.assertIn('belongs to manoa', drop['hilo'])
         cfgs['h1']['reviewed'] = True
         self.assertNotIn('h1', D.shared_catalogs(cfgs, insts))
+
+    def test_shared_catalog_attributed_across_states(self):
+        import tempfile, pathlib
+        from programs import detect as D
+        cat = {'catalog': {'platform': 'courseleaf', 'home': 'https://catalog.northeastern.edu/'}}
+        with tempfile.TemporaryDirectory() as d:
+            root = pathlib.Path(d)
+            (root / 'programs/targets/configs').mkdir(parents=True); (root / 'pipeline/registry').mkdir(parents=True)
+            (root / 'programs/targets/configs/MA.json').write_text(json.dumps({'northeastern': cat}))
+            (root / 'pipeline/registry/MA.json').write_text(json.dumps({'institutions': [
+                {'folder': 'northeastern', 'seeds': {'website': 'https://www.northeastern.edu/'}}]}))
+            mills = [{'folder': 'mills', 'seeds': {'website': 'https://www.mills.edu/'}},
+                     {'folder': 'own', 'seeds': {'website': 'https://www.own.edu/'}}]
+            out = {'mills': cat, 'own': {'catalog': {'platform': 'acalog', 'home': 'https://catalog.own.edu/'}}}
+            drop = D.shared_across_states('CA', out, mills, root=root)
+            self.assertEqual(list(drop), ['mills'])
+            self.assertIn('MA:northeastern', drop['mills'])
+            # the owning state is never dropped when it is the one being detected
+            self.assertEqual(D.shared_across_states('MA', {'northeastern': cat}, [{'folder': 'northeastern', 'seeds': {'website': 'https://www.northeastern.edu/'}}], root=root), {})
 
     def det(self, links, title='', text='', url='https://www.x.edu/'):
         from programs import detect as D
