@@ -675,6 +675,8 @@ export class DemoSource implements DataSource {
   }
 
   readonly supportsPrimarySchool = true
+  // The demo keeps the weekly-summary choice so the preview can be tried; it never sends email.
+  readonly supportsWeeklyDigest = true
 
   async interests(studentId: string) {
     return readInterests(studentId)

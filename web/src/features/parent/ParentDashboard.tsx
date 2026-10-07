@@ -251,6 +251,7 @@ function Panel({ student, o }: { student: Student; o: StudentOverview }) {
           canSetGoals={!!ctx?.memberships.some((m) => m.household_id === student.household_id && m.role === 'guardian' && m.can_set_goals)}
           skillName={catalog.skillName}
           lastPractice={lastDay}
+          lastCheck={o.benchmarks.at(-1) ?? null}
         />
       ) : null}
 

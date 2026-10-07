@@ -151,7 +151,15 @@ function fromServerMetrics(m: ServerMetrics | null, client?: BenchmarkMetrics): 
 
 export class LiveSource implements DataSource {
   readonly mode = 'live' as const
-  constructor(private sb: SupabaseClient) {}
+  /** weeklyDigest: the backend has CR-22 (alert_preferences.weekly_digest). Off until it is applied on hosted. */
+  constructor(
+    private sb: SupabaseClient,
+    private opts: { weeklyDigest?: boolean } = {},
+  ) {}
+
+  get supportsWeeklyDigest() {
+    return !!this.opts.weeklyDigest
+  }
 
   async getViewer(): Promise<Viewer | null> {
     const { data } = await this.sb.auth.getUser()
@@ -271,19 +279,26 @@ export class LiveSource implements DataSource {
   async getAlertPreference(studentId: string): Promise<AlertPreference | null> {
     const { data, error } = await this.sb
       .from('alert_preferences')
-      .select('inactivity_days, enabled')
+      .select(this.supportsWeeklyDigest ? 'inactivity_days, enabled, weekly_digest' : 'inactivity_days, enabled')
       .eq('student_id', studentId)
       .eq('channel', 'email')
       .maybeSingle()
     if (error) fail(error)
-    return data ? { enabled: data.enabled as boolean, inactivityDays: data.inactivity_days as number } : null
+    if (!data) return null
+    const row = data as unknown as { inactivity_days: number; enabled: boolean; weekly_digest?: boolean }
+    return { enabled: row.enabled, inactivityDays: row.inactivity_days, ...(this.supportsWeeklyDigest ? { weeklyDigest: !!row.weekly_digest } : {}) }
   }
 
   async setAlertPreference(studentId: string, pref: AlertPreference) {
     const existing = await this.getAlertPreference(studentId)
+    const fields = {
+      enabled: pref.enabled,
+      inactivity_days: pref.inactivityDays,
+      ...(this.supportsWeeklyDigest && pref.weeklyDigest !== undefined ? { weekly_digest: pref.weeklyDigest } : {}),
+    }
     const r = existing
-      ? await this.sb.from('alert_preferences').update({ enabled: pref.enabled, inactivity_days: pref.inactivityDays }).eq('student_id', studentId).eq('channel', 'email')
-      : await this.sb.from('alert_preferences').insert({ student_id: studentId, channel: 'email', enabled: pref.enabled, inactivity_days: pref.inactivityDays })
+      ? await this.sb.from('alert_preferences').update(fields).eq('student_id', studentId).eq('channel', 'email')
+      : await this.sb.from('alert_preferences').insert({ student_id: studentId, channel: 'email', ...fields })
     if (r.error) fail(r.error)
   }
 
