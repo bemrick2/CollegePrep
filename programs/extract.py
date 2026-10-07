@@ -360,7 +360,7 @@ def degree_line_identity(inst, entry, page, today_year):
                         entry, 'degree_line/v1', {'program_key': rec['program_key']}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}'])]
 
 
-YEAR_HEADING = re.compile(r'^\s*(?:(?:19|20)\d{2}\s*[-–]\s*(?:19|20)?\d{2}\s+)?(?:academic\s+)?catalog(?:ue)?(?:\s+(?:19|20)\d{2}\s*[-–]\s*(?:19|20)?\d{2})?\s*$', re.I)
+YEAR_HEADING = re.compile(r'^\s*(?:(?:19|20)\d{2}\s*[-–]\s*(?:19|20)?\d{2}\s+)?(?:(?:academic|university|undergraduate|general)\s+)?catalog(?:ue)?(?:\s+(?:19|20)\d{2}\s*[-–]\s*(?:19|20)?\d{2})?\s*$', re.I)
 
 
 GENERIC_DEGREES = re.compile(r"^\s*(?:bachelor|baccalaureate)(?:'?s)?\s+(?:degrees?|programs?)\b", re.I)  # UAS 'Bachelor's Degrees' index
@@ -370,7 +370,7 @@ def program_heading(page):
     """The page's first heading, past a heading that only labels the catalog year ('Catalog 2026-2027' above
     'Computer Science B.A.', UAF)."""
     hs = [h for h in (page.headings or [])]
-    named = (page.title or '').split(' | ')[0].strip()
+    named = (page.title or '').split(' | ')[0].split(' < ')[0].strip()  # Kent State: 'Accounting - B.B.A. < Kent State University'
     if named and named in [h.strip() for h in hs]: return named  # UVM: '2026-27 Catalogue', 'Quick Links', 'Anthropology B.A.'
     while hs and YEAR_HEADING.match(hs[0]): hs = hs[1:]
     return hs[0] if hs else None
