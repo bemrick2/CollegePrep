@@ -106,6 +106,10 @@ MUTS = [
     ('programs/extract.py', "    if len(parts) >= 2 and re.fullmatch(r'[A-Z]{2,4}_[A-Z]{2,6}', parts[-2]): return []", "    pass"),
     ('programs/extract.py', "    if len(awards) != 1 or len({y for y, _ in labels}) != 1: return []", "    if not awards or len({y for y, _ in labels}) != 1: return []"),
     ('programs/autoreview.py', "o.startswith((b + '-', b + '_'))", "o.startswith(b + '-')"),
+    # UF Geography specializations are not degrees; FAU's Coursedog rows print their long name
+    ('programs/extract.py', "        if m.group('name').strip(' ,').lower() in specs: continue", "        pass"),
+    ('programs/extract.py', "or (r.get('longName') or '').strip() or name", "or name"),
+    ('programs/extract.py', "(?:Download\\s+)?(?:an?\\s+)?PDF of", "(?:Download\\s+)?PDF of"),
     # TAMUSA credits overview is not the first table; term headings are never overviews; named elective lists count
     ('programs/courseleaf.py', "        idx += 0 if idx < 0 and overview(t) else 1", "        idx += 1"),
     ('programs/courseleaf.py', "            return False  # Iowa State Accelerated Nursing", "            pass  # Iowa State Accelerated Nursing"),
