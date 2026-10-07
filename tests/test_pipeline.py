@@ -1417,6 +1417,21 @@ minimum grade point average (GPA) of 3.0 are eligible for dual enrollment. Out-o
         self.assertEqual([(rd['group_type'], rd.get('choose_count')) for _, rd, _ in ps if rd['group_type'] != 'all_required'], [('elective_pool', None), ('choose_courses', 1)])
         self.assertEqual([iss for _, rd, iss in ps if rd['group_type'] != 'all_required'], [['choice_without_course_list'], ['choice_list_end_unclear']])
 
+    def test_acalog_mixed_choice_groups_are_held(self):
+        """Issue #95 on line-read (Acalog) pages: a group that mixes required courses and choices is held, not split."""
+        entry = {**ENTRY, 'url': 'https://catalog.example.edu/preview_program.php?catoid=5&poid=9'}
+        def run(lines):
+            page = T.Page('2026-2027 Undergraduate Catalog\nMajor Requirements\n' + '\n'.join(lines), 'Program: Biology, BS - Example University', [], [], ['Major Requirements'])
+            return [(c['record']['rule_details'].get('group_type'), c['issues']) for c in catalog.extract(INST, entry, page, '2026-27') if c['domain'] == 'degree_requirements']
+        c = lambda code: f'{code} - Course Credit Hours: 3'
+        self.assertIn('mixed_required_and_choice', run([c('BIOL 101'), 'Select one of the following:', c('BIOL 201'), c('BIOL 202')])[0][1])  # courses above the choice
+        self.assertIn('mixed_required_and_choice', run(['Select one of the following:', c('BIOL 201'), 'Select two of the following:', c('BIOL 301'), c('BIOL 302')])[0][1])
+        self.assertIn('mixed_required_and_choice', run(['Select one of the following:', c('BIOL 201'), c('BIOL 202'), 'Required capstone course', c('BIOL 499')])[0][1])
+        self.assertEqual(run(['Required: select 6 hours from the following:', c('BIOL 201'), c('BIOL 202')]), [('choose_credits', [])])  # one choice line
+        self.assertEqual(run(['Choose from:', c('BIOL 201'), c('BIOL 202')]), [('elective_pool', ['choice_rule_unparsed'])])
+        # WKU Legal Studies on a line-read page: two choice lines back to back
+        self.assertIn('mixed_required_and_choice', run(['Ethics course (choose one)', 'International Elective course (choose one):', c('BIOL 201'), c('BIOL 202')])[0][1])
+
     def test_mixed_choice_groups_split_by_layout(self):
         """Issue #95 recovery layouts: TAMUSA, Purdue Global, UVU, NC State (archived 2026-27 pages)."""
         def table(rows, head='Code|Title|Credits'):

@@ -254,7 +254,6 @@ MUTS = [
     ('pipeline/extractors/catalog.py', "        elif g.get('courses_before_choice'):", "        elif False:"),
     ('pipeline/extractors/catalog.py', "        if g.get('total') and g.get('table_groups') == 1 and", "        if g.get('total') and"),
     ('pipeline/extractors/catalog.py', "(?:/[A-Z]{2,5})*)\\s?(\\d{3,4}[A-Z]?)$')", ")\\s?(\\d{3,4}[A-Z]?)$')"),
-    ('pipeline/extractors/catalog.py', "            if cur['courses'] and CHOICE_CUE.search(text): cur['courses_before_choice'] = True", "            pass"),
     ('pipeline/registry.py', '        if domain in PROGRAM_DEPTH_DOMAINS: continue\n', '        pass\n'),
     # Issue #95 recovery: mixed choice groups are split into their printed parts (pipeline/extractors/catalog.py)
     ('pipeline/extractors/catalog.py', "            if not ('mixed_required_and_choice' in choice_issues or len(parts) > 1 or any(iss for _, _, iss in parts)): parts = []", '            parts = []'),

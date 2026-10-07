@@ -232,7 +232,7 @@ def courseleaf_groups(page):
             if CHOICE_CUE.search(text) or CHOOSE_HOURS.search(first):
                 cur['open_choice'] = True
                 if not re.search(r'\d', ' '.join(cells[1:])): pending_option = first  # a choice row with no hours of its own
-            if cur['courses'] and CHOICE_CUE.search(text): cur['courses_before_choice'] = True  # Issue #95 (UVU, WKU)
+            # (courses printed above a choice: the split below reads them as the group's required part)
             cur['rules'].append(text[:300])  # "Select 1 ... from the list below: 3", "or PE 333" stay verbatim
             cur['seq'].append(('rule', text[:300], cells))
         kept = [g for g in out[first_group:] if g['courses'] or g['rules']]
