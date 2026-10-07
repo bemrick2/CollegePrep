@@ -90,7 +90,7 @@ def credential_of(name):
     return None
 
 
-YEAR_LABEL = re.compile(r'\b(20\d{2})\s*[-–]\s*(20\d{2})\s+(?:Undergraduate\s+|University\s+|Academic\s+|General\s+)?(Catalog|Catalogue|Bulletin)\b', re.I)
+YEAR_LABEL = re.compile(r'\b(20\d{2})\s*[-–]\s*(20\d{2})\s+(?:Undergraduate\s+|University\s+|Academic\s+|General\s+|[A-Z][a-z]+\s+Campus\s+)?(Catalog|Catalogue|Bulletin)\b', re.I)  # Pitt regionals: '2026-2027 Johnstown Campus Catalog'
 
 LABEL_FIRST = re.compile(r'(?:Catalog|Catalogue|Bulletin)\s+(20\d{2})\s*[-–]\s*(20\d{2})(?=\s*(?:>|$))', re.I)
 SHORT_LABEL = re.compile(r'\b(20\d{2})\s*[-–]\s*(\d{2})\s+(?:Undergraduate\s+|University\s+|Academic\s+|General\s+)?(?:Catalog|Catalogue|Bulletin)\b', re.I)  # UNI '2026-27 University Catalog'

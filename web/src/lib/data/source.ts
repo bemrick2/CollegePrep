@@ -134,7 +134,8 @@ export interface DataSource {
   /** "Remind me later". Never notifies anyone. Returns when reminders resume. */
   snoozeReminders(studentId: string, minutes: number): Promise<string>
   /** What this device allowed when the app last opened here. */
-  reportNotificationDevice(input: { deviceId: string; permission: DevicePermission; subscription: PushSubscriptionJSON | null; platform: DevicePlatform }): Promise<void>
+  /** channel 'fcm' + token: the native app (Capacitor shell); 'webpush' + subscription: a browser. */
+  reportNotificationDevice(input: { deviceId: string; permission: DevicePermission; subscription: PushSubscriptionJSON | null; platform: DevicePlatform; channel?: 'webpush' | 'fcm'; token?: string | null }): Promise<void>
   studentDevices(studentId: string): Promise<DeviceStatus[]>
   reminderHistory(studentId: string): Promise<ReminderChange[]>
   latestReminder(studentId: string): Promise<ReminderDelivery | null>
