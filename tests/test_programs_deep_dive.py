@@ -1914,6 +1914,40 @@ class ListedEmphasisTests(unittest.TestCase):
         self.assertEqual(listed_emphasis_pages(L(('Chemistry (Pre-Med)', 'c')), norm), set())  # no award printed: no degree line
         self.assertEqual(listed_emphasis_pages(L(('Marine Bio (Ecology)', 'm')), norm), set())  # 'Bio' is a word, not an award
 
+    def test_reader_requests_153(self):  # CA/NY/PA 2026-27 (shared reader requests #153)
+        from pipeline import text as T
+        e = {'url': 'https://catalog.x.edu/p/', 'role': 'program_page', 'sha256': 'a' * 64, 'fetched_at': '2026-10-07T00:00:00+00:00', 'status': 200, 'kind': 'html'}
+        def static(name, title=None, heads=None):
+            page = T.Page('2026-2027 Catalog\n' + name, title or name + ' < X', [], [], heads or ['2026-2027 Catalog', name])
+            return [c['record']['program_name'] for c in X.static_program_identity({'institution_key': 'k'}, e, page, '2026-27')]
+        for bad in ('Bachelor of Arts in Economics Roadmap – Quantitative Reasoning Category 1/2', 'ADN to BSN Roadmap CSM',
+                    'Department of Nursing (BSN Pre-licensure)', 'Requirements for a Bachelor’s Degree', 'Bachelor’s Degree Requirements Archive',
+                    'Modern Language Language for BA Degree (Undergraduate)', 'BS in Information Systems Program Educational Objectives',
+                    'B.A. in Theatre Minimum Grade Requirement'):
+            self.assertEqual(static(bad), [], bad)
+        self.assertEqual(static('Archival Studies, B.A.'), ['Archival Studies, B.A.'])
+        self.assertTrue(X.GENERIC_DEGREES.match('Bachelor’s Degrees'))  # UC Davis prints a curly apostrophe
+        self.assertEqual(static('Economics, B.A.'), ['Economics, B.A.'])
+        # department sections: a section that names a policy of the degree is not a degree
+        dep = lambda h: X.department_section_candidates({'institution_key': 'k'}, e, T.Page('2026-2027 Undergraduate Catalog\n' + h, 't', [], [], [h]), '2026-27')
+        self.assertEqual(dep('B.S. in Public Health Minimum Grade Requirement for MAT 12'), [])
+        self.assertEqual([c['record']['program_name'] for c in dep('B.S. in Public Health')], ['B.S. in Public Health'])
+        # UNL: 'Requirements for the Bachelor of Science in ...' names the degree after the prefix
+        self.assertEqual(len(dep('Requirements for the Bachelor of Science in Criminology and Criminal Justice (120 Hours)')), 1)
+        # UC Davis: the heading runs the college on after the name the title prints
+        heads = ['2026-2027 General Catalog', 'Business, Bachelor of Science Graduate School of Management', 'The Major Program']
+        page = T.Page('2026-2027 General Catalog\n' + heads[1], 'General Catalog - Business, Bachelor of Science', [], [], heads)
+        self.assertEqual(X.program_heading(page), 'Business, Bachelor of Science')
+        page = T.Page('', 'General Catalog - Business, Bachelor of Science', [], [], ['2026-2027 General Catalog', 'Business, Bachelor of Science with Honors'])
+        self.assertEqual(X.program_heading(page), 'Business, Bachelor of Science with Honors')  # not a college: the heading stands
+        # Coursedog cards: the description printed right after the name
+        f = X.coursedog_card_name
+        self.assertEqual(f('Accounting - BSThe B.S. in Accounting will prepare students for careers'), 'Accounting - BS')
+        self.assertEqual(f('Bachelor of Arts - PsychologyThe mission of the Undergraduate Psychology Department at Cal'), 'Bachelor of Arts - Psychology')
+        self.assertEqual(f('Accounting (BS)The program prepares you for a career in'), 'Accounting (BS)')
+        self.assertEqual(f('MacArthur Studies BA'), 'MacArthur Studies BA')
+        self.assertEqual(f('Bachelor of Science - McKinney Leadership Studies'), 'Bachelor of Science - McKinney Leadership Studies')
+
     def test_texas_am_dash_award_track_lines(self):  # Texas A&M 2026-27 Program Search list
         import re
         from programs.extract import listed_emphasis_pages

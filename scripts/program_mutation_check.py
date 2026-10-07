@@ -72,7 +72,7 @@ MUTS = [
     ('programs/extract.py', "    path = '/'.join(seg for seg in urlsplit(href).path.split('/') if 'degree' not in seg.lower())", "    path = urlsplit(href).path"),
     ('programs/extract.py', "    named = (page.title or '').split(' | ')[0].split(' < ')[0].strip()", "    named = (page.title or '').split(' | ')[0].strip()"),
     ('programs/extract.py', "    while hs and YEAR_HEADING.match(hs[0]): hs = hs[1:]", "    pass"),
-    ('programs/extract.py', "    if credential_of(name) != 'bachelor' or GENERIC_DEGREES.match(name): return []", "    if credential_of(name) != 'bachelor': return []"),
+    ('programs/extract.py', "    if credential_of(name) != 'bachelor' or GENERIC_DEGREES.match(name) or NOT_PROGRAM_NAME.search(name): return []", "    if credential_of(name) != 'bachelor' or NOT_PROGRAM_NAME.search(name): return []"),
     ('programs/detect.py', "                if ys: pdfs.append((max(ys), href, m))", "                pdfs.append((max(ys or {0}), href, m))"),
     ('programs/detect.py', "            elif u.path.lower().endswith('.pdf') and CATALOG_WORD.search(a + ' ' + u.path) and not re.search(r'graduate|archive|handbook', a + u.path, re.I):", "            elif u.path.lower().endswith('.pdf') and CATALOG_WORD.search(a + ' ' + u.path):"),
     ('programs/crawl.py', "            **({'degree_map': 0, 'degree_map_index': 0, 'policy_link': 0} if target.get('mode') == 'discover' else {}),", "            **({}),"),
@@ -124,7 +124,7 @@ MUTS = [
     ('programs/extract.py', "    if len(awards) != 1 or len({y for y, _ in labels}) != 1: return []", "    if not awards or len({y for y, _ in labels}) != 1: return []"),
     ('programs/autoreview.py', "o.startswith((b + '-', b + '_'))", "o.startswith(b + '-')"),
     # UF Geography specializations are not degrees; FAU's Coursedog rows print their long name
-    ('programs/extract.py', "        if m.group('name').strip(' ,').lower() in specs or SECTION_PART.search(h): continue", "        if SECTION_PART.search(h): continue"),
+    ('programs/extract.py', "        if m.group('name').strip(' ,').lower() in specs or SECTION_PART.search(h) or", "        if SECTION_PART.search(h) or"),
     ('programs/extract.py', "or (r.get('longName') or '').strip() or name", "or name"),
     ('programs/extract.py', "(?:Download\\s+)?(?:an?\\s+)?PDF of", "(?:Download\\s+)?PDF of"),
     # TAMUSA credits overview is not the first table; term headings are never overviews; named elective lists count
@@ -149,7 +149,7 @@ MUTS = [
     ('programs/courselist_html.py', "'caption': '', 'rows': [], 'sups_recorded': True}", "'caption': '', 'rows': []}"),
     # department_section/v1 scope (independent review 2026-10-07)
     ('programs/extract.py', "    if sample_plan_page(page): return []", "    pass"),
-    ('programs/extract.py', "        if m.group('name').strip(' ,').lower() in specs or SECTION_PART.search(h): continue", "        if m.group('name').strip(' ,').lower() in specs: continue"),
+    ('programs/extract.py', "        if m.group('name').strip(' ,').lower() in specs or SECTION_PART.search(h) or", "        if m.group('name').strip(' ,').lower() in specs or"),
     ('programs/extract.py', "        if nm and any(u != here and _names_degree(a, nm, award) for u, a in others): continue", "        if nm and any(_names_degree(a, nm, award) for u, a in others): continue"),
     ('programs/extract.py', "    return re.fullmatch(r'(?:' + SECTION_AWARD[award] + r')', rest.strip(), re.I) is not None", "    return credential_of(rest) == 'bachelor'"),
     ('programs/extract.py', "    if anchor.startswith(name + ' '): rest = anchor[len(name):]", "    if name in anchor: rest = anchor.replace(name, '')"),
@@ -197,7 +197,16 @@ MUTS = [
     # Texas A&M 'X - BS, Y Track' list lines; track pages passed to the listed rule
     ('programs/extract.py', "\n                or AWARD_DASH_OPTION_ENTRY.match(line)", ""),
     ('programs/extract.py', "(p.get('printed') or '').replace('\\u200b', '')", "(p.get('printed') or '')"),
-    ('programs/extract.py', "    if credential_of(name) != 'bachelor' or GENERIC_DEGREES.match(name): return []", "    if credential_of(name) != 'bachelor' or OPTION_NAME.search(name) or GENERIC_DEGREES.match(name): return []"),
+    ('programs/extract.py', "    if credential_of(name) != 'bachelor' or GENERIC_DEGREES.match(name) or NOT_PROGRAM_NAME.search(name): return []", "    if credential_of(name) != 'bachelor' or OPTION_NAME.search(name) or GENERIC_DEGREES.match(name) or NOT_PROGRAM_NAME.search(name): return []"),
+    # shared reader requests #153: section titles, roadmaps, offices; UC Davis college run-on; Coursedog card descriptions
+    ('programs/extract.py', " or GENERIC_DEGREES.match(name) or NOT_PROGRAM_NAME.search(name): return []", " or GENERIC_DEGREES.match(name): return []"),
+    ('programs/extract.py', " or SECTION_PART.search(h) or NOT_PROGRAM_NAME.search(re.sub(", " or SECTION_PART.search(h) or (re.sub("),
+    ('programs/extract.py', "NOT_PROGRAM_NAME.search(re.sub(r'^\\s*requirements\\s+for\\s+(the\\s+)?', '', h, flags=re.I))", "NOT_PROGRAM_NAME.search(h)"),
+    ('programs/extract.py', "|roadmaps?|archive)\\b\"", ")\\b\""),
+    ('programs/extract.py', "(?:['’]?s)?", "(?:'?s)?"),
+    ('programs/extract.py', "            if re.match(r'\\s+(college|school|graduate\\s+school|division|department|faculty)\\s+of\\b', rest, re.I): return tail", "            if rest: return tail"),
+    ('programs/extract.py', "    return name[:m.start()].strip() if m and m.start() >= 3 else name", "    return name"),
+    ('programs/extract.py', "(?=[A-Z][a-z]+\\s+(?:\\S+\\s+){4,}\\S)')", "(?=[A-Z][a-z]+)')"),
 ]
 
 
