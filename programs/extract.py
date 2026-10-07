@@ -24,11 +24,11 @@ from urllib.parse import urlsplit
 from pipeline import text as T
 from pipeline.crawl import Run
 from pipeline.extractors import catalog as CAT, programmap as PM, common
-from .crawl import program_rule, in_scope
+from .crawl import program_rule, in_scope, excluded
 
 GRAD = re.compile(r'\b(M\.?\s?S\.?|M\.?\s?A\.?|MBA|M\.?\s?Ed|M\.?\s?F\.?A|Ph\.?\s?D|Ed\.?\s?D|DNP|D\.?\s?P\.?\s?T|J\.?\s?D|'
                   r'Master|Doctor|Graduate|Post[- ]?bacc|Certificate|Minor|Endorsement)\b', re.I)
-BACHELOR = re.compile(r'\b(B\.?\s?(A|S|F\.?A|M|S\.?N|S\.?W|B\.?A|S\.?E|S\.?E\.?E|S\.?M\.?E|S\.?C\.?E|Arch|Mus|A\.?S|A\.?A\.?S|S\.?Ed|I\.?S)\b\.?|'
+BACHELOR = re.compile(r'(?<![A-Za-z]\.)\b(B\.?\s?(A|S|F\.?A|M|S\.?N|S\.?W|B\.?A|S\.?E|S\.?E\.?E|S\.?M\.?E|S\.?C\.?E|Arch|Mus|A\.?S|A\.?A\.?S|S\.?Ed|I\.?S)\b\.?|'
                       r'Bachelor|\bH?BA\b|\bH?BS\b)', re.I)
 ASSOCIATE = re.compile(r'\b(A\.?\s?(A|S|A\.?S|A\.?T|S\.?T|F\.?A)\b\.?|Associate)', re.I)
 
@@ -149,7 +149,7 @@ def collect_lists(target, run, entries):
         else: years |= {y for y, _ in printed_catalog_years(page)}
         for href, anchor in d.get('links', []):
             name = re.sub(r'\s+', ' ', anchor or '').strip()
-            if not name or len(name) > 200 or not in_scope(target, href): continue
+            if not name or len(name) > 200 or not in_scope(target, href) or excluded(target, href): continue
             line = printed_line(page, name)
             if not (is_program(href) or line): continue
             label = line or name
@@ -206,9 +206,9 @@ def program_page_candidates(target, inst, entry, page, today_year):
         lk = target.get('_listed') or {}
         listed = lk.get(norm_url(entry.get('url') or '')) or lk.get(entry.get('url'))
         out = department_major_identity(inst, entry, page, today_year, listed) or listed_program_identity(inst, entry, page, today_year, listed)
-    if not out and plat == 'courseleaf' and page.headings and credential_of(page.headings[0]) == 'bachelor':
+    if not out and plat == 'courseleaf' and program_heading(page) and credential_of(program_heading(page)) == 'bachelor':
         out = static_program_identity(inst, entry, page, today_year)  # UNI: 'Physics B.S.' heads a page without Course List tables
-        name = page.headings[0]
+        name = program_heading(page)
         # UNI heads emphases like majors ('Art: Art History B.A.', whose plan reads 'Art: History Emphasis, B.A.'): a
         # 'Major: Part' name on a page that speaks of emphases, and a dual major, are not programs of their own
         if re.search(r'\bdual major\b', name, re.I) or (':' in name and re.search(r'\bemphas[ie]s\b', page.text, re.I)): out = []
@@ -332,11 +332,25 @@ def degree_line_identity(inst, entry, page, today_year):
                         entry, 'degree_line/v1', {'program_key': rec['program_key']}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}'])]
 
 
+YEAR_HEADING = re.compile(r'^\s*(?:(?:19|20)\d{2}\s*[-–]\s*(?:19|20)?\d{2}\s+)?(?:academic\s+)?catalog(?:ue)?(?:\s+(?:19|20)\d{2}\s*[-–]\s*(?:19|20)?\d{2})?\s*$', re.I)
+
+
+GENERIC_DEGREES = re.compile(r"^\s*(?:bachelor|baccalaureate)(?:'?s)?\s+(?:degrees?|programs?)\b", re.I)  # UAS 'Bachelor's Degrees' index
+
+
+def program_heading(page):
+    """The page's first heading, past a heading that only labels the catalog year ('Catalog 2026-2027' above
+    'Computer Science B.A.', UAF)."""
+    hs = [h for h in (page.headings or [])]
+    while hs and YEAR_HEADING.match(hs[0]): hs = hs[1:]
+    return hs[0] if hs else None
+
+
 def static_program_identity(inst, entry, page, today_year):
     """Static HTML catalogs (George Fox, Rhodes): the program record only (name as printed in the page heading, the
     bachelor award it names, the catalog year printed on the page). Requirement lists are not read here."""
-    name = (page.headings[0] if page.headings else (page.title or '').split(' | ')[0]).strip()
-    if credential_of(name) != 'bachelor' or OPTION_NAME.search(name): return []
+    name = (program_heading(page) or (page.title or '').split(' | ')[0]).strip()
+    if credential_of(name) != 'bachelor' or OPTION_NAME.search(name) or GENERIC_DEGREES.match(name): return []
     labels = {y for y, _ in printed_catalog_years(page)}
     if len(labels) != 1: return []
     year = next(iter(labels)); line = next(l for y, l in printed_catalog_years(page) if y == year)
@@ -784,22 +798,41 @@ OPTION_NAME = re.compile(r'\b(option|concentration|track|emphasis)\b(?!.*\bmajor
 EMPHASIS_ENTRY = re.compile(r'^(?P<base>[^,]+?)\s+-\s+[^,]*\b(emphasis|concentration|track|option|specialization)\b[^,]*,\s*(?P<award>(?-i:(?:B|A)\.\s?[A-Z][a-z]{0,3}(?:\.[A-Z][a-z]{0,3})*\.?(?![a-z])))', re.I)
 
 
+# UNH 2026-27: 'Arts Major: Studio Art Option (B.A.)' beside (or without) 'Arts Major (B.A.)'
+OPTION_PAREN_ENTRY = re.compile(r'^(?P<base>[^:()]+?):\s+[^:()]*\b(emphasis|concentration|track|option|specialization)\b[^:()]*(?:\([^()]*\)[^:()]*)?\((?P<award>(?-i:(?:B|A)\.\s?[A-Z][a-z]{0,3}(?:\.[A-Z][a-z]{0,3})*\.?))\)', re.I)
+
+
+def _award_key(a):
+    return a.replace(' ', '').rstrip('.').lower()
+
+
+def _degree_key(line):
+    """(base, award) of a program-list line that names a degree without an emphasis: 'Political Science, B.A.' or
+    'Arts Major (B.A.)'."""
+    if ',' in line:
+        head, rest = line.split(',', 1)
+        m = re.match(r'\s*((?-i:(?:B|A)\.\s?[A-Z][a-z]{0,3}(?:\.[A-Z][a-z]{0,3})*\.?(?![a-z])))', rest)
+        if m: return re.sub(r'\W+', '', head).lower(), _award_key(m.group(1))
+    m = re.match(r'^(?P<base>[^:()]+?)\s*\((?P<award>(?:B|A)\.[^)]*)\)', line)
+    if m: return re.sub(r'\W+', '', m.group('base')).lower(), _award_key(m.group('award'))
+    return None
+
+
 def listed_emphasis_pages(lists, norm):
     """(institution, page URL) of emphases the official program list prints as bachelor's programs of their own
-    ('Political Science - American Government Emphasis, B.A.', UVU 2026-27) when the list has no entry for the base
-    degree ('Political Science, B.A.'). There the emphasis is how the degree is offered, and a record for it is the only
-    record of that degree. Where the base degree is listed, every emphasis stays an option of it (held)."""
+    ('Political Science - American Government Emphasis, B.A.', UVU 2026-27; 'Arts Major: Studio Art Option (B.A.)',
+    UNH 2026-27) when the list has no entry for the base degree ('Political Science, B.A.'; 'Arts Major (B.A.)'). There
+    the emphasis is how the degree is offered, and a record for it is the only record of that degree. Where the base
+    degree is listed, every emphasis stays an option of it (held)."""
     out = set()
     for ik, v in (lists or {}).items():
         progs = [p for p in (v.get('programs') or []) if p.get('listed_as') == 'bachelor']
         printed = [re.sub(r'\s+', ' ', re.sub(r'(?<=[a-z.])(?=[A-Z][a-z])', ' ', p.get('printed') or '')).strip() for p in progs]
-        for p, line in zip(progs, printed):
-            m = EMPHASIS_ENTRY.match(line)
+        emph = [EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) for line in printed]
+        degrees = {_degree_key(o) for o, m in zip(printed, emph) if not m} - {None}
+        for p, m in zip(progs, emph):
             if not m: continue
-            award = m.group('award').replace(' ', '').rstrip('.').lower()
-            base = re.sub(r'\W+', '', m.group('base')).lower()
-            if any(re.sub(r'\W+', '', o.split(',')[0]).lower() == base and re.match(r'\s*' + re.escape(award) + r'\b', re.sub(r'[ ]', '', o.split(',', 1)[1]).lower().rstrip('.') if ',' in o else '')
-                   for o in printed if not EMPHASIS_ENTRY.match(o)): continue
+            if (re.sub(r'\W+', '', m.group('base')).lower(), _award_key(m.group('award'))) in degrees: continue
             out.add((ik, norm(p.get('url'))))
     return out
 
@@ -1053,6 +1086,7 @@ def extract_run(targets, run_dir, today=None):
                 for c in acalog_plan(inst, e, page, plan_links[e['url']], today_year):
                     c['program_role'] = 'degree_map'; cands.append(c); n_c += 1
                 continue
+            if e.get('role') == 'program_page' and excluded(t, e.get('url')): continue
             if e.get('role') == 'program_page':
                 found = program_page_candidates(t, inst, e, page, today_year)
                 if drops_option_page(found, key, e.get('url'), emphases):

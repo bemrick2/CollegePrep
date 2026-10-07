@@ -32,16 +32,19 @@
     "montclair.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.montclair.edu/",
-    "https://catalog.montclair.edu/",
-    "https://www.montclair.edu/academics/",
-    "https://www.montclair.edu/registrar/",
-    "https://www.montclair.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.montclair.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.montclair.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.montclair.edu (program list https://catalog.montclair.edu/programs/)"
   },
   {
    "institution_key": "ipeds-185828",
@@ -52,16 +55,19 @@
     "njit.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.njit.edu/",
-    "https://catalog.njit.edu/",
-    "https://www.njit.edu/academics/",
-    "https://www.njit.edu/registrar/",
-    "https://www.njit.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.njit.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.njit.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.njit.edu (program list https://catalog.njit.edu/programs/)"
   },
   {
    "institution_key": "ipeds-186131",
@@ -92,16 +98,18 @@
     "rowan.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.rowan.edu/",
-    "https://catalog.rowan.edu/",
-    "https://www.rowan.edu/academics/",
-    "https://www.rowan.edu/registrar/",
-    "https://www.rowan.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 16,
+    "home": "https://catalog.rowan.edu/index.php?catoid=16",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.rowan.edu/content.php?catoid=16&navoid=1422"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 16 on catalog.rowan.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-186380",
@@ -117,6 +125,7 @@
    "discover": [
     "https://newbrunswick.rutgers.edu/",
     "https://catalog.rutgers.edu/",
+    "https://www.rutgers.edu/academics/catalogs-archive-rutgers-new-brunswick",
     "https://www.rutgers.edu/academics/",
     "https://www.rutgers.edu/registrar/",
     "https://www.rutgers.edu/catalog/"
@@ -232,16 +241,17 @@
     "caldwell.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.caldwell.edu/",
-    "https://catalog.caldwell.edu/",
-    "https://www.caldwell.edu/academics/",
-    "https://www.caldwell.edu/registrar/",
-    "https://www.caldwell.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.caldwell.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.caldwell.edu (no program list link; pages found from the home page)"
   },
   {
    "institution_key": "ipeds-183974",
@@ -352,16 +362,19 @@
     "georgian.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://georgian.edu/",
-    "https://catalog.georgian.edu/",
-    "https://www.georgian.edu/academics/",
-    "https://www.georgian.edu/registrar/",
-    "https://www.georgian.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.georgian.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.georgian.edu/programs-a-z/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.georgian.edu (program list https://catalog.georgian.edu/programs-a-z/)"
   },
   {
    "institution_key": "ipeds-185572",
@@ -372,16 +385,19 @@
     "monmouth.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.monmouth.edu/",
-    "https://catalog.monmouth.edu/",
-    "https://www.monmouth.edu/academics/",
-    "https://www.monmouth.edu/registrar/",
-    "https://www.monmouth.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.monmouth.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.monmouth.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.monmouth.edu (program list https://catalog.monmouth.edu/programs/)"
   },
   {
    "institution_key": "ipeds-185129",
@@ -392,16 +408,19 @@
     "njcu.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.njcu.edu/",
-    "https://catalog.njcu.edu/",
-    "https://www.njcu.edu/academics/",
-    "https://www.njcu.edu/registrar/",
-    "https://www.njcu.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.njcu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.njcu.edu/undergraduate/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.njcu.edu (program list https://catalog.njcu.edu/undergraduate/programs/)"
   },
   {
    "institution_key": "ipeds-186186",
@@ -431,17 +450,37 @@
    "domains": [
     "ramapo.edu"
    ],
-   "hosts": [],
-   "mode": "discover",
-   "priority": 2,
-   "discover": [
-    "https://www.ramapo.edu/",
-    "https://catalog.ramapo.edu/",
-    "https://www.ramapo.edu/academics/",
-    "https://www.ramapo.edu/registrar/",
-    "https://www.ramapo.edu/catalog/"
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
    ],
-   "policy": []
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.ramapo.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.ramapo.edu/programs",
+     "https://catalog.ramapo.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.ramapo.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.ramapo.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.ramapo.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.ramapo.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.ramapo.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.ramapo.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.ramapo.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.ramapo.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.ramapo.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.ramapo.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.ramapo.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.ramapo.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.ramapo.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.ramapo.edu (39 links)"
   },
   {
    "institution_key": "ipeds-186283",
@@ -452,16 +491,19 @@
     "rider.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.rider.edu/",
-    "https://catalog.rider.edu/",
-    "https://www.rider.edu/academics/",
-    "https://www.rider.edu/registrar/",
-    "https://www.rider.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.rider.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.rider.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.rider.edu (program list https://catalog.rider.edu/programs/)"
   },
   {
    "institution_key": "ipeds-186371",
@@ -492,16 +534,17 @@
     "steu.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.steu.edu/",
-    "https://catalog.steu.edu/",
-    "https://www.steu.edu/academics/",
-    "https://www.steu.edu/registrar/",
-    "https://www.steu.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.steu.edu/files/SEU_2026_Academic_Catalog_01.pdf"
+    ],
+    "home": "https://www.steu.edu/files/SEU_2026_Academic_Catalog_01.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
   },
   {
    "institution_key": "ipeds-186432",
@@ -552,16 +595,16 @@
     "wpunj.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.wpunj.edu/",
-    "https://catalog.wpunj.edu/",
-    "https://www.wpunj.edu/academics/",
-    "https://www.wpunj.edu/registrar/",
-    "https://www.wpunj.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 47,
+    "home": "https://academiccatalog.wpunj.edu/index.php?catoid=47",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 47 on academiccatalog.wpunj.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-488350",

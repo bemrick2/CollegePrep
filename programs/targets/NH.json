@@ -193,6 +193,7 @@
    "discover": [
     "https://www.snhu.edu/",
     "https://catalog.snhu.edu/",
+    "https://www.snhu.edu/admission/academic-catalogs",
     "https://www.snhu.edu/academics/",
     "https://www.snhu.edu/registrar/",
     "https://www.snhu.edu/catalog/"
@@ -211,6 +212,10 @@
    "mode": "catalog",
    "priority": 1,
    "catalog": {
+    "exclude_paths": [
+     "/undergraduate/professional-studies/",
+     "/graduate/"
+    ],
     "home": "https://catalog.unh.edu/",
     "min_depth": 1,
     "path_prefix": "/",
@@ -221,7 +226,7 @@
     ]
    },
    "policy": [],
-   "detected": "CourseLeaf-style catalog on catalog.unh.edu (program list https://catalog.unh.edu/undergraduate/programs/)"
+   "detected": "CourseLeaf-style catalog on catalog.unh.edu (program list https://catalog.unh.edu/undergraduate/programs/); reviewed 2026-10-07: the catalog also prints UNH at Manchester and the College of Professional Studies Online (separate IPEDS institutions) under /undergraduate/professional-studies/, excluded from UNH Durham"
   },
   {
    "institution_key": "ipeds-182917",

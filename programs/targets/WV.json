@@ -12,16 +12,21 @@
     "concord.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.concord.edu/",
-    "https://catalog.concord.edu/",
-    "https://www.concord.edu/academics/",
-    "https://www.concord.edu/registrar/",
-    "https://www.concord.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 19,
+    "home": "https://catalog.concord.edu/index.php?catoid=19",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.concord.edu/content.php?catoid=19&navoid=1411",
+     "https://catalog.concord.edu/content.php?catoid=19&navoid=1419",
+     "https://catalog.concord.edu/content.php?catoid=19&navoid=1437",
+     "https://catalog.concord.edu/content.php?catoid=19&navoid=1440"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 19 on catalog.concord.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-237367",
@@ -32,16 +37,22 @@
     "fairmontstate.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.fairmontstate.edu/",
-    "https://catalog.fairmontstate.edu/",
-    "https://www.fairmontstate.edu/academics/",
-    "https://www.fairmontstate.edu/registrar/",
-    "https://www.fairmontstate.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 32,
+    "home": "https://catalog.fairmontstate.edu/index.php?catoid=32",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.fairmontstate.edu/content.php?catoid=32&navoid=5734",
+     "https://catalog.fairmontstate.edu/content.php?catoid=32&navoid=5742",
+     "https://catalog.fairmontstate.edu/content.php?catoid=32&navoid=5870",
+     "https://catalog.fairmontstate.edu/content.php?catoid=32&navoid=5916",
+     "https://catalog.fairmontstate.edu/content.php?catoid=32&navoid=5939"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 32 on catalog.fairmontstate.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-237525",
@@ -52,16 +63,19 @@
     "marshall.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.marshall.edu/",
-    "https://catalog.marshall.edu/",
-    "https://www.marshall.edu/academics/",
-    "https://www.marshall.edu/registrar/",
-    "https://www.marshall.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.marshall.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.marshall.edu/undergraduate/programs-az/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.marshall.edu (program list https://catalog.marshall.edu/undergraduate/programs-az/)"
   },
   {
    "institution_key": "ipeds-237792",
@@ -72,16 +86,22 @@
     "shepherd.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.shepherd.edu/",
-    "https://catalog.shepherd.edu/",
-    "https://www.shepherd.edu/academics/",
-    "https://www.shepherd.edu/registrar/",
-    "https://www.shepherd.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 21,
+    "home": "https://catalog.shepherd.edu/index.php?catoid=21",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.shepherd.edu/content.php?catoid=21&navoid=4157",
+     "https://catalog.shepherd.edu/content.php?catoid=21&navoid=4182",
+     "https://catalog.shepherd.edu/content.php?catoid=21&navoid=4192",
+     "https://catalog.shepherd.edu/content.php?catoid=21&navoid=4357",
+     "https://catalog.shepherd.edu/content.php?catoid=21&navoid=4393"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 21 on catalog.shepherd.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-237312",
@@ -92,16 +112,17 @@
     "ucwv.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.ucwv.edu/",
-    "https://catalog.ucwv.edu/",
-    "https://www.ucwv.edu/academics/",
-    "https://www.ucwv.edu/registrar/",
-    "https://www.ucwv.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.ucwv.edu/wp-content/uploads/2024/08/Academic-Catalog-2024-2025.pdf"
+    ],
+    "home": "https://www.ucwv.edu/wp-content/uploads/2024/08/Academic-Catalog-2024-2025.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2024-2025"
   },
   {
    "institution_key": "ipeds-237932",
@@ -112,16 +133,17 @@
     "westliberty.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.westliberty.edu/",
-    "https://catalog.westliberty.edu/",
-    "https://www.westliberty.edu/academics/",
-    "https://www.westliberty.edu/registrar/",
-    "https://www.westliberty.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://westliberty.edu/registrar/files/2010/07/WLU-Catalog-2016-17-Final.pdf"
+    ],
+    "home": "https://westliberty.edu/registrar/files/2010/07/WLU-Catalog-2016-17-Final.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2016-2017"
   },
   {
    "institution_key": "ipeds-237899",
@@ -132,16 +154,17 @@
     "wvstateu.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.wvstateu.edu/",
-    "https://catalog.wvstateu.edu/",
-    "https://www.wvstateu.edu/academics/",
-    "https://www.wvstateu.edu/registrar/",
-    "https://www.wvstateu.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://wvstateu.edu/wp-content/uploads/2025/09/2025-2026-University-Academic-Catalog-1.pdf"
+    ],
+    "home": "https://wvstateu.edu/wp-content/uploads/2025/09/2025-2026-University-Academic-Catalog-1.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
   },
   {
    "institution_key": "ipeds-238032",
@@ -152,16 +175,24 @@
     "wvu.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.wvu.edu/",
-    "https://catalog.wvu.edu/",
-    "https://www.wvu.edu/academics/",
-    "https://www.wvu.edu/registrar/",
-    "https://www.wvu.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "exclude_paths": [
+     "/potomacstatecollegeofwvu/",
+     "/westvirginiauniversityinstituteoftechnology/",
+     "/graduate/"
+    ],
+    "home": "https://catalog.wvu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.wvu.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.wvu.edu (program list https://catalog.wvu.edu/programs/); reviewed 2026-10-07: the catalog also prints Potomac State College and WVU Institute of Technology (separate IPEDS institutions) under their own paths, excluded from WVU"
   },
   {
    "institution_key": "ipeds-237950",
@@ -252,16 +283,19 @@
     "bluefieldstate.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://bluefieldstate.edu/",
-    "https://catalog.bluefieldstate.edu/",
-    "https://www.bluefieldstate.edu/academics/",
-    "https://www.bluefieldstate.edu/registrar/",
-    "https://www.bluefieldstate.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 16,
+    "home": "https://catalog.bluefieldstate.edu/index.php?catoid=16",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.bluefieldstate.edu/content.php?catoid=16&navoid=3259",
+     "https://catalog.bluefieldstate.edu/content.php?catoid=16&navoid=3275"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 16 on catalog.bluefieldstate.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-475398",
@@ -292,16 +326,17 @@
     "dewv.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.dewv.edu/",
-    "https://catalog.dewv.edu/",
-    "https://www.dewv.edu/academics/",
-    "https://www.dewv.edu/registrar/",
-    "https://www.dewv.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.dewv.edu/wp-content/uploads/2026/08/2026-2027-College-Catalog-V1.pdf"
+    ],
+    "home": "https://www.dewv.edu/wp-content/uploads/2026/08/2026-2027-College-Catalog-V1.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
   },
   {
    "institution_key": "ipeds-237385",
@@ -312,16 +347,18 @@
     "glenville.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.glenville.edu/",
-    "https://catalog.glenville.edu/",
-    "https://www.glenville.edu/academics/",
-    "https://www.glenville.edu/registrar/",
-    "https://www.glenville.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 3,
+    "home": "https://catalog.glenville.edu/index.php?catoid=3",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.glenville.edu/content.php?catoid=3&navoid=98"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 3 on catalog.glenville.edu (no year label seen)"
   },
   {
    "institution_key": "ipeds-237701",
@@ -352,16 +389,17 @@
     "wvup.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.wvup.edu/",
-    "https://catalog.wvup.edu/",
-    "https://www.wvup.edu/academics/",
-    "https://www.wvup.edu/registrar/",
-    "https://www.wvup.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.wvup.edu/wp-content/uploads/2018/09/2017-18-Catalog.pdf"
+    ],
+    "home": "https://www.wvup.edu/wp-content/uploads/2018/09/2017-18-Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2017-2018"
   },
   {
    "institution_key": "ipeds-238078",
@@ -372,16 +410,17 @@
     "wheeling.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.wheeling.edu/",
-    "https://catalog.wheeling.edu/",
-    "https://www.wheeling.edu/academics/",
-    "https://www.wheeling.edu/registrar/",
-    "https://www.wheeling.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://wheeling.edu/wp-content/uploads/2022/08/2021-2022-UG-Catalog-July-12-2022-FINAL-2.pdf"
+    ],
+    "home": "https://wheeling.edu/wp-content/uploads/2022/08/2021-2022-UG-Catalog-July-12-2022-FINAL-2.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2021-2022"
   }
  ]
 }

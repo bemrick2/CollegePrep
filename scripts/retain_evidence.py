@@ -119,9 +119,18 @@ def retain(push=False):
         (ev.parent / 'retention.json').write_text(json.dumps(out, indent=1, sort_keys=True) + '\n')
         print(f"{run_dir}: {len(out['documents'])} documents, missing {len(out['missing'])}, layout missing {len(out.get('layout_missing', []))}"
               + ('' if out.get('run_branch') else ' (NO RUN BRANCH)'))
-    commit = update_store([d for ds in tags for d in ds])
-    if push: git('push', '-q', 'origin', f'{commit}:refs/heads/{STORE}')
-    return 0
+    docs = [d for ds in tags for d in ds]
+    if not push:
+        update_store(docs); return 0
+    for attempt in range(5):  # other sessions append to the same branch: rebuild on the newest tip and retry
+        try: git('fetch', '-q', 'origin', f'+refs/heads/{STORE}:refs/remotes/origin/{STORE}')
+        except subprocess.CalledProcessError: pass
+        commit = update_store(docs)
+        try:
+            git('push', '-q', 'origin', f'{commit}:refs/heads/{STORE}'); return 0
+        except subprocess.CalledProcessError:
+            print(f'{STORE}: push rejected (another session appended); retrying on the new tip')
+    raise SystemExit(f'{STORE}: push failed after 5 attempts')
 
 
 def store_path(d):

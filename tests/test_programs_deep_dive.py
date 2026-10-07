@@ -177,6 +177,8 @@ class DeepDiveEdgeTests(unittest.TestCase):
     def test_graduate_names_never_classified(self):
         self.assertIsNone(X.credential_of('Graduate Certificate, Associate Teacher Licensure'))
         self.assertIsNone(X.credential_of('Master of Science, Computer Science'))
+        self.assertIsNone(X.credential_of('Business Administration, D.B.A.'))
+        self.assertIsNone(X.credential_of('Accounting, M.B.A.'))
         self.assertEqual(X.credential_of('Associate of Science (A.S.) in Nursing'), 'associate')
 
     def test_overlong_text_is_not_a_sentence(self):
@@ -1174,6 +1176,15 @@ class CrawlDelayTests(unittest.TestCase):
 class DetectTests(unittest.TestCase):
     """programs/detect.py: catalog platform from official links on stored discovery pages."""
 
+    def test_catalog_host_spellings(self):
+        from programs.detect import catalog_host
+        for h in ('catalog.x.edu', 'catalogs.rutgers.edu', 'bulletin.brown.edu', 'catalogue.uvm.edu', 'e-catalogue.jhu.edu', 'academiccatalog.umd.edu'):
+            self.assertTrue(catalog_host(h), h)
+        for h in ('www.uvm.edu', 'mycatalogue.x.edu', 'catalogsearch-tool.x.com'):
+            self.assertFalse(catalog_host(h), h)
+        cfg, why = self.det([('https://catalogue.uvm.edu/undergraduate/majors/', 'Majors')], url='https://catalogue.uvm.edu/undergraduate/')
+        self.assertEqual((cfg['platform'], cfg['program_lists']), ('courseleaf', ['https://catalogue.uvm.edu/undergraduate/majors/']))
+
     def test_shared_catalog_kept_only_for_the_institution_that_owns_its_host(self):
         from programs import detect as D
         cat = lambda home: {'catalog': {'platform': 'acalog', 'home': home, 'catoid': 4}}
@@ -1604,6 +1615,40 @@ class ListedEmphasisTests(unittest.TestCase):
             {'listed_as': 'bachelor', 'printed': 'Chemistry, B.A.College', 'url': 'https://a/chem-ba'},
             {'listed_as': None, 'printed': 'Art - Paint Emphasis, Minor', 'url': 'https://a/art-minor'}]}}
         self.assertEqual(sorted(u for _, u in listed_emphasis_pages(lists, norm)), ['https://a/chem-bio', 'https://a/fs', 'https://a/ps-ag'])
+
+    def test_program_heading_skips_catalog_year_heading(self):
+        from programs.extract import program_heading, static_program_identity
+        from pipeline import text as T
+        page = T.Page('Catalog 2026-2027\nComputer Science B.A.', 'Computer Science B.A. | University of Alaska Fairbanks Catalog', [], [],
+                      ['Catalog 2026-2027', 'Computer Science B.A.', 'Admission Requirements'])
+        self.assertEqual(program_heading(page), 'Computer Science B.A.')
+        got = static_program_identity({'institution_key': 'k'}, {'url': 'https://catalog.uaf.edu/bachelors/computer-science-ba/'}, page, '2026-27')
+        self.assertEqual([c['record']['program_name'] for c in got], ['Computer Science B.A.'])
+        index = T.Page('Catalog 2026-2027', "Bachelor's Degrees | UAS", [], [], ['Catalog 2026-2027', "Bachelor's Degrees"])
+        self.assertEqual(static_program_identity({'institution_key': 'k'}, {'url': 'https://catalog.uas.alaska.edu/x/'}, index, '2026-27'), [])
+
+    def test_shared_catalog_sections_are_excluded(self):
+        from programs.crawl import program_rule, excluded
+        t = {'catalog': {'platform': 'courseleaf', 'home': 'https://catalog.unh.edu/', 'path_prefix': '/', 'min_depth': 1,
+                         'exclude_paths': ['/undergraduate/professional-studies/']}}
+        rule = program_rule(t)
+        self.assertTrue(rule('https://catalog.unh.edu/undergraduate/liberal-arts/programs-study/anthropology/anthropology-major-ba/'))
+        self.assertFalse(rule('https://catalog.unh.edu/undergraduate/professional-studies/manchester/programs-study/biotechnology/biotechnology-bs/'))
+        self.assertTrue(excluded(t, 'https://catalog.unh.edu/undergraduate/professional-studies/online/x/'))
+        self.assertFalse(excluded({'catalog': {}}, 'https://catalog.unh.edu/undergraduate/professional-studies/online/x/'))
+
+    def test_unh_option_lines(self):
+        import re
+        from programs.extract import listed_emphasis_pages
+        norm = lambda u: re.sub(r'/?$', '', u)
+        lists = {'x': {'programs': [
+            {'listed_as': 'bachelor', 'printed': 'Arts Major: Studio Art Option (B.A.)', 'url': 'https://a/arts-studio'},
+            {'listed_as': 'bachelor', 'printed': 'Animal Science Major: Equine Studies Option (B.S.)', 'url': 'https://a/ans-eq'},
+            {'listed_as': 'bachelor', 'printed': 'Animal Science Major (B.S.)', 'url': 'https://a/ans'},
+            {'listed_as': 'bachelor', 'printed': 'Human Development and Family Studies Major: Early Childhood Education Option (Teacher Licensure) (B.S.)', 'url': 'https://a/hdfs-ece'},
+            {'listed_as': 'bachelor', 'printed': 'Chemistry Major: Biochemistry Option (B.S.)', 'url': 'https://a/chem-bio'},
+            {'listed_as': 'bachelor', 'printed': 'Chemistry Major (B.A.)', 'url': 'https://a/chem-ba'}]}}
+        self.assertEqual(sorted(u for _, u in listed_emphasis_pages(lists, norm)), ['https://a/arts-studio', 'https://a/chem-bio', 'https://a/hdfs-ece'])
 
     def test_award_glued_to_next_column_is_classified(self):
         from programs.extract import list_award

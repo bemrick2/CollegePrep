@@ -82,7 +82,7 @@ def professional_source(entry, page) -> bool:
     return bool(hit) and not re.search(r'undergraduate', page.title or '', re.I) and not UNDERGRAD_AWARD.search((page.title or '').split('|')[0])
 
 
-UNDERGRAD_AWARD = re.compile(r'(^|,|\s)\s*((?-i:B\.\s?(?:S|A|F\.\s?A|M|S\.\s?N|B\.\s?A|A\.\s?S|S\.\s?W|I\.\s?S)\.?(?![A-Za-z]))|(?-i:A\.\s?(?:S|A|A\.\s?S)\.?(?![A-Za-z]))|'
+UNDERGRAD_AWARD = re.compile(r'(^|,|\s|\()\s*((?-i:B\.\s?(?:S|A|F\.\s?A|M|S\.\s?N|B\.\s?A|A\.\s?S|S\.\s?W|I\.\s?S)\.?(?![A-Za-z]))|(?-i:A\.\s?(?:S|A|A\.\s?S)\.?(?![A-Za-z]))|'
                             r'Bachelor of [A-Z]|Associate of [A-Z])', re.I)
 
 

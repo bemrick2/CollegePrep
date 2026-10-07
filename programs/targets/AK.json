@@ -12,16 +12,17 @@
     "akbible.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.akbible.edu/",
-    "https://catalog.akbible.edu/",
-    "https://www.akbible.edu/academics/",
-    "https://www.akbible.edu/registrar/",
-    "https://www.akbible.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.akbible.edu/_cdn/static/48f01879-63af-4ab8-b1d9-f2211835243c-abc-academic-catalog-2026-2027-final-2.0.pdf"
+    ],
+    "home": "https://www.akbible.edu/_cdn/static/48f01879-63af-4ab8-b1d9-f2211835243c-abc-academic-catalog-2026-2027-final-2.0.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
   },
   {
    "institution_key": "ipeds-102669",
@@ -32,16 +33,18 @@
     "alaskapacific.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.alaskapacific.edu/",
-    "https://catalog.alaskapacific.edu/",
-    "https://www.alaskapacific.edu/academics/",
-    "https://www.alaskapacific.edu/registrar/",
-    "https://www.alaskapacific.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 20,
+    "home": "https://catalog.alaskapacific.edu/index.php?catoid=20",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.alaskapacific.edu/content.php?catoid=20&navoid=607"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 20 on catalog.alaskapacific.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-434584",
@@ -52,16 +55,19 @@
     "ilisagvik.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.ilisagvik.edu/",
-    "https://catalog.ilisagvik.edu/",
-    "https://www.ilisagvik.edu/academics/",
-    "https://www.ilisagvik.edu/registrar/",
-    "https://www.ilisagvik.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.ilisagvik.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.ilisagvik.edu/degrees"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.ilisagvik.edu (program list https://catalog.ilisagvik.edu/degrees)"
   },
   {
    "institution_key": "ipeds-102553",
@@ -72,16 +78,17 @@
     "alaska.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.uaa.alaska.edu/",
-    "https://catalog.alaska.edu/",
-    "https://www.alaska.edu/academics/",
-    "https://www.alaska.edu/registrar/",
-    "https://www.alaska.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.uaa.alaska.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.uaa.alaska.edu (no program list link; pages found from the home page)"
   },
   {
    "institution_key": "ipeds-102614",
@@ -92,16 +99,19 @@
     "uaf.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.uaf.edu/",
-    "https://catalog.uaf.edu/",
-    "https://www.uaf.edu/academics/",
-    "https://www.uaf.edu/registrar/",
-    "https://www.uaf.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.uaf.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.uaf.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.uaf.edu (program list https://catalog.uaf.edu/programs/)"
   },
   {
    "institution_key": "ipeds-102632",
@@ -112,16 +122,17 @@
     "alaska.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.uas.alaska.edu/",
-    "https://catalog.alaska.edu/",
-    "https://www.alaska.edu/academics/",
-    "https://www.alaska.edu/registrar/",
-    "https://www.alaska.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.uas.alaska.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.uas.alaska.edu (no program list link; pages found from the home page)"
   }
  ]
 }

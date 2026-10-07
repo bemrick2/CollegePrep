@@ -1180,6 +1180,9 @@ last 30 hours in residence at the university.</p>"""
                                                     T.Page('', 'Criminal Justice, B.S. | Utah Valley University Academic Catalog', [], [], [])))
         self.assertFalse(common.professional_source({'url': 'https://catalog.uvu.edu/health-public-service/allied-health/dental-hygiene-bs/'},
                                                     T.Page('', 'Dental Hygiene, B.S.', [], [], [])))
+        # UNH: the award in parentheses ('... Option (B.S.)') under a 'medical-veterinary' path
+        self.assertFalse(common.professional_source({'url': 'https://catalog.unh.edu/undergraduate/life-sciences-agriculture/programs-study/biomedical-science/biomedical-science-major-medical-veterinary-option-bs/'},
+                                                    T.Page('', 'Biomedical Science Major: Medical and Veterinary Sciences Option (B.S.) | University of New Hampshire Academic Catalog', [], [], [])))
         self.assertTrue(common.professional_source({'url': 'https://catalog.example.edu/dental/dmd/'}, T.Page('', 'Doctor of Dental Medicine, D.M.D.', [], [], [])))
         self.assertTrue(common.professional_source({'url': 'https://example.edu/law/jd/'}, T.Page('', 'Law, J.D. | Example', [], [], [])))
         # Agnes Scott / Georgia Southern / WGTC: other organizations' award lists; Thomas University: "+Scholarships" heading.
@@ -1948,6 +1951,10 @@ class CatalogNameTests(unittest.TestCase):
         from pipeline import text as T
         name = lambda t: C.program_name(T.Page('', t, [], [], []))
         self.assertEqual(C.credential('Entertainment Design, B.F.A.'), 'bachelor')
+        # Marshall 2026-27: 'B.A.' inside a graduate award is not a bachelor's degree
+        self.assertIsNone(C.credential('Business Administration, D.B.A.'))
+        self.assertIsNone(C.credential('Accounting, M.B.A.'))
+        self.assertEqual(C.credential('Chemistry B.S./M.S.'), 'bachelor')
         self.assertEqual(name('Special Education - Mild/Moderate/Severe, B.S. | Utah Valley University Academic Catalog'),
                          'Special Education - Mild/Moderate/Severe, B.S.')
         self.assertEqual(name('Program: Biology, B.S. - Middle Tennessee State University - Acalog ACMS'), 'Biology, B.S.')

@@ -12,16 +12,17 @@
     "brown.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.brown.edu/",
-    "https://catalog.brown.edu/",
-    "https://www.brown.edu/academics/",
-    "https://www.brown.edu/registrar/",
-    "https://www.brown.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://bulletin.brown.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on bulletin.brown.edu (no program list link; pages found from the home page)"
   },
   {
    "institution_key": "ipeds-217165",
@@ -209,6 +210,7 @@
    "discover": [
     "https://web.uri.edu/",
     "https://catalog.uri.edu/",
+    "https://web.uri.edu/catalog/directory/",
     "https://www.uri.edu/academics/",
     "https://www.uri.edu/registrar/",
     "https://www.uri.edu/catalog/"

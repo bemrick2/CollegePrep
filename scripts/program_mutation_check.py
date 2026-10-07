@@ -8,7 +8,6 @@ import shutil, subprocess, sys
 
 MUTS = [
     # UVU: listed emphases, glued awards, matriculation evidence
-    ('programs/extract.py', "                   for o in printed if not EMPHASIS_ENTRY.match(o)): continue", "                   for o in printed if False): continue"),
     ('programs/extract.py', "    return any(is_option_page(c) for c in found) and (key, norm_emph(url)) not in emphases", "    return any(is_option_page(c) for c in found)"),
     ('programs/autoreview.py', "and (c['institution_key'], url_of(c, 'program_url')) not in listed_emphases else", "and True else"),
     ('programs/extract.py', " or credential_of(re.sub(r'(?<=[a-z.])(?=[A-Z][a-z])', ' ', label))", ""),
@@ -64,6 +63,12 @@ MUTS = [
     ('programs/detect.py', "        pool = [c for c, y in dated.items() if y == newest] or list(cats)", "        pool = list(cats)"),
     ('programs/detect.py', "            if cfgs[f].get('reviewed') or (len(owners) == 1 and f == owners[0]): continue", "            if cfgs[f].get('reviewed') or f in owners: continue"),
     ('programs/detect.py', "        if len(folders) < 2: continue", "        if len(folders) < 1: continue"),
+    ('programs/extract.py', "        emph = [EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) for line in printed]", "        emph = [EMPHASIS_ENTRY.match(line) for line in printed]"),
+    ('programs/extract.py', "            if (re.sub(r'\\W+', '', m.group('base')).lower(), _award_key(m.group('award'))) in degrees: continue", "            pass"),
+    ('programs/crawl.py', " or SKIP_PATH.search(p.path) or excluded(target, u): return False", " or SKIP_PATH.search(p.path): return False"),
+    ('programs/extract.py', "BACHELOR = re.compile(r'(?<![A-Za-z]\\.)\\b(B", "BACHELOR = re.compile(r'\\b(B"),
+    ('programs/extract.py', "    while hs and YEAR_HEADING.match(hs[0]): hs = hs[1:]", "    pass"),
+    ('programs/extract.py', " or OPTION_NAME.search(name) or GENERIC_DEGREES.match(name): return []", " or OPTION_NAME.search(name): return []"),
     ('programs/detect.py', "                if ys: pdfs.append((max(ys), href, m))", "                pdfs.append((max(ys or {0}), href, m))"),
     ('programs/detect.py', "            elif u.path.lower().endswith('.pdf') and CATALOG_WORD.search(a + ' ' + u.path) and not re.search(r'graduate|archive|handbook', a + u.path, re.I):", "            elif u.path.lower().endswith('.pdf') and CATALOG_WORD.search(a + ' ' + u.path):"),
     ('programs/crawl.py', "            **({'degree_map': 0, 'degree_map_index': 0, 'policy_link': 0} if target.get('mode') == 'discover' else {}),", "            **({}),"),

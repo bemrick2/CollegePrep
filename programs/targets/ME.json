@@ -72,16 +72,17 @@
     "husson.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.husson.edu/",
-    "https://catalog.husson.edu/",
-    "https://www.husson.edu/academics/",
-    "https://www.husson.edu/registrar/",
-    "https://www.husson.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.husson.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.husson.edu (no program list link; pages found from the home page)"
   },
   {
    "institution_key": "ipeds-161299",
@@ -112,16 +113,18 @@
     "sjcme.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.sjcme.edu/",
-    "https://catalog.sjcme.edu/",
-    "https://www.sjcme.edu/academics/",
-    "https://www.sjcme.edu/registrar/",
-    "https://www.sjcme.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 50,
+    "home": "https://catalog.sjcme.edu/index.php?catoid=50",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.sjcme.edu/content.php?catoid=50&navoid=2598"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 50 on catalog.sjcme.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-161572",
@@ -152,16 +155,22 @@
     "umaine.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.umaine.edu/",
-    "https://catalog.umaine.edu/",
-    "https://www.umaine.edu/academics/",
-    "https://www.umaine.edu/registrar/",
-    "https://www.umaine.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 96,
+    "home": "https://catalog.umaine.edu/index.php?catoid=96",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.umaine.edu/content.php?catoid=96&navoid=4682",
+     "https://catalog.umaine.edu/content.php?catoid=96&navoid=4717",
+     "https://catalog.umaine.edu/content.php?catoid=96&navoid=4736",
+     "https://catalog.umaine.edu/content.php?catoid=96&navoid=4751",
+     "https://catalog.umaine.edu/content.php?catoid=96&navoid=4759"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 96 on catalog.umaine.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-161457",
@@ -192,16 +201,16 @@
     "maine.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://usm.maine.edu/",
-    "https://catalog.maine.edu/",
-    "https://www.maine.edu/academics/",
-    "https://www.maine.edu/registrar/",
-    "https://www.maine.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 28,
+    "home": "https://catalog.usm.maine.edu/index.php?catoid=28",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 28 on catalog.usm.maine.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-160959",
@@ -252,16 +261,19 @@
     "mchp.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.mchp.edu/",
-    "https://catalog.mchp.edu/",
-    "https://www.mchp.edu/academics/",
-    "https://www.mchp.edu/registrar/",
-    "https://www.mchp.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.mchp.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.mchp.edu/degrees"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.mchp.edu (program list https://catalog.mchp.edu/degrees)"
   },
   {
    "institution_key": "ipeds-161563",
@@ -272,16 +284,17 @@
     "thomas.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.thomas.edu/",
-    "https://catalog.thomas.edu/",
-    "https://www.thomas.edu/academics/",
-    "https://www.thomas.edu/registrar/",
-    "https://www.thomas.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.thomas.edu/wp-content/uploads/2025/09/2025-2026-Catalog-Updated-Sept-2025.pdf"
+    ],
+    "home": "https://www.thomas.edu/wp-content/uploads/2025/09/2025-2026-Catalog-Updated-Sept-2025.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
   },
   {
    "institution_key": "ipeds-161217",
@@ -292,16 +305,19 @@
     "uma.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.uma.edu/",
-    "https://catalog.uma.edu/",
-    "https://www.uma.edu/academics/",
-    "https://www.uma.edu/registrar/",
-    "https://www.uma.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 8,
+    "home": "https://catalog.uma.edu/index.php?catoid=8",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.uma.edu/content.php?catoid=8&navoid=333",
+     "https://catalog.uma.edu/content.php?catoid=8&navoid=345"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 8 on catalog.uma.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-161226",
@@ -353,16 +369,19 @@
     "umpi.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.umpi.edu/",
-    "https://catalog.umpi.edu/",
-    "https://www.umpi.edu/academics/",
-    "https://www.umpi.edu/registrar/",
-    "https://www.umpi.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 12,
+    "home": "https://catalog.umpi.edu/index.php?catoid=12",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.umpi.edu/content.php?catoid=12&navoid=577",
+     "https://catalog.umpi.edu/content.php?catoid=12&navoid=620"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 12 on catalog.umpi.edu (labelled 2025-2026)"
   }
  ]
 }
