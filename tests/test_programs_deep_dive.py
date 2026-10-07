@@ -1401,6 +1401,7 @@ class DegreePageTests(unittest.TestCase):  # JHU 2026-27 (Research request in #1
         self.assertEqual(variant_pages_of([{j + 'as/archaeology-ugrad-major', j + 'as/archaeology-ugrad-major/archaeology-bachelor-arts'}, {j + 'z/only'}]), {j + 'as/archaeology-ugrad-major'})
         self.assertEqual(variant_pages_of([{j + 'b/biology-bs', j + 'b/biology-bs-pre-professional'}]), {j + 'b/biology-bs-pre-professional'})
         self.assertEqual(variant_pages_of([{j + 'c/asian-studies', j + 'c/asian-studies-ba'}]), set())  # one base page: both are that page
+        self.assertEqual(variant_pages_of([{j + 'u/ABC', j + 'u/ABC_HON'}]), {j + 'u/ABC_HON'})  # underscore extensions of a base page
 
 
 class SamplePlanPageTests(unittest.TestCase):  # KU 2026-27 sample-plan sub-pages; PVAMU award abbreviations (review of 2026-10-07)
