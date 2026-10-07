@@ -45,13 +45,6 @@
    "next_action": "Locate and configure the catalog (discovery found no catalog)."
   },
   {
-   "institution_key": "ipeds-110644",
-   "gap": "institution",
-   "reason": "layout_not_readable",
-   "next_action": "Re-extract after the reader stops gluing the college name to program headings (requested on #153).",
-   "detail": "catalog.ucdavis.edu program pages were fetched (119); the extracted names read 'Business, Bachelor of Science Graduate School of Management', so none were promoted."
-  },
-  {
    "institution_key": "ipeds-122409",
    "gap": "institution",
    "reason": "bot_challenge",
@@ -1078,6 +1071,25 @@
    "gap": "institution",
    "reason": "not_yet_researched",
    "next_action": "Locate and configure the catalog (discovery found no catalog)."
+  },
+  {
+   "institution_key": "ipeds-110644",
+   "gap": "catalog",
+   "reason": "not_yet_researched",
+   "next_action": "Record the official listed bachelor's count and verify the remaining listed programs.",
+   "detail": "71 verified; listed count not yet recorded."
+  },
+  {
+   "institution_key": "ipeds-110644",
+   "gap": "degree_maps",
+   "reason": "not_yet_researched",
+   "next_action": "Read the published plans (2 of 119 program pages print a plan marker)."
+  },
+  {
+   "institution_key": "ipeds-110644",
+   "gap": "admission_rules",
+   "reason": "not_yet_researched",
+   "next_action": "Review 7 admission-category sentences for: business, computer_science, engineering."
   }
  ]
 }
