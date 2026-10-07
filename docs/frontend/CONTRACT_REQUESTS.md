@@ -24,6 +24,8 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-16 | Subscription owner + household entitlement | ⏳ open | No plan, price, paywall or entitlement state anywhere; nothing simulated |
 | CR-17 | How each school bills tuition (flat rate or per credit) | ⏳ open | Credit savings counted only as whole terms finished early; the remainder is shown, not counted |
 | CR-18 | Loan terms (federal limits, rates) as sourced records | ⏳ open | Families enter planned borrowing; it is shown as borrowed, never as a saving; no limits or rates shown |
+| CR-19 | Credit applicability: hours on equivalency rows, elective/gen-ed designations, plans for more majors | ⏳ open | Credit checked course by course against the major's verified plan where one exists; otherwise "unknown"; savings shown only as potential |
+| CR-20 | Cost-of-attendance period (academic year vs 12 months) | ⏳ open | COA labelled "academic year"; summer and break living is the family's own number |
 
 Live content note: the bank has no exam versions, skills or questions yet, so live practice and benchmarks show their empty states until content is loaded.
 
@@ -257,6 +259,32 @@ SQL tests are in `supabase/tests/frontend_contracts.sql`. The local end-to-end t
 **Need.** Federal Direct loan annual and aggregate limits by dependency status and year in school, plus the current interest rates and fees, each with a source URL and effective dates.
 
 **Why.** It lets the cost view say how planned borrowing compares with what a student can borrow, and what it costs to repay. Until then, the view shows only what the family enters, labelled as borrowed.
+
+## CR-19. Credit applicability to a major
+
+Today the client checks credit at three levels:
+1. **Accepted.** The school's own table awards the course.
+2. **Applies.** The awarded course code appears in the selected major's verified term-by-term plan.
+3. **Removes a term.** Every item of a whole plan term is covered.
+
+Savings are shown only as potential, under stated assumptions. The UTK snapshot shows the gaps:
+
+- **No hours on core courses.** The courses that matter most carry no `credits_awarded`. For example, AP Calculus BC with a 5 earns MATH 147-148, which fits Terms 1-2 of the CS plan, but its hours are unpublished. Credit that applies to the major therefore can't be counted in dollars.
+- **Electives are opaque.** Elective-only credit ("ARTH LD", "ART LD") may fill a plan's elective slot, such as "Arts and Humanities elective", but which slots a course can fill isn't recorded.
+- **One plan only.** There is a term-by-term plan for one UTK program only (Computer Science, BS).
+- **Same score, different courses.** Several exams list different courses at the same score (UTK AP Physics C E&M, score 4: PHYS 136, or one of PHYS 102/222/231), and the condition that picks between them isn't recorded.
+
+**Need:**
+- `credits_awarded` on every equivalency row.
+- The general-education or elective attributes of each awarded course, as `satisfies: [category]`.
+- The condition that selects between rows at the same score (program, admit term).
+- Term-by-term plans for more programs, in the existing `rule_details.terms` shape.
+
+## CR-20. Cost-of-attendance period
+
+**Need.** On `institution_costs`, `period` (`academic_year` with months, or `twelve_month`), from the school's budget page.
+
+**Why.** The view treats the published budget as the academic year, and asks the family for summer and break living separately. If a school's budget already covers twelve months, that would double-count.
 
 ## Product decisions flagged (not contract requests)
 

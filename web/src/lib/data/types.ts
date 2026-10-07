@@ -405,6 +405,9 @@ export interface CreditLever {
 }
 
 export interface CreditSavings {
+  /** Never a confirmed shorter degree: what it would save if the assumptions hold. */
+  certainty: 'potential'
+  assumes: ('counted_credit_applies_to_the_degree' | 'schedule_allows_finishing_early')[]
   /** Savings come only from billing fewer terms by finishing early. */
   mechanism: 'fewer_terms'
   /** No flat-rate vs per-credit tuition data exists, so credit short of a full term is not counted. */

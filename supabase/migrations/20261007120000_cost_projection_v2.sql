@@ -13,7 +13,10 @@
 --    is the policy. prior_credits (credit brought from elsewhere) keeps the v1 rule: counted only under a verified cap.
 --  * Both are bounded by a verified residency requirement (credits that must be earned at the school), measured
 --    against the projection's own credit total (years x terms x credits per term).
---  * credit_savings explains the mechanism. Savings come only from fewer billed terms when the student finishes
+--  * credit_savings is a potential saving, never a confirmed shorter degree: certainty 'potential', and assumes
+--    lists what it takes for granted (the counted credit applies to the degree; the schedule lets the student
+--    finish early). Whether credit applies to a given major is checked by the client against the verified degree
+--    plan, when one is on file. credit_savings explains the mechanism. Savings come only from fewer billed terms when the student finishes
 --    early; billing_structure is 'unknown' because no flat-rate or per-credit tuition data exists, and credits short
 --    of a full term (remainder_credits) are not counted. Each lever's terms_saved/savings are what it would save on
 --    its own; the row totals use the combined credits.
@@ -215,7 +218,9 @@ begin
       'years', v_years_used, 'years_source', case when v_years is null then 'level_default' else 'assumption' end,
       'baseline_total', v_baseline,
       'levers', jsonb_build_array(v_lever_prior, v_lever_exam),
-      'credit_savings', jsonb_build_object('mechanism', 'fewer_terms', 'billing_structure', 'unknown',
+      'credit_savings', jsonb_build_object('certainty', 'potential',
+        'assumes', jsonb_build_array('counted_credit_applies_to_the_degree', 'schedule_allows_finishing_early'),
+        'mechanism', 'fewer_terms', 'billing_structure', 'unknown',
         'credits_counted', v_total, 'residency_requirement_credits', v_res_req, 'outside_credit_max', v_outside_max,
         'terms_saved', v_terms, 'remainder_credits', v_total - v_terms * v_cpt,
         'by_component', jsonb_build_object(
