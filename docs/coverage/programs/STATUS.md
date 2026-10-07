@@ -240,14 +240,14 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | San Jose State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | University of California-Santa Cruz | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | California State Polytechnic University-Pomona | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| California State University-Sacramento | partial | 66 | 131 | 1 | 138 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
+| California State University-Sacramento | partial | 65 | 131 | 1 | 138 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | California State University-Fresno | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Rio Hondo College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Southern California | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | California State University-Los Angeles | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Modesto Junior College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Santa Ana College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| San Francisco State University | partial | 110 | 165 | 0 | 85 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
+| San Francisco State University | partial | 110 | 119 | 0 | 85 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | Cypress College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | San Diego Mesa College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | California State University-San Marcos | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
@@ -282,15 +282,15 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Shasta College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Pepperdine University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Point Loma Nazarene University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| California Lutheran University | partial | 74 | 98 | 0 | 0 | queued | queued | queued | queued | admission_rules:no_official_statement, catalog:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:not_yet_researched |
+| California Lutheran University | partial | 74 | 99 | 0 | 0 | queued | queued | queued | queued | admission_rules:no_official_statement, catalog:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:not_yet_researched |
 | California State University-Channel Islands | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Occidental College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Saint Mary's College of California | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Vanguard University of Southern California | partial | 27 | 49 | 0 | 1 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
+| Vanguard University of Southern California | partial | 26 | 50 | 0 | 1 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | Northeastern University Oakland | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Redlands | partial | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:no_year_label |
 | Mount Saint Mary's University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Azusa Pacific University | covered | 50 | 54 | 1 | 104 | met | queued | met | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched |
+| Azusa Pacific University | covered | 50 | 52 | 1 | 104 | met | queued | met | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched |
 | The Master's University and Seminary | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Pomona College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:layout_not_readable |
 | University of Massachusetts Global | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -1574,7 +1574,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Le Moyne College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Niagara University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Utica University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| St Bonaventure University | covered | 60 | 60 | 0 | 0 | met | queued | queued | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:layout_not_readable |
+| St Bonaventure University | covered | 60 | 61 | 0 | 0 | met | queued | queued | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:layout_not_readable |
 | Union College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | St Lawrence University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | SUNY College of Agriculture and Technology at Cobleskill | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -1885,7 +1885,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 
 | School | Status | Verified bachelor's | Listed | Plans | Req. groups | Catalog | Maps | Groups | Admission rules | Queue |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Pennsylvania State University-Main Campus | partial | 187 | – | 0 | 412 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
+| Pennsylvania State University-Main Campus | partial | 173 | – | 0 | 376 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | University of Pittsburgh-Pittsburgh Campus | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Temple University | partial | 166 | – | 127 | 413 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
 | West Chester University of Pennsylvania | partial | 64 | 104 | 17 | 298 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
@@ -1900,7 +1900,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Slippery Rock University of Pennsylvania | partial | 51 | – | 45 | 188 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
 | Lehigh University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Duquesne University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| East Stroudsburg University of Pennsylvania | partial | 70 | 59 | 0 | 0 | queued | queued | queued | queued | admission_rules:no_official_statement, catalog:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:not_yet_researched |
+| East Stroudsburg University of Pennsylvania | partial | 65 | 75 | 0 | 0 | queued | queued | queued | queued | admission_rules:no_official_statement, catalog:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:not_yet_researched |
 | Pennsylvania State University-Penn State Harrisburg | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Saint Joseph's University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Millersville University of Pennsylvania | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -1935,7 +1935,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Lebanon Valley College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Pittsburgh-Johnstown | partial | 41 | 48 | 0 | 0 | queued | queued | queued | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:layout_not_readable |
 | Holy Family University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| La Salle University | partial | 36 | 41 | 31 | 250 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
+| La Salle University | partial | 36 | 42 | 31 | 250 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
 | DeSales University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Lackawanna College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Pennsylvania State University-Penn State Brandywine | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
