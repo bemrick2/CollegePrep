@@ -5,9 +5,7 @@ import { FocusShell, ParentShell, RoleShell, StudentShell } from './components/s
 import { PageLoading } from './components/ui'
 const Landing = lazy(() => import('./features/onboarding/Landing').then((m) => ({ default: m.Landing })))
 const Auth = lazy(() => import('./features/onboarding/Auth').then((m) => ({ default: m.Auth })))
-const Start = lazy(() => import('./features/onboarding/Start').then((m) => ({ default: m.Start })))
-const ParentOnboarding = lazy(() => import('./features/onboarding/ParentOnboarding').then((m) => ({ default: m.ParentOnboarding })))
-const StudentOnboarding = lazy(() => import('./features/onboarding/StudentOnboarding').then((m) => ({ default: m.StudentOnboarding })))
+const Setup = lazy(() => import('./features/onboarding/Setup').then((m) => ({ default: m.Setup })))
 const Join = lazy(() => import('./features/onboarding/Join').then((m) => ({ default: m.Join })))
 const StudentHome = lazy(() => import('./features/student/StudentHome').then((m) => ({ default: m.StudentHome })))
 const Goals = lazy(() => import('./features/student/Goals').then((m) => ({ default: m.Goals })))
@@ -54,9 +52,9 @@ export function App() {
       <Route path="/" element={<Landing />} />
       <Route path="/auth" element={<Auth />} />
       <Route element={<RequireViewer><FocusShell /></RequireViewer>}>
-        <Route path="/start" element={<Start />} />
-        <Route path="/onboarding/parent" element={<ParentOnboarding />} />
-        <Route path="/onboarding/student" element={<StudentOnboarding />} />
+        <Route path="/start" element={<Setup />} />
+        <Route path="/onboarding/parent" element={<Setup role="parent" />} />
+        <Route path="/onboarding/student" element={<Setup role="student" />} />
       </Route>
       {/* Join handles its own sign-in redirect so an invite link opened on a new device keeps its code. */}
       <Route element={<FocusShell />}>

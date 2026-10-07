@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { AppProvider, realName } from './lib/app'
 import { App } from './App'
-import { DemoSource, DEMO_PARENT, DEMO_STUDENT } from './lib/data/demo/demoSource'
+import { DemoSource, DEMO_STUDENT } from './lib/data/demo/demoSource'
 import { emptyStore } from './lib/data/demo/store'
 import { sampleFamily } from './lib/data/demo/seed'
 import { writeInterests } from './lib/interestStore'
@@ -50,28 +50,6 @@ describe('app flows', () => {
     expect(await screen.findByRole('tab', { name: /Teach me/ })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /Continue|Finish/ })).toBeInTheDocument()
   })
-
-  it('parent onboarding creates a household, student and invite code', async () => {
-    const user = userEvent.setup()
-    const src = new DemoSource(emptyStore())
-    src.switchPersona(DEMO_PARENT, 'Jordan')
-    renderAt('/onboarding/parent', src)
-    await user.click(await screen.findByRole('button', { name: 'Continue' }))
-    await user.type(screen.getByLabelText("Student's first name"), 'Riley')
-    await user.click(screen.getByRole('button', { name: '11' }))
-    await user.click(screen.getByRole('button', { name: 'Continue' }))
-    await user.click(screen.getByRole('button', { name: 'Create household' }))
-    // No invitation (and no email) is required to create the student profile.
-    expect(await screen.findByRole('heading', { name: 'Invite Riley' })).toBeInTheDocument()
-    await user.type(screen.getByLabelText('Recipient email'), 'riley@example.com')
-    await user.click(screen.getByRole('button', { name: 'Send invitation' }))
-    expect(await screen.findByText('Demo mode doesn’t send email')).toBeInTheDocument()
-    expect(screen.getByText('Invite code')).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'Copy invite link' })).toBeInTheDocument()
-    const ctx = await src.getHouseholdContext()
-    expect(ctx.students.map((s) => s.display_name)).toEqual(['Riley'])
-    expect(await src.getPlan(ctx.students[0]!.id)).toMatchObject({ exam_family: 'act' })
-  }, 15_000)
 
   it('parent cost outlook leads with four-year schools, published costs only, no estimated savings', async () => {
     localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976', 'ipeds-221908']))
@@ -172,52 +150,17 @@ describe('app flows', () => {
     expect(screen.getByText(/4 more ACT points reaches 4 merit awards \(ACT 31\+\) at University of Tennessee, Knoxville/)).toBeInTheDocument()
   }, 30_000) // two full dashboard renders; about 3s alone, slower when the whole suite runs in parallel
 
-  it('student onboarding asks how sure they are about a major and never requires one', async () => {
+  it('setup never asks about majors; a student saves interests later from Explore majors', async () => {
     const user = userEvent.setup()
     const src = new DemoSource(emptyStore())
-    src.switchPersona(DEMO_STUDENT, 'Student (demo)')
-    renderAt('/onboarding/student', src)
-    await user.type(await screen.findByLabelText('First name'), 'Jordan')
-    await user.click(screen.getByRole('button', { name: '11' }))
-    await user.click(screen.getByRole('button', { name: 'Continue' }))
-    await user.click(await screen.findByRole('button', { name: 'Continue' }))
-    expect(await screen.findByRole('heading', { name: 'What might you study?' })).toBeInTheDocument()
-    // Skippable before any choice.
-    expect(screen.getByRole('button', { name: 'Skip for now' })).toBeInTheDocument()
-    await user.click(screen.getByRole('button', { name: /I'm not sure yet/ }))
-    // Undecided: broad areas only, no majors panel.
-    expect(screen.queryByText(/Possible majors in/)).not.toBeInTheDocument()
+    src.switchPersona(DEMO_STUDENT, 'Jordan')
+    await src.createSelfStudentProfile({ displayName: 'Jordan', graduationYear: 2028, gradeLevel: 11, independent: false, timeZone: 'UTC' })
+    renderAt('/colleges/majors', src)
+    expect(await screen.findByRole('heading', { name: 'Explore majors' })).toBeInTheDocument()
+    await user.click(await screen.findByRole('radio', { name: /not sure/i }))
     await user.click(screen.getByRole('button', { name: 'Health' }))
-    await user.click(screen.getByRole('button', { name: 'Continue' }))
-    await user.click(await screen.findByRole('button', { name: 'Start my benchmark' }))
-    await screen.findByText(/benchmark/i)
     const key = Object.keys(localStorage).find((k) => k.startsWith('pp-interests:'))!
-    expect(JSON.parse(localStorage.getItem(key)!)).toEqual({ certainty: 'unsure', interests: [{ kind: 'area', key: 'health' }] })
-  })
-
-  it('a student weighing several majors saves at least three, unranked', async () => {
-    const user = userEvent.setup()
-    const src = new DemoSource(emptyStore())
-    src.switchPersona(DEMO_STUDENT, 'Student (demo)')
-    renderAt('/onboarding/student', src)
-    await user.type(await screen.findByLabelText('First name'), 'Sam')
-    await user.click(screen.getByRole('button', { name: '10' }))
-    await user.click(screen.getByRole('button', { name: 'Continue' }))
-    await user.click(await screen.findByRole('button', { name: 'Continue' }))
-    await user.click(await screen.findByRole('button', { name: /considering a few things/ }))
-    await user.click(screen.getByRole('button', { name: 'Engineering & technology' }))
-    await user.click(screen.getByRole('button', { name: 'Computer science' }))
-    await user.click(screen.getByRole('button', { name: 'Mechanical engineering' }))
-    await user.click(screen.getByRole('button', { name: /^Business/ }))
-    await user.click(screen.getByRole('button', { name: 'Finance' }))
-    expect(screen.getByText(/3 saved/)).toBeInTheDocument()
-    await user.click(screen.getByRole('button', { name: 'Continue' }))
-    await user.click(await screen.findByRole('button', { name: 'Start my benchmark' }))
-    await screen.findByText(/benchmark/i)
-    const key = Object.keys(localStorage).find((k) => k.startsWith('pp-interests:'))!
-    const saved = JSON.parse(localStorage.getItem(key)!)
-    expect(saved.interests.map((i: { key: string }) => i.key)).toEqual(['computer-science', 'mechanical-eng', 'finance'])
-    expect(saved.interests.some((i: { focus?: boolean }) => i.focus)).toBe(false)
+    expect(JSON.parse(localStorage.getItem(key)!)).toMatchObject({ certainty: 'unsure', interests: [{ kind: 'area', key: 'health' }] })
   })
 
   it('explore majors shows verified program fit across all interests and updates when interests change', async () => {
@@ -319,8 +262,9 @@ describe('app flows', () => {
     const user = userEvent.setup()
     renderAt('/', new DemoSource(emptyStore()))
     await user.click(await screen.findByRole('button', { name: /^I'm a student\s*Take/ }))
-    expect(await screen.findByRole('heading', { name: /Let's get you set up/ })).toBeInTheDocument()
-    expect(screen.queryByRole('heading', { name: /Who's using/ })).not.toBeInTheDocument()
+    expect(await screen.findByRole('heading', { name: 'About you' })).toBeInTheDocument()
+    expect(screen.queryByRole('heading', { name: /Who's setting up/ })).not.toBeInTheDocument()
+    expect(screen.getByRole('progressbar', { name: 'Step 1 of 4' })).toBeInTheDocument()
   })
 
   it('landing leads with creating a family plan; store badges say coming soon until listings exist', async () => {
@@ -330,7 +274,7 @@ describe('app flows', () => {
     // No badge artwork or store link until a real listing URL is configured.
     expect(screen.queryByRole('link', { name: /App Store|Google Play/ })).not.toBeInTheDocument()
     await user.click(screen.getByRole('button', { name: /Create your family plan/ }))
-    expect(await screen.findByRole('heading', { name: /set up your household/i })).toBeInTheDocument()
+    expect(await screen.findByLabelText("Your student's first name")).toBeInTheDocument()
   })
 
   it('demo placeholder names never prefill forms', async () => {
@@ -339,7 +283,7 @@ describe('app flows', () => {
     const src = new DemoSource(emptyStore())
     src.switchPersona(DEMO_STUDENT, 'Student (demo)')
     renderAt('/onboarding/student', src)
-    expect(await screen.findByLabelText('First name')).toHaveValue('')
+    expect(await screen.findByLabelText('Your first name')).toHaveValue('')
   })
 
   it('pre-answer Teach me and Test strategy show answer-free help', async () => {

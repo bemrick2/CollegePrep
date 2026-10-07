@@ -74,6 +74,11 @@ export interface DataSource {
   streak(studentId: string): Promise<Streak>
   skillEstimates(studentId: string): Promise<SkillEstimate[]>
   testScores(studentId: string): Promise<TestScore[]>
+  /**
+   * A score from a real test the family reports (unverified). Stored as `self_reported`: clients can never write
+   * an official or estimated score. Practice-test scores are not stored here (see CR-26).
+   */
+  addTestScore(studentId: string, score: { exam_family: ExamFamily; test_date: string; composite: number; section_scores: Record<string, number> }): Promise<string>
   attemptHistory(studentId: string, sinceIso: string): Promise<AttemptRecord[]>
 
   // Catalog

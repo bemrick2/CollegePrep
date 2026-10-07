@@ -2,7 +2,22 @@ import type { ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Brand } from '../../components/shell'
 import { ChevronLeft } from '../../components/icons'
-import { ProgressBar } from '../../components/ui'
+import { ProgressBar, cx } from '../../components/ui'
+import { SUPPORTED_LANGUAGES } from './options'
+
+/** Outside the step count. Appears only when the app is written in more than one language (today: English only). */
+function LanguageControl() {
+  if (SUPPORTED_LANGUAGES.length < 2) return null
+  return (
+    <select aria-label="Language" className={cx('h-9 rounded-lg border border-line bg-surface px-2 text-sm')} defaultValue="en">
+      {SUPPORTED_LANGUAGES.map((l) => (
+        <option key={l.code} value={l.code}>
+          {l.name}
+        </option>
+      ))}
+    </select>
+  )
+}
 
 export function StepFrame({
   step,
@@ -12,6 +27,7 @@ export function StepFrame({
   onBack,
   children,
   footer,
+  hideProgress,
 }: {
   step: number
   total: number
@@ -20,6 +36,8 @@ export function StepFrame({
   onBack?: () => void
   children: ReactNode
   footer: ReactNode
+  /** A result page after the steps: no step count. */
+  hideProgress?: boolean
 }) {
   const navigate = useNavigate()
   return (
@@ -32,7 +50,13 @@ export function StepFrame({
         >
           <ChevronLeft />
         </button>
-        <ProgressBar value={step} max={total} label={`Step ${step} of ${total}`} className="flex-1" />
+        {hideProgress ? <span className="flex-1" /> : <ProgressBar value={step} max={total} label={`Step ${step} of ${total}`} className="flex-1" />}
+        {!hideProgress && total > 1 && (
+          <span className="text-xs font-semibold text-ink-3 tabular" aria-hidden>
+            {step} of {total}
+          </span>
+        )}
+        <LanguageControl />
         <span className="hidden sm:block">
           <Brand />
         </span>
