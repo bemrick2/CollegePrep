@@ -620,6 +620,16 @@ class CourseListLayoutGroupTests(unittest.TestCase):
                          [('Core', 'all_required', 2, None, []), ('Core', 'choose_courses', 3, 2, []), ('Core', 'choose_courses', 2, 1, []), ('Core', 'all_required', 1, None, [])])
         self.assertEqual(g[0][1]['courses'][1]['any_of'][1]['code'], 'MTH 251H')
 
+    def test_verify_reads_printed_code_shapes(self):
+        from programs.verify import code_in
+        self.assertTrue(code_in('| IT222 | Cloud |', 'IT222'))
+        self.assertTrue(code_in('| ENG/FILM 366 | Narrative Film |', 'ENG/FILM 366'))
+        self.assertTrue(code_in('| DANC 1100R | Ballet |', 'DANC 1100R'))
+        self.assertFalse(code_in('| IT227 | Cloud |', 'IT222'))
+        self.assertFalse(code_in('| FILM 366 |', 'ENG/FILM 366'))
+        self.assertTrue(code_in('| 100/200 Level | Mathematics |', '100/200 Level'))  # a code cell that is not SUBJ NUM
+        self.assertFalse(code_in('| 300/400 Level |', '100/200 Level'))
+
     def test_printed_code_shapes_issue_95(self):
         """Issue #95 recovery: codes as the catalogs print them are courses, not 'complex' rows that cut a list apart."""
         from programs import courseleaf as CL

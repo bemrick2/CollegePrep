@@ -13,6 +13,8 @@ MUTS = [
     ('programs/courseleaf.py', "            if g['type'] == 'all_required' and not g['issues']: return", "            if g['type'] == 'all_required': return"),
     ('programs/courseleaf.py', "                rule = LEAD_IN.sub('', rw['text'])", "                rule = rw['text']"),
     ('programs/courseleaf.py', "            if ALL_FOLLOWING.match(rw['text']):", "            if False:"),
+    ('programs/verify.py', "    if not m: return re.search(rf'\\b{re.escape(code)}\\b', text, re.I) is not None", "    if not m: return True"),
+    ('programs/verify.py', "    return re.search(rf'\\b{re.escape(subj)}\\s?{re.escape(num)}\\b', text, re.I) is not None", "    return True"),
     ('programs/courseleaf.py', "        if cur is not None and cur.get('all_following') and not cur['rules']:", "        if False:"),
     ('programs/crawl.py', "return registrable_domain(h) in set(target.get('domains', []))", 'return True'),
     ('programs/crawl.py', "keep = '&'.join(f'{k}={q[k][0]}' for k in ('catoid', 'poid', 'navoid') if k in q)", "keep = p.query"),

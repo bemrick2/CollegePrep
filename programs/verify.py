@@ -21,7 +21,9 @@ def squash(s):
 
 
 def code_in(text, code):
-    subj, num = code.split(' ', 1)
+    m = re.match(r'^([A-Z]{1,5}(?:/[A-Z]{1,5})*)\s?(\d.*)$', code.strip())  # 'IT222' (no space), 'ENG/FILM 366' (cross-listed)
+    if not m: return re.search(rf'\b{re.escape(code)}\b', text, re.I) is not None
+    subj, num = m.groups()
     return re.search(rf'\b{re.escape(subj)}\s?{re.escape(num)}\b', text, re.I) is not None
 
 
