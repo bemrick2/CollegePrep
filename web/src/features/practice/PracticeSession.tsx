@@ -286,6 +286,9 @@ function SessionSummary({ outcomes, studentId, skillName }: { outcomes: Outcome[
         </div>
       )}
       {goal && doneQs >= goal && <Notice tone="gold" className="mt-4 w-full">Weekly goal reached. Anything extra this week is a bonus.</Notice>}
+      <p className="mt-4 w-full text-left text-xs text-ink-3">
+        Practice result on original Prep & Price questions, checked for answer accuracy. Not official ACT or SAT items, and not converted to a test score.
+      </p>
       <div className="mt-8 grid w-full gap-3">
         <ButtonLink to="/student" size="lg" block>
           Done

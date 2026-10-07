@@ -156,11 +156,11 @@ function Body({ o, heading, who }: { o: StudentOverview; heading: string; who?: 
                   <span className="block font-semibold capitalize text-ink">{b.kind} benchmark</span>
                   <span className="text-xs text-ink-3">{formatShortDate(b.completed_at)} · {b.metrics.answered} answered</span>
                 </span>
-                <span className="text-lg font-semibold tabular text-ink">{b.metrics.accuracy === null ? '—' : `${Math.round(b.metrics.accuracy * 100)}%`}</span>
+                <span className="text-right"><span className="block text-lg font-semibold tabular text-ink">{b.metrics.accuracy === null ? '—' : `${Math.round(b.metrics.accuracy * 100)}%`}</span><span className="block text-xs text-ink-3">right, practice</span></span>
               </button>
               {openBench === b.id && (
                 <div className="bg-surface-2 p-4">
-                  <BenchmarkResults summary={b} traps={catalog.traps} standalone={false} />
+                  <BenchmarkResults summary={b} traps={catalog.traps} standalone={false} history={o.benchmarks} />
                 </div>
               )}
             </li>
@@ -168,11 +168,12 @@ function Body({ o, heading, who }: { o: StudentOverview; heading: string; who?: 
         </ul>
       </Card>
 
-      {o.scores.length > 0 && (
+      {o.scores.some((s) => s.score_source !== 'practice_estimate') && (
         <Card>
           <CardHeader title="Scores" subtitle="Official, self-reported and practice estimates are kept separate." />
           <ul className="divide-y divide-line">
-            {[...o.scores].sort((a, b) => b.test_date.localeCompare(a.test_date)).map((s) => (
+            {/* Practice estimates are never listed as scores (see PRACTICE_ESTIMATES_VALIDATED). */}
+            {[...o.scores].filter((s) => s.score_source !== 'practice_estimate').sort((a, b) => b.test_date.localeCompare(a.test_date)).map((s) => (
               <li key={s.id} className="flex items-center justify-between gap-3 px-5 py-3 text-sm">
                 <span>
                   <span className="font-semibold uppercase text-ink">{s.exam_family}</span> <span className="text-ink-3">· {formatShortDate(s.test_date)}</span>
