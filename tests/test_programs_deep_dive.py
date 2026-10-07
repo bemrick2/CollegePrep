@@ -832,6 +832,88 @@ class CourseListLayoutReviewTests(unittest.TestCase):
         self.assertTrue({'indented_rows_after_required_course', 'substitute_in_title'} <= g[0][1]['issues'])
 
 
+GRID_HTML = """<h2>Roadmaps</h2><p>Courses marked with (*) are recommended.</p>
+<table class="sc_plangrid"><thead>
+<tr class="plangridyear firstrow"><th id="year0" colspan="4">First Year</th></tr>
+<tr class="plangridterm"><th id="year0_Term0_codecol">Fall</th><th id="year0_Term0_hourscol">Credits</th><th id="year0_Term1_codecol">Spring</th><th id="year0_Term1_hourscol">Credits</th></tr>
+</thead><tbody>
+<tr class="even"><td header="year0 year0_Term0_codecol" class="codecol"><a>MATH F251X</a><sup>6</sup></td><td header="year0 year0_Term0_hourscol">4</td>
+ <td header="year0 year0_Term1_codecol" class="codecol"><a>WRTG F211X</a>, <a> F212X</a>, or <a> F214X</a><sup>1</sup></td><td header="year0 year0_Term1_hourscol">3</td></tr>
+<tr class="odd"><td header="year0 year0_Term0_codecol" class="codecol"><a>WRTG F111X</a><sup>1</sup></td><td header="year0 year0_Term0_hourscol">3</td>
+ <td header="year0 year0_Term1_codecol" class="codecol">Complete one of the following:<sup>20</sup></td><td header="year0 year0_Term1_hourscol">1-3</td></tr>
+<tr class="even"><td header="year0 year0_Term0_codecol" class="codecol">General Elective</td><td header="year0 year0_Term0_hourscol">3</td>
+ <td header="year0 year0_Term1_codecol" class="codecol"><div style="margin-left: 20px;"><a>AIS F101</a> (*)</div></td><td header="year0 year0_Term1_hourscol"></td></tr>
+<tr class="odd"><td header="year0 year0_Term0_codecol" class="codecol"><a>CS F301</a><sup>20,25</sup></td><td header="year0 year0_Term0_hourscol">3</td>
+ <td header="year0 year0_Term1_codecol" class="codecol"><div style="margin-left: 20px;"><a>CIOS F150</a></div></td><td header="year0 year0_Term1_hourscol"></td></tr>
+<tr class="even"><td header="year0 year0_Term0_codecol" class="codecol">Complete one of the following:<sup>6</sup></td><td header="year0 year0_Term0_hourscol">3-4</td><td colspan="2"> </td></tr>
+<tr class="odd"><td header="year0 year0_Term0_codecol" class="codecol"><div style="margin-left: 20px;"><a>MATH F122X</a> (*)</div></td><td header="year0 year0_Term0_hourscol"></td><td colspan="2"> </td></tr>
+<tr class="plangridsum"><td> </td><td header="year0 year0_Term0_hourscol">13-14</td><td> </td><td header="year0 year0_Term1_hourscol">4-6</td></tr>
+<tr class="plangridtotal lastrow"><td header="year0" colspan="4">Total Credits 120</td></tr>
+</tbody></table>
+<h4>Footnote Definitions</h4><table class="sc_sctable tbl_roadmapfootnotes"><tbody>
+<tr><td class="column0">1--Communication</td><td class="column1">20--Program Requirement</td></tr>
+<tr><td class="column0">6--Mathematics</td><td class="column1">25--Upper Division</td></tr></tbody></table>"""
+
+
+class RoadmapGridTests(unittest.TestCase):  # UAF 2026-27 roadmaps (#151 reader request)
+    def grid(self, html=GRID_HTML):
+        from programs.courselist_html import plan_grids
+        from programs import courseleaf as CL
+        entry = {'url': 'https://catalog.x.edu/bachelors/cs-bs/', 'role': 'program_page', 'sha256': 'a' * 64,
+                 'fetched_at': '2026-10-07T00:00:00+00:00', 'status': 200, 'kind': 'html'}
+        doc = plan_grids(html)
+        return doc, CL.plangrid_candidates({'institution_key': 'k'}, entry, {'url': entry['url'] + '#plangrid', 'sha256': 'b' * 64}, doc, '2026-2027', 'cs-bs')
+
+    def test_terms_columns_options_and_footnotes(self):
+        doc, out = self.grid()
+        self.assertEqual(len(out), 1); c = out[0]
+        self.assertEqual(c['extractor'], 'courseleaf_plangrid/v1'); self.assertEqual(c['issues'], [])
+        rd = c['record']['rule_details']
+        self.assertEqual(rd['rule_text'], 'Total Credits 120 (as printed)')
+        self.assertEqual(rd['footnotes'], {'1': 'Communication', '6': 'Mathematics', '20': 'Program Requirement', '25': 'Upper Division'})
+        fall, spring = rd['terms']
+        self.assertEqual((fall['label'], fall['credit_hours'], spring['label'], spring['credit_hours']), ('First Year Fall', '13-14', 'First Year Spring', '4-6'))
+        self.assertEqual(fall['items'], [
+            {'code': 'MATH F251X', 'credits': 4, 'footnotes': ['6']}, {'code': 'WRTG F111X', 'credits': 3, 'footnotes': ['1']},
+            {'text': 'General Elective', 'credits': 3}, {'code': 'CS F301', 'credits': 3, 'footnotes': ['20', '25']},
+            {'text': 'Complete one of the following:', 'credits': '3-4', 'footnotes': ['6'], 'options': [{'code': 'MATH F122X', 'recommended': True}]}])
+        # the options printed in the Spring column belong to Spring's rule, though Fall rows sit beside them
+        self.assertEqual(spring['items'], [
+            {'text': 'WRTG F211X, F212X, or F214X', 'credits': 3, 'footnotes': ['1']},
+            {'text': 'Complete one of the following:', 'credits': '1-3', 'footnotes': ['20'],
+             'options': [{'code': 'AIS F101', 'recommended': True}, {'code': 'CIOS F150'}]}])
+        # the Course List reader is unchanged by the grid capture: no column attributes recorded there
+        from programs.courselist_html import course_lists
+        self.assertEqual(course_lists(GRID_HTML.replace('sc_plangrid', 'sc_courselist'))[0]['rows'][2]['cells'][0].get('header'), None)
+
+    def test_unreadable_layouts_hold_the_plan(self):
+        cases = {
+            'indented_row_without_rule': GRID_HTML.replace('Complete one of the following:<sup>20</sup>', 'Business Elective<sup>20</sup>'),
+            'footnote_inside_cell': GRID_HTML.replace('<a>MATH F251X</a><sup>6</sup>', '<a>MATH F251X</a><sup>6</sup> or placement'),
+            'footnote_not_defined': GRID_HTML.replace('<sup>6</sup></td>', '<sup>4 or 5</sup></td>', 1),
+            'grid_cell_without_column': GRID_HTML.replace('<td colspan="2"> </td></tr>\n<tr class="odd">', '<td colspan="2">MATH F151X</td></tr>\n<tr class="odd">', 1),
+            'rule_without_options': GRID_HTML.replace('<div style="margin-left: 20px;"><a>MATH F122X</a> (*)</div>', 'MATH F122X'),
+            # a row printed without indentation closes the rule above it: a later indented row has no rule
+            'indented_row_without_rule ': GRID_HTML.replace('<tr class="plangridsum">', '<tr><td header="year0 year0_Term0_codecol">General Elective</td><td header="year0 year0_Term0_hourscol">3</td></tr>'
+                                                            '<tr><td header="year0 year0_Term0_codecol"><div style="margin-left: 20px;">MATH F151X</div></td></tr><tr class="plangridsum">'),
+        }
+        for issue, html in cases.items():
+            _, out = self.grid(html)
+            self.assertIn(issue.strip(), out[0]['issues'], issue)
+
+    def test_verify_checks_items_against_grid_cells(self):
+        import json as J
+        from programs.verify import check_candidate
+        doc, out = self.grid()
+        other = lambda sha: J.dumps(doc) if sha == 'b' * 64 else ''
+        self.assertEqual(check_candidate(out[0], 'page text', other), [])
+        bad = J.loads(J.dumps(out[0]))
+        bad['record']['rule_details']['terms'][0]['items'][0]['footnotes'] = ['16']
+        bad['record']['rule_details']['terms'][1]['items'][1]['options'][1]['code'] = 'CIOS F160'
+        self.assertEqual(len(check_candidate(bad, 'page text', other)), 2)
+        self.assertIn('roadmap grid document not in run', check_candidate(out[0], 'page text', lambda sha: ''))
+
+
 class FootnoteMarkerTests(unittest.TestCase):  # issue #129: TAMUSA 'Strategic Management 3', UF 'Principles of Journalism 1'
     def test_trailing_superscripts_are_markers_not_title(self):
         from programs.courselist_html import course_lists

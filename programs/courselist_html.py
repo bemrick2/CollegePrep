@@ -16,8 +16,9 @@ HEADINGS = {'h1', 'h2', 'h3', 'h4', 'h5', 'h6'}
 
 
 class _Reader(HTMLParser):
-    def __init__(self):
+    def __init__(self, table_class='sc_courselist'):
         super().__init__(convert_charrefs=True)
+        self.table_class = table_class  # sc_courselist (Course List), sc_plangrid (UAF roadmaps), tbl_roadmapfootnotes
         self.tables, self.heading, self.after_heading = [], '', []
         self._in_heading = None; self._heading_buf = []
         self._para = None; self._para_buf = []
@@ -40,7 +41,7 @@ class _Reader(HTMLParser):
         if self._t is None:
             if tag in HEADINGS: self._in_heading = tag; self._heading_buf = []
             elif tag == 'p' and self._in_heading is None: self._para = True; self._para_buf = []
-            if tag == 'table' and 'sc_courselist' in cls:
+            if tag == 'table' and self.table_class in cls:
                 # 'sups_recorded': this capture records <sup> footnote markers per cell (issue #129); layouts stored before it do not
                 self._t = {'heading': self.heading, 'context': ' '.join(self.after_heading)[-1500:], 'caption': '', 'rows': [], 'sups_recorded': True}
                 self._table_depth = 1
@@ -52,6 +53,9 @@ class _Reader(HTMLParser):
             d = dict(attrs)
             self._td = {'text': [], 'classes': cls, 'colspan': int(d.get('colspan') or 1) if str(d.get('colspan') or '1').isdigit() else 1,
                         'indent': self._indented(attrs), 'spans': []}
+            if self.table_class != 'sc_courselist':  # plan grids name each cell's year and term column ('year0 year0_Term1_codecol')
+                for a in ('header', 'id'):
+                    if d.get(a): self._td[a] = d[a]
             self._indent_stack = []
         elif self._td is not None:
             if self._indented(attrs):  # leading indentation marks the row; an indented '& ENGR 115' inside a cell does not
@@ -114,6 +118,21 @@ def course_lists(html_bytes):
     except Exception:  # a malformed page yields whatever was read before the error
         pass
     return r.tables
+
+
+def plan_grids(html_bytes):
+    """CourseLeaf roadmap grids (`table.sc_plangrid`, UAF 2026-27) read like course_lists, with each cell's `header` / `id`
+    attribute (the year and term column it belongs to), plus the roadmap footnote definitions table
+    (`table.tbl_roadmapfootnotes`: '6--Mathematics'). {'grids': [...], 'footnotes': [...]}; empty when the page has no grid."""
+    out = {}
+    for key, cls in (('grids', 'sc_plangrid'), ('footnotes', 'tbl_roadmapfootnotes')):
+        r = _Reader(cls)
+        try:
+            r.feed(html_bytes.decode('utf-8', 'replace') if isinstance(html_bytes, bytes) else html_bytes); r.close()
+        except Exception:
+            pass
+        out[key] = r.tables
+    return out if out['grids'] else {}
 
 
 def to_text(tables):

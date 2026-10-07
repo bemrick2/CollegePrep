@@ -67,6 +67,23 @@ def check_candidate(c, text, other=None):
         n = int(r['total_credits']) if r.get('total_credits') is not None else None
         if n is not None and not re.search(rf'total[^0-9]{{0,40}}\b{n}\b|\b{n}\s+(total|hours\s+total)', text, re.I):
             probs.append('total_credits not printed next to a total label')
+    elif c.get('extractor') == 'courseleaf_plangrid/v1':
+        # roadmap grid items are checked against the grid's own cells (the layout document): each item, its options and
+        # their '(*)' and footnote markers must be one printed cell exactly
+        cells = set()
+        lay = (c.get('layout_source') or {}).get('sha256')
+        doc = json.loads(other(lay)) if (lay and other and other(lay)) else {}
+        for t in doc.get('grids') or []:
+            for row in t.get('rows') or []:
+                cells |= {re.sub(r'\s+', ' ', x.get('text') or '').strip() for x in row.get('cells') or []}
+        if not cells: probs.append('roadmap grid document not in run')
+        for term in r.get('rule_details', {}).get('terms', []) or []:
+            for it in term.get('items', []):
+                for i in [it, *it.get('options', [])]:
+                    printed = (i.get('code') or i.get('text') or '') + (' (*)' if i.get('recommended') else '')
+                    marks = ''.join(i.get('footnotes', []))
+                    if not any(x.startswith(printed) and re.sub(r'[\s,]', '', x[len(printed):]) == re.sub(r'[\s,]', '', marks) for x in cells):
+                        probs.append(f'roadmap item not printed as one cell: {printed[:60]}')
     else:
         rd = r.get('rule_details', {})
         wrapped = c.get('extractor') == 'clearpath_plan/v1'  # two-column PDF: wrapped titles are printed in pieces

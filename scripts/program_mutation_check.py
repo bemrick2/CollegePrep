@@ -166,6 +166,17 @@ MUTS = [
     ('programs/autoreview.py', "        canon = degree_page(us) if base is None else None", "        canon = degree_page(us)"),
     ('programs/autoreview.py', "    return out[0] if len(out) == 1 else None", "    return out[0] if out else None"),
     ('programs/autoreview.py', "|bachelors?-degrees?|b-?a|b-?s|bfa|bm)$", "|bachelors?-degrees?)$"),
+    # UAF roadmap grids (courseleaf_plangrid/v1)
+    ('programs/courseleaf.py', "                if st['open'] is None: issues.add('indented_row_without_rule'); st['term']['items'].append(item)", "                if st['open'] is None: st['term']['items'].append(item)"),
+    ('programs/courseleaf.py', "            st['open'] = item if GRID_CHOICE.match(text) else None", "            st['open'] = item if GRID_CHOICE.match(text) else st['open']"),
+    ('programs/courseleaf.py', "                if c['text']: issues.add('grid_cell_without_column')", "                pass"),
+    ('programs/courseleaf.py', "                if any(n not in footnote_defs for n in marks): issues.add('footnote_not_defined')", "                pass"),
+    ('programs/courseleaf.py', "            m = cols[0]; slots.setdefault((m.group(1), m.group(2)), {})[m.group(3)] = c", "            m = cols[0]; slots.setdefault(('year0', 'Term0'), {})[m.group(3)] = c"),
+    ('programs/courseleaf.py', "            if GRID_CHOICE.match(it.get('text', '')) and not it.get('options'): issues.add('rule_without_options')", "            pass"),
+    ('programs/courseleaf.py', "            marks = [n for x in sups for n in re.split(r'\\s*,\\s*', x) if n]", "            marks = sups"),
+    ('programs/verify.py', "                    if not any(x.startswith(printed) and re.sub(r'[\\s,]', '', x[len(printed):]) == re.sub(r'[\\s,]', '', marks) for x in cells):",
+     "                    if not any(x.startswith(printed) for x in cells):"),
+    ('programs/courselist_html.py', "            if self.table_class != 'sc_courselist':", "            if True:"),
 ]
 
 
