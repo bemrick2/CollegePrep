@@ -424,7 +424,16 @@ Reference SQL, applied only to the local database: `scripts/local/proposals/cr27
 - `practice-reminder-action`: a signed one-time "Remind me later" token.
 - `send-weekly-digest`: new mode `reminders_off`.
 
-**Owner secrets needed:** `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `VAPID_SUBJECT`, `REMINDER_CRON_SECRET`, `REMINDER_ACTION_SECRET`. Generate the VAPID pair with `scripts/local/vapid_keys.mjs`.
+**Owner secrets needed:** `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `VAPID_SUBJECT`, `REMINDER_CRON_SECRET`, `REMINDER_ACTION_SECRET`. Generate the VAPID pair with `scripts/local/vapid_keys.mjs`. For the native apps, also `FCM_SERVICE_ACCOUNT`.
+
+**Update 2026-10-07: one notification per reminder, and native apps.**
+- **Claimed before it's sent:**
+  - `practice_reminder_deliveries` gains `reminder_key` (the student's local date plus slot, or the snooze's end) and `channel`.
+  - A unique index allows one claimed-or-sent row per student and key.
+  - `claim_practice_reminder` runs before any send, `finish_practice_reminder` after, and `retire_notification_device` on a gone token.
+  - The previous `record_practice_reminder` is replaced.
+- **One device per reminder:** the sender tries a single device, the one opened most recently (the native app wins a same-day tie), and falls back only if the push service rejects it.
+- **Native devices:** `notification_devices` gains `channel` (`webpush` | `fcm`) and `push_token`. `report_notification_device` takes `p_channel` and `p_token`, and a token moves to the latest login that reports it.
 
 ## Product decisions flagged (not contract requests)
 

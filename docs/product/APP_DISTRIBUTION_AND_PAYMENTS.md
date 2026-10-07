@@ -6,6 +6,8 @@ Tags: **[Certain]** = quoted from the store's own current text (checked 2026-10-
 
 ## Decision (2026-10-05)
 
+**Update, 2026-10-07:** native iPhone and Android apps are part of the intended product. The route (Capacitor, recommended), the extra work and milestone M2 are in `NATIVE_APPS.md` and `ROADMAP.md`. The payment decisions below are unchanged.
+
 - **Web stays primary.** Marketing, onboarding and selling happen on the website.
 - **iOS offers the same household subscription through Apple In-App Purchase**, alongside the web purchase. This follows 3.1.3(b), so we don't rely on the 3.1.3(f) companion-app exception (flags A1/A2).
 - **No external checkout link inside iOS for now**, in any storefront, the US included.

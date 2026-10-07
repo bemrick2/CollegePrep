@@ -64,3 +64,22 @@ describe('practice reminder rules', () => {
     for (let i = 0; i < 6; i++) expect(reminderMessage(i)).not.toMatch(/score|streak|miss|behind/i)
   })
 })
+
+describe('one reminder, one device', () => {
+  it('a reminder is identified by the local date and slot, or the end of a snooze', async () => {
+    const { reminderKey } = await import('../../../supabase/functions/_shared/reminders.ts')
+    expect(reminderKey('16:30', at('2026-10-07T16:30'), TZ, null)).toBe('2026-10-07:16:30')
+    // 23:30 in Chicago is already the 8th in UTC: the student's own date is used.
+    expect(reminderKey('23:30', new Date('2026-10-08T04:30:00Z'), TZ, null)).toBe('2026-10-07:23:30')
+    expect(reminderKey('snooze', at('2026-10-07T17:45'), TZ, '2026-10-07T22:45:00.000Z')).toBe('snooze:2026-10-07T22:45:00.000Z')
+  })
+
+  it('goes to the device opened most recently; the native app wins a same-day tie', async () => {
+    const { deliveryOrder } = await import('../../../supabase/functions/_shared/reminders.ts')
+    const laptop = { id: 'laptop', channel: 'webpush' as const, checkedAt: '2026-10-07T20:00:00Z' }
+    const phone = { id: 'phone', channel: 'fcm' as const, checkedAt: '2026-10-07T12:00:00Z' }
+    const oldTablet = { id: 'tablet', channel: 'webpush' as const, checkedAt: '2026-09-30T12:00:00Z' }
+    expect(deliveryOrder([oldTablet, laptop, phone]).map((d) => d.id)).toEqual(['phone', 'laptop', 'tablet'])
+    expect(deliveryOrder([oldTablet, { ...phone, checkedAt: '2026-10-01T12:00:00Z' }, laptop]).map((d) => d.id)).toEqual(['laptop', 'phone', 'tablet'])
+  })
+})
