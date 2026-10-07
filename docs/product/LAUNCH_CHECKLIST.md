@@ -31,7 +31,7 @@ Hosted deployment is **held** (`.operations/supabase-live-hold.json`). Nothing b
 |---|---|---|---|---|
 | B1 | CR-23: server holds check items out of practice; `seen_before` and first-answer metrics | Research | ⏳ | The contract is on #37. Today live does this client-side. |
 | B2 | CR-22: parent email opt-in, digest and inactivity payloads, delivery log, as a real migration | Research | ⏳ | Reference SQL in `scripts/local/proposals/cr22_parent_emails.sql`. Then the Owner deploys `send-weekly-digest`, adds the schedules and sets `VITE_WEEKLY_DIGEST=true` (after A5 and A7). |
-| B3 | "Full" progress check falls back to a mini until a held-out full-length form exists | Design | ⏳ | A full check is capped at 99 per section, which is the whole small bank. Code change, no dependency. |
+| B3 | "Full" progress check falls back to a mini until a held-out full-length form exists | Design | 🚧 #167 | Done in code (`FULL_FORM_READY = false`); switch on only when Content delivers a held-out full-length form per exam. |
 | B4 | CR-24 rights gate and CR-25 "report a problem" | Research, then Design (UI) | ⏳ | Contracts on #37. |
 | B5 | Item statistics review, monthly | Content | ⏳ | Needs live traffic and CR-25. |
 
