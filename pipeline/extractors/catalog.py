@@ -27,7 +27,7 @@ CHOOSE_HOURS = re.compile(r'\b(?:choose|select|complete|take)\s+(?:a\s+minimum\s
 # Issue #95: a printed choice ("Choose from:", "from the following", "(choose one)") whose count could not be read.
 CHOICE_CUE = re.compile(r'\bchoose\b|\bselect\b|\bfrom\s+the\s+following\b|\bone\s+of\s+the\s+following\b', re.I)
 # 'B.F.A.' (UVU) is matched as well as 'BFA'
-DEGREE = [('bachelor', r'(?<![A-Za-z]\.)\bB\.?\s?(F\.\s?A|S\.\s?N|S\.\s?W|L\.\s?A|S|A|BA|FA|M|SN|SW|AS|ArCH|Arch|ED|Mus)\b\.?|(?i:bachelor)'), ('associate', r'\bA\.?\s?(S|A|AS|AT|ST|F\.?A)\b\.?|(?i:associate)')]
+DEGREE = [('bachelor', r'(?<![A-Za-z]\.)\bB\.?\s?(F\.\s?A|S\.\s?N|S\.\s?W|L\.\s?A|B\.\s?A|S|A|BA|FA|M|SN|SW|AS|ArCH|Arch|ED|Mus)\b\.?|(?i:bachelor)'), ('associate', r'\bA\.?\s?(S|A|AS|AT|ST|F\.?A)\b\.?|(?i:associate)')]
 GRADUATE = re.compile(r'\b(M\.?S|M\.?A|MBA|M\.?Ed|Ph\.?D|Ed\.?D|DNP|graduate|certificate|minor)\b', re.I)
 CATEGORY = [
     ('general_education', r'general\s+education|gen\.?\s*ed|core\s+curriculum|university\s+core|tbr\s+core'),
@@ -120,7 +120,9 @@ def program_name(page):
     head, _, rest = t.partition(' - ')
     # ' - ' usually starts a site suffix ('X - 2026-2027 Catalog'); in a name that prints its award after it
     # ('Special Education - Mild/Moderate/Severe, B.S.', UVU) it is part of the name.
-    if rest and not (credential(head) is None and re.search(r',\s*(?:B|A)\.\s?[A-Z]', rest)
+    # Kent State prints the award alone after the dash ('Accounting - B.B.A.'): that is the name's award, not a suffix.
+    award_only = credential(head) is None and re.fullmatch(r'\s*(?:B|A)\.\s?[A-Z][A-Za-z.]*\s*', rest or '') and credential(rest)
+    if rest and not award_only and not (credential(head) is None and re.search(r',\s*(?:B|A)\.\s?[A-Z]', rest)
                      and not re.search(r'catalog|bulletin|\b20\d\d\b|university|college', rest, re.I)):
         t = head.strip()
     t = re.sub(r'\s*\((?:[0-9]{2,6}[A-Z]?)(?:,\s*[0-9]{2,6}[A-Z]?)*\)$', '', t)  # Courseleaf codes: "(1752)", "(514P, 514)"

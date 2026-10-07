@@ -53,16 +53,20 @@
     "drexel.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://drexel.edu/",
-    "https://catalog.drexel.edu/",
-    "https://www.drexel.edu/academics/",
-    "https://www.drexel.edu/registrar/",
-    "https://www.drexel.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.drexel.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.drexel.edu/majors",
+     "https://catalog.drexel.edu/majors/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.drexel.edu (program list https://catalog.drexel.edu/majors)"
   },
   {
    "institution_key": "ipeds-213020",
@@ -73,16 +77,19 @@
     "iup.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.iup.edu/",
-    "https://catalog.iup.edu/",
-    "https://www.iup.edu/academics/",
-    "https://www.iup.edu/registrar/",
-    "https://www.iup.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 22,
+    "home": "https://catalog.iup.edu/index.php?catoid=22",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.iup.edu/content.php?catoid=22&navoid=2817",
+     "https://catalog.iup.edu/content.php?catoid=22&navoid=3015"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 22 on catalog.iup.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-214777",
@@ -93,16 +100,17 @@
     "psu.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.psu.edu/",
-    "https://catalog.psu.edu/",
-    "https://www.psu.edu/academics/",
-    "https://www.psu.edu/registrar/",
-    "https://www.psu.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://bulletins.psu.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on bulletins.psu.edu (no program list link; pages found from the home page)"
   },
   {
    "institution_key": "ipeds-216339",
@@ -113,16 +121,17 @@
     "temple.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.temple.edu/",
-    "https://catalog.temple.edu/",
-    "https://www.temple.edu/academics/",
-    "https://www.temple.edu/registrar/",
-    "https://www.temple.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://bulletin.temple.edu/",
+    "min_depth": 1,
+    "path_prefix": "/undergraduate/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "reviewed 2026-10-07: CourseLeaf catalog at bulletin.temple.edu/undergraduate/ (web search); the discovery run did not reach it"
   },
   {
    "institution_key": "ipeds-215062",
@@ -133,16 +142,19 @@
     "upenn.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.upenn.edu/",
-    "https://catalog.upenn.edu/",
-    "https://www.upenn.edu/academics/",
-    "https://www.upenn.edu/registrar/",
-    "https://www.upenn.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.upenn.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.upenn.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.upenn.edu (program list https://catalog.upenn.edu/programs/)"
   },
   {
    "institution_key": "ipeds-215293",
@@ -153,16 +165,16 @@
     "pitt.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.pitt.edu/",
-    "https://catalog.pitt.edu/",
-    "https://www.pitt.edu/academics/",
-    "https://www.pitt.edu/registrar/",
-    "https://www.pitt.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 235,
+    "home": "https://catalog.upp.pitt.edu/index.php?catoid=235",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 235 on catalog.upp.pitt.edu (no year label seen)"
   },
   {
    "institution_key": "ipeds-216597",
@@ -193,16 +205,19 @@
     "wcupa.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.wcupa.edu/",
-    "https://catalog.wcupa.edu/",
-    "https://www.wcupa.edu/academics/",
-    "https://www.wcupa.edu/registrar/",
-    "https://www.wcupa.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.wcupa.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.wcupa.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.wcupa.edu (program list https://catalog.wcupa.edu/programs/)"
   },
   {
    "institution_key": "ipeds-211291",
@@ -213,16 +228,17 @@
     "bucknell.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.bucknell.edu/",
-    "https://catalog.bucknell.edu/",
-    "https://www.bucknell.edu/academics/",
-    "https://www.bucknell.edu/registrar/",
-    "https://www.bucknell.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://coursecatalog.bucknell.edu/pdf/2026-2027.pdf"
+    ],
+    "home": "https://coursecatalog.bucknell.edu/pdf/2026-2027.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
   },
   {
    "institution_key": "ipeds-212106",
@@ -252,17 +268,37 @@
    "domains": [
     "esu.edu"
    ],
-   "hosts": [],
-   "mode": "discover",
-   "priority": 2,
-   "discover": [
-    "https://www.esu.edu/",
-    "https://catalog.esu.edu/",
-    "https://www.esu.edu/academics/",
-    "https://www.esu.edu/registrar/",
-    "https://www.esu.edu/catalog/"
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
    ],
-   "policy": []
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.esu.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.esu.edu/programs",
+     "https://catalog.esu.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.esu.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.esu.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.esu.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.esu.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.esu.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.esu.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.esu.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.esu.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.esu.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.esu.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.esu.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.esu.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.esu.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.esu.edu (30 links)"
   },
   {
    "institution_key": "ipeds-213349",
@@ -313,16 +349,17 @@
     "lehigh.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.lehigh.edu/",
-    "https://catalog.lehigh.edu/",
-    "https://www.lehigh.edu/academics/",
-    "https://www.lehigh.edu/registrar/",
-    "https://www.lehigh.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.lehigh.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.lehigh.edu (no program list link; pages found from the home page)"
   },
   {
    "institution_key": "ipeds-214041",
@@ -332,17 +369,37 @@
    "domains": [
     "millersville.edu"
    ],
-   "hosts": [],
-   "mode": "discover",
-   "priority": 2,
-   "discover": [
-    "https://www.millersville.edu/",
-    "https://catalog.millersville.edu/",
-    "https://www.millersville.edu/academics/",
-    "https://www.millersville.edu/registrar/",
-    "https://www.millersville.edu/catalog/"
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
    ],
-   "policy": []
+   "mode": "catalog",
+   "priority": 2,
+   "catalog": {
+    "home": "https://catalog.millersville.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.millersville.edu/programs",
+     "https://catalog.millersville.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.millersville.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.millersville.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.millersville.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.millersville.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.millersville.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.millersville.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.millersville.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.millersville.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.millersville.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.millersville.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.millersville.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.millersville.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.millersville.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.millersville.edu (24 links)"
   },
   {
    "institution_key": "ipeds-214801",
@@ -433,16 +490,20 @@
     "pennwest.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.pennwest.edu/",
-    "https://catalog.pennwest.edu/",
-    "https://www.pennwest.edu/academics/",
-    "https://www.pennwest.edu/registrar/",
-    "https://www.pennwest.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 12,
+    "home": "https://catalog.pennwest.edu/index.php?catoid=12",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.pennwest.edu/content.php?catoid=12&navoid=1772",
+     "https://catalog.pennwest.edu/content.php?catoid=12&navoid=1797",
+     "https://catalog.pennwest.edu/content.php?catoid=12&navoid=2299"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 12 on catalog.pennwest.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-215655",
@@ -473,16 +534,20 @@
     "sju.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.sju.edu/",
-    "https://catalog.sju.edu/",
-    "https://www.sju.edu/academics/",
-    "https://www.sju.edu/registrar/",
-    "https://www.sju.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://academiccatalog.sju.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://academiccatalog.sju.edu/programs/",
+     "https://academiccatalog.sju.edu/programsaz/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on academiccatalog.sju.edu (program list https://academiccatalog.sju.edu/programs/)"
   },
   {
    "institution_key": "ipeds-216010",
@@ -493,16 +558,16 @@
     "ship.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.ship.edu/",
-    "https://catalog.ship.edu/",
-    "https://www.ship.edu/academics/",
-    "https://www.ship.edu/registrar/",
-    "https://www.ship.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 26,
+    "home": "https://catalog.ship.edu/index.php?catoid=26",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 26 on catalog.ship.edu (no year label seen)"
   },
   {
    "institution_key": "ipeds-216038",
@@ -513,16 +578,17 @@
     "sru.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.sru.edu/",
-    "https://catalog.sru.edu/",
-    "https://www.sru.edu/academics/",
-    "https://www.sru.edu/registrar/",
-    "https://www.sru.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.sru.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.sru.edu (no program list link; pages found from the home page)"
   },
   {
    "institution_key": "ipeds-216366",
@@ -553,16 +619,18 @@
     "scranton.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.scranton.edu/",
-    "https://catalog.scranton.edu/",
-    "https://www.scranton.edu/academics/",
-    "https://www.scranton.edu/registrar/",
-    "https://www.scranton.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 66,
+    "home": "https://catalog.scranton.edu/index.php?catoid=66",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.scranton.edu/content.php?catoid=66&navoid=8463"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 66 on catalog.scranton.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-216852",
@@ -573,16 +641,16 @@
     "widener.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.widener.edu/",
-    "https://catalog.widener.edu/",
-    "https://www.widener.edu/academics/",
-    "https://www.widener.edu/registrar/",
-    "https://www.widener.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 4,
+    "home": "https://catalog.widener.edu/index.php?catoid=4",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 4 on catalog.widener.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-217059",
@@ -593,16 +661,19 @@
     "ycp.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 2,
-   "discover": [
-    "https://www.ycp.edu/",
-    "https://catalog.ycp.edu/",
-    "https://www.ycp.edu/academics/",
-    "https://www.ycp.edu/registrar/",
-    "https://www.ycp.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 59,
+    "home": "https://catalog.ycp.edu/index.php?catoid=59",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.ycp.edu/content.php?catoid=59&navoid=2940",
+     "https://catalog.ycp.edu/content.php?catoid=59&navoid=2945"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 59 on catalog.ycp.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-210571",
@@ -633,16 +704,16 @@
     "allegheny.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://allegheny.edu/",
-    "https://catalog.allegheny.edu/",
-    "https://www.allegheny.edu/academics/",
-    "https://www.allegheny.edu/registrar/",
-    "https://www.allegheny.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 27,
+    "home": "https://catalog.allegheny.edu/index.php?catoid=27",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 27 on catalog.allegheny.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-210775",
@@ -653,16 +724,16 @@
     "alvernia.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.alvernia.edu/",
-    "https://catalog.alvernia.edu/",
-    "https://www.alvernia.edu/academics/",
-    "https://www.alvernia.edu/registrar/",
-    "https://www.alvernia.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 5,
+    "home": "https://catalog.alvernia.edu/index.php?catoid=5",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 5 on catalog.alvernia.edu (no year label seen)"
   },
   {
    "institution_key": "ipeds-211088",
@@ -673,16 +744,21 @@
     "arcadia.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.arcadia.edu/",
-    "https://catalog.arcadia.edu/",
-    "https://www.arcadia.edu/academics/",
-    "https://www.arcadia.edu/registrar/",
-    "https://www.arcadia.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 25,
+    "home": "https://catalog.arcadia.edu/index.php?catoid=25",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.arcadia.edu/content.php?catoid=25&navoid=997",
+     "https://catalog.arcadia.edu/content.php?catoid=25&navoid=999",
+     "https://catalog.arcadia.edu/content.php?catoid=25&navoid=1000",
+     "https://catalog.arcadia.edu/content.php?catoid=25&navoid=1007"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 25 on catalog.arcadia.edu (no year label seen)"
   },
   {
    "institution_key": "ipeds-210492",
@@ -693,16 +769,17 @@
     "brynathyn.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.brynathyn.edu/",
-    "https://catalog.brynathyn.edu/",
-    "https://www.brynathyn.edu/academics/",
-    "https://www.brynathyn.edu/registrar/",
-    "https://www.brynathyn.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://brynathyn.edu/_media/documents/2026-27-Complete-Course-Catalog.pdf"
+    ],
+    "home": "https://brynathyn.edu/_media/documents/2026-27-Complete-Course-Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
   },
   {
    "institution_key": "ipeds-211273",
@@ -713,16 +790,17 @@
     "brynmawr.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.brynmawr.edu/",
-    "https://catalog.brynmawr.edu/",
-    "https://www.brynmawr.edu/academics/",
-    "https://www.brynmawr.edu/registrar/",
-    "https://www.brynmawr.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.brynmawr.edu/sites/default/files/media/documents/2023-08/2023-24_Catalog.pdf"
+    ],
+    "home": "https://www.brynmawr.edu/sites/default/files/media/documents/2023-08/2023-24_Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2023-2024"
   },
   {
    "institution_key": "ipeds-211352",
@@ -753,16 +831,18 @@
     "cairn.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.cairn.edu/",
-    "https://catalog.cairn.edu/",
-    "https://www.cairn.edu/academics/",
-    "https://www.cairn.edu/registrar/",
-    "https://www.cairn.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 49,
+    "home": "https://catalog.cairn.edu/index.php?catoid=49",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.cairn.edu/content.php?catoid=49&navoid=2109"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 49 on catalog.cairn.edu (no year label seen)"
   },
   {
    "institution_key": "ipeds-211431",
@@ -813,16 +893,17 @@
     "chatham.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.chatham.edu/",
-    "https://catalog.chatham.edu/",
-    "https://www.chatham.edu/academics/",
-    "https://www.chatham.edu/registrar/",
-    "https://www.chatham.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.chatham.edu/_documents/_academics/catalogs/chatham-university-catalog-2026-2027.pdf"
+    ],
+    "home": "https://www.chatham.edu/_documents/_academics/catalogs/chatham-university-catalog-2026-2027.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
   },
   {
    "institution_key": "ipeds-211583",
@@ -833,16 +914,17 @@
     "chc.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.chc.edu/",
-    "https://catalog.chc.edu/",
-    "https://www.chc.edu/academics/",
-    "https://www.chc.edu/registrar/",
-    "https://www.chc.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.chc.edu/wp-content/uploads/2025/10/SCPS-2025-2026-Catalog-1.pdf"
+    ],
+    "home": "https://www.chc.edu/wp-content/uploads/2025/10/SCPS-2025-2026-Catalog-1.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
   },
   {
    "institution_key": "ipeds-211608",
@@ -913,16 +995,21 @@
     "desales.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.desales.edu/",
-    "https://catalog.desales.edu/",
-    "https://www.desales.edu/academics/",
-    "https://www.desales.edu/registrar/",
-    "https://www.desales.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 22,
+    "home": "https://catalog.desales.edu/index.php?catoid=22",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.desales.edu/content.php?catoid=22&navoid=556",
+     "https://catalog.desales.edu/content.php?catoid=22&navoid=561",
+     "https://catalog.desales.edu/content.php?catoid=22&navoid=563",
+     "https://catalog.desales.edu/content.php?catoid=22&navoid=564"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 22 on catalog.desales.edu (no year label seen)"
   },
   {
    "institution_key": "ipeds-211981",
@@ -933,16 +1020,18 @@
     "delval.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.delval.edu/",
-    "https://catalog.delval.edu/",
-    "https://www.delval.edu/academics/",
-    "https://www.delval.edu/registrar/",
-    "https://www.delval.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 21,
+    "home": "https://catalog.delval.edu/index.php?catoid=21",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.delval.edu/content.php?catoid=21&navoid=612"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 21 on catalog.delval.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-212009",
@@ -973,16 +1062,17 @@
     "eastern.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.eastern.edu/about/student-consumer-information",
-    "https://catalog.eastern.edu/",
-    "https://www.eastern.edu/academics/",
-    "https://www.eastern.edu/registrar/",
-    "https://www.eastern.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.eastern.edu/sites/default/files/inline-files/2122eccatalog.pdf"
+    ],
+    "home": "https://www.eastern.edu/sites/default/files/inline-files/2122eccatalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2021-2022"
   },
   {
    "institution_key": "ipeds-212197",
@@ -993,16 +1083,22 @@
     "etown.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.etown.edu/",
-    "https://catalog.etown.edu/",
-    "https://www.etown.edu/academics/",
-    "https://www.etown.edu/registrar/",
-    "https://www.etown.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 54,
+    "home": "https://catalog.etown.edu/index.php?catoid=54",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.etown.edu/content.php?catoid=54&navoid=2973",
+     "https://catalog.etown.edu/content.php?catoid=54&navoid=2975",
+     "https://catalog.etown.edu/content.php?catoid=54&navoid=2976",
+     "https://catalog.etown.edu/content.php?catoid=54&navoid=2991",
+     "https://catalog.etown.edu/content.php?catoid=54&navoid=3021"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 54 on catalog.etown.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-212577",
@@ -1013,16 +1109,18 @@
     "fandm.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.fandm.edu/",
-    "https://catalog.fandm.edu/",
-    "https://www.fandm.edu/academics/",
-    "https://www.fandm.edu/registrar/",
-    "https://www.fandm.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 4,
+    "home": "https://catalog.fandm.edu/index.php?catoid=4",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.fandm.edu/content.php?catoid=4&navoid=114"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 4 on catalog.fandm.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-212601",
@@ -1153,16 +1251,17 @@
     "gmercyu.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.gmercyu.edu/",
-    "https://catalog.gmercyu.edu/",
-    "https://www.gmercyu.edu/academics/",
-    "https://www.gmercyu.edu/registrar/",
-    "https://www.gmercyu.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.gmercyu.edu/pdfs/2026-27-university-course-catalog.pdf"
+    ],
+    "home": "https://www.gmercyu.edu/pdfs/2026-27-university-course-catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
   },
   {
    "institution_key": "ipeds-446640",
@@ -1173,16 +1272,16 @@
     "harrisburgu.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.harrisburgu.edu/",
-    "https://catalog.harrisburgu.edu/",
-    "https://www.harrisburgu.edu/academics/",
-    "https://www.harrisburgu.edu/registrar/",
-    "https://www.harrisburgu.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 41,
+    "home": "https://hucatalog.harrisburgu.edu/index.php?catoid=41",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 41 on hucatalog.harrisburgu.edu (no year label seen)"
   },
   {
    "institution_key": "ipeds-212911",
@@ -1192,17 +1291,37 @@
    "domains": [
     "haverford.edu"
    ],
-   "hosts": [],
-   "mode": "discover",
-   "priority": 3,
-   "discover": [
-    "https://www.haverford.edu/",
-    "https://catalog.haverford.edu/",
-    "https://www.haverford.edu/academics/",
-    "https://www.haverford.edu/registrar/",
-    "https://www.haverford.edu/catalog/"
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
    ],
-   "policy": []
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "home": "https://catalog.haverford.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.haverford.edu/programs",
+     "https://catalog.haverford.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.haverford.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.haverford.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.haverford.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.haverford.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.haverford.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.haverford.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.haverford.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.haverford.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.haverford.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.haverford.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.haverford.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.haverford.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.haverford.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.haverford.edu (1275 links)"
   },
   {
    "institution_key": "ipeds-212984",
@@ -1233,16 +1352,17 @@
     "immaculata.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.immaculata.edu/",
-    "https://catalog.immaculata.edu/",
-    "https://www.immaculata.edu/academics/",
-    "https://www.immaculata.edu/registrar/",
-    "https://www.immaculata.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.immaculata.edu/wp-content/uploads/2023/08/2019-20-UG-Catalog-Addendum.pdf"
+    ],
+    "home": "https://www.immaculata.edu/wp-content/uploads/2023/08/2019-20-UG-Catalog-Addendum.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2019-2020"
   },
   {
    "institution_key": "ipeds-213251",
@@ -1273,16 +1393,17 @@
     "keystone.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.keystone.edu/",
-    "https://catalog.keystone.edu/",
-    "https://www.keystone.edu/academics/",
-    "https://www.keystone.edu/registrar/",
-    "https://www.keystone.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.keystone.edu/wp-content/uploads/2024/05/2023-2024-UG-Catalog-Addendum_2.pdf"
+    ],
+    "home": "https://www.keystone.edu/wp-content/uploads/2024/05/2023-2024-UG-Catalog-Addendum_2.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2023-2024"
   },
   {
    "institution_key": "ipeds-213321",
@@ -1293,16 +1414,17 @@
     "kings.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.kings.edu/",
-    "https://catalog.kings.edu/",
-    "https://www.kings.edu/academics/",
-    "https://www.kings.edu/registrar/",
-    "https://www.kings.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.kings.edu/pdf/college-catalog-2025-2026.pdf"
+    ],
+    "home": "https://www.kings.edu/pdf/college-catalog-2025-2026.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
   },
   {
    "institution_key": "ipeds-213358",
@@ -1313,16 +1435,17 @@
     "laroche.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.laroche.edu/",
-    "https://catalog.laroche.edu/",
-    "https://www.laroche.edu/academics/",
-    "https://www.laroche.edu/registrar/",
-    "https://www.laroche.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://catalog.laroche.edu/sites/default/files/pdf/pdf_generator/2026-2027-catalog.pdf?v=1781038840"
+    ],
+    "home": "https://catalog.laroche.edu/sites/default/files/pdf/pdf_generator/2026-2027-catalog.pdf?v=1781038840",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
   },
   {
    "institution_key": "ipeds-213367",
@@ -1333,16 +1456,20 @@
     "lasalle.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.lasalle.edu/",
-    "https://catalog.lasalle.edu/",
-    "https://www.lasalle.edu/academics/",
-    "https://www.lasalle.edu/registrar/",
-    "https://www.lasalle.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.lasalle.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.lasalle.edu/undergraduate/majors/",
+     "https://catalog.lasalle.edu/programs/"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf-style catalog on catalog.lasalle.edu (program list https://catalog.lasalle.edu/undergraduate/majors/)"
   },
   {
    "institution_key": "ipeds-213376",
@@ -1353,16 +1480,17 @@
     "lackawanna.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.lackawanna.edu/",
-    "https://catalog.lackawanna.edu/",
-    "https://www.lackawanna.edu/academics/",
-    "https://www.lackawanna.edu/registrar/",
-    "https://www.lackawanna.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.lackawanna.edu/wp-content/uploads/2025/07/25-26-College-Catalog-6.30.25-Final.pdf"
+    ],
+    "home": "https://www.lackawanna.edu/wp-content/uploads/2025/07/25-26-College-Catalog-6.30.25-Final.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
   },
   {
    "institution_key": "ipeds-213400",
@@ -1433,16 +1561,17 @@
     "lycoming.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.lycoming.edu/",
-    "https://catalog.lycoming.edu/",
-    "https://www.lycoming.edu/academics/",
-    "https://www.lycoming.edu/registrar/",
-    "https://www.lycoming.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.lycoming.edu/catalog/pdfs/2026-2027-catalog.pdf"
+    ],
+    "home": "https://www.lycoming.edu/catalog/pdfs/2026-2027-catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
   },
   {
    "institution_key": "ipeds-213774",
@@ -1453,16 +1582,17 @@
     "manor.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.manor.edu/",
-    "https://catalog.manor.edu/",
-    "https://www.manor.edu/academics/",
-    "https://www.manor.edu/registrar/",
-    "https://www.manor.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://manor.edu/wp-content/uploads/2026/07/1047_Course-Catalog-2026-2027-WEB-v2.pdf"
+    ],
+    "home": "https://manor.edu/wp-content/uploads/2026/07/1047_Course-Catalog-2026-2027-WEB-v2.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
   },
   {
    "institution_key": "ipeds-213826",
@@ -1533,16 +1663,16 @@
     "misericordia.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.misericordia.edu/",
-    "https://catalog.misericordia.edu/",
-    "https://www.misericordia.edu/academics/",
-    "https://www.misericordia.edu/registrar/",
-    "https://www.misericordia.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 10,
+    "home": "https://catalog.misericordia.edu/index.php?catoid=10",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 10 on catalog.misericordia.edu (no year label seen)"
   },
   {
    "institution_key": "ipeds-214148",
@@ -1573,16 +1703,19 @@
     "moravian.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.moravian.edu/",
-    "https://catalog.moravian.edu/",
-    "https://www.moravian.edu/academics/",
-    "https://www.moravian.edu/registrar/",
-    "https://www.moravian.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 1,
+    "home": "https://catalog.moravian.edu/index.php?catoid=1",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.moravian.edu/content.php?catoid=1&navoid=15",
+     "https://catalog.moravian.edu/content.php?catoid=1&navoid=18"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 1 on catalog.moravian.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-214166",
@@ -1593,16 +1726,19 @@
     "mtaloy.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.mtaloy.edu/",
-    "https://catalog.mtaloy.edu/",
-    "https://www.mtaloy.edu/academics/",
-    "https://www.mtaloy.edu/registrar/",
-    "https://www.mtaloy.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 18,
+    "home": "https://catalog.mtaloy.edu/index.php?catoid=18",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.mtaloy.edu/content.php?catoid=18&navoid=2844",
+     "https://catalog.mtaloy.edu/content.php?catoid=18&navoid=2863"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 18 on catalog.mtaloy.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-214175",
@@ -1633,16 +1769,22 @@
     "neumann.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.neumann.edu/",
-    "https://catalog.neumann.edu/",
-    "https://www.neumann.edu/academics/",
-    "https://www.neumann.edu/registrar/",
-    "https://www.neumann.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 33,
+    "home": "https://catalog.neumann.edu/index.php?catoid=33",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.neumann.edu/content.php?catoid=33&navoid=1358",
+     "https://catalog.neumann.edu/content.php?catoid=33&navoid=1363",
+     "https://catalog.neumann.edu/content.php?catoid=33&navoid=1367",
+     "https://catalog.neumann.edu/content.php?catoid=33&navoid=1369",
+     "https://catalog.neumann.edu/content.php?catoid=33&navoid=1370"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 33 on catalog.neumann.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-214883",
@@ -2133,16 +2275,17 @@
     "rosemont.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.rosemont.edu/",
-    "https://catalog.rosemont.edu/",
-    "https://www.rosemont.edu/academics/",
-    "https://www.rosemont.edu/registrar/",
-    "https://www.rosemont.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://rosemont.edu/wp-content/uploads/2026/09/2026-2027-Academic-Course-Catalog-Rosemont-College.pdf"
+    ],
+    "home": "https://rosemont.edu/wp-content/uploads/2026/09/2026-2027-Academic-Course-Catalog-Rosemont-College.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2026-2027"
   },
   {
    "institution_key": "ipeds-216047",
@@ -2173,16 +2316,19 @@
     "francis.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.francis.edu/",
-    "https://catalog.francis.edu/",
-    "https://www.francis.edu/academics/",
-    "https://www.francis.edu/registrar/",
-    "https://www.francis.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 20,
+    "home": "https://catalog.francis.edu/index.php?catoid=20",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.francis.edu/content.php?catoid=20&navoid=869",
+     "https://catalog.francis.edu/content.php?catoid=20&navoid=882"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 20 on catalog.francis.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-215798",
@@ -2213,16 +2359,20 @@
     "setonhill.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.setonhill.edu/",
-    "https://catalog.setonhill.edu/",
-    "https://www.setonhill.edu/academics/",
-    "https://www.setonhill.edu/registrar/",
-    "https://www.setonhill.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 13,
+    "home": "https://catalog.setonhill.edu/index.php?catoid=13",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.setonhill.edu/content.php?catoid=13&navoid=277",
+     "https://catalog.setonhill.edu/content.php?catoid=13&navoid=280",
+     "https://catalog.setonhill.edu/content.php?catoid=13&navoid=287"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 13 on catalog.setonhill.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-216278",
@@ -2232,17 +2382,37 @@
    "domains": [
     "susqu.edu"
    ],
-   "hosts": [],
-   "mode": "discover",
-   "priority": 3,
-   "discover": [
-    "https://www.susqu.edu/",
-    "https://catalog.susqu.edu/",
-    "https://www.susqu.edu/academics/",
-    "https://www.susqu.edu/registrar/",
-    "https://www.susqu.edu/catalog/"
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
    ],
-   "policy": []
+   "mode": "catalog",
+   "priority": 3,
+   "catalog": {
+    "home": "https://catalog.susqu.edu/",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
+    "program_lists": [
+     "https://catalog.susqu.edu/programs",
+     "https://catalog.susqu.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.susqu.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.susqu.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.susqu.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.susqu.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.susqu.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.susqu.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.susqu.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.susqu.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.susqu.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.susqu.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.susqu.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.susqu.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.susqu.edu/programs?page=15&pq=&sortBy=name"
+    ]
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "Coursedog-style program URLs on catalog.susqu.edu (3 links)"
   },
   {
    "institution_key": "ipeds-216287",
@@ -2253,16 +2423,20 @@
     "swarthmore.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.swarthmore.edu/",
-    "https://catalog.swarthmore.edu/",
-    "https://www.swarthmore.edu/academics/",
-    "https://www.swarthmore.edu/registrar/",
-    "https://www.swarthmore.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 32,
+    "home": "https://catalog.swarthmore.edu/index.php?catoid=32",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.swarthmore.edu/content.php?catoid=32&navoid=2287",
+     "https://catalog.swarthmore.edu/content.php?catoid=32&navoid=2295",
+     "https://catalog.swarthmore.edu/content.php?catoid=32&navoid=2317"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 32 on catalog.swarthmore.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-216311",
@@ -2293,16 +2467,17 @@
     "thiel.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.thiel.edu/",
-    "https://catalog.thiel.edu/",
-    "https://www.thiel.edu/academics/",
-    "https://www.thiel.edu/registrar/",
-    "https://www.thiel.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.thiel.edu/pdfs/Thiel-College-2025-2026-Academic-Catalog.pdf"
+    ],
+    "home": "https://www.thiel.edu/pdfs/Thiel-College-2025-2026-Academic-Catalog.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2025-2026"
   },
   {
    "institution_key": "ipeds-215266",
@@ -2333,16 +2508,16 @@
     "pitt.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.greensburg.pitt.edu/",
-    "https://catalog.pitt.edu/",
-    "https://www.pitt.edu/academics/",
-    "https://www.pitt.edu/registrar/",
-    "https://www.pitt.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 238,
+    "home": "https://catalog.upg.pitt.edu/index.php?catoid=238",
+    "platform": "acalog",
+    "program_lists": []
+   },
+   "policy": [],
+   "detected": "Acalog catoid 238 on catalog.upg.pitt.edu (no year label seen)"
   },
   {
    "institution_key": "ipeds-215284",
@@ -2353,16 +2528,18 @@
     "pitt.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.upj.pitt.edu/",
-    "https://catalog.pitt.edu/",
-    "https://www.pitt.edu/academics/",
-    "https://www.pitt.edu/registrar/",
-    "https://www.pitt.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 239,
+    "home": "https://catalog.upj.pitt.edu/index.php?catoid=239",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.upj.pitt.edu/content.php?catoid=239&navoid=26597"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 239 on catalog.upj.pitt.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-216542",
@@ -2453,16 +2630,17 @@
     "waynesburg.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.waynesburg.edu/",
-    "https://catalog.waynesburg.edu/",
-    "https://www.waynesburg.edu/academics/",
-    "https://www.waynesburg.edu/registrar/",
-    "https://www.waynesburg.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catalog_pdfs": [
+     "https://www.waynesburg.edu/sites/default/files/2024-03/2023-2024%20Academic%20Catalog.21Feb24.pdf"
+    ],
+    "home": "https://www.waynesburg.edu/sites/default/files/2024-03/2023-2024%20Academic%20Catalog.21Feb24.pdf",
+    "platform": "pdf"
+   },
+   "policy": [],
+   "detected": "catalog PDF labelled 2023-2024"
   },
   {
    "institution_key": "ipeds-216807",
@@ -2473,16 +2651,19 @@
     "westminster.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.westminster.edu/",
-    "https://catalog.westminster.edu/",
-    "https://www.westminster.edu/academics/",
-    "https://www.westminster.edu/registrar/",
-    "https://www.westminster.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 12,
+    "home": "https://catalog.westminster.edu/index.php?catoid=12",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.westminster.edu/content.php?catoid=12&navoid=513",
+     "https://catalog.westminster.edu/content.php?catoid=12&navoid=527"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 12 on catalog.westminster.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-216931",
@@ -2493,16 +2674,19 @@
     "wilkes.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 3,
-   "discover": [
-    "https://www.wilkes.edu/",
-    "https://catalog.wilkes.edu/",
-    "https://www.wilkes.edu/academics/",
-    "https://www.wilkes.edu/registrar/",
-    "https://www.wilkes.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "catoid": 14,
+    "home": "https://catalog.wilkes.edu/index.php?catoid=14",
+    "platform": "acalog",
+    "program_lists": [
+     "https://catalog.wilkes.edu/content.php?catoid=14&navoid=1222",
+     "https://catalog.wilkes.edu/content.php?catoid=14&navoid=1223"
+    ]
+   },
+   "policy": [],
+   "detected": "Acalog catoid 14 on catalog.wilkes.edu (labelled 2026-2027)"
   },
   {
    "institution_key": "ipeds-217013",

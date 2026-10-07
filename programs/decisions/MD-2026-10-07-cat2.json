@@ -3,9 +3,9 @@
  "run_branch": "program-run/md-cat2-2026-10-07",
  "reviewer": "Research session review 2026-10-07 (autoreview standing rules plus the notes below)",
  "notes": [
-  "JHU: 63 records matched to the official programs page; degrees printed on both a department page and a degree page (and on Engineering for Professionals pages) are held as variant pages, so the listed count is not reviewed yet.",
-  "UMD: program pages name the major without its award ('Accounting Major'); the award is printed only in the catalog navigation, so one record is promoted and the rest are queued (layout_not_readable).",
-  "Not promoted (off-list or not a degree program): ipeds-162928 Five-Year BM/MM Program; ipeds-162928 BM Curricula."
+  "JHU (re-reviewed with Deep Dive's #159 degree-page rule): 67 of 77 listed bachelor's programs have verified records. Peabody's 'Bachelor of Music in Performance - <area>' lines all print the same program name on their pages and stay held as variant pages; accelerated bachelor's/master's entries are not counted.",
+  "UMD: program pages name the major without its award ('Accounting Major'); one record is promoted and the rest are queued (layout_not_readable). Deep Dive confirmed (#153) that 106 of 108 major pages print no award.",
+  "Not promoted (off-list or not a degree program): ipeds-162928 BM Curricula."
  ],
  "approve": [
   {
@@ -19,6 +19,10 @@
   {
    "candidate_id": "b155285a15456c3c",
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
+  },
+  {
+   "candidate_id": "ad984a46e5aba2ce",
+   "reason": "Standing review (static_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
    "candidate_id": "5150a9578ee87710",
@@ -65,8 +69,24 @@
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
+   "candidate_id": "b8ae7f3976160ebb",
+   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
+  },
+  {
+   "candidate_id": "92b06d9ac0f7ec67",
+   "reason": "Standing review (static_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
+  },
+  {
+   "candidate_id": "cfcf5221d237f088",
+   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
+  },
+  {
    "candidate_id": "f1ff907533fa3f18",
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
+  },
+  {
+   "candidate_id": "03a8596be910eab2",
+   "reason": "Standing review (static_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
    "candidate_id": "d84a7f0eb757bd88",
@@ -311,6 +331,23 @@
   {
    "candidate_id": "1241947c47679171",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
+  }
+ ],
+ "catalogs": [
+  {
+   "institution_key": "ipeds-162928",
+   "catalog_url": "https://e-catalogue.jhu.edu/",
+   "catalog_year_label": "2026-2027",
+   "source_evidence": {
+    "url": "https://e-catalogue.jhu.edu/programs/",
+    "sha256": "30c805313e57e6b2012eacd71e42c4126c1e68d8003958e95d037e96f1a95606",
+    "fetched_at": "2026-10-07T12:47:18+00:00"
+   },
+   "listed_bachelor_programs": 77,
+   "verified_listed_programs": 67,
+   "programs_complete": false,
+   "completeness_basis": "117 linked entries on the official 2026-2027 program list print a bachelor's award; 3 accelerated or combined bachelor's/master's entries are not counted separately. 77 bachelor's programs, 67 with verified records. Not recorded: Bachelor of Music in Performance -\u200b Computer Music; Bachelor of Music in Performance -\u200b Computer Music; Bachelor of Music in Performance -\u200b Computer Music; Bachelor of Music in Performance -\u200b Guitar; Bachelor of Music in Performance -\u200b Harpsichord; Bachelor of Music in Performance -\u200b Historical Performance; Bachelor of Music in Performance -\u200b Orchestral Instruments; Bachelor of Music in Performance -\u200b Organ; Bachelor of Music in Performance -\u200b Piano; Bachelor of Music in Performance -\u200b Voice; International Studies B.A./\u200bM.A. Program with the Paul H. Nitze School of Advanced Interna; Peabody-Homewood Double Degree ProgramPeabody InstituteBachelor'sFull-timePeabody Institut.",
+   "reason": "Reviewed: official current-catalog program list (Research session, 2026-10-07)."
   }
  ]
 }
