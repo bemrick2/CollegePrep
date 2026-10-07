@@ -53,12 +53,15 @@ describe('LiveSource contracts (issue #37)', () => {
   })
 
   it('CR-1: planning preferences read from and written to student_planning_preferences', async () => {
-    const { sb, calls } = fakeClient({ 'student_planning_preferences:single': { exam_family: 'sat', target_score: 1300, goals: ['merit'], daily_minutes: 12 } })
+    const { sb, calls } = fakeClient({ 'student_planning_preferences:single': { exam_family: 'sat', target_score: 1300, goals: ['merit'], daily_minutes: 12 }, student_planning_preferences: [{ student_id: 's1' }] })
     const src = new LiveSource(sb)
     expect(await src.getPlan('s1')).toEqual({ exam_family: 'sat', target_score: 1300, goals: ['merit'], daily_minutes: 12 })
     await src.savePlan('s1', { exam_family: 'act', target_score: 27, goals: [], daily_minutes: 10 })
     const writes = calls.filter((c) => c.name === 'student_planning_preferences').flatMap((c) => c.ops.map((o) => o[0]))
     expect(writes).toContain('update')
+    // An update row security filtered to nothing is reported, never shown as saved.
+    const denied = fakeClient({ 'student_planning_preferences:single': { exam_family: 'sat', target_score: null, goals: [], daily_minutes: 10 } })
+    await expect(new LiveSource(denied.sb).savePlan('s1', { exam_family: 'act', target_score: null, goals: [], daily_minutes: 10 })).rejects.toThrow(/guardian/)
   })
 
   it('CR-9 / CR-7: saved schools through RPCs, verified-school listing', async () => {

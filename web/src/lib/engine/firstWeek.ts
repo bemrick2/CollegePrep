@@ -100,8 +100,8 @@ export function proposeFirstWeek(i: FirstWeekInput): FirstWeek {
     minutesCommitted,
     minutesNeeded,
     shortOfTime: minutesNeeded !== null && minutesNeeded > minutesCommitted,
-    plannedThisWeek: Math.min(plannedThisWeek, Math.max(plannedThisWeek, 0)),
-    partialWeek: practiceDays.length === 0 ? (check?.questions ?? 0) < i.weeklyQuestions : out.some((d) => d.overSession),
+    plannedThisWeek,
+    partialWeek: remaining.filter((d) => days.has(isoWeekday(d))).length < days.size,
     freshShort: i.freshAvailable !== null && i.freshAvailable < i.weeklyQuestions,
   }
 }

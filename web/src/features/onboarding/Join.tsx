@@ -48,7 +48,8 @@ export function Join() {
       clearPendingInvite()
       await refresh()
       const ctx = await source.getHouseholdContext()
-      navigate(ctx.myStudent ? '/student' : '/parent')
+      // A joined student finishes setup with only what the guardian didn't already supply.
+      navigate(ctx.myStudent ? '/onboarding/student' : '/parent')
     } catch (err) {
       const raw = err instanceof Error ? err.message : 'That code did not work'
       const kind = inviteFailure(raw)

@@ -346,9 +346,10 @@ export class LiveSource implements DataSource {
       .maybeSingle()
     if (existing.error) fail(existing.error)
     const r = existing.data
-      ? await this.sb.from('weekly_practice_goals').update({ target_questions: targetQuestions, target_minutes: targetMinutes }).eq('id', existing.data.id)
-      : await this.sb.from('weekly_practice_goals').insert({ student_id: studentId, week_start: weekStart, target_questions: targetQuestions, target_minutes: targetMinutes })
+      ? await this.sb.from('weekly_practice_goals').update({ target_questions: targetQuestions, target_minutes: targetMinutes }).eq('id', existing.data.id).select('id')
+      : await this.sb.from('weekly_practice_goals').insert({ student_id: studentId, week_start: weekStart, target_questions: targetQuestions, target_minutes: targetMinutes }).select('id')
     if (r.error) fail(r.error)
+    if (!r.data?.length) throw new DataError('Only a guardian with permission to set goals can set this goal', 'forbidden')
   }
 
   weeklyProgress(studentId: string, weekStart: string) {
@@ -546,9 +547,11 @@ export class LiveSource implements DataSource {
     const existing = await this.sb.from('student_planning_preferences').select('student_id').eq('student_id', studentId).maybeSingle()
     if (existing.error) fail(existing.error)
     const r = existing.data
-      ? await this.sb.from('student_planning_preferences').update(row).eq('student_id', studentId)
-      : await this.sb.from('student_planning_preferences').insert({ student_id: studentId, ...row })
+      ? await this.sb.from('student_planning_preferences').update(row).eq('student_id', studentId).select('student_id')
+      : await this.sb.from('student_planning_preferences').insert({ student_id: studentId, ...row }).select('student_id')
     if (r.error) fail(r.error)
+    // Row security turns an update the caller may not make into "0 rows changed", not an error: say so.
+    if (!r.data?.length) throw new DataError('Only a guardian with permission to set goals can change this plan', 'forbidden')
   }
 
   async listBenchmarks(studentId: string): Promise<BenchmarkSummary[]> {

@@ -5,7 +5,18 @@ Updated 2026-10-07. The hosted Supabase project is paused, so nothing below was 
 the app's original demo question bank, PostgREST, and locally signed JWTs. It runs the real SQL, RLS policies and
 RPCs. It does not run Supabase Auth, edge functions, email or Stripe.
 
-## The student journey
+## Setup (four screens)
+
+The screens are About you, Test and goal, Starting point and Weekly plan. Each question is asked once:
+- **Account name:** never asked again.
+- **Invited student:** sees only what the guardian didn't supply and that the student may save, usually just the starting point. A household plan and its goals stay guardian-only.
+- **Unknown answers:** "Not sure yet" (test or date), no goal score, and "Not yet" or "Don't remember the score" are all complete answers. Scores are never estimated.
+- **Weekly plan:** the family sees the proposed first week before accepting. The result screen shows the next assignment and the weekly commitment.
+- **Interrupted setup:** resumes in the same browser.
+- **Deferred:** majors, cost goals and AP/CLEP details.
+- **Language:** English only, so no language picker appears.
+- **Not stored in the database yet (CR-26):** exam intent, planned test date, study days, high school and practice-test scores.
+
 
 | Step | Demo | Live code | Checked against the local backend |
 | --- | --- | --- | --- |
