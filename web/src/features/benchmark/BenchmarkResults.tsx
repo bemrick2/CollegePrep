@@ -1,5 +1,7 @@
 import type { BenchmarkSummary, Strategy, TrapType } from '../../lib/data/types'
 import { SECTION_LABEL, pacingVerdict } from '../../lib/engine/benchmark'
+import { compareProgress, type SectionChange } from '../../lib/engine/progressCheck'
+import { formatShortDate } from '../../lib/engine/dates'
 import { formatDuration } from '../../lib/engine/dates'
 import { ButtonLink, Card, CardHeader, Notice, Pill, ProgressBar, Ring } from '../../components/ui'
 import { Bolt, Clock, Compass, Flag, Target } from '../../components/icons'
@@ -18,13 +20,17 @@ export function BenchmarkResults({
   summary,
   traps,
   standalone = true,
+  history = [],
 }: {
   summary: BenchmarkSummary
   strategies?: Strategy[]
   traps: TrapType[]
   skillName?: (k: string | null) => string | null
   standalone?: boolean
+  /** Completed checks before this one, for the comparison with the baseline. */
+  history?: BenchmarkSummary[]
 }) {
+  const comparison = summary.kind === 'initial' ? null : compareProgress(summary, history)
   const m = summary.metrics
   const trapName = (k: string) => traps.find((t) => t.trap_key === k)?.name ?? k.replace(/_/g, ' ')
   const certain = m.calibration.find((c) => c.confidence === 3)
@@ -40,10 +46,10 @@ export function BenchmarkResults({
           <Ring value={m.correct} max={Math.max(1, m.answered)} size={160} stroke={14} tone="brand" label={`${m.correct} of ${m.answered} correct`}>
             <div>
               <div className="display text-4xl font-semibold tabular text-ink">{pct(m.accuracy)}</div>
-              <div className="text-xs font-semibold uppercase tracking-wide text-ink-3">accuracy</div>
+              <div className="text-xs font-semibold text-ink-3">right on these questions</div>
             </div>
           </Ring>
-          <h1 className="display mt-5 text-3xl font-semibold text-ink">Your baseline is set</h1>
+          <h1 className="display mt-5 text-3xl font-semibold text-ink">{summary.kind === 'initial' ? 'Your baseline is set' : 'Progress check complete'}</h1>
           <p className="mt-1 max-w-md text-ink-2">
             {m.correct} of {m.answered} answered correctly{m.skipped ? `, ${m.skipped} left blank` : ''}. Here is what that says about knowledge, pacing and test-taking — separately.
           </p>
@@ -51,6 +57,9 @@ export function BenchmarkResults({
       )}
 
       <div className={standalone ? 'mt-8 grid gap-4' : 'grid gap-4'}>
+        <ResultLabel />
+        {comparison?.baseline && <Comparison changes={comparison.sinceBaseline} title={`Since your baseline (${formatShortDate(comparison.baseline.completed_at.slice(0, 10))})`} />}
+        {comparison?.sinceLast && comparison.previous && <Comparison changes={comparison.sinceLast} title={`Since your last check (${formatShortDate(comparison.previous.completed_at.slice(0, 10))})`} />}
         <Card>
           <CardHeader title={<span className="flex items-center gap-2"><Target size={18} /> Knowledge by section</span>} subtitle="Share of answered questions you got right, and the hardest level you got right." />
           <div className="grid gap-4 p-5">
@@ -153,6 +162,49 @@ export function BenchmarkResults({
         )}
       </div>
     </div>
+  )
+}
+
+/** What these numbers are, and are not. Shown on every benchmark result. */
+export function ResultLabel() {
+  return (
+    <Notice tone="neutral" title="Practice results, not a test score">
+      Original practice questions written for Prep & Price and checked for answer accuracy; not official ACT or SAT items. Percent right describes these
+      questions only. It isn't converted to an ACT or SAT score, because no scoring model has been checked against real test results.
+    </Notice>
+  )
+}
+
+const VERDICT: Record<SectionChange['verdict'], { label: string; tone: 'go' | 'warn' | 'neutral' }> = {
+  up: { label: 'Clear improvement', tone: 'go' },
+  down: { label: 'Clear drop', tone: 'warn' },
+  within_noise: { label: 'Within normal variation', tone: 'neutral' },
+  too_few: { label: 'Too few answers to tell', tone: 'neutral' },
+}
+
+function Comparison({ changes, title }: { changes: SectionChange[]; title: string }) {
+  return (
+    <Card>
+      <CardHeader title={title} subtitle="Different questions each time, a few per section. A change counts as clear only when it's bigger than chance usually produces." />
+      <ul className="grid gap-3 p-5 text-sm">
+        {changes.map((c) => {
+          const v = VERDICT[c.verdict]
+          return (
+            <li key={c.section} className="flex flex-wrap items-center justify-between gap-2">
+              <span className="font-semibold text-ink">{SECTION_LABEL[c.section] ?? c.section}</span>
+              <span className="flex flex-wrap items-center gap-2">
+                <span className="tabular text-ink-2">
+                  {c.then ? `${c.then.correct}/${c.then.answered} → ` : 'Not in that check · '}
+                  {c.now.correct}/{c.now.answered}
+                  {c.delta != null && c.then ? ` (${c.delta >= 0 ? '+' : '−'}${Math.round(Math.abs(c.delta) * 100)} points)` : ''}
+                </span>
+                {c.then && <Pill tone={v.tone}>{v.label}</Pill>}
+              </span>
+            </li>
+          )
+        })}
+      </ul>
+    </Card>
   )
 }
 

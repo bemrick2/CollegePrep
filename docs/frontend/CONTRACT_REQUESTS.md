@@ -22,6 +22,7 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-14 | Structured program, admission and degree-path fields | 🚧 schema in PR #89, data in #91/#92 | Program match by name; admission/transfer/undeclared shown as unverified questions; progression text quoted |
 | CR-15 | Household home state | ⏳ open | Asked (optional) in onboarding and on cost screens; kept in this browser; labelled as the family's answer |
 | CR-16 | Subscription owner + household entitlement | ⏳ open | No plan, price, paywall or entitlement state anywhere; nothing simulated |
+| CR-21 | Question review metadata; serve only reviewed items | ⏳ open | Demo and local DB serve only items whose current content hash a review approved (`questionReview.ts`); live has no review fields |
 | CR-17 | How each school bills tuition (flat rate or per credit) | ⏳ open | Credit savings counted only as whole terms finished early; the remainder is shown, not counted |
 | CR-18 | Loan terms (federal limits, rates) as sourced records | ⏳ open | Families enter planned borrowing; it is shown as borrowed, never as a saving; no limits or rates shown |
 
@@ -257,6 +258,20 @@ SQL tests are in `supabase/tests/frontend_contracts.sql`. The local end-to-end t
 **Need.** Federal Direct loan annual and aggregate limits by dependency status and year in school, plus the current interest rates and fees, each with a source URL and effective dates.
 
 **Why.** It lets the cost view say how planned borrowing compares with what a student can borrow, and what it costs to repay. Until then, the view shows only what the family enters, labelled as borrowed.
+
+## CR-21. Question review metadata
+
+**Need.** These columns on `practice_questions`:
+- `review_status` (`approved`, `changes_needed`, `rejected`);
+- `reviewed_at`;
+- `review_method`;
+- `content_hash`.
+
+`start_practice_session`, `start_practice_attempt` and the published-question policy should also require `review_status = 'approved'` and a hash matching the current content, as well as `status = 'published'`.
+
+**Why.** The live bank is empty today. When content is loaded, nothing in the schema says whether an item's key and explanations were checked.
+
+In the app and the local database, an item is served only if a review approved its exact current content. The review record lives at `web/src/lib/data/demo/questionReviews.json`, built by `scripts/local/recordReviews.ts`. The method is two independent blind solves of every item, plus a key and explanation audit; disagreements are worked by hand. It is AI review, not human editorial review, and the record says so (`human_reviewed: false`).
 
 ## Product decisions flagged (not contract requests)
 

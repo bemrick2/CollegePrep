@@ -14,12 +14,14 @@ RPCs. It does not run Supabase Auth, edge functions, email or Stripe.
 | Baseline (starting benchmark), scored by the server from stored attempts | yes | yes | yes |
 | Weekly plan: Mon-Sun strip, pace, focus skills, when the next progress check is due | yes | yes | yes (benchmark answers excluded from the week) |
 | Short practice sessions with explanations after each answer | yes | yes | yes |
-| Progress checks (mini/full benchmark due on schedule; Home links straight to the due one) | yes | yes | schedule is computed in the browser; the benchmark RPCs are checked |
+| Progress checks (mini/full benchmark due on schedule; Home links straight to the due one) | yes | yes | Results compare with the baseline and the last check, section by section. A change counts as clear only beyond two standard errors; otherwise "within normal variation". Percent right is labelled as practice and never converted to an ACT/SAT score (`PRACTICE_ESTIMATES_VALIDATED = false`). |
 | Parent weekly update: pace, days practised, focus, next check | yes | yes | yes |
 | Next-week goal suggestion (server rule, set in one tap by a guardian with goal permission) | yes | yes | yes (one-week history correctly gives no suggestion; a student cannot change the goal) |
 | Inactivity alert preference, and in-app "hasn't practised" notice | yes | yes | yes |
 | Inactivity alert **by email** | no | no | missing: no sender or schedule exists |
 | Weekly digest email to parents | no | no | missing |
+
+**Question content.** 58 original items. Each was reviewed by two independent blind solves plus a key and explanation audit; 3 were fixed and re-reviewed, and one disagreement (a reviewer's arithmetic slip) was worked by hand. Only items whose current content hash was approved are served, in the demo and in the local database. The review is AI review, not human editorial review. Live has no review fields yet (CR-21).
 
 ## Colleges and cost
 

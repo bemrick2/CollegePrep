@@ -395,4 +395,30 @@ describe('weekly plan and parent accountability', () => {
     expect(await screen.findByRole('link', { name: 'Start progress check' })).toHaveAttribute('href', '/student/benchmark?kind=mini')
     expect(screen.getByRole('heading', { name: 'Mini benchmark' })).toBeInTheDocument()
   })
+
+  it('a progress check is compared with the baseline, labelled as practice, with noise called noise', async () => {
+    const user = userEvent.setup()
+    const fam = sampleFamily('student')
+    const sid = Object.keys(fam.benchmarks)[0]!
+    const base = fam.benchmarks[sid]![0]!
+    base.completed_at = new Date(Date.now() - 40 * 86_400_000).toISOString()
+    const sec = (section: string, correct: number, answered: number) => ({ section, answered, correct, skipped: 0, accuracy: correct / answered, pacing_ratio: 1, ceiling_difficulty: null })
+    base.metrics = { ...base.metrics, sections: [sec('math', 8, 20), sec('english', 3, 6)] }
+    fam.benchmarks[sid]!.push({
+      ...base,
+      id: 'bm-mini-1',
+      kind: 'mini',
+      started_at: new Date().toISOString(),
+      completed_at: new Date().toISOString(),
+      metrics: { ...base.metrics, answered: 26, correct: 22, accuracy: 22 / 26, sections: [sec('math', 18, 20), sec('english', 4, 6)] },
+    })
+    renderAt('/student/progress', new DemoSource(fam))
+    await user.click(await screen.findByRole('button', { name: /mini benchmark/i }))
+    expect(await screen.findByText(/^Since your baseline/)).toBeInTheDocument()
+    expect(screen.getByText('Practice results, not a test score')).toBeInTheDocument()
+    // Math 8/20 -> 18/20 is a clear change; English 3/6 -> 4/6 is not.
+    expect(screen.getByText(/8\/20 → 18\/20/).nextSibling).toHaveTextContent('Clear improvement')
+    expect(screen.getByText(/3\/6 → 4\/6/).nextSibling).toHaveTextContent('Within normal variation')
+    expect(screen.queryByText(/predicted|estimated score/i)).not.toBeInTheDocument()
+  })
 })

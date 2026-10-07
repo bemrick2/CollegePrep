@@ -43,7 +43,15 @@ export function useStudentOverview(studentId: string | null | undefined) {
   }, [source, studentId, tz])
 }
 
+/**
+ * Practice score estimates are never shown. No scoring model has been validated against real test results
+ * (CR-3), so a practice "composite" would be an uncalibrated ACT/SAT prediction. Any practice_estimate row the
+ * backend returns is ignored until a validated calibration exists; official and self-reported scores are separate.
+ */
+export const PRACTICE_ESTIMATES_VALIDATED = false
+
 export function latestEstimate(scores: TestScore[], exam: string) {
+  if (!PRACTICE_ESTIMATES_VALIDATED) return []
   return [...scores]
     .filter((s) => s.score_source === 'practice_estimate' && s.exam_family === exam && s.composite !== null)
     .sort((a, b) => b.test_date.localeCompare(a.test_date))
