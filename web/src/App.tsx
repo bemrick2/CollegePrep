@@ -5,6 +5,7 @@ import { FocusShell, ParentShell, RoleShell, StudentShell } from './components/s
 import { PageLoading } from './components/ui'
 const Landing = lazy(() => import('./features/onboarding/Landing').then((m) => ({ default: m.Landing })))
 const Auth = lazy(() => import('./features/onboarding/Auth').then((m) => ({ default: m.Auth })))
+const StudentReminders = lazy(() => import('./features/reminders/StudentReminders').then((m) => ({ default: m.StudentReminders })))
 const Setup = lazy(() => import('./features/onboarding/Setup').then((m) => ({ default: m.Setup })))
 const Join = lazy(() => import('./features/onboarding/Join').then((m) => ({ default: m.Join })))
 const StudentHome = lazy(() => import('./features/student/StudentHome').then((m) => ({ default: m.StudentHome })))
@@ -68,6 +69,7 @@ export function App() {
         <Route path="/student" element={<StudentHome />} />
         <Route path="/student/progress" element={<StudentProgressPage />} />
         <Route path="/student/goals" element={<Goals />} />
+        <Route path="/student/reminders" element={<StudentReminders />} />
       </Route>
       <Route element={<RequireGuardian><ParentShell /></RequireGuardian>}>
         <Route path="/parent" element={<ParentDashboard />} />

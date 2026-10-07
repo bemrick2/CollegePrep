@@ -1,3 +1,4 @@
+import { useDeviceCheck } from '../features/reminders/Reminders'
 import { NavLink, Link, Outlet, useNavigate } from 'react-router-dom'
 import type { ReactNode } from 'react'
 import { useApp } from '../lib/app'
@@ -76,7 +77,9 @@ function TabLink({ to, icon, label, end }: { to: string; icon: ReactNode; label:
 }
 
 export function StudentShell() {
-  const { signOut, mode } = useApp()
+  const { signOut, mode, ctx } = useApp()
+  // Each app open re-reads this device's notification permission (never prompts).
+  useDeviceCheck(!!ctx?.myStudent)
   return (
     <div className="min-h-dvh pb-20 md:pb-0">
       <a href="#main" className="sr-only-focusable absolute left-2 top-2 z-50 rounded bg-surface px-3 py-2">

@@ -3,7 +3,8 @@ import { projectCosts } from '../../engine/costProjection'
 import type { InterestProfile } from '../../engine/interests'
 import { readInterests, writeInterests } from '../../interestStore'
 import { INVITE_TTL_HOURS, formatInviteCode } from '../../invites'
-import type { AlertPreference, DataSource, InactiveStudent, InvitationSummary, InviteSendResult, StudentInvitation } from '../source'
+import type { AlertPreference, DataSource, DevicePermission, DevicePlatform, DeviceStatus, InactiveStudent, InvitationSummary, InviteSendResult, ReminderChange, ReminderDelivery, ReminderSettings, StudentInvitation } from '../source'
+import { DEFAULT_REMINDERS, settingsProblems } from '../../../../../supabase/functions/_shared/reminders.ts'
 import { suggestNextWeek, type NextWeekSuggestion } from '../../engine/weeklyPlan'
 import { DataError } from '../source'
 import type {
@@ -712,6 +713,81 @@ export class DemoSource implements DataSource {
   async emailDeliveries() {
     return delay([] as import('../source').EmailDelivery[])
   }
+
+  // Practice reminders: the same rules as CR-27, in this browser. The demo never sends a push or an email.
+  readonly supportsReminders = true
+
+  async reminderSettings(studentId: string): Promise<ReminderSettings> {
+    this.requireView(studentId)
+    return delay({ ...DEFAULT_REMINDERS, ...(this.s.reminders?.[studentId] ?? {}) })
+  }
+
+  async saveReminderSettings(studentId: string, settings: ReminderSettings) {
+    const me = this.viewerId()
+    const st = this.student(studentId)
+    const role: 'student' | 'guardian' | null =
+      st.linked_user_id === me ? 'student' : this.s.members.some((m) => m.household_id === st.household_id && m.user_id === me && m.role === 'guardian' && m.can_set_goals) ? 'guardian' : null
+    if (!role) throw new DataError('Not allowed to change reminders for this student', 'forbidden')
+    const problems = settingsProblems(settings).filter((p) => !/inside quiet hours|during school hours/.test(p))
+    if (problems.length) throw new DataError(problems[0]!, 'invalid')
+    const old = this.s.reminders?.[studentId]
+    const changes = (this.s.reminderChanges ??= [])
+    let notify = false
+    if (!old || old.enabled !== settings.enabled) {
+      const recent = changes.some((c) => c.student_id === studentId && c.notifyGuardians && Date.now() - Date.parse(c.at) < 86_400_000)
+      notify = role === 'student' && !settings.enabled && !!old?.enabled && !!st.household_id && !st.is_independent && !recent
+      if (old || settings.enabled) changes.unshift({ id: uid('rc-'), student_id: studentId, enabled: settings.enabled, by: role, at: new Date().toISOString(), notifyGuardians: notify })
+    }
+    ;(this.s.reminders ??= {})[studentId] = { ...settings, snoozedUntil: settings.enabled && !old?.enabled ? null : (old?.snoozedUntil ?? null) }
+    this.commit()
+    return delay({ guardiansNotified: notify })
+  }
+
+  async snoozeReminders(studentId: string, minutes: number) {
+    this.requireLinked(studentId)
+    const cur = this.s.reminders?.[studentId]
+    if (!cur?.enabled) throw new DataError('Reminders are off', 'invalid')
+    const until = new Date(Date.now() + minutes * 60_000).toISOString()
+    this.s.reminders![studentId] = { ...cur, snoozedUntil: until }
+    this.commit()
+    return delay(until)
+  }
+
+  async reportNotificationDevice(input: { deviceId: string; permission: DevicePermission; subscription: PushSubscriptionJSON | null; platform: DevicePlatform }) {
+    const me = this.viewerId()
+    const list = (this.s.devices ??= [])
+    const row = { id: input.deviceId, user_id: me, permission: input.permission, platform: input.platform, subscribed: input.permission === 'granted' && !!input.subscription?.endpoint, checked_at: new Date().toISOString() }
+    const i = list.findIndex((d) => d.id === input.deviceId)
+    if (i >= 0) {
+      if (list[i]!.user_id !== me) throw new DataError('Not your device', 'forbidden')
+      list[i] = row
+    } else list.push(row)
+    this.commit()
+  }
+
+  async studentDevices(studentId: string): Promise<DeviceStatus[]> {
+    this.requireView(studentId)
+    const owner = this.student(studentId).linked_user_id
+    return delay(
+      (this.s.devices ?? [])
+        .filter((d) => owner && d.user_id === owner)
+        .map((d) => ({ deviceId: d.id, permission: d.permission, platform: d.platform, canReceive: d.permission === 'granted' && d.subscribed, checkedAt: d.checked_at })),
+    )
+  }
+
+  async reminderHistory(studentId: string): Promise<ReminderChange[]> {
+    this.requireView(studentId)
+    // Nothing is ever emailed from the demo, so emailedToMeAt is always null.
+    return delay((this.s.reminderChanges ?? []).filter((c) => c.student_id === studentId).map((c) => ({ id: c.id, enabled: c.enabled, by: c.by, at: c.at, notifyGuardians: c.notifyGuardians, emailedToMeAt: null })))
+  }
+
+  /** The demo sends no reminders. */
+  async latestReminder(studentId: string): Promise<ReminderDelivery | null> {
+    this.requireView(studentId)
+    return delay(null)
+  }
+
+  async markReminderOpened(_deliveryId: string) {}
 
   async interests(studentId: string) {
     return readInterests(studentId)

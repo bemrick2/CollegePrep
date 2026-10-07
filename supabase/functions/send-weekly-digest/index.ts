@@ -1,5 +1,6 @@
-// Sends parent accountability emails: the Monday weekly summary (mode "weekly") and the inactivity alert
-// (mode "inactivity", meant to run daily). Called by a scheduler, never by a browser.
+// Sends parent accountability emails: the Monday weekly summary (mode "weekly"), the inactivity alert
+// (mode "inactivity", meant to run daily) and the notice that a linked student turned practice reminders off
+// (mode "reminders_off", CR-27; meant to run every 15 minutes). Called by a scheduler, never by a browser.
 //
 // Unlike the invitation function, there is no signed-in user here, so this uses the service-role key. It reads
 // only through the CR-22 functions (weekly_digest_payload, inactivity_alert_payload), which are service-role only and
@@ -12,7 +13,7 @@
 // Secrets: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY (provided by Supabase), DIGEST_CRON_SECRET (the scheduler's
 // shared secret), RESEND_API_KEY; optional DIGEST_FROM_EMAIL, APP_ORIGINS, RESEND_API_URL (local testing only).
 import { createClient } from 'npm:@supabase/supabase-js@2'
-import { inactivityEmail, lastCompletedWeekStart, weeklyDigestEmail, type DigestRecipient, type InactivityAlert } from './digest.ts'
+import { inactivityEmail, lastCompletedWeekStart, remindersOffEmail, weeklyDigestEmail, type DigestRecipient, type InactivityAlert, type RemindersOffNotice } from './digest.ts'
 
 // Temporary Prep & Price sender (owner decision 2026-10-06 for invitations); DIGEST_FROM_EMAIL overrides it.
 const DEFAULT_FROM = 'Prep & Price <invites@mail.getcimiento.com>'
@@ -28,7 +29,7 @@ function sameSecret(a: string, b: string) {
 }
 
 interface Body {
-  mode?: 'weekly' | 'inactivity'
+  mode?: 'weekly' | 'inactivity' | 'reminders_off'
   /** Monday to summarize; defaults to the last completed week. */
   week_start?: string
   /** Compose without recording or sending; returns subjects and text (no addresses). */
@@ -48,7 +49,7 @@ Deno.serve(async (req) => {
     body = {}
   }
   const mode = body.mode ?? 'weekly'
-  if (mode !== 'weekly' && mode !== 'inactivity') return json(400, { error: 'mode must be weekly or inactivity' })
+  if (mode !== 'weekly' && mode !== 'inactivity' && mode !== 'reminders_off') return json(400, { error: 'mode must be weekly, inactivity or reminders_off' })
   const week = body.week_start ?? lastCompletedWeekStart(new Date())
   if (mode === 'weekly' && !/^\d{4}-\d{2}-\d{2}$/.test(week)) return json(400, { error: 'week_start must be YYYY-MM-DD' })
 
@@ -56,7 +57,7 @@ Deno.serve(async (req) => {
   const origin = (Deno.env.get('APP_ORIGINS') || DEFAULT_ORIGIN).split(',')[0]!.trim().replace(/\/+$/, '')
 
   // Build the emails.
-  type Out = { user_id: string; to: string; kind: 'weekly_digest' | 'inactivity'; period: string; subject: string; html: string; text: string }
+  type Out = { user_id: string; to: string; kind: 'weekly_digest' | 'inactivity' | 'reminders_off'; period: string; subject: string; html: string; text: string }
   const out: Out[] = []
   if (mode === 'weekly') {
     const { data, error } = await sb.rpc('weekly_digest_payload', { p_week_start: week })
@@ -67,6 +68,16 @@ Deno.serve(async (req) => {
     for (const r of (data ?? []) as DigestRecipient[]) {
       const m = weeklyDigestEmail(r, origin)
       out.push({ user_id: r.user_id, to: r.email, kind: 'weekly_digest', period: week, ...m })
+    }
+  } else if (mode === 'reminders_off') {
+    const { data, error } = await sb.rpc('reminder_opt_out_payload')
+    if (error) {
+      console.error('digest: reminders_off payload failed', error.code)
+      return json(500, { error: 'payload_failed' })
+    }
+    for (const n of (data ?? []) as (RemindersOffNotice & { period_key: string })[]) {
+      const m = remindersOffEmail(n, origin)
+      out.push({ user_id: n.user_id, to: n.email, kind: 'reminders_off', period: n.period_key, ...m })
     }
   } else {
     const { data, error } = await sb.rpc('inactivity_alert_payload')
