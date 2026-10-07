@@ -1520,3 +1520,11 @@ class FolderOwnershipTests(unittest.TestCase):
                 with self.assertRaises(ValueError): P.check_folder_ownership({'b': 'tiu'})
             finally:
                 P.ROOT = old
+
+
+class EnteringWeightTests(unittest.TestCase):
+    def test_open_admission_school_weighed_by_fall_first_time_count(self):
+        from programs import status
+        w = status.entering('UT')
+        self.assertGreater(w.get('ipeds-230737', 0), 0)  # UVU files no ADM survey; EF2023A first-time count is used
+        self.assertEqual(w.get('ipeds-230728'), 4388)    # an ADM 'enrolled' count is kept as reported
