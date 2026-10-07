@@ -193,12 +193,27 @@ def collect_lists(target, run, entries):
 
 # KU 2026-27: a program's sample-plan sub-page ('Below is a sample 4-year plan for students pursuing the BA in Anthropology',
 # 'The recommended 4-year plan is listed below') repeats the degree's name; the program's own page is its source
-SAMPLE_PLAN_PAGE = re.compile(r'(?im)^\s*(below is a |the )?(sample|recommended) (4|four)[- ]year plan\b')
+# KU 2026-27 sub-pages of a degree open with 'Below is a sample 4-year plan for students pursuing the BA in Theatre.' (engineering:
+# 'The recommended 4-year plan is listed below by semester') right under the page heading. KU's degree pages print the same sentence at the end, below the degree's requirements, and other catalogs'
+# degree pages carry a 'Recommended Four-Year Plan of Study' heading (Colorado, Maryland, Missouri, Tennessee) or 'The recommended
+# 4-year plan is listed below' (KU engineering): none of those is a plan page.
+SAMPLE_PLAN_LINE = re.compile(r'(?im)^\s*(?:below is a sample (?:4|four)[- ]year plan for|the recommended (?:4|four)[- ]year plan is listed below)\b')
+
+
+def sample_plan_page(page):
+    """True for a page whose body opens with the sample-plan sentence: the page's program heading is among the two lines
+    before it (KU Child Life prints 'Admission to this program has been suspended ...' between them). A degree page prints
+    the sentence below its requirements, under another heading (KU 'Major Junior/Senior Hours')."""
+    head = (program_heading(page) or '').strip()
+    for m in SAMPLE_PLAN_LINE.finditer(page.text or '') if head else ():
+        before = [l.strip() for l in page.text[:m.start()].splitlines() if l.strip()]
+        if head in before[-2:]: return True
+    return False
 
 
 def program_page_candidates(target, inst, entry, page, today_year):
     found = _program_page_candidates(target, inst, entry, page, today_year)
-    if SAMPLE_PLAN_PAGE.search(page.text or ''):
+    if sample_plan_page(page):
         found = [c for c in found if c['domain'] != 'academic_programs']
     return found
 
@@ -299,7 +314,7 @@ def department_section_candidates(inst, entry, page, today_year):
     yline = next((l for y, l in printed_catalog_years(page) if y == year), printed0 and (page.title or '')) or year
     # KU 2026-27: a program's sample-plan sub-page ('Below is a sample 4-year plan for students pursuing the BA in
     # Anthropology') repeats the degree heading; the program's own page is its source
-    if SAMPLE_PLAN_PAGE.search(page.text or ''): return []
+    if sample_plan_page(page): return []
     here = norm_url(common.source_of(entry)['url'])
     others = [(norm_url(h), re.sub(r'[^a-z0-9]+', ' ', (a or '').lower()).strip()) for h, a in (page.links or [])]
     out, keys = [], set()
@@ -836,12 +851,20 @@ OPTION_PAREN_ENTRY = re.compile(r'^(?P<base>[^:()]+?):\s+[^:()]*\b(emphasis|conc
 
 # NC State 2026-27: 'Animal Science (BS): Industry Concentration' (no 'Animal Science (BS)' line)
 AWARD_PAREN_OPTION_ENTRY = re.compile(r'^(?P<base>[^:()]+?)\s*\((?P<award>(?-i:[AB]\.?\s?[A-Z][A-Za-z]{0,3}\.?(?:[A-Z][a-z]{0,3}\.?)*))\)\s*:\s*[^:]*\b(emphasis|concentration|track|option|specialization)\b', re.I)
+# UT Arlington 2026-27 'Data Science BS (Biology)', Texas A&M-Kingsville 'Kinesiology, B.S. (Sport Business)': a degree printed
+# only as parenthetical variants (no 'Data Science BS' / 'Kinesiology, B.S.' line)
+PAREN_VARIANT_ENTRY = re.compile(r'^(?P<base>[^,()]+?),?\s+(?P<award>(?-i:B[A-Z]{1,4}|B\.\s?[A-Z][a-z]{0,3}\.?(?:[A-Z][a-z]{0,3}\.)?))\s*\((?P<variant>[^()]+)\)\s*$')
 # Bryant 2026-27: 'Bachelor of Science in Business Administration: Accounting Concentration'
 BACHELOR_OF_OPTION_ENTRY = re.compile(r'^(?P<award>Bachelor of (?:Science|Arts|Fine Arts|Music|Business Administration))\s+in\s+(?P<base>[^:]+?)\s*:\s*[^:]*\b(emphasis|concentration|track|option|specialization)\b', re.I)
 
 
+LONG_AWARD = {'bachelorofarts': 'ba', 'bachelorofscience': 'bs', 'bachelorofbusinessadministration': 'bba', 'bachelorofmusic': 'bm',
+              'bacheloroffinearts': 'bfa'}
+
+
 def _award_key(a):
-    return re.sub(r'[\s.]', '', a).lower()
+    k = re.sub(r'[\s.]', '', a).lower()
+    return LONG_AWARD.get(k, k)
 
 
 def _degree_key(line):
@@ -854,6 +877,8 @@ def _degree_key(line):
     m = re.match(r'^(?P<base>[^:()]+?)\s*\((?P<award>(?:B|A)\.[^)]*|(?-i:[AB][A-Z]{1,4}))\)', line)
     if m: return re.sub(r'\W+', '', m.group('base')).lower(), _award_key(m.group('award'))
     m = re.match(r'^(?P<award>Bachelor of (?:Science|Arts|Fine Arts|Music|Business Administration))\s+in\s+(?P<base>[^:,()]+?)\s*$', line, re.I)
+    if m: return re.sub(r'\W+', '', m.group('base')).lower(), _award_key(m.group('award'))
+    m = re.match(r'^(?P<base>[^,():]+?)\s+(?P<award>(?-i:B[A-Z]{1,4}))\s*$', line)  # UT Arlington 'Chemistry BA'
     if m: return re.sub(r'\W+', '', m.group('base')).lower(), _award_key(m.group('award'))
     return None
 
@@ -869,7 +894,8 @@ def listed_emphasis_pages(lists, norm, offered=None):
         progs = [p for p in (v.get('programs') or []) if p.get('listed_as') == 'bachelor']
         printed = [re.sub(r'\s+', ' ', re.sub(r'(?<=[a-z.])(?=[A-Z][a-z])', ' ', p.get('printed') or '')).strip() for p in progs]
         emph = [EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) or WITH_EMPHASIS_ENTRY.match(line)
-                or AWARD_PAREN_OPTION_ENTRY.match(line) or BACHELOR_OF_OPTION_ENTRY.match(line) for line in printed]
+                or AWARD_PAREN_OPTION_ENTRY.match(line) or BACHELOR_OF_OPTION_ENTRY.match(line) or PAREN_VARIANT_ENTRY.match(line)
+                for line in printed]
         degrees = {_degree_key(o) for o, m in zip(printed, emph) if not m} - {None}
         for p, m in zip(progs, emph):
             if not m: continue
