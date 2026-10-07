@@ -1362,6 +1362,7 @@ class DepartmentSectionTests(unittest.TestCase):
         e = {'url': 'https://catalog.x.edu/undergraduate/arts/departmentofbiology/', 'role': 'program_page', 'sha256': 'a' * 64,
              'fetched_at': '2026-10-06T00:00:00+00:00', 'status': 200, 'kind': 'html'}
         heads = ['Department of Biological Sciences', 'BS in Biological Sciences (BIO)', 'General Education Requirements', 'BS in Microbiology (MIC)',
+                 'B.S. in Biology Sample Schedule', 'B.S. in Biology Suggested Sequence',
                  'BS in Clinical Laboratory Sciences (CLSC)1', 'Requirements for B.A. in Biology', 'B.S. in Biology Eight-Semester Degree Plan',
                  'Requirements for B.S.E. in Childhood Education with STEM Concentration', 'B.S. with non-A.C.S. certification',
                  'B.S. in Industrial Engineering and B.B.A. in Business Administration', 'BS in Applied Sociology (online degree)', 'Biology Minor']
