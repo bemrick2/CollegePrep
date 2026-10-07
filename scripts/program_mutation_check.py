@@ -63,8 +63,8 @@ MUTS = [
     ('programs/detect.py', "        pool = [c for c, y in dated.items() if y == newest] or list(cats)", "        pool = list(cats)"),
     ('programs/detect.py', "            if cfgs[f].get('reviewed') or (len(owners) == 1 and f == owners[0]): continue", "            if cfgs[f].get('reviewed') or f in owners: continue"),
     ('programs/detect.py', "        if len(folders) < 2: continue", "        if len(folders) < 1: continue"),
-    ('programs/extract.py', "        emph = [EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) or WITH_EMPHASIS_ENTRY.match(line) for line in printed]", "        emph = [EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) for line in printed]"),
-    ('programs/extract.py', "            if (re.sub(r'\\W+', '', m.group('base')).lower(), _award_key(m.group('award'))) in degrees: continue", "            pass"),
+    ('programs/extract.py', "        emph = [EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) or WITH_EMPHASIS_ENTRY.match(line)\n", "        emph = [EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) or None\n"),
+    ('programs/extract.py', "            if key in degrees or key in (offered or {}).get(ik, set()): continue", "            pass"),
     ('programs/crawl.py', " or SKIP_PATH.search(p.path) or excluded(target, u): return False", " or SKIP_PATH.search(p.path): return False"),
     ('programs/extract.py', "BACHELOR = re.compile(r'(?<![A-Za-z]\\.)\\b(B", "BACHELOR = re.compile(r'\\b(B"),
     ('programs/crawl.py', "    elif cat.get('home') and not (cat.get('platform') == 'pdf' and cat['home'] in cat.get('catalog_pdfs', [])):", "    elif cat.get('home'):"),
@@ -151,6 +151,12 @@ MUTS = [
     ('programs/extract.py', "        if nm and any(u != here and _names_degree(a, nm, award) for u, a in others): continue", "        if nm and any(_names_degree(a, nm, award) for u, a in others): continue"),
     ('programs/extract.py', "    return re.fullmatch(r'(?:' + SECTION_AWARD[award] + r')', rest.strip(), re.I) is not None", "    return credential_of(rest) == 'bachelor'"),
     ('programs/extract.py', "    if anchor.startswith(name + ' '): rest = anchor[len(name):]", "    if name in anchor: rest = anchor.replace(name, '')"),
+    # listed concentration lines (NC State 'X (BS): Y Concentration', Bryant 'Bachelor of Science in X: Y Concentration')
+    ('programs/extract.py', "                or AWARD_PAREN_OPTION_ENTRY.match(line) or BACHELOR_OF_OPTION_ENTRY.match(line) for line in printed]", "                or BACHELOR_OF_OPTION_ENTRY.match(line) for line in printed]"),
+    ('programs/extract.py', "                or AWARD_PAREN_OPTION_ENTRY.match(line) or BACHELOR_OF_OPTION_ENTRY.match(line) for line in printed]", "                or AWARD_PAREN_OPTION_ENTRY.match(line) for line in printed]"),
+    ('programs/extract.py', "            if key in degrees or key in (offered or {}).get(ik, set()): continue", "            if key in degrees: continue"),
+    ('programs/extract.py', "|(?-i:[AB][A-Z]{1,4}))\\)', line)", ")\\)', line)"),
+    ('programs/extract.py', "    return re.sub(r'[\\s.]', '', a).lower()", "    return a.replace(' ', '').rstrip('.').lower()"),
 ]
 
 

@@ -1674,6 +1674,36 @@ class ListedEmphasisTests(unittest.TestCase):
             {'listed_as': 'bachelor', 'printed': 'Biology, B.S.', 'url': 'https://a/bio'}]}}
         self.assertEqual(sorted(u for _, u in listed_emphasis_pages(lists, norm)), ['https://a/arts-studio', 'https://a/chem-bio', 'https://a/fish', 'https://a/hdfs-ece'])
 
+    def test_ncsu_and_bryant_concentration_lines(self):  # NC State, Bryant 2026-27 (Research request in #151)
+        import re, tempfile, json as J
+        from pathlib import Path
+        from programs.extract import listed_emphasis_pages, collect_lists
+        norm = lambda u: re.sub(r'/?$', '', u)
+        L = lambda *rows: {'x': {'programs': [{'listed_as': 'bachelor', 'printed': p, 'url': f'https://a/{u}'} for p, u in rows]}}
+        lists = L(('Animal Science (BS): Industry Concentration', 'ans-ind'), ('English (BA): Film Studies Concentration', 'eng-film'),
+                  ('English (BA)', 'eng'), ('Computer Science (BS): Game Development Concentration', 'cs-game'),
+                  ('Bachelor of Science in Business Administration: Accounting Concentration', 'bsba-acct'),
+                  ('Bachelor of Arts in Communication: Media Concentration', 'comm-media'), ('Bachelor of Arts in Communication', 'comm'))
+        self.assertEqual(sorted(u for _, u in listed_emphasis_pages(lists, norm)), ['https://a/ans-ind', 'https://a/bsba-acct', 'https://a/cs-game'])
+        # the base line may print its award with dots ('English (B.A.)') and the concentration line without
+        self.assertEqual(listed_emphasis_pages(L(('English (BA): Film Studies Concentration', 'f'), ('English (B.A.)', 'e')), norm), set())
+        # a degree with a program page of its own in the run keeps its concentrations as options
+        self.assertEqual(sorted(u for _, u in listed_emphasis_pages(lists, norm, {'x': {('computerscience', 'bs')}})), ['https://a/ans-ind', 'https://a/bsba-acct'])
+        # a list page stored by another run of the same catalog (NC State's discovery run) is read as stored; absent runs are skipped
+        page = (b'<html><head><title>Undergraduate</title></head><body><p>University Catalog 2026-2027</p>'
+                b'<a href="https://catalog.example.edu/ans/ans-bs-industry-concentration/">Animal Science (BS): Industry Concentration</a></body></html>')
+        with tempfile.TemporaryDirectory() as d:
+            other = Path(d) / 'disc'; f = FakeFetcher({'https://catalog.example.edu/undergraduate/': page}); run = C.Run(other)
+            C.crawl_target({**TARGET, 'refetch': ['https://catalog.example.edu/undergraduate/']}, run, f, log=lambda *_: None)
+            entries = [{**e, 'role': 'discover'} for e in run.entries()]
+            (other / 'manifest.jsonl').write_text(''.join(J.dumps(e) + '\n' for e in entries))
+            t = {**TARGET, 'catalog': {'platform': 'courseleaf', 'home': 'https://catalog.example.edu/', 'path_prefix': '/', 'min_depth': 1,
+                                       'list_documents': [{'run': str(other), 'url': 'https://catalog.example.edu/undergraduate/'}]}}
+            got = collect_lists(t, C.Run(Path(d) / 'cat'), [])
+            self.assertEqual([p['printed'] for p in got['programs']], ['Animal Science (BS): Industry Concentration'])
+            t['catalog']['list_documents'][0]['run'] = str(Path(d) / 'missing')
+            self.assertEqual(collect_lists(t, C.Run(Path(d) / 'cat'), [])['programs'], [])
+
     def test_award_glued_to_next_column_is_classified(self):
         from programs.extract import list_award
         glued = 'Architecture, B.ArchSmith College of Engineering and TechnologyUndergraduateBachelor'
