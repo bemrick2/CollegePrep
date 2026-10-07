@@ -1,6 +1,7 @@
 import { INVITE_TTL_HOURS } from '../../invites'
 import type { SupabaseClient } from '@supabase/supabase-js'
-import type { DataSource, InvitationSummary, InviteSendResult, StudentInvitation } from '../source'
+import type { AlertPreference, DataSource, InactiveStudent, InvitationSummary, InviteSendResult, StudentInvitation } from '../source'
+import type { NextWeekSuggestion } from '../../engine/weeklyPlan'
 import { DataError } from '../source'
 import type {
   BillingPlan,
@@ -248,6 +249,45 @@ export class LiveSource implements DataSource {
       return { ...inv, emailed: false, reason: missing ? 'not_configured' : 'provider' }
     }
     return data as InviteSendResult
+  }
+
+  async suggestNextWeekGoal(studentId: string): Promise<NextWeekSuggestion> {
+    const r = await rpc<{ week_start: string; target_questions: number | null; basis: string; weeks_considered: number; questions_completion: number | null }>(
+      this.sb,
+      'suggest_next_week_goal',
+      { p_student: studentId },
+    )
+    return {
+      weekStart: r.week_start,
+      targetQuestions: r.target_questions,
+      basis: r.basis === 'history' ? 'history' : 'insufficient_history',
+      weeksConsidered: r.weeks_considered ?? 0,
+      completion: r.questions_completion,
+    }
+  }
+
+  async getAlertPreference(studentId: string): Promise<AlertPreference | null> {
+    const { data, error } = await this.sb
+      .from('alert_preferences')
+      .select('inactivity_days, enabled')
+      .eq('student_id', studentId)
+      .eq('channel', 'email')
+      .maybeSingle()
+    if (error) fail(error)
+    return data ? { enabled: data.enabled as boolean, inactivityDays: data.inactivity_days as number } : null
+  }
+
+  async setAlertPreference(studentId: string, pref: AlertPreference) {
+    const existing = await this.getAlertPreference(studentId)
+    const r = existing
+      ? await this.sb.from('alert_preferences').update({ enabled: pref.enabled, inactivity_days: pref.inactivityDays }).eq('student_id', studentId).eq('channel', 'email')
+      : await this.sb.from('alert_preferences').insert({ student_id: studentId, channel: 'email', enabled: pref.enabled, inactivity_days: pref.inactivityDays })
+    if (r.error) fail(r.error)
+  }
+
+  async inactiveStudents(): Promise<InactiveStudent[]> {
+    const rows = await rpc<{ student_id: string; days_inactive: number | null; threshold_days: number; last_submitted_at: string | null }[]>(this.sb, 'student_inactivity', {})
+    return (rows ?? []).map((r) => ({ studentId: r.student_id, daysInactive: r.days_inactive, thresholdDays: r.threshold_days, lastSubmittedAt: r.last_submitted_at }))
   }
 
   async listInvitations(householdId: string): Promise<InvitationSummary[]> {

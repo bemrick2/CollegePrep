@@ -7,8 +7,10 @@ import { useInterests } from '../majors/useInterests'
 import { useSavedComparison, COMPARE_YEAR } from '../colleges/useSavedComparison'
 import { useMeritReference } from '../colleges/useMeritReference'
 import { meritAwards } from '../../lib/engine/merit'
-import { addDays, localDate } from '../../lib/engine/dates'
+import { localDate } from '../../lib/engine/dates'
 import { benchmarkAttemptIds, benchmarkSchedule, SECTION_LABEL } from '../../lib/engine/benchmark'
+import { weeklyPlan } from '../../lib/engine/weeklyPlan'
+import { PacePill, WeekStrip, checkSentence, paceSentence } from '../../components/WeekPlan'
 import { achievements, levelOf, totalXp } from '../../lib/engine/gamify'
 import { latestEstimate, useStudentOverview, type StudentOverview } from './useStudentOverview'
 import { useCatalog } from '../practice/useCatalog'
@@ -52,11 +54,21 @@ function HomeBody({ name, o, studentId }: { name: string; o: StudentOverview; st
   // Before the first benchmark the next step is the only thing on the page.
   const fresh = o.benchmarks.length === 0 && o.history.length === 0
   const schedule = benchmarkSchedule(o.benchmarks)
+  const week = weeklyPlan({ today: o.today, weekStart: o.weekStart, tz: o.tz, plan: o.plan, week: o.week, history: o.history, benchmarks: o.benchmarks, estimates: o.estimates })
+  const checkDue = o.benchmarks.length > 0 && schedule.inDays === 0
   const hour = new Date().getHours()
   const hello = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening'
 
   const next =
-    o.benchmarks.length === 0
+    checkDue
+      ? {
+          title: schedule.kind === 'full' ? 'Full benchmark' : 'Mini benchmark',
+          length: schedule.kind === 'full' ? 'About an hour' : 'About 15 minutes',
+          cta: 'Start progress check',
+          to: `/student/benchmark?kind=${schedule.kind}`,
+          detail: 'Your progress check is due. It shows what has changed since your last benchmark and updates your plan.',
+        }
+      : o.benchmarks.length === 0
       ? {
           title: 'Your starting benchmark',
           length: 'About 30 minutes',
@@ -117,7 +129,11 @@ function HomeBody({ name, o, studentId }: { name: string; o: StudentOverview; st
                 <span className="text-[15px] font-semibold text-ink-2">questions</span>
               </p>
               {goal ? <ProgressBar className="mt-3" value={done} max={goal} tone="go" label="Weekly goal progress" /> : null}
-              <WeekDots o={o} />
+              <WeekStrip plan={week} className="mt-4 max-w-sm" />
+              <p className="mt-3 flex flex-wrap items-center gap-2 text-sm text-ink-2">
+                <PacePill plan={week} /> {paceSentence(week)}
+              </p>
+              {!checkDue && <p className="mt-1 text-xs text-ink-3">{checkSentence(week, 'you')}</p>}
             </div>
           )}
           <div className={cx(!fresh && 'pt-5 md:pt-6')}>
@@ -244,38 +260,6 @@ function HomeBody({ name, o, studentId }: { name: string; o: StudentOverview; st
   )
 }
 
-function WeekDots({ o }: { o: StudentOverview }) {
-  const days = Array.from({ length: 7 }, (_, i) => addDays(o.weekStart, i))
-  const practiced = new Set(o.history.filter((a) => !a.skipped).map((a) => localDate(a.submitted_at, o.tz)))
-  return (
-    <ol className="mt-3 grid max-w-xs grid-cols-7 gap-0.5" aria-label="Days practised this week">
-      {days.map((d, i) => {
-        const done = practiced.has(d)
-        const isToday = d === o.today
-        return (
-          <li key={d} className="flex flex-col items-center gap-1">
-            <span className={cx('text-[11px] font-semibold', isToday ? 'text-ink' : 'text-ink-3')}>{'MTWTFSS'[i]}</span>
-            <span
-              className={cx(
-                'grid h-6 w-6 place-items-center rounded-full text-[11px]',
-                done ? 'bg-gold text-white' : isToday ? 'border-2 border-gold' : 'bg-surface-3',
-              )}
-              role="img"
-              aria-label={`${d}: ${done ? 'practised' : 'not practised'}`}
-            >
-              {done ? <Flame size={12} /> : null}
-            </span>
-          </li>
-        )
-      })}
-    </ol>
-  )
-}
-
-/**
- * Why today's practice matters, from verified records only: the nearest published merit minimum at the student's
- * saved schools, compared with their target (or official score). Never a guarantee, never a score estimate.
- */
 function WhyItMatters({ studentId, exam, target }: { studentId: string; exam: 'act' | 'sat'; target: number | null }) {
   const cmp = useSavedComparison(COMPARE_YEAR)
   const { reference } = useMeritReference(studentId)

@@ -1,3 +1,4 @@
+import type { NextWeekSuggestion } from '../engine/weeklyPlan'
 import type {
   AiHelpResult,
   AttemptRecord,
@@ -61,6 +62,13 @@ export interface DataSource {
   // Goals and progress
   setWeeklyGoal(studentId: string, weekStart: string, targetQuestions: number | null, targetMinutes: number | null): Promise<void>
   weeklyProgress(studentId: string, weekStart: string): Promise<WeeklyProgress>
+  /** The backend's suggested question goal for the week after this one (suggest_next_week_goal). */
+  suggestNextWeekGoal(studentId: string): Promise<NextWeekSuggestion>
+  /** This viewer's own inactivity-alert setting for a student (alert_preferences, email channel). */
+  getAlertPreference(studentId: string): Promise<AlertPreference | null>
+  setAlertPreference(studentId: string, pref: AlertPreference): Promise<void>
+  /** Students this guardian can see who have gone quiet past their alert threshold (student_inactivity). */
+  inactiveStudents(): Promise<InactiveStudent[]>
   streak(studentId: string): Promise<Streak>
   skillEstimates(studentId: string): Promise<SkillEstimate[]>
   testScores(studentId: string): Promise<TestScore[]>
@@ -159,4 +167,17 @@ export interface InvitationSummary {
   accepted_at: string | null
   revoked_at: string | null
   last_emailed_at: string | null
+}
+
+export interface AlertPreference {
+  enabled: boolean
+  /** 1-60 days without practice before the guardian is told. */
+  inactivityDays: number
+}
+
+export interface InactiveStudent {
+  studentId: string
+  daysInactive: number | null
+  thresholdDays: number
+  lastSubmittedAt: string | null
 }
