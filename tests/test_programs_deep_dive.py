@@ -1679,6 +1679,8 @@ class SitemapTests(unittest.TestCase):
 <url><loc>https://catalog.x.edu/undergraduate/sciences/biology/biology-minor/</loc></url>
 <url><loc>https://catalog.x.edu/graduate/sciences/biology/biology-ms/</loc></url>
 <url><loc>https://catalog.x.edu/undergraduate/arts/history/history-major/</loc></url>
+<url><loc>https://catalog.x.edu/departments-programs-degrees/anthropology/anthropology-ab/</loc></url>
+<url><loc>https://catalog.x.edu/undergraduate/sciences/computer-lab/</loc></url>
 <url><loc>https://catalog.x.edu/undergraduate/arts/history/</loc></url>
 <url><loc>https://catalog.x.edu/undergraduate/business/bba-certificate/</loc></url>
 <url><loc>https://catalog.x.edu/graduate/business/accounting-bs/</loc></url>
@@ -1699,7 +1701,9 @@ class SitemapTests(unittest.TestCase):
             C.crawl_target(t, Run(Path(d)), f, log=lambda *_: None)
             pages = sorted(e['url'] for e in Run(Path(d)).entries() if e['role'] == 'program_page')
         # UF's underscore slugs are read; a one-word segment ('badm', 'busi': course subjects) is never an award
+        # UC Davis prints the A.B. ('anthropology-ab'); 'computer-lab' is not an award
         self.assertEqual(pages, ['https://catalog.x.edu/UGRD/colleges-schools/UGAGL/AEC_BS/',
+                                 'https://catalog.x.edu/departments-programs-degrees/anthropology/anthropology-ab/',
                                  'https://catalog.x.edu/undergraduate/arts/history/history-major/',
                                  'https://catalog.x.edu/undergraduate/sciences/biology/biology-bs/'])
 

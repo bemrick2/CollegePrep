@@ -367,7 +367,7 @@ def expand(target, role, url, links, push, is_program, is_nav, depth):
             if not is_program(h) or re.search(r'(^|/)(grad|graduate|graduate-school)(/|$)', urlsplit(h).path.lower()): continue
             if not re.search(r'[-_]', seg): continue
             if re.search(r'(^|[-_])(minor|certificate|cert|ms|ma|mba|mfa|med|phd|edd|dnp|pmc|aas|as|aa)([-_]|$)', seg): continue
-            if re.search(r'(^|[-_])(b[a-z]{1,5}|major)([-_]|$)', seg): bach.append(h)
+            if re.search(r'(^|[-_])(b[a-z]{1,5}|ab|major)([-_]|$)', seg): bach.append(h)  # UC Davis awards the A.B.: '.../anthropology-ab/'
         for h in bach: push(h, 'program_page', url, depth + 1)
         return
     if role in ('policy', 'policy_link', 'discover'):
