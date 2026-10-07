@@ -103,7 +103,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | NV | **in_progress** | 9 | 0 | 0% (needs 80%) | 0 | 6 | 11 |
 | OK | **in_progress** | 28 | 0 | 0% (needs 80%) | 0 | 25 | 28 |
 | OR | **in_progress** | 29 | 10 | 71% (needs 80%) | 0 | 3 | 41 |
-| RI | **in_progress** | 12 | 0 | 0% (needs 80%) | 0 | 10 | 13 |
+| RI | **in_progress** | 12 | 0 | 0% (needs 80%) | 0 | 10 | 14 |
 | SC | **in_progress** | 37 | 0 | 0% (needs 80%) | 0 | 31 | 40 |
 | SD | **in_progress** | 15 | 0 | 0% (needs 80%) | 0 | 13 | 15 |
 | TN | **in_progress** | 43 | 1 | 5% (needs 80%) | 0 | 33 | 62 |
@@ -778,7 +778,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 |---|---|---|---|---|---|---|---|---|---|---|
 | University of Massachusetts-Amherst | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Boston University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Northeastern University | partial | 263 | – | 0 | 636 | queued | queued | met | queued | admission_rules:no_official_statement, catalog:not_yet_researched, degree_maps:not_yet_researched |
+| Northeastern University | partial | 270 | – | 0 | 637 | queued | queued | met | queued | admission_rules:no_official_statement, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | University of Massachusetts-Boston | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Boston College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Massachusetts-Lowell | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -1417,7 +1417,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Providence College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Johnson & Wales University-Providence | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Roger Williams University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Bryant University | partial | 10 | – | 0 | 15 | queued | queued | met | met | catalog:not_yet_researched, degree_maps:not_yet_researched |
+| Bryant University | partial | 18 | – | 0 | 23 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | Rhode Island College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Salve Regina University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Rhode Island School of Design | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -1860,7 +1860,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | School | Status | Verified bachelor's | Listed | Plans | Req. groups | Catalog | Maps | Groups | Admission rules | Queue |
 |---|---|---|---|---|---|---|---|---|---|---|
 | West Virginia University | partial | 93 | – | 0 | 222 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:layout_not_readable, degree_maps:not_yet_researched |
-| Marshall University | covered | 106 | 102 | 75 | 445 | met | met | met | queued | admission_rules:not_yet_researched |
+| Marshall University | covered | 107 | 102 | 76 | 451 | met | met | met | queued | admission_rules:not_yet_researched |
 | Fairmont State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Shepherd University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Concord University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
