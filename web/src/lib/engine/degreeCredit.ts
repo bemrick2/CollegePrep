@@ -1,4 +1,5 @@
 import type { ExamMatch } from './examCredit'
+import { COURSE_NUMBER, entryCodes, readTermItems, scanCodes, type PlanTermLike } from './planItems'
 
 /**
  * Three different questions about credit a student brings, answered only from verified records:
@@ -19,7 +20,7 @@ export function parseEquivalent(text: string | null | undefined): { groups: stri
     let subject: string | null = null
     const alts: string[] = []
     const range: string[] = []
-    const re = /(?:\b(?!OR\b|AND\b|WITH\b)([A-Z]{2,5}))?\s*(\d{3,4})(?:\s*[-–]\s*(\d{3,4}))?/g
+    const re = new RegExp(`(?:\\b(?!OR\\b|AND\\b|WITH\\b)([A-Z]{2,5}))?\\s*(${COURSE_NUMBER})\\b(?:\\s*[-–]\\s*(${COURSE_NUMBER})\\b)?`, 'g')
     for (const m of part.matchAll(re)) {
       if (m[1]) subject = m[1]
       if (!subject) continue
@@ -36,17 +37,15 @@ export function parseEquivalent(text: string | null | undefined): { groups: stri
   return { groups, elective: groups.length === 0 && /\b(LD|UD|ELECTIVE|ELEC)\b/.test(t) }
 }
 
-export interface PlanTerm {
-  term_index?: number
-  label?: string
-  credit_hours?: string
-  items?: string[]
-}
+/** A plan term as stored; items may be strings or structured entries (see planItems.ts). */
+export type PlanTerm = PlanTermLike
 
 interface PlanItem {
   term: number
   label: string
   text: string
+  /** As printed; null when the plan prints none. */
+  credits: number | string | null
   /** Any one of these codes satisfies the item. */
   any: string[]
   /** Or all codes of one of these combinations ("CHEM 102+103"). */
@@ -55,21 +54,22 @@ interface PlanItem {
 
 function planItems(terms: PlanTerm[]): PlanItem[] {
   return terms.flatMap((t, i) =>
-    (t.items ?? []).map((text) => {
-      const up = text.toUpperCase()
+    readTermItems(t).map((e) => {
+      const base = { term: t.term_index ?? i + 1, label: t.label ?? `Term ${t.term_index ?? i + 1}`, text: e.choices.length ? `${e.text} ${e.choices.map((c) => c.text).join(' / ')}` : e.text, credits: e.credits }
+      // A structured course, or a choice among options: any one of its codes.
+      if (e.code || e.choices.length) return { ...base, any: entryCodes(e), combos: [] }
+      // Free text: "A or B" is any one; "CHEM 102+103" is a combination that counts only when all were awarded.
       const combos: string[][] = []
       const any: string[] = []
       let subject: string | null = null
-      for (const seg of up.split(/[,/]|\bOR\b/)) {
-        const codes: string[] = []
-        for (const m of seg.matchAll(/(?:\b(?!OR\b|AND\b|WITH\b)([A-Z]{2,5}))?\s*(\d{3,4})/g)) {
-          if (m[1]) subject = m[1]
-          if (subject) codes.push(`${subject} ${m[2]}`)
-        }
+      for (const seg of e.text.toUpperCase().split(/[,/]|\bOR\b/)) {
+        const scan = scanCodes(seg, subject)
+        subject = scan.subject
+        const codes = scan.codes
         if (seg.includes('+') && codes.length > 1) combos.push(codes)
         else any.push(...codes)
       }
-      return { term: t.term_index ?? i + 1, label: t.label ?? `Term ${t.term_index ?? i + 1}`, text, any, combos }
+      return { ...base, any, combos }
     }),
   )
 }
@@ -82,7 +82,8 @@ export interface ExamApplicability {
   /** Credit hours from the school's table; null when not published. */
   hours: number | null
   status: Applicability
-  matched: { code: string; term: number; label: string; item: string }[]
+  /** Where the credit lands in the plan; credits are the plan item's, as printed. */
+  matched: { code: string; term: number; label: string; item: string; credits: number | string | null }[]
 }
 
 export interface DegreeCreditResult {
@@ -122,7 +123,7 @@ export function degreeCredit(matches: ExamMatch[], terms: PlanTerm[]): DegreeCre
         const fit = items.find((it) => !taken.has(it) && g.every((c) => it.any.includes(c)))
         if (fit) {
           taken.add(fit)
-          matched.push({ code: g.join(' or '), term: fit.term, label: fit.label, item: fit.text })
+          matched.push({ code: g.join(' or '), term: fit.term, label: fit.label, item: fit.text, credits: fit.credits })
           hit++
         } else anyAssigned = true
         continue
@@ -132,7 +133,7 @@ export function degreeCredit(matches: ExamMatch[], terms: PlanTerm[]): DegreeCre
       const it = items.find((x) => !taken.has(x) && x.any.includes(code))
       if (it) {
         taken.add(it)
-        matched.push({ code, term: it.term, label: it.label, item: it.text })
+        matched.push({ code, term: it.term, label: it.label, item: it.text, credits: it.credits })
         hit++
       }
     }
