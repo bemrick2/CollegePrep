@@ -163,6 +163,9 @@ def build(state: str):
     prior_path = REGISTRY_DIR / f'{state}.json'
     prior = {i['institution_key']: i['folder'] for i in json.loads(prior_path.read_text())['institutions']} if prior_path.exists() else {}
     for inst in institutions:  # Two campuses sharing a domain get distinct folders.
+        if prior.get(inst['institution_key']) == f"{inst['folder']}-{inst['unitid']}" and inst['folder'] not in owned:
+            # PA: Penn State York keeps 'psu-214829' once University Park's data folder takes its own suffixed name
+            inst['folder'] = prior[inst['institution_key']]; continue
         shared = slugs[inst['folder']]
         keeps = [k for k in shared if prior.get(k) == inst['folder']]
         if len(shared) > 1 and inst['folder'] not in folders.values() and not (len(keeps) == 1 and keeps[0] == inst['institution_key']):

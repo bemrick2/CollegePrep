@@ -64,6 +64,8 @@ MUTS = [
     ('programs/detect.py', "        pool = [c for c, y in dated.items() if y == newest] or list(cats)", "        pool = list(cats)"),
     ('programs/detect.py', "            if cfgs[f].get('reviewed') or (len(owners) == 1 and f == owners[0]): continue", "            if cfgs[f].get('reviewed') or f in owners: continue"),
     ('programs/detect.py', "        if len(folders) < 2: continue", "        if len(folders) < 1: continue"),
+    ('programs/detect.py', "        if q.stem == state or not oreg.exists(): continue", "        if q.stem == state or oreg.exists(): continue"),
+    ('programs/extract.py', "|General\\s+|[A-Z][a-z]+\\s+Campus\\s+)?(Catalog", "|General\\s+)?(Catalog"),
     ('programs/extract.py', "        emph = [EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) or WITH_EMPHASIS_ENTRY.match(line)\n", "        emph = [EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) or None\n"),
     ('programs/extract.py', "            if key in degrees or key in (offered or {}).get(ik, set()): continue", "            pass"),
     ('programs/crawl.py', " or SKIP_PATH.search(p.path) or excluded(target, u): return False", " or SKIP_PATH.search(p.path): return False"),
