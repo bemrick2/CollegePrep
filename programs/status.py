@@ -208,14 +208,14 @@ def national(out):
     for p in sorted((ROOT / 'pipeline/registry').glob('*.json')):
         if not re.fullmatch(r'[A-Z]{2}', p.stem) or p.stem == 'ZZ': continue
         reg = json.loads(p.read_text())
-        four = [i for i in reg['institutions'] if i.get('level') == 'four_year']
+        registered = [i for i in reg['institutions'] if i.get('level') == 'four_year']
         s = tracked.get(p.stem)
         if s:
             researched = sum(1 for r in s['institutions'] if r['status'] in RESEARCHED or (r['status'] == 'exception' and any(
                 not q.endswith(':not_yet_researched') for q in r['queue'])))
             covered = s['covered_institutions']
         else: researched = covered = 0
-        rows.append({'state': p.stem, 'registered': len(four), 'researched': researched, 'covered': covered, 'tracked': bool(s)})
+        rows.append({'state': p.stem, 'registered': len(registered), 'researched': researched, 'covered': covered, 'tracked': bool(s)})
     return {'definition': NATIONAL_DEFINITION,
             'registered': sum(r['registered'] for r in rows), 'researched': sum(r['researched'] for r in rows),
             'covered': sum(r['covered'] for r in rows), 'states_tracked': sum(r['tracked'] for r in rows), 'states': rows}
