@@ -193,6 +193,7 @@ MUTS = [
     ('programs/courseleaf.py', "    labelled = len(grids_) > 1 and len(set(heads)) == len(heads) and all(h and h.lower() != 'roadmaps' for h in heads)",
      "    labelled = len(grids_) > 1 and all(h for h in heads)"),
     ('programs/courseleaf.py', "                if any(x.get('text') for x in s.values()): issues.add('grid_cell_without_term')", "                pass"),
+    ('programs/autoreview.py', " and not PAREN_VARIANT_ENTRY.match(n) and _degree_key(n):", " and _degree_key(n):"),
 ]
 
 
