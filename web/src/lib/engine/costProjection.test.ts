@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import type { InstitutionComparison } from '../data/types'
-import { netPrice, projectCosts, projectRow } from './costProjection'
+import { fullProgram, potentialSaving, projectCosts, projectRow, termsSaving } from './costProjection'
 
 // The same fixtures and expected numbers as the CR-4 v2 block in supabase/tests/frontend_contracts.sql.
 const V = { verification_status: 'verified', academic_year: '2026-27', source_url: 'https://example.edu/x' }
@@ -82,27 +82,34 @@ describe('cost projection v2 (mirror of the SQL rules)', () => {
   })
 })
 
-describe('net price from family-entered aid', () => {
-  const row = projectRow(priv, '2026-27', { residency: 'in_state', exam_credits: 24 }) // 164,000 baseline, one term saved
+describe('full program and potential savings from family-entered aid', () => {
+  const row = projectRow(priv, '2026-27', { residency: 'in_state', exam_credits: 24 }) // 164,000 for 4 years; 1 potential term
 
-  it('subtracts credit, then grants for the years actually attended; loans pay part of the rest', () => {
-    const n = netPrice(row, { grantsPerYear: 10000, loansPerYear: 5500 })!
-    expect(n).toMatchObject({ publishedTotal: 164000, creditSavings: 20500, afterCredit: 143500, yearsAttended: 3.5 })
-    expect(n.grants).toBe(35000)
-    expect(n.netPrice).toBe(108500)
-    expect(n.borrowed).toBe(19250)
-    expect(n.paidWithoutLoans).toBe(89250)
-    expect(n.loansCapped).toBe(false)
+  it('prices the full program with no credit assumed, grants and loans over every year', () => {
+    const f = fullProgram(row, { grantsPerYear: 10000, loansPerYear: 5500 })!
+    expect(f).toMatchObject({ years: 4, published: 164000, yearRound: 0, grants: 40000, netPrice: 124000, borrowed: 22000, paidWithoutLoans: 102000 })
   })
 
-  it('never goes below zero and caps borrowing at what is left', () => {
-    const n = netPrice(row, { grantsPerYear: 100000, loansPerYear: 9000 })!
-    expect(n.netPrice).toBe(0)
-    expect(n.borrowed).toBe(0)
-    expect(n.loansCapped).toBe(true)
+  it('adds the family\'s year-round living number separately from the academic-year budget', () => {
+    const f = fullProgram(row, { grantsPerYear: null, loansPerYear: null, yearRoundLivingPerYear: 3000 })!
+    expect(f).toMatchObject({ published: 164000, yearRound: 12000, netPrice: 176000 })
   })
 
-  it('has no answer without a published price', () => {
-    expect(netPrice({ institution_key: 'x', status: 'missing_cost' }, { grantsPerYear: 1, loansPerYear: 1 })).toBeNull()
+  it('a potential saving gives up the grants for the terms not attended', () => {
+    const p = potentialSaving(row, { grantsPerYear: 10000, loansPerYear: null })!
+    expect(p).toEqual({ terms: 1, gross: 20500, lostGrants: 5000, net: 15500 })
+    expect(row.credit_savings).toMatchObject({ certainty: 'potential', assumes: ['counted_credit_applies_to_the_degree', 'schedule_allows_finishing_early'] })
+  })
+
+  it('whole covered plan terms use the same rule, and always leave a term to attend', () => {
+    expect(termsSaving(row, 1, { grantsPerYear: 0, loansPerYear: null })).toEqual({ terms: 1, gross: 20500, lostGrants: 0, net: 20500 })
+    expect(termsSaving(row, 20, { grantsPerYear: 0, loansPerYear: null })!.terms).toBe(7)
+  })
+
+  it('never goes below zero, caps borrowing, and has no answer without a price', () => {
+    const f = fullProgram(row, { grantsPerYear: 100000, loansPerYear: 9000 })!
+    expect(f).toMatchObject({ netPrice: 0, borrowed: 0, loansCapped: true })
+    expect(fullProgram({ institution_key: 'x', status: 'missing_cost' }, { grantsPerYear: 1, loansPerYear: 1 })).toBeNull()
+    expect(potentialSaving(projectRow(priv, '2026-27', { residency: 'in_state' }), { grantsPerYear: 1, loansPerYear: null })).toBeNull()
   })
 })

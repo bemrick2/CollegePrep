@@ -307,6 +307,8 @@ begin
   perform hp_test.check((i->'levers'->1->>'accepted_upper_bound')::numeric = 18 and i->'levers'->1->>'reason' = 'bounded_by_verified_limit',
     'exam credit bounded by the verified AP limit');
   c := i->'credit_savings';
+  perform hp_test.check(c->>'certainty' = 'potential' and c->'assumes' ? 'schedule_allows_finishing_early',
+    'credit savings are labelled potential, with their assumptions');
   perform hp_test.check(c->>'mechanism' = 'fewer_terms' and c->>'billing_structure' = 'unknown'
     and (c->>'terms_saved')::int = 1 and (c->>'remainder_credits')::numeric = 3, 'one term saved, three credits short of another ' || c::text);
   perform hp_test.eq((i->>'savings_total')::numeric, 20500::numeric, 'one term of tuition and fees');
