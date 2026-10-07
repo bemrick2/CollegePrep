@@ -77,7 +77,13 @@ def professional_source(entry, page) -> bool:
     """Graduate and professional-school pages (host or path) are outside undergraduate planning."""
     u = urlsplit(entry.get('final_url') or entry.get('url', ''))
     hit = PROFESSIONAL.search(u.netloc.split('.')[0]) or PROFESSIONAL.search(u.path)
-    return bool(hit) and not re.search(r'undergraduate', page.title or '', re.I)
+    # UVU: 'criminal-justice-law-enforcement/criminal-justice-bs' and 'allied-health/dental-hygiene-bs' are bachelor's programs;
+    # a page whose own title prints an undergraduate award is not a graduate or professional-school page.
+    return bool(hit) and not re.search(r'undergraduate', page.title or '', re.I) and not UNDERGRAD_AWARD.search((page.title or '').split('|')[0])
+
+
+UNDERGRAD_AWARD = re.compile(r'(^|,|\s)\s*((?-i:B\.\s?(?:S|A|F\.\s?A|M|S\.\s?N|B\.\s?A|A\.\s?S|S\.\s?W|I\.\s?S)\.?(?![A-Za-z]))|(?-i:A\.\s?(?:S|A|A\.\s?S)\.?(?![A-Za-z]))|'
+                            r'Bachelor of [A-Z]|Associate of [A-Z])', re.I)
 
 
 INTERNATIONAL = re.compile(r'international[\s_-]*(students?|applicants?|admissions?)|/international(?=/|\s|$|\?)', re.I)

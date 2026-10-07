@@ -143,7 +143,8 @@ def update_store(docs):
     try:
         parent = git('rev-parse', f'refs/remotes/origin/{STORE}').strip()
         for line in git('ls-tree', '-r', parent).splitlines():
-            meta, path = line.split('\t'); have[path] = meta.split()[2]
+            meta, path = line.split('\t')
+            if path.startswith('documents/'): have[path] = meta.split()[2]
     except subprocess.CalledProcessError: parent = None
     for d in docs:
         p = d['store_path']

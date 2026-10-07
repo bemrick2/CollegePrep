@@ -1175,6 +1175,13 @@ last 30 hours in residence at the university.</p>"""
             '<tr><td>Presidential Scholarship</td><td>$11,000 ($44,000 over 4 years)</td></tr><tr><td>Alumni Scholarship</td><td>$9,000 ($36,000 over 4 years)</td></tr></table>'), '2026-27')}
         self.assertEqual((got['Presidential Scholarship'].get('award_min'), got['Presidential Scholarship']['award_max']), (11000, 11000))
         self.assertTrue(common.professional_source({'url': 'https://divinity.wfu.edu/admissions/financial-aid/'}, T.Page('', 'Aid', [], [], [])))
+        # UVU: a bachelor's program under a 'criminal-justice-law-enforcement' or 'dental-hygiene' path is undergraduate
+        self.assertFalse(common.professional_source({'url': 'https://catalog.uvu.edu/health-public-service/criminal-justice-law-enforcement/criminal-justice-bs/'},
+                                                    T.Page('', 'Criminal Justice, B.S. | Utah Valley University Academic Catalog', [], [], [])))
+        self.assertFalse(common.professional_source({'url': 'https://catalog.uvu.edu/health-public-service/allied-health/dental-hygiene-bs/'},
+                                                    T.Page('', 'Dental Hygiene, B.S.', [], [], [])))
+        self.assertTrue(common.professional_source({'url': 'https://catalog.example.edu/dental/dmd/'}, T.Page('', 'Doctor of Dental Medicine, D.M.D.', [], [], [])))
+        self.assertTrue(common.professional_source({'url': 'https://example.edu/law/jd/'}, T.Page('', 'Law, J.D. | Example', [], [], [])))
         # Agnes Scott / Georgia Southern / WGTC: other organizations' award lists; Thomas University: "+Scholarships" heading.
         table = ('<h2>National Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th><th>Eligibility</th></tr><tr><td>Coca-Cola Scholars</td><td>$20,000</td><td>Seniors</td></tr>'
                  '<tr><td>Ron Brown Scholar Program</td><td>$10,000</td><td>Seniors</td></tr></table>')
@@ -1932,3 +1939,17 @@ class RegistryTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class CatalogNameTests(unittest.TestCase):
+    """UVU 2026-27: 'B.F.A.' is a bachelor's award, and 'Name - Qualifier, B.S.' keeps the qualifier and award."""
+    def test_names_and_awards(self):
+        from pipeline.extractors import catalog as C
+        from pipeline import text as T
+        name = lambda t: C.program_name(T.Page('', t, [], [], []))
+        self.assertEqual(C.credential('Entertainment Design, B.F.A.'), 'bachelor')
+        self.assertEqual(name('Special Education - Mild/Moderate/Severe, B.S. | Utah Valley University Academic Catalog'),
+                         'Special Education - Mild/Moderate/Severe, B.S.')
+        self.assertEqual(name('Program: Biology, B.S. - Middle Tennessee State University - Acalog ACMS'), 'Biology, B.S.')
+        self.assertEqual(name('Accounting, BBA - 2026-2027 Catalog'), 'Accounting, BBA')
+        self.assertEqual(name('Nursing - BSN'), 'Nursing')  # unchanged: no comma before the award
