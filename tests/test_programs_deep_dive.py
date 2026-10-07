@@ -1419,6 +1419,8 @@ class SamplePlanPageTests(unittest.TestCase):  # KU 2026-27 sample-plan sub-page
         for n in ('Criminal Justice, BSCJ', 'Agriculture, BSAG', 'Chemical Engineering, BSCHE', 'Human Nutrition and Food, BSDIET'):
             self.assertEqual(X.credential_of(n), 'bachelor', n)
         self.assertIsNone(X.credential_of('Bsagent Studies'))
+        self.assertEqual(X.credential_of('Biology Education 6-12 Major (B.Ed.)'), 'bachelor')
+        self.assertIsNone(X.credential_of('Bedford Studies'))
 
 
 class DepartmentSectionTests(unittest.TestCase):

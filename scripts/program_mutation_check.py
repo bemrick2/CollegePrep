@@ -159,7 +159,7 @@ MUTS = [
     ('programs/extract.py', "    return re.sub(r'[\\s.]', '', a).lower()", "    return a.replace(' ', '').rstrip('.').lower()"),
     # KU sample-plan sub-pages give no program record (any reader); PVAMU awards
     ('programs/extract.py', "        found = [c for c in found if c['domain'] != 'academic_programs']", "        pass"),
-    ('programs/extract.py', "|S\\.?Ed|I\\.?S|SCJ|SAG|SCHE|SDIET)\\b", "|S\\.?Ed|I\\.?S)\\b"),
+    ('programs/extract.py', "|S\\.?Ed|Ed|I\\.?S|SCJ|SAG|SCHE|SDIET)\\b", "|S\\.?Ed|I\\.?S|SCJ|SAG|SCHE)\\b"),
     # JHU degree pages
     ('programs/autoreview.py', "        canon = degree_page(us) if base is None else None", "        canon = None"),
     ('programs/autoreview.py', "        canon = degree_page(us) if base is None else None", "        canon = degree_page(us)"),
