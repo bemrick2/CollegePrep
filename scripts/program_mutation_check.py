@@ -129,6 +129,12 @@ MUTS = [
     ('programs/courseleaf.py', "HEADER_CHOICE = re.compile(r'(\\(|[-–:]\\s*)(choose", "HEADER_CHOICE = re.compile(r'([-–:]\\s*)(choose"),
     ('programs/courseleaf.py', "HEADER_CHOICE = re.compile(r'(\\(|[-–:]\\s*)(choose", "HEADER_CHOICE = re.compile(r'(\\()(choose"),
     ('programs/courseleaf.py', "(choose|select|complete|take)\\s+(one|two|three|four|five|six|\\d+)\\b', re.I)", "(choose|select|complete|take)\\s+(\\w+)\\b', re.I)"),
+    # issue #129: trailing superscripts are footnote markers; a re-fetch run fetches only its pages
+    ('programs/courseleaf.py', "    if not tail or not text.endswith(tail) or not text[:-len(tail)].strip(): return text", "    if not tail: return text"),
+    ('programs/courseleaf.py', "title = strip_marks((cells[1].get('text') or '').strip(), cells[1].get('sup_tail'))", "title = (cells[1].get('text') or '').strip()"),
+    ('programs/courselist_html.py', "            elif self._td.get('_tail') is not None and not re.fullmatch", "            elif False and self._td.get('_tail') is not None and not re.fullmatch"),
+    ('programs/courselist_html.py', "                if self._td.get('_tail') is None: self._td['_tail'] = len(''.join(self._td['text']))", "                self._td['_tail'] = len(''.join(self._td['text']))"),
+    ('programs/crawl.py', "    if not target.get('refetch'):\n        if cat.get('platform')", "    if True:\n        if cat.get('platform')"),
 ]
 
 

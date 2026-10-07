@@ -23,6 +23,7 @@ class _Reader(HTMLParser):
         self._para = None; self._para_buf = []
         self._table_depth = 0; self._t = None; self._tr = None; self._td = None; self._indent_stack = []
         self._caption = False
+        self._sup = None  # text of a <sup> inside the current cell: CourseLeaf footnote markers ('Strategic Management<sup>3</sup>')
 
     # --- helpers
     @staticmethod
@@ -56,6 +57,9 @@ class _Reader(HTMLParser):
                 self._td['indent' if not ''.join(self._td['text']).strip() else 'inner_indent'] = True
             if tag == 'span' and cls: self._td['spans'] += cls
             if tag == 'br': self._td['text'].append(' ')
+            if tag == 'sup':
+                self._sup = []
+                if self._td.get('_tail') is None: self._td['_tail'] = len(''.join(self._td['text']))  # where a trailing run of markers may start
 
     def handle_endtag(self, tag):
         if self._t is None:
@@ -67,8 +71,17 @@ class _Reader(HTMLParser):
                 self._para = None
             return
         if tag == 'caption': self._caption = False
+        elif tag == 'sup' and self._td is not None and self._sup is not None:
+            mark = re.sub(r'\s+', ' ', ''.join(self._sup)).strip()
+            if mark: self._td.setdefault('sups', []).append(mark)
+            else: self._td['_tail'] = None
+            self._sup = None
         elif tag in ('td', 'th') and self._td is not None and self._table_depth == 1:
-            td = self._td; td['text'] = re.sub(r'\s+', ' ', ''.join(td['text'])).replace(' ', ' ').strip()
+            td = self._td; raw = ''.join(td['text']); tail = td.pop('_tail', None)
+            if tail is not None and td.get('sups'):
+                # the cell ends in superscripts (only commas or spaces between them): record that printed tail exactly
+                td['sup_tail'] = re.sub(r'\s+', ' ', raw[tail:]).replace(' ', ' ').strip()
+            td['text'] = re.sub(r'\s+', ' ', raw).replace(' ', ' ').strip()
             self._tr['cells'].append(td); self._td = None
         elif tag == 'tr' and self._tr is not None and self._table_depth == 1:
             self._t['rows'].append(self._tr); self._tr = None
@@ -83,11 +96,16 @@ class _Reader(HTMLParser):
             elif self._para: self._para_buf.append(data)
             return
         if self._caption: self._t['caption'] += data.strip()
-        elif self._td is not None: self._td['text'].append(data)
+        elif self._td is not None:
+            self._td['text'].append(data)
+            if self._sup is not None: self._sup.append(data)
+            elif self._td.get('_tail') is not None and not re.fullmatch(r'[\s,\u00a0]*', data): self._td['_tail'] = None  # text after a marker: not a tail
 
 
 def course_lists(html_bytes):
-    """[{'heading', 'context', 'caption', 'rows': [{'classes', 'cells': [{'text', 'classes', 'colspan', 'indent', 'spans'}]}]}]"""
+    """[{'heading', 'context', 'caption', 'rows': [{'classes', 'cells': [{'text', 'classes', 'colspan', 'indent', 'spans', 'sups'?}]}]}]
+    A cell's text keeps every character as printed (superscripts included); 'sups' lists the text of its <sup> elements
+    (footnote markers) when it has any, so a reader can tell a marker from a number that is part of a title."""
     r = _Reader()
     try:
         r.feed(html_bytes.decode('utf-8', 'replace') if isinstance(html_bytes, bytes) else html_bytes)

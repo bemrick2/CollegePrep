@@ -272,12 +272,22 @@ AWARD_IN_HEADING = re.compile(r'\b(Bachelor of [A-Z][a-z]+|B\.?A\.?|B\.?S\.?|B\.
 OR_CODE = OR_ROW
 
 
+def strip_marks(text, tail):
+    """A title cell's text without the footnote markers printed at its very end in <sup> ('Strategic Management 3', layout
+    sup_tail '3' -> 'Strategic Management'; a tail '2,4' too). Only a tail the stored layout recorded as superscripts is
+    removed: a number that is part of the title ('Programming Fundamentals 1') has no <sup> and stays, and a superscript
+    inside a title ('20th Century') is not at the end. Layouts stored before superscripts were recorded carry no
+    sup_tail and are unchanged."""
+    if not tail or not text.endswith(tail) or not text[:-len(tail)].strip(): return text
+    return text[:-len(tail)].rstrip()
+
+
 def _row(r):
     cells = r.get('cells') or []
     first = cells[0] if cells else {'text': '', 'indent': False}
     text = (first.get('text') or '').strip()
     credits = (cells[-1].get('text') or '').strip() if len(cells) > 1 else ''
-    title = (cells[1].get('text') or '').strip() if len(cells) > 2 or (len(cells) == 2 and first.get('colspan', 1) == 1) else ''
+    title = strip_marks((cells[1].get('text') or '').strip(), cells[1].get('sup_tail')) if len(cells) > 2 or (len(cells) == 2 and first.get('colspan', 1) == 1) else ''
     cls = set(r.get('classes') or []) | set(first.get('spans') or [])
     return {'text': text, 'title': title, 'credits': credits if CREDIT_CELL.match(credits) else '', 'indent': bool(first.get('indent')),
             'inner': bool(first.get('inner_indent')) or '&' in text, 'header': bool(cls & {'areaheader', 'areasubheader'}),
