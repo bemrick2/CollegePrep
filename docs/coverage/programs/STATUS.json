@@ -1,14 +1,14 @@
 {
  "national": {
-  "covered": 31,
+  "covered": 34,
   "definition": "Registered: four-year schools in the national registry (pipeline/registry; scope rule in pipeline/registry.py). Researched: a verified or partially verified deep-dive record, or a queue entry recording an attempt other than not_yet_researched. Covered: meets docs/PROGRAM_DEPTH_COMPLETION.md. Untracked states count as registered only.",
   "registered": 2119,
-  "researched": 345,
+  "researched": 407,
   "states": [
    {
-    "covered": 2,
+    "covered": 3,
     "registered": 6,
-    "researched": 4,
+    "researched": 6,
     "state": "AK",
     "tracked": true
    },
@@ -50,23 +50,23 @@
    {
     "covered": 0,
     "registered": 26,
-    "researched": 0,
+    "researched": 7,
     "state": "CT",
-    "tracked": false
+    "tracked": true
    },
    {
     "covered": 0,
     "registered": 9,
-    "researched": 0,
+    "researched": 4,
     "state": "DC",
-    "tracked": false
+    "tracked": true
    },
    {
     "covered": 0,
     "registered": 5,
-    "researched": 0,
+    "researched": 3,
     "state": "DE",
-    "tracked": false
+    "tracked": true
    },
    {
     "covered": 0,
@@ -85,9 +85,9 @@
    {
     "covered": 0,
     "registered": 8,
-    "researched": 0,
+    "researched": 3,
     "state": "HI",
-    "tracked": false
+    "tracked": true
    },
    {
     "covered": 0,
@@ -148,16 +148,16 @@
    {
     "covered": 0,
     "registered": 31,
-    "researched": 0,
+    "researched": 17,
     "state": "MD",
-    "tracked": false
+    "tracked": true
    },
    {
     "covered": 0,
     "registered": 18,
-    "researched": 0,
+    "researched": 6,
     "state": "ME",
-    "tracked": false
+    "tracked": true
    },
    {
     "covered": 0,
@@ -223,11 +223,11 @@
     "tracked": true
    },
    {
-    "covered": 0,
+    "covered": 1,
     "registered": 52,
-    "researched": 0,
+    "researched": 11,
     "state": "NJ",
-    "tracked": false
+    "tracked": true
    },
    {
     "covered": 0,
@@ -281,9 +281,9 @@
    {
     "covered": 0,
     "registered": 12,
-    "researched": 0,
+    "researched": 3,
     "state": "RI",
-    "tracked": false
+    "tracked": true
    },
    {
     "covered": 0,
@@ -328,11 +328,11 @@
     "tracked": true
    },
    {
-    "covered": 0,
+    "covered": 1,
     "registered": 10,
-    "researched": 0,
+    "researched": 6,
     "state": "VT",
-    "tracked": false
+    "tracked": true
    },
    {
     "covered": 0,
@@ -363,14 +363,14 @@
     "tracked": true
    }
   ],
-  "states_tracked": 35
+  "states_tracked": 44
  },
  "rule": "docs/PROGRAM_DEPTH_COMPLETION.md",
  "states": [
   {
    "coverage_threshold": 0.8,
-   "covered_institutions": 2,
-   "entering_student_share_covered": 0.905,
+   "covered_institutions": 3,
+   "entering_student_share_covered": 0.969,
    "four_year_institutions": 6,
    "institutions": [
     {
@@ -438,10 +438,10 @@
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": null,
+     "catalog_share": 1.0,
      "dimensions": {
       "admission_rules": "queued",
-      "catalog": "queued",
+      "catalog": "met",
       "degree_maps": "queued",
       "requirement_groups": "queued"
      },
@@ -450,20 +450,19 @@
       "business"
      ],
      "institution_key": "ipeds-102632",
-     "listed_bachelor_programs": null,
+     "listed_bachelor_programs": 18,
      "name": "University of Alaska Southeast",
      "partially_verified_programs": 0,
-     "programs_complete": false,
+     "programs_complete": true,
      "programs_with_plan": 0,
      "queue": [
-      "admission_rules:not_yet_researched",
-      "catalog:not_yet_researched",
-      "degree_maps:not_yet_researched",
+      "admission_rules:no_official_statement",
+      "degree_maps:not_published",
       "requirement_groups:layout_not_readable"
      ],
      "requirement_groups": 0,
-     "status": "partial",
-     "verified_bachelor_programs": 16
+     "status": "covered",
+     "verified_bachelor_programs": 18
     },
     {
      "academic_years": [],
@@ -483,7 +482,7 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "institution:no_year_label"
      ],
      "requirement_groups": 0,
      "status": "exception",
@@ -531,18 +530,18 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "institution:layout_not_readable"
      ],
      "requirement_groups": 0,
      "status": "exception",
      "verified_bachelor_programs": 0
     }
    ],
-   "not_yet_researched": 3,
-   "queue_entries": 10,
+   "not_yet_researched": 0,
+   "queue_entries": 9,
    "queue_errors": [],
    "state": "AK",
-   "status": "in_progress",
+   "status": "complete",
    "unaccounted_institutions": []
   },
   {
@@ -3147,6 +3146,1032 @@
    "queue_entries": 35,
    "queue_errors": [],
    "state": "CO",
+   "status": "in_progress",
+   "unaccounted_institutions": []
+  },
+  {
+   "coverage_threshold": 0.8,
+   "covered_institutions": 0,
+   "entering_student_share_covered": 0.0,
+   "four_year_institutions": 26,
+   "institutions": [
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "uconn-129020",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-129020",
+     "listed_bachelor_programs": null,
+     "name": "University of Connecticut",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [
+      "2026-27"
+     ],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "sacredheart",
+     "high_value_without_admission_rule": [
+      "nursing"
+     ],
+     "institution_key": "ipeds-130253",
+     "listed_bachelor_programs": null,
+     "name": "Sacred Heart University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "admission_rules:not_yet_researched",
+      "catalog:not_yet_researched",
+      "degree_maps:not_yet_researched",
+      "requirement_groups:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "partial",
+     "verified_bachelor_programs": 1
+    },
+    {
+     "academic_years": [
+      "2026-27"
+     ],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "met"
+     },
+     "folder": "qu",
+     "high_value_without_admission_rule": [
+      "business",
+      "computer_science",
+      "engineering",
+      "nursing"
+     ],
+     "institution_key": "ipeds-130226",
+     "listed_bachelor_programs": null,
+     "name": "Quinnipiac University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 25,
+     "queue": [
+      "admission_rules:not_yet_researched",
+      "catalog:not_yet_researched",
+      "degree_maps:not_yet_researched"
+     ],
+     "requirement_groups": 78,
+     "status": "partial",
+     "verified_bachelor_programs": 60
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "yale",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-130794",
+     "listed_bachelor_programs": null,
+     "name": "Yale University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "ccsu",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-128771",
+     "listed_bachelor_programs": null,
+     "name": "Central Connecticut State University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "fairfield",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-129242",
+     "listed_bachelor_programs": null,
+     "name": "Fairfield University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "hartford",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-129525",
+     "listed_bachelor_programs": null,
+     "name": "University of Hartford",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "newhaven",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-129941",
+     "listed_bachelor_programs": null,
+     "name": "University of New Haven",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "southernct",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-130493",
+     "listed_bachelor_programs": null,
+     "name": "Southern Connecticut State University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "wesleyan",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-130697",
+     "listed_bachelor_programs": null,
+     "name": "Wesleyan University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "wcsu",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-130776",
+     "listed_bachelor_programs": null,
+     "name": "Western Connecticut State University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "stamford",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-436836",
+     "listed_bachelor_programs": null,
+     "name": "University of Connecticut-Stamford",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "easternct",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-129215",
+     "listed_bachelor_programs": null,
+     "name": "Eastern Connecticut State University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "trincoll",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-130590",
+     "listed_bachelor_programs": null,
+     "name": "Trinity College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "conncoll",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-128902",
+     "listed_bachelor_programs": null,
+     "name": "Connecticut College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "uconn-463056",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-463056",
+     "listed_bachelor_programs": null,
+     "name": "University of Connecticut-Hartford Campus",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "goodwin",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-129154",
+     "listed_bachelor_programs": null,
+     "name": "Goodwin University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "uscga",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-130624",
+     "listed_bachelor_programs": null,
+     "name": "United States Coast Guard Academy",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "waterbury",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-436818",
+     "listed_bachelor_programs": null,
+     "name": "University of Connecticut-Waterbury Campus",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "bridgeport",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-128744",
+     "listed_bachelor_programs": null,
+     "name": "University of Bridgeport",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "albertus",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-128498",
+     "listed_bachelor_programs": null,
+     "name": "Albertus Magnus College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "averypoint",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-436827",
+     "listed_bachelor_programs": null,
+     "name": "University of Connecticut-Avery Point",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "usj",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-130314",
+     "listed_bachelor_programs": null,
+     "name": "University of Saint Joseph",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "mitchell",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-129774",
+     "listed_bachelor_programs": null,
+     "name": "Mitchell College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "charteroak",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-128780",
+     "listed_bachelor_programs": null,
+     "name": "Charter Oak State College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "holyapostles",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-129534",
+     "listed_bachelor_programs": null,
+     "name": "Holy Apostles College and Seminary",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    }
+   ],
+   "not_yet_researched": 21,
+   "queue_entries": 31,
+   "queue_errors": [],
+   "state": "CT",
+   "status": "in_progress",
+   "unaccounted_institutions": []
+  },
+  {
+   "coverage_threshold": 0.8,
+   "covered_institutions": 0,
+   "entering_student_share_covered": 0.0,
+   "four_year_institutions": 9,
+   "institutions": [
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "gwu",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-131469",
+     "listed_bachelor_programs": null,
+     "name": "George Washington University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_published"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "howard",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-131520",
+     "listed_bachelor_programs": null,
+     "name": "Howard University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "american",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-131159",
+     "listed_bachelor_programs": null,
+     "name": "American University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [
+      "2026-27"
+     ],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "met"
+     },
+     "folder": "georgetown",
+     "high_value_without_admission_rule": [
+      "business",
+      "computer_science",
+      "nursing"
+     ],
+     "institution_key": "ipeds-131496",
+     "listed_bachelor_programs": null,
+     "name": "Georgetown University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 3,
+     "queue": [
+      "admission_rules:not_yet_researched",
+      "catalog:not_yet_researched",
+      "degree_maps:not_yet_researched"
+     ],
+     "requirement_groups": 19,
+     "status": "partial",
+     "verified_bachelor_programs": 26
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "catholic",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-131283",
+     "listed_bachelor_programs": null,
+     "name": "The Catholic University of America",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "udc",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-131399",
+     "listed_bachelor_programs": null,
+     "name": "University of the District of Columbia",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "trinitydc",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-131876",
+     "listed_bachelor_programs": null,
+     "name": "Trinity Washington University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "gallaudet",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-131450",
+     "listed_bachelor_programs": null,
+     "name": "Gallaudet University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "newu",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-496803",
+     "listed_bachelor_programs": null,
+     "name": "NewU University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    }
+   ],
+   "not_yet_researched": 6,
+   "queue_entries": 11,
+   "queue_errors": [],
+   "state": "DC",
+   "status": "in_progress",
+   "unaccounted_institutions": []
+  },
+  {
+   "coverage_threshold": 0.8,
+   "covered_institutions": 0,
+   "entering_student_share_covered": 0.0,
+   "four_year_institutions": 5,
+   "institutions": [
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "udel",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-130943",
+     "listed_bachelor_programs": null,
+     "name": "University of Delaware",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "dtcc",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-130907",
+     "listed_bachelor_programs": null,
+     "name": "Delaware Technical Community College-Terry",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_published"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "desu",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-130934",
+     "listed_bachelor_programs": null,
+     "name": "Delaware State University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "wilmu",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-131113",
+     "listed_bachelor_programs": null,
+     "name": "Wilmington University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "gbc",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-130989",
+     "listed_bachelor_programs": null,
+     "name": "Goldey-Beacom College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    }
+   ],
+   "not_yet_researched": 2,
+   "queue_entries": 5,
+   "queue_errors": [],
+   "state": "DE",
    "status": "in_progress",
    "unaccounted_institutions": []
   },
@@ -6831,6 +7856,212 @@
    "queue_entries": 62,
    "queue_errors": [],
    "state": "GA",
+   "status": "in_progress",
+   "unaccounted_institutions": []
+  },
+  {
+   "coverage_threshold": 0.8,
+   "covered_institutions": 0,
+   "entering_student_share_covered": 0.0,
+   "four_year_institutions": 8,
+   "institutions": [
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "hawaii-141574",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-141574",
+     "listed_bachelor_programs": null,
+     "name": "University of Hawaii at Manoa",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "hpu",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-141644",
+     "listed_bachelor_programs": null,
+     "name": "Hawaii Pacific University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:layout_not_readable"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "maui",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-141839",
+     "listed_bachelor_programs": null,
+     "name": "University of Hawaii Maui College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "chaminade",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-141486",
+     "listed_bachelor_programs": null,
+     "name": "Chaminade University of Honolulu",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "hilo",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-141565",
+     "listed_bachelor_programs": null,
+     "name": "University of Hawaii at Hilo",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "byuh",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-230047",
+     "listed_bachelor_programs": null,
+     "name": "Brigham Young University-Hawaii",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "westoahu",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-141981",
+     "listed_bachelor_programs": null,
+     "name": "University of Hawaii-West Oahu",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "pacrim",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-457484",
+     "listed_bachelor_programs": null,
+     "name": "Pacific Rim Christian University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    }
+   ],
+   "not_yet_researched": 5,
+   "queue_entries": 8,
+   "queue_errors": [],
+   "state": "HI",
    "status": "in_progress",
    "unaccounted_institutions": []
   },
@@ -11466,6 +12697,1223 @@
    "queue_entries": 31,
    "queue_errors": [],
    "state": "LA",
+   "status": "in_progress",
+   "unaccounted_institutions": []
+  },
+  {
+   "coverage_threshold": 0.8,
+   "covered_institutions": 0,
+   "entering_student_share_covered": 0.0,
+   "four_year_institutions": 31,
+   "institutions": [
+    {
+     "academic_years": [
+      "2026-27"
+     ],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "met",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "met"
+     },
+     "folder": "umd",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-163286",
+     "listed_bachelor_programs": null,
+     "name": "University of Maryland-College Park",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "catalog:layout_not_readable",
+      "degree_maps:not_yet_researched"
+     ],
+     "requirement_groups": 5,
+     "status": "partial",
+     "verified_bachelor_programs": 1
+    },
+    {
+     "academic_years": [
+      "2026-27"
+     ],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "met",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "met"
+     },
+     "folder": "towson",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-164076",
+     "listed_bachelor_programs": null,
+     "name": "Towson University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "catalog:not_yet_researched",
+      "degree_maps:not_yet_researched"
+     ],
+     "requirement_groups": 7,
+     "status": "partial",
+     "verified_bachelor_programs": 2
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "morgan",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-163453",
+     "listed_bachelor_programs": null,
+     "name": "Morgan State University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "umbc",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-163268",
+     "listed_bachelor_programs": null,
+     "name": "University of Maryland-Baltimore County",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [
+      "2026-27"
+     ],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "met"
+     },
+     "folder": "jhu",
+     "high_value_without_admission_rule": [
+      "computer_science",
+      "engineering"
+     ],
+     "institution_key": "ipeds-162928",
+     "listed_bachelor_programs": null,
+     "name": "Johns Hopkins University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 5,
+     "queue": [
+      "admission_rules:not_yet_researched",
+      "catalog:not_yet_researched",
+      "degree_maps:not_yet_researched"
+     ],
+     "requirement_groups": 2,
+     "status": "partial",
+     "verified_bachelor_programs": 63
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "salisbury",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-163851",
+     "listed_bachelor_programs": null,
+     "name": "Salisbury University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "umgc",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-163204",
+     "listed_bachelor_programs": null,
+     "name": "University of Maryland Global Campus",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "usna",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-164155",
+     "listed_bachelor_programs": null,
+     "name": "United States Naval Academy",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "loyola",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-163046",
+     "listed_bachelor_programs": null,
+     "name": "Loyola University Maryland",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "bowiestate",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-162007",
+     "listed_bachelor_programs": null,
+     "name": "Bowie State University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "stevenson",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-164173",
+     "listed_bachelor_programs": null,
+     "name": "Stevenson University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "umes",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-163338",
+     "listed_bachelor_programs": null,
+     "name": "University of Maryland Eastern Shore",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "frostburg",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-162584",
+     "listed_bachelor_programs": null,
+     "name": "Frostburg State University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "msmary",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-163462",
+     "listed_bachelor_programs": null,
+     "name": "Mount St. Mary's University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "smcm",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-163912",
+     "listed_bachelor_programs": null,
+     "name": "St. Mary's College of Maryland",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "mcdaniel",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-164270",
+     "listed_bachelor_programs": null,
+     "name": "McDaniel College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "coppin",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-162283",
+     "listed_bachelor_programs": null,
+     "name": "Coppin State University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "hood",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-162760",
+     "listed_bachelor_programs": null,
+     "name": "Hood College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "mica",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-163295",
+     "listed_bachelor_programs": null,
+     "name": "Maryland Institute College of Art",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "goucher",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-162654",
+     "listed_bachelor_programs": null,
+     "name": "Goucher College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "washcoll",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-164216",
+     "listed_bachelor_programs": null,
+     "name": "Washington College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "ndm",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-163578",
+     "listed_bachelor_programs": null,
+     "name": "Notre Dame of Maryland University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "sjc",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-163976",
+     "listed_bachelor_programs": null,
+     "name": "St. John's College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "wau",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-162210",
+     "listed_bachelor_programs": null,
+     "name": "Washington Adventist University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "captechu",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-162061",
+     "listed_bachelor_programs": null,
+     "name": "Capitol Technology University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "wits",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-491631",
+     "listed_bachelor_programs": null,
+     "name": "Women's Institute of Torah Seminary and College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "nirc",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-163532",
+     "listed_bachelor_programs": null,
+     "name": "Ner Israel Rabbinical College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "ubalt",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-161873",
+     "listed_bachelor_programs": null,
+     "name": "University of Baltimore",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "bhmb",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-476601",
+     "listed_bachelor_programs": null,
+     "name": "Bais HaMedrash and Mesivta of Baltimore",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "ycnc",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-434937",
+     "listed_bachelor_programs": null,
+     "name": "Yeshiva College of the Nations Capital",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "umaryland",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-163259",
+     "listed_bachelor_programs": null,
+     "name": "University of Maryland, Baltimore",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    }
+   ],
+   "not_yet_researched": 17,
+   "queue_entries": 35,
+   "queue_errors": [],
+   "state": "MD",
+   "status": "in_progress",
+   "unaccounted_institutions": []
+  },
+  {
+   "coverage_threshold": 0.8,
+   "covered_institutions": 0,
+   "entering_student_share_covered": 0.0,
+   "four_year_institutions": 18,
+   "institutions": [
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "umaine",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-161253",
+     "listed_bachelor_programs": null,
+     "name": "University of Maine",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "unity",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-161572",
+     "listed_bachelor_programs": null,
+     "name": "Unity Environmental University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "maine",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-161554",
+     "listed_bachelor_programs": null,
+     "name": "University of Southern Maine",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "colby",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-161086",
+     "listed_bachelor_programs": null,
+     "name": "Colby College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "une",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-161457",
+     "listed_bachelor_programs": null,
+     "name": "University of New England",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "husson",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-487524",
+     "listed_bachelor_programs": null,
+     "name": "Husson University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "bates",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-160977",
+     "listed_bachelor_programs": null,
+     "name": "Bates College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "bowdoin",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-161004",
+     "listed_bachelor_programs": null,
+     "name": "Bowdoin College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "sjcme",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-161518",
+     "listed_bachelor_programs": null,
+     "name": "Saint Joseph's College of Maine",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "uma",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-161217",
+     "listed_bachelor_programs": null,
+     "name": "University of Maine at Augusta",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "mainemaritime",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-161299",
+     "listed_bachelor_programs": null,
+     "name": "Maine Maritime Academy",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "umf",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-161226",
+     "listed_bachelor_programs": null,
+     "name": "University of Maine at Farmington",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "thomas",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-161563",
+     "listed_bachelor_programs": null,
+     "name": "Thomas College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "umpi",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-161341",
+     "listed_bachelor_programs": null,
+     "name": "University of Maine at Presque Isle",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "meca",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-161509",
+     "listed_bachelor_programs": null,
+     "name": "Maine College of Art & Design",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "coa",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-160959",
+     "listed_bachelor_programs": null,
+     "name": "College of the Atlantic",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "umfk",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-161235",
+     "listed_bachelor_programs": null,
+     "name": "University of Maine at Fort Kent",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "mchp",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-161022",
+     "listed_bachelor_programs": null,
+     "name": "Maine College of Health Professions",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    }
+   ],
+   "not_yet_researched": 12,
+   "queue_entries": 18,
+   "queue_errors": [],
+   "state": "ME",
    "status": "in_progress",
    "unaccounted_institutions": []
   },
@@ -17584,6 +20032,1283 @@
   },
   {
    "coverage_threshold": 0.8,
+   "covered_institutions": 1,
+   "entering_student_share_covered": 0.007,
+   "four_year_institutions": 52,
+   "institutions": [
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "newbrunswick",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-186380",
+     "listed_bachelor_programs": null,
+     "name": "Rutgers University-New Brunswick",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "montclair",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-185590",
+     "listed_bachelor_programs": null,
+     "name": "Montclair State University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "rowan",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-184782",
+     "listed_bachelor_programs": null,
+     "name": "Rowan University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "kean",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-185262",
+     "listed_bachelor_programs": null,
+     "name": "Kean University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [
+      "2026-27"
+     ],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "met",
+      "requirement_groups": "met"
+     },
+     "folder": "njit",
+     "high_value_without_admission_rule": [
+      "business",
+      "computer_science",
+      "engineering"
+     ],
+     "institution_key": "ipeds-185828",
+     "listed_bachelor_programs": null,
+     "name": "New Jersey Institute of Technology",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 37,
+     "queue": [
+      "admission_rules:not_yet_researched",
+      "catalog:not_yet_researched"
+     ],
+     "requirement_groups": 10,
+     "status": "partial",
+     "verified_bachelor_programs": 48
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "shu",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-186584",
+     "listed_bachelor_programs": null,
+     "name": "Seton Hall University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "tcnj",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-187134",
+     "listed_bachelor_programs": null,
+     "name": "The College of New Jersey",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "stockton",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-186876",
+     "listed_bachelor_programs": null,
+     "name": "Stockton University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "newark",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-186399",
+     "listed_bachelor_programs": null,
+     "name": "Rutgers University-Newark",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "princeton",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-186131",
+     "listed_bachelor_programs": null,
+     "name": "Princeton University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "stevens",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-186867",
+     "listed_bachelor_programs": null,
+     "name": "Stevens Institute of Technology",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "ramapo",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-186201",
+     "listed_bachelor_programs": null,
+     "name": "Ramapo College of New Jersey",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "monmouth",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-185572",
+     "listed_bachelor_programs": null,
+     "name": "Monmouth University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "wpunj",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-187444",
+     "listed_bachelor_programs": null,
+     "name": "William Paterson University of New Jersey",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [
+      "2026-27"
+     ],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "met",
+      "catalog": "queued",
+      "degree_maps": "met",
+      "requirement_groups": "met"
+     },
+     "folder": "rider",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-186283",
+     "listed_bachelor_programs": null,
+     "name": "Rider University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 1,
+     "queue": [
+      "catalog:not_yet_researched"
+     ],
+     "requirement_groups": 7,
+     "status": "partial",
+     "verified_bachelor_programs": 1
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "fdu-184603",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-184603",
+     "listed_bachelor_programs": null,
+     "name": "Fairleigh Dickinson University-Metropolitan Campus",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "camden",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-186371",
+     "listed_bachelor_programs": null,
+     "name": "Rutgers University-Camden",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "njcu",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-185129",
+     "listed_bachelor_programs": null,
+     "name": "New Jersey City University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_published"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "fdu-184694",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-184694",
+     "listed_bachelor_programs": null,
+     "name": "Fairleigh Dickinson University-Florham Campus",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "saintpeters",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-186432",
+     "listed_bachelor_programs": null,
+     "name": "Saint Peter's University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "drew",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-184348",
+     "listed_bachelor_programs": null,
+     "name": "Drew University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "felician",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-184612",
+     "listed_bachelor_programs": null,
+     "name": "Felician University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "caldwell",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-183910",
+     "listed_bachelor_programs": null,
+     "name": "Caldwell University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [
+      "2026-27"
+     ],
+     "catalog_share": 0.966,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "met",
+      "degree_maps": "met",
+      "requirement_groups": "met"
+     },
+     "folder": "georgian",
+     "high_value_without_admission_rule": [
+      "business",
+      "computer_science",
+      "nursing"
+     ],
+     "institution_key": "ipeds-184773",
+     "listed_bachelor_programs": 29,
+     "name": "Georgian Court University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 23,
+     "queue": [
+      "admission_rules:not_yet_researched"
+     ],
+     "requirement_groups": 75,
+     "status": "covered",
+     "verified_bachelor_programs": 28
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "bloomfield",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-183822",
+     "listed_bachelor_programs": null,
+     "name": "Bloomfield College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "centenaryuniversity",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-183974",
+     "listed_bachelor_programs": null,
+     "name": "Centenary University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "steu",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-186618",
+     "listed_bachelor_programs": null,
+     "name": "Saint Elizabeth University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "pillar",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-440794",
+     "listed_bachelor_programs": null,
+     "name": "Pillar College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "ytclakewood",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-451398",
+     "listed_bachelor_programs": null,
+     "name": "Yeshiva Toras Chaim",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "rca",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-186186",
+     "listed_bachelor_programs": null,
+     "name": "Rabbinical College of America",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "yeshivagedolahshaareishmuel",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-488350",
+     "listed_bachelor_programs": null,
+     "name": "Yeshiva Gedolah Shaarei Shmuel",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "yeshivagedolahkerenhatorah",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-491640",
+     "listed_bachelor_programs": null,
+     "name": "Yeshiva Gedolah Keren Hatorah",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "bmtc",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-449658",
+     "listed_bachelor_programs": null,
+     "name": "Bais Medrash Toras Chesed",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "mkorchaim",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-194718",
+     "listed_bachelor_programs": null,
+     "name": "Rabbinical Seminary Mkor Chaim",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "yeshivasemekhatorah",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-491765",
+     "listed_bachelor_programs": null,
+     "name": "Yeshivas Emek Hatorah",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "rabbijacobjoseph",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-384421",
+     "listed_bachelor_programs": null,
+     "name": "Rabbi Jacob Joseph School",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "yeshivagedolatiferesyerachmiel",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-491914",
+     "listed_bachelor_programs": null,
+     "name": "Yeshiva Gedola Tiferes Yerachmiel",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "yeshivachemdashatorah",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-491622",
+     "listed_bachelor_programs": null,
+     "name": "Yeshiva Chemdas Hatorah",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "yeshivaohrzechariah",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-493707",
+     "listed_bachelor_programs": null,
+     "name": "Yeshiva Gedolah of Woodlake Village",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "yeshivatyy",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-493716",
+     "listed_bachelor_programs": null,
+     "name": "Yeshiva Gedola Tiferes Yaakov Yitzchok",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "yeshivayesodeihatorahlakewood",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-481438",
+     "listed_bachelor_programs": null,
+     "name": "Yeshiva Yesodei Hatorah",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "yeshivagedolahtiferesboruch",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-491613",
+     "listed_bachelor_programs": null,
+     "name": "Yeshiva Gedolah Tiferes Boruch",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "baismedrashzichronmeir",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-488314",
+     "listed_bachelor_programs": null,
+     "name": "Beth Medrash of Asbury Park",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "baismedrashmayanhatorah",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-490513",
+     "listed_bachelor_programs": null,
+     "name": "Bais Medrash Mayan Hatorah",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "yzl",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-476692",
+     "listed_bachelor_programs": null,
+     "name": "Yeshiva Gedolah Zichron Leyma",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "yeshivagedolahcliffwood",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-491710",
+     "listed_bachelor_programs": null,
+     "name": "Yeshiva Gedolah of Cliffwood",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "talmudicalacademynj",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-186900",
+     "listed_bachelor_programs": null,
+     "name": "Talmudical Academy-New Jersey",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "yeshivabaisaharon",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-490319",
+     "listed_bachelor_programs": null,
+     "name": "Yeshiva Bais Aharon",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "mayanhatalmud",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-461847",
+     "listed_bachelor_programs": null,
+     "name": "Keser Torah-Mayan Hatalmud",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "yeshivasbeeryitzchok",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-451370",
+     "listed_bachelor_programs": null,
+     "name": "Yeshivas Be'er Yitzchok",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "yeshivanotices",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-183804",
+     "listed_bachelor_programs": null,
+     "name": "Beth Medrash Govoha",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "tesu",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-187046",
+     "listed_bachelor_programs": null,
+     "name": "Thomas Edison State University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    }
+   ],
+   "not_yet_researched": 44,
+   "queue_entries": 53,
+   "queue_errors": [],
+   "state": "NJ",
+   "status": "in_progress",
+   "unaccounted_institutions": []
+  },
+  {
+   "coverage_threshold": 0.8,
    "covered_institutions": 0,
    "entering_student_share_covered": 0.0,
    "four_year_institutions": 11,
@@ -19544,6 +23269,311 @@
    "queue_entries": 41,
    "queue_errors": [],
    "state": "OR",
+   "status": "in_progress",
+   "unaccounted_institutions": []
+  },
+  {
+   "coverage_threshold": 0.8,
+   "covered_institutions": 0,
+   "entering_student_share_covered": 0.0,
+   "four_year_institutions": 12,
+   "institutions": [
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "uri",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-217484",
+     "listed_bachelor_programs": null,
+     "name": "University of Rhode Island",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "brown",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-217156",
+     "listed_bachelor_programs": null,
+     "name": "Brown University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "providence",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-217402",
+     "listed_bachelor_programs": null,
+     "name": "Providence College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "jwu-217235",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-217235",
+     "listed_bachelor_programs": null,
+     "name": "Johnson & Wales University-Providence",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "rwu",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-217518",
+     "listed_bachelor_programs": null,
+     "name": "Roger Williams University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [
+      "2026-27"
+     ],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "met",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "met"
+     },
+     "folder": "bryant",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-217165",
+     "listed_bachelor_programs": null,
+     "name": "Bryant University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "catalog:not_yet_researched",
+      "degree_maps:not_yet_researched"
+     ],
+     "requirement_groups": 15,
+     "status": "partial",
+     "verified_bachelor_programs": 10
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "ric",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-217420",
+     "listed_bachelor_programs": null,
+     "name": "Rhode Island College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "salve",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-217536",
+     "listed_bachelor_programs": null,
+     "name": "Salve Regina University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "risd",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-217493",
+     "listed_bachelor_programs": null,
+     "name": "Rhode Island School of Design",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "neit",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-217305",
+     "listed_bachelor_programs": null,
+     "name": "New England Institute of Technology",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "jwu",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-460349",
+     "listed_bachelor_programs": null,
+     "name": "Johnson & Wales University-Online",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "collegeunbound",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-493822",
+     "listed_bachelor_programs": null,
+     "name": "College Unbound",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    }
+   ],
+   "not_yet_researched": 10,
+   "queue_entries": 13,
+   "queue_errors": [],
+   "state": "RI",
    "status": "in_progress",
    "unaccounted_institutions": []
   },
@@ -26376,6 +30406,268 @@
    "queue_entries": 56,
    "queue_errors": [],
    "state": "VA",
+   "status": "in_progress",
+   "unaccounted_institutions": []
+  },
+  {
+   "coverage_threshold": 0.8,
+   "covered_institutions": 1,
+   "entering_student_share_covered": 0.496,
+   "four_year_institutions": 10,
+   "institutions": [
+    {
+     "academic_years": [
+      "2026-27"
+     ],
+     "catalog_share": 0.929,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "met",
+      "degree_maps": "queued",
+      "requirement_groups": "met"
+     },
+     "folder": "uvm",
+     "high_value_without_admission_rule": [
+      "business",
+      "computer_science",
+      "engineering",
+      "nursing"
+     ],
+     "institution_key": "ipeds-231174",
+     "listed_bachelor_programs": 99,
+     "name": "University of Vermont",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "admission_rules:no_official_statement",
+      "degree_maps:not_yet_researched"
+     ],
+     "requirement_groups": 161,
+     "status": "covered",
+     "verified_bachelor_programs": 92
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "middlebury",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-230959",
+     "listed_bachelor_programs": null,
+     "name": "Middlebury College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "vermontstate",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-231165",
+     "listed_bachelor_programs": null,
+     "name": "Vermont State University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "norwich",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-230995",
+     "listed_bachelor_programs": null,
+     "name": "Norwich University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:no_year_label"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "champlain",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-230852",
+     "listed_bachelor_programs": null,
+     "name": "Champlain College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "smcvt",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-231059",
+     "listed_bachelor_programs": null,
+     "name": "Saint Michael's College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:fetch_failed"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "bennington",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-230816",
+     "listed_bachelor_programs": null,
+     "name": "Bennington College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "landmark",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-247649",
+     "listed_bachelor_programs": null,
+     "name": "Landmark College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "sterlingcollege",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-231095",
+     "listed_bachelor_programs": null,
+     "name": "Sterling College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "goddard",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-230889",
+     "listed_bachelor_programs": null,
+     "name": "Goddard College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    }
+   ],
+   "not_yet_researched": 5,
+   "queue_entries": 11,
+   "queue_errors": [],
+   "state": "VT",
    "status": "in_progress",
    "unaccounted_institutions": []
   },

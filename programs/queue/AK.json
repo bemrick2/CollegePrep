@@ -27,35 +27,35 @@
   },
   {
    "institution_key": "ipeds-102632",
-   "gap": "catalog",
-   "reason": "not_yet_researched",
-   "next_action": "Configure UAS's program list (catalog.uas.alaska.edu/certificate-degree-programs/bachelors-degrees/) and record the listed bachelor's count.",
-   "detail": "16 verified; listed count not yet recorded."
-  },
-  {
-   "institution_key": "ipeds-102632",
    "gap": "degree_maps",
-   "reason": "not_yet_researched",
-   "next_action": "Read the published plans (3 of 40 program pages print a plan marker)."
+   "reason": "not_published",
+   "next_action": "Re-check if UAS publishes four-year plans on another official page.",
+   "evidence_url": "https://catalog.uas.alaska.edu/certificate-degree-programs/bachelors-degrees/",
+   "detail": "None of the 45 UAS program pages read in run 2026-10-07-cat3 prints or links a four-year plan or degree map."
   },
   {
    "institution_key": "ipeds-102632",
    "gap": "requirement_groups",
    "reason": "layout_not_readable",
-   "next_action": "Improve the requirement reader for this layout and re-review.",
-   "detail": "All 187 major-requirement candidates carry review issues (held)."
+   "next_action": "Improve the requirement reader for UAS Course List rows and re-review.",
+   "detail": "All 188 UAS major-requirement candidates in run 2026-10-07-cat3 carry review issues (complex rows and options not read); held, not guessed.",
+   "evidence_url": "https://catalog.uas.alaska.edu/certificate-degree-programs/bachelors-degrees/"
   },
   {
    "institution_key": "ipeds-102632",
    "gap": "admission_rules",
-   "reason": "not_yet_researched",
-   "next_action": "Review 3 admission-category sentences for: business."
+   "reason": "no_official_statement",
+   "next_action": "Check UAS's official admissions pages for a business admission category.",
+   "evidence_url": "https://catalog.uas.alaska.edu/certificate-degree-programs/bachelors-degrees/business-administration-bba/",
+   "detail": "The BBA page states only that lower-division courses must be substantially completed before upper-division courses; no first-year admission category."
   },
   {
    "institution_key": "ipeds-434584",
    "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate and configure the catalog (discovery found no catalog)."
+   "reason": "no_year_label",
+   "next_action": "Find an official Ilisagvik page that dates the program pages (the catalog home is titled 'Course Catalog 2026-2027', but the program pages print no year).",
+   "evidence_url": "https://catalog.ilisagvik.edu/business-administration/bachelor-in-business-administration/business-administration",
+   "detail": "108 program pages read in run 2026-10-07-cat; none prints an academic year (only '\u00a9 2026'). The Bachelor in Business Administration is the only bachelor's program listed."
   },
   {
    "institution_key": "ipeds-102669",
@@ -68,8 +68,10 @@
   {
    "institution_key": "ipeds-102580",
    "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate and configure the catalog (discovery found no catalog)."
+   "reason": "layout_not_readable",
+   "next_action": "Read the two bachelor's programs (B.A. Biblical Studies and Christian Ministry; B.A. Elementary Education) from the 2026-2027 catalog PDF's program pages.",
+   "evidence_url": "https://www.akbible.edu/_cdn/static/48f01879-63af-4ab8-b1d9-f2211835243c-abc-academic-catalog-2026-2027-final-2.0.pdf",
+   "detail": "The 37 MB 2026-2027 Academic Catalog PDF was fetched in run 2026-10-07-cat3 (large-file fetch); its prose layout yields no program candidates."
   }
  ]
 }
