@@ -1,5 +1,8 @@
+import type { InterestProfile } from '../../engine/interests'
+import { readInterests, writeInterests } from '../../interestStore'
 import { INVITE_TTL_HOURS, formatInviteCode } from '../../invites'
-import type { DataSource, InvitationSummary, InviteSendResult, StudentInvitation } from '../source'
+import type { AlertPreference, DataSource, InactiveStudent, InvitationSummary, InviteSendResult, StudentInvitation } from '../source'
+import { suggestNextWeek, type NextWeekSuggestion } from '../../engine/weeklyPlan'
 import { DataError } from '../source'
 import type {
   AttemptRecord,
@@ -27,7 +30,7 @@ import type { FixtureQuestion } from './fixtures'
 import { emptyStore, loadStore, saveStore, uid, type DemoAttempt, type DemoStore } from './store'
 import { gradeAnswer } from '../../engine/grading'
 import { recommend, skillEstimates, streakFrom, weeklyProgress } from '../../engine/analytics'
-import { browserTimeZone, localDate } from '../../engine/dates'
+import { addDays, browserTimeZone, localDate, weekStartOf } from '../../engine/dates'
 import { MAX_SAVED_SCHOOLS, readPrimarySchool, readSavedSchools, writePrimarySchool, writeSavedSchools } from '../../savedSchools'
 
 export const DEMO_PARENT = 'demo-parent'
@@ -371,6 +374,46 @@ export class DemoSource implements DataSource {
     this.commit()
   }
 
+  async suggestNextWeekGoal(studentId: string): Promise<NextWeekSuggestion> {
+    this.requireView(studentId)
+    const tz = this.tz(studentId)
+    const thisWeek = weekStartOf(localDate(new Date(), tz))
+    const next = addDays(thisWeek, 7)
+    const past = await Promise.all(
+      [0, 1, 2, 3].map(async (n) => {
+        const w = addDays(thisWeek, -7 * n)
+        const p = await this.weeklyProgress(studentId, w)
+        return { target: p.goal?.target_questions ?? null, done: p.questions_submitted }
+      }),
+    )
+    return suggestNextWeek(next, past)
+  }
+
+  async getAlertPreference(studentId: string): Promise<AlertPreference | null> {
+    this.requireView(studentId)
+    return delay(this.s.alerts?.[`${this.viewerId()}:${studentId}`] ?? null)
+  }
+
+  async setAlertPreference(studentId: string, pref: AlertPreference) {
+    this.requireView(studentId)
+    if (pref.inactivityDays < 1 || pref.inactivityDays > 60) throw new DataError('Choose 1 to 60 days', 'invalid')
+    this.s.alerts = { ...(this.s.alerts ?? {}), [`${this.viewerId()}:${studentId}`]: pref }
+    this.commit()
+  }
+
+  async inactiveStudents(): Promise<InactiveStudent[]> {
+    const me = this.viewerId()
+    const out: InactiveStudent[] = []
+    for (const [k, pref] of Object.entries(this.s.alerts ?? {})) {
+      const [user, studentId] = k.split(':') as [string, string]
+      if (user !== me || !pref.enabled) continue
+      const last = this.attemptsOf(studentId).map((a) => a.submitted_at).sort().pop() ?? null
+      const days = last ? Math.floor((Date.now() - new Date(last).getTime()) / 86_400_000) : null
+      if (days === null || days >= pref.inactivityDays) out.push({ studentId, daysInactive: days, thresholdDays: pref.inactivityDays, lastSubmittedAt: last })
+    }
+    return delay(out)
+  }
+
   async weeklyProgress(studentId: string, weekStart: string): Promise<WeeklyProgress> {
     const F = await loadFixtures()
     this.requireView(studentId)
@@ -628,6 +671,14 @@ export class DemoSource implements DataSource {
   }
 
   readonly supportsPrimarySchool = true
+
+  async interests(studentId: string) {
+    return readInterests(studentId)
+  }
+
+  async saveInterests(studentId: string, profile: InterestProfile) {
+    writeInterests(studentId, profile)
+  }
 
   // The demo has no billing: no plan, price or checkout is shown (nothing is simulated).
   readonly supportsBilling = false

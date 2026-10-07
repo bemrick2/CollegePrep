@@ -75,13 +75,22 @@ describe('LiveSource contracts (issue #37)', () => {
     expect(calls.at(-1)!.args).toEqual({ p_academic_year: '2026-27', p_state: null })
   })
 
-  it('CR-12 pending: no primary school in live mode, and no client-side stand-in', async () => {
-    const { sb, calls } = fakeClient({})
+  it('CR-12: the primary school is the saved row flagged is_primary, set through the RPC', async () => {
+    const { sb, calls } = fakeClient({ 'household_saved_schools:single': { institution_key: 'utk' } })
     const src = new LiveSource(sb)
-    expect(src.supportsPrimarySchool).toBe(false)
-    expect(await src.primarySchool('h1')).toBeNull()
-    await expect(src.setPrimarySchool('h1', 'utk')).rejects.toThrow(/not available yet/)
-    expect(calls).toHaveLength(0)
+    expect(src.supportsPrimarySchool).toBe(true)
+    expect(await src.primarySchool('h1')).toBe('utk')
+    expect(calls[0]!.ops).toContainEqual(['eq', ['is_primary', true]])
+    await src.setPrimarySchool('h1', null)
+    expect(calls.at(-1)).toMatchObject({ kind: 'rpc', name: 'set_household_primary_school', args: { p_household: 'h1', p_institution_key: null } })
+  })
+
+  it('CR-13: interests read from and saved to student_academic_interests, dropping a false focus', async () => {
+    const { sb, calls } = fakeClient({ 'student_academic_interests:single': { certainty: 'few', interests: [{ kind: 'major', key: 'finance' }] } })
+    const src = new LiveSource(sb)
+    expect(await src.interests('s1')).toEqual({ certainty: 'few', interests: [{ kind: 'major', key: 'finance' }] })
+    await src.saveInterests('s1', { certainty: 'sure', interests: [{ kind: 'major', key: 'finance', focus: false }, { kind: 'area', key: 'business', focus: true }] })
+    expect(calls.at(-1)!.ops).toContainEqual(['update', [{ certainty: 'sure', interests: [{ kind: 'major', key: 'finance' }, { kind: 'area', key: 'business', focus: true }] }]])
   })
 
   it('CR-16 billing: entitlement RPC, Checkout and Portal through edge functions; no Stripe keys in the client', async () => {

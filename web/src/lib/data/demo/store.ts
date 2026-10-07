@@ -64,6 +64,8 @@ export interface DemoStore {
   scores: (TestScore & { student_id: string })[]
   plans: Record<string, StudentPlan>
   benchmarks: Record<string, BenchmarkSummary[]>
+  /** viewerId:studentId → inactivity alert setting. */
+  alerts?: Record<string, { enabled: boolean; inactivityDays: number }>
 }
 
 const KEY = 'pp-demo-v1'
