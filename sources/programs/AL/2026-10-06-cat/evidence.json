@@ -494,6 +494,37 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "335fd0f1c2a38945": {
+  "decision": {
+   "candidate_id": "335fd0f1c2a38945",
+   "reason": "Standing review (static_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
+  },
+  "evidence": [
+   {
+    "field": "program_name",
+    "snippet": "BA Chemistry (CHMA)",
+    "value": "BA Chemistry (CHMA)"
+   },
+   {
+    "field": "catalog_year",
+    "snippet": "Auburn Bulletin 2026-2027",
+    "value": "2026-2027"
+   }
+  ],
+  "extractor": "static_program/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T10:13:20+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 14 Aug 2026 14:47:24 GMT",
+   "page_file": "9d103dc59caec8e38bfa.json.gz",
+   "requested_url": "https://bulletin.auburn.edu/undergraduate/collegeofsciencesandmathematics/chemistryandbiochemistry/bacurriculuminchemistry_major/",
+   "sha256": "9d103dc59caec8e38bfaf460a58072d521080f922cfa90b759650897e685f0c0",
+   "title": "BA Chemistry (CHMA) | Auburn University Bulletin",
+   "url": "https://bulletin.auburn.edu/undergraduate/collegeofsciencesandmathematics/chemistryandbiochemistry/bacurriculuminchemistry_major/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "34c352415e85acf9": {
   "decision": {
    "candidate_id": "34c352415e85acf9",
@@ -2478,17 +2509,17 @@
   "decision": {
    "catalog_url": "https://bulletin.auburn.edu/",
    "catalog_year_label": "2026-2027",
-   "completeness_basis": "Undergraduate Majors page of the Auburn Bulletin 2026-2027, listed by college. Options, tracks, pre-professional concentrations, entry paths and online completer variants were collapsed to 120 major+award programs. Collapsed examples: Architecture BArch Foundation/Summer Design, Business Administration online completer, CS online BCS, and RN-BSN into Nursing. Biosystems Engineering, listed under 2 colleges, counts once. Excluded: non-degree headers ('Science Teaching'). The 65 verified records cover 65 of the 120. The earlier figure of 143 counted options.",
+   "completeness_basis": "Undergraduate Majors page of the Auburn Bulletin 2026-2027, listed by college. Options, tracks, pre-professional concentrations, entry paths and online completer variants collapse to major+award programs. Biosystems Engineering is listed under 3 colleges (including the Forest Engineering Option) and counts once. 'Science Teaching' is excluded. The reviewed figure of 120 is kept: re-collapsing gives 119, plus Biochemistry (printed as 'Biochemistry Option' under Chemistry BS but listed on its own in the A-Z index), which is counted as unsure. The 66 verified records are all bare-major list pages, one per program, and cover 66 of the 120. This is up from 65 because BA Chemistry is new. None are matched through concentration records.",
    "institution_key": "ipeds-100858",
    "listed_bachelor_programs": 120,
    "programs_complete": false,
-   "reason": "Catalog-count review 2026-10-06: official current list page.",
+   "reason": "Catalog-count review 2026-10-07: official current list page.",
    "source_evidence": {
     "fetched_at": "2026-10-06T10:11:07+00:00",
     "sha256": "bdbc1f4b9746652338b71b726e8bbd4f82acd452ad0e7b52c13651c3e8d26976",
     "url": "https://bulletin.auburn.edu/undergraduate/majors/"
    },
-   "verified_listed_programs": 65
+   "verified_listed_programs": 66
   },
   "sentences": []
  },
