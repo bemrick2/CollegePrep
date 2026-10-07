@@ -1553,6 +1553,17 @@ class ListedEmphasisTests(unittest.TestCase):
             {'listed_as': None, 'printed': 'Art - Paint Emphasis, Minor', 'url': 'https://a/art-minor'}]}}
         self.assertEqual(sorted(u for _, u in listed_emphasis_pages(lists, norm)), ['https://a/chem-bio', 'https://a/fs', 'https://a/ps-ag'])
 
+    def test_program_heading_skips_catalog_year_heading(self):
+        from programs.extract import program_heading, static_program_identity
+        from pipeline import text as T
+        page = T.Page('Catalog 2026-2027\nComputer Science B.A.', 'Computer Science B.A. | University of Alaska Fairbanks Catalog', [], [],
+                      ['Catalog 2026-2027', 'Computer Science B.A.', 'Admission Requirements'])
+        self.assertEqual(program_heading(page), 'Computer Science B.A.')
+        got = static_program_identity({'institution_key': 'k'}, {'url': 'https://catalog.uaf.edu/bachelors/computer-science-ba/'}, page, '2026-27')
+        self.assertEqual([c['record']['program_name'] for c in got], ['Computer Science B.A.'])
+        index = T.Page('Catalog 2026-2027', "Bachelor's Degrees | UAS", [], [], ['Catalog 2026-2027', "Bachelor's Degrees"])
+        self.assertEqual(static_program_identity({'institution_key': 'k'}, {'url': 'https://catalog.uas.alaska.edu/x/'}, index, '2026-27'), [])
+
     def test_shared_catalog_sections_are_excluded(self):
         from programs.crawl import program_rule, excluded
         t = {'catalog': {'platform': 'courseleaf', 'home': 'https://catalog.unh.edu/', 'path_prefix': '/', 'min_depth': 1,

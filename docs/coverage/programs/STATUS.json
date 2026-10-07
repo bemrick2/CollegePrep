@@ -1,16 +1,16 @@
 {
  "national": {
-  "covered": 25,
+  "covered": 27,
   "definition": "Registered: four-year schools in the national registry (pipeline/registry; scope rule in pipeline/registry.py). Researched: a verified or partially verified deep-dive record, or a queue entry recording an attempt other than not_yet_researched. Covered: meets docs/PROGRAM_DEPTH_COMPLETION.md. Untracked states count as registered only.",
   "registered": 2119,
-  "researched": 328,
+  "researched": 332,
   "states": [
    {
-    "covered": 0,
+    "covered": 2,
     "registered": 6,
-    "researched": 0,
+    "researched": 4,
     "state": "AK",
-    "tracked": false
+    "tracked": true
    },
    {
     "covered": 0,
@@ -363,10 +363,188 @@
     "tracked": true
    }
   ],
-  "states_tracked": 33
+  "states_tracked": 34
  },
  "rule": "docs/PROGRAM_DEPTH_COMPLETION.md",
  "states": [
+  {
+   "coverage_threshold": 0.8,
+   "covered_institutions": 2,
+   "entering_student_share_covered": 0.905,
+   "four_year_institutions": 6,
+   "institutions": [
+    {
+     "academic_years": [
+      "2026-27"
+     ],
+     "catalog_share": 1.0,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "met",
+      "degree_maps": "met",
+      "requirement_groups": "met"
+     },
+     "folder": "uaa",
+     "high_value_without_admission_rule": [
+      "business",
+      "computer_science",
+      "engineering"
+     ],
+     "institution_key": "ipeds-102553",
+     "listed_bachelor_programs": 58,
+     "name": "University of Alaska Anchorage",
+     "partially_verified_programs": 0,
+     "programs_complete": true,
+     "programs_with_plan": 44,
+     "queue": [
+      "admission_rules:no_official_statement"
+     ],
+     "requirement_groups": 5,
+     "status": "covered",
+     "verified_bachelor_programs": 59
+    },
+    {
+     "academic_years": [
+      "2026-27"
+     ],
+     "catalog_share": 1.0,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "met",
+      "degree_maps": "queued",
+      "requirement_groups": "met"
+     },
+     "folder": "uaf",
+     "high_value_without_admission_rule": [
+      "business",
+      "computer_science",
+      "engineering"
+     ],
+     "institution_key": "ipeds-102614",
+     "listed_bachelor_programs": 61,
+     "name": "University of Alaska Fairbanks",
+     "partially_verified_programs": 0,
+     "programs_complete": true,
+     "programs_with_plan": 0,
+     "queue": [
+      "admission_rules:no_official_statement",
+      "degree_maps:layout_not_readable"
+     ],
+     "requirement_groups": 1,
+     "status": "covered",
+     "verified_bachelor_programs": 61
+    },
+    {
+     "academic_years": [
+      "2026-27"
+     ],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "uas",
+     "high_value_without_admission_rule": [
+      "business"
+     ],
+     "institution_key": "ipeds-102632",
+     "listed_bachelor_programs": null,
+     "name": "University of Alaska Southeast",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "admission_rules:not_yet_researched",
+      "catalog:not_yet_researched",
+      "degree_maps:not_yet_researched",
+      "requirement_groups:layout_not_readable"
+     ],
+     "requirement_groups": 0,
+     "status": "partial",
+     "verified_bachelor_programs": 16
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "ilisagvik",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-434584",
+     "listed_bachelor_programs": null,
+     "name": "Ilisagvik College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "alaskapacific",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-102669",
+     "listed_bachelor_programs": null,
+     "name": "Alaska Pacific University",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:bot_challenge"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    },
+    {
+     "academic_years": [],
+     "catalog_share": null,
+     "dimensions": {
+      "admission_rules": "queued",
+      "catalog": "queued",
+      "degree_maps": "queued",
+      "requirement_groups": "queued"
+     },
+     "folder": "akbible",
+     "high_value_without_admission_rule": [],
+     "institution_key": "ipeds-102580",
+     "listed_bachelor_programs": null,
+     "name": "Alaska Bible College",
+     "partially_verified_programs": 0,
+     "programs_complete": false,
+     "programs_with_plan": 0,
+     "queue": [
+      "institution:not_yet_researched"
+     ],
+     "requirement_groups": 0,
+     "status": "exception",
+     "verified_bachelor_programs": 0
+    }
+   ],
+   "not_yet_researched": 3,
+   "queue_entries": 10,
+   "queue_errors": [],
+   "state": "AK",
+   "status": "in_progress",
+   "unaccounted_institutions": []
+  },
   {
    "coverage_threshold": 0.8,
    "covered_institutions": 0,

@@ -206,9 +206,9 @@ def program_page_candidates(target, inst, entry, page, today_year):
         lk = target.get('_listed') or {}
         listed = lk.get(norm_url(entry.get('url') or '')) or lk.get(entry.get('url'))
         out = department_major_identity(inst, entry, page, today_year, listed) or listed_program_identity(inst, entry, page, today_year, listed)
-    if not out and plat == 'courseleaf' and page.headings and credential_of(page.headings[0]) == 'bachelor':
+    if not out and plat == 'courseleaf' and program_heading(page) and credential_of(program_heading(page)) == 'bachelor':
         out = static_program_identity(inst, entry, page, today_year)  # UNI: 'Physics B.S.' heads a page without Course List tables
-        name = page.headings[0]
+        name = program_heading(page)
         # UNI heads emphases like majors ('Art: Art History B.A.', whose plan reads 'Art: History Emphasis, B.A.'): a
         # 'Major: Part' name on a page that speaks of emphases, and a dual major, are not programs of their own
         if re.search(r'\bdual major\b', name, re.I) or (':' in name and re.search(r'\bemphas[ie]s\b', page.text, re.I)): out = []
@@ -310,11 +310,25 @@ def degree_line_identity(inst, entry, page, today_year):
                         entry, 'degree_line/v1', {'program_key': rec['program_key']}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}'])]
 
 
+YEAR_HEADING = re.compile(r'^\s*(?:(?:19|20)\d{2}\s*[-–]\s*(?:19|20)?\d{2}\s+)?(?:academic\s+)?catalog(?:ue)?(?:\s+(?:19|20)\d{2}\s*[-–]\s*(?:19|20)?\d{2})?\s*$', re.I)
+
+
+GENERIC_DEGREES = re.compile(r"^\s*(?:bachelor|baccalaureate)(?:'?s)?\s+(?:degrees?|programs?)\b", re.I)  # UAS 'Bachelor's Degrees' index
+
+
+def program_heading(page):
+    """The page's first heading, past a heading that only labels the catalog year ('Catalog 2026-2027' above
+    'Computer Science B.A.', UAF)."""
+    hs = [h for h in (page.headings or [])]
+    while hs and YEAR_HEADING.match(hs[0]): hs = hs[1:]
+    return hs[0] if hs else None
+
+
 def static_program_identity(inst, entry, page, today_year):
     """Static HTML catalogs (George Fox, Rhodes): the program record only (name as printed in the page heading, the
     bachelor award it names, the catalog year printed on the page). Requirement lists are not read here."""
-    name = (page.headings[0] if page.headings else (page.title or '').split(' | ')[0]).strip()
-    if credential_of(name) != 'bachelor' or OPTION_NAME.search(name): return []
+    name = (program_heading(page) or (page.title or '').split(' | ')[0]).strip()
+    if credential_of(name) != 'bachelor' or OPTION_NAME.search(name) or GENERIC_DEGREES.match(name): return []
     labels = {y for y, _ in printed_catalog_years(page)}
     if len(labels) != 1: return []
     year = next(iter(labels)); line = next(l for y, l in printed_catalog_years(page) if y == year)
