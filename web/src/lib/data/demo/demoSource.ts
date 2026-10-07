@@ -777,10 +777,10 @@ export class DemoSource implements DataSource {
     return delay(until)
   }
 
-  async reportNotificationDevice(input: { deviceId: string; permission: DevicePermission; subscription: PushSubscriptionJSON | null; platform: DevicePlatform }) {
+  async reportNotificationDevice(input: { deviceId: string; permission: DevicePermission; subscription: PushSubscriptionJSON | null; platform: DevicePlatform; channel?: 'webpush' | 'fcm'; token?: string | null }) {
     const me = this.viewerId()
     const list = (this.s.devices ??= [])
-    const row = { id: input.deviceId, user_id: me, permission: input.permission, platform: input.platform, subscribed: input.permission === 'granted' && !!input.subscription?.endpoint, checked_at: new Date().toISOString() }
+    const row = { id: input.deviceId, user_id: me, permission: input.permission, platform: input.platform, subscribed: input.permission === 'granted' && (input.channel === 'fcm' ? !!input.token : !!input.subscription?.endpoint), checked_at: new Date().toISOString() }
     const i = list.findIndex((d) => d.id === input.deviceId)
     if (i >= 0) {
       if (list[i]!.user_id !== me) throw new DataError('Not your device', 'forbidden')

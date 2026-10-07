@@ -199,8 +199,8 @@ export class LiveSource implements DataSource {
     return rpc<string>(this.sb, 'snooze_practice_reminders', { p_student: studentId, p_minutes: minutes })
   }
 
-  async reportNotificationDevice(input: { deviceId: string; permission: DevicePermission; subscription: PushSubscriptionJSON | null; platform: DevicePlatform }) {
-    await rpc(this.sb, 'report_notification_device', { p_device: input.deviceId, p_permission: input.permission, p_subscription: input.subscription, p_platform: input.platform })
+  async reportNotificationDevice(input: { deviceId: string; permission: DevicePermission; subscription: PushSubscriptionJSON | null; platform: DevicePlatform; channel?: 'webpush' | 'fcm'; token?: string | null }) {
+    await rpc(this.sb, 'report_notification_device', { p_device: input.deviceId, p_permission: input.permission, p_subscription: input.subscription, p_platform: input.platform, p_channel: input.channel ?? 'webpush', p_token: input.token ?? null })
   }
 
   async studentDevices(studentId: string): Promise<DeviceStatus[]> {
