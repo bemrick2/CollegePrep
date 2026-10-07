@@ -98,7 +98,9 @@ describe('full program and potential savings from family-entered aid', () => {
   it('a potential saving gives up the grants for the terms not attended', () => {
     const p = potentialSaving(row, { grantsPerYear: 10000, loansPerYear: null })!
     expect(p).toEqual({ terms: 1, gross: 20500, lostGrants: 5000, net: 15500 })
-    expect(row.credit_savings).toMatchObject({ certainty: 'potential', assumes: ['counted_credit_applies_to_the_degree', 'schedule_allows_finishing_early'] })
+    expect(row.credit_savings).toMatchObject({ certainty: 'potential', assumes: ['counted_credit_applies_to_the_degree', 'schedule_allows_finishing_early', 'exam_credit_total_entered_by_family'] })
+    expect(row.totals_certainty).toBe('potential')
+    expect(projectRow(priv, '2026-27', { residency: 'in_state' }).credit_savings!.assumes).not.toContain('exam_credit_total_entered_by_family')
   })
 
   it('whole covered plan terms use the same rule, and always leave a term to attend', () => {
