@@ -1,9 +1,9 @@
 {
  "national": {
-  "covered": 56,
+  "covered": 58,
   "definition": "Registered: four-year schools in the national registry (pipeline/registry; scope rule in pipeline/registry.py). Researched: a verified or partially verified deep-dive record, or a queue entry recording an attempt other than not_yet_researched. Covered: meets docs/PROGRAM_DEPTH_COMPLETION.md. Untracked states count as registered only.",
   "registered": 2119,
-  "researched": 640,
+  "researched": 641,
   "states": [
    {
     "covered": 3,
@@ -174,7 +174,7 @@
     "tracked": true
    },
    {
-    "covered": 1,
+    "covered": 2,
     "registered": 58,
     "researched": 17,
     "state": "MO",
@@ -209,7 +209,7 @@
     "tracked": true
    },
    {
-    "covered": 1,
+    "covered": 2,
     "registered": 23,
     "researched": 7,
     "state": "NE",
@@ -323,7 +323,7 @@
    {
     "covered": 2,
     "registered": 49,
-    "researched": 17,
+    "researched": 18,
     "state": "VA",
     "tracked": true
    },
@@ -685,11 +685,14 @@
      "dimensions": {
       "admission_rules": "queued",
       "catalog": "queued",
-      "degree_maps": "met",
+      "degree_maps": "queued",
       "requirement_groups": "met"
      },
      "folder": "jsu",
      "high_value_without_admission_rule": [
+      "business",
+      "computer_science",
+      "engineering",
       "nursing"
      ],
      "institution_key": "ipeds-101480",
@@ -697,14 +700,15 @@
      "name": "Jacksonville State University",
      "partially_verified_programs": 0,
      "programs_complete": false,
-     "programs_with_plan": 16,
+     "programs_with_plan": 20,
      "queue": [
       "admission_rules:not_yet_researched",
-      "catalog:not_yet_researched"
+      "catalog:not_yet_researched",
+      "degree_maps:not_yet_researched"
      ],
      "requirement_groups": 21,
      "status": "partial",
-     "verified_bachelor_programs": 16
+     "verified_bachelor_programs": 95
     },
     {
      "academic_years": [],
@@ -1308,7 +1312,7 @@
     }
    ],
    "not_yet_researched": 28,
-   "queue_entries": 35,
+   "queue_entries": 36,
    "queue_errors": [],
    "state": "AL",
    "status": "in_progress",
@@ -11827,7 +11831,7 @@
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": 0.732,
+     "catalog_share": 0.858,
      "dimensions": {
       "admission_rules": "queued",
       "catalog": "queued",
@@ -11849,9 +11853,9 @@
      "queue": [
       "institution:not_yet_researched"
      ],
-     "requirement_groups": 4,
+     "requirement_groups": 37,
      "status": "partial",
-     "verified_bachelor_programs": 93
+     "verified_bachelor_programs": 109
     },
     {
      "academic_years": [],
@@ -20145,7 +20149,7 @@
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": 0.374,
+     "catalog_share": 0.472,
      "dimensions": {
       "admission_rules": "queued",
       "catalog": "queued",
@@ -20159,7 +20163,7 @@
      "institution_key": "ipeds-163286",
      "listed_bachelor_programs": 123,
      "name": "University of Maryland-College Park",
-     "partially_verified_programs": 40,
+     "partially_verified_programs": 28,
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
@@ -20169,7 +20173,7 @@
      ],
      "requirement_groups": 5,
      "status": "partial",
-     "verified_bachelor_programs": 46
+     "verified_bachelor_programs": 58
     },
     {
      "academic_years": [
@@ -23636,8 +23640,8 @@
   },
   {
    "coverage_threshold": 0.8,
-   "covered_institutions": 1,
-   "entering_student_share_covered": 0.052,
+   "covered_institutions": 2,
+   "entering_student_share_covered": 0.069,
    "four_year_institutions": 58,
    "institutions": [
     {
@@ -24021,10 +24025,10 @@
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": 0.881,
+     "catalog_share": 0.905,
      "dimensions": {
       "admission_rules": "queued",
-      "catalog": "queued",
+      "catalog": "met",
       "degree_maps": "queued",
       "requirement_groups": "met"
      },
@@ -24045,9 +24049,9 @@
       "catalog:not_yet_researched",
       "degree_maps:not_yet_researched"
      ],
-     "requirement_groups": 32,
-     "status": "partial",
-     "verified_bachelor_programs": 37
+     "requirement_groups": 34,
+     "status": "covered",
+     "verified_bachelor_programs": 38
     },
     {
      "academic_years": [],
@@ -27778,8 +27782,8 @@
   },
   {
    "coverage_threshold": 0.8,
-   "covered_institutions": 1,
-   "entering_student_share_covered": 0.071,
+   "covered_institutions": 2,
+   "entering_student_share_covered": 0.239,
    "four_year_institutions": 23,
    "institutions": [
     {
@@ -27814,10 +27818,10 @@
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": 0.839,
+     "catalog_share": 0.966,
      "dimensions": {
       "admission_rules": "queued",
-      "catalog": "queued",
+      "catalog": "met",
       "degree_maps": "met",
       "requirement_groups": "met"
      },
@@ -27832,13 +27836,13 @@
      "name": "University of Nebraska at Omaha",
      "partially_verified_programs": 0,
      "programs_complete": false,
-     "programs_with_plan": 55,
+     "programs_with_plan": 57,
      "queue": [
       "institution:not_yet_researched"
      ],
      "requirement_groups": 4,
-     "status": "partial",
-     "verified_bachelor_programs": 73
+     "status": "covered",
+     "verified_bachelor_programs": 84
     },
     {
      "academic_years": [
@@ -48514,16 +48518,23 @@
      "verified_bachelor_programs": 0
     },
     {
-     "academic_years": [],
+     "academic_years": [
+      "2026-27"
+     ],
      "catalog_share": null,
      "dimensions": {
       "admission_rules": "queued",
       "catalog": "queued",
       "degree_maps": "queued",
-      "requirement_groups": "queued"
+      "requirement_groups": "met"
      },
      "folder": "vcu",
-     "high_value_without_admission_rule": [],
+     "high_value_without_admission_rule": [
+      "business",
+      "computer_science",
+      "engineering",
+      "nursing"
+     ],
      "institution_key": "ipeds-234030",
      "listed_bachelor_programs": null,
      "name": "Virginia Commonwealth University",
@@ -48533,9 +48544,9 @@
      "queue": [
       "institution:not_yet_researched"
      ],
-     "requirement_groups": 0,
-     "status": "exception",
-     "verified_bachelor_programs": 0
+     "requirement_groups": 178,
+     "status": "partial",
+     "verified_bachelor_programs": 57
     },
     {
      "academic_years": [
@@ -48598,7 +48609,7 @@
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": 0.758,
+     "catalog_share": 0.833,
      "dimensions": {
       "admission_rules": "queued",
       "catalog": "queued",
@@ -48607,6 +48618,8 @@
      },
      "folder": "odu",
      "high_value_without_admission_rule": [
+      "business",
+      "computer_science",
       "engineering",
       "nursing"
      ],
@@ -48622,7 +48635,7 @@
      ],
      "requirement_groups": 96,
      "status": "partial",
-     "verified_bachelor_programs": 141
+     "verified_bachelor_programs": 155
     },
     {
      "academic_years": [],

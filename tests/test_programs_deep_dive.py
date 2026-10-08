@@ -2055,6 +2055,16 @@ class PromoteKeepsCorrectionsTests(unittest.TestCase):
                 P.promote(dec, log=logs.append)
                 self.assertEqual(json.loads((f / '2026-27.json').read_text()), on_file)
                 self.assertTrue(any('kept as on file' in l for l in logs))
+                # a reviewed replacement of a record this candidate produced keeps the earlier decision in the archive
+                ev = D / 'sources/programs/ZZ/r'; ev.mkdir(parents=True, exist_ok=True)
+                (ev / 'evidence.json').write_text(json.dumps({'c2': {'decision': {'candidate_id': 'c2', 'reason': 'first review'}}}))
+                c2 = {**c, 'candidate_id': 'c2', 'record': {'program_key': 'bio', 'program_name': 'Biology Major', 'credential_level': 'bachelor', 'program_url': 'https://u/bio'}}
+                (run / 'candidates.jsonl').write_text(json.dumps(c2) + '\n')
+                dec.write_text(json.dumps({'run': 'programs/runs/ZZ/r', 'approve': [{'candidate_id': 'c2', 'reason': 'award found', 'replaces_promoted': 'award from school page'}]}))
+                P.promote(dec, log=logs.append)
+                arch = json.loads((ev / 'evidence.json').read_text())
+                self.assertEqual(arch['c2']['decision']['reason'], 'award found')
+                self.assertEqual([v['decision']['reason'] for k, v in arch.items() if k.startswith('c2~superseded-')], ['first review'])
             finally:
                 P.ROOT, PP.ROOT = old, oldp
 

@@ -187,7 +187,10 @@ def promote(decisions_path: Path, log=print):
     out = ROOT / 'sources/programs' / state / run_dir.name / 'evidence.json'
     out.parent.mkdir(parents=True, exist_ok=True)
     prior = json.loads(out.read_text()) if out.exists() else {}
-    out.write_text(json.dumps({**prior, **archive}, indent=1, sort_keys=True, ensure_ascii=False) + '\n', encoding='utf-8')
+    # a replaced decision stays in the archive under its own key (its original review is part of the record's history)
+    kept_prior = {f"{cid}~superseded-{date.today().isoformat()}": prior[cid] for cid, v in archive.items()
+                  if cid in prior and (v.get('decision') or {}).get('replaces_promoted')}
+    out.write_text(json.dumps({**prior, **kept_prior, **archive}, indent=1, sort_keys=True, ensure_ascii=False) + '\n', encoding='utf-8')
     log(f'promoted {written} records/fields; evidence in {out.relative_to(ROOT)}' + (f'; {kept} kept as on file' if kept else ''))
     return written
 
