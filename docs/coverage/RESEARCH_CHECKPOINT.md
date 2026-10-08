@@ -73,7 +73,6 @@ Reader and checker changes in this batch each come with tests and mutants: `prog
 - **no_year_label (a year is never inferred):**
   - Coursedog catalogs whose API answered 401: Arizona, UCSB, Illinois State, USU, FIU. CSUN: its pages print no year label.
   - Alabama: the only label printed is the print-menu link 'Download 2026-27 Undergraduate PDF'. This is a shared reader request.
-  - UT Dallas: pages print the edition name '2026 Undergraduate Catalog', and the edition's home page prints '2026-2027 Undergraduate Catalog'. Reader work for the Research session: read the year from the edition home page and cite that page.
 - **layout_not_readable:** UCR (its catalog PDF gives no program records).
 - **Stale configured catalogs (find the 2026-27 catalog by web search before running):**
   - Lone Star (2019-20 PDF)
