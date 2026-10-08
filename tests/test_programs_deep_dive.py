@@ -490,6 +490,13 @@ class StatedMajorTests(unittest.TestCase):
         q = T.Page('2026-2027 Campus Life and Catalog of Events\nAccounting, BS', 't', [], [], [])
         self.assertEqual(X.printed_catalog_years(q), set())
 
+    def test_print_menu_catalog_pdf_is_not_the_page_label(self):  # UNO 2026-27 print options: '2025-2026 Catalog' / 'A PDF of ...'
+        from pipeline import text as T
+        p = T.Page('2026-2027 Edition\nEnglish, Bachelor of Arts\nDownload Page (PDF)\n2025-2026 Catalog\nA PDF of the 2025-2026 catalog.\nCancel', 't', [], [], [])
+        self.assertEqual({y for y, _ in X.printed_catalog_years(p)}, {'2026-2027'})
+        q = T.Page('2025-2026 Catalog\nEnglish, Bachelor of Arts', 't', [], [], [])
+        self.assertEqual({y for y, _ in X.printed_catalog_years(q)}, {'2025-2026'})
+
     def test_header_name_and_year_on_two_lines(self):  # UW-Madison 2026-27 site header: 'Guide' / '2026-2027'
         from pipeline import text as T
         p = T.Page('Archive\nGuide\n2026-2027\nSearch this site\nAnthropology, BA\n© 2026-2027 Board of Regents', 't', [], [], [])
@@ -945,6 +952,24 @@ class InventoryLevelTests(unittest.TestCase):  # UMD 2026-27 majors with no prin
         a = copy.deepcopy(c); a['evidence'].append({'field': 'award', 'value': 'B.S.', 'snippet': 'The Bachelor of Science in Accounting prepares students.'})
         self.assertEqual(check_candidate(a, text, lambda sha: inv_text), ['award sentence not verbatim'])
         self.assertEqual(check_candidate(a, text + '\nThe Bachelor of Science in Accounting prepares students.', lambda sha: inv_text), [])
+    def test_award_from_an_official_award_document(self):  # UMD 2026-27 school pages (owner 2026-10-08)
+        from pipeline import text as T
+        from programs.verify import check_candidate
+        e = {'url': 'https://catalog.x.edu/m/', 'role': 'program_page', 'sha256': 'a' * 64, 'fetched_at': '2026-10-07T00:00:00+00:00', 'status': 200, 'kind': 'html'}
+        page = T.Page('2026-2027 Catalog\nAccounting Major', 'Accounting Major | X', [], [], ['Accounting Major'])
+        docs = [{'majors': ['Accounting Major'], 'read': 'named', 'entry': {'url': 'https://school.x.edu/u', 'sha256': 'd' * 64},
+                 'lines': ['Bachelor of Science in Accounting']}]
+        c = X.inventory_level_candidates({'institution_key': 'k'}, e, page, '2026-27', self.INV, docs)[0]
+        self.assertEqual(c['issues'], [])
+        self.assertEqual([(ev['value'], ev['sha256']) for ev in c['evidence'] if ev['field'] == 'award'], [('B.S.', 'd' * 64)])
+        inv_text = "| Univ. of Maryland, College Park | ACCOUNTING | Bachelor's Degree"
+        other = lambda sha: {'f' * 64: inv_text, 'd' * 64: 'Programs\nBachelor of Science in Accounting'}.get(sha, '')
+        self.assertEqual(check_candidate(c, '2026-2027 Catalog\nAccounting Major', other), [])
+        self.assertEqual(check_candidate(c, '2026-2027 Catalog\nAccounting Major', lambda sha: inv_text if sha == 'f' * 64 else ''), ['award sentence not verbatim'])
+        two = [{**docs[0], 'lines': ['Bachelor of Science in Accounting', 'Bachelor of Arts in Accounting']}]
+        self.assertEqual(X.inventory_level_candidates({'institution_key': 'k'}, e, page, '2026-27', self.INV, two)[0]['issues'], ['award_not_printed'])
+
+
 class CatalogPeriodTests(unittest.TestCase):  # Cal Poly '2026-2028 Catalog' (#153; owner decision 2026-10-07)
     def test_two_year_label_is_kept_as_printed(self):
         from pipeline import text as T
@@ -1947,6 +1972,39 @@ class CatalogOverwriteTests(unittest.TestCase):
                 P.ROOT, PP.ROOT = old, oldp
 
 
+class CollegeQualifiedListTests(unittest.TestCase):
+    def test_list_line_with_a_college_names_the_program(self):  # Iowa State 2026-27 'Biology, B.S. (College of Liberal Arts and Sciences)'
+        from pipeline import text as T
+        e = {'url': 'https://catalog.x.edu/las/biology/', 'role': 'program_page', 'sha256': 'a' * 64, 'fetched_at': '2026-10-07T00:00:00+00:00', 'status': 200, 'kind': 'html'}
+        page = T.Page('Iowa State University Courses and Programs (2026-2027 Catalog)\nBiology', 'Biology | X Catalog', [], [], ['Biology', 'Curriculum in Biology'])
+        listed = {'credential_level': 'bachelor', 'printed': 'Biology, B.S. (College of Liberal Arts and Sciences)', 'listed_on': 'https://catalog.x.edu/list/', 'listed_on_sha256': 'b' * 64}
+        c = X.listed_program_identity({'institution_key': 'k'}, e, page, '2026-27', listed)
+        self.assertEqual([x['record']['program_name'] for x in c], ['Biology, B.S. (College of Liberal Arts and Sciences)'])
+        self.assertEqual(X.listed_program_identity({'institution_key': 'k'}, e, page, '2026-27', {**listed, 'printed': 'Biology (College of Liberal Arts and Sciences)'}), [])
+
+
+class AwardDocumentTests(unittest.TestCase):
+    def docs(self):
+        L = lambda *ls: list(ls)
+        return [{'majors': ['Public Policy Major', 'Global and Foreign Policy Major'], 'read': 'named', 'entry': {'url': 'https://spp/u'},
+                 'lines': L('Bachelor of Arts in Public Policy', 'Bachelor of Arts in Global and Foreign Policy', 'Bachelor of Science in Public Policy Analytics')},
+                {'majors': ['Animal Sciences Major'], 'read': 'single_award', 'entry': {'url': 'https://agnr/ansc'},
+                 'lines': L('The ANSC department has degrees available in Bachelor of Science (B.S.), Master of Science (M.S.).')},
+                {'majors': ['Plant Sciences Major'], 'read': 'single_award', 'entry': {'url': 'https://agnr/psla'},
+                 'lines': L('Offers Bachelor of Science and Bachelor of Arts degrees.')}]
+
+    def test_award_only_where_an_official_page_prints_it(self):  # UMD 2026-27 school and department pages
+        from programs.extract import document_award
+        self.assertEqual(document_award('Public Policy Major', self.docs())[:2], ('B.A.', 'Bachelor of Arts in Public Policy'))
+        self.assertEqual(document_award('Global and Foreign Policy Major', self.docs())[0], 'B.A.')
+        self.assertEqual(document_award('Animal Sciences Major', self.docs())[0], 'B.S.')
+        self.assertIsNone(document_award('Plant Sciences Major', self.docs()))  # two bachelor's awards: none recorded
+        self.assertIsNone(document_award('History Major', self.docs()))         # no document names the major
+
+    def test_graduate_name_rule_keeps_bachelor_of_musical_arts(self):  # Missouri Western 2026-27
+        from programs.autoreview import GRADUATE
+        self.assertFalse(GRADUATE.search('Musical Arts (Bachelor of Musical Arts, B.M.A.)'))
+        self.assertTrue(GRADUATE.search('History (M.A.)'))
 class KeptRecordTests(unittest.TestCase):
     def test_corrected_or_already_promoted_records_are_not_replaced(self):  # JHU 2026-10-07, #129 footnote fixes
         from programs import promote as P
@@ -1966,6 +2024,8 @@ class KeptRecordTests(unittest.TestCase):
                 self.assertIn('correction', P.kept_record(c('b', 'listed'), {'program_key': 'listed'}, {'k': 'x'}, set()))
                 self.assertIn('already promoted', P.kept_record(c('f', 'fixed'), {'program_key': 'fixed'}, {'k': 'x'}, {'f'}))
                 self.assertIsNone(P.kept_record(c('g', 'fixed'), {'program_key': 'fixed'}, {'k': 'x'}, {'f'}))  # a new review may update it
+                self.assertIsNone(P.kept_record(c('f', 'fixed'), {'program_key': 'fixed'}, {'k': 'x'}, {'f'}, {'replaces_promoted': 'award from school page'}))
+                self.assertIn('correction', P.kept_record(c('a', 'policy'), {'program_key': 'policy'}, {'k': 'x'}, set(), {'replaces_promoted': 'x'}))
                 self.assertIsNone(P.kept_record(c('n', 'new'), {'program_key': 'new'}, {'k': 'x'}, set()))
             finally:
                 P.ROOT, PP.ROOT = old, oldp
@@ -1995,6 +2055,16 @@ class PromoteKeepsCorrectionsTests(unittest.TestCase):
                 P.promote(dec, log=logs.append)
                 self.assertEqual(json.loads((f / '2026-27.json').read_text()), on_file)
                 self.assertTrue(any('kept as on file' in l for l in logs))
+                # a reviewed replacement of a record this candidate produced keeps the earlier decision in the archive
+                ev = D / 'sources/programs/ZZ/r'; ev.mkdir(parents=True, exist_ok=True)
+                (ev / 'evidence.json').write_text(json.dumps({'c2': {'decision': {'candidate_id': 'c2', 'reason': 'first review'}}}))
+                c2 = {**c, 'candidate_id': 'c2', 'record': {'program_key': 'bio', 'program_name': 'Biology Major', 'credential_level': 'bachelor', 'program_url': 'https://u/bio'}}
+                (run / 'candidates.jsonl').write_text(json.dumps(c2) + '\n')
+                dec.write_text(json.dumps({'run': 'programs/runs/ZZ/r', 'approve': [{'candidate_id': 'c2', 'reason': 'award found', 'replaces_promoted': 'award from school page'}]}))
+                P.promote(dec, log=logs.append)
+                arch = json.loads((ev / 'evidence.json').read_text())
+                self.assertEqual(arch['c2']['decision']['reason'], 'award found')
+                self.assertEqual([v['decision']['reason'] for k, v in arch.items() if k.startswith('c2~superseded-')], ['first review'])
             finally:
                 P.ROOT, PP.ROOT = old, oldp
 

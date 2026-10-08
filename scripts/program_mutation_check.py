@@ -90,7 +90,7 @@ MUTS = [
     ('programs/extract.py', "    hit = next((n for n in names if n and norm(re.sub(r'(\\s*\\([^()]{1,12}\\))+\\s*$', '', n)) == norm(base)), None)", "    hit = next((n for n in names if n and norm(n).startswith(norm(base))), None)"),
     ('programs/autoreview.py', "               'entry_path_variant' if len(variants[(c['institution_key'], base(c))]) > 1 and plain(c) != c['record'].get('program_name', '').strip()\n               and (c['institution_key'], url_of(c, 'program_url')) not in listed_emphases else\n", ""),
     ('programs/autoreview.py', " and plain(c) != c['record'].get('program_name', '').strip()\n", "\n"),
-    ('programs/extract.py', "    if not base or base == printed or OPTION_NAME.search(printed): return []", "    pass"),
+    ('programs/extract.py', "    if not base or base == unqualified or OPTION_NAME.search(printed): return []", "    pass"),
     ('programs/status.py', "    counted = min(len(verified), max(matched)) if matched else len(verified)", "    counted = len(verified)"),
     ('programs/autoreview.py', "               'graduate_name' if GRADUATE.search(c['record'].get('program_name', '')) else", ""),
     ('backend/program_fields.py', "            errs.append('verified_listed_programs must be an integer between 0 and listed_bachelor_programs')", "            pass"),
@@ -121,7 +121,7 @@ MUTS = [
     # NDSU 'Degree Type: B.S.': one stated type only; post-baccalaureate paths are not programs
     ('programs/extract.py', "    if not m and len(types) == 1:", "    if not m and types:"),
     ('programs/extract.py', "|post[- ]?baccalaureate|second degree', name, re.I)", "', name, re.I)"),
-    ('programs/extract.py', "                if int(m.group(2)) == (int(m.group(1)) + k) % 100: found.add((f'{m.group(1)}-{int(m.group(1)) + k}', line.strip()))\n        # UW-Madison", "                pass\n        # UW-Madison"),
+    ('programs/extract.py', "                if int(m.group(2)) == (int(m.group(1)) + k) % 100: got.add((f'{m.group(1)}-{int(m.group(1)) + k}', line.strip()))\n        # UW-Madison", "                pass\n        # UW-Madison"),
     ('programs/extract.py', "        if re.search(r'\\bdual major\\b', name, re.I) or (':' in name and re.search(r'\\bemphas[ie]s\\b', page.text, re.I)): out = []", "        pass"),
     # UF degree_line/v1: specialization pages under a major's code; underscore slugs in the base-page rule
     ('programs/extract.py', "    if len(parts) >= 2 and re.fullmatch(r'[A-Z]{2,4}_[A-Z]{2,6}', parts[-2]): return []", "    pass"),
@@ -215,13 +215,13 @@ MUTS = [
     ('programs/extract.py', "    if len(hits) != 1: return []", "    if not hits: return []"),
     ('programs/extract.py', "    hits = [r for r in inv['rows'] if r[2] == \"Bachelor's Degree\" and", "    hits = [r for r in inv['rows'] if"),
     ('programs/extract.py', "(len(r[1]) >= 38 and want.startswith(_inv_norm(r[1])) and len(_inv_norm(r[1])) >= 30)", "False"),
-    ('programs/extract.py', "{}, [] if awards else ['award_not_printed'])]", "{}, [])]"),
+    ('programs/extract.py', "{}, [] if (awards or doc) else ['award_not_printed'])]", "{}, [])]"),
     ('programs/verify.py', "                if not other or norm(ev.get('snippet', '')) not in norm(other(ev['sha256'])): probs.append('credential level row not in its inventory document')", "                pass"),
     ('programs/extract.py', "                if mm and not _inv_norm(mm.group('prog')).startswith(key): continue  # 'in <another program>'", "                pass"),
     ('programs/extract.py', "            if key not in _inv_norm(sent) and not AWARD_LEAD.search(sent): continue", "            pass"),
     ('programs/extract.py', "                if re.match(r'\\s+degree\\s+requirements\\b', tail, re.I): continue", "                pass"),
     ('programs/extract.py', "        if len(line.strip()) < 60: continue", "        pass"),
-    ('programs/verify.py', "            if ev.get('field') == 'award' and norm(ev.get('snippet', '')) not in t: probs.append('award sentence not verbatim')", "            pass"),
+    ('programs/verify.py', "                if norm(ev.get('snippet', '')) not in src: probs.append('award sentence not verbatim')", "                pass"),
     ('programs/extract.py', "                if m.group('bare') and not mm: continue  # a bare 'BA' counts only as 'BA in <this major>'", "                pass"),
     ('programs/extract.py', "AWARD_LEAD = re.compile(r'^the\\s+(?:B\\.\\s?[A-Z]\\.|Bachelor\\s+of\\s+\\w+)\\s+degree\\b|", "AWARD_LEAD = re.compile(r'"),
     # multi-year catalog periods (Cal Poly '2026-2028', owner decision 2026-10-07)
@@ -247,11 +247,25 @@ MUTS = [
     ('programs/autoreview.py', " and not PAREN_AWARD_VARIANT_ENTRY.match(n) and _degree_key(n)", " and _degree_key(n)"),
     # promote never replaces an owner-corrected record or re-promotes a candidate over the record it produced
     ('programs/promote.py', "    if on_file.get('verification_correction_reason') or nk in corrected_keys(): return 'owner-approved correction on file'", "    pass"),
-    ('programs/promote.py', "    if c['candidate_id'] in promoted_ids: return 'already promoted from this run'", "    pass"),
+    ('programs/promote.py', "    if c['candidate_id'] in promoted_ids and not (approval or {}).get('replaces_promoted'): return 'already promoted from this run'", "    pass"),
+    ('programs/promote.py', " and not (approval or {}).get('replaces_promoted'): return", ": return"),
     ('programs/promote.py', "        if held:\n", "        if False:\n"),
     # UW-Madison 2026-27 header: 'Guide' / '2026-2027' on two lines
     ('programs/extract.py', "        if m and HEADER_NAME.fullmatch(prev) and int(m.group(2)) - int(m.group(1)) in PERIOD_SPANS:", "        if m and int(m.group(2)) - int(m.group(1)) in PERIOD_SPANS:"),
     ('programs/extract.py', "HEADER_NAME = re.compile(r'(?:Guide|Catalog|Catalogue|Bulletin)', re.I)", "HEADER_NAME = re.compile(r'.*', re.I)"),
+    # 2026-10-08 reader fixes: print-menu catalog PDFs (UNO), B.M.A. is not M.A. (Missouri Western), awards from official
+    # school/department pages (UMD), college-qualified list lines (Iowa State)
+    ('programs/extract.py', "        (menu_found if any(ARCHIVE_LINK.match(l) for l in lines[i + 1:i + 2]) else found).update(got)", "        found.update(got)"),
+    ('programs/extract.py', "    if not found: found = menu_found\n", "\n"),
+    ('programs/autoreview.py', "(?<!B\\.)\\bM\\.\\s?(A|S|Ed|F\\.?A)\\.", "\\bM\\.\\s?(A|S|Ed|F\\.?A)\\."),
+    ('programs/extract.py', "            if len(kinds) == 1:\n                k = kinds.pop()", "            if kinds:\n                k = kinds.pop()"),
+    ('programs/extract.py', "            if len(kinds) == 1:\n                k = next(iter(kinds))", "            if kinds:\n                k = next(iter(kinds))"),
+    ('programs/extract.py', "        if name.strip() not in d.get('majors', []): continue", "        pass"),
+    ('programs/extract.py', "(?![A-Za-z])(?!\\s+[A-Z][a-z])')", "')"),
+    ('programs/extract.py', "    doc = None if awards else document_award(head, award_docs)", "    doc = None"),
+    ('programs/verify.py', "src = norm(other(ev['sha256'])) if (ev.get('sha256') and ev['sha256'] != c['source'].get('sha256') and other and other(ev['sha256'])) else t", "src = t + ' ' + ' '.join(norm(other(x)) for x in [ev.get('sha256')] if x and other and other(x)) if False else t"),
+    ('programs/extract.py', "    unqualified = COLLEGE_QUALIFIER.sub('', printed)", "    unqualified = printed"),
+    ('programs/promote.py', "                  if cid in prior and (v.get('decision') or {}).get('replaces_promoted')}", "                  if False}"),
 ]
 
 
