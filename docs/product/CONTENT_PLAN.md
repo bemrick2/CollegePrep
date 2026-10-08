@@ -176,8 +176,21 @@ The rate is a [Guessing] estimate:
 
 ### Tracking
 
-- Use one row per item in a shared sheet or the repo fixtures, with each stage's sign-off and date. The approval record in the database is the final source of truth.
-- The existing 58 AI-reviewed items enter at stage 3. They are not grandfathered.
+The human review runs in the repo and doesn't need the database:
+- **Ledger:** `web/src/lib/data/demo/editorialLedger.json` holds one sign-off per person per stage. Each sign-off is pinned to the item's content hash, so any edit voids the earlier sign-offs.
+- **Rules:** `editorialLedger.ts` defines them, and its tests enforce them:
+  - every reviewer must be a named person;
+  - two distinct blind solvers, neither the author, must both match the key;
+  - the rights check needs an allowed license;
+  - the fairness reviewer and the approver must not be the author.
+- **Packets:** `npx vite-node scripts/local/editorialPackets.ts <out-dir>` writes:
+  - printable blind-solve packets with no key, hints or explanations;
+  - review copies for stages 5–7;
+  - `status.csv`, the tracking sheet;
+  - `solves-template.csv`.
+- **Import:** `npx vite-node scripts/local/recordEditorial.ts <filled.csv>` imports sign-offs. A row whose hash isn't the current content is refused.
+- **Serving gate:** the ledger doesn't change what's served. Making the serving gate require `humanApproved` is the owner's call (launch checklist A2). The database approval (`approve_practice_question`) is recorded from the ledger once Supabase is back.
+- **Existing items:** the 58 AI-reviewed items enter at stage 3. They are not grandfathered.
 
 ### Gaps this workflow exposes
 
