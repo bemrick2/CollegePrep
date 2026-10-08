@@ -11,20 +11,37 @@
    "domains": [
     "byu.edu"
    ],
-   "hosts": [],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
    "mode": "catalog",
    "priority": 1,
    "catalog": {
     "home": "https://catalog.byu.edu/",
-    "min_depth": 1,
-    "path_prefix": "/",
-    "platform": "courseleaf",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
     "program_lists": [
-     "https://catalog.byu.edu/programs"
+     "https://catalog.byu.edu/programs",
+     "https://catalog.byu.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.byu.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.byu.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.byu.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.byu.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.byu.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.byu.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.byu.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.byu.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.byu.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.byu.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.byu.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.byu.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.byu.edu/programs?page=15&pq=&sortBy=name"
     ]
    },
    "policy": [],
-   "detected": "CourseLeaf-style catalog on catalog.byu.edu (program list https://catalog.byu.edu/programs)"
+   "render": "browser",
+   "detected": "CourseLeaf-style catalog on catalog.byu.edu (program list https://catalog.byu.edu/programs); reviewed 2026-10-08: the program list prints \"Loading results...\" until JavaScript runs, so it is rendered; reviewed 2026-10-08 (run b02, rendered): a Coursedog catalog (program pages /programs/<id> with '-aoYks' tab views), list paged like USU's"
   },
   {
    "institution_key": "ipeds-230418",
@@ -138,20 +155,37 @@
    "domains": [
     "utah.edu"
    ],
-   "hosts": [],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
    "mode": "catalog",
    "priority": 1,
    "catalog": {
     "home": "https://catalog.utah.edu/",
-    "min_depth": 1,
-    "path_prefix": "/",
-    "platform": "courseleaf",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
     "program_lists": [
-     "https://catalog.utah.edu/programs"
+     "https://catalog.utah.edu/programs",
+     "https://catalog.utah.edu/programs?page=2&pq=&sortBy=name",
+     "https://catalog.utah.edu/programs?page=3&pq=&sortBy=name",
+     "https://catalog.utah.edu/programs?page=4&pq=&sortBy=name",
+     "https://catalog.utah.edu/programs?page=5&pq=&sortBy=name",
+     "https://catalog.utah.edu/programs?page=6&pq=&sortBy=name",
+     "https://catalog.utah.edu/programs?page=7&pq=&sortBy=name",
+     "https://catalog.utah.edu/programs?page=8&pq=&sortBy=name",
+     "https://catalog.utah.edu/programs?page=9&pq=&sortBy=name",
+     "https://catalog.utah.edu/programs?page=10&pq=&sortBy=name",
+     "https://catalog.utah.edu/programs?page=11&pq=&sortBy=name",
+     "https://catalog.utah.edu/programs?page=12&pq=&sortBy=name",
+     "https://catalog.utah.edu/programs?page=13&pq=&sortBy=name",
+     "https://catalog.utah.edu/programs?page=14&pq=&sortBy=name",
+     "https://catalog.utah.edu/programs?page=15&pq=&sortBy=name"
     ]
    },
    "policy": [],
-   "detected": "CourseLeaf-style catalog on catalog.utah.edu (program list https://catalog.utah.edu/programs)"
+   "render": "browser",
+   "detected": "CourseLeaf-style catalog on catalog.utah.edu (program list https://catalog.utah.edu/programs); reviewed 2026-10-08: the program list prints \"Loading results...\" until JavaScript runs, so it is rendered; reviewed 2026-10-08 (run b02, rendered): a Coursedog catalog (program pages /programs/<id> with '-aoYks' tab views), list paged like USU's"
   },
   {
    "institution_key": "ipeds-230728",

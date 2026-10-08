@@ -27,6 +27,14 @@
    "next_action": "Locate and configure the catalog (discovery found no catalog)."
   },
   {
+   "institution_key": "ipeds-234030",
+   "gap": "catalog",
+   "reason": "layout_not_readable",
+   "next_action": "Diagnose each unrecorded list entry (variant pages, unread pages, reader rules) and re-review.",
+   "detail": "120 of 151 listed bachelor's programs verified (run 2026-10-08-b02). 13 concentration variants that share a program name are held as variant pages; the rest (e.g. the 'Music, Bachelor of Music (B.M.)' and Secondary Education concentrations) produced no record a reviewer could promote and need diagnosis.",
+   "evidence_url": "https://bulletin.vcu.edu/azprograms/"
+  },
+  {
    "institution_key": "ipeds-232186",
    "gap": "catalog",
    "reason": "not_yet_researched",
@@ -362,23 +370,15 @@
   },
   {
    "institution_key": "ipeds-234030",
-   "gap": "catalog_count",
-   "reason": "robots_disallowed",
-   "next_action": "Find an official VCU 2026-27 undergraduate program list that robots.txt allows (school/college program pages), then record the listed count.",
-   "detail": "57 bachelor's programs verified 2026-10-08. The bulletin's A-Z index (https://bulletin.vcu.edu/azindex/) is disallowed by robots.txt and was not crawled (run program-run/va-vculist-2026-10-08).",
-   "evidence_url": "https://bulletin.vcu.edu/azindex/"
+   "gap": "admission_rules",
+   "reason": "not_yet_researched",
+   "next_action": "Read each program page's admission or change-of-major statement (verbatim) and record it, or queue no_official_statement."
   },
   {
    "institution_key": "ipeds-234030",
    "gap": "degree_maps",
    "reason": "not_yet_researched",
-   "next_action": "Read the published plans for verified programs."
-  },
-  {
-   "institution_key": "ipeds-234030",
-   "gap": "admission_rules",
-   "reason": "not_yet_researched",
-   "next_action": "Read admission categories for engineering, computer science, business and nursing."
+   "next_action": "Read the catalog's four-year plans for these programs."
   }
  ]
 }

@@ -524,16 +524,14 @@
  },
  "utdallas": {
   "catalog": {
-   "home": "https://catalog.utdallas.edu/",
+   "home": "https://catalog.utdallas.edu/2026/undergraduate/home/",
    "min_depth": 1,
-   "path_prefix": "/",
+   "path_prefix": "/2026/undergraduate/",
    "platform": "courseleaf",
-   "program_lists": [
-    "https://catalog.utdallas.edu/2016/undergraduate/programs",
-    "https://catalog.utdallas.edu/2020/undergraduate/programs"
-   ]
+   "program_lists": []
   },
-  "detected": "CourseLeaf-style catalog on catalog.utdallas.edu (program list https://catalog.utdallas.edu/2016/undergraduate/programs)"
+  "detected": "reviewed 2026-10-08: the catalog home links the '2026 Undergraduate Catalog' at /2026/undergraduate/home/ (run TX/2026-10-08-b01); the configured lists were the 2016 and 2020 catalogs",
+  "reviewed": true
  },
  "utep": {
   "catalog": {
@@ -541,9 +539,12 @@
    "min_depth": 1,
    "path_prefix": "/",
    "platform": "courseleaf",
-   "program_lists": []
+   "program_lists": [
+    "https://catalog.utep.edu/degreeprograms/"
+   ]
   },
-  "detected": "CourseLeaf-style catalog on catalog.utep.edu (no program list link; pages found from the home page)"
+  "detected": "CourseLeaf-style catalog on catalog.utep.edu (no program list link; pages found from the home page); reviewed 2026-10-08: program list 'Degree Programs' (https://catalog.utep.edu/degreeprograms/), linked from the catalog's pages (run TX/2026-10-08-b01)",
+  "reviewed": true
  },
  "utexas": {
   "catalog": {
@@ -562,11 +563,13 @@
   "catalog": {
    "home": "https://catalog.utsa.edu/",
    "min_depth": 1,
-   "path_prefix": "/",
+   "path_prefix": "/undergraduate/",
    "platform": "courseleaf",
-   "program_lists": []
+   "program_lists": [],
+   "sitemap_program": "/undergraduate/(?!coursedescriptions/)[^/]+/[^/]+/$"
   },
-  "detected": "CourseLeaf-style catalog on catalog.utsa.edu (no program list link; pages found from the home page)"
+  "detected": "CourseLeaf-style catalog on catalog.utsa.edu (no program list link; pages found from the home page); reviewed 2026-10-08: degree programs are printed on department pages (/undergraduate/<college>/<department>/) with no award in the URL (sitemap in run TX/2026-10-08-b01), read like uark's department pages",
+  "reviewed": true
  },
  "wtamu": {
   "catalog": {

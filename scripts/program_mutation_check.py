@@ -7,6 +7,32 @@ the same file. Each mutant breaks one rule; tests/test_programs_deep_dive.py mus
 import shutil, subprocess, sys
 
 MUTS = [
+    ('programs/catalog_counts.py', " or (x['listed_as'] is None and (X.UNDOTTED_LIST_AWARD.search(x['printed'].replace(ZWSP, '')) or X.credential_of(x['printed']) == 'bachelor'))]", "]"),
+    ('programs/catalog_counts.py', "                if pk != rk and pk.startswith(rk): hit = None", "                if pk.startswith(rk): hit = None"),
+    ('programs/catalog_counts.py', "AWARD_ONLY = re.compile(r'^(?:(?-i:B[A-Z]{1,4}[a-z]{0,3})|", "AWARD_ONLY = re.compile(r'^(?:B[A-Za-z]{0,9}|"),
+    ('programs/extract.py', "\n                or COLON_OPTION_ENTRY.match(line))", ")"),
+    ('programs/extract.py', " and norm(p.get('url')) not in own}", "}"),
+    ('programs/autoreview.py', "               'listed_option' if (c['institution_key'], url_of(c, 'program_url')) in listed_options else\n", ""),
+    ('programs/extract.py', "    m = re.match(r'^(?P<base>[^,():]+?),\\s*(?P<award>(?-i:B[A-Z]{1,4}[a-z]{0,2}))\\s*\\**$', line)", "    m = None"),
+    ('programs/extract.py', "\n            or ('bachelor' if UNDOTTED_LIST_AWARD.search((label or '').replace('\\u200b', '')) else None))", ")"),
+    ('programs/extract.py', "|,\\s*(?-i:B[A-Z]{1,4})(?=Bachelors)')", "')"),
+    ('programs/extract.py', "        if line.startswith(anchor) and line.strip() in others: return None", "        pass"),
+    ('programs/catalog_counts.py', "\n                 and v.get('year_basis', 'labeled_in_source') in LABELED]", "]"),
+    ('programs/catalog_counts.py', "Bachelor's (Degree|Concentration|Degree Programs)|", "Bachelor's (Degree|Concentration)|"),
+    ('programs/autoreview.py', " or o.startswith((b + '-', b + '_')) or o.endswith('-' + b) for o in stems)]", " or o.startswith((b + '-', b + '_')) for o in stems)]"),
+    ('programs/extract.py', "r')\\s+(?:[Dd]egree\\s+)?in\\s+(?P<name>", "r')\\s+(?:degree\\s+)?in\\s+(?P<name>"),
+    ('programs/extract.py', "|\\s*20\\d{2}\\s*[-–]\\s*(?:20)?\\d{2}\\s+(?:[A-Z][a-z]+\\s+)?(?:Catalog|Catalogue|Bulletin)\\s+PDF\\s*$', re.I)", "', re.I)"),
+    ('programs/catalog_counts.py', "        ident = lambda x: 'page:' + page_key(x['url']) if AWARD_ONLY.match(x['printed'].strip()) else name_key(x['printed'])", "        ident = lambda x: name_key(x['printed'])"),
+    ('programs/catalog_counts.py', "            if c: x['printed'] = max(c, key=len); labelled += 1\n", ""),
+    ('programs/catalog_counts.py', "(?: [A-Z][a-z]+)*)\\**$')  # Missouri", "(?: [A-Z][a-z]+)*)$')  # Missouri"),
+    ('programs/catalog_counts.py', "        deg = [x for x in rest if x not in opts]", "        deg = rest"),
+    ('programs/catalog_counts.py', " for x, m in zip(rest, shape) if m and (X.name_key_of", " for x, m in zip(rest, shape) if m or (X.name_key_of"),
+    # VCU 2026-27: 'X, Bachelor of Science (B.S.) with a concentration in Y' with no line for the degree itself
+    ('programs/extract.py', " or LONG_AWARD_WITH_OPTION_ENTRY.match(line)\n", "\n"),
+    ('programs/extract.py', "    if m: return re.sub(r'\\W+', '', m.group('base')).lower(), _award_key(m.group('award'))\n    if ',' in line:", "    if ',' in line:"),
+    # OSU 2026-27: a 'Full 2025-2026 Catalog' print link is not the page's year label; only the whole line is
+    ('programs/extract.py', "        (menu_found if PRINT_LINK.match(line) or any(", "        (menu_found if any("),
+    ('programs/extract.py', "(?:Catalog|Catalogue|Bulletin)\\s*$|\\s*20\\d{2}", "(?:Catalog|Catalogue|Bulletin)|\\s*20\\d{2}"),
     # UVU: listed emphases, glued awards, matriculation evidence
     ('programs/extract.py', "    return any(is_option_page(c) for c in found) and (key, norm_emph(url)) not in emphases", "    return any(is_option_page(c) for c in found)"),
     ('programs/autoreview.py', "'program_name', '')) and (c['institution_key'], url_of(c, 'program_url')) not in listed_emphases else", "'program_name', '')) and True else"),
@@ -67,8 +93,14 @@ MUTS = [
     ('programs/detect.py', "        if q.stem == state or not oreg.exists(): continue", "        if q.stem == state or oreg.exists(): continue"),
     ('programs/build_targets.py', "          | set(c.get('extra_hosts',[]))),'mode'", "          ),'mode'"),
     ('programs/crawl.py', "(b[a-z]{1,5}|ab|major)([-_]|$)', seg)", "(b[a-z]{1,5}|major)([-_]|$)', seg)"),
+    ('programs/catalog_counts.py', "                 and len(x['printed']) - len(v['record']['program_name']) >= 30]", "                 ]"),
+    ('programs/catalog_counts.py', "                if pk != rk and pk.startswith(rk): hit = None  #", "                pass  #"),
+    ('programs/catalog_counts.py', "    return re.sub(r'^https?://', '', re.sub(r'(/index\\.html?)?/*$', '', u)).lower()", "    return re.sub(r'(/index\\.html?)?/*$', '', u).lower()"),
+    ('programs/catalog_counts.py', "    if len(pr) % 2 == 0 and h and pr[:h] == pr[h:]: return pr[:h], True", "    if False: return pr[:h], True"),
+    ('programs/catalog_counts.py', "        comb = [x for x in b if COMB.search(x['printed'])]", "        comb = []"),
+    ('programs/catalog_counts.py', " and v['domain'] == 'academic_programs' and v['candidate_id'] in approved\n", " and v['domain'] == 'academic_programs'\n"),
     ('programs/extract.py', "|General\\s+|[A-Z][a-z]+\\s+Campus\\s+)?(Catalog", "|General\\s+)?(Catalog"),
-    ('programs/extract.py', "        emph = [EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) or WITH_EMPHASIS_ENTRY.match(line)\n", "        emph = [EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) or None\n"),
+    ('programs/extract.py', "    return (EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) or WITH_EMPHASIS_ENTRY.match(line)\n", "    return (EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) or None\n"),
     ('programs/extract.py', "            if key in degrees or key in (offered or {}).get(ik, set()): continue", "            pass"),
     ('programs/crawl.py', " or SKIP_PATH.search(p.path) or excluded(target, u): return False", " or SKIP_PATH.search(p.path): return False"),
     ('programs/extract.py', "BACHELOR = re.compile(r'(?<![A-Za-z]\\.)\\b(B", "BACHELOR = re.compile(r'\\b(B"),
@@ -100,7 +132,7 @@ MUTS = [
     # one program name on several pages: only the base page's record and requirement rows
     ('programs/autoreview.py', "               'variant_page' if url_of(c, 'program_url') in variant_pages else", ""),
     ('programs/autoreview.py', "               'variant_page' if url_of(c, 'source_url') in variant_pages else", ""),
-    ('programs/autoreview.py', "    base = [b for b in stems if all(o == b or o.startswith((b + '-', b + '_')) for o in stems)]", "    base = sorted(stems)[:1]"),
+    ('programs/autoreview.py', "    base = [b for b in stems if all(o == b or o.startswith((b + '-', b + '_')) or o.endswith('-' + b) for o in stems)]", "    base = sorted(stems)[:1]"),
     ('programs/autoreview.py', "    url = re.sub(r'/general-[A-Za-z0-9]+$', '', url)", "    pass"),
     # Stetson: a not-yet-posted catalog PDF slot is not the page's label; a four-digit 'Edition' label is read
     ('programs/extract.py', "        if any(re.match(r'\\s*coming soon\\b', l, re.I) for l in lines[i + 1:i + 3] if l.strip()): continue", "        pass"),
@@ -200,7 +232,7 @@ MUTS = [
     ('programs/autoreview.py', " and not PAREN_VARIANT_ENTRY.match(n) and not PAREN_AWARD_VARIANT_ENTRY", " and not PAREN_AWARD_VARIANT_ENTRY"),
     # Texas A&M 'X - BS, Y Track' list lines; track pages passed to the listed rule
     ('programs/extract.py', "\n                or AWARD_DASH_OPTION_ENTRY.match(line)", ""),
-    ('programs/extract.py', "(p.get('printed') or '').replace('\\u200b', '')", "(p.get('printed') or '')"),
+    ('programs/extract.py', "(printed or '').replace('\\u200b', '')", "(printed or '')"),
     ('programs/extract.py', "    if credential_of(name) != 'bachelor' or GENERIC_DEGREES.match(name) or NOT_PROGRAM_NAME.search(name): return []", "    if credential_of(name) != 'bachelor' or OPTION_NAME.search(name) or GENERIC_DEGREES.match(name) or NOT_PROGRAM_NAME.search(name): return []"),
     # shared reader requests #153: section titles, roadmaps, offices; UC Davis college run-on; Coursedog card descriptions
     ('programs/extract.py', " or GENERIC_DEGREES.match(name) or NOT_PROGRAM_NAME.search(name): return []", " or GENERIC_DEGREES.match(name): return []"),
@@ -243,7 +275,7 @@ MUTS = [
     ('programs/courseleaf.py', "if k in keys[i + 1:] else k", "if False else k"),
     ('programs/courseleaf.py', "    plan_keys = labelled_keys(headings, slug) if labelled else []", "    plan_keys = [slug(h) for h in headings] if labelled else []"),
     # Cal Poly 2026-2028 campus variants listed without a base line
-    ('programs/extract.py', " or PAREN_AWARD_VARIANT_ENTRY.match(line)\n                for line in printed]", "\n                for line in printed]"),
+    ('programs/extract.py', " or PAREN_AWARD_VARIANT_ENTRY.match(line) or LONG_AWARD", " or LONG_AWARD"),
     ('programs/autoreview.py', " and not PAREN_AWARD_VARIANT_ENTRY.match(n) and _degree_key(n)", " and _degree_key(n)"),
     # promote never replaces an owner-corrected record or re-promotes a candidate over the record it produced
     ('programs/promote.py', "    if on_file.get('verification_correction_reason') or nk in corrected_keys(): return 'owner-approved correction on file'", "    pass"),
@@ -255,7 +287,7 @@ MUTS = [
     ('programs/extract.py', "HEADER_NAME = re.compile(r'(?:Guide|Catalog|Catalogue|Bulletin)', re.I)", "HEADER_NAME = re.compile(r'.*', re.I)"),
     # 2026-10-08 reader fixes: print-menu catalog PDFs (UNO), B.M.A. is not M.A. (Missouri Western), awards from official
     # school/department pages (UMD), college-qualified list lines (Iowa State)
-    ('programs/extract.py', "        (menu_found if any(ARCHIVE_LINK.match(l) for l in lines[i + 1:i + 2]) else found).update(got)", "        found.update(got)"),
+    ('programs/extract.py', " or any(ARCHIVE_LINK.match(l) for l in lines[i + 1:i + 2]) else found).update(got)", " else found).update(got)"),
     ('programs/extract.py', "    if not found: found = menu_found\n", "\n"),
     ('programs/autoreview.py', "(?<!B\\.)\\bM\\.\\s?(A|S|Ed|F\\.?A)\\.", "\\bM\\.\\s?(A|S|Ed|F\\.?A)\\."),
     ('programs/extract.py', "            if len(kinds) == 1:\n                k = kinds.pop()", "            if kinds:\n                k = kinds.pop()"),

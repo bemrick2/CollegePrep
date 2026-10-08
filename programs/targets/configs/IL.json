@@ -196,7 +196,9 @@
     "https://catalog.illinoisstate.edu/programs"
    ]
   },
-  "detected": "CourseLeaf-style catalog on catalog.illinoisstate.edu (program list https://catalog.illinoisstate.edu/programs)"
+  "detected": "CourseLeaf-style catalog on catalog.illinoisstate.edu (program list https://catalog.illinoisstate.edu/programs); reviewed 2026-10-08: the /programs list renders in the browser (run 2026-10-08-b01 read it without JavaScript: no program links)",
+  "render": "browser",
+  "reviewed": true
  },
  "knox": {
   "catalog": {
@@ -447,13 +449,18 @@
  },
  "uic": {
   "catalog": {
-   "home": "https://catalog.uic.edu/",
-   "min_depth": 1,
-   "path_prefix": "/",
+   "home": "https://catalog.uic.edu/ucat/colleges-depts/",
+   "min_depth": 2,
+   "path_prefix": "/ucat/colleges-depts/",
    "platform": "courseleaf",
-   "program_lists": []
+   "program_lists": [],
+   "nav_prefix": "/ucat/colleges-depts/"
   },
-  "detected": "CourseLeaf-style catalog on catalog.uic.edu (no program list link; pages found from the home page)"
+  "detected": "CourseLeaf-style catalog on catalog.uic.edu (no program list link; pages found from the home page); reviewed 2026-10-08: undergraduate catalog under /ucat/, list of degree programs at /ucat/degree-programs/ (web search); no sitemap; reviewed 2026-10-08 (run b02): /ucat/degree-programs/ links policy pages only; program pages sit at /ucat/colleges-depts/<college>/<department>/<program>/ ('BS in Finance', 'BMus in Jazz Studies') and there is no sitemap, so the college and department pages are walked; run b03 stored no college page from the catalog home, so the walk starts at 'Colleges & Departments' (https://catalog.uic.edu/ucat/colleges-depts/, linked from the catalog's pages)",
+  "reviewed": true,
+  "caps": {
+   "catalog_nav": 150
+  }
  },
  "uis": {
   "catalog": {

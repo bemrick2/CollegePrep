@@ -472,6 +472,30 @@ class StatedMajorTests(unittest.TestCase):
         from pipeline import text as T
         p = T.Page('Catalog 2026-2027\nPDF of the entire 2025-2026 Catalog\nDownload PDF of the entire 2024-2025 Bulletin', 't', [], [], [])
         self.assertEqual({y for y, _ in X.printed_catalog_years(p)}, {'2026-2027'})
+        # Oklahoma State 2026-27: the edition header and the print link to last year's full PDF catalog
+        osu = T.Page('2026-2027 Edition\nFull 2025-2026 Catalog\nZoology, BS', 't', [], [], [])
+        self.assertEqual({y for y, _ in X.printed_catalog_years(osu)}, {'2026-2027'})
+        utsa = T.Page('2026-28 Undergraduate Catalog\n2024-2026 Undergraduate Catalog PDF\nDepartment of Computer Science', 't', [], [], [])
+        self.assertEqual({y for y, _ in X.printed_catalog_years(utsa)}, {'2026-2028'})
+        # undotted awards on program lists (OSU, Missouri, UTEP); a graduate award, a minor or an all-caps name is not one
+        for lab in ('Marketing, BSBA', 'Chemical Engineering, BSCH', 'University Studies, BUS', 'BJ*', 'BSAcc', 'Computer Engineering, BSBachelorsUndergraduateEngineering'):
+            self.assertEqual(X.list_award(lab, lab), 'bachelor', lab)
+        for lab in ('Accounting, MS', 'Accounting (ACCT), Minor', 'BIOLOGY', 'Business, Graduate Certificate', 'Bioinformatics BIOL'):
+            self.assertIsNone(X.list_award(lab, lab), lab)
+        # VCU 2026-27: another link's text is not this link's printed line; UO's 'Accounting: BA, BS' still is
+        vcu = T.Page('Nursing, B.S.\nNursing, B.S., R.N.-B.S. completion program', 't', [], [('u1', 'Nursing, B.S.'), ('u2', 'Nursing, B.S., R.N.-B.S. completion program')], [])
+        self.assertIsNone(X.printed_line(vcu, 'Nursing, B.S.'))
+        self.assertEqual(X.printed_line(T.Page('Accounting: BA, BS', 't', [], [('u', 'Accounting')], []), 'Accounting'), 'Accounting: BA, BS')
+        # the skip never runs on to an unrelated later line (SF State 'Accounting (ACCT)' department link)
+        sf = T.Page('Accounting (ACCT)\nAccounting: Bachelor\'s Concentration, Minor', 't', [], [('u1', 'Accounting'), ('u2', 'Accounting (ACCT)')], [])
+        self.assertIsNone(X.printed_line(sf, 'Accounting'))
+        # Biola 2026-27: a PDF link that is the page's only label names the current catalog
+        biola = T.Page('2026-2027 Catalog PDF\nBiology, B.S.', 't', [], [], [])
+        self.assertEqual({y for y, _ in X.printed_catalog_years(biola)}, {'2026-2027'})
+        self.assertEqual({y for y, _ in X.printed_catalog_years(T.Page('Full 2026-2027 Catalog\nZoology, BS', 't', [], [], []))}, {'2026-2027'})
+        self.assertEqual({y for y, _ in X.printed_catalog_years(T.Page('Full 2026-2027 Catalog of courses and programs\n2025-2026 Catalog PDF', 't', [], [], []))}, {'2026-2027'})
+        # only the whole line is a print link: a sentence naming the full catalog still carries its label
+        self.assertEqual({y for y, _ in X.printed_catalog_years(T.Page('Full 2026-2027 Catalog of courses and programs', 't', [], [], []))}, {'2026-2027'})
 
     def test_stetson_edition_header_and_coming_soon_pdf_slot(self):
         from pipeline import text as T
@@ -1594,6 +1618,22 @@ class AutoReviewTests(unittest.TestCase):
         self.assertEqual(held['entry_path_variant'], 3)
         self.assertEqual(held['not_verbatim'], 1); self.assertEqual(held['duplicate'], 1); self.assertEqual(held['req_program_not_approved'], 1)
 
+    def test_options_of_a_listed_degree_are_held(self):  # Oklahoma State 2026-27: 'Zoology: Pre-Medical Sciences, BS' beside 'Zoology, BS'
+        from programs import autoreview as A
+        from datetime import date
+        def at(c, url): c['record']['program_url'] = url; return c
+        cands = [at(self.prog('z', 'Zoology, BS', key='zoology-bs'), 'https://a/zoo'),
+                 at(self.prog('zp', 'Zoology: Pre-Medical Sciences, BS', key='zoology-pre-medical-sciences-bs'), 'https://a/zoo-premed'),
+                 at(self.prog('n', 'Natural Resource Ecology: Fisheries, BSAG', key='nre-fish-bsag'), 'https://a/nre-fish')]
+        lists = {'k': {'programs': [{'listed_as': 'bachelor', 'printed': p, 'url': u} for p, u in
+                                    (('Zoology, BS', 'https://a/zoo'), ('Zoology: Pre-Medical Sciences, BS', 'https://a/zoo-premed'),
+                                     ('Natural Resource Ecology: Fisheries, BSAG', 'https://a/nre-fish'))]}}
+        old = A.catalog_records; A.catalog_records = lambda *a: []
+        try: approve, _, held = A.review('ZZ', self.run_dir(cands, lists=lists), today=date(2026, 10, 6))
+        finally: A.catalog_records = old
+        self.assertEqual(sorted(a['candidate_id'] for a in approve), ['n', 'z'])  # no 'Natural Resource Ecology, BSAG' line: kept
+        self.assertEqual(held['listed_option'], 1)
+
     def test_listed_variant_lines_are_the_degree(self):  # UT Arlington 2026-27: 'Data Science BS (Biology)', no 'Data Science BS' line
         from programs import autoreview as A
         from datetime import date
@@ -1736,6 +1776,10 @@ class DegreePageTests(unittest.TestCase):  # JHU 2026-27 (Research request in #1
         self.assertEqual(variant_pages_of([{j + 'b/biology-bs', j + 'b/biology-bs-pre-professional'}]), {j + 'b/biology-bs-pre-professional'})
         self.assertEqual(variant_pages_of([{j + 'c/asian-studies', j + 'c/asian-studies-ba'}]), set())  # one base page: both are that page
         self.assertEqual(variant_pages_of([{j + 'u/ABC', j + 'u/ABC_HON'}]), {j + 'u/ABC_HON'})  # underscore extensions of a base page
+        # Georgia Tech 2026-27: thread pages put the qualifier before the base name ('media-people-computer-science-bs')
+        gt = {j + 'p/computer-science-bs', j + 'p/media-people-computer-science-bs', j + 'p/computer-science-theory-bs'}
+        self.assertEqual(variant_pages_of([gt]), gt - {j + 'p/computer-science-bs'})
+        self.assertEqual(variant_pages_of([{j + 'p/biology-bs', j + 'p/marine-science-bs'}]), {j + 'p/biology-bs', j + 'p/marine-science-bs'})  # no base page
 
 
 class SamplePlanPageTests(unittest.TestCase):  # KU 2026-27 sample-plan sub-pages; PVAMU award abbreviations (review of 2026-10-07)
@@ -1815,6 +1859,9 @@ class DepartmentSectionTests(unittest.TestCase):
         uf = T.Page('2026-2027 Undergraduate Catalog\nBA | Specializations: Environmental Geosciences | General Geography\n' + '\n'.join(heads), 't', [], [], heads)
         got = sorted(c['record']['program_name'] for c in X.department_section_candidates({'institution_key': 'k'}, e, uf, '2026-27'))
         self.assertEqual(got, ['Bachelor of Arts in Geography', 'Bachelor of Science in Geography'])
+        # UTSA 2026-28: 'Bachelor of Science Degree in X' headings; a department page printing two degrees gives two records
+        utsa = dep(['Bachelor of Science Degree in Computer Science', 'Concentration in Cybersecurity', 'Bachelor of Science Degree in Software Engineering'])
+        self.assertEqual(sorted(c['record']['program_key'] for c in utsa), ['computer-science-bs', 'software-engineering-bs'])
 
     def test_programs_sharing_a_page_are_not_duplicates(self):
         from programs import autoreview as A
@@ -2206,6 +2253,19 @@ class ListedEmphasisTests(unittest.TestCase):
         self.assertEqual(listed_emphasis_pages(L(('English (BA): Film Studies Concentration', 'f'), ('English (B.A.)', 'e')), norm), set())
         # a degree with a program page of its own in the run keeps its concentrations as options
         self.assertEqual(sorted(u for _, u in listed_emphasis_pages(lists, norm, {'x': {('computerscience', 'bs')}})), ['https://a/ans-ind', 'https://a/bsba-acct'])
+        # VCU 2026-27: the award spelled out, then the concentration; a degree whose own line is listed keeps them as options
+        vcu = L(('Chemistry, Bachelor of Science (B.S.) with a concentration in biochemistry', 'chem-bio'),
+                ('Chemistry, Bachelor of Science (B.S.) with a concentration in chemical science', 'chem-sci'),
+                ('Biology, Bachelor of Science (B.S.) with a concentration in ecology', 'bio-eco'), ('Biology, Bachelor of Science (B.S.)', 'bio'),
+                ('Biology, Bachelor of Arts (B.A.) with a concentration in teaching', 'bio-ba'))
+        self.assertEqual(sorted(u for _, u in listed_emphasis_pages(vcu, norm)), ['https://a/bio-ba', 'https://a/chem-bio', 'https://a/chem-sci'])
+        # the complement: options of a listed degree (VCU biology ecology; OSU 'Zoology: Pre-Medical Sciences, BS' beside 'Zoology, BS'),
+        # never a page a degree line also links
+        from programs.extract import listed_option_pages
+        osu = L(('Zoology, BS', 'zoo'), ('Zoology: Pre-Medical Sciences, BS', 'zoo-premed'), ('Marketing: Sports Marketing, BSBA', 'mkt-sport'),
+                ('Geography, BA', 'geog'), ('Geography: Pre-Ministry, BA', 'geog'))
+        self.assertEqual(sorted(u for _, u in listed_option_pages(vcu, norm)), ['https://a/bio-eco'])
+        self.assertEqual(sorted(u for _, u in listed_option_pages(osu, norm)), ['https://a/zoo-premed'])
         # a list page stored by another run of the same catalog (NC State's discovery run) is read as stored; absent runs are skipped
         page = (b'<html><head><title>Undergraduate</title></head><body><p>University Catalog 2026-2027</p>'
                 b'<a href="https://catalog.example.edu/ans/ans-bs-industry-concentration/">Animal Science (BS): Industry Concentration</a></body></html>')
@@ -2419,6 +2479,126 @@ class CandidateIdentityTests(unittest.TestCase):
         self.assertEqual(len(set(keys)), 3)
         self.assertEqual(keys[2], slug(h + '112'))  # the last keeps the key stored before this rule
         self.assertEqual(labelled_keys(['Robotics Concentration', 'Without Concentration'], slug), ['robotics-concentration', 'without-concentration'])
+
+
+class CatalogCountTests(unittest.TestCase):
+    """programs/catalog_counts.py: catalog completeness from a reviewed decision (rule used since #175)."""
+
+    def run_dir(self, d, listing, records, approved=None):
+        d = Path(d); lo = 'https://catalog.x.edu/programs/'
+        (d / 'program_lists.json').write_text(json.dumps({'k': {'programs': [
+            {'printed': p, 'url': u, 'listed_as': la, 'listed_on': lo} for p, u, la in listing]}}))
+        (d / 'manifest.jsonl').write_text(json.dumps({'url': lo, 'sha256': 'a' * 64, 'fetched_at': '2026-10-08T00:00:00+00:00'}) + '\n')
+        lines = []
+        for i, (name, url) in enumerate(records):
+            lines.append(json.dumps({'candidate_id': f'c{i}', 'institution_key': 'k', 'domain': 'academic_programs',
+                                     'record': {'program_name': name, 'program_key': f'p{i}'}, 'source': {'requested_url': url}}))
+        (d / 'candidates.jsonl').write_text('\n'.join(lines) + '\n')
+        (d / 'dec.json').write_text(json.dumps({'approve': [{'candidate_id': f'c{i}'} for i in range(len(records)) if approved is None or i in approved]}))
+        return d
+
+    def test_every_entry_is_accounted_for(self):
+        import tempfile
+        from programs.catalog_counts import entries
+        u = 'https://catalog.x.edu/'
+        listing = [('Anthropology, BAAnthropology, BA', u + 'anth-ba/', 'bachelor'),           # card prints the name twice
+                   ('Individual Major, BSE', u + 'im-bse/', 'bachelor'),                       # not the 'E' of 'BSE' after 'BS'
+                   ('Individual Major, BS', u + 'im-bs/', 'bachelor'),
+                   ('Individual Major, BS', u + 'im-bs-2/', 'bachelor'),                       # same name, second link: counted once
+                   ('Accounting - BSThe B.S. in Accounting prepares students for careers.', u + 'acct/', 'bachelor'),  # run-on description
+                   ('Communication, B.A./M.A. (4+1 year)', u + 'comm-bama/', 'bachelor'),        # combined: excluded by name
+                   ('Business, BSFinance Option', u + 'bus-fin/', 'bachelor'),                 # a short run-on is not a description
+                   ('History, B.A.', u + 'history-ba/', 'bachelor'),                           # credited through its own page (http vs https)
+                   ('Biology: Concentration in Ecology, B.S.', u + 'biology-bs/', 'bachelor'),  # not credited through Biology's page
+                   ('Environmental Studies Major', u + 'envst/', 'major')]                     # prints no award: named, not counted
+        records = [('Anthropology, BA', u + 'anth-ba/'), ('Individual Major, BS', u + 'im-bs/'), ('Accounting - BS', 'https://api.x.com/feed'),
+                   ('Business, BS', 'https://api.x.com/feed2'),
+                   ('Bachelor of Arts (B.A.) Major in History', 'http://catalog.x.edu/history-ba/'), ('Biology', u + 'biology-bs/')]
+        with tempfile.TemporaryDirectory() as d:
+            d = self.run_dir(d, listing, records)
+            e = entries(d, d / 'dec.json', ['k'], reviewed='2026-10-08')[0]
+        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs'], e['programs_complete']), (7, 4, False))
+        b = e['completeness_basis']
+        self.assertIn("not counted, 1 combined or accelerated bachelor's/master's entries: Communication, B.A./M.A. (4+1 year)", b)
+        self.assertIn('print no award and are not counted: Environmental Studies Major', b)
+        self.assertTrue(b.endswith("Not recorded (names separated by ' | '): Biology: Concentration in Ecology, B.S. | Business, BSFinance Option | Individual Major, BSE."))
+
+    def test_options_of_a_listed_degree_are_one_program(self):
+        import tempfile
+        from programs.catalog_counts import entries
+        u = 'https://catalog.x.edu/'
+        listing = [('Chemistry, Bachelor of Science (B.S.)', u + 'chem/', 'bachelor'),
+                   ('Chemistry, Bachelor of Science (B.S.) with a concentration in biochemistry', u + 'chem-bio/', 'bachelor'),
+                   ('Physics, Bachelor of Science (B.S.) with a concentration in astronomy', u + 'phys-astro/', 'bachelor')]  # no Physics line
+        with tempfile.TemporaryDirectory() as d:
+            d = self.run_dir(d, listing, [('Chemistry, Bachelor of Science (B.S.)', u + 'chem/')])
+            e = entries(d, d / 'dec.json', ['k'])[0]
+        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (2, 1))
+        self.assertIn("not counted, 1 concentrations or options of a degree whose own line is listed: "
+                      "Chemistry, Bachelor of Science (B.S.) with a concentration in biochemistry", e['completeness_basis'])
+        self.assertTrue(e['completeness_basis'].endswith("Not recorded (names separated by ' | '): "
+                                                         "Physics, Bachelor of Science (B.S.) with a concentration in astronomy."))
+
+    def test_award_only_entries_and_category_labels(self):
+        import tempfile
+        from programs.catalog_counts import entries
+        u = 'https://catalog.x.edu/'
+        # Missouri: 'BA' / 'BS*' under department headings, each its own program; UTEP: card labels run on to the name
+        listing = [('BA', u + 'anth/ba-anthropology/', 'bachelor'), ('BA', u + 'art/ba-art/', 'bachelor'), ('BS*', u + 'ds/bs-data-science/', 'bachelor'),
+                   ('BBA in AccountingBusiness, Management, & MarketingBachelorsUndergraduateBusiness Administration', u + 'acct-bba/', 'bachelor'),
+                   ('BA in Chicano StudiesBachelorsHumanities, Languages, and Literatures', u + 'chicano-ba/', 'bachelor'),
+                   ("Bachelor's Degree Programs", u + 'programs/', 'bachelor'),  # Georgia Tech: the list's own heading link
+                   ('Bachelor of Music', u + 'music/bachelor-of-music-general/', 'bachelor'),  # UTEP: the record prints the same name
+                   ('Marketing, BSBA', u + 'mkt-bsba/', None),  # OSU: an undotted award the list reader left unclassified
+                   ('BIOLOGY', u + 'biology/', 'bachelor'),  # an all-caps name is a name, not an award
+                   ('Bio', u + 'bio/', 'bachelor'),  # nor is a short capitalised word
+                   ('Physics, Bachelor of Science (B.S.)', u + 'phys/', None)]  # VCU: a spelled-out award the reader left unclassified
+        records = [('BA in Anthropology', u + 'anth/ba-anthropology/'), ('BA in Art', u + 'art/ba-art/'),
+                   ('BBA in Accounting', 'https://api.x.com/feed'), ('BA in Chicano Studies', u + 'chicano-ba/'),
+                   ('Bachelor of Music', u + 'music/bachelor-of-music-general/'), ('Marketing, BSBA', u + 'mkt-bsba/'), ('Biology, BS', u + 'biology/'), ('Biology, BA', u + 'bio/')]
+        with tempfile.TemporaryDirectory() as d:
+            d = self.run_dir(d, listing, records)
+            e = entries(d, d / 'dec.json', ['k'])[0]
+        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (10, 8))
+        b = e['completeness_basis']
+        self.assertIn('4 print only an award under a department heading and are identified by their own page', b)
+        self.assertTrue(b.startswith("11 linked entries"))
+        self.assertIn("2 run the card's category labels on to the name", b)
+        self.assertIn("not counted, 1 department, roadmap, general or commissioning links that are not a single bachelor's program: Bachelor's Degree Programs", b)
+        self.assertTrue(b.endswith("Not recorded (names separated by ' | '): BS* (https://catalog.x.edu/ds/bs-data-science/) | Physics, Bachelor of Science (B.S.)."))
+
+    def test_only_reviewed_approvals_count(self):
+        import tempfile
+        from programs.catalog_counts import entries
+        u = 'https://catalog.x.edu/'
+        with tempfile.TemporaryDirectory() as d:
+            d = self.run_dir(d, [('Art, BA', u + 'art-ba/', 'bachelor'), ('Music, BM', u + 'music-bm/', 'bachelor')],
+                             [('Art, BA', u + 'art-ba/'), ('Music, BM', u + 'music-bm/')], approved={0})
+            e = entries(d, d / 'dec.json', ['k'])[0]
+        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (2, 1))
+        self.assertNotIn('listed_program_keys', e)
+        # a record whose year is not printed in its source (Coursedog API, FAU) never verifies a listed program
+        with tempfile.TemporaryDirectory() as d:
+            d = self.run_dir(d, [('Art, BA', u + 'art-ba/', 'bachelor')], [('Art, BA', u + 'art-ba/')])
+            lines = [json.loads(l) for l in (d / 'candidates.jsonl').read_text().splitlines()]
+            lines[0]['year_basis'] = 'source_unlabeled'
+            (d / 'candidates.jsonl').write_text(''.join(json.dumps(l) + '\n' for l in lines))
+            self.assertEqual(entries(d, d / 'dec.json', ['k'])[0]['verified_listed_programs'], 0)
+
+
+class ResearchPriorityTests(unittest.TestCase):
+    def test_every_uncovered_institution_is_ranked_once(self):
+        import sys
+        sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
+        import research_priority as RP
+        doc = RP.rank()
+        st = json.loads((Path(__file__).resolve().parents[1] / 'docs/coverage/programs/STATUS.json').read_text())
+        uncovered = {i['institution_key'] for s in st['states'] for i in s['institutions'] if i['status'] != 'covered'}
+        keys = [r['institution_key'] for r in doc['institutions']]
+        self.assertEqual(len(keys), len(set(keys))); self.assertEqual(set(keys), uncovered)
+        tiers = [RP.TIERS.index(r['tier']) for r in doc['institutions']]
+        self.assertEqual(tiers, sorted(tiers))  # tiers in order, largest first within a tier
+        self.assertEqual(sum(doc['tiers'].values()), len(keys))
 
 
 class DiagnoseRobotsTests(unittest.TestCase):

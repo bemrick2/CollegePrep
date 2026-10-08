@@ -42,6 +42,8 @@ jobs:
         run: python scripts/program_mutation_check.py
       - name: Program-depth completion status is current (docs/PROGRAM_DEPTH_COMPLETION.md)
         run: python -m programs status --check
+      - name: Research priority ranking is current (scripts/research_priority.py)
+        run: python scripts/research_priority.py --check
   mutation:
     # The national pipeline's mutation check is the slowest step (about two hours on one runner); every mutant
     # still runs, split across parallel shards.

@@ -2,14 +2,16 @@
  "arizona": {
   "catalog": {
    "home": "https://catalog.arizona.edu/",
-   "min_depth": 1,
-   "path_prefix": "/",
-   "platform": "courseleaf",
+   "min_depth": 0,
+   "path_prefix": "/programs/",
+   "platform": "coursedog",
    "program_lists": [
     "https://catalog.arizona.edu/programs"
    ]
   },
-  "detected": "CourseLeaf-style catalog on catalog.arizona.edu (program list https://catalog.arizona.edu/programs)"
+  "detected": "CourseLeaf-style catalog on catalog.arizona.edu (program list https://catalog.arizona.edu/programs); reviewed 2026-10-08: the /programs list renders in the browser and program pages use code URLs (/programs/ANTHBS, web search), the Coursedog-style layout; run 2026-10-08-b01 read the list without JavaScript and found no program links",
+  "render": "browser",
+  "reviewed": true
  },
  "maricopa": {
   "catalog": {

@@ -4,8 +4,10 @@
   {
    "institution_key": "ipeds-110565",
    "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate and configure the catalog (discovery found no catalog)."
+   "reason": "fetch_failed",
+   "next_action": "Retry when robots.txt answers; otherwise request an official program export.",
+   "detail": "robots.txt for catalog.fullerton.edu could not be read in run 2026-10-08-b01 (robots_unreachable), so no catalog page was fetched.",
+   "evidence_url": "https://catalog.fullerton.edu/index.php?catoid=17"
   },
   {
    "institution_key": "ipeds-110680",
@@ -49,20 +51,26 @@
   {
    "institution_key": "ipeds-110608",
    "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate and configure the catalog (discovery found no catalog)."
+   "reason": "no_year_label",
+   "next_action": "Find a printed catalog year (rendered page header, print view or an official PDF); the year is never inferred.",
+   "detail": "Catalog catalog.csun.edu: the pages stored in run 2026-10-08-b01 print no catalog year label.",
+   "evidence_url": "https://catalog.csun.edu/"
   },
   {
    "institution_key": "ipeds-110671",
    "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate and configure the catalog (discovery found no catalog)."
+   "reason": "layout_not_readable",
+   "next_action": "Reader work: find the catalog's HTML program pages or a readable PDF layout.",
+   "detail": "Catalog documents.ucr.edu: the catalog PDF read in run 2026-10-08-b01 gave 0 program candidates.",
+   "evidence_url": "https://documents.ucr.edu/registrar/UCR%20Catalog%202026-2027.pdf"
   },
   {
    "institution_key": "ipeds-110705",
    "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate and configure the catalog (discovery found no catalog)."
+   "reason": "no_year_label",
+   "next_action": "Find a printed catalog year (rendered page header, print view or an official PDF); the year is never inferred.",
+   "detail": "Coursedog catalog catalog.ucsb.edu: rendered pages (run 2026-10-08-b02) print no catalog year, and the catalog API answered 401 Unauthorized.",
+   "evidence_url": "https://catalog.ucsb.edu/"
   },
   {
    "institution_key": "ipeds-122977",
