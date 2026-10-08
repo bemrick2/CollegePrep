@@ -25,7 +25,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 KINDS = {'pipeline': 'pipeline/runs', 'programs': 'programs/runs'}
 STORE = 'evidence-store'
-LAYOUT_ROLES = {'courselist', 'outline', 'pdf_layout'}
+LAYOUT_ROLES = {'courselist', 'outline', 'pdf_layout', 'plangrid'}  # plangrid: the #plangrid document courseleaf_plangrid/v1 reads
 LAYOUT_EXTRACTORS = {'courselist_html/v1'}
 
 

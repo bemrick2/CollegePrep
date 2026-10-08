@@ -206,7 +206,7 @@ describe('app flows', () => {
     expect(within(utk).getByText('Net price').nextSibling).toHaveTextContent('$147,976')
     // 1. Accepted: 15 hours from the school's table.  2. For the CS plan: none of it.  3. No term shown removed.
     const steps = within(utk).getByRole('region', { name: /credit the student brings/ })
-    expect(within(steps).getByText(/AP\/CLEP: 15 credits from the school's own table/)).toBeInTheDocument()
+    expect(within(steps).getByText(/Exam credit: 15 credits from the school's own table/)).toBeInTheDocument()
     expect(within(steps).getByText(/Counts toward Computer science/)).toBeInTheDocument()
     expect(within(steps).getByText('AP Art History').parentElement).toHaveTextContent('elective credit only')
     expect(within(steps).getByText('AP Computer Science A').parentElement).toHaveTextContent('COSC 101: not a course this plan uses')

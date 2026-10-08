@@ -121,7 +121,7 @@ MUTS = [
     # NDSU 'Degree Type: B.S.': one stated type only; post-baccalaureate paths are not programs
     ('programs/extract.py', "    if not m and len(types) == 1:", "    if not m and types:"),
     ('programs/extract.py', "|post[- ]?baccalaureate|second degree', name, re.I)", "', name, re.I)"),
-    ('programs/extract.py', "                if int(m.group(2)) == (int(m.group(1)) + k) % 100: found.add((f'{m.group(1)}-{int(m.group(1)) + k}', line.strip()))\n        m = EDITION", "                pass\n        m = EDITION"),
+    ('programs/extract.py', "                if int(m.group(2)) == (int(m.group(1)) + k) % 100: found.add((f'{m.group(1)}-{int(m.group(1)) + k}', line.strip()))\n        # UW-Madison", "                pass\n        # UW-Madison"),
     ('programs/extract.py', "        if re.search(r'\\bdual major\\b', name, re.I) or (':' in name and re.search(r'\\bemphas[ie]s\\b', page.text, re.I)): out = []", "        pass"),
     # UF degree_line/v1: specialization pages under a major's code; underscore slugs in the base-page rule
     ('programs/extract.py', "    if len(parts) >= 2 and re.fullmatch(r'[A-Z]{2,4}_[A-Z]{2,6}', parts[-2]): return []", "    pass"),
@@ -245,6 +245,9 @@ MUTS = [
     # Cal Poly 2026-2028 campus variants listed without a base line
     ('programs/extract.py', " or PAREN_AWARD_VARIANT_ENTRY.match(line)\n                for line in printed]", "\n                for line in printed]"),
     ('programs/autoreview.py', " and not PAREN_AWARD_VARIANT_ENTRY.match(n) and _degree_key(n)", " and _degree_key(n)"),
+    # UW-Madison 2026-27 header: 'Guide' / '2026-2027' on two lines
+    ('programs/extract.py', "        if m and HEADER_NAME.fullmatch(prev) and int(m.group(2)) - int(m.group(1)) in PERIOD_SPANS:", "        if m and int(m.group(2)) - int(m.group(1)) in PERIOD_SPANS:"),
+    ('programs/extract.py', "HEADER_NAME = re.compile(r'(?:Guide|Catalog|Catalogue|Bulletin)', re.I)", "HEADER_NAME = re.compile(r'.*', re.I)"),
 ]
 
 
