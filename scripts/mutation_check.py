@@ -14,7 +14,7 @@ MUTS = [
     ('pipeline/extractors/catalog.py', "'\\n'.join(l for l in page.lines[:60] if not print_link.match(l)))\n", "'\\n'.join(page.lines[:60]))\n"),
     ('pipeline/extractors/catalog.py', "\\bB\\.?\\s?(F\\.\\s?A|S\\.\\s?N|S\\.\\s?W|L\\.\\s?A|B\\.\\s?A|S|A|", "\\bB\\.?\\s?(S|A|"),
     ('pipeline/extractors/catalog.py', "re.search(r',\\s*(?:B|A)\\.\\s?[A-Z]', rest)", "False"),
-    ('pipeline/extractors/common.py', " and not UNDERGRAD_AWARD.search((page.title or '').split('|')[0])", ''),
+    ('pipeline/extractors/common.py', " and not UNDERGRAD_AWARD.search(head)\n", "\n"),
     ('pipeline/extractors/catalog.py', "    if rest and not award_only and not (", "    if rest and not ("),
     ('pipeline/registry.py', " and label not in other_states and (label not in slugs", " and (label not in slugs"),
     ('pipeline/registry.py', "            inst['folder'] = prior[inst['institution_key']]; continue", "            pass"),
