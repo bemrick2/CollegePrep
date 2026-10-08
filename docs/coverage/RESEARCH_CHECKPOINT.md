@@ -2,18 +2,18 @@
 
 This file is how a new Research session resumes the national program-research workstream without redoing finished work. It is updated with every batch PR.
 
-- **Main at the last refresh:** `517dc1f6dbff5f066c17abf0267d903c6913332c` (merge of #209).
+- **Main at the last refresh:** `ec3f82f9c9ab6d21df482b63ed3b193441de00bf` (after #209 and #210).
 - **Branch carrying this checkpoint:** `research/batch-01`.
 - **Ranking:** `docs/coverage/research_priority.json`, written by `python3 scripts/research_priority.py`. CI (validate-data) checks that it is current.
 
 ## Numbers
 
-| | main `517dc1f` | research/batch-01 |
+| | main `ec3f82f` | research/batch-01 |
 |---|---|---|
 | Registered four-year institutions | 2,119 | 2,119 |
-| Covered (docs/PROGRAM_DEPTH_COMPLETION.md) | 58 | 60 |
+| Covered (docs/PROGRAM_DEPTH_COMPLETION.md) | 60 | 62 |
 | Researched | 641 | 661 |
-| Verified bachelor's program records | 9,256 | 9,738 |
+| Verified bachelor's program records | 9,263 | 9,745 |
 
 All figures are counted from `docs/coverage/programs/STATUS.json` and from the `academic_programs` files with `verification_status == "verified"` and `credential_level == "bachelor"`.
 
@@ -25,7 +25,7 @@ All figures are counted from `docs/coverage/programs/STATUS.json` and from the `
 | Missouri | MO/2026-10-08-b02 | 86/99, partial. Award-only entries ('BA', 'BS*', 'BSAcc') are identified by their own page. The entries whose awards the list reader missed were never crawled; a re-run with an 800-page cap is in flight. |
 | UTEP | TX/2026-10-08-b04 | 83/87, covered. List cards run the name or award on to category labels. |
 | Georgia Tech | GA/2026-10-08-b03 | 41/42, covered. Thread and concentration pages are variants of the degree's page. Electrical Engineering is held because of a misspelled thread URL (queued). |
-| VCU | VA/2026-10-08-b02 | 120 verified records (#209's 57 kept as on main, b02 adds 63); 120/151 listed. Concentration lines with no degree line are read as the degree. |
+| VCU | VA/2026-10-08-b02 | 120 verified records (#209's 57 kept as on main, b02 adds 63); 120/151 listed (A-Z list /azprograms/, fetched under robots; #210's robots_disallowed entry for /azindex/ is superseded). Concentration lines with no degree line are read as the degree. |
 | UTSA | TX/2026-10-08-b03 | 82 degree sections. The '2026-28 Undergraduate Catalog' period label is kept. There is no program list page, so no completeness count (queued). |
 
 Reader and checker changes in this batch each come with tests and mutants: `programs/extract.py`, `programs/catalog_counts.py`, `programs/autoreview.py`, `pipeline/extractors/catalog.py` and `pipeline/extractors/common.py`.
@@ -47,6 +47,10 @@ Reader and checker changes in this batch each come with tests and mutants: `prog
   - Modesto JC (2020-21 PDF)
   - St. Petersburg College (2025-26 PDF)
 - **Pending owner decision:** the UTK downgrade of 7 records (#191).
+
+## Known reader limits
+
+- `UNDOTTED_LIST_AWARD` reads UMD's 'SDSB - Social Data Science, BSOS' (a college code) as a bachelor's entry; review such entries by hand.
 
 ## In flight (run branches pushed, not yet reviewed)
 
