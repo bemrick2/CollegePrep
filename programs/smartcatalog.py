@@ -13,6 +13,7 @@ import re
 from pipeline.extractors import common
 from pipeline.extractors.catalog import CATEGORY, HEAD_CREDITS, KIND, slug
 
+from programs.years import academic_year_of
 EXTRACTOR = 'smartcatalog_program/v1'
 CODE = re.compile(r'^([A-Z][A-Za-z]{1,4})\s?(\d{3}[A-Z]?)$')
 CRED = re.compile(r'^\d{1,2}(?:\.\d)?(?:\s*[-–]\s*\d{1,2})?$')
@@ -68,7 +69,7 @@ def extract(inst, entry, page, today_year):
     if not name or not BACHELOR.search(name) or NOT_PROGRAM.search(name): return []
     year, crumb = program_year(page)
     if year is None: return []
-    acad = f'{year[:4]}-{year[7:9]}'
+    acad = academic_year_of(year)
     issues = [] if acad >= today_year else [f'stale_year_label:{acad}']
     pkey = slug(name)
     groups, terms, seen = [], [], {}

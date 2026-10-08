@@ -12,6 +12,7 @@ import re
 
 from pipeline.extractors import common
 
+from programs.years import academic_year_of
 EXTRACTOR = 'clearpath_plan/v1'
 HRS = re.compile(r'^\d{1,2}(?:-\d{1,2})?$')
 YEAR = re.compile(r'^(First|Second|Third|Fourth|Fifth) Year\b')
@@ -115,7 +116,7 @@ def extract(inst, entry, page, program_key, today_year):
     if not head: return []
     m = TITLE.match(head.strip())
     year = f'{m.group(2)}-{m.group(3)}'
-    acad = f'{year[:4]}-{year[7:9]}'
+    acad = academic_year_of(year)
     years = parse(lines)
     if not years: return []
     terms, issues = [], set()
@@ -223,7 +224,7 @@ def extract_layout(inst, entry, page_text_lines, pages, program_key, today_year)
     """As extract(), from word positions; the plan title and year still come from the text layer's first line."""
     head = next((l for l in page_text_lines[:3] if TITLE.match(l.strip())), None)
     if not head: return []
-    m = TITLE.match(head.strip()); year = f'{m.group(2)}-{m.group(3)}'; acad = f'{year[:4]}-{year[7:9]}'
+    m = TITLE.match(head.strip()); year = f'{m.group(2)}-{m.group(3)}'; acad = academic_year_of(year)
     years = parse_layout(pages)
     if not years: return []
     terms, issues = [], set()
