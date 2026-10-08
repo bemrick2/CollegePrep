@@ -2273,3 +2273,55 @@ class CandidateIdentityTests(unittest.TestCase):
         self.assertEqual(len(set(keys)), 3)
         self.assertEqual(keys[2], slug(h + '112'))  # the last keeps the key stored before this rule
         self.assertEqual(labelled_keys(['Robotics Concentration', 'Without Concentration'], slug), ['robotics-concentration', 'without-concentration'])
+
+
+class CatalogCountTests(unittest.TestCase):
+    """programs/catalog_counts.py: catalog completeness from a reviewed decision (rule used since #175)."""
+
+    def run_dir(self, d, listing, records, approved=None):
+        d = Path(d); lo = 'https://catalog.x.edu/programs/'
+        (d / 'program_lists.json').write_text(json.dumps({'k': {'programs': [
+            {'printed': p, 'url': u, 'listed_as': la, 'listed_on': lo} for p, u, la in listing]}}))
+        (d / 'manifest.jsonl').write_text(json.dumps({'url': lo, 'sha256': 'a' * 64, 'fetched_at': '2026-10-08T00:00:00+00:00'}) + '\n')
+        lines = []
+        for i, (name, url) in enumerate(records):
+            lines.append(json.dumps({'candidate_id': f'c{i}', 'institution_key': 'k', 'domain': 'academic_programs',
+                                     'record': {'program_name': name, 'program_key': f'p{i}'}, 'source': {'requested_url': url}}))
+        (d / 'candidates.jsonl').write_text('\n'.join(lines) + '\n')
+        (d / 'dec.json').write_text(json.dumps({'approve': [{'candidate_id': f'c{i}'} for i in range(len(records)) if approved is None or i in approved]}))
+        return d
+
+    def test_every_entry_is_accounted_for(self):
+        import tempfile
+        from programs.catalog_counts import entries
+        u = 'https://catalog.x.edu/'
+        listing = [('Anthropology, BAAnthropology, BA', u + 'anth-ba/', 'bachelor'),           # card prints the name twice
+                   ('Individual Major, BSE', u + 'im-bse/', 'bachelor'),                       # not the 'E' of 'BSE' after 'BS'
+                   ('Individual Major, BS', u + 'im-bs/', 'bachelor'),
+                   ('Individual Major, BS', u + 'im-bs-2/', 'bachelor'),                       # same name, second link: counted once
+                   ('Accounting - BSThe B.S. in Accounting prepares students for careers.', u + 'acct/', 'bachelor'),  # run-on description
+                   ('Chemistry BS + MS SF State Scholars Roadmap', u + 'chem-bsms/', 'bachelor'),  # combined: excluded by name
+                   ('History, B.A.', u + 'history-ba/', 'bachelor'),                           # credited through its own page (http vs https)
+                   ('Biology: Concentration in Ecology, B.S.', u + 'biology-bs/', 'bachelor'),  # not credited through Biology's page
+                   ('Environmental Studies Major', u + 'envst/', 'major')]                     # prints no award: named, not counted
+        records = [('Anthropology, BA', u + 'anth-ba/'), ('Individual Major, BS', u + 'im-bs/'), ('Accounting - BS', 'https://api.x.com/feed'),
+                   ('Bachelor of Arts (B.A.) Major in History', 'http://catalog.x.edu/history-ba/'), ('Biology', u + 'biology-bs/')]
+        with tempfile.TemporaryDirectory() as d:
+            d = self.run_dir(d, listing, records)
+            e = entries(d, d / 'dec.json', ['k'], reviewed='2026-10-08')[0]
+        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs'], e['programs_complete']), (6, 4, False))
+        b = e['completeness_basis']
+        self.assertIn('Chemistry BS + MS SF State Scholars Roadmap', b)
+        self.assertIn('print no award and are not counted: Environmental Studies Major', b)
+        self.assertTrue(b.endswith("Not recorded (names separated by ' | '): Biology: Concentration in Ecology, B.S. | Individual Major, BSE."))
+
+    def test_only_reviewed_approvals_count(self):
+        import tempfile
+        from programs.catalog_counts import entries
+        u = 'https://catalog.x.edu/'
+        with tempfile.TemporaryDirectory() as d:
+            d = self.run_dir(d, [('Art, BA', u + 'art-ba/', 'bachelor'), ('Music, BM', u + 'music-bm/', 'bachelor')],
+                             [('Art, BA', u + 'art-ba/'), ('Music, BM', u + 'music-bm/')], approved={0})
+            e = entries(d, d / 'dec.json', ['k'])[0]
+        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (2, 1))
+        self.assertNotIn('listed_program_keys', e)

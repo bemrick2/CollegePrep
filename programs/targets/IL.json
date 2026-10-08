@@ -88,7 +88,8 @@
     ]
    },
    "policy": [],
-   "detected": "CourseLeaf-style catalog on catalog.illinoisstate.edu (program list https://catalog.illinoisstate.edu/programs)"
+   "render": "browser",
+   "detected": "CourseLeaf-style catalog on catalog.illinoisstate.edu (program list https://catalog.illinoisstate.edu/programs); reviewed 2026-10-08: the /programs list renders in the browser (run 2026-10-08-b01 read it without JavaScript: no program links)"
   },
   {
    "institution_key": "ipeds-146719",
@@ -228,12 +229,14 @@
    "catalog": {
     "home": "https://catalog.uic.edu/",
     "min_depth": 1,
-    "path_prefix": "/",
+    "path_prefix": "/ucat/",
     "platform": "courseleaf",
-    "program_lists": []
+    "program_lists": [
+     "https://catalog.uic.edu/ucat/degree-programs/"
+    ]
    },
    "policy": [],
-   "detected": "CourseLeaf-style catalog on catalog.uic.edu (no program list link; pages found from the home page)"
+   "detected": "CourseLeaf-style catalog on catalog.uic.edu (no program list link; pages found from the home page); reviewed 2026-10-08: undergraduate catalog under /ucat/, list of degree programs at /ucat/degree-programs/ (web search); no sitemap"
   },
   {
    "institution_key": "ipeds-145637",
