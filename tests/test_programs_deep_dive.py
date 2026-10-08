@@ -533,6 +533,18 @@ class StatedMajorTests(unittest.TestCase):
         self.assertEqual(csu('Anthropology'), [])  # not a 'Major in' page
         self.assertEqual(csu('Major in Anthropology', text='2026-2027 Catalog\n2025-2026 Catalog'), [])  # two labels
         self.assertEqual(csu('Major in Anthropology', printed='M.A.'), [])  # not a bachelor's award
+        # UT Dallas 2026-27: pages print only the edition name; the edition home page's label is quoted from that page
+        ed = {'year': '2026-2027', 'line': '2026-2027 Undergraduate Catalog', 'url': 'https://catalog.utdallas.edu/2026/undergraduate/home/', 'sha256': 'ef' * 32}
+        tgt4 = {'institution_key': 'k', 'catalog': {'platform': 'courseleaf'}, '_edition_year': ed}
+        e4 = {'url': 'https://catalog.utdallas.edu/2026/undergraduate/programs/aht/animation-and-games', 'sha256': 'ab' * 32, 'fetched_at': '2026-10-08T00:00:00+00:00', 'kind': 'html'}
+        utd = lambda title, heads, t=tgt4: X.program_page_candidates(t, {'institution_key': 'k'}, e4, T.Page('Program text', title, [], [], heads), '2026-27')
+        [c] = utd('Animation & Games (BA) - UT Dallas 2026 Undergraduate Catalog - UTD', ['School of Arts', 'Animation and Games (BA)'])
+        self.assertEqual((c['record']['program_name'], c['record']['catalog_year'], c['extractor']), ('Animation and Games (BA)', '2026-2027', 'edition_program/v1'))
+        self.assertEqual([x['source_url'] for x in c['evidence'] if x['field'] == 'catalog_year'], [ed['url']])
+        self.assertEqual(utd('Animation & Games (BA) - UT Dallas 2025 Undergraduate Catalog - UTD', ['School of Arts', 'Animation and Games (BA)']), [])  # another edition
+        self.assertEqual(utd('Animation & Games (BA) - UT Dallas 2026 Undergraduate Catalog - UTD', ['School of Arts', 'Animation and Games (BA)'],
+                             {k: v for k, v in tgt4.items() if k != '_edition_year'}), [])  # not configured
+        self.assertEqual(utd('Animation & Games Minor - UT Dallas 2026 Undergraduate Catalog', ['School of Arts', 'Animation and Games Minor']), [])
         # Biola 2026-27: a PDF link that is the page's only label names the current catalog
         biola = T.Page('2026-2027 Catalog PDF\nBiology, B.S.', 't', [], [], [])
         self.assertEqual({y for y, _ in X.printed_catalog_years(biola)}, {'2026-2027'})
@@ -1673,6 +1685,10 @@ class AutoReviewTests(unittest.TestCase):
         try: approve, _, held = A.review('ZZ', self.run_dir([self.prog('m', 'Major in Anthropology', ext='award_link_major/v1')]), today=date(2026, 10, 6))
         finally: A.catalog_records = old
         self.assertEqual([a['candidate_id'] for a in approve], ['m'])  # Colorado State 2026-10-08: 20 of 60 sampled, 20 right
+        old = A.catalog_records; A.catalog_records = lambda *a: []
+        try: approve, _, held = A.review('ZZ', self.run_dir([self.prog('u', 'Animation and Games (BA)', ext='edition_program/v1')]), today=date(2026, 10, 6))
+        finally: A.catalog_records = old
+        self.assertEqual([a['candidate_id'] for a in approve], ['u'])  # UT Dallas 2026-10-08
 
     def test_options_of_a_listed_degree_are_held(self):  # Oklahoma State 2026-27: 'Zoology: Pre-Medical Sciences, BS' beside 'Zoology, BS'
         from programs import autoreview as A

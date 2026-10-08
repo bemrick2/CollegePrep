@@ -301,6 +301,29 @@ def _program_page_candidates(target, inst, entry, page, today_year):
             for c in out:  # the year is printed on this same document (e.g. CourseLeaf footer): labeled in source, with its line as evidence
                 c['evidence'] = c.get('evidence', []) + [{'field': 'catalog_year', 'value': year, 'snippet': line[:200],
                                                           'note': 'catalog year label printed outside the page header'}]
+        elif not labels and target.get('_edition_year'):
+            # UT Dallas 2026-27: program pages print only the edition name ('UT Dallas 2026 Undergraduate Catalog', under
+            # /2026/undergraduate/); the edition's own home page prints '2026-2027 Undergraduate Catalog'. The record takes the
+            # home page's label, quoted from that page, only when the page's edition year is the label's first year
+            ed = target['_edition_year']; m = EDITION_NAME.search(page.title or '')
+            if m and m.group(1) == ed['year'][:4]:
+                year, line = ed['year'], ed['line']
+                view = T.Page(page.text, f'{CAT.program_name(page)} - {year} Catalog', page.tables, page.links, page.headings)
+                out = CAT.extract(inst, entry, view, today_year)
+                if not out:  # a page without Course List tables: the program identity only (the first heading that names a bachelor's award)
+                    name = next((h.strip() for h in page.headings[:3] if credential_of(h) == 'bachelor' and not GENERIC_DEGREES.match(h)
+                                 and not NOT_PROGRAM_NAME.search(h) and not OPTION_NAME.search(h)), None)
+                    if name:
+                        rec = {'program_key': CAT.slug(name), 'program_name': name, 'credential_level': 'bachelor', 'catalog_year': year,
+                               'program_url': common.source_of(entry)['url'], 'notes': "Program heading as printed on the catalog page; catalog year from the edition's home page."}
+                        out = [common.make('academic_programs', inst['institution_key'], academic_year_of(year), 'labeled_in_source', rec,
+                                           [{'field': 'program_name', 'value': name, 'snippet': name}], entry, 'edition_program/v1',
+                                           {'program_key': rec['program_key']}, {}, [])]
+                home = {'field': 'catalog_year', 'value': year, 'snippet': line[:200], 'source_url': ed['url'], 'sha256': ed['sha256'],
+                        'note': "the edition's home page label; the program page prints the edition name"}
+                for c in out:
+                    c['evidence'] = [x for x in c.get('evidence', []) if x.get('field') != 'catalog_year'] + [
+                        {'field': 'catalog_edition', 'value': m.group(0), 'snippet': m.group(0)}, home]
     if not out and plat in ('courseleaf', 'acalog'):
         out = stated_major_identity(inst, entry, page, today_year)
     if not out and plat == 'courseleaf':
@@ -1074,6 +1097,21 @@ def listed_location_candidates(target, inst, run, es, listed, today_year):
 YEAR_STATEMENT = re.compile(r'[^.\n]*\bthis catalog applies to the (20\d{2})\s*[-–]\s*(20\d{2}) academic year[^.\n]*', re.I)
 
 
+EDITION_NAME = re.compile(r'\b(20\d{2}) Undergraduate Catalog\b')
+
+
+def edition_home_year(run, es):
+    """The catalog home page's single printed year label ('2026-2027 Undergraduate Catalog', UT Dallas), with its line,
+    URL and sha, for catalogs configured with edition_year_from_home. None unless exactly one label is printed."""
+    for e in es:
+        if e.get('role') == 'catalog_home' and e.get('page_file'):
+            labels = printed_catalog_years(run.load_page(e['page_file'])[0])
+            if len({y for y, _ in labels}) == 1:
+                y, line = min(labels)
+                return {'year': y, 'line': line, 'url': common.source_of(e)['url'], 'sha256': e.get('sha256')}
+    return None
+
+
 def coursedog_year(run, es):
     """(year, sentence) from the Coursedog catalog home page: "Information in this catalog applies to the 2026–2027
     academic year ..." (Willamette). None when the home page prints no such statement."""
@@ -1474,6 +1512,7 @@ def extract_run(targets, run_dir, today=None):
         lists[key] = collect_lists(t, run, es) if t.get('catalog') else {'programs': [], 'counts': {}}
         emphases = listed_emphasis_pages({key: lists[key]}, norm_emph)
         if (t.get('catalog') or {}).get('platform') == 'coursedog': t = {**t, '_catalog_year': coursedog_year(run, es)}
+        if (t.get('catalog') or {}).get('edition_year_from_home'): t = {**t, '_edition_year': edition_home_year(run, es)}
         if t.get('level_inventory'): t = {**t, '_level_inventory': load_level_inventory(t)}
         if t.get('award_documents'): t = {**t, '_award_documents': load_award_documents(t)}
         if (t.get('catalog') or {}).get('platform') == 'courseleaf':
