@@ -57,3 +57,54 @@ describe('exam credit', () => {
     expect(s.hasTable).toBe(true)
   })
 })
+
+describe('IB, Statewide Dual Credit and minimums printed in words (#197)', () => {
+  const ib: CreditPolicy[] = [
+    {
+      policy_kind: 'IB',
+      equivalencies: [
+        { exam_or_course_code: 'IB-BIO-HL', exam_or_course_name: 'IB Biology (HL)', minimum_score: '5+', institution_course_equivalent: 'BIOL 101-102' },
+        { exam_or_course_code: 'IB-ECON', exam_or_course_name: 'IB Economics (SL or HL)', minimum_score: '5+', institution_course_equivalent: 'ECON 211, 213' },
+        { exam_or_course_code: 'IB-HIST', exam_or_course_name: 'IB History', minimum_score: 'HL 4', institution_course_equivalent: 'HIST 101' },
+        { exam_or_course_code: 'IB-HIST', exam_or_course_name: 'IB History', minimum_score: 'SL 5', institution_course_equivalent: 'HIST 1XX' },
+        { exam_or_course_code: 'IB-CHEM', exam_or_course_name: 'IB Chemistry', minimum_score: 'SL & HL', institution_course_equivalent: 'CHEM 1110', notes: 'HL | 5,6, OR 7' },
+      ],
+    },
+    {
+      policy_kind: 'statewide_dual_credit',
+      equivalencies: [
+        { exam_or_course_code: 'SDC-BUS', exam_or_course_name: 'Statewide Dual Credit Introduction to Business', minimum_score: '80%', institution_course_equivalent: 'BUAD LD (3 credits)', credits_awarded: 3 },
+      ],
+    },
+    { policy_kind: 'AP', equivalencies: [{ exam_or_course_code: 'AP-MUS', exam_or_course_name: 'AP Music Theory', minimum_score: 'Subscores', institution_course_equivalent: 'MUS 1XXX' }] },
+  ]
+  const ibExam = (name: string, score: number | null, level: 'SL' | 'HL' | null): PlannedExam => ({ family: 'IB', key: examKey('IB', name), name, score, level })
+
+  it('one IB subject across level-tagged names', () => {
+    expect(examKey('IB', 'IB Biology (HL)')).toBe(examKey('IB', 'Biology'))
+    expect(examKey('IB', 'IB Economics (SL or HL)')).toBe('IB:economics')
+    expect(examOptions([ib]).filter((o) => o.family === 'IB').map((o) => o.name)).toEqual(['IB Biology', 'IB Chemistry', 'IB Economics', 'IB History'])
+  })
+
+  it('matches IB by level and score; a level-specific row never matches an unknown level', () => {
+    expect(matchExam(ib, ibExam('Biology', 6, 'HL')).status).toBe('qualifies')
+    expect(matchExam(ib, ibExam('Biology', 6, 'SL')).status).toBe('other_level')
+    expect(matchExam(ib, ibExam('Biology', 6, null)).status).toBe('needs_level')
+    expect(matchExam(ib, ibExam('Economics', 5, 'SL')).status).toBe('qualifies')
+    expect(matchExam(ib, ibExam('History', 4, 'HL')).earned.map((t) => t.course)).toEqual(['HIST 101'])
+    expect(matchExam(ib, ibExam('History', 4, 'SL'))).toMatchObject({ status: 'below', lowest: 5 })
+  })
+
+  it('a minimum printed without a score is "read the criteria", not "no credit"', () => {
+    expect(matchExam(ib, ibExam('Chemistry', 7, 'HL')).status).toBe('read_criteria')
+    expect(matchExam(ib, exam('AP Music Theory', 5)).status).toBe('read_criteria')
+    expect(matchExam(utk, exam('AP Italian', 5)).status).toBe('not_awarded')
+  })
+
+  it('Statewide Dual Credit percentages', () => {
+    const sdc = (score: number | null): PlannedExam => ({ family: 'SDC', key: examKey('SDC', 'Introduction to Business'), name: 'Statewide Dual Credit Introduction to Business', score })
+    expect(matchExam(ib, sdc(85))).toMatchObject({ status: 'qualifies', lowest: 80 })
+    expect(matchExam(ib, sdc(79)).status).toBe('below')
+    expect(summarizeSchool(ib, [sdc(85)]).publishedHours).toBe(3)
+  })
+})

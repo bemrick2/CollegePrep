@@ -126,7 +126,7 @@ export function Savings() {
             unit="credits"
           />
           <p className="text-xs text-ink-3">
-            AP and CLEP credit comes from scores on{' '}
+            Exam credit (AP, CLEP, IB, Statewide Dual Credit) comes from scores on{' '}
             <Link to="/colleges/paths" className="font-semibold text-go-strong underline dark:text-go">
               Paths
             </Link>
@@ -446,7 +446,7 @@ function CreditSteps({ row, planOnly, credit, examSummary, aid, name }: { row: P
       <h3 className="text-sm font-semibold text-ink">Credit the student brings</h3>
       {!anyCredit ? (
         <p className="mt-1 text-sm text-ink-2">
-          No AP or CLEP scores that earn credit here, and no other credit entered. Add scores on{' '}
+          No exam scores that earn credit here, and no other credit entered. Add scores on{' '}
           <Link to="/colleges/paths" className="font-semibold text-go-strong underline dark:text-go">
             Paths
           </Link>
@@ -600,12 +600,12 @@ function LeverLine({ lever, examSummary }: { lever: CreditLever; examSummary?: R
     </>
   ) : null
   if (lever.kind === 'exam_credits') {
-    if (!examSummary?.hasTable) return <li>No published AP/CLEP credit table on file for this school, so exam credit isn't counted.</li>
+    if (!examSummary?.hasTable) return <li>No published exam-credit table on file for this school, so exam credit isn't counted.</li>
     if (lever.requested_credits === 0)
-      return <li>{examSummary.courses ? 'Your scores earn courses here, but the table lists no credit hours for them.' : 'No AP or CLEP scores that earn credit here yet.'}</li>
+      return <li>{examSummary.courses ? 'Your scores earn courses here, but the table lists no credit hours for them.' : 'No exam scores that earn credit here yet.'}</li>
     return (
       <li>
-        AP/CLEP: {lever.requested_credits} credits from the school's own table{lever.accepted_upper_bound < lever.requested_credits ? <>, limited to {lever.accepted_upper_bound} by {capText}</> : ''}.
+        Exam credit: {lever.requested_credits} credits from the school's own table{lever.accepted_upper_bound < lever.requested_credits ? <>, limited to {lever.accepted_upper_bound} by {capText}</> : ''}.
         {examSummary.coursesWithoutHours ? ` ${examSummary.coursesWithoutHours} more earned ${examSummary.coursesWithoutHours === 1 ? 'course lists' : 'courses list'} no hours and ${examSummary.coursesWithoutHours === 1 ? "isn't" : "aren't"} counted.` : ''}
       </li>
     )
