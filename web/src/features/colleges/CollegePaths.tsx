@@ -13,12 +13,15 @@ import { schoolLevers } from './schoolLevers'
 import { CostLeverList } from './CostLeverList'
 import type { InstitutionComparison } from '../../lib/data/types'
 import {
+  EXAM_FAMILIES,
+  FAMILY_LABEL,
   HOURS_PER_SEMESTER,
   examOptions,
   summarizeSchool,
   type CreditPolicy,
   type ExamFamily,
   type ExamMatch,
+  type IbLevel,
   type PlannedExam,
 } from '../../lib/engine/examCredit'
 import { formatShortDate } from '../../lib/engine/dates'
@@ -38,7 +41,11 @@ const usd = (n: number) =>
 const SCORE_RANGE: Record<ExamFamily, [number, number]> = {
   AP: [1, 5],
   CLEP: [20, 80],
+  IB: [1, 7],
+  SDC: [0, 100],
 }
+/** Scores chosen from a list rather than typed. */
+const SCORE_CHOICES: Partial<Record<ExamFamily, number[]>> = { AP: [1, 2, 3, 4, 5], IB: [1, 2, 3, 4, 5, 6, 7] }
 
 
 const policiesOf = (c: InstitutionComparison) => (c.domains.credit_policies ?? []) as unknown as CreditPolicy[]
@@ -159,20 +166,26 @@ function ExamPlanner({
     <Section
       id="exams-heading"
       className="lg:max-w-3xl"
-      title={`${who === 'you' ? 'Your' : `${possessive.charAt(0).toUpperCase()}${possessive.slice(1)}`} AP and CLEP exams`}
-      subtitle={`Add exams ${who} took or plan to take. Leave the score as “Planned” to see what each school requires.`}
+      title={`${who === 'you' ? 'Your' : `${possessive.charAt(0).toUpperCase()}${possessive.slice(1)}`} exams for college credit`}
+      subtitle={`AP, CLEP, IB and Tennessee Statewide Dual Credit. Add exams ${who} took or plan to take. Leave the score as “Planned” to see what each school requires.`}
     >
 
       {plan.exams.length > 0 && (
         <ul className="grid gap-2">
           {plan.exams.map((e) => (
-            <ExamRow key={e.key} exam={e} onScore={(s) => plan.setScore(e.key, s)} onRemove={() => plan.remove(e.key)} />
+            <ExamRow
+              key={e.key}
+              exam={e}
+              onScore={(s) => plan.setScore(e.key, s)}
+              onLevel={(l) => plan.setLevel(e.key, l)}
+              onRemove={() => plan.remove(e.key)}
+            />
           ))}
         </ul>
       )}
 
       {options.length === 0 ? (
-        <p className="mt-4 text-sm text-ink-3">None of your saved four-year schools has a verified AP or CLEP table yet.</p>
+        <p className="mt-4 text-sm text-ink-3">None of your saved four-year schools has a verified exam-credit table yet.</p>
       ) : (
         <div className="mt-4">
           <label htmlFor="add-exam" className="text-sm font-semibold text-ink">
@@ -186,8 +199,8 @@ function ExamPlanner({
             disabled={plan.exams.length >= plan.max}
           >
             <option value="">Choose an exam…</option>
-            {(['AP', 'CLEP'] as ExamFamily[]).map((f) => (
-              <optgroup key={f} label={f}>
+            {EXAM_FAMILIES.filter((f) => available.some((o) => o.family === f)).map((f) => (
+              <optgroup key={f} label={FAMILY_LABEL[f]}>
                 {available
                   .filter((o) => o.family === f)
                   .map((o) => (
@@ -205,12 +218,34 @@ function ExamPlanner({
   )
 }
 
-function ExamRow({ exam, onScore, onRemove }: { exam: PlannedExam; onScore: (s: number | null) => void; onRemove: () => void }) {
+function ExamRow({
+  exam,
+  onScore,
+  onLevel,
+  onRemove,
+}: {
+  exam: PlannedExam
+  onScore: (s: number | null) => void
+  onLevel: (l: IbLevel | null) => void
+  onRemove: () => void
+}) {
   const [lo, hi] = SCORE_RANGE[exam.family]
-  const scores = exam.family === 'AP' ? [1, 2, 3, 4, 5] : null
+  const scores = SCORE_CHOICES[exam.family] ?? null
   return (
-    <li className="flex items-center gap-2 rounded-xl border border-line p-2 pl-3">
-      <span className="min-w-0 flex-1 text-sm font-semibold text-ink">{exam.name}</span>
+    <li className="flex flex-wrap items-center gap-2 rounded-xl border border-line p-2 pl-3">
+      <span className={cx('min-w-0 flex-1 text-sm font-semibold text-ink', exam.family === 'IB' && 'basis-full sm:basis-0')}>{exam.name}</span>
+      {exam.family === 'IB' && (
+        <select
+          aria-label={`${exam.name} level`}
+          className="rounded-lg border border-line-strong bg-surface px-2 py-1.5 text-sm"
+          value={exam.level ?? ''}
+          onChange={(e) => onLevel(e.target.value === 'SL' || e.target.value === 'HL' ? e.target.value : null)}
+        >
+          <option value="">Level?</option>
+          <option value="SL">Standard (SL)</option>
+          <option value="HL">Higher (HL)</option>
+        </select>
+      )}
       {scores ? (
         <select
           aria-label={`${exam.name} score`}
@@ -229,8 +264,8 @@ function ExamRow({ exam, onScore, onRemove }: { exam: PlannedExam; onScore: (s: 
         <input
           aria-label={`${exam.name} score`}
           inputMode="numeric"
-          placeholder="Planned"
-          className="w-24 rounded-lg border border-line-strong bg-surface px-2 py-1.5 text-sm"
+          placeholder={exam.family === 'SDC' ? 'Planned (%)' : 'Planned'}
+          className="w-28 rounded-lg border border-line-strong bg-surface px-2 py-1.5 text-sm"
           value={exam.score ?? ''}
           onChange={(e) => {
             const n = Number(e.target.value)
@@ -363,7 +398,7 @@ function PathCard({
                 <>
                   <Route icon={<Book size={16} />} title="With exam credit" source={ap?.policy_url ?? ap?.source_url} verified={ap?.last_verified_at}>
                     {!credit.hasTable ? (
-                      <p className="text-ink-3">No verified AP or CLEP credit table yet. Check the school's site.</p>
+                      <p className="text-ink-3">No verified exam-credit table yet. Check the school's site.</p>
                     ) : exams.length === 0 ? (
                       <p className="text-ink-3">Add exams above to see what {name} awards.</p>
                     ) : (
@@ -485,14 +520,18 @@ function MatchRow({ m }: { m: ExamMatch }) {
     .filter(Boolean)
     .join(' / ')
   const hours = rows.length && rows.every((t) => t.credits != null) ? Math.min(...rows.map((t) => t.credits!)) : null
+  const pct = m.exam.family === 'SDC' ? '%' : ''
   const status: Record<ExamMatch['status'], { tone: 'go' | 'warn' | 'neutral'; label: string }> = {
-    qualifies: { tone: 'go', label: `Your ${m.exam.score} earns credit` },
+    qualifies: { tone: 'go', label: `Your ${m.exam.score}${pct} earns credit` },
     below: {
       tone: 'warn',
-      label: `Needs ${m.lowest}+ (yours: ${m.exam.score})`,
+      label: `Needs ${m.lowest}${pct}+ (yours: ${m.exam.score}${pct})`,
     },
-    planned: { tone: 'neutral', label: `Needs ${m.lowest}+` },
+    planned: { tone: 'neutral', label: `Needs ${m.lowest}${pct}+` },
     not_awarded: { tone: 'neutral', label: 'No credit at any score' },
+    read_criteria: { tone: 'neutral', label: 'Read the school’s criteria' },
+    needs_level: { tone: 'neutral', label: 'Choose SL or HL' },
+    other_level: { tone: 'neutral', label: `Credit only at ${[...new Set(m.thresholds.flatMap((t) => t.levels ?? []))].join(' or ')}` },
     not_listed: { tone: 'neutral', label: 'Not in the published table' },
     no_table: { tone: 'neutral', label: 'No table' },
   }
@@ -510,6 +549,13 @@ function MatchRow({ m }: { m: ExamMatch }) {
         </p>
       )}
       {m.status === 'not_listed' && <p className="mt-1 text-xs text-ink-3">Ask the school; the table may use a different exam name.</p>}
+      {m.status === 'read_criteria' && (
+        <p className="mt-1 text-xs text-ink-3">
+          The table prints the minimum as “{[...new Set(m.thresholds.filter((t) => t.min == null).map((t) => t.minimumText))].join('; ')}”, not a score we
+          can compare. Check the school's page.
+        </p>
+      )}
+      {m.status === 'needs_level' && <p className="mt-1 text-xs text-ink-3">This school's credit depends on the level. Choose the level above.</p>}
     </li>
   )
 }

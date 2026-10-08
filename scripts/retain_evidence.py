@@ -51,6 +51,8 @@ def cited_shas(ev_path):
             if isinstance(e, dict) and e.get('sha256'): out.add(e['sha256'])
         se = (v.get('decision') or {}).get('source_evidence') or {}
         if se.get('sha256'): out.add(se['sha256'])
+        vs = (v.get('verify') or {}).get('source_sha256')  # a re-verification upgrade cites the document it re-read
+        if vs: out.add(vs)
     return out
 
 

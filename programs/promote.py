@@ -93,6 +93,28 @@ def program_keymap(approvals, cands, folders):
     return keymap
 
 
+def corrected_keys():
+    """Natural keys of records whose correction the owner approved (supabase/corrections.json)."""
+    p = ROOT / 'supabase/corrections.json'
+    if not p.exists(): return set()
+    return {json.dumps(json.loads(x['natural_key']), sort_keys=True) for x in json.loads(p.read_text()).get('corrections', [])}
+
+
+def kept_record(c, rec, folders, promoted_ids):
+    """Why a record on file must not be replaced by this approval, or None. A record whose correction the owner approved
+    (listed in supabase/corrections.json, or carrying verification_correction_reason) keeps that correction: promoting the
+    candidate again would undo it (JHU 'Requirements for a Bachelor's Degree', the #129 footnote fixes). A candidate already
+    promoted from this run is not promoted again over the record it produced, which later reviewed edits may have changed."""
+    old = _records(folders[c['institution_key']], c['domain'], c['academic_year'])
+    key = lambda r: (r.get('program_key'), r.get('requirement_key') if c['domain'] == 'degree_requirements' else None)
+    on_file = next((r for r in (old or {}).get('records', []) if key(r) == key(rec)), None)
+    if on_file is None: return None
+    nk = json.dumps(json.loads(natural_key(c['domain'], {**on_file, 'institution_key': c['institution_key'], 'academic_year': c['academic_year']})), sort_keys=True)
+    if on_file.get('verification_correction_reason') or nk in corrected_keys(): return 'owner-approved correction on file'
+    if c['candidate_id'] in promoted_ids: return 'already promoted from this run'
+    return None
+
+
 def promote(decisions_path: Path, log=print):
     d = json.loads(Path(decisions_path).read_text())
     run_dir = ROOT / d['run']
@@ -118,6 +140,9 @@ def promote(decisions_path: Path, log=print):
     # A program already on file from the same program URL keeps its key (as pipeline/review.py does for curated rows),
     # and so do its requirement rows: no second record for one program.
     keymap = program_keymap(approvals, cands, folders)
+    prior_ev = ROOT / 'sources/programs' / state / run_dir.name / 'evidence.json'
+    promoted_ids = set(json.loads(prior_ev.read_text())) if prior_ev.exists() else set()
+    kept = 0
     for a in approvals:
         c = cands.get(a['candidate_id'])
         if c is None: raise KeyError(f"unknown candidate {a['candidate_id']}")
@@ -140,6 +165,9 @@ def promote(decisions_path: Path, log=print):
                 if r.get('program_key') == rec['program_key']:
                     for f in FIELDS + ('admission_details', 'cip_code', 'cip_source_url'):
                         if f in r and f not in rec: rec[f] = r[f]
+        held = kept_record(c, rec, folders, promoted_ids)
+        if held:
+            log(f"{c['candidate_id']}: record kept as on file ({held})"); kept += 1; continue
         _upsert(_file_for(folders[c['institution_key']], c['domain'], c['academic_year']), c['institution_key'], c['academic_year'], rec, c['domain'])
         archive[c['candidate_id']] = {'source': c['source'], 'extractor': c['extractor'], 'year_basis': c['year_basis'],
                                       'issues': c['issues'], 'evidence': c['evidence'], 'decision': a,
@@ -157,7 +185,7 @@ def promote(decisions_path: Path, log=print):
     out.parent.mkdir(parents=True, exist_ok=True)
     prior = json.loads(out.read_text()) if out.exists() else {}
     out.write_text(json.dumps({**prior, **archive}, indent=1, sort_keys=True, ensure_ascii=False) + '\n', encoding='utf-8')
-    log(f'promoted {written} records/fields; evidence in {out.relative_to(ROOT)}')
+    log(f'promoted {written} records/fields; evidence in {out.relative_to(ROOT)}' + (f'; {kept} kept as on file' if kept else ''))
     return written
 
 

@@ -14,6 +14,8 @@ describe('reading a published course equivalent', () => {
   it('splits ranges, required sets and choices', () => {
     expect(parseEquivalent('MATH 147-148').groups).toEqual([['MATH 147'], ['MATH 148']])
     expect(parseEquivalent('BIOL 101-102 and BIOL 160').groups).toEqual([['BIOL 101'], ['BIOL 102'], ['BIOL 160']])
+    expect(['BUS 1XXX', 'ARTH 1XX', 'Elec 1XXX', 'MGT 1XXX (Lower Division)', 'HIST 10XX'].map((t) => parseEquivalent(t).elective)).toEqual([true, true, true, true, true])
+    expect(parseEquivalent('MATH 1950').elective).toBe(false)
     expect(parseEquivalent('PHYS 102 or 222 or 231').groups).toEqual([['PHYS 102', 'PHYS 222', 'PHYS 231']])
     expect(parseEquivalent('ART LD (3 credit hours)')).toEqual({ groups: [], elective: true })
   })
