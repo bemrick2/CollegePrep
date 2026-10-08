@@ -1,0 +1,1170 @@
+# Review queue — TN (2026-27)
+
+Pages fetched: 360; failures: 26. Candidates: 60 (19 without issues, 41 exceptions). Re-verification upgrades proposed: 0.
+
+## Coverage by category
+
+| category | verified_current | partially_verified_current | candidate_ready | candidate_exception | source_found | not_found | fetch_failed |
+|---|---|---|---|---|---|---|---|
+| tuition_fees | 10 | 1 | 0 | 0 | 2 | 0 | 47 |
+| cost_of_attendance | 6 | 1 | 0 | 0 | 1 | 0 | 52 |
+| admissions_tests | 2 | 0 | 0 | 0 | 2 | 0 | 56 |
+| common_data_set | 2 | 0 | 0 | 0 | 0 | 2 | 56 |
+| merit_scholarships | 3 | 6 | 1 | 0 | 0 | 0 | 50 |
+| ap_credit | 1 | 4 | 0 | 0 | 0 | 0 | 55 |
+| clep_credit | 1 | 5 | 0 | 0 | 0 | 0 | 54 |
+| ib_credit | 1 | 1 | 0 | 1 | 0 | 0 | 57 |
+| dual_enrollment | 2 | 13 | 0 | 0 | 0 | 0 | 45 |
+| transfer_credit | 0 | 7 | 0 | 0 | 2 | 0 | 51 |
+| statewide_articulation | 0 | 0 | 0 | 0 | 2 | 1 | 57 |
+| residency | 0 | 0 | 0 | 0 | 3 | 0 | 57 |
+| degree_requirements | 2 | 0 | 0 | 0 | 1 | 0 | 57 |
+| aid_appeals | 1 | 1 | 0 | 1 | 0 | 0 | 57 |
+
+## Ready for review (19)
+
+### `55da0870eb7a0db1` Middle Tennessee State University — awards 2027-28 [new] (labeled_in_source)
+- source: https://www.mtsu.edu/financial-aid/incoming-freshmen/ (sha256 60ec33dd5f7f)
+- checks: {"thresholds": {"gpa_min": 3.5}}
+  - gpa_requirement: 3.50 ⟵ “Centennial Scholarship | 34 – 36 ACT Composite | 3.50 | $8,000/year”
+  - test_requirement: 34 – 36 ACT Composite ⟵ “Centennial Scholarship | 34 – 36 ACT Composite | 3.50 | $8,000/year”
+### `63de95681475a2e0` Middle Tennessee State University — awards 2027-28 [new] (labeled_in_source)
+- source: https://www.mtsu.edu/financial-aid/incoming-freshmen/ (sha256 60ec33dd5f7f)
+- checks: {"thresholds": {"gpa_min": 3.5}}
+  - gpa_requirement: 3.50 ⟵ “Presidential Scholarship | 25 – 29 ACT Composite | 3.50 | $4,500/year”
+  - test_requirement: 25 – 29 ACT Composite ⟵ “Presidential Scholarship | 25 – 29 ACT Composite | 3.50 | $4,500/year”
+### `6e3f333d0cc8c0dc` Middle Tennessee State University — awards 2027-28 [new] (labeled_in_source)
+- source: https://www.mtsu.edu/financial-aid/incoming-freshmen/ (sha256 60ec33dd5f7f)
+- checks: {"thresholds": {"gpa_min": 3.5}}
+  - gpa_requirement: 3.50 ⟵ “Trustee Scholarship | 30 – 33 ACT Composite | 3.50 | $5,000/year”
+  - test_requirement: 30 – 33 ACT Composite ⟵ “Trustee Scholarship | 30 – 33 ACT Composite | 3.50 | $5,000/year”
+### `91474ea3cde7d85e` Middle Tennessee State University — awards 2027-28 [new] (labeled_in_source)
+- source: https://www.mtsu.edu/financial-aid/incoming-freshmen/ (sha256 60ec33dd5f7f)
+- checks: {"thresholds": {"gpa_min": 3.5}}
+  - gpa_requirement: 3.50 ⟵ “True Blue Scholarship | 22 – 24 ACT Composite | 3.50 | $3,500/year”
+  - test_requirement: 22 – 24 ACT Composite ⟵ “True Blue Scholarship | 22 – 24 ACT Composite | 3.50 | $3,500/year”
+### `50d0266ae7be89a0` Middle Tennessee State University — credit_policies 2026-27 · policy_kind=CLEP [same] (source_unlabeled)
+- source: https://www.mtsu.edu/how-to-apply/credit-by-examination/ (sha256 58be0c057ce2)
+- checks: {"distinct_exams": 19, "equivalencies": 19, "rows_without_score": 0}
+  - equivalencies[CLEP-AMERICAN-GOVERNMENT|50 or greater]:  ⟵ “American Government | 50 or greater | PS 1005 | 3”
+  - equivalencies[CLEP-BIOLOGY|50 or greater]:  ⟵ “Biology | 50 or greater | BIOL 1030/1031 | 4”
+  - equivalencies[CLEP-INTRODUCTORY-BUSINESS-LAW|50 or greater]:  ⟵ “Business Law, Introductory | 50 or greater | BLAW 3430 | 3”
+  - equivalencies[CLEP-CALCULUS|50 or greater]:  ⟵ “Calculus | 50 or greater | MATH 1910 | 4”
+  - equivalencies[CLEP-CHEMISTRY|50 or greater]:  ⟵ “Chemistry | 50 or greater | CHEM 1110/CHEM 1111, CHEM 1120/CHEM 1121 | 8”
+  - equivalencies[CLEP-COLLEGE-ALGEBRA|50 or greater]:  ⟵ “College Algebra | 50 or greater | MATH 1710 | 3”
+  - equivalencies[CLEP-COLLEGE-MATHEMATICS|50 or greater]:  ⟵ “College Mathematics | 50 or greater | MATH 1010 | 3”
+  - equivalencies[CLEP-FINANCIAL-ACCOUNTING|50 or greater]:  ⟵ “Financial Accounting | 50 or greater | ACTG 2110 | 3”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-I|50 or greater]:  ⟵ “History of the United States I: Early Colonization to 1877 | 50 or greater | HIST 2010 | 3”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-II|50 or greater]:  ⟵ “History of the United States II: 1865 to Present | 50 or greater | HIST 2020 | 3”
+  - equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|50 or greater]:  ⟵ “Macroeconomics, Principles of | 50 or greater | ECON 2410 | 3”
+  - equivalencies[CLEP-PRINCIPLES-OF-MANAGEMENT|50 or greater]:  ⟵ “Management, Principles of | 50 or greater | MGMT 3610 | 3”
+  - equivalencies[CLEP-PRINCIPLES-OF-MARKETING|50 or greater]:  ⟵ “Marketing, Principles of | 50 or greater | MKT 3820 | 3”
+  - equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|50 or greater]:  ⟵ “Microeconomics, Principles of | 50 or greater | ECON 2420 | 3”
+  - equivalencies[CLEP-PRECALCULUS|50 or greater]:  ⟵ “Precalculus | 50 or greater | MATH 1730 | 4”
+  - equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|50 or greater]:  ⟵ “Psychology, Introductory | 50 or greater | PSY 1410 | 3”
+  - equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|50 or greater]:  ⟵ “Sociology, Introductory | 50 or greater | SOC 1010 | 3”
+  - equivalencies[CLEP-WESTERN-CIVILIZATION-I|50 or greater]:  ⟵ “Western Civilization I: Ancient Near East to 1648 | 50 or greater | HIST 1010 | 3”
+  - equivalencies[CLEP-WESTERN-CIVILIZATION-II|50 or greater]:  ⟵ “Western Civilization II: 1648 to Present | 50 or greater | HIST 1020 | 3”
+### `6bae1f798690acd6` Middle Tennessee State University — credit_policies 2026-27 · policy_kind=AP [same] (source_unlabeled)
+- source: https://www.mtsu.edu/how-to-apply/credit-by-examination/ (sha256 58be0c057ce2)
+- checks: {"distinct_exams": 32, "equivalencies": 32, "rows_without_score": 0}
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|3 or above]:  ⟵ “African American Studies | 3 or above | HIST 2040, HIST 2050 | 6”
+  - equivalencies[AP-ART-HISTORY|3 or above]:  ⟵ “Art History | 3 or above | ART 1030 | 3”
+  - equivalencies[AP-BIOLOGY|3 or above]:  ⟵ “Biology | 3 or above | BIOL1030/ BIOL 1031 (Science major may receive credit for BIOL 1110/BIOL 1111, BIOL 1120/BIOL 1121 upon recommendation of chair, Department of Biology.) | 4”
+  - equivalencies[AP-BUSINESS-WITH-PERSONAL-FINANCE|3 or above]:  ⟵ “Business with Personal Finance | 3 or above | FCSE 1400 | 3”
+  - equivalencies[AP-CALCULUS-AB|3 or above]:  ⟵ “Calculus AB | 3 or above | MATH 1910 | 4”
+  - equivalencies[AP-CALCULUS-BC|3 or above]:  ⟵ “Calculus BC | 3 or above | Math 1920 | 4”
+  - equivalencies[AP-CHEMISTRY|3 or 45]:  ⟵ “Chemistry | 3 or 45 | CHEM 1110/ CHEM 1111 OR CHEM 1010/ CHEM 1011CHEM 1110/ CHEM 1111, CHEM 1120/ CHEM 1121 | 4 8”
+  - equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|3 or above]:  ⟵ “Comparative Government and Politics | 3 or above | PS 1010 | 3”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|3 or above]:  ⟵ “Computer Science A | 3 or above | CSCI 1170 | 4”
+  - equivalencies[AP-CYBERSECURITY|3 or above]:  ⟵ “Cybersecurity | 3 or above | CYBM 1300 | 3”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3 or above]:  ⟵ “English Language and Composition | 3 or above | ENGL 1010 | 3”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3 or above]:  ⟵ “English Literature and Composition | 3 or above | ENGL1010 | 3”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|3 or above]:  ⟵ “Environmental Science | 3 or above | ENVS 2810/ENVS 2811 | 4”
+  - equivalencies[AP-EUROPEAN-HISTORY|3 or above]:  ⟵ “European History | 3 or above | HIST 1020 | 3”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|3 or above]:  ⟵ “Human Geography | 3 or above | GS 2010 | 3”
+  - equivalencies[AP-MACROECONOMICS|3 or above]:  ⟵ “Macroeconomics | 3 or above | ECON 2410 | 3”
+  - equivalencies[AP-MICROECONOMICS|3 or above]:  ⟵ “Microeconomics | 3 or above | ECON 2420 | 3”
+  - equivalencies[AP-MUSIC-THEORY|3 or above]:  ⟵ “Music Theory | 3 or above | MUTH 1000 | 3”
+  - equivalencies[AP-PHYSICS-1|4 or above]:  ⟵ “Physics 1 | 4 or above | PHYS 2010/2011* | 4”
+  - equivalencies[AP-PHYSICS-2|4 or above]:  ⟵ “Physics 2 | 4 or above | PHYS 2020/2021* | 4”
+  - equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|4 or above]:  ⟵ “Physics C: Electricity & Magnetism | 4 or above | PHYS 2120/2121* | 4”
+  - equivalencies[AP-PHYSICS-C-MECHANICS|4 or above]:  ⟵ “Physics C: Mechanics | 4 or above | PHYS 2110/2111* | 4”
+  - equivalencies[AP-PRECALCULUS|3 or above]:  ⟵ “Precalculus | 3 or above | MATH 1730 | 4”
+  - equivalencies[AP-PSYCHOLOGY|3 or above]:  ⟵ “Psychology | 3 or above | PSY 1410 | 3”
+  - equivalencies[AP-SEMINAR|3 or above]:  ⟵ “Seminar | 3 or above | CLA 2000 | 3”
+  - … 7 more rows
+### `m46e4cd865ee899e` Middle Tennessee State University — credit_policies 2026-27 · policy_kind=dual_enrollment [changed] (source_unlabeled)
+- source: https://www.mtsu.edu/dualenrollment/ (sha256 e496ce0685ae)
+- checks: {"fields": ["alt_min_act", "min_hs_gpa", "per_credit_hour_charges"], "merged_pages": 2, "tiers": 1}
+- change dual_enrollment: `{'alt_min_act': 22, 'eligibility_tiers': [{'alt_min_act': 22, 'grades': [], 'line': 'Have a minimum 3.0 high school GPA (if GPA is below 3.0, an ACT composite of 22 is acceptable)', 'min_hs_gpa': 3.0}], 'min_hs_gpa': 3.0, 'per_credit_hour_charges': [{'amount': 206.85, 'kind': 'other', 'line': 'In many instances, there is no out-of-pocket tuition cost to students. This is made possible by a combination of state funding (the Dual Enrollment Grant) and MTSU funding. The standard in-state tuition rate for dual enrollment classes is $206.85 per credit hour. A 3- credit hour course is $620.55.'}]}` → `{'alt_min_act': 22, 'college_gpa_to_continue': 2.0, 'eligibility_tiers': [{'grades': [], 'min_hs_gpa': 3.0, 'line': 'Have a minimum 3.0 high school GPA (if GPA is below 3.0, an ACT composite of 22 is acceptable)', 'alt_min_act': 22}], 'min_hs_gpa': 3.0, 'per_credit_hour_charges': [{'amount': 206.85, 'kind': 'other', 'line': 'In many instances, there is no out-of-pocket tuition cost to students. This is made possible by a combination of state funding (the Dual Enrollment Grant) and MTSU funding. The standard in-state tuition rate for dual enrollment classes is $206.85 per credit hour. A 3- credit hour course is $620.55.'}, {'amount': 100, 'kind': 'other', 'line': 'Beginning with a student’s sixth grant-eligible course, additional grant funding is available at the rate of\xa0$100 per credit hour. The student is responsible for the remaining balance\xa0owed.'}], 'state_grant_accepted': True}`
+  - eligibility_tier: 3.0 ⟵ “Have a minimum 3.0 high school GPA (if GPA is below 3.0, an ACT composite of 22 is acceptable)”
+  - per_credit_hour_charge: 206.85 ⟵ “In many instances, there is no out-of-pocket tuition cost to students. This is made possible by a combination of state funding (the Dual Enrollment Grant) and MTSU funding. The standard in-state tuition rate for dual enrollment classes is $206.85 per credit hour. A 3- credit hour course is $620.55.”
+  - state_grant_accepted: True ⟵ “The Dual Enrollment Grant covers the entire tuition of a student’s first five classes.”
+  - college_gpa_to_continue: 2.0 ⟵ “In order to keep receiving the grant after the first semester, students must maintain a 2.0 GPA in all college classes taken while receiving the grant.”
+  - per_credit_hour_charge: 100 ⟵ “Beginning with a student’s sixth grant-eligible course, additional grant funding is available at the rate of $100 per credit hour. The student is responsible for the remaining balance owed.”
+### `3066e3c2c28aa11a` The University of Tennessee-Chattanooga — credit_policies 2026-27 · policy_kind=AP [same] (source_unlabeled)
+- source: https://www.utc.edu/academic-affairs/registrar/prior-learning-assessment/ap-exam (sha256 32aee54a8707)
+- checks: {"distinct_exams": 39, "equivalencies": 57, "rows_without_score": 0}
+  - equivalencies[AP-ART-HISTORY|4]:  ⟵ “Art History | 4 | ART 2140 & ART 2150 | 6 | Historical Understanding; 23GE Humanities & Fine Arts”
+  - equivalencies[AP-ART-HISTORY|3]:  ⟵ “Art History | 3 | ART 2140 | 3 | Historical Understanding or Visual & Performing Arts; 23GE Humanities & Fine Arts”
+  - equivalencies[AP-BIOLOGY|3]:  ⟵ “Biology | 3 | BIOL 1110 & BIOL 1120 | 8 | Lab Science; 23GE Natural Science Lecture/Lab”
+  - equivalencies[AP-CALCULUS-AB|3]:  ⟵ “Calculus AB | 3 | MATH 1950 | 4 | Mathematics; 23GE Quantitative Reasoning”
+  - equivalencies[AP-CALCULUS-BC|3]:  ⟵ “Calculus BC | 3 | MATH 1950 & MATH 1960 | 8 | Mathematics; 23GE Quantitative Reasoning (1 course)”
+  - equivalencies[AP-CHEMISTRY|5]:  ⟵ “Chemistry** | 5 | CHEM 1110/1110L & CHEM 1120/1120L | 8 | Lab Science; 23GE Natural Science Lecture/Lab (1 course)”
+  - equivalencies[AP-CHEMISTRY|4]:  ⟵ “Chemistry** | 4 | CHEM 1110/1110L | 4 | Lab Science; 23GE Natural Science Lecture/Lab”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|5]:  ⟵ “Chinese Language & Culture | 5 | FLNG 1010, FLNG 1020, FLNG 2110 & FLNG 2120 | 12 | ”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|4]:  ⟵ “Chinese Language & Culture | 4 | FLNG 1010, FLNG 1020 & FLNG 2110 | 9 | ”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|3]:  ⟵ “Chinese Language & Culture | 3 | FLNG 1010 & FLNG 1020 | 6 | ”
+  - equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|3]:  ⟵ “Comparative Government & Politics | 3 | PSPS Elective | 3 | Behavioral & Social Sciences”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|4]:  ⟵ “Computer Science A | 4 | CPSC 1100 | 4 | ”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|4]:  ⟵ “Computer Science Principles | 4 | CPSC 1XXX | 3 | ”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|4]:  ⟵ “English Language & Composition | 4 | ENGL 1010 & ENGL 1020 | 6 | Rhetoric & Writing I/ Rhetoric & Writing II; 23GE Writing & Communication”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3]:  ⟵ “English Language & Composition | 3 | ENGL 1010 | 3 | Rhetoric & Writing I; 23GE Writing & Communication”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3]:  ⟵ “English Literature & Composition | 3 | ENGL 1330 | 3 | Literature; 23GE Humanities & Fine Arts”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|3]:  ⟵ “Environmental Science | 3 | ESC 1500 & ESC 1510 | 8 | Lab Science; 23GE Natural Science Lecture/Lab”
+  - equivalencies[AP-EUROPEAN-HISTORY|4]:  ⟵ “European History | 4 | HIST 2220 | 3 | Historical Understanding; 23GE Humanities & Fine Arts or 23GE Individual & Global Citizenship”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|5]:  ⟵ “French Language & Culture | 5 | FREN 1010, FREN 1020, FREN 2110 & FREN 2120 | 14 | 23GE Humanities & Fine Arts or 23GE Individual & Global Citizenship”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|4]:  ⟵ “French Language & Culture | 4 | FREN 1010, FREN 1020 & FREN 2110 | 11 | 23GE Humanities & Fine Arts or 23GE Individual & Global Citizenship”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]:  ⟵ “French Language & Culture | 3 | FREN 1010 & FREN 1020 | 8 | 23GE Humanities & Fine Arts or 23GE Individual & Global Citizenship”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|5]:  ⟵ “German Language & Culture | 5 | GER 1010, GER 1020, GER 2110 & GER 2120 | 14 | ”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|4]:  ⟵ “German Language & Culture | 4 | GER 1010, GER 1020 & GER 2110 | 11 | ”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3]:  ⟵ “German Language & Culture | 3 | GER 1010 & GER 1020 | 8 | ”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|3]:  ⟵ “Human Geography | 3 | GEOG 1040 | 3 | Behavioral & Social Sciences; 23GE Behavioral & Social Science”
+  - … 32 more rows
+### `d95f69d275751a3c` The University of Tennessee-Chattanooga — credit_policies 2026-27 · policy_kind=CLEP [changed] (source_unlabeled)
+- source: https://www.utc.edu/academic-affairs/registrar/prior-learning-assessment/clep (sha256 9db5eee237cd)
+- checks: {"distinct_exams": 32, "equivalencies": 35, "rows_without_score": 0}
+- change equivalency clepbiology score 50: `BIOL 1110/1110L & BIOL 1120/1120L` → `BIOL 1110/1110L & BIOL1120/1120L`
+- change equivalency clepchemistry score 50: `CHEM 1110/1110L & CHEM 1120/1120L` → `CHEM1110/1110L & CHEM1120/1120L`
+- change equivalency clepenglishliterature score 50: `ENGL 2230` → `ENGL2230`
+- change equivalency_count: `36` → `35`
+  - equivalencies[CLEP-AMERICAN-GOVERNMENT|50]:  ⟵ “American Government | 50 | PSPS 1010 | 3 | Behavioral & Social Sciences; 23GE Behavioral & Social Science or 23GE Individual & Global Citizenship”
+  - equivalencies[CLEP-AMERICAN-LITERATURE|50]:  ⟵ “American Literature | 50 | ENGL 2130 | 3 | ”
+  - equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|50]:  ⟵ “Analyzing & Interpreting Literature | 50 | ENGL 1330 | 3 | Literature; 23GE Humanities & Fine Arts”
+  - equivalencies[CLEP-BIOLOGY|50]:  ⟵ “Biology | 50 | BIOL 1110/1110L & BIOL1120/1120L | 8 | Lab Science; 23GE Natural Science Lecture/Lab”
+  - equivalencies[CLEP-CALCULUS|50]:  ⟵ “Calculus | 50 | MATH 1950 | 4 | Mathematics; 23GE Quantitative Reasoning”
+  - equivalencies[CLEP-CHEMISTRY|50]:  ⟵ “Chemistry | 50 | CHEM1110/1110L & CHEM1120/1120L | 8 | Lab Science; 23GE Natural Science Lecture/Lab”
+  - equivalencies[CLEP-COLLEGE-ALGEBRA|50]:  ⟵ “College Algebra | 50 | MATH 1130 | 3 | Mathematics; 23GE Quantitative Reasoning”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION|50]:  ⟵ “College Composition | 50 | ENGL 1010 & ENGL 1020 | 6 | Rhetoric & Writing I/ Rhetoric & Writing II; 23GE Writing & Communication”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION-MODULAR|50]:  ⟵ “College Composition Modular | 50 | ENGL 1020 | 3 | Rhetoric & Writing I/ Rhetoric & Writing II; 23GE Writing & Communication (1 course)”
+  - equivalencies[CLEP-COLLEGE-MATHEMATICS|50]:  ⟵ “College Mathematics | 50 | MATH 1010 | 3 | Mathematics; 23GE Quantitative Reasoning”
+  - equivalencies[CLEP-ENGLISH-LITERATURE|50]:  ⟵ “English Literature | 50 | ENGL2230 | 3 | ”
+  - equivalencies[CLEP-FINANCIAL-ACCOUNTING|50]:  ⟵ “Financial Accounting | 50 | ACC 1XXX | 3 | ”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|50]:  ⟵ “French Language Level 1 | 50 | FREN 1010 & FREN 1020 | 8 | 23GE Humanities & Fine Arts and 23GE Individual & Global Citizenship”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|59]:  ⟵ “French Language Level 2 | 59 | FREN 2110 & FREN 2120 | 6 | 23GE Humanities & Fine Arts and 23GE Individual & Global Citizenship”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|50]:  ⟵ “German Language Level 1 | 50 | GER 1010 & GER 1020 | 8 | 23GE Humanities & Fine Arts and 23GE Individual & Global Citizenship”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|60]:  ⟵ “German Language Level 2 | 60 | GER 2110 & GER 2120 | 6 | ”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-I|50]:  ⟵ “History of the United States I | 50 | HIST 2010 | 3 | Historical Understanding; 23GE Humanities & Fine Arts or 23GE Individual & Global Citizenship”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-II|50]:  ⟵ “History of the United States II | 50 | HIST 2020 | 3 | Historical Understanding; 23GE Humanities & Fine Arts or 23GE Individual & Global Citizenship”
+  - equivalencies[CLEP-HUMAN-GROWTH-DEVELOPMENT|50]:  ⟵ “Human Growth & Development | 50 | PSY 2220 | 3 | ”
+  - equivalencies[CLEP-HUMANITIES|50]:  ⟵ “Humanities | 50 | ENGL 1150 | 3 | Literature or Thoughts, Values, and Beliefs; 23GE Humanities & Fine Arts”
+  - equivalencies[CLEP-INFORMATION-SYSTEMS|50]:  ⟵ “Information Systems & Computer Applications | 50 | MGT 1XXX | 3 | ”
+  - equivalencies[CLEP-INTRODUCTION-TO-EDUCATIONAL-PSYCHOLOGY|50]:  ⟵ “Introduction to Educational Psychology | 50 | EDUC 2XXX | 3 | ”
+  - equivalencies[CLEP-INTRODUCTORY-BUSINESS-LAW|50]:  ⟵ “Introductory Business Law | 50 | BUS 1XXX | 3 | ”
+  - equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|50]:  ⟵ “Introductory Psychology | 50 | PSY 1010 | 3 | Behavioral & Social Sciences; 23GE Behavioral & Social Science”
+  - equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|50]:  ⟵ “Introductory Sociology | 50 | SOC 1510 | 3 | Behavioral & Social Sciences; 23GE Behavioral & Social Science”
+  - … 10 more rows
+### `e9306bf720773d61` The University of Tennessee-Chattanooga — credit_policies 2026-27 · policy_kind=dual_enrollment [same] (source_unlabeled)
+- source: https://www.utc.edu/enrollment-management-and-student-affairs/admissions/dual-enrollment (sha256 fcc1f3be6d7c)
+- checks: {"fields": ["min_hs_gpa", "state_grant_accepted"], "tiers": 1}
+  - eligibility_tier: 3.0 ⟵ “Is your high school grade point average 3.0 or higher?”
+  - state_grant_accepted: True ⟵ “3. Apply for Tennessee Dual Enrollment Grant”
+  - state_grant_accepted: True ⟵ “Apply for TN DE Grant”
+### `146ece8244c9b9a2` The University of Tennessee-Knoxville — awards 2026-27 [same] (labeled_in_source)
+- source: https://onestop.utk.edu/scholarships-financial-aid/scholarships/out-of-state-volunteer-scholarship/ (sha256 9a00356af194)
+- checks: {"thresholds": null}
+  - gpa_requirement: UT Core Weighted GPA: 3.8+ ⟵ “3.8+ | 28+/1300+ | $3,000 | $12,000”
+  - test_requirement: ACT/SAT Score: 28+/1300+ ⟵ “3.8+ | 28+/1300+ | $3,000 | $12,000”
+  - award_amount_text: $3,000 ⟵ “3.8+ | 28+/1300+ | $3,000 | $12,000”
+### `39f6884781a5ace9` The University of Tennessee-Knoxville — awards 2026-27 [same] (labeled_in_source)
+- source: https://onestop.utk.edu/scholarships-financial-aid/scholarships/orange-white-scholarship/ (sha256 c10de1494aaa)
+- checks: {"thresholds": null}
+  - test_requirement: 3.6+ GPA*,26-27 ACT**,1230-1290 SAT** ⟵ “3.6+ GPA*,26-27 ACT**,1230-1290 SAT** | $1,500 | $6,000 | $26,400”
+  - award_amount_text: $1,500 ⟵ “3.6+ GPA*,26-27 ACT**,1230-1290 SAT** | $1,500 | $6,000 | $26,400”
+### `7ced8b64e8453013` The University of Tennessee-Knoxville — awards 2026-27 [same] (labeled_in_source)
+- source: https://onestop.utk.edu/scholarships-financial-aid/scholarships/in-state-volunteer-scholarship/ (sha256 16e97a51d01f)
+- checks: {"thresholds": null}
+  - test_requirement: ACT/SAT Score: 34–36 / 1490–1600 ⟵ “34–36 / 1490–1600 | $9,000 | $36,000 | $56,400”
+  - award_amount_text: $9,000 ⟵ “34–36 / 1490–1600 | $9,000 | $36,000 | $56,400”
+### `8b599dfe6197a8cf` The University of Tennessee-Knoxville — awards 2026-27 [same] (labeled_in_source)
+- source: https://onestop.utk.edu/scholarships-financial-aid/scholarships/in-state-volunteer-scholarship/ (sha256 16e97a51d01f)
+- checks: {"thresholds": null}
+  - test_requirement: ACT/SAT Score: 30–33 / 1360–1480 ⟵ “30–33 / 1360–1480 | $5,000 | $20,000 | $40,400”
+  - award_amount_text: $5,000 ⟵ “30–33 / 1360–1480 | $5,000 | $20,000 | $40,400”
+### `94e208b842e23ae3` The University of Tennessee-Knoxville — awards 2026-27 [same] (labeled_in_source)
+- source: https://onestop.utk.edu/scholarships-financial-aid/scholarships/orange-white-scholarship/ (sha256 c10de1494aaa)
+- checks: {"thresholds": null}
+  - test_requirement: 3.6–3.79 GPA*,28–36 ACT**,1300–1600 SAT** ⟵ “3.6–3.79 GPA*,28–36 ACT**,1300–1600 SAT** | $1,500 | $6,000 | $26,400”
+  - award_amount_text: $1,500 ⟵ “3.6–3.79 GPA*,28–36 ACT**,1300–1600 SAT** | $1,500 | $6,000 | $26,400”
+### `aee4a7143ab3793a` The University of Tennessee-Knoxville — awards 2026-27 [same] (labeled_in_source)
+- source: https://onestop.utk.edu/scholarships-financial-aid/scholarships/in-state-volunteer-scholarship/ (sha256 16e97a51d01f)
+- checks: {"thresholds": null}
+  - test_requirement: ACT/SAT Score: 28–29 / 1300–1350 ⟵ “28–29 / 1300–1350 | $3,000 | $12,000 | $32,400”
+  - award_amount_text: $3,000 ⟵ “28–29 / 1300–1350 | $3,000 | $12,000 | $32,400”
+### `b6c67e44caac1958` The University of Tennessee-Knoxville — awards 2026-27 [new] (labeled_in_source)
+- source: https://onestop.utk.edu/scholarships-financial-aid/scholarships/next-chapter-scholarship-next-chapter-scholar-of-the-year-award/ (sha256 a36fbeb8d79c)
+- checks: {"thresholds": null}
+  - award_amount_text: Tuition & mandatory fees ⟵ “Next Chapter Scholar of the Year | Tuition & mandatory fees | Tuition & mandatory fees up to four years | n/a”
+### `c6ae571157ac26b3` The University of Tennessee-Knoxville — awards 2026-27 [same] (labeled_in_source)
+- source: https://onestop.utk.edu/scholarships-financial-aid/scholarships/out-of-state-volunteer-scholarship/ (sha256 9a00356af194)
+- checks: {"thresholds": null}
+  - gpa_requirement: UT Core Weighted GPA: 4.0+ ⟵ “4.0+ | 34-36/1490–1600 | $18,000 | $72,000”
+  - test_requirement: ACT/SAT Score: 34-36/1490–1600 ⟵ “4.0+ | 34-36/1490–1600 | $18,000 | $72,000”
+  - award_amount_text: $18,000 ⟵ “4.0+ | 34-36/1490–1600 | $18,000 | $72,000”
+### `f0dc519578f1b526` The University of Tennessee-Knoxville — awards 2026-27 [same] (labeled_in_source)
+- source: https://onestop.utk.edu/scholarships-financial-aid/scholarships/out-of-state-volunteer-scholarship/ (sha256 9a00356af194)
+- checks: {"thresholds": null}
+  - gpa_requirement: UT Core Weighted GPA: 4.0+ ⟵ “4.0+ | 30-33/1360–1480 | $9,000 | $36,000”
+  - test_requirement: ACT/SAT Score: 30-33/1360–1480 ⟵ “4.0+ | 30-33/1360–1480 | $9,000 | $36,000”
+  - award_amount_text: $9,000 ⟵ “4.0+ | 30-33/1360–1480 | $9,000 | $36,000”
+
+## Exceptions (41)
+
+### `246741c833ff26c6` Middle Tennessee State University — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.mtsu.edu/financial-aid/fafsa/ (sha256 53eca58d9147)
+- issues: ambiguous_year_labels, semantic_review_required, conflicting_sources:https://www.mtsu.edu/policies/p320/
+- checks: {"negative_sentences": 0, "sentences": 17}
+  - sentence: need_based_special_circumstances ⟵ “If the parents of a dependent student are unwilling to provide their information on the FAFSA, but the student doesn’t have an unusual circumstance, the student can choose to have their school determine their eligibility for a Direct Unsubsidized Loan only.”
+  - sentence: need_based_special_circumstances ⟵ “If students indicate on the FAFSA that they have unusual circumstances that prevents them from contacting their parent or that contacting their parents would pose a risk to the student, the FAFSA will be processed based on a provisional independent status.”
+  - sentence: need_based_special_circumstances ⟵ “A student may be experiencing unusual circumstances if they left home due to an abusive or threatening environment; are abandoned by or estranged from their parents and have not been adopted; have refugee or asylee status and are separated from their parents, or their parents are displaced in a foreign county; are victim of human trafficking; are incarerated, or their parents are incarcerated and ”
+  - sentence: need_based_special_circumstances ⟵ “The first category is called a Special Circumstance.”
+  - sentence: need_based_special_circumstances ⟵ “The second category is called an Unusual Circumstance.”
+  - sentence: need_based_special_circumstances ⟵ “An Unusual Circumstance is specifically for students that are unable to include parental information on the FAFSA due to parental abuse, neglect, abandonment, incarceration, or institutionalization.”
+### `5767e1209d1d0aa5` Middle Tennessee State University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.mtsu.edu/policies/p320/ (sha256 e31ec3e79390)
+- issues: semantic_review_required, conflicting_sources:https://www.mtsu.edu/financial-aid/appeals/
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Refer to the Financial Aid website regarding procedures for submitting a Financial Aid Satisfactory Academic Progress (SAP) Appeal.”
+### `6c0aaddba36ef50d` Middle Tennessee State University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.mtsu.edu/policies/p320/ (sha256 e31ec3e79390)
+- issues: semantic_review_required, conflicting_sources:https://www.mtsu.edu/financial-aid/fafsa/
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Such circumstances might include the death of a relative, an injury to or illness of the student, or other special circumstances.”
+### `ad5b7c1275cabca9` Middle Tennessee State University — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.mtsu.edu/financial-aid/fafsa/ (sha256 53eca58d9147)
+- issues: ambiguous_year_labels, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: dependency_override ⟵ “An MTSU Financial Aid administrator must verify the student’s circumstances and determine whether a dependency override is warranted.”
+  - sentence: dependency_override ⟵ “It is more commonly referred to as a dependency override.”
+### `c425826f750c2171` Middle Tennessee State University — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.mtsu.edu/financial-aid/fafsa/ (sha256 53eca58d9147)
+- issues: ambiguous_year_labels, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: budget_increase ⟵ “Cost of Attendance Adjustments A student’s Cost of Attendance (COA) or budget is an estimate of the student’s educational expenses for a period of enrollment.”
+### `c514e080082ef7e8` Middle Tennessee State University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.mtsu.edu/financial-aid/appeals/ (sha256 341162db62ac)
+- issues: semantic_review_required, conflicting_sources:https://www.mtsu.edu/financial-aid/tels/
+- checks: {"negative_sentences": 0, "sentences": 11}
+  - sentence: scholarship_retention_appeal ⟵ “Institutional Scholarship Appeal Form found on our forms page.”
+  - sentence: scholarship_retention_appeal ⟵ “Once you have gotten your GPA back up to the required level, then you will need to submit a new Institutional Scholarship Appeal Form, and check the box that indicates you are now meeting the GPA requirement.”
+  - sentence: scholarship_retention_appeal ⟵ “If this is applicable, please submit the Institutional Scholarship Appeal Form along with a written statement explaining why unable to enroll full-time in CPoS eligible classes.”
+  - sentence: scholarship_retention_appeal ⟵ “Tennessee Education Lottery Scholarship (TELS) Appeal Process The Tennessee Education Lottery Scholarship (TELS) is awarded based on policies set forth by the Tennessee Student Assistance Corporation (TSAC).”
+  - sentence: scholarship_retention_appeal ⟵ “TSAC’s TELS policy allows an appeal process for students who fail to meet enrollment requirements due to extenuating medical or personal circumstances.”
+  - sentence: scholarship_retention_appeal ⟵ “Appealing the cancellation of the TELS/Lottery Scholarship If you lost TELS eligibility while attending another institution or 1 of the items listed under ‘Who cannot submit an appeal to the MTSU TELS Institutional Review Panel (IRP)’ heading applies to yourself, then you must appeal directly to the Tennessee Student Assistance Corporation (TSAC).”
+### `d4048037d70b17b9` Middle Tennessee State University — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.mtsu.edu/financial-aid/fafsa/ (sha256 53eca58d9147)
+- issues: ambiguous_year_labels, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 5}
+  - sentence: professional_judgment ⟵ “For more information, see Professional Judgment / Special Cases below.”
+  - sentence: professional_judgment ⟵ “Professional Judgment / Special Cases When a student completes the Free Application for Federal Student Aid (FAFSA), it asks a set of general questions as well as very specific questions in regard to personal, biographical, and financial information.”
+  - sentence: professional_judgment ⟵ “For this reason, financial aid administrators are given the authority to make professional judgment decisions to account for these extenuating circumstances.”
+  - sentence: professional_judgment ⟵ “There are four categories of professional judgments.”
+  - sentence: professional_judgment ⟵ “Other Special Cases (not considered Professional Judgment) Unaccomapanied Homeless Youth Another circumstance that is taken into consideration when you are completing the FAFSA is if you are: an unaccompanied youth (i.e., not in the physical custody of a parent or guardian) AND who is homeless (i.e., lacking fixed, regular, and adequate housing) OR is self-supporting and at risk of being homeless ”
+### `e6d9ec186f9f92f8` Middle Tennessee State University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.mtsu.edu/financial-aid/appeals/ (sha256 341162db62ac)
+- issues: semantic_review_required, conflicting_sources:https://www.mtsu.edu/policies/p320/
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: sap_appeal ⟵ “Satisfactory Academic Progress Appeals NOTE: Students should also be aware of the difference between a financial aid suspension based on the Financial Aid Satisfactory Academic Progress Policy and an academic suspension which is based solely on grades and GPA (refer to the Academic Standing policies in the Undergraduate & Graduate Catalogs).”
+  - sentence: sap_appeal ⟵ “MTSU Financial Aid Satisfactory Academic Progress Appeal Form located on the forms page.”
+  - sentence: sap_appeal ⟵ “An academic appeal, if approved, will allow you to enroll in classes for the affected semester; a scholarship or SAP appeal, if approved, will allow you to receive your related aid for the affected semester.”
+### `feb1ab5c425ac89e` Middle Tennessee State University — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.mtsu.edu/financial-aid/tels/ (sha256 94f185665c51)
+- issues: semantic_review_required, conflicting_sources:https://www.mtsu.edu/financial-aid/appeals/
+- checks: {"negative_sentences": 0, "sentences": 8}
+  - sentence: scholarship_retention_appeal ⟵ “Please visit the Financial Aid Appeals webpage for more information about filing a TELS appeal.”
+  - sentence: scholarship_retention_appeal ⟵ “TELS Appeals can only be approved if a student is ineligible due to failure to meet enrollment requirements; MTSU is not able to approve appeals for students who fail to meet GPA requirements, regardless of extenuating circumstances.”
+  - sentence: scholarship_retention_appeal ⟵ “TELS Appeal Process TELS is awarded based on policies set forth by the Tennessee Student Assistance Corporation (TSAC).”
+  - sentence: scholarship_retention_appeal ⟵ “TSAC’s TELS policy allows an appeal process for students who fail to meet enrollment requirements due to extenuating medical or personal circumstances.”
+  - sentence: scholarship_retention_appeal ⟵ “MTSU’s Institutional Review Panel (IRP) meets once a month to review TELS appeals.”
+  - sentence: scholarship_retention_appeal ⟵ “TELS/TSAC policy requires appeals can’t be submitted earlier than 14 calendar days before each scheduled meeting of the IRP.”
+### `b37f8d907203653c` Middle Tennessee State University — credit_policies 2026-27 · policy_kind=IB [new] (source_unlabeled)
+- source: https://www.mtsu.edu/how-to-apply/credit-by-examination/ (sha256 58be0c057ce2)
+- issues: credits_implausible
+- checks: {"distinct_exams": 15, "equivalencies": 20, "rows_without_score": 0}
+  - equivalencies[IB-BIOLOGY|5 or higher]:  ⟵ “Biology (higher level) | 5 or higher | BIOL 1110/ BIOL 1111 and BIOL 1120/BIOL 1121 | 8”
+  - equivalencies[IB-BUSINESS-MANAGEMENT|5 or higher (SL)4 or higher (HL)]:  ⟵ “Business and Management (standard or higher level) | 5 or higher (SL)4 or higher (HL) | BCED 1400 | 3”
+  - equivalencies[IB-CHEMISTRY|5 or higher]:  ⟵ “Chemistry (higher level) | 5 or higher | CHEM 1110/1111 and 1120/1121 | 8”
+  - equivalencies[IB-CHEMISTRY|5 or higher]:  ⟵ “Chemistry (standard level) | 5 or higher | CHEM 1110/1111 | 4”
+  - equivalencies[IB-COMPUTER-SCIENCE|6 or higher (SL)5 or higher (HL)]:  ⟵ “Computer Science (standard or higher level) | 6 or higher (SL)5 or higher (HL) | CSCI 1170 | 4”
+  - equivalencies[IB-ECONOMICS|5 or higher (SL)5 or higher (HL)]:  ⟵ “Economics (standard or higher level) | 5 or higher (SL)5 or higher (HL) | ECON 2410ECON 2410 and 2420 | 36”
+  - equivalencies[IB-ENVIRONMENTAL-SYSTEMS-SOCIETIES|4 or higher]:  ⟵ “Environmental Systems or Societies (standard or higher level) | 4 or higher | ENVS 2810/ENVS 2811 | 4”
+  - equivalencies[IB-GEOGRAPHY|5 or higher (SL)4 or higher (HL)]:  ⟵ “Geography (standard or higher level) | 5 or higher (SL)4 or higher (HL) | GEOG 2000 | 3”
+  - equivalencies[IB-HISTORY|5 or higher]:  ⟵ “History (higher level) | 5 or higher | HIST 1120 and depending on higher level option (Paper #3)Europe: HIST 1020; Americas: either HIST 2010 or 2020 to be determined at orientation/advising; Africa and the Middle East or Asia and Ocean – 3 hours lower-division history credit | 6”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|4 or higher]:  ⟵ “Mathematics: Analysis & Approaches (standard level) | 4 or higher | MATH 1730 | 4”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|4 or higher]:  ⟵ “Mathematics: Analysis & Approaches (higher level) | 4 or higher | MATH 1910 | 4”
+  - equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION|4 or higher]:  ⟵ “Mathematics: Applications & Interpretation (standard or higher level) | 4 or higher | MATH 1530 (student may request MATH 1730 instead) | 3 (4)”
+  - equivalencies[IB-PHILOSOPHY|5 or higher]:  ⟵ “Philosophy (standard level) | 5 or higher | 3 hours lower-division philosophy credit | 3”
+  - equivalencies[IB-PHILOSOPHY|5 or higher]:  ⟵ “Philosophy (higher level) | 5 or higher | PHIL 1030 | 3”
+  - equivalencies[IB-PHYSICS|5 or higher]:  ⟵ “Physics (standard or higher level) | 5 or higher | PHYS 2010/PHYS 2011 | 4”
+  - equivalencies[IB-PHYSICS|6 or higher]:  ⟵ “Physics (standard or higher level) | 6 or higher | PHYS 2010/PHYS 2011 and PHYS 2020/PHYS 2021 | 8”
+  - equivalencies[IB-PSYCHOLOGY|4 or higher]:  ⟵ “Psychology (higher level) | 4 or higher | 3 hours lower-division psychology credit | 3”
+  - equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY|4 or higher]:  ⟵ “Social and Cultural Anthropology (standard level) | 4 or higher | ANTH 2010 | 3”
+  - equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY|4 or higher]:  ⟵ “Social and Cultural Anthropology (higher level) | 4 or higher | ANTH 2010 plus 3 hours ANTH lower division elective | 6”
+  - equivalencies[IB-THEATRE|5 or higher]:  ⟵ “Theatre (standard or higher level) | 5 or higher | THEA 1030 | 3”
+### `1299215757a9f07a` The University of Tennessee-Chattanooga — appeals 2025-26 [new] (labeled_in_source)
+- source: https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/scholarships/renewable-scholarships/mocs-scholarship (sha256 ebda59e765d8)
+- issues: stale_year_label:2025-26, semantic_review_required, conflicting_sources:https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/scholarships/renewable-scholarships/chancellors-scholarship,https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/scholarships/renewable-scholarships/provosts-scholarship,https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/scholarships/renewable-scholarships/transfer-scholarship
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: scholarship_retention_appeal ⟵ “Regretfully, transferring to another school is an immediate forfeiture of any first-time student scholarship and Is Not appealable (i.e.”
+### `1cb1d55c6cd361ce` The University of Tennessee-Chattanooga — appeals 2025-26 [new] (labeled_in_source)
+- source: https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/scholarships/renewable-scholarships/chancellors-scholarship (sha256 7003e7921406)
+- issues: stale_year_label:2025-26, semantic_review_required, conflicting_sources:https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/scholarships/renewable-scholarships/mocs-scholarship,https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/scholarships/renewable-scholarships/provosts-scholarship,https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/scholarships/renewable-scholarships/transfer-scholarship
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: scholarship_retention_appeal ⟵ “Regretfully, transferring to another school is an immediate forfeiture of any first-time student scholarship and Is Not appealable (i.e.”
+### `271282ba6c84469d` The University of Tennessee-Chattanooga — appeals 2026-27 [changed] (source_unlabeled)
+- source: https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/sap (sha256 83dd7e5079b5)
+- issues: semantic_review_required, conflicting_sources:https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/scholarships/renewable-scholarships/academic-service-scholars-program,https://www.utc.edu/enrollment-management-and-student-affairs/mocs-one-center/choose-correct-appeal-form
+- checks: {"negative_sentences": 0, "sentences": 2}
+- change process_summary: `Scholarship Appeal for students who lost a UTC scholarship or the Tennessee HOPE scholarship because of GPA, credit completion or enrollment status; online form; decision within 45 days.` → `The Financial Aid SAP Committee does not have authority to approve or deny University or TN HOPE Scholarship appeals.`
+  - sentence: scholarship_retention_appeal ⟵ “The Financial Aid SAP Committee does not have authority to approve or deny University or TN HOPE Scholarship appeals.”
+  - sentence: scholarship_retention_appeal ⟵ “The Financial Aid SAP Committee does not have authority to approve or deny University or TN HOPE scholarship appeals.”
+### `5c09d89b1bed230f` The University of Tennessee-Chattanooga — appeals 2025-26 [new] (labeled_in_source)
+- source: https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/scholarships/renewable-scholarships/provosts-scholarship (sha256 eb06b2e16c0b)
+- issues: stale_year_label:2025-26, semantic_review_required, conflicting_sources:https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/scholarships/renewable-scholarships/chancellors-scholarship,https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/scholarships/renewable-scholarships/mocs-scholarship,https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/scholarships/renewable-scholarships/transfer-scholarship
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: scholarship_retention_appeal ⟵ “Regretfully, transferring to another school is an immediate forfeiture of any first-time student scholarship and Is Not appealable (i.e.”
+### `5c7fcd56af9ef638` The University of Tennessee-Chattanooga — appeals 2026-27 [changed] (source_unlabeled)
+- source: https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/sap (sha256 83dd7e5079b5)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 6}
+- change process_summary: `Financial Aid / Satisfactory Academic Progress (SAP) Appeal for students who lost financial aid by not meeting SAP standards; online form; decision within 45 days.` → `Financial Aid Probation - If a student has a Satisfactory Academic Progress (SAP) Appeal approved, they will be placed on a one semester warning period if it will be possible to bring their Course Completion Rate and GPA to maintain SAP standards after the next semester.`
+  - sentence: sap_appeal ⟵ “Financial Aid Probation - If a student has a Satisfactory Academic Progress (SAP) Appeal approved, they will be placed on a one semester warning period if it will be possible to bring their Course Completion Rate and GPA to maintain SAP standards after the next semester.”
+  - sentence: sap_appeal ⟵ “Academic Plan - If a student has a Satisfactory Academic Progress (SAP) Appeal approved and it is NOT possible for them to maintain the required Course Completion Rate and GPA to maintain SAP after one semester of enrollment, they will be placed in a SAP Academic Plan.”
+  - sentence: sap_appeal ⟵ “Notification of Status and right to appeal Students will be notified of changes to SAP status and any appeal decisions via UTC email.”
+  - sentence: sap_appeal ⟵ “Satisfactory Academic Progress Appeals Process and Financial Aid Appeal Forms Students appealing their Satisfactory Academic Progress status are required to submit an appeals packet for review.”
+  - sentence: sap_appeal ⟵ “The following are due in the SAP Appeals packet: Financial Aid Appeal Form.”
+  - sentence: sap_appeal ⟵ “Review Process There are three levels of appeal in the SAP Appeals process.”
+### `720398780c40e932` The University of Tennessee-Chattanooga — appeals 2026-27 [changed] (source_unlabeled)
+- source: https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/sap (sha256 83dd7e5079b5)
+- issues: semantic_review_required, conflicting_sources:https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/professional-judgment
+- checks: {"negative_sentences": 0, "sentences": 5}
+- change offered: `False` → `True`
+- change process_summary: `The appeal-form guide lists no special-circumstances / professional-judgment appeal; financial aid forms pages were not fully reviewed.` → `Appeal statements should include the following: Explain any unusual circumstances that led to your financial aid suspension.`
+  - sentence: need_based_special_circumstances ⟵ “Appeal statements should include the following: Explain any unusual circumstances that led to your financial aid suspension.”
+  - sentence: need_based_special_circumstances ⟵ “Be specific- indicate dates and time periods involved and how the unusual circumstances affected your academic performance.”
+  - sentence: need_based_special_circumstances ⟵ “If UTC offers a service that helps mitigate your unusual circumstance, you may be required to document that you are using this service.”
+  - sentence: need_based_special_circumstances ⟵ “Signed Statement, indicating rationale for app Statement must include an explanation of unusual circumstances that led to financial aid suspension.”
+  - sentence: need_based_special_circumstances ⟵ “Sufficient documentation to support claim of unusual circumstances.”
+### `8efe887820eb19fc` The University of Tennessee-Chattanooga — appeals 2026-27 [changed] (source_unlabeled)
+- source: https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/scholarships/renewable-scholarships/academic-service-scholars-program (sha256 20589b2e2782)
+- issues: semantic_review_required, conflicting_sources:https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/sap,https://www.utc.edu/enrollment-management-and-student-affairs/mocs-one-center/choose-correct-appeal-form
+- checks: {"negative_sentences": 0, "sentences": 1}
+- change process_summary: `Scholarship Appeal for students who lost a UTC scholarship or the Tennessee HOPE scholarship because of GPA, credit completion or enrollment status; online form; decision within 45 days.` → `Regretfully, transferring to another school is an immediate forfeiture of any first-time student scholarship and Is Not appealable. • You did not maintain the required cumulative GPA; • You did not pass the required number of credit hours (or service/work hours); • You have taken a fall or spring semester off and not attended classes; • You have totally withdrawn from classes for the term, officially or unofficially.`
+  - sentence: scholarship_retention_appeal ⟵ “Regretfully, transferring to another school is an immediate forfeiture of any first-time student scholarship and Is Not appealable. • You did not maintain the required cumulative GPA; • You did not pass the required number of credit hours (or service/work hours); • You have taken a fall or spring semester off and not attended classes; • You have totally withdrawn from classes for the term, officia”
+### `997ae6af56365b82` The University of Tennessee-Chattanooga — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships (sha256 337047a9b003)
+- issues: semantic_review_required, conflicting_sources:https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/professional-judgment
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: professional_judgment ⟵ “Quick Links » Calendar Campus News Canvas Change Password Class Schedule Crisis Resources Library Google Workspace MocSync MyMocsNet Microsoft O365 GTranslate Financial Aid and Scholarships Dates Forms Accepting Aid Parents Faculty and Staff Professional Judgment Frequently Asked Questions Office of Financial Aid and Scholarships Student Employment FAFSA An affordable degree starts here UTC’s Offi”
+### `c15081ea8718a9db` The University of Tennessee-Chattanooga — appeals 2026-27 [changed] (source_unlabeled)
+- source: https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/professional-judgment (sha256 0e5e670cf8c1)
+- issues: semantic_review_required, conflicting_sources:https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/sap
+- checks: {"negative_sentences": 0, "sentences": 5}
+- change offered: `False` → `True`
+- change process_summary: `The appeal-form guide lists no special-circumstances / professional-judgment appeal; financial aid forms pages were not fully reviewed.` → `What is considered special or unusual circumstance?`
+  - sentence: need_based_special_circumstances ⟵ “What is considered special or unusual circumstance?”
+  - sentence: need_based_special_circumstances ⟵ “Special circumstances are financial changes that have occurred to a student or parent since completing the FAFSA.”
+  - sentence: need_based_special_circumstances ⟵ “Unusual circumstances refer to a student’s dependency status, also known as dependency override.”
+  - sentence: need_based_special_circumstances ⟵ “None of the following conditions, singly or in combination, qualify as unusual circumstances meriting a dependency override: Parents refuse to contribute to the student's education.”
+  - sentence: need_based_special_circumstances ⟵ “Submitting an explanation with supporting documentation does not guarantee a change in financial aid awards.”
+### `d0051bc703123737` The University of Tennessee-Chattanooga — appeals 2025-26 [new] (labeled_in_source)
+- source: https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/scholarships/renewable-scholarships/transfer-scholarship (sha256 117fb5dc83f8)
+- issues: stale_year_label:2025-26, semantic_review_required, conflicting_sources:https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/scholarships/renewable-scholarships/chancellors-scholarship,https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/scholarships/renewable-scholarships/mocs-scholarship,https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/scholarships/renewable-scholarships/provosts-scholarship
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: scholarship_retention_appeal ⟵ “Regretfully, transferring to another school is an immediate forfeiture of this scholarship and Is Not appealable. • You did not maintain the required cumulative GPA; • You did not pass the required number of credit hours (or service/work hours); • You have taken a fall or spring semester off and not attended classes; • You have totally withdrawn from classes for the term, officially or unofficiall”
+### `e7559917d7915bbd` The University of Tennessee-Chattanooga — appeals 2026-27 [changed] (source_unlabeled)
+- source: https://www.utc.edu/enrollment-management-and-student-affairs/mocs-one-center/choose-correct-appeal-form (sha256 04d12bbbda31)
+- issues: semantic_review_required, conflicting_sources:https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/sap,https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/scholarships/renewable-scholarships/academic-service-scholars-program
+- checks: {"negative_sentences": 0, "sentences": 1}
+- change process_summary: `Scholarship Appeal for students who lost a UTC scholarship or the Tennessee HOPE scholarship because of GPA, credit completion or enrollment status; online form; decision within 45 days.` → `A Scholarship Appeal for the loss of your TN HOPE Scholarship can be submitted if you have extenuating circumstances have contributed to the following: You have totally withdrawn from classes for the term.`
+  - sentence: scholarship_retention_appeal ⟵ “A Scholarship Appeal for the loss of your TN HOPE Scholarship can be submitted if you have extenuating circumstances have contributed to the following: You have totally withdrawn from classes for the term.”
+### `ef392673d9ad660b` The University of Tennessee-Chattanooga — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships/professional-judgment (sha256 0e5e670cf8c1)
+- issues: semantic_review_required, conflicting_sources:https://www.utc.edu/enrollment-management-and-student-affairs/financial-aid-and-scholarships
+- checks: {"negative_sentences": 0, "sentences": 10}
+  - sentence: professional_judgment ⟵ “Quick Links » Calendar Campus News Canvas Change Password Class Schedule Crisis Resources Library Google Workspace MocSync MyMocsNet Microsoft O365 GTranslate Special and Unusual Circumstances Professional Judgment What is a professional judgment?”
+  - sentence: professional_judgment ⟵ “Such exceptions, known as professional judgment, are considered on a case-by-case basis with supporting documentation of your unique circumstances.”
+  - sentence: professional_judgment ⟵ “Please note you must be currently enrolled in the aid year for which you are requesting the Professional Judgment for it to be considered.”
+  - sentence: professional_judgment ⟵ “Professional judgments take 6-8 weeks for a decision once all documentation is submitted.”
+  - sentence: professional_judgment ⟵ “Professional Judgment Special and Unusual Circumstances Appeal Instructions Complete your Professional Judgment Professional Judgment FAQs What documents should I submit with my Professional Judgment request?”
+  - sentence: professional_judgment ⟵ “How long before I know the outcome of a Professional Judgment?”
+### `26063ed084e45178` The University of Tennessee-Chattanooga — costs 2026-27 · residency=in_state [same] (labeled_in_source)
+- source: https://www.utc.edu/sites/default/files/2026-09/2026-27-estimated-cost-of-attendance.pdf (sha256 4dc086460fb0)
+- issues: arrangement_unlabeled
+- checks: {"columns": 4, "rows": 18}
+  - with_parents_or_family:Enrollment Fees: 11084 ⟵ “Enrollment Fees | 11084 | 11084 | 11084 | 11789”
+  - with_parents_or_family:Books: 1400 ⟵ “Books | 1400 | 1400 | 1400 | 1200”
+  - with_parents_or_family:Housing: 2600 ⟵ “Housing | 2600 | 8800 | 9204 | 9450”
+  - with_parents_or_family:Food: 4552 ⟵ “Food | 4552 | 4552 | 4552 | 4552”
+  - with_parents_or_family:Transportation: 2300 ⟵ “Transportation | 2300 | 2300 | 2300 | 3200”
+  - with_parents_or_family:Personal Expenses: 1800 ⟵ “Personal Expenses | 1800 | 1800 | 1800 | 2600”
+  - with_parents_or_family:IN-STATE TOTAL: 23736 ⟵ “IN-STATE TOTAL | 23736 | 29936 | 30340 | 32791”
+  - with_parents_or_family:Out-of-State Tuition: 8306 ⟵ “Out-of-State Tuition | 8306 | 8306 | 8306 | 8306”
+  - with_parents_or_family:Out-of-State Total: 32042 ⟵ “Out-of-State Total | 32042 | 38242 | 38646 | 41097”
+  - with_parents_or_family:Enrollment Fees (2): 11084 ⟵ “Enrollment Fees | 11084 | 11084 | 11084 | 11789”
+  - with_parents_or_family:Books (2): 1400 ⟵ “Books | 1400 | 1400 | 1400 | 1200”
+  - with_parents_or_family:Housing (2): 2600 ⟵ “Housing | 2600 | 8800 | 9204 | 9450”
+  - with_parents_or_family:Food (2): 4552 ⟵ “Food | 4552 | 4552 | 4552 | 4552”
+  - with_parents_or_family:Transportation (2): 2300 ⟵ “Transportation | 2300 | 2300 | 2300 | 3200”
+  - with_parents_or_family:Personal Expenses (2): 1800 ⟵ “Personal Expenses | 1800 | 1800 | 1800 | 2600”
+  - with_parents_or_family:IN-STATE TOTAL (2): 23736 ⟵ “IN-STATE TOTAL | 23736 | 29936 | 30340 | 32791”
+  - with_parents_or_family:Out-of-State Tuition (2): 642 ⟵ “Out-of-State Tuition | 642 | 642 | 642 | 872”
+  - with_parents_or_family:Out-of-State Total (2): 24378 ⟵ “Out-of-State Total | 24378 | 30578 | 30982 | 33663”
+  - off_campus_not_with_family:Enrollment Fees: 11084 ⟵ “Enrollment Fees | 11084 | 11084 | 11084 | 11789”
+  - off_campus_not_with_family:Books: 1400 ⟵ “Books | 1400 | 1400 | 1400 | 1200”
+  - off_campus_not_with_family:Housing: 8800 ⟵ “Housing | 2600 | 8800 | 9204 | 9450”
+  - off_campus_not_with_family:Food: 4552 ⟵ “Food | 4552 | 4552 | 4552 | 4552”
+  - off_campus_not_with_family:Transportation: 2300 ⟵ “Transportation | 2300 | 2300 | 2300 | 3200”
+  - off_campus_not_with_family:Personal Expenses: 1800 ⟵ “Personal Expenses | 1800 | 1800 | 1800 | 2600”
+  - off_campus_not_with_family:IN-STATE TOTAL: 29936 ⟵ “IN-STATE TOTAL | 23736 | 29936 | 30340 | 32791”
+  - … 47 more rows
+### `1f90f152dfaa32f1` The University of Tennessee-Chattanooga — credit_policies 2026-27 · policy_kind=IB [same] (source_unlabeled)
+- source: https://www.utc.edu/academic-affairs/registrar/prior-learning-assessment/ib-exam (sha256 bec2716f46b6)
+- issues: score_column_not_scores
+- checks: {"distinct_exams": 23, "equivalencies": 25, "rows_without_score": 0}
+  - equivalencies[IB-BIOLOGY|SL & HL]:  ⟵ “Biology | SL & HL | HL | 5,6, OR 7 | BIOL 1110 & BIOL 1120 | 8 | Lab Science; 23GE Natural Science Lecture/Lab”
+  - equivalencies[IB-BUSINESS-MANAGEMENT|SL & HL]:  ⟵ “Business Management | SL & HL | HL | 5,6, OR 7 | MGT 1XXX (Lower Division) | 3 | ”
+  - equivalencies[IB-CHEMISTRY|SL & HL]:  ⟵ “Chemistry | SL & HL | HL | 5,6, OR 7 | CHEM 1110/1110L & CHEM 1120/1120L | 8 | Lab Science; 23GE Natural Science Lecture/Lab (1 course)”
+  - equivalencies[IB-LATIN|SL & HL]:  ⟵ “Classical Languages-Latin | SL & HL | HL | 5,6, OR 7 | LAT 1010 & LAT 1020 | 6 | 23GE Humanities & Fine Arts”
+  - equivalencies[IB-COMPUTER-SCIENCE|SL & HL]:  ⟵ “Computer Science | SL & HL | HL | 5,6, OR 7 | CPSC 1XXX | 3 | ”
+  - equivalencies[IB-ECONOMICS|SL & HL]:  ⟵ “Economics | SL & HL | HL | 5,6, OR 7 | ECON 1010 & ECON 1020 | 6 | Behavioral & Social Sciences; 23GE Behavioral & Social Science”
+  - equivalencies[IB-ENVIRONMENTAL-SYSTEMS-SOCIETIES|SL Only]:  ⟵ “Environmental Systems & Societies | SL Only | SL | 5,6, OR 7 | ESC 1100 | 3 | Non-Lab Science; 23GE Natural Science Non-Lab”
+  - equivalencies[IB-FILM|SL & HL]:  ⟵ “Film | SL & HL | HL | 5,6, OR 7 | THSP 2800 | 3 | Visual & Performing Arts; 23GE Humanities & Fine Arts”
+  - equivalencies[IB-GEOGRAPHY|SL & HL]:  ⟵ “Geography | SL & HL | HL | 5,6, OR 7 | GEOG 1040 | 3 | Behavioral & Social Sciences; 23GE Behavioral & Social Science”
+  - equivalencies[IB-GLOBAL-POLITICS|SL & HL]:  ⟵ “Global Politics | SL & HL | HL | 5,6, OR 7 | PSPS 1020 | 3 | Behavioral & Social Sciences; 23GE Behavioral & Social Science or 23GE Individual & Global Citizenship”
+  - equivalencies[IB-HISTORY|SL & HL]:  ⟵ “History of Africa and the Middle East* | SL & HL | HL | 5,6, OR 7 | HIST 1XXX (Lower Division) | 3 | Historical Understanding; 23GE Humanities & Fine Arts”
+  - equivalencies[IB-FRENCH|SL & HL]:  ⟵ “Language B-French | SL & HL | HL | 5,6, OR 7 | FREN 1010 & FREN 1020 | 8 | 23GE Humanities & Fine Arts; 23GE Individual & Global Citizenship”
+  - equivalencies[IB-GERMAN|SL & HL]:  ⟵ “Language B-German | SL & HL | HL | 5,6, OR 7 | GER 1010 & GER 1020 | 8 | ”
+  - equivalencies[IB-SPANISH|SL & HL]:  ⟵ “Language B-Spanish | SL & HL | HL | 5,6, OR 7 | SPAN 1010 & SPAN 1020 | 8 | 23GE Humanities & Fine Arts; 23GE Individual & Global Citizenship”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|SL & HL]:  ⟵ “Mathematics - Analysis & Approaches | SL & HL | HL | 5,6, OR 7 | MATH 1950 | 4 | Mathematics; 23GE Quantitative Reasoning”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|SL & HL]:  ⟵ “Mathematics - Analysis & Approaches | SL & HL | HL | 4 | MATH 1830 | 3 | Mathematics; 23GE Quantitative Reasoning”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|SL & HL]:  ⟵ “Mathematics - Analysis & Approaches | SL & HL | SL | 5,6, OR 7 | MATH 1010, MATH 1730 | 3, 4 | Mathematics; 23GE Quantitative Reasoning (2 courses)”
+  - equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION|SL & HL]:  ⟵ “Mathematics - Applications & Interpretation | SL & HL | HL | 5,6, OR 7 | MATH 1010, MATH 1730 | 3 | Mathematics; 23GE Quantitative Reasoning”
+  - equivalencies[IB-MUSIC|SL & HL]:  ⟵ “Music | SL & HL | HL | 5,6, OR 7 | MUS 1XXX (Lower Division) | 3 | ”
+  - equivalencies[IB-PHILOSOPHY|SL & HL]:  ⟵ “Philosophy | SL & HL | HL | 5,6, OR 7 | PHIL 1010 | 3 | Thoughts, Values & Beliefs; 23GE Humanities & Fine Arts”
+  - equivalencies[IB-PHYSICS|SL & HL]:  ⟵ “Physics | SL & HL | HL | 5,6, OR 7 | PHYS 1030/1030L & PHYS 1040/1040L | 8 | Lab Science; 23GE Natural Science Lecture/Lab”
+  - equivalencies[IB-PSYCHOLOGY|SL & HL]:  ⟵ “Psychology | SL & HL | HL | 5,6, OR 7 | PSY 1010 | 3 | Behavioral & Social Sciences; 23GE Behavioral & Social Science”
+  - equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY|SL & HL]:  ⟵ “Social & Cultural Anthropology | SL & HL | HL | 5,6, OR 7 | ANTH 1200 | 3 | Non-Western Culture; 23GE Behavioral & Social Science or 23GE Individual & Global Citizenship”
+  - equivalencies[IB-THEATRE|SL & HL]:  ⟵ “Theatre | SL & HL | HL | 5,6, OR 7 | THSP 1110 | 3 | Visual & Performing Arts; 23GE Humanities & Fine Arts”
+  - equivalencies[IB-VISUAL-ARTS|SL & HL]:  ⟵ “3"Visual Arts" | SL & HL | HL | 5,6, OR 7 | ART 1XXX (Lower Division) | 3 | ”
+### `c643c360044a6731` The University of Tennessee-Knoxville — admissions_metrics 2025-26 [same] (labeled_in_source)
+- source: https://irsa.utk.edu/wp-content/uploads/sites/5/2026/06/CDS_2025-26_C_.pdf (sha256 432ea71922ec)
+- issues: applications_breakdown_does_not_reconcile
+- checks: {"fields": ["act_25", "act_50", "act_75", "admits", "applications", "enrolled", "entering_fall_year", "sat_composite_25", "sat_composite_50", "sat_composite_75", "sat_math_25", "sat_math_50", "sat_math_75", "sat_reading_25", "sat_reading_50", "sat_reading_75"]}
+  - applications: 53841 ⟵ “Total first-time, first-year (degree-seeking) who applied   11,980           41,408          452       0     53,841”
+  - admits: 23464 ⟵ “Total first-time, first-year (degree-seeking) who were admitted                    8,725           14,526          213       0     23,464”
+  - enrolled: 7143 ⟵ “Total first-time, first-year (degree-seeking) who enrolled                         4,326            2,764           53       0       7,143”
+  - sat_composite_25..75: [1280, 1330, 1380] ⟵ “SAT Composite                                1280            1330          1380”
+  - sat_reading_25..75: [640, 670, 700] ⟵ “SAT Evidence-Based Reading and   640            670           700”
+  - sat_math_25..75: [630, 660, 700] ⟵ “SAT Math                                      630            660           700”
+  - act_25..75: [26, 29, 31] ⟵ “ACT Composite                                 26              29            31”
+### `11cc4eea5f3bc633` The University of Tennessee-Knoxville — appeals 2026-27 [changed] (source_unlabeled)
+- source: https://onestop.utk.edu/scholarships-financial-aid/financial-aid/financial-aid-appeals/budget-increase-appeals/ (sha256 f3e77786b4b1)
+- issues: semantic_review_required, conflicts_with_verified_record
+- checks: {"negative_sentences": 0, "sentences": 1}
+- change process_summary: `Budget Increase Appeals for additional education-related expenses (childcare, one-time computer purchase, internship/student teaching, one medical expense per year, extra books/supplies, study abroad). Excludes reimbursed expenses, amounts within the standard allowance, vehicle costs and expenses while not enrolled. Approval does not guarantee additional aid; decisions are final absent new documentation.` → `To submit a Budget Increase Appeal, follow these steps: Step 1: Submit a Case in Vol Connect Log in to the Vol Connect Portal.`
+  - sentence: budget_increase ⟵ “To submit a Budget Increase Appeal, follow these steps: Step 1: Submit a Case in Vol Connect Log in to the Vol Connect Portal.”
+### `39f387ba8e18f113` The University of Tennessee-Knoxville — appeals 2026-27 [changed] (labeled_in_source)
+- source: https://onestop.utk.edu/scholarships-financial-aid/scholarships/chancellors-scholarships/ (sha256 936df803b894)
+- issues: semantic_review_required, conflicting_sources:https://onestop.utk.edu/scholarships-financial-aid/financial-aid/financial-aid-appeals/hope-institutional-scholarship-appeals/, conflicts_with_verified_record
+- checks: {"negative_sentences": 0, "sentences": 1}
+- change process_summary: `HOPE & Institutional Scholarship Appeals: students may appeal loss of HOPE or institutional scholarship eligibility caused by extenuating circumstances (health emergency, death of immediate family member, mental health crisis). Dropping courses to protect GPA does not qualify. HOPE GPA review after a later benchmark and the one-time HOPE grade-replacement option are also handled here. Complete appeals (statement plus documentation) go to the Institutional Review Panel. Chancellor's Scholarship GPA-loss appeals can grant probationary eligibility for one semester.` → `All Chancellor’s Scholarships require a cumulative GPA of 3.25 or higher If the student experienced extenuating circumstances that affected their ability to meet the minimum requirements, they can submit a written appeal for the loss of their scholarship.`
+  - sentence: scholarship_retention_appeal ⟵ “All Chancellor’s Scholarships require a cumulative GPA of 3.25 or higher If the student experienced extenuating circumstances that affected their ability to meet the minimum requirements, they can submit a written appeal for the loss of their scholarship.”
+### `87183035a0d6c178` The University of Tennessee-Knoxville — appeals 2026-27 [changed] (source_unlabeled)
+- source: https://onestop.utk.edu/scholarships-financial-aid/financial-aid/information/ (sha256 f7f9e08aecea)
+- issues: semantic_review_required, conflicts_with_verified_record
+- checks: {"negative_sentences": 1, "sentences": 2}
+- change process_summary: `The official Scholarship FAQ answers "Will UT match scholarship and financial aid offers from other institutions?" with "UT cannot match scholarship or aid offers from other institutions."` → `Will UT match scholarship and financial aid offers from other institutions?`
+  - sentence: competing_offer_review ⟵ “Will UT match scholarship and financial aid offers from other institutions?”
+  - sentence: competing_offer_review ⟵ “UT cannot match scholarship or aid offers from other institutions.”
+### `8a5e69cd36a5054f` The University of Tennessee-Knoxville — appeals 2026-27 [changed] (source_unlabeled)
+- source: https://onestop.utk.edu/scholarships-financial-aid/financial-aid/keep-your-financial-aid-sap/ (sha256 71dff7095c00)
+- issues: semantic_review_required, conflicting_sources:https://onestop.utk.edu/scholarships-financial-aid/financial-aid/financial-aid-appeals/satisfactory-academic-progress-sap-appeals/, conflicts_with_verified_record
+- checks: {"negative_sentences": 0, "sentences": 1}
+- change process_summary: `Satisfactory Academic Progress appeals to restore federal aid eligibility: personal statement (what happened, what changed, academic plan), third-party documentation and an advisor-signed academic plan; due at least 14 days before the last day of classes for the term.` → `SAP Grades & Appeals UT monitors your cumulative completion percentage, maximum time allowance, and grade point average at the end of each semester.`
+  - sentence: sap_appeal ⟵ “SAP Grades & Appeals UT monitors your cumulative completion percentage, maximum time allowance, and grade point average at the end of each semester.”
+### `985b0ab62d921cf8` The University of Tennessee-Knoxville — appeals 2026-27 [changed] (source_unlabeled)
+- source: https://onestop.utk.edu/scholarships-financial-aid/financial-aid/financial-aid-appeals/hope-institutional-scholarship-appeals/ (sha256 b73993b1e37a)
+- issues: semantic_review_required, conflicting_sources:https://onestop.utk.edu/scholarships-financial-aid/scholarships/chancellors-scholarships/, conflicts_with_verified_record
+- checks: {"negative_sentences": 0, "sentences": 6}
+- change process_summary: `HOPE & Institutional Scholarship Appeals: students may appeal loss of HOPE or institutional scholarship eligibility caused by extenuating circumstances (health emergency, death of immediate family member, mental health crisis). Dropping courses to protect GPA does not qualify. HOPE GPA review after a later benchmark and the one-time HOPE grade-replacement option are also handled here. Complete appeals (statement plus documentation) go to the Institutional Review Panel. Chancellor's Scholarship GPA-loss appeals can grant probationary eligibility for one semester.` → `In certain circumstances, students may appeal a loss of scholarship eligibility when an extenuating circumstance affected their ability to meet those requirements.`
+  - sentence: scholarship_retention_appeal ⟵ “In certain circumstances, students may appeal a loss of scholarship eligibility when an extenuating circumstance affected their ability to meet those requirements.”
+  - sentence: scholarship_retention_appeal ⟵ “Eligibility for HOPE & Institutional Scholarship Appeals If an extenuating circumstance affected your ability to meet the scholarship’s requirements, you may be eligible to appeal your loss of scholarship eligibility.”
+  - sentence: scholarship_retention_appeal ⟵ “If you have already lost your HOPE Scholarship due to a change in enrollment status, you may appeal to regain your award.”
+  - sentence: scholarship_retention_appeal ⟵ “How to Submit a HOPE & Institutional Scholarship Appeal Access the Hope & Institutional Scholarship Appeal Request Form to begin the appeal process.”
+  - sentence: scholarship_retention_appeal ⟵ “HOPE Scholarship Appeals: If your appeal is denied by the IRP, you may appeal directly with THEC within 45 days of receiving your denial letter.”
+  - sentence: scholarship_retention_appeal ⟵ “For more information, visit TELS, TN Promise and TN Reconnect Appeals and Exceptions – collegefortn.org.”
+### `ac2eb3c119e16677` The University of Tennessee-Knoxville — appeals 2027-28 [new] (labeled_in_source)
+- source: https://onestop.utk.edu/scholarships-financial-aid/financial-aid/financial-aid-appeals/special-circumstances-appeals/ (sha256 034e41e61652)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: need_based_special_circumstances ⟵ “Students may only complete one Special Circumstance Appeal per academic year (August–July).”
+  - sentence: need_based_special_circumstances ⟵ “To submit a Special Circumstances Appeal, follow these steps: Step 1: Submit a Case in Vol Connect Log in to the Vol Connect Portal.”
+### `e963f1d235b63fca` The University of Tennessee-Knoxville — appeals 2026-27 [changed] (source_unlabeled)
+- source: https://onestop.utk.edu/scholarships-financial-aid/financial-aid/financial-aid-appeals/satisfactory-academic-progress-sap-appeals/ (sha256 3c78f91725d7)
+- issues: semantic_review_required, conflicting_sources:https://onestop.utk.edu/scholarships-financial-aid/financial-aid/keep-your-financial-aid-sap/, conflicts_with_verified_record
+- checks: {"negative_sentences": 0, "sentences": 4}
+- change process_summary: `Satisfactory Academic Progress appeals to restore federal aid eligibility: personal statement (what happened, what changed, academic plan), third-party documentation and an advisor-signed academic plan; due at least 14 days before the last day of classes for the term.` → `How to Start Your SAP Appeal To. submit a SAP appeal, follow these steps: Step 1: Submit a Case in Vol Connect Portal Log in to the Vol Connect Portal Open a new case, select Financial Aid as the Request Type.`
+  - sentence: sap_appeal ⟵ “How to Start Your SAP Appeal To. submit a SAP appeal, follow these steps: Step 1: Submit a Case in Vol Connect Portal Log in to the Vol Connect Portal Open a new case, select Financial Aid as the Request Type.”
+  - sentence: sap_appeal ⟵ “What You’ll Need to Submit Once you access the CampusLogic Student Forms Portal, you will see your SAP Appeal requirement.”
+  - sentence: sap_appeal ⟵ “Incomplete SAP appeals will not be reviewed.”
+  - sentence: sap_appeal ⟵ “Once your materials are submitted, the SAP Appeal Committee will review your case.”
+### `118f509dd81c7af1` The University of Tennessee-Knoxville — awards 2026-27 [changed] (labeled_in_source)
+- source: https://onestop.utk.edu/scholarships-financial-aid/scholarships/next-chapter-scholarship-next-chapter-scholar-of-the-year-award/ (sha256 a36fbeb8d79c)
+- issues: conflicts_with_verified_record
+- checks: {"thresholds": null}
+- change award_type: `institutional_program_based` → `institutional_other`
+- change award_amount_text: `$1,500 per year, up to $6,000 over four years.` → `$1,500`
+  - award_amount_text: $1,500 ⟵ “Next Chapter Scholarship | $1,500 | $6,000 | $26,400”
+### `a38e092f5f6a14d8` The University of Tennessee-Knoxville — awards 2026-27 [changed] (labeled_in_source)
+- source: https://onestop.utk.edu/scholarships-financial-aid/scholarships/tri-star-scholarships/ (sha256 f8f98254c36d)
+- issues: conflicts_with_verified_record
+- checks: {"thresholds": null}
+- change award_type: `institutional_need_last_dollar` → `institutional_other`
+- change award_amount_text: `Last-dollar award that, combined with other aid, covers tuition, mandatory fees and average on-campus housing and food, for up to eight semesters; college-specific course fees for architecture, business, engineering and nursing are not covered.` → `Tuition, mandatory fees, average on-campus Housing and Food*`
+- change residency_requirement: `Tennessee resident; U.S. citizen or permanent resident.` → `In-state`
+  - award_amount_text: Tuition, mandatory fees, average on-campus Housing and Food* ⟵ “Tennessee Pledge Scholarship | First-time, First-Year, Current, & Transfer Students | Tuition, mandatory fees, average on-campus Housing and Food* | UT Priority Filing Date | January 5”
+### `aeefd1ca8b6f7e33` The University of Tennessee-Knoxville — awards 2026-27 [changed] (labeled_in_source)
+- source: https://onestop.utk.edu/scholarships-financial-aid/scholarships/tri-star-scholarships/ (sha256 f8f98254c36d)
+- issues: conflicts_with_verified_record
+- checks: {"thresholds": null}
+- change award_type: `institutional_need_last_dollar` → `institutional_other`
+- change award_amount_text: `Last-dollar award covering tuition and mandatory fees when combined with other federal, state and institutional aid.` → `Tuition & mandatory fees`
+- change residency_requirement: `Tennessee resident; U.S. citizen or permanent resident.` → `In-state`
+  - award_amount_text: Tuition & mandatory fees ⟵ “UT Promise Scholarship | First-Year, Transfer, Current, & Non-Traditional Students receiving HOPE Scholarship | Tuition & mandatory fees | UT Priority Filing Date | January 5”
+### `cc9325799d2f5f8c` The University of Tennessee-Knoxville — awards 2026-27 [changed] (labeled_in_source)
+- source: https://onestop.utk.edu/scholarships-financial-aid/scholarships/tri-star-scholarships/ (sha256 f8f98254c36d)
+- issues: conflicts_with_verified_record
+- checks: {"thresholds": null}
+- change award_type: `institutional_access` → `institutional_other`
+- change award_amount_text: `Combined with HOPE, covers tuition and mandatory fees for up to eight semesters.` → `Tuition & mandatory fees`
+- change residency_requirement: `Tennessee resident; U.S. citizen or permanent resident.` → `In-state`
+  - award_amount_text: Tuition & mandatory fees ⟵ “Flagship Scholarship | First-time, First-Year, Current, & Transfer Students | Tuition & mandatory fees | UT Priority Filing Date | January 5”
+### `95e0196522807e11` The University of Tennessee-Knoxville — costs 2026-27 · residency=in_state [same] (labeled_in_source)
+- source: https://onestop.utk.edu/billing-payments/cost-of-attending-ut-undergraduate-student/ (sha256 0f8657e49387)
+- issues: components_do_not_reconcile
+- checks: {"columns": 1, "components_reconcile": false, "rows": 8}
+  - column:Tuition: 11560 ⟵ “Tuition | $11,560 | $31,672”
+  - column:FeesThis is an estimate of what a student will spend on tuition and fees for the Fall and Spring semesters.: 2464 ⟵ “FeesThis is an estimate of what a student will spend on tuition and fees for the Fall and Spring semesters. | $2,464 | $2,806”
+  - column:On-Campus Housing*This is an estimate of what a student will spend on housing and meals for the Fall and Spring semesters if they live in university housing.: 9572 ⟵ “On-Campus Housing*This is an estimate of what a student will spend on housing and meals for the Fall and Spring semesters if they live in university housing. | $9,572 | $9,572”
+  - column:Food: 5166 ⟵ “Food | $5,166 | $5,166”
+  - column:TransportationThis item is for budgeting purposes only and will not be billed to you.: 3500 ⟵ “TransportationThis item is for budgeting purposes only and will not be billed to you. | $3,500 | $3,500”
+  - column:Miscellaneous Personal Expenses (Based on personal spending habits)This item is for budgeting purposes only and will not be billed to you.: 3042 ⟵ “Miscellaneous Personal Expenses (Based on personal spending habits)This item is for budgeting purposes only and will not be billed to you. | $3,042 | $3,042”
+  - column:Loan FeesThis is an estimate of what the average student spends in federal loan origination fee.: 92 ⟵ “Loan FeesThis is an estimate of what the average student spends in federal loan origination fee. | $92 | $92”
+  - column:Total, with on-campus housing(Direct costs plus estimated indirect costs): 36994 ⟵ “Total, with on-campus housing(Direct costs plus estimated indirect costs) | $36,994 | $57,448”
+### `df56067a9b0c4956` The University of Tennessee-Knoxville — costs 2025-26 · residency=out_of_state [same] (labeled_in_source)
+- source: https://admissions.utk.edu/undergraduate-tuition-aid/ (sha256 d5194ecebda1)
+- issues: stale_year_label:2025-26
+- checks: {"columns": 1, "components_reconcile": true, "rows": 4}
+  - column:Tuition & Fees: 33336 ⟵ “Tuition & Fees | $33,336”
+  - column:Housing & Food: 14738 ⟵ “Housing & Food | $14,738”
+  - column:Books, Course Materials, Supplies and Equipment: 1598 ⟵ “Books, Course Materials, Supplies and Equipment | $1,598”
+  - column:Total: 49672 ⟵ “Total | $49,672”
+### `ee7bab2797737d61` The University of Tennessee-Knoxville — costs 2025-26 · residency=in_state [same] (labeled_in_source)
+- source: https://admissions.utk.edu/undergraduate-tuition-aid/ (sha256 d5194ecebda1)
+- issues: stale_year_label:2025-26
+- checks: {"columns": 1, "components_reconcile": true, "rows": 4}
+  - column:Tuition & Fees: 13876 ⟵ “Tuition & Fees | $13,876”
+  - column:Housing & Food: 14738 ⟵ “Housing & Food | $14,738”
+  - column:Books, Course Materials, Supplies and Equipment: 1598 ⟵ “Books, Course Materials, Supplies and Equipment | $1,598”
+  - column:Total: 30212 ⟵ “Total | $30,212”
+### `f644d15ed108b03b` The University of Tennessee-Knoxville — costs 2026-27 · residency=out_of_state [same] (labeled_in_source)
+- source: https://onestop.utk.edu/billing-payments/cost-of-attending-ut-undergraduate-student/ (sha256 0f8657e49387)
+- issues: components_do_not_reconcile
+- checks: {"columns": 1, "components_reconcile": false, "rows": 8}
+  - column:Tuition: 31672 ⟵ “Tuition | $11,560 | $31,672”
+  - column:FeesThis is an estimate of what a student will spend on tuition and fees for the Fall and Spring semesters.: 2806 ⟵ “FeesThis is an estimate of what a student will spend on tuition and fees for the Fall and Spring semesters. | $2,464 | $2,806”
+  - column:On-Campus Housing*This is an estimate of what a student will spend on housing and meals for the Fall and Spring semesters if they live in university housing.: 9572 ⟵ “On-Campus Housing*This is an estimate of what a student will spend on housing and meals for the Fall and Spring semesters if they live in university housing. | $9,572 | $9,572”
+  - column:Food: 5166 ⟵ “Food | $5,166 | $5,166”
+  - column:TransportationThis item is for budgeting purposes only and will not be billed to you.: 3500 ⟵ “TransportationThis item is for budgeting purposes only and will not be billed to you. | $3,500 | $3,500”
+  - column:Miscellaneous Personal Expenses (Based on personal spending habits)This item is for budgeting purposes only and will not be billed to you.: 3042 ⟵ “Miscellaneous Personal Expenses (Based on personal spending habits)This item is for budgeting purposes only and will not be billed to you. | $3,042 | $3,042”
+  - column:Loan FeesThis is an estimate of what the average student spends in federal loan origination fee.: 92 ⟵ “Loan FeesThis is an estimate of what the average student spends in federal loan origination fee. | $92 | $92”
+  - column:Total, with on-campus housing(Direct costs plus estimated indirect costs): 57448 ⟵ “Total, with on-campus housing(Direct costs plus estimated indirect costs) | $36,994 | $57,448”
+### `mfff3cd4a9f3e4a0` The University of Tennessee-Knoxville — transfer_policies 2026-27 [changed] (source_unlabeled)
+- source: https://admissions.utk.edu/admitted-students-vols-online/ (sha256 0fd31dc9cac2)
+- issues: conflicting_values:residency_requirement_credits
+- checks: {"fields": ["min_grade"], "merged_pages": 3}
+- change additional_source_urls: `['https://admissions.utk.edu/admitted-students/transfer/', 'https://irsa.utk.edu/wp-content/uploads/sites/5/2026/06/CDS_2025-26_D.pdf', 'https://catalog.utk.edu/content.php?catoid=56&navoid=12030']` → `['https://admissions.utk.edu/admitted-students/transfer/', 'https://admissions.utk.edu/rocky-top-transfer-participant-information/']`
+  - min_grade: D- ⟵ “Transfer credit will be granted only for college level non-remedial courses in which a grade of D- or better was earned.”
+  - min_grade: D- ⟵ “Transfer credit will be granted only for college level non-remedial courses in which a grade of D- or better was earned.”
+  - min_grade: D- ⟵ “Transfer credit will be granted only for college level non-remedial courses in which a grade of D- or better was earned.”
+
+## Re-verification of existing records (556)
+
+- source_not_fetched: data/institutions/abcnash/transfer_policies/2026-27.json ["transfer_policies", "ipeds-219505", null, "2026-27", {}]
+- source_not_fetched: data/institutions/apsu/academic_programs/2026-27.json ["academic_programs", "ipeds-219602", null, "2026-27", {"program_key": "engineering-technology-bs"}]
+- source_not_fetched: data/institutions/apsu/academic_programs/2026-27.json ["academic_programs", "ipeds-219602", null, "2026-27", {"program_key": "university-studies-as"}]
+- source_not_fetched: data/institutions/apsu/academic_programs/2026-27.json ["academic_programs", "ipeds-219602", null, "2026-27", {"program_key": "art-bfa"}]
+- source_not_fetched: data/institutions/apsu/academic_programs/2026-27.json ["academic_programs", "ipeds-219602", null, "2026-27", {"program_key": "professional-services-aas"}]
+- source_not_fetched: data/institutions/apsu/academic_programs/2026-27.json ["academic_programs", "ipeds-219602", null, "2026-27", {"program_key": "leadership-science-bs"}]
+- source_not_fetched: data/institutions/apsu/academic_programs/2026-27.json ["academic_programs", "ipeds-219602", null, "2026-27", {"program_key": "criminal-justice-bs"}]
+- source_not_fetched: data/institutions/apsu/academic_programs/2026-27.json ["academic_programs", "ipeds-219602", null, "2026-27", {"program_key": "engineering-technology-aas"}]
+- source_not_fetched: data/institutions/apsu/academic_programs/2026-27.json ["academic_programs", "ipeds-219602", null, "2026-27", {"program_key": "engineering-physics-bse"}]
+- source_not_fetched: data/institutions/apsu/academic_programs/2026-27.json ["academic_programs", "ipeds-219602", null, "2026-27", {"program_key": "aviation-science-bs"}]
+- source_not_fetched: data/institutions/apsu/academic_programs/2026-27.json ["academic_programs", "ipeds-219602", null, "2026-27", {"program_key": "national-security-studies-bs"}]
+- source_not_fetched: data/institutions/apsu/awards/2026-27.json ["awards", "ipeds-219602", null, "2026-27", {"award_name": "Academic Achievement"}]
+- source_not_fetched: data/institutions/apsu/awards/2026-27.json ["awards", "ipeds-219602", null, "2026-27", {"award_name": "Dean's"}]
+- source_not_fetched: data/institutions/apsu/awards/2026-27.json ["awards", "ipeds-219602", null, "2026-27", {"award_name": "Governor's Excellence"}]
+- source_not_fetched: data/institutions/apsu/awards/2026-27.json ["awards", "ipeds-219602", null, "2026-27", {"award_name": "Governor's Merit"}]
+- source_not_fetched: data/institutions/apsu/awards/2026-27.json ["awards", "ipeds-219602", null, "2026-27", {"award_name": "Presidential"}]
+- source_not_fetched: data/institutions/apsu/awards/2026-27.json ["awards", "ipeds-219602", null, "2026-27", {"award_name": "Presidents Emerging Leaders Program (PELP)Apply by 12/31"}]
+- source_not_fetched: data/institutions/apsu/awards/2026-27.json ["awards", "ipeds-219602", null, "2026-27", {"award_name": "Kimbrough (Limited Awards Available)"}]
+- source_not_fetched: data/institutions/apsu/awards/2026-27.json ["awards", "ipeds-219602", null, "2026-27", {"award_name": "Howell C. Smith (Limited Awards Available)"}]
+- source_not_fetched: data/institutions/belmont/transfer_policies/2026-27.json ["transfer_policies", "ipeds-219709", null, "2026-27", {}]
+- source_not_fetched: data/institutions/bethelu/credit_policies/2026-27.json ["credit_policies", "ipeds-219718", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/bryan/awards/2026-27.json ["awards", "ipeds-219790", null, "2026-27", {"award_name": "Platinum"}]
+- source_not_fetched: data/institutions/bryan/awards/2026-27.json ["awards", "ipeds-219790", null, "2026-27", {"award_name": "Silver"}]
+- source_not_fetched: data/institutions/bryan/awards/2026-27.json ["awards", "ipeds-219790", null, "2026-27", {"award_name": "Crimson"}]
+- source_not_fetched: data/institutions/columbiastate/credit_policies/2026-27.json ["credit_policies", "ipeds-219888", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/dscc/credit_policies/2026-27.json ["credit_policies", "ipeds-220057", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "media-and-communication-ba"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "media-and-communication-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "special-education-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "engineering-technology-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "world-languages-ba"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "early-childhood-development-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "english-ba"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "communication-studies-ba"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "communication-studies-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "biology-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "mathematics-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "human-services-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "elementary-education-bsed"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "philosophy-ba"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "philosophy-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "chemistry-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "physics-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "psychology-ba"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "psychology-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "criminal-justice-and-criminology-ba"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "criminal-justice-and-criminology-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "social-work-bsw"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "history-ba"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "history-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "political-science-ba"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "political-science-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "sociology-ba"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "sociology-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "art-ba"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "studio-art-bfa"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "music-bm"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "nursing-bsn"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "environmental-health-bseh"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "biomedical-health-sciences-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "management-bba"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "accountancy-bba"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "economics-bba"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "finance-bba"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "marketing-bba"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "surveying-and-mapping-science-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "public-health-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "allied-health-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "interdisciplinary-studies-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "dental-hygiene-bsdh"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "applied-science-bas"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "digital-media-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "audiology-aud"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "sport-and-recreation-management-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "anthropology-ba"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "theatre-ba"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "interior-architecture-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "international-affairs-ba"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "bluegrass-old-time-and-roots-music-ba"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "graphic-design-bfa"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "geosciences-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "pharmacy-studies-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "respiratory-therapy-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "radiologic-science-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "nutrition-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "engineering-joint-w-ttu-bse"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "rehabilitative-health-sciences-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "microbiology-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "health-administration-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "music-ba"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "computing-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "supply-chain-management-bba"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "mechatronics-engineering-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "computer-science-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "information-systems-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "exercise-science-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "physical-education-bs"}]
+- source_not_fetched: data/institutions/etsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220075", null, "2026-27", {"program_key": "hospitality-and-tourism-management-bba"}]
+- source_not_fetched: data/institutions/etsu/awards/2026-27.json ["awards", "ipeds-220075", null, "2026-27", {"award_name": "STEM Community Outreach Scholarship"}]
+- source_not_fetched: data/institutions/etsu/credit_policies/2026-27.json ["credit_policies", "ipeds-220075", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/etsu/program_catalogs/2026-27.json ["program_catalogs", "ipeds-220075", null, "2026-27", {}]
+- source_not_fetched: data/institutions/jscc/costs/2026-27.json ["costs", "ipeds-220400", null, "2026-27", {"residency": "out_of_state"}]
+- source_not_fetched: data/institutions/jscc/credit_policies/2026-27.json ["credit_policies", "ipeds-220400", null, "2026-27", {"policy_kind": "AP"}]
+- source_not_fetched: data/institutions/jscc/credit_policies/2026-27.json ["credit_policies", "ipeds-220400", null, "2026-27", {"policy_kind": "CLEP"}]
+- source_not_fetched: data/institutions/johnsonu/transfer_policies/2026-27.json ["transfer_policies", "ipeds-220473", null, "2026-27", {}]
+- source_not_fetched: data/institutions/king/credit_policies/2026-27.json ["credit_policies", "ipeds-220516", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/lanecollege/costs/2026-27.json ["costs", "ipeds-220598", null, "2026-27", {"residency": "not_applicable"}]
+- source_not_fetched: data/institutions/lanecollege/transfer_policies/2026-27.json ["transfer_policies", "ipeds-220598", null, "2026-27", {}]
+- source_not_fetched: data/institutions/lipscomb/credit_policies/2026-27.json ["credit_policies", "ipeds-219976", null, "2026-27", {"policy_kind": "AP"}]
+- source_not_fetched: data/institutions/lipscomb/credit_policies/2026-27.json ["credit_policies", "ipeds-219976", null, "2026-27", {"policy_kind": "CLEP"}]
+- source_not_fetched: data/institutions/lipscomb/transfer_policies/2026-27.json ["transfer_policies", "ipeds-219976", null, "2026-27", {}]
+- source_not_fetched: data/institutions/maryvillecollege/awards/2026-27.json ["awards", "ipeds-220710", null, "2026-27", {"award_name": "Covenant Stone Scholarship"}]
+- source_not_fetched: data/institutions/maryvillecollege/awards/2026-27.json ["awards", "ipeds-220710", null, "2026-27", {"award_name": "MC Scots Scholarship"}]
+- source_not_fetched: data/institutions/maryvillecollege/awards/2026-27.json ["awards", "ipeds-220710", null, "2026-27", {"award_name": "Orange & Garnet Scholarship"}]
+- source_not_fetched: data/institutions/maryvillecollege/awards/2026-27.json ["awards", "ipeds-220710", null, "2026-27", {"award_name": "Kin Takahashi Scholarship"}]
+- source_not_fetched: data/institutions/maryvillecollege/awards/2026-27.json ["awards", "ipeds-220710", null, "2026-27", {"award_name": "Art & Design Scholarship"}]
+- source_not_fetched: data/institutions/maryvillecollege/awards/2026-27.json ["awards", "ipeds-220710", null, "2026-27", {"award_name": "Theatre Scholarship"}]
+- source_not_fetched: data/institutions/midsouthchristian/transfer_policies/2026-27.json ["transfer_policies", "ipeds-481225", null, "2026-27", {}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "anthropology-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "agribusiness-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "animal-science-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "plant-and-soil-science-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "media-and-entertainment-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "computer-science-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "special-education-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "early-childhood-education-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "art-education-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "public-health-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "engineering-technology-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "world-languages-and-cultures-ba"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "world-languages-and-cultures-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "human-development-and-family-science-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "nutrition-and-food-science-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "fashion-studies-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "english-ba"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "biology-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "mathematics-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "science-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "middle-level-education-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "integrated-studies-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "leisure-and-sport-management-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "physical-education-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "philosophy-ba"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "chemistry-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "geosciences-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "physics-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "psychology-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "industrial-organizational-psychology-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "law-enforcement-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "social-work-bsw"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "economics-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "history-ba"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "political-and-global-affairs-ba"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "political-and-global-affairs-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "sociology-ba"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "sociology-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "aerospace-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "interior-architecture-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "speech-language-pathology-and-audiology-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "art-bfa"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "music-bm"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "recording-industry-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "nursing-bsn"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "business-administration-bba"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "management-and-leadership-bba"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "accounting-bba"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "economics-bba"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "finance-bba"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "information-systems-bba"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "marketing-bba"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "communication-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "business-innovation-and-entrepreneurship-bba"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "professional-studies-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "concrete-industry-management-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "construction-management-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "biochemistry-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "exercise-science-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "forensic-science-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "mechatronics-engineering-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "theatre-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "philosophy-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "anthropology-ba"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "history-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "actuarial-science-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "art-ba"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "art-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "animation-bfa"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "journalism-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "religious-studies-ba"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "religious-studies-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "video-and-film-production-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "audio-production-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "fermentation-science-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "dance-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "interactive-media-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "risk-management-and-insurance-bba"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "english-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "communication-ba"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "elementary-education-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "commerce-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "tourism-and-hospitality-management-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "data-science-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "horse-science-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "music-ba"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "supply-chain-management-bba"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "photography-bfa"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "media-management-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "public-writing-and-rhetoric-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "criminal-justice-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "emergency-management-and-homeland-security-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "cybersecurity-management-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "advertising-and-public-relations-bs"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "animation-ba"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "theatre-bfa"}]
+- source_not_fetched: data/institutions/mtsu/academic_programs/2026-27.json ["academic_programs", "ipeds-220978", null, "2026-27", {"program_key": "public-writing-and-rhetoric-ba"}]
+- all_values_found_year_not_labeled: data/institutions/mtsu/credit_policies/2026-27.json ["credit_policies", "ipeds-220978", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- all_values_found_year_not_labeled: data/institutions/mtsu/credit_policies/2026-27.json ["credit_policies", "ipeds-220978", null, "2026-27", {"policy_kind": "AP"}]
+- all_values_found_year_not_labeled: data/institutions/mtsu/credit_policies/2026-27.json ["credit_policies", "ipeds-220978", null, "2026-27", {"policy_kind": "CLEP"}]
+- source_not_fetched: data/institutions/mtsu/program_catalogs/2026-27.json ["program_catalogs", "ipeds-220978", null, "2026-27", {}]
+- source_not_fetched: data/institutions/southern/awards/2026-27.json ["awards", "ipeds-221661", null, "2026-27", {"award_name": "Honors"}]
+- source_not_fetched: data/institutions/southern/awards/2026-27.json ["awards", "ipeds-221661", null, "2026-27", {"award_name": "Dean"}]
+- source_not_fetched: data/institutions/southern/awards/2026-27.json ["awards", "ipeds-221661", null, "2026-27", {"award_name": "Presidential"}]
+- source_not_fetched: data/institutions/southern/awards/2026-27.json ["awards", "ipeds-221661", null, "2026-27", {"award_name": "Senior Class President"}]
+- source_not_fetched: data/institutions/southern/awards/2026-27.json ["awards", "ipeds-221661", null, "2026-27", {"award_name": "Student Association President"}]
+- source_not_fetched: data/institutions/southern/awards/2026-27.json ["awards", "ipeds-221661", null, "2026-27", {"award_name": "All Other Positions"}]
+- source_not_fetched: data/institutions/southern/credit_policies/2026-27.json ["credit_policies", "ipeds-221661", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "agricultural-science-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "computer-science-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "early-childhood-education-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "architectural-engineering-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "civil-engineering-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "electrical-engineering-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "mechanical-engineering-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "applied-and-industrial-technologies-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "english-ba"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "multidisciplinary-studies-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "biology-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "mathematical-sciences-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "human-performance-and-sport-sciences-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "chemistry-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "psychology-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "criminal-justice-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "social-work-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "history-ba"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "political-science-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "sociology-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "communication-ba"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "communication-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "art-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "music-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "dental-hygiene-aas"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "health-care-administration-and-planning-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "health-information-management-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "cardiorespiratory-care-science-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "nursing-bsn"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "business-administration-bba"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "business-information-systems-bba"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "accounting-bba"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "economics-and-finance-bba"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "family-and-consumer-sciences-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "interdisciplinary-studies-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "professional-studies-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "health-sciences-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "urban-studies-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "history-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "public-health-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "elementary-education-bs"}]
+- source_not_fetched: data/institutions/tnstate/academic_programs/2026-27.json ["academic_programs", "ipeds-221838", null, "2026-27", {"program_key": "business-management-bba"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "agriculture-bsag"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "wildlife-and-fisheries-science-bs"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "special-education-bs"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "early-childhood-education-bs"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "secondary-education-bsed"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "engineering-technology-bset"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "foreign-languages-ba"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "human-ecology-bshe"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "english-ba"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "biology-bs"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "multidisciplinary-studies-bs"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "exercise-science-bs"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "chemistry-bs"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "geosciences-bs"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "physics-bs"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "sociology-bs"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "fine-arts-bfa"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "music-bm"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "business-management-bsba"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "professional-studies-bs"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "communication-bs"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "environmental-and-sustainability-studies-bs"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "engineering-joint-w-etsu-bse"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "animal-science-bs"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "design-studies-bs"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "studio-arts-bs"}]
+- source_not_fetched: data/institutions/tntech/academic_programs/2026-27.json ["academic_programs", "ipeds-221847", null, "2026-27", {"program_key": "business-ai-and-analytics-bsba"}]
+- source_not_fetched: data/institutions/tntech/credit_policies/2026-27.json ["credit_policies", "ipeds-221847", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/utsouthern/academic_programs/2026-27.json ["academic_programs", "ipeds-220701", null, "2026-27", {"program_key": "accounting-bba"}]
+- source_not_fetched: data/institutions/utsouthern/academic_programs/2026-27.json ["academic_programs", "ipeds-220701", null, "2026-27", {"program_key": "management-information-systems-bba"}]
+- source_not_fetched: data/institutions/utsouthern/academic_programs/2026-27.json ["academic_programs", "ipeds-220701", null, "2026-27", {"program_key": "management-bba"}]
+- source_not_fetched: data/institutions/utsouthern/academic_programs/2026-27.json ["academic_programs", "ipeds-220701", null, "2026-27", {"program_key": "sport-management-bs"}]
+- source_not_fetched: data/institutions/utsouthern/academic_programs/2026-27.json ["academic_programs", "ipeds-220701", null, "2026-27", {"program_key": "elementary-education-bs"}]
+- source_not_fetched: data/institutions/utsouthern/academic_programs/2026-27.json ["academic_programs", "ipeds-220701", null, "2026-27", {"program_key": "kinesiology-bs"}]
+- source_not_fetched: data/institutions/utsouthern/academic_programs/2026-27.json ["academic_programs", "ipeds-220701", null, "2026-27", {"program_key": "special-education-bs"}]
+- source_not_fetched: data/institutions/utsouthern/academic_programs/2026-27.json ["academic_programs", "ipeds-220701", null, "2026-27", {"program_key": "english-ba"}]
+- source_not_fetched: data/institutions/utsouthern/academic_programs/2026-27.json ["academic_programs", "ipeds-220701", null, "2026-27", {"program_key": "interdisciplinary-studies-ba"}]
+- source_not_fetched: data/institutions/utsouthern/academic_programs/2026-27.json ["academic_programs", "ipeds-220701", null, "2026-27", {"program_key": "interdisciplinary-studies-bs"}]
+- source_not_fetched: data/institutions/utsouthern/academic_programs/2026-27.json ["academic_programs", "ipeds-220701", null, "2026-27", {"program_key": "philosophy-and-religious-studies-ba"}]
+- source_not_fetched: data/institutions/utsouthern/academic_programs/2026-27.json ["academic_programs", "ipeds-220701", null, "2026-27", {"program_key": "philosophy-and-religious-studies-bs"}]
+- source_not_fetched: data/institutions/utsouthern/academic_programs/2026-27.json ["academic_programs", "ipeds-220701", null, "2026-27", {"program_key": "biology-bs"}]
+- source_not_fetched: data/institutions/utsouthern/academic_programs/2026-27.json ["academic_programs", "ipeds-220701", null, "2026-27", {"program_key": "chemistry-bs"}]
+- source_not_fetched: data/institutions/utsouthern/academic_programs/2026-27.json ["academic_programs", "ipeds-220701", null, "2026-27", {"program_key": "computer-information-systems-bs"}]
+- source_not_fetched: data/institutions/utsouthern/academic_programs/2026-27.json ["academic_programs", "ipeds-220701", null, "2026-27", {"program_key": "cybersecurity-bs"}]
+- source_not_fetched: data/institutions/utsouthern/academic_programs/2026-27.json ["academic_programs", "ipeds-220701", null, "2026-27", {"program_key": "mathematics-bs"}]
+- source_not_fetched: data/institutions/utsouthern/academic_programs/2026-27.json ["academic_programs", "ipeds-220701", null, "2026-27", {"program_key": "nursing-bsn"}]
+- source_not_fetched: data/institutions/utsouthern/academic_programs/2026-27.json ["academic_programs", "ipeds-220701", null, "2026-27", {"program_key": "public-health-education-bs"}]
+- source_not_fetched: data/institutions/utsouthern/academic_programs/2026-27.json ["academic_programs", "ipeds-220701", null, "2026-27", {"program_key": "behavioral-sciences-ba"}]
+- source_not_fetched: data/institutions/utsouthern/academic_programs/2026-27.json ["academic_programs", "ipeds-220701", null, "2026-27", {"program_key": "behavioral-sciences-bs"}]
+- source_not_fetched: data/institutions/utsouthern/academic_programs/2026-27.json ["academic_programs", "ipeds-220701", null, "2026-27", {"program_key": "criminal-justice-bs"}]
+- source_not_fetched: data/institutions/utsouthern/academic_programs/2026-27.json ["academic_programs", "ipeds-220701", null, "2026-27", {"program_key": "history-ba"}]
+- source_not_fetched: data/institutions/utsouthern/academic_programs/2026-27.json ["academic_programs", "ipeds-220701", null, "2026-27", {"program_key": "history-bs"}]
+- source_not_fetched: data/institutions/utsouthern/academic_programs/2026-27.json ["academic_programs", "ipeds-220701", null, "2026-27", {"program_key": "homeland-security-bs"}]
+- source_not_fetched: data/institutions/utsouthern/academic_programs/2026-27.json ["academic_programs", "ipeds-220701", null, "2026-27", {"program_key": "fine-arts-ba"}]
+- nothing_to_check: data/institutions/utc/appeals/2026-27.json ["appeals", "ipeds-221740", null, "2026-27", {"appeal_kind": "sap_appeal"}]
+- nothing_to_check: data/institutions/utc/appeals/2026-27.json ["appeals", "ipeds-221740", null, "2026-27", {"appeal_kind": "scholarship_retention_appeal"}]
+- nothing_to_check: data/institutions/utc/appeals/2026-27.json ["appeals", "ipeds-221740", null, "2026-27", {"appeal_kind": "merit_reconsideration"}]
+- nothing_to_check: data/institutions/utc/appeals/2026-27.json ["appeals", "ipeds-221740", null, "2026-27", {"appeal_kind": "competing_offer_review"}]
+- nothing_to_check: data/institutions/utc/appeals/2026-27.json ["appeals", "ipeds-221740", null, "2026-27", {"appeal_kind": "need_based_special_circumstances"}]
+- policy_text_not_verbatim: data/institutions/utc/awards/2027-28.json ["awards", "ipeds-221740", null, "2027-28", {"award_name": "Chancellor's Scholarship"}] year=2025-26
+- policy_text_not_verbatim: data/institutions/utc/awards/2027-28.json ["awards", "ipeds-221740", null, "2027-28", {"award_name": "Provost's Scholarship"}] year=2025-26
+- policy_text_not_verbatim: data/institutions/utc/awards/2027-28.json ["awards", "ipeds-221740", null, "2027-28", {"award_name": "Mocs Scholarship"}] year=2025-26
+- policy_text_not_verbatim: data/institutions/utc/awards/2027-28.json ["awards", "ipeds-221740", null, "2027-28", {"award_name": "Academic Service Scholars Program"}]
+- values_not_found_verbatim: data/institutions/utc/costs/2026-27.json ["costs", "ipeds-221740", null, "2026-27", {"residency": "in_state"}] missing=['on_campus_food_housing', 'on_campus_other_expenses'] year=2026-27
+- values_not_found_verbatim: data/institutions/utc/costs/2026-27.json ["costs", "ipeds-221740", null, "2026-27", {"residency": "out_of_state"}] missing=['on_campus_food_housing', 'on_campus_other_expenses'] year=2026-27
+- all_values_found_year_not_labeled: data/institutions/utc/credit_policies/2026-27.json ["credit_policies", "ipeds-221740", null, "2026-27", {"policy_kind": "AP"}]
+- policy_text_not_verbatim: data/institutions/utc/credit_policies/2026-27.json ["credit_policies", "ipeds-221740", null, "2026-27", {"policy_kind": "CLEP"}]
+- all_values_found_year_not_labeled: data/institutions/utc/credit_policies/2026-27.json ["credit_policies", "ipeds-221740", null, "2026-27", {"policy_kind": "IB"}]
+- all_values_found_year_not_labeled: data/institutions/utc/credit_policies/2026-27.json ["credit_policies", "ipeds-221740", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- values_not_found_verbatim: data/institutions/utc/transfer_policies/2026-27.json ["transfer_policies", "ipeds-221740", null, "2026-27", {}] missing=['residency_requirement_credits']
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "agricultural-leadership-education-and-communication-bsag"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "animal-and-veterinary-science-bsan"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "food-science-bsfs"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "forestry-bsf"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "wildlife-and-fisheries-science-bswfs"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "architecture-barch"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "interdisciplinary-programs-ba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "advertising-bsc"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "special-education-bsed"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "aerospace-engineering-bsae"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "biosystems-engineering-bsbse"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "chemical-engineering-bsche"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "civil-engineering-bsce"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "electrical-engineering-bsee"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "industrial-engineering-bsie"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "materials-science-and-engineering-bsmse"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "mechanical-engineering-bsme"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "nuclear-engineering-bsne"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "classics-ba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "retail-and-merchandising-management-bsrhtm"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "nutrition-bshhs"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "english-ba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "biological-sciences-bs"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "mathematics-bs"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "statistics-bs"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "college-scholars-program-ba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "pre-professional-programs-bs"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "philosophy-ba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "religious-studies-ba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "chemistry-bs"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "chemistry-bsch"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "geology-and-environmental-science-bs"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "physics-bs"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "psychology-ba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "social-work-bssw"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "anthropology-ba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "economics-ba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "geography-ba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "history-ba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "political-science-ba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "sociology-ba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "graphic-design-bfa"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "theatre-ba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "art-ba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "studio-art-bfa"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "art-history-ba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "music-ba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "music-bm"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "medical-laboratory-science-bs"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "nursing-bsn"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "management-bsba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "supply-chain-management-bsba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "accounting-bsba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "economics-bsba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "finance-bsba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "marketing-bsba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "human-development-and-family-science-bshhs"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "computer-engineering-bscome"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "human-resource-management-bsba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "biomedical-engineering-bsbme"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "plant-sciences-bsps"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "journalism-and-media-bsc"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "communication-studies-bac"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "public-relations-bsc"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "hospitality-and-tourism-management-bsrhtm"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "natural-resources-and-environmental-economics-bsare"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "agricultural-business-bsare"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "business-analytics-bsba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "world-languages-and-cultures-ba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "sustainability-ba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "interior-architecture-bsia"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "construction-science-and-management-bscsm"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "neuroscience-bs"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "information-sciences-bs"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "audiology-and-speech-pathology-joint-w-uthsc-bsasp"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "global-studies-ba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "deaf-studies-bsed"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "cinema-studies-ba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "education-bs"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "geographic-information-science-and-technology-bs"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "kinesiology-bs"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "sport-management-bs"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "physics-ba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "public-health-bsph"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "international-business-bsba"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "public-affairs-bspaf"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "innovative-transdisciplinary-studies-bsits"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "environmental-engineering-bsenve"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "data-science-bsds"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "applied-artificial-intelligence-bsaai"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "recreational-therapy-bs"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "environmental-science-bsenvs"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "communication-and-information-bsci"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "applied-cybersecurity-bscybr"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "applied-engineering-bse"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "interdisciplinary-programs-bs"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "bioinformatics-bs"}]
+- source_not_fetched: data/institutions/utk/academic_programs/2026-27.json ["academic_programs", "utk", null, "2026-27", {"program_key": "civic-and-constitutional-thought-ba"}]
+- nothing_to_check: data/institutions/utk/awards/2026-27.json ["awards", "utk", null, "2026-27", {"award_name": "Manning Scholars"}] year=2026-27
+- policy_text_not_verbatim: data/institutions/utk/awards/2026-27.json ["awards", "utk", null, "2026-27", {"award_name": "Out-of-State Volunteer Scholarship"}] year=2026-27
+- source_not_fetched: data/institutions/utk/program_catalogs/2026-27.json ["program_catalogs", "utk", null, "2026-27", {}]
+- source_not_fetched: data/institutions/utk/transfer_policies/2026-27.json ["transfer_policies", "utk", null, "2026-27", {}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "general-agriculture-bsag"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "natural-resources-management-bsnrm"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "computer-science-bs"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "spanish-ba"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "family-and-consumer-sciences-bsfcs"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "english-ba"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "biological-sciences-bs"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "mathematics-ba"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "mathematics-bs"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "integrated-studies-bsed"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "interdisciplinary-studies-bis"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "health-and-human-performance-bshhp"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "philosophy-ba"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "chemistry-bs"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "chemistry-bsch"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "geoscience-bs"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "psychology-ba"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "psychology-bs"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "criminal-justice-bscj"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "social-work-bssw"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "history-ba"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "history-bs"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "global-studies-ba"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "political-science-ba"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "political-science-bs"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "sociology-ba"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "sociology-bs"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "fine-and-performing-arts-bfa"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "music-bam"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "music-bm"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "nursing-bsn"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "management-bsba"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "accounting-bsba"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "information-systems-bsba"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "economics-bsba"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "marketing-bsba"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "engineering-bse"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "finance-bsba"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "secondary-education-bsed"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "agricultural-business-bsab"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "mechanical-engineering-bsme"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "cell-and-molecular-biology-bs"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "cybersecurity-bs"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "veterinary-science-and-technology-bsvst"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "mass-media-and-strategic-communication-bmmsc"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "philosophy-bs"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "fine-and-performing-arts-baa"}]
+- source_not_fetched: data/institutions/utm/academic_programs/2026-27.json ["academic_programs", "ipeds-221768", null, "2026-27", {"program_key": "construction-management-bscm"}]
+- source_not_fetched: data/institutions/trevecca/credit_policies/2026-27.json ["credit_policies", "ipeds-221892", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/tusculum/credit_policies/2026-27.json ["credit_policies", "ipeds-221953", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "journalism-ba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "computer-science-bs"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "teaching-all-learners-bsed"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "civil-engineering-bsce"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "electrical-engineering-bsee"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "mechanical-engineering-bsme"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "world-languages-ba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "english-ba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "biology-bs"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "mathematical-sciences-bs"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "integrated-early-childhood-bsed"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "liberal-studies-bls"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "professional-studies-bps"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "philosophy-ba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "chemistry-bs"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "chemistry-bsch"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "physics-bs"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "psychology-ba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "criminal-justice-and-criminology-ba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "social-work-ba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "anthropology-ba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "economics-ba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "history-ba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "international-and-global-studies-ba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "political-science-ba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "theatre-bfa"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "art-bfa"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "art-ba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "music-bm"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "music-industry-bm"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "nursing-bsn"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "management-bba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "supply-chain-management-bba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "accounting-bba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "business-economics-bba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "finance-bba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "management-information-systems-bba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "marketing-bba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "sport-and-entertainment-management-bs"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "hospitality-and-resort-management-ba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "integrative-studies-bsed"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "computer-engineering-bscpe"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "interdisciplinary-studies-bls"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "african-and-african-american-studies-ba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "physical-education-teacher-education-bsed"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "audiology-aud"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "communication-ba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "architecture-bfa"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "biomedical-engineering-bsbe"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "engineering-technology-bset"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "interior-architecture-bfa"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "earth-sciences-ba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "health-studies-bs"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "commercial-aviation-bs"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "public-health-bs"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "american-sign-language-and-deaf-studies-ba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "human-resource-management-bba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "sociology-bs"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "strategic-media-ba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "psychology-bs"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "music-ba"}]
+- source_not_fetched: data/institutions/memphis/academic_programs/2026-27.json ["academic_programs", "ipeds-220862", null, "2026-27", {"program_key": "applied-science-bas"}]
+- source_not_fetched: data/institutions/memphis/program_catalogs/2026-27.json ["program_catalogs", "ipeds-220862", null, "2026-27", {}]
+- source_not_fetched: data/institutions/ws/credit_policies/2026-27.json ["credit_policies", "ipeds-222062", null, "2026-27", {"policy_kind": "CLEP"}]
+- source_not_fetched: data/institutions/welch/credit_policies/2026-27.json ["credit_policies", "ipeds-220206", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/williamsoncc/credit_policies/2026-27.json ["credit_policies", "ipeds-443340", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+
+## Statewide sources
+
+Pages fetched: 0; pages by category: 
+
+## Leads: official pages found with no extracted record
+
+- Middle Tennessee State University: tuition_fees, cost_of_attendance, admissions_tests, transfer_credit, residency, degree_requirements
+- The University of Tennessee-Chattanooga: tuition_fees, admissions_tests, transfer_credit, statewide_articulation, residency
+- The University of Tennessee-Knoxville: statewide_articulation, residency
