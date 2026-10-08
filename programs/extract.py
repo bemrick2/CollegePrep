@@ -655,6 +655,7 @@ def strip_award(name):
     return n
 
 
+MAJORS_HEADING = re.compile(r'^(?:\S+\s+){0,3}majors:?$|^majors\s*[-–:]|\bfollowing majors\b', re.I)
 COLLEGE_QUALIFIER = re.compile(r'\s*\((?:College|School) of [^()]+\)?\s*$')
 
 
@@ -670,11 +671,18 @@ def listed_program_identity(inst, entry, page, today_year, listed):
     unqualified = COLLEGE_QUALIFIER.sub('', printed)
     base = strip_award(unqualified)
     if not base or base == unqualified or OPTION_NAME.search(printed): return []
-    if any(re.search(r'\bmajors\b', h, re.I) for h in page.headings): return []  # a page holding several majors
+    # a page holding several majors ('Majors', 'Undergraduate Majors', 'The department offers the following majors:'); a
+    # sentence that mentions the program's majors ('A. Courses required of all Genetics majors', Iowa State) is not one
+    if any(MAJORS_HEADING.search(h.strip()) for h in page.headings): return []
     names = [h.strip() for h in page.headings[:3]] + [CAT.program_name(page)]
     norm = lambda x: re.sub(r'\W+', ' ', x).strip().lower()
     # the page names the same program; the only extra text allowed is a parenthesised code or award ('Genetics (GENE)')
     hit = next((n for n in names if n and norm(re.sub(r'(\s*\([^()]{1,12}\))+\s*$', '', n)) == norm(base)), None)
+    # a department page (Iowa State 'Physics and Astronomy') that prints the listed program with its award as a heading of
+    # its own ('Physics, B.S', 'Journalism and Mass Communication, B.S.', 'WORLD LANGUAGES AND CULTURES, B.A.')
+    # (only where the page's own heading names no bachelor's award, so the program-page readers keep their pages)
+    if not hit and credential_of(program_heading(page) or '') != 'bachelor':
+        hit = next((h.strip() for h in page.headings if norm(h) == norm(unqualified)), None)
     if not hit: return []
     labels = printed_catalog_years(page)
     if len({y for y, _ in labels}) != 1: return []
