@@ -1247,6 +1247,24 @@ def thec_candidates(inst, entry, rows, today_year):
     return out
 
 
+
+def distinct_candidates(cands):
+    """One candidate per id. A page reached by two URLs (http/https, a doubled slash, a list link and a sitemap link;
+    TX 2026-10-07-flag3) is read twice with the same stored document, so its candidates repeat with only the fetch
+    details differing: the first is kept. Candidates that share an id but differ in what they record would make an
+    approval ambiguous: all of them get the issue candidate_id_collision, so none is approved by standing review."""
+    fetch = lambda c: {**c, 'source': None, 'layout_source': None, 'program_role': None,
+                       'record': {k: v for k, v in c['record'].items() if k not in ('source_url', 'program_url')}}
+    by_id, out = {}, []
+    for c in cands:
+        first = by_id.get(c['candidate_id'])
+        if first is None: by_id[c['candidate_id']] = c; out.append(c); continue
+        if fetch(first) == fetch(c): continue
+        for x in (first, c):
+            if 'candidate_id_collision' not in x['issues']: x['issues'] = x['issues'] + ['candidate_id_collision']
+        out.append(c)
+    return out
+
 def extract_run(targets, run_dir, today=None):
     run = Run(Path(run_dir)); today = today or date.today()
     today_year = T.current_academic_year(today)
@@ -1348,6 +1366,7 @@ def extract_run(targets, run_dir, today=None):
         summary[key] = {'roles': {k: {**v, 'errors': dict(v['errors'])} for k, v in roles.items()},
                         'program_list_links': lists[key]['counts'], 'candidates': n_c,
                         'evidence': sum(1 for x in evidence if x['institution_key'] == key)}
+    cands = distinct_candidates(cands)
     d = Path(run_dir)
     (d / 'program_lists.json').write_text(json.dumps(lists, indent=1, ensure_ascii=False) + '\n')
     with (d / 'candidates.jsonl').open('w') as f:
