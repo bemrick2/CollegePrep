@@ -180,7 +180,7 @@ MUTS = [
      "SAMPLE_PLAN_LINE = re.compile(r'(?im)^\\s*(below is a |the )?(sample|recommended) (4|four)[- ]year plan\\b')"),
     ('programs/extract.py', "        if head in before[-2:]: return True", "        return True"),
     ('programs/extract.py', "        if head in before[-2:]: return True", "        if head in before[-1:]: return True"),
-    ('programs/extract.py', "    head = (program_heading(page) or '').strip()", "    head = next(iter(page.headings or []), '').strip()"),
+    ('programs/extract.py', "    head = (program_heading(page) or '').strip()\n    for m in SAMPLE_PLAN_LINE", "    head = next(iter(page.headings or []), '').strip()\n    for m in SAMPLE_PLAN_LINE"),
     # UAF roadmap grids (courseleaf_plangrid/v1)
     ('programs/courseleaf.py', "                if st['open'] is None: issues.add('indented_row_without_rule'); st['term']['items'].append(item)", "                if st['open'] is None: st['term']['items'].append(item)"),
     ('programs/courseleaf.py', "            st['open'] = item if GRID_CHOICE.match(text) else None", "            st['open'] = item if GRID_CHOICE.match(text) else st['open']"),
@@ -213,7 +213,7 @@ MUTS = [
     ('programs/extract.py', "    if len(hits) != 1: return []", "    if not hits: return []"),
     ('programs/extract.py', "    hits = [r for r in inv['rows'] if r[2] == \"Bachelor's Degree\" and", "    hits = [r for r in inv['rows'] if"),
     ('programs/extract.py', "(len(r[1]) >= 38 and want.startswith(_inv_norm(r[1])) and len(_inv_norm(r[1])) >= 30)", "False"),
-    ('programs/extract.py', "entry, INVENTORY_LEVEL_EXTRACTOR, {'program_key': rec['program_key']}, {}, ['award_not_printed'])]", "entry, INVENTORY_LEVEL_EXTRACTOR, {'program_key': rec['program_key']}, {}, [])]"),
+    ('programs/extract.py', "{}, [] if awards else ['award_not_printed'])]", "{}, [])]"),
     ('programs/verify.py', "                if not other or norm(ev.get('snippet', '')) not in norm(other(ev['sha256'])): probs.append('credential level row not in its inventory document')", "                pass"),
     ('programs/extract.py', "                if mm and not _inv_norm(mm.group('prog')).startswith(key): continue  # 'in <another program>'", "                pass"),
     ('programs/extract.py', "            if key not in _inv_norm(sent) and not AWARD_LEAD.search(sent): continue", "            pass"),
