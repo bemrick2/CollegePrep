@@ -1,18 +1,23 @@
 {
-  "institution_key": "ipeds-178387",
-  "academic_year": "2026-27",
-  "records": [
+  "run": "programs/runs/MO/2026-10-06-cat",
+  "run_branch": "program-run/*",
+  "reviewer": "Catalog-count review (independent agent, local stored pages only), 2026-10-08; recount after today's reviewed promotions",
+  "catalogs": [
     {
+      "institution_key": "ipeds-178387",
       "catalog_url": "https://catalog.missouriwestern.edu/",
-      "source_url": "https://catalog.missouriwestern.edu/undergraduate/programs/",
-      "verification_status": "verified",
-      "last_verified_at": "2026-10-06",
       "catalog_year_label": "2026-2027",
+      "source_evidence": {
+        "url": "https://catalog.missouriwestern.edu/undergraduate/programs/",
+        "sha256": "4e525cf22dd76fd3d308f831ef27b401416f77ae50b6adaf744f73b89202bfcd",
+        "fetched_at": "2026-10-06T10:07:55+00:00"
+      },
       "listed_bachelor_programs": 42,
       "verified_listed_programs": 38,
       "programs_complete": false,
       "completeness_basis": "Undergraduate 'Programs' A-Z page (prints 'Academic Catalog 2026-2027'): 43 links carry a bachelor's award; Biochemistry and Molecular Biology (B.S.) is listed twice (Biology and Chemistry departments) and counted once, giving 42. The four 'without Certification Option' B.S.E. entries, Law B.S. and Nursing RN-BSN are counted as their own entries (unsure). Excluded minors, certificates, microcredentials, the Criminal Justice A.S. and the Honors Program. Matched by URL: 38 of 42 have a verified record (all 38 verified bachelor records used once); unverified: Early Childhood Education without Certification Option (Bachelor of Science in Education, B.S.E.); Elementary Education without Certification Option (Bachelor of Science in Education, B.S.E.); Secondary Education without Certification Option (Bachelor of Science in Education, B.S.E.); Special Education without Certification Option (Bachelor of Science in Education, B.S.E.). Count unchanged at 42; verified rose from 37 (Musical Arts B.M.A. now verified).",
-      "notes": "Reviewed 2026-10-08: Catalog-count review 2026-10-08: official current list page. List document sha256 4e525cf22dd76fd3."
+      "reason": "Catalog-count review 2026-10-08: official current list page.",
+      "run": "programs/runs/MO/2026-10-06-cat"
     }
   ]
 }

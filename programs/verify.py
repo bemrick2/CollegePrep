@@ -61,7 +61,10 @@ def check_candidate(c, text, other=None):
         elif norm(r['program_name']) not in t: probs.append('program_name not verbatim')
         for ev in c.get('evidence', []):
             # a degree level read from a state program inventory: the row is printed in that stored document
-            if ev.get('field') == 'award' and norm(ev.get('snippet', '')) not in t: probs.append('award sentence not verbatim')
+            if ev.get('field') == 'award':
+                # an award printed on another stored official page (UMD school/department pages) is checked in that document
+                src = norm(other(ev['sha256'])) if (ev.get('sha256') and ev['sha256'] != c['source'].get('sha256') and other and other(ev['sha256'])) else t
+                if norm(ev.get('snippet', '')) not in src: probs.append('award sentence not verbatim')
             if ev.get('field') == 'credential_level' and ev.get('sha256') and ev['sha256'] != c['source'].get('sha256') and c.get('extractor') == 'inventory_level/v1':
                 if not other or norm(ev.get('snippet', '')) not in norm(other(ev['sha256'])): probs.append('credential level row not in its inventory document')
         cy = r.get('catalog_year') or ''

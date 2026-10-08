@@ -1,18 +1,23 @@
 {
-  "institution_key": "ipeds-181394",
-  "academic_year": "2026-27",
-  "records": [
+  "run": "programs/runs/NE/2026-10-06-cat",
+  "run_branch": "program-run/*",
+  "reviewer": "Catalog-count review (independent agent, local stored pages only), 2026-10-08; recount after today's reviewed promotions",
+  "catalogs": [
     {
+      "institution_key": "ipeds-181394",
       "catalog_url": "https://catalog.unomaha.edu/",
-      "source_url": "https://catalog.unomaha.edu/undergraduate/programsaz/",
-      "verification_status": "verified",
-      "last_verified_at": "2026-10-06",
       "catalog_year_label": "2026-2027",
+      "source_evidence": {
+        "url": "https://catalog.unomaha.edu/undergraduate/programsaz/",
+        "sha256": "da8cf7ba9f9995b16229672b20f531ccb03b3f4557d491cb20f97109089c7334",
+        "fetched_at": "2026-10-06T22:38:37+00:00"
+      },
       "listed_bachelor_programs": 87,
       "verified_listed_programs": 84,
       "programs_complete": false,
       "completeness_basis": "'Undergraduate Programs A-Z' page (prints '2026-2027 Edition'), each award its own entry: 87 bachelor's entries = 84 labeled bachelor's majors (incl. Bachelor of Multidisciplinary Studies, B.S. Applied Leadership Studies and 'BSBA as a Second Bachelor's Degree', the last counted though unsure), the four 'Environmental Science, B.S. with a Concentration in ...' entries counted once (no unconcentrated entry), plus 'Education - Communication Disorders' and 'Pharmaceutical Sciences' (no award printed; counted, unsure). Excluded minors (incl. 'Minor in Aviation'), certificates, 10 concentration entries under listed majors (Studio Art Art Education, Biology Education, Chemistry x2, Internet Technologies for CS, Philosophy x2, Physics x2), 3 Pre-engineering tracks, the PACS course-subject link, the Women's and Gender Studies program landing link and navigation. Matched by URL: 84 of 87 entries have a verified record (all 84 verified bachelor records used once); unverified: Education - Communication Disorders; Environmental Science, Bachelor of Science (4 concentration entries); Pharmaceutical Sciences. Count unchanged at 87; verified rose from 73 because of today's promotions.",
-      "notes": "Reviewed 2026-10-08: Catalog-count review 2026-10-08: official current list page. List document sha256 da8cf7ba9f9995b1."
+      "reason": "Catalog-count review 2026-10-08: official current list page.",
+      "run": "programs/runs/NE/2026-10-06-cat"
     }
   ]
 }

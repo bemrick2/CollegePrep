@@ -1,9 +1,9 @@
 {
  "national": {
-  "covered": 59,
+  "covered": 62,
   "definition": "Registered: four-year schools in the national registry (pipeline/registry; scope rule in pipeline/registry.py). Researched: a verified or partially verified deep-dive record, or a queue entry recording an attempt other than not_yet_researched. Covered: meets docs/PROGRAM_DEPTH_COMPLETION.md. Untracked states count as registered only.",
   "registered": 2119,
-  "researched": 659,
+  "researched": 661,
   "states": [
    {
     "covered": 3,
@@ -71,14 +71,14 @@
    {
     "covered": 0,
     "registered": 92,
-    "researched": 21,
+    "researched": 22,
     "state": "FL",
     "tracked": true
    },
    {
-    "covered": 0,
+    "covered": 1,
     "registered": 59,
-    "researched": 23,
+    "researched": 24,
     "state": "GA",
     "tracked": true
    },
@@ -174,7 +174,7 @@
     "tracked": true
    },
    {
-    "covered": 2,
+    "covered": 3,
     "registered": 58,
     "researched": 18,
     "state": "MO",
@@ -209,7 +209,7 @@
     "tracked": true
    },
    {
-    "covered": 1,
+    "covered": 2,
     "registered": 23,
     "researched": 7,
     "state": "NE",
@@ -685,11 +685,14 @@
      "dimensions": {
       "admission_rules": "queued",
       "catalog": "queued",
-      "degree_maps": "met",
+      "degree_maps": "queued",
       "requirement_groups": "met"
      },
      "folder": "jsu",
      "high_value_without_admission_rule": [
+      "business",
+      "computer_science",
+      "engineering",
       "nursing"
      ],
      "institution_key": "ipeds-101480",
@@ -697,14 +700,15 @@
      "name": "Jacksonville State University",
      "partially_verified_programs": 0,
      "programs_complete": false,
-     "programs_with_plan": 16,
+     "programs_with_plan": 20,
      "queue": [
       "admission_rules:not_yet_researched",
-      "catalog:not_yet_researched"
+      "catalog:not_yet_researched",
+      "degree_maps:not_yet_researched"
      ],
      "requirement_groups": 21,
      "status": "partial",
-     "verified_bachelor_programs": 16
+     "verified_bachelor_programs": 95
     },
     {
      "academic_years": [],
@@ -1308,7 +1312,7 @@
     }
    ],
    "not_yet_researched": 27,
-   "queue_entries": 35,
+   "queue_entries": 36,
    "queue_errors": [],
    "state": "AL",
    "status": "in_progress",
@@ -8125,7 +8129,7 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "institution:no_year_label"
      ],
      "requirement_groups": 0,
      "status": "exception",
@@ -8195,7 +8199,7 @@
      "institution_key": "ipeds-133669",
      "listed_bachelor_programs": null,
      "name": "Florida Atlantic University",
-     "partially_verified_programs": 72,
+     "partially_verified_programs": 75,
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
@@ -10160,7 +10164,7 @@
      "verified_bachelor_programs": 0
     }
    ],
-   "not_yet_researched": 75,
+   "not_yet_researched": 74,
    "queue_entries": 92,
    "queue_errors": [],
    "state": "FL",
@@ -10169,8 +10173,8 @@
   },
   {
    "coverage_threshold": 0.8,
-   "covered_institutions": 0,
-   "entering_student_share_covered": 0.0,
+   "covered_institutions": 1,
+   "entering_student_share_covered": 0.056,
    "four_year_institutions": 59,
    "institutions": [
     {
@@ -10294,18 +10298,24 @@
      "verified_bachelor_programs": 0
     },
     {
-     "academic_years": [],
-     "catalog_share": null,
+     "academic_years": [
+      "2026-27"
+     ],
+     "catalog_share": 0.976,
      "dimensions": {
       "admission_rules": "queued",
-      "catalog": "queued",
+      "catalog": "met",
       "degree_maps": "queued",
-      "requirement_groups": "queued"
+      "requirement_groups": "met"
      },
      "folder": "gatech",
-     "high_value_without_admission_rule": [],
+     "high_value_without_admission_rule": [
+      "business",
+      "computer_science",
+      "engineering"
+     ],
      "institution_key": "ipeds-139755",
-     "listed_bachelor_programs": null,
+     "listed_bachelor_programs": 42,
      "name": "Georgia Institute of Technology-Main Campus",
      "partially_verified_programs": 0,
      "programs_complete": false,
@@ -10313,9 +10323,9 @@
      "queue": [
       "institution:not_yet_researched"
      ],
-     "requirement_groups": 0,
-     "status": "exception",
-     "verified_bachelor_programs": 0
+     "requirement_groups": 121,
+     "status": "covered",
+     "verified_bachelor_programs": 41
     },
     {
      "academic_years": [],
@@ -11827,7 +11837,7 @@
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": 0.732,
+     "catalog_share": 0.858,
      "dimensions": {
       "admission_rules": "queued",
       "catalog": "queued",
@@ -11849,9 +11859,9 @@
      "queue": [
       "institution:not_yet_researched"
      ],
-     "requirement_groups": 4,
+     "requirement_groups": 37,
      "status": "partial",
-     "verified_bachelor_programs": 93
+     "verified_bachelor_programs": 109
     },
     {
      "academic_years": [],
@@ -20145,7 +20155,7 @@
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": 0.374,
+     "catalog_share": 0.472,
      "dimensions": {
       "admission_rules": "queued",
       "catalog": "queued",
@@ -20159,7 +20169,7 @@
      "institution_key": "ipeds-163286",
      "listed_bachelor_programs": 123,
      "name": "University of Maryland-College Park",
-     "partially_verified_programs": 40,
+     "partially_verified_programs": 28,
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
@@ -20169,7 +20179,7 @@
      ],
      "requirement_groups": 5,
      "status": "partial",
-     "verified_bachelor_programs": 46
+     "verified_bachelor_programs": 58
     },
     {
      "academic_years": [
@@ -23636,8 +23646,8 @@
   },
   {
    "coverage_threshold": 0.8,
-   "covered_institutions": 2,
-   "entering_student_share_covered": 0.202,
+   "covered_institutions": 3,
+   "entering_student_share_covered": 0.219,
    "four_year_institutions": 58,
    "institutions": [
     {
@@ -24027,10 +24037,10 @@
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": 0.881,
+     "catalog_share": 0.905,
      "dimensions": {
       "admission_rules": "queued",
-      "catalog": "queued",
+      "catalog": "met",
       "degree_maps": "queued",
       "requirement_groups": "met"
      },
@@ -24051,9 +24061,9 @@
       "catalog:not_yet_researched",
       "degree_maps:not_yet_researched"
      ],
-     "requirement_groups": 32,
-     "status": "partial",
-     "verified_bachelor_programs": 37
+     "requirement_groups": 34,
+     "status": "covered",
+     "verified_bachelor_programs": 38
     },
     {
      "academic_years": [],
@@ -27784,8 +27794,8 @@
   },
   {
    "coverage_threshold": 0.8,
-   "covered_institutions": 1,
-   "entering_student_share_covered": 0.071,
+   "covered_institutions": 2,
+   "entering_student_share_covered": 0.239,
    "four_year_institutions": 23,
    "institutions": [
     {
@@ -27820,10 +27830,10 @@
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": 0.839,
+     "catalog_share": 0.966,
      "dimensions": {
       "admission_rules": "queued",
-      "catalog": "queued",
+      "catalog": "met",
       "degree_maps": "met",
       "requirement_groups": "met"
      },
@@ -27838,13 +27848,13 @@
      "name": "University of Nebraska at Omaha",
      "partially_verified_programs": 0,
      "programs_complete": false,
-     "programs_with_plan": 55,
+     "programs_with_plan": 57,
      "queue": [
       "institution:not_yet_researched"
      ],
      "requirement_groups": 4,
-     "status": "partial",
-     "verified_bachelor_programs": 73
+     "status": "covered",
+     "verified_bachelor_programs": 84
     },
     {
      "academic_years": [
@@ -48631,7 +48641,7 @@
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": 0.758,
+     "catalog_share": 0.833,
      "dimensions": {
       "admission_rules": "queued",
       "catalog": "queued",
@@ -48640,6 +48650,8 @@
      },
      "folder": "odu",
      "high_value_without_admission_rule": [
+      "business",
+      "computer_science",
       "engineering",
       "nursing"
      ],
@@ -48655,7 +48667,7 @@
      ],
      "requirement_groups": 96,
      "status": "partial",
-     "verified_bachelor_programs": 141
+     "verified_bachelor_programs": 155
     },
     {
      "academic_years": [],

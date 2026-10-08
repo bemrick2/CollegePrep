@@ -53,7 +53,8 @@ OPTION = re.compile(r'\b(track|option|concentration|emphasis|specialization)\b',
 # combined and accelerated pathways into a graduate degree are not bachelor's programs of their own
 COMBINED = re.compile(r'\+|\b(accelerated|combined|dual|concurrent|double)\b|\bwith\s+(an?\s+)?((?-i:M\.?\s?[A-Z]{1,4})\b|Master)|\b(B\.?[AS]\.?|BBA|B\.B\.A\.)\s*/\s*(M|J\.?D)|program for', re.I)
 # a graduate award inside a name ('Business Administration, M.B.A.') also contains 'B.A.' for the bachelor's pattern
-GRADUATE = re.compile(r'\bM\.\s?B\.\s?A\b|\bMBA\b|\bM\.\s?(A|S|Ed|F\.?A)\.|\bMaster|\bPh\.?\s?D\b|\bDoctor', re.I)
+# 'B.M.A.' (Bachelor of Musical Arts, Missouri Western 2026-27) is not 'M.A.'
+GRADUATE = re.compile(r'\bM\.\s?B\.\s?A\b|\bMBA\b|(?<!B\.)\bM\.\s?(A|S|Ed|F\.?A)\.|\bMaster|\bPh\.?\s?D\b|\bDoctor', re.I)
 TRUSTED_REQUIREMENTS = {('major', 'courselist_html/v1'), ('program_plan', 'courseleaf_plan/v1'), ('program_plan', 'acalog_plan/v1'),
                         ('program_plan', 'clearpath_plan/v1'), ('program_plan', 'program_map/v1'),
                         # UAF roadmap grids: independent review 2026-10-07 of 25 plans, every cell, 0 differences (#170)
