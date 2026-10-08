@@ -1,9 +1,9 @@
 {
  "national": {
-  "covered": 51,
+  "covered": 53,
   "definition": "Registered: four-year schools in the national registry (pipeline/registry; scope rule in pipeline/registry.py). Researched: a verified or partially verified deep-dive record, or a queue entry recording an attempt other than not_yet_researched. Covered: meets docs/PROGRAM_DEPTH_COMPLETION.md. Untracked states count as registered only.",
   "registered": 2119,
-  "researched": 634,
+  "researched": 636,
   "states": [
    {
     "covered": 3,
@@ -34,7 +34,7 @@
     "tracked": true
    },
    {
-    "covered": 2,
+    "covered": 3,
     "registered": 152,
     "researched": 46,
     "state": "CA",
@@ -244,7 +244,7 @@
     "tracked": true
    },
    {
-    "covered": 2,
+    "covered": 3,
     "registered": 193,
     "researched": 38,
     "state": "NY",
@@ -288,7 +288,7 @@
    {
     "covered": 0,
     "registered": 37,
-    "researched": 8,
+    "researched": 9,
     "state": "SC",
     "tracked": true
    },
@@ -344,7 +344,7 @@
    {
     "covered": 0,
     "registered": 43,
-    "researched": 7,
+    "researched": 8,
     "state": "WI",
     "tracked": true
    },
@@ -2382,8 +2382,8 @@
   },
   {
    "coverage_threshold": 0.8,
-   "covered_institutions": 2,
-   "entering_student_share_covered": 0.011,
+   "covered_institutions": 3,
+   "entering_student_share_covered": 0.023,
    "four_year_institutions": 152,
    "institutions": [
     {
@@ -3141,28 +3141,36 @@
      "verified_bachelor_programs": 0
     },
     {
-     "academic_years": [],
-     "catalog_share": null,
+     "academic_years": [
+      "2026-27"
+     ],
+     "catalog_share": 0.986,
      "dimensions": {
       "admission_rules": "queued",
-      "catalog": "queued",
+      "catalog": "met",
       "degree_maps": "queued",
-      "requirement_groups": "queued"
+      "requirement_groups": "met"
      },
      "folder": "csusb",
-     "high_value_without_admission_rule": [],
+     "high_value_without_admission_rule": [
+      "business",
+      "computer_science",
+      "engineering",
+      "nursing"
+     ],
      "institution_key": "ipeds-110510",
-     "listed_bachelor_programs": null,
+     "listed_bachelor_programs": 69,
      "name": "California State University-San Bernardino",
      "partially_verified_programs": 0,
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:fetch_failed"
+      "admission_rules:not_yet_researched",
+      "degree_maps:not_yet_researched"
      ],
-     "requirement_groups": 0,
-     "status": "exception",
-     "verified_bachelor_programs": 0
+     "requirement_groups": 149,
+     "status": "covered",
+     "verified_bachelor_programs": 68
     },
     {
      "academic_years": [],
@@ -6110,8 +6118,8 @@
      "verified_bachelor_programs": 0
     }
    ],
-   "not_yet_researched": 115,
-   "queue_entries": 168,
+   "not_yet_researched": 116,
+   "queue_entries": 169,
    "queue_errors": [],
    "state": "CA",
    "status": "in_progress",
@@ -30494,18 +30502,18 @@
   },
   {
    "coverage_threshold": 0.8,
-   "covered_institutions": 2,
-   "entering_student_share_covered": 0.008,
+   "covered_institutions": 3,
+   "entering_student_share_covered": 0.055,
    "four_year_institutions": 193,
    "institutions": [
     {
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": null,
+     "catalog_share": 0.936,
      "dimensions": {
       "admission_rules": "queued",
-      "catalog": "queued",
+      "catalog": "met",
       "degree_maps": "queued",
       "requirement_groups": "met"
      },
@@ -30517,19 +30525,18 @@
       "nursing"
      ],
      "institution_key": "ipeds-193900",
-     "listed_bachelor_programs": null,
+     "listed_bachelor_programs": 171,
      "name": "New York University",
      "partially_verified_programs": 0,
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
       "admission_rules:not_yet_researched",
-      "catalog:not_yet_researched",
       "degree_maps:not_yet_researched"
      ],
      "requirement_groups": 26,
-     "status": "partial",
-     "verified_bachelor_programs": 159
+     "status": "covered",
+     "verified_bachelor_programs": 160
     },
     {
      "academic_years": [],
@@ -35194,7 +35201,7 @@
     }
    ],
    "not_yet_researched": 163,
-   "queue_entries": 208,
+   "queue_entries": 207,
    "queue_errors": [],
    "state": "NY",
    "status": "in_progress",
@@ -42777,28 +42784,36 @@
    "four_year_institutions": 37,
    "institutions": [
     {
-     "academic_years": [],
+     "academic_years": [
+      "2026-27"
+     ],
      "catalog_share": null,
      "dimensions": {
       "admission_rules": "queued",
       "catalog": "queued",
-      "degree_maps": "queued",
-      "requirement_groups": "queued"
+      "degree_maps": "met",
+      "requirement_groups": "met"
      },
      "folder": "sc-218663",
-     "high_value_without_admission_rule": [],
+     "high_value_without_admission_rule": [
+      "business",
+      "computer_science",
+      "engineering",
+      "nursing"
+     ],
      "institution_key": "ipeds-218663",
      "listed_bachelor_programs": null,
      "name": "University of South Carolina-Columbia",
      "partially_verified_programs": 0,
      "programs_complete": false,
-     "programs_with_plan": 0,
+     "programs_with_plan": 71,
      "queue": [
-      "institution:not_yet_researched"
+      "admission_rules:not_yet_researched",
+      "catalog:not_yet_researched"
      ],
-     "requirement_groups": 0,
-     "status": "exception",
-     "verified_bachelor_programs": 0
+     "requirement_groups": 349,
+     "status": "partial",
+     "verified_bachelor_programs": 97
     },
     {
      "academic_years": [],
@@ -43673,7 +43688,7 @@
     }
    ],
    "not_yet_researched": 31,
-   "queue_entries": 40,
+   "queue_entries": 41,
    "queue_errors": [],
    "state": "SC",
    "status": "in_progress",
@@ -51308,28 +51323,35 @@
    "four_year_institutions": 43,
    "institutions": [
     {
-     "academic_years": [],
+     "academic_years": [
+      "2026-27"
+     ],
      "catalog_share": null,
      "dimensions": {
       "admission_rules": "queued",
       "catalog": "queued",
-      "degree_maps": "queued",
-      "requirement_groups": "queued"
+      "degree_maps": "met",
+      "requirement_groups": "met"
      },
      "folder": "wisc",
-     "high_value_without_admission_rule": [],
+     "high_value_without_admission_rule": [
+      "business",
+      "engineering",
+      "nursing"
+     ],
      "institution_key": "ipeds-240444",
      "listed_bachelor_programs": null,
      "name": "University of Wisconsin-Madison",
      "partially_verified_programs": 0,
      "programs_complete": false,
-     "programs_with_plan": 0,
+     "programs_with_plan": 103,
      "queue": [
-      "institution:not_yet_researched"
+      "admission_rules:not_yet_researched",
+      "catalog:not_yet_researched"
      ],
-     "requirement_groups": 0,
-     "status": "exception",
-     "verified_bachelor_programs": 0
+     "requirement_groups": 121,
+     "status": "partial",
+     "verified_bachelor_programs": 183
     },
     {
      "academic_years": [],
@@ -52367,7 +52389,7 @@
     }
    ],
    "not_yet_researched": 39,
-   "queue_entries": 51,
+   "queue_entries": 52,
    "queue_errors": [],
    "state": "WI",
    "status": "in_progress",
