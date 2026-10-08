@@ -24,7 +24,7 @@ COMB = re.compile(r"Accelerated.*(\bM\.?[AS]\b\.?|\bMBA\b|\bMPA\b|Master)|Schola
                   r"(?-i:\bB[A-Z]{1,4}/M[A-Z]{1,3}\b)|"  # La Salle 'Accounting, BSBA/MBA (4 year)'
                   r"\bto\b.*\bM[A-Z]{0,4}\b.*\bAccelerated\b|Dual Degree Acceptance|\bB\.?[AS]\.?/.*\bM\.\s?B\.\s?A\b|"
                   r"(?-i:,\s*B[A-Z]{1,3}\s+to\s+[^,]+,\s*M[A-Z]{1,5}\b)", re.I)  # Roosevelt 'Biology, BA to Secondary Education, MA Accelerated Program'; Georgian 'B.S./... M.B.A.'
-GENERIC = re.compile(r"^(Bachelor's (Degree|Concentration|Degree Programs)|Department of .*)$|: Bachelor's Degree\b|Minor, Certificate|Graduate Certificate|\bRoadmap\b|\b(Graduation|Continuance)\s+(Requirements|Regulations)\b|\bReadmission\b|\(Secondary Major\)|^Minor in\b|General Education Requirements|^\(B[A-Z.]{1,6}\)$|^Bachelor's and Master's Degree Programs$", re.I)
+GENERIC = re.compile(r"^(Bachelor's (Degree|Concentration|Degree Programs)|Department of .*)$|: Bachelor's Degree\b|Minor, Certificate|Graduate Certificate|\bRoadmap\b|\b(Graduation|Continuance)\s+(Requirements|Regulations)\b|\bReadmission\b|\(Secondary Major\)|^Minor in\b|General Education Requirements|^\(B[A-Z.]{1,6}\)$|^Bachelor's and Master's Degree Programs$|^(?:Dual Degree\s+)?B\.(?:\s?[A-Z][a-z]{0,3}\.)+\s+Concentration(?:\s+Option)?$", re.I)
 ROTC = re.compile(r'\bROTC\b')
 LABELED = {'labeled_in_title', 'labeled_in_heading', 'labeled_in_source'}
 # UTEP 2026-27 cards run the name into the card's category labels: 'BBA in AccountingBusiness, Management, & Marketing

@@ -1,6 +1,6 @@
 {
  "national": {
-  "covered": 64,
+  "covered": 65,
   "definition": "Registered: four-year schools in the national registry (pipeline/registry; scope rule in pipeline/registry.py). Researched: a verified or partially verified deep-dive record, or a queue entry recording an attempt other than not_yet_researched. Covered: meets docs/PROGRAM_DEPTH_COMPLETION.md. Untracked states count as registered only.",
   "registered": 2119,
   "researched": 673,
@@ -41,7 +41,7 @@
     "tracked": true
    },
    {
-    "covered": 2,
+    "covered": 3,
     "registered": 30,
     "researched": 12,
     "state": "CO",
@@ -6140,8 +6140,8 @@
   },
   {
    "coverage_threshold": 0.8,
-   "covered_institutions": 2,
-   "entering_student_share_covered": 0.231,
+   "covered_institutions": 3,
+   "entering_student_share_covered": 0.362,
    "four_year_institutions": 30,
    "institutions": [
     {
@@ -6179,29 +6179,32 @@
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": null,
+     "catalog_share": 0.926,
      "dimensions": {
-      "admission_rules": "met",
-      "catalog": "queued",
+      "admission_rules": "queued",
+      "catalog": "met",
       "degree_maps": "queued",
       "requirement_groups": "met"
      },
      "folder": "colostate",
-     "high_value_without_admission_rule": [],
+     "high_value_without_admission_rule": [
+      "business",
+      "engineering"
+     ],
      "institution_key": "ipeds-126818",
-     "listed_bachelor_programs": null,
+     "listed_bachelor_programs": 68,
      "name": "Colorado State University-Fort Collins",
      "partially_verified_programs": 0,
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
+      "admission_rules:not_yet_researched",
       "catalog:not_yet_researched",
-      "degree_maps:not_yet_researched",
-      "institution:layout_not_readable"
+      "degree_maps:not_yet_researched"
      ],
-     "requirement_groups": 1,
-     "status": "partial",
-     "verified_bachelor_programs": 6
+     "requirement_groups": 6,
+     "status": "covered",
+     "verified_bachelor_programs": 65
     },
     {
      "academic_years": [],

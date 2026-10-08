@@ -7,6 +7,10 @@ the same file. Each mutant breaks one rule; tests/test_programs_deep_dive.py mus
 import shutil, subprocess, sys
 
 MUTS = [
+    ('programs/extract.py', "    if not AWARD_LINK.match(award) or not MAJOR_IN.match(head): return []", "    if not MAJOR_IN.match(head): return []"),
+    ('programs/extract.py', "MAJOR_IN = re.compile(r'^Major in (?P<name>[^,]+)$')", "MAJOR_IN = re.compile(r'^Major in (?P<name>.+)$')"),
+    ('programs/autoreview.py', "                     'award_link_major/v1',", ""),
+    ('programs/catalog_counts.py', "|^(?:Dual Degree\\s+)?B\\.(?:\\s?[A-Z][a-z]{0,3}\\.)+\\s+Concentration(?:\\s+Option)?$", ""),
     ('programs/catalog_counts.py', '|"\n                  r"(?-i:,\\s*B[A-Z]{1,3}\\s+to\\s+[^,]+,\\s*M[A-Z]{1,5}\\b)", re.I)', '", re.I)'),
     ('programs/catalog_counts.py', " and bare != rk: hit = None", ": hit = None"),
     ('programs/catalog_counts.py', '|"  # La Salle \'Accounting, BSBA/MBA (4 year)\'\n                  r"\\bto\\b.*\\bM[A-Z]{0,4}\\b.*\\bAccelerated\\b|Dual Degree Acceptance|\\bB\\.?[AS]\\.?/.*\\bM\\.\\s?B\\.\\s?A\\b|"', '"'),
