@@ -2,22 +2,29 @@
 
 This file is how a new Research session resumes the national program-research workstream without redoing finished work. It is updated with every batch PR.
 
-- **Main at the last refresh:** `7451caf822e6f709da8a8fd9a136e2fc7c40823c` (merge of #213, batch 2).
-- **Branch carrying this checkpoint:** `research/batch-03`.
+- **Main at the last refresh:** `6b8a25887fd2ce4ed7b200a3c97d3c7a12d5edb5` (merge of #214, batch 3).
+- **Branch carrying this checkpoint:** `research/batch-04`.
 - **Ranking:** `docs/coverage/research_priority.json`, written by `python3 scripts/research_priority.py`. CI (validate-data) checks that it is current.
 
 ## Numbers
 
-| | main `7451caf` (batch 2 merged) | research/batch-03 |
+| | main `6b8a258` (batch 3 merged) | research/batch-04 |
 |---|---|---|
 | Registered four-year institutions | 2,119 | 2,119 |
-| Covered (docs/PROGRAM_DEPTH_COMPLETION.md) | 64 | 64 |
-| Researched | 672 | 673 |
-| Verified bachelor's program records | 10,012 | 10,074 |
+| Covered (docs/PROGRAM_DEPTH_COMPLETION.md) | 64 | 65 |
+| Researched | 673 | 673 |
+| Verified bachelor's program records | 10,074 | 10,156 |
 
 All figures are counted from `docs/coverage/programs/STATUS.json` and from the `academic_programs` files with `verification_status == "verified"` and `credential_level == "bachelor"`.
 
-## Completed in batch 3 (research/batch-03)
+## Completed in batch 4 (research/batch-04)
+
+| Institution | Run | Result |
+|---|---|---|
+| Roosevelt | IL/2026-10-08-e01 | 74/79, covered again. The re-run read the undotted-award programs. Two combined BA/MPA and BA-to-MSIMC records on file from pipeline run IL/2026-10-05 still count as verified bachelor's records; queued for review. |
+| UT Dallas | TX/2026-10-08-b02 (re-extracted) | 64 verified records; no list count. New `edition_year_from_home` / `edition_program/v1`: pages print only the edition name '2026 Undergraduate Catalog', so the year is quoted from the edition home page. All 87 candidates were checked; double majors are held. Not yet recorded: Mechanical Engineering BS (heading too deep) and Visual and Performing Arts BA (concentration pages only); the seven Education certification focuses are two degrees. |
+
+## Completed in batch 3 (research/batch-03, merged as #214)
 
 | Institution | Run | Result |
 |---|---|---|
@@ -66,7 +73,6 @@ Reader and checker changes in this batch each come with tests and mutants: `prog
 - **no_year_label (a year is never inferred):**
   - Coursedog catalogs whose API answered 401: Arizona, UCSB, Illinois State, USU, FIU. CSUN: its pages print no year label.
   - Alabama: the only label printed is the print-menu link 'Download 2026-27 Undergraduate PDF'. This is a shared reader request.
-  - UT Dallas: pages print the edition name '2026 Undergraduate Catalog', and the edition's home page prints '2026-2027 Undergraduate Catalog'. Reader work for the Research session: read the year from the edition home page and cite that page.
 - **layout_not_readable:** UCR (its catalog PDF gives no program records).
 - **Stale configured catalogs (find the 2026-27 catalog by web search before running):**
   - Lone Star (2019-20 PDF)
@@ -81,9 +87,9 @@ Reader and checker changes in this batch each come with tests and mutants: `prog
 
 - `UNDOTTED_LIST_AWARD` reads UMD's 'SDSB - Social Data Science, BSOS' (a college code) as a bachelor's entry; review such entries by hand.
 
-## In flight (run branches pushed, not yet reviewed)
+## In flight
 
-- `program-run/il-e01-2026-10-08`: Roosevelt re-run (700-page cap) for its undotted-award programs.
+None.
 
 ## Next prioritized batch
 
@@ -96,7 +102,6 @@ From `research_priority.json`, excluding blocked institutions:
    - UNL: major pages with the award only in the text. The majors list prints no award.
    - Colorado State: read the Programs A-Z program column so concentration and dual-degree rows count with their major.
    - Utah: the award from the program code or text.
-   - UT Dallas: the edition-home year.
    - BYU: emphases whose degree has no list line.
 3. **Configured tier, largest first:**
    - Stale catalogs first: Lone Star, Cincinnati.

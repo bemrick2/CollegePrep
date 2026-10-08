@@ -7,6 +7,14 @@ the same file. Each mutant breaks one rule; tests/test_programs_deep_dive.py mus
 import shutil, subprocess, sys
 
 MUTS = [
+    ('programs/extract.py', "            if m and m.group(1) == ed['year'][:4] and", "            if m and"),
+    ('programs/extract.py', " and urlsplit(common.source_of(entry)['url']).path.startswith(edir) and edir.strip('/'):", ":"),
+    ('programs/extract.py', "                                 and not NOT_PROGRAM_NAME.search(h) and not OPTION_NAME.search(h)), None)", "                                 ), None)"),
+    ('programs/extract.py', "        elif not labels and target.get('_edition_year'):", "        elif target.get('_edition_year'):"),
+    ('programs/extract.py', "            if len({y for y, _ in labels}) == 1:\n                y, line = min(labels)\n                return {'year': y", "            if labels:\n                y, line = min(labels)\n                return {'year': y"),
+    ('programs/extract.py', "        elif not labels and target.get('_edition_year'):", "        elif False:"),
+    ('programs/extract.py', "                    name = next((h.strip() for h in page.headings[:3] if credential_of(h) == 'bachelor' and not GENERIC_DEGREES.match(h)", "                    name = next((h.strip() for h in page.headings[:3] if not GENERIC_DEGREES.match(h)"),
+    ('programs/autoreview.py', "                     'edition_program/v1',", ""),
     ('programs/catalog_counts.py', "        if unmapped:  #", "        if False:  #"),
     ('programs/catalog_counts.py', 'r"\\bto\\b.*(?-i:\\bM[A-Z]{0,4}\\b).*\\bAccelerated\\b|', 'r"'),
     ('programs/extract.py', "    if not AWARD_LINK.match(award) or not MAJOR_IN.match(head): return []", "    if not MAJOR_IN.match(head): return []"),

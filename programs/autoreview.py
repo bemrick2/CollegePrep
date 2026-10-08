@@ -36,7 +36,8 @@ from pipeline import text as T
 ROOT = Path(__file__).resolve().parent.parent
 TRUSTED_PROGRAMS = {'catalog_program/v1', 'coursedog_api/v1', 'coursedog_page/v1', 'kuali_page/v1',  # kuali_page/v1: 120 BYU records reviewed by hand, 2026-10-08 (#213)
                      'smartcatalog_program/v1', 'award_heading/v1',
-                     'award_link_major/v1',  # Colorado State 2026-10-08: 20 of 60 sampled against the Programs A-Z table, 20 right
+                     'award_link_major/v1',  # Colorado State 2026-10-08: all 60 records checked against the Programs A-Z table rows
+                     'edition_program/v1',  # UT Dallas 2026-10-08: all 87 headings checked against the stored pages and edition titles
                     'department_major/v1', 'stated_major/v1', 'listed_location/v1', 'major_table/v1',
                     # independent review 2026-10-06 (Auburn, 30 sampled): 26/30 right; the 4 errors were duplicate list links
                     # (fixed: one list entry per page, the awarded line kept) and entry-path variants are now held
@@ -178,8 +179,9 @@ def review(state, run, today=None):
                'duplicate' if k in seen or (u in seen_url and c['extractor'] not in SHARED_PAGE) else None)
         if why: held[why] += 1; continue
         seen.add(k); seen_url.add(u); program_keys[c['institution_key']].add(k[1])
-        where = ('name and catalog year verbatim in the stored official page; award verbatim in the stored official program list'
-                 if c['extractor'] == 'award_link_major/v1' else 'name, award and catalog year verbatim in the stored official page')
+        where = {'award_link_major/v1': 'name and catalog year verbatim in the stored official page; award verbatim in the stored official program list',
+                 'edition_program/v1': "name and award verbatim in the stored official page; catalog year verbatim in the edition's stored home page"}.get(
+                     c['extractor'], 'name, award and catalog year verbatim in the stored official page')
         approve.append({'candidate_id': c['candidate_id'], 'reason': f"Standing review ({c['extractor']}): {where.replace('catalog year', str(c['record'].get('catalog_year')) + ' catalog year', 1)}."})
     for c in cands:
         if c['domain'] != 'degree_requirements': continue

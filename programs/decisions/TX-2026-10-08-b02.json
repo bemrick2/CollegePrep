@@ -1,8 +1,11 @@
 {
  "run": "programs/runs/TX/2026-10-08-b02",
- "run_branch": "program-run/tx-*",
- "reviewer": "programs/autoreview.py standing rules, 2026-10-08",
- "notes": "Held: {'combined_program': 20, 'duplicate': 3}",
+ "run_branch": "program-run/tx-b02-2026-10-08",
+ "reviewer": "Research session review 2026-10-08 (autoreview standing rules plus the notes below)",
+ "notes": [
+  "UT Dallas 2026 undergraduate catalog: program pages (under /2026/undergraduate/) print the edition name 'UT Dallas 2026 Undergraduate Catalog' and no academic-year label; the edition's home page (/2026/undergraduate/home/) prints '2026-2027 Undergraduate Catalog', quoted from that page as each record's catalog-year evidence (edition_year_from_home; edition_program/v1). Records are the first heading that names a bachelor's award; all 87 candidates were checked against their stored pages. Double-major degree plans ('Economics and Finance (Double Major) (BS)') are held as combined programs. The catalog has no program list page configured, so no completeness count is recorded.",
+  "The seven 'Education (BA) with ...' / 'Education (BS) with ...' records are certification focuses of the Bachelor of Arts in Education and Bachelor of Science in Education degrees (the pages say every BAED and BSED student selects a certification focus); they are kept as records, as other certification-track records are, and must collapse to two programs in any completeness count."
+ ],
  "approve": [
   {
    "candidate_id": "9f71287d46ece450",
@@ -259,23 +262,6 @@
   {
    "candidate_id": "4a46a055333a1e9f",
    "reason": "Standing review (edition_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  }
- ],
- "catalogs": [
-  {
-   "institution_key": "ipeds-228787",
-   "catalog_url": "https://catalog.utdallas.edu/2026/undergraduate/home/",
-   "catalog_year_label": "2026-2027",
-   "source_evidence": {
-    "url": "https://catalog.utdallas.edu/2026/undergraduate/home/",
-    "sha256": "e82a03d26d7623147ceb84bb55462ce52bfd474cae7632817885a836578dffde",
-    "fetched_at": "2026-10-08T13:37:53+00:00"
-   },
-   "listed_bachelor_programs": 103,
-   "verified_listed_programs": 64,
-   "programs_complete": false,
-   "completeness_basis": "103 distinct linked entries on the official 2026-2027 program list pages print a bachelor's award (options, tracks and concentrations listed with an award are counted; unlinked lines are not). Not checked as complete.",
-   "reason": "Standing review: official current-catalog program list pages."
   }
  ]
 }
