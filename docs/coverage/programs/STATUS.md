@@ -113,7 +113,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | TN | **in_progress** | 43 | 1 | 5% (needs 80%) | 0 | 33 | 62 |
 | TX | **in_progress** | 118 | 5 | 13% (needs 80%) | 0 | 98 | 127 |
 | UT | **in_progress** | 12 | 1 | 13% (needs 80%) | 0 | 11 | 14 |
-| VA | **in_progress** | 49 | 2 | 15% (needs 80%) | 0 | 37 | 56 |
+| VA | **in_progress** | 49 | 2 | 15% (needs 80%) | 0 | 37 | 58 |
 | VT | **in_progress** | 10 | 1 | 50% (needs 80%) | 0 | 5 | 11 |
 | WA | **in_progress** | 58 | 0 | 0% (needs 80%) | 0 | 36 | 61 |
 | WI | **in_progress** | 43 | 1 | 21% (needs 80%) | 0 | 39 | 52 |
@@ -2287,7 +2287,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Virginia Polytechnic Institute and State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:fetch_failed |
 | Liberty University | covered | 153 | 154 | 0 | 4 | met | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | James Madison University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Virginia Commonwealth University | partial | 57 | – | 0 | 178 | queued | queued | met | queued | institution:not_yet_researched |
+| Virginia Commonwealth University | partial | 57 | – | 0 | 178 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog_count:robots_disallowed, degree_maps:not_yet_researched |
 | George Mason University | partial | 71 | 82 | 0 | 117 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | University of Virginia-Main Campus | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Old Dominion University | partial | 155 | 186 | 117 | 96 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |

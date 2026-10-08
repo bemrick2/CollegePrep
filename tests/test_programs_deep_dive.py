@@ -2402,3 +2402,22 @@ class CandidateIdentityTests(unittest.TestCase):
         self.assertEqual(len(set(keys)), 3)
         self.assertEqual(keys[2], slug(h + '112'))  # the last keeps the key stored before this rule
         self.assertEqual(labelled_keys(['Robotics Concentration', 'Without Concentration'], slug), ['robotics-concentration', 'without-concentration'])
+
+
+class DiagnoseRobotsTests(unittest.TestCase):
+    def test_disallowed_url_is_recorded_not_requested(self):  # VCU bulletin azindex is disallowed by robots.txt (2026-10-08)
+        from programs.diagnose import diagnose
+        class R:
+            def allowed(self, u): return 'azindex' not in u
+            def refusal(self, u): return 'disallowed_by_robots'
+        asked = []
+        class Resp:
+            status = 200; headers = {}
+            def read(self, n): return b'ok'
+            def __enter__(self): return self
+            def __exit__(self, *a): return False
+        def opener(req, timeout=30): asked.append(req.full_url); return Resp()
+        out = diagnose(['https://b.x.edu/azindex/', 'https://b.x.edu/undergraduate/'], R(), opener)
+        self.assertEqual(asked, ['https://b.x.edu/undergraduate/'])
+        self.assertIn('https://b.x.edu/azindex/ None\ndisallowed_by_robots', out)
+
