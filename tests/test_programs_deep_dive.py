@@ -2596,20 +2596,27 @@ class CatalogCountTests(unittest.TestCase):
                    ('Physics, Bachelor of Science (B.S.)', u + 'phys/', None),  # VCU: a spelled-out award the reader left unclassified
                    ('Accounting, BSBA/MBA (4 year)', u + 'acct-mba/', None),  # La Salle: combined, excluded by name
                    ('BSBA Graduation Requirements', u + 'bsba-grad/', None),  # YSU: a policy page
-                   ('Spanish Studies (Secondary Major) (BA)', u + 'span-sec/', 'bachelor')]  # BYU: not earned alone
+                   ('Spanish Studies (Secondary Major) (BA)', u + 'span-sec/', 'bachelor'),  # BYU: not earned alone
+                   ('Biology, BA to Secondary Education, MA Accelerated Program', u + 'bio-acc/', 'bachelor'),  # Roosevelt: combined
+                   ('Digital Marketing, BA to Marketing Communications, MSIMC', u + 'dm-msimc/', 'bachelor'),  # Roosevelt: combined
+                   ('Business Administration Dept. Major, B.S./Business Administration, M.B.A.', u + 'bsmba/', 'bachelor'),  # Georgian: combined
+                   ('Minor in Nutrition (Traditional BSN)', u + 'min/', 'bachelor'),  # APU: a minor
+                   ('Physics B.A. (College of Arts and Sciences)', u + 'physics/physicsba/', 'bachelor')]  # UVM: the college is not a qualifier
         records = [('BA in Anthropology', u + 'anth/ba-anthropology/'), ('BA in Art', u + 'art/ba-art/'),
                    ('BBA in Accounting', 'https://api.x.com/feed'), ('BA in Chicano Studies', u + 'chicano-ba/'),
-                   ('Bachelor of Music', u + 'music/bachelor-of-music-general/'), ('Marketing, BSBA', u + 'mkt-bsba/'), ('Biology, BS', u + 'biology/'), ('Biology, BA', u + 'bio/')]
+                   ('Bachelor of Music', u + 'music/bachelor-of-music-general/'), ('Marketing, BSBA', u + 'mkt-bsba/'), ('Biology, BS', u + 'biology/'), ('Biology, BA', u + 'bio/'),
+                   ('Physics B.A.', u + 'physics/physicsba/')]
         with tempfile.TemporaryDirectory() as d:
             d = self.run_dir(d, listing, records)
             e = entries(d, d / 'dec.json', ['k'])[0]
-        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (10, 8))
+        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (11, 9))
         b = e['completeness_basis']
         self.assertIn('4 print only an award under a department heading and are identified by their own page', b)
-        self.assertTrue(b.startswith("14 linked entries"))
+        self.assertTrue(b.startswith("19 linked entries"))
+        self.assertIn("not counted, 4 combined", b); self.assertNotIn("Digital Marketing", b.split("Not recorded")[-1])
         self.assertIn("Accounting, BSBA/MBA (4 year)", b); self.assertIn("BSBA Graduation Requirements", b)
         self.assertIn("2 run the card's category labels on to the name", b)
-        self.assertIn("not counted, 3 department, roadmap, general or commissioning links that are not a single bachelor's program: BSBA Graduation Requirements | Bachelor's Degree Programs | Spanish Studies (Secondary Major) (BA)", b)
+        self.assertIn("not counted, 4 department, roadmap, general or commissioning links that are not a single bachelor's program: BSBA Graduation Requirements | Bachelor's Degree Programs | Minor in Nutrition (Traditional BSN) | Spanish Studies (Secondary Major) (BA)", b)
         self.assertTrue(b.endswith("Not recorded (names separated by ' | '): BS* (https://catalog.x.edu/ds/bs-data-science/) | Physics, Bachelor of Science (B.S.)."))
 
     def test_only_reviewed_approvals_count(self):

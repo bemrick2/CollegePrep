@@ -14,7 +14,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | AL | 31 | 6 | 1 | yes |
 | AR | 26 | 4 | 0 | yes |
 | AZ | 17 | 9 | 0 | yes |
-| CA | 152 | 52 | 4 | yes |
+| CA | 152 | 52 | 5 | yes |
 | CO | 30 | 12 | 2 | yes |
 | CT | 26 | 8 | 0 | yes |
 | DC | 9 | 4 | 0 | yes |
@@ -24,7 +24,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | HI | 8 | 3 | 0 | yes |
 | IA | 33 | 6 | 1 | yes |
 | ID | 10 | 1 | 1 | yes |
-| IL | 71 | 24 | 3 | yes |
+| IL | 71 | 24 | 2 | yes |
 | IN | 52 | 16 | 1 | yes |
 | KS | 31 | 7 | 0 | yes |
 | KY | 30 | 7 | 3 | yes |
@@ -72,7 +72,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | AL | **in_progress** | 31 | 1 | 6% (needs 80%) | 0 | 27 | 36 |
 | AR | **in_progress** | 26 | 0 | 0% (needs 80%) | 0 | 23 | 26 |
 | AZ | **in_progress** | 17 | 0 | 0% (needs 80%) | 0 | 8 | 17 |
-| CA | **in_progress** | 152 | 4 | 5% (needs 80%) | 0 | 111 | 171 |
+| CA | **in_progress** | 152 | 5 | 7% (needs 80%) | 0 | 111 | 172 |
 | CO | **in_progress** | 30 | 2 | 23% (needs 80%) | 0 | 24 | 36 |
 | CT | **in_progress** | 26 | 0 | 0% (needs 80%) | 0 | 20 | 31 |
 | DC | **in_progress** | 9 | 0 | 0% (needs 80%) | 0 | 6 | 11 |
@@ -82,7 +82,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | HI | **in_progress** | 8 | 0 | 0% (needs 80%) | 0 | 5 | 8 |
 | IA | **in_progress** | 33 | 1 | 30% (needs 80%) | 0 | 29 | 35 |
 | ID | **in_progress** | 10 | 1 | 14% (needs 80%) | 0 | 10 | 10 |
-| IL | **in_progress** | 71 | 3 | 3% (needs 80%) | 0 | 56 | 86 |
+| IL | **in_progress** | 71 | 2 | 2% (needs 80%) | 0 | 56 | 87 |
 | IN | **in_progress** | 52 | 1 | 2% (needs 80%) | 0 | 38 | 55 |
 | KS | **in_progress** | 31 | 0 | 0% (needs 80%) | 0 | 27 | 37 |
 | KY | **in_progress** | 30 | 3 | 33% (needs 80%) | 0 | 26 | 33 |
@@ -247,7 +247,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | California State University-Los Angeles | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Modesto Junior College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Santa Ana College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| San Francisco State University | partial | 110 | 119 | 0 | 85 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
+| San Francisco State University | covered | 110 | 118 | 0 | 85 | met | queued | met | queued | admission_rules:not_yet_researched, catalog:layout_not_readable, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | Cypress College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | San Diego Mesa College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | California State University-San Marcos | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
@@ -721,7 +721,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Olivet Nazarene University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Lewis University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Elmhurst University | partial | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:no_year_label |
-| Roosevelt University | covered | 58 | 61 | 0 | 114 | met | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
+| Roosevelt University | partial | 58 | 79 | 0 | 114 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | Northeastern Illinois University | partial | 2 | – | 0 | 0 | queued | queued | queued | met | catalog:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:layout_not_readable |
 | Wheaton College | covered | 22 | 22 | 0 | 73 | met | queued | met | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched |
 | Illinois Institute of Technology | partial | 54 | – | 0 | 287 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |

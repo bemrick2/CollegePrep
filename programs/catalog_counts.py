@@ -21,8 +21,10 @@ from programs import extract as X
 ZWSP = '​'
 COMB = re.compile(r"Accelerated.*(\bM\.?[AS]\b\.?|\bMBA\b|\bMPA\b|Master)|Scholars Roadmap|\s\+\s.*\b(M[A-Z]{1,3}|MPA|MBA)\b|\(3\+2\)|\b3-2\b|4\+1|"
                   r"Dual Acceptance|and MBA\b|to MBA|\bB\.?[AS]\.?/\s?M\.?[AS]\b|\bM\.[AS]\.|/\s?(DDS|MD|PharmD|DPT|OTD)\b|\(B[AS]/D|"
-                  r"(?-i:\bB[A-Z]{1,4}/M[A-Z]{1,3}\b)", re.I)  # La Salle 'Accounting, BSBA/MBA (4 year)'
-GENERIC = re.compile(r"^(Bachelor's (Degree|Concentration|Degree Programs)|Department of .*)$|: Bachelor's Degree\b|Minor, Certificate|Graduate Certificate|\bRoadmap\b|\b(Graduation|Continuance)\s+(Requirements|Regulations)\b|\bReadmission\b|\(Secondary Major\)", re.I)
+                  r"(?-i:\bB[A-Z]{1,4}/M[A-Z]{1,3}\b)|"  # La Salle 'Accounting, BSBA/MBA (4 year)'
+                  r"\bto\b.*\bM[A-Z]{0,4}\b.*\bAccelerated\b|Dual Degree Acceptance|\bB\.?[AS]\.?/.*\bM\.\s?B\.\s?A\b|"
+                  r"(?-i:,\s*B[A-Z]{1,3}\s+to\s+[^,]+,\s*M[A-Z]{1,5}\b)", re.I)  # Roosevelt 'Biology, BA to Secondary Education, MA Accelerated Program'; Georgian 'B.S./... M.B.A.'
+GENERIC = re.compile(r"^(Bachelor's (Degree|Concentration|Degree Programs)|Department of .*)$|: Bachelor's Degree\b|Minor, Certificate|Graduate Certificate|\bRoadmap\b|\b(Graduation|Continuance)\s+(Requirements|Regulations)\b|\bReadmission\b|\(Secondary Major\)|^Minor in\b|General Education Requirements|^\(B[A-Z.]{1,6}\)$|^Bachelor's and Master's Degree Programs$", re.I)
 ROTC = re.compile(r'\bROTC\b')
 LABELED = {'labeled_in_title', 'labeled_in_heading', 'labeled_in_source'}
 # UTEP 2026-27 cards run the name into the card's category labels: 'BBA in AccountingBusiness, Management, & Marketing
@@ -110,7 +112,10 @@ def entries(run_dir, decision, iks, year='2026-2027', reviewed=''):
             if not hit and len(by_page[page_key(x['url'])]) == 1 and len(rec_pages.get(page_key(x['url']), [])) == 1:
                 hit = rec_pages[page_key(x['url'])][0]
                 rk = name_key(hit['record']['program_name']); pk = name_key(x['printed'])
-                if pk != rk and pk.startswith(rk): hit = None  # 'X: Concentration in Y' is not credited through X's page
+                # 'X: Concentration in Y' is not credited through X's page; a college named in parentheses is not a qualifier
+                # (UVM 'Computer Science B.A. (College of Arts and Sciences)')
+                bare = name_key(re.sub(r'\s*\((?:[^()]*\b(?:College|School)\b[^()]*)\)\s*$', '', x['printed']))
+                if pk.startswith(rk) and bare != rk: hit = None  # equal names are bare-equal
             if hit: verified[k] = hit['record']['program_key']
             else: verified.setdefault(k, None)
         n = len(verified); ver = sum(1 for v in verified.values() if v)
