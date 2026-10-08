@@ -665,6 +665,13 @@
       "reason": "Issue claim confirmed. 'Non-Western/Underrepresented Traditions' is an unindented sub-heading row (not an areaheader) inside the areaheader 'Upper Level Art History Electives', whose printed rule is 'Select five courses from at least two of the following areas: | 15'. It is one of six areas (Ancient/Medieval, Eighteenth/Nineteenth Century, Twentieth Century, Contemporary, Non-Western/Underrepresented Traditions, Media Specific). The record makes it its own all_required group, claiming ART 353, ART 390 are all required; the source requires none individually. (issue #141)",
       "approved_by": "Brandon (repository owner), 2026-10-07 10:10 CT instruction in the Claude session: \"Approve the corrections in #141 individually after checking each against its archived official source.\"",
       "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"academic_programs\", \"ipeds-162928\", null, \"2026-27\", {\"program_key\": \"requirements-for-a-bachelor-s-degree\"}]",
+      "record": "data/institutions/jhu/academic_programs/2026-27.json",
+      "reason": "Not a degree program: the page is JHU's KSAS/WSE undergraduate policy page 'Requirements for a Bachelor's Degree' (Undergraduate Policies > Academic Policies; headings 'Ten-Year Degree Completion Limit', 'Residency Requirement for Transfer Students', 'Degree Credit Totals'), which states degree rules for every KSAS/WSE full-time, on-campus bachelor's degree and is not the requirements page of any single major or degree program. It was read by static_program/v1 because the title contains 'Bachelor's Degree'; the reader no longer takes such pages (#178). Evidence kept: run programs/runs/MD/2026-10-07-cat2, page sha256 312b991592e4be87b5a89e86d0fda8f81a059b9bf3c7bfa3be7fa5d992072a73 (fetched 2026-10-07T12:49:16Z), sources/programs/MD/2026-10-07-cat2/evidence.json#7eb42f79f75db249. Its transfer-student residency rule is kept as JHU's transfer_policies record.",
+      "approved_by": "Brandon (repository owner), 2026-10-07 17:24 CT instruction in the Claude session: \"Approve correcting JHU\u2019s \u201cRequirements for a Bachelor\u2019s Degree\u201d: remove it from verified program listings, preserve its evidence and correction history, and retain it as a policy record if supported.\"",
+      "approved_on": "2026-10-07"
     }
   ]
 }
