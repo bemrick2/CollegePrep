@@ -7,13 +7,13 @@
       "currency": "USD",
       "cost_period": "academic_year",
       "source_url": "https://www.utc.edu/sites/default/files/2026-09/2026-27-estimated-cost-of-attendance.pdf",
-      "verification_status": "partially_verified",
+      "verification_status": "verified",
       "residency": "in_state",
       "tuition": null,
       "mandatory_fees": null,
       "books_supplies": 1400,
-      "on_campus_food_housing": 13756,
-      "on_campus_other_expenses": 4100,
+      "on_campus_food_housing": null,
+      "on_campus_other_expenses": null,
       "total_cost_of_attendance": 30340,
       "components": {
         "enrollment_fees_in_state": 11084,
@@ -46,21 +46,25 @@
           "source": "https://www.utc.edu/sites/default/files/2026-09/2026-27-estimated-cost-of-attendance.pdf"
         }
       ],
-      "notes": "UTC 2026-2027 Cost Estimates (dated June 5, 2026), campus undergraduates, based on 12+ credit hours. \"Enrollment Fees\" $11,084 combines tuition and mandatory fees (the UT System FY27 public notice gives the same in-state tuition-and-mandatory-fee total), so tuition and mandatory_fees are not split. Printed totals: with parent $23,736, off campus $29,936, on campus $30,340; components re-add to the printed totals. Online-only students have different estimates (not recorded). Read 2026-10-02 through a fetch tool that returns a model summary of the page rather than raw text; values have not yet been confirmed against the raw page, so the record stays partially_verified.",
-      "last_verified_at": "2026-10-02"
+      "notes": "UTC 2026-2027 Cost Estimates (dated June 5, 2026), campus undergraduates, based on 12+ credit hours. \"Enrollment Fees\" $11,084 combines tuition and mandatory fees (the UT System FY27 public notice gives the same in-state tuition-and-mandatory-fee total), so tuition and mandatory_fees are not split. Printed totals: with parent $23,736, off campus $29,936, on campus $30,340; components re-add to the printed totals. Online-only students have a different out-of-state tuition line (not recorded). 2026-10-08: every value re-read from the raw PDF (pipeline run TN/2026-10-08, sha256 4dc086460fb0046da49feb0d9292d8395c643999f31913a1872b3a29f1af73d4); printed Housing and Food are stored as room and board, and the derived sums the PDF does not print (housing+food, transportation+personal) are removed.",
+      "last_verified_at": "2026-10-08",
+      "room": 9204,
+      "board": 4552,
+      "transportation": 2300,
+      "personal_misc": 1800
     },
     {
       "student_population": "full_time_undergraduate",
       "currency": "USD",
       "cost_period": "academic_year",
       "source_url": "https://www.utc.edu/sites/default/files/2026-09/2026-27-estimated-cost-of-attendance.pdf",
-      "verification_status": "partially_verified",
+      "verification_status": "verified",
       "residency": "out_of_state",
       "tuition": null,
       "mandatory_fees": null,
       "books_supplies": 1400,
-      "on_campus_food_housing": 13756,
-      "on_campus_other_expenses": 4100,
+      "on_campus_food_housing": null,
+      "on_campus_other_expenses": null,
       "total_cost_of_attendance": 38646,
       "components": {
         "enrollment_fees_in_state": 11084,
@@ -94,8 +98,12 @@
           "source": "https://www.utc.edu/sites/default/files/2026-09/2026-27-estimated-cost-of-attendance.pdf"
         }
       ],
-      "notes": "UTC 2026-2027 Cost Estimates (dated June 5, 2026), campus undergraduates, based on 12+ credit hours. \"Enrollment Fees\" $11,084 combines tuition and mandatory fees (the UT System FY27 public notice gives the same in-state tuition-and-mandatory-fee total), so tuition and mandatory_fees are not split. Out-of-state adds \"Out-of-State Tuition\" $8,306. Printed totals: with parent $32,042, off campus $38,242, on campus $38,646; components re-add to the printed totals. Online-only students have different estimates (not recorded). Read 2026-10-02 through a fetch tool that returns a model summary of the page rather than raw text; values have not yet been confirmed against the raw page, so the record stays partially_verified.",
-      "last_verified_at": "2026-10-02"
+      "notes": "UTC 2026-2027 Cost Estimates (dated June 5, 2026), campus undergraduates, based on 12+ credit hours. \"Enrollment Fees\" $11,084 combines tuition and mandatory fees (the UT System FY27 public notice gives the same in-state tuition-and-mandatory-fee total), so tuition and mandatory_fees are not split. Out-of-state adds \"Out-of-State Tuition\" $8,306. Printed totals: with parent $32,042, off campus $38,242, on campus $38,646; components re-add to the printed totals. Online-only students have a different out-of-state tuition line (not recorded). 2026-10-08: every value re-read from the raw PDF (pipeline run TN/2026-10-08, sha256 4dc086460fb0046da49feb0d9292d8395c643999f31913a1872b3a29f1af73d4); printed Housing and Food are stored as room and board, and the derived sums the PDF does not print (housing+food, transportation+personal) are removed.",
+      "last_verified_at": "2026-10-08",
+      "room": 9204,
+      "board": 4552,
+      "transportation": 2300,
+      "personal_misc": 1800
     }
   ]
 }
