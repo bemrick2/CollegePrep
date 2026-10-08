@@ -472,6 +472,11 @@ class StatedMajorTests(unittest.TestCase):
         from pipeline import text as T
         p = T.Page('Catalog 2026-2027\nPDF of the entire 2025-2026 Catalog\nDownload PDF of the entire 2024-2025 Bulletin', 't', [], [], [])
         self.assertEqual({y for y, _ in X.printed_catalog_years(p)}, {'2026-2027'})
+        # Oklahoma State 2026-27: the edition header and the print link to last year's full PDF catalog
+        osu = T.Page('2026-2027 Edition\nFull 2025-2026 Catalog\nZoology, BS', 't', [], [], [])
+        self.assertEqual({y for y, _ in X.printed_catalog_years(osu)}, {'2026-2027'})
+        # only the whole line is a print link: a sentence naming the full catalog still carries its label
+        self.assertEqual({y for y, _ in X.printed_catalog_years(T.Page('Full 2026-2027 Catalog of courses and programs', 't', [], [], []))}, {'2026-2027'})
 
     def test_stetson_edition_header_and_coming_soon_pdf_slot(self):
         from pipeline import text as T
@@ -2060,6 +2065,12 @@ class ListedEmphasisTests(unittest.TestCase):
         self.assertEqual(listed_emphasis_pages(L(('English (BA): Film Studies Concentration', 'f'), ('English (B.A.)', 'e')), norm), set())
         # a degree with a program page of its own in the run keeps its concentrations as options
         self.assertEqual(sorted(u for _, u in listed_emphasis_pages(lists, norm, {'x': {('computerscience', 'bs')}})), ['https://a/ans-ind', 'https://a/bsba-acct'])
+        # VCU 2026-27: the award spelled out, then the concentration; a degree whose own line is listed keeps them as options
+        vcu = L(('Chemistry, Bachelor of Science (B.S.) with a concentration in biochemistry', 'chem-bio'),
+                ('Chemistry, Bachelor of Science (B.S.) with a concentration in chemical science', 'chem-sci'),
+                ('Biology, Bachelor of Science (B.S.) with a concentration in ecology', 'bio-eco'), ('Biology, Bachelor of Science (B.S.)', 'bio'),
+                ('Biology, Bachelor of Arts (B.A.) with a concentration in teaching', 'bio-ba'))
+        self.assertEqual(sorted(u for _, u in listed_emphasis_pages(vcu, norm)), ['https://a/bio-ba', 'https://a/chem-bio', 'https://a/chem-sci'])
         # a list page stored by another run of the same catalog (NC State's discovery run) is read as stored; absent runs are skipped
         page = (b'<html><head><title>Undergraduate</title></head><body><p>University Catalog 2026-2027</p>'
                 b'<a href="https://catalog.example.edu/ans/ans-bs-industry-concentration/">Animal Science (BS): Industry Concentration</a></body></html>')
@@ -2300,20 +2311,57 @@ class CatalogCountTests(unittest.TestCase):
                    ('Individual Major, BS', u + 'im-bs/', 'bachelor'),
                    ('Individual Major, BS', u + 'im-bs-2/', 'bachelor'),                       # same name, second link: counted once
                    ('Accounting - BSThe B.S. in Accounting prepares students for careers.', u + 'acct/', 'bachelor'),  # run-on description
-                   ('Chemistry BS + MS SF State Scholars Roadmap', u + 'chem-bsms/', 'bachelor'),  # combined: excluded by name
+                   ('Communication, B.A./M.A. (4+1 year)', u + 'comm-bama/', 'bachelor'),        # combined: excluded by name
+                   ('Business, BSFinance Option', u + 'bus-fin/', 'bachelor'),                 # a short run-on is not a description
                    ('History, B.A.', u + 'history-ba/', 'bachelor'),                           # credited through its own page (http vs https)
                    ('Biology: Concentration in Ecology, B.S.', u + 'biology-bs/', 'bachelor'),  # not credited through Biology's page
                    ('Environmental Studies Major', u + 'envst/', 'major')]                     # prints no award: named, not counted
         records = [('Anthropology, BA', u + 'anth-ba/'), ('Individual Major, BS', u + 'im-bs/'), ('Accounting - BS', 'https://api.x.com/feed'),
+                   ('Business, BS', 'https://api.x.com/feed2'),
                    ('Bachelor of Arts (B.A.) Major in History', 'http://catalog.x.edu/history-ba/'), ('Biology', u + 'biology-bs/')]
         with tempfile.TemporaryDirectory() as d:
             d = self.run_dir(d, listing, records)
             e = entries(d, d / 'dec.json', ['k'], reviewed='2026-10-08')[0]
-        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs'], e['programs_complete']), (6, 4, False))
+        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs'], e['programs_complete']), (7, 4, False))
         b = e['completeness_basis']
-        self.assertIn('Chemistry BS + MS SF State Scholars Roadmap', b)
+        self.assertIn("not counted, 1 combined or accelerated bachelor's/master's entries: Communication, B.A./M.A. (4+1 year)", b)
         self.assertIn('print no award and are not counted: Environmental Studies Major', b)
-        self.assertTrue(b.endswith("Not recorded (names separated by ' | '): Biology: Concentration in Ecology, B.S. | Individual Major, BSE."))
+        self.assertTrue(b.endswith("Not recorded (names separated by ' | '): Biology: Concentration in Ecology, B.S. | Business, BSFinance Option | Individual Major, BSE."))
+
+    def test_options_of_a_listed_degree_are_one_program(self):
+        import tempfile
+        from programs.catalog_counts import entries
+        u = 'https://catalog.x.edu/'
+        listing = [('Chemistry, Bachelor of Science (B.S.)', u + 'chem/', 'bachelor'),
+                   ('Chemistry, Bachelor of Science (B.S.) with a concentration in biochemistry', u + 'chem-bio/', 'bachelor'),
+                   ('Physics, Bachelor of Science (B.S.) with a concentration in astronomy', u + 'phys-astro/', 'bachelor')]  # no Physics line
+        with tempfile.TemporaryDirectory() as d:
+            d = self.run_dir(d, listing, [('Chemistry, Bachelor of Science (B.S.)', u + 'chem/')])
+            e = entries(d, d / 'dec.json', ['k'])[0]
+        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (2, 1))
+        self.assertIn("not counted, 1 concentrations or options of a degree whose own line is listed: "
+                      "Chemistry, Bachelor of Science (B.S.) with a concentration in biochemistry", e['completeness_basis'])
+        self.assertTrue(e['completeness_basis'].endswith("Not recorded (names separated by ' | '): "
+                                                         "Physics, Bachelor of Science (B.S.) with a concentration in astronomy."))
+
+    def test_award_only_entries_and_category_labels(self):
+        import tempfile
+        from programs.catalog_counts import entries
+        u = 'https://catalog.x.edu/'
+        # Missouri: 'BA' / 'BS*' under department headings, each its own program; UTEP: card labels run on to the name
+        listing = [('BA', u + 'anth/ba-anthropology/', 'bachelor'), ('BA', u + 'art/ba-art/', 'bachelor'), ('BS*', u + 'ds/bs-data-science/', 'bachelor'),
+                   ('BBA in AccountingBusiness, Management, & MarketingBachelorsUndergraduateBusiness Administration', u + 'acct-bba/', 'bachelor'),
+                   ('BA in Chicano StudiesBachelorsHumanities, Languages, and Literatures', u + 'chicano-ba/', 'bachelor')]
+        records = [('BA in Anthropology', u + 'anth/ba-anthropology/'), ('BA in Art', u + 'art/ba-art/'),
+                   ('BBA in Accounting', 'https://api.x.com/feed'), ('BA in Chicano Studies', u + 'chicano-ba/')]
+        with tempfile.TemporaryDirectory() as d:
+            d = self.run_dir(d, listing, records)
+            e = entries(d, d / 'dec.json', ['k'])[0]
+        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (5, 4))
+        b = e['completeness_basis']
+        self.assertIn('3 print only an award under a department heading and are identified by their own page', b)
+        self.assertIn("2 run the card's category labels on to the name", b)
+        self.assertTrue(b.endswith("Not recorded (names separated by ' | '): BS* (https://catalog.x.edu/ds/bs-data-science/)."))
 
     def test_only_reviewed_approvals_count(self):
         import tempfile

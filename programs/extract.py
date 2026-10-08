@@ -96,7 +96,8 @@ LABEL_FIRST = re.compile(r'(?:Catalog|Catalogue|Bulletin)\s+(20\d{2})\s*[-–]\s
 SHORT_LABEL = re.compile(r'\b(20\d{2})\s*[-–]\s*(\d{2})\s+(?:Undergraduate\s+|University\s+|Academic\s+|General\s+)?(?:Catalog|Catalogue|Bulletin)\b', re.I)  # UNI '2026-27 University Catalog'
 EDITION = re.compile(r'(20\d{2})\s*[-–]\s*(?:20)?(\d{2})\s+Edition', re.I)  # Lewis & Clark '2026-27 Edition'; Stetson '2026-2027 Edition'
 NOT_CURRENT = re.compile(r'\[?\s*(not current|archived?)\b', re.I)  # Acalog selector: "2025-2026 Academic Catalog [NOT CURRENT CATALOGS]"
-ARCHIVE_LINK = re.compile(r'\s*(?:Download\s+)?(?:an?\s+)?PDF of\b', re.I)  # "PDF of the entire 2025-2026 Catalog", uark "A PDF of the entire 2025-26 Undergraduate catalog.": a download link, not this page's label
+ARCHIVE_LINK = re.compile(r'\s*(?:Download\s+)?(?:an?\s+)?PDF of\b|\s*Full\s+20\d{2}\s*[-–]\s*(?:20)?\d{2}\s+(?:Catalog|Catalogue|Bulletin)\s*$', re.I)  # "PDF of the entire 2025-2026 Catalog", uark "A PDF of the entire 2025-26 Undergraduate catalog.": a download link, not this page's label;
+# OSU 2026-27 pages print '2026-2027 Edition' and the print link 'Full 2025-2026 Catalog' (a PDF of last year's catalog)
 
 
 from programs.years import PERIOD_SPANS, academic_year_of  # noqa: E402  (multi-year catalog periods, #153)
@@ -1003,12 +1004,17 @@ PAREN_VARIANT_ENTRY = re.compile(r'^(?P<base>[^,()]+?),?\s+(?P<award>(?-i:B[A-Z]
 PAREN_AWARD_VARIANT_ENTRY = re.compile(r'^(?P<base>[^()]+?)\s*\((?P<award>(?-i:B[A-Z]{1,4}|B\.\s?[A-Z][a-z]{0,3}\.?(?:[A-Z][a-z]{0,3}\.)?))\)\s*\((?P<variant>[^()]+)\)\s*$')
 # Texas A&M 2026-27: 'Civil Engineering - BS, Coastal Engineering Track' (no 'Civil Engineering - BS' line)
 AWARD_DASH_OPTION_ENTRY = re.compile(r'^(?P<base>[^,]+?)\s+-\s*(?P<award>(?-i:B[A-Z]{1,4}))\s*,\s*[^,]*\b(emphasis|concentration|track|option|specialization)\b[^,]*$', re.I)
+# VCU 2026-27: 'Chemistry, Bachelor of Science (B.S.) with a concentration in biochemistry' (no 'Chemistry, Bachelor of Science (B.S.)' line)
+LONG_AWARD_WITH_OPTION_ENTRY = re.compile(r'^(?P<base>[^,]+?),\s+Bachelor of [^(),]+?\s*\((?P<award>(?-i:B\.\s?[A-Z][A-Za-z.]*))\)\s+with\s+an?\s+(?:concentration|emphasis|option|track|specialization)\s+in\b', re.I)
 # Bryant 2026-27: 'Bachelor of Science in Business Administration: Accounting Concentration'
 BACHELOR_OF_OPTION_ENTRY = re.compile(r'^(?P<award>Bachelor of (?:Science|Arts|Fine Arts|Music|Business Administration))\s+in\s+(?P<base>[^:]+?)\s*:\s*[^:]*\b(emphasis|concentration|track|option|specialization)\b', re.I)
 
 
 LONG_AWARD = {'bachelorofarts': 'ba', 'bachelorofscience': 'bs', 'bachelorofbusinessadministration': 'bba', 'bachelorofmusic': 'bm',
               'bacheloroffinearts': 'bfa'}
+
+
+name_key_of = lambda base: re.sub(r'\W+', '', base).lower()
 
 
 def _award_key(a):
@@ -1019,6 +1025,8 @@ def _award_key(a):
 def _degree_key(line):
     """(base, award) of a program-list line that names a degree without an emphasis: 'Political Science, B.A.' or
     'Arts Major (B.A.)'."""
+    m = re.match(r'^(?P<base>[^,]+?),\s+Bachelor of [^(),]+?\s*\((?P<award>(?-i:B\.\s?[A-Z][A-Za-z.]*))\)\s*$', line)  # VCU 'Chemistry, Bachelor of Science (B.S.)'
+    if m: return re.sub(r'\W+', '', m.group('base')).lower(), _award_key(m.group('award'))
     if ',' in line:
         head, rest = line.split(',', 1)
         m = re.match(r'\s*((?-i:(?:B|A)\.\s?[A-Z][a-z]{0,3}(?:\.[A-Z][a-z]{0,3})*\.?(?![a-z])))', rest)
@@ -1032,6 +1040,18 @@ def _degree_key(line):
     return None
 
 
+def emphasis_entry(line):
+    """The emphasis, option or variant shape a program-list line prints (None for a line naming a degree itself)."""
+    return (EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) or WITH_EMPHASIS_ENTRY.match(line)
+                or AWARD_PAREN_OPTION_ENTRY.match(line) or BACHELOR_OF_OPTION_ENTRY.match(line) or PAREN_VARIANT_ENTRY.match(line)
+                or AWARD_DASH_OPTION_ENTRY.match(line) or PAREN_AWARD_VARIANT_ENTRY.match(line) or LONG_AWARD_WITH_OPTION_ENTRY.match(line))
+
+
+def list_line(printed):
+    """A program-list entry as read for its shape: words the page glued together pulled apart, spaces collapsed."""
+    return re.sub(r'\s+', ' ', re.sub(r'(?<=[a-z.])(?=[A-Z][a-z])', ' ', (printed or '').replace('\u200b', ''))).strip()
+
+
 def listed_emphasis_pages(lists, norm, offered=None):
     """(institution, page URL) of emphases the official program list prints as bachelor's programs of their own
     ('Political Science - American Government Emphasis, B.A.', UVU 2026-27; 'Arts Major: Studio Art Option (B.A.)',
@@ -1041,15 +1061,12 @@ def listed_emphasis_pages(lists, norm, offered=None):
     out = set()
     for ik, v in (lists or {}).items():
         progs = [p for p in (v.get('programs') or []) if p.get('listed_as') == 'bachelor']
-        printed = [re.sub(r'\s+', ' ', re.sub(r'(?<=[a-z.])(?=[A-Z][a-z])', ' ', (p.get('printed') or '').replace('\u200b', ''))).strip() for p in progs]
-        emph = [EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) or WITH_EMPHASIS_ENTRY.match(line)
-                or AWARD_PAREN_OPTION_ENTRY.match(line) or BACHELOR_OF_OPTION_ENTRY.match(line) or PAREN_VARIANT_ENTRY.match(line)
-                or AWARD_DASH_OPTION_ENTRY.match(line) or PAREN_AWARD_VARIANT_ENTRY.match(line)
-                for line in printed]
+        printed = [list_line(p.get('printed')) for p in progs]
+        emph = [emphasis_entry(line) for line in printed]
         degrees = {_degree_key(o) for o, m in zip(printed, emph) if not m} - {None}
         for p, m in zip(progs, emph):
             if not m: continue
-            key = (re.sub(r'\W+', '', m.group('base')).lower(), _award_key(m.group('award')))
+            key = (name_key_of(m.group('base')), _award_key(m.group('award')))
             # the base degree is listed, or has a program page of its own in the run (NC State 'Computer Science (BS)'
             # beside 'Computer Science (BS): Game Development Concentration'): the emphasis is an option of it
             if key in degrees or key in (offered or {}).get(ik, set()): continue

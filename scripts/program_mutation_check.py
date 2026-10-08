@@ -7,6 +7,17 @@ the same file. Each mutant breaks one rule; tests/test_programs_deep_dive.py mus
 import shutil, subprocess, sys
 
 MUTS = [
+    ('programs/catalog_counts.py', "        ident = lambda x: 'page:' + page_key(x['url']) if AWARD_ONLY.match(x['printed'].strip()) else name_key(x['printed'])", "        ident = lambda x: name_key(x['printed'])"),
+    ('programs/catalog_counts.py', "            if c: x['printed'] = max(c, key=len); labelled += 1\n", ""),
+    ('programs/catalog_counts.py', "(?: [A-Z][a-z]+)*)\\**$')", "(?: [A-Z][a-z]+)*)$')"),
+    ('programs/catalog_counts.py', "        deg = [x for x in rest if x not in opts]", "        deg = rest"),
+    ('programs/catalog_counts.py', " for x, m in zip(rest, shape) if m and (X.name_key_of", " for x, m in zip(rest, shape) if m or (X.name_key_of"),
+    # VCU 2026-27: 'X, Bachelor of Science (B.S.) with a concentration in Y' with no line for the degree itself
+    ('programs/extract.py', " or LONG_AWARD_WITH_OPTION_ENTRY.match(line))", ")"),
+    ('programs/extract.py', "    if m: return re.sub(r'\\W+', '', m.group('base')).lower(), _award_key(m.group('award'))\n    if ',' in line:", "    if ',' in line:"),
+    # OSU 2026-27: a 'Full 2025-2026 Catalog' print link is not the page's year label; only the whole line is
+    ('programs/extract.py', "|\\s*Full\\s+20\\d{2}\\s*[-–]\\s*(?:20)?\\d{2}\\s+(?:Catalog|Catalogue|Bulletin)\\s*$', re.I)", "', re.I)"),
+    ('programs/extract.py', "(?:Catalog|Catalogue|Bulletin)\\s*$', re.I)  # \"PDF of", "(?:Catalog|Catalogue|Bulletin)', re.I)  # \"PDF of"),
     # UVU: listed emphases, glued awards, matriculation evidence
     ('programs/extract.py', "    return any(is_option_page(c) for c in found) and (key, norm_emph(url)) not in emphases", "    return any(is_option_page(c) for c in found)"),
     ('programs/autoreview.py', "'program_name', '')) and (c['institution_key'], url_of(c, 'program_url')) not in listed_emphases else", "'program_name', '')) and True else"),
@@ -74,7 +85,7 @@ MUTS = [
     ('programs/catalog_counts.py', "        comb = [x for x in b if COMB.search(x['printed'])]", "        comb = []"),
     ('programs/catalog_counts.py', "        progs = [v for v in cands.values() if v['institution_key'] == ik and v['domain'] == 'academic_programs' and v['candidate_id'] in approved]", "        progs = [v for v in cands.values() if v['institution_key'] == ik and v['domain'] == 'academic_programs']"),
     ('programs/extract.py', "|General\\s+|[A-Z][a-z]+\\s+Campus\\s+)?(Catalog", "|General\\s+)?(Catalog"),
-    ('programs/extract.py', "        emph = [EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) or WITH_EMPHASIS_ENTRY.match(line)\n", "        emph = [EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) or None\n"),
+    ('programs/extract.py', "    return (EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) or WITH_EMPHASIS_ENTRY.match(line)\n", "    return (EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) or None\n"),
     ('programs/extract.py', "            if key in degrees or key in (offered or {}).get(ik, set()): continue", "            pass"),
     ('programs/crawl.py', " or SKIP_PATH.search(p.path) or excluded(target, u): return False", " or SKIP_PATH.search(p.path): return False"),
     ('programs/extract.py', "BACHELOR = re.compile(r'(?<![A-Za-z]\\.)\\b(B", "BACHELOR = re.compile(r'\\b(B"),
@@ -249,7 +260,7 @@ MUTS = [
     ('programs/courseleaf.py', "if k in keys[i + 1:] else k", "if False else k"),
     ('programs/courseleaf.py', "    plan_keys = labelled_keys(headings, slug) if labelled else []", "    plan_keys = [slug(h) for h in headings] if labelled else []"),
     # Cal Poly 2026-2028 campus variants listed without a base line
-    ('programs/extract.py', " or PAREN_AWARD_VARIANT_ENTRY.match(line)\n                for line in printed]", "\n                for line in printed]"),
+    ('programs/extract.py', " or PAREN_AWARD_VARIANT_ENTRY.match(line) or LONG_AWARD", " or LONG_AWARD"),
     ('programs/autoreview.py', " and not PAREN_AWARD_VARIANT_ENTRY.match(n) and _degree_key(n)", " and _degree_key(n)"),
 ]
 

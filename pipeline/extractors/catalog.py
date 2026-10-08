@@ -109,7 +109,9 @@ def catalog_year(page):
     labels = T.year_labels(page.title + '\n' + '\n'.join(page.lines[:60]))
     if len(labels) == 1:
         y = next(iter(labels)); return y, f'{y[:4]}-{int(y[:4]) + 1}'
-    m = re.search(r'(20\d{2})\s*[-–]\s*(20\d{2})\s+(?:undergraduate\s+)?catalog', page.text[:5000], re.I)
+    # a whole line 'Full 2025-2026 Catalog' is a print link to last year's PDF (Oklahoma State 2026-27), not the page's label
+    text = re.sub(r'(?im)^[ \t]*Full\s+20\d{2}\s*[-–]\s*20\d{2}\s+catalog[ \t]*$', '', page.text[:5000])
+    m = re.search(r'(20\d{2})\s*[-–]\s*(20\d{2})\s+(?:undergraduate\s+)?catalog', text, re.I)
     if m and int(m.group(2)) == int(m.group(1)) + 1:
         return T.academic_year(int(m.group(1))), f'{m.group(1)}-{m.group(2)}'
     return None, None

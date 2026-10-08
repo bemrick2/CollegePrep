@@ -30,6 +30,14 @@ class TextTests(unittest.TestCase):
         self.assertEqual(T.current_academic_year(date(2026, 10, 2)), '2026-27')
         self.assertEqual(T.current_academic_year(date(2027, 3, 1)), '2026-27')
 
+    def test_full_catalog_print_link_is_not_the_catalog_year(self):
+        # Oklahoma State 2026-27: '2026-2027 Edition' heads the page; 'Full 2025-2026 Catalog' links last year's PDF
+        osu = T.Page('2026-2027 Edition\nFull 2025-2026 Catalog\nZoology, BS\nAcademic Year 2026-2027', 'Zoology, BS', [], [], [])
+        self.assertEqual(catalog.catalog_year(osu), (None, None))
+        # a footer label in a sentence is still read
+        foot = T.Page('2026-2027 Edition\nFull 2025-2026 Catalog\nPrinted from the 2026-2027 Catalog', 'Zoology, BS', [], [], [])
+        self.assertEqual(catalog.catalog_year(foot), ('2026-27', '2026-2027'))
+
     def test_money_and_numbers_are_not_guessed(self):
         self.assertEqual(T.money_values('$11,084 and $12.50 and $3'), [11084, 12.5, 3])
         self.assertEqual(T.plain_number('$1,400'), 1400)
