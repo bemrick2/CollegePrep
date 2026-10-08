@@ -13,7 +13,7 @@ This file is how a new Research session resumes the national program-research wo
 | Registered four-year institutions | 2,119 | 2,119 |
 | Covered (docs/PROGRAM_DEPTH_COMPLETION.md) | 62 | 64 |
 | Researched | 661 | 672 |
-| Verified bachelor's program records | 9,745 | 10,014 |
+| Verified bachelor's program records | 9,745 | 10,012 |
 
 All figures are counted from `docs/coverage/programs/STATUS.json` and from the `academic_programs` files with `verification_status == "verified"` and `credential_level == "bachelor"`.
 
@@ -24,7 +24,7 @@ All figures are counted from `docs/coverage/programs/STATUS.json` and from the `
 | Oklahoma State | OK/2026-10-08-r2 | 170/184, covered. Re-run with a 900-page cap, superseding b01. Undotted awards (BSBA, BSCH, BSET, BPS, ...) are read in list entries and page names. |
 | Missouri | MO/2026-10-08-r2 | 97/100, covered. Re-run with an 800-page cap, superseding b02. Pages named 'BSAcc in Accountancy' and 'BHS in ...' are read. |
 | UIC | IL/2026-10-08-b04 | 95/128, partial. The walk starts at /ucat/colleges-depts/. |
-| BYU | UT/2026-10-08-b03 | 120/172, partial. New reader `kuali_page/v1` for pages titled '<code> Program'; the year comes from the site header 'Undergraduate Catalog' / 'BYU' / '2026-2027'. |
+| BYU | UT/2026-10-08-b03 | 118/169, partial (secondary majors listed but not counted). New reader `kuali_page/v1` for pages titled '<code> Program'; the year comes from the site header 'Undergraduate Catalog' / 'BYU' / '2026-2027'. |
 
 Blockers queued in batch 2:
 - **bot challenge:** Pitt; State College of Florida.

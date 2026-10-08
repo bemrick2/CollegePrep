@@ -29,7 +29,7 @@ from .crawl import program_rule, in_scope, excluded
 GRAD = re.compile(r'\b(M\.?\s?S\.?|M\.?\s?A\.?|MBA|M\.?\s?Ed|M\.?\s?F\.?A|Ph\.?\s?D|Ed\.?\s?D|DNP|D\.?\s?P\.?\s?T|J\.?\s?D|'
                   r'Master|Doctor|Graduate|Post[- ]?bacc|Certificate|Minor|Endorsement)\b', re.I)
 # PVAMU 2026-27 also prints BSCJ, BSAG, BSCHE and BSDIET ('Criminal Justice, BSCJ'); Liberty 'Biology Education 6-12 Major (B.Ed.)'
-BACHELOR = re.compile(r'(?<![A-Za-z]\.)\b(B\.?\s?(A|S|F\.?A|L\.\s?A|M|S\.?N|S\.?W|B\.?A|S\.?E|S\.?E\.?E|S\.?M\.?E|S\.?C\.?E|Arch|Mus|A\.?S|A\.?A\.?S|S\.?Ed|Ed|I\.?S|SCJ|SAG|SCHE|SDIET|SBA|SET|SCH|SCV|SCP|SIE|SBE|SAE|SAcc|PS|HS|GS|ES)\b\.?|'
+BACHELOR = re.compile(r'(?<![A-Za-z]\.)\b(B\.?\s?(A|S|F\.?A|L\.\s?A|M|S\.?N|S\.?W|B\.?A|S\.?E|S\.?E\.?E|S\.?M\.?E|S\.?C\.?E|Arch|Mus|A\.?S|A\.?A\.?S|S\.?Ed|Ed|I\.?S|SCJ|SAG|SCHE|SDIET)\b\.?|(?-i:\bB(?:SBA|SET|SCH|SCV|SCP|SIE|SBE|SAE|SAcc|PS|HS|GS|ES)\b)(?!\s?\d)|'
                       r'Bachelor|\bH?BA\b|\bH?BS\b)', re.I)
 ASSOCIATE = re.compile(r'\b(A\.?\s?(A|S|A\.?S|A\.?T|S\.?T|F\.?A)\b\.?|Associate)', re.I)
 
@@ -1087,8 +1087,10 @@ def kuali_page_identity(inst, entry, page, today_year):
     if not KUALI_TITLE.match(page.title or ''): return []
     heads = [h.strip() for h in page.headings]
     if 'Download as PDF' not in heads or heads.index('Download as PDF') == 0: return []
-    name = heads[heads.index('Download as PDF') - 1]
+    name = re.sub(r'\s*\*+$', '', heads[heads.index('Download as PDF') - 1])  # BYU's list footnote marker: 'Art Education K-12 (BA) *'
     if credential_of(name) != 'bachelor' or GRAD.search(re.sub(r'\(B[A-Z]{1,3}\)', '', name)): return []
+    # Utah 2026-27 'General Education and Bachelor Degree Requirements' is a policy page; a BYU secondary major is not earned alone
+    if GENERIC_DEGREES.match(name) or NOT_PROGRAM_NAME.search(name) or re.search(r'\brequirements?\b|\bsecondary\s+major\b', name, re.I): return []
     labels = printed_catalog_years(page)
     if len({y for y, _ in labels}) != 1: return []
     year, line = min(labels); acad = academic_year_of(year)

@@ -2267,7 +2267,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 
 | School | Status | Verified bachelor's | Listed | Plans | Req. groups | Catalog | Maps | Groups | Admission rules | Queue |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Brigham Young University | partial | 120 | 172 | 0 | 0 | queued | queued | queued | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:not_yet_researched |
+| Brigham Young University | partial | 118 | 169 | 0 | 0 | queued | queued | queued | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:not_yet_researched |
 | University of Utah | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:layout_not_readable |
 | Utah Valley University | covered | 155 | 155 | 113 | 711 | met | met | met | met | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | Utah State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:no_year_label |

@@ -34,7 +34,8 @@ from pathlib import Path
 from pipeline import text as T
 
 ROOT = Path(__file__).resolve().parent.parent
-TRUSTED_PROGRAMS = {'catalog_program/v1', 'coursedog_api/v1', 'coursedog_page/v1', 'kuali_page/v1', 'smartcatalog_program/v1', 'award_heading/v1',
+TRUSTED_PROGRAMS = {'catalog_program/v1', 'coursedog_api/v1', 'coursedog_page/v1', 'kuali_page/v1',  # kuali_page/v1: 120 BYU records reviewed by hand, 2026-10-08 (#213)
+                     'smartcatalog_program/v1', 'award_heading/v1',
                     'department_major/v1', 'stated_major/v1', 'listed_location/v1', 'major_table/v1',
                     # independent review 2026-10-06 (Auburn, 30 sampled): 26/30 right; the 4 errors were duplicate list links
                     # (fixed: one list entry per page, the awarded line kept) and entry-path variants are now held
