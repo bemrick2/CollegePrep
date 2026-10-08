@@ -492,6 +492,22 @@ class StatedMajorTests(unittest.TestCase):
         # the skip never runs on to an unrelated later line (SF State 'Accounting (ACCT)' department link)
         sf = T.Page('Accounting (ACCT)\nAccounting: Bachelor\'s Concentration, Minor', 't', [], [('u1', 'Accounting'), ('u2', 'Accounting (ACCT)')], [])
         self.assertIsNone(X.printed_line(sf, 'Accounting'))
+        # BYU and Utah 2026-27 site headers: catalog name, institution short name, year (Utah: 'Home (AY 2026-2027)')
+        byu = T.Page('Skip to Main Content\nUndergraduate Catalog\nBYU\n2026-2027\nMyMAP\nAccounting (BS)', 't', [], [], [])
+        self.assertEqual({y for y, _ in X.printed_catalog_years(byu)}, {'2026-2027'})
+        utah = T.Page('Skip to Main Content\nThe University of Utah\nGeneral Catalog\nUniversity of Utah\nHome (AY 2026-2027)\nArchitectural Studies', 't', [], [], [])
+        self.assertEqual({y for y, _ in X.printed_catalog_years(utah)}, {'2026-2027'})
+        # a year in the body after a short line is not a header label
+        body = T.Page('\n'.join(['x'] * 20 + ['Undergraduate Catalog', 'Note', '2025-2026']), 't', [], [], [])
+        self.assertEqual(X.printed_catalog_years(body), set())
+        # BYU 2026-27 program page: '<code> Program | BYU Catalog', the title heading before 'Download as PDF'
+        e2 = {'url': 'https://catalog.byu.edu/programs/34636', 'sha256': 'ab' * 32, 'fetched_at': '2026-10-08T00:00:00+00:00', 'kind': 'html'}
+        kp = lambda name, title='554924 Program | BYU Catalog': X.kuali_page_identity({'institution_key': 'k'}, e2, T.Page(
+            'Undergraduate Catalog\nBYU\n2026-2027\n' + name + '\nDownload as PDF', title, [], [], ['BYU', name, 'Download as PDF', 'Minimum Credit Hours']), '2026-27')
+        [c] = kp('Applied English Linguistics (BA)')
+        self.assertEqual((c['record']['program_name'], c['record']['catalog_year'], c['extractor']), ('Applied English Linguistics (BA)', '2026-2027', 'kuali_page/v1'))
+        self.assertEqual(kp('Applied English Linguistics (MA)'), [])  # not a bachelor's award
+        self.assertEqual(kp('Applied English Linguistics (BA)', title='Applied English Linguistics | BYU'), [])  # another template
         # Biola 2026-27: a PDF link that is the page's only label names the current catalog
         biola = T.Page('2026-2027 Catalog PDF\nBiology, B.S.', 't', [], [], [])
         self.assertEqual({y for y, _ in X.printed_catalog_years(biola)}, {'2026-2027'})

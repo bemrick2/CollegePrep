@@ -7,6 +7,10 @@ the same file. Each mutant breaks one rule; tests/test_programs_deep_dive.py mus
 import shutil, subprocess, sys
 
 MUTS = [
+    ('programs/extract.py', "    if not KUALI_TITLE.match(page.title or ''): return []", "    pass"),
+    ('programs/extract.py', "    if credential_of(name) != 'bachelor' or GRAD.search(re.sub(r'\\(B[A-Z]{1,3}\\)', '', name)): return []", "    pass"),
+    ('programs/extract.py', "        m = BARE_YEAR.fullmatch(line.strip()) or AY_HOME.fullmatch(line.strip())", "        m = BARE_YEAR.fullmatch(line.strip())"),
+    ('programs/extract.py', "        if (m and i <= 12 and len(near) >= 2", "        if (m and len(near) >= 2"),
     ('programs/extract.py', "SDIET|SBA|SET|SCH|SCV|SCP|SIE|SBE|SAE|SAcc|PS|HS|GS|ES)", "SDIET)"),
     ('programs/catalog_counts.py', " or (x['listed_as'] is None and (X.UNDOTTED_LIST_AWARD.search(x['printed'].replace(ZWSP, '')) or X.credential_of(x['printed']) == 'bachelor'))]", "]"),
     ('programs/catalog_counts.py', "                if pk != rk and pk.startswith(rk): hit = None", "                if pk.startswith(rk): hit = None"),
