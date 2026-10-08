@@ -178,7 +178,9 @@ def review(state, run, today=None):
                'duplicate' if k in seen or (u in seen_url and c['extractor'] not in SHARED_PAGE) else None)
         if why: held[why] += 1; continue
         seen.add(k); seen_url.add(u); program_keys[c['institution_key']].add(k[1])
-        approve.append({'candidate_id': c['candidate_id'], 'reason': f"Standing review ({c['extractor']}): name, award and {c['record'].get('catalog_year')} catalog year verbatim in the stored official page."})
+        where = ('name and catalog year verbatim in the stored official page; award verbatim in the stored official program list'
+                 if c['extractor'] == 'award_link_major/v1' else 'name, award and catalog year verbatim in the stored official page')
+        approve.append({'candidate_id': c['candidate_id'], 'reason': f"Standing review ({c['extractor']}): {where.replace('catalog year', str(c['record'].get('catalog_year')) + ' catalog year', 1)}."})
     for c in cands:
         if c['domain'] != 'degree_requirements': continue
         kind = c['record'].get('requirement_kind')

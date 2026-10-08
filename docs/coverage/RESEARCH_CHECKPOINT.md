@@ -11,9 +11,9 @@ This file is how a new Research session resumes the national program-research wo
 | | main `7451caf` (batch 2 merged) | research/batch-03 |
 |---|---|---|
 | Registered four-year institutions | 2,119 | 2,119 |
-| Covered (docs/PROGRAM_DEPTH_COMPLETION.md) | 64 | 65 |
+| Covered (docs/PROGRAM_DEPTH_COMPLETION.md) | 64 | 64 |
 | Researched | 672 | 673 |
-| Verified bachelor's program records | 10,012 | 10,071 |
+| Verified bachelor's program records | 10,012 | 10,074 |
 
 All figures are counted from `docs/coverage/programs/STATUS.json` and from the `academic_programs` files with `verification_status == "verified"` and `credential_level == "bachelor"`.
 
@@ -21,8 +21,8 @@ All figures are counted from `docs/coverage/programs/STATUS.json` and from the `
 
 | Institution | Run | Result |
 |---|---|---|
-| Colorado State | CO/2026-10-08-c02 | 63/68, covered. New reader `award_link_major/v1`: 'Major in X' pages that the Programs A-Z degree column links as 'B.A.' / 'B.S.' (20 of 60 records checked by hand). Concentration rows are not counted. |
-| SF State | recount of CA/2026-10-07-cat | 108/118, covered. Options of a listed degree are not counted. No record changed. |
+| Colorado State | CO/2026-10-08-c02 | 68 verified records; no completeness count yet. New reader `award_link_major/v1` reads 'Major in X' pages that the Programs A-Z degree column links as 'B.A.' / 'B.S.'; all 60 first-extraction records were checked against the table rows. The table links concentrations and dual degrees by award only, so the count waits for a reader of its program column (queued). |
+| SF State | recount of CA/2026-10-07-cat | 108/118, covered. Options of a listed degree are not counted. Nursing (Accelerated-Prelicensure) is no longer credited through another program's record. No record changed. |
 | Roosevelt | recount of IL/2026-10-07-cat | 56/79, **no longer covered**. 18 undotted-award entries (BSBA, BAE, BMA, BSHTM, BAOL) had been left out of the 10-07 count. A re-run is in flight. |
 | UTRGV | TX/2026-10-08-d03 | Queued `no_year_label`: the SmartCatalog pages print no catalog year. |
 
@@ -94,6 +94,7 @@ From `research_priority.json`, excluding blocked institutions:
    - Recounts under the current rules: ESU 65/75, Johnstown 41/48, Greensburg 28/32 (unchanged); YSU 54/75, Ashland 51/76, La Salle 35/56 (their undotted BSBA entries are now counted). Find which listed programs are unrecorded and why: held variants, unread pages, or a reader rule.
 2. **Reader work that would unlock large schools:**
    - UNL: major pages with the award only in the text. The majors list prints no award.
+   - Colorado State: read the Programs A-Z program column so concentration and dual-degree rows count with their major.
    - Utah: the award from the program code or text.
    - UT Dallas: the edition-home year.
    - BYU: emphases whose degree has no list line.

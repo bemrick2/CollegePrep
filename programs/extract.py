@@ -685,7 +685,7 @@ COLLEGE_QUALIFIER = re.compile(r'\s*\((?:College|School) of [^()]+\)?\s*$')
 
 
 AWARD_LINK = re.compile(r'^(?:B\.(?:\s?[A-Z][a-z]{0,3}\.)+|(?-i:B[A-Z]{1,4}))$')
-MAJOR_IN = re.compile(r'^Major in (?P<name>[^,]+)$')
+MAJOR_IN = re.compile(r'^Major in (?P<name>(?:(?!\b(?:Concentration|Option|Emphasis|Track)\b).)+)$')  # commas allowed ('Fish, Wildlife, and Conservation Biology')
 
 
 def award_link_major_identity(inst, entry, page, today_year, listed):

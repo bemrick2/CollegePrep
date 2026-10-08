@@ -2614,27 +2614,38 @@ class CatalogCountTests(unittest.TestCase):
                    ('Spanish Studies (Secondary Major) (BA)', u + 'span-sec/', 'bachelor'),  # BYU: not earned alone
                    ('Biology, BA to Secondary Education, MA Accelerated Program', u + 'bio-acc/', 'bachelor'),  # Roosevelt: combined
                    ('Digital Marketing, BA to Marketing Communications, MSIMC', u + 'dm-msimc/', 'bachelor'),  # Roosevelt: combined
+                   ('Biology BS, Pharmacy PharmD Dual Degree Acceptance Program', u + 'bio-pharmd/', 'bachelor'),  # Roosevelt: combined
+                   ('Biology, BS/BA to Biology, MS Accelerated Program', u + 'bio-ms-acc/', 'bachelor'),  # Roosevelt: combined
+                   ('Mathematics Path to Media Accelerated BA', u + 'math-path/', 'bachelor'),  # not combined: no master's award
                    ('Business Administration Dept. Major, B.S./Business Administration, M.B.A.', u + 'bsmba/', 'bachelor'),  # Georgian: combined
                    ('Minor in Nutrition (Traditional BSN)', u + 'min/', 'bachelor'),  # APU: a minor
                    ('Physics B.A. (College of Arts and Sciences)', u + 'physics/physicsba/', 'bachelor'),  # UVM: the college is not a qualifier
-                   ('B.A. Concentration', u + 'pols-ppsc/', 'bachelor'),  # Colorado State: a concentration row of a major
-                   ('B.M. Concentration Option', u + 'music-conc/', 'bachelor')]
+                   # Colorado State: concentration rows count with their major (identified by the major's page); dual degrees by page
+                   ('B.A.', u + 'pols/political-science-major/', 'bachelor'),
+                   ('B.A. Concentration', u + 'pols/political-science-major-public-policy-concentration/', 'bachelor'),
+                   ('B.S. Concentration', u + 'cs/computer-science-major-ai-concentration/', 'bachelor'),
+                   ('B.S. Concentration', u + 'cs/computer-science-major-software-concentration/', 'bachelor'),
+                   ('Dual Degree B.S.', u + 'bme/bme-me-dual/', 'bachelor'), ('Dual Degree B.S.', u + 'bme/bme-cpe-dual/', 'bachelor')]
         records = [('BA in Anthropology', u + 'anth/ba-anthropology/'), ('BA in Art', u + 'art/ba-art/'),
                    ('BBA in Accounting', 'https://api.x.com/feed'), ('BA in Chicano Studies', u + 'chicano-ba/'),
                    ('Bachelor of Music', u + 'music/bachelor-of-music-general/'), ('Marketing, BSBA', u + 'mkt-bsba/'), ('Biology, BS', u + 'biology/'), ('Biology, BA', u + 'bio/'),
-                   ('Physics B.A.', u + 'physics/physicsba/')]
+                   ('Physics B.A.', u + 'physics/physicsba/'), ('Major in Political Science', u + 'pols/political-science-major/')]
         with tempfile.TemporaryDirectory() as d:
             d = self.run_dir(d, listing, records)
             e = entries(d, d / 'dec.json', ['k'])[0]
-        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (11, 9))
+        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (16, 10))
         b = e['completeness_basis']
-        self.assertIn('4 print only an award under a department heading and are identified by their own page', b)
-        self.assertTrue(b.startswith("21 linked entries"))
-        self.assertIn("not counted, 4 combined", b); self.assertNotIn("Digital Marketing", b.split("Not recorded")[-1])
+        self.assertIn('7 print only an award under a department heading and are identified by their own page', b)
+        self.assertTrue(b.startswith("28 linked entries"))
+        self.assertIn("3 concentration rows print only an award and are counted with their major, identified by the major's page (1 majors are listed only through concentrations)", b)
+        self.assertIn("not counted, 6 combined", b); self.assertIn("Mathematics Path to Media Accelerated BA", b.split("Not recorded")[-1]); self.assertNotIn("Digital Marketing", b.split("Not recorded")[-1])
         self.assertIn("Accounting, BSBA/MBA (4 year)", b); self.assertIn("BSBA Graduation Requirements", b)
         self.assertIn("2 run the card's category labels on to the name", b)
-        self.assertIn("not counted, 6 department, roadmap, general or commissioning links that are not a single bachelor's program: B.A. Concentration | B.M. Concentration Option | BSBA Graduation Requirements | Bachelor's Degree Programs | Minor in Nutrition (Traditional BSN) | Spanish Studies (Secondary Major) (BA)", b)
-        self.assertTrue(b.endswith("Not recorded (names separated by ' | '): BS* (https://catalog.x.edu/ds/bs-data-science/) | Physics, Bachelor of Science (B.S.)."))
+        self.assertIn("not counted, 4 department, roadmap, general or commissioning links that are not a single bachelor's program: BSBA Graduation Requirements | Bachelor's Degree Programs | Minor in Nutrition (Traditional BSN) | Spanish Studies (Secondary Major) (BA)", b)
+        miss = b.split("Not recorded (names separated by ' | '): ")[1].rstrip('.').split(' | ')
+        self.assertEqual(len(miss), 6)  # BS*, the CS major (only concentrations), two dual degrees, Physics, Mathematics Path
+        self.assertTrue(any(m.startswith('B.S. Concentration (https://catalog.x.edu/cs/') for m in miss))
+        self.assertEqual(sum(m.startswith('Dual Degree B.S.') for m in miss), 2)
 
     def test_only_reviewed_approvals_count(self):
         import tempfile

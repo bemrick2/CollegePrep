@@ -22,15 +22,20 @@ ZWSP = '​'
 COMB = re.compile(r"Accelerated.*(\bM\.?[AS]\b\.?|\bMBA\b|\bMPA\b|Master)|Scholars Roadmap|\s\+\s.*\b(M[A-Z]{1,3}|MPA|MBA)\b|\(3\+2\)|\b3-2\b|4\+1|"
                   r"Dual Acceptance|and MBA\b|to MBA|\bB\.?[AS]\.?/\s?M\.?[AS]\b|\bM\.[AS]\.|/\s?(DDS|MD|PharmD|DPT|OTD)\b|\(B[AS]/D|"
                   r"(?-i:\bB[A-Z]{1,4}/M[A-Z]{1,3}\b)|"  # La Salle 'Accounting, BSBA/MBA (4 year)'
-                  r"\bto\b.*\bM[A-Z]{0,4}\b.*\bAccelerated\b|Dual Degree Acceptance|\bB\.?[AS]\.?/.*\bM\.\s?B\.\s?A\b|"
+                  r"\bto\b.*(?-i:\bM[A-Z]{0,4}\b).*\bAccelerated\b|Dual Degree Acceptance|\bB\.?[AS]\.?/.*\bM\.\s?B\.\s?A\b|"
                   r"(?-i:,\s*B[A-Z]{1,3}\s+to\s+[^,]+,\s*M[A-Z]{1,5}\b)", re.I)  # Roosevelt 'Biology, BA to Secondary Education, MA Accelerated Program'; Georgian 'B.S./... M.B.A.'
-GENERIC = re.compile(r"^(Bachelor's (Degree|Concentration|Degree Programs)|Department of .*)$|: Bachelor's Degree\b|Minor, Certificate|Graduate Certificate|\bRoadmap\b|\b(Graduation|Continuance)\s+(Requirements|Regulations)\b|\bReadmission\b|\(Secondary Major\)|^Minor in\b|General Education Requirements|^\(B[A-Z.]{1,6}\)$|^Bachelor's and Master's Degree Programs$|^(?:Dual Degree\s+)?B\.(?:\s?[A-Z][a-z]{0,3}\.)+\s+Concentration(?:\s+Option)?$", re.I)
+GENERIC = re.compile(r"^(Bachelor's (Degree|Concentration|Degree Programs)|Department of .*)$|: Bachelor's Degree\b|Minor, Certificate|Graduate Certificate|\bRoadmap\b|\b(Graduation|Continuance)\s+(Requirements|Regulations)\b|\bReadmission\b|\(Secondary Major\)|^Minor in\b|General Education Requirements|^Bachelor's and Master's Degree Programs$", re.I)
 ROTC = re.compile(r'\bROTC\b')
 LABELED = {'labeled_in_title', 'labeled_in_heading', 'labeled_in_source'}
 # UTEP 2026-27 cards run the name into the card's category labels: 'BBA in AccountingBusiness, Management, & Marketing
 # BachelorsUndergraduateBusiness Administration' (the labels name the level 'Bachelors' and 'Undergraduate')
 CATEGORY_RUN = re.compile(r'(?:[A-Z].*)?Bachelors(?:Online|Fast Track|Professional|Undergraduate|[A-Z]|$)')
-AWARD_ONLY = re.compile(r'^(?:(?-i:B[A-Z]{1,4}[a-z]{0,3})|B\.\s?[A-Z][A-Za-z]{0,4}\.?(?:\s?[A-Z][a-z]{0,3}\.?)*|Bachelor of [A-Z][a-z]+(?: [A-Z][a-z]+)*)\**$')  # Missouri lists 'BA', 'BS*', 'BSAcc' under each department; never an all-caps name ('BIOLOGY')
+# Colorado State's Programs A-Z links each concentration from its degree column ('B.S. Concentration') and each dual degree as
+# 'Dual Degree B.S.': a concentration row is one program with its major, identified by the major's page
+# ('.../computer-science-major-ai-concentration/' -> '.../computer-science-major/'), and each dual degree by its own page
+CONC_AWARD = re.compile(r'^(?:Dual Degree\s+)?B\.(?:\s?[A-Z][a-z]{0,3}\.)+\s+Concentration(?:\s+Option)?$')
+MAJOR_OF = re.compile(r'(-major)-[^/]*?concentration(/?)$')
+AWARD_ONLY = re.compile(r'^(?:Dual Degree\s+)?(?:(?-i:B[A-Z]{1,4}[a-z]{0,3})|B\.\s?[A-Z][A-Za-z]{0,4}\.?(?:\s?[A-Z][a-z]{0,3}\.?)*|Bachelor of [A-Z][a-z]+(?: [A-Z][a-z]+)*)\**$')  # Missouri lists 'BA', 'BS*', 'BSAcc' under each department; never an all-caps name ('BIOLOGY')
 
 
 def page_key(u):
@@ -94,7 +99,8 @@ def entries(run_dir, decision, iks, year='2026-2027', reviewed=''):
             if c: x['printed'] = max(c, key=len); labelled += 1
             elif g: x['printed'] = max(g, key=len); glued += 1
         # an entry printing only an award ('BS' under a department heading, Missouri) is identified by its page, not its text
-        ident = lambda x: 'page:' + page_key(x['url']) if AWARD_ONLY.match(x['printed'].strip()) else name_key(x['printed'])
+        ident = lambda x: ('page:' + page_key(MAJOR_OF.sub(r'\1\2', x['url'])) if CONC_AWARD.match(x['printed'].strip()) else
+                           'page:' + page_key(x['url']) if AWARD_ONLY.match(x['printed'].strip()) else name_key(x['printed']))
         comb = [x for x in b if COMB.search(x['printed'])]
         gen = [x for x in b if x not in comb and (GENERIC.search(x['printed']) or ROTC.search(x['printed']))]
         rest = [x for x in b if x not in comb and x not in gen]
@@ -114,8 +120,8 @@ def entries(run_dir, decision, iks, year='2026-2027', reviewed=''):
                 rk = name_key(hit['record']['program_name']); pk = name_key(x['printed'])
                 # 'X: Concentration in Y' is not credited through X's page; a college named in parentheses is not a qualifier
                 # (UVM 'Computer Science B.A. (College of Arts and Sciences)')
-                bare = name_key(re.sub(r'\s*\((?:[^()]*\b(?:College|School)\b[^()]*)\)\s*$', '', x['printed']))
-                if pk.startswith(rk) and bare != rk: hit = None  # equal names are bare-equal
+                bare = name_key(X.COLLEGE_QUALIFIER.sub('', x['printed']))
+                if pk.startswith(rk) and pk != rk and bare != rk: hit = None
             if hit: verified[k] = hit['record']['program_key']
             else: verified.setdefault(k, None)
         n = len(verified); ver = sum(1 for v in verified.values() if v)
@@ -125,15 +131,20 @@ def entries(run_dir, decision, iks, year='2026-2027', reviewed=''):
         parts = [f"{len(raw)} linked entries on the official {year} program list" + (f" ({len(pages)} pages)" if len(pages) > 1 else '') + " print a bachelor's award"]
         if len(b) < len(raw): parts.append(f"{len(raw) - len(b)} repeat an entry already counted")
         if doubled: parts.append(f"{doubled} print the program name twice (a card title, sometimes shortened, then the name) and are read once")
-        award_only = sum(1 for x in deg if ident(x).startswith('page:'))
+        conc = [x for x in deg if CONC_AWARD.match(x['printed'].strip())]
+        award_only = sum(1 for x in deg if ident(x).startswith('page:')) - len(conc)
         if award_only: parts.append(f"{award_only} print only an award under a department heading and are identified by their own page")
+        plain_ids = {ident(x) for x in deg if x not in conc}
+        if conc: parts.append(f"{len(conc)} concentration rows print only an award and are counted with their major, identified by the major's page "
+                              f"({len({ident(x) for x in conc} - plain_ids)} majors are listed only through concentrations)")
         if labelled: parts.append(f"{labelled} run the card's category labels on to the name and are matched by the name printed before them")
         if glued: parts.append(f"{glued} run the program description on to the name and are matched by the name printed before it")
         if comb: parts.append(f"not counted, {len(comb)} combined or accelerated bachelor's/master's entries: " + ' | '.join(sorted({x['printed'] for x in comb})))
         if gen: parts.append(f"not counted, {len(gen)} department, roadmap, general or commissioning links that are not a single bachelor's program: " + ' | '.join(sorted({x['printed'] for x in gen})))
         if opts: parts.append(f"not counted, {len(opts)} concentrations or options of a degree whose own line is listed: " + ' | '.join(sorted({x['printed'] for x in opts})))
         if unlabeled: parts.append(f"{len(unlabeled)} further list entries print no award and are not counted: " + ' | '.join(unlabeled))
-        if len(deg) - n: parts.append(f"{len(deg) - n} remaining entries repeat a program name listed under another link and are counted once")
+        repeats = len(deg) - len(conc) - len(plain_ids)
+        if repeats: parts.append(f"{repeats} remaining entries repeat a program name listed under another link and are counted once")
         basis = '; '.join(parts) + f". {n} bachelor's programs, {ver} with a verified record printing that name or on that program's own page." \
             + (f" Not recorded (names separated by ' | '): {' | '.join(miss)}." if miss else '')
         e = {'institution_key': ik, 'catalog_url': 'https://' + lo.split('/')[2] + '/', 'catalog_year_label': year,

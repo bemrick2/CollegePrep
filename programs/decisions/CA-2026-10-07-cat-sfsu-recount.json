@@ -5,7 +5,8 @@
  "notes": [
   "SF State's completeness count is recomputed from the stored run with programs/catalog_counts.py as merged in #211/#213: concentrations whose degree has its own list line are options and not counted ('Bachelor of Arts in Physics: Concentration in Astronomy' beside 'Bachelor of Arts in Physics'), and a department link is no longer read as another link's line (the 'Ethnic Studies' and 'Criminal Justice Studies' department links had been read as 'Ethnic Studies, BA' / 'Criminal Justice Studies, BA', which belong to the extended-learning program links). Those two BA entries are credited through their own program pages ('Bachelor of Arts in Ethnic Studies', 'Bachelor of Arts in Criminal Justice Studies'). Only approvals of the original reviewed decision (CA-2026-10-07-cat) that the current reader still produces are credited. No program record is added or changed here.",
   "Known issue for follow-up: the two department-page records 'Ethnic Studies, BA' and 'Criminal Justice Studies, BA' (listed_program/v1, data/institutions/sfsu) were read from another link's list line and duplicate the extended-learning records; they are queued for review, not removed here.",
-  "Approved records the current reader no longer produces (not credited in this count; the records on file are unchanged): Criminal Justice Studies, BA | Ethnic Studies, BA."
+  "Approved records the current reader no longer produces (not credited in this count; the records on file are unchanged): Criminal Justice Studies, BA | Ethnic Studies, BA.",
+  "'Nursing (Accelerated-Prelicensure), BS' is no longer credited: the 2026-10-07 count credited it through the nursing department page's 'Bachelor of Science in Nursing' record, which prints another program's name."
  ],
  "approve": [],
  "catalogs": [
