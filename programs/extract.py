@@ -153,7 +153,7 @@ def printed_line(page, anchor):
     R.N.-B.S. completion program'."""
     others = {re.sub(r'\s+', ' ', a or '').strip() for _, a in (page.links or [])} - {anchor}
     for line in page.lines:
-        if line.strip() in others: continue
+        if line.startswith(anchor) and line.strip() in others: return None  # the first such line is another link: use the link's own text
         if line.startswith(anchor) and len(line) > len(anchor) and re.match(r'^\s*[:(,–-]', line[len(anchor):]) and len(line) < 200:
             return line
     return None

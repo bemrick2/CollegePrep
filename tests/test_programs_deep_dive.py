@@ -486,6 +486,9 @@ class StatedMajorTests(unittest.TestCase):
         vcu = T.Page('Nursing, B.S.\nNursing, B.S., R.N.-B.S. completion program', 't', [], [('u1', 'Nursing, B.S.'), ('u2', 'Nursing, B.S., R.N.-B.S. completion program')], [])
         self.assertIsNone(X.printed_line(vcu, 'Nursing, B.S.'))
         self.assertEqual(X.printed_line(T.Page('Accounting: BA, BS', 't', [], [('u', 'Accounting')], []), 'Accounting'), 'Accounting: BA, BS')
+        # the skip never runs on to an unrelated later line (SF State 'Accounting (ACCT)' department link)
+        sf = T.Page('Accounting (ACCT)\nAccounting: Bachelor\'s Concentration, Minor', 't', [], [('u1', 'Accounting'), ('u2', 'Accounting (ACCT)')], [])
+        self.assertIsNone(X.printed_line(sf, 'Accounting'))
         # Biola 2026-27: a PDF link that is the page's only label names the current catalog
         biola = T.Page('2026-2027 Catalog PDF\nBiology, B.S.', 't', [], [], [])
         self.assertEqual({y for y, _ in X.printed_catalog_years(biola)}, {'2026-2027'})
@@ -2530,20 +2533,22 @@ class CatalogCountTests(unittest.TestCase):
                    ("Bachelor's Degree Programs", u + 'programs/', 'bachelor'),  # Georgia Tech: the list's own heading link
                    ('Bachelor of Music', u + 'music/bachelor-of-music-general/', 'bachelor'),  # UTEP: the record prints the same name
                    ('Marketing, BSBA', u + 'mkt-bsba/', None),  # OSU: an undotted award the list reader left unclassified
-                   ('BIOLOGY', u + 'biology/', 'bachelor')]  # an all-caps name is a name, not an award
+                   ('BIOLOGY', u + 'biology/', 'bachelor'),  # an all-caps name is a name, not an award
+                   ('Bio', u + 'bio/', 'bachelor'),  # nor is a short capitalised word
+                   ('Physics, Bachelor of Science (B.S.)', u + 'phys/', None)]  # VCU: a spelled-out award the reader left unclassified
         records = [('BA in Anthropology', u + 'anth/ba-anthropology/'), ('BA in Art', u + 'art/ba-art/'),
                    ('BBA in Accounting', 'https://api.x.com/feed'), ('BA in Chicano Studies', u + 'chicano-ba/'),
-                   ('Bachelor of Music', u + 'music/bachelor-of-music-general/'), ('Marketing, BSBA', u + 'mkt-bsba/'), ('Biology, BS', u + 'biology/')]
+                   ('Bachelor of Music', u + 'music/bachelor-of-music-general/'), ('Marketing, BSBA', u + 'mkt-bsba/'), ('Biology, BS', u + 'biology/'), ('Biology, BA', u + 'bio/')]
         with tempfile.TemporaryDirectory() as d:
             d = self.run_dir(d, listing, records)
             e = entries(d, d / 'dec.json', ['k'])[0]
-        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (8, 7))
+        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (10, 8))
         b = e['completeness_basis']
         self.assertIn('4 print only an award under a department heading and are identified by their own page', b)
-        self.assertTrue(b.startswith("9 linked entries"))
+        self.assertTrue(b.startswith("11 linked entries"))
         self.assertIn("2 run the card's category labels on to the name", b)
         self.assertIn("not counted, 1 department, roadmap, general or commissioning links that are not a single bachelor's program: Bachelor's Degree Programs", b)
-        self.assertTrue(b.endswith("Not recorded (names separated by ' | '): BS* (https://catalog.x.edu/ds/bs-data-science/)."))
+        self.assertTrue(b.endswith("Not recorded (names separated by ' | '): BS* (https://catalog.x.edu/ds/bs-data-science/) | Physics, Bachelor of Science (B.S.)."))
 
     def test_only_reviewed_approvals_count(self):
         import tempfile
