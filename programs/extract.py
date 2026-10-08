@@ -306,7 +306,8 @@ def _program_page_candidates(target, inst, entry, page, today_year):
     if not out and plat == 'courseleaf':
         lk = target.get('_listed') or {}
         listed = lk.get(norm_url(entry.get('url') or '')) or lk.get(entry.get('url'))
-        out = department_major_identity(inst, entry, page, today_year, listed) or listed_program_identity(inst, entry, page, today_year, listed)
+        out = (department_major_identity(inst, entry, page, today_year, listed) or listed_program_identity(inst, entry, page, today_year, listed)
+               or award_link_major_identity(inst, entry, page, today_year, listed))
     if not out and plat == 'courseleaf' and program_heading(page) and credential_of(program_heading(page)) == 'bachelor':
         out = static_program_identity(inst, entry, page, today_year)  # UNI: 'Physics B.S.' heads a page without Course List tables
         name = program_heading(page)
@@ -681,6 +682,33 @@ def strip_award(name):
 
 MAJORS_HEADING = re.compile(r'^(?:\S+\s+){0,3}majors:?$|^majors\s*[-–:]|\bfollowing majors\b', re.I)
 COLLEGE_QUALIFIER = re.compile(r'\s*\((?:College|School) of [^()]+\)?\s*$')
+
+
+AWARD_LINK = re.compile(r'^(?:B\.(?:\s?[A-Z][a-z]{0,3}\.)+|(?-i:B[A-Z]{1,4}))$')
+MAJOR_IN = re.compile(r'^Major in (?P<name>(?:(?!\b(?:Concentration|Option|Emphasis|Track)\b).)+)$')  # commas allowed ('Fish, Wildlife, and Conservation Biology')
+
+
+def award_link_major_identity(inst, entry, page, today_year, listed):
+    """Colorado State 2026-27: the 'Programs A-Z' table links each major's page from its degree column ('B.A.', 'B.S.'), and
+    the page is headed 'Major in Anthropology'. The record is the page heading as printed, at the bachelor's level the list
+    links it with (the award is quoted from the list line, never inferred); the page must print one catalog year label.
+    Concentration rows ('B.A. Concentration') and 'Major in X, Y Concentration' pages are options and give no record."""
+    if not listed or listed.get('credential_level') != 'bachelor' or not listed.get('listed_on_sha256'): return []
+    award = listed['printed'].strip()
+    head = (page.headings[0] if page.headings else '').strip()
+    if not AWARD_LINK.match(award) or not MAJOR_IN.match(head): return []
+    labels = printed_catalog_years(page)
+    if len({y for y, _ in labels}) != 1: return []
+    year, line = min(labels); acad = academic_year_of(year)
+    rec = {'program_key': CAT.slug(f'{head} {award}'), 'program_name': head, 'credential_level': 'bachelor', 'catalog_year': year,
+           'program_url': common.source_of(entry)['url'],
+           'notes': f'Program heading as printed on the catalog page; the official program list links this page from its degree column as "{award}".'}
+    ev = [{'field': 'program_name', 'value': head, 'snippet': head},
+          {'field': 'catalog_year', 'value': year, 'snippet': line[:200]},
+          {'field': 'credential_level', 'value': 'bachelor', 'snippet': award, 'url': listed['listed_on'], 'sha256': listed['listed_on_sha256']},
+          {'field': 'award', 'value': award, 'snippet': award, 'url': listed['listed_on'], 'sha256': listed['listed_on_sha256']}]
+    return [common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec, ev, entry,
+                        'award_link_major/v1', {'program_key': rec['program_key']}, {}, [])]
 
 
 def listed_program_identity(inst, entry, page, today_year, listed):

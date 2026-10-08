@@ -522,6 +522,17 @@ class StatedMajorTests(unittest.TestCase):
         self.assertEqual(two, [])  # two year labels: none
         self.assertEqual(X.kuali_page_identity({'institution_key': 'k'}, e2, T.Page('Undergraduate Catalog\nBYU\n2026-2027', '1 Program | BYU Catalog', [], [],
                                                                               ['Download as PDF', 'Art (BA)']), '2026-27'), [])  # no title heading before it
+        # Colorado State 2026-27: the Programs A-Z degree column links 'Major in Anthropology' as 'B.A.'
+        lst = lambda printed: {'credential_level': 'bachelor', 'printed': printed, 'listed_on': 'https://c.edu/programsaz/', 'listed_on_sha256': 'cd' * 32}
+        e3 = {'url': 'https://catalog.colostate.edu/general-catalog/colleges/liberal-arts/anthropology-geography/anthropology-major/', 'sha256': 'ab' * 32, 'fetched_at': '2026-10-08T00:00:00+00:00', 'kind': 'html'}
+        csu = lambda head, printed='B.A.', text='2026-2027 Catalog': X.award_link_major_identity({'institution_key': 'k'}, e3, T.Page(text + '\n' + head, 't', [], [], [head]), '2026-27', lst(printed))
+        [c] = csu('Major in Anthropology')
+        self.assertEqual((c['record']['program_name'], c['extractor'], [x['value'] for x in c['evidence'] if x['field'] == 'award']), ('Major in Anthropology', 'award_link_major/v1', ['B.A.']))
+        self.assertEqual(csu('Major in Political Science, Public Policy and Service Concentration'), [])  # an option page
+        self.assertEqual(csu('Major in Anthropology', printed='B.A. Concentration'), [])  # a concentration row
+        self.assertEqual(csu('Anthropology'), [])  # not a 'Major in' page
+        self.assertEqual(csu('Major in Anthropology', text='2026-2027 Catalog\n2025-2026 Catalog'), [])  # two labels
+        self.assertEqual(csu('Major in Anthropology', printed='M.A.'), [])  # not a bachelor's award
         # Biola 2026-27: a PDF link that is the page's only label names the current catalog
         biola = T.Page('2026-2027 Catalog PDF\nBiology, B.S.', 't', [], [], [])
         self.assertEqual({y for y, _ in X.printed_catalog_years(biola)}, {'2026-2027'})
@@ -1658,6 +1669,10 @@ class AutoReviewTests(unittest.TestCase):
         try: approve, _, held = A.review('ZZ', self.run_dir([self.prog('b', 'Applied English Linguistics (BA)', ext='kuali_page/v1')]), today=date(2026, 10, 6))
         finally: A.catalog_records = old
         self.assertEqual([a['candidate_id'] for a in approve], ['b'])
+        old = A.catalog_records; A.catalog_records = lambda *a: []
+        try: approve, _, held = A.review('ZZ', self.run_dir([self.prog('m', 'Major in Anthropology', ext='award_link_major/v1')]), today=date(2026, 10, 6))
+        finally: A.catalog_records = old
+        self.assertEqual([a['candidate_id'] for a in approve], ['m'])  # Colorado State 2026-10-08: 20 of 60 sampled, 20 right
 
     def test_options_of_a_listed_degree_are_held(self):  # Oklahoma State 2026-27: 'Zoology: Pre-Medical Sciences, BS' beside 'Zoology, BS'
         from programs import autoreview as A
@@ -2596,21 +2611,46 @@ class CatalogCountTests(unittest.TestCase):
                    ('Physics, Bachelor of Science (B.S.)', u + 'phys/', None),  # VCU: a spelled-out award the reader left unclassified
                    ('Accounting, BSBA/MBA (4 year)', u + 'acct-mba/', None),  # La Salle: combined, excluded by name
                    ('BSBA Graduation Requirements', u + 'bsba-grad/', None),  # YSU: a policy page
-                   ('Spanish Studies (Secondary Major) (BA)', u + 'span-sec/', 'bachelor')]  # BYU: not earned alone
+                   ('Spanish Studies (Secondary Major) (BA)', u + 'span-sec/', 'bachelor'),  # BYU: not earned alone
+                   ('Biology, BA to Secondary Education, MA Accelerated Program', u + 'bio-acc/', 'bachelor'),  # Roosevelt: combined
+                   ('Digital Marketing, BA to Marketing Communications, MSIMC', u + 'dm-msimc/', 'bachelor'),  # Roosevelt: combined
+                   ('Biology BS, Pharmacy PharmD Dual Degree Acceptance Program', u + 'bio-pharmd/', 'bachelor'),  # Roosevelt: combined
+                   ('Biology, BS/BA to Biology, MS Accelerated Program', u + 'bio-ms-acc/', 'bachelor'),  # Roosevelt: combined
+                   ('Mathematics Path to Media Accelerated BA', u + 'math-path/', 'bachelor'),  # not combined: no master's award
+                   ('Business Administration Dept. Major, B.S./Business Administration, M.B.A.', u + 'bsmba/', 'bachelor'),  # Georgian: combined
+                   ('Minor in Nutrition (Traditional BSN)', u + 'min/', 'bachelor'),  # APU: a minor
+                   ('Physics B.A. (College of Arts and Sciences)', u + 'physics/physicsba/', 'bachelor'),  # UVM: the college is not a qualifier
+                   # Colorado State: concentration rows count with their major (identified by the major's page); dual degrees by page
+                   ('B.A.', u + 'pols/political-science-major/', 'bachelor'),
+                   ('B.A. Concentration', u + 'pols/political-science-major-public-policy-concentration/', 'bachelor'),
+                   ('B.S. Concentration', u + 'cs/computer-science-major-ai-concentration/', 'bachelor'),
+                   ('B.S. Concentration', u + 'cs/computer-science-major-software-concentration/', 'bachelor'),
+                   ('Dual Degree B.S.', u + 'bme/bme-me-dual/', 'bachelor'), ('Dual Degree B.S.', u + 'bme/bme-cpe-dual/', 'bachelor')]
         records = [('BA in Anthropology', u + 'anth/ba-anthropology/'), ('BA in Art', u + 'art/ba-art/'),
                    ('BBA in Accounting', 'https://api.x.com/feed'), ('BA in Chicano Studies', u + 'chicano-ba/'),
-                   ('Bachelor of Music', u + 'music/bachelor-of-music-general/'), ('Marketing, BSBA', u + 'mkt-bsba/'), ('Biology, BS', u + 'biology/'), ('Biology, BA', u + 'bio/')]
+                   ('Bachelor of Music', u + 'music/bachelor-of-music-general/'), ('Marketing, BSBA', u + 'mkt-bsba/'), ('Biology, BS', u + 'biology/'), ('Biology, BA', u + 'bio/'),
+                   ('Physics B.A.', u + 'physics/physicsba/'), ('Major in Political Science', u + 'pols/political-science-major/')]
         with tempfile.TemporaryDirectory() as d:
             d = self.run_dir(d, listing, records)
             e = entries(d, d / 'dec.json', ['k'])[0]
-        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (10, 8))
+        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (16, 10))
         b = e['completeness_basis']
-        self.assertIn('4 print only an award under a department heading and are identified by their own page', b)
-        self.assertTrue(b.startswith("14 linked entries"))
+        self.assertIn('7 print only an award under a department heading and are identified by their own page', b)
+        self.assertTrue(b.startswith("28 linked entries"))
+        self.assertIn("3 concentration rows print only an award and are counted with their major, identified by the major's page (1 majors are listed only through concentrations)", b)
+        self.assertIn("not counted, 6 combined", b); self.assertIn("Mathematics Path to Media Accelerated BA", b.split("Not recorded")[-1]); self.assertNotIn("Digital Marketing", b.split("Not recorded")[-1])
         self.assertIn("Accounting, BSBA/MBA (4 year)", b); self.assertIn("BSBA Graduation Requirements", b)
         self.assertIn("2 run the card's category labels on to the name", b)
-        self.assertIn("not counted, 3 department, roadmap, general or commissioning links that are not a single bachelor's program: BSBA Graduation Requirements | Bachelor's Degree Programs | Spanish Studies (Secondary Major) (BA)", b)
-        self.assertTrue(b.endswith("Not recorded (names separated by ' | '): BS* (https://catalog.x.edu/ds/bs-data-science/) | Physics, Bachelor of Science (B.S.)."))
+        self.assertIn("not counted, 4 department, roadmap, general or commissioning links that are not a single bachelor's program: BSBA Graduation Requirements | Bachelor's Degree Programs | Minor in Nutrition (Traditional BSN) | Spanish Studies (Secondary Major) (BA)", b)
+        miss = b.split("Not recorded (names separated by ' | '): ")[1].rstrip('.').split(' | ')
+        self.assertEqual(len(miss), 6)  # BS*, the CS major (only concentrations), two dual degrees, Physics, Mathematics Path
+        self.assertTrue(any(m.startswith('B.S. Concentration (https://catalog.x.edu/cs/') for m in miss))
+        self.assertEqual(sum(m.startswith('Dual Degree B.S.') for m in miss), 2)
+        # a concentration row whose link names no major refuses the count (Colorado State's nested concentration pages)
+        with tempfile.TemporaryDirectory() as d:
+            d = self.run_dir(d, [('B.S.', u + 'cs/computer-science-major/', 'bachelor'), ('B.S. Concentration', u + 'cs/computer-science-major/ai-concentration/', 'bachelor')],
+                             [('Major in Computer Science', u + 'cs/computer-science-major/')])
+            with self.assertRaises(ValueError): entries(d, d / 'dec.json', ['k'])
 
     def test_only_reviewed_approvals_count(self):
         import tempfile

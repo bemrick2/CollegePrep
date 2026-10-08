@@ -3,7 +3,7 @@
   "covered": 64,
   "definition": "Registered: four-year schools in the national registry (pipeline/registry; scope rule in pipeline/registry.py). Researched: a verified or partially verified deep-dive record, or a queue entry recording an attempt other than not_yet_researched. Covered: meets docs/PROGRAM_DEPTH_COMPLETION.md. Untracked states count as registered only.",
   "registered": 2119,
-  "researched": 672,
+  "researched": 673,
   "states": [
    {
     "covered": 3,
@@ -34,7 +34,7 @@
     "tracked": true
    },
    {
-    "covered": 4,
+    "covered": 5,
     "registered": 152,
     "researched": 52,
     "state": "CA",
@@ -104,7 +104,7 @@
     "tracked": true
    },
    {
-    "covered": 3,
+    "covered": 2,
     "registered": 71,
     "researched": 24,
     "state": "IL",
@@ -309,7 +309,7 @@
    {
     "covered": 6,
     "registered": 118,
-    "researched": 34,
+    "researched": 35,
     "state": "TX",
     "tracked": true
    },
@@ -2386,8 +2386,8 @@
   },
   {
    "coverage_threshold": 0.8,
-   "covered_institutions": 4,
-   "entering_student_share_covered": 0.051,
+   "covered_institutions": 5,
+   "entering_student_share_covered": 0.067,
    "four_year_institutions": 152,
    "institutions": [
     {
@@ -2979,10 +2979,10 @@
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": 0.874,
+     "catalog_share": 0.915,
      "dimensions": {
       "admission_rules": "queued",
-      "catalog": "queued",
+      "catalog": "met",
       "degree_maps": "queued",
       "requirement_groups": "met"
      },
@@ -2994,18 +2994,19 @@
       "nursing"
      ],
      "institution_key": "ipeds-122597",
-     "listed_bachelor_programs": 119,
+     "listed_bachelor_programs": 118,
      "name": "San Francisco State University",
      "partially_verified_programs": 0,
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
       "admission_rules:not_yet_researched",
+      "catalog:layout_not_readable",
       "catalog:not_yet_researched",
       "degree_maps:not_yet_researched"
      ],
      "requirement_groups": 85,
-     "status": "partial",
+     "status": "covered",
      "verified_bachelor_programs": 110
     },
     {
@@ -6131,7 +6132,7 @@
     }
    ],
    "not_yet_researched": 111,
-   "queue_entries": 171,
+   "queue_entries": 172,
    "queue_errors": [],
    "state": "CA",
    "status": "in_progress",
@@ -6180,13 +6181,16 @@
      ],
      "catalog_share": null,
      "dimensions": {
-      "admission_rules": "met",
+      "admission_rules": "queued",
       "catalog": "queued",
       "degree_maps": "queued",
       "requirement_groups": "met"
      },
      "folder": "colostate",
-     "high_value_without_admission_rule": [],
+     "high_value_without_admission_rule": [
+      "business",
+      "engineering"
+     ],
      "institution_key": "ipeds-126818",
      "listed_bachelor_programs": null,
      "name": "Colorado State University-Fort Collins",
@@ -6194,13 +6198,13 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "catalog:not_yet_researched",
-      "degree_maps:not_yet_researched",
-      "institution:layout_not_readable"
+      "admission_rules:not_yet_researched",
+      "catalog_count:layout_not_readable",
+      "degree_maps:not_yet_researched"
      ],
-     "requirement_groups": 1,
+     "requirement_groups": 6,
      "status": "partial",
-     "verified_bachelor_programs": 6
+     "verified_bachelor_programs": 68
     },
     {
      "academic_years": [],
@@ -12914,8 +12918,8 @@
   },
   {
    "coverage_threshold": 0.8,
-   "covered_institutions": 3,
-   "entering_student_share_covered": 0.029,
+   "covered_institutions": 2,
+   "entering_student_share_covered": 0.017,
    "four_year_institutions": 71,
    "institutions": [
     {
@@ -13491,10 +13495,10 @@
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": 0.918,
+     "catalog_share": 0.709,
      "dimensions": {
       "admission_rules": "queued",
-      "catalog": "met",
+      "catalog": "queued",
       "degree_maps": "queued",
       "requirement_groups": "met"
      },
@@ -13505,7 +13509,7 @@
       "nursing"
      ],
      "institution_key": "ipeds-148487",
-     "listed_bachelor_programs": 61,
+     "listed_bachelor_programs": 79,
      "name": "Roosevelt University",
      "partially_verified_programs": 0,
      "programs_complete": false,
@@ -13516,7 +13520,7 @@
       "degree_maps:not_yet_researched"
      ],
      "requirement_groups": 114,
-     "status": "covered",
+     "status": "partial",
      "verified_bachelor_programs": 58
     },
     {
@@ -14684,7 +14688,7 @@
     }
    ],
    "not_yet_researched": 56,
-   "queue_entries": 86,
+   "queue_entries": 87,
    "queue_errors": [],
    "state": "IL",
    "status": "in_progress",
@@ -45580,7 +45584,7 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "institution:no_year_label"
      ],
      "requirement_groups": 0,
      "status": "exception",
@@ -48162,7 +48166,7 @@
      "verified_bachelor_programs": 0
     }
    ],
-   "not_yet_researched": 95,
+   "not_yet_researched": 94,
    "queue_entries": 131,
    "queue_errors": [],
    "state": "TX",
