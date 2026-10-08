@@ -15,7 +15,7 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-7 | Institutions with verified records | ✅ live | Comparison suggestions from `institutions_with_verified_records`, four-year schools with costs first |
 | CR-8 | Answer-free help content | ✅ live | `concept_summary` and `sections` selected in the catalog |
 | CR-9 | Institution level, saved schools | ✅ live | `level` from `compare_institutions`; saved schools via `save_/remove_household_school` (browser only for a student with no household) |
-| CR-10 | Canonical exam keys, student exam plan | ⏳ open | College paths match exams by normalized name; the exam list is kept in this browser |
+| CR-10 | Canonical exam keys, student exam plan | 🚧 schema in migration `20261006180300` (hosted state unknown while paused); frontend not wired (#196) | College paths match exams by normalized name; the exam list is kept in this browser |
 | CR-11 | Numeric test minimums on awards | ⏳ open | Single minimums parsed from `test_requirement` text; ranges/tiers shown as "read criteria" |
 | CR-12 | Primary target school | ✅ live | `supportsPrimarySchool = true` in `LiveSource` |
 | CR-13 | Major certainty and saved interests | ✅ live | Read/written through `student_academic_interests`; checked locally |
@@ -33,6 +33,7 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-25 | "Report a problem" on a question | ⏳ open | No UI; nothing stored |
 | CR-26 | Setup on the account: test choice, test date, study days, 5–30 min sessions, practice-test score source, setup completion, benchmark schedule | ⏳ open (reference SQL in `scripts/local/proposals/cr26_account_setup.sql`, local only) | Behind `VITE_ACCOUNT_SETUP`; without it, answers stay in this browser and sessions are 5–15 min |
 | CR-27 | Practice reminders: settings, device permission, deliveries, snooze, guardian notice when a linked student turns them off | ⏳ open (reference SQL in `scripts/local/proposals/cr27_practice_reminders.sql`, local only) | Behind `VITE_PRACTICE_REMINDERS`; push sender, action endpoint and notice email built and tested locally, not deployed |
+| CR-28 | Planning profile: high school courses, dual enrollment, optional GPA band (college planning pilot) | ⏳ proposal (#196); not started until hosted is restored and the privacy policy names the fields | Pilot inputs are demo-only (`docs/product/COLLEGE_PLANNING_PILOT.md`) |
 
 Live content note: the bank has no exam versions, skills or questions yet, so live practice and benchmarks show their empty states until content is loaded.
 
