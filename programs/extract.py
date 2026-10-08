@@ -107,27 +107,32 @@ from programs.years import PERIOD_SPANS, academic_year_of  # noqa: E402  (multi-
 def printed_catalog_years(page):
     """Catalog year labels printed anywhere on the page ("2026-2027 Catalog" in a CourseLeaf footer,
     "2026-2027 Bulletin > ..." in a SmartCatalog breadcrumb), excluding 'Select a Catalog' archive menus."""
-    found = set()
+    found, menu_found = set(), set()
     lines = page.lines
     for i, line in enumerate(lines):
         if len(line) > 160 or ARCHIVE_LINK.match(line) or NOT_CURRENT.search(line): continue
         # a print-menu slot for a catalog PDF not yet posted ('2025-2026 Academic Catalog' / 'Coming Soon!!!', Stetson) is not this page's label
         if any(re.match(r'\s*coming soon\b', l, re.I) for l in lines[i + 1:i + 3] if l.strip()): continue
+        # a print-options menu entry ('2025-2026 Catalog' / 'A PDF of the 2025-2026 catalog.', UNO 2026-27) names a download; it is
+        # set aside and counts only when the page prints no other label (many catalogs' menus name the current catalog)
+        got = set()
         for m in YEAR_LABEL.finditer(line):
-            if int(m.group(2)) - int(m.group(1)) in PERIOD_SPANS: found.add((f'{m.group(1)}-{m.group(2)}', line.strip()))
+            if int(m.group(2)) - int(m.group(1)) in PERIOD_SPANS: got.add((f'{m.group(1)}-{m.group(2)}', line.strip()))
         m = LABEL_FIRST.search(line.strip())  # Linfield "Catalog 2026-2027"; UP "Bulletin 2026-2027 > ..."; Auburn "Auburn Bulletin 2026-2027"
-        if m and int(m.group(2)) - int(m.group(1)) in PERIOD_SPANS: found.add((f'{m.group(1)}-{m.group(2)}', line.strip()))
+        if m and int(m.group(2)) - int(m.group(1)) in PERIOD_SPANS: got.add((f'{m.group(1)}-{m.group(2)}', line.strip()))
         for m in SHORT_LABEL.finditer(line):
             for k in PERIOD_SPANS:
-                if int(m.group(2)) == (int(m.group(1)) + k) % 100: found.add((f'{m.group(1)}-{int(m.group(1)) + k}', line.strip()))
+                if int(m.group(2)) == (int(m.group(1)) + k) % 100: got.add((f'{m.group(1)}-{int(m.group(1)) + k}', line.strip()))
         # UW-Madison's site header prints the catalog name and its year on two lines: 'Guide' / '2026-2027'
         m = BARE_YEAR.fullmatch(line.strip())
         prev = next((l.strip() for l in reversed(lines[max(0, i - 2):i]) if l.strip()), '')
         if m and HEADER_NAME.fullmatch(prev) and int(m.group(2)) - int(m.group(1)) in PERIOD_SPANS:
-            found.add((f'{m.group(1)}-{m.group(2)}', f'{prev} {line.strip()}'))
+            got.add((f'{m.group(1)}-{m.group(2)}', f'{prev} {line.strip()}'))
         m = EDITION.fullmatch(line.strip())  # Lewis & Clark header: "2026-27 Edition"
         for k in PERIOD_SPANS if m else ():
-            if int(m.group(2)) == (int(m.group(1)) + k) % 100: found.add((f'{m.group(1)}-{int(m.group(1)) + k}', line.strip()))
+            if int(m.group(2)) == (int(m.group(1)) + k) % 100: got.add((f'{m.group(1)}-{int(m.group(1)) + k}', line.strip()))
+        (menu_found if any(ARCHIVE_LINK.match(l) for l in lines[i + 1:i + 2]) else found).update(got)
+    if not found: found = menu_found
     menu = sum(1 for l in page.lines if re.fullmatch(r'20\d{2}-20\d{2}\s+(Catalog|Catalogue|Bulletin)', l.strip(), re.I))
     if menu >= 3:  # an archive selector lists every year; only labels used in context (breadcrumb, footer) count
         found = {(y, l) for y, l in found if not re.fullmatch(r'20\d{2}-20\d{2}\s+(Catalog|Catalogue|Bulletin)', l, re.I)}
@@ -468,6 +473,50 @@ def load_level_inventory(target):
     return None
 
 
+def load_award_documents(target):
+    """Official pages of the institution that state a major's bachelor award when its catalog page prints none (UMD
+    2026-27: school and department pages), read from the run that stored them. Each configured document names the
+    majors it describes and how it is read: 'named' (the award printed together with the major's name, 'Bachelor of
+    Arts in Public Policy', 'Bachelor of Science, Family Health') or 'single_award' (a department page that offers exactly
+    one bachelor's award, 'The ANSC department has degrees available in Bachelor of Science (B.S.), Master of Science')."""
+    ad = target.get('award_documents')
+    if not ad: return None
+    run = Run(Path(__file__).resolve().parents[1] / ad['run'])
+    by_url = {e.get('url'): e for e in run.entries() if e.get('page_file')}
+    out = []
+    for d in ad['documents']:
+        e = by_url.get(d['url'])
+        if not e: continue
+        page, _ = run.load_page(e['page_file'])
+        out.append({**d, 'entry': e, 'lines': [re.sub(r'\s+', ' ', l).strip() for l in (page.text or '').splitlines() if l.strip()]})
+    return out
+
+
+BACHELOR_LONG = re.compile(r'\bBachelor\s+of\s+(Arts|Science)\b')
+
+
+def document_award(name, docs):
+    """(award, printed line, document entry) for the major from the configured award documents, or None. Never a guess:
+    a 'named' document must print 'Bachelor of Arts|Science in|, <the major>' (the major's name exactly, without 'Major');
+    a 'single_award' document must print exactly one bachelor's award ('Bachelor of Science') anywhere in its text."""
+    base = re.sub(r'\s+Major$', '', name.strip())
+    for d in docs or []:
+        if name.strip() not in d.get('majors', []): continue
+        if d.get('read') == 'named':
+            rx = re.compile(r'\bBachelor\s+of\s+(Arts|Science)(?:\s+in|,)\s+' + re.escape(base) + r'(?![A-Za-z])(?!\s+[A-Z][a-z])')  # 'Public Policy' is not 'Public Policy Analytics'
+            hits = {(m.group(1), l) for l in d['lines'] for m in rx.finditer(l)}
+            kinds = {k for k, _ in hits}
+            if len(kinds) == 1:
+                k = kinds.pop(); line = min(l for kk, l in hits if kk == k)
+                return LONG_SHORT[k.lower()], line[:300], d['entry']
+        elif d.get('read') == 'single_award':
+            kinds = {m.group(1) for l in d['lines'] for m in BACHELOR_LONG.finditer(l)}
+            if len(kinds) == 1:
+                k = next(iter(kinds)); line = min((l for l in d['lines'] if BACHELOR_LONG.search(l)), key=len)
+                return LONG_SHORT[k.lower()], line[:300], d['entry']
+    return None
+
+
 AWARD_PHRASE = re.compile(r"\b(?:Bachelor\s+of\s+(?P<long>Arts|Science|Landscape\s+Architecture|Music(?:\s+Education)?|Fine\s+Arts)|"
                           r"(?<![A-Za-z.])(?P<short>B\.\s?(?:A|S|L\.\s?A|M|F\.\s?A|M\.\s?E)\.)|(?<![A-Za-z.])(?P<bare>BA|BS)(?=\s+(?:degree\s+)?in\s))(?![A-Za-z])")
 LONG_SHORT = {'arts': 'B.A.', 'science': 'B.S.', 'landscape architecture': 'B.L.A.', 'music': 'B.M.', 'music education': 'B.M.E.', 'fine arts': 'B.F.A.'}
@@ -503,7 +552,7 @@ def printed_awards(name, text):
     return out
 
 
-def inventory_level_candidates(inst, entry, page, today_year, inv):
+def inventory_level_candidates(inst, entry, page, today_year, inv, award_docs=None):
     """A catalog page headed 'X Major' with one printed catalog year, whose name the inventory lists as exactly one
     Bachelor's Degree program of the institution (the inventory truncates names at 40 characters: a name it cuts short
     matches on that prefix)."""
@@ -521,11 +570,15 @@ def inventory_level_candidates(inst, entry, page, today_year, inv):
     row = hits[0]; acad = academic_year_of(year)
     snippet = f"{row[0]} | {row[1]} | {row[2]}"
     awards = printed_awards(m.group('name'), page.text)
+    doc = None if awards else document_award(head, award_docs)
     inv_note = (f'The {inv["publisher"]} Academic Program Inventory lists "{row[1]}" as a Bachelor\'s Degree program of {row[0]} '
                 '(degree level only; it prints no award).')
     if awards:
         note = ('Program name and catalog year as printed on the catalog page; the page prints the award' + ('s ' if len(awards) > 1 else ' ')
                 + ', '.join(sorted(awards)) + ' in its text (quoted in the evidence). ' + inv_note)
+    elif doc:
+        note = ('Program name and catalog year as printed on the catalog page, which does not state the award; the award ' + doc[0]
+                + f' is printed on the official page {doc[2]["url"]} (quoted in the evidence). ' + inv_note)
     else:
         note = ('Program name and catalog year as printed on the catalog page; the page does not state which bachelor\'s award this major '
                 'leads to, so no award is recorded. ' + inv_note)
@@ -536,8 +589,9 @@ def inventory_level_candidates(inst, entry, page, today_year, inv):
           {'field': 'catalog_year', 'value': year, 'snippet': line[:200]},
           {'field': 'credential_level', 'value': 'bachelor', 'snippet': snippet, 'url': ie['url'], 'sha256': ie.get('sha256')}]
     ev += [{'field': 'award', 'value': a, 'snippet': l} for a, l in sorted(awards.items())]
+    if doc: ev.append({'field': 'award', 'value': doc[0], 'snippet': doc[1], 'url': doc[2]['url'], 'sha256': doc[2].get('sha256')})
     return [common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec, ev,
-                        entry, INVENTORY_LEVEL_EXTRACTOR, {'program_key': rec['program_key']}, {}, [] if awards else ['award_not_printed'])]
+                        entry, INVENTORY_LEVEL_EXTRACTOR, {'program_key': rec['program_key']}, {}, [] if (awards or doc) else ['award_not_printed'])]
 
 
 def static_program_identity(inst, entry, page, today_year):
@@ -601,6 +655,9 @@ def strip_award(name):
     return n
 
 
+COLLEGE_QUALIFIER = re.compile(r'\s*\((?:College|School) of [^()]+\)?\s*$')
+
+
 def listed_program_identity(inst, entry, page, today_year, listed):
     """CourseLeaf program pages whose name prints no award (Auburn 'Agricultural Business & Economics (AGEC)') while the
     catalog's own program list links this exact page with the award ('Agricultural Business & Economics – BS'). The record
@@ -608,8 +665,11 @@ def listed_program_identity(inst, entry, page, today_year, listed):
     exactly one catalog year label of its own."""
     if not listed or listed.get('credential_level') != 'bachelor' or not listed.get('listed_on_sha256'): return []
     printed = listed['printed'].strip()
-    base = strip_award(printed)
-    if not base or base == printed or OPTION_NAME.search(printed): return []
+    # Iowa State 2026-27 lists a degree offered by two colleges once per college ('Biology, B.S. (College of Liberal Arts and
+    # Sciences)'), each line linking that college's own page: the college is part of the listed name, not of the award
+    unqualified = COLLEGE_QUALIFIER.sub('', printed)
+    base = strip_award(unqualified)
+    if not base or base == unqualified or OPTION_NAME.search(printed): return []
     if any(re.search(r'\bmajors\b', h, re.I) for h in page.headings): return []  # a page holding several majors
     names = [h.strip() for h in page.headings[:3]] + [CAT.program_name(page)]
     norm = lambda x: re.sub(r'\W+', ' ', x).strip().lower()
@@ -1294,6 +1354,7 @@ def extract_run(targets, run_dir, today=None):
         emphases = listed_emphasis_pages({key: lists[key]}, norm_emph)
         if (t.get('catalog') or {}).get('platform') == 'coursedog': t = {**t, '_catalog_year': coursedog_year(run, es)}
         if t.get('level_inventory'): t = {**t, '_level_inventory': load_level_inventory(t)}
+        if t.get('award_documents'): t = {**t, '_award_documents': load_award_documents(t)}
         if (t.get('catalog') or {}).get('platform') == 'courseleaf':
             t = {**t, '_listed': {norm_url(p['url']): p for p in lists[key].get('programs', [])}}
             t = {**t, '_courselists': {e['via']: (e, json.loads(run.load_page(e['page_file'])[0].text)) for e in es if e.get('role') == 'courselist' and e.get('page_file')}}
@@ -1337,7 +1398,7 @@ def extract_run(targets, run_dir, today=None):
             if e.get('role') == 'program_page':
                 found = program_page_candidates(t, inst, e, page, today_year)
                 if not any(c['domain'] == 'academic_programs' for c in found) and t.get('_level_inventory'):
-                    found = inventory_level_candidates(inst, e, page, today_year, t['_level_inventory']) + found
+                    found = inventory_level_candidates(inst, e, page, today_year, t['_level_inventory'], t.get('_award_documents')) + found
                 if drops_option_page(found, key, e.get('url'), emphases):
                     found = []  # the option's rows belong to its major (unless the list prints it as the degree's only entry)
                 for c in found:

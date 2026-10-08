@@ -490,6 +490,13 @@ class StatedMajorTests(unittest.TestCase):
         q = T.Page('2026-2027 Campus Life and Catalog of Events\nAccounting, BS', 't', [], [], [])
         self.assertEqual(X.printed_catalog_years(q), set())
 
+    def test_print_menu_catalog_pdf_is_not_the_page_label(self):  # UNO 2026-27 print options: '2025-2026 Catalog' / 'A PDF of ...'
+        from pipeline import text as T
+        p = T.Page('2026-2027 Edition\nEnglish, Bachelor of Arts\nDownload Page (PDF)\n2025-2026 Catalog\nA PDF of the 2025-2026 catalog.\nCancel', 't', [], [], [])
+        self.assertEqual({y for y, _ in X.printed_catalog_years(p)}, {'2026-2027'})
+        q = T.Page('2025-2026 Catalog\nEnglish, Bachelor of Arts', 't', [], [], [])
+        self.assertEqual({y for y, _ in X.printed_catalog_years(q)}, {'2025-2026'})
+
     def test_header_name_and_year_on_two_lines(self):  # UW-Madison 2026-27 site header: 'Guide' / '2026-2027'
         from pipeline import text as T
         p = T.Page('Archive\nGuide\n2026-2027\nSearch this site\nAnthropology, BA\n© 2026-2027 Board of Regents', 't', [], [], [])
@@ -1945,6 +1952,30 @@ class CatalogOverwriteTests(unittest.TestCase):
                 self.assertEqual(json.loads((f / '2026-27.json').read_text())['records'][0]['listed_bachelor_programs'], 37)
             finally:
                 P.ROOT, PP.ROOT = old, oldp
+
+
+class AwardDocumentTests(unittest.TestCase):
+    def docs(self):
+        L = lambda *ls: list(ls)
+        return [{'majors': ['Public Policy Major', 'Global and Foreign Policy Major'], 'read': 'named', 'entry': {'url': 'https://spp/u'},
+                 'lines': L('Bachelor of Arts in Public Policy', 'Bachelor of Arts in Global and Foreign Policy', 'Bachelor of Science in Public Policy Analytics')},
+                {'majors': ['Animal Sciences Major'], 'read': 'single_award', 'entry': {'url': 'https://agnr/ansc'},
+                 'lines': L('The ANSC department has degrees available in Bachelor of Science (B.S.), Master of Science (M.S.).')},
+                {'majors': ['Plant Sciences Major'], 'read': 'single_award', 'entry': {'url': 'https://agnr/psla'},
+                 'lines': L('Offers Bachelor of Science and Bachelor of Arts degrees.')}]
+
+    def test_award_only_where_an_official_page_prints_it(self):  # UMD 2026-27 school and department pages
+        from programs.extract import document_award
+        self.assertEqual(document_award('Public Policy Major', self.docs())[:2], ('B.A.', 'Bachelor of Arts in Public Policy'))
+        self.assertEqual(document_award('Global and Foreign Policy Major', self.docs())[0], 'B.A.')
+        self.assertEqual(document_award('Animal Sciences Major', self.docs())[0], 'B.S.')
+        self.assertIsNone(document_award('Plant Sciences Major', self.docs()))  # two bachelor's awards: none recorded
+        self.assertIsNone(document_award('History Major', self.docs()))         # no document names the major
+
+    def test_graduate_name_rule_keeps_bachelor_of_musical_arts(self):  # Missouri Western 2026-27
+        from programs.autoreview import GRADUATE
+        self.assertFalse(GRADUATE.search('Musical Arts (Bachelor of Musical Arts, B.M.A.)'))
+        self.assertTrue(GRADUATE.search('History (M.A.)'))
 
 
 class ProgramKeymapTests(unittest.TestCase):
