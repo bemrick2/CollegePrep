@@ -495,6 +495,13 @@ class StatedMajorTests(unittest.TestCase):
         q = T.Page('2026-2027 Campus Life and Catalog of Events\nAccounting, BS', 't', [], [], [])
         self.assertEqual(X.printed_catalog_years(q), set())
 
+    def test_header_name_and_year_on_two_lines(self):  # UW-Madison 2026-27 site header: 'Guide' / '2026-2027'
+        from pipeline import text as T
+        p = T.Page('Archive\nGuide\n2026-2027\nSearch this site\nAnthropology, BA\n© 2026-2027 Board of Regents', 't', [], [], [])
+        self.assertEqual(X.printed_catalog_years(p), {('2026-2027', 'Guide 2026-2027')})
+        for text in ('Archive\n2026-2027\nAnthropology, BA', 'Course Guide Notes\n2026-2027\nX', 'Guide\n2026-2029\nX', '© 2026-2027 Board of Regents'):
+            self.assertEqual(X.printed_catalog_years(T.Page(text, 't', [], [], [])), set(), text)
+
 class MajorTableTests(unittest.TestCase):
     def test_marked_majors_with_catalog_award_statement(self):  # Lewis & Clark 2026-27
         from pipeline import text as T
@@ -1941,6 +1948,58 @@ class CatalogOverwriteTests(unittest.TestCase):
                        'listed_bachelor_programs': 72, 'reason': 'Standing review: official current-catalog program list pages.'}
                 self.assertEqual(P.apply_catalog(cat, {'k': 'x'}, {}, {}), 0)
                 self.assertEqual(json.loads((f / '2026-27.json').read_text())['records'][0]['listed_bachelor_programs'], 37)
+            finally:
+                P.ROOT, PP.ROOT = old, oldp
+
+
+class KeptRecordTests(unittest.TestCase):
+    def test_corrected_or_already_promoted_records_are_not_replaced(self):  # JHU 2026-10-07, #129 footnote fixes
+        from programs import promote as P
+        import pipeline.promote as PP
+        with tempfile.TemporaryDirectory() as d:
+            old, oldp = P.ROOT, PP.ROOT; P.ROOT = PP.ROOT = Path(d)
+            try:
+                f = Path(d) / 'data/institutions/x/academic_programs'; f.mkdir(parents=True)
+                (f / '2026-27.json').write_text(json.dumps({'institution_key': 'k', 'academic_year': '2026-27', 'records': [
+                    {'program_key': 'policy', 'verification_status': 'unverified', 'verification_correction_reason': 'not a program'},
+                    {'program_key': 'listed', 'verification_status': 'verified'}, {'program_key': 'fixed', 'verification_status': 'verified'}]}))
+                (Path(d) / 'supabase').mkdir()
+                (Path(d) / 'supabase/corrections.json').write_text(json.dumps({'corrections': [
+                    {'natural_key': json.dumps(['academic_programs', 'k', None, '2026-27', {'program_key': 'listed'}])}]}))
+                c = lambda cid, key: {'candidate_id': cid, 'domain': 'academic_programs', 'institution_key': 'k', 'academic_year': '2026-27'}
+                self.assertIn('correction', P.kept_record(c('a', 'policy'), {'program_key': 'policy'}, {'k': 'x'}, set()))
+                self.assertIn('correction', P.kept_record(c('b', 'listed'), {'program_key': 'listed'}, {'k': 'x'}, set()))
+                self.assertIn('already promoted', P.kept_record(c('f', 'fixed'), {'program_key': 'fixed'}, {'k': 'x'}, {'f'}))
+                self.assertIsNone(P.kept_record(c('g', 'fixed'), {'program_key': 'fixed'}, {'k': 'x'}, {'f'}))  # a new review may update it
+                self.assertIsNone(P.kept_record(c('n', 'new'), {'program_key': 'new'}, {'k': 'x'}, set()))
+            finally:
+                P.ROOT, PP.ROOT = old, oldp
+
+
+class PromoteKeepsCorrectionsTests(unittest.TestCase):
+    def test_promote_leaves_a_corrected_record_and_reports_it(self):
+        from programs import promote as P
+        import pipeline.promote as PP
+        with tempfile.TemporaryDirectory() as d:
+            D = Path(d); old, oldp = P.ROOT, PP.ROOT; P.ROOT = PP.ROOT = D
+            try:
+                (D / 'programs/targets').mkdir(parents=True)
+                (D / 'programs/targets/ZZ.json').write_text(json.dumps({'institutions': [{'institution_key': 'k', 'folder': 'x'}]}))
+                run = D / 'programs/runs/ZZ/r'; run.mkdir(parents=True)
+                c = {'candidate_id': 'c1', 'domain': 'academic_programs', 'institution_key': 'k', 'academic_year': '2026-27', 'year_basis': 'labeled_in_source',
+                     'issues': [], 'extractor': 'static_program/v1', 'evidence': [], 'source': {'url': 'https://u/p'},
+                     'record': {'program_key': 'policy', 'program_name': 'Requirements for a Bachelor\'s Degree', 'credential_level': 'bachelor'}}
+                (run / 'candidates.jsonl').write_text(json.dumps(c) + '\n'); (run / 'evidence.jsonl').write_text(''); (run / 'manifest.jsonl').write_text('')
+                f = D / 'data/institutions/x/academic_programs'; f.mkdir(parents=True)
+                on_file = {'institution_key': 'k', 'academic_year': '2026-27', 'records': [
+                    {'program_key': 'policy', 'program_name': 'Requirements for a Bachelor\'s Degree', 'verification_status': 'unverified',
+                     'verification_correction_reason': 'not a program'}]}
+                (f / '2026-27.json').write_text(json.dumps(on_file))
+                dec = D / 'dec.json'; dec.write_text(json.dumps({'run': 'programs/runs/ZZ/r', 'approve': [{'candidate_id': 'c1', 'reason': 'x'}]}))
+                logs = []
+                P.promote(dec, log=logs.append)
+                self.assertEqual(json.loads((f / '2026-27.json').read_text()), on_file)
+                self.assertTrue(any('kept as on file' in l for l in logs))
             finally:
                 P.ROOT, PP.ROOT = old, oldp
 

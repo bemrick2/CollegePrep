@@ -77,3 +77,15 @@ describe.skipIf(!schools.includes('utc'))('UTC Clear Path alternatives printed i
     expect(r.accepted[0]!.matched[0]).toMatchObject({ code: 'MATH 1950', term: 2 })
   })
 })
+
+describe.skipIf(!schools.includes('utk'))('stored IB and Statewide Dual Credit tables (#197)', () => {
+  it('UTK IB and SDC rows match; UTC IB minimums printed as "SL & HL" are read-the-criteria, never credit', () => {
+    const utk = read('utk', 'credit_policies') as unknown as CreditPolicy[]
+    const econ = { family: 'IB' as const, key: examKey('IB', 'Economics'), name: 'IB Economics', score: 5, level: 'SL' as const }
+    expect(summarizeSchool(utk, [econ]).matches[0]).toMatchObject({ status: 'qualifies' })
+    const bus = { family: 'SDC' as const, key: examKey('SDC', 'Introduction to Business'), name: 'Statewide Dual Credit Introduction to Business', score: 80 }
+    expect(summarizeSchool(utk, [bus]).matches[0]!.earned[0]).toMatchObject({ course: 'BUAD LD (3 credits)', credits: 3 })
+    const utc = read('utc', 'credit_policies') as unknown as CreditPolicy[]
+    expect(summarizeSchool(utc, [{ ...econ, level: 'HL', score: 7 }]).matches[0]!.status).toBe('read_criteria')
+  })
+})

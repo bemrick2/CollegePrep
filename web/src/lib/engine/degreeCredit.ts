@@ -34,7 +34,8 @@ export function parseEquivalent(text: string | null | undefined): { groups: stri
       else for (const a of alts) groups.push([a])
     }
   }
-  return { groups, elective: groups.length === 0 && /\b(LD|UD|ELECTIVE|ELEC)\b/.test(t) }
+  // "LD", "UD", "Elective", and placeholder numbers such as "BUS 1XXX", "ARTH 1XX" or "ELEC 1XXX" are elective credit.
+  return { groups, elective: groups.length === 0 && /\b(LD|UD|ELECTIVE|ELEC)\b|\b[A-Z]{2,5}\s*\d{0,3}X{1,3}\b/.test(t) }
 }
 
 /** A plan term as stored; items may be strings or structured entries (see planItems.ts). */
