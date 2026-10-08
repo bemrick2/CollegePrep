@@ -9,7 +9,7 @@ Consolidated 2026-10-07. Owners:
 
 Status: ⛔ blocked · ⏳ not started · 🚧 in progress · ✅ done.
 
-Hosted deployment is **held** (`.operations/supabase-live-hold.json`). Nothing below that touches hosted happens until the owner lifts the hold.
+Hosted deployment is **held** (`.operations/supabase-live-hold.json`). Owner, 2026-10-08: the Supabase project stays paused on purpose (both free slots are used elsewhere), with no reactivation planned yet. Nothing below that touches hosted happens until the owner decides to reactivate it. Everything waiting on it is listed in `SUPABASE_DEFERRED.md`.
 
 ## A. Hard blockers: no public launch without these
 
