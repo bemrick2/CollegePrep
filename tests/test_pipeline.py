@@ -1944,23 +1944,6 @@ if __name__ == '__main__':
     unittest.main()
 
 
-class CatalogYearTests(unittest.TestCase):
-    """A two-year catalog period is kept as printed (Cal Poly '2026-2028 Catalog', #184); one-year labels are unchanged."""
-    def test_periods_and_one_year_labels(self):
-        from pipeline.extractors import catalog as C
-        from pipeline import text as T
-        from programs.years import academic_year_of
-        page = lambda title, text='': T.Page(text, title, [], [], [])
-        self.assertEqual(C.catalog_year(page('Agricultural Business (BS) | Cal Poly', 'Programs\n2026-2028 Catalog\nAgricultural Business (BS)')),
-                         (academic_year_of('2026-2028'), '2026-2028'))
-        self.assertEqual(C.catalog_year(page('Biology, B.S. - 2026-2027 Catalog')), ('2026-27', '2026-2027'))
-        # a period with a one-year edition inside it: the edition is the label (UT Austin)
-        self.assertEqual(C.catalog_year(page('X', '2026-27 Edition\n2026-2028 Undergraduate Catalog')), ('2026-27', '2026-2027'))
-        self.assertEqual(C.catalog_year(page('X', '2026-2029 Catalog')), (None, None))  # three-year spans are not read
-        # two different one-year labels on the page: ambiguous, so a period printed lower down is not taken as the label
-        self.assertEqual(C.catalog_year(page('X', '2025-26 Edition\n2026-27 Edition\n2026-2028 Catalog')), (None, None))
-
-
 class CatalogNameTests(unittest.TestCase):
     """UVU 2026-27: 'B.F.A.' is a bachelor's award, and 'Name - Qualifier, B.S.' keeps the qualifier and award."""
     def test_names_and_awards(self):

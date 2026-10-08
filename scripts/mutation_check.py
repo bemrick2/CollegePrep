@@ -13,8 +13,6 @@ MUTS = [
     ('pipeline/extractors/catalog.py', "    if rest and not award_only and not (", "    if rest and not ("),
     ('pipeline/registry.py', " and label not in other_states and (label not in slugs", " and (label not in slugs"),
     ('pipeline/registry.py', "            inst['folder'] = prior[inst['institution_key']]; continue", "            pass"),
-    ('pipeline/extractors/catalog.py', "    if m and int(m.group(2)) == int(m.group(1)) + 2 and not labels:", "    if False:"),
-    ('pipeline/extractors/catalog.py', "    if m and int(m.group(2)) == int(m.group(1)) + 2 and not labels:", "    if m and int(m.group(2)) == int(m.group(1)) + 2:"),
     ('pipeline/extractors/catalog.py', "DEGREE = [('bachelor', r'(?<![A-Za-z]\\.)\\bB", "DEGREE = [('bachelor', r'\\bB"),
     ('pipeline/extractors/common.py', "UNDERGRAD_AWARD = re.compile(r'(^|,|\\s|\\()\\s*(", "UNDERGRAD_AWARD = re.compile(r'(^|,|\\s)\\s*("),
     ('pipeline/extractors/credit.py', "if bad_score and bad_score >= len(eqs) * 0.3: issues = issues + ['score_column_not_scores']", 'pass'),

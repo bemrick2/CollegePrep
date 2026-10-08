@@ -112,12 +112,6 @@ def catalog_year(page):
     m = re.search(r'(20\d{2})\s*[-–]\s*(20\d{2})\s+(?:undergraduate\s+)?catalog', page.text[:5000], re.I)
     if m and int(m.group(2)) == int(m.group(1)) + 1:
         return T.academic_year(int(m.group(1))), f'{m.group(1)}-{m.group(2)}'
-    if m and int(m.group(2)) == int(m.group(1)) + 2 and not labels:
-        # a two-year catalog period ('2026-2028 Catalog', Cal Poly; #184) keeps its printed label; the record's
-        # academic year follows the shared period rule (programs/years.academic_year_of)
-        from programs.years import academic_year_of
-        label = f'{m.group(1)}-{m.group(2)}'
-        return academic_year_of(label), label
     return None, None
 
 
