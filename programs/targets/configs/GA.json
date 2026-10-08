@@ -173,12 +173,14 @@
  "gatech": {
   "catalog": {
    "home": "https://catalog.gatech.edu/",
-   "min_depth": 1,
+   "min_depth": 0,
    "path_prefix": "/programs/",
    "platform": "courseleaf",
-   "program_lists": []
+   "program_lists": [
+    "https://catalog.gatech.edu/programs/"
+   ]
   },
-  "detected": "Coursedog-style program URLs on catalog.gatech.edu (794 links); reviewed 2026-10-08: program pages are CourseLeaf ('2026-2027 Edition', /programs/industrial-design-bs/, run 2026-10-08-b01), not Coursedog; pages from the CourseLeaf sitemap",
+  "detected": "Coursedog-style program URLs on catalog.gatech.edu (794 links); reviewed 2026-10-08: program pages are CourseLeaf ('2026-2027 Edition', /programs/industrial-design-bs/, run 2026-10-08-b01), not Coursedog; pages from the CourseLeaf sitemap; reviewed 2026-10-08 (b02 read no program pages): program pages sit one level under /programs/ (min_depth 0); program list 'Programs' (https://catalog.gatech.edu/programs/), linked from every catalog page",
   "reviewed": true
  },
  "gcsu": {
