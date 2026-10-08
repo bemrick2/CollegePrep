@@ -1,9 +1,9 @@
 {
  "national": {
-  "covered": 53,
+  "covered": 54,
   "definition": "Registered: four-year schools in the national registry (pipeline/registry; scope rule in pipeline/registry.py). Researched: a verified or partially verified deep-dive record, or a queue entry recording an attempt other than not_yet_researched. Covered: meets docs/PROGRAM_DEPTH_COMPLETION.md. Untracked states count as registered only.",
   "registered": 2119,
-  "researched": 636,
+  "researched": 640,
   "states": [
    {
     "covered": 3,
@@ -36,7 +36,7 @@
    {
     "covered": 3,
     "registered": 152,
-    "researched": 46,
+    "researched": 48,
     "state": "CA",
     "tracked": true
    },
@@ -286,7 +286,7 @@
     "tracked": true
    },
    {
-    "covered": 0,
+    "covered": 1,
     "registered": 37,
     "researched": 9,
     "state": "SC",
@@ -309,7 +309,7 @@
    {
     "covered": 5,
     "registered": 118,
-    "researched": 28,
+    "researched": 29,
     "state": "TX",
     "tracked": true
    },
@@ -323,7 +323,7 @@
    {
     "covered": 2,
     "registered": 49,
-    "researched": 16,
+    "researched": 17,
     "state": "VA",
     "tracked": true
    },
@@ -2485,7 +2485,7 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "institution:no_year_label"
      ],
      "requirement_groups": 0,
      "status": "exception",
@@ -2509,7 +2509,7 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "institution:layout_not_readable"
      ],
      "requirement_groups": 0,
      "status": "exception",
@@ -2543,9 +2543,9 @@
       "catalog:not_yet_researched",
       "degree_maps:not_yet_researched"
      ],
-     "requirement_groups": 94,
+     "requirement_groups": 154,
      "status": "partial",
-     "verified_bachelor_programs": 71
+     "verified_bachelor_programs": 122
     },
     {
      "academic_years": [],
@@ -6118,7 +6118,7 @@
      "verified_bachelor_programs": 0
     }
    ],
-   "not_yet_researched": 116,
+   "not_yet_researched": 114,
    "queue_entries": 169,
    "queue_errors": [],
    "state": "CA",
@@ -42779,18 +42779,18 @@
   },
   {
    "coverage_threshold": 0.8,
-   "covered_institutions": 0,
-   "entering_student_share_covered": 0.0,
+   "covered_institutions": 1,
+   "entering_student_share_covered": 0.228,
    "four_year_institutions": 37,
    "institutions": [
     {
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": null,
+     "catalog_share": 1.0,
      "dimensions": {
       "admission_rules": "queued",
-      "catalog": "queued",
+      "catalog": "met",
       "degree_maps": "met",
       "requirement_groups": "met"
      },
@@ -42802,18 +42802,17 @@
       "nursing"
      ],
      "institution_key": "ipeds-218663",
-     "listed_bachelor_programs": null,
+     "listed_bachelor_programs": 98,
      "name": "University of South Carolina-Columbia",
      "partially_verified_programs": 0,
-     "programs_complete": false,
+     "programs_complete": true,
      "programs_with_plan": 71,
      "queue": [
-      "admission_rules:not_yet_researched",
-      "catalog:not_yet_researched"
+      "admission_rules:not_yet_researched"
      ],
-     "requirement_groups": 349,
-     "status": "partial",
-     "verified_bachelor_programs": 97
+     "requirement_groups": 350,
+     "status": "covered",
+     "verified_bachelor_programs": 98
     },
     {
      "academic_years": [],
@@ -43688,7 +43687,7 @@
     }
    ],
    "not_yet_researched": 31,
-   "queue_entries": 41,
+   "queue_entries": 40,
    "queue_errors": [],
    "state": "SC",
    "status": "in_progress",
@@ -45328,28 +45327,37 @@
      "verified_bachelor_programs": 0
     },
     {
-     "academic_years": [],
-     "catalog_share": null,
+     "academic_years": [
+      "2026-27"
+     ],
+     "catalog_share": 0.431,
      "dimensions": {
       "admission_rules": "queued",
       "catalog": "queued",
       "degree_maps": "queued",
-      "requirement_groups": "queued"
+      "requirement_groups": "met"
      },
      "folder": "txst",
-     "high_value_without_admission_rule": [],
+     "high_value_without_admission_rule": [
+      "business",
+      "computer_science",
+      "engineering",
+      "nursing"
+     ],
      "institution_key": "ipeds-228459",
-     "listed_bachelor_programs": null,
+     "listed_bachelor_programs": 211,
      "name": "Texas State University",
      "partially_verified_programs": 0,
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "admission_rules:not_yet_researched",
+      "catalog:not_yet_researched",
+      "degree_maps:not_yet_researched"
      ],
-     "requirement_groups": 0,
-     "status": "exception",
-     "verified_bachelor_programs": 0
+     "requirement_groups": 55,
+     "status": "partial",
+     "verified_bachelor_programs": 106
     },
     {
      "academic_years": [],
@@ -48088,7 +48096,7 @@
     }
    ],
    "not_yet_researched": 98,
-   "queue_entries": 125,
+   "queue_entries": 127,
    "queue_errors": [],
    "state": "TX",
    "status": "in_progress",
@@ -48431,7 +48439,7 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "institution:fetch_failed"
      ],
      "requirement_groups": 0,
      "status": "exception",
@@ -49627,7 +49635,7 @@
      "verified_bachelor_programs": 0
     }
    ],
-   "not_yet_researched": 38,
+   "not_yet_researched": 37,
    "queue_entries": 56,
    "queue_errors": [],
    "state": "VA",
@@ -51326,7 +51334,7 @@
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": null,
+     "catalog_share": 0.771,
      "dimensions": {
       "admission_rules": "queued",
       "catalog": "queued",
@@ -51340,14 +51348,14 @@
       "nursing"
      ],
      "institution_key": "ipeds-240444",
-     "listed_bachelor_programs": null,
+     "listed_bachelor_programs": 214,
      "name": "University of Wisconsin-Madison",
      "partially_verified_programs": 0,
      "programs_complete": false,
      "programs_with_plan": 103,
      "queue": [
       "admission_rules:not_yet_researched",
-      "catalog:not_yet_researched"
+      "catalog:layout_not_readable"
      ],
      "requirement_groups": 121,
      "status": "partial",
