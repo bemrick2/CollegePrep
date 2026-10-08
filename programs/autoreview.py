@@ -139,7 +139,13 @@ def review(state, run, today=None):
     for c in cands:
         u = url_of(c, 'program_url')
         if c['domain'] == 'academic_programs' and u and not u.lower().endswith('.pdf'): pages[(c['institution_key'], c['record'].get('program_key'))].add(u)
-    variant_pages = variant_pages_of(pages.values())
+    # one program read from its department page and from its own page beneath it, named for the program (Cal Poly lists
+    # both links as 'Aerospace Engineering (BS)': '.../aerospace/' and '.../aerospace/aerospace-engineering-bs/'): the
+    # program's own page is the record's source and the department page is held
+    slug = lambda n: re.sub(r'[^a-z0-9]+', '-', n.lower()).strip('-')
+    department_pages = {(c['institution_key'], url_of(c, 'program_url')) for c in cands if c['domain'] == 'academic_programs'
+                        and url_of(c, 'program_url') + '/' + slug(c['record'].get('program_name', '')) in pages[(c['institution_key'], c['record'].get('program_key'))]}
+    variant_pages = variant_pages_of([{u for u in us if (k[0], u) not in department_pages} for k, us in pages.items()])
     from .extract import listed_emphasis_pages, _degree_key, PAREN_VARIANT_ENTRY
     offered = defaultdict(set)  # degrees with a program candidate of their own (not an option page)
     for c in cands:
@@ -158,6 +164,7 @@ def review(state, run, today=None):
                'combined_program' if COMBINED.search(c['record'].get('program_name', '')) else
                'entry_path_variant' if len(variants[(c['institution_key'], base(c))]) > 1 and plain(c) != c['record'].get('program_name', '').strip()
                and (c['institution_key'], url_of(c, 'program_url')) not in listed_emphases else
+               'department_page' if (c['institution_key'], url_of(c, 'program_url')) in department_pages else
                'variant_page' if url_of(c, 'program_url') in variant_pages else
                'not_current_year' if not current_year(c, today_year) else
                'duplicate' if k in seen or (u in seen_url and c['extractor'] not in SHARED_PAGE) else None)
@@ -170,6 +177,7 @@ def review(state, run, today=None):
         why = ('untrusted_extractor' if (kind, c['extractor']) not in TRUSTED_REQUIREMENTS else 'issues' if c['issues'] else
                'not_verbatim' if verify.get(c['candidate_id']) else 'not_current_year' if not current_year(c, today_year) else
                'variant_page' if url_of(c, 'source_url') in variant_pages else
+               'department_page' if (c['institution_key'], url_of(c, 'source_url')) in department_pages else
                'program_not_approved' if c['record'].get('program_key') not in program_keys[c['institution_key']] else None)
         if why: held['req_' + why] += 1; continue
         approve.append({'candidate_id': c['candidate_id'], 'reason': f"Standing review ({c['extractor']}): rows verbatim in the stored official page; passed the layout hold rules."})
