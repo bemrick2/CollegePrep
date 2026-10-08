@@ -7,6 +7,8 @@ the same file. Each mutant breaks one rule; tests/test_programs_deep_dive.py mus
 import shutil, subprocess, sys
 
 MUTS = [
+    ('programs/extract.py', "r')\\s+(?:[Dd]egree\\s+)?in\\s+(?P<name>", "r')\\s+(?:degree\\s+)?in\\s+(?P<name>"),
+    ('programs/extract.py', "|\\s*20\\d{2}\\s*[-–]\\s*(?:20)?\\d{2}\\s+(?:[A-Z][a-z]+\\s+)?(?:Catalog|Catalogue|Bulletin)\\s+PDF\\s*$', re.I)", "', re.I)"),
     ('programs/catalog_counts.py', "        ident = lambda x: 'page:' + page_key(x['url']) if AWARD_ONLY.match(x['printed'].strip()) else name_key(x['printed'])", "        ident = lambda x: name_key(x['printed'])"),
     ('programs/catalog_counts.py', "            if c: x['printed'] = max(c, key=len); labelled += 1\n", ""),
     ('programs/catalog_counts.py', "(?: [A-Z][a-z]+)*)\\**$')", "(?: [A-Z][a-z]+)*)$')"),

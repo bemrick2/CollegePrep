@@ -98,8 +98,9 @@ EDITION = re.compile(r'(20\d{2})\s*[-–]\s*(?:20)?(\d{2})\s+Edition', re.I)  # 
 BARE_YEAR = re.compile(r'(20\d{2})\s*[-–]\s*(20\d{2})')
 HEADER_NAME = re.compile(r'(?:Guide|Catalog|Catalogue|Bulletin)', re.I)
 NOT_CURRENT = re.compile(r'\[?\s*(not current|archived?)\b', re.I)  # Acalog selector: "2025-2026 Academic Catalog [NOT CURRENT CATALOGS]"
-ARCHIVE_LINK = re.compile(r'\s*(?:Download\s+)?(?:an?\s+)?PDF of\b|\s*Full\s+20\d{2}\s*[-–]\s*(?:20)?\d{2}\s+(?:Catalog|Catalogue|Bulletin)\s*$', re.I)  # "PDF of the entire 2025-2026 Catalog", uark "A PDF of the entire 2025-26 Undergraduate catalog.": a download link, not this page's label;
-# OSU 2026-27 pages print '2026-2027 Edition' and the print link 'Full 2025-2026 Catalog' (a PDF of last year's catalog)
+ARCHIVE_LINK = re.compile(r'\s*(?:Download\s+)?(?:an?\s+)?PDF of\b|\s*Full\s+20\d{2}\s*[-–]\s*(?:20)?\d{2}\s+(?:Catalog|Catalogue|Bulletin)\s*$|\s*20\d{2}\s*[-–]\s*(?:20)?\d{2}\s+(?:[A-Z][a-z]+\s+)?(?:Catalog|Catalogue|Bulletin)\s+PDF\s*$', re.I)  # "PDF of the entire 2025-2026 Catalog", uark "A PDF of the entire 2025-26 Undergraduate catalog.": a download link, not this page's label;
+# OSU 2026-27 pages print '2026-2027 Edition' and the print link 'Full 2025-2026 Catalog' (a PDF of last year's catalog);
+# UTSA 2026-28 pages print '2026-28 Undergraduate Catalog' and the link '2024-2026 Undergraduate Catalog PDF'
 
 
 from programs.years import PERIOD_SPANS, academic_year_of  # noqa: E402  (multi-year catalog periods, #153)
@@ -317,7 +318,7 @@ SECTION_AWARD = {'bs': r'B\.?\s?S\.?|Bachelor of Science', 'ba': r'B\.?\s?A\.?|B
                  'bsn': r'B\.?\s?S\.?\s?N\.?|Bachelor of Science in Nursing', 'bm': r'B\.?\s?M\.?|Bachelor of Music',
                  'bse': r'B\.?\s?S\.?\s?E\.?|Bachelor of Science in Education', 'bsw': r'B\.?\s?S\.?\s?W\.?|Bachelor of Social Work'}
 SECTION_HEADING = re.compile(r'^(?:Requirements for (?:the )?)?(?P<award>' + '|'.join(f'(?P<{k}>{v})' for k, v in SECTION_AWARD.items()) +
-                             r')\s+(?:degree\s+)?in\s+(?P<name>[A-Z][^()]*?)(?:\s*\([^()]*\))?\d?$')
+                             r')\s+(?:[Dd]egree\s+)?in\s+(?P<name>[A-Z][^()]*?)(?:\s*\([^()]*\))?\d?$')  # UTSA 'Bachelor of Science Degree in Computer Science'
 # a heading that names a part of the degree's page ('... Degree Sequence', '... Degree Requirements', '... Degree Program
 # Requirements', '... Major Field', '... Requirements': PVAMU, Tulane, TAMU 2026-27) is not the degree's name as printed
 SECTION_PART = re.compile(r'\b(degree\s+(sequence|requirements?|program|plan)|major\s+field|requirements)\s*\d?$', re.I)

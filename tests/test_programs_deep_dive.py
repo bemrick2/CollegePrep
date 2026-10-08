@@ -475,6 +475,8 @@ class StatedMajorTests(unittest.TestCase):
         # Oklahoma State 2026-27: the edition header and the print link to last year's full PDF catalog
         osu = T.Page('2026-2027 Edition\nFull 2025-2026 Catalog\nZoology, BS', 't', [], [], [])
         self.assertEqual({y for y, _ in X.printed_catalog_years(osu)}, {'2026-2027'})
+        utsa = T.Page('2026-28 Undergraduate Catalog\n2024-2026 Undergraduate Catalog PDF\nDepartment of Computer Science', 't', [], [], [])
+        self.assertEqual({y for y, _ in X.printed_catalog_years(utsa)}, {'2026-2028'})
         # only the whole line is a print link: a sentence naming the full catalog still carries its label
         self.assertEqual({y for y, _ in X.printed_catalog_years(T.Page('Full 2026-2027 Catalog of courses and programs', 't', [], [], []))}, {'2026-2027'})
 
@@ -1795,6 +1797,9 @@ class DepartmentSectionTests(unittest.TestCase):
         uf = T.Page('2026-2027 Undergraduate Catalog\nBA | Specializations: Environmental Geosciences | General Geography\n' + '\n'.join(heads), 't', [], [], heads)
         got = sorted(c['record']['program_name'] for c in X.department_section_candidates({'institution_key': 'k'}, e, uf, '2026-27'))
         self.assertEqual(got, ['Bachelor of Arts in Geography', 'Bachelor of Science in Geography'])
+        # UTSA 2026-28: 'Bachelor of Science Degree in X' headings; a department page printing two degrees gives two records
+        utsa = dep(['Bachelor of Science Degree in Computer Science', 'Concentration in Cybersecurity', 'Bachelor of Science Degree in Software Engineering'])
+        self.assertEqual(sorted(c['record']['program_key'] for c in utsa), ['computer-science-bs', 'software-engineering-bs'])
 
     def test_programs_sharing_a_page_are_not_duplicates(self):
         from programs import autoreview as A
