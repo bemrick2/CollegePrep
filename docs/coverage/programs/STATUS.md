@@ -72,7 +72,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | AL | **in_progress** | 31 | 0 | 0% (needs 80%) | 0 | 28 | 35 |
 | AR | **in_progress** | 26 | 0 | 0% (needs 80%) | 0 | 23 | 26 |
 | AZ | **in_progress** | 17 | 0 | 0% (needs 80%) | 0 | 9 | 17 |
-| CA | **in_progress** | 152 | 4 | 5% (needs 80%) | 0 | 115 | 170 |
+| CA | **in_progress** | 152 | 4 | 5% (needs 80%) | 0 | 115 | 171 |
 | CO | **in_progress** | 30 | 2 | 23% (needs 80%) | 0 | 24 | 35 |
 | CT | **in_progress** | 26 | 0 | 0% (needs 80%) | 0 | 21 | 31 |
 | DC | **in_progress** | 9 | 0 | 0% (needs 80%) | 0 | 6 | 11 |
@@ -234,7 +234,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | California State University-Long Beach | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | California State University-Northridge | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of California-Riverside | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| California Polytechnic State University-San Luis Obispo | covered | 69 | 72 | 35 | 83 | met | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
+| California Polytechnic State University-San Luis Obispo | covered | 71 | 72 | 35 | 83 | met | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:layout_not_readable |
 | University of California-Santa Barbara | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Santa Monica College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | San Jose State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
