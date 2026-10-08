@@ -2443,3 +2443,10 @@ class CatalogCountTests(unittest.TestCase):
             e = entries(d, d / 'dec.json', ['k'])[0]
         self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (2, 1))
         self.assertNotIn('listed_program_keys', e)
+        # a record whose year is not printed in its source (Coursedog API, FAU) never verifies a listed program
+        with tempfile.TemporaryDirectory() as d:
+            d = self.run_dir(d, [('Art, BA', u + 'art-ba/', 'bachelor')], [('Art, BA', u + 'art-ba/')])
+            lines = [json.loads(l) for l in (d / 'candidates.jsonl').read_text().splitlines()]
+            lines[0]['year_basis'] = 'source_unlabeled'
+            (d / 'candidates.jsonl').write_text(''.join(json.dumps(l) + '\n' for l in lines))
+            self.assertEqual(entries(d, d / 'dec.json', ['k'])[0]['verified_listed_programs'], 0)

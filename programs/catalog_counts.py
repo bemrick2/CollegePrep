@@ -23,6 +23,7 @@ COMB = re.compile(r"Accelerated.*(\bM\.?[AS]\b\.?|\bMBA\b|\bMPA\b|Master)|Schola
                   r"Dual Acceptance|and MBA\b|to MBA|\bB\.?[AS]\.?/\s?M\.?[AS]\b|\bM\.[AS]\.|/\s?(DDS|MD|PharmD|DPT|OTD)\b|\(B[AS]/D", re.I)
 GENERIC = re.compile(r"^(Bachelor's (Degree|Concentration|Degree Programs)|Department of .*)$|: Bachelor's Degree\b|Minor, Certificate|Graduate Certificate|\bRoadmap\b", re.I)
 ROTC = re.compile(r'\bROTC\b')
+LABELED = {'labeled_in_title', 'labeled_in_heading', 'labeled_in_source'}
 # UTEP 2026-27 cards run the name into the card's category labels: 'BBA in AccountingBusiness, Management, & Marketing
 # BachelorsUndergraduateBusiness Administration' (the labels name the level 'Bachelors' and 'Undergraduate')
 CATEGORY_RUN = re.compile(r'(?:[A-Z].*)?Bachelors(?:Online|Fast Track|Professional|Undergraduate|[A-Z]|$)')
@@ -63,7 +64,10 @@ def entries(run_dir, decision, iks, year='2026-2027', reviewed=''):
         m = json.loads(line); manifest.setdefault(m['url'], m)
     out = []
     for ik in iks:
-        progs = [v for v in cands.values() if v['institution_key'] == ik and v['domain'] == 'academic_programs' and v['candidate_id'] in approved]
+        # only a record whose catalog year is printed in its source verifies a listed program (an unlabeled Coursedog API
+        # record is promoted as partially verified and never counted)
+        progs = [v for v in cands.values() if v['institution_key'] == ik and v['domain'] == 'academic_programs' and v['candidate_id'] in approved
+                 and v.get('year_basis', 'labeled_in_source') in LABELED]
         names = {name_key(v['record']['program_name']): v for v in progs}
         listing = lists[ik]['programs']
         raw = [x for x in listing if x['listed_as'] == 'bachelor']
