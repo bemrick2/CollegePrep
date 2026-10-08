@@ -33,18 +33,6 @@
    "next_action": "Review 27 admission-category sentences for: business, computer_science, engineering, nursing."
   },
   {
-   "institution_key": "ipeds-110635",
-   "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate and configure the catalog (discovery found no catalog)."
-  },
-  {
-   "institution_key": "ipeds-110662",
-   "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate and configure the catalog (discovery found no catalog)."
-  },
-  {
    "institution_key": "ipeds-122409",
    "gap": "institution",
    "reason": "bot_challenge",
@@ -225,13 +213,6 @@
    "gap": "institution",
    "reason": "not_yet_researched",
    "next_action": "Locate and configure the catalog (discovery found no catalog)."
-  },
-  {
-   "institution_key": "ipeds-110510",
-   "gap": "institution",
-   "reason": "fetch_failed",
-   "next_action": "Re-run with the catalog home set to catalog.csusb.edu, the host the list links to.",
-   "detail": "The program list at bulletin.csusb.edu (2026-27, 63 bachelor's entries) links program pages on catalog.csusb.edu, which the crawl did not fetch."
   },
   {
    "institution_key": "ipeds-118912",
@@ -1066,23 +1047,51 @@
    "next_action": "Locate and configure the catalog (discovery found no catalog)."
   },
   {
+   "institution_key": "ipeds-110510",
+   "gap": "degree_maps",
+   "reason": "not_yet_researched",
+   "next_action": "Read the published plans (6 of 117 program pages print a plan marker)."
+  },
+  {
+   "institution_key": "ipeds-110510",
+   "gap": "admission_rules",
+   "reason": "not_yet_researched",
+   "next_action": "Review 33 admission-category sentences for: business, computer_science, engineering, nursing."
+  },
+  {
+   "institution_key": "ipeds-110635",
+   "gap": "institution",
+   "reason": "no_year_label",
+   "next_action": "Find a printed catalog year for Berkeley's undergraduate catalog; its program API answered 401 Unauthorized (not evaded).",
+   "detail": "undergraduate.catalog.berkeley.edu program pages (20 rendered, 10 listed bachelor's on the first list page) print no catalog year label; no records promoted.",
+   "evidence_url": "https://undergraduate.catalog.berkeley.edu/programs"
+  },
+  {
    "institution_key": "ipeds-110644",
    "gap": "catalog",
    "reason": "not_yet_researched",
    "next_action": "Record the official listed bachelor's count and verify the remaining listed programs.",
-   "detail": "71 verified; listed count not yet recorded."
+   "detail": "122 verified; listed count not yet recorded."
   },
   {
    "institution_key": "ipeds-110644",
    "gap": "degree_maps",
    "reason": "not_yet_researched",
-   "next_action": "Read the published plans (2 of 119 program pages print a plan marker)."
+   "next_action": "Read the published plans (3 of 170 program pages print a plan marker)."
   },
   {
    "institution_key": "ipeds-110644",
    "gap": "admission_rules",
    "reason": "not_yet_researched",
-   "next_action": "Review 7 admission-category sentences for: business, computer_science, engineering."
+   "next_action": "Review 27 admission-category sentences for: business, computer_science, engineering."
+  },
+  {
+   "institution_key": "ipeds-110662",
+   "gap": "institution",
+   "reason": "layout_not_readable",
+   "next_action": "Add a reader for the catalog's browse API (catalog.registrar.ucla.edu/api/search/browsepage-academic-items), then re-extract run 2026-10-07-flag2.",
+   "detail": "UCLA General Catalog 2026-27 rendered: 64 browse-API responses and 14 school pages stored; no reader handles that JSON, so 0 candidates.",
+   "evidence_url": "https://catalog.registrar.ucla.edu/"
   },
   {
    "institution_key": "ipeds-110422",

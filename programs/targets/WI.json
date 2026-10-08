@@ -74,16 +74,19 @@
     "wisc.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.wisc.edu/",
-    "https://catalog.wisc.edu/",
-    "https://www.wisc.edu/academics/",
-    "https://www.wisc.edu/registrar/",
-    "https://www.wisc.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://guide.wisc.edu/",
+    "min_depth": 1,
+    "path_prefix": "/undergraduate/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://guide.wisc.edu/explore-majors/"
+    ]
+   },
+   "policy": [],
+   "detected": "reviewed 2026-10-07: CourseLeaf Guide at guide.wisc.edu (web search; program pages under /undergraduate/); pages found from the CourseLeaf sitemap; program list: 'Explore UW-Madison's Undergraduate Opportunities' (/explore-majors/), linked from every Guide page (run WI/2026-10-07-flag)"
   },
   {
    "institution_key": "ipeds-240453",
@@ -901,9 +904,49 @@
    "policy": []
   },
   {
+   "institution_key": "ipeds-428259",
+   "folder": "ottawa",
+   "name": "Ottawa University-Milwaukee",
+   "control": "private_nonprofit",
+   "domains": [
+    "ottawa.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://www.ottawa.edu/",
+    "https://catalog.ottawa.edu/",
+    "https://www.ottawa.edu/academics/",
+    "https://www.ottawa.edu/registrar/",
+    "https://www.ottawa.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
    "institution_key": "ipeds-491288",
    "folder": "wisconsin",
    "name": "University of Wisconsin-Milwaukee Flex",
+   "control": "public",
+   "domains": [
+    "wisconsin.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://flex.wisconsin.edu/",
+    "https://catalog.wisconsin.edu/",
+    "https://www.wisconsin.edu/academics/",
+    "https://www.wisconsin.edu/registrar/",
+    "https://www.wisconsin.edu/catalog/"
+   ],
+   "policy": []
+  },
+  {
+   "institution_key": "ipeds-491297",
+   "folder": "wisconsin-491297",
+   "name": "University of Wisconsin-Parkside Flex",
    "control": "public",
    "domains": [
     "wisconsin.edu"

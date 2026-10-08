@@ -2,12 +2,6 @@
  "state": "VA",
  "entries": [
   {
-   "institution_key": "ipeds-233921",
-   "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate and configure the catalog (discovery found no catalog)."
-  },
-  {
    "institution_key": "ipeds-232557",
    "gap": "catalog",
    "reason": "not_yet_researched",
@@ -363,6 +357,14 @@
    "gap": "institution",
    "reason": "not_yet_researched",
    "next_action": "Newly registered four-year school (registry reconciliation, #134): locate and configure its official catalog."
+  },
+  {
+   "institution_key": "ipeds-233921",
+   "gap": "institution",
+   "reason": "fetch_failed",
+   "next_action": "Retry when robots.txt on catalog.vt.edu answers.",
+   "detail": "catalog.vt.edu (CourseLeaf, '2026-2027 Academic Catalog', web search) answered robots_unreachable in run 2026-10-07-flag; nothing was fetched.",
+   "evidence_url": "https://catalog.vt.edu/"
   }
  ]
 }

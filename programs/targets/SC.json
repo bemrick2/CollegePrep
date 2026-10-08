@@ -160,16 +160,19 @@
     "sc.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.sc.edu/",
-    "https://catalog.sc.edu/",
-    "https://www.sc.edu/academics/",
-    "https://www.sc.edu/registrar/",
-    "https://www.sc.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://academicbulletins.sc.edu/",
+    "min_depth": 1,
+    "path_prefix": "/undergraduate/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://academicbulletins.sc.edu/undergraduate/programs-az/"
+    ]
+   },
+   "policy": [],
+   "detected": "reviewed 2026-10-07: CourseLeaf academic bulletins at academicbulletins.sc.edu (web search; the Columbia undergraduate bulletin is under /undergraduate/; Palmetto College campus bulletins sit under their own paths and are outside the prefix); program list: 'Programs A-Z' (/undergraduate/programs-az/), linked from every bulletin page (run SC/2026-10-07-flag)"
   },
   {
    "institution_key": "ipeds-218742",
@@ -721,6 +724,26 @@
    },
    "policy": [],
    "detected": "CourseLeaf-style catalog on catalog.gvltec.edu (program list https://catalog.gvltec.edu/programs)"
+  },
+  {
+   "institution_key": "ipeds-218335",
+   "folder": "musc",
+   "name": "Medical University of South Carolina",
+   "control": "public",
+   "domains": [
+    "musc.edu"
+   ],
+   "hosts": [],
+   "mode": "discover",
+   "priority": 3,
+   "discover": [
+    "https://web.musc.edu/",
+    "https://catalog.musc.edu/",
+    "https://www.musc.edu/academics/",
+    "https://www.musc.edu/registrar/",
+    "https://www.musc.edu/catalog/"
+   ],
+   "policy": []
   },
   {
    "institution_key": "ipeds-218399",

@@ -1375,6 +1375,26 @@ class BranchCampusListTests(unittest.TestCase):
 
 
 class CrawlDelayTests(unittest.TestCase):
+    def test_reviewed_config_hosts_join_the_target_hosts(self):
+        # Texas State's catalog is on mycatalog.txstate.edu, another official domain than the registry's txst.edu
+        import shutil, subprocess, sys, tempfile
+        root = Path(__file__).resolve().parent.parent
+        with tempfile.TemporaryDirectory() as d:
+            d = Path(d)
+            for rel in ('programs/build_targets.py', 'pipeline/registry/TX.json', 'pipeline/registry/TN.json', 'pipeline/registry/OR.json',
+                        'data/national/ipeds/2023-24/TX/admissions.csv', 'data/national/ipeds/2023-24/TN/admissions.csv',
+                        'data/national/ipeds/2023-24/OR/admissions.csv'):
+                if (root / rel).exists(): (d / rel).parent.mkdir(parents=True, exist_ok=True); shutil.copy(root / rel, d / rel)
+            (d / 'programs/targets/configs').mkdir(parents=True)
+            cfg = {'txst': {'catalog': {'home': 'https://mycatalog.txstate.edu/', 'platform': 'courseleaf', 'path_prefix': '/undergraduate/',
+                                        'min_depth': 1, 'program_lists': []}, 'hosts': ['mycatalog.txstate.edu'], 'reviewed': True}}
+            (d / 'programs/targets/configs/TX.json').write_text(json.dumps(cfg))
+            subprocess.run([sys.executable, str(d / 'programs/build_targets.py'), 'TX'], check=True, capture_output=True)
+            t = [x for x in json.loads((d / 'programs/targets/TX.json').read_text())['institutions'] if x['folder'] == 'txst'][0]
+            self.assertIn('mycatalog.txstate.edu', t['hosts'])
+            self.assertNotIn('extra_hosts', t)
+            self.assertEqual(t['mode'], 'catalog')
+
     def test_target_crawl_delay_slows_its_catalog_host(self):
         from pipeline.crawl import Fetcher, Run
         f = Fetcher(delay=0, timeout=1); f._raw = lambda url: (None, url, {}, b'')
@@ -1754,6 +1774,8 @@ class SitemapTests(unittest.TestCase):
 <url><loc>https://catalog.x.edu/undergraduate/sciences/biology/biology-minor/</loc></url>
 <url><loc>https://catalog.x.edu/graduate/sciences/biology/biology-ms/</loc></url>
 <url><loc>https://catalog.x.edu/undergraduate/arts/history/history-major/</loc></url>
+<url><loc>https://catalog.x.edu/departments-programs-degrees/anthropology/anthropology-ab/</loc></url>
+<url><loc>https://catalog.x.edu/undergraduate/sciences/computer-lab/</loc></url>
 <url><loc>https://catalog.x.edu/undergraduate/arts/history/</loc></url>
 <url><loc>https://catalog.x.edu/undergraduate/business/bba-certificate/</loc></url>
 <url><loc>https://catalog.x.edu/graduate/business/accounting-bs/</loc></url>
@@ -1774,7 +1796,9 @@ class SitemapTests(unittest.TestCase):
             C.crawl_target(t, Run(Path(d)), f, log=lambda *_: None)
             pages = sorted(e['url'] for e in Run(Path(d)).entries() if e['role'] == 'program_page')
         # UF's underscore slugs are read; a one-word segment ('badm', 'busi': course subjects) is never an award
+        # UC Davis prints the A.B. ('anthropology-ab'); 'computer-lab' is not an award
         self.assertEqual(pages, ['https://catalog.x.edu/UGRD/colleges-schools/UGAGL/AEC_BS/',
+                                 'https://catalog.x.edu/departments-programs-degrees/anthropology/anthropology-ab/',
                                  'https://catalog.x.edu/undergraduate/arts/history/history-major/',
                                  'https://catalog.x.edu/undergraduate/sciences/biology/biology-bs/'])
 
