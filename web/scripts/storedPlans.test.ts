@@ -7,6 +7,7 @@ import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { readTermItems, entryCodes, type PlanTermLike } from '../src/lib/engine/planItems'
 import { degreeCredit } from '../src/lib/engine/degreeCredit'
+import { examKey, summarizeSchool, type CreditPolicy } from '../src/lib/engine/examCredit'
 import { schoolFit } from '../src/lib/engine/programFit'
 import { MAJORS } from '../src/lib/engine/interests'
 
@@ -55,4 +56,24 @@ describe.skipIf(!schools.length)('every stored degree plan reads (#171)', () => 
     expect(objects).toBeGreaterThan(20_000)
     expect(withObjects.size).toBeGreaterThanOrEqual(28)
   }, 60_000)
+})
+
+type Plan = Rec & { requirement_kind?: string; rule_details?: { terms?: PlanTermLike[] } }
+describe.skipIf(!schools.includes('utc'))('UTC Clear Path alternatives printed in titles (#192)', () => {
+  // Stored files, not a fixture; tables are read as published (their verification status is not this test's subject).
+  const policies = read('utc', 'credit_policies') as unknown as CreditPolicy[]
+  const plan = (k: string) => (read('utc', 'degree_requirements') as Plan[]).find((r) => r.program_key === k && r.requirement_kind === 'program_plan')!.rule_details!.terms!
+  const calc = [{ family: 'AP' as const, key: examKey('AP', 'AP Calculus AB'), name: 'AP Calculus AB', score: 3 }]
+
+  it('Management: the math row is "MATH 1130 or MATH 1830"; AP Calculus AB (MATH 1950) still does not apply', () => {
+    const row = readTermItems(plan('management-b-s-b-a')[0]!).find((e) => e.code === 'MATH 1130')!
+    expect(entryCodes(row)).toEqual(['MATH 1130', 'MATH 1830'])
+    expect(degreeCredit(summarizeSchool(policies, calc).matches, plan('management-b-s-b-a')).accepted[0]).toMatchObject({ course: 'MATH 1950', status: 'not_in_plan' })
+  })
+
+  it('General Biology lists MATH 1950 among the options, so the same credit applies there', () => {
+    const r = degreeCredit(summarizeSchool(policies, calc).matches, plan('biology-general-biology-b-s'))
+    expect(r.accepted[0]).toMatchObject({ course: 'MATH 1950', status: 'applies' })
+    expect(r.accepted[0]!.matched[0]).toMatchObject({ code: 'MATH 1950', term: 2 })
+  })
 })
