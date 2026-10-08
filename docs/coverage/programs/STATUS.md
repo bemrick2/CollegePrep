@@ -2159,7 +2159,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | The University of Texas Rio Grande Valley | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:no_year_label |
 | The University of Texas at Arlington | covered | 112 | 92 | 0 | 133 | met | queued | met | queued | institution:not_yet_researched |
 | Austin Community College District | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| The University of Texas at Dallas | partial | 64 | – | 0 | 0 | queued | queued | queued | queued | admission_rules:not_yet_researched, catalog_count:not_published, degree_maps:not_yet_researched, requirement_groups:not_yet_researched |
+| The University of Texas at Dallas | partial | 64 | – | 0 | 0 | queued | queued | queued | queued | admission_rules:not_yet_researched, catalog_count:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:not_yet_researched |
 | South Texas College | partial | 4 | – | 0 | 5 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | The University of Texas at El Paso | covered | 83 | 87 | 0 | 212 | met | queued | met | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched |
 | Sam Houston State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:layout_not_readable |

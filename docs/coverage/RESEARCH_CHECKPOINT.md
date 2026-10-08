@@ -21,8 +21,8 @@ All figures are counted from `docs/coverage/programs/STATUS.json` and from the `
 
 | Institution | Run | Result |
 |---|---|---|
-| Roosevelt | IL/2026-10-08-e01 | 74/79, covered again. The re-run read the undotted-award programs. Two combined BA/MPA and BA-to-MSIMC records on file from 10-07 are queued for review. |
-| UT Dallas | TX/2026-10-08-b02 (re-extracted) | 64 verified records; no list count. New `edition_year_from_home` / `edition_program/v1`: pages print only the edition name '2026 Undergraduate Catalog', so the year is quoted from the edition home page. All 87 candidates were checked; double majors are held. |
+| Roosevelt | IL/2026-10-08-e01 | 74/79, covered again. The re-run read the undotted-award programs. Two combined BA/MPA and BA-to-MSIMC records on file from pipeline run IL/2026-10-05 still count as verified bachelor's records; queued for review. |
+| UT Dallas | TX/2026-10-08-b02 (re-extracted) | 64 verified records; no list count. New `edition_year_from_home` / `edition_program/v1`: pages print only the edition name '2026 Undergraduate Catalog', so the year is quoted from the edition home page. All 87 candidates were checked; double majors are held. Not yet recorded: Mechanical Engineering BS (heading too deep) and Visual and Performing Arts BA (concentration pages only); the seven Education certification focuses are two degrees. |
 
 ## Completed in batch 3 (research/batch-03, merged as #214)
 

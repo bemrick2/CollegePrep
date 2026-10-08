@@ -545,6 +545,19 @@ class StatedMajorTests(unittest.TestCase):
         self.assertEqual(utd('Animation & Games (BA) - UT Dallas 2026 Undergraduate Catalog - UTD', ['School of Arts', 'Animation and Games (BA)'],
                              {k: v for k, v in tgt4.items() if k != '_edition_year'}), [])  # not configured
         self.assertEqual(utd('Animation & Games Minor - UT Dallas 2026 Undergraduate Catalog', ['School of Arts', 'Animation and Games Minor']), [])
+        self.assertEqual(utd('Animation & Games (BA) - UT Dallas 2026 Undergraduate Catalog', ['School of Arts', 'Animation and Games (BA) Concentration in Games']), [])  # an option
+        other = {**tgt4, '_edition_year': {**ed, 'url': 'https://catalog.utdallas.edu/2026/graduate/home/'}}
+        self.assertEqual(utd('Animation & Games (BA) - UT Dallas 2026 Undergraduate Catalog - UTD', ['School of Arts', 'Animation and Games (BA)'], other), [])  # another edition directory
+        # a page that prints its own year label never takes the home page's
+        own = X.program_page_candidates(tgt4, {'institution_key': 'k'}, e4, T.Page('2025-2026 Edition\n2024-2025 Edition', 'Animation & Games (BA) - UT Dallas 2026 Undergraduate Catalog', [], [], ['School', 'Animation and Games (BA)']), '2026-27')
+        self.assertEqual(own, [])  # labels of its own (here two): never the home page's
+        # edition_home_year: the home page's single printed label, else None
+        class Run:
+            def __init__(self, text): self.text = text
+            def load_page(self, f): return T.Page(self.text, 't', [], [], []), {}
+        he = [{'role': 'catalog_home', 'page_file': 'x', 'url': ed['url'], 'sha256': 'ef' * 32}]
+        self.assertEqual(X.edition_home_year(Run('2026-2027 Undergraduate Catalog'), he)['year'], '2026-2027')
+        self.assertIsNone(X.edition_home_year(Run('2026-2027 Undergraduate Catalog\n2025-2026 Undergraduate Catalog'), he))
         # Biola 2026-27: a PDF link that is the page's only label names the current catalog
         biola = T.Page('2026-2027 Catalog PDF\nBiology, B.S.', 't', [], [], [])
         self.assertEqual({y for y, _ in X.printed_catalog_years(biola)}, {'2026-2027'})

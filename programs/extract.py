@@ -306,7 +306,9 @@ def _program_page_candidates(target, inst, entry, page, today_year):
             # /2026/undergraduate/); the edition's own home page prints '2026-2027 Undergraduate Catalog'. The record takes the
             # home page's label, quoted from that page, only when the page's edition year is the label's first year
             ed = target['_edition_year']; m = EDITION_NAME.search(page.title or '')
-            if m and m.group(1) == ed['year'][:4]:
+            # the home page must sit in the program page's own edition directory ('/2026/undergraduate/')
+            edir = re.sub(r'home/?$', '', urlsplit(ed['url']).path)
+            if m and m.group(1) == ed['year'][:4] and urlsplit(common.source_of(entry)['url']).path.startswith(edir) and edir.strip('/'):
                 year, line = ed['year'], ed['line']
                 view = T.Page(page.text, f'{CAT.program_name(page)} - {year} Catalog', page.tables, page.links, page.headings)
                 out = CAT.extract(inst, entry, view, today_year)
