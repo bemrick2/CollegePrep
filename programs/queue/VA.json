@@ -27,12 +27,6 @@
    "next_action": "Locate and configure the catalog (discovery found no catalog)."
   },
   {
-   "institution_key": "ipeds-234030",
-   "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate and configure the catalog (discovery found no catalog)."
-  },
-  {
    "institution_key": "ipeds-232186",
    "gap": "catalog",
    "reason": "not_yet_researched",
@@ -365,6 +359,26 @@
    "next_action": "Retry when robots.txt on catalog.vt.edu answers.",
    "detail": "catalog.vt.edu (CourseLeaf, '2026-2027 Academic Catalog', web search) answered robots_unreachable in run 2026-10-07-flag; nothing was fetched.",
    "evidence_url": "https://catalog.vt.edu/"
+  },
+  {
+   "institution_key": "ipeds-234030",
+   "gap": "catalog_count",
+   "reason": "robots_disallowed",
+   "next_action": "Find an official VCU 2026-27 undergraduate program list that robots.txt allows (school/college program pages), then record the listed count.",
+   "detail": "57 bachelor's programs verified 2026-10-08. The bulletin's A-Z index (https://bulletin.vcu.edu/azindex/) is disallowed by robots.txt and was not crawled (run program-run/va-vculist-2026-10-08).",
+   "evidence_url": "https://bulletin.vcu.edu/azindex/"
+  },
+  {
+   "institution_key": "ipeds-234030",
+   "gap": "degree_maps",
+   "reason": "not_yet_researched",
+   "next_action": "Read the published plans for verified programs."
+  },
+  {
+   "institution_key": "ipeds-234030",
+   "gap": "admission_rules",
+   "reason": "not_yet_researched",
+   "next_action": "Read admission categories for engineering, computer science, business and nursing."
   }
  ]
 }

@@ -266,6 +266,8 @@ MUTS = [
     ('programs/verify.py', "src = norm(other(ev['sha256'])) if (ev.get('sha256') and ev['sha256'] != c['source'].get('sha256') and other and other(ev['sha256'])) else t", "src = t + ' ' + ' '.join(norm(other(x)) for x in [ev.get('sha256')] if x and other and other(x)) if False else t"),
     ('programs/extract.py', "    unqualified = COLLEGE_QUALIFIER.sub('', printed)", "    unqualified = printed"),
     ('programs/promote.py', "                  if cid in prior and (v.get('decision') or {}).get('replaces_promoted')}", "                  if False}"),
+    # diagnose honours robots.txt (2026-10-08)
+    ('programs/diagnose.py', "        if not robots.allowed(url):", "        if False:"),
 ]
 
 
