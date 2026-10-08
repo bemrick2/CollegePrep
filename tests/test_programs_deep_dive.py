@@ -952,6 +952,24 @@ class InventoryLevelTests(unittest.TestCase):  # UMD 2026-27 majors with no prin
         a = copy.deepcopy(c); a['evidence'].append({'field': 'award', 'value': 'B.S.', 'snippet': 'The Bachelor of Science in Accounting prepares students.'})
         self.assertEqual(check_candidate(a, text, lambda sha: inv_text), ['award sentence not verbatim'])
         self.assertEqual(check_candidate(a, text + '\nThe Bachelor of Science in Accounting prepares students.', lambda sha: inv_text), [])
+    def test_award_from_an_official_award_document(self):  # UMD 2026-27 school pages (owner 2026-10-08)
+        from pipeline import text as T
+        from programs.verify import check_candidate
+        e = {'url': 'https://catalog.x.edu/m/', 'role': 'program_page', 'sha256': 'a' * 64, 'fetched_at': '2026-10-07T00:00:00+00:00', 'status': 200, 'kind': 'html'}
+        page = T.Page('2026-2027 Catalog\nAccounting Major', 'Accounting Major | X', [], [], ['Accounting Major'])
+        docs = [{'majors': ['Accounting Major'], 'read': 'named', 'entry': {'url': 'https://school.x.edu/u', 'sha256': 'd' * 64},
+                 'lines': ['Bachelor of Science in Accounting']}]
+        c = X.inventory_level_candidates({'institution_key': 'k'}, e, page, '2026-27', self.INV, docs)[0]
+        self.assertEqual(c['issues'], [])
+        self.assertEqual([(ev['value'], ev['sha256']) for ev in c['evidence'] if ev['field'] == 'award'], [('B.S.', 'd' * 64)])
+        inv_text = "| Univ. of Maryland, College Park | ACCOUNTING | Bachelor's Degree"
+        other = lambda sha: {'f' * 64: inv_text, 'd' * 64: 'Programs\nBachelor of Science in Accounting'}.get(sha, '')
+        self.assertEqual(check_candidate(c, '2026-2027 Catalog\nAccounting Major', other), [])
+        self.assertEqual(check_candidate(c, '2026-2027 Catalog\nAccounting Major', lambda sha: inv_text if sha == 'f' * 64 else ''), ['award sentence not verbatim'])
+        two = [{**docs[0], 'lines': ['Bachelor of Science in Accounting', 'Bachelor of Arts in Accounting']}]
+        self.assertEqual(X.inventory_level_candidates({'institution_key': 'k'}, e, page, '2026-27', self.INV, two)[0]['issues'], ['award_not_printed'])
+
+
 class CatalogPeriodTests(unittest.TestCase):  # Cal Poly '2026-2028 Catalog' (#153; owner decision 2026-10-07)
     def test_two_year_label_is_kept_as_printed(self):
         from pipeline import text as T
@@ -1954,6 +1972,17 @@ class CatalogOverwriteTests(unittest.TestCase):
                 P.ROOT, PP.ROOT = old, oldp
 
 
+class CollegeQualifiedListTests(unittest.TestCase):
+    def test_list_line_with_a_college_names_the_program(self):  # Iowa State 2026-27 'Biology, B.S. (College of Liberal Arts and Sciences)'
+        from pipeline import text as T
+        e = {'url': 'https://catalog.x.edu/las/biology/', 'role': 'program_page', 'sha256': 'a' * 64, 'fetched_at': '2026-10-07T00:00:00+00:00', 'status': 200, 'kind': 'html'}
+        page = T.Page('Iowa State University Courses and Programs (2026-2027 Catalog)\nBiology', 'Biology | X Catalog', [], [], ['Biology', 'Curriculum in Biology'])
+        listed = {'credential_level': 'bachelor', 'printed': 'Biology, B.S. (College of Liberal Arts and Sciences)', 'listed_on': 'https://catalog.x.edu/list/', 'listed_on_sha256': 'b' * 64}
+        c = X.listed_program_identity({'institution_key': 'k'}, e, page, '2026-27', listed)
+        self.assertEqual([x['record']['program_name'] for x in c], ['Biology, B.S. (College of Liberal Arts and Sciences)'])
+        self.assertEqual(X.listed_program_identity({'institution_key': 'k'}, e, page, '2026-27', {**listed, 'printed': 'Biology (College of Liberal Arts and Sciences)'}), [])
+
+
 class AwardDocumentTests(unittest.TestCase):
     def docs(self):
         L = lambda *ls: list(ls)
@@ -1995,6 +2024,8 @@ class KeptRecordTests(unittest.TestCase):
                 self.assertIn('correction', P.kept_record(c('b', 'listed'), {'program_key': 'listed'}, {'k': 'x'}, set()))
                 self.assertIn('already promoted', P.kept_record(c('f', 'fixed'), {'program_key': 'fixed'}, {'k': 'x'}, {'f'}))
                 self.assertIsNone(P.kept_record(c('g', 'fixed'), {'program_key': 'fixed'}, {'k': 'x'}, {'f'}))  # a new review may update it
+                self.assertIsNone(P.kept_record(c('f', 'fixed'), {'program_key': 'fixed'}, {'k': 'x'}, {'f'}, {'replaces_promoted': 'award from school page'}))
+                self.assertIn('correction', P.kept_record(c('a', 'policy'), {'program_key': 'policy'}, {'k': 'x'}, set(), {'replaces_promoted': 'x'}))
                 self.assertIsNone(P.kept_record(c('n', 'new'), {'program_key': 'new'}, {'k': 'x'}, set()))
             finally:
                 P.ROOT, PP.ROOT = old, oldp

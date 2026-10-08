@@ -100,7 +100,7 @@ def corrected_keys():
     return {json.dumps(json.loads(x['natural_key']), sort_keys=True) for x in json.loads(p.read_text()).get('corrections', [])}
 
 
-def kept_record(c, rec, folders, promoted_ids):
+def kept_record(c, rec, folders, promoted_ids, approval=None):
     """Why a record on file must not be replaced by this approval, or None. A record whose correction the owner approved
     (listed in supabase/corrections.json, or carrying verification_correction_reason) keeps that correction: promoting the
     candidate again would undo it (JHU 'Requirements for a Bachelor's Degree', the #129 footnote fixes). A candidate already
@@ -111,7 +111,9 @@ def kept_record(c, rec, folders, promoted_ids):
     if on_file is None: return None
     nk = json.dumps(json.loads(natural_key(c['domain'], {**on_file, 'institution_key': c['institution_key'], 'academic_year': c['academic_year']})), sort_keys=True)
     if on_file.get('verification_correction_reason') or nk in corrected_keys(): return 'owner-approved correction on file'
-    if c['candidate_id'] in promoted_ids: return 'already promoted from this run'
+    # a reviewed re-extraction of the same candidate (UMD 2026-10-08: an award read from an official school page) replaces
+    # the record only when the approval says so ('replaces_promoted': why)
+    if c['candidate_id'] in promoted_ids and not (approval or {}).get('replaces_promoted'): return 'already promoted from this run'
     return None
 
 
@@ -154,6 +156,7 @@ def promote(decisions_path: Path, log=print):
         if mapped: rec['program_key'] = mapped
         note = f" Reviewed {date.today().isoformat()}: {a.get('reason', '').strip()}"
         if a.get('accept_issues'): note += f" Accepted issues {c['issues']}: {a['accept_issues']}"
+        if a.get('replaces_promoted'): note += f" Replaces the record promoted earlier from this candidate: {a['replaces_promoted']}"
         rec['notes'] = (rec.get('notes', '') + note + f" Evidence: sources/programs/{state}/{run_dir.name}/evidence.json#{c['candidate_id']}.").strip()
         if c['domain'] == 'degree_requirements':
             on_file = _records(folders[c['institution_key']], 'academic_programs', c['academic_year']) or {'records': []}
@@ -165,7 +168,7 @@ def promote(decisions_path: Path, log=print):
                 if r.get('program_key') == rec['program_key']:
                     for f in FIELDS + ('admission_details', 'cip_code', 'cip_source_url'):
                         if f in r and f not in rec: rec[f] = r[f]
-        held = kept_record(c, rec, folders, promoted_ids)
+        held = kept_record(c, rec, folders, promoted_ids, a)
         if held:
             log(f"{c['candidate_id']}: record kept as on file ({held})"); kept += 1; continue
         _upsert(_file_for(folders[c['institution_key']], c['domain'], c['academic_year']), c['institution_key'], c['academic_year'], rec, c['domain'])
