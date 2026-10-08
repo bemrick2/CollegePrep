@@ -319,7 +319,7 @@ SECTION_PART = re.compile(r'\b(degree\s+(sequence|requirements?|program|plan)|ma
 # Reasoning' (SF State), 'Department of Nursing (BSN Pre-licensure)' (Vanguard), 'Requirements for a Bachelor's Degree'
 # (UCI), 'Modern Language Language for BA Degree' (Slippery Rock), 'Bachelor's Degree Requirements Archive' (UC Davis)
 NOT_PROGRAM_NAME = re.compile(r"\b(minimum\s+grade\s+requirements?|(program\s+)?educational\s+objectives|(student\s+)?learning\s+outcomes|roadmaps?|archive)\b"
-                              r"|^\s*(department|school|college|division|office)\s+of\b|^\s*requirements\s+for\s+(a|the)\b"
+                              r"|^\s*(department|school|college|division|office)\s+of\b|^\s*(general\s+)?requirements\s+(for\s+(a|the|all)\b|[-\u2013\u2014])"
                               r"|\bfor\s+(a\s+|the\s+)?B\.?\s?[A-Z]{1,3}\.?\s+degree\b", re.I)
 SECTION_NOT_PROGRAM = re.compile(r'\b(option|concentration|track|emphasis|specialization|minor|certificate|endorsement|accelerated|combined|'
                                  r'plan|semester|map|sample|suggested|'

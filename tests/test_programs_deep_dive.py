@@ -2130,6 +2130,33 @@ class ListedEmphasisTests(unittest.TestCase):
         self.assertEqual({a['candidate_id'] for a in approve}, {'e1', 'b'})
         self.assertEqual(held['option_name'], 1)
 
+    def test_department_page_yields_to_the_program_page_beneath_it(self):  # Cal Poly 2026-2028
+        from programs import autoreview as A
+        from datetime import date
+        T = AutoReviewTests()
+        def at(c, url, field='program_url'): c['record'][field] = url; return c
+        D = 'https://catalog.calpoly.edu/engineering/aerospace'
+        mk = lambda child: [at(T.prog('dept', 'Aerospace Engineering (BS)', key='ae'), D + '/'),
+                            at(T.prog('own', 'Aerospace Engineering (BS)', key='ae'), D + '/' + child + '/'),
+                            at(T.req('r-dept', 'ae'), D + '/', 'source_url'), at(T.req('r-own', 'ae'), D + '/' + child + '/', 'source_url')]
+        old = A.catalog_records; A.catalog_records = lambda *a: []
+        try:
+            approve, _, held = A.review('ZZ', T.run_dir(mk('aerospace-engineering-bs')), today=date(2026, 10, 7))
+            self.assertEqual({a['candidate_id'] for a in approve}, {'own', 'r-own'})
+            self.assertEqual(held['department_page'], 1); self.assertEqual(held['req_department_page'], 1)
+            # a page beneath that is not named for the program (Willamette '.../BS.BIOL/general-aoYks') changes nothing
+            approve, _, held = A.review('ZZ', T.run_dir(mk('general-aoYks')), today=date(2026, 10, 7))
+            self.assertEqual(held['department_page'], 0)
+        finally: A.catalog_records = old
+
+    def test_general_requirements_pages_are_not_programs(self):  # Cal Poly 2026-2028, Idaho 2026-27 policy pages
+        from programs.extract import NOT_PROGRAM_NAME
+        for n in ["General Requirements – Bachelor's Degree", 'General Requirements for all B.A., B.S., and B.Mus. Degrees',
+                  "Requirements for a Bachelor's Degree"]:
+            self.assertTrue(NOT_PROGRAM_NAME.search(n), n)
+        for n in ['General Studies (BA)', 'Requirements Engineering (BS)']:
+            self.assertFalse(NOT_PROGRAM_NAME.search(n), n)
+
     def test_matriculation_sentences_are_evidence(self):
         from programs.extract import EVIDENCE
         rx = dict(EVIDENCE)['apply_to_major']

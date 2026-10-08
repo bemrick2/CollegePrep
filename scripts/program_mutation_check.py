@@ -228,6 +228,12 @@ MUTS = [
     ('programs/years.py', "    if y2 - y1 <= 1: return f'{y1}-{str(y1 + 1)[2:]}'", "    return f'{y1}-{str(y1 + 1)[2:]}'"),
     ('scripts/validate_data.py', "        if not (1<=y2-y1<=2 and y1<=a<y2 and m.group(2)[-2:]==str(a+1)[-2:]):", "        if not (y1<=a<y2):"),
     ('programs/extract.py', " or not any(int(y[:4]) <= int(x[:4]) < int(y[5:9]) for x in single)}", "}"),
+    # Cal Poly 2026-2028: department pages yield to the program page beneath them; general-requirements policy pages
+    ('programs/autoreview.py', "               'department_page' if (c['institution_key'], url_of(c, 'program_url')) in department_pages else\n", ""),
+    ('programs/autoreview.py', "               'department_page' if (c['institution_key'], url_of(c, 'source_url')) in department_pages else\n", ""),
+    ('programs/autoreview.py', "and url_of(c, 'program_url') + '/' + slug(c['record'].get('program_name', '')) in pages[", "and any(v.startswith(url_of(c, 'program_url') + '/') for v in pages["),
+    ('programs/autoreview.py', "variant_pages_of([{u for u in us if (k[0], u) not in department_pages} for k, us in pages.items()])", "variant_pages_of(pages.values())"),
+    ('programs/extract.py', "^\\s*(general\\s+)?requirements\\s+(for\\s+(a|the|all)\\b|[-\\u2013\\u2014])", "^\\s*requirements\\s+for\\s+(a|the)\\b"),
 ]
 
 

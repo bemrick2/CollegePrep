@@ -1,6 +1,6 @@
 {
  "national": {
-  "covered": 51,
+  "covered": 52,
   "definition": "Registered: four-year schools in the national registry (pipeline/registry; scope rule in pipeline/registry.py). Researched: a verified or partially verified deep-dive record, or a queue entry recording an attempt other than not_yet_researched. Covered: meets docs/PROGRAM_DEPTH_COMPLETION.md. Untracked states count as registered only.",
   "registered": 2119,
   "researched": 634,
@@ -34,7 +34,7 @@
     "tracked": true
    },
    {
-    "covered": 2,
+    "covered": 3,
     "registered": 152,
     "researched": 46,
     "state": "CA",
@@ -2382,8 +2382,8 @@
   },
   {
    "coverage_threshold": 0.8,
-   "covered_institutions": 2,
-   "entering_student_share_covered": 0.011,
+   "covered_institutions": 3,
+   "entering_student_share_covered": 0.039,
    "four_year_institutions": 152,
    "institutions": [
     {
@@ -2644,28 +2644,35 @@
      "verified_bachelor_programs": 0
     },
     {
-     "academic_years": [],
-     "catalog_share": null,
+     "academic_years": [
+      "2026-27"
+     ],
+     "catalog_share": 0.958,
      "dimensions": {
       "admission_rules": "queued",
-      "catalog": "queued",
-      "degree_maps": "queued",
-      "requirement_groups": "queued"
+      "catalog": "met",
+      "degree_maps": "met",
+      "requirement_groups": "met"
      },
      "folder": "calpoly",
-     "high_value_without_admission_rule": [],
+     "high_value_without_admission_rule": [
+      "business",
+      "computer_science",
+      "engineering"
+     ],
      "institution_key": "ipeds-110422",
-     "listed_bachelor_programs": null,
+     "listed_bachelor_programs": 72,
      "name": "California Polytechnic State University-San Luis Obispo",
      "partially_verified_programs": 0,
      "programs_complete": false,
-     "programs_with_plan": 0,
+     "programs_with_plan": 35,
      "queue": [
-      "institution:layout_not_readable"
+      "admission_rules:not_yet_researched",
+      "catalog:not_yet_researched"
      ],
-     "requirement_groups": 0,
-     "status": "exception",
-     "verified_bachelor_programs": 0
+     "requirement_groups": 83,
+     "status": "covered",
+     "verified_bachelor_programs": 69
     },
     {
      "academic_years": [],
@@ -6110,8 +6117,8 @@
      "verified_bachelor_programs": 0
     }
    ],
-   "not_yet_researched": 115,
-   "queue_entries": 168,
+   "not_yet_researched": 116,
+   "queue_entries": 169,
    "queue_errors": [],
    "state": "CA",
    "status": "in_progress",
