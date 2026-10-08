@@ -111,7 +111,7 @@ MUTS = [
     ('programs/crawl.py', "    if cat.get('platform') == 'courseleaf' and cat.get('nav_prefix'):", "    if False:"),
     # department_section/v1: degree sections on department pages
     ('programs/extract.py', "        if not m or SECTION_NOT_PROGRAM.search(h) or GRAD.search(m.group('name')): continue", "        if not m: continue"),
-    ('programs/extract.py', "    if len(labels) != 1: return []\n    year = next(iter(labels)); acad = f'{year[:4]}-{year[7:9]}'\n    yline", "    year = max(labels); acad = f'{year[:4]}-{year[7:9]}'\n    yline"),
+    ('programs/extract.py', "    if len(labels) != 1: return []\n    year = next(iter(labels)); acad = academic_year_of(year)\n    yline", "    year = max(labels); acad = academic_year_of(year)\n    yline"),
     ('programs/extract.py', "                                 r'plan|semester|map|sample|suggested|'", "                                 r''"),
     ('programs/autoreview.py', "(u in seen_url and c['extractor'] not in SHARED_PAGE)", "(u in seen_url)"),
     ('programs/autoreview.py', "(u in seen_url and c['extractor'] not in SHARED_PAGE)", "(False)"),
@@ -119,7 +119,7 @@ MUTS = [
     # NDSU 'Degree Type: B.S.': one stated type only; post-baccalaureate paths are not programs
     ('programs/extract.py', "    if not m and len(types) == 1:", "    if not m and types:"),
     ('programs/extract.py', "|post[- ]?baccalaureate|second degree', name, re.I)", "', name, re.I)"),
-    ('programs/extract.py', "            if int(m.group(2)) == (int(m.group(1)) + 1) % 100: found.add((f'{m.group(1)}-{int(m.group(1)) + 1}', line.strip()))", "            pass"),
+    ('programs/extract.py', "                if int(m.group(2)) == (int(m.group(1)) + k) % 100: found.add((f'{m.group(1)}-{int(m.group(1)) + k}', line.strip()))\n        m = EDITION", "                pass\n        m = EDITION"),
     ('programs/extract.py', "        if re.search(r'\\bdual major\\b', name, re.I) or (':' in name and re.search(r'\\bemphas[ie]s\\b', page.text, re.I)): out = []", "        pass"),
     # UF degree_line/v1: specialization pages under a major's code; underscore slugs in the base-page rule
     ('programs/extract.py', "    if len(parts) >= 2 and re.fullmatch(r'[A-Z]{2,4}_[A-Z]{2,6}', parts[-2]): return []", "    pass"),
@@ -209,6 +209,12 @@ MUTS = [
     ('programs/extract.py', "            if re.match(r'\\s+(college|school|graduate\\s+school|division|department|faculty)\\s+of\\b', rest, re.I): return tail", "            if rest: return tail"),
     ('programs/extract.py', "    return name[:m.start()].strip() if m and m.start() >= 3 else name", "    return name"),
     ('programs/extract.py', "(?=[A-Z][a-z]+\\s+(?:\\S+\\s+){4,}\\S)')", "(?=[A-Z][a-z]+)')"),
+    # multi-year catalog periods (Cal Poly '2026-2028', owner decision 2026-10-07)
+    ('programs/years.py', "PERIOD_SPANS = (1, 2)", "PERIOD_SPANS = (1,)"),
+    ('programs/years.py', "    start = cur if y1 <= cur < y2 else y1", "    start = y1"),
+    ('programs/years.py', "    if y2 - y1 <= 1: return f'{y1}-{str(y1 + 1)[2:]}'", "    return f'{y1}-{str(y1 + 1)[2:]}'"),
+    ('scripts/validate_data.py', "        if not (1<=y2-y1<=2 and y1<=a<y2 and m.group(2)[-2:]==str(a+1)[-2:]):", "        if not (y1<=a<y2):"),
+    ('programs/extract.py', " or not any(int(y[:4]) <= int(x[:4]) < int(y[5:9]) for x in single)}", "}"),
 ]
 
 
