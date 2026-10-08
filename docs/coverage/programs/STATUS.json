@@ -3,7 +3,7 @@
   "covered": 64,
   "definition": "Registered: four-year schools in the national registry (pipeline/registry; scope rule in pipeline/registry.py). Researched: a verified or partially verified deep-dive record, or a queue entry recording an attempt other than not_yet_researched. Covered: meets docs/PROGRAM_DEPTH_COMPLETION.md. Untracked states count as registered only.",
   "registered": 2119,
-  "researched": 669,
+  "researched": 672,
   "states": [
    {
     "covered": 3,
@@ -183,7 +183,7 @@
    {
     "covered": 0,
     "registered": 17,
-    "researched": 2,
+    "researched": 3,
     "state": "MS",
     "tracked": true
    },
@@ -316,7 +316,7 @@
    {
     "covered": 1,
     "registered": 12,
-    "researched": 6,
+    "researched": 8,
     "state": "UT",
     "tracked": true
    },
@@ -25122,7 +25122,7 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "institution:fetch_failed"
      ],
      "requirement_groups": 0,
      "status": "exception",
@@ -25518,7 +25518,7 @@
      "verified_bachelor_programs": 0
     }
    ],
-   "not_yet_researched": 16,
+   "not_yet_researched": 15,
    "queue_entries": 17,
    "queue_errors": [],
    "state": "MS",
@@ -48176,8 +48176,10 @@
    "four_year_institutions": 12,
    "institutions": [
     {
-     "academic_years": [],
-     "catalog_share": null,
+     "academic_years": [
+      "2026-27"
+     ],
+     "catalog_share": 0.698,
      "dimensions": {
       "admission_rules": "queued",
       "catalog": "queued",
@@ -48185,19 +48187,27 @@
       "requirement_groups": "queued"
      },
      "folder": "byu",
-     "high_value_without_admission_rule": [],
+     "high_value_without_admission_rule": [
+      "business",
+      "computer_science",
+      "engineering",
+      "nursing"
+     ],
      "institution_key": "ipeds-230038",
-     "listed_bachelor_programs": null,
+     "listed_bachelor_programs": 172,
      "name": "Brigham Young University",
      "partially_verified_programs": 0,
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "admission_rules:not_yet_researched",
+      "catalog:not_yet_researched",
+      "degree_maps:not_yet_researched",
+      "requirement_groups:not_yet_researched"
      ],
      "requirement_groups": 0,
-     "status": "exception",
-     "verified_bachelor_programs": 0
+     "status": "partial",
+     "verified_bachelor_programs": 120
     },
     {
      "academic_years": [],
@@ -48217,7 +48227,7 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "institution:layout_not_readable"
      ],
      "requirement_groups": 0,
      "status": "exception",
@@ -48475,8 +48485,8 @@
      "verified_bachelor_programs": 0
     }
    ],
-   "not_yet_researched": 8,
-   "queue_entries": 14,
+   "not_yet_researched": 7,
+   "queue_entries": 17,
    "queue_errors": [],
    "state": "UT",
    "status": "in_progress",
