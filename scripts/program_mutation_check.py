@@ -175,7 +175,7 @@ MUTS = [
     ('programs/extract.py', "                or AWARD_PAREN_OPTION_ENTRY.match(line) or BACHELOR_OF_OPTION_ENTRY.match(line) or PAREN_VARIANT_ENTRY.match(line)", "                or AWARD_PAREN_OPTION_ENTRY.match(line) or BACHELOR_OF_OPTION_ENTRY.match(line)"),
     ('programs/extract.py', "    return LONG_AWARD.get(k, k)", "    return k"),
     ('programs/extract.py', "    m = re.match(r'^(?P<base>[^,():]+?)\\s+(?P<award>(?-i:B[A-Z]{1,4}))\\s*$', line)", "    m = None"),
-    ('programs/extract.py', "(?P<award>(?-i:B[A-Z]{1,4}|B\\.\\s?[A-Z]", "(?P<award>(?i:B[A-Z]{1,4}|B\\.\\s?[A-Z]"),
+    ('programs/extract.py', ",?\\s+(?P<award>(?-i:B[A-Z]{1,4}|B\\.\\s?[A-Z]", ",?\\s+(?P<award>(?i:B[A-Z]{1,4}|B\\.\\s?[A-Z]"),
     # a degree page's own plan heading is not a sample-plan page (Colorado, Maryland, Missouri, Tennessee, KU engineering)
     ('programs/extract.py', "|the recommended (?:4|four)[- ]year plan is listed below)\\b')", ")\\b')"),
     ('programs/extract.py', "SAMPLE_PLAN_LINE = re.compile(r'(?im)^\\s*(?:below is a sample (?:4|four)[- ]year plan for|the recommended (?:4|four)[- ]year plan is listed below)\\b')",
@@ -197,7 +197,7 @@ MUTS = [
     ('programs/courseleaf.py', "    labelled = len(grids_) > 1 and len(set(heads)) == len(heads) and all(h and h.lower() != 'roadmaps' for h in heads)",
      "    labelled = len(grids_) > 1 and all(h for h in heads)"),
     ('programs/courseleaf.py', "                if any(x.get('text') for x in s.values()): issues.add('grid_cell_without_term')", "                pass"),
-    ('programs/autoreview.py', " and not PAREN_VARIANT_ENTRY.match(n) and _degree_key(n):", " and _degree_key(n):"),
+    ('programs/autoreview.py', " and not PAREN_VARIANT_ENTRY.match(n) and not PAREN_AWARD_VARIANT_ENTRY", " and not PAREN_AWARD_VARIANT_ENTRY"),
     # Texas A&M 'X - BS, Y Track' list lines; track pages passed to the listed rule
     ('programs/extract.py', "\n                or AWARD_DASH_OPTION_ENTRY.match(line)", ""),
     ('programs/extract.py', "(p.get('printed') or '').replace('\\u200b', '')", "(p.get('printed') or '')"),
@@ -242,6 +242,9 @@ MUTS = [
     ('programs/extract.py', "            if 'candidate_id_collision' not in x['issues']: x['issues'] = x['issues'] + ['candidate_id_collision']", "            pass"),
     ('programs/courseleaf.py', "if k in keys[i + 1:] else k", "if False else k"),
     ('programs/courseleaf.py', "    plan_keys = labelled_keys(headings, slug) if labelled else []", "    plan_keys = [slug(h) for h in headings] if labelled else []"),
+    # Cal Poly 2026-2028 campus variants listed without a base line
+    ('programs/extract.py', " or PAREN_AWARD_VARIANT_ENTRY.match(line)\n                for line in printed]", "\n                for line in printed]"),
+    ('programs/autoreview.py', " and not PAREN_AWARD_VARIANT_ENTRY.match(n) and _degree_key(n)", " and _degree_key(n)"),
 ]
 
 

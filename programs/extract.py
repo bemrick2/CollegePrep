@@ -998,6 +998,9 @@ AWARD_PAREN_OPTION_ENTRY = re.compile(r'^(?P<base>[^:()]+?)\s*\((?P<award>(?-i:[
 # UT Arlington 2026-27 'Data Science BS (Biology)', Texas A&M-Kingsville 'Kinesiology, B.S. (Sport Business)': a degree printed
 # only as parenthetical variants (no 'Data Science BS' / 'Kinesiology, B.S.' line)
 PAREN_VARIANT_ENTRY = re.compile(r'^(?P<base>[^,()]+?),?\s+(?P<award>(?-i:B[A-Z]{1,4}|B\.\s?[A-Z][a-z]{0,3}\.?(?:[A-Z][a-z]{0,3}\.)?))\s*\((?P<variant>[^()]+)\)\s*$')
+# Cal Poly 2026-2028: 'Mechanical Engineering (BS) (San Luis Obispo Campus)' / '(Solano Campus)', each with its own page and
+# no 'Mechanical Engineering (BS)' line
+PAREN_AWARD_VARIANT_ENTRY = re.compile(r'^(?P<base>[^()]+?)\s*\((?P<award>(?-i:B[A-Z]{1,4}|B\.\s?[A-Z][a-z]{0,3}\.?(?:[A-Z][a-z]{0,3}\.)?))\)\s*\((?P<variant>[^()]+)\)\s*$')
 # Texas A&M 2026-27: 'Civil Engineering - BS, Coastal Engineering Track' (no 'Civil Engineering - BS' line)
 AWARD_DASH_OPTION_ENTRY = re.compile(r'^(?P<base>[^,]+?)\s+-\s*(?P<award>(?-i:B[A-Z]{1,4}))\s*,\s*[^,]*\b(emphasis|concentration|track|option|specialization)\b[^,]*$', re.I)
 # Bryant 2026-27: 'Bachelor of Science in Business Administration: Accounting Concentration'
@@ -1041,7 +1044,7 @@ def listed_emphasis_pages(lists, norm, offered=None):
         printed = [re.sub(r'\s+', ' ', re.sub(r'(?<=[a-z.])(?=[A-Z][a-z])', ' ', (p.get('printed') or '').replace('\u200b', ''))).strip() for p in progs]
         emph = [EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) or WITH_EMPHASIS_ENTRY.match(line)
                 or AWARD_PAREN_OPTION_ENTRY.match(line) or BACHELOR_OF_OPTION_ENTRY.match(line) or PAREN_VARIANT_ENTRY.match(line)
-                or AWARD_DASH_OPTION_ENTRY.match(line)
+                or AWARD_DASH_OPTION_ENTRY.match(line) or PAREN_AWARD_VARIANT_ENTRY.match(line)
                 for line in printed]
         degrees = {_degree_key(o) for o, m in zip(printed, emph) if not m} - {None}
         for p, m in zip(progs, emph):

@@ -1591,6 +1591,23 @@ class AutoReviewTests(unittest.TestCase):
             self.assertEqual([a['candidate_id'] for a in approve], ['k0'])
         finally: A.catalog_records = old
 
+    def test_listed_campus_variants_are_the_degree(self):  # Cal Poly 2026-2028: 'Mechanical Engineering (BS) (Solano Campus)'
+        from programs import autoreview as A
+        from datetime import date
+        def at(c, url): c['record']['program_url'] = url; return c
+        mk = lambda: [at(self.prog('m1', 'Mechanical Engineering (BS) (San Luis Obispo Campus)', key='me-slo'), 'https://a/me-slo'),
+                      at(self.prog('m2', 'Mechanical Engineering (BS) (Solano Campus)', key='me-sol'), 'https://a/me-sol')]
+        lists = {'k': {'programs': [{'listed_as': 'bachelor', 'printed': 'Mechanical Engineering (BS) (San Luis Obispo Campus)', 'url': 'https://a/me-slo'},
+                                    {'listed_as': 'bachelor', 'printed': 'Mechanical Engineering (BS) (Solano Campus)', 'url': 'https://a/me-sol'}]}}
+        old = A.catalog_records; A.catalog_records = lambda *a: []
+        try:
+            approve, _, held = A.review('ZZ', self.run_dir(mk(), lists=lists), today=date(2026, 10, 7))
+            self.assertEqual([a['candidate_id'] for a in approve], ['m1', 'm2'])
+            lists['k']['programs'].append({'listed_as': 'bachelor', 'printed': 'Mechanical Engineering (BS)', 'url': 'https://a/me'})
+            approve, _, held = A.review('ZZ', self.run_dir(mk(), lists=lists), today=date(2026, 10, 7))
+            self.assertEqual(approve, []); self.assertEqual(held['entry_path_variant'], 2)
+        finally: A.catalog_records = old
+
     def test_one_program_on_several_pages_comes_from_the_base_page(self):
         from programs import autoreview as A
         from datetime import date
