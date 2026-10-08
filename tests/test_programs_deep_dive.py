@@ -2646,6 +2646,11 @@ class CatalogCountTests(unittest.TestCase):
         self.assertEqual(len(miss), 6)  # BS*, the CS major (only concentrations), two dual degrees, Physics, Mathematics Path
         self.assertTrue(any(m.startswith('B.S. Concentration (https://catalog.x.edu/cs/') for m in miss))
         self.assertEqual(sum(m.startswith('Dual Degree B.S.') for m in miss), 2)
+        # a concentration row whose link names no major refuses the count (Colorado State's nested concentration pages)
+        with tempfile.TemporaryDirectory() as d:
+            d = self.run_dir(d, [('B.S.', u + 'cs/computer-science-major/', 'bachelor'), ('B.S. Concentration', u + 'cs/computer-science-major/ai-concentration/', 'bachelor')],
+                             [('Major in Computer Science', u + 'cs/computer-science-major/')])
+            with self.assertRaises(ValueError): entries(d, d / 'dec.json', ['k'])
 
     def test_only_reviewed_approvals_count(self):
         import tempfile

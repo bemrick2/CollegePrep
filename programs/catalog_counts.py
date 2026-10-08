@@ -132,6 +132,9 @@ def entries(run_dir, decision, iks, year='2026-2027', reviewed=''):
         if len(b) < len(raw): parts.append(f"{len(raw) - len(b)} repeat an entry already counted")
         if doubled: parts.append(f"{doubled} print the program name twice (a card title, sometimes shortened, then the name) and are read once")
         conc = [x for x in deg if CONC_AWARD.match(x['printed'].strip())]
+        unmapped = [x['url'] for x in conc if not MAJOR_OF.search(x['url'])]
+        if unmapped:  # a concentration whose major cannot be told from its link: no count is recorded (Colorado State)
+            raise ValueError(f'{ik}: {len(unmapped)} concentration rows name no major in their link, e.g. {unmapped[0]}')
         award_only = sum(1 for x in deg if ident(x).startswith('page:')) - len(conc)
         if award_only: parts.append(f"{award_only} print only an award under a department heading and are identified by their own page")
         plain_ids = {ident(x) for x in deg if x not in conc}
