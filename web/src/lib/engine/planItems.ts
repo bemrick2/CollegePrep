@@ -109,11 +109,40 @@ export function scanCodes(text: string, subject: string | null = null): { codes:
   return { codes, subject }
 }
 
+const TITLE_CODE = `[A-Z]{2,5}\\s*${COURSE_NUMBER}`
+/** UTC Clear Path: "College Algebra or MATH 1830: Calculus…", "Int'l Economics, FIN 4120: Int'l Finance, or MKT 3180: …". */
+const LISTED_ALTERNATIVE = new RegExp(`(?:,|\\bOR)\\s*(${TITLE_CODE})\\s*:`, 'g')
+/** "College Algebra (or MATH 103M)", "(or PHIL 225, PHIL 321, or PHIL 323)". */
+const PAREN_ALTERNATIVE = /\(OR\s+([^()]*)\)/g
+/** Wording that makes a printed course something other than a plain alternative: a prerequisite, a condition, a
+ *  combination, advice. Such titles add nothing (the item stays its own code), so credit is never over-applied. */
+const NOT_AN_ALTERNATIVE = /\b(pre-?req|co-?req|only|if|not|instead|recommended|encouraged|substitut|either)\b/i
+const PAREN_COMBINATION = /\band\b/i
+
 /**
- * The course codes that satisfy an entry, "any one of": its own code, codes printed in its text, and every
- * choice's codes. A choice rule's own text ("Complete one of the following:") contributes none.
+ * Alternatives a catalog printed inside a course's title (#192). Only two unambiguous shapes are read: a list of
+ * "CODE: Title" entries joined by commas and "or", and a parenthesis that starts with "(or ". Anything else (a
+ * prerequisite, "only if", "and either", "400-level course") is left alone: missing an alternative under-reports
+ * applicable credit, guessing one would over-report it.
+ */
+export function titleAlternatives(code: string | null, title: string | null): string[] {
+  if (!title || NOT_AN_ALTERNATIVE.test(title)) return []
+  const t = title.toUpperCase()
+  const out: string[] = []
+  for (const m of t.matchAll(LISTED_ALTERNATIVE)) out.push(normalizeCode(m[1]!))
+  for (const m of t.matchAll(PAREN_ALTERNATIVE)) {
+    if (PAREN_COMBINATION.test(m[1]!) || /\d-LEVEL/.test(m[1]!)) continue
+    out.push(...scanCodes(m[1]!, code ? normalizeCode(code).split(' ')[0]! : null).codes)
+  }
+  return out.filter((c) => c !== code)
+}
+
+/**
+ * The course codes that satisfy an entry, "any one of": its own code (and alternatives printed in its title), codes
+ * printed in its text, and every choice's codes. A choice rule's own text ("Complete one of the following:")
+ * contributes none.
  */
 export function entryCodes(e: PlanEntry): string[] {
-  const own = e.code ? [e.code] : codesInText(e.text)
+  const own = e.code ? [e.code, ...titleAlternatives(e.code, e.title)] : codesInText(e.text)
   return [...new Set([...own, ...e.choices.flatMap(entryCodes)])]
 }

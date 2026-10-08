@@ -672,6 +672,27 @@
       "reason": "Not a degree program: the page is JHU's KSAS/WSE undergraduate policy page 'Requirements for a Bachelor's Degree' (Undergraduate Policies > Academic Policies; headings 'Ten-Year Degree Completion Limit', 'Residency Requirement for Transfer Students', 'Degree Credit Totals'), which states degree rules for every KSAS/WSE full-time, on-campus bachelor's degree and is not the requirements page of any single major or degree program. It was read by static_program/v1 because the title contains 'Bachelor's Degree'; the reader no longer takes such pages (#178). Evidence kept: run programs/runs/MD/2026-10-07-cat2, page sha256 312b991592e4be87b5a89e86d0fda8f81a059b9bf3c7bfa3be7fa5d992072a73 (fetched 2026-10-07T12:49:16Z), sources/programs/MD/2026-10-07-cat2/evidence.json#7eb42f79f75db249. Its transfer-student residency rule is kept as JHU's transfer_policies record.",
       "approved_by": "Brandon (repository owner), 2026-10-07 17:24 CT instruction in the Claude session: \"Approve correcting JHU\u2019s \u201cRequirements for a Bachelor\u2019s Degree\u201d: remove it from verified program listings, preserve its evidence and correction history, and retain it as a policy record if supported.\"",
       "approved_on": "2026-10-07"
+    },
+    {
+      "natural_key": "[\"academic_programs\", \"ipeds-221740\", null, \"2026-27\", {\"program_key\": \"psychology-bs\"}]",
+      "record": "data/institutions/utc/academic_programs/2026-27.json",
+      "reason": "Corrected, kept verified. The note claimed every value was checked against the Clear Path PDF (sha256 6c9b1ea8ffec62d5…), which was not true: the PDF names no college and CIP comes from THEC. college=\"College of Arts and Sciences\" is supported by the stored Clear Paths 2026-2027 index page (sha256 5a5806eb9a26ea09…), which lists \"BS Psychology\" (linking this PDF) under the heading \"College of Arts and Sciences\"; it is kept with that citation. Name, award, catalog year and total hours match the PDF; CIP matches the stored THEC row. Original evidence: sources/programs/TN/2026-10-05-i-utc/evidence.json#6016810233e79770 (independent re-verification 2026-10-07).",
+      "approved_by": "Brandon (repository owner), 2026-10-08 07:31 CT instruction in the Claude session: \"Approved. Correct the three UTC pilot records using the same audited correction process as JHU. Remove unsupported college assignments and inaccurate verification claims. Preserve the original evidence and correction history.\"",
+      "approved_on": "2026-10-08"
+    },
+    {
+      "natural_key": "[\"academic_programs\", \"ipeds-221740\", null, \"2026-27\", {\"program_key\": \"computer-science-data-science-ai-bs\"}]",
+      "record": "data/institutions/utc/academic_programs/2026-27.json",
+      "reason": "Corrected, kept verified. The note claimed every value was checked against the Clear Path PDF (sha256 b62e93e22d67d029…), which was not true: the PDF names no college and CIP comes from THEC. college=\"College of Engineering and Computer Science\" is supported by the stored Clear Paths 2026-2027 index page (sha256 5a5806eb9a26ea09…), which lists \"BS Computer Science: Data Science and Artificial Intelligence\" (linking this PDF) under the heading \"College of Engineering and Computer Science\"; it is kept with that citation. Name, award, catalog year and total hours match the PDF; CIP matches the stored THEC row. Original evidence: sources/programs/TN/2026-10-05-i-utc/evidence.json#b2d0dbc0afd8c5c1 (independent re-verification 2026-10-07).",
+      "approved_by": "Brandon (repository owner), 2026-10-08 07:31 CT instruction in the Claude session: \"Approved. Correct the three UTC pilot records using the same audited correction process as JHU. Remove unsupported college assignments and inaccurate verification claims. Preserve the original evidence and correction history.\"",
+      "approved_on": "2026-10-08"
+    },
+    {
+      "natural_key": "[\"academic_programs\", \"ipeds-221740\", null, \"2026-27\", {\"program_key\": \"nursing-bsn\"}]",
+      "record": "data/institutions/utc/academic_programs/2026-27.json",
+      "reason": "Corrected, kept verified. college=\"College of Health, Education and Professional Studies (School of Nursing)\" is not stated by the stored Clear Path PDF (sha256 6637f2e332c54baa…) or any other stored source; the stored Clear Paths 2026-2027 index page lists \"BSN Nursing\" under \"College of Nursing\" and the stored BSN admission page names the College of Nursing, so college is corrected to \"College of Nursing\". The note claimed every value was checked against the PDF, which was not true for college, CIP or admission details; it now names the source of each value. The admission criteria summary overstated the page (two prerequisites may be in progress at application) and was rewritten. Name, award, catalog year and total hours match the PDF; CIP matches the stored THEC row; the admission quote is verbatim. Original evidence: sources/programs/TN/2026-10-05-i-utc/evidence.json#d8d8a48271f5cdaf (independent re-verification 2026-10-07).",
+      "approved_by": "Brandon (repository owner), 2026-10-08 07:31 CT instruction in the Claude session: \"Approved. Correct the three UTC pilot records using the same audited correction process as JHU. Remove unsupported college assignments and inaccurate verification claims. Preserve the original evidence and correction history.\"",
+      "approved_on": "2026-10-08"
     }
   ]
 }
