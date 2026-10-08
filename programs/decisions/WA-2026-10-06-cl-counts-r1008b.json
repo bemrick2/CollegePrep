@@ -1,18 +1,23 @@
 {
-  "institution_key": "ipeds-236577",
-  "academic_year": "2026-27",
-  "records": [
+  "run": "programs/runs/WA/2026-10-06-cl",
+  "run_branch": "program-run/*",
+  "reviewer": "Catalog-count review (independent agent, local stored pages only), 2026-10-08; recount after further reviewed promotions",
+  "catalogs": [
     {
+      "institution_key": "ipeds-236577",
       "catalog_url": "https://catalog.spu.edu/",
-      "source_url": "https://catalog.spu.edu/undergraduate/majors-minors/",
-      "verification_status": "verified",
-      "last_verified_at": "2026-10-06",
       "catalog_year_label": "2026-2027",
+      "source_evidence": {
+        "url": "https://catalog.spu.edu/undergraduate/majors-minors/",
+        "sha256": "f6537eae201facf489b8d215981dff223e79ebac329e4f5558ce800b3b5f1719",
+        "fetched_at": "2026-10-06T11:06:50+00:00"
+      },
       "listed_bachelor_programs": 69,
       "verified_listed_programs": 51,
       "programs_complete": false,
       "completeness_basis": "'Undergraduate Majors, Minors, and Certificates' page on catalog.spu.edu (prints '2026-2027 Edition'), Majors section: 69 entries labeled (BA)/(BS); SPU lists each track/concentration/certification/endorsement variant as its own major entry with its own page and records are keyed per entry, so entries were counted as listed ('Student-Designed (BA) or (BS)' once, unsure). Excluded the Minors and Certificates sections (incl. the certification-only programs) and Other Programs (AI and Society, Pre-Professional Health Sciences). Matched by URL: 51 of 69 have a verified record (all 51 verified bachelor records used once). Unverified: Business Administration: General Track (BA); Economics: General Track (BA); English: Creative Writing Concentration (BA); English: Literature Concentration (BA); General Studies (BA); the 12 Psychology track entries (Animal Behavior BA and BS, Behavioral and Cognitive Neuroscience BS, Clinical-Counseling BA, Community Psychology & Behavioral Health BA, Cross-Cultural BA, Data Analytics BA, Developmental BA, Psychological Science BA and BS, Social-Personality BA, Sports Psychology BA); Student-Designed (BA) or (BS). Count unchanged at 69; verified rose from 50 (Politics, Philosophy & Economics: Law (BA) now verified).",
-      "notes": "Reviewed 2026-10-08: Catalog-count review 2026-10-08: official current list page. List document sha256 f6537eae201facf4."
+      "reason": "Catalog-count review 2026-10-08: official current list page.",
+      "run": "programs/runs/WA/2026-10-06-cl"
     }
   ]
 }

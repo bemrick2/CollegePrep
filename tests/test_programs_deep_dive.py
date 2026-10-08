@@ -2029,6 +2029,23 @@ class CollegeQualifiedListTests(unittest.TestCase):
         self.assertEqual([x['record']['program_name'] for x in c], ['Biology, B.S. (College of Liberal Arts and Sciences)'])
         self.assertEqual(X.listed_program_identity({'institution_key': 'k'}, e, page, '2026-27', {**listed, 'printed': 'Biology (College of Liberal Arts and Sciences)'}), [])
 
+    def test_department_page_heading_prints_the_listed_program(self):  # Iowa State 'Physics and Astronomy' / 'Physics, B.S'
+        from pipeline import text as T
+        e = {'url': 'https://catalog.x.edu/las/physics/', 'role': 'program_page', 'sha256': 'a' * 64, 'fetched_at': '2026-10-07T00:00:00+00:00', 'status': 200, 'kind': 'html'}
+        listed = {'credential_level': 'bachelor', 'printed': 'Physics, B.S.', 'listed_on': 'https://catalog.x.edu/list/', 'listed_on_sha256': 'b' * 64}
+        mk = lambda heads: T.Page('X Courses and Programs (2026-2027 Catalog)\n' + '\n'.join(heads), 'Physics and Astronomy | X Catalog', [], [], heads)
+        c = X.listed_program_identity({'institution_key': 'k'}, e, mk(['Physics and Astronomy', 'The Physics Major', 'Physics, B.S']), '2026-27', listed)
+        self.assertEqual([x['record']['program_name'] for x in c], ['Physics, B.S.'])
+        self.assertEqual(X.listed_program_identity({'institution_key': 'k'}, e, mk(['Physics and Astronomy', 'Physics, B.A.']), '2026-27', listed), [])
+        # a page whose own heading names a bachelor's award is left to the program-page readers
+        self.assertEqual(X.listed_program_identity({'institution_key': 'k'}, e, mk(['Astronomy, B.S.', 'Physics, B.S']), '2026-27', listed), [])
+
+    def test_several_majors_heading(self):
+        for h in ['Majors', 'Undergraduate Majors', "Majors - Bachelor's Degree", 'The department offers the following majors:']:
+            self.assertTrue(X.MAJORS_HEADING.search(h), h)
+        for h in ['A. Courses required of all Genetics majors', 'Departmental Requirements for Sociology Majors', 'Majors plan a program of study in one of two tracks:']:
+            self.assertFalse(X.MAJORS_HEADING.search(h), h)
+
 
 class AwardDocumentTests(unittest.TestCase):
     def docs(self):
@@ -2582,3 +2599,22 @@ class ResearchPriorityTests(unittest.TestCase):
         tiers = [RP.TIERS.index(r['tier']) for r in doc['institutions']]
         self.assertEqual(tiers, sorted(tiers))  # tiers in order, largest first within a tier
         self.assertEqual(sum(doc['tiers'].values()), len(keys))
+
+
+class DiagnoseRobotsTests(unittest.TestCase):
+    def test_disallowed_url_is_recorded_not_requested(self):  # VCU bulletin azindex is disallowed by robots.txt (2026-10-08)
+        from programs.diagnose import diagnose
+        class R:
+            def allowed(self, u): return 'azindex' not in u
+            def refusal(self, u): return 'disallowed_by_robots'
+        asked = []
+        class Resp:
+            status = 200; headers = {}
+            def read(self, n): return b'ok'
+            def __enter__(self): return self
+            def __exit__(self, *a): return False
+        def opener(req, timeout=30): asked.append(req.full_url); return Resp()
+        out = diagnose(['https://b.x.edu/azindex/', 'https://b.x.edu/undergraduate/'], R(), opener)
+        self.assertEqual(asked, ['https://b.x.edu/undergraduate/'])
+        self.assertIn('https://b.x.edu/azindex/ None\ndisallowed_by_robots', out)
+

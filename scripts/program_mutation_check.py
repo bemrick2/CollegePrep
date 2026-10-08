@@ -298,6 +298,13 @@ MUTS = [
     ('programs/verify.py', "src = norm(other(ev['sha256'])) if (ev.get('sha256') and ev['sha256'] != c['source'].get('sha256') and other and other(ev['sha256'])) else t", "src = t + ' ' + ' '.join(norm(other(x)) for x in [ev.get('sha256')] if x and other and other(x)) if False else t"),
     ('programs/extract.py', "    unqualified = COLLEGE_QUALIFIER.sub('', printed)", "    unqualified = printed"),
     ('programs/promote.py', "                  if cid in prior and (v.get('decision') or {}).get('replaces_promoted')}", "                  if False}"),
+    # diagnose honours robots.txt (2026-10-08)
+    ('programs/diagnose.py', "        if not robots.allowed(url):", "        if False:"),
+    # Iowa State department pages: a heading prints the listed name and award; a sentence mentioning majors is no multi-major page
+    ('programs/extract.py', "    if not hit and credential_of(program_heading(page) or '') != 'bachelor':", "    if not hit:"),
+    ('programs/extract.py', "        hit = next((h.strip() for h in page.headings if norm(h) == norm(unqualified)), None)", "        pass"),
+    ('programs/extract.py', "MAJORS_HEADING = re.compile(r'^(?:\\S+\\s+){0,3}majors:?$|^majors\\s*[-–:]|\\bfollowing majors\\b', re.I)", "MAJORS_HEADING = re.compile(r'\\bmajors\\b', re.I)"),
+    ('programs/extract.py', "|^majors\\s*[-–:]|", "|"),
 ]
 
 

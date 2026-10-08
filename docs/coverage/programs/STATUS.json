@@ -1,6 +1,6 @@
 {
  "national": {
-  "covered": 60,
+  "covered": 62,
   "definition": "Registered: four-year schools in the national registry (pipeline/registry; scope rule in pipeline/registry.py). Researched: a verified or partially verified deep-dive record, or a queue entry recording an attempt other than not_yet_researched. Covered: meets docs/PROGRAM_DEPTH_COMPLETION.md. Untracked states count as registered only.",
   "registered": 2119,
   "researched": 661,
@@ -13,7 +13,7 @@
     "tracked": true
    },
    {
-    "covered": 0,
+    "covered": 1,
     "registered": 31,
     "researched": 6,
     "state": "AL",
@@ -90,7 +90,7 @@
     "tracked": true
    },
    {
-    "covered": 0,
+    "covered": 1,
     "registered": 33,
     "researched": 6,
     "state": "IA",
@@ -545,8 +545,8 @@
   },
   {
    "coverage_threshold": 0.8,
-   "covered_institutions": 0,
-   "entering_student_share_covered": 0.0,
+   "covered_institutions": 1,
+   "entering_student_share_covered": 0.056,
    "four_year_institutions": 31,
    "institutions": [
     {
@@ -681,10 +681,10 @@
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": null,
+     "catalog_share": 0.941,
      "dimensions": {
       "admission_rules": "queued",
-      "catalog": "queued",
+      "catalog": "met",
       "degree_maps": "queued",
       "requirement_groups": "met"
      },
@@ -696,7 +696,7 @@
       "nursing"
      ],
      "institution_key": "ipeds-101480",
-     "listed_bachelor_programs": null,
+     "listed_bachelor_programs": 101,
      "name": "Jacksonville State University",
      "partially_verified_programs": 0,
      "programs_complete": false,
@@ -707,7 +707,7 @@
       "degree_maps:not_yet_researched"
      ],
      "requirement_groups": 21,
-     "status": "partial",
+     "status": "covered",
      "verified_bachelor_programs": 95
     },
     {
@@ -11831,18 +11831,18 @@
   },
   {
    "coverage_threshold": 0.8,
-   "covered_institutions": 0,
-   "entering_student_share_covered": 0.0,
+   "covered_institutions": 1,
+   "entering_student_share_covered": 0.295,
    "four_year_institutions": 33,
    "institutions": [
     {
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": 0.858,
+     "catalog_share": 0.906,
      "dimensions": {
       "admission_rules": "queued",
-      "catalog": "queued",
+      "catalog": "met",
       "degree_maps": "queued",
       "requirement_groups": "met"
      },
@@ -11859,11 +11859,13 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "admission_rules:not_yet_researched",
+      "catalog:not_yet_researched",
+      "degree_maps:not_yet_researched"
      ],
-     "requirement_groups": 37,
-     "status": "partial",
-     "verified_bachelor_programs": 109
+     "requirement_groups": 53,
+     "status": "covered",
+     "verified_bachelor_programs": 115
     },
     {
      "academic_years": [],
@@ -12641,7 +12643,7 @@
     }
    ],
    "not_yet_researched": 29,
-   "queue_entries": 33,
+   "queue_entries": 35,
    "queue_errors": [],
    "state": "IA",
    "status": "in_progress",
@@ -50898,12 +50900,12 @@
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": 0.725,
+     "catalog_share": 0.739,
      "dimensions": {
       "admission_rules": "queued",
       "catalog": "queued",
       "degree_maps": "met",
-      "requirement_groups": "queued"
+      "requirement_groups": "met"
      },
      "folder": "spu",
      "high_value_without_admission_rule": [
@@ -50917,15 +50919,15 @@
      "name": "Seattle Pacific University",
      "partially_verified_programs": 0,
      "programs_complete": false,
-     "programs_with_plan": 31,
+     "programs_with_plan": 32,
      "queue": [
       "admission_rules:not_yet_researched",
       "catalog:not_yet_researched",
       "requirement_groups:not_yet_researched"
      ],
-     "requirement_groups": 0,
+     "requirement_groups": 6,
      "status": "partial",
-     "verified_bachelor_programs": 50
+     "verified_bachelor_programs": 51
     },
     {
      "academic_years": [],
