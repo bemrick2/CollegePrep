@@ -490,6 +490,13 @@ class StatedMajorTests(unittest.TestCase):
         q = T.Page('2026-2027 Campus Life and Catalog of Events\nAccounting, BS', 't', [], [], [])
         self.assertEqual(X.printed_catalog_years(q), set())
 
+    def test_header_name_and_year_on_two_lines(self):  # UW-Madison 2026-27 site header: 'Guide' / '2026-2027'
+        from pipeline import text as T
+        p = T.Page('Archive\nGuide\n2026-2027\nSearch this site\nAnthropology, BA\n© 2026-2027 Board of Regents', 't', [], [], [])
+        self.assertEqual(X.printed_catalog_years(p), {('2026-2027', 'Guide 2026-2027')})
+        for text in ('Archive\n2026-2027\nAnthropology, BA', 'Course Guide Notes\n2026-2027\nX', 'Guide\n2026-2029\nX', '© 2026-2027 Board of Regents'):
+            self.assertEqual(X.printed_catalog_years(T.Page(text, 't', [], [], [])), set(), text)
+
 class MajorTableTests(unittest.TestCase):
     def test_marked_majors_with_catalog_award_statement(self):  # Lewis & Clark 2026-27
         from pipeline import text as T
