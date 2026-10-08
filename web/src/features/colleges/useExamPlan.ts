@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from 'react'
-import type { PlannedExam } from '../../lib/engine/examCredit'
+import type { IbLevel, PlannedExam } from '../../lib/engine/examCredit'
 
 /**
- * The student's AP/CLEP exams (taken with a score, or planned). Kept on this device until the backend stores
+ * The student's credit exams (AP, CLEP, IB, Statewide Dual Credit) (taken with a score, or planned). Kept on this device until the backend stores
  * them (contract request CR-10); nothing here is sent anywhere.
  */
 const KEY = (studentId: string) => `pp-exam-plan:${studentId}`
@@ -39,6 +39,7 @@ export function useExamPlan(studentId: string | undefined) {
     exams,
     add: (e: PlannedExam) => !exams.some((x) => x.key === e.key) && exams.length < MAX && write([...exams, e]),
     setScore: (key: string, score: number | null) => write(exams.map((x) => (x.key === key ? { ...x, score } : x))),
+    setLevel: (key: string, level: IbLevel | null) => write(exams.map((x) => (x.key === key ? { ...x, level } : x))),
     remove: (key: string) => write(exams.filter((x) => x.key !== key)),
     max: MAX,
   }
