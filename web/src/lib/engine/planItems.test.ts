@@ -98,3 +98,31 @@ describe('the two modules that read plans', () => {
     expect(fit.sharedFirstYear?.courses.every((c) => /^[A-Z]{2,5} F?\d{3,4}[A-Z]?$/.test(c))).toBe(true)
   })
 })
+
+describe('alternatives printed inside a course title (#192)', () => {
+  const codes = (code: string, title: string) => entryCodes(readPlanItem({ code, title, credits: 3 })!)
+
+  it('reads a "CODE: Title" list joined by commas and "or" (UTC Clear Path)', () => {
+    expect(codes('MATH 1130', 'College Algebra or MATH 1830: Calculus for Mgt., Life, and Social Sciences (Quantitative Reasoning)')).toEqual(['MATH 1130', 'MATH 1830'])
+    expect(codes('ECON 4040', "Int'l Economics, FIN 4120: Int'l Finance, MGT 4380: Int'l Management, or MKT 3180: Int'l Marketing")).toEqual(['ECON 4040', 'FIN 4120', 'MGT 4380', 'MKT 3180'])
+    expect(codes('ECON 4530', 'History of Economic Thought, PSPS 3052: Early Political Philosophy,or PSPS 3053:Modern Political Philosophy**')).toEqual(['ECON 4530', 'PSPS 3052', 'PSPS 3053'])
+  })
+
+  it('reads a parenthesis that starts with "(or "', () => {
+    expect(codes('MATH 102M', 'College Algebra (or MATH 103M)')).toEqual(['MATH 102M', 'MATH 103M'])
+    expect(codes('PHIL 222', 'Contemporary Moral Problems - AH (or PHIL 225, PHIL 321, or PHIL 323)')).toEqual(['PHIL 222', 'PHIL 225', 'PHIL 321', 'PHIL 323'])
+  })
+
+  it('adds nothing for prerequisites, conditions, combinations, advice or course levels', () => {
+    for (const [code, title] of [
+      ['ACCT 201', 'Principles of Financial Accounting Prereq: MATH 101 or MATH 109 or MATH 156 or BSAD 265'],
+      ['MUS 346', 'Band/Choral Scoring (Only if student did not take MUS 345 or MUS 545)'],
+      ['MATH 526', 'Linearity II (or MATH 528 and either MATH 645 or MATH 545)'],
+      ['PHYS 407', 'General Physics I (or 2nd major/minor or PHYS 401 strongly recommended)'],
+      ['GEOG 418', 'Quantitative Methods (GEOG 402 or GEOG 404 may be substituted)'],
+      ['ARTH 497', 'Tutorial Work in Art History (or ARTH 400-level course)'],
+      ['ACC 2010', 'Principles of Accounting 1'],
+    ])
+      expect(codes(code!, title!)).toEqual([code])
+  })
+})
