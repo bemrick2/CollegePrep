@@ -1,18 +1,23 @@
 {
-  "institution_key": "ipeds-153603",
-  "academic_year": "2026-27",
-  "records": [
+  "run": "programs/runs/IA/2026-10-06-cat3",
+  "run_branch": "program-run/*",
+  "reviewer": "Catalog-count review (independent agent, local stored pages only), 2026-10-08; recount after further reviewed promotions",
+  "catalogs": [
     {
+      "institution_key": "ipeds-153603",
       "catalog_url": "https://catalog.iastate.edu/",
-      "source_url": "https://catalog.iastate.edu/collegescurricula/",
-      "verification_status": "verified",
-      "last_verified_at": "2026-10-06",
       "catalog_year_label": "2026-2027",
+      "source_evidence": {
+        "url": "https://catalog.iastate.edu/collegescurricula/",
+        "sha256": "1f043f1bbddbe68adbba4e5ee5b428340f08e600534e94c2fa3b382b32a2ad12",
+        "fetched_at": "2026-10-06T23:21:56+00:00"
+      },
       "listed_bachelor_programs": 127,
       "verified_listed_programs": 115,
       "programs_complete": false,
       "completeness_basis": "'Undergraduate Majors' section of the list page (prints '2026-2027 Catalog'): 126 major lines counted once each (multi-award lines such as 'Chemistry, B.A., B.S.' once; a major offered by two colleges counted per college line, as records are keyed), plus 1 because 'Earth Science Education and Studies, B.A., Earth Science, B.S.' names two majors = 127; Athletic Training (no award printed) and Nursing B.S.N. Accelerated counted (unsure). Excluded 'See ...' cross-references, the Interdisciplinary Studies (Classical, U.S. Latino/a) and World Languages (French, German, Spanish) sub-options, the two Diet and Exercise B.S./M.S. entries, secondary majors, certificates, minors and pre-professional tracks. Matched by URL: 115 of 127 entries have a verified record (all 115 verified bachelor records used once; the single 'Bachelor of Liberal Studies' record is assigned to 'Liberal Studies, B.L.S.', so 'Professional Studies, B.L.S.', which links the same page, stays unverified). Unverified: Architecture, B.Arch.; Athletic Training; Culinary Food Science, B.S. (College of Agriculture and Life Sciences); Earth Science Education and Studies, B.A.; Earth Science, B.S.; Industrial Design, B.I.D.; Music, B.A., B.Mus.; Nursing, B.S.N., Accelerated; Nursing, B.S.N. (College of Agriculture and Life Sciences); Nursing, B.S.N. (College of Health and Human Sciences); Professional Studies, B.L.S; World Languages and Cultures B.A.. Count unchanged at 127; verified rose from 109 earlier today (Genetics x2, Journalism and Mass Communication, Physics, Sociology, Theatre now verified).",
-      "notes": "Reviewed 2026-10-08: Catalog-count review 2026-10-08: official current list page. List document sha256 1f043f1bbddbe68a."
+      "reason": "Catalog-count review 2026-10-08: official current list page.",
+      "run": "programs/runs/IA/2026-10-06-cat3"
     }
   ]
 }
