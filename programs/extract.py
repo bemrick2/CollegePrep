@@ -95,6 +95,8 @@ YEAR_LABEL = re.compile(r'\b(20\d{2})\s*[-–]\s*(20\d{2})\s+(?:Undergraduate\s+
 LABEL_FIRST = re.compile(r'(?:Catalog|Catalogue|Bulletin)\s+(20\d{2})\s*[-–]\s*(20\d{2})(?=\s*(?:>|$))', re.I)
 SHORT_LABEL = re.compile(r'\b(20\d{2})\s*[-–]\s*(\d{2})\s+(?:Undergraduate\s+|University\s+|Academic\s+|General\s+)?(?:Catalog|Catalogue|Bulletin)\b', re.I)  # UNI '2026-27 University Catalog'
 EDITION = re.compile(r'(20\d{2})\s*[-–]\s*(?:20)?(\d{2})\s+Edition', re.I)  # Lewis & Clark '2026-27 Edition'; Stetson '2026-2027 Edition'
+BARE_YEAR = re.compile(r'(20\d{2})\s*[-–]\s*(20\d{2})')
+HEADER_NAME = re.compile(r'(?:Guide|Catalog|Catalogue|Bulletin)', re.I)
 NOT_CURRENT = re.compile(r'\[?\s*(not current|archived?)\b', re.I)  # Acalog selector: "2025-2026 Academic Catalog [NOT CURRENT CATALOGS]"
 ARCHIVE_LINK = re.compile(r'\s*(?:Download\s+)?(?:an?\s+)?PDF of\b', re.I)  # "PDF of the entire 2025-2026 Catalog", uark "A PDF of the entire 2025-26 Undergraduate catalog.": a download link, not this page's label
 
@@ -118,6 +120,11 @@ def printed_catalog_years(page):
         for m in SHORT_LABEL.finditer(line):
             for k in PERIOD_SPANS:
                 if int(m.group(2)) == (int(m.group(1)) + k) % 100: found.add((f'{m.group(1)}-{int(m.group(1)) + k}', line.strip()))
+        # UW-Madison's site header prints the catalog name and its year on two lines: 'Guide' / '2026-2027'
+        m = BARE_YEAR.fullmatch(line.strip())
+        prev = next((l.strip() for l in reversed(lines[max(0, i - 2):i]) if l.strip()), '')
+        if m and HEADER_NAME.fullmatch(prev) and int(m.group(2)) - int(m.group(1)) in PERIOD_SPANS:
+            found.add((f'{m.group(1)}-{m.group(2)}', f'{prev} {line.strip()}'))
         m = EDITION.fullmatch(line.strip())  # Lewis & Clark header: "2026-27 Edition"
         for k in PERIOD_SPANS if m else ():
             if int(m.group(2)) == (int(m.group(1)) + k) % 100: found.add((f'{m.group(1)}-{int(m.group(1)) + k}', line.strip()))
