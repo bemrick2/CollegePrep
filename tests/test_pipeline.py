@@ -1957,6 +1957,8 @@ class CatalogYearTests(unittest.TestCase):
         # a period with a one-year edition inside it: the edition is the label (UT Austin)
         self.assertEqual(C.catalog_year(page('X', '2026-27 Edition\n2026-2028 Undergraduate Catalog')), ('2026-27', '2026-2027'))
         self.assertEqual(C.catalog_year(page('X', '2026-2029 Catalog')), (None, None))  # three-year spans are not read
+        # two different one-year labels on the page: ambiguous, so a period printed lower down is not taken as the label
+        self.assertEqual(C.catalog_year(page('X', '2025-26 Edition\n2026-27 Edition\n2026-2028 Catalog')), (None, None))
 
 
 class CatalogNameTests(unittest.TestCase):

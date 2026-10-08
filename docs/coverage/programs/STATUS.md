@@ -254,7 +254,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Antelope Valley Community College District | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of California-Merced | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | University of the People | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| California State University-San Bernardino | covered | 68 | 69 | 0 | 149 | met | queued | met | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched |
+| California State University-San Bernardino | covered | 69 | 69 | 0 | 152 | met | queued | met | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched |
 | MiraCosta College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | California State University-Chico | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Bakersfield College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -2149,7 +2149,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | The University of Texas at Austin | partial | 110 | 262 | 90 | 78 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
 | Dallas College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Houston Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Texas State University | partial | 106 | 211 | 0 | 55 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
+| Texas State University | partial | 95 | 211 | 0 | 53 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | Texas Tech University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | University of North Texas | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | San Jacinto Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -2416,7 +2416,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 
 | School | Status | Verified bachelor's | Listed | Plans | Req. groups | Catalog | Maps | Groups | Admission rules | Queue |
 |---|---|---|---|---|---|---|---|---|---|---|
-| University of Wisconsin-Madison | partial | 183 | 214 | 103 | 121 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:layout_not_readable |
+| University of Wisconsin-Madison | partial | 183 | 215 | 103 | 121 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:layout_not_readable |
 | University of Wisconsin-Milwaukee | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Wisconsin-La Crosse | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Wisconsin-Whitewater | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
