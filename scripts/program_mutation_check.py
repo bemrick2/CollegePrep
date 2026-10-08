@@ -245,6 +245,10 @@ MUTS = [
     # Cal Poly 2026-2028 campus variants listed without a base line
     ('programs/extract.py', " or PAREN_AWARD_VARIANT_ENTRY.match(line)\n                for line in printed]", "\n                for line in printed]"),
     ('programs/autoreview.py', " and not PAREN_AWARD_VARIANT_ENTRY.match(n) and _degree_key(n)", " and _degree_key(n)"),
+    # promote never replaces an owner-corrected record or re-promotes a candidate over the record it produced
+    ('programs/promote.py', "    if on_file.get('verification_correction_reason') or nk in corrected_keys(): return 'owner-approved correction on file'", "    pass"),
+    ('programs/promote.py', "    if c['candidate_id'] in promoted_ids: return 'already promoted from this run'", "    pass"),
+    ('programs/promote.py', "        if held:\n", "        if False:\n"),
 ]
 
 
