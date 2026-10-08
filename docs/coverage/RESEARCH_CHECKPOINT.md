@@ -8,14 +8,25 @@ This file is how a new Research session resumes the national program-research wo
 
 ## Numbers
 
-| | main `db28d88` (before batch 2) | main `7451caf` (batch 2 merged) |
+| | main `7451caf` (batch 2 merged) | research/batch-03 |
 |---|---|---|
 | Registered four-year institutions | 2,119 | 2,119 |
-| Covered (docs/PROGRAM_DEPTH_COMPLETION.md) | 62 | 64 |
-| Researched | 661 | 672 |
-| Verified bachelor's program records | 9,745 | 10,012 |
+| Covered (docs/PROGRAM_DEPTH_COMPLETION.md) | 64 | 65 |
+| Researched | 672 | 673 |
+| Verified bachelor's program records | 10,012 | 10,071 |
 
 All figures are counted from `docs/coverage/programs/STATUS.json` and from the `academic_programs` files with `verification_status == "verified"` and `credential_level == "bachelor"`.
+
+## Completed in batch 3 (research/batch-03)
+
+| Institution | Run | Result |
+|---|---|---|
+| Colorado State | CO/2026-10-08-c02 | 63/68, covered. New reader `award_link_major/v1`: 'Major in X' pages that the Programs A-Z degree column links as 'B.A.' / 'B.S.' (20 of 60 records checked by hand). Concentration rows are not counted. |
+| SF State | recount of CA/2026-10-07-cat | 108/118, covered. Options of a listed degree are not counted. No record changed. |
+| Roosevelt | recount of IL/2026-10-07-cat | 56/79, **no longer covered**. 18 undotted-award entries (BSBA, BAE, BMA, BSHTM, BAOL) had been left out of the 10-07 count. A re-run is in flight. |
+| UTRGV | TX/2026-10-08-d03 | Queued `no_year_label`: the SmartCatalog pages print no catalog year. |
+
+**Recount check.** Every covered school whose entry follows the `catalog_counts` format was recounted from stored runs with the current readers. All stay at or above 90% except Roosevelt. Recount decisions (`*-recount.json`) approve nothing. They map approvals that the current reader re-identifies on the same page, for counting only.
 
 ## Completed in batch 2 (research/batch-02, merged as #213)
 
@@ -72,16 +83,17 @@ Reader and checker changes in this batch each come with tests and mutants: `prog
 
 ## In flight (run branches pushed, not yet reviewed)
 
-- `program-run/tx-d03-2026-10-08`: UTRGV. A configured list stops the walk, so this run walks the college and department pages and configures no list.
-- `program-run/co-c02-2026-10-08`: Colorado State, with its 'Programs A-Z' list (each program's degree in a table column).
+- `program-run/il-e01-2026-10-08`: Roosevelt re-run (700-page cap) for its undotted-award programs.
 
 ## Next prioritized batch
 
 From `research_priority.json`, excluding blocked institutions:
 
-1. **Near tier** (catalog share 75-90%): SF State, ODU, CU Denver, JHU, ESU, YSU. Find which listed programs are unrecorded and why: held variants, unread pages, or a reader rule.
+1. **Near tier** (catalog share 75-90%): ODU, CU Denver, JHU, ESU, YSU, Johnstown, Greensburg.
+   - JHU's MD/2026-10-07-cat2 run no longer reproduces 17 approved candidates, so a recount there needs a fresh review.
+   - Recounts under the current rules: ESU 65/75, Johnstown 41/48, Greensburg 28/32 (unchanged); YSU 54/75, Ashland 51/76, La Salle 35/56 (their undotted BSBA entries are now counted). Find which listed programs are unrecorded and why: held variants, unread pages, or a reader rule.
 2. **Reader work that would unlock large schools:**
-   - Colorado State and UNL: major pages with the award only in the text.
+   - UNL: major pages with the award only in the text. The majors list prints no award.
    - Utah: the award from the program code or text.
    - UT Dallas: the edition-home year.
    - BYU: emphases whose degree has no list line.
