@@ -1,6 +1,6 @@
 {
  "national": {
-  "covered": 62,
+  "covered": 60,
   "definition": "Registered: four-year schools in the national registry (pipeline/registry; scope rule in pipeline/registry.py). Researched: a verified or partially verified deep-dive record, or a queue entry recording an attempt other than not_yet_researched. Covered: meets docs/PROGRAM_DEPTH_COMPLETION.md. Untracked states count as registered only.",
   "registered": 2119,
   "researched": 661,
@@ -174,7 +174,7 @@
     "tracked": true
    },
    {
-    "covered": 3,
+    "covered": 2,
     "registered": 58,
     "researched": 18,
     "state": "MO",
@@ -258,7 +258,7 @@
     "tracked": true
    },
    {
-    "covered": 1,
+    "covered": 0,
     "registered": 28,
     "researched": 4,
     "state": "OK",
@@ -8199,7 +8199,7 @@
      "institution_key": "ipeds-133669",
      "listed_bachelor_programs": null,
      "name": "Florida Atlantic University",
-     "partially_verified_programs": 75,
+     "partially_verified_programs": 72,
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
@@ -10321,7 +10321,9 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "admission_rules:not_yet_researched",
+      "catalog:layout_not_readable",
+      "degree_maps:not_yet_researched"
      ],
      "requirement_groups": 121,
      "status": "covered",
@@ -11615,7 +11617,7 @@
     }
    ],
    "not_yet_researched": 38,
-   "queue_entries": 62,
+   "queue_entries": 64,
    "queue_errors": [],
    "state": "GA",
    "status": "in_progress",
@@ -23646,18 +23648,18 @@
   },
   {
    "coverage_threshold": 0.8,
-   "covered_institutions": 3,
-   "entering_student_share_covered": 0.219,
+   "covered_institutions": 2,
+   "entering_student_share_covered": 0.069,
    "four_year_institutions": 58,
    "institutions": [
     {
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": 0.989,
+     "catalog_share": 0.869,
      "dimensions": {
       "admission_rules": "queued",
-      "catalog": "met",
+      "catalog": "queued",
       "degree_maps": "queued",
       "requirement_groups": "met"
      },
@@ -23668,16 +23670,18 @@
       "nursing"
      ],
      "institution_key": "ipeds-178396",
-     "listed_bachelor_programs": 87,
+     "listed_bachelor_programs": 99,
      "name": "University of Missouri-Columbia",
      "partially_verified_programs": 0,
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "admission_rules:not_yet_researched",
+      "catalog:not_yet_researched",
+      "degree_maps:not_yet_researched"
      ],
      "requirement_groups": 78,
-     "status": "covered",
+     "status": "partial",
      "verified_bachelor_programs": 86
     },
     {
@@ -25077,7 +25081,7 @@
     }
    ],
    "not_yet_researched": 44,
-   "queue_entries": 64,
+   "queue_entries": 66,
    "queue_errors": [],
    "state": "MO",
    "status": "in_progress",
@@ -37919,8 +37923,8 @@
   },
   {
    "coverage_threshold": 0.8,
-   "covered_institutions": 1,
-   "entering_student_share_covered": 0.22,
+   "covered_institutions": 0,
+   "entering_student_share_covered": 0.0,
    "four_year_institutions": 28,
    "institutions": [
     {
@@ -37951,10 +37955,10 @@
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": 0.937,
+     "catalog_share": 0.69,
      "dimensions": {
       "admission_rules": "queued",
-      "catalog": "met",
+      "catalog": "queued",
       "degree_maps": "met",
       "requirement_groups": "met"
      },
@@ -37966,17 +37970,18 @@
       "nursing"
      ],
      "institution_key": "ipeds-207388",
-     "listed_bachelor_programs": 254,
+     "listed_bachelor_programs": 184,
      "name": "Oklahoma State University-Main Campus",
      "partially_verified_programs": 0,
      "programs_complete": false,
-     "programs_with_plan": 182,
+     "programs_with_plan": 88,
      "queue": [
-      "institution:not_yet_researched"
+      "admission_rules:not_yet_researched",
+      "catalog:not_yet_researched"
      ],
-     "requirement_groups": 1330,
-     "status": "covered",
-     "verified_bachelor_programs": 238
+     "requirement_groups": 747,
+     "status": "partial",
+     "verified_bachelor_programs": 127
     },
     {
      "academic_years": [],
@@ -38604,7 +38609,7 @@
     }
    ],
    "not_yet_researched": 25,
-   "queue_entries": 28,
+   "queue_entries": 29,
    "queue_errors": [],
    "state": "OK",
    "status": "in_progress",
@@ -45489,7 +45494,10 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "admission_rules:not_yet_researched",
+      "catalog_count:not_published",
+      "degree_maps:not_yet_researched",
+      "requirement_groups:not_yet_researched"
      ],
      "requirement_groups": 0,
      "status": "partial",
@@ -45680,7 +45688,7 @@
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": 0.949,
+     "catalog_share": 0.954,
      "dimensions": {
       "admission_rules": "queued",
       "catalog": "met",
@@ -45695,13 +45703,14 @@
       "nursing"
      ],
      "institution_key": "ipeds-228796",
-     "listed_bachelor_programs": 78,
+     "listed_bachelor_programs": 87,
      "name": "The University of Texas at El Paso",
      "partially_verified_programs": 0,
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "admission_rules:not_yet_researched",
+      "degree_maps:not_yet_researched"
      ],
      "requirement_groups": 212,
      "status": "covered",
@@ -48143,7 +48152,7 @@
     }
    ],
    "not_yet_researched": 96,
-   "queue_entries": 127,
+   "queue_entries": 131,
    "queue_errors": [],
    "state": "TX",
    "status": "in_progress",
@@ -48553,7 +48562,7 @@
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": 0.808,
+     "catalog_share": 0.795,
      "dimensions": {
       "admission_rules": "queued",
       "catalog": "queued",
@@ -48568,13 +48577,15 @@
       "nursing"
      ],
      "institution_key": "ipeds-234030",
-     "listed_bachelor_programs": 146,
+     "listed_bachelor_programs": 151,
      "name": "Virginia Commonwealth University",
      "partially_verified_programs": 0,
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "admission_rules:not_yet_researched",
+      "catalog:layout_not_readable",
+      "degree_maps:not_yet_researched"
      ],
      "requirement_groups": 279,
      "status": "partial",
@@ -49692,7 +49703,7 @@
     }
    ],
    "not_yet_researched": 37,
-   "queue_entries": 56,
+   "queue_entries": 58,
    "queue_errors": [],
    "state": "VA",
    "status": "in_progress",

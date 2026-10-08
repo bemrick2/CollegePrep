@@ -43,6 +43,9 @@ class TextTests(unittest.TestCase):
         # the title carries the page's label (programs.extract builds such a view from '2026-2027 Edition'): the print link is not a second label
         view = T.Page('2026-2027 Edition\nFull 2025-2026 Catalog\nGeography: Pre-Ministry, BA', 'Geography: Pre-Ministry, BA - 2026-2027 Catalog', [], [], [])
         self.assertEqual(catalog.catalog_year(view), ('2026-27', '2026-2027'))
+        # a page whose only label is the print link: it names the current catalog
+        only = T.Page('Full 2026-2027 Catalog\nZoology, BS', 'Zoology, BS', [], [], [])
+        self.assertEqual(catalog.catalog_year(only), ('2026-27', '2026-2027'))
 
     def test_money_and_numbers_are_not_guessed(self):
         self.assertEqual(T.money_values('$11,084 and $12.50 and $3'), [11084, 12.5, 3])

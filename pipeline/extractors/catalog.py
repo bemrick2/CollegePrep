@@ -107,8 +107,10 @@ def courseleaf_groups(page):
 def catalog_year(page):
     """The catalog's printed year range, e.g. '2026-2027 Undergraduate Catalog'."""
     # a whole line 'Full 2025-2026 Catalog' is a print link to last year's PDF (Oklahoma State 2026-27), not the page's label
-    print_link = re.compile(r'^[ \t]*Full\s+20\d{2}\s*[-–]\s*20\d{2}\s+catalog[ \t]*$', re.I | re.M)
+    print_link = re.compile(r'^[ \t]*Full\s+20\d{2}\s*[-–]\s*(?:20)?\d{2}\s+catalog[ \t]*$', re.I | re.M)
     labels = T.year_labels(page.title + '\n' + '\n'.join(l for l in page.lines[:60] if not print_link.match(l)))
+    if not labels:  # the print link is the page's only label: it names the current catalog
+        labels = T.year_labels(page.title + '\n' + '\n'.join(page.lines[:60]))
     if len(labels) == 1:
         y = next(iter(labels)); return y, f'{y[:4]}-{int(y[:4]) + 1}'
     text = print_link.sub('', page.text[:5000])

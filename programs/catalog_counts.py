@@ -27,7 +27,7 @@ LABELED = {'labeled_in_title', 'labeled_in_heading', 'labeled_in_source'}
 # UTEP 2026-27 cards run the name into the card's category labels: 'BBA in AccountingBusiness, Management, & Marketing
 # BachelorsUndergraduateBusiness Administration' (the labels name the level 'Bachelors' and 'Undergraduate')
 CATEGORY_RUN = re.compile(r'(?:[A-Z].*)?Bachelors(?:Online|Fast Track|Professional|Undergraduate|[A-Z]|$)')
-AWARD_ONLY = re.compile(r'^(?:B\.?\s?[A-Z][A-Za-z]{0,4}\.?(?:\s?[A-Z][a-z]{0,3}\.?)*|Bachelor of [A-Z][a-z]+(?: [A-Z][a-z]+)*)\**$')  # Missouri lists 'BA', 'BS', 'BS*' under each department
+AWARD_ONLY = re.compile(r'^(?:(?-i:B[A-Z]{0,4}[a-z]{0,3})|B\.\s?[A-Z][A-Za-z]{0,4}\.?(?:\s?[A-Z][a-z]{0,3}\.?)*|Bachelor of [A-Z][a-z]+(?: [A-Z][a-z]+)*)\**$')  # Missouri lists 'BA', 'BS*', 'BSAcc' under each department; never an all-caps name ('BIOLOGY')
 
 
 def page_key(u):
@@ -70,7 +70,8 @@ def entries(run_dir, decision, iks, year='2026-2027', reviewed=''):
                  and v.get('year_basis', 'labeled_in_source') in LABELED]
         names = {name_key(v['record']['program_name']): v for v in progs}
         listing = lists[ik]['programs']
-        raw = [x for x in listing if x['listed_as'] == 'bachelor']
+        # an entry the list reader left unclassified but that prints an undotted bachelor's award ('Marketing, BSBA') is a bachelor's entry
+        raw = [x for x in listing if x['listed_as'] == 'bachelor' or (x['listed_as'] is None and X.UNDOTTED_LIST_AWARD.search(x['printed'].replace(ZWSP, '')))]
         unlabeled = sorted({card_name(x['printed'])[0] for x in listing if x['listed_as'] in ('major', 'major_unlabeled_degree')})
         seen, b, doubled = set(), [], 0
         for x in raw:
@@ -107,11 +108,13 @@ def entries(run_dir, decision, iks, year='2026-2027', reviewed=''):
             k = ident(x); hit = None if k.startswith('page:') else names.get(k)
             if not hit and len(by_page[page_key(x['url'])]) == 1 and len(rec_pages.get(page_key(x['url']), [])) == 1:
                 hit = rec_pages[page_key(x['url'])][0]
-                if name_key(x['printed']).startswith(name_key(hit['record']['program_name'])): hit = None
+                rk = name_key(hit['record']['program_name']); pk = name_key(x['printed'])
+                if pk != rk and pk.startswith(rk): hit = None  # 'X: Concentration in Y' is not credited through X's page
             if hit: verified[k] = hit['record']['program_key']
             else: verified.setdefault(k, None)
         n = len(verified); ver = sum(1 for v in verified.values() if v)
-        miss = sorted({x['printed'] + (f" ({x['url']})" if ident(x).startswith('page:') else '') for x in deg if not verified[ident(x)]})
+        missing = {ident(x): x['printed'] + (f" ({x['url']})" if ident(x).startswith('page:') else '') for x in deg if not verified[ident(x)]}
+        miss = sorted(set(missing.values()))
         pages = sorted({x['listed_on'] for x in raw}); lo = pages[0]
         parts = [f"{len(raw)} linked entries on the official {year} program list" + (f" ({len(pages)} pages)" if len(pages) > 1 else '') + " print a bachelor's award"]
         if len(b) < len(raw): parts.append(f"{len(raw) - len(b)} repeat an entry already counted")
@@ -132,7 +135,7 @@ def entries(run_dir, decision, iks, year='2026-2027', reviewed=''):
              'listed_bachelor_programs': n, 'verified_listed_programs': ver, 'programs_complete': ver == n,
              'completeness_basis': basis, 'reason': f'Reviewed: official current-catalog program list (Research session{", " + reviewed if reviewed else ""}).'}
         if ver == n: e['listed_program_keys'] = sorted(set(verified.values()))
-        if n - ver != len({ident(x) for x in deg if not verified[ident(x)]}): raise ValueError(f'{ik}: {n - ver} unverified but {len(miss)} names')
+        if n - ver != len(missing) or len(miss) != len(missing): raise ValueError(f'{ik}: {n - ver} unverified but {len(miss)} names')
         out.append(e)
     return out
 

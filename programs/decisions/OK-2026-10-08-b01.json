@@ -3,7 +3,7 @@
  "run_branch": "program-run/ok-b01-2026-10-08",
  "reviewer": "Research session review 2026-10-08 (autoreview standing rules plus the notes below)",
  "notes": [
-  "Oklahoma State reviewed against its official 2026-2027 program list (the A-Z list on catalog.okstate.edu). Every program page prints '2026-2027 Edition'; the print link 'Full 2025-2026 Catalog' (last year's PDF) is not read as a second year label (programs/extract.py ARCHIVE_LINK; pipeline/extractors/catalog.py catalog_year), so records carry 2026-2027. Option pages the list prints as programs of their own ('Agribusiness: Pre-Law, BSAG') are kept, each from its own page; '-pre-law-' paths whose titles end in an undergraduate award are not professional-school pages (pipeline/extractors/common.py)."
+  "Oklahoma State reviewed against its official 2026-2027 program list (the A-Z list on catalog.okstate.edu). Program pages print '2026-2027 Edition'; the print link 'Full 2025-2026 Catalog' counts as a label only when a page prints no other (programs/extract.py PRINT_LINK; pipeline/extractors/catalog.py catalog_year), so records carry 2026-2027. The list prints options as 'Major: Option, AWARD' beside the major's own line ('Zoology: Pre-Medical Sciences, BS' / 'Zoology, BS'); those are options of that degree and are held (autoreview listed_option), as are concentrations elsewhere. Options whose major has no line of its own are the degree's records. Undotted awards (BSBA, BSCH, BSET, BUS, ...) are bachelor's entries; this run fetched 450 program pages (the cap) and did not reach most business and engineering pages, which stay unrecorded and are queued for a re-run."
  ],
  "approve": [
   {
@@ -27,27 +27,7 @@
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
-   "candidate_id": "07027c26d07a2ee1",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "fe81bae107b5018a",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "bbd37fe726e27de1",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "9cbdce974d876821",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
    "candidate_id": "b7a52eda6a74e764",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "bafd8b8c9e42cd77",
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
@@ -55,43 +35,7 @@
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
-   "candidate_id": "f99d36cf2dfb4231",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "bb58965e588fb824",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "4eb8653fb6d152e0",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "7df8fc8ba854cc3c",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "53070ef1ff79dead",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
    "candidate_id": "c5787c6a0cf3c007",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "3f9881e126aa4be8",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "fc6dd3f80d5cfa45",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "3d9599b651f4ed98",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "0f5ef35353f53927",
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
@@ -100,14 +44,6 @@
   },
   {
    "candidate_id": "daf18a29f4bb19ca",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "251e13fab9672508",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "a33b2983d4e918d1",
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
@@ -135,35 +71,7 @@
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
-   "candidate_id": "e4933a38df7f1501",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "aecb8478f5baeb71",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "2d9d5d3ad9b30ed5",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
    "candidate_id": "4eb504524b85397a",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "f9a08f65fc8a7c59",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "f29b4ff579714ef5",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "7a74d07fa32c30cd",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "ae169350b0d8b302",
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
@@ -175,22 +83,6 @@
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
-   "candidate_id": "aece2ddf6d9744d4",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "3c4a34e878c261bb",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "ae8bb9c1740abe75",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "bb81c5226d716331",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
    "candidate_id": "3592856cbb6989b4",
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
@@ -199,43 +91,11 @@
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
-   "candidate_id": "04cef78da29554d1",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "d4f59d6c3c1c8062",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "1cb435be61ef0b71",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
    "candidate_id": "4b6fc997ccd01407",
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
    "candidate_id": "12cd04ddcc9ed9ca",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "5351c678b3b7441b",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "b30117598762a6b6",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "8be26b4adf11b3dd",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "5acd84a7742dcd8e",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "4b7a9d1f8490c3d3",
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
@@ -251,39 +111,7 @@
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
-   "candidate_id": "bcd4b2b73cb22b80",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "c220d7961de19f0b",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "5f4f9d2db204ac79",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "e2c7f6ac41a7cc7f",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "8454a93b28057aa9",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "5d318b92f561a624",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
    "candidate_id": "8e1bc80f626bae9c",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "1c2ee5f85f6910f8",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "28dde919baef1220",
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
@@ -291,19 +119,7 @@
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
-   "candidate_id": "70d84c9f194cf1f2",
-   "reason": "Standing review (static_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
    "candidate_id": "b6818c9be5c3073a",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "0aa0a964e515865b",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "37d7bbea4f02367b",
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
@@ -311,23 +127,7 @@
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
-   "candidate_id": "5dab6bae9c08492c",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "2125170b419225e6",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
    "candidate_id": "c5ed436a7c1a3a29",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "f854ea26d9edfbd0",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "b3fce4cc1223f305",
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
@@ -336,30 +136,6 @@
   },
   {
    "candidate_id": "979f9e0eabdd57ce",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "cca328921b329187",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "110dd7708bd368a3",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "237b981aa869432a",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "219fb0eec281f857",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "15c5b5adcd2e3786",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "a55acecbb87368ae",
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
@@ -411,39 +187,11 @@
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
-   "candidate_id": "418b68bf6baad7d9",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "e70e27cf53bb2aef",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "7962a9d9f0f6a2a1",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
    "candidate_id": "cb6cb260a8a5e3f2",
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
    "candidate_id": "948b202ed3132f98",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "962bce34c62ac09f",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "b7a19ed826d65387",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "eabf886139367e02",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "cdddb1d5b895cd37",
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
@@ -463,10 +211,6 @@
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
-   "candidate_id": "4d89021876b726dc",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
    "candidate_id": "17fe1c505462d8c5",
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
@@ -475,31 +219,7 @@
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
-   "candidate_id": "dc7ee6be3e2a2cbf",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "282d2c664f87414d",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "c1e36f4ad5a5749a",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "61d3495137124984",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
    "candidate_id": "2be6a1b4702e5ddb",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "b13fed470ed35e6c",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "164f41c174e48f56",
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
@@ -511,63 +231,11 @@
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
-   "candidate_id": "9ac8360e72f19571",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "6c8eef53c1fbaf17",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "34ba89442204a0f9",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "367a69a481f96052",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "fa24af3f97b35542",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "fb42decec1777f88",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "5afbb8d20467154a",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "db0ae14fa21ec970",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
    "candidate_id": "f53de2922e32cb41",
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
    "candidate_id": "0e6a2ca8d26cdf77",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "4d357482e102381d",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "ba41c6c56b1d494d",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "9a56421faf96d23d",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "edde3666cbeb4a5b",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "a4edd7a2b3fc9bbf",
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
@@ -579,59 +247,7 @@
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
-   "candidate_id": "7ca8de3a0baed33a",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "22862100932f0ddd",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "843dee786b009e22",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "dec15d01ad2b1415",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "3bd8d5d53e3f4b4e",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "525f3b52fd54b7b9",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "ab916acdd8787322",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "225d8ce13a4fa12c",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "7384c6dadd2f34e4",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "458d0cae105dffec",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
    "candidate_id": "8980e98afd51e6b8",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "4a8ab94c84b43de6",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "9b82bd8debcd2107",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "d7f7dd9ad31531a9",
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
@@ -743,19 +359,7 @@
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
-   "candidate_id": "a0fa54bcc8f08f5d",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
    "candidate_id": "db9d0b6f042cdf31",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "a754e72ed8cc15db",
-   "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "7959f522ed957750",
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
@@ -799,18 +403,6 @@
    "reason": "Standing review (static_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
-   "candidate_id": "901a5d119c7fb6f1",
-   "reason": "Standing review (static_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "1e98089d98be1c7f",
-   "reason": "Standing review (static_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "a34317fbe9d05aa5",
-   "reason": "Standing review (static_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
    "candidate_id": "d65188dbdb09fc29",
    "reason": "Standing review (catalog_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
@@ -828,34 +420,6 @@
   },
   {
    "candidate_id": "b2c355103502d4ab",
-   "reason": "Standing review (static_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "c7b08bd5c64e9f2a",
-   "reason": "Standing review (static_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "b581cee2901ce15b",
-   "reason": "Standing review (static_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "a7429f0ed358b430",
-   "reason": "Standing review (static_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "0b1e48e892e43855",
-   "reason": "Standing review (static_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "214907d4b8ba8b23",
-   "reason": "Standing review (static_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "22e8b5784dfa54a8",
-   "reason": "Standing review (static_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "4e65309f222a1865",
    "reason": "Standing review (static_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
@@ -887,15 +451,7 @@
    "reason": "Standing review (static_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
-   "candidate_id": "50ea7afa152b98cf",
-   "reason": "Standing review (static_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "d8a42f5937e48d48",
-   "reason": "Standing review (static_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
-  },
-  {
-   "candidate_id": "8f97701e4bc5f08d",
+   "candidate_id": "22610ce1d9688956",
    "reason": "Standing review (static_program/v1): name, award and 2026-2027 catalog year verbatim in the stored official page."
   },
   {
@@ -1087,94 +643,6 @@
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
-   "candidate_id": "d866e46efbc7dd1f",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f7c3d7a5ba622fe6",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d6c8945c833d3823",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "30cf20f05023a904",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c4f83666bff00a14",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "69cdb8a27769b50d",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f81cda98b8b85f56",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ce779178e3061252",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "513d0c459edf1447",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "e0d193fcb73ea52b",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1e88c40cd1841ad1",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c7ce321798f072c1",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "0f9a9722b9a5b9e0",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "e4f5918342cf3e56",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "dba69d974437afe7",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3ea066f92deccd6e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b21d31621dc62e97",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a6fd935d5998046e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d271bb60d76845b4",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "47f26209012ec025",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f16079a6521e5eda",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ca49e2795037dd05",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
    "candidate_id": "a5e888354af2ab3a",
    "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
@@ -1196,30 +664,6 @@
   },
   {
    "candidate_id": "f4cacb247eaac4d4",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d05e9ea433563e09",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "6152fa43dcd2e6c6",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "5a99a758f201eb88",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b47c52063d507986",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "bcf8b363d9607770",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "6d26fc81c50b9ef2",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
@@ -1247,118 +691,6 @@
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
-   "candidate_id": "5ad3129115f1c8c9",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a165213d3f9bad00",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "061dcc6f612c64db",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "144a9b2f399093cb",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b778d2a3aa66a306",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "5da21c971a9c273d",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "dd95925efe03e84a",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1d5b717aa01eaced",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ea07aa715c99ec62",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a80bde7121a686b0",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "721ae42da08b2c4f",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "51a1f879433cdcb0",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "6665d9dc54162862",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c3c3254f780f82b0",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "5cf39f6fa86337e2",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ad615e47e6498b9b",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "760bcae60910734e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ad43cf2fc39607da",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "fc07ef1f87366ed2",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "8194310e099af0d2",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "8ff3216e0a3ea36c",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "9e7a8de7cb195ad5",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ecfd5a35e856389c",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "5ba09e12a208384f",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "4d026fa2949dec1a",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "077e130d93ef8266",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d95cd488688fa2b2",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c9d40b390ef5f1cb",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
    "candidate_id": "f676d7b32ff0ac35",
    "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
@@ -1380,98 +712,6 @@
   },
   {
    "candidate_id": "89172b296d0bb5a5",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "0809ea3f74fff954",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f1cc4c724abdd018",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d966ca1f7549aa59",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1281af081f1d75d6",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "2e3ff9bd712b72f4",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f509660b6d6641a3",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3ce63bc8d99263db",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1c0a78c97f8cf281",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "faca7c84cd04a742",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "04a95471697d9a70",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a8e30c42ca8b8833",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "02f34b0995bd8fcb",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "28a0d53779a1eb1b",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c6aaef8c1853d86e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "11efc55462bbc089",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c5e97006b3debe6f",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f5eea66c1977d046",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "e2dc2f59c40ce6f3",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "5ee3508bb0823bf5",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "aea6a69ff7f06608",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ac8bd4877011434f",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "48422cda58e2b982",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "0605ecf8f97f4c5d",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
@@ -1520,62 +760,6 @@
   },
   {
    "candidate_id": "af4182b7e185a5f4",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "713803b59a43bd8e",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "33c3a17acacea88b",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "6af7bfe92298f1bc",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "796e50f97a943a75",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "4013be211b836987",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "5ed1eb28bb2065a6",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "0cfb7b35d458759f",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "99dc042ebdba9633",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "91a422d6dd0e4a58",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "e81db110cebb8ce4",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1bad4e0a279a85f3",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "8b141aee2a98b74c",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b0fa541d3fe99779",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "aefee818d9c5da9c",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
@@ -1735,94 +919,6 @@
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
-   "candidate_id": "f8d7245af20bbb5d",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "39c78e7ae5716aae",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "94b66c2321d7e669",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ff9ca3b5b8b2d407",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "16610c0b98c6b4d0",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "26efe2599ffb71e1",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "2c63f356ed7ed03b",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "4740b521d548ddb8",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "78388d939295dc65",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1c508b21db4d7338",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "e1cc8db1fbb35ec1",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "e1624cefd791fec9",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3f068f9b61561bdb",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "4cb5055813492dd0",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "51e2ff55dd4a4747",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "2eb80c5c6e8082d7",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d0d1c2e312568fbc",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b94e49666f205623",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "fd83dcd8a615c5c2",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f9161e709bae676f",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "6040494950854e6f",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "4e2c0c2c06680c25",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
    "candidate_id": "f3e0fd2ee459f7b3",
    "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
@@ -1836,118 +932,6 @@
   },
   {
    "candidate_id": "ce9a91452258a48e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "32f01082fbe2a740",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "58ebe61318bba708",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "79b957f60ad330a4",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "6b6b941f603d267d",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ffe0f531e92cdb0e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "5d6d7718fddb5b6f",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "7ff885565a21f617",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1d3de6f0a1548584",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d9da542aace10429",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f9905bc391e0637c",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "e1c46690ca846a9f",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "9c3c36835d23f8f5",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "912ab35fbc75da8c",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "18bb9ef9647e76b1",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "9b18da5f3523462c",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c00b2f1858489600",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1b9f608110ceb4e8",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "54ca81f6b0e5e8c8",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "7525494b8992eb02",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "bb33e365efe3ee39",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "2cfaaeefd6ed1b0a",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "02fc824ff1f1d1f6",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "7bfe06e6d2494fe6",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b753c6c8dd939b86",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "9849de07c25b59d0",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3235eba2db3dedbe",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "60fe1eb3e7b7ae02",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3237501c842a9d50",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
@@ -1988,66 +972,6 @@
   },
   {
    "candidate_id": "02b385a5c543c83f",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f49a45ef5d0e198b",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c99bf9bf52dd4556",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3ac591aa400974ee",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b8ac3854eb9c6d06",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a76f4d851d7866ae",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "699a529a95628249",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1620d75a9fb75f32",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3a38f2dd2e6303d1",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "e1d29c354f34b520",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "8ee434c5e4ad3b31",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "cd53db6b0a23b57c",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "835d3280f796fd94",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f19015edd0989a64",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b982e8244bbff60a",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "96b187c8f088e4e1",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
@@ -2131,46 +1055,6 @@
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
-   "candidate_id": "b6500b40d9fe0544",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "06d84792f1c6427f",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c0e1f3fbf6263589",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c4b538371162bede",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "eb9f0ff3a8b9df26",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "465386fac5874952",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "efc7b0613b9fcdec",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b4ac315bbeae3445",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "801a7cad701b86dd",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "8302d37dac1de888",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
    "candidate_id": "c9a79b94557a300f",
    "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
@@ -2224,166 +1108,6 @@
   },
   {
    "candidate_id": "4ef589faa4891a70",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "e0eaf152bd8d14fa",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "fd56d7c2b7bf05b0",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "9b8936c31440af1b",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "0f07a5445776a039",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "cb5b62e5463bb358",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "85bb1c829e823f30",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "dadceb55db6085bf",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3129054263678eb7",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "0a5b69850c4453e2",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d086d77faecdb181",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "e80c72467aae9756",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "fc619bec01208b53",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ff0b9e37ebbd036e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b9233a80aed4b9db",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "263eb1d6deab0583",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d88adeab2edada4d",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "5c130d7f0c98010d",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a9fbcba21433678c",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b110a17f63600808",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "92efa44d7d281875",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "40b6fb747457be73",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1a2685a85165a3cf",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "4aa08c99cfc99753",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3b510d58e109abab",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d2dc3c33fcb966d2",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "65d83df150378cac",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "157e2244ba529c12",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "676f74aa7f32a1f8",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ee5afa5c712ac244",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "937bae0e4633fa34",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "9605e4212324cc82",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a3ad3d394481e41a",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1dca5a944fc596ce",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3c3138b21d4818b3",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "44c02cbe4b11c9a1",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "0839e677c37ca333",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "7f0e403a0eb98416",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c242e50c577ab5f1",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d55fe0763e8273f8",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c8d2d2ad64f7102d",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
@@ -2447,98 +1171,6 @@
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
-   "candidate_id": "9b322eaf79de2a1b",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "82f6cb945c2061e8",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "e4f8fbba8b5d9801",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ea51a5703cf01cee",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a7e403e401aa9b24",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "41ec8d64f4b0906c",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "5071815a2ca9b7fe",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "86da165f28c2ec51",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "20a5feb726e13960",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "e8b13fdc23dea9be",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1eda74254bddc223",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "06295df7aa462367",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b796601da7d1bf12",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3cfa8859d2b6a223",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3ae726068c2d9767",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b4c452abe17171ce",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "09d75d6f0145125c",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f9538dfd3a5d7c85",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "05b30f83f28436e1",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "6ace4462598eb7db",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "9353ee1eef0d8596",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "7784f7b3c34d187a",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "6e505f4c4946d8dc",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
    "candidate_id": "9f5e441e7506bfd5",
    "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
@@ -2556,58 +1188,6 @@
   },
   {
    "candidate_id": "4e4830d952c5fc0a",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "bb7119e0539b8a6d",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "2e57ec4cd9190a10",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "93f6ffcd5fc9a747",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b9b99ded4e49be9a",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a6f4d0a9ebee6003",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "8dc09ce1f68e5080",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "2d68735fd1b62d92",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "6faf5f597c730f9e",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "8e54cb9bfaefa1e6",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "61f5f4e029889188",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "25ea6a9772404a0e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "6cf852790545024e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "5ab48a8f52db31ce",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
@@ -2635,26 +1215,6 @@
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
-   "candidate_id": "dd6584ef3f1ffefe",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "8cb2a338560c14ad",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "66c482550084b39b",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "5fbef159d318912e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "15188a741ff73c51",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
    "candidate_id": "661276fdfe17ae8e",
    "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
@@ -2672,46 +1232,6 @@
   },
   {
    "candidate_id": "f819165fd4e06c90",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "29754f85b8e56b65",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a884bca2abb6f9f1",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "cdfe59d352aaf3a8",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3361a39a250c7976",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1b5548372d3447f6",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f48f477d0d95d7c1",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "18773e929120838b",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "bd3a0e4d1c704fbb",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "760dea652a8c792a",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "2f0d6fed4f2bce5e",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
@@ -2743,54 +1263,6 @@
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
-   "candidate_id": "0ea35aacb0ceaee1",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "87eee35ec547bf30",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ce882f882c419420",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "68f139bbbbf2e355",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b53a5b68c9bfbb67",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "8498133f3cd9a5b2",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "e0a2600c4f7dd318",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f2aee576109fa507",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a6bdb8dad7f48aaf",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ee2a4d13ac85f401",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "cd21cd8413e02767",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1d5a8aff2887e679",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
    "candidate_id": "55f911926aadc22c",
    "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
@@ -2816,50 +1288,6 @@
   },
   {
    "candidate_id": "b3377564a8204079",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1b74c1879d925486",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3d98dc20a7aa1955",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "e95b3715d5e04d52",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "df931a87ce2c9497",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "7de5222cdca65ed6",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ebdb9436f2fc004c",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b71d7f06cc9246ef",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "9c6a9546fd1ba85b",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "df0a99e1c06db56e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b4e0fe665287873e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c61167a06c458eb8",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
@@ -2916,186 +1344,6 @@
   },
   {
    "candidate_id": "e9ecece962d476cb",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "959c830fe48dd7f1",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d43dc463ce52566b",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b8172bbd01327969",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "5d3800e0d2994af4",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "7271d7c3592acdd2",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "81f2852200cc6434",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "e1fba0a8b19f8219",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "dc0d292ba3cb072a",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "95d09b09bf37067b",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "9865d2de3089e7ef",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "dc8119381576d80b",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c0be77f336d1fb63",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "9172c3c208bd4a36",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "24fe7fc446b7f06e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ca818916cd459311",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "9573bcfb728902ea",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "483e2b4feb80fc38",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "efbea93b904b7445",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3eaee960812ee368",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "80386c73189e0804",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "8bd4bcef1fd94039",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "253da5e7d5e86007",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "874b3bf58bc06674",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "fb8b980e810aeccc",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "9ceb98ca1703c6e6",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "12fa157bb98eec51",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "0b2e048576a20709",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f27bd48960592d1e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "0beafdaa794aee9d",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "094589525eebebec",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "6f73fa910a3630cb",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "33e0c46db79007b8",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "e2f1b1e0c2d3545e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c1eb0ec50299648e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "dcb60bab5d05143c",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "63085504eda7172e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1a49070c1ff07a4c",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "e34b98b54acbc4ee",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b7e4d9689af9ee2b",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a32fcc5219fa1877",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "51ffbc3c0ecbe027",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "5eca53a2f518cf7b",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "22f36e94fdc93791",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "0adbfa608ee0c1d5",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a88de858258558e9",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
@@ -3623,70 +1871,6 @@
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
-   "candidate_id": "4b40f815b4c4d94d",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "2bf7fb4958d91c7f",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a5d7e1f412c9a9a1",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "338dc294ba4857d5",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "24a1d3fc85bafe72",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ddfb22a4e6ea6856",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "46cc80fc7b6b0628",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ca17416d8b8a612e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "77e735e1b6164d6e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "dbe1b0eb8ee2d94c",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c1e173fa9d3fdc45",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "227c2653d737381e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ae84a5e04cc1641e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "02437a976a4228d8",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "8866ef7246152146",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b79acd6d2f567ec3",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
    "candidate_id": "540e96feabc93bc4",
    "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
@@ -3716,74 +1900,6 @@
   },
   {
    "candidate_id": "2e6e1a5c25b666f3",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b4f9a0a2583cdad4",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ce24c8ac71ccd537",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "7376815d12f786bf",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "775ae5a00da6651a",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d16463142a0f8a31",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "2c42f07ef343f528",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "18471aedf9bc60d8",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "5cb0e6ac1a492a5b",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "25ec7a7b5c60a376",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f22466ca32bd36d4",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "883e4460808bae7c",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "28c08d1b189e9714",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "487dff9a6ed66d8a",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c434acb27da7d05f",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "dc37c3d07e1b61b3",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "4ca5f78bbdfecd0c",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "89e54b05523f0a8c",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
@@ -3911,26 +2027,6 @@
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
-   "candidate_id": "e564a8aeb06ee0b5",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "213e4c36fe03ff8e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "9ff16d983419264a",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "9ea2938b9c62660f",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "5aa06cc80fcaa7bc",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
    "candidate_id": "6dfdec7711b6ba07",
    "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
@@ -3983,98 +2079,6 @@
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
-   "candidate_id": "615f8536810a20c2",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "4d6d7161ab3b8cec",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "afd952e17f85e59b",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "681cb0ba9c8aac47",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "be085414a9c159e0",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "adf19c6fa9bcb296",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c8d1b25a6c564226",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c17ffd1bd914d3bf",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ef0c14b3880558f2",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "4ccca07bfe18ff29",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "6e395baf51b06f04",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "197af7d13289cf1a",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c989dd153924b78f",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "fe1011de436ff8fe",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1d592b45bd0833b2",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f9c9611a8142d82a",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "e9ee347b89d26e4e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a143a249a477eb1d",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "60569e8842987d47",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c3155d1d16e58477",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "74a3a7c062c10c84",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "6979b38682af02fe",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f8b1db29badb6f91",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
    "candidate_id": "89440d065a3f6dc0",
    "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
@@ -4096,58 +2100,6 @@
   },
   {
    "candidate_id": "291d38e370835be4",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "be2ceab8850e1ddf",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "8742df8f951beed1",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "7cd2f09784e24e42",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "90aa59ec0378c1f2",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "94f3e98173516b7f",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "7445e8200d9a4011",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3c76e08f91f7b79d",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "73467db164c6daf6",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "dfd382f98c461949",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c1867fa72eae1d77",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "39958df901202b0e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f03e21e77eee07fb",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "bdc2749f498a37c1",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
@@ -4191,238 +2143,6 @@
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
-   "candidate_id": "4cf7e5269cae1106",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "bf43ab83cd2c9303",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "4f94756a753f1530",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "09349d8f59504266",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "12a3b2e8cfc900a7",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "67a1d525ebb3ffe6",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "0cfca5e829f71289",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "2a1297bf8b4f7829",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a14141b0f36232ad",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "6bf1ef817a438b07",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "01db932380f2f5d1",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "e572c77f25bd2c3c",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1dc7c978765f905a",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ccd8e36be35c2959",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "2effdf1b473cb1f8",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f81ddd4e6c8c97bc",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b6e334976a8863f6",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "bb052474404bfa37",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d8a09e567bebe751",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "94f23c4419dee1be",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "8c87e05ef8d2ba3c",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "5dd8ac2f1811e05a",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "146127443d11bcb9",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1c9ad0c097e0c287",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "46f4e739d16cdd12",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "aae3a6d48c3796d3",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "04fb01a39c4ee0b4",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "04317ac3e44338be",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "7624ebe8017e4d4e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "7b674fe0a90cf470",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1918a0685c46e5f5",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ab0565b5cb6cc042",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "7a0c4c2a867b6d28",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d62d263bb423fd26",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "cce16e2dc97426d8",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "fc71be9da19d5ef7",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "5b0e9dd691eaa6f2",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f7e366675828714a",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "6a4a0db4d35fecd8",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a2f0b14ef8bc56db",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1d36c0b6990e76a9",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "e28db1623c5a2cff",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "683093361d72ebc4",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d0237ff75abfb473",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ee6508eeda9c6a66",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "9a04729de24fc796",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "94053fe33eb6b678",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "5ad0fc04ea64afce",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "4ba411295355fd65",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "361dedaa9f480bb3",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "58d67bb0995e01bd",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1bc2c4db85d31f20",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d95eab5f95b54d38",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ba57b9f70deffe45",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "7aeac7aed3ebecd7",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "48dec3b53459f892",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "8a8a6b6a7dc5b8a9",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "6abad6e53f83c2f0",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
    "candidate_id": "4287d5a9a4e12b9e",
    "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
@@ -4460,146 +2180,6 @@
   },
   {
    "candidate_id": "4cafbf475796c227",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "7277f9e864b52da0",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "708d228fc5fc29f6",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "de53333a89d606ff",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "965e1f4c72553556",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "85b33b3611cec992",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f6e2391564feda1a",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f95c85270a9be236",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "fbb8edeb888b5e79",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a57d487008e1dcf0",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "91dea2169c6ac484",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "afdf593e38cac967",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "0ac111f33c886a19",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "9d4b83dda042b668",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f73dfb9829ae3f46",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "08275a289b071305",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d01783c5089a6e8c",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "cb783d6cee75da6a",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "2f81ab51698d3f0f",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "efed7e878ce9d52d",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "261d82cae2f015f3",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1ba9e45fd768c08e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "804d3cf01735e342",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d0c011ef2eddf57b",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "e253f2b3c12ba1ce",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "00d5f85a1c8978bc",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "11c2ea20d6a722bb",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a37bedf9887eecd9",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "209240193a5211eb",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3dbe4ebe859b9aa7",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "8fd33894bf98d47b",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "32be7e7fe0bf2634",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "500efb4c423de5c1",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "06619b38131148c0",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "2ba4167a265e6708",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "0c6b92345839e7db",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
@@ -4675,338 +2255,6 @@
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
-   "candidate_id": "83729786b6bcc2ce",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "5ae2b59641797f6e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "dd317246ecc67d1c",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "011c947f83de9352",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "9765f1386e8605cb",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b1697e47d1f36dfe",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1ebdb2553afff0cd",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f5c72da85ceebb5f",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "eec61693d50f50ad",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "7f76f8b3a04a0d9f",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d1b3105a36f8f8ad",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "20934b6c8928e38e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "045a24171ccfb1f2",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "5e8f64261b689447",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c397958328b3af78",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "97a11d364bb2dc13",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "2a5ff52036b76a18",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3465ccdf4dae1013",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "197999ed000a5578",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "72dec30b5d81b01c",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "37bb530aa6fefc1b",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a447c4f65684d8a0",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "9de1a7346e9e43b7",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "099ce559f4dc625e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "38e49c187e89e2f2",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a986cb2b68a89d7a",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "2d98ff6e9228ed52",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "5e5a40939c6bd609",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "fea00b26a5956fd3",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "5e545a34e412abd2",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b5eae874e4122ab5",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "332e88cc87df2bf4",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "5292c4e02c6e3c5f",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f945b55037b7d11d",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "db3714cd75aa63b1",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1d19bc164c889b6c",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "be1a24fdb280bf7f",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "881b81f6e2995513",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "97bb677c4b2afbd8",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b38921e9f29fc4e4",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "0b1487a3f0227340",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d0038d3f4027b0a4",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "8cd1a39ff3aef46b",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "bf82d36104515136",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "723c09ca37418168",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "35258c9bb080b3b7",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "af90b869b8e33c0b",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d941f81eb782eea4",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ed0cadf62d14ce47",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "8221e6b3344533e9",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "df5fabfdd28b3fbf",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a3d5fe18ba9d87d5",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f97f68dfda6cbe55",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "9c33aa1d2b1dc9df",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "0fd2e9e107f64a5e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "8d984c44b127ea88",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "34e84bee31a1830a",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "38ed67fa3ebfbf0e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "28b178bdb4dc7d5a",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b214910d8c440ff2",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "13f7fc6410d37c4a",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d203cb6da80e6ef5",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a868cc5725c51d5f",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "fc14d83a36cb3947",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "afce5d0170e0f5ec",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ca50c516241fc7b2",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "5c8cf8aaeb72767f",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "db60fc85a3725332",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1759186eb4e7169c",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ec4ef38e9371894a",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "0a5a730ab70d60cc",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "42916e6841a2d40a",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "bff0159fc21c059d",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "289c01f9e26c7198",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "2c4750413eac7990",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "8f41a5e3ebc2ab93",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "cff348274bdaa785",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "4bdd3faab3c845b1",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "af1f484ad0bb84c8",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d949f89d6f74c27d",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ad45e9ade3717228",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "44ce1e95ac30b4df",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "15fd31491cc2f19b",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
    "candidate_id": "8f13ff914936b818",
    "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
@@ -5028,106 +2276,6 @@
   },
   {
    "candidate_id": "37e2ed17fadac66e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3d246308929e87e4",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c6004082998ad923",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "2cab458ed6a3e8e9",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "e420d746f5b1f41f",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b32576760c134b2b",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "44458503cf816859",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "fbd7c067842bd228",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d538ac3f6920a0f4",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "cb83d150fc37ba63",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "7f5d2326a7740bce",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "fb49fc0771e2d9d7",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "8bc6aad87c4fd8e1",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3cd0975576eddca8",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3267276d5a693dea",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "61d388be329a5e1a",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b9af91d477c0d80c",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3fe1f6b970680013",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "60a686d857cd4e85",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3b8923e74246d7e7",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "20ac819accf804ca",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "978b050c4e2b524a",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ea1d36725f6440bc",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f9765582e70ed557",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b62d9c49d300b955",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "4f31d2510fe6b5c2",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
@@ -5699,22 +2847,6 @@
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
-   "candidate_id": "9bff533d0d71e425",
-   "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3aabbe1346f39a24",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "11c1591d949993c0",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "2e62a7aacb21dc88",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
    "candidate_id": "de4e1e031b39d87d",
    "reason": "Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
@@ -5736,50 +2868,6 @@
   },
   {
    "candidate_id": "9c0e84da77b1fbe3",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3d1aa59134e13240",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a306516d3c3b945f",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "05fe8df9b2fe0ada",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "33f46eee3275ac0e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "81ce190d6304c713",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b0f84af7d8320d9c",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "e2b365c2e0dd87e3",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d2171d80201226de",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "bb85675da65c5e70",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "998ed0cbf20d7e62",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c03f6a14b68d3290",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
@@ -5991,86 +3079,6 @@
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
-   "candidate_id": "42f5a6526f2d59b3",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3754c44cc7ab6ac9",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "0b422120974aab63",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "10508e9d4173ce45",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "cac280914bdc599c",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "1fa37ac6b5d70ce6",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "43a0e56269a12d76",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a47edbed71c3a96c",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ebf28e157f0086be",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c701d85186ffa446",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "bc644d1dadc75630",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "4c96798a815eb388",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "738c6ab8271484d3",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "730e82a84e70268b",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c41995f0b2052534",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c57bc1bb04a51adb",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "75076188e00130f5",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a58d4c3406a4448b",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "4d142939bd9a7317",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "718c229f3dfce4e4",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
    "candidate_id": "ad95cdb04e219634",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
@@ -6116,118 +3124,6 @@
   },
   {
    "candidate_id": "c563316a4421a5d0",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d446a7f36b5beda3",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "2fae3fa190755002",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "61a345b9d1b01a47",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "db052a6913bfc093",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3eee2faba1d22ad0",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "415745588f1a703e",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "8272c05c0602fd44",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "b8233be6a76f5621",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "671512febac8dd73",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "7c9b41949f61d7aa",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "2d5d8d50a4e22db9",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "6bf164902e182bb1",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d5ccf3f8dd611c1b",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "7610b1d6cbede118",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "0aef087dce9e7cfe",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "f414798f7922c662",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "978cf4638f2f7f6c",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "e3ed81d016d2de93",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "eb367cb63dc616a9",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "9035b67c8a175ea8",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "0195685c3278ecfd",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "13c961bdc3aa63f1",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "d5a748d38e0a6aae",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "2142b2651d2573d2",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "5d8f871c9d968d80",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "75b21c690db57493",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "370b701334a667b6",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a7364081464eec24",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
@@ -6367,67 +3263,19 @@
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
-   "candidate_id": "bedce4840001418f",
+   "candidate_id": "9b5f0f5ec7b3579a",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
-   "candidate_id": "3a6949961580b791",
+   "candidate_id": "cc1d28e3b1621efd",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
-   "candidate_id": "85fdcae13d56f627",
+   "candidate_id": "07ca38daccfb6f02",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
-   "candidate_id": "fdda3358372f43d1",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "e922be100b35da5b",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "cf9508b4ee9d24a4",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "843aba8bd80858d8",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "ad1b9aa5d28ffd98",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "3f5ca0a9b26e3966",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "8a3001b466c936d5",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "a4adf184aee2a6d1",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "50d85a64631dcc4c",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "c2f585ad685f20bc",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "bbac11ff7b0e7254",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "9227767c111b7d5a",
-   "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
-  },
-  {
-   "candidate_id": "5e1e7381a7e56d6c",
+   "candidate_id": "ab098e9667b0a9ad",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   {
@@ -7017,10 +3865,10 @@
     "sha256": "619e71b9866b7cee7270a9f6cd1ee5ecebb8c7fad7dfcc8c0a973b126d8433a6",
     "fetched_at": "2026-10-08T13:23:26+00:00"
    },
-   "listed_bachelor_programs": 254,
-   "verified_listed_programs": 238,
+   "listed_bachelor_programs": 184,
+   "verified_listed_programs": 127,
    "programs_complete": false,
-   "completeness_basis": "257 linked entries on the official 2026-2027 program list print a bachelor's award; 3 remaining entries repeat a program name listed under another link and are counted once. 254 bachelor's programs, 238 with a verified record printing that name or on that program's own page. Not recorded (names separated by ' | '): Agribusiness: Accounting Double Major, BSAG | Agribusiness: Agricultural Communications Double Major, BSAG | Animal Science: Business/Pre-Law, BSAG | Animal Science: General Option, BSAG | Biochemistry and Molecular Biology, BSAG | Chemistry (Approved by the American Chemical Society), BS | Economics: General Option, BA | Entomology: Pre-Professional, BSAG | Food Science: Business, Pre-Law, BSAG | Horticulture: Turf Management, BSAG | Natural Resource Ecology & Management: Fisheries & Aquatic Ecology, BSAG | Natural Resource Ecology & Management: Forest Ecology & Management, BSAG | Natural Resource Ecology & Management: Rangeland Ecology & Management, BSAG | Natural Resource Ecology & Management: Wildlife Biology & Preveterinary Science, BSAG | Natural Resource Ecology & Management: Wildlife Ecology & Management, BSAG | Secondary Education: English - Non-Certification, BS.",
+   "completeness_basis": "319 linked entries on the official 2026-2027 program list print a bachelor's award; not counted, 135 concentrations or options of a degree whose own line is listed: Agribusiness: Accounting Double Major, BSAG | Agribusiness: Agricultural Communications Double Major, BSAG | Agribusiness: Community and Regional Analysis, BSAG | Agribusiness: Crop and Soil Sciences, BSAG | Agribusiness: Farm and Ranch Management, BSAG | Agribusiness: International, BSAG | Agribusiness: Natural Resources, BSAG | Agribusiness: Pre-Law, BSAG | Agribusiness: Pre-Veterinary Business Management, BSAG | American Sign Language Studies: ASL - English Interpreting, BA | American Studies: American Indian Studies, BA | American Studies: American Indian Studies, BS | American Studies: Business Essentials, BA | American Studies: Business Essentials, BS | American Studies: Pre-Law, BA | American Studies: Pre-Law, BS | Biochemistry and Molecular Biology: Biotechnology, BSAG | Biochemistry and Molecular Biology: Pre-Medical or Pre-Veterinary Science, BSAG | Biochemistry and Molecular Biology: Secondary Education, BSAG | Biology: Allied Health, BS | Biology: Environmental Biology, BS | Biology: Pre-Medical Sciences, BS | Biology: Secondary Teacher Certification, BS | Chemical Engineering: Biomedical/Biochemical, BSCH | Chemical Engineering: Pre-Medical, BSCH | Chemistry: Pre-Health, BS | Chemistry: Secondary Teacher Certification, BS | Civil Engineering: Environmental, BSCV | Computer Engineering: Software Engineering, BSCP | Economics: Business Economics and Quantitative Studies, BSBA | Economics: Pre-Dental, BS | Economics: Pre-Law, BSBA | Economics: Pre-Medical, BS | Economics: Pre-Veterinary, BS | Electrical Engineering Technology: Computer, BSET | Elementary Education: Non-Certification, BS | Elementary Education: Special Education, BS | English: Creative Writing, BA | English: Pre-Law, BA | English: Professional Writing, BA | English: Screen Studies, BA | French: Business Essentials, BA | French: Pre-Law, BA | General Business: Pre-Law, BSBA | Geography: Business Essentials, BA | Geography: Business Essentials, BS | Geography: Pre-Law, BA | Geography: Pre-Ministry, BA | Geology: Business Essentials, BS | Geology: Environmental Geology, BS | Geology: Petroleum Geology, BS | Geology: Pre-Law, BS | Geology: Secondary Teacher Certification, BS | German: Business Essentials, BA | German: Pre-Law, BA | Global Studies: Business Essentials, BA | Global Studies: Pre-Law, BA | Global Studies: Pre-Ministry, BA | History: Business Essentials, BA | History: Pre-Law, BA | Interdisciplinary Studies: Business Essentials, BA | Interdisciplinary Studies: Business Essentials, BS | Interdisciplinary Studies: Pre-Law, BA | Interdisciplinary Studies: Pre-Law, BS | Management Information Systems: Data Science, BSBA | Management Information Systems: Information Assurance, BSBA | Management: Business Sustainability and Nonprofit Management, BSBA | Management: Human Resource Management, BSBA | Management: Management Consulting, BSBA | Management: Pre-Law, BSBA | Management: Sports Management, BSBA | Marketing: Marketing Communications Management, BSBA | Marketing: Marketing Research and Analytics, BSBA | Marketing: Professional Selling and Sales Management, BSBA | Marketing: Sports Marketing and Revenue Generation, BSBA | Marketing: Supply Chain Management, BSBA | Mathematics: Actuarial Science and Financial Mathematics, BS | Mathematics: Applied Mathematics, BS | Mathematics: Data Science, BS | Mathematics: Pre-Law, BS | Mathematics: Pre-Medical Sciences, BS | Mathematics: Secondary Teacher Certification, BS | Mechanical Engineering: Fire Protection Systems, BSME | Mechanical Engineering: Petroleum, BSME | Mechanical Engineering: Pre-Medical, BSME | Microbiology: Medical Laboratory Science, BS | Microbiology: Pre-Medical/Pre-Dental, BS | Microbiology: Pre-Veterinary, BS | Music: Music Composition, BA | Philosophy: Ethics and Business Essentials, BA | Philosophy: Ethics and Public Policy, BA | Philosophy: Pre-Law, BA | Philosophy: Pre-Ministry, BA | Physics: Applied Physics, BS | Physics: Secondary Teacher Certification, BS | Physiology: Pre-Medical Sciences, BS | Plant Biology: Cell Biology and Molecular Genetics, BS | Plant Biology: Ecology and Evolutionary Biology, BS | Plant Biology: Pre-Forensics, BS | Plant Biology: Pre-Law Environmental Policy, BS | Plant Biology: Pre-Pharmacy, BS | Political Science: Campaigns and Lobbying, BA | Political Science: Campaigns and Lobbying, BS | Political Science: Global Politics, BA | Political Science: Global Politics, BS | Political Science: Pre-Law, BA | Political Science: Pre-Law, BS | Political Science: Public Policy, BA | Political Science: Public Policy, BS | Psychology: Business Essentials, BA | Psychology: Pre-Law, BA | Psychology: Pre-Med, BS | Psychology: Pre-Occupational Therapy, BS | Psychology: Pre-Physical Therapy, BS | Recreational Therapy: Pre-Professional Occupational Therapy, BS | Sociology: Anthropology, BA | Sociology: Anthropology, BS | Sociology: Criminology and Criminal Justice, BA | Sociology: Criminology and Criminal Justice, BS | Sociology: Environment and Society, BA | Sociology: Environment and Society, BS | Sociology: Pre-Law, BS | Sociology: Pre-Medical Science, BS | Sociology: Social Services, BA | Sociology: Social Services, BS | Spanish: Business Essentials, BA | Spanish: Pre-Law, BA | Statistics: Actuarial Science, BS | Statistics: Business Essentials, BS | Statistics: Data Science, BS | University Studies: Multidisciplinary Studies, BUS | Zoology: Ecology and Conservation Biology, BS | Zoology: Pre-Medical Sciences, BS | Zoology: Pre-Veterinary Sciences, BS | Zoology: Secondary Teacher Certification, BS. 184 bachelor's programs, 127 with a verified record printing that name or on that program's own page. Not recorded (names separated by ' | '): Accounting Systems: Cyber Audit, BSBA | Accounting Systems: Data Analytics, BSBA | Accounting: External Reporting, Control, and Auditing, BSBA | Accounting: Internal Reporting, Control and Auditing, BSBA | Aerospace Engineering, BSAE | Animal Science: Business/Pre-Law, BSAG | Animal Science: General Option, BSAG | Architectural Engineering: Construction Project Management, BEN | Architectural Engineering: Structures, BEN | Architecture, BAR | Biosystems Engineering: Bioprocessing & Food Processing, BSBE | Biosystems Engineering: Biosystems Engineering, BSBE | Biosystems Engineering: Environmental and Natural Resources, BSBE | Biosystems Engineering: Machine Systems & Agricultural Engineering, BSBE | Biosystems Engineering: Pre-Medical, BSBE | Chemical Engineering, BSCH | Chemistry (Approved by the American Chemical Society), BS | Civil Engineering, BSCV | Computer Engineering, BSCP | Construction Engineering Technology: Building, BSET | Construction Engineering Technology: Heavy, BSET | Data Analytics, BSBA | Economics, BSBA | Economics: General Option, BA | Electrical Engineering Technology, BSET | Entertainment Media, BPS | Entomology: Pre-Professional, BSAG | Entrepreneurship, BSBA | Finance: Commercial Bank Management Option, BSBA | Finance: Financial Analyst Option, BSBA | Finance: Financial Planning, BSBA | Finance: General Option, BSBA | Finance: Pre-Law, BSBA | Fire Protection and Safety Engineering Technology, BSET | Food Science: Business, Pre-Law, BSAG | General Business, BSBA | Health Care Administration, BPS | Horticulture: Turf Management, BSAG | Hospitality and Tourism Management, BSBA | Industrial Engineering and Management, BSIE | International Business, BSBA | Landscape Architecture, BLA | Management Information Systems, BSBA | Management, BSBA | Marketing, BSBA | Mechanical Engineering Technology, BSET | Mechatronics and Robotics, BSET | Natural Resource Ecology & Management: Fisheries & Aquatic Ecology, BSAG | Natural Resource Ecology & Management: Forest Ecology & Management, BSAG | Natural Resource Ecology & Management: Rangeland Ecology & Management, BSAG | Natural Resource Ecology & Management: Wildlife Biology & Preveterinary Science, BSAG | Natural Resource Ecology & Management: Wildlife Ecology & Management, BSAG | Organizational Leadership, BPS | Public Safety, BPS | Real Estate and Property Management, BSBA | Secondary Education: English - Non-Certification, BS | University Studies, BUS.",
    "reason": "Reviewed: official current-catalog program list (Research session, 2026-10-08)."
   }
  ]

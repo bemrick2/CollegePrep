@@ -156,6 +156,8 @@ def review(state, run, today=None):
         # a variant page's own heading ('Kinesiology, B.S. (Sport Business)', TAMUK) is not a page of the base degree
         if n and not OPTION.search(n) and not PAREN_VARIANT_ENTRY.match(n) and not PAREN_AWARD_VARIANT_ENTRY.match(n) and _degree_key(n): offered[c['institution_key']].add(_degree_key(n))
     listed_emphases = listed_emphasis_pages(lists, norm, offered)
+    from .extract import listed_option_pages
+    listed_options = listed_option_pages(lists, norm)
     for c in cands:
         if c['domain'] != 'academic_programs': continue
         k = (c['institution_key'], c['record'].get('program_key'))
@@ -167,6 +169,7 @@ def review(state, run, today=None):
                'combined_program' if COMBINED.search(c['record'].get('program_name', '')) else
                'entry_path_variant' if len(variants[(c['institution_key'], base(c))]) > 1 and plain(c) != c['record'].get('program_name', '').strip()
                and (c['institution_key'], url_of(c, 'program_url')) not in listed_emphases else
+               'listed_option' if (c['institution_key'], url_of(c, 'program_url')) in listed_options else
                'department_page' if (c['institution_key'], url_of(c, 'program_url')) in department_pages else
                'variant_page' if url_of(c, 'program_url') in variant_pages else
                'not_current_year' if not current_year(c, today_year) else

@@ -28,9 +28,11 @@
   },
   {
    "institution_key": "ipeds-234030",
-   "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate and configure the catalog (discovery found no catalog)."
+   "gap": "catalog",
+   "reason": "layout_not_readable",
+   "next_action": "Read the clinical radiation sciences concentration variants (second modality, degree completion) as the degree's entries, then re-review.",
+   "detail": "120 of 151 listed bachelor's programs verified (run 2026-10-08-b02); concentration variants that share a page name are held as variant pages.",
+   "evidence_url": "https://bulletin.vcu.edu/azprograms/"
   },
   {
    "institution_key": "ipeds-232186",
@@ -365,6 +367,18 @@
    "next_action": "Retry when robots.txt on catalog.vt.edu answers.",
    "detail": "catalog.vt.edu (CourseLeaf, '2026-2027 Academic Catalog', web search) answered robots_unreachable in run 2026-10-07-flag; nothing was fetched.",
    "evidence_url": "https://catalog.vt.edu/"
+  },
+  {
+   "institution_key": "ipeds-234030",
+   "gap": "admission_rules",
+   "reason": "not_yet_researched",
+   "next_action": "Read each program page's admission or change-of-major statement (verbatim) and record it, or queue no_official_statement."
+  },
+  {
+   "institution_key": "ipeds-234030",
+   "gap": "degree_maps",
+   "reason": "not_yet_researched",
+   "next_action": "Read the catalog's four-year plans for these programs."
   }
  ]
 }

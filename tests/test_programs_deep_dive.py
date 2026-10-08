@@ -477,6 +477,20 @@ class StatedMajorTests(unittest.TestCase):
         self.assertEqual({y for y, _ in X.printed_catalog_years(osu)}, {'2026-2027'})
         utsa = T.Page('2026-28 Undergraduate Catalog\n2024-2026 Undergraduate Catalog PDF\nDepartment of Computer Science', 't', [], [], [])
         self.assertEqual({y for y, _ in X.printed_catalog_years(utsa)}, {'2026-2028'})
+        # undotted awards on program lists (OSU, Missouri, UTEP); a graduate award, a minor or an all-caps name is not one
+        for lab in ('Marketing, BSBA', 'Chemical Engineering, BSCH', 'University Studies, BUS', 'BJ*', 'BSAcc', 'Computer Engineering, BSBachelorsUndergraduateEngineering'):
+            self.assertEqual(X.list_award(lab, lab), 'bachelor', lab)
+        for lab in ('Accounting, MS', 'Accounting (ACCT), Minor', 'BIOLOGY', 'Business, Graduate Certificate', 'Bioinformatics BIOL'):
+            self.assertIsNone(X.list_award(lab, lab), lab)
+        # VCU 2026-27: another link's text is not this link's printed line; UO's 'Accounting: BA, BS' still is
+        vcu = T.Page('Nursing, B.S.\nNursing, B.S., R.N.-B.S. completion program', 't', [], [('u1', 'Nursing, B.S.'), ('u2', 'Nursing, B.S., R.N.-B.S. completion program')], [])
+        self.assertIsNone(X.printed_line(vcu, 'Nursing, B.S.'))
+        self.assertEqual(X.printed_line(T.Page('Accounting: BA, BS', 't', [], [('u', 'Accounting')], []), 'Accounting'), 'Accounting: BA, BS')
+        # Biola 2026-27: a PDF link that is the page's only label names the current catalog
+        biola = T.Page('2026-2027 Catalog PDF\nBiology, B.S.', 't', [], [], [])
+        self.assertEqual({y for y, _ in X.printed_catalog_years(biola)}, {'2026-2027'})
+        self.assertEqual({y for y, _ in X.printed_catalog_years(T.Page('Full 2026-2027 Catalog\nZoology, BS', 't', [], [], []))}, {'2026-2027'})
+        self.assertEqual({y for y, _ in X.printed_catalog_years(T.Page('Full 2026-2027 Catalog of courses and programs\n2025-2026 Catalog PDF', 't', [], [], []))}, {'2026-2027'})
         # only the whole line is a print link: a sentence naming the full catalog still carries its label
         self.assertEqual({y for y, _ in X.printed_catalog_years(T.Page('Full 2026-2027 Catalog of courses and programs', 't', [], [], []))}, {'2026-2027'})
 
@@ -1601,6 +1615,22 @@ class AutoReviewTests(unittest.TestCase):
         self.assertEqual(held['entry_path_variant'], 3)
         self.assertEqual(held['not_verbatim'], 1); self.assertEqual(held['duplicate'], 1); self.assertEqual(held['req_program_not_approved'], 1)
 
+    def test_options_of_a_listed_degree_are_held(self):  # Oklahoma State 2026-27: 'Zoology: Pre-Medical Sciences, BS' beside 'Zoology, BS'
+        from programs import autoreview as A
+        from datetime import date
+        def at(c, url): c['record']['program_url'] = url; return c
+        cands = [at(self.prog('z', 'Zoology, BS', key='zoology-bs'), 'https://a/zoo'),
+                 at(self.prog('zp', 'Zoology: Pre-Medical Sciences, BS', key='zoology-pre-medical-sciences-bs'), 'https://a/zoo-premed'),
+                 at(self.prog('n', 'Natural Resource Ecology: Fisheries, BSAG', key='nre-fish-bsag'), 'https://a/nre-fish')]
+        lists = {'k': {'programs': [{'listed_as': 'bachelor', 'printed': p, 'url': u} for p, u in
+                                    (('Zoology, BS', 'https://a/zoo'), ('Zoology: Pre-Medical Sciences, BS', 'https://a/zoo-premed'),
+                                     ('Natural Resource Ecology: Fisheries, BSAG', 'https://a/nre-fish'))]}}
+        old = A.catalog_records; A.catalog_records = lambda *a: []
+        try: approve, _, held = A.review('ZZ', self.run_dir(cands, lists=lists), today=date(2026, 10, 6))
+        finally: A.catalog_records = old
+        self.assertEqual(sorted(a['candidate_id'] for a in approve), ['n', 'z'])  # no 'Natural Resource Ecology, BSAG' line: kept
+        self.assertEqual(held['listed_option'], 1)
+
     def test_listed_variant_lines_are_the_degree(self):  # UT Arlington 2026-27: 'Data Science BS (Biology)', no 'Data Science BS' line
         from programs import autoreview as A
         from datetime import date
@@ -2209,6 +2239,13 @@ class ListedEmphasisTests(unittest.TestCase):
                 ('Biology, Bachelor of Science (B.S.) with a concentration in ecology', 'bio-eco'), ('Biology, Bachelor of Science (B.S.)', 'bio'),
                 ('Biology, Bachelor of Arts (B.A.) with a concentration in teaching', 'bio-ba'))
         self.assertEqual(sorted(u for _, u in listed_emphasis_pages(vcu, norm)), ['https://a/bio-ba', 'https://a/chem-bio', 'https://a/chem-sci'])
+        # the complement: options of a listed degree (VCU biology ecology; OSU 'Zoology: Pre-Medical Sciences, BS' beside 'Zoology, BS'),
+        # never a page a degree line also links
+        from programs.extract import listed_option_pages
+        osu = L(('Zoology, BS', 'zoo'), ('Zoology: Pre-Medical Sciences, BS', 'zoo-premed'), ('Marketing: Sports Marketing, BSBA', 'mkt-sport'),
+                ('Geography, BA', 'geog'), ('Geography: Pre-Ministry, BA', 'geog'))
+        self.assertEqual(sorted(u for _, u in listed_option_pages(vcu, norm)), ['https://a/bio-eco'])
+        self.assertEqual(sorted(u for _, u in listed_option_pages(osu, norm)), ['https://a/zoo-premed'])
         # a list page stored by another run of the same catalog (NC State's discovery run) is read as stored; absent runs are skipped
         page = (b'<html><head><title>Undergraduate</title></head><body><p>University Catalog 2026-2027</p>'
                 b'<a href="https://catalog.example.edu/ans/ans-bs-industry-concentration/">Animal Science (BS): Industry Concentration</a></body></html>')
@@ -2490,15 +2527,20 @@ class CatalogCountTests(unittest.TestCase):
         listing = [('BA', u + 'anth/ba-anthropology/', 'bachelor'), ('BA', u + 'art/ba-art/', 'bachelor'), ('BS*', u + 'ds/bs-data-science/', 'bachelor'),
                    ('BBA in AccountingBusiness, Management, & MarketingBachelorsUndergraduateBusiness Administration', u + 'acct-bba/', 'bachelor'),
                    ('BA in Chicano StudiesBachelorsHumanities, Languages, and Literatures', u + 'chicano-ba/', 'bachelor'),
-                   ("Bachelor's Degree Programs", u + 'programs/', 'bachelor')]  # Georgia Tech: the list's own heading link
+                   ("Bachelor's Degree Programs", u + 'programs/', 'bachelor'),  # Georgia Tech: the list's own heading link
+                   ('Bachelor of Music', u + 'music/bachelor-of-music-general/', 'bachelor'),  # UTEP: the record prints the same name
+                   ('Marketing, BSBA', u + 'mkt-bsba/', None),  # OSU: an undotted award the list reader left unclassified
+                   ('BIOLOGY', u + 'biology/', 'bachelor')]  # an all-caps name is a name, not an award
         records = [('BA in Anthropology', u + 'anth/ba-anthropology/'), ('BA in Art', u + 'art/ba-art/'),
-                   ('BBA in Accounting', 'https://api.x.com/feed'), ('BA in Chicano Studies', u + 'chicano-ba/')]
+                   ('BBA in Accounting', 'https://api.x.com/feed'), ('BA in Chicano Studies', u + 'chicano-ba/'),
+                   ('Bachelor of Music', u + 'music/bachelor-of-music-general/'), ('Marketing, BSBA', u + 'mkt-bsba/'), ('Biology, BS', u + 'biology/')]
         with tempfile.TemporaryDirectory() as d:
             d = self.run_dir(d, listing, records)
             e = entries(d, d / 'dec.json', ['k'])[0]
-        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (5, 4))
+        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (8, 7))
         b = e['completeness_basis']
-        self.assertIn('3 print only an award under a department heading and are identified by their own page', b)
+        self.assertIn('4 print only an award under a department heading and are identified by their own page', b)
+        self.assertTrue(b.startswith("9 linked entries"))
         self.assertIn("2 run the card's category labels on to the name", b)
         self.assertIn("not counted, 1 department, roadmap, general or commissioning links that are not a single bachelor's program: Bachelor's Degree Programs", b)
         self.assertTrue(b.endswith("Not recorded (names separated by ' | '): BS* (https://catalog.x.edu/ds/bs-data-science/)."))
@@ -2520,3 +2562,18 @@ class CatalogCountTests(unittest.TestCase):
             lines[0]['year_basis'] = 'source_unlabeled'
             (d / 'candidates.jsonl').write_text(''.join(json.dumps(l) + '\n' for l in lines))
             self.assertEqual(entries(d, d / 'dec.json', ['k'])[0]['verified_listed_programs'], 0)
+
+
+class ResearchPriorityTests(unittest.TestCase):
+    def test_every_uncovered_institution_is_ranked_once(self):
+        import sys
+        sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
+        import research_priority as RP
+        doc = RP.rank()
+        st = json.loads((Path(__file__).resolve().parents[1] / 'docs/coverage/programs/STATUS.json').read_text())
+        uncovered = {i['institution_key'] for s in st['states'] for i in s['institutions'] if i['status'] != 'covered'}
+        keys = [r['institution_key'] for r in doc['institutions']]
+        self.assertEqual(len(keys), len(set(keys))); self.assertEqual(set(keys), uncovered)
+        tiers = [RP.TIERS.index(r['tier']) for r in doc['institutions']]
+        self.assertEqual(tiers, sorted(tiers))  # tiers in order, largest first within a tier
+        self.assertEqual(sum(doc['tiers'].values()), len(keys))

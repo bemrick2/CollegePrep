@@ -1,10 +1,8 @@
 {
- "run": "programs/runs/MO/2026-10-08-b02",
- "run_branch": "program-run/mo-b02-2026-10-08",
- "reviewer": "Research session review 2026-10-08 (autoreview standing rules plus the notes below)",
- "notes": [
-  "Missouri reviewed against its official 2026-2027 'Degrees and Degree Programs' list, which prints each degree's award ('BA', 'BS*', 'BSAcc', 'BJ*') under the program's heading; each entry is identified by its own page. 'BS in Data Science' is listed under both Arts and Science and Engineering: the Arts and Science page gives the record, the Engineering page is held as a duplicate, and that entry stays unverified."
- ],
+ "run": "programs/runs/MO/2026-10-08-b01",
+ "run_branch": "program-run/mo-*",
+ "reviewer": "programs/autoreview.py standing rules, 2026-10-08",
+ "notes": "Held: {'duplicate': 1, 'req_issues': 531}",
  "approve": [
   {
    "candidate_id": "14c295553d2d8ada",
@@ -663,21 +661,5 @@
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   }
  ],
- "catalogs": [
-  {
-   "institution_key": "ipeds-178396",
-   "catalog_url": "https://catalog.missouri.edu/",
-   "catalog_year_label": "2026-2027",
-   "source_evidence": {
-    "url": "https://catalog.missouri.edu/degreesanddegreeprograms/",
-    "sha256": "407e1e74a71e2d1710954f1c908c33b4414b8425efd2ffa760da771d9eafe1ad",
-    "fetched_at": "2026-10-08T13:39:15+00:00"
-   },
-   "listed_bachelor_programs": 99,
-   "verified_listed_programs": 86,
-   "programs_complete": false,
-   "completeness_basis": "99 linked entries on the official 2026-2027 program list print a bachelor's award; 99 print only an award under a department heading and are identified by their own page. 99 bachelor's programs, 86 with a verified record printing that name or on that program's own page. Not recorded (names separated by ' | '): BES* (https://catalog.missouri.edu/collegeofeducation/educationalstudies/bes-educational-studies/) | BGS (https://catalog.missouri.edu/collegeofartsandscience/generalstudies/bgs-general-studies/) | BHS (https://catalog.missouri.edu/collegeofhealthsciences/occupationaltherapyassistant/bhs-occupational-therapy-assistant/) | BHS (https://catalog.missouri.edu/collegeofhealthsciences/preprofessionalphysicaltherapy/bhs-pre-professional-physical-therapy/) | BHS (https://catalog.missouri.edu/collegeofhealthsciences/speechlanguagehearingsciences/bhs-speech-language-hearing-sciences/) | BHS* (https://catalog.missouri.edu/collegeofhealthsciences/clinicaldiagnosticsciences/bhs-clinical-diagnostic-sciences/) | BHS* (https://catalog.missouri.edu/collegeofhealthsciences/healthscience/) | BJ* (https://catalog.missouri.edu/schoolofjournalism/journalism/bj-journalism/) | BS (https://catalog.missouri.edu/collegeofengineering/datascience/bs-data-science/) | BSAcc (https://catalog.missouri.edu/collegeofbusiness/accountancy/bsacc-accountancy/) | BSBA* (https://catalog.missouri.edu/collegeofbusiness/businessadministration/bsba-business-administration/) | BSBE (https://catalog.missouri.edu/collegeofengineering/biologicalengineering/bsbe-biological-engineering/) | BSIE (https://catalog.missouri.edu/collegeofengineering/industrialengineering/bsie-industrial-engineering/).",
-   "reason": "Reviewed: official current-catalog program list (Research session, 2026-10-08)."
-  }
- ]
+ "catalogs": []
 }

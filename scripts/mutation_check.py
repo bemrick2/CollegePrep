@@ -7,9 +7,10 @@ A surviving mutant means a safety rule has no test. Run: python scripts/mutation
 import ast, concurrent.futures, os, queue, shutil, subprocess, sys, tempfile
 
 MUTS = [
+    ('pipeline/extractors/catalog.py', "    if not labels:  # the print link is the page's only label", "    if False:  # the print link is the page's only label"),
     ('pipeline/extractors/common.py', "\n            and not UNDOTTED_BACHELOR_END.search(head))", ")"),
     ('pipeline/extractors/catalog.py', "    text = print_link.sub('', page.text[:5000])", "    text = page.text[:5000]"),
-    ('pipeline/extractors/catalog.py', "'\\n'.join(l for l in page.lines[:60] if not print_link.match(l)))", "'\\n'.join(page.lines[:60]))"),
+    ('pipeline/extractors/catalog.py', "'\\n'.join(l for l in page.lines[:60] if not print_link.match(l)))\n", "'\\n'.join(page.lines[:60]))\n"),
     ('pipeline/extractors/catalog.py', "\\bB\\.?\\s?(F\\.\\s?A|S\\.\\s?N|S\\.\\s?W|L\\.\\s?A|B\\.\\s?A|S|A|", "\\bB\\.?\\s?(S|A|"),
     ('pipeline/extractors/catalog.py', "re.search(r',\\s*(?:B|A)\\.\\s?[A-Z]', rest)", "False"),
     ('pipeline/extractors/common.py', " and not UNDERGRAD_AWARD.search((page.title or '').split('|')[0])", ''),
