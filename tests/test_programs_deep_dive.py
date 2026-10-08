@@ -863,6 +863,62 @@ GRID_HTML = """<h2>Roadmaps</h2><p>Courses marked with (*) are recommended.</p>
 <tr><td class="column0">6--Mathematics</td><td class="column1">25--Upper Division</td></tr></tbody></table>"""
 
 
+class InventoryLevelTests(unittest.TestCase):  # UMD 2026-27 majors with no printed award; MHEC Academic Program Inventory
+    INV = {'entry': {'url': 'https://mhec.example.gov/inventory', 'sha256': 'f' * 64}, 'institution': 'Univ. of Maryland, College Park', 'publisher': 'MHEC',
+           'rows': [['Univ. of Maryland, College Park', 'ACCOUNTING', "Bachelor's Degree"], ['Univ. of Maryland, College Park', 'ACCOUNTING', "Master's Degree"],
+                    ['Univ. of Maryland, College Park', 'AGRICULTURAL & RESOURCE ECONOMICS', "Bachelor's Degree"],
+                    ['Univ. of Maryland, College Park', 'ARTIFICIAL INTELLIGENCE: COMPUTATIONAL S', "Bachelor's Degree"],
+                    ['Univ. of Maryland, College Park', 'BIOLOGY', "Bachelor's Degree"], ['Univ. of Maryland, College Park', 'BIOLOGY', "Bachelor's Degree"],
+                    ['Univ. of Maryland, College Park', 'PUBLIC POLICY', "Master's Degree"]]}
+
+    def cands(self, head, year='2026-2027 Catalog'):
+        from pipeline import text as T
+        e = {'url': 'https://catalog.x.edu/m/', 'role': 'program_page', 'sha256': 'a' * 64, 'fetched_at': '2026-10-07T00:00:00+00:00', 'status': 200, 'kind': 'html'}
+        page = T.Page(year + '\n' + head, head + ' | X', [], [], [head])
+        return X.inventory_level_candidates({'institution_key': 'k'}, e, page, '2026-27', self.INV)
+
+    def test_bachelor_level_from_the_inventory_award_unknown(self):
+        c = self.cands('Accounting Major')
+        self.assertEqual(len(c), 1); c = c[0]
+        self.assertEqual((c['record']['program_name'], c['record']['credential_level'], c['issues']), ('Accounting Major', 'bachelor', ['award_not_printed']))
+        self.assertEqual([ev['snippet'] for ev in c['evidence'] if ev['field'] == 'credential_level'], ["Univ. of Maryland, College Park | ACCOUNTING | Bachelor's Degree"])
+        self.assertEqual(len(self.cands('Agricultural and Resource Economics Major')), 1)  # '&' as printed in the inventory
+        self.assertEqual(len(self.cands('Artificial Intelligence: Computational Science Major')), 1)  # inventory name cut at 40
+        self.assertEqual(self.cands('Biology Major'), [])  # two bachelor's rows of that name: not one program
+        self.assertEqual(self.cands('Public Policy Major'), [])  # master's only
+        self.assertEqual(self.cands('Accounting Major at Shady Grove'), [])
+        self.assertEqual(self.cands('Accounting Minor'), [])
+        self.assertEqual(self.cands('Accounting Major', year='2026-2027 Catalog\n2025-2026 Catalog'), [])
+        self.assertEqual(self.cands('Art Major'), [])  # not in the inventory
+
+    def test_award_printed_in_the_page_text(self):  # UMD pages that name the award in a sentence (review of 2026-10-07)
+        P = X.printed_awards
+        self.assertEqual(set(P('Theatre', 'Theatre Major\nOur program offers a liberal arts education. The B.A. in Theatre seeks to introduce students to the history of theatre.')), {'B.A.'})
+        self.assertEqual(set(P('Hearing and Speech Sciences', 'The department studies human communication and its disorders. The department curriculum leads to the Bachelor of Arts degree. An undergraduate major is broad.')), {'B.A.'})
+        self.assertEqual(set(P('Architecture', 'For the Bachelor of Science degree option, students must complete three additional studios.\nFor the Bachelor of Arts degree option, students must complete 30 additional credits.')), {'B.A.', 'B.S.'})
+        self.assertEqual(P('Theatre', 'Chemistry Major (B.A., B.S.)'), {})  # a navigation line
+        self.assertEqual(P('Theatre', 'Theatre Major (B.A., B.S.)'), {})  # a short navigation line, even with the name
+        self.assertEqual(P('Technology and Information Design', 'Technology and Information Design students learn design. The college also offers the Bachelor of Science in Information Science at College Park.'), {})
+        self.assertEqual(P('Theatre', 'Many students enjoy their time here every year. Bachelor of Science students may join any club on campus as well.'), {})
+        self.assertEqual(P('Technology and Information Design', 'Restriction: Students are not permitted to double-major with the Bachelor of Science in Information Science.'), {})
+        self.assertEqual(P('Information Systems', 'In addition to the major requirements listed above, please consult the Summary of Bachelor of Science Degree Requirements (All Curricula) for more.'), {})
+        self.assertEqual(P('Animal Sciences', 'Our department offers research opportunities. Students learn about animals and their care in many settings.'), {})
+        self.assertEqual(set(P('American Studies', 'American Studies examines culture and identity in the United States. The B. A. degree prepares students for graduate work or careers in law.')), {'B.A.'})
+        self.assertEqual(set(P('German Studies', 'The 36-credit BA in German Studies is centered on the study of the German language and culture.')), {'B.A.'})
+        self.assertEqual(P('German Studies', 'German Studies majors may finish a BA in four years and graduate early from the program here.'), {})  # 'BA in' not followed by the name
+        self.assertEqual(set(P('Persian Studies', 'It acquaints them with Persianate cultures and practices. The B.A. in Persian Studies prepares students for a range of careers.')), {'B.A.'})
+
+    def test_verify_requires_the_row_in_the_inventory(self):
+        from programs.verify import check_candidate
+        c = self.cands('Accounting Major')[0]
+        text = "2026-2027 Catalog\nAccounting Major"
+        inv_text = "| Univ. of Maryland, College Park | ACCOUNTING | Bachelor's Degree"
+        self.assertEqual(check_candidate(c, text, lambda sha: inv_text if sha == 'f' * 64 else ''), [])
+        self.assertEqual(check_candidate(c, text, lambda sha: ''), ['credential level row not in its inventory document'])
+        import copy
+        a = copy.deepcopy(c); a['evidence'].append({'field': 'award', 'value': 'B.S.', 'snippet': 'The Bachelor of Science in Accounting prepares students.'})
+        self.assertEqual(check_candidate(a, text, lambda sha: inv_text), ['award sentence not verbatim'])
+        self.assertEqual(check_candidate(a, text + '\nThe Bachelor of Science in Accounting prepares students.', lambda sha: inv_text), [])
 class CatalogPeriodTests(unittest.TestCase):  # Cal Poly '2026-2028 Catalog' (#153; owner decision 2026-10-07)
     def test_two_year_label_is_kept_as_printed(self):
         from pipeline import text as T

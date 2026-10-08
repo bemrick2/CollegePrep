@@ -434,6 +434,105 @@ def program_heading(page):
     return hs[0] if hs else None
 
 
+# UMD 2026-27 (owner request 2026-10-07): the catalog names a major without its award ('Accounting Major'). The Maryland Higher
+# Education Commission's Academic Program Inventory, an official state list of each institution's degree programs, prints the
+# program with its degree level ('Univ. of Maryland, College Park | ACCOUNTING | Bachelor's Degree') but not the award either.
+# A record is made only when the inventory lists exactly one bachelor's program of that name at the institution; the award stays
+# unknown (issue award_not_printed), so such a record can only be partially verified. Nothing is inferred.
+INVENTORY_LEVEL_EXTRACTOR = 'inventory_level/v1'
+MAJOR_HEADING = re.compile(r'^(?P<name>[A-Z][^()]+?)\s+Major$')
+
+
+def _inv_norm(s):
+    s = re.sub(r'&', ' and ', (s or '').lower())
+    return re.sub(r'\s+', ' ', re.sub(r'[^a-z0-9]+', ' ', s)).strip()
+
+
+def load_level_inventory(target):
+    """Rows (institution, program, level) of the target's state inventory document, read from the run that stored it."""
+    li = target.get('level_inventory')
+    if not li: return None
+    run = Run(Path(__file__).resolve().parents[1] / li['run'])
+    for e in run.entries():
+        if e.get('url') == li['url'] and e.get('page_file'):
+            page, _ = run.load_page(e['page_file'])
+            rows = [r for t in page.tables for r in t.get('rows') or [] if len(r) == 3 and r[0].strip() == li['institution']]
+            return {'entry': e, 'rows': [[c.strip() for c in r] for r in rows], 'institution': li['institution'], 'publisher': li.get('publisher', '')}
+    return None
+
+
+AWARD_PHRASE = re.compile(r"\b(?:Bachelor\s+of\s+(?P<long>Arts|Science|Landscape\s+Architecture|Music(?:\s+Education)?|Fine\s+Arts)|"
+                          r"(?<![A-Za-z.])(?P<short>B\.\s?(?:A|S|L\.\s?A|M|F\.\s?A|M\.\s?E)\.)|(?<![A-Za-z.])(?P<bare>BA|BS)(?=\s+(?:degree\s+)?in\s))(?![A-Za-z])")
+LONG_SHORT = {'arts': 'B.A.', 'science': 'B.S.', 'landscape architecture': 'B.L.A.', 'music': 'B.M.', 'music education': 'B.M.E.', 'fine arts': 'B.F.A.'}
+
+
+SENTENCE_END = re.compile(r'(?<=[a-z0-9)])[.!?]\s+(?=[A-Z])')
+AWARD_LEAD = re.compile(r'^the\s+(?:B\.\s?[A-Z]\.|Bachelor\s+of\s+\w+)\s+degree\b|\b(this|the) major\b|\bmajor (?:leading|leads)\b|\blead(?:s|ing)? to\b|\bculminates? in\b|\brequirements for (?:a|the)\b|\boffers? (?:a|the|both)\b|\bdegree option\b', re.I)
+
+
+def printed_awards(name, text):
+    """Bachelor's awards the page prints for this major, read sentence by sentence from its text ('The B.A. in Theatre
+    seeks ...', 'The department curriculum leads to the Bachelor of Arts degree', UMD 2026-27). A sentence counts when it
+    names the major or says the major/curriculum leads to the degree; a short navigation line ('Chemistry Major (B.A.,
+    B.S.)'), another program's degree ('Bachelor of Science in Information Science' on the Technology and Information
+    Design page) and a pointer to degree requirements ('Summary of Bachelor of Science Degree Requirements') do not.
+    Returns {award: sentence}."""
+    out = {}
+    key = _inv_norm(name)
+    for line in (text or '').splitlines():
+        if len(line.strip()) < 60: continue
+        for sent in SENTENCE_END.split(line.strip()):
+            if not AWARD_PHRASE.search(sent): continue
+            if key not in _inv_norm(sent) and not AWARD_LEAD.search(sent): continue
+            for m in AWARD_PHRASE.finditer(sent):
+                tail = sent[m.end():m.end() + 120]
+                if re.match(r'\s+degree\s+requirements\b', tail, re.I): continue
+                mm = re.match(r'\s+(?:degree\s+)?in\s+(?:the\s+)?(?P<prog>[A-Z].*)', tail)
+                if mm and not _inv_norm(mm.group('prog')).startswith(key): continue  # 'in <another program>'
+                if m.group('bare') and not mm: continue  # a bare 'BA' counts only as 'BA in <this major>'
+                aw = (LONG_SHORT[re.sub(r'\s+', ' ', m.group('long').lower())] if m.group('long') else
+                      re.sub(r'\s', '', m.group('short')) if m.group('short') else {'BA': 'B.A.', 'BS': 'B.S.'}[m.group('bare')])
+                out.setdefault(aw, sent[:300])
+    return out
+
+
+def inventory_level_candidates(inst, entry, page, today_year, inv):
+    """A catalog page headed 'X Major' with one printed catalog year, whose name the inventory lists as exactly one
+    Bachelor's Degree program of the institution (the inventory truncates names at 40 characters: a name it cuts short
+    matches on that prefix)."""
+    if not inv: return []
+    head = (program_heading(page) or '').strip()
+    m = MAJOR_HEADING.match(head)
+    if not m: return []
+    labels = printed_catalog_years(page)
+    if len({y for y, _ in labels}) != 1: return []
+    year, line = min(labels)
+    want = _inv_norm(m.group('name'))
+    hits = [r for r in inv['rows'] if r[2] == "Bachelor's Degree" and (_inv_norm(r[1]) == want or
+            (len(r[1]) >= 38 and want.startswith(_inv_norm(r[1])) and len(_inv_norm(r[1])) >= 30))]
+    if len(hits) != 1: return []
+    row = hits[0]; acad = academic_year_of(year)
+    snippet = f"{row[0]} | {row[1]} | {row[2]}"
+    awards = printed_awards(m.group('name'), page.text)
+    inv_note = (f'The {inv["publisher"]} Academic Program Inventory lists "{row[1]}" as a Bachelor\'s Degree program of {row[0]} '
+                '(degree level only; it prints no award).')
+    if awards:
+        note = ('Program name and catalog year as printed on the catalog page; the page prints the award' + ('s ' if len(awards) > 1 else ' ')
+                + ', '.join(sorted(awards)) + ' in its text (quoted in the evidence). ' + inv_note)
+    else:
+        note = ('Program name and catalog year as printed on the catalog page; the page does not state which bachelor\'s award this major '
+                'leads to, so no award is recorded. ' + inv_note)
+    rec = {'program_key': CAT.slug(head), 'program_name': head, 'credential_level': 'bachelor', 'catalog_year': year,
+           'program_url': common.source_of(entry)['url'], 'notes': note}
+    ie = inv['entry']
+    ev = [{'field': 'program_name', 'value': head, 'snippet': head},
+          {'field': 'catalog_year', 'value': year, 'snippet': line[:200]},
+          {'field': 'credential_level', 'value': 'bachelor', 'snippet': snippet, 'url': ie['url'], 'sha256': ie.get('sha256')}]
+    ev += [{'field': 'award', 'value': a, 'snippet': l} for a, l in sorted(awards.items())]
+    return [common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec, ev,
+                        entry, INVENTORY_LEVEL_EXTRACTOR, {'program_key': rec['program_key']}, {}, [] if awards else ['award_not_printed'])]
+
+
 def static_program_identity(inst, entry, page, today_year):
     """Static HTML catalogs (George Fox, Rhodes): the program record only (name as printed in the page heading, the
     bachelor award it names, the catalog year printed on the page). Requirement lists are not read here."""
@@ -1166,6 +1265,7 @@ def extract_run(targets, run_dir, today=None):
         lists[key] = collect_lists(t, run, es) if t.get('catalog') else {'programs': [], 'counts': {}}
         emphases = listed_emphasis_pages({key: lists[key]}, norm_emph)
         if (t.get('catalog') or {}).get('platform') == 'coursedog': t = {**t, '_catalog_year': coursedog_year(run, es)}
+        if t.get('level_inventory'): t = {**t, '_level_inventory': load_level_inventory(t)}
         if (t.get('catalog') or {}).get('platform') == 'courseleaf':
             t = {**t, '_listed': {norm_url(p['url']): p for p in lists[key].get('programs', [])}}
             t = {**t, '_courselists': {e['via']: (e, json.loads(run.load_page(e['page_file'])[0].text)) for e in es if e.get('role') == 'courselist' and e.get('page_file')}}
@@ -1208,6 +1308,8 @@ def extract_run(targets, run_dir, today=None):
             if e.get('role') == 'program_page' and excluded(t, e.get('url')): continue
             if e.get('role') == 'program_page':
                 found = program_page_candidates(t, inst, e, page, today_year)
+                if not any(c['domain'] == 'academic_programs' for c in found) and t.get('_level_inventory'):
+                    found = inventory_level_candidates(inst, e, page, today_year, t['_level_inventory']) + found
                 if drops_option_page(found, key, e.get('url'), emphases):
                     found = []  # the option's rows belong to its major (unless the list prints it as the degree's only entry)
                 for c in found:

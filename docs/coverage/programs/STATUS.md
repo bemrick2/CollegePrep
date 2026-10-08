@@ -88,7 +88,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | KY | **in_progress** | 30 | 3 | 33% (needs 80%) | 0 | 27 | 33 |
 | LA | **in_progress** | 30 | 0 | 0% (needs 80%) | 0 | 23 | 31 |
 | MA | **in_progress** | 78 | 0 | 0% (needs 80%) | 0 | 58 | 85 |
-| MD | **in_progress** | 31 | 0 | 0% (needs 80%) | 0 | 17 | 35 |
+| MD | **in_progress** | 31 | 0 | 0% (needs 80%) | 0 | 17 | 36 |
 | ME | **in_progress** | 18 | 0 | 0% (needs 80%) | 0 | 12 | 18 |
 | MI | **in_progress** | 51 | 2 | 6% (needs 80%) | 0 | 30 | 51 |
 | MN | **in_progress** | 41 | 1 | 2% (needs 80%) | 0 | 35 | 49 |
@@ -1020,7 +1020,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 
 | School | Status | Verified bachelor's | Listed | Plans | Req. groups | Catalog | Maps | Groups | Admission rules | Queue |
 |---|---|---|---|---|---|---|---|---|---|---|
-| University of Maryland-College Park | partial | 1 | – | 0 | 5 | queued | queued | met | met | catalog:layout_not_readable, degree_maps:not_yet_researched |
+| University of Maryland-College Park | partial | 46 | 123 | 0 | 5 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_published, degree_maps:not_yet_researched |
 | Towson University | partial | 4 | – | 0 | 7 | queued | queued | met | met | catalog:not_yet_researched, degree_maps:not_yet_researched |
 | Morgan State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | University of Maryland-Baltimore County | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
