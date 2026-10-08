@@ -30,6 +30,12 @@ class TextTests(unittest.TestCase):
         self.assertEqual(T.current_academic_year(date(2026, 10, 2)), '2026-27')
         self.assertEqual(T.current_academic_year(date(2027, 3, 1)), '2026-27')
 
+    def test_award_abbreviation_before_in_names_a_bachelor(self):  # Missouri 2026-27 'BJ in Journalism', 'BSAcc in Accountancy'
+        for n in ('BJ in Journalism', 'BSAcc in Accountancy', 'BSBA in Business Administration', 'BHS in Health Science', 'BSIE in Industrial Engineering'):
+            self.assertEqual(catalog.credential(n), 'bachelor', n)
+        for n in ('BIO in Focus', 'Journalism BJ minor', 'MSA in Accountancy'):
+            self.assertNotEqual(catalog.credential(n), 'bachelor', n)
+
     def test_full_catalog_print_link_is_not_the_catalog_year(self):
         # Oklahoma State 2026-27: '2026-2027 Edition' heads the page; 'Full 2025-2026 Catalog' links last year's PDF
         osu = T.Page('2026-2027 Edition\nFull 2025-2026 Catalog\nZoology, BS\nAcademic Year 2026-2027', 'Zoology, BS', [], [], [])

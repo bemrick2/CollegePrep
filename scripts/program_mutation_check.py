@@ -7,6 +7,21 @@ the same file. Each mutant breaks one rule; tests/test_programs_deep_dive.py mus
 import shutil, subprocess, sys
 
 MUTS = [
+    ('programs/catalog_counts.py', '|\\(Secondary Major\\)", re.I)', '", re.I)'),
+    ('programs/extract.py', "    if 'Download as PDF' not in heads or heads.index('Download as PDF') == 0: return []", "    if 'Download as PDF' not in heads: return []"),
+    ('programs/extract.py', "|(?-i:\\bB(?:SBA|SET|SCH|SCV|SCP|SIE|SBE|SAE|SAcc|PS|HS|GS|ES)\\b)(?!\\s?\\d)|", "|"),
+    ('programs/extract.py', "|(?-i:\\bB(?:SBA|SET|SCH|SCV|SCP|SIE|SBE|SAE|SAcc|PS|HS|GS|ES)\\b)(?!\\s?\\d)|", "|(?-i:\\bB(?:SBA|SET|SCH|SCV|SCP|SIE|SBE|SAE|SAcc|PS|HS|GS|ES)\\b)|"),
+    ('programs/extract.py', "    if GENERIC_DEGREES.match(name) or NOT_PROGRAM_NAME.search(name) or re.search(r'\\brequirements?\\b|\\bsecondary\\s+major\\b', name, re.I): return []", "    pass"),
+    ('programs/extract.py', "    name = re.sub(r'\\s*\\*+$', '', heads[heads.index('Download as PDF') - 1])", "    name = heads[heads.index('Download as PDF') - 1]"),
+    ('programs/extract.py', "    if len({y for y, _ in labels}) != 1: return []\n    year, line = min(labels); acad = academic_year_of(year)\n    rec = {'program_key': CAT.slug(name), 'program_name': name, 'credential_level': 'bachelor', 'catalog_year': year,\n           'program_url': common.source_of(entry)['url'], 'notes': 'Program title (with its award)", "    year, line = min(labels); acad = academic_year_of(year)\n    rec = {'program_key': CAT.slug(name), 'program_name': name, 'credential_level': 'bachelor', 'catalog_year': year,\n           'program_url': common.source_of(entry)['url'], 'notes': 'Program title (with its award)"),
+    ('programs/extract.py', " and NAMED_CATALOG.fullmatch(near[-2]) and len(near[-1]) <= 40 and not re.search(r'\\d', near[-1])", ""),
+    ('programs/autoreview.py', "'coursedog_page/v1', 'kuali_page/v1',", "'coursedog_page/v1',"),
+    ('programs/catalog_counts.py', '|"\n                  r"(?-i:\\bB[A-Z]{1,4}/M[A-Z]{1,3}\\b)", re.I)', '", re.I)'),
+    ('programs/catalog_counts.py', '|\\b(Graduation|Continuance)\\s+(Requirements|Regulations)\\b|\\bReadmission\\b|\\(Secondary Major\\)", re.I)', '", re.I)'),
+    ('programs/extract.py', "    if not KUALI_TITLE.match(page.title or ''): return []", "    pass"),
+    ('programs/extract.py', "    if credential_of(name) != 'bachelor' or GRAD.search(re.sub(r'\\(B[A-Z]{1,3}\\)', '', name)): return []", "    pass"),
+    ('programs/extract.py', "        m = BARE_YEAR.fullmatch(line.strip()) or AY_HOME.fullmatch(line.strip())", "        m = BARE_YEAR.fullmatch(line.strip())"),
+    ('programs/extract.py', "        if (m and i <= 12 and len(near) >= 2", "        if (m and len(near) >= 2"),
     ('programs/catalog_counts.py', " or (x['listed_as'] is None and (X.UNDOTTED_LIST_AWARD.search(x['printed'].replace(ZWSP, '')) or X.credential_of(x['printed']) == 'bachelor'))]", "]"),
     ('programs/catalog_counts.py', "                if pk != rk and pk.startswith(rk): hit = None", "                if pk.startswith(rk): hit = None"),
     ('programs/catalog_counts.py', "AWARD_ONLY = re.compile(r'^(?:(?-i:B[A-Z]{1,4}[a-z]{0,3})|", "AWARD_ONLY = re.compile(r'^(?:B[A-Za-z]{0,9}|"),

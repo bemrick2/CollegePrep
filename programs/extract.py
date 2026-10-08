@@ -29,7 +29,7 @@ from .crawl import program_rule, in_scope, excluded
 GRAD = re.compile(r'\b(M\.?\s?S\.?|M\.?\s?A\.?|MBA|M\.?\s?Ed|M\.?\s?F\.?A|Ph\.?\s?D|Ed\.?\s?D|DNP|D\.?\s?P\.?\s?T|J\.?\s?D|'
                   r'Master|Doctor|Graduate|Post[- ]?bacc|Certificate|Minor|Endorsement)\b', re.I)
 # PVAMU 2026-27 also prints BSCJ, BSAG, BSCHE and BSDIET ('Criminal Justice, BSCJ'); Liberty 'Biology Education 6-12 Major (B.Ed.)'
-BACHELOR = re.compile(r'(?<![A-Za-z]\.)\b(B\.?\s?(A|S|F\.?A|L\.\s?A|M|S\.?N|S\.?W|B\.?A|S\.?E|S\.?E\.?E|S\.?M\.?E|S\.?C\.?E|Arch|Mus|A\.?S|A\.?A\.?S|S\.?Ed|Ed|I\.?S|SCJ|SAG|SCHE|SDIET)\b\.?|'
+BACHELOR = re.compile(r'(?<![A-Za-z]\.)\b(B\.?\s?(A|S|F\.?A|L\.\s?A|M|S\.?N|S\.?W|B\.?A|S\.?E|S\.?E\.?E|S\.?M\.?E|S\.?C\.?E|Arch|Mus|A\.?S|A\.?A\.?S|S\.?Ed|Ed|I\.?S|SCJ|SAG|SCHE|SDIET)\b\.?|(?-i:\bB(?:SBA|SET|SCH|SCV|SCP|SIE|SBE|SAE|SAcc|PS|HS|GS|ES)\b)(?!\s?\d)|'
                       r'Bachelor|\bH?BA\b|\bH?BS\b)', re.I)
 ASSOCIATE = re.compile(r'\b(A\.?\s?(A|S|A\.?S|A\.?T|S\.?T|F\.?A)\b\.?|Associate)', re.I)
 
@@ -97,6 +97,8 @@ SHORT_LABEL = re.compile(r'\b(20\d{2})\s*[-–]\s*(\d{2})\s+(?:Undergraduate\s+|
 EDITION = re.compile(r'(20\d{2})\s*[-–]\s*(?:20)?(\d{2})\s+Edition', re.I)  # Lewis & Clark '2026-27 Edition'; Stetson '2026-2027 Edition'
 BARE_YEAR = re.compile(r'(20\d{2})\s*[-–]\s*(20\d{2})')
 HEADER_NAME = re.compile(r'(?:Guide|Catalog|Catalogue|Bulletin)', re.I)
+NAMED_CATALOG = re.compile(r'(?:Undergraduate|General|University|Academic)\s+(?:Catalog|Catalogue|Bulletin)')
+AY_HOME = re.compile(r'Home\s+\(AY\s+(20\d{2})\s*[-–]\s*(20\d{2})\)')
 NOT_CURRENT = re.compile(r'\[?\s*(not current|archived?)\b', re.I)  # Acalog selector: "2025-2026 Academic Catalog [NOT CURRENT CATALOGS]"
 ARCHIVE_LINK = re.compile(r'\s*(?:Download\s+)?(?:an?\s+)?PDF of\b', re.I)  # "PDF of the entire 2025-2026 Catalog", uark "A PDF of the entire 2025-26 Undergraduate catalog.": a download link, not this page's label
 # a whole-line print or PDF link names a catalog download, often last year's: OSU 2026-27 prints '2026-2027 Edition' and
@@ -132,6 +134,13 @@ def printed_catalog_years(page):
         prev = next((l.strip() for l in reversed(lines[max(0, i - 2):i]) if l.strip()), '')
         if m and HEADER_NAME.fullmatch(prev) and int(m.group(2)) - int(m.group(1)) in PERIOD_SPANS:
             got.add((f'{m.group(1)}-{m.group(2)}', f'{prev} {line.strip()}'))
+        # BYU's header: 'Undergraduate Catalog' / 'BYU' / '2026-2027'; Utah's: 'General Catalog' / 'University of Utah' /
+        # 'Home (AY 2026-2027)': the catalog's name, the institution's short name, then the year, as the first lines of the page
+        m = BARE_YEAR.fullmatch(line.strip()) or AY_HOME.fullmatch(line.strip())
+        near = [l.strip() for l in lines[max(0, i - 3):i] if l.strip()]
+        if (m and i <= 12 and len(near) >= 2 and NAMED_CATALOG.fullmatch(near[-2]) and len(near[-1]) <= 40 and not re.search(r'\d', near[-1])
+                and int(m.group(2)) - int(m.group(1)) in PERIOD_SPANS):
+            got.add((f'{m.group(1)}-{m.group(2)}', f'{near[-2]} {near[-1]} {line.strip()}'))
         m = EDITION.fullmatch(line.strip())  # Lewis & Clark header: "2026-27 Edition"
         for k in PERIOD_SPANS if m else ():
             if int(m.group(2)) == (int(m.group(1)) + k) % 100: got.add((f'{m.group(1)}-{int(m.group(1)) + k}', line.strip()))
@@ -279,7 +288,7 @@ def _program_page_candidates(target, inst, entry, page, today_year):
     if plat == 'drupal':
         return static_program_identity(inst, entry, page, today_year)
     if plat == 'coursedog':
-        return coursedog_page_identity(inst, entry, page, today_year, target.get('_catalog_year'))
+        return coursedog_page_identity(inst, entry, page, today_year, target.get('_catalog_year')) or kuali_page_identity(inst, entry, page, today_year)
     out = CAT.extract(inst, entry, page, today_year)
     y0, printed0 = CAT.catalog_year(page)
     year, line = printed0, (page.title or '')
@@ -1066,6 +1075,30 @@ def coursedog_page_identity(inst, entry, page, today_year, cat_year):
                          {'field': 'catalog_year', 'value': year, 'snippet': cat_year['line'][:300], 'source_url': cat_year['url'], 'sha256': cat_year['sha256'],
                           'note': "the catalog home page's statement of the academic year the catalog applies to"}],
                         entry, 'coursedog_page/v1', {'program_key': rec['program_key']}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}'])]
+
+
+KUALI_TITLE = re.compile(r'^\S+ Program \| .+ Catalog$')
+
+
+def kuali_page_identity(inst, entry, page, today_year):
+    """Rendered program page titled '<code> Program | X Catalog' (BYU 2026-27): the program title is the heading printed
+    just before 'Download as PDF' ('Applied English Linguistics (BA)'), with its bachelor award; the catalog year is the
+    page's single printed label (BYU's site header 'Undergraduate Catalog' / 'BYU' / '2026-2027')."""
+    if not KUALI_TITLE.match(page.title or ''): return []
+    heads = [h.strip() for h in page.headings]
+    if 'Download as PDF' not in heads or heads.index('Download as PDF') == 0: return []
+    name = re.sub(r'\s*\*+$', '', heads[heads.index('Download as PDF') - 1])  # BYU's list footnote marker: 'Art Education K-12 (BA) *'
+    if credential_of(name) != 'bachelor' or GRAD.search(re.sub(r'\(B[A-Z]{1,3}\)', '', name)): return []
+    # Utah 2026-27 'General Education and Bachelor Degree Requirements' is a policy page; a BYU secondary major is not earned alone
+    if GENERIC_DEGREES.match(name) or NOT_PROGRAM_NAME.search(name) or re.search(r'\brequirements?\b|\bsecondary\s+major\b', name, re.I): return []
+    labels = printed_catalog_years(page)
+    if len({y for y, _ in labels}) != 1: return []
+    year, line = min(labels); acad = academic_year_of(year)
+    rec = {'program_key': CAT.slug(name), 'program_name': name, 'credential_level': 'bachelor', 'catalog_year': year,
+           'program_url': common.source_of(entry)['url'], 'notes': 'Program title (with its award) and catalog year as printed on the catalog program page.'}
+    return [common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec,
+                        [{'field': 'program_name', 'value': name, 'snippet': name}, {'field': 'catalog_year', 'value': year, 'snippet': line[:200]}],
+                        entry, 'kuali_page/v1', {'program_key': rec['program_key']}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}'])]
 
 
 PROGRAM_ONLY_ISSUES = ('requirement_groups_skipped',)

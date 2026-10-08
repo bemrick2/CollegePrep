@@ -159,16 +159,19 @@
     "olemiss.edu"
    ],
    "hosts": [],
-   "mode": "discover",
+   "mode": "catalog",
    "priority": 1,
-   "discover": [
-    "https://www.olemiss.edu/",
-    "https://catalog.olemiss.edu/",
-    "https://www.olemiss.edu/academics/",
-    "https://www.olemiss.edu/registrar/",
-    "https://www.olemiss.edu/catalog/"
-   ],
-   "policy": []
+   "catalog": {
+    "home": "https://catalog.olemiss.edu/",
+    "min_depth": 1,
+    "path_prefix": "/",
+    "platform": "courseleaf",
+    "program_lists": [
+     "https://catalog.olemiss.edu/programs"
+    ]
+   },
+   "policy": [],
+   "detected": "CourseLeaf catalog catalog.olemiss.edu (web search, 2026-10-08): program list https://catalog.olemiss.edu/programs"
   },
   {
    "institution_key": "ipeds-176372",

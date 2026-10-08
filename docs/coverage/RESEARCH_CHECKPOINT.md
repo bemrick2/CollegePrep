@@ -2,22 +2,40 @@
 
 This file is how a new Research session resumes the national program-research workstream without redoing finished work. It is updated with every batch PR.
 
-- **Main at the last refresh:** `ec3f82f9c9ab6d21df482b63ed3b193441de00bf` (after #209 and #210).
-- **Branch carrying this checkpoint:** `research/batch-01`.
+- **Main at the last refresh:** `db28d882ce0a84e709fe5e1b14cce86106d51c3c` (merge of #211, batch 1).
+- **Branch carrying this checkpoint:** `research/batch-02`.
 - **Ranking:** `docs/coverage/research_priority.json`, written by `python3 scripts/research_priority.py`. CI (validate-data) checks that it is current.
 
 ## Numbers
 
-| | main `ec3f82f` | research/batch-01 |
+| | main `db28d88` | research/batch-02 |
 |---|---|---|
 | Registered four-year institutions | 2,119 | 2,119 |
-| Covered (docs/PROGRAM_DEPTH_COMPLETION.md) | 60 | 62 |
-| Researched | 641 | 661 |
-| Verified bachelor's program records | 9,263 | 9,745 |
+| Covered (docs/PROGRAM_DEPTH_COMPLETION.md) | 62 | 64 |
+| Researched | 661 | 672 |
+| Verified bachelor's program records | 9,745 | 10,012 |
 
 All figures are counted from `docs/coverage/programs/STATUS.json` and from the `academic_programs` files with `verification_status == "verified"` and `credential_level == "bachelor"`.
 
-## Completed in batch 1 (research/batch-01)
+## Completed in batch 2 (research/batch-02)
+
+| Institution | Run | Result |
+|---|---|---|
+| Oklahoma State | OK/2026-10-08-r2 | 170/184, covered. Re-run with a 900-page cap, superseding b01. Undotted awards (BSBA, BSCH, BSET, BPS, ...) are read in list entries and page names. |
+| Missouri | MO/2026-10-08-r2 | 97/100, covered. Re-run with an 800-page cap, superseding b02. Pages named 'BSAcc in Accountancy' and 'BHS in ...' are read. |
+| UIC | IL/2026-10-08-b04 | 95/128, partial. The walk starts at /ucat/colleges-depts/. |
+| BYU | UT/2026-10-08-b03 | 118/169, partial (secondary majors listed but not counted). New reader `kuali_page/v1` for pages titled '<code> Program'; the year comes from the site header 'Undergraduate Catalog' / 'BYU' / '2026-2027'. |
+
+Blockers queued in batch 2:
+- **bot challenge:** Pitt; State College of Florida.
+- **robots.txt unreachable:** Weber; Ole Miss.
+- **Coursedog 401, no year label:** Ensign; K-State.
+- **layout not readable:**
+  - UWM; SHSU.
+  - Colorado State and UNL: major pages print no award in the heading.
+  - Utah: titles print only the field.
+
+## Completed in batch 1 (research/batch-01, merged as #211)
 
 | Institution | Run | Result |
 |---|---|---|
@@ -54,30 +72,29 @@ Reader and checker changes in this batch each come with tests and mutants: `prog
 
 ## In flight (run branches pushed, not yet reviewed)
 
-- `program-run/ok-r2-2026-10-08` and `program-run/mo-r2-2026-10-08`: Oklahoma State and Missouri re-runs with higher page caps. Undotted awards are now classified, so their business and engineering entries are counted.
-
-- `program-run/ut-b03-2026-10-08`: BYU and Utah, reconfigured as Coursedog with a paged list.
-- `program-run/il-b04-2026-10-08`: UIC; the walk starts at /ucat/colleges-depts/.
-- Batch 2, `program-run/<st>-c01-2026-10-08`:
-  - SHSU (TX)
-  - Colorado State (CO)
-  - UNL (NE)
-  - Pitt (PA)
-  - Weber and Ensign (UT)
-  - The State College of Florida (FL)
-  - K-State (KS)
-  - UW-Milwaukee (WI)
+- `program-run/tx-d02-2026-10-08`: UTRGV (SmartCatalog 2026-2027). The walk starts at 'Undergraduate Programs by College'.
 
 ## Next prioritized batch
 
 From `research_priority.json`, excluding blocked institutions:
 
-1. **Near tier** (catalog share 75-90%): Iowa State, VCU, SF State, ODU, CU Denver, JHU, ESU, YSU. Find which listed programs are unrecorded and why: held variants, unread pages, or a reader rule.
-2. **Configured tier, largest first:**
+1. **Near tier** (catalog share 75-90%): SF State, ODU, CU Denver, JHU, ESU, YSU. Find which listed programs are unrecorded and why: held variants, unread pages, or a reader rule.
+2. **Reader work that would unlock large schools:**
+   - Colorado State and UNL: major pages with the award only in the text.
+   - Utah: the award from the program code or text.
+   - UT Dallas: the edition-home year.
+   - BYU: emphases whose degree has no list line.
+3. **Configured tier, largest first:**
    - Stale catalogs first: Lone Star, Cincinnati.
-   - UT Austin 42% and Texas State 45%: Deep Dive has worked these; coordinate before re-running.
-   - Penn State, Illinois, UCI, UC Davis, Arkansas: records exist but there is no list count. Configure each official list and compute the count.
-3. **Unconfigured tier, largest first** (958 institutions): SNHU, ASU, Indiana, Michigan State, Ohio State, UCF, Rutgers, Washington, UCSD and others. Each needs its official catalog found by web search, using only search-surfaced URLs or links seen on stored official pages.
+   - UT Austin and Texas State: coordinate with Deep Dive before re-running.
+   - Penn State, Illinois, UCI, UC Davis, Arkansas: configure each official list.
+4. **Unconfigured tier, largest first:** SNHU, ASU, Indiana, Michigan State, Ohio State, UCF, Rutgers, Washington, UCSD, Minnesota, UGA, FSU, NAU, UMass.
+   - Searches on 2026-10-08 did not surface a configurable current catalog for these. Leads:
+     - UCF: www.ucf.edu/catalog/?catoid=12
+     - Minnesota: umtc.catalog.prod.coursedog.com (Coursedog)
+     - Rutgers: catalogs.rutgers.edu/generated/nb-ug_* (no current edition surfaced)
+     - UCSD: catalog.ucsd.edu/undergraduate/degrees-offered/
+   - Use only search-surfaced URLs, or links seen on stored official pages.
 
 ## How to resume
 

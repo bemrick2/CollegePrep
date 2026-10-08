@@ -3,15 +3,37 @@
  "entries": [
   {
    "institution_key": "ipeds-230038",
-   "gap": "institution",
+   "gap": "admission_rules",
    "reason": "not_yet_researched",
-   "next_action": "Locate and configure the catalog (discovery found no catalog)."
+   "next_action": "Read each program page's admission or change-of-major statement (verbatim) and record it, or queue no_official_statement."
+  },
+  {
+   "institution_key": "ipeds-230038",
+   "gap": "catalog",
+   "reason": "not_yet_researched",
+   "next_action": "Diagnose the unrecorded list entries and re-review.",
+   "detail": "118 of 169 listed bachelor's programs verified (run 2026-10-08-b03); the 51 unrecorded entries are emphases whose degree has no list line of its own, held by the option-name rule. Secondary majors are listed but not counted.",
+   "evidence_url": "https://catalog.byu.edu/programs"
+  },
+  {
+   "institution_key": "ipeds-230038",
+   "gap": "degree_maps",
+   "reason": "not_yet_researched",
+   "next_action": "Read the catalog's four-year plans for these programs."
+  },
+  {
+   "institution_key": "ipeds-230038",
+   "gap": "requirement_groups",
+   "reason": "not_yet_researched",
+   "next_action": "Read the requirement tables of these programs."
   },
   {
    "institution_key": "ipeds-230764",
    "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate and configure the catalog (discovery found no catalog)."
+   "reason": "layout_not_readable",
+   "next_action": "Reader work: read the award from the program page (title headings print only the field, e.g. 'Art History'; program codes such as ARCHSTDBA carry the award), then review.",
+   "detail": "Catalog catalog.utah.edu (rendered, 'Home (AY 2026-2027)'): run 2026-10-08-b03 read 151 program pages titled '<CODE> Program | University of Utah Catalog' whose headings print no award.",
+   "evidence_url": "https://catalog.utah.edu/"
   },
   {
    "institution_key": "ipeds-230728",
@@ -38,8 +60,10 @@
   {
    "institution_key": "ipeds-230418",
    "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate and configure the catalog (discovery found no catalog)."
+   "reason": "no_year_label",
+   "next_action": "Find a printed catalog year on the rendered program pages; the catalog PDF reader is not yet trusted.",
+   "detail": "Coursedog catalog catalog.ensign.edu: the catalog API answered 401 (run 2026-10-08-c01) and the 20 rendered program pages gave no labeled program record.",
+   "evidence_url": "https://catalog.ensign.edu/"
   },
   {
    "institution_key": "ipeds-480985",
@@ -81,8 +105,10 @@
   {
    "institution_key": "ipeds-230782",
    "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate and configure the catalog (discovery found no catalog)."
+   "reason": "fetch_failed",
+   "next_action": "Retry when robots.txt answers; otherwise request an official program export.",
+   "detail": "robots.txt for catalog.weber.edu could not be read in run 2026-10-08-c01 (robots_unreachable), so no catalog page was fetched.",
+   "evidence_url": "https://catalog.weber.edu/index.php?catoid=24"
   },
   {
    "institution_key": "ipeds-433387",

@@ -477,6 +477,12 @@ class StatedMajorTests(unittest.TestCase):
         self.assertEqual({y for y, _ in X.printed_catalog_years(osu)}, {'2026-2027'})
         utsa = T.Page('2026-28 Undergraduate Catalog\n2024-2026 Undergraduate Catalog PDF\nDepartment of Computer Science', 't', [], [], [])
         self.assertEqual({y for y, _ in X.printed_catalog_years(utsa)}, {'2026-2028'})
+        # undotted awards are case-sensitive and never a course code: 'Plan B Set of Courses', 'Bes Program', 'BHS 1150' are not awards
+        for n in ('Plan B Set of Courses', 'Bes Program', 'BHS 1150', 'BPS 4395 Senior Seminar'):
+            self.assertIsNone(X.credential_of(n), n)
+        # undotted awards in program names (OSU 'Marketing, BSBA', 'Chemical Engineering, BSCH'; Missouri 'BSAcc in Accountancy')
+        for n in ('Marketing, BSBA', 'Chemical Engineering, BSCH', 'Civil Engineering, BSCV', 'Health Care Administration, BPS', 'BSAcc in Accountancy', 'BHS in Health Science'):
+            self.assertEqual(X.credential_of(n), 'bachelor', n)
         # undotted awards on program lists (OSU, Missouri, UTEP); a graduate award, a minor or an all-caps name is not one
         for lab in ('Marketing, BSBA', 'Chemical Engineering, BSCH', 'University Studies, BUS', 'BJ*', 'BSAcc', 'Computer Engineering, BSBachelorsUndergraduateEngineering'):
             self.assertEqual(X.list_award(lab, lab), 'bachelor', lab)
@@ -489,6 +495,33 @@ class StatedMajorTests(unittest.TestCase):
         # the skip never runs on to an unrelated later line (SF State 'Accounting (ACCT)' department link)
         sf = T.Page('Accounting (ACCT)\nAccounting: Bachelor\'s Concentration, Minor', 't', [], [('u1', 'Accounting'), ('u2', 'Accounting (ACCT)')], [])
         self.assertIsNone(X.printed_line(sf, 'Accounting'))
+        # the header rule needs a catalog name and a short institution line: a body line after 'Note 12' is not a label
+        self.assertEqual(X.printed_catalog_years(T.Page('Policy\nUndergraduate Catalog\nAdopted in fall of the year 12\n2025-2026', 't', [], [], [])), set())
+        self.assertEqual(X.printed_catalog_years(T.Page('Policy\nStudent Handbook\nBYU\n2025-2026', 't', [], [], [])), set())
+        # BYU and Utah 2026-27 site headers: catalog name, institution short name, year (Utah: 'Home (AY 2026-2027)')
+        byu = T.Page('Skip to Main Content\nUndergraduate Catalog\nBYU\n2026-2027\nMyMAP\nAccounting (BS)', 't', [], [], [])
+        self.assertEqual({y for y, _ in X.printed_catalog_years(byu)}, {'2026-2027'})
+        utah = T.Page('Skip to Main Content\nThe University of Utah\nGeneral Catalog\nUniversity of Utah\nHome (AY 2026-2027)\nArchitectural Studies', 't', [], [], [])
+        self.assertEqual({y for y, _ in X.printed_catalog_years(utah)}, {'2026-2027'})
+        # a year in the body after a short line is not a header label
+        body = T.Page('\n'.join(['x'] * 20 + ['Undergraduate Catalog', 'Note', '2025-2026']), 't', [], [], [])
+        self.assertEqual(X.printed_catalog_years(body), set())
+        # BYU 2026-27 program page: '<code> Program | BYU Catalog', the title heading before 'Download as PDF'
+        e2 = {'url': 'https://catalog.byu.edu/programs/34636', 'sha256': 'ab' * 32, 'fetched_at': '2026-10-08T00:00:00+00:00', 'kind': 'html'}
+        kp = lambda name, title='554924 Program | BYU Catalog': X.kuali_page_identity({'institution_key': 'k'}, e2, T.Page(
+            'Undergraduate Catalog\nBYU\n2026-2027\n' + name + '\nDownload as PDF', title, [], [], ['BYU', name, 'Download as PDF', 'Minimum Credit Hours']), '2026-27')
+        [c] = kp('Applied English Linguistics (BA)')
+        self.assertEqual((c['record']['program_name'], c['record']['catalog_year'], c['extractor']), ('Applied English Linguistics (BA)', '2026-2027', 'kuali_page/v1'))
+        self.assertEqual(kp('Applied English Linguistics (MA)'), [])  # not a bachelor's award
+        self.assertEqual(kp('Applied English Linguistics (BA)', title='Applied English Linguistics | BYU'), [])  # another template
+        self.assertEqual(kp('General Education and Bachelor Degree Requirements'), [])  # Utah: a policy page
+        self.assertEqual(kp('Spanish Studies (Secondary Major) (BA)'), [])  # not earned on its own
+        self.assertEqual(kp('Art Education K-12 (BA) *')[0]['record']['program_name'], 'Art Education K-12 (BA)')  # list footnote marker
+        two = X.kuali_page_identity({'institution_key': 'k'}, e2, T.Page('Undergraduate Catalog\nBYU\n2026-2027\n2025-2026 Catalog\nArt (BA)', '1 Program | BYU Catalog', [], [],
+                                                                          ['BYU', 'Art (BA)', 'Download as PDF']), '2026-27')
+        self.assertEqual(two, [])  # two year labels: none
+        self.assertEqual(X.kuali_page_identity({'institution_key': 'k'}, e2, T.Page('Undergraduate Catalog\nBYU\n2026-2027', '1 Program | BYU Catalog', [], [],
+                                                                              ['Download as PDF', 'Art (BA)']), '2026-27'), [])  # no title heading before it
         # Biola 2026-27: a PDF link that is the page's only label names the current catalog
         biola = T.Page('2026-2027 Catalog PDF\nBiology, B.S.', 't', [], [], [])
         self.assertEqual({y for y, _ in X.printed_catalog_years(biola)}, {'2026-2027'})
@@ -1618,6 +1651,14 @@ class AutoReviewTests(unittest.TestCase):
         self.assertEqual(held['entry_path_variant'], 3)
         self.assertEqual(held['not_verbatim'], 1); self.assertEqual(held['duplicate'], 1); self.assertEqual(held['req_program_not_approved'], 1)
 
+    def test_kuali_page_records_are_trusted(self):  # BYU 2026-27: 120 records reviewed by hand before the reader was trusted
+        from programs import autoreview as A
+        from datetime import date
+        old = A.catalog_records; A.catalog_records = lambda *a: []
+        try: approve, _, held = A.review('ZZ', self.run_dir([self.prog('b', 'Applied English Linguistics (BA)', ext='kuali_page/v1')]), today=date(2026, 10, 6))
+        finally: A.catalog_records = old
+        self.assertEqual([a['candidate_id'] for a in approve], ['b'])
+
     def test_options_of_a_listed_degree_are_held(self):  # Oklahoma State 2026-27: 'Zoology: Pre-Medical Sciences, BS' beside 'Zoology, BS'
         from programs import autoreview as A
         from datetime import date
@@ -2552,7 +2593,10 @@ class CatalogCountTests(unittest.TestCase):
                    ('Marketing, BSBA', u + 'mkt-bsba/', None),  # OSU: an undotted award the list reader left unclassified
                    ('BIOLOGY', u + 'biology/', 'bachelor'),  # an all-caps name is a name, not an award
                    ('Bio', u + 'bio/', 'bachelor'),  # nor is a short capitalised word
-                   ('Physics, Bachelor of Science (B.S.)', u + 'phys/', None)]  # VCU: a spelled-out award the reader left unclassified
+                   ('Physics, Bachelor of Science (B.S.)', u + 'phys/', None),  # VCU: a spelled-out award the reader left unclassified
+                   ('Accounting, BSBA/MBA (4 year)', u + 'acct-mba/', None),  # La Salle: combined, excluded by name
+                   ('BSBA Graduation Requirements', u + 'bsba-grad/', None),  # YSU: a policy page
+                   ('Spanish Studies (Secondary Major) (BA)', u + 'span-sec/', 'bachelor')]  # BYU: not earned alone
         records = [('BA in Anthropology', u + 'anth/ba-anthropology/'), ('BA in Art', u + 'art/ba-art/'),
                    ('BBA in Accounting', 'https://api.x.com/feed'), ('BA in Chicano Studies', u + 'chicano-ba/'),
                    ('Bachelor of Music', u + 'music/bachelor-of-music-general/'), ('Marketing, BSBA', u + 'mkt-bsba/'), ('Biology, BS', u + 'biology/'), ('Biology, BA', u + 'bio/')]
@@ -2562,9 +2606,10 @@ class CatalogCountTests(unittest.TestCase):
         self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (10, 8))
         b = e['completeness_basis']
         self.assertIn('4 print only an award under a department heading and are identified by their own page', b)
-        self.assertTrue(b.startswith("11 linked entries"))
+        self.assertTrue(b.startswith("14 linked entries"))
+        self.assertIn("Accounting, BSBA/MBA (4 year)", b); self.assertIn("BSBA Graduation Requirements", b)
         self.assertIn("2 run the card's category labels on to the name", b)
-        self.assertIn("not counted, 1 department, roadmap, general or commissioning links that are not a single bachelor's program: Bachelor's Degree Programs", b)
+        self.assertIn("not counted, 3 department, roadmap, general or commissioning links that are not a single bachelor's program: BSBA Graduation Requirements | Bachelor's Degree Programs | Spanish Studies (Secondary Major) (BA)", b)
         self.assertTrue(b.endswith("Not recorded (names separated by ' | '): BS* (https://catalog.x.edu/ds/bs-data-science/) | Physics, Bachelor of Science (B.S.)."))
 
     def test_only_reviewed_approvals_count(self):

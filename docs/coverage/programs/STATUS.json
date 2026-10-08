@@ -1,9 +1,9 @@
 {
  "national": {
-  "covered": 62,
+  "covered": 64,
   "definition": "Registered: four-year schools in the national registry (pipeline/registry; scope rule in pipeline/registry.py). Researched: a verified or partially verified deep-dive record, or a queue entry recording an attempt other than not_yet_researched. Covered: meets docs/PROGRAM_DEPTH_COMPLETION.md. Untracked states count as registered only.",
   "registered": 2119,
-  "researched": 661,
+  "researched": 672,
   "states": [
    {
     "covered": 3,
@@ -71,7 +71,7 @@
    {
     "covered": 0,
     "registered": 92,
-    "researched": 22,
+    "researched": 23,
     "state": "FL",
     "tracked": true
    },
@@ -106,7 +106,7 @@
    {
     "covered": 3,
     "registered": 71,
-    "researched": 23,
+    "researched": 24,
     "state": "IL",
     "tracked": true
    },
@@ -120,7 +120,7 @@
    {
     "covered": 0,
     "registered": 31,
-    "researched": 6,
+    "researched": 7,
     "state": "KS",
     "tracked": true
    },
@@ -174,7 +174,7 @@
     "tracked": true
    },
    {
-    "covered": 2,
+    "covered": 3,
     "registered": 58,
     "researched": 18,
     "state": "MO",
@@ -183,7 +183,7 @@
    {
     "covered": 0,
     "registered": 17,
-    "researched": 2,
+    "researched": 3,
     "state": "MS",
     "tracked": true
    },
@@ -258,7 +258,7 @@
     "tracked": true
    },
    {
-    "covered": 0,
+    "covered": 1,
     "registered": 28,
     "researched": 4,
     "state": "OK",
@@ -274,7 +274,7 @@
    {
     "covered": 0,
     "registered": 127,
-    "researched": 37,
+    "researched": 38,
     "state": "PA",
     "tracked": true
    },
@@ -309,14 +309,14 @@
    {
     "covered": 6,
     "registered": 118,
-    "researched": 33,
+    "researched": 34,
     "state": "TX",
     "tracked": true
    },
    {
     "covered": 1,
     "registered": 12,
-    "researched": 4,
+    "researched": 8,
     "state": "UT",
     "tracked": true
    },
@@ -344,7 +344,7 @@
    {
     "covered": 1,
     "registered": 43,
-    "researched": 8,
+    "researched": 9,
     "state": "WI",
     "tracked": true
    },
@@ -6195,7 +6195,8 @@
      "programs_with_plan": 0,
      "queue": [
       "catalog:not_yet_researched",
-      "degree_maps:not_yet_researched"
+      "degree_maps:not_yet_researched",
+      "institution:layout_not_readable"
      ],
      "requirement_groups": 1,
      "status": "partial",
@@ -6899,7 +6900,7 @@
     }
    ],
    "not_yet_researched": 24,
-   "queue_entries": 35,
+   "queue_entries": 36,
    "queue_errors": [],
    "state": "CO",
    "status": "in_progress",
@@ -8227,7 +8228,7 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "institution:bot_challenge"
      ],
      "requirement_groups": 0,
      "status": "exception",
@@ -10164,7 +10165,7 @@
      "verified_bachelor_programs": 0
     }
    ],
-   "not_yet_researched": 74,
+   "not_yet_researched": 73,
    "queue_entries": 92,
    "queue_errors": [],
    "state": "FL",
@@ -12950,28 +12951,35 @@
      "verified_bachelor_programs": 95
     },
     {
-     "academic_years": [],
-     "catalog_share": null,
+     "academic_years": [
+      "2026-27"
+     ],
+     "catalog_share": 0.742,
      "dimensions": {
       "admission_rules": "queued",
       "catalog": "queued",
-      "degree_maps": "queued",
-      "requirement_groups": "queued"
+      "degree_maps": "met",
+      "requirement_groups": "met"
      },
      "folder": "uic",
-     "high_value_without_admission_rule": [],
+     "high_value_without_admission_rule": [
+      "business",
+      "computer_science",
+      "engineering"
+     ],
      "institution_key": "ipeds-145600",
-     "listed_bachelor_programs": null,
+     "listed_bachelor_programs": 128,
      "name": "University of Illinois Chicago",
      "partially_verified_programs": 0,
      "programs_complete": false,
-     "programs_with_plan": 0,
+     "programs_with_plan": 81,
      "queue": [
-      "institution:not_yet_researched"
+      "admission_rules:not_yet_researched",
+      "catalog:not_yet_researched"
      ],
-     "requirement_groups": 0,
-     "status": "exception",
-     "verified_bachelor_programs": 0
+     "requirement_groups": 155,
+     "status": "partial",
+     "verified_bachelor_programs": 95
     },
     {
      "academic_years": [],
@@ -14676,7 +14684,7 @@
     }
    ],
    "not_yet_researched": 56,
-   "queue_entries": 85,
+   "queue_entries": 86,
    "queue_errors": [],
    "state": "IL",
    "status": "in_progress",
@@ -16015,7 +16023,7 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "institution:no_year_label"
      ],
      "requirement_groups": 0,
      "status": "exception",
@@ -16732,7 +16740,7 @@
      "verified_bachelor_programs": 0
     }
    ],
-   "not_yet_researched": 28,
+   "not_yet_researched": 27,
    "queue_entries": 37,
    "queue_errors": [],
    "state": "KS",
@@ -23650,29 +23658,30 @@
   },
   {
    "coverage_threshold": 0.8,
-   "covered_institutions": 2,
-   "entering_student_share_covered": 0.069,
+   "covered_institutions": 3,
+   "entering_student_share_covered": 0.219,
    "four_year_institutions": 58,
    "institutions": [
     {
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": 0.869,
+     "catalog_share": 0.97,
      "dimensions": {
       "admission_rules": "queued",
-      "catalog": "queued",
+      "catalog": "met",
       "degree_maps": "queued",
       "requirement_groups": "met"
      },
      "folder": "missouri",
      "high_value_without_admission_rule": [
+      "business",
       "computer_science",
       "engineering",
       "nursing"
      ],
      "institution_key": "ipeds-178396",
-     "listed_bachelor_programs": 99,
+     "listed_bachelor_programs": 100,
      "name": "University of Missouri-Columbia",
      "partially_verified_programs": 0,
      "programs_complete": false,
@@ -23682,9 +23691,9 @@
       "catalog:not_yet_researched",
       "degree_maps:not_yet_researched"
      ],
-     "requirement_groups": 78,
-     "status": "partial",
-     "verified_bachelor_programs": 86
+     "requirement_groups": 86,
+     "status": "covered",
+     "verified_bachelor_programs": 97
     },
     {
      "academic_years": [],
@@ -25113,7 +25122,7 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "institution:fetch_failed"
      ],
      "requirement_groups": 0,
      "status": "exception",
@@ -25509,7 +25518,7 @@
      "verified_bachelor_programs": 0
     }
    ],
-   "not_yet_researched": 16,
+   "not_yet_researched": 15,
    "queue_entries": 17,
    "queue_errors": [],
    "state": "MS",
@@ -27826,7 +27835,7 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "institution:layout_not_readable"
      ],
      "requirement_groups": 0,
      "status": "partial",
@@ -28378,7 +28387,7 @@
      "verified_bachelor_programs": 0
     }
    ],
-   "not_yet_researched": 20,
+   "not_yet_researched": 19,
    "queue_entries": 23,
    "queue_errors": [],
    "state": "NE",
@@ -37925,8 +37934,8 @@
   },
   {
    "coverage_threshold": 0.8,
-   "covered_institutions": 0,
-   "entering_student_share_covered": 0.0,
+   "covered_institutions": 1,
+   "entering_student_share_covered": 0.22,
    "four_year_institutions": 28,
    "institutions": [
     {
@@ -37957,10 +37966,10 @@
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": 0.69,
+     "catalog_share": 0.924,
      "dimensions": {
       "admission_rules": "queued",
-      "catalog": "queued",
+      "catalog": "met",
       "degree_maps": "met",
       "requirement_groups": "met"
      },
@@ -37976,14 +37985,14 @@
      "name": "Oklahoma State University-Main Campus",
      "partially_verified_programs": 0,
      "programs_complete": false,
-     "programs_with_plan": 88,
+     "programs_with_plan": 89,
      "queue": [
       "admission_rules:not_yet_researched",
       "catalog:not_yet_researched"
      ],
-     "requirement_groups": 747,
-     "status": "partial",
-     "verified_bachelor_programs": 127
+     "requirement_groups": 1012,
+     "status": "covered",
+     "verified_bachelor_programs": 170
     },
     {
      "academic_years": [],
@@ -39438,7 +39447,7 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "institution:bot_challenge"
      ],
      "requirement_groups": 0,
      "status": "exception",
@@ -42503,7 +42512,7 @@
      "verified_bachelor_programs": 0
     }
    ],
-   "not_yet_researched": 98,
+   "not_yet_researched": 97,
    "queue_entries": 143,
    "queue_errors": [],
    "state": "PA",
@@ -45736,7 +45745,7 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "institution:layout_not_readable"
      ],
      "requirement_groups": 0,
      "status": "exception",
@@ -48153,7 +48162,7 @@
      "verified_bachelor_programs": 0
     }
    ],
-   "not_yet_researched": 96,
+   "not_yet_researched": 95,
    "queue_entries": 131,
    "queue_errors": [],
    "state": "TX",
@@ -48167,8 +48176,10 @@
    "four_year_institutions": 12,
    "institutions": [
     {
-     "academic_years": [],
-     "catalog_share": null,
+     "academic_years": [
+      "2026-27"
+     ],
+     "catalog_share": 0.698,
      "dimensions": {
       "admission_rules": "queued",
       "catalog": "queued",
@@ -48176,19 +48187,27 @@
       "requirement_groups": "queued"
      },
      "folder": "byu",
-     "high_value_without_admission_rule": [],
+     "high_value_without_admission_rule": [
+      "business",
+      "computer_science",
+      "engineering",
+      "nursing"
+     ],
      "institution_key": "ipeds-230038",
-     "listed_bachelor_programs": null,
+     "listed_bachelor_programs": 169,
      "name": "Brigham Young University",
      "partially_verified_programs": 0,
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "admission_rules:not_yet_researched",
+      "catalog:not_yet_researched",
+      "degree_maps:not_yet_researched",
+      "requirement_groups:not_yet_researched"
      ],
      "requirement_groups": 0,
-     "status": "exception",
-     "verified_bachelor_programs": 0
+     "status": "partial",
+     "verified_bachelor_programs": 118
     },
     {
      "academic_years": [],
@@ -48208,7 +48227,7 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "institution:layout_not_readable"
      ],
      "requirement_groups": 0,
      "status": "exception",
@@ -48284,7 +48303,7 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "institution:fetch_failed"
      ],
      "requirement_groups": 0,
      "status": "exception",
@@ -48308,7 +48327,7 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "institution:no_year_label"
      ],
      "requirement_groups": 0,
      "status": "exception",
@@ -48466,8 +48485,8 @@
      "verified_bachelor_programs": 0
     }
    ],
-   "not_yet_researched": 10,
-   "queue_entries": 14,
+   "not_yet_researched": 7,
+   "queue_entries": 17,
    "queue_errors": [],
    "state": "UT",
    "status": "in_progress",
@@ -51448,7 +51467,7 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:not_yet_researched"
+      "institution:layout_not_readable"
      ],
      "requirement_groups": 0,
      "status": "exception",
@@ -52465,7 +52484,7 @@
      "verified_bachelor_programs": 0
     }
    ],
-   "not_yet_researched": 39,
+   "not_yet_researched": 38,
    "queue_entries": 52,
    "queue_errors": [],
    "state": "WI",
