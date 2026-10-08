@@ -21,8 +21,8 @@ MUTS = [
     ('programs/extract.py', " or LONG_AWARD_WITH_OPTION_ENTRY.match(line))", ")"),
     ('programs/extract.py', "    if m: return re.sub(r'\\W+', '', m.group('base')).lower(), _award_key(m.group('award'))\n    if ',' in line:", "    if ',' in line:"),
     # OSU 2026-27: a 'Full 2025-2026 Catalog' print link is not the page's year label; only the whole line is
-    ('programs/extract.py', "|\\s*Full\\s+20\\d{2}\\s*[-–]\\s*(?:20)?\\d{2}\\s+(?:Catalog|Catalogue|Bulletin)\\s*$', re.I)", "', re.I)"),
-    ('programs/extract.py', "(?:Catalog|Catalogue|Bulletin)\\s*$', re.I)  # \"PDF of", "(?:Catalog|Catalogue|Bulletin)', re.I)  # \"PDF of"),
+    ('programs/extract.py', "|\\s*Full\\s+20\\d{2}\\s*[-–]\\s*(?:20)?\\d{2}\\s+(?:Catalog|Catalogue|Bulletin)\\s*$|", "|"),
+    ('programs/extract.py', "(?:Catalog|Catalogue|Bulletin)\\s*$|\\s*20\\d{2}", "(?:Catalog|Catalogue|Bulletin)|\\s*20\\d{2}"),
     # UVU: listed emphases, glued awards, matriculation evidence
     ('programs/extract.py', "    return any(is_option_page(c) for c in found) and (key, norm_emph(url)) not in emphases", "    return any(is_option_page(c) for c in found)"),
     ('programs/autoreview.py', "'program_name', '')) and (c['institution_key'], url_of(c, 'program_url')) not in listed_emphases else", "'program_name', '')) and True else"),
@@ -84,11 +84,11 @@ MUTS = [
     ('programs/build_targets.py', "          | set(c.get('extra_hosts',[]))),'mode'", "          ),'mode'"),
     ('programs/crawl.py', "(b[a-z]{1,5}|ab|major)([-_]|$)', seg)", "(b[a-z]{1,5}|major)([-_]|$)', seg)"),
     ('programs/catalog_counts.py', "                 and len(x['printed']) - len(v['record']['program_name']) >= 30]", "                 ]"),
-    ('programs/catalog_counts.py', "                if k.startswith(name_key(hit['record']['program_name'])): hit = None", "                pass"),
+    ('programs/catalog_counts.py', "                if name_key(x['printed']).startswith(name_key(hit['record']['program_name'])): hit = None", "                pass"),
     ('programs/catalog_counts.py', "    return re.sub(r'^https?://', '', re.sub(r'(/index\\.html?)?/*$', '', u)).lower()", "    return re.sub(r'(/index\\.html?)?/*$', '', u).lower()"),
     ('programs/catalog_counts.py', "    if len(pr) % 2 == 0 and h and pr[:h] == pr[h:]: return pr[:h], True", "    if False: return pr[:h], True"),
     ('programs/catalog_counts.py', "        comb = [x for x in b if COMB.search(x['printed'])]", "        comb = []"),
-    ('programs/catalog_counts.py', "        progs = [v for v in cands.values() if v['institution_key'] == ik and v['domain'] == 'academic_programs' and v['candidate_id'] in approved]", "        progs = [v for v in cands.values() if v['institution_key'] == ik and v['domain'] == 'academic_programs']"),
+    ('programs/catalog_counts.py', " and v['domain'] == 'academic_programs' and v['candidate_id'] in approved\n", " and v['domain'] == 'academic_programs'\n"),
     ('programs/extract.py', "|General\\s+|[A-Z][a-z]+\\s+Campus\\s+)?(Catalog", "|General\\s+)?(Catalog"),
     ('programs/extract.py', "    return (EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) or WITH_EMPHASIS_ENTRY.match(line)\n", "    return (EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) or None\n"),
     ('programs/extract.py', "            if key in degrees or key in (offered or {}).get(ik, set()): continue", "            pass"),
@@ -122,7 +122,7 @@ MUTS = [
     # one program name on several pages: only the base page's record and requirement rows
     ('programs/autoreview.py', "               'variant_page' if url_of(c, 'program_url') in variant_pages else", ""),
     ('programs/autoreview.py', "               'variant_page' if url_of(c, 'source_url') in variant_pages else", ""),
-    ('programs/autoreview.py', "    base = [b for b in stems if all(o == b or o.startswith((b + '-', b + '_')) for o in stems)]", "    base = sorted(stems)[:1]"),
+    ('programs/autoreview.py', "    base = [b for b in stems if all(o == b or o.startswith((b + '-', b + '_')) or o.endswith('-' + b) for o in stems)]", "    base = sorted(stems)[:1]"),
     ('programs/autoreview.py', "    url = re.sub(r'/general-[A-Za-z0-9]+$', '', url)", "    pass"),
     # Stetson: a not-yet-posted catalog PDF slot is not the page's label; a four-digit 'Edition' label is read
     ('programs/extract.py', "        if any(re.match(r'\\s*coming soon\\b', l, re.I) for l in lines[i + 1:i + 3] if l.strip()): continue", "        pass"),
@@ -222,7 +222,7 @@ MUTS = [
     ('programs/autoreview.py', " and not PAREN_VARIANT_ENTRY.match(n) and not PAREN_AWARD_VARIANT_ENTRY", " and not PAREN_AWARD_VARIANT_ENTRY"),
     # Texas A&M 'X - BS, Y Track' list lines; track pages passed to the listed rule
     ('programs/extract.py', "\n                or AWARD_DASH_OPTION_ENTRY.match(line)", ""),
-    ('programs/extract.py', "(p.get('printed') or '').replace('\\u200b', '')", "(p.get('printed') or '')"),
+    ('programs/extract.py', "(printed or '').replace('\\u200b', '')", "(printed or '')"),
     ('programs/extract.py', "    if credential_of(name) != 'bachelor' or GENERIC_DEGREES.match(name) or NOT_PROGRAM_NAME.search(name): return []", "    if credential_of(name) != 'bachelor' or OPTION_NAME.search(name) or GENERIC_DEGREES.match(name) or NOT_PROGRAM_NAME.search(name): return []"),
     # shared reader requests #153: section titles, roadmaps, offices; UC Davis college run-on; Coursedog card descriptions
     ('programs/extract.py', " or GENERIC_DEGREES.match(name) or NOT_PROGRAM_NAME.search(name): return []", " or GENERIC_DEGREES.match(name): return []"),
