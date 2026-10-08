@@ -14,6 +14,13 @@ class CitedShaTests(unittest.TestCase):
             self.assertEqual(R.cited_shas(p), {'a' * 64, 'b' * 64})
             self.assertEqual(R.cited(p)[0], {'p.json.gz'})
 
+    def test_upgrade_cites_the_document_it_reread(self):  # UTC 2026-27 cost of attendance upgrade (#191)
+        ev = {'upgrade:["costs", "k", null, "2026-27", {}]': {'decision': {'reason': 'r'},
+              'verify': {'result': 'all_values_found_year_labeled', 'source_sha256': 'c' * 64}}}
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / 'evidence.json'; p.write_text(json.dumps(ev))
+            self.assertEqual(R.cited_shas(p), {'c' * 64})
+
 
 if __name__ == '__main__':
     unittest.main()
