@@ -477,6 +477,9 @@ class StatedMajorTests(unittest.TestCase):
         self.assertEqual({y for y, _ in X.printed_catalog_years(osu)}, {'2026-2027'})
         utsa = T.Page('2026-28 Undergraduate Catalog\n2024-2026 Undergraduate Catalog PDF\nDepartment of Computer Science', 't', [], [], [])
         self.assertEqual({y for y, _ in X.printed_catalog_years(utsa)}, {'2026-2028'})
+        # undotted awards in program names (OSU 'Marketing, BSBA', 'Chemical Engineering, BSCH'; Missouri 'BSAcc in Accountancy')
+        for n in ('Marketing, BSBA', 'Chemical Engineering, BSCH', 'Civil Engineering, BSCV', 'Health Care Administration, BPS', 'BSAcc in Accountancy', 'BHS in Health Science'):
+            self.assertEqual(X.credential_of(n), 'bachelor', n)
         # undotted awards on program lists (OSU, Missouri, UTEP); a graduate award, a minor or an all-caps name is not one
         for lab in ('Marketing, BSBA', 'Chemical Engineering, BSCH', 'University Studies, BUS', 'BJ*', 'BSAcc', 'Computer Engineering, BSBachelorsUndergraduateEngineering'):
             self.assertEqual(X.list_award(lab, lab), 'bachelor', lab)

@@ -38,8 +38,10 @@
   {
    "institution_key": "ipeds-230418",
    "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate and configure the catalog (discovery found no catalog)."
+   "reason": "no_year_label",
+   "next_action": "Find a printed catalog year on the rendered program pages; the catalog PDF reader is not yet trusted.",
+   "detail": "Coursedog catalog catalog.ensign.edu: the catalog API answered 401 (run 2026-10-08-c01) and the 20 rendered program pages gave no labeled program record.",
+   "evidence_url": "https://catalog.ensign.edu/"
   },
   {
    "institution_key": "ipeds-480985",
@@ -81,8 +83,10 @@
   {
    "institution_key": "ipeds-230782",
    "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate and configure the catalog (discovery found no catalog)."
+   "reason": "fetch_failed",
+   "next_action": "Retry when robots.txt answers; otherwise request an official program export.",
+   "detail": "robots.txt for catalog.weber.edu could not be read in run 2026-10-08-c01 (robots_unreachable), so no catalog page was fetched.",
+   "evidence_url": "https://catalog.weber.edu/index.php?catoid=24"
   },
   {
    "institution_key": "ipeds-433387",

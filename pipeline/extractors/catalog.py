@@ -27,7 +27,7 @@ CHOOSE_HOURS = re.compile(r'\b(?:choose|select|complete|take)\s+(?:a\s+minimum\s
 # Issue #95: a printed choice ("Choose from:", "from the following", "(choose one)") whose count could not be read.
 CHOICE_CUE = re.compile(r'\bchoose\b|\bselect\b|\bfrom\s+the\s+following\b|\bone\s+of\s+the\s+following\b', re.I)
 # 'B.F.A.' (UVU) is matched as well as 'BFA'
-DEGREE = [('bachelor', r'(?<![A-Za-z]\.)\bB\.?\s?(F\.\s?A|S\.\s?N|S\.\s?W|L\.\s?A|B\.\s?A|S|A|BA|FA|M|SN|SW|AS|ArCH|Arch|ED|Mus)\b\.?|(?i:bachelor)'), ('associate', r'\bA\.?\s?(S|A|AS|AT|ST|F\.?A)\b\.?|(?i:associate)')]
+DEGREE = [('bachelor', r'(?<![A-Za-z]\.)\bB\.?\s?(F\.\s?A|S\.\s?N|S\.\s?W|L\.\s?A|B\.\s?A|S|A|BA|FA|M|SN|SW|AS|ArCH|Arch|ED|Mus)\b\.?|(?i:bachelor)|^\s*B(?:J|HS|ES|GS|SAcc|SBA|SBE|SIE|SChE|SCE|SEE|SME|SAE|SCS|SF|SFS|SPH|PHIL|ASW|SW|LS|AS)\s+in\s+[A-Z]'), ('associate', r'\bA\.?\s?(S|A|AS|AT|ST|F\.?A)\b\.?|(?i:associate)')]
 GRADUATE = re.compile(r'\b(M\.?S|M\.?A|MBA|M\.?Ed|Ph\.?D|Ed\.?D|DNP|graduate|certificate|minor)\b', re.I)
 CATEGORY = [
     ('general_education', r'general\s+education|gen\.?\s*ed|core\s+curriculum|university\s+core|tbr\s+core'),
