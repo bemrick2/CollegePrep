@@ -2,13 +2,13 @@
 
 This file is how a new Research session resumes the national program-research workstream without redoing finished work. It is updated with every batch PR.
 
-- **Main at the last refresh:** `db28d882ce0a84e709fe5e1b14cce86106d51c3c` (merge of #211, batch 1).
-- **Branch carrying this checkpoint:** `research/batch-02`.
+- **Main at the last refresh:** `7451caf822e6f709da8a8fd9a136e2fc7c40823c` (merge of #213, batch 2).
+- **Branch carrying this checkpoint:** `research/batch-03`.
 - **Ranking:** `docs/coverage/research_priority.json`, written by `python3 scripts/research_priority.py`. CI (validate-data) checks that it is current.
 
 ## Numbers
 
-| | main `db28d88` | research/batch-02 |
+| | main `db28d88` (before batch 2) | main `7451caf` (batch 2 merged) |
 |---|---|---|
 | Registered four-year institutions | 2,119 | 2,119 |
 | Covered (docs/PROGRAM_DEPTH_COMPLETION.md) | 62 | 64 |
@@ -17,7 +17,7 @@ This file is how a new Research session resumes the national program-research wo
 
 All figures are counted from `docs/coverage/programs/STATUS.json` and from the `academic_programs` files with `verification_status == "verified"` and `credential_level == "bachelor"`.
 
-## Completed in batch 2 (research/batch-02)
+## Completed in batch 2 (research/batch-02, merged as #213)
 
 | Institution | Run | Result |
 |---|---|---|
@@ -72,7 +72,8 @@ Reader and checker changes in this batch each come with tests and mutants: `prog
 
 ## In flight (run branches pushed, not yet reviewed)
 
-- `program-run/tx-d02-2026-10-08`: UTRGV (SmartCatalog 2026-2027). The walk starts at 'Undergraduate Programs by College'.
+- `program-run/tx-d03-2026-10-08`: UTRGV. A configured list stops the walk, so this run walks the college and department pages and configures no list.
+- `program-run/co-c02-2026-10-08`: Colorado State, with its 'Programs A-Z' list (each program's degree in a table column).
 
 ## Next prioritized batch
 
