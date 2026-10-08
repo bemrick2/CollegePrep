@@ -655,20 +655,23 @@
    "domains": [
     "ucsb.edu"
    ],
-   "hosts": [],
+   "hosts": [
+    "coursedog-pdfs-public-prod.s3.us-east-2.amazonaws.com"
+   ],
    "mode": "catalog",
    "priority": 2,
    "catalog": {
     "home": "https://catalog.ucsb.edu/",
-    "min_depth": 1,
-    "path_prefix": "/",
-    "platform": "courseleaf",
+    "min_depth": 0,
+    "path_prefix": "/programs/",
+    "platform": "coursedog",
     "program_lists": [
      "https://catalog.ucsb.edu/programs"
     ]
    },
    "policy": [],
-   "detected": "CourseLeaf-style catalog on catalog.ucsb.edu (program list https://catalog.ucsb.edu/programs)"
+   "render": "browser",
+   "detected": "CourseLeaf-style catalog on catalog.ucsb.edu (program list https://catalog.ucsb.edu/programs); reviewed 2026-10-08: /programs renders in the browser (run CA/2026-10-08-b01 found no program links without JavaScript)"
   },
   {
    "institution_key": "ipeds-110714",

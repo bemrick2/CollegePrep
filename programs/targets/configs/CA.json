@@ -912,14 +912,16 @@
  "ucsb": {
   "catalog": {
    "home": "https://catalog.ucsb.edu/",
-   "min_depth": 1,
-   "path_prefix": "/",
-   "platform": "courseleaf",
+   "min_depth": 0,
+   "path_prefix": "/programs/",
+   "platform": "coursedog",
    "program_lists": [
     "https://catalog.ucsb.edu/programs"
    ]
   },
-  "detected": "CourseLeaf-style catalog on catalog.ucsb.edu (program list https://catalog.ucsb.edu/programs)"
+  "detected": "CourseLeaf-style catalog on catalog.ucsb.edu (program list https://catalog.ucsb.edu/programs); reviewed 2026-10-08: /programs renders in the browser (run CA/2026-10-08-b01 found no program links without JavaScript)",
+  "render": "browser",
+  "reviewed": true
  },
  "ucsc": {
   "catalog": {

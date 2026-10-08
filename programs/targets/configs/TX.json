@@ -560,11 +560,13 @@
   "catalog": {
    "home": "https://catalog.utsa.edu/",
    "min_depth": 1,
-   "path_prefix": "/",
+   "path_prefix": "/undergraduate/",
    "platform": "courseleaf",
-   "program_lists": []
+   "program_lists": [],
+   "sitemap_program": "/undergraduate/(?!coursedescriptions/)[^/]+/[^/]+/$"
   },
-  "detected": "CourseLeaf-style catalog on catalog.utsa.edu (no program list link; pages found from the home page)"
+  "detected": "CourseLeaf-style catalog on catalog.utsa.edu (no program list link; pages found from the home page); reviewed 2026-10-08: degree programs are printed on department pages (/undergraduate/<college>/<department>/) with no award in the URL (sitemap in run TX/2026-10-08-b01), read like uark's department pages",
+  "reviewed": true
  },
  "wtamu": {
   "catalog": {
