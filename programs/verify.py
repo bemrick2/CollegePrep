@@ -59,6 +59,11 @@ def check_candidate(c, text, other=None):
             for ev in c.get('evidence', []):
                 if ev.get('field') == 'program_page_heading' and norm(ev.get('value', '')) not in t: probs.append('program page heading not printed')
         elif norm(r['program_name']) not in t: probs.append('program_name not verbatim')
+        for ev in c.get('evidence', []):
+            # a degree level read from a state program inventory: the row is printed in that stored document
+            if ev.get('field') == 'award' and norm(ev.get('snippet', '')) not in t: probs.append('award sentence not verbatim')
+            if ev.get('field') == 'credential_level' and ev.get('sha256') and ev['sha256'] != c['source'].get('sha256') and c.get('extractor') == 'inventory_level/v1':
+                if not other or norm(ev.get('snippet', '')) not in norm(other(ev['sha256'])): probs.append('credential level row not in its inventory document')
         cy = r.get('catalog_year') or ''
         y = re.match(r'(20\d{2})-(20\d{2})', cy)
         yev = next((ev for ev in c.get('evidence', []) if ev.get('field') == 'catalog_year' and ev.get('sha256') and ev['sha256'] != c['source'].get('sha256')), None)
@@ -103,6 +108,25 @@ def check_candidate(c, text, other=None):
     return probs
 
 
+_ELSEWHERE = {}
+
+
+def elsewhere(sha, root=None):
+    """Text of a document with this sha256 stored by any local run of the same tree ('' when none holds it)."""
+    if sha in _ELSEWHERE: return _ELSEWHERE[sha]
+    base = Path(root) if root else Path(__file__).resolve().parents[1] / 'programs' / 'runs'
+    text = ''
+    for man in sorted(base.glob('*/*/manifest.jsonl')):
+        for line in man.read_text().splitlines():
+            if sha in line:
+                e = json.loads(line)
+                if e.get('sha256') == sha and e.get('page_file'):
+                    text = Run(man.parent).load_page(e['page_file'])[0].text; break
+        if text: break
+    _ELSEWHERE[sha] = text
+    return text
+
+
 def main(run_dir, keys=None):
     run = Run(Path(run_dir)); d = Path(run_dir)
     pages = {e.get('sha256'): e['page_file'] for e in run.entries() if e.get('page_file')}
@@ -114,6 +138,8 @@ def main(run_dir, keys=None):
         if pf not in cache: cache[pf] = run.load_page(pf)[0].text if pf else ''
         def other(sha):
             f = pages.get(sha)
+            if f is None:  # a document stored by another run of the same state (a state program inventory, a discovery list)
+                return elsewhere(sha)
             if f not in cache: cache[f] = run.load_page(f)[0].text if f else ''
             return cache[f]
         probs = check_candidate(c, cache[pf], other) if pf else ['source document not in run']

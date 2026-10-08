@@ -209,6 +209,19 @@ MUTS = [
     ('programs/extract.py', "            if re.match(r'\\s+(college|school|graduate\\s+school|division|department|faculty)\\s+of\\b', rest, re.I): return tail", "            if rest: return tail"),
     ('programs/extract.py', "    return name[:m.start()].strip() if m and m.start() >= 3 else name", "    return name"),
     ('programs/extract.py', "(?=[A-Z][a-z]+\\s+(?:\\S+\\s+){4,}\\S)')", "(?=[A-Z][a-z]+)')"),
+    # UMD degree level from the MHEC Academic Program Inventory (award never inferred)
+    ('programs/extract.py', "    if len(hits) != 1: return []", "    if not hits: return []"),
+    ('programs/extract.py', "    hits = [r for r in inv['rows'] if r[2] == \"Bachelor's Degree\" and", "    hits = [r for r in inv['rows'] if"),
+    ('programs/extract.py', "(len(r[1]) >= 38 and want.startswith(_inv_norm(r[1])) and len(_inv_norm(r[1])) >= 30)", "False"),
+    ('programs/extract.py', "entry, INVENTORY_LEVEL_EXTRACTOR, {'program_key': rec['program_key']}, {}, ['award_not_printed'])]", "entry, INVENTORY_LEVEL_EXTRACTOR, {'program_key': rec['program_key']}, {}, [])]"),
+    ('programs/verify.py', "                if not other or norm(ev.get('snippet', '')) not in norm(other(ev['sha256'])): probs.append('credential level row not in its inventory document')", "                pass"),
+    ('programs/extract.py', "                if mm and not _inv_norm(mm.group('prog')).startswith(key): continue  # 'in <another program>'", "                pass"),
+    ('programs/extract.py', "            if key not in _inv_norm(sent) and not AWARD_LEAD.search(sent): continue", "            pass"),
+    ('programs/extract.py', "                if re.match(r'\\s+degree\\s+requirements\\b', tail, re.I): continue", "                pass"),
+    ('programs/extract.py', "        if len(line.strip()) < 60: continue", "        pass"),
+    ('programs/verify.py', "            if ev.get('field') == 'award' and norm(ev.get('snippet', '')) not in t: probs.append('award sentence not verbatim')", "            pass"),
+    ('programs/extract.py', "                if m.group('bare') and not mm: continue  # a bare 'BA' counts only as 'BA in <this major>'", "                pass"),
+    ('programs/extract.py', "AWARD_LEAD = re.compile(r'^the\\s+(?:B\\.\\s?[A-Z]\\.|Bachelor\\s+of\\s+\\w+)\\s+degree\\b|", "AWARD_LEAD = re.compile(r'"),
 ]
 
 
