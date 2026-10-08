@@ -245,6 +245,10 @@ MUTS = [
     # Cal Poly 2026-2028 campus variants listed without a base line
     ('programs/extract.py', " or PAREN_AWARD_VARIANT_ENTRY.match(line)\n                for line in printed]", "\n                for line in printed]"),
     ('programs/autoreview.py', " and not PAREN_AWARD_VARIANT_ENTRY.match(n) and _degree_key(n)", " and _degree_key(n)"),
+    # promote never replaces an owner-corrected record or re-promotes a candidate over the record it produced
+    ('programs/promote.py', "    if on_file.get('verification_correction_reason') or nk in corrected_keys(): return 'owner-approved correction on file'", "    pass"),
+    ('programs/promote.py', "    if c['candidate_id'] in promoted_ids: return 'already promoted from this run'", "    pass"),
+    ('programs/promote.py', "        if held:\n", "        if False:\n"),
     # UW-Madison 2026-27 header: 'Guide' / '2026-2027' on two lines
     ('programs/extract.py', "        if m and HEADER_NAME.fullmatch(prev) and int(m.group(2)) - int(m.group(1)) in PERIOD_SPANS:", "        if m and int(m.group(2)) - int(m.group(1)) in PERIOD_SPANS:"),
     ('programs/extract.py', "HEADER_NAME = re.compile(r'(?:Guide|Catalog|Catalogue|Bulletin)', re.I)", "HEADER_NAME = re.compile(r'.*', re.I)"),
