@@ -40,6 +40,20 @@ def archives():
             yield kind, ev.parent.parent.name, ev.parent.name, ev
 
 
+def cited_shas(ev_path):
+    """sha256 of the other documents an evidence archive cites: a list page named in a field's evidence (listed programs,
+    department majors) and the list page behind a reviewed catalog count (decision.source_evidence). These are fetched
+    documents too; they may sit in the same run or, for a list stored by a discovery run, in another run."""
+    out = set()
+    for v in json.loads(ev_path.read_text()).values():
+        if not isinstance(v, dict): continue
+        for e in v.get('evidence') or []:
+            if isinstance(e, dict) and e.get('sha256'): out.add(e['sha256'])
+        se = (v.get('decision') or {}).get('source_evidence') or {}
+        if se.get('sha256'): out.add(se['sha256'])
+    return out
+
+
 def cited(ev_path):
     """(page files, urls, layout-read urls) cited by an evidence archive."""
     pages, urls, layout_urls = set(), set(), set()
@@ -87,6 +101,26 @@ def blobs(sha, run_dir):
     return out
 
 
+_SHA_INDEX = None
+
+
+def sha_index(idx):
+    """sha256 -> (run_dir, branch, commit, page_file, blob, role, url) over every run branch, built once on demand."""
+    global _SHA_INDEX
+    if _SHA_INDEX is None:
+        _SHA_INDEX = {}
+        for run_dir, heads in idx.items():
+            for b, sha in heads:
+                try: m, bl = manifest(sha, run_dir), blobs(sha, run_dir)
+                except subprocess.CalledProcessError: continue
+                for e in m:
+                    pf = e.get('page_file')
+                    if pf and pf in bl and e.get('sha256') and e['sha256'] not in _SHA_INDEX:
+                        _SHA_INDEX[e['sha256']] = {'run_dir': run_dir, 'run_branch': b, 'commit': sha, 'page_file': pf, 'blob': bl[pf],
+                                                   'role': e.get('role'), 'url': e.get('url') or '', 'sha256': e['sha256']}
+    return _SHA_INDEX
+
+
 def retain(push=False):
     idx = run_index(); tags = []
     for kind, st, run, ev in archives():
@@ -111,6 +145,24 @@ def retain(push=False):
                 if pf in pages or (e.get('role') in LAYOUT_ROLES and (e.get('via') in urls or url.split('#')[0] in layout_urls)):
                     if pf in bl: docs[(pf, url)] = {'page_file': pf, 'blob': bl[pf], 'role': e.get('role'), 'url': url, 'sha256': e.get('sha256')}
             layouts = {d['url'].split('#')[0] for d in docs.values() if d['role'] in LAYOUT_ROLES}
+            # list pages and other documents cited by sha256 (same run first, then any run branch)
+            want = cited_shas(ev) - {d['sha256'] for d in docs.values()}
+            for e in m:
+                pf = e.get('page_file')
+                if pf and e.get('sha256') in want and pf in bl:
+                    docs[(pf, e.get('url') or '')] = {'page_file': pf, 'blob': bl[pf], 'role': e.get('role'), 'url': e.get('url') or '', 'sha256': e['sha256']}
+                    want.discard(e['sha256'])
+            for h in sorted(want):
+                x = sha_index(idx).get(h) if want else None
+                if x: docs[(x['page_file'], x['url'] + '@' + x['run_dir'])] = dict(x)
+            # retention is append-only: documents an earlier run commit gave (already in the store) stay listed even when the
+            # run branch was later rewritten without them
+            prev = ev.parent / 'retention.json'
+            if prev.exists():
+                for d in json.loads(prev.read_text()).get('documents', []):
+                    docs.setdefault((d['page_file'], d['url'] + ('@' + d['run_dir'] if d.get('run_dir') else '')), {k: v for k, v in d.items() if k != 'store_path'})
+            want -= {d.get('sha256') for d in docs.values()}
+            out['cited_missing'] = sorted(want)
             for d in docs.values(): d['store_path'] = store_path(d)
             tags.append(docs.values())
             out.update(run_branch=b, commit=sha, store=STORE, documents=sorted(docs.values(), key=lambda d: (d['page_file'], d['url'])),
@@ -195,6 +247,8 @@ def check():
         lost = sorted(pages - listed)
         if lost: bad.append(f'{ev.parent}: {len(lost)} cited documents not retained, e.g. {lost[0]}')
         layouts = {d['url'].split('#')[0] for d in r.get('documents', []) if d.get('role') in LAYOUT_ROLES}
+        shas = cited_shas(ev) - {d.get('sha256') for d in r.get('documents', [])}
+        if shas: bad.append(f'{ev.parent}: {len(shas)} documents cited by sha256 (list pages) not retained, e.g. {sorted(shas)[0]}')
         nolayout = sorted(u for u in layout_urls if u not in layouts)
         if nolayout: bad.append(f'{ev.parent}: {len(nolayout)} layout-read pages without a retained layout document, e.g. {nolayout[0]}')
     if bad: print('\n'.join(bad)); return 1

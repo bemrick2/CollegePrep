@@ -863,6 +863,45 @@ GRID_HTML = """<h2>Roadmaps</h2><p>Courses marked with (*) are recommended.</p>
 <tr><td class="column0">6--Mathematics</td><td class="column1">25--Upper Division</td></tr></tbody></table>"""
 
 
+class CatalogPeriodTests(unittest.TestCase):  # Cal Poly '2026-2028 Catalog' (#153; owner decision 2026-10-07)
+    def test_two_year_label_is_kept_as_printed(self):
+        from pipeline import text as T
+        from programs.years import academic_year_of
+        page = T.Page('2026-2028 Catalog\n2026-2028 Edition\nAgricultural Business (BS)', 't', [], [], [])
+        self.assertEqual({y for y, _ in X.printed_catalog_years(page)}, {'2026-2028'})
+        self.assertEqual({y for y, _ in X.printed_catalog_years(T.Page('2026-28 Catalog', 't', [], [], []))}, {'2026-2028'})
+        self.assertEqual(X.printed_catalog_years(T.Page('2026-2029 Catalog', 't', [], [], [])), set())  # three years: not read
+        # UT Austin: a two-year catalog with a yearly edition printed on the page: the edition is the label
+        ut = T.Page('2026-27 Edition\nUndergraduate, 2026-2028\n2026-2028 Undergraduate Catalog', 't', [], [], [])
+        self.assertEqual({y for y, _ in X.printed_catalog_years(ut)}, {'2026-2027'})
+        self.assertEqual(academic_year_of('2026-2027'), '2026-27')
+        self.assertEqual(academic_year_of('2026-2028', '2026-27'), '2026-27')
+        self.assertEqual(academic_year_of('2026-2028', '2027-28'), '2027-28')  # the same catalog, read in its second year
+        self.assertEqual(academic_year_of('2026-2028', '2029-30'), '2026-27')  # a period that has ended: its first year
+
+    def test_static_record_keeps_the_period(self):
+        from pipeline import text as T
+        e = {'url': 'https://catalog.x.edu/p/', 'role': 'program_page', 'sha256': 'a' * 64, 'fetched_at': '2026-10-07T00:00:00+00:00', 'status': 200, 'kind': 'html'}
+        page = T.Page('2026-2028 Edition\nAgricultural Business (BS)', 'Agricultural Business (BS) < X', [], [], ['2026-2028 Edition', 'Agricultural Business (BS)'])
+        c = X.static_program_identity({'institution_key': 'k'}, e, page, '2026-27')[0]
+        self.assertEqual((c['academic_year'], c['record']['catalog_year']), ('2026-27', '2026-2028'))
+        self.assertEqual([ev['snippet'] for ev in c['evidence'] if ev['field'] == 'catalog_year'], ['2026-2028 Edition'])
+
+    def test_validation_accepts_a_year_inside_the_period(self):
+        import sys
+        from pathlib import Path
+        sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
+        from validate_data import requirement_group_errors as V
+        rec = lambda cy, ay: {'academic_year': ay, 'requirement_kind': 'program_plan', 'rule_details': {'schema': 'requirement_group/v1', 'catalog_year': cy,
+              'group_type': 'sequence', 'category': 'recommended_sequence', 'terms': [{'term_index': 1, 'items': []}]}}
+        self.assertEqual(V(rec('2026-2028', '2026-27')), [])
+        self.assertEqual(V(rec('2026-2028', '2027-28')), [])
+        self.assertTrue(V(rec('2026-2028', '2028-29')))
+        self.assertTrue(V(rec('2026-2029', '2026-27')))
+        self.assertTrue(V(rec('2026-2027', '2027-28')))
+        self.assertEqual(V(rec('2026-27', '2026-27')), [])
+
+
 class RoadmapGridTests(unittest.TestCase):  # UAF 2026-27 roadmaps (#151 reader request)
     def grid(self, html=GRID_HTML):
         from programs.courselist_html import plan_grids

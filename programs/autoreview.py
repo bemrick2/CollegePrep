@@ -25,6 +25,7 @@ New platforms and extractors are not added to TRUSTED without an independent acc
 SmartCatalog review recorded in programs/queue/OR.json).
 """
 from __future__ import annotations
+from programs.years import academic_year_of
 import json, re
 from collections import Counter, defaultdict
 from datetime import date
@@ -190,20 +191,20 @@ def catalog_records(state, run, lists, today_year, approved_urls=None):
         if m.get('page_file'): manifest.setdefault(m['url'], m)
     targets = {t['institution_key']: t for t in json.loads((ROOT / 'programs/targets' / f'{state}.json').read_text())['institutions']}
     for key, pl in lists.items():
-        years = {int(y[:4]) for y in pl.get('printed_years', []) if y[:4].isdigit()}
+        labels = {y for y in pl.get('printed_years', []) if re.fullmatch(r'20\d{2}-20\d{2}', y or '')}
         progs = [p for p in pl.get('programs', []) if p.get('credential_level') == 'bachelor']
-        if len(years) != 1 or not progs or key not in targets: continue
-        y = years.pop()
-        if f'{y}-{str(y + 1)[2:]}' < today_year: continue
+        if len({l[:4] for l in labels}) != 1 or len(labels) != 1 or not progs or key not in targets: continue
+        label = labels.pop()  # as printed: '2026-2027', or a period such as Cal Poly's '2026-2028'
+        if academic_year_of(label, today_year) < today_year: continue
         src = Counter(p['listed_on'] for p in progs).most_common(1)[0][0]
         m = manifest.get(src)
         if not m: continue
         n = len({p['printed'].strip().lower() for p in progs})
         on_list = {re.sub(r'(/index\.html?)?/?$', '', p['url']) for p in progs} & (approved_urls or {}).get(key, set())
-        out.append({'institution_key': key, 'catalog_url': targets[key]['catalog']['home'], 'catalog_year_label': f'{y}-{y + 1}',
+        out.append({'institution_key': key, 'catalog_url': targets[key]['catalog']['home'], 'catalog_year_label': label,
                     'source_evidence': {'url': src, 'sha256': m['sha256'], 'fetched_at': m['fetched_at']},
                     'listed_bachelor_programs': n, 'verified_listed_programs': len(on_list), 'programs_complete': False,
-                    'completeness_basis': (f'{n} distinct linked entries on the official {y}-{y + 1} program list pages print a bachelor\'s '
+                    'completeness_basis': (f'{n} distinct linked entries on the official {label} program list pages print a bachelor\'s '
                                            'award (options, tracks and concentrations listed with an award are counted; unlinked lines are not). '
                                            'Not checked as complete.'),
                     'reason': 'Standing review: official current-catalog program list pages.'})
