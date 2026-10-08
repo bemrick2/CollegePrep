@@ -89,6 +89,18 @@ class DeepDiveTests(unittest.TestCase):
             self.assertFalse(any('weather' in s for _, s in cats))
             for e in ev: self.assertTrue(e['sha256'] and e['url'].startswith('https://'))  # provenance on every sentence
 
+    def test_page_reached_by_two_urls_gives_each_candidate_once(self):  # TX 2026-10-07-flag3: list link and sitemap link
+        with tempfile.TemporaryDirectory() as d:
+            self.run_once(d)
+            m = Path(d) / 'manifest.jsonl'
+            es = [json.loads(l) for l in m.read_text().splitlines()]
+            prog = next(e for e in es if e.get('role') == 'program_page')
+            m.write_text(m.read_text() + json.dumps({**prog, 'url': prog['url'].replace('https://', 'http://')}) + '\n')
+            X.extract_run({'state': 'ZZ', 'institutions': [TARGET]}, d)
+            ids = [json.loads(l)['candidate_id'] for l in (Path(d) / 'candidates.jsonl').read_text().splitlines()]
+            self.assertTrue(ids)
+            self.assertEqual(len(ids), len(set(ids)))
+
     def test_platform_rules(self):
         cl = {'catalog': {'platform': 'courseleaf', 'home': 'https://catalog.x.edu/', 'path_prefix': '/college-departments/', 'min_depth': 1}}
         r = C.program_rule(cl)
@@ -396,6 +408,13 @@ class CourseleafPlanTests(unittest.TestCase):
         out = [c for c in CL.extract({'institution_key': 'k'}, e, T.Page('Computer Science BA/BS', 'Computer Science BA/BS', same, [], []), '2026-2027', '', True)
                if c['domain'] == 'degree_requirements']
         self.assertTrue(all(c['issues'] == ['multiple_plan_grids'] for c in out))
+        # headings alike for their first 80 characters (LMU 2026-27 math-placement plans) still give distinct keys and ids
+        h = 'Model 4-Year Plan\u2013Bachelor of Business Administration\u2013Finance Major Curriculum\u2013Math placement MATH '
+        alike = [self.grid(h + '101'), self.grid(h + '110')]
+        out = [c for c in CL.extract({'institution_key': 'k'}, e, T.Page('Finance BBA', 'Finance BBA', alike, [], []), '2026-2027', '', True)
+               if c['domain'] == 'degree_requirements']
+        self.assertEqual(len({c['record']['requirement_key'] for c in out}), 2)
+        self.assertEqual(len({c['candidate_id'] for c in out}), 2)
 
     def test_term_header_row_with_milestones_column(self):  # UO 2026-27: 'Fall | Milestones | Credits'
         from programs import courseleaf as CL
@@ -2208,3 +2227,32 @@ class EnteringWeightTests(unittest.TestCase):
         w = status.entering('UT')
         self.assertGreater(w.get('ipeds-230737', 0), 0)  # UVU files no ADM survey; EF2023A first-time count is used
         self.assertEqual(w.get('ipeds-230728'), 4388)    # an ADM 'enrolled' count is kept as reported
+
+
+class CandidateIdentityTests(unittest.TestCase):
+    """One candidate per id (TX 2026-10-07-flag3, LMU and UNK 2026-27)."""
+
+    def cand(self, cid, url, rd, issues=()):
+        return {'candidate_id': cid, 'domain': 'degree_requirements', 'issues': list(issues), 'extractor': 'x',
+                'source': {'url': url, 'fetched_at': url}, 'record': {'program_key': 'p', 'source_url': url, 'rule_details': rd}}
+
+    def test_page_read_twice_gives_one_candidate(self):
+        from programs.extract import distinct_candidates
+        out = distinct_candidates([self.cand('a', 'https://x/p/', [1]), self.cand('a', 'http://x//p/', [1]), self.cand('b', 'https://x/q/', [2])])
+        self.assertEqual([(c['candidate_id'], c['source']['url']) for c in out], [('a', 'https://x/p/'), ('b', 'https://x/q/')])
+        self.assertEqual([c['issues'] for c in out], [[], []])
+
+    def test_same_id_different_content_is_held(self):
+        from programs.extract import distinct_candidates
+        out = distinct_candidates([self.cand('a', 'https://x/p/', [1]), self.cand('a', 'https://x/p/', [2])])
+        self.assertEqual(len(out), 2)
+        self.assertTrue(all('candidate_id_collision' in c['issues'] for c in out))
+
+    def test_plan_headings_alike_for_80_characters_get_distinct_keys(self):  # LMU 2026-27 math-placement plans
+        from programs.courseleaf import labelled_keys
+        from pipeline.extractors.catalog import slug
+        h = 'Model 4-Year Plan–Bachelor of Business Administration–Finance Major Curriculum–Math placement MATH '
+        keys = labelled_keys([h + '101', h + '110', h + '112'], slug)
+        self.assertEqual(len(set(keys)), 3)
+        self.assertEqual(keys[2], slug(h + '112'))  # the last keeps the key stored before this rule
+        self.assertEqual(labelled_keys(['Robotics Concentration', 'Without Concentration'], slug), ['robotics-concentration', 'without-concentration'])

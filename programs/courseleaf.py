@@ -10,6 +10,7 @@ stay printed text. Nothing is inferred. A page with several grids (one per optio
 distinct "Bachelor of ..." heading (UO "Degree Map" tables), which then names the plan.
 """
 from __future__ import annotations
+import hashlib
 import re
 
 from pipeline.extractors import common
@@ -21,6 +22,16 @@ ONE = re.compile(r'^([A-Z]{1,5})\s(\d{3}[A-Z]?)$')
 TERM = re.compile(r'^(first|second|third|fourth|fifth|freshman|sophomore|junior|senior)\s+year$|^year\s+\d$|^(fall|winter|spring|summer)(\s+(term|semester|quarter))?(\s+\d)?$', re.I)
 
 HEADER_CELLS = {'credits', 'milestones', 'hours', 'credit hours'}
+
+
+def labelled_keys(heads, make):
+    """Keys for plans named by their headings. A key is a slug cut at 80 characters, so headings that differ only after
+    that ('Model 4-Year Plan–Bachelor of Business Administration–Finance Major Curriculum–Math placement MATH 101' /
+    '... MATH 110', LMU 2026-27) would share a key and a candidate id. The last such plan keeps the key (the one stored
+    before this rule); earlier ones get a short hash of their full heading."""
+    keys = [make(h) for h in heads]
+    return [f'{k[:73]}-{hashlib.sha1(h.encode()).hexdigest()[:6]}' if k in keys[i + 1:] else k
+            for i, (k, h) in enumerate(zip(keys, heads))]
 
 
 def grids(page):
@@ -84,10 +95,11 @@ def extract(inst, entry, page, year, year_line, have_program):
     # UO prints one 'Degree Map' per award under its own heading ('Bachelor of Science in Computer Science'): distinct
     # headings label the plans, so several grids are not ambiguous there.
     labelled = len(parsed) > 1 and len(set(headings)) == len(headings) and all(re.search(r'\bbachelor\b', h, re.I) for h in headings)
+    plan_keys = labelled_keys(headings, slug) if labelled else []
     for i, (terms, total) in enumerate(parsed, 1):
         if not terms: continue
         if labelled:
-            key = slug(headings[i - 1])
+            key = plan_keys[i - 1]
         else:
             key = 'sample-plan' if len(parsed) == 1 else f'sample-plan-{i}'
         caption = (gs[i - 1].get('caption') or 'Plan of Study Grid').strip()
@@ -603,11 +615,12 @@ def plangrid_candidates(inst, entry, grid_entry, doc, year, program_key):
     # Concentration'): distinct headings name the plans, so several grids are not ambiguous there
     labelled = len(grids_) > 1 and len(set(heads)) == len(heads) and all(h and h.lower() != 'roadmaps' for h in heads)
     out = []
+    road_keys = labelled_keys(heads, lambda h: f'roadmap-{slug(h)}'[:90]) if labelled else []
     for i, t in enumerate(grids_, 1):
         terms, total, issues = parse_plangrid(t, defs)
         if not terms: continue
         if len(grids_) > 1 and not labelled: issues.add('multiple_plan_grids')
-        key = 'roadmap' if len(grids_) == 1 else (f'roadmap-{slug(heads[i - 1])}'[:90] if labelled else f'roadmap-{i}')
+        key = 'roadmap' if len(grids_) == 1 else (road_keys[i - 1] if labelled else f'roadmap-{i}')
         used = sorted({n for term in terms for it in term['items'] for x in [it, *it.get('options', [])] for n in x.get('footnotes', [])}, key=lambda n: (len(n), n))
         rd = {'schema': 'requirement_group/v1', 'catalog_year': year, 'group_type': 'sequence', 'category': 'recommended_sequence',
               'terms': terms, 'source_section': (heads[i - 1] if labelled else (t.get('heading') or 'Roadmap').strip() + (f' {i} of {len(grids_)}' if len(grids_) > 1 else ''))}

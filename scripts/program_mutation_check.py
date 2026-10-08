@@ -236,6 +236,12 @@ MUTS = [
     ('programs/autoreview.py', "and url_of(c, 'program_url') + '/' + slug(c['record'].get('program_name', '')) in pages[", "and any(v.startswith(url_of(c, 'program_url') + '/') for v in pages["),
     ('programs/autoreview.py', "variant_pages_of([{u for u in us if (k[0], u) not in department_pages} for k, us in pages.items()])", "variant_pages_of(pages.values())"),
     ('programs/extract.py', "^\\s*(general\\s+)?requirements\\s+(for\\s+(a|the|all)\\b|[-\\u2013\\u2014])", "^\\s*requirements\\s+for\\s+(a|the)\\b"),
+    # one candidate per id: pages read twice, colliding ids held, plan keys distinct beyond 80 characters
+    ('programs/extract.py', "    cands = distinct_candidates(cands)\n", ""),
+    ('programs/extract.py', "        if fetch(first) == fetch(c): continue\n", ""),
+    ('programs/extract.py', "            if 'candidate_id_collision' not in x['issues']: x['issues'] = x['issues'] + ['candidate_id_collision']", "            pass"),
+    ('programs/courseleaf.py', "if k in keys[i + 1:] else k", "if False else k"),
+    ('programs/courseleaf.py', "    plan_keys = labelled_keys(headings, slug) if labelled else []", "    plan_keys = [slug(h) for h in headings] if labelled else []"),
 ]
 
 
