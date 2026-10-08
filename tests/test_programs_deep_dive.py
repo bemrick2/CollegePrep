@@ -1718,6 +1718,10 @@ class DegreePageTests(unittest.TestCase):  # JHU 2026-27 (Research request in #1
         self.assertEqual(variant_pages_of([{j + 'b/biology-bs', j + 'b/biology-bs-pre-professional'}]), {j + 'b/biology-bs-pre-professional'})
         self.assertEqual(variant_pages_of([{j + 'c/asian-studies', j + 'c/asian-studies-ba'}]), set())  # one base page: both are that page
         self.assertEqual(variant_pages_of([{j + 'u/ABC', j + 'u/ABC_HON'}]), {j + 'u/ABC_HON'})  # underscore extensions of a base page
+        # Georgia Tech 2026-27: thread pages put the qualifier before the base name ('media-people-computer-science-bs')
+        gt = {j + 'p/computer-science-bs', j + 'p/media-people-computer-science-bs', j + 'p/computer-science-theory-bs'}
+        self.assertEqual(variant_pages_of([gt]), gt - {j + 'p/computer-science-bs'})
+        self.assertEqual(variant_pages_of([{j + 'p/biology-bs', j + 'p/marine-science-bs'}]), {j + 'p/biology-bs', j + 'p/marine-science-bs'})  # no base page
 
 
 class SamplePlanPageTests(unittest.TestCase):  # KU 2026-27 sample-plan sub-pages; PVAMU award abbreviations (review of 2026-10-07)
@@ -2415,7 +2419,8 @@ class CatalogCountTests(unittest.TestCase):
         # Missouri: 'BA' / 'BS*' under department headings, each its own program; UTEP: card labels run on to the name
         listing = [('BA', u + 'anth/ba-anthropology/', 'bachelor'), ('BA', u + 'art/ba-art/', 'bachelor'), ('BS*', u + 'ds/bs-data-science/', 'bachelor'),
                    ('BBA in AccountingBusiness, Management, & MarketingBachelorsUndergraduateBusiness Administration', u + 'acct-bba/', 'bachelor'),
-                   ('BA in Chicano StudiesBachelorsHumanities, Languages, and Literatures', u + 'chicano-ba/', 'bachelor')]
+                   ('BA in Chicano StudiesBachelorsHumanities, Languages, and Literatures', u + 'chicano-ba/', 'bachelor'),
+                   ("Bachelor's Degree Programs", u + 'programs/', 'bachelor')]  # Georgia Tech: the list's own heading link
         records = [('BA in Anthropology', u + 'anth/ba-anthropology/'), ('BA in Art', u + 'art/ba-art/'),
                    ('BBA in Accounting', 'https://api.x.com/feed'), ('BA in Chicano Studies', u + 'chicano-ba/')]
         with tempfile.TemporaryDirectory() as d:
@@ -2425,6 +2430,7 @@ class CatalogCountTests(unittest.TestCase):
         b = e['completeness_basis']
         self.assertIn('3 print only an award under a department heading and are identified by their own page', b)
         self.assertIn("2 run the card's category labels on to the name", b)
+        self.assertIn("not counted, 1 department, roadmap, general or commissioning links that are not a single bachelor's program: Bachelor's Degree Programs", b)
         self.assertTrue(b.endswith("Not recorded (names separated by ' | '): BS* (https://catalog.x.edu/ds/bs-data-science/)."))
 
     def test_only_reviewed_approvals_count(self):

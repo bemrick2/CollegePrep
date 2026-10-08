@@ -73,9 +73,11 @@ def page_stem(url):
 
 def base_stem(urls):
     """When one program name is printed on several pages, the stem of the base page (the one every other page's stem
-    extends: 'biology-bs' / 'biology-bs-pre-professional'), or None when there is no such page."""
+    extends: 'biology-bs' / 'biology-bs-pre-professional', 'media-people-computer-science-bs'), or None when there is none."""
     stems = {page_stem(u) for u in urls}
-    base = [b for b in stems if all(o == b or o.startswith((b + '-', b + '_')) for o in stems)]
+    # Georgia Tech 2026-27 thread and concentration pages put their qualifier before the base name too:
+    # 'media-people-computer-science-bs' / 'acoustics-vibrations-engineering-mechanical-engineering-bs' beside 'computer-science-bs'
+    base = [b for b in stems if all(o == b or o.startswith((b + '-', b + '_')) or o.endswith('-' + b) for o in stems)]
     return base[0] if len(base) == 1 else None
 
 
