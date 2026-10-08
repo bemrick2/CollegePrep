@@ -182,7 +182,7 @@ MUTS = [
      "SAMPLE_PLAN_LINE = re.compile(r'(?im)^\\s*(below is a |the )?(sample|recommended) (4|four)[- ]year plan\\b')"),
     ('programs/extract.py', "        if head in before[-2:]: return True", "        return True"),
     ('programs/extract.py', "        if head in before[-2:]: return True", "        if head in before[-1:]: return True"),
-    ('programs/extract.py', "    head = (program_heading(page) or '').strip()", "    head = next(iter(page.headings or []), '').strip()"),
+    ('programs/extract.py', "    head = (program_heading(page) or '').strip()\n    for m in SAMPLE_PLAN_LINE", "    head = next(iter(page.headings or []), '').strip()\n    for m in SAMPLE_PLAN_LINE"),
     # UAF roadmap grids (courseleaf_plangrid/v1)
     ('programs/courseleaf.py', "                if st['open'] is None: issues.add('indented_row_without_rule'); st['term']['items'].append(item)", "                if st['open'] is None: st['term']['items'].append(item)"),
     ('programs/courseleaf.py', "            st['open'] = item if GRID_CHOICE.match(text) else None", "            st['open'] = item if GRID_CHOICE.match(text) else st['open']"),
@@ -211,12 +211,31 @@ MUTS = [
     ('programs/extract.py', "            if re.match(r'\\s+(college|school|graduate\\s+school|division|department|faculty)\\s+of\\b', rest, re.I): return tail", "            if rest: return tail"),
     ('programs/extract.py', "    return name[:m.start()].strip() if m and m.start() >= 3 else name", "    return name"),
     ('programs/extract.py', "(?=[A-Z][a-z]+\\s+(?:\\S+\\s+){4,}\\S)')", "(?=[A-Z][a-z]+)')"),
+    # UMD degree level from the MHEC Academic Program Inventory (award never inferred)
+    ('programs/extract.py', "    if len(hits) != 1: return []", "    if not hits: return []"),
+    ('programs/extract.py', "    hits = [r for r in inv['rows'] if r[2] == \"Bachelor's Degree\" and", "    hits = [r for r in inv['rows'] if"),
+    ('programs/extract.py', "(len(r[1]) >= 38 and want.startswith(_inv_norm(r[1])) and len(_inv_norm(r[1])) >= 30)", "False"),
+    ('programs/extract.py', "{}, [] if awards else ['award_not_printed'])]", "{}, [])]"),
+    ('programs/verify.py', "                if not other or norm(ev.get('snippet', '')) not in norm(other(ev['sha256'])): probs.append('credential level row not in its inventory document')", "                pass"),
+    ('programs/extract.py', "                if mm and not _inv_norm(mm.group('prog')).startswith(key): continue  # 'in <another program>'", "                pass"),
+    ('programs/extract.py', "            if key not in _inv_norm(sent) and not AWARD_LEAD.search(sent): continue", "            pass"),
+    ('programs/extract.py', "                if re.match(r'\\s+degree\\s+requirements\\b', tail, re.I): continue", "                pass"),
+    ('programs/extract.py', "        if len(line.strip()) < 60: continue", "        pass"),
+    ('programs/verify.py', "            if ev.get('field') == 'award' and norm(ev.get('snippet', '')) not in t: probs.append('award sentence not verbatim')", "            pass"),
+    ('programs/extract.py', "                if m.group('bare') and not mm: continue  # a bare 'BA' counts only as 'BA in <this major>'", "                pass"),
+    ('programs/extract.py', "AWARD_LEAD = re.compile(r'^the\\s+(?:B\\.\\s?[A-Z]\\.|Bachelor\\s+of\\s+\\w+)\\s+degree\\b|", "AWARD_LEAD = re.compile(r'"),
     # multi-year catalog periods (Cal Poly '2026-2028', owner decision 2026-10-07)
     ('programs/years.py', "PERIOD_SPANS = (1, 2)", "PERIOD_SPANS = (1,)"),
     ('programs/years.py', "    start = cur if y1 <= cur < y2 else y1", "    start = y1"),
     ('programs/years.py', "    if y2 - y1 <= 1: return f'{y1}-{str(y1 + 1)[2:]}'", "    return f'{y1}-{str(y1 + 1)[2:]}'"),
     ('scripts/validate_data.py', "        if not (1<=y2-y1<=2 and y1<=a<y2 and m.group(2)[-2:]==str(a+1)[-2:]):", "        if not (y1<=a<y2):"),
     ('programs/extract.py', " or not any(int(y[:4]) <= int(x[:4]) < int(y[5:9]) for x in single)}", "}"),
+    # Cal Poly 2026-2028: department pages yield to the program page beneath them; general-requirements policy pages
+    ('programs/autoreview.py', "               'department_page' if (c['institution_key'], url_of(c, 'program_url')) in department_pages else\n", ""),
+    ('programs/autoreview.py', "               'department_page' if (c['institution_key'], url_of(c, 'source_url')) in department_pages else\n", ""),
+    ('programs/autoreview.py', "and url_of(c, 'program_url') + '/' + slug(c['record'].get('program_name', '')) in pages[", "and any(v.startswith(url_of(c, 'program_url') + '/') for v in pages["),
+    ('programs/autoreview.py', "variant_pages_of([{u for u in us if (k[0], u) not in department_pages} for k, us in pages.items()])", "variant_pages_of(pages.values())"),
+    ('programs/extract.py', "^\\s*(general\\s+)?requirements\\s+(for\\s+(a|the|all)\\b|[-\\u2013\\u2014])", "^\\s*requirements\\s+for\\s+(a|the)\\b"),
 ]
 
 
