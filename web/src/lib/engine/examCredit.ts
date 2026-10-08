@@ -15,6 +15,7 @@ export const EXAM_FAMILIES: ExamFamily[] = ['AP', 'CLEP', 'IB', 'SDC']
 export const FAMILY_LABEL: Record<ExamFamily, string> = { AP: 'AP', CLEP: 'CLEP', IB: 'IB', SDC: 'Statewide Dual Credit' }
 /** The policy_kind each family's table is stored under. */
 const POLICY_KIND: Record<ExamFamily, string> = { AP: 'AP', CLEP: 'CLEP', IB: 'IB', SDC: 'statewide_dual_credit' }
+export const policyKindOf = (f: ExamFamily): string => POLICY_KIND[f]
 export type IbLevel = 'SL' | 'HL'
 
 export interface Equivalency {
