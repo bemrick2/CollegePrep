@@ -45,8 +45,10 @@
   {
    "institution_key": "ipeds-225511",
    "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate and configure the catalog (discovery found no catalog)."
+   "reason": "fetch_failed",
+   "next_action": "Retry when robots.txt answers; otherwise request an official program export.",
+   "detail": "robots.txt for publications.uh.edu could not be read in run 2026-10-08-b01 (robots_unreachable), so no catalog page was fetched.",
+   "evidence_url": "https://publications.uh.edu/index.php?catoid=63"
   },
   {
    "institution_key": "ipeds-227368",
@@ -63,8 +65,10 @@
   {
    "institution_key": "ipeds-228787",
    "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate and configure the catalog (discovery found no catalog)."
+   "reason": "no_year_label",
+   "next_action": "Reader work (Research session): read the edition's academic year from the edition's own home page ('2026-2027 Undergraduate Catalog'), citing that page.",
+   "detail": "Catalog catalog.utdallas.edu: 173 program pages (run 2026-10-08-b02) print only 'UT Dallas 2026 Undergraduate Catalog' (an edition name, not an academic-year label); the edition home page prints '2026-2027 Undergraduate Catalog'.",
+   "evidence_url": "https://catalog.utdallas.edu/2026/undergraduate/home/"
   },
   {
    "institution_key": "ipeds-228796",

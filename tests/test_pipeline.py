@@ -33,10 +33,16 @@ class TextTests(unittest.TestCase):
     def test_full_catalog_print_link_is_not_the_catalog_year(self):
         # Oklahoma State 2026-27: '2026-2027 Edition' heads the page; 'Full 2025-2026 Catalog' links last year's PDF
         osu = T.Page('2026-2027 Edition\nFull 2025-2026 Catalog\nZoology, BS\nAcademic Year 2026-2027', 'Zoology, BS', [], [], [])
-        self.assertEqual(catalog.catalog_year(osu), (None, None))
+        self.assertEqual(catalog.catalog_year(osu), ('2026-27', '2026-2027'))  # the edition header is the one label left
+        # two header labels leave the page to its printed 'YYYY-YYYY Catalog' line; the print link is not that line
+        two = T.Page('Academic Year 2026-2027\nArchive 2024-2025\nFull 2025-2026 Catalog\nZoology, BS', 'Zoology, BS', [], [], [])
+        self.assertEqual(catalog.catalog_year(two), (None, None))
         # a footer label in a sentence is still read
         foot = T.Page('2026-2027 Edition\nFull 2025-2026 Catalog\nPrinted from the 2026-2027 Catalog', 'Zoology, BS', [], [], [])
         self.assertEqual(catalog.catalog_year(foot), ('2026-27', '2026-2027'))
+        # the title carries the page's label (programs.extract builds such a view from '2026-2027 Edition'): the print link is not a second label
+        view = T.Page('2026-2027 Edition\nFull 2025-2026 Catalog\nGeography: Pre-Ministry, BA', 'Geography: Pre-Ministry, BA - 2026-2027 Catalog', [], [], [])
+        self.assertEqual(catalog.catalog_year(view), ('2026-27', '2026-2027'))
 
     def test_money_and_numbers_are_not_guessed(self):
         self.assertEqual(T.money_values('$11,084 and $12.50 and $3'), [11084, 12.5, 3])
@@ -1193,6 +1199,10 @@ last 30 hours in residence at the university.</p>"""
                                                     T.Page('', 'Biomedical Science Major: Medical and Veterinary Sciences Option (B.S.) | University of New Hampshire Academic Catalog', [], [], [])))
         self.assertTrue(common.professional_source({'url': 'https://catalog.example.edu/dental/dmd/'}, T.Page('', 'Doctor of Dental Medicine, D.M.D.', [], [], [])))
         self.assertTrue(common.professional_source({'url': 'https://example.edu/law/jd/'}, T.Page('', 'Law, J.D. | Example', [], [], [])))
+        # Oklahoma State 2026-27: an undotted bachelor's award ends the title of a '-pre-law-' program page
+        self.assertFalse(common.professional_source({'url': 'https://catalog.okstate.edu/arts-sciences/psychology/pre-law-ba/'},
+                                                    T.Page('', 'Psychology: Pre-Law, BA | Oklahoma State University Catalog', [], [], [])))
+        self.assertTrue(common.professional_source({'url': 'https://example.edu/law/llm/'}, T.Page('', 'Law, LLM | Example', [], [], [])))
         # Agnes Scott / Georgia Southern / WGTC: other organizations' award lists; Thomas University: "+Scholarships" heading.
         table = ('<h2>National Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th><th>Eligibility</th></tr><tr><td>Coca-Cola Scholars</td><td>$20,000</td><td>Seniors</td></tr>'
                  '<tr><td>Ron Brown Scholar Program</td><td>$10,000</td><td>Seniors</td></tr></table>')

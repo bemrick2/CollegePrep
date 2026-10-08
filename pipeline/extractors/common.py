@@ -79,11 +79,17 @@ def professional_source(entry, page) -> bool:
     hit = PROFESSIONAL.search(u.netloc.split('.')[0]) or PROFESSIONAL.search(u.path)
     # UVU: 'criminal-justice-law-enforcement/criminal-justice-bs' and 'allied-health/dental-hygiene-bs' are bachelor's programs;
     # a page whose own title prints an undergraduate award is not a graduate or professional-school page.
-    return bool(hit) and not re.search(r'undergraduate', page.title or '', re.I) and not UNDERGRAD_AWARD.search((page.title or '').split('|')[0])
+    # Oklahoma State: 'American Studies: Pre-Law, BA' (undotted award at the end of the title) under a '...-pre-law-ba' path
+    head = (page.title or '').split('|')[0]
+    return (bool(hit) and not re.search(r'undergraduate', page.title or '', re.I) and not UNDERGRAD_AWARD.search(head)
+            and not UNDOTTED_BACHELOR_END.search(head))
 
 
 UNDERGRAD_AWARD = re.compile(r'(^|,|\s|\()\s*((?-i:B\.\s?(?:S|A|F\.\s?A|M|S\.\s?N|B\.\s?A|A\.\s?S|S\.\s?W|I\.\s?S)\.?(?![A-Za-z]))|(?-i:A\.\s?(?:S|A|A\.\s?S)\.?(?![A-Za-z]))|'
                             r'Bachelor of [A-Z]|Associate of [A-Z])', re.I)
+
+
+UNDOTTED_BACHELOR_END = re.compile(r',\s*(?-i:B(?:A|S|FA|BA|SN|SW|M|MUS|AS|SAG|SE|SEE|SME|SCE|SChE|SBA|ARCH|LA|GS|AAS))\s*$')
 
 
 INTERNATIONAL = re.compile(r'international[\s_-]*(students?|applicants?|admissions?)|/international(?=/|\s|$|\?)', re.I)
