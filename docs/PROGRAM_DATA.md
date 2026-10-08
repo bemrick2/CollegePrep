@@ -7,6 +7,13 @@ directory, with a wrapper declaring `institution_key`, `academic_year`, and
 `verification_status`, and `last_verified_at`. Never fill missing facts with
 defaults. An unknown numeric value is omitted or null.
 
+**Catalog periods.** A program's `catalog_year` is the catalog label exactly as printed. Most catalogs cover one
+academic year (`"2026-2027"`); some cover a period (`"2026-2028 Catalog"`, Cal Poly). A period label is never
+relabelled to one year: records read from it keep `catalog_year: "2026-2028"`, the printed line stays in the record's
+evidence, and the wrapper's `academic_year` is the year of the period the record is read for (`"2026-27"` now,
+`"2027-28"` when that year is built from the same catalog). `program_catalogs.catalog_year_label` is likewise the
+printed period.
+
 Programs require `program_key` and `program_name`. Keep `program_key` stable
 when the display name changes. Optional fields are `cip_code`,
 `credential_level`, `delivery_mode`, `catalog_year`, `total_credits`,
@@ -45,7 +52,7 @@ Each `degree_requirements` row is one requirement group of one program for one c
 | key | required | meaning |
 | --- | --- | --- |
 | `schema` | yes | `"requirement_group/v1"` |
-| `catalog_year` | yes | Catalog year exactly as printed, e.g. `"2026-2027"`. It must match the file's `academic_year`. |
+| `catalog_year` | yes | Catalog year exactly as printed, e.g. `"2026-2027"`. A catalog published for a multi-year period keeps its printed period (`"2026-2028"`, Cal Poly); the file's `academic_year` must be a year inside the period. |
 | `group_type` | yes | One of the group types below. |
 | `category` | yes | One of the categories below. |
 | `choose_count` | if `group_type` = `choose_courses` | The number of courses to choose. |

@@ -15,6 +15,7 @@ import re
 from pipeline.extractors import common
 from pipeline.extractors.catalog import credential, program_name, slug
 
+from programs.years import academic_year_of
 EXTRACTOR = 'courseleaf_plan/v1'
 ONE = re.compile(r'^([A-Z]{1,5})\s(\d{3}[A-Z]?)$')
 TERM = re.compile(r'^(first|second|third|fourth|fifth|freshman|sophomore|junior|senior)\s+year$|^year\s+\d$|^(fall|winter|spring|summer)(\s+(term|semester|quarter))?(\s+\d)?$', re.I)
@@ -65,7 +66,7 @@ def extract(inst, entry, page, year, year_line, have_program):
     """Candidates for the plan grids of one page; `year` is the printed catalog year label (e.g. '2026-2027')."""
     gs = grids(page)
     if not gs or not year: return []
-    acad = f'{year[:4]}-{year[7:9]}'
+    acad = academic_year_of(year)
     name = program_name(page)
     if not name or not credential(name): return []
     pkey = slug(name)
@@ -224,7 +225,7 @@ def course_list_groups(table):
 
 
 def list_candidates(inst, entry, page, year, year_line, program_key):
-    acad = f'{year[:4]}-{year[7:9]}'
+    acad = academic_year_of(year)
     out, n = [], 0
     for t in page.tables:
         if (t.get('caption') or '').strip().lower() != 'course list': continue
@@ -446,7 +447,7 @@ def html_candidates(inst, entry, cl_entry, tables, year, program_key, program_aw
     heading names the major/degree requirements, curriculum or core; parallel tables ('Classics (Greek) Major
     Requirements', 'X Major - Y') are all held; once a table's preceding prose says to choose a track / focus area /
     specialization / concentration, that table and every later one is held."""
-    acad = f'{year[:4]}-{year[7:9]}'
+    acad = academic_year_of(year)
     out, n = [], 0
     lists = [t for t in tables if (t.get('caption') or 'Course List').strip().lower() == 'course list']
     parallel = sum(1 for t in lists if PARALLEL.match((t.get('heading') or '').strip())) >= 2
@@ -589,7 +590,7 @@ def parse_plangrid(t, footnote_defs):
 
 def plangrid_candidates(inst, entry, grid_entry, doc, year, program_key):
     """program_plan candidates for a page's roadmap grids (programs.courselist_html.plan_grids output)."""
-    acad = f'{year[:4]}-{year[7:9]}'
+    acad = academic_year_of(year)
     defs = {}
     for t in doc.get('footnotes') or []:
         for r in t.get('rows') or []:
