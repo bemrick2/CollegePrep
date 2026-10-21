@@ -124,7 +124,9 @@ export function CollegePlan() {
           priceFor={
             // The engine's own explanation wins (no home state, or no out-of-state price published).
             roadmap.cost.evidence.method ??
-            (homeState === String(comparison?.institution?.state_code ?? '')
+            (!comparison?.institution?.state_code
+              ? 'In-state price shown: this school’s state isn’t on file.'
+              : homeState === String(comparison.institution.state_code)
               ? `In-state price, for a family in ${homeState} (your answer; residency is the school's decision).`
               : `Out-of-state price, for a family in ${homeState} (your answer).`)
           }

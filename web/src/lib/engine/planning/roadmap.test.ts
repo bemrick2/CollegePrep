@@ -87,4 +87,12 @@ describe('planning roadmap (#194)', () => {
       ['AP Microeconomics', '3', 'ECON 101', 1],
     ])
   })
+
+  it('a school with no exam-credit table on file is never "ready", and says so', () => {
+    const c = school()
+    ;(c.domains as unknown as Record<string, unknown[]>).credit_policies = []
+    const r = buildRoadmap({ comparison: c, programKey: 'biz', profile: profile([]) })
+    expect(r.status).toBe('partial')
+    expect(r.unknowns.map((u) => u.text)).toContain('No exam-credit table (AP, CLEP, IB or Statewide Dual Credit) is on file for Example U.')
+  })
 })
