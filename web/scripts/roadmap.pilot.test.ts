@@ -77,8 +77,8 @@ describe.skipIf(!have)('planning roadmap on the stored Tennessee pilot records (
     expect(r.savings.value).toBeNull()
     expect(r.unknowns.map((u) => u.text)).toEqual(
       expect.arrayContaining([
-        expect.stringMatching(/AP credit table is on file but not verified \(partially_verified\)/),
-        expect.stringMatching(/dual-enrollment policy is on file but not verified/),
+        expect.stringMatching(/AP credit table is on file but not yet verified: the values were checked, but the page prints no academic year/),
+        expect.stringMatching(/dual-enrollment policy is on file but not yet verified/),
       ]),
     )
     expect(r.unknowns.some((u) => u.topic === 'cost')).toBe(false)

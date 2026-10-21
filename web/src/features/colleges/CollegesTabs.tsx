@@ -21,6 +21,11 @@ export function CollegesTabs() {
       <NavLink to="/colleges/majors" className={tab}>
         Majors
       </NavLink>
+      {import.meta.env.VITE_PLANNING_PILOT === 'true' && (
+        <NavLink to="/colleges/plan" className={tab}>
+          College plan (pilot)
+        </NavLink>
+      )}
     </nav>
   )
 }

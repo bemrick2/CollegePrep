@@ -73,7 +73,7 @@ describe('planning roadmap (#194)', () => {
     const blocked = buildRoadmap({ comparison: school('partially_verified'), programKey: 'biz', profile: profile([['AP Microeconomics', 5]]) })
     expect(blocked.status).toBe('blocked')
     expect(blocked.credit[0]).toMatchObject({ fit: 'unknown', acceptance: { evidence: { state: 'verified' } } })
-    expect(blocked.unknowns[0]!.text).toMatch(/plan for this major is on file but not verified/)
+    expect(blocked.unknowns[0]!.text).toMatch(/plan for this major is on file but not yet verified/)
     const noTable = buildRoadmap({ comparison: school('verified', 'partially_verified'), programKey: 'biz', profile: profile([['AP Microeconomics', 5]]) })
     expect(noTable.status).toBe('partial')
     expect(noTable.credit[0]!.acceptance).toMatchObject({ value: null, evidence: { state: 'missing' } })

@@ -133,10 +133,19 @@ These are created as GitHub milestones.
 | Milestone | Contents | Needs Supabase? |
 |---|---|---|
 | **P1: Engine (no database)** | #192 (done), #197, #194 | No |
-| **P2: Pilot view, demo only** | #195 behind `VITE_PLANNING_PILOT`, off everywhere | No |
+| **P2: Pilot view, demo only** | #195 behind `VITE_PLANNING_PILOT`, off everywhere. **Built (2026-10-21):** `web/src/features/planning/`, reading `pilotFixture.json`, which is generated from `data/institutions` and checked against it by a test. Mobile pass at 390 px | No |
 | **P3: Slice 1 data (UTC Management)** | #191: Research verifies and answers from files | No |
 | **P4: Expansion data** | #193: UTK plans and hours, MTSU, dual enrollment, TN pathways and HS requirements | No |
 | **P5: Account storage** | #196: CR-28 planning profile, CR-10 exam-plan wiring, CR-15 home state | **Yes: deferred** |
 | **P6: Live pilot** | Import verified records to hosted; set the flag in a deployed environment | **Yes, plus a deploy: deferred** |
 
 Exit criteria for showing the pilot outside the local demo are in `COLLEGE_PLANNING_PILOT.md` §4.
+
+**Flag gate.** `VITE_PLANNING_PILOT` stays unset in every deployed environment until the exit criteria in `COLLEGE_PLANNING_PILOT.md` §4 are met:
+- every value shown traces to a verified record;
+- #191 P0 is resolved;
+- the owner has reviewed the copy;
+- the hosted hold is lifted;
+- the privacy policy covers any new field.
+
+Today the UTC credit tables are still `partially_verified`, so the gate is not met.

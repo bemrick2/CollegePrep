@@ -40,6 +40,12 @@ function evidence(r: Rec | null | undefined, year: string | null, extra: Partial
     ...extra,
   }
 }
+/** Why a record isn't a fact yet, in plain words (the record's own status stays in the evidence). */
+function notVerifiedWhy(r: Rec): string {
+  if (r.verification_status === 'partially_verified' && /unlabeled/.test(String(r.academic_year_basis ?? '')))
+    return ': the values were checked, but the page prints no academic year'
+  return r.verification_status === 'partially_verified' ? ': some of its values are still being checked' : ''
+}
 const missing = (text: string, r?: Rec | null, year: string | null = null): Evidence => ({ ...evidence(r ?? null, year), state: 'missing', missing: text })
 
 const ARRANGEMENT: Record<string, LivingArrangement> = {
@@ -85,7 +91,7 @@ export function buildRoadmap({ comparison: c, programKey, profile, projection = 
   const hasPlan = terms.length > 0
   const totalRec = reqs.find((r) => r.requirement_kind === 'total_credits' && verified(r)) ?? null
   if (!planRec) unknown('plan', `${inst} has no term-by-term plan on file for this major, so credit can be shown as accepted but not where it counts.`)
-  else if (!hasPlan) unknown('plan', `${inst}'s plan for this major is on file but not verified (${str(planRec.verification_status) ?? 'unverified'}).`)
+  else if (!hasPlan) unknown('plan', `${inst}'s plan for this major is on file but not yet verified${notVerifiedWhy(planRec)}.`)
 
   // Credit: each planned exam against the school's verified table for its family.
   const policies = domain('credit_policies')
@@ -103,7 +109,7 @@ export function buildRoadmap({ comparison: c, programKey, profile, projection = 
     const t = tableFor(exam.family)
     const label = FAMILY_LABEL[exam.family]
     if (!m) {
-      const text = t ? `${inst}'s ${label} credit table is on file but not verified (${str(t.verification_status) ?? 'unverified'}).` : `No ${label} credit table is on file for ${inst}.`
+      const text = t ? `${inst}'s ${label} credit table is on file but not yet verified${notVerifiedWhy(t)}.` : `No ${label} credit table is on file for ${inst}.`
       unknown('credit', text)
       return { exam, acceptance: { value: null, evidence: missing(text, t, tableYear(t)) }, fit: 'none', rows: [], hours: { value: null, evidence: missing(text, t) } }
     }
@@ -163,7 +169,7 @@ export function buildRoadmap({ comparison: c, programKey, profile, projection = 
     }
     dualEnrollment = { value: facts, evidence: evidence(deRec, tableYear(deRec)) }
   } else {
-    const text = deRec ? `${inst}'s dual-enrollment policy is on file but not verified (${str(deRec.verification_status) ?? 'unverified'}).` : `No dual-enrollment policy is on file for ${inst}.`
+    const text = deRec ? `${inst}'s dual-enrollment policy is on file but not yet verified${notVerifiedWhy(deRec)}.` : `No dual-enrollment policy is on file for ${inst}.`
     dualEnrollment = { value: null, evidence: missing(text, deRec) }
     unknown('dual_enrollment', text)
   }
@@ -191,7 +197,7 @@ export function buildRoadmap({ comparison: c, programKey, profile, projection = 
     if (!byArr.length) unknown('cost', `${inst}'s published cost has no breakdown by living arrangement.`)
   } else {
     const anyCost = costRecs[0] ?? null
-    const text = anyCost ? `${inst}'s cost of attendance is on file but not verified (${str(anyCost.verification_status) ?? 'unverified'}).` : `No cost of attendance is on file for ${inst}.`
+    const text = anyCost ? `${inst}'s cost of attendance is on file but not yet verified${notVerifiedWhy(anyCost)}.` : `No cost of attendance is on file for ${inst}.`
     cost = { value: null, evidence: missing(text, anyCost) }
     unknown('cost', text)
   }
@@ -210,7 +216,7 @@ export function buildRoadmap({ comparison: c, programKey, profile, projection = 
           },
         }
       : { value: null, evidence: missing(hasPlan ? 'No whole plan term is covered by this credit, so no shorter timeline is shown.' : 'No verified plan, so no timeline can be shown.', planRec, catalogYear) }
-  if (hasPlan && covered === 0) unknown('timeline', 'No whole plan term is covered, so no graduation timeline or dollar saving is shown. Credit hours alone may not lower a flat-rate tuition bill (CR-17).')
+  if (hasPlan && covered === 0) unknown('timeline', 'No whole plan term is covered, so no graduation timeline or dollar saving is shown. Credit hours alone may not lower a flat-rate tuition bill.')
 
   const saving = covered > 0 && projection ? termsSaving(projection, covered, aid) : null
   const savings: Roadmap['savings'] = saving

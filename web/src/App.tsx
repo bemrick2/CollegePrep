@@ -22,6 +22,9 @@ const Compare = lazy(() => import('./features/colleges/Compare').then((m) => ({ 
 const CollegeDetail = lazy(() => import('./features/colleges/CollegeDetail').then((m) => ({ default: m.CollegeDetail })))
 const Savings = lazy(() => import('./features/colleges/Savings').then((m) => ({ default: m.Savings })))
 const CollegePaths = lazy(() => import('./features/colleges/CollegePaths').then((m) => ({ default: m.CollegePaths })))
+// Planning pilot (#195): registered only when VITE_PLANNING_PILOT=true (off in every deployed environment).
+const PLANNING_PILOT = import.meta.env.VITE_PLANNING_PILOT === 'true'
+const CollegePlan = lazy(() => import('./features/planning/CollegePlan').then((m) => ({ default: m.CollegePlan })))
 
 function RequireViewer({ children }: { children: ReactNode }) {
   const { viewer, loading } = useApp()
@@ -80,6 +83,7 @@ export function App() {
       <Route element={<RequireViewer><RoleShell /></RequireViewer>}>
         <Route path="/colleges" element={<Colleges />} />
         <Route path="/colleges/paths" element={<CollegePaths />} />
+        {PLANNING_PILOT && <Route path="/colleges/plan" element={<CollegePlan />} />}
         <Route path="/colleges/majors" element={<ExploreMajors />} />
         <Route path="/colleges/compare" element={<Compare />} />
         <Route path="/colleges/savings" element={<Savings />} />
