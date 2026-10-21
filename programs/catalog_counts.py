@@ -166,12 +166,12 @@ def entries(run_dir, decision, iks, year='2026-2027', reviewed=''):
     return out
 
 
-def on_file_approvals(run_dir, folder, ik, root=Path('.')):
+def on_file_approvals(run_dir, folder, ik, root=Path('.'), year='2026-27'):
     """For a recount: the current candidates of a stored run that re-identify a verified bachelor's record already on file
     (same program key, same name on the same program page, or the only verified record on that page), one per page.
     Used for counting only; the recount decision promotes nothing (ODU, 2026-10-21)."""
-    recs = [r for f in sorted((Path(root) / 'data/institutions' / folder / 'academic_programs').glob('*.json'))
-            for r in json.load(open(f))['records'] if r.get('verification_status') == 'verified' and r.get('credential_level') == 'bachelor']
+    f = Path(root) / 'data/institutions' / folder / 'academic_programs' / f'{year}.json'
+    recs = [r for r in (json.load(open(f))['records'] if f.exists() else []) if r.get('verification_status') == 'verified' and r.get('credential_level') == 'bachelor']
     keys = {r['program_key'] for r in recs}
     url = lambda r: page_key(r.get('program_url') or r['source_url'])
     pages = {(url(r), name_key(r['program_name'])) for r in recs}
