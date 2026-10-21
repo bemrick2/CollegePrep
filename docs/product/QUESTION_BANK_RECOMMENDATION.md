@@ -6,7 +6,10 @@ Written 2026-10-21 for the owner's bank-size decision (launch blocker A1). This 
 
 - **Unique (fresh) question:** one this student has never been shown. Each student draws from the same pool, so the bank must cover **one student's whole horizon**; it doesn't need to cover all students combined.
 - **Repeat:** a question shown before. Repeats are allowed as review and count toward the weekly goal, but they are **never evidence of improvement**. Trends use first answers only, and a check section that contains repeats isn't compared (`PRACTICE_READINESS.md`).
-- **Reserved assessment questions:** the starting benchmark and every progress check. They are held out of practice entirely, and each check needs questions the student hasn't seen. Sizes come from the code [Certain, `engine/benchmark.ts`]:
+- **Reserved assessment questions (proposed):** a pool for the starting benchmark and every progress check, kept out of practice entirely, so each check uses questions the student hasn't seen.
+  - **This is not how the app works today.** Today only each section's *next* mini check is held out of practice (ACT 3/4/3/3, SAT 4/4; `engine/freshness.ts`). The starting benchmark draws from the shared pool.
+  - A fully reserved pool needs the server-side holdout (CR-23, #218 B1) or a code change to mark items as assessment-only. The sizing below assumes that change.
+- **Check sizes:** the starting benchmark and mini check come from the code [Certain, `engine/benchmark.ts` `PER_SECTION`]. The full-form row is the real test length from `CONTENT_PLAN.md` §2–3: the code caps a "full" check at 99 per section, which in practice means the whole bank.
 
   | Check | ACT | SAT |
   |---|---|---|
@@ -17,7 +20,9 @@ Written 2026-10-21 for the owner's bank-size decision (launch blocker A1). This 
 - **Check cadence** [Certain, code]:
   - A mini check every 35 days, so 2 in 12 weeks and 10 in a year.
   - A full check every 70 days, only once a held-out full form exists. Today `FULL_FORM_READY = false`, so full checks fall back to minis.
-- **Headroom: +15%** on practice [Guessing, from `CONTENT_PLAN.md`]. The planner targets weak skills and difficulty bands, so a student doesn't use the bank evenly. Calibrate it after launch.
+- **Headroom: +15%** on practice only [Guessing]. The planner targets weak skills and difficulty bands, so a student doesn't use the bank evenly. Calibrate it after launch.
+  - `CONTENT_PLAN.md`'s earlier ≈430 / ≈410 (8 weeks at 40) added the 15% to check items too. Here, reserved items are counted exactly, with no headroom.
+- **Known limit:** checks adapt their difficulty, so 13 (ACT) or 8 (SAT) mini items per check may not cover every difficulty a check reaches. A larger reserved pool per check makes a fully fresh check more likely.
 
 ## Unique questions needed, per exam
 
@@ -65,15 +70,16 @@ There are 58 items: ACT 38, SAT 20. That is less than one week at 40, even befor
 
 ## Recommendation
 
-1. **Launch with one exam at "40 a week, 12 weeks, 25% review": about 470 unique items**, or about 600 if every practice question should be fresh.
+1. **Launch with one exam at "40 a week, 12 weeks, 25% review": about 470 unique items for ACT (448 for SAT)**, or about 600 (ACT 605, SAT 586) if every practice question should be fresh.
+   - The other option from `CONTENT_PLAN.md` §6 Q1 is both exams at the 8-week minimum: ≈430 ACT plus ≈410 SAT, about 840 items in all. That spreads the same effort over two thinner banks.
    - That matches the default weekly goal and the 12-week horizon in `CONTENT_PLAN.md`.
    - When a student runs out of fresh questions, the app already says so plainly.
    - Launching both exams doubles the authoring work. The table's numbers are per exam.
-2. **Don't promise a year of fresh practice at launch.** A year at 40 needs about 2,000–2,500 unique items per exam, four to five times the 12-week bank. Grow toward it by measured demand.
+2. **Don't promise a year of fresh practice at launch.** A year at 40 needs about 1,900–2,550 unique items per exam, about 4.2 times the 12-week bank. Grow toward it by measured demand.
 3. **Keep the full check on the mini fallback** until a held-out full form per exam is authored and reviewed: 171 ACT or 98 SAT items, and never used in practice.
-4. **Make 25% review a product rule, not a shortfall.** Show the repeats as review ("Keeping it sharp"); they already count toward the goal. It cuts the unique need by about a quarter, and spaced review helps retention [Likely].
+4. **Make 25% review a product rule, not a shortfall.** The app already labels review repeats "Keeping it sharp", and they already count toward the goal. It cuts the unique need by about a quarter, and spaced review helps retention [Likely].
 5. **Author to the blueprint split** in `CONTENT_PLAN.md` §3: ACT English 29%, Math 26%, Reading 21%, Science 23%; SAT Reading and Writing 55%, Math 45%. Aim for roughly a third each of easy, medium and hard.
-6. **Reserved items come first and never enter practice.** Author the 53 (ACT) or 34 (SAT) check items before the practice pool, so the holdout never depends on what's left over.
+6. **Reserved items come first and never enter practice.** Author the 53 (ACT) or 34 (SAT) check items before the practice pool, and mark them assessment-only. That needs CR-23 or the code change above, so the holdout never depends on what's left over.
 
 ## Human review and licensing (every item, including the existing 58)
 
