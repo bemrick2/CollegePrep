@@ -350,7 +350,7 @@ MUTS = [
     ('programs/promote.py', " and not (approval or {}).get('replaces_promoted'): return", ": return"),
     ('programs/promote.py', "        if held:\n", "        if False:\n"),
     # UW-Madison 2026-27 header: 'Guide' / '2026-2027' on two lines
-    ('programs/extract.py', "        if m and HEADER_NAME.fullmatch(prev) and int(m.group(2)) - int(m.group(1)) in PERIOD_SPANS:", "        if m and int(m.group(2)) - int(m.group(1)) in PERIOD_SPANS:"),
+    ('programs/extract.py', "        if m and (HEADER_NAME.fullmatch(prev) or NAMED_CATALOG.fullmatch(prev)) and int(m.group(2)) - int(m.group(1)) in PERIOD_SPANS:", "        if m and int(m.group(2)) - int(m.group(1)) in PERIOD_SPANS:"),
     ('programs/extract.py', "HEADER_NAME = re.compile(r'(?:Guide|Catalog|Catalogue|Bulletin)', re.I)", "HEADER_NAME = re.compile(r'.*', re.I)"),
     # 2026-10-08 reader fixes: print-menu catalog PDFs (UNO), B.M.A. is not M.A. (Missouri Western), awards from official
     # school/department pages (UMD), college-qualified list lines (Iowa State)
