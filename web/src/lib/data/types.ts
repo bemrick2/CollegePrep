@@ -158,6 +158,8 @@ export interface PracticeSession {
   id: string
   target_minutes: number
   items: SessionPlanItem[]
+  /** Questions the server picked but the app kept out, because they're held fresh for the next progress check. */
+  held_for_check?: number
 }
 
 export interface WeeklyGoal {
@@ -331,6 +333,8 @@ export interface CostRecord {
   notes: string | null
   source_url: string | null
   last_verified_at: string | null
+  /** Printed components, where the record keeps them (e.g. UTC's one "Enrollment Fees" line: enrollment_fees_in_state). */
+  components?: Record<string, number | null> | null
 }
 
 export type ComparisonDomain =

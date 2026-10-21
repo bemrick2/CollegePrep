@@ -288,7 +288,8 @@ def _program_page_candidates(target, inst, entry, page, today_year):
     if plat == 'drupal':
         return static_program_identity(inst, entry, page, today_year)
     if plat == 'coursedog':
-        return coursedog_page_identity(inst, entry, page, today_year, target.get('_catalog_year')) or kuali_page_identity(inst, entry, page, today_year)
+        return (coursedog_page_identity(inst, entry, page, today_year, target.get('_catalog_year')) or kuali_page_identity(inst, entry, page, today_year)
+                or kuali_award_line_identity(inst, entry, page, today_year))
     out = CAT.extract(inst, entry, page, today_year)
     y0, printed0 = CAT.catalog_year(page)
     year, line = printed0, (page.title or '')
@@ -347,7 +348,15 @@ def _program_page_candidates(target, inst, entry, page, today_year):
         out = degree_line_identity(inst, entry, page, today_year)
         if out: return out  # program record only: UF requirement and plan tables are not read on this path yet
     if not out and plat == 'courseleaf':
-        return department_section_candidates(inst, entry, page, today_year)  # several degrees on one page: no plan or list rows read here
+        sections = department_section_candidates(inst, entry, page, today_year)
+        if sections: return sections  # several degrees on one page: no plan or list rows read here
+        # a major page whose summary table states its award ('Degree Offered: Bachelor of Arts or Bachelor of Science', UNL)
+        # when no section heading names a degree: one program, so its requirement and plan tables are read as the page's
+        out = degree_offered_identity(inst, entry, page, today_year)
+        if not out: return []  # no program record: plan grids are not read as programs on this path
+        # its printed 4-year plans; the requirement Course Lists are not read here (they include the minor's)
+        from . import courseleaf
+        return out + courseleaf.plantext_candidates(inst, entry, page, out[0]['record']['catalog_year'], out[0]['record']['program_key'])
     if plat == 'courseleaf' and year:
         from . import courseleaf
         have = any(c['domain'] == 'academic_programs' for c in out)
@@ -475,6 +484,41 @@ def degree_line_identity(inst, entry, page, today_year):
                          {'field': 'credential_level', 'value': 'bachelor', 'snippet': m.group(0).strip()[:300]},
                          {'field': 'catalog_year', 'value': year, 'snippet': line[:200]}],
                         entry, 'degree_line/v1', {'program_key': rec['program_key']}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}'])]
+
+
+# a word of an award's name: never another award or credential ('Bachelor of Science and Master of Science', 'Bachelor of
+# Arts, Minor' and 'Bachelor of Science, MS' are not one bachelor's award)
+AWARD_WORD = r"(?!(?:Bachelor|Bachelors|Master|Masters|Doctor|Doctorate|Associate|Minor|Certificate|Juris|Ph|MS|MA|MBA|MEd|MD|JD|PhD|Graduate)\b)[A-Z][A-Za-z&]*"
+# 'Bachelor of Science in Agricultural Leadership, Education and Communication': a comma before a name word is in the name
+DEGREE_OFFERED_AWARD = re.compile(r"Bachelor of %s(?: (?:in|of|and|&) %s| %s|, %s)*" % ((AWARD_WORD,) * 4))
+# 'Bachelor of Arts or Bachelor of Science'; 'Bachelor of Arts, Bachelor of Fine Arts' (UNL Art, Music)
+DEGREE_OFFERED_VALUE = re.compile(r"(%s)(?:(?: or|,) (%s))*" % (DEGREE_OFFERED_AWARD.pattern, DEGREE_OFFERED_AWARD.pattern))
+
+
+def degree_offered_identity(inst, entry, page, today_year):
+    """degree_offered/v1: a CourseLeaf major page named by the major alone ('Anthropology', UNL 2026-27) whose summary table
+    prints 'Degree Offered: | Bachelor of Arts or Bachelor of Science'. The name is the page's own (its title, which its
+    first heading ends with after the college name); the awards are the table row as printed, quoted in the notes. A row
+    that names no bachelor's award ('Minor only', 'Non-degree seeking'), two such rows, an option, minor or certificate
+    page, or more than one current catalog label give no record."""
+    name = CAT.program_name(page).strip()
+    head = (page.headings[0] if page.headings else '').strip()
+    if not name or not head.endswith(name) or OPTION_NAME.search(name) or re.search(r'\b(minor|certificate|pre-|undeclared)', name, re.I): return []
+    rows = [r for t in page.tables for r in (t.get('rows') or []) if len(r) == 2 and str(r[0]).strip() == 'Degree Offered:']
+    if len(rows) != 1: return []
+    value = re.sub(r'\s+', ' ', str(rows[0][1])).strip()
+    if not DEGREE_OFFERED_VALUE.fullmatch(value): return []
+    labels = printed_catalog_years(page)
+    if len({y for y, _ in labels}) != 1: return []
+    year, line = min(labels); acad = academic_year_of(year)
+    rec = {'program_key': CAT.slug(f'{name} {value}'), 'program_name': name, 'credential_level': 'bachelor', 'catalog_year': year,
+           'program_url': common.source_of(entry)['url'],
+           'notes': f'Program name as printed on the catalog major page; award as printed in its summary table: "Degree Offered: {value}".'}
+    return [common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec,
+                        [{'field': 'program_name', 'value': name, 'snippet': head[:200]},
+                         {'field': 'credential_level', 'value': 'bachelor', 'snippet': f'Degree Offered: {value}'[:300]},
+                         {'field': 'catalog_year', 'value': year, 'snippet': line[:200]}],
+                        entry, 'degree_offered/v1', {'program_key': rec['program_key']}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}'])]
 
 
 YEAR_HEADING = re.compile(r'^\s*(?:(?:19|20)\d{2}\s*[-–]\s*(?:19|20)?\d{2}\s+)?(?:(?:academic|university|undergraduate|general)\s+)?catalog(?:ue)?(?:\s+(?:19|20)\d{2}\s*[-–]\s*(?:19|20)?\d{2})?\s*$', re.I)
@@ -1171,6 +1215,43 @@ def kuali_page_identity(inst, entry, page, today_year):
     return [common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec,
                         [{'field': 'program_name', 'value': name, 'snippet': name}, {'field': 'catalog_year', 'value': year, 'snippet': line[:200]}],
                         entry, 'kuali_page/v1', {'program_key': rec['program_key']}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}'])]
+
+
+# Utah 2026-27: the line after 'Download as PDF' runs the department into the award(s): 'MathematicsBachelor of Science',
+# 'AccountingBachelor of Arts/Bachelor of Science'
+KUALI_AWARD_LINE = re.compile(r"(?P<dept>[^\n]*?[A-Za-z&)])(?P<award>(%s)(?:/(%s))*)" % (DEGREE_OFFERED_AWARD.pattern, DEGREE_OFFERED_AWARD.pattern))
+
+
+def kuali_award_line_identity(inst, entry, page, today_year):
+    """kuali_award_line/v1: a page titled '<code> Program | X Catalog' (Utah 2026-27) whose heading before 'Download as PDF'
+    is the program's name alone ('Applied Mathematics') and whose next printed line is the department run into the award
+    ('MathematicsBachelor of Science'). The name is the heading; the award is the line's end as printed, quoted in the notes.
+    Only bachelor's awards are read ('Master of Science', 'Minor', 'Other' give nothing); one current catalog label."""
+    titled = KUALI_TITLE.match(page.title or '')
+    heads = [h.strip() for h in page.headings]
+    at = heads.index('Download as PDF') if 'Download as PDF' in heads else 0
+    if not titled or not at: return []
+    name = heads[at - 1]
+    if credential_of(name) is not None or GENERIC_DEGREES.match(name) or NOT_PROGRAM_NAME.search(name) or OPTION_NAME.search(name) \
+            or re.search(r'\b(requirements?|minor|certificate|honors)\b', name, re.I): return []
+    lines = page.lines
+    if lines.count('Download as PDF') != 1: return []
+    i = lines.index('Download as PDF')
+    if i + 1 >= len(lines) or lines[i - 1] != name: return []
+    m = KUALI_AWARD_LINE.fullmatch(lines[i + 1])
+    if not m: return []
+    award = m.group('award')
+    labels = printed_catalog_years(page)
+    if len({y for y, _ in labels}) != 1: return []
+    year, line = min(labels); acad = academic_year_of(year)
+    rec = {'program_key': CAT.slug(f'{name} {award}'), 'program_name': name, 'credential_level': 'bachelor', 'catalog_year': year,
+           'program_url': common.source_of(entry)['url'],
+           'notes': f'Program name as printed in the catalog program page heading; award as printed on the line after it: "{lines[i + 1]}".'}
+    return [common.make('academic_programs', inst['institution_key'], acad, 'labeled_in_source', rec,
+                        [{'field': 'program_name', 'value': name, 'snippet': name},
+                         {'field': 'credential_level', 'value': 'bachelor', 'snippet': lines[i + 1][:300]},
+                         {'field': 'catalog_year', 'value': year, 'snippet': line[:200]}],
+                        entry, 'kuali_award_line/v1', {'program_key': rec['program_key']}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}'])]
 
 
 PROGRAM_ONLY_ISSUES = ('requirement_groups_skipped',)

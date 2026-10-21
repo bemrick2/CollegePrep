@@ -314,6 +314,7 @@ export function GuardianReminderStatus({ studentId, name }: { studentId: string;
   const { source } = useApp()
   const devices = useAsync(() => source.studentDevices(studentId), [source, studentId])
   const history = useAsync(() => source.reminderHistory(studentId), [source, studentId])
+  const last = useAsync(() => source.latestReminder(studentId), [source, studentId])
   const lastOff: ReminderChange | undefined = history.data?.find((c) => !c.enabled && c.by === 'student')
   return (
     <div className="grid gap-2 text-sm">
@@ -329,6 +330,17 @@ export function GuardianReminderStatus({ studentId, name }: { studentId: string;
                 : 'Not emailed (one email per day at most).'}
         </p>
       )}
+      <p className="text-ink-2">
+        {source.mode === 'demo'
+          ? 'The demo never sends reminders, so none has been sent.'
+          : last.data
+            ? `Last reminder sent ${when(last.data.sentAt)}${last.data.channel === 'fcm' ? ' to the app' : last.data.channel === 'webpush' ? ' to a browser' : ''}${last.data.openedAt ? ', and opened' : ''}.`
+            : last.loading
+              ? null
+              : last.error
+                ? "Couldn't check whether a reminder was sent."
+                : 'No reminder has been sent yet.'}
+      </p>
       <div>
         <div className="font-semibold text-ink">{name}'s devices</div>
         {devices.data && devices.data.length > 0 ? (

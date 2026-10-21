@@ -48,7 +48,7 @@ export function Savings() {
   const { source, activeStudent } = useApp()
   const { homeState } = useHomeState()
   const cmp = useSavedComparison(YEAR)
-  const exams = useExamPlan(activeStudent?.id).exams
+  const exams = useExamPlan(activeStudent?.id, false).exams
   const family = useFamilyAid(activeStudent?.id)
   const [basis, setBasis] = useState<CostBasis>('cost_of_attendance')
   const studentId = activeStudent?.id

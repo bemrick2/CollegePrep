@@ -61,14 +61,16 @@ const PREFIX = /^\s*(ap|clep|ib|statewide dual credit|sdc)\b/
 const LEVEL_TAG = /\(?\b(sl|hl)(\s*(or|and|&|\/)\s*(sl|hl))?(\s*only)?\b\)?/g
 
 /** Normalized exam identity: family + name without prefix, IB level, punctuation or "&". */
-export function examKey(family: ExamFamily, name: string): string {
+/** `aliases: false` gives the key of the name as printed, without the app's own aliases (used to match the
+ *  backend's canonical catalog, which keeps its own, narrower alias list). */
+export function examKey(family: ExamFamily, name: string, aliases = true): string {
   let n = name.toLowerCase().replace(PREFIX, '')
   if (family === 'IB') n = n.replace(LEVEL_TAG, ' ')
   n = n
     .replace(/&/g, ' and ')
     .replace(/[^a-z0-9]+/g, ' ')
     .trim()
-  n = ALIASES[n] ?? n
+  if (aliases) n = ALIASES[n] ?? n
   return `${family}:${n}`
 }
 
