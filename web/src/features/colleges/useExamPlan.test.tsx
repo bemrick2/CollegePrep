@@ -12,6 +12,7 @@ import { useExamPlan } from './useExamPlan'
 class AccountPlan extends DemoSource {
   byStudent: Record<string, PlannedExam[]> = {}
   gate: Promise<void> | null = null
+  saving = 0
   limit = 20
   override readonly supportsExamPlan = true
   get account() {
@@ -25,6 +26,7 @@ class AccountPlan extends DemoSource {
   }
   override async saveExamPlanEntry(id: string, e: PlannedExam) {
     if (e.family !== 'AP' && e.family !== 'CLEP') throw new DataError('no key', 'not_found')
+    this.saving++
     if (this.gate) await this.gate
     const cur = this.byStudent[id] ?? []
     if (!cur.some((x) => x.key === e.key) && cur.length >= this.limit) throw new DataError("A student's exam plan holds up to 20 exams", 'invalid')
@@ -84,7 +86,9 @@ describe('useExamPlan (CR-10)', () => {
     let open!: () => void
     src.gate = new Promise((r) => (open = r))
     const { result } = hook(src)
-    await waitFor(() => expect(result.current.exams).toHaveLength(2))
+    // The account plan has loaded and the move is blocked on its first save.
+    await waitFor(() => expect(src.saving).toBeGreaterThan(0))
+    expect(result.current.exams.map((e) => [e.key, e.score])[0]).toEqual([examKey('AP', 'Biology'), null])
     // Still moving: edits are refused rather than raced.
     expect(result.current.ready).toBe(false)
     expect(result.current.add(ap('AP Physics 1', null))).toBe(false)
