@@ -366,6 +366,19 @@ class StaticProgramTests(unittest.TestCase):
         self.assertEqual(X.static_program_identity({'institution_key': 'k'}, e, two_years, '2026-27'), [])  # ambiguous year: skipped
 
 
+    def test_acalog_page_without_read_groups_gives_the_program_record(self):  # Pitt Greensburg 2026-27
+        from pipeline import text as T
+        e = {'url': 'https://catalog.upg.pitt.edu/preview_program.php?catoid=238&poid=77211', 'role': 'program_page', 'sha256': 's', 'fetched_at': '2026-10-07T00:00:00'}
+        target = {'institution_key': 'k', 'catalog': {'platform': 'acalog', 'catoid': 238}}
+        p = T.Page('Search\n2026-2027 Greensburg Campus Catalog\nCommunication, BA\nCore Courses 2 courses (6 credits)',
+                   'Program: Communication, BA - University of Pittsburgh Greensburg - Acalog ACMS\u2122', [], [], ['Search', 'Communication, BA'])
+        out = [c for c in X._program_page_candidates(target, target, e, p, '2026-27') if c['domain'] == 'academic_programs']
+        self.assertEqual([(c['extractor'], c['record']['program_name'], c['record']['catalog_year']) for c in out],
+                         [('static_program/v1', 'Communication, BA', '2026-2027')])
+        minor = T.Page('2026-2027 Greensburg Campus Catalog\nCommunication Minor', 'Program: Communication Minor - University of Pittsburgh Greensburg - Acalog ACMS', [], [], [])
+        self.assertEqual([c for c in X._program_page_candidates(target, target, e, minor, '2026-27') if c['domain'] == 'academic_programs'], [])
+
+
 class AwardInParenthesesTests(unittest.TestCase):
     def test_parenthesised_award_matches_inventory_row(self):
         from programs import match as Mt

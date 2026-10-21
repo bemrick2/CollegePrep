@@ -348,6 +348,8 @@ MUTS = [
     ('programs/catalog_counts.py', "                re.compile(r'^(?P<base>[^,:()]+?) \\((?P<award>(?-i:B[A-Z]{1,3}))\\)$'),", "                re.compile(r'^(?P<base>[^,:()]+?) \\((?P<award>(?-i:B[A-Z]{1,3}))\\)'),"),
     ('programs/extract.py', " or AWARD_IN_DASH_OPTION_ENTRY.match(line))", ")"),
     ('programs/extract.py', "    m = re.match(r'^(?P<award>(?-i:B[A-Z]{1,3}))\\s+in\\s+(?P<base>[^:,()\\-]+?)\\s*$', line)  # UT Dallas 'BA in Literature'\n    if m: return", "    m = None  # UT Dallas 'BA in Literature'\n    if m: return"),
+    # Acalog program pages whose requirement groups are not read: the program record only (Pitt Greensburg, 2026-10-21)
+    ('programs/extract.py', "    if not out and plat == 'acalog' and CAT.program_name(page):", "    if False:"),
     # diagnose honours robots.txt (2026-10-08)
     ('programs/diagnose.py', "        if not robots.allowed(url):", "        if False:"),
     # Iowa State department pages: a heading prints the listed name and award; a sentence mentioning majors is no multi-major page

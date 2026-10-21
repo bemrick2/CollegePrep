@@ -328,6 +328,10 @@ def _program_page_candidates(target, inst, entry, page, today_year):
                         {'field': 'catalog_edition', 'value': m.group(0), 'snippet': m.group(0)}, home]
     if not out and plat in ('courseleaf', 'acalog'):
         out = stated_major_identity(inst, entry, page, today_year)
+    if not out and plat == 'acalog' and CAT.program_name(page):
+        # Pitt Greensburg/Johnstown 2026-27: a program page whose requirement groups are not read ('Communication, BA', title
+        # 'Program: Communication, BA - ...', header '2026-2027 Greensburg Campus Catalog') gives the program record only
+        out = static_program_identity(inst, entry, page, today_year, name=CAT.program_name(page))
     if not out and plat == 'courseleaf':
         lk = target.get('_listed') or {}
         listed = lk.get(norm_url(entry.get('url') or '')) or lk.get(entry.get('url'))
@@ -644,10 +648,10 @@ def inventory_level_candidates(inst, entry, page, today_year, inv, award_docs=No
                         entry, INVENTORY_LEVEL_EXTRACTOR, {'program_key': rec['program_key']}, {}, [] if (awards or doc) else ['award_not_printed'])]
 
 
-def static_program_identity(inst, entry, page, today_year):
+def static_program_identity(inst, entry, page, today_year, name=None):
     """Static HTML catalogs (George Fox, Rhodes): the program record only (name as printed in the page heading, the
     bachelor award it names, the catalog year printed on the page). Requirement lists are not read here."""
-    name = (program_heading(page) or (page.title or '').split(' | ')[0]).strip()
+    name = (name or program_heading(page) or (page.title or '').split(' | ')[0]).strip()
     # an option or track page ('Civil Engineering - BS, Coastal Engineering Track', Texas A&M) gives its candidate, and the
     # extraction loop drops it unless the official list prints it as the degree's only entry (drops_option_page)
     if credential_of(name) != 'bachelor' or GENERIC_DEGREES.match(name) or NOT_PROGRAM_NAME.search(name): return []
