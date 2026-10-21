@@ -1,6 +1,7 @@
 import { MAX_INTERESTS, type InterestProfile, type MajorCertainty, type SavedInterest } from '../../engine/interests'
 import { INVITE_TTL_HOURS } from '../../invites'
 import { displayName, examKey, type PlannedExam } from '../../engine/examCredit'
+import { practiceExclusions } from '../../engine/freshness'
 import type { SupabaseClient } from '@supabase/supabase-js'
 import type { AlertPreference, DevicePermission, DevicePlatform, DeviceStatus, EmailDelivery, DataSource, ReminderChange, ReminderDelivery, ReminderSettings, InactiveStudent, InvitationSummary, InviteSendResult, StudentInvitation } from '../source'
 import type { NextWeekSuggestion } from '../../engine/weeklyPlan'
@@ -549,9 +550,49 @@ export class LiveSource implements DataSource {
       p_target_minutes: targetMinutes,
       p_exam_version: version,
     })
-    const items = await this.sb.from('practice_session_items').select('position, question_id, reason').eq('session_id', id).order('position')
-    if (items.error) fail(items.error)
-    const ids = (items.data ?? []).map((i) => i.question_id)
+    // The server's pool for this session: published, served, this exam version, with an expected time.
+    let poolQuery = this.sb.from('practice_questions').select(QUESTION_COLUMNS).eq('status', 'published').eq('exam_versions.exam_family', examFamily).not('expected_time_seconds', 'is', null)
+    if (version) poolQuery = poolQuery.eq('exam_version_id', version)
+    const [picked, poolRows, mine] = await Promise.all([
+      this.sb.from('practice_session_items').select('position, question_id, reason').eq('session_id', id).order('position'),
+      poolQuery,
+      this.sb.from('practice_attempts').select('question_id, presented_at').eq('student_id', studentId),
+    ])
+    if (picked.error) fail(picked.error)
+    if (poolRows.error) fail(poolRows.error)
+    if (mine.error) fail(mine.error)
+    const pool = ((poolRows.data ?? []) as unknown as QuestionRow[]).map(toPublic)
+    // Interim, until the server holds them (CR-23, #218 B1): the server's pick can include the fresh questions kept
+    // for the next progress check. Drop them here, with the rule the demo uses (engine/freshness.ts), then fill the
+    // session's time the way the demo's pool does: fresh questions that aren't held first, then repeats (least
+    // recently seen first) as review. Held questions are never served; the time budget is never exceeded.
+    const lastSeen = new Map<string, string>()
+    for (const r of mine.data ?? []) {
+      const q = r.question_id as string
+      const t = (r.presented_at as string | null) ?? ''
+      if (!lastSeen.has(q) || t > lastSeen.get(q)!) lastSeen.set(q, t)
+    }
+    const held = practiceExclusions(examFamily, pool, new Set(lastSeen.keys()))
+    const kept: { position: number; question_id: string; reason: string }[] = (picked.data ?? []).filter((i) => !held.has(i.question_id))
+    const secs = new Map(pool.map((q) => [q.id, q.expected_time_seconds ?? 60]))
+    const budget = targetMinutes * 60
+    let used = kept.reduce((t, i) => t + (secs.get(i.question_id) ?? 60), 0)
+    const chosen = new Set(kept.map((i) => i.question_id))
+    const nearMiddle = (x: PublicQuestion, y: PublicQuestion) => Math.abs((x.difficulty ?? 3) - 3) - Math.abs((y.difficulty ?? 3) - 3) || (x.id < y.id ? -1 : 1)
+    const open = pool.filter((q) => !held.has(q.id) && !chosen.has(q.id))
+    const fill = [
+      ...open.filter((q) => !lastSeen.has(q.id)).sort(nearMiddle).map((q) => ({ q, reason: 'untagged' })),
+      ...open.filter((q) => lastSeen.has(q.id)).sort((x, y) => (lastSeen.get(x.id)! < lastSeen.get(y.id)! ? -1 : 1)).map((q) => ({ q, reason: 'review' })),
+    ]
+    for (const { q, reason } of fill) {
+      const t = secs.get(q.id) ?? 60
+      if (used + t > budget) continue
+      kept.push({ position: 0, question_id: q.id, reason })
+      used += t
+    }
+    kept.forEach((i, n) => (i.position = n + 1))
+    const items = { data: kept }
+    const ids = kept.map((i) => i.question_id)
     const qs = ids.length ? await this.sb.from('practice_questions').select(QUESTION_COLUMNS).in('id', ids) : { data: [], error: null }
     if (qs.error) fail(qs.error)
     const byId = new Map(((qs.data ?? []) as unknown as QuestionRow[]).map((q) => [q.id, toPublic(q)]))
@@ -563,6 +604,7 @@ export class LiveSource implements DataSource {
       id,
       target_minutes: targetMinutes,
       items: (items.data ?? []).filter((i) => byId.has(i.question_id)).map((i) => ({ position: i.position, reason: i.reason, question: byId.get(i.question_id)!, seen_before: seen.has(i.question_id) })),
+      held_for_check: (picked.data ?? []).filter((i) => held.has(i.question_id)).length,
     }
   }
 
