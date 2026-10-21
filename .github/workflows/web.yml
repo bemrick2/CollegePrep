@@ -1,12 +1,14 @@
 name: Web app
 
-# Front-end checks for web/ (Prep & Price UI). Independent of the data and database jobs.
+# Front-end checks for web/ (Prep & Price UI). Also runs when stored institution records change: web/scripts/*.test.ts
+# read data/institutions (every stored degree plan, #171; the Tennessee pilot roadmap, #194), so a data PR can't
+# silently break them.
 on:
   push:
     branches: [main]
-    paths: ['web/**', '.github/workflows/web.yml']
+    paths: ['web/**', 'data/institutions/**', '.github/workflows/web.yml']
   pull_request:
-    paths: ['web/**', '.github/workflows/web.yml']
+    paths: ['web/**', 'data/institutions/**', '.github/workflows/web.yml']
 
 permissions:
   contents: read
