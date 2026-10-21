@@ -10,21 +10,28 @@ import { useExamPlan } from './useExamPlan'
 
 /** A source with CR-10: AP and CLEP go to the "account"; anything else has no catalog key ('not_found'). */
 class AccountPlan extends DemoSource {
-  account: PlannedExam[] = []
+  byStudent: Record<string, PlannedExam[]> = {}
   gate: Promise<void> | null = null
   limit = 20
   override readonly supportsExamPlan = true
-  override async examPlan() {
-    return [...this.account]
+  get account() {
+    return this.byStudent.s1 ?? []
   }
-  override async saveExamPlanEntry(_s: string, e: PlannedExam) {
+  set account(v: PlannedExam[]) {
+    this.byStudent.s1 = v
+  }
+  override async examPlan(id: string) {
+    return [...(this.byStudent[id] ?? [])]
+  }
+  override async saveExamPlanEntry(id: string, e: PlannedExam) {
     if (e.family !== 'AP' && e.family !== 'CLEP') throw new DataError('no key', 'not_found')
     if (this.gate) await this.gate
-    if (!this.account.some((x) => x.key === e.key) && this.account.length >= this.limit) throw new DataError("A student's exam plan holds up to 20 exams", 'invalid')
-    this.account = [...this.account.filter((x) => x.key !== e.key), e]
+    const cur = this.byStudent[id] ?? []
+    if (!cur.some((x) => x.key === e.key) && cur.length >= this.limit) throw new DataError("A student's exam plan holds up to 20 exams", 'invalid')
+    this.byStudent[id] = [...cur.filter((x) => x.key !== e.key), e]
   }
-  override async removeExamPlanEntry(_s: string, key: string) {
-    this.account = this.account.filter((x) => x.key !== key)
+  override async removeExamPlanEntry(id: string, key: string) {
+    this.byStudent[id] = (this.byStudent[id] ?? []).filter((x) => x.key !== key)
   }
 }
 const ap = (name: string, score: number | null): PlannedExam => ({ family: 'AP', key: examKey('AP', name), name, score })
@@ -81,12 +88,38 @@ describe('useExamPlan (CR-10)', () => {
     // Still moving: edits are refused rather than raced.
     expect(result.current.ready).toBe(false)
     expect(result.current.add(ap('AP Physics 1', null))).toBe(false)
+    act(() => result.current.remove(examKey('AP', 'Chemistry')))
+    act(() => result.current.setScore(examKey('AP', 'Chemistry'), 5))
+    // Both were refused: nothing changed on screen or on the device while moving.
+    expect(result.current.exams.map((e) => [e.key, e.score])).toEqual([
+      [examKey('AP', 'Biology'), null],
+      [examKey('AP', 'Chemistry'), 2],
+    ])
     await act(async () => open())
     await waitFor(() => expect(result.current.ready).toBe(true))
     expect(src.account.sort((a, b) => a.key.localeCompare(b.key))).toEqual([ap('AP Biology', 3), ap('AP Chemistry', 2)])
     expect(stored()).toEqual([])
     act(() => result.current.remove(examKey('AP', 'Chemistry')))
     await waitFor(() => expect(src.account).toEqual([ap('AP Biology', 3)]))
+  })
+
+  it('a save that finishes after switching student never lands on the other student', async () => {
+    const src = new AccountPlan(emptyStore())
+    src.byStudent.s2 = [ap('AP Chemistry', 4)]
+    let open!: () => void
+    const wrap = ({ children }: { children: ReactNode }) => <AppProvider source={src}>{children}</AppProvider>
+    const { result, rerender } = renderHook(({ id }) => useExamPlan(id, true), { wrapper: wrap, initialProps: { id: 's1' } })
+    await waitFor(() => expect(result.current.ready).toBe(true))
+    src.gate = new Promise((r) => (open = r))
+    act(() => void result.current.add(ap('AP Biology', 3)))
+    src.gate = null
+    rerender({ id: 's2' })
+    await waitFor(() => expect(result.current.exams.map((e) => e.key)).toEqual([examKey('AP', 'Chemistry')]))
+    await act(async () => open())
+    await new Promise((r) => setTimeout(r, 50))
+    // s1's exam was saved to s1, and s2's screen never shows it.
+    expect(src.byStudent.s1).toEqual([ap('AP Biology', 3)])
+    expect(result.current.exams.map((e) => e.key)).toEqual([examKey('AP', 'Chemistry')])
   })
 
   it('if the account plan cannot load, nothing is editable and the error is shown', async () => {

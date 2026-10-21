@@ -56,12 +56,16 @@ export function useExamPlan(studentId: string | undefined, canEdit = true) {
   const saveToAccount = useCallback(
     async (e: PlannedExam): Promise<'account' | 'device' | 'error'> => {
       if (!onAccount || !studentId) return 'device'
+      // A save that finishes after the screen switched to another student must not touch that student's lists.
+      const stillHere = () => sid.current === studentId
       try {
         await source.saveExamPlanEntry(studentId, e)
+        if (!stillHere()) return 'error'
         setRemote((r) => [...r.filter((x) => x.key !== e.key), e])
         updateLocal((prev) => prev.filter((x) => x.key !== e.key))
         return 'account'
       } catch (err) {
+        if (!stillHere()) return 'error'
         if (noKey(err)) return 'device'
         setError((err as Error).message)
         return 'error'
@@ -137,12 +141,12 @@ export function useExamPlan(studentId: string | undefined, canEdit = true) {
       if (e && ready && canEdit) void save({ ...e, level })
     },
     remove: (key: string) => {
-      if (!canEdit) return
+      if (!canEdit || !ready) return
       setError(null)
       if (remoteKeys.has(key) && studentId)
         void source.removeExamPlanEntry(studentId, key).then(
-          () => setRemote((r) => r.filter((x) => x.key !== key)),
-          (err: Error) => setError(err.message),
+          () => sid.current === studentId && setRemote((r) => r.filter((x) => x.key !== key)),
+          (err: Error) => sid.current === studentId && setError(err.message),
         )
       updateLocal((prev) => prev.filter((x) => x.key !== key))
     },
