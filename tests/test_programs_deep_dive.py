@@ -1315,6 +1315,9 @@ class DegreeOfferedTests(unittest.TestCase):  # UNL 2026-2027 major pages: the a
         for v in ('Bachelor of Arts, Bachelor of Fine Arts', 'Bachelor of Arts in Hospitality, Restaurant & Tourism Management'):  # UNL Art; HRTM
             self.assertEqual(len(self.run_(self.page(v))), 1, v)
         for v in ('Minor only', 'Non-degree seeking', 'Bachelor of Arts; see adviser', 'Master of Arts', '', 'Bachelor of Arts, Master of Arts',
+                  'Bachelor of Science and Master of Science', 'Bachelor of Science & Master of Science', 'Bachelor of Science Master of Science',
+                  'Bachelor of Science in Business and Master of Professional Accountancy', 'Bachelor of Science Doctor of Pharmacy',
+                  'Bachelor of Arts, Minor', 'Bachelor of Science, Juris Doctor', 'Bachelor of Science, MS', 'Bachelor of Science, Masters',
                   'Bachelor of Science in Food Science & Technology, Master of Science in Food Science & Technology, Ph.D.'):
             self.assertEqual(self.run_(self.page(v)), [], v)
         two = [['Degree Offered:', 'Bachelor of Arts'], ['Degree Offered:', 'Bachelor of Science']]
@@ -1333,6 +1336,8 @@ class DegreeOfferedTests(unittest.TestCase):  # UNL 2026-2027 major pages: the a
         pg = self.page(); out = self.run_(pg)
         self.assertNotIn('degree offered row not printed', V.check_candidate(out[0], pg.text))
         self.assertIn('degree offered row not printed', V.check_candidate(out[0], pg.text.replace('Bachelor of Science', 'Bachelor of Fine Arts')))
+        # a longer printed row is not this row ('... Bachelor of Science and Master of Science')
+        self.assertIn('degree offered row not printed', V.check_candidate(out[0], pg.text.replace('Bachelor of Science', 'Bachelor of Science and Master of Science')))
 
     def test_trusted_after_review(self):
         from programs import autoreview as A
@@ -1361,6 +1366,7 @@ class KualiAwardLineTests(unittest.TestCase):  # Utah 2026-27 '<code> Program' p
 
     def test_non_bachelor_lines_give_nothing(self):
         for line in ('MathematicsMaster of Science', 'Art & Art HistoryMinor', 'OtherOther', 'Bachelor of Science', 'MathematicsBachelor of Science; see adviser',
+                     'MathematicsBachelor of Science and Master of Science',
                      'MathematicsBachelor of Science/Master of Science'):
             self.assertEqual(self.run_(self.page(line=line)), [], line)
 
@@ -1377,6 +1383,8 @@ class KualiAwardLineTests(unittest.TestCase):  # Utah 2026-27 '<code> Program' p
         pg = self.page(); out = self.run_(pg)
         self.assertNotIn('award line not printed', V.check_candidate(out[0], pg.text))
         self.assertIn('award line not printed', V.check_candidate(out[0], pg.text.replace('MathematicsBachelor of Science', 'Mathematics Bachelor of Science Program')))
+        moved = pg.text.replace('Download as PDF\nMathematicsBachelor of Science', 'Download as PDF\nProgram Information\nMathematicsBachelor of Science')
+        self.assertIn('award line not printed', V.check_candidate(out[0], moved))
 
 
 class PlanTextTests(unittest.TestCase):  # UNL 2026-2027 '4-Year Plans': printed rows, no plan table
@@ -1418,8 +1426,8 @@ class PlanTextTests(unittest.TestCase):  # UNL 2026-2027 '4-Year Plans': printed
         from programs import courseleaf as CL
         lines = list(self.LINES); lines[2] = '15 creditsYear 1: Fall'
         self.assertIn('term_credits_differ', CL.plantext_plans(self.page(lines))[0][2])
-        lines = self.LINES[:2] + ['This document represents a sample 4-year plan for degree completion with this major.'] + self.LINES[2:]
-        self.assertEqual(CL.plantext_plans(self.page(lines))[0][0], 'Anthropology (B.A.)')
+        lines = self.LINES[:1] + ['PLEASE NOTE', 'This document represents a sample 4-year plan for degree completion with this major.'] + self.LINES[1:]
+        self.assertEqual(CL.plantext_plans(self.page(lines))[0][0], 'Anthropology (B.A.)')  # UNL prints the preamble above the title
         lines = list(self.LINES); lines[11] = 'Students usually take these courses in the fall.'
         self.assertEqual(CL.plantext_plans(self.page(lines))[0][1][0]['items'][2]['note'], 'Students usually take these courses in the fall.')
         lines = list(self.LINES); lines[16] = 'CompleteBSAD 222'  # UNL Finance prints it so

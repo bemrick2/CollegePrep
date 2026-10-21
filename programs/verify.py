@@ -61,11 +61,15 @@ def check_candidate(c, text, other=None):
         elif norm(r['program_name']) not in t: probs.append('program_name not verbatim')
         for ev in c.get('evidence', []):
             # 'Degree Offered: Bachelor of ...' (UNL summary table): the row is printed on the page, its cells as printed
-            if c.get('extractor') == 'degree_offered/v1' and ev.get('field') == 'credential_level' and norm(ev.get('snippet', '')) not in norm(text.replace('|', ' ')):
+            # the whole 'Degree Offered:' row is printed as one table row (its cells joined), not a prefix of a longer row
+            if c.get('extractor') == 'degree_offered/v1' and ev.get('field') == 'credential_level' and \
+                    norm(ev.get('snippet', '')) not in {norm(l.replace('|', ' ')) for l in text.splitlines()}:
                 probs.append('degree offered row not printed')
-            # Utah: the department-and-award line after 'Download as PDF' is printed as one line
-            if c.get('extractor') == 'kuali_award_line/v1' and ev.get('field') == 'credential_level' and ev.get('snippet', '').strip() not in [l.strip() for l in text.splitlines()]:
-                probs.append('award line not printed')
+            # Utah: the department-and-award line is printed as one line, right after 'Download as PDF'
+            if c.get('extractor') == 'kuali_award_line/v1' and ev.get('field') == 'credential_level':
+                ls = [l.strip() for l in text.splitlines() if l.strip()]
+                if not any(l == ev.get('snippet', '').strip() and k and ls[k - 1] == 'Download as PDF' for k, l in enumerate(ls)):
+                    probs.append('award line not printed')
             # a degree level read from a state program inventory: the row is printed in that stored document
             if ev.get('field') == 'award':
                 # an award printed on another stored official page (UMD school/department pages) is checked in that document

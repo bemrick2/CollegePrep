@@ -482,8 +482,11 @@ def degree_line_identity(inst, entry, page, today_year):
                         entry, 'degree_line/v1', {'program_key': rec['program_key']}, {}, [] if acad >= today_year else [f'stale_year_label:{acad}'])]
 
 
-# 'Bachelor of Science in Agricultural Leadership, Education and Communication': a comma not followed by 'Bachelor' is in the name
-DEGREE_OFFERED_AWARD = re.compile(r"Bachelor of [A-Z][A-Za-z&]*(?: (?:in|of|and|&) [A-Z][A-Za-z&]*| [A-Z][A-Za-z&]*|, (?!(?:Bachelor|Master|Doctor|Associate)\b)[A-Z][A-Za-z&]*)*")
+# a word of an award's name: never another award or credential ('Bachelor of Science and Master of Science', 'Bachelor of
+# Arts, Minor' and 'Bachelor of Science, MS' are not one bachelor's award)
+AWARD_WORD = r"(?!(?:Bachelor|Bachelors|Master|Masters|Doctor|Doctorate|Associate|Minor|Certificate|Juris|Ph|MS|MA|MBA|MEd|MD|JD|PhD|Graduate)\b)[A-Z][A-Za-z&]*"
+# 'Bachelor of Science in Agricultural Leadership, Education and Communication': a comma before a name word is in the name
+DEGREE_OFFERED_AWARD = re.compile(r"Bachelor of %s(?: (?:in|of|and|&) %s| %s|, %s)*" % ((AWARD_WORD,) * 4))
 # 'Bachelor of Arts or Bachelor of Science'; 'Bachelor of Arts, Bachelor of Fine Arts' (UNL Art, Music)
 DEGREE_OFFERED_VALUE = re.compile(r"(%s)(?:(?: or|,) (%s))*" % (DEGREE_OFFERED_AWARD.pattern, DEGREE_OFFERED_AWARD.pattern))
 

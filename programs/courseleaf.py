@@ -645,7 +645,6 @@ PT_CREDITS = re.compile(r'^(?P<cr>\d+(?:\.\d+)?(?:-\d+(?:\.\d+)?)?) credits?$')
 PT_CODE = re.compile(r'^Complete ?(?P<code>[A-Z]{2,5} \d{1,4}[A-Z]?)$')  # 'CompleteBSAD 222' (UNL Finance) as printed
 PT_MILESTONE = re.compile(r'^Milestone: ')
 PT_NOTE = re.compile(r'^(Complete |In consultation |See |Choose |Select |Take |Work with |Recommend)')
-PT_PREAMBLE = 'This document represents a sample'
 
 
 def _pt_lines(page):
@@ -675,8 +674,8 @@ def plantext_plans(page):
     nxt = lambda k: lines[k] if k < len(lines) else None
     while i < len(lines):
         if not PT_TERM.match(lines[i]): i += 1; continue
+        # the title is the heading printed right above the first term (UNL prints its 'PLEASE NOTE' preamble before the title)
         t = i - 1
-        if t > 0 and lines[t].startswith(PT_PREAMBLE): t -= 1
         title = lines[t] if t >= 0 and lines[t] in heads else None
         terms, issues = [], set() if title else {'no_plan_title'}
         while i < len(lines) and PT_TERM.match(lines[i]):
