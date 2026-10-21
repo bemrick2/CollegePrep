@@ -1407,7 +1407,7 @@ class PlanTextTests(unittest.TestCase):  # UNL 2026-2027 '4-Year Plans': printed
                                              {'text': 'CAS 120 Total Credits (Elective or Other Degree Requirement)', 'credits': 6,
                                               'note': 'In consultation with your advisor, select elective courses.'}])
         self.assertEqual(terms[1]['items'], [{'code': 'BSAD 222', 'title': 'PrEP II', 'credits': 1},
-                                             {'milestone': 'Milestone: You must declare a required minor by this term.'},
+                                             {'text': 'Milestone: You must declare a required minor by this term.'},
                                              {'text': 'ANTH 485 or ANTH 488', 'credits': 3}])
 
     def test_several_plans_keep_their_titles(self):

@@ -638,7 +638,7 @@ def plangrid_candidates(inst, entry, grid_entry, doc, year, program_key):
 # UNL 2026-27 '4-Year Plans' tab: no plan table; each plan prints its title (a page heading: 'Anthropology (B.A.)',
 # 'Finance - Financial Planning'), then per term '<n> creditsYear <k>: <Fall|Spring|Summer>', then rows printed as
 # 'Course: <title>' / '<n> credits' / 'Complete <CODE>' or '<requirement>' / '<n> credits', each optionally followed by a
-# printed note ('In consultation with your advisor, ...') and 'Milestone: ...' lines.
+# printed note ('In consultation with your advisor, ...') and 'Milestone: ...' rows (kept as their printed text).
 PLANTEXT_EXTRACTOR = 'courseleaf_plantext/v1'
 PT_TERM = re.compile(r'^(?P<cr>\d+(?:\.\d+)?(?:-\d+(?:\.\d+)?)?) credits?(?P<label>Year \d+: (?:Fall|Spring|Summer|Winter|Interim))$')
 PT_CREDITS = re.compile(r'^(?P<cr>\d+(?:\.\d+)?(?:-\d+(?:\.\d+)?)?) credits?$')
@@ -683,7 +683,7 @@ def plantext_plans(page):
             term = {'term_index': len(terms) + 1, 'label': m.group('label'), 'credit_hours': m.group('cr'), 'items': []}
             while i < len(lines) and not PT_TERM.match(lines[i]):
                 if PT_MILESTONE.match(lines[i]) and not (nxt(i + 1) and PT_CREDITS.match(nxt(i + 1))):
-                    term['items'].append({'milestone': lines[i]}); i += 1; continue
+                    term['items'].append({'text': lines[i]}); i += 1; continue  # a milestone row, as printed ('Milestone: ...')
                 if not (nxt(i + 1) and PT_CREDITS.match(nxt(i + 1))) or PT_CREDITS.match(lines[i]): break
                 label, cr = lines[i], _pt_credits(PT_CREDITS.match(lines[i + 1]).group('cr')); i += 2
                 c = PT_CODE.match(lines[i]) if i < len(lines) else None
