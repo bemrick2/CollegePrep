@@ -127,8 +127,10 @@ describe.skipIf(!URL_)('parent journey with an invited student and two more guar
     const parent = await device(PARENT)
     await parent.saveExamPlanEntry(studentId, exam('AP', 'AP Calculus AB', 4))
     await parent.saveExamPlanEntry(studentId, exam('CLEP', 'CLEP College Algebra', null))
-    // No canonical key for IB yet: refused as 'invalid', so the app keeps it on the device.
-    await expect(parent.saveExamPlanEntry(studentId, { ...exam('IB', 'IB Economics', 5), level: 'SL' })).rejects.toMatchObject({ code: 'invalid' })
+    // No canonical key for IB, or for a name the backend's catalog doesn't list as printed ("AP World History" is
+    // only an app alias): refused as 'not_found', so the app keeps it on the device.
+    await expect(parent.saveExamPlanEntry(studentId, { ...exam('IB', 'IB Economics', 5), level: 'SL' })).rejects.toMatchObject({ code: 'not_found' })
+    await expect(parent.saveExamPlanEntry(studentId, exam('AP', 'AP World History', 3))).rejects.toMatchObject({ code: 'not_found' })
     // The server checks the AP scale.
     await expect(parent.saveExamPlanEntry(studentId, exam('AP', 'AP Statistics', 7))).rejects.toThrow()
     const phone = await device(INVITED)
@@ -140,11 +142,19 @@ describe.skipIf(!URL_)('parent journey with an invited student and two more guar
     await phone.saveExamPlanEntry(studentId, exam('CLEP', 'College Algebra', 62))
     const viewer = await device(VIEWER)
     expect((await viewer.examPlan(studentId)).find((e) => e.family === 'CLEP')!.score).toBe(62)
-    // Current server rule (CR-10 can_edit_student_plans): ANY guardian of the household may edit the exam plan and
-    // interests, whatever their permissions. A view-only guardian can therefore add an exam. Raised with Research as
-    // a question, not changed here; this assertion pins today's behaviour so a change is deliberate.
+    // Current SERVER rule (CR-10 can_edit_student_plans): any guardian of the household may write the exam plan and
+    // interests, whatever their permissions. The app doesn't offer it (CollegePaths edits only for the student or a
+    // guardian who can set goals), but the server would accept it. Raised with Research (#218 C1); this pins today's
+    // server behaviour so a change there is deliberate.
     await viewer.saveExamPlanEntry(studentId, exam('AP', 'AP Microeconomics', 3))
     await viewer.removeExamPlanEntry(studentId, examKey('AP', 'Microeconomics'))
+    // Two devices saving the same new exam at once: both succeed, one row.
+    await Promise.all([(await device(PARENT)).saveExamPlanEntry(studentId, exam('AP', 'AP Psychology', 4)), (await device(INVITED)).saveExamPlanEntry(studentId, exam('AP', 'AP Psychology', 5))])
+    expect((await phone.examPlan(studentId)).filter((e) => e.key === examKey('AP', 'Psychology'))).toHaveLength(1)
+    await parent.removeExamPlanEntry(studentId, examKey('AP', 'Psychology'))
+    // An outsider can't even see the row, so a delete from them removes nothing.
+    await (await device(OUTSIDER)).removeExamPlanEntry(studentId, examKey('CLEP', 'College Algebra'))
+    expect((await phone.examPlan(studentId)).some((e) => e.key === examKey('CLEP', 'College Algebra'))).toBe(true)
     await parent.removeExamPlanEntry(studentId, examKey('AP', 'Calculus AB'))
     expect((await (await device(INVITED)).examPlan(studentId)).map((e) => e.key)).toEqual([examKey('CLEP', 'College Algebra')])
     expect(await (await device(OUTSIDER)).examPlan(studentId)).toEqual([])

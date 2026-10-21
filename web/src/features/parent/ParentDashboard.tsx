@@ -87,7 +87,7 @@ function Panel({ student, o, onRefresh }: { student: Student; o: StudentOverview
   const behind = goal !== null && expectedByNow !== null && o.week.questions_submitted < expectedByNow * 0.8
 
   const saved = useSavedComparison()
-  const exams = useExamPlan(student.id).exams
+  const exams = useExamPlan(student.id, false).exams
   const merit = useMeritReference(student.id)
   const [showAll, setShowAll] = useState(false)
   const weakSkill = (kind: 'knowledge' | 'pacing') =>
