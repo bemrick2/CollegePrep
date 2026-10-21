@@ -69,4 +69,8 @@ jobs:
           tar -xJf /tmp/pgrst.tar.xz -C /tmp
           /tmp/postgrest --version
       - name: Local end-to-end tests
-        run: POSTGREST_BIN=/tmp/postgrest DENO_BIN=$(command -v deno) scripts/local/live_stack.sh test
+        # Every local test must run: a skipped one (missing LOCAL_BACKEND_URL or DENO_BIN) fails the job.
+        run: |
+          POSTGREST_BIN=/tmp/postgrest DENO_BIN=$(command -v deno) scripts/local/live_stack.sh test 2>&1 | tee /tmp/local-tests.txt
+          grep -E "Tests +[0-9]+ passed" /tmp/local-tests.txt
+          if grep -Eq "Tests .*skipped" /tmp/local-tests.txt; then echo "local tests were skipped"; exit 1; fi
