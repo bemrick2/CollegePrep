@@ -388,7 +388,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Pikes Peak State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Colorado Mesa University | covered | 89 | 94 | 83 | 439 | met | met | met | queued | admission_rules:not_yet_researched |
 | University of Colorado Colorado Springs | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| University of Colorado Denver/Anschutz Medical Campus | partial | 72 | 86 | 1 | 6 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
+| University of Colorado Denver/Anschutz Medical Campus | partial | 75 | 86 | 1 | 6 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | University of Denver | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Colorado School of Mines | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Arapahoe Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
