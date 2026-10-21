@@ -56,7 +56,7 @@ const persona: PlanningProfile = {
 const have = existsSync(join(ROOT, 'institutions/utc')) && existsSync(join(ROOT, 'institutions/utk'))
 
 describe.skipIf(!have)('planning roadmap on the stored Tennessee pilot records (#194)', () => {
-  it('UTC Management today: plan verified; credit table and cost not yet verified, so they are listed as missing, never shown', () => {
+  it('UTC Management today: plan and cost verified (#206); credit tables not verified (no year printed), so credit is listed as missing, never shown', () => {
     const r = buildRoadmap({ comparison: comparison('utc', '221740'), programKey: 'management-b-s-b-a', profile: persona })
     expect(r.status).toBe('partial')
     expect(r.target.programName).toBe('Management, B.S.B.A.')
@@ -65,15 +65,23 @@ describe.skipIf(!have)('planning roadmap on the stored Tennessee pilot records (
     expect(r.plan.value!.terms).toHaveLength(8)
     expect(r.credit.every((x) => x.acceptance.value === null && x.acceptance.evidence.state === 'missing')).toBe(true)
     expect(r.options).toEqual([])
-    expect(r.cost.value).toBeNull()
+    // #206: verified from the raw 2026-27 PDF; shown as published, by living arrangement.
+    expect(r.cost.evidence).toMatchObject({ state: 'verified', publishedYear: '2026-27' })
+    expect(r.cost.value).toEqual(
+      expect.arrayContaining([
+        { arrangement: 'on_campus', annual: 30340 },
+        { arrangement: 'off_campus', annual: 29936 },
+        { arrangement: 'with_family', annual: 23736 },
+      ]),
+    )
     expect(r.savings.value).toBeNull()
     expect(r.unknowns.map((u) => u.text)).toEqual(
       expect.arrayContaining([
         expect.stringMatching(/AP credit table is on file but not verified \(partially_verified\)/),
-        expect.stringMatching(/cost of attendance is on file but not verified/),
         expect.stringMatching(/dual-enrollment policy is on file but not verified/),
       ]),
     )
+    expect(r.unknowns.some((u) => u.topic === 'cost')).toBe(false)
   })
 
   it('UTC Management once #191 verifies the tables and cost: 12 hours fill named rows, two exams accepted but not in plan, no timeline', () => {
