@@ -36,6 +36,13 @@ class TextTests(unittest.TestCase):
         for n in ('BIO in Focus', 'Journalism BJ minor', 'MSA in Accountancy'):
             self.assertNotEqual(catalog.credential(n), 'bachelor', n)
 
+    def test_parenthesized_undotted_award_at_the_end_names_a_bachelor(self):  # ODU 2026-27 titles
+        for n in ('Financial Management with a Major in Finance (BSBA)', 'Engineering Technology with a Major in Civil Engineering Technology (BSET)',
+                  'Health Sciences with a Major in Recreational Therapy (BSHS)'):
+            self.assertEqual(catalog.credential(n), 'bachelor', n)
+        for n in ('Business Analytics (BSBA) Minor', 'Finance (bsba)', 'Data Science (MSBA)'):
+            self.assertNotEqual(catalog.credential(n), 'bachelor', n)
+
     def test_full_catalog_print_link_is_not_the_catalog_year(self):
         # Oklahoma State 2026-27: '2026-2027 Edition' heads the page; 'Full 2025-2026 Catalog' links last year's PDF
         osu = T.Page('2026-2027 Edition\nFull 2025-2026 Catalog\nZoology, BS\nAcademic Year 2026-2027', 'Zoology, BS', [], [], [])
@@ -792,6 +799,16 @@ last 30 hours in residence at the university.</p>"""
                             '<li>Registration after the deadline will be assessed a $10/credit late fee.</li></ul>')
         [c] = dual.extract(INST, ENTRY, page, '2026-27')
         self.assertEqual([x['amount'] for x in c['record']['dual_enrollment']['per_credit_hour_charges']], [150])
+
+    def test_utc_ib_levels_offered_is_not_the_score(self):  # TN (UTC) 2026: 'Levels Offered' | 'Exam' (level) | 'Score'
+        ib = [['International Baccalaureate Exam', 'Levels Offered: SL, HL', 'Exam', 'Score', 'Courses Awarded', 'Hours Awarded', 'Gen Ed Credit'],
+              ['Biology', 'SL & HL', 'HL', '5,6, OR 7', 'BIOL 1110 & BIOL 1120', '8', 'Lab Science'],
+              ['Environmental Systems & Societies', 'SL Only', 'SL', '5,6, OR 7', 'ESC 1100', '3', 'Non-Lab Science'],
+              ['Economics', 'HL Only', 'HL', '5,6, OR 7', 'ECON 1010 & ECON 1020', '6', 'Behavioral']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'IB', [{'rows': ib, 'heading': 'International Baccalaureate', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        got = {e['exam_or_course_name']: e for e in c['record']['equivalencies']}
+        self.assertEqual(sorted(e['minimum_score'] for e in got.values()), ['HL 5,6, OR 7', 'HL 5,6, OR 7', 'SL 5,6, OR 7'])
+        self.assertTrue(all(e['notes'].startswith(('SL & HL', 'SL Only', 'HL Only')) for e in got.values()))
 
     def test_ia_r1_rules(self):
         """IA r1: Hawkeye eligibility headings; Graceland sample aid package; Wartburg academic-progress table; conditional

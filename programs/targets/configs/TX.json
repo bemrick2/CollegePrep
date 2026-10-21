@@ -253,13 +253,14 @@
  },
  "lonestar": {
   "catalog": {
-   "catalog_pdfs": [
-    "https://www.lonestar.edu/departments/curriculuminstruction/2019-2020Catalog_FINAL.pdf"
-   ],
-   "home": "https://www.lonestar.edu/departments/curriculuminstruction/2019-2020Catalog_FINAL.pdf",
-   "platform": "pdf"
+   "home": "https://www.lonestar.edu/catalog/",
+   "min_depth": 1,
+   "path_prefix": "/catalog/",
+   "platform": "kuali",
+   "program_lists": []
   },
-  "detected": "catalog PDF labelled 2019-2020"
+  "detected": "reviewed 2026-10-21 (diagnose run TX/2026-10-21-diag): the search-surfaced LSC Catalog page links 'View Online Catalog' https://www.lonestar.edu/catalog/ (hash routes #/programs, #/policy/<id>: a JavaScript catalog) and lists archives only to 2025-2026; the 2019-2020 PDF configuration is superseded. Rendered so the page's own catalog feed is kept",
+  "render": "browser"
  },
  "midland": {
   "catalog": {
@@ -528,10 +529,12 @@
    "min_depth": 1,
    "path_prefix": "/2026/undergraduate/",
    "platform": "courseleaf",
-   "program_lists": [],
+   "program_lists": [
+    "https://catalog.utdallas.edu/2026/undergraduate/programs"
+   ],
    "edition_year_from_home": true
   },
-  "detected": "reviewed 2026-10-08: the catalog home links the '2026 Undergraduate Catalog' at /2026/undergraduate/home/ (run TX/2026-10-08-b01); the configured lists were the 2016 and 2020 catalogs; reviewed 2026-10-08 (run b02): program pages print the edition name 'UT Dallas 2026 Undergraduate Catalog'; the edition home (/2026/undergraduate/home/) prints '2026-2027 Undergraduate Catalog', read with edition_year_from_home",
+  "detected": "reviewed 2026-10-08: the catalog home links the '2026 Undergraduate Catalog' at /2026/undergraduate/home/ (run TX/2026-10-08-b01); the configured lists were the 2016 and 2020 catalogs; reviewed 2026-10-08 (run b02): program pages print the edition name 'UT Dallas 2026 Undergraduate Catalog'; the edition home (/2026/undergraduate/home/) prints '2026-2027 Undergraduate Catalog', read with edition_year_from_home; reviewed 2026-10-21: the search-surfaced 'Undergraduate Programs/Academics' page https://catalog.utdallas.edu/2026/undergraduate/programs is the edition's program list",
   "reviewed": true
  },
  "utep": {

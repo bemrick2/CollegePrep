@@ -21,11 +21,11 @@ from programs import extract as X
 ZWSP = '​'
 COMB = re.compile(r"Accelerated.*(\bM\.?[AS]\b\.?|\bMBA\b|\bMPA\b|Master)|Scholars Roadmap|\s\+\s.*\b(M[A-Z]{1,3}|MPA|MBA)\b|\(3\+2\)|\b3-2\b|4\+1|"
                   r"Dual Acceptance|and MBA\b|to MBA|\bB\.?[AS]\.?/\s?M\.?[AS]\b|\bM\.[AS]\.|/\s?(DDS|MD|PharmD|DPT|OTD)\b|\(B[AS]/D|"
-                  r"(?-i:\bB[A-Z]{1,4}/M[A-Z]{1,3}\b)|"  # La Salle 'Accounting, BSBA/MBA (4 year)'
+                  r"(?-i:\bB[A-Z]{1,4}/M[A-Z]{1,3}\b)|(?-i:\bB[A-Z]{1,4}-M(?:S|A|[A-Z]{2,3})\b)|"  # ODU '..., BS-MBA' (a hyphenated single award such as 'BS-MT' is not combined); La Salle 'Accounting, BSBA/MBA (4 year)'
                   r"\bto\b.*(?-i:\bM[A-Z]{0,4}\b).*\bAccelerated\b|Dual Degree Acceptance|\bB\.?[AS]\.?/.*\bM\.\s?B\.\s?A\b|"
                   r"(?-i:,\s*B[A-Z]{1,3}\s+to\s+[^,]+,\s*M[A-Z]{1,5}\b)", re.I)  # Roosevelt 'Biology, BA to Secondary Education, MA Accelerated Program'; Georgian 'B.S./... M.B.A.'
 GENERIC = re.compile(r"^(Bachelor's (Degree|Concentration|Degree Programs)|Department of .*)$|: Bachelor's Degree\b|Minor, Certificate|Graduate Certificate|\bRoadmap\b|\b(Graduation|Continuance)\s+(Requirements|Regulations)\b|\bReadmission\b|\(Secondary Major\)|^Minor in\b|General Education Requirements|^Bachelor's and Master's Degree Programs$", re.I)
-ROTC = re.compile(r'\bROTC\b')
+ROTC = re.compile(r'\bN?ROTC\b')
 LABELED = {'labeled_in_title', 'labeled_in_heading', 'labeled_in_source'}
 # UTEP 2026-27 cards run the name into the card's category labels: 'BBA in AccountingBusiness, Management, & Marketing
 # BachelorsUndergraduateBusiness Administration' (the labels name the level 'Bachelors' and 'Undergraduate')
@@ -35,6 +35,9 @@ CATEGORY_RUN = re.compile(r'(?:[A-Z].*)?Bachelors(?:Online|Fast Track|Profession
 # ('.../computer-science-major-ai-concentration/' -> '.../computer-science-major/'), and each dual degree by its own page
 CONC_AWARD = re.compile(r'^(?:Dual Degree\s+)?B\.(?:\s?[A-Z][a-z]{0,3}\.)+\s+Concentration(?:\s+Option)?$')
 MAJOR_OF = re.compile(r'(-major)-[^/]*?concentration(/?)$')
+# ODU 2026-27 'Programs, Degrees & Majors' rows run the award on to the row's filter labels: 'Art with a Major in Art History,
+# BAArtsUndergraduateBachelor'sHumanitiesCollege of Arts and Letters', 'Chemistry with a Major in ... (BS)UndergraduateBachelor's...'
+FILTER_LABELS = re.compile(r"(?<=[A-Za-z)])(?:[A-Z][a-z][A-Za-z&' ]*?)?Undergraduate(?:[A-Z][A-Za-z&' ]*?)?Bachelor's.*$")
 AWARD_ONLY = re.compile(r'^(?:Dual Degree\s+)?(?:(?-i:B[A-Z]{1,4}[a-z]{0,3})|B\.\s?[A-Z][A-Za-z]{0,4}\.?(?:\s?[A-Z][a-z]{0,3}\.?)*|Bachelor of [A-Z][a-z]+(?: [A-Z][a-z]+)*)\**$')  # Missouri lists 'BA', 'BS*', 'BSAcc' under each department; never an all-caps name ('BIOLOGY')
 
 
@@ -81,12 +84,14 @@ def entries(run_dir, decision, iks, year='2026-2027', reviewed=''):
         # an entry the list reader left unclassified but that prints an undotted bachelor's award ('Marketing, BSBA') is a bachelor's entry
         raw = [x for x in listing if x['listed_as'] == 'bachelor' or (x['listed_as'] is None and (X.UNDOTTED_LIST_AWARD.search(x['printed'].replace(ZWSP, '')) or X.credential_of(x['printed']) == 'bachelor'))]
         unlabeled = sorted({card_name(x['printed'])[0] for x in listing if x['listed_as'] in ('major', 'major_unlabeled_degree')})
-        seen, b, doubled = set(), [], 0
+        seen, b, doubled, filtered = set(), [], 0, 0
         for x in raw:
             k = (name_key(x['printed']), page_key(x['url']))
             if k in seen: continue
             seen.add(k)
             pr, dbl = card_name(x['printed']); doubled += dbl
+            f = FILTER_LABELS.search(pr)
+            if f: pr = pr[:f.start()]; filtered += 1
             b.append(dict(x, printed=pr))
         glued = labelled = 0
         for x in b:  # Coursedog lists run the description on to the name: 'Accounting - BSThe B.S. in Accounting ...'
@@ -130,6 +135,7 @@ def entries(run_dir, decision, iks, year='2026-2027', reviewed=''):
         pages = sorted({x['listed_on'] for x in raw}); lo = pages[0]
         parts = [f"{len(raw)} linked entries on the official {year} program list" + (f" ({len(pages)} pages)" if len(pages) > 1 else '') + " print a bachelor's award"]
         if len(b) < len(raw): parts.append(f"{len(raw) - len(b)} repeat an entry already counted")
+        if filtered: parts.append(f"{filtered} run the award on to the row's filter labels ('Undergraduate', 'Bachelor's', subject and college) and are read up to the award")
         if doubled: parts.append(f"{doubled} print the program name twice (a card title, sometimes shortened, then the name) and are read once")
         conc = [x for x in deg if CONC_AWARD.match(x['printed'].strip())]
         unmapped = [x['url'] for x in conc if not MAJOR_OF.search(x['url'])]
@@ -160,12 +166,39 @@ def entries(run_dir, decision, iks, year='2026-2027', reviewed=''):
     return out
 
 
+def on_file_approvals(run_dir, folder, ik, root=Path('.'), year='2026-27'):
+    """For a recount: the current candidates of a stored run that re-identify a verified bachelor's record already on file
+    (same program key, same name on the same program page, or the only verified record on that page), one per page.
+    Used for counting only; the recount decision promotes nothing (ODU, 2026-10-21)."""
+    f = Path(root) / 'data/institutions' / folder / 'academic_programs' / f'{year}.json'
+    recs = [r for r in (json.load(open(f))['records'] if f.exists() else []) if r.get('verification_status') == 'verified' and r.get('credential_level') == 'bachelor']
+    keys = {r['program_key'] for r in recs}
+    url = lambda r: page_key(r.get('program_url') or r['source_url'])
+    pages = {(url(r), name_key(r['program_name'])) for r in recs}
+    count = defaultdict(int)
+    for r in recs: count[url(r)] += 1
+    out, used = [], set()
+    for line in open(Path(run_dir) / 'candidates.jsonl'):
+        v = json.loads(line)
+        if v['institution_key'] != ik or v['domain'] != 'academic_programs': continue
+        rec = v['record']; k = (page_key(rec.get('program_url') or v['source']['requested_url']), name_key(rec.get('program_name') or ''))
+        if (rec.get('program_key') in keys or k in pages or count.get(k[0]) == 1) and k[0] not in used:
+            out.append({'candidate_id': v['candidate_id']}); used.add(k[0])
+    return out
+
+
 def main(argv=None):
     a = argparse.ArgumentParser()
-    a.add_argument('--run', required=True); a.add_argument('--decision', required=True); a.add_argument('--out', required=True)
+    a.add_argument('--run', required=True); a.add_argument('--decision', default=None); a.add_argument('--out', required=True)
     a.add_argument('--year', default='2026-2027'); a.add_argument('--reviewed', default=''); a.add_argument('iks', nargs='+')
+    a.add_argument('--on-file', default=None, help='institution folder: credit listed programs through verified records on file (recount)')
     args = a.parse_args(argv)
-    es = entries(args.run, args.decision, args.iks, args.year, args.reviewed)
+    decision = args.decision
+    if args.on_file:
+        import tempfile
+        t = tempfile.NamedTemporaryFile('w', suffix='.json', delete=False)
+        json.dump({'approve': [x for ik in args.iks for x in on_file_approvals(args.run, args.on_file, ik)]}, t); t.close(); decision = t.name
+    es = entries(args.run, decision, args.iks, args.year, args.reviewed)
     json.dump(es, open(args.out, 'w'), indent=1)
     for e in es: print(e['institution_key'], e['verified_listed_programs'], '/', e['listed_bachelor_programs'], 'complete' if e['programs_complete'] else '')
 
