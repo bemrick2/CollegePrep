@@ -104,29 +104,19 @@
    "catalog": {
     "home": "https://catalog.uwm.edu/",
     "min_depth": 0,
-    "path_prefix": "/programs/",
-    "platform": "coursedog",
+    "path_prefix": "/",
+    "platform": "courseleaf",
     "program_lists": [
-     "https://catalog.uwm.edu/programs",
-     "https://catalog.uwm.edu/programs?page=2&pq=&sortBy=name",
-     "https://catalog.uwm.edu/programs?page=3&pq=&sortBy=name",
-     "https://catalog.uwm.edu/programs?page=4&pq=&sortBy=name",
-     "https://catalog.uwm.edu/programs?page=5&pq=&sortBy=name",
-     "https://catalog.uwm.edu/programs?page=6&pq=&sortBy=name",
-     "https://catalog.uwm.edu/programs?page=7&pq=&sortBy=name",
-     "https://catalog.uwm.edu/programs?page=8&pq=&sortBy=name",
-     "https://catalog.uwm.edu/programs?page=9&pq=&sortBy=name",
-     "https://catalog.uwm.edu/programs?page=10&pq=&sortBy=name",
-     "https://catalog.uwm.edu/programs?page=11&pq=&sortBy=name",
-     "https://catalog.uwm.edu/programs?page=12&pq=&sortBy=name",
-     "https://catalog.uwm.edu/programs?page=13&pq=&sortBy=name",
-     "https://catalog.uwm.edu/programs?page=14&pq=&sortBy=name",
-     "https://catalog.uwm.edu/programs?page=15&pq=&sortBy=name"
-    ]
+     "https://catalog.uwm.edu/programs"
+    ],
+    "program_link": "^https://catalog\\.uwm\\.edu/(?:[a-z0-9-]+/)+(?:[a-z0-9-]+-b[a-z]{1,5}(?:-[a-z-]+)?|committee-interdisciplinary-major|american-sign-language-studies|rn-bs-program)/$"
    },
    "policy": [],
    "render": "browser",
-   "detected": "Coursedog-style program URLs on catalog.uwm.edu (7 links)"
+   "detected": "Coursedog-style program URLs on catalog.uwm.edu (7 links); reviewed 2026-10-21 (run 2026-10-08-c01): program pages sit under the college paths (/letters-science/mathematical-sciences/actuarial-science-ba/), not /programs/; the rendered 'Programs' page lists every program on its first page (147 'UndergraduateMajor' entries, 142 with a bachelor's award suffix in the URL; the other five are linked explicitly), so the crawl takes those links",
+   "caps": {
+    "program_page": 250
+   }
   },
   {
    "institution_key": "ipeds-240365",

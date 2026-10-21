@@ -1467,6 +1467,15 @@ class PlanTextTests(unittest.TestCase):  # UNL 2026-2027 '4-Year Plans': printed
                           ('courseleaf_plantext/v1', 'anthropology-bachelor-of-arts-or-bachelor-of-science')])
 
 
+class NamedHeaderYearTests(unittest.TestCase):  # SHSU 2026-27: 'Undergraduate Catalog' / '2026-2027'; print menu '2025-2026 Catalog'
+    def test_named_catalog_header_beats_the_print_menu(self):
+        from pipeline import text as T
+        lines = ['Department of Kinesiology', 'Undergraduate Catalog', '2026-2027', 'Search Catalog', 'Download Page (PDF)',
+                 '2025-2026 Catalog', 'A PDF of the 2025-2026 Catalog.', 'Cancel']
+        self.assertEqual({y for y, _ in X.printed_catalog_years(T.Page('\n'.join(lines)))}, {'2026-2027'})
+        self.assertEqual({y for y, _ in X.printed_catalog_years(T.Page('\n'.join(lines).replace('Undergraduate Catalog', 'Search')))}, {'2025-2026'})
+
+
 class CompletionStatus(unittest.TestCase):
     """programs/status.py: the state completion rule (docs/PROGRAM_DEPTH_COMPLETION.md)."""
 

@@ -3,11 +3,23 @@
  "entries": [
   {
    "institution_key": "ipeds-240453",
-   "gap": "institution",
-   "reason": "layout_not_readable",
-   "next_action": "Diagnose the rendered Coursedog pages (render exception on program pages) and re-run.",
-   "detail": "Coursedog catalog catalog.uwm.edu: run 2026-10-08-c01 stored 6 program pages (one render exception) and no program record.",
-   "evidence_url": "https://catalog.uwm.edu/"
+   "gap": "degree_maps",
+   "reason": "not_yet_researched",
+   "next_action": "Read the remaining printed plans: 39 of 133 verified programs have a reviewed plan (courseleaf_plan/v1, run 2026-10-21-d01); 16 plan candidates were held (12 with issues, 3 for programs not approved, 1 untrusted).",
+   "detail": "Run 2026-10-21-d01 (UWM program pages under the college paths, read as CourseLeaf pages).",
+   "evidence_url": "https://catalog.uwm.edu/programs"
+  },
+  {
+   "institution_key": "ipeds-240453",
+   "gap": "requirement_groups",
+   "reason": "not_yet_researched",
+   "next_action": "Review the 644 catalog_program/v1 requirement groups of run 2026-10-21-d01 (untrusted extractor; not promoted) or read the Course List tables with their layout (courselist_html/v1)."
+  },
+  {
+   "institution_key": "ipeds-240453",
+   "gap": "admission_rules",
+   "reason": "not_yet_researched",
+   "next_action": "Read each verified program page's admission statement verbatim (business, computer science, engineering, nursing first), or queue no_official_statement."
   },
   {
    "institution_key": "ipeds-240329",

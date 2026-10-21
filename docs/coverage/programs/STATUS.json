@@ -1,6 +1,6 @@
 {
  "national": {
-  "covered": 65,
+  "covered": 67,
   "definition": "Registered: four-year schools in the national registry (pipeline/registry; scope rule in pipeline/registry.py). Researched: a verified or partially verified deep-dive record, or a queue entry recording an attempt other than not_yet_researched. Covered: meets docs/PROGRAM_DEPTH_COMPLETION.md. Untracked states count as registered only.",
   "registered": 2119,
   "researched": 673,
@@ -209,7 +209,7 @@
     "tracked": true
    },
    {
-    "covered": 2,
+    "covered": 3,
     "registered": 23,
     "researched": 7,
     "state": "NE",
@@ -342,7 +342,7 @@
     "tracked": true
    },
    {
-    "covered": 1,
+    "covered": 2,
     "registered": 43,
     "researched": 9,
     "state": "WI",
@@ -27813,18 +27813,18 @@
   },
   {
    "coverage_threshold": 0.8,
-   "covered_institutions": 2,
-   "entering_student_share_covered": 0.239,
+   "covered_institutions": 3,
+   "entering_student_share_covered": 0.606,
    "four_year_institutions": 23,
    "institutions": [
     {
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": 0.855,
+     "catalog_share": 0.935,
      "dimensions": {
       "admission_rules": "queued",
-      "catalog": "queued",
+      "catalog": "met",
       "degree_maps": "met",
       "requirement_groups": "queued"
      },
@@ -27839,15 +27839,15 @@
      "name": "University of Nebraska-Lincoln",
      "partially_verified_programs": 0,
      "programs_complete": false,
-     "programs_with_plan": 100,
+     "programs_with_plan": 110,
      "queue": [
       "admission_rules:not_yet_researched",
       "catalog:not_yet_researched",
       "requirement_groups:layout_not_readable"
      ],
      "requirement_groups": 0,
-     "status": "partial",
-     "verified_bachelor_programs": 106
+     "status": "covered",
+     "verified_bachelor_programs": 116
     },
     {
      "academic_years": [
@@ -51440,8 +51440,8 @@
   },
   {
    "coverage_threshold": 0.8,
-   "covered_institutions": 1,
-   "entering_student_share_covered": 0.213,
+   "covered_institutions": 2,
+   "entering_student_share_covered": 0.303,
    "four_year_institutions": 43,
    "institutions": [
     {
@@ -51476,28 +51476,37 @@
      "verified_bachelor_programs": 222
     },
     {
-     "academic_years": [],
-     "catalog_share": null,
+     "academic_years": [
+      "2026-27"
+     ],
+     "catalog_share": 1.0,
      "dimensions": {
       "admission_rules": "queued",
-      "catalog": "queued",
+      "catalog": "met",
       "degree_maps": "queued",
       "requirement_groups": "queued"
      },
      "folder": "uwm",
-     "high_value_without_admission_rule": [],
+     "high_value_without_admission_rule": [
+      "business",
+      "computer_science",
+      "engineering",
+      "nursing"
+     ],
      "institution_key": "ipeds-240453",
-     "listed_bachelor_programs": null,
+     "listed_bachelor_programs": 133,
      "name": "University of Wisconsin-Milwaukee",
      "partially_verified_programs": 0,
-     "programs_complete": false,
-     "programs_with_plan": 0,
+     "programs_complete": true,
+     "programs_with_plan": 39,
      "queue": [
-      "institution:layout_not_readable"
+      "admission_rules:not_yet_researched",
+      "degree_maps:not_yet_researched",
+      "requirement_groups:not_yet_researched"
      ],
      "requirement_groups": 0,
-     "status": "exception",
-     "verified_bachelor_programs": 0
+     "status": "covered",
+     "verified_bachelor_programs": 133
     },
     {
      "academic_years": [],
@@ -52510,8 +52519,8 @@
      "verified_bachelor_programs": 0
     }
    ],
-   "not_yet_researched": 38,
-   "queue_entries": 52,
+   "not_yet_researched": 39,
+   "queue_entries": 54,
    "queue_errors": [],
    "state": "WI",
    "status": "in_progress",

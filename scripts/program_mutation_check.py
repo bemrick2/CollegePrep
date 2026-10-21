@@ -52,6 +52,7 @@ MUTS = [
     ('programs/extract.py', "(?: (?:in|of|and|&) %s| %s|, %s)*\" % ((AWARD_WORD,) * 4)", "(?: (?:in|of|and|&) [A-Z][A-Za-z&]*| %s|, %s)*\" % ((AWARD_WORD,) * 3)"),
     ('programs/verify.py', "norm(ev.get('snippet', '')) not in {norm(l.replace('|', ' ')) for l in text.splitlines()}:", "norm(ev.get('snippet', '')) not in norm(text.replace('|', ' ')):"),
     ('programs/verify.py', "and k and ls[k - 1] == 'Download as PDF' for k, l in enumerate(ls)", "for k, l in enumerate(ls)"),
+    ('programs/extract.py', "        if m and (HEADER_NAME.fullmatch(prev) or NAMED_CATALOG.fullmatch(prev)) and", "        if m and HEADER_NAME.fullmatch(prev) and"),
     ('programs/extract.py', "    if len(rows) != 1: return []\n    value = re.sub", "    if not rows: return []\n    value = re.sub"),
     ('programs/extract.py', "    if not DEGREE_OFFERED_VALUE.fullmatch(value): return []", "    if not value: return []"),
     ('programs/extract.py', "    if not DEGREE_OFFERED_VALUE.fullmatch(value): return []", "    if not DEGREE_OFFERED_VALUE.match(value): return []"),
