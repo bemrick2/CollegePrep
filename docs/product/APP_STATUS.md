@@ -1,9 +1,14 @@
 # Prep & Price: what works, what is demo-only, what is missing
 
-Updated 2026-10-07. The hosted Supabase project is paused, so nothing below was checked against it after the pause.
-"Local backend" means `scripts/local/live_stack.sh test`: plain PostgreSQL 16 with every repository migration,
-the app's original demo question bank, PostgREST, and locally signed JWTs. It runs the real SQL, RLS policies and
-RPCs. It does not run Supabase Auth, edge functions, email or Stripe.
+Updated 2026-10-07; the "Local backend" description was refreshed on 2026-10-21. The hosted Supabase project is paused, so nothing below was checked against it after the pause. **The current status matrix (implemented, locally tested, hosted-tested, blocked) is at the top of `LAUNCH_CHECKLIST.md`.**
+
+"Local backend" means `scripts/local/live_stack.sh test`, which CI also runs on every PR (`web.yml`, job `local-backend`). It includes:
+- plain PostgreSQL 16 with every repository migration, plus Design's reference SQL;
+- the app's original demo question bank and the CR-10 exam catalog;
+- PostgREST and locally signed JWTs;
+- the edge functions under Deno, against fake push, FCM and mail services.
+
+It runs the real SQL, RLS policies and RPCs. It does not run Supabase Auth, real email, real push delivery or Stripe.
 
 ## Setup (four screens)
 

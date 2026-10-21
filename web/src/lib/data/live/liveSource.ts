@@ -1,5 +1,7 @@
 import { MAX_INTERESTS, type InterestProfile, type MajorCertainty, type SavedInterest } from '../../engine/interests'
 import { INVITE_TTL_HOURS } from '../../invites'
+import { displayName, examKey, type PlannedExam } from '../../engine/examCredit'
+import { practiceExclusions } from '../../engine/freshness'
 import type { SupabaseClient } from '@supabase/supabase-js'
 import type { AlertPreference, DevicePermission, DevicePlatform, DeviceStatus, EmailDelivery, DataSource, ReminderChange, ReminderDelivery, ReminderSettings, InactiveStudent, InvitationSummary, InviteSendResult, StudentInvitation } from '../source'
 import type { NextWeekSuggestion } from '../../engine/weeklyPlan'
@@ -156,7 +158,7 @@ export class LiveSource implements DataSource {
   /** weeklyDigest: the backend has CR-22 (alert_preferences.weekly_digest). Off until it is applied on hosted. */
   constructor(
     private sb: SupabaseClient,
-    private opts: { weeklyDigest?: boolean; reminders?: boolean; accountSetup?: boolean } = {},
+    private opts: { weeklyDigest?: boolean; reminders?: boolean; accountSetup?: boolean; examPlan?: boolean } = {},
   ) {}
 
   /** reminders: the backend has CR-27. Off until it is applied on hosted; the app then offers no reminders. */
@@ -216,14 +218,14 @@ export class LiveSource implements DataSource {
   async latestReminder(studentId: string): Promise<ReminderDelivery | null> {
     const { data, error } = await this.sb
       .from('practice_reminder_deliveries')
-      .select('id, sent_at, opened_at, snoozed_at')
+      .select('id, sent_at, opened_at, snoozed_at, channel')
       .eq('student_id', studentId)
       .eq('status', 'sent')
       .order('sent_at', { ascending: false })
       .limit(1)
       .maybeSingle()
     if (error) fail(error)
-    return data ? { id: data.id, sentAt: data.sent_at, openedAt: data.opened_at, snoozedAt: data.snoozed_at } : null
+    return data ? { id: data.id, sentAt: data.sent_at, openedAt: data.opened_at, snoozedAt: data.snoozed_at, channel: (data.channel as ReminderDelivery['channel']) ?? null } : null
   }
 
   async markReminderOpened(deliveryId: string) {
@@ -548,9 +550,49 @@ export class LiveSource implements DataSource {
       p_target_minutes: targetMinutes,
       p_exam_version: version,
     })
-    const items = await this.sb.from('practice_session_items').select('position, question_id, reason').eq('session_id', id).order('position')
-    if (items.error) fail(items.error)
-    const ids = (items.data ?? []).map((i) => i.question_id)
+    // The server's pool for this session: published, served, this exam version, with an expected time.
+    let poolQuery = this.sb.from('practice_questions').select(QUESTION_COLUMNS).eq('status', 'published').eq('exam_versions.exam_family', examFamily).not('expected_time_seconds', 'is', null)
+    if (version) poolQuery = poolQuery.eq('exam_version_id', version)
+    const [picked, poolRows, mine] = await Promise.all([
+      this.sb.from('practice_session_items').select('position, question_id, reason').eq('session_id', id).order('position'),
+      poolQuery,
+      this.sb.from('practice_attempts').select('question_id, presented_at').eq('student_id', studentId),
+    ])
+    if (picked.error) fail(picked.error)
+    if (poolRows.error) fail(poolRows.error)
+    if (mine.error) fail(mine.error)
+    const pool = ((poolRows.data ?? []) as unknown as QuestionRow[]).map(toPublic)
+    // Interim, until the server holds them (CR-23, #218 B1): the server's pick can include the fresh questions kept
+    // for the next progress check. Drop them here, with the rule the demo uses (engine/freshness.ts), then fill the
+    // session's time the way the demo's pool does: fresh questions that aren't held first, then repeats (least
+    // recently seen first) as review. Held questions are never served; the time budget is never exceeded.
+    const lastSeen = new Map<string, string>()
+    for (const r of mine.data ?? []) {
+      const q = r.question_id as string
+      const t = (r.presented_at as string | null) ?? ''
+      if (!lastSeen.has(q) || t > lastSeen.get(q)!) lastSeen.set(q, t)
+    }
+    const held = practiceExclusions(examFamily, pool, new Set(lastSeen.keys()))
+    const kept: { position: number; question_id: string; reason: string }[] = (picked.data ?? []).filter((i) => !held.has(i.question_id))
+    const secs = new Map(pool.map((q) => [q.id, q.expected_time_seconds ?? 60]))
+    const budget = targetMinutes * 60
+    let used = kept.reduce((t, i) => t + (secs.get(i.question_id) ?? 60), 0)
+    const chosen = new Set(kept.map((i) => i.question_id))
+    const nearMiddle = (x: PublicQuestion, y: PublicQuestion) => Math.abs((x.difficulty ?? 3) - 3) - Math.abs((y.difficulty ?? 3) - 3) || (x.id < y.id ? -1 : 1)
+    const open = pool.filter((q) => !held.has(q.id) && !chosen.has(q.id))
+    const fill = [
+      ...open.filter((q) => !lastSeen.has(q.id)).sort(nearMiddle).map((q) => ({ q, reason: 'untagged' })),
+      ...open.filter((q) => lastSeen.has(q.id)).sort((x, y) => (lastSeen.get(x.id)! < lastSeen.get(y.id)! ? -1 : 1)).map((q) => ({ q, reason: 'review' })),
+    ]
+    for (const { q, reason } of fill) {
+      const t = secs.get(q.id) ?? 60
+      if (used + t > budget) continue
+      kept.push({ position: 0, question_id: q.id, reason })
+      used += t
+    }
+    kept.forEach((i, n) => (i.position = n + 1))
+    const items = { data: kept }
+    const ids = kept.map((i) => i.question_id)
     const qs = ids.length ? await this.sb.from('practice_questions').select(QUESTION_COLUMNS).in('id', ids) : { data: [], error: null }
     if (qs.error) fail(qs.error)
     const byId = new Map(((qs.data ?? []) as unknown as QuestionRow[]).map((q) => [q.id, toPublic(q)]))
@@ -562,6 +604,7 @@ export class LiveSource implements DataSource {
       id,
       target_minutes: targetMinutes,
       items: (items.data ?? []).filter((i) => byId.has(i.question_id)).map((i) => ({ position: i.position, reason: i.reason, question: byId.get(i.question_id)!, seen_before: seen.has(i.question_id) })),
+      held_for_check: (picked.data ?? []).filter((i) => held.has(i.question_id)).length,
     }
   }
 
@@ -737,6 +780,75 @@ export class LiveSource implements DataSource {
 
   // CR-12: one saved school per household can be the primary target (set_household_primary_school).
   readonly supportsPrimarySchool = true
+
+  /** examPlan: the backend has CR-10 applied with exam_catalog loaded. Off until then; the plan stays on the device. */
+  get supportsExamPlan() {
+    return !!this.opts.examPlan
+  }
+
+  private examCatalogCache: Promise<{ exam_key: string; family: 'ap' | 'clep'; display_name: string; appKey: string; appFamily: 'AP' | 'CLEP' }[]> | null = null
+  private examCatalogRows() {
+    this.examCatalogCache ??= (async () => {
+      const { data, error } = await this.sb.from('exam_catalog').select('exam_key, family, display_name')
+      if (error) fail(error)
+      return (data ?? []).map((r) => {
+        const appFamily = (r.family === 'ap' ? 'AP' : 'CLEP') as 'AP' | 'CLEP'
+        return { ...(r as { exam_key: string; family: 'ap' | 'clep'; display_name: string }), appFamily, appKey: examKey(appFamily, r.display_name as string, false) }
+      })
+    })()
+    // A failed fetch isn't kept: the next call tries again.
+    this.examCatalogCache.catch(() => (this.examCatalogCache = null))
+    return this.examCatalogCache
+  }
+  /** The catalog row for an app exam: matched on the name as printed (the backend's catalog decides aliases). */
+  private async catalogRowFor(exam: Pick<PlannedExam, 'family' | 'name'>) {
+    const raw = examKey(exam.family, exam.name, false)
+    return (await this.examCatalogRows()).find((x) => x.appFamily === exam.family && x.appKey === raw) ?? null
+  }
+
+  async examPlan(studentId: string): Promise<PlannedExam[]> {
+    if (!this.supportsExamPlan) return []
+    const [rows, cat] = await Promise.all([this.sb.from('student_exam_plan').select('exam_key, score').eq('student_id', studentId), this.examCatalogRows()])
+    if (rows.error) fail(rows.error)
+    const byKey = new Map(cat.map((c) => [c.exam_key, c]))
+    return (rows.data ?? []).flatMap((r) => {
+      const c = byKey.get(r.exam_key as string)
+      return c ? [{ family: c.appFamily, key: c.appKey, name: displayName(c.appFamily, c.display_name), score: (r.score as number | null) ?? null }] : []
+    })
+  }
+
+  async saveExamPlanEntry(studentId: string, exam: PlannedExam) {
+    if (!this.supportsExamPlan) throw new DataError('Exams are kept on this device until CR-10 is on the backend', 'not_found')
+    const c = await this.catalogRowFor(exam)
+    // 'not_found' means "no canonical key": the caller keeps the exam on the device. Other errors are real errors.
+    if (!c) throw new DataError('This exam has no canonical key yet, so it stays on this device', 'not_found')
+    // Update first, then insert: the table grants UPDATE on score/taken_on only, so an upsert (which rewrites the key
+    // columns) is refused. Zero updated rows means no such entry yet, or no right to change it; the insert decides.
+    for (let tries = 0; tries < 2; tries++) {
+      const upd = await this.sb.from('student_exam_plan').update({ score: exam.score }).eq('student_id', studentId).eq('exam_key', c.exam_key).select('exam_key')
+      if (upd.error) fail(upd.error)
+      if (upd.data?.length) return
+      const ins = await this.sb.from('student_exam_plan').insert({ student_id: studentId, exam_key: c.exam_key, score: exam.score }).select('exam_key')
+      // Another device inserted the same exam between our update and insert: update it instead.
+      if (ins.error?.code === '23505') continue
+      if (ins.error) fail(ins.error)
+      if (!ins.data?.length) throw new DataError("You can't change this student's exams", 'forbidden')
+      return
+    }
+    throw new DataError('Could not save the exam; try again', 'unknown')
+  }
+
+  async removeExamPlanEntry(studentId: string, appKey: string) {
+    if (!this.supportsExamPlan) return
+    const row = (await this.examPlan(studentId)).find((e) => e.key === appKey)
+    if (!row) return
+    const c = await this.catalogRowFor(row)
+    if (!c) return
+    const { data, error } = await this.sb.from('student_exam_plan').delete().eq('student_id', studentId).eq('exam_key', c.exam_key).select('exam_key')
+    if (error) fail(error)
+    if (!data?.length) throw new DataError("You can't change this student's exams", 'forbidden')
+  }
+
 
   async primarySchool(householdId: string): Promise<string | null> {
     const { data, error } = await this.sb.from('household_saved_schools').select('institution_key').eq('household_id', householdId).eq('is_primary', true).maybeSingle()

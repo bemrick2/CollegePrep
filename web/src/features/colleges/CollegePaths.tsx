@@ -56,9 +56,15 @@ const policiesOf = (c: InstitutionComparison) => (c.domains.credit_policies ?? [
  * is estimated, and no transfer is implied unless a verified transfer policy is on file.
  */
 export function CollegePaths() {
-  const { activeStudent, viewer } = useApp()
+  const { activeStudent, viewer, ctx } = useApp()
   const cmp = useSavedComparison(COMPARE_YEAR)
-  const plan = useExamPlan(activeStudent?.id)
+  // Who may change the exam plan: the student's own login, or a guardian of the household with the set-goals
+  // permission (the same rule as the plan and goals). A view-only guardian sees the plan and changes nothing.
+  const canEditExams =
+    !!activeStudent &&
+    ((!!viewer && activeStudent.linked_user_id === viewer.userId) ||
+      !!ctx?.memberships.some((m) => m.household_id === activeStudent.household_id && m.role === 'guardian' && m.can_set_goals))
+  const plan = useExamPlan(activeStudent?.id, canEditExams)
   const { exam: examFamily, reference: ref } = useMeritReference(activeStudent?.id)
   const interests = useInterests(activeStudent?.id).profile.interests
   const schools = (cmp.data ?? []).filter((c) => c.found)
@@ -176,6 +182,8 @@ function ExamPlanner({
             <ExamRow
               key={e.key}
               exam={e}
+              onDevice={plan.onAccount && plan.onDevice.has(e.key)}
+              disabled={!plan.canEdit || !plan.ready}
               onScore={(s) => plan.setScore(e.key, s)}
               onLevel={(l) => plan.setLevel(e.key, l)}
               onRemove={() => plan.remove(e.key)}
@@ -184,7 +192,10 @@ function ExamPlanner({
         </ul>
       )}
 
-      {options.length === 0 ? (
+      {!plan.canEdit && (
+        <p className="mt-3 text-sm text-ink-3">Only {who === 'you' ? 'you' : who} or a guardian who can set goals can change these exams.</p>
+      )}
+      {!plan.canEdit ? null : options.length === 0 ? (
         <p className="mt-4 text-sm text-ink-3">None of your saved four-year schools has a verified exam-credit table yet.</p>
       ) : (
         <div className="mt-4">
@@ -196,7 +207,7 @@ function ExamPlanner({
             className={cx(inputClass, 'mt-1.5')}
             value={pick}
             onChange={(e) => add(e.target.value)}
-            disabled={plan.exams.length >= plan.max}
+            disabled={plan.exams.length >= plan.max || !plan.ready}
           >
             <option value="">Choose an exam…</option>
             {EXAM_FAMILIES.filter((f) => available.some((o) => o.family === f)).map((f) => (
@@ -211,7 +222,17 @@ function ExamPlanner({
               </optgroup>
             ))}
           </select>
-          <p className="mt-1.5 text-xs text-ink-3">Exams listed by your saved schools' published tables. Saved on this device for now.</p>
+          <p className="mt-1.5 text-xs text-ink-3">
+            Exams listed by your saved schools' published tables.{' '}
+            {plan.onAccount
+              ? 'AP and CLEP exams are saved to the account, so they show on every device. Exams marked “This device only” (IB, Statewide Dual Credit, or a name the national exam list doesn’t have) stay here for now.'
+              : 'Saved on this device for now.'}
+          </p>
+          {plan.error && (
+            <Notice tone="bad" className="mt-2">
+              {plan.error}
+            </Notice>
+          )}
         </div>
       )}
     </Section>
@@ -223,20 +244,28 @@ function ExamRow({
   onScore,
   onLevel,
   onRemove,
+  onDevice = false,
+  disabled = false,
 }: {
   exam: PlannedExam
   onScore: (s: number | null) => void
   onLevel: (l: IbLevel | null) => void
   onRemove: () => void
+  onDevice?: boolean
+  disabled?: boolean
 }) {
   const [lo, hi] = SCORE_RANGE[exam.family]
   const scores = SCORE_CHOICES[exam.family] ?? null
   return (
     <li className="flex flex-wrap items-center gap-2 rounded-xl border border-line p-2 pl-3">
-      <span className={cx('min-w-0 flex-1 text-sm font-semibold text-ink', exam.family === 'IB' && 'basis-full sm:basis-0')}>{exam.name}</span>
+      <span className={cx('min-w-0 flex-1 text-sm font-semibold text-ink', exam.family === 'IB' && 'basis-full sm:basis-0')}>
+        {exam.name}
+        {onDevice && <span className="ml-2 text-xs font-normal text-ink-3">This device only</span>}
+      </span>
       {exam.family === 'IB' && (
         <select
           aria-label={`${exam.name} level`}
+          disabled={disabled}
           className="rounded-lg border border-line-strong bg-surface px-2 py-1.5 text-sm"
           value={exam.level ?? ''}
           onChange={(e) => onLevel(e.target.value === 'SL' || e.target.value === 'HL' ? e.target.value : null)}
@@ -249,6 +278,7 @@ function ExamRow({
       {scores ? (
         <select
           aria-label={`${exam.name} score`}
+          disabled={disabled}
           className="rounded-lg border border-line-strong bg-surface px-2 py-1.5 text-sm"
           value={exam.score ?? ''}
           onChange={(e) => onScore(e.target.value ? Number(e.target.value) : null)}
@@ -263,6 +293,7 @@ function ExamRow({
       ) : (
         <input
           aria-label={`${exam.name} score`}
+          disabled={disabled}
           inputMode="numeric"
           placeholder={exam.family === 'SDC' ? 'Planned (%)' : 'Planned'}
           className="w-28 rounded-lg border border-line-strong bg-surface px-2 py-1.5 text-sm"
@@ -275,6 +306,7 @@ function ExamRow({
       )}
       <button
         onClick={onRemove}
+        disabled={disabled}
         aria-label={`Remove ${exam.name}`}
         className="grid h-8 w-8 shrink-0 place-items-center rounded-full text-ink-3 hover:bg-surface-2 hover:text-ink"
       >

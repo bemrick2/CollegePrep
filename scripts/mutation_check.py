@@ -7,7 +7,8 @@ A surviving mutant means a safety rule has no test. Run: python scripts/mutation
 import ast, concurrent.futures, os, queue, shutil, subprocess, sys, tempfile
 
 MUTS = [
-    ('pipeline/extractors/catalog.py', "|^\\s*B(?:J|HS|ES|GS|SAcc|SBA|SBE|SIE|SChE|SCE|SEE|SME|SAE|SCS|SF|SFS|SPH|PHIL|ASW|SW|LS|AS)\\s+in\\s+[A-Z]'), ('associate',", "'), ('associate',"),
+    ('pipeline/extractors/catalog.py', "|^\\s*B(?:J|HS|ES|GS|SAcc|SBA|SBE|SIE|SChE|SCE|SEE|SME|SAE|SCS|SF|SFS|SPH|PHIL|ASW|SW|LS|AS)\\s+in\\s+[A-Z]|", "|"),
+    ('pipeline/extractors/catalog.py', "|\\(B(?:SBA|SET|SCS|SDH|SHS|SMLS|SPH|SEE|SME|SCE|SAE|SIE|SChE|SAcc|SBE)\\)\\s*$'), ('associate',", "'), ('associate',"),
     ('pipeline/extractors/catalog.py', "    if not labels:  # the print link is the page's only label", "    if False:  # the print link is the page's only label"),
     ('pipeline/extractors/common.py', "\n            and not UNDOTTED_BACHELOR_END.search(head))", ")"),
     ('pipeline/extractors/catalog.py', "    text = print_link.sub('', page.text[:5000])", "    text = page.text[:5000]"),
@@ -20,6 +21,7 @@ MUTS = [
     ('pipeline/registry.py', "            inst['folder'] = prior[inst['institution_key']]; continue", "            pass"),
     ('pipeline/extractors/catalog.py', "DEGREE = [('bachelor', r'(?<![A-Za-z]\\.)\\bB", "DEGREE = [('bachelor', r'\\bB"),
     ('pipeline/extractors/common.py', "UNDERGRAD_AWARD = re.compile(r'(^|,|\\s|\\()\\s*(", "UNDERGRAD_AWARD = re.compile(r'(^|,|\\s)\\s*("),
+    ('pipeline/extractors/credit.py', "|SL\\s*(/|&|and)\\s*HL|(SL|HL)\\s+only)', c, re.I) for c in col(sc)):", "|SL\\s*/\\s*HL)', c, re.I) for c in col(sc)):"),
     ('pipeline/extractors/credit.py', "if bad_score and bad_score >= len(eqs) * 0.3: issues = issues + ['score_column_not_scores']", 'pass'),
     ('pipeline/extractors/credit.py', "if eqs and all(not e['institution_course_equivalent'] for e in eqs): issues = issues + ['course_column_missing']", 'pass'),
     ('pipeline/promote.py', 'raise ValueError(f"{c[\'candidate_id\']}: requirement row for program', 'pass  # (f"{c[\'candidate_id\']}: requirement row for program'),

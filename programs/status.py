@@ -109,7 +109,10 @@ def institution_status(inst, q_entries):
     cats = [c for c in records(folder, 'program_catalogs') if c.get('verification_status') in ('verified', 'partially_verified')]
     reqs = records(folder, 'degree_requirements')
     plans = {r['program_key'] for r in reqs if r.get('requirement_kind') == 'program_plan' and r.get('verification_status') == 'verified'}
-    groups = [r for r in reqs if r.get('requirement_kind') == 'major' and r.get('verification_status') == 'verified']
+    # Only groups of a verified bachelor's program count: rows of an associate degree or of a record removed from the
+    # bachelor's listings (Roosevelt's combined BA/MPA, 2026-10-21) are not bachelor's requirement depth.
+    bkeys = {r['program_key'] for r in verified}
+    groups = [r for r in reqs if r.get('requirement_kind') == 'major' and r.get('verification_status') == 'verified' and r.get('program_key') in bkeys]
     gaps = {e['gap'] for e in q_entries}
     # A mechanical count (autoreview 'Standing review') can undercount (UT Austin: 113 linked entries, 262 listed), so it
     # is provisional: only a reviewed count (pilot review or catalog-count review) can make the catalog dimension met.

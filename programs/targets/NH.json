@@ -187,18 +187,21 @@
    "domains": [
     "snhu.edu"
    ],
-   "hosts": [],
-   "mode": "discover",
-   "priority": 1,
-   "discover": [
-    "https://www.snhu.edu/",
-    "https://catalog.snhu.edu/",
-    "https://www.snhu.edu/admission/academic-catalogs",
-    "https://www.snhu.edu/academics/",
-    "https://www.snhu.edu/registrar/",
-    "https://www.snhu.edu/catalog/"
+   "hosts": [
+    "snhu.kuali.co"
    ],
-   "policy": []
+   "mode": "catalog",
+   "priority": 1,
+   "catalog": {
+    "home": "https://www.snhu.edu/admission/academic-catalogs",
+    "min_depth": 1,
+    "path_prefix": "/admission/academic-catalogs",
+    "platform": "kuali",
+    "program_lists": []
+   },
+   "policy": [],
+   "render": "browser",
+   "detected": "reviewed 2026-10-21 (diagnose run NH/2026-10-21-diag): the search-surfaced page www.snhu.edu/admission/academic-catalogs embeds a Kuali catalog (window.subdomain 'https://snhu.kuali.co', window.catalogId '69e917a2592741290eff3c61'); rendered so the page's own catalog feed is kept"
   },
   {
    "institution_key": "ipeds-183044",
