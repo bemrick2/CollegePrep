@@ -121,15 +121,23 @@ If App Review still rejects the app, the fallback is to move the practice and ho
 
 ## Milestone N: native apps
 
-| Step | Work | Owner | Depends on |
-|---|---|---|---|
-| N0 | Approve Capacitor; Apple and Google organization accounts; Firebase project; Android billing decision (G1–G3) | Owner | — |
-| N1 | Capacitor project from `web/` builds; safe areas; secure session storage; Universal and App Links (site files and handler) | Design | N0 |
-| N2 | Push: Firebase messaging plugin, categories and actions, device reporting on open, tap and snooze handling | Design | N0, N1, CR-27 migration |
-| N3 | In-app account deletion; privacy labels and data safety from the approved policy; age rating | Design + Research + Owner | Deletion procedure (A4), legal text (A3) |
-| N4 | iOS IAP: purchases plugin, Apple server notifications, entitlement source `apple`; Android per G1–G3 | Design + Research + Owner | CR-16 Apple source, counsel check |
-| N5 | TestFlight and Play closed testing | Owner + Design | N1–N4 |
-| N6 | **Real-device acceptance** (below) | Owner + Design | Hosted restored (A5), CR-22/CR-27 migrations, email domain (A7) |
+Status as of 2026-10-21. **No native app has been built yet.** Nothing below has run on a real iPhone or Android phone, and nothing has been hosted-tested.
+
+| Step | Work | Owner | Depends on | Implemented | Locally tested | Blocked by |
+|---|---|---|---|---|---|---|
+| N0 | Approve Capacitor; Apple and Google organization accounts; Firebase project; Android billing decision (G1–G3) | Owner | — | — | — | **Owner decisions** |
+| N1 | Capacitor project from `web/` builds; safe areas; secure session storage; Universal and App Links (site files and handler) | Design | N0 | no | no | N0 |
+| N2 | Push: Firebase messaging plugin, categories and actions, device reporting on open, tap and snooze handling | Design | N0, N1, CR-27 migration | **Server side yes:** FCM HTTP v1 sender, native-first delivery, claim-then-send, retiring gone devices. **App side no** | Server side, against fake FCM (`reminders.local.test.ts`) | N0, N1; CR-27 migration (#218 A2); `FCM_SERVICE_ACCOUNT` secret |
+| N3 | In-app account deletion; privacy labels and data safety from the approved policy; age rating | Design + Research + Owner | Deletion procedure (A4), legal text (A3) | no | no | A3, A4 (#218 B8) |
+| N4 | iOS IAP: purchases plugin, Apple server notifications, entitlement source `apple`; Android per G1–G3 | Design + Research + Owner | CR-16 Apple source, counsel check | Web entitlement only (Stripe, mock-tested) | Web entitlement, with mocks | CR-16 Apple source (#218 B9); counsel |
+| N5 | TestFlight and Play closed testing | Owner + Design | N1–N4 | no | no | N1–N4 |
+| N6 | **Real-device acceptance** (below) | Owner + Design | Hosted restored (A5), CR-22/CR-27 migrations, email domain (A7) | — | Fakes only (not acceptance) | A5, A7, migrations |
+
+**What the native apps will reuse, already tested locally:**
+- the account journeys (#217);
+- the exam plan on the account (#219);
+- the reminder rules and guardian notice;
+- the practice holdout (#221).
 
 ## Acceptance: real devices, not fakes
 

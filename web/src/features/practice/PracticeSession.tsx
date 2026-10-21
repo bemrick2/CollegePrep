@@ -73,6 +73,20 @@ export function PracticeSession() {
   if (error) return <div className="mx-auto max-w-xl p-6"><Notice tone="bad" title="Could not start a session">{error}</Notice></div>
   if (!session) return <PageLoading />
 
+  if (session.items.length === 0 && (session.held_for_check ?? 0) > 0)
+    return (
+      <div className="mx-auto max-w-xl p-6">
+        <EmptyState
+          icon={<Book size={32} />}
+          title="Your new questions are saved for your next progress check"
+          action={<ButtonLink to="/student/benchmark">Go to progress checks</ButtonLink>}
+        >
+          The questions you haven't seen yet are kept for the next check, so it measures real progress instead of questions you already know. There's nothing
+          else to practise right now. Take the check, or come back when more questions are added.
+        </EmptyState>
+      </div>
+    )
+
   if (session.items.length === 0)
     return (
       <div className="mx-auto max-w-xl p-6">

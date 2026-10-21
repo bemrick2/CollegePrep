@@ -12,6 +12,8 @@ import { createClient } from '@supabase/supabase-js'
 import { beforeAll, describe, expect, it } from 'vitest'
 import { LiveSource } from '../../src/lib/data/live/liveSource'
 import { weekStartOf } from '../../src/lib/engine/dates'
+import { examKey, type PlannedExam } from '../../src/lib/engine/examCredit'
+import { practiceExclusions } from '../../src/lib/engine/freshness'
 
 const URL_ = process.env.LOCAL_BACKEND_URL
 const SECRET = process.env.LOCAL_JWT_SECRET ?? 'local-only-jwt-secret-at-least-32-characters'
@@ -35,7 +37,7 @@ async function client(sub: string) {
   return sb
 }
 /** A separate client for the same account: a different device. */
-const device = async (sub: string) => new LiveSource(await client(sub), { accountSetup: true })
+const device = async (sub: string) => new LiveSource(await client(sub), { accountSetup: true, examPlan: true })
 const week = weekStartOf(new Date().toISOString().slice(0, 10))
 
 describe.skipIf(!URL_)('parent journey with an invited student and two more guardians', () => {
@@ -81,6 +83,15 @@ describe.skipIf(!URL_)('parent journey with an invited student and two more guar
     const phone = await device(INVITED)
     const quick = await phone.startSession(studentId, 5, 'act')
     expect(quick.items.length).toBeGreaterThan(0)
+    // The next progress check's fresh questions are never served as practice (interim client rule until CR-23).
+    const held = practiceExclusions('act', await phone.publishedQuestions('act'), new Set())
+    expect(held.size).toBeGreaterThan(0)
+    expect(quick.items.filter((i) => held.has(i.question.id))).toEqual([])
+    expect(quick.items.every((i) => i.seen_before === false)).toBe(true)
+    // The session still fills its 5 minutes with fresh questions that aren't held.
+    const secs = quick.items.reduce((t, i) => t + (i.question.expected_time_seconds ?? 60), 0)
+    expect(secs).toBeLessThanOrEqual(5 * 60)
+    expect(secs).toBeGreaterThan(5 * 60 - 120)
     const when = new Date(Date.now() + 3 * 86_400_000).toISOString()
     await phone.saveSetupProgress(studentId, { benchmarkScheduledFor: when })
     const started = await phone.startBenchmark(studentId, 'initial', 'act')
@@ -121,6 +132,44 @@ describe.skipIf(!URL_)('parent journey with an invited student and two more guar
     expect(ctx.memberships.find((m) => m.household_id === hh)).toMatchObject({ can_view_progress: true, can_set_goals: false, can_manage_members: false })
   })
 
+  it('CR-10: AP and CLEP exams saved by the parent show on the student’s devices; IB stays on the device; permissions hold', async () => {
+    const exam = (family: PlannedExam['family'], name: string, score: number | null): PlannedExam => ({ family, key: examKey(family, name), name, score })
+    const parent = await device(PARENT)
+    await parent.saveExamPlanEntry(studentId, exam('AP', 'AP Calculus AB', 4))
+    await parent.saveExamPlanEntry(studentId, exam('CLEP', 'CLEP College Algebra', null))
+    // No canonical key for IB, or for a name the backend's catalog doesn't list as printed ("AP World History" is
+    // only an app alias): refused as 'not_found', so the app keeps it on the device.
+    await expect(parent.saveExamPlanEntry(studentId, { ...exam('IB', 'IB Economics', 5), level: 'SL' })).rejects.toMatchObject({ code: 'not_found' })
+    await expect(parent.saveExamPlanEntry(studentId, exam('AP', 'AP World History', 3))).rejects.toMatchObject({ code: 'not_found' })
+    // The server checks the AP scale.
+    await expect(parent.saveExamPlanEntry(studentId, exam('AP', 'AP Statistics', 7))).rejects.toThrow()
+    const phone = await device(INVITED)
+    expect((await phone.examPlan(studentId)).sort((a, b) => a.key.localeCompare(b.key))).toEqual([
+      { family: 'AP', key: examKey('AP', 'Calculus AB'), name: 'AP Calculus AB', score: 4 },
+      { family: 'CLEP', key: examKey('CLEP', 'College Algebra'), name: 'CLEP College Algebra', score: null },
+    ])
+    // The linked student may record their own score.
+    await phone.saveExamPlanEntry(studentId, exam('CLEP', 'College Algebra', 62))
+    const viewer = await device(VIEWER)
+    expect((await viewer.examPlan(studentId)).find((e) => e.family === 'CLEP')!.score).toBe(62)
+    // Current SERVER rule (CR-10 can_edit_student_plans): any guardian of the household may write the exam plan and
+    // interests, whatever their permissions. The app doesn't offer it (CollegePaths edits only for the student or a
+    // guardian who can set goals), but the server would accept it. Raised with Research (#218 C1); this pins today's
+    // server behaviour so a change there is deliberate.
+    await viewer.saveExamPlanEntry(studentId, exam('AP', 'AP Microeconomics', 3))
+    await viewer.removeExamPlanEntry(studentId, examKey('AP', 'Microeconomics'))
+    // Two devices saving the same new exam at once: both succeed, one row.
+    await Promise.all([(await device(PARENT)).saveExamPlanEntry(studentId, exam('AP', 'AP Psychology', 4)), (await device(INVITED)).saveExamPlanEntry(studentId, exam('AP', 'AP Psychology', 5))])
+    expect((await phone.examPlan(studentId)).filter((e) => e.key === examKey('AP', 'Psychology'))).toHaveLength(1)
+    await parent.removeExamPlanEntry(studentId, examKey('AP', 'Psychology'))
+    // An outsider can't even see the row, so a delete from them removes nothing.
+    await (await device(OUTSIDER)).removeExamPlanEntry(studentId, examKey('CLEP', 'College Algebra'))
+    expect((await phone.examPlan(studentId)).some((e) => e.key === examKey('CLEP', 'College Algebra'))).toBe(true)
+    await parent.removeExamPlanEntry(studentId, examKey('AP', 'Calculus AB'))
+    expect((await (await device(INVITED)).examPlan(studentId)).map((e) => e.key)).toEqual([examKey('CLEP', 'College Algebra')])
+    expect(await (await device(OUTSIDER)).examPlan(studentId)).toEqual([])
+  })
+
   it('an outsider sees nothing', async () => {
     const other = await device(OUTSIDER)
     expect(await other.getPlan(studentId)).toBeNull()
@@ -154,6 +203,23 @@ describe.skipIf(!URL_)('a student who signs up alone (no household)', () => {
     const when = new Date(Date.now() + 86_400_000).toISOString()
     await phone.saveSetupProgress(studentId, { benchmarkScheduledFor: when })
     expect(await (await device(SOLO)).listBenchmarks(studentId)).toEqual([])
+  })
+
+  it('review-only: once every non-held question is answered, sessions fill with repeats, never held questions', async () => {
+    const phone = await device(SOLO)
+    const pool = await phone.publishedQuestions('sat')
+    const held0 = practiceExclusions('sat', pool, new Set())
+    const session = await phone.startSession(studentId, 5, 'sat')
+    for (const q of pool.filter((x) => !held0.has(x.id))) {
+      const a = await phone.startAttempt(studentId, q.id, session.id)
+      await new Promise((r) => setTimeout(r, 25))
+      await phone.submitAttempt(a, { answer: 'A', activeMs: 5, confidence: 3 })
+    }
+    await phone.endSession(session.id)
+    const review = await phone.startSession(studentId, 15, 'sat')
+    expect(review.items.length).toBeGreaterThan(0)
+    expect(review.items.every((i) => i.seen_before === true && !held0.has(i.question.id))).toBe(true)
+    expect(review.items.reduce((t, i) => t + (i.question.expected_time_seconds ?? 60), 0)).toBeLessThanOrEqual(15 * 60)
   })
 
   it('nobody else can read or change it', async () => {

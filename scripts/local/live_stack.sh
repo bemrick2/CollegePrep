@@ -60,6 +60,14 @@ SQL
   done
   (cd "$ROOT/web" && npx vite-node scripts/local/seedFromFixtures.ts) > "$RUN/seed.sql"
   psql -q -X -v ON_ERROR_STOP=1 -f "$RUN/seed.sql" >/dev/null
+  # CR-10: the canonical AP/CLEP catalog, from Research's own list (backend/exam_keys.py), as the importer loads it.
+  (cd "$ROOT" && python3 -c "
+from backend.exam_keys import catalog
+q = lambda s: \"'\" + s.replace(\"'\", \"''\") + \"'\"
+print('insert into public.exam_catalog(exam_key, family, display_name) values')
+print(',\\n'.join(f'({q(k)}, {q(f)}, {q(n)})' for k, f, n in catalog()) + ' on conflict do nothing;')
+") > "$RUN/exam_catalog.sql"
+  psql -q -X -v ON_ERROR_STOP=1 -f "$RUN/exam_catalog.sql" >/dev/null
   # Fixture accounts for local tests: parent, student, second guardian, outsider.
   psql -q -X -v ON_ERROR_STOP=1 >/dev/null <<'SQL'
 insert into auth.users(id, email) values
