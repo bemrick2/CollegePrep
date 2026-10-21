@@ -1401,6 +1401,17 @@ class CompletionStatus(unittest.TestCase):
                  + [{'program_key': f'p{i}', 'requirement_kind': 'program_plan', 'verification_status': 'verified'} for i in range(4)])
         self.assertEqual(self.S.state_status('ZZ')['institutions'][0]['dimensions']['degree_maps'], 'open')
 
+    def test_requirement_groups_count_only_verified_bachelors_programs(self):
+        self.covered_school('big')
+        self.put('big', 'academic_programs', [{'program_key': 'p0', 'program_name': 'Computer Science', 'credential_level': 'bachelor', 'verification_status': 'verified'},
+                                              {'program_key': 'aas', 'program_name': 'Nursing AAS', 'credential_level': 'associate', 'verification_status': 'verified'},
+                                              {'program_key': 'ba-mpa', 'program_name': 'X, BA/MPA', 'credential_level': 'bachelor', 'verification_status': 'unverified'}])
+        self.put('big', 'degree_requirements', [{'program_key': k, 'requirement_kind': 'major', 'verification_status': 'verified'} for k in ('aas', 'ba-mpa')])
+        r = self.S.state_status('ZZ')['institutions'][0]
+        self.assertEqual((r['requirement_groups'], r['dimensions']['requirement_groups']), (0, 'open'))
+        self.put('big', 'degree_requirements', [{'program_key': k, 'requirement_kind': 'major', 'verification_status': 'verified'} for k in ('aas', 'p0')])
+        self.assertEqual(self.S.state_status('ZZ')['institutions'][0]['requirement_groups'], 1)
+
     def test_malformed_queue_entries_are_errors(self):
         self.queue([{'institution_key': 'nope', 'gap': 'catalog', 'reason': 'bot_challenge', 'detail': 'x', 'next_action': 'y'},
                     {'institution_key': 'big', 'gap': 'vibes', 'reason': 'bot_challenge', 'detail': 'x', 'next_action': 'y'},
