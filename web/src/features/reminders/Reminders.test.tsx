@@ -92,4 +92,28 @@ describe('practice reminders', () => {
     await vi.waitFor(() => expect(start).toHaveBeenCalled(), { timeout: 5000 })
     expect(start.mock.calls[0]![1]).toBe(5)
   }, 30_000)
+
+  it('live wording: only a recorded send is shown as sent; none, or an unknown answer, is said plainly', async () => {
+    const { render: r, screen: sc } = await import('@testing-library/react')
+    const { GuardianReminderStatus } = await import('./Reminders')
+    const base = new DemoSource(emptyStore())
+    const live = (latest: () => Promise<unknown>) =>
+      Object.assign(Object.create(base), { mode: 'live', latestReminder: latest, studentDevices: async () => [], reminderHistory: async () => [] }) as DemoSource
+    const show = (src: DemoSource) =>
+      r(
+        <MemoryRouter>
+          <AppProvider source={src}>
+            <GuardianReminderStatus studentId="s1" name="Riley" />
+          </AppProvider>
+        </MemoryRouter>,
+      )
+    const a = show(live(async () => ({ id: 'd1', sentAt: new Date().toISOString(), openedAt: new Date().toISOString(), snoozedAt: null, channel: 'fcm' })))
+    expect(await sc.findByText(/^Last reminder sent .+ to the app, and opened\.$/)).toBeInTheDocument()
+    a.unmount()
+    const b = show(live(async () => null))
+    expect(await sc.findByText('No reminder has been sent yet.')).toBeInTheDocument()
+    b.unmount()
+    show(live(async () => Promise.reject(new Error('network'))))
+    expect(await sc.findByText("Couldn't check whether a reminder was sent.")).toBeInTheDocument()
+  })
 })

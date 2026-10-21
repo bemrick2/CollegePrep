@@ -337,7 +337,9 @@ export function GuardianReminderStatus({ studentId, name }: { studentId: string;
             ? `Last reminder sent ${when(last.data.sentAt)}${last.data.channel === 'fcm' ? ' to the app' : last.data.channel === 'webpush' ? ' to a browser' : ''}${last.data.openedAt ? ', and opened' : ''}.`
             : last.loading
               ? null
-              : 'No reminder has been sent yet.'}
+              : last.error
+                ? "Couldn't check whether a reminder was sent."
+                : 'No reminder has been sent yet.'}
       </p>
       <div>
         <div className="font-semibold text-ink">{name}'s devices</div>
