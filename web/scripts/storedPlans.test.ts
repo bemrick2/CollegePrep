@@ -79,7 +79,7 @@ describe.skipIf(!schools.includes('utc'))('UTC Clear Path alternatives printed i
 })
 
 describe.skipIf(!schools.includes('utk'))('stored IB and Statewide Dual Credit tables (#197)', () => {
-  it('UTK IB and SDC rows match; UTC IB rows carry the level and printed scores ("HL 5,6, OR 7", #224), so they match too', () => {
+  it('UTK IB and SDC rows match; UTC IB rows carry the level and printed scores ("HL 5,6, OR 7", #224), so the engine matches them (the app still shows only verified tables, and UTC IB is partially verified)', () => {
     const utk = read('utk', 'credit_policies') as unknown as CreditPolicy[]
     const econ = { family: 'IB' as const, key: examKey('IB', 'Economics'), name: 'IB Economics', score: 5, level: 'SL' as const }
     expect(summarizeSchool(utk, [econ]).matches[0]).toMatchObject({ status: 'qualifies' })

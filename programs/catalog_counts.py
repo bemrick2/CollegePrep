@@ -22,7 +22,7 @@ from programs import extract as X
 ZWSP = '​'
 COMB = re.compile(r"Accelerated.*(\bM\.?[AS]\b\.?|\bMBA\b|\bMPA\b|Master)|Scholars Roadmap|\s\+\s.*\b(M[A-Z]{1,3}|MPA|MBA)\b|\(3\+2\)|\b3-2\b|4\+1|"
                   r"Dual Acceptance|and MBA\b|to MBA|\bB\.?[AS]\.?/\s?M\.?[AS]\b|\bM\.[AS]\.|/\s?(DDS|MD|PharmD|DPT|OTD)\b|\(B[AS]/D|"
-                  r"(?-i:\bB[A-Z]{1,4}[/-]M[A-Z]{1,3}\b)|"  # ODU 'Physics with a Major in Physics and Master of Business Administration, BS-MBA'; La Salle 'Accounting, BSBA/MBA (4 year)'
+                  r"(?-i:\bB[A-Z]{1,4}/M[A-Z]{1,3}\b)|(?-i:\bB[A-Z]{1,4}-M(?:S|A|[A-Z]{2,3})\b)|"  # ODU '..., BS-MBA' (a hyphenated single award such as 'BS-MT' is not combined); La Salle 'Accounting, BSBA/MBA (4 year)'
                   r"\bto\b.*(?-i:\bM[A-Z]{0,4}\b).*\bAccelerated\b|Dual Degree Acceptance|\bB\.?[AS]\.?/.*\bM\.\s?B\.\s?A\b|"
                   r"(?-i:,\s*B[A-Z]{1,3}\s+to\s+[^,]+,\s*M[A-Z]{1,5}\b)", re.I)  # Roosevelt 'Biology, BA to Secondary Education, MA Accelerated Program'; Georgian 'B.S./... M.B.A.'
 GENERIC = re.compile(r"^(Bachelor's (Degree|Concentration|Degree Programs)|Department of .*)$|: Bachelor's Degree\b|Minor, Certificate|Graduate Certificate|\bRoadmap\b|\b(Graduation|Continuance)\s+(Requirements|Regulations)\b|\bReadmission\b|\(Secondary Major\)|^Minor in\b|General Education Requirements|\(Double Major\)|^Bachelor's and Master's Degree Programs$", re.I)
@@ -213,7 +213,7 @@ def table_entries(run_dir, decision, ik, spec, year='2026-2027', reviewed='', re
     for line in open(run_dir / 'candidates.jsonl'):
         v = json.loads(line); cands.setdefault(v['candidate_id'], v)
     approved = {a['candidate_id'] for a in json.load(open(decision))['approve']}
-    progs = [v for v in cands.values() if v['institution_key'] == ik and v['domain'] == 'academic_programs' and v['candidate_id'] in approved
+    progs = [v for v in cands.values() if v['institution_key'] == ik and v['domain'] == 'academic_programs' and v['candidate_id'] in approved  # (table count)
              and v.get('year_basis', 'labeled_in_source') in LABELED]
     if records is not None:  # a recount: verified bachelor's records already on file stand in for the decision's approvals
         progs = [{'record': r, 'source': {'requested_url': r.get('program_url') or r['source_url']}} for r in records
@@ -295,14 +295,39 @@ def table_entries(run_dir, decision, ik, spec, year='2026-2027', reviewed='', re
          'completeness_basis': basis, 'reason': f'Reviewed: official current-catalog program list (Research session{", " + reviewed if reviewed else ""}).'}
     if ver == n: e['listed_program_keys'] = sorted(set(verified.values()))
     return e
+def on_file_approvals(run_dir, folder, ik, root=Path('.'), year='2026-27'):
+    """For a recount: the current candidates of a stored run that re-identify a verified bachelor's record already on file
+    (same program key, same name on the same program page, or the only verified record on that page), one per page.
+    Used for counting only; the recount decision promotes nothing (ODU, 2026-10-21)."""
+    f = Path(root) / 'data/institutions' / folder / 'academic_programs' / f'{year}.json'
+    recs = [r for r in (json.load(open(f))['records'] if f.exists() else []) if r.get('verification_status') == 'verified' and r.get('credential_level') == 'bachelor']
+    keys = {r['program_key'] for r in recs}
+    url = lambda r: page_key(r.get('program_url') or r['source_url'])
+    pages = {(url(r), name_key(r['program_name'])) for r in recs}
+    count = defaultdict(int)
+    for r in recs: count[url(r)] += 1
+    out, used = [], set()
+    for line in open(Path(run_dir) / 'candidates.jsonl'):
+        v = json.loads(line)
+        if v['institution_key'] != ik or v['domain'] != 'academic_programs': continue
+        rec = v['record']; k = (page_key(rec.get('program_url') or v['source']['requested_url']), name_key(rec.get('program_name') or ''))
+        if (rec.get('program_key') in keys or k in pages or count.get(k[0]) == 1) and k[0] not in used:
+            out.append({'candidate_id': v['candidate_id']}); used.add(k[0])
+    return out
 
 
 def main(argv=None):
     a = argparse.ArgumentParser()
-    a.add_argument('--run', required=True); a.add_argument('--decision', required=True); a.add_argument('--out', required=True)
+    a.add_argument('--run', required=True); a.add_argument('--decision', default=None); a.add_argument('--out', required=True)
     a.add_argument('--year', default='2026-2027'); a.add_argument('--reviewed', default=''); a.add_argument('iks', nargs='+')
+    a.add_argument('--on-file', default=None, help='institution folder: credit listed programs through verified records on file (recount)')
     args = a.parse_args(argv)
-    es = entries(args.run, args.decision, args.iks, args.year, args.reviewed)
+    decision = args.decision
+    if args.on_file:
+        import tempfile
+        t = tempfile.NamedTemporaryFile('w', suffix='.json', delete=False)
+        json.dump({'approve': [x for ik in args.iks for x in on_file_approvals(args.run, args.on_file, ik)]}, t); t.close(); decision = t.name
+    es = entries(args.run, decision, args.iks, args.year, args.reviewed)
     json.dump(es, open(args.out, 'w'), indent=1)
     for e in es: print(e['institution_key'], e['verified_listed_programs'], '/', e['listed_bachelor_programs'], 'complete' if e['programs_complete'] else '')
 
