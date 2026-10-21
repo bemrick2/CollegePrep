@@ -2692,6 +2692,29 @@ class CatalogCountTests(unittest.TestCase):
                              [('Major in Computer Science', u + 'cs/computer-science-major/')])
             with self.assertRaises(ValueError): entries(d, d / 'dec.json', ['k'])
 
+    def test_filter_labels_after_the_award(self):
+        import tempfile
+        from programs.catalog_counts import entries
+        u = 'https://catalog.x.edu/'
+        # ODU 2026-27: each row runs the award on to its filter labels ('Undergraduate', 'Bachelor's', subject, college)
+        listing = [("Art with a Major in Art History, BAArtsUndergraduateBachelor'sHumanitiesCollege of Arts and Letters", u + 'art-history-ba/', 'bachelor'),
+                   ("Chemistry with a Major in Chemical Forensic Science (BS)UndergraduateBachelor'sNatural SciencesCollege of Sciences", u + 'chem-fs/', 'bachelor'),
+                   ("Cybersecurity with a Major in Artificial Intelligence for CybersecurityUndergraduateBachelor'sSchool of Cybersecurity", u + 'cyber-ai/', 'bachelor'),
+                   ("Physics with a Major in Physics and Master of Business Administration, BS-MBAUndergraduateBachelor'sCollege of Sciences", u + 'phys-mba/', 'bachelor'),
+                   ("Naval Science, NROTCUndergraduateBachelor'sEngineering & TechnologyBatten College", u + 'nrotc/', 'bachelor'),
+                   ("Biology, BSUndergraduateBachelor'sNatural SciencesCollege of Sciences", u + 'biology-bs/', 'bachelor')]
+        records = [('Art with a Major in Art History (BA)', u + 'art-history-ba/'), ('Chemistry with a Major in Chemical Forensic Science (BS)', 'https://api.x.com/f'),
+                   ('Biology (BS)', u + 'biology-bs/')]
+        with tempfile.TemporaryDirectory() as d:
+            d = self.run_dir(d, listing, records)
+            e = entries(d, d / 'dec.json', ['k'])[0]
+        b = e['completeness_basis']
+        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (4, 3), b)
+        self.assertIn("6 run the award on to the row's filter labels", b)
+        self.assertIn("combined or accelerated bachelor's/master's entries: Physics with a Major in Physics and Master of Business Administration, BS-MBA", b)
+        self.assertIn("commissioning links that are not a single bachelor's program: Naval Science, NROTC", b)
+        self.assertTrue(b.endswith("Not recorded (names separated by ' | '): Cybersecurity with a Major in Artificial Intelligence for Cybersecurity."), b)
+
     def test_only_reviewed_approvals_count(self):
         import tempfile
         from programs.catalog_counts import entries

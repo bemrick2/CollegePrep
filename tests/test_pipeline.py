@@ -36,6 +36,13 @@ class TextTests(unittest.TestCase):
         for n in ('BIO in Focus', 'Journalism BJ minor', 'MSA in Accountancy'):
             self.assertNotEqual(catalog.credential(n), 'bachelor', n)
 
+    def test_parenthesized_undotted_award_at_the_end_names_a_bachelor(self):  # ODU 2026-27 titles
+        for n in ('Financial Management with a Major in Finance (BSBA)', 'Engineering Technology with a Major in Civil Engineering Technology (BSET)',
+                  'Health Sciences with a Major in Recreational Therapy (BSHS)'):
+            self.assertEqual(catalog.credential(n), 'bachelor', n)
+        for n in ('Business Analytics (BSBA) Minor', 'Finance (bsba)', 'Data Science (MSBA)'):
+            self.assertNotEqual(catalog.credential(n), 'bachelor', n)
+
     def test_full_catalog_print_link_is_not_the_catalog_year(self):
         # Oklahoma State 2026-27: '2026-2027 Edition' heads the page; 'Full 2025-2026 Catalog' links last year's PDF
         osu = T.Page('2026-2027 Edition\nFull 2025-2026 Catalog\nZoology, BS\nAcademic Year 2026-2027', 'Zoology, BS', [], [], [])
