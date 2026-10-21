@@ -241,11 +241,14 @@ export interface ReminderChange {
   emailedToMeAt: string | null
 }
 
+/** A reminder the server recorded as accepted by a push service (status 'sent'). Never a test or a simulation. */
 export interface ReminderDelivery {
   id: string
   sentAt: string
   openedAt: string | null
   snoozedAt: string | null
+  /** webpush (a browser or Home Screen web app) or fcm (the native app); null on older rows. */
+  channel?: 'webpush' | 'fcm' | null
 }
 
 export interface EmailDelivery {

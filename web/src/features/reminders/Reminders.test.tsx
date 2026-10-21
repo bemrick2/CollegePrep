@@ -67,6 +67,8 @@ describe('practice reminders', () => {
     renderAt('/parent', src)
     expect(await screen.findByText(/Riley turned off practice reminders on .+\. Shown here only: the demo never sends email\./, {}, { timeout: 8000 })).toBeInTheDocument()
     expect(screen.getByText(/iPhone or iPad: notifications blocked in device settings/)).toBeInTheDocument()
+    // Only recorded sends count as delivered; the demo says plainly that it sends none.
+    expect(screen.getByText('The demo never sends reminders, so none has been sent.')).toBeInTheDocument()
     expect(screen.getByText(/Turning notifications off in phone settings shows up only after that/)).toBeInTheDocument()
   }, 30_000)
 
