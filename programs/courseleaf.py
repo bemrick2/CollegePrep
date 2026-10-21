@@ -19,9 +19,19 @@ from pipeline.extractors.catalog import credential, program_name, slug
 from programs.years import academic_year_of
 EXTRACTOR = 'courseleaf_plan/v1'
 ONE = re.compile(r'^([A-Z]{1,5})\s(\d{3}[A-Z]?)$')
-TERM = re.compile(r'^(first|second|third|fourth|fifth|freshman|sophomore|junior|senior)\s+year$|^year\s+\d$|^(fall|winter|spring|summer)(\s+(term|semester|quarter))?(\s+\d)?$', re.I)
+TERM = re.compile(r'^(first|second|third|fourth|fifth|freshman|sophomore|junior|senior)\s+year$|^year\s+\d$|^(fall|winter|spring|summer)(\s+(term|semester|quarter))?(\s+\d)?$'
+                  # year rows printed alone: 'Freshman' (JSU, UNI, OSU, UNO), 'Year One' (CU Boulder); 'Semester 1' (UWM)
+                  r'|^(freshman|sophomore|junior|senior)$|^year\s+(one|two|three|four|five)$|^semester\s+\d{1,2}$'
+                  # 'First Semester' (Clayton, ODU), 'Semester One' (West Chester)
+                  r'|^(first|second|third|fourth|fifth|sixth|seventh|eighth)\s+semester$|^semester\s+(one|two|three|four|five|six|seven|eight)$', re.I)
 
-HEADER_CELLS = {'credits', 'milestones', 'hours', 'credit hours'}
+# column headers printed on a term row ('Fall | Hours', UNI 'Fall | Hour', Texas A&M 'Fall | Semester Credit Hours')
+HEADER_CELLS = {'credits', 'milestones', 'hours', 'credit hours', 'hour', 'credit', 'semester credit hours', 'semester hours', 'units'}
+# the term's subtotal row ('| Hours | 15', '| Credit Hours | 15', '| Semester Credit Hours | 15') and the plan total
+# ('Total Hours**', 'Total Semester Credit Hours'): read as the term's credit hours and the printed total, never as items
+SUBTOTAL = re.compile(r'^(credits|credit|hours|hour|credit hours|semester credit hours|semester hours|units)$', re.I)
+TOTAL = re.compile(r'^total\b[\w\s]*:?\**$', re.I)  # 'Total Hours**' (SRU), 'Total Credit Hours Required:' (TAMUK)
+PLAN_EXTRACTOR = 'courseleaf_plan/v2'
 
 
 def labelled_keys(heads, make):
@@ -43,16 +53,19 @@ def parse_grid(t):
     credits] and a text row [text, milestone, credits] (the text cell spans two columns). The milestone is kept in its
     own field, never inside the item text. A text row printed with credits only stays a row with empty text."""
     terms, cur, total, milestones = [], None, None, False
+    total_label = [None]
     for row in t.get('rows') or []:
         cells = [c.strip() for c in row]
         nonempty = [c for c in cells if c]
         if not nonempty: continue
+        if len(cells) == 1 and not TERM.match(cells[0]):  # a label row the reader does not know ('Third Semeseter', UNO)
+            t['_unread_label'] = True
         if TERM.match(nonempty[0]) and all(c.lower() in HEADER_CELLS for c in nonempty[1:]):  # 'Fall | Milestones | Credits' (UO)
             milestones = milestones or any(c.lower() == 'milestones' for c in nonempty[1:])
             cur = {'term_index': len(terms) + 1, 'label': nonempty[0], 'items': []}; terms.append(cur); continue
-        if len(nonempty) >= 2 and nonempty[-2].lower() == 'total credits':
-            total = nonempty[-1]; continue
-        if len(nonempty) == 2 and nonempty[0].lower() == 'credits':
+        if len(nonempty) >= 2 and TOTAL.match(nonempty[-2]):
+            total = nonempty[-1]; total_label[0] = nonempty[-2]; continue
+        if len(nonempty) == 2 and SUBTOTAL.match(nonempty[0]):
             if cur is not None: cur['credit_hours'] = nonempty[1]
             continue
         if cur is None: continue
@@ -70,6 +83,7 @@ def parse_grid(t):
             cur['items'].append(item)
         else:
             cur['items'].append(' | '.join(nonempty))
+    t['_total_label'] = total_label[0]
     return terms, total
 
 
@@ -79,7 +93,9 @@ def extract(inst, entry, page, year, year_line, have_program):
     if not gs or not year: return []
     acad = academic_year_of(year)
     name = program_name(page)
-    if not name or not credential(name): return []
+    # with a program record already read from the page (Texas A&M 'Agribusiness - BS' by static_program/v1), the plan is
+    # that record's and takes its key (the caller re-keys it); without one, the page title must name a degree
+    if not name or (not have_program and not credential(name)): return []
     pkey = slug(name)
     out = []
     parsed = [parse_grid(t) for t in gs]
@@ -105,11 +121,12 @@ def extract(inst, entry, page, year, year_line, have_program):
         caption = (gs[i - 1].get('caption') or 'Plan of Study Grid').strip()
         rd = {'schema': 'requirement_group/v1', 'catalog_year': year, 'group_type': 'sequence', 'category': 'recommended_sequence',
               'terms': terms, 'source_section': (headings[i - 1] if labelled else f'Sample Plan: {caption}' + (f' {i} of {len(parsed)}' if len(parsed) > 1 else ''))}
-        if total: rd['rule_text'] = f'Total Credits {total} (as printed)'
+        if total: rd['rule_text'] = f"{gs[i - 1].get('_total_label') or 'Total Credits'} {total} (as printed)"
         rec = {'program_key': pkey, 'requirement_key': key, 'requirement_kind': 'program_plan', 'rule_details': rd}
         ev = [{'field': 'term', 'value': t['label'], 'snippet': f"{t['label']}: {len(t['items'])} items, {t.get('credit_hours', '?')} credits"} for t in terms]
         issues = ['multiple_plan_grids'] if len(parsed) > 1 and not labelled else []
-        out.append(common.make('degree_requirements', inst['institution_key'], acad, 'labeled_in_source', rec, ev, entry, EXTRACTOR,
+        if gs[i - 1].get('_unread_label'): issues.append('unread_label_row')
+        out.append(common.make('degree_requirements', inst['institution_key'], acad, 'labeled_in_source', rec, ev, entry, PLAN_EXTRACTOR,
                                {'program_key': pkey, 'requirement_key': key}, {'terms': len(terms)}, issues))
     return out
 
@@ -131,11 +148,14 @@ LEAD_IN = re.compile(r'^students\s+must\s+(?=(?:take|complete|select|choose)\s+(
                      r'(?:credit\s+hours|credits|hours)\s+(?:from|of)\s+the\s+following\b)', re.I)  # WKU Film: 'Students must take an additional 15 credit hours from the following list'
 NUMBER_WORDS = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10}
 COUNT = re.compile(r'^(?:select|choose|complete|take)\s+(?:(?:a\s+)?(?:minimum|total)\s+of\s+)?(one|two|three|four|five|six|seven|eight|nine|ten|\d+)\s+'
-                   r'(?:additional\s+|more\s+|upper[- ]division\s+|lower[- ]division\s+|[A-Z]{2,5}\s+)*(?:courses?|of\s+the\s+following|from\s+the\s+following)\b', re.I)
+                   # a qualifying word ('two BIOL courses', 'one Fine Arts course'), never a unit: 'Select 5 hours of the
+                   # following', 'Select 6 SCH' print a number of credits (SHSU 2026-27)
+                   r'(?:additional\s+|more\s+|upper[- ]division\s+|lower[- ]division\s+|(?!(?:hours?|credits?|credit|sch|units?|semester)\b)[A-Z]{2,5}\s+)*'
+                   r'(?:courses?|of\s+the\s+following|from\s+the\s+following)\b', re.I)
 # TAMUSA "Select one of COB's Approved Ethics Electives" over its listed options: a number word, then a named list
 COUNT_NAMED = re.compile(r"^(?i:select|choose)\s+(?i:(one|two|three|four|five|six))\s+of\s+(?:[A-Z][\w'’&-]*\s+){1,5}(?i:electives?|courses?)\b")
 CREDITS = re.compile(r'^(?:select|choose|complete|take)\s+(?:(?:a\s+)?(?:minimum|total)\s+of\s+(?:at\s+least\s+)?|at\s+least\s+|an\s+additional\s+)?'
-                     r'(\d{1,2}|one|two|three|four|five|six|seven|eight|nine|ten)(?:\s*-\s*\d{1,2})?\s+(?:additional\s+)?(?:credits?|credit\s+hours|hours|units)\b', re.I)
+                     r'(\d{1,2}|one|two|three|four|five|six|seven|eight|nine|ten)(?:\s*-\s*\d{1,2})?\s+(?:additional\s+)?(?:credits?|credit\s+hours|semester\s+(?:credit\s+)?hours|hours|units|SCH)\b', re.I)
 # 'Complete the following:' (UVU) prints an all-required list, not a choice
 ALL_FOLLOWING = re.compile(r'^(?:complete|take)\s+(?:all\s+(?:of\s+)?)?the\s+following(?:\s+(?:courses|requirements))?\s*:?\s*$', re.I)
 
@@ -144,7 +164,8 @@ def _num(w):
     return NUMBER_WORDS.get(w.lower()) or int(w)
 # One course code as printed: 'BIOL 101', 'IT222' (Purdue Global prints no space), 'ENGL 1302' / 'DANC 1100R' (TAMUSA, UVU:
 # four digits and a suffix letter), 'ENG/FILM 366' (WKU: one cross-listed course, kept as printed so the list is not cut).
-CODE = r'[A-Z]{1,5}(?:/[A-Z]{1,5})*\s?\d{3,4}[A-Z]?'
+# A placeholder subject ('XXXX 1201', SHSU 2026-27 applied lessons) is not a course code.
+CODE = r'(?!X{3,}\b|X{3,}\d)[A-Z]{1,5}(?:/[A-Z]{1,5})*\s?\d{3,4}[A-Z]?'
 CODE_CELL = re.compile(rf'^{CODE}$')
 OR_ROW = re.compile(rf'^or\s+({CODE})$')
 # Rows that print more than one course in the code cell are held with a reason naming the shape (issue #95 recovery).
