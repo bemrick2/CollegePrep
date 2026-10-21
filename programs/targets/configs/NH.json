@@ -87,5 +87,19 @@
   },
   "detected": "CourseLeaf-style catalog on catalog.unh.edu (program list https://catalog.unh.edu/undergraduate/programs/); reviewed 2026-10-07: the catalog also prints UNH at Manchester and the College of Professional Studies Online (separate IPEDS institutions) under /undergraduate/professional-studies/, excluded from UNH Durham",
   "reviewed": true
+ },
+ "snhu": {
+  "catalog": {
+   "home": "https://www.snhu.edu/admission/academic-catalogs",
+   "min_depth": 1,
+   "path_prefix": "/admission/academic-catalogs",
+   "platform": "kuali",
+   "program_lists": []
+  },
+  "detected": "reviewed 2026-10-21 (diagnose run NH/2026-10-21-diag): the search-surfaced page www.snhu.edu/admission/academic-catalogs embeds a Kuali catalog (window.subdomain 'https://snhu.kuali.co', window.catalogId '69e917a2592741290eff3c61'); rendered so the page's own catalog feed is kept",
+  "hosts": [
+   "snhu.kuali.co"
+  ],
+  "render": "browser"
  }
 }

@@ -253,13 +253,14 @@
  },
  "lonestar": {
   "catalog": {
-   "catalog_pdfs": [
-    "https://www.lonestar.edu/departments/curriculuminstruction/2019-2020Catalog_FINAL.pdf"
-   ],
-   "home": "https://www.lonestar.edu/departments/curriculuminstruction/2019-2020Catalog_FINAL.pdf",
-   "platform": "pdf"
+   "home": "https://www.lonestar.edu/catalog/",
+   "min_depth": 1,
+   "path_prefix": "/catalog/",
+   "platform": "kuali",
+   "program_lists": []
   },
-  "detected": "catalog PDF labelled 2019-2020"
+  "detected": "reviewed 2026-10-21 (diagnose run TX/2026-10-21-diag): the search-surfaced LSC Catalog page links 'View Online Catalog' https://www.lonestar.edu/catalog/ (hash routes #/programs, #/policy/<id>: a JavaScript catalog) and lists archives only to 2025-2026; the 2019-2020 PDF configuration is superseded. Rendered so the page's own catalog feed is kept",
+  "render": "browser"
  },
  "midland": {
   "catalog": {
