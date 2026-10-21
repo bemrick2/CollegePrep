@@ -115,15 +115,21 @@ Reader and checker changes in this batch each come with tests and mutants: `prog
 
 ## In flight
 
-- `program-run/nh-k01-2026-10-21` (SNHU) and `program-run/tx-k01-2026-10-21` (Lone Star): rendered Kuali/JavaScript catalogs. Next: read the kept catalog feeds (a Kuali feed reader is needed; `programs/feeds.py` already requests the public program list) and check that the catalog title prints the year.
-- `program-run/az-diag2-2026-10-21`: ASU major page and major map, MSU undergraduate degree list, Lone Star catalog page, IU College and Kelley bulletins.
+- `program-run/nh-k02-2026-10-21` (SNHU) and `program-run/tx-k02-2026-10-21` (Lone Star): rendered Kuali/JavaScript catalogs (k01 was requested with `adapters_only`, which crawls only state adapters, and fetched nothing). Next: read the kept catalog feeds (a Kuali feed reader is needed; `programs/feeds.py` already requests the public program list) and check that the catalog title prints the year.
+- Discovery: `program-run/az-diag3-2026-10-21` (ASU checksheet and major map, MSU program detail, IU College majors, Kelley degree page) and `program-run/fl-diag4-2026-10-21` (UCF, UW, UGA, FSU catalog pages).
+- Round 2 found: MSU's 'Undergraduate Degrees' list prints 185 entries such as 'Accounting (BS)' (ProgramDetail.aspx?PType=UGRD&Program=ACCOUN_BS1); ASU's degree pages print 'Accountancy, BS' but no year, and link a 2026 curriculum checksheet and major maps; IU's College bulletin prints 'Bulletin Year 2026-27'.
 
 ## Next prioritized batch
 
 1. **Kuali feed reader** (SNHU, Lone Star; also Vanderbilt in TN): program identity from the catalog's public program list, the year from the catalog's own title, never inferred.
 2. **ASU and Michigan State** once round 2 shows their program pages: configure, run, review.
 3. **Near tier:** ESU (Kuali pages without a year: read the Kuali feed), JHU (decide whether the BM in Performance instrument curricula are listed programs), CU Denver, YSU.
-4. **Reader work kept by Research:** Colorado State program column, BYU emphases, Alabama print-link label, program lists for UTSA and UT Dallas.
+4. **Reader work kept by Research:**
+   - Colorado State program column: the Programs A-Z table (Program | Department | College | Level | Campus | Degree type) gives about 85 bachelor's programs (69 plain majors, plus majors listed only as 'Major, X Concentration' rows); 66 match the 68 records by name. Implement as a table count.
+   - BYU emphases: all 51 unrecorded entries are emphases of 13 degrees that have no line of their own ('Statistics (BS): Data Science Emphasis'). Counting such a degree once would put BYU at about 118/131, but the same rule would regroup 92 OSU, 45 SF State, 43 UVU and 22 UNH entries that are credited one by one today, so it needs a recount of those schools and agreement with Deep Dive (UVU, UNH) first.
+   - Alabama print-link label.
+   - UT Dallas: the edition's program list (catalog.utdallas.edu/2026/undergraduate/programs) is configured; run `program-run/tx-u01-2026-10-21`.
+   - UTSA: catalog.utsa.edu/undergraduate/azindex lists department pages, not degrees; no degree list found yet.
 5. **Configured tier:** UT Austin and Texas State (coordinate with Deep Dive), Penn State, Illinois, UCI, UC Davis, Arkansas.
 6. **Unconfigured tier:** UCF (www.ucf.edu/catalog/?catoid=12), Rutgers, Washington, UCSD (catalog.ucsd.edu/undergraduate/degrees-offered/), Minnesota (Coursedog), UGA, FSU, NAU, UMass.
 
