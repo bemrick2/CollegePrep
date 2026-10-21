@@ -26,7 +26,7 @@ Simulated tests (fake push service, fake FCM, fake mail) prove the code paths, n
 | Parent journey: four-screen setup, reload/resume, finished setup never asked again | yes | yes: demo mobile run (resumes at step 3); local backend (resume on another device; #217) | no | CR-26 migration (#218 A1); A5 |
 | Invited student: single-use code, guardian's choices on every device, can't change plan or goal | yes | yes (#217) | no | Real two-browser invitation acceptance with email confirmation (A6); invitation email (A7) |
 | Student who signs up alone (no household) | yes | yes (#217) | no | A5, A6 |
-| Guardian permissions (default co-guardian; view-only guardian) | yes (server rules) | yes (#217) | no | #218 C1: any guardian may edit the exam plan and interests. Is that intended? |
+| Guardian permissions (default co-guardian; view-only guardian) | yes (server rules; the app offers exam-plan editing only to the student or a guardian with set-goals, #219) | yes (#217, #219) | no | #218 C1: the server still lets any guardian write the exam plan and interests. Is that intended? |
 | Quick practice vs a separately scheduled benchmark; a started benchmark isn't a result | yes | yes (#217; component tests) | no | CR-26 for the schedule on the account |
 | AP/CLEP exam plan on the account (CR-10) | yes, behind `VITE_EXAM_PLAN` (#219) | yes (#219) | no | `20261006180300` unapplied on hosted; #218 C1 |
 | Practice reminders: settings, quiet/school hours, limits, snooze, one notification per reminder | yes, behind `VITE_PRACTICE_REMINDERS` | yes, against fakes | no | CR-27 migration (#218 A2); VAPID and FCM secrets; real devices R1–R7 |
@@ -34,7 +34,7 @@ Simulated tests (fake push service, fake FCM, fake mail) prove the code paths, n
 | Guardian sees the last **recorded** reminder send (not a test), and device permission separately from the in-app switch | yes (#220) | yes | no | as above |
 | Parent weekly summary and inactivity emails | yes, behind `VITE_WEEKLY_DIGEST` | yes, against fake mail | no | CR-22 migration; A7; schedules |
 | Only reviewed questions served | yes (CR-21 gate) | yes | no | `20261007140000` unapplied; review is AI only (A2) |
-| Questions held for the next check never appear in practice | yes: demo; live via an interim client rule (#221) | yes (#221) | no | CR-23, the server-side holdout (#218 B1) |
+| Questions held for the next check never appear in practice | yes: demo; live via an interim client rule (#221), which fills the session with fresh, then review questions | yes (#221: fresh fill, review-only state) | no | CR-23, the server-side holdout (#218 B1) |
 | Repeats labeled and never counted as improvement | yes | yes | no | none |
 | Honest when fresh questions run out | yes (#221 copy) | yes | no | A1, the bank size (`PRACTICE_READINESS.md`) |
 | No ACT/SAT score prediction | yes (`PRACTICE_ESTIMATES_VALIDATED = false`) | yes | n/a | Validated model (CR-3) |
