@@ -1,0 +1,26 @@
+{
+ "run": "programs/runs/VA/2026-10-06-cl",
+ "reviewer": "Research session review 2026-10-21 (recount under the current counting rules)",
+ "notes": [
+  "ODU's completeness count is recomputed 2026-10-21 under programs/catalog_counts.py: each row of the 'Programs, Degrees & Majors' list runs its award on to the row's filter labels and is read up to the award; 'Physics ... and Master of Business Administration, BS-MBA' is combined and Naval Science (NROTC) / Military Leadership (ROTC) are commissioning entries, none counted.",
+  "180 current candidates re-identify a verified bachelor's record on file (same program key, same name on the same program page, or the one verified record on that page) and are counted; 180 verified bachelor's records on file. This decision promotes nothing."
+ ],
+ "approve": [],
+ "catalogs": [
+  {
+   "institution_key": "ipeds-232982",
+   "catalog_url": "https://catalog.odu.edu/",
+   "catalog_year_label": "2026-2027",
+   "source_evidence": {
+    "url": "https://catalog.odu.edu/programs",
+    "sha256": "b63a18de2ccf51e75b388a28e8aa2cb939018c36d7d8340daa0f0dd5e18b6b99",
+    "fetched_at": "2026-10-06T11:06:04+00:00"
+   },
+   "listed_bachelor_programs": 186,
+   "verified_listed_programs": 180,
+   "programs_complete": false,
+   "completeness_basis": "189 linked entries on the official 2026-2027 program list print a bachelor's award; 177 run the award on to the row's filter labels ('Undergraduate', 'Bachelor's', subject and college) and are read up to the award; not counted, 1 combined or accelerated bachelor's/master's entries: Physics with a Major in Physics and Master of Business Administration, BS-MBA; not counted, 2 department, roadmap, general or commissioning links that are not a single bachelor's program: Military Leadership, ROTC | Naval Science, NROTC. 186 bachelor's programs, 180 with a verified record printing that name or on that program's own page. Not recorded (names separated by ' | '): Chemistry with a Major in Chemistry Pre-Med, BS | Cybersecurity with a Major in Artificial Intelligence for Cybersecurity | Music with an Emphasis in Sound Recording Technology, BM | Nursing with a Major in Nursing Concurrent, BSN | Nursing with a Major in Nursing Pre-Licensure, BSN | Public Health with a Major in Health Services Administration (Professional) (BSPH).",
+   "reason": "Reviewed: official current-catalog program list (Research session, 2026-10-21 recount under programs/catalog_counts.py; listed programs credited only through verified records already on file)."
+  }
+ ]
+}
