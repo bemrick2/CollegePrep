@@ -129,10 +129,13 @@ def printed_catalog_years(page):
         for m in SHORT_LABEL.finditer(line):
             for k in PERIOD_SPANS:
                 if int(m.group(2)) == (int(m.group(1)) + k) % 100: got.add((f'{m.group(1)}-{int(m.group(1)) + k}', line.strip()))
-        # UW-Madison's site header prints the catalog name and its year on two lines: 'Guide' / '2026-2027'
+        # UW-Madison's site header prints the catalog name and its year on two lines: 'Guide' / '2026-2027'; SHSU's
+        # breadcrumb header the named catalog: 'Undergraduate Catalog' / '2026-2027'
         m = BARE_YEAR.fullmatch(line.strip())
         prev = next((l.strip() for l in reversed(lines[max(0, i - 2):i]) if l.strip()), '')
-        if m and HEADER_NAME.fullmatch(prev) and int(m.group(2)) - int(m.group(1)) in PERIOD_SPANS:
+        # a named catalog pair is never read inside an archive menu ('Archived Catalogs' / 'Undergraduate Catalog' / '2024-2025')
+        archive = any(re.search(r'\barchive[sd]?\b|\bprevious\s+catalogs?\b', l, re.I) for l in lines[max(0, i - 4):i])
+        if m and (HEADER_NAME.fullmatch(prev) or (NAMED_CATALOG.fullmatch(prev) and not archive)) and int(m.group(2)) - int(m.group(1)) in PERIOD_SPANS:
             got.add((f'{m.group(1)}-{m.group(2)}', f'{prev} {line.strip()}'))
         # BYU's header: 'Undergraduate Catalog' / 'BYU' / '2026-2027'; Utah's: 'General Catalog' / 'University of Utah' /
         # 'Home (AY 2026-2027)': the catalog's name, the institution's short name, then the year, as the first lines of the page

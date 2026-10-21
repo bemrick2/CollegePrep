@@ -2,7 +2,7 @@
 
 This file is how a new Research session resumes the national program-research workstream without redoing finished work. It is updated with every batch PR.
 
-- **Main at the last refresh:** `14366d323e` (merge of #224, batch 5).
+- **Main at the last refresh:** `86cbac02c3` (merge of Deep Dive's #226, after batch 5 #224).
 - **Branch carrying this checkpoint:** `research/batch-06`.
 - **Ranking:** `docs/coverage/research_priority.json`, written by `python3 scripts/research_priority.py`. CI (validate-data) checks that it is current.
 
@@ -10,12 +10,12 @@ This file is how a new Research session resumes the national program-research wo
 
 Three separate measures, never mixed: **program coverage** (bachelor's programs listed in the official catalog, docs/PROGRAM_DEPTH_COMPLETION.md), **degree-requirement depth** (requirement groups and plans of verified bachelor's programs) and **reference-data breadth** (costs, aid, admissions and the other domains in docs/coverage/coverage.json).
 
-| | main `14366d3` | research/batch-06 |
+| | main `86cbac0` | research/batch-06 |
 |---|---|---|
 | Registered four-year institutions | 2,119 | 2,119 |
-| Covered (program coverage) | 66 | 67 |
+| Covered (program coverage) | 68 | 69 |
 | Researched | 675 | 683 |
-| Verified bachelor's program records | 10,341 | 10,350 |
+| Verified bachelor's program records | 10,473 | 10,482 |
 
 All figures are counted from `docs/coverage/programs/STATUS.json` and from the `academic_programs` files with `verification_status == "verified"` and `credential_level == "bachelor"`.
 
@@ -123,7 +123,7 @@ Reader and checker changes in this batch each come with tests and mutants: `prog
 - **no_year_label (a year is never inferred):**
   - Coursedog catalogs whose API answered 401: Arizona, UCSB, Illinois State, USU, FIU. CSUN: its pages print no year label.
   - Alabama: the only label printed is the print-menu link 'Download 2026-27 Undergraduate PDF'. This is a shared reader request.
-- **layout_not_readable:** UNL, Utah, SHSU, UWM and UCR (Deep Dive took these readers on #153, 2026-10-21); Indiana (separate school bulletins).
+- **layout_not_readable:** Utah and UCR (Deep Dive's readers on #153); Indiana (separate school bulletins). Deep Dive's #226 covered UWM (133/133) and UNL (116/124) and added the SHSU header-year rule.
 - **not_published:** Cincinnati (only a 2025-2026 program catalog PDF).
 - **Stale configured catalogs (find the 2026-27 catalog by web search before running):**
   - CSULB (2015-16 PDF)

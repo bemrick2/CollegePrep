@@ -1,0 +1,65 @@
+{
+ "run": "programs/runs/NE/2026-10-08-c01",
+ "run_branch": "program-run/*",
+ "reviewer": "Catalog-count review (independent agent, local stored pages only), 2026-10-21; recount after the reviewed refetch run 2026-10-21-d01",
+ "catalogs": [
+  {
+   "institution_key": "ipeds-181464",
+   "catalog_url": "https://catalog.unl.edu/",
+   "catalog_year_label": "2026-2027",
+   "source_evidence": {
+    "url": "https://catalog.unl.edu/undergraduate/majors/",
+    "sha256": "27c33a7ec975700f5590e1c9b7457e4fff8320602d82c17d02ac9a01b2f26be6",
+    "fetched_at": "2026-10-08T15:36:18+00:00"
+   },
+   "listed_bachelor_programs": 124,
+   "programs_complete": false,
+   "verified_listed_programs": 116,
+   "completeness_basis": "Official 'Majors/Areas of Study' A-Z list (Undergraduate Catalog 2026-2027, catalog.unl.edu/undergraduate/majors/); the list prints no awards, so each entry was judged from its label and its own stored page's 'Degree Offered:' row. Counted 124 entries (Data Science CAS/ENGR and Microbiology CAS/CASNR each counted separately; the three Nutrition & Health Sciences option entries counted separately as printed); excluded minor-only, certificate, graduate (Actuarial Science MS), pre-professional/non-degree entries and college/policy/nav links. 106 counted entries match an approved record by URL; 18 have no record: 4 whose pages print a bachelor's Degree Offered row, and 14 unconfirmed (no stored Degree Offered row: 13 pages not crawled, Modern Languages page prints none) counted in the safe direction. After the count review, the Art, Music, ALEC and HRTM pages (comma-separated award rows) were read, reviewed and matched. Recount 2026-10-21: the 10 majors refetched by URL in run 2026-10-21-d01 (not in the sitemap) were read, reviewed and matched; 116 of 124 verified. Unrecorded: Architectural Studies, Criminology & Criminal Justice, Food Science & Technology, Landscape Architecture, Modern Languages, Nutrition & Health Sciences: Community Health and Wellness Option, Nutrition & Health Sciences: Nutrition & Biomedical Sciences Option, Nutrition & Health Sciences: Nutrition, Exercise & Health Science Option.",
+   "reason": "Catalog-count review 2026-10-21 (recount after run 2026-10-21-d01): official current list page.",
+   "run": "programs/runs/NE/2026-10-08-c01",
+   "unmatched_entries": [
+    {
+     "printed": "Architectural StudiesMinor Available",
+     "url": "https://catalog.unl.edu/undergraduate/architecture/architectural-studies/",
+     "why": "stored page prints a bachelor Degree Offered row (\"Bachelor of Science in Design (BSD-Architecture) and the subsequent two-year M\") but no approved record exists for it"
+    },
+    {
+     "printed": "Criminology & Criminal JusticeMinor Available",
+     "url": "https://catalog.unl.edu/undergraduate/public-affairs-community-service/criminology-criminal-justice/",
+     "why": "stored page prints a bachelor Degree Offered row (\"Bachelor of Science in Criminology and Criminal Justice\") but no approved record exists for it"
+    },
+    {
+     "printed": "Food Science & TechnologyMinor Available",
+     "url": "https://catalog.unl.edu/undergraduate/agricultural-sciences-natural-resources/food-science-technology/",
+     "why": "stored page prints a bachelor Degree Offered row (\"Bachelor of Science in Food Science & Technology, Master of Science in Food Sc\") but no approved record exists for it"
+    },
+    {
+     "printed": "Landscape ArchitectureMinor Available",
+     "url": "https://catalog.unl.edu/undergraduate/architecture/landscape/",
+     "why": "stored page prints a bachelor Degree Offered row (\"Professional Bachelor of Landscape Architecture (BLA)\") but no approved record exists for it"
+    },
+    {
+     "printed": "Modern Languages",
+     "url": "https://catalog.unl.edu/undergraduate/arts-sciences/modern-languages/",
+     "why": "unconfirmed: stored page prints no Degree Offered row; page describes \"a major in Modern Languages and Literatures (with an option in French or German)\" - counted as a likely major"
+    },
+    {
+     "printed": "Nutrition & Health Sciences: Community Health and Wellness Option",
+     "url": "https://catalog.unl.edu/undergraduate/education-human-sciences/nutrition-community-health-wellness-option/",
+     "why": "page refetched in run 2026-10-21-d01; its heading names an option ('... Option'), which degree_offered/v1 does not read; the list prints no base Nutrition & Health Sciences entry"
+    },
+    {
+     "printed": "Nutrition & Health Sciences: Nutrition & Biomedical Sciences Option",
+     "url": "https://catalog.unl.edu/undergraduate/education-human-sciences/nutrition-science-option/",
+     "why": "page refetched in run 2026-10-21-d01; its heading names an option ('... Option'), which degree_offered/v1 does not read; the list prints no base Nutrition & Health Sciences entry"
+    },
+    {
+     "printed": "Nutrition & Health Sciences: Nutrition, Exercise & Health Science Option",
+     "url": "https://catalog.unl.edu/undergraduate/education-human-sciences/nutrition-exercise-health-science-option/",
+     "why": "page refetched in run 2026-10-21-d01; its heading names an option ('... Option'), which degree_offered/v1 does not read; the list prints no base Nutrition & Health Sciences entry"
+    }
+   ]
+  }
+ ]
+}
