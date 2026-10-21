@@ -1474,6 +1474,8 @@ class NamedHeaderYearTests(unittest.TestCase):  # SHSU 2026-27: 'Undergraduate C
                  '2025-2026 Catalog', 'A PDF of the 2025-2026 Catalog.', 'Cancel']
         self.assertEqual({y for y, _ in X.printed_catalog_years(T.Page('\n'.join(lines)))}, {'2026-2027'})
         self.assertEqual({y for y, _ in X.printed_catalog_years(T.Page('\n'.join(lines).replace('Undergraduate Catalog', 'Search')))}, {'2025-2026'})
+        archive = ['Department of Kinesiology', 'Archived Catalogs', 'Undergraduate Catalog', '2025-2026', 'Undergraduate Catalog', '2024-2025']
+        self.assertEqual(X.printed_catalog_years(T.Page('\n'.join(archive))), set())  # an archive menu is not a header
 
 
 class CompletionStatus(unittest.TestCase):

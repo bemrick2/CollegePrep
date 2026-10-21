@@ -52,7 +52,7 @@ MUTS = [
     ('programs/extract.py', "(?: (?:in|of|and|&) %s| %s|, %s)*\" % ((AWARD_WORD,) * 4)", "(?: (?:in|of|and|&) [A-Z][A-Za-z&]*| %s|, %s)*\" % ((AWARD_WORD,) * 3)"),
     ('programs/verify.py', "norm(ev.get('snippet', '')) not in {norm(l.replace('|', ' ')) for l in text.splitlines()}:", "norm(ev.get('snippet', '')) not in norm(text.replace('|', ' ')):"),
     ('programs/verify.py', "and k and ls[k - 1] == 'Download as PDF' for k, l in enumerate(ls)", "for k, l in enumerate(ls)"),
-    ('programs/extract.py', "        if m and (HEADER_NAME.fullmatch(prev) or NAMED_CATALOG.fullmatch(prev)) and", "        if m and HEADER_NAME.fullmatch(prev) and"),
+    ('programs/extract.py', "(HEADER_NAME.fullmatch(prev) or (NAMED_CATALOG.fullmatch(prev) and not archive)) and int(", "HEADER_NAME.fullmatch(prev) and int("),
     ('programs/extract.py', "    if len(rows) != 1: return []\n    value = re.sub", "    if not rows: return []\n    value = re.sub"),
     ('programs/extract.py', "    if not DEGREE_OFFERED_VALUE.fullmatch(value): return []", "    if not value: return []"),
     ('programs/extract.py', "    if not DEGREE_OFFERED_VALUE.fullmatch(value): return []", "    if not DEGREE_OFFERED_VALUE.match(value): return []"),
@@ -350,7 +350,8 @@ MUTS = [
     ('programs/promote.py', " and not (approval or {}).get('replaces_promoted'): return", ": return"),
     ('programs/promote.py', "        if held:\n", "        if False:\n"),
     # UW-Madison 2026-27 header: 'Guide' / '2026-2027' on two lines
-    ('programs/extract.py', "        if m and (HEADER_NAME.fullmatch(prev) or NAMED_CATALOG.fullmatch(prev)) and int(m.group(2)) - int(m.group(1)) in PERIOD_SPANS:", "        if m and int(m.group(2)) - int(m.group(1)) in PERIOD_SPANS:"),
+    ('programs/extract.py', "        if m and (HEADER_NAME.fullmatch(prev) or (NAMED_CATALOG.fullmatch(prev) and not archive)) and int(m.group(2)) - int(m.group(1)) in PERIOD_SPANS:", "        if m and int(m.group(2)) - int(m.group(1)) in PERIOD_SPANS:"),
+    ('programs/extract.py', "(NAMED_CATALOG.fullmatch(prev) and not archive)", "NAMED_CATALOG.fullmatch(prev)"),
     ('programs/extract.py', "HEADER_NAME = re.compile(r'(?:Guide|Catalog|Catalogue|Bulletin)', re.I)", "HEADER_NAME = re.compile(r'.*', re.I)"),
     # 2026-10-08 reader fixes: print-menu catalog PDFs (UNO), B.M.A. is not M.A. (Missouri Western), awards from official
     # school/department pages (UMD), college-qualified list lines (Iowa State)
