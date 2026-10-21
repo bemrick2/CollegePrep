@@ -2574,7 +2574,7 @@ class ListedEmphasisTests(unittest.TestCase):
                 f'<a href="{u}nsm/biology/">Bachelor of Science in Biology (120 semester credit hours)1, 4</a>'
                 f'<a href="{u}nsm/biology/">Biology (BS)</a>'
                 f'<a href="{u}nsm/chemistry/">Bachelor of Arts in Chemistry</a>'
-                f'<a href="{u}nsm/chemistry/">Bachelor of Arts in Physics</a>'
+                f'<a href="{u}nsm/chemistry/">Bachelor of Science in Physics</a>'
                 f'<a href="{u}ah/literature/">Bachelor of Arts in Literature</a>'
                 f'<a href="{u}ah/literature/">Literature (BA)</a>'
                 f'<a href="{u}ah/literature/">BA in Literature - Pre-Law Concentration</a></body></html>').encode()
