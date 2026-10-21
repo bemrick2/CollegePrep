@@ -3,11 +3,25 @@
  "entries": [
   {
    "institution_key": "ipeds-181464",
-   "gap": "institution",
+   "gap": "catalog",
+   "reason": "not_yet_researched",
+   "next_action": "Re-run with the 18 unrecorded list entries' pages (13 not crawled: Actuarial Science, Agribusiness (CASNR), Biochemistry, Economics, Environmental & Sustainability Studies, Spanish (CAS), the three Nutrition & Health Sciences options) and review; Architectural Studies, Food Science & Technology and Landscape Architecture print award rows the reader does not read (combined with a master's, or 'Professional Bachelor of'); Criminology & Criminal Justice has two department-section candidates with one key; Modern Languages prints no award row.",
+   "detail": "106 of 124 listed bachelor's majors verified (run 2026-10-08-c01, degree_offered/v1: the award as printed in each major page's 'Degree Offered:' row). The majors list prints no awards.",
+   "evidence_url": "https://catalog.unl.edu/undergraduate/majors/"
+  },
+  {
+   "institution_key": "ipeds-181464",
+   "gap": "requirement_groups",
    "reason": "layout_not_readable",
-   "next_action": "Reader work: read major pages headed by the major's name alone ('Art', 'Architectural Studies') with the bachelor's award the page states; then review against the majors list.",
-   "detail": "CourseLeaf catalog catalog.unl.edu ('Undergraduate Catalog 2026-2027'): run 2026-10-08-c01 read 202 program pages; major pages print no award in the heading, so only 2 records passed review.",
-   "evidence_url": "https://catalog.unl.edu/"
+   "next_action": "Read the major's own Course List groups: the major pages' tables include the college ACE outcomes and the minor's requirements ('Requirements for Minor Offered by Department'), so groups must be taken by section heading.",
+   "detail": "Course List tables on the 105 degree_offered/v1 pages are not read on that path (run 2026-10-08-c01).",
+   "evidence_url": "https://catalog.unl.edu/undergraduate/arts-sciences/anthropology/"
+  },
+  {
+   "institution_key": "ipeds-181464",
+   "gap": "admission_rules",
+   "reason": "not_yet_researched",
+   "next_action": "Read each verified major page's admission statement verbatim (business, computer science, engineering, nursing first), or queue no_official_statement."
   },
   {
    "institution_key": "ipeds-181394",

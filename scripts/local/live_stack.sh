@@ -60,6 +60,14 @@ SQL
   done
   (cd "$ROOT/web" && npx vite-node scripts/local/seedFromFixtures.ts) > "$RUN/seed.sql"
   psql -q -X -v ON_ERROR_STOP=1 -f "$RUN/seed.sql" >/dev/null
+  # CR-10: the canonical AP/CLEP catalog, from Research's own list (backend/exam_keys.py), as the importer loads it.
+  (cd "$ROOT" && python3 -c "
+from backend.exam_keys import catalog
+q = lambda s: \"'\" + s.replace(\"'\", \"''\") + \"'\"
+print('insert into public.exam_catalog(exam_key, family, display_name) values')
+print(',\\n'.join(f'({q(k)}, {q(f)}, {q(n)})' for k, f, n in catalog()) + ' on conflict do nothing;')
+") > "$RUN/exam_catalog.sql"
+  psql -q -X -v ON_ERROR_STOP=1 -f "$RUN/exam_catalog.sql" >/dev/null
   # Fixture accounts for local tests: parent, student, second guardian, outsider.
   psql -q -X -v ON_ERROR_STOP=1 >/dev/null <<'SQL'
 insert into auth.users(id, email) values
@@ -74,7 +82,12 @@ insert into auth.users(id, email) values
   ('00000000-0000-4000-a000-000000000053', 'student3@local.test'),
   ('00000000-0000-4000-a000-000000000054', 'adult-student@local.test'),
   ('00000000-0000-4000-a000-0000000000a6', 'parent6@local.test'),
-  ('00000000-0000-4000-a000-000000000055', 'student4@local.test')
+  ('00000000-0000-4000-a000-000000000055', 'student4@local.test'),
+  ('00000000-0000-4000-a000-0000000000a7', 'parent7@local.test'),
+  ('00000000-0000-4000-a000-0000000000a8', 'coguardian@local.test'),
+  ('00000000-0000-4000-a000-0000000000a9', 'viewer-guardian@local.test'),
+  ('00000000-0000-4000-a000-000000000056', 'solo-student@local.test'),
+  ('00000000-0000-4000-a000-000000000057', 'invited-student@local.test')
 on conflict do nothing;
 -- Two obviously fictional, unverified schools so saved-school flows can run. Not research data.
 insert into public.institutions(ipeds_name, display_name, state_code, institution_key) values

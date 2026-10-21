@@ -49,7 +49,9 @@ TRUSTED_PROGRAMS = {'catalog_program/v1', 'coursedog_api/v1', 'coursedog_page/v1
                     # 'Major: Emphasis' names, one dual major) are now excluded by the reader. Drupal pilots reviewed by hand.
                     'static_program/v1',
                     # independent review 2026-10-06 (UF 'Degree: Bachelor of ...' pages, 25 sampled): 25/25 right
-                    'degree_line/v1'}
+                    'degree_line/v1', 'degree_offered/v1',
+                    # independent reviews 2026-10-21: UNL 'Degree Offered:' rows 105/105 right; Utah award lines 59/59 right
+                    'kuali_award_line/v1'}
 # extractors whose programs share one page by design (several degree sections on a department page)
 SHARED_PAGE = {'department_section/v1'}
 OPTION = re.compile(r'\b(track|option|concentration|emphasis|specialization)\b', re.I)  # an option is not a program
