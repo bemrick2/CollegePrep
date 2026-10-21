@@ -94,11 +94,23 @@
   },
   {
    "institution_key": "ipeds-227881",
-   "gap": "institution",
-   "reason": "layout_not_readable",
-   "next_action": "Configure the program list and program page path from the stored list page, then re-run.",
-   "detail": "CourseLeaf catalog catalog.shsu.edu: run 2026-10-08-c01 fetched the program list and 7 pages (sitemap 404) and read no program record.",
-   "evidence_url": "https://catalog.shsu.edu/"
+   "gap": "catalog",
+   "reason": "not_yet_researched",
+   "next_action": "Record a reviewed count: the 'Programs A-Z' page prints its list only through script, so count from the department pages' program lists (or a rendered A-Z page); the two Finance BBA concentration records (Financial Management, Financial Planning) share a program key cut at 80 characters and are held until keys are distinct.",
+   "detail": "124 verified bachelor's records (run 2026-10-21-d02, walk below the department pages; header 'Undergraduate Catalog' / '2026-2027').",
+   "evidence_url": "https://catalog.shsu.edu/undergraduate/colleges-academic-departments/"
+  },
+  {
+   "institution_key": "ipeds-227881",
+   "gap": "degree_maps",
+   "reason": "not_yet_researched",
+   "next_action": "Read the 205 stored plan grid documents of run 2026-10-21-d02 (role plangrid) for the verified programs, then review."
+  },
+  {
+   "institution_key": "ipeds-227881",
+   "gap": "admission_rules",
+   "reason": "not_yet_researched",
+   "next_action": "Read each verified program page's admission statement verbatim, or queue no_official_statement."
   },
   {
    "institution_key": "ipeds-223232",
