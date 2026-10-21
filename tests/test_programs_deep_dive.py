@@ -429,6 +429,67 @@ class CourseleafPlanTests(unittest.TestCase):
         self.assertEqual(len({c['record']['requirement_key'] for c in out}), 2)
         self.assertEqual(len({c['candidate_id'] for c in out}), 2)
 
+    def test_plan_of_a_program_read_from_the_page_whose_title_names_no_award(self):  # Texas A&M 'Agribusiness - BS'
+        from pipeline import text as T
+        from programs import courseleaf as CL
+        e = {'url': 'https://catalog.tamu.edu/undergraduate/x/agribusiness-bs/', 'sha256': 's', 'fetched_at': '2026-10-06T00:00:00'}
+        p = T.Page('Agribusiness - BS', 'Agribusiness - BS < Texas A&M Catalogs', [self.grid('Plan of Study Grid', 'Plan of Study Grid')], [], [])
+        self.assertEqual(len(CL.extract({'institution_key': 'k'}, e, p, '2026-2027', '', True)), 1)  # the page's program record exists
+        self.assertEqual(CL.extract({'institution_key': 'k'}, e, p, '2026-2027', '', False), [])  # no record and no award in the title
+
+    def test_year_rows_subtotals_and_totals(self):  # JSU / UNI / Texas A&M / UWM 2026-27 Plan of Study Grids
+        from programs import courseleaf as CL
+        t = {'rows': [['Freshman'], ['Fall', 'Hour'], ['ART 111', 'Survey of Art I 1', '3'], ['Minor/Electives', '7'], ['', 'Hours', '10'],
+                      ['Spring'], ['ENGL 102', 'Composition II', '3'], ['', 'Hours', '3'],
+                      ['Sophomore'], ['Fall', 'Semester Credit Hours'], ['Semester 1', 'Credits'], ['HIST 201', 'US History', '3'], ['', 'Semester Credit Hours', '3'],
+                      ['', 'Total Hours**', '16']]}
+        terms, total = CL.parse_grid(t)
+        self.assertEqual([(x['label'], x.get('credit_hours'), len(x['items'])) for x in terms],
+                         [('Freshman', None, 0), ('Fall', '10', 2), ('Spring', '3', 1), ('Sophomore', None, 0), ('Fall', None, 0), ('Semester 1', '3', 1)])
+        self.assertEqual((total, t['_total_label']), ('16', 'Total Hours**'))
+        self.assertNotIn('Hours | 10', [i for x in terms for i in x['items']])  # the subtotal is not an item
+        u = {'rows': [['Year One'], ['Semester One', 'Credits'], ['ENG 101', 'Composition', '3'], ['', 'Credits', '3'], ['Second Semester', 'Credit Hours'],
+                      ['MAT 121', 'Math', '3'], ['', 'Total Credit Hours Required:', '6']]}
+        terms, total = CL.parse_grid(u)
+        self.assertEqual([(x['label'], x.get('credit_hours')) for x in terms], [('Year One', None), ('Semester One', '3'), ('Second Semester', None)])
+        self.assertEqual(total, '6')
+        w = {'caption': 'Plan of Study Grid', 'rows': [['First Semester', 'Credits'], ['ENG 101', 'Composition', '3'], ['Third Semeseter'], ['MAT 121', 'Math', '3']]}
+        from pipeline import text as T
+        [c] = CL.extract({'institution_key': 'k'}, {'url': 'u', 'sha256': 's', 'fetched_at': '2026-10-06T00:00:00'}, T.Page('Art, BA', 'Art, BA', [w], [], []), '2026-2027', '', True)
+        self.assertEqual(c['issues'], ['unread_label_row'])  # a misspelled term row is held, not folded silently
+        from pipeline import text as T
+        e = {'url': 'https://catalog.jsu.edu/x/art-ba/', 'sha256': 's', 'fetched_at': '2026-10-06T00:00:00'}
+        [c] = CL.extract({'institution_key': 'k'}, e, T.Page('Art, BA', 'Art, BA', [dict(t, caption='Plan of Study Grid')], [], []), '2026-2027', '', True)
+        self.assertEqual((c['extractor'], c['record']['rule_details']['rule_text']), ('courseleaf_plan/v2', 'Total Hours** 16 (as printed)'))
+
+    def test_course_titled_total_and_unknown_term_header(self):  # #238 review: UNO HRM, EKU EHS; UMT 'Autumn | Hours'
+        from programs import courseleaf as CL
+        t = {'rows': [['Fall', 'Hours'], ['MGMT 4010', 'Total Rewards', '3'], ['EHS 340', 'Total Worker Health Principles', '3'], ['', 'Hours', '6']]}
+        terms, total = CL.parse_grid(t)
+        self.assertEqual((terms[0]['items'], terms[0]['credit_hours'], total),
+                         (['MGMT 4010 | Total Rewards | 3', {'code': 'EHS 340', 'title': 'Total Worker Health Principles', 'credits': 3}], '6', None))
+        self.assertEqual(CL.parse_grid({'rows': [['Fall', 'Hours'], ['MGMT 4010', 'Total Rewards', '3'], ['Total Hours', '3']]})[1], '3')
+        for head in (['Term 1', 'Units'], ['1st Semester/Term', 'Credits']):
+            u = {'rows': [['Fall', 'Hours'], ['ENG 101', 'Composition', '3'], head, ['MAT 121', 'Math', '3']]}
+            CL.parse_grid(u)
+            self.assertTrue(u.get('_unread_label'), head)
+        a = {'rows': [['First Year'], ['Autumn', 'Hours'], ['ENG 101', 'Composition', '3'], ['', 'Hours', '3']]}
+        self.assertEqual([(x['label'], x.get('credit_hours')) for x in CL.parse_grid(a)[0]], [('First Year', None), ('Autumn', '3')])
+        self.assertFalse(a.get('_unread_label'))
+        for rule in ('Select 6 SH from the following', 'Select 6 hrs of the following', 'Select 6 cr of the following'):
+            self.assertIsNone(CL.COUNT.match(rule), rule)
+
+    def test_hour_choices_and_placeholder_codes(self):  # SHSU 2026-27 Course Lists (#228 review)
+        from programs import courseleaf as CL
+        for rule in ('Select 5 hours of the following', 'Select six hours of the following:', 'Select 6 SCH from the following',
+                     'Select 18 hours of Minor courses', 'Select 12 units from the following:'):
+            self.assertIsNone(CL.COUNT.match(rule), rule)
+            self.assertIsNotNone(CL.CREDITS.match(rule), rule)
+        for rule in ('Select two BIOL courses', 'Select one of the following:', 'Choose 2 courses from the following', 'Select one Fine Arts course'):
+            self.assertIsNotNone(CL.COUNT.match(rule), rule)
+        self.assertEqual([bool(CL.CODE_CELL.match(c)) for c in ('XXXX 1201', 'XXXX1201', 'MUEN XXXX', 'BIOL 101', 'XBIO 1201')],
+                         [False, False, False, True, True])
+
     def test_term_header_row_with_milestones_column(self):  # UO 2026-27: 'Fall | Milestones | Credits'
         from programs import courseleaf as CL
         t = {'rows': [['First Year'], ['Fall', 'Milestones', 'Credits'], ['JPN 101', 'First-Year Japanese', '', '4'], ['', 'Credits', '', '16'],
