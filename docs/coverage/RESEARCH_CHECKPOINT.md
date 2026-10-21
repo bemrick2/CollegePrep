@@ -2,7 +2,7 @@
 
 This file is how a new Research session resumes the national program-research workstream without redoing finished work. It is updated with every batch PR.
 
-- **Main at the last refresh:** `46c7f816055d2ee1c1ad7a2fd5fb6d760a8ebdfb` (after #216; the batch-4 numbers were taken at `c874441`, unchanged by #216).
+- **Main at the last refresh:** `b30d6765b7` (after #216, #223 and Deep Dive's #225 UNL/Utah readers).
 - **Branch carrying this checkpoint:** `research/batch-05`.
 - **Ranking:** `docs/coverage/research_priority.json`, written by `python3 scripts/research_priority.py`. CI (validate-data) checks that it is current.
 
@@ -10,14 +10,14 @@ This file is how a new Research session resumes the national program-research wo
 
 Three separate measures, never mixed: **program coverage** (bachelor's programs listed in the official catalog, docs/PROGRAM_DEPTH_COMPLETION.md), **degree-requirement depth** (requirement groups and plans of verified bachelor's programs) and **reference-data breadth** (costs, aid, admissions and the other domains in docs/coverage/coverage.json).
 
-| | main `46c7f81` | research/batch-05 |
+| | main `b30d676` | research/batch-05 |
 |---|---|---|
 | Registered four-year institutions | 2,119 | 2,119 |
 | Covered (program coverage) | 65 | 66 |
 | Researched | 673 | 675 |
-| Verified bachelor's program records | 10,156 | 10,177 |
+| Verified bachelor's program records | 10,320 | 10,341 |
 
-All figures are counted from `docs/coverage/programs/STATUS.json` and from the `academic_programs` files with `verification_status == "verified"` and `credential_level == "bachelor"`. The batch-05 change is -4 (corrections below) +25 (ODU).
+All figures are counted from `docs/coverage/programs/STATUS.json` and from the `academic_programs` files with `verification_status == "verified"` and `credential_level == "bachelor"`. The batch-05 change is -4 (corrections below) +25 (ODU); main's 10,320 includes Deep Dive's UNL and Utah records (#225).
 
 ## Completed in batch 5 (research/batch-05)
 
