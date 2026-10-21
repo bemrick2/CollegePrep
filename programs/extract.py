@@ -1198,6 +1198,8 @@ AWARD_DASH_OPTION_ENTRY = re.compile(r'^(?P<base>[^,]+?)\s+-\s*(?P<award>(?-i:B[
 LONG_AWARD_WITH_OPTION_ENTRY = re.compile(r'^(?P<base>[^,]+?),\s+Bachelor of [^(),]+?\s*\((?P<award>(?-i:B\.\s?[A-Z][A-Za-z.]*))\)\s+with\s+an?\s+(?:concentration|emphasis|option|track|specialization)\s+in\b', re.I)
 # Oklahoma State 2026-27: 'Zoology: Pre-Medical Sciences, BS' beside 'Zoology, BS' (an option printed as 'Major: Option, AWARD')
 COLON_OPTION_ENTRY = re.compile(r'^(?P<base>[^:,()]+?):\s+[^:]+,\s*(?P<award>(?-i:B[A-Z]{1,4}[a-z]{0,2}|(?:B|A)\.\s?[A-Z][A-Za-z.]*))\s*\**$')
+# UT Dallas 2026: 'BA in Literature - Creative Writing Concentration' and 'BA in Education - 4-8 Science' beside 'Bachelor of Arts in Literature' / '... in Education'
+AWARD_IN_DASH_OPTION_ENTRY = re.compile(r'^(?P<award>(?-i:B[A-Z]{1,3}))\s+in\s+(?P<base>[^-]+?)\s+-\s+\S')  # also 'BA in Education - EC-6 Core Subjects' (a certification focus); an option only where the plain degree is listed
 # Bryant 2026-27: 'Bachelor of Science in Business Administration: Accounting Concentration'
 BACHELOR_OF_OPTION_ENTRY = re.compile(r'^(?P<award>Bachelor of (?:Science|Arts|Fine Arts|Music|Business Administration))\s+in\s+(?P<base>[^:]+?)\s*:\s*[^:]*\b(emphasis|concentration|track|option|specialization)\b', re.I)
 
@@ -1229,6 +1231,8 @@ def _degree_key(line):
     if m: return re.sub(r'\W+', '', m.group('base')).lower(), _award_key(m.group('award'))
     m = re.match(r'^(?P<award>Bachelor of (?:Science|Arts|Fine Arts|Music|Business Administration))\s+in\s+(?P<base>[^:,()]+?)\s*$', line, re.I)
     if m: return re.sub(r'\W+', '', m.group('base')).lower(), _award_key(m.group('award'))
+    m = re.match(r'^(?P<award>(?-i:B[A-Z]{1,3}))\s+in\s+(?P<base>[^:,()\-]+?)\s*$', line)  # UT Dallas 'BA in Literature'
+    if m: return re.sub(r'\W+', '', m.group('base')).lower(), _award_key(m.group('award'))
     m = re.match(r'^(?P<base>[^,():]+?)\s+(?P<award>(?-i:B[A-Z]{1,4}))\s*$', line)  # UT Arlington 'Chemistry BA'
     if m: return re.sub(r'\W+', '', m.group('base')).lower(), _award_key(m.group('award'))
     return None
@@ -1239,7 +1243,7 @@ def emphasis_entry(line):
     return (EMPHASIS_ENTRY.match(line) or OPTION_PAREN_ENTRY.match(line) or WITH_EMPHASIS_ENTRY.match(line)
                 or AWARD_PAREN_OPTION_ENTRY.match(line) or BACHELOR_OF_OPTION_ENTRY.match(line) or PAREN_VARIANT_ENTRY.match(line)
                 or AWARD_DASH_OPTION_ENTRY.match(line) or PAREN_AWARD_VARIANT_ENTRY.match(line) or LONG_AWARD_WITH_OPTION_ENTRY.match(line)
-                or COLON_OPTION_ENTRY.match(line))
+                or COLON_OPTION_ENTRY.match(line) or AWARD_IN_DASH_OPTION_ENTRY.match(line))
 
 
 def list_line(printed):

@@ -2760,6 +2760,35 @@ class CatalogCountTests(unittest.TestCase):
         self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (7, 3), b)
         self.assertTrue(b.endswith("Not recorded (names separated by ' | '): Computer Science, B.S. | Dance, B.F.A. | Human Development Studies, B.S. | Nutrition Science, B.S."), b)
 
+    def test_one_degree_printed_two_ways_and_double_majors(self):  # UT Dallas 2026 program list
+        import tempfile
+        from programs.catalog_counts import entries, whole_degree
+        u = 'https://catalog.x.edu/'
+        listing = [('Bachelor of Science in Human Resource Management (120 semester credit hours)', u + 'bad/hrm', 'bachelor'),
+                   ('Human Resource Management (BS)', u + 'jsom/human-resource-management', 'bachelor'),
+                   ('Bachelor of Arts in Literature (120 semester credit hours)1', u + 'ah/literature', 'bachelor'),
+                   ('BA in Literature - Pre-Law Concentration', u + 'ah/literature-pre-law', 'bachelor'),
+                   ('BA in Education - 7-12 Social Studies with a concentration in History', u + 'ed/ss-history', 'bachelor'),
+                   ('Bachelor of Arts in Education (120 semester credit hours)', u + 'ed/education', 'bachelor'),
+                   ('BS in Economics and Finance (Double Major) (129 semester credit hours)', u + 'jsom/econ-fin', 'bachelor'),
+                   ('Education (BA) with EC-6 Core Subjects', u + 'ed/ec6', 'bachelor'),
+                   ('BA in Mathematics', u + 'ns/math', 'bachelor'), ('BA in Mathematics - Actuarial Concentration', u + 'ns/math-act', 'bachelor')]
+        records = [('Human Resource Management (BS)', u + 'jsom/human-resource-management'), ('Literature (BA)', u + 'ah/literature'),
+                   ('Education (BA) with EC-6 Core Subjects', u + 'ed/ec6')]
+        with tempfile.TemporaryDirectory() as d:
+            d = self.run_dir(d, listing, records)
+            e = entries(d, d / 'dec.json', ['k'])[0]
+        b = e['completeness_basis']
+        # HRM (two forms, one program), Literature (its concentration is an option), Education BA (its concentration is an
+        # option; the EC-6 record names another program and does not verify it), Education (BA) with EC-6; the double major
+        # is not counted
+        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (5, 3), b)
+        self.assertIn("4 print the degree's credit hours after the name", b)
+        self.assertIn("not a single bachelor's program: BS in Economics and Finance (Double Major)", b)
+        self.assertTrue(b.endswith("Not recorded (names separated by ' | '): BA in Mathematics | Bachelor of Arts in Education."), b)
+        self.assertEqual(whole_degree('Bachelor of Science in Human Resource Management'), whole_degree('Human Resource Management (BS)'))
+        self.assertIsNone(whole_degree('Education (BA) with EC-6 Core Subjects'))
+
     def test_only_reviewed_approvals_count(self):
         import tempfile
         from programs.catalog_counts import entries

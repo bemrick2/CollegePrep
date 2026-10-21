@@ -341,6 +341,13 @@ MUTS = [
     ('programs/catalog_counts.py', "        if hit and hit['record']['program_key'] in used: hit = None  # one record verifies one program", "        pass"),
     ('programs/catalog_counts.py', "            name = conc_major.get(head) or next((m3 for c, m3 in conc_major.items() if c.endswith(', ' + head)), None) or major_of(name)", "            name = major_of(name)"),
     ('programs/catalog_counts.py', "        for a in filter(None, (d.group('award'), d.group('award2'))): programs[(name, a)].append((i, r))", "        programs[(name, d.group('award'))].append((i, r))"),
+    # UT Dallas 2026 program list (2026-10-21)
+    ('programs/catalog_counts.py', "            if h: pr = pr[:h.start()]; hours += 1", "            pass"),
+    ('programs/catalog_counts.py', "|General Education Requirements|\\(Double Major\\)|", "|General Education Requirements|"),
+    ('programs/catalog_counts.py', "        dkey = lambda n: (lambda d: 'deg:%s|%s' % d if d else None)(whole_degree(n))", "        dkey = lambda n: None"),
+    ('programs/catalog_counts.py', "                re.compile(r'^(?P<base>[^,:()]+?) \\((?P<award>(?-i:B[A-Z]{1,3}))\\)$'),", "                re.compile(r'^(?P<base>[^,:()]+?) \\((?P<award>(?-i:B[A-Z]{1,3}))\\)'),"),
+    ('programs/extract.py', " or AWARD_IN_DASH_OPTION_ENTRY.match(line))", ")"),
+    ('programs/extract.py', "    m = re.match(r'^(?P<award>(?-i:B[A-Z]{1,3}))\\s+in\\s+(?P<base>[^:,()\\-]+?)\\s*$', line)  # UT Dallas 'BA in Literature'\n    if m: return", "    m = None  # UT Dallas 'BA in Literature'\n    if m: return"),
     # diagnose honours robots.txt (2026-10-08)
     ('programs/diagnose.py', "        if not robots.allowed(url):", "        if False:"),
     # Iowa State department pages: a heading prints the listed name and award; a sentence mentioning majors is no multi-major page
