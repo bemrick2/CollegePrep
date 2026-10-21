@@ -73,5 +73,8 @@ jobs:
         run: |
           set -o pipefail
           POSTGREST_BIN=/tmp/postgrest DENO_BIN=$(command -v deno) scripts/local/live_stack.sh test 2>&1 | tee /tmp/local-tests.txt
-          grep -E "Tests +[0-9]+ passed" /tmp/local-tests.txt
-          if grep -Eq "Tests .*skipped" /tmp/local-tests.txt; then echo "local tests were skipped"; exit 1; fi
+          echo "::notice title=Local end-to-end::$(grep -E 'Test Files|Tests ' /tmp/local-tests.txt | tr -s ' ' | tr '\n' ' ')"
+          if grep -Eq "Tests .*skipped" /tmp/local-tests.txt; then echo "::error::local tests were skipped"; exit 1; fi
+      - name: Report failures as annotations
+        if: failure()
+        run: grep -E "FAIL|×|Error|failed" /tmp/local-tests.txt | head -20 | sed 's/^/::error::/' || true
