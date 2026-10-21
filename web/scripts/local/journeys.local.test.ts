@@ -12,6 +12,7 @@ import { createClient } from '@supabase/supabase-js'
 import { beforeAll, describe, expect, it } from 'vitest'
 import { LiveSource } from '../../src/lib/data/live/liveSource'
 import { weekStartOf } from '../../src/lib/engine/dates'
+import { examKey, type PlannedExam } from '../../src/lib/engine/examCredit'
 
 const URL_ = process.env.LOCAL_BACKEND_URL
 const SECRET = process.env.LOCAL_JWT_SECRET ?? 'local-only-jwt-secret-at-least-32-characters'
@@ -35,7 +36,7 @@ async function client(sub: string) {
   return sb
 }
 /** A separate client for the same account: a different device. */
-const device = async (sub: string) => new LiveSource(await client(sub), { accountSetup: true })
+const device = async (sub: string) => new LiveSource(await client(sub), { accountSetup: true, examPlan: true })
 const week = weekStartOf(new Date().toISOString().slice(0, 10))
 
 describe.skipIf(!URL_)('parent journey with an invited student and two more guardians', () => {
@@ -119,6 +120,44 @@ describe.skipIf(!URL_)('parent journey with an invited student and two more guar
     await expect(viewer.saveSetupProgress(studentId, { benchmarkScheduledFor: null })).rejects.toThrow()
     const ctx = await viewer.getHouseholdContext()
     expect(ctx.memberships.find((m) => m.household_id === hh)).toMatchObject({ can_view_progress: true, can_set_goals: false, can_manage_members: false })
+  })
+
+  it('CR-10: AP and CLEP exams saved by the parent show on the student’s devices; IB stays on the device; permissions hold', async () => {
+    const exam = (family: PlannedExam['family'], name: string, score: number | null): PlannedExam => ({ family, key: examKey(family, name), name, score })
+    const parent = await device(PARENT)
+    await parent.saveExamPlanEntry(studentId, exam('AP', 'AP Calculus AB', 4))
+    await parent.saveExamPlanEntry(studentId, exam('CLEP', 'CLEP College Algebra', null))
+    // No canonical key for IB, or for a name the backend's catalog doesn't list as printed ("AP World History" is
+    // only an app alias): refused as 'not_found', so the app keeps it on the device.
+    await expect(parent.saveExamPlanEntry(studentId, { ...exam('IB', 'IB Economics', 5), level: 'SL' })).rejects.toMatchObject({ code: 'not_found' })
+    await expect(parent.saveExamPlanEntry(studentId, exam('AP', 'AP World History', 3))).rejects.toMatchObject({ code: 'not_found' })
+    // The server checks the AP scale.
+    await expect(parent.saveExamPlanEntry(studentId, exam('AP', 'AP Statistics', 7))).rejects.toThrow()
+    const phone = await device(INVITED)
+    expect((await phone.examPlan(studentId)).sort((a, b) => a.key.localeCompare(b.key))).toEqual([
+      { family: 'AP', key: examKey('AP', 'Calculus AB'), name: 'AP Calculus AB', score: 4 },
+      { family: 'CLEP', key: examKey('CLEP', 'College Algebra'), name: 'CLEP College Algebra', score: null },
+    ])
+    // The linked student may record their own score.
+    await phone.saveExamPlanEntry(studentId, exam('CLEP', 'College Algebra', 62))
+    const viewer = await device(VIEWER)
+    expect((await viewer.examPlan(studentId)).find((e) => e.family === 'CLEP')!.score).toBe(62)
+    // Current SERVER rule (CR-10 can_edit_student_plans): any guardian of the household may write the exam plan and
+    // interests, whatever their permissions. The app doesn't offer it (CollegePaths edits only for the student or a
+    // guardian who can set goals), but the server would accept it. Raised with Research (#218 C1); this pins today's
+    // server behaviour so a change there is deliberate.
+    await viewer.saveExamPlanEntry(studentId, exam('AP', 'AP Microeconomics', 3))
+    await viewer.removeExamPlanEntry(studentId, examKey('AP', 'Microeconomics'))
+    // Two devices saving the same new exam at once: both succeed, one row.
+    await Promise.all([(await device(PARENT)).saveExamPlanEntry(studentId, exam('AP', 'AP Psychology', 4)), (await device(INVITED)).saveExamPlanEntry(studentId, exam('AP', 'AP Psychology', 5))])
+    expect((await phone.examPlan(studentId)).filter((e) => e.key === examKey('AP', 'Psychology'))).toHaveLength(1)
+    await parent.removeExamPlanEntry(studentId, examKey('AP', 'Psychology'))
+    // An outsider can't even see the row, so a delete from them removes nothing.
+    await (await device(OUTSIDER)).removeExamPlanEntry(studentId, examKey('CLEP', 'College Algebra'))
+    expect((await phone.examPlan(studentId)).some((e) => e.key === examKey('CLEP', 'College Algebra'))).toBe(true)
+    await parent.removeExamPlanEntry(studentId, examKey('AP', 'Calculus AB'))
+    expect((await (await device(INVITED)).examPlan(studentId)).map((e) => e.key)).toEqual([examKey('CLEP', 'College Algebra')])
+    expect(await (await device(OUTSIDER)).examPlan(studentId)).toEqual([])
   })
 
   it('an outsider sees nothing', async () => {
