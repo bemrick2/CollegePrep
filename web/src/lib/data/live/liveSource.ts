@@ -217,14 +217,14 @@ export class LiveSource implements DataSource {
   async latestReminder(studentId: string): Promise<ReminderDelivery | null> {
     const { data, error } = await this.sb
       .from('practice_reminder_deliveries')
-      .select('id, sent_at, opened_at, snoozed_at')
+      .select('id, sent_at, opened_at, snoozed_at, channel')
       .eq('student_id', studentId)
       .eq('status', 'sent')
       .order('sent_at', { ascending: false })
       .limit(1)
       .maybeSingle()
     if (error) fail(error)
-    return data ? { id: data.id, sentAt: data.sent_at, openedAt: data.opened_at, snoozedAt: data.snoozed_at } : null
+    return data ? { id: data.id, sentAt: data.sent_at, openedAt: data.opened_at, snoozedAt: data.snoozed_at, channel: (data.channel as ReminderDelivery['channel']) ?? null } : null
   }
 
   async markReminderOpened(deliveryId: string) {

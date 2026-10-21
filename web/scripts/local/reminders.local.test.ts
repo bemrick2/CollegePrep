@@ -227,6 +227,9 @@ describe.skipIf(!URL_ || !DENO)('practice reminders: push sender, snooze action,
     expect(payload.url).toMatch(/^https:\/\/app\.local\.test\/student\/practice\?quick=1&r=[0-9a-f-]{36}$/)
     const latest = await student.latestReminder(studentId)
     expect(payload.url).toContain(latest!.id)
+    // The guardian sees the same recorded send (status 'sent'), with its channel: a real push-service acceptance,
+    // here from the local fake push service. Not proof that a phone displayed it (real-device check R1).
+    expect(await parent.latestReminder(studentId)).toMatchObject({ id: latest!.id, channel: 'webpush', openedAt: null })
 
     const again = await sendReminders()
     expect(again.body).toMatchObject({ sent: 0 })
