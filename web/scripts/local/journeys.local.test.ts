@@ -60,6 +60,7 @@ describe.skipIf(!URL_)('parent journey with an invited student and two more guar
     await laptop.setWeeklyGoal(studentId, week, 30, null)
     const phone = await device(PARENT)
     expect((await phone.setupProgress(studentId))!.setupCompletedAt).toBeTruthy()
+    expect((await phone.weeklyProgress(studentId, week)).goal).toMatchObject({ target_questions: 30 })
   })
 
   it('the invited student joins with the code and sees the guardian’s choices on every device, without being asked again', async () => {
@@ -102,7 +103,9 @@ describe.skipIf(!URL_)('parent journey with an invited student and two more guar
     // Default guardian invitation: manage students, set goals, view progress.
     await (await device(CO_GUARDIAN)).acceptInvitation(await parent.createInvitation(hh, 'guardian'))
     const co = await device(CO_GUARDIAN)
+    expect((await co.getHouseholdContext()).memberships.find((m) => m.household_id === hh)).toMatchObject({ can_set_goals: true, can_view_progress: true, can_manage_members: false, can_manage_billing: false })
     await co.setWeeklyGoal(studentId, week, 35, null)
+    expect((await (await device(PARENT)).weeklyProgress(studentId, week)).goal).toMatchObject({ target_questions: 35 })
     await expect(co.createInvitation(hh, 'guardian')).rejects.toThrow()
     // A view-only guardian (the server accepts an explicit permission list).
     const { data: code, error } = await (await client(PARENT)).rpc('create_household_invitation', { p_household: hh, p_role: 'guardian', p_student: null, p_ttl_hours: 72, p_permissions: ['view_progress'] })
@@ -111,6 +114,7 @@ describe.skipIf(!URL_)('parent journey with an invited student and two more guar
     const viewer = await device(VIEWER)
     expect(await viewer.getPlan(studentId)).toMatchObject({ exam_family: 'act' })
     await expect(viewer.setWeeklyGoal(studentId, week, 10, null)).rejects.toThrow()
+    expect((await viewer.weeklyProgress(studentId, week)).goal).toMatchObject({ target_questions: 35 })
     await expect(viewer.savePlan(studentId, { exam_family: 'sat', target_score: null, goals: [], daily_minutes: 5 })).rejects.toThrow()
     await expect(viewer.saveSetupProgress(studentId, { benchmarkScheduledFor: null })).rejects.toThrow()
     const ctx = await viewer.getHouseholdContext()
@@ -137,6 +141,7 @@ describe.skipIf(!URL_)('a student who signs up alone (no household)', () => {
     expect((await laptop.getHouseholdContext()).students).toEqual([expect.objectContaining({ id: studentId, household_id: null, linked_user_id: SOLO })])
     expect(await laptop.getPlan(studentId)).toMatchObject({ exam_family: 'sat', target_score: 1300, daily_minutes: 15, study_days: [2, 4, 6] })
     expect((await laptop.setupProgress(studentId))!.setupCompletedAt).toBeTruthy()
+    expect((await laptop.weeklyProgress(studentId, week)).goal).toMatchObject({ target_questions: 25 })
   })
 
   it('a second profile for the same login is refused', async () => {
