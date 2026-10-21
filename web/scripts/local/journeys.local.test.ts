@@ -13,6 +13,7 @@ import { beforeAll, describe, expect, it } from 'vitest'
 import { LiveSource } from '../../src/lib/data/live/liveSource'
 import { weekStartOf } from '../../src/lib/engine/dates'
 import { examKey, type PlannedExam } from '../../src/lib/engine/examCredit'
+import { practiceExclusions } from '../../src/lib/engine/freshness'
 
 const URL_ = process.env.LOCAL_BACKEND_URL
 const SECRET = process.env.LOCAL_JWT_SECRET ?? 'local-only-jwt-secret-at-least-32-characters'
@@ -81,6 +82,11 @@ describe.skipIf(!URL_)('parent journey with an invited student and two more guar
     const phone = await device(INVITED)
     const quick = await phone.startSession(studentId, 5, 'act')
     expect(quick.items.length).toBeGreaterThan(0)
+    // The next progress check's fresh questions are never served as practice (interim client rule until CR-23).
+    const held = practiceExclusions('act', await phone.publishedQuestions('act'), new Set())
+    expect(held.size).toBeGreaterThan(0)
+    expect(quick.items.filter((i) => held.has(i.question.id))).toEqual([])
+    expect(quick.items.every((i) => i.seen_before === false)).toBe(true)
     const when = new Date(Date.now() + 3 * 86_400_000).toISOString()
     await phone.saveSetupProgress(studentId, { benchmarkScheduledFor: when })
     const started = await phone.startBenchmark(studentId, 'initial', 'act')

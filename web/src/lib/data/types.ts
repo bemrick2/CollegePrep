@@ -158,6 +158,8 @@ export interface PracticeSession {
   id: string
   target_minutes: number
   items: SessionPlanItem[]
+  /** Questions the server picked but the app kept out, because they're held fresh for the next progress check. */
+  held_for_check?: number
 }
 
 export interface WeeklyGoal {

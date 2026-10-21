@@ -222,12 +222,24 @@ export function FreshContentNotice({ content, name }: { content: ContentStatus |
       The next progress check can't be fully fresh in {sec(content.checkShortSections)}. Sections with questions seen before won't be compared.
     </p>
   ) : null
+  const held = content.sections.reduce((n, x) => n + x.heldForCheck, 0)
   if (content.practiceAllReview)
     return (
       <Notice tone="warn" title="No new practice questions left">
         <p>
-          {you}
-          {name ? ' has' : "'ve"} answered every {EXAM[content.exam]} practice question we have. Practice now repeats questions as review. Review counts toward the weekly
+          {held > 0 ? (
+            <>
+              {you}
+              {name ? ' has' : "'ve"} practised every {EXAM[content.exam]} question except the {held} kept unseen for the next progress check, so that check
+              measures real progress.
+            </>
+          ) : (
+            <>
+              {you}
+              {name ? ' has' : "'ve"} answered every {EXAM[content.exam]} practice question we have.
+            </>
+          )}{' '}
+          Practice now repeats questions as review. Review counts toward the weekly
           goal and helps memory, but it isn't new evidence of improvement, so trends and progress checks leave it out. More questions are needed; until they arrive,
           practice is review.
         </p>

@@ -1,6 +1,7 @@
 import { MAX_INTERESTS, type InterestProfile, type MajorCertainty, type SavedInterest } from '../../engine/interests'
 import { INVITE_TTL_HOURS } from '../../invites'
 import { displayName, examKey, type PlannedExam } from '../../engine/examCredit'
+import { practiceExclusions } from '../../engine/freshness'
 import type { SupabaseClient } from '@supabase/supabase-js'
 import type { AlertPreference, DevicePermission, DevicePlatform, DeviceStatus, EmailDelivery, DataSource, ReminderChange, ReminderDelivery, ReminderSettings, InactiveStudent, InvitationSummary, InviteSendResult, StudentInvitation } from '../source'
 import type { NextWeekSuggestion } from '../../engine/weeklyPlan'
@@ -549,9 +550,35 @@ export class LiveSource implements DataSource {
       p_target_minutes: targetMinutes,
       p_exam_version: version,
     })
-    const items = await this.sb.from('practice_session_items').select('position, question_id, reason').eq('session_id', id).order('position')
-    if (items.error) fail(items.error)
-    const ids = (items.data ?? []).map((i) => i.question_id)
+    const [picked, pool, mine] = await Promise.all([
+      this.sb.from('practice_session_items').select('position, question_id, reason').eq('session_id', id).order('position'),
+      this.publishedQuestions(examFamily),
+      this.sb.from('practice_attempts').select('question_id').eq('student_id', studentId),
+    ])
+    if (picked.error) fail(picked.error)
+    if (mine.error) fail(mine.error)
+    // Interim, until the server holds them (CR-23, #218 B1): the server's pick can include the fresh questions kept
+    // for the next progress check. Drop them here, with the same rule the demo uses (engine/freshness.ts), so a
+    // check still runs on questions the student hasn't seen.
+    const seenEver = new Set((mine.data ?? []).map((r) => r.question_id as string))
+    const held = practiceExclusions(examFamily, pool, seenEver)
+    const kept: { position: number; question_id: string; reason: string }[] = (picked.data ?? []).filter((i) => !held.has(i.question_id))
+    // Top up to the session's time with fresh questions that aren't held (never repeats, never held items), so
+    // dropping held questions doesn't cut the session short while fresh ones remain.
+    const secs = new Map(pool.map((q) => [q.id, q.expected_time_seconds ?? 60]))
+    let used = kept.reduce((t, i) => t + (secs.get(i.question_id) ?? 60), 0)
+    const chosen = new Set(kept.map((i) => i.question_id))
+    const fresh = pool
+      .filter((q) => !held.has(q.id) && !seenEver.has(q.id) && !chosen.has(q.id))
+      .sort((x, y) => Math.abs((x.difficulty ?? 3) - 3) - Math.abs((y.difficulty ?? 3) - 3) || (x.id < y.id ? -1 : 1))
+    for (const q of fresh) {
+      if (used >= targetMinutes * 60) break
+      kept.push({ position: kept.length + 1, question_id: q.id, reason: 'new_skill' })
+      used += secs.get(q.id) ?? 60
+    }
+    kept.forEach((i, n) => (i.position = n + 1))
+    const items = { data: kept }
+    const ids = kept.map((i) => i.question_id)
     const qs = ids.length ? await this.sb.from('practice_questions').select(QUESTION_COLUMNS).in('id', ids) : { data: [], error: null }
     if (qs.error) fail(qs.error)
     const byId = new Map(((qs.data ?? []) as unknown as QuestionRow[]).map((q) => [q.id, toPublic(q)]))
@@ -563,6 +590,7 @@ export class LiveSource implements DataSource {
       id,
       target_minutes: targetMinutes,
       items: (items.data ?? []).filter((i) => byId.has(i.question_id)).map((i) => ({ position: i.position, reason: i.reason, question: byId.get(i.question_id)!, seen_before: seen.has(i.question_id) })),
+      held_for_check: (picked.data ?? []).filter((i) => held.has(i.question_id)).length,
     }
   }
 
