@@ -751,10 +751,17 @@ export class LiveSource implements DataSource {
       if (error) fail(error)
       return (data ?? []).map((r) => {
         const appFamily = (r.family === 'ap' ? 'AP' : 'CLEP') as 'AP' | 'CLEP'
-        return { ...(r as { exam_key: string; family: 'ap' | 'clep'; display_name: string }), appFamily, appKey: examKey(appFamily, r.display_name as string) }
+        return { ...(r as { exam_key: string; family: 'ap' | 'clep'; display_name: string }), appFamily, appKey: examKey(appFamily, r.display_name as string, false) }
       })
     })()
+    // A failed fetch isn't kept: the next call tries again.
+    this.examCatalogCache.catch(() => (this.examCatalogCache = null))
     return this.examCatalogCache
+  }
+  /** The catalog row for an app exam: matched on the name as printed (the backend's catalog decides aliases). */
+  private async catalogRowFor(exam: Pick<PlannedExam, 'family' | 'name'>) {
+    const raw = examKey(exam.family, exam.name, false)
+    return (await this.examCatalogRows()).find((x) => x.appFamily === exam.family && x.appKey === raw) ?? null
   }
 
   async examPlan(studentId: string): Promise<PlannedExam[]> {
@@ -769,26 +776,37 @@ export class LiveSource implements DataSource {
   }
 
   async saveExamPlanEntry(studentId: string, exam: PlannedExam) {
-    if (!this.supportsExamPlan) throw new DataError('Exams are kept on this device until CR-10 is on the backend', 'invalid')
-    const c = (await this.examCatalogRows()).find((x) => x.appFamily === exam.family && x.appKey === exam.key)
-    if (!c) throw new DataError('This exam has no canonical key yet, so it stays on this device', 'invalid')
+    if (!this.supportsExamPlan) throw new DataError('Exams are kept on this device until CR-10 is on the backend', 'not_found')
+    const c = await this.catalogRowFor(exam)
+    // 'not_found' means "no canonical key": the caller keeps the exam on the device. Other errors are real errors.
+    if (!c) throw new DataError('This exam has no canonical key yet, so it stays on this device', 'not_found')
     // Update first, then insert: the table grants UPDATE on score/taken_on only, so an upsert (which rewrites the key
     // columns) is refused. Zero updated rows means no such entry yet, or no right to change it; the insert decides.
-    const upd = await this.sb.from('student_exam_plan').update({ score: exam.score }).eq('student_id', studentId).eq('exam_key', c.exam_key).select('exam_key')
-    if (upd.error) fail(upd.error)
-    if (upd.data?.length) return
-    const ins = await this.sb.from('student_exam_plan').insert({ student_id: studentId, exam_key: c.exam_key, score: exam.score }).select('exam_key')
-    if (ins.error) fail(ins.error)
-    if (!ins.data?.length) throw new DataError("You can't change this student's exams", 'forbidden')
+    for (let tries = 0; tries < 2; tries++) {
+      const upd = await this.sb.from('student_exam_plan').update({ score: exam.score }).eq('student_id', studentId).eq('exam_key', c.exam_key).select('exam_key')
+      if (upd.error) fail(upd.error)
+      if (upd.data?.length) return
+      const ins = await this.sb.from('student_exam_plan').insert({ student_id: studentId, exam_key: c.exam_key, score: exam.score }).select('exam_key')
+      // Another device inserted the same exam between our update and insert: update it instead.
+      if (ins.error?.code === '23505') continue
+      if (ins.error) fail(ins.error)
+      if (!ins.data?.length) throw new DataError("You can't change this student's exams", 'forbidden')
+      return
+    }
+    throw new DataError('Could not save the exam; try again', 'unknown')
   }
 
   async removeExamPlanEntry(studentId: string, appKey: string) {
     if (!this.supportsExamPlan) return
-    const c = (await this.examCatalogRows()).find((x) => x.appKey === appKey)
+    const row = (await this.examPlan(studentId)).find((e) => e.key === appKey)
+    if (!row) return
+    const c = await this.catalogRowFor(row)
     if (!c) return
-    const { error } = await this.sb.from('student_exam_plan').delete().eq('student_id', studentId).eq('exam_key', c.exam_key)
+    const { data, error } = await this.sb.from('student_exam_plan').delete().eq('student_id', studentId).eq('exam_key', c.exam_key).select('exam_key')
     if (error) fail(error)
+    if (!data?.length) throw new DataError("You can't change this student's exams", 'forbidden')
   }
+
 
   async primarySchool(householdId: string): Promise<string | null> {
     const { data, error } = await this.sb.from('household_saved_schools').select('institution_key').eq('household_id', householdId).eq('is_primary', true).maybeSingle()

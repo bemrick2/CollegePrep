@@ -37,7 +37,7 @@ export function CollegeDetail() {
   const { homeState } = useHomeState()
   const merit = useMeritReference(activeStudent?.id)
   const interests = useInterests(activeStudent?.id).profile.interests
-  const exams = useExamPlan(activeStudent?.id).exams
+  const exams = useExamPlan(activeStudent?.id, false).exams
   const isStudent = !!viewer && activeStudent?.linked_user_id === viewer.userId
   const who = isStudent ? 'you' : (activeStudent?.display_name ?? 'your student')
 
@@ -312,7 +312,10 @@ function CostBreakdown({ costs, schoolState, level, year, onYear }: { costs: Cos
 export function printedTuitionLines(c: CostRecord): { label: string; amount: number }[] | null {
   if (c.tuition != null || c.mandatory_fees != null) return null
   const comp = c.components ?? {}
-  const combined = comp[`enrollment_fees_${c.residency}`] ?? comp.enrollment_fees_in_state
+  // UTC prints one "Enrollment Fees" line for everyone and a separate out-of-state tuition line; nothing else is
+  // assumed for other residencies.
+  const own = comp[`enrollment_fees_${c.residency}`]
+  const combined = typeof own === 'number' ? own : c.residency === 'out_of_state' && typeof comp.out_of_state_tuition === 'number' ? comp.enrollment_fees_in_state : null
   if (typeof combined !== 'number') return null
   const lines = [{ label: 'Tuition and fees (one line, as printed)', amount: combined }]
   if (c.residency === 'out_of_state' && typeof comp.out_of_state_tuition === 'number') lines.push({ label: 'Out-of-state tuition', amount: comp.out_of_state_tuition })

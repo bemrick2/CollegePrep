@@ -294,7 +294,7 @@ export function Compare() {
   const { homeState } = useHomeState()
   const merit = useMeritReference(activeStudent?.id)
   const interests = useInterests(activeStudent?.id).profile.interests
-  const exams = useExamPlan(activeStudent?.id).exams
+  const exams = useExamPlan(activeStudent?.id, false).exams
   const wide = useWide()
   const [pick, setPick] = useState(0)
 
