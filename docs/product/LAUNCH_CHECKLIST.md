@@ -44,7 +44,7 @@ Simulated tests (fake push service, fake FCM, fake mail) prove the code paths, n
 
 | # | Item | Owner | Status | Concrete blocker |
 |---|---|---|---|---|
-| A1 | Question bank at or above the launch minimum (≈ 430 ACT / ≈ 410 SAT, or one exam at ≈ 600) | Owner → Content | ⛔ | 58 items exist. Decisions are needed on scope, budget and AI drafting, and a content lead must be named (`CONTENT_PLAN.md` §6, #164, #19). |
+| A1 | Question bank at or above the launch minimum (≈ 430 ACT / ≈ 410 SAT, or one exam at ≈ 600) | Owner → Content | ⛔ | 58 items exist. Sizing for 20/40/60 a week over 12 weeks and a year, per exam, with reserved checks: `QUESTION_BANK_RECOMMENDATION.md`. The recommendation is about 470 unique items (25% review) or about 600 (all fresh) for one exam, 12 weeks at 40. Decisions are needed on scope, budget and AI drafting, and a content lead must be named (`CONTENT_PLAN.md` §6, #164, #19). |
 | A2 | Human editorial review of every published item, including the existing 58 | Content | ⛔ | All 58 are reviewed by AI only. Human-approved: 0 of 58. The tooling is ready (#207: ledger, blind packets, sign-off import, rules enforced by tests). There is no named human approver. |
 | A3 | Privacy policy and terms approved | Owner + Counsel | 🚧 | Drafts and 12 decisions are in #165 (`docs/legal/`). Minimum age (13+ recommended), retention, entity and contacts are needed. |
 | A4 | Data deletion and export path | Research (procedure) + Design (UI) | ⛔ | No deletion or export function exists. Choose manual with a stated response time, or in-app (`DECISIONS.md` #6). |
