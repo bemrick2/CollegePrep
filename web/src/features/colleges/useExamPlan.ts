@@ -81,28 +81,28 @@ export function useExamPlan(studentId: string | undefined, canEdit = true) {
       async (r) => {
         if (!live) return
         setRemote(r)
-        setReady(true)
-        // Move device entries the account can hold (a score already on the account wins).
-        if (!canEdit) return
-        const onAcc = new Set(r.map((x) => x.key))
-        for (const e of read(studentId)) {
-          if (!live) return
-          if (onAcc.has(e.key)) updateLocal((prev) => prev.filter((x) => x.key !== e.key))
-          else await saveToAccount(e)
+        // Move device entries the account can hold BEFORE enabling edits, so an edit can't race the move.
+        if (canEdit) {
+          const acc = new Map(r.map((x) => [x.key, x]))
+          for (const e of read(studentId)) {
+            if (!live) return
+            const there = acc.get(e.key)
+            // The account's entry wins, unless it's only "planned" and this device has a score.
+            if (there && !(there.score == null && e.score != null)) updateLocal((prev) => prev.filter((x) => x.key !== e.key))
+            else await saveToAccount(e)
+          }
         }
+        if (live) setReady(true)
       },
-      (e: Error) => {
-        if (!live) return
-        setError(e.message)
-        setReady(true)
-      },
+      // Without the account plan nothing can be edited safely (a save could overwrite a score we couldn't read).
+      (e: Error) => live && setError(e.message),
     )
     return () => {
       live = false
     }
-    // saveToAccount and canEdit are read at load time only.
+    // saveToAccount is stable for a given student and source.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [studentId, onAccount, source])
+  }, [studentId, onAccount, source, canEdit])
 
   const remoteKeys = new Set(remote.map((e) => e.key))
   // An exam on the account and also on this device is shown once, from the account.
