@@ -110,7 +110,9 @@ def table_equivalencies(kind, rows, table_hit=None):
     # NE r1 (UNO): "Exam | Level | Score | Course" - a column of SL/HL is the level, the next numeric column the score.
     lvl = None
     col = lambda i: [r[i].strip() for r in body if i is not None and i < len(r) and r[i].strip()]
-    if kind == 'IB' and sc is not None and col(sc) and all(re.fullmatch(r'(SL|HL|SL\s*/\s*HL)', c, re.I) for c in col(sc)):
+    # TN (UTC) IB: 'Levels Offered: SL, HL' ('SL & HL', 'SL Only', 'HL Only') is not the score column; 'Exam' holds the level
+    # credited and 'Score' the scores ('5,6, OR 7')
+    if kind == 'IB' and sc is not None and col(sc) and all(re.fullmatch(r'(SL|HL|SL\s*(/|&|and)\s*HL|(SL|HL)\s+only)', c, re.I) for c in col(sc)):
         sc = next((i for i in range(width) if i not in (ex, sc, co, hr) and col(i) and all(re.search(r'\d', c) for c in col(i))), None)
     if kind == 'IB' and lvl is None:
         lvl = next((i for i in range(width) if i not in (ex, sc, co, hr) and col(i)

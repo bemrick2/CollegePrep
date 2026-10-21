@@ -21,6 +21,7 @@ MUTS = [
     ('pipeline/registry.py', "            inst['folder'] = prior[inst['institution_key']]; continue", "            pass"),
     ('pipeline/extractors/catalog.py', "DEGREE = [('bachelor', r'(?<![A-Za-z]\\.)\\bB", "DEGREE = [('bachelor', r'\\bB"),
     ('pipeline/extractors/common.py', "UNDERGRAD_AWARD = re.compile(r'(^|,|\\s|\\()\\s*(", "UNDERGRAD_AWARD = re.compile(r'(^|,|\\s)\\s*("),
+    ('pipeline/extractors/credit.py', "|SL\\s*(/|&|and)\\s*HL|(SL|HL)\\s+only)', c, re.I) for c in col(sc)):", "|SL\\s*/\\s*HL)', c, re.I) for c in col(sc)):"),
     ('pipeline/extractors/credit.py', "if bad_score and bad_score >= len(eqs) * 0.3: issues = issues + ['score_column_not_scores']", 'pass'),
     ('pipeline/extractors/credit.py', "if eqs and all(not e['institution_course_equivalent'] for e in eqs): issues = issues + ['course_column_missing']", 'pass'),
     ('pipeline/promote.py', 'raise ValueError(f"{c[\'candidate_id\']}: requirement row for program', 'pass  # (f"{c[\'candidate_id\']}: requirement row for program'),

@@ -800,6 +800,16 @@ last 30 hours in residence at the university.</p>"""
         [c] = dual.extract(INST, ENTRY, page, '2026-27')
         self.assertEqual([x['amount'] for x in c['record']['dual_enrollment']['per_credit_hour_charges']], [150])
 
+    def test_utc_ib_levels_offered_is_not_the_score(self):  # TN (UTC) 2026: 'Levels Offered' | 'Exam' (level) | 'Score'
+        ib = [['International Baccalaureate Exam', 'Levels Offered: SL, HL', 'Exam', 'Score', 'Courses Awarded', 'Hours Awarded', 'Gen Ed Credit'],
+              ['Biology', 'SL & HL', 'HL', '5,6, OR 7', 'BIOL 1110 & BIOL 1120', '8', 'Lab Science'],
+              ['Environmental Systems & Societies', 'SL Only', 'SL', '5,6, OR 7', 'ESC 1100', '3', 'Non-Lab Science'],
+              ['Economics', 'HL Only', 'HL', '5,6, OR 7', 'ECON 1010 & ECON 1020', '6', 'Behavioral']]
+        [c] = credit.extract(INST, ENTRY, T.Page('', 'IB', [{'rows': ib, 'heading': 'International Baccalaureate', 'caption': '', 'lead': ''}], [], []), '2026-27')
+        got = {e['exam_or_course_name']: e for e in c['record']['equivalencies']}
+        self.assertEqual(sorted(e['minimum_score'] for e in got.values()), ['HL 5,6, OR 7', 'HL 5,6, OR 7', 'SL 5,6, OR 7'])
+        self.assertTrue(all(e['notes'].startswith(('SL & HL', 'SL Only', 'HL Only')) for e in got.values()))
+
     def test_ia_r1_rules(self):
         """IA r1: Hawkeye eligibility headings; Graceland sample aid package; Wartburg academic-progress table; conditional
         transfer grades (William Penn, Dubuque, Emmaus) and a cap for the major (Iowa)."""

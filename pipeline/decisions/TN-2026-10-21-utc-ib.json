@@ -1,0 +1,9 @@
+{
+ "run": "pipeline/runs/TN/2026-10-21",
+ "reviewer": "Research session 2026-10-21 (#191; #218 asks: IB scores in minimum_score)",
+ "approve": [
+  {"candidate_id": "37916ee54122a5c9", "reason": "Re-read of UTC's IB table (fetched 2026-10-21): the header is 'International Baccalaureate Exam | Levels Offered: SL, HL | Exam | Score | Courses Awarded | Hours Awarded | Gen Ed Credit'. The level credited ('Exam': HL or SL) and the printed scores ('5,6, OR 7') now form minimum_score ('HL 5,6, OR 7'); 'Levels Offered' and Gen Ed Credit stay in notes as printed. The 25 recorded rows were checked against the stored table (the MATH 1010, MATH 1730 row prints '3, 4' hours, so credits stay empty); as before, 13 printed rows whose exams are not in the IB exam list (e.g. Classical Languages-Greek, Dance, Design Technology, Further Mathematics, Language A) are not recorded. The page prints no academic year, so the record stays partially_verified."}
+ ],
+ "reject": [],
+ "upgrade": []
+}
