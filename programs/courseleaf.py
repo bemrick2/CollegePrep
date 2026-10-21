@@ -19,7 +19,7 @@ from pipeline.extractors.catalog import credential, program_name, slug
 from programs.years import academic_year_of
 EXTRACTOR = 'courseleaf_plan/v1'
 ONE = re.compile(r'^([A-Z]{1,5})\s(\d{3}[A-Z]?)$')
-TERM = re.compile(r'^(first|second|third|fourth|fifth|freshman|sophomore|junior|senior)\s+year$|^year\s+\d$|^(fall|winter|spring|summer)(\s+(term|semester|quarter))?(\s+\d)?$'
+TERM = re.compile(r'^(first|second|third|fourth|fifth|freshman|sophomore|junior|senior)\s+year$|^year\s+\d$|^(fall|autumn|winter|spring|summer)(\s+(term|semester|quarter))?(\s+\d)?$'
                   # year rows printed alone: 'Freshman' (JSU, UNI, OSU, UNO), 'Year One' (CU Boulder); 'Semester 1' (UWM)
                   r'|^(freshman|sophomore|junior|senior)$|^year\s+(one|two|three|four|five)$|^semester\s+\d{1,2}$'
                   # 'First Semester' (Clayton, ODU), 'Semester One' (West Chester)
@@ -60,10 +60,14 @@ def parse_grid(t):
         if not nonempty: continue
         if len(cells) == 1 and not TERM.match(cells[0]):  # a label row the reader does not know ('Third Semeseter', UNO)
             t['_unread_label'] = True
+        if (len(nonempty) >= 2 and not TERM.match(nonempty[0]) and not ONE.match(nonempty[0])
+                and all(c.lower() in HEADER_CELLS for c in nonempty[1:])):  # an unknown term printed with its header ('Term 1 | Units')
+            t['_unread_label'] = True
         if TERM.match(nonempty[0]) and all(c.lower() in HEADER_CELLS for c in nonempty[1:]):  # 'Fall | Milestones | Credits' (UO)
             milestones = milestones or any(c.lower() == 'milestones' for c in nonempty[1:])
             cur = {'term_index': len(terms) + 1, 'label': nonempty[0], 'items': []}; terms.append(cur); continue
-        if len(nonempty) >= 2 and TOTAL.match(nonempty[-2]):
+        # the label is the row's first cell: a course titled 'Total Rewards' ('MGMT 4010 | Total Rewards | 3', UNO) is a course
+        if len(nonempty) == 2 and TOTAL.match(nonempty[0]):
             total = nonempty[-1]; total_label[0] = nonempty[-2]; continue
         if len(nonempty) == 2 and SUBTOTAL.match(nonempty[0]):
             if cur is not None: cur['credit_hours'] = nonempty[1]
@@ -150,7 +154,7 @@ NUMBER_WORDS = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 
 COUNT = re.compile(r'^(?:select|choose|complete|take)\s+(?:(?:a\s+)?(?:minimum|total)\s+of\s+)?(one|two|three|four|five|six|seven|eight|nine|ten|\d+)\s+'
                    # a qualifying word ('two BIOL courses', 'one Fine Arts course'), never a unit: 'Select 5 hours of the
                    # following', 'Select 6 SCH' print a number of credits (SHSU 2026-27)
-                   r'(?:additional\s+|more\s+|upper[- ]division\s+|lower[- ]division\s+|(?!(?:hours?|credits?|credit|sch|units?|semester)\b)[A-Z]{2,5}\s+)*'
+                   r'(?:additional\s+|more\s+|upper[- ]division\s+|lower[- ]division\s+|(?!(?:hours?|hrs?|credits?|credit|cr|crs|sch|sh|units?|semester)\b)[A-Z]{2,5}\s+)*'
                    r'(?:courses?|of\s+the\s+following|from\s+the\s+following)\b', re.I)
 # TAMUSA "Select one of COB's Approved Ethics Electives" over its listed options: a number word, then a named list
 COUNT_NAMED = re.compile(r"^(?i:select|choose)\s+(?i:(one|two|three|four|five|six))\s+of\s+(?:[A-Z][\w'’&-]*\s+){1,5}(?i:electives?|courses?)\b")

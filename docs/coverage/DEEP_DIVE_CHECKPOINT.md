@@ -44,12 +44,15 @@ Counted from `data/institutions/*` on main `754fd33`, verified records only. Pro
   - header cells 'Hour', 'Semester Credit Hours', 'Semester Hours' and 'Units' are read;
   - subtotal rows become `credit_hours`;
   - the total row becomes `rule_text`, with its printed label;
-  - an unknown label row ('Third Semeseter') puts the plan on hold;
+  - an unknown label row ('Third Semeseter'), or an unknown term printed with a header cell ('Quarter 1 | Credits', CU Boulder 'Summer Review | Credit Hours'), puts the plan on hold;
+  - 'Autumn' is a term (Montana);
+  - a total row must start with its 'Total' label, so a course titled 'Total Rewards' or 'Total Quality Management' stays a course (independent review of this PR);
   - a plan follows the program record read from the same page.
   - v2 is not trusted by autoreview.
-- **Course Lists:** 'Select 6 hours/SCH/units' choices are read as credits, never as course counts, and placeholder codes ('XXXX 1201') are not read as courses.
+- **Course Lists:** 'Select 6 hours/SCH/units' choices are read as credits. 'SH', 'hrs' and 'cr' are never read as course counts. Placeholder codes ('XXXX 1201') are not read as courses.
 - **Regression over all 194 stored runs** (main `f0b247c` against this branch):
-  - no program record and no plan was lost or changed, apart from the expected rename of plan ids from v1 to v2;
+  - no program record was lost. Plans changed only by the expected rename of plan ids from v1 to v2, except 8 grids where the first draft of v2 read a course titled 'Total ...' as the plan total. The review caught these, they are fixed, and none was promoted;
+  - after the review fixes, `parse_grid` was compared over all 8,427 stored grids: 215 Montana grids now read 'Autumn' terms, 8 keep their 'Total ...' courses, and 10 with unknown term headers are now held. None of the 369 promoted plans changes;
   - 1,507 Course List groups changed. Every one is an hour/unit choice now read as credits, or a placeholder/hours row now held.
 - **Promoted:** 369 reviewed v2 plans for verified programs that had no plan on file. Each was checked against its stored grid; 50 were checked by hand.
   - By school: Texas A&M 120, CU Boulder 67, JSU 69, West Chester 20, Oklahoma State 19, UNI 18, UT Austin 15, ODU 12, Temple 10, Oregon 5, TAMUK 5, UNO 3, SRU 3, Idaho 2, Clayton 1.
