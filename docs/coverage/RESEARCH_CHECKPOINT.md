@@ -13,7 +13,7 @@ Three separate measures, never mixed: **program coverage** (bachelor's programs 
 | | main `14366d3` | research/batch-06 |
 |---|---|---|
 | Registered four-year institutions | 2,119 | 2,119 |
-| Covered (program coverage) | 66 | 68 |
+| Covered (program coverage) | 66 | 67 |
 | Researched | 675 | 683 |
 | Verified bachelor's program records | 10,341 | 10,350 |
 
@@ -23,7 +23,7 @@ All figures are counted from `docs/coverage/programs/STATUS.json` and from the `
 
 | Institution | Run | Result |
 |---|---|---|
-| UT Dallas | TX/2026-10-21-u01 | 59/64, **covered**. The 2026 edition's program list (catalog.utdallas.edu/2026/undergraduate/programs) is configured. Most degrees are printed twice ('Bachelor of Science in X (120 semester credit hours)' and 'X (BS)'): one program. '(Double Major)' entries are not counted. 'BA in X - Y' (concentrations and the Education certification focuses) are options where 'Bachelor of Arts in X' is listed, so the five BA Education focus records no longer count separately; the two BS Education focuses (no plain BS line) still do. Not recorded: Education BA, Visual and Performing Arts BA, Mechanical Engineering BS, two unlabelled double majors. |
+| UT Dallas | TX/2026-10-21-u01 | 51/69, partial: first count. The 2026 edition's program list (catalog.utdallas.edu/2026/undergraduate/programs) is configured. Most degrees are printed twice ('Bachelor of Science in X (120 semester credit hours)' and 'X (BS)'): one program. '(Double Major)' entries are not counted. 'BA in X - Y' / 'BS in X - Y' (concentrations, Education certification focuses) are options of the listed degree. Where one page is linked as both the BA and the BS of a field (Biology, Chemistry, Economics, Education, International Political Economy, Interdisciplinary Studies, Mathematics, Physics) each award is a listed program; UT Dallas records such as 'Biology (BA, BS)' are one record for two degrees, and a record verifies one program. Corrected after independent review on #227 (the first count, 59/64, missed the BS links). Splitting those records needs a reader for pages printing two awards. |
 | Pitt Greensburg | PA/2026-10-07-cat (re-extracted) | 32/32, **covered**. Four Acalog program pages whose requirement groups are not read now give the program record (static_program/v1). |
 | Pitt Johnstown | PA/2026-10-07-cat (re-extracted) | 43/48, partial (+2). 'Pre-K - 12 Education, BS' is cut at its ' - ' by the shared title reader (left as is: changing it would rename existing Acalog records). |
 | CU Denver | CO/2026-10-06-cat | 75/86, partial (+3: Law Studies BA, General Business BS, Economics/Mathematics dual degree). The 2026-10-06 entry's 75 predated the removal of rural-partnership variant records (72 were left); corrected. |
@@ -36,9 +36,12 @@ All figures are counted from `docs/coverage/programs/STATUS.json` and from the `
 
 Reader changes (each with tests and mutants; full program mutation check 309/309 killed before the main merge):
 - `programs/catalog_counts.py`: `table_entries` (a Programs A-Z table count); `whole_degree` (one degree in four whole-name forms is one program); credit hours are not part of a name; '(Double Major)' not counted.
+- `programs/extract.py` list reader: one page linked under two awards of the same field is two listed entries (before, the second link was dropped); credit hours are stripped from list lines (`list_line`), so autoreview and counts read 'Bachelor of Arts in X (120 semester credit hours)' the same way.
 - `programs/extract.py`: `AWARD_IN_DASH_OPTION_ENTRY` ('BA in X - Y', an option only where the plain degree is listed; across all local lists only UT Dallas has such entries); 'BA in X' is a degree line; Acalog pages without read requirement groups give the program record (176 pages across 149 local runs: Union 158, Greensburg 12, Johnstown 6; only the six Pitt records are promoted).
 
-**Integrity note.** Four catalog entries record more verified listed programs than the school has verified records (Columbus State 35 vs 26, Montana 67 vs 55, Saint Mary's 55 vs 54, CSU Pueblo 34 vs 33), because records were consolidated after the counts. Status already uses the smaller figure, so no coverage number is inflated; the entries should be recounted.
+**Count side effect (review on #227).** `whole_degree` merges 'Bachelor of Arts in Psychology' with 'Psychology, BA' and the same for Criminal Justice Studies in SF State's list, so a recount would read 117 listed rather than the recorded 118; the recorded entry is not recounted here (the error is conservative and SF State stays covered).
+
+**Integrity note.** JHU's 'Five-Year BM/MM Program' is a verified bachelor's record although it is a combined bachelor's/master's program (the Roosevelt pattern); correcting it needs the owner's approval. Four catalog entries record more verified listed programs than the school has verified records (Columbus State 35 vs 26, Montana 67 vs 55, Saint Mary's 55 vs 54, CSU Pueblo 34 vs 33), because records were consolidated after the counts. Status already uses the smaller figure, so no coverage number is inflated; the entries should be recounted.
 
 ## Completed in batch 5 (research/batch-05, merged as #224)
 
@@ -140,7 +143,7 @@ None. Weekly reference-data pipeline runs for Tennessee (`pipeline-run/tn-2026-1
 
 ## Next prioritized batch
 
-1. **Near tier:** JHU (decide whether the BM in Performance instrument curricula are listed programs), YSU, ESU (Kuali pages without a year), Johnstown (Pre-K - 12 Education title), CU Denver.
+1. **Near tier:** JHU: the official list prints both a general 'Bachelor of Music in Performance' (its own curriculum page) and eight 'Bachelor of Music in Performance - <field>' entries with their own requirements. Recording the eight would make JHU covered (75/77) but contradicts the option rule used for UT Dallas unless the instruments are agreed to be majors; decision to settle on #153 before promoting. A title-reader change keeping the full name when the page's first heading prints it was tested (only JHU changes across 71 stored runs) and is not merged. Then YSU, ESU (Kuali pages without a year), Johnstown (Pre-K - 12 Education title), CU Denver.
 2. **Count rule needing agreement with Deep Dive (#153):** degrees listed only through emphases (BYU 13 degrees / 51 emphasis lines; the same rule would regroup OSU, SF State, UVU and UNH entries).
 3. **Reader work kept by Research:** Colorado State concentration-only majors; ASU checksheets; Alabama print-link label; UTSA (no degree list found).
 4. **Configured tier:** UT Austin and Texas State (coordinate with Deep Dive), Penn State, Illinois, UCI, UC Davis, Arkansas.

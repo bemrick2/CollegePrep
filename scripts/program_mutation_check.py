@@ -378,6 +378,11 @@ MUTS = [
     ('programs/catalog_counts.py', "|General Education Requirements|\\(Double Major\\)|", "|General Education Requirements|"),
     ('programs/catalog_counts.py', "        dkey = lambda n: (lambda d: 'deg:%s|%s' % d if d else None)(whole_degree(n))", "        dkey = lambda n: None"),
     ('programs/catalog_counts.py', "                re.compile(r'^(?P<base>[^,:()]+?) \\((?P<award>(?-i:B[A-Z]{1,3}))\\)$'),", "                re.compile(r'^(?P<base>[^,:()]+?) \\((?P<award>(?-i:B[A-Z]{1,3}))\\)'),"),
+    ('programs/extract.py', "                if a and b and a[0] == b[0] and a[1] != b[1]: nk = nk + '#award=' + b[1]", "                pass"),
+    ('programs/extract.py', "if a and b and a[0] == b[0] and a[1] != b[1]:", "if a and b and a[1] != b[1]:"),
+    ('programs/extract.py', "if a and b and a[0] == b[0] and a[1] != b[1]:", "if a and b and a[0] == b[0]:"),
+    ('programs/extract.py', "    return LIST_CREDIT_HOURS.sub('', s)", "    return s"),
+    ('programs/extract.py', "semester credit hours\\)[\\d,\\s]*$')", "semester credit hours\\)\\d?$')"),
     ('programs/extract.py', " or AWARD_IN_DASH_OPTION_ENTRY.match(line))", ")"),
     ('programs/extract.py', "    m = re.match(r'^(?P<award>(?-i:B[A-Z]{1,3}))\\s+in\\s+(?P<base>[^:,()\\-]+?)\\s*$', line)  # UT Dallas 'BA in Literature'\n    if m: return", "    m = None  # UT Dallas 'BA in Literature'\n    if m: return"),
     # Acalog program pages whose requirement groups are not read: the program record only (Pitt Greensburg, 2026-10-21)

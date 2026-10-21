@@ -2565,6 +2565,32 @@ class ListedEmphasisTests(unittest.TestCase):
             t['catalog']['list_documents'][0]['run'] = str(Path(d) / 'missing')
             self.assertEqual(collect_lists(t, C.Run(Path(d) / 'cat'), [])['programs'], [])
 
+    def test_one_page_listed_under_two_awards(self):  # UT Dallas 2026: the BA and BS of one field link one page (#227 review)
+        import tempfile
+        from programs.extract import collect_lists, list_line, _degree_key
+        u = 'https://catalog.example.edu/'
+        page = ('<html><head><title>Undergraduate</title></head><body><p>University Catalog 2026-2027</p>'
+                f'<a href="{u}nsm/biology/">Bachelor of Arts in Biology (120 semester credit hours)1</a>'
+                f'<a href="{u}nsm/biology/">Bachelor of Science in Biology (120 semester credit hours)1, 4</a>'
+                f'<a href="{u}nsm/biology/">Biology (BS)</a>'
+                f'<a href="{u}nsm/chemistry/">Bachelor of Arts in Chemistry</a>'
+                f'<a href="{u}nsm/chemistry/">Bachelor of Arts in Physics</a>'
+                f'<a href="{u}ah/literature/">Bachelor of Arts in Literature</a>'
+                f'<a href="{u}ah/literature/">Literature (BA)</a>'
+                f'<a href="{u}ah/literature/">BA in Literature - Pre-Law Concentration</a></body></html>').encode()
+        with tempfile.TemporaryDirectory() as d:
+            run = C.Run(Path(d) / 'cat'); f = FakeFetcher({u + 'undergraduate/': page})
+            C.crawl_target({**TARGET, 'refetch': [u + 'undergraduate/']}, run, f, log=lambda *_: None)
+            entries = [{**e, 'role': 'program_list'} for e in run.entries()]
+            t = {**TARGET, 'catalog': {'platform': 'courseleaf', 'home': u, 'path_prefix': '/', 'min_depth': 1}}
+            got = sorted(p['printed'] for p in collect_lists(t, run, entries)['programs'])
+        # the BS of the same field on the same page is kept; the same award again ('Biology (BS)'), another field or an option
+        # linking that page is not a second entry
+        self.assertEqual(got, ['Bachelor of Arts in Biology (120 semester credit hours)1', 'Bachelor of Arts in Chemistry',
+                               'Bachelor of Arts in Literature', 'Bachelor of Science in Biology (120 semester credit hours)1, 4'])
+        self.assertEqual(list_line('Bachelor of Science in Data Science (120 semester credit hours)1, 4'), 'Bachelor of Science in Data Science')
+        self.assertEqual(_degree_key(list_line('Bachelor of Arts in Literature (120 semester credit hours)1')), _degree_key('Literature (BA)'))
+
     def test_parenthetical_variant_lines(self):  # UT Arlington, Texas A&M-Kingsville 2026-27 (#148 follow-up)
         import re
         from programs.extract import listed_emphasis_pages, _degree_key

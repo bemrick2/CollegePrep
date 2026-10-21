@@ -38,7 +38,7 @@ CONC_AWARD = re.compile(r'^(?:Dual Degree\s+)?B\.(?:\s?[A-Z][a-z]{0,3}\.)+\s+Con
 MAJOR_OF = re.compile(r'(-major)-[^/]*?concentration(/?)$')
 # ODU 2026-27 'Programs, Degrees & Majors' rows run the award on to the row's filter labels: 'Art with a Major in Art History,
 # BAArtsUndergraduateBachelor'sHumanitiesCollege of Arts and Letters', 'Chemistry with a Major in ... (BS)UndergraduateBachelor's...'
-CREDIT_HOURS = re.compile(r'\s*\(\d+(?:-\d+)?\s+semester credit hours\)\d?\s*$')
+CREDIT_HOURS = re.compile(r'\s*\(\d+(?:-\d+)?\s+semester credit hours\)[\d,\s]*$')
 FILTER_LABELS = re.compile(r"(?<=[A-Za-z)])(?:[A-Z][a-z][A-Za-z&' ]*?)?Undergraduate(?:[A-Z][A-Za-z&' ]*?)?Bachelor's.*$")
 AWARD_ONLY = re.compile(r'^(?:Dual Degree\s+)?(?:(?-i:B[A-Z]{1,4}[a-z]{0,3})|B\.\s?[A-Z][A-Za-z]{0,4}\.?(?:\s?[A-Z][a-z]{0,3}\.?)*|Bachelor of [A-Z][a-z]+(?: [A-Z][a-z]+)*)\**$')  # Missouri lists 'BA', 'BS*', 'BSAcc' under each department; never an all-caps name ('BIOLOGY')
 
@@ -295,6 +295,8 @@ def table_entries(run_dir, decision, ik, spec, year='2026-2027', reviewed='', re
          'completeness_basis': basis, 'reason': f'Reviewed: official current-catalog program list (Research session{", " + reviewed if reviewed else ""}).'}
     if ver == n: e['listed_program_keys'] = sorted(set(verified.values()))
     return e
+
+
 def on_file_approvals(run_dir, folder, ik, root=Path('.'), year='2026-27'):
     """For a recount: the current candidates of a stored run that re-identify a verified bachelor's record already on file
     (same program key, same name on the same program page, or the only verified record on that page), one per page.

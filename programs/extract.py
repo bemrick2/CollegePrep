@@ -236,6 +236,11 @@ def collect_lists(target, run, entries):
             award_of = lambda: list_award(label, name)
             if nk in out and out[nk]['credential_level'] is None and award_of() and not not_bachelor_path(href):
                 del out[nk]  # the same page linked twice (A-Z index without the award, college list with it): keep the awarded line
+            if nk in out and out[nk]['credential_level'] == 'bachelor' and not not_bachelor_path(href) and award_of() == 'bachelor':
+                # one page linked under two awards of the same field (UT Dallas 2026: 'Bachelor of Arts in Biology' and
+                # 'Bachelor of Science in Biology' both link the Biology page): each award is a listed program
+                a, b = _degree_key(list_line(out[nk]['printed'])), _degree_key(list_line(label))
+                if a and b and a[0] == b[0] and a[1] != b[1]: nk = nk + '#award=' + b[1]
             if nk not in out:
                 level = None if not_bachelor_path(href) else award_of()
                 listed_as = level or ('major' if MAJOR.search(label) and not NOT_MAJOR.search(label) else None)
@@ -1333,7 +1338,11 @@ def emphasis_entry(line):
 
 def list_line(printed):
     """A program-list entry as read for its shape: words the page glued together pulled apart, spaces collapsed."""
-    return re.sub(r'\s+', ' ', re.sub(r'(?<=[a-z.])(?=[A-Z][a-z])', ' ', (printed or '').replace('\u200b', ''))).strip()
+    s = re.sub(r'\s+', ' ', re.sub(r'(?<=[a-z.])(?=[A-Z][a-z])', ' ', (printed or '').replace('\u200b', ''))).strip()
+    return LIST_CREDIT_HOURS.sub('', s)  # UT Dallas: 'Bachelor of Arts in Literature (120 semester credit hours)1, 4'
+
+
+LIST_CREDIT_HOURS = re.compile(r'\s*\(\d+(?:-\d+)?\s+semester credit hours\)[\d,\s]*$')
 
 
 def listed_option_pages(lists, norm):
