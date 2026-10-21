@@ -4,8 +4,10 @@
   {
    "institution_key": "ipeds-104151",
    "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate and configure the catalog (discovery found no catalog)."
+   "reason": "layout_not_readable",
+   "next_action": "Reader work: follow each degree page's 'View curriculum checksheet' link (degrees.apps.asu.edu/checksheet/2026/<college>/<plan>/null, which prints the name, award and '2026 - 2027') as the program page.",
+   "detail": "ASU (diagnose runs AZ/2026-10-21-diag, -diag2, -diag3): degrees.asu.edu/curriculum lists every bachelor's plan (/bachelors/major/ASU00/<plan>); degree pages print 'Accountancy, BS' but no year; their checksheets print '2026 - 2027'. The crawler takes program pages only from list pages, so a checksheet reached through a degree page needs a reader rule.",
+   "evidence_url": ""
   },
   {
    "institution_key": "ipeds-104179",

@@ -68,11 +68,11 @@
   },
   {
    "institution_key": "ipeds-228787",
-   "gap": "catalog_count",
-   "reason": "not_yet_researched",
-   "next_action": "Configure the 2026 undergraduate catalog's official degree list and record the count; read the degrees the heading rule missed (Mechanical Engineering BS, whose bachelor heading is the fourth heading; Visual and Performing Arts BA, printed only on concentration pages).",
-   "detail": "64 verified bachelor's records (run 2026-10-08-b02, edition year quoted from the edition home page); no program list configured. The seven 'Education (BA/BS) with ...' records are certification focuses of the BAED and BSED degrees and must collapse to two programs in any count.",
-   "evidence_url": "https://catalog.utdallas.edu/2026/undergraduate/home/"
+   "gap": "catalog",
+   "reason": "layout_not_readable",
+   "next_action": "Read Mechanical Engineering BS and Visual and Performing Arts BA; decide whether the two unlabelled double-major entries are double majors.",
+   "detail": "59 of 64 listed bachelor's programs verified (2026-10-21 count from the 2026 edition's program list, run 2026-10-21-u01). Not recorded: Bachelor of Arts in Education (only its certification-focus records exist), Visual and Performing Arts BA (concentration pages only), Mechanical Engineering BS (bachelor heading is the fourth heading), and two double-major entries printed without '(Double Major)'.",
+   "evidence_url": "https://catalog.utdallas.edu/2026/undergraduate/programs"
   },
   {
    "institution_key": "ipeds-228787",
@@ -652,8 +652,10 @@
   {
    "institution_key": "ipeds-227182",
    "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate and configure the catalog (discovery found no catalog)."
+   "reason": "robots_disallowed",
+   "next_action": "Request an official program export, or a catalog route robots.txt allows; the program list is never fetched against robots.txt.",
+   "detail": "Lone Star's Kuali catalog ('2026 - 2027 Credit Catalog', lonestar.kuali.co catalog 69260d733f301dd9df660bd4) was rendered from www.lonestar.edu in run 2026-10-21-k02: the catalog feed was kept, but the program list (lonestar.kuali.co/api/v1/catalog/programs/...) is disallowed by robots.txt, so no program was read.",
+   "evidence_url": "https://www.lonestar.edu/catalog/"
   },
   {
    "institution_key": "ipeds-226806",
