@@ -102,6 +102,14 @@
   },
   {
    "institution_key": "ipeds-227881",
+   "gap": "requirement_groups",
+   "reason": "layout_not_readable",
+   "next_action": "Fix courselist_html/v1 before promoting: 'Select 5 hours' / 'Select 6 SCH' / 'Select 18 hours of Minor courses' are read as course counts (COUNT pattern is case-insensitive), and placeholder rows ('XXXX 1201', 'MUEN XXXX') are read as required courses; text requirement rows are dropped. Then review the 262 groups of run 2026-10-21-d02.",
+   "detail": "Independent spot-check 2026-10-21 of the 262 standing-approved groups: 10 wrong (6 hour choices as course counts, 4 with placeholder codes); the rest verbatim.",
+   "evidence_url": "https://catalog.shsu.edu/undergraduate/colleges-academic-departments/"
+  },
+  {
+   "institution_key": "ipeds-227881",
    "gap": "degree_maps",
    "reason": "not_yet_researched",
    "next_action": "Read the 205 stored plan grid documents of run 2026-10-21-d02 (role plangrid) for the verified programs, then review."
