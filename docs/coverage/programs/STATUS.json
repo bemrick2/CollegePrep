@@ -1,6 +1,6 @@
 {
  "national": {
-  "covered": 69,
+  "covered": 70,
   "definition": "Registered: four-year schools in the national registry (pipeline/registry; scope rule in pipeline/registry.py). Researched: a verified or partially verified deep-dive record, or a queue entry recording an attempt other than not_yet_researched. Covered: meets docs/PROGRAM_DEPTH_COMPLETION.md. Untracked states count as registered only.",
   "registered": 2119,
   "researched": 683,
@@ -314,7 +314,7 @@
     "tracked": true
    },
    {
-    "covered": 1,
+    "covered": 2,
     "registered": 12,
     "researched": 8,
     "state": "UT",
@@ -45745,7 +45745,9 @@
      "verified_bachelor_programs": 83
     },
     {
-     "academic_years": [],
+     "academic_years": [
+      "2026-27"
+     ],
      "catalog_share": null,
      "dimensions": {
       "admission_rules": "queued",
@@ -45754,7 +45756,12 @@
       "requirement_groups": "queued"
      },
      "folder": "shsu",
-     "high_value_without_admission_rule": [],
+     "high_value_without_admission_rule": [
+      "business",
+      "computer_science",
+      "engineering",
+      "nursing"
+     ],
      "institution_key": "ipeds-227881",
      "listed_bachelor_programs": null,
      "name": "Sam Houston State University",
@@ -45762,11 +45769,14 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:layout_not_readable"
+      "admission_rules:not_yet_researched",
+      "catalog:not_yet_researched",
+      "degree_maps:not_yet_researched",
+      "requirement_groups:layout_not_readable"
      ],
      "requirement_groups": 0,
-     "status": "exception",
-     "verified_bachelor_programs": 0
+     "status": "partial",
+     "verified_bachelor_programs": 124
     },
     {
      "academic_years": [],
@@ -48179,8 +48189,8 @@
      "verified_bachelor_programs": 0
     }
    ],
-   "not_yet_researched": 94,
-   "queue_entries": 134,
+   "not_yet_researched": 95,
+   "queue_entries": 137,
    "queue_errors": [],
    "state": "TX",
    "status": "in_progress",
@@ -48188,8 +48198,8 @@
   },
   {
    "coverage_threshold": 0.8,
-   "covered_institutions": 1,
-   "entering_student_share_covered": 0.132,
+   "covered_institutions": 2,
+   "entering_student_share_covered": 0.29,
    "four_year_institutions": 12,
    "institutions": [
     {
@@ -48230,10 +48240,10 @@
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": null,
+     "catalog_share": 1.0,
      "dimensions": {
       "admission_rules": "queued",
-      "catalog": "queued",
+      "catalog": "met",
       "degree_maps": "queued",
       "requirement_groups": "queued"
      },
@@ -48241,23 +48251,23 @@
      "high_value_without_admission_rule": [
       "business",
       "computer_science",
-      "engineering"
+      "engineering",
+      "nursing"
      ],
      "institution_key": "ipeds-230764",
-     "listed_bachelor_programs": null,
+     "listed_bachelor_programs": 101,
      "name": "University of Utah",
      "partially_verified_programs": 0,
-     "programs_complete": false,
+     "programs_complete": true,
      "programs_with_plan": 0,
      "queue": [
       "admission_rules:not_yet_researched",
-      "catalog:not_yet_researched",
       "degree_maps:layout_not_readable",
       "requirement_groups:layout_not_readable"
      ],
      "requirement_groups": 0,
-     "status": "partial",
-     "verified_bachelor_programs": 59
+     "status": "covered",
+     "verified_bachelor_programs": 101
     },
     {
      "academic_years": [
@@ -48512,7 +48522,7 @@
     }
    ],
    "not_yet_researched": 8,
-   "queue_entries": 20,
+   "queue_entries": 19,
    "queue_errors": [],
    "state": "UT",
    "status": "in_progress",

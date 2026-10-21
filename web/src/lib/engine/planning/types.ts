@@ -103,8 +103,12 @@ export interface Unknown {
 }
 
 export interface Roadmap {
-  target: PlanningTarget & { programName: string | null; institutionName: string | null }
-  /** blocked: no verified plan for this major, so credit can be shown as accepted only. */
+  /** programVerified: the school's listing of this major is a verified record (otherwise show it as unverified). */
+  target: PlanningTarget & { programName: string | null; programVerified: boolean; institutionName: string | null }
+  /**
+   * ready: the degree plan, every exam-credit table the school has on file, and the cost are verified.
+   * blocked: no verified plan for this major, so credit can be shown as accepted only.
+   */
   status: 'ready' | 'partial' | 'blocked'
   plan: Line<{ catalogYear: string | null; terms: TermCoverage[]; totalCredits: number | null }>
   credit: CreditLine[]

@@ -73,7 +73,7 @@ describe('planning roadmap (#194)', () => {
     const blocked = buildRoadmap({ comparison: school('partially_verified'), programKey: 'biz', profile: profile([['AP Microeconomics', 5]]) })
     expect(blocked.status).toBe('blocked')
     expect(blocked.credit[0]).toMatchObject({ fit: 'unknown', acceptance: { evidence: { state: 'verified' } } })
-    expect(blocked.unknowns[0]!.text).toMatch(/plan for this major is on file but not verified/)
+    expect(blocked.unknowns[0]!.text).toMatch(/plan for this major is on file but not yet verified/)
     const noTable = buildRoadmap({ comparison: school('verified', 'partially_verified'), programKey: 'biz', profile: profile([['AP Microeconomics', 5]]) })
     expect(noTable.status).toBe('partial')
     expect(noTable.credit[0]!.acceptance).toMatchObject({ value: null, evidence: { state: 'missing' } })
@@ -86,5 +86,13 @@ describe('planning roadmap (#194)', () => {
       ['AP English Language', '4', 'ENGL 101', 1],
       ['AP Microeconomics', '3', 'ECON 101', 1],
     ])
+  })
+
+  it('a school with no exam-credit table on file is never "ready", and says so', () => {
+    const c = school()
+    ;(c.domains as unknown as Record<string, unknown[]>).credit_policies = []
+    const r = buildRoadmap({ comparison: c, programKey: 'biz', profile: profile([]) })
+    expect(r.status).toBe('partial')
+    expect(r.unknowns.map((u) => u.text)).toContain('No exam-credit table (AP, CLEP, IB or Statewide Dual Credit) is on file for Example U.')
   })
 })
