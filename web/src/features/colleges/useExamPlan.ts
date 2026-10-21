@@ -14,27 +14,37 @@ import type { IbLevel, PlannedExam } from '../../lib/engine/examCredit'
 const KEY = (studentId: string) => `pp-exam-plan:${studentId}`
 const MAX = 20
 
-// If storage is unavailable (private mode, quota), the plan still lives for this page session, per student.
+// If the browser can't store (private mode, full storage), the plan still lives for this page session, per student:
+// once a write fails for a student, that student's list is read from memory from then on.
 const memory = new Map<string, PlannedExam[]>()
 
 function read(studentId: string | undefined): PlannedExam[] {
   if (!studentId) return []
+  if (memory.has(studentId)) return memory.get(studentId)!
   try {
     const raw = localStorage.getItem(KEY(studentId))
     if (raw == null) return []
     const v = JSON.parse(raw)
     return Array.isArray(v) ? (v as PlannedExam[]).filter((e) => e && typeof e.key === 'string').slice(0, MAX) : []
   } catch {
-    return memory.get(studentId) ?? []
+    return []
   }
 }
 function writeLocal(studentId: string | undefined, exams: PlannedExam[]) {
   if (!studentId) return
+  if (memory.has(studentId)) {
+    memory.set(studentId, exams)
+    return
+  }
   try {
     localStorage.setItem(KEY(studentId), JSON.stringify(exams))
   } catch {
     memory.set(studentId, exams) // storage unavailable: kept for this page session
   }
+}
+/** Tests only: forget the in-memory fallback. */
+export function resetExamPlanMemory() {
+  memory.clear()
 }
 const noKey = (e: unknown) => (e as { code?: string }).code === 'not_found'
 
@@ -43,6 +53,9 @@ export function useExamPlan(studentId: string | undefined, canEdit = true) {
   const { source } = useApp()
   const onAccount = source.supportsExamPlan
   const [local, setLocalState] = useState<PlannedExam[]>(() => read(studentId))
+  // Which student `local` and `remote` belong to: until the effect has loaded the new student, nothing is shown or
+  // editable, so a stale list from the previous student can't be acted on.
+  const [loadedFor, setLoadedFor] = useState(studentId)
   const [remote, setRemote] = useState<PlannedExam[]>([])
   const [ready, setReady] = useState(!onAccount)
   const [error, setError] = useState<string | null>(null)
@@ -74,7 +87,10 @@ export function useExamPlan(studentId: string | undefined, canEdit = true) {
         return 'account'
       } catch (err) {
         if (noKey(err)) return 'device'
-        if (stillHere()) setError((err as Error).message)
+        // Still on screen: say so (the 20-exam limit, a network error). Switched away: keep the answer on this
+        // student's device, so it isn't lost; it moves to the account on their next load.
+        if (!stillHere()) return 'device'
+        setError((err as Error).message)
         return 'error'
       }
     },
@@ -83,6 +99,7 @@ export function useExamPlan(studentId: string | undefined, canEdit = true) {
 
   useEffect(() => {
     setLocalState(read(studentId))
+    setLoadedFor(studentId)
     setRemote([])
     setError(null)
     setReady(!onAccount)
@@ -115,9 +132,11 @@ export function useExamPlan(studentId: string | undefined, canEdit = true) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [studentId, onAccount, source, canEdit])
 
+  const current = loadedFor === studentId
   const remoteKeys = new Set(remote.map((e) => e.key))
   // An exam on the account and also on this device is shown once, from the account.
-  const exams = [...remote, ...local.filter((e) => !remoteKeys.has(e.key))].slice(0, MAX)
+  const exams = current ? [...remote, ...local.filter((e) => !remoteKeys.has(e.key))].slice(0, MAX) : []
+  const editable = current && ready && canEdit
 
   const save = async (e: PlannedExam) => {
     // Bound now: the student this answer is for, even if the screen switches while it saves.
@@ -130,27 +149,27 @@ export function useExamPlan(studentId: string | undefined, canEdit = true) {
   return {
     exams,
     /** Keys kept on this device only (not on the account). */
-    onDevice: new Set(local.filter((e) => !remoteKeys.has(e.key)).map((e) => e.key)),
+    onDevice: new Set(current ? local.filter((e) => !remoteKeys.has(e.key)).map((e) => e.key) : []),
     onAccount,
     /** False until the account plan has loaded: adding before then could overwrite a saved score. */
-    ready,
+    ready: ready && current,
     canEdit,
     error,
     add: (e: PlannedExam) => {
-      if (!ready || !canEdit || exams.some((x) => x.key === e.key) || exams.length >= MAX) return false
+      if (!editable || exams.some((x) => x.key === e.key) || exams.length >= MAX) return false
       void save(e)
       return true
     },
     setScore: (key: string, score: number | null) => {
       const e = exams.find((x) => x.key === key)
-      if (e && ready && canEdit) void save({ ...e, score })
+      if (e && editable) void save({ ...e, score })
     },
     setLevel: (key: string, level: IbLevel | null) => {
       const e = exams.find((x) => x.key === key)
-      if (e && ready && canEdit) void save({ ...e, level })
+      if (e && editable) void save({ ...e, level })
     },
     remove: (key: string) => {
-      if (!canEdit || !ready) return
+      if (!editable) return
       setError(null)
       if (remoteKeys.has(key) && studentId)
         void source.removeExamPlanEntry(studentId, key).then(
