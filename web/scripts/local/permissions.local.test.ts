@@ -167,6 +167,14 @@ describe.skipIf(!URL_)('permissions on the server, role by role', () => {
     }
   })
 
+  it('academic interests: same rule as the exam plan today (any guardian or the linked student; #218 C1); not the outsider', async () => {
+    for (const r of ROLES) {
+      await clients.PARENT.from('student_academic_interests').delete().eq('student_id', student)
+      const ins = await clients[r].from('student_academic_interests').insert({ student_id: student, certainty: 'few', interests: [{ kind: 'area', key: 'business' }] }).select()
+      expect([r, wrote(ins)]).toEqual([r, r !== 'OUTSIDER'])
+    }
+  })
+
   it('saved schools: any household member may save or remove (pinned; worth a decision); the outsider may not', async () => {
     const key = (await clients.PARENT.from('institutions').select('institution_key').eq('institution_key', 'local-test-university').single()).data!.institution_key as string
     for (const r of ROLES) {
@@ -202,7 +210,7 @@ describe.skipIf(!URL_)('permissions on the server, role by role', () => {
     expect(wrote(forged)).toBe(false)
     for (const r of ['PARENT', 'VIEWER', 'STUDENT', 'OUTSIDER'] as Role[]) {
       const read = await clients[r].from('alert_preferences').select('user_id').eq('user_id', U.CO)
-      expect([r, read.data?.length ?? 0]).toEqual([r, 0])
+      expect([r, read.error, read.data?.length]).toEqual([r, null, 0])
       const upd = await clients[r].from('alert_preferences').update({ inactivity_days: 9 }).eq('user_id', U.CO).select()
       expect([r, wrote(upd)]).toEqual([r, false])
     }
