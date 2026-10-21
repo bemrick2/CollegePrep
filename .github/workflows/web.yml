@@ -6,9 +6,9 @@ name: Web app
 on:
   push:
     branches: [main]
-    paths: ['web/**', 'data/institutions/**', '.github/workflows/web.yml']
+    paths: ['web/**', 'data/institutions/**', 'supabase/**', 'scripts/local/**', 'backend/exam_keys.py', '.github/workflows/web.yml']
   pull_request:
-    paths: ['web/**', 'data/institutions/**', '.github/workflows/web.yml']
+    paths: ['web/**', 'data/institutions/**', 'supabase/**', 'scripts/local/**', 'backend/exam_keys.py', '.github/workflows/web.yml']
 
 permissions:
   contents: read
@@ -33,3 +33,40 @@ jobs:
         run: npm test
       - name: Production build (demo mode, no Supabase settings)
         run: npm run build
+
+  # The local end-to-end suite (web/scripts/local/*.local.test.ts): every migration plus Design's reference SQL on a
+  # disposable PostgreSQL, PostgREST in front, edge functions under Deno against fake push, FCM and mail services.
+  # Nothing here talks to the hosted project or sends anything real.
+  local-backend:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 5s --health-timeout 5s --health-retries 20
+    env:
+      PGHOST: localhost
+      PGUSER: postgres
+      PGPASSWORD: postgres
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci
+        working-directory: web
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - name: PostgREST 12.2.3
+        run: |
+          curl -fsSL -o /tmp/pgrst.tar.xz https://github.com/PostgREST/postgrest/releases/download/v12.2.3/postgrest-v12.2.3-linux-static-x64.tar.xz
+          tar -xJf /tmp/pgrst.tar.xz -C /tmp
+          /tmp/postgrest --version
+      - name: Local end-to-end tests
+        run: POSTGREST_BIN=/tmp/postgrest DENO_BIN=$(command -v deno) scripts/local/live_stack.sh test
