@@ -31,6 +31,7 @@ import type {
   WeeklyProgress,
 } from '../types'
 import type { FixtureQuestion } from './fixtures'
+import type { PlannedExam } from '../../engine/examCredit'
 import { emptyStore, loadStore, saveStore, uid, type DemoAttempt, type DemoStore } from './store'
 import { gradeAnswer } from '../../engine/grading'
 import { recommend, skillEstimates, streakFrom, weeklyProgress } from '../../engine/analytics'
@@ -730,6 +731,15 @@ export class DemoSource implements DataSource {
   }
 
   readonly supportsPrimarySchool = true
+  // The demo keeps the exam plan on this device (useExamPlan), as it always has.
+  readonly supportsExamPlan: boolean = false
+  async examPlan(_studentId: string): Promise<PlannedExam[]> {
+    return []
+  }
+  async saveExamPlanEntry(_studentId: string, _exam: PlannedExam): Promise<void> {
+    throw new DataError('The demo keeps exams on this device', 'invalid')
+  }
+  async removeExamPlanEntry(_studentId: string, _examKey: string): Promise<void> {}
   // The demo keeps the weekly-summary choice so the preview can be tried; it never sends email.
   readonly supportsWeeklyDigest = true
 

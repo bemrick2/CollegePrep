@@ -211,7 +211,17 @@ function ExamPlanner({
               </optgroup>
             ))}
           </select>
-          <p className="mt-1.5 text-xs text-ink-3">Exams listed by your saved schools' published tables. Saved on this device for now.</p>
+          <p className="mt-1.5 text-xs text-ink-3">
+            Exams listed by your saved schools' published tables.{' '}
+            {plan.onAccount
+              ? 'AP and CLEP exams are saved to the account, so they show on every device. IB and Statewide Dual Credit exams stay on this device for now.'
+              : 'Saved on this device for now.'}
+          </p>
+          {plan.error && (
+            <Notice tone="bad" className="mt-2">
+              {plan.error}
+            </Notice>
+          )}
         </div>
       )}
     </Section>

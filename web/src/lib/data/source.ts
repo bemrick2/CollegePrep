@@ -1,6 +1,7 @@
 import type { ReminderSettings } from '../../../../supabase/functions/_shared/reminders.ts'
 export type { ReminderSettings }
 import type { InterestProfile } from '../engine/interests'
+import type { PlannedExam } from '../engine/examCredit'
 import type { NextWeekSuggestion } from '../engine/weeklyPlan'
 import type {
   SetupProgress,
@@ -121,6 +122,16 @@ export interface DataSource {
   /** One saved school the family elevates as its primary target (CR-12). False until the backend supports it;
    *  the UI hides the control and shows no primary while false. */
   readonly supportsPrimarySchool: boolean
+  /**
+   * CR-10: AP and CLEP exams on the account (student_exam_plan, keyed by exam_catalog). False in the demo and until
+   * VITE_EXAM_PLAN=true; the plan then stays on this device. IB and Statewide Dual Credit (no catalog key yet) stay
+   * on the device either way.
+   */
+  readonly supportsExamPlan: boolean
+  examPlan(studentId: string): Promise<PlannedExam[]>
+  /** Saves one exam; rejects with code 'invalid' when it has no catalog key (the caller keeps it on the device). */
+  saveExamPlanEntry(studentId: string, exam: PlannedExam): Promise<void>
+  removeExamPlanEntry(studentId: string, examKey: string): Promise<void>
   /** True when the backend stores the weekly-summary opt-in (CR-22). The demo stores it but sends no email. */
   readonly supportsWeeklyDigest: boolean
   /** Emails actually sent to this guardian, newest first; null where the backend can't say (CR-22 not applied). */

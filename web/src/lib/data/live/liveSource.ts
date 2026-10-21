@@ -1,5 +1,6 @@
 import { MAX_INTERESTS, type InterestProfile, type MajorCertainty, type SavedInterest } from '../../engine/interests'
 import { INVITE_TTL_HOURS } from '../../invites'
+import { displayName, examKey, type PlannedExam } from '../../engine/examCredit'
 import type { SupabaseClient } from '@supabase/supabase-js'
 import type { AlertPreference, DevicePermission, DevicePlatform, DeviceStatus, EmailDelivery, DataSource, ReminderChange, ReminderDelivery, ReminderSettings, InactiveStudent, InvitationSummary, InviteSendResult, StudentInvitation } from '../source'
 import type { NextWeekSuggestion } from '../../engine/weeklyPlan'
@@ -156,7 +157,7 @@ export class LiveSource implements DataSource {
   /** weeklyDigest: the backend has CR-22 (alert_preferences.weekly_digest). Off until it is applied on hosted. */
   constructor(
     private sb: SupabaseClient,
-    private opts: { weeklyDigest?: boolean; reminders?: boolean; accountSetup?: boolean } = {},
+    private opts: { weeklyDigest?: boolean; reminders?: boolean; accountSetup?: boolean; examPlan?: boolean } = {},
   ) {}
 
   /** reminders: the backend has CR-27. Off until it is applied on hosted; the app then offers no reminders. */
@@ -737,6 +738,57 @@ export class LiveSource implements DataSource {
 
   // CR-12: one saved school per household can be the primary target (set_household_primary_school).
   readonly supportsPrimarySchool = true
+
+  /** examPlan: the backend has CR-10 applied with exam_catalog loaded. Off until then; the plan stays on the device. */
+  get supportsExamPlan() {
+    return !!this.opts.examPlan
+  }
+
+  private examCatalogCache: Promise<{ exam_key: string; family: 'ap' | 'clep'; display_name: string; appKey: string; appFamily: 'AP' | 'CLEP' }[]> | null = null
+  private examCatalogRows() {
+    this.examCatalogCache ??= (async () => {
+      const { data, error } = await this.sb.from('exam_catalog').select('exam_key, family, display_name')
+      if (error) fail(error)
+      return (data ?? []).map((r) => {
+        const appFamily = (r.family === 'ap' ? 'AP' : 'CLEP') as 'AP' | 'CLEP'
+        return { ...(r as { exam_key: string; family: 'ap' | 'clep'; display_name: string }), appFamily, appKey: examKey(appFamily, r.display_name as string) }
+      })
+    })()
+    return this.examCatalogCache
+  }
+
+  async examPlan(studentId: string): Promise<PlannedExam[]> {
+    if (!this.supportsExamPlan) return []
+    const [rows, cat] = await Promise.all([this.sb.from('student_exam_plan').select('exam_key, score').eq('student_id', studentId), this.examCatalogRows()])
+    if (rows.error) fail(rows.error)
+    const byKey = new Map(cat.map((c) => [c.exam_key, c]))
+    return (rows.data ?? []).flatMap((r) => {
+      const c = byKey.get(r.exam_key as string)
+      return c ? [{ family: c.appFamily, key: c.appKey, name: displayName(c.appFamily, c.display_name), score: (r.score as number | null) ?? null }] : []
+    })
+  }
+
+  async saveExamPlanEntry(studentId: string, exam: PlannedExam) {
+    if (!this.supportsExamPlan) throw new DataError('Exams are kept on this device until CR-10 is on the backend', 'invalid')
+    const c = (await this.examCatalogRows()).find((x) => x.appFamily === exam.family && x.appKey === exam.key)
+    if (!c) throw new DataError('This exam has no canonical key yet, so it stays on this device', 'invalid')
+    // Update first, then insert: the table grants UPDATE on score/taken_on only, so an upsert (which rewrites the key
+    // columns) is refused. Zero updated rows means no such entry yet, or no right to change it; the insert decides.
+    const upd = await this.sb.from('student_exam_plan').update({ score: exam.score }).eq('student_id', studentId).eq('exam_key', c.exam_key).select('exam_key')
+    if (upd.error) fail(upd.error)
+    if (upd.data?.length) return
+    const ins = await this.sb.from('student_exam_plan').insert({ student_id: studentId, exam_key: c.exam_key, score: exam.score }).select('exam_key')
+    if (ins.error) fail(ins.error)
+    if (!ins.data?.length) throw new DataError("You can't change this student's exams", 'forbidden')
+  }
+
+  async removeExamPlanEntry(studentId: string, appKey: string) {
+    if (!this.supportsExamPlan) return
+    const c = (await this.examCatalogRows()).find((x) => x.appKey === appKey)
+    if (!c) return
+    const { error } = await this.sb.from('student_exam_plan').delete().eq('student_id', studentId).eq('exam_key', c.exam_key)
+    if (error) fail(error)
+  }
 
   async primarySchool(householdId: string): Promise<string | null> {
     const { data, error } = await this.sb.from('household_saved_schools').select('institution_key').eq('household_id', householdId).eq('is_primary', true).maybeSingle()

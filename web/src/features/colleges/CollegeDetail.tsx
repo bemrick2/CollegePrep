@@ -284,8 +284,15 @@ function CostBreakdown({ costs, schoolState, level, year, onYear }: { costs: Cos
             )}
           </div>
           <dl className="grid grid-cols-[1fr_auto] gap-x-6 gap-y-2 self-start text-sm">
-            <Line k="Tuition" v={cost.tuition} />
-            <Line k="Fees" v={cost.mandatory_fees} />
+            {printedTuitionLines(cost) ? (
+              // The school prints tuition and fees as one line (UTC "Enrollment Fees"); splitting it would be a guess.
+              printedTuitionLines(cost)!.map((l) => <Line key={l.label} k={l.label} v={l.amount} />)
+            ) : (
+              <>
+                <Line k="Tuition" v={cost.tuition} />
+                <Line k="Fees" v={cost.mandatory_fees} />
+              </>
+            )}
             <Line k="Housing & food" v={cost.on_campus_food_housing ?? (cost.room != null && cost.board != null ? cost.room + cost.board : null)} />
             <Line k="Books" v={cost.books_supplies} />
             <Line k="Transport" v={cost.transportation} />
@@ -295,6 +302,21 @@ function CostBreakdown({ costs, schoolState, level, year, onYear }: { costs: Cos
       )}
     </Section>
   )
+}
+
+/**
+ * Tuition lines exactly as the school prints them, when it doesn't print tuition and fees apart: UTC prints one
+ * "Enrollment Fees" line (tuition and fees together) and, for out-of-state students, a separate out-of-state tuition
+ * line. Null when the record has tuition or fees of its own (the normal two lines apply).
+ */
+export function printedTuitionLines(c: CostRecord): { label: string; amount: number }[] | null {
+  if (c.tuition != null || c.mandatory_fees != null) return null
+  const comp = c.components ?? {}
+  const combined = comp[`enrollment_fees_${c.residency}`] ?? comp.enrollment_fees_in_state
+  if (typeof combined !== 'number') return null
+  const lines = [{ label: 'Tuition and fees (one line, as printed)', amount: combined }]
+  if (c.residency === 'out_of_state' && typeof comp.out_of_state_tuition === 'number') lines.push({ label: 'Out-of-state tuition', amount: comp.out_of_state_tuition })
+  return lines
 }
 
 function Line({ k, v }: { k: string; v: number | null | undefined }) {

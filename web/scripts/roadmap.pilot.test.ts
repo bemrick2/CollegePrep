@@ -129,3 +129,17 @@ describe.skipIf(!have)('planning roadmap on the stored Tennessee pilot records (
     expect(r.unknowns[0]!.text).toMatch(/no term-by-term plan on file for this major/)
   })
 })
+
+describe.skipIf(!have)('UTC cost breakdown as printed (#206)', () => {
+  it('one "Enrollment Fees" line is shown as printed, never split; out of state adds the printed out-of-state tuition', async () => {
+    const { printedTuitionLines } = await import('../src/features/colleges/CollegeDetail')
+    const [inState, outState] = ['in_state', 'out_of_state'].map((r) => domainRecords('utc', 'costs', '2026-27').find((c) => c.residency === r)!)
+    expect(printedTuitionLines(inState as never)).toEqual([{ label: 'Tuition and fees (one line, as printed)', amount: 11084 }])
+    expect(printedTuitionLines(outState as never)).toEqual([
+      { label: 'Tuition and fees (one line, as printed)', amount: 11084 },
+      { label: 'Out-of-state tuition', amount: 8306 },
+    ])
+    // UTK prints tuition and fees apart, so the normal two lines apply.
+    expect(printedTuitionLines(domainRecords('utk', 'costs', '2026-27')[0] as never)).toBeNull()
+  })
+})
