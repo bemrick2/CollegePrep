@@ -88,6 +88,10 @@ describe.skipIf(!URL_)('parent journey with an invited student and two more guar
     expect(held.size).toBeGreaterThan(0)
     expect(quick.items.filter((i) => held.has(i.question.id))).toEqual([])
     expect(quick.items.every((i) => i.seen_before === false)).toBe(true)
+    // The session still fills its 5 minutes with fresh questions that aren't held.
+    const secs = quick.items.reduce((t, i) => t + (i.question.expected_time_seconds ?? 60), 0)
+    expect(secs).toBeLessThanOrEqual(5 * 60)
+    expect(secs).toBeGreaterThan(5 * 60 - 120)
     const when = new Date(Date.now() + 3 * 86_400_000).toISOString()
     await phone.saveSetupProgress(studentId, { benchmarkScheduledFor: when })
     const started = await phone.startBenchmark(studentId, 'initial', 'act')
@@ -199,6 +203,23 @@ describe.skipIf(!URL_)('a student who signs up alone (no household)', () => {
     const when = new Date(Date.now() + 86_400_000).toISOString()
     await phone.saveSetupProgress(studentId, { benchmarkScheduledFor: when })
     expect(await (await device(SOLO)).listBenchmarks(studentId)).toEqual([])
+  })
+
+  it('review-only: once every non-held question is answered, sessions fill with repeats, never held questions', async () => {
+    const phone = await device(SOLO)
+    const pool = await phone.publishedQuestions('sat')
+    const held0 = practiceExclusions('sat', pool, new Set())
+    const session = await phone.startSession(studentId, 5, 'sat')
+    for (const q of pool.filter((x) => !held0.has(x.id))) {
+      const a = await phone.startAttempt(studentId, q.id, session.id)
+      await new Promise((r) => setTimeout(r, 25))
+      await phone.submitAttempt(a, { answer: 'A', activeMs: 5, confidence: 3 })
+    }
+    await phone.endSession(session.id)
+    const review = await phone.startSession(studentId, 15, 'sat')
+    expect(review.items.length).toBeGreaterThan(0)
+    expect(review.items.every((i) => i.seen_before === true && !held0.has(i.question.id))).toBe(true)
+    expect(review.items.reduce((t, i) => t + (i.question.expected_time_seconds ?? 60), 0)).toBeLessThanOrEqual(15 * 60)
   })
 
   it('nobody else can read or change it', async () => {

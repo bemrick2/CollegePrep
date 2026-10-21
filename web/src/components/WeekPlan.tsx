@@ -230,8 +230,8 @@ export function FreshContentNotice({ content, name }: { content: ContentStatus |
           {held > 0 ? (
             <>
               {you}
-              {name ? ' has' : "'ve"} practised every {EXAM[content.exam]} question except the {held} kept unseen for the next progress check, so that check
-              measures real progress.
+              {name ? ' has' : "'ve"} seen every {EXAM[content.exam]} question, in practice or a benchmark, except the {held} kept unseen for the next
+              progress check, so that check measures real progress.
             </>
           ) : (
             <>

@@ -11,7 +11,7 @@ describe('fresh-question notice', () => {
     const c = contentStatus('sat', pool, new Set(['q0', 'q1', 'q2', 'q3', 'q4', 'q5']))
     expect(c.practiceAllReview).toBe(true)
     render(<FreshContentNotice content={c} />)
-    expect(screen.getByText(/except the 4 kept unseen for the next progress check/)).toBeInTheDocument()
+    expect(screen.getByText(/except the 4 kept unseen for the next/)).toBeInTheDocument()
     expect(screen.queryByText(/answered every/)).not.toBeInTheDocument()
   })
 
