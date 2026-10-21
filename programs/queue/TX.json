@@ -632,8 +632,10 @@
   {
    "institution_key": "ipeds-227182",
    "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "Locate and configure the catalog (discovery found no catalog)."
+   "reason": "robots_disallowed",
+   "next_action": "Request an official program export, or a catalog route robots.txt allows; the program list is never fetched against robots.txt.",
+   "detail": "Lone Star's Kuali catalog ('2026 - 2027 Credit Catalog', lonestar.kuali.co catalog 69260d733f301dd9df660bd4) was rendered from www.lonestar.edu in run 2026-10-21-k02: the catalog feed was kept, but the program list (lonestar.kuali.co/api/v1/catalog/programs/...) is disallowed by robots.txt, so no program was read.",
+   "evidence_url": "https://www.lonestar.edu/catalog/"
   },
   {
    "institution_key": "ipeds-226806",

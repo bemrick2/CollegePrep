@@ -336,6 +336,11 @@ MUTS = [
     ('programs/catalog_counts.py', "            if f: pr = pr[:f.start()]; filtered += 1", "            pass"),
     ('programs/catalog_counts.py', "ROTC = re.compile(r'\\bN?ROTC\\b')", "ROTC = re.compile(r'\\bROTC\\b')"),
     ('programs/catalog_counts.py', "(?-i:\\bB[A-Z]{1,4}[/-]M[A-Z]{1,3}\\b)", "(?-i:\\bB[A-Z]{1,4}/M[A-Z]{1,3}\\b)"),
+    # Colorado State Programs A-Z table count (2026-10-21)
+    ('programs/catalog_counts.py', "                if any(w in slug for w in words): url_of[i1 + k] = links[j1 + k][0]", "                url_of[i1 + k] = links[j1 + k][0]"),
+    ('programs/catalog_counts.py', "        if hit and hit['record']['program_key'] in used: hit = None  # one record verifies one program", "        pass"),
+    ('programs/catalog_counts.py', "            name = conc_major.get(head) or next((m3 for c, m3 in conc_major.items() if c.endswith(', ' + head)), None) or major_of(name)", "            name = major_of(name)"),
+    ('programs/catalog_counts.py', "        for a in filter(None, (d.group('award'), d.group('award2'))): programs[(name, a)].append((i, r))", "        programs[(name, d.group('award'))].append((i, r))"),
     # diagnose honours robots.txt (2026-10-08)
     ('programs/diagnose.py', "        if not robots.allowed(url):", "        if False:"),
     # Iowa State department pages: a heading prints the listed name and award; a sentence mentioning majors is no multi-major page
