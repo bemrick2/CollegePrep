@@ -71,7 +71,7 @@ There are 58 items: ACT 38, SAT 20. That is less than one week at 40, even befor
 ## Recommendation
 
 1. **Launch with one exam at "40 a week, 12 weeks, 25% review": about 470 unique items for ACT (448 for SAT)**, or about 600 (ACT 605, SAT 586) if every practice question should be fresh.
-   - The other option from `CONTENT_PLAN.md` §6 Q1 is both exams at the 8-week minimum: ≈430 ACT plus ≈410 SAT, about 840 items in all. That spreads the same effort over two thinner banks.
+   - The other option from `CONTENT_PLAN.md` §6 Q1 is both exams at the 8-week minimum: ≈430 ACT plus ≈410 SAT, about 840 items in all. That is about 1.4–1.8 times the one-exam effort, spread over two thinner banks.
    - That matches the default weekly goal and the 12-week horizon in `CONTENT_PLAN.md`.
    - When a student runs out of fresh questions, the app already says so plainly.
    - Launching both exams doubles the authoring work. The table's numbers are per exam.
