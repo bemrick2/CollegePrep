@@ -35,7 +35,7 @@ MUTS = [
     ('programs/extract.py', "    if len({y for y, _ in labels}) != 1: return []\n    year, line = min(labels); acad = academic_year_of(year)\n    rec = {'program_key': CAT.slug(name), 'program_name': name, 'credential_level': 'bachelor', 'catalog_year': year,\n           'program_url': common.source_of(entry)['url'], 'notes': 'Program title (with its award)", "    year, line = min(labels); acad = academic_year_of(year)\n    rec = {'program_key': CAT.slug(name), 'program_name': name, 'credential_level': 'bachelor', 'catalog_year': year,\n           'program_url': common.source_of(entry)['url'], 'notes': 'Program title (with its award)"),
     ('programs/extract.py', " and NAMED_CATALOG.fullmatch(near[-2]) and len(near[-1]) <= 40 and not re.search(r'\\d', near[-1])", ""),
     ('programs/autoreview.py', "'coursedog_page/v1', 'kuali_page/v1',", "'coursedog_page/v1',"),
-    ('programs/catalog_counts.py', 'r"(?-i:\\bB[A-Z]{1,4}/M[A-Z]{1,3}\\b)|"', 'r"(?-i:\\bNOMATCH\\b)|"'),
+    ('programs/catalog_counts.py', 'r"(?-i:\\bB[A-Z]{1,4}/M[A-Z]{1,3}\\b)|(?-i:', 'r"(?-i:\\bNOMATCH\\b)|(?-i:'),
     ('programs/catalog_counts.py', '|\\b(Graduation|Continuance)\\s+(Requirements|Regulations)\\b|', '|'),
     ('programs/extract.py', "    if not KUALI_TITLE.match(page.title or ''): return []", "    pass"),
     ('programs/extract.py', "    if credential_of(name) != 'bachelor' or GRAD.search(re.sub(r'\\(B[A-Z]{1,3}\\)', '', name)): return []", "    pass"),
