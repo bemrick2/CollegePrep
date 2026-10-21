@@ -78,7 +78,7 @@ MUTS = [
     ('programs/catalog_counts.py', " or (x['listed_as'] is None and (X.UNDOTTED_LIST_AWARD.search(x['printed'].replace(ZWSP, '')) or X.credential_of(x['printed']) == 'bachelor'))]", "]"),
     ('programs/catalog_counts.py', '                if pk.startswith(rk) and pk != rk and bare != rk: hit = None', '                if pk.startswith(rk) and pk != rk: hit = None'),
     ('programs/catalog_counts.py', "AWARD_ONLY = re.compile(r'^(?:Dual Degree\\s+)?(?:(?-i:B[A-Z]{1,4}[a-z]{0,3})|", "AWARD_ONLY = re.compile(r'^(?:Dual Degree\\s+)?(?:B[A-Za-z]{0,9}|"),
-    ('programs/extract.py', "\n                or COLON_OPTION_ENTRY.match(line))", ")"),
+    ('programs/extract.py', "\n                or COLON_OPTION_ENTRY.match(line) or AWARD_IN_DASH_OPTION_ENTRY.match(line))", " or AWARD_IN_DASH_OPTION_ENTRY.match(line))"),
     ('programs/extract.py', " and norm(p.get('url')) not in own}", "}"),
     ('programs/autoreview.py', "               'listed_option' if (c['institution_key'], url_of(c, 'program_url')) in listed_options else\n", ""),
     ('programs/extract.py', "    m = re.match(r'^(?P<base>[^,():]+?),\\s*(?P<award>(?-i:B[A-Z]{1,4}[a-z]{0,2}))\\s*\\**$', line)", "    m = None"),
@@ -90,7 +90,7 @@ MUTS = [
     ('programs/autoreview.py', " or o.startswith((b + '-', b + '_')) or o.endswith('-' + b) for o in stems)]", " or o.startswith((b + '-', b + '_')) for o in stems)]"),
     ('programs/extract.py', "r')\\s+(?:[Dd]egree\\s+)?in\\s+(?P<name>", "r')\\s+(?:degree\\s+)?in\\s+(?P<name>"),
     ('programs/extract.py', "|\\s*20\\d{2}\\s*[-–]\\s*(?:20)?\\d{2}\\s+(?:[A-Z][a-z]+\\s+)?(?:Catalog|Catalogue|Bulletin)\\s+PDF\\s*$', re.I)", "', re.I)"),
-    ('programs/catalog_counts.py', "                           'page:' + page_key(x['url']) if AWARD_ONLY.match(x['printed'].strip()) else name_key(x['printed']))", "                           name_key(x['printed']))"),
+    ('programs/catalog_counts.py', "                           'page:' + page_key(x['url']) if AWARD_ONLY.match(x['printed'].strip()) else dkey(x['printed']) or name_key(x['printed']))", "                           dkey(x['printed']) or name_key(x['printed']))"),
     ('programs/catalog_counts.py', "            if c: x['printed'] = max(c, key=len); labelled += 1\n", ""),
     ('programs/catalog_counts.py', "(?: [A-Z][a-z]+)*)\\**$')  # Missouri", "(?: [A-Z][a-z]+)*)$')  # Missouri"),
     ('programs/catalog_counts.py', "        deg = [x for x in rest if x not in opts]", "        deg = rest"),
@@ -370,6 +370,25 @@ MUTS = [
     # ODU 2026-27 list rows run the award on to filter labels; 'BS-MBA' is combined; NROTC is commissioning (2026-10-21)
     ('programs/catalog_counts.py', "            if f: pr = pr[:f.start()]; filtered += 1", "            pass"),
     ('programs/catalog_counts.py', "ROTC = re.compile(r'\\bN?ROTC\\b')", "ROTC = re.compile(r'\\bROTC\\b')"),
+    # Colorado State Programs A-Z table count (2026-10-21)
+    ('programs/catalog_counts.py', "                if any(w in slug for w in words): url_of[i1 + k] = links[j1 + k][0]", "                url_of[i1 + k] = links[j1 + k][0]"),
+    ('programs/catalog_counts.py', "        if hit and hit['record']['program_key'] in used: hit = None  # one record verifies one program", "        pass"),
+    ('programs/catalog_counts.py', "            name = conc_major.get(head) or next((m3 for c, m3 in conc_major.items() if c.endswith(', ' + head)), None) or major_of(name)", "            name = major_of(name)"),
+    ('programs/catalog_counts.py', "        for a in filter(None, (d.group('award'), d.group('award2'))): programs[(name, a)].append((i, r))", "        programs[(name, d.group('award'))].append((i, r))"),
+    # UT Dallas 2026 program list (2026-10-21)
+    ('programs/catalog_counts.py', "            if h: pr = pr[:h.start()]; hours += 1", "            pass"),
+    ('programs/catalog_counts.py', "|General Education Requirements|\\(Double Major\\)|", "|General Education Requirements|"),
+    ('programs/catalog_counts.py', "        dkey = lambda n: (lambda d: 'deg:%s|%s' % d if d else None)(whole_degree(n))", "        dkey = lambda n: None"),
+    ('programs/catalog_counts.py', "                re.compile(r'^(?P<base>[^,:()]+?) \\((?P<award>(?-i:B[A-Z]{1,3}))\\)$'),", "                re.compile(r'^(?P<base>[^,:()]+?) \\((?P<award>(?-i:B[A-Z]{1,3}))\\)'),"),
+    ('programs/extract.py', "                if a and b and a[0] == b[0] and a[1] != b[1]: nk = nk + '#award=' + b[1]", "                pass"),
+    ('programs/extract.py', "if a and b and a[0] == b[0] and a[1] != b[1]:", "if a and b and a[1] != b[1]:"),
+    ('programs/extract.py', "if a and b and a[0] == b[0] and a[1] != b[1]:", "if a and b and a[0] == b[0]:"),
+    ('programs/extract.py', "    return LIST_CREDIT_HOURS.sub('', s)", "    return s"),
+    ('programs/extract.py', "semester credit hours\\)[\\d,\\s]*$')", "semester credit hours\\)\\d?$')"),
+    ('programs/extract.py', " or AWARD_IN_DASH_OPTION_ENTRY.match(line))", ")"),
+    ('programs/extract.py', "    m = re.match(r'^(?P<award>(?-i:B[A-Z]{1,3}))\\s+in\\s+(?P<base>[^:,()\\-]+?)\\s*$', line)  # UT Dallas 'BA in Literature'\n    if m: return", "    m = None  # UT Dallas 'BA in Literature'\n    if m: return"),
+    # Acalog program pages whose requirement groups are not read: the program record only (Pitt Greensburg, 2026-10-21)
+    ('programs/extract.py', "    if not out and plat == 'acalog' and CAT.program_name(page):", "    if False:"),
     ('programs/catalog_counts.py', "|(?-i:\\bB[A-Z]{1,4}-M(?:S|A|[A-Z]{2,3})\\b)", ""),
     # recount through records on file (2026-10-21)
     ('programs/catalog_counts.py', "        if (rec.get('program_key') in keys or k in pages or count.get(k[0]) == 1) and k[0] not in used:", "        if (rec.get('program_key') in keys or k in pages or count.get(k[0])) and k[0] not in used:"),

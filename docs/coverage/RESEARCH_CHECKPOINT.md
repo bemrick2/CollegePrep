@@ -2,24 +2,48 @@
 
 This file is how a new Research session resumes the national program-research workstream without redoing finished work. It is updated with every batch PR.
 
-- **Main at the last refresh:** `b30d6765b7` (after #216, #223 and Deep Dive's #225 UNL/Utah readers).
-- **Branch carrying this checkpoint:** `research/batch-05`.
+- **Main at the last refresh:** `86cbac02c3` (merge of Deep Dive's #226, after batch 5 #224).
+- **Branch carrying this checkpoint:** `research/batch-06`.
 - **Ranking:** `docs/coverage/research_priority.json`, written by `python3 scripts/research_priority.py`. CI (validate-data) checks that it is current.
 
 ## Numbers
 
 Three separate measures, never mixed: **program coverage** (bachelor's programs listed in the official catalog, docs/PROGRAM_DEPTH_COMPLETION.md), **degree-requirement depth** (requirement groups and plans of verified bachelor's programs) and **reference-data breadth** (costs, aid, admissions and the other domains in docs/coverage/coverage.json).
 
-| | main `b30d676` | research/batch-05 |
+| | main `86cbac0` | research/batch-06 |
 |---|---|---|
 | Registered four-year institutions | 2,119 | 2,119 |
-| Covered (program coverage) | 65 | 66 |
-| Researched | 673 | 675 |
-| Verified bachelor's program records | 10,320 | 10,341 |
+| Covered (program coverage) | 68 | 69 |
+| Researched | 675 | 683 |
+| Verified bachelor's program records | 10,473 | 10,482 |
 
-All figures are counted from `docs/coverage/programs/STATUS.json` and from the `academic_programs` files with `verification_status == "verified"` and `credential_level == "bachelor"`. The batch-05 change is -4 (corrections below) +25 (ODU); main's 10,320 includes Deep Dive's UNL and Utah records (#225).
+All figures are counted from `docs/coverage/programs/STATUS.json` and from the `academic_programs` files with `verification_status == "verified"` and `credential_level == "bachelor"`.
 
-## Completed in batch 5 (research/batch-05)
+## Completed in batch 6 (research/batch-06)
+
+| Institution | Run | Result |
+|---|---|---|
+| UT Dallas | TX/2026-10-21-u01 | 51/69, partial: first count. The 2026 edition's program list (catalog.utdallas.edu/2026/undergraduate/programs) is configured. Most degrees are printed twice ('Bachelor of Science in X (120 semester credit hours)' and 'X (BS)'): one program. '(Double Major)' entries are not counted. 'BA in X - Y' / 'BS in X - Y' (concentrations, Education certification focuses) are options of the listed degree. Where one page is linked as both the BA and the BS of a field (Biology, Chemistry, Economics, Education, International Political Economy, Interdisciplinary Studies, Mathematics, Physics) each award is a listed program; UT Dallas records such as 'Biology (BA, BS)' name two degrees in one record and credit neither entry (the name matches no whole-degree form, and a page with two entries is not credited through its single record); reproducing the count needs the lists re-read with the current reader. Corrected after independent review on #227 (the first count, 59/64, missed the BS links). Splitting those records needs a reader for pages printing two awards. |
+| Pitt Greensburg | PA/2026-10-07-cat (re-extracted) | 32/32, **covered**. Four Acalog program pages whose requirement groups are not read now give the program record (static_program/v1). |
+| Pitt Johnstown | PA/2026-10-07-cat (re-extracted) | 43/48, partial (+2). 'Pre-K - 12 Education, BS' is cut at its ' - ' by the shared title reader (left as is: changing it would rename existing Acalog records). |
+| CU Denver | CO/2026-10-06-cat | 75/86, partial (+3: Law Studies BA, General Business BS, Economics/Mathematics dual degree). The 2026-10-06 entry's 75 predated the removal of rural-partnership variant records (72 were left); corrected. |
+| Colorado State | CO/2026-10-08-c02 | 68/83, partial: first count, from the Programs A-Z table (`catalog_counts.table_entries`). Not recorded: majors whose pages are concentration pages only (Computer Science, Data Science, Theatre and others) and four dual degrees. |
+| SNHU, Lone Star | NH, TX /2026-10-21-k02 | Queued `robots_disallowed`: rendered Kuali catalogs; their catalog feeds are kept, but the program list API is disallowed by robots.txt. SNHU's catalog is a term catalog ('University Catalog - Fall 2026'). |
+| Michigan State | discovery | Queued `no_year_label`: the Academic Programs pages print no catalog year. |
+| ASU | discovery | Queued `layout_not_readable`: degree pages print no year; their 2026 curriculum checksheets do, but are reached only through degree pages. |
+| Indiana | IN/2026-10-21-c02 | Queued `no_year_label`: the College bulletin's program pages print no year (other school bulletins not configured). |
+| UW, UGA, FSU, UCF | discovery | Queued: UW no year label; UGA and FSU JavaScript program lists; UCF's landing page still prints only 2025-26. |
+
+Reader changes (each with tests and mutants; full program mutation check 309/309 killed before the main merge):
+- `programs/catalog_counts.py`: `table_entries` (a Programs A-Z table count); `whole_degree` (one degree in four whole-name forms is one program); credit hours are not part of a name; '(Double Major)' not counted.
+- `programs/extract.py` list reader: one page linked under two awards of the same field is two listed entries (before, the second link was dropped); credit hours are stripped from list lines (`list_line`), so autoreview and counts read 'Bachelor of Arts in X (120 semester credit hours)' the same way.
+- `programs/extract.py`: `AWARD_IN_DASH_OPTION_ENTRY` ('BA in X - Y', an option only where the plain degree is listed; across all local lists only UT Dallas has such entries); 'BA in X' is a degree line; Acalog pages without read requirement groups give the program record (176 pages across 149 local runs: Union 158, Greensburg 12, Johnstown 6; only the six Pitt records are promoted).
+
+**Count side effect (review on #227).** `whole_degree` merges 'Bachelor of Arts in Psychology' with 'Psychology, BA' and the same for Criminal Justice Studies in SF State's list, so a recount would read 117 listed rather than the recorded 118; the recorded entry is not recounted here (the error is conservative and SF State stays covered).
+
+**Integrity note.** JHU's 'Five-Year BM/MM Program' is a verified bachelor's record although it is a combined bachelor's/master's program (the Roosevelt pattern); correcting it needs the owner's approval. Four catalog entries record more verified listed programs than the school has verified records (Columbus State 35 vs 26, Montana 67 vs 55, Saint Mary's 55 vs 54, CSU Pueblo 34 vs 33), because records were consolidated after the counts. Status already uses the smaller figure, so no coverage number is inflated; the entries should be recounted.
+
+## Completed in batch 5 (research/batch-05, merged as #224)
 
 **Integrity corrections (owner-approved 2026-10-21).** Each record keeps its evidence and requirement rows, is `unverified` with a `verification_correction_reason`, has the correction appended to its notes, and is listed in `supabase/corrections.json` with the owner's instruction quoted.
 - Roosevelt: 'Digital Marketing, Advertising and Public Relations, BA to Marketing Communications, MSIMC' and 'Health Science Administration, BA/MPA Public Administration' are accelerated bachelor's-to-master's pathways (stored pages filed under 'Accelerated'); both bachelor's degrees are recorded separately. 74/79, still covered.
@@ -99,7 +123,7 @@ Reader and checker changes in this batch each come with tests and mutants: `prog
 - **no_year_label (a year is never inferred):**
   - Coursedog catalogs whose API answered 401: Arizona, UCSB, Illinois State, USU, FIU. CSUN: its pages print no year label.
   - Alabama: the only label printed is the print-menu link 'Download 2026-27 Undergraduate PDF'. This is a shared reader request.
-- **layout_not_readable:** UNL, Utah, SHSU, UWM and UCR (Deep Dive took these readers on #153, 2026-10-21); Indiana (separate school bulletins).
+- **layout_not_readable:** Utah and UCR (Deep Dive's readers on #153); Indiana (separate school bulletins). Deep Dive's #226 covered UWM (133/133) and UNL (116/124) and added the SHSU header-year rule.
 - **not_published:** Cincinnati (only a 2025-2026 program catalog PDF).
 - **Stale configured catalogs (find the 2026-27 catalog by web search before running):**
   - CSULB (2015-16 PDF)
@@ -115,23 +139,16 @@ Reader and checker changes in this batch each come with tests and mutants: `prog
 
 ## In flight
 
-- `program-run/nh-k02-2026-10-21` (SNHU) and `program-run/tx-k02-2026-10-21` (Lone Star): rendered Kuali/JavaScript catalogs (k01 was requested with `adapters_only`, which crawls only state adapters, and fetched nothing). Next: read the kept catalog feeds (a Kuali feed reader is needed; `programs/feeds.py` already requests the public program list) and check that the catalog title prints the year.
-- Discovery: `program-run/az-diag3-2026-10-21` (ASU checksheet and major map, MSU program detail, IU College majors, Kelley degree page) and `program-run/fl-diag4-2026-10-21` (UCF, UW, UGA, FSU catalog pages).
-- Round 2 found: MSU's 'Undergraduate Degrees' list prints 185 entries such as 'Accounting (BS)' (ProgramDetail.aspx?PType=UGRD&Program=ACCOUN_BS1); ASU's degree pages print 'Accountancy, BS' but no year, and link a 2026 curriculum checksheet and major maps; IU's College bulletin prints 'Bulletin Year 2026-27'.
+None. Weekly reference-data pipeline runs for Tennessee (`pipeline-run/tn-2026-10-05-*`, `-10-12-*`, `-10-19-*`) are unreviewed; they are reference-data breadth, not program coverage.
 
 ## Next prioritized batch
 
-1. **Kuali feed reader** (SNHU, Lone Star; also Vanderbilt in TN): program identity from the catalog's public program list, the year from the catalog's own title, never inferred.
-2. **ASU and Michigan State** once round 2 shows their program pages: configure, run, review.
-3. **Near tier:** ESU (Kuali pages without a year: read the Kuali feed), JHU (decide whether the BM in Performance instrument curricula are listed programs), CU Denver, YSU.
-4. **Reader work kept by Research:**
-   - Colorado State program column: the Programs A-Z table (Program | Department | College | Level | Campus | Degree type) gives about 85 bachelor's programs (69 plain majors, plus majors listed only as 'Major, X Concentration' rows); 66 match the 68 records by name. Implement as a table count.
-   - BYU emphases: all 51 unrecorded entries are emphases of 13 degrees that have no line of their own ('Statistics (BS): Data Science Emphasis'). Counting such a degree once would put BYU at about 118/131, but the same rule would regroup 92 OSU, 45 SF State, 43 UVU and 22 UNH entries that are credited one by one today, so it needs a recount of those schools and agreement with Deep Dive (UVU, UNH) first.
-   - Alabama print-link label.
-   - UT Dallas: the edition's program list (catalog.utdallas.edu/2026/undergraduate/programs) is configured; run `program-run/tx-u01-2026-10-21`.
-   - UTSA: catalog.utsa.edu/undergraduate/azindex lists department pages, not degrees; no degree list found yet.
-5. **Configured tier:** UT Austin and Texas State (coordinate with Deep Dive), Penn State, Illinois, UCI, UC Davis, Arkansas.
-6. **Unconfigured tier:** UCF (www.ucf.edu/catalog/?catoid=12), Rutgers, Washington, UCSD (catalog.ucsd.edu/undergraduate/degrees-offered/), Minnesota (Coursedog), UGA, FSU, NAU, UMass.
+1. **Near tier:** JHU: the official list prints both a general 'Bachelor of Music in Performance' (its own curriculum page) and eight 'Bachelor of Music in Performance - <field>' entries with their own requirements. Recording the eight would make JHU covered (75/77) but contradicts the option rule used for UT Dallas unless the instruments are agreed to be majors; decision to settle on #153 before promoting. A title-reader change keeping the full name when the page's first heading prints it was tested (only JHU changes across 71 stored runs) and is not merged. Then YSU: a 2026-10-21 recount (OH/2026-10-07-cat, current readers) reads 55/74; 15 '4+1' entries are already excluded, but ', X Track' entries of a listed degree (Multimedia Communication, Journalism, Computer Science, Biochemistry) and "Bachelor's to Master's Track" entries are still counted, so a track/combined rule in catalog_counts (with a replay of earlier counts) is the next step. ESU (Kuali pages without a year), Johnstown (Pre-K - 12 Education title), CU Denver.
+2. **Count rule needing agreement with Deep Dive (#153):** degrees listed only through emphases (BYU 13 degrees / 51 emphasis lines; the same rule would regroup OSU, SF State, UVU and UNH entries).
+3. **Reader work kept by Research:** Colorado State concentration-only majors; ASU checksheets; Alabama print-link label; UTSA (no degree list found).
+4. **Configured tier:** UT Austin and Texas State (coordinate with Deep Dive), Penn State, Illinois, UCI, UC Davis, Arkansas.
+5. **Unconfigured tier:** Rutgers, UCSD (catalog.ucsd.edu/undergraduate/degrees-offered/), Minnesota (Coursedog), NAU, UMass, Oklahoma, Iowa, JMU, Grand Valley.
+6. **Stale counts:** recount Columbus State, Montana, Saint Mary's and CSU Pueblo.
 
 ## How to resume
 

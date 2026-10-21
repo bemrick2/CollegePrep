@@ -13,6 +13,7 @@ that program's own page (http and https are one page) when no other listed name 
 name is not the record's name plus a qualifier ('X: Concentration in Y' is never credited through X's page).
 Counts come from the reviewed decision's approvals, never from the autoreview file."""
 import argparse, json, re
+from urllib.parse import urlsplit
 from collections import defaultdict
 from pathlib import Path
 
@@ -24,7 +25,7 @@ COMB = re.compile(r"Accelerated.*(\bM\.?[AS]\b\.?|\bMBA\b|\bMPA\b|Master)|Schola
                   r"(?-i:\bB[A-Z]{1,4}/M[A-Z]{1,3}\b)|(?-i:\bB[A-Z]{1,4}-M(?:S|A|[A-Z]{2,3})\b)|"  # ODU '..., BS-MBA' (a hyphenated single award such as 'BS-MT' is not combined); La Salle 'Accounting, BSBA/MBA (4 year)'
                   r"\bto\b.*(?-i:\bM[A-Z]{0,4}\b).*\bAccelerated\b|Dual Degree Acceptance|\bB\.?[AS]\.?/.*\bM\.\s?B\.\s?A\b|"
                   r"(?-i:,\s*B[A-Z]{1,3}\s+to\s+[^,]+,\s*M[A-Z]{1,5}\b)", re.I)  # Roosevelt 'Biology, BA to Secondary Education, MA Accelerated Program'; Georgian 'B.S./... M.B.A.'
-GENERIC = re.compile(r"^(Bachelor's (Degree|Concentration|Degree Programs)|Department of .*)$|: Bachelor's Degree\b|Minor, Certificate|Graduate Certificate|\bRoadmap\b|\b(Graduation|Continuance)\s+(Requirements|Regulations)\b|\bReadmission\b|\(Secondary Major\)|^Minor in\b|General Education Requirements|^Bachelor's and Master's Degree Programs$", re.I)
+GENERIC = re.compile(r"^(Bachelor's (Degree|Concentration|Degree Programs)|Department of .*)$|: Bachelor's Degree\b|Minor, Certificate|Graduate Certificate|\bRoadmap\b|\b(Graduation|Continuance)\s+(Requirements|Regulations)\b|\bReadmission\b|\(Secondary Major\)|^Minor in\b|General Education Requirements|\(Double Major\)|^Bachelor's and Master's Degree Programs$", re.I)
 ROTC = re.compile(r'\bN?ROTC\b')
 LABELED = {'labeled_in_title', 'labeled_in_heading', 'labeled_in_source'}
 # UTEP 2026-27 cards run the name into the card's category labels: 'BBA in AccountingBusiness, Management, & Marketing
@@ -37,6 +38,7 @@ CONC_AWARD = re.compile(r'^(?:Dual Degree\s+)?B\.(?:\s?[A-Z][a-z]{0,3}\.)+\s+Con
 MAJOR_OF = re.compile(r'(-major)-[^/]*?concentration(/?)$')
 # ODU 2026-27 'Programs, Degrees & Majors' rows run the award on to the row's filter labels: 'Art with a Major in Art History,
 # BAArtsUndergraduateBachelor'sHumanitiesCollege of Arts and Letters', 'Chemistry with a Major in ... (BS)UndergraduateBachelor's...'
+CREDIT_HOURS = re.compile(r'\s*\(\d+(?:-\d+)?\s+semester credit hours\)[\d,\s]*$')
 FILTER_LABELS = re.compile(r"(?<=[A-Za-z)])(?:[A-Z][a-z][A-Za-z&' ]*?)?Undergraduate(?:[A-Z][A-Za-z&' ]*?)?Bachelor's.*$")
 AWARD_ONLY = re.compile(r'^(?:Dual Degree\s+)?(?:(?-i:B[A-Z]{1,4}[a-z]{0,3})|B\.\s?[A-Z][A-Za-z]{0,4}\.?(?:\s?[A-Z][a-z]{0,3}\.?)*|Bachelor of [A-Z][a-z]+(?: [A-Z][a-z]+)*)\**$')  # Missouri lists 'BA', 'BS*', 'BSAcc' under each department; never an all-caps name ('BIOLOGY')
 
@@ -63,6 +65,25 @@ def card_name(printed):
     return pr, False
 
 
+SPELLED = {'arts': 'ba', 'science': 'bs', 'fine arts': 'bfa', 'music': 'bm', 'business administration': 'bba'}
+WHOLE_DEGREE = [re.compile(r'^Bachelor of (?P<long>Arts|Science|Fine Arts|Music|Business Administration) in (?P<base>[^,:()]+?)$'),
+                re.compile(r'^(?P<award>(?-i:B[A-Z]{1,3})) in (?P<base>[^,:()]+?)$'),
+                re.compile(r'^(?P<base>[^,:()]+?) \((?P<award>(?-i:B[A-Z]{1,3}))\)$'),
+                re.compile(r'^(?P<base>[^,:()]+?), (?P<award>(?-i:B[A-Z]{1,3}))$')]
+
+
+def whole_degree(name):
+    """(name, award) of an entry or record that is exactly one degree in one of four printed forms ('Bachelor of Science in X',
+    'BS in X', 'X (BS)', 'X, BS'); None for anything else ('Education (BA) with EC-6 Core Subjects')."""
+    n = X.list_line(name).replace(ZWSP, '')
+    for rx in WHOLE_DEGREE:
+        m = rx.match(n)
+        if m:
+            award = SPELLED[m.group('long').lower()] if 'long' in rx.groupindex else m.group('award').lower()
+            return re.sub(r'\W+', '', m.group('base')).lower(), award
+    return None
+
+
 def entries(run_dir, decision, iks, year='2026-2027', reviewed=''):
     run_dir = Path(run_dir)
     cands = {}
@@ -80,16 +101,23 @@ def entries(run_dir, decision, iks, year='2026-2027', reviewed=''):
         progs = [v for v in cands.values() if v['institution_key'] == ik and v['domain'] == 'academic_programs' and v['candidate_id'] in approved
                  and v.get('year_basis', 'labeled_in_source') in LABELED]
         names = {name_key(v['record']['program_name']): v for v in progs}
+        # one degree printed two ways ('Bachelor of Science in Human Resource Management' and 'Human Resource Management (BS)',
+        # UT Dallas 2026) is one program: list entries and records are also keyed by (name, award)
+        dkey = lambda n: (lambda d: 'deg:%s|%s' % d if d else None)(whole_degree(n))
+        for v in progs:
+            if dkey(v['record']['program_name']): names.setdefault(dkey(v['record']['program_name']), v)
         listing = lists[ik]['programs']
         # an entry the list reader left unclassified but that prints an undotted bachelor's award ('Marketing, BSBA') is a bachelor's entry
         raw = [x for x in listing if x['listed_as'] == 'bachelor' or (x['listed_as'] is None and (X.UNDOTTED_LIST_AWARD.search(x['printed'].replace(ZWSP, '')) or X.credential_of(x['printed']) == 'bachelor'))]
         unlabeled = sorted({card_name(x['printed'])[0] for x in listing if x['listed_as'] in ('major', 'major_unlabeled_degree')})
-        seen, b, doubled, filtered = set(), [], 0, 0
+        seen, b, doubled, filtered, hours = set(), [], 0, 0, 0
         for x in raw:
             k = (name_key(x['printed']), page_key(x['url']))
             if k in seen: continue
             seen.add(k)
             pr, dbl = card_name(x['printed']); doubled += dbl
+            h = CREDIT_HOURS.search(pr)  # UT Dallas: 'Bachelor of Arts in Education (120 semester credit hours)1'
+            if h: pr = pr[:h.start()]; hours += 1
             f = FILTER_LABELS.search(pr)
             if f: pr = pr[:f.start()]; filtered += 1
             b.append(dict(x, printed=pr))
@@ -105,7 +133,7 @@ def entries(run_dir, decision, iks, year='2026-2027', reviewed=''):
             elif g: x['printed'] = max(g, key=len); glued += 1
         # an entry printing only an award ('BS' under a department heading, Missouri) is identified by its page, not its text
         ident = lambda x: ('page:' + page_key(MAJOR_OF.sub(r'\1\2', x['url'])) if CONC_AWARD.match(x['printed'].strip()) else
-                           'page:' + page_key(x['url']) if AWARD_ONLY.match(x['printed'].strip()) else name_key(x['printed']))
+                           'page:' + page_key(x['url']) if AWARD_ONLY.match(x['printed'].strip()) else dkey(x['printed']) or name_key(x['printed']))
         comb = [x for x in b if COMB.search(x['printed'])]
         gen = [x for x in b if x not in comb and (GENERIC.search(x['printed']) or ROTC.search(x['printed']))]
         rest = [x for x in b if x not in comb and x not in gen]
@@ -135,6 +163,7 @@ def entries(run_dir, decision, iks, year='2026-2027', reviewed=''):
         pages = sorted({x['listed_on'] for x in raw}); lo = pages[0]
         parts = [f"{len(raw)} linked entries on the official {year} program list" + (f" ({len(pages)} pages)" if len(pages) > 1 else '') + " print a bachelor's award"]
         if len(b) < len(raw): parts.append(f"{len(raw) - len(b)} repeat an entry already counted")
+        if hours: parts.append(f"{hours} print the degree's credit hours after the name, which are not part of it")
         if filtered: parts.append(f"{filtered} run the award on to the row's filter labels ('Undergraduate', 'Bachelor's', subject and college) and are read up to the award")
         if doubled: parts.append(f"{doubled} print the program name twice (a card title, sometimes shortened, then the name) and are read once")
         conc = [x for x in deg if CONC_AWARD.match(x['printed'].strip())]
@@ -164,6 +193,108 @@ def entries(run_dir, decision, iks, year='2026-2027', reviewed=''):
         if n - ver != len(missing) or len(miss) != len(missing): raise ValueError(f'{ik}: {n - ver} unverified but {len(miss)} names')
         out.append(e)
     return out
+
+
+TABLE_DEGREE = re.compile(r'(?P<award>(?:Dual Degree )?B\.[A-Z][A-Za-z.]*?)(?: and (?P<award2>B\.[A-Z][A-Za-z.]*?))?(?P<conc> Concentration(?: Option)?)?')
+
+
+def table_entries(run_dir, decision, ik, spec, year='2026-2027', reviewed='', records=None):
+    """Colorado State 2026-27: the Programs A-Z page is one table, 'Program | Department | College | Level | Campus | Degree type',
+    with no header row. Every undergraduate row whose degree type is a bachelor's award is accounted for: a plain row
+    ('Computer Engineering' | 'B.S.') is a program; a concentration row ('Computer Science, Artificial Intelligence and Machine
+    Learning Concentration' | 'B.S. Concentration') counts with its major, named before its last comma (or, for 'Accounting,
+    Business Administration, Accounting Concentration', the plain major the name ends with); 'B.A. and B.F.A.' is two programs.
+    Each row's degree-type link is aligned with the table by the page's own link order. A program is verified when an approved
+    record sits on the major's page (a concentration link with its '-concentration' suffix removed) or prints the major's name
+    and award. spec: {'url': list page, 'program': i, 'level': i, 'degree': i, 'level_value': 'Undergraduate'}."""
+    import difflib, gzip
+    run_dir = Path(run_dir)
+    cands = {}
+    for line in open(run_dir / 'candidates.jsonl'):
+        v = json.loads(line); cands.setdefault(v['candidate_id'], v)
+    approved = {a['candidate_id'] for a in json.load(open(decision))['approve']}
+    progs = [v for v in cands.values() if v['institution_key'] == ik and v['domain'] == 'academic_programs' and v['candidate_id'] in approved  # (table count)
+             and v.get('year_basis', 'labeled_in_source') in LABELED]
+    if records is not None:  # a recount: verified bachelor's records already on file stand in for the decision's approvals
+        progs = [{'record': r, 'source': {'requested_url': r.get('program_url') or r['source_url']}} for r in records
+                 if r.get('verification_status') == 'verified' and r.get('credential_level') == 'bachelor']
+    m = next(json.loads(l) for l in open(run_dir / 'manifest.jsonl') if json.loads(l).get('url') == spec['url'] and json.loads(l).get('page_file'))
+    page = json.load(gzip.open(run_dir / 'pages' / m['page_file'], 'rt'))
+    rows = [r for t in page['tables'] for r in t['rows'] if len(r) > max(spec['program'], spec['level'], spec['degree'])]
+    dtype = lambda t: (t or '').strip()
+    # align the rows' degree-type cells with the page's links of the same text, in page order
+    texts = {dtype(r[spec['degree']]) for r in rows}
+    links = [(u, dtype(t)) for u, t in page['links'] if dtype(t) in texts]
+    sm = difflib.SequenceMatcher(None, [dtype(r[spec['degree']]) for r in rows], [t for _, t in links], autojunk=False)
+    url_of = {}
+    for tag, i1, i2, j1, j2 in sm.get_opcodes():
+        if tag == 'equal':
+            for k in range(i2 - i1):
+                # labels repeat ('B.S. Concentration'), so an aligned link is kept only when its page name shares a word
+                # with the row's name before its first comma (Nutrition Science 'Nursing Concentration' links HDFS's nursing page)
+                words = {w for w in re.findall(r'[a-z]{4,}', rows[i1 + k][spec['program']].split(',')[0].lower())}
+                slug = urlsplit(links[j1 + k][0]).path.rstrip('/').rsplit('/', 1)[-1].lower()
+                if any(w in slug for w in words): url_of[i1 + k] = links[j1 + k][0]
+    ug = [(i, r) for i, r in enumerate(rows) if r[spec['level']].strip() == spec['level_value'] and TABLE_DEGREE.fullmatch(dtype(r[spec['degree']]))]
+    plain = {r[spec['program']].strip() for _, r in ug if not TABLE_DEGREE.fullmatch(dtype(r[spec['degree']])).group('conc')}
+    bylen = sorted(plain, key=len, reverse=True)
+    def major_of(name):  # a concentration row's major
+        head = name.rsplit(', ', 1)[0]
+        if head in plain: return head
+        p = next((p for p in bylen if name.startswith(p + ', ')), None) or next((p for p in bylen if head.endswith(', ' + p)), None)
+        return p or name.split(', ')[0]
+    conc_major = {r[spec['program']].strip(): major_of(r[spec['program']].strip()) for _, r in ug
+                  if (TABLE_DEGREE.fullmatch(dtype(r[spec['degree']])).group('conc') or '').strip() == 'Concentration'}
+    programs = defaultdict(list)  # (major, award) -> [(row index, row)]
+    for i, r in ug:
+        d = TABLE_DEGREE.fullmatch(dtype(r[spec['degree']])); name = r[spec['program']].strip()
+        if d.group('conc') and 'Option' in d.group('conc'):  # an option of a concentration: the concentration's major
+            head = name.rsplit(', ', 1)[0]
+            name = conc_major.get(head) or next((m3 for c, m3 in conc_major.items() if c.endswith(', ' + head)), None) or major_of(name)
+        elif d.group('conc'):
+            name = conc_major[name]
+        for a in filter(None, (d.group('award'), d.group('award2'))): programs[(name, a)].append((i, r))
+    def rec_award(n):
+        m2 = re.search(r'\(?((?:Dual Degree )?B\.[A-Z][A-Za-z.]*?)\)?\s*$', n)
+        return m2.group(1) if m2 else None
+    rec_pages = defaultdict(list)
+    for v in progs: rec_pages[page_key(v['record'].get('program_url') or v['source']['requested_url'])].append(v)
+    by_name = defaultdict(list)
+    for v in progs:
+        n = re.sub(r'^Major in\s+', '', v['record']['program_name']).strip()
+        a = rec_award(n); base = re.sub(r',?\s*\(?(?:Dual Degree )?B\.[A-Z][A-Za-z.]*?\)?\s*$', '', n) if a else n
+        by_name[(name_key(base), a)].append(v)
+    awards_of = defaultdict(set)
+    for (n, a) in programs: awards_of[n].add(a)
+    verified, used = {}, set()
+    for (name, a), members in programs.items():
+        hit = None
+        for i, r in members:
+            u = url_of.get(i)
+            if not u: continue
+            pk = page_key(MAJOR_OF.sub(r'\1\2', u)) if TABLE_DEGREE.fullmatch(dtype(r[spec['degree']])).group('conc') else page_key(u)
+            vs = rec_pages.get(pk, [])
+            if len(vs) == 1: hit = vs[0]; break
+        if not hit:
+            vs = by_name.get((name_key(name), a)) or (by_name.get((name_key(name), None)) if len(awards_of[name]) == 1 else None)
+            if vs and len(vs) == 1: hit = vs[0]
+        if hit and hit['record']['program_key'] in used: hit = None  # one record verifies one program
+        if hit: used.add(hit['record']['program_key'])
+        verified[(name, a)] = hit['record']['program_key'] if hit else None
+    conc_rows = sum(1 for _, r in ug if TABLE_DEGREE.fullmatch(dtype(r[spec['degree']])).group('conc'))
+    n = len(verified); ver = sum(1 for v in verified.values() if v)
+    miss = sorted(f'{k[0]}, {k[1]}' for k, v in verified.items() if not v)
+    unaligned = sum(1 for i, _ in ug if i not in url_of)
+    parts = [f"{len(ug)} undergraduate rows of the official {year} Programs A-Z table print a bachelor's degree type",
+             f"{conc_rows} are concentration or option rows counted with their major" + (f"; {unaligned} rows have no link whose page name shares a word with the row, so they are matched by name only" if unaligned else '')]
+    basis = '; '.join(parts) + f". {n} bachelor's programs, {ver} with a verified record on the major's page or printing the major's name and award." \
+        + (f" Not recorded (names separated by ' | '): {' | '.join(miss).rstrip('.')}." if miss else '')
+    e = {'institution_key': ik, 'catalog_url': 'https://' + spec['url'].split('/')[2] + '/', 'catalog_year_label': year,
+         'source_evidence': {'url': spec['url'], 'sha256': m['sha256'], 'fetched_at': m['fetched_at']},
+         'listed_bachelor_programs': n, 'verified_listed_programs': ver, 'programs_complete': ver == n,
+         'completeness_basis': basis, 'reason': f'Reviewed: official current-catalog program list (Research session{", " + reviewed if reviewed else ""}).'}
+    if ver == n: e['listed_program_keys'] = sorted(set(verified.values()))
+    return e
 
 
 def on_file_approvals(run_dir, folder, ik, root=Path('.'), year='2026-27'):

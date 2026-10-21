@@ -366,6 +366,19 @@ class StaticProgramTests(unittest.TestCase):
         self.assertEqual(X.static_program_identity({'institution_key': 'k'}, e, two_years, '2026-27'), [])  # ambiguous year: skipped
 
 
+    def test_acalog_page_without_read_groups_gives_the_program_record(self):  # Pitt Greensburg 2026-27
+        from pipeline import text as T
+        e = {'url': 'https://catalog.upg.pitt.edu/preview_program.php?catoid=238&poid=77211', 'role': 'program_page', 'sha256': 's', 'fetched_at': '2026-10-07T00:00:00'}
+        target = {'institution_key': 'k', 'catalog': {'platform': 'acalog', 'catoid': 238}}
+        p = T.Page('Search\n2026-2027 Greensburg Campus Catalog\nCommunication, BA\nCore Courses 2 courses (6 credits)',
+                   'Program: Communication, BA - University of Pittsburgh Greensburg - Acalog ACMS\u2122', [], [], ['Search', 'Communication, BA'])
+        out = [c for c in X._program_page_candidates(target, target, e, p, '2026-27') if c['domain'] == 'academic_programs']
+        self.assertEqual([(c['extractor'], c['record']['program_name'], c['record']['catalog_year']) for c in out],
+                         [('static_program/v1', 'Communication, BA', '2026-2027')])
+        minor = T.Page('2026-2027 Greensburg Campus Catalog\nCommunication Minor', 'Program: Communication Minor - University of Pittsburgh Greensburg - Acalog ACMS', [], [], [])
+        self.assertEqual([c for c in X._program_page_candidates(target, target, e, minor, '2026-27') if c['domain'] == 'academic_programs'], [])
+
+
 class AwardInParenthesesTests(unittest.TestCase):
     def test_parenthesised_award_matches_inventory_row(self):
         from programs import match as Mt
@@ -2563,6 +2576,32 @@ class ListedEmphasisTests(unittest.TestCase):
             t['catalog']['list_documents'][0]['run'] = str(Path(d) / 'missing')
             self.assertEqual(collect_lists(t, C.Run(Path(d) / 'cat'), [])['programs'], [])
 
+    def test_one_page_listed_under_two_awards(self):  # UT Dallas 2026: the BA and BS of one field link one page (#227 review)
+        import tempfile
+        from programs.extract import collect_lists, list_line, _degree_key
+        u = 'https://catalog.example.edu/'
+        page = ('<html><head><title>Undergraduate</title></head><body><p>University Catalog 2026-2027</p>'
+                f'<a href="{u}nsm/biology/">Bachelor of Arts in Biology (120 semester credit hours)1</a>'
+                f'<a href="{u}nsm/biology/">Bachelor of Science in Biology (120 semester credit hours)1, 4</a>'
+                f'<a href="{u}nsm/biology/">Biology (BS)</a>'
+                f'<a href="{u}nsm/chemistry/">Bachelor of Arts in Chemistry</a>'
+                f'<a href="{u}nsm/chemistry/">Bachelor of Science in Physics</a>'
+                f'<a href="{u}ah/literature/">Bachelor of Arts in Literature</a>'
+                f'<a href="{u}ah/literature/">Literature (BA)</a>'
+                f'<a href="{u}ah/literature/">BA in Literature - Pre-Law Concentration</a></body></html>').encode()
+        with tempfile.TemporaryDirectory() as d:
+            run = C.Run(Path(d) / 'cat'); f = FakeFetcher({u + 'undergraduate/': page})
+            C.crawl_target({**TARGET, 'refetch': [u + 'undergraduate/']}, run, f, log=lambda *_: None)
+            entries = [{**e, 'role': 'program_list'} for e in run.entries()]
+            t = {**TARGET, 'catalog': {'platform': 'courseleaf', 'home': u, 'path_prefix': '/', 'min_depth': 1}}
+            got = sorted(p['printed'] for p in collect_lists(t, run, entries)['programs'])
+        # the BS of the same field on the same page is kept; the same award again ('Biology (BS)'), another field or an option
+        # linking that page is not a second entry
+        self.assertEqual(got, ['Bachelor of Arts in Biology (120 semester credit hours)1', 'Bachelor of Arts in Chemistry',
+                               'Bachelor of Arts in Literature', 'Bachelor of Science in Biology (120 semester credit hours)1, 4'])
+        self.assertEqual(list_line('Bachelor of Science in Data Science (120 semester credit hours)1, 4'), 'Bachelor of Science in Data Science')
+        self.assertEqual(_degree_key(list_line('Bachelor of Arts in Literature (120 semester credit hours)1')), _degree_key('Literature (BA)'))
+
     def test_parenthetical_variant_lines(self):  # UT Arlington, Texas A&M-Kingsville 2026-27 (#148 follow-up)
         import re
         from programs.extract import listed_emphasis_pages, _degree_key
@@ -2921,6 +2960,80 @@ class CatalogCountTests(unittest.TestCase):
                 rec('art-studio', 'Art Studio (BA)', u + 'art/'), rec('art-history', 'Art History (BA)', u + 'art/'), rec('chemistry-x', 'Chemistry (BS)', u + 'chem-bs/', 'unverified')]}))
             got = [a['candidate_id'] for a in on_file_approvals(run, 'x', 'k', root=d)]
         self.assertEqual(got, ['c1', 'c3'])
+
+    def test_programs_az_table_count(self):  # Colorado State 2026-27 Programs A-Z table
+        import tempfile, gzip
+        from programs.catalog_counts import table_entries
+        u = 'https://catalog.x.edu/'; lo = u + 'programsaz/'
+        rows = [['Business Administration', 'Business', 'BU', 'Undergraduate', 'Main', 'B.S.'],
+                ['Accounting, Business Administration, Accounting Concentration', 'Accounting', 'BU', 'Undergraduate', 'Main', 'B.S. Concentration'],
+                ['Finance, Business Administration, Finance Concentration', 'Finance', 'BU', 'Undergraduate', 'Main', 'B.S. Concentration'],
+                ['Finance Concentration, Corporate Finance Option', 'Finance', 'BU', 'Undergraduate', 'Main', 'B.S. Concentration Option'],
+                ['Computer Science, Artificial Intelligence Concentration', 'CS', 'NS', 'Undergraduate', 'Main', 'B.S. Concentration'],
+                ['Computer Science, Software Concentration', 'CS', 'NS', 'Undergraduate', 'Main', 'B.S. Concentration'],
+                ['Dance', 'Dance', 'LA', 'Undergraduate', 'Main', 'B.A. and B.F.A.'],
+                ['Nutrition Science, Nursing Concentration', 'Nutrition', 'HS', 'Undergraduate', 'Main', 'B.S. Concentration'],
+                ['Human Development, Nursing Concentration', 'HD', 'HS', 'Undergraduate', 'Main', 'B.S. Concentration'],
+                ['Human Development Studies, Aging Concentration', 'HD', 'HS', 'Undergraduate', 'Main', 'B.S. Concentration'],
+                ['Accountancy', 'Accounting', 'BU', 'Graduate', 'Main', 'M.Acc.'],
+                ['Business Minor', 'Business', 'BU', 'Undergraduate', 'Main', 'Minor']]
+        links = [(u + 'business-administration-major/', 'B.S.'), (u + 'business-administration-major-accounting-concentration/', 'B.S. Concentration'),
+                 (u + 'business-administration-major-finance-concentration/', 'B.S. Concentration'), (u + 'finance-option/', 'B.S. Concentration Option'),
+                 (u + 'computer-science-major-ai-concentration/', 'B.S. Concentration'), (u + 'computer-science-major-software-concentration/', 'B.S. Concentration'),
+                 (u + 'dance/', 'B.A. and B.F.A.'),
+                 (u + 'human-development-major-nursing-concentration/', 'B.S. Concentration'),  # Nutrition's row links HD's page
+                 (u + 'human-development-major-nursing-concentration/', 'B.S. Concentration'),
+                 (u + 'human-development-major-aging-concentration/', 'B.S. Concentration'),  # another major's link resolving to the same page
+                 (u + 'accountancy/', 'M.Acc.'), (u + 'business-minor/', 'Minor')]
+        records = [{'program_key': 'ba', 'program_name': 'Major in Business Administration', 'credential_level': 'bachelor', 'verification_status': 'verified',
+                    'program_url': u + 'business-administration-major/', 'source_url': u + 'business-administration-major/'},
+                   {'program_key': 'dba', 'program_name': 'Major in Dance, B.A.', 'credential_level': 'bachelor', 'verification_status': 'verified',
+                    'program_url': u + 'dance/dance-ba/', 'source_url': u + 'dance/dance-ba/'},
+                   {'program_key': 'hd', 'program_name': 'Major in Human Development', 'credential_level': 'bachelor', 'verification_status': 'verified',
+                    'program_url': u + 'human-development-major/', 'source_url': u + 'human-development-major/'},
+                   {'program_key': 'x', 'program_name': 'Major in Geology', 'credential_level': 'bachelor', 'verification_status': 'unverified',
+                    'program_url': u + 'geology-major/', 'source_url': u + 'geology-major/'}]
+        with tempfile.TemporaryDirectory() as d:
+            d = Path(d); (d / 'pages').mkdir()
+            (d / 'pages/p.json.gz').write_bytes(gzip.compress(json.dumps({'tables': [{'rows': rows}], 'links': links}).encode()))
+            (d / 'manifest.jsonl').write_text(json.dumps({'url': lo, 'page_file': 'p.json.gz', 'sha256': 'a' * 64, 'fetched_at': '2026-10-21T00:00:00+00:00'}) + '\n')
+            (d / 'candidates.jsonl').write_text(''); (d / 'dec.json').write_text(json.dumps({'approve': []}))
+            spec = {'url': lo, 'program': 0, 'level': 3, 'degree': 5, 'level_value': 'Undergraduate'}
+            e = table_entries(d, d / 'dec.json', 'k', spec, records=records)
+        b = e['completeness_basis']
+        # Business Administration BS, Computer Science BS, Dance BA, Dance BFA, Nutrition Science BS, Human Development BS,
+        # Human Development Studies BS (its page is HD's, and one record verifies one program)
+        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (7, 3), b)
+        self.assertTrue(b.endswith("Not recorded (names separated by ' | '): Computer Science, B.S. | Dance, B.F.A. | Human Development Studies, B.S. | Nutrition Science, B.S."), b)
+
+    def test_one_degree_printed_two_ways_and_double_majors(self):  # UT Dallas 2026 program list
+        import tempfile
+        from programs.catalog_counts import entries, whole_degree
+        u = 'https://catalog.x.edu/'
+        listing = [('Bachelor of Science in Human Resource Management (120 semester credit hours)', u + 'bad/hrm', 'bachelor'),
+                   ('Human Resource Management (BS)', u + 'jsom/human-resource-management', 'bachelor'),
+                   ('Bachelor of Arts in Literature (120 semester credit hours)1', u + 'ah/literature', 'bachelor'),
+                   ('BA in Literature - Pre-Law Concentration', u + 'ah/literature-pre-law', 'bachelor'),
+                   ('BA in Education - 7-12 Social Studies with a concentration in History', u + 'ed/ss-history', 'bachelor'),
+                   ('Bachelor of Arts in Education (120 semester credit hours)', u + 'ed/education', 'bachelor'),
+                   ('BS in Economics and Finance (Double Major) (129 semester credit hours)', u + 'jsom/econ-fin', 'bachelor'),
+                   ('Education (BA) with EC-6 Core Subjects', u + 'ed/ec6', 'bachelor'),
+                   ('BA in Mathematics', u + 'ns/math', 'bachelor'), ('BA in Mathematics - Actuarial Concentration', u + 'ns/math-act', 'bachelor')]
+        records = [('Human Resource Management (BS)', u + 'jsom/human-resource-management'), ('Literature (BA)', u + 'ah/literature'),
+                   ('Education (BA) with EC-6 Core Subjects', u + 'ed/ec6')]
+        with tempfile.TemporaryDirectory() as d:
+            d = self.run_dir(d, listing, records)
+            e = entries(d, d / 'dec.json', ['k'])[0]
+        b = e['completeness_basis']
+        # HRM (two forms, one program), Literature (its concentration is an option), Education BA (its concentration is an
+        # option; the EC-6 record names another program and does not verify it), Education (BA) with EC-6; the double major
+        # is not counted
+        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (5, 3), b)
+        self.assertIn("4 print the degree's credit hours after the name", b)
+        self.assertIn("not a single bachelor's program: BS in Economics and Finance (Double Major)", b)
+        self.assertTrue(b.endswith("Not recorded (names separated by ' | '): BA in Mathematics | Bachelor of Arts in Education."), b)
+        self.assertEqual(whole_degree('Bachelor of Science in Human Resource Management'), whole_degree('Human Resource Management (BS)'))
+        self.assertIsNone(whole_degree('Education (BA) with EC-6 Core Subjects'))
 
     def test_only_reviewed_approvals_count(self):
         import tempfile

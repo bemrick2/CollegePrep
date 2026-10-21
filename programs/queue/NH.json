@@ -4,8 +4,10 @@
   {
    "institution_key": "ipeds-183026",
    "gap": "institution",
-   "reason": "not_yet_researched",
-   "next_action": "A targeted discovery run (2026-10-07-disc2) fetches www.snhu.edu/admission/academic-catalogs, found by web search; configure the catalog from it."
+   "reason": "robots_disallowed",
+   "next_action": "Request an official program export, or a catalog route robots.txt allows; the program list is never fetched against robots.txt.",
+   "detail": "SNHU's Kuali catalog (catalog 69e917a2592741290eff3c61, titled 'University Catalog - Fall 2026', 2026-07-01 to 2027-01-03; a term catalog, not an academic-year label) was rendered in run 2026-10-21-k02: its public catalog feed was kept, but the program list (snhu.kuali.co/api/v1/catalog/programs/...) is disallowed by www.snhu.edu robots.txt, so no program was read.",
+   "evidence_url": "https://www.snhu.edu/admission/academic-catalogs"
   },
   {
    "institution_key": "ipeds-183044",
