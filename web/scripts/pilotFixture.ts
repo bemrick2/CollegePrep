@@ -24,18 +24,35 @@ function records(school: string, domain: string): Rec[] {
   const d = JSON.parse(readFileSync(f, 'utf8'))
   return ((d.records ?? []) as Rec[]).map((r) => ({ academic_year: d.academic_year ?? PILOT_YEAR, ...r }))
 }
+/** One CSV line, honouring quoted fields ("Name, Inc"). */
+function csvLine(line: string): string[] {
+  const out: string[] = []
+  let cell = ''
+  let quoted = false
+  for (let i = 0; i < line.length; i++) {
+    const ch = line[i]!
+    if (quoted) {
+      if (ch === '"' && line[i + 1] === '"') (cell += '"'), i++
+      else if (ch === '"') quoted = false
+      else cell += ch
+    } else if (ch === '"') quoted = true
+    else if (ch === ',') out.push(cell), (cell = '')
+    else cell += ch
+  }
+  out.push(cell)
+  return out
+}
+/** The school's identity record, unchanged: its own institution.json, else its IPEDS baseline row. */
 function identity(school: string, unitid: string): Rec {
   const own = join(ROOT, 'institutions', school, 'institution.json')
-  if (existsSync(own)) {
-    const i = JSON.parse(readFileSync(own, 'utf8'))
-    return { institution_key: school, display_name: i.display_name, state_code: i.state_code, city: i.city, verification_status: i.verification_status, source_url: i.source_url, level: 'four_year' }
-  }
+  if (existsSync(own)) return JSON.parse(readFileSync(own, 'utf8'))
   const dir = join(ROOT, 'national/ipeds')
   const year = readdirSync(dir).sort().at(-1)!
   const lines = readFileSync(join(dir, year, 'TN/institutions.csv'), 'utf8').trim().split('\n')
-  const head = lines[0]!.split(',')
-  const row = Object.fromEntries(head.map((h, i) => [h, lines.find((l) => l.split(',')[2] === unitid)!.split(',')[i]]))
-  return { institution_key: school, display_name: row.display_name, state_code: row.state_code, city: row.city, verification_status: row.verification_status, source_url: row.source_url, level: row.level }
+  const head = csvLine(lines[0]!)
+  const row = lines.map(csvLine).find((c) => c[head.indexOf('unitid')] === unitid)
+  if (!row) throw new Error(`No IPEDS row for ${school} (${unitid})`)
+  return Object.fromEntries(head.map((h, i) => [h, row[i]]))
 }
 
 export function buildPilotFixture() {

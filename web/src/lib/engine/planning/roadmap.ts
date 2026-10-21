@@ -48,6 +48,7 @@ function notVerifiedWhy(r: Rec): string {
 }
 const missing = (text: string, r?: Rec | null, year: string | null = null): Evidence => ({ ...evidence(r ?? null, year), state: 'missing', missing: text })
 
+const ARRANGEMENT_WORDS: Record<LivingArrangement, string> = { on_campus: 'on campus', off_campus: 'off campus', with_family: 'with family' }
 const ARRANGEMENT: Record<string, LivingArrangement> = {
   on_campus: 'on_campus',
   off_campus_not_with_family: 'off_campus',
@@ -95,6 +96,12 @@ export function buildRoadmap({ comparison: c, programKey, profile, projection = 
 
   // Credit: each planned exam against the school's verified table for its family.
   const policies = domain('credit_policies')
+  // Every exam-credit table the school has on file, whether or not the family entered exams for it.
+  const examTables = policies.filter((p) => (['AP', 'CLEP', 'IB', 'SDC'] as ExamFamily[]).some((f) => policyKindOf(f) === p.policy_kind))
+  for (const t of examTables.filter((x) => !verified(x))) {
+    const fam = (['AP', 'CLEP', 'IB', 'SDC'] as ExamFamily[]).find((f) => policyKindOf(f) === t.policy_kind)!
+    unknown('credit', `${inst}'s ${FAMILY_LABEL[fam]} credit table is on file but not yet verified${notVerifiedWhy(t)}.`)
+  }
   const verifiedPolicies = policies.filter(verified) as unknown as CreditPolicy[]
   const tableFor = (f: ExamFamily) => policies.find((p) => p.policy_kind === policyKindOf(f)) ?? null
   const verifiedTable = (f: ExamFamily) => (verified(tableFor(f)) ? tableFor(f) : null)
@@ -195,6 +202,9 @@ export function buildRoadmap({ comparison: c, programKey, profile, projection = 
       ? { value: byArr, evidence: evidence(chosen, str(chosen.academic_year) ?? c.academic_year, basis ? { method: basis } : {}) }
       : { value: null, evidence: missing(`${inst}'s published cost has no breakdown by living arrangement.`, chosen) }
     if (!byArr.length) unknown('cost', `${inst}'s published cost has no breakdown by living arrangement.`)
+    else
+      for (const a of ['on_campus', 'off_campus', 'with_family'] as LivingArrangement[])
+        if (!byArr.some((x) => x.arrangement === a)) unknown('cost', `${inst} doesn't publish a price for living ${ARRANGEMENT_WORDS[a]}.`)
   } else {
     const anyCost = costRecs[0] ?? null
     const text = anyCost ? `${inst}'s cost of attendance is on file but not yet verified${notVerifiedWhy(anyCost)}.` : `No cost of attendance is on file for ${inst}.`
@@ -223,9 +233,9 @@ export function buildRoadmap({ comparison: c, programKey, profile, projection = 
     ? { value: saving, evidence: { ...evidence(planRec, c.academic_year), state: 'estimate', method: 'Potential only: the published price of the covered terms, held at this year’s price, minus grants entered for those terms.' } }
     : { value: null, evidence: missing(covered > 0 ? `No verified cost projection for ${inst}.` : 'No whole plan term is covered, so no saving is counted.', null, c.academic_year) }
 
-  const allCreditVerified = credit.every((x) => x.acceptance.evidence.state === 'verified')
+  const allCreditVerified = credit.every((x) => x.acceptance.evidence.state === 'verified') && examTables.every(verified)
   return {
-    target: { institutionKey: c.institution_key, programKey, programName: str(program?.program_name), institutionName: str(c.institution?.display_name) },
+    target: { institutionKey: c.institution_key, programKey, programName: str(program?.program_name), programVerified: verified(program), institutionName: str(c.institution?.display_name) },
     status: !hasPlan ? 'blocked' : allCreditVerified && cost.value ? 'ready' : 'partial',
     plan: hasPlan
       ? { value: { catalogYear, terms: termList, totalCredits: num(totalRec?.minimum_credits) }, evidence: evidence(planRec, catalogYear) }

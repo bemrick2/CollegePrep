@@ -16,13 +16,14 @@ beforeAll(async () => {
   ;({ AppProvider } = await import('../../lib/app'))
 })
 
-async function family() {
+async function family(withExams = true) {
   const src = new DemoSource(emptyStore())
   src.switchPersona(DEMO_PARENT, 'Jordan')
   const hh = await src.createHousehold('Home', 'America/Chicago')
   const sid = await src.addStudent(hh, 'Riley', 2030, 9)
   const ap = (name: string, score: number) => ({ family: 'AP', key: examKey('AP', name), name, score })
-  localStorage.setItem(`pp-exam-plan:${sid}`, JSON.stringify([ap('AP Microeconomics', 3), ap('AP Calculus AB', 3)]))
+  if (withExams) localStorage.setItem(`pp-exam-plan:${sid}`, JSON.stringify([ap('AP Microeconomics', 3), ap('AP Calculus AB', 3)]))
+  else localStorage.removeItem(`pp-exam-plan:${sid}`)
   return src
 }
 const renderPlan = (src: DemoSource) =>
@@ -50,7 +51,7 @@ describe('college plan pilot (#195), on the stored Tennessee records', () => {
     expect(screen.getByText('$30,340')).toBeInTheDocument()
     await user.click(screen.getByRole('radio', { name: 'With family' }))
     expect(screen.getByText('$23,736')).toBeInTheDocument()
-    expect(screen.getByText(/In-state price shown: no home state entered\. Published for 2026-27\./)).toBeInTheDocument()
+    expect(screen.getByText(/In-state price shown: home state not entered\. Published for 2026-27\./)).toBeInTheDocument()
     // Nothing is claimed about time or money saved.
     expect(screen.getByText('No whole plan term is covered by this credit, so no shorter timeline is shown.')).toBeInTheDocument()
     expect(screen.queryByText(/Potential saving/)).not.toBeInTheDocument()
@@ -65,6 +66,25 @@ describe('college plan pilot (#195), on the stored Tennessee records', () => {
     const credit = screen.getByRole('heading', { name: 'Exam credit' }).closest('section')!
     expect(within(credit).getAllByText('Credit; where it counts isn’t on file').length).toBeGreaterThan(0)
     expect(within(credit).getAllByText('Credit hours not listed in the school’s table.').length).toBeGreaterThan(0)
+  }, 30_000)
+
+  it('with no exams entered, unverified credit tables are still named and the page is not "ready"', async () => {
+    renderPlan(await family(false))
+    expect(await screen.findByText('Partly on file', {}, { timeout: 10000 })).toBeInTheDocument()
+    expect(screen.queryByText('Plan, credit tables and cost on file')).not.toBeInTheDocument()
+    const missing = screen.getByRole('heading', { name: 'What isn’t on file yet' }).closest('section')!
+    expect(within(missing).getByText(/AP credit table is on file but not yet verified/)).toBeInTheDocument()
+    expect(within(missing).getByText(/CLEP credit table is on file but not yet verified/)).toBeInTheDocument()
+  }, 30_000)
+
+  it('UTK: majors whose listing isn’t verified are labelled; a price the school doesn’t publish is named', async () => {
+    const user = userEvent.setup()
+    renderPlan(await family())
+    await screen.findByText('Partly on file', {}, { timeout: 10000 })
+    await user.selectOptions(screen.getByLabelText('School'), 'utk')
+    await screen.findByText('No degree plan on file')
+    expect(within(screen.getByLabelText('Major')).getAllByRole('option').every((o) => /\(listing not yet verified\)$/.test(o.textContent ?? ''))).toBe(true)
+    expect(screen.getByText(/University of Tennessee, Knoxville doesn't publish a price for living with family\./)).toBeInTheDocument()
   }, 30_000)
 
   it('MTSU: no plan and no cost on file; each is named, nothing estimated', async () => {
@@ -93,5 +113,22 @@ describe('college plan pilot when the flag is off', () => {
     )
     await screen.findAllByRole('link', { name: 'Compare' }, { timeout: 10000 })
     expect(screen.queryByRole('link', { name: 'College plan (pilot)' })).not.toBeInTheDocument()
+  }, 30_000)
+
+  it('its address shows nothing of the pilot', async () => {
+    vi.unstubAllEnvs()
+    vi.resetModules()
+    const { App: Off } = await import('../../App')
+    const { AppProvider: P } = await import('../../lib/app')
+    render(
+      <MemoryRouter initialEntries={['/colleges/plan']}>
+        <P source={await family()}>
+          <Off />
+        </P>
+      </MemoryRouter>,
+    )
+    await new Promise((r) => setTimeout(r, 1500))
+    expect(screen.queryByRole('heading', { name: 'College plan' })).not.toBeInTheDocument()
+    expect(screen.queryByText(/Partly on file|No degree plan on file/)).not.toBeInTheDocument()
   }, 30_000)
 })

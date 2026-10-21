@@ -32,7 +32,7 @@ const FIT: Record<CreditFit, { tone: 'go' | 'warn' | 'neutral'; label: string }>
   none: { tone: 'neutral', label: 'No credit at this score' },
 }
 const STATUS: Record<Roadmap['status'], { tone: 'go' | 'warn' | 'bad'; label: string; text: string }> = {
-  ready: { tone: 'go', label: 'Plan, credit and cost on file', text: 'Every line below comes from a verified record.' },
+  ready: { tone: 'go', label: 'Plan, credit tables and cost on file', text: 'The degree plan, this school’s exam-credit tables and its cost are verified records. Anything else is named below.' },
   partial: { tone: 'warn', label: 'Partly on file', text: 'The degree plan is verified; some of what follows isn’t on file yet, and says so.' },
   blocked: { tone: 'bad', label: 'No degree plan on file', text: 'Without a verified term-by-term plan for this major, credit can be shown as accepted, but not where it counts.' },
 }
@@ -61,7 +61,7 @@ export function CollegePlan() {
   const programs = useMemo(
     () =>
       ((comparison?.domains as Record<string, Record<string, unknown>[]> | undefined)?.academic_programs ?? [])
-        .map((p) => ({ key: String(p.program_key), name: String(p.program_name ?? p.program_key) }))
+        .map((p) => ({ key: String(p.program_key), name: String(p.program_name ?? p.program_key), verified: p.verification_status === 'verified' }))
         .sort((a, b) => a.name.localeCompare(b.name)),
     [comparison],
   )
@@ -107,7 +107,7 @@ export function CollegePlan() {
           <select className={inputClass} value={program} onChange={(e) => setProgram(e.target.value)}>
             {programs.map((p) => (
               <option key={p.key} value={p.key}>
-                {p.name}
+                {p.verified ? p.name : `${p.name} (listing not yet verified)`}
               </option>
             ))}
           </select>
@@ -122,11 +122,11 @@ export function CollegePlan() {
           arrangement={arrangement}
           onArrangement={setArrangement}
           priceFor={
-            !homeState
-              ? 'In-state price shown: no home state entered.'
-              : homeState === String(comparison?.institution?.state_code ?? '')
-                ? `In-state price, for a family in ${homeState} (your answer; residency is the school's decision).`
-                : `Out-of-state price, for a family in ${homeState} (your answer).`
+            // The engine's own explanation wins (no home state, or no out-of-state price published).
+            roadmap.cost.evidence.method ??
+            (homeState === String(comparison?.institution?.state_code ?? '')
+              ? `In-state price, for a family in ${homeState} (your answer; residency is the school's decision).`
+              : `Out-of-state price, for a family in ${homeState} (your answer).`)
           }
         />
       )}
@@ -158,12 +158,17 @@ function RoadmapView({
       <Notice tone={st.tone === 'go' ? 'info' : st.tone === 'warn' ? 'warn' : 'bad'} title={st.label}>
         <p>{st.text}</p>
         <p className="mt-1">
-          {plan?.catalogYear || r.cost.value ? `Figures are as published for ${plan?.catalogYear ?? r.cost.evidence.publishedYear}. ` : ''}A student entering
-          college years from now will face a later catalog and prices; nothing here is projected forward.
+          {plan?.catalogYear ? `Degree plan: ${plan.catalogYear} catalog. ` : ''}
+          {r.cost.value && r.cost.evidence.publishedYear ? `Prices: ${r.cost.evidence.publishedYear}, as published. ` : ''}A student entering college years from
+          now will face a later catalog and prices; nothing here is projected forward.
         </p>
       </Notice>
 
-      <Section id="plan-heading" title="Degree plan" subtitle={plan ? `${r.target.programName ?? r.target.programKey}, ${plan.catalogYear ?? ''} catalog` : undefined}>
+      <Section
+        id="plan-heading"
+        title="Degree plan"
+        subtitle={plan ? `${r.target.programName ?? r.target.programKey}${plan.catalogYear ? `, ${plan.catalogYear} catalog` : ''}` : r.target.programVerified ? undefined : 'This school’s listing of the major isn’t verified yet'}
+      >
         {plan ? (
           <>
             <ul className="grid grid-cols-2 gap-2 sm:grid-cols-4">
