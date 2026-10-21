@@ -1292,6 +1292,173 @@ class TypePathTests(unittest.TestCase):
                          [('BS in Education', None, '2026-2027'), ('Bachelor of Science in Nursing (BSN)', '51.3801', '2026-2027')])
 
 
+class DegreeOfferedTests(unittest.TestCase):  # UNL 2026-2027 major pages: the award only in the summary table (#153)
+    def page(self, value='Bachelor of Arts or Bachelor of Science', title='Anthropology < University of Nebraska\u2013Lincoln', rows=None):
+        from pipeline import text as T
+        rows = rows if rows is not None else [['College:', 'Arts & Sciences'], ['Degree Offered:', value], ['Hours Required:', '120']]
+        txt = '\n'.join(['Undergraduate Catalog 2026-2027', 'Arts & Sciences', 'Anthropology'] + [' | '.join(r) for r in rows])
+        return T.Page(txt, title, [{'rows': rows}], [], ['Arts & Sciences Anthropology', 'Description'])
+
+    def run_(self, page):
+        e = {'url': 'https://catalog.unl.edu/undergraduate/arts-sciences/anthropology/', 'sha256': 's', 'fetched_at': '2026-10-08T00:00:00'}
+        return X.degree_offered_identity({'institution_key': 'ipeds-181464'}, e, page, '2026-27')
+
+    def test_major_page_with_printed_awards(self):
+        out = self.run_(self.page())
+        self.assertEqual([(c['record']['program_name'], c['record']['program_key'], c['record']['catalog_year']) for c in out],
+                         [('Anthropology', 'anthropology-bachelor-of-arts-or-bachelor-of-science', '2026-2027')])
+        self.assertEqual(out[0]['evidence'][1]['snippet'], 'Degree Offered: Bachelor of Arts or Bachelor of Science')
+        self.assertEqual([c['record']['program_key'] for c in self.run_(self.page('Bachelor of Science in Agricultural and Environmental Sciences Education'))],
+                         ['anthropology-bachelor-of-science-in-agricultural-and-environmental-sciences-educ'])  # slug cap: 80
+
+    def test_rows_without_a_bachelors_award_give_nothing(self):
+        for v in ('Bachelor of Arts, Bachelor of Fine Arts', 'Bachelor of Arts in Hospitality, Restaurant & Tourism Management'):  # UNL Art; HRTM
+            self.assertEqual(len(self.run_(self.page(v))), 1, v)
+        for v in ('Minor only', 'Non-degree seeking', 'Bachelor of Arts; see adviser', 'Master of Arts', '', 'Bachelor of Arts, Master of Arts',
+                  'Bachelor of Science in Food Science & Technology, Master of Science in Food Science & Technology, Ph.D.'):
+            self.assertEqual(self.run_(self.page(v)), [], v)
+        two = [['Degree Offered:', 'Bachelor of Arts'], ['Degree Offered:', 'Bachelor of Science']]
+        self.assertEqual(self.run_(self.page(rows=two)), [])
+        self.assertEqual(self.run_(self.page(rows=[['Hours Required:', '120']])), [])
+
+    def test_option_minor_and_unnamed_pages_give_nothing(self):
+        from pipeline import text as T
+        for n in ('Anthropology Minor', 'Pre-Law', 'Anthropology Option', 'Teaching Certificate'):  # the heading prints the same name
+            pg = self.page(title=n + ' < University of Nebraska\u2013Lincoln')
+            self.assertEqual(self.run_(T.Page(pg.text, pg.title, pg.tables, [], ['Arts & Sciences ' + n])), [], n)
+        self.assertEqual(self.run_(self.page(title='History < University of Nebraska\u2013Lincoln')), [])  # heading names another major
+
+    def test_verify_requires_the_printed_row(self):
+        from programs import verify as V
+        pg = self.page(); out = self.run_(pg)
+        self.assertNotIn('degree offered row not printed', V.check_candidate(out[0], pg.text))
+        self.assertIn('degree offered row not printed', V.check_candidate(out[0], pg.text.replace('Bachelor of Science', 'Bachelor of Fine Arts')))
+
+    def test_trusted_after_review(self):
+        from programs import autoreview as A
+        self.assertIn('degree_offered/v1', A.TRUSTED_PROGRAMS)
+        self.assertIn('kuali_award_line/v1', A.TRUSTED_PROGRAMS)
+
+
+class KualiAwardLineTests(unittest.TestCase):  # Utah 2026-27 '<code> Program' pages: the award after the department (#153)
+    def page(self, name='Applied Mathematics', line='MathematicsBachelor of Science', title='AMTHBS Program | University of Utah Catalog', extra=()):
+        from pipeline import text as T
+        txt = '\n'.join(['General Catalog', 'University of Utah', 'Home (AY 2026-2027)', 'Class Schedule', 'University of Utah', '2026-2027', 'Programs', name, name, 'Download as PDF', line, 'Program Description', *extra])
+        return T.Page(txt, title, [], [], ['General Catalog', 'University of Utah', name, 'Download as PDF', 'Program Description'])
+
+    def run_(self, page):
+        e = {'url': 'https://catalog.utah.edu/programs/AMTHBS', 'sha256': 's', 'fetched_at': '2026-10-08T00:00:00'}
+        return X.kuali_award_line_identity({'institution_key': 'ipeds-230764'}, e, page, '2026-27')
+
+    def test_award_after_department(self):
+        out = self.run_(self.page())
+        self.assertEqual([(c['record']['program_name'], c['record']['program_key'], c['record']['catalog_year']) for c in out],
+                         [('Applied Mathematics', 'applied-mathematics-bachelor-of-science', '2026-2027')])
+        self.assertEqual(out[0]['evidence'][1]['snippet'], 'MathematicsBachelor of Science')
+        two = self.run_(self.page('Accounting', 'AccountingBachelor of Arts/Bachelor of Science'))
+        self.assertEqual([c['record']['program_key'] for c in two], ['accounting-bachelor-of-arts-bachelor-of-science'])
+        self.assertEqual(len(self.run_(self.page('Ballet', 'DanceBachelor of Fine Arts'))), 1)
+
+    def test_non_bachelor_lines_give_nothing(self):
+        for line in ('MathematicsMaster of Science', 'Art & Art HistoryMinor', 'OtherOther', 'Bachelor of Science', 'MathematicsBachelor of Science; see adviser',
+                     'MathematicsBachelor of Science/Master of Science'):
+            self.assertEqual(self.run_(self.page(line=line)), [], line)
+
+    def test_names_and_layouts_that_give_nothing(self):
+        self.assertEqual(self.run_(self.page('Electrical Engineering Minor', 'Electrical and Computer EngineeringBachelor of Science')), [])
+        self.assertEqual(self.run_(self.page('General Education and Bachelor Degree Requirements', 'OtherBachelor of Science')), [])
+        self.assertEqual(self.run_(self.page('Bioinformatics BS', 'MathematicsBachelor of Science')), [])  # the name carries its award: kuali_page/v1
+        self.assertEqual(self.run_(self.page(title='Applied Mathematics | University of Utah Catalog')), [])
+        self.assertEqual(self.run_(self.page(extra=('Download as PDF',))), [])
+        self.assertEqual(self.run_(self.page(extra=('General Catalog 2025-2026',))), [])
+
+    def test_verify_requires_the_printed_line(self):
+        from programs import verify as V
+        pg = self.page(); out = self.run_(pg)
+        self.assertNotIn('award line not printed', V.check_candidate(out[0], pg.text))
+        self.assertIn('award line not printed', V.check_candidate(out[0], pg.text.replace('MathematicsBachelor of Science', 'Mathematics Bachelor of Science Program')))
+
+
+class PlanTextTests(unittest.TestCase):  # UNL 2026-2027 '4-Year Plans': printed rows, no plan table
+    LINES = ['Pass/No Pass', 'Anthropology (B.A.)', '12 creditsYear 1: Fall', 'Course: Introduction to Cultural Anthropology', '3 credits',
+             'Complete ANTH\u00a0212', '<', 'ACE 1: Writing', '3 credits', 'CAS 120 Total Credits (Elective or Other Degree Requirement)', '6 credits',
+             'In consultation with your advisor, select elective courses.', '>', '4 creditsYear 1: Spring', 'Course: PrEP II', '1 credits', 'Complete BSAD 222',
+             'Milestone: You must declare a required minor by this term.', 'ANTH 485 or ANTH 488', '3 credits', 'Career Information', 'Internships']
+
+    def page(self, lines=None, heads=('Anthropology (B.A.)', 'Career Information')):
+        from pipeline import text as T
+        return T.Page('\n'.join(lines or self.LINES), 'Anthropology < University of Nebraska\u2013Lincoln', [], [], list(heads))
+
+    def test_terms_rows_notes_and_milestones(self):
+        from programs import courseleaf as CL
+        [(title, terms, issues)] = CL.plantext_plans(self.page())
+        self.assertEqual((title, issues), ('Anthropology (B.A.)', set()))
+        self.assertEqual([(t['label'], t['credit_hours']) for t in terms], [('Year 1: Fall', '12'), ('Year 1: Spring', '4')])
+        self.assertEqual(terms[0]['items'], [{'code': 'ANTH 212', 'title': 'Introduction to Cultural Anthropology', 'credits': 3},
+                                             {'text': 'ACE 1: Writing', 'credits': 3},
+                                             {'text': 'CAS 120 Total Credits (Elective or Other Degree Requirement)', 'credits': 6,
+                                              'note': 'In consultation with your advisor, select elective courses.'}])
+        self.assertEqual(terms[1]['items'], [{'code': 'BSAD 222', 'title': 'PrEP II', 'credits': 1},
+                                             {'milestone': 'Milestone: You must declare a required minor by this term.'},
+                                             {'text': 'ANTH 485 or ANTH 488', 'credits': 3}])
+
+    def test_several_plans_keep_their_titles(self):
+        from programs import courseleaf as CL
+        two = self.LINES[:20] + ['Anthropology (B.S.)', '3 creditsYear 1: Fall', 'ACE 4: Science', '3 credits', 'Career Information']
+        out = CL.plantext_candidates({'institution_key': 'ipeds-181464'}, {'url': 'https://catalog.unl.edu/a/', 'sha256': 's', 'fetched_at': '2026-10-08T00:00:00'},
+                                     self.page(two, ('Anthropology (B.A.)', 'Anthropology (B.S.)')), '2026-2027', 'anthropology')
+        self.assertEqual([(c['record']['requirement_key'], c['record']['rule_details']['source_section'], c['issues']) for c in out],
+                         [('plan-anthropology-b-a', 'Anthropology (B.A.)', []), ('plan-anthropology-b-s', 'Anthropology (B.S.)', [])])
+        untitled = CL.plantext_plans(self.page(two, ('Anthropology (B.A.)',)))
+        self.assertEqual([sorted(i) for _, _, i in untitled], [[], ['no_plan_title']])
+        self.assertEqual([t for t, _, _ in CL.plantext_plans(self.page(self.LINES, ()))], [None])  # one untitled plan is the major's
+        self.assertEqual(CL.plantext_plans(self.page(self.LINES, ()))[0][2], set())
+
+    def test_credits_and_codes(self):
+        from programs import courseleaf as CL
+        lines = list(self.LINES); lines[2] = '15 creditsYear 1: Fall'
+        self.assertIn('term_credits_differ', CL.plantext_plans(self.page(lines))[0][2])
+        lines = self.LINES[:2] + ['This document represents a sample 4-year plan for degree completion with this major.'] + self.LINES[2:]
+        self.assertEqual(CL.plantext_plans(self.page(lines))[0][0], 'Anthropology (B.A.)')
+        lines = list(self.LINES); lines[11] = 'Students usually take these courses in the fall.'
+        self.assertEqual(CL.plantext_plans(self.page(lines))[0][1][0]['items'][2]['note'], 'Students usually take these courses in the fall.')
+        lines = list(self.LINES); lines[16] = 'CompleteBSAD 222'  # UNL Finance prints it so
+        self.assertEqual(CL.plantext_plans(self.page(lines))[0][1][1]['items'][0]['code'], 'BSAD 222')
+        lines = list(self.LINES); lines[5] = 'Complete any elective course.'
+        [(_, terms, issues)] = CL.plantext_plans(self.page(lines))
+        self.assertEqual((terms[0]['items'][0], 'course_without_code' in issues),
+                         ({'text': 'Course: Introduction to Cultural Anthropology', 'credits': 3, 'note': 'Complete any elective course.'}, True))
+
+    def test_verify_term_headers_and_notes(self):
+        from programs import courseleaf as CL, verify as V
+        pg = self.page()
+        [c] = CL.plantext_candidates({'institution_key': 'k'}, {'url': 'u', 'sha256': 's', 'fetched_at': '2026-10-08T00:00:00'}, pg, '2026-2027', 'anthropology')
+        text = pg.text + '\nUndergraduate Catalog 2026-2027'
+        self.assertEqual(V.check_candidate(c, text), [])
+        self.assertIn('term header not printed: Year 1: Fall', V.check_candidate(c, text.replace('12 creditsYear 1: Fall', '12 credits Year 1: Fall')))
+        self.assertIn('note of an item not verbatim', V.check_candidate(c, text.replace('select elective courses.', 'select courses.')))
+
+    def test_page_without_a_program_reads_no_plan_grid(self):  # regression 2026-10-21: CA/NY/PA pages gained plan programs
+        from unittest import mock
+        from pipeline import text as T
+        pg = T.Page('Undergraduate Catalog 2026-2027\nAbout the Department', 'About the Department < Example University', [], [], ['About the Department'])
+        with mock.patch('programs.courseleaf.extract', return_value=[{'domain': 'academic_programs', 'record': {}}]) as ext:
+            out = X._program_page_candidates({'catalog': {'platform': 'courseleaf'}}, {'institution_key': 'k'},
+                                             {'url': 'https://catalog.example.edu/x/', 'sha256': 's', 'fetched_at': '2026-10-08T00:00:00'}, pg, '2026-27')
+        self.assertEqual((out, ext.called), ([], False))
+
+    def test_degree_offered_page_reads_its_plans(self):
+        lines = ['Undergraduate Catalog 2026-2027', 'Arts & Sciences', 'Anthropology', 'Degree Offered: | Bachelor of Arts or Bachelor of Science'] + self.LINES
+        from pipeline import text as T
+        pg = T.Page('\n'.join(lines), 'Anthropology < University of Nebraska\u2013Lincoln', [{'rows': [['Degree Offered:', 'Bachelor of Arts or Bachelor of Science']]}], [],
+                    ['Arts & Sciences Anthropology', 'Anthropology (B.A.)'])
+        out = X._program_page_candidates({'catalog': {'platform': 'courseleaf'}}, {'institution_key': 'ipeds-181464'},
+                                         {'url': 'https://catalog.unl.edu/undergraduate/arts-sciences/anthropology/', 'sha256': 's', 'fetched_at': '2026-10-08T00:00:00'}, pg, '2026-27')
+        self.assertEqual([(c['extractor'], c['record']['program_key']) for c in out],
+                         [('degree_offered/v1', 'anthropology-bachelor-of-arts-or-bachelor-of-science'),
+                          ('courseleaf_plantext/v1', 'anthropology-bachelor-of-arts-or-bachelor-of-science')])
+
+
 class CompletionStatus(unittest.TestCase):
     """programs/status.py: the state completion rule (docs/PROGRAM_DEPTH_COMPLETION.md)."""
 

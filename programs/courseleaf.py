@@ -633,3 +633,97 @@ def plangrid_candidates(inst, entry, grid_entry, doc, year, program_key):
         c['layout_source'] = {'url': grid_entry['url'], 'sha256': grid_entry.get('sha256')}
         out.append(c)
     return out
+
+
+# UNL 2026-27 '4-Year Plans' tab: no plan table; each plan prints its title (a page heading: 'Anthropology (B.A.)',
+# 'Finance - Financial Planning'), then per term '<n> creditsYear <k>: <Fall|Spring|Summer>', then rows printed as
+# 'Course: <title>' / '<n> credits' / 'Complete <CODE>' or '<requirement>' / '<n> credits', each optionally followed by a
+# printed note ('In consultation with your advisor, ...') and 'Milestone: ...' lines.
+PLANTEXT_EXTRACTOR = 'courseleaf_plantext/v1'
+PT_TERM = re.compile(r'^(?P<cr>\d+(?:\.\d+)?(?:-\d+(?:\.\d+)?)?) credits?(?P<label>Year \d+: (?:Fall|Spring|Summer|Winter|Interim))$')
+PT_CREDITS = re.compile(r'^(?P<cr>\d+(?:\.\d+)?(?:-\d+(?:\.\d+)?)?) credits?$')
+PT_CODE = re.compile(r'^Complete ?(?P<code>[A-Z]{2,5} \d{1,4}[A-Z]?)$')  # 'CompleteBSAD 222' (UNL Finance) as printed
+PT_MILESTONE = re.compile(r'^Milestone: ')
+PT_NOTE = re.compile(r'^(Complete |In consultation |See |Choose |Select |Take |Work with |Recommend)')
+PT_PREAMBLE = 'This document represents a sample'
+
+
+def _pt_lines(page):
+    # the plan carousel's arrow controls ('<', '>') are printed between rows; zero-width spaces and no-break spaces are layout
+    lines = (re.sub(r'\s+', ' ', l.replace('​', '')).strip() for l in page.text.splitlines())
+    return [l for l in lines if l and l not in ('<', '>')]
+
+
+def _pt_credits(s):
+    return s if '-' in s else (float(s) if '.' in s else int(s))
+
+
+def _pt_range(s):
+    a, _, b = str(s).partition('-')
+    return float(a), float(b or a)
+
+
+def _pt_note(line, nxt):
+    return (not PT_MILESTONE.match(line) and not PT_TERM.match(line) and not (nxt is not None and PT_CREDITS.match(nxt))
+            and (bool(PT_NOTE.match(line)) or (line.endswith('.') and len(line) > 20)))
+
+
+def plantext_plans(page):
+    """[(title, terms, issues)] for each printed plan, in page order. A plan's title must be a page heading."""
+    lines, heads = _pt_lines(page), {re.sub(r'\s+', ' ', h.replace('​', '')).strip() for h in page.headings}
+    out, i = [], 0
+    nxt = lambda k: lines[k] if k < len(lines) else None
+    while i < len(lines):
+        if not PT_TERM.match(lines[i]): i += 1; continue
+        t = i - 1
+        if t > 0 and lines[t].startswith(PT_PREAMBLE): t -= 1
+        title = lines[t] if t >= 0 and lines[t] in heads else None
+        terms, issues = [], set() if title else {'no_plan_title'}
+        while i < len(lines) and PT_TERM.match(lines[i]):
+            m = PT_TERM.match(lines[i]); i += 1
+            term = {'term_index': len(terms) + 1, 'label': m.group('label'), 'credit_hours': m.group('cr'), 'items': []}
+            while i < len(lines) and not PT_TERM.match(lines[i]):
+                if PT_MILESTONE.match(lines[i]) and not (nxt(i + 1) and PT_CREDITS.match(nxt(i + 1))):
+                    term['items'].append({'milestone': lines[i]}); i += 1; continue
+                if not (nxt(i + 1) and PT_CREDITS.match(nxt(i + 1))) or PT_CREDITS.match(lines[i]): break
+                label, cr = lines[i], _pt_credits(PT_CREDITS.match(lines[i + 1]).group('cr')); i += 2
+                c = PT_CODE.match(lines[i]) if i < len(lines) else None
+                if label.startswith('Course: ') and c:
+                    it = {'code': c.group('code'), 'title': label[len('Course: '):], 'credits': cr}; i += 1
+                else:
+                    it = {'text': label, 'credits': cr}
+                    if label.startswith('Course: '): issues.add('course_without_code')
+                notes = []
+                while i < len(lines) and _pt_note(lines[i], nxt(i + 1)):
+                    notes.append(lines[i]); i += 1
+                if notes: it['note'] = ' '.join(notes)
+                term['items'].append(it)
+            cr = [_pt_range(x['credits']) for x in term['items'] if 'credits' in x]
+            lo, hi = sum(a for a, _ in cr), sum(b for _, b in cr)
+            a, b = _pt_range(term['credit_hours'])
+            if not (lo <= a <= hi and lo <= b <= hi): issues.add('term_credits_differ')
+            if not any('credits' in x for x in term['items']): issues.add('empty_term')
+            terms.append(term)
+            if i < len(lines) and not PT_TERM.match(lines[i]): break
+        out.append((title, terms, issues))
+    if len(out) == 1: out[0][2].discard('no_plan_title')  # the page's one plan is the major's, titled or not
+    return out
+
+
+def plantext_candidates(inst, entry, page, year, program_key):
+    """program_plan candidates for a page's printed 4-year plans (UNL), keyed to the page's program record. Each plan keeps
+    its printed title (an option or award plan of the major: 'Art - Ceramics (B.A.)') as source_section."""
+    acad = academic_year_of(year)
+    plans = plantext_plans(page)
+    titles = [t or f'plan {k}' for k, (t, _, _) in enumerate(plans, 1)]
+    keys = labelled_keys(titles, lambda h: f'plan-{slug(h)}'[:90]) if len(plans) > 1 else ['plan']
+    out = []
+    for (title, terms, issues), key in zip(plans, keys):
+        rd = {'schema': 'requirement_group/v1', 'catalog_year': year, 'group_type': 'sequence', 'category': 'recommended_sequence',
+              'terms': terms, 'source_section': title or '4-Year Plans'}
+        rec = {'program_key': program_key, 'requirement_key': key, 'requirement_kind': 'program_plan', 'rule_details': rd}
+        ev = [{'field': 'term', 'value': term['label'], 'snippet': f"{term['credit_hours']} credits{term['label']}"} for term in terms]
+        if title: ev.insert(0, {'field': 'plan_title', 'value': title, 'snippet': title})
+        out.append(common.make('degree_requirements', inst['institution_key'], acad, 'labeled_in_source', rec, ev, entry, PLANTEXT_EXTRACTOR,
+                               {'program_key': program_key, 'requirement_key': key}, {'terms': len(terms)}, sorted(issues)))
+    return out

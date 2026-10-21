@@ -60,6 +60,12 @@ def check_candidate(c, text, other=None):
                 if ev.get('field') == 'program_page_heading' and norm(ev.get('value', '')) not in t: probs.append('program page heading not printed')
         elif norm(r['program_name']) not in t: probs.append('program_name not verbatim')
         for ev in c.get('evidence', []):
+            # 'Degree Offered: Bachelor of ...' (UNL summary table): the row is printed on the page, its cells as printed
+            if c.get('extractor') == 'degree_offered/v1' and ev.get('field') == 'credential_level' and norm(ev.get('snippet', '')) not in norm(text.replace('|', ' ')):
+                probs.append('degree offered row not printed')
+            # Utah: the department-and-award line after 'Download as PDF' is printed as one line
+            if c.get('extractor') == 'kuali_award_line/v1' and ev.get('field') == 'credential_level' and ev.get('snippet', '').strip() not in [l.strip() for l in text.splitlines()]:
+                probs.append('award line not printed')
             # a degree level read from a state program inventory: the row is printed in that stored document
             if ev.get('field') == 'award':
                 # an award printed on another stored official page (UMD school/department pages) is checked in that document
@@ -99,7 +105,7 @@ def check_candidate(c, text, other=None):
         for term in rd.get('terms', []) or []:
             items += [i for i in term.get('items', []) if isinstance(i, dict)]
         for i in items:
-            for f in ('text', 'milestone'):  # printed text rows and milestone cells (UO degree maps)
+            for f in ('text', 'milestone', 'note'):  # printed text rows, milestone cells (UO degree maps) and row notes (UNL)
                 if i.get(f) and squash(i[f]) not in squashed and not (wrapped and segmented(squash(i[f]), squashed)):
                     probs.append(f"{f} of an item not verbatim")
             if 'code' in i and not code_in(text, i['code']): probs.append(f"course {i['code']} not in source")
@@ -108,6 +114,10 @@ def check_candidate(c, text, other=None):
                 # PDF plans print a gen-ed tag such as "(Quantitative Reasoning)" on the next line; each part must be printed
                 probs.append(f"title of {i.get('code')} not verbatim")
         if r.get('minimum_credits') is not None and not re.search(rf'\b{int(r["minimum_credits"])}\b', text): probs.append('minimum_credits not printed')
+        if c.get('extractor') == 'courseleaf_plantext/v1':  # each term header is printed as one line ('15 creditsYear 1: Fall')
+            lines = {re.sub(r'\s+', ' ', l).strip() for l in text.splitlines()}
+            for term in rd.get('terms', []) or []:
+                if f"{term.get('credit_hours')} credits{term.get('label')}" not in lines: probs.append(f"term header not printed: {term.get('label')}")
     return probs
 
 

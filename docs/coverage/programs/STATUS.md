@@ -97,7 +97,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | MT | **in_progress** | 14 | 0 | 0% (needs 80%) | 0 | 12 | 17 |
 | NC | **in_progress** | 63 | 4 | 26% (needs 80%) | 0 | 39 | 69 |
 | ND | **in_progress** | 14 | 0 | 0% (needs 80%) | 0 | 13 | 14 |
-| NE | **in_progress** | 23 | 2 | 24% (needs 80%) | 0 | 19 | 23 |
+| NE | **in_progress** | 23 | 2 | 24% (needs 80%) | 0 | 20 | 25 |
 | NH | **in_progress** | 14 | 1 | 12% (needs 80%) | 0 | 11 | 14 |
 | NJ | **in_progress** | 52 | 1 | 1% (needs 80%) | 0 | 43 | 53 |
 | NM | **in_progress** | 11 | 0 | 0% (needs 80%) | 0 | 9 | 11 |
@@ -112,7 +112,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | SD | **in_progress** | 15 | 0 | 0% (needs 80%) | 0 | 13 | 15 |
 | TN | **in_progress** | 43 | 1 | 5% (needs 80%) | 0 | 33 | 62 |
 | TX | **in_progress** | 118 | 6 | 15% (needs 80%) | 0 | 95 | 134 |
-| UT | **in_progress** | 12 | 1 | 13% (needs 80%) | 0 | 7 | 17 |
+| UT | **in_progress** | 12 | 1 | 13% (needs 80%) | 0 | 8 | 20 |
 | VA | **in_progress** | 49 | 2 | 15% (needs 80%) | 0 | 37 | 58 |
 | VT | **in_progress** | 10 | 1 | 50% (needs 80%) | 0 | 5 | 11 |
 | WA | **in_progress** | 58 | 0 | 0% (needs 80%) | 0 | 36 | 61 |
@@ -1372,7 +1372,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 
 | School | Status | Verified bachelor's | Listed | Plans | Req. groups | Catalog | Maps | Groups | Admission rules | Queue |
 |---|---|---|---|---|---|---|---|---|---|---|
-| University of Nebraska-Lincoln | partial | 1 | – | 0 | 0 | queued | queued | queued | queued | institution:layout_not_readable |
+| University of Nebraska-Lincoln | partial | 106 | 124 | 100 | 0 | queued | met | queued | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, requirement_groups:layout_not_readable |
 | University of Nebraska at Omaha | covered | 84 | 87 | 57 | 4 | met | met | met | queued | institution:not_yet_researched |
 | Creighton University | partial | 26 | – | 0 | 37 | queued | queued | met | queued | institution:not_yet_researched |
 | University of Nebraska at Kearney | covered | 77 | 79 | 0 | 10 | met | queued | met | queued | institution:not_yet_researched |
@@ -2268,7 +2268,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | School | Status | Verified bachelor's | Listed | Plans | Req. groups | Catalog | Maps | Groups | Admission rules | Queue |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Brigham Young University | partial | 118 | 169 | 0 | 0 | queued | queued | queued | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:not_yet_researched |
-| University of Utah | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:layout_not_readable |
+| University of Utah | partial | 59 | – | 0 | 0 | queued | queued | queued | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:layout_not_readable, requirement_groups:layout_not_readable |
 | Utah Valley University | covered | 155 | 155 | 113 | 711 | met | met | met | met | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | Utah State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:no_year_label |
 | Weber State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:fetch_failed |
