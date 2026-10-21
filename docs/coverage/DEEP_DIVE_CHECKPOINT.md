@@ -2,7 +2,7 @@
 
 This file is how a new Deep Dive session picks up shared reader work and requirement/roadmap depth without redoing finished work. It is updated with every Deep Dive PR. Research keeps its own file, `docs/coverage/RESEARCH_CHECKPOINT.md`.
 
-- **Main at the last refresh:** `754fd330f9` (merge of #235).
+- **Main at the last refresh:** `bd4001c36c` (merge of #237); this PR on top of it.
 - **Ownership on #153 (2026-10-21):**
   - Deep Dive owns the readers for UNL, Utah, SHSU, UWM and UCR, and the CourseLeaf plan-grid reader (`parse_grid`, #229).
   - Research owns Colorado State's program column, BYU emphases, Alabama's print-link label, the UTSA and UT Dallas lists, and the Roosevelt and SF State corrections.
