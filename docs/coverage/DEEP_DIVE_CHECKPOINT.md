@@ -2,7 +2,7 @@
 
 This file is how a new Deep Dive session picks up shared reader work and requirement/roadmap depth without redoing finished work. It is updated with every Deep Dive PR. Research keeps its own file, `docs/coverage/RESEARCH_CHECKPOINT.md`.
 
-- **Main at the last refresh:** `bd4001c36c` (merge of #237); this PR on top of it.
+- **Main at the last refresh:** `e78d6c3471` (merge of #238); this PR (`programs/decimal-credits`) on top of it.
 - **Ownership on #153 (2026-10-21):**
   - Deep Dive owns the readers for UNL, Utah, SHSU, UWM and UCR, and the CourseLeaf plan-grid reader (`parse_grid`, #229).
   - Research owns Colorado State's program column, BYU emphases, Alabama's print-link label, the UTSA and UT Dallas lists, and the Roosevelt and SF State corrections.
@@ -11,12 +11,12 @@ This file is how a new Deep Dive session picks up shared reader work and require
 
 Counted from `data/institutions/*` on main `754fd33`, verified records only. Program-list coverage is reported separately from requirement and roadmap depth.
 
-| | main `46c7f81` (session start) | main `754fd33` |
-|---|---|---|
-| Verified bachelor's program records (all workstreams) | 10,145 | 10,648 |
-| Verified term-by-term plans (`program_plan`) | 2,843 at 64 schools | 3,090 at 66 schools |
-| Verified major requirement groups | 14,070 | 14,122 |
-| Covered schools | 65 | 70 |
+| | main `46c7f81` (session start) | main `754fd33` | main `e78d6c3` (#238) | with this PR |
+|---|---|---|---|---|
+| Verified bachelor's program records (all workstreams) | 10,145 | 10,648 | 10,648 | 10,648 |
+| Verified term-by-term plans (`program_plan`) | 2,843 at 64 schools | 3,090 at 66 schools | 3,459 at 67 schools | 3,475 at 67 schools |
+| Verified major requirement groups | 14,070 | 14,122 | 14,122 | 14,122 |
+| Covered schools | 65 | 70 | 70 | 70 |
 
 **Deep Dive gains in this session (merged).** Research's batches 5 and 6 added the rest; do not count these twice.
 
@@ -26,7 +26,9 @@ Counted from `data/institutions/*` on main `754fd33`, verified records only. Pro
 | #225, #235 | Utah | 101 | 0 (behind tabs) | 101/101, covered |
 | #226 | UWM | 133 | 28 | 133/133, covered |
 | #228 | SHSU | 124 | 0 | no list (script-only) |
-| **Total** | | **474** | **224** | |
+| #238 | 15 schools (`courseleaf_plan/v2`) | 0 | 369 | |
+| **Total merged** | | **474** | **593** | |
+| this PR | West Chester 3, UWM 13 | 0 | 16 | |
 
 ## Readers added or changed (each with tests and mutants)
 
@@ -37,40 +39,47 @@ Counted from `data/institutions/*` on main `754fd33`, verified records only. Pro
 | `kuali_award_line/v1` | `programs/extract.py` | Utah '<CODE> Program' pages, where the award is on the line after the heading. |
 | `printed_catalog_years` | `programs/extract.py` | The 'Undergraduate Catalog' / '<year>' two-line header (SHSU), never inside an archive menu. |
 
-## This PR (`programs/covered-plans`)
+## Merged in #238 (`courseleaf_plan/v2`)
 
-- **`courseleaf_plan/v2`** replaces v1 for every new plan (#229 has the v1 defects):
-  - year and semester rows become their own terms ('Freshman', 'Year One', 'Semester 1', 'First Semester', 'Semester One');
-  - header cells 'Hour', 'Semester Credit Hours', 'Semester Hours' and 'Units' are read;
-  - subtotal rows become `credit_hours`;
-  - the total row becomes `rule_text`, with its printed label;
-  - an unknown label row ('Third Semeseter'), or an unknown term printed with a header cell ('Quarter 1 | Credits', CU Boulder 'Summer Review | Credit Hours'), puts the plan on hold;
-  - 'Autumn' is a term (Montana);
-  - a total row must start with its 'Total' label, so a course titled 'Total Rewards' or 'Total Quality Management' stays a course (independent review of this PR);
-  - a plan follows the program record read from the same page.
-  - v2 is not trusted by autoreview.
-- **Course Lists:** 'Select 6 hours/SCH/units' choices are read as credits. 'SH', 'hrs' and 'cr' are never read as course counts. Placeholder codes ('XXXX 1201') are not read as courses.
-- **Regression over all 194 stored runs** (main `f0b247c` against this branch):
-  - no program record was lost. Plans changed only by the expected rename of plan ids from v1 to v2, except 8 grids where the first draft of v2 read a course titled 'Total ...' as the plan total. The review caught these, they are fixed, and none was promoted;
-  - after the review fixes, `parse_grid` was compared over all 8,427 stored grids: 215 Montana grids now read 'Autumn' terms, 8 keep their 'Total ...' courses, and 10 with unknown term headers are now held. None of the 369 promoted plans changes;
-  - 1,507 Course List groups changed. Every one is an hour/unit choice now read as credits, or a placeholder/hours row now held.
-- **Promoted:** 369 reviewed v2 plans for verified programs that had no plan on file. Each was checked against its stored grid; 50 were checked by hand.
-  - By school: Texas A&M 120, CU Boulder 67, JSU 69, West Chester 20, Oklahoma State 19, UNI 18, UT Austin 15, ODU 12, Temple 10, Oregon 5, TAMUK 5, UNO 3, SRU 3, Idaho 2, Clayton 1.
-- **Held:**
-  - 3 West Chester B.M. plans: the reader drops decimal course credits (1.5, 0.5).
-  - 4 CU Boulder plans printed for one track or scenario: Classics (Greek/Latin), Geography (Physical), Leadership (second-degree route) and APS (Physics emphasis).
+- v2 replaces v1 for every new plan (#229 has the v1 defects). It reads:
+  - year and semester rows as their own terms;
+  - header-cell variants;
+  - subtotals as `credit_hours`;
+  - the printed total, with its label, as `rule_text`;
+  - 'Autumn' terms.
+- It holds unknown label rows and unknown term headers.
+- A course titled 'Total ...' stays a course.
+- v2 is not trusted by autoreview, so every v2 plan needs a reviewed decision.
+- Course Lists: hour/SCH/unit/SH/hrs/cr choices are credits, never course counts, and placeholder codes are not courses.
+- 369 reviewed plans promoted.
+- Held: 4 CU Boulder plans printed for one track or scenario: Classics, Geography (Physical), Leadership and APS.
+
+## This PR (`programs/decimal-credits`)
+
+- **Decimal course credits are kept as printed** ('1.5', '0.5', '1-1.5'), as strings, following the existing range convention.
+  - Regression over all 8,427 stored grids: the only change is 6,760 decimal credits now kept, on 429 grids, mostly West Chester, EKU, Minnesota and CU.
+  - No promoted plan changes.
+- **Promoted 16 reviewed plans**, each checked cell by cell against its grid:
+  - 3 West Chester B.M. plans: Instrumental, Jazz and Vocal Performance. These were held in #238 only for decimals.
+  - 13 UWM plans (`Semester N` rows), for programs with no plan on file.
+- **Held, UWM:**
+  - Biochemistry BS: the grid fits only the General option.
+  - Chemistry BA and BS: one shared grid; the Biochemical Option's changes are only in a footnote, and CHEM 582 is printed in both Year 4 terms.
 
 ## Next executable tasks
 
-1. **Decimal credits in plan grids** (West Chester): store '1.5' as printed, then re-review those 3 plans. Name a single grid's plan by its printed heading (the CU Boulder track plans).
+1. **Plan naming:** name a single grid's plan by its printed heading, so the 4 CU Boulder track plans can be reviewed. Also:
+   - store two-part plan items with explicit code/title/credits fields: 'CODE | Title' with blank credits reads the same as 'Title | 3';
+   - keep 'or' joins with a missing space ('INM 101or VOK 101') readable;
+   - `CREDIT_CELL` in Course Lists still rejects decimals.
 2. **#229 (owner decision).** Replace the 1,806 defective v1 plans and the 71 hour-choice groups with reviewed re-extractions under correction entries. Do nothing until the owner approves.
 3. **SHSU:**
    - requirement groups (262 candidates in TX/2026-10-21-d02) after the Course List fix and a fresh review;
-   - plan grids (205 stored grid documents);
+   - plan grids: SHSU is not CourseLeaf. Its grids print two semesters side by side, glue footnote digits onto 4-digit codes ('BIOL 24031' is BIOL 2403 with note 1), and misalign the subtotal row. A dedicated reader is needed; never split footnotes by guess;
    - a count from the department pages.
    - The two Finance concentration records whose keys are cut at 80 characters stay held.
 4. **UNL:** requirement groups by section heading (the pages also print the minor's tables); 8 unrecorded majors are queued with reasons.
-5. **UWM:** 11 plans with 'Semester N' rows (now read by v2) need review; requirement groups (644 `catalog_program/v1`) need review.
+5. **UWM:** plans are done for every issue-free v2 grid in WI/2026-10-21-d01 (13 promoted, 3 held). 12 pages with several grids stay held (`multiple_plan_grids`). Requirement groups (644 `catalog_program/v1`) still need review.
 6. **Utah:** plans and requirements sit behind tabs. A rendered fetch of the tab views is needed.
 7. **UCR:** the PDF's two-column majors tables need layout positions. Never pair rows by guess.
 8. **Design (#230):** plan notes, plan titles, and the year/semester term structure from v2.

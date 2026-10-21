@@ -462,6 +462,14 @@ class CourseleafPlanTests(unittest.TestCase):
         [c] = CL.extract({'institution_key': 'k'}, e, T.Page('Art, BA', 'Art, BA', [dict(t, caption='Plan of Study Grid')], [], []), '2026-2027', '', True)
         self.assertEqual((c['extractor'], c['record']['rule_details']['rule_text']), ('courseleaf_plan/v2', 'Total Hours** 16 (as printed)'))
 
+    def test_decimal_course_credits_kept_as_printed(self):  # West Chester B.M. 2026-27: '1.5', '0.5'
+        from programs import courseleaf as CL
+        t = {'rows': [['Semester One', 'Credits'], ['MUS 101', 'Theory I', '1.5'], ['MUE 100', 'Ensemble', '0.5'], ['MUS 102', 'Lab', '1-1.5'],
+                      ['ENG 101', 'Composition', '3'], ['', 'Credits', '6.5']]}
+        terms, _ = CL.parse_grid(t)
+        self.assertEqual([i.get('credits') for i in terms[0]['items']], ['1.5', '0.5', '1-1.5', 3])
+        self.assertEqual(terms[0]['credit_hours'], '6.5')
+
     def test_course_titled_total_and_unknown_term_header(self):  # #238 review: UNO HRM, EKU EHS; UMT 'Autumn | Hours'
         from programs import courseleaf as CL
         t = {'rows': [['Fall', 'Hours'], ['MGMT 4010', 'Total Rewards', '3'], ['EHS 340', 'Total Worker Health Principles', '3'], ['', 'Hours', '6']]}

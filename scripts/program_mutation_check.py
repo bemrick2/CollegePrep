@@ -64,6 +64,7 @@ MUTS = [
     ('programs/courseleaf.py', "rd['rule_text'] = f\"{gs[i - 1].get('_total_label') or 'Total Credits'} {total} (as printed)\"", "rd['rule_text'] = f'Total Credits {total} (as printed)'"),
     ('programs/courseleaf.py', "(?!(?:hours?|hrs?|credits?|credit|cr|crs|sch|sh|units?|semester)\\b)[A-Z]{2,5}\\s+)*'", "[A-Z]{2,5}\\s+)*'"),
     ('programs/courseleaf.py', "(?!(?:hours?|hrs?|credits?|credit|cr|crs|sch|sh|units?|semester)\\b)", "(?!(?:hours?|credits?|credit|sch|units?|semester)\\b)"),
+    ('programs/courseleaf.py', "re.fullmatch(r'\\d{1,2}(?:\\.\\d{1,2})?(\\s*-\\s*\\d{1,2}(?:\\.\\d{1,2})?)?', cells[-1]", "re.fullmatch(r'\\d{1,2}(\\s*-\\s*\\d{1,2})?', cells[-1]"),
     ('programs/courseleaf.py', "        if len(nonempty) == 2 and TOTAL.match(nonempty[0]):", "        if len(nonempty) >= 2 and TOTAL.match(nonempty[-2]):"),
     ('programs/courseleaf.py', "            t['_unread_label'] = True\n        if TERM", "            pass\n        if TERM"),
     ('programs/courseleaf.py', "^(fall|autumn|winter|spring|summer)(", "^(fall|winter|spring|summer)("),
