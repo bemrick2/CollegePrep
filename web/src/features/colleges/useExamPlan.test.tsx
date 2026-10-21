@@ -70,6 +70,34 @@ describe('useExamPlan (CR-10)', () => {
     expect(result.current.exams.map((e) => e.key).sort()).toEqual([examKey('AP', 'Statistics'), ib.key].sort())
   })
 
+  it('edits wait until device entries have moved; a device score beats a planned account entry', async () => {
+    localStorage.setItem('pp-exam-plan:s1', JSON.stringify([ap('AP Biology', 3), ap('AP Chemistry', 2)]))
+    const src = new AccountPlan(emptyStore())
+    src.account = [ap('AP Biology', null)]
+    let open!: () => void
+    src.gate = new Promise((r) => (open = r))
+    const { result } = hook(src)
+    await waitFor(() => expect(result.current.exams).toHaveLength(2))
+    // Still moving: edits are refused rather than raced.
+    expect(result.current.ready).toBe(false)
+    expect(result.current.add(ap('AP Physics 1', null))).toBe(false)
+    await act(async () => open())
+    await waitFor(() => expect(result.current.ready).toBe(true))
+    expect(src.account.sort((a, b) => a.key.localeCompare(b.key))).toEqual([ap('AP Biology', 3), ap('AP Chemistry', 2)])
+    expect(stored()).toEqual([])
+    act(() => result.current.remove(examKey('AP', 'Chemistry')))
+    await waitFor(() => expect(src.account).toEqual([ap('AP Biology', 3)]))
+  })
+
+  it('if the account plan cannot load, nothing is editable and the error is shown', async () => {
+    const src = new AccountPlan(emptyStore())
+    src.examPlan = async () => Promise.reject(new Error('offline'))
+    const { result } = hook(src)
+    await waitFor(() => expect(result.current.error).toBe('offline'))
+    expect(result.current.ready).toBe(false)
+    expect(result.current.add(ap('AP Biology', null))).toBe(false)
+  })
+
   it('a real error (the 20-exam limit) is shown, not silently kept on the device', async () => {
     const src = new AccountPlan(emptyStore())
     src.limit = 0
