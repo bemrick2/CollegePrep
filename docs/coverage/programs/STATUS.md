@@ -774,7 +774,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 
 | School | Status | Verified bachelor's | Listed | Plans | Req. groups | Catalog | Maps | Groups | Admission rules | Queue |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Indiana University-Bloomington | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:layout_not_readable |
+| Indiana University-Bloomington | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:no_year_label |
 | Purdue University-Main Campus | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Ball State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Indiana University-Indianapolis | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
