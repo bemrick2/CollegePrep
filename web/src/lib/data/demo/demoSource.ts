@@ -737,7 +737,7 @@ export class DemoSource implements DataSource {
     return []
   }
   async saveExamPlanEntry(_studentId: string, _exam: PlannedExam): Promise<void> {
-    throw new DataError('The demo keeps exams on this device', 'invalid')
+    throw new DataError('The demo keeps exams on this device', 'not_found')
   }
   async removeExamPlanEntry(_studentId: string, _examKey: string): Promise<void> {}
   // The demo keeps the weekly-summary choice so the preview can be tried; it never sends email.

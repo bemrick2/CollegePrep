@@ -62,6 +62,7 @@ describe.skipIf(!URL_)('parent journey with an invited student and two more guar
     await laptop.setWeeklyGoal(studentId, week, 30, null)
     const phone = await device(PARENT)
     expect((await phone.setupProgress(studentId))!.setupCompletedAt).toBeTruthy()
+    expect((await phone.weeklyProgress(studentId, week)).goal).toMatchObject({ target_questions: 30 })
   })
 
   it('the invited student joins with the code and sees the guardian’s choices on every device, without being asked again', async () => {
@@ -109,7 +110,9 @@ describe.skipIf(!URL_)('parent journey with an invited student and two more guar
     // Default guardian invitation: manage students, set goals, view progress.
     await (await device(CO_GUARDIAN)).acceptInvitation(await parent.createInvitation(hh, 'guardian'))
     const co = await device(CO_GUARDIAN)
+    expect((await co.getHouseholdContext()).memberships.find((m) => m.household_id === hh)).toMatchObject({ can_set_goals: true, can_view_progress: true, can_manage_members: false, can_manage_billing: false })
     await co.setWeeklyGoal(studentId, week, 35, null)
+    expect((await (await device(PARENT)).weeklyProgress(studentId, week)).goal).toMatchObject({ target_questions: 35 })
     await expect(co.createInvitation(hh, 'guardian')).rejects.toThrow()
     // A view-only guardian (the server accepts an explicit permission list).
     const { data: code, error } = await (await client(PARENT)).rpc('create_household_invitation', { p_household: hh, p_role: 'guardian', p_student: null, p_ttl_hours: 72, p_permissions: ['view_progress'] })
@@ -118,6 +121,7 @@ describe.skipIf(!URL_)('parent journey with an invited student and two more guar
     const viewer = await device(VIEWER)
     expect(await viewer.getPlan(studentId)).toMatchObject({ exam_family: 'act' })
     await expect(viewer.setWeeklyGoal(studentId, week, 10, null)).rejects.toThrow()
+    expect((await viewer.weeklyProgress(studentId, week)).goal).toMatchObject({ target_questions: 35 })
     await expect(viewer.savePlan(studentId, { exam_family: 'sat', target_score: null, goals: [], daily_minutes: 5 })).rejects.toThrow()
     await expect(viewer.saveSetupProgress(studentId, { benchmarkScheduledFor: null })).rejects.toThrow()
     const ctx = await viewer.getHouseholdContext()
@@ -129,8 +133,10 @@ describe.skipIf(!URL_)('parent journey with an invited student and two more guar
     const parent = await device(PARENT)
     await parent.saveExamPlanEntry(studentId, exam('AP', 'AP Calculus AB', 4))
     await parent.saveExamPlanEntry(studentId, exam('CLEP', 'CLEP College Algebra', null))
-    // No canonical key for IB yet: refused as 'invalid', so the app keeps it on the device.
-    await expect(parent.saveExamPlanEntry(studentId, { ...exam('IB', 'IB Economics', 5), level: 'SL' })).rejects.toMatchObject({ code: 'invalid' })
+    // No canonical key for IB, or for a name the backend's catalog doesn't list as printed ("AP World History" is
+    // only an app alias): refused as 'not_found', so the app keeps it on the device.
+    await expect(parent.saveExamPlanEntry(studentId, { ...exam('IB', 'IB Economics', 5), level: 'SL' })).rejects.toMatchObject({ code: 'not_found' })
+    await expect(parent.saveExamPlanEntry(studentId, exam('AP', 'AP World History', 3))).rejects.toMatchObject({ code: 'not_found' })
     // The server checks the AP scale.
     await expect(parent.saveExamPlanEntry(studentId, exam('AP', 'AP Statistics', 7))).rejects.toThrow()
     const phone = await device(INVITED)
@@ -142,11 +148,19 @@ describe.skipIf(!URL_)('parent journey with an invited student and two more guar
     await phone.saveExamPlanEntry(studentId, exam('CLEP', 'College Algebra', 62))
     const viewer = await device(VIEWER)
     expect((await viewer.examPlan(studentId)).find((e) => e.family === 'CLEP')!.score).toBe(62)
-    // Current server rule (CR-10 can_edit_student_plans): ANY guardian of the household may edit the exam plan and
-    // interests, whatever their permissions. A view-only guardian can therefore add an exam. Raised with Research as
-    // a question, not changed here; this assertion pins today's behaviour so a change is deliberate.
+    // Current SERVER rule (CR-10 can_edit_student_plans): any guardian of the household may write the exam plan and
+    // interests, whatever their permissions. The app doesn't offer it (CollegePaths edits only for the student or a
+    // guardian who can set goals), but the server would accept it. Raised with Research (#218 C1); this pins today's
+    // server behaviour so a change there is deliberate.
     await viewer.saveExamPlanEntry(studentId, exam('AP', 'AP Microeconomics', 3))
     await viewer.removeExamPlanEntry(studentId, examKey('AP', 'Microeconomics'))
+    // Two devices saving the same new exam at once: both succeed, one row.
+    await Promise.all([(await device(PARENT)).saveExamPlanEntry(studentId, exam('AP', 'AP Psychology', 4)), (await device(INVITED)).saveExamPlanEntry(studentId, exam('AP', 'AP Psychology', 5))])
+    expect((await phone.examPlan(studentId)).filter((e) => e.key === examKey('AP', 'Psychology'))).toHaveLength(1)
+    await parent.removeExamPlanEntry(studentId, examKey('AP', 'Psychology'))
+    // An outsider can't even see the row, so a delete from them removes nothing.
+    await (await device(OUTSIDER)).removeExamPlanEntry(studentId, examKey('CLEP', 'College Algebra'))
+    expect((await phone.examPlan(studentId)).some((e) => e.key === examKey('CLEP', 'College Algebra'))).toBe(true)
     await parent.removeExamPlanEntry(studentId, examKey('AP', 'Calculus AB'))
     expect((await (await device(INVITED)).examPlan(studentId)).map((e) => e.key)).toEqual([examKey('CLEP', 'College Algebra')])
     expect(await (await device(OUTSIDER)).examPlan(studentId)).toEqual([])
@@ -172,6 +186,7 @@ describe.skipIf(!URL_)('a student who signs up alone (no household)', () => {
     expect((await laptop.getHouseholdContext()).students).toEqual([expect.objectContaining({ id: studentId, household_id: null, linked_user_id: SOLO })])
     expect(await laptop.getPlan(studentId)).toMatchObject({ exam_family: 'sat', target_score: 1300, daily_minutes: 15, study_days: [2, 4, 6] })
     expect((await laptop.setupProgress(studentId))!.setupCompletedAt).toBeTruthy()
+    expect((await laptop.weeklyProgress(studentId, week)).goal).toMatchObject({ target_questions: 25 })
   })
 
   it('a second profile for the same login is refused', async () => {
