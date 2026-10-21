@@ -126,6 +126,37 @@ describe('useExamPlan (CR-10)', () => {
     expect(result.current.exams.map((e) => e.key)).toEqual([examKey('AP', 'Chemistry')])
   })
 
+  it('an IB exam added just before switching student is saved to the first student, never the second', async () => {
+    const src = new AccountPlan(emptyStore())
+    let open!: () => void
+    const wrap = ({ children }: { children: ReactNode }) => <AppProvider source={src}>{children}</AppProvider>
+    const { result, rerender } = renderHook(({ id }) => useExamPlan(id, true), { wrapper: wrap, initialProps: { id: 's1' } })
+    await waitFor(() => expect(result.current.ready).toBe(true))
+    // The account refuses IB (no catalog key) only after a delay, so the switch happens mid-save.
+    const save = src.saveExamPlanEntry.bind(src)
+    src.saveExamPlanEntry = async (id, e) => {
+      await new Promise<void>((r) => (open = r))
+      return save(id, e)
+    }
+    act(() => void result.current.add(ib))
+    rerender({ id: 's2' })
+    await waitFor(() => expect(result.current.ready).toBe(true))
+    await act(async () => open())
+    await waitFor(() => expect(JSON.parse(localStorage.getItem('pp-exam-plan:s1') ?? '[]')).toEqual([ib]))
+    expect(JSON.parse(localStorage.getItem('pp-exam-plan:s2') ?? '[]')).toEqual([])
+    expect(result.current.exams).toEqual([])
+  })
+
+  it('without CR-10, an exam saved just before a switch also stays with its own student', async () => {
+    const wrap = ({ children }: { children: ReactNode }) => <AppProvider source={new DemoSource(emptyStore())}>{children}</AppProvider>
+    const { result, rerender } = renderHook(({ id }) => useExamPlan(id, true), { wrapper: wrap, initialProps: { id: 's1' } })
+    act(() => void result.current.add(ap('AP Biology', 4)))
+    rerender({ id: 's2' })
+    await waitFor(() => expect(JSON.parse(localStorage.getItem('pp-exam-plan:s1') ?? '[]')).toEqual([ap('AP Biology', 4)]))
+    expect(JSON.parse(localStorage.getItem('pp-exam-plan:s2') ?? '[]')).toEqual([])
+    expect(result.current.exams).toEqual([])
+  })
+
   it('if the account plan cannot load, nothing is editable and the error is shown', async () => {
     const src = new AccountPlan(emptyStore())
     src.examPlan = async () => Promise.reject(new Error('offline'))
