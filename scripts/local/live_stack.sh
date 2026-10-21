@@ -87,7 +87,11 @@ insert into auth.users(id, email) values
   ('00000000-0000-4000-a000-0000000000a8', 'coguardian@local.test'),
   ('00000000-0000-4000-a000-0000000000a9', 'viewer-guardian@local.test'),
   ('00000000-0000-4000-a000-000000000056', 'solo-student@local.test'),
-  ('00000000-0000-4000-a000-000000000057', 'invited-student@local.test')
+  ('00000000-0000-4000-a000-000000000057', 'invited-student@local.test'),
+  ('00000000-0000-4000-a000-0000000000b1', 'perm-parent@local.test'),
+  ('00000000-0000-4000-a000-0000000000b2', 'perm-coguardian@local.test'),
+  ('00000000-0000-4000-a000-0000000000b3', 'perm-viewer@local.test'),
+  ('00000000-0000-4000-a000-0000000000b4', 'perm-student@local.test')
 on conflict do nothing;
 -- Two obviously fictional, unverified schools so saved-school flows can run. Not research data.
 insert into public.institutions(ipeds_name, display_name, state_code, institution_key) values
