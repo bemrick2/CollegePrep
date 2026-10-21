@@ -335,7 +335,10 @@ MUTS = [
     # ODU 2026-27 list rows run the award on to filter labels; 'BS-MBA' is combined; NROTC is commissioning (2026-10-21)
     ('programs/catalog_counts.py', "            if f: pr = pr[:f.start()]; filtered += 1", "            pass"),
     ('programs/catalog_counts.py', "ROTC = re.compile(r'\\bN?ROTC\\b')", "ROTC = re.compile(r'\\bROTC\\b')"),
-    ('programs/catalog_counts.py', "(?-i:\\bB[A-Z]{1,4}[/-]M[A-Z]{1,3}\\b)", "(?-i:\\bB[A-Z]{1,4}/M[A-Z]{1,3}\\b)"),
+    ('programs/catalog_counts.py', "|(?-i:\\bB[A-Z]{1,4}-M(?:S|A|[A-Z]{2,3})\\b)", ""),
+    # recount through records on file (2026-10-21)
+    ('programs/catalog_counts.py', "        if (rec.get('program_key') in keys or k in pages or count.get(k[0]) == 1) and k[0] not in used:", "        if (rec.get('program_key') in keys or k in pages or count.get(k[0])) and k[0] not in used:"),
+    ('programs/catalog_counts.py', "if (rec.get('program_key') in keys or k in pages or count.get(k[0]) == 1) and k[0] not in used:", "if (rec.get('program_key') in keys or k in pages or count.get(k[0]) == 1):"),
     # diagnose honours robots.txt (2026-10-08)
     ('programs/diagnose.py', "        if not robots.allowed(url):", "        if False:"),
     # Iowa State department pages: a heading prints the listed name and award; a sentence mentioning majors is no multi-major page

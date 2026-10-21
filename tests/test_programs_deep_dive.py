@@ -2702,18 +2702,39 @@ class CatalogCountTests(unittest.TestCase):
                    ("Cybersecurity with a Major in Artificial Intelligence for CybersecurityUndergraduateBachelor'sSchool of Cybersecurity", u + 'cyber-ai/', 'bachelor'),
                    ("Physics with a Major in Physics and Master of Business Administration, BS-MBAUndergraduateBachelor'sCollege of Sciences", u + 'phys-mba/', 'bachelor'),
                    ("Naval Science, NROTCUndergraduateBachelor'sEngineering & TechnologyBatten College", u + 'nrotc/', 'bachelor'),
-                   ("Biology, BSUndergraduateBachelor'sNatural SciencesCollege of Sciences", u + 'biology-bs/', 'bachelor')]
+                   ("Biology, BSUndergraduateBachelor'sNatural SciencesCollege of Sciences", u + 'biology-bs/', 'bachelor'),
+                   ("Medical Technology, BS-MT", u + 'mt/', 'bachelor')]  # a hyphenated single award, not combined
         records = [('Art with a Major in Art History (BA)', u + 'art-history-ba/'), ('Chemistry with a Major in Chemical Forensic Science (BS)', 'https://api.x.com/f'),
                    ('Biology (BS)', u + 'biology-bs/')]
         with tempfile.TemporaryDirectory() as d:
             d = self.run_dir(d, listing, records)
             e = entries(d, d / 'dec.json', ['k'])[0]
         b = e['completeness_basis']
-        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (4, 3), b)
+        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (5, 3), b)
         self.assertIn("6 run the award on to the row's filter labels", b)
         self.assertIn("combined or accelerated bachelor's/master's entries: Physics with a Major in Physics and Master of Business Administration, BS-MBA", b)
         self.assertIn("commissioning links that are not a single bachelor's program: Naval Science, NROTC", b)
-        self.assertTrue(b.endswith("Not recorded (names separated by ' | '): Cybersecurity with a Major in Artificial Intelligence for Cybersecurity."), b)
+        self.assertTrue(b.endswith("Not recorded (names separated by ' | '): Cybersecurity with a Major in Artificial Intelligence for Cybersecurity | Medical Technology, BS-MT."), b)
+
+    def test_on_file_recount_credits_records_on_file_once_per_page(self):
+        import tempfile
+        from programs.catalog_counts import on_file_approvals
+        u = 'https://catalog.x.edu/'
+        with tempfile.TemporaryDirectory() as d:
+            d = Path(d); run = d / 'run'; run.mkdir()
+            cands = [('c1', 'Accounting (BSBA)', u + 'acct-bsba/', 'accounting-bsba'),       # one record on this page, another name
+                     ('c2', 'Bachelor of Science in Accounting', u + 'acct-bsba/', 'x2'),      # second candidate on the same page
+                     ('c3', 'Biology (BS)', u + 'bio-bs/', 'biology-bs'),                      # same program key
+                     ('c4', 'Chemistry (BS)', u + 'chem-bs/', 'chemistry-bs'),                 # no record on file
+                     ('c5', 'Art (BA)', u + 'art/', 'art-ba')]                                  # page with two records, other name
+            (run / 'candidates.jsonl').write_text('\n'.join(json.dumps({'candidate_id': i, 'institution_key': 'k', 'domain': 'academic_programs',
+                'record': {'program_name': n, 'program_url': url, 'program_key': pk}, 'source': {'requested_url': url}}) for i, n, url, pk in cands) + '\n')
+            f = d / 'data/institutions/x/academic_programs'; f.mkdir(parents=True)
+            rec = lambda pk, n, url, st='verified': {'program_key': pk, 'program_name': n, 'program_url': url, 'source_url': url, 'credential_level': 'bachelor', 'verification_status': st}
+            (f / '2026-27.json').write_text(json.dumps({'records': [rec('bsba-acct', 'BSBA in Accounting', u + 'acct-bsba/'), rec('biology-bs', 'Biology, BS', u + 'bio-bs/'),
+                rec('art-studio', 'Art Studio (BA)', u + 'art/'), rec('art-history', 'Art History (BA)', u + 'art/'), rec('chemistry-x', 'Chemistry (BS)', u + 'chem-bs/', 'unverified')]}))
+            got = [a['candidate_id'] for a in on_file_approvals(run, 'x', 'k', root=d)]
+        self.assertEqual(got, ['c1', 'c3'])
 
     def test_only_reviewed_approvals_count(self):
         import tempfile
