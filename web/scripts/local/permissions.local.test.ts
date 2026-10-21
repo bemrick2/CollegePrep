@@ -12,6 +12,7 @@ import { createHmac } from 'node:crypto'
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 import { beforeAll, describe, expect, it } from 'vitest'
 import { weekStartOf } from '../../src/lib/engine/dates'
+import { DEFAULT_REMINDERS } from '../../../supabase/functions/_shared/reminders.ts'
 
 const URL_ = process.env.LOCAL_BACKEND_URL
 const SECRET = process.env.LOCAL_JWT_SECRET ?? 'local-only-jwt-secret-at-least-32-characters'
@@ -120,6 +121,14 @@ describe.skipIf(!URL_)('permissions on the server, role by role', () => {
     }
     const viewer = await clients.VIEWER.from('household_members').select('can_set_goals').eq('household_id', hh).eq('user_id', U.VIEWER).single()
     expect(viewer.data).toEqual({ can_set_goals: false })
+    // The same call succeeds for the member manager (so the refusals above are permission, not a bad call), then is undone.
+    expect((await rpc('PARENT', 'update_member_permissions', { p_household: hh, p_user: U.VIEWER, p_set_goals: true })).error).toBeNull()
+    expect((await clients.VIEWER.from('household_members').select('can_set_goals').eq('household_id', hh).eq('user_id', U.VIEWER).single()).data).toEqual({ can_set_goals: true })
+    expect((await rpc('PARENT', 'update_member_permissions', { p_household: hh, p_user: U.VIEWER, p_set_goals: false })).error).toBeNull()
+    for (const r of ['CO', 'VIEWER', 'STUDENT', 'OUTSIDER'] as Role[]) {
+      const up = await rpc(r, 'update_member_permissions', { p_household: hh, p_user: U.VIEWER, p_set_goals: true })
+      expect([r, up.error?.code]).toEqual([r, '42501'])
+    }
     // The parent is the only member manager: they can't strip their own manage-members.
     const self = await rpc('PARENT', 'update_member_permissions', { p_household: hh, p_user: U.PARENT, p_manage_members: false })
     expect(self.error).toBeTruthy()
@@ -131,9 +140,9 @@ describe.skipIf(!URL_)('permissions on the server, role by role', () => {
       expect([r, !s.error]).toEqual([r, r === 'STUDENT'])
     }
     const q = await clients.STUDENT.from('practice_questions').select('id').eq('status', 'published').limit(1).single()
-    for (const r of ['PARENT', 'CO', 'VIEWER', 'OUTSIDER'] as Role[]) {
+    for (const r of ROLES) {
       const a = await rpc(r, 'start_practice_attempt', { p_student: student, p_question: q.data!.id })
-      expect([r, !!a.error]).toEqual([r, true])
+      expect([r, a.error?.code ?? 'ok']).toEqual([r, r === 'STUDENT' ? 'ok' : '42501'])
     }
   })
 
@@ -155,6 +164,47 @@ describe.skipIf(!URL_)('permissions on the server, role by role', () => {
       const ins = await clients[r].from('student_exam_plan').insert({ student_id: student, exam_key: 'ap:microeconomics', score: 3 }).select()
       // Pinned server behaviour: the view-only guardian is allowed here, unlike plans and goals. The app doesn't offer it.
       expect([r, wrote(ins)]).toEqual([r, r !== 'OUTSIDER'])
+    }
+  })
+
+  it('saved schools: any household member may save or remove (pinned; worth a decision); the outsider may not', async () => {
+    const key = (await clients.PARENT.from('institutions').select('institution_key').eq('institution_key', 'local-test-university').single()).data!.institution_key as string
+    for (const r of ROLES) {
+      await rpc('PARENT', 'remove_household_school', { p_household: hh, p_institution_key: key })
+      const save = await rpc(r, 'save_household_school', { p_household: hh, p_institution_key: key })
+      expect([r, save.error?.code ?? 'ok']).toEqual([r, r === 'OUTSIDER' ? '42501' : 'ok'])
+      const rm = await rpc(r, 'remove_household_school', { p_household: hh, p_institution_key: key })
+      expect([r, rm.error?.code ?? 'ok']).toEqual([r, r === 'OUTSIDER' ? '42501' : 'ok'])
+    }
+  })
+
+  it('reminder settings: the student or a set-goals guardian; the view-only guardian and outsider are refused', async () => {
+    for (const r of ROLES) {
+      const d = DEFAULT_REMINDERS
+      const settings = { enabled: false, times: d.times, days: d.days, quiet_start: d.quietStart, quiet_end: d.quietEnd, school_days: d.schoolDays, school_start: d.schoolStart, school_end: d.schoolEnd, max_per_day: d.maxPerDay, max_per_week: d.maxPerWeek }
+      const res = await rpc(r, 'set_practice_reminders', { p_student: student, p_settings: settings })
+      expect([r, res.error?.code ?? 'ok']).toEqual([r, r === 'VIEWER' || r === 'OUTSIDER' ? '42501' : 'ok'])
+    }
+  })
+
+  it('setup progress: manage-students, set-goals or the linked student; the view-only guardian and outsider are refused', async () => {
+    for (const r of ROLES) {
+      const res = await rpc(r, 'update_setup_progress', { p_student: student, p_patch: { starting_point_answered: true } })
+      expect([r, res.error?.code ?? 'ok']).toEqual([r, r === 'VIEWER' || r === 'OUTSIDER' ? '42501' : 'ok'])
+    }
+  })
+
+  it('alert preferences are each guardian’s own: nobody writes or reads another user’s row', async () => {
+    // 'push', so the inactivity-email sender in parentEmails.local.test.ts never sees this household.
+    const mine = await clients.CO.from('alert_preferences').insert({ student_id: student, channel: 'push', inactivity_days: 3 }).select()
+    expect(wrote(mine)).toBe(true)
+    const forged = await clients.CO.from('alert_preferences').insert({ user_id: U.PARENT, student_id: student, channel: 'push', inactivity_days: 3 }).select()
+    expect(wrote(forged)).toBe(false)
+    for (const r of ['PARENT', 'VIEWER', 'STUDENT', 'OUTSIDER'] as Role[]) {
+      const read = await clients[r].from('alert_preferences').select('user_id').eq('user_id', U.CO)
+      expect([r, read.data?.length ?? 0]).toEqual([r, 0])
+      const upd = await clients[r].from('alert_preferences').update({ inactivity_days: 9 }).eq('user_id', U.CO).select()
+      expect([r, wrote(upd)]).toEqual([r, false])
     }
   })
 })
