@@ -27821,29 +27821,33 @@
      "academic_years": [
       "2026-27"
      ],
-     "catalog_share": null,
+     "catalog_share": 0.855,
      "dimensions": {
       "admission_rules": "queued",
       "catalog": "queued",
-      "degree_maps": "queued",
+      "degree_maps": "met",
       "requirement_groups": "queued"
      },
      "folder": "admissions",
      "high_value_without_admission_rule": [
-      "business"
+      "business",
+      "computer_science",
+      "engineering"
      ],
      "institution_key": "ipeds-181464",
-     "listed_bachelor_programs": null,
+     "listed_bachelor_programs": 124,
      "name": "University of Nebraska-Lincoln",
      "partially_verified_programs": 0,
      "programs_complete": false,
-     "programs_with_plan": 0,
+     "programs_with_plan": 100,
      "queue": [
-      "institution:layout_not_readable"
+      "admission_rules:not_yet_researched",
+      "catalog:not_yet_researched",
+      "requirement_groups:layout_not_readable"
      ],
      "requirement_groups": 0,
      "status": "partial",
-     "verified_bachelor_programs": 1
+     "verified_bachelor_programs": 106
     },
     {
      "academic_years": [
@@ -28391,8 +28395,8 @@
      "verified_bachelor_programs": 0
     }
    ],
-   "not_yet_researched": 19,
-   "queue_entries": 23,
+   "not_yet_researched": 20,
+   "queue_entries": 25,
    "queue_errors": [],
    "state": "NE",
    "status": "in_progress",
@@ -48223,7 +48227,9 @@
      "verified_bachelor_programs": 118
     },
     {
-     "academic_years": [],
+     "academic_years": [
+      "2026-27"
+     ],
      "catalog_share": null,
      "dimensions": {
       "admission_rules": "queued",
@@ -48232,7 +48238,11 @@
       "requirement_groups": "queued"
      },
      "folder": "utah",
-     "high_value_without_admission_rule": [],
+     "high_value_without_admission_rule": [
+      "business",
+      "computer_science",
+      "engineering"
+     ],
      "institution_key": "ipeds-230764",
      "listed_bachelor_programs": null,
      "name": "University of Utah",
@@ -48240,11 +48250,14 @@
      "programs_complete": false,
      "programs_with_plan": 0,
      "queue": [
-      "institution:layout_not_readable"
+      "admission_rules:not_yet_researched",
+      "catalog:not_yet_researched",
+      "degree_maps:layout_not_readable",
+      "requirement_groups:layout_not_readable"
      ],
      "requirement_groups": 0,
-     "status": "exception",
-     "verified_bachelor_programs": 0
+     "status": "partial",
+     "verified_bachelor_programs": 59
     },
     {
      "academic_years": [
@@ -48498,8 +48511,8 @@
      "verified_bachelor_programs": 0
     }
    ],
-   "not_yet_researched": 7,
-   "queue_entries": 17,
+   "not_yet_researched": 8,
+   "queue_entries": 20,
    "queue_errors": [],
    "state": "UT",
    "status": "in_progress",
