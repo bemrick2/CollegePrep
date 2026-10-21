@@ -1888,7 +1888,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Pennsylvania State University-Main Campus | partial | 173 | – | 0 | 376 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | University of Pittsburgh-Pittsburgh Campus | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Temple University | partial | 166 | – | 137 | 413 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
-| West Chester University of Pennsylvania | partial | 64 | 104 | 37 | 298 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
+| West Chester University of Pennsylvania | partial | 64 | 104 | 40 | 298 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | Drexel University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:no_year_label |
 | Commonwealth University of Pennsylvania | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Pennsylvania | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -2417,7 +2417,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | School | Status | Verified bachelor's | Listed | Plans | Req. groups | Catalog | Maps | Groups | Admission rules | Queue |
 |---|---|---|---|---|---|---|---|---|---|---|
 | University of Wisconsin-Madison | covered | 222 | 220 | 127 | 128 | met | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
-| University of Wisconsin-Milwaukee | covered | 133 | 133 | 28 | 0 | met | queued | queued | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:not_yet_researched |
+| University of Wisconsin-Milwaukee | covered | 133 | 133 | 41 | 0 | met | queued | queued | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:not_yet_researched |
 | University of Wisconsin-La Crosse | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Wisconsin-Whitewater | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Wisconsin-Eau Claire | partial | 2 | – | 0 | 0 | queued | queued | queued | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:layout_not_readable |
