@@ -3,7 +3,7 @@ import type { SetupProgress } from '../../lib/data/types'
 import { useApp, useAsync } from '../../lib/app'
 import type { AttemptRecord, BenchmarkSummary, SkillEstimate, Streak, StudentPlan, TestScore, WeeklyProgress } from '../../lib/data/types'
 import { addDays, localDate, weekStartOf } from '../../lib/engine/dates'
-import { contentStatus, firstAnswers, seenSet, type ContentStatus } from '../../lib/engine/freshness'
+import { checkQuestions, contentStatus, firstAnswers, seenSet, type ContentStatus } from '../../lib/engine/freshness'
 
 export interface StudentOverview {
   tz: string
@@ -55,7 +55,7 @@ export function useStudentOverview(studentId: string | null | undefined) {
     const pool = await source.publishedQuestions(exam).catch(() => null)
     const content = pool ? contentStatus(exam, pool, seenSet(history)) : null
     const setup = await source.setupProgress(studentId).catch(() => null)
-    const b = pool && pool.length ? planBenchmark(exam, 'initial', pool) : null
+    const b = pool && pool.length ? planBenchmark(exam, 'initial', checkQuestions(exam, pool)) : null
     const baseline = b ? { questions: b.totalQuestions, minutes: b.expectedMinutes } : null
     return { tz, today, weekStart, plan, week, streak, estimates, scores, benchmarks, history, goalsMet, lastWeek: past[0] ?? null, content, setup, baseline }
   }, [source, studentId, tz])

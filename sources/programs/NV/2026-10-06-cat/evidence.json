@@ -77,6 +77,83 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "54649cb44d2e5ce7": {
+  "decision": {
+   "candidate_id": "54649cb44d2e5ce7",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
+   "replaces_promoted": "courseleaf_plan/v1 record (evidence NV/2026-10-06-cat#7dd31fcab4d53da2) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "1st semester: 4 items, 15 credits",
+    "value": "1st semester"
+   },
+   {
+    "field": "term",
+    "snippet": "2nd semester: 4 items, 15 credits",
+    "value": "2nd semester"
+   },
+   {
+    "field": "term",
+    "snippet": "3rd semester: 4 items, 15 credits",
+    "value": "3rd semester"
+   },
+   {
+    "field": "term",
+    "snippet": "4th semester: 4 items, 15 credits",
+    "value": "4th semester"
+   },
+   {
+    "field": "term",
+    "snippet": "5th semester: 4 items, 15 credits",
+    "value": "5th semester"
+   },
+   {
+    "field": "term",
+    "snippet": "6th semester: 4 items, 15 credits",
+    "value": "6th semester"
+   },
+   {
+    "field": "term",
+    "snippet": "7th semester: 4 items, 15 credits",
+    "value": "7th semester"
+   },
+   {
+    "field": "term",
+    "snippet": "8th semester: 4 items, 15 credits",
+    "value": "8th semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Fifth Year: 0 items, ? credits",
+    "value": "Fifth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "1st semester: 3 items, 15 credits",
+    "value": "1st semester"
+   },
+   {
+    "field": "term",
+    "snippet": "2nd semester: 3 items, 15 credits",
+    "value": "2nd semester"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:19:47+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 09 Sep 2026 20:38:11 GMT",
+   "page_file": "d39c37bc2dda758348f1.json.gz",
+   "requested_url": "https://catalog.tmcc.edu/degrees-certificates/barch/",
+   "sha256": "d39c37bc2dda758348f1533155bdb23b1d0d1667bbbca47cbde3ee8c83c40f9a",
+   "title": "Bachelor of Architecture | Truckee Meadows Community College Catalog",
+   "url": "https://catalog.tmcc.edu/degrees-certificates/barch/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "55cb54a28e96e361": {
   "decision": {
    "candidate_id": "55cb54a28e96e361",
@@ -182,6 +259,42 @@
   "year_basis": "labeled_in_source"
  },
  "8ca5294815e39fe6": {
+  "decision": {
+   "candidate_id": "8ca5294815e39fe6",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Choose a minimum of 9 units from the following electives. Students must have a total of 120 units to complete the BAS degree. Depending on courses taken in your associates degree, additional elective \". Printed 'Choose a minimum of 9 units from the following electives. Students must have a total of 120 units to...' is a unit (credit) amount, not a course count; the re-extracted choose_credits group with choose_credits 9 has the same options as the page and no issues or verify problems.",
+   "replaces_promoted": "the stored group read the printed credit rule \"Choose a minimum of 9 units from the following electives. Students must have a total of 120 units to complete the BAS de\" as a number of courses (choose_count 9) (#229)."
+  },
+  "evidence": [
+   {
+    "field": "source_section",
+    "snippet": "Program Requirements — Electives",
+    "value": "Program Requirements — Electives"
+   },
+   {
+    "field": "rule_text",
+    "snippet": "Choose a minimum of 9 units from the following electives. Students must have a total of 120 units to complete the BAS degree. Depending on courses taken in your associates degree, additional elective ",
+    "value": "Choose a minimum of 9 units from the following electives. Students must have a total of 120 units to complete the BAS degree. Depending on courses taken in your associates degree, additional elective units may be required to satisfy the total units required. 9"
+   }
+  ],
+  "extractor": "courselist_html/v1",
+  "issues": [],
+  "layout_source": {
+   "sha256": "5a6e68b109a13b4449f7f075404ab010c01119f995f26ac4c92ef716f1897c9f",
+   "url": "https://catalog.tmcc.edu/degrees-certificates/applied-business-management-bas/#courselist"
+  },
+  "source": {
+   "fetched_at": "2026-10-06T11:19:43+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 05 Aug 2026 19:00:38 GMT",
+   "page_file": "0e99fd29eb21c4ce6c1c.json.gz",
+   "requested_url": "https://catalog.tmcc.edu/degrees-certificates/applied-business-management-bas/",
+   "sha256": "0e99fd29eb21c4ce6c1c0a950340314eed6132f1a4698d9d3ba36c3c6e1dec4b",
+   "title": "Applied Business Management, BAS | Truckee Meadows Community College Catalog",
+   "url": "https://catalog.tmcc.edu/degrees-certificates/applied-business-management-bas/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "8ca5294815e39fe6~superseded-2026-10-21": {
   "decision": {
    "candidate_id": "8ca5294815e39fe6",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."

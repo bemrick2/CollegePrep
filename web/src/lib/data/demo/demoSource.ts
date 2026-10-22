@@ -73,6 +73,7 @@ export function toPublic(q: FixtureQuestion): PublicQuestion {
     expected_time_seconds: q.expected_time_seconds,
     primary_skill_key: q.primary_skill_key,
     hint_count: q.hints.length,
+    pool: null,
   }
 }
 
@@ -359,6 +360,11 @@ export class DemoSource implements DataSource {
   }
 
   async listInvitations(householdId: string): Promise<InvitationSummary[]> {
+    // Mirrors household_invitation_recipients (#218 C7): the address only for manage_members, or manage_students on
+    // a student invitation.
+    const me = this.viewerId()
+    const mine = this.s.members.find((m) => m.household_id === householdId && m.user_id === me && m.role === 'guardian')
+    const seesEmail = (role: string) => !!mine && (mine.can_manage_members || (role === 'student' && mine.can_manage_students))
     return delay(
       this.s.invitations
         .filter((i) => i.household_id === householdId)
@@ -366,7 +372,7 @@ export class DemoSource implements DataSource {
           id: i.id ?? i.code,
           role: i.role,
           student_id: i.student_id,
-          recipient_email: i.recipient_email ?? null,
+          recipient_email: seesEmail(i.role) ? (i.recipient_email ?? null) : null,
           created_at: i.created_at ?? i.expires_at,
           expires_at: i.expires_at,
           accepted_at: i.accepted_at ?? (i.accepted_by ? i.expires_at : null),
@@ -568,11 +574,16 @@ export class DemoSource implements DataSource {
     this.commit()
   }
 
-  async startAttempt(studentId: string, questionId: string, sessionId: string | null, _benchmarkId?: string | null) {
+  async startAttempt(studentId: string, questionId: string, sessionId: string | null, benchmarkId?: string | null) {
     const F = await loadFixtures()
     this.requireLinked(studentId)
     const q = F.byId.get(questionId)
     if (!q) throw new DataError('Question is not available', 'invalid')
+    // CR-23, as the server will enforce it: reserved assessment questions only in a progress check, and a check
+    // only on reserved questions.
+    const reserved = practiceExclusions(q.exam_family, F.QUESTIONS).has(questionId)
+    if (benchmarkId && !reserved) throw new DataError('Progress checks use only questions set aside for checks', 'invalid')
+    if (!benchmarkId && reserved) throw new DataError('This question is set aside for progress checks', 'forbidden')
     const id = uid('pa-')
     const now = new Date().toISOString()
     const a: DemoAttempt = {

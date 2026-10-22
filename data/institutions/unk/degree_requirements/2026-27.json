@@ -33,7 +33,7 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "major_elective",
-        "choose_count": 6,
+        "choose_credits": 6,
         "courses": [
           {
             "code": "MATH 101",
@@ -64,14 +64,14 @@
             "title": "Elementary Statistics"
           }
         ],
-        "group_type": "choose_courses",
+        "group_type": "choose_credits",
         "rule_text": "Select 6 hours from the following:",
         "schema": "requirement_group/v1",
         "source_section": "Information Technology and Networking Comprehensive, Bachelor of Science — BS Science-Related Course Requirements"
       },
       "source_url": "https://catalog.unk.edu/undergraduate/departments-programs/cyber-systems/information-networking-telecommunications-comprehensive-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NE/2026-10-06-cat/evidence.json#153e0bec5e7bccfa."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select 6 hours from the following:\". Printed 'Select 6 hours from the following' is a credit-hour amount, not a course count; the re-extracted choose_credits group with choose_credits 6 has the same options as the page and no issues or verify problems. Replaces the record promoted earlier from this candidate: the stored group read the printed credit rule \"Select 6 hours from the following:\" as a number of courses (choose_count 6) (#229). Evidence: sources/programs/NE/2026-10-06-cat/evidence.json#153e0bec5e7bccfa."
     },
     {
       "last_verified_at": "2026-10-06",

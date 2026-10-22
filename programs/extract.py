@@ -1617,6 +1617,7 @@ def distinct_candidates(cands):
         for x in (first, c):
             if 'candidate_id_collision' not in x['issues']: x['issues'] = x['issues'] + ['candidate_id_collision']
         out.append(c)
+    shared_plan_keys(out)  # after a page reached by two URLs is kept once
     return out
 
 def extract_run(targets, run_dir, today=None):
@@ -1723,7 +1724,6 @@ def extract_run(targets, run_dir, today=None):
                         'program_list_links': lists[key]['counts'], 'candidates': n_c,
                         'evidence': sum(1 for x in evidence if x['institution_key'] == key)}
     cands = distinct_candidates(cands)
-    shared_plan_keys(cands)
     d = Path(run_dir)
     (d / 'program_lists.json').write_text(json.dumps(lists, indent=1, ensure_ascii=False) + '\n')
     with (d / 'candidates.jsonl').open('w') as f:

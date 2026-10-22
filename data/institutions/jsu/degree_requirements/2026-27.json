@@ -11,13 +11,26 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "13",
             "items": [
-              "Jax MIX Communication: EH Composition Sequence | 3",
-              "Jax MIX Experience: Social/Behavioral Science | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition Sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
               "BY 101& BY 103 | Introductory Biology Iand Introductory Biology Lab I (Jax MIX Inquiry) | 4",
               {
                 "code": "MS 112",
@@ -28,17 +41,23 @@
                 "code": "SSC 101",
                 "credits": 0,
                 "title": "First Year Experience"
-              },
-              "Hours | 13"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition Sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition Sequence"
+              },
               "BY 102& BY 104 | Introductory Biology IIand Introductory Biology Lab II (Jax MIX Inquiry) | 4",
-              "Select one of the following: | 3",
+              {
+                "credits": 3,
+                "text": "Select one of the following:"
+              },
               {
                 "code": "MS 113",
                 "title": "Precalculus Trigonometry"
@@ -51,101 +70,177 @@
                 "code": "MS 204",
                 "title": "Basic Statistics"
               },
-              "Wellness | 3",
-              "Electives | 3",
-              "Hours | 16",
-              "Sophomore"
+              {
+                "credits": 3,
+                "text": "Wellness"
+              },
+              {
+                "credits": 3,
+                "text": "Electives"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
-          },
-          {
-            "items": [
-              "Jax MIX Experience: History Sequence | 3",
-              "Jax MIX Experience: Social/Behavioral Science | 3",
-              "CY 105& CY 107 | General Chemistry Iand General Chemistry Laboratory I | 4",
-              "Biology Core | 7",
-              "Hours | 17"
-            ],
-            "label": "Fall",
             "term_index": 3
           },
           {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "17",
             "items": [
-              "Jax MIX Experience: History Sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History Sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
+              "CY 105& CY 107 | General Chemistry Iand General Chemistry Laboratory I | 4",
+              {
+                "credits": 7,
+                "text": "Biology Core"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 5
+          },
+          {
+            "credit_hours": "16",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History Sequence"
+              },
               "CY 106& CY 108 | General Chemistry IIand General Chemistry Laboratory II | 4",
               {
                 "code": "CS 201",
                 "credits": 3,
                 "title": "Introduction to Information Technology (or higher)"
               },
-              "Biology Core | 4",
-              "Electives | 2",
-              "Hours | 16",
-              "Junior"
-            ],
-            "label": "Spring",
-            "term_index": 4
-          },
-          {
-            "items": [
-              "Jax MIX Expression: Literature | 3",
               {
-                "code": "EH 141",
-                "credits": 3,
-                "title": "Speech (Jax MIX Communication)"
+                "credits": 4,
+                "text": "Biology Core"
               },
-              "Foreign Language sequence 1 | 3",
-              "Biology Core | 4",
-              "Electives | 3",
-              "Hours | 16"
-            ],
-            "label": "Fall",
-            "term_index": 5
-          },
-          {
-            "items": [
-              "Jax MIX Expression: Literature | 3",
-              "Foreign Language sequence 1 | 3",
-              "Biology Core | 4",
-              "Biology Concentration Elective | 4",
-              "Hours | 14",
-              "Senior"
+              {
+                "credits": 2,
+                "text": "Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 6
           },
           {
-            "items": [
-              "Jax MIX Expression: Fine Arts | 3",
-              "Biology Core | 4",
-              "Biology Concentration Elective | 4",
-              "Electives | 5",
-              "Hours | 16"
-            ],
-            "label": "Fall",
+            "items": [],
+            "label": "Junior",
             "term_index": 7
           },
           {
+            "credit_hours": "16",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
+              {
+                "code": "EH 141",
+                "credits": 3,
+                "title": "Speech (Jax MIX Communication)"
+              },
+              {
+                "credits": 3,
+                "text": "Foreign Language sequence 1"
+              },
+              {
+                "credits": 4,
+                "text": "Biology Core"
+              },
+              {
+                "credits": 3,
+                "text": "Electives"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 8
+          },
+          {
+            "credit_hours": "14",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
+              {
+                "credits": 3,
+                "text": "Foreign Language sequence 1"
+              },
+              {
+                "credits": 4,
+                "text": "Biology Core"
+              },
+              {
+                "credits": 4,
+                "text": "Biology Concentration Elective"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Senior",
+            "term_index": 10
+          },
+          {
+            "credit_hours": "16",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 4,
+                "text": "Biology Core"
+              },
+              {
+                "credits": 4,
+                "text": "Biology Concentration Elective"
+              },
+              {
+                "credits": 5,
+                "text": "Electives"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "12",
             "items": [
               {
                 "code": "BY 496",
                 "credits": 1,
                 "title": "Senior Seminar (WI)"
               },
-              "Biology Concentration Electives | 7",
-              "Electives | 4",
-              "Hours | 12",
-              "Total Hours | 120"
+              {
+                "credits": 7,
+                "text": "Biology Concentration Electives"
+              },
+              {
+                "credits": 4,
+                "text": "Electives"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/arts-humanities-sciences/biology/biology-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#51fb68a9b57c66ac."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence AL/2026-10-06-cl#51fb68a9b57c66ac) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#c4047a529eb3f698."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -156,32 +251,48 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "13",
             "items": [
-              "Jax MIX Communication: EH Composition Sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition Sequence"
+              },
               {
                 "code": "MS 110",
                 "credits": 3,
                 "title": "Finite Mathematics (or higher excluding MS 204 - Jax MIX Communication)"
               },
-              "Jax MIX Experience: Social/Behavioral Science | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
               "GY 250& GY 252 | Physical Geography I: Atmospheric Patterns and Processesand Physical Geography Lab I (Jax MIX Inquiry) | 4",
               {
                 "code": "SSC 101",
                 "credits": 0,
                 "title": "First Year Experience"
-              },
-              "Hours | 13"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
+            "credit_hours": "13",
             "items": [
-              "Jax MIX Communication: EH Composition Sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition Sequence"
+              },
               {
                 "code": "EH 141",
                 "credits": 3,
@@ -192,19 +303,35 @@
                 "code": "MS 204",
                 "credits": 3,
                 "title": "Basic Statistics"
-              },
-              "Hours | 13",
-              "Sophomore"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "17",
             "items": [
-              "Jax MIX Expression: Fine Arts | 3",
-              "Jax MIX Expression: Literature 1 | 3",
-              "Jax MIX Experience: Social/Behavioral Science | 3",
-              "Jax MIX Inquiry: Science | 4",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature 1"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
               {
                 "code": "GY 208",
                 "credits": 3,
@@ -214,15 +341,18 @@
                 "code": "GY 209",
                 "credits": 1,
                 "title": "Introduction to Digital Mapping and GIS Lab"
-              },
-              "Hours | 17"
+              }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
+            "credit_hours": "15",
             "items": [
-              "Jax MIX Experience: History 1 | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History 1"
+              },
               {
                 "code": "GY 220",
                 "credits": 3,
@@ -238,58 +368,97 @@
                 "credits": 3,
                 "title": "Introduction to Information Technology (or higher)"
               },
-              "Electives 100+ | 3",
-              "Hours | 15",
-              "Junior"
-            ],
-            "label": "Spring",
-            "term_index": 4
-          },
-          {
-            "items": [
-              "Jax MIX Expression (Literature if sequence) 1 | 3",
-              "GY or GIS or AN or GL Electives 300+ 2 | 9",
-              "Electives 100+ | 4",
-              "Hours | 16"
-            ],
-            "label": "Fall",
-            "term_index": 5
-          },
-          {
-            "items": [
-              "Jax MIX Experience (History if sequence) 1 | 3",
-              "GY or GIS or AN or GL Electives 300+ 2 | 6",
-              "Electives 100+ | 7",
-              "Hours | 16",
-              "Senior"
+              {
+                "credits": 3,
+                "text": "Electives 100+"
+              }
             ],
             "label": "Spring",
             "term_index": 6
           },
           {
-            "items": [
-              "GY or GIS or AN or GL Electives 300+ 2 | 3",
-              "Electives 300+ | 12",
-              "Hours | 15"
-            ],
-            "label": "Fall",
+            "items": [],
+            "label": "Junior",
             "term_index": 7
           },
           {
+            "credit_hours": "16",
             "items": [
-              "GY or GIS or AN or GL Electives 300+ 2 | 3",
-              "Electives | 12",
-              "Hours | 15",
-              "Total Hours | 120"
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression (Literature if sequence) 1"
+              },
+              {
+                "credits": 9,
+                "text": "GY or GIS or AN or GL Electives 300+ 2"
+              },
+              {
+                "credits": 4,
+                "text": "Electives 100+"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 8
+          },
+          {
+            "credit_hours": "16",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience (History if sequence) 1"
+              },
+              {
+                "credits": 6,
+                "text": "GY or GIS or AN or GL Electives 300+ 2"
+              },
+              {
+                "credits": 7,
+                "text": "Electives 100+"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Senior",
+            "term_index": 10
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "credits": 3,
+                "text": "GY or GIS or AN or GL Electives 300+ 2"
+              },
+              {
+                "credits": 12,
+                "text": "Electives 300+"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "credits": 3,
+                "text": "GY or GIS or AN or GL Electives 300+ 2"
+              },
+              {
+                "credits": 12,
+                "text": "Electives"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/arts-humanities-sciences/chemistry-geosciences/geography-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#c429116ed5ed7959."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence AL/2026-10-06-cl#c429116ed5ed7959) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#8edd4f71cad8a5d1."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -300,19 +469,35 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
-              "Jax MIX Inquiry: Natural Science | 4",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Natural Science"
+              },
               {
                 "code": "MS 110",
                 "credits": 3,
                 "title": "Finite Mathematics (or higher - Jax MIX Communication)"
               },
-              "Jax MIX Experience: History sequence 1 | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History sequence 1"
+              },
               {
                 "code": "PSC 100",
                 "credits": 3,
@@ -322,121 +507,194 @@
                 "code": "SSC 101",
                 "credits": 0,
                 "title": "First Year Experience"
-              },
-              "Hours | 16"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
-          },
-          {
-            "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
-              "Jax MIX Inquiry: Natural Science | 4",
-              "Jax MIX Experience: History sequence 1 | 3",
-              "Jax MIX Experience: Social/Behavioral Science | 3",
-              "Electives | 3",
-              "Hours | 16",
-              "Sophomore"
-            ],
-            "label": "Spring",
             "term_index": 2
           },
           {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Expression: Fine Arts | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Natural Science"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History sequence 1"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
+              {
+                "credits": 3,
+                "text": "Electives"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
               {
                 "code": "EH 141",
                 "credits": 3,
                 "title": "Speech (Jax MIX Communication)"
               },
-              "Jax MIX Expression: Humanities | 3",
-              "Foreign Language sequence 2 | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Humanities"
+              },
+              {
+                "credits": 3,
+                "text": "Foreign Language sequence 2"
+              },
               {
                 "code": "HY 201",
                 "credits": 3,
                 "title": "American History I"
-              },
-              "Hours | 15"
-            ],
-            "label": "Fall",
-            "term_index": 3
-          },
-          {
-            "items": [
-              "Jax MIX Expression: Literature | 3",
-              {
-                "code": "CS 201",
-                "credits": 3,
-                "title": "Introduction to Information Technology"
-              },
-              "Foreign Language sequence 2 | 3",
-              {
-                "code": "HY 202",
-                "credits": 3,
-                "title": "American History II"
-              },
-              "Electives | 3",
-              "Hours | 15",
-              "Junior"
-            ],
-            "label": "Spring",
-            "term_index": 4
-          },
-          {
-            "items": [
-              "Foreign Language sequence 2 | 3",
-              {
-                "code": "HY 303",
-                "credits": 3,
-                "title": "Historian's Craft (WI)"
-              },
-              "History 300+ (by advisement) | 3",
-              "Minor/Electives 300+ | 6",
-              "Hours | 15"
+              }
             ],
             "label": "Fall",
             "term_index": 5
           },
           {
+            "credit_hours": "15",
             "items": [
-              "Foreign Language sequence 2 | 3",
-              "History 300+ (by advisement) | 6",
-              "Minor/Electives 300+ | 6",
-              "Hours | 15",
-              "Senior"
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
+              {
+                "code": "CS 201",
+                "credits": 3,
+                "title": "Introduction to Information Technology"
+              },
+              {
+                "credits": 3,
+                "text": "Foreign Language sequence 2"
+              },
+              {
+                "code": "HY 202",
+                "credits": 3,
+                "title": "American History II"
+              },
+              {
+                "credits": 3,
+                "text": "Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 6
           },
           {
-            "items": [
-              "History 300+ (by advisement) | 9",
-              "Minor/Electives 300+ | 5",
-              "Hours | 14"
-            ],
-            "label": "Fall",
+            "items": [],
+            "label": "Junior",
             "term_index": 7
           },
           {
+            "credit_hours": "15",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Foreign Language sequence 2"
+              },
+              {
+                "code": "HY 303",
+                "credits": 3,
+                "title": "Historian's Craft (WI)"
+              },
+              {
+                "credits": 3,
+                "text": "History 300+ (by advisement)"
+              },
+              {
+                "credits": 6,
+                "text": "Minor/Electives 300+"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 8
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Foreign Language sequence 2"
+              },
+              {
+                "credits": 6,
+                "text": "History 300+ (by advisement)"
+              },
+              {
+                "credits": 6,
+                "text": "Minor/Electives 300+"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Senior",
+            "term_index": 10
+          },
+          {
+            "credit_hours": "14",
+            "items": [
+              {
+                "credits": 9,
+                "text": "History 300+ (by advisement)"
+              },
+              {
+                "credits": 5,
+                "text": "Minor/Electives 300+"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "14",
             "items": [
               {
                 "code": "HY 499",
                 "credits": 0,
                 "title": "Capstone Experience (WI)"
               },
-              "History 300+ (by advisement) | 6",
-              "Minor/Electives 300+ | 8",
-              "Hours | 14",
-              "Total Hours | 120"
+              {
+                "credits": 6,
+                "text": "History 300+ (by advisement)"
+              },
+              {
+                "credits": 8,
+                "text": "Minor/Electives 300+"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/arts-humanities-sciences/history-foreign-languages/history-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#3a011ce87b5ff67f."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence AL/2026-10-06-cl#3a011ce87b5ff67f) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#4c5de21e1c745ad0."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -447,12 +705,22 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "15",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
               {
                 "code": "EH 141",
                 "credits": 3,
@@ -463,105 +731,193 @@
                 "credits": 3,
                 "title": "Finite Mathematics (or higher - Jax MIX Communication)"
               },
-              "Jax MIX Experience: Social/Behavioral Science | 3",
-              "100+ Electives | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
+              {
+                "credits": 3,
+                "text": "100+ Electives"
+              },
               {
                 "code": "SSC 101",
                 "credits": 0,
                 "title": "First Year Experience"
-              },
-              "Hours | 15"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
-          },
-          {
-            "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
-              "Jax MIX Expression: Fine Arts | 3",
-              "Jax MIX Experience: Social/Behavioral Science | 3",
-              "100+ Electives | 6",
-              "Hours | 15",
-              "Sophomore"
-            ],
-            "label": "Spring",
             "term_index": 2
           },
           {
+            "credit_hours": "15",
             "items": [
-              "Jax MIX Expression: Literature | 3",
-              "Jax MIX Inquiry: Science | 4",
-              "Jax MIX Experience: History Sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
+              {
+                "credits": 6,
+                "text": "100+ Electives"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "16",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History Sequence"
+              },
               {
                 "code": "CS 201",
                 "credits": 3,
                 "title": "Introduction to Information Technology 1"
               },
-              "100+ Electives | 3",
-              "Hours | 16"
-            ],
-            "label": "Fall",
-            "term_index": 3
-          },
-          {
-            "items": [
-              "Jax MIX Expression: Literature, Fine Arts, Foreign Language | 3",
-              "Jax MIX Inquiry: Science | 4",
-              "Jax MIX Experience: History Sequence | 3",
-              "100+ Electives | 4",
-              "Hours | 14",
-              "Junior"
-            ],
-            "label": "Spring",
-            "term_index": 4
-          },
-          {
-            "items": [
-              "100+ Electives | 6",
-              "AHSS 300 or 400 level courses 2 | 6",
-              "Any 300 or 400 level course | 3",
-              "Hours | 15"
+              {
+                "credits": 3,
+                "text": "100+ Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 5
           },
           {
+            "credit_hours": "14",
             "items": [
-              "100+ Electives | 6",
-              "AHSS 300 or 400 level course 2 | 6",
-              "Any 300 or 400 level course | 3",
-              "Hours | 15",
-              "Senior"
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature, Fine Arts, Foreign Language"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History Sequence"
+              },
+              {
+                "credits": 4,
+                "text": "100+ Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 6
           },
           {
-            "items": [
-              "100+ Electives | 3",
-              "AHSS 300 or 400 level courses 2 | 6",
-              "Any 300 or 400 level courses | 6",
-              "Hours | 15"
-            ],
-            "label": "Fall",
+            "items": [],
+            "label": "Junior",
             "term_index": 7
           },
           {
+            "credit_hours": "15",
             "items": [
-              "100+ Electives | 9",
-              "AHSS 300 or 400 level course 2 | 3",
-              "Any 300 or 400 level course | 3",
-              "Hours | 15",
-              "Total Hours | 120"
+              {
+                "credits": 6,
+                "text": "100+ Electives"
+              },
+              {
+                "credits": 6,
+                "text": "AHSS 300 or 400 level courses 2"
+              },
+              {
+                "credits": 3,
+                "text": "Any 300 or 400 level course"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 8
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "credits": 6,
+                "text": "100+ Electives"
+              },
+              {
+                "credits": 6,
+                "text": "AHSS 300 or 400 level course 2"
+              },
+              {
+                "credits": 3,
+                "text": "Any 300 or 400 level course"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Senior",
+            "term_index": 10
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "credits": 3,
+                "text": "100+ Electives"
+              },
+              {
+                "credits": 6,
+                "text": "AHSS 300 or 400 level courses 2"
+              },
+              {
+                "credits": 6,
+                "text": "Any 300 or 400 level courses"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "credits": 9,
+                "text": "100+ Electives"
+              },
+              {
+                "credits": 3,
+                "text": "AHSS 300 or 400 level course 2"
+              },
+              {
+                "credits": 3,
+                "text": "Any 300 or 400 level course"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/arts-humanities-sciences/integrated-studies/integrated-studies-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#488a2a6a736e7136."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence AL/2026-10-06-cl#488a2a6a736e7136) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#b2d80542acf10e53."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -572,13 +928,26 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
-              "Jax MIX Experience: History sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History sequence"
+              },
               {
                 "code": "FLM 230",
                 "credits": 3,
@@ -603,16 +972,22 @@
                 "code": "SSC 101",
                 "credits": 0,
                 "title": "First Year Experience"
-              },
-              "Hours | 16"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
+            "credit_hours": "15",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
-              "Jax MIX Experience: History sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History sequence"
+              },
               {
                 "code": "FLM 232",
                 "credits": 3,
@@ -627,21 +1002,28 @@
                 "code": "FLM 310",
                 "credits": 3,
                 "title": "Acting for the Camera"
-              },
-              "Hours | 15",
-              "Sophomore"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "16",
             "items": [
               {
                 "code": "MS 110",
                 "credits": 3,
                 "title": "Finite Mathematics (or higher - Jax MIX Communication)"
               },
-              "Jax MIX Inquiry: Science | 4",
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
               {
                 "code": "FLM 235",
                 "credits": 3,
@@ -652,20 +1034,26 @@
                 "credits": 3,
                 "title": "Film Production I"
               },
-              "Major Elective | 3",
-              "Hours | 16"
+              {
+                "credits": 3,
+                "text": "Major Elective"
+              }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "EH 141",
                 "credits": 3,
                 "title": "Speech (Jax MIX Communication)"
               },
-              "Jax MIX Expression: Literature | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
               {
                 "code": "FLM 241",
                 "credits": 3,
@@ -681,17 +1069,30 @@
                 "credits": 3,
                 "title": "Film Editing I"
               },
-              "Major Elective | 3",
-              "Hours | 15",
-              "Junior"
+              {
+                "credits": 3,
+                "text": "Major Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
           },
           {
+            "items": [],
+            "label": "Junior",
+            "term_index": 7
+          },
+          {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Expression: Literature | 3",
-              "Jax MIX Inquiry: Science | 4",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
               {
                 "code": "FLM 340",
                 "credits": 3,
@@ -702,64 +1103,96 @@
                 "credits": 3,
                 "title": "Film Theory (WI)"
               },
-              "Minor | 3",
-              "Hours | 16"
+              {
+                "credits": 3,
+                "text": "Minor"
+              }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
+            "credit_hours": "15",
             "items": [
-              "Jax MIX Experience: Social and Behavioral Science | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social and Behavioral Science"
+              },
               {
                 "code": "FLM 331",
                 "credits": 3,
                 "title": "Techniques for High Definition Cinematography"
               },
-              "Major Elective | 3",
-              "Minor | 6",
-              "Hours | 15",
-              "Senior"
+              {
+                "credits": 3,
+                "text": "Major Elective"
+              },
+              {
+                "credits": 6,
+                "text": "Minor"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
           },
           {
+            "items": [],
+            "label": "Senior",
+            "term_index": 10
+          },
+          {
+            "credit_hours": "15",
             "items": [
-              "Jax MIX Expression: Fine Arts | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
               {
                 "code": "EH 409",
                 "credits": 3,
                 "title": "The Art of the Film (WI)"
               },
-              "Major Elective | 3",
-              "Minor | 6",
-              "Hours | 15"
+              {
+                "credits": 3,
+                "text": "Major Elective"
+              },
+              {
+                "credits": 6,
+                "text": "Minor"
+              }
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 11
           },
           {
+            "credit_hours": "12",
             "items": [
-              "Jax MIX Experience: Social and Behavioral Science | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social and Behavioral Science"
+              },
               {
                 "code": "FLM 499",
                 "credits": 3,
                 "title": "Film Capstone"
               },
-              "Major Elective | 3",
-              "Minor | 3",
-              "Hours | 12",
-              "Total Hours | 120"
+              {
+                "credits": 3,
+                "text": "Major Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Minor"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/arts-humanities-sciences/theatre-film/film-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#e336fb1ce52d32d3."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence AL/2026-10-06-cl#e336fb1ce52d32d3) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#c8e16fc8f49395bc."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -770,81 +1203,131 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 126 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
               "BY 101& BY 103 | Introductory Biology Iand Introductory Biology Lab I (Jax MIX Inquiry) | 4",
               {
                 "code": "MS 112",
                 "credits": 3,
                 "title": "Precalculus Algebra (Jax MIX Communication)"
               },
-              "Jax MIX Experience: History 1 | 3",
-              "Jax MIX Experience: Social/Behavioral Science | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History 1"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
               {
                 "code": "SSC 101",
                 "credits": 0,
                 "title": "First Year Experience"
-              },
-              "Hours | 16"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
               {
                 "code": "EH 141",
                 "credits": 3,
                 "title": "Speech (Jax MIX Communication)"
               },
               "BY 102& BY 104 | Introductory Biology IIand Introductory Biology Lab II | 4",
-              "Jax MIX Experience 1, 3 | 3",
-              "Mathematics 2 | 3",
-              "Hours | 16"
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience 1, 3"
+              },
+              {
+                "credits": 3,
+                "text": "Mathematics 2"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
-          },
-          {
-            "items": [
-              "Jax MIX Expression: Fine Arts | 3",
-              "Jax MIX Experience | 3",
-              "Hours | 6",
-              "Sophomore"
-            ],
-            "label": "Summer",
             "term_index": 3
           },
           {
+            "credit_hours": "6",
             "items": [
-              "Jax MIX Expression: Literature 3 | 3",
-              "Jax MIX Inquiry: Science 4 | 4",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience"
+              }
+            ],
+            "label": "Summer",
+            "term_index": 4
+          },
+          {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 5
+          },
+          {
+            "credit_hours": "16",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature 3"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science 4"
+              },
               {
                 "code": "CS 201",
                 "credits": 3,
                 "title": "Introduction to Information Technology"
               },
-              "Mathematics 2 | 3",
-              "FCS 352& FCS 353 | Child Growth and Development (WI)and Child Growth and Development Laboratory (WI) | 3",
-              "Hours | 16"
+              {
+                "credits": 3,
+                "text": "Mathematics 2"
+              },
+              "FCS 352& FCS 353 | Child Growth and Development (WI)and Child Growth and Development Laboratory (WI) | 3"
             ],
             "label": "Fall",
-            "term_index": 4
+            "term_index": 6
           },
           {
+            "credit_hours": "15",
             "items": [
-              "Jax MIX Expression 3 | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression 3"
+              },
               {
                 "code": "EED 299",
                 "credits": 3,
                 "title": "Teaching Diverse Populations"
               },
-              "Mathematics 2 | 3",
+              {
+                "credits": 3,
+                "text": "Mathematics 2"
+              },
               {
                 "code": "ED 302",
                 "credits": 3,
@@ -854,14 +1337,18 @@
                 "code": "SPE 300",
                 "credits": 3,
                 "title": "Survey of Exceptional Children and Youth"
-              },
-              "Hours | 15",
-              "Junior"
+              }
             ],
             "label": "Spring",
-            "term_index": 5
+            "term_index": 7
           },
           {
+            "items": [],
+            "label": "Junior",
+            "term_index": 8
+          },
+          {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "ECE 303",
@@ -887,13 +1374,13 @@
                 "code": "RDG 304",
                 "credits": 3,
                 "title": "Early Literacy"
-              },
-              "Hours | 15"
+              }
             ],
             "label": "Fall",
-            "term_index": 6
+            "term_index": 9
           },
           {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "ECE 407",
@@ -919,14 +1406,18 @@
                 "code": "RDG 342",
                 "credits": 3,
                 "title": "Teaching Reading"
-              },
-              "Hours | 15",
-              "Senior"
+              }
             ],
             "label": "Spring",
-            "term_index": 7
+            "term_index": 10
           },
           {
+            "items": [],
+            "label": "Senior",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "EED 340",
@@ -952,13 +1443,13 @@
                 "code": "RDG 354",
                 "credits": 3,
                 "title": "Reading Diagnosis"
-              },
-              "Hours | 15"
+              }
             ],
             "label": "Fall",
-            "term_index": 8
+            "term_index": 12
           },
           {
+            "credit_hours": "12",
             "items": [
               {
                 "code": "ED 495",
@@ -974,18 +1465,16 @@
                 "code": "EED 409",
                 "credits": 3,
                 "title": "21st Century Teaching and Learning Part II"
-              },
-              "Hours | 12",
-              "Total Hours | 126"
+              }
             ],
             "label": "Spring",
-            "term_index": 9
+            "term_index": 13
           }
         ]
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/education-professional-studies/teacher-education/elementary-early-childhood-ed-bse/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#75b677ef3df288b6."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence AL/2026-10-06-cl#75b677ef3df288b6) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#a4b8c40338e8384a."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -996,33 +1485,52 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 126 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
               "BY 101& BY 103 | Introductory Biology Iand Introductory Biology Lab I (Jax MIX Inquiry) | 4",
               {
                 "code": "MS 112",
                 "credits": 3,
                 "title": "Precalculus Algebra (Jax MIX Communication)"
               },
-              "Jax MIX Experience: History 1, 2 | 3",
-              "Jax MIX Experience: Social/Behavioral Science | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History 1, 2"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
               {
                 "code": "SSC 101",
                 "credits": 0,
                 "title": "First Year Experience"
-              },
-              "Hours | 16"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
+            "credit_hours": "19",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
               {
                 "code": "EH 141",
                 "credits": 3,
@@ -1034,56 +1542,84 @@
                 "credits": 3,
                 "title": "Principles of Psychology (Jax MIX Experience)"
               },
-              "Jax MIX Experience 1, 2 | 3",
-              "Mathematics 3 | 3",
-              "Hours | 19"
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience 1, 2"
+              },
+              {
+                "credits": 3,
+                "text": "Mathematics 3"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
+            "credit_hours": "3",
             "items": [
               {
                 "code": "CS 201",
                 "credits": 3,
                 "title": "Introduction to Information Technology"
-              },
-              "Hours | 3",
-              "Sophomore"
+              }
             ],
             "label": "Summer",
-            "term_index": 3
+            "term_index": 4
           },
           {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 5
+          },
+          {
+            "credit_hours": "19",
             "items": [
-              "Jax MIX Expression: Fine Arts | 3",
-              "Jax MIX Expression: Literature | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
               {
                 "code": "PSY 222",
                 "credits": 3,
                 "title": "Human Development"
               },
-              "Mathematics 3 | 3",
-              "Physical Science and Lab | 4",
+              {
+                "credits": 3,
+                "text": "Mathematics 3"
+              },
+              {
+                "credits": 4,
+                "text": "Physical Science and Lab"
+              },
               {
                 "code": "PSY 330",
                 "credits": 3,
                 "title": "Abnormal Psychology"
-              },
-              "Hours | 19"
+              }
             ],
             "label": "Fall",
-            "term_index": 4
+            "term_index": 6
           },
           {
+            "credit_hours": "18",
             "items": [
-              "Jax MIX Expression 2 | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression 2"
+              },
               {
                 "code": "EED 299",
                 "credits": 3,
                 "title": "Teaching Diverse Populations"
               },
-              "Mathematics 3 | 3",
+              {
+                "credits": 3,
+                "text": "Mathematics 3"
+              },
               {
                 "code": "ED 302",
                 "credits": 3,
@@ -1098,14 +1634,18 @@
                 "code": "SPE 332",
                 "credits": 3,
                 "title": "Medical, Legal, & Ethical Issues"
-              },
-              "Hours | 18",
-              "Junior"
+              }
             ],
             "label": "Spring",
-            "term_index": 5
+            "term_index": 7
           },
           {
+            "items": [],
+            "label": "Junior",
+            "term_index": 8
+          },
+          {
+            "credit_hours": "12",
             "items": [
               {
                 "code": "RDG 305",
@@ -1126,13 +1666,13 @@
                 "code": "SPE 442",
                 "credits": 3,
                 "title": "Practicum in Severe Disabilities K-12"
-              },
-              "Hours | 12"
+              }
             ],
             "label": "Fall",
-            "term_index": 6
+            "term_index": 9
           },
           {
+            "credit_hours": "12",
             "items": [
               {
                 "code": "RDG 343",
@@ -1153,14 +1693,18 @@
                 "code": "SPE 348",
                 "credits": 3,
                 "title": "Collaboration in Elementary and Secondary"
-              },
-              "Hours | 12",
-              "Senior"
+              }
             ],
             "label": "Spring",
-            "term_index": 7
+            "term_index": 10
           },
           {
+            "items": [],
+            "label": "Senior",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "SPE 330",
@@ -1186,13 +1730,13 @@
                 "code": "RDG 354",
                 "credits": 3,
                 "title": "Reading Diagnosis"
-              },
-              "Hours | 15"
+              }
             ],
             "label": "Fall",
-            "term_index": 8
+            "term_index": 12
           },
           {
+            "credit_hours": "12",
             "items": [
               {
                 "code": "ED 495",
@@ -1208,18 +1752,16 @@
                 "code": "SPE 425",
                 "credits": 3,
                 "title": "Methods for Autism Spectrum Disorder"
-              },
-              "Hours | 12",
-              "Total Hours | 126"
+              }
             ],
             "label": "Spring",
-            "term_index": 9
+            "term_index": 13
           }
         ]
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/education-professional-studies/teacher-education/special-ed-collaborative-teacher-bse/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#a494714b89477aa7."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence AL/2026-10-06-cl#a494714b89477aa7) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#12ba0b27a2d45824."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -1230,14 +1772,27 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "15",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
               "BY 101& BY 103 | Introductory Biology Iand Introductory Biology Lab I (Jax MIX Inquiry) | 4",
-              "Jax MIX Experience: History | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History"
+              },
               {
                 "code": "PSY 201",
                 "credits": 3,
@@ -1252,21 +1807,27 @@
                 "code": "SSC 101",
                 "credits": 0,
                 "title": "First Year Experience"
-              },
-              "Hours | 15"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
+            "credit_hours": "14",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
               {
                 "code": "MS 112",
                 "credits": 3,
                 "title": "Precalculus Algebra (or higher, excluding MS 204 - Jax MIX Communication)"
               },
-              "Jax MIX Experience | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience"
+              },
               {
                 "code": "HPE 109",
                 "credits": 3,
@@ -1276,36 +1837,58 @@
                 "code": "HPE 232",
                 "credits": 2,
                 "title": "Sports Safety and First Aid Training 1"
-              },
-              "Hours | 14",
-              "Sophomore"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Expression: Fine Arts | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
               {
                 "code": "EH 141",
                 "credits": 3,
                 "title": "Speech (Jax MIX Communication)"
               },
               "CY 105& CY 107 | General Chemistry Iand General Chemistry Laboratory I (Jax MIX Inquiry) | 4",
-              "FCS 215or FCS 322 | Introductory Nutrition 1or Normal Nutrition | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "FCS 215",
+                    "title": "Introductory Nutrition 1"
+                  },
+                  {
+                    "code": "FCS 322",
+                    "title": "Normal Nutrition"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "HPE 212",
                 "credits": 3,
                 "title": "Personal and Community Health"
-              },
-              "Hours | 16"
+              }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
+            "credit_hours": "15",
             "items": [
-              "Jax MIX Expression: Literature | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
               {
                 "code": "PSY 222",
                 "credits": 3,
@@ -1316,21 +1899,40 @@
                 "credits": 3,
                 "title": "Introduction to Broadcast Writing 1"
               },
-              "MS 204or ST 260 | Basic Statistics 1or Statistics/Quantitative Methods I | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "MS 204",
+                    "title": "Basic Statistics 1"
+                  },
+                  {
+                    "code": "ST 260",
+                    "title": "Statistics/Quantitative Methods I"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "HPE 262",
                 "credits": 3,
                 "title": "Health Behavior Theory, Research, & Practice (WI)"
-              },
-              "Hours | 15",
-              "Junior"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
           },
           {
+            "items": [],
+            "label": "Junior",
+            "term_index": 7
+          },
+          {
+            "credit_hours": "15",
             "items": [
-              "Jax MIX Expression | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression"
+              },
               {
                 "code": "NU 130",
                 "credits": 3,
@@ -1346,13 +1948,16 @@
                 "credits": 3,
                 "title": "Introduction to Sociology"
               },
-              "Advisor Guided Electives 2 | 3",
-              "Hours | 15"
+              {
+                "credits": 3,
+                "text": "Advisor Guided Electives 2"
+              }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "HPE 315",
@@ -1369,14 +1974,21 @@
                 "credits": 3,
                 "title": "Interpersonal Skills and Human Relations"
               },
-              "Advisor Guided Electives 2 | 6",
-              "Hours | 15",
-              "Senior"
+              {
+                "credits": 6,
+                "text": "Advisor Guided Electives 2"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
           },
           {
+            "items": [],
+            "label": "Senior",
+            "term_index": 10
+          },
+          {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "HPE 318",
@@ -1398,13 +2010,16 @@
                 "credits": 3,
                 "title": "Medicine and Society"
               },
-              "Advisor Guided Electives 2 | 3",
-              "Hours | 15"
+              {
+                "credits": 3,
+                "text": "Advisor Guided Electives 2"
+              }
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 11
           },
           {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "HPE 418",
@@ -1421,18 +2036,19 @@
                 "credits": 3,
                 "title": "Internship in Public Health"
               },
-              "Advisor Guided Electives 2 | 6",
-              "Hours | 15",
-              "Total Hours | 120"
+              {
+                "credits": 6,
+                "text": "Advisor Guided Electives 2"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/health-professions-wellness/kinesiology/public-health-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#3210478cb24f2e69."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence AL/2026-10-06-cl#3210478cb24f2e69) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#159c97c5936001f2."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -1517,13 +2133,26 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 129 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
-              "Jax MIX Expression: Fine Arts | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
               "BY 101& BY 103 | Introductory Biology Iand Introductory Biology Lab I (Jax MIX Inquiry) | 4",
               {
                 "code": "MS 112",
@@ -1539,21 +2168,27 @@
                 "code": "SSC 101",
                 "credits": 0,
                 "title": "First Year Experience 1"
-              },
-              "Hours | 16"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
               {
                 "code": "EH 141",
                 "credits": 3,
                 "title": "Speech (Jax MIX Communication)"
               },
-              "Jax MIX Experience: History | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History"
+              },
               {
                 "code": "BY 263",
                 "credits": 4,
@@ -1563,17 +2198,27 @@
                 "code": "MS 204",
                 "credits": 3,
                 "title": "Basic Statistics"
-              },
-              "Hours | 16",
-              "Sophomore"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Expression: Literature | 3",
-              "Jax MIX Experience (History if completing sequence) | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience (History if completing sequence)"
+              },
               {
                 "code": "BY 264",
                 "credits": 4,
@@ -1588,33 +2233,43 @@
                 "code": "NU 121",
                 "credits": 3,
                 "title": "Ethics in Nursing (WI)"
-              },
-              "Hours | 16"
+              }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
+            "credit_hours": "14",
             "items": [
-              "Jax MIX Expression (Literature if completing sequence) | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression (Literature if completing sequence)"
+              },
               {
                 "code": "CY 115",
                 "credits": 4,
                 "title": "Concepts of General Chemistry I (Jax MIX Inquiry)"
               },
-              "Jax MIX Experience | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience"
+              },
               {
                 "code": "BY 283",
                 "credits": 4,
                 "title": "Health Microbiology"
-              },
-              "Hours | 14",
-              "Junior"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
           },
           {
+            "items": [],
+            "label": "Junior",
+            "term_index": 7
+          },
+          {
+            "credit_hours": "14",
             "items": [
               {
                 "code": "NU 305",
@@ -1635,13 +2290,13 @@
                 "code": "NU 311",
                 "credits": 6,
                 "title": "Foundations of Nursing Practice 2"
-              },
-              "Hours | 14"
+              }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
+            "credit_hours": "13",
             "items": [
               {
                 "code": "NU 322",
@@ -1657,26 +2312,30 @@
                 "code": "NU 326",
                 "credits": 4,
                 "title": "Psychiatric Mental Health Nursing"
-              },
-              "Hours | 13"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
           },
           {
+            "credit_hours": "2",
             "items": [
               {
                 "code": "NU 400",
                 "credits": 2,
                 "title": "Research and Outcomes Management (WI)"
-              },
-              "Hours | 2",
-              "Senior"
+              }
             ],
             "label": "Summer",
-            "term_index": 7
+            "term_index": 10
           },
           {
+            "items": [],
+            "label": "Senior",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "12",
             "items": [
               {
                 "code": "NU 403",
@@ -1692,13 +2351,13 @@
                 "code": "NU 422",
                 "credits": 2,
                 "title": "Foundations of Nursing Leadership"
-              },
-              "Hours | 12"
+              }
             ],
             "label": "Fall",
-            "term_index": 8
+            "term_index": 12
           },
           {
+            "credit_hours": "13",
             "items": [
               {
                 "code": "NU 424",
@@ -1714,13 +2373,13 @@
                 "code": "NU 433",
                 "credits": 3,
                 "title": "Advanced Health Deviations and Clinical Interventions"
-              },
-              "Hours | 13"
+              }
             ],
             "label": "Spring",
-            "term_index": 9
+            "term_index": 13
           },
           {
+            "credit_hours": "13",
             "items": [
               {
                 "code": "NU 302",
@@ -1736,18 +2395,16 @@
                 "code": "NU 455",
                 "credits": 4,
                 "title": "Transition to Professional Nursing"
-              },
-              "Hours | 13",
-              "Total Hours | 129"
+              }
             ],
             "label": "Summer",
-            "term_index": 10
+            "term_index": 14
           }
         ]
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/health-professions-wellness/nursing/nursing-bsn/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#8eb1d6cfbe36a82d."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence AL/2026-10-06-cl#8eb1d6cfbe36a82d) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#01ed5d004ec84232."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -1870,18 +2527,27 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 32 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
-            "items": [
-              "Courses are only offered in the terms specified below:",
-              "Hours | 0"
-            ],
-            "label": "Fall",
+            "items": [],
+            "label": "Junior",
             "term_index": 1
           },
           {
+            "credit_hours": "0",
+            "items": [
+              {
+                "text": "Courses are only offered in the terms specified below:"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 2
+          },
+          {
+            "credit_hours": "10",
             "items": [
               {
                 "code": "RT 442",
@@ -1897,13 +2563,13 @@
                 "code": "RT 446",
                 "credits": 3,
                 "title": "Research for Respiratory Therapists (WI)"
-              },
-              "Hours | 10"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
+            "credit_hours": "10",
             "items": [
               {
                 "code": "RT 450",
@@ -1919,14 +2585,18 @@
                 "code": "RT 454",
                 "credits": 3,
                 "title": "Advanced Neonatal and Pediatric Care"
-              },
-              "Hours | 10",
-              "Senior"
+              }
             ],
             "label": "Summer",
-            "term_index": 3
+            "term_index": 4
           },
           {
+            "items": [],
+            "label": "Senior",
+            "term_index": 5
+          },
+          {
+            "credit_hours": "10",
             "items": [
               {
                 "code": "RT 456",
@@ -1942,30 +2612,28 @@
                 "code": "RT 460",
                 "credits": 3,
                 "title": "Alternative Care Roles for Respiratory Therapists"
-              },
-              "Hours | 10"
+              }
             ],
             "label": "Fall",
-            "term_index": 4
+            "term_index": 6
           },
           {
+            "credit_hours": "2",
             "items": [
               {
                 "code": "RT 448",
                 "credits": 2,
                 "title": "Advanced Practice Elective 1"
-              },
-              "Hours | 2",
-              "Total Hours | 32"
+              }
             ],
             "label": "Spring",
-            "term_index": 5
+            "term_index": 7
           }
         ]
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/health-professions-wellness/respiratory-therapy/respiratory-therapy-bridge-program-rrt-bsrt/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#04e7805f8156e178."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence AL/2026-10-06-cl#04e7805f8156e178) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#39a6b297133a0123."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -2149,32 +2817,48 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 121 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "13",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
               {
                 "code": "MS 112",
                 "credits": 3,
                 "title": "Precalculus Algebra (Jax MIX Communication)"
               },
-              "Jax MIX Expression: Fine Arts | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
               "BY 101& BY 103 | Introductory Biology Iand Introductory Biology Lab I (Jax MIX Inquiry) | 4",
               {
                 "code": "SSC 101",
                 "credits": 0,
                 "title": "First Year Experience"
-              },
-              "Hours | 13"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
               {
                 "code": "EH 141",
                 "credits": 3,
@@ -2185,22 +2869,35 @@
                 "credits": 4,
                 "title": "Concepts of General Chemistry I (Jax MIX Inquiry)"
               },
-              "Jax MIX Experience: History | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History"
+              },
               {
                 "code": "PSY 201",
                 "credits": 3,
                 "title": "Principles of Psychology (Jax MIX Experience)"
-              },
-              "Hours | 16",
-              "Sophomore"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "14",
             "items": [
-              "Jax MIX Expression: Literature | 3",
-              "Jax MIX Experience (History if sequence) | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience (History if sequence)"
+              },
               {
                 "code": "BY 263",
                 "credits": 4,
@@ -2210,15 +2907,18 @@
                 "code": "BY 283",
                 "credits": 4,
                 "title": "Health Microbiology"
-              },
-              "Hours | 14"
+              }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
+            "credit_hours": "13",
             "items": [
-              "Jax MIX Expression (Literature if sequence) | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression (Literature if sequence)"
+              },
               {
                 "code": "SY 221",
                 "credits": 3,
@@ -2233,14 +2933,18 @@
                 "code": "MS 204",
                 "credits": 3,
                 "title": "Basic Statistics"
-              },
-              "Hours | 13",
-              "Junior"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
           },
           {
+            "items": [],
+            "label": "Junior",
+            "term_index": 7
+          },
+          {
+            "credit_hours": "14",
             "items": [
               {
                 "code": "RT 301",
@@ -2271,13 +2975,13 @@
                 "code": "RT 322",
                 "credits": 2,
                 "title": "Respiratory Therapy Lab I"
-              },
-              "Hours | 14"
+              }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
+            "credit_hours": "14",
             "items": [
               {
                 "code": "RT 326",
@@ -2308,13 +3012,13 @@
                 "code": "RT 347",
                 "credits": 2,
                 "title": "Respiratory Therapy Lab II"
-              },
-              "Hours | 14"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
           },
           {
+            "credit_hours": "9",
             "items": [
               {
                 "code": "RT 351",
@@ -2335,14 +3039,18 @@
                 "code": "RT 362",
                 "credits": 2,
                 "title": "Respiratory Therapy Lab III"
-              },
-              "Hours | 9",
-              "Senior"
+              }
             ],
             "label": "Summer",
-            "term_index": 7
+            "term_index": 10
           },
           {
+            "items": [],
+            "label": "Senior",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "RT 401",
@@ -2373,13 +3081,13 @@
                 "code": "RT 430",
                 "credits": 2,
                 "title": "Respiratory Therapy Leadership"
-              },
-              "Hours | 15"
+              }
             ],
             "label": "Fall",
-            "term_index": 8
+            "term_index": 12
           },
           {
+            "credit_hours": "13",
             "items": [
               {
                 "code": "RT 420",
@@ -2400,18 +3108,16 @@
                 "code": "RT 440",
                 "credits": 3,
                 "title": "Advanced-Level Exam Review"
-              },
-              "Hours | 13",
-              "Total Hours | 121"
+              }
             ],
             "label": "Spring",
-            "term_index": 9
+            "term_index": 13
           }
         ]
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/health-professions-wellness/respiratory-therapy/respiratory-therapy-bsrt/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#07e2c28eeb077d11."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence AL/2026-10-06-cl#07e2c28eeb077d11) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#34d507ef950a1a46."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -2516,15 +3222,34 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
-              "Jax MIX Expression: Fine Arts | 3",
-              "Jax MIX Inquiry: Science | 4",
-              "Jax MIX Experience: History sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History sequence"
+              },
               {
                 "code": "CJ 101",
                 "credits": 3,
@@ -2534,34 +3259,47 @@
                 "code": "SSC 101",
                 "credits": 0,
                 "title": "First Year Experience"
-              },
-              "Hours | 16"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
-              "Jax MIX Inquiry: Science | 4",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
               {
                 "code": "MS 110",
                 "credits": 3,
                 "title": "Finite Mathematics (or higher excluding MS 204 - Jax MIX Communication)"
               },
-              "Jax MIX Experience: History sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History sequence"
+              },
               {
                 "code": "CJ 200",
                 "credits": 3,
                 "title": "Introduction to Corrections"
-              },
-              "Hours | 16",
-              "Sophomore"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "EH 141",
@@ -2587,15 +3325,18 @@
                 "code": "CJ 207",
                 "credits": 3,
                 "title": "Criminal Law I"
-              },
-              "Hours | 15"
+              }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
+            "credit_hours": "15",
             "items": [
-              "Jax MIX Expression: Literature | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
               {
                 "code": "PSY 201",
                 "credits": 3,
@@ -2615,16 +3356,23 @@
                 "code": "CJ 305",
                 "credits": 3,
                 "title": "Professional Writing in Criminal Justice (WI)"
-              },
-              "Hours | 15",
-              "Junior"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
           },
           {
+            "items": [],
+            "label": "Junior",
+            "term_index": 7
+          },
+          {
+            "credit_hours": "15",
             "items": [
-              "Jax MIX Expression: Foreign Language | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Foreign Language"
+              },
               {
                 "code": "SY 221",
                 "credits": 3,
@@ -2644,48 +3392,73 @@
                 "code": "CJ 320",
                 "credits": 3,
                 "title": "Criminal Investigations"
-              },
-              "Hours | 15"
+              }
             ],
             "label": "Fall",
-            "term_index": 5
-          },
-          {
-            "items": [
-              "Adv. CJ 300+ Electives | 6",
-              "Minor/General Electives | 9",
-              "Hours | 15",
-              "Senior"
-            ],
-            "label": "Spring",
-            "term_index": 6
-          },
-          {
-            "items": [
-              "Adv. CJ 300+ Electives | 6",
-              "Minor/General Electives | 9",
-              "Hours | 15"
-            ],
-            "label": "Fall",
-            "term_index": 7
-          },
-          {
-            "items": [
-              "Senior Capstone Course 1 | 3",
-              "Adv. CJ 300+ Electives | 3",
-              "Criminal Justice Major Field Test",
-              "Minor/General Electives | 7",
-              "Hours | 13",
-              "Total Hours | 120"
-            ],
-            "label": "Spring",
             "term_index": 8
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "credits": 6,
+                "text": "Adv. CJ 300+ Electives"
+              },
+              {
+                "credits": 9,
+                "text": "Minor/General Electives"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Senior",
+            "term_index": 10
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "credits": 6,
+                "text": "Adv. CJ 300+ Electives"
+              },
+              {
+                "credits": 9,
+                "text": "Minor/General Electives"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "13",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Senior Capstone Course 1"
+              },
+              {
+                "credits": 3,
+                "text": "Adv. CJ 300+ Electives"
+              },
+              {
+                "text": "Criminal Justice Major Field Test"
+              },
+              {
+                "credits": 7,
+                "text": "Minor/General Electives"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/social-behavioral-sciences/criminal-justice/criminal-justice-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#64f34d488e0d6627."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence AL/2026-10-06-cl#64f34d488e0d6627) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#7446058a4e528e62."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -2790,81 +3563,144 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition Sequence | 3",
-              "Jax MIX Expression: Fine Arts | 3",
-              "Jax MIX Inquiry: Science Sequence | 4",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition Sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science Sequence"
+              },
               {
                 "code": "PSY 201",
                 "credits": 3,
                 "title": "Principles of Psychology (Jax MIX Experience )"
               },
-              "Minor | 3",
+              {
+                "credits": 3,
+                "text": "Minor"
+              },
               {
                 "code": "SSC 101",
                 "credits": 0,
                 "title": "First Year Experience"
-              },
-              "Hours | 16"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition Sequence | 3",
-              "Jax MIX Inquiry: Science Sequence | 4",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition Sequence"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science Sequence"
+              },
               {
                 "code": "MS 110",
                 "credits": 3,
                 "title": "Finite Mathematics (or higher- Jax MIX Communication)"
               },
-              "Jax MIX Experience: Social/Behavioral Science | 3",
-              "Minor | 3",
-              "Hours | 16",
-              "Sophomore"
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
+              {
+                "credits": 3,
+                "text": "Minor"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "15",
             "items": [
-              "Jax MIX Expression: Literature | 3",
-              "Jax MIX Experience: History Sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History Sequence"
+              },
               {
                 "code": "EM 301",
                 "credits": 3,
                 "title": "Introduction to Disaster Management"
               },
-              "Minor | 3",
-              "Elective | 3",
-              "Hours | 15"
+              {
+                "credits": 3,
+                "text": "Minor"
+              },
+              {
+                "credits": 3,
+                "text": "Elective"
+              }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
+            "credit_hours": "15",
             "items": [
-              "Jax MIX Expression: Literature | 3",
-              "Jax MIX Experience: History Sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History Sequence"
+              },
               {
                 "code": "EM 321",
                 "credits": 3,
                 "title": "Disaster Mitigation & Preparedness"
               },
-              "EM 300+ Elective | 3",
-              "Minor | 3",
-              "Hours | 15",
-              "Junior"
+              {
+                "credits": 3,
+                "text": "EM 300+ Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Minor"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
           },
           {
+            "items": [],
+            "label": "Junior",
+            "term_index": 7
+          },
+          {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "EM 331",
@@ -2876,42 +3712,76 @@
                 "credits": 3,
                 "title": "Disaster Response & Recovery"
               },
-              "Pre-professional/Elective 1 | 3",
-              "Minor | 3",
-              "Elective | 3",
-              "Hours | 15"
+              {
+                "credits": 3,
+                "text": "Pre-professional/Elective 1"
+              },
+              {
+                "credits": 3,
+                "text": "Minor"
+              },
+              {
+                "credits": 3,
+                "text": "Elective"
+              }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "EH 141",
                 "credits": 3,
                 "title": "Speech (Jax MIX Communication)"
               },
-              "Pre-professional/Elective 1 | 3",
-              "EM 300+ Elective | 3",
-              "Minor | 3",
-              "Minor/Elective | 3",
-              "Hours | 15",
-              "Senior"
+              {
+                "credits": 3,
+                "text": "Pre-professional/Elective 1"
+              },
+              {
+                "credits": 3,
+                "text": "EM 300+ Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Minor"
+              },
+              {
+                "credits": 3,
+                "text": "Minor/Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
           },
           {
+            "items": [],
+            "label": "Senior",
+            "term_index": 10
+          },
+          {
+            "credit_hours": "16",
             "items": [
-              "EM 300+ Elective | 6",
-              "Pre-professional/Electives 1 | 7",
-              "Elective | 3",
-              "Hours | 16"
+              {
+                "credits": 6,
+                "text": "EM 300+ Elective"
+              },
+              {
+                "credits": 7,
+                "text": "Pre-professional/Electives 1"
+              },
+              {
+                "credits": 3,
+                "text": "Elective"
+              }
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 11
           },
           {
+            "credit_hours": "12",
             "items": [
               {
                 "code": "EM 471",
@@ -2923,18 +3793,19 @@
                 "credits": 3,
                 "title": "Research in Disasters and Emergency Management (WI)"
               },
-              "Pre-professional/Electives 1 | 6",
-              "Hours | 12",
-              "Total Hours | 120"
+              {
+                "credits": 6,
+                "text": "Pre-professional/Electives 1"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/social-behavioral-sciences/emergency-management-public-administration/emergency-management-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#4334b4fe8b62c1d6."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence AL/2026-10-06-cl#4334b4fe8b62c1d6) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#58628089d85e3533."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -2993,39 +3864,73 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "12",
             "items": [
-              "Jax MIX Communication: EH Composition Sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition Sequence"
+              },
               {
                 "code": "EH 141",
                 "credits": 3,
                 "title": "Speech (Jax MIX Communication)"
               },
-              "Jax MIX Experience: History Sequence | 3",
-              "PSY 201or PSY 202 | Principles of Psychologyor Honors Principles of Psychology | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History Sequence"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "PSY 201",
+                    "title": "Principles of Psychology"
+                  },
+                  {
+                    "code": "PSY 202",
+                    "title": "Honors Principles of Psychology"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "SSC 101",
                 "credits": 0,
                 "title": "First Year Experience"
-              },
-              "Hours | 12"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition Sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition Sequence"
+              },
               {
                 "code": "MS 110",
                 "credits": 3,
                 "title": "Finite Mathematics (or higher excluding MS 204 - Jax MIX Communication)"
               },
-              "Jax MIX Experience: History Sequence | 3",
-              "Jax MIX Experience: Social/Behavioral Science | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History Sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
               {
                 "code": "PSY 220",
                 "credits": 3,
@@ -3035,18 +3940,31 @@
                 "code": "PSY 221",
                 "credits": 1,
                 "title": "Behavior Analysis Lab"
-              },
-              "Hours | 16",
-              "Sophomore"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Expression: Literature | 3",
-              "Jax MIX Experience: Social/Behavioral Science | 3",
-              "Jax MIX Inquiry: Science | 4",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
               {
                 "code": "CS 201",
                 "credits": 3,
@@ -3056,82 +3974,124 @@
                 "code": "MS 204",
                 "credits": 3,
                 "title": "Basic Statistics"
-              },
-              "Hours | 16"
+              }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Expression: Fine Arts | 3",
-              "Jax MIX Expression: Literature | 3",
-              "Jax MIX Inquiry: Science | 4",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
               {
                 "code": "PSY 320",
                 "credits": 3,
                 "title": "Psychological Research Methods I"
               },
-              "Minor/Electives | 3",
-              "Hours | 16",
-              "Junior"
+              {
+                "credits": 3,
+                "text": "Minor/Electives"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
           },
           {
+            "items": [],
+            "label": "Junior",
+            "term_index": 7
+          },
+          {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "PSY 321",
                 "credits": 3,
                 "title": "Psychological Research Methods II (WI)"
               },
-              "Psychology Electives 300+ | 6",
-              "Minor/Electives | 6",
-              "Hours | 15"
+              {
+                "credits": 6,
+                "text": "Psychology Electives 300+"
+              },
+              {
+                "credits": 6,
+                "text": "Minor/Electives"
+              }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
+            "credit_hours": "15",
             "items": [
-              "Psychology Electives 300+ | 6",
-              "Minor/Electives | 9",
-              "Hours | 15",
-              "Senior"
+              {
+                "credits": 6,
+                "text": "Psychology Electives 300+"
+              },
+              {
+                "credits": 9,
+                "text": "Minor/Electives"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
           },
           {
+            "items": [],
+            "label": "Senior",
+            "term_index": 10
+          },
+          {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "PSY 450",
                 "credits": 3,
                 "title": "History and Systems of Psychology (WI)"
               },
-              "Psychology Electives 300+ | 6",
-              "Minor/Electives | 6",
-              "Hours | 15"
+              {
+                "credits": 6,
+                "text": "Psychology Electives 300+"
+              },
+              {
+                "credits": 6,
+                "text": "Minor/Electives"
+              }
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 11
           },
           {
+            "credit_hours": "15",
             "items": [
-              "Psychology Electives 300+ | 6",
-              "Minor/Electives | 9",
-              "Hours | 15",
-              "Total Hours | 120"
+              {
+                "credits": 6,
+                "text": "Psychology Electives 300+"
+              },
+              {
+                "credits": 9,
+                "text": "Minor/Electives"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/social-behavioral-sciences/psychology/psychology-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#1da4a80a725fafe8."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence AL/2026-10-06-cl#1da4a80a725fafe8) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#a798cf52d170f572."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -3142,73 +4102,114 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "13",
             "items": [
-              "Jax MIX Communication: EH Composition Sequence | 3",
-              "Jax MIX Expression: Fine Arts | 3",
-              "Jax MIX Experience: History Sequence | 3",
-              "Jax MIX Inquiry: Biology with lab | 4",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition Sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History Sequence"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Biology with lab"
+              },
               {
                 "code": "SSC 101",
                 "credits": 0,
                 "title": "First Year Experience"
-              },
-              "Hours | 13"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition Sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition Sequence"
+              },
               {
                 "code": "EH 141",
                 "credits": 3,
                 "title": "Speech (Jax MIX Communication)"
               },
-              "Jax MIX Experience: History | 3",
-              "Jax MIX Inquiry: Science | 4",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
               {
                 "code": "PSY 201",
                 "credits": 3,
                 "title": "Principles of Psychology (Jax MIX Experience)"
-              },
-              "Hours | 16",
-              "Sophomore"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "MS 110",
                 "credits": 3,
                 "title": "Finite Mathematics (or higher excluding MS 204 - Jax MIX Communication)"
               },
-              "Jax MIX Expression: Literature | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
               {
                 "code": "CS 201",
                 "credits": 3,
                 "title": "Introduction to Information Technology"
               },
-              "Select one Pre-Professional Course 1 | 3",
+              {
+                "credits": 3,
+                "text": "Select one Pre-Professional Course 1"
+              },
               {
                 "code": "SW 230",
                 "credits": 3,
                 "title": "Introduction to Social Work"
-              },
-              "Hours | 15"
+              }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Expression | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression"
+              },
               {
                 "code": "SY 221",
                 "credits": 3,
@@ -3224,24 +4225,40 @@
                 "credits": 3,
                 "title": "Cultural Diversity and Social Justice"
               },
-              "General Electives | 4",
-              "Hours | 16",
-              "Junior"
+              {
+                "credits": 4,
+                "text": "General Electives"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
           },
           {
+            "items": [],
+            "label": "Junior",
+            "term_index": 7
+          },
+          {
+            "credit_hours": "15",
             "items": [
-              "Select two (2) Pre-Professional courses 1 | 6",
-              "Social Work Electives | 3",
-              "General Electives | 6",
-              "Hours | 15"
+              {
+                "credits": 6,
+                "text": "Select two (2) Pre-Professional courses 1"
+              },
+              {
+                "credits": 3,
+                "text": "Social Work Electives"
+              },
+              {
+                "credits": 6,
+                "text": "General Electives"
+              }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "SW 350",
@@ -3258,14 +4275,21 @@
                 "credits": 3,
                 "title": "Social Work Practice I"
               },
-              "Social Work Electives | 6",
-              "Hours | 15",
-              "Senior"
+              {
+                "credits": 6,
+                "text": "Social Work Electives"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
           },
           {
+            "items": [],
+            "label": "Senior",
+            "term_index": 10
+          },
+          {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "SW 332",
@@ -3282,13 +4306,16 @@
                 "credits": 3,
                 "title": "Social Work Practice II"
               },
-              "Social Work Electives | 6",
-              "Hours | 15"
+              {
+                "credits": 6,
+                "text": "Social Work Electives"
+              }
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 11
           },
           {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "SW 448",
@@ -3304,18 +4331,16 @@
                 "code": "SW 450",
                 "credits": 3,
                 "title": "Internship Seminar"
-              },
-              "Hours | 15",
-              "Total Hours | 120"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/social-behavioral-sciences/social-work/social-work-bsw/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#60fbde61717b8022."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence AL/2026-10-06-cl#60fbde61717b8022) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#45fcd9852ceedd56."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -3436,19 +4461,35 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "15",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
               {
                 "code": "MS 110",
                 "credits": 3,
                 "title": "Finite Mathematics (or higher - Jax MIX Communication)"
               },
-              "Jax MIX Expression: Fine Arts | 3",
-              "Jax MIX Experience: History sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History sequence"
+              },
               {
                 "code": "PSC 100",
                 "credits": 3,
@@ -3458,118 +4499,197 @@
                 "code": "SSC 101",
                 "credits": 0,
                 "title": "First Year Experience"
-              },
-              "Hours | 15"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
+            "credit_hours": "15",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
               {
                 "code": "EH 141",
                 "credits": 3,
                 "title": "Speech (Jax MIX Communication)"
               },
-              "Jax MIX Experience: History sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History sequence"
+              },
               {
                 "code": "PSC 102",
                 "credits": 3,
                 "title": "Introduction to State and Local Government"
               },
-              "MS higher than 110 (MS 204 is recommended) | 3",
-              "Hours | 15",
-              "Sophomore"
+              {
+                "credits": 3,
+                "text": "MS higher than 110 (MS 204 is recommended)"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Expression: Literature | 3",
-              "Jax MIX Experience: Social/Behavioral Science | 3",
-              "Jax MIX Inquiry: Science sequence | 4",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science sequence"
+              },
               {
                 "code": "PA 210",
                 "credits": 3,
                 "title": "Introduction to Public Administration"
               },
-              "PSC 100+ Electives | 3",
-              "Hours | 16"
+              {
+                "credits": 3,
+                "text": "PSC 100+ Electives"
+              }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
+            "credit_hours": "14",
             "items": [
-              "Jax MIX Expression: Literature | 3",
-              "Jax MIX Experience: Social/Behavioral Science | 3",
-              "Jax MIX Inquiry: Science sequence | 4",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science sequence"
+              },
               {
                 "code": "PA 220",
                 "credits": 3,
                 "title": "Introduction to Public Policy"
               },
-              "General Elective | 1",
-              "Hours | 14",
-              "Junior"
+              {
+                "credits": 1,
+                "text": "General Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
           },
           {
+            "items": [],
+            "label": "Junior",
+            "term_index": 7
+          },
+          {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "CJ 101",
                 "credits": 3,
                 "title": "Introduction to Criminal Justice"
               },
-              "PSC American Government Electives | 3",
-              "PSC Global Studies Electives | 3",
-              "PSC Theory and Methodology Electives | 3",
-              "Minor/General Electives | 3",
-              "Hours | 15"
+              {
+                "credits": 3,
+                "text": "PSC American Government Electives"
+              },
+              {
+                "credits": 3,
+                "text": "PSC Global Studies Electives"
+              },
+              {
+                "credits": 3,
+                "text": "PSC Theory and Methodology Electives"
+              },
+              {
+                "credits": 3,
+                "text": "Minor/General Electives"
+              }
             ],
             "label": "Fall",
-            "term_index": 5
-          },
-          {
-            "items": [
-              "PSC Theory and Methodology Electives | 3",
-              "PSC 200+ Electives | 3",
-              "Minor/General Electives | 9",
-              "Hours | 15",
-              "Senior"
-            ],
-            "label": "Spring",
-            "term_index": 6
-          },
-          {
-            "items": [
-              "PSC American Government Electives | 3",
-              "PSC Global Studies Electives | 3",
-              "Minor/General Electives 300+ | 9",
-              "Hours | 15"
-            ],
-            "label": "Fall",
-            "term_index": 7
-          },
-          {
-            "items": [
-              "PSC 300+ Electives | 6",
-              "Minor/General Electives 300+ | 9",
-              "Hours | 15",
-              "Total Hours | 120"
-            ],
-            "label": "Spring",
             "term_index": 8
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "credits": 3,
+                "text": "PSC Theory and Methodology Electives"
+              },
+              {
+                "credits": 3,
+                "text": "PSC 200+ Electives"
+              },
+              {
+                "credits": 9,
+                "text": "Minor/General Electives"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Senior",
+            "term_index": 10
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "credits": 3,
+                "text": "PSC American Government Electives"
+              },
+              {
+                "credits": 3,
+                "text": "PSC Global Studies Electives"
+              },
+              {
+                "credits": 9,
+                "text": "Minor/General Electives 300+"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "credits": 6,
+                "text": "PSC 300+ Electives"
+              },
+              {
+                "credits": 9,
+                "text": "Minor/General Electives 300+"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/social-behavioral-sciences/sociology-political-science/political-science-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#0135a2c2a5dc6832."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence AL/2026-10-06-cl#0135a2c2a5dc6832) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#063495695e10ab07."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -3623,76 +4743,170 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
-              "MS 112or MS 113or MS 125 | Precalculus Algebra (Jax MIX Communication)or Precalculus Trigonometryor Calculus I | 3",
-              "Jax MIX Experience: History sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "MS 112",
+                    "title": "Precalculus Algebra (Jax MIX Communication)"
+                  },
+                  {
+                    "code": "MS 113",
+                    "title": "Precalculus Trigonometry"
+                  },
+                  {
+                    "code": "MS 125",
+                    "title": "Calculus I"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History sequence"
+              },
               {
                 "code": "EC 221",
                 "credits": 3,
                 "title": "Principles of Microeconomics (Jax MIX Experience)"
               },
-              "AE 201or CS 201 | Microcomputers: Applications and Techniquesor Introduction to Information Technology | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "AE 201",
+                    "title": "Microcomputers: Applications and Techniques"
+                  },
+                  {
+                    "code": "CS 201",
+                    "title": "Introduction to Information Technology"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "SSC 101",
                 "credits": 0,
                 "title": "First Year Experience"
               },
-              "General Elective | 1",
-              "Hours | 16"
+              {
+                "credits": 1,
+                "text": "General Elective"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
-          },
-          {
-            "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
-              "Jax MIX Experience: History sequence | 3",
-              "AE 207or AE 211 | Electrical, Fluid Power, and Mechanical Systemsor AC/DC Circuits | 3",
-              "General Electives | 6",
-              "Hours | 15",
-              "Sophomore"
-            ],
-            "label": "Spring",
             "term_index": 2
           },
           {
+            "credit_hours": "15",
             "items": [
-              "Jax MIX Expression: Fine Arts | 3",
-              "Jax MIX Expression: Literature | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History sequence"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "AE 207",
+                    "title": "Electrical, Fluid Power, and Mechanical Systems"
+                  },
+                  {
+                    "code": "AE 211",
+                    "title": "AC/DC Circuits"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 6,
+                "text": "General Electives"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "16",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
               {
                 "code": "EH 141",
                 "credits": 3,
                 "title": "Speech (Jax MIX Communication)"
               },
-              "Jax MIX Inquiry: Science 2 | 4",
-              "General Electives | 3",
-              "Hours | 16"
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science 2"
+              },
+              {
+                "credits": 3,
+                "text": "General Electives"
+              }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
+            "credit_hours": "13",
             "items": [
-              "Jax MIX Expression: Literature | 3",
-              "Jax MIX Inquiry: Science 2 | 4",
-              "Jax MIX Experience: Social/Behavioral Science 1 | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science 2"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science 1"
+              },
               {
                 "code": "AE 380",
                 "credits": 3,
                 "title": "Industrial Safety and Health"
-              },
-              "Hours | 13",
-              "Junior"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
           },
           {
+            "items": [],
+            "label": "Junior",
+            "term_index": 7
+          },
+          {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "AE 305",
@@ -3709,30 +4923,76 @@
                 "credits": 3,
                 "title": "Statistical Analysis for Quality Control"
               },
-              "Applied Engineering 300+ Electives 3 | 6",
-              "Hours | 15"
+              {
+                "credits": 6,
+                "text": "Applied Engineering 300+ Electives 3"
+              }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
+            "credit_hours": "16",
             "items": [
-              "EH 322or CBA 350 | Technical Writing (WI)or Business Communications (WI) | 3",
-              "AE 342or MGT 385 | Employer-Employee Relationsor Human Resource Management (WI) | 3",
-              "AE 343or MGT 301 | Engineering and Technology Managementor Principles of Management | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "EH 322",
+                    "title": "Technical Writing (WI)"
+                  },
+                  {
+                    "code": "CBA 350",
+                    "title": "Business Communications (WI)"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "AE 342",
+                    "title": "Employer-Employee Relations"
+                  },
+                  {
+                    "code": "MGT 385",
+                    "title": "Human Resource Management (WI)"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "AE 343",
+                    "title": "Engineering and Technology Management"
+                  },
+                  {
+                    "code": "MGT 301",
+                    "title": "Principles of Management"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "AE 405",
                 "credits": 3,
                 "title": "Industrial Leadership"
               },
-              "Applied Engineering 300+ Electives 3 | 4",
-              "Hours | 16",
-              "Senior"
+              {
+                "credits": 4,
+                "text": "Applied Engineering 300+ Electives 3"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
           },
           {
+            "items": [],
+            "label": "Senior",
+            "term_index": 10
+          },
+          {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "AE 407",
@@ -3744,14 +5004,20 @@
                 "credits": 3,
                 "title": "Project Management"
               },
-              "Applied Engineering 300+ Electives 3 | 3",
-              "Directed Electives 4 | 6",
-              "Hours | 15"
+              {
+                "credits": 3,
+                "text": "Applied Engineering 300+ Electives 3"
+              },
+              {
+                "credits": 6,
+                "text": "Directed Electives 4"
+              }
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 11
           },
           {
+            "credit_hours": "14",
             "items": [
               {
                 "code": "AE 442",
@@ -3763,18 +5029,19 @@
                 "credits": 3,
                 "title": "Industrial Leadership Seminar (WI)"
               },
-              "Applied Engineering Electives 3 | 8",
-              "Hours | 14",
-              "Total Hours | 120"
+              {
+                "credits": 8,
+                "text": "Applied Engineering Electives 3"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/business-industry/applied-engineering/industrial-leadership-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-08: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#40b095cad6256473."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence AL/2026-10-06-cl#40b095cad6256473) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#fdbf1425638bec80."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -3785,18 +5052,31 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
               {
                 "code": "MS 125",
                 "credits": 4,
                 "title": "Calculus I (Jax MIX Communication)"
               },
-              "Jax MIX Experience: History sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History sequence"
+              },
               {
                 "code": "CS 201",
                 "credits": 3,
@@ -3811,36 +5091,52 @@
                 "code": "SSC 101",
                 "credits": 0,
                 "title": "First Year Experience"
-              },
-              "Hours | 16"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
+            "credit_hours": "15",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
               {
                 "code": "EH 141",
                 "credits": 3,
                 "title": "Speech (Jax MIX Communication)"
               },
-              "Jax MIX Experience: History sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History sequence"
+              },
               {
                 "code": "AE 211",
                 "credits": 3,
                 "title": "AC/DC Circuits"
               },
-              "General Electives | 3",
-              "Hours | 15",
-              "Sophomore"
+              {
+                "credits": 3,
+                "text": "General Electives"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "15",
             "items": [
-              "Jax MIX Expression: Fine Arts | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
               {
                 "code": "PSY 201",
                 "credits": 3,
@@ -3856,36 +5152,73 @@
                 "credits": 3,
                 "title": "Fire Prevention and Protection"
               },
-              "General Electives | 3",
-              "Hours | 15"
+              {
+                "credits": 3,
+                "text": "General Electives"
+              }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Inquiry: Science 1 | 4",
-              "EH 322or CBA 350 | Technical Writing (WI)or Business Communications (WI) | 3",
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science 1"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "EH 322",
+                    "title": "Technical Writing (WI)"
+                  },
+                  {
+                    "code": "CBA 350",
+                    "title": "Business Communications (WI)"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "AE 307",
                 "credits": 3,
                 "title": "Industrial Training"
               },
-              "AE 343or MGT 301 | Engineering and Technology Managementor Principles of Management | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "AE 343",
+                    "title": "Engineering and Technology Management"
+                  },
+                  {
+                    "code": "MGT 301",
+                    "title": "Principles of Management"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "AE 384",
                 "credits": 3,
                 "title": "Construction Safety"
-              },
-              "Hours | 16",
-              "Junior"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
           },
           {
+            "items": [],
+            "label": "Junior",
+            "term_index": 7
+          },
+          {
+            "credit_hours": "17",
             "items": [
-              "Jax MIX Inquiry: Science 1 | 4",
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science 1"
+              },
               {
                 "code": "AE 372",
                 "credits": 3,
@@ -3906,21 +5239,39 @@
                 "credits": 3,
                 "title": "Industrial Safety Management"
               },
-              "General Electives | 3",
-              "Hours | 17"
+              {
+                "credits": 3,
+                "text": "General Electives"
+              }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
+            "credit_hours": "15",
             "items": [
-              "Jax MIX Expression: Literature | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
               {
                 "code": "EC 221",
                 "credits": 3,
                 "title": "Principles of Microeconomics (Jax MIX Experience)"
               },
-              "AE 342or MGT 385 | Employer-Employee Relationsor Human Resource Management (WI) | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "AE 342",
+                    "title": "Employer-Employee Relations"
+                  },
+                  {
+                    "code": "MGT 385",
+                    "title": "Human Resource Management (WI)"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "AE 344",
                 "credits": 3,
@@ -3930,16 +5281,23 @@
                 "code": "AE 486",
                 "credits": 3,
                 "title": "Safety Performance Management"
-              },
-              "Hours | 15",
-              "Senior"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
           },
           {
+            "items": [],
+            "label": "Senior",
+            "term_index": 10
+          },
+          {
+            "credit_hours": "15",
             "items": [
-              "Jax MIX Expression: Literature | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
               {
                 "code": "AE 388",
                 "credits": 3,
@@ -3955,13 +5313,16 @@
                 "credits": 3,
                 "title": "Environmental Law and Hazardous Materials"
               },
-              "General Electives | 3",
-              "Hours | 15"
+              {
+                "credits": 3,
+                "text": "General Electives"
+              }
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 11
           },
           {
+            "credit_hours": "11",
             "items": [
               {
                 "code": "AE 484",
@@ -3978,18 +5339,19 @@
                 "credits": 2,
                 "title": "Applied Engineering Senior Internship (WI)"
               },
-              "General Electives | 3",
-              "Hours | 11",
-              "Total Hours | 120"
+              {
+                "credits": 3,
+                "text": "General Electives"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/business-industry/applied-engineering/occupational-safety-health-management-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-08: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#d13a020e6d37fbef."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence AL/2026-10-06-cl#d13a020e6d37fbef) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#d14fbd519d21ce9d."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -4000,19 +5362,35 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 128 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition Sequence | 3",
-              "Jax MIX Inquiry: Science | 4",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition Sequence"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
               {
                 "code": "MS 112",
                 "credits": 3,
                 "title": "Precalculus Algebra (Jax MIX Communication)"
               },
-              "Jax MIX Experience | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience"
+              },
               {
                 "code": "AE 201",
                 "credits": 3,
@@ -4022,33 +5400,55 @@
                 "code": "SSC 101",
                 "credits": 0,
                 "title": "First Year Experience"
-              },
-              "Hours | 16"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition Sequence | 3",
-              "Jax MIX Expression: Literature | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition Sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
               {
                 "code": "EH 141",
                 "credits": 3,
                 "title": "Speech (Jax MIX Communication)"
               },
-              "Jax MIX Inquiry: Science | 4",
-              "Jax MIX Experience: History | 3",
-              "Hours | 16",
-              "Sophomore"
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "15",
             "items": [
-              "Jax MIX Expression: Fine Arts | 3",
-              "Jax MIX Experience: Social/Behavioral Science | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
               {
                 "code": "EC 221",
                 "credits": 3,
@@ -4063,16 +5463,22 @@
                 "code": "ST 260",
                 "credits": 3,
                 "title": "Statistics/Quantitative Methods I"
-              },
-              "Hours | 15"
+              }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
+            "credit_hours": "15",
             "items": [
-              "Jax MIX Expression (Literature if sequence) | 3",
-              "Jax MIX Experience (History if sequence) | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression (Literature if sequence)"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience (History if sequence)"
+              },
               {
                 "code": "ACC 210",
                 "credits": 3,
@@ -4087,14 +5493,18 @@
                 "code": "ST 261",
                 "credits": 3,
                 "title": "Statistics/Quantitative Methods II"
-              },
-              "Hours | 15",
-              "Junior"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
           },
           {
+            "items": [],
+            "label": "Junior",
+            "term_index": 7
+          },
+          {
+            "credit_hours": "18",
             "items": [
               {
                 "code": "CTE 350",
@@ -4121,13 +5531,16 @@
                 "credits": 3,
                 "title": "Survey of Exceptional Children and Youth"
               },
-              "Teaching Field Class 1 | 3",
-              "Hours | 18"
+              {
+                "credits": 3,
+                "text": "Teaching Field Class 1"
+              }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
+            "credit_hours": "18",
             "items": [
               {
                 "code": "CTE 362",
@@ -4139,29 +5552,45 @@
                 "credits": 3,
                 "title": "Content Literacy"
               },
-              "Teaching Field Class | 3",
-              "Teaching Field Class | 3",
-              "Teaching Field Class | 3",
-              "Teaching Field Class | 3",
-              "Hours | 18"
+              {
+                "credits": 3,
+                "text": "Teaching Field Class"
+              },
+              {
+                "credits": 3,
+                "text": "Teaching Field Class"
+              },
+              {
+                "credits": 3,
+                "text": "Teaching Field Class"
+              },
+              {
+                "credits": 3,
+                "text": "Teaching Field Class"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
           },
           {
+            "credit_hours": "3",
             "items": [
               {
                 "code": "ESE 444",
                 "credits": 3,
                 "title": "Assessment"
-              },
-              "Hours | 3",
-              "Senior"
+              }
             ],
             "label": "Summer",
-            "term_index": 7
+            "term_index": 10
           },
           {
+            "items": [],
+            "label": "Senior",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "CTE 460",
@@ -4173,15 +5602,24 @@
                 "credits": 3,
                 "title": "Effective Teaching of CTE"
               },
-              "Teaching Field Class | 3",
-              "Teaching Field Class | 3",
-              "Teaching Field Class | 3",
-              "Hours | 15"
+              {
+                "credits": 3,
+                "text": "Teaching Field Class"
+              },
+              {
+                "credits": 3,
+                "text": "Teaching Field Class"
+              },
+              {
+                "credits": 3,
+                "text": "Teaching Field Class"
+              }
             ],
             "label": "Fall",
-            "term_index": 8
+            "term_index": 12
           },
           {
+            "credit_hours": "12",
             "items": [
               {
                 "code": "CTE 475",
@@ -4197,18 +5635,16 @@
                 "code": "ED 496",
                 "credits": 3,
                 "title": "Reflective Practices in Education (WI)"
-              },
-              "Hours | 12",
-              "Total Hours | 128"
+              }
             ],
             "label": "Spring",
-            "term_index": 9
+            "term_index": 13
           }
         ]
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/education-professional-studies/career-technical-ed/business-marketing-ed-bse/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-08: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#f5ef23a23ea4b996."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence AL/2026-10-06-cl#f5ef23a23ea4b996) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#71d095484e6a9271."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -4219,19 +5655,35 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 122 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
-              "Jax MIX Inquiry: Science | 4",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
               {
                 "code": "MS 110",
                 "credits": 3,
                 "title": "Finite Mathematics (Jax MIX Communication)"
               },
-              "Jax MIX Experience: History 1 | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History 1"
+              },
               {
                 "code": "FCS 122",
                 "credits": 3,
@@ -4241,32 +5693,51 @@
                 "code": "SSC 101",
                 "credits": 0,
                 "title": "First Year Experience"
-              },
-              "Hours | 16"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
+            "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
-              "Jax MIX Expression: Fine Arts | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
               {
                 "code": "EH 141",
                 "credits": 3,
                 "title": "Speech (Jax MIX Communication)"
               },
-              "Jax MIX Inquiry: Science | 4",
-              "Jax MIX Experience: Social/Behavioral Science | 3",
-              "Hours | 16",
-              "Sophomore"
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "15",
             "items": [
-              "Jax MIX Expression: Literature 1 | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature 1"
+              },
               {
                 "code": "FCS 131",
                 "credits": 3,
@@ -4286,17 +5757,26 @@
                 "code": "FCS 232",
                 "credits": 3,
                 "title": "Textiles"
-              },
-              "Hours | 15"
+              }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
+            "credit_hours": "15",
             "items": [
-              "Jax MIX Expression 1 | 3",
-              "Jax MIX Experience 1 | 3",
-              "Jax MIX Experience: Social/Behavioral Science | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression 1"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience 1"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
               {
                 "code": "FCS 355",
                 "credits": 3,
@@ -4306,14 +5786,18 @@
                 "code": "FCS 371",
                 "credits": 3,
                 "title": "Management of Family Resources"
-              },
-              "Hours | 15",
-              "Junior"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
           },
           {
+            "items": [],
+            "label": "Junior",
+            "term_index": 7
+          },
+          {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "FCS 325",
@@ -4339,13 +5823,13 @@
                 "code": "SPE 300",
                 "credits": 3,
                 "title": "Survey of Exceptional Children and Youth"
-              },
-              "Hours | 15"
+              }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "FCS 352",
@@ -4376,26 +5860,30 @@
                 "code": "ESE 383",
                 "credits": 3,
                 "title": "Content Literacy"
-              },
-              "Hours | 15"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
           },
           {
+            "credit_hours": "3",
             "items": [
               {
                 "code": "ESE 444",
                 "credits": 3,
                 "title": "Assessment"
-              },
-              "Hours | 3",
-              "Senior"
+              }
             ],
             "label": "Summer",
-            "term_index": 7
+            "term_index": 10
           },
           {
+            "items": [],
+            "label": "Senior",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "CS 201",
@@ -4417,13 +5905,16 @@
                 "credits": 3,
                 "title": "Effective Teaching of CTE"
               },
-              "Elective | 3",
-              "Hours | 15"
+              {
+                "credits": 3,
+                "text": "Elective"
+              }
             ],
             "label": "Fall",
-            "term_index": 8
+            "term_index": 12
           },
           {
+            "credit_hours": "12",
             "items": [
               {
                 "code": "CTE 475",
@@ -4439,18 +5930,16 @@
                 "code": "ED 496",
                 "credits": 3,
                 "title": "Reflective Practices in Education (WI)"
-              },
-              "Hours | 12",
-              "Total Hours | 122"
+              }
             ],
             "label": "Spring",
-            "term_index": 9
+            "term_index": 13
           }
         ]
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/education-professional-studies/career-technical-ed/fcs-education-bse/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-08: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#eaa949798da3da83."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence AL/2026-10-06-cl#eaa949798da3da83) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#9cf62401a4f7bfb2."
     },
     {
       "last_verified_at": "2026-10-06",

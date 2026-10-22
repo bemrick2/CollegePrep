@@ -302,7 +302,7 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "major_elective",
-        "choose_count": 15,
+        "choose_credits": 15,
         "courses": [
           {
             "code": "BIOL 2406",
@@ -393,14 +393,14 @@
             "title": "Research"
           }
         ],
-        "group_type": "choose_courses",
+        "group_type": "choose_credits",
         "rule_text": "Select 15 hours from the courses below: 15",
         "schema": "requirement_group/v1",
         "source_section": "Bachelor of Science in Biology Degree Program Requirements — Major Electives"
       },
       "source_url": "https://catalog.pvamu.edu/academicprogramsanddegreeplans/coas/ncs/biology/undergrad/biology-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#d856766a34198ed8."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select 15 hours from the courses below: | 15\". Printed 'Select 15 hours from the courses below' is a credit-hour amount, not a course count; the re-extracted choose_credits group with choose_credits 15 has the same options as the page and no issues or verify problems. Replaces the record promoted earlier from this candidate: the stored group read the printed credit rule \"Select 15 hours from the courses below: 15\" as a number of courses (choose_count 15) (#229). Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#d856766a34198ed8."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -2861,8 +2861,9 @@
         "source_section": "Bachelor of Science in Chemical Engineering Degree Program Requirements — Chemistry Electives"
       },
       "source_url": "https://catalog.pvamu.edu/academicprogramsanddegreeplans/roygperrycollegeofengineering/chemicalengineering/undergrad/cheg/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#44a1f44d818ef7fd."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-07: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#44a1f44d818ef7fd. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "The catalog prints \"2-Hour Chemistry Lab Elective (select from the following): | 2\"; the verified group stores it as choose_count 2 (a number of courses), which the printed rule does not support (#229). Printed '2-Hour Chemistry Lab Elective (select from the following)' with 2 in the hours column is 2 credit hours, but it is stored as choose_count 2; the re-extraction repeats it. No exact replacement is available, so the group is no longer verified. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#44a1f44d818ef7fd."
     },
     {
       "last_verified_at": "2026-10-06",

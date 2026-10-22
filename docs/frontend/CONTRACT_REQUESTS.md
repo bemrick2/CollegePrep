@@ -28,8 +28,8 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-20 | Cost-of-attendance period (academic year vs 12 months) | ⏳ open | COA labelled "academic year"; summer and break living is the family's own number |
 | CR-21 | Question review metadata; serve only reviewed items | 🚧 migration `20261007140000` merged (#142), unapplied on hosted | Demo and local DB serve only items whose current content hash a review approved (`questionReview.ts`); live has no review fields |
 | CR-22 | Parent emails: weekly-summary opt-in, service-only digest and inactivity payloads, delivery log | ⏳ open (reference SQL in `scripts/local/proposals/cr22_parent_emails.sql`, local only) | Opt-in and email preview behind `VITE_WEEKLY_DIGEST`; sender `supabase/functions/send-weekly-digest` (not deployed) |
-| CR-23 | Fresh vs repeat vs progress-check questions on the server | ⏳ open | Demo holds check questions out of practice; live marks `seen_before` from attempts, and checks and trends exclude repeats client-side |
-| CR-24 | Rights gate: a published question needs an allowed license (+ attribution when required) | ⏳ open | Nothing enforced; editorial workflow stage 3 (`docs/product/CONTENT_PLAN.md`) |
+| CR-23 | Reserved assessment pool; fresh vs repeat on the server | ⏳ Research writing the migration (#218) | Client implements the full rule: a fixed reserved pool (question `pool` when served, else a fixed client assignment) never used in practice; checks use only it, unseen first; demo refuses cross-pool attempts |
+| CR-24 | Rights gate: a published question needs an allowed license (+ attribution when required) | 🚧 migration `20261022030000`, unapplied on hosted | Enforced by checks on `practice_questions`; generated items need a `human:` review to be served |
 | CR-25 | "Report a problem" on a question | ⏳ open | No UI; nothing stored |
 | CR-26 | Setup on the account: test choice, test date, study days, 5–30 min sessions, practice-test score source, setup completion, benchmark schedule | ⏳ open (reference SQL in `scripts/local/proposals/cr26_account_setup.sql`, local only) | Behind `VITE_ACCOUNT_SETUP`; without it, answers stay in this browser and sessions are 5–15 min |
 | CR-27 | Practice reminders: settings, device permission, deliveries, snooze, guardian notice when a linked student turns them off | ⏳ open (reference SQL in `scripts/local/proposals/cr27_practice_reminders.sql`, local only) | Behind `VITE_PRACTICE_REMINDERS`; push sender, action endpoint and notice email built and tested locally, not deployed |
@@ -334,21 +334,35 @@ In the app and the local database, an item is served only if a review approved i
 - a week's summary is sent once only;
 - a failed send is retried, and an inactivity alert is sent once per stretch.
 
-## CR-23. Fresh questions, repeats and progress-check questions
+## CR-23. Reserved assessment pool, fresh questions and repeats
 
-**Rule, as the app applies it now** (`web/src/lib/engine/freshness.ts`):
-- **Fresh:** a question the student has never been shown.
-- **Held for the next check:** in each section, the next mini check's worth of fresh questions is kept out of practice, mid-difficulty first. ACT holds English 3, Math 4, Reading 3, Science 3; SAT holds 4 and 4.
-- **Repeats:** allowed in practice as review, and counted toward the weekly goal. They are never evidence of improvement:
-  - the weekly trend uses first answers only;
-  - a progress-check section with any repeated question gets no verdict ("not a clean comparison").
+**Agreed contract (#218, Research is writing the migration):**
+- `practice_questions.pool`: `practice` (default) or `assessment`.
+- **Practice never uses assessment items:** `recommend_practice_set` and `start_practice_session` exclude them, and `start_practice_attempt` with a session (or with neither a session nor a benchmark) refuses one.
+- **Checks use assessment items only:** `start_practice_attempt` with a benchmark refuses a practice item.
+- `seen_before` per session item.
 
-**Need (server):**
-1. **`start_practice_session` and `recommend_practice_set`:** exclude the held set unless nothing else is left, and return `seen_before` per item. Today the client marks it with one extra query.
-2. **`complete_benchmark` metrics:** per section, `repeats`, meaning attempts whose question the student had been shown before the benchmark started. That lets the stored history say whether a comparison is clean without client reconstruction.
-3. **`student_skill_estimates`:** add `first_answers` and `first_answer_accuracy` beside the existing totals, so any accuracy shown as progress can use first answers. The existing totals can keep driving targeting.
+**When the pool is too small for a check (the app's rule, `web/src/lib/engine/freshness.ts` `checkPlan`):**
+1. Unseen reserved items first.
+2. Then reserved repeats. A section with any repeat gets no verdict ("not a clean comparison").
+3. A section with fewer reserved items than the check asks for is shortened, and says so before it starts.
+4. A section with no reserved items is not measured.
+5. Practice items never fill a check, and the reserve never shrinks to give practice more.
 
-**Why.** The bank is small (CR-21, #19). Without this, practice consumes the questions progress checks need, and recall of repeated items reads as improvement.
+**Client today:**
+- `reservedIds` uses each question's `pool` once the source serves it (no source does yet). Otherwise it assigns a reserve, `RESERVED_PER_SECTION` per section (default ACT 3/4/3/3, SAT 4/4), mid-difficulty first, then by id. Seeing an item never releases it to practice. The assignment is fixed only for a fixed bank: publishing or retiring a question can move it, which is one reason the server column is needed.
+- Demo: sessions exclude the reserve. `startAttempt` refuses a reserved item outside a check and a practice item inside one.
+- Live: `startSession` drops reserved items from the server's pick and refills only from practice items.
+- Until the migration merges, the live server can't refuse a cross-pool attempt.
+
+**Still asked of the server, as before:**
+- `complete_benchmark` metrics: `repeats` per section.
+- `student_skill_estimates`: `first_answers` and `first_answer_accuracy`.
+
+**Merge order, once the column exists (important):**
+1. The migration must seed the reserve (`pool = 'assessment'`) before or with server enforcement. Once any question carries a mark, the client treats unmarked questions as practice, so an unseeded column would empty the reserve.
+2. The client must read `pool` (add it to `QUESTION_COLUMNS`; `toPublic` passes it through) in the same release that turns on server refusal. Otherwise checks would send the client's own reserve, and the server would refuse those attempts.
+3. Seed the demo fixtures' reserve into the column the same way.
 
 ## CR-24. Rights gate on published questions
 
@@ -362,6 +376,11 @@ Needed by the human editorial workflow in `docs/product/CONTENT_PLAN.md` §5 (st
 - Rights are a separate gate, and nothing enforces them yet.
 
 **Client:** nothing to change; the demo's fixtures will carry the same fields.
+
+**Built (`20261022030000_question_rights_gate`):**
+- `status = 'published'` requires `license` in `original-owned`, `public-domain`, `us-federal-pd`, `cc-by-4.0`, `cc-by-sa-4.0` or `licensed:<vendor>` (lowercase letters, digits, hyphens); `source_attribution` non-empty for `cc-by-*` and `licensed:*`; and `origin` recorded (`authored`, `generated`, `licensed`). A row that fails (including a missing license) is refused, never silently unpublished.
+- **Question-bank import rule.** The import contract is that items arrive as `draft` with an honest `origin`; the database can't detect drafting, so it relies on the importer's label and on the approver's `human:` attestation (the editorial ledger names the reviewers). Given those, a `generated` item is `review_current` only when its approval's `review_method` starts `human:` (the editorial ledger, stages 3–8); `approve_practice_question` refuses any other approval of it, and `origin` can't be changed away from `generated`. Generation or automated checks alone never make an item approved or servable; a check constraint keeps that true even if triggers are skipped.
+- Local fixtures: the demo bank is seeded as `generated` with `fixture:` approvals, which count only in a database whose owner set `collegeprep.fixture_approvals = 'on'` (`scripts/local/live_stack.sh`; never hosted).
 
 ## CR-25. Report a problem with a question
 

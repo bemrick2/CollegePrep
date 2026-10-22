@@ -78,11 +78,11 @@ export function PracticeSession() {
       <div className="mx-auto max-w-xl p-6">
         <EmptyState
           icon={<Book size={32} />}
-          title="Your new questions are saved for your next progress check"
+          title="The questions left are set aside for progress checks"
           action={<ButtonLink to="/student/benchmark">Go to progress checks</ButtonLink>}
         >
-          The questions you haven't seen yet are kept for the next check, so it measures real progress instead of questions you already know. There's nothing
-          else to practise right now. Take the check, or come back when more questions are added.
+          Progress checks use their own questions, which never appear in practice. There's nothing else to practise right now. Take a check when one is
+          due, or come back when more questions are added.
         </EmptyState>
       </div>
     )
