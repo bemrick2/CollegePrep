@@ -206,7 +206,10 @@ def parse_grid(t):
     return terms, total
 
 
-CHOICE_HEADER = re.compile(r'^(?:select|choose)\s+(one|two|three|four|five|six|[1-9])\s+(?:(?:course|class)(?:e?s)?\s+)?(?:of|from)\s+the\s+following\s*:?$', re.I)
+# an optional printed label before the instruction ('Jax MIX Experience: select one of the following', JSU) and footnote
+# marks after it ('Select one of the following: 1', '... following: 2,3', Texas A&M, Temple) are kept in the item's text
+CHOICE_HEADER = re.compile(r'^(?:[A-Z][^:]{0,60}:\s*)?(?:select|choose)\s+(one|two|three|four|five|six|[1-9])\s+(?:(?:course|class)(?:e?s)?\s+)?'
+                           r'(?:of|from)\s+the\s+following\s*:?(?:\s*\d{1,2}(?:\s*,\s*\d{1,2})*)?$', re.I)
 COUNT_WORDS = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6}
 
 
