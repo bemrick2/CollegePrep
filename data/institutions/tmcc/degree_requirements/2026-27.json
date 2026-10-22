@@ -131,7 +131,7 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "major_elective",
-        "choose_count": 9,
+        "choose_credits": 9,
         "courses": [
           {
             "code": "ACC 222",
@@ -202,14 +202,14 @@
             "title": "Introduction to Human Resources Management"
           }
         ],
-        "group_type": "choose_courses",
+        "group_type": "choose_credits",
         "rule_text": "Choose a minimum of 9 units from the following electives. Students must have a total of 120 units to complete the BAS degree. Depending on courses taken in your associates degree, additional elective units may be required to satisfy the total units required. 9",
         "schema": "requirement_group/v1",
         "source_section": "Program Requirements — Electives"
       },
       "source_url": "https://catalog.tmcc.edu/degrees-certificates/applied-business-management-bas/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NV/2026-10-06-cat/evidence.json#8ca5294815e39fe6."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Choose a minimum of 9 units from the following electives. Students must have a total of 120 units to complete the BAS degree. Depending on courses taken in your associates degree, additional elective \". Printed 'Choose a minimum of 9 units from the following electives. Students must have a total of 120 units to...' is a unit (credit) amount, not a course count; the re-extracted choose_credits group with choose_credits 9 has the same options as the page and no issues or verify problems. Replaces the record promoted earlier from this candidate: the stored group read the printed credit rule \"Choose a minimum of 9 units from the following electives. Students must have a total of 120 units to complete the BAS de\" as a number of courses (choose_count 9) (#229). Evidence: sources/programs/NV/2026-10-06-cat/evidence.json#8ca5294815e39fe6."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -220,12 +220,222 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Units 150 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "credit_hours": "15",
             "items": [
-              "1st semester",
+              {
+                "code": "AAD 100",
+                "credits": 3,
+                "title": "Introduction to Architectural Design"
+              },
+              {
+                "code": "AAE 180",
+                "credits": 6,
+                "title": "Introduction to Design Principles"
+              },
+              "ENG 101or ENG 100or ENG 113 | Composition I 1or Composition Enhancedor Composition I for International and Multilingual Students | 3",
+              {
+                "code": "MATH 124",
+                "credits": 3,
+                "title": "College Algebra"
+              }
+            ],
+            "label": "1st semester",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "code": "AAE 280",
+                "credits": 6,
+                "title": "Design Foundations II"
+              },
+              {
+                "code": "AAD 201",
+                "credits": 3,
+                "title": "History of the Built Environment"
+              },
+              {
+                "code": "AAD 223",
+                "credits": 3,
+                "title": "Graphic Software for Arch, Const, Dsgnr, Planners"
+              },
+              {
+                "credits": 3,
+                "text": "US & Nevada Constitutions"
+              }
+            ],
+            "label": "2nd semester",
+            "term_index": 2
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "code": "AAE 282",
+                "credits": 6,
+                "title": "Design Foundations III"
+              },
+              {
+                "code": "AAD 268",
+                "credits": 3,
+                "title": "3-D Presentation Graphics"
+              },
+              "ENG 102or ENG 114 | Composition IIor Composition II For International and Multilingual Students | 3",
+              {
+                "code": "PHYS 100",
+                "credits": 3,
+                "title": "Introductory Physics"
+              }
+            ],
+            "label": "3rd semester",
+            "term_index": 3
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "code": "AAE 283",
+                "credits": 6,
+                "title": "Design Foundation IV"
+              },
+              {
+                "code": "AAD 232",
+                "credits": 3,
+                "title": "Bioclimatic Design"
+              },
+              {
+                "code": "AAD 203",
+                "credits": 3,
+                "title": "History, Theory, and Culture - Architecture of the 20th and 21st Century"
+              },
+              {
+                "credits": 3,
+                "text": "Fine Arts"
+              }
+            ],
+            "label": "4th semester",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "code": "AAD 350",
+                "credits": 6,
+                "title": "Design Studio I"
+              },
+              {
+                "code": "ABS 321",
+                "credits": 3,
+                "title": "Construction Technologies I"
+              },
+              {
+                "code": "ABS 331",
+                "credits": 3,
+                "title": "Environmental Control Systems I"
+              },
+              {
+                "code": "ABS 341",
+                "credits": 3,
+                "title": "Structures for Architects I"
+              }
+            ],
+            "label": "5th semester",
+            "term_index": 5
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "code": "AAD 351",
+                "credits": 6,
+                "title": "Design Studio II"
+              },
+              {
+                "code": "ABS 323",
+                "credits": 3,
+                "title": "Advanced Construction Technologies"
+              },
+              {
+                "code": "ABS 332",
+                "credits": 3,
+                "title": "Environmental Control Systems II"
+              },
+              {
+                "code": "AAD 325",
+                "credits": 3,
+                "title": "Construction Documentation"
+              }
+            ],
+            "label": "6th semester",
+            "term_index": 6
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "code": "AAD 452",
+                "credits": 6,
+                "title": "Integrated Design Studio I"
+              },
+              {
+                "code": "AAD 461",
+                "credits": 3,
+                "title": "Urban Theory and Design I"
+              },
+              {
+                "code": "AAD 410",
+                "credits": 3,
+                "title": "Professional Practice for B. Arch. I"
+              },
+              {
+                "credits": 3,
+                "text": "Science 2"
+              }
+            ],
+            "label": "7th semester",
+            "term_index": 7
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "code": "AAD 453",
+                "credits": 6,
+                "title": "Integrated Design Studio II"
+              },
+              {
+                "code": "AAD 462",
+                "credits": 3,
+                "title": "Urban Theory and Design II"
+              },
+              {
+                "code": "AAD 413",
+                "credits": 3,
+                "title": "Professional Practice For B. Arch. II"
+              },
+              {
+                "credits": 3,
+                "text": "Electives: Choose electives that apply toward your bachelor's degree."
+              }
+            ],
+            "label": "8th semester",
+            "term_index": 8
+          },
+          {
+            "items": [],
+            "label": "Fifth Year",
+            "term_index": 9
+          },
+          {
+            "credit_hours": "15",
+            "items": [
               {
                 "code": "AAD 455",
                 "credits": 6,
@@ -236,9 +446,17 @@
                 "credits": 3,
                 "title": "Thesis (Research)"
               },
-              "Electives: Choose electives that apply toward your bachelor's degree. | 6",
-              "Semester Total | 15",
-              "2nd semester",
+              {
+                "credits": 6,
+                "text": "Electives: Choose electives that apply toward your bachelor's degree."
+              }
+            ],
+            "label": "1st semester",
+            "term_index": 10
+          },
+          {
+            "credit_hours": "15",
+            "items": [
               {
                 "code": "AAD 475",
                 "credits": 3,
@@ -249,18 +467,19 @@
                 "credits": 6,
                 "title": "Thesis Design Studio II"
               },
-              "Electives: Choose electives that apply toward your bachelor's degree. | 6",
-              "Semester Total | 15",
-              "Total Units | 150"
+              {
+                "credits": 6,
+                "text": "Electives: Choose electives that apply toward your bachelor's degree."
+              }
             ],
-            "label": "Fifth Year",
-            "term_index": 1
+            "label": "2nd semester",
+            "term_index": 11
           }
         ]
       },
       "source_url": "https://catalog.tmcc.edu/degrees-certificates/barch/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NV/2026-10-06-cat/evidence.json#7dd31fcab4d53da2."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NV/2026-10-06-cat#7dd31fcab4d53da2) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NV/2026-10-06-cat/evidence.json#54649cb44d2e5ce7."
     },
     {
       "last_verified_at": "2026-10-06",

@@ -109,34 +109,78 @@
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
-            "credit_hours": "5",
-            "items": [
-              "Fall I | Credits",
-              "PHYS 2101 | Mechanics | 5",
-              "Spring I",
-              "PHYS 2102 | Electromagnetic Phenomena | 5"
-            ],
+            "items": [],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "5",
+            "items": [
+              {
+                "code": "PHYS 2101",
+                "credits": 5,
+                "title": "Mechanics"
+              }
+            ],
+            "label": "Fall I",
+            "term_index": 2
+          },
+          {
+            "credit_hours": "5",
+            "items": [
+              {
+                "code": "PHYS 2102",
+                "credits": 5,
+                "title": "Electromagnetic Phenomena"
+              }
+            ],
+            "label": "Spring I",
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Second Year",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "6",
+            "items": [
+              {
+                "code": "PHYS 1000",
+                "credits": 1,
+                "title": "Thriving as a Physics Major"
+              },
+              {
+                "code": "PHYS 2103",
+                "credits": 5,
+                "title": "Relativity & Quantum Physics"
+              }
+            ],
+            "label": "Fall I",
+            "term_index": 5
+          },
+          {
             "credit_hours": "8",
             "items": [
-              "Fall I",
-              "PHYS 1000 | Thriving as a Physics Major | 1",
-              "PHYS 2103 | Relativity & Quantum Physics | 5",
-              "Spring I",
-              "PHYS 2104 | Modern Physics and its Exp Met | 4",
-              "PHYS 2105 | Math/Computational Methods | 4"
+              {
+                "code": "PHYS 2104",
+                "credits": 4,
+                "title": "Modern Physics and its Exp Met"
+              },
+              {
+                "code": "PHYS 2105",
+                "credits": 4,
+                "title": "Math/Computational Methods"
+              }
             ],
-            "label": "Second Year",
-            "term_index": 2
+            "label": "Spring I",
+            "term_index": 6
           }
         ]
       },
-      "source_url": "https://bulletin.georgetown.edu/programs/biological-physics-bs/index.html",
+      "source_url": "https://bulletin.georgetown.edu/programs/biological-physics-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/DC/2026-10-07-cat/evidence.json#39fe73601181e6d1."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence DC/2026-10-07-cat#39fe73601181e6d1) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/DC/2026-10-07-cat/evidence.json#52663d954450e31b."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -1123,10 +1167,18 @@
           {
             "credit_hours": "0",
             "items": [
-              "Introduction to Professional Nursing Practice",
-              "Human Biology I and II",
-              "Biochemistry and Human Functioning",
-              "Health Promotion and Disease Prevention"
+              {
+                "text": "Introduction to Professional Nursing Practice"
+              },
+              {
+                "text": "Human Biology I and II"
+              },
+              {
+                "text": "Biochemistry and Human Functioning"
+              },
+              {
+                "text": "Health Promotion and Disease Prevention"
+              }
             ],
             "label": "First Year",
             "term_index": 1
@@ -1134,13 +1186,27 @@
           {
             "credit_hours": "0",
             "items": [
-              "Health Assessment Across the Lifespan",
-              "Nutrition and Disease Prevention",
-              "Pathophysiology",
-              "Microbiology",
-              "Fundamentals of Nursing Practice",
-              "Human Growth and Development",
-              "Pharmacology"
+              {
+                "text": "Health Assessment Across the Lifespan"
+              },
+              {
+                "text": "Nutrition and Disease Prevention"
+              },
+              {
+                "text": "Pathophysiology"
+              },
+              {
+                "text": "Microbiology"
+              },
+              {
+                "text": "Fundamentals of Nursing Practice"
+              },
+              {
+                "text": "Human Growth and Development"
+              },
+              {
+                "text": "Pharmacology"
+              }
             ],
             "label": "Second Year",
             "term_index": 2
@@ -1148,14 +1214,30 @@
           {
             "credit_hours": "0",
             "items": [
-              "Introduction to Nursing Research for Evidence Based Practice",
-              "Integration Seminar",
-              "Statistics for Evidence Based Practice in Nursing",
-              "Acute Care of Adults",
-              "Reproductive Health Across the Lifespan",
-              "Pediatric Nursing",
-              "Behavioral Health Nursing Across the Lifespan",
-              "Health Care Delivery Systems and Policy"
+              {
+                "text": "Introduction to Nursing Research for Evidence Based Practice"
+              },
+              {
+                "text": "Integration Seminar"
+              },
+              {
+                "text": "Statistics for Evidence Based Practice in Nursing"
+              },
+              {
+                "text": "Acute Care of Adults"
+              },
+              {
+                "text": "Reproductive Health Across the Lifespan"
+              },
+              {
+                "text": "Pediatric Nursing"
+              },
+              {
+                "text": "Behavioral Health Nursing Across the Lifespan"
+              },
+              {
+                "text": "Health Care Delivery Systems and Policy"
+              }
             ],
             "label": "Third Year",
             "term_index": 3
@@ -1163,23 +1245,39 @@
           {
             "credit_hours": "0",
             "items": [
-              "Public Health Nursing",
-              "Complex Nursing Problems Across Care Continuum",
-              "Introduction to Health Care Ethics",
-              "Care of the Older Adult",
-              "Equity and Justice in Nursing",
-              "Transitions to Professional Practice",
-              "Senior Capstone Clinical",
-              "Scholarly Project in Nursing"
+              {
+                "text": "Public Health Nursing"
+              },
+              {
+                "text": "Complex Nursing Problems Across Care Continuum"
+              },
+              {
+                "text": "Introduction to Health Care Ethics"
+              },
+              {
+                "text": "Care of the Older Adult"
+              },
+              {
+                "text": "Equity and Justice in Nursing"
+              },
+              {
+                "text": "Transitions to Professional Practice"
+              },
+              {
+                "text": "Senior Capstone Clinical"
+              },
+              {
+                "text": "Scholarly Project in Nursing"
+              }
             ],
             "label": "Fourth Year",
             "term_index": 4
           }
         ]
       },
-      "source_url": "https://bulletin.georgetown.edu/programs/nursing-bsn/index.html",
+      "source_url": "https://bulletin.georgetown.edu/programs/nursing-bsn/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/DC/2026-10-07-cat/evidence.json#224c7882cb377dc4."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence DC/2026-10-07-cat#224c7882cb377dc4) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/DC/2026-10-07-cat/evidence.json#f1a8d1cd001dfd71."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -1394,34 +1492,78 @@
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
-            "credit_hours": "5",
-            "items": [
-              "Fall I | Credits",
-              "PHYS 2101 | Mechanics | 5",
-              "Spring I",
-              "PHYS 2102 | Electromagnetic Phenomena | 5"
-            ],
+            "items": [],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "5",
+            "items": [
+              {
+                "code": "PHYS 2101",
+                "credits": 5,
+                "title": "Mechanics"
+              }
+            ],
+            "label": "Fall I",
+            "term_index": 2
+          },
+          {
+            "credit_hours": "5",
+            "items": [
+              {
+                "code": "PHYS 2102",
+                "credits": 5,
+                "title": "Electromagnetic Phenomena"
+              }
+            ],
+            "label": "Spring I",
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Second Year",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "6",
+            "items": [
+              {
+                "code": "PHYS 1000",
+                "credits": 1,
+                "title": "Thriving as a Physics Major"
+              },
+              {
+                "code": "PHYS 2103",
+                "credits": 5,
+                "title": "Relativity & Quantum Physics"
+              }
+            ],
+            "label": "Fall I",
+            "term_index": 5
+          },
+          {
             "credit_hours": "8",
             "items": [
-              "Fall I",
-              "PHYS 1000 | Thriving as a Physics Major | 1",
-              "PHYS 2103 | Relativity & Quantum Physics | 5",
-              "Spring I",
-              "PHYS 2104 | Modern Physics and its Exp Met | 4",
-              "PHYS 2105 | Math/Computational Methods | 4"
+              {
+                "code": "PHYS 2104",
+                "credits": 4,
+                "title": "Modern Physics and its Exp Met"
+              },
+              {
+                "code": "PHYS 2105",
+                "credits": 4,
+                "title": "Math/Computational Methods"
+              }
             ],
-            "label": "Second Year",
-            "term_index": 2
+            "label": "Spring I",
+            "term_index": 6
           }
         ]
       },
-      "source_url": "https://bulletin.georgetown.edu/programs/physics-bs/index.html",
+      "source_url": "https://bulletin.georgetown.edu/programs/physics-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/DC/2026-10-07-cat/evidence.json#5a5334b321dbba99."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence DC/2026-10-07-cat#5a5334b321dbba99) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/DC/2026-10-07-cat/evidence.json#4349102100bab409."
     }
   ]
 }

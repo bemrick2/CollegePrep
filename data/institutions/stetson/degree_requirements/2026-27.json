@@ -167,7 +167,7 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "major_elective",
-        "choose_count": 3,
+        "choose_credits": 3,
         "courses": [
           {
             "code": "BIOL 306",
@@ -194,14 +194,14 @@
             "title": "Limnology"
           }
         ],
-        "group_type": "choose_courses",
+        "group_type": "choose_credits",
         "rule_text": "Select three units from the following: 3",
         "schema": "requirement_group/v1",
         "source_section": "Major in Aquatic and Marine Biology Major Requirements: Core = 11 to 11.5 units, Collateral = 3 units, Total = 14 to 14.5 units — Major Requirements"
       },
       "source_url": "https://catalog.stetson.edu/undergraduate/arts-sciences/biology/aquatic-marine-biology-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#2bd8703f5772a64a."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select three units from the following: | 3\". Printed 'Select three units from the following' is a unit (credit) amount, not a course count; the re-extracted choose_credits group with choose_credits 3 has the same options as the page and no issues or verify problems. (Stetson's 'unit' is its credit measure; course credits in this file are store Replaces the record promoted earlier from this candidate: the stored group read the printed credit rule \"Select three units from the following: 3\" as a number of courses (choose_count 3) (#229). Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#2bd8703f5772a64a."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -564,7 +564,7 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "major_elective",
-        "choose_count": 2,
+        "choose_credits": 2,
         "courses": [
           {
             "code": "CHEM 302",
@@ -599,14 +599,14 @@
             "title": "Advanced Environmental Chemistry"
           }
         ],
-        "group_type": "choose_courses",
+        "group_type": "choose_credits",
         "rule_text": "Select two units from the following in-depth courses: 2",
         "schema": "requirement_group/v1",
         "source_section": "Major in Chemistry Major Requirements: Core = 12 units, Collateral = 4 units, Total = 16 units — Major Requirements"
       },
       "source_url": "https://catalog.stetson.edu/undergraduate/arts-sciences/chemistry/chemistry-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#e3d9061a73900d0f."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select two units from the following in-depth courses: | 2\". Printed 'Select two units from the following in-depth courses' is a unit (credit) amount, not a course count; the re-extracted choose_credits group with choose_credits 2 has the same options as the page and no issues or verify problems. (Stetson's 'unit' is its credit measure; course credits in this Replaces the record promoted earlier from this candidate: the stored group read the printed credit rule \"Select two units from the following in-depth courses: 2\" as a number of courses (choose_count 2) (#229). Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#e3d9061a73900d0f."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -802,8 +802,9 @@
         "source_section": "Major in Computer Information Systems Major Requirements: Core = 10 units, Collateral = 2 units, Total = 12 units — Collateral Requirements"
       },
       "source_url": "https://catalog.stetson.edu/undergraduate/arts-sciences/computer-science/computer-information-systems-bs/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#6014e9391ff8f664."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#6014e9391ff8f664. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "The catalog prints \"Select one unit from the following: | 1\"; the verified group stores it as choose_count 1 (a number of courses), which the printed rule does not support (#229). Stetson prints 'Select one unit from the following', and a Stetson unit is a credit measure (courses on the page carry 0.5-2 units), so storing choose_count 1 is unsupported; the re-extraction is an elective_pool with issue choose_number_not_printed, so it is not an exact replacement. No exact replacement is available, so the group is no longer verified. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#6014e9391ff8f664."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -846,8 +847,9 @@
         "source_section": "Major in Computer Information Systems Major Requirements: Core = 10 units, Collateral = 2 units, Total = 12 units — Collateral Requirements"
       },
       "source_url": "https://catalog.stetson.edu/undergraduate/arts-sciences/computer-science/computer-information-systems-bs/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#6622493a27d542b8."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#6622493a27d542b8. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "The catalog prints \"Select one unit from the following: | 1\"; the verified group stores it as choose_count 1 (a number of courses), which the printed rule does not support (#229). Stetson prints 'Select one unit from the following', and a Stetson unit is a credit measure (courses on the page carry 0.5-2 units), so storing choose_count 1 is unsupported; the re-extraction is an elective_pool with issue choose_number_not_printed, so it is not an exact replacement. No exact replacement is available, so the group is no longer verified. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#6622493a27d542b8."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -1083,8 +1085,9 @@
         "source_section": "Major in Cybersecurity Major Requirements: Core = 14 units, Collateral = 1 unit, Total = 15 units — Collateral Requirements"
       },
       "source_url": "https://catalog.stetson.edu/undergraduate/arts-sciences/computer-science/cyber-security-bs/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#ef212e0907a477f6."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#ef212e0907a477f6. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "The catalog prints \"Select one unit from the following: | 1\"; the verified group stores it as choose_count 1 (a number of courses), which the printed rule does not support (#229). Stetson prints 'Select one unit from the following', and a Stetson unit is a credit measure (courses on the page carry 0.5-2 units), so storing choose_count 1 is unsupported; the re-extraction is an elective_pool with issue choose_number_not_printed, so it is not an exact replacement. No exact replacement is available, so the group is no longer verified. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#ef212e0907a477f6."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -1323,8 +1326,9 @@
         "source_section": "Major in Economics Major Requirements: Core = 11 units, Collateral = 2 to 3 units, Total = 13 to 14 units — Collateral Requirements"
       },
       "source_url": "https://catalog.stetson.edu/undergraduate/arts-sciences/economics/economics-bs/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#1d1100ac7f00bb4f."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#1d1100ac7f00bb4f. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "The catalog prints \"One introductory statistics unit chosen from the following: | 1\"; the verified group stores it as choose_count 1 (a number of courses), which the printed rule does not support (#229). Printed 'One introductory statistics unit chosen from the following' uses Stetson's credit measure (unit), but it is stored as course count 1; the re-extraction repeats it, so there is no exact replacement. No exact replacement is available, so the group is no longer verified. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#1d1100ac7f00bb4f."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -2148,8 +2152,9 @@
         "source_section": "Major in History Major Requirements: Core = 11 units, Collateral = 0 units, Total = 11 units — Lower-Division Major Requirements"
       },
       "source_url": "https://catalog.stetson.edu/undergraduate/arts-sciences/history/history-ba/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#1a3cb8f67663e59f."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#1a3cb8f67663e59f. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "The catalog prints \"Select one unit from the following: | 1\"; the verified group stores it as choose_count 1 (a number of courses), which the printed rule does not support (#229). Stetson prints 'Select one unit from the following', and a Stetson unit is a credit measure (courses on the page carry 0.5-2 units), so storing choose_count 1 is unsupported; the re-extraction is an elective_pool with issue choose_number_not_printed, so it is not an exact replacement. No exact replacement is available, so the group is no longer verified. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#1a3cb8f67663e59f."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -2180,8 +2185,9 @@
         "source_section": "Major in History Major Requirements: Core = 11 units, Collateral = 0 units, Total = 11 units — Lower-Division Major Requirements"
       },
       "source_url": "https://catalog.stetson.edu/undergraduate/arts-sciences/history/history-ba/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#9a452e84127a1d90."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#9a452e84127a1d90. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "The catalog prints \"Select one unit from the following: | 1\"; the verified group stores it as choose_count 1 (a number of courses), which the printed rule does not support (#229). Stetson prints 'Select one unit from the following', and a Stetson unit is a credit measure (courses on the page carry 0.5-2 units), so storing choose_count 1 is unsupported; the re-extraction is an elective_pool with issue choose_number_not_printed, so it is not an exact replacement. No exact replacement is available, so the group is no longer verified. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#9a452e84127a1d90."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -2733,8 +2739,9 @@
         "source_section": "Major in Physics Major Requirements: Core = 12 units, Collateral = 3 units, Total = 15 units — Major Requirements"
       },
       "source_url": "https://catalog.stetson.edu/undergraduate/arts-sciences/physics/physics-bs/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#b62996f8ca2f1bf3."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#b62996f8ca2f1bf3. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "The catalog prints \"Select one unit from the following in Computer Science: | 1\"; the verified group stores it as choose_count 1 (a number of courses), which the printed rule does not support (#229). Stetson prints 'Select one unit from the following in Computer Science', and a Stetson unit is a credit measure (courses on the page carry 0.5-2 units), so storing choose_count 1 is unsupported; the re-extraction is an elective_pool with issue choose_number_not_printed, so it is not an exact replace No exact replacement is available, so the group is no longer verified. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#b62996f8ca2f1bf3."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -3024,8 +3031,9 @@
         "source_section": "Major in Public Management Major Requirements: Core = 12 units, Collateral = 0 units, Total = 12 units — Major Requirements 1"
       },
       "source_url": "https://catalog.stetson.edu/undergraduate/arts-sciences/public-management/public-management-ba/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#5e4710618fa1ce93."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#5e4710618fa1ce93. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "The catalog prints \"Three additional units from the following: | 3\"; the verified group stores it as choose_count 3 (a number of courses), which the printed rule does not support (#229). Printed 'Three additional units from the following' uses Stetson's credit measure (unit), but it is stored as course count 3; the re-extraction repeats it. No exact replacement is available, so the group is no longer verified. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#5e4710618fa1ce93."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -3099,8 +3107,9 @@
         "source_section": "Major in Religious Studies Major Requirements: Core = 10 units, Collateral = 0 units, Total = 10 units — Major Requirements"
       },
       "source_url": "https://catalog.stetson.edu/undergraduate/arts-sciences/religious/religious-studies-ba/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#a0a5d29e549f94ba."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#a0a5d29e549f94ba. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "The catalog prints \"Select one unit from the following at the 100-level: | 1\"; the verified group stores it as choose_count 1 (a number of courses), which the printed rule does not support (#229). Stetson prints 'Select one unit from the following at the 100-level', and a Stetson unit is a credit measure (courses on the page carry 0.5-2 units), so storing choose_count 1 is unsupported; the re-extraction is an elective_pool with issue choose_number_not_printed, so it is not an exact replacemen No exact replacement is available, so the group is no longer verified. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#a0a5d29e549f94ba."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -3187,8 +3196,9 @@
         "source_section": "Major in Russian, East European, and Eurasian Studies Major Requirements: Core = 10 units, Collateral = 0 units, Total = 10 units — Major Requirements"
       },
       "source_url": "https://catalog.stetson.edu/undergraduate/arts-sciences/russian/russian-ba/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#62874c80605a6ad9."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#62874c80605a6ad9. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "The catalog prints \"Select one unit from the following: 1 | 1\"; the verified group stores it as choose_count 1 (a number of courses), which the printed rule does not support (#229). Stetson prints 'Select one unit from the following', and a Stetson unit is a credit measure (courses on the page carry 0.5-2 units), so storing choose_count 1 is unsupported; the re-extraction is an elective_pool with issue choose_number_not_printed, so it is not an exact replacement. No exact replacement is available, so the group is no longer verified. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#62874c80605a6ad9."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -3265,8 +3275,9 @@
         "source_section": "Major in Social Science Major Requirements: Core = 10 units, Collateral = 0 units, Total = 10 units — Major Requirements"
       },
       "source_url": "https://catalog.stetson.edu/undergraduate/arts-sciences/social-science/social-science-ba/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#cd73e7398b718441."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#cd73e7398b718441. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "The catalog prints \"Select one unit from the following: | 1\"; the verified group stores it as choose_count 1 (a number of courses), which the printed rule does not support (#229). Stetson prints 'Select one unit from the following', and a Stetson unit is a credit measure (courses on the page carry 0.5-2 units), so storing choose_count 1 is unsupported; the re-extraction is an elective_pool with issue choose_number_not_printed, so it is not an exact replacement. No exact replacement is available, so the group is no longer verified. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#cd73e7398b718441."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -3301,8 +3312,9 @@
         "source_section": "Major in Social Science Major Requirements: Core = 10 units, Collateral = 0 units, Total = 10 units — Major Requirements"
       },
       "source_url": "https://catalog.stetson.edu/undergraduate/arts-sciences/social-science/social-science-ba/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#e19856497f6d0fdd."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#e19856497f6d0fdd. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "The catalog prints \"Select one unit from the following: | 1\"; the verified group stores it as choose_count 1 (a number of courses), which the printed rule does not support (#229). Stetson prints 'Select one unit from the following', and a Stetson unit is a credit measure (courses on the page carry 0.5-2 units), so storing choose_count 1 is unsupported; the re-extraction is an elective_pool with issue choose_number_not_printed, so it is not an exact replacement. No exact replacement is available, so the group is no longer verified. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#e19856497f6d0fdd."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -3333,8 +3345,9 @@
         "source_section": "Major in Social Science Major Requirements: Core = 10 units, Collateral = 0 units, Total = 10 units — Major Requirements"
       },
       "source_url": "https://catalog.stetson.edu/undergraduate/arts-sciences/social-science/social-science-ba/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#e15da6eab7c54bde."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#e15da6eab7c54bde. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "The catalog prints \"Select one unit from the following: | 1\"; the verified group stores it as choose_count 1 (a number of courses), which the printed rule does not support (#229). Stetson prints 'Select one unit from the following', and a Stetson unit is a credit measure (courses on the page carry 0.5-2 units), so storing choose_count 1 is unsupported; the re-extraction is an elective_pool with issue choose_number_not_printed, so it is not an exact replacement. No exact replacement is available, so the group is no longer verified. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#e15da6eab7c54bde."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -3578,8 +3591,9 @@
         "source_section": "Major in Accounting — Major Requirements – 8 units — International Requirement"
       },
       "source_url": "https://catalog.stetson.edu/undergraduate/business-administration/accounting/business-administration-accounting-bba/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#fa2f95009e11f0ae."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#fa2f95009e11f0ae. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "The catalog prints \"Select one unit from the following:\"; the verified group stores it as choose_count 1 (a number of courses), which the printed rule does not support (#229). Stetson prints 'Select one unit from the following', and a Stetson unit is a credit measure (courses on the page carry 0.5-2 units), so storing choose_count 1 is unsupported; the re-extraction is an elective_pool with issue choose_number_not_printed, so it is not an exact replacement. No exact replacement is available, so the group is no longer verified. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#fa2f95009e11f0ae."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -3753,8 +3767,9 @@
         "source_section": "Major in Business Administration — Major Requirements - 6 units — International Requirement"
       },
       "source_url": "https://catalog.stetson.edu/undergraduate/business-administration/business-administration/business-administration-bba/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#39be85d31e295161."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#39be85d31e295161. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "The catalog prints \"Select one unit from the following:\"; the verified group stores it as choose_count 1 (a number of courses), which the printed rule does not support (#229). Stetson prints 'Select one unit from the following', and a Stetson unit is a credit measure (courses on the page carry 0.5-2 units), so storing choose_count 1 is unsupported; the re-extraction is an elective_pool with issue choose_number_not_printed, so it is not an exact replacement. No exact replacement is available, so the group is no longer verified. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#39be85d31e295161."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -4026,8 +4041,9 @@
         "source_section": "Major in Economics — Major Requirements – 7 units — International Requirement"
       },
       "source_url": "https://catalog.stetson.edu/undergraduate/business-administration/economics/economics-bba/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#71b35c872934f55a."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#71b35c872934f55a. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "The catalog prints \"Select one unit from the following:\"; the verified group stores it as choose_count 1 (a number of courses), which the printed rule does not support (#229). Stetson prints 'Select one unit from the following', and a Stetson unit is a credit measure (courses on the page carry 0.5-2 units), so storing choose_count 1 is unsupported; the re-extraction is an elective_pool with issue choose_number_not_printed, so it is not an exact replacement. No exact replacement is available, so the group is no longer verified. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#71b35c872934f55a."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -4234,8 +4250,9 @@
         "source_section": "Major in Entrepreneurship — Major Requirements – 6 units — International Requirement"
       },
       "source_url": "https://catalog.stetson.edu/undergraduate/business-administration/entrepreneurship/entrepreneurship-bba/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#0ba9e49665ed3e3f."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#0ba9e49665ed3e3f. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "The catalog prints \"Select one unit from the following:\"; the verified group stores it as choose_count 1 (a number of courses), which the printed rule does not support (#229). Stetson prints 'Select one unit from the following', and a Stetson unit is a credit measure (courses on the page carry 0.5-2 units), so storing choose_count 1 is unsupported; the re-extraction is an elective_pool with issue choose_number_not_printed, so it is not an exact replacement. No exact replacement is available, so the group is no longer verified. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#0ba9e49665ed3e3f."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -4364,7 +4381,7 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "major_elective",
-        "choose_count": 2,
+        "choose_credits": 2,
         "courses": [
           {
             "code": "FENT 390",
@@ -4471,14 +4488,14 @@
             "title": "Sales Management"
           }
         ],
-        "group_type": "choose_courses",
+        "group_type": "choose_credits",
         "rule_text": "Select 2 units from the following: 1 2",
         "schema": "requirement_group/v1",
         "source_section": "Major in Family Enterprise Management Major Requirements – 6 units — Elective Courses"
       },
       "source_url": "https://catalog.stetson.edu/undergraduate/business-administration/family-enterprise/family-enterprise-bba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#4b37dbe657727fc7."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select 2 units from the following: 1 | 2\". Printed 'Select 2 units from the following' is a unit (credit) amount, not a course count; the re-extracted choose_credits group with choose_credits 2 has the same options as the page and no issues or verify problems. (Stetson's 'unit' is its credit measure; course credits in this file are stored in Replaces the record promoted earlier from this candidate: the stored group read the printed credit rule \"Select 2 units from the following: 1 2\" as a number of courses (choose_count 2) (#229). Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#4b37dbe657727fc7."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -4571,8 +4588,9 @@
         "source_section": "Major in Family Enterprise Management Major Requirements – 6 units — International Requirement"
       },
       "source_url": "https://catalog.stetson.edu/undergraduate/business-administration/family-enterprise/family-enterprise-bba/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#8056f3e2f1ac688d."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#8056f3e2f1ac688d. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "The catalog prints \"Select one unit from the following:\"; the verified group stores it as choose_count 1 (a number of courses), which the printed rule does not support (#229). Stetson prints 'Select one unit from the following', and a Stetson unit is a credit measure (courses on the page carry 0.5-2 units), so storing choose_count 1 is unsupported; the re-extraction is an elective_pool with issue choose_number_not_printed, so it is not an exact replacement. No exact replacement is available, so the group is no longer verified. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#8056f3e2f1ac688d."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -4784,8 +4802,9 @@
         "source_section": "Major in International Business — Major Requirements – 6 units — International Requirement"
       },
       "source_url": "https://catalog.stetson.edu/undergraduate/business-administration/international-business/international-business-bba/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#2ed8f3cef63fb3bc."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#2ed8f3cef63fb3bc. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "The catalog prints \"Select one unit from the following:\"; the verified group stores it as choose_count 1 (a number of courses), which the printed rule does not support (#229). Stetson prints 'Select one unit from the following', and a Stetson unit is a credit measure (courses on the page carry 0.5-2 units), so storing choose_count 1 is unsupported; the re-extraction is an elective_pool with issue choose_number_not_printed, so it is not an exact replacement. No exact replacement is available, so the group is no longer verified. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#2ed8f3cef63fb3bc."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -4997,8 +5016,9 @@
         "source_section": "Major in Management — Major Requirements – 6 units — International Requirement"
       },
       "source_url": "https://catalog.stetson.edu/undergraduate/business-administration/management/management-bba/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#3143c23086875f1d."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#3143c23086875f1d. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "The catalog prints \"Select one unit from the following:\"; the verified group stores it as choose_count 1 (a number of courses), which the printed rule does not support (#229). Stetson prints 'Select one unit from the following', and a Stetson unit is a credit measure (courses on the page carry 0.5-2 units), so storing choose_count 1 is unsupported; the re-extraction is an elective_pool with issue choose_number_not_printed, so it is not an exact replacement. No exact replacement is available, so the group is no longer verified. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#3143c23086875f1d."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -5312,8 +5332,9 @@
         "source_section": "Major in Professional Sales — Major Requirements – 6 units — International Requirement"
       },
       "source_url": "https://catalog.stetson.edu/undergraduate/business-administration/professional-sales/professional-sales-bba/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#5b667359061d650f."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-06: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#5b667359061d650f. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "The catalog prints \"Select one unit from the following:\"; the verified group stores it as choose_count 1 (a number of courses), which the printed rule does not support (#229). Stetson prints 'Select one unit from the following', and a Stetson unit is a credit measure (courses on the page carry 0.5-2 units), so storing choose_count 1 is unsupported; the re-extraction is an elective_pool with issue choose_number_not_printed, so it is not an exact replacement. No exact replacement is available, so the group is no longer verified. Evidence: sources/programs/FL/2026-10-06-cl/evidence.json#5b667359061d650f."
     },
     {
       "last_verified_at": "2026-10-06",

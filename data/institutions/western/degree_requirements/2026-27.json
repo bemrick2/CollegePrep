@@ -566,6 +566,11 @@
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Year One",
+            "term_index": 1
+          },
+          {
             "credit_hours": "14",
             "items": [
               {
@@ -579,7 +584,10 @@
                 "credits": 3,
                 "title": "Writing and Rhetoric I (GT-CO1)"
               },
-              "Select 6 credits from the following: | 6",
+              {
+                "credits": 6,
+                "text": "Select 6 credits from the following:"
+              },
               {
                 "code": "ART 119",
                 "title": "Foundation Drawing I"
@@ -596,7 +604,10 @@
                 "code": "DES 173",
                 "title": "Foundation Design: Digital Art and Design"
               },
-              "Select 3 credits from the following: | 3",
+              {
+                "credits": 3,
+                "text": "Select 3 credits from the following:"
+              },
               {
                 "code": "ART 246",
                 "title": "Introduction to Photography"
@@ -619,7 +630,7 @@
               }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
             "credit_hours": "15",
@@ -639,7 +650,10 @@
                 "credits": 3,
                 "title": "Mathematics for the Liberal Arts (GT-MA1)"
               },
-              "Select 6 credits from the following: | 6",
+              {
+                "credits": 6,
+                "text": "Select 6 credits from the following:"
+              },
               {
                 "code": "ART 119",
                 "title": "Foundation Drawing I"
@@ -656,7 +670,10 @@
                 "code": "DES 173",
                 "title": "Foundation Design: Digital Art and Design"
               },
-              "Select 3 credits from the following: | 3",
+              {
+                "credits": 3,
+                "text": "Select 3 credits from the following:"
+              },
               {
                 "code": "ART 219",
                 "title": "Foundation Drawing II"
@@ -680,11 +697,15 @@
               {
                 "code": "ART 235",
                 "title": "Introduction to Jewelry"
-              },
-              "Year Two"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Year Two",
+            "term_index": 4
           },
           {
             "credit_hours": "15",
@@ -713,7 +734,7 @@
               "Western Watershed | Western Watershed Course | 3"
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
             "credit_hours": "18",
@@ -748,11 +769,15 @@
                 "credits": 3,
                 "title": "Introduction to Web Design"
               },
-              "Western Watershed | Western Watershed Course | 3",
-              "Year Three"
+              "Western Watershed | Western Watershed Course | 3"
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
+          },
+          {
+            "items": [],
+            "label": "Year Three",
+            "term_index": 7
           },
           {
             "credit_hours": "15",
@@ -762,11 +787,26 @@
                 "credits": 0,
                 "title": "Exhibition and Convocation Attendance"
               },
-              "ART 246or ART 257 | Introduction to Photographyor Introduction to Printmaking | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "ART 246",
+                    "title": "Introduction to Photography"
+                  },
+                  {
+                    "code": "ART 257",
+                    "title": "Introduction to Printmaking"
+                  }
+                ],
+                "credits": 3
+              },
               "Western Watershed | Western Watershed Course | 3",
               "Elective | BAUD, COM, or SOC Elective | 3",
               "ART | ART Elective | 3",
-              "Select 3 credits from the following to be used for DES 425: | 3",
+              {
+                "credits": 3,
+                "text": "Select 3 credits from the following to be used for DES 425:"
+              },
               {
                 "code": "ART 499",
                 "title": "Internship in Art"
@@ -785,7 +825,7 @@
               }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
             "credit_hours": "16",
@@ -804,11 +844,15 @@
               "Western Watershed | Western Watershed Course | 3",
               "WWGE 301/302/303/304 | Delta | 1",
               "ART | ART Elective | 3",
-              "Elective | Career Pathways Elective | 3",
-              "Year Four"
+              "Elective | Career Pathways Elective | 3"
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Year Four",
+            "term_index": 10
           },
           {
             "credit_hours": "15",
@@ -833,7 +877,7 @@
               "Elective | Career Pathways Elective | 3"
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 11
           },
           {
             "credit_hours": "12",
@@ -858,13 +902,13 @@
               "ART | Upper Division ART Elective | 3"
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.western.edu/undergraduate/programs/design/graphic_design_ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#532e5b55babb6ac7."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#532e5b55babb6ac7) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#f0c17beab5094b4b."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -1021,6 +1065,11 @@
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Year One",
+            "term_index": 1
+          },
+          {
             "credit_hours": "14",
             "items": [
               {
@@ -1034,7 +1083,10 @@
                 "credits": 3,
                 "title": "Writing and Rhetoric I (GT-CO1)"
               },
-              "Select 6 credits from the following: | 6",
+              {
+                "credits": 6,
+                "text": "Select 6 credits from the following:"
+              },
               {
                 "code": "ART 119",
                 "title": "Foundation Drawing I"
@@ -1051,7 +1103,10 @@
                 "code": "DES 173",
                 "title": "Foundation Design: Digital Art and Design"
               },
-              "Select 3 credits from the following: | 3",
+              {
+                "credits": 3,
+                "text": "Select 3 credits from the following:"
+              },
               {
                 "code": "ART 246",
                 "title": "Introduction to Photography"
@@ -1074,7 +1129,7 @@
               }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
             "credit_hours": "15",
@@ -1094,7 +1149,10 @@
                 "credits": 3,
                 "title": "Mathematics for the Liberal Arts (GT-MA1)"
               },
-              "Select 6 credits from the following: | 6",
+              {
+                "credits": 6,
+                "text": "Select 6 credits from the following:"
+              },
               {
                 "code": "ART 119",
                 "title": "Foundation Drawing I"
@@ -1111,7 +1169,10 @@
                 "code": "DES 173",
                 "title": "Foundation Design: Digital Art and Design"
               },
-              "Select 3 credits from the following: | 3",
+              {
+                "credits": 3,
+                "text": "Select 3 credits from the following:"
+              },
               {
                 "code": "ART 219",
                 "title": "Foundation Drawing II"
@@ -1123,11 +1184,15 @@
               {
                 "code": "ART 280",
                 "title": "Introduction to Painting"
-              },
-              "Year Two"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Year Two",
+            "term_index": 4
           },
           {
             "credit_hours": "15",
@@ -1147,7 +1212,19 @@
                 "credits": 3,
                 "title": "Introduction to Graphic Design and Illustration"
               },
-              "ART 246or ART 257 | Introduction to Photographyor Introduction to Printmaking | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "ART 246",
+                    "title": "Introduction to Photography"
+                  },
+                  {
+                    "code": "ART 257",
+                    "title": "Introduction to Printmaking"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "CS 160",
                 "credits": 3,
@@ -1156,7 +1233,7 @@
               "Western Watershed | Western Watershed Course | 3"
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
             "credit_hours": "18",
@@ -1191,11 +1268,15 @@
                 "credits": 3,
                 "title": "Introduction to Web Design"
               },
-              "Western Watershed | Western Watershed Course | 3",
-              "Year Three"
+              "Western Watershed | Western Watershed Course | 3"
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
+          },
+          {
+            "items": [],
+            "label": "Year Three",
+            "term_index": 7
           },
           {
             "credit_hours": "15",
@@ -1209,7 +1290,10 @@
               "Elective | Career Pathway Elective | 3",
               "Elective | Career Pathway Elective | 3",
               "ART | ART Elective | 3",
-              "Select 3 credits from the following to be used for DES 425: | 3",
+              {
+                "credits": 3,
+                "text": "Select 3 credits from the following to be used for DES 425:"
+              },
               {
                 "code": "ART 499",
                 "title": "Internship in Art"
@@ -1228,7 +1312,7 @@
               }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
             "credit_hours": "16",
@@ -1255,11 +1339,15 @@
                 "credits": 3,
                 "title": "Advanced Design and Illustration I"
               },
-              "Elective | Career Pathways Elective | 3",
-              "Year Four"
+              "Elective | Career Pathways Elective | 3"
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Year Four",
+            "term_index": 10
           },
           {
             "credit_hours": "9",
@@ -1284,7 +1372,7 @@
               "Elective | Career Pathways Elective | 3"
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 11
           },
           {
             "credit_hours": "12",
@@ -1309,13 +1397,13 @@
               "ART | Upper Division ART Elective | 3"
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.western.edu/undergraduate/programs/design/graphic_design_bfa/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#2a2775b25e4d6981."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#2a2775b25e4d6981) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#72135558127848db."
     },
     {
       "last_verified_at": "2026-10-06",

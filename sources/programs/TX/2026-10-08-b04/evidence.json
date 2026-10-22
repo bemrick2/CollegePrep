@@ -1874,6 +1874,42 @@
  "4036722d69c1425d": {
   "decision": {
    "candidate_id": "4036722d69c1425d",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select three hours of the following: | 3\". Printed 'Select three hours of the following' is a credit-hour amount, not a course count; the re-extracted choose_credits group with choose_credits 3 has the same options as the page and no issues or verify problems.",
+   "replaces_promoted": "the stored group read the printed credit rule \"Select three hours of the following: 3\" as a number of courses (choose_count 3) (#229)."
+  },
+  "evidence": [
+   {
+    "field": "source_section",
+    "snippet": "Degree Plan — Major Electives:",
+    "value": "Degree Plan — Major Electives:"
+   },
+   {
+    "field": "rule_text",
+    "snippet": "Select three hours of the following: 3",
+    "value": "Select three hours of the following: 3"
+   }
+  ],
+  "extractor": "courselist_html/v1",
+  "issues": [],
+  "layout_source": {
+   "sha256": "ea9bf5c10b07a0698b95aa837f457f50fdf19f27ce405763c907658992e4f626",
+   "url": "http://catalog.utep.edu/undergrad/college-of-liberal-arts/sociology-anthropology/sociology-ba/#courselist"
+  },
+  "source": {
+   "fetched_at": "2026-10-08T13:40:35+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 26 Aug 2026 15:42:38 GMT",
+   "page_file": "0b4d4b942adde86f1619.json.gz",
+   "requested_url": "http://catalog.utep.edu/undergrad/college-of-liberal-arts/sociology-anthropology/sociology-ba/",
+   "sha256": "0b4d4b942adde86f16191f94d4e9af26407f6fe4ae0f25607e2d1f202ad7771b",
+   "title": "BA in Sociology < UTEP",
+   "url": "https://catalog.utep.edu/undergrad/college-of-liberal-arts/sociology-anthropology/sociology-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "4036722d69c1425d~superseded-2026-10-21": {
+  "decision": {
+   "candidate_id": "4036722d69c1425d",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   "evidence": [
@@ -2171,6 +2207,42 @@
   "year_basis": "labeled_in_source"
  },
  "4a63dfe2177921bd": {
+  "decision": {
+   "candidate_id": "4a63dfe2177921bd",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select nine hours of the following, with at least six being upper division: | 9\". Printed 'Select nine hours of the following, with at least six being upper division' is a credit-hour amount, not a course count; the re-extracted choose_credits group with choose_credits 9 has the same options as the page and no issues or verify problems.",
+   "replaces_promoted": "the stored group read the printed credit rule \"Select nine hours of the following, with at least six being upper division: 9\" as a number of courses (choose_count 9) (#229)."
+  },
+  "evidence": [
+   {
+    "field": "source_section",
+    "snippet": "Degree Plan — Philosophy Major",
+    "value": "Degree Plan — Philosophy Major"
+   },
+   {
+    "field": "rule_text",
+    "snippet": "Select nine hours of the following, with at least six being upper division: 9",
+    "value": "Select nine hours of the following, with at least six being upper division: 9"
+   }
+  ],
+  "extractor": "courselist_html/v1",
+  "issues": [],
+  "layout_source": {
+   "sha256": "2db707f126c271ebd24af19483e1bfa0aeed9c0eb3774ec31b04e2ee81ca7d9b",
+   "url": "http://catalog.utep.edu/undergrad/college-of-liberal-arts/philosophy/philosophy-ba/#courselist"
+  },
+  "source": {
+   "fetched_at": "2026-10-08T13:40:26+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 26 Aug 2026 15:42:21 GMT",
+   "page_file": "22ccefb5725e69eaac4f.json.gz",
+   "requested_url": "http://catalog.utep.edu/undergrad/college-of-liberal-arts/philosophy/philosophy-ba/",
+   "sha256": "22ccefb5725e69eaac4f7223c9237000157b6b117306421d0830c4e1267a5ca1",
+   "title": "BA in Philosophy < UTEP",
+   "url": "https://catalog.utep.edu/undergrad/college-of-liberal-arts/philosophy/philosophy-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "4a63dfe2177921bd~superseded-2026-10-21": {
   "decision": {
    "candidate_id": "4a63dfe2177921bd",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
@@ -3007,6 +3079,42 @@
   "year_basis": "labeled_in_source"
  },
  "62a3bafa43269e9d": {
+  "decision": {
+   "candidate_id": "62a3bafa43269e9d",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select 3 hours of upper division courses | 3\". Printed 'Select 3 hours of upper division courses' is a credit-hour amount, not a course count; the re-extracted elective_pool group with choose_credits 3 has no listed options (an open pool, as printed) and no issues or verify problems.",
+   "replaces_promoted": "the stored group read the printed credit rule \"Select 3 hours of upper division courses 3\" as a number of courses (choose_count 3) (#229)."
+  },
+  "evidence": [
+   {
+    "field": "source_section",
+    "snippet": "Degree Plan — Economics Major",
+    "value": "Degree Plan — Economics Major"
+   },
+   {
+    "field": "rule_text",
+    "snippet": "Select 3 hours of upper division courses 3",
+    "value": "Select 3 hours of upper division courses 3"
+   }
+  ],
+  "extractor": "courselist_html/v1",
+  "issues": [],
+  "layout_source": {
+   "sha256": "644e6085986e09ef93af7b19ce7b5b942d43330ab53338811037eb2689b6e02f",
+   "url": "http://catalog.utep.edu/undergrad/woody-l-hunt-college-of-business/economics-finance/economics-bba/#courselist"
+  },
+  "source": {
+   "fetched_at": "2026-10-08T13:41:06+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 26 Aug 2026 15:43:54 GMT",
+   "page_file": "929b3eee735cce3918ed.json.gz",
+   "requested_url": "http://catalog.utep.edu/undergrad/woody-l-hunt-college-of-business/economics-finance/economics-bba/",
+   "sha256": "929b3eee735cce3918ed2c854c87c23f87a78924763b002ab0f7ed2700cfc04d",
+   "title": "BBA in Business Economics < UTEP",
+   "url": "https://catalog.utep.edu/undergrad/woody-l-hunt-college-of-business/economics-finance/economics-bba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "62a3bafa43269e9d~superseded-2026-10-21": {
   "decision": {
    "candidate_id": "62a3bafa43269e9d",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
@@ -4758,6 +4866,42 @@
  "8f0a2d0fa6066f3e": {
   "decision": {
    "candidate_id": "8f0a2d0fa6066f3e",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select six hours from the following Art History Electives: | 6\". Printed 'Select six hours from the following Art History Electives' is a credit-hour amount, not a course count; the re-extracted choose_credits group with choose_credits 6 has the same options as the page and no issues or verify problems.",
+   "replaces_promoted": "the stored group read the printed credit rule \"Select six hours from the following Art History Electives: 6\" as a number of courses (choose_count 6) (#229)."
+  },
+  "evidence": [
+   {
+    "field": "source_section",
+    "snippet": "Degree Plan — Art History Major",
+    "value": "Degree Plan — Art History Major"
+   },
+   {
+    "field": "rule_text",
+    "snippet": "Select six hours from the following Art History Electives: 6",
+    "value": "Select six hours from the following Art History Electives: 6"
+   }
+  ],
+  "extractor": "courselist_html/v1",
+  "issues": [],
+  "layout_source": {
+   "sha256": "ff1ac089b09a096b9c38176ad691afe36d91ccc0dda8b50a2396ad4111710e99",
+   "url": "http://catalog.utep.edu/undergrad/college-of-liberal-arts/art/art-history-ba/#courselist"
+  },
+  "source": {
+   "fetched_at": "2026-10-08T13:40:01+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 26 Aug 2026 15:41:07 GMT",
+   "page_file": "0b2060613d3ec7ef7b34.json.gz",
+   "requested_url": "http://catalog.utep.edu/undergrad/college-of-liberal-arts/art/art-history-ba/",
+   "sha256": "0b2060613d3ec7ef7b348cf5026b559c020312e6b1155cc9f93f01381da115ef",
+   "title": "BA in Art History < UTEP",
+   "url": "https://catalog.utep.edu/undergrad/college-of-liberal-arts/art/art-history-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "8f0a2d0fa6066f3e~superseded-2026-10-21": {
+  "decision": {
+   "candidate_id": "8f0a2d0fa6066f3e",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   "evidence": [
@@ -6460,6 +6604,42 @@
  "c2f61ce56d0a86f0": {
   "decision": {
    "candidate_id": "c2f61ce56d0a86f0",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select nine hours of the following: | 9\". Printed 'Select nine hours of the following' is a credit-hour amount, not a course count; the re-extracted choose_credits group with choose_credits 9 has the same options as the page and no issues or verify problems.",
+   "replaces_promoted": "the stored group read the printed credit rule \"Select nine hours of the following: 9\" as a number of courses (choose_count 9) (#229)."
+  },
+  "evidence": [
+   {
+    "field": "source_section",
+    "snippet": "Degree Plan — Upper-Division Hours",
+    "value": "Degree Plan — Upper-Division Hours"
+   },
+   {
+    "field": "rule_text",
+    "snippet": "Select nine hours of the following: 9",
+    "value": "Select nine hours of the following: 9"
+   }
+  ],
+  "extractor": "courselist_html/v1",
+  "issues": [],
+  "layout_source": {
+   "sha256": "ea5fb785673f44c3db2718dcf61c06dacd4d3f7ff974c9d467124af9562898a9",
+   "url": "http://catalog.utep.edu/undergrad/college-of-liberal-arts/languages-linguistics/linguistics-ba/#courselist"
+  },
+  "source": {
+   "fetched_at": "2026-10-08T13:40:22+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 26 Aug 2026 15:41:54 GMT",
+   "page_file": "a6baeec50d9eabb7181f.json.gz",
+   "requested_url": "http://catalog.utep.edu/undergrad/college-of-liberal-arts/languages-linguistics/linguistics-ba/",
+   "sha256": "a6baeec50d9eabb7181fb091fdfd90c8994af38df6e643f4ab93de7de45db264",
+   "title": "BA in Linguistics and Bilingualism < UTEP",
+   "url": "https://catalog.utep.edu/undergrad/college-of-liberal-arts/languages-linguistics/linguistics-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "c2f61ce56d0a86f0~superseded-2026-10-21": {
+  "decision": {
+   "candidate_id": "c2f61ce56d0a86f0",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   "evidence": [
@@ -6493,6 +6673,42 @@
   "year_basis": "labeled_in_source"
  },
  "c334b87782101bc2": {
+  "decision": {
+   "candidate_id": "c334b87782101bc2",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select nine hours from the following, with at least six being upper-division: | 9\". Printed 'Select nine hours from the following, with at least six being upper-division' is a credit-hour amount, not a course count; the re-extracted choose_credits group with choose_credits 9 has the same options as the page and no issues or verify problems.",
+   "replaces_promoted": "the stored group read the printed credit rule \"Select nine hours from the following, with at least six being upper-division: 9\" as a number of courses (choose_count 9) (#229)."
+  },
+  "evidence": [
+   {
+    "field": "source_section",
+    "snippet": "BA in Organizational & Corporate Communication — Communication Electives:",
+    "value": "BA in Organizational & Corporate Communication — Communication Electives:"
+   },
+   {
+    "field": "rule_text",
+    "snippet": "Select nine hours from the following, with at least six being upper-division: 9",
+    "value": "Select nine hours from the following, with at least six being upper-division: 9"
+   }
+  ],
+  "extractor": "courselist_html/v1",
+  "issues": [],
+  "layout_source": {
+   "sha256": "0e158a0f2690e2174c50e2c276e24952281746c7bc772364f1adbe48887b520b",
+   "url": "http://catalog.utep.edu/undergrad/college-of-liberal-arts/communication/organizational-corporate-communication-ba/#courselist"
+  },
+  "source": {
+   "fetched_at": "2026-10-08T13:40:12+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 26 Aug 2026 15:41:31 GMT",
+   "page_file": "41aef704b1550e416592.json.gz",
+   "requested_url": "http://catalog.utep.edu/undergrad/college-of-liberal-arts/communication/organizational-corporate-communication-ba/",
+   "sha256": "41aef704b1550e41659295aff0426e3ae3fef547d7785ce4ecfb9963b9a0659d",
+   "title": "BA in Organizational & Corporate Communication < UTEP",
+   "url": "https://catalog.utep.edu/undergrad/college-of-liberal-arts/communication/organizational-corporate-communication-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "c334b87782101bc2~superseded-2026-10-21": {
   "decision": {
    "candidate_id": "c334b87782101bc2",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
@@ -6949,6 +7165,42 @@
   "year_basis": "labeled_in_source"
  },
  "ce617ae552818822": {
+  "decision": {
+   "candidate_id": "ce617ae552818822",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select three hours of the following: | 3\". Printed 'Select three hours of the following' is a credit-hour amount, not a course count; the re-extracted choose_credits group with choose_credits 3 has the same options as the page and no issues or verify problems.",
+   "replaces_promoted": "the stored group read the printed credit rule \"Select three hours of the following: 3\" as a number of courses (choose_count 3) (#229)."
+  },
+  "evidence": [
+   {
+    "field": "source_section",
+    "snippet": "Degree Plan — English Upper-Division Electives",
+    "value": "Degree Plan — English Upper-Division Electives"
+   },
+   {
+    "field": "rule_text",
+    "snippet": "Select three hours of the following: 3",
+    "value": "Select three hours of the following: 3"
+   }
+  ],
+  "extractor": "courselist_html/v1",
+  "issues": [],
+  "layout_source": {
+   "sha256": "416461461af1831e3026d0776e6629bada407665d1f421770d918259b6671de9",
+   "url": "http://catalog.utep.edu/undergrad/college-of-liberal-arts/theatre-dance/dance-ba/#courselist"
+  },
+  "source": {
+   "fetched_at": "2026-10-08T13:40:37+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 26 Aug 2026 15:42:46 GMT",
+   "page_file": "91d4dd54479f467d9e74.json.gz",
+   "requested_url": "http://catalog.utep.edu/undergrad/college-of-liberal-arts/theatre-dance/dance-ba/",
+   "sha256": "91d4dd54479f467d9e74c046bc50b57c24ea5aa5213c875a7ed386ef353e767e",
+   "title": "BA in Dance < UTEP",
+   "url": "https://catalog.utep.edu/undergrad/college-of-liberal-arts/theatre-dance/dance-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "ce617ae552818822~superseded-2026-10-21": {
   "decision": {
    "candidate_id": "ce617ae552818822",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
@@ -8001,6 +8253,42 @@
   "year_basis": "labeled_in_source"
  },
  "ead7128e090a06f7": {
+  "decision": {
+   "candidate_id": "ead7128e090a06f7",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select six hours from the following: | 6\". Printed 'Select six hours from the following' is a credit-hour amount, not a course count; the re-extracted choose_credits group with choose_credits 6 has the same options as the page and no issues or verify problems.",
+   "replaces_promoted": "the stored group read the printed credit rule \"Select six hours from the following: 6\" as a number of courses (choose_count 6) (#229)."
+  },
+  "evidence": [
+   {
+    "field": "source_section",
+    "snippet": "Degree Plan — Communication Electives",
+    "value": "Degree Plan — Communication Electives"
+   },
+   {
+    "field": "rule_text",
+    "snippet": "Select six hours from the following: 6",
+    "value": "Select six hours from the following: 6"
+   }
+  ],
+  "extractor": "courselist_html/v1",
+  "issues": [],
+  "layout_source": {
+   "sha256": "700fa74c10521ee2af8c4f74e404641821cc87b9924fc22bc8989bb00c3a15b1",
+   "url": "http://catalog.utep.edu/undergrad/college-of-liberal-arts/communication/digital-media-production-ba/#courselist"
+  },
+  "source": {
+   "fetched_at": "2026-10-08T13:40:06+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 26 Aug 2026 15:41:23 GMT",
+   "page_file": "0ac7b408cdba452440c3.json.gz",
+   "requested_url": "http://catalog.utep.edu/undergrad/college-of-liberal-arts/communication/digital-media-production-ba/",
+   "sha256": "0ac7b408cdba452440c39d9ef296353d7091fc2beb6553b760ff91e177689844",
+   "title": "BA in Digital Media Production < UTEP",
+   "url": "https://catalog.utep.edu/undergrad/college-of-liberal-arts/communication/digital-media-production-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "ead7128e090a06f7~superseded-2026-10-21": {
   "decision": {
    "candidate_id": "ead7128e090a06f7",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."

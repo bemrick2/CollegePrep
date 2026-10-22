@@ -41,7 +41,7 @@ describe.skipIf(!schools.length)('every stored degree plan reads (#171)', () => 
               objects++
               withObjects.add(s)
             }
-            const empty = typeof it === 'string' ? !it.trim() : !it || Object.values(it).every((v) => v === '' || v == null)
+            const empty = typeof it === 'string' ? !it.replace(/\|/g, '').trim() : !it || Object.values(it).every((v) => v === '' || v == null)
             if (!empty) raw++
           }
           const entries = readTermItems(t)

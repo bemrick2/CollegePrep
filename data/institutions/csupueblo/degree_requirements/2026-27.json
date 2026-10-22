@@ -33,7 +33,10 @@
                 "credits": 1,
                 "title": "Business-Careers and Opportunities"
               },
-              "General Education | 7",
+              {
+                "credits": 7,
+                "text": "General Education"
+              },
               {
                 "code": "MATH 120",
                 "credits": 3,
@@ -71,7 +74,10 @@
                 "credits": 4,
                 "title": "Quantitative Analysis for Business"
               },
-              "General Education | 7"
+              {
+                "credits": 7,
+                "text": "General Education"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -94,8 +100,23 @@
                 "credits": 3,
                 "title": "Inferential Statistics & Problem Solving"
               },
-              "ENG 201or ECON 202 | Introduction to Literary Studiesor Principles of Microeconomics (GT-SS1) | 3",
-              "General Education | 6"
+              {
+                "any_of": [
+                  {
+                    "code": "ENG 201",
+                    "title": "Introduction to Literary Studies"
+                  },
+                  {
+                    "code": "ECON 202",
+                    "title": "Principles of Microeconomics (GT-SS1)"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 6,
+                "text": "General Education"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -118,7 +139,19 @@
                 "credits": 3,
                 "title": "Advanced Business Statistics"
               },
-              "ECON 202or ECON 201 | Principles of Microeconomics (GT-SS1)or Principles of Macroeconomics (GT-SS1) | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "ECON 202",
+                    "title": "Principles of Microeconomics (GT-SS1)"
+                  },
+                  {
+                    "code": "ECON 201",
+                    "title": "Principles of Macroeconomics (GT-SS1)"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "MGMT 201",
                 "credits": 3,
@@ -188,7 +221,10 @@
                 "credits": 3,
                 "title": "Principles of Marketing"
               },
-              "Elective | 4"
+              {
+                "credits": 4,
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -216,7 +252,10 @@
                 "credits": 3,
                 "title": "Auditing"
               },
-              "Elective | 6"
+              {
+                "credits": 6,
+                "text": "Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -239,7 +278,10 @@
                 "credits": 3,
                 "title": "Strategic Management"
               },
-              "Elective | 6"
+              {
+                "credits": 6,
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -248,7 +290,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/the-hasan-school-of-business/accounting-bsba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#8aa02e4a2f593cc7."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#8aa02e4a2f593cc7) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#f357a6931b86e34b."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -422,7 +464,10 @@
                 "credits": 3,
                 "title": "Rhetoric & Writing I (GT-CO1)"
               },
-              "Gen Ed Math | 3"
+              {
+                "credits": 3,
+                "text": "Gen Ed Math"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -450,7 +495,10 @@
                 "credits": 3,
                 "title": "Rhetoric & Writing II (GT-CO2)"
               },
-              "Gen Ed History | 3"
+              {
+                "credits": 3,
+                "text": "Gen Ed History"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -463,9 +511,18 @@
           {
             "credit_hours": "15",
             "items": [
-              "ART Explorations | 9",
-              "Gen Ed Social Science | 3",
-              "World Language I | 3"
+              {
+                "credits": 9,
+                "text": "ART Explorations"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed Social Science"
+              },
+              {
+                "credits": 3,
+                "text": "World Language I"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -478,10 +535,22 @@
                 "credits": 1,
                 "title": "Portfolio Review"
               },
-              "Upper-Division ART | 3",
-              "Gen Ed Humanities | 3",
-              "Gen Ed Science with Lab | 4",
-              "World Language II | 3"
+              {
+                "credits": 3,
+                "text": "Upper-Division ART"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed Humanities"
+              },
+              {
+                "credits": 4,
+                "text": "Gen Ed Science with Lab"
+              },
+              {
+                "credits": 3,
+                "text": "World Language II"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -494,11 +563,26 @@
           {
             "credit_hours": "15",
             "items": [
-              "Upper-Division Art History | 3",
-              "Upper-Division ART | 3",
-              "Minor or Elective | 3",
-              "Minor or Elective | 3",
-              "Gen Ed Social Science | 3"
+              {
+                "credits": 3,
+                "text": "Upper-Division Art History"
+              },
+              {
+                "credits": 3,
+                "text": "Upper-Division ART"
+              },
+              {
+                "credits": 3,
+                "text": "Minor or Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Minor or Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed Social Science"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -506,11 +590,26 @@
           {
             "credit_hours": "16",
             "items": [
-              "Upper-Division ART | 3",
-              "Upper-Division ART | 3",
-              "Minor or Elective | 3",
-              "Minor or Elective | 3",
-              "Gen Ed Science with Lab | 4"
+              {
+                "credits": 3,
+                "text": "Upper-Division ART"
+              },
+              {
+                "credits": 3,
+                "text": "Upper-Division ART"
+              },
+              {
+                "credits": 3,
+                "text": "Minor or Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Minor or Elective"
+              },
+              {
+                "credits": 4,
+                "text": "Gen Ed Science with Lab"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -528,10 +627,22 @@
                 "credits": 3,
                 "title": "Theory & Methods"
               },
-              "Upper-Division ART | 3",
-              "Upper-Division ART | 3",
-              "Minor or Elective | 4",
-              "Minor or Elective | 3"
+              {
+                "credits": 3,
+                "text": "Upper-Division ART"
+              },
+              {
+                "credits": 3,
+                "text": "Upper-Division ART"
+              },
+              {
+                "credits": 4,
+                "text": "Minor or Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Minor or Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -544,10 +655,22 @@
                 "credits": 1,
                 "title": "Senior Portfolio"
               },
-              "Upper-Division Art History | 3",
-              "Upper-Division ART | 3",
-              "Minor or Elective | 4",
-              "Minor or Elective | 3"
+              {
+                "credits": 3,
+                "text": "Upper-Division Art History"
+              },
+              {
+                "credits": 3,
+                "text": "Upper-Division ART"
+              },
+              {
+                "credits": 4,
+                "text": "Minor or Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Minor or Elective"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -556,7 +679,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/college-of-humanities-arts-and-social-sciences/art-and-creative-media/art-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#b56c04ba38788c83."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#b56c04ba38788c83) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#485a3b54dd042b38."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -696,7 +819,10 @@
               },
               "General Education | Humanities | 3",
               "General Education | Science w/ lab | 4",
-              "Open Elective | 3"
+              {
+                "credits": 3,
+                "text": "Open Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -757,7 +883,10 @@
                 "credits": 3,
                 "title": "Principles of Marketing"
               },
-              "Open Elective | 3"
+              {
+                "credits": 3,
+                "text": "Open Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -776,7 +905,10 @@
                 "title": "Human Resource Management"
               },
               "MGMT 3/400-level | Elective | 3",
-              "Open Elective | 3",
+              {
+                "credits": 3,
+                "text": "Open Elective"
+              },
               "Business 3/400-level | Elective | 3"
             ],
             "label": "Spring",
@@ -801,7 +933,10 @@
                 "title": "Operations and Quality Management"
               },
               "MGMT 3/400-level | Elective | 3",
-              "Open Elective | 7"
+              {
+                "credits": 7,
+                "text": "Open Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -814,7 +949,19 @@
                 "credits": 1,
                 "title": "Senior Seminar"
               },
-              "MGMT 475or MKTG 475 | International Managementor International Marketing | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "MGMT 475",
+                    "title": "International Management"
+                  },
+                  {
+                    "code": "MKTG 475",
+                    "title": "International Marketing"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "MGMT 485",
                 "credits": 3,
@@ -830,7 +977,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/the-hasan-school-of-business/business-management-bsba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#ee854214556127f1."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#ee854214556127f1) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#51b6ceaab4bdaa11."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -977,6 +1124,11 @@
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
             "credit_hours": "16",
             "items": [
               {
@@ -1006,7 +1158,7 @@
               }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
             "credit_hours": "17",
@@ -1040,11 +1192,15 @@
                 "code": "PHYS 221L",
                 "credits": 1,
                 "title": "General Physics I Lab (GT-SC1)"
-              },
-              "Sophomore"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
           },
           {
             "credit_hours": "17",
@@ -1076,7 +1232,7 @@
               }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
             "credit_hours": "16",
@@ -1106,11 +1262,18 @@
                 "credits": 3,
                 "title": "Engineering Mechanics II Prereq: EN 211"
               },
-              "Elective Suggested: Basic Science Elective | 3",
-              "Junior"
+              {
+                "credits": 3,
+                "text": "Elective Suggested: Basic Science Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
+          },
+          {
+            "items": [],
+            "label": "Junior",
+            "term_index": 7
           },
           {
             "credit_hours": "15",
@@ -1130,10 +1293,13 @@
                 "credits": 3,
                 "title": "Stochastic Systems Engineering Prereq: MATH 126"
               },
-              "General Education | 6"
+              {
+                "credits": 6,
+                "text": "General Education"
+              }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
             "credit_hours": "16",
@@ -1158,11 +1324,18 @@
                 "credits": 3,
                 "title": "Hydrology Prereq: CE 351"
               },
-              "General Education | 3",
-              "Senior"
+              {
+                "credits": 3,
+                "text": "General Education"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Senior",
+            "term_index": 10
           },
           {
             "credit_hours": "16",
@@ -1187,11 +1360,17 @@
                 "credits": 1,
                 "title": "Senior Project Seminar"
               },
-              "General Education | 3",
-              "Technical Elective | 3"
+              {
+                "credits": 3,
+                "text": "General Education"
+              },
+              {
+                "credits": 3,
+                "text": "Technical Elective"
+              }
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 11
           },
           {
             "credit_hours": "15",
@@ -1211,17 +1390,23 @@
                 "credits": 3,
                 "title": "Senior Design Project Prereq: CE 487"
               },
-              "General Education | 3",
-              "Technical Elective | 3"
+              {
+                "credits": 3,
+                "text": "General Education"
+              },
+              {
+                "credits": 3,
+                "text": "Technical Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.csupueblo.edu/college-of-science-technology-engineering-and-mathematics/engineering/bsce-civil-engineering/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#30fb23802f88e3f5."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#30fb23802f88e3f5) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#9b7a0c4610faf92d."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -1236,6 +1421,11 @@
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
+          {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
           {
             "credit_hours": "14",
             "items": [
@@ -1266,7 +1456,7 @@
               }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
             "credit_hours": "17",
@@ -1291,11 +1481,18 @@
                 "credits": 5,
                 "title": "Pre-Calculus (GT-MA1)"
               },
-              "General Education: Humanities | 3",
-              "Sophomore"
+              {
+                "credits": 3,
+                "text": "General Education: Humanities"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
           },
           {
             "credit_hours": "17",
@@ -1323,7 +1520,7 @@
               "PHYS 201& 201L | Principles of Physics I (GT-SC2)and Principles of Physics Lab I (GT-SC1) | 4"
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
             "credit_hours": "17",
@@ -1348,11 +1545,15 @@
                 "credits": 3,
                 "title": "Introduction to Statistics (GT-MA1)"
               },
-              "CHEM 111& 111L | Principles of Chemistry (GT-SC2)and Principles of Chemistry Lab (GT-SC1) | 4",
-              "Junior"
+              "CHEM 111& 111L | Principles of Chemistry (GT-SC2)and Principles of Chemistry Lab (GT-SC1) | 4"
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
+          },
+          {
+            "items": [],
+            "label": "Junior",
+            "term_index": 7
           },
           {
             "credit_hours": "15",
@@ -1372,11 +1573,17 @@
                 "credits": 3,
                 "title": "Speaking & Listening"
               },
-              "General Education: Humanities | 3",
-              "General Education: Social Science | 3"
+              {
+                "credits": 3,
+                "text": "General Education: Humanities"
+              },
+              {
+                "credits": 3,
+                "text": "General Education: Social Science"
+              }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
             "credit_hours": "16",
@@ -1401,11 +1608,18 @@
                 "credits": 3,
                 "title": "Hydrology"
               },
-              "General Education: Social Science | 3",
-              "Senior"
+              {
+                "credits": 3,
+                "text": "General Education: Social Science"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Senior",
+            "term_index": 10
           },
           {
             "credit_hours": "16",
@@ -1430,11 +1644,17 @@
                 "credits": 3,
                 "title": "Highway Design"
               },
-              "Technical Elective Approved by faculty advisor | 3",
-              "General Education: History | 3"
+              {
+                "credits": 3,
+                "text": "Technical Elective Approved by faculty advisor"
+              },
+              {
+                "credits": 3,
+                "text": "General Education: History"
+              }
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 11
           },
           {
             "credit_hours": "12",
@@ -1449,16 +1669,19 @@
                 "credits": 3,
                 "title": "Senior Project"
               },
-              "Technical Elective Approved by faculty advisor | 6"
+              {
+                "credits": 6,
+                "text": "Technical Elective Approved by faculty advisor"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.csupueblo.edu/college-of-science-technology-engineering-and-mathematics/engineering/civil-engineering-technology-bscet/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#edd81655f056988f."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#edd81655f056988f) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#08ff901a932d5f8d."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -1882,7 +2105,10 @@
                 "title": "Project Management"
               },
               "CIS 3/400-level | Elective | 6",
-              "Open Elective | 2"
+              {
+                "credits": 2,
+                "text": "Open Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -1896,7 +2122,10 @@
                 "title": "Senior Seminar"
               },
               "CIS 3/400-level | Elective | 9",
-              "Open Elective Must be upper division. | 3"
+              {
+                "credits": 3,
+                "text": "Open Elective Must be upper division."
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -1905,7 +2134,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/the-hasan-school-of-business/computer-information-systems-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#68970fdf8b209405."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#68970fdf8b209405) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#b1cb88d038d35625."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -2024,7 +2253,10 @@
                 "credits": 1,
                 "title": "Introduction to Excel Spreadsheets"
               },
-              "General Education: Humanities | 3"
+              {
+                "credits": 3,
+                "text": "General Education: Humanities"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -2057,7 +2289,10 @@
                 "credits": 3,
                 "title": "Principles of Management (History - General Education Course)"
               },
-              "General Education: History | 3"
+              {
+                "credits": 3,
+                "text": "General Education: History"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -2145,7 +2380,10 @@
                 "credits": 3,
                 "title": "Construction Planning & Scheduling Prereq: CET 303"
               },
-              "General Education: Humanities | 3"
+              {
+                "credits": 3,
+                "text": "General Education: Humanities"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -2178,7 +2416,10 @@
                 "credits": 3,
                 "title": "Construction Law Prereq: CET 303"
               },
-              "Technical Elective Must be upper division course. | 3"
+              {
+                "credits": 3,
+                "text": "Technical Elective Must be upper division course."
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -2201,7 +2442,10 @@
                 "credits": 3,
                 "title": "Senior Project Must be in senior standing. Must be within two semester of graduation."
               },
-              "Technical Elective | 6"
+              {
+                "credits": 6,
+                "text": "Technical Elective"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -2210,7 +2454,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/college-of-science-technology-engineering-and-mathematics/engineering/construction-management-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#aa477438658732b3."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#aa477438658732b3) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#5f74d575b1b4f9a1."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -2482,7 +2726,10 @@
                 "credits": 3,
                 "title": "Introduction to Sociology (GT-SS3)"
               },
-              "General Education Recommended: WL 100 or 101, Humanities, & Science w/lab (ANTH 101 or BIOL) | 10"
+              {
+                "credits": 10,
+                "text": "General Education Recommended: WL 100 or 101, Humanities, & Science w/lab (ANTH 101 or BIOL)"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -2500,7 +2747,10 @@
                 "credits": 3,
                 "title": "Rhetoric & Writing II (GT-CO2)"
               },
-              "General Education Recommended: ANTH 106 or WL 102, Math, & Science w/Lab (CHEM 160 or other) | 10"
+              {
+                "credits": 10,
+                "text": "General Education Recommended: ANTH 106 or WL 102, Math, & Science w/Lab (CHEM 160 or other)"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -2518,9 +2768,18 @@
                 "credits": 3,
                 "title": "Research Methods"
               },
-              "General Education recommended: History & Humanities or Social Science | 6",
-              "Major Elective criminology class | 3",
-              "Open Elective | 3"
+              {
+                "credits": 6,
+                "text": "General Education recommended: History & Humanities or Social Science"
+              },
+              {
+                "credits": 3,
+                "text": "Major Elective criminology class"
+              },
+              {
+                "credits": 3,
+                "text": "Open Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -2533,8 +2792,14 @@
                 "credits": 3,
                 "title": "Criminological Theory"
               },
-              "Major Electives | 6",
-              "Open Electives 3 credits must be outside the major | 6"
+              {
+                "credits": 6,
+                "text": "Major Electives"
+              },
+              {
+                "credits": 6,
+                "text": "Open Electives 3 credits must be outside the major"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -2547,8 +2812,14 @@
           {
             "credit_hours": "15",
             "items": [
-              "Major Electives Upper division CRIM courses | 6",
-              "Open Electives 3 credits must be outside the major | 9"
+              {
+                "credits": 6,
+                "text": "Major Electives Upper division CRIM courses"
+              },
+              {
+                "credits": 9,
+                "text": "Open Electives 3 credits must be outside the major"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -2556,8 +2827,14 @@
           {
             "credit_hours": "15",
             "items": [
-              "Major Electives Upper division CRIM courses | 6",
-              "Open Electives 6 credits must be outside the major and upper division | 9"
+              {
+                "credits": 6,
+                "text": "Major Electives Upper division CRIM courses"
+              },
+              {
+                "credits": 9,
+                "text": "Open Electives 6 credits must be outside the major and upper division"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -2575,7 +2852,10 @@
                 "credits": 3,
                 "title": "Senior Seminar"
               },
-              "Open Electives 9 credits must be upper division, 3 credits must be outside the major | 11"
+              {
+                "credits": 11,
+                "text": "Open Electives 9 credits must be upper division, 3 credits must be outside the major"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -2583,8 +2863,14 @@
           {
             "credit_hours": "14",
             "items": [
-              "Major Elective Upper division CRIM course | 3",
-              "Open Electives 7 credits must be upper division, 3 must be outside the major | 11"
+              {
+                "credits": 3,
+                "text": "Major Elective Upper division CRIM course"
+              },
+              {
+                "credits": 11,
+                "text": "Open Electives 7 credits must be upper division, 3 must be outside the major"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -2593,7 +2879,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/college-of-humanities-arts-and-social-sciences/sociology-criminology-and-anthropology/criminology-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#53bf76759f70a1e2."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#53bf76759f70a1e2) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#0a5ec5e9ee8ec0db."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -2682,7 +2968,10 @@
                 "credits": 3,
                 "title": "Introduction to Sociology (GT-SS3)"
               },
-              "General Education Recommended: 6 credits of Humanities & History | 9"
+              {
+                "credits": 9,
+                "text": "General Education Recommended: 6 credits of Humanities & History"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -2700,7 +2989,10 @@
                 "credits": 3,
                 "title": "Introduction to Criminology"
               },
-              "General Education Recommended: Humanities, Math, & Science w/lab (CHEM 160 or other) | 10"
+              {
+                "credits": 10,
+                "text": "General Education Recommended: Humanities, Math, & Science w/lab (CHEM 160 or other)"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -2718,9 +3010,18 @@
                 "credits": 3,
                 "title": "Research Methods"
               },
-              "General Education Recommended: Social Science & Science w/lab (ANTH 101 or other) | 7",
-              "Major elective CRIM class | 3",
-              "Open elective | 3"
+              {
+                "credits": 7,
+                "text": "General Education Recommended: Social Science & Science w/lab (ANTH 101 or other)"
+              },
+              {
+                "credits": 3,
+                "text": "Major elective CRIM class"
+              },
+              {
+                "credits": 3,
+                "text": "Open elective"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -2733,8 +3034,14 @@
                 "credits": 3,
                 "title": "Criminological Theory"
               },
-              "Major Electives CRIM classes | 6",
-              "Open electives 3 credits must be outside the major | 6"
+              {
+                "credits": 6,
+                "text": "Major Electives CRIM classes"
+              },
+              {
+                "credits": 6,
+                "text": "Open electives 3 credits must be outside the major"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -2752,8 +3059,14 @@
                 "credits": 3,
                 "title": "Advanced Research Methods"
               },
-              "Major elective Upper division CRIM class | 3",
-              "Open electives 3 credits must be outside the major | 9"
+              {
+                "credits": 3,
+                "text": "Major elective Upper division CRIM class"
+              },
+              {
+                "credits": 9,
+                "text": "Open electives 3 credits must be outside the major"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -2761,8 +3074,14 @@
           {
             "credit_hours": "15",
             "items": [
-              "Major electives Upper division CRIM classes | 6",
-              "Open electives 6 credits must be outside the major and upper division | 9"
+              {
+                "credits": 6,
+                "text": "Major electives Upper division CRIM classes"
+              },
+              {
+                "credits": 9,
+                "text": "Open electives 6 credits must be outside the major and upper division"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -2775,8 +3094,14 @@
           {
             "credit_hours": "14",
             "items": [
-              "Major elective Upper division CRIM class | 3",
-              "Open electives 9 credits must be upper division, 6 credits must be outside the major | 11"
+              {
+                "credits": 3,
+                "text": "Major elective Upper division CRIM class"
+              },
+              {
+                "credits": 11,
+                "text": "Open electives 9 credits must be upper division, 6 credits must be outside the major"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -2784,8 +3109,14 @@
           {
             "credit_hours": "14",
             "items": [
-              "Major elective Upper division CRIM class | 3",
-              "Open electives 4 credits must be upper division | 11"
+              {
+                "credits": 3,
+                "text": "Major elective Upper division CRIM class"
+              },
+              {
+                "credits": 11,
+                "text": "Open electives 4 credits must be upper division"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -2794,7 +3125,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/college-of-humanities-arts-and-social-sciences/sociology-criminology-and-anthropology/criminology-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#792b763e2ed7b0f5."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#792b763e2ed7b0f5) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#00d721d26f2aff2d."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -2888,7 +3219,19 @@
                 "credits": 3,
                 "title": "Rhetoric & Writing I (GT-CO1)"
               },
-              "MATH 109or MATH 156 | Mathematical Explorations (GT-MA1)or Introduction to Statistics (GT-MA1) | 3"
+              {
+                "any_of": [
+                  {
+                    "code": "MATH 109",
+                    "title": "Mathematical Explorations (GT-MA1)"
+                  },
+                  {
+                    "code": "MATH 156",
+                    "title": "Introduction to Statistics (GT-MA1)"
+                  }
+                ],
+                "credits": 3
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -2928,7 +3271,19 @@
           {
             "credit_hours": "12",
             "items": [
-              "CID 103or CID 221 | Speaking & Listeningor Interpersonal Communication (GT-SS3) | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "CID 103",
+                    "title": "Speaking & Listening"
+                  },
+                  {
+                    "code": "CID 221",
+                    "title": "Interpersonal Communication (GT-SS3)"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "ECE 205",
                 "credits": 3,
@@ -2971,7 +3326,10 @@
                 "credits": 3,
                 "title": "Linguistics for Educators"
               },
-              "Open Elective | 3"
+              {
+                "credits": 3,
+                "text": "Open Elective"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -3012,7 +3370,10 @@
                 "title": "U.S. History I (GT-HI1)"
               },
               "General Education | Science w/ lab | 4",
-              "Open Elective | 6"
+              {
+                "credits": 6,
+                "text": "Open Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 9
@@ -3040,7 +3401,10 @@
                 "credits": 3,
                 "title": "Music Appreciation (GT-AH1)"
               },
-              "Open Elective | 3"
+              {
+                "credits": 3,
+                "text": "Open Elective"
+              }
             ],
             "label": "Spring",
             "term_index": 10
@@ -3075,7 +3439,10 @@
                 "credits": 3,
                 "title": "American Government (GT-SS1)"
               },
-              "Open Elective | 7",
+              {
+                "credits": 7,
+                "text": "Open Elective"
+              },
               "General Education | Science w/ lab | 4"
             ],
             "label": "Fall",
@@ -3102,7 +3469,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/college-of-health-and-education/school-of-education/early-childhood-education-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#773b15a78c1f96ab."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#773b15a78c1f96ab) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#32454e968cd59622."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -3350,7 +3717,10 @@
                 "credits": 3,
                 "title": "Rhetoric & Writing I (GT-CO1)"
               },
-              "General Education | 7",
+              {
+                "credits": 7,
+                "text": "General Education"
+              },
               {
                 "code": "MATH 120",
                 "credits": 3,
@@ -3363,7 +3733,19 @@
           {
             "credit_hours": "16",
             "items": [
-              "ECON 201or ECON 202 | Principles of Macroeconomics (GT-SS1)or Principles of Microeconomics (GT-SS1) | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "ECON 201",
+                    "title": "Principles of Macroeconomics (GT-SS1)"
+                  },
+                  {
+                    "code": "ECON 202",
+                    "title": "Principles of Microeconomics (GT-SS1)"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "ENG 102",
                 "credits": 3,
@@ -3379,7 +3761,10 @@
                 "credits": 3,
                 "title": "Introduction to Business Analytics"
               },
-              "General Education | 3"
+              {
+                "credits": 3,
+                "text": "General Education"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -3402,8 +3787,14 @@
                 "credits": 3,
                 "title": "Principles of Management"
               },
-              "General Education | 7",
-              "Elective | 3"
+              {
+                "credits": 7,
+                "text": "General Education"
+              },
+              {
+                "credits": 3,
+                "text": "Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -3421,13 +3812,28 @@
                 "credits": 3,
                 "title": "Inferential Statistics & Problem Solving"
               },
-              "ECON 202or ECON 201 | Principles of Microeconomics (GT-SS1)or Principles of Macroeconomics (GT-SS1) | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "ECON 202",
+                    "title": "Principles of Microeconomics (GT-SS1)"
+                  },
+                  {
+                    "code": "ECON 201",
+                    "title": "Principles of Macroeconomics (GT-SS1)"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "BSAD 270",
                 "credits": 3,
                 "title": "Business Communications"
               },
-              "General Education | 3"
+              {
+                "credits": 3,
+                "text": "General Education"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -3460,7 +3866,10 @@
                 "credits": 3,
                 "title": "Intermediate Microeconomics"
               },
-              "Elective | 3"
+              {
+                "credits": 3,
+                "text": "Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -3483,8 +3892,14 @@
                 "credits": 3,
                 "title": "Organizational Behavior"
               },
-              "3/400-level Business Elective | 3",
-              "Elective | 3"
+              {
+                "credits": 3,
+                "text": "3/400-level Business Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -3512,8 +3927,14 @@
                 "credits": 3,
                 "title": "Entrepreneurship"
               },
-              "FIN 300/400 Elective | 3",
-              "Elective | 4"
+              {
+                "credits": 3,
+                "text": "FIN 300/400 Elective"
+              },
+              {
+                "credits": 4,
+                "text": "Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -3536,8 +3957,14 @@
                 "credits": 3,
                 "title": "Strategic Management"
               },
-              "3/400-level Business Elective | 3",
-              "Elective | 3"
+              {
+                "credits": 3,
+                "text": "3/400-level Business Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -3546,7 +3973,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/the-hasan-school-of-business/economics-bsba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#c54475a29533a284."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#c54475a29533a284) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#1a7c3ceb45de3d8c."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -3705,10 +4132,39 @@
                 "credits": 3,
                 "title": "Rhetoric & Writing I (GT-CO1)"
               },
-              "SPN 101or ITL 101or FRN 101or ASL 101 | Beginning Spanish Ior Beginning Italian Ior Beginning French Ior Beginning American Sign Language I | 3",
-              "Gen Ed Science/Technology course with Lab | 4",
-              "Gen Ed | 3",
-              "Gen Ed | 3"
+              {
+                "any_of": [
+                  {
+                    "code": "SPN 101",
+                    "title": "Beginning Spanish I"
+                  },
+                  {
+                    "code": "ITL 101",
+                    "title": "Beginning Italian I"
+                  },
+                  {
+                    "code": "FRN 101",
+                    "title": "Beginning French I"
+                  },
+                  {
+                    "code": "ASL 101",
+                    "title": "Beginning American Sign Language I"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 4,
+                "text": "Gen Ed Science/Technology course with Lab"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -3721,10 +4177,39 @@
                 "credits": 3,
                 "title": "Rhetoric & Writing II (GT-CO2)"
               },
-              "SPN 102or ITL 102or FRN 102or ASL 102 | Beginning Spanish IIor Beginning Italian IIor Beginning French IIor Beginning American Sign Language II | 3",
-              "Gen Ed Science/Technology course with Lab | 4",
-              "Gen Ed Course | 3",
-              "Gen Ed course | 3"
+              {
+                "any_of": [
+                  {
+                    "code": "SPN 102",
+                    "title": "Beginning Spanish II"
+                  },
+                  {
+                    "code": "ITL 102",
+                    "title": "Beginning Italian II"
+                  },
+                  {
+                    "code": "FRN 102",
+                    "title": "Beginning French II"
+                  },
+                  {
+                    "code": "ASL 102",
+                    "title": "Beginning American Sign Language II"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 4,
+                "text": "Gen Ed Science/Technology course with Lab"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed Course"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed course"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -3752,8 +4237,14 @@
                 "credits": 3,
                 "title": "American Literature I"
               },
-              "Gen Ed | 3",
-              "2nd Major/Minor course | 3"
+              {
+                "credits": 3,
+                "text": "Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "2nd Major/Minor course"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -3766,10 +4257,22 @@
                 "credits": 3,
                 "title": "American Literature II"
               },
-              "English Elective | 3",
-              "2nd Major/Minor course | 3",
-              "2nd Major/Minor course | 3",
-              "2nd Major/Minor course | 3"
+              {
+                "credits": 3,
+                "text": "English Elective"
+              },
+              {
+                "credits": 3,
+                "text": "2nd Major/Minor course"
+              },
+              {
+                "credits": 3,
+                "text": "2nd Major/Minor course"
+              },
+              {
+                "credits": 3,
+                "text": "2nd Major/Minor course"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -3792,9 +4295,18 @@
                 "credits": 3,
                 "title": "Literary Criticism and Theory"
               },
-              "English Elective | 3",
-              "2nd Major/Minor course | 3",
-              "2nd Major/Minor course | 3"
+              {
+                "credits": 3,
+                "text": "English Elective"
+              },
+              {
+                "credits": 3,
+                "text": "2nd Major/Minor course"
+              },
+              {
+                "credits": 3,
+                "text": "2nd Major/Minor course"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -3802,11 +4314,26 @@
           {
             "credit_hours": "15",
             "items": [
-              "English Elective | 3",
-              "English Elective | 3",
-              "2nd Major/Minor course | 3",
-              "2nd Major/Minor course | 3",
-              "2nd Major/Minor course | 3"
+              {
+                "credits": 3,
+                "text": "English Elective"
+              },
+              {
+                "credits": 3,
+                "text": "English Elective"
+              },
+              {
+                "credits": 3,
+                "text": "2nd Major/Minor course"
+              },
+              {
+                "credits": 3,
+                "text": "2nd Major/Minor course"
+              },
+              {
+                "credits": 3,
+                "text": "2nd Major/Minor course"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -3824,10 +4351,22 @@
                 "credits": 3,
                 "title": "Senior Seminar"
               },
-              "English Elective | 3",
-              "English Elective | 3",
-              "2nd Major/Minor course | 3",
-              "2nd Major/Minor course | 3"
+              {
+                "credits": 3,
+                "text": "English Elective"
+              },
+              {
+                "credits": 3,
+                "text": "English Elective"
+              },
+              {
+                "credits": 3,
+                "text": "2nd Major/Minor course"
+              },
+              {
+                "credits": 3,
+                "text": "2nd Major/Minor course"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -3835,11 +4374,26 @@
           {
             "credit_hours": "13",
             "items": [
-              "English Elective | 3",
-              "2nd Major/Minor course | 3",
-              "2nd Major/Minor course | 3",
-              "2nd Major/Minor course | 3",
-              "2nd Major/Minor | 1"
+              {
+                "credits": 3,
+                "text": "English Elective"
+              },
+              {
+                "credits": 3,
+                "text": "2nd Major/Minor course"
+              },
+              {
+                "credits": 3,
+                "text": "2nd Major/Minor course"
+              },
+              {
+                "credits": 3,
+                "text": "2nd Major/Minor course"
+              },
+              {
+                "credits": 1,
+                "text": "2nd Major/Minor"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -3848,7 +4402,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/college-of-humanities-arts-and-social-sciences/english-and-world-languages/english-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#09af89e3af1f237a."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#09af89e3af1f237a) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#688b2853a97a585b."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -3935,7 +4489,10 @@
                 "title": "Community and Global Health"
               },
               "SOC 315or SOC 310 | Health, Culture, and Society or SOC 404or Social & Cultural Theory | 3",
-              "BAS Electives | 3"
+              {
+                "credits": 3,
+                "text": "BAS Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -3953,7 +4510,10 @@
                 "credits": 3,
                 "title": "Epidemiology & Disease Prevention"
               },
-              "BAS Electives | 6"
+              {
+                "credits": 6,
+                "text": "BAS Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -3976,7 +4536,10 @@
                 "credits": 4,
                 "title": "Field Experience"
               },
-              "BAS Electives | 3"
+              {
+                "credits": 3,
+                "text": "BAS Electives"
+              }
             ],
             "label": "Summer",
             "term_index": 4
@@ -3989,7 +4552,10 @@
           {
             "credit_hours": "12",
             "items": [
-              "BAS Electives or General Education if needed | 12"
+              {
+                "credits": 12,
+                "text": "BAS Electives or General Education if needed"
+              }
             ],
             "label": "Fall",
             "term_index": 6
@@ -3997,7 +4563,10 @@
           {
             "credit_hours": "12",
             "items": [
-              "BAS Electives or General Education if needed | 12"
+              {
+                "credits": 12,
+                "text": "BAS Electives or General Education if needed"
+              }
             ],
             "label": "Spring",
             "term_index": 7
@@ -4006,7 +4575,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/college-of-health-and-education/school-of-health-science-and-human-movement/health-science-and-administration-bas/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#ba910ea3f7d6280d."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#ba910ea3f7d6280d) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#1580ae87a1d0868b."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -4122,7 +4691,10 @@
                 "credits": 3,
                 "title": "Rhetoric & Writing I (GT-CO1)"
               },
-              "Introductory History Course Three of the following are required. Select one: | 3",
+              {
+                "credits": 3,
+                "text": "Introductory History Course Three of the following are required. Select one:"
+              },
               {
                 "code": "HIST 110",
                 "title": "World History to 1500 (GT-HI1)"
@@ -4139,9 +4711,18 @@
                 "code": "HIST 202",
                 "title": "U.S. History II (GT-HI1)"
               },
-              "General Education Social Science | 3",
-              "General Education Humanities | 3",
-              "Elective | 3"
+              {
+                "credits": 3,
+                "text": "General Education Social Science"
+              },
+              {
+                "credits": 3,
+                "text": "General Education Humanities"
+              },
+              {
+                "credits": 3,
+                "text": "Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -4159,7 +4740,10 @@
                 "credits": 3,
                 "title": "Introduction to History for Majors"
               },
-              "Introductory History Course Three of the following are required. Select one: | 3",
+              {
+                "credits": 3,
+                "text": "Introductory History Course Three of the following are required. Select one:"
+              },
               {
                 "code": "HIST 110",
                 "title": "World History to 1500 (GT-HI1)"
@@ -4176,8 +4760,14 @@
                 "code": "HIST 202",
                 "title": "U.S. History II (GT-HI1)"
               },
-              "Upper-Level History Elective | 3",
-              "Elective | 3"
+              {
+                "credits": 3,
+                "text": "Upper-Level History Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -4190,7 +4780,10 @@
           {
             "credit_hours": "15",
             "items": [
-              "Introductory History Course Choose from HIST 110, HIST 111, HIST 201 or HIST 202. Three of these are required. | 3",
+              {
+                "credits": 3,
+                "text": "Introductory History Course Choose from HIST 110, HIST 111, HIST 201 or HIST 202. Three of these are required."
+              },
               {
                 "code": "HIST 110",
                 "title": "World History to 1500 (GT-HI1)"
@@ -4207,10 +4800,22 @@
                 "code": "HIST 202",
                 "title": "U.S. History II (GT-HI1)"
               },
-              "General Education Humanities | 3",
-              "Upper or Lower-level History Elective | 3",
-              "World Language Semester 1 | 3",
-              "Elective | 3"
+              {
+                "credits": 3,
+                "text": "General Education Humanities"
+              },
+              {
+                "credits": 3,
+                "text": "Upper or Lower-level History Elective"
+              },
+              {
+                "credits": 3,
+                "text": "World Language Semester 1"
+              },
+              {
+                "credits": 3,
+                "text": "Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -4218,11 +4823,26 @@
           {
             "credit_hours": "15-16",
             "items": [
-              "Upper or Lower-level History Elective | 3",
-              "World Language Semester 2 | 3",
-              "General Education Social Science | 3",
-              "Natural or Physical Science w/ Lab | 4",
-              "Elective | 2-3"
+              {
+                "credits": 3,
+                "text": "Upper or Lower-level History Elective"
+              },
+              {
+                "credits": 3,
+                "text": "World Language Semester 2"
+              },
+              {
+                "credits": 3,
+                "text": "General Education Social Science"
+              },
+              {
+                "credits": 4,
+                "text": "Natural or Physical Science w/ Lab"
+              },
+              {
+                "credits": "2-3",
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -4235,9 +4855,18 @@
           {
             "credit_hours": "15-16",
             "items": [
-              "Upper-Level History Elective Any class that is numbered 300 or higher. | 3",
-              "Natural or Physical Science w/ Lab | 4",
-              "Electives | 8-9"
+              {
+                "credits": 3,
+                "text": "Upper-Level History Elective Any class that is numbered 300 or higher."
+              },
+              {
+                "credits": 4,
+                "text": "Natural or Physical Science w/ Lab"
+              },
+              {
+                "credits": "8-9",
+                "text": "Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -4245,8 +4874,14 @@
           {
             "credit_hours": "15",
             "items": [
-              "Upper-Level History Elective | 3",
-              "Electives | 12"
+              {
+                "credits": 3,
+                "text": "Upper-Level History Elective"
+              },
+              {
+                "credits": 12,
+                "text": "Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -4264,8 +4899,14 @@
                 "credits": 3,
                 "title": "Seminar Offered only in the Fall."
               },
-              "Upper-Level History Elective | 3",
-              "Electives | 9"
+              {
+                "credits": 3,
+                "text": "Upper-Level History Elective"
+              },
+              {
+                "credits": 9,
+                "text": "Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -4273,8 +4914,14 @@
           {
             "credit_hours": "15",
             "items": [
-              "Upper-Level History Elective | 3",
-              "Electives | 12"
+              {
+                "credits": 3,
+                "text": "Upper-Level History Elective"
+              },
+              {
+                "credits": 12,
+                "text": "Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -4283,7 +4930,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/college-of-humanities-arts-and-social-sciences/history-political-science-philosophy-and-geography/history-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#f07b9cfddc9888b6."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#f07b9cfddc9888b6) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#3e0be2250b0589f3."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -4311,7 +4958,10 @@
                 "credits": 3,
                 "title": "Rhetoric & Writing I (GT-CO1)"
               },
-              "Introductory History Course Three of the following are required. Select one: | 3",
+              {
+                "credits": 3,
+                "text": "Introductory History Course Three of the following are required. Select one:"
+              },
               {
                 "code": "HIST 110",
                 "title": "World History to 1500 (GT-HI1)"
@@ -4328,8 +4978,14 @@
                 "code": "HIST 202",
                 "title": "U.S. History II (GT-HI1)"
               },
-              "General Education Social Science | 3",
-              "Electives | 6"
+              {
+                "credits": 3,
+                "text": "General Education Social Science"
+              },
+              {
+                "credits": 6,
+                "text": "Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -4347,7 +5003,10 @@
                 "credits": 3,
                 "title": "Rhetoric & Writing II (GT-CO2)"
               },
-              "Introductory History Course Three of the following are required. Select one: | 3",
+              {
+                "credits": 3,
+                "text": "Introductory History Course Three of the following are required. Select one:"
+              },
               {
                 "code": "HIST 110",
                 "title": "World History to 1500 (GT-HI1)"
@@ -4364,8 +5023,14 @@
                 "code": "HIST 202",
                 "title": "U.S. History II (GT-HI1)"
               },
-              "Upper-Level History Elective Any class that is numbered 300 or higher. | 3",
-              "Elective | 3"
+              {
+                "credits": 3,
+                "text": "Upper-Level History Elective Any class that is numbered 300 or higher."
+              },
+              {
+                "credits": 3,
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -4378,7 +5043,10 @@
           {
             "credit_hours": "15",
             "items": [
-              "Introductory History Course Three of the following are required. Select one: | 3",
+              {
+                "credits": 3,
+                "text": "Introductory History Course Three of the following are required. Select one:"
+              },
               {
                 "code": "HIST 110",
                 "title": "World History to 1500 (GT-HI1)"
@@ -4395,9 +5063,18 @@
                 "code": "HIST 202",
                 "title": "U.S. History II (GT-HI1)"
               },
-              "Upper or Lower-level History Elective | 3",
-              "General Education Humanities | 3",
-              "Electives | 6"
+              {
+                "credits": 3,
+                "text": "Upper or Lower-level History Elective"
+              },
+              {
+                "credits": 3,
+                "text": "General Education Humanities"
+              },
+              {
+                "credits": 6,
+                "text": "Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -4405,9 +5082,18 @@
           {
             "credit_hours": "15-16",
             "items": [
-              "Upper or Lower-level History Elective | 3",
-              "Natural or Physical Science w/ Lab | 4",
-              "General Education Social Science | 3",
+              {
+                "credits": 3,
+                "text": "Upper or Lower-level History Elective"
+              },
+              {
+                "credits": 4,
+                "text": "Natural or Physical Science w/ Lab"
+              },
+              {
+                "credits": 3,
+                "text": "General Education Social Science"
+              },
               "Electives | 5 or 6"
             ],
             "label": "Spring",
@@ -4421,8 +5107,14 @@
           {
             "credit_hours": "15-16",
             "items": [
-              "Upper-Level History Elective Any class that is numbered 300 or higher. | 3",
-              "Natural or Physical Science w/ Lab | 4",
+              {
+                "credits": 3,
+                "text": "Upper-Level History Elective Any class that is numbered 300 or higher."
+              },
+              {
+                "credits": 4,
+                "text": "Natural or Physical Science w/ Lab"
+              },
               "Electives | 8 or 9"
             ],
             "label": "Fall",
@@ -4431,8 +5123,14 @@
           {
             "credit_hours": "15",
             "items": [
-              "Upper-Level History Elective Any class that is numbered 300 or higher. | 3",
-              "Electives | 12"
+              {
+                "credits": 3,
+                "text": "Upper-Level History Elective Any class that is numbered 300 or higher."
+              },
+              {
+                "credits": 12,
+                "text": "Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -4450,8 +5148,14 @@
                 "credits": 3,
                 "title": "Seminar"
               },
-              "Upper-Level History Elective Any class that is numbered 300 or higher. | 3",
-              "Electives | 9"
+              {
+                "credits": 3,
+                "text": "Upper-Level History Elective Any class that is numbered 300 or higher."
+              },
+              {
+                "credits": 9,
+                "text": "Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -4459,8 +5163,14 @@
           {
             "credit_hours": "15",
             "items": [
-              "Electives 9 credits must be upper division. | 12",
-              "Upper-Level History Elective Any class that is numbered 300 or higher. | 3"
+              {
+                "credits": 12,
+                "text": "Electives 9 credits must be upper division."
+              },
+              {
+                "credits": 3,
+                "text": "Upper-Level History Elective Any class that is numbered 300 or higher."
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -4469,7 +5179,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/college-of-humanities-arts-and-social-sciences/history-political-science-philosophy-and-geography/history-bs-general-concentration/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#d562de2acd5f9670."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#d562de2acd5f9670) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#51bc82531aa42f95."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -4512,7 +5222,10 @@
                 "credits": 5,
                 "title": "Calculus & Analytic Geometry I (GT-MA1)"
               },
-              "General Education | 3"
+              {
+                "credits": 3,
+                "text": "General Education"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -4588,7 +5301,10 @@
                 "credits": 3,
                 "title": "Speaking & Listening"
               },
-              "General Education | 3"
+              {
+                "credits": 3,
+                "text": "General Education"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -4644,7 +5360,10 @@
                 "credits": 3,
                 "title": "Quality Control and Reliability"
               },
-              "Math/Science Elective | 3"
+              {
+                "credits": 3,
+                "text": "Math/Science Elective"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -4668,7 +5387,10 @@
                 "credits": 2,
                 "title": "Senior Seminar"
               },
-              "General Education | 9"
+              {
+                "credits": 9,
+                "text": "General Education"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -4696,7 +5418,10 @@
                 "credits": 3,
                 "title": "Industrial Engineering Design"
               },
-              "Technical Electives | 3"
+              {
+                "credits": 3,
+                "text": "Technical Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -4705,7 +5430,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/college-of-science-technology-engineering-and-mathematics/engineering/industrial-engineering-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#90f944334f81ba72."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#90f944334f81ba72) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#0bc907630c8a282f."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -4766,8 +5491,14 @@
                 "credits": 3,
                 "title": "Rhetoric & Writing I (GT-CO1)"
               },
-              "General Education | 6",
-              "Interdisciplinary Core | 6"
+              {
+                "credits": 6,
+                "text": "General Education"
+              },
+              {
+                "credits": 6,
+                "text": "Interdisciplinary Core"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -4780,8 +5511,14 @@
                 "credits": 3,
                 "title": "Rhetoric & Writing II (GT-CO2)"
               },
-              "General Education | 7",
-              "Elective | 4"
+              {
+                "credits": 7,
+                "text": "General Education"
+              },
+              {
+                "credits": 4,
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -4794,9 +5531,18 @@
           {
             "credit_hours": "15",
             "items": [
-              "General Education | 6",
-              "Interdisciplinary Core | 3",
-              "Elective Must be upper division in Prefix One. | 6"
+              {
+                "credits": 6,
+                "text": "General Education"
+              },
+              {
+                "credits": 3,
+                "text": "Interdisciplinary Core"
+              },
+              {
+                "credits": 6,
+                "text": "Elective Must be upper division in Prefix One."
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -4804,8 +5550,14 @@
           {
             "credit_hours": "16",
             "items": [
-              "General Education | 10",
-              "Interdisciplinary Core | 6"
+              {
+                "credits": 10,
+                "text": "General Education"
+              },
+              {
+                "credits": 6,
+                "text": "Interdisciplinary Core"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -4818,8 +5570,14 @@
           {
             "credit_hours": "15",
             "items": [
-              "Interdisciplinary Core | 6",
-              "Elective 6 credits must be upper division Prefix One. | 9"
+              {
+                "credits": 6,
+                "text": "Interdisciplinary Core"
+              },
+              {
+                "credits": 9,
+                "text": "Elective 6 credits must be upper division Prefix One."
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -4827,7 +5585,10 @@
           {
             "credit_hours": "15",
             "items": [
-              "Elective 9 credits must be upper division; 3 credits must be Prefix One course and 3 credits must be Prefix Two course. | 15"
+              {
+                "credits": 15,
+                "text": "Elective 9 credits must be upper division; 3 credits must be Prefix One course and 3 credits must be Prefix Two course."
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -4840,7 +5601,10 @@
           {
             "credit_hours": "15",
             "items": [
-              "Elective 9 credits must be upper division; 3 credits must be Prefix One course and 3 credits must be Prefix Two course. | 15"
+              {
+                "credits": 15,
+                "text": "Elective 9 credits must be upper division; 3 credits must be Prefix One course and 3 credits must be Prefix Two course."
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -4848,7 +5612,10 @@
           {
             "credit_hours": "15",
             "items": [
-              "Elective 12 credits must be upper division; 6 credits must be Prefix Two course. | 15"
+              {
+                "credits": 15,
+                "text": "Elective 12 credits must be upper division; 6 credits must be Prefix Two course."
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -4857,7 +5624,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/extended-studies/interdisciplinary-studies-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#0e1d7ecc601d52e4."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#0e1d7ecc601d52e4) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#123cac0e964f8dc5."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -5004,13 +5771,19 @@
                 "credits": 3,
                 "title": "Rhetoric & Writing I (GT-CO1)"
               },
-              "General Education: Humanities | 3",
+              {
+                "credits": 3,
+                "text": "General Education: Humanities"
+              },
               {
                 "code": "MATH 120",
                 "credits": 3,
                 "title": "College Algebra (GT-MA1)"
               },
-              "General Education: Nat & Phys Sci (1 course w/lab) | 4"
+              {
+                "credits": 4,
+                "text": "General Education: Nat & Phys Sci (1 course w/lab)"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -5038,7 +5811,10 @@
                 "credits": 3,
                 "title": "Introduction to Business Analytics"
               },
-              "General Education: History | 3"
+              {
+                "credits": 3,
+                "text": "General Education: History"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -5061,9 +5837,18 @@
                 "credits": 3,
                 "title": "Principles of Management"
               },
-              "General Education: Humanities | 3",
-              "General Education: Nat & Phys Sci (1 course w/lab) | 4",
-              "Open Elective | 3"
+              {
+                "credits": 3,
+                "text": "General Education: Humanities"
+              },
+              {
+                "credits": 4,
+                "text": "General Education: Nat & Phys Sci (1 course w/lab)"
+              },
+              {
+                "credits": 3,
+                "text": "Open Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -5091,7 +5876,10 @@
                 "credits": 3,
                 "title": "Business Communications"
               },
-              "General Education: Humanities | 3"
+              {
+                "credits": 3,
+                "text": "General Education: Humanities"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -5124,7 +5912,10 @@
                 "credits": 3,
                 "title": "Principles of Marketing"
               },
-              "Open Elective | 3"
+              {
+                "credits": 3,
+                "text": "Open Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -5142,9 +5933,18 @@
                 "credits": 3,
                 "title": "Management Information Systems"
               },
-              "MKTG 3/400 level Elective | 3",
-              "MKTG 3/400 level Elective | 3",
-              "Open Elective | 3"
+              {
+                "credits": 3,
+                "text": "MKTG 3/400 level Elective"
+              },
+              {
+                "credits": 3,
+                "text": "MKTG 3/400 level Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Open Elective"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -5162,15 +5962,27 @@
                 "credits": 3,
                 "title": "Marketing Strategies"
               },
-              "MKTG 3/400 level Elective | 3",
+              {
+                "credits": 3,
+                "text": "MKTG 3/400 level Elective"
+              },
               {
                 "code": "MGMT 311",
                 "credits": 3,
                 "title": "Operations and Quality Management"
               },
-              "Open Elective | 3",
-              "Open Elective | 3",
-              "Open Elective | 1"
+              {
+                "credits": 3,
+                "text": "Open Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Open Elective"
+              },
+              {
+                "credits": 1,
+                "text": "Open Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -5178,9 +5990,18 @@
           {
             "credit_hours": "13",
             "items": [
-              "MKTG 3/400 level Elective | 3",
-              "MKTG 3/400 level Elective | 3",
-              "Open 3/400-level Business Elective | 3",
+              {
+                "credits": 3,
+                "text": "MKTG 3/400 level Elective"
+              },
+              {
+                "credits": 3,
+                "text": "MKTG 3/400 level Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Open 3/400-level Business Elective"
+              },
               {
                 "code": "MGMT 485",
                 "credits": 3,
@@ -5199,7 +6020,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/the-hasan-school-of-business/marketing-bsba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#bc2da86a6449f1a6."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#bc2da86a6449f1a6) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#72d65ac77756c18d."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -5391,8 +6212,14 @@
                 "credits": 5,
                 "title": "Calculus & Analytic Geometry I (GT-MA1)"
               },
-              "General Education | 3",
-              "Elective | 3"
+              {
+                "credits": 3,
+                "text": "General Education"
+              },
+              {
+                "credits": 3,
+                "text": "Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -5410,8 +6237,32 @@
                 "credits": 5,
                 "title": "Calculus and Analytic Geometry II"
               },
-              "PHYS 221or CHEM 121 | General Physics Ior General Chemistry I (GT-SC2) | 4",
-              "PHYS 221Lor CHEM 121L | General Physics I Lab (GT-SC1)or General Chemistry Lab I (GT-SC1) | 1"
+              {
+                "any_of": [
+                  {
+                    "code": "PHYS 221",
+                    "title": "General Physics I"
+                  },
+                  {
+                    "code": "CHEM 121",
+                    "title": "General Chemistry I (GT-SC2)"
+                  }
+                ],
+                "credits": 4
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "PHYS 221L",
+                    "title": "General Physics I Lab (GT-SC1)"
+                  },
+                  {
+                    "code": "CHEM 121L",
+                    "title": "General Chemistry Lab I (GT-SC1)"
+                  }
+                ],
+                "credits": 1
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -5434,9 +6285,36 @@
                 "credits": 3,
                 "title": "Differential Equations I"
               },
-              "PHYS 222or CHEM 122 | General Physics IIor General Chemistry II (GT-SC2) | 4",
-              "PHYS 222Lor CHEM 122L | General Physics II Lab (GT-SC1)or General Chemistry Lab II (GT-SC1) | 1",
-              "Elective | 3"
+              {
+                "any_of": [
+                  {
+                    "code": "PHYS 222",
+                    "title": "General Physics II"
+                  },
+                  {
+                    "code": "CHEM 122",
+                    "title": "General Chemistry II (GT-SC2)"
+                  }
+                ],
+                "credits": 4
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "PHYS 222L",
+                    "title": "General Physics II Lab (GT-SC1)"
+                  },
+                  {
+                    "code": "CHEM 122L",
+                    "title": "General Chemistry Lab II (GT-SC1)"
+                  }
+                ],
+                "credits": 1
+              },
+              {
+                "credits": 3,
+                "text": "Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -5454,8 +6332,14 @@
                 "credits": 3,
                 "title": "Probability"
               },
-              "General Education 3 credits must be World Language course. | 6",
-              "Elective | 3"
+              {
+                "credits": 6,
+                "text": "General Education 3 credits must be World Language course."
+              },
+              {
+                "credits": 3,
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -5473,8 +6357,14 @@
                 "credits": 3,
                 "title": "Statistics for Engineers & Scientists"
               },
-              "General Education 3 credits must be World Language course. | 6",
-              "Elective | 6"
+              {
+                "credits": 6,
+                "text": "General Education 3 credits must be World Language course."
+              },
+              {
+                "credits": 6,
+                "text": "Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -5482,8 +6372,14 @@
           {
             "credit_hours": "15",
             "items": [
-              "General Education | 3",
-              "Elective | 12"
+              {
+                "credits": 3,
+                "text": "General Education"
+              },
+              {
+                "credits": 12,
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -5501,7 +6397,10 @@
                 "credits": 4,
                 "title": "Introduction to Analysis"
               },
-              "Elective 6 credits must be upper division Mathematics course. | 12"
+              {
+                "credits": 12,
+                "text": "Elective 6 credits must be upper division Mathematics course."
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -5514,7 +6413,10 @@
                 "credits": 4,
                 "title": "Abstract Algebra"
               },
-              "Elective 3 credits must be upper division Mathematics course. | 11"
+              {
+                "credits": 11,
+                "text": "Elective 3 credits must be upper division Mathematics course."
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -5523,7 +6425,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/college-of-science-technology-engineering-and-mathematics/mathematics-and-physics/mathematics-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#d70c7b91454b12f4."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#d70c7b91454b12f4) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#659286fab998db38."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -5703,8 +6605,14 @@
                 "credits": 5,
                 "title": "Calculus & Analytic Geometry I (GT-MA1)"
               },
-              "General Education | 3",
-              "Elective | 3"
+              {
+                "credits": 3,
+                "text": "General Education"
+              },
+              {
+                "credits": 3,
+                "text": "Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -5722,9 +6630,36 @@
                 "credits": 5,
                 "title": "Calculus and Analytic Geometry II"
               },
-              "PHYS 221or CHEM 121 | General Physics Ior General Chemistry I (GT-SC2) | 4",
-              "PHYS 221Lor CHEM 121L | General Physics I Lab (GT-SC1)or General Chemistry Lab I (GT-SC1) | 1",
-              "General Education | 3"
+              {
+                "any_of": [
+                  {
+                    "code": "PHYS 221",
+                    "title": "General Physics I"
+                  },
+                  {
+                    "code": "CHEM 121",
+                    "title": "General Chemistry I (GT-SC2)"
+                  }
+                ],
+                "credits": 4
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "PHYS 221L",
+                    "title": "General Physics I Lab (GT-SC1)"
+                  },
+                  {
+                    "code": "CHEM 121L",
+                    "title": "General Chemistry Lab I (GT-SC1)"
+                  }
+                ],
+                "credits": 1
+              },
+              {
+                "credits": 3,
+                "text": "General Education"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -5747,9 +6682,36 @@
                 "credits": 3,
                 "title": "Differential Equations I"
               },
-              "PHYS 222or CHEM 122 | General Physics IIor General Chemistry II (GT-SC2) | 4",
-              "PHYS 222Lor CHEM 122L | General Physics II Lab (GT-SC1)or General Chemistry Lab II (GT-SC1) | 1",
-              "Elective | 3"
+              {
+                "any_of": [
+                  {
+                    "code": "PHYS 222",
+                    "title": "General Physics II"
+                  },
+                  {
+                    "code": "CHEM 122",
+                    "title": "General Chemistry II (GT-SC2)"
+                  }
+                ],
+                "credits": 4
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "PHYS 222L",
+                    "title": "General Physics II Lab (GT-SC1)"
+                  },
+                  {
+                    "code": "CHEM 122L",
+                    "title": "General Chemistry Lab II (GT-SC1)"
+                  }
+                ],
+                "credits": 1
+              },
+              {
+                "credits": 3,
+                "text": "Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -5767,8 +6729,14 @@
                 "credits": 4,
                 "title": "Introduction to Linear Algebra"
               },
-              "General Education | 6",
-              "Elective | 3"
+              {
+                "credits": 6,
+                "text": "General Education"
+              },
+              {
+                "credits": 3,
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -5786,8 +6754,14 @@
                 "credits": 3,
                 "title": "Probability"
               },
-              "General Education | 6",
-              "Elective | 6"
+              {
+                "credits": 6,
+                "text": "General Education"
+              },
+              {
+                "credits": 6,
+                "text": "Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -5800,7 +6774,10 @@
                 "credits": 3,
                 "title": "Statistics for Engineers & Scientists"
               },
-              "Elective 3 credits must be upper division Mathematics course. | 12"
+              {
+                "credits": 12,
+                "text": "Elective 3 credits must be upper division Mathematics course."
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -5818,7 +6795,10 @@
                 "credits": 4,
                 "title": "Introduction to Analysis"
               },
-              "Elective 3 credits must be upper division Mathematics course. | 9"
+              {
+                "credits": 9,
+                "text": "Elective 3 credits must be upper division Mathematics course."
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -5831,7 +6811,10 @@
                 "credits": 4,
                 "title": "Abstract Algebra"
               },
-              "Elective 3 credits must be upper division Mathematics course. | 11"
+              {
+                "credits": 11,
+                "text": "Elective 3 credits must be upper division Mathematics course."
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -5840,7 +6823,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/college-of-science-technology-engineering-and-mathematics/mathematics-and-physics/mathematics-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#e45f7a47c4bb922d."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#e45f7a47c4bb922d) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#bcc52d8571b482c3."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -6030,7 +7013,10 @@
                 "credits": 3,
                 "title": "Rhetoric & Writing I (GT-CO1)"
               },
-              "General Education | 3"
+              {
+                "credits": 3,
+                "text": "General Education"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -6258,7 +7244,10 @@
                 "credits": 3,
                 "title": "Speaking & Listening"
               },
-              "Technical Electives | 3",
+              {
+                "credits": 3,
+                "text": "Technical Electives"
+              },
               {
                 "code": "EN 473",
                 "credits": 2,
@@ -6274,7 +7263,10 @@
                 "credits": 2,
                 "title": "Senior Seminar"
               },
-              "General Education | 6"
+              {
+                "credits": 6,
+                "text": "General Education"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -6302,8 +7294,14 @@
                 "credits": 3,
                 "title": "Engineering Design"
               },
-              "Math/Science Electives | 3",
-              "General Education | 6"
+              {
+                "credits": 3,
+                "text": "Math/Science Electives"
+              },
+              {
+                "credits": 6,
+                "text": "General Education"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -6312,7 +7310,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/college-of-science-technology-engineering-and-mathematics/engineering/mechatronics-engineering-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#b93cf473b8c2303a."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#b93cf473b8c2303a) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#8d3f8b5be3f3d7e3."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -6589,6 +7587,11 @@
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
             "credit_hours": "13",
             "items": [
               {
@@ -6611,15 +7614,30 @@
                 "credits": 3,
                 "title": "Interactive & Immersive Media Essentials"
               },
-              "Gen Ed Math | 3"
+              {
+                "credits": 3,
+                "text": "Gen Ed Math"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
             "credit_hours": "16",
             "items": [
-              "ENG 102or ENG 115 | Rhetoric & Writing II (GT-CO2)or Technical Writing (GT-CO2) | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "ENG 102",
+                    "title": "Rhetoric & Writing II (GT-CO2)"
+                  },
+                  {
+                    "code": "ENG 115",
+                    "title": "Technical Writing (GT-CO2)"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "CID 103",
                 "credits": 3,
@@ -6635,11 +7653,18 @@
                 "credits": 3,
                 "title": "Media Design Essentials"
               },
-              "Gen Ed Science with Lab | 4",
-              "Sophomore"
+              {
+                "credits": 4,
+                "text": "Gen Ed Science with Lab"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
           },
           {
             "credit_hours": "16",
@@ -6659,11 +7684,17 @@
                 "credits": 3,
                 "title": "Film & Video Essentials"
               },
-              "Gen Ed Science with Lab | 4",
-              "Interdisciplinary Elective | 3"
+              {
+                "credits": 4,
+                "text": "Gen Ed Science with Lab"
+              },
+              {
+                "credits": 3,
+                "text": "Interdisciplinary Elective"
+              }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
             "credit_hours": "16",
@@ -6678,18 +7709,34 @@
                 "credits": 4,
                 "title": "Introduction to Java Programming"
               },
-              "Gen Ed Humanities | 3",
-              "MAE Diversity & Culture Course | 3",
-              "Design & Coding OR Design & Creative Course | 3",
-              "Junior"
+              {
+                "credits": 3,
+                "text": "Gen Ed Humanities"
+              },
+              {
+                "credits": 3,
+                "text": "MAE Diversity & Culture Course"
+              },
+              {
+                "credits": 3,
+                "text": "Design & Coding OR Design & Creative Course"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
+          },
+          {
+            "items": [],
+            "label": "Junior",
+            "term_index": 7
           },
           {
             "credit_hours": "18",
             "items": [
-              "Web Design/Development Requirement select one of the following: | 3",
+              {
+                "credits": 3,
+                "text": "Web Design/Development Requirement select one of the following:"
+              },
               {
                 "code": "CIS 311",
                 "title": "Introduction to Web Development"
@@ -6708,12 +7755,21 @@
                 "credits": 3,
                 "title": "Social Media & Online Strategies"
               },
-              "Gen Ed Humanities | 3",
-              "Design & Coding OR Design & Creative Course | 3",
-              "Student Media Practicum | 3"
+              {
+                "credits": 3,
+                "text": "Gen Ed Humanities"
+              },
+              {
+                "credits": 3,
+                "text": "Design & Coding OR Design & Creative Course"
+              },
+              {
+                "credits": 3,
+                "text": "Student Media Practicum"
+              }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
             "credit_hours": "15",
@@ -6723,14 +7779,30 @@
                 "credits": 3,
                 "title": "Law, Ethics, & Regulation of Media"
               },
-              "Gen Ed Social Science | 3",
-              "Design & Coding AND/OR Design & Creative Course | 3",
-              "Student Media Practicum | 3",
-              "Approved Electives | 3",
-              "Senior"
+              {
+                "credits": 3,
+                "text": "Gen Ed Social Science"
+              },
+              {
+                "credits": 3,
+                "text": "Design & Coding AND/OR Design & Creative Course"
+              },
+              {
+                "credits": 3,
+                "text": "Student Media Practicum"
+              },
+              {
+                "credits": 3,
+                "text": "Approved Electives"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Senior",
+            "term_index": 10
           },
           {
             "credit_hours": "14",
@@ -6740,12 +7812,21 @@
                 "credits": 2,
                 "title": "Capstone: Research & Proposal"
               },
-              "Gen Ed History | 3",
-              "Approved Electives | 6",
-              "Student Media Practicum | 3"
+              {
+                "credits": 3,
+                "text": "Gen Ed History"
+              },
+              {
+                "credits": 6,
+                "text": "Approved Electives"
+              },
+              {
+                "credits": 3,
+                "text": "Student Media Practicum"
+              }
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 11
           },
           {
             "credit_hours": "12",
@@ -6760,17 +7841,23 @@
                 "credits": 3,
                 "title": "Capstone: Production & Delivery"
               },
-              "Student Media Practicum | 3",
-              "Electives | 5"
+              {
+                "credits": 3,
+                "text": "Student Media Practicum"
+              },
+              {
+                "credits": 5,
+                "text": "Electives"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.csupueblo.edu/college-of-humanities-arts-and-social-sciences/media-and-entertainment/media-and-entertainment-interactive-and-immersive-media-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#5238be572d509367."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#5238be572d509367) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#82d85ef639bed236."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -6922,7 +8009,10 @@
                 "credits": 3,
                 "title": "Music Appreciation (GT-AH1)"
               },
-              "Each semester must include 2 assigned ensembles and the applied lesson in the primary performance area Each ensemble may be taken for .5 or 1 credit - 1 is recommended | 3-4"
+              {
+                "credits": "3-4",
+                "text": "Each semester must include 2 assigned ensembles and the applied lesson in the primary performance area Each ensemble may be taken for .5 or 1 credit - 1 is recommended"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -6945,7 +8035,10 @@
                 "credits": 3,
                 "title": "Music Theory II"
               },
-              "General Education | 3",
+              {
+                "credits": 3,
+                "text": "General Education"
+              },
               {
                 "code": "MUS 227",
                 "credits": 1,
@@ -6956,7 +8049,10 @@
                 "credits": 2,
                 "title": "Aural Skills II"
               },
-              "Each semester must include 2 assigned ensembles and the applied lesson in the primary performance area Each ensemble may be taken for .5 or 1 credit - 1 is recommended | 3-4"
+              {
+                "credits": "3-4",
+                "text": "Each semester must include 2 assigned ensembles and the applied lesson in the primary performance area Each ensemble may be taken for .5 or 1 credit - 1 is recommended"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -6974,14 +8070,23 @@
                 "credits": "0-1",
                 "title": "Music Performance Symposium II"
               },
-              "MAE Music Technology course (see Student Handbook for approved choices) | 3",
+              {
+                "credits": 3,
+                "text": "MAE Music Technology course (see Student Handbook for approved choices)"
+              },
               {
                 "code": "MUS 250",
                 "credits": 3,
                 "title": "Music Theory III"
               },
-              "General Education | 6",
-              "Each semester must include 2 assigned ensembles and the applied lesson in the primary performance area Each ensemble may be taken for .5 or 1 credit - 1 is recommended | 3-4",
+              {
+                "credits": 6,
+                "text": "General Education"
+              },
+              {
+                "credits": "3-4",
+                "text": "Each semester must include 2 assigned ensembles and the applied lesson in the primary performance area Each ensemble may be taken for .5 or 1 credit - 1 is recommended"
+              },
               {
                 "code": "MUS 251",
                 "credits": 2,
@@ -7009,14 +8114,23 @@
                 "credits": 3,
                 "title": "Music Theory IV"
               },
-              "General Education | 3",
-              "Each semester must include 2 assigned ensembles and the applied lesson in the primary performance area Each ensemble may be taken for .5 or 1 credit - 1 is recommended | 3-4",
+              {
+                "credits": 3,
+                "text": "General Education"
+              },
+              {
+                "credits": "3-4",
+                "text": "Each semester must include 2 assigned ensembles and the applied lesson in the primary performance area Each ensemble may be taken for .5 or 1 credit - 1 is recommended"
+              },
               {
                 "code": "MUS 281",
                 "credits": 2,
                 "title": "Aural Skills IV"
               },
-              "Elective(s) | 2"
+              {
+                "credits": 2,
+                "text": "Elective(s)"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -7039,14 +8153,23 @@
                 "credits": 3,
                 "title": "Music History I"
               },
-              "General Education | 3",
-              "Each semester must include 2 assigned ensembles and the applied lesson in the primary performance area Each ensemble may be taken for .5 or 1 credit - 1 is recommended | 3-4",
+              {
+                "credits": 3,
+                "text": "General Education"
+              },
+              {
+                "credits": "3-4",
+                "text": "Each semester must include 2 assigned ensembles and the applied lesson in the primary performance area Each ensemble may be taken for .5 or 1 credit - 1 is recommended"
+              },
               {
                 "code": "MUS 357",
                 "credits": 2,
                 "title": "Orchestration and Arranging"
               },
-              "Elective(s) | 2"
+              {
+                "credits": 2,
+                "text": "Elective(s)"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -7064,8 +8187,14 @@
                 "credits": 3,
                 "title": "Music History II"
               },
-              "General Education | 3",
-              "Each semester must include 2 assigned ensembles and the applied lesson in the primary performance area Each ensemble may be taken for .5 or 1 credit - 1 is recommended | 3-4",
+              {
+                "credits": 3,
+                "text": "General Education"
+              },
+              {
+                "credits": "3-4",
+                "text": "Each semester must include 2 assigned ensembles and the applied lesson in the primary performance area Each ensemble may be taken for .5 or 1 credit - 1 is recommended"
+              },
               {
                 "code": "MUS 358",
                 "credits": 2,
@@ -7088,9 +8217,18 @@
           {
             "credit_hours": "17-18",
             "items": [
-              "General Education | 4",
-              "Each semester must include 2 assigned ensembles and the applied lesson in the primary performance area Each ensemble may be taken for .5 or 1 credit - 1 is recommended | 3-4",
-              "Elective(s) | 10"
+              {
+                "credits": 4,
+                "text": "General Education"
+              },
+              {
+                "credits": "3-4",
+                "text": "Each semester must include 2 assigned ensembles and the applied lesson in the primary performance area Each ensemble may be taken for .5 or 1 credit - 1 is recommended"
+              },
+              {
+                "credits": 10,
+                "text": "Elective(s)"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -7098,9 +8236,17 @@
           {
             "credit_hours": "13-14",
             "items": [
-              "MUS 490 Capstone Project in Music (see Student Handbook for more information) Electing a Senior Recital as the Capstone Project requires permission of the applied instructor; Senior Recital is in Lieu of applied lesson.",
-              "Each semester must include 2 assigned ensembles and the applied lesson in the primary performance area Each ensemble may be taken for .5 or 1 credit - 1 is recommended | 3-4",
-              "Elective(s) | 10"
+              {
+                "text": "MUS 490 Capstone Project in Music (see Student Handbook for more information) Electing a Senior Recital as the Capstone Project requires permission of the applied instructor; Senior Recital is in Lieu of applied lesson."
+              },
+              {
+                "credits": "3-4",
+                "text": "Each semester must include 2 assigned ensembles and the applied lesson in the primary performance area Each ensemble may be taken for .5 or 1 credit - 1 is recommended"
+              },
+              {
+                "credits": 10,
+                "text": "Elective(s)"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -7109,7 +8255,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/college-of-humanities-arts-and-social-sciences/music/music-ba-general-concentration/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#d4ad715a529a6715."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#d4ad715a529a6715) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#fe9312f177439045."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -7194,7 +8340,10 @@
                 "credits": 5,
                 "title": "Calculus & Analytic Geometry I (GT-MA1)"
               },
-              "General Education | 3"
+              {
+                "credits": 3,
+                "text": "General Education"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -7237,7 +8386,10 @@
                 "title": "Intermediate Calculus"
               },
               "PHYS 222& 222L | General Physics IIand General Physics II Lab (GT-SC1) | 5",
-              "General Education | 3"
+              {
+                "credits": 3,
+                "text": "General Education"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -7252,7 +8404,10 @@
                 "title": "Differential Equations I"
               },
               "PHYS 323& 323L | General Physics IIIand General Physics III Lab | 5",
-              "General Education | 3"
+              {
+                "credits": 3,
+                "text": "General Education"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -7280,8 +8435,14 @@
                 "credits": 1,
                 "title": "Advanced Laboratory-Optics"
               },
-              "General Education | 6",
-              "Elective | 3"
+              {
+                "credits": 6,
+                "text": "General Education"
+              },
+              {
+                "credits": 3,
+                "text": "Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -7309,8 +8470,14 @@
                 "credits": 1,
                 "title": "Research"
               },
-              "General Education | 3",
-              "Elective | 1-2"
+              {
+                "credits": 3,
+                "text": "General Education"
+              },
+              {
+                "credits": "1-2",
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -7338,7 +8505,10 @@
                 "credits": 1,
                 "title": "Practicum in Laboratory Instruction"
               },
-              "Elective 3 credits must be one of the following: MATH 307, MATH 356, or MATH 425. | 9-10"
+              {
+                "credits": "9-10",
+                "text": "Elective 3 credits must be one of the following: MATH 307, MATH 356, or MATH 425."
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -7361,7 +8531,10 @@
                 "credits": 1,
                 "title": "Thesis Research"
               },
-              "Elective | 6"
+              {
+                "credits": 6,
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -7370,7 +8543,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/college-of-science-technology-engineering-and-mathematics/mathematics-and-physics/physics-bs-physics/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#284304276f36f07f."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#284304276f36f07f) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#42601a358064f2c8."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -7424,7 +8597,10 @@
                 "credits": 3,
                 "title": "American Government (GT-SS1)"
               },
-              "General Education 3 credits must be World Language course. | 9"
+              {
+                "credits": 9,
+                "text": "General Education 3 credits must be World Language course."
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -7437,7 +8613,10 @@
                 "credits": 3,
                 "title": "Rhetoric & Writing II (GT-CO2)"
               },
-              "General Education 3 credits must be World Language course. | 9",
+              {
+                "credits": 9,
+                "text": "General Education 3 credits must be World Language course."
+              },
               {
                 "code": "POLS 201",
                 "credits": 3,
@@ -7465,8 +8644,14 @@
                 "credits": 3,
                 "title": "Comparative Politics (GT-SS1)"
               },
-              "General Education | 4",
-              "Elective Must be outside the major. | 5"
+              {
+                "credits": 4,
+                "text": "General Education"
+              },
+              {
+                "credits": 5,
+                "text": "Elective Must be outside the major."
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -7474,8 +8659,14 @@
           {
             "credit_hours": "18",
             "items": [
-              "General Education | 7",
-              "Elective 3 credits must be Political Science course. | 8",
+              {
+                "credits": 7,
+                "text": "General Education"
+              },
+              {
+                "credits": 8,
+                "text": "Elective 3 credits must be Political Science course."
+              },
               {
                 "code": "POLS 251",
                 "credits": 3,
@@ -7498,7 +8689,10 @@
                 "credits": 3,
                 "title": "Western Political Thought"
               },
-              "Elective 3 credits must be upper division Political Science course. 9 credits must be outside the major; 3 credits must be upper division. | 12"
+              {
+                "credits": 12,
+                "text": "Elective 3 credits must be upper division Political Science course. 9 credits must be outside the major; 3 credits must be upper division."
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -7506,7 +8700,10 @@
           {
             "credit_hours": "15",
             "items": [
-              "Elective 9 credits must be upper division Political Science course. 6 credits must be outside the major; 3 credits must be upper division. | 15"
+              {
+                "credits": 15,
+                "text": "Elective 9 credits must be upper division Political Science course. 6 credits must be outside the major; 3 credits must be upper division."
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -7519,7 +8716,10 @@
           {
             "credit_hours": "15",
             "items": [
-              "Elective 15 credits must be upper division; 9 credits must be Political Science course. 3 credits must be outside the major. | 15"
+              {
+                "credits": 15,
+                "text": "Elective 15 credits must be upper division; 9 credits must be Political Science course. 3 credits must be outside the major."
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -7532,7 +8732,10 @@
                 "credits": "1-3",
                 "title": "Seminar"
               },
-              "Elective 9 credits must be upper division; 3 credits must be outside the major | 12"
+              {
+                "credits": 12,
+                "text": "Elective 9 credits must be upper division; 3 credits must be outside the major"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -7541,7 +8744,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/college-of-humanities-arts-and-social-sciences/history-political-science-philosophy-and-geography/political-science-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#e554c34cb5af159f."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#e554c34cb5af159f) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#ffcaa24695bacf59."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -7739,7 +8942,10 @@
                 "credits": 3,
                 "title": "American Government (GT-SS1)"
               },
-              "General Education | 9"
+              {
+                "credits": 9,
+                "text": "General Education"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -7752,7 +8958,10 @@
                 "credits": 3,
                 "title": "Rhetoric & Writing II (GT-CO2)"
               },
-              "General Education | 9",
+              {
+                "credits": 9,
+                "text": "General Education"
+              },
               {
                 "code": "POLS 201",
                 "credits": 3,
@@ -7780,8 +8989,14 @@
                 "credits": 3,
                 "title": "Comparative Politics (GT-SS1)"
               },
-              "General Education | 4",
-              "Elective Must be outside the major. | 5"
+              {
+                "credits": 4,
+                "text": "General Education"
+              },
+              {
+                "credits": 5,
+                "text": "Elective Must be outside the major."
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -7789,8 +9004,14 @@
           {
             "credit_hours": "18",
             "items": [
-              "General Education | 7",
-              "Elective 3 credits must be Political Science course. | 8",
+              {
+                "credits": 7,
+                "text": "General Education"
+              },
+              {
+                "credits": 8,
+                "text": "Elective 3 credits must be Political Science course."
+              },
               {
                 "code": "POLS 251",
                 "credits": 3,
@@ -7813,7 +9034,10 @@
                 "credits": 3,
                 "title": "Western Political Thought"
               },
-              "Elective 3 credits must be upper division Political Science course. 9 credits must be outside the major; 6 credits must be upper division. | 12"
+              {
+                "credits": 12,
+                "text": "Elective 3 credits must be upper division Political Science course. 9 credits must be outside the major; 6 credits must be upper division."
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -7821,7 +9045,10 @@
           {
             "credit_hours": "15",
             "items": [
-              "Elective 9 credits must be upper division Political Science course. 6 credits must be outside the major; 3 credits must be upper division. | 15"
+              {
+                "credits": 15,
+                "text": "Elective 9 credits must be upper division Political Science course. 6 credits must be outside the major; 3 credits must be upper division."
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -7834,7 +9061,10 @@
           {
             "credit_hours": "15",
             "items": [
-              "Elective 15 credits must be upper division; 9 credits must be Political Science course. 3 credits must be outside the major. | 15"
+              {
+                "credits": 15,
+                "text": "Elective 15 credits must be upper division; 9 credits must be Political Science course. 3 credits must be outside the major."
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -7847,7 +9077,10 @@
                 "credits": "1-3",
                 "title": "Seminar"
               },
-              "Elective 9 credits must be upper division; 3 credits must be outside the major | 12"
+              {
+                "credits": 12,
+                "text": "Elective 9 credits must be upper division; 3 credits must be outside the major"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -7856,7 +9089,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/college-of-humanities-arts-and-social-sciences/history-political-science-philosophy-and-geography/political-science-bs-general-concentration/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#8360848cf0187097."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#8360848cf0187097) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#f5ef14ba0671dac3."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -8059,7 +9292,10 @@
                 "credits": 3,
                 "title": "Introductory Psychology for Majors"
               },
-              "General Education | 6"
+              {
+                "credits": 6,
+                "text": "General Education"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -8072,7 +9308,10 @@
                 "credits": 3,
                 "title": "Rhetoric & Writing II (GT-CO2)"
               },
-              "General Education | 14"
+              {
+                "credits": 14,
+                "text": "General Education"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -8086,7 +9325,10 @@
             "credit_hours": "14",
             "items": [
               "PSYC 207& 207L | Quantitative Research Methods Iand Quantitative Research Methods Lab I | 4",
-              "General Education | 10"
+              {
+                "credits": 10,
+                "text": "General Education"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -8095,7 +9337,10 @@
             "credit_hours": "14",
             "items": [
               "PSYC 209& 209L | Quantitative Research IIand Quantitative Research Methods Lab II | 4",
-              "Elective 7 credits must be Psychology core. 3 credits must be Psychology elective course. | 10"
+              {
+                "credits": 10,
+                "text": "Elective 7 credits must be Psychology core. 3 credits must be Psychology elective course."
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -8108,8 +9353,14 @@
           {
             "credit_hours": "16",
             "items": [
-              "General Education Must be World Language course. | 3",
-              "Elective 4 credits must be upper division. 6 credits must be Psychology core course. 3 credits must be upper division Psychology elective. | 13"
+              {
+                "credits": 3,
+                "text": "General Education Must be World Language course."
+              },
+              {
+                "credits": 13,
+                "text": "Elective 4 credits must be upper division. 6 credits must be Psychology core course. 3 credits must be upper division Psychology elective."
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -8117,8 +9368,14 @@
           {
             "credit_hours": "15",
             "items": [
-              "General Education Must be World Language course. | 3",
-              "Elective 9 credits must be upper division. 3 credits must be Psychology core. | 12"
+              {
+                "credits": 3,
+                "text": "General Education Must be World Language course."
+              },
+              {
+                "credits": 12,
+                "text": "Elective 9 credits must be upper division. 3 credits must be Psychology core."
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -8131,7 +9388,10 @@
           {
             "credit_hours": "16",
             "items": [
-              "Elective 6 credits must be upper division; 3 credits must be Psychology elective. | 16"
+              {
+                "credits": 16,
+                "text": "Elective 6 credits must be upper division; 3 credits must be Psychology elective."
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -8144,7 +9404,10 @@
                 "credits": 3,
                 "title": "History and Systems of Psychology"
               },
-              "Elective | 11"
+              {
+                "credits": 11,
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -8153,7 +9416,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/college-of-humanities-arts-and-social-sciences/psychology/psychology-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#fa6d30ffe2cd2f0f."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#fa6d30ffe2cd2f0f) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#e02df374d4689d2b."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -8191,7 +9454,10 @@
                 "credits": 3,
                 "title": "Introductory Psychology for Majors"
               },
-              "General Education | 6"
+              {
+                "credits": 6,
+                "text": "General Education"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -8204,7 +9470,10 @@
                 "credits": 3,
                 "title": "Rhetoric & Writing II (GT-CO2)"
               },
-              "General Education | 13"
+              {
+                "credits": 13,
+                "text": "General Education"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -8218,7 +9487,10 @@
             "credit_hours": "14",
             "items": [
               "PSYC 207& 207L | Quantitative Research Methods Iand Quantitative Research Methods Lab I | 4",
-              "General Education | 10"
+              {
+                "credits": 10,
+                "text": "General Education"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -8227,7 +9499,10 @@
             "credit_hours": "16",
             "items": [
               "PSYC 209& 209L | Quantitative Research IIand Quantitative Research Methods Lab II | 4",
-              "Elective Must be Psychology course. | 12"
+              {
+                "credits": 12,
+                "text": "Elective Must be Psychology course."
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -8240,7 +9515,10 @@
           {
             "credit_hours": "16",
             "items": [
-              "Elective 8 credits must be STEM course. 4 credits must be upper division. 4 credits must be Psychology course. | 16"
+              {
+                "credits": 16,
+                "text": "Elective 8 credits must be STEM course. 4 credits must be upper division. 4 credits must be Psychology course."
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -8248,7 +9526,10 @@
           {
             "credit_hours": "16",
             "items": [
-              "Elective 12 credits must be upper division; 3 credits must be Psychology course. | 16"
+              {
+                "credits": 16,
+                "text": "Elective 12 credits must be upper division; 3 credits must be Psychology course."
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -8261,7 +9542,10 @@
           {
             "credit_hours": "14",
             "items": [
-              "Elective 6 credits must be upper division; 3 credits must be Psychology course. | 14"
+              {
+                "credits": 14,
+                "text": "Elective 6 credits must be upper division; 3 credits must be Psychology course."
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -8274,7 +9558,10 @@
                 "credits": 3,
                 "title": "History and Systems of Psychology"
               },
-              "Elective | 11"
+              {
+                "credits": 11,
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -8283,7 +9570,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/college-of-humanities-arts-and-social-sciences/psychology/psychology-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#4e1287f3cdf3128e."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#4e1287f3cdf3128e) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#da9c4c39e48bb8ab."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -8298,6 +9585,11 @@
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
+          {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
           {
             "credit_hours": "16",
             "items": [
@@ -8317,10 +9609,13 @@
                 "credits": 3,
                 "title": "Rhetoric & Writing I (GT-CO1)"
               },
-              "General Education: Math | 3"
+              {
+                "credits": 3,
+                "text": "General Education: Math"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
             "credit_hours": "16",
@@ -8345,12 +9640,22 @@
                 "credits": 3,
                 "title": "Rhetoric & Writing II (GT-CO2)"
               },
-              "General Education: Humanities | 3",
-              "General Education: Humanities | 3",
-              "Sophomore"
+              {
+                "credits": 3,
+                "text": "General Education: Humanities"
+              },
+              {
+                "credits": 3,
+                "text": "General Education: Humanities"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
           },
           {
             "credit_hours": "15",
@@ -8370,11 +9675,17 @@
                 "credits": 3,
                 "title": "Statistics for Social Worker"
               },
-              "Economics or Political Science | 3",
-              "General Education: History | 3"
+              {
+                "credits": 3,
+                "text": "Economics or Political Science"
+              },
+              {
+                "credits": 3,
+                "text": "General Education: History"
+              }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
             "credit_hours": "16",
@@ -8384,14 +9695,30 @@
                 "credits": 3,
                 "title": "Human Behavior and Social Environment II"
               },
-              "Women's Studies | 3",
-              "General Education: Humanities | 3",
-              "General Education: Nat & Phys Sciences | 4",
-              "Elective | 3",
-              "Junior"
+              {
+                "credits": 3,
+                "text": "Women's Studies"
+              },
+              {
+                "credits": 3,
+                "text": "General Education: Humanities"
+              },
+              {
+                "credits": 4,
+                "text": "General Education: Nat & Phys Sciences"
+              },
+              {
+                "credits": 3,
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
+          },
+          {
+            "items": [],
+            "label": "Junior",
+            "term_index": 7
           },
           {
             "credit_hours": "15",
@@ -8416,10 +9743,13 @@
                 "credits": 3,
                 "title": "Social Welfare Policy"
               },
-              "Elective | 3"
+              {
+                "credits": 3,
+                "text": "Elective"
+              }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
             "credit_hours": "15",
@@ -8439,12 +9769,22 @@
                 "credits": 3,
                 "title": "Social Work Intervention III"
               },
-              "Elective | 3",
-              "Elective | 3",
-              "Senior"
+              {
+                "credits": 3,
+                "text": "Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Senior",
+            "term_index": 10
           },
           {
             "credit_hours": "14",
@@ -8464,10 +9804,13 @@
                 "credits": 3,
                 "title": "Research"
               },
-              "Elective | 3"
+              {
+                "credits": 3,
+                "text": "Elective"
+              }
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 11
           },
           {
             "credit_hours": "13",
@@ -8482,17 +9825,23 @@
                 "credits": 5,
                 "title": "Placement II"
               },
-              "Elective | 3",
-              "Elective | 2"
+              {
+                "credits": 3,
+                "text": "Elective"
+              },
+              {
+                "credits": 2,
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.csupueblo.edu/college-of-humanities-arts-and-social-sciences/social-work/social-work-bsw/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#8f1a00285e3a8612."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#8f1a00285e3a8612) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#c8248e10088f27c5."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -8520,7 +9869,10 @@
                 "credits": 3,
                 "title": "Rhetoric & Writing I (GT-CO1)"
               },
-              "General Education recommended - WL100 or language 101, 3 Humanities, History, and Sci w/lab | 13"
+              {
+                "credits": 13,
+                "text": "General Education recommended - WL100 or language 101, 3 Humanities, History, and Sci w/lab"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -8538,7 +9890,10 @@
                 "credits": 3,
                 "title": "Introduction to Sociology (GT-SS3)"
               },
-              "General Education recommended - ANTH106 or language 102, Math, & Sci w/lab | 10"
+              {
+                "credits": 10,
+                "text": "General Education recommended - ANTH106 or language 102, Math, & Sci w/lab"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -8556,9 +9911,18 @@
                 "credits": 3,
                 "title": "Research Methods"
               },
-              "General Education Social Sciences and/or Humanities | 6",
-              "Major elective sociology class | 3",
-              "Open elective | 3"
+              {
+                "credits": 6,
+                "text": "General Education Social Sciences and/or Humanities"
+              },
+              {
+                "credits": 3,
+                "text": "Major elective sociology class"
+              },
+              {
+                "credits": 3,
+                "text": "Open elective"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -8571,8 +9935,14 @@
                 "credits": 3,
                 "title": "Social & Cultural Theory"
               },
-              "Major electives sociology classes | 6",
-              "Open electives 3 credits must be outside of the major | 6"
+              {
+                "credits": 6,
+                "text": "Major electives sociology classes"
+              },
+              {
+                "credits": 6,
+                "text": "Open electives 3 credits must be outside of the major"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -8585,8 +9955,14 @@
           {
             "credit_hours": "15",
             "items": [
-              "Major electives upper division sociology classes | 6",
-              "Open electives 3 credits must be outside the major and upper division | 9"
+              {
+                "credits": 6,
+                "text": "Major electives upper division sociology classes"
+              },
+              {
+                "credits": 9,
+                "text": "Open electives 3 credits must be outside the major and upper division"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -8594,8 +9970,14 @@
           {
             "credit_hours": "15",
             "items": [
-              "Major electives upper division sociology classes | 6",
-              "Open electives 6 credits must be outside the major and upper division | 9"
+              {
+                "credits": 6,
+                "text": "Major electives upper division sociology classes"
+              },
+              {
+                "credits": 9,
+                "text": "Open electives 6 credits must be outside the major and upper division"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -8613,7 +9995,10 @@
                 "credits": 3,
                 "title": "Senior Seminar"
               },
-              "Open electives 9 credits must be upper division, including 3 credits outside the major | 11"
+              {
+                "credits": 11,
+                "text": "Open electives 9 credits must be upper division, including 3 credits outside the major"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -8621,8 +10006,14 @@
           {
             "credit_hours": "14",
             "items": [
-              "Major elective upper division sociology class | 3",
-              "Open electives 3 credits must be upper division; 3 credits must be outside the major | 11"
+              {
+                "credits": 3,
+                "text": "Major elective upper division sociology class"
+              },
+              {
+                "credits": 11,
+                "text": "Open electives 3 credits must be upper division; 3 credits must be outside the major"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -8631,7 +10022,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/college-of-humanities-arts-and-social-sciences/sociology-criminology-and-anthropology/sociology-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#60970bce65b0db17."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#60970bce65b0db17) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#4877367facead453."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -8692,7 +10083,10 @@
                 "credits": 3,
                 "title": "Rhetoric & Writing I (GT-CO1)"
               },
-              "General Education Recommended - 6 credits Humanities, History, & Science w/lab | 13"
+              {
+                "credits": 13,
+                "text": "General Education Recommended - 6 credits Humanities, History, & Science w/lab"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -8710,7 +10104,10 @@
                 "credits": 3,
                 "title": "Introduction to Sociology (GT-SS3)"
               },
-              "General Education Recommended - Humanities, Math, & Science w/lab | 10"
+              {
+                "credits": 10,
+                "text": "General Education Recommended - Humanities, Math, & Science w/lab"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -8728,9 +10125,18 @@
                 "credits": 3,
                 "title": "Research Methods"
               },
-              "Major Elective SOC class | 3",
-              "General Education Recommended - Social Sciences | 6",
-              "Open elective | 3"
+              {
+                "credits": 3,
+                "text": "Major Elective SOC class"
+              },
+              {
+                "credits": 6,
+                "text": "General Education Recommended - Social Sciences"
+              },
+              {
+                "credits": 3,
+                "text": "Open elective"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -8738,8 +10144,14 @@
           {
             "credit_hours": "15",
             "items": [
-              "Major electives SOC classes | 6",
-              "Open electives 6 credits must be outside of the major | 9"
+              {
+                "credits": 6,
+                "text": "Major electives SOC classes"
+              },
+              {
+                "credits": 9,
+                "text": "Open electives 6 credits must be outside of the major"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -8762,8 +10174,14 @@
                 "credits": 3,
                 "title": "Advanced Research Methods"
               },
-              "Major elective Upper division SOC class | 3",
-              "Open electives 6 credits must be outside of the major | 6"
+              {
+                "credits": 3,
+                "text": "Major elective Upper division SOC class"
+              },
+              {
+                "credits": 6,
+                "text": "Open electives 6 credits must be outside of the major"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -8771,8 +10189,14 @@
           {
             "credit_hours": "15",
             "items": [
-              "Major electives Upper division SOC classes | 6",
-              "Open electives 6 credits must be upper division and outside of the major | 9"
+              {
+                "credits": 6,
+                "text": "Major electives Upper division SOC classes"
+              },
+              {
+                "credits": 9,
+                "text": "Open electives 6 credits must be upper division and outside of the major"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -8790,7 +10214,10 @@
                 "credits": 3,
                 "title": "Senior Seminar"
               },
-              "Open elective 9 credits must be upper division | 11"
+              {
+                "credits": 11,
+                "text": "Open elective 9 credits must be upper division"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -8798,8 +10225,14 @@
           {
             "credit_hours": "14",
             "items": [
-              "Major elective Upper division SOC class | 3",
-              "Elective 4 credits must be upper division | 11"
+              {
+                "credits": 3,
+                "text": "Major elective Upper division SOC class"
+              },
+              {
+                "credits": 11,
+                "text": "Elective 4 credits must be upper division"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -8808,7 +10241,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/college-of-humanities-arts-and-social-sciences/sociology-criminology-and-anthropology/sociology-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#df08d80bd81a3668."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#df08d80bd81a3668) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#6522ec29f8f3b828."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -8874,9 +10307,18 @@
                 "credits": 3,
                 "title": "Rhetoric & Writing I (GT-CO1)"
               },
-              "General Education (SS) Social Science or other | 3",
-              "Elective Course For minor or second major | 3",
-              "Elective Course For minor or second major | 3"
+              {
+                "credits": 3,
+                "text": "General Education (SS) Social Science or other"
+              },
+              {
+                "credits": 3,
+                "text": "Elective Course For minor or second major"
+              },
+              {
+                "credits": 3,
+                "text": "Elective Course For minor or second major"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -8894,9 +10336,18 @@
                 "credits": 3,
                 "title": "Rhetoric & Writing II (GT-CO2)"
               },
-              "General Education (HS) History or other | 3",
-              "Elective Course For minor or second major | 3",
-              "Elective Course For minor or second major | 3"
+              {
+                "credits": 3,
+                "text": "General Education (HS) History or other"
+              },
+              {
+                "credits": 3,
+                "text": "Elective Course For minor or second major"
+              },
+              {
+                "credits": 3,
+                "text": "Elective Course For minor or second major"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -8909,11 +10360,35 @@
           {
             "credit_hours": "16",
             "items": [
-              "SPN 201or SPN 202 | Intermediate Spanish I (GT-AH4)or Intermediate Spanish II (GT-AH4) | 3",
-              "General Education (M) Math or other | 3",
-              "General Education (ST) Science with a lab or other | 4",
-              "Elective Course For minor or second major | 3",
-              "Elective course For minor or second major | 3"
+              {
+                "any_of": [
+                  {
+                    "code": "SPN 201",
+                    "title": "Intermediate Spanish I (GT-AH4)"
+                  },
+                  {
+                    "code": "SPN 202",
+                    "title": "Intermediate Spanish II (GT-AH4)"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 3,
+                "text": "General Education (M) Math or other"
+              },
+              {
+                "credits": 4,
+                "text": "General Education (ST) Science with a lab or other"
+              },
+              {
+                "credits": 3,
+                "text": "Elective Course For minor or second major"
+              },
+              {
+                "credits": 3,
+                "text": "Elective course For minor or second major"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -8921,15 +10396,36 @@
           {
             "credit_hours": "15",
             "items": [
-              "SPN 202or SPN 201 | Intermediate Spanish II (GT-AH4)or Intermediate Spanish I (GT-AH4) | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "SPN 202",
+                    "title": "Intermediate Spanish II (GT-AH4)"
+                  },
+                  {
+                    "code": "SPN 201",
+                    "title": "Intermediate Spanish I (GT-AH4)"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "SPN 203",
                 "credits": 3,
                 "title": "Intermediate Proficiency Building"
               },
-              "General Education (SS) Social Science or other | 3",
-              "Elective course For minor or second major | 3",
-              "Elective Course For minor or second major | 3"
+              {
+                "credits": 3,
+                "text": "General Education (SS) Social Science or other"
+              },
+              {
+                "credits": 3,
+                "text": "Elective course For minor or second major"
+              },
+              {
+                "credits": 3,
+                "text": "Elective Course For minor or second major"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -8947,10 +10443,22 @@
                 "credits": 3,
                 "title": "Spanish Grammar in Context"
               },
-              "SPN 303 Phonetics or SPN 309 Linguistics | 3",
-              "General Education (ST) Science with a lab or other | 4",
-              "Elective course For minor or second major | 3",
-              "Elective course For minor or second major | 3"
+              {
+                "credits": 3,
+                "text": "SPN 303 Phonetics or SPN 309 Linguistics"
+              },
+              {
+                "credits": 4,
+                "text": "General Education (ST) Science with a lab or other"
+              },
+              {
+                "credits": 3,
+                "text": "Elective course For minor or second major"
+              },
+              {
+                "credits": 3,
+                "text": "Elective course For minor or second major"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -8963,10 +10471,22 @@
                 "credits": 3,
                 "title": "Intro to Cultural Inquiry"
               },
-              "SPN Conversation/ Composition SPN 312, 313, 314, 315, 316 (choose one) | 3",
-              "Elective course For minor or second major | 3",
-              "Elective course For minor or second major | 3",
-              "Elective Course For minor or second major | 3"
+              {
+                "credits": 3,
+                "text": "SPN Conversation/ Composition SPN 312, 313, 314, 315, 316 (choose one)"
+              },
+              {
+                "credits": 3,
+                "text": "Elective course For minor or second major"
+              },
+              {
+                "credits": 3,
+                "text": "Elective course For minor or second major"
+              },
+              {
+                "credits": 3,
+                "text": "Elective Course For minor or second major"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -8979,11 +10499,26 @@
           {
             "credit_hours": "15",
             "items": [
-              "SPN 400 level course | 3",
-              "SPN 300 or 400 level course | 3",
-              "Elective course | 3",
-              "Elective course | 3",
-              "Elective course | 3"
+              {
+                "credits": 3,
+                "text": "SPN 400 level course"
+              },
+              {
+                "credits": 3,
+                "text": "SPN 300 or 400 level course"
+              },
+              {
+                "credits": 3,
+                "text": "Elective course"
+              },
+              {
+                "credits": 3,
+                "text": "Elective course"
+              },
+              {
+                "credits": 3,
+                "text": "Elective course"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -8991,11 +10526,26 @@
           {
             "credit_hours": "15",
             "items": [
-              "SPN 400 level course | 3",
-              "SPN 300 or 400 level course | 3",
-              "Elective course | 3",
-              "Elective course | 3",
-              "Elective course | 3"
+              {
+                "credits": 3,
+                "text": "SPN 400 level course"
+              },
+              {
+                "credits": 3,
+                "text": "SPN 300 or 400 level course"
+              },
+              {
+                "credits": 3,
+                "text": "Elective course"
+              },
+              {
+                "credits": 3,
+                "text": "Elective course"
+              },
+              {
+                "credits": 3,
+                "text": "Elective course"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -9004,7 +10554,7 @@
       },
       "source_url": "https://catalog.csupueblo.edu/college-of-humanities-arts-and-social-sciences/english-and-world-languages/spanish-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#d579e36f29391237."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CO/2026-10-06-cat#d579e36f29391237) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CO/2026-10-06-cat/evidence.json#6a13dc644ca11978."
     },
     {
       "last_verified_at": "2026-10-06",

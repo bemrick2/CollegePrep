@@ -41,7 +41,9 @@ describe('college plan pilot (#195), on the stored Tennessee records', () => {
     renderPlan(await family())
     expect(await screen.findByRole('heading', { name: 'College plan' }, { timeout: 10000 })).toBeInTheDocument()
     expect(await screen.findByText('Partly on file', {}, { timeout: 10000 })).toBeInTheDocument()
-    expect(screen.getAllByText(/^Term [1-8]$/)).toHaveLength(8)
+    // Eight real terms; year headings, if printed, are not terms (#230).
+    expect(screen.getAllByText(/^Term [1-8]: /)).toHaveLength(8)
+    expect(screen.queryByText(/^Term 9: /)).toBeNull()
     expect(screen.getByText(/120 credit hours in total, as printed/)).toBeInTheDocument()
     // Exam credit: UTC's AP table isn't verified (no year printed), so no credit is claimed.
     const credit = screen.getByRole('heading', { name: 'Exam credit' }).closest('section')!

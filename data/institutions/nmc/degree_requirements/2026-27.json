@@ -84,7 +84,10 @@
                 "credits": 4,
                 "title": "English Composition"
               },
-              "Group 1 Humanities | 3",
+              {
+                "credits": 3,
+                "text": "Group 1 Humanities"
+              },
               {
                 "code": "RAM 155",
                 "credits": 3,
@@ -210,7 +213,19 @@
           {
             "credit_hours": "3-4",
             "items": [
-              "WSI 310or WSI 440 | Sonar Systems and Operations (Summer only)or Advanced Marine Platforms | 3-4"
+              {
+                "any_of": [
+                  {
+                    "code": "WSI 310",
+                    "title": "Sonar Systems and Operations (Summer only)"
+                  },
+                  {
+                    "code": "WSI 440",
+                    "title": "Advanced Marine Platforms"
+                  }
+                ],
+                "credits": "3-4"
+              }
             ],
             "label": "Summer",
             "term_index": 8
@@ -260,7 +275,10 @@
                 "credits": 3,
                 "title": "Intro to Prob & Stats"
               },
-              "Approved Technical Electives | 6"
+              {
+                "credits": 6,
+                "text": "Approved Technical Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 11
@@ -274,7 +292,19 @@
                 "title": "Marine Tech Internship 1"
               },
               "OR WSI 297A Independent Study - Water Studies",
-              "WSI 440or WSI 310 | Advanced Marine Platformsor Sonar Systems and Operations | 3-4"
+              {
+                "any_of": [
+                  {
+                    "code": "WSI 440",
+                    "title": "Advanced Marine Platforms"
+                  },
+                  {
+                    "code": "WSI 310",
+                    "title": "Sonar Systems and Operations"
+                  }
+                ],
+                "credits": "3-4"
+              }
             ],
             "label": "Summer",
             "term_index": 12
@@ -292,7 +322,10 @@
                 "credits": 3,
                 "title": "Principles of Microeconomics"
               },
-              "Approved Technical Electives | 6"
+              {
+                "credits": 6,
+                "text": "Approved Technical Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 14
@@ -315,7 +348,10 @@
                 "credits": 3,
                 "title": "Marine Project Management (Spring only)"
               },
-              "Optional: Internship or Independent Study | 3"
+              {
+                "credits": 3,
+                "text": "Optional: Internship or Independent Study"
+              }
             ],
             "label": "Spring",
             "term_index": 15
@@ -324,7 +360,7 @@
       },
       "source_url": "https://catalog.nmc.edu/programs-az/water-studies/marine-technology/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/MI/2026-10-07-cat/evidence.json#d73081afd50984a0."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence MI/2026-10-07-cat#d73081afd50984a0) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/MI/2026-10-07-cat/evidence.json#1e02d8df33a28440."
     },
     {
       "last_verified_at": "2026-10-07",
