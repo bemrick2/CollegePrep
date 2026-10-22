@@ -73,6 +73,17 @@ begin
       get diagnostics k = row_count; perform hp_test.eq(k, 1, r.who || ' deletes interests');
     else
       perform hp_test.expect_error(format($q$insert into public.student_exam_plan(student_id, exam_key, score) values (%L, 'ap:role-rules-1', 3)$q$, st), '42501');
+      -- Reads: VIEWER has view_progress; nobody else refused here may read.
+      perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+      insert into public.student_exam_plan(student_id, exam_key, score) values (st, 'ap:role-rules-1', 1);
+      insert into public.student_academic_interests(student_id, certainty, interests) values (st, 'unsure', '[]');
+      perform hp_test.as_user(r.uid);
+      perform hp_test.eq((select count(*) from public.student_exam_plan where student_id = st), (r.who = 'VIEWER')::int::bigint, r.who || ' exam-plan read');
+      perform hp_test.eq((select count(*) from public.student_academic_interests where student_id = st), (r.who = 'VIEWER')::int::bigint, r.who || ' interests read');
+      perform hp_test.as_owner();
+      delete from public.student_exam_plan where student_id = st;
+      delete from public.student_academic_interests where student_id = st;
+      perform hp_test.as_user(r.uid);
       perform hp_test.expect_error(format($q$insert into public.student_academic_interests(student_id, certainty, interests) values (%L, 'few', '[{"kind":"area","key":"business"}]')$q$, st), '42501');
       -- Rows another member wrote: update and delete reach nothing.
       perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
