@@ -135,6 +135,42 @@ def grids(page):
     return [t for t in page.tables if (t.get('caption') or '').strip().lower() in ('plan of study grid', 'degree map')]
 
 
+FOOTNOTE_MARK = re.compile(r'^(\d{1,2}|[*†‡§#]+)$')
+
+
+def grid_footnotes(page):
+    """The footnotes printed right after each plan grid, in grid order: [[{'marker', 'text'}, ...], ...]. CourseLeaf prints
+    them as a marker line and a text line after the grid's last row ('1' / 'Must make a grade of C or better.', Texas A&M
+    2026-27). Numeric markers must run 1, 2, 3 ... in order; reading stops at the first line that breaks the pattern.
+    None when the page text does not show one caption per grid, so no footnote is ever paired with the wrong grid."""
+    lines = [re.sub(r'[\s\xa0]+', ' ', l).strip() for l in page.text.splitlines() if l.strip()]
+    caps = [k for k, l in enumerate(lines) if l.lower() in ('plan of study grid', 'degree map')]
+    gs = grids(page)
+    if len(caps) != len(gs): return None
+    out = []
+    for n, (k, g) in enumerate(zip(caps, gs)):
+        stop = caps[n + 1] if n + 1 < len(caps) else len(lines)
+        # the grid ends at its last printed row (the total): the first row line after the caption that prints all its cells
+        last = next((r for r in reversed(g.get('rows') or []) if any((c or '').strip() for c in r)), [])
+        cells = [re.sub(r'[\s\xa0]+', ' ', c).strip() for c in last if (c or '').strip()]
+        end = next((j for j in range(k + 1, stop) if lines[j].startswith('|') and all(c in lines[j] for c in cells)), None)
+        if end is None or not cells: return None
+        j = end + 1
+        notes = []
+        # numbering starts at 1, or continues from the grid before (Texas A&M prints 1-5 after the first grid, 6-7 after the second)
+        prev = max((int(x['marker']) for x in (out[-1] if out else []) if x['marker'].isdigit()), default=0)
+        expect = None
+        while j + 1 < stop and FOOTNOTE_MARK.match(lines[j]) and not FOOTNOTE_MARK.match(lines[j + 1]) and not lines[j + 1].startswith('|'):
+            m = lines[j]
+            if m.isdigit():
+                if expect is None and int(m) in (1, prev + 1): expect = int(m)
+                if int(m) != expect: break
+                expect += 1
+            notes.append({'marker': m, 'text': lines[j + 1]}); j += 2
+        out.append(notes)
+    return out
+
+
 def parse_grid(t):
     """UO grids add a Milestones column ('Fall | Milestones | Credits'): a course row is [code, title, milestone,
     credits] and a text row [text, milestone, credits] (the text cell spans two columns). The milestone is kept in its
@@ -299,6 +335,9 @@ def extract(inst, entry, page, year, year_line, have_program):
     pkey = slug(name)
     out = []
     parsed = [parse_grid(t) for t in gs]
+    notes = grid_footnotes(page)  # printed footnotes, one list per grid; None when they cannot be paired with their grids
+    for k, t in enumerate(gs):
+        t['_footnotes'] = notes[k] if notes is not None else None
     if not have_program:
         prog = {'program_key': pkey, 'program_name': name, 'catalog_year': year, 'program_url': common.source_of(entry)['url'],
                 'credential_level': credential(name), 'notes': f'Extracted by {EXTRACTOR} from the published catalog program page.'}
@@ -314,6 +353,7 @@ def extract(inst, entry, page, year, year_line, have_program):
         terms = [dict(t, term_index=k) for k, t in enumerate((t for ts, _ in parsed for t in ts), 1)]
         totals = '; '.join(f"{g.get('_total_label') or 'Total Credits'} {tot} (as printed, grid {k} of {len(gs)})" for k, (g, (_, tot)) in enumerate(zip(gs, parsed), 1) if tot)
         merged = {'heading': headings[0], 'caption': gs[0].get('caption'), '_total_label': None,
+                  '_footnotes': None if any(g['_footnotes'] is None for g in gs) else [dict(x, grid=k) for k, g in enumerate(gs, 1) for x in g['_footnotes']],
                   '_unread_label': any(g.get('_unread_label') for g in gs), '_subtotal_spans': any(g.get('_subtotal_spans') for g in gs), '_rule_text': totals}
         gs, parsed, headings = [merged], [(terms, None)], [headings[0]]
         if grid_change_noted(page): merged['_grid_change_note'] = True
@@ -337,12 +377,14 @@ def extract(inst, entry, page, year, year_line, have_program):
               'terms': terms, 'source_section': (headings[i - 1] if labelled else single_label if single_label else f'Sample Plan: {caption}' + (f' {i} of {len(parsed)}' if len(parsed) > 1 else ''))}
         if total: rd['rule_text'] = f"{gs[i - 1].get('_total_label') or 'Total Credits'} {total} (as printed)"
         if gs[i - 1].get('_rule_text'): rd['rule_text'] = gs[i - 1]['_rule_text']
+        if gs[i - 1].get('_footnotes'): rd['footnotes'] = gs[i - 1]['_footnotes']  # substitutions, options and notes, as printed
         rec = {'program_key': pkey, 'requirement_key': key, 'requirement_kind': 'program_plan', 'rule_details': rd}
         ev = [{'field': 'term', 'value': t['label'], 'snippet': f"{t['label']}: {len(t['items'])} items, {t.get('credit_hours', '?')} credits"} for t in terms]
         issues = ['multiple_plan_grids'] if len(parsed) > 1 and not labelled else ['plan_heading_label'] if (track_labels or single_label) else []
         if gs[i - 1].get('_unread_label'): issues.append('unread_label_row')
         if gs[i - 1].get('_subtotal_spans'): issues.append('subtotal_spans_terms')
         if gs[i - 1].get('_grid_change_note'): issues.append('grid_change_noted')
+        if gs[i - 1].get('_footnotes', []) is None: issues.append('footnotes_not_read')
         out.append(common.make('degree_requirements', inst['institution_key'], acad, 'labeled_in_source', rec, ev, entry, PLAN_EXTRACTOR,
                                {'program_key': pkey, 'requirement_key': key}, {'terms': len(terms)}, issues))
     return out

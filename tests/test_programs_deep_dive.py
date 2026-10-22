@@ -404,6 +404,15 @@ class CatalogPdfProgramsTests(unittest.TestCase):
 
 
 class CourseleafPlanTests(unittest.TestCase):
+    def setUp(self):  # these synthetic pages print no caption lines; footnote reading is tested in PlanFootnoteTests
+        from programs import courseleaf as CL
+        self._fn = CL.grid_footnotes
+        CL.grid_footnotes = lambda page: [[] for _ in CL.grids(page)]
+
+    def tearDown(self):
+        from programs import courseleaf as CL
+        CL.grid_footnotes = self._fn
+
     def grid(self, heading, caption='Degree Map'):
         return {'caption': caption, 'heading': heading, 'rows': [['First Year'], ['Fall'], ['CS 210', 'Computer Science I', '4'],
                                                                  ['', 'Credits', '4'], ['', 'Total Credits', '180']]}
@@ -2936,6 +2945,33 @@ class PromoteKeepsCorrectionsTests(unittest.TestCase):
                 self.assertIn('Partially verified: the captured rows match the source; the section is incomplete: section also prints CHEM 400', rec['notes'])
             finally:
                 P.ROOT, PP.ROOT = old, oldp
+
+
+class PlanFootnoteTests(unittest.TestCase):
+    def page(self, text, n=1):
+        from pipeline import text as T
+        g = {'caption': 'Plan of Study Grid', 'heading': 'Biology - BA', 'rows': [['First Year'], ['Fall', 'Hours'], ['BIOL 111', 'Intro 1', '4'], ['', 'Total Hours', '4']]}
+        return T.Page(text, 'Biology - BA', [dict(g) for _ in range(n)], [], [])
+
+    def test_footnotes_after_each_grid(self):  # Texas A&M 2026-27
+        from programs import courseleaf as CL
+        txt = ('Biology - BA\nPlan of Study Grid\n| First Year\n| Fall | Hours\n| BIOL 111\nwrapped title 1 | 4\n| | Total Hours | 4\n'
+               '1\nMATH 147 accepted in lieu of MATH 142.\n2\nSelect from ANTH 200-499.\nTotal Program Hours 120')
+        self.assertEqual(CL.grid_footnotes(self.page(txt)), [[{'marker': '1', 'text': 'MATH 147 accepted in lieu of MATH 142.'}, {'marker': '2', 'text': 'Select from ANTH 200-499.'}]])
+        self.assertEqual(CL.grid_footnotes(self.page(txt.replace('\n2\n', '\n3\n'))), [[{'marker': '1', 'text': 'MATH 147 accepted in lieu of MATH 142.'}]])  # out of order: stop
+        two = txt.replace('Total Program Hours 120', 'Plan of Study Grid\n| Third Year\n| | Total Hours | 4\n3\nTwo courses must be writing intensive.')
+        self.assertEqual([[x['marker'] for x in g] for g in CL.grid_footnotes(self.page(two, 2))], [['1', '2'], ['3']])  # numbering continues
+        self.assertIsNone(CL.grid_footnotes(self.page(txt, 2)))  # captions in the text do not match the grids: never paired
+        self.assertIsNone(CL.grid_footnotes(self.page(txt.replace('| | Total Hours | 4', 'Total Hours 4'))))  # the grid's end not found
+        e = {'url': 'https://catalog.x.edu/bio/', 'sha256': 's', 'fetched_at': '2026-10-22T00:00:00'}
+        out = [c for c in CL.extract({'institution_key': 'k'}, e, self.page(txt), '2026-2027', '', True) if c['domain'] == 'degree_requirements']
+        self.assertEqual((out[0]['record']['rule_details']['footnotes'][0]['marker'], out[0]['issues']), ('1', []))
+        out = [c for c in CL.extract({'institution_key': 'k'}, e, self.page('Biology - BA'), '2026-2027', '', True) if c['domain'] == 'degree_requirements']
+        self.assertEqual(out[0]['issues'], ['footnotes_not_read'])
+        from programs import verify as V
+        c = [c for c in CL.extract({'institution_key': 'k'}, e, self.page(txt), '2026-2027', '', True) if c['domain'] == 'degree_requirements'][0]
+        self.assertNotIn('footnote 1 not verbatim', V.check_candidate(c, txt + '\nUndergraduate Catalog 2026-2027'))
+        self.assertIn('footnote 1 not verbatim', V.check_candidate(c, txt.replace('in lieu of', 'instead of') + '\nUndergraduate Catalog 2026-2027'))
 
 
 class ProgramKeymapTests(unittest.TestCase):
