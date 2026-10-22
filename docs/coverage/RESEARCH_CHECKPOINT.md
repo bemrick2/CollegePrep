@@ -2,22 +2,50 @@
 
 This file is how a new Research session resumes the national program-research workstream without redoing finished work. It is updated with every batch PR.
 
-- **Main at the last refresh:** `86cbac02c3` (merge of Deep Dive's #226, after batch 5 #224).
-- **Branch carrying this checkpoint:** `research/batch-06`.
+- **Main at the last refresh:** `4f2e63b0c6` (merge of #245, after Deep Dive's #239 `2c24af0`, #241 and #247, and Research's #243 and #246). The previous header named `86cbac0`, which was stale: Deep Dive's merges after batch 6 had moved main to `2c24af0` (70 covered, 10,648 verified bachelor's records, 3,475 plans at 67 schools), and those figures are confirmed below.
+- **Branch carrying this checkpoint:** `research/batch-07`.
 - **Ranking:** `docs/coverage/research_priority.json`, written by `python3 scripts/research_priority.py`. CI (validate-data) checks that it is current.
 
 ## Numbers
 
 Three separate measures, never mixed: **program coverage** (bachelor's programs listed in the official catalog, docs/PROGRAM_DEPTH_COMPLETION.md), **degree-requirement depth** (requirement groups and plans of verified bachelor's programs) and **reference-data breadth** (costs, aid, admissions and the other domains in docs/coverage/coverage.json).
 
-| | main `86cbac0` | research/batch-06 |
-|---|---|---|
-| Registered four-year institutions | 2,119 | 2,119 |
-| Covered (program coverage) | 68 | 69 |
-| Researched | 675 | 683 |
-| Verified bachelor's program records | 10,473 | 10,482 |
+| | main `2c24af0` (Deep Dive) | main `4f2e63b` | research/batch-07 |
+|---|---|---|---|
+| Registered four-year institutions | 2,119 | 2,119 | 2,119 |
+| Covered (program coverage) | 70 | 70 | 73 |
+| Researched | 683 | 683 | 683 |
+| Verified bachelor's program records | 10,648 | 10,648 | 10,664 |
+| Verified plans (degree-requirement depth) | 3,475 at 67 schools | 3,475 at 67 schools | 3,475 at 67 schools |
 
-All figures are counted from `docs/coverage/programs/STATUS.json` and from the `academic_programs` files with `verification_status == "verified"` and `credential_level == "bachelor"`.
+Counted from `docs/coverage/programs/STATUS.json` and the `academic_programs` / `degree_requirements` files (`verified`; bachelor's records; `program_plan` rows), by reading those files at the named commit. Reference-data breadth is unchanged by this batch except that cost components now reach the database (#246).
+
+## Completed in batch 7 (research/batch-07)
+
+| Institution | Run | Result |
+|---|---|---|
+| JHU | MD/2026-10-07-cat2 | **75/75, covered** (was 67/77). The eight 'Bachelor of Music in Performance - <field>' entries are programs as printed (reading (a), agreed with Deep Dive on #153: each is its own list entry with its own Program Requirements; the award is printed on each page). The general BM in Performance (own 122-credit curriculum) is recorded too; the hub page and the Peabody-Homewood double degree are not. **Owner-approved correction:** 'Five-Year BM/MM Program' (combined bachelor's/master's) → unverified, `supabase/corrections.json`. |
+| UT Dallas | TX/2026-10-21-u01 | **63/69, covered** (was 51/69). Multiple-degree reader: a page titled 'Biology (BA, BS)' gives one record per award only when it prints each degree's own heading; 12 records from 6 pages. The six combined records are corrected to unverified (owner instruction 2026-10-21 19:58 CT) so no degree counts twice. Not recorded: Education BA/BS, Visual and Performing Arts BA, Mechanical Engineering BS, two unlabelled double majors. |
+| YSU | OH/2026-10-07-cat | **59/59, covered** (was 55/71). Tracks of a listed degree are options; "Bachelor's to Master's" and '... to Master of ...' entries are combined; 'X (online)' beside 'X' is one program; Dietetics (held as a duplicate of its 4+1 sibling) and International Business (ICP) promoted. |
+
+Reader and rule changes (tests and mutants for each):
+- `pipeline/extractors/catalog.py program_name`: a dashed name is kept when the page's first heading prints it (bachelor's degree before the dash, plain field after); only JHU's 8 pages change across 71 stored runs.
+- `programs/extract.py edition_degrees`; `programs/promote.py` keymap never maps a split degree onto its page's combined record.
+- `programs/catalog_counts.py`: combined spelled-out and "Bachelor's to Master's" entries; 'Requirements for a Bachelor's Degree' and 'Double Degree Program'; 'Bachelor of X in Y (AWARD)'; `track_of_listed`, track pages under a degree's page, delivery variants; on-file recount credits each keyed record on a two-degree page.
+
+**Stale recorded counts (not changed).** Recounts under the current rules disagree sharply with the recorded hand counts for Columbus State (21/68 vs 35/39), Montana (54/134 vs 67/78), Saint Mary's (0/80 vs 55/79) and CSU Pueblo (33/101 vs 34/49): those schools list concentrations or tracks without a plain degree line, which is the emphasis-grouping rule still to agree with Deep Dive (#153). Status uses the smaller of records and listed, so none is inflated; none is covered.
+
+## Database contracts (Research as schema owner, #218)
+
+Hosted stays held (`.operations/supabase-live-hold.json` `hold: true`); every migration below is merged or reviewed code only, unapplied on hosted.
+- **Merged:** #243 role rules (C1 exam plan/interests need the linked student or a set-goals guardian; C6 saved-school removal; C7 recipient emails by RPC), `20261022010000`. #246 C3 cost `components` / `living_arrangements` through import and `compare_institutions`, `20261022040000`. #245 CR-24 rights gate and the generated-question rule (a `generated` item needs a `human:` review to be served), `20261022030000`.
+- **Draft:** #248 CR-23 part 1 (reserved assessment pool, `benchmark_questions`, repeats/comparable), `20261022050000`. Reviewed; waiting for Design's client commits (LiveSource and seed) so `local-backend` passes.
+- **Next:** CR-23 part 2 (`seen_before` on practice items, first-answer estimates); A1–A3 (CR-26, CR-27, CR-22) from Design's reference SQL; B3 CR-25; deletion/export procedure.
+
+## Tennessee pilot
+
+- **#191/#218 C4:** the undated credit tables are listed with recommended statuses on #191 (2026-10-21): UTK's six admissions-page tables (187 rows, verified) rest on a page without a year label and should be partially_verified; UTC and MTSU stay partially_verified. Downgrading UTK needs the owner's approval; nothing changed.
+- **#193:** MTSU's catalog home loads, but its program list, academic maps and program pages are still behind a bot challenge (not evaded); no 2026-27 B.B.A. plan.
 
 ## Completed in batch 6 (research/batch-06)
 
@@ -130,7 +158,7 @@ Reader and checker changes in this batch each come with tests and mutants: `prog
   - UNM (2009-10 PDF)
   - Modesto JC (2020-21 PDF)
   - St. Petersburg College (2025-26 PDF)
-- **Pending owner decision:** the UTK downgrade of 7 records (#191, #218 C4).
+- **Pending owner decision:** downgrading UTK's six undated credit tables (187 rows) to partially_verified; UTK dual_enrollment depends on its catalog page's year label (#191 2026-10-21, #218 C4).
 - **TN pilot (#191):** UTC AP/CLEP/IB tables and renewable awards print no year (partially verified); CR-19 applicability not published; Entrepreneurship and Economics: International Public Policy plan rows are truncated in the source PDF text itself.
 
 ## Known reader limits
@@ -139,16 +167,16 @@ Reader and checker changes in this batch each come with tests and mutants: `prog
 
 ## In flight
 
-None. Weekly reference-data pipeline runs for Tennessee (`pipeline-run/tn-2026-10-05-*`, `-10-12-*`, `-10-19-*`) are unreviewed; they are reference-data breadth, not program coverage.
+None in this session (no program runs pending). Weekly TN reference-data pipeline runs remain unreviewed (reference-data breadth).
 
 ## Next prioritized batch
 
-1. **Near tier:** JHU: the official list prints both a general 'Bachelor of Music in Performance' (its own curriculum page) and eight 'Bachelor of Music in Performance - <field>' entries with their own requirements. Recording the eight would make JHU covered (75/77) but contradicts the option rule used for UT Dallas unless the instruments are agreed to be majors; decision to settle on #153 before promoting. A title-reader change keeping the full name when the page's first heading prints it was tested (only JHU changes across 71 stored runs) and is not merged. Then YSU: a 2026-10-21 recount (OH/2026-10-07-cat, current readers) reads 55/74; 15 '4+1' entries are already excluded, but ', X Track' entries of a listed degree (Multimedia Communication, Journalism, Computer Science, Biochemistry) and "Bachelor's to Master's Track" entries are still counted, so a track/combined rule in catalog_counts (with a replay of earlier counts) is the next step. ESU (Kuali pages without a year), Johnstown (Pre-K - 12 Education title), CU Denver.
-2. **Count rule needing agreement with Deep Dive (#153):** degrees listed only through emphases (BYU 13 degrees / 51 emphasis lines; the same rule would regroup OSU, SF State, UVU and UNH entries).
-3. **Reader work kept by Research:** Colorado State concentration-only majors; ASU checksheets; Alabama print-link label; UTSA (no degree list found).
+1. **Shared rule with Deep Dive (#153):** degrees listed only through emphases or tracks (BYU; Columbus State, Montana, Saint Mary's, CSU Pueblo recounts above; OSU, SF State, UVU, UNH).
+2. **Readers kept by Research:** Colorado State majors whose catalog pages are concentration pages only (11 not recorded; the A-Z table row is the only listing); ASU 2026 checksheets; Alabama print-link label; UTSA (no degree list).
+3. **Near tier:** ESU (Kuali pages without a year), Pitt Johnstown (Pre-K - 12 Education title), CU Denver (75/86).
 4. **Configured tier:** UT Austin and Texas State (coordinate with Deep Dive), Penn State, Illinois, UCI, UC Davis, Arkansas.
-5. **Unconfigured tier:** Rutgers, UCSD (catalog.ucsd.edu/undergraduate/degrees-offered/), Minnesota (Coursedog), NAU, UMass, Oklahoma, Iowa, JMU, Grand Valley.
-6. **Stale counts:** recount Columbus State, Montana, Saint Mary's and CSU Pueblo.
+5. **Unconfigured tier:** Rutgers, UCSD, Minnesota (Coursedog), NAU, UMass, Oklahoma, Iowa, JMU, Grand Valley.
+6. **Consistency question:** CU Denver's 'Economics BA/Mathematics BS - Dual Degree' is a verified program, while UT Dallas double majors, JHU's double degree and Colorado State's 'Dual Degree B.S.' entries are not counted; agree one rule.
 
 ## How to resume
 
