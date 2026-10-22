@@ -502,10 +502,27 @@ class CourseleafPlanTests(unittest.TestCase):
         same = CL.extract({'institution_key': 'k'}, e, T.Page('Geography, BA', 'Geography, BA', [g('Plan'), g('Plan')], [], []), '2026-2027', '', True)
         self.assertEqual([c['issues'] for c in same], [['multiple_plan_grids'], ['multiple_plan_grids']])
 
-    def test_verify_alternatives_printed_in_one_cell(self):
+    def test_printed_term_labels_and_multiword_subjects(self):  # #229 re-extraction
+        from programs import courseleaf as CL, verify as V
+        for lab in ('Term 1', '1st Year', 'Year II', 'Semester III', 'Summer Session I', 'Fall I', 'J-term', 'Junior and Senior Years',
+                    'Any Quarter', 'Variable', 'Autumn or Winter'):
+            self.assertTrue(CL.TERM.match(lab), lab)
+        for lab in ('Transfer Credits', 'Preadmission Courses', 'Term 1 and 2', 'Year 1 Term 1', 'Summer Review'):
+            self.assertFalse(CL.TERM.match(lab), lab)
+        self.assertTrue(V.code_in('CM\xa0CORE\xa01001 Digital Toolbox', 'CM CORE 1001'))
+        self.assertTrue(V.code_in('B\xa0A\xa0324H Honors', 'B A 324H'))
+        self.assertFalse(V.code_in('B A 3240 Honors', 'B A 324'))
+
+    def test_verify_alternatives_printed_together(self):  # page text prints each alternative on its own line
         from programs import verify as V
-        self.assertTrue(V.alt_code_in('SPAD 281or SPAD 284 Principles', 'SPAD 281'))
-        self.assertFalse(V.alt_code_in('SPAD 2810 Principles', 'SPAD 281'))
+        page = '| DSMR\xa0464\n\nor DSMR\xa0496\n| Merchandising Analytics\n\nor Senior Problem in the Fashion Industry\n| 3'
+        ok = [{'code': 'DSMR 464', 'title': 'Merchandising Analytics'}, {'code': 'DSMR 496', 'title': 'Senior Problem in the Fashion Industry'}]
+        self.assertTrue(V.alternatives_printed(page, ok))
+        wrong = [{'code': 'DSMR 464', 'title': 'Merchandising Analytics or Seni'}, {'code': 'DSMR 496', 'title': 'Problem in the Fashion Industry'}]
+        self.assertFalse(V.alternatives_printed(page, wrong))
+        self.assertFalse(V.alternatives_printed(page, [{'code': 'DSMR 496'}, {'code': 'DSMR 464'}]))  # order as printed
+        self.assertTrue(V.marker_printed('| !\xa0| ASL\xa019201 | ELEMENTARY ASL I | 4', '!', 'ASL 19201'))
+        self.assertFalse(V.marker_printed('Courses marked (!) are critical.\n| | ASL 19201 | ELEMENTARY ASL I | 4', '!', 'ASL 19201'))
 
     def test_verify_checks_v3_alternatives_and_markers(self):  # Louisville 'SPAD 281or SPAD 284', Kent State '!'
         from programs import courseleaf as CL
@@ -513,13 +530,31 @@ class CourseleafPlanTests(unittest.TestCase):
         from pipeline import text as T
         g = {'caption': 'Plan of Study Grid', 'rows': [['Fall', 'Hours'], ['SPAD 281or SPAD 284', 'Principles of Sport Administrationor Sport Leadership', '3'],
                                                        ['!', 'ASL 19201', 'Elementary ASL I', '4'], ['', 'Hours', '7']]}
-        page = 'Sport Administration, BS\nCatalog 2026-2027\nFall Hours\nSPAD 281or SPAD 284 Principles of Sport Administrationor Sport Leadership 3\n! ASL 19201 Elementary ASL I 4\nHours 7'
+        page = ('Sport Administration, BS\nCatalog 2026-2027\n| Fall | Hours\n| SPAD\xa0281\n\nor SPAD\xa0284\n| Principles of Sport Administration\n\n'
+                'or Sport Leadership\n| 3\n| ! | ASL\xa019201 | Elementary ASL I | 4\n| | Hours | 7')
         [c] = CL.extract({'institution_key': 'k'}, {'url': 'u', 'sha256': 's', 'fetched_at': '2026-10-06T00:00:00'},
                          T.Page(page, 'Sport Administration, BS', [g], [], []), '2026-2027', '', True)
         self.assertEqual(check_candidate(c, page), [])
         bad = json.loads(json.dumps(c)); items = bad['record']['rule_details']['terms'][0]['items']
-        items[0]['any_of'][1]['code'] = 'SPAD 285'; items[0]['any_of'][0]['title'] = 'Sport Finance'; items[1]['marker'] = '#'
-        self.assertEqual(sorted(check_candidate(bad, page)), ['course SPAD 285 not in source', 'item marker not printed', 'title of SPAD 281 not verbatim'])
+        items[0]['any_of'][1]['code'] = 'SPAD 285'; items[1]['marker'] = '#'
+        self.assertEqual(sorted(check_candidate(bad, page)), ['alternatives SPAD 281 / SPAD 285 not printed as stored', 'item marker not printed'])
+
+    def test_review_findings_v3(self):  # independent review of #241
+        from programs import courseleaf as CL
+        from pipeline import text as T
+        P = CL.plan_item
+        for cells in (['DSMR 464or DSMR 496', 'Merchandising Analytics or Senior Problem in the Fashion Industry', '3'],
+                      ['BME 451or BMME 697', 'BME Senior Design: Product Developmentor', '3'],
+                      ['MATH 122or MATH 144', 'Calculus for Business Administration and Social Sciences 4or', '4'], ['1', '3']):
+            self.assertIsNone(P(cells, False), cells)
+        t = {'rows': [['1st Semester', 'Credits'], ['DH 101', 'Intro', '8'], ['', 'Semester Total', '8'], ['4th Semester', 'Credits'], ['DH 401', 'Clinic', '2'], ['', 'Term Total', '2']]}
+        terms, _ = CL.parse_grid(t)  # TMCC 2026-27
+        self.assertEqual([(x['label'], x.get('credit_hours'), len(x['items'])) for x in terms], [('1st Semester', '8', 1), ('4th Semester', '2', 1)])
+        g = lambda h: {'caption': 'Plan of Study Grid', 'heading': h, 'rows': [['Fall', 'Credits'], ['GEOG 101', 'Intro', '3']]}
+        e = {'url': 'u', 'sha256': 's', 'fetched_at': '2026-10-06T00:00:00'}
+        for heads in (['Semester Sequence', 'Physical Geography'], ['', 'Physical Geography'], ['2026-2027 Edition', 'Plan Requirements']):
+            out = CL.extract({'institution_key': 'k'}, e, T.Page('Geography, BA', 'Geography, BA', [g(h) for h in heads], [], []), '2026-2027', '', True)
+            self.assertEqual([c['issues'] for c in out], [['multiple_plan_grids'], ['multiple_plan_grids']], heads)
 
     def test_decimal_course_credits_kept_as_printed(self):  # West Chester B.M. 2026-27: '1.5', '0.5'
         from programs import courseleaf as CL
@@ -536,7 +571,7 @@ class CourseleafPlanTests(unittest.TestCase):
         self.assertEqual((terms[0]['items'], terms[0]['credit_hours'], total),
                          ([{'code': 'MGMT 4010', 'title': 'Total Rewards', 'credits': 3}, {'code': 'EHS 340', 'title': 'Total Worker Health Principles', 'credits': 3}], '6', None))
         self.assertEqual(CL.parse_grid({'rows': [['Fall', 'Hours'], ['MGMT 4010', 'Total Rewards', '3'], ['Total Hours', '3']]})[1], '3')
-        for head in (['Term 1', 'Units'], ['1st Semester/Term', 'Credits']):
+        for head in (['Summer Review', 'Credit Hours'], ['1st Semester/Term', 'Credits']):
             u = {'rows': [['Fall', 'Hours'], ['ENG 101', 'Composition', '3'], head, ['MAT 121', 'Math', '3']]}
             CL.parse_grid(u)
             self.assertTrue(u.get('_unread_label'), head)

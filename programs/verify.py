@@ -21,16 +21,33 @@ def squash(s):
 
 
 def code_in(text, code):
-    m = re.match(r'^([A-Z]{1,5}(?:/[A-Z]{1,5})*)\s?(\d.*)$', code.strip())  # 'IT222' (no space), 'ENG/FILM 366' (cross-listed)
+    # 'IT222' (no space), 'ENG/FILM 366' (cross-listed), 'B A 324' / 'CM CORE 1001' (a subject of several words, printed
+    # with no-break spaces: UT Austin, UNI)
+    m = re.match(r'^([A-Z]{1,5}(?:\s[A-Z]{1,5})*(?:/[A-Z]{1,5})*)\s?(\d.*)$', code.strip())
     if not m: return re.search(rf'\b{re.escape(code)}\b', text, re.I) is not None
     subj, num = m.groups()
-    return re.search(rf'\b{re.escape(subj)}\s?{re.escape(num)}\b', text, re.I) is not None
+    subj_re = r'\s+'.join(re.escape(w) for w in subj.split())
+    return re.search(rf'\b{subj_re}\s?{re.escape(num)}\b', text, re.I) is not None
 
 
-def alt_code_in(text, code):
-    """A code printed as one of several alternatives joined in one cell ('SPAD 281or SPAD 284', Louisville plan grids):
-    it may be followed directly by 'or'."""
-    return code_in(text, code) or re.search(rf'\b{re.escape(code.strip())}(?=or\s?[A-Z])', text) is not None
+def lined(text):
+    """Page text with no-break spaces as spaces and blank lines removed: a grid cell's alternatives print one per line,
+    each after the first starting 'or ' ('DSMR 464' / 'or DSMR 496', 'Merchandising Analytics' / 'or Senior Problem ...')."""
+    return re.sub(r'[ \t]*\n\s*', '\n', re.sub(r'[ \t\xa0]+', ' ', text))
+
+
+def alternatives_printed(text, alts):
+    """The alternatives' codes, and their titles, are printed together in the order stored, one per line."""
+    t = lined(text)
+    codes = '\nor '.join(a.get('code', '') for a in alts)
+    titles = [a['title'] for a in alts if a.get('title')]
+    return codes in t and (not titles or '\nor '.join(titles) in t)
+
+
+def marker_printed(text, marker, code):
+    """A marker column ('!', Kent State) is printed at the start of its own course's table row."""
+    code_re = r'\s+'.join(re.escape(w) for w in code.split())
+    return re.search(rf'^\|\s*{re.escape(marker)}\s*\|\s*{code_re}\s*\|', lined(text), re.M) is not None
 
 
 def segmented(s, squashed, min_piece=6):
@@ -115,11 +132,9 @@ def check_candidate(c, text, other=None):
         for term in rd.get('terms', []) or []:
             items += [i for i in term.get('items', []) if isinstance(i, dict)]
         for i in [i for i in items if i.get('any_of')]:  # alternatives printed in one cell (courseleaf_plan/v3)
-            for alt in i['any_of']:
-                if not alt_code_in(text, alt.get('code', '')): probs.append(f"course {alt.get('code')} not in source")
-                if alt.get('title') and squash(alt['title']) not in squashed: probs.append(f"title of {alt.get('code')} not verbatim")
+            if not alternatives_printed(text, i['any_of']): probs.append(f"alternatives {' / '.join(a.get('code', '') for a in i['any_of'])} not printed as stored")
         for i in [i for i in items if i.get('marker')]:
-            if i['marker'] not in text: probs.append('item marker not printed')
+            if not marker_printed(text, i['marker'], i.get('code', '')): probs.append('item marker not printed')
         for i in items:
             for f in ('text', 'milestone', 'note'):  # printed text rows, milestone cells (UO degree maps) and row notes (UNL)
                 if i.get(f) and squash(i[f]) not in squashed and not (wrapped and segmented(squash(i[f]), squashed)):

@@ -25,13 +25,21 @@ TERM = re.compile(r'^(first|second|third|fourth|fifth|freshman|sophomore|junior|
                   # 'First Semester' (Clayton, ODU), 'Semester One' (West Chester)
                   r'|^(first|second|third|fourth|fifth|sixth|seventh|eighth)\s+semester$|^semester\s+(one|two|three|four|five|six|seven|eight)$'
                   # '1st Semester' (NJIT)
-                  r'|^(1st|2nd|3rd|[4-8]th)\s+semester$', re.I)
+                  r'|^(1st|2nd|3rd|[4-8]th)\s+semester$'
+                  # printed term labels (#229 re-extraction): 'Term 1' (Cal Poly), '1st Year' (Akron), 'Year II' (APU),
+                  # 'Semester III' (Lorain CCC), 'Summer Session I' (West Chester), 'Fall I' (Georgetown), 'J-term'
+                  # (Quinnipiac), 'Junior and Senior Years' (CSUS), and SPU's 'Any Quarter' / 'Variable' / 'Autumn or Winter'
+                  r'|^term\s+\d$|^(1st|2nd|3rd|[4-6]th)\s+year$|^year\s+(i|ii|iii|iv|v)$|^semester\s+(i|ii|iii|iv|v|vi|vii|viii)$'
+                  r'|^summer\s+session(\s+(i|ii|\d))?$|^(fall|spring|summer|winter)\s+(i|ii)$|^j-?term$'
+                  r'|^(freshman|sophomore|junior|senior)\s+and\s+(freshman|sophomore|junior|senior)\s+years$'
+                  r'|^any\s+quarter$|^variable$|^(autumn|fall|winter|spring|summer)\s+or\s+(autumn|fall|winter|spring|summer)$', re.I)
 
 # column headers printed on a term row ('Fall | Hours', UNI 'Fall | Hour', Texas A&M 'Fall | Semester Credit Hours')
 HEADER_CELLS = {'credits', 'milestones', 'hours', 'credit hours', 'hour', 'credit', 'semester credit hours', 'semester hours', 'units'}
 # the term's subtotal row ('| Hours | 15', '| Credit Hours | 15', '| Semester Credit Hours | 15') and the plan total
 # ('Total Hours**', 'Total Semester Credit Hours'): read as the term's credit hours and the printed total, never as items
-SUBTOTAL = re.compile(r'^(credits|credit|hours|hour|credit hours|semester credit hours|semester hours|units|term credits)$', re.I)  # 'Term Credits' (NJIT)
+# 'Term Credits' (NJIT), 'Semester Total' (TMCC)
+SUBTOTAL = re.compile(r'^(credits|credit|hours|hour|credit hours|semester credit hours|semester hours|units|term credits|semester total|term total)$', re.I)
 # 'Total Hours**' (SRU), 'Total Credit Hours Required:' (TAMUK), 'Minimum Total Hours' (Louisville), 'Minimum Total Credit Hours:' (Kent State)
 TOTAL = re.compile(r'^(?:minimum\s+)?total\b[\w\s]*:?\**$', re.I)
 # a credit label the reader does not place ('Minimum Semester Hours 30-32', LMU, printed once per year): the plan is held
@@ -48,8 +56,8 @@ PLAN_CREDITS = re.compile(r'^\d{1,2}(?:\.\d{1,2})?(?:\s*-\s*\d{1,2}(?:\.\d{1,2})
 PLAN_MARKERS = {'!', '*', '+', '†', '‡', '#'}  # a marker column before the code (Kent State prints '!' for critical courses)
 
 
-def _credits(v):
-    return int(v) if v.isdigit() else v
+GENERIC_PLAN_HEADING = re.compile(r'^(all|degree program guide|plan requirements|program requirements|semester sequence|course sequence|'
+                                  r'plan of study|sample plan( of study)?|four-year plan|\d{4}\s*-\s*\d{4}( edition)?|prerequisite courses|school of .+)$', re.I)
 
 
 def plan_item(cells, milestones):
@@ -75,10 +83,13 @@ def plan_item(cells, milestones):
         if len(cells) != 3: return None
         codes = re.split(r'or\s?(?=[A-Z]{1,5}(?:\s[A-Z]{1,5})?\s\d)', first)  # the code cell matched PLAN_ALT_CELL
         titles = re.split(r'(?<=\S)or\s(?=\S)', cells[1]) if cells[1] else []
+        # a title cell with a free-standing 'or', '(or' or a trailing 'or' ('Merchandising Analytics or Senior Problem ...',
+        # 'Calculus for Business ... 4or', Drexel / USC) does not show where each title ends: kept as printed
+        if cells[1] and re.search(r'(^|[\s(])or(\s|$)|or$', cells[1]): return None
         if cells[1] and len(titles) != len(codes): return None  # a title that itself contains 'or ' cannot be split by evidence
         item = {'any_of': [{'code': c, **({'title': t} if cells[1] else {})} for c, t in zip(codes, titles or [''] * len(codes))]}
     elif len(cells) == 2 or (len(cells) == 3 and not cells[1]):
-        if not first or re.match(r'^or\b', first, re.I): return None
+        if not first or re.match(r'^or\b', first, re.I) or re.fullmatch(r'\d{1,2}', first): return None  # 'or ...' rows, footnote-only rows
         item = {'text': first}
     else:
         return None
@@ -171,7 +182,8 @@ def extract(inst, entry, page, year, year_line, have_program):
     headings = [(t.get('heading') or '').strip() for t in gs]
     # UO prints one 'Degree Map' per award under its own heading ('Bachelor of Science in Computer Science'): distinct
     # headings label the plans, so several grids are not ambiguous there.
-    labelled = len(parsed) > 1 and len(set(headings)) == len(headings) and all(headings)
+    # a tab or section heading ('Semester Sequence', 'Plan Requirements', '2026-2027 Edition', 'ALL') does not name a plan
+    labelled = len(parsed) > 1 and len(set(headings)) == len(headings) and all(h and not GENERIC_PLAN_HEADING.match(h) for h in headings)
     # other headings name a track, concentration or route ('Physical Geography', 'Greek'): the plan is labelled by its printed
     # heading and held until a reviewer confirms each heading names a plan of this program (not a tab or another section)
     track_labels = labelled and not all(re.search(r'\bbachelor\b', h, re.I) for h in headings)
