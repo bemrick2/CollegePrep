@@ -407,8 +407,10 @@ export class LiveSource implements DataSource {
     if (error) fail(error)
     // Recipient emails come only from the server's permission-checked RPC (#218 C7): guardians with manage-members,
     // or manage-students for student invitations. Others see no addresses.
-    const recipients = await rpc<{ invitation_id: string; recipient_email: string }[]>(this.sb, 'household_invitation_recipients', { p_household: householdId })
-    const byId = new Map((recipients ?? []).map((r) => [r.invitation_id, r.recipient_email]))
+    // A failure here (an older server without the RPC, or a guardian it refuses) means no addresses, not no list.
+    const rec = await this.sb.rpc('household_invitation_recipients', { p_household: householdId })
+    const recipients = (rec.error ? [] : rec.data ?? []) as { invitation_id: string; recipient_email: string }[]
+    const byId = new Map(recipients.map((r) => [r.invitation_id, r.recipient_email]))
     return (data ?? []).map((r) => ({ ...r, recipient_email: byId.get(r.id as string) ?? null })) as InvitationSummary[]
   }
 

@@ -82,7 +82,7 @@ There is only one path that moves a student profile into a household: an invitat
 |---|---|---|---|---|
 | household, roster of students, member list | any guardian, even with no flags (read); `manage_members` to rename the household or change its time zone | own household, own profile, own membership | none | none |
 | add or edit students | `manage_students` | own profile, only when independent or outside a household | none | none |
-| invitations | read: any guardian; create a guardian invitation: `manage_members`; create a student invitation: `manage_students` | none | accept with a code | none |
+| invitations | read: any guardian, without recipient emails (those come from `household_invitation_recipients`: `manage_members`, or `manage_students` for student invitations); create a guardian invitation: `manage_members`; create a student invitation: `manage_students` | none | accept with a code | none |
 | member flags, removal | `manage_members` | `leave_household` only | none | none |
 | weekly goals | read and write: `set_goals`; read: `view_progress` | read; write when independent or outside a household | none | none |
 | progress data | `view_progress` | always (own) | none | none |
@@ -197,9 +197,9 @@ Reasons are unchanged (`weak_knowledge`, `weak_pacing`, `new_skill`, `review`, `
 - **CR-9 `institutions.level`:** from IPEDS HD `ICLEVEL` (`four_year`, `two_year`, `less_than_two_year`; null when not reported). `compare_institutions` returns it.
 - **CR-9 `household_saved_schools`:** up to 8 per household.
   - Writes go only through `save_household_school` and `remove_household_school`.
-  - Any household member may save. Removing needs a guardian with `manage_students` or `set_goals`, or the member who saved that school (#218 C6).
+  - Any household member may save. Removing needs a guardian with `manage_students` or `set_goals`, or the member who saved that school (#218 C6); others are refused whether or not the school is saved.
   - Reads: guardians with `view_progress` and the household's students.
-- **CR-10 exam plan and CR-13 academic interests:** read by the student and guardians with `view_progress`; written by the linked student or a guardian with `set_goals` (`can_edit_student_plans`, #218 C1).
+- **CR-10 exam plan and CR-13 academic interests:** read by the student and guardians with `view_progress` or `set_goals`; written by the linked student or a guardian with `set_goals` (`can_edit_student_plans`, #218 C1).
 - **Invitation recipient emails:** not readable from `household_invitations`. `household_invitation_recipients(household)` returns them to guardians with `manage_members`, and for student invitations to guardians with `manage_students` (#218 C7).
 - **CR-7 `institutions_with_verified_records(academic_year, state?)`:** schools with at least one verified record for exactly that year, and the domains that have one.
 - **CR-5 content fields:**

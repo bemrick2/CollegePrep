@@ -20,11 +20,17 @@ language sql stable security definer set search_path = '' as $$
 $$;
 comment on function public.can_edit_student_plans(uuid) is
   'Exam plan and academic interests writes: the linked student, or a guardian of the student''s household with set_goals.';
+-- Whoever may write may also read what they wrote (the goals and planning-preferences precedent): otherwise a
+-- set_goals guardian without view_progress could insert rows but never update or delete them.
+alter policy exam_plan_read on public.student_exam_plan
+  using (public.can_view_student(student_id) or public.can_edit_student_plans(student_id));
+alter policy interests_read on public.student_academic_interests
+  using (public.can_view_student(student_id) or public.can_edit_student_plans(student_id));
 
 -- C6
 create or replace function public.remove_household_school(p_household uuid, p_institution_key text) returns void
 language plpgsql security definer set search_path = '' as $$
-declare v_added_by uuid;
+declare v_added_by uuid; v_exists boolean;
 begin
   if p_household is null or not public.is_household_member(p_household) then
     raise exception 'Not a member of this household' using errcode = '42501';
@@ -33,14 +39,16 @@ begin
   perform 1 from public.households h where h.id = p_household for update;
   select s.added_by into v_added_by from public.household_saved_schools s
   where s.household_id = p_household and s.institution_key = p_institution_key;
-  if not found then
-    return;  -- nothing saved under that key: removing it again is a no-op
-  end if;
+  v_exists := found;
+  -- Checked before the not-found case, so a member who may not remove learns nothing about what is saved.
   if not (public.has_household_permission(p_household, 'manage_students')
           or public.has_household_permission(p_household, 'set_goals')
-          or v_added_by = auth.uid()) then
+          or coalesce(v_exists and v_added_by = auth.uid(), false)) then
     raise exception 'Removing a saved school needs manage-students or set-goals, or saving it yourself'
       using errcode = '42501';
+  end if;
+  if not v_exists then
+    return;  -- nothing saved under that key: removing it again is a no-op
   end if;
   delete from public.household_saved_schools s where s.household_id = p_household and s.institution_key = p_institution_key;
 end $$;

@@ -47,7 +47,7 @@ end $$;
 
 -- C1: exam plan and academic interests. Writers: the linked student and set_goals guardians.
 do $$
-declare r record; st uuid := current_setting('t.st')::uuid; n bigint;
+declare r record; st uuid := current_setting('t.st')::uuid; n bigint; k int;
 begin
   for r in select * from (values
       ('20000000-0000-0000-0000-0000000000a1'::uuid, 'PARENT', true), ('20000000-0000-0000-0000-0000000000a2'::uuid, 'CO', true),
@@ -59,12 +59,18 @@ begin
     delete from public.student_academic_interests where student_id = st;
     perform hp_test.as_user(r.uid);
     if r.allowed then
+      -- Each write must reach exactly one row (a writer who can't see its rows would update or delete nothing).
       insert into public.student_exam_plan(student_id, exam_key, score) values (st, 'ap:role-rules-1', 3);
+      perform hp_test.eq((select count(*) from public.student_exam_plan where student_id = st), 1::bigint, r.who || ' reads the exam plan it writes');
       update public.student_exam_plan set score = 4 where student_id = st and exam_key = 'ap:role-rules-1';
+      get diagnostics k = row_count; perform hp_test.eq(k, 1, r.who || ' updates the exam plan');
       delete from public.student_exam_plan where student_id = st and exam_key = 'ap:role-rules-1';
+      get diagnostics k = row_count; perform hp_test.eq(k, 1, r.who || ' deletes from the exam plan');
       insert into public.student_academic_interests(student_id, certainty, interests) values (st, 'few', '[{"kind":"area","key":"business"}]');
       update public.student_academic_interests set certainty = 'sure' where student_id = st;
+      get diagnostics k = row_count; perform hp_test.eq(k, 1, r.who || ' updates interests');
       delete from public.student_academic_interests where student_id = st;
+      get diagnostics k = row_count; perform hp_test.eq(k, 1, r.who || ' deletes interests');
     else
       perform hp_test.expect_error(format($q$insert into public.student_exam_plan(student_id, exam_key, score) values (%L, 'ap:role-rules-1', 3)$q$, st), '42501');
       perform hp_test.expect_error(format($q$insert into public.student_academic_interests(student_id, certainty, interests) values (%L, 'few', '[{"kind":"area","key":"business"}]')$q$, st), '42501');
@@ -113,7 +119,12 @@ begin
     if r.may_save then
       perform public.save_household_school(hh, 'role-rules-2');
       perform public.remove_household_school(hh, 'role-rules-2');
-      perform public.remove_household_school(hh, 'role-rules-2');  -- again: a no-op
+      if r.may_remove_others then
+        perform public.remove_household_school(hh, 'role-rules-2');  -- again: a no-op
+      else
+        -- Without removal rights, a key that isn't saved is refused like one that is (no existence oracle).
+        perform hp_test.expect_error(format('select public.remove_household_school(%L, %L)', hh, 'role-rules-2'), '42501');
+      end if;
     else
       perform hp_test.expect_error(format('select public.save_household_school(%L, %L)', hh, 'role-rules-2'), '42501');
       perform hp_test.expect_error(format('select public.remove_household_school(%L, %L)', hh, 'role-rules-2'), '42501');
@@ -121,6 +132,17 @@ begin
     perform hp_test.as_owner();
     delete from public.household_saved_schools where household_id = hh;
   end loop;
+  -- A school whose saver's account is gone (added_by null) is removable only by guardians with removal rights.
+  perform hp_test.as_owner();
+  insert into public.household_saved_schools(household_id, institution_key, added_by) values (hh, 'role-rules-3', null);
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  perform hp_test.expect_error(format('select public.remove_household_school(%L, %L)', hh, 'role-rules-3'), '42501');
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000b1');
+  perform hp_test.expect_error(format('select public.remove_household_school(%L, %L)', hh, 'role-rules-3'), '42501');
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000c1');
+  perform public.remove_household_school(hh, 'role-rules-3');
+  perform hp_test.as_owner();
+  perform hp_test.eq((select count(*) from public.household_saved_schools where household_id = hh), 0::bigint, 'set-goals guardian removed it');
   -- The table itself stays write-protected for every client role.
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
   perform hp_test.expect_error(format($q$delete from public.household_saved_schools where household_id = %L$q$, hh), '42501');
@@ -140,6 +162,11 @@ begin
   insert into public.household_invitations(household_id, role, permissions, code_hash, created_by, expires_at, recipient_email)
   values (hh, 'guardian', '{}', repeat('e', 64), '20000000-0000-0000-0000-0000000000a1', now() + interval '1 day', 'guardian@example.com');
 
+  -- Another household's invitation with an address: never returned for this household.
+  insert into public.households(id, name, time_zone) values ('52000000-0000-0000-0000-000000000001', 'Other household', 'America/Chicago');
+  insert into public.household_invitations(household_id, role, permissions, code_hash, created_by, expires_at, recipient_email)
+  values ('52000000-0000-0000-0000-000000000001', 'student', '{}', repeat('f', 64), null, now() + interval '1 day', 'elsewhere@example.com');
+
   -- No client role reads the column directly.
   foreach got in array array['20000000-0000-0000-0000-0000000000a1', '20000000-0000-0000-0000-0000000000a2',
                              '20000000-0000-0000-0000-0000000000b1', '20000000-0000-0000-0000-000000000051',
@@ -154,6 +181,12 @@ begin
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a2');  -- manage_students only: student invitations
   select string_agg(recipient_email, ',' order by recipient_email) into got from public.household_invitation_recipients(hh);
   perform hp_test.eq(got, 'second@example.com', 'manage-students guardian sees student recipients only');
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000c2');  -- manage_students only: student invitations
+  select string_agg(recipient_email, ',' order by recipient_email) into got from public.household_invitation_recipients(hh);
+  perform hp_test.eq(got, 'second@example.com', 'manage-students-only guardian sees student recipients only');
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000c1');  -- set_goals only: none
+  select count(*) into n from public.household_invitation_recipients(hh);
+  perform hp_test.eq(n, 0::bigint, 'set-goals-only guardian sees no recipient');
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000b1');  -- view only: none
   select count(*) into n from public.household_invitation_recipients(hh);
   perform hp_test.eq(n, 0::bigint, 'view-only guardian sees no recipient');
