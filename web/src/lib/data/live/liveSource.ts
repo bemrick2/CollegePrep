@@ -562,10 +562,11 @@ export class LiveSource implements DataSource {
     if (poolRows.error) fail(poolRows.error)
     if (mine.error) fail(mine.error)
     const pool = ((poolRows.data ?? []) as unknown as QuestionRow[]).map(toPublic)
-    // Interim, until the server holds them (CR-23, #218 B1): the server's pick can include the fresh questions kept
-    // for the next progress check. Drop them here, with the rule the demo uses (engine/freshness.ts), then fill the
-    // session's time the way the demo's pool does: fresh questions that aren't held first, then repeats (least
-    // recently seen first) as review. Held questions are never served; the time budget is never exceeded.
+    // Interim, until the server enforces CR-23 (#218 B1): the server's pick can include reserved assessment questions.
+    // Drop them here, with the rule the demo uses (engine/freshness.ts reservedIds: the question's `pool` once the
+    // server serves it, otherwise the fixed client assignment), then fill the session's time the way the demo's pool
+    // does: fresh practice questions first, then practice repeats (least recently seen first) as review. Reserved
+    // questions are never served in practice; the time budget is never exceeded.
     const lastSeen = new Map<string, string>()
     for (const r of mine.data ?? []) {
       const q = r.question_id as string

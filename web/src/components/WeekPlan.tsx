@@ -230,8 +230,8 @@ export function FreshContentNotice({ content, name }: { content: ContentStatus |
           {held > 0 ? (
             <>
               {you}
-              {name ? ' has' : "'ve"} seen every {EXAM[content.exam]} question, in practice or a benchmark, except the {held} kept unseen for the next
-              progress check, so that check measures real progress.
+              {name ? ' has' : "'ve"} seen every {EXAM[content.exam]} practice question. Another {held} are set aside for progress checks only and never
+              appear in practice, so a check measures real progress.
             </>
           ) : (
             <>
@@ -259,7 +259,7 @@ export function FreshContentNotice({ content, name }: { content: ContentStatus |
   if (content.freshForPractice < LOW_FRESH)
     return (
       <Notice tone="info" title={`${content.freshForPractice} new practice ${content.freshForPractice === 1 ? 'question' : 'questions'} left`}>
-        <p>After that, practice repeats questions already seen, as review. A few new questions in each section are kept for the next progress check.</p>
+        <p>After that, practice repeats questions already seen, as review. Questions set aside for progress checks never appear in practice.</p>
         {checkShort}
       </Notice>
     )

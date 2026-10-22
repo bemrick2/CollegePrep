@@ -1,0 +1,99 @@
+# Question import contract (`question_import/v1`)
+
+This is for the separate question-bank workstream. It defines how original questions enter Prep & Price's review pipeline. It doesn't generate questions, and nothing here generates any. The app's own bank is not being replaced.
+
+**The one rule:** an imported question is a **draft**. It is never shown to a student until all three gates have passed:
+1. the human editorial stages 3–8 (`CONTENT_PLAN.md` §5, recorded in the editorial ledger, #207);
+2. the rights gate (CR-24);
+3. the review approval (`approve_practice_question`, CR-21).
+
+Generating a question, by a person or an AI, confers nothing. Passing the validator below only means the item is well-formed enough to start stage 3.
+
+## Provisional planning target
+
+ACT, 40 questions a week, for 12 weeks. This is in `web/src/lib/contentTarget.ts` (`PROVISIONAL_TARGET`), where the bank size and the planned-review share are settings, not constants.
+
+| Setting | Provisional value | Unique items needed |
+|---|---|---|
+| Practice shown | 40 × 12 = 480 | — |
+| Planned review | 25% (configurable, 0–100%) | — |
+| Headroom | 15% | — |
+| Unique practice items | 480 × 0.75 × 1.15 | 414 |
+| Reserved (checks only) | starting check 27 + 2 mini checks × 13 | 53 |
+| **Total** | | **467** |
+
+At 0% planned review the total is 605 (552 practice + 53 reserved). `bankSize()` computes any other target.
+
+**This is not approval to launch.** It doesn't promise families that fresh questions will be available. The weekly goal is never lowered to fit the bank. When fresh questions run out, the app says so.
+
+## File format
+
+- A batch is one JSON Lines file: one question per line, UTF-8.
+- Each line is a `FixtureQuestion` (`web/src/lib/data/demo/fixtures.ts`) without `id`, plus the provenance fields below.
+- A question's database row is built from it by the import path (held while hosted is paused).
+
+| Field | Required | Rule | Database column |
+|---|---|---|---|
+| `contract` | yes | `"question_import/v1"` | — |
+| `import_id` | yes | Stable, unique and never reused for different content. Lowercase letters, digits, `-` and `_` | import key |
+| `exam_family` | yes | `act` or `sat` | `exam_versions.exam_family` |
+| `section` | yes | ACT `english`, `math`, `reading`, `science`; SAT `reading_writing`, `math` | `section` |
+| `difficulty` | yes | Integer 1–5. The author's estimate; calibration comes from student data later | `difficulty` |
+| `stem` | yes | The question as shown | `stem` |
+| `passage` | when used | Original, or with its own license and attribution | `practice_passages` |
+| `choices` | choice items | `[{key, text}]`, at least two, keys unique | `choices` |
+| `answer_format` | yes | `choice` or `numeric` | `answer_format` |
+| `accepted_answers` | yes | Choice: exactly one key, which must be one of the choices. Numeric: the accepted spellings | `accepted_answers` (hidden until submit) |
+| `distractors` | choice items | A rationale for every wrong choice, plus its trap type if any | `practice_question_distractors` |
+| `hints` | yes | At least one, and none may give the answer away | `hints` |
+| `teaching_explanation`, `strategy_explanation` | yes | | same names |
+| `remember` | optional | At most 16 words | `remember_text` |
+| `expected_time_seconds` | yes | Integer, 10–600 | same |
+| `primary_skill_key` | yes | Must exist in the skill taxonomy | `practice_question_skills` |
+| `strategies` | optional | `{strategy_key, role, is_fastest, explanation}` | `practice_question_strategies` |
+| `origin` | yes | `human_original`, `ai_drafted`, `adapted_public_domain`, `adapted_cc_by`, `licensed` | ledger |
+| `author` | yes | A named person, or `ai:<model>` for an AI draft. Every later reviewer must differ from the author | ledger `author` |
+| `license` | yes | One of CR-24's set: `original-owned`, `us-federal-pd`, `public-domain`, `cc-by-4.0`, `licensed:<vendor>` | `license` |
+| `source_attribution` | when the license needs it | Required for `public-domain`, `us-federal-pd`, `cc-by-4.0`, `licensed:*`. Official ACT or College Board material is refused without written permission | `source_attribution` |
+| `source_url` | optional | Where an adapted source came from | ledger |
+| `requested_pool` | yes | `practice` or `assessment`. A request only: the content lead assigns the final pool before any student sees the item | `pool` (CR-23) |
+| `status` | no | Absent or `draft`. Anything else is refused | `status` (always `draft` on import) |
+
+## Validation
+
+`npx vite-node scripts/validateQuestionImport.ts <batch.jsonl>` (run from `web/`) reads the batch and changes nothing. It prints one problem per line and exits 1 if any are found. The rules are in `web/src/lib/questionImport.ts` and are tested against every current fixture.
+
+**Checked automatically:**
+- **Shape:** every required field; enums; difficulty and time ranges; the key is one of the choices; every wrong choice has a rationale; numeric answers are numbers; `remember` length; the skill exists.
+- **Duplicates:** within the batch and against the bank. Stem, passage and choices are compared after ignoring case, spacing and punctuation.
+- **Never published on arrival:** any status other than `draft` is refused.
+- **Rights:**
+  - the license must be in the allowed set;
+  - attribution is required where the license needs it;
+  - `adapted_cc_by` must go with `cc-by-4.0`;
+  - official ACT or College Board sources are refused;
+  - an AI draft must name its model.
+
+**Checked by people, in the ledger (not automatable):**
+- **Stage 3, rights:** proof of originality or license (a URL, contract or license text), and the attribution text.
+- **Stage 4:** two blind solves, neither by the author, both matching the key.
+- **Stage 5, audit:** exactly one defensible answer, plausible distractors, explanations, a hint that doesn't give the answer away, and the right difficulty band.
+- **Stage 6:** fairness and sensitivity.
+- **Stage 7:** copy edit and accessibility, including alt text that doesn't leak the answer.
+- **Stage 8:** approval by a named human who isn't the author. Then `approve_practice_question` records the content hash, and any later edit voids it.
+
+## Reserved (assessment) items
+
+- **Author them first.** Reserved items come before practice items, so checks never depend on what's left over.
+- **Never expose them.** An item a student has seen in practice can't move to `assessment`. A reserved item may move to practice or be retired, but never back.
+- **Pool sizes per check:**
+  - **Starting check:** ACT 27 (7/8/6/6), SAT 18 (9/9).
+  - **Each mini check:** ACT 13 (3/4/3/3), SAT 8 (4/4).
+  - **Full forms:** each one needs its own unseen form (`QUESTION_BANK_RECOMMENDATION.md`).
+- **If the pool is too small,** the app shortens or skips the section and withholds verdicts on repeats (CR-23). It never borrows practice items.
+
+## Hand-off
+
+1. The workstream delivers a JSONL batch plus the rights evidence for each item.
+2. Design or the content lead runs the validator, fixes or returns failures, and adds passing items to the ledger at stage 3.
+3. Items are published only after stage 8, through the migration and import path. That path is held while hosted is paused.

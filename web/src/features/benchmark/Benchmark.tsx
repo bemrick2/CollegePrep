@@ -2,7 +2,8 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Navigate, useNavigate, useSearchParams } from 'react-router-dom'
 import { useApp, useAsync } from '../../lib/app'
 import type { BenchmarkSummary, Confidence, ExamFamily, PublicQuestion } from '../../lib/data/types'
-import { FULL_FORM_READY, SECTION_LABEL, computeMetrics, nextDifficulty, pickNext, planBenchmark, type BenchmarkKind, type BenchmarkPlan, type BenchmarkRecord, benchmarkSchedule } from '../../lib/engine/benchmark'
+import { FULL_FORM_READY, PER_SECTION, SECTION_LABEL, SECTION_ORDER, computeMetrics, nextDifficulty, pickNext, planBenchmark, type BenchmarkKind, type BenchmarkPlan, type BenchmarkRecord, benchmarkSchedule } from '../../lib/engine/benchmark'
+import { checkPlan, checkQuestions } from '../../lib/engine/freshness'
 import { ActiveClock } from '../practice/useAttempt'
 import { QuestionView, ConfidenceBar } from '../practice/QuestionView'
 import { Button, ButtonLink, ChoiceCard, EmptyState, Notice, PageLoading, ProgressBar } from '../../components/ui'
@@ -43,6 +44,8 @@ export function Benchmark() {
   // Everything this student has answered, for fresh-first selection and for marking repeats in the results.
   const answered = useAsync(() => (student ? source.attemptHistory(student.id, '1970-01-01T00:00:00Z') : Promise.resolve([])), [source, student?.id])
   const seenBefore = useMemo(() => new Set((answered.data ?? []).map((a) => a.question_id)), [answered.data])
+  // CR-23: a check uses the reserved assessment pool only, never practice questions (engine/freshness.ts).
+  const reserved = useMemo(() => (pool.data ? checkQuestions(exam, pool.data) : null), [pool.data, exam])
   const catalog = useCatalog(exam)
 
   const [kind, setKind] = useState<BenchmarkKind | null>(null)
@@ -71,7 +74,12 @@ export function Benchmark() {
   const defaultKind: BenchmarkKind =
     (history.data?.length ?? 0) === 0 ? 'initial' : asked === 'mini' || (asked === 'full' && FULL_FORM_READY) ? asked : benchmarkSchedule(history.data ?? []).kind === 'full' ? 'full' : 'mini'
   const chosenKind = kind ?? defaultKind
-  const bplan: BenchmarkPlan | null = useMemo(() => (pool.data ? planBenchmark(exam, chosenKind, pool.data) : null), [pool.data, exam, chosenKind])
+  const bplan: BenchmarkPlan | null = useMemo(() => (reserved ? planBenchmark(exam, chosenKind, reserved) : null), [reserved, exam, chosenKind])
+  // What the reserved pool allows, per section: fresh, with repeats (no verdict), shortened, or not measured.
+  const poolPlan = useMemo(
+    () => (pool.data ? checkPlan(exam, Object.fromEntries(SECTION_ORDER[exam].map((sec) => [sec, PER_SECTION[exam][chosenKind][sec] ?? 0])), pool.data, seenBefore) : []),
+    [pool.data, exam, chosenKind, seenBefore],
+  )
   const section = bplan?.sections[sectionIdx]
 
   const present = useCallback(
@@ -102,12 +110,12 @@ export function Benchmark() {
 
   /** Decides what comes next within the section, or ends it. */
   const advance = useCallback(async () => {
-    if (!bplan || !section || !pool.data) return
+    if (!bplan || !section || !reserved) return
     const r = run.current
     if (!r.returning && r.served < section.count) {
-      // Fresh questions first, so the check measures more than recall; seen ones only when a section runs out.
-      const inExam = pool.data.filter((x) => x.exam_family === exam)
-      const q = pickNext(inExam.filter((x) => !seenBefore.has(x.id)), section.section, r.target, r.used) ?? pickNext(inExam, section.section, r.target, r.used)
+      // Unseen reserved questions first, so the check measures more than recall; reserved repeats only when the
+      // section's unseen ones run out (that section then gets no verdict). Never a practice question.
+      const q = pickNext(reserved.filter((x) => !seenBefore.has(x.id)), section.section, r.target, r.used) ?? pickNext(reserved, section.section, r.target, r.used)
       if (q) return present(q)
     }
     const back = r.skipped.shift()
@@ -117,7 +125,7 @@ export function Benchmark() {
     }
     setCurrent(null)
     setPhase(sectionIdx + 1 >= bplan.sections.length ? 'done' : 'break')
-  }, [bplan, section, pool.data, exam, present, resume, sectionIdx, seenBefore])
+  }, [bplan, section, reserved, present, resume, sectionIdx, seenBefore])
 
   // When the run ends, save the summary.
   useEffect(() => {
@@ -145,8 +153,14 @@ export function Benchmark() {
   if (!bplan || bplan.totalQuestions === 0)
     return (
       <div className="mx-auto max-w-xl p-6">
-        <EmptyState icon={<Book size={32} />} title={`No ${EXAM_NAME[exam]} questions are published yet`} action={<ButtonLink to="/student" variant="secondary">Back</ButtonLink>}>
-          The benchmark needs a question bank, which hasn't been loaded for this test yet.
+        <EmptyState
+          icon={<Book size={32} />}
+          title={pool.data?.length ? `No ${EXAM_NAME[exam]} progress-check questions yet` : `No ${EXAM_NAME[exam]} questions are published yet`}
+          action={<ButtonLink to="/student" variant="secondary">Back</ButtonLink>}
+        >
+          {pool.data?.length
+            ? 'Progress checks use their own questions, kept out of practice, so a result measures more than memory. None are available for this test yet, so no check can be taken.'
+            : "The benchmark needs a question bank, which hasn't been loaded for this test yet."}
         </EmptyState>
       </div>
     )
@@ -156,7 +170,7 @@ export function Benchmark() {
     setSectionIdx(idx)
     setPhase('running')
     const sec = bplan.sections[idx]!
-    const q = pickNext(pool.data!.filter((x) => x.exam_family === exam), sec.section, 3, run.current.used)
+    const q = pickNext(reserved!.filter((x) => !seenBefore.has(x.id)), sec.section, 3, run.current.used) ?? pickNext(reserved!, sec.section, 3, run.current.used)
     if (q) await present(q).catch((e: Error) => setError(e.message))
   }
 
@@ -243,10 +257,11 @@ export function Benchmark() {
               A full-length check isn't available yet. It needs its own set of questions that never appear in practice, and those haven't been written.
             </p>
           )}
+          <PoolNotice plan={poolPlan} />
           {options.length > 1 && (
             <div className="mt-6 grid gap-3">
               {options.map((k) => {
-                const p = planBenchmark(exam, k, pool.data!)
+                const p = planBenchmark(exam, k, reserved!)
                 return (
                   <ChoiceCard
                     key={k}
@@ -387,5 +402,27 @@ function Rule({ icon, text }: { icon: React.ReactNode; text: string }) {
       <span className="mt-0.5 shrink-0 text-brand">{icon}</span>
       <span>{text}</span>
     </li>
+  )
+}
+
+/** Says, before the check starts, where the reserved pool can't give a fully fresh, full-length section. */
+function PoolNotice({ plan }: { plan: ReturnType<typeof checkPlan> }) {
+  const off = plan.filter((p) => p.status === 'not_measured')
+  const repeats = plan.filter((p) => p.status === 'with_repeats')
+  const short = plan.filter((p) => p.shortened)
+  if (!off.length && !repeats.length && !short.length) return null
+  const names = (xs: typeof plan) => xs.map((x) => SECTION_LABEL[x.section] ?? x.section).join(', ')
+  return (
+    <Notice tone="warn" title="This check is limited by the questions set aside for checks" className="mt-4">
+      <ul className="grid list-disc gap-1 pl-5 text-sm">
+        {off.length > 0 && <li>Not measured this time: {names(off)}. No check questions are available there.</li>}
+        {short.length > 0 && <li>Shorter than usual: {short.map((x) => `${SECTION_LABEL[x.section] ?? x.section} (${x.count} of ${x.wanted})`).join(', ')}.</li>}
+        {repeats.length > 0 && (
+          <li>
+            Includes questions you've seen before: {names(repeats)}. Those sections won't be compared with earlier checks, because a repeat can be remembered.
+          </li>
+        )}
+      </ul>
+    </Notice>
   )
 }
