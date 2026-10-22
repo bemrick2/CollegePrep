@@ -13,8 +13,14 @@
 --   any repeat gets no verdict; the app reads `comparable`. metrics.definition becomes 'v2'.
 -- * A check has an exam version, and its items must be that version's reserved items; an item is used at most once per
 --   check (a second attempt on it in the same benchmark is refused, and benchmark_questions leaves used items out).
--- * Reserved items' content is readable only by a student with an open check for that exam version, and by those who
+-- * Reserved items' content is readable only by a student with a live check for that exam version, and by those who
 --   may view a student who has attempted the item (so "unseen" doesn't depend on the client behaving).
+-- * A check is live for 4 hours from its start (benchmark_is_live). An abandoned check stops unlocking the reserve and
+--   takes no more attempts; complete_benchmark still scores what was answered.
+-- * start_benchmark requires an exam version, and returns the student's live open check of the same exam version and
+--   kind instead of opening a second one.
+-- * assessment_pool_status(student, exam version): reserved items per section and how many the student hasn't been shown
+--   (counts only, no content), for anyone who may view the student.
 -- Scope: CR-23 part 1 (the pool, checks, repeats). seen_before on practice items and first-answer estimates
 -- (CONTRACT_REQUESTS CR-23 items 1 and 3) are not in this migration.
 -- Replaces the app's interim client-side holdout (#221). Objects are altered or replaced in place.
@@ -25,6 +31,40 @@ comment on column public.practice_questions.pool is
   'CR-23: practice items serve sessions and the recommender; assessment items serve progress checks only.';
 grant select (pool) on public.practice_questions to authenticated;
 create index practice_questions_assessment_idx on public.practice_questions(exam_version_id, section) where pool = 'assessment';
+
+-- A check is live (unlocks reserved content, takes attempts) while open and within 4 hours of its start.
+create function public.benchmark_is_live(p_started timestamptz, p_completed timestamptz) returns boolean
+language sql stable set search_path = '' as $$
+  select p_completed is null and p_started > now() - interval '4 hours'
+$$;
+grant execute on function public.benchmark_is_live(timestamptz, timestamptz) to authenticated, service_role;
+
+-- From 20261003120300; a check needs an exam version, and a live open check of the same version and kind is resumed.
+create or replace function public.start_benchmark(p_student uuid, p_kind text, p_exam_version uuid default null) returns uuid
+language plpgsql security definer set search_path = '' as $$
+declare v_id uuid;
+begin
+  perform public.require_linked_student(p_student);
+  if p_kind is null or p_kind not in ('initial','mini','full') then
+    raise exception 'Benchmark kind must be initial, mini or full' using errcode = '22023';
+  end if;
+  if p_exam_version is null then
+    raise exception 'A progress check needs an exam version' using errcode = '22023';
+  end if;
+  if not exists (select 1 from public.exam_versions e where e.id = p_exam_version) then
+    raise exception 'Unknown exam version' using errcode = '22023';
+  end if;
+  -- Locking the student row serialises concurrent starts.
+  perform 1 from public.students s where s.id = p_student for update;
+  select b.id into v_id from public.practice_benchmarks b
+  where b.student_id = p_student and b.exam_version_id = p_exam_version and b.kind = p_kind
+    and public.benchmark_is_live(b.started_at, b.completed_at)
+  order by b.started_at desc limit 1;
+  if v_id is not null then return v_id; end if;
+  insert into public.practice_benchmarks(student_id, kind, exam_version_id) values (p_student, p_kind, p_exam_version)
+  returning id into v_id;
+  return v_id;
+end $$;
 
 -- From 20261007140000; the change is the pool rule.
 create or replace function public.start_practice_attempt(p_student uuid, p_question uuid, p_session uuid default null,
@@ -48,6 +88,10 @@ begin
   if p_benchmark is not null and not exists (select 1 from public.practice_benchmarks b
       where b.id = p_benchmark and b.student_id = p_student and b.completed_at is null) then
     raise exception 'Benchmark is not an open benchmark of this student' using errcode = '22023';
+  end if;
+  if p_benchmark is not null and not exists (select 1 from public.practice_benchmarks b
+      where b.id = p_benchmark and public.benchmark_is_live(b.started_at, b.completed_at)) then
+    raise exception 'This progress check has expired; start a new one' using errcode = '22023';
   end if;
   -- CR-23: checks use reserved (assessment) items only; practice never uses them, and never lends items to checks.
   if p_benchmark is not null and not exists (select 1 from public.practice_questions q where q.id = p_question and q.pool = 'assessment') then
@@ -124,6 +168,9 @@ begin
   select b.* into v from public.practice_benchmarks b join public.students s on s.id = b.student_id
   where b.id = p_benchmark and s.linked_user_id = auth.uid() and s.archived_at is null and b.completed_at is null;
   if not found then raise exception 'No open benchmark of yours with that id' using errcode = '42501'; end if;
+  if not public.benchmark_is_live(v.started_at, v.completed_at) then
+    raise exception 'This progress check has expired; start a new one' using errcode = '22023';
+  end if;
   if v.exam_version_id is null then
     raise exception 'A progress check needs an exam version' using errcode = '22023';
   end if;
@@ -181,12 +228,13 @@ grant execute on function public.complete_benchmark(uuid) to authenticated, serv
 comment on function public.benchmark_questions(uuid) is
   'CR-23: reserved items for an open benchmark of the caller: unseen first (mid difficulty first), then repeats, with seen_before.';
 
--- Reserved items' content: a student with an open check for that exam version, or anyone who may view a student who has
+-- Reserved items' content: a student with a live check for that exam version, or anyone who may view a student who has
 -- attempted the item. Child rows (skills, strategies, passages) follow through their policies' question subqueries.
 create function public.can_read_reserved_question(p_question uuid, p_exam_version uuid) returns boolean
 language sql stable security definer set search_path = '' as $$
   select exists (select 1 from public.practice_benchmarks b join public.students s on s.id = b.student_id
-      where s.linked_user_id = auth.uid() and s.archived_at is null and b.completed_at is null and b.exam_version_id = p_exam_version)
+      where s.linked_user_id = auth.uid() and s.archived_at is null and b.exam_version_id = p_exam_version
+        and public.benchmark_is_live(b.started_at, b.completed_at))
     or exists (select 1 from public.practice_attempts a where a.question_id = p_question and public.can_view_student(a.student_id))
 $$;
 revoke all on function public.can_read_reserved_question(uuid, uuid) from public, anon;
@@ -194,3 +242,23 @@ grant execute on function public.can_read_reserved_question(uuid, uuid) to authe
 alter policy published_question_read on public.practice_questions
   using (status = 'published' and review_current
     and (pool = 'practice' or public.can_read_reserved_question(id, exam_version_id)));
+
+-- Counts only (no content): reserved items per section of an exam version and how many this student hasn't been shown.
+create function public.assessment_pool_status(p_student uuid, p_exam_version uuid)
+returns table (section text, reserved bigint, unseen bigint)
+language plpgsql stable security definer set search_path = '' as $$
+begin
+  if not public.can_view_student(p_student) then
+    raise exception 'Not allowed to view this student' using errcode = '42501';
+  end if;
+  return query
+    select q.section::text, count(*), count(*) filter (where not exists (select 1 from public.practice_attempts a
+        where a.student_id = p_student and a.question_id = q.id))
+    from public.practice_questions q
+    where q.pool = 'assessment' and q.status = 'published' and q.review_current and q.exam_version_id = p_exam_version
+    group by q.section order by q.section;
+end $$;
+revoke all on function public.assessment_pool_status(uuid, uuid) from public, anon;
+grant execute on function public.assessment_pool_status(uuid, uuid) to authenticated, service_role;
+comment on function public.assessment_pool_status(uuid, uuid) is
+  'CR-23: reserved items per section and how many the student has not been shown; counts only, for viewers of the student.';

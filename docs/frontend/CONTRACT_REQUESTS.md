@@ -28,7 +28,7 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-20 | Cost-of-attendance period (academic year vs 12 months) | ⏳ open | COA labelled "academic year"; summer and break living is the family's own number |
 | CR-21 | Question review metadata; serve only reviewed items | 🚧 migration `20261007140000` merged (#142), unapplied on hosted | Demo and local DB serve only items whose current content hash a review approved (`questionReview.ts`); live has no review fields |
 | CR-22 | Parent emails: weekly-summary opt-in, service-only digest and inactivity payloads, delivery log | ⏳ open (reference SQL in `scripts/local/proposals/cr22_parent_emails.sql`, local only) | Opt-in and email preview behind `VITE_WEEKLY_DIGEST`; sender `supabase/functions/send-weekly-digest` (not deployed) |
-| CR-23 | Reserved assessment pool; fresh vs repeat on the server | 🚧 part 1 in migration `20261022050000` (#248, unapplied on hosted): reserved pool, checks, repeats; `seen_before` on practice items and first-answer estimates still open | Client reads `pool` and the server's check order (`benchmark_questions`); demo mirrors the same rules. Paired release: see §CR-23 |
+| CR-23 | Reserved assessment pool; fresh vs repeat on the server | 🚧 part 1 in migration `20261022050000` (#248, unapplied on hosted): reserved pool, checks (version required, 4-hour live window, resumed), repeats, pool counts; `seen_before` on practice items and first-answer estimates still open | Client reads `pool` and the server's check order (`benchmark_questions`); demo mirrors the same rules. Paired release: see §CR-23 |
 | CR-24 | Rights gate: a published question needs an allowed license (+ attribution when required) | 🚧 migration `20261022030000`, unapplied on hosted | Enforced by checks on `practice_questions`; generated items need a `human:` review to be served |
 | CR-25 | "Report a problem" on a question | ⏳ open | No UI; nothing stored |
 | CR-26 | Setup on the account: test choice, test date, study days, 5–30 min sessions, practice-test score source, setup completion, benchmark schedule | ⏳ open (reference SQL in `scripts/local/proposals/cr26_account_setup.sql`, local only) | Behind `VITE_ACCOUNT_SETUP`; without it, answers stay in this browser and sessions are 5–15 min |
@@ -342,8 +342,9 @@ In the app and the local database, an item is served only if a review approved i
 - **Checks use assessment items only:** `start_practice_attempt` with a benchmark refuses a practice item, an item from another exam version, or an item already used in that check (22023).
 - `benchmark_questions(benchmark)`: the open check's remaining reserved items for its caller only. Unseen first (mid difficulty first), then repeats (least recently shown first), each with `seen_before`. A section with none returns nothing.
 - `complete_benchmark` metrics v2: `repeats` and `comparable` per section and overall.
-- **Hidden content:** reserved content is readable only by a student with an open check for that version, or by viewers of a student who attempted the item.
-- **Requested (#248):** `assessment_pool_status(student, exam_version)`, counts only. Without it, the app says a check's length is set when it starts.
+- **Hidden content:** reserved content is readable only by a student with a *live* check for that version, or by viewers of a student who attempted the item.
+- **Checks expire and resume:** `start_benchmark` requires an exam version (22023 without one). A check is live for 4 hours from its start; after that it unlocks nothing, takes no attempts and `benchmark_questions` refuses it ("expired", 22023), though `complete_benchmark` still scores what was answered. Starting the same exam version and kind while a live check is open returns that check, so an abandoned or failed start doesn't leave a second check unlocking the reserve.
+- `assessment_pool_status(student, exam_version)`: reserved items per section and how many the student hasn't been shown. Counts only, for anyone who may view the student (42501 otherwise).
 
 **When the pool is too small for a check (`web/src/lib/engine/freshness.ts`, the same rule on both sides):**
 1. Unseen reserved items first.
@@ -354,20 +355,23 @@ In the app and the local database, an item is served only if a review approved i
 
 **Client (on #248):**
 - **Practice:** `LiveSource` reads `pool`, and `startSession` serves the server's session as picked. The #221 interim client holdout is retired.
-- **Checks:** `Benchmark` sizes the check from `assessmentPoolStatus` counts. Once the check opens, it runs only on that check's `benchmarkQuestions`.
+- **Checks:** `Benchmark` sizes the check from `assessmentPoolStatus` counts (null only on a server without the RPC: the length is then set when the check starts). Once the check opens, it runs only on that check's `benchmarkQuestions`.
 - **Demo:** mirrors all of this, including the cross-pool refusals.
 - **Local seed:** the fixture reserve is the local server's assessment pool.
 - **Tests:** `assessmentPool.local.test.ts` checks the complete flow and the bypass attempts directly against the local server.
 
 **Paired release requirements (hosted; all held):**
-1. **Apply together:** `20261022050000_assessment_pool` and the client that reads `pool` and calls `benchmark_questions`, in the same release. An older client sends practice questions to checks, and every check attempt is refused. A newer client on an older server finds no reserved items and can't start a check.
+1. **Apply together, migration first:** `20261022050000_assessment_pool`, then the client that reads `pool` and calls `benchmark_questions`, in the same release window.
+   - An older client on the new server sends practice questions to checks, and every check attempt is refused.
+   - A newer client on an older server breaks **all of practice**, not just checks: every `practice_questions` read selects `pool`, and PostgREST rejects the unknown column (42703). So `publishedQuestions`, `startSession` and checks all fail.
+   - Since #244 is on main, **don't redeploy canonical staging (or production) from main until this migration is applied there** (`docs/DEPLOYING.md`).
 2. **Mark before students use it:** set `pool = 'assessment'` for the chosen reserve in the same apply. The column defaults to `practice`, so an unseeded pool means no check can be taken: the app says so, but nothing is measured.
-3. **Choose the reserve from human-reviewed items** (CR-21, CR-24). The 58 demo items are `generated` with no human review, so they are unservable on hosted.
-4. **Never move an item a student has seen in practice into `assessment`.** Moving reserved items to practice, or retiring them, is fine.
+3. **Choose the reserve from human-reviewed items** (CR-21, CR-24), **spread across difficulties** (the check's staircase adapts over difficulty; a reserve all at one level can't adapt). The 58 demo items are `generated` with no human review, so they are unservable on hosted.
+4. **Never move an item a student has seen in practice into `assessment`.** Moving reserved items to practice, or retiring them, is fine. Check before marking: `select q.id from practice_questions q where q.id = any(:candidates) and exists (select 1 from practice_attempts a where a.question_id = q.id and a.benchmark_id is null)` must return no rows.
 5. **After applying:**
    - run `supabase/tests/assessment_pool.sql` against a branch copy;
    - run `scripts/local/live_stack.sh test` with the same migrations;
-   - run the hosted acceptance steps in `LAUNCH_CHECKLIST.md`.
+   - run the hosted acceptance steps in `LAUNCH_CHECKLIST.md` (B1).
 
 **Still open (CR-23 part 2):**
 - `seen_before` on practice items (the client marks it today).

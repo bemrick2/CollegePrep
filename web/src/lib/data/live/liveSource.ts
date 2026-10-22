@@ -579,7 +579,8 @@ export class LiveSource implements DataSource {
     const items = kept.filter((i) => byId.has(i.question_id)).map((i) => ({ position: i.position, reason: i.reason, question: byId.get(i.question_id)!, seen_before: seen.has(i.question_id) }))
     // Nothing to practise: say whether that is because the remaining questions are set aside for checks.
     let held: number | undefined
-    if (!items.length) held = ((await this.assessmentPoolStatus(studentId, examFamily)) ?? []).reduce((n, x) => n + x.reserved, 0)
+    // Unknown pool size (an older server) stays undefined, never 0.
+    if (!items.length) held = (await this.assessmentPoolStatus(studentId, examFamily))?.reduce((n, x) => n + x.reserved, 0)
     return { id, target_minutes: targetMinutes, items, held_for_check: held }
   }
 

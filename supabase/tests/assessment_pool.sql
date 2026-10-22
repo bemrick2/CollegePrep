@@ -76,11 +76,9 @@ begin
   perform public.approve_practice_question('30000000-0000-0000-0000-000000000009', 'test fixture');
 
   perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
-  b := public.start_benchmark(st, 'mini');  -- no exam version
-  perform hp_test.expect_error(format('select * from public.benchmark_questions(%L)', b), '22023', '%exam version%');
-  perform hp_test.expect_error(format('select public.start_practice_attempt(%L, %L, p_benchmark => %L)', st,
-    '30000000-0000-0000-0000-000000000004', b), '22023', '%own exam version%');
-  perform public.complete_benchmark(b);
+  -- A check needs an exam version.
+  perform hp_test.expect_error(format($q$select public.start_benchmark(%L, 'mini')$q$, st), '22023', '%exam version%');
+  perform hp_test.expect_error(format($q$select public.start_benchmark(%L, 'mini', null)$q$, st), '22023', '%exam version%');
   b := public.start_benchmark(st, 'mini', '40000000-0000-0000-0000-000000000001');
   perform set_config('t.b', b::text, true);
   select string_agg(section || ':' || right(question_id::text, 1) || ':' || seen_before, ',' order by section, ord) into got
@@ -155,6 +153,57 @@ begin
   perform hp_test.check(not (m->'by_section' ? 'reading'), 'unmeasured section absent');
   perform hp_test.eq((m->'by_section'->'math'->>'repeats')::int, 0, 'a skipped repeat is not counted');
   perform hp_test.eq((m->>'comparable')::boolean, true, 'clean overall');
+  -- One more reserved SAT math item (qa) that student 51 hasn't been shown.
+  perform hp_test.as_owner();
+  insert into public.practice_questions(id, exam_version_id, question_type_id, section, stem, choices, answer_format, accepted_answers,
+    expected_time_seconds, status, license, origin, pool)
+  values ('30000000-0000-0000-0000-00000000000a', '40000000-0000-0000-0000-000000000001', '41000000-0000-0000-0000-000000000001', 'math', 'Unseen reserved', '["A","B"]',
+    'choice', '["A"]', 60, 'published', 'original-owned', 'authored', 'assessment');
+  perform public.approve_practice_question('30000000-0000-0000-0000-00000000000a', 'test fixture');
+
+  -- assessment_pool_status: counts only, for viewers of the student.
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  select string_agg(section || ':' || reserved || ':' || unseen, ',') into got
+    from public.assessment_pool_status(st, '40000000-0000-0000-0000-000000000001');
+  perform hp_test.eq(got, 'math:4:1', 'pool status: published, reviewed reserved items per section and how many are unseen (draft excluded)');
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+  select string_agg(section || ':' || reserved || ':' || unseen, ',') into got
+    from public.assessment_pool_status(st, '40000000-0000-0000-0000-000000000001');
+  perform hp_test.eq(got, 'math:4:1', 'a viewing guardian gets the same counts');
+  -- A guardian reads only the reserved items their student attempted, never the unseen one.
+  perform hp_test.eq((select string_agg(right(id::text, 1), ',' order by id) from public.practice_questions
+    where pool = 'assessment'), '4,6,8', 'guardian reads attempted reserved items only');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000052');
+  perform hp_test.expect_error(format('select * from public.assessment_pool_status(%L, %L)', st, '40000000-0000-0000-0000-000000000001'), '42501');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000099');
+  perform hp_test.expect_error(format('select * from public.assessment_pool_status(%L, %L)', st, '40000000-0000-0000-0000-000000000001'), '42501');
+  perform hp_test.as_anon();
+  perform hp_test.expect_error(format('select * from public.assessment_pool_status(%L, %L)', st, '40000000-0000-0000-0000-000000000001'), '42501');
+
+  -- A live check unlocks its own version only; a second start of the same version and kind resumes it.
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  b := public.start_benchmark(st, 'mini', '40000000-0000-0000-0000-000000000002');
+  perform hp_test.eq(public.start_benchmark(st, 'mini', '40000000-0000-0000-0000-000000000002'), b, 'a live open check is resumed, not duplicated');
+  perform hp_test.eq((select count(*) from public.practice_benchmarks where student_id = st and completed_at is null), 1::bigint, 'one open check');
+  a := public.start_benchmark(st, 'full', '40000000-0000-0000-0000-000000000002');
+  perform hp_test.check(a <> b, 'another kind is its own check');
+  perform hp_test.eq((select count(*) from public.practice_questions where id = '30000000-0000-0000-0000-000000000009'), 1::bigint, 'the ACT check reads ACT reserved items');
+  perform hp_test.eq((select count(*) from public.practice_questions where id = '30000000-0000-0000-0000-00000000000a'), 0::bigint,
+    'an open check of another version unlocks nothing of this one');
+  -- An abandoned check expires after 4 hours: no reserved content, no attempts, no list; a new start opens a new check.
+  perform hp_test.as_owner();
+  update public.practice_benchmarks set started_at = now() - interval '4 hours 1 minute' where id in (a, b);
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  perform hp_test.eq((select count(*) from public.practice_questions where id = '30000000-0000-0000-0000-000000000009'), 0::bigint, 'an expired check unlocks nothing');
+  perform hp_test.expect_error(format('select * from public.benchmark_questions(%L)', b), '22023', '%expired%');
+  perform hp_test.expect_error(format('select public.start_practice_attempt(%L, %L, p_benchmark => %L)', st,
+    '30000000-0000-0000-0000-000000000009', b), '22023', '%expired%');
+  perform hp_test.check(public.start_benchmark(st, 'mini', '40000000-0000-0000-0000-000000000002') <> b, 'an expired check is not resumed');
+  perform hp_test.check((public.complete_benchmark(b)->>'definition') = 'v2', 'an expired check can still be completed (scores what was answered)');
+  perform hp_test.as_owner();
+  update public.practice_benchmarks set started_at = now() - interval '3 hours 59 minutes' where id = a;
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  perform hp_test.eq(public.start_benchmark(st, 'full', '40000000-0000-0000-0000-000000000002'), a, 'still live just under 4 hours');
   -- Archived students can't use checks.
   perform hp_test.as_owner();
   update public.students set archived_at = now() where id = st;

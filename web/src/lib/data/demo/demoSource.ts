@@ -38,6 +38,9 @@ import { recommend, skillEstimates, streakFrom, weeklyProgress } from '../../eng
 import { addDays, browserTimeZone, localDate, weekStartOf } from '../../engine/dates'
 import { MAX_SAVED_SCHOOLS, readPrimarySchool, readSavedSchools, writePrimarySchool, writeSavedSchools } from '../../savedSchools'
 
+/** A progress check stays live (takes attempts, lists items) for 4 hours from its start, as on the server. */
+const CHECK_LIVE_MS = 4 * 60 * 60 * 1000
+
 export const DEMO_PARENT = 'demo-parent'
 export const DEMO_STUDENT = 'demo-student'
 
@@ -583,11 +586,12 @@ export class DemoSource implements DataSource {
     // only on reserved questions.
     const reserved = practiceExclusions(q.exam_family, F.QUESTIONS).has(questionId)
     if (benchmarkId && !reserved) throw new DataError('Progress checks use only questions set aside for checks', 'invalid')
-    if (!benchmarkId && reserved) throw new DataError('This question is set aside for progress checks', 'forbidden')
+    if (!benchmarkId && reserved) throw new DataError('This question is set aside for progress checks', 'invalid')
     if (benchmarkId) {
-      const c = this.checks.get(benchmarkId)
-      if (c && c.used.has(questionId)) throw new DataError('A question is used once per progress check', 'invalid')
-      c?.used.add(questionId)
+      const c = this.liveCheck(benchmarkId, studentId)
+      if (c.exam !== q.exam_family) throw new DataError('A progress check uses reserved questions of its own exam version', 'invalid')
+      if (c.used.has(questionId)) throw new DataError('A question is used once per progress check', 'invalid')
+      c.used.add(questionId)
     }
     const id = uid('pa-')
     const now = new Date().toISOString()
@@ -718,12 +722,23 @@ export class DemoSource implements DataSource {
   }
 
   /** Open checks in this page session: when each started, and the items already used in it. */
-  private checks = new Map<string, { studentId: string; exam: ExamFamily; startedAt: string; used: Set<string> }>()
+  private checks = new Map<string, { studentId: string; exam: ExamFamily; kind: BenchmarkSummary['kind']; startedAt: string; used: Set<string> }>()
 
-  async startBenchmark(studentId: string, _kind: BenchmarkSummary['kind'], exam: ExamFamily) {
+  /** Mirrors the server: a check is live while open and within 4 hours of its start. */
+  private liveCheck(benchmarkId: string, studentId: string) {
+    const c = this.checks.get(benchmarkId)
+    if (!c || c.studentId !== studentId) throw new DataError('Benchmark is not an open benchmark of this student', 'invalid')
+    if (Date.now() - Date.parse(c.startedAt) >= CHECK_LIVE_MS) throw new DataError('This progress check has expired; start a new one', 'invalid')
+    return c
+  }
+
+  async startBenchmark(studentId: string, kind: BenchmarkSummary['kind'], exam: ExamFamily) {
     this.requireLinked(studentId)
+    // Like start_benchmark: a live open check of the same exam and kind is resumed, not duplicated.
+    for (const [id, c] of this.checks)
+      if (c.studentId === studentId && c.exam === exam && c.kind === kind && Date.now() - Date.parse(c.startedAt) < CHECK_LIVE_MS) return delay(id)
     const id = uid('bm-')
-    this.checks.set(id, { studentId, exam, startedAt: new Date().toISOString(), used: new Set() })
+    this.checks.set(id, { studentId, exam, kind, startedAt: new Date().toISOString(), used: new Set() })
     return delay(id)
   }
 
@@ -740,6 +755,7 @@ export class DemoSource implements DataSource {
     this.requireLinked(studentId)
     const c = this.checks.get(benchmarkId)
     if (!c || c.studentId !== studentId) throw new DataError('No open benchmark of yours with that id', 'forbidden')
+    this.liveCheck(benchmarkId, studentId)
     const F = await loadFixtures()
     const reserved = practiceExclusions(c.exam, F.QUESTIONS)
     const last = new Map<string, string>()
@@ -753,6 +769,7 @@ export class DemoSource implements DataSource {
 
   async completeBenchmark(studentId: string, benchmarkId: string, client: BenchmarkSummary) {
     const summary = { ...client, id: benchmarkId }
+    this.checks.delete(benchmarkId)  // closed, like complete_benchmark
     ;(this.s.benchmarks[studentId] ??= []).push(summary)
     this.commit()
     return delay(summary)

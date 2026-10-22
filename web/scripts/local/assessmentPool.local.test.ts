@@ -165,17 +165,25 @@ describe.skipIf(!URL_)('reserved assessment pool on the server (CR-23)', () => {
     expect(other.error?.code).toBe('42501')
   })
 
-  it('pool counts (assessment_pool_status), when the server has them: counts only, for the student and view-progress guardians', async () => {
+  it('pool counts (assessment_pool_status): counts only, for the student and view-progress guardians', async () => {
     const status = await student.assessmentPoolStatus(studentId, 'act')
-    if (status === null) {
-      // Not on this server yet (requested on #248): the app treats the size as unknown, never zero.
-      expect(status).toBeNull()
-      return
-    }
+    // The server in this PR has the RPC, so null (unknown) would be a regression here.
+    expect(status).not.toBeNull()
+    if (!status) return
     expect(status.reduce((n, s) => n + s.reserved, 0)).toBe(13)
     expect(status.every((s) => s.unseen === 0)).toBe(true)
     const viewer = await new LiveSource(c.VIEWER).assessmentPoolStatus(studentId, 'act')
     expect(viewer?.reduce((n, s) => n + s.reserved, 0)).toBe(13)
     await expect(new LiveSource(c.OUTSIDER).assessmentPoolStatus(studentId, 'act')).rejects.toThrow()
+  })
+
+  it('a second start of the same check resumes it rather than opening another (an open check unlocks the reserve)', async () => {
+    const a = await student.startBenchmark(studentId, 'mini', 'act')
+    const b = await student.startBenchmark(studentId, 'mini', 'act')
+    expect(b).toBe(a)
+    const open = await c.STUDENT.from('practice_benchmarks').select('id').eq('student_id', studentId).is('completed_at', null)
+    expect(open.error).toBeNull()
+    expect(open.data?.filter((r) => r.id === a)).toHaveLength(1)
+    expect((await c.STUDENT.rpc('complete_benchmark', { p_benchmark: a })).error).toBeNull()
   })
 })
