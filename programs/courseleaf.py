@@ -202,7 +202,34 @@ def parse_grid(t):
             item = plan_item(cells, milestones)
             cur['items'].append(item if item is not None else ' | '.join(nonempty))
     t['_total_label'] = total_label[0]
+    for term in terms: term['items'] = choice_blocks(term['items'])
     return terms, total
+
+
+CHOICE_HEADER = re.compile(r'^(?:select|choose)\s+(one|two|three|four|five|six|[1-9])\s+(?:(?:course|class)(?:e?s)?\s+)?(?:of|from)\s+the\s+following\s*:?$', re.I)
+COUNT_WORDS = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6}
+
+
+def choice_blocks(items):
+    """A printed choice block as one item. 'Select one of the following: | 3' followed by two or more course rows whose credit
+    cells are blank (EKU, LMU, Temple 2026-27) is {'choose': 1, 'text': header, 'credits': 3, 'options': [...]}: the options
+    are not each required. Only that shape is grouped: a header that prints no credits or no count, options that print their
+    own credits, or fewer than two options stay as printed rows."""
+    out, i = [], 0
+    while i < len(items):
+        it = items[i]
+        m = CHOICE_HEADER.match(it.get('text', '')) if isinstance(it, dict) and set(it) == {'text', 'credits'} else None
+        j = i + 1
+        while m and j < len(items) and isinstance(items[j], dict) and ('code' in items[j] or 'any_of' in items[j]) \
+                and not set(items[j]) & {'credits', 'milestone', 'marker'}:
+            j += 1
+        n = COUNT_WORDS.get(m.group(1).lower(), None) if m else None
+        n = n if n is not None or not m else int(m.group(1))
+        if m and j - i - 1 >= 2 and n < j - i - 1:
+            out.append({'choose': n, 'text': it['text'], 'credits': it['credits'], 'options': items[i + 1:j]}); i = j
+        else:
+            out.append(it); i += 1
+    return out
 
 
 def extract(inst, entry, page, year, year_line, have_program):
