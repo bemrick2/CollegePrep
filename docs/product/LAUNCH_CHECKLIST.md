@@ -102,8 +102,9 @@ Nothing here runs until the owner lifts the hold. **Record the evidence:** for e
 3. On production, explicitly dispatch `deploy-migrations.yml`. Don't assume deferred pushes replay.
    - `scripts/apply_migrations.py` applies **every** pending file in filename order, each in its own transaction. It has no option to stop early.
    - So don't dispatch it until the reserve migration from H2 step 2 exists. The applier then runs `20261022050000` and the reserve straight after it in the same run.
+   - The workflow also runs on every push to main that touches `supabase/migrations/**`. Keep that push trigger off (or the job gate in place) until H2 is ready. Otherwise any other migration merged first, such as CR-27 or CR-22, would apply `20261022050000` without its reserve.
    - The other route is a reviewed `--until <version>` option on the applier (Research), used to stop at `20261022040000`.
-   - After each migration, record `select version from supabase_migrations.schema_migrations order by version desc limit 1`.
+   - Record the applier's printed `applied <file>` lines, and once at the end `select version from supabase_migrations.schema_migrations order by version desc limit 5`.
 4. Then dispatch `deploy-functions.yml`, then `live-import.yml`. Run reconciliation and the idempotence pass (`SUPABASE_PAUSE.md` step 4).
 5. Validate staging Auth, invitations and sandbox billing (`SUPABASE_PAUSE.md` step 6).
 
@@ -127,6 +128,7 @@ This step is **blocked by A2.** The reserve must come from human-reviewed items,
    - The reserve is its own reviewed migration (Research), named after `20261022050000`, so the applier runs it in the same dispatch right after the pool column.
    - It sets `pool = 'assessment'` for the listed candidate ids, and fails if any id isn't published, human-reviewed and unseen in practice.
    - No such migration exists yet; it can only be written once A2 has reviewed items.
+   - The pool column and the reserve commit in separate transactions. If the reserve fails, `20261022050000` is live with no reserve: no check can be taken, and practice is unaffected. Fix the reserve migration and dispatch again before step 4. Don't deploy the client until the reserve is in.
 3. **Check at the database and REST level, before any client changes:**
    - **(a)** `supabase/tests/assessment_pool.sql` passes on the H1 copy with the same migrations, and `scripts/local/live_stack.sh test` passes on main.
    - **(b)** The reserve is planned per exam version and difficulty:
