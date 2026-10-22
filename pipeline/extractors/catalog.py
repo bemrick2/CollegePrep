@@ -127,7 +127,16 @@ def program_name(page):
     # ('Special Education - Mild/Moderate/Severe, B.S.', UVU) it is part of the name.
     # Kent State prints the award alone after the dash ('Accounting - B.B.A.'): that is the name's award, not a suffix.
     award_only = credential(head) is None and re.fullmatch(r'\s*(?:B|A)\.\s?[A-Z][A-Za-z.]*\s*', rest or '') and credential(rest)
-    if rest and not award_only and not (credential(head) is None and re.search(r',\s*(?:B|A)\.\s?[A-Z]', rest)
+    # The page's own first heading printing the whole dashed title ('Bachelor of Music in Performance - Piano', JHU
+    # 2026-27) shows the dash is part of the name: a site suffix is not printed in the page heading. Only for a whole
+    # bachelor's degree before the dash and a plain field after it (no digits): an award, concentration, emphasis,
+    # specialization, option, track, licensure, pathway, double major or roadmap start term keeps the rule below.
+    norm = lambda x: re.sub(r'\s+', ' ', re.sub('[\u200b\u00ad]', '', x or '')).strip()
+    in_heading = (bool(rest) and bool(page.headings) and norm(page.headings[0]) == norm(t) and credential(head) == 'bachelor'
+                  and credential(rest) is None and not re.search(r'\d', rest)
+                  and not re.search(r'concentration|emphasis|specialization|option|track|licensure|minor|certificat|pathway|double major|roadmap|start\b',
+                                    rest, re.I))
+    if rest and not award_only and not in_heading and not (credential(head) is None and re.search(r',\s*(?:B|A)\.\s?[A-Z]', rest)
                      and not re.search(r'catalog|bulletin|\b20\d\d\b|university|college', rest, re.I)):
         t = head.strip()
     t = re.sub(r'\s*\((?:[0-9]{2,6}[A-Z]?)(?:,\s*[0-9]{2,6}[A-Z]?)*\)$', '', t)  # Courseleaf codes: "(1752)", "(514P, 514)"

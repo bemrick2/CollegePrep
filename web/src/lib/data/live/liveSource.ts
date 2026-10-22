@@ -1,9 +1,8 @@
 import { MAX_INTERESTS, type InterestProfile, type MajorCertainty, type SavedInterest } from '../../engine/interests'
 import { INVITE_TTL_HOURS } from '../../invites'
 import { displayName, examKey, type PlannedExam } from '../../engine/examCredit'
-import { practiceExclusions } from '../../engine/freshness'
 import type { SupabaseClient } from '@supabase/supabase-js'
-import type { AlertPreference, DevicePermission, DevicePlatform, DeviceStatus, EmailDelivery, DataSource, ReminderChange, ReminderDelivery, ReminderSettings, InactiveStudent, InvitationSummary, InviteSendResult, StudentInvitation } from '../source'
+import type { CheckItem, PoolStatus, AlertPreference, DevicePermission, DevicePlatform, DeviceStatus, EmailDelivery, DataSource, ReminderChange, ReminderDelivery, ReminderSettings, InactiveStudent, InvitationSummary, InviteSendResult, StudentInvitation } from '../source'
 import type { NextWeekSuggestion } from '../../engine/weeklyPlan'
 import { DataError } from '../source'
 import { DEFAULT_REMINDERS } from '../../../../../supabase/functions/_shared/reminders.ts'
@@ -61,10 +60,11 @@ const OUTCOME_MESSAGE: Record<string, string> = {
 }
 
 const QUESTION_COLUMNS =
-  'id, section, difficulty, difficulty_label, stem, choices, answer_format, expected_time_seconds, hint_count, practice_passages(title, body), exam_versions!inner(exam_family), practice_question_skills(is_primary, skills(skill_key))'
+  'id, pool, section, difficulty, difficulty_label, stem, choices, answer_format, expected_time_seconds, hint_count, practice_passages(title, body), exam_versions!inner(exam_family), practice_question_skills(is_primary, skills(skill_key))'
 
 interface QuestionRow {
   id: string
+  pool?: 'practice' | 'assessment' | null
   section: string
   difficulty: number | null
   difficulty_label: PublicQuestion['difficulty_label']
@@ -101,6 +101,7 @@ function toPublic(r: QuestionRow): PublicQuestion {
     expected_time_seconds: r.expected_time_seconds,
     primary_skill_key: r.practice_question_skills.find((s) => s.is_primary)?.skills?.skill_key ?? null,
     hint_count: r.hint_count ?? 0,
+    pool: r.pool ?? null,
   }
 }
 
@@ -114,7 +115,10 @@ interface ServerMetrics {
   answer_changes?: number
   accuracy?: number | null
   pacing_ratio?: number | null
-  by_section?: Record<string, { submitted: number; correct: number; accuracy: number | null; pacing_ratio: number | null }>
+  /** v2 (CR-23): repeats = scored attempts on questions shown before outside this check; comparable = no repeats. */
+  by_section?: Record<string, { submitted: number; correct: number; accuracy: number | null; pacing_ratio: number | null; repeats?: number; comparable?: boolean }>
+  repeats?: number
+  comparable?: boolean
   calibration?: { by_confidence?: Record<string, { submitted: number; accuracy: number | null }>; confident_wrong_share?: number | null }
   traps?: Record<string, number>
 }
@@ -149,6 +153,7 @@ function fromServerMetrics(m: ServerMetrics | null, client?: BenchmarkMetrics): 
       accuracy: v.accuracy,
       pacing_ratio: v.pacing_ratio,
       ceiling_difficulty: client?.sections?.find((x) => x.section === section)?.ceiling_difficulty ?? null,
+      ...(v.repeats != null ? { repeats: v.repeats } : {}),
     })),
   }
 }
@@ -556,66 +561,48 @@ export class LiveSource implements DataSource {
       p_target_minutes: targetMinutes,
       p_exam_version: version,
     })
-    // The server's pool for this session: published, served, this exam version, with an expected time.
-    let poolQuery = this.sb.from('practice_questions').select(QUESTION_COLUMNS).eq('status', 'published').eq('exam_versions.exam_family', examFamily).not('expected_time_seconds', 'is', null)
-    if (version) poolQuery = poolQuery.eq('exam_version_id', version)
-    const [picked, poolRows, mine, checkList] = await Promise.all([
-      this.sb.from('practice_session_items').select('position, question_id, reason').eq('session_id', id).order('position'),
-      poolQuery,
-      this.sb.from('practice_attempts').select('question_id, presented_at').eq('student_id', studentId),
-      this.publishedQuestions(examFamily),
-    ])
+    // CR-23 (#248): the server's session never includes a reserved item, so the session is served exactly as picked
+    // (the #221 interim client holdout is retired). Reserved items' content isn't even readable here.
+    const picked = await this.sb.from('practice_session_items').select('position, question_id, reason').eq('session_id', id).order('position')
     if (picked.error) fail(picked.error)
-    if (poolRows.error) fail(poolRows.error)
-    if (mine.error) fail(mine.error)
-    const pool = ((poolRows.data ?? []) as unknown as QuestionRow[]).map(toPublic)
-    // Interim, until the server enforces CR-23 (#218 B1): the server's pick can include reserved assessment questions.
-    // Drop them here, with the rule the demo uses (engine/freshness.ts reservedIds: the question's `pool` once the
-    // server serves it, otherwise the fixed client assignment), then fill the session's time the way the demo's pool
-    // does: fresh practice questions first, then practice repeats (least recently seen first) as review. Reserved
-    // questions are never served in practice; the time budget is never exceeded.
-    const lastSeen = new Map<string, string>()
-    for (const r of mine.data ?? []) {
-      const q = r.question_id as string
-      const t = (r.presented_at as string | null) ?? ''
-      if (!lastSeen.has(q) || t > lastSeen.get(q)!) lastSeen.set(q, t)
-    }
-    // The reserve is computed from the same question list progress checks use (publishedQuestions), so practice and
-    // checks agree on it exactly.
-    const held = practiceExclusions(examFamily, checkList)
-    const kept: { position: number; question_id: string; reason: string }[] = (picked.data ?? []).filter((i) => !held.has(i.question_id))
-    const secs = new Map(pool.map((q) => [q.id, q.expected_time_seconds ?? 60]))
-    const budget = targetMinutes * 60
-    let used = kept.reduce((t, i) => t + (secs.get(i.question_id) ?? 60), 0)
-    const chosen = new Set(kept.map((i) => i.question_id))
-    const nearMiddle = (x: PublicQuestion, y: PublicQuestion) => Math.abs((x.difficulty ?? 3) - 3) - Math.abs((y.difficulty ?? 3) - 3) || (x.id < y.id ? -1 : 1)
-    const open = pool.filter((q) => !held.has(q.id) && !chosen.has(q.id))
-    const fill = [
-      ...open.filter((q) => !lastSeen.has(q.id)).sort(nearMiddle).map((q) => ({ q, reason: 'untagged' })),
-      ...open.filter((q) => lastSeen.has(q.id)).sort((x, y) => (lastSeen.get(x.id)! < lastSeen.get(y.id)! ? -1 : 1)).map((q) => ({ q, reason: 'review' })),
-    ]
-    for (const { q, reason } of fill) {
-      const t = secs.get(q.id) ?? 60
-      if (used + t > budget) continue
-      kept.push({ position: 0, question_id: q.id, reason })
-      used += t
-    }
-    kept.forEach((i, n) => (i.position = n + 1))
-    const items = { data: kept }
+    const kept = (picked.data ?? []) as { position: number; question_id: string; reason: string }[]
     const ids = kept.map((i) => i.question_id)
-    const qs = ids.length ? await this.sb.from('practice_questions').select(QUESTION_COLUMNS).in('id', ids) : { data: [], error: null }
+    const [qs, prior] = await Promise.all([
+      ids.length ? this.sb.from('practice_questions').select(QUESTION_COLUMNS).in('id', ids) : Promise.resolve({ data: [], error: null }),
+      // Seen before: any attempt at the question by this student. The new session has none yet, so every match is earlier.
+      ids.length ? this.sb.from('practice_attempts').select('question_id').eq('student_id', studentId).in('question_id', ids) : Promise.resolve({ data: [], error: null }),
+    ])
     if (qs.error) fail(qs.error)
-    const byId = new Map(((qs.data ?? []) as unknown as QuestionRow[]).map((q) => [q.id, toPublic(q)]))
-    // Seen before: any attempt at the question by this student. The new session has none yet, so every match is earlier.
-    const prior = ids.length ? await this.sb.from('practice_attempts').select('question_id').eq('student_id', studentId).in('question_id', ids) : { data: [], error: null }
     if (prior.error) fail(prior.error)
-    const seen = new Set((prior.data ?? []).map((r) => r.question_id as string))
-    return {
-      id,
-      target_minutes: targetMinutes,
-      items: (items.data ?? []).filter((i) => byId.has(i.question_id)).map((i) => ({ position: i.position, reason: i.reason, question: byId.get(i.question_id)!, seen_before: seen.has(i.question_id) })),
-      held_for_check: (picked.data ?? []).filter((i) => held.has(i.question_id)).length,
-    }
+    const byId = new Map(((qs.data ?? []) as unknown as QuestionRow[]).map((q) => [q.id, toPublic(q)]))
+    const seen = new Set(((prior.data ?? []) as { question_id: string }[]).map((r) => r.question_id))
+    const items = kept.filter((i) => byId.has(i.question_id)).map((i) => ({ position: i.position, reason: i.reason, question: byId.get(i.question_id)!, seen_before: seen.has(i.question_id) }))
+    // Nothing to practise: say whether that is because the remaining questions are set aside for checks.
+    let held: number | undefined
+    // Unknown pool size (an older server) stays undefined, never 0.
+    if (!items.length) held = (await this.assessmentPoolStatus(studentId, examFamily))?.reduce((n, x) => n + x.reserved, 0)
+    return { id, target_minutes: targetMinutes, items, held_for_check: held }
+  }
+
+  /** CR-23: reserved items per section and how many this student hasn't seen. null when the server can't say. */
+  async assessmentPoolStatus(studentId: string, examFamily: ExamFamily): Promise<PoolStatus[] | null> {
+    const version = await this.currentExamVersion(examFamily)
+    const { data, error } = await this.sb.rpc('assessment_pool_status', { p_student: studentId, p_exam_version: version })
+    // An older server without the RPC: the size is unknown, not zero.
+    if (error && (error.code === 'PGRST202' || error.code === '42883')) return null
+    if (error) fail(error)
+    return ((data ?? []) as PoolStatus[]).map((r) => ({ section: r.section, reserved: Number(r.reserved), unseen: Number(r.unseen) }))
+  }
+
+  /** CR-23: the reserved items an open check may still use, in the server's order (unseen first, then repeats). */
+  async benchmarkQuestions(benchmarkId: string): Promise<CheckItem[]> {
+    const rows = await rpc<{ section: string; question_id: string; seen_before: boolean }[]>(this.sb, 'benchmark_questions', { p_benchmark: benchmarkId })
+    const ids = (rows ?? []).map((r) => r.question_id)
+    if (!ids.length) return []
+    const { data, error } = await this.sb.from('practice_questions').select(QUESTION_COLUMNS).in('id', ids)
+    if (error) fail(error)
+    const byId = new Map(((data ?? []) as unknown as QuestionRow[]).map((q) => [q.id, toPublic(q)]))
+    return (rows ?? []).filter((r) => byId.has(r.question_id)).map((r) => ({ question: byId.get(r.question_id)!, seen_before: !!r.seen_before }))
   }
 
   async endSession(sessionId: string) {

@@ -114,6 +114,12 @@ export interface DataSource {
   /** Closes it. Live stores the server's metrics; `client` carries the staircase details the server doesn't compute. */
   completeBenchmark(studentId: string, benchmarkId: string, client: BenchmarkSummary): Promise<BenchmarkSummary>
 
+  // CR-23 reserved assessment pool. Reserved content is readable only inside an open check, so sizes come as counts.
+  /** Per section: reserved items and how many this student hasn't seen. null when the source can't say. */
+  assessmentPoolStatus(studentId: string, examFamily: ExamFamily): Promise<PoolStatus[] | null>
+  /** The reserved items an open check may still use, unseen first, then repeats (each flagged). */
+  benchmarkQuestions(benchmarkId: string, studentId: string, examFamily: ExamFamily): Promise<CheckItem[]>
+
   // Saved schools (CR-9) and verified-school listing (CR-7)
   savedSchools(householdId: string): Promise<string[]>
   saveSchool(householdId: string, institutionKey: string): Promise<void>
@@ -275,4 +281,17 @@ export interface InactiveStudent {
   daysInactive: number | null
   thresholdDays: number
   lastSubmittedAt: string | null
+}
+
+/** CR-23: one section of the reserved pool, as counts only. */
+export interface PoolStatus {
+  section: string
+  reserved: number
+  unseen: number
+}
+
+/** CR-23: a reserved item an open check may use. */
+export interface CheckItem {
+  question: PublicQuestion
+  seen_before: boolean
 }
