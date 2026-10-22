@@ -51,6 +51,8 @@ interface PlanItem {
   any: string[]
   /** Or all codes of one of these combinations ("CHEM 102+103"). */
   combos: string[][]
+  /** "Select two of the following": done only when this many of `pick.codes` were awarded (#230). */
+  pick: { codes: string[]; n: number } | null
   /** The term is a regular full-time semester (planTerms' notChecked is null); only such terms can be "covered". */
   checked: boolean
 }
@@ -61,7 +63,8 @@ function planItems(terms: PlanTerm[]): PlanItem[] {
     t.entries.filter(isRequirement).map((e) => {
       const base = { term: t.termIndex, label: t.label, checked: t.notChecked === null, text: e.choices.length ? `${e.text} ${e.choices.map((c) => c.text).join(' / ')}` : e.text, credits: e.credits }
       // A structured course, or a choice among options: any one of its codes.
-      if (e.code || e.choices.length) return { ...base, any: entryCodes(e), combos: [] }
+      if (e.choices.length && e.choose > 1) return { ...base, any: [], combos: [], pick: { codes: entryCodes(e), n: e.choose } }
+      if (e.code || e.choices.length) return { ...base, any: entryCodes(e), combos: [], pick: null }
       // Free text: "A or B" is any one; "CHEM 102+103", "BIOL 1113& BIOL 1111" and "A and B" are combinations that
       // count only when all were awarded.
       const combos: string[][] = []
@@ -74,7 +77,7 @@ function planItems(terms: PlanTerm[]): PlanItem[] {
         if (/[+&]|\bAND\b/.test(seg) && codes.length > 1) combos.push(codes)
         else any.push(...codes)
       }
-      return { ...base, any, combos }
+      return { ...base, any, combos, pick: null }
     }),
   )
 }
@@ -144,7 +147,7 @@ export function degreeCredit(matches: ExamMatch[], terms: PlanTerm[]): DegreeCre
       }
       // Part of a combination row ("PHYS 2325& PHYS 2125"): the course is in the plan. The row itself counts as
       // done only when every course of the combination is awarded (checked after all exams), so it isn't taken here.
-      const combo = items.find((x) => !taken.has(x) && x.combos.some((c) => c.includes(code)))
+      const combo = items.find((x) => !taken.has(x) && (x.combos.some((c) => c.includes(code)) || !!x.pick?.codes.includes(code)))
       if (combo) {
         matched.push({ code, term: combo.term, label: combo.label, item: combo.text, credits: combo.credits })
         hit++
@@ -175,6 +178,8 @@ export function degreeCredit(matches: ExamMatch[], terms: PlanTerm[]): DegreeCre
   // Combination items ("CHEM 102+103") count when every course of one combination was awarded.
   for (const it of items)
     if (!used.has(it) && it.combos.some((c) => c.every((code) => earnedCodes.has(code)))) used.add(it)
+  // "Select N of the following": done only when N different listed courses were awarded.
+  for (const it of items) if (!used.has(it) && it.pick && it.pick.codes.filter((c) => earnedCodes.has(c)).length >= it.pick.n) used.add(it)
 
   const byTerm = new Map<number, PlanItem[]>()
   for (const it of items) byTerm.set(it.term, [...(byTerm.get(it.term) ?? []), it])

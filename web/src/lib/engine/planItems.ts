@@ -28,6 +28,8 @@ export type RawPlanItem =
       footnotes?: string[] | null
       note?: string | null
       recommended?: boolean | null
+      /** The printed count of a choice block ("Select two of the following"); never inferred (#230). */
+      choose?: number | null
       options?: RawPlanItem[] | null
       any_of?: RawPlanItem[] | null
     }
@@ -54,6 +56,8 @@ export interface PlanEntry {
   recommended: boolean
   /** "Any one of": the item's options (plangrid) or any_of list. Empty for a single requirement. */
   choices: PlanEntry[]
+  /** How many of `choices` the requirement takes, when the plan prints it; 1 otherwise. */
+  choose: number
 }
 
 export interface PlanTermLike {
@@ -100,6 +104,7 @@ const entry = (e: Partial<PlanEntry> & Pick<PlanEntry, 'text'>): PlanEntry => ({
   footnotes: [],
   recommended: false,
   choices: [],
+  choose: 1,
   ...e,
 })
 
@@ -157,6 +162,7 @@ export function readPlanItem(raw: unknown): PlanEntry | null {
     footnotes: Array.isArray(o.footnotes) ? o.footnotes.filter((f): f is string => typeof f === 'string') : [],
     recommended: o.recommended === true,
     choices,
+    choose: choices.length && Number.isInteger(o.choose) && (o.choose as number) > 1 && (o.choose as number) <= choices.length ? (o.choose as number) : 1,
   })
 }
 

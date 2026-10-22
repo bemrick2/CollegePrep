@@ -349,7 +349,7 @@ function PlanTerms({ terms }: { terms: TermCoverage[] }) {
                         <span className="min-w-0 break-words">
                           {x.code ? <span className="font-semibold text-ink">{x.code}</span> : null}
                           {x.code ? (x.title ? ` ${x.title}` : '') : x.text}
-                          {x.options.length > 0 && <span className="block text-ink-3">Any one of: {x.options.join('; ')}</span>}
+                          {x.options.length > 0 && <span className="block text-ink-3">{x.choose > 1 ? `Choose ${x.choose} of` : 'Any one of'}: {x.options.join('; ')}</span>}
                           {x.milestone && <span className="block text-ink-3">Milestone: {x.milestone}</span>}
                           {x.note && <span className="block text-ink-3">Note: {x.note}</span>}
                         </span>

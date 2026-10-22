@@ -182,4 +182,18 @@ describe('review findings on stored plans (#242)', () => {
     ])
     expect(ts.map((t) => t.notChecked)).toEqual(['quarter_calendar', 'short_term'])
   })
+
+  it('a printed "choose N" block: shown with its count, done only when N listed courses are awarded (Deep Dive, #230)', () => {
+    const block = { choose: 2, text: 'Select two of the following:', credits: 6, options: [{ code: 'ANTH 376' }, { code: 'BIOL 350' }, { code: 'STAT 201' }] }
+    expect(readPlanItem(block)).toMatchObject({ kind: 'choice', choose: 2, credits: 6 })
+    expect(readPlanItem({ ...block, choose: 9 })!.choose).toBe(1) // a count larger than the options isn't trusted
+    expect(readPlanItem({ ...block, choose: undefined })!.choose).toBe(1)
+    const terms: PlanTermLike[] = [{ term_index: 1, label: 'Fall', credit_hours: '15', items: [block] }]
+    const exam = (course: string) => ({ status: 'qualifies', exam: { name: course }, earned: [{ course, credits: 3, minimumText: '3' }] })
+    const one = degreeCredit([exam('BIOL 350') as never], terms)
+    expect(one.accepted[0]!.status).toBe('applies')
+    expect(one.coveredTerms).toEqual([])
+    expect(degreeCredit([exam('BIOL 350') as never, exam('STAT 201') as never], terms).coveredTerms).toEqual([{ term: 1, label: 'Fall' }])
+  })
 })
+
