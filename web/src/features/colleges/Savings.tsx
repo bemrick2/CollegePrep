@@ -448,7 +448,7 @@ function CreditSteps({ row, planOnly, credit, examSummary, aid, name }: { row: P
         <p className="mt-1 text-sm text-ink-2">
           {examSummary.hasTable
             ? 'No exam scores that earn credit here, and no other credit entered.'
-            : `No verified exam-credit table is on file for ${name} yet, so exam credit isn't counted, and no other credit is entered.`}{' '}
+            : `No verified exam-credit table is on file for ${name} yet, so exam credit isn't counted, and no other credit entered.`}{' '}
           Add scores on{' '}
           <Link to="/colleges/paths" className="font-semibold text-go-strong underline dark:text-go">
             Paths
