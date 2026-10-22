@@ -148,6 +148,8 @@ def check_candidate(c, text, other=None):
                     and not (wrapped and segmented(squash(i['title']), squashed)):
                 # PDF plans print a gen-ed tag such as "(Quantitative Reasoning)" on the next line; each part must be printed
                 probs.append(f"title of {i.get('code')} not verbatim")
+        for fn in rd.get('footnotes', []) or []:  # printed footnotes of a plan grid, verbatim
+            if squash(fn.get('text', '')) not in squashed: probs.append(f"footnote {fn.get('marker')} not verbatim")
         if r.get('minimum_credits') is not None and not re.search(rf'\b{int(r["minimum_credits"])}\b', text): probs.append('minimum_credits not printed')
         if c.get('extractor') == 'courseleaf_plantext/v1':  # each term header is printed as one line ('15 creditsYear 1: Fall')
             lines = {re.sub(r'\s+', ' ', l).strip() for l in text.splitlines()}

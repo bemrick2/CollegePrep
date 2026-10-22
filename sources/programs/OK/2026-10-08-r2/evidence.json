@@ -7768,8 +7768,8 @@
  "248733a15bea1422": {
   "decision": {
    "candidate_id": "248733a15bea1422",
-   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total",
-   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#248733a15bea1422) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 2 footnote(s) ['1', '2'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#248733a15bea1422) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -7850,8 +7850,8 @@
  "248733a15bea1422~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "248733a15bea1422",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OK/2026-10-08-r2#de7ac183b5082440) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 2 footnote(s) ['1', '2'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#248733a15bea1422) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -7876,7 +7876,7 @@
    },
    {
     "field": "term",
-    "snippet": "Fall: 9 items, 16 credits",
+    "snippet": "Fall: 6 items, 16 credits",
     "value": "Fall"
    },
    {
@@ -9839,8 +9839,90 @@
  "2efbacf772fdc392": {
   "decision": {
    "candidate_id": "2efbacf772fdc392",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OK/2026-10-08-r2#5884e092c134e4fc) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#2efbacf772fdc392) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 3 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 3 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 2 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 3 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 3 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 3 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T16:31:24+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 24 Sep 2026 15:25:20 GMT",
+   "page_file": "5f7a6440b51a3b6cc6ce.json.gz",
+   "requested_url": "https://catalog.okstate.edu/arts-sciences/art-graphic-design-art-history/art-graphic-design-bfa/",
+   "sha256": "5f7a6440b51a3b6cc6ce8f5e000b5edb3f1137b2821b86debb8f491fa88a2ed9",
+   "title": "Art: Graphic Design, BFA | Oklahoma State University Catalog",
+   "url": "https://catalog.okstate.edu/arts-sciences/art-graphic-design-art-history/art-graphic-design-bfa/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "2efbacf772fdc392~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "2efbacf772fdc392",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#2efbacf772fdc392) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -14093,8 +14175,90 @@
  "4500ac82cf0d885c": {
   "decision": {
    "candidate_id": "4500ac82cf0d885c",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OK/2026-10-08-r2#8f13ff914936b818) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#4500ac82cf0d885c) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 3 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 3 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 3 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T16:34:35+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 24 Sep 2026 15:43:20 GMT",
+   "page_file": "5dbc53bf4a5355b2a59b.json.gz",
+   "requested_url": "https://catalog.okstate.edu/arts-sciences/statistics/bs/",
+   "sha256": "5dbc53bf4a5355b2a59bd7b0fac3cd7c9510736de8c1d424603088d6ff8ed6c7",
+   "title": "Statistics, BS | Oklahoma State University Catalog",
+   "url": "https://catalog.okstate.edu/arts-sciences/statistics/bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "4500ac82cf0d885c~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "4500ac82cf0d885c",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#4500ac82cf0d885c) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -18057,8 +18221,90 @@
  "592b006cfc25f4f8": {
   "decision": {
    "candidate_id": "592b006cfc25f4f8",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OK/2026-10-08-r2#211a58a7346eed94) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#592b006cfc25f4f8) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 3 items, 14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 3 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 8 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 9 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 2 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 2 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T16:33:21+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 24 Sep 2026 15:35:52 GMT",
+   "page_file": "f95edf5aae717274304a.json.gz",
+   "requested_url": "https://catalog.okstate.edu/arts-sciences/media-strategic-communications/sports-media-bs/",
+   "sha256": "f95edf5aae717274304a860617321f9f74bee97138665300d628e4547ab0ce46",
+   "title": "Sports Media, BS | Oklahoma State University Catalog",
+   "url": "https://catalog.okstate.edu/arts-sciences/media-strategic-communications/sports-media-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "592b006cfc25f4f8~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "592b006cfc25f4f8",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#592b006cfc25f4f8) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -19944,8 +20190,90 @@
  "60cf7591f5df6b27": {
   "decision": {
    "candidate_id": "60cf7591f5df6b27",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OK/2026-10-08-r2#d6c5e0b6e49f09fe) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#60cf7591f5df6b27) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 3 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 3 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 13 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 2 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 2 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 1 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 1 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T16:33:09+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 24 Sep 2026 15:34:55 GMT",
+   "page_file": "9b67a6f0226330a9a879.json.gz",
+   "requested_url": "https://catalog.okstate.edu/arts-sciences/mathematics/bs/",
+   "sha256": "9b67a6f0226330a9a87994ceebe4a2873b9361d5e4a9a060483f95a66c1bb6c6",
+   "title": "Mathematics, BS | Oklahoma State University Catalog",
+   "url": "https://catalog.okstate.edu/arts-sciences/mathematics/bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "60cf7591f5df6b27~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "60cf7591f5df6b27",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#60cf7591f5df6b27) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -20387,8 +20715,90 @@
  "6232336b38b721e0": {
   "decision": {
    "candidate_id": "6232336b38b721e0",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OK/2026-10-08-r2#51089d996c17d1d8) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#6232336b38b721e0) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 3 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 3 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 3 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 2 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 2 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T16:32:39+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 24 Sep 2026 15:31:01 GMT",
+   "page_file": "ceeb575e7bd508fcf9e8.json.gz",
+   "requested_url": "https://catalog.okstate.edu/arts-sciences/geology/geophysics-bs/",
+   "sha256": "ceeb575e7bd508fcf9e8773cb47371d8c59ea04dfe60fa20e6f268d4a1c91b45",
+   "title": "Geophysics, BS | Oklahoma State University Catalog",
+   "url": "https://catalog.okstate.edu/arts-sciences/geology/geophysics-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "6232336b38b721e0~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "6232336b38b721e0",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#6232336b38b721e0) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -23098,8 +23508,90 @@
  "70900f623d1f4a77": {
   "decision": {
    "candidate_id": "70900f623d1f4a77",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OK/2026-10-08-r2#3d5dfe306942d6e0) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#70900f623d1f4a77) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 2 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 3 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T16:31:26+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 24 Sep 2026 15:25:35 GMT",
+   "page_file": "ac8ff2aff5d5d5d1d271.json.gz",
+   "requested_url": "https://catalog.okstate.edu/arts-sciences/art-graphic-design-art-history/art-studio-bfa/",
+   "sha256": "ac8ff2aff5d5d5d1d2716289e44f6d90133fdea7c4ba98fc933fcd97f7837745",
+   "title": "Art: Studio, BFA | Oklahoma State University Catalog",
+   "url": "https://catalog.okstate.edu/arts-sciences/art-graphic-design-art-history/art-studio-bfa/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "70900f623d1f4a77~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "70900f623d1f4a77",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#70900f623d1f4a77) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -23578,8 +24070,90 @@
  "732859d7b08d6f5c": {
   "decision": {
    "candidate_id": "732859d7b08d6f5c",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OK/2026-10-08-r2#54448500ed3f53d9) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#732859d7b08d6f5c) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 3 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 3 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 3 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 3 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 2 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T16:31:50+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 24 Sep 2026 15:26:12 GMT",
+   "page_file": "e13e23f9b67673184912.json.gz",
+   "requested_url": "https://catalog.okstate.edu/arts-sciences/chemistry/biochemistry-bs/",
+   "sha256": "e13e23f9b676731849121c1c0f762645c4edb21decbe0c8da22fdd3b7f8496da",
+   "title": "Biochemistry, BS | Oklahoma State University Catalog",
+   "url": "https://catalog.okstate.edu/arts-sciences/chemistry/biochemistry-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "732859d7b08d6f5c~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "732859d7b08d6f5c",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#732859d7b08d6f5c) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -25319,8 +25893,90 @@
  "7baa89327f65fc6e": {
   "decision": {
    "candidate_id": "7baa89327f65fc6e",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OK/2026-10-08-r2#89440d065a3f6dc0) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#7baa89327f65fc6e) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 3 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 3 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 3 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 2 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 3 items, 14 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T16:33:56+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 24 Sep 2026 15:39:35 GMT",
+   "page_file": "ff9d419f64800ac3225c.json.gz",
+   "requested_url": "https://catalog.okstate.edu/arts-sciences/physics/bs/",
+   "sha256": "ff9d419f64800ac3225cfbceb99613fa127bcaa400f5f2d2d95783ba8d8f6458",
+   "title": "Physics, BS | Oklahoma State University Catalog",
+   "url": "https://catalog.okstate.edu/arts-sciences/physics/bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "7baa89327f65fc6e~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "7baa89327f65fc6e",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#7baa89327f65fc6e) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -34933,8 +35589,90 @@
  "aac62b6a1a90cdbc": {
   "decision": {
    "candidate_id": "aac62b6a1a90cdbc",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OK/2026-10-08-r2#00cbdb0764dcea37) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#aac62b6a1a90cdbc) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 8 items, 14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 7 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 7 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 7 items, 16 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T16:33:47+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 24 Sep 2026 15:38:27 GMT",
+   "page_file": "f051e8d231a79ecf9960.json.gz",
+   "requested_url": "https://catalog.okstate.edu/arts-sciences/music/music-jazz-performance-bm/",
+   "sha256": "f051e8d231a79ecf99607ca714d033352cf2f805fdb60544b57a99d4044ac5e7",
+   "title": "Music: Jazz Performance, BM | Oklahoma State University Catalog",
+   "url": "https://catalog.okstate.edu/arts-sciences/music/music-jazz-performance-bm/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "aac62b6a1a90cdbc~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "aac62b6a1a90cdbc",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#aac62b6a1a90cdbc) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -36318,8 +37056,90 @@
  "b0fe7e588274a2df": {
   "decision": {
    "candidate_id": "b0fe7e588274a2df",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OK/2026-10-08-r2#fc6cc778eaa0011a) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#b0fe7e588274a2df) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 3 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 3 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 7 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 9 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 2 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 2 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T16:33:19+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 24 Sep 2026 15:35:41 GMT",
+   "page_file": "2fc0791441897077ef86.json.gz",
+   "requested_url": "https://catalog.okstate.edu/arts-sciences/media-strategic-communications/multimedia-journalism-bs/",
+   "sha256": "2fc0791441897077ef8637dfd916806d72c961d1011135478fc1a50d0ab464fc",
+   "title": "Multimedia Journalism, BS | Oklahoma State University Catalog",
+   "url": "https://catalog.okstate.edu/arts-sciences/media-strategic-communications/multimedia-journalism-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "b0fe7e588274a2df~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "b0fe7e588274a2df",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#b0fe7e588274a2df) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -36531,8 +37351,90 @@
  "b285d260c1a762cc": {
   "decision": {
    "candidate_id": "b285d260c1a762cc",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OK/2026-10-08-r2#92bc42923264e935) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#b285d260c1a762cc) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 3 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 3 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 3 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T16:32:00+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 24 Sep 2026 15:27:26 GMT",
+   "page_file": "c59a5d1463cf8221a678.json.gz",
+   "requested_url": "https://catalog.okstate.edu/arts-sciences/computer-science/bs/",
+   "sha256": "c59a5d1463cf8221a678a92d8e58d0289f8bb4cbd6505f6b62b946750d93d271",
+   "title": "Computer Science, BS | Oklahoma State University Catalog",
+   "url": "https://catalog.okstate.edu/arts-sciences/computer-science/bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "b285d260c1a762cc~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "b285d260c1a762cc",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#b285d260c1a762cc) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -45737,8 +46639,90 @@
  "e0709f0a7781951d": {
   "decision": {
    "candidate_id": "e0709f0a7781951d",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OK/2026-10-08-r2#6dfdec7711b6ba07) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 2 footnote(s) ['1', '2'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#e0709f0a7781951d) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 7 items, 14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T16:33:49+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 24 Sep 2026 15:38:38 GMT",
+   "page_file": "86c2dc4a9248ee4366a7.json.gz",
+   "requested_url": "https://catalog.okstate.edu/arts-sciences/music/music-performance-bm/",
+   "sha256": "86c2dc4a9248ee4366a7d8e1e72a5bcb5753289ebdfa786e862d35300598e940",
+   "title": "Music: Performance, BM | Oklahoma State University Catalog",
+   "url": "https://catalog.okstate.edu/arts-sciences/music/music-performance-bm/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "e0709f0a7781951d~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "e0709f0a7781951d",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 2 footnote(s) ['1', '2'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#e0709f0a7781951d) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -47501,8 +48485,90 @@
  "e7864de3b010be6e": {
   "decision": {
    "candidate_id": "e7864de3b010be6e",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OK/2026-10-08-r2#24ab25beecbc7ca8) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 2 footnote(s) ['1', '2'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#e7864de3b010be6e) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 3 items, 14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 2 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 2 items, 14 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T16:33:31+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 24 Sep 2026 15:36:42 GMT",
+   "page_file": "6ae3202ef39967b49db6.json.gz",
+   "requested_url": "https://catalog.okstate.edu/arts-sciences/microbiology-molecular-genetics/microbiology-cell-molecular-biology-bs/",
+   "sha256": "6ae3202ef39967b49db62cb613f5da8ea98ecffb9735a90f2d32c8e2972de9a8",
+   "title": "Microbiology, BS | Oklahoma State University Catalog",
+   "url": "https://catalog.okstate.edu/arts-sciences/microbiology-molecular-genetics/microbiology-cell-molecular-biology-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "e7864de3b010be6e~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "e7864de3b010be6e",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 2 footnote(s) ['1', '2'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#e7864de3b010be6e) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -49742,6 +50808,88 @@
  "f399583d38d1cb2a": {
   "decision": {
    "candidate_id": "f399583d38d1cb2a",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['2'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details.",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#f399583d38d1cb2a) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 17 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 18 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 17 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 2 items, 12 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T16:35:14+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 24 Sep 2026 15:49:58 GMT",
+   "page_file": "71eb490041c9f04a8b3b.json.gz",
+   "requested_url": "https://catalog.okstate.edu/education-human-sciences/teaching-learning-educational-sciences/elementary-education-bs/",
+   "sha256": "71eb490041c9f04a8b3b4a0926f750985bbf78a10920ecdce7c291c881fb4cf0",
+   "title": "Elementary Education, BS | Oklahoma State University Catalog",
+   "url": "https://catalog.okstate.edu/education-human-sciences/teaching-learning-educational-sciences/elementary-education-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "f399583d38d1cb2a~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "f399583d38d1cb2a",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence OK/2026-10-08-r2#de4e1e031b39d87d) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },
@@ -50940,8 +52088,95 @@
  "f83c3f5ac681d5eb": {
   "decision": {
    "candidate_id": "f83c3f5ac681d5eb",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OK/2026-10-08-r2#f6dd9b15127c280a) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#f83c3f5ac681d5eb) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 2 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 2 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 3 items, 13 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Summer: 1 items, 6 credits",
+    "value": "Summer"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 1 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 1 items, 12 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T16:32:31+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 24 Sep 2026 15:30:40 GMT",
+   "page_file": "0c1d3af6786abbb07d1d.json.gz",
+   "requested_url": "https://catalog.okstate.edu/arts-sciences/geology/bs/",
+   "sha256": "0c1d3af6786abbb07d1d2a9ef105fb9935feffe24b8ea60a55a7ad83c46222a5",
+   "title": "Geology, BS | Oklahoma State University Catalog",
+   "url": "https://catalog.okstate.edu/arts-sciences/geology/bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "f83c3f5ac681d5eb~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "f83c3f5ac681d5eb",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#f83c3f5ac681d5eb) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
