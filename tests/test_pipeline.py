@@ -2354,6 +2354,38 @@ class MeritGridTests(unittest.TestCase):
         two = two.replace('<td>Award C</td><td colspan="2">3.0 GPA (no test required)</td>', '<td>Award C</td><td colspan="3">see note: 3.0 GPA</td>')
         self.assertIn('cell_spans_criteria_columns', self.got(two)['Award C']['issues'])  # starts in Notes but covers ACT and GPA
 
+    def test_full_width_rows_and_group_labels_on_the_printed_grid(self):
+        """#273 review: a section label or footnote across the whole table labels no criterion, and a spanning group label
+        above the header (padded to full width on the printed grid) is still recognised, as is a test band above a GPA grid."""
+        sec = """<title>Merit Scholarships</title><h2>2027-2028 Merit Scholarships</h2><table>
+<tr><th>Scholarship</th><th>ACT</th><th>GPA</th><th>Amount</th></tr><tr><td colspan="4">Alabama Residents</td></tr>
+<tr><td>Award A</td><td>28</td><td>3.5</td><td>$4,000</td></tr><tr><td>Award B</td><td>25</td><td>3.2</td><td>$2,000</td></tr>
+<tr><td colspan="4">* Amounts are per year and renewable for four years.</td></tr></table>"""
+        got = self.got(sec)
+        self.assertEqual((sorted(got), got['Award A']['issues'], got['Award B']['issues']), (['Award A', 'Award B'], [], []))
+        part = sec.replace('<td colspan="4">Alabama Residents</td>', '<td>Note</td><td colspan="3">ACT or GPA</td>')
+        self.assertIn('cell_spans_criteria_columns', self.got(part)['Award A']['issues'])  # not the only cell in its row: still held
+        oc = """<title>Undergraduate Scholarships</title><h2>Merit Scholarships for Incoming Freshmen 2027–2028</h2><table>
+<tr><td></td><td colspan="8">Minimum Scores of Recipient</td></tr>
+<tr><td>Scholarship</td><td>Amount per academic year*</td><td>GPA</td><td>+</td><td>ACT</td><td>/</td><td>SAT</td><td>/</td><td>CLT</td></tr>
+<tr><td>Trustee's Scholarship</td><td>$14,000</td><td>3.0</td><td></td><td>31</td><td></td><td>1390</td><td></td><td>94</td></tr>
+<tr><td>Dean's Scholarship</td><td>$8,000</td><td>3.0</td><td></td><td>22</td><td></td><td>1100</td><td></td><td>72</td></tr></table>"""
+        t = self.got(oc)["Trustee's Scholarship"]
+        self.assertEqual((t['record']['test_requirement'], t['record']['gpa_requirement'], t['issues']), ('ACT 31 / SAT 1390 / CLT 94', '3.0', []))
+        amt = oc.replace('<td>$8,000</td><td>3.0</td>', '<td colspan="2">$8,000 (see note)</td>')
+        self.assertIsNone(merit.spans_criteria(T.parse_html(amt).tables[0]))  # Amount | GPA: one criterion, not its first column -
+        # judged against the real header, not the group label ("Minimum Scores" above the Amount column)
+        ptc = """<title>Academic Scholarships</title><h2>Academic Scholarships</h2><table><tr><td colspan="4">UA-PTC High School Merit Scholarships</td></tr>
+<tr><td></td><td>ACT</td><td>ACCUPLACER</td><td>HS GPA 2.5 and ABOVE</td></tr><tr><td>Trustee Scholarship</td><td>27-36</td><td>277-300</td><td>Full Tuition</td></tr>
+<tr><td>Chancellor Scholarship</td><td>23-26</td><td>266-276</td><td>$3,000</td></tr><tr><td>Dean Scholarship</td><td>21-22</td><td>261-265</td><td>$2,000</td></tr></table>"""
+        self.assertEqual(self.got(ptc), {})  # a lone title across the table is still not a group label
+        jsu = """<title>First-Time Freshman Merit-Based Scholarships</title><h2>2026-2027 Merit-Based Scholarships</h2><h3>Gamecock Tradition</h3><table>
+<tr><td colspan="3">26-28 ACT or 1230-1320 SAT</td></tr><tr><th>High School GPA</th><th>Total Annual Amount</th><th>Total 4-Year Amount</th></tr>
+<tr><td>2.00 - 2.99</td><td>$3,000</td><td>$12,000</td></tr><tr><td>3.00 - 3.24</td><td>$5,000</td><td>$20,000</td></tr>
+<tr><td>3.25 - 3.49</td><td>$7,000</td><td>$28,000</td></tr></table>"""
+        r = self.got(jsu)['Gamecock Tradition']['record']
+        self.assertEqual((r['test_requirement'], len(r['award_tiers'])), ('26-28 ACT or 1230-1320 SAT', 3))
+
     def test_home_state_residents(self):
         unf = """<title>UNF: Scholarship Options</title><h2>Florida Resident Merit-Based (Freshmen)</h2><table><caption>Freshman Merit Scholarships</caption>
 <tr><th>Name</th><th>Amount (per year)*</th><th>GPA</th><th>SAT</th><th>ACT</th></tr>

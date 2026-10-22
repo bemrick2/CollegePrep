@@ -367,19 +367,39 @@ def _kind(c):
 CRITERIA_HEADER = re.compile(r'\b(?:act|sat|clt|gpa|test|score|criteria|requirement)', re.I)
 
 
+def _filled(row):
+    return sum(bool(c.strip()) for c in row)
+
+
+def group_label_row(rows):
+    """True when rows[0] is a group label printed above the real header (OK, Oklahoma Christian: "Minimum Scores of Recipient"
+    over GPA | ACT | SAT). On the printed grid a spanning label is padded to full width, so it is told apart by how many cells
+    it fills, not by its length (#273 review)."""
+    if not (len(rows) > 3 and len(rows[0]) >= 2 and _filled(rows[0]) <= 2 and not re.search(r'\d', ' '.join(rows[0])) and len(rows[1]) >= 3):
+        return False
+    if len(rows[1]) > len(rows[0]): return True
+    # padded to the grid's width: a lone title in the first column is the table's title, not a group label (AR: UA-PTC)
+    return len(rows[1]) == len(rows[0]) and _filled(rows[1]) > _filled(rows[0]) and not (_filled(rows[0]) == 1 and rows[0][0].strip())
+
+
 def spans_criteria(t):
     """'cell_spans_criteria_columns' when a body cell is merged across columns and one of the columns it covers is a criterion
     column (ACT, SAT, GPA, test) where that text would take a criterion's label: the printed grid keeps the text in the first
     column, so its label there is a guess (#273 review:
-    '3.0 GPA' across ACT | GPA must not read as an ACT criterion)."""
+    '3.0 GPA' across ACT | GPA must not read as an ACT criterion). A row that is one cell across the whole table (a section
+    label such as "Alabama Residents", or a footnote) labels nothing and is not counted; a group label above the header is
+    not the header."""
     grid = T.expand_spans(t)
     if not grid: return None
-    header = grid[0]
+    head = 1 if group_label_row(grid) and HEADER_WORDS.search(' '.join(grid[1])) else 0
+    header = grid[head]
     for ri, col, cs in T.wide_cells(t):
+        if ri <= head: continue
+        if col == 0 and cs >= len(header): continue  # the whole row is one cell: a section or footnote row
         crit = [j for j in range(col, min(col + cs, len(header))) if CRITERIA_HEADER.search(header[j])]
         # the text sits in the first column; it is mislabelled when that column is a criterion, or when it covers two criteria
         # (a name cell running into the ACT column, as in "Award C (see Honors College)", is still a name)
-        if ri and (col in crit or len(crit) > 1):
+        if col in crit or len(crit) > 1:
             return 'cell_spans_criteria_columns'
     return None
 
@@ -592,11 +612,10 @@ def extract(inst, entry, page, today_year):
         context = ' '.join([t.get('heading') or '', t.get('caption') or ''])
         if NOT_MERIT.search(context): continue
         scope_test = None
-        if len(rows) > 3 and len(rows[0]) == 1 and re.search(r'\d{2}', rows[0][0]) and re.search(r'\b(act|sat)\b', rows[0][0], re.I) and len(rows[0][0]) <= 80:
+        if len(rows) > 3 and _filled(rows[0]) == 1 and (len(rows[0]) == 1 or t.get('spans')) and re.search(r'\d{2}', rows[0][0]) and re.search(r'\b(act|sat)\b', rows[0][0], re.I) and len(rows[0][0]) <= 80:
             scope_test, rows = rows[0][0], rows[1:]  # AL (JSU): "26-28 ACT or 1230-1320 SAT" above a GPA | amount table applies to every row
         header, body = rows[0], rows[1:]
-        if len(header) >= 2 and sum(bool(c.strip()) for c in header) <= 2 and not re.search(r'\d', ' '.join(header)) and len(rows) > 3 and len(rows[1]) >= 3 and len(rows[1]) > len(header) \
-                and HEADER_WORDS.search(' '.join(rows[1])) and not any(T.money_values(c) for c in rows[1]) \
+        if group_label_row(rows) and HEADER_WORDS.search(' '.join(rows[1])) and not any(T.money_values(c) for c in rows[1]) \
                 and sum(len(r) > len(rows[1]) for r in rows[2:]) <= 1:
             header, body = rows[1], rows[2:]  # OK (Oklahoma Christian): a spanning group label ("Minimum Scores of Recipient") above the header
         if sum(1 for r in body if any(PHONE.search(c) for c in r)) >= 2: continue  # NM (Luna): a staff contact table, not awards
