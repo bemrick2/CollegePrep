@@ -113,6 +113,8 @@ export interface PlanCourseRow {
   milestone: string | null
   /** For a choice: the options, as printed. */
   options: string[]
+  /** How many of the options the requirement takes, as printed (1 when the plan prints no count). */
+  choose: number
 }
 
 /** One of the school's plans for the major (a track, a concentration, a four-year or transfer path). */
