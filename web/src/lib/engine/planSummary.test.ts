@@ -20,6 +20,9 @@ describe('planSummary', () => {
     const r = planSummary([s('a', 200, { levers: [lever('credit', 'available')] }), s('b', 150, { levers: [lever('merit-next', 'stretch')] })], null)
     expect(r.opportunity).toMatchObject({ key: 'b', lever: { key: 'merit-next' } })
     expect(planSummary([s('a', 200, { levers: [lever('credit', 'on_track')] })], null).opportunity).toBeNull()
+    // With no merit lever, credit still isn't the opportunity: dual enrollment or need-based aid is.
+    expect(planSummary([s('a', 200, { levers: [lever('credit', 'available'), lever('dual', 'available')] })], null).opportunity).toMatchObject({ lever: { key: 'dual' } })
+    expect(planSummary([s('a', 200, { levers: [lever('credit', 'available')] })], null).opportunity).toBeNull()
     const r2 = planSummary([s('a', 200, { levers: [lever('merit-next', 'within_reach')] }), s('b', 150, { levers: [lever('credit', 'available')] })], null)
     expect(r2.opportunity).toMatchObject({ key: 'a', lever: { key: 'merit-next' } })
   })
