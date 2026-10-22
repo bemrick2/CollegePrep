@@ -1,9 +1,9 @@
-import { practiceExclusions } from '../../engine/freshness'
+import { poolStatusOf, practiceExclusions } from '../../engine/freshness'
 import { projectCosts } from '../../engine/costProjection'
 import type { InterestProfile } from '../../engine/interests'
 import { readInterests, writeInterests } from '../../interestStore'
 import { INVITE_TTL_HOURS, formatInviteCode } from '../../invites'
-import type { AlertPreference, DataSource, DevicePermission, DevicePlatform, DeviceStatus, InactiveStudent, InvitationSummary, InviteSendResult, ReminderChange, ReminderDelivery, ReminderSettings, StudentInvitation } from '../source'
+import type { CheckItem, PoolStatus, AlertPreference, DataSource, DevicePermission, DevicePlatform, DeviceStatus, InactiveStudent, InvitationSummary, InviteSendResult, ReminderChange, ReminderDelivery, ReminderSettings, StudentInvitation } from '../source'
 import { DEFAULT_REMINDERS, settingsProblems } from '../../../../../supabase/functions/_shared/reminders.ts'
 import { suggestNextWeek, type NextWeekSuggestion } from '../../engine/weeklyPlan'
 import { DataError } from '../source'
@@ -584,6 +584,11 @@ export class DemoSource implements DataSource {
     const reserved = practiceExclusions(q.exam_family, F.QUESTIONS).has(questionId)
     if (benchmarkId && !reserved) throw new DataError('Progress checks use only questions set aside for checks', 'invalid')
     if (!benchmarkId && reserved) throw new DataError('This question is set aside for progress checks', 'forbidden')
+    if (benchmarkId) {
+      const c = this.checks.get(benchmarkId)
+      if (c && c.used.has(questionId)) throw new DataError('A question is used once per progress check', 'invalid')
+      c?.used.add(questionId)
+    }
     const id = uid('pa-')
     const now = new Date().toISOString()
     const a: DemoAttempt = {
@@ -712,9 +717,38 @@ export class DemoSource implements DataSource {
     return delay(this.s.benchmarks[studentId] ?? [])
   }
 
-  async startBenchmark(studentId: string, _kind: BenchmarkSummary['kind'], _exam: ExamFamily) {
+  /** Open checks in this page session: when each started, and the items already used in it. */
+  private checks = new Map<string, { studentId: string; exam: ExamFamily; startedAt: string; used: Set<string> }>()
+
+  async startBenchmark(studentId: string, _kind: BenchmarkSummary['kind'], exam: ExamFamily) {
     this.requireLinked(studentId)
-    return delay(uid('bm-'))
+    const id = uid('bm-')
+    this.checks.set(id, { studentId, exam, startedAt: new Date().toISOString(), used: new Set() })
+    return delay(id)
+  }
+
+  /** Mirrors assessment_pool_status (CR-23): counts only. */
+  async assessmentPoolStatus(studentId: string, examFamily: ExamFamily): Promise<PoolStatus[] | null> {
+    this.requireView(studentId)
+    const F = await loadFixtures()
+    return delay(poolStatusOf(examFamily, F.QUESTIONS, new Set(this.attemptsOf(studentId).map((a) => a.question_id))))
+  }
+
+  /** Mirrors benchmark_questions (CR-23): the open check's reserved items, unseen first (mid difficulty), then repeats
+   *  (least recently shown first); items already used in this check are left out. */
+  async benchmarkQuestions(benchmarkId: string, studentId: string): Promise<CheckItem[]> {
+    this.requireLinked(studentId)
+    const c = this.checks.get(benchmarkId)
+    if (!c || c.studentId !== studentId) throw new DataError('No open benchmark of yours with that id', 'forbidden')
+    const F = await loadFixtures()
+    const reserved = practiceExclusions(c.exam, F.QUESTIONS)
+    const last = new Map<string, string>()
+    for (const a of this.attemptsOf(studentId)) if (a.presented_at < c.startedAt && (!last.has(a.question_id) || a.presented_at > last.get(a.question_id)!)) last.set(a.question_id, a.presented_at)
+    const mid = (d: number) => Math.abs(d - 3)
+    const items = F.QUESTIONS.filter((q) => reserved.has(q.id) && !c.used.has(q.id))
+      .sort((a, b) => a.section.localeCompare(b.section) || Number(last.has(a.id)) - Number(last.has(b.id)) || (last.get(a.id) ?? '').localeCompare(last.get(b.id) ?? '') || mid(a.difficulty) - mid(b.difficulty) || a.id.localeCompare(b.id))
+      .map((q) => ({ question: toPublic(q), seen_before: last.has(q.id) }))
+    return delay(items)
   }
 
   async completeBenchmark(studentId: string, benchmarkId: string, client: BenchmarkSummary) {
