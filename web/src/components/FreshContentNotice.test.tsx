@@ -6,17 +6,18 @@ import { contentStatus } from '../lib/engine/freshness'
 const pool = Array.from({ length: 10 }, (_, i) => ({ id: `q${i}`, section: 'math', exam_family: 'sat' as const, difficulty: 3 }))
 
 describe('fresh-question notice', () => {
-  it('after the starting benchmark the rest is held for the check: says so, never "answered every question"', () => {
-    // 6 seen; the mini check holds 4 of the remaining 4, so practice is review only.
-    const c = contentStatus('sat', pool, new Set(['q0', 'q1', 'q2', 'q3', 'q4', 'q5']))
+  it('when every practice question is seen, names the questions set aside for checks; never "answered every question"', () => {
+    // SAT reserves 4 math questions (q0–q3); the other 6 are practice and all seen.
+    const c = contentStatus('sat', pool, new Set(['q4', 'q5', 'q6', 'q7', 'q8', 'q9']))
     expect(c.practiceAllReview).toBe(true)
     render(<FreshContentNotice content={c} />)
-    expect(screen.getByText(/except the 4 kept unseen for the next/)).toBeInTheDocument()
+    expect(screen.getByText(/Another 4 are set aside for progress checks only/)).toBeInTheDocument()
     expect(screen.queryByText(/answered every/)).not.toBeInTheDocument()
   })
 
-  it('when every question has been seen, says the bank is used up', () => {
-    render(<FreshContentNotice content={contentStatus('sat', pool, new Set(pool.map((q) => q.id)))} name="Riley" />)
+  it('with no reserved questions in the bank, says the practice bank is used up', () => {
+    const marked = pool.map((q) => ({ ...q, pool: 'practice' as const }))
+    render(<FreshContentNotice content={contentStatus('sat', marked, new Set(pool.map((q) => q.id)))} name="Riley" />)
     expect(screen.getByText(/Riley has answered every SAT practice question we have/)).toBeInTheDocument()
   })
 })

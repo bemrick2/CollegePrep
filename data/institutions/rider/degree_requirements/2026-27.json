@@ -11,6 +11,7 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Credit Hours for Graduation 121 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
@@ -20,6 +21,7 @@
             "term_index": 1
           },
           {
+            "credit_hours": "17",
             "items": [
               {
                 "code": "MTR 168A",
@@ -41,7 +43,27 @@
                 "credits": 1,
                 "title": "Musical Theatre Practicum"
               },
-              "MTR 109or MTR 112or MTR 113or MTR 211 | Ballet Ior Ballet IIor Ballet IIIor Ballet V | 1",
+              {
+                "any_of": [
+                  {
+                    "code": "MTR 109",
+                    "title": "Ballet I"
+                  },
+                  {
+                    "code": "MTR 112",
+                    "title": "Ballet II"
+                  },
+                  {
+                    "code": "MTR 113",
+                    "title": "Ballet III"
+                  },
+                  {
+                    "code": "MTR 211",
+                    "title": "Ballet V"
+                  }
+                ],
+                "credits": 1
+              },
               {
                 "code": "MTR 131",
                 "credits": 3,
@@ -62,13 +84,25 @@
                 "credits": 3,
                 "title": "Stagecraft"
               },
-              "CMP 120or BHP 100 | Seminar in Writing and Rhetoric 1or Honors Seminar: Great Ideas I | 3",
-              "Semester Credit Hours | 17"
+              {
+                "any_of": [
+                  {
+                    "code": "CMP 120",
+                    "title": "Seminar in Writing and Rhetoric 1"
+                  },
+                  {
+                    "code": "BHP 100",
+                    "title": "Honors Seminar: Great Ideas I"
+                  }
+                ],
+                "credits": 3
+              }
             ],
             "label": "Fall Semester",
             "term_index": 2
           },
           {
+            "credit_hours": "14",
             "items": [
               {
                 "code": "MTR 168A",
@@ -90,8 +124,44 @@
                 "credits": 1,
                 "title": "Musical Theatre Practicum"
               },
-              "MTR 112or MTR 113or MTR 114or MTR 212 | Ballet IIor Ballet IIIor Ballet IVor Ballet VI | 1",
-              "MTR 309or MTR 315or MTR 318 | Jazz Ior Jazz IIor Jazz IV | 1",
+              {
+                "any_of": [
+                  {
+                    "code": "MTR 112",
+                    "title": "Ballet II"
+                  },
+                  {
+                    "code": "MTR 113",
+                    "title": "Ballet III"
+                  },
+                  {
+                    "code": "MTR 114",
+                    "title": "Ballet IV"
+                  },
+                  {
+                    "code": "MTR 212",
+                    "title": "Ballet VI"
+                  }
+                ],
+                "credits": 1
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "MTR 309",
+                    "title": "Jazz I"
+                  },
+                  {
+                    "code": "MTR 315",
+                    "title": "Jazz II"
+                  },
+                  {
+                    "code": "MTR 318",
+                    "title": "Jazz IV"
+                  }
+                ],
+                "credits": 1
+              },
               {
                 "code": "MTR 133",
                 "credits": 3,
@@ -102,8 +172,23 @@
                 "credits": 3,
                 "title": "Acting II: Scene Study"
               },
-              "CMP 125or CMP 203or BHP 150 | Seminar in Writing and Research 1or Literature and Compositionor Honors Seminar: Great Ideas II | 3",
-              "Semester Credit Hours | 14"
+              {
+                "any_of": [
+                  {
+                    "code": "CMP 125",
+                    "title": "Seminar in Writing and Research 1"
+                  },
+                  {
+                    "code": "CMP 203",
+                    "title": "Literature and Composition"
+                  },
+                  {
+                    "code": "BHP 150",
+                    "title": "Honors Seminar: Great Ideas II"
+                  }
+                ],
+                "credits": 3
+              }
             ],
             "label": "Spring Semester",
             "term_index": 3
@@ -114,6 +199,7 @@
             "term_index": 4
           },
           {
+            "credit_hours": "14",
             "items": [
               {
                 "code": "MTR 168A",
@@ -130,8 +216,40 @@
                 "credits": 0,
                 "title": "Musical Theatre Lab"
               },
-              "MTR 209or MTR 210or MTR 307 | Tap Dance Ior Tap Dance IIor Tap III | 1",
-              "MTR 315or MTR 318or MTR 319 | Jazz IIor Jazz IVor Jazz V | 1",
+              {
+                "any_of": [
+                  {
+                    "code": "MTR 209",
+                    "title": "Tap Dance I"
+                  },
+                  {
+                    "code": "MTR 210",
+                    "title": "Tap Dance II"
+                  },
+                  {
+                    "code": "MTR 307",
+                    "title": "Tap III"
+                  }
+                ],
+                "credits": 1
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "MTR 315",
+                    "title": "Jazz II"
+                  },
+                  {
+                    "code": "MTR 318",
+                    "title": "Jazz IV"
+                  },
+                  {
+                    "code": "MTR 319",
+                    "title": "Jazz V"
+                  }
+                ],
+                "credits": 1
+              },
               {
                 "code": "MTR 132",
                 "credits": 1,
@@ -151,13 +269,13 @@
                 "code": "HIS 150",
                 "credits": 3,
                 "title": "Pre-Modern World: Evolution to Revolution 1"
-              },
-              "Semester Credit Hours | 14"
+              }
             ],
             "label": "Fall Semester",
             "term_index": 5
           },
           {
+            "credit_hours": "16",
             "items": [
               {
                 "code": "MTR 168A",
@@ -174,7 +292,23 @@
                 "credits": 0,
                 "title": "Musical Theatre Lab"
               },
-              "MTR 210or MTR 307or MTR 308 | Tap Dance IIor Tap IIIor Tap IV | 1",
+              {
+                "any_of": [
+                  {
+                    "code": "MTR 210",
+                    "title": "Tap Dance II"
+                  },
+                  {
+                    "code": "MTR 307",
+                    "title": "Tap III"
+                  },
+                  {
+                    "code": "MTR 308",
+                    "title": "Tap IV"
+                  }
+                ],
+                "credits": 1
+              },
               {
                 "code": "MTR 218",
                 "credits": 3,
@@ -190,9 +324,27 @@
                 "credits": 1,
                 "title": "Production I (technical) 2"
               },
-              "HIS 151or HIS 152or HIS 153 | World in the Modern Era: Exploration to Globalization 1or Contemporary World: Historical Perspectivesor Cold War: A Global History | 3",
-              "General Education/Elective Credits | 3",
-              "Semester Credit Hours | 16"
+              {
+                "any_of": [
+                  {
+                    "code": "HIS 151",
+                    "title": "World in the Modern Era: Exploration to Globalization 1"
+                  },
+                  {
+                    "code": "HIS 152",
+                    "title": "Contemporary World: Historical Perspectives"
+                  },
+                  {
+                    "code": "HIS 153",
+                    "title": "Cold War: A Global History"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 3,
+                "text": "General Education/Elective Credits"
+              }
             ],
             "label": "Spring Semester",
             "term_index": 6
@@ -203,6 +355,7 @@
             "term_index": 7
           },
           {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "MTR 168A",
@@ -219,7 +372,27 @@
                 "credits": 0,
                 "title": "Musical Theatre Lab"
               },
-              "MTR 113or MTR 114or MTR 212or MTR 313 | Ballet IIIor Ballet IVor Ballet VIor Ballet VII | 1",
+              {
+                "any_of": [
+                  {
+                    "code": "MTR 113",
+                    "title": "Ballet III"
+                  },
+                  {
+                    "code": "MTR 114",
+                    "title": "Ballet IV"
+                  },
+                  {
+                    "code": "MTR 212",
+                    "title": "Ballet VI"
+                  },
+                  {
+                    "code": "MTR 313",
+                    "title": "Ballet VII"
+                  }
+                ],
+                "credits": 1
+              },
               {
                 "code": "MTR 219",
                 "credits": 3,
@@ -235,13 +408,16 @@
                 "credits": 3,
                 "title": "Musical Theatre Repertoire I"
               },
-              "General Education/Elective Credits | 3",
-              "Semester Credit Hours | 15"
+              {
+                "credits": 3,
+                "text": "General Education/Elective Credits"
+              }
             ],
             "label": "Fall Semester",
             "term_index": 8
           },
           {
+            "credit_hours": "14",
             "items": [
               {
                 "code": "MTR 168A",
@@ -273,8 +449,10 @@
                 "credits": 3,
                 "title": "Acting IV"
               },
-              "General Education/Elective Credits | 3",
-              "Semester Credit Hours | 14"
+              {
+                "credits": 3,
+                "text": "General Education/Elective Credits"
+              }
             ],
             "label": "Spring Semester",
             "term_index": 9
@@ -285,6 +463,7 @@
             "term_index": 10
           },
           {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "MTR 168B",
@@ -316,13 +495,16 @@
                 "credits": 1,
                 "title": "Music Theater Production"
               },
-              "General Education/Elective Credits | 9",
-              "Semester Credit Hours | 15"
+              {
+                "credits": 9,
+                "text": "General Education/Elective Credits"
+              }
             ],
             "label": "Fall Semester",
             "term_index": 11
           },
           {
+            "credit_hours": "16",
             "items": [
               {
                 "code": "MTR 168B",
@@ -349,9 +531,10 @@
                 "credits": 3,
                 "title": "MT Auditions:Preparation/Tech"
               },
-              "General Education/Elective Credits | 11",
-              "Semester Credit Hours | 16",
-              "Total Credit Hours for Graduation | 121"
+              {
+                "credits": 11,
+                "text": "General Education/Elective Credits"
+              }
             ],
             "label": "Spring Semester",
             "term_index": 12
@@ -360,7 +543,7 @@
       },
       "source_url": "https://catalog.rider.edu/undergraduate/colleges-schools/media-performing-arts/majors-minors-certificates/musical-theatre-bfa/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NJ/2026-10-07-cat/evidence.json#3f2a21aef321217d."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NJ/2026-10-07-cat#3f2a21aef321217d) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NJ/2026-10-07-cat/evidence.json#2a3765d3f3466643."
     },
     {
       "last_verified_at": "2026-10-07",

@@ -559,26 +559,30 @@ export class LiveSource implements DataSource {
     // The server's pool for this session: published, served, this exam version, with an expected time.
     let poolQuery = this.sb.from('practice_questions').select(QUESTION_COLUMNS).eq('status', 'published').eq('exam_versions.exam_family', examFamily).not('expected_time_seconds', 'is', null)
     if (version) poolQuery = poolQuery.eq('exam_version_id', version)
-    const [picked, poolRows, mine] = await Promise.all([
+    const [picked, poolRows, mine, checkList] = await Promise.all([
       this.sb.from('practice_session_items').select('position, question_id, reason').eq('session_id', id).order('position'),
       poolQuery,
       this.sb.from('practice_attempts').select('question_id, presented_at').eq('student_id', studentId),
+      this.publishedQuestions(examFamily),
     ])
     if (picked.error) fail(picked.error)
     if (poolRows.error) fail(poolRows.error)
     if (mine.error) fail(mine.error)
     const pool = ((poolRows.data ?? []) as unknown as QuestionRow[]).map(toPublic)
-    // Interim, until the server holds them (CR-23, #218 B1): the server's pick can include the fresh questions kept
-    // for the next progress check. Drop them here, with the rule the demo uses (engine/freshness.ts), then fill the
-    // session's time the way the demo's pool does: fresh questions that aren't held first, then repeats (least
-    // recently seen first) as review. Held questions are never served; the time budget is never exceeded.
+    // Interim, until the server enforces CR-23 (#218 B1): the server's pick can include reserved assessment questions.
+    // Drop them here, with the rule the demo uses (engine/freshness.ts reservedIds: the question's `pool` once the
+    // server serves it, otherwise the fixed client assignment), then fill the session's time the way the demo's pool
+    // does: fresh practice questions first, then practice repeats (least recently seen first) as review. Reserved
+    // questions are never served in practice; the time budget is never exceeded.
     const lastSeen = new Map<string, string>()
     for (const r of mine.data ?? []) {
       const q = r.question_id as string
       const t = (r.presented_at as string | null) ?? ''
       if (!lastSeen.has(q) || t > lastSeen.get(q)!) lastSeen.set(q, t)
     }
-    const held = practiceExclusions(examFamily, pool, new Set(lastSeen.keys()))
+    // The reserve is computed from the same question list progress checks use (publishedQuestions), so practice and
+    // checks agree on it exactly.
+    const held = practiceExclusions(examFamily, checkList)
     const kept: { position: number; question_id: string; reason: string }[] = (picked.data ?? []).filter((i) => !held.has(i.question_id))
     const secs = new Map(pool.map((q) => [q.id, q.expected_time_seconds ?? 60]))
     const budget = targetMinutes * 60

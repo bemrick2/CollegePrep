@@ -1,0 +1,17 @@
+{
+ "run": "programs/runs/CA/2026-10-07-ucd",
+ "run_branch": "program-run/*",
+ "reviewer": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout",
+ "approve": [
+  {
+   "candidate_id": "6cfb380ae7589d89",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Choose 16 units of upper division courses in consultation with advisor. | 16\". Printed 'Choose 16 units of upper division courses in consultation with advisor' is a unit (credit) amount, not a course count; the re-extracted elective_pool group with choose_credits 16 has no listed options (an open pool, as printed) and no issues or verify problems.",
+   "replaces_promoted": "the stored group read the printed credit rule \"Choose 16 units of upper division courses in consultation with advisor. 16\" as a number of courses (choose_count 16) (#229)."
+  },
+  {
+   "candidate_id": "4c686781acc30f95",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Choose 20 units of upper division courses chosen from courses related to Community Sustainability. | 20\". Printed 'Choose 20 units of upper division courses chosen from courses related to Community Sustainability' is a unit (credit) amount, not a course count; the re-extracted elective_pool group with choose_credits 20 has no listed options (an open pool, as printed) and no issues or verify problems.",
+   "replaces_promoted": "the stored group read the printed credit rule \"Choose 20 units of upper division courses chosen from courses related to Community Sustainability. 20\" as a number of courses (choose_count 20) (#229)."
+  }
+ ]
+}

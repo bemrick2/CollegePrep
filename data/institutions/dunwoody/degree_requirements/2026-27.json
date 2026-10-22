@@ -88,8 +88,9 @@
         ]
       },
       "source_url": "https://catalog.dunwoody.edu/catalog-student-handbook/academic-programs/business/business-management-leadership-amgt-bs/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/MN/2026-10-06-cat/evidence.json#6a18677ec2c5e864."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/MN/2026-10-06-cat/evidence.json#6a18677ec2c5e864. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "Term-by-term plan read by courseleaf_plan/v1 from https://catalog.dunwoody.edu/catalog-student-handbook/academic-programs/business/business-management-leadership-amgt-bs/ stores rows of the printed Plan of Study Grid that are not courses (term subtotals, year headings or the plan total) as plan items (#229). The corrected reader could not reproduce the grid exactly (unread_label_row), so the plan is no longer verified; its course rows remain as stored. Evidence: sources/programs/MN/2026-10-06-cat/evidence.json#6a18677ec2c5e864."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -143,8 +144,14 @@
               "CWEB2117 | Data Analytics | 4",
               "CNTS2121 | Network Systems II | 4",
               "CYBR2130 | IAM & PKI | 4",
-              "Humanities Elective | 3",
-              "General Elective | 3"
+              {
+                "credits": 3,
+                "text": "Humanities Elective"
+              },
+              {
+                "credits": 3,
+                "text": "General Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -155,8 +162,14 @@
               "CWEB1226 | Database I | 3",
               "CNTS2215 | Server Systems III | 4",
               "CLDE2211 | Cloud Security | 4",
-              "Social Sciences Elective | 3",
-              "General Elective | 3"
+              {
+                "credits": 3,
+                "text": "Social Sciences Elective"
+              },
+              {
+                "credits": 3,
+                "text": "General Elective"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -173,7 +186,10 @@
               "CYBR3161 | Business Principles for Cybersecurity | 3",
               "CYBR3151 | Scripting for Cyber Professionals | 4",
               "MATH2250 | Statistics | 3",
-              "General Elective | 3"
+              {
+                "credits": 3,
+                "text": "General Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -200,7 +216,10 @@
               "CYBR4125 | Incident Response | 4",
               "CYBR4140 | ICS/OT I | 4",
               "CYBR4151 | Security Operations Center | 4",
-              "Communications Elective | 3"
+              {
+                "credits": 3,
+                "text": "Communications Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -219,7 +238,7 @@
       },
       "source_url": "https://catalog.dunwoody.edu/catalog-student-handbook/academic-programs/computer-technology/cybersecurity-cybr-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/MN/2026-10-06-cat/evidence.json#e6df470be4c2abbe."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence MN/2026-10-06-cat#e6df470be4c2abbe) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/MN/2026-10-06-cat/evidence.json#765053cefc0f26c5."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -334,8 +353,9 @@
         ]
       },
       "source_url": "https://catalog.dunwoody.edu/catalog-student-handbook/academic-programs/construction-sciences-building-technology/architecture-barch-bachelor-architecture/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/MN/2026-10-06-cat/evidence.json#49203d2fe1cd8b43."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/MN/2026-10-06-cat/evidence.json#49203d2fe1cd8b43. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "Term-by-term plan read by courseleaf_plan/v1 from https://catalog.dunwoody.edu/catalog-student-handbook/academic-programs/construction-sciences-building-technology/architecture-barch-bachelor-architecture/ stores rows of the printed Plan of Study Grid that are not courses (term subtotals, year headings or the plan total) as plan items (#229). The corrected reader could not reproduce the grid exactly (unread_label_row), so the plan is no longer verified; its course rows remain as stored. Evidence: sources/programs/MN/2026-10-06-cat/evidence.json#49203d2fe1cd8b43."
     }
   ]
 }

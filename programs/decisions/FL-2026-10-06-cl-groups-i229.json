@@ -1,0 +1,22 @@
+{
+ "run": "programs/runs/FL/2026-10-06-cl",
+ "run_branch": "program-run/*",
+ "reviewer": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout",
+ "approve": [
+  {
+   "candidate_id": "2bd8703f5772a64a",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select three units from the following: | 3\". Printed 'Select three units from the following' is a unit (credit) amount, not a course count; the re-extracted choose_credits group with choose_credits 3 has the same options as the page and no issues or verify problems. (Stetson's 'unit' is its credit measure; course credits in this file are store",
+   "replaces_promoted": "the stored group read the printed credit rule \"Select three units from the following: 3\" as a number of courses (choose_count 3) (#229)."
+  },
+  {
+   "candidate_id": "e3d9061a73900d0f",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select two units from the following in-depth courses: | 2\". Printed 'Select two units from the following in-depth courses' is a unit (credit) amount, not a course count; the re-extracted choose_credits group with choose_credits 2 has the same options as the page and no issues or verify problems. (Stetson's 'unit' is its credit measure; course credits in this",
+   "replaces_promoted": "the stored group read the printed credit rule \"Select two units from the following in-depth courses: 2\" as a number of courses (choose_count 2) (#229)."
+  },
+  {
+   "candidate_id": "4b37dbe657727fc7",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select 2 units from the following: 1 | 2\". Printed 'Select 2 units from the following' is a unit (credit) amount, not a course count; the re-extracted choose_credits group with choose_credits 2 has the same options as the page and no issues or verify problems. (Stetson's 'unit' is its credit measure; course credits in this file are stored in",
+   "replaces_promoted": "the stored group read the printed credit rule \"Select 2 units from the following: 1 2\" as a number of courses (choose_count 2) (#229)."
+  }
+ ]
+}

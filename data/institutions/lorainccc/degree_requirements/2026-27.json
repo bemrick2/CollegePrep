@@ -11,6 +11,7 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 126 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
@@ -20,13 +21,26 @@
             "term_index": 1
           },
           {
+            "credit_hours": "16",
             "items": [
               {
                 "code": "AETC 115",
                 "credits": 3,
                 "title": "INDUSTRIAL ROBOTICS I"
               },
-              "CADD 111or TECN 115 | INTRODUCTION TO COMPUTER AIDED DRAFTING 1or INDUSTRIAL BLUEPRINT READING | 2",
+              {
+                "any_of": [
+                  {
+                    "code": "CADD 111",
+                    "title": "INTRODUCTION TO COMPUTER AIDED DRAFTING 1"
+                  },
+                  {
+                    "code": "TECN 115",
+                    "title": "INDUSTRIAL BLUEPRINT READING"
+                  }
+                ],
+                "credits": 2
+              },
               {
                 "code": "ELCT 111",
                 "credits": 3,
@@ -46,13 +60,13 @@
                 "code": "TECN 111",
                 "credits": 3,
                 "title": "TECHNICAL PROBLEM SOLVING"
-              },
-              "Hours | 16"
+              }
             ],
             "label": "Fall Semester",
             "term_index": 2
           },
           {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "AETC 121",
@@ -78,8 +92,7 @@
                 "code": "TECN 133",
                 "credits": 3,
                 "title": "MECHANICAL SYSTEMS"
-              },
-              "Hours | 15"
+              }
             ],
             "label": "Spring Semester",
             "term_index": 3
@@ -90,6 +103,7 @@
             "term_index": 4
           },
           {
+            "credit_hours": "17",
             "items": [
               {
                 "code": "AETC 211",
@@ -101,7 +115,19 @@
                 "credits": 3,
                 "title": "PROGRAMMABLE LOGIC CONTROLLERS II 2"
               },
-              "AETC 287or TECN 287 | WORK-BASED LEARNING I - AETCor WORK BASED LEARNING I - TECN | 1",
+              {
+                "any_of": [
+                  {
+                    "code": "AETC 287",
+                    "title": "WORK-BASED LEARNING I - AETC"
+                  },
+                  {
+                    "code": "TECN 287",
+                    "title": "WORK BASED LEARNING I - TECN"
+                  }
+                ],
+                "credits": 1
+              },
               {
                 "code": "PHYC 150",
                 "credits": 4,
@@ -112,20 +138,35 @@
                 "credits": 3,
                 "title": "MANUFACTURING PROCESSES I 1"
               },
-              "Arts and Humanities Elective(s) 4 | 3",
-              "Hours | 17"
+              {
+                "credits": 3,
+                "text": "Arts and Humanities Elective(s) 4"
+              }
             ],
             "label": "Fall Semester",
             "term_index": 5
           },
           {
+            "credit_hours": "17",
             "items": [
               {
                 "code": "AETC 215",
                 "credits": 3,
                 "title": "INDUSTRIAL ROBOTICS II 2"
               },
-              "AETC 231or AETC 232 | FLEXIBLE MANUFACTURING SYSTEMS 2or MULTICRAFT SYSTEMS TROUBLESHOOTING | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "AETC 231",
+                    "title": "FLEXIBLE MANUFACTURING SYSTEMS 2"
+                  },
+                  {
+                    "code": "AETC 232",
+                    "title": "MULTICRAFT SYSTEMS TROUBLESHOOTING"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "AETC 288",
                 "credits": 1,
@@ -141,8 +182,10 @@
                 "credits": 3,
                 "title": "COLLEGE COMPOSITION II WITH TECHNICAL TOPICS 2"
               },
-              "Social Sciences Elective(s) 5 | 3",
-              "Hours | 17"
+              {
+                "credits": 3,
+                "text": "Social Sciences Elective(s) 5"
+              }
             ],
             "label": "Spring Semester",
             "term_index": 6
@@ -153,6 +196,7 @@
             "term_index": 7
           },
           {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "AETC 321",
@@ -178,13 +222,13 @@
                 "code": "SAFE 336",
                 "credits": 3,
                 "title": "MACHINE AND EQUIPMENT SAFETY WITH ADVANCED PROJECTS 2"
-              },
-              "Hours | 15"
+              }
             ],
             "label": "Fall Semester",
             "term_index": 8
           },
           {
+            "credit_hours": "16",
             "items": [
               {
                 "code": "AETC 331",
@@ -210,8 +254,7 @@
                 "code": "PHYC 152",
                 "credits": 5,
                 "title": "GENERAL PHYSICS II 2"
-              },
-              "Hours | 16"
+              }
             ],
             "label": "Spring Semester",
             "term_index": 9
@@ -222,6 +265,7 @@
             "term_index": 10
           },
           {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "AETC 341",
@@ -242,13 +286,13 @@
                 "code": "TECN 422",
                 "credits": 4,
                 "title": "TECHNICAL PROJECT MANAGEMENT 2"
-              },
-              "Hours | 15"
+              }
             ],
             "label": "Fall Semester",
             "term_index": 11
           },
           {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "AETC 435",
@@ -270,9 +314,10 @@
                 "credits": 4,
                 "title": "LEAN SIX SIGMA FOR PROCESS IMPROVEMENT WITH ADVANCED PROJECTS 2"
               },
-              "Arts and Humanities Elective 4 | 3",
-              "Hours | 15",
-              "Total Hours | 126"
+              {
+                "credits": 3,
+                "text": "Arts and Humanities Elective 4"
+              }
             ],
             "label": "Spring Semester",
             "term_index": 12
@@ -281,7 +326,7 @@
       },
       "source_url": "https://catalog.lorainccc.edu/academic-programs/engineering-business-information-technologies/smart-industrial-automated-systems-bas/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/OH/2026-10-07-cat/evidence.json#af3f12dfa296ed32."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#af3f12dfa296ed32) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/OH/2026-10-07-cat/evidence.json#e5669e75c6ac4c24."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -399,8 +444,9 @@
         ]
       },
       "source_url": "https://catalog.lorainccc.edu/academic-programs/allied-health-nursing-health-physical-education-recreation/rn-to-bsn/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/OH/2026-10-07-cat/evidence.json#4ae92e761b9d44f1."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/OH/2026-10-07-cat/evidence.json#4ae92e761b9d44f1. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "Term-by-term plan read by courseleaf_plan/v1 from https://catalog.lorainccc.edu/academic-programs/allied-health-nursing-health-physical-education-recreation/rn-to-bsn/ stores rows of the printed Plan of Study Grid that are not courses (term subtotals, year headings or the plan total) as plan items (#229). The corrected reader could not reproduce the grid exactly (unread_label_row), so the plan is no longer verified; its course rows remain as stored. Evidence: sources/programs/OH/2026-10-07-cat/evidence.json#4ae92e761b9d44f1."
     }
   ]
 }

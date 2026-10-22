@@ -7,14 +7,14 @@ import { DemoSource, DEMO_PARENT, DEMO_STUDENT } from '../../lib/data/demo/demoS
 import { emptyStore } from '../../lib/data/demo/store'
 import type { PracticeSession } from '../../lib/data/types'
 
-/** The server picked only questions that are held for the next progress check, so nothing is left to practise. */
+/** The server picked only reserved assessment questions (dropped by the client), so nothing is left to practise. */
 class AllHeld extends DemoSource {
   override async startSession(): Promise<PracticeSession> {
     return { id: 's-1', target_minutes: 5, items: [], held_for_check: 4 }
   }
 }
 
-describe('practice when every fresh question is held for the next check', () => {
+describe('practice when only reserved assessment questions are left', () => {
   it('says why, and points to the check, instead of "no questions published"', async () => {
     const src = new AllHeld(emptyStore())
     src.switchPersona(DEMO_PARENT, 'Jordan')
@@ -31,7 +31,7 @@ describe('practice when every fresh question is held for the next check', () => 
         </AppProvider>
       </MemoryRouter>,
     )
-    expect(await screen.findByText('Your new questions are saved for your next progress check', {}, { timeout: 8000 })).toBeInTheDocument()
+    expect(await screen.findByText('The questions left are set aside for progress checks', {}, { timeout: 8000 })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'Go to progress checks' })).toHaveAttribute('href', '/student/benchmark')
     expect(screen.queryByText('No practice questions are published yet')).not.toBeInTheDocument()
   }, 30_000)
