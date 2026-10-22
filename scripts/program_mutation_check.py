@@ -7,6 +7,13 @@ the same file. Each mutant breaks one rule; tests/test_programs_deep_dive.py mus
 import shutil, subprocess, sys
 
 MUTS = [
+    ('programs/courseleaf.py', "                elif sum(1 for x in span if x['items']) > 1: t['_subtotal_spans'] = True", "                elif False: pass"),
+    ('programs/courseleaf.py', "        if gs[i - 1].get('_subtotal_spans'): issues.append('subtotal_spans_terms')", "        pass"),
+    ('programs/courseleaf.py', "                parent = parent if parent is not None and not parent['items'] else None", "                pass"),
+    ('programs/courseleaf.py', "                if parent is not None and parent.get('credit_hours'): t['_subtotal_spans'] = True", "                if False: pass"),
+    ('programs/courseleaf.py', "        if i == last and total is None and len(nonempty) == 2", "        if total is None and len(nonempty) == 2"),
+    ('programs/courseleaf.py', "                and re.fullmatch(r'\\d{1,3}(\\s*-\\s*\\d{1,3})?', nonempty[1]) \\", "                and True \\"),
+    ('programs/courseleaf.py', "'semester hours', 'units', 's.h.'}", "'semester hours', 'units'}"),
     ('programs/extract.py', "            if m and m.group(1) == ed['year'][:4] and", "            if m and"),
     ('programs/extract.py', " and urlsplit(common.source_of(entry)['url']).path.startswith(edir) and edir.strip('/'):", ":"),
     ('programs/extract.py', "                                 and not NOT_PROGRAM_NAME.search(h) and not OPTION_NAME.search(h)), None)", "                                 ), None)"),
@@ -70,7 +77,7 @@ MUTS = [
     ('programs/courseleaf.py', "    if not name or (not have_program and not credential(name)): return []", "    if not name: return []"),
     ('programs/courseleaf.py', "    if not name or (not have_program and not credential(name)): return []", "    if not name or not credential(name): return []"),
     ('programs/courseleaf.py', "|^(freshman|sophomore|junior|senior)$|^year\\s+(one|two|three|four|five)$|^semester\\s+\\d{1,2}$'\n", "'\n"),
-    ('programs/courseleaf.py', "'hour', 'credit', 'semester credit hours', 'semester hours', 'units'}", "}"),
+    ('programs/courseleaf.py', "'hour', 'credit', 'semester credit hours', 'semester hours', 'units', 's.h.'}", "}"),
     ('programs/courseleaf.py', "SUBTOTAL = re.compile(r'^(credits|credit|hours|hour|credit hours|semester credit hours|semester hours|units|term credits|semester total|term total)$', re.I)", "SUBTOTAL = re.compile(r'^(credits)$', re.I)"),
     ('programs/courseleaf.py', "|semester hours|units|term credits|semester total|term total)$', re.I)", "|semester hours|units)$', re.I)"),
     ('programs/courseleaf.py', "TOTAL = re.compile(r'^(?:minimum\\s+)?total\\b[\\w\\s]*:?\\**$', re.I)", "TOTAL = re.compile(r'^total credits$', re.I)"),
