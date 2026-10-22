@@ -81,6 +81,12 @@ TRACK_ENTRY = re.compile(r'^(?P<award>Bachelor of (?:Arts|Science|Fine Arts|Musi
                          r'(?P<rest>[^()]+?)\s+(?:Track|Option)$')
 
 
+def track_award(line):
+    """The award a track entry prints at its start ('Bachelor of Science in ...', 'BS in ...'), or None."""
+    m = TRACK_ENTRY.match(line)
+    return X._award_key(m.group('award')) if m else None
+
+
 def track_of_listed(line, degrees):
     """YSU 2026-27: 'Bachelor of Arts in Multimedia Communication, Public Relations Track' or 'Bachelor of Science in
     Computer Science Cybersecurity Track' beside 'Bachelor of Science in Computer Science': a track of a degree the same
@@ -168,14 +174,14 @@ def entries(run_dir, decision, iks, year='2026-2027', reviewed=''):
         opts = [x for x, m in zip(rest, shape) if m and (X.name_key_of(m.group('base')), X._award_key(m.group('award'))) in degrees]
         opts += [x for x, m in zip(rest, shape) if not m and x not in opts and track_of_listed(X.list_line(x['printed']), degrees)]
         # a track printed on a page under a listed degree's own page (YSU '.../bsas-exercise-science/mat-track/', 'Exercise
-        # Science - MAT Track') is that degree's track
-        deg_pages = {page_key(x['url']) for x, m in zip(rest, shape) if not m and X._degree_key(X.list_line(x['printed']))}
+        # Science - MAT Track') is that degree's track, only when the track prints the same award as that degree (TAMU's
+        # 'Chemistry - BS, ... Track' pages under 'Chemistry - BA' are not BA tracks)
+        deg_pages = {page_key(x['url']): X._degree_key(X.list_line(x['printed']))[1] for x, m in zip(rest, shape)
+                     if not m and X._degree_key(X.list_line(x['printed']))}
         opts += [x for x in rest if x not in opts and TRACK_SUFFIX.search(X.list_line(x['printed']))
-                 and any(page_key(x['url']).startswith(dp.rstrip('/') + '/') for dp in deg_pages)]
-        # the same degree listed again for another delivery ('X (online)' beside 'X') is one program
-        plain = {name_key(x['printed']) for x in rest}
-        opts += [x for x in rest if x not in opts and DELIVERY_QUALIFIER.search(x['printed'])
-                 and name_key(DELIVERY_QUALIFIER.sub('', x['printed'])) in plain]
+                 and track_award(X.list_line(x['printed'])) is not None
+                 and any(page_key(x['url']).startswith(dp.rstrip('/') + '/') and aw == track_award(X.list_line(x['printed']))
+                         for dp, aw in deg_pages.items())]
         deg = [x for x in rest if x not in opts]
         by_page = defaultdict(set)
         for x in deg: by_page[page_key(x['url'])].add(ident(x))

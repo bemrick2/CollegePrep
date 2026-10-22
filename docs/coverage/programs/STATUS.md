@@ -1719,7 +1719,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | University of Cincinnati-Blue Ash College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Wright State University-Main Campus | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Ohio State University-Newark Campus | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Youngstown State University | covered | 60 | 59 | 46 | 237 | met | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
+| Youngstown State University | covered | 61 | 60 | 46 | 237 | met | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
 | Xavier University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Lorain County Community College | covered | 6 | 5 | 2 | 0 | met | queued | queued | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:not_yet_researched |
 | Cedarville University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |

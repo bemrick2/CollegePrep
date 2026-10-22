@@ -3254,19 +3254,24 @@ class CatalogCountTests(unittest.TestCase):
                    ('Bachelor of Science in Respiratory Care with Advanced Placement Option to Master of Respiratory Care', u + 'rc-m', 'bachelor'),
                    ('Bachelor of Science in Applied Science in Exercise Science', u + 'ex', 'bachelor'),
                    ('Bachelor of Science in Applied Science Exercise Science - MAT Track', u + 'ex/mat-track', 'bachelor'),
+                   ('Bachelor of Arts in Biochemistry', u + 'biochem', 'bachelor'),
+                   ('Bachelor of Science in Biochemistry - Research Track', u + 'biochem/research-track', 'bachelor'),  # another award: counted
                    ('Bachelor of Science in Geographic Information Science', u + 'gis', 'bachelor'),
                    ('Bachelor of Science in Geographic Information Science (online)', u + 'gis-online', 'bachelor'),
                    ('Bachelor of Fine Arts in Graphic Design (Online)', u + 'gd-online', 'bachelor'),
                    ('Bachelor of Science in Chemistry Track', u + 'chem-track', 'bachelor')]  # no 'Chemistry' degree listed: counted
         records = [('Bachelor of Arts in Multimedia Communication', u + 'mmc'), ('Bachelor of Science in Computer Science', u + 'cs'),
                    ('Bachelor of Science in Respiratory Care', u + 'rc'), ('Bachelor of Science in Applied Science in Exercise Science', u + 'ex'),
-                   ('Bachelor of Science in Geographic Information Science', u + 'gis'), ('Bachelor of Fine Arts in Graphic Design', u + 'gd-online')]
+                   ('Bachelor of Science in Geographic Information Science', u + 'gis'), ('Bachelor of Fine Arts in Graphic Design', u + 'gd-online'),
+                   ('Bachelor of Arts in Biochemistry', u + 'biochem')]
         with tempfile.TemporaryDirectory() as d:
             d = self.run_dir(d, listing, records)
             e = entries(d, d / 'dec.json', ['k'])[0]
         b = e['completeness_basis']
-        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (7, 6), b)
-        self.assertTrue(b.endswith("Not recorded (names separated by ' | '): Bachelor of Science in Chemistry Track."), b)
+        # the online degree has its own entry and page: a program of its own (not merged into the campus degree)
+        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (10, 7), b)
+        self.assertTrue(b.endswith("Not recorded (names separated by ' | '): Bachelor of Science in Biochemistry - Research Track | "
+                                   "Bachelor of Science in Chemistry Track | Bachelor of Science in Geographic Information Science (online)."), b)
         degrees = {('multimediacommunication', 'ba')}
         self.assertTrue(track_of_listed('Bachelor of Arts in Multimedia Communication Sports Track', degrees))
         self.assertFalse(track_of_listed('Bachelor of Science in Multimedia Communication Sports Track', degrees))  # another award
