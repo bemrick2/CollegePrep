@@ -2,6 +2,7 @@ name: IPEDS source pin
 # Push ipeds-request.json to an ipeds-source/** branch. Either form:
 #   {"year": "2023-24", "files": ["EF2023A.zip", "EF2023A_Dict.zip"]}
 #   {"requests": [{"year": "2023-24", "files": [...]}, {"year": "2024-25", "files": [...]}]}
+# A file given as a full https://nces.ed.gov/ URL (e.g. the CIP 2020 code list) is pinned under its base name.
 # Downloads each file from nces.ed.gov, pins it into sources/ipeds/<year>/ with its sha256, and commits to the same branch.
 # A file NCES doesn't serve (not released yet, renamed) is recorded under `unavailable` in that year's manifest with the
 # HTTP status; the run continues with the other files.
@@ -27,11 +28,17 @@ jobs:
               for f in q['files']: print(q['year'], f)
           PY
           while read -r year f; do
-            code=$(curl -sSL --retry 3 -o "$f" -w '%{http_code}' "https://nces.ed.gov/ipeds/datacenter/data/$f" || echo 000)
-            if [ "$code" = "200" ] && unzip -tq "$f" >/dev/null 2>&1; then
-              python scripts/pin_ipeds.py "$year" "$f"
+            case "$f" in
+              https://nces.ed.gov/*) url="$f"; f=$(basename "$url");;
+              https://*) echo "only nces.ed.gov URLs: $f"; exit 1;;
+              *) url="https://nces.ed.gov/ipeds/datacenter/data/$f";;
+            esac
+            code=$(curl -sSL --retry 3 -o "$f" -w '%{http_code}' "$url" || echo 000)
+            valid=1; case "$f" in *.zip) unzip -tq "$f" >/dev/null 2>&1 || valid=0;; esac
+            if [ "$code" = "200" ] && [ "$valid" = 1 ]; then
+              python scripts/pin_ipeds.py --url "$url" "$year" "$f"
             else
-              python scripts/pin_ipeds.py --unavailable "$year" "$f" "$code"
+              python scripts/pin_ipeds.py --unavailable "$year" "$f" "$code" "$url"
             fi
             rm -f "$f"
           done < requests.txt
