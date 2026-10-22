@@ -487,9 +487,41 @@ class CourseleafPlanTests(unittest.TestCase):
         k = {'rows': [['', 'Semester One', 'Credits'], ['', 'UC 10001', 'FLASHES 101', '1'], ['', '', 'Credit Hours', '1'], ['', '', 'Minimum Total Credit Hours:', '121']]}
         terms, total = CL.parse_grid(k)
         self.assertEqual((terms[0]['items'], terms[0]['credit_hours'], total), ([{'code': 'UC 10001', 'title': 'FLASHES 101', 'credits': 1}], '1', '121'))
-        u = {'rows': [['Fall', 'Semester Hours'], ['ENGR 100', 'Intro', '3'], ['', 'Semester Hours', '3'], ['', 'Minimum Semester Hours', '30-32']]}
-        CL.parse_grid(u)
+        u = {'rows': [['Fall', 'Semester Hours'], ['ENGR 100', 'Intro', '3'], ['', 'Semester Hours', '3'], ['', 'Minimum Semester Hours', '30-32'],
+                      ['Spring', 'Semester Hours'], ['ENGR 200', 'Design', '3'], ['', 'Semester Hours', '3'], ['', 'Minimum Semester Hours', '30-32']]}
+        terms, total = CL.parse_grid(u)
         self.assertTrue(u.get('_unread_label'))  # a per-year credit row is not placed by guess
+        self.assertIsNone(total)  # the last year's row is not the plan total
+        v = {'rows': [['Fall', 'Semester Hours'], ['ENGR 100', 'Intro', '3'], ['', 'Semester Hours', '3'], ['', 'Minimum Semester Hours', '107-128']]}
+        terms, total = CL.parse_grid(v)  # LMU: printed once, as the grid's last row: the plan total
+        self.assertEqual((total, v['_total_label'], v.get('_unread_label'), terms[0]['items']), ('107-128', 'Minimum Semester Hours', None, [{'code': 'ENGR 100', 'title': 'Intro', 'credits': 3}]))
+
+    def test_subsessions_and_spanning_subtotals(self):  # SLU, Marshall, YSU 2026-27 (#229 downgrades)
+        from programs import courseleaf as CL
+        t = {'rows': [['Year One'], ['Spring', 'Credits'], ['Spring 1', ''], ['CORE Requirement', '3'], ['Spring 2', ''], ['CORE Requirement', '3'], ['', 'Credits', '6'],
+                      ['Summer'], ['General Elective', '3'], ['', 'Credits', '3']]}
+        terms, _ = CL.parse_grid(t)
+        self.assertEqual([(x['label'], x.get('credit_hours'), len(x['items'])) for x in terms],
+                         [('Year One', None, 0), ('Spring', '6', 0), ('Spring 1', None, 1), ('Spring 2', None, 1), ('Summer', '3', 1)])
+        self.assertFalse(t.get('_subtotal_spans'))
+        m = {'rows': [['Second Semester', 'Credit Hours'], ['MI 301', 'A', '17'], ['Summer', ''], ['Statistics', '3'], ['', 'Credit Hours', '20']]}
+        terms, _ = CL.parse_grid(m)
+        self.assertTrue(m.get('_subtotal_spans'))
+        self.assertEqual([x.get('credit_hours') for x in terms], [None, None])  # never placed on one of the two terms
+        own = {'rows': [['Spring', 'Credits'], ['Full Spring Term', '3'], ['Spring 2', ''], ['CORE Requirement', '3'], ['', 'Credits', '6']]}
+        CL.parse_grid(own); self.assertTrue(own.get('_subtotal_spans'))  # the parent has its own rows: not a parent of sessions
+        each = {'rows': [['Fall', 'Credits'], ['Fall 1', ''], ['A 101', 'A', '3'], ['', 'Credits', '3'], ['Fall 2', ''], ['B 101', 'B', '6'], ['', 'Credits', '6']]}
+        CL.parse_grid(each); self.assertTrue(each.get('_subtotal_spans'))  # sessions with their own subtotals are not placed by guess
+        from pipeline import text as T
+        [c] = CL.extract({'institution_key': 'k'}, {'url': 'u', 'sha256': 's', 'fetched_at': '2026-10-06T00:00:00'},
+                         T.Page('Medical Imaging, B.S.', 'Medical Imaging, B.S.', [dict(m, caption='Plan of Study Grid')], [], []), '2026-2027', '', True)
+        self.assertIn('subtotal_spans_terms', c['issues'])
+        after = {'rows': [['Fall', 'Semester Hours'], ['ENGR 100', 'Intro', '3'], ['', 'Semester Hours', '3'], ['', 'Minimum Semester Hours', '107-128'], ['* See advisor']]}
+        self.assertIsNone(CL.parse_grid(after)[1])  # not the grid's last row: not read as the total
+        lab = {'rows': [['Fall', 'Semester Hours'], ['ENGR 100', 'Intro', '3'], ['', 'Semester Hours', '3'], ['', 'minimum semester hours', 'TBD']]}
+        self.assertIsNone(CL.parse_grid(lab)[1])
+        y = {'rows': [['Year 1'], ['Fall', 'S.H.'], ['BUS 1500', 'Foundations of Business', '3'], ['', 'Semester Hours', '3']]}
+        self.assertEqual([(x['label'], x.get('credit_hours'), len(x['items'])) for x in CL.parse_grid(y)[0]], [('Year 1', None, 0), ('Fall', '3', 1)])
 
     def test_track_plans_labelled_by_printed_heading(self):  # several grids under distinct headings
         from programs import courseleaf as CL
@@ -614,6 +646,12 @@ class CourseleafPlanTests(unittest.TestCase):
         terms, _ = CL.parse_grid(t)
         self.assertEqual([i.get('credits') for i in terms[0]['items']], ['1.5', '0.5', '1-1.5', 3])
         self.assertEqual(terms[0]['credit_hours'], '6.5')
+        # a credit cell that is not a plain number keeps the row as printed (#229 recovery review: EKU, UIC, Montana)
+        t = {'rows': [['Semester One', 'Credits'], ['CED 200', 'Clinical II', '.5'], ['HIST 419', 'Civics', '3 or 4'], ['THTR 103', 'House', '1 (0)'],
+                      ['ENG 101', 'Composition', '3']]}
+        terms, _ = CL.parse_grid(t)
+        self.assertEqual(terms[0]['items'][:3], ['CED 200 | Clinical II | .5', 'HIST 419 | Civics | 3 or 4', 'THTR 103 | House | 1 (0)'])
+        self.assertEqual(terms[0]['items'][3], {'code': 'ENG 101', 'title': 'Composition', 'credits': 3})
 
     def test_course_titled_total_and_unknown_term_header(self):  # #238 review: UNO HRM, EKU EHS; UMT 'Autumn | Hours'
         from programs import courseleaf as CL
@@ -954,6 +992,10 @@ class CourseListGroupTests(unittest.TestCase):
                           ('Major Courses', 'all_required', 1, None, None, []), ('Major Courses', 'choose_credits', 2, None, 9, [])])
         self.assertEqual(g[0][1]['courses'][1], {'any_of': [{'code': 'MATH 241', 'title': 'Calculus I', 'credits': 4}, {'code': 'MATH 251Z', 'title': 'Differential Calculus'}]})
 
+    def test_row_led_by_a_zero_width_space_is_held(self):  # UW-Madison prints U+200B inside joined code cells
+        g = self.groups([['BIOL 101', 'A', '3'], ['\u200bAGROECOL 370 & GENETICS 528', 'B', '3']])
+        self.assertIn('complex_course_row', g[0][1]['issues'])
+
     def test_unrepresentable_rows_are_held(self):
         g = self.groups([['PH 211& PH 212', 'PHYSICS', '8'], ['Select one of the following math pairs:', '4-7'], ['MTH 251Z& MTH 252Z', 'CALCULUS', '8'],
                          ['Select an additional 7 credits from courses that count toward either major.', '7'], ['Capstone', ''], ['ANTH 209', 'Business Anthropology', '4'],
@@ -1146,6 +1188,46 @@ class CourseListLayoutReviewTests(unittest.TestCase):
         tracks = self.table([('c', 'J 101', 'E', '4')], heading='Major Requirements', context='Students choose one track from the following.')
         out = CL.html_candidates({'institution_key': 'k'}, e, {'url': 'u'}, [tracks], '2026-2027', 'media', 1)
         self.assertIn('context_says_choose_among_tables', out[0]['issues'])
+        # UWM 2026-27: the general education paragraph is not a choice among the tables after it
+        ger = self.table([('c', 'ENGL 102', 'Writing', '3')], heading='General Education Requirements (GER)',
+                         context='They provide a broad body of knowledge as a context for specialization.')
+        major = self.table([('c', 'ARTH 101', 'Ancient Art', '3')], heading='Major Requirements')
+        out = CL.html_candidates({'institution_key': 'k'}, e, {'url': 'u'}, [major, ger, self.table([('c', 'ART 101', 'Drawing', '3')], heading='Major Requirements')], '2026-2027', 'art', 1)
+        self.assertEqual([sorted(c['issues']) for c in out], [[], ['secondary_table'], []])
+        for code, ok in (('AGROECOL 101', True), ('F&W ECOL 248', True), ('I&C SCI 31', False), ('CURRINS 301', True), ('BUS ADM 201', True),
+                         ('OR BIL 412', False), ('MINOR IN 300', False), ('GRADES 101', False), ('HOURS AT 300', False), ('AND CHEM 101', False)):
+            self.assertEqual(bool(CL.CODE_CELL.match(code)), ok, code)
+        # a long-subject row that is not one code is held, never dropped (UWM 'CURRINS/EXCEDUC 612', UNI 'ENGLISH 3772/5772')
+        g = CL.html_groups(self.table([('c', 'CURRINS 301', 'Teaching', '3'), ('c', 'CURRINS/EXCEDUC 612', 'Cross-listed', '3')], heading='Major Requirements'))
+        self.assertEqual([c['code'] for c in g[0][1]['courses']], ['CURRINS 301', 'CURRINS/EXCEDUC 612'])  # one cross-listed course, as printed
+        for row in ('ENGLISH 3772/5772', 'PHYSICS 111A- 111B', 'AGROECOL\u200b/ENTOM 101'):
+            g = CL.html_groups(self.table([('c', 'CURRINS 301', 'Teaching', '3'), ('c', row, 'Joined', '3')], heading='Major Requirements'))
+            self.assertIn('complex_course_row', g[0][1]['issues'], row)
+        for text in ('Complete one course from:', 'Choose one course from the following:', 'Select One:', 'A student needs to take one of the following courses'):
+            self.assertTrue(CL.CONTEXT_PICK.search(text), text)
+        for text in ('A baccalaureate degree requires a minimum of 120 total hours to graduate.', 'Students must complete 40 courses in total.',
+                     'Students must earn a minimum of C- in each course.', 'Majors must take three courses: CAS 140, CAS 141, CAS 142.', 'Majors must take 120 credits.'):
+            self.assertFalse(CL.CONTEXT_PICK.search(text), text)
+        for code in ('AT 310', 'OR 541', 'F&W ECOL 448'):
+            self.assertTrue(CL.CODE_CELL.match(code), code)
+        g = CL.html_groups(self.table([('c', 'F&W ECOL 448', 'Ecology', '3'), ('c', 'AT 310', 'Athletic Training', '3')], heading='Major Requirements'))
+        self.assertEqual(([c['code'] for c in g[0][1]['courses']], g[0][1]['issues']), (['F&W ECOL 448', 'AT 310'], set()))
+        g = CL.html_groups(self.table([('c', 'BIOL 101', 'A', '3'), ('c', 'PLANTSCI/\u200bPL PATH 261 & PL PATH/\u200bPLANTSCI 262', 'Joined', '3')], heading='Major Requirements'))
+        self.assertTrue(g[0][1]['issues'])  # a long joined row is held, never dropped
+        for row in ('E&ES215 & E&ES216', 'COMPLITTHT 3120'):  # Wesleyan, WUSTL: held, never dropped
+            g = CL.html_groups(self.table([('c', 'BIOL 101', 'A', '3'), ('c', row, 'Joined', '3')], heading='Major Requirements'))
+            self.assertTrue(g[0][1]['issues'], row)
+        g = CL.html_groups(self.table([('c', 'INTER-AG 155', 'Seminar', '1'), ('c', 'AN SCI 135', 'Seminar', '1')], heading='Major Requirements'))
+        self.assertTrue(g[0][1]['issues'])  # UW-Madison: a hyphenated subject is not read yet, so the group is held, never shortened
+        ctx = self.table([('c', 'ARTS 101', 'Drawing', '3'), ('c', 'ARTS 102', 'Painting', '3')], heading='Major Requirements', context='Complete one course from:')
+        self.assertIn('context_says_choose', CL.html_candidates({'institution_key': 'k'}, e, {'url': 'u'}, [ctx], '2026-2027', 'x', 1)[0]['issues'])
+        self.assertEqual(CL.substitution_codes('STAT 1772 will substitute for SOC SCI 2020.\nCourses in lieu of PHYSICS 125A'), {'STAT 1772', 'SOC SCI 2020', 'PHYSICS 125A'})
+        uwm = self.table([('c', 'ARTHIST 101', 'Ancient Art', '3'), ('c', 'BUS ADM 201', 'Business', '3')], heading='Major Requirements')
+        self.assertEqual([c['code'] for c in CL.html_groups(uwm)[0][1]['courses']], ['ARTHIST 101', 'BUS ADM 201'])
+        from programs import verify as V
+        self.assertTrue(V.code_in('ARTHIST\xa0101 Ancient Art', 'ARTHIST 101'))
+        spec = self.table([('c', 'X 101', 'A', '3')], heading='Major Requirements', context='Students must choose one specialization.')
+        self.assertIn('context_says_choose_among_tables', CL.html_candidates({'institution_key': 'k'}, e, {'url': 'u'}, [spec], '2026-2027', 'x', 1)[0]['issues'])
 
     def test_credits_overview_is_not_the_first_table(self):  # TAMUSA 2026-27 (issue #95 recovery)
         from programs import courseleaf as CL
@@ -2704,6 +2786,9 @@ class KeptRecordTests(unittest.TestCase):
                 self.assertIsNone(P.kept_record(c('g', 'fixed'), {'program_key': 'fixed'}, {'k': 'x'}, {'f'}))  # a new review may update it
                 self.assertIsNone(P.kept_record(c('f', 'fixed'), {'program_key': 'fixed'}, {'k': 'x'}, {'f'}, {'replaces_promoted': 'award from school page'}))
                 self.assertIn('correction', P.kept_record(c('a', 'policy'), {'program_key': 'policy'}, {'k': 'x'}, set(), {'replaces_promoted': 'x'}))
+                self.assertIsNone(P.kept_record(c('a', 'policy'), {'program_key': 'policy'}, {'k': 'x'}, set(), {'replaces_correction': 'reader fixed'}))
+                self.assertIsNone(P.kept_record(c('b', 'listed'), {'program_key': 'listed'}, {'k': 'x'}, set(), {'replaces_correction': 'reader fixed'}))
+                self.assertIn('correction', P.kept_record(c('b', 'listed'), {'program_key': 'listed'}, {'k': 'x'}, set(), {'replaces_correction': ''}))
                 self.assertIsNone(P.kept_record(c('n', 'new'), {'program_key': 'new'}, {'k': 'x'}, set()))
             finally:
                 P.ROOT, PP.ROOT = old, oldp
@@ -2743,6 +2828,18 @@ class PromoteKeepsCorrectionsTests(unittest.TestCase):
                 arch = json.loads((ev / 'evidence.json').read_text())
                 self.assertEqual(arch['c2']['decision']['reason'], 'award found')
                 self.assertEqual([v['decision']['reason'] for k, v in arch.items() if k.startswith('c2~superseded-')], ['first review'])
+                # #229 recovery: a reviewed re-extraction replaces a corrected record only with 'replaces_correction'
+                c3 = {**c, 'record': {**c['record'], 'institution_key': 'k', 'academic_year': '2026-27', 'last_verified_at': '2026-10-22'}}
+                (run / 'candidates.jsonl').write_text(json.dumps(c3) + '\n')
+                arch['c1'] = {'decision': {'candidate_id': 'c1', 'reason': 'earlier'}}; (ev / 'evidence.json').write_text(json.dumps(arch))
+                dec.write_text(json.dumps({'run': 'programs/runs/ZZ/r', 'approve': [{'candidate_id': 'c1', 'reason': 'rechecked', 'replaces_correction': 'reader now reads the total'}]}))
+                P.promote(dec, log=logs.append)
+                recs = json.loads((f / '2026-27.json').read_text())['records']; self.assertEqual(len(recs), 2); rec = recs[0]
+                self.assertEqual(rec['verification_status'], 'verified')
+                self.assertNotIn('verification_correction_reason', rec)
+                self.assertIn('Re-verified after the correction on file (kept in supabase/corrections.json): reader now reads the total', rec['notes'])
+                arch = json.loads((ev / 'evidence.json').read_text())
+                self.assertEqual([v['decision']['reason'] for k, v in arch.items() if k.startswith('c1~superseded-')], ['earlier'])
             finally:
                 P.ROOT, PP.ROOT = old, oldp
 
@@ -2762,6 +2859,21 @@ class ProgramKeymapTests(unittest.TestCase):
             self.assertEqual(km, {('k', '2026-27', 'chemistry-bs'): 'old-key'})  # a renamed program keeps its key; siblings never merge
             km = P.program_keymap([{'candidate_id': 'm'}], cands, {'k': 'x'})
             self.assertEqual(km, {('k', '2026-27', 'microbiology-bs'): 'biology-bs'})  # the one-program-per-page rule elsewhere is unchanged
+        finally:
+            P._records = old
+
+    def test_degrees_split_from_a_two_award_page_keep_their_own_keys(self):  # UT Dallas 'Biology (BA, BS)'
+        from programs import promote as P
+        U = 'https://catalog.x.edu/bio'
+        on_file = {'records': [{'program_key': 'biology-ba-bs', 'program_url': U, 'program_name': 'Biology (BA, BS)'}]}
+        cand = lambda cid, key, ext: {'candidate_id': cid, 'domain': 'academic_programs', 'institution_key': 'k', 'academic_year': '2026-27',
+                                      'extractor': ext, 'record': {'program_key': key, 'program_url': U, 'program_name': key}}
+        cands = {c['candidate_id']: c for c in [cand('a', 'biology-ba', 'edition_program/v1'), cand('b', 'biology-bs', 'edition_program/v1'),
+                                                 cand('c', 'biology-bs', 'catalog_program/v1')]}
+        old = P._records; P._records = lambda *a: on_file
+        try:
+            self.assertEqual(P.program_keymap([{'candidate_id': 'a'}, {'candidate_id': 'b'}], cands, {'k': 'x'}), {})
+            self.assertEqual(P.program_keymap([{'candidate_id': 'c'}], cands, {'k': 'x'}), {('k', '2026-27', 'biology-bs'): 'biology-ba-bs'})
         finally:
             P._records = old
 
@@ -3280,6 +3392,34 @@ class CatalogCountTests(unittest.TestCase):
             got = [a['candidate_id'] for a in on_file_approvals(run, 'x', 'k', root=d)]
         self.assertEqual(got, ['c1', 'c3'])
 
+    def test_on_file_recount_credits_each_keyed_record_on_a_two_degree_page(self):  # UT Dallas 'Biology (BA, BS)'
+        import tempfile
+        from programs.catalog_counts import on_file_approvals
+        u = 'https://catalog.x.edu/bio'
+        with tempfile.TemporaryDirectory() as d:
+            d = Path(d); run = d / 'run'; run.mkdir()
+            cands = [('c1', 'Bachelor of Arts in Biology', 'biology-ba'), ('c2', 'Bachelor of Science in Biology', 'biology-bs'),
+                     ('c3', 'Bachelor of Science in Biology', 'biology-bs')]  # a second reading of the same record
+            (run / 'candidates.jsonl').write_text('\n'.join(json.dumps({'candidate_id': i, 'institution_key': 'k', 'domain': 'academic_programs',
+                'record': {'program_name': n, 'program_url': u, 'program_key': pk}, 'source': {'requested_url': u}}) for i, n, pk in cands) + '\n')
+            f = d / 'data/institutions/x/academic_programs'; f.mkdir(parents=True)
+            rec = lambda pk, n: {'program_key': pk, 'program_name': n, 'program_url': u, 'source_url': u, 'credential_level': 'bachelor', 'verification_status': 'verified'}
+            (f / '2026-27.json').write_text(json.dumps({'records': [rec('biology-ba', 'Bachelor of Arts in Biology'), rec('biology-bs', 'Bachelor of Science in Biology')]}))
+            got = [a['candidate_id'] for a in on_file_approvals(run, 'x', 'k', root=d)]
+        self.assertEqual(got, ['c1', 'c2'])
+
+    def test_edition_page_titled_for_two_awards(self):  # UT Dallas 2026
+        from programs.extract import edition_degrees
+        from pipeline import text as T
+        page = lambda *h: T.Page('', 'Biology (BA, BS) - UT Dallas 2026 Undergraduate Catalog', [], [], list(h))
+        both = page('School', 'Biology (BA, BS)', 'Bachelor of Arts in Biology', 'Faculty', 'Bachelor of Science in Biology')
+        self.assertEqual([(n, k) for n, k, _ in edition_degrees('Biology (BA, BS)', both)],
+                         [('Bachelor of Arts in Biology', 'biology-ba'), ('Bachelor of Science in Biology', 'biology-bs')])
+        one = page('School', 'Biology (BA, BS)', 'Bachelor of Arts in Biology')  # the BS heading isn't printed: not split
+        self.assertEqual([n for n, _, _ in edition_degrees('Biology (BA, BS)', one)], ['Biology (BA, BS)'])
+        self.assertEqual([n for n, _, _ in edition_degrees('Animation and Games (BA)', page('Animation and Games (BA)'))], ['Animation and Games (BA)'])
+        self.assertEqual([n for n, _, _ in edition_degrees('Arts (BA, BX)', page('Bachelor of Arts in Arts'))], ['Arts (BA, BX)'])  # unknown award
+
     def test_programs_az_table_count(self):  # Colorado State 2026-27 Programs A-Z table
         import tempfile, gzip
         from programs.catalog_counts import table_entries
@@ -3353,6 +3493,67 @@ class CatalogCountTests(unittest.TestCase):
         self.assertTrue(b.endswith("Not recorded (names separated by ' | '): BA in Mathematics | Bachelor of Arts in Education."), b)
         self.assertEqual(whole_degree('Bachelor of Science in Human Resource Management'), whole_degree('Human Resource Management (BS)'))
         self.assertIsNone(whole_degree('Education (BA) with EC-6 Core Subjects'))
+
+    def test_tracks_combined_tracks_and_delivery_variants(self):  # YSU 2026-27 program list
+        import tempfile
+        from programs.catalog_counts import entries, track_of_listed
+        u = 'https://catalog.x.edu/'
+        listing = [('Bachelor of Arts in Multimedia Communication', u + 'mmc', 'bachelor'),
+                   ('Bachelor of Arts in Multimedia Communication, Public Relations Track', u + 'mmc-pr', 'bachelor'),
+                   ("Bachelor of Arts in Multimedia Communication, Bachelor's to Master's Track", u + 'mmc-ma', 'bachelor'),
+                   ('Bachelor of Science in Computer Science', u + 'cs', 'bachelor'),
+                   ('Bachelor of Science in Computer Science Cybersecurity Track', u + 'cs-cyber', 'bachelor'),
+                   ('Bachelor of Science in Respiratory Care', u + 'rc', 'bachelor'),
+                   ('Bachelor of Science in Respiratory Care with Advanced Placement Option to Master of Respiratory Care', u + 'rc-m', 'bachelor'),
+                   ('Bachelor of Science in Applied Science in Exercise Science', u + 'ex', 'bachelor'),
+                   ('Bachelor of Science in Applied Science Exercise Science - MAT Track', u + 'ex/mat-track', 'bachelor'),
+                   ('Bachelor of Arts in Biochemistry', u + 'biochem', 'bachelor'),
+                   ('Bachelor of Science in Biochemistry - Research Track', u + 'biochem/research-track', 'bachelor'),  # another award: counted
+                   ('Bachelor of Science in Geographic Information Science', u + 'gis', 'bachelor'),
+                   ('Bachelor of Science in Geographic Information Science (online)', u + 'gis-online', 'bachelor'),
+                   ('Bachelor of Fine Arts in Graphic Design (Online)', u + 'gd-online', 'bachelor'),
+                   ('Bachelor of Science in Chemistry Track', u + 'chem-track', 'bachelor')]  # no 'Chemistry' degree listed: counted
+        records = [('Bachelor of Arts in Multimedia Communication', u + 'mmc'), ('Bachelor of Science in Computer Science', u + 'cs'),
+                   ('Bachelor of Science in Respiratory Care', u + 'rc'), ('Bachelor of Science in Applied Science in Exercise Science', u + 'ex'),
+                   ('Bachelor of Science in Geographic Information Science', u + 'gis'), ('Bachelor of Fine Arts in Graphic Design', u + 'gd-online'),
+                   ('Bachelor of Arts in Biochemistry', u + 'biochem')]
+        with tempfile.TemporaryDirectory() as d:
+            d = self.run_dir(d, listing, records)
+            e = entries(d, d / 'dec.json', ['k'])[0]
+        b = e['completeness_basis']
+        # the online degree has its own entry and page: a program of its own (not merged into the campus degree)
+        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (10, 7), b)
+        self.assertTrue(b.endswith("Not recorded (names separated by ' | '): Bachelor of Science in Biochemistry - Research Track | "
+                                   "Bachelor of Science in Chemistry Track | Bachelor of Science in Geographic Information Science (online)."), b)
+        degrees = {('multimediacommunication', 'ba')}
+        self.assertTrue(track_of_listed('Bachelor of Arts in Multimedia Communication Sports Track', degrees))
+        self.assertFalse(track_of_listed('Bachelor of Science in Multimedia Communication Sports Track', degrees))  # another award
+        self.assertFalse(track_of_listed('Bachelor of Arts in Multimedia Communication', degrees))  # the degree itself
+
+    def test_jhu_combined_policy_and_double_degree_entries(self):  # JHU 2026-27 program list
+        import tempfile
+        from programs.catalog_counts import entries, whole_degree
+        u = 'https://catalog.x.edu/'
+        listing = [('Biology, Bachelor of Arts/Master of Science', u + 'bio-ba-ms', 'bachelor'),
+                   ("Bachelor's/Master's Degrees", u + 'ba-ma', 'bachelor'),
+                   ("Requirements for a Bachelor's Degree", u + 'reqs', 'bachelor'),
+                   ("Peabody-Homewood Double Degree ProgramPeabody InstituteBachelor's", u + 'double', 'bachelor'),
+                   ('Bachelor of Fine Arts in Dance (BFA)', u + 'dance', 'bachelor'),
+                   ('Bachelor of Music in Performance - Piano', u + 'piano', 'bachelor'),
+                   ('Biology, Bachelor of Arts', u + 'bio', 'bachelor'),
+                   ('Physics, Bachelor of Science', u + 'phys', 'bachelor')]
+        records = [('Bachelor of Fine Arts in Dance', u + 'dance-other-page'), ('Bachelor of Music in Performance - Piano', u + 'piano'),
+                   ('Biology, Bachelor of Arts', u + 'bio')]
+        with tempfile.TemporaryDirectory() as d:
+            d = self.run_dir(d, listing, records)
+            e = entries(d, d / 'dec.json', ['k'])[0]
+        b = e['completeness_basis']
+        # combined (2), policy page, double degree: not programs; Dance credited by its whole-degree identity
+        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (4, 3), b)
+        self.assertIn("Biology, Bachelor of Arts/Master of Science", b)
+        self.assertTrue(b.endswith("Not recorded (names separated by ' | '): Physics, Bachelor of Science."), b)
+        self.assertEqual(whole_degree('Bachelor of Fine Arts in Dance (BFA)'), whole_degree('Bachelor of Fine Arts in Dance'))
+        self.assertIsNone(whole_degree('Bachelor of Science in Dance (BA)'))  # two awards: not one degree
 
     def test_only_reviewed_approvals_count(self):
         import tempfile

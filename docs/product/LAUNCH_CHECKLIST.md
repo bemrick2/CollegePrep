@@ -34,7 +34,7 @@ Simulated tests (fake push service, fake FCM, fake mail) prove the code paths, n
 | Guardian sees the last **recorded** reminder send (not a test), and device permission separately from the in-app switch | yes (#220) | yes | no | as above |
 | Parent weekly summary and inactivity emails | yes, behind `VITE_WEEKLY_DIGEST` | yes, against fake mail | no | CR-22 migration; A7; schedules |
 | Only reviewed questions served | yes (CR-21 gate) | yes | no | `20261007140000` unapplied; review is AI only (A2) |
-| Reserved check questions never appear in practice; checks use only reserved questions | yes: server `20261022050000_assessment_pool` plus the client, both on #248 (open). Demo mirrors it | yes: `assessmentPool.local.test.ts` (practice can't read, get or attempt reserved items; a check refuses practice items; other roles refused) | no | #248 merge; paired release (CONTRACT_REQUESTS CR-23); a human-reviewed reserve (A1, A2) |
+| Questions held for the next check never appear in practice | yes: demo; live via the server's reserved pool (CR-23: #248, migration and client; the #221 client rule is retired) | yes: local backend (`assessmentPool.local.test.ts`, `supabase/tests/assessment_pool.sql`) | no | B1: migration `20261022050000` applied on hosted, reserve marked |
 | Repeats labeled and never counted as improvement | yes | yes | no | none |
 | Honest when fresh questions run out; shortened or repeated checks labelled, no verdict on repeats | yes | yes (component and local tests) | no | A1, the bank size (`PRACTICE_READINESS.md`) |
 | No ACT/SAT score prediction | yes (`PRACTICE_ESTIMATES_VALIDATED = false`) | yes | n/a | Validated model (CR-3) |
@@ -50,7 +50,7 @@ Simulated tests (fake push service, fake FCM, fake mail) prove the code paths, n
 | A2 | Human editorial review of every published item, including the existing 58 | Content | ⛔ | All 58 are reviewed by AI only. Human-approved: 0 of 58. The tooling is ready (#207: ledger, blind packets, sign-off import, rules enforced by tests). There is no named human approver. |
 | A3 | Privacy policy and terms approved | Owner + Counsel | 🚧 | Drafts and 12 decisions are in #165 (`docs/legal/`). Minimum age (13+ recommended), retention, entity and contacts are needed. |
 | A4 | Data deletion and export path | Research (procedure) + Design (UI) | ⛔ | No deletion or export function exists. Choose manual with a stated response time, or in-app (`DECISIONS.md` #6). |
-| A5 | Hosted Supabase restored, and migration history reconciled before applying anything | Owner (restore) → Research (#122) | ⛔ | Paused. The live history ends at `20261006104254`. Probably unapplied (verify per `SUPABASE_PAUSE.md` step 4): `20261006120000`–`20261006180400`, `20261007120000`, `20261007140000`, `20261022010000` role rules, `20261022030000` rights gate, `20261022040000` cost components, and `20261022050000` assessment pool once #248 merges. Steps: §H. |
+| A5 | Hosted Supabase restored, and migration history reconciled before applying anything | Owner (restore) → Research (#122) | ⛔ | Paused. Unapplied on hosted: `20261007120000` cost v2 and `20261007140000` question review (#142), and every migration since, including CR-24 (`20261022030000`) and CR-23 (`20261022050000`); CR-22 once it becomes a migration. Order: `docs/SUPABASE_PAUSE.md` step 4. |
 | A6 | Real-account tests: sign-up with email confirmation, two-browser invitation acceptance, RLS with real tokens | Owner (runs the accounts) + Design (script) | ⛔ | Needs A5. The journeys and permissions pass against the local backend (#217). Sign-up, email confirmation and real tokens can't run locally: the local auth is a stub. |
 | A7 | Email sending works | Owner | ⛔ | Verify the Resend domain (`mail.getcimiento.com` DNS) and set the `RESEND_API_KEY` secret. |
 | A8 | Billing works with live Stripe | Owner | ⛔ | Owner setup in `STRIPE_BILLING.md`, then a real checkout, portal and cancel test. It has only been tested with mocks so far. |
@@ -60,7 +60,7 @@ Simulated tests (fake push service, fake FCM, fake mail) prove the code paths, n
 
 | # | Item | Owner | Status | Concrete blocker |
 |---|---|---|---|---|
-| B1 | CR-23: reserved assessment pool on the server; `seen_before` and first-answer metrics | Research + Design | 🚧 #248 | Part 1 (pool, checks, repeats) and the client are on #248. Part 2 (`seen_before` on practice items, first-answer estimates) is open. The reserve count RPC `assessment_pool_status` is requested. |
+| B1 | CR-23: server holds check items out of practice; `seen_before` and first-answer metrics | Research | ⏳ | Part 1 built and tested locally (#248: migration and the client that reads `pool`; #244 added the client-side reserve and insufficient-pool rules); unapplied on hosted (A5). Part 2 (`seen_before` on practice items, first-answer fields) open. **Hosted acceptance after applying:** (1) `supabase/tests/assessment_pool.sql` passes on a branch copy; (2) `select count(*) from practice_questions where pool = 'assessment' and status = 'published' and review_current` per exam version and section matches the chosen reserve, spread across difficulties; (3) with a real student token, `publishedQuestions` returns no reserved item before a check, `start_benchmark` without a version is refused, a check serves only reserved items and a second start before any answer resumes it; (4) a guardian sees `assessment_pool_status` counts and no unattempted reserved item; (5) only then deploy the client (`docs/DEPLOYING.md` gate). **Before a bank larger than one check goes live:** #263 (an open check exposes the whole reserve; reading without attempting isn’t counted as seen). |
 | B2 | CR-22: parent email opt-in, digest and inactivity payloads, delivery log, as a real migration | Research | ⏳ | Reference SQL in `scripts/local/proposals/cr22_parent_emails.sql`. Then the Owner deploys `send-weekly-digest`, adds the schedules and sets `VITE_WEEKLY_DIGEST=true` (after A5 and A7). |
 | B3 | "Full" progress check falls back to a mini until a held-out full-length form exists | Design | 🚧 #167 | Done in code (`FULL_FORM_READY = false`); switch on only when Content delivers a held-out full-length form per exam. |
 | B4 | CR-24 rights gate and CR-25 "report a problem" | Research, then Design (UI) | 🚧 | CR-24 merged (#245, unapplied). CR-25 open. Imported questions follow `QUESTION_IMPORT_CONTRACT.md`; batches arrive on #254 (none yet). |
@@ -91,7 +91,12 @@ Nothing here runs until the owner lifts the hold. For every step, record the dat
 4. **Pass:** every SQL suite passes on the branch, and the production history lists each version exactly once.
 
 **H2. Paired releases (Research + Design).** A migration and the client that reads it ship together, with flags still off:
-- **`20261022050000` assessment pool:** release it with the #248 client, and mark the reserve (`pool = 'assessment'`) in the same apply. Choose the reserve only from human-reviewed items (A2), and never from items a student has seen in practice (CONTRACT_REQUESTS CR-23).
+- **`20261022050000` assessment pool (CR-23 paired release; Research's order, #248):**
+  1. The owner lifts the hold. Apply `20261022050000` together with the earlier unapplied migrations, in filename order (H1).
+  2. In the same apply, mark the reserve (`pool = 'assessment'`). Choose it only from human-reviewed items (A2), spread across difficulties, and never from items a student has seen in practice. A column with no reserve marked would make every check "Not measured".
+  3. Run H2's pass checks and H3 step 5.
+  4. Only then deploy a client built from main. **Don't redeploy staging from main before step 1:** main's client selects `pool`, so against today's hosted schema every practice read fails with 42703.
+  5. **Before a reserve larger than one check's worth goes live:** resolve #263. While any check is open, the whole reserve is readable, and reading without attempting isn't counted as seen. With today's 13-item reserve this exposes nothing extra.
 - **`20261022010000` role rules:** release with #247 (already on main).
 - **`20261006180300` exam plan:** release with `VITE_EXAM_PLAN` still off until H3 step 4 passes.
 - **Pass:**
@@ -112,17 +117,27 @@ Nothing here runs until the owner lifts the hold. For every step, record the dat
    - Run two practice sessions.
    - Start the starting check and finish it.
    - Start a second check.
-   - Via the REST API with the student's token: an attempt on a practice question inside the open check, and an attempt on a reserved question with no check.
+   - Via the REST API with the student's token: an attempt on a practice question inside the open check, an attempt on a reserved question with no check, and a `practice_questions` read of `pool = 'assessment'` with no check open.
+   - Via the REST API with the parent's and the view-only guardian's tokens: `benchmark_questions` and `start_practice_attempt` on the student's open check.
+   - Leave a check open past 4 hours (or mark it expired on a branch copy), then answer in the open tab.
 
    **Pass:**
    - sessions contain no reserved item (SQL join on `practice_session_items`);
    - the check's items are all `pool = 'assessment'`;
-   - both API attempts return 22023;
+   - both student API attempts return 22023, and the read returns no rows;
+   - the parent's and guardian's calls return 42501;
+   - the expired tab says "This progress check has ended", with "Start a new check", and the earlier answer is stored once;
    - a short section is labelled "Shorter";
-   - the second check's repeated sections say "Not a clean comparison" and show no verdict.
-6. **Rights gate:** as the service role on a branch copy, publish a question with no license. **Pass:** refused.
-7. **Billing (A8):** follow `STRIPE_BILLING.md` in Stripe test mode, then once in live mode with a real card refunded the same day. **Pass:** checkout, portal and cancel each change the entitlement exactly once.
-8. **Parent emails (A7, B2):**
+   - the second check's repeated sections say "Not a clean comparison" and show no verdict;
+   - "Am I improving?" gives no verdict between checks with different sections or lengths, or with repeats;
+   - no screen shows an ACT or SAT score prediction.
+6. **Cost & credit:** the student has AP scores that earn credit at a saved school with a verified plan. **Pass:**
+   - credit coverage is shown as coverage ("not a shorter degree");
+   - "Time and money saved: not shown" names the missing prerequisites, availability, sequencing and remaining-requirements records;
+   - no dollar or semester saving appears on Cost & credit, Paths, Compare, the college detail page, the parent dashboard or the pilot plan.
+7. **Rights gate:** as the service role on a branch copy, publish a question with no license. **Pass:** refused.
+8. **Billing (A8):** follow `STRIPE_BILLING.md` in Stripe test mode, then once in live mode with a real card refunded the same day. **Pass:** checkout, portal and cancel each change the entitlement exactly once.
+9. **Parent emails (A7, B2):**
    - Opt in one parent and run `send-weekly-digest` in dry-run mode.
    - Then run it for real once.
    - Then run it again.
@@ -136,7 +151,7 @@ Nothing here runs until the owner lifts the hold. For every step, record the dat
 - `VITE_EXAM_PLAN` after H3.4.
 - `VITE_ACCOUNT_SETUP` after the CR-26 migration and H3.1–2.
 - `VITE_PRACTICE_REMINDERS` after CR-27 and R1–R7.
-- `VITE_WEEKLY_DIGEST` after CR-22 and H3.8.
+- `VITE_WEEKLY_DIGEST` after CR-22 and H3.9.
 - `VITE_PLANNING_PILOT` only after the pilot gate (`PLANNING_ENGINE.md`).
 - **Pass:** each production build's env shows exactly the flags whose steps passed.
 

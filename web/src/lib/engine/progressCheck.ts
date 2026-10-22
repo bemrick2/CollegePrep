@@ -51,8 +51,9 @@ function compareTo(current: BenchmarkSummary, other: BenchmarkSummary | null, re
   return current.metrics.sections.map((s) => {
     const o = other?.metrics.sections.find((x) => x.section === s.section) ?? null
     const now = { correct: s.correct, answered: s.answered, accuracy: s.accuracy }
-    const repeatsNow = rNow.get(s.section) ?? 0
-    const repeatsThen = rThen.get(s.section) ?? 0
+    // Repeats as the app counts them, or as the server recorded them (metrics v2), whichever is larger.
+    const repeatsNow = Math.max(rNow.get(s.section) ?? 0, s.repeats ?? 0)
+    const repeatsThen = Math.max(rThen.get(s.section) ?? 0, o?.repeats ?? 0)
     if (!o) return { section: s.section, now, then: null, delta: null, verdict: 'too_few', pacingNow: s.pacing_ratio, pacingThen: null, repeatsNow, repeatsThen }
     const then = { correct: o.correct, answered: o.answered, accuracy: o.accuracy }
     const judged = judgeChange(now, then)

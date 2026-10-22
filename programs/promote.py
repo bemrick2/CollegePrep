@@ -29,7 +29,7 @@ from pathlib import Path
 from backend.catalog import ROOT
 from backend.store import natural_key
 from pipeline.promote import status_for, _upsert, _file_for
-from .extract import THEC_PAGE
+from .extract import THEC_PAGE, MULTI_AWARD_NAME
 from .match import split_catalog_name
 
 FIELDS = ('admission_type', 'internal_transfer')
@@ -82,8 +82,11 @@ def program_keymap(approvals, cands, folders):
         for r in (old or {}).get('records', []):
             # a page that prints several degrees (department_section/v1) is the URL of each; a record already on file
             # under its own key is never mapped onto a sibling's key
+            # nor is a degree split from a page titled for several awards ('Biology (BA, BS)', UT Dallas) mapped onto that
+            # page's combined record: each printed degree is its own program
             same_url = (r.get('program_url') == c['record'].get('program_url') and c['record']['program_key'] not in on_file_keys
-                        and c['extractor'] != 'department_section/v1')
+                        and c['extractor'] != 'department_section/v1'
+                        and not (c['extractor'] == 'edition_program/v1' and MULTI_AWARD_NAME.match(r.get('program_name', ''))))
             # A state-inventory record (THEC) for the same major and award becomes this catalog record: one program, the
             # catalog's stronger evidence, the inventory's CIP kept (exact name + award match only, programs.match).
             same_inventory_program = (r.get('program_url') == THEC_PAGE and c['record'].get('program_url') != THEC_PAGE
@@ -110,7 +113,11 @@ def kept_record(c, rec, folders, promoted_ids, approval=None):
     on_file = next((r for r in (old or {}).get('records', []) if key(r) == key(rec)), None)
     if on_file is None: return None
     nk = json.dumps(json.loads(natural_key(c['domain'], {**on_file, 'institution_key': c['institution_key'], 'academic_year': c['academic_year']})), sort_keys=True)
-    if on_file.get('verification_correction_reason') or nk in corrected_keys(): return 'owner-approved correction on file'
+    if on_file.get('verification_correction_reason') or nk in corrected_keys():
+        # #229 recovery: a reviewed re-extraction by a reader that fixes the defect behind the correction may replace it
+        # only when the approval says why ('replaces_correction'); the corrections.json entry stays as the audit trail
+        if not (approval or {}).get('replaces_correction'): return 'owner-approved correction on file'
+        return None
     # a reviewed re-extraction of the same candidate (UMD 2026-10-08: an award read from an official school page) replaces
     # the record only when the approval says so ('replaces_promoted': why)
     if c['candidate_id'] in promoted_ids and not (approval or {}).get('replaces_promoted'): return 'already promoted from this run'
@@ -157,6 +164,8 @@ def promote(decisions_path: Path, log=print):
         note = f" Reviewed {date.today().isoformat()}: {a.get('reason', '').strip()}"
         if a.get('accept_issues'): note += f" Accepted issues {c['issues']}: {a['accept_issues']}"
         if a.get('replaces_promoted'): note += f" Replaces the record promoted earlier from this candidate: {a['replaces_promoted']}"
+        if a.get('replaces_correction'):  # the candidate's record carries no correction reason; the replaced record's goes with it
+            note += f" Re-verified after the correction on file (kept in supabase/corrections.json): {a['replaces_correction']}"
         rec['notes'] = (rec.get('notes', '') + note + f" Evidence: sources/programs/{state}/{run_dir.name}/evidence.json#{c['candidate_id']}.").strip()
         if c['domain'] == 'degree_requirements':
             on_file = _records(folders[c['institution_key']], 'academic_programs', c['academic_year']) or {'records': []}
@@ -189,7 +198,7 @@ def promote(decisions_path: Path, log=print):
     prior = json.loads(out.read_text()) if out.exists() else {}
     # a replaced decision stays in the archive under its own key (its original review is part of the record's history)
     kept_prior = {f"{cid}~superseded-{date.today().isoformat()}": prior[cid] for cid, v in archive.items()
-                  if cid in prior and (v.get('decision') or {}).get('replaces_promoted')}
+                  if cid in prior and ((v.get('decision') or {}).get('replaces_promoted') or (v.get('decision') or {}).get('replaces_correction'))}
     out.write_text(json.dumps({**prior, **kept_prior, **archive}, indent=1, sort_keys=True, ensure_ascii=False) + '\n', encoding='utf-8')
     log(f'promoted {written} records/fields; evidence in {out.relative_to(ROOT)}' + (f'; {kept} kept as on file' if kept else ''))
     return written

@@ -156,3 +156,44 @@ Owner approval 2026-10-21: repair the older verified plans and the course-choice
   - subtotals printed for a whole term or year (SLU sub-sessions, Marshall, UVU, UNC);
   - '.5', '3 or 4' and '1 (0)' credits.
 - #250: Course List subjects of 6–7 letters or two words.
+
+## Recovery (2026-10-22)
+
+The #255 readers (YSU 'S.H.' header, LMU 'Minimum Semester Hours' total, SLU session subtotals) were re-run with main on the 12 runs behind the 119 downgraded plans.
+
+- **Candidates:** 107 came back with no issues and no verify findings; 12 are still held by the reader:
+  - subtotals spanning terms (SLU 1, Marshall, UNC, UVU);
+  - unread label rows (Dunwoody 2, Lorain, Akron);
+  - alternatives not printed as stored (EKU, Oregon State);
+  - plan heading label (1);
+  - shared plan key (Montana).
+- **Independent review:** read-only. The reviewer used its own parser on the stored grid cells, checked all 107 mechanically and hand-checked 28.
+  - **Approved: 61** (LMU 22, YSU 34, SLU 5).
+  - **Held: 46**, for these reasons:
+    - 26: a printed 'Select one' block stored flat, so every option reads as required;
+    - 19: an 'or' row kept as one printed string rather than alternatives (15 have no other problem);
+    - 3: a credit cell printed as '.5' or '3 or 4' was dropped (EKU, UIC), or a session heading was stored as an item (LMU);
+    - 3: a bare '3' or 'or' row was stored as an item (YSU).
+- **Re-promotion:** `programs/promote.py` takes a new, explicit approval field, `replaces_correction`. A record with an owner-approved correction on file is still refused without it.
+  - The 61 records are verified again and no longer carry `verification_correction_reason`.
+  - Their `supabase/corrections.json` entries stay as the audit trail.
+  - Each record's notes cite the correction and the new review, and the superseded decision stays in the evidence archive.
+  - Decisions: `programs/decisions/*-plans-i229-recovery.json`.
+- **Reader fix in the same PR:** a plan row whose code cell is read as a course but whose credit cell is not a plain number ('.5', '3 or 4', '1 (0)', '-', '0.0,4.0') is now kept as printed. Before, those credits were dropped.
+  - This changes 154 of 10,061 stored grids.
+  - No verified plan carries such a row. Only the 3 partially verified plans named above do (EKU, UIC, Montana).
+
+| | Before recovery (main `9ccbc6a`) | After |
+|---|---|---|
+| Verified plans | 3,441 at 66 schools | 3,502 at 68 schools |
+| #229 plans still partially verified | 119 | 58 |
+
+Still open:
+- 58 plans stay partially verified with their corrections.
+- 51 groups stay downgraded.
+
+Reader follow-ups for these:
+- read 'Select one' blocks as choices;
+- read multi-row 'or' alternatives;
+- skip blank-name and 'or' separator rows;
+- treat a heading row with an empty credit cell as a term.
