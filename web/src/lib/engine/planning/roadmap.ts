@@ -234,7 +234,7 @@ export function buildRoadmap({ comparison: c, programKey, planKey = null, comple
     group: t.group,
     creditHours: t.creditHours,
     rows: t.entries.map(
-      (e): PlanCourseRow => ({ kind: e.kind as PlanCourseRow['kind'], code: e.code, title: e.title, text: e.text, credits: e.credits, note: e.note, milestone: e.milestone, options: e.choices.map((x) => x.text) }),
+      (e): PlanCourseRow => ({ kind: e.kind as PlanCourseRow['kind'], code: e.code, title: e.title, text: e.text, credits: e.credits, note: e.note, milestone: e.milestone, options: e.choices.map((x) => x.text), choose: e.choose }),
     ),
     covered: dc.coveredTerms.some((x) => x.term === t.termIndex),
     notChecked: t.notChecked,
