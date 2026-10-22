@@ -371,15 +371,16 @@ def _filled(row):
     return sum(bool(c.strip()) for c in row)
 
 
-def group_label_row(rows):
+def group_label_row(rows, spanned=False):
     """True when rows[0] is a group label printed above the real header (OK, Oklahoma Christian: "Minimum Scores of Recipient"
     over GPA | ACT | SAT). On the printed grid a spanning label is padded to full width, so it is told apart by how many cells
     it fills, not by its length (#273 review)."""
     if not (len(rows) > 3 and len(rows[0]) >= 2 and _filled(rows[0]) <= 2 and not re.search(r'\d', ' '.join(rows[0])) and len(rows[1]) >= 3):
         return False
     if len(rows[1]) > len(rows[0]): return True
-    # padded to the grid's width: a lone title in the first column is the table's title, not a group label (AR: UA-PTC)
-    return len(rows[1]) == len(rows[0]) and _filled(rows[1]) > _filled(rows[0]) and not (_filled(rows[0]) == 1 and rows[0][0].strip())
+    # padded to the grid's width (only when rows[0] holds a cell merged across columns - a real header with a blank column
+    # is not a label: ND, Jamestown "Scholarship | GPA | (blank)"); a lone title in the first column is the table's title, not a group label (AR: UA-PTC)
+    return spanned and len(rows[1]) == len(rows[0]) and _filled(rows[1]) > _filled(rows[0]) and not (_filled(rows[0]) == 1 and rows[0][0].strip())
 
 
 def spans_criteria(t):
@@ -391,7 +392,7 @@ def spans_criteria(t):
     not the header."""
     grid = T.expand_spans(t)
     if not grid: return None
-    head = 1 if group_label_row(grid) and HEADER_WORDS.search(' '.join(grid[1])) else 0
+    head = 1 if group_label_row(grid, any(ri == 0 for ri, _, _ in T.wide_cells(t))) and HEADER_WORDS.search(' '.join(grid[1])) else 0
     header = grid[head]
     for ri, col, cs in T.wide_cells(t):
         if ri <= head: continue
@@ -606,7 +607,8 @@ def extract(inst, entry, page, today_year):
     year, basis, issues = common.resolve_year(page, entry, today_year)
     out = []
     for t in page.tables:
-        rows = [r for r in (T.expand_spans(t) or t['rows']) if any(c.strip() for c in r)]  # the printed grid when spans were recorded
+        grid = T.expand_spans(t)
+        rows = [r for r in (grid or t['rows']) if any(c.strip() for c in r)]  # the printed grid when spans were recorded
         span_issue = spans_criteria(t)
         if len(rows) < 3: continue
         context = ' '.join([t.get('heading') or '', t.get('caption') or ''])
@@ -615,7 +617,7 @@ def extract(inst, entry, page, today_year):
         if len(rows) > 3 and _filled(rows[0]) == 1 and (len(rows[0]) == 1 or t.get('spans')) and re.search(r'\d{2}', rows[0][0]) and re.search(r'\b(act|sat)\b', rows[0][0], re.I) and len(rows[0][0]) <= 80:
             scope_test, rows = rows[0][0], rows[1:]  # AL (JSU): "26-28 ACT or 1230-1320 SAT" above a GPA | amount table applies to every row
         header, body = rows[0], rows[1:]
-        if group_label_row(rows) and HEADER_WORDS.search(' '.join(rows[1])) and not any(T.money_values(c) for c in rows[1]) \
+        if group_label_row(rows, any(rows[0] is grid[ri] for ri, _, _ in T.wide_cells(t)) if grid else False) and HEADER_WORDS.search(' '.join(rows[1])) and not any(T.money_values(c) for c in rows[1]) \
                 and sum(len(r) > len(rows[1]) for r in rows[2:]) <= 1:
             header, body = rows[1], rows[2:]  # OK (Oklahoma Christian): a spanning group label ("Minimum Scores of Recipient") above the header
         if sum(1 for r in body if any(PHONE.search(c) for c in r)) >= 2: continue  # NM (Luna): a staff contact table, not awards

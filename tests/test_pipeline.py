@@ -2379,6 +2379,11 @@ class MeritGridTests(unittest.TestCase):
 <tr><td></td><td>ACT</td><td>ACCUPLACER</td><td>HS GPA 2.5 and ABOVE</td></tr><tr><td>Trustee Scholarship</td><td>27-36</td><td>277-300</td><td>Full Tuition</td></tr>
 <tr><td>Chancellor Scholarship</td><td>23-26</td><td>266-276</td><td>$3,000</td></tr><tr><td>Dean Scholarship</td><td>21-22</td><td>261-265</td><td>$2,000</td></tr></table>"""
         self.assertEqual(self.got(ptc), {})  # a lone title across the table is still not a group label
+        jc = """<title>Merit Scholarships</title><h2>2027-2028 Merit Scholarships</h2><table><tr><th>Scholarship</th><th>GPA</th><th></th></tr>
+<tr><td>Presidential Scholarship</td><td>3.75</td><td>Full tuition</td></tr><tr><td>Dean's</td><td>3.5</td><td>$6,000</td></tr><tr><td>Founders</td><td>3.25</td><td>$4,000</td></tr></table>"""
+        self.assertEqual(sorted(self.got(jc)), sorted(self.got(jc.replace('<th></th>', '<th>Amount</th>'))))  # ND (Jamestown): a blank header
+        self.assertTrue(self.got(jc))  # column is not a group label, with or without span markup
+        self.assertEqual(len(self.got(jc.replace('</table>', '<tr><td colspan="3">* Renewable for four years.</td></tr></table>'))), 3)  # spans recorded
         jsu = """<title>First-Time Freshman Merit-Based Scholarships</title><h2>2026-2027 Merit-Based Scholarships</h2><h3>Gamecock Tradition</h3><table>
 <tr><td colspan="3">26-28 ACT or 1230-1320 SAT</td></tr><tr><th>High School GPA</th><th>Total Annual Amount</th><th>Total 4-Year Amount</th></tr>
 <tr><td>2.00 - 2.99</td><td>$3,000</td><td>$12,000</td></tr><tr><td>3.00 - 3.24</td><td>$5,000</td><td>$20,000</td></tr>
