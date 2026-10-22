@@ -214,7 +214,7 @@ export function planTerms(terms: PlanTermLike[]): PlanTermView[] {
   // Quarter calendars: a winter term with rows, or any term or inline heading naming a quarter.
   const quarter = terms.some(
     (t) =>
-      (/\bquarter\b/i.test(t.label ?? '') || (/^winter\b/i.test(t.label ?? '') && !isHeadingTerm(t))) ||
+      (/\bquarter\b/i.test(t.label ?? '') || (/\bwinter\b/i.test(t.label ?? '') && !isHeadingTerm(t))) ||
       readTermItems(t).some((e) => e.kind === 'heading' && /\bquarter\b/i.test(e.text)),
   )
   terms.forEach((t, i) => {
@@ -232,7 +232,7 @@ export function planTerms(terms: PlanTermLike[]): PlanTermView[] {
       label = semesterHeads[0]!.text
       entries = entries.slice(1)
     }
-    const multiTerm = entries.some((e) => e.kind === 'heading' && SEMESTER_HEADING.test(e.text)) || YEAR_HEADING.test(label) || entries.filter((e) => e.kind === 'subtotal').length > 1
+    const multiTerm = entries.some((e) => e.kind === 'heading' && SEMESTER_HEADING.test(e.text)) || YEAR_HEADING.test(label) || entries.filter((e) => e.kind === 'subtotal' && !/^(?:total|minimum)\b/i.test(e.text)).length > 1
     const hours = typeof t.credit_hours === 'string' && t.credit_hours.trim() ? t.credit_hours.trim() : null
     // Printed hours, or else the rows' printed credits (each at its lowest); used only to tell a full-time term.
     const reqs = entries.filter(isRequirement)

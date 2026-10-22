@@ -169,4 +169,17 @@ describe('review findings on stored plans (#242)', () => {
     const m = { status: 'qualifies', exam: { name: 'X' }, earned: [{ course: 'VOK 101', credits: 1, minimumText: '3' }] }
     expect(degreeCredit([m as never], terms).coveredTerms).toEqual([{ term: 1, label: 'Fall' }])
   })
+
+  it('a plan-total row in the last semester does not make it a year block (JSU)', () => {
+    const t = planTerms([{ term_index: 8, label: 'Spring', items: ['BIOL 4990 | Senior Seminar | 3', 'Hours | 12', 'Total Hours | 120'] }])[0]!
+    expect(t.multiTerm).toBe(false)
+  })
+
+  it('a quarter label inside a longer heading still marks a quarter calendar (EOU)', () => {
+    const ts = planTerms([
+      { term_index: 1, label: 'TYPICAL THIRD YEAR CURRICULUM — Fall', items: [{ code: 'BA 303', credits: 4 }, { code: 'BA 312', credits: 4 }, { code: 'BA 321', credits: 4 }] },
+      { term_index: 2, label: 'TYPICAL THIRD YEAR CURRICULUM — Winter', items: [{ code: 'BA 304', credits: 4 }, { code: 'BA 313', credits: 4 }, { code: 'BA 322', credits: 4 }] },
+    ])
+    expect(ts.map((t) => t.notChecked)).toEqual(['quarter_calendar', 'quarter_calendar'])
+  })
 })
