@@ -198,7 +198,9 @@ describe.skipIf(!URL_)('reserved assessment pool on the server (CR-23)', () => {
     const anonToken = `${anonBody}.${createHmac('sha256', SECRET).update(anonBody).digest('base64url')}`
     const anon = createClient(URL_!, anonToken, { auth: { persistSession: false, autoRefreshToken: false }, global: { headers: { Authorization: `Bearer ${anonToken}` } } })
     const anonRead = await anon.from('practice_questions').select('id').eq('pool', 'assessment')
-    expect(anonRead.error !== null || (anonRead.data ?? []).length === 0).toBe(true)
+    // anon has no select grant on practice_questions here (42501). A hosted project's default grants may differ, which is
+    // why the rule this test protects is "no reserved row", and the code is checked only when there's an error.
+    expect(anonRead.error ? anonRead.error.code : (anonRead.data ?? []).length).toBe(anonRead.error ? '42501' : 0)
     expect((await anon.rpc('start_benchmark', { p_student: studentId, p_kind: 'mini', p_exam_version: act })).error?.code).toBe('42501')
     // A guardian (even the parent who manages the student) can't open a check for the student, so can't unlock the reserve.
     for (const who of ['PARENT', 'VIEWER'] as const) {
