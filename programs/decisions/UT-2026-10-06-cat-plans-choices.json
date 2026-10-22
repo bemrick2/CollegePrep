@@ -1,0 +1,12 @@
+{
+ "run": "programs/runs/UT/2026-10-06-cat",
+ "run_branch": "program-run/*",
+ "reviewer": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options.",
+ "approve": [
+  {
+   "candidate_id": "b45db322b5bea574",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence UT/2026-10-06-cat#b45db322b5bea574) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  }
+ ]
+}

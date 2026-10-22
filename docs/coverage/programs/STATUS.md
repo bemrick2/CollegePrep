@@ -72,7 +72,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | AL | **in_progress** | 31 | 1 | 6% (needs 80%) | 0 | 27 | 36 |
 | AR | **in_progress** | 26 | 0 | 0% (needs 80%) | 0 | 23 | 26 |
 | AZ | **in_progress** | 17 | 0 | 0% (needs 80%) | 0 | 7 | 17 |
-| CA | **in_progress** | 152 | 5 | 7% (needs 80%) | 1 | 111 | 172 |
+| CA | **in_progress** | 152 | 5 | 7% (needs 80%) | 0 | 111 | 172 |
 | CO | **in_progress** | 30 | 2 | 23% (needs 80%) | 0 | 24 | 36 |
 | CT | **in_progress** | 26 | 0 | 0% (needs 80%) | 0 | 20 | 31 |
 | DC | **in_progress** | 9 | 0 | 0% (needs 80%) | 0 | 6 | 11 |
@@ -264,7 +264,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Stanford University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Solano Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Santa Clara University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Loyola Marymount University | covered_open_items | 62 | 61 | 22 | 148 | met | open | met | queued | admission_rules:not_yet_researched |
+| Loyola Marymount University | covered | 62 | 61 | 31 | 148 | met | met | met | queued | admission_rules:not_yet_researched |
 | West Los Angeles College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | California Baptist University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of San Diego | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |

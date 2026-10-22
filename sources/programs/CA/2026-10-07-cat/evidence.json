@@ -4015,6 +4015,89 @@
   },
   "year_basis": "source_unlabeled"
  },
+ "109d43c26cf5e84c": {
+  "decision": {
+   "candidate_id": "109d43c26cf5e84c",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Minimum Semester Hours 125-146 (as printed)' = printed total; differs: v1 record stored header/subtotal rows as items and lacked subtotals/total; new record has printed terms, subtotals, total and structured items (field code,credits,title x2, field code,title x2, string->any_of x1, string->code x1, string->text x8), all supported",
+   "replaces_correction": "The #229 correction held this plan (evidence CA/2026-10-07-cat#af5ce502bc5557c5); the remaining defect, a printed choice block stored flat, is read as one choice item and the review confirmed the grid.",
+   "replaces_promoted": "Plan on file (evidence CA/2026-10-07-cat#af5ce502bc5557c5) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 8 items, 16-18 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 8 items, 15-18 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore Year: 0 items, ? credits",
+    "value": "Sophomore Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 8 items, 16-19 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 7 items, 14-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior Year: 0 items, ? credits",
+    "value": "Junior Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 7 items, 17-19 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 15-18 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior Year: 0 items, ? credits",
+    "value": "Senior Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 16-19 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 16-19 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T15:24:22+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 25 Sep 2026 16:40:46 GMT",
+   "page_file": "4d199357770d7e201423.json.gz",
+   "requested_url": "https://bulletin.lmu.edu/schools-colleges/communication-fine-arts/music/music-ba/",
+   "sha256": "4d199357770d7e2014237e4bde7a9704b2ec5170aa37f508ff3db5adbdf24a24",
+   "title": "Music, B.A. | Academic Bulletin",
+   "url": "https://bulletin.lmu.edu/schools-colleges/communication-fine-arts/music/music-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "10b19e5584e41555": {
   "decision": {
    "candidate_id": "10b19e5584e41555",
@@ -6929,6 +7012,89 @@
    "sha256": "f12ae37cb7362ee5dca5d25ea69a1bbd32a34732c4aa0ba3d6b4d9fdd88682fa",
    "title": "Software Engineering (BS) | Cal Poly Academic Catalog",
    "url": "https://catalog.calpoly.edu/engineering/computer-science-software/software-engineering-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "1dac110697564632": {
+  "decision": {
+   "candidate_id": "1dac110697564632",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Minimum Semester Hours 108-128 (as printed)' = printed total; differs: v1 record stored header/subtotal rows as items and lacked subtotals/total; new record has printed terms, subtotals, total and structured items (), all supported",
+   "replaces_correction": "The #229 correction held this plan (evidence CA/2026-10-07-cat#532097379f672419); the remaining defect, a printed choice block stored flat, is read as one choice item and the review confirmed the grid.",
+   "replaces_promoted": "Plan on file (evidence CA/2026-10-07-cat#532097379f672419) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 14-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 14-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore Year: 0 items, ? credits",
+    "value": "Sophomore Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 13-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 13-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior Year: 0 items, ? credits",
+    "value": "Junior Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 14-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 13-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior Year: 0 items, ? credits",
+    "value": "Senior Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 13-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 14-16 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T15:23:54+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 25 Sep 2026 20:06:07 GMT",
+   "page_file": "e1631797ec44ae33e673.json.gz",
+   "requested_url": "https://bulletin.lmu.edu/schools-colleges/liberal-arts/political-science-international-relations/political-science-ba/",
+   "sha256": "e1631797ec44ae33e673bca5825358f5bbbb967ff3da8d3d87deafd44a11d242",
+   "title": "Political Science, B.A. | Academic Bulletin",
+   "url": "https://bulletin.lmu.edu/schools-colleges/liberal-arts/political-science-international-relations/political-science-ba/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -28514,6 +28680,89 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "770cbab8ba8d7de6": {
+  "decision": {
+   "candidate_id": "770cbab8ba8d7de6",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 3 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Minimum Semester Hours 108-129 (as printed)' = printed total; differs: v1 record stored header/subtotal rows as items and lacked subtotals/total; new record has printed terms, subtotals, total and structured items (), all supported",
+   "replaces_correction": "The #229 correction held this plan (evidence CA/2026-10-07-cat#76b8437c8b4a31f9); the remaining defect, a printed choice block stored flat, is read as one choice item and the review confirmed the grid.",
+   "replaces_promoted": "Plan on file (evidence CA/2026-10-07-cat#76b8437c8b4a31f9) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 14-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 14-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore Year: 0 items, ? credits",
+    "value": "Sophomore Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 13-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 13-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior Year: 0 items, ? credits",
+    "value": "Junior Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 13-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 14-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior Year: 0 items, ? credits",
+    "value": "Senior Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 13-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 14-17 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T15:23:46+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 25 Sep 2026 14:28:00 GMT",
+   "page_file": "b6d315e34c4b4ca88be5.json.gz",
+   "requested_url": "https://bulletin.lmu.edu/schools-colleges/liberal-arts/modern-languages-literatures/french-ba/",
+   "sha256": "b6d315e34c4b4ca88be5216066916c3dcb818f826a0b014743ae44ab330677bd",
+   "title": "French, B.A. | Academic Bulletin",
+   "url": "https://bulletin.lmu.edu/schools-colleges/liberal-arts/modern-languages-literatures/french-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "7720c3db2cc885ee": {
   "decision": {
    "candidate_id": "7720c3db2cc885ee",
@@ -31595,6 +31844,89 @@
    "sha256": "e720664459625d930b35efb6eab28dff7d000cefef5a5bd14dc2230509cfc20e",
    "title": "BA in English - Academic Catalog",
    "url": "https://catalog.apu.edu/academics/college-arts-humanities-theology-sciences/school-humanities-sciences/humanities/english-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "827c6c495686e493": {
+  "decision": {
+   "candidate_id": "827c6c495686e493",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Minimum Semester Hours 103-124 (as printed)' = printed total; differs: v1 record stored header/subtotal rows as items and lacked subtotals/total; new record has printed terms, subtotals, total and structured items (), all supported",
+   "replaces_correction": "The #229 correction held this plan (evidence CA/2026-10-07-cat#171e19c594c06446); the remaining defect, a printed choice block stored flat, is read as one choice item and the review confirmed the grid.",
+   "replaces_promoted": "Plan on file (evidence CA/2026-10-07-cat#171e19c594c06446) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 13-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 3 items, 10-12 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore Year: 0 items, ? credits",
+    "value": "Sophomore Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 14-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 14-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior Year: 0 items, ? credits",
+    "value": "Junior Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 14-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 14-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior Year: 0 items, ? credits",
+    "value": "Senior Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 14-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 10-16 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T15:23:40+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 25 Sep 2026 14:12:01 GMT",
+   "page_file": "8822f4bf014832bb2f18.json.gz",
+   "requested_url": "https://bulletin.lmu.edu/schools-colleges/liberal-arts/economics/economics-bs/",
+   "sha256": "8822f4bf014832bb2f18eba16292d8371141573a5f7907269b37d93b27a7ed7b",
+   "title": "Economics, B.S. | Academic Bulletin",
+   "url": "https://bulletin.lmu.edu/schools-colleges/liberal-arts/economics/economics-bs/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -40271,6 +40603,89 @@
   },
   "year_basis": "source_unlabeled"
  },
+ "a8dfef934875aa47": {
+  "decision": {
+   "candidate_id": "a8dfef934875aa47",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Minimum Semester Hours 111-130 (as printed)' = printed total; differs: v1 record stored header/subtotal rows as items and lacked subtotals/total; new record has printed terms, subtotals, total and structured items (other x1, string->code x4, string->text x3), all supported",
+   "replaces_correction": "The #229 correction held this plan (evidence CA/2026-10-07-cat#fd5d48e6d8715600); the remaining defect, a printed choice block stored flat, is read as one choice item and the review confirmed the grid.",
+   "replaces_promoted": "Plan on file (evidence CA/2026-10-07-cat#fd5d48e6d8715600) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 14-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 15-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore Year: 0 items, ? credits",
+    "value": "Sophomore Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 14-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 14-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior Year: 0 items, ? credits",
+    "value": "Junior Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 14-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 13-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior Year: 0 items, ? credits",
+    "value": "Senior Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 14-17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 13-17 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T15:23:38+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 25 Sep 2026 19:53:26 GMT",
+   "page_file": "17128f09f1cb5ff2e120.json.gz",
+   "requested_url": "https://bulletin.lmu.edu/schools-colleges/liberal-arts/classics-archaeology/classics-archaeology-ba/",
+   "sha256": "17128f09f1cb5ff2e12055fd976b1d51fd40956b16a0292875b516248c124215",
+   "title": "Classics and Archaeology, B.A. | Academic Bulletin",
+   "url": "https://bulletin.lmu.edu/schools-colleges/liberal-arts/classics-archaeology/classics-archaeology-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "a9104b87c41f782c": {
   "decision": {
    "candidate_id": "a9104b87c41f782c",
@@ -41068,6 +41483,89 @@
    "sha256": "3d9b2c824d3ed73df0038b73dfd883e67391f19b921f5c31a29c2248ebe5615f",
    "title": "BS in Business: Marketing - Academic Catalog",
    "url": "https://catalog.apu.edu/academics/school-business-management/digital-strategic-marketing/marketing-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "ae240013db14cb2c": {
+  "decision": {
+   "candidate_id": "ae240013db14cb2c",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Minimum Semester Hours 110-130 (as printed)' = printed total; differs: v1 record stored header/subtotal rows as items and lacked subtotals/total; new record has printed terms, subtotals, total and structured items (string->code x2, string->text x3), all supported",
+   "replaces_correction": "The #229 correction held this plan (evidence CA/2026-10-07-cat#f69da36ae2004daf); the remaining defect, a printed choice block stored flat, is read as one choice item and the review confirmed the grid.",
+   "replaces_promoted": "Plan on file (evidence CA/2026-10-07-cat#f69da36ae2004daf) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15-17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 14-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore Year: 0 items, ? credits",
+    "value": "Sophomore Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 13-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 14-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior Year: 0 items, ? credits",
+    "value": "Junior Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 13-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 14-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior Year: 0 items, ? credits",
+    "value": "Senior Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 13-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 14-17 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T15:23:43+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 25 Sep 2026 14:33:22 GMT",
+   "page_file": "96b1b8ffbf6888da4da9.json.gz",
+   "requested_url": "https://bulletin.lmu.edu/schools-colleges/liberal-arts/history/history-ba/",
+   "sha256": "96b1b8ffbf6888da4da950201b3f00f2153fd816f1f0700313aef934f35a6d3b",
+   "title": "History, B.A. | Academic Bulletin",
+   "url": "https://bulletin.lmu.edu/schools-colleges/liberal-arts/history/history-ba/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -42180,6 +42678,89 @@
    "sha256": "4c951fd9eeae2d82ee853d1becf04913229b282db39bfb50a45db6af945e1ed3",
    "title": "General Catalog - Environmental Science & Management, Bachelor of Science",
    "url": "https://catalog.ucdavis.edu/departments-programs-degrees/environmental-science-policy/environmental-science-management-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "b1f17b5b9734b66e": {
+  "decision": {
+   "candidate_id": "b1f17b5b9734b66e",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Minimum Semester Hours 107-128 (as printed)' = printed total; differs: v1 record stored header/subtotal rows as items and lacked subtotals/total; new record has printed terms, subtotals, total and structured items (), all supported",
+   "replaces_correction": "The #229 correction held this plan (evidence CA/2026-10-07-cat#6da896ba9e22d532); the remaining defect, a printed choice block stored flat, is read as one choice item and the review confirmed the grid.",
+   "replaces_promoted": "Plan on file (evidence CA/2026-10-07-cat#6da896ba9e22d532) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 13-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 14-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore Year: 0 items, ? credits",
+    "value": "Sophomore Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 13-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 14-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior Year: 0 items, ? credits",
+    "value": "Junior Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 11 items, 14-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 13-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior Year: 0 items, ? credits",
+    "value": "Senior Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 13-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 13-16 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T15:24:57+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 25 Sep 2026 14:26:01 GMT",
+   "page_file": "6c9b735ae0b0f3b8e2da.json.gz",
+   "requested_url": "https://bulletin.lmu.edu/schools-colleges/film-television/film-television-media-studies/film-television-media-studies-ba/",
+   "sha256": "6c9b735ae0b0f3b8e2daca528f50d19d57a7b8152de92fced2242f8b05b153da",
+   "title": "Film, Television, and Media Studies, B.A. | Academic Bulletin",
+   "url": "https://bulletin.lmu.edu/schools-colleges/film-television/film-television-media-studies/film-television-media-studies-ba/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -46568,6 +47149,89 @@
    "sha256": "190acdfe3960474681f9ecef85e44d62e84ed4f2c9d3f841787dc2e03f1b603e",
    "title": "General Catalog - Mathematics, Bachelor of Science",
    "url": "https://catalog.ucdavis.edu/departments-programs-degrees/mathematics/mathematics-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "c017253498225d57": {
+  "decision": {
+   "candidate_id": "c017253498225d57",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Minimum Semester Hours 106-128 (as printed)' = printed total; differs: v1 record stored header/subtotal rows as items and lacked subtotals/total; new record has printed terms, subtotals, total and structured items (), all supported",
+   "replaces_correction": "The #229 correction held this plan (evidence CA/2026-10-07-cat#4f5b11b82153e3f4); the remaining defect, a printed choice block stored flat, is read as one choice item and the review confirmed the grid.",
+   "replaces_promoted": "Plan on file (evidence CA/2026-10-07-cat#4f5b11b82153e3f4) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 13-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 14-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore Year: 0 items, ? credits",
+    "value": "Sophomore Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 14-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 13-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior Year: 0 items, ? credits",
+    "value": "Junior Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 13-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 13-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior Year: 0 items, ? credits",
+    "value": "Senior Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 13-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 13-16 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T15:23:39+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 24 Sep 2026 17:39:12 GMT",
+   "page_file": "88f537fd2601ced534da.json.gz",
+   "requested_url": "https://bulletin.lmu.edu/schools-colleges/liberal-arts/economics/economics-ba/",
+   "sha256": "88f537fd2601ced534da83b1cd378efc271ec13235c6793dfb107ebc105cf4cf",
+   "title": "Economics, B.A. | Academic Bulletin",
+   "url": "https://bulletin.lmu.edu/schools-colleges/liberal-arts/economics/economics-ba/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -55943,6 +56607,89 @@
    "sha256": "430d6e6415641992058d8f8cdac987f4b227416d118c6671ce62a3885acf8782",
    "title": "African American Studies, B.A. | Academic Bulletin",
    "url": "https://bulletin.lmu.edu/schools-colleges/liberal-arts/african-american-studies/african-american-studies-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "e3777b440993a12a": {
+  "decision": {
+   "candidate_id": "e3777b440993a12a",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Minimum Semester Hours 92-104 (as printed)' = printed total; differs: v1 record stored header/subtotal rows as items and lacked subtotals/total; new record has printed terms, subtotals, total and structured items (), all supported",
+   "replaces_correction": "The #229 correction held this plan (evidence CA/2026-10-07-cat#65d0da7f32331d78); the remaining defect, a printed choice block stored flat, is read as one choice item and the review confirmed the grid.",
+   "replaces_promoted": "Plan on file (evidence CA/2026-10-07-cat#65d0da7f32331d78) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 13-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 14-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore Year: 0 items, ? credits",
+    "value": "Sophomore Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 14-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 10 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior Year: 0 items, ? credits",
+    "value": "Junior Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 12-14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 2 items, 4 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior Year: 0 items, ? credits",
+    "value": "Senior Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 3 items, 12 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 13-16 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T15:23:45+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 25 Sep 2026 16:24:44 GMT",
+   "page_file": "7d093fd5730b437dcdb0.json.gz",
+   "requested_url": "https://bulletin.lmu.edu/schools-colleges/liberal-arts/journalism/journalism-ba/",
+   "sha256": "7d093fd5730b437dcdb074a1879992bd8e4824fc889996ddb6364d3fb94db123",
+   "title": "Journalism, B.A. | Academic Bulletin",
+   "url": "https://bulletin.lmu.edu/schools-colleges/liberal-arts/journalism/journalism-ba/"
   },
   "year_basis": "labeled_in_source"
  },

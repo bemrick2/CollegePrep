@@ -3387,14 +3387,17 @@
               "GEN101 | Pathway to the Bridge 1 | 2.0",
               "EN111or EN221 | Writing, Research, and Digital Literacy 1or HNRS: Rhetoric, Research & Digital Lit | 3.0",
               {
+                "choose": 1,
                 "credits": "3.0",
+                "options": [
+                  "HST110 | US History Survey to 1877 2,3",
+                  "HST111 | US History Survey since 1877 2,3",
+                  "HST120 | World History Survey to 1500 2",
+                  "HST121 | World History Survey since 1500 2",
+                  "HST150 | African American History 2,3"
+                ],
                 "text": "Select one of the following:"
               },
-              "HST110 | US History Survey to 1877 2,3",
-              "HST111 | US History Survey since 1877 2,3",
-              "HST120 | World History Survey to 1500 2",
-              "HST121 | World History Survey since 1500 2",
-              "HST150 | African American History 2,3",
               {
                 "credits": "3.0",
                 "text": "GE-Religious Studies 1"
@@ -3606,7 +3609,7 @@
       },
       "source_url": "https://catalog.georgian.edu/undergraduate/school-arts-sciences/history-politics/history-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NJ/2026-10-07-cat#abb3ae7e50696e29) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NJ/2026-10-07-cat/evidence.json#bbd5838603b53c00."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 5 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credits 120.0 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence NJ/2026-10-07-cat#bbd5838603b53c00) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NJ/2026-10-07-cat/evidence.json#bbd5838603b53c00."
     },
     {
       "last_verified_at": "2026-10-07",

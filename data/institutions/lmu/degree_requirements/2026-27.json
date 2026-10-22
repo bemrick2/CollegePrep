@@ -990,132 +990,268 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Minimum Semester Hours 111-130 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
-            "items": [
-              "Fall | Semester Hours",
-              "Select one of the following: | 4",
-              "CLAR 1120 | Elementary Greek II",
-              "CLAR 1115 | Elementary Latin I",
-              "CLAR 1130 | Biblical Hebrew",
-              "CLAR 1350 | Egyptian Hieroglyphics",
-              "CLAR Methodology or Survey of the Ancient World Course | 4",
-              "FFYS 1000 | First Year Seminar | 3,4",
-              "University Core | 3-4",
-              "Semester Hours | 14-16"
-            ],
+            "items": [],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "14-16",
             "items": [
-              "Select one of the following: | 4",
-              "CLAR 1110 | Elementary Greek I",
-              "CLAR 1125 | Elementary Latin II",
-              "CLAR 1135 | Readings in Classical Hebrew",
-              "CLAR Survey of the Ancient World or Methodology course | 4",
-              "RHET 1000 | Rhetorical Arts | 4",
-              "Elective | 3-4",
-              "Semester Hours | 15-16"
+              {
+                "choose": 1,
+                "credits": 4,
+                "options": [
+                  {
+                    "code": "CLAR 1120",
+                    "title": "Elementary Greek II"
+                  },
+                  {
+                    "code": "CLAR 1115",
+                    "title": "Elementary Latin I"
+                  },
+                  {
+                    "code": "CLAR 1130",
+                    "title": "Biblical Hebrew"
+                  },
+                  {
+                    "code": "CLAR 1350",
+                    "title": "Egyptian Hieroglyphics"
+                  }
+                ],
+                "text": "Select one of the following:"
+              },
+              {
+                "credits": 4,
+                "text": "CLAR Methodology or Survey of the Ancient World Course"
+              },
+              "FFYS 1000 | First Year Seminar | 3,4",
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 2
+          },
+          {
+            "credit_hours": "15-16",
+            "items": [
+              {
+                "choose": 1,
+                "credits": 4,
+                "options": [
+                  {
+                    "code": "CLAR 1110",
+                    "title": "Elementary Greek I"
+                  },
+                  {
+                    "code": "CLAR 1125",
+                    "title": "Elementary Latin II"
+                  },
+                  {
+                    "code": "CLAR 1135",
+                    "title": "Readings in Classical Hebrew"
+                  }
+                ],
+                "text": "Select one of the following:"
+              },
+              {
+                "credits": 4,
+                "text": "CLAR Survey of the Ancient World or Methodology course"
+              },
+              {
+                "code": "RHET 1000",
+                "credits": 4,
+                "title": "Rhetorical Arts"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
             "items": [],
             "label": "Sophomore Year",
-            "term_index": 3
-          },
-          {
-            "items": [
-              "CLAR Myth or Religion | 4",
-              "CLAR Art and Archaeology | 4",
-              "University Core | 3-4",
-              "Elective | 3-4",
-              "Semester Hours | 14-16"
-            ],
-            "label": "Fall",
             "term_index": 4
           },
           {
+            "credit_hours": "14-16",
             "items": [
-              "CLAR Interdisciplinary | 4",
-              "CLAR Elective | 4",
-              "University Core | 3-4",
-              "Select one of the following: | 3-4",
-              "University Core",
-              "Elective",
-              "Semester Hours | 14-16"
+              {
+                "credits": 4,
+                "text": "CLAR Myth or Religion"
+              },
+              {
+                "credits": 4,
+                "text": "CLAR Art and Archaeology"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 5
+          },
+          {
+            "credit_hours": "14-16",
+            "items": [
+              {
+                "credits": 4,
+                "text": "CLAR Interdisciplinary"
+              },
+              {
+                "credits": 4,
+                "text": "CLAR Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Select one of the following:"
+              },
+              {
+                "text": "University Core"
+              },
+              {
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 5
+            "term_index": 6
           },
           {
             "items": [],
             "label": "Junior Year",
-            "term_index": 6
-          },
-          {
-            "items": [
-              "CLAR Upper Division | 4",
-              "CLAR Elective | 4",
-              "University Core | 3-4",
-              "Upper Division Elective | 3-4",
-              "Semester Hours | 14-16"
-            ],
-            "label": "Fall",
             "term_index": 7
           },
           {
+            "credit_hours": "14-16",
             "items": [
-              "CLAR Upper Division | 4",
-              "University Core | 3-4",
-              "Upper Division Elective | 3-4",
-              "Upper Division Elective | 3-4",
-              "Semester Hours | 13-16"
+              {
+                "credits": 4,
+                "text": "CLAR Upper Division"
+              },
+              {
+                "credits": 4,
+                "text": "CLAR Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 8
+          },
+          {
+            "credit_hours": "13-16",
+            "items": [
+              {
+                "credits": 4,
+                "text": "CLAR Upper Division"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 9
           },
           {
             "items": [],
             "label": "Senior Year",
-            "term_index": 9
-          },
-          {
-            "items": [
-              "CLAR Upper Division Capstone | 4",
-              "CLAR Capstone Research Skills | 1",
-              "University Core | 3-4",
-              "Upper Division Elective | 3-4",
-              "Upper Division Elective | 3-4",
-              "Semester Hours | 14-17"
-            ],
-            "label": "Fall",
             "term_index": 10
           },
           {
+            "credit_hours": "14-17",
             "items": [
-              "CLAR Symposium Capstone Presentation | 1",
-              "University Core | 3-4",
-              "Upper Division Elective | 3-4",
-              "Select one of the following: | 3-4",
-              "Upper Division Elective",
-              "Elective | 3-4",
-              "Semester Hours | 13-17",
-              "Minimum Semester Hours | 111-130"
+              {
+                "credits": 4,
+                "text": "CLAR Upper Division Capstone"
+              },
+              {
+                "credits": 1,
+                "text": "CLAR Capstone Research Skills"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "13-17",
+            "items": [
+              {
+                "credits": 1,
+                "text": "CLAR Symposium Capstone Presentation"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "Select one of the following:"
+              },
+              {
+                "text": "Upper Division Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 11
+            "term_index": 12
           }
         ]
       },
-      "source_url": "https://bulletin.lmu.edu//schools-colleges/liberal-arts/classics-archaeology/classics-archaeology-ba/",
-      "verification_status": "partially_verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#fd5d48e6d8715600. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
-      "verification_correction_reason": "Term-by-term plan read by courseleaf_plan/v1 from https://bulletin.lmu.edu//schools-colleges/liberal-arts/classics-archaeology/classics-archaeology-ba/ stores rows of the printed Plan of Study Grid that are not courses (term subtotals, year headings or the plan total) as plan items (#229). The corrected reader could not reproduce the grid exactly (printed total row 'Minimum Semester Hours | 111-130' stored as a plan item in the last term; rule_text missing), so the plan is no longer verified; its course rows remain as stored. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#fd5d48e6d8715600."
+      "source_url": "https://bulletin.lmu.edu/schools-colleges/liberal-arts/classics-archaeology/classics-archaeology-ba/",
+      "verification_status": "verified",
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Minimum Semester Hours 111-130 (as printed)' = printed total; differs: v1 record stored header/subtotal rows as items and lacked subtotals/total; new record has printed terms, subtotals, total and structured items (other x1, string->code x4, string->text x3), all supported Replaces the record promoted earlier from this candidate: Plan on file (evidence CA/2026-10-07-cat#fd5d48e6d8715600) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item. Re-verified after the correction on file (kept in supabase/corrections.json): The #229 correction held this plan (evidence CA/2026-10-07-cat#fd5d48e6d8715600); the remaining defect, a printed choice block stored flat, is read as one choice item and the review confirmed the grid. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#a8dfef934875aa47."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -1467,134 +1603,249 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Minimum Semester Hours 106-128 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
-            "items": [
-              "Fall | Semester Hours",
-              "ECON 1050 | Introductory Economics | 4",
-              "FFYS 1000 | First Year Seminar | 3-4",
-              "Select one of the following: | 3-4",
-              {
-                "code": "MATH 120",
-                "title": "Precalculus Mathematics (if necessary)"
-              },
-              "University Core",
-              "University Core | 3-4",
-              "Semester Hours | 13-16"
-            ],
+            "items": [],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "13-16",
             "items": [
-              "ECON 2300 | Introductory Statistics | 4",
-              "Select one of the following: | 3-4",
               {
-                "code": "MATH 112",
-                "title": "Calculus for Business"
+                "code": "ECON 1050",
+                "credits": 4,
+                "title": "Introductory Economics"
               },
               {
-                "code": "MATH 131",
-                "title": "Calculus I"
+                "code": "FFYS 1000",
+                "credits": "3-4",
+                "title": "First Year Seminar"
               },
-              "RHET 1000 | Rhetorical Arts | 4",
-              "Elective | 3-4",
-              "Semester Hours | 14-16"
+              {
+                "credits": "3-4",
+                "text": "Select one of the following:"
+              },
+              {
+                "code": "MATH 120",
+                "title": "Precalculus Mathematics (if necessary)"
+              },
+              {
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 2
+          },
+          {
+            "credit_hours": "14-16",
+            "items": [
+              {
+                "code": "ECON 2300",
+                "credits": 4,
+                "title": "Introductory Statistics"
+              },
+              {
+                "choose": 1,
+                "credits": "3-4",
+                "options": [
+                  {
+                    "code": "MATH 112",
+                    "title": "Calculus for Business"
+                  },
+                  {
+                    "code": "MATH 131",
+                    "title": "Calculus I"
+                  }
+                ],
+                "text": "Select one of the following:"
+              },
+              {
+                "code": "RHET 1000",
+                "credits": 4,
+                "title": "Rhetorical Arts"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
             "items": [],
             "label": "Sophomore Year",
-            "term_index": 3
-          },
-          {
-            "items": [
-              "ECON 3100 | Intermediate Microeconomics | 4",
-              "ECON 3300 | Econometrics | 4",
-              "Elective | 3-4",
-              "University Core | 3-4",
-              "Semester Hours | 14-16"
-            ],
-            "label": "Fall",
             "term_index": 4
           },
           {
+            "credit_hours": "14-16",
             "items": [
-              "ECON 3200 | Intermediate Macroeconomics | 4",
-              "University Core | 3-4",
-              "University Core | 3-4",
-              "Elective | 3-4",
-              "Semester Hours | 13-16"
+              {
+                "code": "ECON 3100",
+                "credits": 4,
+                "title": "Intermediate Microeconomics"
+              },
+              {
+                "code": "ECON 3300",
+                "credits": 4,
+                "title": "Econometrics"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 5
+          },
+          {
+            "credit_hours": "13-16",
+            "items": [
+              {
+                "code": "ECON 3200",
+                "credits": 4,
+                "title": "Intermediate Macroeconomics"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 5
+            "term_index": 6
           },
           {
             "items": [],
             "label": "Junior Year",
-            "term_index": 6
-          },
-          {
-            "items": [
-              "ECON Upper Division | 4",
-              "University Core | 3-4",
-              "Upper Division Elective | 3-4",
-              "Upper Division Elective | 3-4",
-              "Semester Hours | 13-16"
-            ],
-            "label": "Fall",
             "term_index": 7
           },
           {
+            "credit_hours": "13-16",
             "items": [
-              "ECON Upper Division | 4",
-              "University Core | 3-4",
-              "University Core | 3-4",
-              "Upper Division Elective | 3-4",
-              "Semester Hours | 13-16"
+              {
+                "credits": 4,
+                "text": "ECON Upper Division"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 8
+          },
+          {
+            "credit_hours": "13-16",
+            "items": [
+              {
+                "credits": 4,
+                "text": "ECON Upper Division"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 9
           },
           {
             "items": [],
             "label": "Senior Year",
-            "term_index": 9
-          },
-          {
-            "items": [
-              "ECON 4000-level Upper Division | 4",
-              "University Core | 3-4",
-              "Upper Division Elective | 3-4",
-              "Upper Division Elective | 3-4",
-              "Semester Hours | 13-16"
-            ],
-            "label": "Fall",
             "term_index": 10
           },
           {
+            "credit_hours": "13-16",
             "items": [
-              "ECON 4000-Level Upper Division | 4",
-              "ECON 4900 | Senior Assessment | 0",
-              "Upper Division Elective | 3-4",
-              "Upper Division Elective | 3-4",
-              "Upper Division Elective | 3-4",
-              "Semester Hours | 13-16",
-              "Minimum Semester Hours | 106-128"
+              {
+                "credits": 4,
+                "text": "ECON 4000-level Upper Division"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "13-16",
+            "items": [
+              {
+                "credits": 4,
+                "text": "ECON 4000-Level Upper Division"
+              },
+              {
+                "code": "ECON 4900",
+                "credits": 0,
+                "title": "Senior Assessment"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 11
+            "term_index": 12
           }
         ]
       },
-      "source_url": "https://bulletin.lmu.edu//schools-colleges/liberal-arts/economics/economics-ba/",
-      "verification_status": "partially_verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#4f5b11b82153e3f4. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
-      "verification_correction_reason": "Term-by-term plan read by courseleaf_plan/v1 from https://bulletin.lmu.edu//schools-colleges/liberal-arts/economics/economics-ba/ stores rows of the printed Plan of Study Grid that are not courses (term subtotals, year headings or the plan total) as plan items (#229). The corrected reader could not reproduce the grid exactly (printed total row 'Minimum Semester Hours | 106-128' stored as a plan item in the last term; rule_text missing), so the plan is no longer verified; its course rows remain as stored. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#4f5b11b82153e3f4."
+      "source_url": "https://bulletin.lmu.edu/schools-colleges/liberal-arts/economics/economics-ba/",
+      "verification_status": "verified",
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Minimum Semester Hours 106-128 (as printed)' = printed total; differs: v1 record stored header/subtotal rows as items and lacked subtotals/total; new record has printed terms, subtotals, total and structured items (), all supported Replaces the record promoted earlier from this candidate: Plan on file (evidence CA/2026-10-07-cat#4f5b11b82153e3f4) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item. Re-verified after the correction on file (kept in supabase/corrections.json): The #229 correction held this plan (evidence CA/2026-10-07-cat#4f5b11b82153e3f4); the remaining defect, a printed choice block stored flat, is read as one choice item and the review confirmed the grid. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#c017253498225d57."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -1636,151 +1887,287 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Minimum Semester Hours 103-124 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
-            "items": [
-              "Fall | Semester Hours",
-              "ECON 1050 | Introductory Economics | 4",
-              "FFYS 1000 | First Year Seminar | 3-4",
-              "Select one of the following: | 3-4",
-              {
-                "code": "MATH 120",
-                "title": "Precalculus Mathematics (if necessary)"
-              },
-              "University Core",
-              "University Core | 3-4",
-              "Semester Hours | 13-16"
-            ],
+            "items": [],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "13-16",
             "items": [
-              "Select one of the following: | 3-4",
-              "ECON 2300 | Introductory Statistics",
               {
-                "code": "MATH 112",
-                "title": "Calculus for Business"
+                "code": "ECON 1050",
+                "credits": 4,
+                "title": "Introductory Economics"
               },
               {
-                "code": "MATH 131",
-                "title": "Calculus I"
+                "code": "FFYS 1000",
+                "credits": "3-4",
+                "title": "First Year Seminar"
               },
-              "RHET 1000 | Rhetorical Arts | 4",
-              "Elective | 3-4",
-              "Semester Hours | 10-12"
+              {
+                "credits": "3-4",
+                "text": "Select one of the following:"
+              },
+              {
+                "code": "MATH 120",
+                "title": "Precalculus Mathematics (if necessary)"
+              },
+              {
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 2
+          },
+          {
+            "credit_hours": "10-12",
+            "items": [
+              {
+                "choose": 1,
+                "credits": "3-4",
+                "options": [
+                  {
+                    "code": "ECON 2300",
+                    "title": "Introductory Statistics"
+                  },
+                  {
+                    "code": "MATH 112",
+                    "title": "Calculus for Business"
+                  },
+                  {
+                    "code": "MATH 131",
+                    "title": "Calculus I"
+                  }
+                ],
+                "text": "Select one of the following:"
+              },
+              {
+                "code": "RHET 1000",
+                "credits": 4,
+                "title": "Rhetorical Arts"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
             "items": [],
             "label": "Sophomore Year",
-            "term_index": 3
+            "term_index": 4
           },
           {
+            "credit_hours": "14-16",
             "items": [
-              "ECON 3100 | Intermediate Microeconomics | 4",
-              "ECON 3300 | Econometrics | 4",
-              "Select one of the following: | 3-4",
+              {
+                "code": "ECON 3100",
+                "credits": 4,
+                "title": "Intermediate Microeconomics"
+              },
+              {
+                "code": "ECON 3300",
+                "credits": 4,
+                "title": "Econometrics"
+              },
+              {
+                "credits": "3-4",
+                "text": "Select one of the following:"
+              },
               {
                 "code": "MATH 132",
                 "title": "Calculus II"
               },
-              "Elective",
-              "University Core | 3-4",
-              "Semester Hours | 14-16"
+              {
+                "text": "Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              }
             ],
             "label": "Fall",
-            "term_index": 4
+            "term_index": 5
           },
           {
+            "credit_hours": "14-16",
             "items": [
-              "ECON 3200 | Intermediate Macroeconomics | 4",
-              "ECON Upper Division | 4",
-              "University Core | 3-4",
-              "Select one of the following: | 3-4",
-              "Elective",
+              {
+                "code": "ECON 3200",
+                "credits": 4,
+                "title": "Intermediate Macroeconomics"
+              },
+              {
+                "credits": 4,
+                "text": "ECON Upper Division"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Select one of the following:"
+              },
+              {
+                "text": "Elective"
+              },
               {
                 "code": "MATH 234",
                 "title": "Calculus III"
-              },
-              "Semester Hours | 14-16"
+              }
             ],
             "label": "Spring",
-            "term_index": 5
+            "term_index": 6
           },
           {
             "items": [],
             "label": "Junior Year",
-            "term_index": 6
-          },
-          {
-            "items": [
-              "ECON 4000-level Upper Division | 4",
-              "Select one of the following: | 4",
-              "ECON Upper Division",
-              "ECON 5300 | Mathematics for Economics or senior year",
-              "University Core | 3-4",
-              "Upper Division Elective | 3-4",
-              "Semester Hours | 14-16"
-            ],
-            "label": "Fall",
             "term_index": 7
           },
           {
+            "credit_hours": "14-16",
             "items": [
-              "ECON 4000-level Upper Division | 4",
-              "Select one of the following: | 4",
-              "ECON Upper Division",
-              "ECON 5320 | Advanced Econometrics or senior year",
-              "University Core | 3-4",
-              "Upper Division Elective | 3-4",
-              "Semester Hours | 14-16"
+              {
+                "credits": 4,
+                "text": "ECON 4000-level Upper Division"
+              },
+              {
+                "credits": 4,
+                "text": "Select one of the following:"
+              },
+              {
+                "text": "ECON Upper Division"
+              },
+              {
+                "code": "ECON 5300",
+                "title": "Mathematics for Economics or senior year"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 8
+          },
+          {
+            "credit_hours": "14-16",
+            "items": [
+              {
+                "credits": 4,
+                "text": "ECON 4000-level Upper Division"
+              },
+              {
+                "credits": 4,
+                "text": "Select one of the following:"
+              },
+              {
+                "text": "ECON Upper Division"
+              },
+              {
+                "code": "ECON 5320",
+                "title": "Advanced Econometrics or senior year"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 9
           },
           {
             "items": [],
             "label": "Senior Year",
-            "term_index": 9
-          },
-          {
-            "items": [
-              "ECON 4000-level Upper Division | 4",
-              "Select one of the following: | 4",
-              "ECON Upper Division",
-              "ECON 5300 | Mathematics for Economics",
-              "University Core | 3-4",
-              "Upper Division Elective | 3-4",
-              "Semester Hours | 14-16"
-            ],
-            "label": "Fall",
             "term_index": 10
           },
           {
+            "credit_hours": "14-16",
             "items": [
-              "ECON 4900 | Senior Assessment | 0",
-              "Select one or both of the following: | 4-8",
-              "ECON 5320 | Advanced Econometrics",
-              "ECON 5900 | Senior Seminar",
-              "University Core | 3-4",
-              "Upper Division Elective | 3-4",
-              "Semester Hours | 10-16",
-              "Minimum Semester Hours | 103-124"
+              {
+                "credits": 4,
+                "text": "ECON 4000-level Upper Division"
+              },
+              {
+                "credits": 4,
+                "text": "Select one of the following:"
+              },
+              {
+                "text": "ECON Upper Division"
+              },
+              {
+                "code": "ECON 5300",
+                "title": "Mathematics for Economics"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "10-16",
+            "items": [
+              {
+                "code": "ECON 4900",
+                "credits": 0,
+                "title": "Senior Assessment"
+              },
+              {
+                "credits": "4-8",
+                "text": "Select one or both of the following:"
+              },
+              {
+                "code": "ECON 5320",
+                "title": "Advanced Econometrics"
+              },
+              {
+                "code": "ECON 5900",
+                "title": "Senior Seminar"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 11
+            "term_index": 12
           }
         ]
       },
-      "source_url": "https://bulletin.lmu.edu//schools-colleges/liberal-arts/economics/economics-bs/",
-      "verification_status": "partially_verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#171e19c594c06446. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
-      "verification_correction_reason": "Term-by-term plan read by courseleaf_plan/v1 from https://bulletin.lmu.edu//schools-colleges/liberal-arts/economics/economics-bs/ stores rows of the printed Plan of Study Grid that are not courses (term subtotals, year headings or the plan total) as plan items (#229). The corrected reader could not reproduce the grid exactly (printed total row 'Minimum Semester Hours | 103-124' stored as a plan item in the last term; rule_text missing), so the plan is no longer verified; its course rows remain as stored. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#171e19c594c06446."
+      "source_url": "https://bulletin.lmu.edu/schools-colleges/liberal-arts/economics/economics-bs/",
+      "verification_status": "verified",
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Minimum Semester Hours 103-124 (as printed)' = printed total; differs: v1 record stored header/subtotal rows as items and lacked subtotals/total; new record has printed terms, subtotals, total and structured items (), all supported Replaces the record promoted earlier from this candidate: Plan on file (evidence CA/2026-10-07-cat#171e19c594c06446) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item. Re-verified after the correction on file (kept in supabase/corrections.json): The #229 correction held this plan (evidence CA/2026-10-07-cat#171e19c594c06446); the remaining defect, a printed choice block stored flat, is read as one choice item and the review confirmed the grid. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#827c6c495686e493."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -1857,131 +2244,270 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Minimum Semester Hours 110-130 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
-            "items": [
-              "Fall | Semester Hours",
-              "HIST 1995 | Introduction to History | 1",
-              "HIST 1XXX | 4",
-              "FFYS 1000 | First Year Seminar | 4",
-              "University Core | 3-4",
-              "University Core | 3-4",
-              "Semester Hours | 15-17"
-            ],
+            "items": [],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "15-17",
             "items": [
-              "HIST 2300-HIST 2449 | 4",
-              "RHET 1000 | Rhetorical Arts | 4",
-              "University Core | 3-4",
-              "University Core | 3-4",
-              "Semester Hours | 14-16"
+              {
+                "code": "HIST 1995",
+                "credits": 1,
+                "title": "Introduction to History"
+              },
+              {
+                "credits": 4,
+                "text": "HIST 1XXX"
+              },
+              {
+                "code": "FFYS 1000",
+                "credits": 4,
+                "title": "First Year Seminar"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 2
+          },
+          {
+            "credit_hours": "14-16",
+            "items": [
+              {
+                "credits": 4,
+                "text": "HIST 2300-HIST 2449"
+              },
+              {
+                "code": "RHET 1000",
+                "credits": 4,
+                "title": "Rhetorical Arts"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
             "items": [],
             "label": "Sophomore Year",
-            "term_index": 3
-          },
-          {
-            "items": [
-              "Select one of the following: | 4",
-              "HIST 2000 | What Is History?",
-              "HIST 2050 | Seminar in World History",
-              "HIST 2200 | Seminar in European History",
-              "HIST 2450 | Seminar in American History",
-              "HIST 2500 | Seminar in Middle Eastern History",
-              "HIST 2600 | Seminar in African History",
-              "HIST 2700 | Seminar in Latin American History",
-              "HIST 2800 | Seminar in Asian History",
-              "HIST 2910 | Telling History in Public",
-              "University Core | 3-4",
-              "University Core | 3-4",
-              "Elective | 3-4",
-              "Semester Hours | 13-16"
-            ],
-            "label": "Fall",
             "term_index": 4
           },
           {
+            "credit_hours": "13-16",
             "items": [
-              "HIST Lower or Upper Division | 4",
-              "HIST Upper Division | 4",
-              "University Core | 3-4",
-              "Elective | 3-4",
-              "Semester Hours | 14-16"
+              {
+                "choose": 1,
+                "credits": 4,
+                "options": [
+                  {
+                    "code": "HIST 2000",
+                    "title": "What Is History?"
+                  },
+                  {
+                    "code": "HIST 2050",
+                    "title": "Seminar in World History"
+                  },
+                  {
+                    "code": "HIST 2200",
+                    "title": "Seminar in European History"
+                  },
+                  {
+                    "code": "HIST 2450",
+                    "title": "Seminar in American History"
+                  },
+                  {
+                    "code": "HIST 2500",
+                    "title": "Seminar in Middle Eastern History"
+                  },
+                  {
+                    "code": "HIST 2600",
+                    "title": "Seminar in African History"
+                  },
+                  {
+                    "code": "HIST 2700",
+                    "title": "Seminar in Latin American History"
+                  },
+                  {
+                    "code": "HIST 2800",
+                    "title": "Seminar in Asian History"
+                  },
+                  {
+                    "code": "HIST 2910",
+                    "title": "Telling History in Public"
+                  }
+                ],
+                "text": "Select one of the following:"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 5
+          },
+          {
+            "credit_hours": "14-16",
+            "items": [
+              {
+                "credits": 4,
+                "text": "HIST Lower or Upper Division"
+              },
+              {
+                "credits": 4,
+                "text": "HIST Upper Division"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 5
+            "term_index": 6
           },
           {
             "items": [],
             "label": "Junior Year",
-            "term_index": 6
-          },
-          {
-            "items": [
-              "HIST Upper Division | 4",
-              "University Core | 3-4",
-              "Upper Division Elective | 3-4",
-              "Elective | 3-4",
-              "Semester Hours | 13-16"
-            ],
-            "label": "Fall",
             "term_index": 7
           },
           {
+            "credit_hours": "13-16",
             "items": [
-              "HIST Upper Division | 4",
-              "HIST Upper Division | 4",
-              "University Core | 3-4",
-              "Upper Division Elective | 3-4",
-              "Semester Hours | 14-16"
+              {
+                "credits": 4,
+                "text": "HIST Upper Division"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 8
+          },
+          {
+            "credit_hours": "14-16",
+            "items": [
+              {
+                "credits": 4,
+                "text": "HIST Upper Division"
+              },
+              {
+                "credits": 4,
+                "text": "HIST Upper Division"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 9
           },
           {
             "items": [],
             "label": "Senior Year",
-            "term_index": 9
-          },
-          {
-            "items": [
-              "HIST Upper Division | 4",
-              "University Core | 3-4",
-              "Upper Division Elective | 3-4",
-              "Upper Division Elective | 3-4",
-              "Semester Hours | 13-16"
-            ],
-            "label": "Fall",
             "term_index": 10
           },
           {
+            "credit_hours": "13-16",
             "items": [
-              "HIST Upper Division Seminar 5000-HIST 5899 | 4",
-              "HIST 5995 | Capstone ePortfolio | 1",
-              "Upper Division Elective | 3-4",
-              "Upper Division Elective | 3-4",
-              "Upper Division Elective | 3-4",
-              "Semester Hours | 14-17",
-              "Minimum Semester Hours | 110-130"
+              {
+                "credits": 4,
+                "text": "HIST Upper Division"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "14-17",
+            "items": [
+              {
+                "credits": 4,
+                "text": "HIST Upper Division Seminar 5000-HIST 5899"
+              },
+              {
+                "code": "HIST 5995",
+                "credits": 1,
+                "title": "Capstone ePortfolio"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 11
+            "term_index": 12
           }
         ]
       },
-      "source_url": "https://bulletin.lmu.edu//schools-colleges/liberal-arts/history/history-ba/",
-      "verification_status": "partially_verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#f69da36ae2004daf. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
-      "verification_correction_reason": "Term-by-term plan read by courseleaf_plan/v1 from https://bulletin.lmu.edu//schools-colleges/liberal-arts/history/history-ba/ stores rows of the printed Plan of Study Grid that are not courses (term subtotals, year headings or the plan total) as plan items (#229). The corrected reader could not reproduce the grid exactly (printed total row 'Minimum Semester Hours | 110-130' stored as a plan item in the last term; rule_text missing), so the plan is no longer verified; its course rows remain as stored. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#f69da36ae2004daf."
+      "source_url": "https://bulletin.lmu.edu/schools-colleges/liberal-arts/history/history-ba/",
+      "verification_status": "verified",
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Minimum Semester Hours 110-130 (as printed)' = printed total; differs: v1 record stored header/subtotal rows as items and lacked subtotals/total; new record has printed terms, subtotals, total and structured items (string->code x2, string->text x3), all supported Replaces the record promoted earlier from this candidate: Plan on file (evidence CA/2026-10-07-cat#f69da36ae2004daf) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item. Re-verified after the correction on file (kept in supabase/corrections.json): The #229 correction held this plan (evidence CA/2026-10-07-cat#f69da36ae2004daf); the remaining defect, a printed choice block stored flat, is read as one choice item and the review confirmed the grid. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#ae240013db14cb2c."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -2094,120 +2620,228 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Minimum Semester Hours 92-104 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
-            "items": [
-              "Fall | Semester Hours",
-              "FFYS 1000 | First Year Seminar | 4",
-              "University Core | 3-4",
-              "University Core | 3-4",
-              "Elective | 3-4",
-              "Semester Hours | 13-16"
-            ],
+            "items": [],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "13-16",
             "items": [
-              "RHET 1000 | Rhetorical Arts (Recommended: Speaking Out) | 4",
-              "University Core | 3-4",
-              "University Core | 3-4",
-              "ENGL course of student's choosing | 4",
-              "Semester Hours | 14-16"
+              {
+                "code": "FFYS 1000",
+                "credits": 4,
+                "title": "First Year Seminar"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 2
+          },
+          {
+            "credit_hours": "14-16",
+            "items": [
+              {
+                "code": "RHET 1000",
+                "credits": 4,
+                "title": "Rhetorical Arts (Recommended: Speaking Out)"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": 4,
+                "text": "ENGL course of student's choosing"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
             "items": [],
             "label": "Sophomore Year",
-            "term_index": 3
-          },
-          {
-            "items": [
-              "English (ENGL) Elective Course | 4",
-              "JOUR 2100 | Introduction to Journalism | 4",
-              "University Core | 3-4",
-              "Elective | 3-4",
-              "Semester Hours | 14-16"
-            ],
-            "label": "Fall",
             "term_index": 4
           },
           {
+            "credit_hours": "14-16",
             "items": [
-              "JOUR 2210 | Writing for Journalism: Workshop | 4",
-              "JOUR 2211 | History of Journalism | 4",
-              "Production/Media Skills Course | 1",
-              "Production/Media Skills Course | 1",
-              "Semester Hours | 10"
+              {
+                "credits": 4,
+                "text": "English (ENGL) Elective Course"
+              },
+              {
+                "code": "JOUR 2100",
+                "credits": 4,
+                "title": "Introduction to Journalism"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 5
+          },
+          {
+            "credit_hours": "10",
+            "items": [
+              {
+                "code": "JOUR 2210",
+                "credits": 4,
+                "title": "Writing for Journalism: Workshop"
+              },
+              {
+                "code": "JOUR 2211",
+                "credits": 4,
+                "title": "History of Journalism"
+              },
+              {
+                "credits": 1,
+                "text": "Production/Media Skills Course"
+              },
+              {
+                "credits": 1,
+                "text": "Production/Media Skills Course"
+              }
             ],
             "label": "Spring",
-            "term_index": 5
+            "term_index": 6
           },
           {
             "items": [],
             "label": "Junior Year",
-            "term_index": 6
-          },
-          {
-            "items": [
-              "JOUR 3300 | Critical and Ethical Issues in Journalism | 4",
-              "Production/Media Skills Course | 1",
-              "Production/Media Skills Course | 1",
-              "University Core | 3-4",
-              "Upper Division Elective | 3-4",
-              "Semester Hours | 12-14"
-            ],
-            "label": "Fall",
             "term_index": 7
           },
           {
+            "credit_hours": "12-14",
             "items": [
-              "JOUR Elective | 4",
-              "JOUR Elective",
-              "Semester Hours | 4"
+              {
+                "code": "JOUR 3300",
+                "credits": 4,
+                "title": "Critical and Ethical Issues in Journalism"
+              },
+              {
+                "credits": 1,
+                "text": "Production/Media Skills Course"
+              },
+              {
+                "credits": 1,
+                "text": "Production/Media Skills Course"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 8
+          },
+          {
+            "credit_hours": "4",
+            "items": [
+              {
+                "credits": 4,
+                "text": "JOUR Elective"
+              },
+              {
+                "text": "JOUR Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 9
           },
           {
             "items": [],
             "label": "Senior Year",
-            "term_index": 9
-          },
-          {
-            "items": [
-              "Select one of the following: | 4",
-              "JOUR 4402 | Journalism Internship",
-              "JOUR 4403 | The Lion",
-              "JOUR Elective | 4",
-              "JOUR Elective | 4",
-              "Semester Hours | 12"
-            ],
-            "label": "Fall",
             "term_index": 10
           },
           {
+            "credit_hours": "12",
             "items": [
-              "JOUR 4468 | Journalism: Capstone | 4",
-              "Upper Division Elective | 3-4",
-              "Upper Division Elective | 3-4",
-              "Upper Division Elective | 3-4",
-              "Semester Hours | 13-16",
-              "Minimum Semester Hours | 92-104"
+              {
+                "choose": 1,
+                "credits": 4,
+                "options": [
+                  {
+                    "code": "JOUR 4402",
+                    "title": "Journalism Internship"
+                  },
+                  {
+                    "code": "JOUR 4403",
+                    "title": "The Lion"
+                  }
+                ],
+                "text": "Select one of the following:"
+              },
+              {
+                "credits": 4,
+                "text": "JOUR Elective"
+              },
+              {
+                "credits": 4,
+                "text": "JOUR Elective"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "13-16",
+            "items": [
+              {
+                "code": "JOUR 4468",
+                "credits": 4,
+                "title": "Journalism: Capstone"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 11
+            "term_index": 12
           }
         ]
       },
-      "source_url": "https://bulletin.lmu.edu//schools-colleges/liberal-arts/journalism/journalism-ba/",
-      "verification_status": "partially_verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#65d0da7f32331d78. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
-      "verification_correction_reason": "Term-by-term plan read by courseleaf_plan/v1 from https://bulletin.lmu.edu//schools-colleges/liberal-arts/journalism/journalism-ba/ stores rows of the printed Plan of Study Grid that are not courses (term subtotals, year headings or the plan total) as plan items (#229). The corrected reader could not reproduce the grid exactly (printed total row 'Minimum Semester Hours | 92-104' stored as a plan item in the last term; rule_text missing), so the plan is no longer verified; its course rows remain as stored. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#65d0da7f32331d78."
+      "source_url": "https://bulletin.lmu.edu/schools-colleges/liberal-arts/journalism/journalism-ba/",
+      "verification_status": "verified",
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Minimum Semester Hours 92-104 (as printed)' = printed total; differs: v1 record stored header/subtotal rows as items and lacked subtotals/total; new record has printed terms, subtotals, total and structured items (), all supported Replaces the record promoted earlier from this candidate: Plan on file (evidence CA/2026-10-07-cat#65d0da7f32331d78) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item. Re-verified after the correction on file (kept in supabase/corrections.json): The #229 correction held this plan (evidence CA/2026-10-07-cat#65d0da7f32331d78); the remaining defect, a printed choice block stored flat, is read as one choice item and the review confirmed the grid. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#e3777b440993a12a."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -2218,130 +2852,274 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Minimum Semester Hours 108-129 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
-            "items": [
-              "Fall | Semester Hours",
-              "FREN 2102 | French 2 | 4",
-              "FFYS 1000 | First Year Seminar | 4",
-              "University Core | 3-4",
-              "University Core | 3-4",
-              "Semester Hours | 14-16"
-            ],
+            "items": [],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "14-16",
             "items": [
-              "FREN 2103 | French 3 | 4",
-              "RHET 1000 | Rhetorical Arts | 4",
-              "University Core | 3-4",
-              "University Core | 3-4",
-              "Semester Hours | 14-16"
+              {
+                "code": "FREN 2102",
+                "credits": 4,
+                "title": "French 2"
+              },
+              {
+                "code": "FFYS 1000",
+                "credits": 4,
+                "title": "First Year Seminar"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 2
+          },
+          {
+            "credit_hours": "14-16",
+            "items": [
+              {
+                "code": "FREN 2103",
+                "credits": 4,
+                "title": "French 3"
+              },
+              {
+                "code": "RHET 1000",
+                "credits": 4,
+                "title": "Rhetorical Arts"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
             "items": [],
             "label": "Sophomore Year",
-            "term_index": 3
-          },
-          {
-            "items": [
-              "FREN 2104 | French 4 | 4",
-              "University Core | 3-4",
-              "University Core | 3-4",
-              "Elective | 3-4",
-              "Semester Hours | 13-16"
-            ],
-            "label": "Fall",
             "term_index": 4
           },
           {
+            "credit_hours": "13-16",
             "items": [
-              "Select one of the following: | 4",
-              "FREN 3240 | History of Ideas",
-              "FREN 3450 | Stylistics and Translation",
-              "FREN 3850 | Writing Workshop in French",
-              "University Core | 3-4",
-              "Elective | 3-4",
-              "Elective | 3-4",
-              "Semester Hours | 13-16"
+              {
+                "code": "FREN 2104",
+                "credits": 4,
+                "title": "French 4"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 5
+          },
+          {
+            "credit_hours": "13-16",
+            "items": [
+              {
+                "choose": 1,
+                "credits": 4,
+                "options": [
+                  {
+                    "code": "FREN 3240",
+                    "title": "History of Ideas"
+                  },
+                  {
+                    "code": "FREN 3450",
+                    "title": "Stylistics and Translation"
+                  },
+                  {
+                    "code": "FREN 3850",
+                    "title": "Writing Workshop in French"
+                  }
+                ],
+                "text": "Select one of the following:"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 5
+            "term_index": 6
           },
           {
             "items": [],
             "label": "Junior Year",
-            "term_index": 6
-          },
-          {
-            "items": [
-              "Select one of the following: | 4",
-              "FREN 3240 | History of Ideas",
-              "FREN 3450 | Stylistics and Translation",
-              "FREN 3850 | Writing Workshop in French",
-              "University Core | 3-4",
-              "University Core | 3-4",
-              "University Core | 3-4",
-              "Semester Hours | 13-16"
-            ],
-            "label": "Fall",
             "term_index": 7
           },
           {
+            "credit_hours": "13-16",
             "items": [
-              "Select one of the following: | 4",
-              "FREN 3240 | History of Ideas",
-              "FREN 3450 | Stylistics and Translation",
-              "FREN 3850 | Writing Workshop in French",
-              "FREN 4000-level Elective | 4",
-              "University Core | 3-4",
-              "Upper Division Elective | 3-4",
-              "Semester Hours | 14-16"
+              {
+                "choose": 1,
+                "credits": 4,
+                "options": [
+                  {
+                    "code": "FREN 3240",
+                    "title": "History of Ideas"
+                  },
+                  {
+                    "code": "FREN 3450",
+                    "title": "Stylistics and Translation"
+                  },
+                  {
+                    "code": "FREN 3850",
+                    "title": "Writing Workshop in French"
+                  }
+                ],
+                "text": "Select one of the following:"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 8
+          },
+          {
+            "credit_hours": "14-16",
+            "items": [
+              {
+                "choose": 1,
+                "credits": 4,
+                "options": [
+                  {
+                    "code": "FREN 3240",
+                    "title": "History of Ideas"
+                  },
+                  {
+                    "code": "FREN 3450",
+                    "title": "Stylistics and Translation"
+                  },
+                  {
+                    "code": "FREN 3850",
+                    "title": "Writing Workshop in French"
+                  }
+                ],
+                "text": "Select one of the following:"
+              },
+              {
+                "credits": 4,
+                "text": "FREN 4000-level Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 9
           },
           {
             "items": [],
             "label": "Senior Year",
-            "term_index": 9
-          },
-          {
-            "items": [
-              "FREN 4000-level Elective | 4",
-              "University Core | 3-4",
-              "Upper Division Elective | 3-4",
-              "Upper Division Elective | 3-4",
-              "Semester Hours | 13-16"
-            ],
-            "label": "Fall",
             "term_index": 10
           },
           {
+            "credit_hours": "13-16",
             "items": [
-              "FREN 4990 | Senior Capstone Project | 1",
-              "FREN 4000-level Elective | 4",
-              "Upper Division Elective | 3-4",
-              "Upper Division Elective | 3-4",
-              "Upper Division Elective | 3-4",
-              "Semester Hours | 14-17",
-              "Minimum Semester Hours | 108-129"
+              {
+                "credits": 4,
+                "text": "FREN 4000-level Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "14-17",
+            "items": [
+              {
+                "code": "FREN 4990",
+                "credits": 1,
+                "title": "Senior Capstone Project"
+              },
+              {
+                "credits": 4,
+                "text": "FREN 4000-level Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 11
+            "term_index": 12
           }
         ]
       },
-      "source_url": "https://bulletin.lmu.edu//schools-colleges/liberal-arts/modern-languages-literatures/french-ba/",
-      "verification_status": "partially_verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#76b8437c8b4a31f9. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
-      "verification_correction_reason": "Term-by-term plan read by courseleaf_plan/v1 from https://bulletin.lmu.edu//schools-colleges/liberal-arts/modern-languages-literatures/french-ba/ stores rows of the printed Plan of Study Grid that are not courses (term subtotals, year headings or the plan total) as plan items (#229). The corrected reader could not reproduce the grid exactly (printed total row 'Minimum Semester Hours | 108-129' stored as a plan item in the last term; rule_text missing), so the plan is no longer verified; its course rows remain as stored. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#76b8437c8b4a31f9."
+      "source_url": "https://bulletin.lmu.edu/schools-colleges/liberal-arts/modern-languages-literatures/french-ba/",
+      "verification_status": "verified",
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 3 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Minimum Semester Hours 108-129 (as printed)' = printed total; differs: v1 record stored header/subtotal rows as items and lacked subtotals/total; new record has printed terms, subtotals, total and structured items (), all supported Replaces the record promoted earlier from this candidate: Plan on file (evidence CA/2026-10-07-cat#76b8437c8b4a31f9) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item. Re-verified after the correction on file (kept in supabase/corrections.json): The #229 correction held this plan (evidence CA/2026-10-07-cat#76b8437c8b4a31f9); the remaining defect, a printed choice block stored flat, is read as one choice item and the review confirmed the grid. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#770cbab8ba8d7de6."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -3453,127 +4231,274 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Minimum Semester Hours 108-128 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
-            "items": [
-              "Fall | Semester Hours",
-              "Select one of the following: | 4",
-              "POLS 1200 | U.S. Politics",
-              "POLS 1400 | Comparative Politics",
-              "POLS 1600 | International Relations",
-              "FFYS 1000 | First Year Seminar | 4",
-              "University Core | 3-4",
-              "University Core | 3-4",
-              "Semester Hours | 14-16"
-            ],
+            "items": [],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "14-16",
             "items": [
-              "Select one of the following: | 4",
-              "POLS 1200 | U.S. Politics",
-              "POLS 1400 | Comparative Politics",
-              "POLS 1600 | International Relations",
-              "RHET 1000 | Rhetorical Arts | 4",
-              "University Core | 3-4",
-              "Elective | 3-4",
-              "Semester Hours | 14-16"
+              {
+                "choose": 1,
+                "credits": 4,
+                "options": [
+                  {
+                    "code": "POLS 1200",
+                    "title": "U.S. Politics"
+                  },
+                  {
+                    "code": "POLS 1400",
+                    "title": "Comparative Politics"
+                  },
+                  {
+                    "code": "POLS 1600",
+                    "title": "International Relations"
+                  }
+                ],
+                "text": "Select one of the following:"
+              },
+              {
+                "code": "FFYS 1000",
+                "credits": 4,
+                "title": "First Year Seminar"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 2
+          },
+          {
+            "credit_hours": "14-16",
+            "items": [
+              {
+                "choose": 1,
+                "credits": 4,
+                "options": [
+                  {
+                    "code": "POLS 1200",
+                    "title": "U.S. Politics"
+                  },
+                  {
+                    "code": "POLS 1400",
+                    "title": "Comparative Politics"
+                  },
+                  {
+                    "code": "POLS 1600",
+                    "title": "International Relations"
+                  }
+                ],
+                "text": "Select one of the following:"
+              },
+              {
+                "code": "RHET 1000",
+                "credits": 4,
+                "title": "Rhetorical Arts"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
             "items": [],
             "label": "Sophomore Year",
-            "term_index": 3
-          },
-          {
-            "items": [
-              "POLS 2000or POLS 2100 | Foundations of Political Theoryor Empirical Approaches | 4",
-              "University Core | 3-4",
-              "University Core | 3-4",
-              "Elective | 3-4",
-              "Semester Hours | 13-16"
-            ],
-            "label": "Fall",
             "term_index": 4
           },
           {
+            "credit_hours": "13-16",
             "items": [
-              "POLS 2000or POLS 2100 | Foundations of Political Theoryor Empirical Approaches | 4",
-              "University Core | 3-4",
-              "University Core | 3-4",
-              "Elective | 3-4",
-              "Semester Hours | 13-16"
+              {
+                "any_of": [
+                  {
+                    "code": "POLS 2000",
+                    "title": "Foundations of Political Theory"
+                  },
+                  {
+                    "code": "POLS 2100",
+                    "title": "Empirical Approaches"
+                  }
+                ],
+                "credits": 4
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 5
+          },
+          {
+            "credit_hours": "13-16",
+            "items": [
+              {
+                "any_of": [
+                  {
+                    "code": "POLS 2000",
+                    "title": "Foundations of Political Theory"
+                  },
+                  {
+                    "code": "POLS 2100",
+                    "title": "Empirical Approaches"
+                  }
+                ],
+                "credits": 4
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 5
+            "term_index": 6
           },
           {
             "items": [],
             "label": "Junior Year",
-            "term_index": 6
-          },
-          {
-            "items": [
-              "POLS Upper Division | 4",
-              "POLS Upper Division | 4",
-              "University Core | 3-4",
-              "Upper Division Elective | 3-4",
-              "Semester Hours | 14-16"
-            ],
-            "label": "Fall",
             "term_index": 7
           },
           {
+            "credit_hours": "14-16",
             "items": [
-              "POLS Upper Division | 4",
-              "University Core | 3-4",
-              "Upper Division Elective | 3-4",
-              "Upper Division Elective | 3-4",
-              "Semester Hours | 13-16"
+              {
+                "credits": 4,
+                "text": "POLS Upper Division"
+              },
+              {
+                "credits": 4,
+                "text": "POLS Upper Division"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 8
+          },
+          {
+            "credit_hours": "13-16",
+            "items": [
+              {
+                "credits": 4,
+                "text": "POLS Upper Division"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 9
           },
           {
             "items": [],
             "label": "Senior Year",
-            "term_index": 9
-          },
-          {
-            "items": [
-              "POLS Upper Division | 4",
-              "University Core | 3-4",
-              "Upper Division Elective | 3-4",
-              "Upper Division Elective | 3-4",
-              "Semester Hours | 13-16"
-            ],
-            "label": "Fall",
             "term_index": 10
           },
           {
+            "credit_hours": "13-16",
             "items": [
-              "POLS 5000 | Political Science Senior Assessment | 0",
-              "POLS Upper Division | 4",
-              "POLS 5000-level | 4",
-              "University Core | 3-4",
-              "Elective | 3-4",
-              "Semester Hours | 14-16",
-              "Minimum Semester Hours | 108-128"
+              {
+                "credits": 4,
+                "text": "POLS Upper Division"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "14-16",
+            "items": [
+              {
+                "code": "POLS 5000",
+                "credits": 0,
+                "title": "Political Science Senior Assessment"
+              },
+              {
+                "credits": 4,
+                "text": "POLS Upper Division"
+              },
+              {
+                "credits": 4,
+                "text": "POLS 5000-level"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 11
+            "term_index": 12
           }
         ]
       },
-      "source_url": "https://bulletin.lmu.edu//schools-colleges/liberal-arts/political-science-international-relations/political-science-ba/",
-      "verification_status": "partially_verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#532097379f672419. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
-      "verification_correction_reason": "Term-by-term plan read by courseleaf_plan/v1 from https://bulletin.lmu.edu//schools-colleges/liberal-arts/political-science-international-relations/political-science-ba/ stores rows of the printed Plan of Study Grid that are not courses (term subtotals, year headings or the plan total) as plan items (#229). The corrected reader could not reproduce the grid exactly (printed total row 'Minimum Semester Hours | 108-128' stored as a plan item in the last term; rule_text missing), so the plan is no longer verified; its course rows remain as stored. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#532097379f672419."
+      "source_url": "https://bulletin.lmu.edu/schools-colleges/liberal-arts/political-science-international-relations/political-science-ba/",
+      "verification_status": "verified",
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Minimum Semester Hours 108-128 (as printed)' = printed total; differs: v1 record stored header/subtotal rows as items and lacked subtotals/total; new record has printed terms, subtotals, total and structured items (), all supported Replaces the record promoted earlier from this candidate: Plan on file (evidence CA/2026-10-07-cat#532097379f672419) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item. Re-verified after the correction on file (kept in supabase/corrections.json): The #229 correction held this plan (evidence CA/2026-10-07-cat#532097379f672419); the remaining defect, a printed choice block stored flat, is read as one choice item and the review confirmed the grid. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#1dac110697564632."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -7760,12 +8685,18 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Minimum Semester Hours 125-146 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "First Year",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "16-18",
             "items": [
-              "Fall | Semester Hours",
               {
                 "code": "MUSC 101",
                 "credits": 0,
@@ -7786,19 +8717,52 @@
                 "credits": 1,
                 "title": "Guitar, Percussion, Piano, Strings, Winds, Voice"
               },
-              "MUSC Ensemble | 1",
-              "Select one of the following: | 4",
-              "FREN 2101 | French 1",
-              "GRMN 2101 | German 1",
-              "ITAL 2101 | Italian 1",
-              "FFYS 1000or RHET 1000 | First Year Seminaror Rhetorical Arts | 3-4",
-              "University Core | 3-4",
-              "Semester Hours | 16-18"
+              {
+                "credits": 1,
+                "text": "MUSC Ensemble"
+              },
+              {
+                "choose": 1,
+                "credits": 4,
+                "options": [
+                  {
+                    "code": "FREN 2101",
+                    "title": "French 1"
+                  },
+                  {
+                    "code": "GRMN 2101",
+                    "title": "German 1"
+                  },
+                  {
+                    "code": "ITAL 2101",
+                    "title": "Italian 1"
+                  }
+                ],
+                "text": "Select one of the following:"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "FFYS 1000",
+                    "title": "First Year Seminar"
+                  },
+                  {
+                    "code": "RHET 1000",
+                    "title": "Rhetorical Arts"
+                  }
+                ],
+                "credits": "3-4"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              }
             ],
-            "label": "First Year",
-            "term_index": 1
+            "label": "Fall",
+            "term_index": 2
           },
           {
+            "credit_hours": "15-18",
             "items": [
               {
                 "code": "MUSC 101",
@@ -7820,21 +8784,42 @@
                 "credits": 1,
                 "title": "Guitar, Percussion, Piano, Strings, Winds, Voice"
               },
-              "MUSC Ensemble | 1",
-              "RHET 1000or FFYS 1000 | Rhetorical Artsor First Year Seminar | 3-4",
-              "University Core | 3-4",
-              "University Core | 3-4",
-              "Semester Hours | 15-18"
+              {
+                "credits": 1,
+                "text": "MUSC Ensemble"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "RHET 1000",
+                    "title": "Rhetorical Arts"
+                  },
+                  {
+                    "code": "FFYS 1000",
+                    "title": "First Year Seminar"
+                  }
+                ],
+                "credits": "3-4"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
             "items": [],
             "label": "Sophomore Year",
-            "term_index": 3
+            "term_index": 4
           },
           {
+            "credit_hours": "16-19",
             "items": [
               {
                 "code": "MUSC 101",
@@ -7856,16 +8841,28 @@
                 "credits": 1,
                 "title": "Guitar, Percussion, Piano, Strings, Voice"
               },
-              "MUSC Ensemble | 1",
-              "University Core | 3-4",
-              "University Core | 3-4",
-              "Elective | 3-4",
-              "Semester Hours | 16-19"
+              {
+                "credits": 1,
+                "text": "MUSC Ensemble"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              }
             ],
             "label": "Fall",
-            "term_index": 4
+            "term_index": 5
           },
           {
+            "credit_hours": "14-16",
             "items": [
               {
                 "code": "MUSC 101",
@@ -7887,20 +8884,29 @@
                 "credits": 3,
                 "title": "Music History: Antiquity to 1600"
               },
-              "MUSC Ensemble | 1",
-              "University Core | 3-4",
-              "University Core | 3-4",
-              "Semester Hours | 14-16"
+              {
+                "credits": 1,
+                "text": "MUSC Ensemble"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              }
             ],
             "label": "Spring",
-            "term_index": 5
+            "term_index": 6
           },
           {
             "items": [],
             "label": "Junior Year",
-            "term_index": 6
+            "term_index": 7
           },
           {
+            "credit_hours": "17-19",
             "items": [
               {
                 "code": "MUSC 317",
@@ -7912,71 +8918,143 @@
                 "credits": 3,
                 "title": "Introduction to World Music Cultures"
               },
-              "MUSC 332or MUSC 333 | Choral Conductingor Instrumental Conducting | 2",
-              "University Core | 3-4",
-              "University Core | 3-4",
-              "Upper Division Elective | 2",
-              "MUSC Ensemble | 1",
-              "Semester Hours | 17-19"
+              {
+                "any_of": [
+                  {
+                    "code": "MUSC 332",
+                    "title": "Choral Conducting"
+                  },
+                  {
+                    "code": "MUSC 333",
+                    "title": "Instrumental Conducting"
+                  }
+                ],
+                "credits": 2
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": 2,
+                "text": "Upper Division Elective"
+              },
+              {
+                "credits": 1,
+                "text": "MUSC Ensemble"
+              }
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 8
           },
           {
+            "credit_hours": "15-18",
             "items": [
               {
                 "code": "MUSC 318",
                 "credits": 3,
                 "title": "Music History: 1820 to Present"
               },
-              "MUSC Upper Division Concentration | 2",
-              "University Core | 3-4",
-              "Upper Division Elective | 3-4",
-              "Elective | 3-4",
-              "MUSC Ensemble | 1",
-              "Semester Hours | 15-18"
+              {
+                "credits": 2,
+                "text": "MUSC Upper Division Concentration"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              },
+              {
+                "credits": 1,
+                "text": "MUSC Ensemble"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 9
           },
           {
             "items": [],
             "label": "Senior Year",
-            "term_index": 9
-          },
-          {
-            "items": [
-              "MUSC Upper Division Concentration | 4",
-              "University Core | 3-4",
-              "Upper Division Elective Non-Music | 3-4",
-              "MUSC Ensemble | 1",
-              "Elective | 3-4",
-              "Elective | 2",
-              "Semester Hours | 16-19"
-            ],
-            "label": "Fall",
             "term_index": 10
           },
           {
+            "credit_hours": "16-19",
             "items": [
-              "MUSC Upper Division Elective | 4",
-              "University Core | 3-4",
-              "MUSC Ensemble | 1",
-              "Elective | 3-4",
-              "Elective | 3-4",
-              "Elective | 2",
-              "Semester Hours | 16-19",
-              "Minimum Semester Hours | 125-146"
+              {
+                "credits": 4,
+                "text": "MUSC Upper Division Concentration"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective Non-Music"
+              },
+              {
+                "credits": 1,
+                "text": "MUSC Ensemble"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              },
+              {
+                "credits": 2,
+                "text": "Elective"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "16-19",
+            "items": [
+              {
+                "credits": 4,
+                "text": "MUSC Upper Division Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": 1,
+                "text": "MUSC Ensemble"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              },
+              {
+                "credits": 2,
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 11
+            "term_index": 12
           }
         ]
       },
-      "source_url": "https://bulletin.lmu.edu//schools-colleges/communication-fine-arts/music/music-ba/",
-      "verification_status": "partially_verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#af5ce502bc5557c5. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
-      "verification_correction_reason": "Term-by-term plan read by courseleaf_plan/v1 from https://bulletin.lmu.edu//schools-colleges/communication-fine-arts/music/music-ba/ stores rows of the printed Plan of Study Grid that are not courses (term subtotals, year headings or the plan total) as plan items (#229). The corrected reader could not reproduce the grid exactly (printed total row 'Minimum Semester Hours | 125-146' stored as a plan item in the last term; rule_text missing), so the plan is no longer verified; its course rows remain as stored. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#af5ce502bc5557c5."
+      "source_url": "https://bulletin.lmu.edu/schools-colleges/communication-fine-arts/music/music-ba/",
+      "verification_status": "verified",
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Minimum Semester Hours 125-146 (as printed)' = printed total; differs: v1 record stored header/subtotal rows as items and lacked subtotals/total; new record has printed terms, subtotals, total and structured items (field code,credits,title x2, field code,title x2, string->any_of x1, string->code x1, string->text x8), all supported Replaces the record promoted earlier from this candidate: Plan on file (evidence CA/2026-10-07-cat#af5ce502bc5557c5) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item. Re-verified after the correction on file (kept in supabase/corrections.json): The #229 correction held this plan (evidence CA/2026-10-07-cat#af5ce502bc5557c5); the remaining defect, a printed choice block stored flat, is read as one choice item and the review confirmed the grid. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#109d43c26cf5e84c."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -17480,140 +18558,299 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Minimum Semester Hours 107-128 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
-            "items": [
-              "Fall | Semester Hours",
-              "FTVS 1010 | Art of Cinema | 4",
-              "FFYS 1000 | First Year Seminar | 3-4",
-              "University Core | 3-4",
-              "University Core | 3-4",
-              "Semester Hours | 13-16"
-            ],
+            "items": [],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "13-16",
             "items": [
-              "FTVS 1020 | Introduction to Media and Culture | 4",
-              "RHET 1000 | Rhetorical Arts | 4",
-              "Select one of the following: | 3-4",
               {
-                "code": "ANIM 101",
-                "title": "Discovering Animation"
+                "code": "FTVS 1010",
+                "credits": 4,
+                "title": "Art of Cinema"
               },
-              "PROD 1010 | Production Bootcamp",
-              "SCWR 1120 | Storytelling for the Screen",
-              "University Core | 3-4",
-              "Semester Hours | 14-16"
+              {
+                "code": "FFYS 1000",
+                "credits": "3-4",
+                "title": "First Year Seminar"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 2
+          },
+          {
+            "credit_hours": "14-16",
+            "items": [
+              {
+                "code": "FTVS 1020",
+                "credits": 4,
+                "title": "Introduction to Media and Culture"
+              },
+              {
+                "code": "RHET 1000",
+                "credits": 4,
+                "title": "Rhetorical Arts"
+              },
+              {
+                "choose": 1,
+                "credits": "3-4",
+                "options": [
+                  {
+                    "code": "ANIM 101",
+                    "title": "Discovering Animation"
+                  },
+                  {
+                    "code": "PROD 1010",
+                    "title": "Production Bootcamp"
+                  },
+                  {
+                    "code": "SCWR 1120",
+                    "title": "Storytelling for the Screen"
+                  }
+                ],
+                "text": "Select one of the following:"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
             "items": [],
             "label": "Sophomore Year",
-            "term_index": 3
-          },
-          {
-            "items": [
-              "FTVS 2100 | World Cinema 1 (1895-1955) | 4",
-              "University Core | 3-4",
-              "University Core | 3-4",
-              "Elective | 3-4",
-              "Semester Hours | 13-16"
-            ],
-            "label": "Fall",
             "term_index": 4
           },
           {
+            "credit_hours": "13-16",
             "items": [
-              "FTVS 3320 | Film and Media Theory | 4",
-              "Select one of the following: | 4",
-              "FTVS 2120 | TV Studies",
-              "FTVS 2127 | Global TV Studies",
-              "FTVS 4410 | American Cinema",
-              "FTVS 4420 | European Cinema",
-              "FTVS 4447 | African/Middle Eastern Cinema",
-              "FTVS 4457 | Latin American Cinema",
-              "FTVS 4467 | South Asian Cinema",
-              "University Core | 3-4",
-              "University Core | 3-4",
-              "Semester Hours | 14-16"
+              {
+                "code": "FTVS 2100",
+                "credits": 4,
+                "title": "World Cinema 1 (1895-1955)"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 5
+          },
+          {
+            "credit_hours": "14-16",
+            "items": [
+              {
+                "code": "FTVS 3320",
+                "credits": 4,
+                "title": "Film and Media Theory"
+              },
+              {
+                "choose": 1,
+                "credits": 4,
+                "options": [
+                  {
+                    "code": "FTVS 2120",
+                    "title": "TV Studies"
+                  },
+                  {
+                    "code": "FTVS 2127",
+                    "title": "Global TV Studies"
+                  },
+                  {
+                    "code": "FTVS 4410",
+                    "title": "American Cinema"
+                  },
+                  {
+                    "code": "FTVS 4420",
+                    "title": "European Cinema"
+                  },
+                  {
+                    "code": "FTVS 4447",
+                    "title": "African/Middle Eastern Cinema"
+                  },
+                  {
+                    "code": "FTVS 4457",
+                    "title": "Latin American Cinema"
+                  },
+                  {
+                    "code": "FTVS 4467",
+                    "title": "South Asian Cinema"
+                  }
+                ],
+                "text": "Select one of the following:"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              }
             ],
             "label": "Spring",
-            "term_index": 5
+            "term_index": 6
           },
           {
             "items": [],
             "label": "Junior Year",
-            "term_index": 6
-          },
-          {
-            "items": [
-              "FTVS Elective any FTVS class from FTVS 2130 – FTVS 3700, FTVS 4410 - FTVS 4707 (three of four electives must have a Nonwestern/Transnational Emphasis and be selected from courses ending in 7) 1 | 4",
-              "FTVS National or Regional Topic (select one) | 4",
-              "FTVS 2120 | TV Studies",
-              "FTVS 2127 | Global TV Studies",
-              "FTVS 4410 | American Cinema",
-              "FTVS 4420 | European Cinema",
-              "FTVS 4447 | African/Middle Eastern Cinema",
-              "FTVS 4457 | Latin American Cinema",
-              "FTVS 4467 | South Asian Cinema",
-              "Electives | 3-4",
-              "Electives | 3-4",
-              "Semester Hours | 14-16"
-            ],
-            "label": "Fall",
             "term_index": 7
           },
           {
+            "credit_hours": "14-16",
             "items": [
-              "FTVS Elective any FTVS class from FTVS 2130 – FTVS 3700, FTVS 4410 - FTVS 4707 (three of four electives must have a Nonwestern/Transnational Emphasis and be selected from courses ending in 7) 1 | 4",
-              "University Core | 3-4",
-              "Elective | 3-4",
-              "Elective | 3-4",
-              "Semester Hours | 13-16"
+              {
+                "credits": 4,
+                "text": "FTVS Elective any FTVS class from FTVS 2130 – FTVS 3700, FTVS 4410 - FTVS 4707 (three of four electives must have a Nonwestern/Transnational Emphasis and be selected from courses ending in 7) 1"
+              },
+              {
+                "credits": 4,
+                "text": "FTVS National or Regional Topic (select one)"
+              },
+              {
+                "code": "FTVS 2120",
+                "title": "TV Studies"
+              },
+              {
+                "code": "FTVS 2127",
+                "title": "Global TV Studies"
+              },
+              {
+                "code": "FTVS 4410",
+                "title": "American Cinema"
+              },
+              {
+                "code": "FTVS 4420",
+                "title": "European Cinema"
+              },
+              {
+                "code": "FTVS 4447",
+                "title": "African/Middle Eastern Cinema"
+              },
+              {
+                "code": "FTVS 4457",
+                "title": "Latin American Cinema"
+              },
+              {
+                "code": "FTVS 4467",
+                "title": "South Asian Cinema"
+              },
+              {
+                "credits": "3-4",
+                "text": "Electives"
+              },
+              {
+                "credits": "3-4",
+                "text": "Electives"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 8
+          },
+          {
+            "credit_hours": "13-16",
+            "items": [
+              {
+                "credits": 4,
+                "text": "FTVS Elective any FTVS class from FTVS 2130 – FTVS 3700, FTVS 4410 - FTVS 4707 (three of four electives must have a Nonwestern/Transnational Emphasis and be selected from courses ending in 7) 1"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              },
+              {
+                "credits": "3-4",
+                "text": "Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 9
           },
           {
             "items": [],
             "label": "Senior Year",
-            "term_index": 9
-          },
-          {
-            "items": [
-              "FTVS Elective any FTVS class from FTVS 2130 – FTVS 3700, FTVS 4410 - FTVS 4707 (three of four electives must have a Nonwestern/Transnational Emphasis and be selected from courses ending in 7) 1 | 4",
-              "University Core | 3-4",
-              "University Core | 3-4",
-              "Upper Division Elective | 3-4",
-              "Semester Hours | 13-16"
-            ],
-            "label": "Fall",
             "term_index": 10
           },
           {
+            "credit_hours": "13-16",
             "items": [
-              "FTVS Elective any FTVS class from FTVS 2130 – FTVS 3700, FTVS 4410 - FTVS 4707 (three of four electives must have a Nonwestern/Transnational Emphasis and be selected from courses ending in 7) 1 | 4",
-              "University Core | 3-4",
-              "University Core | 3-4",
-              "Upper Division Elective | 3-4",
-              "Semester Hours | 13-16",
-              "Minimum Semester Hours | 107-128"
+              {
+                "credits": 4,
+                "text": "FTVS Elective any FTVS class from FTVS 2130 – FTVS 3700, FTVS 4410 - FTVS 4707 (three of four electives must have a Nonwestern/Transnational Emphasis and be selected from courses ending in 7) 1"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "13-16",
+            "items": [
+              {
+                "credits": 4,
+                "text": "FTVS Elective any FTVS class from FTVS 2130 – FTVS 3700, FTVS 4410 - FTVS 4707 (three of four electives must have a Nonwestern/Transnational Emphasis and be selected from courses ending in 7) 1"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "credits": "3-4",
+                "text": "Upper Division Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 11
+            "term_index": 12
           }
         ]
       },
-      "source_url": "https://bulletin.lmu.edu//schools-colleges/film-television/film-television-media-studies/film-television-media-studies-ba/",
-      "verification_status": "partially_verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#6da896ba9e22d532. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
-      "verification_correction_reason": "Term-by-term plan read by courseleaf_plan/v1 from https://bulletin.lmu.edu//schools-colleges/film-television/film-television-media-studies/film-television-media-studies-ba/ stores rows of the printed Plan of Study Grid that are not courses (term subtotals, year headings or the plan total) as plan items (#229). The corrected reader could not reproduce the grid exactly (printed total row 'Minimum Semester Hours | 107-128' stored as a plan item in the last term; rule_text missing), so the plan is no longer verified; its course rows remain as stored. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#6da896ba9e22d532."
+      "source_url": "https://bulletin.lmu.edu/schools-colleges/film-television/film-television-media-studies/film-television-media-studies-ba/",
+      "verification_status": "verified",
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Minimum Semester Hours 107-128 (as printed)' = printed total; differs: v1 record stored header/subtotal rows as items and lacked subtotals/total; new record has printed terms, subtotals, total and structured items (), all supported Replaces the record promoted earlier from this candidate: Plan on file (evidence CA/2026-10-07-cat#6da896ba9e22d532) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item. Re-verified after the correction on file (kept in supabase/corrections.json): The #229 correction held this plan (evidence CA/2026-10-07-cat#6da896ba9e22d532); the remaining defect, a printed choice block stored flat, is read as one choice item and the review confirmed the grid. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#b1f17b5b9734b66e."
     },
     {
       "last_verified_at": "2026-10-07",
