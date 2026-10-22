@@ -1,0 +1,39 @@
+name: IPEDS release watch
+# Weekly: every file recorded as not served (HTTP 404) in sources/ipeds/*/manifest.json is requested again. If NCES now
+# serves it, or a 404 record is older than 45 days, an issue is opened so the file is pinned (ipeds-source workflow) and
+# the baseline rebuilt. `verified_current` in baseline/ rests on these dated 404s (scripts/build_baseline.py latest()).
+on:
+  schedule:
+    - cron: '17 9 * * 1'
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.13' }
+      - name: Re-check unserved files
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY' > report.md
+          import glob, json, subprocess, datetime
+          today = datetime.date.today(); lines = []
+          for m in sorted(glob.glob('sources/ipeds/*/manifest.json')):
+              for u in json.load(open(m)).get('unavailable', []):
+                  if str(u.get('http_status')) != '404': continue
+                  code = subprocess.run(['curl', '-s', '-o', '/dev/null', '-I', '-L', '-w', '%{http_code}', u['source_url']],
+                                        capture_output=True, text=True).stdout.strip()
+                  age = (today - datetime.date.fromisoformat(u['checked_at'])).days
+                  if code == '200': lines.append(f"- **now served:** {u['filename']} ({m}) - pin it and rebuild the baseline")
+                  elif age > 45: lines.append(f"- 404 record is {age} days old: {u['filename']} ({m}, still HTTP {code}); re-run the pin request")
+          print('\n'.join(lines))
+          PY
+          cat report.md
+          if [ -s report.md ]; then
+            gh issue create --title "IPEDS release watch: $(date -u +%F)" --body "$(printf 'Files to pin or re-check (`.github/workflows/ipeds-release-watch.yml`):\n\n'; cat report.md)"
+          fi
