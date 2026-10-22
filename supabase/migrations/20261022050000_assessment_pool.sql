@@ -8,9 +8,15 @@
 -- * benchmark_questions(benchmark) lists the reserved items for an open benchmark of the caller: unseen first (mid
 --   difficulty first), then repeats (least recently shown first), each with seen_before. When the reserved pool is too
 --   small the check repeats items; a section with no reserved items gets none and is not measured.
--- * complete_benchmark adds, per section and overall, `repeats` (attempts on a question the student was shown before the
---   benchmark started) and `comparable` (no repeats). A section with any repeat gets no verdict; the app reads
---   `comparable`. metrics.definition becomes 'v2'.
+-- * complete_benchmark adds, per section and overall, `repeats` (scored attempts, i.e. submitted and not skipped, on a
+--   question the student had already been shown outside this benchmark) and `comparable` (no repeats). A section with
+--   any repeat gets no verdict; the app reads `comparable`. metrics.definition becomes 'v2'.
+-- * A check has an exam version, and its items must be that version's reserved items; an item is used at most once per
+--   check (a second attempt on it in the same benchmark is refused, and benchmark_questions leaves used items out).
+-- * Reserved items' content is readable only by a student with an open check for that exam version, and by those who
+--   may view a student who has attempted the item (so "unseen" doesn't depend on the client behaving).
+-- Scope: CR-23 part 1 (the pool, checks, repeats). seen_before on practice items and first-answer estimates
+-- (CONTRACT_REQUESTS CR-23 items 1 and 3) are not in this migration.
 -- Replaces the app's interim client-side holdout (#221). Objects are altered or replaced in place.
 
 alter table public.practice_questions
@@ -46,6 +52,14 @@ begin
   -- CR-23: checks use reserved (assessment) items only; practice never uses them, and never lends items to checks.
   if p_benchmark is not null and not exists (select 1 from public.practice_questions q where q.id = p_question and q.pool = 'assessment') then
     raise exception 'Progress checks use reserved questions only' using errcode = '22023';
+  end if;
+  if p_benchmark is not null and not exists (select 1 from public.practice_benchmarks b join public.practice_questions q on q.id = p_question
+      where b.id = p_benchmark and b.exam_version_id = q.exam_version_id) then
+    raise exception 'A progress check uses reserved questions of its own exam version' using errcode = '22023';
+  end if;
+  if p_benchmark is not null and exists (select 1 from public.practice_attempts a
+      where a.benchmark_id = p_benchmark and a.question_id = p_question) then
+    raise exception 'A question is used once per progress check' using errcode = '22023';
   end if;
   if p_benchmark is null and not exists (select 1 from public.practice_questions q where q.id = p_question and q.pool = 'practice') then
     raise exception 'Reserved progress-check questions are not used in practice' using errcode = '22023';
@@ -108,8 +122,11 @@ language plpgsql stable security definer set search_path = '' as $$
 declare v public.practice_benchmarks;
 begin
   select b.* into v from public.practice_benchmarks b join public.students s on s.id = b.student_id
-  where b.id = p_benchmark and s.linked_user_id = auth.uid() and b.completed_at is null;
+  where b.id = p_benchmark and s.linked_user_id = auth.uid() and s.archived_at is null and b.completed_at is null;
   if not found then raise exception 'No open benchmark of yours with that id' using errcode = '42501'; end if;
+  if v.exam_version_id is null then
+    raise exception 'A progress check needs an exam version' using errcode = '22023';
+  end if;
   return query
     with seen as (select a.question_id as qid, max(a.presented_at) as last_seen
       from public.practice_attempts a where a.student_id = v.student_id
@@ -117,17 +134,18 @@ begin
     select q.section::text, q.id, q.difficulty::integer, q.expected_time_seconds::integer, s.qid is not null, s.last_seen
     from public.practice_questions q left join seen s on s.qid = q.id
     where q.pool = 'assessment' and q.status = 'published' and q.review_current
-      and (v.exam_version_id is null or q.exam_version_id = v.exam_version_id)
+      and q.exam_version_id = v.exam_version_id
+      and not exists (select 1 from public.practice_attempts u where u.benchmark_id = p_benchmark and u.question_id = q.id)
     order by q.section, (s.qid is not null), s.last_seen nulls first, abs(coalesce(q.difficulty, 3) - 3), q.id;
 end $$;
 
--- Repeats per section: attempts in the benchmark whose question the student had been shown before (outside it).
+-- Repeats per section: scored attempts in the benchmark whose question the student had been shown before, outside it.
 create function public.benchmark_repeats_internal(p_benchmark uuid) returns jsonb
 language sql stable set search_path = '' as $$
   -- "Shown before" is an earlier attempt (lower attempt_number) on the same question outside this benchmark; timestamps
   -- can tie within one transaction, attempt numbers can't.
   with a as (select a.*, q.section from public.practice_attempts a join public.practice_questions q on q.id = a.question_id
-        where a.benchmark_id = p_benchmark),
+        where a.benchmark_id = p_benchmark and a.submitted_at is not null and not a.skipped),
   r as (select a.section, count(*) filter (where exists (select 1 from public.practice_attempts p
           where p.student_id = a.student_id and p.question_id = a.question_id and p.attempt_number < a.attempt_number
             and p.benchmark_id is distinct from p_benchmark)) as n
@@ -140,7 +158,7 @@ language plpgsql security definer set search_path = '' as $$
 declare v public.practice_benchmarks; v_metrics jsonb; v_rep jsonb; k text; v_total bigint := 0;
 begin
   select b.* into v from public.practice_benchmarks b join public.students s on s.id = b.student_id
-  where b.id = p_benchmark and s.linked_user_id = auth.uid() for update of b;
+  where b.id = p_benchmark and s.linked_user_id = auth.uid() and s.archived_at is null for update of b;
   if not found then raise exception 'Only the student who started this benchmark can complete it' using errcode = '42501'; end if;
   if v.completed_at is not null then raise exception 'Benchmark was already completed' using errcode = '22023'; end if;
   v_metrics := public.benchmark_metrics_internal(p_benchmark);
@@ -162,3 +180,17 @@ revoke all on function public.complete_benchmark(uuid) from public, anon;
 grant execute on function public.complete_benchmark(uuid) to authenticated, service_role;
 comment on function public.benchmark_questions(uuid) is
   'CR-23: reserved items for an open benchmark of the caller: unseen first (mid difficulty first), then repeats, with seen_before.';
+
+-- Reserved items' content: a student with an open check for that exam version, or anyone who may view a student who has
+-- attempted the item. Child rows (skills, strategies, passages) follow through their policies' question subqueries.
+create function public.can_read_reserved_question(p_question uuid, p_exam_version uuid) returns boolean
+language sql stable security definer set search_path = '' as $$
+  select exists (select 1 from public.practice_benchmarks b join public.students s on s.id = b.student_id
+      where s.linked_user_id = auth.uid() and s.archived_at is null and b.completed_at is null and b.exam_version_id = p_exam_version)
+    or exists (select 1 from public.practice_attempts a where a.question_id = p_question and public.can_view_student(a.student_id))
+$$;
+revoke all on function public.can_read_reserved_question(uuid, uuid) from public, anon;
+grant execute on function public.can_read_reserved_question(uuid, uuid) to authenticated, service_role;
+alter policy published_question_read on public.practice_questions
+  using (status = 'published' and review_current
+    and (pool = 'practice' or public.can_read_reserved_question(id, exam_version_id)));

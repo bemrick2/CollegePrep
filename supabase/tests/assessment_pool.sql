@@ -39,7 +39,8 @@ do $$
 declare st uuid := current_setting('t.st')::uuid; ses uuid; n bigint;
 begin
   perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
-  perform hp_test.eq((select count(*) from public.practice_questions where pool = 'assessment'), 3::bigint, 'clients read pool');
+  -- Without an open check, reserved content is readable only for items this student has attempted (q6, practised earlier).
+  perform hp_test.eq((select string_agg(right(id::text, 1), ',') from public.practice_questions where pool = 'assessment'), '6', 'reserved content hidden until a check');
   select count(*) into n from public.recommend_practice_set(st, 15) r
     join public.practice_questions q on q.id = r.question_id where q.pool = 'assessment';
   perform hp_test.eq(n, 0::bigint, 'recommender offers no reserved item');
@@ -55,18 +56,41 @@ begin
   perform public.start_practice_attempt(st, '30000000-0000-0000-0000-000000000001', ses);  -- practice items still work
 end $$;
 
--- Checks use only reserved items: listed unseen first, then repeats; practice items are refused.
+-- Checks use only reserved items: listed unseen first (mid difficulty first), then repeats; practice items are refused.
 do $$
-declare st uuid := current_setting('t.st')::uuid; b uuid; got text; m jsonb; a uuid;
+declare st uuid := current_setting('t.st')::uuid; b uuid; got text; m jsonb; a uuid; n bigint;
 begin
+  perform hp_test.as_owner();
+  -- q4 difficulty 1 and q8 difficulty 3: mid difficulty first among unseen math items (not id order).
+  update public.practice_questions set difficulty = 1 where id = '30000000-0000-0000-0000-000000000004';
+  update public.practice_questions set pool = 'assessment', difficulty = 3 where id = '30000000-0000-0000-0000-000000000008';
+  -- A reserved draft never appears.
+  update public.practice_questions set pool = 'assessment' where id = '30000000-0000-0000-0000-000000000005';
+  -- An ACT reserved item (another exam version).
+  insert into public.question_types(id, exam_version_id, type_key, name) values
+    ('41000000-0000-0000-0000-000000000009', '40000000-0000-0000-0000-000000000002', 'multiple_choice', 'Multiple choice');
+  insert into public.practice_questions(id, exam_version_id, question_type_id, section, stem, choices, answer_format, accepted_answers,
+    expected_time_seconds, status, license, origin, pool)
+  values ('30000000-0000-0000-0000-000000000009', '40000000-0000-0000-0000-000000000002', '41000000-0000-0000-0000-000000000009', 'math', 'ACT item', '["A","B"]',
+    'choice', '["A"]', 60, 'published', 'original-owned', 'authored', 'assessment');
+  perform public.approve_practice_question('30000000-0000-0000-0000-000000000009', 'test fixture');
+
   perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  b := public.start_benchmark(st, 'mini');  -- no exam version
+  perform hp_test.expect_error(format('select * from public.benchmark_questions(%L)', b), '22023', '%exam version%');
+  perform hp_test.expect_error(format('select public.start_practice_attempt(%L, %L, p_benchmark => %L)', st,
+    '30000000-0000-0000-0000-000000000004', b), '22023', '%own exam version%');
+  perform public.complete_benchmark(b);
   b := public.start_benchmark(st, 'mini', '40000000-0000-0000-0000-000000000001');
   perform set_config('t.b', b::text, true);
   select string_agg(section || ':' || right(question_id::text, 1) || ':' || seen_before, ',' order by section, ord) into got
   from (select x.*, row_number() over () as ord from public.benchmark_questions(b) x) y;
-  perform hp_test.eq(got, 'math:4:false,math:6:true,reading:7:false', 'reserved items only, unseen before repeats, with seen_before');
+  perform hp_test.eq(got, 'math:8:false,math:4:false,math:6:true,reading:7:false',
+    'reserved, published, own-version items only: unseen (mid difficulty first) before repeats, with seen_before');
   perform hp_test.expect_error(format('select public.start_practice_attempt(%L, %L, p_benchmark => %L)', st,
     '30000000-0000-0000-0000-000000000001', b), '22023', '%reserved questions only%');
+  perform hp_test.expect_error(format('select public.start_practice_attempt(%L, %L, p_benchmark => %L)', st,
+    '30000000-0000-0000-0000-000000000009', b), '22023', '%own exam version%');
   -- Only the benchmark's own student lists its items.
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
   perform hp_test.expect_error(format('select * from public.benchmark_questions(%L)', b), '42501');
@@ -74,13 +98,23 @@ begin
   perform hp_test.expect_error(format('select * from public.benchmark_questions(%L)', b), '42501');
   perform hp_test.as_user('20000000-0000-0000-0000-000000000099');
   perform hp_test.expect_error(format('select * from public.benchmark_questions(%L)', b), '42501');
+  -- Reserved content: hidden from an outsider and from a guardian whose student hasn't attempted it.
+  perform hp_test.eq((select count(*) from public.practice_questions where pool = 'assessment'), 0::bigint, 'outsider sees no reserved item');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000052');
+  perform hp_test.eq((select count(*) from public.practice_questions where pool = 'assessment'), 0::bigint, 'a student without an open check sees none');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  perform hp_test.eq((select count(*) from public.practice_questions where pool = 'assessment' and exam_version_id = '40000000-0000-0000-0000-000000000001'),
+    4::bigint, 'a student with an open check reads its version''s reserved items');
   perform hp_test.as_anon();
   perform hp_test.expect_error(format('select * from public.benchmark_questions(%L)', b), '42501');
 
-  -- The check takes q4 (fresh) and q6 (a repeat) in math, q7 (fresh) in reading.
+  -- The check takes q4 (fresh), q6 (a repeat) and skips q8 in math; q7 (fresh) in reading.
   perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
   a := public.start_practice_attempt(st, '30000000-0000-0000-0000-000000000004', p_benchmark => b);
   perform public.submit_practice_attempt(a, 'A');
+  perform hp_test.expect_error(format('select public.start_practice_attempt(%L, %L, p_benchmark => %L)', st,
+    '30000000-0000-0000-0000-000000000004', b), '22023', '%once per progress check%');
+  perform hp_test.eq((select count(*) from public.benchmark_questions(b) where question_id = '30000000-0000-0000-0000-000000000004'), 0::bigint, 'used items leave the list');
   a := public.start_practice_attempt(st, '30000000-0000-0000-0000-000000000006', p_benchmark => b);
   perform public.submit_practice_attempt(a, 'D');
   a := public.start_practice_attempt(st, '30000000-0000-0000-0000-000000000007', p_benchmark => b);
@@ -94,26 +128,42 @@ begin
   perform hp_test.eq((m->>'repeats')::int, 1, 'overall repeats');
   perform hp_test.eq((m->>'comparable')::boolean, false, 'overall not comparable');
   perform hp_test.check((select metrics = m from public.practice_benchmarks where id = b), 'stored as returned');
-  -- A closed benchmark lists nothing.
-  perform hp_test.expect_error(format('select * from public.benchmark_questions(%L)', b), '42501');
+  perform hp_test.expect_error(format('select * from public.benchmark_questions(%L)', b), '42501');  -- closed
+  -- After the check, the student and a viewing guardian can still read the items attempted; not the unattempted one.
+  perform hp_test.eq((select count(*) from public.practice_questions where pool = 'assessment'), 3::bigint, 'attempted reserved items stay readable to the student');
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+  perform hp_test.eq((select count(*) from public.practice_questions where pool = 'assessment'), 3::bigint, 'and to a viewing guardian');
 
-  -- A second check: q4 and q7 are now repeats too (shown in the first check), and come after nothing fresh.
+  -- A second check: a skipped repeat doesn't count; everything left is a repeat, least recently shown first.
+  perform hp_test.as_owner();
+  update public.practice_attempts set presented_at = presented_at - interval '2 days'
+    where student_id = st and question_id = '30000000-0000-0000-0000-000000000006';
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
   b := public.start_benchmark(st, 'mini', '40000000-0000-0000-0000-000000000001');
   select string_agg(right(question_id::text, 1) || ':' || seen_before, ',') into got from public.benchmark_questions(b) where section = 'math';
-  perform hp_test.check(got in ('4:true,6:true', '6:true,4:true'), 'only repeats left: listed least recently shown first (' || got || ')');
+  perform hp_test.eq(got, '8:false,6:true,4:true', 'unseen, then repeats least recently shown first');
+  a := public.start_practice_attempt(st, '30000000-0000-0000-0000-000000000004', p_benchmark => b);
+  perform public.submit_practice_attempt(a, null, p_skipped => true);
+  a := public.start_practice_attempt(st, '30000000-0000-0000-0000-000000000008', p_benchmark => b);
+  perform public.submit_practice_attempt(a, 'B');
   -- A section with no reserved items isn't offered (and so isn't measured).
   perform hp_test.as_owner();
   update public.practice_questions set pool = 'practice' where id = '30000000-0000-0000-0000-000000000007';
   perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
   perform hp_test.eq((select count(*) from public.benchmark_questions(b) where section = 'reading'), 0::bigint, 'no reserved reading items');
-  a := public.start_practice_attempt(st, '30000000-0000-0000-0000-000000000004', p_benchmark => b);
-  perform public.submit_practice_attempt(a, 'A');
   m := public.complete_benchmark(b);
   perform hp_test.check(not (m->'by_section' ? 'reading'), 'unmeasured section absent');
-  perform hp_test.eq((m->'by_section'->'math'->>'repeats')::int, 1, 'a check repeat is a repeat');
-  -- Clients can't move items between pools.
-  perform hp_test.check(not has_column_privilege('public.practice_questions', 'pool', 'UPDATE'), 'clients cannot change pool');
+  perform hp_test.eq((m->'by_section'->'math'->>'repeats')::int, 0, 'a skipped repeat is not counted');
+  perform hp_test.eq((m->>'comparable')::boolean, true, 'clean overall');
+  -- Archived students can't use checks.
   perform hp_test.as_owner();
+  update public.students set archived_at = now() where id = st;
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  perform hp_test.expect_error(format('select * from public.benchmark_questions(%L)', b), '42501');
+  perform hp_test.as_owner();
+  update public.students set archived_at = null where id = st;
+  -- Clients can't move items between pools.
+  perform hp_test.check(not has_column_privilege('authenticated', 'public.practice_questions', 'pool', 'UPDATE'), 'clients cannot change pool');
 end $$;
 
 rollback;
