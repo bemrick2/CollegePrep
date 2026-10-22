@@ -36,7 +36,7 @@ MUTS = [
     ('programs/autoreview.py', "                     'award_link_major/v1',", ""),
     ('programs/catalog_counts.py', "ident = lambda x: ('page:' + page_key(MAJOR_OF.sub(r'\\1\\2', x['url'])) if", "ident = lambda x: ('page:' + page_key(x['url']) if"),
     ('programs/catalog_counts.py', "AWARD_ONLY = re.compile(r'^(?:Dual Degree\\s+)?", "AWARD_ONLY = re.compile(r'^"),
-    ('programs/catalog_counts.py', '|"\n                  r"(?-i:,\\s*B[A-Z]{1,3}\\s+to\\s+[^,]+,\\s*M[A-Z]{1,5}\\b)", re.I)', '", re.I)'),
+    ('programs/catalog_counts.py', 'r"(?-i:,\\s*B[A-Z]{1,3}\\s+to\\s+[^,]+,\\s*M[A-Z]{1,5}\\b)|"', 'r"(?!x)x|"'),
     ('programs/catalog_counts.py', " and bare != rk: hit = None", ": hit = None"),
     ('programs/catalog_counts.py', '|Dual Degree Acceptance|', '|'),
     ('programs/catalog_counts.py', "|^Minor in\\b|General Education Requirements|", "|"),
@@ -279,7 +279,7 @@ MUTS = [
     ('programs/extract.py', "                                 r'plan|semester|map|sample|suggested|'", "                                 r''"),
     ('programs/autoreview.py', "(u in seen_url and c['extractor'] not in SHARED_PAGE)", "(u in seen_url)"),
     ('programs/autoreview.py', "(u in seen_url and c['extractor'] not in SHARED_PAGE)", "(False)"),
-    ('programs/promote.py', "and c['record']['program_key'] not in on_file_keys\n                        and c['extractor'] != 'department_section/v1')", ")"),
+    ('programs/promote.py', "and c['record']['program_key'] not in on_file_keys\n                        and c['extractor'] != 'department_section/v1'\n", "\n"),
     # NDSU 'Degree Type: B.S.': one stated type only; post-baccalaureate paths are not programs
     ('programs/extract.py', "    if not m and len(types) == 1:", "    if not m and types:"),
     ('programs/extract.py', "|post[- ]?baccalaureate|second degree', name, re.I)", "', name, re.I)"),
@@ -453,8 +453,8 @@ MUTS = [
     ('programs/extract.py', "    if not out and plat == 'acalog' and CAT.program_name(page):", "    if False:"),
     ('programs/catalog_counts.py', "|(?-i:\\bB[A-Z]{1,4}-M(?:S|A|[A-Z]{2,3})\\b)", ""),
     # recount through records on file (2026-10-21)
-    ('programs/catalog_counts.py', "        if (rec.get('program_key') in keys or k in pages or count.get(k[0]) == 1) and k[0] not in used:", "        if (rec.get('program_key') in keys or k in pages or count.get(k[0])) and k[0] not in used:"),
-    ('programs/catalog_counts.py', "if (rec.get('program_key') in keys or k in pages or count.get(k[0]) == 1) and k[0] not in used:", "if (rec.get('program_key') in keys or k in pages or count.get(k[0]) == 1):"),
+    ('programs/catalog_counts.py', "        elif (k in pages or count.get(k[0]) == 1) and k[0] not in used:", "        elif (k in pages or count.get(k[0])) and k[0] not in used:"),
+    ('programs/catalog_counts.py', "elif (k in pages or count.get(k[0]) == 1) and k[0] not in used:", "elif (k in pages or count.get(k[0]) == 1):"),
     # diagnose honours robots.txt (2026-10-08)
     ('programs/diagnose.py', "        if not robots.allowed(url):", "        if False:"),
     # Iowa State department pages: a heading prints the listed name and award; a sentence mentioning majors is no multi-major page
