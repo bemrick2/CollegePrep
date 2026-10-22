@@ -14,12 +14,12 @@ requirements belong to Deep Dive (#153).
 | Closed, inactive or missing in provisional HD2024 | 19, flagged, never complete or current |
 | Current school-published tuition (2026-27+, verified) | 181 schools, 6.2% of undergraduates |
 | Merit: verified / partially verified records | 73 / 83 schools |
-| Merit: no published score formula (stated by the school) | 2 (UCF, UF) |
+| Merit: no published score formula (stated by the school) | 2 school-wide (UCF, UF); USC stated for international applicants only |
 | Merit: candidate never reviewed / rejected in review | 30 / 69 |
 | Merit: official page found, nothing structured | 1,389 |
 | Merit: searched, not found / inaccessible / not researched | 125 / 272 / 76 |
 | Merit records with a numeric ACT/SAT criterion | 34 schools, 1.7% of undergraduates |
-| Reviewed merit statements (superscore, test-optional, no fixed criteria) | 8 schools (`baseline/policy/merit_research.json`) |
+| Reviewed merit statements (superscore, test-optional, no fixed criteria) | 23 schools (`baseline/policy/merit_research.json`), ranks 1-300 scanned |
 
 Field-level detail is in `COMPLETENESS.md`. The queue of every school, ranked by enrollment, is in `policy_queue.csv`.
 
@@ -47,7 +47,9 @@ Field-level detail is in `COMPLETENESS.md`. The queue of every school, ranked by
 - **Policy layer beyond merit.**
   - Residency is a state-level policy, so it isn't counted per school.
   - The aid-appeals status counts candidates, but 848 schools have candidates that were rejected in review.
-- **No independent check against College Navigator yet.** It is part of the #259 review.
+- **No independent check against College Navigator yet.** WebFetch of nces.ed.gov was refused in this session (permission not answered) and the shell proxy blocks it; the #259 reviewer spot-checked every value against the raw pinned CSVs instead. Do it when a person can approve the fetch.
+- **`pipeline_attempts.json` is a snapshot.** Re-run `scripts/harvest_research_status.py` after decisions land; the policy counts do not update themselves.
+- **Currency checks age.** `verified_current` rests on a dated 404; re-run the pin workflow for next year's files at least monthly (a scheduled job is a next batch).
 
 ## Blockers
 
@@ -65,9 +67,10 @@ Field-level detail is in `COMPLETENESS.md`. The queue of every school, ranked by
    - Track score- and GPA-linked coverage separately.
 4. **Baseline gaps.** For the test-score and graduation gaps at large schools, check each school's Common Data Set (sections C9/B4). Record each value with its year; never infer one.
 5. **Supabase mapping.** Write a migration and an import for the baseline table, with tests. Merge it; don't apply it.
-6. **Current prices.** Rank schools without verified 2026-27 tuition by enrollment. Re-run the pipeline cost readers on them, or fetch their cost pages.
+6. **Scheduled currency re-check.** A cron job that re-requests next year's NCES files and commits fresh `checked_at` dates (or opens an issue when they are older than 45 days).
+7. **Current prices.** Rank schools without verified 2026-27 tuition by enrollment. Re-run the pipeline cost readers on them, or fetch their cost pages.
 
 ## Throughput (first bulk pass)
 
-- **Bulk baseline:** 2,119 schools in one ~3-minute pin workflow run plus a 10-second build. All remaining baseline gaps (about 470 school-fields) need school-level sources. At 3–5 minutes each with review, that's roughly 25–40 hours.
-- **Merit statements:** scanning takes about 1 s per school. In-context review took about 4 minutes per school for the first 8. At that rate, the 1,389 source-found schools come to roughly 90 hours. Readers for the common grid layouts should cut most of that.
+- **Bulk baseline:** 2,119 schools in one ~3-minute pin workflow run plus a 10-second build. The remaining baseline gaps (about 115 school-fields, mostly test scores at test-optional schools) need school-level sources: at 3–5 minutes each with review, roughly 6–10 hours.
+- **Merit statements:** scanning takes about 1 s per school (300 schools: 1,879 sentences). In-context review took about 4 minutes per school for 23 schools; context excluded several look-alikes (FSU's BOG 6.005 sentence, renewal "minimum criteria", state scholarships). At that rate, the 1,389 source-found schools come to roughly 90 hours. Readers for the common grid layouts should cut most of that.

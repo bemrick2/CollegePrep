@@ -1,10 +1,11 @@
 {
- "note": "Reviewed findings about how a school awards freshman merit scholarships, each a verbatim sentence from an official page already fetched by the national pipeline (evidence retained in evidence-store). A finding never states an amount or threshold it does not quote, never infers an SAT equivalent, and never presents a competitive award as an expected offer. score_formula no_published_score_formula = the school states it has no fixed or pre-set criteria (different from not_researched and from source_inaccessible). Found with scripts/scan_merit_statements.py; every finding is read in context before it is recorded.",
+ "note": "Reviewed findings about how a school awards freshman merit scholarships, each a verbatim sentence from an official page already fetched by the national pipeline (evidence retained in evidence-store). A finding never states an amount or threshold it does not quote, never infers an SAT equivalent, and never presents a competitive award as an expected offer. score_formula no_published_score_formula = the school states it has no fixed or pre-set criteria (different from not_researched and from source_inaccessible). Found with scripts/scan_merit_statements.py; every finding is read in context before it is recorded. Quotes are verbatim; where the page breaks a sentence across lines the quote collapses the whitespace. A finding with applies_to covers only that group or entry term; basis implied_by_sentence marks a value implied rather than stated.",
  "fields": {
   "score_formula": "no_published_score_formula | (a grid is recorded as awards records instead)",
-  "superscore_for_merit": "used | not_used | not_used_act",
+  "superscore_for_merit": "used | used_act | not_used | not_used_act",
   "test_optional_scholarship_rule": "eligible_without_scores | eligible_without_scores_except_top_two | assured_requires_scores_merit_available_test_optional (as stated)",
-  "score_use_for_merit": "which score is used, as stated"
+  "score_use_for_merit": "which score is used, as stated",
+  "superscore_scope": "which tests are combined, as stated"
  },
  "schools": {
   "ipeds-100751": {
@@ -37,7 +38,7 @@
     {
      "field": "superscore_for_merit",
      "value": "used",
-     "quote": "The University of Arkansas calculates ACT and SAT superscores for admission and scholarship",
+     "quote": "The University of Arkansas calculates ACT and SAT superscores for admission and scholarship consideration purposes but does not accept the superscores directly from ACT.",
      "source_url": "https://admissions.uark.edu/apply/test-scores-and-applying.php",
      "evidence": {
       "branch": "pipeline-run/ar-2026-10-03",
@@ -49,7 +50,7 @@
      "retrieved_on": "2026-10-03",
      "academic_year_basis": "source_unlabeled",
      "reviewed_on": "2026-10-22",
-     "review_note": "Sentence read in its page context: it states the school's freshman merit-scholarship practice."
+     "review_note": "Full sentence (whitespace collapsed)."
     }
    ]
   },
@@ -72,7 +73,8 @@
      "retrieved_on": "2026-10-06",
      "academic_year_basis": "source_unlabeled",
      "reviewed_on": "2026-10-22",
-     "review_note": "Stated on the international applicants page; the sentence is about USC Merit Scholarships generally."
+     "review_note": "Stated under \"Eligibility for Merit Scholarships\" on the international applicants page; recorded for international applicants only until the same statement is found on a general page.",
+     "applies_to": "international_applicants"
     }
    ]
   },
@@ -128,7 +130,7 @@
    "findings": [
     {
      "field": "superscore_for_merit",
-     "value": "used",
+     "value": "used_act",
      "quote": "For admission and UNF scholarships eligibility, we use the best individual scores on ACT Reading, Writing and Math sections to calculate a composite superscore.",
      "source_url": "https://www.unf.edu/admissions/freshman.html",
      "evidence": {
@@ -141,7 +143,7 @@
      "retrieved_on": "2026-10-03",
      "academic_year_basis": "source_unlabeled",
      "reviewed_on": "2026-10-22",
-     "review_note": "Sentence read in its page context: it states the school's freshman merit-scholarship practice."
+     "review_note": "The sentence covers the ACT only."
     }
    ]
   },
@@ -286,7 +288,8 @@
      "academic_year_basis": "labeled_in_heading",
      "reviewed_on": "2026-10-22",
      "review_note": "Sentence read in its page context: it states the school's freshman merit-scholarship practice.",
-     "year_label": "First-Year Student Merit Scholarships - Winter and Summer 2027"
+     "year_label": "First-Year Student Merit Scholarships - Winter and Summer 2027",
+     "applies_to": "winter_and_summer_2027_entry"
     }
    ]
   },
@@ -353,9 +356,11 @@
       "commit": "777739462167"
      },
      "retrieved_on": "2026-10-03",
-     "academic_year_basis": "source_unlabeled",
+     "academic_year_basis": "labeled_in_sentence",
      "reviewed_on": "2026-10-22",
-     "review_note": "States superscores are used for scholarship eligibility (the ACT science score leaves the superscore from 2027)."
+     "review_note": "Implied, not stated outright: the sentence says the ACT science score will no longer be factored into superscore calculations for scholarship eligibility, which presupposes superscoring.",
+     "basis": "implied_by_sentence",
+     "year_label": "beginning in 2027"
     }
    ]
   },
@@ -608,7 +613,7 @@
     {
      "field": "superscore_for_merit",
      "value": "used",
-     "quote": "superscores” for institutional scholarship consideration, so be sure to submit",
+     "quote": "WVU “ superscores” for institutional scholarship consideration, so be sure to submit all scores.",
      "source_url": "https://hub.wvu.edu/types-of-aid/scholarships",
      "evidence": {
       "branch": "pipeline-run/wv-2026-10-06",
@@ -620,7 +625,24 @@
      "retrieved_on": "2026-10-06",
      "academic_year_basis": "source_unlabeled",
      "reviewed_on": "2026-10-22",
-     "review_note": "Page text reads: WVU “superscores” for institutional scholarship consideration (the scanner split the sentence at the quote)."
+     "review_note": "Full sentence (whitespace collapsed; the page breaks the line after the opening quote mark)."
+    },
+    {
+     "field": "superscore_scope",
+     "value": "within_act_or_within_sat_not_across",
+     "quote": "Please note that superscores are obtained from multiple submissions of the ACT or multiple submissions of the SAT — not a crossover of ACT and SAT.",
+     "source_url": "https://hub.wvu.edu/types-of-aid/scholarships",
+     "evidence": {
+      "branch": "pipeline-run/wv-2026-10-06",
+      "run": "pipeline/runs/WV/2026-10-06",
+      "page_file": "d27bcb95a6c749ff6971.json.gz",
+      "blob": "1bd5b820fa5d8c07240cb817f3d47b7197efddbb",
+      "commit": "9c864721ba18"
+     },
+     "retrieved_on": "2026-10-06",
+     "academic_year_basis": "source_unlabeled",
+     "reviewed_on": "2026-10-22",
+     "review_note": "The sentence after the superscore statement (whitespace collapsed)."
     }
    ]
   }

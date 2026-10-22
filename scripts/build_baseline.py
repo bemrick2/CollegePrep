@@ -192,7 +192,7 @@ def load():
     comp = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.Counter()))
     t['C_ROWS'] = set()
     for r in table('C2023_A'):
-        t['C_ROWS'].add(r['UNITID'])
+        if r.get('XCTOTALT') in REPORTED_OR_ZERO: t['C_ROWS'].add(r['UNITID'])
         code = r['CIPCODE']
         if code == '99' or r.get('MAJORNUM') != '1': continue
         n = num(r, 'CTOTALT', REPORTED_OR_ZERO)
@@ -438,7 +438,9 @@ def build():
             for f in FIELDS:
                 if row[f['key'] + '__status'] == 'verified_current':
                     row[f['key'] + '__status'] = 'available_older'
-                    row[f['key'] + '__reason'] = f"school {v['closed_per_hd2024'].replace('_', ' ')} per HD2024; " + row[f['key'] + '__reason']
+                    cl = v['closed_per_hd2024']
+                    row[f['key'] + '__reason'] = ('missing from HD2024' if cl == 'absent_from_hd2024' else 'inactive per HD2024' if cl == 'inactive'
+                                                  else f'closed {cl} per HD2024') + '; shown as history'
         row['baseline_complete'] = not v.get('closed_per_hd2024') and all(
             row[f['key'] + '__status'] in ('verified_current', 'available_older', 'not_published_or_na') for f in FIELDS)
         rows.append(row)
@@ -487,8 +489,40 @@ def field_doc(L):
 
 # ---- policy layer and degree detail: separate measures, read from what research has recorded ----
 MERIT_TYPES = {'institutional_merit'}
-POLICY_STATUSES = ('verified', 'partially_verified', 'no_published_score_formula', 'candidate_in_run', 'candidates_rejected', 'source_found', 'searched_not_found', 'source_inaccessible',
+POLICY_STATUSES = ('verified', 'partially_verified', 'no_published_score_formula', 'candidate_in_run', 'candidate_approved_not_promoted',
+                   'candidates_rejected', 'source_found', 'searched_not_found', 'source_inaccessible',
                    'not_researched')
+
+
+_SCORE_TXT = re.compile(r'\b(?:ACT|SAT)\b[^.;]{0,25}?\b(?:[1-3]\d|[4-9]\d0|1[0-6]\d0)\b')
+_GPA_TXT = re.compile(r'\b[0-4]\.\d{1,2}\b')
+_th = lambda r: r.get('thresholds') if isinstance(r.get('thresholds'), dict) else {}
+
+
+def score_linked(r):
+    """A merit record states an ACT/SAT criterion only with a number (structured threshold, or ACT/SAT followed by a score)."""
+    return _th(r).get('act_min') is not None or _th(r).get('sat_min') is not None or bool(_SCORE_TXT.search(str(r.get('test_requirement') or '')))
+
+
+def gpa_linked(r):
+    return _th(r).get('gpa_min') is not None or bool(_GPA_TXT.search(str(r.get('gpa_requirement') or '')))
+
+
+def layer_status(records_, seen, counts, stated_no_formula):
+    """One school's status for one policy layer. Records outrank everything (pending candidates are reported beside it);
+    then a quoted no-fixed-criteria statement; then run candidates (undecided, approved but not promoted, rejected); then
+    what the crawl reached."""
+    if any(r.get('verification_status') == 'verified' for r in records_): return 'verified'
+    if records_: return 'partially_verified'
+    if stated_no_formula: return 'no_published_score_formula'
+    if counts.get('undecided'): return 'candidate_in_run'
+    if counts.get('approved'): return 'candidate_approved_not_promoted'
+    if counts.get('rejected'): return 'candidates_rejected'
+    if any(x in ('source_found', 'candidate_ready', 'candidate_exception', 'verified_current', 'partially_verified_current') for x in seen):
+        return 'source_found'
+    if 'not_found' in seen: return 'searched_not_found'
+    if 'fetch_failed' in seen: return 'source_inaccessible'
+    return 'not_researched'
 
 
 def policy_status(reg):
@@ -515,37 +549,20 @@ def policy_status(reg):
     for i in reg:
         k = i['institution_key']; s = {}
         for layer in ('merit', 'exam_credit', 'aid_appeals'):
-            rs = by_key[k].get(layer, [])
             a = (attempts.get(k) or {})
             tl = ['ap_credit', 'ib_credit', 'clep_credit'] if layer == 'exam_credit' else [topic[layer]]
-            seen = [a.get(t, {}).get('status') for t in tl]
-            if any(r.get('verification_status') == 'verified' for r in rs): s[layer] = 'verified'
-            elif rs: s[layer] = 'partially_verified'
-            elif layer == 'merit' and any(f['field'] == 'score_formula' and f['value'] == 'no_published_score_formula'
-                                          for f in (research.get(k) or {}).get('findings', [])):
-                s[layer] = 'no_published_score_formula'  # the school states there are no fixed criteria (quoted)
-            elif sum((cands.get(k) or {}).get(t, {}).get('undecided', 0) for t in tl) :
-                s[layer] = 'candidate_in_run'      # extracted in a run, never decided by a reviewer
-            elif sum((cands.get(k) or {}).get(t, {}).get('rejected', 0) for t in tl):
-                s[layer] = 'candidates_rejected'   # reviewed and rejected (e.g. not a freshman award, wrong table); still to research
-            elif any(x in ('source_found', 'candidate_ready', 'candidate_exception', 'verified_current', 'partially_verified_current')
-                     for x in seen):
-                s[layer] = 'source_found'  # official page found; nothing structured for this topic is pending
-            elif 'not_found' in seen: s[layer] = 'searched_not_found'  # crawl found no page; NOT "no policy"
-            elif 'fetch_failed' in seen: s[layer] = 'source_inaccessible'
-            else: s[layer] = 'not_researched'
-            s[layer + '_run'] = next((a[t]['run'] for t in (['ap_credit', 'ib_credit', 'clep_credit'] if layer == 'exam_credit'
-                                                             else [topic[layer]]) if t in a), None)
+            counts = {v: sum((cands.get(k) or {}).get(t, {}).get(v, 0) for t in tl) for v in ('approved', 'rejected', 'undecided')}
+            stated = layer == 'merit' and any(f['field'] == 'score_formula' and f['value'] == 'no_published_score_formula'
+                                              and not f.get('applies_to') for f in (research.get(k) or {}).get('findings', []))
+            s[layer] = layer_status(by_key[k].get(layer, []), [a.get(t, {}).get('status') for t in tl], counts, stated)
+            s[layer + '_pending'] = counts['undecided']
+            s[layer + '_run'] = next((a[t]['run'] for t in tl if t in a), None)
         merit = by_key[k].get('merit', [])
-        th = lambda r: r.get('thresholds') if isinstance(r.get('thresholds'), dict) else {}
-        # A criterion counts only with a number: structured thresholds, or an ACT/SAT name followed by a score, or a GPA figure.
-        score_txt = re.compile(r'\b(?:ACT|SAT)\b[^.;]{0,25}?\b(?:[1-3]\d|[4-9]\d0|1[0-6]\d0)\b')
-        gpa_txt = re.compile(r'\b[0-4]\.\d{1,2}\b')
-        s['merit_score_linked'] = any(th(r).get('act_min') is not None or th(r).get('sat_min') is not None
-                                      or score_txt.search(str(r.get('test_requirement') or '')) for r in merit)
-        s['merit_gpa_linked'] = any(th(r).get('gpa_min') is not None or gpa_txt.search(str(r.get('gpa_requirement') or ''))
-                                    for r in merit)
+        s['merit_score_linked'] = any(score_linked(r) for r in merit)
+        s['merit_gpa_linked'] = any(gpa_linked(r) for r in merit)
         out[k] = s
+    out['_unregistered_pending'] = sorted(k for k, v in cands.items() if k not in {i['institution_key'] for i in reg}
+                                          and (v.get('merit_scholarships') or {}).get('undecided'))
     return out
 
 
@@ -591,7 +608,11 @@ def report(rows, secs, reg):
                                                                            if r[f['key'] + '__status'] == 'not_researched').most_common(4)}
     complete = [r for r in rows if r['baseline_complete']]
     pol = policy_status(reg)
+    unreg = pol.pop('_unregistered_pending', [])
     pl = {layer: dict(collections.Counter(s[layer] for s in pol.values())) for layer in ('merit', 'exam_credit', 'aid_appeals')}
+    pl['schools_with_records_and_pending_candidates'] = {layer: sum(1 for s in pol.values() if s[layer] in ('verified', 'partially_verified')
+                                                                    and s[layer + '_pending']) for layer in ('merit', 'exam_credit', 'aid_appeals')}
+    pl['pending_candidates_outside_registry'] = unreg
     _CACHE['policy'] = pol
     pl['merit_score_linked_schools'] = sum(1 for s in pol.values() if s['merit_score_linked'])
     pl['merit_gpa_linked_schools'] = sum(1 for s in pol.values() if s['merit_gpa_linked'])
@@ -667,11 +688,16 @@ def markdown(rep):
           'Statuses: verified / partially verified (records in the repository); candidate never reviewed (extracted in a run, no decision yet); '
           'candidates rejected (a reviewer rejected what a run extracted); source found (official page found, nothing structured yet); searched, not found (the crawl found no page: '
           'never "no policy"); source inaccessible (fetch failed or blocked); not researched.', '',
-          '| Policy | Verified | Partially verified | No published score formula (stated) | Candidate never reviewed | Candidates rejected in review | Source found | Searched, not found | Inaccessible | Not researched |',
-          '|---|---|---|---|---|---|---|---|---|---|']
+          '| Policy | Verified | Partially verified | No published score formula (stated) | Candidate never reviewed | Approved, not promoted | Candidates rejected in review | Source found | Searched, not found | Inaccessible | Not researched |',
+          '|---|---|---|---|---|---|---|---|---|---|---|']
     for layer, label in [('merit', 'Freshman merit scholarships'), ('exam_credit', 'AP/IB/CLEP credit'), ('aid_appeals', 'Aid appeals')]:
         c = p[layer]
         L.append(f"| {label} | " + ' | '.join(f"{c.get(x, 0):,}" for x in POLICY_STATUSES) + ' |')
+    L += ['', f"- Also pending: schools with records that still have undecided run candidates: "
+          + ', '.join(f'{k.replace("_", " ")} {n}' for k, n in p['schools_with_records_and_pending_candidates'].items())
+          + f"; schools outside the four-year registry with undecided merit candidates (two-year colleges and changed keys; listed in "
+          f"completeness.json): {len(p['pending_candidates_outside_registry'])}. "
+          "`baseline/policy/pipeline_attempts.json` is a snapshot: re-run `scripts/harvest_research_status.py` after decisions land."]
     L += ['', f"- Schools with a merit record that states an ACT/SAT criterion: {p['merit_score_linked_schools']:,}; a GPA criterion: "
           f"{p['merit_gpa_linked_schools']:,}.",
           f"- Schools with reviewed statements on how merit is awarded (no fixed criteria, superscoring, test-optional rules; "
@@ -805,7 +831,8 @@ def outputs():
     q = sorted(rows, key=lambda r: (-(r.get('undergraduate_enrollment') or 0), r['institution_key']))
     qrows = [{'rank': n, 'institution_key': r['institution_key'], 'unitid': r['unitid'], 'state': r['registry_state'],
               'name': r['registry_name'], 'undergraduate_enrollment': r.get('undergraduate_enrollment'),
-              'merit_status': pol[r['institution_key']]['merit'], 'merit_run': pol[r['institution_key']]['merit_run'],
+              'merit_status': pol[r['institution_key']]['merit'], 'merit_pending_candidates': pol[r['institution_key']]['merit_pending'],
+              'merit_run': pol[r['institution_key']]['merit_run'],
               'score_linked_on_file': pol[r['institution_key']]['merit_score_linked'],
               'exam_credit_status': pol[r['institution_key']]['exam_credit'], 'aid_appeals_status': pol[r['institution_key']]['aid_appeals']}
              for n, r in enumerate(q, 1)]

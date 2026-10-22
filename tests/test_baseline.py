@@ -83,9 +83,69 @@ class Evaluate(unittest.TestCase):
         _, st, why = b.evaluate('1', t, self.L)
         self.assertEqual(st['net_price'], 'not_published_or_na'); self.assertIn('999', why['net_price'])
 
+    def test_zero_awards_and_parent_reported_completions(self):
+        t = self.tables(); t['C_ROWS'] = {'1'}
+        v, st, why = b.evaluate('1', t, self.L)
+        self.assertEqual((v['fields_with_bachelors'], st['fields_and_levels']), (0, 'available_older'))
+        t = self.tables(FLAGS={'PRCH_C': '2', 'IDX_C': '777'})
+        _, st, why = b.evaluate('1', t, self.L)
+        self.assertEqual(st['fields_and_levels'], 'not_published_or_na'); self.assertIn('777', why['fields_and_levels'])
+
+    def test_zero_applications_and_books_not_applicable(self):
+        _, st, _ = b.evaluate('1', self.tables(ADM2023={'APPLCN': '0', 'XAPPLCN': 'R', 'ADMSSN': '', 'XADMSSN': 'A'},
+                                              IC2023={'OPENADMP': '2'}), self.L)
+        self.assertEqual(st['admission_rate'], 'not_published_or_na')
+        ay = {'CHG2AT3': '9000', 'XCHG2AT3': 'R', 'CHG2AF3': '1000', 'XCHG2AF3': 'R', 'CHG4AY3': '', 'XCHG4AY3': 'A',
+              'CHG5AY3': '11000', 'XCHG5AY3': 'R', 'CHG6AY3': '3000', 'XCHG6AY3': 'R'}
+        v, st, _ = b.evaluate('1', self.tables(IC2023_AY=ay, DRVIC2023={'CINSON': '24000'}), self.L)
+        self.assertEqual((v['coa_in_state_on_campus'], st['cost_of_attendance']), (24000, 'available_older'))
+
     def test_closed_school_is_flagged(self):
         v, st, _ = b.evaluate('1', self.tables(HD2024={'INSTNM': 'X U', 'CYACTIVE': '3', 'CLOSEDAT': '05/01/2024'}), self.L)
         self.assertEqual(v['closed_per_hd2024'], '05/01/2024'); self.assertEqual(st['identity'], 'available_older')
+
+
+class Currency(unittest.TestCase):
+    """latest(): only a dated 404 for the next year's file makes a statistic current."""
+
+    def run_with(self, manifest):
+        orig = b.manifest
+        b.manifest = lambda year: manifest if year == b.NEXT[b.YEAR] else orig(year)
+        try: return b.latest({'next_file': 'EF2024D'})
+        finally: b.manifest = orig
+
+    def test_only_404_counts(self):
+        u = lambda st: {'files': [], 'unavailable': [{'filename': 'EF2024D.zip', 'http_status': st, 'checked_at': '2026-10-22'}]}
+        self.assertEqual(self.run_with(u('404')), '2026-10-22')
+        for st in ('000', '500', '503'): self.assertFalse(self.run_with(u(st)), st)
+        self.assertFalse(self.run_with({'files': [], 'unavailable': []}))
+        self.assertFalse(self.run_with({'files': [{'filename': 'EF2024D.zip'}], 'unavailable': []}))  # newer file pinned: older
+        self.assertFalse(b.latest({}))  # prices and averages have no next-file rule
+
+
+class Policy(unittest.TestCase):
+    def test_precedence(self):
+        ls = b.layer_status
+        self.assertEqual(ls([{'verification_status': 'verified'}], [], {'undecided': 3}, False), 'verified')
+        self.assertEqual(ls([{'verification_status': 'partially_verified'}], [], {}, True), 'partially_verified')
+        self.assertEqual(ls([], ['source_found'], {'undecided': 1, 'rejected': 5}, True), 'no_published_score_formula')
+        self.assertEqual(ls([], ['source_found'], {'undecided': 1, 'rejected': 5}, False), 'candidate_in_run')
+        self.assertEqual(ls([], ['source_found'], {'approved': 1}, False), 'candidate_approved_not_promoted')
+        self.assertEqual(ls([], ['candidate_ready'], {'rejected': 2}, False), 'candidates_rejected')
+        self.assertEqual(ls([], ['candidate_ready'], {}, False), 'source_found')
+        self.assertEqual(ls([], ['not_found', 'fetch_failed'], {}, False), 'searched_not_found')
+        self.assertEqual(ls([], ['fetch_failed'], {}, False), 'source_inaccessible')
+        self.assertEqual(ls([], [None], {}, False), 'not_researched')
+
+    def test_criteria_need_a_number(self):
+        for txt in ('Valedictorian or Salutatorian', 'Office of Veterans Affairs', 'International Student and Scholar Services (ISSS)',
+                    'Test Score Required', 'SAT/ACT required'):
+            self.assertFalse(b.score_linked({'test_requirement': txt}), txt)
+        for txt in ('ACT 27+', 'SAT 1300-1390', 'ACT composite of 30'): self.assertTrue(b.score_linked({'test_requirement': txt}), txt)
+        self.assertTrue(b.score_linked({'thresholds': {'act_min': 24}}))
+        for txt in ('N/A', 'Admissions committee', 'Need to provide membership documentation'):
+            self.assertFalse(b.gpa_linked({'gpa_requirement': txt}), txt)
+        self.assertTrue(b.gpa_linked({'gpa_requirement': '3.50+'}))
 
 
 class Committed(unittest.TestCase):
