@@ -1,3 +1,4 @@
+import { practiceExclusions } from '../../engine/freshness'
 import { QUESTIONS } from './fixtures'
 import { emptyStore, type DemoAttempt, type DemoEvent, type DemoStore } from './store'
 import { DEMO_PARENT, DEMO_STUDENT } from './demoSource'
@@ -57,7 +58,11 @@ export function sampleFamily(viewer: 'parent' | 'student', now = new Date()): De
     s.goals.push({ id: `g-${w}`, student_id: sid, week_start: addDays(thisWeek, -7 * w), target_questions: w >= 2 ? 35 : 40, target_minutes: null, goal_mode: 'fixed' })
   }
 
-  const pool = QUESTIONS.filter((q) => q.exam_family === 'act')
+  const all = QUESTIONS.filter((q) => q.exam_family === 'act')
+  // CR-23: the sample family's checks use the reserved pool, and their practice never does.
+  const reserved = practiceExclusions('act', all)
+  const pool = all.filter((q) => !reserved.has(q.id))
+  const checkPool = all.filter((q) => reserved.has(q.id))
   const attempts: DemoAttempt[] = []
   const events: DemoEvent[] = []
   let n = 0
@@ -102,12 +107,12 @@ export function sampleFamily(viewer: 'parent' | 'student', now = new Date()): De
     return attempts.at(-1)!
   }
 
-  // Initial benchmark 24 days ago: 6 questions per section, adaptive-looking difficulty spread.
+  // Initial benchmark 24 days ago, on the reserved questions (as many per section as the reserve has).
   const benchDay = addDays(today, -24)
   const benchRecords: BenchmarkRecord[] = []
   let minute = 0
   for (const section of ['english', 'math', 'reading', 'science']) {
-    const qs = pool.filter((q) => q.section === section).slice(0, 6)
+    const qs = checkPool.filter((q) => q.section === section)
     for (const q of qs) {
       const a = addAttempt(benchDay, minute++, q, 0, null)
       benchRecords.push({
