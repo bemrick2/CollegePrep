@@ -195,5 +195,24 @@ describe('review findings on stored plans (#242)', () => {
     expect(one.coveredTerms).toEqual([])
     expect(degreeCredit([exam('BIOL 350') as never, exam('STAT 201') as never], terms).coveredTerms).toEqual([{ term: 1, label: 'Fall' }])
   })
-})
 
+  it('choose-N blocks never count one awarded course twice (#268 review, scenarios A–D)', () => {
+    const exam = (course: string) => ({ status: 'qualifies', exam: { name: course }, earned: [{ course, credits: 3, minimumText: '3' }] }) as never
+    const block = (n: number, options: object[]) => ({ choose: n, text: `Select ${n} of the following:`, credits: 6, options })
+    const term = (items: unknown[], i = 1): PlanTermLike => ({ term_index: i, label: i === 1 ? 'Fall' : 'Spring', credit_hours: '15', items: items as never })
+    // A: a single row and a block share MATH 151; two courses can't fill three requirements.
+    const a = [term([{ code: 'MATH 151', credits: 4 }, block(2, [{ code: 'MATH 151' }, { code: 'MATH 152' }, { code: 'STAT 201' }])])]
+    expect(degreeCredit([exam('MATH 151'), exam('MATH 152')], a).coveredTerms).toEqual([])
+    expect(degreeCredit([exam('MATH 151'), exam('MATH 152'), exam('STAT 201')], a).coveredTerms).toEqual([{ term: 1, label: 'Fall' }])
+    // B: two blocks in two terms can't both use the same two courses.
+    const b = [term([block(2, [{ code: 'HIST 101' }, { code: 'HIST 102' }])], 1), term([block(2, [{ code: 'HIST 101' }, { code: 'HIST 102' }, { code: 'ECON 201' }])], 2)]
+    expect(degreeCredit([exam('HIST 101'), exam('HIST 102')], b).coveredTerms).toHaveLength(1)
+    // C: a lecture-and-lab option is one option, not two.
+    const c = [term([block(2, [{ text: 'CHEM 101 & CHEM 101L' }, { code: 'BIOL 150' }, { code: 'PHYS 201' }])])]
+    expect(degreeCredit([exam('CHEM 101 and CHEM 101L')], c).coveredTerms).toEqual([])
+    expect(degreeCredit([exam('CHEM 101 and CHEM 101L'), exam('BIOL 150')], c).coveredTerms).toEqual([{ term: 1, label: 'Fall' }])
+    // D: a combination row and a block can't share the same lecture and lab.
+    const d = [term(['CHEM 101 + CHEM 101L', block(2, [{ code: 'CHEM 101' }, { code: 'CHEM 101L' }, { code: 'BIOL 150' }])])]
+    expect(degreeCredit([exam('CHEM 101 and CHEM 101L')], d).coveredTerms).toEqual([])
+  })
+})
