@@ -2,7 +2,7 @@
 
 This file is how a new Research session resumes the national program-research workstream without redoing finished work. It is updated with every batch PR.
 
-- **Main at the last refresh:** `4f2e63b0c6` (merge of #245, after Deep Dive's #239 `2c24af0`, #241 and #247, and Research's #243 and #246). The previous header named `86cbac0`, which was stale: Deep Dive's merges after batch 6 had moved main to `2c24af0` (70 covered, 10,648 verified bachelor's records, 3,475 plans at 67 schools), and those figures are confirmed below.
+- **Main at the last refresh:** `af5868f99a` (merge of #255). Deep Dive's #252 (i229 corrections) moved verified plans from 3,475 at 67 schools to 3,356 at 65; #244, #249 and #255 changed no program counts. The earlier header named `86cbac0`, which was stale: Deep Dive's merges after batch 6 had moved main to `2c24af0` (70 covered, 10,648 verified bachelor's records, 3,475 plans at 67 schools).
 - **Branch carrying this checkpoint:** `research/batch-07`.
 - **Ranking:** `docs/coverage/research_priority.json`, written by `python3 scripts/research_priority.py`. CI (validate-data) checks that it is current.
 
@@ -10,13 +10,13 @@ This file is how a new Research session resumes the national program-research wo
 
 Three separate measures, never mixed: **program coverage** (bachelor's programs listed in the official catalog, docs/PROGRAM_DEPTH_COMPLETION.md), **degree-requirement depth** (requirement groups and plans of verified bachelor's programs) and **reference-data breadth** (costs, aid, admissions and the other domains in docs/coverage/coverage.json).
 
-| | main `2c24af0` (Deep Dive) | main `4f2e63b` | research/batch-07 |
+| | main `2c24af0` (Deep Dive) | main `af5868f` | research/batch-07 (merged with `af5868f`) |
 |---|---|---|---|
 | Registered four-year institutions | 2,119 | 2,119 | 2,119 |
 | Covered (program coverage) | 70 | 70 | 73 |
 | Researched | 683 | 683 | 683 |
 | Verified bachelor's program records | 10,648 | 10,648 | 10,665 |
-| Verified plans (degree-requirement depth) | 3,475 at 67 schools | 3,475 at 67 schools | 3,475 at 67 schools |
+| Verified plans (degree-requirement depth) | 3,475 at 67 schools | 3,356 at 65 schools (#252 corrections) | 3,356 at 65 schools |
 
 Counted from `docs/coverage/programs/STATUS.json` and the `academic_programs` / `degree_requirements` files (`verified`; bachelor's records; `program_plan` rows), by reading those files at the named commit. Reference-data breadth is unchanged by this batch except that cost components now reach the database (#246).
 
