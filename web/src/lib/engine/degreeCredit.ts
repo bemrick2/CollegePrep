@@ -55,19 +55,28 @@ interface PlanItem {
    * "Select two of the following" (#230): done only when `n` different options are fully awarded. Each option is the
    * codes that satisfy it (all of them, e.g. a lecture and its lab), and no code counts for two options or two rows.
    */
-  pick: { options: string[][]; n: number } | null
+  pick: { options: Option[]; n: number } | null
   /** The term is a regular full-time semester (planTerms' notChecked is null); only such terms can be "covered". */
   checked: boolean
 }
 
 /**
- * The codes one option of a "choose N" block needs, all of them: "CHEM 101 & CHEM 101L" needs both. A structured
- * option with one code (and alternatives printed in its title) is satisfied by any one, so it counts as that code.
+ * One option of a choice block, as the courses it needs: each inner list is one requirement, met by any one of its
+ * codes. A combination ("CHEM 101 & CHEM 101L") needs every course, so each is its own requirement; anything else
+ * ("ENGL 221/MODL 221", "BA F454 or F421", a nested any_of) is one requirement with its alternatives.
  */
-function optionCodes(o: PlanEntry): string[] {
-  if (o.code) return [o.code]
+type Option = string[][]
+function optionOf(o: PlanEntry): Option {
   const codes = entryCodes(o)
-  return /[+&]|\bAND\b/i.test(o.text) ? codes : codes.slice(0, 1)
+  if (!codes.length) return []
+  return !o.code && /[+&]|\bAND\b/i.test(o.text) ? codes.map((c) => [c]) : [codes]
+}
+/** The block's printed count, or one written in its text ("Complete two of the following:") when none is stored. */
+const NUMBER: Record<string, number> = { two: 2, three: 3, four: 4, five: 5 }
+function printedCount(e: PlanEntry): number {
+  if (e.choose > 1) return e.choose
+  const m = /\b(?:complete|select|choose|take)\s+(two|three|four|five|[2-5])\b/i.exec(e.text)
+  return m ? (NUMBER[m[1]!.toLowerCase()] ?? Number(m[1])) : 1
 }
 
 function planItems(terms: PlanTerm[]): PlanItem[] {
@@ -77,7 +86,7 @@ function planItems(terms: PlanTerm[]): PlanItem[] {
       const base = { term: t.termIndex, label: t.label, checked: t.notChecked === null, text: e.choices.length ? `${e.text} ${e.choices.map((c) => c.text).join(' / ')}` : e.text, credits: e.credits }
       // A structured course, or a choice among options: any one of its codes.
       // Any choice block ("any one of", "choose N of"): done only when N whole options are awarded with unused courses.
-      if (e.choices.length) return { ...base, any: [], combos: [], pick: { options: e.choices.map(optionCodes).filter((o) => o.length > 0), n: e.choose } }
+      if (e.choices.length) return { ...base, any: [], combos: [], pick: { options: e.choices.map(optionOf).filter((o) => o.length > 0), n: printedCount(e) } }
       if (e.code || e.choices.length) return { ...base, any: entryCodes(e), combos: [], pick: null }
       // Free text: "A or B" is any one; "CHEM 102+103", "BIOL 1113& BIOL 1111" and "A and B" are combinations that
       // count only when all were awarded.
@@ -145,7 +154,10 @@ export function degreeCredit(matches: ExamMatch[], terms: PlanTerm[]): DegreeCre
     for (const g of groups) {
       if (g.length > 1) {
         // The school assigns one of several courses: it applies only if every option fits the same item.
-        const fit = items.find((it) => !taken.has(it) && g.every((c) => it.any.includes(c)))
+        // A one-of-several choice row fits too, when every course in the group alone satisfies one of its options.
+        const fits = (it: PlanItem) =>
+          g.every((c) => it.any.includes(c)) || (!!it.pick && it.pick.n === 1 && g.every((c) => it.pick!.options.some((o) => o.length === 1 && o[0]!.includes(c))))
+        const fit = items.find((it) => !taken.has(it) && fits(it))
         if (fit) {
           taken.add(fit)
           matched.push({ code: g.join(' or '), term: fit.term, label: fit.label, item: fit.text, credits: fit.credits })
@@ -166,7 +178,7 @@ export function degreeCredit(matches: ExamMatch[], terms: PlanTerm[]): DegreeCre
       }
       // Part of a combination row ("PHYS 2325& PHYS 2125"): the course is in the plan. The row itself counts as
       // done only when every course of the combination is awarded (checked after all exams), so it isn't taken here.
-      const combo = items.find((x) => !taken.has(x) && (x.combos.some((c) => c.includes(code)) || !!x.pick?.options.some((o) => o.includes(code))))
+      const combo = items.find((x) => !taken.has(x) && (x.combos.some((c) => c.includes(code)) || !!x.pick?.options.some((o) => o.some((req) => req.includes(code)))))
       if (combo) {
         matched.push({ code, term: combo.term, label: combo.label, item: combo.text, credits: combo.credits })
         hit++
@@ -212,11 +224,20 @@ export function degreeCredit(matches: ExamMatch[], terms: PlanTerm[]): DegreeCre
     if (used.has(it) || !it.pick) continue
     const take: string[] = []
     let n = 0
-    for (const o of it.pick.options)
-      if (n < it.pick.n && o.every((code) => free.has(code) && !take.includes(code))) {
-        take.push(...o)
+    for (const o of it.pick.options) {
+      if (n >= it.pick.n) break
+      // Each requirement of the option takes one free course not already taken for this block.
+      const chosen: string[] = []
+      for (const req of o) {
+        const c = req.find((code) => free.has(code) && !take.includes(code) && !chosen.includes(code))
+        if (!c) break
+        chosen.push(c)
+      }
+      if (chosen.length === o.length) {
+        take.push(...chosen)
         n++
       }
+    }
     if (n >= it.pick.n) {
       used.add(it)
       for (const code of take) free.delete(code)

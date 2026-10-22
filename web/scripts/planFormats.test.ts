@@ -229,4 +229,23 @@ describe('review findings on stored plans (#242)', () => {
     expect(degreeCredit([exam('CHEM 101')], anyOne).coveredTerms).toEqual([])
     expect(degreeCredit([exam('BIOL 150')], anyOne).coveredTerms).toEqual([{ term: 1, label: 'Fall' }])
   })
+
+  it('choice options keep their alternatives; a school-assigned group fits a one-of row; a count written in the text counts', () => {
+    const exam = (course: string) => ({ status: 'qualifies', exam: { name: course }, earned: [{ course, credits: 3, minimumText: '3' }] }) as never
+    const term = (items: unknown[]): PlanTermLike => ({ term_index: 1, label: 'Fall', credit_hours: '15', items: items as never })
+    // Cross-listed and "or" options: either course satisfies the option.
+    const cross = [term([{ text: 'Complete one of the following:', options: [{ text: 'ENGL 221/MODL 221' }, { text: 'BA F454 or F421' }] }])]
+    expect(degreeCredit([exam('MODL 221')], cross).coveredTerms).toHaveLength(1)
+    expect(degreeCredit([exam('BA F421')], cross).coveredTerms).toHaveLength(1)
+    // Nested any_of option.
+    const nested = [term([{ any_of: [{ any_of: [{ code: 'ECON 3501' }, { code: 'ECON 3701' }] }, { code: 'FIN 3101' }] }])]
+    expect(degreeCredit([exam('ECON 3701')], nested).coveredTerms).toHaveLength(1)
+    // The school assigns one of two courses: covered when each could fill the row alone.
+    const assigned = [term([{ any_of: [{ code: 'CISB 241' }, { code: 'STAT 241' }, { code: 'MATH 241' }] }])]
+    expect(degreeCredit([exam('CISB 241 or STAT 241')], assigned).coveredTerms).toHaveLength(1)
+    // "Complete two of the following:" with no stored count still needs two.
+    const two = [term([{ text: 'Complete two of the following:', credits: 6, options: [{ code: 'ACCT F401' }, { code: 'ACCT F402' }, { code: 'ACCT F403' }] }])]
+    expect(degreeCredit([exam('ACCT F401')], two).coveredTerms).toEqual([])
+    expect(degreeCredit([exam('ACCT F401'), exam('ACCT F403')], two).coveredTerms).toHaveLength(1)
+  })
 })
