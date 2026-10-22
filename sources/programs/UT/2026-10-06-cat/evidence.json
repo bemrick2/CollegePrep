@@ -30097,6 +30097,88 @@
  "b45db322b5bea574": {
   "decision": {
    "candidate_id": "b45db322b5bea574",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence UT/2026-10-06-cat#b45db322b5bea574) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Semester 1: 5 items, 15 credits",
+    "value": "Semester 1"
+   },
+   {
+    "field": "term",
+    "snippet": "Semester 2: 8 items, 15 credits",
+    "value": "Semester 2"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Semester 3: 5 items, 15 credits",
+    "value": "Semester 3"
+   },
+   {
+    "field": "term",
+    "snippet": "Semester 4: 5 items, 15 credits",
+    "value": "Semester 4"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Semester 5: 5 items, 15 credits",
+    "value": "Semester 5"
+   },
+   {
+    "field": "term",
+    "snippet": "Semester 6: 6 items, 15 credits",
+    "value": "Semester 6"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Semester 7: 5 items, 15 credits",
+    "value": "Semester 7"
+   },
+   {
+    "field": "term",
+    "snippet": "Semester 8: 3 items, 15 credits",
+    "value": "Semester 8"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T22:39:17+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 05 May 2026 21:31:13 GMT",
+   "page_file": "fc1bbc60441367e8b2be.json.gz",
+   "requested_url": "https://catalog.uvu.edu/business/strategic-management-operations/strategic-foresight-and-business-bs/",
+   "sha256": "fc1bbc60441367e8b2be5ff97cde1f91e01de9c1c5819957885e0e46310ddd7a",
+   "title": "Strategic Foresight and Business, B.S. | Utah Valley University Academic Catalog",
+   "url": "https://catalog.uvu.edu/business/strategic-management-operations/strategic-foresight-and-business-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "b45db322b5bea574~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "b45db322b5bea574",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence UT/2026-10-06-cat#2957634dbd29981c) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },

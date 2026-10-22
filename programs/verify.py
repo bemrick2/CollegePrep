@@ -134,7 +134,7 @@ def check_candidate(c, text, other=None):
         wrapped = c.get('extractor') == 'clearpath_plan/v1'  # two-column PDF: wrapped titles are printed in pieces
         items = list(rd.get('courses', []))
         for term in rd.get('terms', []) or []:
-            items += [i for i in term.get('items', []) if isinstance(i, dict)]
+            items += [x for i in term.get('items', []) if isinstance(i, dict) for x in [i, *i.get('options', [])] if isinstance(x, dict)]  # a choice block's options too
         for i in [i for i in items if i.get('any_of')]:  # alternatives printed in one cell (courseleaf_plan/v3)
             if not alternatives_printed(text, i['any_of']): probs.append(f"alternatives {' / '.join(a.get('code', '') for a in i['any_of'])} not printed as stored")
         for i in [i for i in items if i.get('marker')]:

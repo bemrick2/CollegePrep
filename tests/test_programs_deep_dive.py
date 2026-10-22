@@ -639,6 +639,49 @@ class CourseleafPlanTests(unittest.TestCase):
             out = CL.extract({'institution_key': 'k'}, e, T.Page('Geography, BA', 'Geography, BA', [g(h) for h in heads], [], []), '2026-2027', '', True)
             self.assertEqual([c['issues'] for c in out], [['multiple_plan_grids'], ['multiple_plan_grids']], heads)
 
+    def test_printed_choice_block_is_one_item(self):  # EKU, LMU, Temple 2026-27: 'Select one of the following: | 3' and blank-credit options
+        from programs import courseleaf as CL
+        rows = [['Fall', 'Hours'], ['ENG 101', 'Comp', '3'], ['Select one of the following:', '3'], ['ANTH 376', 'Quant', ''], ['BIOL 350', 'Biostat', ''],
+                ['MATH 101', 'Algebra', '3'], ['Choose two courses from the following:', '6'], ['ART 101', 'A', ''], ['ART 102', 'B', ''], ['ART 103', 'C', ''],
+                ['', 'Hours', '15']]
+        items = CL.parse_grid({'rows': rows})[0][0]['items']
+        self.assertEqual(items[1], {'choose': 1, 'text': 'Select one of the following:', 'credits': 3,
+                                    'options': [{'code': 'ANTH 376', 'title': 'Quant'}, {'code': 'BIOL 350', 'title': 'Biostat'}]})
+        self.assertEqual(items[2], {'code': 'MATH 101', 'title': 'Algebra', 'credits': 3})  # a row with credits ends the block
+        self.assertEqual((items[3]['choose'], len(items[3]['options'])), (2, 3))
+        # not grouped: a header without credits, options with their own credits, one option, a count not below the options
+        for hdr, opts in ((['Select one of the following:', ''], [['ANTH 376', 'Q', ''], ['BIOL 350', 'B', '']]),
+                          (['Select one of the following:', '3'], [['ANTH 376', 'Q', '3'], ['BIOL 350', 'B', '3']]),
+                          (['Select one of the following:', '3'], [['ANTH 376', 'Q', '']]),
+                          (['Select two of the following:', '6'], [['ANTH 376', 'Q', ''], ['BIOL 350', 'B', '']]),
+                          (['Select one elective:', '3'], [['ANTH 376', 'Q', ''], ['BIOL 350', 'B', '']])):
+            items = CL.parse_grid({'rows': [['Fall', 'Hours'], hdr, *opts, ['', 'Hours', '3']]})[0][0]['items']
+            self.assertFalse(any(isinstance(i, dict) and 'choose' in i for i in items), hdr)
+            self.assertEqual(len(items), 1 + len(opts))
+        # options printed as cross-listed or paired codes are options too; a text row among them leaves the block flat,
+        # never cut short (#plan-choices review: Texas A&M 'ANSC 326/FSTC 326', NCSU 'GEP Humanities')
+        rows = [['Fall', 'Hours'], ['Select one of the following:', '3'], ['ANSC 101', 'A', ''], ['ANSC 326/FSTC 326', 'B', ''],
+                ['GEOL 101& GEOL 102', 'C', ''], ['MATH 101', 'Algebra', '3'], ['', 'Hours', '6']]
+        items = CL.parse_grid({'rows': rows})[0][0]['items']
+        self.assertEqual(len(items[0]['options']), 3)
+        rows = [['Fall', 'Hours'], ['Select one of the following:', '3'], ['ANSC 101', 'A', ''], ['ANSC 102', 'B', ''], ['GEP Humanities', ''],
+                ['MATH 101', 'Algebra', '3'], ['', 'Hours', '6']]
+        items = CL.parse_grid({'rows': rows})[0][0]['items']
+        self.assertEqual((len(items), any(isinstance(i, dict) and 'choose' in i for i in items)), (5, False))
+        rows = [['Fall', 'Hours'], ['Select one of the following:', '3'], ['ANSC 101', 'A', ''], ['ANSC 102', 'B', ''], ['Elective', 'Any', '3'],
+                ['', 'Hours', '6']]
+        items = CL.parse_grid({'rows': rows})[0][0]['items']  # a printed row with credits, kept as a string, ends the block
+        self.assertEqual((len(items[0]['options']), items[1]), (2, 'Elective | Any | 3'))
+
+    def test_verify_reads_choice_options(self):
+        from programs import verify as V
+        c = {'candidate_id': 'x', 'domain': 'degree_requirements', 'extractor': 'courseleaf_plan/v3', 'evidence': [], 'source': {'url': 'u'},
+             'record': {'program_key': 'p', 'requirement_key': 'sample-plan', 'rule_details': {'terms': [{'label': 'Fall', 'items': [
+                 {'choose': 1, 'text': 'Select one of the following:', 'credits': 3, 'options': [{'code': 'ANTH 376', 'title': 'Quant'}, {'code': 'BIOL 350', 'title': 'Biostat'}]}]}]}}}
+        text = 'Fall\nSelect one of the following: 3\nANTH 376 Quant\nBIOL 350 Biostat\nUndergraduate Catalog 2026-2027'
+        self.assertEqual(V.check_candidate(c, text), [])
+        self.assertIn('course BIOL 350 not in source', V.check_candidate(c, text.replace('BIOL 350', 'BIOL 351')))
+
     def test_decimal_course_credits_kept_as_printed(self):  # West Chester B.M. 2026-27: '1.5', '0.5'
         from programs import courseleaf as CL
         t = {'rows': [['Semester One', 'Credits'], ['MUS 101', 'Theory I', '1.5'], ['MUE 100', 'Ensemble', '0.5'], ['MUS 102', 'Lab', '1-1.5'],

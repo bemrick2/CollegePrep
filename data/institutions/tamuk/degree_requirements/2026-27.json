@@ -300,16 +300,19 @@
                 "title": "Biostatistics"
               },
               {
+                "choose": 1,
                 "credits": 4,
+                "options": [
+                  {
+                    "code": "BIOL 3408",
+                    "title": "Animal Physiology"
+                  },
+                  {
+                    "code": "BIOL 4426",
+                    "title": "Cellular Physiology"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "BIOL 3408",
-                "title": "Animal Physiology"
-              },
-              {
-                "code": "BIOL 4426",
-                "title": "Cellular Physiology"
               },
               {
                 "credits": 4,
@@ -384,7 +387,7 @@
       },
       "source_url": "https://catalog.tamuk.edu/undergraduate/arts-sciences/biology-biomedical-sciences/biology-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence TX/2026-10-06-cat#d0bf7b1941b5434f) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#6f369a37eb28d9ac."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours Required: 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#6f369a37eb28d9ac) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#6f369a37eb28d9ac."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -3780,20 +3783,23 @@
                 "title": "Contemporary Issues (WI)"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "ANSC 3305",
+                    "title": "Mkt Class and Grade Livestock"
+                  },
+                  {
+                    "code": "ANSC 3309",
+                    "title": "Meat Preparation and Eval"
+                  },
+                  {
+                    "code": "ANSC 4301",
+                    "title": "Growth Physiol of Livestock Sp"
+                  }
+                ],
                 "text": "Select 1 of the following:"
-              },
-              {
-                "code": "ANSC 3305",
-                "title": "Mkt Class and Grade Livestock"
-              },
-              {
-                "code": "ANSC 3309",
-                "title": "Meat Preparation and Eval"
-              },
-              {
-                "code": "ANSC 4301",
-                "title": "Growth Physiol of Livestock Sp"
               },
               {
                 "code": "ANSC 3335",
@@ -3873,7 +3879,7 @@
       },
       "source_url": "https://catalog.tamuk.edu/undergraduate/agriculture-natural-resources/animal-science-veterinary-technology/agriculture-animal-science-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence TX/2026-10-06-cat#1a4204a77bcf63ed) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#7275a9eef2a1043c."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours Required: 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#7275a9eef2a1043c) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#7275a9eef2a1043c."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -5147,20 +5153,23 @@
                 "title": "Interpersonal Communication"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "COMM 2333",
+                    "title": "Small Group Communication"
+                  },
+                  {
+                    "code": "COMM 3335",
+                    "title": "Discussion and Debate"
+                  },
+                  {
+                    "code": "COMM 3341",
+                    "title": "Oral Interpretation"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "COMM 2333",
-                "title": "Small Group Communication"
-              },
-              {
-                "code": "COMM 3335",
-                "title": "Discussion and Debate"
-              },
-              {
-                "code": "COMM 3341",
-                "title": "Oral Interpretation"
               },
               {
                 "credits": 3,
@@ -5174,20 +5183,23 @@
             "credit_hours": "15",
             "items": [
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "COMM 3301",
+                    "title": "Social Media & Digital Reporting"
+                  },
+                  {
+                    "code": "COMM 3311",
+                    "title": "Digital Storytelling"
+                  },
+                  {
+                    "code": "COMM 3317",
+                    "title": "History of Media"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "COMM 3301",
-                "title": "Social Media & Digital Reporting"
-              },
-              {
-                "code": "COMM 3311",
-                "title": "Digital Storytelling"
-              },
-              {
-                "code": "COMM 3317",
-                "title": "History of Media"
               },
               {
                 "code": "COMM 4324",
@@ -5219,24 +5231,27 @@
             "credit_hours": "13",
             "items": [
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "COMM 3352",
+                    "title": "Nonverbal Communication"
+                  },
+                  {
+                    "code": "COMM 3355",
+                    "title": "Intercultural Communication"
+                  },
+                  {
+                    "code": "COMM 4310",
+                    "title": "Rhetoric and Public Address"
+                  },
+                  {
+                    "code": "COMM 4350",
+                    "title": "Organizational Communication"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "COMM 3352",
-                "title": "Nonverbal Communication"
-              },
-              {
-                "code": "COMM 3355",
-                "title": "Intercultural Communication"
-              },
-              {
-                "code": "COMM 4310",
-                "title": "Rhetoric and Public Address"
-              },
-              {
-                "code": "COMM 4350",
-                "title": "Organizational Communication"
               },
               {
                 "code": "COMM 4317",
@@ -5291,7 +5306,7 @@
       },
       "source_url": "https://catalog.tamuk.edu/undergraduate/arts-sciences/arts-communication-literature/communication-speech-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence TX/2026-10-06-cat#cfa6d0a20ecf011b) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#7fee8f4fcfceff57."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 3 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours Required: 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#7fee8f4fcfceff57) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#7fee8f4fcfceff57."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -6241,20 +6256,23 @@
             "credit_hours": "15",
             "items": [
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "CRIJ 1310",
+                    "title": "Fundamentals of Criminal Law"
+                  },
+                  {
+                    "code": "CRIJ 2313",
+                    "title": "Correctional Syst & Practices"
+                  },
+                  {
+                    "code": "CRIJ 2328",
+                    "title": "Police Systems & Practices"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "CRIJ 1310",
-                "title": "Fundamentals of Criminal Law"
-              },
-              {
-                "code": "CRIJ 2313",
-                "title": "Correctional Syst & Practices"
-              },
-              {
-                "code": "CRIJ 2328",
-                "title": "Police Systems & Practices"
               },
               "PSYC 3381or SOCI 3381 | Statistics for Behavioral Scior Statistics for Behavioral Sci | 3",
               {
@@ -6400,7 +6418,7 @@
       },
       "source_url": "https://catalog.tamuk.edu/undergraduate/arts-sciences/social-behavioral-sciences/criminal-justice-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence TX/2026-10-06-cat#5931418652a01a3f) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#c5a930d0b727709d."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours Required: 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#c5a930d0b727709d) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#c5a930d0b727709d."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -10447,20 +10465,23 @@
                 "text": "American History"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "PSYC 2308",
+                    "title": "Child Psychology"
+                  },
+                  {
+                    "code": "PSYC 2314",
+                    "title": "Lifespan Developmental Psyc"
+                  },
+                  {
+                    "code": "PSYC 3314",
+                    "title": "Psychology of Adolescence"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "PSYC 2308",
-                "title": "Child Psychology"
-              },
-              {
-                "code": "PSYC 2314",
-                "title": "Lifespan Developmental Psyc"
-              },
-              {
-                "code": "PSYC 3314",
-                "title": "Psychology of Adolescence"
               },
               {
                 "credits": 3,
@@ -10544,20 +10565,23 @@
                 "text": "Government/Political Science"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "PSYC 3301",
+                    "title": "Social Psychology (WI)"
+                  },
+                  {
+                    "code": "PSYC 4301",
+                    "title": "Cross-Cultural Psychology (WI)"
+                  },
+                  {
+                    "code": "PSYC 4303",
+                    "title": "Environmental Psychology (WI)"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "PSYC 3301",
-                "title": "Social Psychology (WI)"
-              },
-              {
-                "code": "PSYC 4301",
-                "title": "Cross-Cultural Psychology (WI)"
-              },
-              {
-                "code": "PSYC 4303",
-                "title": "Environmental Psychology (WI)"
               },
               {
                 "any_of": [
@@ -10592,20 +10616,23 @@
                 "text": "Government/Political Science"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "PSYC 4312",
+                    "title": "Physiological Psychology"
+                  },
+                  {
+                    "code": "PSYC 4328",
+                    "title": "Psychology of Perception"
+                  },
+                  {
+                    "code": "PSYC 4350",
+                    "title": "Intro to Learning & Memory"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "PSYC 4312",
-                "title": "Physiological Psychology"
-              },
-              {
-                "code": "PSYC 4328",
-                "title": "Psychology of Perception"
-              },
-              {
-                "code": "PSYC 4350",
-                "title": "Intro to Learning & Memory"
               },
               {
                 "credits": 3,
@@ -10688,7 +10715,7 @@
       },
       "source_url": "https://catalog.tamuk.edu/undergraduate/arts-sciences/social-behavioral-sciences/psychology-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence TX/2026-10-06-cat#9e34eaa1d9bfb507) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#9cd923039719693d."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 3 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours Required: 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#9cd923039719693d) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#9cd923039719693d."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -12210,20 +12237,23 @@
                 "title": "Principles of Soil Science"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "PLSS 3325",
+                    "title": "Field Crop Production"
+                  },
+                  {
+                    "code": "PLSS 3334",
+                    "title": "Weed Management in Crops"
+                  },
+                  {
+                    "code": "PLSS 4312",
+                    "title": "Integrated Pest Management"
+                  }
+                ],
                 "text": "Select 1 of the following:"
-              },
-              {
-                "code": "PLSS 3325",
-                "title": "Field Crop Production"
-              },
-              {
-                "code": "PLSS 3334",
-                "title": "Weed Management in Crops"
-              },
-              {
-                "code": "PLSS 4312",
-                "title": "Integrated Pest Management"
               }
             ],
             "label": "Semester 1",
@@ -12283,20 +12313,23 @@
                 "title": "Ecology Natural Environs"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "PLSS 3331",
+                    "title": "Turf and Urban Plants"
+                  },
+                  {
+                    "code": "PLSS 3344",
+                    "title": "Vegetable Crop Production"
+                  },
+                  {
+                    "code": "PLSS 4331",
+                    "title": "Greenhouse Crop Production"
+                  }
+                ],
                 "text": "Select 1 of the following:"
-              },
-              {
-                "code": "PLSS 3331",
-                "title": "Turf and Urban Plants"
-              },
-              {
-                "code": "PLSS 3344",
-                "title": "Vegetable Crop Production"
-              },
-              {
-                "code": "PLSS 4331",
-                "title": "Greenhouse Crop Production"
               },
               {
                 "credits": 3,
@@ -12344,7 +12377,7 @@
       },
       "source_url": "https://catalog.tamuk.edu/undergraduate/agriculture-natural-resources/agriculture-agribusiness-environmental-sciences/agriculture-science-environmental-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence TX/2026-10-06-cat#b971e2abd8d02f68) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#505feaea26520611."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (1 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours Required: 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#505feaea26520611) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#505feaea26520611."
     },
     {
       "last_verified_at": "2026-10-06",
