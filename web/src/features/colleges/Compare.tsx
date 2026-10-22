@@ -206,8 +206,16 @@ const ROWS: RowDef[] = [
     label: 'Best way to lower the cost',
     hint: 'Strongest verified lever. Nothing is added up.',
     cell: (c, x) => {
-      const levers = [...schoolLevers(c, x.exams, x.exam, x.reference)].sort((a, b) => (LEVER_ORDER[a.status] ?? 9) - (LEVER_ORDER[b.status] ?? 9))
+      // Exam credit is coverage, not a demonstrated saving (#253): listed with the other ways, never ranked first.
+      const levers = [...schoolLevers(c, x.exams, x.exam, x.reference)].sort((a, b) => (a.key === 'credit' ? 1 : 0) - (b.key === 'credit' ? 1 : 0) || (LEVER_ORDER[a.status] ?? 9) - (LEVER_ORDER[b.status] ?? 9))
       if (levers.length === 0) return <NoRecord what="cost levers" />
+      if (levers[0]!.key === 'credit')
+        return (
+          <>
+            <p className="text-sm text-ink-2">No verified way to lower this cost is on file. Exam credit here is coverage only, not a confirmed saving.</p>
+            <More c={c} n={levers.length} noun="ways" hash="#lower-heading" />
+          </>
+        )
       return (
         <>
           <p className="line-clamp-2 text-sm font-semibold text-ink">{levers[0]!.title}</p>
