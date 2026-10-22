@@ -467,7 +467,6 @@ MUTS = [
     ('programs/promote.py', "    if on_file.get('verification_correction_reason') or nk in corrected_keys():", "    if False:"),
     ('programs/promote.py', "        if not (approval or {}).get('replaces_correction'): return 'owner-approved correction on file'", "        pass"),
     ('programs/promote.py', "        if not (approval or {}).get('replaces_correction'): return 'owner-approved correction on file'\n        return None", "        if not (approval or {}).get('replaces_correction'): return 'owner-approved correction on file'"),
-    ('programs/promote.py', "            rec.pop('verification_correction_reason', None)", "            pass"),
     ('programs/promote.py', "    if c['candidate_id'] in promoted_ids and not (approval or {}).get('replaces_promoted'): return 'already promoted from this run'", "    pass"),
     ('programs/promote.py', " and not (approval or {}).get('replaces_promoted'): return", ": return"),
     ('programs/promote.py', "        if held:\n", "        if False:\n"),

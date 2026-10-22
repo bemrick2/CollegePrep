@@ -164,9 +164,8 @@ def promote(decisions_path: Path, log=print):
         note = f" Reviewed {date.today().isoformat()}: {a.get('reason', '').strip()}"
         if a.get('accept_issues'): note += f" Accepted issues {c['issues']}: {a['accept_issues']}"
         if a.get('replaces_promoted'): note += f" Replaces the record promoted earlier from this candidate: {a['replaces_promoted']}"
-        if a.get('replaces_correction'):
+        if a.get('replaces_correction'):  # the candidate's record carries no correction reason; the replaced record's goes with it
             note += f" Re-verified after the correction on file (kept in supabase/corrections.json): {a['replaces_correction']}"
-            rec.pop('verification_correction_reason', None)
         rec['notes'] = (rec.get('notes', '') + note + f" Evidence: sources/programs/{state}/{run_dir.name}/evidence.json#{c['candidate_id']}.").strip()
         if c['domain'] == 'degree_requirements':
             on_file = _records(folders[c['institution_key']], 'academic_programs', c['academic_year']) or {'records': []}
