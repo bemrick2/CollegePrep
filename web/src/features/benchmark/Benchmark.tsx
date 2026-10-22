@@ -79,6 +79,8 @@ export function Benchmark() {
     plan: null as BenchmarkPlan | null,
     /** Attempts the server has saved: never submitted, skipped or resumed again. */
     submitted: new Set<string>(),
+    /** Answers saved by the server whose reply was lost: this run's own record lacks them. */
+    lostReplies: 0,
   })
   // One action at a time (answer, skip, continue, next section): a double tap or a slow network can't run two.
   const lock = useRef(false)
@@ -132,7 +134,8 @@ export function Benchmark() {
       try {
         attemptId = await source.startAttempt(student.id, q.id, null, run.current.benchmarkId)
       } catch (e) {
-        run.current.used.delete(q.id)
+        // "Used once" means the server already started it (a lost reply): keep it used, or Continue would pick it again.
+        if (!(e instanceof DataError && /used once/i.test(e.message))) run.current.used.delete(q.id)
         throw e
       }
       const clock = new ActiveClock()
@@ -191,7 +194,9 @@ export function Benchmark() {
     const id = run.current.benchmarkId
     const done = id ? source.completeBenchmark(student.id, id, s) : Promise.resolve(s)
     done.then(
-      (saved) => setSummary({ ...saved, metrics: s.metrics }), // show this run's full detail now; history reads the stored copy
+      // Show this run's full detail now (history reads the stored copy). If a reply was lost, this screen's own record
+      // is missing an answer the server has, so the server's metrics are shown instead.
+      (saved) => setSummary(run.current.lostReplies > 0 ? saved : { ...saved, metrics: s.metrics }),
       (e: Error) => setError(e.message),
     )
   }, [phase, summary, student, records, chosenKind, exam, source])
@@ -281,6 +286,7 @@ export function Benchmark() {
       // The server already has it (the reply was lost on the way back): treat it as saved and move on.
       if (alreadySaved(e)) {
         run.current.submitted.add(current.attemptId)
+        run.current.lostReplies++
         setCurrent(null)
         await moveOnNow()
         return
