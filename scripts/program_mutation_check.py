@@ -7,11 +7,14 @@ the same file. Each mutant breaks one rule; tests/test_programs_deep_dive.py mus
 import shutil, subprocess, sys
 
 MUTS = [
+    ('programs/courseleaf.py', "        if m and len(run) >= 2 and n < len(run) and all(_option_row(x) for x in run):", "        if m and len(run) >= 2 and n < len(run):"),
+    ('programs/courseleaf.py', "        if m and len(run) >= 2 and n < len(run) and all(_option_row(x) for x in run):", "        if m and len(run) >= 1 and all(_option_row(x) for x in run):"),
+    ('programs/courseleaf.py', "        while m and j < len(items) and not _credited(items[j]):", "        while m and j < len(items) and _option_row(items[j]):"),
+    ('programs/courseleaf.py', "    return bool(OPTION_CODE.match(parts[0])) and not PLAN_CREDITS.match(parts[-1])", "    return False"),
+    ('programs/courseleaf.py', "        return ('code' in x or 'any_of' in x) and not set(x) & {'credits', 'milestone', 'marker'}", "        return True"),
+    ('programs/courseleaf.py', "    return bool(PLAN_CREDITS.match(x.split(' | ')[-1]))", "    return False"),
     ('programs/courseleaf.py', "    for term in terms: term['items'] = choice_blocks(term['items'])", "    pass"),
     ('programs/courseleaf.py', "if isinstance(it, dict) and set(it) == {'text', 'credits'} else None", "if isinstance(it, dict) else None"),
-    ('programs/courseleaf.py', "                and not set(items[j]) & {'credits', 'milestone', 'marker'}:", "                and True:"),
-    ('programs/courseleaf.py', "        if m and j - i - 1 >= 2 and n < j - i - 1:", "        if m and j - i - 1 >= 1:"),
-    ('programs/courseleaf.py', "        if m and j - i - 1 >= 2 and n < j - i - 1:", "        if m and j - i - 1 >= 2:"),
     ('programs/courseleaf.py', "(?:of|from)\\s+the\\s+following\\s*:?$', re.I)", "', re.I)"),
     ('programs/verify.py', "for x in [i, *i.get('options', [])] if isinstance(x, dict)]", "for x in [i] if isinstance(x, dict)]"),
     ('programs/courseleaf.py', "        if m and len(cells) >= 3 and cells[-1] and not hours:", "        if False:"),

@@ -658,6 +658,16 @@ class CourseleafPlanTests(unittest.TestCase):
             items = CL.parse_grid({'rows': [['Fall', 'Hours'], hdr, *opts, ['', 'Hours', '3']]})[0][0]['items']
             self.assertFalse(any(isinstance(i, dict) and 'choose' in i for i in items), hdr)
             self.assertEqual(len(items), 1 + len(opts))
+        # options printed as cross-listed or paired codes are options too; a text row among them leaves the block flat,
+        # never cut short (#plan-choices review: Texas A&M 'ANSC 326/FSTC 326', NCSU 'GEP Humanities')
+        rows = [['Fall', 'Hours'], ['Select one of the following:', '3'], ['ANSC 101', 'A', ''], ['ANSC 326/FSTC 326', 'B', ''],
+                ['GEOL 101& GEOL 102', 'C', ''], ['MATH 101', 'Algebra', '3'], ['', 'Hours', '6']]
+        items = CL.parse_grid({'rows': rows})[0][0]['items']
+        self.assertEqual(len(items[0]['options']), 3)
+        rows = [['Fall', 'Hours'], ['Select one of the following:', '3'], ['ANSC 101', 'A', ''], ['ANSC 102', 'B', ''], ['GEP Humanities', ''],
+                ['MATH 101', 'Algebra', '3'], ['', 'Hours', '6']]
+        items = CL.parse_grid({'rows': rows})[0][0]['items']
+        self.assertEqual((len(items), any(isinstance(i, dict) and 'choose' in i for i in items)), (5, False))
 
     def test_verify_reads_choice_options(self):
         from programs import verify as V

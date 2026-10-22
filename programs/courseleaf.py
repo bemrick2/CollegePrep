@@ -210,23 +210,42 @@ CHOICE_HEADER = re.compile(r'^(?:select|choose)\s+(one|two|three|four|five|six|[
 COUNT_WORDS = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6}
 
 
+def _option_row(x):
+    """A blank-credit course row that can be one option of a printed choice block: a course or alternatives read into
+    fields, or a course row kept as printed ('PHIL/DASC 357E | Ethics', 'GEOL 101& GEOL 102 | Geology', Texas A&M, Marshall)."""
+    if isinstance(x, dict):
+        return ('code' in x or 'any_of' in x) and not set(x) & {'credits', 'milestone', 'marker'}
+    parts = x.split(' | ')
+    return bool(OPTION_CODE.match(parts[0])) and not PLAN_CREDITS.match(parts[-1])
+
+
+OPTION_CODE = re.compile(r'^[A-Z][A-Z&]{1,7}(?:/[A-Z&]{1,8})*(?:\s[A-Z&]{1,5})?\s?\d{3,5}[A-Z]?(?:\s?(?:/|&|or)\s?.*\d{3,5}[A-Z]?)?$')
+
+
+def _credited(x):
+    """A row that prints its own credits, which ends a choice block."""
+    if isinstance(x, dict): return 'credits' in x
+    return bool(PLAN_CREDITS.match(x.split(' | ')[-1]))
+
+
 def choice_blocks(items):
     """A printed choice block as one item. 'Select one of the following: | 3' followed by two or more course rows whose credit
     cells are blank (EKU, LMU, Temple 2026-27) is {'choose': 1, 'text': header, 'credits': 3, 'options': [...]}: the options
-    are not each required. Only that shape is grouped: a header that prints no credits or no count, options that print their
-    own credits, or fewer than two options stay as printed rows."""
+    are not each required. The options run to the next row that prints credits, or to the term's end, and every row in that
+    run must be a course row; otherwise (a text row such as 'GEP Humanities' among them) the block is not grouped, so it is
+    never cut short. A header that prints no credits or no count, options with their own credits, or fewer options than
+    the count plus one stay as printed rows."""
     out, i = [], 0
     while i < len(items):
         it = items[i]
         m = CHOICE_HEADER.match(it.get('text', '')) if isinstance(it, dict) and set(it) == {'text', 'credits'} else None
         j = i + 1
-        while m and j < len(items) and isinstance(items[j], dict) and ('code' in items[j] or 'any_of' in items[j]) \
-                and not set(items[j]) & {'credits', 'milestone', 'marker'}:
+        while m and j < len(items) and not _credited(items[j]):
             j += 1
-        n = COUNT_WORDS.get(m.group(1).lower(), None) if m else None
-        n = n if n is not None or not m else int(m.group(1))
-        if m and j - i - 1 >= 2 and n < j - i - 1:
-            out.append({'choose': n, 'text': it['text'], 'credits': it['credits'], 'options': items[i + 1:j]}); i = j
+        run = items[i + 1:j]
+        n = (COUNT_WORDS.get(m.group(1).lower()) or int(m.group(1))) if m else None
+        if m and len(run) >= 2 and n < len(run) and all(_option_row(x) for x in run):
+            out.append({'choose': n, 'text': it['text'], 'credits': it['credits'], 'options': run}); i = j
         else:
             out.append(it); i += 1
     return out
