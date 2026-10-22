@@ -135,7 +135,9 @@ export function Benchmark() {
         attemptId = await source.startAttempt(student.id, q.id, null, run.current.benchmarkId)
       } catch (e) {
         // "Used once" means the server already started it (a lost reply): keep it used, or Continue would pick it again.
-        if (!(e instanceof DataError && /used once/i.test(e.message))) run.current.used.delete(q.id)
+        // It also counts toward the section's length, as the server holds that (unanswered) attempt.
+        if (e instanceof DataError && /used once/i.test(e.message)) run.current.served++
+        else run.current.used.delete(q.id)
         throw e
       }
       const clock = new ActiveClock()
@@ -387,8 +389,12 @@ export function Benchmark() {
             block
             disabled={busy}
             onClick={async () => {
+              // Under the same lock as every other action, so a double tap can't open two checks.
+              if (lock.current) return
+              lock.current = true
               run.current.startedAt = new Date().toISOString()
               setBusy(true)
+              let begin = false
               try {
                 const id = await source.startBenchmark(student.id, chosenKind, exam)
                 run.current.benchmarkId = id
@@ -397,12 +403,14 @@ export function Benchmark() {
                 run.current.items = list
                 run.current.plan = planBenchmark(exam, chosenKind, list.map((i) => i.question))
                 setItems(list)
-                if (run.current.plan.totalQuestions > 0) void startSection(0)
+                begin = run.current.plan.totalQuestions > 0
               } catch (e) {
                 setError((e as Error).message)
               } finally {
+                lock.current = false
                 setBusy(false)
               }
+              if (begin) void startSection(0)
             }}
           >
             {bplan?.sections[0] ? `Start ${SECTION_LABEL[bplan.sections[0].section]}` : 'Start the check'}
