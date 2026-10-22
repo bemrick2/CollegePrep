@@ -76,8 +76,8 @@ function planItems(terms: PlanTerm[]): PlanItem[] {
     t.entries.filter(isRequirement).map((e) => {
       const base = { term: t.termIndex, label: t.label, checked: t.notChecked === null, text: e.choices.length ? `${e.text} ${e.choices.map((c) => c.text).join(' / ')}` : e.text, credits: e.credits }
       // A structured course, or a choice among options: any one of its codes.
-      if (e.choices.length && e.choose > 1)
-        return { ...base, any: [], combos: [], pick: { options: e.choices.map(optionCodes).filter((o) => o.length > 0), n: e.choose } }
+      // Any choice block ("any one of", "choose N of"): done only when N whole options are awarded with unused courses.
+      if (e.choices.length) return { ...base, any: [], combos: [], pick: { options: e.choices.map(optionCodes).filter((o) => o.length > 0), n: e.choose } }
       if (e.code || e.choices.length) return { ...base, any: entryCodes(e), combos: [], pick: null }
       // Free text: "A or B" is any one; "CHEM 102+103", "BIOL 1113& BIOL 1111" and "A and B" are combinations that
       // count only when all were awarded.
@@ -129,6 +129,7 @@ export function degreeCredit(matches: ExamMatch[], terms: PlanTerm[]): DegreeCre
   const items = planItems(terms)
   const used = new Set<PlanItem>()
   const earnedCodes = new Set<string>()
+  const claimedCodes = new Set<string>()
   const accepted: ExamApplicability[] = []
 
   /** Matches one published course equivalent against the plan, recording into `taken`. */
@@ -154,7 +155,8 @@ export function degreeCredit(matches: ExamMatch[], terms: PlanTerm[]): DegreeCre
       }
       const code = g[0]!
       codes.push(code)
-      const it = items.find((x) => !taken.has(x) && x.any.includes(code))
+      // A course already used by another exam's row fills no second row (two exams awarding the same course).
+      const it = claimedCodes.has(code) ? undefined : items.find((x) => !taken.has(x) && x.any.includes(code))
       if (it) {
         taken.add(it)
         claimed.push(code)
@@ -173,7 +175,6 @@ export function degreeCredit(matches: ExamMatch[], terms: PlanTerm[]): DegreeCre
     const status: Applicability = hit === groups.length ? 'applies' : hit > 0 ? 'partly' : anyAssigned ? 'school_assigns' : 'not_in_plan'
     return { status, matched, codes, claimed }
   }
-  const claimedCodes = new Set<string>()
 
   for (const m of matches.filter((x) => x.status === 'qualifies')) {
     const known = m.earned.map((t) => t.credits).filter((c): c is number => c != null)

@@ -162,7 +162,8 @@ export function readPlanItem(raw: unknown): PlanEntry | null {
     footnotes: Array.isArray(o.footnotes) ? o.footnotes.filter((f): f is string => typeof f === 'string') : [],
     recommended: o.recommended === true,
     choices,
-    choose: choices.length && Number.isInteger(o.choose) && (o.choose as number) > 1 && (o.choose as number) <= choices.length ? (o.choose as number) : 1,
+    // The printed count, kept even when it exceeds the options listed: such a block can never be shown as done.
+    choose: choices.length && Number.isInteger(o.choose) && (o.choose as number) > 1 ? (o.choose as number) : 1,
   })
 }
 

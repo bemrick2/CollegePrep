@@ -186,7 +186,7 @@ describe('review findings on stored plans (#242)', () => {
   it('a printed "choose N" block: shown with its count, done only when N listed courses are awarded (Deep Dive, #230)', () => {
     const block = { choose: 2, text: 'Select two of the following:', credits: 6, options: [{ code: 'ANTH 376' }, { code: 'BIOL 350' }, { code: 'STAT 201' }] }
     expect(readPlanItem(block)).toMatchObject({ kind: 'choice', choose: 2, credits: 6 })
-    expect(readPlanItem({ ...block, choose: 9 })!.choose).toBe(1) // a count larger than the options isn't trusted
+    expect(readPlanItem({ ...block, choose: 9 })!.choose).toBe(9) // kept as printed: such a block can never be done
     expect(readPlanItem({ ...block, choose: undefined })!.choose).toBe(1)
     const terms: PlanTermLike[] = [{ term_index: 1, label: 'Fall', credit_hours: '15', items: [block] }]
     const exam = (course: string) => ({ status: 'qualifies', exam: { name: course }, earned: [{ course, credits: 3, minimumText: '3' }] })
@@ -214,5 +214,19 @@ describe('review findings on stored plans (#242)', () => {
     // D: a combination row and a block can't share the same lecture and lab.
     const d = [term(['CHEM 101 + CHEM 101L', block(2, [{ code: 'CHEM 101' }, { code: 'CHEM 101L' }, { code: 'BIOL 150' }])])]
     expect(degreeCredit([exam('CHEM 101 and CHEM 101L')], d).coveredTerms).toEqual([])
+  })
+
+  it('never over-claims: a count larger than the options, the same course from two exams, a whole option in "any one of"', () => {
+    const exam = (course: string) => ({ status: 'qualifies', exam: { name: course }, earned: [{ course, credits: 3, minimumText: '3' }] }) as never
+    const term = (items: unknown[], i = 1): PlanTermLike => ({ term_index: i, label: i === 1 ? 'Fall' : 'Spring', credit_hours: '15', items: items as never })
+    // "Select 3 of" two listed courses can't be done.
+    expect(degreeCredit([exam('HIST 101'), exam('HIST 102')], [term([{ choose: 3, text: 'Select 3 of:', options: [{ code: 'HIST 101' }, { code: 'HIST 102' }] }])]).coveredTerms).toEqual([])
+    // Two exams awarding the same course fill one row, not two terms.
+    const twice = degreeCredit([exam('HIST 101'), exam('HIST 101')], [term(['HIST 101'], 1), term(['HIST 101 or HIST 103'], 2)])
+    expect(twice.coveredTerms).toHaveLength(1)
+    // "Any one of" with a lecture-and-lab option: CHEM 101 alone doesn't satisfy that option.
+    const anyOne = [term([{ text: 'Complete one of the following:', options: [{ text: 'CHEM 101 & CHEM 101L' }, { code: 'BIOL 150' }] }])]
+    expect(degreeCredit([exam('CHEM 101')], anyOne).coveredTerms).toEqual([])
+    expect(degreeCredit([exam('BIOL 150')], anyOne).coveredTerms).toEqual([{ term: 1, label: 'Fall' }])
   })
 })
