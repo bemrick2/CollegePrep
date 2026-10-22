@@ -152,12 +152,11 @@ describe.skipIf(!URL_)('parent journey with an invited student and two more guar
     await phone.saveExamPlanEntry(studentId, exam('CLEP', 'College Algebra', 62))
     const viewer = await device(VIEWER)
     expect((await viewer.examPlan(studentId)).find((e) => e.family === 'CLEP')!.score).toBe(62)
-    // Current SERVER rule (CR-10 can_edit_student_plans): any guardian of the household may write the exam plan and
-    // interests, whatever their permissions. The app doesn't offer it (CollegePaths edits only for the student or a
-    // guardian who can set goals), but the server would accept it. Raised with Research (#218 C1); this pins today's
-    // server behaviour so a change there is deliberate.
-    await viewer.saveExamPlanEntry(studentId, exam('AP', 'AP Microeconomics', 3))
-    await viewer.removeExamPlanEntry(studentId, examKey('AP', 'Microeconomics'))
+    // Server rule (#218 C1): the exam plan is written by the linked student or a guardian who can set goals. A guardian
+    // invited with view-progress only is refused, and their delete reaches nothing.
+    await expect(viewer.saveExamPlanEntry(studentId, exam('AP', 'AP Microeconomics', 3))).rejects.toThrow()
+    await expect(viewer.removeExamPlanEntry(studentId, examKey('CLEP', 'College Algebra'))).rejects.toThrow()
+    expect((await phone.examPlan(studentId)).find((e) => e.key === examKey('CLEP', 'College Algebra'))!.score).toBe(62)
     // Two devices saving the same new exam at once: both succeed, one row.
     await Promise.all([(await device(PARENT)).saveExamPlanEntry(studentId, exam('AP', 'AP Psychology', 4)), (await device(INVITED)).saveExamPlanEntry(studentId, exam('AP', 'AP Psychology', 5))])
     expect((await phone.examPlan(studentId)).filter((e) => e.key === examKey('AP', 'Psychology'))).toHaveLength(1)

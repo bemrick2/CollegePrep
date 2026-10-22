@@ -401,11 +401,15 @@ export class LiveSource implements DataSource {
   async listInvitations(householdId: string): Promise<InvitationSummary[]> {
     const { data, error } = await this.sb
       .from('household_invitations')
-      .select('id, role, student_id, recipient_email, created_at, expires_at, accepted_at, revoked_at, last_emailed_at')
+      .select('id, role, student_id, created_at, expires_at, accepted_at, revoked_at, last_emailed_at')
       .eq('household_id', householdId)
       .order('created_at', { ascending: false })
     if (error) fail(error)
-    return (data ?? []) as InvitationSummary[]
+    // Recipient emails come only from the server's permission-checked RPC (#218 C7): guardians with manage-members,
+    // or manage-students for student invitations. Others see no addresses.
+    const recipients = await rpc<{ invitation_id: string; recipient_email: string }[]>(this.sb, 'household_invitation_recipients', { p_household: householdId })
+    const byId = new Map((recipients ?? []).map((r) => [r.invitation_id, r.recipient_email]))
+    return (data ?? []).map((r) => ({ ...r, recipient_email: byId.get(r.id as string) ?? null })) as InvitationSummary[]
   }
 
   async revokeInvitation(invitationId: string) {
