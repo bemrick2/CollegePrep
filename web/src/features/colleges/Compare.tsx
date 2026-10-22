@@ -342,6 +342,7 @@ export function Compare() {
           </Pill>
         )}
       </div>
+      {cmp.canRemove(c.institution_key) && (
       <button
         onClick={() => void cmp.remove(c.institution_key)}
         className="grid h-8 w-8 shrink-0 place-items-center rounded-full text-ink-3 hover:bg-surface-2 hover:text-ink"
@@ -349,6 +350,7 @@ export function Compare() {
       >
         <X size={16} />
       </button>
+      )}
     </div>
   )
 
