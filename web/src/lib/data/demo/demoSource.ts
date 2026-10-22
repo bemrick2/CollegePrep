@@ -1,9 +1,9 @@
-import { practiceExclusions } from '../../engine/freshness'
+import { poolStatusOf, practiceExclusions } from '../../engine/freshness'
 import { projectCosts } from '../../engine/costProjection'
 import type { InterestProfile } from '../../engine/interests'
 import { readInterests, writeInterests } from '../../interestStore'
 import { INVITE_TTL_HOURS, formatInviteCode } from '../../invites'
-import type { AlertPreference, DataSource, DevicePermission, DevicePlatform, DeviceStatus, InactiveStudent, InvitationSummary, InviteSendResult, ReminderChange, ReminderDelivery, ReminderSettings, StudentInvitation } from '../source'
+import type { CheckItem, PoolStatus, AlertPreference, DataSource, DevicePermission, DevicePlatform, DeviceStatus, InactiveStudent, InvitationSummary, InviteSendResult, ReminderChange, ReminderDelivery, ReminderSettings, StudentInvitation } from '../source'
 import { DEFAULT_REMINDERS, settingsProblems } from '../../../../../supabase/functions/_shared/reminders.ts'
 import { suggestNextWeek, type NextWeekSuggestion } from '../../engine/weeklyPlan'
 import { DataError } from '../source'
@@ -37,6 +37,9 @@ import { gradeAnswer } from '../../engine/grading'
 import { recommend, skillEstimates, streakFrom, weeklyProgress } from '../../engine/analytics'
 import { addDays, browserTimeZone, localDate, weekStartOf } from '../../engine/dates'
 import { MAX_SAVED_SCHOOLS, readPrimarySchool, readSavedSchools, writePrimarySchool, writeSavedSchools } from '../../savedSchools'
+
+/** A progress check stays live (takes attempts, lists items) for 4 hours from its start, as on the server. */
+const CHECK_LIVE_MS = 4 * 60 * 60 * 1000
 
 export const DEMO_PARENT = 'demo-parent'
 export const DEMO_STUDENT = 'demo-student'
@@ -583,7 +586,13 @@ export class DemoSource implements DataSource {
     // only on reserved questions.
     const reserved = practiceExclusions(q.exam_family, F.QUESTIONS).has(questionId)
     if (benchmarkId && !reserved) throw new DataError('Progress checks use only questions set aside for checks', 'invalid')
-    if (!benchmarkId && reserved) throw new DataError('This question is set aside for progress checks', 'forbidden')
+    if (!benchmarkId && reserved) throw new DataError('This question is set aside for progress checks', 'invalid')
+    if (benchmarkId) {
+      const c = this.liveCheck(benchmarkId, studentId)
+      if (c.exam !== q.exam_family) throw new DataError('A progress check uses reserved questions of its own exam version', 'invalid')
+      if (c.used.has(questionId)) throw new DataError('A question is used once per progress check', 'invalid')
+      c.used.add(questionId)
+    }
     const id = uid('pa-')
     const now = new Date().toISOString()
     const a: DemoAttempt = {
@@ -712,13 +721,55 @@ export class DemoSource implements DataSource {
     return delay(this.s.benchmarks[studentId] ?? [])
   }
 
-  async startBenchmark(studentId: string, _kind: BenchmarkSummary['kind'], _exam: ExamFamily) {
+  /** Open checks in this page session: when each started, and the items already used in it. */
+  private checks = new Map<string, { studentId: string; exam: ExamFamily; kind: BenchmarkSummary['kind']; startedAt: string; used: Set<string> }>()
+
+  /** Mirrors the server: a check is live while open and within 4 hours of its start. */
+  private liveCheck(benchmarkId: string, studentId: string) {
+    const c = this.checks.get(benchmarkId)
+    if (!c || c.studentId !== studentId) throw new DataError('Benchmark is not an open benchmark of this student', 'invalid')
+    if (Date.now() - Date.parse(c.startedAt) >= CHECK_LIVE_MS) throw new DataError('This progress check has expired; start a new one', 'invalid')
+    return c
+  }
+
+  async startBenchmark(studentId: string, kind: BenchmarkSummary['kind'], exam: ExamFamily) {
     this.requireLinked(studentId)
-    return delay(uid('bm-'))
+    // Like start_benchmark: a live open check of the same exam and kind with nothing answered yet is resumed, not duplicated.
+    for (const [id, c] of this.checks)
+      if (c.studentId === studentId && c.exam === exam && c.kind === kind && c.used.size === 0 && Date.now() - Date.parse(c.startedAt) < CHECK_LIVE_MS) return delay(id)
+    const id = uid('bm-')
+    this.checks.set(id, { studentId, exam, kind, startedAt: new Date().toISOString(), used: new Set() })
+    return delay(id)
+  }
+
+  /** Mirrors assessment_pool_status (CR-23): counts only. */
+  async assessmentPoolStatus(studentId: string, examFamily: ExamFamily): Promise<PoolStatus[] | null> {
+    this.requireView(studentId)
+    const F = await loadFixtures()
+    return delay(poolStatusOf(examFamily, F.QUESTIONS, new Set(this.attemptsOf(studentId).map((a) => a.question_id))))
+  }
+
+  /** Mirrors benchmark_questions (CR-23): the open check's reserved items, unseen first (mid difficulty), then repeats
+   *  (least recently shown first); items already used in this check are left out. */
+  async benchmarkQuestions(benchmarkId: string, studentId: string): Promise<CheckItem[]> {
+    this.requireLinked(studentId)
+    const c = this.checks.get(benchmarkId)
+    if (!c || c.studentId !== studentId) throw new DataError('No open benchmark of yours with that id', 'forbidden')
+    this.liveCheck(benchmarkId, studentId)
+    const F = await loadFixtures()
+    const reserved = practiceExclusions(c.exam, F.QUESTIONS)
+    const last = new Map<string, string>()
+    for (const a of this.attemptsOf(studentId)) if (a.presented_at < c.startedAt && (!last.has(a.question_id) || a.presented_at > last.get(a.question_id)!)) last.set(a.question_id, a.presented_at)
+    const mid = (d: number) => Math.abs(d - 3)
+    const items = F.QUESTIONS.filter((q) => reserved.has(q.id) && !c.used.has(q.id))
+      .sort((a, b) => a.section.localeCompare(b.section) || Number(last.has(a.id)) - Number(last.has(b.id)) || (last.get(a.id) ?? '').localeCompare(last.get(b.id) ?? '') || mid(a.difficulty) - mid(b.difficulty) || a.id.localeCompare(b.id))
+      .map((q) => ({ question: toPublic(q), seen_before: last.has(q.id) }))
+    return delay(items)
   }
 
   async completeBenchmark(studentId: string, benchmarkId: string, client: BenchmarkSummary) {
     const summary = { ...client, id: benchmarkId }
+    this.checks.delete(benchmarkId)  // closed, like complete_benchmark
     ;(this.s.benchmarks[studentId] ??= []).push(summary)
     this.commit()
     return delay(summary)
