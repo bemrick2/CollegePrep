@@ -200,7 +200,10 @@ describe.skipIf(!URL_)('reserved assessment pool on the server (CR-23)', () => {
     for (const who of ['PARENT', 'VIEWER'] as const) {
       const r = await c[who].rpc('start_benchmark', { p_student: studentId, p_kind: 'mini', p_exam_version: act })
       expect([who, r.error?.code]).toEqual([who, '42501'])
-      expect(((await c[who].from('practice_questions').select('id').eq('pool', 'assessment').in('id', [...RESERVED_ACT])).data ?? []).length).toBeLessThanOrEqual(RESERVED_ACT.size)
+      // Outside a check, a guardian who can view progress reads only reserved items the student has attempted.
+      const attempted = new Set(((await c.STUDENT.from('practice_attempts').select('question_id').eq('student_id', studentId).not('benchmark_id', 'is', null)).data ?? []).map((r) => r.question_id as string))
+      const seen = ((await c[who].from('practice_questions').select('id').eq('pool', 'assessment')).data ?? []).map((r) => r.id as string)
+      expect([who, seen.every((id) => attempted.has(id))]).toEqual([who, true])
     }
     // A closed check can't take more answers.
     const done = await student.startBenchmark(studentId, 'mini', 'act')
