@@ -429,6 +429,11 @@ class CourseleafPlanTests(unittest.TestCase):
         rd = out[0]['record']['rule_details']
         self.assertEqual([(t['term_index'], t['label']) for t in rd['terms']], [(1, 'First Year'), (2, 'Fall'), (3, 'Second Year'), (4, 'Fall')])
         self.assertEqual(rd['rule_text'], 'Total Credits 180 (as printed, grid 1 of 2); Total Credits 4 (as printed, grid 2 of 2)')
+        txt = ('Computer Science BA/BS\nPlan of Study Grid\n| First Year\nHonors students take CS 211 in place of CS 210.\nPlan of Study Grid\n'
+               '| Second Year')
+        out = [c for c in CL.extract({'institution_key': 'k'}, e, T.Page(txt, 'Computer Science BA/BS', [self.grid('Degree Map'), g2], [], []),
+                                     '2026-2027', '', True) if c['domain'] == 'degree_requirements']
+        self.assertEqual([c['issues'] for c in out], [['grid_change_noted']])
         # headings alike for their first 80 characters (LMU 2026-27 math-placement plans) still give distinct keys and ids
         h = 'Model 4-Year Plan\u2013Bachelor of Business Administration\u2013Finance Major Curriculum\u2013Math placement MATH '
         alike = [self.grid(h + '101'), self.grid(h + '110')]
@@ -703,6 +708,8 @@ class CourseleafPlanTests(unittest.TestCase):
         self.assertFalse(CL.continued_grids(p[::-1], ['Biology - BA', 'Biology - BA']))  # years must run from the first, in order
         self.assertFalse(CL.continued_grids([p[0], p[0]], ['Biology - BA', 'Biology - BA']))  # a repeated year is another plan
         self.assertFalse(CL.continued_grids([p[0], p[0]], ['', '']))
+        p3 = CL.parse_grid(dict(g2, rows=[['Fourth Year']] + g2['rows'][1:]))  # 'Third Year' | 'Fourth Year': no first year printed
+        self.assertFalse(CL.continued_grids([p[1], p3], ['Biology - BA', 'Biology - BA']))
         # a note between the grids that changes the plan holds it (Texas A&M Business, Temple)
         note = 'Plan of Study Grid\n| First Year\nFinance: Students intending to major in Finance must add FINC 210 to freshman year.\nPlan of Study Grid\n| Third Year'
         self.assertTrue(CL.grid_change_noted(type('P', (), {'text': note})()))
