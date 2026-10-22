@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Navigate, useNavigate, useSearchParams } from 'react-router-dom'
 import { useApp, useAsync } from '../../lib/app'
+import { DataError } from '../../lib/data/source'
 import type { BenchmarkSummary, Confidence, ExamFamily, PublicQuestion } from '../../lib/data/types'
 import { FULL_FORM_READY, PER_SECTION, SECTION_LABEL, SECTION_ORDER, computeMetrics, nextDifficulty, planBenchmark, type BenchmarkKind, type BenchmarkPlan, type BenchmarkRecord, benchmarkSchedule } from '../../lib/engine/benchmark'
 import { checkPlanFromCounts, pickCheckItem, type CheckSectionPlan } from '../../lib/engine/freshness'
@@ -59,6 +60,10 @@ export function Benchmark() {
   const [records, setRecords] = useState<BenchmarkRecord[]>([])
   const [summary, setSummary] = useState<BenchmarkSummary | null>(null)
   const [error, setError] = useState<string | null>(null)
+  // After an answer is saved, a failure to move on must not resubmit it: `stalled` offers "Continue" (advance only),
+  // and `ended` means the server closed the check (expired), so only a new check can follow.
+  const [stalled, setStalled] = useState(false)
+  const [ended, setEnded] = useState(false)
   const [busy, setBusy] = useState(false)
 
   // Mutable run state that doesn't drive rendering directly.
@@ -72,7 +77,27 @@ export function Benchmark() {
     benchmarkId: null as string | null,
     items: [] as CheckItem[],
     plan: null as BenchmarkPlan | null,
+    /** Attempts the server has saved: never submitted, skipped or resumed again. */
+    submitted: new Set<string>(),
+    /** Answers saved by the server whose reply was lost: this run's own record lacks them. */
+    lostReplies: 0,
   })
+  // One action at a time (answer, skip, continue, next section): a double tap or a slow network can't run two.
+  const lock = useRef(false)
+  const exclusive = async (fn: () => Promise<void>) => {
+    if (lock.current) return
+    lock.current = true
+    setBusy(true)
+    try {
+      await fn()
+    } finally {
+      lock.current = false
+      setBusy(false)
+    }
+  }
+  /** The server closed this check (expired, or no longer open): only a new check can follow. Other 22023s aren't. */
+  const checkEnded = (e: unknown) => e instanceof DataError && e.code === 'invalid' && /expired|start a new one|not an open benchmark/i.test(e.message)
+  const alreadySaved = (e: unknown) => e instanceof DataError && /already submitted/i.test(e.message)
 
   // The home screen links straight to the kind that is due (?kind=mini|full); otherwise use the schedule.
   const [params] = useSearchParams()
@@ -103,10 +128,20 @@ export function Benchmark() {
   const present = useCallback(
     async (q: PublicQuestion) => {
       if (!student) return
-      const attemptId = await source.startAttempt(student.id, q.id, null, run.current.benchmarkId)
+      // Claimed before the request, so a second advance can't pick the same question while this one is in flight.
+      run.current.used.add(q.id)
+      let attemptId: string
+      try {
+        attemptId = await source.startAttempt(student.id, q.id, null, run.current.benchmarkId)
+      } catch (e) {
+        // "Used once" means the server already started it (a lost reply): keep it used, or Continue would pick it again.
+        // It also counts toward the section's length, as the server holds that (unanswered) attempt.
+        if (e instanceof DataError && /used once/i.test(e.message)) run.current.served++
+        else run.current.used.delete(q.id)
+        throw e
+      }
       const clock = new ActiveClock()
       clock.start()
-      run.current.used.add(q.id)
       run.current.served++
       setCurrent({ question: q, attemptId, clock, answer: '', changes: 0, skipEvents: 0, returns: 0, firstInteraction: null, shownAt: performance.now() })
     },
@@ -136,7 +171,8 @@ export function Benchmark() {
       const next = pickCheckItem(r.items, section.section, r.target, r.used)
       if (next) return present(next.question)
     }
-    const back = r.skipped.shift()
+    let back = r.skipped.shift()
+    while (back && r.submitted.has(back.attemptId)) back = r.skipped.shift()
     if (back) {
       r.returning = true
       return resume(back)
@@ -160,7 +196,9 @@ export function Benchmark() {
     const id = run.current.benchmarkId
     const done = id ? source.completeBenchmark(student.id, id, s) : Promise.resolve(s)
     done.then(
-      (saved) => setSummary({ ...saved, metrics: s.metrics }), // show this run's full detail now; history reads the stored copy
+      // Show this run's full detail now (history reads the stored copy). If a reply was lost, this screen's own record
+      // is missing an answer the server has, so the server's metrics are shown instead.
+      (saved) => setSummary(run.current.lostReplies > 0 ? saved : { ...saved, metrics: s.metrics }),
       (e: Error) => setError(e.message),
     )
   }, [phase, summary, student, records, chosenKind, exam, source])
@@ -184,22 +222,37 @@ export function Benchmark() {
       </div>
     )
 
-  const startSection = async (idx: number) => {
-    run.current = { ...run.current, used: run.current.used, served: 0, target: 3, skipped: [], returning: false }
-    setSectionIdx(idx)
-    setPhase('running')
-    const sec = run.current.plan!.sections[idx]!
-    const next = pickCheckItem(run.current.items, sec.section, 3, run.current.used)
-    if (next) await present(next.question).catch((e: Error) => setError(e.message))
+  const startSection = (idx: number) =>
+    exclusive(async () => {
+      run.current = { ...run.current, used: run.current.used, served: 0, target: 3, skipped: [], returning: false }
+      setSectionIdx(idx)
+      setPhase('running')
+      setError(null)
+      setStalled(false)
+      const sec = run.current.plan!.sections[idx]!
+      const next = pickCheckItem(run.current.items, sec.section, 3, run.current.used)
+      // The break screen is where a check most often passes its 4 hours: an expired check says so here too.
+      if (next) await present(next.question).catch(onMoveError)
+    })
+
+  /** After an answer is saved, a failure only affects what comes next: say so, and never send the answer again. */
+  const onMoveError = (e: unknown) => {
+    if (checkEnded(e)) setEnded(true)
+    else {
+      setError(e instanceof Error ? e.message : 'Could not load the next question')
+      setStalled(true)
+    }
   }
 
-  const finishAttempt = async (opts: { confidence?: Confidence; skipped?: boolean }) => {
-    if (!current) return
-    setBusy(true)
+  const finishAttempt = (opts: { confidence?: Confidence; skipped?: boolean }) => exclusive(() => submitCurrent(opts))
+
+  const submitCurrent = async (opts: { confidence?: Confidence; skipped?: boolean }) => {
+    if (!current || run.current.submitted.has(current.attemptId)) return
     setError(null)
     current.clock.pause()
     try {
-      if (!opts.skipped) await source.recordEvent(current.attemptId, 'answered', current.answer)
+      // The event is a log entry: on a retry after a lost reply it can be refused, and that mustn't block the answer.
+      if (!opts.skipped) await source.recordEvent(current.attemptId, 'answered', current.answer).catch(() => undefined)
       const res = await source.submitAttempt(current.attemptId, {
         answer: opts.skipped ? null : current.answer,
         activeMs: current.clock.ms,
@@ -231,26 +284,54 @@ export function Benchmark() {
         },
       ])
       if (!run.current.returning) run.current.target = nextDifficulty(run.current.target, res.is_correct)
-      await advance()
     } catch (e) {
+      // The server already has it (the reply was lost on the way back): treat it as saved and move on.
+      if (alreadySaved(e)) {
+        run.current.submitted.add(current.attemptId)
+        run.current.lostReplies++
+        setCurrent(null)
+        await moveOnNow()
+        return
+      }
+      if (checkEnded(e)) {
+        setEnded(true)
+        return
+      }
       current.clock.start()
       setError(e instanceof Error ? e.message : 'Could not save that answer')
-    } finally {
-      setBusy(false)
+      return
     }
+    // Saved. From here a failure only affects what comes next; the answer is never sent again.
+    run.current.submitted.add(current.attemptId)
+    setCurrent(null)
+    await moveOnNow()
   }
 
-  const skipForNow = async () => {
-    if (!current) return
-    current.clock.pause()
+  const moveOnNow = async () => {
+    setError(null)
+    setStalled(false)
     try {
-      await source.recordEvent(current.attemptId, 'skipped')
-    } catch {
-      // ignore
+      await advance()
+    } catch (e) {
+      onMoveError(e)
     }
-    run.current.skipped.push({ ...current, skipEvents: current.skipEvents + 1 })
-    await advance()
   }
+  const moveOn = () => exclusive(moveOnNow)
+
+  const skipForNow = () =>
+    exclusive(async () => {
+      if (!current || run.current.submitted.has(current.attemptId)) return
+      const open = current
+      open.clock.pause()
+      try {
+        await source.recordEvent(open.attemptId, 'skipped')
+      } catch {
+        // ignore
+      }
+      if (!run.current.skipped.some((x) => x.attemptId === open.attemptId)) run.current.skipped.push({ ...open, skipEvents: open.skipEvents + 1 })
+      setCurrent(null)
+      await moveOnNow()
+    })
 
   if (phase === 'intro') {
     const options: BenchmarkKind[] = (history.data?.length ?? 0) === 0 ? ['initial'] : FULL_FORM_READY ? ['mini', 'full'] : ['mini']
@@ -308,8 +389,12 @@ export function Benchmark() {
             block
             disabled={busy}
             onClick={async () => {
+              // Under the same lock as every other action, so a double tap can't open two checks.
+              if (lock.current) return
+              lock.current = true
               run.current.startedAt = new Date().toISOString()
               setBusy(true)
+              let begin = false
               try {
                 const id = await source.startBenchmark(student.id, chosenKind, exam)
                 run.current.benchmarkId = id
@@ -318,12 +403,14 @@ export function Benchmark() {
                 run.current.items = list
                 run.current.plan = planBenchmark(exam, chosenKind, list.map((i) => i.question))
                 setItems(list)
-                if (run.current.plan.totalQuestions > 0) void startSection(0)
+                begin = run.current.plan.totalQuestions > 0
               } catch (e) {
                 setError((e as Error).message)
               } finally {
+                lock.current = false
                 setBusy(false)
               }
+              if (begin) void startSection(0)
             }}
           >
             {bplan?.sections[0] ? `Start ${SECTION_LABEL[bplan.sections[0].section]}` : 'Start the check'}
@@ -402,7 +489,25 @@ export function Benchmark() {
             }
           />
         )}
-        {error && <Notice tone="bad" className="mt-4">{error}</Notice>}
+        {ended ? (
+          <Notice tone="warn" title="This progress check has ended" className="mt-4">
+            <p>Your answers so far are saved, but this check can't continue (checks close 4 hours after they start). Start a new check for a result.</p>
+            <Button className="mt-3" onClick={() => navigate(0)}>
+              Start a new check
+            </Button>
+          </Notice>
+        ) : (
+          error && (
+            <Notice tone="bad" className="mt-4">
+              <p>{error}</p>
+              {stalled && (
+                <Button variant="secondary" className="mt-3" disabled={busy} onClick={() => void moveOn()}>
+                  Continue
+                </Button>
+              )}
+            </Notice>
+          )
+        )}
       </div>
       <div className="sticky bottom-0 -mx-4 border-t border-line bg-bg/95 px-4 py-4 pb-[max(1rem,env(safe-area-inset-bottom))] backdrop-blur">
         <div className="mx-auto grid max-w-xl gap-3">

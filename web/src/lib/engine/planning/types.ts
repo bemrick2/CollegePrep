@@ -49,7 +49,13 @@ export interface Line<T> {
   evidence: Evidence
 }
 
-export type CreditFit = 'applies' | 'partly' | 'accepted_not_in_plan' | 'elective_only' | 'unknown' | 'none'
+/**
+ * none: the school's verified table gives no credit at this score (below the minimum, or not awarded).
+ * not_verified: the table is on file but not verified, or isn't on file; nothing about this score is claimed.
+ * planned: no score entered yet. see_table: the table needs something we don't read (criteria, an IB level, an exam it
+ * doesn't list), so the family should read it.
+ */
+export type CreditFit = 'applies' | 'partly' | 'accepted_not_in_plan' | 'elective_only' | 'unknown' | 'none' | 'not_verified' | 'planned' | 'see_table'
 
 export interface PlanRow {
   term: number
@@ -62,7 +68,7 @@ export interface CreditLine {
   exam: PlannedExam
   /** The school's table result (examCredit); value null when no verified table for this family is on file. */
   acceptance: Line<ExamMatch>
-  /** Where awarded credit lands in the verified plan. "none" when the score earns nothing (or acceptance is missing). */
+  /** Where awarded credit lands in the verified plan; see CreditFit for the other states. */
   fit: CreditFit
   rows: PlanRow[]
   hours: Line<number>
@@ -107,6 +113,8 @@ export interface PlanCourseRow {
   milestone: string | null
   /** For a choice: the options, as printed. */
   options: string[]
+  /** How many of the options the requirement takes, as printed (1 when the plan prints no count). */
+  choose: number
 }
 
 /** One of the school's plans for the major (a track, a concentration, a four-year or transfer path). */

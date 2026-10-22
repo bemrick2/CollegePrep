@@ -135,6 +135,62 @@ def grids(page):
     return [t for t in page.tables if (t.get('caption') or '').strip().lower() in ('plan of study grid', 'degree map')]
 
 
+FOOTNOTE_MARK = re.compile(r'^(\d{1,2}|[a-zA-Z]|[*†‡§#+^]{1,3})$')
+FOOTNOTE_INLINE = re.compile(r'^([*†‡§#+^]{1,3})\s?([A-Z(].*)$')  # '**This document serves as a guide ...' (Slippery Rock)
+FOOTNOTE_GOES_ON = re.compile(r'^(?:[a-z(•\-–]|[Gg]roup\b|[Ss]elect\b|[Cc]hoose\b|[Oo]r\b|[Aa]nd\b)')
+
+
+def grid_footnotes(page):
+    """The footnotes printed right after each plan grid, in grid order: [[{'marker', 'text'}, ...], ...]. CourseLeaf prints
+    a marker line and the note's text after the grid's last row ('1' / 'Must make a grade of C or better.', Texas A&M
+    2026-27); markers may be numbers, letters or symbols ('+', '^', '**', Oregon State, Tulane, Slippery Rock), and a symbol
+    may lead its text on one line ('**This document serves as a guide'). A note's text runs to the next marker, its lines
+    joined by ' / '. The last note runs on only while a line ends in ':', ';' or ',' or the next line plainly continues it
+    (a list item, 'Group B', lower case); reading stops at a table row, a caption, a page heading or the copyright line.
+    Numbered markers must increase (a skipped number is allowed: Saint Louis prints 1, 3, 4).
+    None when the page text does not show one caption per grid, so no note is ever paired with the wrong grid."""
+    lines = [re.sub(r'[\s\xa0]+', ' ', l).strip() for l in page.text.splitlines() if l.strip()]
+    caps = [k for k, l in enumerate(lines) if l.lower() in ('plan of study grid', 'degree map')]
+    gs = grids(page)
+    if len(caps) != len(gs): return None
+    heads = {re.sub(r'[\s\xa0]+', ' ', h).strip() for h in (page.headings or [])}
+    hard = lambda l: l.startswith('|') or l.lower() in ('plan of study grid', 'degree map', 'course list') or l.startswith('©') or l in heads
+
+    def mark(l):
+        if FOOTNOTE_MARK.match(l): return l, None
+        m = FOOTNOTE_INLINE.match(l)
+        return (m.group(1), m.group(2)) if m else (None, None)
+
+    out = []
+    for n, (k, g) in enumerate(zip(caps, gs)):
+        stop = caps[n + 1] if n + 1 < len(caps) else len(lines)
+        # the grid ends at its last printed row (the total): the first row line after the caption that prints all its cells
+        last = next((r for r in reversed(g.get('rows') or []) if any((c or '').strip() for c in r)), [])
+        cells = [re.sub(r'[\s\xa0]+', ' ', c).strip() for c in last if (c or '').strip()]
+        end = next((j for j in range(k + 1, stop) if lines[j].startswith('|') and all(c in lines[j] for c in cells)), None)
+        if end is None or not cells: return None
+        j, notes, last_num = end + 1, [], 0
+        while j < stop:
+            m, first = mark(lines[j])
+            if m is None or hard(lines[j]): break
+            if m.isdigit(): last_num = int(m)  # a number not above the last one ends the notes (checked where the last note is found)
+            body = [first] if first else []
+            j += 1
+            while j < stop and not hard(lines[j]) and mark(lines[j])[0] is None:
+                body.append(lines[j]); j += 1
+            if not body: break
+            if j >= stop or hard(lines[j]) or mark(lines[j])[0] is None or (mark(lines[j])[0].isdigit() and int(mark(lines[j])[0]) <= last_num):
+                # the last note: keep only the lines that plainly continue it; the rest is page text
+                keep = [body[0]]
+                for l in body[1:]:
+                    if keep[-1].endswith((':', ';', ',')) or FOOTNOTE_GOES_ON.match(l): keep.append(l)
+                    else: break
+                notes.append({'marker': m, 'text': ' / '.join(keep)}); break
+            notes.append({'marker': m, 'text': ' / '.join(body)})
+        out.append(notes)
+    return out
+
+
 def parse_grid(t):
     """UO grids add a Milestones column ('Fall | Milestones | Credits'): a course row is [code, title, milestone,
     credits] and a text row [text, milestone, credits] (the text cell spans two columns). The milestone is kept in its
@@ -206,7 +262,10 @@ def parse_grid(t):
     return terms, total
 
 
-CHOICE_HEADER = re.compile(r'^(?:select|choose)\s+(one|two|three|four|five|six|[1-9])\s+(?:(?:course|class)(?:e?s)?\s+)?(?:of|from)\s+the\s+following\s*:?$', re.I)
+# an optional printed label before the instruction ('Jax MIX Experience: select one of the following', JSU) and footnote
+# marks after it ('Select one of the following: 1', '... following: 2,3', Texas A&M, Temple) are kept in the item's text
+CHOICE_HEADER = re.compile(r'^(?:[A-Z][^:]{0,60}:\s*)?(?:select|choose)\s+(one|two|three|four|five|six|[1-9])\s+(?:(?:course|class)(?:e?s)?\s+)?'
+                           r'(?:of|from)\s+the\s+following\s*:?(?:\s*\d{1,2}(?:\s*,\s*\d{1,2})*)?$', re.I)
 COUNT_WORDS = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6}
 
 
@@ -296,6 +355,9 @@ def extract(inst, entry, page, year, year_line, have_program):
     pkey = slug(name)
     out = []
     parsed = [parse_grid(t) for t in gs]
+    notes = grid_footnotes(page)  # printed footnotes, one list per grid; None when they cannot be paired with their grids
+    for k, t in enumerate(gs):
+        t['_footnotes'] = notes[k] if notes is not None else None
     if not have_program:
         prog = {'program_key': pkey, 'program_name': name, 'catalog_year': year, 'program_url': common.source_of(entry)['url'],
                 'credential_level': credential(name), 'notes': f'Extracted by {EXTRACTOR} from the published catalog program page.'}
@@ -311,6 +373,7 @@ def extract(inst, entry, page, year, year_line, have_program):
         terms = [dict(t, term_index=k) for k, t in enumerate((t for ts, _ in parsed for t in ts), 1)]
         totals = '; '.join(f"{g.get('_total_label') or 'Total Credits'} {tot} (as printed, grid {k} of {len(gs)})" for k, (g, (_, tot)) in enumerate(zip(gs, parsed), 1) if tot)
         merged = {'heading': headings[0], 'caption': gs[0].get('caption'), '_total_label': None,
+                  '_footnotes': None if any(g['_footnotes'] is None for g in gs) else [dict(x, grid=k) for k, g in enumerate(gs, 1) for x in g['_footnotes']],
                   '_unread_label': any(g.get('_unread_label') for g in gs), '_subtotal_spans': any(g.get('_subtotal_spans') for g in gs), '_rule_text': totals}
         gs, parsed, headings = [merged], [(terms, None)], [headings[0]]
         if grid_change_noted(page): merged['_grid_change_note'] = True
@@ -334,12 +397,14 @@ def extract(inst, entry, page, year, year_line, have_program):
               'terms': terms, 'source_section': (headings[i - 1] if labelled else single_label if single_label else f'Sample Plan: {caption}' + (f' {i} of {len(parsed)}' if len(parsed) > 1 else ''))}
         if total: rd['rule_text'] = f"{gs[i - 1].get('_total_label') or 'Total Credits'} {total} (as printed)"
         if gs[i - 1].get('_rule_text'): rd['rule_text'] = gs[i - 1]['_rule_text']
+        if gs[i - 1].get('_footnotes'): rd['footnotes'] = gs[i - 1]['_footnotes']  # substitutions, options and notes, as printed
         rec = {'program_key': pkey, 'requirement_key': key, 'requirement_kind': 'program_plan', 'rule_details': rd}
         ev = [{'field': 'term', 'value': t['label'], 'snippet': f"{t['label']}: {len(t['items'])} items, {t.get('credit_hours', '?')} credits"} for t in terms]
         issues = ['multiple_plan_grids'] if len(parsed) > 1 and not labelled else ['plan_heading_label'] if (track_labels or single_label) else []
         if gs[i - 1].get('_unread_label'): issues.append('unread_label_row')
         if gs[i - 1].get('_subtotal_spans'): issues.append('subtotal_spans_terms')
         if gs[i - 1].get('_grid_change_note'): issues.append('grid_change_noted')
+        if gs[i - 1].get('_footnotes', []) is None: issues.append('footnotes_not_read')
         out.append(common.make('degree_requirements', inst['institution_key'], acad, 'labeled_in_source', rec, ev, entry, PLAN_EXTRACTOR,
                                {'program_key': pkey, 'requirement_key': key}, {'terms': len(terms)}, issues))
     return out

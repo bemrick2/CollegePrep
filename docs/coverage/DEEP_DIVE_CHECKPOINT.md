@@ -28,22 +28,27 @@ These are verified records counted from `data/institutions/*`. Plans are `progra
 | Verified requirement groups | n/a | 15,062 | 15,011 | 15,307 | 15,307 | 15,307 |
 | Covered schools (STATUS.json, baseline) | 65 | 70 | 70 | 70 | 73 (Research) | 73 |
 
-## This PR: UWM Course List groups (#250)
+## This PR: plan footnotes kept with the plan
 
-- UWM `WI/2026-10-22-d01` was re-read by main's Course List reader (after #260, #264). 313 new candidates for verified programs were issue-free.
-- An independent read-only review checked them with its own parser against the stored layout cells, and hand-checked every record. **238 approved, 75 held.** Held:
-  - 12: option or advice lists stored as all_required;
-  - 12: two theatre tracks merged;
-  - 4: wrong rule;
-  - 4: footnote mark in a label;
-  - 3: the plans (7-letter subjects, a flat 'Select one');
-  - 40: section incomplete. 36 of these are exact fragments of a section whose other rows have no candidate; promoting them is a policy question.
-- Verified requirement groups: 15,307 → 15,545.
-- Reader follow-ups:
-  - a table's context sentence ('encouraged to include', 'maximum of 6 credits') should hold the table;
-  - track headings above tables;
-  - sections that mix required rows and choices;
-  - the plan reader's 7-letter subjects.
+- **Reader:** each grid's printed footnotes go in `rule_details.footnotes` as `[{marker, text, grid?}]`, verbatim.
+  - A footnote's text runs to the next marker; its lines are joined by ' / '.
+  - The last footnote runs on only while it plainly continues.
+  - Markers can be numbers, letters, or + ^ ** †. Numbers must increase, but a skipped number is allowed.
+  - Inline symbol notes are read ('**This document …').
+  - A page whose footnotes can't be paired with its grids holds the plan (`footnotes_not_read`): Montana, Idaho and NJCU, 299 stored pages.
+  - `verify` checks each footnote verbatim.
+- **Stored pages:** 13,259 footnotes on 3,236 plan pages.
+- **Review, two independent reviewers** (own parsers, read-only):
+  - Round 1: 660 of 861 footnote-only re-reads and 109 of 140 others approved. The holds found 4 reader defects (notes of several lines, symbol and letter markers, skipped numbers, inline notes), all fixed.
+  - 758 re-reads equal to an approved version are promoted with `replaces_promoted`.
+  - 10 plans held by #229 need `replaces_correction`: 5 partially verified LMU/YSU plans and 5 verified plans replaced under #229 corrections.
+  - The 323 changed or held re-reads went to a third review: 240 approved and promoted, 83 held.
+    - 37 holds are footnote edge cases: a last note of several lines cut short; page text or a site footer swallowed into a note through a distant inline marker; '****' and roman-numeral markers; notes printed after a Course List that follows the grid; Oregon State's legend printed once after its last grid.
+    - 47 holds are flat choice blocks, identical to the records on file.
+- **Totals:** verified plans 3,517 → 3,524. 998 plans now carry their printed footnotes.
+- **Still open:**
+  - 113 verified plans at Idaho, Montana and Roosevelt come from pages whose footnotes can't be paired yet.
+  - Notes printed after the footnotes with no marker (Texas A&M 'Graduation requirements', LMU 'Notes:') aren't captured; this needs an owner decision.
 
 ## Merged on 2026-10-21/22
 

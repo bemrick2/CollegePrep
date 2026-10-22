@@ -97,6 +97,10 @@ describe('planning roadmap (#194)', () => {
     const noTable = buildRoadmap({ comparison: school('verified', 'partially_verified'), programKey: 'biz', profile: profile([['AP Microeconomics', 5]]) })
     expect(noTable.status).toBe('partial')
     expect(noTable.credit[0]!.acceptance).toMatchObject({ value: null, evidence: { state: 'missing' } })
+    expect(noTable.credit[0]!.fit).toBe('not_verified')
+    // A planned exam (no score yet) against a verified table is 'planned', never 'no credit at this score'.
+    const planned = buildRoadmap({ comparison: school(), programKey: 'biz', profile: { ...profile([]), exams: [{ family: 'AP', key: examKey('AP', 'AP Microeconomics'), name: 'AP Microeconomics', score: null }] } })
+    expect(planned.credit[0]!.fit).toBe('planned')
     expect(noTable.options).toEqual([])
   })
 

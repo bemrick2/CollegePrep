@@ -1,5 +1,5 @@
 import type { ExamMatch } from './examCredit'
-import { COURSE_NUMBER, entryCodes, isRequirement, planTerms, scanCodes, type PlanTermLike } from './planItems'
+import { COURSE_NUMBER, entryCodes, isRequirement, planTerms, scanCodes, type PlanEntry, type PlanTermLike } from './planItems'
 
 /**
  * Three different questions about credit a student brings, answered only from verified records:
@@ -51,8 +51,32 @@ interface PlanItem {
   any: string[]
   /** Or all codes of one of these combinations ("CHEM 102+103"). */
   combos: string[][]
+  /**
+   * "Select two of the following" (#230): done only when `n` different options are fully awarded. Each option is the
+   * codes that satisfy it (all of them, e.g. a lecture and its lab), and no code counts for two options or two rows.
+   */
+  pick: { options: Option[]; n: number } | null
   /** The term is a regular full-time semester (planTerms' notChecked is null); only such terms can be "covered". */
   checked: boolean
+}
+
+/**
+ * One option of a choice block, as the courses it needs: each inner list is one requirement, met by any one of its
+ * codes. A combination ("CHEM 101 & CHEM 101L") needs every course, so each is its own requirement; anything else
+ * ("ENGL 221/MODL 221", "BA F454 or F421", a nested any_of) is one requirement with its alternatives.
+ */
+type Option = string[][]
+function optionOf(o: PlanEntry): Option {
+  const codes = entryCodes(o)
+  if (!codes.length) return []
+  return !o.code && /[+&]|\bAND\b/i.test(o.text) ? codes.map((c) => [c]) : [codes]
+}
+/** The block's printed count, or one written in its text ("Complete two of the following:") when none is stored. */
+const NUMBER: Record<string, number> = { two: 2, three: 3, four: 4, five: 5 }
+function printedCount(e: PlanEntry): number {
+  if (e.choose > 1) return e.choose
+  const m = /\b(?:complete|select|choose|take)\s+(two|three|four|five|[2-5])\b/i.exec(e.text)
+  return m ? (NUMBER[m[1]!.toLowerCase()] ?? Number(m[1])) : 1
 }
 
 function planItems(terms: PlanTerm[]): PlanItem[] {
@@ -61,7 +85,15 @@ function planItems(terms: PlanTerm[]): PlanItem[] {
     t.entries.filter(isRequirement).map((e) => {
       const base = { term: t.termIndex, label: t.label, checked: t.notChecked === null, text: e.choices.length ? `${e.text} ${e.choices.map((c) => c.text).join(' / ')}` : e.text, credits: e.credits }
       // A structured course, or a choice among options: any one of its codes.
-      if (e.code || e.choices.length) return { ...base, any: entryCodes(e), combos: [] }
+      // Any choice block ("any one of", "choose N of"): done only when N whole options are awarded with unused courses.
+      if (e.choices.length) return { ...base, any: [], combos: [], pick: { options: e.choices.map(optionOf).filter((o) => o.length > 0), n: printedCount(e) } }
+      if (e.code || e.choices.length) return { ...base, any: entryCodes(e), combos: [], pick: null }
+      // Free text that is more than a list of courses ("Major, General Education, and Elective courses, or BIOC 3653";
+      // "… If ANTH 4500/SOC 4500 course option not taken"; a note) can't be shown as met by exam credit: a named course
+      // may fill only part of it, or only under a condition. It stays a requirement nothing fills (#268 data check).
+      // ("Elective (ENGL 1010 or 1011)" names its courses and stays fillable.)
+      if (/\b(if|unless|not taken|note)\b/i.test(e.text) || /\b(courses|general education|gen ed|electives)\b.*\bor\b/i.test(e.text))
+        return { ...base, any: [], combos: [], pick: null }
       // Free text: "A or B" is any one; "CHEM 102+103", "BIOL 1113& BIOL 1111" and "A and B" are combinations that
       // count only when all were awarded.
       const combos: string[][] = []
@@ -74,7 +106,7 @@ function planItems(terms: PlanTerm[]): PlanItem[] {
         if (/[+&]|\bAND\b/.test(seg) && codes.length > 1) combos.push(codes)
         else any.push(...codes)
       }
-      return { ...base, any, combos }
+      return { ...base, any, combos, pick: null }
     }),
   )
 }
@@ -112,6 +144,7 @@ export function degreeCredit(matches: ExamMatch[], terms: PlanTerm[]): DegreeCre
   const items = planItems(terms)
   const used = new Set<PlanItem>()
   const earnedCodes = new Set<string>()
+  const claimedCodes = new Set<string>()
   const accepted: ExamApplicability[] = []
 
   /** Matches one published course equivalent against the plan, recording into `taken`. */
@@ -119,13 +152,18 @@ export function degreeCredit(matches: ExamMatch[], terms: PlanTerm[]): DegreeCre
     const { groups, elective } = parseEquivalent(course)
     const matched: ExamApplicability['matched'] = []
     const codes: string[] = []
-    if (!groups.length) return { status: (elective ? 'elective_only' : 'no_course') as Applicability, matched, codes }
+    /** Awarded codes that filled a single row: they can't count again for a combination or a choice block. */
+    const claimed: string[] = []
+    if (!groups.length) return { status: (elective ? 'elective_only' : 'no_course') as Applicability, matched, codes, claimed }
     let anyAssigned = false
     let hit = 0
     for (const g of groups) {
       if (g.length > 1) {
         // The school assigns one of several courses: it applies only if every option fits the same item.
-        const fit = items.find((it) => !taken.has(it) && g.every((c) => it.any.includes(c)))
+        // A one-of-several choice row fits too, when every course in the group alone satisfies one of its options.
+        const fits = (it: PlanItem) =>
+          g.every((c) => it.any.includes(c)) || (!!it.pick && it.pick.n === 1 && g.every((c) => it.pick!.options.some((o) => o.length === 1 && o[0]!.includes(c))))
+        const fit = items.find((it) => !taken.has(it) && fits(it))
         if (fit) {
           taken.add(fit)
           matched.push({ code: g.join(' or '), term: fit.term, label: fit.label, item: fit.text, credits: fit.credits })
@@ -135,23 +173,25 @@ export function degreeCredit(matches: ExamMatch[], terms: PlanTerm[]): DegreeCre
       }
       const code = g[0]!
       codes.push(code)
-      const it = items.find((x) => !taken.has(x) && x.any.includes(code))
+      // A course already used by another exam's row fills no second row (two exams awarding the same course).
+      const it = claimedCodes.has(code) ? undefined : items.find((x) => !taken.has(x) && x.any.includes(code))
       if (it) {
         taken.add(it)
+        claimed.push(code)
         matched.push({ code, term: it.term, label: it.label, item: it.text, credits: it.credits })
         hit++
         continue
       }
       // Part of a combination row ("PHYS 2325& PHYS 2125"): the course is in the plan. The row itself counts as
       // done only when every course of the combination is awarded (checked after all exams), so it isn't taken here.
-      const combo = items.find((x) => !taken.has(x) && x.combos.some((c) => c.includes(code)))
+      const combo = items.find((x) => !taken.has(x) && (x.combos.some((c) => c.includes(code)) || !!x.pick?.options.some((o) => o.some((req) => req.includes(code)))))
       if (combo) {
         matched.push({ code, term: combo.term, label: combo.label, item: combo.text, credits: combo.credits })
         hit++
       }
     }
     const status: Applicability = hit === groups.length ? 'applies' : hit > 0 ? 'partly' : anyAssigned ? 'school_assigns' : 'not_in_plan'
-    return { status, matched, codes }
+    return { status, matched, codes, claimed }
   }
 
   for (const m of matches.filter((x) => x.status === 'qualifies')) {
@@ -169,12 +209,46 @@ export function degreeCredit(matches: ExamMatch[], terms: PlanTerm[]): DegreeCre
     }
     const r = evaluate(courses[0] ?? null, used)
     for (const c of r.codes) earnedCodes.add(c)
+    for (const c of r.claimed) claimedCodes.add(c)
     accepted.push({ examName: m.exam.name, course: courses[0] ?? null, hours, status: r.status, matched: r.matched })
   }
 
-  // Combination items ("CHEM 102+103") count when every course of one combination was awarded.
-  for (const it of items)
-    if (!used.has(it) && it.combos.some((c) => c.every((code) => earnedCodes.has(code)))) used.add(it)
+  // Awarded courses not already used by a single row. Each one fills at most one combination or one choice option,
+  // so one course is never counted twice (#268 review).
+  const free = new Set([...earnedCodes].filter((c) => !claimedCodes.has(c)))
+  // Combination items ("CHEM 102+103") count when every course of one combination was awarded and is still free.
+  for (const it of items) {
+    if (used.has(it)) continue
+    const combo = it.combos.find((c) => c.every((code) => free.has(code)))
+    if (combo) {
+      used.add(it)
+      for (const code of combo) free.delete(code)
+    }
+  }
+  // "Select N of the following": done only when N different options are fully awarded with free courses.
+  for (const it of items) {
+    if (used.has(it) || !it.pick) continue
+    const take: string[] = []
+    let n = 0
+    for (const o of it.pick.options) {
+      if (n >= it.pick.n) break
+      // Each requirement of the option takes one free course not already taken for this block.
+      const chosen: string[] = []
+      for (const req of o) {
+        const c = req.find((code) => free.has(code) && !take.includes(code) && !chosen.includes(code))
+        if (!c) break
+        chosen.push(c)
+      }
+      if (chosen.length === o.length) {
+        take.push(...chosen)
+        n++
+      }
+    }
+    if (n >= it.pick.n) {
+      used.add(it)
+      for (const code of take) free.delete(code)
+    }
+  }
 
   const byTerm = new Map<number, PlanItem[]>()
   for (const it of items) byTerm.set(it.term, [...(byTerm.get(it.term) ?? []), it])

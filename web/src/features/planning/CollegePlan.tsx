@@ -30,6 +30,11 @@ const FIT: Record<CreditFit, { tone: 'go' | 'warn' | 'neutral'; label: string }>
   elective_only: { tone: 'neutral', label: 'Elective credit only' },
   unknown: { tone: 'neutral', label: 'Credit; where it counts isn’t on file' },
   none: { tone: 'neutral', label: 'No credit at this score' },
+  // Unreachable today (a line without a verified table has no acceptance value, so CreditRow shows its own label);
+  // kept so the map stays complete.
+  not_verified: { tone: 'neutral', label: 'Not verified yet' },
+  planned: { tone: 'neutral', label: 'Planned: no score yet' },
+  see_table: { tone: 'neutral', label: 'Read the school’s table for this exam' },
 }
 const STATUS: Record<Roadmap['status'], { tone: 'go' | 'warn' | 'bad'; label: string; text: string }> = {
   ready: { tone: 'go', label: 'Plan, credit tables and cost on file', text: 'The degree plan, this school’s exam-credit tables and its cost are verified records. Anything else is named below.' },
@@ -353,7 +358,7 @@ function PlanTerms({ terms }: { terms: TermCoverage[] }) {
                         <span className="min-w-0 break-words">
                           {x.code ? <span className="font-semibold text-ink">{x.code}</span> : null}
                           {x.code ? (x.title ? ` ${x.title}` : '') : x.text}
-                          {x.options.length > 0 && <span className="block text-ink-3">Any one of: {x.options.join('; ')}</span>}
+                          {x.options.length > 0 && <span className="block text-ink-3">{x.choose > 1 ? `Choose ${x.choose} of` : 'Any one of'}: {x.options.join('; ')}</span>}
                           {x.milestone && <span className="block text-ink-3">Milestone: {x.milestone}</span>}
                           {x.note && <span className="block text-ink-3">Note: {x.note}</span>}
                         </span>

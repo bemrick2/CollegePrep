@@ -133,10 +133,12 @@ export function buildRoadmap({ comparison: c, programKey, planKey = null, comple
     if (!m) {
       const text = t ? `${inst}'s ${label} credit table is on file but not yet verified${notVerifiedWhy(t)}.` : `No ${label} credit table is on file for ${inst}.`
       unknown('credit', text)
-      return { exam, acceptance: { value: null, evidence: missing(text, t, tableYear(t)) }, fit: 'none', rows: [], hours: { value: null, evidence: missing(text, t) } }
+      return { exam, acceptance: { value: null, evidence: missing(text, t, tableYear(t)) }, fit: 'not_verified', rows: [], hours: { value: null, evidence: missing(text, t) } }
     }
     const a = accepted.get(m)
-    const fit = fitOf(a, hasPlan)
+    // Only a verified table saying no (below the minimum, or not awarded) is "no credit at this score".
+    const fit: CreditFit =
+      m.status === 'qualifies' ? fitOf(a, hasPlan) : m.status === 'below' || m.status === 'not_awarded' ? 'none' : m.status === 'planned' ? 'planned' : m.status === 'no_table' ? 'not_verified' : 'see_table'
     if (a && fit === 'accepted_not_in_plan')
       unknown('credit', `${inst} awards ${a.course} for ${exam.name}, but this major's plan lists other courses. Whether ${a.course} can substitute isn't published in the records on file.`)
     if (a && a.status === 'school_assigns') unknown('credit', `For ${exam.name}, ${inst} lists more than one course (${a.course}); which one a student gets isn't on file.`)
@@ -234,7 +236,7 @@ export function buildRoadmap({ comparison: c, programKey, planKey = null, comple
     group: t.group,
     creditHours: t.creditHours,
     rows: t.entries.map(
-      (e): PlanCourseRow => ({ kind: e.kind as PlanCourseRow['kind'], code: e.code, title: e.title, text: e.text, credits: e.credits, note: e.note, milestone: e.milestone, options: e.choices.map((x) => x.text) }),
+      (e): PlanCourseRow => ({ kind: e.kind as PlanCourseRow['kind'], code: e.code, title: e.title, text: e.text, credits: e.credits, note: e.note, milestone: e.milestone, options: e.choices.map((x) => x.text), choose: e.choose }),
     ),
     covered: dc.coveredTerms.some((x) => x.term === t.termIndex),
     notChecked: t.notChecked,
