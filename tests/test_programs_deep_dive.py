@@ -992,6 +992,10 @@ class CourseListGroupTests(unittest.TestCase):
                           ('Major Courses', 'all_required', 1, None, None, []), ('Major Courses', 'choose_credits', 2, None, 9, [])])
         self.assertEqual(g[0][1]['courses'][1], {'any_of': [{'code': 'MATH 241', 'title': 'Calculus I', 'credits': 4}, {'code': 'MATH 251Z', 'title': 'Differential Calculus'}]})
 
+    def test_row_led_by_a_zero_width_space_is_held(self):  # UW-Madison prints U+200B inside joined code cells
+        g = self.groups([['BIOL 101', 'A', '3'], ['\u200bAGROECOL 370 & GENETICS 528', 'B', '3']])
+        self.assertIn('complex_course_row', g[0][1]['issues'])
+
     def test_unrepresentable_rows_are_held(self):
         g = self.groups([['PH 211& PH 212', 'PHYSICS', '8'], ['Select one of the following math pairs:', '4-7'], ['MTH 251Z& MTH 252Z', 'CALCULUS', '8'],
                          ['Select an additional 7 credits from courses that count toward either major.', '7'], ['Capstone', ''], ['ANTH 209', 'Business Anthropology', '4'],
@@ -1184,6 +1188,46 @@ class CourseListLayoutReviewTests(unittest.TestCase):
         tracks = self.table([('c', 'J 101', 'E', '4')], heading='Major Requirements', context='Students choose one track from the following.')
         out = CL.html_candidates({'institution_key': 'k'}, e, {'url': 'u'}, [tracks], '2026-2027', 'media', 1)
         self.assertIn('context_says_choose_among_tables', out[0]['issues'])
+        # UWM 2026-27: the general education paragraph is not a choice among the tables after it
+        ger = self.table([('c', 'ENGL 102', 'Writing', '3')], heading='General Education Requirements (GER)',
+                         context='They provide a broad body of knowledge as a context for specialization.')
+        major = self.table([('c', 'ARTH 101', 'Ancient Art', '3')], heading='Major Requirements')
+        out = CL.html_candidates({'institution_key': 'k'}, e, {'url': 'u'}, [major, ger, self.table([('c', 'ART 101', 'Drawing', '3')], heading='Major Requirements')], '2026-2027', 'art', 1)
+        self.assertEqual([sorted(c['issues']) for c in out], [[], ['secondary_table'], []])
+        for code, ok in (('AGROECOL 101', True), ('F&W ECOL 248', True), ('I&C SCI 31', False), ('CURRINS 301', True), ('BUS ADM 201', True),
+                         ('OR BIL 412', False), ('MINOR IN 300', False), ('GRADES 101', False), ('HOURS AT 300', False), ('AND CHEM 101', False)):
+            self.assertEqual(bool(CL.CODE_CELL.match(code)), ok, code)
+        # a long-subject row that is not one code is held, never dropped (UWM 'CURRINS/EXCEDUC 612', UNI 'ENGLISH 3772/5772')
+        g = CL.html_groups(self.table([('c', 'CURRINS 301', 'Teaching', '3'), ('c', 'CURRINS/EXCEDUC 612', 'Cross-listed', '3')], heading='Major Requirements'))
+        self.assertEqual([c['code'] for c in g[0][1]['courses']], ['CURRINS 301', 'CURRINS/EXCEDUC 612'])  # one cross-listed course, as printed
+        for row in ('ENGLISH 3772/5772', 'PHYSICS 111A- 111B', 'AGROECOL\u200b/ENTOM 101'):
+            g = CL.html_groups(self.table([('c', 'CURRINS 301', 'Teaching', '3'), ('c', row, 'Joined', '3')], heading='Major Requirements'))
+            self.assertIn('complex_course_row', g[0][1]['issues'], row)
+        for text in ('Complete one course from:', 'Choose one course from the following:', 'Select One:', 'A student needs to take one of the following courses'):
+            self.assertTrue(CL.CONTEXT_PICK.search(text), text)
+        for text in ('A baccalaureate degree requires a minimum of 120 total hours to graduate.', 'Students must complete 40 courses in total.',
+                     'Students must earn a minimum of C- in each course.', 'Majors must take three courses: CAS 140, CAS 141, CAS 142.', 'Majors must take 120 credits.'):
+            self.assertFalse(CL.CONTEXT_PICK.search(text), text)
+        for code in ('AT 310', 'OR 541', 'F&W ECOL 448'):
+            self.assertTrue(CL.CODE_CELL.match(code), code)
+        g = CL.html_groups(self.table([('c', 'F&W ECOL 448', 'Ecology', '3'), ('c', 'AT 310', 'Athletic Training', '3')], heading='Major Requirements'))
+        self.assertEqual(([c['code'] for c in g[0][1]['courses']], g[0][1]['issues']), (['F&W ECOL 448', 'AT 310'], set()))
+        g = CL.html_groups(self.table([('c', 'BIOL 101', 'A', '3'), ('c', 'PLANTSCI/\u200bPL PATH 261 & PL PATH/\u200bPLANTSCI 262', 'Joined', '3')], heading='Major Requirements'))
+        self.assertTrue(g[0][1]['issues'])  # a long joined row is held, never dropped
+        for row in ('E&ES215 & E&ES216', 'COMPLITTHT 3120'):  # Wesleyan, WUSTL: held, never dropped
+            g = CL.html_groups(self.table([('c', 'BIOL 101', 'A', '3'), ('c', row, 'Joined', '3')], heading='Major Requirements'))
+            self.assertTrue(g[0][1]['issues'], row)
+        g = CL.html_groups(self.table([('c', 'INTER-AG 155', 'Seminar', '1'), ('c', 'AN SCI 135', 'Seminar', '1')], heading='Major Requirements'))
+        self.assertTrue(g[0][1]['issues'])  # UW-Madison: a hyphenated subject is not read yet, so the group is held, never shortened
+        ctx = self.table([('c', 'ARTS 101', 'Drawing', '3'), ('c', 'ARTS 102', 'Painting', '3')], heading='Major Requirements', context='Complete one course from:')
+        self.assertIn('context_says_choose', CL.html_candidates({'institution_key': 'k'}, e, {'url': 'u'}, [ctx], '2026-2027', 'x', 1)[0]['issues'])
+        self.assertEqual(CL.substitution_codes('STAT 1772 will substitute for SOC SCI 2020.\nCourses in lieu of PHYSICS 125A'), {'STAT 1772', 'SOC SCI 2020', 'PHYSICS 125A'})
+        uwm = self.table([('c', 'ARTHIST 101', 'Ancient Art', '3'), ('c', 'BUS ADM 201', 'Business', '3')], heading='Major Requirements')
+        self.assertEqual([c['code'] for c in CL.html_groups(uwm)[0][1]['courses']], ['ARTHIST 101', 'BUS ADM 201'])
+        from programs import verify as V
+        self.assertTrue(V.code_in('ARTHIST\xa0101 Ancient Art', 'ARTHIST 101'))
+        spec = self.table([('c', 'X 101', 'A', '3')], heading='Major Requirements', context='Students must choose one specialization.')
+        self.assertIn('context_says_choose_among_tables', CL.html_candidates({'institution_key': 'k'}, e, {'url': 'u'}, [spec], '2026-2027', 'x', 1)[0]['issues'])
 
     def test_credits_overview_is_not_the_first_table(self):  # TAMUSA 2026-27 (issue #95 recovery)
         from programs import courseleaf as CL

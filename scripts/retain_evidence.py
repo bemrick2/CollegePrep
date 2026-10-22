@@ -173,7 +173,7 @@ def retain(push=False):
         (ev.parent / 'retention.json').write_text(json.dumps(out, indent=1, sort_keys=True) + '\n')
         print(f"{run_dir}: {len(out['documents'])} documents, missing {len(out['missing'])}, layout missing {len(out.get('layout_missing', []))}"
               + ('' if out.get('run_branch') else ' (NO RUN BRANCH)'))
-    docs = [d for ds in tags for d in ds]
+    docs = [d for ds in tags for d in ds] + [d for d in research_docs() if d['blob']]
     if not push:
         update_store(docs); return 0
     for attempt in range(5):  # other sessions append to the same branch: rebuild on the newest tip and retry
@@ -185,6 +185,21 @@ def retain(push=False):
         except subprocess.CalledProcessError:
             print(f'{STORE}: push rejected (another session appended); retrying on the new tip')
     raise SystemExit(f'{STORE}: push failed after 5 attempts')
+
+
+RESEARCH = ROOT / 'baseline/policy/merit_research.json'
+
+
+def research_docs():
+    """Documents cited by reviewed policy findings (baseline/policy/merit_research.json): each names its run page and blob."""
+    if not RESEARCH.exists(): return []
+    out = []
+    for s in json.loads(RESEARCH.read_text())['schools'].values():
+        for f in s['findings']:
+            e = f['evidence']
+            out.append({'page_file': e['page_file'], 'blob': e.get('blob'), 'url': f['source_url'], 'role': 'policy_finding',
+                        'store_path': store_path(e) if e.get('blob') else None, 'run_dir': e['run']})
+    return out
 
 
 def store_path(d):
@@ -233,6 +248,7 @@ def verify_store():
     have = {l.split('\t')[1]: l.split()[2] for l in tree.splitlines()}
     bad = [f"{d['store_path']} ({r})" for r in sorted((ROOT / 'sources').glob('*/*/*/retention.json'))
            for d in json.loads(r.read_text()).get('documents', []) if have.get(d.get('store_path')) != d['blob']]
+    bad += [f"{d['store_path']} (merit_research.json)" for d in research_docs() if not d['blob'] or have.get(d['store_path']) != d['blob']]
     if bad: print(f'{len(bad)} retained documents missing from {STORE}, e.g. {bad[0]}'); return 1
     print(f'{STORE} holds every retained document'); return 0
 
@@ -253,6 +269,7 @@ def check():
         if shas: bad.append(f'{ev.parent}: {len(shas)} documents cited by sha256 (list pages) not retained, e.g. {sorted(shas)[0]}')
         nolayout = sorted(u for u in layout_urls if u not in layouts)
         if nolayout: bad.append(f'{ev.parent}: {len(nolayout)} layout-read pages without a retained layout document, e.g. {nolayout[0]}')
+    bad += [f"merit_research.json: a finding on {d['url']} names no page blob" for d in research_docs() if not d['blob']]
     if bad: print('\n'.join(bad)); return 1
     print('Evidence retention complete for every archive'); return 0
 

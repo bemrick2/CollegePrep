@@ -23,7 +23,7 @@ def squash(s):
 def code_in(text, code):
     # 'IT222' (no space), 'ENG/FILM 366' (cross-listed), 'B A 324' / 'CM CORE 1001' (a subject of several words, printed
     # with no-break spaces: UT Austin, UNI)
-    m = re.match(r'^([A-Z]{1,5}(?:\s[A-Z]{1,5})*(?:/[A-Z]{1,5})*)\s?(\d.*)$', code.strip())
+    m = re.match(r'^([A-Z][A-Z&]{0,7}(?:\s[A-Z&]{1,5})*(?:/[A-Z&]{1,8})*)\s?(\d.*)$', code.strip())  # 'ARTHIST 101' (UWM), 'F&W ECOL 248' (UW-Madison)
     if not m: return re.search(rf'\b{re.escape(code)}\b', text, re.I) is not None
     subj, num = m.groups()
     subj_re = r'\s+'.join(re.escape(w) for w in subj.split())
