@@ -192,34 +192,42 @@ describe.skipIf(!URL_)('reserved assessment pool on the server (CR-23)', () => {
     const versions = await c.STUDENT.from('exam_versions').select('id, exam_family')
     const act = versions.data!.find((v) => v.exam_family === 'act')!.id as string
     // No token at all (anon): no reserved content, no check RPCs.
-    const anon = createClient(URL_!, 'local-anon-key', { auth: { persistSession: false, autoRefreshToken: false } })
+    // A real anon request: a token with role anon (the local stack has no anon key, so it's signed like the others).
+    const now = Math.floor(Date.now() / 1000)
+    const anonBody = `${b64({ alg: 'HS256', typ: 'JWT' })}.${b64({ role: 'anon', iat: now, exp: now + 3600 })}`
+    const anonToken = `${anonBody}.${createHmac('sha256', SECRET).update(anonBody).digest('base64url')}`
+    const anon = createClient(URL_!, anonToken, { auth: { persistSession: false, autoRefreshToken: false }, global: { headers: { Authorization: `Bearer ${anonToken}` } } })
     const anonRead = await anon.from('practice_questions').select('id').eq('pool', 'assessment')
     expect(anonRead.error !== null || (anonRead.data ?? []).length === 0).toBe(true)
-    expect((await anon.rpc('start_benchmark', { p_student: studentId, p_kind: 'mini', p_exam_version: act })).error).not.toBeNull()
+    expect((await anon.rpc('start_benchmark', { p_student: studentId, p_kind: 'mini', p_exam_version: act })).error?.code).toBe('42501')
     // A guardian (even the parent who manages the student) can't open a check for the student, so can't unlock the reserve.
     for (const who of ['PARENT', 'VIEWER'] as const) {
       const r = await c[who].rpc('start_benchmark', { p_student: studentId, p_kind: 'mini', p_exam_version: act })
       expect([who, r.error?.code]).toEqual([who, '42501'])
       // Outside a check, a guardian who can view progress reads only reserved items the student has attempted.
-      const attempted = new Set(((await c.STUDENT.from('practice_attempts').select('question_id').eq('student_id', studentId).not('benchmark_id', 'is', null)).data ?? []).map((r) => r.question_id as string))
-      const seen = ((await c[who].from('practice_questions').select('id').eq('pool', 'assessment')).data ?? []).map((r) => r.id as string)
-      expect([who, seen.every((id) => attempted.has(id))]).toEqual([who, true])
+      const att = await c.STUDENT.from('practice_attempts').select('question_id').eq('student_id', studentId).not('benchmark_id', 'is', null)
+      expect(att.error).toBeNull()
+      const attempted = new Set((att.data ?? []).map((r) => r.question_id as string).filter((id) => RESERVED_ACT.has(id)))
+      expect(attempted.size).toBeGreaterThan(0)
+      const read = await c[who].from('practice_questions').select('id').eq('pool', 'assessment')
+      expect([who, read.error]).toEqual([who, null])
+      expect([who, new Set((read.data ?? []).map((r) => r.id as string))]).toEqual([who, attempted])
     }
     // A closed check can't take more answers.
     const done = await student.startBenchmark(studentId, 'mini', 'act')
     expect((await c.STUDENT.rpc('complete_benchmark', { p_benchmark: done })).error).toBeNull()
     const late = await c.STUDENT.rpc('start_practice_attempt', { p_student: studentId, p_question: anyReserved(), p_benchmark: done })
-    expect(late.error?.code).toBe('22023')
+    expect([late.error?.code, late.error?.message]).toEqual(['22023', expect.stringMatching(/not an open benchmark/)])
     // An ACT check can't take a reserved SAT question (the check's own exam version only).
     const open = await student.startBenchmark(studentId, 'mini', 'act')
     expect(RESERVED_SAT.length).toBeGreaterThan(0)
     const cross = await c.STUDENT.rpc('start_practice_attempt', { p_student: studentId, p_question: RESERVED_SAT[0], p_benchmark: open })
-    expect(cross.error?.code).toBe('22023')
+    expect([cross.error?.code, cross.error?.message]).toEqual(['22023', expect.stringMatching(/own exam version|reserved questions only/)])
     // No client writes attempts, checks or pool assignments directly.
     const insAttempt = await c.STUDENT.from('practice_attempts').insert({ student_id: studentId, question_id: anyReserved() }).select('id')
-    expect(insAttempt.error).not.toBeNull()
+    expect(insAttempt.error?.code).toBe('42501')
     const insCheck = await c.STUDENT.from('practice_benchmarks').insert({ student_id: studentId, kind: 'mini', exam_version_id: act }).select('id')
-    expect(insCheck.error).not.toBeNull()
+    expect(insCheck.error?.code).toBe('42501')
     // Even inside an open check, answers and explanations of reserved items aren't readable.
     const hidden = await c.STUDENT.from('practice_questions').select('id, accepted_answers').eq('pool', 'assessment')
     expect(hidden.error?.code).toBe('42501')
