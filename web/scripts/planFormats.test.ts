@@ -248,4 +248,13 @@ describe('review findings on stored plans (#242)', () => {
     expect(degreeCredit([exam('ACCT F401')], two).coveredTerms).toEqual([])
     expect(degreeCredit([exam('ACCT F401'), exam('ACCT F403')], two).coveredTerms).toHaveLength(1)
   })
+
+  it('a free-text row that is more than a course list is never met by one awarded course (OSU, Idaho)', () => {
+    const exam = (course: string) => ({ status: 'qualifies', exam: { name: course }, earned: [{ course, credits: 3, minimumText: '3' }] }) as never
+    const term = (items: unknown[]): PlanTermLike => ({ term_index: 1, label: 'Fall', credit_hours: '15', items: items as never })
+    expect(degreeCredit([exam('BIOC 3653')], [term([{ text: 'Major, General Education, and Elective courses, or BIOC 3653', credits: 7 }])]).coveredTerms).toEqual([])
+    expect(degreeCredit([exam('SOC 4500')], [term(['Social & Behavioral Science If ANTH 4500/SOC 4500 course option not taken'])]).coveredTerms).toEqual([])
+    // A plain list of courses is still met.
+    expect(degreeCredit([exam('MATH 152')], [term(['MATH 151 or MATH 152'])]).coveredTerms).toHaveLength(1)
+  })
 })

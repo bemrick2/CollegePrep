@@ -88,6 +88,12 @@ function planItems(terms: PlanTerm[]): PlanItem[] {
       // Any choice block ("any one of", "choose N of"): done only when N whole options are awarded with unused courses.
       if (e.choices.length) return { ...base, any: [], combos: [], pick: { options: e.choices.map(optionOf).filter((o) => o.length > 0), n: printedCount(e) } }
       if (e.code || e.choices.length) return { ...base, any: entryCodes(e), combos: [], pick: null }
+      // Free text that is more than a list of courses ("Major, General Education, and Elective courses, or BIOC 3653";
+      // "… If ANTH 4500/SOC 4500 course option not taken"; a note) can't be shown as met by exam credit: a named course
+      // may fill only part of it, or only under a condition. It stays a requirement nothing fills (#268 data check).
+      // ("Elective (ENGL 1010 or 1011)" names its courses and stays fillable.)
+      if (/\b(if|unless|not taken|note)\b/i.test(e.text) || /\b(courses|general education|gen ed|electives)\b.*\bor\b/i.test(e.text))
+        return { ...base, any: [], combos: [], pick: null }
       // Free text: "A or B" is any one; "CHEM 102+103", "BIOL 1113& BIOL 1111" and "A and B" are combinations that
       // count only when all were awarded.
       const combos: string[][] = []
