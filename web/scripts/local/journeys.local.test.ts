@@ -13,7 +13,6 @@ import { beforeAll, describe, expect, it } from 'vitest'
 import { LiveSource } from '../../src/lib/data/live/liveSource'
 import { weekStartOf } from '../../src/lib/engine/dates'
 import { examKey, type PlannedExam } from '../../src/lib/engine/examCredit'
-import { practiceExclusions } from '../../src/lib/engine/freshness'
 
 const URL_ = process.env.LOCAL_BACKEND_URL
 const SECRET = process.env.LOCAL_JWT_SECRET ?? 'local-only-jwt-secret-at-least-32-characters'
@@ -83,12 +82,11 @@ describe.skipIf(!URL_)('parent journey with an invited student and two more guar
     const phone = await device(INVITED)
     const quick = await phone.startSession(studentId, 5, 'act')
     expect(quick.items.length).toBeGreaterThan(0)
-    // The next progress check's fresh questions are never served as practice (interim client rule until CR-23).
-    const held = practiceExclusions('act', await phone.publishedQuestions('act'), new Set())
-    expect(held.size).toBeGreaterThan(0)
-    expect(quick.items.filter((i) => held.has(i.question.id))).toEqual([])
+    // CR-23 on the server: a session holds practice items only, and reserved content isn't even readable outside a check.
+    expect(quick.items.every((i) => i.question.pool === 'practice')).toBe(true)
+    expect((await phone.publishedQuestions('act')).some((q) => q.pool === 'assessment')).toBe(false)
     expect(quick.items.every((i) => i.seen_before === false)).toBe(true)
-    // The session still fills its 5 minutes with fresh questions that aren't held.
+    // The session still fills its 5 minutes.
     const secs = quick.items.reduce((t, i) => t + (i.question.expected_time_seconds ?? 60), 0)
     expect(secs).toBeLessThanOrEqual(5 * 60)
     expect(secs).toBeGreaterThan(5 * 60 - 120)
@@ -204,12 +202,14 @@ describe.skipIf(!URL_)('a student who signs up alone (no household)', () => {
     expect(await (await device(SOLO)).listBenchmarks(studentId)).toEqual([])
   })
 
-  it('review-only: once every non-held question is answered, sessions fill with repeats, never held questions', async () => {
+  it('review-only: once every practice question is answered, sessions fill with repeats, never reserved questions', async () => {
     const phone = await device(SOLO)
+    // What practice can see is the practice pool only (CR-23): reserved content is hidden outside a check.
     const pool = await phone.publishedQuestions('sat')
-    const held0 = practiceExclusions('sat', pool, new Set())
+    expect(pool.length).toBeGreaterThan(0)
+    expect(pool.every((q) => q.pool === 'practice')).toBe(true)
     const session = await phone.startSession(studentId, 5, 'sat')
-    for (const q of pool.filter((x) => !held0.has(x.id))) {
+    for (const q of pool) {
       const a = await phone.startAttempt(studentId, q.id, session.id)
       await new Promise((r) => setTimeout(r, 25))
       await phone.submitAttempt(a, { answer: 'A', activeMs: 5, confidence: 3 })
@@ -217,7 +217,7 @@ describe.skipIf(!URL_)('a student who signs up alone (no household)', () => {
     await phone.endSession(session.id)
     const review = await phone.startSession(studentId, 15, 'sat')
     expect(review.items.length).toBeGreaterThan(0)
-    expect(review.items.every((i) => i.seen_before === true && !held0.has(i.question.id))).toBe(true)
+    expect(review.items.every((i) => i.seen_before === true && i.question.pool === 'practice')).toBe(true)
     expect(review.items.reduce((t, i) => t + (i.question.expected_time_seconds ?? 60), 0)).toBeLessThanOrEqual(15 * 60)
   })
 

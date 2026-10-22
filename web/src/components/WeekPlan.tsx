@@ -228,7 +228,12 @@ export function FreshContentNotice({ content, name }: { content: ContentStatus |
     return (
       <Notice tone="warn" title="No new practice questions left">
         <p>
-          {held > 0 ? (
+          {!content.reserveKnown ? (
+            <>
+              {you}
+              {name ? ' has' : "'ve"} seen every {EXAM[content.exam]} practice question. Questions set aside for progress checks never appear in practice.
+            </>
+          ) : held > 0 ? (
             <>
               {you}
               {name ? ' has' : "'ve"} seen every {EXAM[content.exam]} practice question. Another {held} are set aside for progress checks only and never

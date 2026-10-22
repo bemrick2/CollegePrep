@@ -3,8 +3,7 @@ import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { realName, useApp, useAsync } from '../../lib/app'
 import type { ExamFamily, SetupProgress, Student, StudentPlan, TestScore } from '../../lib/data/types'
 import { browserTimeZone, localDate, weekStartOf } from '../../lib/engine/dates'
-import { planBenchmark } from '../../lib/engine/benchmark'
-import { checkQuestions } from '../../lib/engine/freshness'
+import { checkSize } from '../../lib/engine/freshness'
 import { contentStatus } from '../../lib/engine/freshness'
 import { proposeFirstWeek } from '../../lib/engine/firstWeek'
 import { checkScore } from '../../lib/engine/scoreEntry'
@@ -186,12 +185,15 @@ function SetupFlow(p: {
   const exam: ExamFamily = d.primary ?? (d.intent === 'act' || d.intent === 'sat' ? d.intent : null) ?? existing?.plan?.exam_family ?? 'act'
   const scoreExam: ExamFamily = d.scoreExam ?? exam
   const pool = useAsync(() => source.publishedQuestions(exam), [source, exam])
-  const baseline = pool.data && pool.data.length ? planBenchmark(exam, 'initial', checkQuestions(exam, pool.data)) : null
+  // CR-23: the starting check's size comes from the reserve's counts. A student who doesn't exist yet has seen nothing, so
+  // any existing student's counts aren't needed: without one the size is unknown and the screen says "about 30 minutes".
+  const counts = useAsync(() => (existing?.student.id ? source.assessmentPoolStatus(existing.student.id, exam).catch(() => null) : Promise.resolve(null)), [source, exam, existing?.student.id])
   const secondsPerQuestion = useMemo(() => {
     const t = (pool.data ?? []).map((q) => q.expected_time_seconds).filter((x): x is number => typeof x === 'number' && x > 0)
     return t.length ? t.reduce((a, b) => a + b, 0) / t.length : null
   }, [pool.data])
-  const fresh = pool.data ? contentStatus(exam, pool.data, new Set()).freshForPractice : null
+  const fresh = pool.data ? contentStatus(exam, pool.data, new Set(), counts.data).freshForPractice : null
+  const baseline = counts.data ? checkSize(exam, 'initial', counts.data, secondsPerQuestion ?? 60) : null
   const needsBaseline = !existing?.hasBaseline
   const week = d.studyDays.length && d.minutes
     ? proposeFirstWeek({
@@ -200,7 +202,7 @@ function SetupFlow(p: {
         minutesPerSession: d.minutes,
         weeklyQuestions: d.weekly,
         needsBaseline,
-        baseline: baseline ? { questions: baseline.totalQuestions, minutes: baseline.expectedMinutes } : null,
+        baseline: baseline,
         secondsPerQuestion,
         freshAvailable: existing?.hasBaseline ? null : fresh,
       })
@@ -230,7 +232,7 @@ function SetupFlow(p: {
         target={canPlan ? target.value : existing?.plan?.target_score ?? null}
         setByGuardian={!canPlan}
         week={week}
-        baseline={baseline ? { questions: baseline.totalQuestions, minutes: baseline.expectedMinutes } : null}
+        baseline={baseline}
         needsBaseline={needsBaseline}
         timeZone={d.tz}
         benchmarkScheduledFor={existing?.progress?.benchmarkScheduledFor ?? null}

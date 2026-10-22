@@ -1,111 +1,98 @@
 # Deep Dive checkpoint
 
-This file is how a new Deep Dive session picks up shared reader work and requirement/roadmap depth without redoing finished work. It is updated with every Deep Dive PR. Research keeps its own file, `docs/coverage/RESEARCH_CHECKPOINT.md`.
+This file is how a new Deep Dive session picks up degree-requirement, roadmap and specialised-reader work without redoing finished work. It is updated with every Deep Dive PR. Research keeps its own file, `docs/coverage/RESEARCH_CHECKPOINT.md`.
 
-- **Main at the last refresh:** `8bc64144ea` (merge of #247). This PR (`programs/i229-corrections`) is on top of it.
-- **Ownership on #153:**
-  - Deep Dive owns:
-    - the readers for UNL, Utah, SHSU, UWM and UCR;
-    - the CourseLeaf plan readers (`parse_grid`, `plan_item`, `parse_plangrid`);
-    - the Course List code pattern (#250);
-    - the #229 corrections.
-  - **JHU 'Five-Year BM/MM Program':** the owner approved this correction on 2026-10-21. Research makes it in #251, together with the eight BM Performance records, so JHU is recounted once (agreed on #153).
-  - Research owns:
-    - Colorado State's program column, BYU emphases, Alabama's print-link label, and the UTSA and UT Dallas lists;
-    - the Roosevelt and SF State corrections;
-    - the JHU title reader for the eight BM Performance entries.
+- **Main at the last refresh:** `9ccbc6ad21` (merge of #258). This PR (`programs/i229-recover`) is on top of it, with main's #251 (Research batch 7, JHU corrections) and #248 merged in. #260 (Course List reader, #250) is open separately.
+- **Owner's split (2026-10-22):** Research does nationwide school-level baseline coverage. Deep Dive does degree requirements, roadmaps and specialised catalog readers. Degree-detail completeness is reported separately from school-level comparison readiness. Deep Dive helps with shared extraction tools when that unlocks baseline or policy coverage, and avoids bulk-data work.
+- **Ownership on #153 (posted 2026-10-22):**
+  - **Deep Dive:**
+    - requirement groups and roadmaps;
+    - the CourseLeaf plan readers (`parse_grid`, `plan_item`, `parse_plangrid`) and the Course List reader (#250);
+    - #229 recovery.
+  - **Research:**
+    - program-list coverage and recounts;
+    - baseline costs, aid, admissions and policies;
+    - the registry;
+    - the JHU corrections (#251);
+    - the grouping rule for concentration-only lists and the dual-degree rule (Deep Dive agreed, with conditions, on #153; CU Denver needs its own owner approval).
 
 ## Numbers
 
-Counted from `data/institutions/*` with verified records only. Plans are `program_plan` records; groups are every other `degree_requirements` record. Program-list coverage is reported separately from requirement and roadmap depth.
+These are verified records counted from `data/institutions/*`. Plans are `program_plan` records; groups are every other `degree_requirements` record.
 
-| | main `46c7f81` (2026-10-21 start) | main `2c24af0` (#239) | main `8bc6414` | with this PR |
-|---|---|---|---|---|
-| Verified bachelor's program records (all workstreams) | 10,145 | 10,648 | 10,648 | 10,648 |
-| Verified plans | 2,843 at 64 schools | 3,475 at 67 schools | 3,475 at 67 schools | 3,356 at 65 schools |
-| Plans downgraded to partially verified | 0 | 0 | 0 | 119 |
-| Verified requirement groups | n/a | 15,062 | 15,062 | 15,011 |
-| Covered schools (STATUS.json) | 65 | 70 | 70 | 70 |
+| | main `46c7f81` (2026-10-21 start) | main `2c24af0` | main `af5868f` (after #252) | main `9ccbc6a` (#258) | with this PR |
+|---|---|---|---|---|---|
+| Verified bachelor's program records (all workstreams) | 10,145 | 10,648 | 10,648 | 10,648 | 10,665 (with Research #251) |
+| Verified plans | 2,843 at 64 schools | 3,475 at 67 schools | 3,356 at 65 schools | 3,441 at 66 schools | 3,502 at 68 schools |
+| Partially verified plans | 0 | 0 | 119 (#229 downgrades) | 180 (+61 CU track plans) | 119 (58 #229 + 61 CU) |
+| Verified requirement groups | n/a | 15,062 | 15,011 | 15,307 | 15,307 |
+| Covered schools (STATUS.json, baseline) | 65 | 70 | 70 | 70 | 70 |
 
-**Deep Dive gains on 2026-10-21 (merged):**
-- 474 program records: UNL 116, Utah 101, UWM 133, SHSU 124.
-- 609 plans: #225/#226 224, #238 369, #239 16.
+## This PR: #229 recovery
 
-Research's batches are counted separately. Do not add them twice.
+- Reviewed override `replaces_correction` in `programs/promote.py`. Without it, a corrected record is still refused. The corrections.json entries stay as history.
+- 61 downgraded plans are re-verified (LMU 22, YSU 34, SLU 5) after an independent review against the stored grids. 46 are held by the review and 12 by the reader. See `docs/coverage/I229_CORRECTIONS.md`.
+- Reader fix: a plan row with a credit cell that is not a plain number ('.5', '3 or 4', '1 (0)') is kept as printed. Before, its credits were dropped. No verified plan is affected.
 
-## This PR: the #229 corrections (owner-approved 2026-10-21)
-
-See `docs/coverage/I229_CORRECTIONS.md` for the before and after.
-
-- **Plans:** 2,366 verified `courseleaf_plan/v1` plans are replaced in place by reviewed `courseleaf_plan/v3` re-extractions from the same stored page and grid.
-  - Decisions: `programs/decisions/*-plans-i229.json`, each with `replaces_promoted`.
-  - 119 are downgraded to `partially_verified`, each with a `verification_correction_reason` and a `supabase/corrections.json` entry:
-    - LMU 54 and YSU 46, where the reader misses a printed total or header;
-    - SLU 6 and 3 others, where a subtotal covers a whole term or year;
-    - 10 others.
-- **Groups:** of the 144 groups that store a printed hour or unit rule as a course count:
-  - 76 replaced (`*-groups-i229.json`);
-  - 51 downgraded, including all 12 Oklahoma State residency rules and 21 Stetson unit rules;
-  - 17 kept as printed.
-- **Reviews:** independent, read-only.
-  - Plans: every plan was compared with its stored grid by the reviewer's own reader, and 68 were hand-checked across all 58 schools.
-  - Groups: every group was checked against its stored Course List layout.
-
-## Merged readers on 2026-10-21
+## Merged on 2026-10-21/22
 
 | PR | What |
 |---|---|
-| #225, #226, #235 | `degree_offered/v1`, `courseleaf_plantext/v1`, `kuali_award_line/v1`, `printed_catalog_years` |
-| #238 | `courseleaf_plan/v2`: year and semester terms, subtotals, totals; Course List hour choices read as credits |
-| #239 | decimal course credits kept as printed |
-| #241 | `courseleaf_plan/v3`: items with separate code/title/credits fields, `any_of` alternatives, Kent State markers, more total and term labels, track plans labelled by heading; `courseleaf_plan/v1` no longer trusted |
+| #238, #239 | `courseleaf_plan/v2`; decimal credits |
+| #241 | `courseleaf_plan/v3`: item fields, `any_of`, markers, more total and term labels, heading labels; v1 no longer trusted |
+| #249 | SHSU positional plangrid with printed-sum checks; single-track labels; UNL Course Lists; per-area counts and shared plan keys held |
+| #252 | #229 corrections: 2,366 plans and 76 groups replaced; 119 plans and 51 groups downgraded (`docs/coverage/I229_CORRECTIONS.md`) |
+| #255 | recovery readers: YSU 'S.H.', LMU total, SLU sessions; subtotals spanning terms held |
+| #258 | SHSU 85 plans and 174 groups, UNL 122 groups, CU 61 track plans (partially verified) |
 
 ## Open
 
-- **#249** (`programs/shsu-plangrid`): SHSU positional plan grids, single-track plan labels, UNL Course Lists, and #241 review follow-ups. The independent review found two blocking issues; fix them before merging:
-  1. UNL 'Select one course each from ACE outcomes 5, 7, and 9 | 9' is read as `choose_count: 1` (18 groups, no issue).
-  2. SHSU engineering-technology concentration pages (5) and the two BBA Finance concentrations give their plans the same key and no issue.
-
-  Non-blocking findings from the same review:
-  - Mizzou positional plans store codes such as 'AG_S_TCH 1020' as text, and their track plans aren't held;
-  - `page_footnotes` overwrites duplicate numbers and keeps one line per footnote;
-  - surviving mutants need tests.
-
-  Full notes: the review file in the PR thread.
-- **`programs/uwm-courselist`** (local commit `c90e8184dd`, not pushed): the Course List `CODE` accepts subjects of 6–7 letters and of two words, and UWM's GER paragraph no longer reads as a track choice. 2,814 of 46,838 stored tables read differently. Open the PR after #249. Its data audit is #250 (225 verified groups at 7 schools, plus 3,808 not checkable locally).
-- **UWM requirement groups:** run `WI/2026-10-22-d01` (branch `program-run/wi-uwm-2026-10-22-d01`) stores Course List layout for 152 pages. Re-extract it with the #250 reader, then review.
-- **SHSU plans:** after #249 merges, re-extract `TX/2026-10-21-d02` and review the 190 issue-free plans.
-- **CU Boulder track plans:** Geography BS and Classics BA are labelled by #249. Leadership's line names no track, so its plan stays held.
+- **#260 (`programs/uwm-courselist`, for #250):** the Course List reader for long, two-word and '&' subjects.
+  - Three independent reviews; every blocking finding is fixed.
+  - Regression: 0 new unheld groups against the third-review head.
+  - When it merges, re-extract the runs named in #250 (UWM `WI/2026-10-22-d01`, UW-Madison, UNI, UC Irvine, Missouri, SF State), have them reviewed, and promote.
+  - The audit of the 225 verified groups listed in #250 needs owner approval.
+- **#229 remainder:** 58 plans and 51 groups stay partially verified with their corrections. Recovering them needs reader work:
+  - 'Select one' blocks in plans (25 LMU);
+  - multi-row 'or' alternatives;
+  - blank-name and 'or' separator rows (YSU);
+  - session headings with empty credit cells (LMU);
+  - subtotals spanning terms (SLU 1, Marshall, UNC, UVU);
+  - Dunwoody, Lorain and Akron label rows.
+  - The 15 YSU/LMU plans held only because an 'or' row is a printed string could be approved if verbatim alternatives are accepted. That's a policy call for review, not a data defect.
 
 ## Next executable tasks
 
-1. Fix #249's blocking findings, rerun its review, then merge.
-2. Coordinate national totals with Research from the main commit after this PR and #251 merge.
-3. Recover the downgraded plans with reader fixes, then a reviewed replacement:
-   - LMU 'Minimum Semester Hours' printed after each year and as the total;
-   - YSU 'S.H.' header;
-   - subtotals that cover sub-sessions or a whole year;
-   - '.5', '3 or 4' and '1 (0)' credits.
-4. UWM and UNL requirement groups, after #249 and the #250 reader.
-5. #250 audit (owner decision).
+1. Merge #260 after CI, then re-extract and review the affected schools.
+2. Plan reader: 'Select one' blocks as choices, and multi-row 'or' rows. Then recover the remaining #229 plans with `replaces_correction`.
+3. Reader follow-ups from the #258 reviews:
+   - a single-grid `courseleaf_plangrid` label should be the program, not the nearest heading (22 SHSU holds);
+   - UNL 0-credit rows are dropped from Course Lists (17 holds);
+   - categorise college-core and ACE tables (56 holds);
+   - read hyphenated Course List subjects (`CSCI-UA 101`, `BUSN-P316`), which needs its own review.
+4. Depth at high-enrolment schools, ranked by IPEDS entering students:
+   - Texas A&M and CU Boulder groups;
+   - plans for Penn State, Illinois, UF, UC Davis and UC Irvine.
+   Check existing readers first.
+5. Coordinate national totals with Research from the same main commit.
 
 ## Blockers (recorded, not evaded)
 
-- **Utah:** the tab views are not in the stored pages.
-- **UMD:** 28 majors have no award on any official UMD page read so far. Awards are not inferred.
-- **KU:** no single official program list was found.
-- **UCR:** the PDF tables need layout positions.
+- **Utah, BYU:** tab and Kuali views not stored.
+- **UMD:** 28 majors print no award.
+- **KU:** no single official list.
+- **UCR:** PDF layout.
 
 ## How to resume
 
-1. `git fetch origin`. Read this file, #153, #229, #249 and #250.
+1. `git fetch origin`. Read this file, #153, #229, #250, and the open Deep Dive PRs.
 2. Fetch the run branches: `git fetch origin '+refs/heads/program-run/*:refs/remotes/origin/program-run/*'`. Copy a run with `git archive`.
-3. Before a reader change is promoted, extract the stored runs it can touch with main's code and with the branch's code. Nothing may be lost or changed, and every gain must be explained.
-4. Review independently, then write the reviewed decision and promote. Then run:
-   - `scripts/retain_evidence.py --push`, then `--verify-store`, then `--check`;
+3. Before a reader change is promoted, extract the stored runs it can touch with main's code and with the branch's code, and explain every change.
+4. Review independently, then promote. Then run:
+   - retention (`--push`, `--verify-store`, `--check`);
    - `update_coverage`, `programs status`, `research_priority`, `validate_data`, `review_provenance`;
    - the database check, web `vitest` and unit tests;
    - `scripts/program_mutation_check.py`, never at the same time as tests or extractions in the same tree.
 5. Open the PR, merge on green CI, and update this file in the same PR.
 
-Hosted imports, migrations and deployments stay on hold while Supabase is paused.
+Hosted imports, migrations and deployments stay on hold.

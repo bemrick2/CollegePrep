@@ -24,8 +24,10 @@ COMB = re.compile(r"Accelerated.*(\bM\.?[AS]\b\.?|\bMBA\b|\bMPA\b|Master)|Schola
                   r"Dual Acceptance|and MBA\b|to MBA|\bB\.?[AS]\.?/\s?M\.?[AS]\b|\bM\.[AS]\.|/\s?(DDS|MD|PharmD|DPT|OTD)\b|\(B[AS]/D|"
                   r"(?-i:\bB[A-Z]{1,4}/M[A-Z]{1,3}\b)|(?-i:\bB[A-Z]{1,4}-M(?:S|A|[A-Z]{2,3})\b)|"  # ODU '..., BS-MBA' (a hyphenated single award such as 'BS-MT' is not combined); La Salle 'Accounting, BSBA/MBA (4 year)'
                   r"\bto\b.*(?-i:\bM[A-Z]{0,4}\b).*\bAccelerated\b|Dual Degree Acceptance|\bB\.?[AS]\.?/.*\bM\.\s?B\.\s?A\b|"
-                  r"(?-i:,\s*B[A-Z]{1,3}\s+to\s+[^,]+,\s*M[A-Z]{1,5}\b)", re.I)  # Roosevelt 'Biology, BA to Secondary Education, MA Accelerated Program'; Georgian 'B.S./... M.B.A.'
-GENERIC = re.compile(r"^(Bachelor's (Degree|Concentration|Degree Programs)|Department of .*)$|: Bachelor's Degree\b|Minor, Certificate|Graduate Certificate|\bRoadmap\b|\b(Graduation|Continuance)\s+(Requirements|Regulations)\b|\bReadmission\b|\(Secondary Major\)|^Minor in\b|General Education Requirements|\(Double Major\)|^Bachelor's and Master's Degree Programs$", re.I)
+                  r"(?-i:,\s*B[A-Z]{1,3}\s+to\s+[^,]+,\s*M[A-Z]{1,5}\b)|"
+                  r"(?-i:\bBachelor of [A-Z][a-z]+(?: [A-Z][a-z]+)*\s*/\s*Master of\b)|^Bachelor's/Master's\b|"
+                  r"\bBachelor's to Master's\b|\bto Master of\b", re.I)  # YSU 'Bachelor's to Master's Track'; '... Option to Master of Respiratory Care'  # JHU 2026-27 'Biology, Bachelor of Arts/Master of Science'; the 'Bachelor's/Master's Degrees' heading  # Roosevelt 'Biology, BA to Secondary Education, MA Accelerated Program'; Georgian 'B.S./... M.B.A.'
+GENERIC = re.compile(r"^(Bachelor's (Degree|Concentration|Degree Programs)|Department of .*)$|: Bachelor's Degree\b|Minor, Certificate|Graduate Certificate|\bRoadmap\b|\b(Graduation|Continuance)\s+(Requirements|Regulations)\b|\bReadmission\b|\(Secondary Major\)|^Minor in\b|General Education Requirements|\(Double Major\)|^Bachelor's and Master's Degree Programs$|^Requirements for a Bachelor's Degree$|\bDouble Degree Program", re.I)
 ROTC = re.compile(r'\bN?ROTC\b')
 LABELED = {'labeled_in_title', 'labeled_in_heading', 'labeled_in_source'}
 # UTEP 2026-27 cards run the name into the card's category labels: 'BBA in AccountingBusiness, Management, & Marketing
@@ -66,10 +68,38 @@ def card_name(printed):
 
 
 SPELLED = {'arts': 'ba', 'science': 'bs', 'fine arts': 'bfa', 'music': 'bm', 'business administration': 'bba'}
-WHOLE_DEGREE = [re.compile(r'^Bachelor of (?P<long>Arts|Science|Fine Arts|Music|Business Administration) in (?P<base>[^,:()]+?)$'),
+# 'Bachelor of Fine Arts in Dance (BFA)' (JHU) repeats its award: the same degree, when the parenthesis names it.
+WHOLE_DEGREE = [re.compile(r'^Bachelor of (?P<long>Arts|Science|Fine Arts|Music|Business Administration) in (?P<base>[^,:()]+?)(?: \((?P<same>(?-i:B[A-Z]{1,3}))\))?$'),
                 re.compile(r'^(?P<award>(?-i:B[A-Z]{1,3})) in (?P<base>[^,:()]+?)$'),
                 re.compile(r'^(?P<base>[^,:()]+?) \((?P<award>(?-i:B[A-Z]{1,3}))\)$'),
                 re.compile(r'^(?P<base>[^,:()]+?), (?P<award>(?-i:B[A-Z]{1,3}))$')]
+
+
+DELIVERY_QUALIFIER = re.compile(r'\s*\((?:online|on campus|hybrid|non-?\u200b?rn)\)\s*$', re.I)  # YSU '(Online)', '(Non-RN)'
+TRACK_SUFFIX = re.compile(r'\b(?:Track|Option)$')
+TRACK_ENTRY = re.compile(r'^(?P<award>Bachelor of (?:Arts|Science|Fine Arts|Music|Business Administration)|(?-i:B[A-Z]{1,3}))\s+in\s+'
+                         r'(?P<rest>[^()]+?)\s+(?:Track|Option)$')
+
+
+def track_award(line):
+    """The award a track entry prints at its start ('Bachelor of Science in ...', 'BS in ...'), or None."""
+    m = TRACK_ENTRY.match(line)
+    return X._award_key(m.group('award')) if m else None
+
+
+def track_of_listed(line, degrees):
+    """YSU 2026-27: 'Bachelor of Arts in Multimedia Communication, Public Relations Track' or 'Bachelor of Science in
+    Computer Science Cybersecurity Track' beside 'Bachelor of Science in Computer Science': a track of a degree the same
+    list prints. True only when some leading part of the name (before a comma, ' - ' or a word boundary) is that listed
+    degree with the same award."""
+    m = TRACK_ENTRY.match(line)
+    if not m: return False
+    award = X._award_key(m.group('award'))
+    words = re.split(r'(\s+-\s+|,\s*|\s+)', m.group('rest'))
+    for i in range(1, len(words) - 1, 2):  # every separator position, leaving at least one word for the track
+        base = ''.join(words[:i])
+        if (X.name_key_of(base), award) in degrees: return True
+    return False
 
 
 def whole_degree(name):
@@ -80,6 +110,8 @@ def whole_degree(name):
         m = rx.match(n)
         if m:
             award = SPELLED[m.group('long').lower()] if 'long' in rx.groupindex else m.group('award').lower()
+            if 'same' in rx.groupindex and m.group('same') and m.group('same').lower() != award:
+                return None  # 'Bachelor of Science in X (BA)' names two awards: not one whole degree
             return re.sub(r'\W+', '', m.group('base')).lower(), award
     return None
 
@@ -140,6 +172,16 @@ def entries(run_dir, decision, iks, year='2026-2027', reviewed=''):
         shape = [X.emphasis_entry(X.list_line(x['printed'])) for x in rest]
         degrees = {X._degree_key(X.list_line(x['printed'])) for x, m in zip(rest, shape) if not m} - {None}
         opts = [x for x, m in zip(rest, shape) if m and (X.name_key_of(m.group('base')), X._award_key(m.group('award'))) in degrees]
+        opts += [x for x, m in zip(rest, shape) if not m and x not in opts and track_of_listed(X.list_line(x['printed']), degrees)]
+        # a track printed on a page under a listed degree's own page (YSU '.../bsas-exercise-science/mat-track/', 'Exercise
+        # Science - MAT Track') is that degree's track, only when the track prints the same award as that degree (TAMU's
+        # 'Chemistry - BS, ... Track' pages under 'Chemistry - BA' are not BA tracks)
+        deg_pages = {page_key(x['url']): X._degree_key(X.list_line(x['printed']))[1] for x, m in zip(rest, shape)
+                     if not m and X._degree_key(X.list_line(x['printed']))}
+        opts += [x for x in rest if x not in opts and TRACK_SUFFIX.search(X.list_line(x['printed']))
+                 and track_award(X.list_line(x['printed'])) is not None
+                 and any(page_key(x['url']).startswith(dp.rstrip('/') + '/') and aw == track_award(X.list_line(x['printed']))
+                         for dp, aw in deg_pages.items())]
         deg = [x for x in rest if x not in opts]
         by_page = defaultdict(set)
         for x in deg: by_page[page_key(x['url'])].add(ident(x))
@@ -153,7 +195,7 @@ def entries(run_dir, decision, iks, year='2026-2027', reviewed=''):
                 rk = name_key(hit['record']['program_name']); pk = name_key(x['printed'])
                 # 'X: Concentration in Y' is not credited through X's page; a college named in parentheses is not a qualifier
                 # (UVM 'Computer Science B.A. (College of Arts and Sciences)')
-                bare = name_key(X.COLLEGE_QUALIFIER.sub('', x['printed']))
+                bare = name_key(DELIVERY_QUALIFIER.sub('', X.COLLEGE_QUALIFIER.sub('', x['printed'])))
                 if pk.startswith(rk) and pk != rk and bare != rk: hit = None
             if hit: verified[k] = hit['record']['program_key']
             else: verified.setdefault(k, None)
@@ -313,7 +355,11 @@ def on_file_approvals(run_dir, folder, ik, root=Path('.'), year='2026-27'):
         v = json.loads(line)
         if v['institution_key'] != ik or v['domain'] != 'academic_programs': continue
         rec = v['record']; k = (page_key(rec.get('program_url') or v['source']['requested_url']), name_key(rec.get('program_name') or ''))
-        if (rec.get('program_key') in keys or k in pages or count.get(k[0]) == 1) and k[0] not in used:
+        # One credited candidate per page, except that each record on file under its own key is credited (a page printing
+        # two degrees with a record each, UT Dallas 'Biology (BA, BS)')
+        if rec.get('program_key') in keys and (k[0], rec.get('program_key')) not in used:
+            out.append({'candidate_id': v['candidate_id']}); used.add((k[0], rec.get('program_key'))); used.add(k[0])
+        elif (k in pages or count.get(k[0]) == 1) and k[0] not in used:
             out.append({'candidate_id': v['candidate_id']}); used.add(k[0])
     return out
 
