@@ -1112,6 +1112,11 @@ class CourseListLayoutReviewTests(unittest.TestCase):
         self.assertEqual(([c['code'] for c in g[0][1]['courses']], g[0][1]['issues']), (['F&W ECOL 448', 'AT 310'], set()))
         g = CL.html_groups(self.table([('c', 'BIOL 101', 'A', '3'), ('c', 'PLANTSCI/\u200bPL PATH 261 & PL PATH/\u200bPLANTSCI 262', 'Joined', '3')], heading='Major Requirements'))
         self.assertTrue(g[0][1]['issues'])  # a long joined row is held, never dropped
+        for row in ('E&ES215 & E&ES216', 'COMPLITTHT 3120'):  # Wesleyan, WUSTL: held, never dropped
+            g = CL.html_groups(self.table([('c', 'BIOL 101', 'A', '3'), ('c', row, 'Joined', '3')], heading='Major Requirements'))
+            self.assertTrue(g[0][1]['issues'], row)
+        g = CL.html_groups(self.table([('c', 'INTER-AG 155', 'Seminar', '1'), ('c', 'AN SCI 135', 'Seminar', '1')], heading='Major Requirements'))
+        self.assertTrue(g[0][1]['issues'])  # UW-Madison: a hyphenated subject is not read yet, so the group is held, never shortened
         ctx = self.table([('c', 'ARTS 101', 'Drawing', '3'), ('c', 'ARTS 102', 'Painting', '3')], heading='Major Requirements', context='Complete one course from:')
         self.assertIn('context_says_choose', CL.html_candidates({'institution_key': 'k'}, e, {'url': 'u'}, [ctx], '2026-2027', 'x', 1)[0]['issues'])
         self.assertEqual(CL.substitution_codes('STAT 1772 will substitute for SOC SCI 2020.\nCourses in lieu of PHYSICS 125A'), {'STAT 1772', 'SOC SCI 2020', 'PHYSICS 125A'})

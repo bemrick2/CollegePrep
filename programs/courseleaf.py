@@ -244,10 +244,10 @@ def _num(w):
 # UWM 2026-27 prints subjects of up to seven letters and of two words ('ARTHIST 101', 'BUS ADM 201', 'BIO SCI 150')
 # UW-Madison prints eight letters and '&' ('AGROECOL 101', 'F&W ECOL 248', 'I&C SCI 31'); a connective or other word printed in
 # capitals before a number is not a subject ('OR BIL 412', 'MINOR IN 300', 'GRADES 101')
-SUBJ = r'(?!(?:OR|AND|IN|OF|AT|TO)\s[A-Z])(?!(?:HOURS|GRADES|MINOR|TOTAL|LEVEL)\b)[A-Z][A-Z&]{0,7}'  # 'OR 541' / 'AT 310' are subjects
+SUBJ = r'(?!(?:OR|AND|IN|OF|AT|TO)\s[A-Z])(?!(?:HOURS|GRADES|MINOR|TOTAL|LEVEL)\b)[A-Z][A-Z&]{0,7}'  # 'OR 541' / 'AT 310' are subjects; hyphenated subjects ('INTER-AG 155') are held by CODEISH, not read
 CODE = rf'(?!X{{3,}}\b|X{{3,}}\d){SUBJ}(?:\s[A-Z&]{{1,5}})?(?:/[A-Z&]{{1,8}})*\s?\d{{3,4}}[A-Z]?'
 # a row that starts like a course but is not one code (joined, cross-listed, ranged): held as complex, never dropped
-CODEISH = re.compile(r'^[A-Z][A-Z&]{0,7}[\s/]')
+CODEISH = re.compile(r'^[A-Z][A-Z&]{0,9}(?:-[A-Z]{1,4})?[\s/]|^[A-Z][A-Z&]{1,9}\d')  # also 'COMPLITTHT 3120', 'E&ES215 & E&ES216'
 CODE_CELL = re.compile(rf'^{CODE}$')
 OR_ROW = re.compile(rf'^or\s+({CODE})$')
 # Rows that print more than one course in the code cell are held with a reason naming the shape (issue #95 recovery).
