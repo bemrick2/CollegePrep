@@ -2,7 +2,7 @@ import { useId, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useApp, useAsync } from '../../lib/app'
 import type { AwardListing, CostBasis, CostComponents, CreditLever, InstitutionComparison, ProjectionRow } from '../../lib/data/types'
-import { fullProgram, potentialSaving, termsSaving, type FamilyAid, type FullProgram, type PotentialSaving } from '../../lib/engine/costProjection'
+import { fullProgram, termsSaving, type FamilyAid, type FullProgram, type PotentialSaving } from '../../lib/engine/costProjection'
 import { earlyCompletion, withheldReason } from '../../lib/engine/earlyCompletion'
 import { degreeCredit, type DegreeCreditResult, type ExamApplicability, type PlanTerm } from '../../lib/engine/degreeCredit'
 import { summarizeSchool, type CreditPolicy } from '../../lib/engine/examCredit'
@@ -66,19 +66,13 @@ export function Savings() {
   const rows = useAsync(
     () =>
       !studentId || !schools.length
-        ? Promise.resolve([] as { main: ProjectionRow; planOnly: ProjectionRow | null }[])
+        ? Promise.resolve([] as { main: ProjectionRow }[])
         : Promise.all(
             schools.map(async (c) => {
               const accepted = Math.min(examCredits(c).publishedHours, 90)
               const base = { residency: residencyFor(c), cost_basis: basis } as const
               const main = (await source.costProjection(studentId, [c.institution_key], YEAR, { ...base, exam_credits: accepted, prior_credits: otherCredits })).institutions[0]!
-              // A second, narrower scenario: only exam credit shown to match the major's published plan.
-              const tiers = credits.get(c.institution_key)?.tiers
-              const planOnly =
-                tiers && (tiers.applicableHours !== accepted || otherCredits > 0)
-                  ? (await source.costProjection(studentId, [c.institution_key], YEAR, { ...base, exam_credits: Math.min(tiers.applicableHours, 90) })).institutions[0]!
-                  : null
-              return { main, planOnly }
+              return { main }
             }),
           ),
     [source, studentId, schools.map((c) => c.institution_key).join(','), homeState, basis, otherCredits, JSON.stringify(exams), JSON.stringify(interests)],
@@ -138,7 +132,7 @@ export function Savings() {
 
       {!studentId ? (
         <Notice tone="info" title="Add a student first">
-          Savings depend on the student's credit and the schools you save, so this view needs a student profile.
+          Cost and credit depend on the student's exams and the schools you save, so this view needs a student profile.
         </Notice>
       ) : (cmp.loading || rows.loading) && !rows.data?.length ? (
         <div className="py-10">
@@ -156,14 +150,13 @@ export function Savings() {
         </Notice>
       ) : (
         <div className={cx('grid gap-4 transition-opacity', rows.loading && 'opacity-60')} aria-busy={rows.loading}>
-          {(rows.data ?? []).map(({ main: r, planOnly }) => {
+          {(rows.data ?? []).map(({ main: r }) => {
             const c = schools.find((x) => x.institution_key === r.institution_key)
             if (!c) return null // removed while the projection reloads
             return (
               <SchoolSavings
                 key={r.institution_key}
                 row={r}
-                planOnly={planOnly}
                 comparison={c}
                 assumedResidency={!homeState}
                 aid={family.aidFor(r.institution_key)}
@@ -221,11 +214,9 @@ function SchoolSavings({
   onAid,
   examSummary,
   credit,
-  planOnly,
   onBasis,
 }: {
   row: ProjectionRow
-  planOnly: ProjectionRow | null
   credit: SchoolCredit
   comparison: InstitutionComparison
   assumedResidency: boolean
@@ -334,7 +325,7 @@ function SchoolSavings({
       )}
 
       {row.status === 'ok' && (
-        <CreditSteps row={row} planOnly={planOnly} credit={credit} examSummary={examSummary} aid={aid} name={name} />
+        <CreditSteps row={row} credit={credit} examSummary={examSummary} aid={aid} name={name} />
       )}
 
       {row.status === 'ok' && (
@@ -395,7 +386,7 @@ function MissingCost({ row, onBasis }: { row: ProjectionRow; onBasis: (b: CostBa
         </div>
       </div>
     )
-  return <p className="text-sm text-ink-2">Without a published price there is no total and no savings estimate.</p>
+  return <p className="text-sm text-ink-2">Without a published price there is no total.</p>
 }
 
 function FullProgramTotals({ row, full }: { row: ProjectionRow; full: FullProgram }) {
@@ -432,8 +423,8 @@ const APPLIES_LABEL: Record<ExamApplicability['status'], string> = {
   no_course: 'no course listed',
 }
 
-/** Accepted by the school -> applies to the major's plan -> removes a term; then savings only as stated potential. */
-function CreditSteps({ row, planOnly, credit, examSummary, aid, name }: { row: ProjectionRow; planOnly: ProjectionRow | null; credit: SchoolCredit; examSummary: ReturnType<typeof summarizeSchool>; aid: FamilyAid; name: string }) {
+/** Accepted by the school -> applies to the major's plan -> covers whole terms; time or money saved only with completion records (earlyCompletion.ts). */
+function CreditSteps({ row, credit, examSummary, aid, name }: { row: ProjectionRow; credit: SchoolCredit; examSummary: ReturnType<typeof summarizeSchool>; aid: FamilyAid; name: string }) {
   const s = row.credit_savings!
   const exam = row.levers!.find((l) => l.kind === 'exam_credits')!
   const prior = row.levers!.find((l) => l.kind === 'prior_credits')!
@@ -441,9 +432,9 @@ function CreditSteps({ row, planOnly, credit, examSummary, aid, name }: { row: P
   // Time or money saved needs records showing the student could finish sooner, not just credit (earlyCompletion.ts).
   // None are on file, so every saving below stays withheld; the figures are computed only if that evidence exists.
   const covered = tiers?.coveredTerms.length ?? 0
+  // No completion records are wired in yet, so this is always withheld. Only the covered plan terms could ever be
+  // counted: never all accepted credit, and never the server's credits ÷ 15 (that is not evidence of a shorter degree).
   const early = earlyCompletion(covered)
-  const all = early.supported ? potentialSaving(row, aid) : null
-  const narrow = early.supported ? (planOnly ? potentialSaving(planOnly, aid) : tiers ? all : null) : null
   const shown = early.supported ? termsSaving(row, covered, aid) : null
   const anyCredit = exam.requested_credits > 0 || prior.requested_credits > 0 || examSummary.courses > 0
   return (
@@ -531,7 +522,7 @@ function CreditSteps({ row, planOnly, credit, examSummary, aid, name }: { row: P
         </ol>
       )}
 
-      {anyCredit && !(all || narrow || shown) && (
+      {anyCredit && !shown && (
         <div className="mt-3 rounded-xl border border-line px-3 py-3 text-sm">
           <h4 className="font-semibold text-ink">Time and money saved: not shown</h4>
           <p className="mt-1 text-ink-2">{withheldReason(early, covered)}</p>
@@ -539,7 +530,7 @@ function CreditSteps({ row, planOnly, credit, examSummary, aid, name }: { row: P
         </div>
       )}
 
-      {(all || narrow || shown) && (
+      {shown && (
         <div className="mt-3 rounded-xl border border-gold/40 px-3 py-3 text-sm">
           <div className="flex flex-wrap items-baseline justify-between gap-2">
             <h4 className="font-semibold text-ink">Potential savings, if the assumptions hold</h4>
@@ -547,9 +538,6 @@ function CreditSteps({ row, planOnly, credit, examSummary, aid, name }: { row: P
           </div>
           <dl className="mt-2 grid gap-2">
             {shown && <Scenario label={`Covered plan ${shown.terms === 1 ? 'term' : 'terms'} (${tiers!.coveredTerms.map((t) => t.label).join(', ')})`} p={shown} />}
-            {all && <Scenario label="If all accepted credit counts toward the degree" p={all} />}
-            {tiers && narrow !== all && <Scenario label={`Counting only credit that matches the ${credit.program!.name} plan`} p={narrow} />}
-            {tiers && narrow === all && all && <p className="text-xs text-ink-3">Same result counting only credit that matches the plan.</p>}
           </dl>
           <ul className="mt-2 grid gap-0.5 text-xs text-ink-3">
             <li>Assumes the credit counts toward the degree and the schedule lets the student finish early.</li>

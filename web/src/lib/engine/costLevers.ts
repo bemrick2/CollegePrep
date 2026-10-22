@@ -86,7 +86,7 @@ export function costLevers(i: LeverInput): CostLever[] {
       key: 'credit',
       status: 'on_track',
       title: `Listed exams earn credit for ${i.credit.courses} course${i.credit.courses === 1 ? '' : 's'}`,
-      detail: `${i.credit.publishedHours ? `${i.credit.publishedHours} published credit hours` : 'Credit hours not all published'}. Shortens the degree only if the courses count toward its requirements.`,
+      detail: `${i.credit.publishedHours ? `${i.credit.publishedHours} published credit hours` : 'Credit hours not all published'}. Credit coverage only: a shorter degree also depends on prerequisites, course offerings, course order and the remaining requirements.`,
     })
   else if (hasTable)
     out.push({ key: 'credit', status: 'available', title: 'AP, CLEP or IB credit from a verified table', detail: 'Add exams on College paths to see the score each needs and the course it counts as.' })

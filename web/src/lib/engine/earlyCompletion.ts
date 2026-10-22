@@ -26,13 +26,27 @@ export const CONDITION_TEXT: Record<CompletionCondition, string> = {
   remaining_requirements: 'every other graduation requirement still fits in fewer terms',
 }
 
-/** One condition, shown by a verified record. Anything less (unverified, inferred, assumed) doesn't count. */
+/**
+ * One condition, shown by a verified record for this school's plan and these covered terms. Anything less
+ * (unverified, inferred, assumed, another school or plan, other terms) doesn't count.
+ */
 export interface ConditionEvidence {
   verified: true
   sourceUrl: string
+  institutionKey: string
+  planKey: string
+  /** The covered plan terms (term_index) this record shows can be skipped. */
+  terms: number[]
 }
 
 export type CompletionEvidence = Partial<Record<CompletionCondition, ConditionEvidence>>
+
+/** Which school, plan and covered terms a saving would be for. */
+export interface CompletionScope {
+  institutionKey: string
+  planKey: string | null
+  terms: number[]
+}
 
 export interface EarlyCompletion {
   /** True only when whole terms are covered AND every condition is shown by a verified record. */
@@ -41,13 +55,26 @@ export interface EarlyCompletion {
   missing: CompletionCondition[]
 }
 
-export function earlyCompletion(coveredTerms: number, evidence: CompletionEvidence = {}): EarlyCompletion {
-  const missing = COMPLETION_CONDITIONS.filter((c) => !(evidence[c]?.verified === true && !!evidence[c]?.sourceUrl))
+const isUrl = (u: unknown) => typeof u === 'string' && /^https?:\/\/\S+\.\S+/.test(u.trim())
+
+export function earlyCompletion(coveredTerms: number, evidence: CompletionEvidence = {}, scope?: CompletionScope): EarlyCompletion {
+  const shows = (e: ConditionEvidence | undefined) =>
+    !!e &&
+    e.verified === true &&
+    isUrl(e.sourceUrl) &&
+    !!scope &&
+    e.institutionKey === scope.institutionKey &&
+    scope.planKey != null &&
+    e.planKey === scope.planKey &&
+    scope.terms.length === coveredTerms &&
+    scope.terms.every((t) => e.terms.includes(t))
+  const missing = COMPLETION_CONDITIONS.filter((c) => !shows(evidence[c]))
   return { supported: coveredTerms > 0 && missing.length === 0, missing }
 }
 
 /** "Not shown: …" in plain words, for a withheld saving. */
 export function withheldReason(e: EarlyCompletion, coveredTerms: number): string {
   if (coveredTerms === 0) return 'No whole plan term is covered, so no time or money saved is shown.'
+  if (coveredTerms < 0) return 'No verified plan, so no time or money saved is shown.'
   return `Covering a term’s courses doesn’t by itself mean finishing a term sooner. That also needs records showing that ${e.missing.map((c) => CONDITION_TEXT[c]).join('; ')}. None of that is on file, so no time or money saved is shown.`
 }

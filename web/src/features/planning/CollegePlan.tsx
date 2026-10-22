@@ -308,9 +308,9 @@ function RoadmapView({
 
 const NOT_CHECKED: Record<NonNullable<TermCoverage['notChecked']>, string> = {
   multi_term: 'Printed as one block of more than one term, so whole-term coverage isn’t checked.',
-  short_term: 'A summer or short session: never counted as a term saved.',
-  quarter_calendar: 'A quarter term: terms saved are counted for semester plans only.',
-  hours: 'Under 12 printed credit hours, or none printed: never counted as a term saved.',
+  short_term: 'A summer or short session: not checked for whole-term coverage.',
+  quarter_calendar: 'A quarter term: whole-term coverage is checked for semester plans only.',
+  hours: 'Under 12 printed credit hours, or none printed: not checked for whole-term coverage.',
 }
 
 /** The plan's terms under their year headings, every row as printed. Year headings are not terms (#230). */

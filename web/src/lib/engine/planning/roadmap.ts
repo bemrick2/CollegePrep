@@ -257,11 +257,15 @@ export function buildRoadmap({ comparison: c, programKey, planKey = null, comple
       : { value: null, evidence: missing(hasPlan ? 'No whole plan term is covered by this credit.' : 'No verified plan, so coverage can’t be checked.', planRec, catalogYear) }
 
   // Time or money saved needs more than coverage: records showing the student could really finish sooner.
-  const early = earlyCompletion(covered, completionEvidence)
+  const early = earlyCompletion(covered, completionEvidence, {
+    institutionKey: c.institution_key,
+    planKey: planRec ? String(planRec.requirement_key ?? '') || null : null,
+    terms: dc.coveredTerms.map((t) => t.term),
+  })
   const saving = early.supported && projection ? termsSaving(projection, covered, aid) : null
   const savings: Roadmap['savings'] = saving
     ? { value: saving, evidence: { ...evidence(planRec, c.academic_year), state: 'estimate', method: 'Potential only: the published price of the terms no longer needed, held at this year’s price, minus grants entered for those terms.' } }
-    : { value: null, evidence: missing(early.supported ? `No verified cost projection for ${inst}.` : withheldReason(early, covered), null, c.academic_year) }
+    : { value: null, evidence: missing(early.supported ? `No verified cost projection for ${inst}.` : withheldReason(early, hasPlan ? covered : -1), null, c.academic_year) }
   if (!saving) unknown('timeline', savings.evidence.missing!)
 
   const allCreditVerified = credit.every((x) => x.acceptance.evidence.state === 'verified') && examTables.length > 0 && examTables.every(verified)

@@ -6,6 +6,7 @@ import type { PlanningProfile } from './types'
 
 const plan = (status = 'verified') => ({
   program_key: 'biz',
+  requirement_key: 'biz-plan',
   requirement_kind: 'program_plan',
   verification_status: status,
   source_url: 'https://example.edu/plan.pdf',
@@ -66,14 +67,18 @@ describe('planning roadmap (#194)', () => {
   })
 
   it('a saving appears only when every completion condition is shown by a verified record', () => {
-    const ok = { verified: true as const, sourceUrl: 'https://example.edu/catalog' }
+    const ok = { verified: true as const, sourceUrl: 'https://example.edu/catalog', institutionKey: 'x', planKey: 'biz-plan', terms: [1] }
     const partial = buildRoadmap({ comparison: school(), programKey: 'biz', profile: profile([['AP Microeconomics', 4], ['AP English Language', 4]]), projection, completionEvidence: { prerequisites: ok, course_availability: ok, sequencing: ok } })
     expect(partial.savings.value).toBeNull()
     expect(partial.earlyCompletion.missing).toEqual(['remaining_requirements'])
     const full = buildRoadmap({ comparison: school(), programKey: 'biz', profile: profile([['AP Microeconomics', 4], ['AP English Language', 4]]), projection, aid: { grantsPerYear: 4000, loansPerYear: null }, completionEvidence: { prerequisites: ok, course_availability: ok, sequencing: ok, remaining_requirements: ok } })
     expect(full.savings.value).toMatchObject({ terms: 1, gross: 15000, lostGrants: 2000, net: 13000 })
     // Evidence without a source is not evidence.
-    const noSource = buildRoadmap({ comparison: school(), programKey: 'biz', profile: profile([['AP Microeconomics', 4], ['AP English Language', 4]]), projection, completionEvidence: { prerequisites: ok, course_availability: ok, sequencing: ok, remaining_requirements: { verified: true, sourceUrl: '' } } })
+    const noSource = buildRoadmap({ comparison: school(), programKey: 'biz', profile: profile([['AP Microeconomics', 4], ['AP English Language', 4]]), projection, completionEvidence: { prerequisites: ok, course_availability: ok, sequencing: ok, remaining_requirements: { ...ok, sourceUrl: '' } } })
+    expect(noSource.savings.value).toBeNull()
+    // Evidence for another plan of the major is not evidence for this one.
+    const otherPlan = buildRoadmap({ comparison: school(), programKey: 'biz', profile: profile([['AP Microeconomics', 4], ['AP English Language', 4]]), projection, completionEvidence: { prerequisites: { ...ok, planKey: 'x' }, course_availability: ok, sequencing: ok, remaining_requirements: ok } })
+    expect(otherPlan.savings.value).toBeNull()
     expect(noSource.savings.value).toBeNull()
   })
 
