@@ -734,9 +734,9 @@ export class DemoSource implements DataSource {
 
   async startBenchmark(studentId: string, kind: BenchmarkSummary['kind'], exam: ExamFamily) {
     this.requireLinked(studentId)
-    // Like start_benchmark: a live open check of the same exam and kind is resumed, not duplicated.
+    // Like start_benchmark: a live open check of the same exam and kind with nothing answered yet is resumed, not duplicated.
     for (const [id, c] of this.checks)
-      if (c.studentId === studentId && c.exam === exam && c.kind === kind && Date.now() - Date.parse(c.startedAt) < CHECK_LIVE_MS) return delay(id)
+      if (c.studentId === studentId && c.exam === exam && c.kind === kind && c.used.size === 0 && Date.now() - Date.parse(c.startedAt) < CHECK_LIVE_MS) return delay(id)
     const id = uid('bm-')
     this.checks.set(id, { studentId, exam, kind, startedAt: new Date().toISOString(), used: new Set() })
     return delay(id)

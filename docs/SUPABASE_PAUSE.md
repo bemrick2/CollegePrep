@@ -74,7 +74,7 @@ Official basis: https://supabase.com/docs/guides/platform/free-project-pausing
    and an origin, or must be unpublished, by a reviewed change. The migration
    refuses to apply otherwise rather than altering what is served.
    Then 20261022050000_assessment_pool (CR-23), and only after it the web build
-   that reads `pool` and calls `benchmark_questions` (any main build since #244:
+   that reads `pool` and calls `benchmark_questions` (any main build after #248:
    on a server without the migration every practice read fails, 42703), marking
    the reserve in the same apply (docs/frontend/CONTRACT_REQUESTS.md, CR-23
    paired release requirements). Until then don't redeploy staging from main

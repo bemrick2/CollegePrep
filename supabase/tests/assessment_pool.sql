@@ -160,6 +160,12 @@ begin
   values ('30000000-0000-0000-0000-00000000000a', '40000000-0000-0000-0000-000000000001', '41000000-0000-0000-0000-000000000001', 'math', 'Unseen reserved', '["A","B"]',
     'choice', '["A"]', 60, 'published', 'original-owned', 'authored', 'assessment');
   perform public.approve_practice_question('30000000-0000-0000-0000-00000000000a', 'test fixture');
+  -- And a second reserved ACT item (qb) nobody attempts, to see what a check unlocks.
+  insert into public.practice_questions(id, exam_version_id, question_type_id, section, stem, choices, answer_format, accepted_answers,
+    expected_time_seconds, status, license, origin, pool)
+  values ('30000000-0000-0000-0000-00000000000b', '40000000-0000-0000-0000-000000000002', '41000000-0000-0000-0000-000000000009', 'math', 'ACT unseen', '["A","B"]',
+    'choice', '["A"]', 60, 'published', 'original-owned', 'authored', 'assessment');
+  perform public.approve_practice_question('30000000-0000-0000-0000-00000000000b', 'test fixture');
 
   -- assessment_pool_status: counts only, for viewers of the student.
   perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
@@ -188,22 +194,27 @@ begin
   a := public.start_benchmark(st, 'full', '40000000-0000-0000-0000-000000000002');
   perform hp_test.check(a <> b, 'another kind is its own check');
   perform hp_test.eq((select count(*) from public.practice_questions where id = '30000000-0000-0000-0000-000000000009'), 1::bigint, 'the ACT check reads ACT reserved items');
+  -- Once something is answered in it, a check isn't resumed (its plan would restart at full length): a new one opens.
+  perform public.submit_practice_attempt(public.start_practice_attempt(st, '30000000-0000-0000-0000-000000000009', p_benchmark => a), 'A');
+  perform hp_test.check(public.start_benchmark(st, 'full', '40000000-0000-0000-0000-000000000002') <> a, 'a half-taken check is not resumed');
   perform hp_test.eq((select count(*) from public.practice_questions where id = '30000000-0000-0000-0000-00000000000a'), 0::bigint,
     'an open check of another version unlocks nothing of this one');
   -- An abandoned check expires after 4 hours: no reserved content, no attempts, no list; a new start opens a new check.
   perform hp_test.as_owner();
-  update public.practice_benchmarks set started_at = now() - interval '4 hours 1 minute' where id in (a, b);
+  update public.practice_benchmarks set started_at = now() - interval '4 hours 1 minute'
+    where student_id = st and exam_version_id = '40000000-0000-0000-0000-000000000002' and completed_at is null;
   perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
-  perform hp_test.eq((select count(*) from public.practice_questions where id = '30000000-0000-0000-0000-000000000009'), 0::bigint, 'an expired check unlocks nothing');
+  perform hp_test.eq((select count(*) from public.practice_questions where id = '30000000-0000-0000-0000-00000000000b'), 0::bigint, 'an expired check unlocks nothing');
   perform hp_test.expect_error(format('select * from public.benchmark_questions(%L)', b), '22023', '%expired%');
   perform hp_test.expect_error(format('select public.start_practice_attempt(%L, %L, p_benchmark => %L)', st,
     '30000000-0000-0000-0000-000000000009', b), '22023', '%expired%');
-  perform hp_test.check(public.start_benchmark(st, 'mini', '40000000-0000-0000-0000-000000000002') <> b, 'an expired check is not resumed');
+  a := public.start_benchmark(st, 'mini', '40000000-0000-0000-0000-000000000002');
+  perform hp_test.check(a <> b, 'an expired check is not resumed');
   perform hp_test.check((public.complete_benchmark(b)->>'definition') = 'v2', 'an expired check can still be completed (scores what was answered)');
   perform hp_test.as_owner();
   update public.practice_benchmarks set started_at = now() - interval '3 hours 59 minutes' where id = a;
   perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
-  perform hp_test.eq(public.start_benchmark(st, 'full', '40000000-0000-0000-0000-000000000002'), a, 'still live just under 4 hours');
+  perform hp_test.eq((select count(*) from public.practice_questions where id = '30000000-0000-0000-0000-00000000000b'), 1::bigint, 'still live just under 4 hours');
   -- Archived students can't use checks.
   perform hp_test.as_owner();
   update public.students set archived_at = now() where id = st;

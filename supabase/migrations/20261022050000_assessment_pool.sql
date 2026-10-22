@@ -18,7 +18,7 @@
 -- * A check is live for 4 hours from its start (benchmark_is_live). An abandoned check stops unlocking the reserve and
 --   takes no more attempts; complete_benchmark still scores what was answered.
 -- * start_benchmark requires an exam version, and returns the student's live open check of the same exam version and
---   kind instead of opening a second one.
+--   kind, when nothing has been answered in it yet, instead of opening a second one.
 -- * assessment_pool_status(student, exam version): reserved items per section and how many the student hasn't been shown
 --   (counts only, no content), for anyone who may view the student.
 -- Scope: CR-23 part 1 (the pool, checks, repeats). seen_before on practice items and first-answer estimates
@@ -37,9 +37,10 @@ create function public.benchmark_is_live(p_started timestamptz, p_completed time
 language sql stable set search_path = '' as $$
   select p_completed is null and p_started > now() - interval '4 hours'
 $$;
+revoke all on function public.benchmark_is_live(timestamptz, timestamptz) from public, anon;
 grant execute on function public.benchmark_is_live(timestamptz, timestamptz) to authenticated, service_role;
 
--- From 20261003120300; a check needs an exam version, and a live open check of the same version and kind is resumed.
+-- From 20261003120300; a check needs an exam version, and a live, unanswered open check of the same version and kind is resumed.
 create or replace function public.start_benchmark(p_student uuid, p_kind text, p_exam_version uuid default null) returns uuid
 language plpgsql security definer set search_path = '' as $$
 declare v_id uuid;
@@ -59,6 +60,9 @@ begin
   select b.id into v_id from public.practice_benchmarks b
   where b.student_id = p_student and b.exam_version_id = p_exam_version and b.kind = p_kind
     and public.benchmark_is_live(b.started_at, b.completed_at)
+    -- Only a check nothing was answered in yet (a failed or empty start): resuming a half-taken check would re-plan its
+    -- full length from the remaining items. A half-taken check stays open until it expires.
+    and not exists (select 1 from public.practice_attempts a where a.benchmark_id = b.id)
   order by b.started_at desc limit 1;
   if v_id is not null then return v_id; end if;
   insert into public.practice_benchmarks(student_id, kind, exam_version_id) values (p_student, p_kind, p_exam_version)

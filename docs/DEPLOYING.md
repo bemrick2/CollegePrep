@@ -2,7 +2,7 @@
 
 - **Canonical staging** (https://college-optimizer-staging.netlify.app) runs `origin/main` only. Redeploy it after a
   PR merges and main's CI is green.
-  - **Gate (CR-23):** since #244, main's client selects `practice_questions.pool`. Don't redeploy staging from main until
+  - **Gate (CR-23):** once #248 merges, main's client selects `practice_questions.pool`. Don't redeploy staging from main until
     migration `20261022050000_assessment_pool` is applied to staging's Supabase project; otherwise every practice read
     fails (42703). Hosted migrations are held (`.operations/supabase-live-hold.json`), so staging stays on its current
     deploy until the owner lifts the hold and applies it (`docs/SUPABASE_PAUSE.md` step 4).
