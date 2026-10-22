@@ -23,15 +23,68 @@ TERM = re.compile(r'^(first|second|third|fourth|fifth|freshman|sophomore|junior|
                   # year rows printed alone: 'Freshman' (JSU, UNI, OSU, UNO), 'Year One' (CU Boulder); 'Semester 1' (UWM)
                   r'|^(freshman|sophomore|junior|senior)$|^year\s+(one|two|three|four|five)$|^semester\s+\d{1,2}$'
                   # 'First Semester' (Clayton, ODU), 'Semester One' (West Chester)
-                  r'|^(first|second|third|fourth|fifth|sixth|seventh|eighth)\s+semester$|^semester\s+(one|two|three|four|five|six|seven|eight)$', re.I)
+                  r'|^(first|second|third|fourth|fifth|sixth|seventh|eighth)\s+semester$|^semester\s+(one|two|three|four|five|six|seven|eight)$'
+                  # '1st Semester' (NJIT)
+                  r'|^(1st|2nd|3rd|[4-8]th)\s+semester$', re.I)
 
 # column headers printed on a term row ('Fall | Hours', UNI 'Fall | Hour', Texas A&M 'Fall | Semester Credit Hours')
 HEADER_CELLS = {'credits', 'milestones', 'hours', 'credit hours', 'hour', 'credit', 'semester credit hours', 'semester hours', 'units'}
 # the term's subtotal row ('| Hours | 15', '| Credit Hours | 15', '| Semester Credit Hours | 15') and the plan total
 # ('Total Hours**', 'Total Semester Credit Hours'): read as the term's credit hours and the printed total, never as items
-SUBTOTAL = re.compile(r'^(credits|credit|hours|hour|credit hours|semester credit hours|semester hours|units)$', re.I)
-TOTAL = re.compile(r'^total\b[\w\s]*:?\**$', re.I)  # 'Total Hours**' (SRU), 'Total Credit Hours Required:' (TAMUK)
-PLAN_EXTRACTOR = 'courseleaf_plan/v2'
+SUBTOTAL = re.compile(r'^(credits|credit|hours|hour|credit hours|semester credit hours|semester hours|units|term credits)$', re.I)  # 'Term Credits' (NJIT)
+# 'Total Hours**' (SRU), 'Total Credit Hours Required:' (TAMUK), 'Minimum Total Hours' (Louisville), 'Minimum Total Credit Hours:' (Kent State)
+TOTAL = re.compile(r'^(?:minimum\s+)?total\b[\w\s]*:?\**$', re.I)
+# a credit label the reader does not place ('Minimum Semester Hours 30-32', LMU, printed once per year): the plan is held
+CREDIT_LABEL = re.compile(r'\b(hours?|credits?|units?)\b\s*:?\**$', re.I)
+PLAN_EXTRACTOR = 'courseleaf_plan/v3'
+# Plan item cells (v3). A course code as printed: 'ENGL 101', 'MGMT 4010' (four digits), 'ASL 19201' (five), 'BIO SCI 102' / 'M L 250' (a
+# two-word subject), 'CHEM 125A'; never a placeholder subject ('XXXX 1201').
+PLAN_CODE = r'(?!X{3,}\b)[A-Z]{1,5}(?:\s[A-Z]{1,5})?\s\d{3,5}[A-Z]?'  # five digits: Kent State 'ASL 19201', Notre Dame 'CSE 20311'
+PLAN_CODE_CELL = re.compile(rf'^{PLAN_CODE}$')
+# alternatives printed in one cell with 'or' joined to the code before it: 'SPAD 281or SPAD 284' (Louisville),
+# 'CHEM 121or CHEM 125' (NJIT); the title cell joins the titles the same way ('Principles of Sport Administrationor Sport ...')
+PLAN_ALT_CELL = re.compile(rf'^{PLAN_CODE}(?:or\s?{PLAN_CODE})+$')
+PLAN_CREDITS = re.compile(r'^\d{1,2}(?:\.\d{1,2})?(?:\s*-\s*\d{1,2}(?:\.\d{1,2})?)?$')
+PLAN_MARKERS = {'!', '*', '+', '†', '‡', '#'}  # a marker column before the code (Kent State prints '!' for critical courses)
+
+
+def _credits(v):
+    return int(v) if v.isdigit() else v
+
+
+def plan_item(cells, milestones):
+    """One grid row as a plan item with separate fields, or None when the row's cells do not say which field each one is
+    (the row is then kept as printed, its cells joined by ' | ').
+    {'code', 'title', 'credits'} for a course; {'any_of': [{'code', 'title'}, ...], 'credits'} for alternatives printed in
+    one cell; {'text', 'credits'} for a printed requirement row ('General Education: ... - S | 3'). Credits are read only from
+    the last cell, only when it prints a number or a range; a blank credits cell gives no credits."""
+    marker = None
+    if len(cells) >= 3 and (cells[0] in PLAN_MARKERS or not cells[0]) and (PLAN_CODE_CELL.match(cells[1]) or PLAN_ALT_CELL.match(cells[1])
+                                                                          or (not cells[0] and cells[1] and not PLAN_CODE_CELL.match(cells[0] or 'x'))):
+        marker, cells = cells[0] or None, cells[1:]  # Kent State: ['!', 'ASL 19201', 'ELEMENTARY ...', '4'], ['', 'Kent Core Requirement', '3']
+    last = cells[-1] if len(cells) >= 2 else ''
+    if last and not PLAN_CREDITS.match(last): return None  # '(3)', 'Varies', '3 or 4': kept as printed
+    credits = _credits(last) if last else None
+    first = cells[0]
+    if PLAN_CODE_CELL.match(first):
+        if len(cells) == 3: item = {'code': first, 'title': cells[1]}
+        elif len(cells) == 2: item = {'code': first}  # 'MIAD CD 305 | 3'
+        else: return None
+        if not item.get('title'): item.pop('title', None)
+    elif PLAN_ALT_CELL.match(first):
+        if len(cells) != 3: return None
+        codes = re.split(r'or\s?(?=[A-Z]{1,5}(?:\s[A-Z]{1,5})?\s\d)', first)  # the code cell matched PLAN_ALT_CELL
+        titles = re.split(r'(?<=\S)or\s(?=\S)', cells[1]) if cells[1] else []
+        if cells[1] and len(titles) != len(codes): return None  # a title that itself contains 'or ' cannot be split by evidence
+        item = {'any_of': [{'code': c, **({'title': t} if cells[1] else {})} for c, t in zip(codes, titles or [''] * len(codes))]}
+    elif len(cells) == 2 or (len(cells) == 3 and not cells[1]):
+        if not first or re.match(r'^or\b', first, re.I): return None
+        item = {'text': first}
+    else:
+        return None
+    if credits is not None: item['credits'] = credits
+    if marker: item['marker'] = marker
+    return item
 
 
 def labelled_keys(heads, make):
@@ -72,6 +125,8 @@ def parse_grid(t):
         if len(nonempty) == 2 and SUBTOTAL.match(nonempty[0]):
             if cur is not None: cur['credit_hours'] = nonempty[1]
             continue
+        if len(nonempty) == 2 and not cells[0] and CREDIT_LABEL.search(nonempty[0]) and PLAN_CREDITS.match(nonempty[1]):
+            t['_unread_label'] = True  # 'Minimum Semester Hours | 30-32' (LMU): a credit row the reader does not place
         if cur is None: continue
         m = ONE.match(cells[0]) if cells and cells[0] else None
         # a decimal credit is kept as printed ('1.5', West Chester B.M. 2026-27 ensembles), never rounded or dropped
@@ -87,7 +142,8 @@ def parse_grid(t):
             if cells[1]: item['milestone'] = cells[1]
             cur['items'].append(item)
         else:
-            cur['items'].append(' | '.join(nonempty))
+            item = plan_item(cells, milestones)
+            cur['items'].append(item if item is not None else ' | '.join(nonempty))
     t['_total_label'] = total_label[0]
     return terms, total
 
@@ -115,7 +171,10 @@ def extract(inst, entry, page, year, year_line, have_program):
     headings = [(t.get('heading') or '').strip() for t in gs]
     # UO prints one 'Degree Map' per award under its own heading ('Bachelor of Science in Computer Science'): distinct
     # headings label the plans, so several grids are not ambiguous there.
-    labelled = len(parsed) > 1 and len(set(headings)) == len(headings) and all(re.search(r'\bbachelor\b', h, re.I) for h in headings)
+    labelled = len(parsed) > 1 and len(set(headings)) == len(headings) and all(headings)
+    # other headings name a track, concentration or route ('Physical Geography', 'Greek'): the plan is labelled by its printed
+    # heading and held until a reviewer confirms each heading names a plan of this program (not a tab or another section)
+    track_labels = labelled and not all(re.search(r'\bbachelor\b', h, re.I) for h in headings)
     plan_keys = labelled_keys(headings, slug) if labelled else []
     for i, (terms, total) in enumerate(parsed, 1):
         if not terms: continue
@@ -129,7 +188,7 @@ def extract(inst, entry, page, year, year_line, have_program):
         if total: rd['rule_text'] = f"{gs[i - 1].get('_total_label') or 'Total Credits'} {total} (as printed)"
         rec = {'program_key': pkey, 'requirement_key': key, 'requirement_kind': 'program_plan', 'rule_details': rd}
         ev = [{'field': 'term', 'value': t['label'], 'snippet': f"{t['label']}: {len(t['items'])} items, {t.get('credit_hours', '?')} credits"} for t in terms]
-        issues = ['multiple_plan_grids'] if len(parsed) > 1 and not labelled else []
+        issues = ['multiple_plan_grids'] if len(parsed) > 1 and not labelled else ['plan_heading_label'] if track_labels else []
         if gs[i - 1].get('_unread_label'): issues.append('unread_label_row')
         out.append(common.make('degree_requirements', inst['institution_key'], acad, 'labeled_in_source', rec, ev, entry, PLAN_EXTRACTOR,
                                {'program_key': pkey, 'requirement_key': key}, {'terms': len(terms)}, issues))

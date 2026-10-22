@@ -27,6 +27,12 @@ def code_in(text, code):
     return re.search(rf'\b{re.escape(subj)}\s?{re.escape(num)}\b', text, re.I) is not None
 
 
+def alt_code_in(text, code):
+    """A code printed as one of several alternatives joined in one cell ('SPAD 281or SPAD 284', Louisville plan grids):
+    it may be followed directly by 'or'."""
+    return code_in(text, code) or re.search(rf'\b{re.escape(code.strip())}(?=or\s?[A-Z])', text) is not None
+
+
 def segmented(s, squashed, min_piece=6):
     """True when s (letters and digits only) splits into consecutive pieces of at least min_piece characters (or the
     whole remainder) that each occur in the squashed document text: a title wrapped across lines of a two-column page
@@ -108,6 +114,12 @@ def check_candidate(c, text, other=None):
         items = list(rd.get('courses', []))
         for term in rd.get('terms', []) or []:
             items += [i for i in term.get('items', []) if isinstance(i, dict)]
+        for i in [i for i in items if i.get('any_of')]:  # alternatives printed in one cell (courseleaf_plan/v3)
+            for alt in i['any_of']:
+                if not alt_code_in(text, alt.get('code', '')): probs.append(f"course {alt.get('code')} not in source")
+                if alt.get('title') and squash(alt['title']) not in squashed: probs.append(f"title of {alt.get('code')} not verbatim")
+        for i in [i for i in items if i.get('marker')]:
+            if i['marker'] not in text: probs.append('item marker not printed')
         for i in items:
             for f in ('text', 'milestone', 'note'):  # printed text rows, milestone cells (UO degree maps) and row notes (UNL)
                 if i.get(f) and squash(i[f]) not in squashed and not (wrapped and segmented(squash(i[f]), squashed)):
