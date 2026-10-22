@@ -1086,6 +1086,18 @@ class CourseListLayoutReviewTests(unittest.TestCase):
         tracks = self.table([('c', 'J 101', 'E', '4')], heading='Major Requirements', context='Students choose one track from the following.')
         out = CL.html_candidates({'institution_key': 'k'}, e, {'url': 'u'}, [tracks], '2026-2027', 'media', 1)
         self.assertIn('context_says_choose_among_tables', out[0]['issues'])
+        # UWM 2026-27: the general education paragraph is not a choice among the tables after it
+        ger = self.table([('c', 'ENGL 102', 'Writing', '3')], heading='General Education Requirements (GER)',
+                         context='They provide a broad body of knowledge as a context for specialization.')
+        major = self.table([('c', 'ARTH 101', 'Ancient Art', '3')], heading='Major Requirements')
+        out = CL.html_candidates({'institution_key': 'k'}, e, {'url': 'u'}, [major, ger, self.table([('c', 'ART 101', 'Drawing', '3')], heading='Major Requirements')], '2026-2027', 'art', 1)
+        self.assertEqual([sorted(c['issues']) for c in out], [[], ['secondary_table'], []])
+        uwm = self.table([('c', 'ARTHIST 101', 'Ancient Art', '3'), ('c', 'BUS ADM 201', 'Business', '3')], heading='Major Requirements')
+        self.assertEqual([c['code'] for c in CL.html_groups(uwm)[0][1]['courses']], ['ARTHIST 101', 'BUS ADM 201'])
+        from programs import verify as V
+        self.assertTrue(V.code_in('ARTHIST\xa0101 Ancient Art', 'ARTHIST 101'))
+        spec = self.table([('c', 'X 101', 'A', '3')], heading='Major Requirements', context='Students must choose one specialization.')
+        self.assertIn('context_says_choose_among_tables', CL.html_candidates({'institution_key': 'k'}, e, {'url': 'u'}, [spec], '2026-2027', 'x', 1)[0]['issues'])
 
     def test_credits_overview_is_not_the_first_table(self):  # TAMUSA 2026-27 (issue #95 recovery)
         from programs import courseleaf as CL

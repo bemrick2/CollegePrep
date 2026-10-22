@@ -241,7 +241,8 @@ def _num(w):
 # One course code as printed: 'BIOL 101', 'IT222' (Purdue Global prints no space), 'ENGL 1302' / 'DANC 1100R' (TAMUSA, UVU:
 # four digits and a suffix letter), 'ENG/FILM 366' (WKU: one cross-listed course, kept as printed so the list is not cut).
 # A placeholder subject ('XXXX 1201', SHSU 2026-27 applied lessons) is not a course code.
-CODE = r'(?!X{3,}\b|X{3,}\d)[A-Z]{1,5}(?:/[A-Z]{1,5})*\s?\d{3,4}[A-Z]?'
+# UWM 2026-27 prints subjects of up to seven letters and of two words ('ARTHIST 101', 'BUS ADM 201', 'BIO SCI 150')
+CODE = r'(?!X{3,}\b|X{3,}\d)[A-Z]{1,7}(?:\s[A-Z]{1,5})?(?:/[A-Z]{1,5})*\s?\d{3,4}[A-Z]?'
 CODE_CELL = re.compile(rf'^{CODE}$')
 OR_ROW = re.compile(rf'^or\s+({CODE})$')
 # Rows that print more than one course in the code cell are held with a reason naming the shape (issue #95 recovery).
@@ -532,6 +533,7 @@ def html_groups(table, program_awards=1, extra_issues=None):
 SUBSTITUTE = re.compile(r'substitut|replac|in lieu|waiv|exception|equivalent|or above|\(or\b|may count|proficiency|placement', re.I)
 MAIN_TABLE = re.compile(r'\b((major|degree|pre-major|program) requirements|curriculum|core)\b', re.I)
 PARALLEL = re.compile(r'^(.+?)\s*(\([^)]+\)\s*Major Requirements|Major\s*[-–]\s*.+)$', re.I)
+GER_BOILERPLATE = re.compile(r'body of knowledge as a context for specialization', re.I)  # UWM 2026-27 General Education Requirements
 TRACK_PROSE = re.compile(r'\b(choose one track|focus areas?|specializations?|concentrations?|tracks? from|one of the following (tracks|options|concentrations|areas))\b', re.I)
 NOT_REQUIREMENT_HEADING = re.compile(r'^(contact information|program educational objectives|double-counting policy|internships?|learning outcomes|'
                                      r'student learning outcomes|program learning outcomes|overview|admission|advising)$', re.I)
@@ -578,7 +580,9 @@ def html_candidates(inst, entry, cl_entry, tables, year, program_key, program_aw
         extra = set()
         if idx > 0 and not MAIN_TABLE.search(heading): extra.add('secondary_table')
         if parallel and PARALLEL.match(heading): extra.add('parallel_tables')
-        if CONTEXT_CHOICE.search(t.get('context') or '') or TRACK_PROSE.search(t.get('context') or ''): tracks_from_here = True
+        # UWM's general education paragraph ('... a broad body of knowledge as a context for specialization') is not a choice
+        ctx = GER_BOILERPLATE.sub('', t.get('context') or '')
+        if CONTEXT_CHOICE.search(ctx) or TRACK_PROSE.search(ctx): tracks_from_here = True
         if tracks_from_here: extra.add('context_says_choose_among_tables')
         # the nearest heading can be the department's GPA policy printed above the table (TAMUSA 'Department withdrawal')
         label = '' if NOT_REQUIREMENT_HEADING.match(heading) or re.search(r'\b(probation|withdrawal)\b', heading, re.I) else heading
