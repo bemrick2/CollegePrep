@@ -446,7 +446,10 @@ function CreditSteps({ row, planOnly, credit, examSummary, aid, name }: { row: P
       <h3 className="text-sm font-semibold text-ink">Credit the student brings</h3>
       {!anyCredit ? (
         <p className="mt-1 text-sm text-ink-2">
-          No exam scores that earn credit here, and no other credit entered. Add scores on{' '}
+          {examSummary.hasTable
+            ? 'No exam scores that earn credit here, and no other credit entered.'
+            : `No verified exam-credit table is on file for ${name} yet, so exam credit isn't counted, and no other credit is entered.`}{' '}
+          Add scores on{' '}
           <Link to="/colleges/paths" className="font-semibold text-go-strong underline dark:text-go">
             Paths
           </Link>
@@ -600,7 +603,7 @@ function LeverLine({ lever, examSummary }: { lever: CreditLever; examSummary?: R
     </>
   ) : null
   if (lever.kind === 'exam_credits') {
-    if (!examSummary?.hasTable) return <li>No published exam-credit table on file for this school, so exam credit isn't counted.</li>
+    if (!examSummary?.hasTable) return <li>No verified exam-credit table on file for this school yet, so exam credit isn't counted.</li>
     if (lever.requested_credits === 0)
       return <li>{examSummary.courses ? 'Your scores earn courses here, but the table lists no credit hours for them.' : 'No exam scores that earn credit here yet.'}</li>
     return (

@@ -124,12 +124,10 @@ describe('app flows', () => {
     await user.click(screen.getAllByRole('button', { name: 'Make top choice' })[0]!)
     expect(await screen.findByText('Top choice')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Clear top choice' })).toBeInTheDocument()
-    await user.selectOptions(screen.getByLabelText('Add an exam'), screen.getByRole('option', { name: 'AP Calculus AB' }))
-    expect(await screen.findByText('Needs 3+')).toBeInTheDocument()
-    await user.selectOptions(screen.getByLabelText('AP Calculus AB score'), '2')
-    expect(screen.getByText('Needs 3+ (yours: 2)')).toBeInTheDocument()
-    await user.selectOptions(screen.getByLabelText('AP Calculus AB score'), '5')
-    expect(screen.getByText('Your 5 earns credit')).toBeInTheDocument()
+    // UTK's exam-credit tables are partially verified since 2026-10-22 (academic year unconfirmed), so no exam is matched
+    // to them and none is said to earn or miss credit. The matching itself is covered by degreeCredit.test.ts.
+    expect(screen.getByText('None of your saved four-year schools has a verified exam-credit table yet.')).toBeInTheDocument()
+    expect(screen.queryByText(/earns credit|Needs \d\+/)).not.toBeInTheDocument()
     expect(screen.queryByText(/saved?\s+\$/i)).not.toBeInTheDocument()
     localStorage.clear()
   })
@@ -204,14 +202,11 @@ describe('app flows', () => {
     // The full program assumes no credit.
     expect(within(utk).getByText(/no credit assumed/)).toBeInTheDocument()
     expect(within(utk).getByText('Net price').nextSibling).toHaveTextContent('$147,976')
-    // 1. Accepted: 15 hours from the school's table.  2. For the CS plan: none of it.  3. No term shown removed.
+    // UTK's exam-credit tables are partially verified (academic year unconfirmed, 2026-10-22): none is counted, and the
+    // student's scores are not said to miss credit.
     const steps = within(utk).getByRole('region', { name: /credit the student brings/ })
-    expect(within(steps).getByText(/Exam credit: 15 credits from the school's own table/)).toBeInTheDocument()
-    expect(within(steps).getByText(/Counts toward Computer science/)).toBeInTheDocument()
-    expect(within(steps).getByText('AP Art History').parentElement).toHaveTextContent('elective credit only')
-    expect(within(steps).getByText('AP Computer Science A').parentElement).toHaveTextContent('COSC 101: not a course this plan uses')
-    expect(within(steps).getByText('AP Calculus AB').parentElement).toHaveTextContent('MATH 125: not a course this plan uses')
-    expect(within(steps).getByText(/^Not shown\. A term is removed only if/)).toBeInTheDocument()
+    expect(within(steps).getByText(/No verified exam-credit table is on file for University of Tennessee, Knoxville yet, so exam credit isn't counted/)).toBeInTheDocument()
+    expect(within(steps).queryByText(/No exam scores that earn credit here/)).not.toBeInTheDocument()
     // Family numbers: grants and loans for every year of the full program; year-round living added separately.
     await user.type(within(utk).getByLabelText('Offered to you, per year'), '4000')
     await user.type(within(utk).getByLabelText('You plan to borrow, per year'), '5500')
@@ -219,10 +214,7 @@ describe('app flows', () => {
     // 147,976 + 12,000 year-round - 16,000 grants = 143,976; borrowed 22,000.
     expect(within(utk).getByText('Net price').nextSibling).toHaveTextContent('$143,976')
     expect(within(utk).getByText('Borrowed (you repay this)').nextSibling).toHaveTextContent('$22,000')
-    // Potential only: one term of full cost (18,497) minus the grant for that term (2,000); none for the CS plan.
-    expect(within(steps).getByText('Not a shorter degree')).toBeInTheDocument()
-    expect(within(steps).getByText('If all accepted credit counts toward the degree').nextSibling).toHaveTextContent('up to $16,497')
-    expect(within(steps).getByText('Counting only credit that matches the Computer Science Major, BS in Computer Science plan').nextSibling).toHaveTextContent('Not a full term')
+    expect(within(steps).queryByText(/up to \$/)).not.toBeInTheDocument()
     // A school with only a total published says what is missing instead of guessing.
     const other = screen.getByRole('article', { name: 'Lipscomb University' })
     expect(within(other).getByText('One published price for all students')).toBeInTheDocument()

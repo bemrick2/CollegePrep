@@ -905,7 +905,13 @@ export class DemoSource implements DataSource {
 
   async compareInstitutions(keys: string[], academicYear: string): Promise<InstitutionComparison[]> {
     const snap = await this.snapshot()
-    const all = snap.institutions as unknown as InstitutionComparison[]
+    // Like compare_institutions, serve verified records only (a downgraded record stays in the snapshot, but isn't a fact).
+    const all = (snap.institutions as unknown as InstitutionComparison[]).map((x) => ({
+      ...x,
+      domains: Object.fromEntries(
+        Object.entries(x.domains ?? {}).map(([d, rows]) => [d, Array.isArray(rows) ? (rows as { verification_status?: string }[]).filter((r) => r.verification_status == null || r.verification_status === 'verified') : rows]),
+      ) as InstitutionComparison['domains'],
+    }))
     return delay(
       keys.map(
         (k) =>
