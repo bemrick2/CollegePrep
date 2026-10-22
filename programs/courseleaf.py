@@ -186,7 +186,9 @@ def parse_grid(t):
         m = ONE.match(cells[0]) if cells and cells[0] else None
         # a decimal credit is kept as printed ('1.5', West Chester B.M. 2026-27 ensembles), never rounded or dropped
         hours = cells[-1] if len(cells) >= 2 and re.fullmatch(r'\d{1,2}(?:\.\d{1,2})?(\s*-\s*\d{1,2}(?:\.\d{1,2})?)?', cells[-1] or '') else None
-        if m:
+        if m and len(cells) >= 3 and cells[-1] and not hours:
+            cur['items'].append(' | '.join(nonempty))  # '.5', '3 or 4', '1 (0)' (EKU, UIC, Montana): kept as printed, never dropped
+        elif m:
             item = {'code': f'{m.group(1)} {m.group(2)}', 'title': cells[1] if len(cells) > 2 else ''}
             if hours: item['credits'] = int(hours) if hours.isdigit() else hours
             if milestones and len(cells) == 4 and cells[2]: item['milestone'] = cells[2]
