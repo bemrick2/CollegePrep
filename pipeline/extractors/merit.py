@@ -625,14 +625,14 @@ def extract(inst, entry, page, today_year):
             if res and 'residency_requirement' not in rec:  # "In-State Freshman Scholarships" (AL: UAB has same-named awards per residency)
                 rec['residency_requirement'] = 'Out-of-state' if re.search(r'out|non', res.group(0), re.I) else 'In-state'
             home = STATES.get(inst.get('state') or '')
-            if home and 'residency_requirement' not in rec and re.search(rf'(?<!non-)(?<!non )\b{home}\s+residents?\b', page.title + ' ' + context, re.I):
+            if home and 'residency_requirement' not in rec and re.search(rf'(?<!non-)(?<!non )(?<!west )(?<!west-)\b{home}\s+residents?\b', page.title + ' ' + context, re.I):
                 rec['residency_requirement'] = 'In-state'  # FL (UNF): "Florida Resident Merit-Based (Freshmen)"
             open_to = rec.pop('_open_to', None)
             if open_to and home and open_to == home and 'residency_requirement' not in rec:
                 rec['residency_requirement'] = 'In-state'  # NV (UNR): the matrix page says "Open to Nevada residents"
             if home and 'residency_requirement' not in rec and re.search(rf'\bnon[- ]{home}\s+residents?\b', page.title + ' ' + context, re.I):
                 rec['residency_requirement'] = 'Out-of-state'  # WV (Concord): "Non-West Virginia Residents"
-            other = re.search(r'(?<!non-)(?<!non )(?<!west )(?<!west-)\b(' + '|'.join(v for v in STATES.values() if v != home) + r')\s+residents?\b', page.title + ' ' + context, re.I)
+            other = re.search(r'(?<!non-)(?<!non )\b(' + '|'.join(v for v in STATES.values() if v != home) + r')\s+residents?\b', page.title + ' ' + context, re.I)
             if other and 'residency_requirement' not in rec:
                 rec['residency_requirement'] = other.group(0)  # AL (UAH): "Freshman Tennessee Resident Academic Scholarships"
             # AZ (Northland Pioneer): a page-navigation heading ('Social Media') is not where the award is listed

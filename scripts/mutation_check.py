@@ -310,7 +310,7 @@ MUTS = [
     ('pipeline/extractors/merit.py', ' for i, v in parts if i != clt_col)', ' for i, v in parts)'),
     ('pipeline/extractors/merit.py', "                rec['residency_requirement'] = 'In-state'  # NV (UNR)", '                pass  # NV (UNR)'),
     ('pipeline/extractors/merit.py', "                rec['residency_requirement'] = other.group(0)", '                pass'),
-    ('pipeline/extractors/merit.py', "other = re.search(r'(?<!non-)(?<!non )(?<!west )(?<!west-)\\b(' +", "other = re.search(r'(?<!non-)(?<!non )\\b(' +"),
+    ('pipeline/extractors/merit.py', "(?<!non-)(?<!non )(?<!west )(?<!west-)\\b{home}\\s+residents?", "(?<!non-)(?<!non )\\b{home}\\s+residents?"),  # VA: 'West Virginia Residents' is not in-state
     ('pipeline/extractors/merit.py', '\n                                   + (f" (page: \'{required.group(0)}\')" if required else \'\')', ''),
     ('pipeline/extractors/merit.py', "            if notes and not shaped: rec['footnotes'] = notes", '            pass'),
     ('pipeline/extractors/merit.py', "    marks = sorted({len(m.group(0)) for h in header for m in re.finditer(r'\\*+', h)})", '    marks = []'),
@@ -339,7 +339,7 @@ MUTS = [
     ('pipeline/extractors/merit.py', '        elif not STATEMENT_FRESHMAN.search(s): continue', '        elif False: continue'),
     ('pipeline/extractors/merit.py', '        elif not STATEMENT_FRESHMAN.search(s): continue', '        else: continue'),
     ('pipeline/extractors/merit.py', "r'\\bscholarships?\\s+for\\s+(?:the\\s+)?(' + _YEAR + r')|", "r'"),
-    ('pipeline/extractors/merit.py', "rf'(?<!non-)(?<!non )\\b{home}\\s+residents?\\b'", "rf'\\b{home}\\s+residents?\\b'"),
+    ('pipeline/extractors/merit.py', "rf'(?<!non-)(?<!non )(?<!west )(?<!west-)\\b{home}\\s+residents?\\b'", "rf'(?<!west )(?<!west-)\\b{home}\\s+residents?\\b'"),
     ('pipeline/extractors/merit.py', "                rec['residency_requirement'] = 'In-state'  # FL (UNF)", '                pass  # FL (UNF)'),
     ('pipeline/extractors/merit.py', "'per academic', '/yr', '/year'), ('amount', 'amt',", "'per academic', '/year'), ('amount',"),
     ('pipeline/extractors/merit.py', '    amount_cols = money_cols if amount is None and len(money_cols) > 1', '    amount_cols = [] if amount is None and len(money_cols) > 1'),

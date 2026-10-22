@@ -1689,6 +1689,27 @@ do not guarantee admission there. These Transfer Pathways have been effective be
             with self.assertRaises(ValueError):
                 P.promote({'state': 'ZZ', 'institutions': [{'institution_key': 'ipeds-1', 'folder': 'x'}]}, tmp / 'dec.json', log=lambda *_: None)
 
+    def test_superseding_promotion_names_what_it_replaces(self):
+        """#273 review: a re-read that replaces a pipeline-promoted record says so in the new record's notes."""
+        tmp = Path(tempfile.mkdtemp())
+        run = tmp / 'run'; run.mkdir()
+        url = 'https://u.edu/merit'
+        cand = {'candidate_id': 'm1', 'domain': 'awards', 'institution_key': 'ipeds-1', 'academic_year': '2027-28', 'year_basis': 'labeled_in_source',
+                'issues': [], 'record': {'institution_key': 'ipeds-1', 'academic_year': '2027-28', 'award_name': 'Gold', 'award_type': 'institutional_merit',
+                                               'award_amount_text': '$5,000', 'source_url': url},
+                'source': {'url': url}, 'extractor': 'merit_table/v1', 'evidence': []}
+        (run / 'candidates.json').write_text(json.dumps([cand])); (run / 'verify.json').write_text('[]')
+        old = {'award_name': 'Gold', 'award_type': 'institutional_merit', 'source_url': url, 'verification_status': 'partially_verified',
+               'last_verified_at': '2026-10-02', 'notes': 'Evidence: sources/pipeline/ZZ/run/evidence.json#m0.'}
+        f = tmp / 'data/institutions/x/awards/2027-28.json'; f.parent.mkdir(parents=True)
+        f.write_text(json.dumps({'institution_key': 'ipeds-1', 'academic_year': '2027-28', 'records': [old]}))
+        (tmp / 'dec.json').write_text(json.dumps({'run': 'run', 'approve': [{'candidate_id': 'm1', 'reason': 'all tiers', 'supersede': 'adds the second row.'}]}))
+        with mock.patch.object(P, 'ROOT', tmp):
+            P.promote({'state': 'ZZ', 'institutions': [{'institution_key': 'ipeds-1', 'folder': 'x'}]}, tmp / 'dec.json', log=lambda *_: None)
+        (rec,) = json.loads(f.read_text())['records']
+        self.assertEqual(rec['verification_status'], 'verified')
+        self.assertIn('Supersedes the partially_verified record last verified 2026-10-02 (evidence sources/pipeline/ZZ/run/evidence.json#m0).', rec['notes'])
+
     def test_state_policy_promotion_path(self):
         tmp = Path(tempfile.mkdtemp())
         with mock.patch.object(P, 'ROOT', tmp):
@@ -2307,6 +2328,8 @@ class MeritGridTests(unittest.TestCase):
         self.assertNotIn('residency_requirement', self.got(unf.replace('Florida Resident', 'Non-Florida Resident'), {**INST, 'state': 'AL'})["President's Gold"]['record'])
         wv = lambda h: self.got(unf.replace('Florida Resident Merit-Based (Freshmen)', h), {**INST, 'state': 'WV'})["President's Gold"]['record'].get('residency_requirement')
         self.assertEqual((wv('West Virginia Residents'), wv('Non-West Virginia Residents'), wv('Virginia Residents')), ('In-state', 'Out-of-state', 'Virginia Residents'))
+        va = lambda h: self.got(unf.replace('Florida Resident Merit-Based (Freshmen)', h), {**INST, 'state': 'VA'})["President's Gold"]['record'].get('residency_requirement')
+        self.assertEqual((va('Virginia Residents'), va('West Virginia Residents')), ('In-state', 'West Virginia Residents'))  # not "Virginia" inside "West Virginia"
         self.assertEqual(self.got(unf.replace('Florida Resident', 'Non-Florida Resident'), {**INST, 'state': 'FL'})["President's Gold"]['record']['residency_requirement'], 'Out-of-state')
 
     def test_year_precedence(self):
@@ -2329,6 +2352,13 @@ class MeritGridTests(unittest.TestCase):
         self.assertEqual(T.dominant_year(T.parse_html(uofl).text)[0], '2026-27')
         self.assertEqual(yr(f'<title>Kentucky Scholarships</title><h2>Merit Awards</h2>{table}{uofl}'), ('2027-28', 'labeled_entering_class', []))
         self.assertEqual(merit.page_year_statement(T.parse_html('<p>VTAG awards are $5,000 for the 2023-24 academic year.</p>')), (None, None))
+        st = lambda html: merit.page_year_statement(T.parse_html(html))
+        self.assertEqual(st('<p>Merit scholarships for students entering in Fall 2027.</p>'), ('2027-28', 'labeled_entering_class'))
+        # a change date ("prior to entering in Fall 2023") is not the entering class (MI: Andrews)
+        self.assertEqual(st('<p>Merit scholarship tiers changed for students admitted prior to entering in Fall 2023.</p>'), (None, None))
+        # a sentence about neither scholarships nor new students says nothing (housing, calendars)
+        self.assertEqual(st('<p>Housing contracts for residents enrolling in Fall 2027 open in May.</p>'), (None, None))
+        self.assertEqual(st('<p>First-year students enrolling in Fall 2027 attend orientation in June.</p>'), ('2027-28', 'labeled_entering_class'))
         gv = '<p>Iowa Tuition Grant awards up to $7,500 in the 2026-27 school year. 2026-27.</p><p>The winner will receive a one-time $1,000 scholarship for the 2023-2024 academic year.</p>'
         self.assertEqual(yr(f'<title>Scholarships</title><h2>Merit Awards</h2>{table}{gv}')[:2], ('2026-27', 'labeled_in_source'))  # IA: an older statement does not re-date
         lbc = '<p>2026-27 Cost for On-Campus Undergraduate Education. The annual amount for 2026-27 academic year is $500.</p>'
