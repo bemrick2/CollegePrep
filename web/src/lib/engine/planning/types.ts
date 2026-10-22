@@ -79,9 +79,38 @@ export interface ExamOption {
 }
 
 export interface TermCoverage {
+  /** 1, 2, 3… over real terms; year headings aren't terms (#230). */
   term: number
   label: string
+  /** The year heading printed above the term ("Freshman", "Year One"), when the plan has one. */
+  group: string | null
+  /** As printed (credit_hours or the printed subtotal); never summed. */
+  creditHours: string | number | null
+  rows: PlanCourseRow[]
   covered: boolean
+  /** Why whole-term coverage isn't checked for this term (planItems.planTerms), or null when it is. */
+  notChecked: 'multi_term' | 'short_term' | 'quarter_calendar' | 'hours' | null
+}
+
+/** One printed row of a plan term, kept as printed. */
+export interface PlanCourseRow {
+  kind: 'course' | 'choice' | 'text' | 'heading' | 'subtotal'
+  code: string | null
+  title: string | null
+  /** The row as printed (code and title, or the text). */
+  text: string
+  credits: number | string | null
+  note: string | null
+  milestone: string | null
+  /** For a choice: the options, as printed. */
+  options: string[]
+}
+
+/** One of the school's plans for the major (a track, a concentration, a four-year or transfer path). */
+export interface PlanChoice {
+  key: string
+  /** The plan's printed title (rule_details.source_section); null when the school prints none. */
+  title: string | null
 }
 
 export interface DualEnrollmentFacts {
@@ -110,7 +139,10 @@ export interface Roadmap {
    * blocked: no verified plan for this major, so credit can be shown as accepted only.
    */
   status: 'ready' | 'partial' | 'blocked'
-  plan: Line<{ catalogYear: string | null; terms: TermCoverage[]; totalCredits: number | null }>
+  plan: Line<{ catalogYear: string | null; title: string | null; terms: TermCoverage[]; totalCredits: number | null; totalText: string | null }>
+  /** Every plan the school prints for this major, in order; the roadmap uses `planKey` (default: the first). */
+  plans: PlanChoice[]
+  planKey: string | null
   credit: CreditLine[]
   options: ExamOption[]
   dualEnrollment: Line<DualEnrollmentFacts>

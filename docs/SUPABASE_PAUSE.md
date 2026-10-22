@@ -69,6 +69,10 @@ Official basis: https://supabase.com/docs/guides/platform/free-project-pausing
    reconcile the invitation entry (20261006120000) from the recorded live row,
    never by reapplying its DDL. Then import latest reviewed GitHub data and run
    reconciliation/idempotence.
+   Before applying 20261022030000_question_rights_gate (CR-24): list published
+   practice_questions; each needs an allowed license, attribution where required
+   and an origin, or must be unpublished, by a reviewed change. The migration
+   refuses to apply otherwise rather than altering what is served.
 5. In a reviewed commit set hold=false, remove false job gates from migration
    and function workflows, and restore live-import's original workflow_run
    success condition. Explicitly dispatch migrations/functions/import in order;
