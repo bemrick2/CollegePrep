@@ -7,6 +7,14 @@ A surviving mutant means a safety rule has no test. Run: python scripts/mutation
 import ast, concurrent.futures, os, queue, shutil, subprocess, sys, tempfile
 
 MUTS = [
+    ('pipeline/promote.py', "    if any(i.startswith(NEVER_ACCEPTED) for i in c['issues']): return None\n", ''),
+    ('pipeline/promote.py', "    if verified_on_main and not (isinstance(decision.get('owner_approval'), str) and decision['owner_approval'].strip()):\n        return False\n", ''),
+    ('pipeline/promote.py', "            return True  # main cannot be read: assume the record is protected", "            return False"),
+    ('pipeline/extractors/merit.py', "            return 'cell_spans_criteria_columns'\n    return None", "            pass\n    return None"),
+    ('pipeline/text.py', "            if cs > 1: wide.append((ri, col, cs))", "            pass"),
+    ('pipeline/extractors/merit.py', "rec_issues + row_issues + ([span_issue] if span_issue else [])))", "rec_issues + row_issues))"),
+    ('pipeline/extractors/merit.py', "        if ri and (col in crit or len(crit) > 1):", "        if ri and crit:"),
+    ('pipeline/extractors/merit.py', "        if ri and (col in crit or len(crit) > 1):", "        if ri and col in crit:"),
     ('pipeline/extractors/catalog.py', "|^\\s*B(?:J|HS|ES|GS|SAcc|SBA|SBE|SIE|SChE|SCE|SEE|SME|SAE|SCS|SF|SFS|SPH|PHIL|ASW|SW|LS|AS)\\s+in\\s+[A-Z]|", "|"),
     ('pipeline/extractors/catalog.py', "|\\(B(?:SBA|SET|SCS|SDH|SHS|SMLS|SPH|SEE|SME|SCE|SAE|SIE|SChE|SAcc|SBE)\\)\\s*$'), ('associate',", "'), ('associate',"),
     ('pipeline/extractors/catalog.py', "    if not labels:  # the print link is the page's only label", "    if False:  # the print link is the page's only label"),

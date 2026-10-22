@@ -32,9 +32,15 @@ def blocking(issues):
     return [i for i in issues if not i.startswith(INFORMATIONAL)]
 
 
+# A value the page did not print in that place can never be accepted by a reviewer: a merged cell inferred without the
+# page's span markup, or a cell spanning several criteria columns whose label is unknown (#273 review).
+NEVER_ACCEPTED = ('merged_cell_inferred', 'cell_spans_criteria_columns')
+
+
 def status_for(c, accepted_issues: bool):
     if c['year_basis'] in {'labeled_in_title', 'labeled_in_heading', 'labeled_in_source'} and not blocking(c['issues']):
         return 'verified'
+    if any(i.startswith(NEVER_ACCEPTED) for i in c['issues']): return None
     return 'partially_verified' if (not blocking(c['issues']) or accepted_issues) else None
 
 
@@ -81,11 +87,31 @@ def _upsert(path: Path, inst_key, year, record, domain):
 EVIDENCE_REF = re.compile(r'Evidence: (sources/pipeline/\S+?#\w+)\.')
 
 
-def may_supersede(decision, old, record):
-    """A 'supersede' decision replaces only a record the pipeline promoted from the same document, and says why."""
+def may_supersede(decision, old, record, verified_on_main=False):
+    """A 'supersede' decision replaces only a record the pipeline promoted from the same document, and says why. A verified
+    record already on main is replaced only with the owner's recorded approval (decision 'owner_approval')."""
     why = decision.get('supersede')
+    if verified_on_main and not (isinstance(decision.get('owner_approval'), str) and decision['owner_approval'].strip()):
+        return False
     return bool(isinstance(why, str) and why.strip() and old and old.get('source_url') == record.get('source_url')
                 and EVIDENCE_REF.search(old.get('notes') or ''))
+
+
+def verified_on_main(path: Path, record, domain):
+    """True when origin/main holds this record (same natural key) as verified, or when that cannot be checked."""
+    import subprocess
+    try:
+        rel = path.resolve().relative_to(ROOT.resolve())
+        if subprocess.run(['git', 'rev-parse', '--verify', '-q', 'origin/main'], cwd=ROOT, capture_output=True).returncode != 0:
+            return True  # main cannot be read: assume the record is protected
+        out = subprocess.run(['git', 'show', f'origin/main:{rel.as_posix()}'], cwd=ROOT, capture_output=True, text=True)
+    except (ValueError, OSError):
+        return True
+    if out.returncode != 0: return False  # the file is not on main: nothing verified there to protect
+    payload = json.loads(out.stdout)
+    key = natural_key(domain, record)
+    return any(r.get('verification_status') == 'verified' and
+               natural_key(domain, {**{k: payload[k] for k in WRAPPER if k in payload}, **r}) == key for r in payload.get('records', []))
 
 
 def supersedes_note(old):
@@ -134,8 +160,10 @@ def promote(registry, decisions_path: Path, log=print):
         if d.get('supersede'):
             # A reviewed re-read of the same document replaces a record the pipeline itself promoted from it (fields the earlier
             # reader missed). Anything else - another source, a hand-curated record - is not superseded by a decision.
-            if not may_supersede(d, old, c['record']):
-                raise ValueError(f"{c['candidate_id']}: supersede needs a reason and a pipeline-promoted record from the same source on file")
+            on_main = bool(old and old.get('verification_status') == 'verified' and verified_on_main(target, c['record'], c['domain']))
+            if not may_supersede(d, old, c['record'], on_main):
+                raise ValueError(f"{c['candidate_id']}: supersede needs a reason, a pipeline-promoted record from the same source on file, "
+                                 "and owner_approval when that record is verified on main")
             c = {**c, 'issues': [i for i in c['issues'] if i != 'conflicts_with_verified_record']}
         elif c.get('diff', {}).get('status') == 'same':
             log(f"skip {c['candidate_id']}: identical to existing record"); continue

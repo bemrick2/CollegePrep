@@ -364,6 +364,26 @@ def _kind(c):
     return 'text'
 
 
+CRITERIA_HEADER = re.compile(r'\b(?:act|sat|clt|gpa|test|score|criteria|requirement)', re.I)
+
+
+def spans_criteria(t):
+    """'cell_spans_criteria_columns' when a body cell is merged across columns and one of the columns it covers is a criterion
+    column (ACT, SAT, GPA, test) where that text would take a criterion's label: the printed grid keeps the text in the first
+    column, so its label there is a guess (#273 review:
+    '3.0 GPA' across ACT | GPA must not read as an ACT criterion)."""
+    grid = T.expand_spans(t)
+    if not grid: return None
+    header = grid[0]
+    for ri, col, cs in T.wide_cells(t):
+        crit = [j for j in range(col, min(col + cs, len(header))) if CRITERIA_HEADER.search(header[j])]
+        # the text sits in the first column; it is mislabelled when that column is a criterion, or when it covers two criteria
+        # (a name cell running into the ACT column, as in "Award C (see Honors College)", is still a name)
+        if ri and (col in crit or len(crit) > 1):
+            return 'cell_spans_criteria_columns'
+    return None
+
+
 def _fill_spans(header, body, name):
     """AR (UCA): cells merged down several rows (rowspan) are printed once, so later rows are short and their cells shift left.
     A short row is re-aligned only when exactly one placement fits every cell to its column's kind (text, GPA, amount, date as
@@ -567,6 +587,7 @@ def extract(inst, entry, page, today_year):
     out = []
     for t in page.tables:
         rows = [r for r in (T.expand_spans(t) or t['rows']) if any(c.strip() for c in r)]  # the printed grid when spans were recorded
+        span_issue = spans_criteria(t)
         if len(rows) < 3: continue
         context = ' '.join([t.get('heading') or '', t.get('caption') or ''])
         if NOT_MERIT.search(context): continue
@@ -644,5 +665,5 @@ def extract(inst, entry, page, today_year):
             scope = re.sub(r'\s+', ' ', re.sub(T.YEAR_RE.pattern + r'|\b20\d{2}\b', '', context)).strip(' -–:|')
             out.append(common.make('awards', inst['institution_key'], rec_year, rec_basis, rec, ev, entry, EXTRACTOR,
                                    {'award_name': rec['award_name']}, {'thresholds': rec.get('thresholds'), 'table_scope': scope},
-                                   rec_issues + row_issues))
+                                   rec_issues + row_issues + ([span_issue] if span_issue else [])))
     return out

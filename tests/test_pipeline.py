@@ -1710,6 +1710,23 @@ do not guarantee admission there. These Transfer Pathways have been effective be
         self.assertEqual(rec['verification_status'], 'verified')
         self.assertIn('Supersedes the partially_verified record last verified 2026-10-02 (evidence sources/pipeline/ZZ/run/evidence.json#m0).', rec['notes'])
 
+    def test_superseding_a_verified_record_on_main_needs_the_owner(self):
+        old = {'source_url': 'https://u.edu/a', 'notes': 'Evidence: sources/pipeline/AL/r/evidence.json#x.', 'verification_status': 'verified'}
+        rec = {'source_url': 'https://u.edu/a'}
+        self.assertFalse(P.may_supersede({'supersede': 'adds row 2'}, old, rec, verified_on_main=True))
+        self.assertFalse(P.may_supersede({'supersede': 'adds row 2', 'owner_approval': ' '}, old, rec, verified_on_main=True))
+        self.assertTrue(P.may_supersede({'supersede': 'adds row 2', 'owner_approval': 'Brandon, 2026-10-23: approved'}, old, rec, verified_on_main=True))
+        self.assertTrue(P.may_supersede({'supersede': 'adds row 2'}, old, rec, verified_on_main=False))
+        tmp = Path(tempfile.mkdtemp())
+        with mock.patch.object(P, 'ROOT', tmp):  # main cannot be read (not a git checkout): protected
+            self.assertTrue(P.verified_on_main(tmp / 'data/x.json', {'award_name': 'A'}, 'awards'))
+
+    def test_never_accepted_issues(self):
+        c = {'year_basis': 'source_unlabeled', 'issues': ['merged_cell_inferred']}
+        self.assertIsNone(P.status_for(c, accepted_issues=True))
+        self.assertIsNone(P.status_for({**c, 'issues': ['cell_spans_criteria_columns']}, accepted_issues=True))
+        self.assertEqual(P.status_for({**c, 'issues': ['shared_site_attribution_review']}, accepted_issues=True), 'partially_verified')
+
     def test_state_policy_promotion_path(self):
         tmp = Path(tempfile.mkdtemp())
         with mock.patch.object(P, 'ROOT', tmp):
@@ -2317,6 +2334,25 @@ class MeritGridTests(unittest.TestCase):
 <tr><th>GPA</th><th>20-23 ACT</th><th>24-27 ACT</th></tr><tr><td>3.0-3.49</td><td>$1,000</td><td>$2,000</td></tr>
 <tr><td>3.5-4.0</td><td>$3,000</td><td>$4,000</td></tr><tr><td>4.0+</td><td>$5,000</td><td>$6,000</td></tr></table>"""
         self.assertEqual(self.got(grid), {})  # a test band above a grid that already has test columns: held, never overwritten
+
+    def test_cell_spanning_criteria_columns_is_held(self):
+        html = """<title>Merit Scholarships</title><h2>2027-2028 Merit Scholarships</h2><table>
+<tr><th>Scholarship</th><th>ACT</th><th>GPA</th><th>Amount</th></tr>
+<tr><td>Award A</td><td>28</td><td>3.5</td><td>$4,000</td></tr>
+<tr><td>Award B</td><td>25</td><td>3.2</td><td>$2,000</td></tr>
+<tr><td>Award C</td><td colspan="2">3.0 GPA (no test required)</td><td>$1,000</td></tr></table>"""
+        got = self.got(html)
+        self.assertIn('cell_spans_criteria_columns', got['Award C']['issues'])
+        self.assertIn('cell_spans_criteria_columns', got['Award A']['issues'])  # the whole table is held: its columns are not reliable
+        self.assertEqual(T.wide_cells(T.parse_html(html).tables[0]), [(3, 1, 2)])
+        plain = html.replace(' colspan="2">3.0 GPA (no test required)</td>', '>20</td><td>3.0</td>')
+        self.assertNotIn('cell_spans_criteria_columns', self.got(plain)['Award C']['issues'])
+        amount = html.replace('<td colspan="2">3.0 GPA (no test required)</td><td>$1,000</td>', '<td>21</td><td colspan="2">3.0</td>')
+        self.assertIn('cell_spans_criteria_columns', self.got(amount)['Award C']['issues'])  # starts in the GPA column
+        two = html.replace('<th>Scholarship</th><th>ACT</th><th>GPA</th><th>Amount</th>', '<th>Scholarship</th><th>Notes</th><th>ACT</th><th>GPA</th><th>Amount</th>')
+        two = two.replace('<td>Award A</td>', '<td>Award A</td><td>x</td>').replace('<td>Award B</td>', '<td>Award B</td><td>y</td>')
+        two = two.replace('<td>Award C</td><td colspan="2">3.0 GPA (no test required)</td>', '<td>Award C</td><td colspan="3">see note: 3.0 GPA</td>')
+        self.assertIn('cell_spans_criteria_columns', self.got(two)['Award C']['issues'])  # starts in Notes but covers ACT and GPA
 
     def test_home_state_residents(self):
         unf = """<title>UNF: Scholarship Options</title><h2>Florida Resident Merit-Based (Freshmen)</h2><table><caption>Freshman Merit Scholarships</caption>

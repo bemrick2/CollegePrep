@@ -112,10 +112,21 @@ def expand_spans(table):
     """The table's rows on the printed grid, or None when the parse recorded no spans (older archives). A cell merged down
     several rows (rowspan) appears in each row it covers; a cell merged across columns (colspan) stays in its first column
     and the columns it covers are empty, so no value is ever copied sideways into another column."""
+    g = _span_grid(table)
+    return g[0] if g else None
+
+
+def wide_cells(table):
+    """(row, first column, colspan) on the printed grid for every cell merged across columns; [] without span markup."""
+    g = _span_grid(table)
+    return g[1] if g else []
+
+
+def _span_grid(table):
     spans = table.get('spans')
     if not spans or len(spans) != len(table.get('rows') or []): return None
-    out, pending = [], {}  # column -> [rows still covered, text]
-    for row, sp in zip(table['rows'], spans):
+    out, pending, wide = [], {}, []  # column -> [rows still covered, text]
+    for ri, (row, sp) in enumerate(zip(table['rows'], spans)):
         if len(sp) != len(row): return None
         grid, col = [], 0
         def carry():
@@ -128,13 +139,14 @@ def expand_spans(table):
                 col += 1
         for text, (rs, cs) in zip(row, sp):
             carry()
+            if cs > 1: wide.append((ri, col, cs))
             for k in range(cs):
                 grid.append(text if k == 0 else '')
                 if rs > 1: pending[col] = [rs - 1, text if k == 0 else '']
                 col += 1
         carry()
         out.append(grid)
-    return out
+    return out, wide
 
 
 def squash(s: str) -> str:
