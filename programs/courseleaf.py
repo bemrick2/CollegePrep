@@ -244,7 +244,7 @@ def _num(w):
 # UWM 2026-27 prints subjects of up to seven letters and of two words ('ARTHIST 101', 'BUS ADM 201', 'BIO SCI 150')
 # UW-Madison prints eight letters and '&' ('AGROECOL 101', 'F&W ECOL 248', 'I&C SCI 31'); a connective or other word printed in
 # capitals before a number is not a subject ('OR BIL 412', 'MINOR IN 300', 'GRADES 101')
-SUBJ = r'(?!(?:OR|AND|IN|OF|AT|TO|HOURS|GRADES|MINOR|TOTAL|LEVEL)\b)[A-Z][A-Z&]{0,7}'
+SUBJ = r'(?!(?:OR|AND|IN|OF|AT|TO)\s[A-Z])(?!(?:HOURS|GRADES|MINOR|TOTAL|LEVEL)\b)[A-Z][A-Z&]{0,7}'  # 'OR 541' / 'AT 310' are subjects
 CODE = rf'(?!X{{3,}}\b|X{{3,}}\d){SUBJ}(?:\s[A-Z&]{{1,5}})?(?:/[A-Z&]{{1,8}})*\s?\d{{3,4}}[A-Z]?'
 # a row that starts like a course but is not one code (joined, cross-listed, ranged): held as complex, never dropped
 CODEISH = re.compile(r'^[A-Z][A-Z&]{0,7}[\s/]')
@@ -406,9 +406,10 @@ def _row(r):
     title = strip_marks((cells[1].get('text') or '').strip(), cells[1].get('sup_tail')) if len(cells) > 2 or (len(cells) == 2 and first.get('colspan', 1) == 1) else ''
     cls = set(r.get('classes') or []) | set(first.get('spans') or [])
     return {'text': text, 'title': title, 'credits': credits if CREDIT_CELL.match(credits) else '', 'indent': bool(first.get('indent')),
-            'inner': bool(first.get('inner_indent')) or '&' in text, 'header': bool(cls & {'areaheader', 'areasubheader'}),
+            # '&' outside the subject joins courses; 'F&W ECOL 448' is one course
+            'inner': bool(first.get('inner_indent')) or bool(re.search(r'\s&\s|\d.*&', text)), 'header': bool(cls & {'areaheader', 'areasubheader'}),
             'or': 'orclass' in cls or text.lower().startswith('or '), 'code': bool(CODE_CELL.match(text)),
-            'codeish': bool(CODEISH.match(text.replace('\u200b', ''))) and bool(re.search(r'\d{3}', text)) and len(text) < 45}
+            'codeish': bool(CODEISH.match(text.replace('\u200b', ''))) and bool(re.search(r'\d{3}', text)) and len(text) < 90}
 
 
 def _course(rw):
@@ -538,7 +539,10 @@ def html_groups(table, program_awards=1, extra_issues=None):
 SUBSTITUTE = re.compile(r'substitut|replac|in lieu|waiv|exception|equivalent|or above|\(or\b|may count|proficiency|placement', re.I)
 MAIN_TABLE = re.compile(r'\b((major|degree|pre-major|program) requirements|curriculum|core)\b', re.I)
 PARALLEL = re.compile(r'^(.+?)\s*(\([^)]+\)\s*Major Requirements|Major\s*[-–]\s*.+)$', re.I)
-CONTEXT_PICK = re.compile(r'\b(select|choose|complete|take)\s+(one|two|three|four|\d+)\b(\s+(course|class)e?s?)?\s*(from|of)?\b|\bone course\b|\bminimum of\b', re.I)
+# a pick from this table: 'Complete one course from:', 'Choose one course from the following', 'Select One:'; never a degree total
+# ('requires a minimum of 120 total hours', 'must complete 40 courses in total')
+CONTEXT_PICK = re.compile(r'\b(select|choose|complete|take)\s+(one|two|three|four|five|six|[1-9])\s+(?:(?:course|class)(?:e?s)?\s+)?(?:of|from)\s*(?:the\s+following|the\s+list|this\s+list|:)'
+                          r'|^\s*(select|choose)\s+(one|two|three|four|five|six|[1-9])\s*:?\s*$', re.I | re.M)
 GER_BOILERPLATE = re.compile(r'body of knowledge as a context for specialization', re.I)  # UWM 2026-27 General Education Requirements
 TRACK_PROSE = re.compile(r'\b(choose one track|focus areas?|specializations?|concentrations?|tracks? from|one of the following (tracks|options|concentrations|areas))\b', re.I)
 NOT_REQUIREMENT_HEADING = re.compile(r'^(contact information|program educational objectives|double-counting policy|internships?|learning outcomes|'

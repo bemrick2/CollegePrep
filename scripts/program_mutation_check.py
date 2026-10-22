@@ -7,7 +7,12 @@ the same file. Each mutant breaks one rule; tests/test_programs_deep_dive.py mus
 import shutil, subprocess, sys
 
 MUTS = [
-    ('programs/courseleaf.py', "SUBJ = r'(?!(?:OR|AND|IN|OF|AT|TO|HOURS|GRADES|MINOR|TOTAL|LEVEL)\\b)[A-Z][A-Z&]{0,7}'", "SUBJ = r'[A-Z][A-Z&]{0,7}'"),
+    ('programs/courseleaf.py', "SUBJ = r'(?!(?:OR|AND|IN|OF|AT|TO)\\s[A-Z])(?!(?:HOURS|GRADES|MINOR|TOTAL|LEVEL)\\b)[A-Z][A-Z&]{0,7}'", "SUBJ = r'[A-Z][A-Z&]{0,7}'"),
+    ('programs/courseleaf.py', "SUBJ = r'(?!(?:OR|AND|IN|OF|AT|TO)\\s[A-Z])", "SUBJ = r'(?!(?:OR|AND|IN|OF|AT|TO)\\b)"),
+    ('programs/courseleaf.py', "|^\\s*(select|choose)\\s+(one|two|three|four|five|six|[1-9])\\s*:?\\s*$', re.I | re.M)", "', re.I | re.M)"),
+    ('programs/courseleaf.py', "(?:of|from)\\s*(?:the\\s+following|the\\s+list|this\\s+list|:)'", "(?:of|from)?'"),
+    ('programs/courseleaf.py', "bool(re.search(r'\\s&\\s|\\d.*&', text)), 'header'", "'&' in text, 'header'"),
+    ('programs/courseleaf.py', "and len(text) < 90}", "and len(text) < 45}"),
     ('programs/courseleaf.py', "CODEISH = re.compile(r'^[A-Z][A-Z&]{0,7}[\\s/]')", "CODEISH = re.compile(r'^[A-Z]{1,5}[\\s/]')"),
     ('programs/courseleaf.py', "        if CONTEXT_PICK.search(ctx): extra.add('context_says_choose')", "        pass"),
     ('programs/courseleaf.py', "CODEISH.match(first.replace('\\u200b', ''))", "CODEISH.match(first)"),

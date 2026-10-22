@@ -1101,6 +1101,17 @@ class CourseListLayoutReviewTests(unittest.TestCase):
         for row in ('ENGLISH 3772/5772', 'PHYSICS 111A- 111B', 'AGROECOL\u200b/ENTOM 101'):
             g = CL.html_groups(self.table([('c', 'CURRINS 301', 'Teaching', '3'), ('c', row, 'Joined', '3')], heading='Major Requirements'))
             self.assertIn('complex_course_row', g[0][1]['issues'], row)
+        for text in ('Complete one course from:', 'Choose one course from the following:', 'Select One:', 'A student needs to take one of the following courses'):
+            self.assertTrue(CL.CONTEXT_PICK.search(text), text)
+        for text in ('A baccalaureate degree requires a minimum of 120 total hours to graduate.', 'Students must complete 40 courses in total.',
+                     'Students must earn a minimum of C- in each course.', 'Majors must take three courses: CAS 140, CAS 141, CAS 142.', 'Majors must take 120 credits.'):
+            self.assertFalse(CL.CONTEXT_PICK.search(text), text)
+        for code in ('AT 310', 'OR 541', 'F&W ECOL 448'):
+            self.assertTrue(CL.CODE_CELL.match(code), code)
+        g = CL.html_groups(self.table([('c', 'F&W ECOL 448', 'Ecology', '3'), ('c', 'AT 310', 'Athletic Training', '3')], heading='Major Requirements'))
+        self.assertEqual(([c['code'] for c in g[0][1]['courses']], g[0][1]['issues']), (['F&W ECOL 448', 'AT 310'], set()))
+        g = CL.html_groups(self.table([('c', 'BIOL 101', 'A', '3'), ('c', 'PLANTSCI/\u200bPL PATH 261 & PL PATH/\u200bPLANTSCI 262', 'Joined', '3')], heading='Major Requirements'))
+        self.assertTrue(g[0][1]['issues'])  # a long joined row is held, never dropped
         ctx = self.table([('c', 'ARTS 101', 'Drawing', '3'), ('c', 'ARTS 102', 'Painting', '3')], heading='Major Requirements', context='Complete one course from:')
         self.assertIn('context_says_choose', CL.html_candidates({'institution_key': 'k'}, e, {'url': 'u'}, [ctx], '2026-2027', 'x', 1)[0]['issues'])
         self.assertEqual(CL.substitution_codes('STAT 1772 will substitute for SOC SCI 2020.\nCourses in lieu of PHYSICS 125A'), {'STAT 1772', 'SOC SCI 2020', 'PHYSICS 125A'})
