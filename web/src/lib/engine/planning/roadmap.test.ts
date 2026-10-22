@@ -12,8 +12,8 @@ const plan = (status = 'verified') => ({
   rule_details: {
     catalog_year: '2026-2027',
     terms: [
-      { term_index: 1, label: 'Fall 1', items: [{ code: 'ECON 101', credits: 3 }, { code: 'ENGL 101', credits: 3 }] },
-      { term_index: 2, label: 'Spring 1', items: [{ code: 'ACCT 201', credits: 3 }] },
+      { term_index: 1, label: 'Fall 1', credit_hours: '15', items: [{ code: 'ECON 101', credits: 3 }, { code: 'ENGL 101', credits: 3 }] },
+      { term_index: 2, label: 'Spring 1', credit_hours: '15', items: [{ code: 'ACCT 201', credits: 3 }] },
     ],
   },
 })
@@ -94,5 +94,28 @@ describe('planning roadmap (#194)', () => {
     const r = buildRoadmap({ comparison: c, programKey: 'biz', profile: profile([]) })
     expect(r.status).toBe('partial')
     expect(r.unknowns.map((u) => u.text)).toContain('No exam-credit table (AP, CLEP, IB or Statewide Dual Credit) is on file for Example U.')
+  })
+
+  it('#230: year headings are not terms, and credit rows use the term numbers shown on the plan', () => {
+    const c = school()
+    const recs = (c.domains as unknown as { degree_requirements: { rule_details?: { terms: unknown[] } }[] }).degree_requirements
+    recs[0]!.rule_details!.terms = [{ term_index: 1, label: 'Year One', items: [] }, ...(recs[0]!.rule_details!.terms as object[]).map((t, i) => ({ ...t, term_index: i + 2 }))]
+    const r = buildRoadmap({ comparison: c, programKey: 'biz', profile: profile([['AP Microeconomics', 4]]), projection })
+    expect(r.plan.value!.terms.map((t) => [t.term, t.label, t.group])).toEqual([[1, 'Fall 1', 'Year One'], [2, 'Spring 1', 'Year One']])
+    expect(r.credit[0]!.rows.map((x) => x.term)).toEqual([1])
+  })
+
+  it('#230: a summer term, or a term under 12 printed hours, is never a term saved', () => {
+    const c = school()
+    const recs = (c.domains as unknown as { degree_requirements: { rule_details?: { terms: { label: string; credit_hours?: string }[] } }[] }).degree_requirements
+    const terms = recs[0]!.rule_details!.terms
+    terms[0] = { ...terms[0]!, label: 'Summer' }
+    const summer = buildRoadmap({ comparison: c, programKey: 'biz', profile: profile([['AP Microeconomics', 4], ['AP English Language', 4]]), projection })
+    expect(summer.plan.value!.terms[0]).toMatchObject({ covered: false, notChecked: 'short_term' })
+    expect(summer.savings.value).toBeNull()
+    terms[0] = { ...terms[0]!, label: 'Fall 1', credit_hours: '6' }
+    const light = buildRoadmap({ comparison: c, programKey: 'biz', profile: profile([['AP Microeconomics', 4], ['AP English Language', 4]]), projection })
+    expect(light.plan.value!.terms[0]).toMatchObject({ covered: false, notChecked: 'hours' })
+    expect(light.savings.value).toBeNull()
   })
 })

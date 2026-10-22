@@ -45,7 +45,7 @@ describe('reading plan items in every stored format (#171)', () => {
     let read = 0
     for (const p of plans)
       for (const t of p.rule_details.terms) {
-        raw += (t.items ?? []).filter((x) => (typeof x === 'string' ? x.trim() !== '' : !!x && Object.values(x as object).some((v) => v !== '' && v != null))).length
+        raw += (t.items ?? []).filter((x) => (typeof x === 'string' ? x.replace(/\|/g, '').trim() !== '' : !!x && Object.values(x as object).some((v) => v !== '' && v != null))).length
         read += readTermItems(t).length
       }
     expect(plans.length).toBe(140)

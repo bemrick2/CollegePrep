@@ -1,5 +1,5 @@
 import type { ExamMatch } from './examCredit'
-import { COURSE_NUMBER, entryCodes, readTermItems, scanCodes, type PlanTermLike } from './planItems'
+import { COURSE_NUMBER, entryCodes, isRequirement, planTerms, scanCodes, type PlanTermLike } from './planItems'
 
 /**
  * Three different questions about credit a student brings, answered only from verified records:
@@ -51,23 +51,27 @@ interface PlanItem {
   any: string[]
   /** Or all codes of one of these combinations ("CHEM 102+103"). */
   combos: string[][]
+  /** The term is a regular full-time semester (planTerms' notChecked is null); only such terms can be "covered". */
+  checked: boolean
 }
 
 function planItems(terms: PlanTerm[]): PlanItem[] {
-  return terms.flatMap((t, i) =>
-    readTermItems(t).map((e) => {
-      const base = { term: t.term_index ?? i + 1, label: t.label ?? `Term ${t.term_index ?? i + 1}`, text: e.choices.length ? `${e.text} ${e.choices.map((c) => c.text).join(' / ')}` : e.text, credits: e.credits }
+  // Heading terms have no rows; inline headings and printed subtotals aren't requirements (#230).
+  return planTerms(terms).flatMap((t) =>
+    t.entries.filter(isRequirement).map((e) => {
+      const base = { term: t.termIndex, label: t.label, checked: t.notChecked === null, text: e.choices.length ? `${e.text} ${e.choices.map((c) => c.text).join(' / ')}` : e.text, credits: e.credits }
       // A structured course, or a choice among options: any one of its codes.
       if (e.code || e.choices.length) return { ...base, any: entryCodes(e), combos: [] }
-      // Free text: "A or B" is any one; "CHEM 102+103" is a combination that counts only when all were awarded.
+      // Free text: "A or B" is any one; "CHEM 102+103", "BIOL 1113& BIOL 1111" and "A and B" are combinations that
+      // count only when all were awarded.
       const combos: string[][] = []
       const any: string[] = []
       let subject: string | null = null
-      for (const seg of e.text.toUpperCase().split(/[,/]|\bOR\b/)) {
+      for (const seg of e.text.toUpperCase().split(/[,/]|\bOR\b|(?<=\d[A-Z]?)OR\b/)) {
         const scan = scanCodes(seg, subject)
         subject = scan.subject
         const codes = scan.codes
-        if (seg.includes('+') && codes.length > 1) combos.push(codes)
+        if (/[+&]|\bAND\b/.test(seg) && codes.length > 1) combos.push(codes)
         else any.push(...codes)
       }
       return { ...base, any, combos }
@@ -136,6 +140,14 @@ export function degreeCredit(matches: ExamMatch[], terms: PlanTerm[]): DegreeCre
         taken.add(it)
         matched.push({ code, term: it.term, label: it.label, item: it.text, credits: it.credits })
         hit++
+        continue
+      }
+      // Part of a combination row ("PHYS 2325& PHYS 2125"): the course is in the plan. The row itself counts as
+      // done only when every course of the combination is awarded (checked after all exams), so it isn't taken here.
+      const combo = items.find((x) => !taken.has(x) && x.combos.some((c) => c.includes(code)))
+      if (combo) {
+        matched.push({ code, term: combo.term, label: combo.label, item: combo.text, credits: combo.credits })
+        hit++
       }
     }
     const status: Applicability = hit === groups.length ? 'applies' : hit > 0 ? 'partly' : anyAssigned ? 'school_assigns' : 'not_in_plan'
@@ -166,7 +178,7 @@ export function degreeCredit(matches: ExamMatch[], terms: PlanTerm[]): DegreeCre
 
   const byTerm = new Map<number, PlanItem[]>()
   for (const it of items) byTerm.set(it.term, [...(byTerm.get(it.term) ?? []), it])
-  const coveredTerms = [...byTerm.entries()].filter(([, its]) => its.length > 0 && its.every((x) => used.has(x))).map(([term, its]) => ({ term, label: its[0]!.label }))
+  const coveredTerms = [...byTerm.entries()].filter(([, its]) => its.length > 0 && its[0]!.checked && its.every((x) => used.has(x))).map(([term, its]) => ({ term, label: its[0]!.label }))
 
   return {
     accepted,

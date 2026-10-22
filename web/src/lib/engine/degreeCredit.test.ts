@@ -55,8 +55,8 @@ describe('accepted vs applies to the major vs removes a term (UTK Computer Scien
 
   it('a whole covered term is reported (synthetic plan)', () => {
     const terms: PlanTerm[] = [
-      { term_index: 1, label: 'Term 1', items: ['MATH 147', 'ENGL 101 or ENGL 131'] },
-      { term_index: 2, label: 'Term 2', items: ['MATH 148', 'COSC 202'] },
+      { term_index: 1, label: 'Term 1', credit_hours: '15', items: ['MATH 147', 'ENGL 101 or ENGL 131'] },
+      { term_index: 2, label: 'Term 2', credit_hours: '15', items: ['MATH 148', 'COSC 202'] },
     ]
     const r = degreeCredit(summarizeSchool(policies, [ap('AP Calculus BC', 5), ap('AP English Language & Composition', 5)]).matches, terms)
     expect(r.coveredTerms).toEqual([{ term: 1, label: 'Term 1' }])
