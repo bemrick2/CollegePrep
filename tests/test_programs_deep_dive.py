@@ -2958,7 +2958,16 @@ class PlanFootnoteTests(unittest.TestCase):
         txt = ('Biology - BA\nPlan of Study Grid\n| First Year\n| Fall | Hours\n| BIOL 111\nwrapped title 1 | 4\n| | Total Hours | 4\n'
                '1\nMATH 147 accepted in lieu of MATH 142.\n2\nSelect from ANTH 200-499.\nTotal Program Hours 120')
         self.assertEqual(CL.grid_footnotes(self.page(txt)), [[{'marker': '1', 'text': 'MATH 147 accepted in lieu of MATH 142.'}, {'marker': '2', 'text': 'Select from ANTH 200-499.'}]])
-        self.assertEqual(CL.grid_footnotes(self.page(txt.replace('\n2\n', '\n3\n'))), [[{'marker': '1', 'text': 'MATH 147 accepted in lieu of MATH 142.'}]])  # out of order: stop
+        self.assertEqual([x['marker'] for x in CL.grid_footnotes(self.page(txt.replace('\n2\n', '\n3\n')))[0]], ['1', '3'])  # a skipped number (Saint Louis)
+        self.assertEqual([x['marker'] for x in CL.grid_footnotes(self.page(txt.replace('\n2\n', '\n1\n')))[0]], ['1'])  # numbers must increase
+        multi = txt.replace('MATH 147 accepted in lieu of MATH 142.', 'Select one of the following:\nMATH 147\nMATH 151')
+        self.assertEqual(CL.grid_footnotes(self.page(multi))[0][0]['text'], 'Select one of the following: / MATH 147 / MATH 151')  # a note of several lines
+        last = txt.replace('Select from ANTH 200-499.', 'Choose one group as follows:\nGroup A: ANTH 301\nGroup B: ANTH 302')
+        self.assertEqual(CL.grid_footnotes(self.page(last))[0][1]['text'], 'Choose one group as follows: / Group A: ANTH 301 / Group B: ANTH 302')
+        sym = txt.replace('1\nMATH 147 accepted in lieu of MATH 142.\n2\n', '+\nMATH 147 accepted in lieu of MATH 142.\n^\n')
+        self.assertEqual([x['marker'] for x in CL.grid_footnotes(self.page(sym))[0]], ['+', '^'])  # Oregon State, Tulane
+        inline = txt.replace('Total Program Hours 120', '**This document serves as a guide.\nTotal Program Hours 120')
+        self.assertEqual(CL.grid_footnotes(self.page(inline))[0][-1], {'marker': '**', 'text': 'This document serves as a guide.'})  # Slippery Rock
         two = txt.replace('Total Program Hours 120', 'Plan of Study Grid\n| Third Year\n| | Total Hours | 4\n3\nTwo courses must be writing intensive.')
         self.assertEqual([[x['marker'] for x in g] for g in CL.grid_footnotes(self.page(two, 2))], [['1', '2'], ['3']])  # numbering continues
         self.assertIsNone(CL.grid_footnotes(self.page(txt, 2)))  # captions in the text do not match the grids: never paired

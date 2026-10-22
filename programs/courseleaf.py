@@ -135,18 +135,32 @@ def grids(page):
     return [t for t in page.tables if (t.get('caption') or '').strip().lower() in ('plan of study grid', 'degree map')]
 
 
-FOOTNOTE_MARK = re.compile(r'^(\d{1,2}|[*†‡§#]+)$')
+FOOTNOTE_MARK = re.compile(r'^(\d{1,2}|[a-zA-Z]|[*†‡§#+^]{1,3})$')
+FOOTNOTE_INLINE = re.compile(r'^([*†‡§#+^]{1,3})\s?([A-Z(].*)$')  # '**This document serves as a guide ...' (Slippery Rock)
+FOOTNOTE_GOES_ON = re.compile(r'^(?:[a-z(•\-–]|[Gg]roup\b|[Ss]elect\b|[Cc]hoose\b|[Oo]r\b|[Aa]nd\b)')
 
 
 def grid_footnotes(page):
     """The footnotes printed right after each plan grid, in grid order: [[{'marker', 'text'}, ...], ...]. CourseLeaf prints
-    them as a marker line and a text line after the grid's last row ('1' / 'Must make a grade of C or better.', Texas A&M
-    2026-27). Numeric markers must run 1, 2, 3 ... in order; reading stops at the first line that breaks the pattern.
-    None when the page text does not show one caption per grid, so no footnote is ever paired with the wrong grid."""
+    a marker line and the note's text after the grid's last row ('1' / 'Must make a grade of C or better.', Texas A&M
+    2026-27); markers may be numbers, letters or symbols ('+', '^', '**', Oregon State, Tulane, Slippery Rock), and a symbol
+    may lead its text on one line ('**This document serves as a guide'). A note's text runs to the next marker, its lines
+    joined by ' / '. The last note runs on only while a line ends in ':', ';' or ',' or the next line plainly continues it
+    (a list item, 'Group B', lower case); reading stops at a table row, a caption, a page heading or the copyright line.
+    Numbered markers must increase (a skipped number is allowed: Saint Louis prints 1, 3, 4).
+    None when the page text does not show one caption per grid, so no note is ever paired with the wrong grid."""
     lines = [re.sub(r'[\s\xa0]+', ' ', l).strip() for l in page.text.splitlines() if l.strip()]
     caps = [k for k, l in enumerate(lines) if l.lower() in ('plan of study grid', 'degree map')]
     gs = grids(page)
     if len(caps) != len(gs): return None
+    heads = {re.sub(r'[\s\xa0]+', ' ', h).strip() for h in (page.headings or [])}
+    hard = lambda l: l.startswith('|') or l.lower() in ('plan of study grid', 'degree map', 'course list') or l.startswith('©') or l in heads
+
+    def mark(l):
+        if FOOTNOTE_MARK.match(l): return l, None
+        m = FOOTNOTE_INLINE.match(l)
+        return (m.group(1), m.group(2)) if m else (None, None)
+
     out = []
     for n, (k, g) in enumerate(zip(caps, gs)):
         stop = caps[n + 1] if n + 1 < len(caps) else len(lines)
@@ -155,18 +169,26 @@ def grid_footnotes(page):
         cells = [re.sub(r'[\s\xa0]+', ' ', c).strip() for c in last if (c or '').strip()]
         end = next((j for j in range(k + 1, stop) if lines[j].startswith('|') and all(c in lines[j] for c in cells)), None)
         if end is None or not cells: return None
-        j = end + 1
-        notes = []
-        # numbering starts at 1, or continues from the grid before (Texas A&M prints 1-5 after the first grid, 6-7 after the second)
-        prev = max((int(x['marker']) for x in (out[-1] if out else []) if x['marker'].isdigit()), default=0)
-        expect = None
-        while j + 1 < stop and FOOTNOTE_MARK.match(lines[j]) and not FOOTNOTE_MARK.match(lines[j + 1]) and not lines[j + 1].startswith('|'):
-            m = lines[j]
+        j, notes, last_num = end + 1, [], 0
+        while j < stop:
+            m, first = mark(lines[j])
+            if m is None or hard(lines[j]): break
             if m.isdigit():
-                if expect is None and int(m) in (1, prev + 1): expect = int(m)
-                if int(m) != expect: break
-                expect += 1
-            notes.append({'marker': m, 'text': lines[j + 1]}); j += 2
+                if int(m) <= last_num: break
+                last_num = int(m)
+            body = [first] if first else []
+            j += 1
+            while j < stop and not hard(lines[j]) and mark(lines[j])[0] is None:
+                body.append(lines[j]); j += 1
+            if not body: break
+            if j >= stop or hard(lines[j]) or mark(lines[j])[0] is None or (mark(lines[j])[0].isdigit() and int(mark(lines[j])[0]) <= last_num):
+                # the last note: keep only the lines that plainly continue it; the rest is page text
+                keep = [body[0]]
+                for l in body[1:]:
+                    if keep[-1].endswith((':', ';', ',')) or FOOTNOTE_GOES_ON.match(l): keep.append(l)
+                    else: break
+                notes.append({'marker': m, 'text': ' / '.join(keep)}); break
+            notes.append({'marker': m, 'text': ' / '.join(body)})
         out.append(notes)
     return out
 

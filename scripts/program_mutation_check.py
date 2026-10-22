@@ -7,12 +7,17 @@ the same file. Each mutant breaks one rule; tests/test_programs_deep_dive.py mus
 import shutil, subprocess, sys
 
 MUTS = [
+    ('programs/courseleaf.py', "                if int(m) <= last_num: break", "                pass"),
+    ('programs/courseleaf.py', "                    if keep[-1].endswith((':', ';', ',')) or FOOTNOTE_GOES_ON.match(l): keep.append(l)", "                    keep.append(l)"),
+    ('programs/courseleaf.py', "                    if keep[-1].endswith((':', ';', ',')) or FOOTNOTE_GOES_ON.match(l): keep.append(l)", "                    if False: keep.append(l)"),
+    ('programs/courseleaf.py', "FOOTNOTE_MARK = re.compile(r'^(\\d{1,2}|[a-zA-Z]|[*†‡§#+^]{1,3})$')", "FOOTNOTE_MARK = re.compile(r'^(\\d{1,2}|[*†‡§#]+)$')"),
+    ('programs/courseleaf.py', "        m = FOOTNOTE_INLINE.match(l)", "        m = None"),
+    ('programs/courseleaf.py', "            while j < stop and not hard(lines[j]) and mark(lines[j])[0] is None:", "            while False:"),
+    ('programs/courseleaf.py', "    hard = lambda l: l.startswith('|') or", "    hard = lambda l: False or"),
     ('programs/courseleaf.py', "        if gs[i - 1].get('_footnotes'): rd['footnotes'] = gs[i - 1]['_footnotes']", "        pass"),
     ('programs/courseleaf.py', "        if gs[i - 1].get('_footnotes', []) is None: issues.append('footnotes_not_read')", "        pass"),
     ('programs/courseleaf.py', "    if len(caps) != len(gs): return None", "    if not caps: return None"),
     ('programs/courseleaf.py', "        if end is None or not cells: return None", "        if end is None: end = k"),
-    ('programs/courseleaf.py', "                if int(m) != expect: break", "                pass"),
-    ('programs/courseleaf.py', "                if expect is None and int(m) in (1, prev + 1): expect = int(m)", "                if expect is None: expect = int(m)"),
     ('programs/courseleaf.py', "'_footnotes': None if any(g['_footnotes'] is None for g in gs) else", "'_footnotes': [] if any(g['_footnotes'] is None for g in gs) else"),
     ('programs/verify.py', "            if squash(fn.get('text', '')) not in squashed: probs.append", "            if False: probs.append"),
     ('programs/courseleaf.py', "CHOICE_HEADER = re.compile(r'^(?:[A-Z][^:]{0,60}:\\s*)?(?:select", "CHOICE_HEADER = re.compile(r'^(?:select"),
