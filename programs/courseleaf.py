@@ -30,7 +30,7 @@ TERM = re.compile(r'^(first|second|third|fourth|fifth|freshman|sophomore|junior|
                   # 'Semester III' (Lorain CCC), 'Summer Session I' (West Chester), 'Fall I' (Georgetown), 'J-term'
                   # (Quinnipiac), 'Junior and Senior Years' (CSUS), and SPU's 'Any Quarter' / 'Variable' / 'Autumn or Winter'
                   r'|^term\s+\d$|^(1st|2nd|3rd|[4-6]th)\s+year$|^year\s+(i|ii|iii|iv|v)$|^semester\s+(i|ii|iii|iv|v|vi|vii|viii)$'
-                  r'|^summer\s+session(\s+(i|ii|\d))?$|^(fall|spring|summer|winter)\s+(i|ii)$|^j-?term$'
+                  r'|^summer\s+session(\s+(i|ii|\d))?$|^(fall|spring|summer|winter)\s+(i|ii|iii|iv)$|^j-?term$'
                   r'|^(freshman|sophomore|junior|senior)\s+and\s+(freshman|sophomore|junior|senior)\s+years$'
                   r'|^any\s+quarter$|^variable$|^(autumn|fall|winter|spring|summer)\s+or\s+(autumn|fall|winter|spring|summer)$', re.I)
 
@@ -108,6 +108,29 @@ def labelled_keys(heads, make):
             for i, (k, h) in enumerate(zip(keys, heads))]
 
 
+TRACK_WORD = re.compile(r'\b(concentration|track|emphasis|option)\b', re.I)
+TRACK_SENTENCE = re.compile(r'\b(?:the\s+)?(?:below|following|above)\s+plan\s+is\s+for\s+the\s+.{3,120}?\b(?:track|concentration|option|emphasis)\b', re.I)
+
+
+def single_plan_label(page, heading):
+    """A track named for a page's only plan grid, as printed: the line right above the 'Plan of Study Grid' caption when it
+    is a short label naming a concentration, track, emphasis or option ('Physical Geography Concentration Plan', CU
+    Boulder Geography BS), or the sentence between the grid's heading and its caption that says which track the plan is for
+    ('The below plan is for the Greek and/or Latin Language and Literature track of the major.', CU Boulder Classics BA).
+    None otherwise; nothing is inferred from the program name."""
+    lines = [l.strip() for l in page.text.splitlines() if l.strip()]
+    caps = [i for i, l in enumerate(lines) if l in ('Plan of Study Grid', 'Degree Map')]
+    if len(caps) != 1 or caps[0] == 0: return None
+    k = caps[0]; prev = lines[k - 1]
+    if prev != heading and not prev.startswith('|') and len(prev) <= 120 and not prev.endswith(('.', ':')) and TRACK_WORD.search(prev):
+        return prev
+    j = max((i for i, l in enumerate(lines[:k]) if l == heading), default=None) if heading else None
+    for l in (lines[j + 1:k] if j is not None else []):
+        for sent in re.split(r'(?<=\.)\s+', l):
+            if TRACK_SENTENCE.search(sent): return sent.strip()
+    return None
+
+
 def grids(page):
     return [t for t in page.tables if (t.get('caption') or '').strip().lower() in ('plan of study grid', 'degree map')]
 
@@ -124,6 +147,8 @@ def parse_grid(t):
         if not nonempty: continue
         if len(cells) == 1 and not TERM.match(cells[0]):  # a label row the reader does not know ('Third Semeseter', UNO)
             t['_unread_label'] = True
+        if len(nonempty) == 1 and not TERM.match(nonempty[0]) and re.search(r'\byear\s+\d\b', nonempty[0], re.I) and nonempty[0].isupper():
+            t['_unread_label'] = True  # 'DOCTORAL YEAR 2' / 'YEAR 1, CONTINUED' printed inside a term (Quinnipiac BS/OTD)
         if (len(nonempty) >= 2 and not TERM.match(nonempty[0]) and not ONE.match(nonempty[0])
                 and all(c.lower() in HEADER_CELLS for c in nonempty[1:])):  # an unknown term printed with its header ('Term 1 | Units')
             t['_unread_label'] = True
@@ -187,6 +212,7 @@ def extract(inst, entry, page, year, year_line, have_program):
     # other headings name a track, concentration or route ('Physical Geography', 'Greek'): the plan is labelled by its printed
     # heading and held until a reviewer confirms each heading names a plan of this program (not a tab or another section)
     track_labels = labelled and not all(re.search(r'\bbachelor\b', h, re.I) for h in headings)
+    single_label = single_plan_label(page, headings[0]) if len(parsed) == 1 else None
     plan_keys = labelled_keys(headings, slug) if labelled else []
     for i, (terms, total) in enumerate(parsed, 1):
         if not terms: continue
@@ -196,11 +222,11 @@ def extract(inst, entry, page, year, year_line, have_program):
             key = 'sample-plan' if len(parsed) == 1 else f'sample-plan-{i}'
         caption = (gs[i - 1].get('caption') or 'Plan of Study Grid').strip()
         rd = {'schema': 'requirement_group/v1', 'catalog_year': year, 'group_type': 'sequence', 'category': 'recommended_sequence',
-              'terms': terms, 'source_section': (headings[i - 1] if labelled else f'Sample Plan: {caption}' + (f' {i} of {len(parsed)}' if len(parsed) > 1 else ''))}
+              'terms': terms, 'source_section': (headings[i - 1] if labelled else single_label if single_label else f'Sample Plan: {caption}' + (f' {i} of {len(parsed)}' if len(parsed) > 1 else ''))}
         if total: rd['rule_text'] = f"{gs[i - 1].get('_total_label') or 'Total Credits'} {total} (as printed)"
         rec = {'program_key': pkey, 'requirement_key': key, 'requirement_kind': 'program_plan', 'rule_details': rd}
         ev = [{'field': 'term', 'value': t['label'], 'snippet': f"{t['label']}: {len(t['items'])} items, {t.get('credit_hours', '?')} credits"} for t in terms]
-        issues = ['multiple_plan_grids'] if len(parsed) > 1 and not labelled else ['plan_heading_label'] if track_labels else []
+        issues = ['multiple_plan_grids'] if len(parsed) > 1 and not labelled else ['plan_heading_label'] if (track_labels or single_label) else []
         if gs[i - 1].get('_unread_label'): issues.append('unread_label_row')
         out.append(common.make('degree_requirements', inst['institution_key'], acad, 'labeled_in_source', rec, ev, entry, PLAN_EXTRACTOR,
                                {'program_key': pkey, 'requirement_key': key}, {'terms': len(terms)}, issues))
@@ -504,10 +530,15 @@ def html_groups(table, program_awards=1, extra_issues=None):
                 elif crd:
                     cur['type'] = 'choose_credits'; cur['choose_credits'] = _num(crd.group(1))
                     if re.search(r'\d\s*-\s*\d', rw['text']): cur['issues'].add('credit_range')
+                    # 'Select 48 hours of Electives/Minor | 45' (UNL): the rule and its hours cell disagree
+                    if (rw['credits'] or '').strip().isdigit() and cur['choose_credits'] != int(rw['credits']): cur['issues'].add('rule_credits_differ_from_hours')
                 else:
                     m = re.match(r'^(one|two|three|four|five|six|\d+)\b', rw['text'], re.I)
                     if m: cur['type'] = 'choose_courses'; w = m.group(1).lower(); cur['choose_count'] = NUMBER_WORDS.get(w) or int(w)
                     else: cur['issues'].add('choose_number_not_printed')
+                # 'Select one course each from ACE outcomes 5, 7, and 9 | 9' (UNL): one per area, so the number of courses is
+                # not printed as a count
+                if re.search(r'\beach\b', rule, re.I): cur['issues'].add('count_per_area')
                 continue
             was_choice = cur is not None and cur['type'] != 'all_required' and not rw['credits']
             close()  # any other non-indented text row (a requirement printed as text) ends the group; it is not a group itself
@@ -619,7 +650,8 @@ def html_candidates(inst, entry, cl_entry, tables, year, program_key, program_aw
 # rule. Nothing is inferred: a cell without a column, an indented row with no open rule in its column, or a marker that is
 # not at the end of a cell holds the plan.
 PLANGRID_EXTRACTOR = 'courseleaf_plangrid/v1'
-GRID_CODE = re.compile(r'^([A-Z]{2,5})\s(F?\d{3}[A-Z]?)$')
+# 'MATH F251X' (UAF), 'BIOL 2403' (SHSU: four digits), 'ENGLSH 1000' / 'AG_S_TCH 1020' (Missouri)
+GRID_CODE = re.compile(r'^([A-Z]{2,5}|[A-Z][A-Z_]{1,8})\s(F?\d{3,4}[A-Z]?)$')
 GRID_COL = re.compile(r'^(year\d+)_(Term\d+)_(codecol|hourscol)$')
 GRID_CHOICE = re.compile(r'^(?:complete|select|choose|take)\s+(?:one|two|three|\d+)\s+of\s+the\s+following\s*:?$', re.I)
 RECOMMENDED = re.compile(r'\s*\(\*\)$')
@@ -630,16 +662,43 @@ def _credits(s):
     return int(s) if s.isdigit() else s
 
 
+class _Col:  # a term column found by position (SHSU), shaped like a GRID_COL match
+    def __init__(self, year, pos, kind): self.g = (year, pos, kind)
+    def group(self, i): return self.g[i - 1]
+
+
+def _positioned(cells):
+    """(column position, cell) for each cell: a cell spans `colspan` columns of the printed grid."""
+    pos = 0
+    for c in cells:
+        yield pos, c
+        pos += int(c.get('colspan') or 1)
+
+
 def parse_plangrid(t, footnote_defs):
-    """(terms, total, issues) of one roadmap grid."""
+    """(terms, total, issues) of one roadmap grid.
+    SHSU 2026-27 prints its grids without column headers on the cells ('undefinedcodecol'): a cell's column is then its
+    position in the row (colspans counted), and its term is the term label printed at that position in the year's term
+    row ('Fall | Hours | Spring | Hours | Summer | Hours'); a code cell sits in its term's column and an hours cell in the
+    column after it. Any other cell with text, or a column with no printed term, holds the plan."""
     years, terms, by_col, issues, total = {}, [], {}, set(), None
+    positional = not any(GRID_COL.match(h) for row in t.get('rows') or [] for c in row.get('cells') or [] for h in (c.get('header') or '').split())
+    year = None
     for row in t.get('rows') or []:
         cls, cells = row.get('classes') or [], row.get('cells') or []
         if 'plangridyear' in cls:
             for c in cells:
                 if c.get('id'): years[c['id']] = c['text']
+            if positional:
+                year = ' '.join(c['text'] for c in cells if c.get('text')).strip() or None
             continue
         if 'plangridterm' in cls:
+            if positional:
+                for pos, c in _positioned(cells):
+                    if c.get('text') and 'hourscol' not in (c.get('classes') or []):
+                        term = {'term_index': len(terms) + 1, 'label': f"{year or ''} {c['text']}".strip(), 'items': []}
+                        terms.append(term); by_col[(year, pos)] = {'term': term, 'open': None}
+                continue
             for c in cells:
                 m = GRID_COL.match(c.get('id') or '')
                 if m and m.group(3) == 'codecol':
@@ -647,13 +706,18 @@ def parse_plangrid(t, footnote_defs):
                     terms.append(term); by_col[(m.group(1), m.group(2))] = {'term': term, 'open': None}
             continue
         if 'plangridtotal' in cls:
-            m = re.search(r'total credits\s+(\S+)', ' '.join(c['text'] for c in cells), re.I)
-            if m: total = m.group(1)
+            # 'Total Credits 120' (UAF), 'Total Hours: 120-121' (SHSU)
+            m = re.search(r'(total (?:credits|hours)):?\s+(\S+)', ' '.join(c['text'] for c in cells), re.I)
+            if m: total = m.group(2); t['_total_label'] = m.group(1)
             continue
         slots = {}
-        for c in cells:
-            cols = [GRID_COL.match(h) for h in (c.get('header') or '').split()]
-            cols = [m for m in cols if m]
+        for pos, c in _positioned(cells):
+            if positional:
+                kinds = [k for k in ('codecol', 'hourscol') if k in (c.get('classes') or [])]
+                cols = [_Col(year, pos if kinds[0] == 'codecol' else pos - 1, kinds[0])] if len(kinds) == 1 else []
+            else:
+                cols = [GRID_COL.match(h) for h in (c.get('header') or '').split()]
+                cols = [m for m in cols if m]
             if not cols:
                 if c['text']: issues.add('grid_cell_without_column')
                 continue
@@ -685,6 +749,7 @@ def parse_plangrid(t, footnote_defs):
             if marks:
                 item['footnotes'] = marks
                 if any(n not in footnote_defs for n in marks): issues.add('footnote_not_defined')
+                elif any(footnote_defs[n] is None for n in marks): issues.add('footnote_definition_unclear')
             if code.get('indent'):
                 if st['open'] is None: issues.add('indented_row_without_rule'); st['term']['items'].append(item)
                 else: st['open'].setdefault('options', []).append(item)
@@ -694,13 +759,57 @@ def parse_plangrid(t, footnote_defs):
     for st in by_col.values():
         for it in st['term']['items']:
             if GRID_CHOICE.match(it.get('text', '')) and not it.get('options'): issues.add('rule_without_options')
+    if positional:  # columns found by position are checked against the printed sums: each term's hours, then the total
+        issues |= _sum_issues(terms, total)
     return terms, total, issues
 
 
-def plangrid_candidates(inst, entry, grid_entry, doc, year, program_key):
+def _span(v):
+    m = re.fullmatch(r'(\d+(?:\.\d+)?)(?:\s*-\s*(\d+(?:\.\d+)?))?', str(v).strip())
+    return (float(m.group(1)), float(m.group(2) or m.group(1))) if m else None
+
+
+def _sum_issues(terms, total):
+    """Issues when a term's item hours do not add up to its printed subtotal, an item in a summed term prints no hours,
+    or the subtotals do not add up to the printed total. A printed range ('3-4') adds as a range."""
+    out = set()
+    sums = []
+    for t in terms:
+        if not t.get('credit_hours'): continue
+        ch = _span(t['credit_hours'])
+        parts = [_span(i['credits']) if 'credits' in i else None for i in t['items']]
+        if None in parts or ch is None: out.add('term_item_without_hours'); continue
+        lo, hi = sum(p[0] for p in parts), sum(p[1] for p in parts)
+        if not ((lo, hi) == ch or (ch[0] == ch[1] and lo <= ch[0] <= hi)): out.add('term_hours_differ')
+        sums.append(ch)
+    tot = _span(total) if total else None
+    if tot and sums:
+        lo, hi = sum(a for a, _ in sums), sum(b for _, b in sums)
+        if not ((lo, hi) == tot or (tot[0] == tot[1] and lo <= tot[0] <= hi)): out.add('total_hours_differ')
+    return out
+
+
+def page_footnotes(text):
+    """Footnotes printed on the page after a grid's 'Total Hours: N' line (SHSU): a line holding only the number, then its
+    text on the next printed line. They end where the next section starts ('Course List')."""
+    lines = [l.strip() for l in (text or '').splitlines() if l.strip()]
+    start = next((i for i, l in enumerate(lines) if re.match(r'^\|?\s*total hours:\s*\S+', l, re.I)), None)
+    defs = {}
+    if start is None: return defs
+    i = start + 1
+    while i + 1 < len(lines) and re.fullmatch(r'\d{1,2}', lines[i]):
+        nxt = lines[i + 2] if i + 2 < len(lines) else ''
+        # a number printed twice (SHSU BSN '9'), or a definition whose next line neither starts another footnote nor the
+        # 'Course List' section (it may continue), is not read: a plan that uses it is held
+        whole = nxt == '' or re.fullmatch(r'\d{1,2}', nxt) or nxt.startswith('Course List') or re.fullmatch(r'Notes:?', nxt)  # SHSU ends the list at 'Notes'
+        defs[lines[i]] = None if (lines[i] in defs or not whole) else lines[i + 1]; i += 2
+    return defs
+
+
+def plangrid_candidates(inst, entry, grid_entry, doc, year, program_key, page_text=None):
     """program_plan candidates for a page's roadmap grids (programs.courselist_html.plan_grids output)."""
     acad = academic_year_of(year)
-    defs = {}
+    defs = {} if doc.get('footnotes') else page_footnotes(page_text)
     for t in doc.get('footnotes') or []:
         for r in t.get('rows') or []:
             for c in r.get('cells') or []:
@@ -717,12 +826,17 @@ def plangrid_candidates(inst, entry, grid_entry, doc, year, program_key):
         terms, total, issues = parse_plangrid(t, defs)
         if not terms: continue
         if len(grids_) > 1 and not labelled: issues.add('multiple_plan_grids')
+        # an unlabelled grid headed for a track, concentration, dual degree or double major ('Semester Plan - Dual Degree
+        # Electrical Engineering and Computer Engineering', Missouri) is that route's plan, not the program's: held until reviewed
+        heading = t.get('heading') or ''
+        if re.search(r'\b(dual degree|double major)\b', heading, re.I) or (not labelled and re.search(r'\b(concentration|track|emphasis|option)\b', heading, re.I)):
+            issues.add('plan_heading_label')  # another program's plan is held even when labelled; a labelled track plan is keyed to its track
         key = 'roadmap' if len(grids_) == 1 else (road_keys[i - 1] if labelled else f'roadmap-{i}')
         used = sorted({n for term in terms for it in term['items'] for x in [it, *it.get('options', [])] for n in x.get('footnotes', [])}, key=lambda n: (len(n), n))
         rd = {'schema': 'requirement_group/v1', 'catalog_year': year, 'group_type': 'sequence', 'category': 'recommended_sequence',
               'terms': terms, 'source_section': (heads[i - 1] if labelled else (t.get('heading') or 'Roadmap').strip() + (f' {i} of {len(grids_)}' if len(grids_) > 1 else ''))}
-        if used: rd['footnotes'] = {n: defs[n] for n in used if n in defs}
-        if total: rd['rule_text'] = f'Total Credits {total} (as printed)'
+        if used: rd['footnotes'] = {n: defs[n] for n in used if defs.get(n)}
+        if total: rd['rule_text'] = f"{t.get('_total_label') or 'Total Credits'} {total} (as printed)"
         rec = {'program_key': program_key, 'requirement_key': key, 'requirement_kind': 'program_plan', 'rule_details': rd}
         ev = [{'field': 'term', 'value': term['label'], 'snippet': f"{term['label']}: {len(term['items'])} items, {term.get('credit_hours', '?')} credits"} for term in terms]
         c = common.make('degree_requirements', inst['institution_key'], acad, 'labeled_in_source', rec, ev, entry, PLANGRID_EXTRACTOR,
