@@ -401,11 +401,17 @@ export class LiveSource implements DataSource {
   async listInvitations(householdId: string): Promise<InvitationSummary[]> {
     const { data, error } = await this.sb
       .from('household_invitations')
-      .select('id, role, student_id, recipient_email, created_at, expires_at, accepted_at, revoked_at, last_emailed_at')
+      .select('id, role, student_id, created_at, expires_at, accepted_at, revoked_at, last_emailed_at')
       .eq('household_id', householdId)
       .order('created_at', { ascending: false })
     if (error) fail(error)
-    return (data ?? []) as InvitationSummary[]
+    // Recipient emails come only from the server's permission-checked RPC (#218 C7): guardians with manage-members,
+    // or manage-students for student invitations. Others see no addresses.
+    // A failure here (an older server without the RPC, or a guardian it refuses) means no addresses, not no list.
+    const rec = await this.sb.rpc('household_invitation_recipients', { p_household: householdId })
+    const recipients = (rec.error ? [] : rec.data ?? []) as { invitation_id: string; recipient_email: string }[]
+    const byId = new Map(recipients.map((r) => [r.invitation_id, r.recipient_email]))
+    return (data ?? []).map((r) => ({ ...r, recipient_email: byId.get(r.id as string) ?? null })) as InvitationSummary[]
   }
 
   async revokeInvitation(invitationId: string) {
@@ -737,6 +743,12 @@ export class LiveSource implements DataSource {
     return (data ?? []).map((r) => r.institution_key as string)
   }
 
+  async savedSchoolAdders(householdId: string) {
+    const { data, error } = await this.sb.from('household_saved_schools').select('institution_key, added_by').eq('household_id', householdId)
+    if (error) fail(error)
+    return Object.fromEntries((data ?? []).map((r) => [r.institution_key as string, (r.added_by as string | null) ?? null]))
+  }
+
   async saveSchool(householdId: string, institutionKey: string) {
     await rpc<void>(this.sb, 'save_household_school', { p_household: householdId, p_institution_key: institutionKey })
   }
@@ -872,9 +884,11 @@ export class LiveSource implements DataSource {
     const existing = await this.sb.from('student_academic_interests').select('student_id').eq('student_id', studentId).maybeSingle()
     if (existing.error) fail(existing.error)
     const r = existing.data
-      ? await this.sb.from('student_academic_interests').update(row).eq('student_id', studentId)
-      : await this.sb.from('student_academic_interests').insert({ student_id: studentId, ...row })
+      ? await this.sb.from('student_academic_interests').update(row).eq('student_id', studentId).select('student_id')
+      : await this.sb.from('student_academic_interests').insert({ student_id: studentId, ...row }).select('student_id')
     if (r.error) fail(r.error)
+    // Row security refuses an update by matching nothing, without an error (#218 C1): say so instead of "saved".
+    if (!r.data?.length) throw new DataError("You can't change this student's interests", 'forbidden')
   }
 
   async verifiedSchools(academicYear: string, state?: string): Promise<InstitutionSearchHit[]> {

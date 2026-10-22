@@ -60,7 +60,8 @@ COMBINED = re.compile(r'\+|\b(accelerated|combined|dual|concurrent|double)\b|\bw
 # a graduate award inside a name ('Business Administration, M.B.A.') also contains 'B.A.' for the bachelor's pattern
 # 'B.M.A.' (Bachelor of Musical Arts, Missouri Western 2026-27) is not 'M.A.'
 GRADUATE = re.compile(r'\bM\.\s?B\.\s?A\b|\bMBA\b|(?<!B\.)\bM\.\s?(A|S|Ed|F\.?A)\.|\bMaster|\bPh\.?\s?D\b|\bDoctor', re.I)
-TRUSTED_REQUIREMENTS = {('major', 'courselist_html/v1'), ('program_plan', 'courseleaf_plan/v1'), ('program_plan', 'acalog_plan/v1'),
+# courseleaf_plan/v1 is no longer trusted: it stored subtotal, year and total rows as items (#229)
+TRUSTED_REQUIREMENTS = {('major', 'courselist_html/v1'), ('program_plan', 'acalog_plan/v1'),
                         ('program_plan', 'clearpath_plan/v1'), ('program_plan', 'program_map/v1'),
                         # UAF roadmap grids: independent review 2026-10-07 of 25 plans, every cell, 0 differences (#170)
                         ('program_plan', 'courseleaf_plangrid/v1')}

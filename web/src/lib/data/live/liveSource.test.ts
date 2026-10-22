@@ -89,11 +89,14 @@ describe('LiveSource contracts (issue #37)', () => {
   })
 
   it('CR-13: interests read from and saved to student_academic_interests, dropping a false focus', async () => {
-    const { sb, calls } = fakeClient({ 'student_academic_interests:single': { certainty: 'few', interests: [{ kind: 'major', key: 'finance' }] } })
+    const { sb, calls } = fakeClient({ 'student_academic_interests:single': { certainty: 'few', interests: [{ kind: 'major', key: 'finance' }] }, student_academic_interests: [{ student_id: 's1' }] })
     const src = new LiveSource(sb)
     expect(await src.interests('s1')).toEqual({ certainty: 'few', interests: [{ kind: 'major', key: 'finance' }] })
     await src.saveInterests('s1', { certainty: 'sure', interests: [{ kind: 'major', key: 'finance', focus: false }, { kind: 'area', key: 'business', focus: true }] })
     expect(calls.at(-1)!.ops).toContainEqual(['update', [{ certainty: 'sure', interests: [{ kind: 'major', key: 'finance' }, { kind: 'area', key: 'business', focus: true }] }]])
+    // #218 C1: an update row security refuses matches no row and returns no error; that must not read as saved.
+    const refused = fakeClient({ 'student_academic_interests:single': { student_id: 's1' } })
+    await expect(new LiveSource(refused.sb).saveInterests('s1', { certainty: 'sure', interests: [] })).rejects.toMatchObject({ code: 'forbidden' })
   })
 
   it('CR-4 v2: cost_projection gets the student, keys, year and assumptions as sent', async () => {

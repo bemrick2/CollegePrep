@@ -390,7 +390,7 @@ do $$ declare i int; begin
   perform hp_test.eq((select count(*) from public.student_exam_plan), 2::bigint, 'student reads the plan');
   perform hp_test.check((select set_by from public.student_exam_plan where exam_key = 'clep:biology') = '20000000-0000-0000-0000-000000000051', 'set_by recorded');
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a2');
-  perform hp_test.eq((select count(*) from public.student_exam_plan), 0::bigint, 'guardian without view_progress reads nothing');
+  perform hp_test.eq((select count(*) from public.student_exam_plan), 2::bigint, 'a set-goals guardian without view_progress reads the plan it may write (#218 C1)');
   insert into public.student_exam_plan(student_id, exam_key) values (current_setting('t.st')::uuid, 'ap:extra-1');
   perform hp_test.as_user('20000000-0000-0000-0000-000000000099');
   perform hp_test.expect_error(format($q$insert into public.student_exam_plan(student_id, exam_key) values (%L, 'ap:extra-2')$q$, current_setting('t.st')), '42501');
@@ -425,7 +425,7 @@ do $$ begin
   perform hp_test.eq((select count(*) from public.student_academic_interests where certainty is null and interests = '[]'), 1::bigint, 'student clears; nothing is required');
   perform hp_test.check((select set_by from public.student_academic_interests) = '20000000-0000-0000-0000-000000000051', 'set_by follows the writer');
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a2');
-  perform hp_test.eq((select count(*) from public.student_academic_interests), 0::bigint, 'guardian without view_progress reads nothing');
+  perform hp_test.eq((select count(*) from public.student_academic_interests), 1::bigint, 'a set-goals guardian without view_progress reads the interests it may write (#218 C1)');
   perform hp_test.as_user('20000000-0000-0000-0000-000000000099');
   perform hp_test.eq((select count(*) from public.student_academic_interests), 0::bigint, 'outsider reads nothing');
   update public.student_academic_interests set certainty = 'sure';

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useApp } from '../../lib/app'
+import { canRemoveSavedSchool } from '../../lib/permissions'
 import { MAX_SAVED_SCHOOLS, readSavedSchools, writeSavedSchools } from '../../lib/savedSchools'
 
 /**
@@ -10,7 +11,7 @@ const CHANGED = 'pp-saved-schools'
 const announce = () => window.dispatchEvent(new Event(CHANGED))
 
 export function useSavedSchools() {
-  const { source, ctx, activeStudent } = useApp()
+  const { source, ctx, activeStudent, viewer } = useApp()
   const householdId = activeStudent?.household_id ?? ctx?.myStudent?.household_id ?? ctx?.households[0]?.id ?? null
   const [keys, setKeys] = useState<string[]>(() => (householdId ? [] : readSavedSchools()))
   const [loading, setLoading] = useState(!!householdId)
@@ -19,6 +20,7 @@ export function useSavedSchools() {
   const canSetPrimary = !!householdId && source.supportsPrimarySchool
   const [primary, setPrimaryState] = useState<string | null>(null)
 
+  const [adders, setAdders] = useState<Record<string, string | null>>({})
   const [version, setVersion] = useState(0)
   // Every screen's copy of the list stays in step: a change anywhere tells the others to re-read it.
   useEffect(() => {
@@ -35,8 +37,12 @@ export function useSavedSchools() {
       return
     }
     setLoading(true)
-    Promise.all([source.savedSchools(householdId), source.supportsPrimarySchool ? source.primarySchool(householdId) : Promise.resolve(null)]).then(
-      ([k, p]) => live && (setKeys(k), setPrimaryState(p && k.includes(p) ? p : null), setLoading(false)),
+    Promise.all([
+      source.savedSchools(householdId),
+      source.supportsPrimarySchool ? source.primarySchool(householdId) : Promise.resolve(null),
+      source.savedSchoolAdders ? source.savedSchoolAdders(householdId).catch(() => ({})) : Promise.resolve({}),
+    ]).then(
+      ([k, p, a]) => live && (setKeys(k), setPrimaryState(p && k.includes(p) ? p : null), setAdders(a), setLoading(false)),
       (e: Error) => live && (setError(e.message), setLoading(false)),
     )
     return () => {
@@ -96,5 +102,9 @@ export function useSavedSchools() {
     [canSetPrimary, householdId, primary, source],
   )
 
-  return { keys, add, remove, loading, error, max: MAX_SAVED_SCHOOLS, primary: primary && keys.includes(primary) ? primary : null, setPrimary, canSetPrimary }
+  /** Removal: a guardian who manages students or sets goals, or whoever saved it (#218 C6). A school saved here
+   *  just now, before the list reloads, counts as the viewer's. */
+  const canRemove = (key: string) =>
+    canRemoveSavedSchool(householdId, key in adders ? adders[key] : (viewer?.userId ?? null), viewer?.userId, ctx)
+  return { keys, add, remove, canRemove, loading, error, max: MAX_SAVED_SCHOOLS, primary: primary && keys.includes(primary) ? primary : null, setPrimary, canSetPrimary }
 }
