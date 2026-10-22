@@ -284,6 +284,28 @@ def program_page_candidates(target, inst, entry, page, today_year):
     return found
 
 
+MULTI_AWARD_NAME = re.compile(r'^(?P<base>[^()]+?) \((?P<awards>(?-i:B[A-Z]{1,3})(?:, (?-i:B[A-Z]{1,3}))+)\)$')
+AWARD_LONG = {'BA': 'Arts', 'BS': 'Science', 'BFA': 'Fine Arts', 'BM': 'Music', 'BBA': 'Business Administration'}
+
+
+def edition_degrees(name, page):
+    """[(program_name, program_key, note)] for an edition program page. A page titled for several awards ('Biology (BA,
+    BS)', UT Dallas 2026) is one record per award only when the page prints each degree's own heading ('Bachelor of Arts
+    in Biology', 'Bachelor of Science in Biology'); then each record is named by its printed heading. Otherwise the page
+    is one record under its printed name."""
+    note = "Program heading as printed on the catalog page; catalog year from the edition's home page."
+    m = MULTI_AWARD_NAME.match(name.strip())
+    if m:
+        heads = {re.sub(r'\s+', ' ', h).strip() for h in page.headings}
+        awards = [a.strip() for a in m.group('awards').split(',')]
+        printed = [f"Bachelor of {AWARD_LONG[a]} in {m.group('base').strip()}" if a in AWARD_LONG else None for a in awards]
+        if all(p in heads for p in printed):
+            return [(p, CAT.slug(f"{m.group('base').strip()} ({a})"),
+                     f"Degree heading as printed on the catalog page '{name.strip()}', which prints each degree's own heading; "
+                     "catalog year from the edition's home page.") for a, p in zip(awards, printed)]
+    return [(name, CAT.slug(name), note)]
+
+
 def _program_page_candidates(target, inst, entry, page, today_year):
     """catalog_program/v1 (Acalog, CourseLeaf) unchanged; when it finds no printed year in the page header but the
     page itself prints exactly one catalog year label elsewhere (CourseLeaf footer "2026-2027 Catalog"), the same
@@ -325,11 +347,13 @@ def _program_page_candidates(target, inst, entry, page, today_year):
                     name = next((h.strip() for h in page.headings[:3] if credential_of(h) == 'bachelor' and not GENERIC_DEGREES.match(h)
                                  and not NOT_PROGRAM_NAME.search(h) and not OPTION_NAME.search(h)), None)
                     if name:
-                        rec = {'program_key': CAT.slug(name), 'program_name': name, 'credential_level': 'bachelor', 'catalog_year': year,
-                               'program_url': common.source_of(entry)['url'], 'notes': "Program heading as printed on the catalog page; catalog year from the edition's home page."}
-                        out = [common.make('academic_programs', inst['institution_key'], academic_year_of(year), 'labeled_in_source', rec,
-                                           [{'field': 'program_name', 'value': name, 'snippet': name}], entry, 'edition_program/v1',
-                                           {'program_key': rec['program_key']}, {}, [])]
+                        out = []
+                        for nm, key, note in edition_degrees(name, page):
+                            rec = {'program_key': key, 'program_name': nm, 'credential_level': 'bachelor', 'catalog_year': year,
+                                   'program_url': common.source_of(entry)['url'], 'notes': note}
+                            out.append(common.make('academic_programs', inst['institution_key'], academic_year_of(year), 'labeled_in_source', rec,
+                                                   [{'field': 'program_name', 'value': nm, 'snippet': nm}], entry, 'edition_program/v1',
+                                                   {'program_key': rec['program_key']}, {}, []))
                 home = {'field': 'catalog_year', 'value': year, 'snippet': line[:200], 'source_url': ed['url'], 'sha256': ed['sha256'],
                         'note': "the edition's home page label; the program page prints the edition name"}
                 for c in out:

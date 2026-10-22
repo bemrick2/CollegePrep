@@ -2609,6 +2609,21 @@ class ProgramKeymapTests(unittest.TestCase):
         finally:
             P._records = old
 
+    def test_degrees_split_from_a_two_award_page_keep_their_own_keys(self):  # UT Dallas 'Biology (BA, BS)'
+        from programs import promote as P
+        U = 'https://catalog.x.edu/bio'
+        on_file = {'records': [{'program_key': 'biology-ba-bs', 'program_url': U, 'program_name': 'Biology (BA, BS)'}]}
+        cand = lambda cid, key, ext: {'candidate_id': cid, 'domain': 'academic_programs', 'institution_key': 'k', 'academic_year': '2026-27',
+                                      'extractor': ext, 'record': {'program_key': key, 'program_url': U, 'program_name': key}}
+        cands = {c['candidate_id']: c for c in [cand('a', 'biology-ba', 'edition_program/v1'), cand('b', 'biology-bs', 'edition_program/v1'),
+                                                 cand('c', 'biology-bs', 'catalog_program/v1')]}
+        old = P._records; P._records = lambda *a: on_file
+        try:
+            self.assertEqual(P.program_keymap([{'candidate_id': 'a'}, {'candidate_id': 'b'}], cands, {'k': 'x'}), {})
+            self.assertEqual(P.program_keymap([{'candidate_id': 'c'}], cands, {'k': 'x'}), {('k', '2026-27', 'biology-bs'): 'biology-ba-bs'})
+        finally:
+            P._records = old
+
 
 class FolderOwnershipTests(unittest.TestCase):
     def test_a_folder_two_registries_claim_receives_no_records(self):
@@ -3123,6 +3138,34 @@ class CatalogCountTests(unittest.TestCase):
                 rec('art-studio', 'Art Studio (BA)', u + 'art/'), rec('art-history', 'Art History (BA)', u + 'art/'), rec('chemistry-x', 'Chemistry (BS)', u + 'chem-bs/', 'unverified')]}))
             got = [a['candidate_id'] for a in on_file_approvals(run, 'x', 'k', root=d)]
         self.assertEqual(got, ['c1', 'c3'])
+
+    def test_on_file_recount_credits_each_keyed_record_on_a_two_degree_page(self):  # UT Dallas 'Biology (BA, BS)'
+        import tempfile
+        from programs.catalog_counts import on_file_approvals
+        u = 'https://catalog.x.edu/bio'
+        with tempfile.TemporaryDirectory() as d:
+            d = Path(d); run = d / 'run'; run.mkdir()
+            cands = [('c1', 'Bachelor of Arts in Biology', 'biology-ba'), ('c2', 'Bachelor of Science in Biology', 'biology-bs'),
+                     ('c3', 'Bachelor of Science in Biology', 'biology-bs')]  # a second reading of the same record
+            (run / 'candidates.jsonl').write_text('\n'.join(json.dumps({'candidate_id': i, 'institution_key': 'k', 'domain': 'academic_programs',
+                'record': {'program_name': n, 'program_url': u, 'program_key': pk}, 'source': {'requested_url': u}}) for i, n, pk in cands) + '\n')
+            f = d / 'data/institutions/x/academic_programs'; f.mkdir(parents=True)
+            rec = lambda pk, n: {'program_key': pk, 'program_name': n, 'program_url': u, 'source_url': u, 'credential_level': 'bachelor', 'verification_status': 'verified'}
+            (f / '2026-27.json').write_text(json.dumps({'records': [rec('biology-ba', 'Bachelor of Arts in Biology'), rec('biology-bs', 'Bachelor of Science in Biology')]}))
+            got = [a['candidate_id'] for a in on_file_approvals(run, 'x', 'k', root=d)]
+        self.assertEqual(got, ['c1', 'c2'])
+
+    def test_edition_page_titled_for_two_awards(self):  # UT Dallas 2026
+        from programs.extract import edition_degrees
+        from pipeline import text as T
+        page = lambda *h: T.Page('', 'Biology (BA, BS) - UT Dallas 2026 Undergraduate Catalog', [], [], list(h))
+        both = page('School', 'Biology (BA, BS)', 'Bachelor of Arts in Biology', 'Faculty', 'Bachelor of Science in Biology')
+        self.assertEqual([(n, k) for n, k, _ in edition_degrees('Biology (BA, BS)', both)],
+                         [('Bachelor of Arts in Biology', 'biology-ba'), ('Bachelor of Science in Biology', 'biology-bs')])
+        one = page('School', 'Biology (BA, BS)', 'Bachelor of Arts in Biology')  # the BS heading isn't printed: not split
+        self.assertEqual([n for n, _, _ in edition_degrees('Biology (BA, BS)', one)], ['Biology (BA, BS)'])
+        self.assertEqual([n for n, _, _ in edition_degrees('Animation and Games (BA)', page('Animation and Games (BA)'))], ['Animation and Games (BA)'])
+        self.assertEqual([n for n, _, _ in edition_degrees('Arts (BA, BX)', page('Bachelor of Arts in Arts'))], ['Arts (BA, BX)'])  # unknown award
 
     def test_programs_az_table_count(self):  # Colorado State 2026-27 Programs A-Z table
         import tempfile, gzip

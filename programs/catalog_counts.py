@@ -317,7 +317,11 @@ def on_file_approvals(run_dir, folder, ik, root=Path('.'), year='2026-27'):
         v = json.loads(line)
         if v['institution_key'] != ik or v['domain'] != 'academic_programs': continue
         rec = v['record']; k = (page_key(rec.get('program_url') or v['source']['requested_url']), name_key(rec.get('program_name') or ''))
-        if (rec.get('program_key') in keys or k in pages or count.get(k[0]) == 1) and k[0] not in used:
+        # One credited candidate per page, except that each record on file under its own key is credited (a page printing
+        # two degrees with a record each, UT Dallas 'Biology (BA, BS)')
+        if rec.get('program_key') in keys and (k[0], rec.get('program_key')) not in used:
+            out.append({'candidate_id': v['candidate_id']}); used.add((k[0], rec.get('program_key'))); used.add(k[0])
+        elif (k in pages or count.get(k[0]) == 1) and k[0] not in used:
             out.append({'candidate_id': v['candidate_id']}); used.add(k[0])
     return out
 
