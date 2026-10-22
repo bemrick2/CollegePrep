@@ -180,6 +180,6 @@ describe('review findings on stored plans (#242)', () => {
       { term_index: 1, label: 'TYPICAL THIRD YEAR CURRICULUM — Fall', items: [{ code: 'BA 303', credits: 4 }, { code: 'BA 312', credits: 4 }, { code: 'BA 321', credits: 4 }] },
       { term_index: 2, label: 'TYPICAL THIRD YEAR CURRICULUM — Winter', items: [{ code: 'BA 304', credits: 4 }, { code: 'BA 313', credits: 4 }, { code: 'BA 322', credits: 4 }] },
     ])
-    expect(ts.map((t) => t.notChecked)).toEqual(['quarter_calendar', 'quarter_calendar'])
+    expect(ts.map((t) => t.notChecked)).toEqual(['quarter_calendar', 'short_term'])
   })
 })
