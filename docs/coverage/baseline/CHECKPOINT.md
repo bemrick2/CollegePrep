@@ -9,16 +9,16 @@ requirements belong to Deep Dive (#153).
 | Measure | Value |
 |---|---|
 | In-scope schools (four-year registry) | 2,119 (`UNIVERSE.md`) |
-| Complete baseline (every essential field resolved) | 1,865; 97.0% enrollment-weighted |
+| Complete baseline (every essential field resolved, school active in HD2024) | 2,004; 98.5% enrollment-weighted |
 | With every field current | 0 (IPEDS prices are 2023-24, net price 2022-23) |
-| Closed or inactive in provisional HD2024 | 15, flagged |
+| Closed, inactive or missing in provisional HD2024 | 19, flagged, never complete or current |
 | Current school-published tuition (2026-27+, verified) | 181 schools, 6.2% of undergraduates |
 | Merit: verified / partially verified records | 73 / 83 schools |
 | Merit: no published score formula (stated by the school) | 2 (UCF, UF) |
 | Merit: candidate never reviewed / rejected in review | 30 / 69 |
 | Merit: official page found, nothing structured | 1,389 |
 | Merit: searched, not found / inaccessible / not researched | 125 / 272 / 76 |
-| Merit records with an ACT/SAT criterion | 39 schools, 2.4% of undergraduates |
+| Merit records with a numeric ACT/SAT criterion | 34 schools, 1.7% of undergraduates |
 | Reviewed merit statements (superscore, test-optional, no fixed criteria) | 8 schools (`baseline/policy/merit_research.json`) |
 
 Field-level detail is in `COMPLETENESS.md`. The queue of every school, ranked by enrollment, is in `policy_queue.csv`.
@@ -41,13 +41,7 @@ Field-level detail is in `COMPLETENESS.md`. The queue of every school, ranked by
 
 ## Gaps
 
-- **Baseline fields not researched:**
-  - test scores: 160 (80 test-optional schools reported none);
-  - graduation rate: 123;
-  - tuition: 89 (NCES flags A/A, mostly non-academic-year reporters);
-  - admissions: 79;
-  - cost of attendance: 24.
-  - These need the school's own Common Data Set or pages.
+- **Baseline fields not researched** (after review fixes that classify NCES not-applicable cases correctly): test scores 87 (mostly test-optional schools that reported none), net price 9, tuition/housing/COA 4 each, retention 4, enrollment 2, graduation 1. These need the school's own Common Data Set or pages.
 - **College Scorecard not yet pinned.** IPEDS covers every requested field. Scorecard would add earnings and debt, which aren't requested yet. Its bulk filename changes per release, so it needs a pinned URL from a search result.
 - **Current-year prices.** Only 181 schools have verified 2026-27 tuition. Everything else shows 2023-24 IPEDS figures, labelled older.
 - **Policy layer beyond merit.**

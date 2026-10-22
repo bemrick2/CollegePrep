@@ -50,6 +50,17 @@ The definitions are in `scripts/build_baseline.py`. The rules behind them:
 
 At this writing, NCES serves the full 2023-24 collection. For 2024-25 it serves only HD2024, IC2024 and C2024_A (provisional). The 2024-25 prices, admissions, enrollment, aid and graduation files are recorded as not yet served.
 
+## Coupling
+
+`--check` regenerates `baseline/schools`, `fields_of_study`, `FIELDS.json` and the universe report from the pinned files and
+`pipeline/registry/<ST>.json` (name, key, UNITID, level) plus `docs/coverage/registry_reconciliation.json`. A registry change
+that touches those fields needs `python3 scripts/build_baseline.py` in the same PR (about 10 s). Completeness, the policy
+queue and the policy layer read research records and are regenerated at checkpoints, not enforced.
+
+A school closed, inactive or missing in the provisional HD2024 is never `verified_current` and never counted complete.
+`verified_current` for a statistic means "the latest NCES release" (for example fall 2023 enrollment), decided by a dated
+HTTP 404 for the next year's file; re-run the pin workflow for that file when NCES announces a release.
+
 ## Validation
 
 `tests/test_baseline.py` covers the rules on synthetic rows: missing values never zero, imputed values withheld, open admission and test-blind policies, prices older than the planning year, a child campus naming its parent, and a closed school flagged. It also checks the committed rows: one per school, statuses known, values only where resolved, and agreement with the existing `data/national/ipeds` import on more than 1,000 values.

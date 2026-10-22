@@ -2,20 +2,20 @@
  "source": "scripts/build_baseline.py over pinned IPEDS 2023-24 files (sources/ipeds/2023-24/manifest.json) and the registry",
  "in_scope_schools": 2119,
  "in_scope_rule": "Every four-year school in pipeline/registry/<ST>.json (docs/coverage/baseline/UNIVERSE.md)",
- "baseline_complete": 1865,
- "baseline_complete_rule": "every essential field is verified_current, available_older or not_published_or_na",
+ "baseline_complete": 2004,
+ "baseline_complete_rule": "every essential field is verified_current, available_older or not_published_or_na, and the school is listed active in the provisional 2024-25 directory",
  "baseline_complete_and_all_current": 0,
- "closed_or_inactive_per_hd2024": 15,
+ "closed_or_inactive_per_hd2024": 19,
  "undergraduate_enrollment_total": 10533478,
  "schools_without_enrollment_weight": 3,
- "enrollment_weighted_complete_share": 0.9703,
+ "enrollment_weighted_complete_share": 0.9854,
  "fields": {
   "identity": {
    "label": "Name, location, website, type and control",
    "period": "IPEDS 2023-24 institutional directory",
    "kind": "directory",
-   "verified_current": 2081,
-   "available_older": 38,
+   "verified_current": 1986,
+   "available_older": 133,
    "not_published_or_na": 0,
    "not_researched": 0,
    "blocked": 0,
@@ -27,8 +27,8 @@
    "label": "Undergraduate enrollment (fall headcount)",
    "period": "Fall 2023",
    "kind": "statistic",
-   "verified_current": 2117,
-   "available_older": 0,
+   "verified_current": 2099,
+   "available_older": 18,
    "not_published_or_na": 0,
    "not_researched": 2,
    "blocked": 0,
@@ -45,43 +45,30 @@
    "label": "Admission rate, first-time undergraduates",
    "period": "Fall 2023 applicants",
    "kind": "statistic",
-   "verified_current": 1614,
-   "available_older": 0,
-   "not_published_or_na": 426,
-   "not_researched": 79,
+   "verified_current": 1603,
+   "available_older": 11,
+   "not_published_or_na": 505,
+   "not_researched": 0,
    "blocked": 0,
-   "resolved_share": 0.9627,
-   "enrollment_weighted_resolved_share": 0.9973,
-   "top_reasons_not_researched": [
-    [
-     "no fall 2023 admissions record",
-     73
-    ],
-    [
-     "not a school-reported value (NCES flags R/A)",
-     6
-    ]
-   ]
+   "resolved_share": 1.0,
+   "enrollment_weighted_resolved_share": 1.0,
+   "top_reasons_not_researched": []
   },
   "test_scores": {
    "label": "ACT/SAT middle 50% of enrolled first-year students, with the test policy",
    "period": "Fall 2023 enrolled first-time students who submitted scores",
    "kind": "statistic",
-   "verified_current": 1051,
-   "available_older": 0,
-   "not_published_or_na": 908,
-   "not_researched": 160,
+   "verified_current": 1048,
+   "available_older": 3,
+   "not_published_or_na": 981,
+   "not_researched": 87,
    "blocked": 0,
-   "resolved_share": 0.9245,
-   "enrollment_weighted_resolved_share": 0.9838,
+   "resolved_share": 0.9589,
+   "enrollment_weighted_resolved_share": 0.9865,
    "top_reasons_not_researched": [
     [
      "no scores reported to IPEDS (policy: Not required for admission, but considered if submitted (Test Optional))",
      80
-    ],
-    [
-     "no scores reported to IPEDS",
-     73
     ],
     [
      "no scores reported to IPEDS (policy: Required to be considered for admission)",
@@ -95,16 +82,12 @@
    "kind": "published_price",
    "verified_current": 0,
    "available_older": 2030,
-   "not_published_or_na": 0,
-   "not_researched": 89,
+   "not_published_or_na": 85,
+   "not_researched": 4,
    "blocked": 0,
-   "resolved_share": 0.958,
-   "enrollment_weighted_resolved_share": 0.9897,
+   "resolved_share": 0.9981,
+   "enrollment_weighted_resolved_share": 0.9997,
    "top_reasons_not_researched": [
-    [
-     "not a school-reported value (NCES flags A/A)",
-     85
-    ],
     [
      "no 2023-24 academic-year price record",
      4
@@ -134,17 +117,13 @@
    "period": "2023-24 academic year",
    "kind": "published_price",
    "verified_current": 0,
-   "available_older": 1663,
+   "available_older": 1683,
    "not_published_or_na": 432,
-   "not_researched": 24,
+   "not_researched": 4,
    "blocked": 0,
-   "resolved_share": 0.9887,
-   "enrollment_weighted_resolved_share": 0.9972,
+   "resolved_share": 0.9981,
+   "enrollment_weighted_resolved_share": 0.9997,
    "top_reasons_not_researched": [
-    [
-     "a component was imputed or not reported",
-     20
-    ],
     [
      "no NCES total price",
      4
@@ -157,18 +136,14 @@
    "kind": "historical_average",
    "verified_current": 0,
    "available_older": 1968,
-   "not_published_or_na": 135,
-   "not_researched": 16,
+   "not_published_or_na": 142,
+   "not_researched": 9,
    "blocked": 0,
-   "resolved_share": 0.9924,
-   "enrollment_weighted_resolved_share": 0.9984,
+   "resolved_share": 0.9958,
+   "enrollment_weighted_resolved_share": 0.9998,
    "top_reasons_not_researched": [
     [
-     "no 2022-23 aid record",
-     7
-    ],
-    [
-     "not a school-reported value (NCES flag C)",
+     "NCES analyst-corrected value (flag C), withheld pending review",
      6
     ],
     [
@@ -181,8 +156,8 @@
    "label": "First-year retention rate (full-time)",
    "period": "Fall 2022 entering cohort, re-enrolled fall 2023",
    "kind": "statistic",
-   "verified_current": 1830,
-   "available_older": 0,
+   "verified_current": 1814,
+   "available_older": 16,
    "not_published_or_na": 285,
    "not_researched": 4,
    "blocked": 0,
@@ -203,18 +178,14 @@
    "label": "Bachelor's graduation rate (4- and 6-year) and overall rate",
    "period": "2017 entering cohort, reported 2023-24",
    "kind": "statistic",
-   "verified_current": 1996,
-   "available_older": 0,
-   "not_published_or_na": 0,
-   "not_researched": 123,
+   "verified_current": 1981,
+   "available_older": 15,
+   "not_published_or_na": 122,
+   "not_researched": 1,
    "blocked": 0,
-   "resolved_share": 0.942,
-   "enrollment_weighted_resolved_share": 0.9927,
+   "resolved_share": 0.9995,
+   "enrollment_weighted_resolved_share": 1.0,
    "top_reasons_not_researched": [
-    [
-     "no graduation-rate record",
-     122
-    ],
     [
      "did not respond to the IPEDS GR survey (not imputed)",
      1
@@ -226,18 +197,13 @@
    "period": "Awards conferred July 2022 - June 2023",
    "kind": "statistic",
    "verified_current": 0,
-   "available_older": 2105,
-   "not_published_or_na": 0,
-   "not_researched": 14,
+   "available_older": 2114,
+   "not_published_or_na": 5,
+   "not_researched": 0,
    "blocked": 0,
-   "resolved_share": 0.9934,
-   "enrollment_weighted_resolved_share": 0.9993,
-   "top_reasons_not_researched": [
-    [
-     "no 2022-23 completions record",
-     14
-    ]
-   ]
+   "resolved_share": 1.0,
+   "enrollment_weighted_resolved_share": 1.0,
+   "top_reasons_not_researched": []
   }
  },
  "current_published_tuition": {
@@ -279,11 +245,11 @@
    "partially_verified": 1,
    "verified": 1
   },
-  "merit_score_linked_schools": 39,
-  "merit_gpa_linked_schools": 103,
+  "merit_score_linked_schools": 34,
+  "merit_gpa_linked_schools": 100,
   "merit_research_findings_schools": 8,
   "merit_on_file_enrollment_weighted": 0.0623,
-  "merit_score_linked_enrollment_weighted": 0.0238
+  "merit_score_linked_enrollment_weighted": 0.0168
  },
  "degree_detail": {
   "note": "Separate measure, owned by Deep Dive (docs/coverage/programs/STATUS.json); never a condition of baseline coverage.",
@@ -297,31 +263,31 @@
   },
   "AL": {
    "schools": 31,
-   "complete": 27
+   "complete": 29
   },
   "AR": {
    "schools": 26,
-   "complete": 22
+   "complete": 26
   },
   "AZ": {
    "schools": 17,
-   "complete": 15
+   "complete": 17
   },
   "CA": {
    "schools": 152,
-   "complete": 120
+   "complete": 138
   },
   "CO": {
    "schools": 30,
-   "complete": 27
+   "complete": 28
   },
   "CT": {
    "schools": 26,
-   "complete": 20
+   "complete": 26
   },
   "DC": {
    "schools": 9,
-   "complete": 8
+   "complete": 9
   },
   "DE": {
    "schools": 5,
@@ -329,11 +295,11 @@
   },
   "FL": {
    "schools": 92,
-   "complete": 85
+   "complete": 86
   },
   "GA": {
    "schools": 59,
-   "complete": 54
+   "complete": 57
   },
   "HI": {
    "schools": 8,
@@ -341,7 +307,7 @@
   },
   "IA": {
    "schools": 33,
-   "complete": 30
+   "complete": 32
   },
   "ID": {
    "schools": 10,
@@ -349,31 +315,31 @@
   },
   "IL": {
    "schools": 71,
-   "complete": 54
+   "complete": 63
   },
   "IN": {
    "schools": 52,
-   "complete": 49
+   "complete": 51
   },
   "KS": {
    "schools": 31,
-   "complete": 26
+   "complete": 28
   },
   "KY": {
    "schools": 30,
-   "complete": 28
+   "complete": 29
   },
   "LA": {
    "schools": 30,
-   "complete": 26
+   "complete": 30
   },
   "MA": {
    "schools": 78,
-   "complete": 67
+   "complete": 73
   },
   "MD": {
    "schools": 31,
-   "complete": 26
+   "complete": 28
   },
   "ME": {
    "schools": 18,
@@ -381,19 +347,19 @@
   },
   "MI": {
    "schools": 51,
-   "complete": 48
+   "complete": 50
   },
   "MN": {
    "schools": 41,
-   "complete": 40
+   "complete": 41
   },
   "MO": {
    "schools": 58,
-   "complete": 50
+   "complete": 54
   },
   "MS": {
    "schools": 17,
-   "complete": 14
+   "complete": 15
   },
   "MT": {
    "schools": 14,
@@ -401,7 +367,7 @@
   },
   "NC": {
    "schools": 63,
-   "complete": 54
+   "complete": 57
   },
   "ND": {
    "schools": 14,
@@ -409,7 +375,7 @@
   },
   "NE": {
    "schools": 23,
-   "complete": 19
+   "complete": 21
   },
   "NH": {
    "schools": 14,
@@ -417,31 +383,31 @@
   },
   "NJ": {
    "schools": 52,
-   "complete": 41
+   "complete": 45
   },
   "NM": {
    "schools": 11,
-   "complete": 9
+   "complete": 10
   },
   "NV": {
    "schools": 9,
-   "complete": 7
+   "complete": 9
   },
   "NY": {
    "schools": 193,
-   "complete": 168
+   "complete": 183
   },
   "OH": {
    "schools": 109,
-   "complete": 98
+   "complete": 102
   },
   "OK": {
    "schools": 28,
-   "complete": 25
+   "complete": 27
   },
   "OR": {
    "schools": 29,
-   "complete": 22
+   "complete": 26
   },
   "PA": {
    "schools": 127,
@@ -449,11 +415,11 @@
   },
   "RI": {
    "schools": 12,
-   "complete": 11
+   "complete": 12
   },
   "SC": {
    "schools": 37,
-   "complete": 34
+   "complete": 36
   },
   "SD": {
    "schools": 15,
@@ -461,11 +427,11 @@
   },
   "TN": {
    "schools": 43,
-   "complete": 38
+   "complete": 41
   },
   "TX": {
    "schools": 118,
-   "complete": 102
+   "complete": 114
   },
   "UT": {
    "schools": 12,
@@ -473,23 +439,23 @@
   },
   "VA": {
    "schools": 49,
-   "complete": 44
+   "complete": 47
   },
   "VT": {
    "schools": 10,
-   "complete": 9
+   "complete": 8
   },
   "WA": {
    "schools": 58,
-   "complete": 54
+   "complete": 58
   },
   "WI": {
    "schools": 43,
-   "complete": 40
+   "complete": 43
   },
   "WV": {
    "schools": 19,
-   "complete": 18
+   "complete": 19
   },
   "WY": {
    "schools": 5,

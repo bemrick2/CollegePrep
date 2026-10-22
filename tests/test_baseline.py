@@ -15,7 +15,7 @@ class Evaluate(unittest.TestCase):
     def tables(self, **over):
         t = {k: {} for k in ['HD2023', 'DRVEF2023', 'DRVADM2023', 'ADM2023', 'IC2023', 'IC2023_AY', 'DRVIC2023', 'SFA2223',
                              'EF2023D', 'DRVGR2023', 'EF2023A_UG', 'HD2024', 'FLAGS']}
-        t['GR_FLAGS'] = {}; t['C'] = {}
+        t['GR_FLAGS'] = {}; t['C'] = {}; t['C_ROWS'] = set()
         t['HD2023']['1'] = {'INSTNM': 'X U', 'CITY': 'C', 'STABBR': 'TN', 'WEBADDR': 'x.edu', 'CONTROL': '1', 'ICLEVEL': '1', 'HLOFFER': '9'}
         t['HD2024']['1'] = {'INSTNM': 'X U', 'CYACTIVE': '1'}
         for k, v in over.items(): t[k]['1'] = v
@@ -60,6 +60,24 @@ class Evaluate(unittest.TestCase):
         v, st, _ = b.evaluate('1', t, self.L)
         self.assertNotIn('bachelors_grad_rate_6yr', v); self.assertEqual(st['graduation_rate'], 'not_researched')
 
+    def test_negative_net_price_kept_when_reported(self):
+        t = self.tables(SFA2223={'NPIST2': '9000', 'XNPIST2': 'R', 'NPIS412': '-4129', 'XNPIS412': 'R', 'NPIS422': '-1', 'XNPIS422': 'P'})
+        v, st, _ = b.evaluate('1', t, self.L)
+        self.assertEqual((v['net_price_income_0_30000'], v['net_price_income_30001_48000']), (-4129, None))
+
+    def test_survey_not_applicable_and_no_tuition(self):
+        t = self.tables(FLAGS={'STAT_GR': '-2'}, IC2023_AY={'XCHG2AT3': 'A', 'XCHG3AT3': 'A', 'CHG2AT3': '', 'CHG3AT3': ''})
+        _, st, _ = b.evaluate('1', t, self.L)
+        self.assertEqual((st['graduation_rate'], st['tuition_fees']), ('not_published_or_na', 'not_published_or_na'))
+
+    def test_identity_differences_in_hd2024_are_not_current(self):
+        _, st, why = b.evaluate('1', self.tables(HD2024={'INSTNM': 'X U', 'CYACTIVE': '1', 'CITY': 'C', 'WEBADDR': 'https://www.y.edu/',
+                                                          'ICLEVEL': '1', 'CONTROL': '1', 'HLOFFER': '9'}), self.L)
+        self.assertEqual(st['identity'], 'available_older'); self.assertIn('website', why['identity'])
+        _, st, _ = b.evaluate('1', self.tables(HD2024={'INSTNM': 'X U', 'CYACTIVE': '1', 'CITY': 'C', 'WEBADDR': 'https://www.x.edu/',
+                                                        'ICLEVEL': '1', 'CONTROL': '1', 'HLOFFER': '9'}), self.L)
+        self.assertEqual(st['identity'], 'verified_current')
+
     def test_child_campus_is_named_with_its_parent(self):
         t = self.tables(FLAGS={'PRCH_SFA': '2', 'IDX_SFA': '999'})
         _, st, why = b.evaluate('1', t, self.L)
@@ -87,7 +105,10 @@ class Committed(unittest.TestCase):
 
     def test_complete_rule(self):
         for r in ROWS:
-            ok = all(r[f['key'] + '__status'] in ('verified_current', 'available_older', 'not_published_or_na') for f in b.FIELDS)
+            ok = not r['closed_per_hd2024'] and all(r[f['key'] + '__status'] in ('verified_current', 'available_older', 'not_published_or_na')
+                                                    for f in b.FIELDS)
+            if r['closed_per_hd2024']:
+                self.assertFalse(any(r[f['key'] + '__status'] == 'verified_current' for f in b.FIELDS), r['institution_key'])
             self.assertEqual(r['baseline_complete'], str(ok))
 
     def test_sat_sections_never_summed(self):

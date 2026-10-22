@@ -131,8 +131,10 @@ def by_unitid(rows):
     return {r['UNITID']: r for r in rows}
 
 
-def num(r, var, ok=REPORTED, flagged=True, cast=int):
-    """A reported value or None. Blank, negative codes (-1 not reported, -2 not applicable) and imputed values are None."""
+def num(r, var, ok=REPORTED, flagged=True, cast=int, signed=False):
+    """A reported value or None. Blank, negative codes (-1 not reported, -2 not applicable) and imputed values are None.
+    `signed`: the variable can be truly negative (a net price where aid exceeds the price); a negative is kept only when the
+    school-reported flag says so."""
     if r is None: return None
     v = r.get(var, '')
     if v in ('', '.'): return None
@@ -142,7 +144,8 @@ def num(r, var, ok=REPORTED, flagged=True, cast=int):
     except ValueError:
         try: x = cast(float(v))
         except ValueError: return None
-    return x if x >= 0 else None
+    if x < 0 and not (signed and flagged and r.get('X' + var) in ok): return None
+    return x
 
 
 def flag(r, var):
@@ -155,7 +158,9 @@ def latest(field):
     if not nf: return False
     m = manifest(NEXT[YEAR])
     if any(f['filename'] == nf + '.zip' for f in m['files']): return False
-    return any(u['filename'] == nf + '.zip' for u in m.get('unavailable', []))
+    # Only an HTTP 404 means "not released"; a server or network error proves nothing.
+    u = next((u for u in m.get('unavailable', []) if u['filename'] == nf + '.zip' and str(u.get('http_status')) == '404'), None)
+    return u['checked_at'] if u else False
 
 
 def registry():
@@ -185,7 +190,9 @@ def load():
             if k.startswith('X') and v: gr[r['UNITID']].add(v)
     t['GR_FLAGS'] = gr
     comp = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.Counter()))
+    t['C_ROWS'] = set()
     for r in table('C2023_A'):
+        t['C_ROWS'].add(r['UNITID'])
         code = r['CIPCODE']
         if code == '99' or r.get('MAJORNUM') != '1': continue
         n = num(r, 'CTOTALT', REPORTED_OR_ZERO)
@@ -219,6 +226,8 @@ def survey_gap(t, uid, survey):
     f = t['FLAGS'].get(uid) or {}
     if f.get('PRCH_' + survey) == '2':
         return 'not_published_or_na', f"reported with its parent campus (IPEDS unitid {f.get('IDX_' + survey)}); NCES publishes no separate figure"
+    if f.get('STAT_' + survey) == '-2':
+        return 'not_published_or_na', f'the IPEDS {survey} survey does not apply to this school (FLAGS2023 STAT_{survey} -2)'
     if f.get('STAT_' + survey) == '5':
         return 'not_researched', f'did not respond to the IPEDS {survey} survey (not imputed)'
     return None
@@ -239,20 +248,30 @@ def evaluate(uid, t, L):
                  highest_offering=L['codes'].get('HD2023.HLOFFER', {}).get(hd['HLOFFER'], hd['HLOFFER']))
         h24 = t['HD2024'].get(uid)
         if h24 is None:
+            v['closed_per_hd2024'] = 'absent_from_hd2024'
             put('identity', 'available_older', 'not in the 2024-25 IPEDS directory (HD2024): check for closure or merger')
         elif h24.get('CYACTIVE') != '1':
             closed = h24.get('CLOSEDAT') if h24.get('CLOSEDAT') not in (None, '', '-2') else None
             v['closed_per_hd2024'] = closed or 'inactive'
             put('identity', 'available_older', f"HD2024 lists it inactive (CYACTIVE {h24.get('CYACTIVE')}" + (f', closed {closed})' if closed else ')'))
-        elif h24.get('INSTNM') != hd['INSTNM']:
-            put('identity', 'available_older', f"HD2024 name differs: {h24.get('INSTNM')}")
         else:
-            put('identity', 'verified_current', 'HD2023, confirmed active under the same name in HD2024 (provisional)')
+            web = lambda x: re.sub(r'^(https?://)?(www\.)?', '', (x or '').strip().lower()).rstrip('/')
+            diff = [label for label, var, norm in [('name', 'INSTNM', str), ('city', 'CITY', str), ('website', 'WEBADDR', web),
+                                                   ('level', 'ICLEVEL', str), ('control', 'CONTROL', str), ('highest offering', 'HLOFFER', str)]
+                    if norm(h24.get(var)) != norm(hd.get(var))]
+            if diff:
+                put('identity', 'available_older', 'HD2024 (provisional) differs: ' + '; '.join(
+                    f"{label} {h24.get(var)!r}" for label, var in [('name', 'INSTNM'), ('city', 'CITY'), ('website', 'WEBADDR'),
+                    ('level', 'ICLEVEL'), ('control', 'CONTROL'), ('highest offering', 'HLOFFER')] if label in diff))
+            else:
+                put('identity', 'verified_current', 'HD2023, and HD2024 (provisional) lists the same name, city, website, level, '
+                                                    'control and highest offering')
     else:
         put('identity', 'not_researched', 'no HD2023 record')
 
     cur = {f['key']: latest(f) for f in FIELDS}
     stat = lambda k: 'verified_current' if cur[k] else 'available_older'
+    cur_note = lambda k: f'latest NCES release: the next year\'s file was not served (HTTP 404) on {cur[k]}' if cur[k] else ''
 
     # Undergraduate enrollment: DRVEF totals, unless NCES imputed the all-undergraduate line.
     d = t['DRVEF2023'].get(uid); a = t['EF2023A_UG'].get(uid)
@@ -262,7 +281,7 @@ def evaluate(uid, t, L):
     elif ug is not None:
         v.update(undergraduate_enrollment=ug, undergraduate_full_time=num(d, 'EFUGFT', flagged=False),
                  undergraduate_part_time=num(d, 'EFUGPT', flagged=False))
-        put('undergraduate_enrollment', stat('undergraduate_enrollment'))
+        put('undergraduate_enrollment', stat('undergraduate_enrollment'), cur_note('undergraduate_enrollment'))
     else:
         put('undergraduate_enrollment', *(survey_gap(t, uid, 'EF') or ('not_researched', 'no fall 2023 enrollment record')))
 
@@ -276,7 +295,9 @@ def evaluate(uid, t, L):
         put('admission_rate', 'not_published_or_na', 'open admission (IC2023 OPENADMP): every applicant is admitted, no selection rate')
     elif rate is not None and apps is not None and admits is not None:
         v.update(admission_rate_percent=rate, applications=apps, admits=admits)
-        put('admission_rate', stat('admission_rate'))
+        put('admission_rate', stat('admission_rate'), cur_note('admission_rate'))
+    elif adm is not None and apps == 0:
+        put('admission_rate', 'not_published_or_na', 'no first-time applications reported (APPLCN 0), so no rate')
     elif adm is not None and (flag(adm, 'APPLCN') not in REPORTED or flag(adm, 'ADMSSN') not in REPORTED):
         put('admission_rate', 'not_researched', f"not a school-reported value (NCES flags {flag(adm, 'APPLCN')}/{flag(adm, 'ADMSSN')})")
     else:
@@ -287,15 +308,21 @@ def evaluate(uid, t, L):
     v['test_policy'] = L['codes'].get('ADM2023.ADMCON7', {}).get(pol) if pol else None
     scores = {c: num(adm, var) for c, var in [('sat_ebrw_25', 'SATVR25'), ('sat_ebrw_75', 'SATVR75'), ('sat_math_25', 'SATMT25'),
                                                ('sat_math_75', 'SATMT75'), ('act_composite_25', 'ACTCM25'), ('act_composite_75', 'ACTCM75')]}
+    vars_ = ['SATVR25', 'SATVR75', 'SATMT25', 'SATMT75', 'ACTCM25', 'ACTCM75']
+    withheld = sorted({flag(adm, x) for x in vars_ if (adm or {}).get(x) not in (None, '', '.') and flag(adm, x) not in REPORTED and flag(adm, x)})
     if any(x is not None for x in scores.values()):
         v.update(scores, percent_submitting_sat=num(adm, 'SATPCT'), percent_submitting_act=num(adm, 'ACTPCT'))
-        put('test_scores', stat('test_scores'))
+        put('test_scores', stat('test_scores'), '; '.join(x for x in [cur_note('test_scores'),
+            f'some percentiles withheld: not school-reported (NCES flag {"/".join(withheld)})' if withheld else ''] if x))
     elif openadm:
         put('test_scores', 'not_published_or_na', 'open admission')
     elif pol == '3':
         put('test_scores', 'not_published_or_na', 'test blind: scores not considered (ADM2023 ADMCON7)')
+    elif withheld:
+        put('test_scores', 'not_researched', f'percentiles not school-reported (NCES flag {"/".join(withheld)})')
     else:
-        put('test_scores', 'not_researched', 'no scores reported to IPEDS' + (f' (policy: {v["test_policy"]})' if v['test_policy'] else ''))
+        put('test_scores', *(survey_gap(t, uid, 'ADM') or ('not_researched', 'no scores reported to IPEDS'
+                                                           + (f' (policy: {v["test_policy"]})' if v['test_policy'] else ''))))
 
     # Prices (published, 2023-24: older than the planning year by definition).
     ay = t['IC2023_AY'].get(uid)
@@ -303,6 +330,8 @@ def evaluate(uid, t, L):
                                           ('out_of_state_tuition', 'CHG3AT3'), ('out_of_state_fees', 'CHG3AF3')]}
     if tf['in_state_tuition'] is not None or tf['out_of_state_tuition'] is not None:
         v.update(tf); put('tuition_fees', 'available_older', f'published for 2023-24; current year is {PLANNING_YEAR}')
+    elif ay is not None and flag(ay, 'CHG2AT3') == 'A' and flag(ay, 'CHG3AT3') == 'A':
+        put('tuition_fees', 'not_published_or_na', 'NCES: not applicable (flag A), e.g. no tuition charged')
     else:
         put('tuition_fees', 'not_researched', 'no 2023-24 academic-year price record' if ay is None else
             f"not a school-reported value (NCES flags {flag(ay, 'CHG2AT3')}/{flag(ay, 'CHG3AT3')})")
@@ -314,8 +343,10 @@ def evaluate(uid, t, L):
     else:
         put('housing_food', 'not_researched', 'not reported or imputed' if ay is not None else 'no 2023-24 academic-year price record')
     dic = t['DRVIC2023'].get(uid)
-    ok_in = ay is not None and all(flag(ay, x) in REPORTED_OR_ZERO for x in ('CHG2AT3', 'CHG2AF3', 'CHG4AY3', 'CHG5AY3', 'CHG6AY3'))
-    ok_out = ay is not None and all(flag(ay, x) in REPORTED_OR_ZERO for x in ('CHG3AT3', 'CHG3AF3', 'CHG4AY3', 'CHG5AY3', 'CHG6AY3'))
+    # Tuition and housing must be reported; books and other expenses may be NCES "not applicable" (A): NCES then sums the rest.
+    comp_ok = lambda tu, fe: ay is not None and all(flag(ay, x) in REPORTED_OR_ZERO for x in (tu, fe, 'CHG5AY3')) \
+        and all(flag(ay, x) in REPORTED_OR_ZERO | {'A'} for x in ('CHG4AY3', 'CHG6AY3'))
+    ok_in, ok_out = comp_ok('CHG2AT3', 'CHG2AF3'), comp_ok('CHG3AT3', 'CHG3AF3')
     cin = num(dic, 'CINSON', flagged=False) if ok_in else None
     cout = num(dic, 'COTSON', flagged=False) if ok_out else None
     if cin is not None or cout is not None:
@@ -330,25 +361,27 @@ def evaluate(uid, t, L):
     sfa = t['SFA2223'].get(uid)
     public = (hd or {}).get('CONTROL') == '1'
     pre = ('NPIST2', 'NPIS4') if public else ('NPGRN2', 'NPT4')
-    avg = num(sfa, pre[0])
+    avg = num(sfa, pre[0], signed=True)
     if avg is not None:
-        v.update(net_price_average=avg, net_price_basis=('in-state students awarded grant or scholarship aid' if public
-                                                         else 'students awarded grant or scholarship aid'))
+        v.update(net_price_average=avg, net_price_basis=(
+            ('in-state ' if public else '') + 'full-time first-time students awarded grant or scholarship aid (average); '
+            'income bands: ' + ('in-state ' if public else '') + 'students awarded Title IV aid (grants or loans)'))
         for i, c in enumerate(['net_price_income_0_30000', 'net_price_income_30001_48000', 'net_price_income_48001_75000',
                                'net_price_income_75001_110000', 'net_price_income_over_110000'], 1):
-            v[c] = num(sfa, f'{pre[1]}{i}2')
+            v[c] = num(sfa, f'{pre[1]}{i}2', signed=True)
         put('net_price', 'available_older', 'average for the 2022-23 aid year; not a price or an offer')
     elif sfa is not None and flag(sfa, pre[0]) == 'A':
         put('net_price', 'not_published_or_na', 'NCES: not applicable (no full-time first-time aided students)')
     else:
         put('net_price', *(survey_gap(t, uid, 'SFA') or ('not_researched', 'no 2022-23 aid record' if sfa is None
-                                                          else f'not a school-reported value (NCES flag {flag(sfa, pre[0])})')))
+                                                          else (f'NCES analyst-corrected value (flag C), withheld pending review' if flag(sfa, pre[0]) == 'C'
+                                                                else f'not a school-reported value (NCES flag {flag(sfa, pre[0])})'))))
 
     # Retention.
     ef = t['EF2023D'].get(uid)
     ret = num(ef, 'RET_PCF')
     if ret is not None:
-        v['retention_rate_full_time'] = ret; put('retention_rate', stat('retention_rate'))
+        v['retention_rate_full_time'] = ret; put('retention_rate', stat('retention_rate'), cur_note('retention_rate'))
     elif ef is not None and flag(ef, 'RET_PCF') == 'A':
         put('retention_rate', 'not_published_or_na', 'NCES: not applicable (no full-time first-time cohort)')
     else:
@@ -363,7 +396,7 @@ def evaluate(uid, t, L):
     if imputed and any(x is not None for x in rates.values()):
         put('graduation_rate', 'not_researched', f'NCES imputed part of the cohort (flags {"/".join(sorted(imputed))})')
     elif any(x is not None for x in rates.values()):
-        v.update(rates); put('graduation_rate', stat('graduation_rate'))
+        v.update(rates); put('graduation_rate', stat('graduation_rate'), cur_note('graduation_rate'))
     elif gflags and gflags <= {'A', 'Z'}:
         put('graduation_rate', 'not_published_or_na', 'no first-time full-time cohort to report (NCES: not applicable)')
     else:
@@ -377,8 +410,11 @@ def evaluate(uid, t, L):
                         key=list(AWARD_LEVELS.values()).index)
         v.update(fields_with_bachelors=len(fam), degree_levels_awarded=';'.join(levels))
         put('fields_and_levels', stat('fields_and_levels'), 'C2023_A (final); a newer provisional C2024_A is pinned' if not cur['fields_and_levels'] else '')
+    elif uid in t['C_ROWS']:
+        v.update(fields_with_bachelors=0, degree_levels_awarded='')
+        put('fields_and_levels', stat('fields_and_levels'), 'reported no awards in 2022-23 (CTOTALT 0)')
     else:
-        put('fields_and_levels', 'not_researched', 'no 2022-23 completions record')
+        put('fields_and_levels', *(survey_gap(t, uid, 'C') or ('not_researched', 'no 2022-23 completions record')))
     return v, st, why
 
 
@@ -398,7 +434,13 @@ def build():
             for c in f['columns']: row[c] = v.get(c)
             row[f['key'] + '__status'] = st[f['key']]
             row[f['key'] + '__reason'] = why[f['key']]
-        row['baseline_complete'] = all(st[f['key']] in ('verified_current', 'available_older', 'not_published_or_na') for f in FIELDS)
+        if v.get('closed_per_hd2024'):  # closed, inactive or missing in HD2024: history, never current; reviewed, not complete
+            for f in FIELDS:
+                if row[f['key'] + '__status'] == 'verified_current':
+                    row[f['key'] + '__status'] = 'available_older'
+                    row[f['key'] + '__reason'] = f"school {v['closed_per_hd2024'].replace('_', ' ')} per HD2024; " + row[f['key'] + '__reason']
+        row['baseline_complete'] = not v.get('closed_per_hd2024') and all(
+            row[f['key'] + '__status'] in ('verified_current', 'available_older', 'not_published_or_na') for f in FIELDS)
         rows.append(row)
         for fam, lv in sorted((t['C'].get(uid) or {}).items()):
             fos.append({'institution_key': i['institution_key'], 'unitid': i['unitid'], 'state': i['state'], 'cip_family': fam,
@@ -435,7 +477,12 @@ def field_doc(L):
     return {'note': 'Field dictionary for baseline/schools. kind: directory, statistic (a measurement NCES reports), '
                     'published_price (a price the school published for that year), historical_average (an average over a past '
                     'year\'s students; never a price, offer or personal estimate). Status codes: ' + ', '.join(STATUSES) + '.',
-            'collection_year': YEAR, 'planning_year': PLANNING_YEAR, 'fields': out}
+            'collection_year': YEAR, 'planning_year': PLANNING_YEAR,
+            'status_sources': {'HD2024.zip': 'provisional 2024-25 directory: identity check and closures (sources/ipeds/2024-25)',
+                               'FLAGS2023.zip': 'survey response status and parent/child reporting (STAT_*, PRCH_*, IDX_*)',
+                               'sources/ipeds/2024-25/manifest.json': 'files NCES did not serve (HTTP 404 with check date): '
+                                                                     'decides verified_current for statistics'},
+            'fields': out}
 
 
 # ---- policy layer and degree detail: separate measures, read from what research has recorded ----
@@ -491,9 +538,13 @@ def policy_status(reg):
                                                              else [topic[layer]]) if t in a), None)
         merit = by_key[k].get('merit', [])
         th = lambda r: r.get('thresholds') if isinstance(r.get('thresholds'), dict) else {}
-        s['merit_score_linked'] = any(th(r).get('act_min') is not None or th(r).get('sat_min') is not None or r.get('test_requirement')
-                                      for r in merit)
-        s['merit_gpa_linked'] = any(th(r).get('gpa_min') is not None or r.get('gpa_requirement') for r in merit)
+        # A criterion counts only with a number: structured thresholds, or an ACT/SAT name followed by a score, or a GPA figure.
+        score_txt = re.compile(r'\b(?:ACT|SAT)\b[^.;]{0,25}?\b(?:[1-3]\d|[4-9]\d0|1[0-6]\d0)\b')
+        gpa_txt = re.compile(r'\b[0-4]\.\d{1,2}\b')
+        s['merit_score_linked'] = any(th(r).get('act_min') is not None or th(r).get('sat_min') is not None
+                                      or score_txt.search(str(r.get('test_requirement') or '')) for r in merit)
+        s['merit_gpa_linked'] = any(th(r).get('gpa_min') is not None or gpa_txt.search(str(r.get('gpa_requirement') or ''))
+                                    for r in merit)
         out[k] = s
     return out
 
@@ -561,7 +612,8 @@ def report(rows, secs, reg):
         'in_scope_schools': n,
         'in_scope_rule': 'Every four-year school in pipeline/registry/<ST>.json (docs/coverage/baseline/UNIVERSE.md)',
         'baseline_complete': len(complete),
-        'baseline_complete_rule': 'every essential field is verified_current, available_older or not_published_or_na',
+        'baseline_complete_rule': 'every essential field is verified_current, available_older or not_published_or_na, and the '
+                                  'school is listed active in the provisional 2024-25 directory',
         'baseline_complete_and_all_current': sum(1 for r in rows if all(r[f['key'] + '__status'] in ('verified_current', 'not_published_or_na') for f in FIELDS)),
         'closed_or_inactive_per_hd2024': sum(1 for r in rows if r.get('closed_per_hd2024')),
         'undergraduate_enrollment_total': W,
@@ -590,8 +642,8 @@ def markdown(rep):
          f"- **In-scope schools: {rep['in_scope_schools']:,}** ({rep['in_scope_rule']}).",
          f"- **Complete baseline: {rep['baseline_complete']:,}** ({rep['baseline_complete_rule']}); "
          f"{rep['baseline_complete_and_all_current']:,} with every field current or not applicable.",
-         f"- **Closed or inactive in the provisional 2024-25 directory: {rep['closed_or_inactive_per_hd2024']}** (still listed, flagged in "
-         "`UNIVERSE.md`; their data describe a school that has since closed).",
+         f"- **Closed, inactive or missing in the provisional 2024-25 directory: {rep['closed_or_inactive_per_hd2024']}** (still listed and "
+         "flagged in `UNIVERSE.md`; never counted complete or current).",
          f"- **Enrollment-weighted:** {rep['enrollment_weighted_complete_share']:.1%} of {rep['undergraduate_enrollment_total']:,} "
          f"undergraduates (fall 2023) attend a school with a complete baseline; {rep['schools_without_enrollment_weight']} schools "
          "have no reported enrollment and weigh zero.",
@@ -659,6 +711,19 @@ def universe(t, reg):
                 and b.get('ICLEVEL') == '1' and b.get('INSTCAT') in {'2', '3'}):
             new.append({'unitid': int(u), 'name': b.get('INSTNM'), 'state': b.get('STABBR'), 'control': CONTROL.get(b.get('CONTROL')),
                         'in_hd2023': u in hd})
+    from urllib.parse import urlsplit
+    def dom(u):
+        u = (u or '').strip().lower()
+        host = urlsplit(u if '://' in u else 'https://' + u).netloc.split(':')[0]
+        parts = host.removeprefix('www.').split('.')
+        return '.'.join(parts[-2:]) if parts and parts[0] else ''
+    by_dom = collections.defaultdict(list)
+    for i in reg:
+        d = dom((hd.get(str(i['unitid'])) or {}).get('WEBADDR'))
+        if d: by_dom[d].append(i)
+    shared = [{'website_domain': d, 'schools': [{'institution_key': i['institution_key'], 'unitid': i['unitid'], 'name': i['name']}
+                                                 for i in sorted(v, key=lambda x: x['unitid'])]}
+              for d, v in sorted(by_dom.items()) if len(v) > 1]
     children = []
     for i in reg:
         f = fl.get(str(i['unitid'])) or {}
@@ -680,6 +745,10 @@ def universe(t, reg):
         'changes_in_hd2024': changes,
         'hd2024_candidates_not_in_scope_list': sorted(new, key=lambda x: (x['state'], x['name'])),
         'campuses_reported_with_parent': children,
+        'schools_sharing_a_website_domain': shared,
+        'shared_domain_note': 'Separate IPEDS units (own UNITID and IPEDS reporting) that publish under one website domain: '
+                              'branch campuses, online or adult divisions, systems. Each stays its own row; research of '
+                              'school-specific policy must check which unit a page covers.',
         'note': 'HD2024 is NCES\'s provisional 2024-25 directory. A school absent, inactive or renamed there is flagged for review, '
                 'never removed or renamed automatically; a candidate is added to the registry only by a reviewed change.',
     }
@@ -690,10 +759,14 @@ def universe_md(u):
          f"- **In scope: {u['in_scope_schools']:,} schools.** {u['in_scope_rule']}",
          f"- IPEDS degree-granting four-year universe (Title IV, 50 states and D.C.): {u['ipeds_four_year_universe']:,}. Not in scope: "
          + ', '.join(f'{k.replace("_", " ")} {n}' for k, n in u['excluded_from_universe_by_reason'].items())
-         + f" (docs/coverage/registry_reconciliation.md). In scope but outside the Title IV universe: {u['in_scope_outside_title_iv_universe']}.",
+         + f" (docs/coverage/registry_reconciliation.md). In scope but outside the Title IV universe: {len(u['in_scope_outside_title_iv_universe'])} "
+         "(UNITIDs in `universe.json`).",
          f"- Duplicate UNITIDs: {len(u['duplicate_unitids'])}; duplicate institution keys: {len(u['duplicate_institution_keys'])}.",
          f"- Campuses whose IPEDS data are reported with a parent campus: {len(u['campuses_reported_with_parent'])} (their figures for "
-         'those surveys are `not_published_or_na`, with the parent named).', f"- {u['note']}", '',
+         'those surveys are `not_published_or_na`, with the parent named).',
+         f"- Website domains shared by more than one in-scope school: {len(u['schools_sharing_a_website_domain'])} "
+         f"({sum(len(g['schools']) for g in u['schools_sharing_a_website_domain'])} schools). {u['shared_domain_note']}",
+         f"- {u['note']}", '',
          f"## Changes in the provisional 2024-25 directory ({len(u['changes_in_hd2024'])})", '',
          '| School | State | Change | 2024-25 name | Closed | Merged into |', '|---|---|---|---|---|---|']
     for c in u['changes_in_hd2024']:
@@ -704,6 +777,10 @@ def universe_md(u):
           '| School | State | Control | In HD2023 |', '|---|---|---|---|']
     for c in u['hd2024_candidates_not_in_scope_list']:
         L.append(f"| {c['name']} ({c['unitid']}) | {c['state']} | {c['control']} | {'yes' if c['in_hd2023'] else 'no'} |")
+    L += ['', f"## Schools sharing a website domain ({len(u['schools_sharing_a_website_domain'])} domains)", '',
+          '| Domain | Schools |', '|---|---|']
+    for g in u['schools_sharing_a_website_domain']:
+        L.append(f"| {g['website_domain']} | " + '; '.join(f"{x['name']} ({x['unitid']})" for x in g['schools']) + ' |')
     return '\n'.join(L) + '\n'
 
 

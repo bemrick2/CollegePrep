@@ -2,6 +2,11 @@
  "note": "Field dictionary for baseline/schools. kind: directory, statistic (a measurement NCES reports), published_price (a price the school published for that year), historical_average (an average over a past year's students; never a price, offer or personal estimate). Status codes: verified_current, available_older, not_published_or_na, not_researched, blocked.",
  "collection_year": "2023-24",
  "planning_year": "2026-27",
+ "status_sources": {
+  "HD2024.zip": "provisional 2024-25 directory: identity check and closures (sources/ipeds/2024-25)",
+  "FLAGS2023.zip": "survey response status and parent/child reporting (STAT_*, PRCH_*, IDX_*)",
+  "sources/ipeds/2024-25/manifest.json": "files NCES did not serve (HTTP 404 with check date): decides verified_current for statistics"
+ },
  "fields": [
   {
    "key": "identity",
