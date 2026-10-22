@@ -498,6 +498,21 @@ def policy_status(reg):
     return out
 
 
+def current_prices(reg):
+    """Schools with a verified school-published tuition record for the planning year or later (research records, not IPEDS)."""
+    from backend.catalog import records
+    keys = {i['institution_key'] for i in reg}
+    by = collections.defaultdict(set)
+    for path, domain, r in records():
+        if domain != 'costs' or 'data/national' in str(path) or r.get('institution_key') not in keys: continue
+        if r.get('verification_status') == 'verified' and r.get('tuition') is not None and str(r.get('academic_year') or '') >= PLANNING_YEAR:
+            by['verified'].add(r['institution_key'])
+        elif r.get('tuition') is not None and str(r.get('academic_year') or '') >= PLANNING_YEAR:
+            by['partially_verified'].add(r['institution_key'])
+    by['partially_verified'] -= by['verified']
+    return by
+
+
 def degree_detail():
     p = ROOT / 'docs/coverage/programs/STATUS.json'
     if not p.exists(): return {}
@@ -535,6 +550,8 @@ def report(rows, secs, reg):
     pl['merit_on_file_enrollment_weighted'] = ew({k for k, s in pol.items() if s['merit'] in ('verified', 'partially_verified')})
     pl['merit_score_linked_enrollment_weighted'] = ew({k for k, s in pol.items() if s['merit_score_linked']})
     dd = degree_detail()
+    cp = current_prices(reg)
+    cpk = cp['verified']
     by_state = collections.defaultdict(lambda: collections.Counter())
     for r in rows:
         by_state[r['registry_state']]['schools'] += 1
@@ -551,6 +568,11 @@ def report(rows, secs, reg):
         'schools_without_enrollment_weight': sum(1 for r in rows if not w(r)),
         'enrollment_weighted_complete_share': round(sum(w(r) for r in complete) / W, 4) if W else 0,
         'fields': per,
+        'current_published_tuition': {
+            'note': f'Separate from IPEDS: a school-published tuition record for {PLANNING_YEAR} or later in data/institutions, '
+                    'verified against the official page (pipeline research). IPEDS tuition stays available_older.',
+            'verified_schools': len(cpk), 'partially_verified_schools': len(cp['partially_verified']),
+            'enrollment_weighted_verified': round(sum(w(r) for r in rows if r['institution_key'] in cpk) / W, 4) if W else 0},
         'policy_layer': {'note': 'Separate measure. From research records in data/institutions/<folder>/ (awards of type '
                                  'institutional_merit, AP/IB/CLEP credit policies, appeals). not_researched means no record yet, '
                                  'never that the school has no policy.', **pl},
@@ -581,6 +603,9 @@ def markdown(rep):
     for k, f in rep['fields'].items():
         L.append(f"| {f['label']} | {f['period']} | {f['verified_current']:,} | {f['available_older']:,} | {f['not_published_or_na']:,} | "
                  f"{f['not_researched']:,} | {f['blocked']:,} | {f['resolved_share']:.1%} | {f['enrollment_weighted_resolved_share']:.1%} |")
+    c = rep['current_published_tuition']
+    L += ['', f"**Current published tuition ({PLANNING_YEAR} or later, school's own page):** {c['verified_schools']:,} schools verified, "
+          f"{c['partially_verified_schools']:,} partially verified; {c['enrollment_weighted_verified']:.1%} of undergraduates. {c['note']}"]
     L += ['', 'Most common reasons a field is not researched:', '']
     for k, f in rep['fields'].items():
         if f['top_reasons_not_researched']:
