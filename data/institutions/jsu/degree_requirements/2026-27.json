@@ -55,20 +55,23 @@
               },
               "BY 102& BY 104 | Introductory Biology IIand Introductory Biology Lab II (Jax MIX Inquiry) | 4",
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "MS 113",
+                    "title": "Precalculus Trigonometry"
+                  },
+                  {
+                    "code": "MS 125",
+                    "title": "Calculus I"
+                  },
+                  {
+                    "code": "MS 204",
+                    "title": "Basic Statistics"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "MS 113",
-                "title": "Precalculus Trigonometry"
-              },
-              {
-                "code": "MS 125",
-                "title": "Calculus I"
-              },
-              {
-                "code": "MS 204",
-                "title": "Basic Statistics"
               },
               {
                 "credits": 3,
@@ -240,7 +243,7 @@
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/arts-humanities-sciences/biology/biology-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence AL/2026-10-06-cl#51fb68a9b57c66ac) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#c4047a529eb3f698."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence AL/2026-10-06-cl#c4047a529eb3f698) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#c4047a529eb3f698."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -7757,7 +7760,10 @@
           {
             "credit_hours": "14",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
               "BY 101& BY 103 | Introductory Biology Iand Introductory Biology Lab I (Jax MIX Inquiry) | 4",
               {
                 "code": "MS 112",
@@ -7777,7 +7783,10 @@
           {
             "credit_hours": "14",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
               "BY 102& BY 104 | Introductory Biology IIand Introductory Biology Lab II (Jax MIX Inquiry) | 4",
               "CY 106& CY 108 | General Chemistry IIand General Chemistry Laboratory II | 4",
               {
@@ -7797,14 +7806,23 @@
           {
             "credit_hours": "14",
             "items": [
-              "Jax MIX Expression: Literature | 3",
-              "Jax MIX Experience: History | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History"
+              },
               {
                 "code": "CY 232",
                 "credits": 4,
                 "title": "Organic Chemistry II"
               },
-              "Biology Core | 4"
+              {
+                "credits": 4,
+                "text": "Biology Core"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -7812,14 +7830,23 @@
           {
             "credit_hours": "14",
             "items": [
-              "Jax MIX Expression: (Literature, if sequence) 1 | 3",
-              "Jax MIX Experience: (History, if sequence) 1 | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: (Literature, if sequence) 1"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: (History, if sequence) 1"
+              },
               {
                 "code": "CY 231",
                 "credits": 4,
                 "title": "Organic Chemistry I"
               },
-              "Biology Core | 4"
+              {
+                "credits": 4,
+                "text": "Biology Core"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -7837,9 +7864,15 @@
                 "credits": 3,
                 "title": "Speech (Jax MIX Communication)"
               },
-              "Jax MIX Experience: Social/Behavioral Science | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
               "PHS 201& PHS 203 | College Physics Iand College Physics Laboratory Techniques I 2 | 4",
-              "Biology Core | 4"
+              {
+                "credits": 4,
+                "text": "Biology Core"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -7847,15 +7880,24 @@
           {
             "credit_hours": "16",
             "items": [
-              "Jax MIX Experience: Social/Behavioral Science | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
               {
                 "code": "CS 201",
                 "credits": 3,
                 "title": "Introduction to Information Technology (or higher )"
               },
               "PHS 202& PHS 204 | College Physics IIand College Physics Laboratory Techniques II 2 | 4",
-              "Biology Core | 3",
-              "Electives | 3"
+              {
+                "credits": 3,
+                "text": "Biology Core"
+              },
+              {
+                "credits": 3,
+                "text": "Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -7863,20 +7905,40 @@
           {
             "credit_hours": "8",
             "items": [
-              "In Residence at Dauphin Island Sea Lab",
-              "MBY 411or MBY 461 | Marine Ecologyor Marine Behavioral Ecology | 4",
-              "Select one of the following: | 4",
               {
-                "code": "MBY 481",
-                "title": "Marine Mammals"
+                "text": "In Residence at Dauphin Island Sea Lab"
               },
               {
-                "code": "MBY 486",
-                "title": "Marine Vertebrate Zoology"
+                "any_of": [
+                  {
+                    "code": "MBY 411",
+                    "title": "Marine Ecology"
+                  },
+                  {
+                    "code": "MBY 461",
+                    "title": "Marine Behavioral Ecology"
+                  }
+                ],
+                "credits": 4
               },
               {
-                "code": "MBY 487",
-                "title": "Marine Invertebrate Zoology"
+                "choose": 1,
+                "credits": 4,
+                "options": [
+                  {
+                    "code": "MBY 481",
+                    "title": "Marine Mammals"
+                  },
+                  {
+                    "code": "MBY 486",
+                    "title": "Marine Vertebrate Zoology"
+                  },
+                  {
+                    "code": "MBY 487",
+                    "title": "Marine Invertebrate Zoology"
+                  }
+                ],
+                "text": "Select one of the following:"
               }
             ],
             "label": "Summer",
@@ -7890,8 +7952,14 @@
           {
             "credit_hours": "12",
             "items": [
-              "Jax MIX Expression: Fine Arts | 3",
-              "Electives | 9"
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 9,
+                "text": "Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 12
@@ -7904,7 +7972,10 @@
                 "credits": 1,
                 "title": "Senior Seminar (WI)"
               },
-              "Electives | 5"
+              {
+                "credits": 5,
+                "text": "Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 13
@@ -7912,20 +7983,31 @@
           {
             "credit_hours": "8",
             "items": [
-              "In Residence at Dauphin Island Sea Lab",
-              "Marine Biology Elective 3 | 4",
-              "Select one of the following: | 4",
               {
-                "code": "MBY 415",
-                "title": "Marine Botany"
+                "text": "In Residence at Dauphin Island Sea Lab"
               },
               {
-                "code": "MBY 423",
-                "title": "Marsh Ecology"
+                "credits": 4,
+                "text": "Marine Biology Elective 3"
               },
               {
-                "code": "MBY 439",
-                "title": "Coastal Wetlands Ecology"
+                "choose": 1,
+                "credits": 4,
+                "options": [
+                  {
+                    "code": "MBY 415",
+                    "title": "Marine Botany"
+                  },
+                  {
+                    "code": "MBY 423",
+                    "title": "Marsh Ecology"
+                  },
+                  {
+                    "code": "MBY 439",
+                    "title": "Coastal Wetlands Ecology"
+                  }
+                ],
+                "text": "Select one of the following:"
               }
             ],
             "label": "Summer",
@@ -7935,7 +8017,7 @@
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/arts-humanities-sciences/biology/biology-marine-biology-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 14 terms (printed order, year rows as empty terms), 42 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#646a590699964312."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (2 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total; differs: only printed rows re-read as structured items (string->any_of x1, string->text x21); labels, subtotals, rule_text unchanged; all supported Replaces the record promoted earlier from this candidate: Plan on file (evidence AL/2026-10-06-cl#646a590699964312) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#5566b97279483cfa."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -9167,10 +9249,22 @@
           {
             "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
-              "Jax MIX Experience: History sequence | 3",
-              "Jax MIX Experience: Social and Behavioral Science | 3",
-              "Jax MIX Inquiry: Science sequence | 4",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social and Behavioral Science"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science sequence"
+              },
               {
                 "code": "SH 101",
                 "credits": 3,
@@ -9188,14 +9282,23 @@
           {
             "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
               {
                 "code": "EH 141",
                 "credits": 3,
                 "title": "Speech (Jax MIX Communication)"
               },
-              "Jax MIX Experience: History sequence | 3",
-              "Jax MIX Inquiry: Science sequence | 4",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History sequence"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science sequence"
+              },
               {
                 "code": "SH 102",
                 "credits": 3,
@@ -9218,14 +9321,23 @@
                 "credits": 3,
                 "title": "Finite Mathematics (or higher - Jax MIX Communication)"
               },
-              "Jax MIX Expression: Literature | 3",
-              "Jax MIX Experience: Social and Behavioral Science | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social and Behavioral Science"
+              },
               {
                 "code": "SH 201",
                 "credits": 3,
                 "title": "Intermediate Spanish I"
               },
-              "300/400 level Spanish course | 3"
+              {
+                "credits": 3,
+                "text": "300/400 level Spanish course"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -9233,15 +9345,27 @@
           {
             "credit_hours": "15",
             "items": [
-              "Jax MIX Expression: Fine Arts | 3",
-              "Jax MIX Expression: Literature | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
               {
                 "code": "SH 202",
                 "credits": 3,
                 "title": "Intermediate Spanish II"
               },
-              "300/400 Level Spanish course | 3",
-              "Minor/Elective | 3"
+              {
+                "credits": 3,
+                "text": "300/400 Level Spanish course"
+              },
+              {
+                "credits": 3,
+                "text": "Minor/Elective"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -9259,17 +9383,29 @@
                 "credits": 3,
                 "title": "Introduction to Information Technology"
               },
-              "Select one of the following: | 3",
               {
-                "code": "SH 311",
-                "title": "Basic Spanish Conversation"
+                "choose": 1,
+                "credits": 3,
+                "options": [
+                  {
+                    "code": "SH 311",
+                    "title": "Basic Spanish Conversation"
+                  },
+                  {
+                    "code": "SH 320",
+                    "title": "Spanish Conversation"
+                  }
+                ],
+                "text": "Select one of the following:"
               },
               {
-                "code": "SH 320",
-                "title": "Spanish Conversation"
+                "credits": 3,
+                "text": "300/400 Level Spanish course"
               },
-              "300/400 Level Spanish course | 3",
-              "Minor/ Electives | 6"
+              {
+                "credits": 6,
+                "text": "Minor/ Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -9277,17 +9413,29 @@
           {
             "credit_hours": "15",
             "items": [
-              "Select one of the following: | 3",
               {
-                "code": "SH 311",
-                "title": "Basic Spanish Conversation"
+                "choose": 1,
+                "credits": 3,
+                "options": [
+                  {
+                    "code": "SH 311",
+                    "title": "Basic Spanish Conversation"
+                  },
+                  {
+                    "code": "SH 320",
+                    "title": "Spanish Conversation"
+                  }
+                ],
+                "text": "Select one of the following:"
               },
               {
-                "code": "SH 320",
-                "title": "Spanish Conversation"
+                "credits": 3,
+                "text": "300/400 level Spanish course"
               },
-              "300/400 level Spanish course | 3",
-              "Minor/Electives | 9"
+              {
+                "credits": 9,
+                "text": "Minor/Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -9300,8 +9448,14 @@
           {
             "credit_hours": "15",
             "items": [
-              "300/400 Level Spanish course | 3",
-              "Minor/Electives | 12"
+              {
+                "credits": 3,
+                "text": "300/400 Level Spanish course"
+              },
+              {
+                "credits": 12,
+                "text": "Minor/Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -9309,8 +9463,14 @@
           {
             "credit_hours": "13",
             "items": [
-              "300/400 Level Spanish course | 3",
-              "Minor/Electives | 10"
+              {
+                "credits": 3,
+                "text": "300/400 Level Spanish course"
+              },
+              {
+                "credits": 10,
+                "text": "Minor/Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -9319,7 +9479,7 @@
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/arts-humanities-sciences/history-foreign-languages/foreign-languages-spanish-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 36 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#5cc45bcbb405d50b."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total; differs: only printed rows re-read as structured items (string->text x24); labels, subtotals, rule_text unchanged; all supported Replaces the record promoted earlier from this candidate: Plan on file (evidence AL/2026-10-06-cl#5cc45bcbb405d50b) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#2ee695754d234c72."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -11574,21 +11734,33 @@
           {
             "credit_hours": "13",
             "items": [
-              "Jax MIX Communication: EH Composition Sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition Sequence"
+              },
               {
                 "code": "MS 125",
                 "credits": 4,
                 "title": "Calculus I (Jax MIX Communication)"
               },
-              "Jax MIX Experience: History | 3",
-              "Select one of the following: | 3",
               {
-                "code": "CS 230",
-                "title": "Fundamentals of Computing"
+                "credits": 3,
+                "text": "Jax MIX Experience: History"
               },
               {
-                "code": "CS 231",
-                "title": "Computer Programming I"
+                "choose": 1,
+                "credits": 3,
+                "options": [
+                  {
+                    "code": "CS 230",
+                    "title": "Fundamentals of Computing"
+                  },
+                  {
+                    "code": "CS 231",
+                    "title": "Computer Programming I"
+                  }
+                ],
+                "text": "Select one of the following:"
               },
               {
                 "code": "SSC 101",
@@ -11602,9 +11774,18 @@
           {
             "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition Sequence | 3",
-              "Jax MIX Expression: Fine Arts | 3",
-              "Jax MIX Experience (History if sequence) 1 | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition Sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience (History if sequence) 1"
+              },
               {
                 "code": "MS 126",
                 "credits": 4,
@@ -11654,9 +11835,18 @@
           {
             "credit_hours": "16",
             "items": [
-              "Jax MIX Expression: Literature | 3",
-              "Jax MIX Experience: Social/Behavioral Science | 3",
-              "Jax MIX Inquiry: Science | 4",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
               {
                 "code": "MS 344",
                 "credits": 3,
@@ -11679,7 +11869,10 @@
           {
             "credit_hours": "15",
             "items": [
-              "Jax MIX Expression (Literature if sequence) 1 | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression (Literature if sequence) 1"
+              },
               {
                 "code": "MS 309",
                 "credits": 3,
@@ -11690,7 +11883,10 @@
                 "credits": 3,
                 "title": "Advanced Calculus I (WI)"
               },
-              "General Electives | 6"
+              {
+                "credits": 6,
+                "text": "General Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -11698,7 +11894,10 @@
           {
             "credit_hours": "15",
             "items": [
-              "Jax MIX Experience: Social/Behavioral Science | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
               {
                 "code": "MS 323",
                 "credits": 3,
@@ -11709,7 +11908,10 @@
                 "credits": 3,
                 "title": "Abstract Algebra I (WI)"
               },
-              "General Electives | 6"
+              {
+                "credits": 6,
+                "text": "General Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -11727,7 +11929,10 @@
                 "credits": 3,
                 "title": "Seminar in Mathematics (WI)"
               },
-              "General Electives | 12"
+              {
+                "credits": 12,
+                "text": "General Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -11735,7 +11940,10 @@
           {
             "credit_hours": "15",
             "items": [
-              "General Electives | 15"
+              {
+                "credits": 15,
+                "text": "General Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -11744,7 +11952,7 @@
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/arts-humanities-sciences/mathematical-computing-information-sciences/mathematics-general-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 32 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#29a80bd104dc56e1."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total; differs: only printed rows re-read as structured items (string->text x15); labels, subtotals, rule_text unchanged; all supported Replaces the record promoted earlier from this candidate: Plan on file (evidence AL/2026-10-06-cl#29a80bd104dc56e1) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#9c5c32454cd4e862."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -11767,21 +11975,33 @@
           {
             "credit_hours": "13",
             "items": [
-              "Jax MIX Communication: EH Composition Sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition Sequence"
+              },
               {
                 "code": "MS 125",
                 "credits": 4,
                 "title": "Calculus I (Jax MIX Communication)"
               },
-              "Jax MIX Experience: History | 3",
-              "Select one of the following: | 3",
               {
-                "code": "CS 230",
-                "title": "Fundamentals of Computing"
+                "credits": 3,
+                "text": "Jax MIX Experience: History"
               },
               {
-                "code": "CS 231",
-                "title": "Computer Programming I"
+                "choose": 1,
+                "credits": 3,
+                "options": [
+                  {
+                    "code": "CS 230",
+                    "title": "Fundamentals of Computing"
+                  },
+                  {
+                    "code": "CS 231",
+                    "title": "Computer Programming I"
+                  }
+                ],
+                "text": "Select one of the following:"
               },
               {
                 "code": "SSC 101",
@@ -11795,10 +12015,22 @@
           {
             "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition Sequence | 3",
-              "Jax MIX Expression: Fine Arts | 3",
-              "Jax MIX Experience (History if sequence) 1 | 3",
-              "Jax MIX Experience: Social/Behavioral Science | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition Sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience (History if sequence) 1"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
               {
                 "code": "MS 126",
                 "credits": 4,
@@ -11843,9 +12075,18 @@
           {
             "credit_hours": "16",
             "items": [
-              "Jax MIX Expression: Literature | 3",
-              "Jax MIX Experience: Social/Behavioral Science | 3",
-              "Jax MIX Inquiry: Science | 4",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
               {
                 "code": "MS 344",
                 "credits": 3,
@@ -11868,14 +12109,23 @@
           {
             "credit_hours": "15",
             "items": [
-              "Jax MIX Expression (Literature if sequence) 1 | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression (Literature if sequence) 1"
+              },
               {
                 "code": "MS 415",
                 "credits": 3,
                 "title": "Advanced Calculus I (WI)"
               },
-              "Mathematics 300+ Elective 2 | 3",
-              "General Electives | 6"
+              {
+                "credits": 3,
+                "text": "Mathematics 300+ Elective 2"
+              },
+              {
+                "credits": 6,
+                "text": "General Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -11888,8 +12138,14 @@
                 "credits": 3,
                 "title": "Abstract Algebra I (WI)"
               },
-              "Mathematics 300+ Elective 2 | 3",
-              "General Electives | 9"
+              {
+                "credits": 3,
+                "text": "Mathematics 300+ Elective 2"
+              },
+              {
+                "credits": 9,
+                "text": "General Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -11902,8 +12158,14 @@
           {
             "credit_hours": "15",
             "items": [
-              "Mathematics 400+ Elective | 3",
-              "General Electives | 12"
+              {
+                "credits": 3,
+                "text": "Mathematics 400+ Elective"
+              },
+              {
+                "credits": 12,
+                "text": "General Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -11911,8 +12173,14 @@
           {
             "credit_hours": "15",
             "items": [
-              "Mathematics 400+ Elective | 3",
-              "General Electives | 12"
+              {
+                "credits": 3,
+                "text": "Mathematics 400+ Elective"
+              },
+              {
+                "credits": 12,
+                "text": "General Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -11921,7 +12189,7 @@
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/arts-humanities-sciences/mathematical-computing-information-sciences/mathematics-traditional-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 32 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#1db63409ee729527."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total; differs: only printed rows re-read as structured items (string->text x19); labels, subtotals, rule_text unchanged; all supported Replaces the record promoted earlier from this candidate: Plan on file (evidence AL/2026-10-06-cl#1db63409ee729527) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#d966d4b5af219a7f."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -20615,11 +20883,35 @@
           {
             "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
-              "Jax MIX Expression: Fine Arts | 3",
-              "Jax MIX Inquiry: Science | 4",
-              "Jax MIX Experience: History Sequence | 3",
-              "SY 221or SY 222 | Introduction to Sociologyor Honors Introduction to Sociology | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History Sequence"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "SY 221",
+                    "title": "Introduction to Sociology"
+                  },
+                  {
+                    "code": "SY 222",
+                    "title": "Honors Introduction to Sociology"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "SSC 101",
                 "credits": 0,
@@ -20632,15 +20924,27 @@
           {
             "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
               {
                 "code": "EH 141",
                 "credits": 3,
                 "title": "Speech (Jax MIX Communication)"
               },
-              "Jax MIX Inquiry: Science | 4",
-              "Jax MIX Experience: History Sequence | 3",
-              "Jax MIX Experience: Social/Behavioral Science | 3"
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History Sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -20653,7 +20957,10 @@
           {
             "credit_hours": "14",
             "items": [
-              "Jax MIX Expression: Literature | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
               {
                 "code": "MS 110",
                 "credits": 3,
@@ -20664,7 +20971,10 @@
                 "credits": 3,
                 "title": "Social Problems"
               },
-              "Electives | 5"
+              {
+                "credits": 5,
+                "text": "Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -20672,8 +20982,14 @@
           {
             "credit_hours": "14",
             "items": [
-              "Jax MIX Expression: Literature | 3",
-              "Jax MIX Experience: Social/Behavioral Science | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
               {
                 "code": "CJ 101",
                 "credits": 3,
@@ -20684,7 +21000,10 @@
                 "credits": 3,
                 "title": "Introduction to Information Technology"
               },
-              "Electives | 2"
+              {
+                "credits": 2,
+                "text": "Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -20707,20 +21026,29 @@
                 "credits": 3,
                 "title": "Social Psychology"
               },
-              "Select one of the following: | 3",
               {
-                "code": "SY 324",
-                "title": "Social Stratification"
+                "choose": 1,
+                "credits": 3,
+                "options": [
+                  {
+                    "code": "SY 324",
+                    "title": "Social Stratification"
+                  },
+                  {
+                    "code": "SY 360",
+                    "title": "Race, Ethnicity, and Society"
+                  },
+                  {
+                    "code": "SY 368",
+                    "title": "Gender and Society"
+                  }
+                ],
+                "text": "Select one of the following:"
               },
               {
-                "code": "SY 360",
-                "title": "Race, Ethnicity, and Society"
-              },
-              {
-                "code": "SY 368",
-                "title": "Gender and Society"
-              },
-              "Electives 1 | 6"
+                "credits": 6,
+                "text": "Electives 1"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -20728,9 +21056,18 @@
           {
             "credit_hours": "15",
             "items": [
-              "Sociology Electives 300+ | 3",
-              "Electives 1 | 9",
-              "Electives 300+ | 3"
+              {
+                "credits": 3,
+                "text": "Sociology Electives 300+"
+              },
+              {
+                "credits": 9,
+                "text": "Electives 1"
+              },
+              {
+                "credits": 3,
+                "text": "Electives 300+"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -20743,9 +21080,27 @@
           {
             "credit_hours": "15",
             "items": [
-              "SY 425or SY 426 | Perspectives on Social Life Ior Perspectives on Social Life II | 3",
-              "Sociology Electives 300+ | 3",
-              "Electives 1 | 9"
+              {
+                "any_of": [
+                  {
+                    "code": "SY 425",
+                    "title": "Perspectives on Social Life I"
+                  },
+                  {
+                    "code": "SY 426",
+                    "title": "Perspectives on Social Life II"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 3,
+                "text": "Sociology Electives 300+"
+              },
+              {
+                "credits": 9,
+                "text": "Electives 1"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -20758,8 +21113,14 @@
                 "credits": 3,
                 "title": "Senior Sociology Seminar (WI)"
               },
-              "Sociology Electives 300+ | 3",
-              "Electives 1 | 9"
+              {
+                "credits": 3,
+                "text": "Sociology Electives 300+"
+              },
+              {
+                "credits": 9,
+                "text": "Electives 1"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -20768,7 +21129,7 @@
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/social-behavioral-sciences/sociology-political-science/sociology-advanced-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 36 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#9f3ddfbd91356d32."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total; differs: only printed rows re-read as structured items (string->any_of x2, string->text x22); labels, subtotals, rule_text unchanged; all supported Replaces the record promoted earlier from this candidate: Plan on file (evidence AL/2026-10-06-cl#9f3ddfbd91356d32) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#2e49c5748e38e298."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -20791,11 +21152,35 @@
           {
             "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
-              "Jax MIX Expression: Fine Arts | 3",
-              "Jax MIX Inquiry: Science | 4",
-              "Jax MIX Experience: History Sequence | 3",
-              "SY 221or SY 222 | Introduction to Sociologyor Honors Introduction to Sociology | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History Sequence"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "SY 221",
+                    "title": "Introduction to Sociology"
+                  },
+                  {
+                    "code": "SY 222",
+                    "title": "Honors Introduction to Sociology"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "SSC 101",
                 "credits": 0,
@@ -20808,15 +21193,27 @@
           {
             "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
               {
                 "code": "EH 141",
                 "credits": 3,
                 "title": "Speech (Jax MIX Communication)"
               },
-              "Jax MIX Inquiry: Science | 4",
-              "Jax MIX Experience: History Sequence | 3",
-              "Jax MIX Experience: Social/Behavioral Science | 3"
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History Sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -20834,7 +21231,10 @@
                 "credits": 3,
                 "title": "Finite Mathematics (or higher - Jax MIX Communication)"
               },
-              "Jax MIX Expression: Literature | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
               {
                 "code": "CJ 101",
                 "credits": 3,
@@ -20845,7 +21245,10 @@
                 "credits": 3,
                 "title": "Social Problems"
               },
-              "Electives | 2"
+              {
+                "credits": 2,
+                "text": "Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -20853,14 +21256,23 @@
           {
             "credit_hours": "14",
             "items": [
-              "Jax MIX Expression: Literature | 3",
-              "Jax MIX Experience: Social/Behavioral Science | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
               {
                 "code": "CS 201",
                 "credits": 3,
                 "title": "Introduction to Information Technology"
               },
-              "Electives | 5"
+              {
+                "credits": 5,
+                "text": "Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -20878,25 +21290,34 @@
                 "credits": 3,
                 "title": "Researching Society (WI)"
               },
-              "Select one of the following: | 3",
               {
-                "code": "SY 324",
-                "title": "Social Stratification"
-              },
-              {
-                "code": "SY 360",
-                "title": "Race, Ethnicity, and Society"
-              },
-              {
-                "code": "SY 368",
-                "title": "Gender and Society"
+                "choose": 1,
+                "credits": 3,
+                "options": [
+                  {
+                    "code": "SY 324",
+                    "title": "Social Stratification"
+                  },
+                  {
+                    "code": "SY 360",
+                    "title": "Race, Ethnicity, and Society"
+                  },
+                  {
+                    "code": "SY 368",
+                    "title": "Gender and Society"
+                  }
+                ],
+                "text": "Select one of the following:"
               },
               {
                 "code": "SY 313",
                 "credits": 3,
                 "title": "Social Psychology"
               },
-              "Electives 1 | 6"
+              {
+                "credits": 6,
+                "text": "Electives 1"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -20904,9 +21325,18 @@
           {
             "credit_hours": "15",
             "items": [
-              "Sociology Electives 300+ | 3",
-              "Electives 1 | 9",
-              "Electives 300+ | 3"
+              {
+                "credits": 3,
+                "text": "Sociology Electives 300+"
+              },
+              {
+                "credits": 9,
+                "text": "Electives 1"
+              },
+              {
+                "credits": 3,
+                "text": "Electives 300+"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -20919,9 +21349,27 @@
           {
             "credit_hours": "15",
             "items": [
-              "SY 425or SY 426 | Perspectives on Social Life Ior Perspectives on Social Life II | 3",
-              "Sociology Electives 300+ | 3",
-              "Electives 1 | 9"
+              {
+                "any_of": [
+                  {
+                    "code": "SY 425",
+                    "title": "Perspectives on Social Life I"
+                  },
+                  {
+                    "code": "SY 426",
+                    "title": "Perspectives on Social Life II"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 3,
+                "text": "Sociology Electives 300+"
+              },
+              {
+                "credits": 9,
+                "text": "Electives 1"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -20934,8 +21382,14 @@
                 "credits": 3,
                 "title": "Senior Sociology Seminar (WI)"
               },
-              "Sociology Electives 300+ | 3",
-              "Electives 1 | 9"
+              {
+                "credits": 3,
+                "text": "Sociology Electives 300+"
+              },
+              {
+                "credits": 9,
+                "text": "Electives 1"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -20944,7 +21398,7 @@
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/social-behavioral-sciences/sociology-political-science/sociology-advanced-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 36 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#05c9ac5eb5891f97."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total; differs: only printed rows re-read as structured items (string->any_of x2, string->text x22); labels, subtotals, rule_text unchanged; all supported Replaces the record promoted earlier from this candidate: Plan on file (evidence AL/2026-10-06-cl#05c9ac5eb5891f97) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#5da0255f6e1b864d."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -20967,11 +21421,35 @@
           {
             "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
-              "Jax MIX Expression: Fine Arts | 3",
-              "Jax MIX Inquiry: Science | 4",
-              "Jax MIX Experience: History Sequence | 3",
-              "SY 221or SY 222 | Introduction to Sociologyor Honors Introduction to Sociology | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History Sequence"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "SY 221",
+                    "title": "Introduction to Sociology"
+                  },
+                  {
+                    "code": "SY 222",
+                    "title": "Honors Introduction to Sociology"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "SSC 101",
                 "credits": 0,
@@ -20984,15 +21462,27 @@
           {
             "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
               {
                 "code": "EH 141",
                 "credits": 3,
                 "title": "Speech (Jax MIX Communication)"
               },
-              "Jax MIX Inquiry: Science | 4",
-              "Jax MIX Experience: History Sequence | 3",
-              "Jax MIX Experience: Social/Behavioral Science | 3"
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History Sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -21005,7 +21495,10 @@
           {
             "credit_hours": "14",
             "items": [
-              "Jax MIX Expression: Literature | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
               {
                 "code": "MS 110",
                 "credits": 3,
@@ -21016,7 +21509,10 @@
                 "credits": 3,
                 "title": "Social Problems"
               },
-              "Electives | 5"
+              {
+                "credits": 5,
+                "text": "Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -21024,8 +21520,14 @@
           {
             "credit_hours": "14",
             "items": [
-              "Jax MIX Expression: Literature | 3",
-              "Jax MIX Experience: Social/Behavioral Science | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
               {
                 "code": "CJ 101",
                 "credits": 3,
@@ -21036,7 +21538,10 @@
                 "credits": 3,
                 "title": "Introduction to Information Technology"
               },
-              "Electives | 2"
+              {
+                "credits": 2,
+                "text": "Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -21049,26 +21554,38 @@
           {
             "credit_hours": "15",
             "items": [
-              "Select one of the following: | 3",
               {
-                "code": "SY 324",
-                "title": "Social Stratification"
-              },
-              {
-                "code": "SY 360",
-                "title": "Race, Ethnicity, and Society"
-              },
-              {
-                "code": "SY 368",
-                "title": "Gender and Society"
+                "choose": 1,
+                "credits": 3,
+                "options": [
+                  {
+                    "code": "SY 324",
+                    "title": "Social Stratification"
+                  },
+                  {
+                    "code": "SY 360",
+                    "title": "Race, Ethnicity, and Society"
+                  },
+                  {
+                    "code": "SY 368",
+                    "title": "Gender and Society"
+                  }
+                ],
+                "text": "Select one of the following:"
               },
               {
                 "code": "SY 313",
                 "credits": 3,
                 "title": "Social Psychology"
               },
-              "Sociology Electives 300+ | 3",
-              "Electives 1 | 6"
+              {
+                "credits": 3,
+                "text": "Sociology Electives 300+"
+              },
+              {
+                "credits": 6,
+                "text": "Electives 1"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -21076,9 +21593,18 @@
           {
             "credit_hours": "15",
             "items": [
-              "Sociology Electives 300+ | 3",
-              "Electives 1 | 9",
-              "Electives 300+ | 3"
+              {
+                "credits": 3,
+                "text": "Sociology Electives 300+"
+              },
+              {
+                "credits": 9,
+                "text": "Electives 1"
+              },
+              {
+                "credits": 3,
+                "text": "Electives 300+"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -21091,8 +21617,14 @@
           {
             "credit_hours": "15",
             "items": [
-              "Sociology Electives 300+ | 6",
-              "Electives 1 | 9"
+              {
+                "credits": 6,
+                "text": "Sociology Electives 300+"
+              },
+              {
+                "credits": 9,
+                "text": "Electives 1"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -21105,8 +21637,14 @@
                 "credits": 3,
                 "title": "Senior Sociology Seminar (WI)"
               },
-              "Sociology Electives 300+ | 3",
-              "Electives 1 | 9"
+              {
+                "credits": 3,
+                "text": "Sociology Electives 300+"
+              },
+              {
+                "credits": 9,
+                "text": "Electives 1"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -21115,7 +21653,7 @@
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/social-behavioral-sciences/sociology-political-science/sociology-applied-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 35 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#7c8b46b747077fbb."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total; differs: only printed rows re-read as structured items (string->any_of x1, string->text x23); labels, subtotals, rule_text unchanged; all supported Replaces the record promoted earlier from this candidate: Plan on file (evidence AL/2026-10-06-cl#7c8b46b747077fbb) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#d7066ed2bc8df1e7."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -21138,11 +21676,35 @@
           {
             "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
-              "Jax MIX Expression: Fine Arts | 3",
-              "Jax MIX Inquiry: Science | 4",
-              "Jax MIX Experience: History Sequence | 3",
-              "SY 221or SY 222 | Introduction to Sociologyor Honors Introduction to Sociology | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History Sequence"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "SY 221",
+                    "title": "Introduction to Sociology"
+                  },
+                  {
+                    "code": "SY 222",
+                    "title": "Honors Introduction to Sociology"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "SSC 101",
                 "credits": 0,
@@ -21155,15 +21717,27 @@
           {
             "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
               {
                 "code": "EH 141",
                 "credits": 3,
                 "title": "Speech (Jax MIX Communication)"
               },
-              "Jax MIX Inquiry: Science | 4",
-              "Jax MIX Experience: History Sequence | 3",
-              "Jax MIX Experience: Social/Behavioral Science | 3"
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History Sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -21181,7 +21755,10 @@
                 "credits": 3,
                 "title": "Finite Mathematics (or higher - Jax MIX Communication)"
               },
-              "Jax MIX Expression: Literature | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
               {
                 "code": "CJ 101",
                 "credits": 3,
@@ -21192,7 +21769,10 @@
                 "credits": 3,
                 "title": "Social Problems"
               },
-              "Electives | 2"
+              {
+                "credits": 2,
+                "text": "Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -21200,14 +21780,23 @@
           {
             "credit_hours": "14",
             "items": [
-              "Jax MIX Expression: Literature | 3",
-              "Jax MIX Experience: Social/Behavioral Science | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
               {
                 "code": "CS 201",
                 "credits": 3,
                 "title": "Introduction to Information Technology"
               },
-              "Electives | 5"
+              {
+                "credits": 5,
+                "text": "Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -21225,21 +21814,33 @@
                 "credits": 3,
                 "title": "Social Psychology"
               },
-              "Select one of the following: | 3",
               {
-                "code": "SY 324",
-                "title": "Social Stratification"
+                "choose": 1,
+                "credits": 3,
+                "options": [
+                  {
+                    "code": "SY 324",
+                    "title": "Social Stratification"
+                  },
+                  {
+                    "code": "SY 360",
+                    "title": "Race, Ethnicity, and Society"
+                  },
+                  {
+                    "code": "SY 368",
+                    "title": "Gender and Society"
+                  }
+                ],
+                "text": "Select one of the following:"
               },
               {
-                "code": "SY 360",
-                "title": "Race, Ethnicity, and Society"
+                "credits": 3,
+                "text": "Sociology Electives 300+"
               },
               {
-                "code": "SY 368",
-                "title": "Gender and Society"
-              },
-              "Sociology Electives 300+ | 3",
-              "Electives 1 | 6"
+                "credits": 6,
+                "text": "Electives 1"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -21247,9 +21848,18 @@
           {
             "credit_hours": "15",
             "items": [
-              "Sociology Electives 300+ | 3",
-              "Electives 1 | 9",
-              "Electives 300+ | 3"
+              {
+                "credits": 3,
+                "text": "Sociology Electives 300+"
+              },
+              {
+                "credits": 9,
+                "text": "Electives 1"
+              },
+              {
+                "credits": 3,
+                "text": "Electives 300+"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -21262,8 +21872,14 @@
           {
             "credit_hours": "15",
             "items": [
-              "Sociology Electives 300+ | 6",
-              "Electives 1 | 9"
+              {
+                "credits": 6,
+                "text": "Sociology Electives 300+"
+              },
+              {
+                "credits": 9,
+                "text": "Electives 1"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -21276,8 +21892,14 @@
                 "credits": 3,
                 "title": "Senior Sociology Seminar (WI)"
               },
-              "Sociology Electives 300+ | 3",
-              "Electives 1 | 9"
+              {
+                "credits": 3,
+                "text": "Sociology Electives 300+"
+              },
+              {
+                "credits": 9,
+                "text": "Electives 1"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -21286,7 +21908,7 @@
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/social-behavioral-sciences/sociology-political-science/sociology-applied-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 35 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#fc21019ccb6c51b0."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total; differs: only printed rows re-read as structured items (string->any_of x1, string->text x23); labels, subtotals, rule_text unchanged; all supported Replaces the record promoted earlier from this candidate: Plan on file (evidence AL/2026-10-06-cl#fc21019ccb6c51b0) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#921f99851c4e81d3."
     }
   ]
 }

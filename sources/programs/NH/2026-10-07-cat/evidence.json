@@ -8930,6 +8930,48 @@
  "6ebef14b7ccd26d5": {
   "decision": {
    "candidate_id": "6ebef14b7ccd26d5",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credits 130 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence NH/2026-10-07-cat#6ebef14b7ccd26d5) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 9 items, 34 credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 9 items, 32 credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 8 items, 32 credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 8 items, 32 credits",
+    "value": "Fourth Year"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T12:07:23+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 26 Aug 2026 16:40:56 GMT",
+   "page_file": "51ed56c4cacd1fc918ac.json.gz",
+   "requested_url": "https://catalog.unh.edu/undergraduate/life-sciences-agriculture/programs-study/forestry/forestry-major-bsf/",
+   "sha256": "51ed56c4cacd1fc918acc67d83a13c206b95b38ebbbcf6ac41d80e2fea7c6015",
+   "title": "Forestry Major (B.S.F.) | University of New Hampshire Academic Catalog",
+   "url": "https://catalog.unh.edu/undergraduate/life-sciences-agriculture/programs-study/forestry/forestry-major-bsf/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "6ebef14b7ccd26d5~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "6ebef14b7ccd26d5",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence NH/2026-10-07-cat#f73e126a8645482d) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },
