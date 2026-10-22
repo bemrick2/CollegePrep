@@ -172,8 +172,10 @@ def parse_grid(t):
                 # SLU prints 'Spring' (no rows) then the sessions 'Spring 1' and 'Spring 2', then one subtotal: the subtotal is
                 # the parent term's
                 sub = re.match(r'^(.*\S)\s+\d$', cur['label'])
-                parent = next((x for x in reversed(span) if sub and x['label'].lower() == sub.group(1).lower() and not x['items']), None)
-                if parent is not None: parent['credit_hours'] = nonempty[1]
+                parent = next((x for x in reversed(terms[:-1]) if sub and x['label'].lower() == sub.group(1).lower()), None)
+                parent = parent if parent is not None and not parent['items'] else None
+                if parent is not None and parent.get('credit_hours'): t['_subtotal_spans'] = True  # each session printed its own subtotal
+                elif parent is not None: parent['credit_hours'] = nonempty[1]
                 elif sum(1 for x in span if x['items']) > 1: t['_subtotal_spans'] = True  # one subtotal printed for two terms (Marshall)
                 else: cur['credit_hours'] = nonempty[1]
             span = []

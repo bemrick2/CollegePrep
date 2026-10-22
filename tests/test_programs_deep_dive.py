@@ -508,6 +508,18 @@ class CourseleafPlanTests(unittest.TestCase):
         terms, _ = CL.parse_grid(m)
         self.assertTrue(m.get('_subtotal_spans'))
         self.assertEqual([x.get('credit_hours') for x in terms], [None, None])  # never placed on one of the two terms
+        own = {'rows': [['Spring', 'Credits'], ['Full Spring Term', '3'], ['Spring 2', ''], ['CORE Requirement', '3'], ['', 'Credits', '6']]}
+        CL.parse_grid(own); self.assertTrue(own.get('_subtotal_spans'))  # the parent has its own rows: not a parent of sessions
+        each = {'rows': [['Fall', 'Credits'], ['Fall 1', ''], ['A 101', 'A', '3'], ['', 'Credits', '3'], ['Fall 2', ''], ['B 101', 'B', '6'], ['', 'Credits', '6']]}
+        CL.parse_grid(each); self.assertTrue(each.get('_subtotal_spans'))  # sessions with their own subtotals are not placed by guess
+        from pipeline import text as T
+        [c] = CL.extract({'institution_key': 'k'}, {'url': 'u', 'sha256': 's', 'fetched_at': '2026-10-06T00:00:00'},
+                         T.Page('Medical Imaging, B.S.', 'Medical Imaging, B.S.', [dict(m, caption='Plan of Study Grid')], [], []), '2026-2027', '', True)
+        self.assertIn('subtotal_spans_terms', c['issues'])
+        after = {'rows': [['Fall', 'Semester Hours'], ['ENGR 100', 'Intro', '3'], ['', 'Semester Hours', '3'], ['', 'Minimum Semester Hours', '107-128'], ['* See advisor']]}
+        self.assertIsNone(CL.parse_grid(after)[1])  # not the grid's last row: not read as the total
+        lab = {'rows': [['Fall', 'Semester Hours'], ['ENGR 100', 'Intro', '3'], ['', 'Semester Hours', '3'], ['', 'minimum semester hours', 'TBD']]}
+        self.assertIsNone(CL.parse_grid(lab)[1])
         y = {'rows': [['Year 1'], ['Fall', 'S.H.'], ['BUS 1500', 'Foundations of Business', '3'], ['', 'Semester Hours', '3']]}
         self.assertEqual([(x['label'], x.get('credit_hours'), len(x['items'])) for x in CL.parse_grid(y)[0]], [('Year 1', None, 0), ('Fall', '3', 1)])
 
