@@ -2,7 +2,7 @@
 
 This file is how a new Deep Dive session picks up degree-requirement, roadmap and specialised-reader work without redoing finished work. It is updated with every Deep Dive PR. Research keeps its own file, `docs/coverage/RESEARCH_CHECKPOINT.md`.
 
-- **Main at the last refresh:** `9ccbc6ad21` (merge of #258). This PR (`programs/i229-recover`) is on top of it. #260 (Course List reader, #250) is open separately.
+- **Main at the last refresh:** `9ccbc6ad21` (merge of #258). This PR (`programs/i229-recover`) is on top of it, with main's #251 (Research batch 7, JHU corrections) and #248 merged in. #260 (Course List reader, #250) is open separately.
 - **Owner's split (2026-10-22):** Research does nationwide school-level baseline coverage. Deep Dive does degree requirements, roadmaps and specialised catalog readers. Degree-detail completeness is reported separately from school-level comparison readiness. Deep Dive helps with shared extraction tools when that unlocks baseline or policy coverage, and avoids bulk-data work.
 - **Ownership on #153 (posted 2026-10-22):**
   - **Deep Dive:**
@@ -22,7 +22,7 @@ These are verified records counted from `data/institutions/*`. Plans are `progra
 
 | | main `46c7f81` (2026-10-21 start) | main `2c24af0` | main `af5868f` (after #252) | main `9ccbc6a` (#258) | with this PR |
 |---|---|---|---|---|---|
-| Verified bachelor's program records (all workstreams) | 10,145 | 10,648 | 10,648 | 10,648 | 10,648 |
+| Verified bachelor's program records (all workstreams) | 10,145 | 10,648 | 10,648 | 10,648 | 10,665 (with Research #251) |
 | Verified plans | 2,843 at 64 schools | 3,475 at 67 schools | 3,356 at 65 schools | 3,441 at 66 schools | 3,502 at 68 schools |
 | Partially verified plans | 0 | 0 | 119 (#229 downgrades) | 180 (+61 CU track plans) | 119 (58 #229 + 61 CU) |
 | Verified requirement groups | n/a | 15,062 | 15,011 | 15,307 | 15,307 |
