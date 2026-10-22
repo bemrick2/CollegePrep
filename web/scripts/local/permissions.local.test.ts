@@ -156,33 +156,52 @@ describe.skipIf(!URL_)('permissions on the server, role by role', () => {
     expect(wrote(self)).toBe(true)
   })
 
-  it('CR-10 exam plan: today any guardian may write it (open question #218 C1); the outsider may not', async () => {
+  it('CR-10 exam plan: the linked student or a set-goals guardian (#218 C1); the view-only guardian and outsider are refused', async () => {
     const cat = await clients.PARENT.from('exam_catalog').select('exam_key').eq('exam_key', 'ap:microeconomics').single()
     expect(cat.data).toBeTruthy()
     for (const r of ROLES) {
       await clients.PARENT.from('student_exam_plan').delete().eq('student_id', student).eq('exam_key', 'ap:microeconomics')
       const ins = await clients[r].from('student_exam_plan').insert({ student_id: student, exam_key: 'ap:microeconomics', score: 3 }).select()
-      // Pinned server behaviour: the view-only guardian is allowed here, unlike plans and goals. The app doesn't offer it.
-      expect([r, wrote(ins)]).toEqual([r, r !== 'OUTSIDER'])
+      expect([r, wrote(ins)]).toEqual([r, r !== 'VIEWER' && r !== 'OUTSIDER'])
     }
+    // A row the parent wrote: the view-only guardian can neither change nor remove it.
+    await clients.PARENT.from('student_exam_plan').delete().eq('student_id', student).eq('exam_key', 'ap:microeconomics')
+    expect(wrote(await clients.PARENT.from('student_exam_plan').insert({ student_id: student, exam_key: 'ap:microeconomics', score: 3 }).select())).toBe(true)
+    expect(wrote(await clients.VIEWER.from('student_exam_plan').update({ score: 5 }).eq('student_id', student).select())).toBe(false)
+    expect(wrote(await clients.VIEWER.from('student_exam_plan').delete().eq('student_id', student).select())).toBe(false)
   })
 
-  it('academic interests: same rule as the exam plan today (any guardian or the linked student; #218 C1); not the outsider', async () => {
+  it('academic interests: same rule as the exam plan (#218 C1); the view-only guardian and outsider are refused', async () => {
     for (const r of ROLES) {
       await clients.PARENT.from('student_academic_interests').delete().eq('student_id', student)
       const ins = await clients[r].from('student_academic_interests').insert({ student_id: student, certainty: 'few', interests: [{ kind: 'area', key: 'business' }] }).select()
-      expect([r, wrote(ins)]).toEqual([r, r !== 'OUTSIDER'])
+      expect([r, wrote(ins)]).toEqual([r, r !== 'VIEWER' && r !== 'OUTSIDER'])
     }
   })
 
-  it('saved schools: any household member may save or remove (pinned; worth a decision); the outsider may not', async () => {
+  it('saved schools (#218 C6): members save; removal needs manage-students or set-goals, or saving it yourself', async () => {
     const key = (await clients.PARENT.from('institutions').select('institution_key').eq('institution_key', 'local-test-university').single()).data!.institution_key as string
     for (const r of ROLES) {
+      // The parent's saved school: only guardians with manage-students or set-goals may remove it.
+      await rpc('PARENT', 'save_household_school', { p_household: hh, p_institution_key: key })
+      const rmOther = await rpc(r, 'remove_household_school', { p_household: hh, p_institution_key: key })
+      expect([r, rmOther.error?.code ?? 'ok']).toEqual([r, r === 'PARENT' || r === 'CO' ? 'ok' : '42501'])
       await rpc('PARENT', 'remove_household_school', { p_household: hh, p_institution_key: key })
+      // A school this member saved: they may remove it.
       const save = await rpc(r, 'save_household_school', { p_household: hh, p_institution_key: key })
       expect([r, save.error?.code ?? 'ok']).toEqual([r, r === 'OUTSIDER' ? '42501' : 'ok'])
-      const rm = await rpc(r, 'remove_household_school', { p_household: hh, p_institution_key: key })
-      expect([r, rm.error?.code ?? 'ok']).toEqual([r, r === 'OUTSIDER' ? '42501' : 'ok'])
+      const rmOwn = await rpc(r, 'remove_household_school', { p_household: hh, p_institution_key: key })
+      expect([r, rmOwn.error?.code ?? 'ok']).toEqual([r, r === 'OUTSIDER' ? '42501' : 'ok'])
+    }
+  })
+
+  it('invitation recipient emails (#218 C7): never readable from the table; the RPC serves manage-members or manage-students guardians', async () => {
+    for (const r of ROLES) {
+      const col = await clients[r].from('household_invitations').select('recipient_email').eq('household_id', hh)
+      expect([r, col.error?.code ?? 'ok']).toEqual([r, '42501'])
+      const res = await rpc(r, 'household_invitation_recipients', { p_household: hh })
+      expect([r, res.error?.code ?? 'ok']).toEqual([r, r === 'STUDENT' || r === 'OUTSIDER' ? '42501' : 'ok'])
+      if (r === 'VIEWER') expect((res.data as unknown[]).length).toBe(0)
     }
   })
 
