@@ -34,7 +34,7 @@ begin
   perform hp_test.check(r.code ~ '^[0-9a-f]{64}$', 'link token: 64 hex');
   perform hp_test.check(r.invite_code ~ '^[2-9A-HJKMNP-TW-Z]{5}-[2-9A-HJKMNP-TW-Z]{5}$', 'invite code: XXXXX-XXXXX, unambiguous alphabet');
   perform hp_test.check(abs(extract(epoch from (r.expires_at - now())) - 72 * 3600) < 5, '72-hour lifetime');
-  perform hp_test.eq((select recipient_email from public.household_invitations where id = r.invitation_id), 'riley@example.com', 'recipient stored normalised');
+  perform hp_test.eq((select x.recipient_email from public.household_invitation_recipients(hh) x where x.invitation_id = r.invitation_id), 'riley@example.com', 'recipient stored normalised');
 
   -- Preparing an email checks both credentials, returns names and expiry, never a digest, and counts the send.
   perform hp_test.expect_error(format('select * from public.prepare_invitation_email(%L, ''riley@example.com'', ''ZZZZZ-ZZZZZ'')', first_code), '22023', '%Invalid%');
