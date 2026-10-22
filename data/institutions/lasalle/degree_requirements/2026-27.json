@@ -1515,20 +1515,23 @@
                 "title": "Explorations in Science and Mathematics I (ILO 3b)"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "ENV 153",
+                    "title": "Introduction to Environmental Science"
+                  },
+                  {
+                    "code": "ENV 155",
+                    "title": "Earth Science (ILO 3a)"
+                  },
+                  {
+                    "code": "IMS 262",
+                    "title": "Explorations in Science and Mathematics II"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "ENV 153",
-                "title": "Introduction to Environmental Science"
-              },
-              {
-                "code": "ENV 155",
-                "title": "Earth Science (ILO 3a)"
-              },
-              {
-                "code": "IMS 262",
-                "title": "Explorations in Science and Mathematics II"
               },
               {
                 "credits": 3,
@@ -1722,7 +1725,7 @@
       },
       "source_url": "https://catalog.lasalle.edu/undergraduate/arts-sciences/education-social-work/education-studies-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence PA/2026-10-07-cat#9e8d546bb28fe364) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#325e3ae0a0ae059d."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credits 121 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence PA/2026-10-07-cat#325e3ae0a0ae059d) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#325e3ae0a0ae059d."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -5244,20 +5247,23 @@
                 "title": "Software Engineering"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "CSC 366",
+                    "title": "Language Theory and Design"
+                  },
+                  {
+                    "code": "CSC 457",
+                    "title": "Operating Systems"
+                  },
+                  {
+                    "code": "CSC 464",
+                    "title": "Theory of Algorithms"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "CSC 366",
-                "title": "Language Theory and Design"
-              },
-              {
-                "code": "CSC 457",
-                "title": "Operating Systems"
-              },
-              {
-                "code": "CSC 464",
-                "title": "Theory of Algorithms"
               }
             ],
             "label": "First Semester",
@@ -5283,7 +5289,7 @@
       },
       "source_url": "https://catalog.lasalle.edu/undergraduate/arts-sciences/mathematics-computer-science/computer-science-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence PA/2026-10-07-cat#eb7593e0b423e3c1) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#935965ca0c4981f3."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (1 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credits 54 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence PA/2026-10-07-cat#935965ca0c4981f3) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#935965ca0c4981f3."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -13533,20 +13539,23 @@
                 "text": "Concentration Elective"
               },
               {
+                "choose": 1,
                 "credits": 4,
+                "options": [
+                  {
+                    "code": "BIO 303",
+                    "title": "Microbiology"
+                  },
+                  {
+                    "code": "BIO 305",
+                    "title": "Mammalian Physiology"
+                  },
+                  {
+                    "code": "BIO 310",
+                    "title": "Genetics"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "BIO 303",
-                "title": "Microbiology"
-              },
-              {
-                "code": "BIO 305",
-                "title": "Mammalian Physiology"
-              },
-              {
-                "code": "BIO 310",
-                "title": "Genetics"
               }
             ],
             "label": "First Semester",
@@ -13646,7 +13655,7 @@
       },
       "source_url": "https://catalog.lasalle.edu/undergraduate/arts-sciences/natural-sciences/biotech-innovation-and-enterprisehtml/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence PA/2026-10-07-cat#962273eb937e4d45) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#cfdf6d65ca867f49."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (1 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credits 69-73 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence PA/2026-10-07-cat#cfdf6d65ca867f49) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#cfdf6d65ca867f49."
     },
     {
       "last_verified_at": "2026-10-07",
