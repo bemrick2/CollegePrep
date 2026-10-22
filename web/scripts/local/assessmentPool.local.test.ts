@@ -43,6 +43,7 @@ const answerFor = new Map(QUESTIONS.map((q) => [uid(`q:${q.id}`), q.accepted_ans
 const RESERVED_ACT = new Set([...practiceExclusions('act', QUESTIONS)].map((id) => uid(`q:${id}`)))
 const PRACTICE_ACT = QUESTIONS.filter((q) => q.exam_family === 'act' && !practiceExclusions('act', QUESTIONS).has(q.id)).map((q) => uid(`q:${q.id}`))
 const anyReserved = () => [...RESERVED_ACT][0]!
+const RESERVED_SAT = [...practiceExclusions('sat', QUESTIONS)].map((id) => uid(`q:${id}`))
 
 describe.skipIf(!URL_)('reserved assessment pool on the server (CR-23)', () => {
   const c = {} as Record<'PARENT' | 'VIEWER' | 'STUDENT' | 'OUTSIDER', SupabaseClient>
@@ -185,5 +186,40 @@ describe.skipIf(!URL_)('reserved assessment pool on the server (CR-23)', () => {
     expect(open.error).toBeNull()
     expect(open.data?.filter((r) => r.id === a)).toHaveLength(1)
     expect((await c.STUDENT.rpc('complete_benchmark', { p_benchmark: a })).error).toBeNull()
+  })
+
+  it('other bypasses are refused: no token, a guardian opening a check, a closed check, the other exam, direct table writes, hidden columns', async () => {
+    const versions = await c.STUDENT.from('exam_versions').select('id, exam_family')
+    const act = versions.data!.find((v) => v.exam_family === 'act')!.id as string
+    // No token at all (anon): no reserved content, no check RPCs.
+    const anon = createClient(URL_!, 'local-anon-key', { auth: { persistSession: false, autoRefreshToken: false } })
+    const anonRead = await anon.from('practice_questions').select('id').eq('pool', 'assessment')
+    expect(anonRead.error !== null || (anonRead.data ?? []).length === 0).toBe(true)
+    expect((await anon.rpc('start_benchmark', { p_student: studentId, p_kind: 'mini', p_exam_version: act })).error).not.toBeNull()
+    // A guardian (even the parent who manages the student) can't open a check for the student, so can't unlock the reserve.
+    for (const who of ['PARENT', 'VIEWER'] as const) {
+      const r = await c[who].rpc('start_benchmark', { p_student: studentId, p_kind: 'mini', p_exam_version: act })
+      expect([who, r.error?.code]).toEqual([who, '42501'])
+      expect(((await c[who].from('practice_questions').select('id').eq('pool', 'assessment').in('id', [...RESERVED_ACT])).data ?? []).length).toBeLessThanOrEqual(RESERVED_ACT.size)
+    }
+    // A closed check can't take more answers.
+    const done = await student.startBenchmark(studentId, 'mini', 'act')
+    expect((await c.STUDENT.rpc('complete_benchmark', { p_benchmark: done })).error).toBeNull()
+    const late = await c.STUDENT.rpc('start_practice_attempt', { p_student: studentId, p_question: anyReserved(), p_benchmark: done })
+    expect(late.error?.code).toBe('22023')
+    // An ACT check can't take a reserved SAT question (the check's own exam version only).
+    const open = await student.startBenchmark(studentId, 'mini', 'act')
+    expect(RESERVED_SAT.length).toBeGreaterThan(0)
+    const cross = await c.STUDENT.rpc('start_practice_attempt', { p_student: studentId, p_question: RESERVED_SAT[0], p_benchmark: open })
+    expect(cross.error?.code).toBe('22023')
+    // No client writes attempts, checks or pool assignments directly.
+    const insAttempt = await c.STUDENT.from('practice_attempts').insert({ student_id: studentId, question_id: anyReserved() }).select('id')
+    expect(insAttempt.error).not.toBeNull()
+    const insCheck = await c.STUDENT.from('practice_benchmarks').insert({ student_id: studentId, kind: 'mini', exam_version_id: act }).select('id')
+    expect(insCheck.error).not.toBeNull()
+    // Even inside an open check, answers and explanations of reserved items aren't readable.
+    const hidden = await c.STUDENT.from('practice_questions').select('id, accepted_answers').eq('pool', 'assessment')
+    expect(hidden.error?.code).toBe('42501')
+    expect((await c.STUDENT.rpc('complete_benchmark', { p_benchmark: open })).error).toBeNull()
   })
 })
