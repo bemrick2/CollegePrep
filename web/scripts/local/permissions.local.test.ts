@@ -156,34 +156,79 @@ describe.skipIf(!URL_)('permissions on the server, role by role', () => {
     expect(wrote(self)).toBe(true)
   })
 
-  it('CR-10 exam plan: today any guardian may write it (open question #218 C1); the outsider may not', async () => {
+  // #218 C1: the exam plan and interests follow the plan-and-goal rule. These fail if a view-only guardian's write lands.
+  it('CR-10 exam plan: the linked student or a set-goals guardian writes; the view-only guardian and outsider are refused', async () => {
     const cat = await clients.PARENT.from('exam_catalog').select('exam_key').eq('exam_key', 'ap:microeconomics').single()
     expect(cat.data).toBeTruthy()
+    const may = (r: Role) => r === 'PARENT' || r === 'CO' || r === 'STUDENT'
     for (const r of ROLES) {
       await clients.PARENT.from('student_exam_plan').delete().eq('student_id', student).eq('exam_key', 'ap:microeconomics')
       const ins = await clients[r].from('student_exam_plan').insert({ student_id: student, exam_key: 'ap:microeconomics', score: 3 }).select()
-      // Pinned server behaviour: the view-only guardian is allowed here, unlike plans and goals. The app doesn't offer it.
-      expect([r, wrote(ins)]).toEqual([r, r !== 'OUTSIDER'])
+      expect([r, wrote(ins)]).toEqual([r, may(r)])
     }
+    // Refused roles can neither change nor delete an existing row.
+    await clients.PARENT.from('student_exam_plan').delete().eq('student_id', student).eq('exam_key', 'ap:microeconomics')
+    expect(wrote(await clients.STUDENT.from('student_exam_plan').insert({ student_id: student, exam_key: 'ap:microeconomics', score: 3 }).select())).toBe(true)
+    for (const r of ['VIEWER', 'OUTSIDER'] as const) {
+      const up = await clients[r].from('student_exam_plan').update({ score: 1 }).eq('student_id', student).eq('exam_key', 'ap:microeconomics').select()
+      const del = await clients[r].from('student_exam_plan').delete().eq('student_id', student).eq('exam_key', 'ap:microeconomics').select()
+      expect([r, wrote(up), wrote(del)]).toEqual([r, false, false])
+    }
+    const row = await clients.PARENT.from('student_exam_plan').select('score').eq('student_id', student).eq('exam_key', 'ap:microeconomics').single()
+    expect(row.data?.score).toBe(3)
   })
 
-  it('academic interests: same rule as the exam plan today (any guardian or the linked student; #218 C1); not the outsider', async () => {
+  it('academic interests: the same rule as the exam plan; the view-only guardian and outsider are refused', async () => {
+    const may = (r: Role) => r === 'PARENT' || r === 'CO' || r === 'STUDENT'
     for (const r of ROLES) {
       await clients.PARENT.from('student_academic_interests').delete().eq('student_id', student)
       const ins = await clients[r].from('student_academic_interests').insert({ student_id: student, certainty: 'few', interests: [{ kind: 'area', key: 'business' }] }).select()
-      expect([r, wrote(ins)]).toEqual([r, r !== 'OUTSIDER'])
+      expect([r, wrote(ins)]).toEqual([r, may(r)])
+    }
+    await clients.PARENT.from('student_academic_interests').delete().eq('student_id', student)
+    expect(wrote(await clients.STUDENT.from('student_academic_interests').insert({ student_id: student, certainty: 'few', interests: [{ kind: 'area', key: 'business' }] }).select())).toBe(true)
+    for (const r of ['VIEWER', 'OUTSIDER'] as const) {
+      const up = await clients[r].from('student_academic_interests').update({ certainty: 'sure' }).eq('student_id', student).select()
+      const del = await clients[r].from('student_academic_interests').delete().eq('student_id', student).select()
+      expect([r, wrote(up), wrote(del)]).toEqual([r, false, false])
+    }
+    const row = await clients.PARENT.from('student_academic_interests').select('certainty').eq('student_id', student).single()
+    expect(row.data?.certainty).toBe('few')
+  })
+
+  // #218 C6: saving stays open to members; removing needs manage-students or set-goals, or to have saved it.
+  it('saved schools: members save; removal needs manage-students, set-goals or being the one who saved it', async () => {
+    const key = (await clients.PARENT.from('institutions').select('institution_key').eq('institution_key', 'local-test-university').single()).data!.institution_key as string
+    const count = async () => (await clients.PARENT.from('household_saved_schools').select('institution_key').eq('household_id', hh).eq('institution_key', key)).data!.length
+    for (const r of ROLES) {
+      await rpc('PARENT', 'remove_household_school', { p_household: hh, p_institution_key: key })
+      // Saved by this role, then removed by the same role: allowed for every member.
+      const save = await rpc(r, 'save_household_school', { p_household: hh, p_institution_key: key })
+      expect([r, save.error?.code ?? 'ok']).toEqual([r, r === 'OUTSIDER' ? '42501' : 'ok'])
+      const own = await rpc(r, 'remove_household_school', { p_household: hh, p_institution_key: key })
+      expect([r, own.error?.code ?? 'ok']).toEqual([r, r === 'OUTSIDER' ? '42501' : 'ok'])
+      // Saved by the parent, removed by this role: only manage-students or set-goals guardians.
+      await rpc('PARENT', 'save_household_school', { p_household: hh, p_institution_key: key })
+      const other = await rpc(r, 'remove_household_school', { p_household: hh, p_institution_key: key })
+      const may = r === 'PARENT' || r === 'CO'
+      expect([r, other.error?.code ?? 'ok', await count()]).toEqual([r, may ? 'ok' : '42501', may ? 0 : 1])
     }
   })
 
-  it('saved schools: any household member may save or remove (pinned; worth a decision); the outsider may not', async () => {
-    const key = (await clients.PARENT.from('institutions').select('institution_key').eq('institution_key', 'local-test-university').single()).data!.institution_key as string
+  // #218 C7: who an invitation was emailed to is not readable by every guardian.
+  it('invitation recipient email: never by column; the RPC serves it to manage-members, or manage-students for students', async () => {
+    const inv = await rpc('PARENT', 'create_student_invitation', { p_household: hh, p_student: spare, p_recipient_email: 'sam.family@example.com' })
+    expect(inv.error).toBeNull()
+    const id = (inv.data as { invitation_id: string }[])[0]!.invitation_id
     for (const r of ROLES) {
-      await rpc('PARENT', 'remove_household_school', { p_household: hh, p_institution_key: key })
-      const save = await rpc(r, 'save_household_school', { p_household: hh, p_institution_key: key })
-      expect([r, save.error?.code ?? 'ok']).toEqual([r, r === 'OUTSIDER' ? '42501' : 'ok'])
-      const rm = await rpc(r, 'remove_household_school', { p_household: hh, p_institution_key: key })
-      expect([r, rm.error?.code ?? 'ok']).toEqual([r, r === 'OUTSIDER' ? '42501' : 'ok'])
+      const col = await clients[r].from('household_invitations').select('id, recipient_email').eq('household_id', hh)
+      expect([r, col.error?.code ?? 'readable']).toEqual([r, '42501'])
+      const res = await rpc(r, 'household_invitation_recipients', { p_household: hh })
+      const emails = ((res.data ?? []) as { invitation_id: string; recipient_email: string }[]).filter((x) => x.invitation_id === id).map((x) => x.recipient_email)
+      const want = r === 'PARENT' || r === 'CO' ? ['ok', ['sam.family@example.com']] : r === 'VIEWER' ? ['ok', []] : ['42501', []]
+      expect([r, res.error?.code ?? 'ok', emails]).toEqual([r, ...want])
     }
+    await rpc('PARENT', 'revoke_household_invitation', { p_invitation: id })
   })
 
   it('reminder settings: the student or a set-goals guardian; the view-only guardian and outsider are refused', async () => {

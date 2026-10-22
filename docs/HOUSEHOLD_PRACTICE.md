@@ -82,13 +82,15 @@ There is only one path that moves a student profile into a household: an invitat
 |---|---|---|---|---|
 | household, roster of students, member list | any guardian, even with no flags (read); `manage_members` to rename the household or change its time zone | own household, own profile, own membership | none | none |
 | add or edit students | `manage_students` | own profile, only when independent or outside a household | none | none |
-| invitations | read: any guardian; create a guardian invitation: `manage_members`; create a student invitation: `manage_students` | none | accept with a code | none |
+| invitations | read: any guardian; recipient email: `manage_members`, or `manage_students` for student invitations, through `household_invitation_recipients` only; create a guardian invitation: `manage_members`; create a student invitation: `manage_students` | none | accept with a code | none |
 | member flags, removal | `manage_members` | `leave_household` only | none | none |
 | weekly goals | read and write: `set_goals`; read: `view_progress` | read; write when independent or outside a household | none | none |
 | progress data | `view_progress` | always (own) | none | none |
 | subscriptions | `manage_billing` (read, provider identifiers excluded) | none unless owner | owner reads own | none |
 | entitlements RPC | any member | any member | none | none |
 | alert preferences | own rows, for students the guardian can view | own rows | own rows | none |
+| exam plan (CR-10), academic interests (CR-13) | read: `view_progress`; write: `set_goals` | read and write | none | none |
+| saved schools (CR-9) | read: `view_progress`; save: any guardian; remove: `manage_students` or `set_goals`, or the guardian who saved it | read; save; remove the ones they saved | none | none |
 | self-reported scores | insert: `manage_students`; delete own entries | insert; delete own entries | none | none |
 | catalog (exam versions, types, skills, traps, strategies) | read | read | read | none |
 | published questions (safe columns) | read | read | read | none |
@@ -196,7 +198,7 @@ Reasons are unchanged (`weak_knowledge`, `weak_pacing`, `new_skill`, `review`, `
   - Access is the same as weekly goals: guardians with `set_goals` write; the student writes only when independent or outside a household.
 - **CR-9 `institutions.level`:** from IPEDS HD `ICLEVEL` (`four_year`, `two_year`, `less_than_two_year`; null when not reported). `compare_institutions` returns it.
 - **CR-9 `household_saved_schools`:** up to 8 per household.
-  - Writes go only through `save_household_school` and `remove_household_school`, by any household member.
+  - Writes go only through `save_household_school` (any household member) and `remove_household_school` (a guardian with `manage_students` or `set_goals`, or the member who saved that school; #218 C6).
   - Reads: guardians with `view_progress` and the household's students.
 - **CR-7 `institutions_with_verified_records(academic_year, state?)`:** schools with at least one verified record for exactly that year, and the domains that have one.
 - **CR-5 content fields:**
