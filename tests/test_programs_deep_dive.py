@@ -2918,6 +2918,15 @@ class PromoteKeepsCorrectionsTests(unittest.TestCase):
                 self.assertIn('Re-verified after the correction on file (kept in supabase/corrections.json): reader now reads the total', rec['notes'])
                 arch = json.loads((ev / 'evidence.json').read_text())
                 self.assertEqual([v['decision']['reason'] for k, v in arch.items() if k.startswith('c1~superseded-')], ['earlier'])
+                # #250 (UWM): rows that match the source but leave part of the printed section uncaptured are partially verified
+                c4 = {**c, 'candidate_id': 'c4', 'record': {'program_key': 'chem', 'program_name': 'Chemistry Major', 'credential_level': 'bachelor', 'program_url': 'https://u/chem'}}
+                (run / 'candidates.jsonl').write_text(json.dumps(c4) + '\n')
+                dec.write_text(json.dumps({'run': 'programs/runs/ZZ/r', 'approve': [{'candidate_id': 'c4', 'reason': 'rows match', 'partial_coverage': 'section also prints CHEM 400'}]}))
+                P.promote(dec, log=logs.append)
+                rec = next(r for r in json.loads((f / '2026-27.json').read_text())['records'] if r['program_key'] == 'chem')
+                self.assertEqual((rec['verification_status'], rec['section_coverage'], rec['captured_rows_match_source'], rec['coverage_note']),
+                                 ('partially_verified', 'incomplete', True, 'section also prints CHEM 400'))
+                self.assertIn('Partially verified: the captured rows match the source; the section is incomplete: section also prints CHEM 400', rec['notes'])
             finally:
                 P.ROOT, PP.ROOT = old, oldp
 
