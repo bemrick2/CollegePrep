@@ -440,7 +440,7 @@ def field_doc(L):
 
 # ---- policy layer and degree detail: separate measures, read from what research has recorded ----
 MERIT_TYPES = {'institutional_merit'}
-POLICY_STATUSES = ('verified', 'partially_verified', 'no_published_score_formula', 'candidate_in_run', 'source_found', 'searched_not_found', 'source_inaccessible',
+POLICY_STATUSES = ('verified', 'partially_verified', 'no_published_score_formula', 'candidate_in_run', 'candidates_rejected', 'source_found', 'searched_not_found', 'source_inaccessible',
                    'not_researched')
 
 
@@ -459,7 +459,8 @@ def policy_status(reg):
         elif domain == 'credit_policies' and r.get('policy_kind') in ('AP', 'IB', 'CLEP'): by_key[k]['exam_credit'].append(r)
         elif domain == 'appeals': by_key[k]['aid_appeals'].append(r)
     att_p = ROOT / 'baseline/policy/pipeline_attempts.json'
-    attempts = json.loads(att_p.read_text())['schools'] if att_p.exists() else {}
+    att = json.loads(att_p.read_text()) if att_p.exists() else {}
+    attempts, cands = att.get('schools', {}), att.get('candidates', {})
     topic = {'merit': 'merit_scholarships', 'aid_appeals': 'aid_appeals'}
     mr_p = ROOT / 'baseline/policy/merit_research.json'
     research = json.loads(mr_p.read_text())['schools'] if mr_p.exists() else {}
@@ -469,15 +470,20 @@ def policy_status(reg):
         for layer in ('merit', 'exam_credit', 'aid_appeals'):
             rs = by_key[k].get(layer, [])
             a = (attempts.get(k) or {})
-            seen = [a.get(t, {}).get('status') for t in (['ap_credit', 'ib_credit', 'clep_credit'] if layer == 'exam_credit' else [topic[layer]])]
+            tl = ['ap_credit', 'ib_credit', 'clep_credit'] if layer == 'exam_credit' else [topic[layer]]
+            seen = [a.get(t, {}).get('status') for t in tl]
             if any(r.get('verification_status') == 'verified' for r in rs): s[layer] = 'verified'
             elif rs: s[layer] = 'partially_verified'
             elif layer == 'merit' and any(f['field'] == 'score_formula' and f['value'] == 'no_published_score_formula'
                                           for f in (research.get(k) or {}).get('findings', [])):
                 s[layer] = 'no_published_score_formula'  # the school states there are no fixed criteria (quoted)
-            elif any(x in ('candidate_ready', 'candidate_exception', 'verified_current', 'partially_verified_current') for x in seen):
-                s[layer] = 'candidate_in_run'      # extracted in a run, not yet reviewed and promoted
-            elif 'source_found' in seen: s[layer] = 'source_found'  # official page found, nothing structured yet
+            elif sum((cands.get(k) or {}).get(t, {}).get('undecided', 0) for t in tl) :
+                s[layer] = 'candidate_in_run'      # extracted in a run, never decided by a reviewer
+            elif sum((cands.get(k) or {}).get(t, {}).get('rejected', 0) for t in tl):
+                s[layer] = 'candidates_rejected'   # reviewed and rejected (e.g. not a freshman award, wrong table); still to research
+            elif any(x in ('source_found', 'candidate_ready', 'candidate_exception', 'verified_current', 'partially_verified_current')
+                     for x in seen):
+                s[layer] = 'source_found'  # official page found; nothing structured for this topic is pending
             elif 'not_found' in seen: s[layer] = 'searched_not_found'  # crawl found no page; NOT "no policy"
             elif 'fetch_failed' in seen: s[layer] = 'source_inaccessible'
             else: s[layer] = 'not_researched'
@@ -581,11 +587,11 @@ def markdown(rep):
             L.append(f"- **{f['label']}:** " + '; '.join(f'{why} ({n})' for why, n in f['top_reasons_not_researched']))
     p = rep['policy_layer']
     L += ['', '## Policy layer (separate measure)', '', p['note'], '',
-          'Statuses: verified / partially verified (records in the repository); candidate in a run (extracted, awaiting review and '
-          'promotion); source found (official page found, nothing structured yet); searched, not found (the crawl found no page: '
+          'Statuses: verified / partially verified (records in the repository); candidate never reviewed (extracted in a run, no decision yet); '
+          'candidates rejected (a reviewer rejected what a run extracted); source found (official page found, nothing structured yet); searched, not found (the crawl found no page: '
           'never "no policy"); source inaccessible (fetch failed or blocked); not researched.', '',
-          '| Policy | Verified | Partially verified | No published score formula (stated) | Candidate in a run | Source found | Searched, not found | Inaccessible | Not researched |',
-          '|---|---|---|---|---|---|---|---|---|']
+          '| Policy | Verified | Partially verified | No published score formula (stated) | Candidate never reviewed | Candidates rejected in review | Source found | Searched, not found | Inaccessible | Not researched |',
+          '|---|---|---|---|---|---|---|---|---|---|']
     for layer, label in [('merit', 'Freshman merit scholarships'), ('exam_credit', 'AP/IB/CLEP credit'), ('aid_appeals', 'Aid appeals')]:
         c = p[layer]
         L.append(f"| {label} | " + ' | '.join(f"{c.get(x, 0):,}" for x in POLICY_STATUSES) + ' |')

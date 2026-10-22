@@ -28,6 +28,7 @@ def git(*a):
 def main():
     branches = sorted(b.strip() for b in git('branch', '-r', '--list', 'origin/pipeline-run/*').splitlines() if b.strip())
     best, runs = {}, []
+    cand = {}  # institution_key -> topic -> {approved, rejected, undecided}
     for b in branches:
         for path in git('ls-tree', '-r', '--name-only', b).splitlines():
             if not (path.startswith('pipeline/runs/') and path.endswith('/coverage.json')): continue
@@ -35,6 +36,24 @@ def main():
             run = path.split('/')[2] + '/' + path.split('/')[3]
             runs.append({'branch': b.removeprefix('origin/'), 'run': run, 'commit': git('rev-parse', b).strip()[:12],
                          'schools': len(cov.get('rows', []))})
+            # Candidates and their review (pipeline/decisions/<ST>-<run>.json on this branch's base): a candidate the reviewer
+            # rejected is not pending work, and one never decided still is.
+            st, rn = path.split('/')[2], path.split('/')[3]
+            dp = ROOT / 'pipeline/decisions' / f'{st}-{rn}.json'
+            dec = json.loads(dp.read_text()) if dp.exists() else {}
+            ap = {d['candidate_id'] for d in dec.get('approve', [])}; rj = {d['candidate_id'] for d in dec.get('reject', [])}
+            try: cands = json.loads(git('show', f"{b}:{path.rsplit('/', 1)[0]}/candidates.json"))
+            except subprocess.CalledProcessError: cands = []
+            for c in cands if isinstance(cands, list) else []:
+                r = c.get('record') or {}
+                t = ('merit_scholarships' if c.get('domain') == 'awards' and r.get('award_type') == 'institutional_merit' else
+                     'aid_appeals' if c.get('domain') == 'appeals' else
+                     {'AP': 'ap_credit', 'IB': 'ib_credit', 'CLEP': 'clep_credit'}.get(r.get('policy_kind')) if c.get('domain') == 'credit_policies'
+                     else None)
+                if not t: continue
+                v = 'approved' if c['candidate_id'] in ap else 'rejected' if c['candidate_id'] in rj else 'undecided'
+                n = cand.setdefault(c.get('institution_key'), {}).setdefault(t, {'approved': 0, 'rejected': 0, 'undecided': 0})
+                n[v] += 1
             for row in cov.get('rows', []):
                 k = row['institution_key']
                 for t in TOPICS:
@@ -44,7 +63,8 @@ def main():
                     if cur is None or ORDER.index(s) < ORDER.index(cur['status']):
                         best[k][t] = {'status': s, 'run': run}
     out = {'note': __doc__.split('\n\n')[1].replace('\n', ' '), 'status_order': ORDER, 'runs': runs,
-           'schools': {k: best[k] for k in sorted(best)}}
+           'schools': {k: best[k] for k in sorted(best)},
+           'candidates': {k: cand[k] for k in sorted(cand) if k}}
     p = ROOT / 'baseline/policy/pipeline_attempts.json'
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(json.dumps(out, indent=1, sort_keys=False) + '\n')
