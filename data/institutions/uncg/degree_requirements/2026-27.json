@@ -11,10 +11,17 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Credit Hours 28 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Junior",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "5",
             "items": [
               {
                 "code": "ERM 401",
@@ -30,13 +37,13 @@
                 "code": "TED 445",
                 "credits": 3,
                 "title": "Human Diversity, Teaching, and Learning"
-              },
-              "Credit Hours | 5"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
+            "credit_hours": "4",
             "items": [
               {
                 "code": "ERM 402",
@@ -57,14 +64,18 @@
                 "code": "LIS 120",
                 "credits": 1,
                 "title": "Introduction to Instructional Technology for Educational Settings"
-              },
-              "Credit Hours | 4",
-              "Senior"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
+            "items": [],
+            "label": "Senior",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "7",
             "items": [
               {
                 "code": "ERM 403",
@@ -80,13 +91,13 @@
                 "code": "TED 459",
                 "credits": 3,
                 "title": "Teaching Practices and Curriculum in Science"
-              },
-              "Credit Hours | 7"
+              }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
+            "credit_hours": "12",
             "items": [
               {
                 "code": "TED 465",
@@ -97,18 +108,16 @@
                 "code": "TED 466",
                 "credits": 3,
                 "title": "Student Teaching Seminar"
-              },
-              "Credit Hours | 12",
-              "Total Credit Hours | 28"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
           }
         ]
       },
       "source_url": "https://catalog.uncg.edu/arts-sciences/chemistry-biochemistry/chemistry-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#03760f948aec687f."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#03760f948aec687f) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#1667375bc376e08d."
     }
   ]
 }

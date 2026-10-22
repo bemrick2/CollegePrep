@@ -2316,15 +2316,32 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Units 48 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "credit_hours": "9",
+            "items": [
+              "PSYC 2 | Introductory Psychology | 3",
+              "EDC 30 | Introduction to Substance Use and Addiction Counseling | 3",
+              "EDC 40 | Introduction to Counseling Skills: Theories & Techniques | 3"
+            ],
+            "label": "Freshman Year",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "6",
             "items": [
               "EDC 50 | Law and Ethics in Substance Use Counseling | 3",
-              "EDC 60 | Addiction Counseling Skills & Motivational Interviewing | 3",
-              "Units | 6",
-              "Junior and Senior Years",
+              "EDC 60 | Addiction Counseling Skills & Motivational Interviewing | 3"
+            ],
+            "label": "Sophomore Year",
+            "term_index": 2
+          },
+          {
+            "credit_hours": "33",
+            "items": [
               {
                 "code": "EDC 100",
                 "credits": 3,
@@ -2379,18 +2396,16 @@
                 "code": "EDC 170",
                 "credits": 3,
                 "title": "Field Study & Seminar II"
-              },
-              "Units | 33",
-              "Total Units | 48"
+              }
             ],
-            "label": "Sophomore Year",
-            "term_index": 1
+            "label": "Junior and Senior Years",
+            "term_index": 3
           }
         ]
       },
       "source_url": "https://catalog.csus.edu/colleges/education/graduate-professional-studies-education/bs-substance-use-and-abuse/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#cb28b0958398bdf2."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CA/2026-10-07-cat#cb28b0958398bdf2) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#096654366992acc8."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -3369,7 +3384,7 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "major_elective",
-        "choose_count": 12,
+        "choose_credits": 12,
         "courses": [
           {
             "code": "KINS 111",
@@ -3480,14 +3495,14 @@
             "title": "Internship: Recreation, Park and Nonprofit Management"
           }
         ],
-        "group_type": "choose_courses",
+        "group_type": "choose_credits",
         "rule_text": "Select 12 units from the following:",
         "schema": "requirement_group/v1",
         "source_section": "Minimum Grade Requirement — Required Electives"
       },
       "source_url": "https://catalog.csus.edu/colleges/health-human-services/kinesiology/ba-in-sport-and-recreation-management/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#598ce67b9a1a95a6."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select 12 units from the following:\". Printed 'Select 12 units from the following' is a unit (credit) amount, not a course count; the re-extracted choose_credits group with choose_credits 12 has the same options as the page and no issues or verify problems. Replaces the record promoted earlier from this candidate: the stored group read the printed credit rule \"Select 12 units from the following:\" as a number of courses (choose_count 12) (#229). Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#598ce67b9a1a95a6."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -4000,7 +4015,7 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "major_elective",
-        "choose_count": 6,
+        "choose_credits": 6,
         "courses": [
           {
             "code": "GEOL 105",
@@ -4031,14 +4046,14 @@
             "title": "Geological Field Trip"
           }
         ],
-        "group_type": "choose_courses",
+        "group_type": "choose_credits",
         "rule_text": "Select 6 units from the following: 6",
         "schema": "requirement_group/v1",
         "source_section": "Program Requirements — Required Upper Division Courses (26 Units)"
       },
       "source_url": "https://catalog.csus.edu/colleges/natural-sciences-mathematics/geology/ba-earth-science/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#ca738843fbc63de4."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select 6 units from the following: | 6\". Printed 'Select 6 units from the following' is a unit (credit) amount, not a course count; the re-extracted choose_credits group with choose_credits 6 has the same options as the page and no issues or verify problems. Replaces the record promoted earlier from this candidate: the stored group read the printed credit rule \"Select 6 units from the following: 6\" as a number of courses (choose_count 6) (#229). Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#ca738843fbc63de4."
     },
     {
       "last_verified_at": "2026-10-07",

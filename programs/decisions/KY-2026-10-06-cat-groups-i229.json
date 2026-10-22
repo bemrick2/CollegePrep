@@ -1,0 +1,22 @@
+{
+ "run": "programs/runs/KY/2026-10-06-cat",
+ "run_branch": "program-run/*",
+ "reviewer": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout",
+ "approve": [
+  {
+   "candidate_id": "bd75c4d91748ed67",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select 3 additional hours from the following list:\". Printed 'Select 3 additional hours from the following list' is a credit-hour amount, not a course count; the re-extracted choose_credits group with choose_credits 3 has the same options as the page and no issues or verify problems.",
+   "replaces_promoted": "the stored group read the printed credit rule \"Select 3 additional hours from the following list:\" as a number of courses (choose_count 3) (#229)."
+  },
+  {
+   "candidate_id": "7b788ab63b980032",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select 9 hours from the following, with no more than 6 hours from one academic discipline: | 9\". Printed 'Select 9 hours from the following, with no more than 6 hours from one academic discipline' is a credit-hour amount, not a course count; the re-extracted choose_credits group with choose_credits 9 has the same options as the page and no issues or verify problems.",
+   "replaces_promoted": "the stored group read the printed credit rule \"Select 9 hours from the following, with no more than 6 hours from one academic discipline: 9\" as a number of courses (choose_count 9) (#229)."
+  },
+  {
+   "candidate_id": "d0c6c8e2fd2ac453",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select 15 hours of the following: | 15\". Printed 'Select 15 hours of the following' is a credit-hour amount, not a course count; the re-extracted choose_credits group with choose_credits 15 has the same options as the page and no issues or verify problems.",
+   "replaces_promoted": "the stored group read the printed credit rule \"Select 15 hours of the following: 15\" as a number of courses (choose_count 15) (#229)."
+  }
+ ]
+}
