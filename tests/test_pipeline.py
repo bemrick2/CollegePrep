@@ -2064,6 +2064,14 @@ class MeritGridTests(unittest.TestCase):
         self.assertTrue(all('award_tiers' not in c['record'] for c in cs))
 
     def test_merged_cells_are_realigned_only_when_one_placement_fits(self):
+        named = """<title>Scholarships</title><h2>Merit Scholarships</h2><table><tr><th>Scholarship</th><th>ACT</th><th>Amount</th></tr>
+<tr><td>Alpha Award</td><td>ACT: 27+</td><td>$1,000</td></tr><tr><td>Beta Award</td><td>24</td><td>$500</td></tr></table>"""
+        got = self.got(named)
+        self.assertEqual((got['Alpha Award']['record']['test_requirement'], got['Beta Award']['record']['test_requirement']), ('ACT: 27+', 'ACT 24'))
+        short = """<title>Scholarships</title><h2>Merit Scholarships</h2><table><tr><th></th><th>Scholarship</th><th>Amount</th><th>Housing</th></tr>
+<tr><td>Inst</td><td>Alpha Award</td><td>$1,000</td><td>$2,000</td></tr><tr><td>Inst</td><td>Delta Award</td><td>$3,000</td><td>$4,000</td></tr>
+<tr><td>Inst</td><td>Gamma Award</td><td>$5,000</td></tr></table>"""
+        self.assertEqual(set(self.got(short)), {'Alpha Award', 'Delta Award'})  # two placements fit the short row: it is not read
         uca = """<title>Entering Freshman</title><h2>2027-2028 UCA Freshman Academic Scholarships</h2><table>
 <tr><th></th><th>Scholarship</th><th>Requirements</th><th>Award Breakdown</th><th>Annual Total Award</th><th>Deadline</th></tr>
 <tr><td>Honors</td><td>Schedler Honors College</td><td>Minimum 3.75 Cumulative High School GPA Apply online beginning September 1</td><td>Tuition Award: $5,000 Housing Award: $2,000</td><td>$10,500</td><td>January 25, 2027</td></tr>
@@ -2163,6 +2171,10 @@ class MeritGridTests(unittest.TestCase):
         r = self.got(jsu)['Gamecock Tradition']['record']
         self.assertEqual((r['test_requirement'], len(r['award_tiers']), r['award_max']), ('26-28 ACT or 1230-1320 SAT', 3, 7000))
         self.assertEqual(self.got(jsu.replace('<tr><td>3.25 - 3.49</td><td>$7,000</td><td>$28,000</td></tr>', '')), {})  # not a tier table: held
+        grid = """<title>Merit Scholarships</title><h2>Merit Grid</h2><table><tr><td>Residents only: ACT 20+ or SAT 1000+</td></tr>
+<tr><th>GPA</th><th>20-23 ACT</th><th>24-27 ACT</th></tr><tr><td>3.0-3.49</td><td>$1,000</td><td>$2,000</td></tr>
+<tr><td>3.5-4.0</td><td>$3,000</td><td>$4,000</td></tr><tr><td>4.0+</td><td>$5,000</td><td>$6,000</td></tr></table>"""
+        self.assertEqual(self.got(grid), {})  # a test band above a grid that already has test columns: held, never overwritten
 
     def test_home_state_residents(self):
         unf = """<title>UNF: Scholarship Options</title><h2>Florida Resident Merit-Based (Freshmen)</h2><table><caption>Freshman Merit Scholarships</caption>
@@ -2191,6 +2203,7 @@ class MeritGridTests(unittest.TestCase):
                 + '<p>Complete the 2026-2027 FAFSA.</p>' * 4 + '<p>The 2027-2028 FAFSA opens October 1.</p>')
         self.assertEqual(T.dominant_year(T.parse_html(uofl).text)[0], '2026-27')
         self.assertEqual(yr(f'<title>Kentucky Scholarships</title><h2>Merit Awards</h2>{table}{uofl}'), ('2027-28', 'labeled_entering_class', []))
+        self.assertEqual(merit.page_year_statement(T.parse_html('<p>VTAG awards are $5,000 for the 2023-24 academic year.</p>')), (None, None))
         gv = '<p>Iowa Tuition Grant awards up to $7,500 in the 2026-27 school year. 2026-27.</p><p>The winner will receive a one-time $1,000 scholarship for the 2023-2024 academic year.</p>'
         self.assertEqual(yr(f'<title>Scholarships</title><h2>Merit Awards</h2>{table}{gv}')[:2], ('2026-27', 'labeled_in_source'))  # IA: an older statement does not re-date
         lbc = '<p>2026-27 Cost for On-Campus Undergraduate Education. The annual amount for 2026-27 academic year is $500.</p>'
@@ -2236,5 +2249,17 @@ class MeritGridTests(unittest.TestCase):
         self.assertEqual([a['record']['award_name'], b['record']['award_name']], ['Juno 1 (Freshman In-State)', 'Juno 1 (Freshman Tennessee Resident)'])
         same = cand('c', 'https://u.edu/one', 'Titan', 'In-state', 'x'), cand('d', 'https://u.edu/one', 'Titan', 'In-state', 'x')
         same[1]['source']['sha256'] = 'c'
+        same[1]['checks']['table_scope'] = 'y'; same[1]['record']['award_max'] = 1  # two tables on one page: left to conflict review
         review.residency_twins(list(same), {})
         self.assertEqual(same[0]['record']['award_name'], 'Titan')  # one document: nothing to tell apart
+        table = lambda amt: (f'<h2>Merit Scholarships</h2><table><tr><th>Scholarship</th><th>GPA</th><th>Amount</th></tr>'
+                             f'<tr><td>Capstone</td><td>3.5</td><td>{amt}</td></tr><tr><td>Crimson</td><td>3.0</td><td>$1,000</td></tr></table>')
+        pages = {'a.json.gz': T.parse_html('<title>In-State Freshman Scholarships</title>' + table('$4,000')),
+                 'b.json.gz': T.parse_html('<title>Out-of-State Freshman Scholarships</title>' + table('$8,000'))}
+        class FakeRun:
+            def entries(self):
+                return [{**ENTRY, 'url': f'https://example.edu/{k}', 'sha256': k * 8, 'institution_key': INST['institution_key'], 'page_file': k} for k in pages]
+            def load_page(self, k): return pages[k], None
+        got = review.extract_run({'state': 'AL', 'institutions': [{**INST, 'name': 'X', 'state': 'AL'}]}, FakeRun(), '2026-27')
+        self.assertEqual(sorted(c['record']['award_name'] for c in got if c.get('domain') == 'awards'),
+                         ['Capstone (In-state)', 'Capstone (Out-of-state)', 'Crimson (In-state)', 'Crimson (Out-of-state)'])
