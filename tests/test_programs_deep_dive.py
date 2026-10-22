@@ -487,9 +487,29 @@ class CourseleafPlanTests(unittest.TestCase):
         k = {'rows': [['', 'Semester One', 'Credits'], ['', 'UC 10001', 'FLASHES 101', '1'], ['', '', 'Credit Hours', '1'], ['', '', 'Minimum Total Credit Hours:', '121']]}
         terms, total = CL.parse_grid(k)
         self.assertEqual((terms[0]['items'], terms[0]['credit_hours'], total), ([{'code': 'UC 10001', 'title': 'FLASHES 101', 'credits': 1}], '1', '121'))
-        u = {'rows': [['Fall', 'Semester Hours'], ['ENGR 100', 'Intro', '3'], ['', 'Semester Hours', '3'], ['', 'Minimum Semester Hours', '30-32']]}
-        CL.parse_grid(u)
+        u = {'rows': [['Fall', 'Semester Hours'], ['ENGR 100', 'Intro', '3'], ['', 'Semester Hours', '3'], ['', 'Minimum Semester Hours', '30-32'],
+                      ['Spring', 'Semester Hours'], ['ENGR 200', 'Design', '3'], ['', 'Semester Hours', '3'], ['', 'Minimum Semester Hours', '30-32']]}
+        terms, total = CL.parse_grid(u)
         self.assertTrue(u.get('_unread_label'))  # a per-year credit row is not placed by guess
+        self.assertIsNone(total)  # the last year's row is not the plan total
+        v = {'rows': [['Fall', 'Semester Hours'], ['ENGR 100', 'Intro', '3'], ['', 'Semester Hours', '3'], ['', 'Minimum Semester Hours', '107-128']]}
+        terms, total = CL.parse_grid(v)  # LMU: printed once, as the grid's last row: the plan total
+        self.assertEqual((total, v['_total_label'], v.get('_unread_label'), terms[0]['items']), ('107-128', 'Minimum Semester Hours', None, [{'code': 'ENGR 100', 'title': 'Intro', 'credits': 3}]))
+
+    def test_subsessions_and_spanning_subtotals(self):  # SLU, Marshall, YSU 2026-27 (#229 downgrades)
+        from programs import courseleaf as CL
+        t = {'rows': [['Year One'], ['Spring', 'Credits'], ['Spring 1', ''], ['CORE Requirement', '3'], ['Spring 2', ''], ['CORE Requirement', '3'], ['', 'Credits', '6'],
+                      ['Summer'], ['General Elective', '3'], ['', 'Credits', '3']]}
+        terms, _ = CL.parse_grid(t)
+        self.assertEqual([(x['label'], x.get('credit_hours'), len(x['items'])) for x in terms],
+                         [('Year One', None, 0), ('Spring', '6', 0), ('Spring 1', None, 1), ('Spring 2', None, 1), ('Summer', '3', 1)])
+        self.assertFalse(t.get('_subtotal_spans'))
+        m = {'rows': [['Second Semester', 'Credit Hours'], ['MI 301', 'A', '17'], ['Summer', ''], ['Statistics', '3'], ['', 'Credit Hours', '20']]}
+        terms, _ = CL.parse_grid(m)
+        self.assertTrue(m.get('_subtotal_spans'))
+        self.assertEqual([x.get('credit_hours') for x in terms], [None, None])  # never placed on one of the two terms
+        y = {'rows': [['Year 1'], ['Fall', 'S.H.'], ['BUS 1500', 'Foundations of Business', '3'], ['', 'Semester Hours', '3']]}
+        self.assertEqual([(x['label'], x.get('credit_hours'), len(x['items'])) for x in CL.parse_grid(y)[0]], [('Year 1', None, 0), ('Fall', '3', 1)])
 
     def test_track_plans_labelled_by_printed_heading(self):  # several grids under distinct headings
         from programs import courseleaf as CL

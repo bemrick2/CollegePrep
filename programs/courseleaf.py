@@ -35,7 +35,7 @@ TERM = re.compile(r'^(first|second|third|fourth|fifth|freshman|sophomore|junior|
                   r'|^any\s+quarter$|^variable$|^(autumn|fall|winter|spring|summer)\s+or\s+(autumn|fall|winter|spring|summer)$', re.I)
 
 # column headers printed on a term row ('Fall | Hours', UNI 'Fall | Hour', Texas A&M 'Fall | Semester Credit Hours')
-HEADER_CELLS = {'credits', 'milestones', 'hours', 'credit hours', 'hour', 'credit', 'semester credit hours', 'semester hours', 'units'}
+HEADER_CELLS = {'credits', 'milestones', 'hours', 'credit hours', 'hour', 'credit', 'semester credit hours', 'semester hours', 'units', 's.h.'}  # 'Fall | S.H.' (YSU)
 # the term's subtotal row ('| Hours | 15', '| Credit Hours | 15', '| Semester Credit Hours | 15') and the plan total
 # ('Total Hours**', 'Total Semester Credit Hours'): read as the term's credit hours and the printed total, never as items
 # 'Term Credits' (NJIT), 'Semester Total' (TMCC)
@@ -141,10 +141,19 @@ def parse_grid(t):
     own field, never inside the item text. A text row printed with credits only stays a row with empty text."""
     terms, cur, total, milestones = [], None, None, False
     total_label = [None]
-    for row in t.get('rows') or []:
+    rows = t.get('rows') or []
+    last = max((i for i, r in enumerate(rows) if any((c or '').strip() for c in r)), default=-1)
+    span = []  # terms opened since the last subtotal row
+    for i, row in enumerate(rows):
         cells = [c.strip() for c in row]
         nonempty = [c for c in cells if c]
         if not nonempty: continue
+        # LMU prints its plan total as 'Minimum Semester Hours | 107-128', the grid's last row (and the same label under each
+        # year in some plans, which stays held below)
+        if i == last and total is None and len(nonempty) == 2 and re.fullmatch(r'minimum\s+semester\s+hours', nonempty[0], re.I) \
+                and re.fullmatch(r'\d{1,3}(\s*-\s*\d{1,3})?', nonempty[1]) \
+                and sum(1 for r in rows if any(re.fullmatch(r'minimum\s+semester\s+hours', (c or '').strip(), re.I) for c in r)) == 1:
+            total = nonempty[1]; total_label[0] = nonempty[0]; continue
         if len(cells) == 1 and not TERM.match(cells[0]):  # a label row the reader does not know ('Third Semeseter', UNO)
             t['_unread_label'] = True
         if len(nonempty) == 1 and not TERM.match(nonempty[0]) and re.search(r'\byear\s+\d\b', nonempty[0], re.I) and nonempty[0].isupper():
@@ -154,12 +163,20 @@ def parse_grid(t):
             t['_unread_label'] = True
         if TERM.match(nonempty[0]) and all(c.lower() in HEADER_CELLS for c in nonempty[1:]):  # 'Fall | Milestones | Credits' (UO)
             milestones = milestones or any(c.lower() == 'milestones' for c in nonempty[1:])
-            cur = {'term_index': len(terms) + 1, 'label': nonempty[0], 'items': []}; terms.append(cur); continue
+            cur = {'term_index': len(terms) + 1, 'label': nonempty[0], 'items': []}; terms.append(cur); span.append(cur); continue
         # the label is the row's first cell: a course titled 'Total Rewards' ('MGMT 4010 | Total Rewards | 3', UNO) is a course
         if len(nonempty) == 2 and TOTAL.match(nonempty[0]):
             total = nonempty[-1]; total_label[0] = nonempty[-2]; continue
         if len(nonempty) == 2 and SUBTOTAL.match(nonempty[0]):
-            if cur is not None: cur['credit_hours'] = nonempty[1]
+            if cur is not None:
+                # SLU prints 'Spring' (no rows) then the sessions 'Spring 1' and 'Spring 2', then one subtotal: the subtotal is
+                # the parent term's
+                sub = re.match(r'^(.*\S)\s+\d$', cur['label'])
+                parent = next((x for x in reversed(span) if sub and x['label'].lower() == sub.group(1).lower() and not x['items']), None)
+                if parent is not None: parent['credit_hours'] = nonempty[1]
+                elif sum(1 for x in span if x['items']) > 1: t['_subtotal_spans'] = True  # one subtotal printed for two terms (Marshall)
+                else: cur['credit_hours'] = nonempty[1]
+            span = []
             continue
         if len(nonempty) == 2 and not cells[0] and CREDIT_LABEL.search(nonempty[0]) and PLAN_CREDITS.match(nonempty[1]):
             t['_unread_label'] = True  # 'Minimum Semester Hours | 30-32' (LMU): a credit row the reader does not place
@@ -228,6 +245,7 @@ def extract(inst, entry, page, year, year_line, have_program):
         ev = [{'field': 'term', 'value': t['label'], 'snippet': f"{t['label']}: {len(t['items'])} items, {t.get('credit_hours', '?')} credits"} for t in terms]
         issues = ['multiple_plan_grids'] if len(parsed) > 1 and not labelled else ['plan_heading_label'] if (track_labels or single_label) else []
         if gs[i - 1].get('_unread_label'): issues.append('unread_label_row')
+        if gs[i - 1].get('_subtotal_spans'): issues.append('subtotal_spans_terms')
         out.append(common.make('degree_requirements', inst['institution_key'], acad, 'labeled_in_source', rec, ev, entry, PLAN_EXTRACTOR,
                                {'program_key': pkey, 'requirement_key': key}, {'terms': len(terms)}, issues))
     return out
