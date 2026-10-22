@@ -668,6 +668,10 @@ class CourseleafPlanTests(unittest.TestCase):
                 ['MATH 101', 'Algebra', '3'], ['', 'Hours', '6']]
         items = CL.parse_grid({'rows': rows})[0][0]['items']
         self.assertEqual((len(items), any(isinstance(i, dict) and 'choose' in i for i in items)), (5, False))
+        rows = [['Fall', 'Hours'], ['Select one of the following:', '3'], ['ANSC 101', 'A', ''], ['ANSC 102', 'B', ''], ['Elective', 'Any', '3'],
+                ['', 'Hours', '6']]
+        items = CL.parse_grid({'rows': rows})[0][0]['items']  # a printed row with credits, kept as a string, ends the block
+        self.assertEqual((len(items[0]['options']), items[1]), (2, 'Elective | Any | 3'))
 
     def test_verify_reads_choice_options(self):
         from programs import verify as V
