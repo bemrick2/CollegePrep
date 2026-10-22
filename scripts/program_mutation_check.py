@@ -68,7 +68,7 @@ MUTS = [
     # positional plan grids (SHSU 2026-27 '#plangrid' documents)
     ('programs/courseleaf.py', "                if re.search(r'\\beach\\b', rule, re.I): cur['issues'].add('count_per_area')", "                pass"),
     ('programs/courseleaf.py', " and cur['choose_credits'] != int(rw['credits']): cur['issues'].add('rule_credits_differ_from_hours')", " and False: pass"),
-    ('programs/extract.py', "    shared_plan_keys(cands)\n", ""),
+    ('programs/extract.py', "    shared_plan_keys(out)  # after a page reached by two URLs is kept once\n", ""),
     ('programs/extract.py', "                len(by[(c['institution_key'], c['record']['program_key'], c['record']['requirement_key'])]) > 1", "                len(by[(c['institution_key'], c['record']['program_key'], c['record']['requirement_key'])]) > 2"),
     ('programs/courseleaf.py', "        defs[lines[i]] = None if (lines[i] in defs or not whole) else lines[i + 1]; i += 2", "        defs[lines[i]] = lines[i + 1]; i += 2"),
     ('programs/courseleaf.py', "                elif any(footnote_defs[n] is None for n in marks): issues.add('footnote_definition_unclear')", "                pass"),

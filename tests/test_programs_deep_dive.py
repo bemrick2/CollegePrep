@@ -565,9 +565,9 @@ class CourseleafPlanTests(unittest.TestCase):
         from programs import extract as X2
         mk = lambda url, rk='roadmap': {'domain': 'degree_requirements', 'institution_key': 'k', 'source': {'url': url}, 'issues': [],
                                         'record': {'program_key': 'bs-engineering-technology', 'requirement_key': rk, 'requirement_kind': 'program_plan'}}
-        cands = [mk('u/a'), mk('u/b'), mk('u/c', 'roadmap-2'), mk('u/c', 'roadmap-2')]
-        X2.shared_plan_keys(cands)
-        self.assertEqual([c['issues'] for c in cands], [['plan_key_shared_by_pages'], ['plan_key_shared_by_pages'], [], []])
+        cands = [dict(mk('u/a'), candidate_id='1'), dict(mk('u/b'), candidate_id='2'), dict(mk('u/c', 'roadmap-2'), candidate_id='3')]
+        out = X2.distinct_candidates(cands)
+        self.assertEqual([c['issues'] for c in out], [['plan_key_shared_by_pages'], ['plan_key_shared_by_pages'], []])
 
     def test_review_followups_v3(self):  # second independent review of #241
         from programs import courseleaf as CL, verify as V
@@ -1479,6 +1479,9 @@ class PositionalPlanGridTests(unittest.TestCase):  # SHSU 2026-27 '#plangrid' do
         [c] = CL.plangrid_candidates({'institution_key': 'k'}, e, {'url': 'u#plangrid'}, {'grids': [g]}, '2026-2027', 'bsee', '| Total Hours: 10\n1\nOne.\nCourse List')
         self.assertIn('plan_heading_label', c['issues'])
         self.assertTrue(CL.GRID_CODE.match('AG_S_TCH 1020') and CL.GRID_CODE.match('ENGLSH 1000'))
+        g = self.grid(); g['heading'] = 'Physical Geography Concentration'
+        [c] = CL.plangrid_candidates({'institution_key': 'k'}, e, {'url': 'u#plangrid'}, {'grids': [g]}, '2026-2027', 'geog', '| Total Hours: 10\n1\nOne.\nCourse List')
+        self.assertIn('plan_heading_label', c['issues'])  # an unlabelled grid for one concentration
         two = {'grids': [dict(self.grid(), heading='Semester Plan - Electrical Engineering'), dict(self.grid(), heading='Semester Plan - Dual Degree Electrical and Computer Engineering')]}
         out = CL.plangrid_candidates({'institution_key': 'k'}, e, {'url': 'u#plangrid'}, two, '2026-2027', 'bsee', '| Total Hours: 10\n1\nOne.\nCourse List')
         self.assertEqual([c['issues'] for c in out], [[], ['plan_heading_label']])  # labelled: the dual degree plan is still held
